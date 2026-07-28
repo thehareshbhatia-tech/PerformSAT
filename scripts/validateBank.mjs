@@ -21,6 +21,9 @@ import { advancedMathBank } from '../src/data/questions/bank/advancedMath.js';
 import { geometryBank } from '../src/data/questions/bank/geometry.js';
 import { rebalanceAnswerKey } from '../src/data/questions/bank/rebalanceAnswerKey.js';
 import { parseFigureSpec } from '../src/utils/explanationFigures.js';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const VALID_DOMAINS = ['algebra', 'problem-solving', 'advanced-math', 'geometry'];
 const VALID_DIFFICULTIES = ['easy', 'medium', 'hard'];
@@ -164,6 +167,22 @@ if (warnings.length > 0) {
   console.log(`\n${warnings.length} warnings:`);
   warnings.slice(0, 15).forEach(w => console.log(`  WARN: ${w}`));
   if (warnings.length > 15) console.log(`  ... and ${warnings.length - 15} more`);
+}
+
+// Topic files (src/data/questions/*.js) also ship seva-figure blocks via the
+// Tier-1 topic lift, but aren't imported here — validate their fenced blocks
+// from raw source: undo the JS-string-literal escaping layer (\\ and \") and
+// run the same parseFigureSpec gate the bank items get.
+const topicsDir = join(dirname(fileURLToPath(import.meta.url)), '../src/data/questions');
+for (const f of readdirSync(topicsDir).filter(x => x.endsWith('.js'))) {
+  const raw = readFileSync(join(topicsDir, f), 'utf8');
+  const blocks = [...raw.matchAll(/```seva-figure\\n(.*?)\\n```/g)];
+  const opens = (raw.match(/```[ \t]*seva-figure/g) || []).length;
+  if (opens !== blocks.length) errors.push(`${f}: seva-figure fence count mismatch (unclosed or multi-line body)`);
+  blocks.forEach((m, i) => {
+    const runtime = m[1].replace(/\\\\/g, '\u0001').replace(/\\"/g, '"').replace(/\u0001/g, '\\');
+    if (!parseFigureSpec(runtime)) errors.push(`${f}: seva-figure block ${i + 1} is invalid`);
+  });
 }
 
 if (errors.length > 0) {
