@@ -413,6 +413,7 @@ export const LABEL_HALO = {
  */
 export const SAT_FIGURE_STYLE = {
   background: '#ffffff',
+  borderRadius: 12,
   display: 'block',
   margin: '0 auto',
   overflow: 'visible',

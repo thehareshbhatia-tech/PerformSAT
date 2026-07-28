@@ -87,6 +87,7 @@ const SATLineGraph = ({
       style={{
         background: styles.colors.background,
         border: `1px solid ${styles.colors.border}`,
+        borderRadius: 12,
       }}
     >
       <ClipPathDef />
