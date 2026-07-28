@@ -42,8 +42,9 @@ node payouts.mjs create-code iksha   # LIVE Stripe mutation: 20% coupon + code
    repeating 3 months, which survives the $0 card-up-front trial invoice and
    matches the 3-invoice commission window) + promotion code, saves ids back
    into `creators.json`.
-3. **Test-mode E2E once**: run a checkout with a same-shaped code in Stripe test
-   mode and confirm the discount lands on the first *charged* invoice after the
-   3-day trial, not the $0 trial invoice.
+3. **Test-mode E2E once**: `STRIPE_TEST_SECRET_KEY=sk_test_... node testDiscountE2E.mjs`
+   — sandbox test-clock run that proves a same-shaped code discounts the first
+   *charged* invoice after the 3-day trial ($85 → $68) and leaves the $0 trial
+   invoice alone. Self-cleaning; safe to re-run.
 4. Provision the creator's comped access and add their email to
    `excludeCustomerEmails` BEFORE they can sign themselves up.

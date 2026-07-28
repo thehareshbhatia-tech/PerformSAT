@@ -242,13 +242,23 @@ const createCode = async (slug) => {
   }
   const d = { ...r.defaults.audienceDiscount, ...c.audienceDiscount };
   const code = c.plannedCode || `${slug.toUpperCase()}20`;
-  const coupon = await stripe('POST', '/coupons', {
+  // Adopt a valid same-name coupon if one exists — a prior run that died between
+  // the coupon POST and the promotion-code POST leaves an orphan behind.
+  const couponName = `SEVA ${d.percentOff}% — ${c.name}`;
+  const existing = (await listAll('/coupons')).find(
+    (x) => x.name === couponName && x.valid,
+  );
+  const coupon = existing || (await stripe('POST', '/coupons', {
     percent_off: d.percentOff,
     duration: d.duration,
     ...(d.duration === 'repeating' && { duration_in_months: d.durationInMonths }),
-    name: `SEVA ${d.percentOff}% — ${c.name}`,
+    name: couponName,
+  }));
+  const promo = await stripe('POST', '/promotion_codes', {
+    'promotion[type]': 'coupon',
+    'promotion[coupon]': coupon.id,
+    code,
   });
-  const promo = await stripe('POST', '/promotion_codes', { coupon: coupon.id, code });
   c.promoCode = promo.code;
   c.promoCodeId = promo.id;
   c.couponId = coupon.id;
