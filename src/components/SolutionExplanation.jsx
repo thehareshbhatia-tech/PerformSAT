@@ -520,7 +520,7 @@ const Disclosure = ({ label, sublabel, defaultOpen = false, children }) => {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', minWidth: 0 }}>
-          <span style={{ fontSize: '15px', fontWeight: typography.weights.semibold, color: colors.text.primary }}>
+          <span style={{ fontSize: '15px', fontWeight: typography.weights.semibold, color: colors.text.primary, whiteSpace: 'nowrap', flexShrink: 0 }}>
             {label}
           </span>
           {sublabel && (
