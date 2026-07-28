@@ -1856,12 +1856,16 @@ export const EXPERT_PLAYBOOK = {
     "The choices are the problem's X-ray. Read the stem's target, then flick eyes to the choices BEFORE computing (2 seconds).",
     "Every quantity wears a straitjacket — know it before you compute. At read-time, tag the target's straitjacket (type + range + sign) in the same breath as tagging the target itself (answer the asked question).",
     "Desmos is a power tool: fastest on the right job, slower than your hands on the wrong one, and dangerous with the wrong blade fitted.",
+    "Regression is the master key: replace = with ~ and Desmos solves for whatever letters remain. Find-the-constant via ~: given an equation that must hold with an unknown letter (a, b, k), subscript the variable (x → x₁), set x₁ = [1...10] so Desmos knows it must hold for MANY x-values,",
+    "Silly mistakes aren't random — they come in exactly four flavors, and each has an antidote you drill until it's automatic.",
     "Every hard item has a door and a wall. Check the door first, but carry a sledgehammer. Read the target first.",
     "A bundle is a crate: move it, weigh it, stack it — never unpack it unless the answer is inside. Match the target's shape against the givens."
   ],
   "rw": [
     "Attention flows top-down from the question, not bottom-up from the text. Read the stem slowly and completely.",
     "Order the meal before the waiter recites the specials. After the targeted read, state your own answer in ≤10 words (jot it if the item is hard — shorthand note discipline).",
+    "Name the relationship BEFORE reading the choices, then find the family that matches — and if two choices belong to the same family, both are wrong. Read the sentence before the blank and the sentence with the blank word-by-word — transition items punish skimming more than any other type.",
+    "Look at the choices first: they tell you the game before you read the passage. Classify from the choices before reading: verb variations → verb item; punctuation variations → boundary item.",
     "Wrong answers are counterfeit bills, and each counterfeit has a signature flaw. Predict the answer first (predict then verify) so distractors are compared against YOUR standard, not each other.",
     "Cheap-and-certain before expensive-and-uncertain. From the evidence (connector family, tone words, relationship between texts), compute the required answer's charge.",
     "The question's pointer is a location, not a boundary. Read the target sentence for content.",

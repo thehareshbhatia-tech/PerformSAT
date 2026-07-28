@@ -279,8 +279,10 @@ for (const [cb, idsRaw] of Object.entries(cbToNodes)) {
 // emitted here as an always-on playbook the tutor injects once per conversation.
 const PLAYBOOK_NODES = {
   math: ['answer-the-asked-question', 'method-selection-by-answer-form', 'magnitude-sanity-checks',
-         'desmos-decision-framework', 'engineered-shortcut-recognition', 'expression-as-unit'],
-  rw: ['question-first-reading-protocol', 'predict-then-verify', 'distractor-species-taxonomy',
+         'desmos-decision-framework', 'desmos-execution-playbook', 'error-proofing-protocol',
+         'engineered-shortcut-recognition', 'expression-as-unit'],
+  rw: ['question-first-reading-protocol', 'predict-then-verify', 'transition-category-system',
+       'mechanics-shortcut-protocol', 'distractor-species-taxonomy',
        'polarity-first-elimination', 'context-window-discipline', 'test-writer-mental-model'],
 };
 const PLAYBOOK = { math: [], rw: [] };
