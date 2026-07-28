@@ -74,11 +74,17 @@ function QuestionSidebar({ questions, currentIndex, answers, onNavigate, onBack,
           const ans = answers[q.id];
           const isCurrent = idx === currentIndex;
           const stem = stemPreview(q);
+          // Mirror handleNavigate's frontier rule so a row only LOOKS
+          // clickable when clicking it will actually navigate: answered and
+          // backward rows always; the immediate next tile once the current
+          // question is answered. Everything further ahead is locked.
+          const currentAnswered = !!answers[questions[currentIndex]?.id];
+          const navigable = !!ans || idx <= currentIndex || (idx === currentIndex + 1 && currentAnswered);
           let rowClass = 'aps-sidebar-row';
           if (isCurrent) rowClass += ' is-current';
           else if (ans?.correct) rowClass += ' is-correct';
           else if (ans && !ans.correct) rowClass += ' is-wrong';
-          else if (idx > currentIndex && !ans) rowClass += ' is-locked';
+          else if (!navigable) rowClass += ' is-locked';
 
           return (
             <button
@@ -87,6 +93,7 @@ function QuestionSidebar({ questions, currentIndex, answers, onNavigate, onBack,
               className={rowClass}
               type="button"
               title={stem}
+              aria-disabled={!navigable}
             >
               <span className="aps-sidebar-dot" aria-hidden="true">
                 {ans?.correct

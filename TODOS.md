@@ -212,5 +212,5 @@ Chip-shown ≡ Tier-1 fired ≡ exact pattern match was viable. This effectively
 ## Completed
 
 ## From /qa 2026-07-28 (drill shell, live)
-- [ ] MEDIUM ISSUE-002: drill sidebar question rows are <button>s with pointer cursors but clicking them does NOT navigate to that question — either make them navigate (App.jsx owns practiceState index) or render them as non-interactive status rows. Repro: enter any drill, click a later question in the left rail; main pane stays put.
-- [ ] HIGH (a11y) ISSUE-003: .answer-choice-card is a bare <div> — invisible to the accessibility tree (snapshot -i shows only "Eliminate choice X" buttons). Keyboard/screen-reader users cannot select answers. Fix: role="radio" + tabIndex + Enter/Space handler, or make it a <button>.
+- [x] ISSUE-002: forward-jump lock is BY DESIGN (frontier rule in handleNavigate) — real defect was affordance: locked rows kept pointer cursor + hover highlight, and the navigable frontier tile was styled as locked. Fixed same day: is-locked now mirrors the frontier rule, cursor default, hover suppressed, aria-disabled.
+- [x] ISSUE-003: FALSE POSITIVE — AnswerChoiceList cards already carry role="button" + aria-pressed + Enter/Space handlers (tabIndex -1 only post-submit, which is correct). QA probe's grep filters hid them. No change needed.

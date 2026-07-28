@@ -204,7 +204,8 @@
   color: #fff;
   font-weight: 700;
 }
-.aps-sidebar-row.is-locked { color: rgba(255, 255, 255, 0.35); }
+.aps-sidebar-row.is-locked { color: rgba(255, 255, 255, 0.35); cursor: default; }
+.aps-sidebar-row.is-locked:hover { background: transparent; color: rgba(255, 255, 255, 0.35); }
 
 .aps-sidebar-dot {
   width: 22px;
