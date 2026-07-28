@@ -1014,14 +1014,14 @@ export const algebraBank = [
     choices: [
       // distractor: gives infinite solutions, not no solution
       { id: 'A', text: '$a = 4$, $b = 24$' },
-      // distractor: a correct but b too specific
-      { id: 'B', text: '$a = 4$, $b = 20$' },
+      // distractor: scaled the y-coefficient the wrong way (8·2 instead of 8/2)
+      { id: 'B', text: '$a = 16$, $b \\neq 24$' },
       // distractor: wrong a value
       { id: 'C', text: '$a = 8$, $b = 24$' },
       { id: 'D', text: '$a = 4$, $b \\neq 24$' }
     ],
     correctAnswer: 'D',
-    explanation: "**SAT Pattern: Parameter for No Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Scale the first equation by $2$: $6x + 2ay = 24$. For parallel lines (no solution), the variable coefficients must match while the constants differ: $2a = 8 \\Rightarrow a = 4$, and $b \\neq 24$, choice D.\n\n**The Full Solution:**\nStep 1: No solution means the lines are parallel — proportional coefficients on $x$ and $y$, but a constant that breaks the proportion.\nStep 2: Multiply the first equation by $2$ to align the $x$-terms: $6x + 2ay = 24$.\nStep 3: Match the $y$-coefficients with $6x + 8y = b$: $2a = 8 \\Rightarrow a = 4$.\nStep 4: For no solution, the constants must differ: $b \\neq 24$. (If $b = 24$, the equations are identical and there are infinitely many solutions.) $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($a = 4$, $b = 24$): identical equations, which gives infinitely many solutions, not none.\n* Choice B ($a = 4$, $b = 20$): a valid case, but the question demands every $b \\neq 24$, not one specific value.\n* Choice C ($a = 8$, $b = 24$): wrong value of $a$; this does not make the lines parallel.\n\n**Test Day Takeaway:** No solution means same slope, different intercept. Match the coefficient ratios to force the slope, then require the constant ratio to differ.",
+    explanation: "**SAT Pattern: Parameter for No Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Scale the first equation by $2$: $6x + 2ay = 24$. For parallel lines (no solution), the variable coefficients must match while the constants differ: $2a = 8 \\Rightarrow a = 4$, and $b \\neq 24$, choice D.\n\n**The Full Solution:**\nStep 1: No solution means the lines are parallel — proportional coefficients on $x$ and $y$, but a constant that breaks the proportion.\nStep 2: Multiply the first equation by $2$ to align the $x$-terms: $6x + 2ay = 24$.\nStep 3: Match the $y$-coefficients with $6x + 8y = b$: $2a = 8 \\Rightarrow a = 4$.\nStep 4: For no solution, the constants must differ: $b \\neq 24$. (If $b = 24$, the equations are identical and there are infinitely many solutions.) $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($a = 4$, $b = 24$): identical equations, which gives infinitely many solutions, not none.\n* Choice B ($a = 16$, $b \\neq 24$): multiplies the $y$-coefficient by $2$ instead of dividing — with $a = 16$ the slopes differ, so the lines cross exactly once.\n* Choice C ($a = 8$, $b = 24$): wrong value of $a$; this does not make the lines parallel.\n\n**Test Day Takeaway:** No solution means same slope, different intercept. Match the coefficient ratios to force the slope, then require the constant ratio to differ.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'system-no-solution-parameter',
