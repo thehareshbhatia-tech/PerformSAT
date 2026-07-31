@@ -10,7 +10,6 @@ import DesmosCalculator from './DesmosCalculator';
 import AnswerChoiceList from './shared/AnswerChoiceList';
 import HighlightablePassage, { mergeHighlights } from './rw/HighlightablePassage';
 import { sectionModuleShort } from '../services/selectors/moduleLabel';
-import { deriveRWQuestionType } from '../data/questions/rwBank/deriveRWPattern';
 import { recordSkillAttemptsBatch } from '../services/skillService';
 import { showToast } from './ui/Toaster';
 import { buildTestReviewEntry } from '../services/reviewQueueResolve';
@@ -2903,12 +2902,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   const moduleProgressPct = questions.length ? ((currentQuestion + 1) / questions.length) * 100 : 0;
   const RING_C = 106.81; // 2π·17 for the answered-progress ring
   const ringOffset = questions.length ? RING_C * (1 - answeredInModule / questions.length) : RING_C;
-  // R&W question-type chip ("WORDS IN CONTEXT"): de-kebab the derived type;
-  // uppercase via CSS. Null hides the chip (rare Tier-3 skill-only items).
-  const rwTypeRaw = isReadingWriting
-    ? (deriveRWQuestionType(question) || question?.skill || (Array.isArray(question?.skills) ? question.skills[0] : null))
-    : (question?.domain || question?.skill || (Array.isArray(question?.skills) ? question.skills[0] : null));
-  const typeChipLabel = rwTypeRaw ? String(rwTypeRaw).replace(/[-_]/g, ' ') : null;
 
   // Shared answer block (choices or fill-in) — the timed test uses the
   // Bluebook always-visible cross-out (crossOut="bluebook"); the drill does not.
@@ -3511,11 +3504,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       <div className="test-workspace-right" ref={rightPaneRef}>
         {isReadingWriting ? (
           <>
-            {/* Pinned question header — number + type chip + Mark */}
+            {/* Pinned question header — number + Mark */}
             <div className="rw-question-head">
               <div className="rw-question-head-left">
                 <span className="rw-stem-number">{currentQuestion + 1}</span>
-                {typeChipLabel && <span className="rw-type-chip">{typeChipLabel}</span>}
               </div>
               <button
                 onClick={handleToggleMark}
