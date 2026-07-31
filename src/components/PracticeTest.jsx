@@ -2394,16 +2394,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                     </span>
                   )}
 
-                  {/* Skill chips */}
-                  {reviewQ?.skills?.slice(0, 2).map(skill => (
-                    <span key={skill} style={{
-                      fontSize: '10px', fontWeight: typography.weights.medium,
-                      padding: '2px 8px', borderRadius: radius.full,
-                      background: colors.surface.gray, color: colors.text.muted,
-                    }}>
-                      {skill.replace(/-/g, ' ')}
-                    </span>
-                  ))}
                 </div>
 
                 {/* Answer summary */}

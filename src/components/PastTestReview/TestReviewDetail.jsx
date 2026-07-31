@@ -270,7 +270,6 @@ function FilterTab({ active, onClick, label }) {
 function ItemRow({ item, onClick }) {
   const tone = item.isCorrect ? 'correct' : 'wrong';
   const time = formatTime(item.timeSpent);
-  const skill = item.skills?.[0] || null;
   return (
     <li className={`trd-item trd-item-${tone}`}>
       <button type="button" className="trd-item-button" onClick={onClick}
@@ -278,7 +277,6 @@ function ItemRow({ item, onClick }) {
         <span className="trd-item-icon" aria-hidden="true">{item.isCorrect ? '✓' : '✗'}</span>
         <span className="trd-item-id">{sectionModuleShort(item.section, item.moduleIndex)}·Q{item.questionIndex + 1}</span>
         {item.difficulty && <span className={`trd-item-diff trd-item-diff-${item.difficulty}`}>{item.difficulty}</span>}
-        {skill && <span className="trd-item-skill">{prettifySkill(skill)}</span>}
         <span className="trd-item-time">{time}</span>
         <span className="trd-item-chevron" aria-hidden="true">›</span>
       </button>
@@ -335,11 +333,6 @@ export function buildErrorClassChips(errorClassGroups) {
 function prettifyClass(cls) {
   if (!cls) return 'Mixed';
   return cls.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-}
-
-function prettifySkill(skill) {
-  if (!skill) return '';
-  return skill.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 }
 
 /**

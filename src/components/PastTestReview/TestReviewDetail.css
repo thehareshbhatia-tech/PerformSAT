@@ -314,19 +314,11 @@
 .trd-item-diff-medium { background: #fef3c7; color: #92400e; }
 .trd-item-diff-hard   { background: #fee2e2; color: #991b1b; }
 
-.trd-item-skill {
-  font-size: 12px;
-  color: #64748b;
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .trd-item-time {
   font-size: 12px;
   color: #94a3b8;
   font-feature-settings: 'tnum' 1;
+  margin-left: auto;
 }
 
 .trd-item-chevron {
