@@ -988,8 +988,21 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   // Auto-save progress when answers, module, or question changes (debounced to reduce I/O)
   const saveTimerRef = useRef(null);
   const buildProgressRef = useRef(null);
+  // The save callback is an inline arrow in App.jsx, so it gets a fresh
+  // identity on every App render. It must NOT sit in the auto-save effect's
+  // dep array: writing progress fires useProgress's onSnapshot on the same
+  // doc, which setStates fresh objects, which re-renders App, which mints a
+  // new callback identity — re-running the effect and scheduling ANOTHER
+  // write. That feedback loop ran for as long as a test was open, with no
+  // user input at all, and is what exhausted the project's Firestore write
+  // bandwidth. Measured with the callback in the deps: one answer click then
+  // produced 2/3/3/4 writes across four consecutive idle 8s windows; with
+  // the ref, 1/0/0/0. Hold it in a ref and read it at fire time so only real
+  // answer/navigation changes schedule a save.
+  const onSaveProgressRef = useRef(onSaveProgress);
+  useEffect(() => { onSaveProgressRef.current = onSaveProgress; });
   useEffect(() => {
-    if (testCompleted || reviewMode || !onSaveProgress) return;
+    if (testCompleted || reviewMode || !onSaveProgressRef.current) return;
     if (Object.keys(answers).length === 0) return;
 
     const buildProgressData = () => {
@@ -1026,11 +1039,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
 
     clearTimeout(saveTimerRef.current);
     saveTimerRef.current = setTimeout(() => {
-      onSaveProgress(buildProgressData());
+      onSaveProgressRef.current?.(buildProgressData());
     }, 2000);
 
     return () => clearTimeout(saveTimerRef.current);
-  }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, highlightsByKey, testCompleted, reviewMode, onSaveProgress, isTimed, module2Variant, m2VariantManuallySet, rwModule2Variant, rwM2VariantManuallySet, moduleCompleted]);
+    // NOTE: onSaveProgress is deliberately absent from the deps — see the ref
+    // note above. Adding it back re-opens the write loop (measured: a single
+    // answer click then produced ~3 writes per 8 idle seconds, forever).
+  }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, highlightsByKey, testCompleted, reviewMode, isTimed, module2Variant, m2VariantManuallySet, rwModule2Variant, rwM2VariantManuallySet, moduleCompleted]);
 
   useEffect(() => {
     if (testCompleted || reviewMode) return;
@@ -1044,16 +1060,18 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   // refresh restored the clock to its value at the LAST answer — an
   // unbounded time refund on a timed module.
   useEffect(() => {
-    if (testCompleted || reviewMode || !onSaveProgress) return;
+    if (testCompleted || reviewMode) return;
     const flushOnHide = () => {
       if (document.visibilityState !== 'hidden') return;
-      if (!buildProgressRef.current) return;
+      if (!buildProgressRef.current || !onSaveProgressRef.current) return;
       clearTimeout(saveTimerRef.current);
-      onSaveProgress(buildProgressRef.current());
+      onSaveProgressRef.current(buildProgressRef.current());
     };
     document.addEventListener('visibilitychange', flushOnHide);
     return () => document.removeEventListener('visibilitychange', flushOnHide);
-  }, [testCompleted, reviewMode, onSaveProgress]);
+    // NOTE: onSaveProgress is read through the ref (not a dep) so App
+    // re-renders don't churn this listener.
+  }, [testCompleted, reviewMode]);
 
   // Flush any pending auto-save when test completes
   useEffect(() => {
@@ -2092,11 +2110,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     // Easy-routed student who Save-&-Left resumed on the HARD module and their
     // positional answers regraded against the wrong questions. buildProgressRef
     // is null only before any answer exists (nothing worth resuming).
-    if (onSaveProgress && buildProgressRef.current) {
-      onSaveProgress(buildProgressRef.current());
+    if (onSaveProgressRef.current && buildProgressRef.current) {
+      onSaveProgressRef.current(buildProgressRef.current());
     }
     onBack();
-  }, [onSaveProgress, onBack]);
+  }, [onBack]);
 
   const handleCancelAction = () => {
     setConfirmAction(null);
