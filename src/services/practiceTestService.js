@@ -396,7 +396,6 @@ export const saveTestProgress = async (userId, testId, progressData) => {
 
   try {
     const progressRef = doc(db, 'progress', userId);
-    const progressSnap = await getDoc(progressRef);
 
     // Pass the caller's payload through instead of rebuilding a fixed shape.
     // The old fixed shape silently DROPPED unknown fields (module2Variant /
@@ -430,7 +429,24 @@ export const saveTestProgress = async (userId, testId, progressData) => {
       lastSavedAt: new Date().toISOString()
     }));
 
-    if (!progressSnap.exists()) {
+    // Write first, ask questions only if it fails. This runs on every answer,
+    // and the progress doc carries the student's whole history (skillProgress
+    // alone serializes to ~70KB), so an existence-check read here meant
+    // dragging that entire document down the wire once per saved answer.
+    // updateDoc rejects with 'not-found' on a first-ever save; that one case
+    // pays an extra round trip, every other save saves a full-doc read.
+    //
+    // The dotted path is deliberate: it REPLACES this test's entry outright.
+    // A nested-object set()+merge would deep-merge instead, so answers the
+    // student cleared (e.g. the M2 variant switch wiping that module) would
+    // resurrect from the stored copy on the next save.
+    try {
+      await updateDoc(progressRef, {
+        [`inProgressTests.${testId}`]: inProgressData,
+        lastUpdated: serverTimestamp()
+      });
+    } catch (err) {
+      if (err?.code !== 'not-found') throw err;
       // Nested object, NOT a dotted key: set()+merge treats dotted keys as
       // literal field names (only update() splits dots into field paths).
       await setDoc(progressRef, {
@@ -438,12 +454,6 @@ export const saveTestProgress = async (userId, testId, progressData) => {
         inProgressTests: { [testId]: inProgressData },
         lastUpdated: serverTimestamp()
       }, { merge: true });
-    } else {
-      // Update existing document
-      await updateDoc(progressRef, {
-        [`inProgressTests.${testId}`]: inProgressData,
-        lastUpdated: serverTimestamp()
-      });
     }
     console.log('[practiceTestService] Test progress saved for:', testId);
   } catch (error) {

@@ -124,6 +124,31 @@ describe('buildTestReviewEntry', () => {
     expect(entry.moduleId).toBe('test::practice-test-3::easy');
     expect(entry.questionId).toBe('3-4');
   });
+
+  // Both sections ship an easy Module 2 (2026-07). The token has to record
+  // WHICH section's easy bank served the item — resolving an R&W miss against
+  // module2Easy (math) would hand the student a foreign question.
+  test('marks R&W easy-variant items with the rweasy token', () => {
+    const entry = buildTestReviewEntry('practice-test-3', {
+      modIdx: 1,
+      qIdx: 4,
+      question: { id: 5, domain: 'craft-and-structure' },
+      servedEasyVariant: true,
+      section: 'reading-writing',
+    });
+    expect(entry.moduleId).toBe('test::practice-test-3::rweasy');
+    expect(entry.questionId).toBe('1-4');
+  });
+
+  test('an easy-variant item with no section falls back to the math token', () => {
+    const entry = buildTestReviewEntry('practice-test-3', {
+      modIdx: 3,
+      qIdx: 0,
+      question: { id: 5, domain: 'algebra' },
+      servedEasyVariant: true,
+    });
+    expect(entry.moduleId).toBe('test::practice-test-3::easy');
+  });
 });
 
 describe('resolveReviewItemToQuestion — full-test items', () => {
@@ -133,6 +158,7 @@ describe('resolveReviewItemToQuestion — full-test items', () => {
   const rwQ = { id: 7, stem: 'rw question', skills: ['boundaries'] };
   const mathQ = { id: 7, stem: 'math std question', skills: ['linear-equations'] };
   const easyQ = { id: 7, stem: 'math easy question', skills: ['linear-equations'] };
+  const rwEasyQ = { id: 7, stem: 'rw easy question', skills: ['words-in-context'] };
   const TEST = {
     id: 'practice-test-3',
     modules: [
@@ -142,6 +168,7 @@ describe('resolveReviewItemToQuestion — full-test items', () => {
       { section: 'math', questions: [{ id: 1 }, { id: 2 }, mathQ] },
     ],
     module2Easy: { questions: [easyQ] },
+    rwModule2Easy: { questions: [rwEasyQ] },
   };
   let getTestById, resolveQuestionById, getQuestionsForSection;
   beforeEach(() => {
@@ -174,6 +201,24 @@ describe('resolveReviewItemToQuestion — full-test items', () => {
     const q = resolveReviewItemToQuestion(item, { getTestById });
     expect(q.stem).toBe('math easy question');
     expect(q.id).toBe('tq::practice-test-3::easy::3-0');
+  });
+
+  test('rweasy items resolve against rwModule2Easy and carry section rw', () => {
+    const item = { moduleId: 'test::practice-test-3::rweasy', sectionName: 'craft-and-structure', questionId: '1-0' };
+    const q = resolveReviewItemToQuestion(item, { getTestById });
+    expect(q.stem).toBe('rw easy question');
+    expect(q.id).toBe('tq::practice-test-3::rweasy::1-0');
+    // Drill contract: without 'rw' the shell offers a calculator on a
+    // reading question and the tutor coaches it with the math prompt.
+    expect(q.section).toBe('rw');
+  });
+
+  test('the two easy banks do not cross-resolve', () => {
+    const rw = resolveTestReviewItem({ moduleId: 'test::practice-test-3::rweasy', questionId: '1-0' }, getTestById);
+    const math = resolveTestReviewItem({ moduleId: 'test::practice-test-3::easy', questionId: '3-0' }, getTestById);
+    expect(rw.stem).toBe('rw easy question');
+    expect(math.stem).toBe('math easy question');
+    expect(rw.id).not.toBe(math.id);
   });
 
   test('stale items resolve to null: unknown test, out-of-range index, malformed moduleId', () => {
