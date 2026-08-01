@@ -278,6 +278,23 @@ function loadRWPracticeTest(n) {
   return { pt: ctx[`practiceTest${n}RW`], src, file };
 }
 
+/**
+ * Load the adaptive R&W Module 2 Easy variant (practiceTest{n}RWM2Easy.js)
+ * when it exists. Returns null when the test ships no variant — the caller
+ * treats that as "nothing extra to lint", not an error. The export is a bare
+ * module ({ questions: [...] }), not a test with a modules array.
+ */
+function loadRWM2EasyVariant(n) {
+  const file = path.join(TESTS_DIR, `practiceTest${n}RWM2Easy.js`);
+  if (!fs.existsSync(file)) return null;
+  let src = fs.readFileSync(file, 'utf8');
+  src = src.replace(/^export\s+const\s+/gm, 'var ').replace(/^export\s+default\s+[^;]+;?$/gm, '');
+  const ctx = {};
+  vm.createContext(ctx);
+  vm.runInContext(src, ctx);
+  return { variant: ctx[`practiceTest${n}RWM2Easy`], src, file };
+}
+
 function loadJsonSafely(p, label) {
   if (!fs.existsSync(p)) {
     throw new Error(`${label} missing at ${p}`);
@@ -310,11 +327,14 @@ function loadQuantitativeData() {
 // each with a questions array of object literals), so we can reuse the same
 // approach: track depth-0 braces inside a `questions: [` array.
 
-function indexRWQuestionLines(src) {
+function indexRWQuestionLines(src, { requireModules = true } = {}) {
   const lines = src.split('\n');
   const result = [];
   const moduleStarts = [];
-  let modulesOpened = false;
+  // M2Easy variant files export a bare module ({ questions: [...] }) with no
+  // modules array wrapper — requireModules:false tracks their questions
+  // array directly.
+  let modulesOpened = !requireModules;
   for (let i = 0; i < lines.length; i++) {
     const ln = lines[i];
     if (!modulesOpened && /modules\s*:\s*\[/.test(ln)) modulesOpened = true;
@@ -1542,6 +1562,36 @@ function runLint({ mode, testNumbers, checks }) {
         });
       }
     }
+
+    // Adaptive R&W Module 2 Easy variant — lint its questions under the same
+    // testN so per-item checks AND within-test-cloning (variant vs. the
+    // standard modules) both fire. Absent variant file = nothing to lint.
+    let variantBundle = null;
+    try {
+      variantBundle = loadRWM2EasyVariant(testN);
+    } catch (e) {
+      violations.push({
+        testN,
+        file: `practiceTest${testN}RWM2Easy.js`,
+        line: 1,
+        message: `parse-error: practiceTest${testN}RWM2Easy.js failed to load (${e.message})`,
+      });
+    }
+    if (variantBundle?.variant?.questions) {
+      const vFileBase = path.basename(variantBundle.file);
+      const vIndex = indexRWQuestionLines(variantBundle.src, { requireModules: false });
+      const vQs = variantBundle.variant.questions;
+      for (let qi = 0; qi < vQs.length; qi++) {
+        const li = vIndex.find(L => L.moduleIndex === 0 && L.modulePosition === qi + 1);
+        bankItems.push({
+          testN,
+          file: vFileBase,
+          line: li ? li.startLine : 1,
+          item: vQs[qi],
+          isVariant: true,
+        });
+      }
+    }
   }
 
   // ---- Per-item lints -----------------------------------------------------
@@ -1625,25 +1675,39 @@ function runLint({ mode, testNumbers, checks }) {
   // because the 2026-05 reauthoring shipped lint-clean while a student
   // could still pattern-match their way through the catalog.
   for (const testN of targetTests) {
-    const items = bankItems.filter(b => b.testN === testN);
-    if (items.length === 0) continue;
-    if (enabled('answer-key-balance')) {
-      for (const v of validateAnswerKeyBalance(items, testN)) violations.push(v);
+    const allRows = bankItems.filter(b => b.testN === testN);
+    if (allRows.length === 0) continue;
+    // Aggregate checks run per served test form: the standard 54-item form
+    // and (when present) the M2-easy variant as its own 27-item module.
+    // Mixing them would count 81 items against 54-item bands and blame the
+    // wrong file.
+    const groups = [
+      { rows: allRows.filter(b => !b.isVariant), fileLabel: `practiceTest${testN}RW.js`, isVariant: false },
+    ];
+    const varRows = allRows.filter(b => b.isVariant);
+    if (varRows.length > 0) {
+      groups.push({ rows: varRows, fileLabel: `practiceTest${testN}RWM2Easy.js`, isVariant: true });
     }
-    if (enabled('longest-answer')) {
-      for (const v of validateLongestAnswerRate(items, testN)) violations.push(v);
-    }
-    if (enabled('xtx-skeleton')) {
-      for (const v of validateCrossTextChoiceForms(items, testN)) violations.push(v);
-    }
-    if (enabled('recipe-labels')) {
-      for (const v of validateExplanationHygiene(items, testN)) violations.push(v);
-    }
-    if (enabled('choice-caps')) {
-      for (const v of validateChoiceCaps(items, testN)) violations.push(v);
-    }
-    if (enabled('blueprint')) {
-      for (const v of validateModuleBlueprint(items, testN)) violations.push(v);
+    for (const g of groups) {
+      if (g.rows.length === 0) continue;
+      if (enabled('answer-key-balance')) {
+        for (const v of validateAnswerKeyBalance(g.rows, testN, g)) violations.push(v);
+      }
+      if (enabled('longest-answer')) {
+        for (const v of validateLongestAnswerRate(g.rows, testN, g.fileLabel)) violations.push(v);
+      }
+      if (enabled('xtx-skeleton')) {
+        for (const v of validateCrossTextChoiceForms(g.rows, testN)) violations.push(v);
+      }
+      if (enabled('recipe-labels')) {
+        for (const v of validateExplanationHygiene(g.rows, testN)) violations.push(v);
+      }
+      if (enabled('choice-caps')) {
+        for (const v of validateChoiceCaps(g.rows, testN)) violations.push(v);
+      }
+      if (enabled('blueprint')) {
+        for (const v of validateModuleBlueprint(g.rows, testN, g)) violations.push(v);
+      }
     }
   }
   if (enabled('anchor-uniqueness') && targetTests.length === 12) {
@@ -1694,16 +1758,19 @@ function exploitWordCount(s) {
 }
 
 /** Each answer letter must appear 10-17 times per 54-item test (random keys
- *  land ~13.5; the audit found A keyed on 96% of one test's items). */
-function validateAnswerKeyBalance(items, testN) {
+ *  land ~13.5; the audit found A keyed on 96% of one test's items). The
+ *  27-item M2-easy variant scales the band to 4-10 (~6.75 expected). */
+function validateAnswerKeyBalance(items, testN, { fileLabel = null, isVariant = false } = {}) {
   const out = [];
+  const [lo, hi] = isVariant ? [4, 10] : [10, 17];
+  const unitLabel = isVariant ? 'per module' : 'per test';
   const counts = { A: 0, B: 0, C: 0, D: 0 };
   for (const b of items) counts[b.item.correctAnswer] = (counts[b.item.correctAnswer] || 0) + 1;
   for (const letter of ['A', 'B', 'C', 'D']) {
-    if (counts[letter] < 10 || counts[letter] > 17) {
+    if (counts[letter] < lo || counts[letter] > hi) {
       out.push({
-        testN, file: `practiceTest${testN}RW.js`, line: 0,
-        message: `[answer-key-balance] letter ${letter} keyed ${counts[letter]}x (allowed 10-17 per test)`,
+        testN, file: fileLabel || `practiceTest${testN}RW.js`, line: 0,
+        message: `[answer-key-balance] letter ${letter} keyed ${counts[letter]}x (allowed ${lo}-${hi} ${unitLabel})`,
       });
     }
   }
@@ -1713,7 +1780,7 @@ function validateAnswerKeyBalance(items, testN) {
 /** The uniquely-longest choice must not be the correct one in more than 45%
  *  of a test's prose-choice items (audit: 81.5% product-wide, 100% in
  *  rhetorical synthesis — a no-read scoring strategy). */
-function validateLongestAnswerRate(items, testN) {
+function validateLongestAnswerRate(items, testN, fileLabel = null) {
   const prose = items.filter(b => EXPLOIT_PROSE_SKILLS.has(b.item.skill)
     && Array.isArray(b.item.choices) && b.item.choices.length === 4);
   if (prose.length < 8) return [];
@@ -1727,7 +1794,7 @@ function validateLongestAnswerRate(items, testN) {
   const rate = longestCorrect / prose.length;
   if (rate > 0.45) {
     return [{
-      testN, file: `practiceTest${testN}RW.js`, line: 0,
+      testN, file: fileLabel || `practiceTest${testN}RW.js`, line: 0,
       message: `[longest-answer] uniquely-longest choice is correct in ${longestCorrect}/${prose.length} prose items (${Math.round(rate * 100)}%; cap 45%)`,
     }];
   }
@@ -1813,10 +1880,14 @@ function validateChoiceCaps(items, testN) {
 /** Each 27-question module must match the official-range blueprint counts.
  *  (Order within the module is enforced by the authoring gate; counts are
  *  the shippable invariant here.) */
-function validateModuleBlueprint(items, testN) {
+function validateModuleBlueprint(items, testN, { fileLabel = null, isVariant = false } = {}) {
   const out = [];
   const byModule = new Map();
-  if (items.length === 54 && items.some(b => b.item.module == null)) {
+  if (isVariant) {
+    // The M2-easy variant is a single 27-question module held to the same
+    // per-module blueprint counts as the standard modules.
+    byModule.set('2-easy', items);
+  } else if (items.length === 54 && items.some(b => b.item.module == null)) {
     // Assembled tests carry module via position: first 27 = module 1.
     byModule.set(1, items.slice(0, 27));
     byModule.set(2, items.slice(27));
@@ -1833,7 +1904,7 @@ function validateModuleBlueprint(items, testN) {
     for (const [skill, want] of Object.entries(EXPLOIT_MODULE_COUNTS)) {
       if ((counts[skill] || 0) !== want) {
         out.push({
-          testN, file: `practiceTest${testN}RW.js`, line: 0,
+          testN, file: fileLabel || `practiceTest${testN}RW.js`, line: 0,
           message: `[blueprint] module ${mod}: ${skill} x${counts[skill] || 0} (blueprint wants ${want})`,
         });
       }

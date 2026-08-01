@@ -89,14 +89,20 @@ export async function loadDiagnosticReportData({
       // Backfill stimulus fields from the live test at the same position —
       // older snapshots never persisted passage/diagram/table, which left
       // R&W review items passage-less and math items figure-less. Easy-route
-      // attempts saw module2Easy in the final (math-M2) slot, so merge from
+      // attempts saw an easy variant in that section's M2 slot (math M2 =
+      // final module; R&W M2 = second reading-writing module), so merge from
       // the module the student actually took.
       const mathRoute = lastAttempt.diagnosticData?.mathRoute;
-      const liveMod = (mathRoute === 'easy'
-          && test.module2Easy
-          && modIdx === (test.modules?.length ?? 0) - 1)
-        ? test.module2Easy
-        : test.modules?.[modIdx];
+      const rwRoute = lastAttempt.diagnosticData?.rwRoute;
+      const rwSlots = (test.modules || [])
+        .map((m, i) => (m.section === 'reading-writing' ? i : -1))
+        .filter(i => i >= 0);
+      let liveMod = test.modules?.[modIdx];
+      if (mathRoute === 'easy' && test.module2Easy && modIdx === (test.modules?.length ?? 0) - 1) {
+        liveMod = test.module2Easy;
+      } else if (rwRoute === 'easy' && test.rwModule2Easy && modIdx === rwSlots[1]) {
+        liveMod = test.rwModule2Easy;
+      }
       const liveQ = liveMod?.questions?.[
         snap.questionIndex ?? moduleMap.get(modIdx).questions.length
       ];

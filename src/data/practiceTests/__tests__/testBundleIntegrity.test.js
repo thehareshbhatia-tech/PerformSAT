@@ -66,3 +66,72 @@ describe('practice test bundle integrity — SAT Pattern coverage', () => {
     expect(total).toBeGreaterThanOrEqual(500);
   });
 });
+
+// ── Adaptive R&W Module 2 Easy variants (2026-07) ──────────────────────────
+// Every catalog test must carry an R&W easy variant with the exact official
+// module blueprint (skill order: vocab first, notes last) and the easy
+// difficulty mix. The runner swaps this module in when R&W M1 < 60%, so a
+// malformed variant would corrupt the served test for the lowest scorers.
+
+describe('R&W Module 2 Easy variants', () => {
+  // Import via the catalog so the wiring (rwEasyVariants map) is what's tested.
+  const { practiceTests } = require('../index');
+
+  const BLUEPRINT_SKILLS = [
+    'words-in-context', 'words-in-context', 'words-in-context', 'words-in-context',
+    'text-structure-and-purpose', 'text-structure-and-purpose', 'text-structure-and-purpose',
+    'cross-text-connections',
+    'central-ideas-and-details', 'central-ideas-and-details', 'central-ideas-and-details',
+    'command-of-evidence-textual',
+    'command-of-evidence-quantitative', 'command-of-evidence-quantitative',
+    'inferences', 'inferences',
+    'boundaries', 'form-structure-and-sense', 'boundaries',
+    'form-structure-and-sense', 'boundaries', 'form-structure-and-sense',
+    'transitions', 'transitions', 'transitions',
+    'rhetorical-synthesis', 'rhetorical-synthesis',
+  ];
+
+  it('all 12 catalog tests carry both easy variants', () => {
+    expect(practiceTests).toHaveLength(12);
+    practiceTests.forEach(t => {
+      expect(t.module2Easy?.questions?.length).toBe(22);
+      expect(t.rwModule2Easy?.questions?.length).toBe(27);
+      expect(t.rwModule2Easy.variant).toBe('easy');
+      expect(t.rwModule2Easy.timeLimit).toBe(32);
+    });
+  });
+
+  practiceTests.forEach(t => {
+    describe(t.id, () => {
+      const qs = t.rwModule2Easy?.questions || [];
+
+      it('follows the official module blueprint order', () => {
+        expect(qs.map(q => q.skill)).toEqual(BLUEPRINT_SKILLS);
+      });
+
+      it('has the easy difficulty mix (8E/16M/3H)', () => {
+        const dist = { easy: 0, medium: 0, hard: 0 };
+        qs.forEach(q => { dist[q.difficulty] += 1; });
+        expect(dist).toEqual({ easy: 8, medium: 16, hard: 3 });
+      });
+
+      it('every item is a well-formed 4-choice MCQ with unique bank-wide ids', () => {
+        const standardIds = new Set(t.modules.flatMap(m => m.questions.map(q => q.id)));
+        qs.forEach(q => {
+          expect(q.choices).toHaveLength(4);
+          expect(['A', 'B', 'C', 'D']).toContain(q.correctAnswer);
+          expect(typeof q.explanation).toBe('string');
+          expect(standardIds.has(q.id)).toBe(false);
+        });
+      });
+
+      it('special stimulus shapes are present', () => {
+        expect(Array.isArray(qs[7]?.passages)).toBe(true);   // cross-text
+        expect(qs[12]?.questionTable).toBeTruthy();           // COE-quantitative
+        expect(qs[13]?.questionTable).toBeTruthy();
+        expect(qs[25]?.studentNotes?.bullets?.length).toBeGreaterThanOrEqual(5);
+        expect(qs[26]?.studentNotes?.goal).toBeTruthy();      // rhetorical synthesis
+      });
+    });
+  });
+});

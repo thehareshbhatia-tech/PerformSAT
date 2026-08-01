@@ -46,6 +46,22 @@ import { practiceTest10M2Easy } from './practiceTest10M2Easy';
 import { practiceTest11M2Easy } from './practiceTest11M2Easy';
 import { practiceTest12M2Easy } from './practiceTest12M2Easy';
 
+// R&W Module 2 Easy variants — same adaptive contract as the math variants:
+// score below ~60% on R&W Module 1 and the runner swaps these 27 questions
+// into the R&W Module 2 slot.
+import { practiceTest1RWM2Easy } from './practiceTest1RWM2Easy';
+import { practiceTest2RWM2Easy } from './practiceTest2RWM2Easy';
+import { practiceTest3RWM2Easy } from './practiceTest3RWM2Easy';
+import { practiceTest4RWM2Easy } from './practiceTest4RWM2Easy';
+import { practiceTest5RWM2Easy } from './practiceTest5RWM2Easy';
+import { practiceTest6RWM2Easy } from './practiceTest6RWM2Easy';
+import { practiceTest7RWM2Easy } from './practiceTest7RWM2Easy';
+import { practiceTest8RWM2Easy } from './practiceTest8RWM2Easy';
+import { practiceTest9RWM2Easy } from './practiceTest9RWM2Easy';
+import { practiceTest10RWM2Easy } from './practiceTest10RWM2Easy';
+import { practiceTest11RWM2Easy } from './practiceTest11RWM2Easy';
+import { practiceTest12RWM2Easy } from './practiceTest12RWM2Easy';
+
 const easyVariants = {
   'practice-test-1': practiceTest1M2Easy,
   'practice-test-2': practiceTest2M2Easy,
@@ -59,6 +75,21 @@ const easyVariants = {
   'practice-test-10': practiceTest10M2Easy,
   'practice-test-11': practiceTest11M2Easy,
   'practice-test-12': practiceTest12M2Easy,
+};
+
+const rwEasyVariants = {
+  'practice-test-1': practiceTest1RWM2Easy,
+  'practice-test-2': practiceTest2RWM2Easy,
+  'practice-test-3': practiceTest3RWM2Easy,
+  'practice-test-4': practiceTest4RWM2Easy,
+  'practice-test-5': practiceTest5RWM2Easy,
+  'practice-test-6': practiceTest6RWM2Easy,
+  'practice-test-7': practiceTest7RWM2Easy,
+  'practice-test-8': practiceTest8RWM2Easy,
+  'practice-test-9': practiceTest9RWM2Easy,
+  'practice-test-10': practiceTest10RWM2Easy,
+  'practice-test-11': practiceTest11RWM2Easy,
+  'practice-test-12': practiceTest12RWM2Easy,
 };
 
 // Build a full-length practice test from R&W + Math sections. R&W modules
@@ -105,10 +136,18 @@ export const practiceTest11 = buildFullTest('practice-test-11', 'Practice Test 1
 export const practiceTest12 = buildFullTest('practice-test-12', 'Practice Test 12', practiceTest12RW, practiceTest12Math);
 
 // Spread is intentional so the original test object stays untouched and
-// the variant is added only on the exported copy used by the app.
-const withEasyVariant = (t) => easyVariants[t.id]
-  ? { ...t, module2Easy: easyVariants[t.id] }
-  : t;
+// the variants are added only on the exported copy used by the app.
+// module2Easy = math M2 easy (legacy field name); rwModule2Easy = R&W M2 easy.
+const withEasyVariant = (t) => {
+  const math = easyVariants[t.id];
+  const rw = rwEasyVariants[t.id];
+  if (!math && !rw) return t;
+  return {
+    ...t,
+    ...(math ? { module2Easy: math } : {}),
+    ...(rw ? { rwModule2Easy: rw } : {}),
+  };
+};
 
 export const practiceTests = [
   practiceTest1,

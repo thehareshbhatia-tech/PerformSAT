@@ -829,24 +829,26 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
   const rwScoredItems = scoredItems.filter(i => i.section === 'rw');
   const mathScoredItems = scoredItems.filter(i => i.section === 'math');
   const isMultiSection = rwScoredItems.length > 0 && mathScoredItems.length > 0;
-  // The served Math Module-2 route, threaded on diagnosticData so the diagnosis
-  // score uses the SAME table column as scoreTest's headline. Without it the
-  // table defaults to the hard route. R&W never routes.
+  // The served Module-2 routes (per section), threaded on diagnosticData so
+  // the diagnosis score uses the SAME table columns as scoreTest's headline.
+  // Without them the table defaults to the hard route — which is also the
+  // correct legacy default for attempts that predate the R&W easy variant.
   const mathRoute = diagnosticData?.mathRoute || 'hard';
+  const rwRoute = diagnosticData?.rwRoute || 'hard';
   const singleSection = mathScoredItems.length > 0 ? 'math' : 'reading-writing';
   const sectionScaled = {
     math: mathScoredItems.length > 0
       ? scaleResponseVector(mathScoredItems, test.id, { section: 'math', route: mathRoute })
       : null,
     rw: rwScoredItems.length > 0
-      ? scaleResponseVector(rwScoredItems, test.id, { section: 'reading-writing' })
+      ? scaleResponseVector(rwScoredItems, test.id, { section: 'reading-writing', route: rwRoute })
       : null,
   };
   const scaledScore = isMultiSection
     ? sectionScaled.math + sectionScaled.rw
     : scaleResponseVector(scoredItems, test.id, {
         section: singleSection,
-        route: singleSection === 'math' ? mathRoute : 'hard',
+        route: singleSection === 'math' ? mathRoute : rwRoute,
       });
   // Gap only when the target is provably on the same scale as the headline
   // (onboarding now stores 400-1600 composite goals; legacy profiles carry
@@ -866,7 +868,7 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
   const skillAnalysis = analyzeSkills(questionAnalysis, skillProgress);
 
   // ═══ PHASE 6: Score projection ═══
-  const scoreProjection = projectScoreImprovements(scoredItems, targetScore, test.id, mathRoute);
+  const scoreProjection = projectScoreImprovements(scoredItems, targetScore, test.id, mathRoute, rwRoute);
 
   // ═══ PHASE 7: Difficulty analysis ═══
   const difficultyAnalysis = analyzeDifficulty(questionAnalysis);
@@ -913,7 +915,7 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
     trendAnalysis,
     prioritizedActions,
 
-    confidenceInterval: calculateConfidenceInterval(totalCorrect, totalQuestions, scaledScore, isMultiSection, singleSection, mathRoute),
+    confidenceInterval: calculateConfidenceInterval(totalCorrect, totalQuestions, scaledScore, isMultiSection, singleSection, singleSection === 'math' ? mathRoute : rwRoute),
     learningVelocity: calculateLearningVelocity(previousTests, scaledScore, isMultiSection),
     skillClusters,
     answerPatterns,
@@ -1181,7 +1183,7 @@ const analyzeSkills = (questionAnalysis, skillProgress = {}) => {
 /**
  * Project how much score improvement is possible by fixing specific areas.
  */
-const projectScoreImprovements = (scoredItems, targetScore, formId, mathRoute = 'hard') => {
+const projectScoreImprovements = (scoredItems, targetScore, formId, mathRoute = 'hard', rwRoute = 'hard') => {
   // Everything is computed off the REAL response vector via the shared IRT
   // path, so the projection baseline equals the headline score and every
   // "+X points" gain reflects re-estimated ability, not a synthetic raw-count
@@ -1195,13 +1197,13 @@ const projectScoreImprovements = (scoredItems, targetScore, formId, mathRoute = 
     const rw = items.filter(i => i.section === 'rw');
     const math = items.filter(i => i.section === 'math');
     if (rw.length > 0 && math.length > 0) {
-      return scaleResponseVector(rw, formId, { section: 'reading-writing' })
+      return scaleResponseVector(rw, formId, { section: 'reading-writing', route: rwRoute })
         + scaleResponseVector(math, formId, { section: 'math', route: mathRoute });
     }
     const sec = math.length > 0 ? 'math' : 'reading-writing';
     return scaleResponseVector(items, formId, {
       section: sec,
-      route: sec === 'math' ? mathRoute : 'hard',
+      route: sec === 'math' ? mathRoute : rwRoute,
     });
   };
   const currentScaled = scoreVector(scoredItems);

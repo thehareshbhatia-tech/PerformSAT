@@ -14,8 +14,9 @@ import { getItemParams, determineRoute } from './calibration';
 import { rawToScaled } from './scaleTables';
 import { createScoredResult, MODULE_ROUTE } from './scoringSchema';
 
-// Sections that take a Math-style easy/hard Module-2 route. A section-less math
-// test collapses to the 'default' bucket; R&W never routes.
+// Sections whose route derives from Math-side inputs (opts.mathRoute, or the
+// M1-accuracy fallback). A section-less math test collapses to the 'default'
+// bucket. R&W also routes (2026-07) but reads opts.rwRoute with no fallback.
 const MATH_SECTION_KEYS = new Set(['math', 'default']);
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -183,6 +184,8 @@ export function isAnswerCorrect(question, userAnswer) {
  * @param {Object}   [opts]    Options
  * @param {boolean}  [opts.timedMode]
  * @param {Object}   [opts.diagnosticData]
+ * @param {'easy'|'hard'} [opts.mathRoute]  Math Module-2 variant actually served
+ * @param {'easy'|'hard'} [opts.rwRoute]    R&W Module-2 variant actually served
  * @returns {import('./scoringSchema').ScoredResult}
  */
 export function scoreTest(test, answers, opts = {}) {
@@ -193,6 +196,11 @@ export function scoreTest(test, answers, opts = {}) {
   // M1-accuracy fallback below — and it rides on diagnosticData too so the
   // diagnostic engine derives the identical route.
   const servedMathRoute = opts.mathRoute || diagnosticData?.mathRoute || null;
+  // R&W Module-2 route. Unlike math there is NO M1-accuracy fallback: R&W
+  // easy variants ship 2026-07, so every historical attempt was served the
+  // hard module — deriving a route for them would silently re-score old
+  // attempts. Explicitly-served routes only.
+  const servedRwRoute = opts.rwRoute || diagnosticData?.rwRoute || null;
 
   // ── 1. Score every item, grouped by module section ─────────────────────
   // Each section accumulates its raw-correct count + total + Module-1 accuracy.
@@ -246,12 +254,17 @@ export function scoreTest(test, answers, opts = {}) {
     };
   });
 
-  // Route (easy/hard Module 2) is meaningful for MATH only. Prefer the variant
-  // actually served; otherwise derive from that section's Module-1 accuracy —
-  // the MATH M1, not the first module overall (in a composite the first module
-  // is R&W, which is the long-standing quirk this fixes).
+  // Route (easy/hard Module 2) per section. Math: prefer the variant actually
+  // served; otherwise derive from that section's Module-1 accuracy — the MATH
+  // M1, not the first module overall (in a composite the first module is R&W,
+  // which is the long-standing quirk this fixes). R&W: explicitly-served route
+  // only (see servedRwRoute above) — legacy attempts default to hard.
   const routeForSection = (section) => {
-    if (!MATH_SECTION_KEYS.has(section)) return MODULE_ROUTE.HARD;
+    if (!MATH_SECTION_KEYS.has(section)) {
+      return (servedRwRoute === MODULE_ROUTE.EASY || servedRwRoute === MODULE_ROUTE.HARD)
+        ? servedRwRoute
+        : MODULE_ROUTE.HARD;
+    }
     if (servedMathRoute === MODULE_ROUTE.EASY || servedMathRoute === MODULE_ROUTE.HARD) {
       return servedMathRoute;
     }

@@ -1639,16 +1639,26 @@ const PerformSAT = () => {
     // and math figures render in the retry drill.
     const enrichFromLive = (snapshotQ, modIdx, qIdx) => {
       if (!snapshotQ) return null;
-      // Easy-route attempts saw module2Easy questions in the math-M2 slot
-      // (the final module) — enriching from the standard module there would
-      // attach a foreign diagram/table under an Easy stem.
+      // Easy-route attempts saw an easy variant's questions in that section's
+      // M2 slot (math M2 = final module; R&W M2 = second reading-writing
+      // module) — enriching from the standard module there would attach a
+      // foreign diagram/table/passage under an Easy stem.
       const mathRoute = reviewBundle.attempt?.diagnosticData?.mathRoute;
+      const rwRoute = reviewBundle.attempt?.diagnosticData?.rwRoute;
       const liveModules = reviewBundle.liveTest?.modules;
-      const liveMod = (mathRoute === 'easy'
+      const rwSlots = (liveModules || [])
+        .map((m, i) => (m.section === 'reading-writing' ? i : -1))
+        .filter(i => i >= 0);
+      let liveMod = liveModules?.[modIdx];
+      if (mathRoute === 'easy'
           && reviewBundle.liveTest?.module2Easy
-          && modIdx === (liveModules?.length ?? 0) - 1)
-        ? reviewBundle.liveTest.module2Easy
-        : liveModules?.[modIdx];
+          && modIdx === (liveModules?.length ?? 0) - 1) {
+        liveMod = reviewBundle.liveTest.module2Easy;
+      } else if (rwRoute === 'easy'
+          && reviewBundle.liveTest?.rwModule2Easy
+          && modIdx === rwSlots[1]) {
+        liveMod = reviewBundle.liveTest.rwModule2Easy;
+      }
       const liveQ = liveMod?.questions?.[qIdx];
       // The snapshot reshape in loadDiagnosticReportData strips position
       // metadata. Re-attach moduleIndex/questionIndex so the retry-drill
@@ -2872,15 +2882,25 @@ const PerformSAT = () => {
                   // Backfill stimulus fields (passage/diagram/table/formula)
                   // from the live test at the same position — older snapshots
                   // never persisted them, which left R&W review passage-less
-                  // and math review figure-less. Easy-route attempts saw
-                  // module2Easy in the final (math-M2) slot, so merge from
-                  // the module the student actually took.
+                  // and math review figure-less. Easy-route attempts saw an
+                  // easy variant in that section's M2 slot (math M2 = final
+                  // module; R&W M2 = second reading-writing module), so merge
+                  // from the module the student actually took.
                   const mathRoute = lastAttempt.diagnosticData?.mathRoute;
-                  const liveMod = (mathRoute === 'easy'
+                  const rwRoute = lastAttempt.diagnosticData?.rwRoute;
+                  const rwSlots = (test.modules || [])
+                    .map((m, i) => (m.section === 'reading-writing' ? i : -1))
+                    .filter(i => i >= 0);
+                  let liveMod = test.modules?.[modIdx];
+                  if (mathRoute === 'easy'
                       && test.module2Easy
-                      && modIdx === (test.modules?.length ?? 0) - 1)
-                    ? test.module2Easy
-                    : test.modules?.[modIdx];
+                      && modIdx === (test.modules?.length ?? 0) - 1) {
+                    liveMod = test.module2Easy;
+                  } else if (rwRoute === 'easy'
+                      && test.rwModule2Easy
+                      && modIdx === rwSlots[1]) {
+                    liveMod = test.rwModule2Easy;
+                  }
                   const liveQ = liveMod?.questions?.[
                     snap.questionIndex ?? moduleMap.get(modIdx).questions.length
                   ];

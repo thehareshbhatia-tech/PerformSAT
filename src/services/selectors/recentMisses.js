@@ -30,14 +30,26 @@ function sameSkills(a, b) {
   return a.every((s, i) => s === b[i]);
 }
 
-/** Mirror PracticeTest's effectiveModules: swap in module2Easy on the easy route. */
-function reconstructServedModules(bundle, routeTaken) {
+/** Mirror PracticeTest's effectiveModules: swap in each section's easy variant on its easy route. */
+function reconstructServedModules(bundle, routeTaken, rwRoute) {
   if (!bundle || !Array.isArray(bundle.modules)) return null;
-  if (routeTaken !== 'easy' || !bundle.module2Easy) return bundle.modules;
-  const mathM2Index = bundle.modules.length - 1; // math M2 is always the final module
-  const slot = bundle.modules[mathM2Index];
-  const replaced = [...bundle.modules];
-  replaced[mathM2Index] = { ...slot, ...bundle.module2Easy, title: slot.title, section: slot.section };
+  let replaced = bundle.modules;
+  if (routeTaken === 'easy' && bundle.module2Easy) {
+    const mathM2Index = bundle.modules.length - 1; // math M2 is always the final module
+    const slot = bundle.modules[mathM2Index];
+    replaced = [...replaced];
+    replaced[mathM2Index] = { ...slot, ...bundle.module2Easy, title: slot.title, section: slot.section };
+  }
+  if (rwRoute === 'easy' && bundle.rwModule2Easy) {
+    const rwSlots = bundle.modules
+      .map((m, i) => (m.section === 'reading-writing' ? i : -1))
+      .filter(i => i >= 0);
+    if (rwSlots.length > 1) {
+      const slot = bundle.modules[rwSlots[1]];
+      replaced = replaced === bundle.modules ? [...replaced] : replaced;
+      replaced[rwSlots[1]] = { ...slot, ...bundle.rwModule2Easy, title: slot.title, section: slot.section };
+    }
+  }
   return replaced;
 }
 
@@ -59,7 +71,7 @@ export function getRecentMisses(practiceTestResults, { resolveTest = null, limit
   if (!testId || !details || typeof details !== 'object') return [];
 
   const bundle = typeof resolveTest === 'function' ? (resolveTest(testId) || null) : null;
-  const modules = reconstructServedModules(bundle, lastAttempt?.routeTaken);
+  const modules = reconstructServedModules(bundle, lastAttempt?.routeTaken, lastAttempt?.diagnosticData?.rwRoute);
 
   return Object.entries(details)
     .filter(([, d]) => d && d.isCorrect === false)

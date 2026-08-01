@@ -706,6 +706,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   // Adaptive routing: which Module 2 variant to serve. Default 'hard' (current behavior).
   // Switches to 'easy' when Math Module 1 score < EASY_ROUTING_THRESHOLD (60% by default).
   const [module2Variant, setModule2Variant] = useState(savedProgress?.module2Variant || 'hard');
+  // R&W mirror of the math route — which R&W Module 2 variant to serve.
+  // Independent axis: on the official digital SAT both sections route their
+  // own Module 2 off that section's Module 1 performance.
+  const [rwModule2Variant, setRwModule2Variant] = useState(savedProgress?.rwModule2Variant || 'hard');
   // True when the user explicitly chose a Module 2 variant via the inline
   // switcher rendered above the Module 2 question grid. Disables the auto-
   // route below so a student who got routed to Easy can switch to Hard
@@ -714,9 +718,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   const [m2VariantManuallySet, setM2VariantManuallySet] = useState(
     savedProgress?.m2VariantManuallySet ?? false,
   );
+  const [rwM2VariantManuallySet, setRwM2VariantManuallySet] = useState(
+    savedProgress?.rwM2VariantManuallySet ?? false,
+  );
   // When the user requests an M2 variant swap while they already have
   // answers in M2, defer the swap to a confirmation modal. Null when no
-  // swap is pending; `{ newVariant, answerCount }` when one is queued.
+  // swap is pending; `{ section, newVariant, answerCount }` when one is
+  // queued (section: 'math' | 'rw').
   const [pendingM2Switch, setPendingM2Switch] = useState(null);
 
   // Responsive: track window width for mobile layout
@@ -783,6 +791,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   const mathM1Index = mathModuleIndices[0];
   const mathM2Index = mathModuleIndices[1];
 
+  // R&W module slots — same axis as the math indices above. Undefined on
+  // math-only tests, so every R&W-routing branch below no-ops there.
+  const rwModuleIndices = useMemo(
+    () => test.modules
+      .map((m, i) => (m.section === 'reading-writing') ? i : -1)
+      .filter(i => i >= 0),
+    [test.modules]
+  );
+  const rwM1Index = rwModuleIndices[0];
+  const rwM2Index = rwModuleIndices[1];
+
   // Score Math Module 1 (raw correct/total/percent) for the M2 routing
   // decision and the toggle UI on the M1-complete screen. Recomputes only
   // when relevant answers change. Returns null on tests without an M1.
@@ -811,23 +830,49 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     return m1Score.pct < M2_ROUTING_THRESHOLD ? 'easy' : 'hard';
   }, [test.module2Easy, m1Score]);
 
-  // Effective modules: swap in Module 2 Easy variant when routing decision is 'easy'.
-  // Falls back to standard test.modules if no Easy variant is defined.
+  // R&W Module 1 score + recommendation — same shape and threshold as math.
+  const rwM1Score = useMemo(() => {
+    if (rwM1Index === undefined) return null;
+    const m1Qs = test.modules[rwM1Index]?.questions || [];
+    if (m1Qs.length === 0) return null;
+    let correct = 0;
+    m1Qs.forEach((q, idx) => {
+      const ans = answers[`${rwM1Index}-${idx}`];
+      if (ans === undefined || ans === null) return;
+      if (isAnswerCorrect(q, ans)) correct++;
+    });
+    return { correct, total: m1Qs.length, pct: correct / m1Qs.length };
+  }, [test, rwM1Index, answers]);
+
+  const recommendedRwM2Variant = useMemo(() => {
+    if (!test.rwModule2Easy || !rwM1Score) return null;
+    return rwM1Score.pct < M2_ROUTING_THRESHOLD ? 'easy' : 'hard';
+  }, [test.rwModule2Easy, rwM1Score]);
+
+  // Effective modules: swap in each section's Module 2 Easy variant when that
+  // section's routing decision is 'easy'. Falls back to standard test.modules
+  // when neither section routed easy (or the test ships no variants).
   const effectiveModules = useMemo(() => {
-    if (module2Variant !== 'easy' || !test.module2Easy || mathM2Index === undefined) {
-      return test.modules;
-    }
-    const replaced = [...test.modules];
-    // Preserve module index/title metadata from the slot, only swap in the easy questions
-    const slot = test.modules[mathM2Index];
-    replaced[mathM2Index] = {
-      ...slot,
-      ...test.module2Easy,
-      title: slot.title,         // keep the section-relative "Math Module 2" label
-      section: slot.section,     // preserve section ('math')
+    let replaced = test.modules;
+    const swapSlot = (slotIndex, easyModule) => {
+      if (replaced === test.modules) replaced = [...test.modules];
+      // Preserve module index/title metadata from the slot, only swap in the easy questions
+      const slot = test.modules[slotIndex];
+      replaced[slotIndex] = {
+        ...slot,
+        ...easyModule,
+        title: slot.title,         // keep the section-relative "Module 2" label
+        section: slot.section,     // preserve section axis
+      };
     };
+    if (module2Variant === 'easy' && test.module2Easy && mathM2Index !== undefined) {
+      swapSlot(mathM2Index, test.module2Easy);
+    }
+    if (rwModule2Variant === 'easy' && test.rwModule2Easy && rwM2Index !== undefined) {
+      swapSlot(rwM2Index, test.rwModule2Easy);
+    }
     return replaced;
-  }, [test, module2Variant, mathM2Index]);
+  }, [test, module2Variant, mathM2Index, rwModule2Variant, rwM2Index]);
 
   const module = effectiveModules[currentModule];
   const questions = module?.questions || [];
@@ -970,6 +1015,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         questionTelemetry: telemetrySnapshot,
         module2Variant,
         m2VariantManuallySet,
+        rwModule2Variant,
+        rwM2VariantManuallySet,
         moduleCompleted,
       };
     };
@@ -983,7 +1030,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     }, 2000);
 
     return () => clearTimeout(saveTimerRef.current);
-  }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, highlightsByKey, testCompleted, reviewMode, onSaveProgress, isTimed, module2Variant, m2VariantManuallySet, moduleCompleted]);
+  }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, highlightsByKey, testCompleted, reviewMode, onSaveProgress, isTimed, module2Variant, m2VariantManuallySet, rwModule2Variant, rwM2VariantManuallySet, moduleCompleted]);
 
   useEffect(() => {
     if (testCompleted || reviewMode) return;
@@ -1098,10 +1145,12 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         questionsVisitedMultipleTimes: telemetryValues.filter(t => t.visits > 1).length,
         calculatorUsageCount: telemetryValues.filter(t => t.usedCalculator).length,
         markedForReviewCount: telemetryValues.filter(t => t.markedForReview).length,
-        // The Math Module-2 variant actually served. Both runDiagnostic and
-        // scoreTest read this so the diagnosis score and the headline score use
-        // the identical raw→scaled table column (easy route caps at ~600).
+        // The Module-2 variants actually served (per section). Both
+        // runDiagnostic and scoreTest read these so the diagnosis score and
+        // the headline score use the identical raw→scaled table column
+        // (easy routes cap at ~600 for math, 600 for R&W).
         mathRoute: module2Variant,
+        rwRoute: rwModule2Variant,
       };
 
       diagnosticDataRef.current = diagnosticData;
@@ -1122,8 +1171,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       );
 
       // Central scoring engine — reported score from the route-aware raw→scaled
-      // table; mathRoute is the variant the student actually saw.
-      const scored = scoreTest(effectiveTest, answers, { timedMode: isTimed, diagnosticData, mathRoute: module2Variant });
+      // table; mathRoute/rwRoute are the variants the student actually saw.
+      const scored = scoreTest(effectiveTest, answers, { timedMode: isTimed, diagnosticData, mathRoute: module2Variant, rwRoute: rwModule2Variant });
       scoredRef.current = scored;
       const newAttemptId = generateAttemptId();
       attemptIdRef.current = newAttemptId;
@@ -1191,7 +1240,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                 modIdx,
                 qIdx,
                 question: q,
-                servedEasyVariant: module2Variant === 'easy' && modIdx === mathM2Index,
+                servedEasyVariant: (module2Variant === 'easy' && modIdx === mathM2Index)
+                  || (rwModule2Variant === 'easy' && modIdx === rwM2Index),
+                section: mod.section || null,
               }),
               wasAttempted: answers[key] != null,
             });
@@ -1777,6 +1828,27 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         }
       }
 
+      // R&W mirror: when leaving R&W Module 1 and the test ships an R&W Easy
+      // variant, route the same way off the R&W M1 score.
+      if (
+        test.rwModule2Easy
+        && curMod === rwM1Index
+        && !rwM2VariantManuallySet
+        && rwModule2Variant === 'hard'
+      ) {
+        const m1Questions = test.modules[rwM1Index]?.questions || [];
+        let correct = 0;
+        m1Questions.forEach((q, qIdx) => {
+          const ans = answers[`${rwM1Index}-${qIdx}`];
+          if (ans === undefined || ans === null) return;
+          if (isAnswerCorrect(q, ans)) correct++;
+        });
+        const pct = m1Questions.length > 0 ? correct / m1Questions.length : 0;
+        if (pct < M2_ROUTING_THRESHOLD) {
+          setRwModule2Variant('easy');
+        }
+      }
+
       setCurrentModule(nextMod);
       setCurrentQuestion(0);
       setMarkedForReview([]);
@@ -1811,7 +1883,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       }
       setTestCompleted(true);
     }
-  }, [test.modules.length, test.module2Easy, test.modules, mathM1Index, module2Variant, m2VariantManuallySet, answers, onClearProgress, onBack]);
+  }, [test.modules.length, test.module2Easy, test.rwModule2Easy, test.modules, mathM1Index, rwM1Index, module2Variant, m2VariantManuallySet, rwModule2Variant, rwM2VariantManuallySet, answers, onClearProgress, onBack]);
 
   useEffect(() => { moduleCompletedRef.current = moduleCompleted; }, [moduleCompleted]);
 
@@ -1872,11 +1944,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   // key now refers to a Hard-variant question instead of Easy, or vice
   // versa). Clearing the M2 keys is the safe move; we confirm first when
   // any are present so the student doesn't lose work by accident.
-  const applyM2VariantSwitch = useCallback((newVariant) => {
-    setModule2Variant(newVariant);
-    setM2VariantManuallySet(true);
-    if (mathM2Index !== undefined) {
-      const prefix = `${mathM2Index}-`;
+  const applyM2VariantSwitch = useCallback((section, newVariant) => {
+    const slotIndex = section === 'rw' ? rwM2Index : mathM2Index;
+    if (section === 'rw') {
+      setRwModule2Variant(newVariant);
+      setRwM2VariantManuallySet(true);
+    } else {
+      setModule2Variant(newVariant);
+      setM2VariantManuallySet(true);
+    }
+    if (slotIndex !== undefined) {
+      const prefix = `${slotIndex}-`;
       setAnswers(prev => {
         const out = { ...prev };
         Object.keys(out).forEach(k => { if (k.startsWith(prefix)) delete out[k]; });
@@ -1887,33 +1965,36 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         Object.keys(out).forEach(k => { if (k.startsWith(prefix)) delete out[k]; });
         return out;
       });
-      // Drop the abandoned variant's telemetry too — the `${mathM2Index}-*`
+      // Drop the abandoned variant's telemetry too — the `${slotIndex}-*`
       // keys now point at the OTHER variant's questions, so leaving them would
       // attribute the discarded variant's dwell time / marks / flags to the
       // freshly-served questions.
       Object.keys(questionTelemetry.current).forEach(k => {
         if (k.startsWith(prefix)) delete questionTelemetry.current[k];
       });
-      setMarkedForReview([]);  // M2-only list at this point in the test
+      setMarkedForReview([]);  // M2-only list at this point in the section
     }
     setCurrentQuestion(0);
-  }, [mathM2Index]);
+  }, [mathM2Index, rwM2Index]);
 
-  const handleRequestM2Switch = useCallback((newVariant) => {
-    if (!test.module2Easy || mathM2Index === undefined) return;
-    if (newVariant === module2Variant) return;
-    const prefix = `${mathM2Index}-`;
+  const handleRequestM2Switch = useCallback((section, newVariant) => {
+    const easyModule = section === 'rw' ? test.rwModule2Easy : test.module2Easy;
+    const slotIndex = section === 'rw' ? rwM2Index : mathM2Index;
+    const activeVariant = section === 'rw' ? rwModule2Variant : module2Variant;
+    if (!easyModule || slotIndex === undefined) return;
+    if (newVariant === activeVariant) return;
+    const prefix = `${slotIndex}-`;
     const answerCount = Object.keys(answers).filter(k => k.startsWith(prefix)).length;
     if (answerCount === 0) {
-      applyM2VariantSwitch(newVariant);
+      applyM2VariantSwitch(section, newVariant);
     } else {
-      setPendingM2Switch({ newVariant, answerCount });
+      setPendingM2Switch({ section, newVariant, answerCount });
     }
-  }, [test.module2Easy, mathM2Index, module2Variant, answers, applyM2VariantSwitch]);
+  }, [test.module2Easy, test.rwModule2Easy, mathM2Index, rwM2Index, module2Variant, rwModule2Variant, answers, applyM2VariantSwitch]);
 
   const handleConfirmM2Switch = useCallback(() => {
     if (!pendingM2Switch) return;
-    applyM2VariantSwitch(pendingM2Switch.newVariant);
+    applyM2VariantSwitch(pendingM2Switch.section || 'math', pendingM2Switch.newVariant);
     setPendingM2Switch(null);
   }, [pendingM2Switch, applyM2VariantSwitch]);
 
@@ -2809,7 +2890,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               Hard/no-variant: effectiveModules === test.modules, so gate on the
               variant to avoid minting a new object ref every render. */}
           <TestResults
-            test={module2Variant === 'easy' ? { ...test, modules: effectiveModules } : test}
+            test={(module2Variant === 'easy' || rwModule2Variant === 'easy') ? { ...test, modules: effectiveModules } : test}
             answers={answers}
             storedResult={scoredRef.current ? {
               scaledScore: scoredRef.current.sectionScore,
@@ -2817,6 +2898,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               isMultiSection: scoredRef.current.isMultiSection,
             } : null}
             servedMathRoute={module2Variant}
+            servedRwRoute={rwModule2Variant}
             diagnosticData={diagnosticDataRef.current}
             diagnosticReport={diagnosticReportRef.current}
             practiceTestResults={practiceTestResults}
@@ -2861,6 +2943,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               planGenerationAttempted.current = false;
               setModule2Variant('hard');
               setM2VariantManuallySet(false);
+              setRwModule2Variant('hard');
+              setRwM2VariantManuallySet(false);
               setResumeTimeRemaining(null);
               setOnReviewPage(false);
               setTimeExpired(false);
@@ -3069,11 +3153,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         </div>
       </div>
 
-      {/* Module 2 variant switcher — surfaces only on Math Module 2 when the
-          test ships an Easy variant. Active variant tile is highlighted; the
-          other is clickable. Click triggers handleRequestM2Switch, which
-          confirms first if there are answers to discard. */}
-      {currentModule === mathM2Index && !!test.module2Easy && !testCompleted && !moduleCompleted && !onReviewPage && (
+      {/* Module 2 variant switcher — surfaces on a section's Module 2 when the
+          test ships an Easy variant for that section (math and R&W each route
+          independently, like the official adaptive SAT). Active variant tile
+          is highlighted; the other is clickable. Click triggers
+          handleRequestM2Switch, which confirms first if there are answers to
+          discard. */}
+      {((currentModule === mathM2Index && !!test.module2Easy) || (currentModule === rwM2Index && !!test.rwModule2Easy)) && !testCompleted && !moduleCompleted && !onReviewPage && (
         <div style={{
           maxWidth: '1100px',
           margin: '12px auto 0',
@@ -3094,13 +3180,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               blurb: 'Full College Board Module 2 Hard calibration.',
             },
           ].map(({ variant, label, blurb }) => {
-            const active = module2Variant === variant;
-            const isRecommended = recommendedM2Variant === variant;
+            const switcherSection = currentModule === rwM2Index ? 'rw' : 'math';
+            const active = (switcherSection === 'rw' ? rwModule2Variant : module2Variant) === variant;
+            const isRecommended = (switcherSection === 'rw' ? recommendedRwM2Variant : recommendedM2Variant) === variant;
             return (
               <button
                 key={variant}
                 type="button"
-                onClick={active ? undefined : () => handleRequestM2Switch(variant)}
+                onClick={active ? undefined : () => handleRequestM2Switch(switcherSection, variant)}
                 aria-pressed={active}
                 disabled={active}
                 style={{

@@ -53,9 +53,10 @@ export const buildBankReviewEntry = (question) => ({
 /**
  * Build the reviewQueue entry fields for a full-test miss. moduleId encodes
  * the test plus which question source served the item:
- *   'test::practice-test-3::std'  — the test's standard module list
- *   'test::practice-test-3::easy' — the Module 2 Easy variant (only for items
- *                                    served from the swapped math module)
+ *   'test::practice-test-3::std'    — the test's standard module list
+ *   'test::practice-test-3::easy'   — the MATH Module 2 Easy variant (only for
+ *                                      items served from the swapped math module)
+ *   'test::practice-test-3::rweasy' — the R&W Module 2 Easy variant
  * questionId is the '<moduleIndex>-<questionIndex>' position, NOT q.id — raw
  * test ids restart at 1 inside every module, so they can't key a queue that
  * spans modules and tests.
@@ -65,14 +66,21 @@ export const buildBankReviewEntry = (question) => ({
  * @param {number} fields.modIdx — index into the module list the student saw
  * @param {number} fields.qIdx — index into that module's questions
  * @param {object} fields.question — the question object (for the display section)
- * @param {boolean} [fields.servedEasyVariant=false] — item came from module2Easy
+ * @param {boolean} [fields.servedEasyVariant=false] — item came from a swapped easy module
+ * @param {string} [fields.section] — owning module's section axis; with
+ *   servedEasyVariant it picks 'rweasy' vs 'easy' (legacy math default)
  * @returns {{ moduleId: string, sectionName: string, questionId: string }}
  */
-export const buildTestReviewEntry = (testId, { modIdx, qIdx, question, servedEasyVariant = false }) => ({
-  moduleId: `${TEST_REVIEW_MODULE_PREFIX}${testId}::${servedEasyVariant ? 'easy' : 'std'}`,
-  sectionName: reviewDisplaySection(question),
-  questionId: `${modIdx}-${qIdx}`,
-});
+export const buildTestReviewEntry = (testId, { modIdx, qIdx, question, servedEasyVariant = false, section = null }) => {
+  const variant = servedEasyVariant
+    ? (section === 'reading-writing' || section === 'rw' ? 'rweasy' : 'easy')
+    : 'std';
+  return {
+    moduleId: `${TEST_REVIEW_MODULE_PREFIX}${testId}::${variant}`,
+    sectionName: reviewDisplaySection(question),
+    questionId: `${modIdx}-${qIdx}`,
+  };
+};
 
 /**
  * Resolve a full-test reviewQueue item back to its question via the test
@@ -96,7 +104,9 @@ export const resolveTestReviewItem = (item, getTestById) => {
   if (Number.isNaN(modIdx) || Number.isNaN(qIdx)) return null;
   const questions = variant === 'easy'
     ? (test.module2Easy?.questions || [])
-    : (test.modules?.[modIdx]?.questions || []);
+    : variant === 'rweasy'
+      ? (test.rwModule2Easy?.questions || [])
+      : (test.modules?.[modIdx]?.questions || []);
   const q = questions[qIdx];
   if (!q) return null;
   // Tag the drill-contract `section` ('rw'|'math') from the owning module —
@@ -105,7 +115,9 @@ export const resolveTestReviewItem = (item, getTestById) => {
   // coaches them with the math prompt.
   const moduleSection = variant === 'easy'
     ? 'math'
-    : (test.modules?.[modIdx]?.section === 'reading-writing' ? 'rw' : 'math');
+    : variant === 'rweasy'
+      ? 'rw'
+      : (test.modules?.[modIdx]?.section === 'reading-writing' ? 'rw' : 'math');
   return {
     ...q,
     id: `tq::${testId}::${variant}::${modIdx}-${qIdx}`,

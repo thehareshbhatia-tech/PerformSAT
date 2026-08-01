@@ -18,8 +18,8 @@
  * HARDER Module 2 (M1 accuracy ≥ 60%) can reach 800; one routed into the EASIER
  * Module 2 is capped well below 800 (~600) no matter how many they answer
  * correctly, because the easy module lacks the difficulty to demonstrate high
- * ability. Route is meaningful for MATH only — R&W has no easy/hard variant, so
- * its "easy" column exists purely to keep the lookup total and is never served.
+ * ability. Both sections route independently (2026-07: R&W easy variants ship
+ * for all 12 tests), so each section's easy column is live.
  *
  * Tables key off (section, totalInSection, rawCorrect, route) ONLY. Per-item
  * difficulty/band metadata feeds the IRT path, not this one.
@@ -76,8 +76,8 @@ const RW_HARD = [
   740, 760, 780, 790, 800,                                // 50-54
 ];
 
-// R&W has no real easy/hard split; this column exists only to keep the lookup
-// total and is held ≤ the hard route at every raw (capped at 600).
+// R&W easy Module-2 route (live since 2026-07). Held ≤ the hard route at every
+// raw and capped at 600 — the easy module can't demonstrate top-end ability.
 const RW_EASY = [
   200, 210, 220, 230, 240, 250, 260, 270, 290, 300,       // 0-9
   310, 320, 330, 340, 350, 360, 370, 380, 390, 400,       // 10-19
