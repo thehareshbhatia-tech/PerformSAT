@@ -86,6 +86,7 @@ describe('LandingPage content', () => {
     // that would contradict the free packaging elsewhere on the page.
     expect(html).not.toContain('$85');
     expect(html).not.toContain('$349');
+    expect(html).not.toContain('$29');
   });
 
   test('contains no known-false or unverifiable claims', () => {
