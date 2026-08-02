@@ -223,6 +223,25 @@
 .lp-feat-title { font-family: var(--lp-display); font-weight: 700; font-size: 20px; letter-spacing: -.01em; margin-top: 20px; }
 .lp-feat-desc { font-size: 14.5px; color: var(--lp-text-2); line-height: 1.6; margin-top: 8px; }
 
+/* ── PRODUCT SHOWCASE ──────────────────────────────────────────────────── */
+.lp-showcase { max-width: 1200px; margin: 0 auto; padding: 96px 32px 24px; }
+.lp-showcase .lp-section-head { max-width: 640px; }
+.lp-showcase .lp-section-title { font-size: 42px; margin-top: 14px; }
+.lp-shot-row { display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: center; margin-top: 56px; }
+.lp-shot-row.is-flipped .lp-shot-frame { order: 2; }
+.lp-shot-frame {
+  margin: 0; border-radius: 16px; overflow: hidden; background: var(--lp-navy);
+  border: 1px solid var(--lp-line-strong); box-shadow: var(--lp-shadow-lg);
+}
+.lp-shot-bar { display: flex; gap: 6px; padding: 11px 14px; }
+.lp-shot-bar span { width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, .22); }
+.lp-shot-frame img { display: block; width: 100%; height: auto; }
+.lp-shot-title { font-family: var(--lp-display); font-weight: 700; font-size: 26px; letter-spacing: -.01em; line-height: 1.2; }
+.lp-shot-list { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-direction: column; gap: 15px; }
+.lp-shot-list li { position: relative; padding-left: 26px; font-size: 15.5px; line-height: 1.55; color: var(--lp-text-2); }
+.lp-shot-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 10px; height: 10px; border-radius: 3px; background: var(--lp-orange); }
+.lp-shot-list strong { color: var(--lp-text); font-weight: 700; }
+
 /* ── BRAND MOMENT ──────────────────────────────────────────────────────── */
 .lp-brand { max-width: 1200px; margin: 64px auto; padding: 0 32px; }
 .lp-brand-card { background: var(--lp-navy); border-radius: 28px; padding: 72px 64px; position: relative; overflow: hidden; color: #fff; }
@@ -376,6 +395,8 @@
   .lp-brand-title { font-size: 44px; }
   .lp-compare-grid { grid-template-columns: 1fr; }
   .lp-feat-grid { grid-template-columns: 1fr 1fr; }
+  .lp-shot-row, .lp-shot-row.is-flipped { grid-template-columns: 1fr; gap: 24px; }
+  .lp-shot-row.is-flipped .lp-shot-frame { order: 0; }
   .lp-steps { grid-template-columns: 1fr; gap: 32px; }
   .lp-steps-line { display: none; }
   .lp-pricing-cards { grid-template-columns: 1fr; }
@@ -386,7 +407,9 @@
 }
 @media (max-width: 620px) {
   .lp-nav-links { display: none; }
-  .lp-wrap, .lp-hero-inner, .lp-stats-inner, .lp-features, .lp-how, .lp-brand, .lp-pricing, .lp-final, .lp-philosophy, .lp-results { padding-left: 20px; padding-right: 20px; }
+  .lp-wrap, .lp-hero-inner, .lp-stats-inner, .lp-features, .lp-showcase, .lp-how, .lp-brand, .lp-pricing, .lp-final, .lp-philosophy, .lp-results { padding-left: 20px; padding-right: 20px; }
+  .lp-showcase .lp-section-title { font-size: 30px; }
+  .lp-shot-title { font-size: 22px; }
   .lp-hero-title { font-size: 32px; }
   .lp-results-title { font-size: 32px; }
   .lp-compare-title, .lp-features .lp-section-title, .lp-how .lp-section-title, .lp-pricing .lp-section-title { font-size: 30px; }

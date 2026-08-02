@@ -635,6 +635,47 @@ const LandingPage = () => {
         </div>
       </section>
 
+      {/* ===== PRODUCT SHOWCASE ===== */}
+      <section className="lp-showcase lp-reveal">
+        <div className="lp-section-head">
+          <span className="lp-eyebrow">See it in action</span>
+          <h2 className="lp-section-title">This is what your prep looks like.</h2>
+          <p className="lp-section-sub">The real product — the dashboard that runs your prep, and the Bluebook-style runner you'll take every practice test in.</p>
+        </div>
+
+        <div className="lp-shot-row">
+          <figure className="lp-shot-frame">
+            <div className="lp-shot-bar" aria-hidden="true"><span /><span /><span /></div>
+            <img src={`${process.env.PUBLIC_URL}/showcase/app-dashboard.png`} alt="SEVA dashboard: current score 1220 with Math and R&W splits, goal progress bar, practice accuracy, SAT-day calendar, and a retry queue of missed questions" loading="lazy" width="1920" height="1080" />
+          </figure>
+          <div className="lp-shot-copy">
+            <h3 className="lp-shot-title">A dashboard that knows exactly where you stand</h3>
+            <ul className="lp-shot-list">
+              <li><strong>Your score, live.</strong> Current score, section splits, and distance to your goal — updated after every test.</li>
+              <li><strong>Strongest section vs. biggest opportunity,</strong> pulled straight from your latest test.</li>
+              <li><strong>A calendar counting down</strong> to your SAT test day, with every practiced day marked.</li>
+              <li><strong>Pick up where you struggled.</strong> The hard questions you missed, queued up to retry.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="lp-shot-row is-flipped">
+          <figure className="lp-shot-frame">
+            <div className="lp-shot-bar" aria-hidden="true"><span /><span /><span /></div>
+            <img src={`${process.env.PUBLIC_URL}/showcase/app-test-runner.png`} alt="SEVA test runner on a math question: Bluebook-style two-pane layout with question strip, answer choices, Mark for Review, and the built-in Desmos graphing calculator graphing a quadratic" loading="lazy" width="1920" height="1080" />
+          </figure>
+          <div className="lp-shot-copy">
+            <h3 className="lp-shot-title">Practice tests that feel like the real thing</h3>
+            <ul className="lp-shot-list">
+              <li><strong>Bluebook-format runner</strong> — the same two-pane layout, question strip, and Mark for Review you'll see on test day.</li>
+              <li><strong>Built-in Desmos graphing calculator</strong> and reference sheet on every math question.</li>
+              <li><strong>Timed or untimed.</strong> Practice against the clock, or slow down and think.</li>
+              <li><strong>Adaptive Module 2.</strong> Your second module adjusts to your first — exactly like the official digital SAT.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* ===== BRAND MOMENT ===== */}
       <section id="why" className="lp-brand lp-reveal">
         <div className="lp-brand-card">
