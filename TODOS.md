@@ -221,3 +221,7 @@ Chip-shown ≡ Tier-1 fired ≡ exact pattern match was viable. This effectively
 - [ ] POLISH: ad-hoc border-radius ramp across both onboarding CSS files (9/10/12/13/14/16/18/24) — collapse to 3 scoped steps (e.g. 8 controls / 12 inputs / 16 cards).
 - [ ] POLISH: breakpoint drift — funnel collapses at 720px, inner at 560px; two halves of one journey should break at the same width.
 - [ ] POLISH: InnerOnboarding score screen title asks yes/no ("Have you taken the SAT…?") while controls collect a number; body copy mitigates. Consider "What did you score, if you've tested?"
+
+## From getReferral hotfix 2026-08-03 (lint re-enable, deferred)
+- [ ] HIGH-VALUE CLEANUP: react-hooks/rules-of-hooks violations (conditional useMemo, mostly after early returns) in App.jsx, StudyPlanDashboard.jsx, SATLinearGraph.jsx, SATTwoLineGraph.jsx — currently demoted to "warn" in package.json eslintConfig. These are latent "Rendered fewer hooks than expected" crashes if the early-return condition ever flips mid-mount. Fix by moving the early return below the hooks. Re-promote the rule to error when clean.
+- [ ] POLISH: import/first violations in src/design/animations.js, src/services/diagnosticEngine.js (mid-file imports; hoisted anyway, style only).
