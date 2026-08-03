@@ -255,18 +255,50 @@
 }
 .cr-content .tb-article > * { grid-column: 1 / -1; width: 100%; }
 
-/* Reading text — Newsreader serif, the mockup's 21px measure. */
+/* Reading text — Newsreader serif, set like a book page: leading inside
+   Butterick's 120–145% band (1.72 read as web-app airiness), justified with
+   hyphenation, and consecutive paragraphs joined by a first-line indent
+   instead of a gap. Indent OR space between paragraphs, never both. */
 .cr-content .tb-body {
   font-family: var(--cr-font-serif);
   font-size: 21px;
-  line-height: 1.72;
+  line-height: 1.55;
   color: var(--cr-read);
-  margin: 0 0 24px;
+  margin: 0 0 18px;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.cr-content .tb-body + .tb-body {
+  text-indent: 1.6em;
+  margin-top: -14px;
 }
 .cr-content .tb-article > .tb-body:first-child {
   margin-top: 32px;
 }
 .cr-content .tb-body strong { font-weight: 600; color: var(--cr-ink); }
+
+/* KaTeX typesetting. KaTeX's default 1.21em relative size towers over the 21px
+   Newsreader measure — every math-bearing line bulges and reads pasted-in.
+   1.02em sits the math on the serif x-height so inline symbols read as part of
+   the sentence. Display math ($$...$$) gets breathing room and a slightly
+   larger size, the way a set textbook displays a computation. */
+.cr-content .katex { font-size: 1.02em; }
+.cr-content .katex-display {
+  margin: 16px 0 18px;
+}
+/* A display inside a justified paragraph must not inherit the indent/justify. */
+.cr-content .tb-body .katex-display {
+  text-align: center;
+  text-indent: 0;
+}
+.cr-content .katex-display .katex { font-size: 1.12em; }
+/* Inside worked-example steps and checkpoint answers the rows are compact —
+   displayed math stays on its own line but with tighter breathing room. */
+.cr-content .tb-step .katex-display,
+.cr-content .tb-exercise .katex-display {
+  margin: 10px 0 12px;
+}
 
 /* Section headings — Bricolage with the short orange accent bar. */
 .cr-content .tb-heading {
