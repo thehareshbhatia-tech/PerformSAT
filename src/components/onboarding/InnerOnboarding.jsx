@@ -5,6 +5,7 @@ import {
   CheckIcon, ArrowLeftIcon, ArrowRightIcon, CalendarIcon, TargetIcon,
 } from '../../design/icons';
 import { getUpcomingSATDates, formatSatChipLabel } from '../../data/satTestDates';
+import { FUNNEL_QUESTIONS } from './funnelConfig';
 
 /**
  * InnerOnboarding — the post-signup "inner boarding" flow.
@@ -48,12 +49,11 @@ const formatRecapDate = (iso) => {
   return `${RECAP_MONTHS[Number(m[2]) - 1]} ${Number(m[3])}, ${m[1]}`;
 };
 
-const FEELING_OPTIONS = [
-  { value: 'confident', label: 'Confident. I just need reps' },
-  { value: 'fine', label: 'Mostly fine, a little on edge' },
-  { value: 'stressed', label: 'Stressed when I think about it' },
-  { value: 'heavy', label: "It's genuinely weighing on me" },
-];
+// Single source with the pre-signup funnel: same persisted value slugs, and
+// the pre-fill screen's labels can never drift from the question it mirrors.
+const FEELING_OPTIONS = FUNNEL_QUESTIONS
+  .find((q) => q.id === 'feeling')
+  .options.map(({ value, label }) => ({ value, label }));
 
 const SECTION_OPTIONS = [
   { value: 'math', label: 'Math' },
