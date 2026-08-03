@@ -93,19 +93,16 @@ const TrajectoryVisual = () => (
       <path
         className="of-trajectory-band"
         d="M16 104 C 70 98, 105 88, 150 72 C 200 54, 250 44, 304 30 L 304 74 C 250 84, 200 92, 150 102 C 105 110, 70 114, 16 116 Z"
-        fill="rgba(124, 92, 199, 0.12)"
       />
       <path
         className="of-trajectory-line"
         d="M16 110 C 70 106, 110 96, 152 84 C 202 70, 252 58, 304 48"
-        fill="none"
-        stroke="#EA580C"
         strokeWidth="3"
         strokeLinecap="round"
         pathLength="100"
       />
-      <circle className="of-trajectory-start" cx="16" cy="110" r="5" fill="#D9D4C7" />
-      <circle className="of-trajectory-end" cx="304" cy="48" r="6" fill="#5A8A16" />
+      <circle className="of-trajectory-start" cx="16" cy="110" r="5" />
+      <circle className="of-trajectory-end" cx="304" cy="48" r="6" />
       <text x="16" y="94" className="of-trajectory-tick">check-in</text>
       <text x="304" y="34" className="of-trajectory-tick" textAnchor="end">your target</text>
     </svg>
