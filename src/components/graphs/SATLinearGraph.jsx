@@ -44,7 +44,27 @@ const SATLinearGraph = ({
     return errors;
   }, [slope, yIntercept, xRange, yRange]);
 
-  // Show validation errors in development
+  // Create coordinate system. Guarded so it runs on EVERY render (Rules of
+  // Hooks) — invalid params fall through to the error state below.
+  const coordSystem = useMemo(() =>
+    validationErrors.length > 0 ? null : createCoordinateSystem({
+      xRange,
+      yRange,
+      svgDimensions: { width, height },
+      padding: { top: 25, right: 45, bottom: 45, left: 45 },
+    }),
+    [validationErrors, xRange, yRange, width, height]
+  );
+
+  // Create clip path
+  const { clipPathId, ClipPathDef } = useMemo(
+    () => coordSystem
+      ? createClipPath(componentId, coordSystem.bounds)
+      : { clipPathId: '', ClipPathDef: () => null },
+    [componentId, coordSystem]
+  );
+
+  // Show validation errors in development (after all hooks)
   if (validationErrors.length > 0) {
     if (showValidationErrors) {
       return (
@@ -58,23 +78,6 @@ const SATLinearGraph = ({
     }
     return null;
   }
-
-  // Create coordinate system
-  const coordSystem = useMemo(() =>
-    createCoordinateSystem({
-      xRange,
-      yRange,
-      svgDimensions: { width, height },
-      padding: { top: 25, right: 45, bottom: 45, left: 45 },
-    }),
-    [xRange, yRange, width, height]
-  );
-
-  // Create clip path
-  const { clipPathId, ClipPathDef } = useMemo(
-    () => createClipPath(componentId, coordSystem.bounds),
-    [componentId, coordSystem.bounds]
-  );
 
   // Calculate line endpoints (extend beyond visible range for clipping)
   const [xMin, xMax] = xRange;
