@@ -840,6 +840,10 @@ const PerformSAT = () => {
   useEffect(() => {
     if (innerOnboardingActive !== null) return; // decided already this session
     if (!ffInnerOnboarding || !user || !progressHydrated) { return; }
+    // Dev-only QA escape: ?forceInnerOnboarding=1 re-runs the flow for any
+    // account (completion still stamps, so it won't loop on real accounts).
+    const forced = process.env.NODE_ENV === 'development' &&
+      new URLSearchParams(window.location.search).has('forceInnerOnboarding');
     const hasTests = Object.keys(practiceTestResults || {}).length > 0;
     const hasResume = !!(inProgressTests && inProgressTests['mini-diagnostic']);
     const eligible =
@@ -847,7 +851,7 @@ const PerformSAT = () => {
       !user.onboardingCompletedAt &&
       !user.onboardingSkippedAt &&
       !hasTests && !studyPlan && !hasResume;
-    setInnerOnboardingActive(eligible === true);
+    setInnerOnboardingActive(forced || eligible === true);
   }, [innerOnboardingActive, ffInnerOnboarding, user, progressHydrated, practiceTestResults, inProgressTests, studyPlan]);
 
   const handleOnRampSkip = () => {
