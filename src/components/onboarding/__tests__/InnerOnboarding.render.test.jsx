@@ -98,7 +98,7 @@ test('walks to the end and reports the collected profile', () => {
   clickByText('.io-option', 'Reading and Writing'); flush();  // 6 worry = rw
   const year = String(new Date().getFullYear() + 2);
   clickByText('.io-chip', year); flush();                     // 7 grad year
-  clickByText('.io-cta', 'Show me my plan');                  // 8 finish
+  clickByText('.io-cta', 'Take me to my check-in');           // 8 finish
 
   expect(onComplete).toHaveBeenCalledTimes(1);
   const payload = onComplete.mock.calls[0][0];
