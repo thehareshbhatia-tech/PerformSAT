@@ -599,9 +599,11 @@
 }
 
 .of-build-line.is-done .of-build-check {
-  background: var(--of-orange);
-  border-color: var(--of-orange);
-  color: #fff;
+  /* green = done (tri-color rule); logo lime carries on navy where the
+     deep house lime would go muddy. */
+  background: #C6EE4E;
+  border-color: #C6EE4E;
+  color: var(--of-ink);
 }
 
 /* ── Path summary ─────────────────────────────────────────────────── */
