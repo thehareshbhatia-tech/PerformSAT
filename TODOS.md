@@ -215,3 +215,9 @@ Chip-shown ≡ Tier-1 fired ≡ exact pattern match was viable. This effectively
 - [x] ISSUE-002: forward-jump lock is BY DESIGN (frontier rule in handleNavigate) — real defect was affordance: locked rows kept pointer cursor + hover highlight, and the navigable frontier tile was styled as locked. Fixed same day: is-locked now mirrors the frontier rule, cursor default, hover suppressed, aria-disabled.
 - [x] ISSUE-003: FALSE POSITIVE — AnswerChoiceList cards already carry role="button" + aria-pressed + Enter/Space handlers (tabIndex -1 only post-submit, which is correct). QA probe's grep filters hid them. No change needed.
 - [ ] MEDIUM: tutor SSE arrives as ONE lump client-side (measured first==settled) despite correct server re-emit per delta and client onChunk — suspect response compression buffering on the Cloud Run path (direct run.app URL, no hosting proxy). Investigate: curl the deployed fn with stream:true and time chunk arrivals; if buffered, disable gzip for text/event-stream or add padding flush.
+
+## From /design-review 2026-08-03 (onboarding, deferred)
+- [ ] POLISH: OnboardingFunnel.css + InnerOnboarding.css share ~500 duplicated lines (var block, topbar, options, CTA, slider) with unexplained twin drift — extract a shared sheet or accept and document the fork. Drift already re-aligned once (FINDING-010); it will regrow.
+- [ ] POLISH: ad-hoc border-radius ramp across both onboarding CSS files (9/10/12/13/14/16/18/24) — collapse to 3 scoped steps (e.g. 8 controls / 12 inputs / 16 cards).
+- [ ] POLISH: breakpoint drift — funnel collapses at 720px, inner at 560px; two halves of one journey should break at the same width.
+- [ ] POLISH: InnerOnboarding score screen title asks yes/no ("Have you taken the SAT…?") while controls collect a number; body copy mitigates. Consider "What did you score, if you've tested?"
