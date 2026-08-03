@@ -177,6 +177,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
   const [signupName, setSignupName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [plan, setPlan] = useState('annual'); // trial plan (billingLive only)
   const [promoCode, setPromoCode] = useState('');
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -269,6 +270,22 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
         funnelProfile,
       });
       clearSavedState();
+      // Pay-first contract (billing live, no promo code): go straight from
+      // account creation into Stripe Checkout — the account is unusable until
+      // the trial starts, so the student never lands in the app un-paid. The
+      // auth flip may briefly paint the app shell before the redirect lands;
+      // if the checkout call fails, the hard gate walls the account and the
+      // paywall screen offers this same checkout again.
+      // A promo signup (influencer codes) skips Stripe entirely: the stashed
+      // code redeems during entitlement seeding and grants comped access.
+      if (billingLive && !trimmedPromo) {
+        // Dynamic import: billingService pulls the firebase config chain,
+        // which must stay out of this pre-auth chunk's module graph.
+        import('../../services/billingService')
+          .then(({ startCheckout }) => startCheckout(plan))
+          .catch(() => { /* wall is the fallback */ });
+        return; // browser is navigating to Stripe; keep `submitting` on
+      }
       // No navigation here — App.jsx's auth listener flips `user` and the
       // "/" route redirects to /course (same contract as the modal form).
     } catch (err) {
@@ -492,7 +509,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
         ))}
       </div>
       <button type="button" className="of-cta" onClick={goNext}>
-        Create my free account
+        {billingLive ? 'Start my free trial' : 'Create my free account'}
       </button>
       <p className="of-fineprint">
         {billingLive
@@ -505,13 +522,41 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
   const renderSignup = () => (
     <div className="of-step" key="signup">
       <h1 className="of-title">
-        {trimmedName ? `Last step, ${trimmedName}. Save your plan.` : 'Last step. Save your plan.'}
+        {billingLive
+          ? (trimmedName ? `Last step, ${trimmedName}. Start your free trial.` : 'Last step. Start your free trial.')
+          : (trimmedName ? `Last step, ${trimmedName}. Save your plan.` : 'Last step. Save your plan.')}
       </h1>
       <p className="of-body">
         Everything you just set up — your target, your answers, your pacing —
         rides along. The check-in is waiting on the other side.
       </p>
       <form className="of-form" onSubmit={handleSignup}>
+        {billingLive && (
+          <div className="of-plan-grid" role="radiogroup" aria-label="Choose your plan">
+            <button
+              type="button"
+              role="radio"
+              aria-checked={plan === 'monthly'}
+              className={`of-plan-card${plan === 'monthly' ? ' is-selected' : ''}`}
+              onClick={() => setPlan('monthly')}
+            >
+              <span className="of-plan-name">Monthly</span>
+              <span className="of-plan-price">$85<span className="of-plan-per">/month</span></span>
+              <span className="of-plan-sub">Free for 3 days, then monthly. Cancel anytime.</span>
+            </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked={plan === 'annual'}
+              className={`of-plan-card${plan === 'annual' ? ' is-selected' : ''}`}
+              onClick={() => setPlan('annual')}
+            >
+              <span className="of-plan-name">Annual</span>
+              <span className="of-plan-price">$349<span className="of-plan-per">/year</span></span>
+              <span className="of-plan-sub">Free for 3 days, then one payment. Save $671 vs monthly.</span>
+            </button>
+          </div>
+        )}
         <label className="of-field">
           <span className="of-field-label">First name</span>
           <input
@@ -583,8 +628,19 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
         </label>
         {error && <div className="of-error" role="alert">{error}</div>}
         <button type="submit" className="of-cta" disabled={submitting}>
-          {submitting ? 'Creating your account…' : 'Create my free account'}
+          {submitting
+            ? (billingLive && !promoCode.trim() ? 'Setting up secure checkout…' : 'Creating your account…')
+            : (billingLive
+              ? (promoCode.trim() ? 'Redeem my code' : 'Start my 3-day free trial')
+              : 'Create my free account')}
         </button>
+        {billingLive && !promoCode.trim() && (
+          <p className="of-fineprint">
+            {plan === 'annual'
+              ? "$0 today. Free for 3 days, then $349/year. Cancel anytime before day 3 and you won't be charged."
+              : "$0 today. Free for 3 days, then $85/month. Cancel anytime before day 3 and you won't be charged."}
+          </p>
+        )}
       </form>
       <button type="button" className="of-switch" onClick={onLogIn}>
         Already have an account? Log in

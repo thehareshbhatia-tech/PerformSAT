@@ -712,6 +712,53 @@
   gap: 16px;
 }
 
+/* ── Plan choice (billing live): two selectable cards above the form ── */
+.of-plan-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.of-plan-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-align: left;
+  background: var(--of-surface);
+  border: 1.5px solid var(--of-line);
+  border-radius: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  box-shadow: var(--of-shadow-card);
+  transition: border-color 140ms ease, background 140ms ease;
+}
+.of-plan-card:hover { border-color: var(--of-line-strong); }
+.of-plan-card.is-selected {
+  border-color: var(--of-orange);
+  background: linear-gradient(0deg, var(--of-orange-tint), var(--of-orange-tint)), var(--of-surface);
+}
+.of-plan-name {
+  font: 700 11px/1 var(--of-body-font);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--of-ink-sub);
+}
+.of-plan-card.is-selected .of-plan-name { color: var(--of-orange); }
+.of-plan-price {
+  font: 700 24px/1 var(--of-display);
+  color: var(--of-ink);
+}
+.of-plan-per {
+  font: 600 13px/1 var(--of-body-font);
+  color: var(--of-ink-sub);
+  margin-left: 2px;
+}
+.of-plan-sub {
+  font: 500 12.5px/1.4 var(--of-body-font);
+  color: var(--of-ink-sub);
+}
+
 .of-field {
   display: flex;
   flex-direction: column;
@@ -816,6 +863,7 @@
 /* ── Responsive ───────────────────────────────────────────────────── */
 
 @media (max-width: 720px) {
+  .of-plan-grid { grid-template-columns: 1fr; }
   .of-topbar { padding: 14px 16px; gap: 12px; }
   .of-topbar-brand { display: none; }
   .of-content { padding: 22px 16px 56px; }
