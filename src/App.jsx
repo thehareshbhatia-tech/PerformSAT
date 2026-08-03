@@ -937,6 +937,34 @@ const PerformSAT = () => {
     } finally {
       clearTimeout(timer);
     }
+    // Starter plan: the answers they just gave become their first study plan
+    // (check-in as task 1). Guarded so a re-run of the flow (dev force param,
+    // re-offered session) can never clobber a real, evidence-based plan.
+    const hasTests = Object.keys(practiceTestResults || {}).length > 0;
+    if (!studyPlan && !hasTests) {
+      try {
+        const { buildStarterPlan } = await import('./services/starterPlanService');
+        const starter = buildStarterPlan({
+          targetScore: payload?.targetScore,
+          currentScore: payload?.currentScore,
+          testDate: payload?.testDate || user?.testDate,
+          worryArea: payload?.worryArea,
+          confidentArea: payload?.confidentArea,
+          weakMathAreas: payload?.weakMathAreas,
+          weakRWAreas: payload?.weakRWAreas,
+          studyDaysPerWeek: payload?.studyDaysPerWeek,
+        });
+        if (starter) {
+          let planTimer;
+          await Promise.race([
+            saveStudyPlan(starter),
+            new Promise((_, reject) => { planTimer = setTimeout(() => reject(new Error('starter-plan-save-timeout')), 8000); }),
+          ]).finally(() => clearTimeout(planTimer));
+        }
+      } catch (e) {
+        console.error('[innerOnboarding] starter plan failed (non-blocking):', e);
+      }
+    }
     setInnerOnboardingActive(false);
     setView('dashboard');
   };
@@ -3267,6 +3295,7 @@ const PerformSAT = () => {
         {view === 'studyPlan' && (
           <StudyPlanDashboard
             variant="immersive"
+            onStartDiagnostic={handleResumeOnRamp}
             studyPlan={studyPlan}
             practiceTestResults={practiceTestResults}
             practiceProgress={practiceProgress}

@@ -582,6 +582,7 @@ const StudentDashboard = ({
               user={user}
               onStartPractice={onStartPractice}
               onStartPracticeTest={onStartPracticeTest}
+              onStartDiagnostic={onStartDiagnostic}
               onCompleteActivity={onCompleteActivity}
               onUncompleteActivity={onUncompleteActivity}
               onEditPlan={onEditPlan}

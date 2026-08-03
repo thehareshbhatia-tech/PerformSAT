@@ -1703,3 +1703,15 @@ button.sp-tuneup-bar:hover { background: var(--sp-inset); }
   .sp-tile-pair { grid-template-columns: 1fr; }
   .sp-titlebar { flex-wrap: wrap; gap: 12px; }
 }
+
+/* Provisional starter-plan banner (plan.planSource === 'onboarding-starter') */
+.sp-starter-note {
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-slate-200, #E2E8F0);
+  border-radius: 10px;
+  background: var(--color-slate-50, #F8FAFC);
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--color-slate-600, #475569);
+}

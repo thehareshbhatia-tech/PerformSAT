@@ -303,6 +303,7 @@ const StudyPlanLoaded = ({
   user,
   onStartPractice,
   onStartPracticeTest,
+  onStartDiagnostic,
   onCompleteActivity,
   onUncompleteActivity,
   onEditPlan,
@@ -589,8 +590,13 @@ const StudyPlanLoaded = ({
   const handleGo = (activity) => {
     // Lesson branch removed — generator no longer emits type='lesson'
     // and the legacy LearnWorkspace mount is gone.
-    if (activity.type === 'test' && onStartPracticeTest) {
-      onStartPracticeTest();
+    if (activity.type === 'test') {
+      // Starter-plan check-in launches the mini-diagnostic, not a full test.
+      if (activity.activityType === 'miniDiagnostic' && onStartDiagnostic) {
+        onStartDiagnostic();
+        return;
+      }
+      if (onStartPracticeTest) onStartPracticeTest();
       return;
     }
     if (activity.type !== 'practice' || !onStartPractice) return;
@@ -1226,6 +1232,12 @@ const StudyPlanLoaded = ({
   return (
     <div className="study-plan-dashboard sp-with-rail" data-theme="light">
       <div className="sp-main">
+
+      {studyPlan?.planSource === 'onboarding-starter' && (
+        <div className="sp-starter-note" role="note">
+          Starter plan from your answers. The 15-minute check-in rebuilds it from real evidence.
+        </div>
+      )}
 
       {/* ── Title bar ─────────────────────────────────────────────── */}
       {(user?.firstName || user?.targetScore || latestScore !== null) && (
