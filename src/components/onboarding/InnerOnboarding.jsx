@@ -62,6 +62,25 @@ const SECTION_OPTIONS = [
   { value: 'strategy', label: 'Test-taking strategy' },
 ];
 
+// Detailed weak-area screens: these feed the starter study plan directly
+// (starterPlanService maps each value to drill-routable skills), so the
+// values are a persisted schema — labels can change, values cannot.
+const MATH_AREA_OPTIONS = [
+  { value: 'algebra', label: 'Algebra: equations, lines, systems' },
+  { value: 'advanced-math', label: 'Advanced math: quadratics, functions' },
+  { value: 'problem-solving', label: 'Percents, ratios, and data' },
+  { value: 'geometry', label: 'Geometry and trig' },
+];
+
+const RW_AREA_OPTIONS = [
+  { value: 'reading', label: 'Understanding what I read' },
+  { value: 'evidence', label: 'Choosing evidence-backed answers' },
+  { value: 'vocab', label: 'Vocabulary in context' },
+  { value: 'grammar', label: 'Grammar and punctuation' },
+];
+
+const STUDY_DAY_CHOICES = [3, 4, 5, 6, 7];
+
 // Module scope so its identity is stable across renders — defined inline it
 // remounted the whole option subtree on every state change, cutting the
 // is-selected transition short and dropping keyboard focus to <body>.
@@ -76,6 +95,30 @@ const OptionList = ({ options, selected, onSelect }) => (
           className={`io-option${isSel ? ' is-selected' : ''}`}
           aria-pressed={isSel}
           onClick={() => onSelect(o.value)}
+        >
+          <span>{o.label}</span>
+          {isSel && (
+            <CheckIcon className="io-option-check" width={20} height={20} aria-hidden="true" />
+          )}
+        </button>
+      );
+    })}
+  </div>
+);
+
+// Multi-select sibling of OptionList: toggles values in an array, never
+// auto-advances (a Continue CTA confirms the set).
+const MultiOptionList = ({ options, selected, onToggle }) => (
+  <div className="io-options">
+    {options.map((o) => {
+      const isSel = selected.includes(o.value);
+      return (
+        <button
+          key={o.value}
+          type="button"
+          className={`io-option${isSel ? ' is-selected' : ''}`}
+          aria-pressed={isSel}
+          onClick={() => onToggle(o.value)}
         >
           <span>{o.label}</span>
           {isSel && (
@@ -108,6 +151,9 @@ const InnerOnboarding = ({ user, onComplete }) => {
   const [confidentArea, setConfidentArea] = useState(null);
   const [worryArea, setWorryArea] = useState(null);
   const [gradYear, setGradYear] = useState(null);
+  const [weakMathAreas, setWeakMathAreas] = useState([]);
+  const [weakRWAreas, setWeakRWAreas] = useState([]);
+  const [studyDaysPerWeek, setStudyDaysPerWeek] = useState(null);
   const [submitting, setSubmitting] = useState(false);
   // Guards the auto-advance so a double-click on an option can't queue two
   // goNext calls (which would skip an entire screen). Mirrors OnboardingFunnel.
@@ -132,7 +178,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
     return rw + m;
   }, [scoreMode, totalScore, rwScore, mathScore]);
 
-  const TOTAL_STEPS = 9;
+  const TOTAL_STEPS = 12;
   const goNext = () => setStep((s) => Math.min(TOTAL_STEPS - 1, s + 1));
   const clearPendingAdvance = () => {
     if (advanceTimer.current) { clearTimeout(advanceTimer.current); advanceTimer.current = null; }
@@ -153,6 +199,12 @@ const InnerOnboarding = ({ user, onComplete }) => {
     }, 160);
   };
 
+  const toggleIn = (setter) => (value) => {
+    setter((current) => current.includes(value)
+      ? current.filter((v) => v !== value)
+      : [...current, value]);
+  };
+
   const finish = () => {
     if (submitting) return;
     setSubmitting(true);
@@ -164,6 +216,9 @@ const InnerOnboarding = ({ user, onComplete }) => {
       confidentArea: confidentArea || undefined,
       worryArea: worryArea || undefined,
       gradYear: gradYear || undefined,
+      weakMathAreas: weakMathAreas.length ? weakMathAreas : undefined,
+      weakRWAreas: weakRWAreas.length ? weakRWAreas : undefined,
+      studyDaysPerWeek: studyDaysPerWeek || undefined,
     });
   };
 
@@ -404,8 +459,65 @@ const InnerOnboarding = ({ user, onComplete }) => {
           </div>
         );
 
-      // 7 — Grad year -------------------------------------------------------
+      // 7 — Weak math areas (multi) — feeds the starter plan ---------------
       case 7:
+        return (
+          <div className="io-step" key="mathAreas">
+            <span className="io-eyebrow io-eyebrow--purple">
+              Your focus
+            </span>
+            <h1 className="io-title">Which math areas feel shakiest?</h1>
+            <p className="io-body">Pick any that apply. Your starter plan opens with these.</p>
+            <MultiOptionList options={MATH_AREA_OPTIONS} selected={weakMathAreas} onToggle={toggleIn(setWeakMathAreas)} />
+            <button type="button" className="io-cta" onClick={goNext}>
+              {weakMathAreas.length ? 'Continue' : 'Not sure yet, skip'}
+            </button>
+          </div>
+        );
+
+      // 8 — Weak R&W areas (multi) — feeds the starter plan ----------------
+      case 8:
+        return (
+          <div className="io-step" key="rwAreas">
+            <span className="io-eyebrow io-eyebrow--purple">
+              Your focus
+            </span>
+            <h1 className="io-title">And in Reading and Writing?</h1>
+            <p className="io-body">Same idea. The check-in will confirm or correct all of this.</p>
+            <MultiOptionList options={RW_AREA_OPTIONS} selected={weakRWAreas} onToggle={toggleIn(setWeakRWAreas)} />
+            <button type="button" className="io-cta" onClick={goNext}>
+              {weakRWAreas.length ? 'Continue' : 'Not sure yet, skip'}
+            </button>
+          </div>
+        );
+
+      // 9 — Study days per week — paces the starter plan -------------------
+      case 9:
+        return (
+          <div className="io-step" key="studyDays">
+            <span className="io-eyebrow io-eyebrow--orange">
+              Your pace
+            </span>
+            <h1 className="io-title">How many days a week can you realistically study?</h1>
+            <p className="io-body">Honest beats ambitious. Your plan schedules exactly this many.</p>
+            <div className="io-chip-grid io-chip-grid--years">
+              {STUDY_DAY_CHOICES.map((d) => (
+                <button
+                  key={d}
+                  type="button"
+                  className={`io-chip${studyDaysPerWeek === d ? ' is-selected' : ''}`}
+                  aria-pressed={studyDaysPerWeek === d}
+                  onClick={() => pick(setStudyDaysPerWeek)(d)}
+                >
+                  {d} days
+                </button>
+              ))}
+            </div>
+          </div>
+        );
+
+      // 10 — Grad year ------------------------------------------------------
+      case 10:
         return (
           <div className="io-step" key="gradYear">
             <span className="io-eyebrow io-eyebrow--orange">
@@ -429,8 +541,8 @@ const InnerOnboarding = ({ user, onComplete }) => {
           </div>
         );
 
-      // 8 — Finish ----------------------------------------------------------
-      case 8:
+      // 11 — Finish ---------------------------------------------------------
+      case 11:
       default:
         return (
           <div className="io-step io-step--center" key="finish">

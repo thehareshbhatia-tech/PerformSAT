@@ -96,9 +96,14 @@ test('walks to the end and reports the collected profile', () => {
   clickByText('.io-cta', 'Keep going');                       // 4 interlude -> confident
   clickByText('.io-option', 'Math'); flush();                 // 5 confident = math
   clickByText('.io-option', 'Reading and Writing'); flush();  // 6 worry = rw
+  clickByText('.io-option', 'Algebra'); flush();              // 7 math areas: toggle
+  clickByText('.io-option', 'Geometry and trig'); flush();    //   second toggle
+  clickByText('.io-cta', 'Continue');                         //   confirm set
+  clickByText('.io-cta', 'Not sure yet, skip');               // 8 rw areas skipped
+  clickByText('.io-chip', '4 days'); flush();                 // 9 study days
   const year = String(new Date().getFullYear() + 2);
-  clickByText('.io-chip', year); flush();                     // 7 grad year
-  clickByText('.io-cta', 'Take me to my check-in');           // 8 finish
+  clickByText('.io-chip', year); flush();                     // 10 grad year
+  clickByText('.io-cta', 'Take me to my check-in');           // 11 finish
 
   expect(onComplete).toHaveBeenCalledTimes(1);
   const payload = onComplete.mock.calls[0][0];
@@ -106,6 +111,9 @@ test('walks to the end and reports the collected profile', () => {
   expect(payload.targetScore).toBe(1450);
   expect(payload.confidentArea).toBe('math');
   expect(payload.worryArea).toBe('rw');
+  expect(payload.weakMathAreas).toEqual(['algebra', 'geometry']);
+  expect(payload.weakRWAreas).toBeUndefined();      // skipped
+  expect(payload.studyDaysPerWeek).toBe(4);
   expect(payload.gradYear).toBe(new Date().getFullYear() + 2);
   expect(payload.testDate).toBeUndefined();         // skipped
   expect(payload.currentScore).toBeUndefined();     // skipped
@@ -121,6 +129,9 @@ test('every step renders emoji-free', () => {
     () => clickByText('.io-cta', 'Keep going'),
     () => clickByText('.io-option', 'Math'),
     () => clickByText('.io-option', 'Reading and Writing'),
+    () => clickByText('.io-cta', 'Not sure yet, skip'),
+    () => clickByText('.io-cta', 'Not sure yet, skip'),
+    () => clickByText('.io-chip', '5 days'),
     () => clickByText('.io-chip', String(new Date().getFullYear())),
   ];
   expect(container.textContent).not.toMatch(EMOJI_RE);

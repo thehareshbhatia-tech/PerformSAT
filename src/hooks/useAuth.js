@@ -465,6 +465,7 @@ export const useAuth = () => {
     const {
       feeling, testDate, currentScore, targetScore,
       confidentArea, worryArea, gradYear,
+      weakMathAreas, weakRWAreas, studyDaysPerWeek,
     } = payload;
 
     const update = { innerOnboardingCompletedAt: new Date().toISOString() };
@@ -482,6 +483,10 @@ export const useAuth = () => {
     if (typeof confidentArea === 'string' && confidentArea) update.confidentArea = confidentArea;
     if (typeof worryArea === 'string' && worryArea) update.worryArea = worryArea;
     if (Number.isFinite(gradYear)) update.gradYear = gradYear;
+    // Detailed self-report — the starter plan's inputs (see starterPlanService).
+    if (Array.isArray(weakMathAreas) && weakMathAreas.length) update.weakMathAreas = weakMathAreas;
+    if (Array.isArray(weakRWAreas) && weakRWAreas.length) update.weakRWAreas = weakRWAreas;
+    if (Number.isFinite(studyDaysPerWeek)) update.studyDaysPerWeek = studyDaysPerWeek;
 
     try {
       await setDoc(doc(db, 'users', user.uid), update, { merge: true });
