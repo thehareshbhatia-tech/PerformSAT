@@ -969,9 +969,16 @@ const PerformSAT = () => {
     setView('dashboard');
   };
 
+  // Leaving mid-flow saves NOTHING: no profile stamp, no starter plan — the
+  // flow simply dismisses for this session and re-offers on the next one.
+  const handleInnerOnboardingExit = () => {
+    setInnerOnboardingActive(false);
+    setView('dashboard');
+  };
+
   const renderInnerOnboarding = () => (
     <React.Suspense fallback={<div style={{ minHeight: '100vh', background: '#F6F4EF' }} />}>
-      <InnerOnboarding user={user} onComplete={handleInnerOnboardingFinished} />
+      <InnerOnboarding user={user} onComplete={handleInnerOnboardingFinished} onExit={handleInnerOnboardingExit} />
     </React.Suspense>
   );
 

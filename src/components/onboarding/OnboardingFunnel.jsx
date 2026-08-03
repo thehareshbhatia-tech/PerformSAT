@@ -25,7 +25,7 @@ import './OnboardingFunnel.css';
  * into four labeled chapters, three product-truth interstitials with
  * animated visuals, a goal slider, a navy plan-assembly interlude, a
  * personalized path summary, then the account form. Answers are staged in
- * localStorage until signup hands them to buildSignupUserDoc via
+ * sessionStorage until signup hands them to buildSignupUserDoc via
  * additionalInfo.funnelProfile.
  *
  * @param {Function} signup - useAuth signup(email, password, firstName, additionalInfo)
@@ -38,9 +38,12 @@ const QUESTION_BY_ID = Object.fromEntries(FUNNEL_QUESTIONS.map((q) => [q.id, q])
 const BUILD_ROW_MS = 650; // one interlude row checks in per beat
 const BUILD_EXIT_MS = 900; // hold after the last row before the reveal
 
+// sessionStorage on purpose: an accidental refresh mid-quiz resumes, but
+// leaving the site discards every answer — abandoning the funnel saves
+// NOTHING (founder decision 2026-08-03; was localStorage cross-visit resume).
 const readSavedState = () => {
   try {
-    const raw = window.localStorage.getItem(FUNNEL_STORAGE_KEY);
+    const raw = window.sessionStorage.getItem(FUNNEL_STORAGE_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw);
     if (parsed?.version !== FUNNEL_STORAGE_VERSION) return null;
@@ -52,7 +55,7 @@ const readSavedState = () => {
 
 const writeSavedState = (state) => {
   try {
-    window.localStorage.setItem(FUNNEL_STORAGE_KEY, JSON.stringify(state));
+    window.sessionStorage.setItem(FUNNEL_STORAGE_KEY, JSON.stringify(state));
   } catch {
     /* storage unavailable (private mode) — the funnel still works in-memory */
   }
@@ -60,7 +63,7 @@ const writeSavedState = (state) => {
 
 const clearSavedState = () => {
   try {
-    window.localStorage.removeItem(FUNNEL_STORAGE_KEY);
+    window.sessionStorage.removeItem(FUNNEL_STORAGE_KEY);
   } catch {
     /* ignore */
   }
@@ -701,6 +704,15 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
             );
           })}
         </div>
+        {!onBuildScreen && (
+          <button
+            type="button"
+            className="of-exit"
+            onClick={() => { clearSavedState(); onExit(); }}
+          >
+            Exit
+          </button>
+        )}
         <div className="of-topbar-brand" aria-hidden="true">
           <Wordmark size="sm" />
         </div>

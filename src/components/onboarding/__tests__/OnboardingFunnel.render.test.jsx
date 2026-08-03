@@ -4,7 +4,7 @@
  * No RTL in this repo — mount with react-dom/client + act (the
  * StudyPlanDashboard.render.test.jsx convention). Covers: the name step
  * opens the flow, tapping an option advances (fake timers — the tap
- * animation delay), state persists to localStorage for reload-resume,
+ * animation delay), state persists to sessionStorage for same-visit reload-resume,
  * the build interlude auto-advances to the path reveal, every step
  * renders emoji-free, and the signup step hands buildFunnelProfile
  * output (+ the staged name) to the signup callback then clears staging.
@@ -44,7 +44,7 @@ const mount = (props = {}) => {
 };
 
 const seedStep = (stepIndex, extra = {}) => {
-  window.localStorage.setItem(
+  window.sessionStorage.setItem(
     FUNNEL_STORAGE_KEY,
     JSON.stringify({ version: FUNNEL_STORAGE_VERSION, stepIndex, answers: {}, name: '', goal: 1400, ...extra })
   );
@@ -60,7 +60,7 @@ const setInput = (input, value) => {
 
 beforeEach(() => {
   jest.useFakeTimers();
-  window.localStorage.clear();
+  window.sessionStorage.clear();
   window.scrollTo = jest.fn();
   container = document.createElement('div');
   document.body.appendChild(container);
@@ -103,7 +103,7 @@ test('tapping an option advances to the next question and stages the answer', ()
     jest.advanceTimersByTime(500);
   });
   expect(container.textContent).toContain(FUNNEL_QUESTIONS[1].title);
-  const staged = JSON.parse(window.localStorage.getItem(FUNNEL_STORAGE_KEY));
+  const staged = JSON.parse(window.sessionStorage.getItem(FUNNEL_STORAGE_KEY));
   expect(staged.stepIndex).toBe(2);
   expect(staged.answers.timing).toBe(FUNNEL_QUESTIONS[0].options[0].value);
 });
@@ -201,7 +201,7 @@ test('signup step pre-fills the staged name and submits the funnel profile, clea
   expect(additionalInfo.funnelProfile.goalScale).toBe('composite');
   expect(additionalInfo.funnelProfile.onboardingProfile.answers).toEqual({ timing: '2to6m', baseline: 'sat' });
   // Staged state is consumed — a later visitor starts fresh.
-  expect(window.localStorage.getItem(FUNNEL_STORAGE_KEY)).toBeNull();
+  expect(window.sessionStorage.getItem(FUNNEL_STORAGE_KEY)).toBeNull();
 });
 
 test('signup without consent shows the guard error and never calls signup', async () => {

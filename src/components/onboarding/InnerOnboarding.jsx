@@ -130,7 +130,7 @@ const MultiOptionList = ({ options, selected, onToggle }) => (
   </div>
 );
 
-const InnerOnboarding = ({ user, onComplete }) => {
+const InnerOnboarding = ({ user, onComplete, onExit }) => {
   const firstName = (user?.firstName || '').trim();
 
   const initialFeeling = user?.feeling || user?.onboardingProfile?.answers?.feeling || null;
@@ -575,6 +575,11 @@ const InnerOnboarding = ({ user, onComplete }) => {
           {/* Floor at 6% so the first screen shows a started bar, not an empty gray track. */}
           <div className="io-progress-fill" style={{ width: `${Math.max(progress, 6)}%` }} />
         </div>
+        {onExit && (
+          <button type="button" className="io-leave" onClick={onExit}>
+            Do this later
+          </button>
+        )}
         <div className="io-topbar-brand" aria-hidden="true"><Wordmark fontSize={20} /></div>
       </div>
       <div className="io-content">{renderStep()}</div>

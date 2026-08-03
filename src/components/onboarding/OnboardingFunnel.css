@@ -86,6 +86,19 @@
   background: rgba(20, 22, 28, 0.05);
 }
 
+/* Explicit way out, mid-flow: leaves and discards the staged answers. */
+.of-exit {
+  border: none;
+  background: none;
+  padding: 6px 10px;
+  font: 600 13px/1 var(--of-body-font);
+  color: var(--of-ink-faint);
+  border-radius: 9px;
+  cursor: pointer;
+}
+.of-exit:hover { color: var(--of-ink); background: rgba(20, 22, 28, 0.05); }
+.is-navy .of-exit { color: rgba(246, 244, 239, 0.6); }
+
 /* Chapter-segmented progress: four tracks, tri-color + navy fills. */
 .of-progress {
   flex: 1;
