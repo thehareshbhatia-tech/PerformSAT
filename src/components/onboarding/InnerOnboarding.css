@@ -123,7 +123,7 @@
 
 .io-title {
   margin: 14px 0 10px;
-  font: 700 clamp(27px, 4.2vw, 38px)/1.14 var(--io-display);
+  font: 700 clamp(28px, 4.4vw, 40px)/1.14 var(--io-display);
   letter-spacing: -0.025em;
   text-align: center;
   text-wrap: balance;
@@ -346,7 +346,7 @@
 .io-goal-readout {
   margin: 18px 0 8px;
   text-align: center;
-  font: 700 64px/1 var(--io-display);
+  font: 700 72px/1 var(--io-display);
   letter-spacing: -0.02em;
   color: var(--io-orange);
   font-variant-numeric: tabular-nums;

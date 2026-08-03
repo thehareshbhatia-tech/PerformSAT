@@ -443,7 +443,7 @@
 
 .of-cta:hover { background: var(--of-orange-hover); }
 .of-cta:active { transform: translateY(1px); }
-.of-cta:disabled { opacity: 0.65; cursor: default; }
+.of-cta:disabled { opacity: 0.55; cursor: default; box-shadow: none; }
 
 .of-fineprint {
   margin: 14px 0 0;
