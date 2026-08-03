@@ -74,6 +74,7 @@ const OptionList = ({ options, selected, onSelect }) => (
           key={o.value}
           type="button"
           className={`io-option${isSel ? ' is-selected' : ''}`}
+          aria-pressed={isSel}
           onClick={() => onSelect(o.value)}
         >
           <span>{o.label}</span>
@@ -204,6 +205,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
                       key={sat.date}
                       type="button"
                       className={`io-chip${testDate === sat.date ? ' is-selected' : ''}`}
+                      aria-pressed={testDate === sat.date}
                       onClick={() => setTestDate(sat.date)}
                     >
                       {formatSatChipLabel(sat.date)}
@@ -244,11 +246,11 @@ const InnerOnboarding = ({ user, onComplete }) => {
             <h1 className="io-title">Have you taken the SAT or a full practice test?</h1>
             <p className="io-body">Even a rough number helps us aim your plan. No score yet is completely fine.</p>
 
-            <div className="io-toggle" role="tablist" aria-label="Score type">
+            <div className="io-toggle" role="radiogroup" aria-label="Score type">
               <button
                 type="button"
-                role="tab"
-                aria-selected={scoreMode === 'total'}
+                role="radio"
+                aria-checked={scoreMode === 'total'}
                 className={`io-toggle-btn${scoreMode === 'total' ? ' is-active' : ''}`}
                 onClick={() => setScoreMode('total')}
               >
@@ -256,8 +258,8 @@ const InnerOnboarding = ({ user, onComplete }) => {
               </button>
               <button
                 type="button"
-                role="tab"
-                aria-selected={scoreMode === 'section'}
+                role="radio"
+                aria-checked={scoreMode === 'section'}
                 className={`io-toggle-btn${scoreMode === 'section' ? ' is-active' : ''}`}
                 onClick={() => setScoreMode('section')}
               >
@@ -417,6 +419,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
                   key={y}
                   type="button"
                   className={`io-chip${gradYear === y ? ' is-selected' : ''}`}
+                  aria-pressed={gradYear === y}
                   onClick={() => pick(setGradYear)(y)}
                 >
                   {y}
