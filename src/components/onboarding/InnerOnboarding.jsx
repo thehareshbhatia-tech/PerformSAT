@@ -371,8 +371,8 @@ const InnerOnboarding = ({ user, onComplete }) => {
                 <div className="io-recap-row"><dt>Starting point</dt><dd>{currentScore != null ? currentScore : "We'll find it together"}</dd></div>
               </dl>
             </div>
-            <h1 className="io-title">That's the picture{firstName ? `, ${firstName}` : ''}. Now let's build your plan.</h1>
-            <p className="io-body">A couple more details and your plan is ready.</p>
+            <h1 className="io-title">That's the picture{firstName ? `, ${firstName}` : ''}. A few more details to sharpen it.</h1>
+            <p className="io-body">Your strengths and trouble spots decide where your plan starts.</p>
             <button type="button" className="io-cta" onClick={goNext}>Keep going</button>
           </div>
         );
@@ -433,13 +433,13 @@ const InnerOnboarding = ({ user, onComplete }) => {
           <div className="io-step io-step--center" key="finish">
             <div className="io-finish-mark"><TargetIcon width={40} height={40} aria-hidden="true" /></div>
             <h1 className="io-title">
-              {firstName ? `Ready to see your plan, ${firstName}?` : 'Ready to see your plan?'}
+              {firstName ? `You're set, ${firstName}.` : "You're set."}
             </h1>
             <p className="io-body">
               Next up: a quick 15-minute check-in on your home screen. It's how SEVA builds a study plan that's actually yours.
             </p>
             <button type="button" className="io-cta io-cta--lg" onClick={finish} disabled={submitting}>
-              {submitting ? 'Setting things up…' : 'Show me my plan'}
+              {submitting ? 'Setting things up…' : 'Take me to my check-in'}
             </button>
           </div>
         );
