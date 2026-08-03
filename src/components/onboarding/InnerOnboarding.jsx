@@ -62,6 +62,30 @@ const SECTION_OPTIONS = [
   { value: 'strategy', label: 'Test-taking strategy' },
 ];
 
+// Module scope so its identity is stable across renders — defined inline it
+// remounted the whole option subtree on every state change, cutting the
+// is-selected transition short and dropping keyboard focus to <body>.
+const OptionList = ({ options, selected, onSelect }) => (
+  <div className="io-options">
+    {options.map((o) => {
+      const isSel = selected === o.value;
+      return (
+        <button
+          key={o.value}
+          type="button"
+          className={`io-option${isSel ? ' is-selected' : ''}`}
+          onClick={() => onSelect(o.value)}
+        >
+          <span>{o.label}</span>
+          {isSel && (
+            <CheckIcon className="io-option-check" width={20} height={20} aria-hidden="true" />
+          )}
+        </button>
+      );
+    })}
+  </div>
+);
+
 const InnerOnboarding = ({ user, onComplete }) => {
   const firstName = (user?.firstName || '').trim();
 
@@ -143,28 +167,6 @@ const InnerOnboarding = ({ user, onComplete }) => {
   };
 
   const progress = Math.round((step / (TOTAL_STEPS - 1)) * 100);
-
-  // ── shared bits ──────────────────────────────────────────────────────────
-  const OptionList = ({ options, selected, onSelect }) => (
-    <div className="io-options">
-      {options.map((o) => {
-        const isSel = selected === o.value;
-        return (
-          <button
-            key={o.value}
-            type="button"
-            className={`io-option${isSel ? ' is-selected' : ''}`}
-            onClick={() => onSelect(o.value)}
-          >
-            <span>{o.label}</span>
-            {isSel && (
-              <CheckIcon className="io-option-check" width={20} height={20} aria-hidden="true" />
-            )}
-          </button>
-        );
-      })}
-    </div>
-  );
 
   const renderStep = () => {
     switch (step) {
