@@ -458,8 +458,14 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
         <li className="of-path-step">
           <span className="of-path-num of-path-num--orange">01</span>
           <div>
-            <div className="of-path-head">Create your free account</div>
-            <div className="of-path-sub">Everything you just told us is saved into your plan.</div>
+            <div className="of-path-head">
+              {billingLive ? 'Create your account and start your free trial' : 'Create your free account'}
+            </div>
+            <div className="of-path-sub">
+              {billingLive
+                ? 'Everything you just told us is saved into your plan. $0 today; 3 days free.'
+                : 'Everything you just told us is saved into your plan.'}
+            </div>
           </div>
         </li>
         <li className="of-path-step">

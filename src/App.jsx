@@ -839,6 +839,13 @@ const PerformSAT = () => {
   useEffect(() => {
     if (innerOnboardingActive !== null) return; // decided already this session
     if (!ffInnerOnboarding || !user || !progressHydrated) { return; }
+    // Trial-first ordering (billing live): the card-up-front wall is the step
+    // right after signup, and inner onboarding runs INSIDE the active trial.
+    // While the account has no access yet (doc still seeding, promo still
+    // redeeming, or the wall is owed), defer the decision — deciding true here
+    // would paint onboarding first and then yank the student to the wall
+    // mid-flow. hasAccess flips (trial/comped/grandfathered) → decide then.
+    if (entitlement.flagEnabled && !entitlement.hasAccess) { return; }
     // Dev-only QA escape: ?forceInnerOnboarding=1 re-runs the flow for any
     // account (completion still stamps, so it won't loop on real accounts).
     const forced = process.env.NODE_ENV === 'development' &&
@@ -851,7 +858,7 @@ const PerformSAT = () => {
       !user.onboardingSkippedAt &&
       !hasTests && !studyPlan && !hasResume;
     setInnerOnboardingActive(forced || eligible === true);
-  }, [innerOnboardingActive, ffInnerOnboarding, user, progressHydrated, practiceTestResults, inProgressTests, studyPlan]);
+  }, [innerOnboardingActive, ffInnerOnboarding, user, progressHydrated, practiceTestResults, inProgressTests, studyPlan, entitlement.flagEnabled, entitlement.hasAccess]);
 
   const handleOnRampSkip = () => {
     setOnRampActive(false);
