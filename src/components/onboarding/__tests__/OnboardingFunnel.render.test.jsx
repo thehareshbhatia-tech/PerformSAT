@@ -75,7 +75,7 @@ afterEach(() => {
 
 test('opens on the name step and personalizes the continue button', () => {
   mount();
-  expect(container.textContent).toContain('what should we call you?');
+  expect(container.textContent).toContain('What should we call you?');
   act(() => {
     setInput(container.querySelector('.of-name-input'), 'Maya');
   });
