@@ -848,3 +848,18 @@
   .of-build-arc-sweep { stroke-dashoffset: 0; }
   .onboarding-funnel { transition: none; }
 }
+
+/* Crafted keyboard focus: orange ring on white surfaces, ink ring on the
+   orange CTA (an orange ring hugging an orange button has no affordance). */
+.of-option:focus-visible,
+.of-back:focus-visible,
+.of-switch:focus-visible,
+.of-chip:focus-visible {
+  outline: 2px solid var(--of-orange);
+  outline-offset: 3px;
+}
+.of-cta:focus-visible {
+  outline: 2px solid var(--of-ink);
+  outline-offset: 3px;
+}
+

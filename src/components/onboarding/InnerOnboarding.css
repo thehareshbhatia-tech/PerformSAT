@@ -484,6 +484,20 @@
 
 /* ── Reduced motion ───────────────────────────────────────────────── */
 
+/* Crafted keyboard focus, mirroring the funnel. */
+.io-option:focus-visible,
+.io-chip:focus-visible,
+.io-toggle-btn:focus-visible,
+.io-back:focus-visible,
+.io-skip:focus-visible {
+  outline: 2px solid var(--io-orange);
+  outline-offset: 3px;
+}
+.io-cta:focus-visible {
+  outline: 2px solid var(--io-ink);
+  outline-offset: 3px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .io-step, .io-goal-seg, .io-goal-marker, .io-goal-gain, .io-progress-fill { animation: none !important; transition: none !important; }
 }
