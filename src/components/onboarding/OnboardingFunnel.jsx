@@ -420,7 +420,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
               <linearGradient id="of-build-grad" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stopColor="#EA580C" />
                 <stop offset="0.55" stopColor="#7C5CC7" />
-                <stop offset="1" stopColor="#8FBE3F" />
+                <stop offset="1" stopColor="#C6EE4E" />
               </linearGradient>
             </defs>
           </svg>
