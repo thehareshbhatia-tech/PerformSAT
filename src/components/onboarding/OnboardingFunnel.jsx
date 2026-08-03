@@ -109,7 +109,7 @@ const TrajectoryVisual = () => (
       <text x="16" y="94" className="of-trajectory-tick">check-in</text>
       <text x="304" y="34" className="of-trajectory-tick" textAnchor="end">your target</text>
     </svg>
-    <div className="of-visual-caption">Updated after every practice session — so you always know where you stand.</div>
+    <div className="of-visual-caption">Updated after every practice session, so you always know where you stand.</div>
   </div>
 );
 
@@ -297,9 +297,9 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
   const renderName = () => (
     <div className="of-step" key="name">
       <div className="of-eyebrow of-eyebrow--orange">Welcome</div>
-      <h1 className="of-title">First — what should we call you?</h1>
+      <h1 className="of-title">What should we call you?</h1>
       <p className="of-body">
-        Your plan is going to be personal — it should know your name.
+        Your plan is going to be personal, so it should know your name.
         Ten questions, about a minute.
       </p>
       <form
@@ -374,7 +374,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
     <div className="of-step" key="goal">
       {renderEyebrow(3)}
       <h1 className="of-title">Set your target score.</h1>
-      <p className="of-body">You can change this anytime — your plan bends around it.</p>
+      <p className="of-body">You can change this anytime. Your plan bends around it.</p>
       <div className="of-goal-readout" aria-live="polite">{goal}</div>
       <div className="of-goal-slider">
         <input
@@ -494,7 +494,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
       <p className="of-fineprint">
         {billingLive
           ? "Free for 3 days, then $85/month or $349/year. Cancel anytime before day 3 and you won't be charged."
-          : 'Free during early access — the full product, everything included.'}
+          : 'Free during early access: the full product, everything included.'}
       </p>
     </div>
   );
@@ -502,7 +502,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
   const renderSignup = () => (
     <div className="of-step" key="signup">
       <h1 className="of-title">
-        {trimmedName ? `Last step, ${trimmedName} — save your plan.` : 'Last step — save your plan.'}
+        {trimmedName ? `Last step, ${trimmedName}. Save your plan.` : 'Last step. Save your plan.'}
       </h1>
       <p className="of-body">
         Everything you just set up — your target, your answers, your pacing —
@@ -560,7 +560,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
               aria-label="Promo code"
             />
             <span className="of-field-hint">
-              Have a code? You&rsquo;ll get full access free — no card required.
+              Have a code? You&rsquo;ll get full access free, no card required.
             </span>
           </label>
         )}

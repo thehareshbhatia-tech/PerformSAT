@@ -66,7 +66,7 @@ export const FUNNEL_QUESTIONS = [
   {
     id: 'feeling',
     chapter: 0,
-    title: 'Honestly — how do you feel about this test?',
+    title: 'Honestly, how do you feel about this test?',
     options: [
       { value: 'confident', label: 'Confident. I just need reps' },
       { value: 'fine', label: 'Mostly fine, a little on edge' },
@@ -149,7 +149,7 @@ export const FUNNEL_QUESTIONS = [
     chapter: 3,
     title: 'Could you give this 20 focused minutes a day?',
     options: [
-      { value: 'allin', label: "I'm in — let's do this" },
+      { value: 'allin', label: "I'm in. Let's do this" },
       { value: 'try', label: "I'll do my best" },
     ],
   },
@@ -200,7 +200,7 @@ export function reassureHeading(feeling, name = '') {
       return n ? `${n}, that's a solid place to start from.` : "That's a solid place to start from.";
     case 'stressed':
     case 'heavy':
-      return n ? `That feeling is common, ${n} — and fixable.` : 'That feeling is common — and fixable.';
+      return n ? `That feeling is common, ${n}. And fixable.` : 'That feeling is common. And fixable.';
     default:
       return 'Wherever you start, the path is the same.';
   }
@@ -292,7 +292,7 @@ export function chapterFills(stepIndex) {
 export function goalContextLine(goal) {
   if (goal >= 1500) return 'Competitive for the most selective schools in the country';
   if (goal >= 1400) return 'Strong for highly competitive universities';
-  if (goal >= 1300) return 'Above the national average — solid for most flagships';
+  if (goal >= 1300) return 'Above the national average, solid for most flagships';
   if (goal >= 1150) return 'A real, reachable improvement target';
   return 'Every point from here is momentum';
 }

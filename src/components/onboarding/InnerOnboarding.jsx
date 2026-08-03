@@ -180,7 +180,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
             <h1 className="io-title">
               {firstName ? `${firstName}, where's your head at with the SAT right now?` : "Where's your head at with the SAT right now?"}
             </h1>
-            <p className="io-body">No wrong answer — it just helps us set the tone.</p>
+            <p className="io-body">No wrong answer. It just helps us set the tone.</p>
             <OptionList options={FEELING_OPTIONS} selected={feeling} onSelect={pick(setFeeling)} />
           </div>
         );
@@ -193,7 +193,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
               <span className="io-eyebrow-sep" />Your timeline
             </span>
             <h1 className="io-title">Have you locked in a test date yet?</h1>
-            <p className="io-body">Nothing's final here — you can change it whenever.</p>
+            <p className="io-body">Nothing's final here. You can change it whenever.</p>
 
             {upcomingSatDates.length > 0 && (
               <>
@@ -350,7 +350,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
 
             <button type="button" className="io-cta" onClick={goNext}>Continue</button>
             <button type="button" className="io-skip" onClick={() => { setGoal(DEFAULT_GOAL); goNext(); }}>
-              I'm not sure yet — use a starting target <ArrowRightIcon width={16} height={16} aria-hidden="true" />
+              Not sure yet? Use a starting target <ArrowRightIcon width={16} height={16} aria-hidden="true" />
             </button>
           </div>
         );
@@ -409,7 +409,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
             <span className="io-eyebrow io-eyebrow--orange">
               <span className="io-eyebrow-sep" />Almost done
             </span>
-            <h1 className="io-title">Last one — when do you graduate?</h1>
+            <h1 className="io-title">Last one: when do you graduate?</h1>
             <p className="io-body">It helps us pace your plan to your timeline.</p>
             <div className="io-chip-grid io-chip-grid--years">
               {gradYears.map((y) => (
