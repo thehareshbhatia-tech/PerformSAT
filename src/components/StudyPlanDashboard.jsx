@@ -254,7 +254,42 @@ const ScoreTrajectory = ({ artifact }) => {
 const localDateKey = (d) =>
   `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 
-const StudyPlanDashboard = ({
+// Thin gate: the loaded dashboard below calls 40+ hooks, so it must never
+// render without a plan. Switching between the empty state and the loaded
+// component here (instead of an early return above the hooks) keeps every
+// render of each component calling the same hooks — when studyPlan arrives
+// on a mounted instance, React swaps children instead of panicking with
+// "Rendered more hooks than during the previous render."
+const StudyPlanDashboard = (props) => {
+  const { studyPlan, user, onStartPracticeTest } = props;
+  if (!studyPlan || !studyPlan.weeks || studyPlan.weeks.length === 0) {
+    return (
+      <div className="study-plan-dashboard">
+        <div className="sp-empty-state">
+          <div className="sp-empty-icon">
+            <ClipboardIcon size={40} />
+          </div>
+          <div className="sp-empty-title">
+            No Study Plan Yet
+          </div>
+          <div className="sp-empty-desc">
+            {user?.firstName
+              ? `${user.firstName}, here's where your plan will live. One practice test builds it — which skills cost you points, where you rush, and what to fix first.`
+              : 'Take one practice test. Your plan gets built from every answer — which skills cost you points, where you rush, and what to fix first.'}
+          </div>
+          {onStartPracticeTest && (
+            <button onClick={onStartPracticeTest} className="sp-empty-btn">
+              Take a Practice Test
+            </button>
+          )}
+        </div>
+      </div>
+    );
+  }
+  return <StudyPlanLoaded {...props} />;
+};
+
+const StudyPlanLoaded = ({
   variant = 'default',
   studyPlan,
   studyPlanArtifact,
@@ -282,39 +317,7 @@ const StudyPlanDashboard = ({
   answeredQuestionIds = [],
   predictionLog = null,
 }) => {
-  // ── Empty state — return BEFORE any hooks ─────────────────────────────
-  // Rules of Hooks: hooks must be called in the same order every render.
-  // The component has many hooks; if studyPlan transitions from undefined
-  // (loading from Firestore) to defined (loaded), and we ran some hooks
-  // before this early return, the second render would call MORE hooks
-  // and React panics with "Rendered more hooks than during the previous
-  // render." Returning early before any hook keeps the order consistent.
-  if (!studyPlan || !studyPlan.weeks || studyPlan.weeks.length === 0) {
-    return (
-      <div className="study-plan-dashboard">
-        <div className="sp-empty-state">
-          <div className="sp-empty-icon">
-            <ClipboardIcon size={40} />
-          </div>
-          <div className="sp-empty-title">
-            No Study Plan Yet
-          </div>
-          <div className="sp-empty-desc">
-            {user?.firstName
-              ? `${user.firstName}, here's where your plan will live. One practice test builds it — which skills cost you points, where you rush, and what to fix first.`
-              : 'Take one practice test. Your plan gets built from every answer — which skills cost you points, where you rush, and what to fix first.'}
-          </div>
-          {onStartPracticeTest && (
-            <button onClick={onStartPracticeTest} className="sp-empty-btn">
-              Take a Practice Test
-            </button>
-          )}
-        </div>
-      </div>
-    );
-  }
-
-  // ── Hooks (all below the empty-state early return) ──────────────────
+  // ── Hooks — studyPlan is guaranteed non-empty by the gate above ──────
   const [deltaDismissed, setDeltaDismissed] = useState(() =>
     !!studyPlanMeta?.artifactId && !!localStorage.getItem(`dismissedDelta:${studyPlanMeta.artifactId}`)
   );
