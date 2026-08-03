@@ -293,7 +293,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
 
   const renderName = () => (
     <div className="of-step" key="name">
-      <div className="of-eyebrow of-eyebrow--orange">Welcome</div>
+      <div className="of-eyebrow of-eyebrow--orange">Before we start</div>
       <h1 className="of-title">What should we call you?</h1>
       <p className="of-body">
         Your plan is going to be personal, so it should know your name.

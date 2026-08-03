@@ -176,7 +176,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
         return (
           <div className="io-step" key="feeling">
             <span className="io-eyebrow io-eyebrow--orange">
-              <span className="io-eyebrow-sep" />Getting started
+              Getting started
             </span>
             <h1 className="io-title">
               {firstName ? `${firstName}, where's your head at with the SAT right now?` : "Where's your head at with the SAT right now?"}
@@ -191,7 +191,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
         return (
           <div className="io-step" key="examDate">
             <span className="io-eyebrow io-eyebrow--orange">
-              <span className="io-eyebrow-sep" />Your timeline
+              Your timeline
             </span>
             <h1 className="io-title">Have you locked in a test date yet?</h1>
             <p className="io-body">Nothing's final here. You can change it whenever.</p>
@@ -241,7 +241,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
         return (
           <div className="io-step" key="currentScore">
             <span className="io-eyebrow io-eyebrow--purple">
-              <span className="io-eyebrow-sep" />Where you're starting
+              Where you're starting
             </span>
             <h1 className="io-title">Have you taken the SAT or a full practice test?</h1>
             <p className="io-body">Even a rough number helps us aim your plan. No score yet is completely fine.</p>
@@ -318,7 +318,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
         return (
           <div className="io-step" key="goal">
             <span className="io-eyebrow io-eyebrow--lime">
-              <span className="io-eyebrow-sep" />Your target
+              Your target
             </span>
             <h1 className="io-title">What score are you aiming for?</h1>
             <p className="io-body">We pulled in the goal you set earlier. Adjust it if you'd like.</p>
@@ -384,7 +384,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
         return (
           <div className="io-step" key="confident">
             <span className="io-eyebrow io-eyebrow--lime">
-              <span className="io-eyebrow-sep" />Your strengths
+              Your strengths
             </span>
             <h1 className="io-title">What are you strongest at right now?</h1>
             <OptionList options={SECTION_OPTIONS} selected={confidentArea} onSelect={pick(setConfidentArea)} />
@@ -396,7 +396,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
         return (
           <div className="io-step" key="worry">
             <span className="io-eyebrow io-eyebrow--purple">
-              <span className="io-eyebrow-sep" />Your focus
+              Your focus
             </span>
             <h1 className="io-title">And what's tripping you up the most?</h1>
             <p className="io-body">This is where we'll spend the most time together.</p>
@@ -409,7 +409,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
         return (
           <div className="io-step" key="gradYear">
             <span className="io-eyebrow io-eyebrow--orange">
-              <span className="io-eyebrow-sep" />Almost done
+              Almost done
             </span>
             <h1 className="io-title">Last one: when do you graduate?</h1>
             <p className="io-body">It helps us pace your plan to your timeline.</p>

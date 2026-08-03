@@ -116,7 +116,6 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
-.io-eyebrow-sep { width: 14px; height: 1.5px; background: currentColor; opacity: 0.55; }
 .io-eyebrow--orange { color: var(--io-orange); }
 .io-eyebrow--purple { color: var(--io-purple); }
 .io-eyebrow--lime { color: var(--io-lime); }
