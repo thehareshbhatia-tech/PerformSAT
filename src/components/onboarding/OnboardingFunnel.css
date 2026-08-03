@@ -29,6 +29,9 @@
   --of-body-font: 'Hanken Grotesk', sans-serif;
   --of-shadow-card: 0 1px 2px rgba(20, 22, 28, 0.04), 0 5px 16px rgba(20, 22, 28, 0.05);
   --of-shadow-cta: 0 4px 14px rgba(234, 88, 12, 0.28);
+  --of-error-bg: #FDF1EE;
+  --of-error-line: #F3C8BC;
+  --of-error-ink: #A63D22;
 
   min-height: 100vh;
   background: var(--of-canvas);
@@ -787,9 +790,9 @@
 .of-consent a:hover { text-decoration: underline; }
 
 .of-error {
-  background: #FDF1EE;
-  border: 1px solid #F3C8BC;
-  color: #A63D22;
+  background: var(--of-error-bg);
+  border: 1px solid var(--of-error-line);
+  color: var(--of-error-ink);
   border-radius: 12px;
   padding: 12px 15px;
   font: 500 14px/1.45 var(--of-body-font);
