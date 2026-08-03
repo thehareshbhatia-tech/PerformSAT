@@ -308,7 +308,7 @@
 }
 
 .of-trajectory-tick {
-  font: 600 10px 'Hanken Grotesk', sans-serif;
+  font: 600 10px var(--of-body-font);
   fill: var(--of-ink-faint);
 }
 
@@ -753,10 +753,10 @@
   color: var(--of-ink-faint);
 }
 
-.of-promo-input {
+.of-field .of-promo-input {
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  font-weight: 600 !important;
+  font-weight: 600;
 }
 .of-promo-input::placeholder {
   text-transform: none;
