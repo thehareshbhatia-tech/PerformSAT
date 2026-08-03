@@ -463,7 +463,7 @@ const InnerOnboarding = ({ user, onComplete }) => {
           {/* Floor at 6% so the first screen shows a started bar, not an empty gray track. */}
           <div className="io-progress-fill" style={{ width: `${Math.max(progress, 6)}%` }} />
         </div>
-        <div className="io-topbar-brand"><Wordmark fontSize={20} /></div>
+        <div className="io-topbar-brand" aria-hidden="true"><Wordmark fontSize={20} /></div>
       </div>
       <div className="io-content">{renderStep()}</div>
     </div>

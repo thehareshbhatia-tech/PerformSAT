@@ -640,7 +640,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
           })}
         </div>
         <div className="of-topbar-brand" aria-hidden="true">
-          <Wordmark size="sm" tone={onBuildScreen ? 'light' : 'dark'} />
+          <Wordmark size="sm" />
         </div>
       </header>
       <main className="of-content">{content}</main>
