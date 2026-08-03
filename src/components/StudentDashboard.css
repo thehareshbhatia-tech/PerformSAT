@@ -1087,6 +1087,15 @@
 }
 .fr-cta:hover { background: var(--fr-orange-600); }
 .fr-cta:active { transform: translateY(1px); }
+
+/* Secondary hero action: resume the not-yet-finished inner onboarding. */
+.fr-cta--ghost {
+  background: transparent;
+  color: var(--fr-orange-600, #C2410C);
+  border: 1.5px solid currentColor;
+  box-shadow: none;
+}
+.fr-cta--ghost:hover { background: rgba(234, 88, 12, 0.08); }
 .fr-warmup {
   background: none;
   border: none;

@@ -976,6 +976,20 @@ const PerformSAT = () => {
     setView('dashboard');
   };
 
+  // True while the setup flow is still owed (same predicate the auto-launch
+  // uses). Surfaces the "Finish onboarding" hero button after a "Do this
+  // later" dismissal, so the flow is one click away instead of next-login.
+  const innerOnboardingPending = Boolean(
+    ffInnerOnboarding && user && progressHydrated &&
+    !user.innerOnboardingCompletedAt &&
+    !user.onboardingCompletedAt &&
+    !user.onboardingSkippedAt &&
+    Object.keys(practiceTestResults || {}).length === 0 &&
+    !studyPlan &&
+    !(inProgressTests && inProgressTests['mini-diagnostic'])
+  );
+  const handleResumeInnerOnboarding = () => setInnerOnboardingActive(true);
+
   const renderInnerOnboarding = () => (
     <React.Suspense fallback={<div style={{ minHeight: '100vh', background: '#F6F4EF' }} />}>
       <InnerOnboarding user={user} onComplete={handleInnerOnboardingFinished} onExit={handleInnerOnboardingExit} />
@@ -2754,6 +2768,8 @@ const PerformSAT = () => {
             onStartReview={startDailyReview}
             onStartPracticeTest={() => setView('practiceTests')}
             onStartDiagnostic={handleResumeOnRamp}
+            innerOnboardingPending={innerOnboardingPending}
+            onResumeInnerOnboarding={handleResumeInnerOnboarding}
             onStartPacing={startPacingDrill}
             onReviewTestWrong={handleReviewTestWrong}
             activeTab={dashboardTab}

@@ -82,6 +82,8 @@ const StudentDashboard = ({
   onStartReview,
   onStartPracticeTest,
   onStartDiagnostic,
+  innerOnboardingPending = false,
+  onResumeInnerOnboarding,
   onStartPacing,
   onOpenProfile,
   onRetrySimilar,
@@ -625,6 +627,11 @@ const StudentDashboard = ({
                 <button type="button" className="fr-cta" onClick={onStartDiagnostic}>
                   Take your diagnostic <ArrowRightIcon size={17} color="currentColor" />
                 </button>
+                {innerOnboardingPending && onResumeInnerOnboarding ? (
+                  <button type="button" className="fr-cta fr-cta--ghost" onClick={onResumeInnerOnboarding}>
+                    Finish onboarding
+                  </button>
+                ) : null}
                 {recommendations[0] ? (
                   <button type="button" className="fr-warmup" onClick={() => handleWarmUpClick(recommendations[0])}>
                     or warm up first: {recommendations[0].title.toLowerCase()}
