@@ -60,5 +60,15 @@
     "@firebase/rules-unit-testing": "^3.0.4",
     "@playwright/test": "^1.59.1",
     "firebase-admin": "^14.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "rules": {
+      "react-hooks/rules-of-hooks": "warn",
+      "import/first": "warn"
+    }
   }
 }

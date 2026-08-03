@@ -67,5 +67,10 @@
       "destination": "/?ref=:slug",
       "permanent": false
     }
-  ]
+  ],
+  "build": {
+    "env": {
+      "CI": "false"
+    }
+  }
 }
