@@ -627,14 +627,20 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
           aria-valuemax={100}
           aria-valuenow={progressPct}
         >
-          {fills.map((fill, i) => (
-            <div className="of-progress-seg" key={FUNNEL_CHAPTERS[i].id}>
-              <div
-                className={`of-progress-fill of-progress-fill--${FUNNEL_CHAPTERS[i].tone}`}
-                style={{ width: `${fill * 100}%` }}
-              />
-            </div>
-          ))}
+          {fills.map((fill, i) => {
+            // The chapter you're inside always shows a visible sliver — four
+            // empty gray bars read as loading skeletons, not progress.
+            const isActive = fill < 1 && fills.slice(0, i).every((f) => f >= 1);
+            const shown = isActive ? Math.max(fill, 0.12) : fill;
+            return (
+              <div className="of-progress-seg" key={FUNNEL_CHAPTERS[i].id}>
+                <div
+                  className={`of-progress-fill of-progress-fill--${FUNNEL_CHAPTERS[i].tone}`}
+                  style={{ width: `${shown * 100}%` }}
+                />
+              </div>
+            );
+          })}
         </div>
         <div className="of-topbar-brand" aria-hidden="true">
           <Wordmark size="sm" tone={onBuildScreen ? 'light' : 'dark'} />

@@ -456,8 +456,9 @@ const InnerOnboarding = ({ user, onComplete }) => {
         ) : (
           <span className="io-back io-back--ghost" aria-hidden="true" />
         )}
-        <div className="io-progress" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
-          <div className="io-progress-fill" style={{ width: `${progress}%` }} />
+        <div className="io-progress" role="progressbar" aria-label="Setup progress" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
+          {/* Floor at 6% so the first screen shows a started bar, not an empty gray track. */}
+          <div className="io-progress-fill" style={{ width: `${Math.max(progress, 6)}%` }} />
         </div>
         <div className="io-topbar-brand"><Wordmark fontSize={20} /></div>
       </div>
