@@ -725,6 +725,36 @@
   gap: 16px;
 }
 
+/* Settled plan (clicked on the landing pricing cards): confirm, don't re-ask. */
+.of-plan-chosen {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: linear-gradient(0deg, var(--of-orange-tint), var(--of-orange-tint)), var(--of-surface);
+  border: 1.5px solid var(--of-orange);
+  border-radius: 12px;
+  padding: 13px 16px;
+  margin-bottom: 6px;
+}
+.of-plan-chosen-label {
+  font: 600 14.5px/1.35 var(--of-body-font);
+  color: var(--of-ink);
+}
+.of-plan-change {
+  border: none;
+  background: none;
+  padding: 4px 6px;
+  font: 700 13px/1 var(--of-body-font);
+  color: var(--of-orange);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  border-radius: 6px;
+  flex: none;
+}
+.of-plan-change:hover { color: var(--of-orange-hover); }
+
 /* ── Plan choice (billing live): two selectable cards above the form ── */
 .of-plan-grid {
   display: grid;

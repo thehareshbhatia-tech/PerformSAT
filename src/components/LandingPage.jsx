@@ -352,12 +352,16 @@ const LandingPage = () => {
   };
 
   // Every signup CTA routes through the quiz funnel; only "Log in" opens
-  // the modal directly.
-  const openAuth = (loginMode = false) => {
+  // the modal directly. A plan-specific pricing CTA carries its plan into
+  // the funnel (the signup step then skips the plan question); generic CTAs
+  // pass none and the funnel asks.
+  const [funnelPlan, setFunnelPlan] = useState(null); // 'monthly' | 'annual' | null
+  const openAuth = (loginMode = false, plan = null) => {
     if (loginMode) {
       setShowFunnel(false);
       setShowAuth(true);
     } else {
+      setFunnelPlan(plan === 'monthly' || plan === 'annual' ? plan : null);
       setShowAuth(false);
       setShowFunnel(true);
     }
@@ -383,6 +387,7 @@ const LandingPage = () => {
         <OnboardingFunnel
           signup={signup}
           billingLive={billingLive}
+          presetPlan={funnelPlan}
           onExit={() => setShowFunnel(false)}
           onLogIn={() => openAuth(true)}
         />
@@ -817,14 +822,14 @@ const LandingPage = () => {
                 <h3 className="lp-plan-name">Monthly</h3>
                 <div className="lp-plan-amount"><span className="lp-plan-price">$85</span><span className="lp-plan-period">/month</span></div>
                 <p className="lp-plan-note">Billed monthly. Cancel anytime.</p>
-                <button type="button" className="lp-pricing-cta" onClick={() => openAuth(false)}>Start your 3-day free trial</button>
+                <button type="button" className="lp-pricing-cta" onClick={() => openAuth(false, 'monthly')}>Start your 3-day free trial</button>
               </div>
               <div className="lp-pricing-card is-featured">
                 <span className="lp-pricing-badge">Best value</span>
                 <h3 className="lp-plan-name">Annual</h3>
                 <div className="lp-plan-amount"><span className="lp-plan-price">$29</span><span className="lp-plan-period">/month</span></div>
                 <p className="lp-plan-savings">One payment of $349 per year — save $671 vs monthly</p>
-                <button type="button" className="lp-pricing-cta" onClick={() => openAuth(false)}>Start your 3-day free trial</button>
+                <button type="button" className="lp-pricing-cta" onClick={() => openAuth(false, 'annual')}>Start your 3-day free trial</button>
               </div>
             </div>
             <p className="lp-pricing-reassurance">Cancel anytime before day 3 and you won't be charged.</p>

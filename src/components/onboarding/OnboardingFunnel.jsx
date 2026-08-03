@@ -32,6 +32,8 @@ import './OnboardingFunnel.css';
  * @param {Function} onExit - leave the funnel back to the landing page
  * @param {Function} onLogIn - open the login modal (existing accounts)
  * @param {boolean} billingLive - billing flag; keeps pricing copy honest
+ * @param {('monthly'|'annual')} [presetPlan] - plan clicked on the landing
+ *   pricing cards; when present the signup step confirms it instead of asking
  */
 const QUESTION_BY_ID = Object.fromEntries(FUNNEL_QUESTIONS.map((q) => [q.id, q]));
 
@@ -164,7 +166,7 @@ const VISUALS = {
   tutor: TutorVisual,
 };
 
-const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
+const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) => {
   const saved = useMemo(readSavedState, []);
   const [stepIndex, setStepIndex] = useState(() => {
     const idx = saved?.stepIndex;
@@ -180,7 +182,11 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
   const [signupName, setSignupName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [plan, setPlan] = useState('annual'); // trial plan (billingLive only)
+  const presetIsValid = presetPlan === 'monthly' || presetPlan === 'annual';
+  const [plan, setPlan] = useState(presetIsValid ? presetPlan : 'annual'); // trial plan (billingLive only)
+  // A plan clicked on the landing pricing cards is settled — the signup step
+  // confirms it (with a Change escape) instead of asking again.
+  const [planLocked, setPlanLocked] = useState(presetIsValid);
   const [promoCode, setPromoCode] = useState('');
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -534,7 +540,19 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
         rides along. The check-in is waiting on the other side.
       </p>
       <form className="of-form" onSubmit={handleSignup}>
-        {billingLive && (
+        {billingLive && planLocked && (
+          <div className="of-plan-chosen">
+            <span className="of-plan-chosen-label">
+              {plan === 'annual'
+                ? 'Annual plan: $29/month, one $349 payment per year'
+                : 'Monthly plan: $85/month'}
+            </span>
+            <button type="button" className="of-plan-change" onClick={() => setPlanLocked(false)}>
+              Change
+            </button>
+          </div>
+        )}
+        {billingLive && !planLocked && (
           <div className="of-plan-grid" role="radiogroup" aria-label="Choose your plan">
             <button
               type="button"
@@ -555,8 +573,8 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
               onClick={() => setPlan('annual')}
             >
               <span className="of-plan-name">Annual</span>
-              <span className="of-plan-price">$349<span className="of-plan-per">/year</span></span>
-              <span className="of-plan-sub">Free for 3 days, then one payment. Save $671 vs monthly.</span>
+              <span className="of-plan-price">$29<span className="of-plan-per">/month</span></span>
+              <span className="of-plan-sub">One payment of $349 per year. Save $671 vs monthly.</span>
             </button>
           </div>
         )}
@@ -640,7 +658,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive }) => {
         {billingLive && !promoCode.trim() && (
           <p className="of-fineprint">
             {plan === 'annual'
-              ? "$0 today. Free for 3 days, then $349/year. Cancel anytime before day 3 and you won't be charged."
+              ? "$0 today. Free for 3 days, then one $349 payment per year ($29/month). Cancel anytime before day 3 and you won't be charged."
               : "$0 today. Free for 3 days, then $85/month. Cancel anytime before day 3 and you won't be charged."}
           </p>
         )}
