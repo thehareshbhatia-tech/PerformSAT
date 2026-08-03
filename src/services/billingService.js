@@ -6,6 +6,7 @@
  * through authFetch (Firebase ID token bearer auth).
  */
 import { authFetch } from './authFetch';
+import { getReferral } from './refTracker';
 import { makeLogger } from '../utils/log';
 
 const log = makeLogger('billing');
