@@ -6,7 +6,7 @@
  */
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { colors } from '../design/tokens';
+import { colors, radius } from '../design/tokens';
 import { MathText } from './MathText';
 import { isGoalAchieved, isCompositeScaleTarget, DEFAULT_GOAL_SCORE } from '../services/selectors/goalProgress';
 import { isBlankAttempt } from '../services/selectors/latestTestStats';
