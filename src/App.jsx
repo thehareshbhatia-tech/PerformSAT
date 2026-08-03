@@ -67,6 +67,24 @@ import { buildTestFlagEntries } from './services/selectors/flaggedQuestions';
 import { DEFAULT_GOAL_SCORE } from './services/selectors/goalProgress';
 import { logInfo, logWarn } from './utils/log';
 import { CB_MATH_SKILLS, CB_RW_SKILLS } from './data/questions/cbSkillTaxonomy';
+// Direct (non-lazy) import: the drill calculator must open instantly when the
+// student clicks "Calculator" in a practice shell. Lazy-loading it would suspend
+// the whole practice view (it renders inside the shared Suspense boundary) and
+// blank the screen on first open. The heavy Desmos library still loads lazily at
+// runtime via a script tag inside the component.
+import DesmosCalculator from './components/DesmosCalculator';
+// Pin the shared answer-choice + passage stylesheet order in the MAIN chunk.
+// ReviewItemCard used to establish this order as an eager import; now that it's
+// lazy (to keep MathText -> katex out of main), these two stylesheets would
+// otherwise be pulled into a shared async chunk where mini-css-extract can't
+// reconcile the order — MiniDiagnosticShell imports them passage-before-choices
+// while every other consumer imports choices-before-passage, which fails the
+// CI "Conflicting order" check. Loading them here (choices first, the majority
+// order) keeps them in main and resolves the conflict globally. CSS only —
+// zero JS weight, no katex. These three MUST stay last in the import block —
+// import execution order is what pins the stylesheet cascade.
+import './components/shared/AnswerChoiceList.css';
+import './components/rw/HighlightablePassage.css';
 
 // ── Code-split view components (Stage 1 of the bundle-split plan) ──────────
 // Each heavy view loads as its own webpack chunk on first render. The single
@@ -102,25 +120,6 @@ const PastTestReviewIndex = React.lazy(() => import('./components/PastTestReview
 const TestReviewDetail = React.lazy(() => import('./components/PastTestReview/TestReviewDetail'));
 const PaywallScreen = React.lazy(() => import('./components/billing/PaywallScreen'));
 const TrialBanner = React.lazy(() => import('./components/billing/TrialBanner'));
-
-// Direct (non-lazy) import: the drill calculator must open instantly when the
-// student clicks "Calculator" in a practice shell. Lazy-loading it would suspend
-// the whole practice view (it renders inside the shared Suspense boundary) and
-// blank the screen on first open. The heavy Desmos library still loads lazily at
-// runtime via a script tag inside the component.
-import DesmosCalculator from './components/DesmosCalculator';
-
-// Pin the shared answer-choice + passage stylesheet order in the MAIN chunk.
-// ReviewItemCard used to establish this order as an eager import; now that it's
-// lazy (to keep MathText -> katex out of main), these two stylesheets would
-// otherwise be pulled into a shared async chunk where mini-css-extract can't
-// reconcile the order — MiniDiagnosticShell imports them passage-before-choices
-// while every other consumer imports choices-before-passage, which fails the
-// CI "Conflicting order" check. Loading them here (choices first, the majority
-// order) keeps them in main and resolves the conflict globally. CSS only —
-// zero JS weight, no katex.
-import './components/shared/AnswerChoiceList.css';
-import './components/rw/HighlightablePassage.css';
 
 // Text-free skeleton shown while a lazy view chunk loads. Composed from the
 // shared Skeleton primitives. Renders INSIDE #main-content, so the takingTest

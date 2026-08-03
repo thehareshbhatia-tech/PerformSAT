@@ -20,6 +20,9 @@
  * "you scored 640."
  */
 
+import { convertToSATScore, scaleResponseVector, getItemParams, isAnswerCorrect, estimatePercentile as _estimatePercentile, inferDomain } from './scoring';
+import { isCompositeScaleTarget, DEFAULT_GOAL_SCORE } from './selectors/goalProgress';
+
 import { getSkillById, skillTaxonomy, getSkillsForDomain } from '../data/skillTaxonomy';
 // Pure-constant imports (Stage 2a bundle split): pulled from aliases.js /
 // taxonomy.js so this engine stays corpus-free — importing the bank/rwBank
@@ -135,8 +138,6 @@ const humanizeSkillId = (id) => {
   // Last resort: humanize the kebab-case ID
   return id.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 };
-import { convertToSATScore, scaleResponseVector, getItemParams, isAnswerCorrect, estimatePercentile as _estimatePercentile, inferDomain } from './scoring';
-import { isCompositeScaleTarget, DEFAULT_GOAL_SCORE } from './selectors/goalProgress';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONSTANTS

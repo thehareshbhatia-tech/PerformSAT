@@ -67,8 +67,20 @@
       "react-app/jest"
     ],
     "rules": {
-      "react-hooks/rules-of-hooks": "warn",
-      "import/first": "warn"
-    }
+      "react-hooks/rules-of-hooks": "error",
+      "import/first": "error"
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/**",
+          "**/*.test.js",
+          "**/*.test.jsx"
+        ],
+        "rules": {
+          "import/first": "off"
+        }
+      }
+    ]
   }
 }
