@@ -183,10 +183,19 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const presetIsValid = presetPlan === 'monthly' || presetPlan === 'annual';
-  const [plan, setPlan] = useState(presetIsValid ? presetPlan : 'annual'); // trial plan (billingLive only)
+  // Refresh-resume must not silently flip the plan back to the annual default:
+  // a fresh pricing-card click (presetPlan) wins, then the plan staged before
+  // the reload, then the default. Without the saved fallback, a student who
+  // picked Monthly and refreshed mid-signup would be quietly charged $349.
+  const savedPlanIsValid = saved?.plan === 'monthly' || saved?.plan === 'annual';
+  const [plan, setPlan] = useState(
+    presetIsValid ? presetPlan : (savedPlanIsValid ? saved.plan : 'annual'),
+  ); // trial plan (billingLive only)
   // A plan clicked on the landing pricing cards is settled — the signup step
   // confirms it (with a Change escape) instead of asking again.
-  const [planLocked, setPlanLocked] = useState(presetIsValid);
+  const [planLocked, setPlanLocked] = useState(
+    presetIsValid || (savedPlanIsValid && saved?.planLocked === true),
+  );
   const [promoCode, setPromoCode] = useState('');
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -197,8 +206,8 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
 
   // Stage progress for reload-resume; cleared on successful signup.
   useEffect(() => {
-    writeSavedState({ version: FUNNEL_STORAGE_VERSION, stepIndex, answers, name, goal });
-  }, [stepIndex, answers, name, goal]);
+    writeSavedState({ version: FUNNEL_STORAGE_VERSION, stepIndex, answers, name, goal, plan, planLocked });
+  }, [stepIndex, answers, name, goal, plan, planLocked]);
 
   // Each step is its own "screen" — put focus/scroll back at the top.
   useEffect(() => {
