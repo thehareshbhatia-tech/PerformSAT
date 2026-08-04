@@ -463,13 +463,37 @@ export const createCheckoutSession = onRequest(
           metadata: {uid: user.uid},
         });
         customerId = customer.id;
-        await entitlementRef(user.uid).set(
-          {
-            stripeCustomerId: customerId,
-            updatedAt: FieldValue.serverTimestamp(),
-          },
-          {merge: true},
-        );
+        // Transactional: this call races ensureEntitlement on first signup
+        // (the funnel fires both back-to-back). A bare merge-set landing first
+        // used to leave a doc with ONLY {stripeCustomerId, updatedAt} forever
+        // — ensureEntitlement then sees "exists" and never seeds status/uid.
+        // Seed the full no-access shape when the doc is missing; otherwise
+        // only stamp the customer id (never touch status — if ensure landed
+        // first and seeded comped/none, that state is owned elsewhere).
+        const stampRef = entitlementRef(user.uid);
+        await getFirestore().runTransaction(async (tx) => {
+          const snap = await tx.get(stampRef);
+          if (snap.exists) {
+            tx.update(stampRef, {
+              stripeCustomerId: customerId,
+              updatedAt: FieldValue.serverTimestamp(),
+            });
+          } else {
+            tx.set(stampRef, {
+              uid: user.uid,
+              status: "none",
+              trialEndsAt: null,
+              stripeCustomerId: customerId,
+              subscriptionId: null,
+              plan: null,
+              currentPeriodEnd: null,
+              cancelAtPeriodEnd: false,
+              lastEventCreated: null,
+              createdAt: FieldValue.serverTimestamp(),
+              updatedAt: FieldValue.serverTimestamp(),
+            });
+          }
+        });
       }
 
       // Exactly ONE trial per customer: once the entitlement carries the
