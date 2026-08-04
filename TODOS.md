@@ -1,5 +1,44 @@
 # TODOS
 
+## QA sweep — deferred low-severity findings (2026-08-04)
+
+From the /qa sweep of the onboarding/billing batch (9 med/high bugs fixed in
+`56e895f..b936244`; adversarial review by 3 agents + live browse walk). All
+verified-real but low severity; none block the billing flip.
+
+- **[LAUNCH/OPS] `BILLING_LAUNCH_EPOCH` still `2026-07-04` in `functions/.env`.**
+  Every account created since July 4 fails `isGrandfathered` and gets the
+  card-required wall at flag flip. The .env comment says to bump it right before
+  flipping `REACT_APP_FF_BILLING` — it has NOT been bumped. Do it at launch,
+  then redeploy functions.
+- **[P3/S] `?checkout=success` is spoofable** (App.jsx ~696-715): any walled,
+  signed-in user who appends it gets a 3-min client-side practice window.
+  Bounded + client-content-only. Fix: stamp sessionStorage in
+  `billingService.startCheckout` before the redirect and honor the URL param
+  only when the stamp exists.
+- **[P3/S] Price strings hardcoded in three components** (LandingPage,
+  OnboardingFunnel, PaywallScreen: $85/$29/$349/"save $671") with no shared
+  constant or pinning test; the $50→$85 repricing already proved drift. Charged
+  amounts live on Stripe Price ids in `functions/.env`.
+- **[P3/S] Late subscription webhook can clobber a promo comp**
+  (stripe.ts: redeem nulls the event watermark; a terminal sub event then
+  merge-sets `status: 'canceled'` over `comped`). Needs a pending/terminating
+  sub + redeem in between — rare.
+- **[P3/S] Activation webhook slower than the 3-min grace re-walls a just-paid
+  user** whose Subscribe click then 409s ("already subscribed") — confusing
+  terminal state, self-heals when the snapshot lands.
+- **[P3/S] InnerOnboarding multi-select screens' Continue lacks the
+  double-tap guard** (weak-areas screens, InnerOnboarding.jsx ~472/488): a
+  double-click can silently skip the next screen. The file's own
+  `pendingAdvance` pattern is the fix; steps 1-3 share the gap (pre-existing).
+- **[P3/S] `updateProfilePhoto` optimistic rollback** (useAuth.js ~319-345):
+  rapid double upload can roll back to a stale value; the 8s timeout resolves
+  (never rejects) so a late definitive failure never rolls back the UI.
+- **[P3/S] "Finish onboarding" resume bypasses the entitlement deferral** the
+  auto-launch has (benign — the wall catches the next gated action); the
+  per-uid dismissal marker is never cleaned when onboarding completes via the
+  test path (harmless orphan).
+
 ## Both-sections study plan — deferred goal-system work (2026-06-12)
 
 The plan now drills both sections (format v4, commits 4d12e36..c54fe33), but the GOAL
