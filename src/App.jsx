@@ -850,6 +850,11 @@ const PerformSAT = () => {
     // account (completion still stamps, so it won't loop on real accounts).
     const forced = process.env.NODE_ENV === 'development' &&
       new URLSearchParams(window.location.search).has('forceInnerOnboarding');
+    // "Do this later" drops a local marker: from then on the flow never
+    // auto-seizes the screen (refresh included) — the "Finish onboarding"
+    // hero button is the way back in.
+    let dismissed = false;
+    try { dismissed = !!localStorage.getItem(`seva:innerOnboarding:dismissed:${user.uid}`); } catch { /* storage unavailable */ }
     const hasTests = Object.keys(practiceTestResults || {}).length > 0;
     const hasResume = !!(inProgressTests && inProgressTests['mini-diagnostic']);
     const eligible =
@@ -857,7 +862,7 @@ const PerformSAT = () => {
       !user.onboardingCompletedAt &&
       !user.onboardingSkippedAt &&
       !hasTests && !studyPlan && !hasResume;
-    setInnerOnboardingActive(forced || eligible === true);
+    setInnerOnboardingActive(forced || (eligible && !dismissed) === true);
   }, [innerOnboardingActive, ffInnerOnboarding, user, progressHydrated, practiceTestResults, inProgressTests, studyPlan, entitlement.flagEnabled, entitlement.hasAccess]);
 
   const handleOnRampSkip = () => {
@@ -965,13 +970,18 @@ const PerformSAT = () => {
         console.error('[innerOnboarding] starter plan failed (non-blocking):', e);
       }
     }
+    // A completed account never needs the "Do this later" marker again.
+    try { if (user?.uid) localStorage.removeItem(innerOnboardingDismissKey(user.uid)); } catch { /* ignore */ }
     setInnerOnboardingActive(false);
     setView('dashboard');
   };
 
-  // Leaving mid-flow saves NOTHING: no profile stamp, no starter plan — the
-  // flow simply dismisses for this session and re-offers on the next one.
+  // Leaving mid-flow saves NO answers — but it does drop a local dismissal
+  // marker so a page refresh doesn't seize the screen with the flow again.
+  // The "Finish onboarding" hero button is the re-entry from then on.
+  const innerOnboardingDismissKey = (uid) => `seva:innerOnboarding:dismissed:${uid}`;
   const handleInnerOnboardingExit = () => {
+    try { if (user?.uid) localStorage.setItem(innerOnboardingDismissKey(user.uid), new Date().toISOString()); } catch { /* storage unavailable */ }
     setInnerOnboardingActive(false);
     setView('dashboard');
   };

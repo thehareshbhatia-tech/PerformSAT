@@ -319,14 +319,23 @@ export const useAuth = () => {
    */
   const updateProfilePhoto = async (photoDataUrl) => {
     if (!user?.uid) return;
-
+    const next = photoDataUrl || null;
+    const prev = user.photoDataUrl ?? null;
+    // Optimistic: every avatar updates immediately. The setDoc used to gate
+    // the local update, and a hung write (SDK memory persistence + flaky
+    // network never settles) left the UI stale until a refresh re-hydrated
+    // the eventually-flushed doc. Race an 8s timeout so the caller's busy
+    // state always clears; the SDK still flushes the write when it can.
+    setUser((p) => ({ ...p, photoDataUrl: next }));
     try {
-      await setDoc(doc(db, 'users', user.uid), {
-        photoDataUrl: photoDataUrl || null
-      }, { merge: true });
-
-      setUser(prev => ({ ...prev, photoDataUrl: photoDataUrl || null }));
+      let timer;
+      await Promise.race([
+        setDoc(doc(db, 'users', user.uid), { photoDataUrl: next }, { merge: true }),
+        new Promise((resolve) => { timer = setTimeout(resolve, 8000); }),
+      ]).finally(() => clearTimeout(timer));
     } catch (err) {
+      // Definite rejection (rules/validation) — roll the avatar back.
+      setUser((p) => ({ ...p, photoDataUrl: prev }));
       console.error('Error updating profile photo:', err);
       throw err;
     }
