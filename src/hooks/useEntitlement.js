@@ -27,7 +27,7 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useFeatureFlag } from './useFeatureFlag';
-import { deriveEntitlementAccess } from '../services/selectors/entitlementAccess';
+import { deriveEntitlementAccess, hasSubscriptionEvidence } from '../services/selectors/entitlementAccess';
 import { ensureEntitlement, redeemPromoCode } from '../services/billingService';
 import { readPendingPromoCode, clearPendingPromoCode } from '../services/pendingPromo';
 import { makeLogger } from '../utils/log';
@@ -149,7 +149,9 @@ export function useEntitlement(user) {
       loading,
       flagEnabled: true,
       ...derived,
-      hasBillingAccount: !!docData?.stripeCustomerId,
+      // "Has billing" must mean a real (current or past) subscription, NOT
+      // just a pre-created Checkout customer — see hasSubscriptionEvidence.
+      hasBillingAccount: hasSubscriptionEvidence(docData),
       // Whether the server-write-only entitlement doc has actually been read
       // yet. The hard-gate must NOT wall on a not-yet-seeded (null) doc — a
       // grandfathered "comped" user would otherwise flash the paywall in the
