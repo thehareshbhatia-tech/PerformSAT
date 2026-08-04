@@ -134,7 +134,7 @@ function ReviewItemCard({
           content (legacy attempt without per-attempt subcollection). */}
       {snapshotMissing && (
         <div className="ric-snapshot-warning" role="status" data-testid="ric-snapshot-missing">
-          <span className="ric-snapshot-warning-icon" aria-hidden="true">⚠</span>
+          <span className="ric-snapshot-warning-icon" aria-hidden="true">{'⚠︎'}</span>
           <span>
             Original question text isn't archived for this attempt — content shown is from the current test (may differ from what you saw).
           </span>

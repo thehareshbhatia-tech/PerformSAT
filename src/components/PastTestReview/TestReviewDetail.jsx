@@ -157,7 +157,7 @@ function TestReviewDetail({
           test. Content may have been edited since the attempt. */}
       {snapshotMissing && (
         <div className="trd-snapshot-warning" role="status" data-testid="trd-snapshot-missing">
-          <span className="trd-snapshot-warning-icon" aria-hidden="true">⚠</span>
+          <span className="trd-snapshot-warning-icon" aria-hidden="true">{'⚠︎'}</span>
           <span>
             <strong>Original question text isn't archived for this attempt.</strong>{' '}
             Content shown is from the current test (may differ from what you saw).
