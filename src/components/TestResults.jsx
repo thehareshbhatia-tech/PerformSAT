@@ -1916,11 +1916,6 @@ const TestResults = ({
     
     const weakestDomName = sortedDomains.length > 0 ? sortedDomains[0].name : 'Algebra';
 
-    const testHistory = practiceTestResults?.[test.id];
-    const attempts = (testHistory?.attempts || []).filter(a => !isBlankAttempt(a));
-    const firstAttemptScore = attempts.length > 0 ? attempts[0].scaledScore : satScore;
-    const recentTrend = satScore - firstAttemptScore;
-
     return (
       <div style={{ padding: '0 0 48px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
 
