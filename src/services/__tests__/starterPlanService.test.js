@@ -72,11 +72,25 @@ describe('buildStarterPlan', () => {
   });
 
   test('every plan weakness is drill-shaped with a section tag', () => {
+    // Regression: the starter plan shipped without a weaknesses array at all,
+    // so Focus Area cards rendered empty despite the onboarding promise —
+    // the old (plan.weaknesses || []).forEach pinned nothing on undefined.
+    // Found by /qa on 2026-08-04.
     const plan = buildStarterPlan(FULL_PROFILE);
-    (plan.weaknesses || []).forEach((w) => {
+    expect(Array.isArray(plan.weaknesses)).toBe(true);
+    expect(plan.weaknesses.length).toBeGreaterThan(0);
+    plan.weaknesses.forEach((w) => {
       expect(typeof w.skillId).toBe('string');
+      expect(typeof w.skill).toBe('string');
       expect(['math', 'rw']).toContain(w.section);
+      expect(w.evidenceLevel).toBe('suspected');
+      expect(typeof w.evidence).toBe('string');
     });
+    // The dashboard routes drills off these — a weakness for every selected
+    // area must survive into the plan (FULL_PROFILE picks math + rw areas).
+    const sections = new Set(plan.weaknesses.map((w) => w.section));
+    expect(sections.has('math')).toBe(true);
+    expect(sections.has('rw')).toBe(true);
   });
 
   test('never throws on an empty profile — returns a plan or null', () => {

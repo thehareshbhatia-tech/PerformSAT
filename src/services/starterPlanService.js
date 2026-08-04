@@ -210,9 +210,32 @@ export const buildStarterPlan = (profile = {}) => {
       return { ...week, activities, isTestWeek: wi === 0 };
     });
 
+    // Drill-shape weaknesses for the Focus Area cards (the test/check-in
+    // paths get these from enrichPlanWithGroundTruth, which the starter path
+    // skips — without them the dashboard renders zero Focus Areas despite
+    // the onboarding promise). Same field shape as buildGroundTruthDiagnosis,
+    // with honest self-report copy; the check-in replaces all of it.
+    const weaknesses = (diagnostic.skillAnalysis.weakSkills || []).map((s) => ({
+      skillId: s.skillId,
+      skill: s.name,
+      evidence: 'Self-reported in onboarding — the 15-minute check-in measures your real starting point',
+      accuracy: s.testAccuracy,
+      attempted: 0,
+      blanks: 0,
+      contentAccuracy: s.contentAccuracy,
+      evidenceLevel: 'suspected',
+      errorType: 'Self-reported weak area',
+      domain: s.domain,
+      modules: [],
+      sections: [],
+      section: s.section,
+      missedPatterns: [],
+    }));
+
     return {
       ...plan,
       weeks,
+      weaknesses,
       planSource: STARTER_PLAN_SOURCE,
       basedOnTest: STARTER_PLAN_SOURCE,
     };
