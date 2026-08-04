@@ -960,11 +960,15 @@ const StudentDashboard = ({
                 <div className="hv2-card">
                   {todaySlice.activities.map((a, i) => {
                     const isStrategy = a?.activityType === 'strategyDrill';
-                    const isTest = a?.type === 'test' || a?.activityType === 'practiceTest';
-                    const isStartable = !!(a?.moduleId || a?.skillId || (isStrategy && typeof handleStartStrategyActivity === 'function') || (isTest && typeof onStartPracticeTest === 'function'));
+                    // Starter-plan check-in launches the mini-diagnostic, not a
+                    // full test (mirrors StudyPlanDashboard's handleGo).
+                    const isCheckIn = a?.activityType === 'miniDiagnostic';
+                    const isTest = !isCheckIn && (a?.type === 'test' || a?.activityType === 'practiceTest');
+                    const isStartable = !!(a?.moduleId || a?.skillId || (isStrategy && typeof handleStartStrategyActivity === 'function') || (isTest && typeof onStartPracticeTest === 'function') || (isCheckIn && typeof onStartDiagnostic === 'function'));
                     const minutes = typeof a?.duration === 'number' ? a.duration : null;
                     const onStart = () => {
                       if (!isStartable) return;
+                      if (isCheckIn) { onStartDiagnostic(); return; }
                       if (isTest) { onStartPracticeTest(); return; }
                       if (isStrategy) { handleStartStrategyActivity(a); return; }
                       handleStartTodaysActivity(a);
