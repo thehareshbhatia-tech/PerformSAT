@@ -27,6 +27,7 @@ import {
 import { generateAndPersistHybridPlan, fetchCurrentStudyPlan, persistDeterministicArtifact } from '../services/hybridStudyPlanService';
 import { buildLongitudinalEvidence, computePlanDelta, reconcileDrillEvidenceWithTest } from '../services/studyPlanMerger';
 import { generateStudyPlan as generateDeterministicPlan } from '../services/studyPlanGenerator';
+import { STARTER_PLAN_SOURCE } from '../services/starterPlanService';
 import { runDiagnostic, getQuestionSkills } from '../services/diagnosticEngine';
 import { buildGroundTruthDiagnosis, enrichPlanWithGroundTruth } from '../services/groundTruth';
 import { scoreTest, isAnswerCorrect } from '../services/scoring';
@@ -1415,7 +1416,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             // Phase 2 re-fetch AFTER Phase 1 persisted made the generator
             // read its own seconds-old artifact as "the previous plan" and
             // step intensity down against its trivially-0% completion.
-            const previousPlan = await fetchCurrentStudyPlan(user.uid).catch(() => null);
+            const fetchedPlan = await fetchCurrentStudyPlan(user.uid).catch(() => null);
+            // An onboarding starter plan is a scaffold, not adherence
+            // evidence: it starts at 0% completion (stepping the FIRST real
+            // plan's intensity down a band) and its self-reported "suspected"
+            // skills would pollute the What-Changed delta against a real
+            // diagnosis. Treat it as no previous plan — same as the check-in
+            // path (finishMiniDiagnostic passes previousPlan: null). It sets
+            // no edited userPrefs, so nothing sticky is lost.
+            const previousPlan = fetchedPlan?.basedOnTest === STARTER_PLAN_SOURCE ? null : fetchedPlan;
 
             // Drill evidence the just-finished test contradicted must not be
             // credited (transfer failure) — reconcile before generating.
