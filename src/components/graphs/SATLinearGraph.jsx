@@ -122,8 +122,9 @@ const SATLinearGraph = ({
       {renderAxes(coordSystem, { xTickInterval, yTickInterval })}
 
       {/* BUG FIX 2: Only render highlight points if array exists and has elements */}
-      {highlightPoints && highlightPoints.length > 0 && highlightPoints.map(([x, y], i) => {
-        const pos = coordSystem.toSVG(x, y);
+      {highlightPoints && highlightPoints.length > 0 && highlightPoints.map((point, i) => {
+        if (!Array.isArray(point) || !Number.isFinite(point[0]) || !Number.isFinite(point[1])) return null;
+        const pos = coordSystem.toSVG(point[0], point[1]);
         return (
           <circle
             key={`point-${i}`}
