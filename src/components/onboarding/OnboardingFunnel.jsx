@@ -44,6 +44,14 @@ const BUILD_EXIT_MS = 900; // hold after the last row before the reveal
 // leaving the site discards every answer — abandoning the funnel saves
 // NOTHING (founder decision 2026-08-03; was localStorage cross-visit resume).
 const readSavedState = () => {
+  // The pre-2026-08-03 build staged this same key in LOCALstorage (cross-visit
+  // resume, since rejected). Sweep the orphan on mount so old visitors'
+  // answers don't sit in persistent storage forever.
+  try {
+    window.localStorage.removeItem(FUNNEL_STORAGE_KEY);
+  } catch {
+    /* ignore */
+  }
   try {
     const raw = window.sessionStorage.getItem(FUNNEL_STORAGE_KEY);
     if (!raw) return null;
@@ -225,6 +233,9 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
     if (submitting) return;
     setError('');
     if (stepIndex === 0) {
+      // Backing out on the first step is an exit — honor the same
+      // "abandoning saves nothing" contract as the explicit Exit button.
+      clearSavedState();
       onExit();
       return;
     }

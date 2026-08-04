@@ -3363,7 +3363,6 @@ const PerformSAT = () => {
               startPrescriptivePractice(moduleId, sectionName);
             }}
             onStartPracticeTest={() => setView('practiceTests')}
-            onStartDiagnostic={handleResumeOnRamp}
             onCompleteActivity={markStudyActivityComplete}
             onUncompleteActivity={unmarkStudyActivityComplete}
             onEditPlan={saveEditedStudyPlan}
