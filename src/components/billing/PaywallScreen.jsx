@@ -16,6 +16,7 @@
  */
 import React, { useState, useEffect } from 'react';
 import { startCheckout, openBillingPortal, redeemPromoCode } from '../../services/billingService';
+import { takeFailedPromoCode } from '../../services/pendingPromo';
 import './PaywallScreen.css';
 
 const FEATURES = [
@@ -111,6 +112,20 @@ function PaywallScreen({ entitlement, onBack }) {
   const [promoBusy, setPromoBusy] = useState(false);
   const [promoError, setPromoError] = useState(null);
   const [promoDone, setPromoDone] = useState(false);
+
+  // A code typed during onboarding whose background redeem failed lands the
+  // student here with no idea why. Surface it: open the promo form prefilled
+  // with their code and say what happened (a typo'd comp code can be retried;
+  // a creator DISCOUNT code only works on Stripe's payment page).
+  useEffect(() => {
+    const failed = takeFailedPromoCode();
+    if (!failed) return;
+    setPromoOpen(true);
+    setPromoCode(failed);
+    setPromoError(
+      `We couldn't apply the code "${failed}". Check it and try again — or if it's a percent-off code from a creator, enter it on the payment page after you click below.`,
+    );
+  }, []);
 
   const redeem = async (e) => {
     e?.preventDefault?.();
