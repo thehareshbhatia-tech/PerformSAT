@@ -931,12 +931,14 @@ const PerformSAT = () => {
     // useProgress.withTimeout) so we always land them home; persistence stays
     // best-effort — a failed stamp just re-offers the flow next session.
     let timer;
+    let profileSaved = true;
     try {
       await Promise.race([
         completeInnerOnboarding(payload),
         new Promise((_, reject) => { timer = setTimeout(() => reject(new Error('onboarding-save-timeout')), 8000); }),
       ]);
     } catch (e) {
+      profileSaved = false;
       console.error('[innerOnboarding] profile save failed or timed out:', e);
       showToast({ type: 'info', message: 'We could not save your answers, but you can keep going.' });
     } finally {
@@ -945,8 +947,13 @@ const PerformSAT = () => {
     // Starter plan: the answers they just gave become their first study plan
     // (check-in as task 1). Guarded so a re-run of the flow (dev force param,
     // re-offered session) can never clobber a real, evidence-based plan.
+    // ONLY when the profile stamp landed: a starter plan without the stamp
+    // would make innerOnboardingPending false forever (its !studyPlan check),
+    // silently orphaning the lost answers with no way to redo the flow. When
+    // the stamp failed, saving nothing keeps the documented resilience model —
+    // the flow simply re-offers next session.
     const hasTests = Object.keys(practiceTestResults || {}).length > 0;
-    if (!studyPlan && !hasTests) {
+    if (profileSaved && !studyPlan && !hasTests) {
       try {
         const { buildStarterPlan } = await import('./services/starterPlanService');
         const starter = buildStarterPlan({
