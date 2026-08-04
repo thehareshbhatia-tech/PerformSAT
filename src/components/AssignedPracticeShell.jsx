@@ -329,7 +329,8 @@ const AssignedPracticeShell = ({
       return next;
     });
   };
-  const hasPassageToHighlight = !!(currentQuestion?.passage || Array.isArray(currentQuestion?.passages));
+  const hasPassageToHighlight = !!(currentQuestion?.passage || Array.isArray(currentQuestion?.passages) ||
+    Array.isArray(currentQuestion?.studentNotes?.bullets));
 
   // Answer context for the AI tutor's trap-analysis branch (only meaningful
   // after the student has answered + revealed). Without these the "name the
@@ -845,10 +846,10 @@ const AssignedPracticeShell = ({
 
             {/* R&W passage — Bluebook-style highlightable rendering, shared with
                 the timed test (PracticeTest) so students annotate the same way
-                in drills. Covers the single `passage` and paired `passages`
-                shapes; `studentNotes` (rhetorical-synthesis) is rendered below
-                as plain notes, matching the timed test which does not highlight
-                them. The toolbar only appears when there is a passage to mark. */}
+                in drills. Covers the single `passage`, paired `passages`, and
+                `studentNotes` (rhetorical-synthesis) shapes — notes bullets are
+                highlightable exactly like the timed test. The toolbar only
+                appears when there is something to mark. */}
             {hasPassageToHighlight && (
               <div className="aps-rw-toolbar">
                 <span className="aps-rw-toolbar-hint">
@@ -933,14 +934,34 @@ const AssignedPracticeShell = ({
                 color: 'var(--pr-text)',
                 margin: '18px 0 4px',
               }}>
+                {/* Notes are highlightable like passages (parity with the
+                    timed test). The goal stays below the bullets here: this
+                    single-column surface reads it straight into the question
+                    stem, matching Bluebook's linear order. */}
                 {currentQuestion.studentNotes.intro && (
-                  <div style={{ marginBottom: '8px' }}>{currentQuestion.studentNotes.intro}</div>
+                  <div style={{ marginBottom: '8px' }}>
+                    <HighlightablePassage
+                      text={currentQuestion.studentNotes.intro}
+                      className="aps-note-segment"
+                      highlights={highlightsByKey[buildHlKey('notesIntro')] || []}
+                      hidden={highlightsHidden}
+                      onAddHighlight={(r) => handleAddHighlight('notesIntro', r)}
+                      onRemoveHighlight={(r) => handleRemoveHighlight('notesIntro', r)}
+                    />
+                  </div>
                 )}
                 {Array.isArray(currentQuestion.studentNotes.bullets) && (
                   <ul style={{ paddingLeft: '1.25rem', margin: '8px 0' }}>
                     {currentQuestion.studentNotes.bullets.map((b, i) => (
                       <li key={i} style={{ marginBottom: '4px' }}>
-                        <MathText>{b}</MathText>
+                        <HighlightablePassage
+                          text={b}
+                          className="aps-note-segment"
+                          highlights={highlightsByKey[buildHlKey(`note${i}`)] || []}
+                          hidden={highlightsHidden}
+                          onAddHighlight={(r) => handleAddHighlight(`note${i}`, r)}
+                          onRemoveHighlight={(r) => handleRemoveHighlight(`note${i}`, r)}
+                        />
                       </li>
                     ))}
                   </ul>

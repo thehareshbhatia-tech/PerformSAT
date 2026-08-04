@@ -3409,21 +3409,35 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                 )}
                 {question?.studentNotes && (
                   <div className="rw-passage">
+                    {/* Bluebook: the notes are highlightable like any passage;
+                        the GOAL line is NOT part of the notes — it leads the
+                        question stem in the right pane. */}
                     {question.studentNotes.intro && (
-                      <div style={{ marginBottom: '0.5rem' }}>{question.studentNotes.intro}</div>
+                      <div style={{ marginBottom: '0.5rem' }}>
+                        <HighlightablePassage
+                          text={question.studentNotes.intro}
+                          className="rw-note-segment"
+                          highlights={highlightsByKey[buildHighlightKey('notesIntro')] || []}
+                          hidden={highlightsHidden}
+                          onAddHighlight={(r) => handleAddHighlight('notesIntro', r)}
+                          onRemoveHighlight={(r) => handleRemoveHighlight('notesIntro', r)}
+                        />
+                      </div>
                     )}
                     <ul style={{ paddingLeft: '1.25rem', margin: '0.5rem 0' }}>
                       {question.studentNotes.bullets.map((b, i) => (
                         <li key={i} style={{ marginBottom: '0.25rem' }}>
-                          <MathText text={b} />
+                          <HighlightablePassage
+                            text={b}
+                            className="rw-note-segment"
+                            highlights={highlightsByKey[buildHighlightKey(`note${i}`)] || []}
+                            hidden={highlightsHidden}
+                            onAddHighlight={(r) => handleAddHighlight(`note${i}`, r)}
+                            onRemoveHighlight={(r) => handleRemoveHighlight(`note${i}`, r)}
+                          />
                         </li>
                       ))}
                     </ul>
-                    {question.studentNotes.goal && (
-                      <div style={{ marginTop: '0.5rem' }}>
-                        <MathText text={question.studentNotes.goal} />
-                      </div>
-                    )}
                   </div>
                 )}
                 {question?.diagram && (
@@ -3630,10 +3644,23 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             <div className="rw-question-scroll">
               <div className="rw-stem-block">
                 <p className="rw-stem-text">
-                  {Array.isArray(question?.question) || (question?.question && typeof question.question === 'object')
-                    ? <QuestionRenderer content={question.question} />
-                    : <MathText text={question?.question} />
-                  }
+                  {(() => {
+                    // Bluebook: a notes question's GOAL sentence ("The student
+                    // wants to…") belongs to the QUESTION pane, leading the
+                    // stem as one paragraph — not to the notes in the left pane.
+                    const goal = question?.studentNotes?.goal || null;
+                    const stem = question?.question;
+                    const stemIsRich = Array.isArray(stem) || (stem && typeof stem === 'object');
+                    if (stemIsRich) {
+                      return (
+                        <>
+                          {goal && <><MathText text={goal} />{' '}</>}
+                          <QuestionRenderer content={stem} />
+                        </>
+                      );
+                    }
+                    return <MathText text={goal ? `${goal} ${stem || ''}`.trim() : stem} />;
+                  })()}
                 </p>
                 {question?.questionContinued && (
                   <p className="rw-stem-text">
