@@ -59,11 +59,18 @@ describe('runway-sized arc', () => {
 });
 
 describe('measurement cadence', () => {
-  test('long arc: tests land biweekly, and week 1 is never a test week', () => {
+  test('long arc: full tests land every third week, and week 1 is never a test week', () => {
     const plan = generateStudyPlan(mkDiag(), { targetScore: 1200, testDate: dateWeeksOut(8) }, {}, {}, null, longitudinal);
     expect(plan.weeks[0].isTestWeek).toBe(false);
-    expect(plan.weeks[1].isTestWeek).toBe(true);
-    expect(plan.weeks[3].isTestWeek).toBe(true);
+    expect(plan.weeks[2].isTestWeek).toBe(true);
+    expect(plan.weeks[5].isTestWeek).toBe(true);
+    expect(plan.weeks[7].isTestWeek).toBe(true); // last week
+  });
+
+  test('long arc: check-ins actually appear in the gaps between full tests', () => {
+    const plan = generateStudyPlan(mkDiag(), { targetScore: 1200, testDate: dateWeeksOut(10) }, {}, {}, null, longitudinal);
+    const checkIns = allActivities(plan).filter((a) => a.activityType === 'miniDiagnostic');
+    expect(checkIns.length).toBeGreaterThan(0);
   });
 
   test('no two consecutive weeks lack a measurement (test or check-in)', () => {

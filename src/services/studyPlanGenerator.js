@@ -942,12 +942,15 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
   // Track which activities have been assigned
   let activityPool = [...allActivities];
 
-  // Test cadence follows the runway: inside a month of test day every week
-  // ends with a measurement; on a longer arc, every other week. A small score
-  // gap (final polish) doesn't add tests — it adds precision/strategy work
-  // (see the strategy slot below).
+  // Measurement cadence: inside a month of test day, every week ends with a
+  // full test. On a longer arc, FULL tests land every third week (a 70-minute
+  // mock every other week is over-prescription students skip) and the
+  // 15-minute check-ins inserted below fill the gaps — so something measures
+  // the student every 1-2 weeks, but it's usually the light thing. A small
+  // score gap (final polish) doesn't add tests — it adds precision/strategy
+  // work (see the strategy slot below).
   const smallGap = scoreGap !== null && scoreGap < 50;
-  const testCadence = totalWeeks < 4 ? 1 : 2;
+  const testCadence = totalWeeks < 4 ? 1 : 3;
 
   for (let weekNum = 1; weekNum <= totalWeeks; weekNum++) {
     const isFirstWeek = weekNum === 1;
