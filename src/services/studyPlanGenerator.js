@@ -281,8 +281,27 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
   intensityConfig = { ...intensityConfig, daysPerWeek: scheduledDayNames(schedule).length };
   const minutesPerWeek = weeklyMinutes(schedule) || intensityConfig.minutesPerDay * intensityConfig.daysPerWeek;
 
+  // ═══ Replay the edits ledger: student intent survives regeneration ═══
+  // A skill the student explicitly removed/de-focused stays suppressed —
+  // UNLESS the newest test shows it regressed meaningfully below where it
+  // stood when they removed it (then the evidence outranks the edit and it
+  // resurfaces). Custom tasks are re-added after distribution below.
+  const planEdits = Array.isArray(previousPlan?.planEdits) ? previousPlan.planEdits : [];
+  const suppressedSkills = new Map();
+  planEdits.forEach((e) => {
+    if ((e.type === 'remove' || e.type === 'defocus') && e.skillId) {
+      suppressedSkills.set(e.skillId, e);
+    }
+  });
+
   // ═══ Gather all skill gaps from the diagnostic ═══
-  const skillGaps = gatherSkillGaps(diagnostic);
+  const skillGaps = gatherSkillGaps(diagnostic).filter((g) => {
+    const edit = suppressedSkills.get(g.skillId);
+    if (!edit) return true;
+    const base = Number.isFinite(edit.accuracyAtEdit) ? edit.accuracyAtEdit : 100;
+    const regressed = Number.isFinite(g.testAccuracy) && g.testAccuracy <= base - 15;
+    return regressed;
+  });
 
   // ═══ Map skill gaps to specific curriculum activities ═══
   const activities = mapGapsToActivities(skillGaps, completedLessons, practiceProgress, diagnostic);
@@ -319,6 +338,29 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     schedule,
     scoreGap
   );
+
+  // ═══ Replay custom tasks from the ledger into the fresh plan ═══
+  // Their ledger entries survive (carried onto the new plan below), so a task
+  // the student wrote keeps coming back until they remove it.
+  const customEdits = planEdits.filter((e) => e.type === 'custom' && e.task?.title);
+  if (customEdits.length > 0 && weeklyPlan[0]) {
+    const firstDay = scheduledDayNames(schedule)[0] || 'Monday';
+    customEdits.forEach((e) => {
+      weeklyPlan[0].activities.push({
+        type: 'custom',
+        activityType: 'customTask',
+        title: e.task.title,
+        subtitle: 'Your task',
+        duration: Number.isFinite(e.task.duration) ? e.task.duration : 20,
+        priority: 0,
+        day: e.task.day || firstDay,
+        weekPhase: 'mid',
+        ...(e.task.section === 'rw' ? { section: 'rw' } : {}),
+        custom: true,
+        userEdited: true,
+      });
+    });
+  }
 
   // ═══ Generate the executive summary ═══
   const summary = generatePlanSummary(
@@ -437,6 +479,9 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     // Sticky pacing preference: setPacing writes this on the plan; carrying
     // it across regenerations is what makes the student's edit durable.
     userPrefs: userPrefs || null,
+    // The edits ledger rides every regeneration (suppressions + custom tasks
+    // replayed above keep working across the NEXT regeneration too).
+    planEdits,
     previousPlanCompletion: prevCompletion,
     currentScore,
     targetScore,
@@ -866,10 +911,17 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
       }
     }
 
-    // If previous plan exists, skip activities the student already completed
-    if (previousPlan?.weeks && act.title) {
+    // If previous plan exists, deprioritize activities the student already
+    // completed. Match by skillId when both sides carry one (titles are
+    // re-worded across versions — the skill is the stable identity), falling
+    // back to the exact title for skill-less activities (strategy, review).
+    if (previousPlan?.weeks && (act.skillId || act.title)) {
       const wasCompleted = previousPlan.weeks.some(w =>
-        w.activities?.some(a => a.completed && a.title === act.title)
+        w.activities?.some(a => a.completed && (
+          (act.skillId && a.skillId)
+            ? a.skillId === act.skillId
+            : a.title === act.title
+        ))
       );
       if (wasCompleted) {
         priorityBoost -= 15; // Deprioritize already-completed activities

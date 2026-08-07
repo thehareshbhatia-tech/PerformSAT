@@ -96,10 +96,35 @@ export function setActivitySkipped(plan, weekIndex, activityIndex, skipped) {
  * Remove an activity from its week.
  * @returns {object} new plan
  */
+// The edits ledger: student intent that must survive regeneration. The
+// generator replays it — removed/de-focused skills stay suppressed (unless
+// the newest test shows them regressing), custom tasks come back. Entries
+// carry only defined fields (Firestore rejects undefined).
+function appendEdit(next, entry) {
+  if (!Array.isArray(next.planEdits)) next.planEdits = [];
+  const cleaned = {};
+  Object.entries(entry).forEach(([k, v]) => { if (v !== undefined) cleaned[k] = v; });
+  next.planEdits.push({ ...cleaned, at: new Date().toISOString() });
+}
+
 export function removeActivity(plan, weekIndex, activityIndex) {
   if (!hasActivity(plan, weekIndex, activityIndex)) return plan;
   const next = clone(plan);
-  next.weeks[weekIndex].activities.splice(activityIndex, 1);
+  const [removed] = next.weeks[weekIndex].activities.splice(activityIndex, 1);
+  if (removed?.custom) {
+    // Removing a custom task also retires its ledger entry so it stops
+    // being replayed into future regenerations.
+    next.planEdits = (next.planEdits || []).filter(
+      (e) => !(e.type === 'custom' && e.task?.title === removed.title),
+    );
+  } else if (removed?.type === 'practice' && removed.skillId) {
+    const w = (next.weaknesses || []).find((x) => x.skillId === removed.skillId);
+    appendEdit(next, {
+      type: 'remove',
+      skillId: removed.skillId,
+      accuracyAtEdit: Number.isFinite(w?.accuracy) ? w.accuracy : undefined,
+    });
+  }
   recomputeWeekStats(next.weeks[weekIndex]);
   return next;
 }
@@ -136,6 +161,10 @@ export function addCustomActivity(plan, weekIndex, task) {
     custom: true,
     userEdited: true,
   });
+  appendEdit(next, {
+    type: 'custom',
+    task: { title, day, duration, ...(task.section === 'rw' ? { section: 'rw' } : {}) },
+  });
   recomputeWeekStats(next.weeks[weekIndex]);
   return next;
 }
@@ -160,6 +189,16 @@ export function setFocusAreas(plan, nextWeaknesses) {
   const next = clone(plan);
   const prevSkillIds = new Set((next.weaknesses || []).map((w) => w.skillId));
   const nextSkillIds = new Set(nextWeaknesses.map((w) => w.skillId));
+  // Ledger: an explicit de-focus is durable student intent.
+  (next.weaknesses || []).forEach((w) => {
+    if (w.skillId && !nextSkillIds.has(w.skillId)) {
+      appendEdit(next, {
+        type: 'defocus',
+        skillId: w.skillId,
+        accuracyAtEdit: Number.isFinite(w.accuracy) ? w.accuracy : undefined,
+      });
+    }
+  });
   next.weaknesses = nextWeaknesses.map((w) => ({ ...w }));
 
   // Drop generated practice activities ONLY for explicitly de-focused skills
