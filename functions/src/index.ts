@@ -411,15 +411,20 @@ export const aiTutor = onRequest(
           // dashboard then breaks down tutor spend by uid.
           headers: anthropicHeaders(apiKey, user.uid),
           body: JSON.stringify({
-            model: "claude-sonnet-4-6",
-            // Tutor answers are coaching replies, not essays — but the 2026-06-28
-            // per-choice breakdown format (GOAL → WHY-RIGHT → EVERY-CHOICE →
-            // TAKEAWAY) regularly ran past 2000 and truncated mid-choice, so the
-            // client shows a truncation note. 3000 clears the observed breakdown
-            // sizes while still guarding against a runaway response. (Thinking is
-            // off — see below — so no thinking tokens count toward this.)
+            // Sonnet 5 (2026-08-06): same price tier as Sonnet 4.6, meaningfully
+            // smarter at the same settings — Sonnet 5 at effort medium lands
+            // where Sonnet 4.6 did at high. thinking:disabled is still accepted
+            // on Sonnet 5; do NOT add temperature (Sonnet 5 rejects non-default
+            // sampling params with a 400 — that's why the diagnostic-narrative
+            // passes below stay on 4.6).
+            model: "claude-sonnet-5",
+            // Tutor answers are coaching replies, not essays — but the full
+            // per-choice breakdown format regularly ran past 2000 and truncated
+            // mid-choice. Sonnet 5's tokenizer spends ~30% more tokens on the
+            // same text than 4.6, so the old 3000 cap would truncate breakdowns
+            // that used to fit — 4000 restores the same effective headroom.
             // Pre-warm: max_tokens 0 = prefill-only (cache write, no output).
-            max_tokens: isPrewarm ? 0 : 3000,
+            max_tokens: isPrewarm ? 0 : 4000,
             // Thinking DISABLED for the interactive tutor. Adaptive thinking ran
             // a reasoning pass before every reply, so the student stared at a
             // spinner before the first streamed token — the single biggest
