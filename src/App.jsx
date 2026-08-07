@@ -965,6 +965,10 @@ const PerformSAT = () => {
           weakMathAreas: payload?.weakMathAreas,
           weakRWAreas: payload?.weakRWAreas,
           studyDaysPerWeek: payload?.studyDaysPerWeek,
+          // Pre-signup funnel answers (study window + session length) ride the
+          // user doc, not the inner-onboarding payload.
+          studyWindow: user?.onboardingProfile?.answers?.studyWindow,
+          sessionLength: user?.onboardingProfile?.answers?.sessionLength,
         });
         if (starter) {
           let planTimer;

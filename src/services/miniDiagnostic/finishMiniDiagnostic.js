@@ -16,6 +16,7 @@
  */
 import { runDiagnostic, getQuestionSkills } from '../diagnosticEngine';
 import { isAnswerCorrect } from '../scoring';
+import { buildPlanProfile } from '../studySchedule';
 import { generateStudyPlan } from '../studyPlanGenerator';
 import { persistDeterministicArtifact } from '../hybridStudyPlanService';
 import {
@@ -189,7 +190,7 @@ export async function finishMiniDiagnostic({
 
   const detPlan = generateStudyPlan(
     planDiagnostic,
-    { targetScore: user.targetScore, testDate: user.testDate },
+    buildPlanProfile(user),
     completedLessons,
     practiceProgress,
     null, // no previous plan — this IS the starter

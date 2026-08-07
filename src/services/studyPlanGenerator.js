@@ -39,6 +39,9 @@ import { parseLocalDate } from '../utils/localDate';
 // Display-band mapping shared with the plan editor's setPacing so a
 // user-minutes override keeps intensity/label/minutes mutually consistent.
 import { intensityForMinutes } from './studyPlanEditor';
+// Schedule truth: the per-day minutes map derived from what onboarding actually
+// collected (days/week, study window, session length) or the student's edit.
+import { deriveSchedule, scheduledDayNames, testDayFor, weeklyMinutes } from './studySchedule';
 
 // R&W domain weights for gap priority — the math side reads
 // skillTaxonomy.domains[..].satWeight; the R&W taxonomy has no weight field.
@@ -266,7 +269,15 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     intensityConfig = { ...INTENSITY_LEVELS[intensity], minutesPerDay: userMinutes };
   }
 
-  const minutesPerWeek = intensityConfig.minutesPerDay * intensityConfig.daysPerWeek;
+  // ═══ Weekly schedule: which days, how many minutes each ═══
+  // Derived from the profile (studyDaysPerWeek promise, weekend window,
+  // session length) or reused verbatim from a student edit. The generator
+  // schedules ONLY onto these days from here on.
+  const schedule = deriveSchedule(userProfile, intensityConfig, userPrefs);
+  // Keep the displayed daysPerWeek honest — it previously came from the
+  // intensity band even when the student said 3 days.
+  intensityConfig = { ...intensityConfig, daysPerWeek: scheduledDayNames(schedule).length };
+  const minutesPerWeek = weeklyMinutes(schedule) || intensityConfig.minutesPerDay * intensityConfig.daysPerWeek;
 
   // ═══ Gather all skill gaps from the diagnostic ═══
   const skillGaps = gatherSkillGaps(diagnostic);
@@ -286,7 +297,8 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     diagnostic,
     previousPlan,
     longitudinal,
-    isFirstPlan
+    isFirstPlan,
+    schedule
   );
 
   // ═══ Generate the executive summary ═══
@@ -400,6 +412,9 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     // Metadata
     intensity,
     intensityConfig,
+    // The weekly schedule this plan was built around — the UI renders it and
+    // the editor mutates it (via userPrefs.schedule, which wins next time).
+    schedule,
     // Sticky pacing preference: setPacing writes this on the plan; carrying
     // it across regenerations is what makes the student's edit durable.
     userPrefs: userPrefs || null,
@@ -783,8 +798,21 @@ const generateStrategyActivities = (diagnostic) => {
  * - End of week: More practice + self-assessment
  * - Every 3-4 weeks: Take a practice test
  */
-const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minutesPerWeek, diagnostic, previousPlan, longitudinal = null, isFirstPlan = false) => {
+const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minutesPerWeek, diagnostic, previousPlan, longitudinal = null, isFirstPlan = false, schedule = null) => {
   const weeks = [];
+
+  // ═══ SCHEDULE-AWARE DAY PLAN ═══
+  // Every activity lands on a day the student actually studies. Before this,
+  // review was always Monday, tests always Saturday, mid-week always Wed-Fri —
+  // regardless of what the student told us in onboarding.
+  const studyDays = schedule ? scheduledDayNames(schedule) : ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  const dayBudget = (day) => (schedule?.days?.[day] > 0 ? schedule.days[day] : 35);
+  const testDay = schedule ? testDayFor(schedule) : 'Saturday';
+  const phaseFor = (day) => {
+    const idx = studyDays.indexOf(day);
+    if (idx <= 0) return 'start';
+    return idx >= studyDays.length - 1 ? 'end' : 'mid';
+  };
 
   // ═══ ADAPTIVE PRIORITY ADJUSTMENT ═══
   // If we have a previous plan, adjust priorities based on what improved/worsened
@@ -850,14 +878,30 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
     let weekMinutesUsed = 0;
     const weekMinutesBudget = minutesPerWeek;
 
+    // Per-day remaining minutes for this week. Activities bin into the first
+    // study day with room, so each day's load tracks the student's schedule
+    // instead of a hardcoded Mon-Fri spread.
+    const dayRemaining = {};
+    studyDays.forEach((d) => { dayRemaining[d] = dayBudget(d); });
+    const placeOn = (duration) => {
+      let day = studyDays.find((d) => dayRemaining[d] >= duration);
+      // No day fits the whole activity: put it where the most room is left —
+      // a slightly-overfull study day beats scheduling on a day the student
+      // told us they don't study.
+      if (!day) day = studyDays.reduce((a, b) => (dayRemaining[a] >= dayRemaining[b] ? a : b));
+      dayRemaining[day] -= duration;
+      return day;
+    };
+
     // ── PHASE 1: Start of week — Review + Strategy ──
     if (isFirstWeek) {
       // First week: review mistakes from the test that triggered this plan
       const reviewActivity = activityPool.find(a => a.type === 'review');
       if (reviewActivity) {
+        const day = placeOn(reviewActivity.duration);
         weekActivities.push({
           ...reviewActivity,
-          day: 'Monday',
+          day,
           weekPhase: 'start',
         });
         weekMinutesUsed += reviewActivity.duration;
@@ -868,22 +912,18 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
     // Add one strategy activity per week (if available)
     const strategyIdx = activityPool.findIndex(a => a.type === 'strategy');
     if (strategyIdx !== -1 && weekMinutesUsed + activityPool[strategyIdx].duration <= weekMinutesBudget) {
+      const day = placeOn(activityPool[strategyIdx].duration);
       weekActivities.push({
         ...activityPool[strategyIdx],
-        day: isFirstWeek ? 'Tuesday' : 'Monday',
-        weekPhase: 'start',
+        day,
+        weekPhase: phaseFor(day),
       });
       weekMinutesUsed += activityPool[strategyIdx].duration;
       activityPool.splice(strategyIdx, 1);
     }
 
-    // ── PHASE 2: Mid-week — Lessons and Practice ──
-    const midWeekDays = isFirstWeek
-      ? ['Wednesday', 'Thursday', 'Friday']
-      : ['Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-
-    let dayIdx = 0;
-    while (activityPool.length > 0 && weekMinutesUsed < weekMinutesBudget && dayIdx < midWeekDays.length) {
+    // ── PHASE 2: Practice and drills across the student's study days ──
+    while (activityPool.length > 0 && weekMinutesUsed < weekMinutesBudget) {
       const nextActivity = activityPool[0];
       if (!nextActivity) break;
 
@@ -892,23 +932,24 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
         const shorterIdx = activityPool.findIndex(a => weekMinutesUsed + a.duration <= weekMinutesBudget + 10);
         if (shorterIdx === -1) break;
 
+        const day = placeOn(activityPool[shorterIdx].duration);
         weekActivities.push({
           ...activityPool[shorterIdx],
-          day: midWeekDays[dayIdx % midWeekDays.length],
-          weekPhase: 'mid',
+          day,
+          weekPhase: phaseFor(day),
         });
         weekMinutesUsed += activityPool[shorterIdx].duration;
         activityPool.splice(shorterIdx, 1);
       } else {
+        const day = placeOn(nextActivity.duration);
         weekActivities.push({
           ...nextActivity,
-          day: midWeekDays[dayIdx % midWeekDays.length],
-          weekPhase: 'mid',
+          day,
+          weekPhase: phaseFor(day),
         });
         weekMinutesUsed += nextActivity.duration;
         activityPool.shift();
       }
-      dayIdx++;
     }
 
     // ── PHASE 3: Test week — add practice test ──
@@ -931,7 +972,9 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
         duration: ACTIVITY_DURATIONS.practiceTest,
         priority: 100,
         icon: null,
-        day: 'Saturday',
+        // The student's biggest study day hosts the full-length test — not a
+        // hardcoded Saturday a weekday-only student would never sit.
+        day: testDay,
         weekPhase: 'end',
         tips: isUnlockCheckpoint
           ? [

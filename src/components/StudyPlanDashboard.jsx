@@ -23,7 +23,9 @@ import {
   addCustomActivity,
   setFocusAreas,
   setPacing,
+  setSchedule,
 } from '../services/studyPlanEditor';
+import { DAY_NAMES, scheduledDayNames } from '../services/studySchedule';
 import { getTodaySlice, countRemainingTodayTasks } from '../services/selectors/todaySlice';
 import { activitySummary, activityBreakdown } from '../services/selectors/activitySummary';
 import { buildDayNarrative } from '../services/selectors/dayNarrative';
@@ -689,6 +691,14 @@ const StudyPlanLoaded = ({
     applyEdit(p => setFocusAreas(p, [...(p.weaknesses || []), weakness]));
   };
   const handlePacing = (minutesPerDay, examDate) => applyEdit(p => setPacing(p, { minutesPerDay, examDate }, todayISO()));
+  // Toggle one study day on/off. Off→on uses the plan's minutes/day; the
+  // editor enforces the 2-day minimum (invalid toggles return the plan as-is).
+  const handleToggleDay = (day) => applyEdit(p => {
+    const minutes = p.summary?.stats?.minutesPerDay || p.intensityConfig?.minutesPerDay || 30;
+    const days = { ...(p.schedule?.days || {}) };
+    days[day] = (days[day] || 0) > 0 ? 0 : minutes;
+    return setSchedule(p, days);
+  });
 
   // Skills the diagnosis surfaced that aren't currently in the focus list —
   // the pool the student can re-add via the Plan Settings panel.
@@ -1520,12 +1530,37 @@ const StudyPlanLoaded = ({
               )}
             </div>
 
+            {studyPlan.schedule?.days && (
+              <div className="sp-edit-section">
+                <div className="sp-edit-section-title">Your study days</div>
+                <div className="sp-pacing-row">
+                  <div className="sp-pacing-opts" role="group" aria-label="Days of the week you study">
+                    {DAY_NAMES.map((d) => {
+                      const on = (studyPlan.schedule.days[d] || 0) > 0;
+                      return (
+                        <button
+                          key={d}
+                          type="button"
+                          className={`sp-pacing-opt${on ? ' is-active' : ''}`}
+                          aria-pressed={on}
+                          onClick={() => handleToggleDay(d)}
+                        >{d.slice(0, 3)}</button>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="sp-pacing-hint">
+                  {scheduledDayNames(studyPlan.schedule).length} days a week · your plan schedules work only on these days
+                </div>
+              </div>
+            )}
+
             <div className="sp-edit-section">
               <div className="sp-edit-section-title">Pacing</div>
               <div className="sp-pacing-row">
                 <span className="sp-pacing-label">Minutes per day</span>
                 <div className="sp-pacing-opts">
-                  {[15, 30, 45, 60, 90].map((m) => {
+                  {[20, 35, 50, 75, 100].map((m) => {
                     const cur = studyPlan.summary?.stats?.minutesPerDay || studyPlan.intensityConfig?.minutesPerDay || 30;
                     return (
                       <button

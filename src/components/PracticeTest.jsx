@@ -27,6 +27,7 @@ import {
 import { generateAndPersistHybridPlan, fetchCurrentStudyPlan, persistDeterministicArtifact } from '../services/hybridStudyPlanService';
 import { buildLongitudinalEvidence, computePlanDelta, reconcileDrillEvidenceWithTest } from '../services/studyPlanMerger';
 import { generateStudyPlan as generateDeterministicPlan } from '../services/studyPlanGenerator';
+import { buildPlanProfile } from '../services/studySchedule';
 import { STARTER_PLAN_SOURCE } from '../services/starterPlanService';
 import { runDiagnostic, getQuestionSkills } from '../services/diagnosticEngine';
 import { buildGroundTruthDiagnosis, enrichPlanWithGroundTruth } from '../services/groundTruth';
@@ -1434,7 +1435,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             );
             const detPlan = generateDeterministicPlan(
               diagReport,
-              { targetScore: user.targetScore, testDate: user.testDate },
+              buildPlanProfile(user),
               completedLessons,
               practiceProgress,
               previousPlan,
@@ -1479,7 +1480,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               const phase2 = await generateAndPersistHybridPlan({
                 userId: user.uid,
                 diagnostic: diagReport,
-                userProfile: { targetScore: user.targetScore, testDate: user.testDate },
+                userProfile: buildPlanProfile(user),
                 completedLessons,
                 practiceProgress,
                 practiceTestResults: practiceTestResults || {},

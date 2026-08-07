@@ -188,6 +188,11 @@ export const buildStarterPlan = (profile = {}) => {
     const plan = generateStudyPlan(diagnostic, {
       targetScore: Number.isFinite(profile.targetScore) ? profile.targetScore : undefined,
       testDate: profile.testDate || undefined,
+      // Schedule truth: the starter plan honors the same day/session answers
+      // the real plan does (deriveSchedule reads these three).
+      studyDaysPerWeek: profile.studyDaysPerWeek,
+      studyWindow: profile.studyWindow,
+      sessionLength: profile.sessionLength,
     });
     if (!plan || !Array.isArray(plan.weeks) || plan.weeks.length === 0) return null;
 
