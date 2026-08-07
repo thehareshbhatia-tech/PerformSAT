@@ -73,11 +73,13 @@ const INTENSITY_LEVELS = {
 // signal to confidently schedule 10 weeks — and a 10-week wall reads as noise.
 const INITIAL_PLAN_WEEKS = 2;
 
-// A focused full plan runs 4-5 weeks, not a 10-week wall. Short cycles that
-// regenerate from each new test beat a long static schedule the student stops
-// trusting — a 10-week plan reads as noise and most of it goes stale before
-// they reach it. The first plan stays shorter still (INITIAL_PLAN_WEEKS).
-const MAX_PLAN_WEEKS = 5;
+// The plan arc now spans the student's real runway (capped here). Near weeks
+// are fully scheduled from the activity pool; far weeks render as themed
+// outlines ("Sessions unlock as you go") and fill in as each regeneration
+// approaches them — so a 10-week runway reads as a 10-week arc, not a wall of
+// stale detail. The first plan stays short (INITIAL_PLAN_WEEKS) because one
+// test is too little signal to schedule months.
+const MAX_PLAN_WEEKS = 12;
 
 // Approximate time for different activity types (in minutes)
 const ACTIVITY_DURATIONS = {
@@ -289,6 +291,22 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
   const strategyActivities = generateStrategyActivities(diagnostic);
 
   // ═══ Distribute activities across weeks ═══
+  // ═══ Gap-aware mix: a 200-point climb and a 40-point polish are different
+  // plans, not different intensities of the same plan ═══
+  // Large gap: protect strengths with short maintenance sets so they don't
+  // decay while every session attacks weaknesses.
+  if (scoreGap !== null && scoreGap > 150) {
+    (diagnostic.skillAnalysis?.strongSkills || []).slice(0, 2).forEach((s) => {
+      if (!s?.skillId) return;
+      activities.push({
+        ...buildSkillDrillActivity({ skillId: s.skillId, skillName: s.name, section: s.section, priority: 30 }),
+        title: `Keep sharp: ${s.name || s.skillId}`,
+        subtitle: 'Maintenance set — protect a strength while the plan rebuilds weaknesses',
+        because: "You're strong here — one short set keeps it that way during a big climb.",
+      });
+    });
+  }
+
   const weeklyPlan = distributeAcrossWeeks(
     activities,
     strategyActivities,
@@ -298,7 +316,8 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     previousPlan,
     longitudinal,
     isFirstPlan,
-    schedule
+    schedule,
+    scoreGap
   );
 
   // ═══ Generate the executive summary ═══
@@ -800,7 +819,7 @@ const generateStrategyActivities = (diagnostic) => {
  * - End of week: More practice + self-assessment
  * - Every 3-4 weeks: Take a practice test
  */
-const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minutesPerWeek, diagnostic, previousPlan, longitudinal = null, isFirstPlan = false, schedule = null) => {
+const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minutesPerWeek, diagnostic, previousPlan, longitudinal = null, isFirstPlan = false, schedule = null, scoreGap = null) => {
   const weeks = [];
 
   // ═══ SCHEDULE-AWARE DAY PLAN ═══
@@ -871,10 +890,20 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
   // Track which activities have been assigned
   let activityPool = [...allActivities];
 
+  // Test cadence follows the runway: inside a month of test day every week
+  // ends with a measurement; on a longer arc, every other week. A small score
+  // gap (final polish) doesn't add tests — it adds precision/strategy work
+  // (see the strategy slot below).
+  const smallGap = scoreGap !== null && scoreGap < 50;
+  const testCadence = totalWeeks < 4 ? 1 : 2;
+
   for (let weekNum = 1; weekNum <= totalWeeks; weekNum++) {
     const isFirstWeek = weekNum === 1;
     const isLastWeek = weekNum === totalWeeks;
-    const isTestWeek = weekNum % 3 === 0 || isLastWeek; // Test every 3 weeks + last week
+    // Week 1 never hosts a full test (the plan was just generated FROM one),
+    // so don't flag it — except a one-week plan, whose only week is the last.
+    const isTestWeek = (!isFirstWeek || totalWeeks === 1)
+      && (weekNum % testCadence === 0 || isLastWeek);
 
     const weekActivities = [];
     let weekMinutesUsed = 0;
@@ -911,9 +940,12 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
       }
     }
 
-    // Add one strategy activity per week (if available)
-    const strategyIdx = activityPool.findIndex(a => a.type === 'strategy');
-    if (strategyIdx !== -1 && weekMinutesUsed + activityPool[strategyIdx].duration <= weekMinutesBudget) {
+    // Add one strategy activity per week (two for small-gap students — the
+    // last 50 points are usually pacing and trap discipline, not new content)
+    const strategySlots = smallGap ? 2 : 1;
+    for (let s = 0; s < strategySlots; s++) {
+      const strategyIdx = activityPool.findIndex(a => a.type === 'strategy');
+      if (strategyIdx === -1 || weekMinutesUsed + activityPool[strategyIdx].duration > weekMinutesBudget) break;
       const day = placeOn(activityPool[strategyIdx].duration);
       weekActivities.push({
         ...activityPool[strategyIdx],
@@ -1023,6 +1055,37 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
       goalDescription: generateWeekGoal(weekNum, totalWeeks, weekSkills, isTestWeek),
     });
   }
+
+  // ═══ Check-in cadence: never two consecutive weeks without a measurement ═══
+  // Full tests anchor the cadence; a 15-minute adaptive check-in fills any
+  // 2-week stretch between them so the diagnosis (and therefore every
+  // personalized piece of the plan) never goes stale. Founder decision D3.
+  let weeksSinceMeasurement = 0;
+  weeks.forEach((week) => {
+    if (week.isTestWeek) {
+      weeksSinceMeasurement = 0;
+      return;
+    }
+    weeksSinceMeasurement += 1;
+    if (weeksSinceMeasurement >= 2) {
+      const day = testDay;
+      week.activities.push({
+        type: 'test',
+        activityType: 'miniDiagnostic',
+        title: 'Quick check-in (15 min)',
+        subtitle: 'A short adaptive check re-measures you and re-tunes the plan between full tests',
+        because: 'Two weeks since your last measurement — fresh evidence keeps every task on this plan honest.',
+        duration: 15,
+        priority: 100,
+        icon: null,
+        day,
+        weekPhase: 'end',
+      });
+      week.totalMinutes = (week.totalMinutes || 0) + 15;
+      week.isCheckInWeek = true;
+      weeksSinceMeasurement = 0;
+    }
+  });
 
   return weeks;
 };
