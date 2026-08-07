@@ -25,7 +25,7 @@ import {
   setPacing,
   setSchedule,
 } from '../services/studyPlanEditor';
-import { DAY_NAMES, scheduledDayNames } from '../services/studySchedule';
+import { DAY_NAMES, scheduledDayNames, deriveSchedule } from '../services/studySchedule';
 import { countRemainingTodayTasks } from '../services/selectors/todaySlice';
 import { buildLivingDaySlice } from '../services/livingPlan';
 import { activitySummary, activityBreakdown } from '../services/selectors/activitySummary';
@@ -696,11 +696,21 @@ const StudyPlanLoaded = ({
     applyEdit(p => setFocusAreas(p, [...(p.weaknesses || []), weakness]));
   };
   const handlePacing = (minutesPerDay, examDate) => applyEdit(p => setPacing(p, { minutesPerDay, examDate }, todayISO()));
+  // Plans generated before the schedule model shipped carry no schedule field;
+  // synthesize one from the plan's own intensity so the day-chip editor works
+  // immediately instead of waiting for the next regeneration.
+  const planSchedule = useMemo(() => {
+    if (studyPlan?.schedule?.days) return studyPlan.schedule;
+    if (!studyPlan?.weeks) return null;
+    return deriveSchedule({}, studyPlan.intensityConfig || {}, studyPlan.userPrefs || null);
+  }, [studyPlan]);
   // Toggle one study day on/off. Off→on uses the plan's minutes/day; the
   // editor enforces the 2-day minimum (invalid toggles return the plan as-is).
   const handleToggleDay = (day) => applyEdit(p => {
     const minutes = p.summary?.stats?.minutesPerDay || p.intensityConfig?.minutesPerDay || 30;
-    const days = { ...(p.schedule?.days || {}) };
+    const baseDays = p.schedule?.days
+      || deriveSchedule({}, p.intensityConfig || {}, p.userPrefs || null).days;
+    const days = { ...baseDays };
     days[day] = (days[day] || 0) > 0 ? 0 : minutes;
     return setSchedule(p, days);
   });
@@ -915,6 +925,9 @@ const StudyPlanLoaded = ({
 
           <div className="sp-task-text">
             <div className="sp-task-title"><MathText>{title}</MathText></div>
+            {act.because && !done && (
+              <div className="sp-task-because">{act.because}</div>
+            )}
             <div className="sp-task-meta">
               {section && <span className={`sp-sec-chip is-${section}`}>{SECTION_CHIP_LABEL[section]}</span>}
               {act.custom && <span className="sp-sec-chip sp-sec-chip-ghost">CUSTOM</span>}
@@ -1535,13 +1548,13 @@ const StudyPlanLoaded = ({
               )}
             </div>
 
-            {studyPlan.schedule?.days && (
+            {planSchedule?.days && (
               <div className="sp-edit-section">
                 <div className="sp-edit-section-title">Your study days</div>
                 <div className="sp-pacing-row">
                   <div className="sp-pacing-opts" role="group" aria-label="Days of the week you study">
                     {DAY_NAMES.map((d) => {
-                      const on = (studyPlan.schedule.days[d] || 0) > 0;
+                      const on = (planSchedule.days[d] || 0) > 0;
                       return (
                         <button
                           key={d}
@@ -1555,7 +1568,7 @@ const StudyPlanLoaded = ({
                   </div>
                 </div>
                 <div className="sp-pacing-hint">
-                  {scheduledDayNames(studyPlan.schedule).length} days a week · your plan schedules work only on these days
+                  {scheduledDayNames(planSchedule).length} days a week · your plan schedules work only on these days
                 </div>
               </div>
             )}

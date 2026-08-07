@@ -34,7 +34,7 @@ import { resolveQuestionById } from './practiceAssignmentService';
 import { getSkillSection } from '../data/questions/rwBank/taxonomy';
 // Shared with the read-time legacy-plan upgrade (useProgress) so generated
 // and upgraded activities have one shape. planFormatUpgrade is corpus-free.
-import { buildSkillDrillActivity, PLAN_FORMAT_VERSION } from './planFormatUpgrade';
+import { buildSkillDrillActivity, buildBecauseLine, PLAN_FORMAT_VERSION } from './planFormatUpgrade';
 import { parseLocalDate } from '../utils/localDate';
 // Display-band mapping shared with the plan editor's setPacing so a
 // user-minutes override keeps intensity/label/minutes mutually consistent.
@@ -648,7 +648,9 @@ const mapGapsToActivities = (skillGaps, completedLessons, practiceProgress, diag
         const prevAttempts = practiceProgress[practiceKey]?.totalAttempts || 0;
         const prevBest = practiceProgress[practiceKey]?.bestScore;
 
+        const because = buildBecauseLine(gap);
         activities.push({
+          ...(because ? { because } : {}),
           type: 'practice',
           activityType: 'practiceSection',
           title: `Practice: ${section.sectionName}`,

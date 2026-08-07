@@ -1721,3 +1721,12 @@ button.sp-tuneup-bar:hover { background: var(--sp-inset); }
   line-height: 1.45;
   color: var(--color-slate-600, #475569);
 }
+
+/* "Why this is on YOUR plan" evidence line (Phase 3, Living Study Plan) */
+.sp-task-because {
+  font-style: italic;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--sp-ink-soft, #6b6b6b);
+  margin: 2px 0 4px;
+}

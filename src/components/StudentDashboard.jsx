@@ -991,6 +991,7 @@ const StudentDashboard = ({
                             {minutes !== null && <span className="hv2-chip">~{minutes} MIN</span>}
                           </div>
                           {(a?.subtitle || a?.skillName) && <p className="hv2-focus-desc">{a.subtitle || a.skillName}</p>}
+                          {a?.because && <p className="hv2-focus-because">{a.because}</p>}
                         </div>
                         <button type="button" className="hv2-btn-primary" onClick={onStart} disabled={!isStartable}>
                           {isTest ? 'Start test' : 'Start now'}
@@ -999,6 +1000,24 @@ const StudentDashboard = ({
                       </div>
                     );
                   })}
+                  {todaySlice.reviewSession?.sessionSize > 0 && typeof onStartReview === 'function' && (
+                    <div className="hv2-focus-row">
+                      <div className="hv2-focus-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                      </div>
+                      <div className="hv2-focus-text">
+                        <div className="hv2-focus-titlerow">
+                          <span className="hv2-focus-title">Review {todaySlice.reviewSession.sessionSize} due {todaySlice.reviewSession.sessionSize === 1 ? 'question' : 'questions'}</span>
+                          <span className="hv2-chip">~{todaySlice.reviewSession.estimatedMinutes} MIN</span>
+                        </div>
+                        <p className="hv2-focus-desc">Questions you missed before, back at the right moment to stick.</p>
+                      </div>
+                      <button type="button" className="hv2-btn-primary" onClick={() => onStartReview(todaySlice.reviewSession.items)}>
+                        Start now
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             ) : !hasStudyPlan ? (
