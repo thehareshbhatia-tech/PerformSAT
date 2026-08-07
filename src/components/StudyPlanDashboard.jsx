@@ -26,7 +26,8 @@ import {
   setSchedule,
 } from '../services/studyPlanEditor';
 import { DAY_NAMES, scheduledDayNames } from '../services/studySchedule';
-import { getTodaySlice, countRemainingTodayTasks } from '../services/selectors/todaySlice';
+import { countRemainingTodayTasks } from '../services/selectors/todaySlice';
+import { buildLivingDaySlice } from '../services/livingPlan';
 import { activitySummary, activityBreakdown } from '../services/selectors/activitySummary';
 import { buildDayNarrative } from '../services/selectors/dayNarrative';
 import { getIdentityInsights, getPredictionTrust } from '../services/selectors/identityInsights';
@@ -538,7 +539,11 @@ const StudyPlanLoaded = ({
   // Today's-Tasks tab derived state.
   const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const todayDayName = DAY_NAMES[new Date().getDay()];
-  const todaySlice = useMemo(() => getTodaySlice(studyPlan, todayDayName), [studyPlan, todayDayName]);
+  // Living slice — same evidence-reshaped day the dashboard hero shows.
+  const todaySlice = useMemo(
+    () => buildLivingDaySlice(studyPlan, { todayDayName, skillProgress, practiceTestResults, reviewQueue }),
+    [studyPlan, todayDayName, skillProgress, practiceTestResults, reviewQueue]
+  );
   const topWeakness = useMemo(() => {
     if (!studyPlan) return null;
     const math = getMathWeaknesses(studyPlan);

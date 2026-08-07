@@ -7,7 +7,8 @@ import CollegePicker from './CollegePicker';
 import StudyPlanDashboard from './StudyPlanDashboard';
 import PredictedVsActualCard from './PredictedVsActualCard';
 import CalendarMonth from './CalendarMonth';
-import { getTodaySlice, countRemainingTodayTasks } from '../services/selectors/todaySlice';
+import { countRemainingTodayTasks } from '../services/selectors/todaySlice';
+import { buildLivingDaySlice } from '../services/livingPlan';
 import { resolveActivityDrill } from '../services/activityDrillRouter';
 import { getSessionAdherence } from '../services/selectors/sessionAdherence';
 import { summarizePredictions } from '../services/selectors/predictionSummary';
@@ -256,7 +257,13 @@ const StudentDashboard = ({
   // no auto-refresh on midnight rollover (the user can refresh).
   const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const todayDayName = DAY_NAMES[new Date().getDay()];
-  const todaySlice = useMemo(() => getTodaySlice(studyPlan, todayDayName), [studyPlan, todayDayName]);
+  // Living slice: today's list reshaped by the newest drill/review evidence
+  // (proven skills drop, weakest pending skill pulls forward). Falls back to
+  // the plain scheduled slice internally on any error.
+  const todaySlice = useMemo(
+    () => buildLivingDaySlice(studyPlan, { todayDayName, skillProgress, practiceTestResults, reviewQueue }),
+    [studyPlan, todayDayName, skillProgress, practiceTestResults, reviewQueue]
+  );
   const sessionAdherence = useMemo(
     () => getSessionAdherence({ practiceProgress, practiceTestResults, drillDays }),
     [practiceProgress, practiceTestResults, drillDays],
