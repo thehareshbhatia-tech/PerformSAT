@@ -25,7 +25,7 @@ import {
   setPacing,
   setSchedule,
 } from '../services/studyPlanEditor';
-import { DAY_NAMES, scheduledDayNames, deriveSchedule } from '../services/studySchedule';
+import { scheduledDayNames, deriveSchedule } from '../services/studySchedule';
 import { countRemainingTodayTasks } from '../services/selectors/todaySlice';
 import { buildLivingDaySlice } from '../services/livingPlan';
 import { activitySummary, activityBreakdown } from '../services/selectors/activitySummary';
@@ -1553,7 +1553,7 @@ const StudyPlanLoaded = ({
                 <div className="sp-edit-section-title">Your study days</div>
                 <div className="sp-pacing-row">
                   <div className="sp-pacing-opts" role="group" aria-label="Days of the week you study">
-                    {DAY_NAMES.map((d) => {
+                    {WEEKDAY_FULL.map((d) => {
                       const on = (planSchedule.days[d] || 0) > 0;
                       return (
                         <button
