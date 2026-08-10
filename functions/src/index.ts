@@ -47,6 +47,7 @@ import {
   toAnthropicSystem,
   withOperatingConstraint,
   AnthropicSystemBlock,
+  TUTOR_CACHE_TTL,
 } from "./tutorSystemBlocks";
 import {parseMathCheckResult, MathCheckResult} from "./tutorMathCheckPolicy";
 
@@ -373,7 +374,7 @@ export const aiTutor = onRequest(
           [{
             type: "text",
             text: typeof system === "string" ? system : String(system),
-            cache_control: {type: "ephemeral"},
+            cache_control: {type: "ephemeral", ttl: TUTOR_CACHE_TTL},
           }] :
           "";
       }
