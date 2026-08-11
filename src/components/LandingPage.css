@@ -59,6 +59,20 @@
 
 .lp-wrap { max-width: 1200px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
 
+/* ── CREATOR-LINK RIBBON ───────────────────────────────────────────────── */
+/* Shown only when a /r/<slug> referral is stored; sits above the sticky nav
+   in normal flow, so it scrolls away and the nav takes over. */
+.lp-ref-banner {
+  background: rgba(90, 138, 22, .12);
+  color: var(--lp-lime-ink);
+  border-bottom: 1px solid rgba(90, 138, 22, .25);
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: .01em;
+  padding: 9px 16px;
+}
+
 /* ── NAV ───────────────────────────────────────────────────────────────── */
 .lp-nav {
   position: sticky; top: 0; z-index: 50;

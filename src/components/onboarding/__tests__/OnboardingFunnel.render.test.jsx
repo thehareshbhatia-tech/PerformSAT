@@ -161,6 +161,27 @@ test('every step renders without throwing and without emojis', () => {
   }
 });
 
+test('signup step shows the creator-discount note only for referred visitors with billing live', () => {
+  const signupIndex = FUNNEL_STEPS.findIndex((s) => s.type === 'signup');
+  seedStep(signupIndex, { answers: { timing: '2to6m' }, name: 'Maya' });
+
+  // No stored referral: no note.
+  mount({ billingLive: true });
+  expect(container.textContent).not.toContain('Creator discount');
+
+  // Stored referral + billing live: the note pins the promised terms.
+  window.localStorage.setItem('seva:ref', JSON.stringify({ slug: 'iksha', at: Date.now() }));
+  mount({ billingLive: true });
+  expect(container.textContent).toContain(
+    'Creator discount: 20% off your first 3 months — applied automatically at checkout.'
+  );
+
+  // Billing dark: never promise a discount checkout can't apply.
+  mount({ billingLive: false });
+  expect(container.textContent).not.toContain('Creator discount');
+  window.localStorage.removeItem('seva:ref');
+});
+
 test('back on the first step exits to the landing page', () => {
   const onExit = jest.fn();
   mount({ onExit });

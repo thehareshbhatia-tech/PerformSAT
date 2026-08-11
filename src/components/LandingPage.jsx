@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { useFeatureFlag } from '../hooks/useFeatureFlag';
+import { getReferral } from '../services/refTracker';
 import { Modal } from './ui/Modal';
 import Wordmark from './ui/Wordmark';
 import './LandingPage.css';
@@ -221,6 +222,10 @@ const LandingPage = () => {
   // paywall so the landing page never promises "free forever" once the
   // 3-day-trial model is live (and never promises a trial before it exists).
   const billingLive = useFeatureFlag('billing');
+  // Creator-link visitors (sevaprep.com/r/<slug>) get a confirmation ribbon so
+  // the promised 20% reads as real before the Stripe page finally shows it.
+  // getReferral never throws and returns null for everyone else.
+  const creatorRef = getReferral();
   const [showAuth, setShowAuth] = useState(false); // login modal
   const [showFunnel, setShowFunnel] = useState(false); // signup quiz funnel
   const [active, setActive] = useState(0); // results carousel index (can go +/-, wrapped on read)
@@ -399,6 +404,12 @@ const LandingPage = () => {
     <div className="landing-container" ref={rootRef}>
       {/* Tri-color scroll progress — the brand S, stretched across the page. */}
       <div className="lp-progress" ref={progressRef} aria-hidden="true" />
+
+      {creatorRef && billingLive && (
+        <div className="lp-ref-banner" role="status">
+          Creator discount active — 20% off your first 3 months, applied automatically at checkout.
+        </div>
+      )}
 
       {/* ===== NAV ===== */}
       <nav className={`lp-nav${navScrolled ? ' is-scrolled' : ''}`}>

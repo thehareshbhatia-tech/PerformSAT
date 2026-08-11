@@ -41,6 +41,7 @@ jest.mock('firebase/firestore', () => ({
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import LandingPage from '../LandingPage';
+import { setFeatureFlagForTest } from '../../hooks/useFeatureFlag';
 
 // Emoji + dingbat/symbol blocks — UI copy must never contain emojis.
 const EMOJI_RE = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u;
@@ -126,5 +127,35 @@ describe('LandingPage content', () => {
 
   test('contains no emojis', () => {
     expect(html).not.toMatch(EMOJI_RE);
+  });
+});
+
+// Creator-link ribbon: shown only when a /r/<slug> referral is stored AND
+// billing is live — the page must never promise a checkout discount that
+// checkout can't apply.
+describe('LandingPage creator-link ribbon', () => {
+  const RIBBON =
+    'Creator discount active — 20% off your first 3 months, applied automatically at checkout.';
+
+  afterEach(() => {
+    window.localStorage.removeItem('seva:ref');
+    setFeatureFlagForTest('billing', undefined);
+  });
+
+  test('hidden for direct (non-referred) visitors', () => {
+    setFeatureFlagForTest('billing', true);
+    expect(render(<LandingPage />)).not.toContain('Creator discount');
+  });
+
+  test('shown for referred visitors while billing is live', () => {
+    setFeatureFlagForTest('billing', true);
+    window.localStorage.setItem('seva:ref', JSON.stringify({ slug: 'iksha', at: Date.now() }));
+    expect(render(<LandingPage />)).toContain(RIBBON);
+  });
+
+  test('never promises the discount while billing is dark', () => {
+    setFeatureFlagForTest('billing', false);
+    window.localStorage.setItem('seva:ref', JSON.stringify({ slug: 'iksha', at: Date.now() }));
+    expect(render(<LandingPage />)).not.toContain('Creator discount');
   });
 });

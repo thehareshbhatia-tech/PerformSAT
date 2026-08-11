@@ -17,6 +17,7 @@ import {
   buildFunnelProfile,
 } from './funnelConfig';
 import { stashPendingPromoCode, clearPendingPromoCode } from '../../services/pendingPromo';
+import { getReferral } from '../../services/refTracker';
 import './OnboardingFunnel.css';
 
 /**
@@ -560,6 +561,11 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
         rides along. The check-in is waiting on the other side.
       </p>
       <form className="of-form" onSubmit={handleSignup}>
+        {billingLive && getReferral() && (
+          <div className="of-ref-note" role="status">
+            Creator discount: 20% off your first 3 months — applied automatically at checkout.
+          </div>
+        )}
         {billingLive && planLocked && (
           <div className="of-plan-chosen">
             <span className="of-plan-chosen-label">

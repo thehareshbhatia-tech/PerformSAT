@@ -725,6 +725,18 @@
   gap: 16px;
 }
 
+/* Creator-link discount confirmation (only when a /r/<slug> ref is stored). */
+.of-ref-note {
+  background: var(--of-lime-tint);
+  color: var(--of-lime);
+  border: 1px solid rgba(90, 138, 22, .25);
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 10px 14px;
+  text-align: center;
+}
+
 /* Settled plan (clicked on the landing pricing cards): confirm, don't re-ask. */
 .of-plan-chosen {
   display: flex;
