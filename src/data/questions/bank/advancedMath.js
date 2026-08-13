@@ -4691,6 +4691,10 @@ export const advancedMathBank = [
 
   { id: 'bank-am-380', domain: 'advanced-math', skills: ['function-transformations', 'vertex-form'], difficulty: 'medium', type: 'multiple-choice',
     question: 'The graph of $y = f(x)$ is shown in the $xy$-plane. The graph of $y = -f(x) + 5$ is obtained from the graph of $f$ by which sequence of transformations?',
+    // Generic cubic-shaped f: the stem promises a shown graph, but the answer is
+    // determined purely by the algebraic form -f(x) + 5, so no specific curve
+    // feature leaks the answer. Peaks near ±4.9 stay inside the y-range.
+    diagram: { type: 'cubicGraph', params: { a: 0.2, roots: [-4, 0, 4], xRange: [-6, 6], yRange: [-8, 8], label: 'y = f(x)' } },
     choices: [{ id: 'A', text: 'Reflection across the $x$-axis, then shift up $5$ units' }, { id: 'B', text: 'Reflection across the $y$-axis, then shift up $5$ units' }, { id: 'C', text: 'Reflection across the $x$-axis, then shift down $5$ units' }, { id: 'D', text: 'Shift up $5$ units, then reflection across the $x$-axis' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Function Transformation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $-f(x)$ negates the output, which reflects the graph across the $x$-axis. The $+5$ then shifts it up $5$ units.\n\n**The Full Solution:**\nStep 1: $y = -f(x) + 5$ first negates $f(x)$: multiplying every output by $-1$ reflects the graph across the $x$-axis.\nStep 2: Adding $5$ to the result shifts the reflected graph up $5$ units.\nStep 3: So the order is reflect across the $x$-axis, then shift up $5$.\n\n**Why the wrong answers are tempting:**\n* Choice B: a reflection across the $y$-axis comes from $f(-x)$, not $-f(x)$.\n* Choice C: the $+5$ shifts up, not down.\n* Choice D: reflecting after shifting up would negate the $+5$ as well, giving $-f(x) - 5$, not $-f(x) + 5$.\n\n**Test Day Takeaway:** $-f(x)$ flips across the $x$-axis; $f(-x)$ flips across the $y$-axis. Apply the reflection built into the negation first, then the outside shift.",

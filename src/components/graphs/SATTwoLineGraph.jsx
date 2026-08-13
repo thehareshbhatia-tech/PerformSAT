@@ -46,6 +46,12 @@ const SATTwoLineGraph = ({
   showIntersection = true,
   line1Color = null,
   line2Color = null,
+  // Inequality-system support (2026-08-13): dashed boundary = strict
+  // inequality; 'below-both' | 'above-both' shades the solution region in
+  // light gray, matching official system-of-inequalities figures.
+  line1Dash = false,
+  line2Dash = false,
+  shadeRegion = null,
   width = 320,
   height = 280,
   xTickInterval = 2,
@@ -177,6 +183,24 @@ const SATTwoLineGraph = ({
 
       {/* Lines (clipped) */}
       <g clipPath={`url(#${clipPathId})`}>
+        {/* Solution-region shading: the envelope of the two lines down to the
+            bottom (below-both) or up to the top (above-both) of the plot.
+            Light gray fill only — official figures never shade in color. */}
+        {(shadeRegion === 'below-both' || shadeRegion === 'above-both') && (() => {
+          const below = shadeRegion === 'below-both';
+          const yEdge = below ? yRange[0] - 20 : yRange[1] + 20;
+          const pick = below ? Math.min : Math.max;
+          const envY = (x) => pick(
+            line1.slope * x + line1.yIntercept,
+            line2.slope * x + line2.yIntercept,
+          );
+          const xs = [extendedXMin, intersection.x, extendedXMax];
+          const pts = xs.map((x) => coordSystem.toSVG(x, envY(x)));
+          const corner1 = coordSystem.toSVG(extendedXMax, yEdge);
+          const corner2 = coordSystem.toSVG(extendedXMin, yEdge);
+          const d = `M ${pts[0].x} ${pts[0].y} L ${pts[1].x} ${pts[1].y} L ${pts[2].x} ${pts[2].y} L ${corner1.x} ${corner1.y} L ${corner2.x} ${corner2.y} Z`;
+          return <path d={d} fill="rgba(0,0,0,0.10)" stroke="none" />;
+        })()}
         {/* Line 1 */}
         <line
           x1={line1Start.x}
@@ -185,6 +209,7 @@ const SATTwoLineGraph = ({
           y2={line1End.y}
           stroke={color1}
           strokeWidth={styles.strokeWidth.dataLine}
+          strokeDasharray={line1Dash ? '7,5' : undefined}
         />
 
         {/* Line 2 */}
@@ -195,6 +220,7 @@ const SATTwoLineGraph = ({
           y2={line2End.y}
           stroke={color2}
           strokeWidth={styles.strokeWidth.dataLine}
+          strokeDasharray={line2Dash ? '7,5' : undefined}
         />
       </g>
 
