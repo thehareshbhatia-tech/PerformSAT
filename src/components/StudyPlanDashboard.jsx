@@ -595,6 +595,18 @@ const StudyPlanLoaded = ({
 
   // ── Handlers ─────────────────────────────────────────────────────────
   const handleGo = (activity) => {
+    // Unified session grammar (Plan v3): every plan card launches something
+    // real. Test-miss review deep-links the actual missed questions; the
+    // pacing session launches the real pacing drill tuned to the student's
+    // own telemetry.
+    if (activity.activityType === 'testMissReview' && activity.testId && onReviewTestWrong) {
+      onReviewTestWrong(activity.testId);
+      return;
+    }
+    if (activity.activityType === 'pacingDrill' && onStartPacing) {
+      onStartPacing(buildPacingSession(pacingTelemetry).config);
+      return;
+    }
     // Lesson branch removed — generator no longer emits type='lesson'
     // and the legacy LearnWorkspace mount is gone.
     if (activity.type === 'test') {

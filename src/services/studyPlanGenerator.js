@@ -382,6 +382,20 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
 
   const nextAction = deriveSignalAwareNextAction(weeklyPlan, diagnostic);
 
+  // ═══ Journey arc (Plan v3 A3): the plan's visible destination ═══
+  // Phases + dated milestones + a score trajectory, so the plan reads as a
+  // route to the goal instead of a list of drills. Consumed by the plan
+  // page's mission-control header.
+  const arc = buildPlanArc({
+    weeks: weeklyPlan,
+    gapBasis,
+    currentScore,
+    targetScore,
+    testDate,
+    daysUntilTest,
+    scoreProjection: diagnostic.scoreProjection || null,
+  });
+
   const generatedAt = new Date().toISOString();
 
   // ═══ Assign practice questions from the bank ═══
@@ -457,6 +471,10 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     weeks: weeklyPlan,
     summary,
     nextAction,
+    // Journey arc (Plan v3): phases + milestones + trajectory for the
+    // mission-control header. Older plans lack it — every reader must
+    // null-guard.
+    arc,
 
     // Adaptive practice (primary — Acely-style)
     adaptivePractice,
@@ -755,51 +773,95 @@ const mapGapsToActivities = (skillGaps, completedLessons, practiceProgress, diag
 };
 
 /**
+ * Pick the skill (from allSkills) that best evidences a given error type —
+ * most occurrences of that error, tiebreak lower accuracy. Powers the
+ * unified-session rule: every strategy card launches a REAL drill built
+ * from the student's own misses, never advice-only tips.
+ */
+const topSkillForErrorType = (diagnostic, errorType) => {
+  const all = diagnostic.skillAnalysis?.allSkills || [];
+  let best = null;
+  let bestCount = 0;
+  all.forEach((s) => {
+    if (!s?.skillId || !Array.isArray(s.errorTypes)) return;
+    const count = s.errorTypes.filter((e) => e === errorType).length;
+    if (count > bestCount || (count === bestCount && count > 0 && (s.contentAccuracy ?? 100) < (best?.contentAccuracy ?? 100))) {
+      best = s;
+      bestCount = count;
+    }
+  });
+  return bestCount > 0 ? best : null;
+};
+
+/**
  * Generate strategy-focused activities based on error patterns.
+ *
+ * Unified session grammar (Plan v3): every card here is a LAUNCHABLE session
+ * with the standard card anatomy — no advice-only cards. Trap and careless
+ * patterns become real drills targeted at the student's own trap/careless
+ * skills (type 'practice' so the shared drill router serves them); pacing
+ * becomes a pacing session (activityType 'pacingDrill' → onStartPacing);
+ * the mistake review becomes a test-miss review session deep-linking the
+ * actual missed questions (activityType 'testMissReview' → onReviewTestWrong)
+ * and is only emitted when the source test's misses are reviewable (real
+ * catalog tests — a mini-diagnostic's misses have no review store).
+ * The old `tips` arrays survive as expandable coaching on the real session.
  */
 const generateStrategyActivities = (diagnostic) => {
   const activities = [];
   const errorCounts = diagnostic.errorPatterns.counts;
   const hasRWGaps = (diagnostic.skillAnalysis?.weakSkills || []).some(s => s.section === 'rw');
 
-  // Trap avoidance drills — tips match the sections the student actually
-  // struggled in (the all-math tip list read oddly under an R&W-heavy plan).
+  // Trap-answer drill — a REAL set on the skill where the traps actually bit.
   if ((errorCounts[ERROR_TYPES.TRAP_SUSCEPTIBILITY] || 0) >= 2) {
-    activities.push({
-      type: 'strategy',
-      activityType: 'strategyDrill',
-      title: 'Trap Answer Recognition Drill',
-      subtitle: `You picked ${errorCounts[ERROR_TYPES.TRAP_SUSCEPTIBILITY]} designed-to-tempt answers last test`,
-      duration: ACTIVITY_DURATIONS.strategyDrill,
-      priority: 90,
-      icon: null,
-      tips: [
-        'Before choosing, predict what trap answers might look like',
-        'In percent problems: "increased by X%" ≠ "X% of"',
-        'In multi-step problems: check that you answered the FINAL question, not an intermediate step',
-        ...(hasRWGaps ? [
-          'In reading questions: the tempting wrong answer is usually TRUE — it just doesn\'t answer THIS question',
-          'Distrust extreme wording — "always", "never", "proves" usually overstate what the passage supports',
-        ] : []),
-        'If your answer came too easily on a hard question, it\'s probably a trap',
-      ],
-    });
+    const trapSkill = topSkillForErrorType(diagnostic, ERROR_TYPES.TRAP_SUSCEPTIBILITY);
+    if (trapSkill) {
+      activities.push({
+        ...buildSkillDrillActivity({
+          skillId: trapSkill.skillId,
+          skillName: trapSkill.name,
+          section: trapSkill.section,
+          missedPatterns: trapSkill.missedPatterns,
+          priority: 90,
+        }),
+        activityType: 'trapDrill',
+        title: `Beat the trap answers: ${trapSkill.name || trapSkill.skillId}`,
+        subtitle: `You picked ${errorCounts[ERROR_TYPES.TRAP_SUSCEPTIBILITY]} designed-to-tempt answers last test — most on this skill`,
+        because: `Your ${trapSkill.name || 'top'} misses were the designed-to-tempt answers. Predict the trap before you look at the choices.`,
+        duration: ACTIVITY_DURATIONS.strategyDrill,
+        priority: 90,
+        tips: [
+          'Before choosing, predict what trap answers might look like',
+          ...(trapSkill.section === 'rw' ? [
+            'The tempting wrong answer is usually TRUE — it just doesn\'t answer THIS question',
+            'Distrust extreme wording — "always", "never", "proves" usually overstate what the passage supports',
+          ] : [
+            'In percent problems: "increased by X%" ≠ "X% of"',
+            'In multi-step problems: check that you answered the FINAL question, not an intermediate step',
+          ]),
+          'If your answer came too easily on a hard question, it\'s probably a trap',
+        ],
+      });
+    }
   }
 
-  // Time management drills. The gate is an OR: the fade branch can fire
-  // with timeRelatedErrors at 0-2, so the subtitle must cite whichever
-  // evidence actually triggered it ("clock cost you 0 questions" was a
-  // live contradiction caught in review).
+  // Pacing session — launches the real pacing drill (buildPacingSession),
+  // not a tips card. The gate is an OR: the fade branch can fire with
+  // timeRelatedErrors at 0-2, so the subtitle must cite whichever evidence
+  // actually triggered it.
   const timePressureCount = errorCounts[ERROR_TYPES.TIME_PRESSURE] || 0;
   const fadeEffect = diagnostic.timeAnalysis.fadeEffect || 0;
   if (timePressureCount >= 3 || fadeEffect > 15) {
     activities.push({
       type: 'strategy',
-      activityType: 'strategyDrill',
-      title: 'Pacing Reset',
+      activityType: 'pacingDrill',
+      title: 'Pacing session',
       subtitle: timePressureCount >= 3
         ? `The clock cost you ${timePressureCount} question${timePressureCount === 1 ? '' : 's'} last test`
         : `Your accuracy dropped ${fadeEffect}% in the second half — pacing faded`,
+      because: timePressureCount >= 3
+        ? `The clock cost you ${timePressureCount} question${timePressureCount === 1 ? '' : 's'} last test — timed sets at target pace rebuild the rhythm.`
+        : `Your accuracy dropped ${fadeEffect}% from module start to end — timed sets rebuild the endurance.`,
       duration: ACTIVITY_DURATIONS.strategyDrill,
       priority: 85,
       icon: null,
@@ -807,43 +869,55 @@ const generateStrategyActivities = (diagnostic) => {
         'Easy: max 90 seconds. Medium: max 2 minutes. Hard: max 3 minutes.',
         'If stuck, flag it and move on — come back with fresh eyes',
         'Use the last 5 minutes to review flagged questions',
-        'Don\'t spend 4 minutes on one hard question and rush the next three',
       ],
     });
   }
 
-  // Careless error reduction
+  // Precision drill — re-drill the skill where knowing-how still went wrong.
   if ((errorCounts[ERROR_TYPES.CARELESS_ERROR] || 0) >= 2) {
-    activities.push({
-      type: 'strategy',
-      activityType: 'strategyDrill',
-      title: 'Stop the Avoidable Misses',
-      subtitle: `${errorCounts[ERROR_TYPES.CARELESS_ERROR]} questions you knew how to solve went wrong last test`,
-      duration: ACTIVITY_DURATIONS.strategyDrill,
-      priority: 95,
-      icon: null,
-      tips: [
-        'Re-read the last sentence of EVERY question before answering',
-        'After solving, plug your answer back in to verify',
-        'Circle/highlight what the question is actually asking for (x? 2x+1? y?)',
-        'For fill-in: double-check that your answer is in the right units/form',
-      ],
-    });
+    const carelessSkill = topSkillForErrorType(diagnostic, ERROR_TYPES.CARELESS_ERROR);
+    if (carelessSkill) {
+      activities.push({
+        ...buildSkillDrillActivity({
+          skillId: carelessSkill.skillId,
+          skillName: carelessSkill.name,
+          section: carelessSkill.section,
+          missedPatterns: carelessSkill.missedPatterns,
+          priority: 95,
+        }),
+        activityType: 'precisionDrill',
+        title: `Stop the avoidable misses: ${carelessSkill.name || carelessSkill.skillId}`,
+        subtitle: `${errorCounts[ERROR_TYPES.CARELESS_ERROR]} questions you knew how to solve went wrong last test`,
+        because: `You know how to solve these — ${errorCounts[ERROR_TYPES.CARELESS_ERROR]} went wrong anyway. This set is about finishing clean, not learning new content.`,
+        duration: ACTIVITY_DURATIONS.strategyDrill,
+        priority: 95,
+        tips: [
+          'Re-read the last sentence of EVERY question before answering',
+          'After solving, plug your answer back in to verify',
+          'Circle/highlight what the question is actually asking for (x? 2x+1? y?)',
+        ],
+      });
+    }
   }
 
-  // Mistake review session
-  if (diagnostic.errorPatterns.totalWrong > 5) {
+  // Test-miss review session — the real missed questions from the source
+  // test, launched through the review deep-link. Only when reviewable: a
+  // mini-diagnostic's misses have no review store to open.
+  const sourceTestId = diagnostic.testId || null;
+  const reviewable = sourceTestId && !String(sourceTestId).startsWith('mini-diagnostic');
+  if (diagnostic.errorPatterns.totalWrong > 5 && reviewable) {
     activities.push({
       type: 'review',
-      activityType: 'reviewMistakes',
-      title: 'Review Your Missed Questions',
-      subtitle: `${diagnostic.errorPatterns.totalWrong} questions to review from ${diagnostic.testTitle}`,
+      activityType: 'testMissReview',
+      testId: sourceTestId,
+      title: `Review: ${diagnostic.testTitle || 'your last test'} — ${diagnostic.errorPatterns.totalWrong} misses`,
+      subtitle: 'Walk the questions you missed, then re-drill the ones worth points',
+      because: `${diagnostic.errorPatterns.totalWrong} misses from ${diagnostic.testTitle || 'your last test'} are sitting there with your reasoning attached — understanding WHY beats new reps.`,
       duration: ACTIVITY_DURATIONS.reviewMistakes,
       priority: 100, // Always high priority
       icon: null,
       tips: [
         'For each wrong answer, understand WHY the correct answer is right',
-        'Write down what you would do differently next time',
         'Focus on questions you "almost" got right — these are your quick wins',
       ],
     });
@@ -942,6 +1016,69 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
   // Track which activities have been assigned
   let activityPool = [...allActivities];
 
+  // ═══ SECTION BALANCE (Plan v3 A1) ═══
+  // A TRUE plan never goes single-section. Weekly skill minutes split between
+  // R&W and Math weighted toward the section carrying more gap evidence,
+  // clamped to 60/40 — so the weaker section leads but the other NEVER
+  // disappears while its pool has work. Activities without a section (module
+  // practice is math-bank by construction; strategy/review are neutral) count
+  // as math/neutral respectively.
+  const sectionOf = (a) => (a?.section === 'rw' ? 'rw' : 'math');
+  const isSkillWork = (a) => a && a.type === 'practice';
+  const gapMass = { rw: 0, math: 0 };
+  adaptedActivities.forEach((a) => {
+    if (isSkillWork(a)) gapMass[sectionOf(a)] += Math.max(1, a.priority || 1);
+  });
+  const bothSections = gapMass.rw > 0 && gapMass.math > 0;
+  const rwShare = bothSections
+    ? Math.min(0.6, Math.max(0.4, gapMass.rw / (gapMass.rw + gapMass.math)))
+    : (gapMass.rw > 0 ? 1 : 0);
+
+  // ═══ DENSITY BACKFILL POOL (Plan v3 A2) ═══
+  // When confirmed weak-flags can't fill the student's stated weekly minutes,
+  // the plan backfills with honest, personally-earned work instead of running
+  // thin: shaky skills (passed the attempt bar but sit 50-74%) get
+  // reinforcement sets, then strengths get short maintenance sets. Every
+  // entry carries a because-line naming what it is — no anonymous filler.
+  const scheduledSkillIds = new Set(
+    allActivities.map((a) => a.skillId).filter(Boolean),
+  );
+  const backfillPool = [];
+  (diagnostic.skillAnalysis?.allSkills || []).forEach((s) => {
+    if (!s?.skillId || scheduledSkillIds.has(s.skillId)) return;
+    const acc = s.contentAccuracy ?? s.testAccuracy ?? null;
+    if (acc === null || (s.attempted ?? 0) < 2) return;
+    if (acc >= 50 && acc < 75) {
+      backfillPool.push({
+        ...buildSkillDrillActivity({
+          skillId: s.skillId,
+          skillName: s.name,
+          section: s.section,
+          missedPatterns: s.missedPatterns,
+          priority: 40,
+        }),
+        title: `Push past shaky: ${s.name || s.skillId}`,
+        subtitle: 'Reinforcement set — solid start, not yet reliable',
+        because: `You're at ${acc}% here — real footing, not yet reliable. One focused set moves it from coin-flip to counted-on.`,
+        planRole: 'reinforce',
+      });
+    } else if (acc >= 80) {
+      backfillPool.push({
+        ...buildSkillDrillActivity({
+          skillId: s.skillId,
+          skillName: s.name,
+          section: s.section,
+          priority: 25,
+        }),
+        title: `Keep sharp: ${s.name || s.skillId}`,
+        subtitle: 'Maintenance set — protect a strength',
+        because: "You're strong here — one short set keeps it that way while the plan rebuilds weaknesses.",
+        planRole: 'maintain',
+      });
+    }
+  });
+  backfillPool.sort((a, b) => b.priority - a.priority);
+
   // Measurement cadence: inside a month of test day, every week ends with a
   // full test. On a longer arc, FULL tests land every third week (a 70-minute
   // mock every other week is over-prescription students skip) and the
@@ -1011,34 +1148,78 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
       activityPool.splice(strategyIdx, 1);
     }
 
-    // ── PHASE 2: Practice and drills across the student's study days ──
-    while (activityPool.length > 0 && weekMinutesUsed < weekMinutesBudget) {
-      const nextActivity = activityPool[0];
-      if (!nextActivity) break;
-
-      if (weekMinutesUsed + nextActivity.duration > weekMinutesBudget + 10) {
-        // Over budget — try to find a shorter activity
-        const shorterIdx = activityPool.findIndex(a => weekMinutesUsed + a.duration <= weekMinutesBudget + 10);
-        if (shorterIdx === -1) break;
-
-        const day = placeOn(activityPool[shorterIdx].duration);
-        weekActivities.push({
-          ...activityPool[shorterIdx],
-          day,
-          weekPhase: phaseFor(day),
-        });
-        weekMinutesUsed += activityPool[shorterIdx].duration;
-        activityPool.splice(shorterIdx, 1);
-      } else {
-        const day = placeOn(nextActivity.duration);
-        weekActivities.push({
-          ...nextActivity,
-          day,
-          weekPhase: phaseFor(day),
-        });
-        weekMinutesUsed += nextActivity.duration;
-        activityPool.shift();
+    // ── PHASE 2: Practice and drills — SECTION-AWARE fill (Plan v3 A1) ──
+    // Instead of draining one priority-sorted pool (which produced entire
+    // single-section weeks whenever one section's gaps outranked the
+    // other's), each week fills toward per-section minute targets. The
+    // section with the larger unmet target picks next; neutral work
+    // (leftover strategy/review) fills alongside. Priority order is
+    // preserved WITHIN each section.
+    const sectionMinutes = { rw: 0, math: 0 };
+    const targetFor = (sec) => Math.round(weekMinutesBudget * (sec === 'rw' ? rwShare : 1 - rwShare));
+    // First pool index of the wanted kind that fits the remaining budget
+    // (keeps the original +10 overflow tolerance and shorter-search).
+    const nextFittingIdx = (wantSection) => {
+      let firstOfKind = -1;
+      for (let i = 0; i < activityPool.length; i++) {
+        const a = activityPool[i];
+        const matches = wantSection === 'any'
+          ? true
+          : (isSkillWork(a) ? sectionOf(a) === wantSection : wantSection === 'neutral');
+        if (!matches) continue;
+        if (firstOfKind === -1) firstOfKind = i;
+        if (weekMinutesUsed + a.duration <= weekMinutesBudget + 10) return i;
       }
+      return firstOfKind === -1 ? -1 : -2; // -2: kind exists but nothing fits
+    };
+    while (activityPool.length > 0 && weekMinutesUsed < weekMinutesBudget) {
+      const rwDeficit = targetFor('rw') - sectionMinutes.rw;
+      const mathDeficit = targetFor('math') - sectionMinutes.math;
+      // Preference order: bigger-deficit section → other section → neutral.
+      const order = rwDeficit >= mathDeficit
+        ? ['rw', 'math', 'neutral']
+        : ['math', 'rw', 'neutral'];
+      let idx = -1;
+      for (const want of order) {
+        const found = nextFittingIdx(want);
+        if (found >= 0) { idx = found; break; }
+      }
+      if (idx === -1) {
+        // Nothing of any preferred kind fits — fall back to any fitting item.
+        const anyIdx = nextFittingIdx('any');
+        if (anyIdx < 0) break;
+        idx = anyIdx;
+      }
+      const picked = activityPool[idx];
+      const day = placeOn(picked.duration);
+      weekActivities.push({ ...picked, day, weekPhase: phaseFor(day) });
+      weekMinutesUsed += picked.duration;
+      if (isSkillWork(picked)) sectionMinutes[sectionOf(picked)] += picked.duration;
+      activityPool.splice(idx, 1);
+    }
+
+    // ── PHASE 2.5: Density floor (Plan v3 A2) ──
+    // The student promised these minutes; a thin weak-flag list must not
+    // produce a half-empty week. Fill up to ~85% of budget from the
+    // reinforcement/maintenance backfill, still section-aware.
+    while (
+      backfillPool.length > 0
+      && weekMinutesUsed < Math.round(weekMinutesBudget * 0.85)
+    ) {
+      const wantSection = (sectionMinutes.rw - targetFor('rw')) <= (sectionMinutes.math - targetFor('math')) ? 'rw' : 'math';
+      let bIdx = backfillPool.findIndex(
+        (a) => sectionOf(a) === wantSection && weekMinutesUsed + a.duration <= weekMinutesBudget + 10,
+      );
+      if (bIdx === -1) {
+        bIdx = backfillPool.findIndex((a) => weekMinutesUsed + a.duration <= weekMinutesBudget + 10);
+      }
+      if (bIdx === -1) break;
+      const picked = backfillPool[bIdx];
+      const day = placeOn(picked.duration);
+      weekActivities.push({ ...picked, day, weekPhase: phaseFor(day) });
+      weekMinutesUsed += picked.duration;
+      sectionMinutes[sectionOf(picked)] += picked.duration;
+      backfillPool.splice(bIdx, 1);
     }
 
     // ── PHASE 3: Test week — add practice test ──
@@ -1143,6 +1324,96 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
   });
 
   return weeks;
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// JOURNEY ARC (Plan v3 A3)
+// ═══════════════════════════════════════════════════════════════════════════
+
+/** Phase label sets by phase count — the narrative spine of the plan. */
+const PHASE_LABELS = {
+  1: ['Foundation'],
+  2: ['Foundation', 'Sharpen'],
+  3: ['Foundation', 'Build', 'Sharpen'],
+};
+
+/**
+ * Build the plan's journey arc: contiguous phases over the weeks, dated
+ * milestones (check-ins, full tests, exam day), and a score trajectory.
+ * This is what makes the plan read as a ROUTE — "you're here, this is the
+ * next checkpoint, this is where it ends" — instead of a drill list.
+ *
+ * Milestones carry weekNumber + day (the UI resolves calendar dates the same
+ * way it dates weeks); the exam milestone carries the real date. Phase
+ * projectedGain splits the diagnostic's projected recovery across phases by
+ * week count, capped at the actual score gap — an honest "≈ +N pts" range,
+ * omitted entirely when no projection exists.
+ *
+ * @returns {{startScore:number|null,targetScore:number|null,gapLabel:string,
+ *   phases:Array,milestones:Array}}
+ */
+const buildPlanArc = ({ weeks, gapBasis, currentScore, targetScore, testDate, daysUntilTest, scoreProjection }) => {
+  const totalWeeks = weeks.length;
+  const phaseCount = totalWeeks <= 1 ? 1 : totalWeeks <= 3 ? 2 : 3;
+  const labels = PHASE_LABELS[phaseCount];
+
+  // Split weeks into contiguous phases, front-loading the remainder so the
+  // Foundation phase is never shorter than the ones after it.
+  const base = Math.floor(totalWeeks / phaseCount);
+  const extra = totalWeeks % phaseCount;
+  const phases = [];
+  let cursor = 1;
+  for (let p = 0; p < phaseCount; p++) {
+    const span = base + (p < extra ? 1 : 0);
+    if (span === 0) continue;
+    const weekNumbers = Array.from({ length: span }, (_, i) => cursor + i);
+    const phaseWeeks = weekNumbers.map((n) => weeks[n - 1]).filter(Boolean);
+    const focusDomains = [...new Set(phaseWeeks.flatMap((w) => w.focusDomains || []))].slice(0, 3);
+    phases.push({ index: p, label: labels[p], weekNumbers, focusDomains });
+    cursor += span;
+  }
+
+  // Honest projected trajectory: the diagnostic's top domain projections,
+  // capped at the real gap, spread across phases by week share.
+  const gap = gapBasis ? Math.max(0, gapBasis.target - gapBasis.current) : null;
+  const projectedTotal = Array.isArray(scoreProjection?.domainProjections)
+    ? scoreProjection.domainProjections.slice(0, 4).reduce((s, p) => s + Math.max(0, p.projectedPointGain || 0), 0)
+    : null;
+  const trajectoryTotal = projectedTotal !== null && gap !== null
+    ? Math.min(projectedTotal, gap)
+    : projectedTotal;
+  if (trajectoryTotal !== null && trajectoryTotal > 0) {
+    phases.forEach((phase) => {
+      const share = phase.weekNumbers.length / totalWeeks;
+      phase.projectedGain = Math.round((trajectoryTotal * share) / 10) * 10;
+    });
+  }
+
+  // Milestones from the scheduled measurement activities themselves — the
+  // arc can never disagree with what the weeks actually contain.
+  const milestones = [];
+  weeks.forEach((week) => {
+    (week.activities || []).forEach((a) => {
+      if (a.type !== 'test') return;
+      milestones.push({
+        type: a.activityType === 'miniDiagnostic' ? 'checkIn' : 'fullTest',
+        title: a.title,
+        weekNumber: week.weekNumber,
+        day: a.day || null,
+      });
+    });
+  });
+  if (testDate && Number.isFinite(daysUntilTest) && daysUntilTest >= 0) {
+    milestones.push({ type: 'exam', title: 'SAT test day', date: testDate });
+  }
+
+  return {
+    startScore: Number.isFinite(currentScore) ? currentScore : null,
+    targetScore: Number.isFinite(targetScore) ? targetScore : null,
+    gapLabel: gapBasis?.label || '',
+    phases,
+    milestones,
+  };
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
