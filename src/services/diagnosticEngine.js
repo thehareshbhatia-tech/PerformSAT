@@ -1178,7 +1178,13 @@ const analyzeSkills = (questionAnalysis, skillProgress = {}) => {
   const strongSkills = skills.filter(s => s.isStrong).sort((a, b) => b.testAccuracy - a.testAccuracy);
   const allSkills = skills.sort((a, b) => a.testAccuracy - b.testAccuracy);
 
-  return { weakSkills, strongSkills, allSkills, skillMap };
+  // skillMap is the raw aggregation state and carries live Set objects
+  // (missedPatternsSet), which Firestore hard-rejects. It must never leave
+  // this function: the report rides inside recordPracticeTestResult's score
+  // transaction on a test's FIRST attempt, and a single Set fails the whole
+  // save. Everything callers need is already on weakSkills/allSkills
+  // (missedPatterns as a plain array).
+  return { weakSkills, strongSkills, allSkills };
 };
 
 /**

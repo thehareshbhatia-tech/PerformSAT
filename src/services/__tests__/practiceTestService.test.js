@@ -432,6 +432,57 @@ describe('recordPracticeTestResult — trimAttempts', () => {
   });
 });
 
+describe('recordPracticeTestResult — first-attempt payload safety (2026-08-13 Set-object data loss)', () => {
+  // The bug: on a test's FIRST attempt the row was written WITHOUT trimAttempts,
+  // so the full diagnosticReport — carrying live Set objects from the diagnostic
+  // engine's internal skillMap — rode into the transaction. Firestore hard-
+  // rejects Sets ("Unsupported field value: a custom Set object"), the whole
+  // save failed, and the in-memory Retry replayed the same doomed payload
+  // forever. Every user's first completion of any test hit the failure banner.
+
+  const reportWithLiveSets = () => ({
+    score: { scaled: 620 },
+    skillAnalysis: {
+      weakSkills: [],
+      strongSkills: [],
+      allSkills: [{ skillId: 'percents', missedPatterns: ['percent-change'] }],
+      // Mimic the leaked internal aggregation state that caused the outage.
+      skillMap: { percents: { missedPatternsSet: new Set(['percent-change']) } },
+    },
+  });
+
+  test('FIRST attempt (new test row): diagnosticReport is stripped, so a Set inside it can never reach the write', async () => {
+    await recordPracticeTestResult('user-1', 'practice-test-9', 'Practice Test 9',
+      buildResults({ diagnosticReport: reportWithLiveSets() }));
+
+    const row = getTestRow(getStore().get('progress/user-1'), 'practice-test-9');
+    expect(row.attempts).toHaveLength(1);
+    expect(row.attempts[0].diagnosticReport).toBeUndefined();
+    // diagnosticData (trend/prediction input) survives on the latest attempt.
+    expect(row.attempts[0].diagnosticData).toBeTruthy();
+  });
+
+  test('FIRST attempt on a FRESH account (create-doc branch) also strips the report', async () => {
+    // No prior progress doc at all — exercises the tx.set branch.
+    await recordPracticeTestResult('brand-new-user', 'practice-test-1', 'Practice Test 1',
+      buildResults({ diagnosticReport: reportWithLiveSets() }));
+
+    const row = getTestRow(getStore().get('progress/brand-new-user'), 'practice-test-1');
+    expect(row.attempts).toHaveLength(1);
+    expect(row.attempts[0].diagnosticReport).toBeUndefined();
+  });
+
+  test('a Set anywhere else in the attempt payload is converted to a plain array (sanitize backstop)', async () => {
+    await recordPracticeTestResult('user-1', 'practice-test-9', 'Practice Test 9',
+      buildResults({
+        diagnosticData: { questionDetails: {}, oddFutureField: new Set(['a', 'b']) },
+      }));
+
+    const row = getTestRow(getStore().get('progress/user-1'), 'practice-test-9');
+    expect(row.attempts[0].diagnosticData.oddFutureField).toEqual(['a', 'b']);
+  });
+});
+
 describe('recordPracticeTestResult — missing snapshot', () => {
   test('logs warning and skips snapshot write when questionsSnapshot is absent', async () => {
     const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});

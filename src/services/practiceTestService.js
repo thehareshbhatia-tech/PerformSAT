@@ -125,6 +125,15 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
       });
     };
 
+    // EVERY attempts array that enters the transaction goes through this:
+    // trim (strips the regenerable diagnosticReport — which historically rode
+    // in un-trimmed on a test's FIRST attempt and carried live Set objects
+    // Firestore hard-rejects, failing the whole save) and sanitize (scrubs
+    // undefined/NaN, boxes nested arrays, converts Set/Map — so the NEXT
+    // unserializable value that sneaks into scoring/diagnostic output degrades
+    // gracefully instead of losing the student's score).
+    const safeAttempts = (attempts) => sanitizeForFirestore(trimAttempts(attempts));
+
     // Build the snapshot doc payload (or null when caller didn't provide one).
     // Without a snapshot, Review Answers will fall back to the live test file —
     // acceptable during rollout, but the eventual contract is "every attempt
@@ -168,7 +177,7 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
             [testId]: {
               testId,
               testTitle,
-              attempts: [attemptData],
+              attempts: safeAttempts([attemptData]),
               bestScaledScore: results.scaledScore ?? 0,
               bestRawScore: results.rawScore ?? 0,
               // Scale of the latest attempt, surfaced at row level so the goal
@@ -250,7 +259,7 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
       if (existingTest) {
         // Update existing test results, trimming old attempts to stay under Firestore 1MB limit
         console.log('[practiceTestService] Updating existing test results...');
-        updates[`practiceTestResults.${testId}.attempts`] = trimAttempts([attemptData, ...(existingTest.attempts || [])]);
+        updates[`practiceTestResults.${testId}.attempts`] = safeAttempts([attemptData, ...(existingTest.attempts || [])]);
         updates[`practiceTestResults.${testId}.bestScaledScore`] = Math.max(existingTest.bestScaledScore ?? 0, results.scaledScore ?? 0);
         updates[`practiceTestResults.${testId}.bestRawScore`] = Math.max(existingTest.bestRawScore ?? 0, results.rawScore ?? 0);
         updates[`practiceTestResults.${testId}.isMultiSection`] = results.isMultiSection ?? false; // scale signal for goal comparison (1.4)
@@ -262,7 +271,7 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
         updates[`practiceTestResults.${testId}`] = {
           testId,
           testTitle,
-          attempts: [attemptData],
+          attempts: safeAttempts([attemptData]),
           bestScaledScore: results.scaledScore ?? 0,
           bestRawScore: results.rawScore ?? 0,
           isMultiSection: results.isMultiSection ?? false, // scale signal for goal comparison (1.4)
