@@ -984,13 +984,14 @@ const AssignedPracticeShell = ({
             {/* Question table */}
             {currentQuestion.questionTable && (
               <div style={{ margin: '20px 0', display: 'flex', justifyContent: 'center' }}>
-                <table style={{ borderCollapse: 'collapse', fontSize: '15px' }}>
+                <table style={{ borderCollapse: 'collapse', fontSize: '15px', fontFamily: 'Times New Roman, Georgia, serif', background: '#fff', color: '#111' }}>
                   <thead>
                     <tr>
                       {currentQuestion.questionTable.headers.map((header, i) => (
                         <th key={i} style={{
-                          border: '1px solid var(--pr-line-strong)', padding: '8px 16px',
-                          background: 'var(--pr-surface-2)', fontWeight: '600'
+                          border: '1.5px solid #111', padding: '7px 16px',
+                          background: '#fff', fontWeight: 'bold',
+                          fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: '14px',
                         }}>
                           <MathText>{header}</MathText>
                         </th>
@@ -1002,7 +1003,7 @@ const AssignedPracticeShell = ({
                       <tr key={i}>
                         {row.map((cell, j) => (
                           <td key={j} style={{
-                            border: '1px solid var(--pr-line-strong)', padding: '8px 16px', textAlign: 'center'
+                            border: '1px solid #111', padding: '6px 16px', textAlign: 'center', background: '#fff'
                           }}>
                             <MathText>{cell}</MathText>
                           </td>

@@ -579,7 +579,7 @@ const renderChoice = (choice) => {
   }
   if (choice.table) {
     return (
-      <table style={{ borderCollapse: 'collapse', fontSize: '14px' }}>
+      <table style={{ borderCollapse: 'collapse', fontSize: '14px', fontFamily: 'Times New Roman, Georgia, serif', background: '#fff', color: '#111' }}>
         <thead>
           <tr>
             {choice.table.headers.map((h, i) => (
@@ -2720,13 +2720,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                 {/* Table */}
                 {reviewQ?.questionTable && (
                   <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
-                    <table style={{ borderCollapse: 'collapse', fontSize: '14px' }}>
+                    <table style={{ borderCollapse: 'collapse', fontSize: '14px', fontFamily: 'Times New Roman, Georgia, serif', background: '#fff', color: '#111' }}>
                       <thead>
                         <tr>
                           {reviewQ.questionTable.headers.map((header, i) => (
                             <th key={i} style={{
-                              border: `1px solid ${colors.surface.grayMedium}`,
-                              padding: '6px 14px', background: colors.surface.gray, fontWeight: typography.weights.semibold,
+                              border: '1.5px solid #111',
+                              padding: '6px 14px', background: '#fff', fontWeight: 'bold',
+                              fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: '13px',
                             }}>
                               <MathText text={header} />
                             </th>
@@ -2738,8 +2739,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                           <tr key={i}>
                             {row.map((cell, j) => (
                               <td key={j} style={{
-                                border: `1px solid ${colors.surface.grayMedium}`,
-                                padding: '6px 14px', textAlign: 'center',
+                                border: '1px solid #111',
+                                padding: '6px 14px', textAlign: 'center', background: '#fff',
                               }}>
                                 <MathText text={cell} />
                               </td>
@@ -3678,10 +3679,12 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                 <tr>
                   {question.questionTable.headers.map((header, i) => (
                     <th key={i} style={{
-                      border: '1px solid var(--pt-line-strong)',
-                      padding: '8px 16px',
-                      background: 'var(--pt-surface-2)',
-                      fontWeight: '600'
+                      border: '1.5px solid #111',
+                      padding: '7px 16px',
+                      background: '#fff',
+                      fontWeight: 'bold',
+                      fontFamily: 'system-ui, -apple-system, sans-serif',
+                      fontSize: '14px',
                     }}>
                       <MathText text={header} />
                     </th>
@@ -3693,8 +3696,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                   <tr key={i}>
                     {row.map((cell, j) => (
                       <td key={j} style={{
-                        border: '1px solid var(--pt-line-strong)',
-                        padding: '8px 16px',
+                        border: '1px solid #111',
+                        padding: '6px 16px',
+                        background: '#fff',
                         textAlign: 'center'
                       }}>
                         <MathText text={cell} />
