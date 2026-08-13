@@ -1121,5 +1121,173 @@ export const authoredReadingItems = [
       "authoredFor": "wic-example-or-illustration"
     },
     "passage": "Behavioral economists have shown that how a choice is presented can steer decisions without removing any options. A cafeteria that places fruit at eye level and tucks desserts behind the counter, a retirement plan that signs new employees up automatically unless they opt out, and a utility bill that shows a household its neighbors' average energy use all guide people toward a particular outcome while leaving them entirely free to choose otherwise. Such ______ arrangements work precisely because they shape behavior through the design of the choice rather than through mandates or financial penalties."
+  },
+  {
+    "id": 9031,
+    "type": "multiple-choice",
+    "difficulty": "medium",
+    "band": 3,
+    "domain": "expression-of-ideas",
+    "skill": "transitions",
+    "question": "Which choice completes the text with the most logical transition?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "As a result,"
+      },
+      {
+        "id": "B",
+        "text": "For example,"
+      },
+      {
+        "id": "C",
+        "text": "In other words,"
+      },
+      {
+        "id": "D",
+        "text": "Meanwhile,"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "**Choice D is correct.** The two sentences describe two engineering efforts unfolding at the same time in two different places, and \"Meanwhile,\" is the transition that signals simultaneous action elsewhere.\n\n**The Full Solution:**\n- Map the two sentences first: sentence 1 = engineers in Buffalo building the Niagara generators in the 1890s; sentence 2 = engineers in London pursuing hydraulic mains — a competing approach, in the same era.\n- The relationship is neither cause, example, nor restatement; it is \"at the same time, somewhere else.\" That is exactly the job \"Meanwhile\" does.\n- Plug it in: \"Meanwhile, engineers in London were wagering on a rival approach...\" — the scene shifts across the Atlantic without implying that the first project produced the second.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" claims the London scheme was caused by the Niagara project, but the passage presents them as independent rivals, not cause and effect.\n- B: \"For example\" would make the London mains an instance of the Niagara work; a competing technology is not an example of the thing it competes with.\n- C: \"In other words\" promises a restatement, but the second sentence introduces a different city and a different technology, not the same idea rephrased.",
+    "_meta": {
+      "sourceRef": "pilot-r1-transitions-meanwhile"
+    },
+    "passage": "In the 1890s, engineers in Buffalo, New York, were racing to complete the first large-scale generators at Niagara Falls, betting that alternating current could carry the falls' power profitably to factories many miles away. ______ engineers in London were wagering on a rival approach to distributing power, threading high-pressure water mains beneath the city's streets so that hydraulic pressure, not electricity, would drive the capital's cranes and elevators."
+  },
+  {
+    "id": 9032,
+    "type": "multiple-choice",
+    "difficulty": "hard",
+    "band": 4,
+    "domain": "expression-of-ideas",
+    "skill": "transitions",
+    "question": "Which choice completes the text with the most logical transition?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Therefore,"
+      },
+      {
+        "id": "B",
+        "text": "However,"
+      },
+      {
+        "id": "C",
+        "text": "Likewise,"
+      },
+      {
+        "id": "D",
+        "text": "For instance,"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**Choice A is correct.** The final sentence states a conclusion that follows from the evidence before it, and \"Therefore,\" is the transition that marks a drawn conclusion.\n\n**The Full Solution:**\n- Trace the logic chain: sentence 1 gives the mechanism (aging depends on charge level and temperature, which operators control); sentence 2 gives the consequence (identical cells, different aging curves).\n- The blank sentence generalizes from that chain: if operating choices drive aging, then anyone projecting a battery's lifespan must weigh those choices, not just the chemistry.\n- A conclusion built on the preceding premises needs a consequence word — \"Therefore,\" — and the sentence reads as the payoff of the whole paragraph.\n\n**Why the other choices are wrong:**\n- B: \"However\" signals a reversal, but the final sentence agrees with and extends the previous ones; nothing is being contradicted.\n- C: \"Likewise\" adds a parallel case, but the analysts' practice is a consequence of the facts, not a similar second example of them.\n- D: \"For instance\" would make the analysts an illustration of the aging curves, but the sentence draws a general lesson rather than giving one more case.",
+    "_meta": {
+      "sourceRef": "pilot-r2-transitions-therefore"
+    },
+    "passage": "Lithium-ion cells age fastest when they are held near full charge or kept warm, so the engineers who operate grid-scale battery installations rarely let either condition persist: routine charging is typically capped at about 80 percent of capacity, and coolant is circulated through the racks whenever temperatures climb. Two installations built from identical cells can end up following very different aging curves. ______ analysts who project how long a grid battery will remain serviceable treat its operating policy, not just its cell chemistry, as a central variable."
+  },
+  {
+    "id": 9033,
+    "type": "multiple-choice",
+    "difficulty": "medium",
+    "band": 3,
+    "domain": "expression-of-ideas",
+    "skill": "rhetorical-synthesis",
+    "question": "The student wants to emphasize why the saxophone has been difficult to classify. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Adolphe Sax, a Belgian instrument maker who spent his working life in Paris, patented his most famous instrument, the saxophone, in 1846."
+      },
+      {
+        "id": "B",
+        "text": "Because it is sounded with a single-reed mouthpiece resembling a clarinet's, the saxophone is grouped by some musicologists with the woodwinds."
+      },
+      {
+        "id": "C",
+        "text": "The saxophone pairs a conical brass body with a clarinet-like single-reed mouthpiece, taking one feature from each instrument family."
+      },
+      {
+        "id": "D",
+        "text": "Musicologists have debated whether the saxophone, which Adolphe Sax patented in Paris in 1846, belongs with the brasses or with the woodwinds."
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "**Choice C is correct.** The goal is to show WHY the saxophone resists classification, and only this choice puts the two conflicting design features — a brass instrument's body and a woodwind's reed — into one sentence.\n\n**The Full Solution:**\n- Underline the goal word: \"why.\" The winning choice must supply a REASON the classification is hard, not merely say that it is hard or describe the instrument's history.\n- The notes contain exactly one reason: the saxophone mixes a brass-family feature (conical brass body) with a woodwind-family feature (single-reed mouthpiece). The correct choice must pair those two facts.\n- Choice C does precisely that — one feature from each family in a single sentence — so a reader immediately sees the classification problem.\n\n**Why the other choices are wrong:**\n- A: Biography only — nationality, city, patent date. It never mentions either instrument family, so it cannot explain a classification difficulty.\n- B: Takes a side instead of showing the tension: it gives the reed as evidence FOR the woodwinds and omits the brass body pulling the other way.\n- D: Asserts THAT the debate exists but never says why — it names the two families without giving the design features that create the conflict.",
+    "_meta": {
+      "authoredFor": "rs-explain-finding",
+      "sourceRef": "pilot-r3-rhetsyn-shortest"
+    },
+    "passage": "While researching a topic, a student has taken the following notes:\n- Adolphe Sax was a Belgian instrument maker who worked in Paris.\n- In 1846 he patented the saxophone.\n- The saxophone has a conical brass body, like many brass instruments.\n- It is sounded with a single-reed mouthpiece, like a clarinet, which is a woodwind.\n- Musicologists have debated whether it belongs with the brasses or the woodwinds."
+  },
+  {
+    "id": 9034,
+    "type": "multiple-choice",
+    "difficulty": "hard",
+    "band": 4,
+    "domain": "information-and-ideas",
+    "skill": "command-of-evidence-textual",
+    "question": "Which quotation from The Keeper of Larkfield most effectively illustrates Vega's claim?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "\"Her days went in sweeping and in polishing, and when the lamps were lit at last she could scarcely name one hour that had been her own.\""
+      },
+      {
+        "id": "B",
+        "text": "\"No key turned at Larkfield but by her leave; the master himself, wanting his study opened, would wait upon her pleasure in the hall.\""
+      },
+      {
+        "id": "C",
+        "text": "\"She spoke her mind before the assembled family that evening, careless of her station, and quit the drawing-room without any apology.\""
+      },
+      {
+        "id": "D",
+        "text": "\"Whatever the mistress required she performed without a murmur, believing obedience in small things to be the whole duty of her place.\""
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "**Choice B is correct.** Vega's claim has two halves — command of domestic detail AND authority over the family — and this quotation delivers both: every key at Larkfield answers to Mrs. Quill, and even the master must wait on her before entering his own study.\n\n**The Full Solution:**\n- Restate the claim precisely before reading the options: domestic mastery (the routines) BECOMES power over the people she serves. The winning quotation must connect the two, not show either one alone.\n- In B, \"no key turned but by her leave\" is the domestic mastery, and the master \"wait[ing] upon her pleasure\" is the authority — the second flows from the first, which is exactly Vega's mechanism.\n- A quotation that shows only labor, only defiance, or only obedience proves a different reading, not Vega's.\n\n**Why the other choices are wrong:**\n- A: Shows the labor as exhausting drudgery — hours that were never her own — which supports the servility reading Vega is arguing AGAINST.\n- C: Shows defiance, but through open confrontation, not through housekeeping; it breaks the link between domestic mastery and power that the claim requires.\n- D: Shows obedience \"without a murmur\" as the whole duty of her place — the plain opposite of Vega's argument.",
+    "_meta": {
+      "authoredFor": "coe-text-illustrate-quote",
+      "sourceRef": "pilot-r4-coe-textual"
+    },
+    "passage": "The Keeper of Larkfield, an 1872 novel by Hallie Rowan, follows Mrs. Quill, the head housekeeper of a country estate. Some readers have taken Mrs. Quill's exacting routines as evidence of servility, but the critic Marisol Vega argues the opposite: by mastering every practical detail of Larkfield's operation, Mrs. Quill makes the household depend on her and so converts domestic labor into a quiet form of authority over the family she nominally serves."
+  },
+  {
+    "id": 9035,
+    "type": "multiple-choice",
+    "difficulty": "hard",
+    "band": 4,
+    "domain": "craft-and-structure",
+    "skill": "words-in-context",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "anticipated"
+      },
+      {
+        "id": "B",
+        "text": "commemorated"
+      },
+      {
+        "id": "C",
+        "text": "reciprocated"
+      },
+      {
+        "id": "D",
+        "text": "begrudged"
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "**Choice D is correct.** The sentence is built on a public-versus-private contrast: the visit is \"courteously endured\" on the surface, so the blank must name the opposite, hidden attitude — the house's resentment. \"Begrudged\" means resented or granted unwillingly, which completes the contrast precisely.\n\n**The Full Solution:**\n- Find the structural signal: \"though courteously endured, was privately ______.\" The word \"though\" concedes the polite outward treatment; \"privately\" promises a concealed, contrary feeling.\n- The whole passage points the same way: the house \"would not receive her as before\" and keeps a \"ceremonious distance\" — formal on the outside, cold underneath.\n- \"Begrudged\" supplies exactly that concealed reluctance: the visit is tolerated in form but resented in fact.\n\n**Why the other choices are wrong:**\n- A: \"Anticipated\" means looked forward to — a welcoming attitude that contradicts the cold distance the passage establishes, and an odd fit for a visit already underway.\n- B: \"Commemorated\" means honored or memorialized, a celebratory act that clashes with the guarded, unwelcoming mood.\n- C: \"Reciprocated\" means returned in kind; a visit cannot be privately \"returned,\" so the word fails the sentence's logic as well as its tone.\n\n**Test Day Takeaway:** In literary Words in Context, trust the concession structure: \"though [outward behavior], was privately ___\" demands the concealed opposite of the outward behavior.",
+    "_meta": {
+      "authoredFor": "wic-contrast",
+      "sourceRef": "pilot-r5-wic-literary"
+    },
+    "passage": "The following text is adapted from Edith Calloway's 1889 novel The Return to Wychwood. Elinor has come back to her childhood home after many years abroad.\n\nThe house had not altered, and yet it would not receive her as before. Each familiar room seemed to hold itself at a ceremonious distance; she moved through the halls like a guest whose visit, though courteously endured, was privately ______."
   }
 ];

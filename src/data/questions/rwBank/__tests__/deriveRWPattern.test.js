@@ -19,8 +19,8 @@ describe('deriveRWPattern (routing signal — grammar/punctuation/structure only
     'boundaries-colon': 10,
     'transitions-contrast': 24,
     'transitions-example-emphasis': 12,
-    'transitions-cause-effect': 18,
-    'transitions-sequence-time': 9,
+    'transitions-cause-effect': 19,
+    'transitions-sequence-time': 10,
     'tsp-main-purpose': 23,
     'tsp-overall-structure': 32,
     'tsp-function-of-underlined': 16,
@@ -38,15 +38,16 @@ describe('deriveRWPattern (routing signal — grammar/punctuation/structure only
     if (p) counts[p] = (counts[p] || 0) + 1;
   }
 
-  it('produces the frozen pattern distribution over the live 648-item bank', () => {
+  it('produces the frozen pattern distribution over the live bank (648 test items + authored fills)', () => {
     expect(counts).toEqual(EXPECTED_COUNTS);
   });
 
-  it('tags exactly 273 grammar/structure items', () => {
-    // 203 non-FSS (boundaries 69 + transitions 63 + tsp 71) + 70 FSS (72 items,
-    // 2 route Tier-3) = 273. All reading skills return null here.
+  it('tags exactly 275 grammar/structure items', () => {
+    // 205 non-FSS (boundaries 69 + transitions 65 incl. 2 authored craft-pilot
+    // fills + tsp 71) + 70 FSS (72 items, 2 route Tier-3) = 275. All reading
+    // skills return null here.
     const tagged = Object.values(counts).reduce((a, b) => a + b, 0);
-    expect(tagged).toBe(273);
+    expect(tagged).toBe(275);
   });
 
   it('returns null for every reading-comprehension item (routing stays deferred)', () => {
@@ -122,8 +123,8 @@ describe('deriveRWPattern (routing signal — grammar/punctuation/structure only
 describe('deriveRWQuestionType (browse type — grammar patterns PLUS reading sub-types)', () => {
   // Full question-type distribution surfaced in the Practice Bank. This is
   // deriveRWPattern's grammar tags (minus the tag-only coe-textual-illustrate-
-  // claim, which reading-typing supersedes) PLUS all 390 reading items tagged
-  // via rwReadingType.js (360 from tests + 30 authored drill-only fills). Counts
+  // claim, which reading-typing supersedes) PLUS all 393 reading items tagged
+  // via rwReadingType.js (360 from tests + 33 authored drill-only fills). Counts
   // shift when items are authored — re-run buildMap.mjs + appendAuthored.mjs.
   const EXPECTED_QT_COUNTS = {
     // grammar / punctuation / structure (same as deriveRWPattern)
@@ -133,8 +134,8 @@ describe('deriveRWQuestionType (browse type — grammar patterns PLUS reading su
     'boundaries-colon': 10,
     'transitions-contrast': 24,
     'transitions-example-emphasis': 12,
-    'transitions-cause-effect': 18,
-    'transitions-sequence-time': 9,
+    'transitions-cause-effect': 19,
+    'transitions-sequence-time': 10,
     'tsp-main-purpose': 23,
     'tsp-overall-structure': 32,
     'tsp-function-of-underlined': 16,
@@ -148,7 +149,7 @@ describe('deriveRWQuestionType (browse type — grammar patterns PLUS reading su
     'cid-main-idea': 48,
     'cid-supporting-detail': 24,
     'wic-restatement': 38,
-    'wic-contrast': 35,
+    'wic-contrast': 36,
     'wic-cause-effect': 21,
     'wic-example-or-illustration': 7,
     'inf-cause-effect': 20,
@@ -159,13 +160,13 @@ describe('deriveRWQuestionType (browse type — grammar patterns PLUS reading su
     'coe-quant-complete-statement': 33,
     'coe-quant-support-claim': 15,
     'coe-text-support-finding': 23,
-    'coe-text-illustrate-quote': 9,
+    'coe-text-illustrate-quote': 10,
     'ctc-qualify-complicate': 11,
     'ctc-disagree-challenge': 7,
     'ctc-alternative-explanation': 6,
     'rs-emphasize-significance': 21,
     'rs-emphasize-difference': 10,
-    'rs-explain-finding': 7,
+    'rs-explain-finding': 8,
     'rs-introduce-unfamiliar': 6,
     'rs-present-claim': 6,
     'rs-emphasize-similarity': 7,
@@ -181,9 +182,9 @@ describe('deriveRWQuestionType (browse type — grammar patterns PLUS reading su
     expect(counts).toEqual(EXPECTED_QT_COUNTS);
   });
 
-  it('tags 663 items (273 grammar/structure + 390 reading incl. 30 authored fills)', () => {
+  it('tags 668 items (275 grammar/structure + 393 reading — 35 authored fills total)', () => {
     const tagged = Object.values(counts).reduce((a, b) => a + b, 0);
-    expect(tagged).toBe(663);
+    expect(tagged).toBe(668);
   });
 
   it('falls back to deriveRWPattern for grammar/structure skills', () => {
