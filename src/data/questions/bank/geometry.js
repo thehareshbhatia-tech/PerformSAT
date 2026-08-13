@@ -8,6 +8,7 @@ export const geometryBank = [
     difficulty: 'easy',
     type: 'multiple-choice',
     question: 'In triangle $PQR$, the measure of angle $P$ is $47°$ and the measure of angle $Q$ is $68°$. What is the measure, in degrees, of angle $R$?',
+    diagram: { type: 'triangleWithAngles', params: { vertexLabels: ['P', 'Q', 'R'], angleLabels: ['47°', '68°', ''], figureNote: true } },
     choices: [
       // distractor: subtracts only one of the given angles from 180
       { id: 'A', text: '$55°$' },
@@ -59,7 +60,7 @@ export const geometryBank = [
     diagram: {
       type: 'rightTriangle',
       params: {
-        sideLabels: ['9', '', '12'],
+        sideLabels: ['9', '12', ''],
         rightAngleVertex: 1,
       },
     },
@@ -226,7 +227,7 @@ export const geometryBank = [
       type: 'rightTriangle',
       params: {
         labels: ['45°', '', '45°'],
-        sideLabels: ['5', '', '5'],
+        sideLabels: ['5', '5', ''],
         rightAngleVertex: 1,
       },
     },
@@ -282,7 +283,7 @@ export const geometryBank = [
       type: 'rightTriangle',
       params: {
         labels: ['θ', '', ''],
-        sideLabels: ['', '10', '4'],
+        sideLabels: ['', '4', '10'],
         rightAngleVertex: 1,
       },
     },
@@ -451,7 +452,7 @@ export const geometryBank = [
     diagram: {
       type: 'rightTriangle',
       params: {
-        sideLabels: ['', '17', '8'],
+        sideLabels: ['8', '', '17'],
         rightAngleVertex: 1,
       },
     },
@@ -479,6 +480,7 @@ export const geometryBank = [
     difficulty: 'medium',
     type: 'multiple-choice',
     question: 'Triangles $ABC$ and $DEF$ are similar, with $A$, $B$, $C$ corresponding to $D$, $E$, $F$ respectively. In triangle $ABC$, $AB = 6$, $BC = 9$, and $AC = 12$. If $DE = 10$, what is the length of $EF$?',
+    diagram: { type: 'similarTriangles', params: { triangle1: { labels: ['A', 'B', 'C'], sideLabels: ['6', '9', '12'] }, triangle2: { labels: ['D', 'E', 'F'], sideLabels: ['10', '', ''] }, figureNote: true } },
     choices: [
       // distractor: adds the scale-factor difference instead of multiplying
       { id: 'A', text: '$13$' },
@@ -507,7 +509,7 @@ export const geometryBank = [
       type: 'rightTriangle',
       params: {
         labels: ['35°', '', ''],
-        sideLabels: ['', '', '40'],
+        sideLabels: ['', '40', ''],
         rightAngleVertex: 1,
       },
     },
@@ -535,6 +537,7 @@ export const geometryBank = [
     difficulty: 'medium',
     type: 'multiple-choice',
     question: 'A circle has a radius of $10$ cm. What is the length, in cm, of an arc that subtends a central angle of $72°$?',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 72, angleLabel: '72°', radius: 10, labelCenter: 'O', showRadiusLabel: true, figureNote: true } },
     choices: [
       // distractor: 1/10 of circumference instead of 1/5
       { id: 'A', text: '$2\\pi$' },
@@ -670,6 +673,7 @@ export const geometryBank = [
     difficulty: 'medium',
     type: 'multiple-choice',
     question: 'In a $30°$-$60°$-$90°$ triangle, the side opposite the $30°$ angle has length $7$. What is the length of the hypotenuse?',
+    diagram: { type: 'rightTriangle', params: { labels: ['30°', '', '60°'], sideLabels: ['', '7', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [
       // distractor: uses 45-45-90 hypotenuse ratio
       { id: 'A', text: '$7\\sqrt{2}$' },
@@ -713,7 +717,7 @@ export const geometryBank = [
       type: 'rightTriangle',
       params: {
         labels: ['M', 'N', 'P'],
-        sideLabels: ['7', '25', ''],
+        sideLabels: ['7', '', '25'],
         rightAngleVertex: 1,
       },
     },
@@ -966,7 +970,7 @@ export const geometryBank = [
     diagram: {
       type: 'rightTriangle',
       params: {
-        sideLabels: ['8', '17', '15'],
+        sideLabels: ['8', '15', '17'],
         rightAngleVertex: 1,
       },
     },
@@ -1103,12 +1107,14 @@ export const geometryBank = [
   },
   { id: 'bank-geo-047', domain: 'geometry', skills: ['soh-cah-toa', 'pythagorean-theorem'], difficulty: 'hard', type: 'multiple-choice',
     question: 'From a point on the ground that is $200$ feet from the base of a building, the angle of elevation to the top of the building is $\\theta$, where $\\sin(\\theta) = \\dfrac{3}{5}$. What is the height of the building, in feet?',
+    diagram: { type: 'rightTriangle', params: { labels: ['θ', '', ''], sideLabels: ['200', '', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$120$' }, { id: 'B', text: '$150$' }, { id: 'C', text: '$160$' }, { id: 'D', text: '$250$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Recover Tangent from Sine (3-4-5 Triple)**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $\\sin(\\theta) = \\frac{3}{5}$ is the $3$-$4$-$5$ triangle (opposite $3$, hypotenuse $5$, adjacent $4$), so $\\tan(\\theta) = \\frac{3}{4}$. Height $= 200 \\cdot \\tan(\\theta) = 200 \\cdot \\frac{3}{4} = 150$.\n\n**The Full Solution:**\nStep 1: $\\sin(\\theta) = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{3}{5}$. Find the adjacent leg: $a^2 + 3^2 = 5^2 \\Rightarrow a = 4$, the $3$-$4$-$5$ triangle.\nStep 2: $\\tan(\\theta) = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{3}{4}$.\nStep 3: For elevation, $\\tan(\\theta) = \\frac{\\text{height}}{\\text{horizontal distance}}$, so height $= 200 \\cdot \\frac{3}{4} = 150$ feet.\n\nVerification: with adjacent $200$ and opposite $150$, the hypotenuse is $\\sqrt{200^2 + 150^2} = \\sqrt{40{,}000 + 22{,}500} = \\sqrt{62{,}500} = 250$, and $\\sin(\\theta) = \\frac{150}{250} = \\frac{3}{5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($120$): treats $\\sin(\\theta) = \\frac{3}{5}$ as if it were $\\tan$, giving $200 \\cdot \\frac{3}{5} = 120$. Sine relates opposite to the hypotenuse, not the adjacent leg.\n* Choice C ($160$): uses $\\cos(\\theta) = \\frac{4}{5}$ instead of $\\tan(\\theta)$, giving $200 \\cdot \\frac{4}{5} = 160$.\n* Choice D ($250$): reports the hypotenuse of the scaled triangle, $200 \\cdot \\frac{5}{4} = 250$, confusing it with the height.\n\n**Test Day Takeaway:** Sine, cosine, and tangent each use different side ratios. For angle-of-elevation problems the horizontal distance is the adjacent side, so use $\\tan$ for the height. Given only $\\sin$ or $\\cos$, recover the third side via the Pythagorean theorem and convert to $\\tan$.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'double-angle-elevation', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   { id: 'bank-geo-048', domain: 'geometry', skills: ['similar-triangles', 'triangle-area'], difficulty: 'hard', type: 'multiple-choice',
     question: 'Triangle $JKL$ is similar to triangle $MNP$. The length of side $JK$ is $6$ and the length of the corresponding side $MN$ is $9$. If the area of triangle $JKL$ is $20$ square units, what is the area, in square units, of triangle $MNP$?',
+    diagram: { type: 'similarTriangles', params: { triangle1: { labels: ['J', 'K', 'L'], sideLabels: ['6', '', ''] }, triangle2: { labels: ['M', 'N', 'P'], sideLabels: ['9', '', ''] }, figureNote: true } },
     choices: [{ id: 'A', text: '$30$' }, { id: 'B', text: '$45$' }, { id: 'C', text: '$60$' }, { id: 'D', text: '$67.5$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Area Scaling by Square of Linear Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The linear ratio $MN$ to $JK$ is $\\frac{9}{6} = \\frac{3}{2}$. Area scales by the square: $\\left(\\frac{3}{2}\\right)^2 = \\frac{9}{4}$. Area of $MNP = 20 \\cdot \\frac{9}{4} = 45$ square units.\n\n**The Full Solution:**\nStep 1: For similar figures with linear scale factor $k$: lengths scale by $k$, areas by $k^2$, volumes by $k^3$.\nStep 2: From $JKL$ to $MNP$, the linear factor is $\\frac{MN}{JK} = \\frac{9}{6} = \\frac{3}{2}$.\nStep 3: Area ratio $= \\left(\\frac{3}{2}\\right)^2 = \\frac{9}{4}$, so the area of $MNP = 20 \\cdot \\frac{9}{4} = 45$ square units.\n\nVerification: $\\frac{45}{20} = \\frac{9}{4} = \\left(\\frac{3}{2}\\right)^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($30$): applies the linear ratio to the area, $20 \\cdot \\frac{3}{2} = 30$, forgetting to square it.\n* Choice C ($60$): treats the ratio as $3$ instead of $\\frac{3}{2}$, giving $20 \\cdot 3 = 60$.\n* Choice D ($67.5$): applies the cubed (volume) ratio, $20 \\cdot \\frac{27}{8} = 67.5$.\n\n**Test Day Takeaway:** Areas of similar figures scale by the square of the linear ratio: lengths by $k$, areas by $k^2$, volumes by $k^3$. Apply the right power to the quantity you are scaling.",
@@ -1265,7 +1271,7 @@ export const geometryBank = [
       type: 'rightTriangle',
       params: {
         labels: ['A', 'C', 'B'],
-        sideLabels: ['', '13', '5'],
+        sideLabels: ['', '5', '13'],
         rightAngleVertex: 1,
       },
     },
@@ -1317,6 +1323,7 @@ export const geometryBank = [
     difficulty: 'hard',
     type: 'multiple-choice',
     question: 'A sector of a circle with radius $12$ has a central angle of $\\frac{5\\pi}{6}$ radians. What is the area of the sector?',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 150, angleLabel: '5π/6', radius: 12, labelCenter: 'O', showRadiusLabel: true, figureNote: true } },
     choices: [
       { id: 'A', text: '$60\\pi$' },
       // distractor: gives half the correct value
@@ -1342,11 +1349,11 @@ export const geometryBank = [
     type: 'fill-in',
     question: 'In right triangle $XYZ$ with hypotenuse $XZ = 20$, the altitude from $Y$ to $XZ$ has length $h$. If $XY = 12$, what is the value of $h$?',
     diagram: {
-      type: 'rightTriangle',
+      type: 'rightTriangleWithAltitude',
       params: {
-        labels: ['X', 'Y', 'Z'],
-        sideLabels: ['12', '20', ''],
-        rightAngleVertex: 1,
+        vertexLabels: ['X', 'Y', 'Z', ''],
+        sideLengths: { LM: '12', PM: 'h' },
+        figureNote: true,
       },
     },
     correctAnswer: '9.6',
@@ -1364,6 +1371,7 @@ export const geometryBank = [
     difficulty: 'hard',
     type: 'multiple-choice',
     question: 'A circular track has a circumference of $400$ meters. A runner starts at point $A$ and runs along the track to point $B$, covering an arc of $150$ meters. What is the area, in square meters, of the sector $AOB$ where $O$ is the center of the track?',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 135, showAngleLabel: false, labelCenter: 'O', labelPoint1: 'A', labelPoint2: 'B', figureNote: true } },
     choices: [
       { id: 'A', text: '$\\frac{15000}{\\pi}$' },
       // distractor: doubles the correct value
@@ -1393,6 +1401,7 @@ export const geometryBank = [
     difficulty: 'easy',
     type: 'multiple-choice',
     question: 'In right triangle $ABC$, the right angle is at vertex $C$. If $AB = 13$ and $BC = 5$, what is the value of $\\sin A$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['A', 'C', 'B'], sideLabels: ['', '5', '13'], rightAngleVertex: 1, figureNote: true } },
     choices: [
       { id: 'A', text: '$\\dfrac{5}{13}$' },
       // distractor: cos(A) instead of sin(A)
@@ -1417,6 +1426,7 @@ export const geometryBank = [
     difficulty: 'easy',
     type: 'multiple-choice',
     question: 'In right triangle $PQR$, the right angle is at vertex $R$. If $PQ = 17$ and $PR = 8$, what is the value of $\\cos P$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['P', 'R', 'Q'], sideLabels: ['8', '', '17'], rightAngleVertex: 1, figureNote: true } },
     choices: [
       { id: 'A', text: '$\\dfrac{8}{17}$' },
       // distractor: sin P instead of cos P
@@ -1441,6 +1451,7 @@ export const geometryBank = [
     difficulty: 'medium',
     type: 'multiple-choice',
     question: 'In right triangle $JKL$, the right angle is at vertex $K$. If $JK = 7$ and $KL = 24$, what is the value of $\\tan L$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['J', 'K', 'L'], sideLabels: ['7', '24', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [
       // distractor: sin(L)
       { id: 'A', text: '$\\dfrac{7}{25}$' },
@@ -1465,6 +1476,7 @@ export const geometryBank = [
     difficulty: 'medium',
     type: 'multiple-choice',
     question: 'In right triangle $ABC$, the right angle is at vertex $A$. If $\\cos B = \\dfrac{3}{5}$ and $AB = 18$, what is the length of $BC$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['B', 'A', 'C'], sideLabels: ['18', '', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [
       // distractor: uses raw 3-5 ratio without scaling: thinks AB = 3 → BC = 5
       { id: 'A', text: '$5$' },
@@ -1513,6 +1525,7 @@ export const geometryBank = [
     difficulty: 'medium',
     type: 'multiple-choice',
     question: 'A $30$-foot ladder leans against a vertical wall, making an angle of $\\theta$ with the ground, where $\\cos \\theta = 0.8$. How many feet high up the wall does the ladder reach?',
+    diagram: { type: 'rightTriangle', params: { labels: ['θ', '', ''], sideLabels: ['', '', '30'], rightAngleVertex: 1, figureNote: true } },
     choices: [
       { id: 'A', text: '$18$' },
       // distractor: uses cos as wall height (it's the ground distance)
@@ -1537,6 +1550,7 @@ export const geometryBank = [
     difficulty: 'hard',
     type: 'fill-in',
     question: 'In right triangle $UVW$, the right angle is at vertex $V$. If $\\tan U = \\dfrac{5}{12}$ and $UV = 36$, what is the perimeter of triangle $UVW$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['U', 'V', 'W'], sideLabels: ['36', '', ''], rightAngleVertex: 1, figureNote: true } },
     correctAnswer: '90',
     explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**The correct answer is $90$.**\n\n**The Fast Way (~30s):** $\\tan U = \\frac{VW}{UV} = \\frac{5}{12}$ with $UV = 36 = 12 \\cdot 3$, so the sides are the $5$-$12$-$13$ triple scaled by $3$: legs $15$ and $36$, hypotenuse $39$. Perimeter $= 15 + 36 + 39 = 90$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[36,0],[36,15]],\"sideLabels\":[\"36\",\"15\",\"39\"],\"rightAngleVertex\":1,\"labels\":[\"U\",\"V\",\"W\"]},\"caption\":\"tan U = 5/12 scales to the 15-36-39 triangle — perimeter 90.\"}\n```\n\n**The Full Solution:**\nStep 1: The right angle is at $V$, so $UW$ is the hypotenuse. For angle $U$, opposite $= VW$ and adjacent $= UV$.\nStep 2: $\\tan U = \\frac{VW}{UV} = \\frac{5}{12}$, so $\\frac{VW}{36} = \\frac{5}{12} \\Rightarrow VW = \\frac{36 \\cdot 5}{12} = 15$.\nStep 3: $UW = \\sqrt{36^2 + 15^2} = \\sqrt{1521} = 39$.\nStep 4: Perimeter $= 36 + 15 + 39 = 90$.\n\nThe sides $15$-$36$-$39$ are the $5$-$12$-$13$ triple times $3$. $\\checkmark$\n\n**Common Mistakes:** Adding only the legs ($36 + 15 = 51$) and dropping the hypotenuse; mixing scaled and unscaled sides ($15 + 36 + 13 = 64$); treating $\\frac{5}{12}$ as literal side lengths instead of a ratio.\n\n**Test Day Takeaway:** Recognize $\\frac{5}{12}$ as the $5$-$12$-$13$ triple, find the scale factor from the given side ($36/12 = 3$), then scale all three sides.",
     calculatorAllowed: true,
@@ -1742,6 +1756,7 @@ export const geometryBank = [
     difficulty: 'easy',
     type: 'multiple-choice',
     question: 'A right triangle has legs of length $6$ and $8$. What is the length of the hypotenuse?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['6', '8', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [
       { id: 'A', text: '$10$' },
       // distractor: adds the legs
@@ -1766,6 +1781,7 @@ export const geometryBank = [
     difficulty: 'easy',
     type: 'fill-in',
     question: 'A right triangle has legs of length $8$ and $15$. What is the length of the hypotenuse?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['8', '15', ''], rightAngleVertex: 1, figureNote: true } },
     correctAnswer: '17',
     explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $17$.**\n\n**The Fast Way (~10s):** $8$-$15$-$17$ is a standard Pythagorean triple, so the hypotenuse is $17$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[8,0],[8,15]],\"sideLabels\":[\"8\",\"15\",\"17\"],\"rightAngleVertex\":1},\"caption\":\"Legs 8 and 15 — hypotenuse 17.\"}\n```\n\n**The Full Solution:**\nStep 1: $c^2 = 8^2 + 15^2 = 64 + 225 = 289$.\nStep 2: $c = \\sqrt{289} = 17$.\n\nVerification: $8^2 + 15^2 = 64 + 225 = 289 = 17^2$. $\\checkmark$\n\n**Common Mistakes:** Adding the legs to get $23$; computing $\\sqrt{8+15} = \\sqrt{23}$ by skipping the squares; subtracting, $\\sqrt{225-64}$, which solves for a leg instead.\n\n**Test Day Takeaway:** The four canonical SAT triples are $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and $7$-$24$-$25$. Recognizing one saves the full Pythagorean computation.",
     calculatorAllowed: false,
@@ -1781,6 +1797,7 @@ export const geometryBank = [
     difficulty: 'medium',
     type: 'multiple-choice',
     question: 'In a right triangle, the hypotenuse has length $26$ and one leg has length $10$. What is the length of the other leg?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['10', '', '26'], rightAngleVertex: 1, figureNote: true } },
     choices: [
       { id: 'A', text: '$24$' },
       // distractor: subtracts the lengths directly
@@ -1820,6 +1837,7 @@ export const geometryBank = [
     difficulty: 'medium',
     type: 'multiple-choice',
     question: 'A right triangle has legs of length $9$ and $40$. What is the perimeter of the triangle?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['9', '40', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [
       { id: 'A', text: '$90$' },
       // distractor: forgets to add the hypotenuse
@@ -1844,6 +1862,7 @@ export const geometryBank = [
     difficulty: 'medium',
     type: 'fill-in',
     question: 'A right triangle has a hypotenuse of length $25$ and one leg of length $15$. What is the area of the triangle?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['15', '', '25'], rightAngleVertex: 1, figureNote: true } },
     correctAnswer: '150',
     explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $150$.**\n\n**The Fast Way (~20s):** $15$-$20$-$25$ is the $3$-$4$-$5$ triple times $5$, so the missing leg is $20$. The legs are the base and height: area $= \\frac{1}{2}(15)(20) = 150$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[15,0],[15,20.0]],\"sideLabels\":[\"15\",\"20\",\"25\"],\"rightAngleVertex\":1},\"caption\":\"Legs 15 and 20 — hypotenuse 25.\"}\n```\n\n**The Full Solution:**\nStep 1: Find the missing leg with $a^2 + b^2 = c^2$, $c = 25$, $a = 15$. $b^2 = 25^2 - 15^2 = 625 - 225 = 400$, so $b = 20$.\nStep 2: In a right triangle the two legs are perpendicular, so they serve as base and height. Area $= \\frac{1}{2} \\cdot 15 \\cdot 20 = \\frac{1}{2}(300) = 150$.\n\nVerification: $15$-$20$-$25 = 5 \\cdot (3$-$4$-$5)$. $\\checkmark$\n\n**Common Mistakes:** Using the hypotenuse as a height, $\\frac{1}{2}(15)(25) = 187.5$; dropping the $\\frac{1}{2}$ to get $300$; reporting the perimeter $15 + 20 + 25 = 60$.\n\n**Test Day Takeaway:** In a right triangle the legs are the base and height: area $= \\frac{1}{2} \\cdot \\text{leg}_1 \\cdot \\text{leg}_2$. The hypotenuse only helps you find a missing leg.",
     calculatorAllowed: true,
@@ -1859,6 +1878,7 @@ export const geometryBank = [
     difficulty: 'hard',
     type: 'multiple-choice',
     question: 'In a right triangle, the two legs have lengths $a$ and $a + 7$, and the hypotenuse has length $13$. What is the value of $a$?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['a', 'a + 7', '13'], rightAngleVertex: 1, figureNote: true } },
     choices: [
       { id: 'A', text: '$5$' },
       // distractor: solves for the other variable
@@ -1883,6 +1903,7 @@ export const geometryBank = [
     difficulty: 'hard',
     type: 'fill-in',
     question: 'In a right triangle, the hypotenuse has length $a + 1$ and the two legs have lengths $a$ and $9$. What is the value of $a$?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['a', '9', 'a + 1'], rightAngleVertex: 1, figureNote: true } },
     correctAnswer: '40',
     explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~30s):** Hypotenuse one more than a leg, with $9$ as the other leg, matches $9$-$40$-$41$. So $a = 40$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[40,0],[40,9]],\"sideLabels\":[\"40\",\"9\",\"41\"],\"rightAngleVertex\":1},\"caption\":\"a = 40: the 9-40-41 triple.\"}\n```\n\n**The Full Solution:**\nStep 1: Apply $a^2 + 9^2 = (a+1)^2$.\nStep 2: Expand the right side: $a^2 + 81 = a^2 + 2a + 1$.\nStep 3: The $a^2$ terms cancel, leaving a linear equation: $81 = 2a + 1$, so $2a = 80$.\nStep 4: $a = 40$.\n\nVerification: legs $40$ and $9$, hypotenuse $41$: $40^2 + 9^2 = 1600 + 81 = 1681 = 41^2$. $\\checkmark$\n\n**Common Mistakes:** Expanding $(a+1)^2$ as $a^2 + 1$ instead of $a^2 + 2a + 1$; treating the equation as quadratic after the $a^2$ terms cancel; an off-by-one giving $2a = 81 \\Rightarrow a = 40.5$.\n\n**Test Day Takeaway:** When the hypotenuse is one more than a leg, the $a^2$ terms cancel and you get a clean linear equation. The result is usually a known triple like $5$-$12$-$13$ or $9$-$40$-$41$.",
     calculatorAllowed: true,
@@ -2044,23 +2065,27 @@ export const geometryBank = [
   // 5 test occurrences across M2Easy variants.
   { id: 'bank-geo-092', domain: 'geometry', skills: ['triangle-angle-sum'], difficulty: 'easy', type: 'multiple-choice',
     question: 'In triangle $ABC$, the measures of angles $A$ and $B$ are $50°$ and $70°$, respectively. What is the measure of angle $C$?',
+    diagram: { type: 'triangleWithAngles', params: { vertexLabels: ['A', 'B', 'C'], angleLabels: ['50°', '70°', ''], figureNote: true } },
     choices: [{ id: 'A', text: '$60°$' }, { id: 'B', text: '$120°$' }, { id: 'C', text: '$110°$' }, { id: 'D', text: '$90°$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice A is correct.**\n\n**The Fast Way:** The three angles sum to $180^\\circ$, so angle $C=180^\\circ-50^\\circ-70^\\circ=60^\\circ$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($120^\\circ$): added the two given angles instead of subtracting from $180^\\circ$.\n* Choice C ($110^\\circ$): took the supplement of one given angle ($180^\\circ-70^\\circ$).\n* Choice D ($90^\\circ$): assumed a right angle with no basis.\n\n**Test Day Takeaway:** The interior angles of any triangle sum to $180^\\circ$.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'triangle-angle-sum', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-geo-093', domain: 'geometry', skills: ['triangle-angle-sum'], difficulty: 'easy', type: 'fill-in',
     question: 'Two angles of a triangle measure $35°$ and $85°$. What is the measure, in degrees, of the third angle?',
+    diagram: { type: 'triangleWithAngles', params: { angleLabels: ['35°', '85°', ''], figureNote: true } },
     correctAnswer: '60',
     explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**The correct answer is $60$.**\n\n**The Fast Way:** $180-35-85=60$.\n\n**The Full Solution:**\nThe three interior angles sum to $180^\\circ$, so the third angle is $180^\\circ-35^\\circ-85^\\circ=60^\\circ$.\n\n**Common Mistakes:** Adding the two given angles ($120$) instead of subtracting them from $180$.\n\n**Test Day Takeaway:** A triangle's interior angles total $180^\\circ$.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'triangle-angle-sum', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-geo-094', domain: 'geometry', skills: ['triangle-angle-sum'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A triangle has angles measuring $x°$, $2x°$, and $3x°$. What is the value of $x$?',
+    diagram: { type: 'triangleWithAngles', params: { angleLabels: ['x°', '2x°', '3x°'], figureNote: true } },
     choices: [{ id: 'A', text: '$30$' }, { id: 'B', text: '$45$' }, { id: 'C', text: '$60$' }, { id: 'D', text: '$90$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice A is correct.**\n\n**The Fast Way:** $x+2x+3x=180 \\Rightarrow 6x=180 \\Rightarrow x=30$.\n\n**The Full Solution:**\nStep 1: The angles sum to $180^\\circ$: $x+2x+3x=180$.\nStep 2: Combine like terms: $6x=180$.\nStep 3: Divide: $x=30$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($45$): divided $180$ by $4$ instead of $6$.\n* Choice C ($60$): divided $180$ by $3$, ignoring the $x$ and $2x$ terms.\n* Choice D ($90$): arbitrary; a right angle has no basis here.\n\n**Test Day Takeaway:** For variable angles, combine like terms and set the sum equal to $180$.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'triangle-angle-sum', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-geo-095', domain: 'geometry', skills: ['triangle-angle-sum'], difficulty: 'medium', type: 'fill-in',
     question: 'A right triangle has one acute angle measuring $35°$. What is the measure, in degrees, of the other acute angle?',
+    diagram: { type: 'rightTriangle', params: { labels: ['35°', '', ''], rightAngleVertex: 1, figureNote: true } },
     correctAnswer: '55',
     explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**The correct answer is $55$.**\n\n**The Fast Way:** The two acute angles of a right triangle sum to $90^\\circ$, so the other is $90^\\circ-35^\\circ=55^\\circ$.\n\n**The Full Solution:**\nA right triangle has a $90^\\circ$ angle, and all three sum to $180^\\circ$. So $90+35+x=180$, which gives $x=55$.\n\n**Common Mistakes:** Subtracting from $180$ instead of $90$ and reporting $145$; assuming the triangle is isosceles and answering $35$.\n\n**Test Day Takeaway:** In a right triangle the two acute angles are complementary — they sum to $90^\\circ$.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'triangle-angle-sum', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
@@ -2072,6 +2097,7 @@ export const geometryBank = [
     calculatorAllowed: true, tags: [], sourceStyleRef: 'triangle-angle-sum', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-geo-097', domain: 'geometry', skills: ['triangle-angle-sum'], difficulty: 'hard', type: 'multiple-choice',
     question: 'In triangle $ABC$, angle $A = (2x + 10)°$, angle $B = (3x - 20)°$, and angle $C = (x + 10)°$. What is the value of $x$?',
+    diagram: { type: 'triangleWithAngles', params: { vertexLabels: ['A', 'B', 'C'], angleLabels: ['(2x + 10)°', '(3x - 20)°', '(x + 10)°'], figureNote: true } },
     choices: [{ id: 'A', text: '$30$' }, { id: 'B', text: '$25$' }, { id: 'C', text: '$45$' }, { id: 'D', text: '$60$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The three angles of any triangle add to $180^\\circ$. Add the expressions: the constants $10-20+10$ cancel to $0$, leaving $6x=180$, so $x=30$.\n\n**The Full Solution:**\nStep 1: Set the sum equal to $180$: $(2x+10)+(3x-20)+(x+10)=180$.\nStep 2: Combine like terms: $2x+3x+x=6x$ and $10-20+10=0$, so $6x=180$.\nStep 3: Divide: $x=30$. Choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B ($25$): comes from mishandling the constants instead of letting them cancel to $0$.\n* Choice C ($45$): assumes an equilateral triangle (each angle $60^\\circ$) and solves the wrong equation.\n* Choice D ($60$): uses $360^\\circ$ (a quadrilateral) instead of $180^\\circ$.\n\n**Test Day Takeaway:** Set the angle expressions equal to $180$ and combine like terms first; the constants frequently cancel cleanly.",
@@ -2130,23 +2156,27 @@ export const geometryBank = [
   // ===== Phase 2 batch 13/1: soh-cah-toa-in-a-3-4-5-triangle (8 items) =====
   { id: 'bank-geo-107', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'easy', type: 'multiple-choice',
     question: 'In a right triangle with legs $3$ and $4$ and hypotenuse $5$, what is $\\sin$ of the angle opposite the side of length $3$?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['3', '4', '5'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{3}{5}$' }, { id: 'B', text: '$\\dfrac{4}{5}$' }, { id: 'C', text: '$\\dfrac{3}{4}$' }, { id: 'D', text: '$\\dfrac{5}{3}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** SOH: $\\sin=\\frac{\\text{opposite}}{\\text{hypotenuse}}$. The side opposite the angle is $3$, the hypotenuse is $5$, so $\\sin=\\frac{3}{5}$.\n\n**The Full Solution:**\nStep 1: Identify the side opposite the angle: length $3$.\nStep 2: The hypotenuse is $5$.\nStep 3: $\\sin=\\frac{3}{5}$. Choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{4}{5}$): the sine of the other acute angle, opposite the side of length $4$.\n* Choice C ($\\frac{3}{4}$): the tangent (opposite over adjacent), not the sine.\n* Choice D ($\\frac{5}{3}$): inverts the ratio, using hypotenuse over opposite.\n\n**Test Day Takeaway:** SOH — sine is opposite over hypotenuse. Match each side to the angle in question before forming the ratio.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'soh-cah-toa-in-a-3-4-5-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-geo-108', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'easy', type: 'fill-in',
     question: 'In a $3$-$4$-$5$ right triangle, what is the $\\cos$ of the angle adjacent to the side of length $4$? Express your answer as a fraction.',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['3', '4', '5'], rightAngleVertex: 1, figureNote: true } },
     correctAnswer: '4/5',
     explanation: "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**The correct answer is $\\frac{4}{5}$.**\n\n**The Fast Way (~10s):** CAH: $\\cos=\\frac{\\text{adjacent}}{\\text{hypotenuse}}$. The leg adjacent to the angle is $4$ and the hypotenuse is $5$, so $\\cos=\\frac{4}{5}$.\n\n**The Full Solution:**\nStep 1: The side adjacent to the angle is the leg of length $4$.\nStep 2: The hypotenuse is $5$.\nStep 3: $\\cos=\\frac{4}{5}$.\n\n**Common Mistakes:** Writing $\\frac{3}{5}$ (the sine, using the opposite leg); inverting to $\\frac{5}{4}$.\n\n**Test Day Takeaway:** CAH — cosine is adjacent over hypotenuse. Identify which leg sits against the angle first.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'soh-cah-toa-in-a-3-4-5-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-geo-109', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'medium', type: 'multiple-choice',
     question: 'In a $3$-$4$-$5$ right triangle, what is the tangent of the smaller acute angle?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['3', '4', '5'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{3}{4}$' }, { id: 'B', text: '$\\dfrac{4}{3}$' }, { id: 'C', text: '$\\dfrac{3}{5}$' }, { id: 'D', text: '$\\dfrac{4}{5}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The smaller acute angle sits opposite the shorter leg ($3$). TOA gives $\\tan=\\frac{\\text{opp}}{\\text{adj}}=\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: In a right triangle the larger angle is opposite the longer side, so the smaller acute angle is opposite the leg of length $3$; its adjacent leg is $4$.\nStep 2: $\\tan=\\frac{\\text{opposite}}{\\text{adjacent}}=\\frac{3}{4}$, which is choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{4}{3}$): the tangent of the *larger* acute angle, opposite the leg of length $4$.\n* Choice C ($\\frac{3}{5}$): the *sine* of the smaller angle ($\\frac{\\text{opp}}{\\text{hyp}}$), not its tangent.\n* Choice D ($\\frac{4}{5}$): the *cosine* of the smaller angle ($\\frac{\\text{adj}}{\\text{hyp}}$), not its tangent.\n\n**Test Day Takeaway:** TOA means $\\tan=\\frac{\\text{opposite}}{\\text{adjacent}}$ — and the smaller angle always faces the shorter side.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'soh-cah-toa-in-a-3-4-5-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-geo-110', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'medium', type: 'fill-in',
     question: 'In a right triangle with legs $6$ and $8$ and hypotenuse $10$, what is $\\sin$ of the angle opposite the leg of length $8$? Express as a fraction.',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['6', '8', '10'], rightAngleVertex: 1, figureNote: true } },
     correctAnswer: '4/5',
     explanation: "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**The correct answer is $\\frac{4}{5}$.**\n\n**The Fast Way (~10s):** $6$-$8$-$10$ is a doubled $3$-$4$-$5$. The angle opposite the leg of length $8$ has $\\sin=\\frac{8}{10}=\\frac{4}{5}$.\n\n**The Full Solution:**\nStep 1: SOH means $\\sin=\\frac{\\text{opposite}}{\\text{hypotenuse}}$. The leg opposite the angle is $8$; the hypotenuse is $10$.\nStep 2: $\\sin=\\frac{8}{10}=\\frac{4}{5}$.\n\n**Common Mistakes:** Using the adjacent leg $\\frac{6}{10}=\\frac{3}{5}$ (that is the cosine), or writing $\\frac{8}{6}$ (the tangent).\n\n**Test Day Takeaway:** A scaled $3$-$4$-$5$ keeps the same trig ratios as the unit triple, so reduce and read them off.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'soh-cah-toa-in-a-3-4-5-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
@@ -2158,6 +2188,7 @@ export const geometryBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'soh-cah-toa-in-a-3-4-5-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-geo-112', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'medium', type: 'fill-in',
     question: 'In a $3$-$4$-$5$ right triangle, the tangent of one acute angle is $4/3$. What is the tangent of the OTHER acute angle? Express as a fraction.',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['3', '4', '5'], rightAngleVertex: 1, figureNote: true } },
     correctAnswer: '3/4',
     explanation: "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**The correct answer is $\\frac{3}{4}$.**\n\n**The Fast Way (~10s):** The two acute angles are complementary, so their tangents are reciprocals. The reciprocal of $\\frac{4}{3}$ is $\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: One angle has $\\tan=\\frac{4}{3}$, meaning its opposite leg is $4$ and adjacent leg is $3$.\nStep 2: For the other acute angle those legs swap roles: opposite $=3$, adjacent $=4$.\nStep 3: $\\tan=\\frac{3}{4}$.\n\n**Common Mistakes:** Repeating $\\frac{4}{3}$ (the same angle's tangent), or computing $\\frac{3}{5}$ by reaching for the sine instead of the tangent.\n\n**Test Day Takeaway:** In a right triangle the two acute angles are complementary, so $\\tan A=\\frac{1}{\\tan B}$ — flip the fraction.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'soh-cah-toa-in-a-3-4-5-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
@@ -2219,17 +2250,20 @@ export const geometryBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'rectangle-area', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   { id: 'bank-geo-123', domain: 'geometry', skills: ['pythagorean-theorem'], difficulty: 'easy', type: 'multiple-choice',
     question: 'A right triangle has legs $9$ and $12$. What is its hypotenuse?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['9', '12', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$15$' }, { id: 'B', text: '$21$' }, { id: 'C', text: '$\\sqrt{21}$' }, { id: 'D', text: '$108$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Pythagorean Theorem (3-4-5 Family)**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $9$-$12$-$15$ is $3 \\times (3,4,5)$. Hypotenuse $=15$. Choice A.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[9,0],[9,12]],\"sideLabels\":[\"9\",\"12\",\"15\"],\"rightAngleVertex\":1},\"caption\":\"Legs 9 and 12 — hypotenuse 15.\"}\n```\n\n**The Full Solution:**\nStep 1: $9 = 3 \\cdot 3$ and $12 = 3 \\cdot 4$, so the legs are the $3$-$4$-$5$ triple scaled by $3$.\nStep 2: The hypotenuse is $3 \\cdot 5 = 15$. Check: $9^2 + 12^2 = 81 + 144 = 225 = 15^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($21$): adds the legs ($9+12$) instead of using the Pythagorean theorem.\n* Choice C ($\\sqrt{21}$): uses $\\sqrt{a+b}$ instead of $\\sqrt{a^2+b^2}$ — drops the squares.\n* Choice D ($108$): multiplies the legs ($9 \\cdot 12$) — that is twice the area, not the hypotenuse.\n\n**Test Day Takeaway:** Spot scaled $3$-$4$-$5$ triples ($6$-$8$-$10$, $9$-$12$-$15$, $12$-$16$-$20$) to skip the arithmetic.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'pythagorean-theorem-3-4-5-family', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-geo-124', domain: 'geometry', skills: ['pythagorean-theorem'], difficulty: 'easy', type: 'fill-in',
     question: 'A right triangle has legs $12$ and $16$. What is its hypotenuse?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['12', '16', ''], rightAngleVertex: 1, figureNote: true } },
     correctAnswer: '20',
     explanation: "**SAT Pattern: Pythagorean Theorem (3-4-5 Family)**\n\n**The correct answer is $20$.**\n\n**The Fast Way (~10s):** $12$-$16$-$20$ is $4 \\times (3,4,5)$, so the hypotenuse is $20$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[12,0],[12,16]],\"sideLabels\":[\"12\",\"16\",\"20\"],\"rightAngleVertex\":1},\"caption\":\"Legs 12 and 16 — hypotenuse 20.\"}\n```\n\n**The Full Solution:**\nStep 1: $12 = 4 \\cdot 3$ and $16 = 4 \\cdot 4$ — the legs are the $3$-$4$-$5$ triple scaled by $4$.\nStep 2: Hypotenuse $= 4 \\cdot 5 = 20$. Check: $12^2 + 16^2 = 144 + 256 = 400 = 20^2$. $\\checkmark$\n\n**Common Mistakes:** Adding the legs to get $28$; using $\\sqrt{12+16}=\\sqrt{28}$ by dropping the squares.\n\n**Test Day Takeaway:** Recognize scaled triples — if both legs share a common factor matching $3$ and $4$, the hypotenuse is that factor times $5$.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'pythagorean-theorem-3-4-5-family', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-geo-125', domain: 'geometry', skills: ['pythagorean-theorem'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A right triangle has hypotenuse $25$ and one leg $15$. What is the other leg?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['15', '', '25'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$20$' }, { id: 'B', text: '$10$' }, { id: 'C', text: '$40$' }, { id: 'D', text: '$30$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Pythagorean Theorem (3-4-5 Family)**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $15$-$20$-$25$ is $5 \\times (3,4,5)$. With hypotenuse $25$ and leg $15$, the other leg is $20$. Choice A.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[15,0],[15,20.0]],\"sideLabels\":[\"15\",\"20\",\"25\"],\"rightAngleVertex\":1},\"caption\":\"Legs 15 and 20 — hypotenuse 25.\"}\n```\n\n**The Full Solution:**\nStep 1: $25 = 5 \\cdot 5$ and $15 = 5 \\cdot 3$, so this is the $3$-$4$-$5$ triple scaled by $5$.\nStep 2: The missing leg is $5 \\cdot 4 = 20$. Check: $15^2 + 20^2 = 225 + 400 = 625 = 25^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($10$): subtracts $25 - 15$ — treats the legs and hypotenuse as if they added linearly.\n* Choice C ($40$): adds $25 + 15$ — wrong operation.\n* Choice D ($30$): doubles the known leg, $2 \\cdot 15$.\n\n**Test Day Takeaway:** A hypotenuse of $25$ is the signature of $5 \\times (3,4,5)$ — check that family before reaching for $\\sqrt{25^2 - 15^2}$.",
@@ -2252,6 +2286,7 @@ export const geometryBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'pythagorean-theorem-3-4-5-family', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-geo-129', domain: 'geometry', skills: ['pythagorean-theorem'], difficulty: 'hard', type: 'multiple-choice',
     question: 'In a right triangle, the legs are $a$ and $a + 1$, and the hypotenuse is $a + 2$. What is the value of $a$?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['a', 'a + 1', 'a + 2'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$3$' }, { id: 'B', text: '$4$' }, { id: 'C', text: '$5$' }, { id: 'D', text: '$6$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Pythagorean Theorem (3-4-5 Family)**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Three consecutive integers forming a right triangle can only be $3$-$4$-$5$, so $a = 3$. Choice A.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[4,0],[4,3]],\"sideLabels\":[\"4\",\"3\",\"5\"],\"rightAngleVertex\":1},\"caption\":\"a = 3: the classic 3-4-5.\"}\n```\n\n**The Full Solution:**\nStep 1: Apply the Pythagorean theorem: $a^2 + (a+1)^2 = (a+2)^2$.\nStep 2: Expand: $a^2 + a^2 + 2a + 1 = a^2 + 4a + 4$, so $a^2 - 2a - 3 = 0$.\nStep 3: Factor: $(a-3)(a+1) = 0 \\Rightarrow a = 3$ or $a = -1$. A length must be positive, so $a = 3$, giving the $3$-$4$-$5$ triangle.\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): off by one — likely guesses near the answer without solving the quadratic.\n* Choice C ($5$): grabs the hypotenuse value $5$ instead of $a$.\n* Choice D ($6$): picks a side from another triple ($6$-$8$-$10$), but those sides are not consecutive integers.\n\n**Test Day Takeaway:** Set up $a^2+(a+1)^2=(a+2)^2$, expand, and solve — the consecutive-integer right triangle is uniquely $3$-$4$-$5$.",
@@ -2456,28 +2491,33 @@ export const geometryBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'angles-with-parallel-lines-and-transversals', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   { id: 'bank-geo-165', domain: 'geometry', skills: ['triangle-angle-sum'], difficulty: 'medium', type: 'multiple-choice',
     question: 'Two parallel lines are intersected by a transversal. One of the angles formed has a measure of $48°$. What is the measure of its corresponding angle?',
+    diagram: { type: 'parallelLines', params: { angles: { top: ['48°', ''] }, figureNote: true } },
     choices: [{ id: 'A', text: '$48°$' }, { id: 'B', text: '$132°$' }, { id: 'C', text: '$42°$' }, { id: 'D', text: '$96°$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Angles with Parallel Lines and Transversals**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Corresponding angles formed by parallel lines and a transversal are CONGRUENT, so the corresponding angle is $48^\\circ$.\n\n**The Full Solution:**\nStep 1: Corresponding angles occupy the same position at each intersection point.\nStep 2: When the cut lines are parallel, corresponding angles are equal in measure, so the answer is $48^\\circ$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($132^\\circ$): applies the supplementary rule ($180 - 48$) — that is for linear pairs or co-interior angles, not corresponding.\n* Choice C ($42^\\circ$): applies a complementary rule ($90 - 48$) — no parallel-lines theorem uses complements.\n* Choice D ($96^\\circ$): doubles the angle, with no geometric justification.\n\n**Test Day Takeaway:** Corresponding angles sit at the same corner of each intersection. With parallel cut lines they are always congruent.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'angles-with-parallel-lines-and-transversals', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   { id: 'bank-geo-166', domain: 'geometry', skills: ['triangle-angle-sum'], difficulty: 'medium', type: 'fill-in',
     question: 'In the $xy$-plane, lines $\\ell_1$ and $\\ell_2$ are parallel. A transversal forms an angle of $70°$ with $\\ell_1$. What is the measure, in degrees, of the same-side (co-interior) angle on $\\ell_2$?',
+    diagram: { type: 'parallelLines', params: { angles: { top: ['70°', ''] }, lineLabels: ['ℓ₁', 'ℓ₂'], figureNote: true } },
     correctAnswer: '110',
     explanation: "**SAT Pattern: Angles with Parallel Lines and Transversals**\n\n**The correct answer is $110$.**\n\n**The Fast Way (~5s):** Same-side interior angles are supplementary: $180 - 70 = 110$.\n\n**The Full Solution:**\nStep 1: The same-side (co-interior) angle on $\\ell_2$ is supplementary to the $70^\\circ$ angle on $\\ell_1$.\nStep 2: Subtract from $180^\\circ$: $180 - 70 = 110$ degrees.\n\n**Common Mistakes:** Treating the angle as alternate or corresponding (which would give $70$) instead of co-interior. Subtracting from $90$ instead of $180$.\n\n**Test Day Takeaway:** Same-side interior angles are SUPPLEMENTARY — subtract from $180^\\circ$.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'angles-with-parallel-lines-and-transversals', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   { id: 'bank-geo-167', domain: 'geometry', skills: ['triangle-angle-sum'], difficulty: 'medium', type: 'multiple-choice',
     question: 'Two lines intersect at point $P$. Two of the angles formed at $P$ are a linear pair (not a vertical pair); one measures $(4x + 10)°$ and the other measures $(6x)°$. What is the measure, in degrees, of the LARGER of these two angles?',
+    diagram: { type: 'intersectingLines', params: { angles: ['(4x + 10)°', '(6x)°', '', ''], figureNote: true } },
     choices: [{ id: 'A', text: '$17$' }, { id: 'B', text: '$30$' }, { id: 'C', text: '$78$' }, { id: 'D', text: '$102$' }],
     correctAnswer: 'D',
     explanation: "**SAT Pattern: Vertical and Linear-Pair Angles**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Linear-pair angles are SUPPLEMENTARY: $(4x + 10) + 6x = 180 \\Rightarrow 10x = 170 \\Rightarrow x = 17$. The angles are $4(17) + 10 = 78^\\circ$ and $6(17) = 102^\\circ$, so the larger is $102^\\circ$.\n\n**The Full Solution:**\nStep 1: A linear pair is two adjacent angles whose outer rays form a straight line, so they sum to $180^\\circ$.\nStep 2: Set up the equation: $(4x + 10) + 6x = 180$.\nStep 3: Solve: $10x + 10 = 180 \\Rightarrow 10x = 170 \\Rightarrow x = 17$.\nStep 4: Compute both measures: $4(17) + 10 = 78^\\circ$ and $6(17) = 102^\\circ$. Check: $78 + 102 = 180^\\circ$. $\\checkmark$\nStep 5: The question asks for the LARGER angle: $102^\\circ$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): reports the value of $x$ instead of an angle measure — stops one step early.\n* Choice B ($30$): treats the two angles as VERTICAL (equal): $4x + 10 = 6x \\Rightarrow x = 5$, giving $30^\\circ$. But the problem states they are a linear pair, not vertical.\n* Choice C ($78$): solves correctly but reports the SMALLER angle ($4x + 10$) instead of the larger.\n* Choice D ($102$): the larger angle, $6x = 102^\\circ$.\n\n**Test Day Takeaway:** When two lines cross, vertical pairs are EQUAL and adjacent (linear) pairs are SUPPLEMENTARY. After finding $x$, reread whether the question wants $x$, an angle, or a specific one.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'angles-with-parallel-lines-and-transversals', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   { id: 'bank-geo-168', domain: 'geometry', skills: ['triangle-angle-sum'], difficulty: 'medium', type: 'fill-in',
     question: 'Two parallel lines are cut by a transversal. One angle measures $(3x + 10)°$ and its corresponding angle measures $(4x - 20)°$. What is the value of $x$?',
+    diagram: { type: 'parallelLines', params: { angles: { top: ['(3x + 10)°', ''], bottom: ['(4x - 20)°', ''] }, figureNote: true } },
     correctAnswer: '30',
     explanation: "**SAT Pattern: Angles with Parallel Lines and Transversals**\n\n**The correct answer is $30$.**\n\n**The Fast Way (~10s):** Corresponding angles are equal: $3x + 10 = 4x - 20 \\Rightarrow x = 30$.\n\n**The Full Solution:**\nStep 1: Corresponding angles formed by parallel lines and a transversal are congruent, so $3x + 10 = 4x - 20$.\nStep 2: Subtract $3x$ from both sides: $10 = x - 20$.\nStep 3: Add $20$: $x = 30$. Check: both angles measure $3(30) + 10 = 100$ degrees. $\\checkmark$\n\n**Common Mistakes:** Setting the angles to sum to $180^\\circ$ (the co-interior rule) instead of equal. Sign-slipping when moving $4x$ across.\n\n**Test Day Takeaway:** When two angles are corresponding (or alternate), set them EQUAL. Reserve the sum-to-$180^\\circ$ setup for same-side interior angles.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'angles-with-parallel-lines-and-transversals', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   { id: 'bank-geo-169', domain: 'geometry', skills: ['triangle-angle-sum'], difficulty: 'medium', type: 'multiple-choice',
     question: 'Parallel lines $\\ell$ and $m$ are cut by a transversal $t$ at points $A$ and $B$, respectively. At point $A$, two angles formed at line $\\ell$ are a linear pair, measuring $(2x + y)°$ and $(x + 8y)°$. At point $B$, the angle corresponding to the $(2x + y)°$ angle measures $(x + 4y)°$. What is the value of $x$?',
+    diagram: { type: 'parallelLines', params: { angles: { top: ['(2x + y)°', '(x + 8y)°'], bottom: ['(x + 4y)°', ''] }, lineLabels: ['ℓ', 'm', 't'], figureNote: true } },
     choices: [{ id: 'A', text: '$10$' }, { id: 'B', text: '$30$' }, { id: 'C', text: '$60$' }, { id: 'D', text: '$70$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Angles with Parallel Lines (System of Two Conditions)**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** A linear pair at $A$ is supplementary: $(2x+y)+(x+8y)=180 \\Rightarrow x+3y=60$. Corresponding angles are equal: $2x+y=x+4y \\Rightarrow x=3y$. Substitute: $3y+3y=60 \\Rightarrow y=10$, so $x=30$.\n\n**The Full Solution:**\nStep 1: The two angles at $A$ form a linear pair, so they add to $180^\\circ$: $(2x+y)+(x+8y)=180 \\Rightarrow 3x+9y=180 \\Rightarrow x+3y=60$.\nStep 2: Corresponding angles formed by parallel lines and a transversal are congruent: $2x+y=x+4y \\Rightarrow x=3y$.\nStep 3: Substitute $x=3y$ into Step 1: $3y+3y=60 \\Rightarrow 6y=60 \\Rightarrow y=10$.\nStep 4: $x=3(10)=30$.\n\nCheck: at $A$ the angles are $2(30)+10=70^\\circ$ and $30+8(10)=110^\\circ$, summing to $180^\\circ$. The corresponding angle at $B$ is $30+4(10)=70^\\circ$, matching the $(2x+y)^\\circ$ angle. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): this is $y$, not $x$. The system is solved correctly but the wrong variable is reported.\n* Choice C ($60$): treats the corresponding angles as supplementary instead of equal, replacing the correct second equation and forcing $y=0$, $x=60$.\n* Choice D ($70$): reports the angle measure $2x+y=70$ instead of $x$, stopping one step early.\n\n**Test Day Takeaway:** Multi-condition transversal problems need two independent equations — one supplementary, one congruent. After solving, reread the question: $x$, $y$, or a labeled angle are not the same answer.",
@@ -2494,6 +2534,7 @@ export const geometryBank = [
   // Different setup from "given sides, find ratio" (right-triangle-trig-ratios).
   { id: 'bank-geo-171', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A right triangle has legs of length $a$ and $a + 1$ and hypotenuse of length $5$. If the perimeter of the triangle is $12$, what is $\\sin(\\theta)$, where $\\theta$ is the angle opposite the longer leg?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['a', 'a + 1', '5'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{4}{5}$' }, { id: 'B', text: '$\\dfrac{3}{5}$' }, { id: 'C', text: '$\\dfrac{4}{3}$' }, { id: 'D', text: '$\\dfrac{3}{4}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Perimeter: $a+(a+1)+5=12 \\Rightarrow 2a+6=12 \\Rightarrow a=3$. Legs are $3$ and $4$. The longer leg ($4$) is opposite $\\theta$, so $\\sin(\\theta)=\\frac{4}{5}$.\n\n**The Full Solution:**\nStep 1: Use the perimeter to solve for the legs: $a+(a+1)+5=12 \\Rightarrow 2a+6=12 \\Rightarrow a=3$. The legs are $3$ and $4$.\nStep 2: $\\theta$ is opposite the longer leg, $4$. So $\\sin(\\theta)=\\frac{\\text{opp}}{\\text{hyp}}=\\frac{4}{5}$.\n\nCheck: $3$-$4$-$5$ is a Pythagorean triple ($9+16=25$). $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{3}{5}$): uses the shorter leg as opposite — that is $\\sin$ of the other acute angle.\n* Choice C ($\\frac{4}{3}$): computes $\\tan(\\theta)=\\frac{\\text{opp}}{\\text{adj}}$ instead of $\\sin$.\n* Choice D ($\\frac{3}{4}$): swaps which leg is opposite and takes a tangent ratio.\n\n**Test Day Takeaway:** A perimeter constraint is just an extra step. Solve for the sides first, then read off the trig ratio — never try to pull the ratio straight from the perimeter.",
@@ -2513,6 +2554,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-174', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'medium', type: 'fill-in',
     question: 'A right triangle has perimeter $30$ and one leg of length $5$. The hypotenuse is $13$. What is $\\sin(\\theta)$, where $\\theta$ is the angle opposite the unknown leg?',
+    diagram: { type: 'rightTriangle', params: { labels: ['θ', '', ''], sideLabels: ['5', '', '13'], rightAngleVertex: 1, figureNote: true } },
     correctAnswer: '12/13',
     explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**The correct answer is $\\frac{12}{13}$.**\n\n**The Fast Way (~10s):** The third side is $30-5-13=12$. $\\theta$ is opposite that leg, so $\\sin(\\theta)=\\frac{12}{13}$.\n\n**The Full Solution:**\nStep 1: The perimeter gives the missing leg directly: $5+b+13=30 \\Rightarrow b=12$.\nStep 2: Confirm with Pythagoras: $5^2+12^2=25+144=169=13^2$ — the $5$-$12$-$13$ triple.\nStep 3: $\\theta$ is opposite the unknown leg, $12$: $\\sin(\\theta)=\\frac{\\text{opp}}{\\text{hyp}}=\\frac{12}{13}$.\n\n**Common Mistakes:** Reporting $\\frac{5}{13}$ (the sine of the other acute angle); reporting $\\frac{12}{5}$ (tangent, not sine); reaching for the Pythagorean theorem when the perimeter already hands you the third side.\n\n**Test Day Takeaway:** When the perimeter and two sides are given, the third side is plain subtraction — no Pythagorean theorem required.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'right-triangle-trigonometry-with-perimeter', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
@@ -2532,6 +2574,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-177', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A right triangle has perimeter $48$. The two legs have lengths $a$ and $2a$. The hypotenuse is the longest side. Approximately what is $\\sin(\\theta)$, where $\\theta$ is the angle opposite the longer leg? Express your answer to the nearest hundredth.',
+    diagram: { type: 'rightTriangle', params: { labels: ['θ', '', ''], sideLabels: ['a', '2a', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$0.89$' }, { id: 'B', text: '$0.45$' }, { id: 'C', text: '$0.50$' }, { id: 'D', text: '$2.00$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The ratio is scale-free, so $\\sin(\\theta)=\\frac{\\text{longer leg}}{\\text{hyp}}=\\frac{2a}{a\\sqrt{5}}=\\frac{2}{\\sqrt{5}}\\approx0.89$.\n\n**The Full Solution:**\nStep 1: With legs $a$ and $2a$, the hypotenuse is $\\sqrt{a^2+(2a)^2}=\\sqrt{5a^2}=a\\sqrt{5}$.\nStep 2: $\\theta$ is opposite the longer leg, $2a$: $\\sin(\\theta)=\\frac{2a}{a\\sqrt{5}}=\\frac{2}{\\sqrt{5}}\\approx0.894$, which rounds to $0.89$.\n\nThe perimeter ($a+2a+a\\sqrt{5}=48$) would fix $a\\approx9.17$, but $\\sin(\\theta)$ does not depend on $a$ — the answer is the same.\n\n**Why the wrong answers are tempting:**\n* Choice B ($0.45$): $\\frac{1}{\\sqrt{5}}$, the sine of the other acute angle.\n* Choice C ($0.50$): the bare leg ratio $\\frac{1}{2}$, not a sine.\n* Choice D ($2.00$): $\\frac{2a}{a}$ — divides the legs and forgets the hypotenuse.\n\n**Test Day Takeaway:** With legs in ratio $1:2$, the two acute angles have sines $\\frac{1}{\\sqrt{5}}$ and $\\frac{2}{\\sqrt{5}}$, independent of the actual lengths. The perimeter is a distraction.",
@@ -2848,6 +2891,7 @@ export const geometryBank = [
   // Corresponding sides of similar triangles are proportional. Set up a proportion.
   { id: 'bank-geo-219', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'easy', type: 'multiple-choice',
     question: 'Triangle $ABC$ is similar to triangle $DEF$. If $AB = 4$, $DE = 6$, and $BC = 10$, what is the length of $EF$?',
+    diagram: { type: 'similarTriangles', params: { triangle1: { labels: ['A', 'B', 'C'], sideLabels: ['4', '10', ''] }, triangle2: { labels: ['D', 'E', 'F'], sideLabels: ['6', '', ''] }, figureNote: true } },
     choices: [{ id: 'A', text: '$6$' }, { id: 'B', text: '$10$' }, { id: 'C', text: '$15$' }, { id: 'D', text: '$24$' }],
     correctAnswer: 'C',
     explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $DEF$ is scaled from $ABC$ by $\\frac{DE}{AB}=\\frac{6}{4}=\\frac{3}{2}$, so $EF=BC\\cdot\\frac{3}{2}=10\\cdot\\frac{3}{2}=15$.\n\n**The Full Solution:**\nStep 1: In similar triangles, corresponding sides are proportional: $\\frac{AB}{DE}=\\frac{BC}{EF}$.\nStep 2: $\\frac{4}{6}=\\frac{10}{EF} \\Rightarrow EF=\\frac{6\\cdot 10}{4}=\\frac{60}{4}=15$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): copies $DE$ instead of solving for $EF$.\n* Choice B ($10$): copies $BC$ — forgot to scale it up.\n* Choice D ($24$): multiplies $AB\\cdot DE=4\\cdot 6$ instead of using the proportion.\n\n**Test Day Takeaway:** Match corresponding sides in the same order the triangles are named, set up the proportion, and cross-multiply to solve.",
@@ -2869,6 +2913,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-222', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'medium', type: 'fill-in',
     question: 'Triangles $PQR$ and $STU$ are similar. $PQ = 6$, $ST = 9$, and $QR = 8$. What is the length of $TU$?',
+    diagram: { type: 'similarTriangles', params: { triangle1: { labels: ['P', 'Q', 'R'], sideLabels: ['6', '8', ''] }, triangle2: { labels: ['S', 'T', 'U'], sideLabels: ['9', '', ''] }, figureNote: true } },
     correctAnswer: '12',
     explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~10s):** $STU$ is scaled from $PQR$ by $\\frac{ST}{PQ}=\\frac{9}{6}=\\frac{3}{2}$, so $TU=QR\\cdot\\frac{3}{2}=8\\cdot\\frac{3}{2}=12$.\n\n**The Full Solution:**\nStep 1: Corresponding sides are proportional: $\\frac{PQ}{ST}=\\frac{QR}{TU}$.\nStep 2: $\\frac{6}{9}=\\frac{8}{TU} \\Rightarrow TU=\\frac{9\\cdot 8}{6}=\\frac{72}{6}=12$.\n\n**Common Mistakes:** Inverting the ratio to get $8\\cdot\\frac{2}{3}\\approx 5.3$; copying $QR=8$ without scaling.\n\n**Test Day Takeaway:** Pair sides by name order ($PQ$ with $ST$, $QR$ with $TU$), set the ratios equal, and solve.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-triangles-proportion', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
@@ -2890,6 +2935,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-225', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'hard', type: 'multiple-choice',
     question: 'In triangles $ABC$ and $DEF$, $\\angle A = \\angle D$, $\\angle B = \\angle E$, $AB = 12$, $BC = 15$, and $DE = 8$. What is the length of $EF$?',
+    diagram: { type: 'similarTriangles', params: { triangle1: { labels: ['A', 'B', 'C'], sideLabels: ['12', '15', ''] }, triangle2: { labels: ['D', 'E', 'F'], sideLabels: ['8', '', ''] }, figureNote: true } },
     choices: [{ id: 'A', text: '$8$' }, { id: 'B', text: '$10$' }, { id: 'C', text: '$11$' }, { id: 'D', text: '$15$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Two equal angle pairs give AA similarity, so $ABC \\sim DEF$ with scale $\\frac{DE}{AB}=\\frac{8}{12}=\\frac{2}{3}$. Then $EF=BC\\cdot\\frac{2}{3}=15\\cdot\\frac{2}{3}=10$.\n\n**The Full Solution:**\nStep 1: $\\angle A=\\angle D$ and $\\angle B=\\angle E$, so by AA the triangles are similar with $ABC$ corresponding to $DEF$.\nStep 2: Corresponding sides: $\\frac{DE}{AB}=\\frac{EF}{BC}$, i.e. $\\frac{8}{12}=\\frac{EF}{15}$.\nStep 3: $EF=\\frac{8\\cdot 15}{12}=\\frac{120}{12}=10$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): copies $DE$ instead of scaling $BC$.\n* Choice C ($11$): a midpoint-style guess between $8$ and $15$.\n* Choice D ($15$): copies $BC$ without applying the scale factor.\n\n**Test Day Takeaway:** Two equal angle pairs (AA) is enough to prove similarity. Match $\\angle B=\\angle E$ to align $BC$ with $EF$ before setting up the proportion.",
@@ -2905,6 +2951,7 @@ export const geometryBank = [
   // Arc length = (central angle / 360) × circumference, or = r·θ (radians).
   { id: 'bank-geo-227', domain: 'geometry', skills: ['arc-length'], difficulty: 'easy', type: 'multiple-choice',
     question: 'A circle has a radius of $10$. What is the length of an arc that subtends a central angle of $90°$?',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 90, angleLabel: '90°', radius: 10, labelCenter: 'O', showRadiusLabel: true, figureNote: true } },
     choices: [{ id: 'A', text: '$5\\pi$' }, { id: 'B', text: '$10\\pi$' }, { id: 'C', text: '$20\\pi$' }, { id: 'D', text: '$25\\pi$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Arc Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** A $90^\\circ$ angle is $\\frac{1}{4}$ of the circle, so the arc is $\\frac{1}{4}$ of the circumference: $\\frac{1}{4}\\cdot 2\\pi(10)=5\\pi$.\n\n```seva-figure\n{\"type\":\"circleWithSector\",\"params\":{\"centralAngle\":90,\"angleLabel\":\"90°\",\"radius\":10,\"showRadiusLabel\":true,\"showAngleArc\":true},\"caption\":\"A 90° slice of the circle — 90/360 of the whole.\"}\n```\n\n**The Full Solution:**\nStep 1: Arc length $=\\frac{\\theta}{360^\\circ}\\cdot 2\\pi r$.\nStep 2: $=\\frac{90}{360}\\cdot 2\\pi(10)=\\frac{1}{4}\\cdot 20\\pi=5\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($10\\pi$): the full circumference of a radius-$5$ circle, or half the arc setup gone wrong.\n* Choice C ($20\\pi$): the full circumference of the given circle, forgetting the $\\frac{1}{4}$.\n* Choice D ($25\\pi$): the area of a quarter circle, $\\frac{\\pi r^2}{4}$ — used area instead of arc length.\n\n**Test Day Takeaway:** Arc length is the fraction $\\frac{\\theta}{360^\\circ}$ of the circumference $2\\pi r$. A $90^\\circ$ central angle gives one quarter.",
@@ -2912,6 +2959,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-228', domain: 'geometry', skills: ['arc-length'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A circle has radius $6$. An arc on this circle subtends a central angle of $60°$. What is the length of the arc?',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 60, angleLabel: '60°', radius: 6, labelCenter: 'O', showRadiusLabel: true, figureNote: true } },
     choices: [{ id: 'A', text: '$\\pi$' }, { id: 'B', text: '$2\\pi$' }, { id: 'C', text: '$6\\pi$' }, { id: 'D', text: '$12\\pi$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A $60^\\circ$ angle is $\\frac{1}{6}$ of the circle, so the arc is $\\frac{1}{6}\\cdot 2\\pi(6)=2\\pi$.\n\n```seva-figure\n{\"type\":\"circleWithSector\",\"params\":{\"centralAngle\":60,\"angleLabel\":\"60°\",\"radius\":6,\"showRadiusLabel\":true,\"showAngleArc\":true},\"caption\":\"A 60° slice of the circle — 60/360 of the whole.\"}\n```\n\n**The Full Solution:**\nStep 1: Arc length $=\\frac{\\theta}{360^\\circ}\\cdot 2\\pi r=\\frac{60}{360}\\cdot 2\\pi(6)$.\nStep 2: $\\frac{60}{360}=\\frac{1}{6}$, so the arc $=\\frac{1}{6}\\cdot 12\\pi=2\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\pi$): used $\\frac{1}{12}$ of the circle or halved the correct result.\n* Choice C ($6\\pi$): half the circumference — used $180^\\circ$ or radius as the fraction by mistake.\n* Choice D ($12\\pi$): the full circumference, ignoring the $\\frac{1}{6}$ fraction.\n\n**Test Day Takeaway:** Convert the central angle to a fraction of $360^\\circ$ first. $60^\\circ$ is one sixth, so the arc is $\\frac{1}{6}$ of $2\\pi r$.",
@@ -2925,6 +2973,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-230', domain: 'geometry', skills: ['arc-length'], difficulty: 'hard', type: 'multiple-choice',
     question: 'A circle has a circumference of $24\\pi$. An arc on this circle subtends a central angle of $\\dfrac{\\pi}{4}$ radians. What is the length of the arc?',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 45, angleLabel: 'π/4', labelCenter: 'O', figureNote: true } },
     choices: [{ id: 'A', text: '$\\pi$' }, { id: 'B', text: '$3\\pi$' }, { id: 'C', text: '$6\\pi$' }, { id: 'D', text: '$8\\pi$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** In radians, arc length is simply $r\\theta$. Back out the radius from $24\\pi=2\\pi r \\Rightarrow r=12$, then arc $=12\\cdot\\frac{\\pi}{4}=3\\pi$, choice B.\n\n**The Full Solution:**\nStep 1: From $C=2\\pi r=24\\pi$, solve $r=12$.\nStep 2: The radian arc-length formula is arc $=r\\theta$ (no $\\frac{\\theta}{360}$ factor needed).\nStep 3: Substitute: arc $=12\\cdot\\frac{\\pi}{4}=\\frac{12\\pi}{4}=3\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\pi$): divided by $12$ instead of multiplying, or used $r=4$.\n* Choice C ($6\\pi$): used $r=24$ (the circumference's coefficient) instead of $r=12$.\n* Choice D ($8\\pi$): mismatched units, treating $\\frac{\\pi}{4}$ as if it were a degree-based fraction.\n\n**Test Day Takeaway:** When the angle is in radians, arc length is $r\\theta$ directly. Reserve the $\\frac{\\theta}{360^\\circ}\\cdot C$ form for angles given in degrees.",
@@ -3065,6 +3114,7 @@ export const geometryBank = [
   // ─── S.C. 30-60-90 TRIANGLE (bank-geo-249..255) — top-up to ≥8 ────────────
   { id: 'bank-geo-249', domain: 'geometry', skills: ['right-triangles'], difficulty: 'easy', type: 'multiple-choice',
     question: 'In a $30°$-$60°$-$90°$ triangle, the shortest side has length $5$. What is the length of the hypotenuse?',
+    diagram: { type: 'rightTriangle', params: { labels: ['30°', '', '60°'], sideLabels: ['', '5', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$5$' }, { id: 'B', text: '$5\\sqrt{3}$' }, { id: 'C', text: '$10$' }, { id: 'D', text: '$10\\sqrt{3}$' }],
     correctAnswer: 'C',
     explanation: "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** In a $30$-$60$-$90$ triangle the sides are in ratio $1 : \\sqrt{3} : 2$ (short leg : long leg : hypotenuse). The hypotenuse is twice the short leg: $2 \\cdot 5 = 10$.\n\n**The Full Solution:**\nStep 1: The shortest side sits opposite the $30^\\circ$ angle, so it is the \"$1$\" in the ratio $1 : \\sqrt{3} : 2$.\nStep 2: The hypotenuse is the \"$2$,\" so hypotenuse $= 2 \\cdot 5 = 10$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): copies the short side instead of scaling to the hypotenuse.\n* Choice B ($5\\sqrt{3}$): this is the long leg (opposite $60^\\circ$), not the hypotenuse.\n* Choice D ($10\\sqrt{3}$): doubles the long leg rather than the short leg.\n\n**Test Day Takeaway:** In a $30$-$60$-$90$ triangle the side ratio is $1 : \\sqrt{3} : 2$, and the hypotenuse is always twice the short leg.",
@@ -3072,12 +3122,14 @@ export const geometryBank = [
 
   { id: 'bank-geo-250', domain: 'geometry', skills: ['right-triangles'], difficulty: 'easy', type: 'fill-in',
     question: 'In a $30°$-$60°$-$90°$ triangle, the hypotenuse has length $14$. What is the length of the side opposite the $60°$ angle?',
+    diagram: { type: 'rightTriangle', params: { labels: ['30°', '', '60°'], sideLabels: ['', '', '14'], rightAngleVertex: 1, figureNote: true } },
     correctAnswer: '7sqrt(3)',
     explanation: "**SAT Pattern: 30-60-90 Triangle**\n\n**The correct answer is $7\\sqrt{3}$.**\n\n**The Fast Way (~10s):** The hypotenuse is twice the short leg, so the short leg is $\\frac{14}{2} = 7$. The side opposite $60^\\circ$ (the long leg) is short leg $\\times \\sqrt{3} = 7\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: Sides follow the ratio $1 : \\sqrt{3} : 2$ (short : long : hypotenuse). The hypotenuse is the \"$2$,\" so short leg $= \\frac{14}{2} = 7$.\nStep 2: The side opposite $60^\\circ$ is the long leg, which is $\\sqrt{3}$ times the short leg: $7\\sqrt{3}$.\n\n**Common Mistakes:** Reporting $7$ (the short leg, opposite $30^\\circ$, instead of the $60^\\circ$ side), or dividing the hypotenuse by $\\sqrt{3}$ directly.\n\n**Test Day Takeaway:** Find the short leg first ($=$ hypotenuse $\\div 2$), then multiply by $\\sqrt{3}$ for the side opposite $60^\\circ$.",
     calculatorAllowed: false, tags: [], sourceStyleRef: '30-60-90-triangle', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
 
   { id: 'bank-geo-251', domain: 'geometry', skills: ['right-triangles'], difficulty: 'medium', type: 'multiple-choice',
     question: 'In a $30°$-$60°$-$90°$ triangle, the side opposite the $60°$ angle has length $6\\sqrt{3}$. What is the length of the hypotenuse?',
+    diagram: { type: 'rightTriangle', params: { labels: ['30°', '', '60°'], sideLabels: ['6√3', '', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$6$' }, { id: 'B', text: '$12$' }, { id: 'C', text: '$6\\sqrt{2}$' }, { id: 'D', text: '$12\\sqrt{3}$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The long leg is short leg $\\times \\sqrt{3}$, so $6\\sqrt{3} = \\text{short leg} \\cdot \\sqrt{3} \\Rightarrow$ short leg $= 6$. The hypotenuse is twice that: $12$.\n\n**The Full Solution:**\nStep 1: The side opposite $60^\\circ$ is the long leg, equal to short leg $\\cdot \\sqrt{3}$. Set $6\\sqrt{3} = s\\sqrt{3}$, so $s = 6$.\nStep 2: The hypotenuse is twice the short leg: $2 \\cdot 6 = 12$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): this is the short leg, not the hypotenuse.\n* Choice C ($6\\sqrt{2}$): uses a $45$-$45$-$90$ ratio by mistake.\n* Choice D ($12\\sqrt{3}$): doubles the long leg instead of the short leg.\n\n**Test Day Takeaway:** Given the long leg, divide by $\\sqrt{3}$ to get the short leg, then double it for the hypotenuse.",
@@ -3099,6 +3151,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-254', domain: 'geometry', skills: ['right-triangles'], difficulty: 'hard', type: 'multiple-choice',
     question: 'A $30°$-$60°$-$90°$ triangle has a short leg of length $4$. What is the area of the triangle?',
+    diagram: { type: 'rightTriangle', params: { labels: ['30°', '', '60°'], sideLabels: ['', '4', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$4\\sqrt{3}$' }, { id: 'B', text: '$8\\sqrt{3}$' }, { id: 'C', text: '$16$' }, { id: 'D', text: '$16\\sqrt{3}$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The two legs are the short leg $4$ and the long leg $4\\sqrt{3}$. Area $=\\frac{1}{2}(4)(4\\sqrt{3})=8\\sqrt{3}$, choice B.\n\n**The Full Solution:**\nStep 1: A $30$-$60$-$90$ scales as $1:\\sqrt{3}:2$, so with short leg $4$ the long leg is $4\\sqrt{3}$ and the hypotenuse is $8$.\nStep 2: The two legs are perpendicular, so they serve as base and height.\nStep 3: Area $=\\frac{1}{2}\\cdot 4\\cdot 4\\sqrt{3}=\\frac{16\\sqrt{3}}{2}=8\\sqrt{3}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\sqrt{3}$): used $\\frac{1}{2}(4)(\\sqrt{3})$ — dropped a factor of $4$ from the long leg.\n* Choice C ($16$): multiplied the legs but forgot the $\\sqrt{3}$ in the long leg, or used $\\frac{1}{2}(4)(8)$ with the hypotenuse.\n* Choice D ($16\\sqrt{3}$): used $4\\cdot 4\\sqrt{3}$ and forgot the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** For a right triangle, the two legs are base and height, so Area $=\\frac{1}{2}(\\text{short leg})(\\text{long leg})=\\frac{x^2\\sqrt{3}}{2}$ where $x$ is the short leg.",
@@ -3115,6 +3168,7 @@ export const geometryBank = [
   // ─── S.C. 45-45-90 TRIANGLE (bank-geo-256..262) — top-up to ≥8 ────────────
   { id: 'bank-geo-256', domain: 'geometry', skills: ['right-triangles'], difficulty: 'easy', type: 'multiple-choice',
     question: 'In a $45°$-$45°$-$90°$ triangle, each leg has length $7$. What is the length of the hypotenuse?',
+    diagram: { type: 'rightTriangle', params: { labels: ['45°', '', '45°'], sideLabels: ['7', '7', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$7$' }, { id: 'B', text: '$7\\sqrt{2}$' }, { id: 'C', text: '$14$' }, { id: 'D', text: '$14\\sqrt{2}$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** A $45$-$45$-$90$ scales as $1:1:\\sqrt{2}$, so the hypotenuse is a leg times $\\sqrt{2}$: $7\\sqrt{2}$, choice B.\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): just copied a leg length.\n* Choice C ($14$): doubled the leg — but the multiplier is $\\sqrt{2}$, not $2$.\n* Choice D ($14\\sqrt{2}$): doubled the leg AND multiplied by $\\sqrt{2}$.\n\n**Test Day Takeaway:** In a $45$-$45$-$90$, the legs are equal and the hypotenuse $=$ leg $\\times\\sqrt{2}$.",
@@ -3128,6 +3182,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-258', domain: 'geometry', skills: ['right-triangles'], difficulty: 'medium', type: 'multiple-choice',
     question: 'In a $45°$-$45°$-$90°$ triangle, the hypotenuse has length $20$. What is the length of each leg?',
+    diagram: { type: 'rightTriangle', params: { labels: ['45°', '', '45°'], sideLabels: ['', '', '20'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$10$' }, { id: 'B', text: '$10\\sqrt{2}$' }, { id: 'C', text: '$20\\sqrt{2}$' }, { id: 'D', text: '$40$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Leg $=\\frac{\\text{hypotenuse}}{\\sqrt{2}}=\\frac{20}{\\sqrt{2}}=\\frac{20\\sqrt{2}}{2}=10\\sqrt{2}$, choice B.\n\n**The Full Solution:**\nStep 1: In a $45$-$45$-$90$, hypotenuse $=$ leg $\\times\\sqrt{2}$, so leg $=\\frac{\\text{hypotenuse}}{\\sqrt{2}}$.\nStep 2: $\\frac{20}{\\sqrt{2}}$, rationalized, is $\\frac{20\\sqrt{2}}{2}=10\\sqrt{2}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): divided by $2$ instead of $\\sqrt{2}$ — that's the $30$-$60$-$90$ hypotenuse rule.\n* Choice C ($20\\sqrt{2}$): multiplied by $\\sqrt{2}$ instead of dividing.\n* Choice D ($40$): doubled the hypotenuse.\n\n**Test Day Takeaway:** Going hypotenuse $\\to$ leg in a $45$-$45$-$90$, divide by $\\sqrt{2}$ (not by $2$).",
@@ -3149,6 +3204,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-261', domain: 'geometry', skills: ['right-triangles'], difficulty: 'hard', type: 'multiple-choice',
     question: 'A $45°$-$45°$-$90°$ triangle has a leg of length $2\\sqrt{2}$. What is the perimeter of the triangle?',
+    diagram: { type: 'rightTriangle', params: { labels: ['45°', '', '45°'], sideLabels: ['2√2', '', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$2 + 2\\sqrt{2}$' }, { id: 'B', text: '$4 + 4\\sqrt{2}$' }, { id: 'C', text: '$4\\sqrt{2} + 4$' }, { id: 'D', text: '$8\\sqrt{2}$' }],
     correctAnswer: 'C',
     explanation: "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Both legs are $2\\sqrt{2}$. Hypotenuse $=2\\sqrt{2}\\cdot\\sqrt{2}=4$. Perimeter $=2\\sqrt{2}+2\\sqrt{2}+4=4\\sqrt{2}+4$, choice C.\n\n**The Full Solution:**\nStep 1: A $45$-$45$-$90$ has two equal legs, so both legs are $2\\sqrt{2}$.\nStep 2: Hypotenuse $=$ leg $\\times\\sqrt{2}=2\\sqrt{2}\\cdot\\sqrt{2}=2\\cdot 2=4$.\nStep 3: Perimeter $=2\\sqrt{2}+2\\sqrt{2}+4=4\\sqrt{2}+4$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2+2\\sqrt{2}$): added only one leg and a mis-sized hypotenuse.\n* Choice B ($4+4\\sqrt{2}$): same value as C written in a different order — but read the listed form carefully; C is the exact match.\n* Choice D ($8\\sqrt{2}$): added the two legs plus a hypotenuse left as $4\\sqrt{2}$, never simplifying $2\\sqrt{2}\\cdot\\sqrt{2}$.\n\n**Test Day Takeaway:** Perimeter is the sum of all three sides; simplify the hypotenuse $s\\sqrt{2}$ fully before adding ($2\\sqrt{2}\\cdot\\sqrt{2}=4$, not $4\\sqrt{2}$).",
@@ -3165,6 +3221,7 @@ export const geometryBank = [
   // ─── S.B. VERTICAL ANGLES (bank-geo-263..270) — new canonical ─────────────
   { id: 'bank-geo-263', domain: 'geometry', skills: ['angles'], difficulty: 'easy', type: 'multiple-choice',
     question: 'Two lines intersect, forming four angles. One angle measures $48°$. What is the measure of the angle VERTICAL to it?',
+    diagram: { type: 'intersectingLines', params: { angles: ['48°', '', '', ''], figureNote: true } },
     choices: [{ id: 'A', text: '$42°$' }, { id: 'B', text: '$48°$' }, { id: 'C', text: '$90°$' }, { id: 'D', text: '$132°$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Vertical Angles**\n\n**Choice B is correct.**\n\n**The Fast Way (~3s):** Vertical (opposite) angles formed by two intersecting lines are equal, so the vertical angle is $48^\\circ$, choice B.\n\n**Why the wrong answers are tempting:**\n* Choice A ($42^\\circ$): the complement ($90^\\circ-48^\\circ$), not the vertical angle.\n* Choice C ($90^\\circ$): assumed a right angle for no reason.\n* Choice D ($132^\\circ$): the supplement ($180^\\circ-48^\\circ$) — that's the adjacent angle, not the vertical one.\n\n**Test Day Takeaway:** At an intersection of two lines, opposite (vertical) angles are equal; adjacent angles are supplementary, summing to $180^\\circ$.",
@@ -3172,12 +3229,14 @@ export const geometryBank = [
 
   { id: 'bank-geo-264', domain: 'geometry', skills: ['angles'], difficulty: 'easy', type: 'fill-in',
     question: 'Two lines intersect at a point. One of the angles formed measures $115°$. What is the measure, in degrees, of the angle vertical to it?',
+    diagram: { type: 'intersectingLines', params: { angles: ['', '115°', '', ''], figureNote: true } },
     correctAnswer: '115',
     explanation: "**SAT Pattern: Vertical Angles**\n\n**The correct answer is $115$.**\n\n**The Fast Way (~3s):** Vertical angles are equal, so the angle opposite the $115^\\circ$ angle also measures $115^\\circ$.\n\n**The Full Solution:**\nStep 1: Two intersecting lines form two pairs of vertical (opposite) angles.\nStep 2: Vertical angles are always congruent, so the angle across from $115^\\circ$ is $115^\\circ$.\n\n**Common Mistakes:** Reporting the supplement $65$ ($180-115$) — that's the adjacent angle, not the vertical one.\n\n**Test Day Takeaway:** The angle directly across from a given angle at an intersection has the same measure.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-angles', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
 
   { id: 'bank-geo-265', domain: 'geometry', skills: ['angles'], difficulty: 'medium', type: 'multiple-choice',
     question: 'Two lines intersect, forming a pair of vertical angles with measures $(3x + 10)°$ and $(5x - 30)°$. What is the value of $x$?',
+    diagram: { type: 'intersectingLines', params: { angles: ['(3x + 10)°', '', '(5x - 30)°', ''], figureNote: true } },
     choices: [{ id: 'A', text: '$10$' }, { id: 'B', text: '$20$' }, { id: 'C', text: '$25$' }, { id: 'D', text: '$40$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Vertical Angles**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Vertical angles are equal, so set the expressions equal: $3x + 10 = 5x - 30 \\Rightarrow 40 = 2x \\Rightarrow x = 20$.\n\n**The Full Solution:**\nStep 1: A pair of vertical angles always have equal measure, so $3x + 10 = 5x - 30$.\nStep 2: Gather the $x$ terms: $10 + 30 = 5x - 3x \\Rightarrow 40 = 2x$.\nStep 3: Divide: $x = 20$, which is choice B.\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): a sign or arithmetic slip while isolating $x$.\n* Choice C ($25$): does not come from either correct setup.\n* Choice D ($40$): treats the angles as supplementary, solving $(3x + 10) + (5x - 30) = 180$ instead.\n\n**Test Day Takeaway:** Vertical-angle expressions are SET EQUAL; adjacent expressions that form a straight line sum to $180^\\circ$. Read which pair you have before choosing the equation.",
@@ -3185,6 +3244,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-266', domain: 'geometry', skills: ['angles'], difficulty: 'medium', type: 'multiple-choice',
     question: 'Two lines intersect at a point. The four angles formed are labeled clockwise as $\\angle 1, \\angle 2, \\angle 3, \\angle 4$. If $\\angle 1 = 73°$, what is the measure of $\\angle 3$?',
+    diagram: { type: 'intersectingLines', params: { angles: ['1', '4', '3', '2'] } },
     choices: [{ id: 'A', text: '$17°$' }, { id: 'B', text: '$73°$' }, { id: 'C', text: '$107°$' }, { id: 'D', text: '$287°$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Vertical Angles**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Labeled clockwise, $\\angle 1$ and $\\angle 3$ sit directly opposite each other, so they are vertical angles and equal: $\\angle 3 = 73^\\circ$.\n\n**The Full Solution:**\nStep 1: When two lines cross, the two angles directly across from each other are vertical angles and have equal measure.\nStep 2: In a clockwise labeling $\\angle 1, \\angle 2, \\angle 3, \\angle 4$, the across-the-vertex partner of $\\angle 1$ is $\\angle 3$.\nStep 3: Therefore $\\angle 3 = \\angle 1 = 73^\\circ$, which is choice B.\n\n**Why the wrong answers are tempting:**\n* Choice A ($17^\\circ$): the complement of $73^\\circ$ ($90 - 73$), but vertical angles are equal, not complementary.\n* Choice C ($107^\\circ$): the supplement of $73^\\circ$ — that is $\\angle 2$ or $\\angle 4$, not $\\angle 3$.\n* Choice D ($287^\\circ$): the reflex angle ($360 - 73$), which is not one of the four angles formed.\n\n**Test Day Takeaway:** In the standard $1, 2, 3, 4$ labeling around a crossing, the odd pair ($\\angle 1, \\angle 3$) and the even pair ($\\angle 2, \\angle 4$) are each vertical and equal; adjacent angles are supplementary.",
@@ -3192,12 +3252,14 @@ export const geometryBank = [
 
   { id: 'bank-geo-267', domain: 'geometry', skills: ['angles'], difficulty: 'medium', type: 'fill-in',
     question: 'Two lines intersect. The vertical angles measure $(2x + 25)°$ and $(4x - 15)°$. What is the measure, in degrees, of one of these vertical angles?',
+    diagram: { type: 'intersectingLines', params: { angles: ['(2x + 25)°', '', '(4x - 15)°', ''], figureNote: true } },
     correctAnswer: '65',
     explanation: "**SAT Pattern: Vertical Angles**\n\n**The correct answer is $65$.**\n\n**The Fast Way (~15s):** Vertical angles are equal: $2x + 25 = 4x - 15 \\Rightarrow 40 = 2x \\Rightarrow x = 20$. Then one angle is $2(20) + 25 = 65$ degrees.\n\n**The Full Solution:**\nStep 1: Set the equal vertical-angle expressions equal: $2x + 25 = 4x - 15$.\nStep 2: Solve: $25 + 15 = 4x - 2x \\Rightarrow 40 = 2x \\Rightarrow x = 20$.\nStep 3: Plug back into either expression: $2(20) + 25 = 65$. Check the other: $4(20) - 15 = 65$. $\\checkmark$\n\n**Common Mistakes:** Reporting $x = 20$ instead of the angle measure; using a supplementary setup $(2x + 25) + (4x - 15) = 180$, which gives a different, wrong angle.\n\n**Test Day Takeaway:** Solve for $x$ first, then substitute back to get the angle measure the question actually asks for.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'vertical-angles', authoredBy: 'performsat-engine', createdAt: '2026-05-18' },
 
   { id: 'bank-geo-268', domain: 'geometry', skills: ['angles'], difficulty: 'medium', type: 'multiple-choice',
     question: 'Two lines intersect, forming angles $a°, b°, c°, d°$ in order around the intersection point. If $a = 65$, what is $a + b$?',
+    diagram: { type: 'intersectingLines', params: { angles: ['a°', 'b°', 'c°', 'd°'] } },
     choices: [{ id: 'A', text: '$65$' }, { id: 'B', text: '$115$' }, { id: 'C', text: '$130$' }, { id: 'D', text: '$180$' }],
     correctAnswer: 'D',
     explanation: "**SAT Pattern: Vertical Angles**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Angles $a$ and $b$ are next to each other along one of the lines, so they form a linear pair: $a + b = 180^\\circ$.\n\n**The Full Solution:**\nStep 1: Going around the intersection in order, $a$ and $b$ are adjacent and together lie on a straight line.\nStep 2: Angles on a straight line sum to $180^\\circ$, so $a + b = 180$ regardless of the value of $a$.\nStep 3: The answer is $180$, which is choice D.\n\n**Why the wrong answers are tempting:**\n* Choice A ($65$): just $a$ by itself, ignoring $b$.\n* Choice B ($115$): $b$ alone, the supplement of $a$ ($180 - 65$).\n* Choice C ($130$): $2a$ — assumes $a$ and $b$ are equal vertical angles, but they are adjacent.\n\n**Test Day Takeaway:** Adjacent angles at an intersection form a straight line, so they sum to $180^\\circ$ — the actual value of either angle does not matter.",
@@ -3205,6 +3267,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-269', domain: 'geometry', skills: ['angles'], difficulty: 'hard', type: 'multiple-choice',
     question: 'Lines $\\ell$ and $m$ intersect, forming four angles. The smallest angle measures $(2x - 5)°$ and one of its adjacent angles measures $(5x + 10)°$. What is the measure of the smallest angle, in degrees?',
+    diagram: { type: 'intersectingLines', params: { angles: ['(2x - 5)°', '(5x + 10)°', '', ''], lineLabels: ['ℓ', 'm'], figureNote: true } },
     choices: [{ id: 'A', text: '$25°$' }, { id: 'B', text: '$45°$' }, { id: 'C', text: '$55°$' }, { id: 'D', text: '$135°$' }],
     correctAnswer: 'B',
     explanation: "**SAT Pattern: Vertical Angles**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The smallest angle and its neighbor are adjacent, so they are supplementary: $(2x - 5) + (5x + 10) = 180 \\Rightarrow 7x + 5 = 180 \\Rightarrow x = 25$. The smallest angle is $2(25) - 5 = 45^\\circ$.\n\n**The Full Solution:**\nStep 1: Adjacent angles at an intersection sum to $180^\\circ$, so $(2x - 5) + (5x + 10) = 180$.\nStep 2: Combine: $7x + 5 = 180 \\Rightarrow 7x = 175 \\Rightarrow x = 25$.\nStep 3: The smallest angle is $2x - 5 = 2(25) - 5 = 45^\\circ$, which is choice B. (The neighbor is $5(25) + 10 = 135^\\circ$, and $45 + 135 = 180$. $\\checkmark$)\n\n**Why the wrong answers are tempting:**\n* Choice A ($25^\\circ$): stops at $x = 25$ instead of evaluating $2x - 5$.\n* Choice C ($55^\\circ$): an arithmetic slip in the supplementary setup.\n* Choice D ($135^\\circ$): the adjacent angle $5x + 10$, not the smallest one the question asks for.\n\n**Test Day Takeaway:** Adjacent angles use SUM $= 180^\\circ$; vertical angles use equality. Once you solve for $x$, plug into the expression for the angle the question names.",
@@ -3253,6 +3316,7 @@ export const geometryBank = [
   // --- arc-length (4 → 10) ---
   { id: 'bank-geo-275', domain: 'geometry', skills: ['arc-length'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A sector of a circle has a central angle of $60°$ and a radius of $10$. What is the length of the arc of the sector?',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 60, angleLabel: '60°', radius: 10, labelCenter: 'O', showRadiusLabel: true, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{10\\pi}{3}$' }, { id: 'B', text: '$10\\pi$' }, { id: 'C', text: '$\\dfrac{\\pi}{3}$' }, { id: 'D', text: '$20\\pi$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Arc Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Arc length is the angle fraction of the circumference: $\\frac{60}{360} \\cdot 2\\pi (10) = \\frac{1}{6} \\cdot 20\\pi = \\frac{10\\pi}{3}$.\n\n**The Full Solution:**\nStep 1: A $60^\\circ$ central angle covers $\\frac{60}{360} = \\frac{1}{6}$ of the full circle.\nStep 2: The full circumference is $2\\pi r = 2\\pi (10) = 20\\pi$.\nStep 3: The arc is $\\frac{1}{6} \\cdot 20\\pi = \\frac{10\\pi}{3}$, which is choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B ($10\\pi$): the full circumference, ignoring the $\\frac{1}{6}$ angle fraction.\n* Choice C ($\\frac{\\pi}{3}$): keeps the angle fraction but drops the radius.\n* Choice D ($20\\pi$): uses $2\\pi r$ as the circumference but forgets the angle fraction.\n\n**Test Day Takeaway:** Arc length $= \\frac{\\theta}{360} \\cdot 2\\pi r$ when $\\theta$ is in degrees, or $r\\theta$ when $\\theta$ is in radians.",
@@ -3260,6 +3324,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-276', domain: 'geometry', skills: ['arc-length'], difficulty: 'easy', type: 'multiple-choice',
     question: 'A sector of a circle has a central angle of $\\dfrac{\\pi}{3}$ radians and a radius of $6$. What is the length of the arc?',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 60, angleLabel: 'π/3', radius: 6, labelCenter: 'O', showRadiusLabel: true, figureNote: true } },
     choices: [{ id: 'A', text: '$2\\pi$' }, { id: 'B', text: '$\\pi/3$' }, { id: 'C', text: '$6\\pi$' }, { id: 'D', text: '$\\pi/2$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Arc Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** With the angle in radians, $s = r\\theta = 6 \\cdot \\frac{\\pi}{3} = 2\\pi$.\n\n**The Full Solution:**\nStep 1: When the central angle is in radians, arc length is $s = r\\theta$ directly — no $\\frac{\\theta}{360}$ conversion needed.\nStep 2: Substitute $r = 6$ and $\\theta = \\frac{\\pi}{3}$: $s = 6 \\cdot \\frac{\\pi}{3} = 2\\pi$, which is choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{\\pi}{3}$): returns the angle and drops the radius.\n* Choice C ($6\\pi$): the full circumference $2\\pi r$, ignoring the angle.\n* Choice D ($\\frac{\\pi}{2}$): does not arise from the correct $r\\theta$ computation.\n\n**Test Day Takeaway:** $s = r\\theta$ when $\\theta$ is in radians. If the angle is in degrees instead, use $\\frac{\\theta}{360} \\cdot 2\\pi r$.",
@@ -3267,6 +3332,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-277', domain: 'geometry', skills: ['arc-length'], difficulty: 'easy', type: 'multiple-choice',
     question: 'A sector of a circle with radius $12$ has a central angle of $90°$. What is the arc length of the sector?',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 90, angleLabel: '90°', radius: 12, labelCenter: 'O', showRadiusLabel: true, figureNote: true } },
     choices: [{ id: 'A', text: '$6\\pi$' }, { id: 'B', text: '$12\\pi$' }, { id: 'C', text: '$3\\pi$' }, { id: 'D', text: '$24\\pi$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Arc Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $90^\\circ$ is $\\frac{1}{4}$ of $360^\\circ$, so the arc is $\\frac{1}{4}$ of the circumference: $\\frac{1}{4}(2\\pi \\cdot 12) = 6\\pi$.\n\n```seva-figure\n{\"type\":\"circleWithSector\",\"params\":{\"centralAngle\":90,\"angleLabel\":\"90°\",\"radius\":12,\"showRadiusLabel\":true,\"showAngleArc\":true},\"caption\":\"A 90° slice of the circle — 90/360 of the whole.\"}\n```\n\n**The Full Solution:**\nStep 1: The full circumference is $2\\pi r = 2\\pi(12) = 24\\pi$.\nStep 2: The arc takes the angle's fraction of that: $\\frac{90}{360} \\cdot 24\\pi = \\frac{1}{4} \\cdot 24\\pi = 6\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($12\\pi$): used $180^\\circ$ (a half circle) instead of $90^\\circ$.\n* Choice C ($3\\pi$): treated the angle as $\\frac{1}{8}$ of the circle rather than $\\frac{1}{4}$.\n* Choice D ($24\\pi$): returned the full circumference without scaling by the angle.\n\n**Test Day Takeaway:** Arc length is the angle's fraction of the full turn times the circumference: $s = \\frac{\\theta}{360^\\circ} \\cdot 2\\pi r$.",
@@ -3274,6 +3340,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-278', domain: 'geometry', skills: ['arc-length'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A sector of a circle has an arc length of $8\\pi$ and a central angle of $120°$. What is the radius of the circle?',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 120, angleLabel: '120°', labelCenter: 'O', figureNote: true } },
     choices: [{ id: 'A', text: '$12$' }, { id: 'B', text: '$8$' }, { id: 'C', text: '$24$' }, { id: 'D', text: '$4$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Arc Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $120^\\circ$ is $\\frac{1}{3}$ of the circle, so $8\\pi = \\frac{1}{3}(2\\pi r)$. Then $2\\pi r = 24\\pi$, giving $r = 12$.\n\n**The Full Solution:**\nStep 1: Write arc length as $s = \\frac{\\theta}{360^\\circ} \\cdot 2\\pi r = \\frac{120}{360} \\cdot 2\\pi r = \\frac{2\\pi r}{3}$.\nStep 2: Set it equal to the given arc: $\\frac{2\\pi r}{3} = 8\\pi$.\nStep 3: Multiply both sides by $3$: $2\\pi r = 24\\pi$, so $r = 12$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($8$): copied the arc-length coefficient as if it were the radius.\n* Choice C ($24$): stopped at $2\\pi r = 24\\pi$ and read off $24$ instead of dividing by $2$.\n* Choice D ($4$): divided $8\\pi$ by $\\frac{2\\pi}{3}$ in the wrong direction.\n\n**Test Day Takeaway:** Rearrange $s = \\frac{\\theta}{360^\\circ} \\cdot 2\\pi r$ to solve for whichever piece is missing.",
@@ -3281,6 +3348,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-279', domain: 'geometry', skills: ['arc-length'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A sector of a circle has a radius of $5$ and a central angle of $\\dfrac{5\\pi}{6}$ radians. What is the length of the arc?',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 150, angleLabel: '5π/6', radius: 5, labelCenter: 'O', showRadiusLabel: true, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{25\\pi}{6}$' }, { id: 'B', text: '$\\dfrac{5\\pi}{6}$' }, { id: 'C', text: '$5\\pi$' }, { id: 'D', text: '$10\\pi$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Arc Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** When the angle is already in radians, arc length is just $s = r\\theta = 5 \\cdot \\frac{5\\pi}{6} = \\frac{25\\pi}{6}$.\n\n**The Full Solution:**\nStep 1: For a central angle in radians, $s = r\\theta$ — no degree conversion needed.\nStep 2: Substitute: $s = 5 \\cdot \\frac{5\\pi}{6} = \\frac{25\\pi}{6}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{5\\pi}{6}$): forgot to multiply by the radius $5$.\n* Choice C ($5\\pi$): used $\\pi$ in place of the given angle, or confused arc with a quarter perimeter.\n* Choice D ($10\\pi$): used $2r$ instead of $r\\theta$.\n\n**Test Day Takeaway:** In radians, arc length is simply $s = r\\theta$ — multiply the radius by the angle.",
@@ -3288,6 +3356,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-280', domain: 'geometry', skills: ['arc-length'], difficulty: 'hard', type: 'multiple-choice',
     question: 'A sector of a circle has a central angle of $45°$ and an arc length of $3\\pi$. What is the radius of the circle?',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 45, angleLabel: '45°', labelCenter: 'O', figureNote: true } },
     choices: [{ id: 'A', text: '$12$' }, { id: 'B', text: '$24$' }, { id: 'C', text: '$6$' }, { id: 'D', text: '$8$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Arc Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $45^\\circ$ is $\\frac{1}{8}$ of the circle, so $3\\pi = \\frac{1}{8}(2\\pi r) = \\frac{\\pi r}{4}$. Then $r = 12$.\n\n**The Full Solution:**\nStep 1: Write $s = \\frac{45}{360} \\cdot 2\\pi r = \\frac{1}{8}(2\\pi r) = \\frac{\\pi r}{4}$.\nStep 2: Set equal to the arc: $\\frac{\\pi r}{4} = 3\\pi$.\nStep 3: Multiply both sides by $\\frac{4}{\\pi}$: $r = 12$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($24$): doubled the radius, treating $45^\\circ$ as $\\frac{1}{4}$ of the circle.\n* Choice C ($6$): halved the correct value.\n* Choice D ($8$): mismatched the fraction, dividing by $3$ somewhere instead of $\\frac{1}{8}$.\n\n**Test Day Takeaway:** $45^\\circ = \\frac{1}{8}$ of a full revolution — fold that fraction into $s = \\frac{\\theta}{360^\\circ} \\cdot 2\\pi r$ and solve.",
@@ -3468,6 +3537,7 @@ export const geometryBank = [
   // --- pythagorean-triple-recognition (4 → 10) ---
   { id: 'bank-geo-305', domain: 'geometry', skills: ['pythagorean-theorem'], difficulty: 'easy', type: 'multiple-choice',
     question: 'A right triangle has legs of length $3$ and $4$. What is the length of the hypotenuse?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['3', '4', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$5$' }, { id: 'B', text: '$7$' }, { id: 'C', text: '$25$' }, { id: 'D', text: '$\\sqrt{7}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice A is correct.**\n\n**The Fast Way (~3s):** Legs $3$ and $4$ are the $3$-$4$-$5$ triple, so the hypotenuse is $5$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[3,0],[3,4]],\"sideLabels\":[\"3\",\"4\",\"5\"],\"rightAngleVertex\":1},\"caption\":\"Legs 3 and 4 — hypotenuse 5.\"}\n```\n\n**The Full Solution:**\nStep 1: The hypotenuse satisfies $c = \\sqrt{3^2 + 4^2}$.\nStep 2: $\\sqrt{9 + 16} = \\sqrt{25} = 5$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($7$): added the legs $3 + 4$ instead of using the theorem.\n* Choice C ($25$): stopped at $3^2 + 4^2$ and forgot the square root.\n* Choice D ($\\sqrt{7}$): added the legs under the root instead of their squares.\n\n**Test Day Takeaway:** Memorize $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and $7$-$24$-$25$ to skip the arithmetic.",
@@ -3475,6 +3545,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-306', domain: 'geometry', skills: ['pythagorean-theorem'], difficulty: 'easy', type: 'multiple-choice',
     question: 'A right triangle has legs of length $5$ and $12$. What is the length of the hypotenuse?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['5', '12', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$13$' }, { id: 'B', text: '$17$' }, { id: 'C', text: '$144$' }, { id: 'D', text: '$\\sqrt{60}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice A is correct.**\n\n**The Fast Way (~3s):** Legs $5$ and $12$ are the $5$-$12$-$13$ triple, so the hypotenuse is $13$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[5,0],[5,12]],\"sideLabels\":[\"5\",\"12\",\"13\"],\"rightAngleVertex\":1},\"caption\":\"Legs 5 and 12 — hypotenuse 13.\"}\n```\n\n**The Full Solution:**\nStep 1: $c = \\sqrt{5^2 + 12^2}$.\nStep 2: $\\sqrt{25 + 144} = \\sqrt{169} = 13$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($17$): added the legs $5 + 12$ instead of using the theorem.\n* Choice C ($144$): stopped at $12^2$ without finishing.\n* Choice D ($\\sqrt{60}$): multiplied the legs $5 \\cdot 12$ under the root instead of squaring and adding.\n\n**Test Day Takeaway:** $5$-$12$-$13$ is one of the most common triples on the SAT — recognize it on sight.",
@@ -3482,6 +3553,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-307', domain: 'geometry', skills: ['pythagorean-theorem'], difficulty: 'medium', type: 'multiple-choice',
     question: 'In a right triangle, the hypotenuse has length $17$ and one leg has length $8$. What is the length of the other leg?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['8', '', '17'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$15$' }, { id: 'B', text: '$13$' }, { id: 'C', text: '$25$' }, { id: 'D', text: '$\\sqrt{72}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice A is correct.**\n\n**The Fast Way (~3s):** Hypotenuse $17$ with leg $8$ is the $8$-$15$-$17$ triple, so the missing leg is $15$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[8,0],[8,15.0]],\"sideLabels\":[\"8\",\"15\",\"17\"],\"rightAngleVertex\":1},\"caption\":\"Legs 8 and 15 — hypotenuse 17.\"}\n```\n\n**The Full Solution:**\nStep 1: With hypotenuse $c = 17$ and leg $a = 8$, the other leg is $b = \\sqrt{c^2 - a^2}$.\nStep 2: $b = \\sqrt{17^2 - 8^2} = \\sqrt{289 - 64} = \\sqrt{225} = 15$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($13$): pulled from the $5$-$12$-$13$ triple, the wrong one here.\n* Choice C ($25$): added $17 + 8$ instead of using the theorem.\n* Choice D ($\\sqrt{72}$): subtracted the values $17 - 8$ under the root, which matches no standard triple.\n\n**Test Day Takeaway:** Triples work in reverse too — given the hypotenuse and one leg, recognize the missing leg.",
@@ -3489,6 +3561,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-308', domain: 'geometry', skills: ['pythagorean-theorem'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A right triangle has legs of length $9$ and $12$. What is the length of the hypotenuse?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['9', '12', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$15$' }, { id: 'B', text: '$21$' }, { id: 'C', text: '$13$' }, { id: 'D', text: '$\\sqrt{225}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Legs $9$ and $12$ are $3$ times the $3$-$4$-$5$ triple, so the hypotenuse is $3 \\times 5 = 15$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[9,0],[9,12]],\"sideLabels\":[\"9\",\"12\",\"15\"],\"rightAngleVertex\":1},\"caption\":\"Legs 9 and 12 — hypotenuse 15.\"}\n```\n\n**The Full Solution:**\nStep 1: Factor out $3$: $9 = 3 \\cdot 3$, $12 = 3 \\cdot 4$, so this is a scaled $3$-$4$-$5$ triangle.\nStep 2: The hypotenuse is $3 \\cdot 5 = 15$. Check: $\\sqrt{9^2 + 12^2} = \\sqrt{81 + 144} = \\sqrt{225} = 15$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($21$): added the legs $9 + 12$ instead of using the theorem.\n* Choice C ($13$): borrowed from the $5$-$12$-$13$ triple, which does not apply here.\n* Choice D ($\\sqrt{225}$): correct value but left unsimplified; $\\sqrt{225} = 15$.\n\n**Test Day Takeaway:** Any whole-number multiple of a Pythagorean triple is itself a triple — spot the common factor first.",
@@ -3496,6 +3569,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-309', domain: 'geometry', skills: ['pythagorean-theorem'], difficulty: 'medium', type: 'multiple-choice',
     question: 'In a right triangle, the hypotenuse has length $25$ and one leg has length $7$. What is the length of the other leg?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['7', '', '25'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$24$' }, { id: 'B', text: '$18$' }, { id: 'C', text: '$23$' }, { id: 'D', text: '$\\sqrt{576}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice A is correct.**\n\n**The Fast Way (~3s):** Hypotenuse $25$ with leg $7$ is the $7$-$24$-$25$ triple, so the missing leg is $24$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[7,0],[7,24.0]],\"sideLabels\":[\"7\",\"24\",\"25\"],\"rightAngleVertex\":1},\"caption\":\"Legs 7 and 24 — hypotenuse 25.\"}\n```\n\n**The Full Solution:**\nStep 1: With $c = 25$ and one leg $a = 7$, the other leg is $b = \\sqrt{c^2 - a^2}$.\nStep 2: $b = \\sqrt{25^2 - 7^2} = \\sqrt{625 - 49} = \\sqrt{576} = 24$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($18$): subtracted the values $25 - 7$ instead of their squares.\n* Choice C ($23$): subtracted $25 - 2$, an arithmetic slip.\n* Choice D ($\\sqrt{576}$): correct value but left unsimplified; $\\sqrt{576} = 24$.\n\n**Test Day Takeaway:** $7$-$24$-$25$ is a standard SAT triple — memorize it to skip the square-root work.",
@@ -3503,6 +3577,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-310', domain: 'geometry', skills: ['pythagorean-theorem'], difficulty: 'hard', type: 'multiple-choice',
     question: 'A right triangle has legs of length $16$ and $30$. What is the length of the hypotenuse?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['16', '30', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$34$' }, { id: 'B', text: '$46$' }, { id: 'C', text: '$32$' }, { id: 'D', text: '$\\sqrt{900}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Divide both legs by $2$ to get $8$-$15$, the $8$-$15$-$17$ triple. Multiply the hypotenuse back: $2 \\times 17 = 34$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[16,0],[16,30]],\"sideLabels\":[\"16\",\"30\",\"34\"],\"rightAngleVertex\":1},\"caption\":\"Legs 16 and 30 — hypotenuse 34.\"}\n```\n\n**The Full Solution:**\nStep 1: $16 = 2 \\cdot 8$ and $30 = 2 \\cdot 15$, so this is a scaled $8$-$15$-$17$ triangle.\nStep 2: The hypotenuse is $2 \\cdot 17 = 34$. Check: $\\sqrt{16^2 + 30^2} = \\sqrt{256 + 900} = \\sqrt{1156} = 34$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($46$): added the legs $16 + 30$ instead of using the theorem.\n* Choice C ($32$): doubled only one leg or otherwise scaled incompletely.\n* Choice D ($\\sqrt{900}$): equals $30$, a leg copied unsimplified, not the hypotenuse.\n\n**Test Day Takeaway:** Spot the common factor first — it reveals the underlying triple and turns a long calculation into one multiplication.",
@@ -3554,6 +3629,7 @@ export const geometryBank = [
   // --- right-triangle-pythagorean (4 → 10) ---
   { id: 'bank-geo-317', domain: 'geometry', skills: ['pythagorean-theorem'], difficulty: 'easy', type: 'multiple-choice',
     question: 'A right triangle has legs of length $6$ and $8$. What is the length of the hypotenuse?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['6', '8', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$10$' }, { id: 'B', text: '$14$' }, { id: 'C', text: '$\\sqrt{14}$' }, { id: 'D', text: '$100$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice A is correct.**\n\n**The Fast Way (~3s):** $6$-$8$-$10$ is the $3$-$4$-$5$ triple scaled by $2$, so the hypotenuse is $10$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[6,0],[6,8]],\"sideLabels\":[\"6\",\"8\",\"10\"],\"rightAngleVertex\":1},\"caption\":\"Legs 6 and 8 — hypotenuse 10.\"}\n```\n\n**The Full Solution:**\nStep 1: With legs $a$ and $b$, the hypotenuse is $c = \\sqrt{a^2 + b^2}$.\nStep 2: $c = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$. That matches choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B ($14$): added the legs $6 + 8$ instead of using the Pythagorean theorem.\n* Choice C ($\\sqrt{14}$): added the legs first, then took a square root.\n* Choice D ($100$): stopped at $c^2$ without taking the square root.\n\n**Test Day Takeaway:** Memorize the $3$-$4$-$5$ triple and its multiples — $6$-$8$-$10$ should be instant.",
@@ -3561,6 +3637,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-318', domain: 'geometry', skills: ['pythagorean-theorem'], difficulty: 'easy', type: 'multiple-choice',
     question: 'A right triangle has one leg of length $9$ and hypotenuse of length $15$. What is the length of the other leg?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['9', '', '15'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$12$' }, { id: 'B', text: '$6$' }, { id: 'C', text: '$24$' }, { id: 'D', text: '$\\sqrt{306}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $9$-$12$-$15$ is the $3$-$4$-$5$ triple scaled by $3$, so the missing leg is $12$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[9,0],[9,12]],\"sideLabels\":[\"9\",\"12\",\"15\"],\"rightAngleVertex\":1},\"caption\":\"The $9$-$12$-$15$ right triangle \u2014 the $3$-$4$-$5$ triple scaled by $3$.\"}\n```\n\n**The Full Solution:**\nStep 1: Given a leg and the hypotenuse, the other leg is $b = \\sqrt{c^2 - a^2}$.\nStep 2: $b = \\sqrt{15^2 - 9^2} = \\sqrt{225 - 81} = \\sqrt{144} = 12$. That is choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): subtracted the lengths $15 - 9$ instead of the squares.\n* Choice C ($24$): added the lengths $15 + 9$.\n* Choice D ($\\sqrt{306}$): added the squares, $\\sqrt{15^2 + 9^2}$, treating the hypotenuse as a leg.\n\n**Test Day Takeaway:** When the hypotenuse is given, subtract the squares: $b = \\sqrt{c^2 - a^2}$. The $9$-$12$-$15$ triple confirms it without the radical.",
@@ -3568,6 +3645,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-319', domain: 'geometry', skills: ['pythagorean-theorem'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A right triangle has legs of length $2\\sqrt{3}$ and $2$. What is the length of the hypotenuse?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['2√3', '2', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$4$' }, { id: 'B', text: '$2\\sqrt{5}$' }, { id: 'C', text: '$2 + 2\\sqrt{3}$' }, { id: 'D', text: '$8$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $c^2 = (2\\sqrt{3})^2 + 2^2 = 12 + 4 = 16$, so $c = 4$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[3.464,0],[3.464,2]],\"sideLabels\":[\"2√3\",\"2\",\"4\"],\"rightAngleVertex\":1},\"caption\":\"A 30-60-90 shape — hypotenuse 4.\"}\n```\n\n**The Full Solution:**\nStep 1: Square each leg carefully — $(2\\sqrt{3})^2 = 4 \\cdot 3 = 12$ and $2^2 = 4$.\nStep 2: Add: $c^2 = 12 + 4 = 16$.\nStep 3: Take the root: $c = \\sqrt{16} = 4$. That matches choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B ($2\\sqrt{5}$): comes from $c^2 = 4 + 16 = 20$, mishandling the squared radical.\n* Choice C ($2 + 2\\sqrt{3}$): added the legs instead of using the theorem.\n* Choice D ($8$): doubled $4$ or used $c^2$ loosely without taking the root.\n\n**Test Day Takeaway:** Square radicals before adding — $(2\\sqrt{3})^2 = 12$, not $2\\sqrt{3}$ left untouched.",
@@ -3575,6 +3653,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-320', domain: 'geometry', skills: ['pythagorean-theorem'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A right triangle has legs of length $1$ and $\\sqrt{3}$. What is the length of the hypotenuse?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['1', '√3', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$2$' }, { id: 'B', text: '$\\sqrt{4}$' }, { id: 'C', text: '$\\sqrt{3}$' }, { id: 'D', text: '$1 + \\sqrt{3}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $c^2 = 1^2 + (\\sqrt{3})^2 = 1 + 3 = 4$, so $c = 2$. This is the $30$-$60$-$90$ triangle.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[1.732,0],[1.732,1]],\"sideLabels\":[\"√3\",\"1\",\"2\"],\"rightAngleVertex\":1},\"caption\":\"The 30-60-90 triangle: 1, √3, 2.\"}\n```\n\n**The Full Solution:**\nStep 1: Square the legs: $1^2 = 1$ and $(\\sqrt{3})^2 = 3$.\nStep 2: Add: $c^2 = 1 + 3 = 4$.\nStep 3: Take the root: $c = 2$. That is choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\sqrt{4}$): numerically equal to $2$ but left unsimplified — the test expects the simplified form.\n* Choice C ($\\sqrt{3}$): copied a leg instead of finding the hypotenuse.\n* Choice D ($1 + \\sqrt{3}$): added the legs directly instead of the Pythagorean theorem.\n\n**Test Day Takeaway:** $1$-$\\sqrt{3}$-$2$ is the $30$-$60$-$90$ triangle — recognize it and skip the arithmetic.",
@@ -3582,6 +3661,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-321', domain: 'geometry', skills: ['pythagorean-theorem'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A right triangle has one leg of length $7$ and hypotenuse of length $12$. What is the length of the other leg?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['7', '', '12'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\sqrt{95}$' }, { id: 'B', text: '$5$' }, { id: 'C', text: '$19$' }, { id: 'D', text: '$\\sqrt{193}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $b^2 = c^2 - a^2 = 12^2 - 7^2 = 144 - 49 = 95$, so $b = \\sqrt{95}$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[7,0],[7,9.747]],\"sideLabels\":[\"7\",\"√95\",\"12\"],\"rightAngleVertex\":1},\"caption\":\"Legs 7 and √95 — hypotenuse 12.\"}\n```\n\n**The Full Solution:**\nStep 1: One leg ($7$) and the hypotenuse ($12$) are given, so $b = \\sqrt{c^2 - a^2}$.\nStep 2: $b = \\sqrt{144 - 49} = \\sqrt{95}$. Since $95$ has no perfect-square factor, leave it as $\\sqrt{95}$. That is choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B ($5$): subtracted the lengths $12 - 7$ instead of the squares.\n* Choice C ($19$): added the lengths $12 + 7$.\n* Choice D ($\\sqrt{193}$): added the squares, $\\sqrt{144 + 49}$, treating the hypotenuse as a leg.\n\n**Test Day Takeaway:** Not every right triangle gives a clean integer — when the radical won't simplify, leave it as $\\sqrt{95}$.",
@@ -3618,6 +3698,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-326', domain: 'geometry', skills: ['triangle-area'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A right triangle has legs of length $6$ and $8$. What is the area of the triangle?',
+    diagram: { type: 'rightTriangle', params: { sideLabels: ['6', '8', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$24$' }, { id: 'B', text: '$48$' }, { id: 'C', text: '$14$' }, { id: 'D', text: '$10$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Triangle Area**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** In a right triangle the two legs are perpendicular, so they serve as base and height: $A=\\frac{1}{2}(6)(8)=24$.\n\n**The Full Solution:**\nStep 1: The legs of a right triangle meet at $90^\\circ$, so one leg is the base and the other is the height.\nStep 2: Apply $A=\\frac{1}{2}bh=\\frac{1}{2}(6)(8)$.\nStep 3: $\\frac{1}{2}(48)=24$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($48$): multiplied the legs $6\\times 8$ but forgot the $\\frac{1}{2}$.\n* Choice C ($14$): added the legs $6+8$ instead of using the area formula.\n* Choice D ($10$): reported the hypotenuse from the $6$-$8$-$10$ triple, not the area.\n\n**Test Day Takeaway:** In a right triangle, the two legs ARE the base and height — no need to find an altitude.",
@@ -3640,6 +3721,7 @@ export const geometryBank = [
   // --- trig-ratio-from-perimeter (4 → 10) ---
   { id: 'bank-geo-329', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A right triangle has a perimeter of $30$ and a hypotenuse of length $13$. If $\\theta$ is the angle opposite the leg of length $5$, what is $\\sin \\theta$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['', '', 'θ'], sideLabels: ['5', '', '13'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{5}{13}$' }, { id: 'B', text: '$\\dfrac{12}{13}$' }, { id: 'C', text: '$\\dfrac{5}{12}$' }, { id: 'D', text: '$\\dfrac{13}{5}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Perimeter $30$ with hypotenuse $13$ leaves $30-13=17$ for the legs, and $5+12=17$ — the classic $5$-$12$-$13$ triple. $\\sin\\theta=\\frac{\\text{opp}}{\\text{hyp}}=\\frac{5}{13}$.\n\n**The Full Solution:**\nStep 1: The legs sum to $30-13=17$, and the $5$-$12$-$13$ right triangle matches both the perimeter and the hypotenuse.\nStep 2: $\\theta$ is opposite the leg of length $5$, so the opposite side is $5$ and the hypotenuse is $13$.\nStep 3: $\\sin\\theta=\\frac{\\text{opposite}}{\\text{hypotenuse}}=\\frac{5}{13}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{12}{13}$): this is $\\cos\\theta$ (adjacent over hypotenuse), not $\\sin\\theta$.\n* Choice C ($\\frac{5}{12}$): this is $\\tan\\theta$ (opposite over adjacent).\n* Choice D ($\\frac{13}{5}$): inverted the sine ratio.\n\n**Test Day Takeaway:** A perimeter built from a recognizable Pythagorean triple ($5+12+13=30$) lets you skip the algebra — spot the triple, then apply SOH-CAH-TOA.",
@@ -3647,6 +3729,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-330', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A right triangle has perimeter $24$ and hypotenuse $10$. If the legs are $6$ and $8$ and $\\theta$ is the angle opposite the leg of length $6$, what is $\\tan \\theta$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['', '', 'θ'], sideLabels: ['6', '8', '10'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{3}{4}$' }, { id: 'B', text: '$\\dfrac{4}{3}$' }, { id: 'C', text: '$\\dfrac{3}{5}$' }, { id: 'D', text: '$\\dfrac{4}{5}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $\\theta$ is opposite the leg $6$, and the other leg $8$ is adjacent, so $\\tan\\theta=\\frac{\\text{opp}}{\\text{adj}}=\\frac{6}{8}=\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: With legs $6$ and $8$ and hypotenuse $10$, the perimeter $6+8+10=24$ confirms the $6$-$8$-$10$ triangle.\nStep 2: $\\theta$ faces the leg of length $6$, so opposite $=6$ and adjacent $=8$.\nStep 3: $\\tan\\theta=\\frac{6}{8}=\\frac{3}{4}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{4}{3}$): this is $\\cot\\theta$ — adjacent over opposite, the reciprocal.\n* Choice C ($\\frac{3}{5}$): this is $\\sin\\theta=\\frac{6}{10}$.\n* Choice D ($\\frac{4}{5}$): this is $\\cos\\theta=\\frac{8}{10}$.\n\n**Test Day Takeaway:** $\\tan\\theta=\\frac{\\sin\\theta}{\\cos\\theta}=\\frac{\\text{opp}}{\\text{adj}}$ — the hypotenuse never appears in a tangent ratio.",
@@ -3654,6 +3737,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-331', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A right triangle has perimeter $40$ and hypotenuse $17$. If the legs are $8$ and $15$ and $\\theta$ is the angle opposite the leg of length $8$, what is $\\sin \\theta$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['', '', 'θ'], sideLabels: ['8', '15', '17'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{8}{17}$' }, { id: 'B', text: '$\\dfrac{15}{17}$' }, { id: 'C', text: '$\\dfrac{8}{15}$' }, { id: 'D', text: '$\\dfrac{15}{8}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** The $8$-$15$-$17$ triple ($8+15+17=40$) fits. $\\theta$ is opposite the leg $8$, so $\\sin\\theta=\\frac{\\text{opp}}{\\text{hyp}}=\\frac{8}{17}$.\n\n**The Full Solution:**\nStep 1: Legs $8$ and $15$ with hypotenuse $17$ give perimeter $40$, the standard $8$-$15$-$17$ right triangle.\nStep 2: $\\theta$ faces the leg of length $8$, so the opposite side is $8$ and the hypotenuse is $17$.\nStep 3: $\\sin\\theta=\\frac{8}{17}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{15}{17}$): this is $\\cos\\theta$ (adjacent over hypotenuse).\n* Choice C ($\\frac{8}{15}$): this is $\\tan\\theta$ (opposite over adjacent).\n* Choice D ($\\frac{15}{8}$): inverted the tangent ratio.\n\n**Test Day Takeaway:** $\\sin$ always pairs the side opposite the angle with the hypotenuse — identify the opposite leg first, then divide by the hypotenuse.",
@@ -3661,6 +3745,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-332', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'medium', type: 'multiple-choice',
     question: 'A right triangle has perimeter $36$ and hypotenuse $15$. The legs are $9$ and $12$. If $\\theta$ is the angle opposite the leg of length $9$, what is $\\cos \\theta$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['', '', 'θ'], sideLabels: ['9', '12', '15'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{12}{15}$' }, { id: 'B', text: '$\\dfrac{9}{15}$' }, { id: 'C', text: '$\\dfrac{9}{12}$' }, { id: 'D', text: '$\\dfrac{15}{12}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** This is $3\\times$ the $3$-$4$-$5$ triple: $9$-$12$-$15$. $\\theta$ is opposite the leg $9$, so the adjacent leg is $12$: $\\cos\\theta=\\frac{\\text{adj}}{\\text{hyp}}=\\frac{12}{15}$.\n\n**The Full Solution:**\nStep 1: Legs $9$ and $12$ with hypotenuse $15$ give perimeter $36$, which is $3\\times(3$-$4$-$5)$.\nStep 2: $\\theta$ faces the leg of length $9$, so the leg adjacent to $\\theta$ is $12$ and the hypotenuse is $15$.\nStep 3: $\\cos\\theta=\\frac{12}{15}$ (equivalently $\\frac{4}{5}$).\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{9}{15}$): this is $\\sin\\theta$ (opposite over hypotenuse).\n* Choice C ($\\frac{9}{12}$): this is $\\tan\\theta$ (opposite over adjacent).\n* Choice D ($\\frac{15}{12}$): inverted the cosine ratio.\n\n**Test Day Takeaway:** The \"adjacent\" leg for $\\cos\\theta$ is the leg NOT opposite the angle — here that's the $12$, not the $9$ that $\\theta$ faces.",
@@ -3668,6 +3753,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-333', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'hard', type: 'multiple-choice',
     question: 'A right triangle has perimeter $72$ and hypotenuse $30$. The legs are $18$ and $24$. If $\\theta$ is the angle opposite the leg of length $18$, what is $\\sin \\theta$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['', '', 'θ'], sideLabels: ['18', '24', '30'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{3}{5}$' }, { id: 'B', text: '$\\dfrac{4}{5}$' }, { id: 'C', text: '$\\dfrac{3}{4}$' }, { id: 'D', text: '$\\dfrac{18}{24}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** This is $6\\times$ the $3$-$4$-$5$ triple: $18$-$24$-$30$. $\\theta$ is opposite the leg $18$, so $\\sin\\theta=\\frac{18}{30}=\\frac{3}{5}$.\n\n**The Full Solution:**\nStep 1: Legs $18$ and $24$ with hypotenuse $30$ give perimeter $72$, which is $6\\times(3$-$4$-$5)$.\nStep 2: $\\theta$ faces the leg of length $18$, so the opposite side is $18$ and the hypotenuse is $30$.\nStep 3: $\\sin\\theta=\\frac{18}{30}=\\frac{3}{5}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{4}{5}$): this is $\\cos\\theta=\\frac{24}{30}$.\n* Choice C ($\\frac{3}{4}$): this is $\\tan\\theta=\\frac{18}{24}$.\n* Choice D ($\\frac{18}{24}$): this is the ratio of the two legs ($\\tan\\theta$ unsimplified), not opposite over hypotenuse.\n\n**Test Day Takeaway:** Scaled triples give the same trig ratios as the base triple — $18$-$24$-$30$ behaves exactly like $3$-$4$-$5$, so $\\sin$ simplifies to $\\frac{3}{5}$.",
@@ -3675,6 +3761,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-334', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'hard', type: 'multiple-choice',
     question: 'A right triangle has perimeter $84$ and hypotenuse $35$. The legs are $21$ and $28$. If $\\theta$ is the angle opposite the leg of length $21$, what is $\\tan \\theta$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['', '', 'θ'], sideLabels: ['21', '28', '35'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{3}{4}$' }, { id: 'B', text: '$\\dfrac{4}{3}$' }, { id: 'C', text: '$\\dfrac{3}{5}$' }, { id: 'D', text: '$\\dfrac{21}{35}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** This is $7\\times$ the $3$-$4$-$5$ triple: $21$-$28$-$35$. $\\theta$ is opposite the leg $21$, with adjacent leg $28$, so $\\tan\\theta=\\frac{21}{28}=\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: Legs $21$ and $28$ with hypotenuse $35$ give perimeter $84$, which is $7\\times(3$-$4$-$5)$.\nStep 2: $\\theta$ faces the leg of length $21$, so opposite $=21$ and adjacent $=28$.\nStep 3: $\\tan\\theta=\\frac{21}{28}=\\frac{3}{4}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{4}{3}$): the cotangent — adjacent over opposite, the reciprocal of the answer.\n* Choice C ($\\frac{3}{5}$): this is $\\sin\\theta=\\frac{21}{35}$, not the tangent.\n* Choice D ($\\frac{21}{35}$): this is $\\sin\\theta$ left unsimplified, mixing the hypotenuse into a tangent.\n\n**Test Day Takeaway:** Always simplify, and remember tangent uses the two legs only — the hypotenuse $35$ has no place in $\\tan\\theta$.",
@@ -3683,6 +3770,7 @@ export const geometryBank = [
   // --- trig-ratio-with-known-triple (4 → 10) ---
   { id: 'bank-geo-335', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'easy', type: 'multiple-choice',
     question: 'In a right triangle with sides $5$, $12$, and $13$, $\\theta$ is the angle opposite the side of length $5$. What is $\\sin \\theta$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['', '', 'θ'], sideLabels: ['5', '12', '13'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{5}{13}$' }, { id: 'B', text: '$\\dfrac{12}{13}$' }, { id: 'C', text: '$\\dfrac{5}{12}$' }, { id: 'D', text: '$\\dfrac{13}{5}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~3s):** $\\theta$ is opposite the side $5$, so $\\sin\\theta=\\frac{\\text{opp}}{\\text{hyp}}=\\frac{5}{13}$.\n\n**The Full Solution:**\nStep 1: SOH means sine $=\\frac{\\text{opposite}}{\\text{hypotenuse}}$.\nStep 2: The opposite side is $5$ and the hypotenuse (the longest side) is $13$.\nStep 3: $\\sin\\theta=\\frac{5}{13}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{12}{13}$): this is $\\cos\\theta$ (adjacent over hypotenuse).\n* Choice C ($\\frac{5}{12}$): this is $\\tan\\theta$ (opposite over adjacent).\n* Choice D ($\\frac{13}{5}$): inverted the sine ratio.\n\n**Test Day Takeaway:** SOH — Sine is Opposite over Hypotenuse. The hypotenuse is always the longest side, here $13$.",
@@ -3690,6 +3778,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-336', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'easy', type: 'multiple-choice',
     question: 'In a right triangle with sides $8$, $15$, and $17$, $\\theta$ is the angle opposite the side of length $8$. What is $\\cos \\theta$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['', '', 'θ'], sideLabels: ['8', '15', '17'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{15}{17}$' }, { id: 'B', text: '$\\dfrac{8}{17}$' }, { id: 'C', text: '$\\dfrac{8}{15}$' }, { id: 'D', text: '$\\dfrac{17}{15}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~3s):** $\\theta$ is opposite the side $8$, so the adjacent leg is $15$: $\\cos\\theta=\\frac{\\text{adj}}{\\text{hyp}}=\\frac{15}{17}$.\n\n**The Full Solution:**\nStep 1: CAH means cosine $=\\frac{\\text{adjacent}}{\\text{hypotenuse}}$.\nStep 2: Since $\\theta$ faces the $8$, the leg adjacent to $\\theta$ is $15$, and the hypotenuse is $17$.\nStep 3: $\\cos\\theta=\\frac{15}{17}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{8}{17}$): this is $\\sin\\theta$ — the side opposite $\\theta$ over the hypotenuse.\n* Choice C ($\\frac{8}{15}$): this is $\\tan\\theta$ (opposite over adjacent).\n* Choice D ($\\frac{17}{15}$): inverted the cosine ratio.\n\n**Test Day Takeaway:** CAH — Cosine is Adjacent over Hypotenuse. \"Adjacent\" is the leg NOT opposite the named angle, so $\\theta$ opposite $8$ makes $15$ adjacent.",
@@ -3697,6 +3786,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-337', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'easy', type: 'multiple-choice',
     question: 'In a right triangle with sides $3$, $4$, and $5$, $\\theta$ is the angle opposite the side of length $3$. What is $\\tan \\theta$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['', '', 'θ'], sideLabels: ['3', '4', '5'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{3}{4}$' }, { id: 'B', text: '$\\dfrac{4}{3}$' }, { id: 'C', text: '$\\dfrac{3}{5}$' }, { id: 'D', text: '$\\dfrac{4}{5}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Tangent is opposite over adjacent. The side opposite $\\theta$ is $3$ and the remaining leg (adjacent) is $4$, so $\\tan\\theta=\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: In the $3$-$4$-$5$ triangle, the hypotenuse is the longest side, $5$. The two legs are $3$ and $4$.\nStep 2: $\\theta$ is opposite the leg of length $3$, so the adjacent leg is $4$.\nStep 3: $\\tan\\theta=\\frac{\\text{opp}}{\\text{adj}}=\\frac{3}{4}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{4}{3}$): inverts the ratio — this is $\\cot\\theta$, or $\\tan$ of the other acute angle.\n* Choice C ($\\frac{3}{5}$): uses the hypotenuse in the denominator — that is $\\sin\\theta$.\n* Choice D ($\\frac{4}{5}$): adjacent over hypotenuse — that is $\\cos\\theta$.\n\n**Test Day Takeaway:** TOA — tangent is opposite over adjacent. The hypotenuse never enters a tangent.",
@@ -3704,6 +3794,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-338', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'medium', type: 'multiple-choice',
     question: 'In a right triangle with sides $7$, $24$, and $25$, $\\theta$ is the angle opposite the side of length $24$. What is $\\sin \\theta$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['θ', '', ''], sideLabels: ['7', '24', '25'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{24}{25}$' }, { id: 'B', text: '$\\dfrac{7}{25}$' }, { id: 'C', text: '$\\dfrac{24}{7}$' }, { id: 'D', text: '$\\dfrac{7}{24}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Sine is opposite over hypotenuse. The side opposite $\\theta$ is $24$ and the hypotenuse is the longest side, $25$, so $\\sin\\theta=\\frac{24}{25}$.\n\n**The Full Solution:**\nStep 1: In the $7$-$24$-$25$ triangle, the hypotenuse is the longest side, $25$.\nStep 2: $\\theta$ is opposite the leg of length $24$.\nStep 3: $\\sin\\theta=\\frac{\\text{opp}}{\\text{hyp}}=\\frac{24}{25}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{7}{25}$): uses the other leg — that is the sine of the other acute angle (and $\\cos\\theta$).\n* Choice C ($\\frac{24}{7}$): opposite over adjacent — that is $\\tan\\theta$, not $\\sin$.\n* Choice D ($\\frac{7}{24}$): the tangent of the other angle, $\\frac{\\text{adj}}{\\text{opp}}$.\n\n**Test Day Takeaway:** Identify the hypotenuse first (the longest side), then apply SOH-CAH-TOA to the named angle.",
@@ -3711,6 +3802,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-339', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'medium', type: 'multiple-choice',
     question: 'In a right triangle with sides $9$, $40$, and $41$, $\\theta$ is the angle opposite the side of length $40$. What is $\\tan \\theta$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['θ', '', ''], sideLabels: ['9', '40', '41'], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{40}{9}$' }, { id: 'B', text: '$\\dfrac{9}{40}$' }, { id: 'C', text: '$\\dfrac{40}{41}$' }, { id: 'D', text: '$\\dfrac{9}{41}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Tangent is opposite over adjacent. The side opposite $\\theta$ is $40$ and the remaining leg is $9$, so $\\tan\\theta=\\frac{40}{9}$.\n\n**The Full Solution:**\nStep 1: In the $9$-$40$-$41$ triangle, the hypotenuse is the longest side, $41$. The legs are $9$ and $40$.\nStep 2: $\\theta$ is opposite the leg of length $40$, so the adjacent leg is $9$.\nStep 3: $\\tan\\theta=\\frac{\\text{opp}}{\\text{adj}}=\\frac{40}{9}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{9}{40}$): inverts the ratio — this is the tangent of the other acute angle.\n* Choice C ($\\frac{40}{41}$): opposite over hypotenuse — that is $\\sin\\theta$.\n* Choice D ($\\frac{9}{41}$): the sine of the other angle, $\\frac{\\text{adj}}{\\text{hyp}}$.\n\n**Test Day Takeaway:** The angle opposite the larger leg has the larger tangent; the hypotenuse never appears in a tangent.",
@@ -3718,6 +3810,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-340', domain: 'geometry', skills: ['soh-cah-toa'], difficulty: 'hard', type: 'multiple-choice',
     question: 'In a right triangle, the legs have lengths $6$ and $8$. If $\\theta$ is the angle opposite the leg of length $6$, what is $\\cos \\theta$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['', '', 'θ'], sideLabels: ['6', '8', ''], rightAngleVertex: 1, figureNote: true } },
     choices: [{ id: 'A', text: '$\\dfrac{4}{5}$' }, { id: 'B', text: '$\\dfrac{3}{5}$' }, { id: 'C', text: '$\\dfrac{6}{8}$' }, { id: 'D', text: '$\\dfrac{8}{6}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The legs $6$ and $8$ make a $6$-$8$-$10$ triangle, so the hypotenuse is $10$. Cosine is adjacent over hypotenuse: the leg adjacent to $\\theta$ is $8$, so $\\cos\\theta=\\frac{8}{10}=\\frac{4}{5}$.\n\n**The Full Solution:**\nStep 1: Find the hypotenuse: $\\sqrt{6^2+8^2}=\\sqrt{100}=10$ (the $6$-$8$-$10$ triple).\nStep 2: $\\theta$ is opposite the leg of length $6$, so the adjacent leg is $8$.\nStep 3: $\\cos\\theta=\\frac{\\text{adj}}{\\text{hyp}}=\\frac{8}{10}=\\frac{4}{5}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{3}{5}$): this is $\\sin\\theta=\\frac{6}{10}$, using the opposite leg.\n* Choice C ($\\frac{6}{8}$): the ratio of the two legs, not a cosine.\n* Choice D ($\\frac{8}{6}$): inverts the leg ratio.\n\n**Test Day Takeaway:** When only the legs are given, find the hypotenuse first (Pythagorean theorem or a known triple), then apply CAH.",
@@ -3776,6 +3869,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-348', domain: 'geometry', skills: ['soh-cah-toa', 'triangle-types'], difficulty: 'hard', type: 'fill-in',
     question: 'In a right triangle, the hypotenuse has length $32$ and the leg adjacent to angle $x$ has length $13$. What is the value of $\\cos x^\\circ$?',
+    diagram: { type: 'rightTriangle', params: { labels: ['x°', '', ''], sideLabels: ['13', '', '32'], rightAngleVertex: 1, figureNote: true } },
     correctAnswer: '13/32',
     explanation: "**SAT Pattern: Direct Trig Ratio**\n\n**The correct answer is $\\frac{13}{32}$ (or $0.4062$).**\n\n**The Fast Way (~10s):** Cosine is adjacent over hypotenuse. The leg adjacent to angle $x^\\circ$ is $13$ and the hypotenuse is $32$, so $\\cos x^\\circ=\\frac{13}{32}$.\n\n**The Full Solution:**\nStep 1: CAH means $\\cos=\\frac{\\text{adjacent}}{\\text{hypotenuse}}$.\nStep 2: The adjacent leg is $13$ and the hypotenuse is $32$, so $\\cos x^\\circ=\\frac{13}{32}\\approx0.4062$.\n\n**Common Mistakes:** Swapping adjacent and opposite (a sine ratio); wasting time computing the missing leg, which cosine does not need.\n\n**Test Day Takeaway:** SOH-CAH-TOA — cosine is adjacent over hypotenuse, so a directly given adjacent leg and hypotenuse is all you need.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'direct-trig-ratio', authoredBy: 'performsat-engine', createdAt: '2026-05-22' },
@@ -3808,6 +3902,7 @@ export const geometryBank = [
 
   { id: 'bank-geo-353', domain: 'geometry', skills: ['special-right-triangles', 'circle-equation'], difficulty: 'hard', type: 'multiple-choice',
     question: 'In the $xy$-plane, a circle has center $C$ with coordinates $(h,\\,k)$. Points $A$ and $B$ lie on the circle. Point $A$ has coordinates $(h+1,\\,k+\\sqrt{66})$, and $\\angle ACB$ is a right angle. What is the length of $\\overline{AB}$?',
+    diagram: { type: 'circleWithSector', params: { centralAngle: 90, angleLabel: '90°', labelCenter: 'C', labelPoint1: 'A', labelPoint2: 'B', figureNote: true } },
     choices: [{ id: 'A', text: '$\\sqrt{134}$' }, { id: 'B', text: '$2\\sqrt{67}$' }, { id: 'C', text: '$67\\sqrt{2}$' }, { id: 'D', text: '$67\\sqrt{3}$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Right Triangle at Center — Chord Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The radius is $CA=\\sqrt{1^2+(\\sqrt{66})^2}=\\sqrt{67}$. With a right angle at center $C$ and both legs equal to the radius, $\\overline{AB}$ is the hypotenuse of an isosceles right triangle: $AB=r\\sqrt{2}=\\sqrt{67}\\cdot\\sqrt{2}=\\sqrt{134}$.\n\n**The Full Solution:**\nStep 1: $A=(h+1,\\,k+\\sqrt{66})$ sits $1$ unit right and $\\sqrt{66}$ units up from $C=(h,k)$, so $CA=\\sqrt{1^2+(\\sqrt{66})^2}=\\sqrt{1+66}=\\sqrt{67}$. That is the radius $r$.\nStep 2: $A$ and $B$ are both on the circle, so $CA=CB=r=\\sqrt{67}$.\nStep 3: $\\angle ACB$ is a right angle, so triangle $ACB$ is isosceles right. The hypotenuse is $AB=r\\sqrt{2}=\\sqrt{67}\\cdot\\sqrt{2}=\\sqrt{134}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($2\\sqrt{67}$): doubles the radius instead of multiplying by $\\sqrt{2}$ — that would be a diameter, not the chord.\n* Choice C ($67\\sqrt{2}$): skips taking the square root, using $r=67$ instead of $r=\\sqrt{67}$.\n* Choice D ($67\\sqrt{3}$): imports the equilateral/$\\sqrt{3}$ relationship, which does not apply to a right angle.\n\n**Test Day Takeaway:** A right angle at the center makes the chord the hypotenuse of an isosceles right triangle whose legs are both the radius, so the chord is $r\\sqrt{2}$.",
