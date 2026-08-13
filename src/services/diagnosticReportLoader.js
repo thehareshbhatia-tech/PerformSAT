@@ -103,9 +103,17 @@ export async function loadDiagnosticReportData({
       } else if (rwRoute === 'easy' && test.rwModule2Easy && modIdx === rwSlots[1]) {
         liveMod = test.rwModule2Easy;
       }
-      const liveQ = liveMod?.questions?.[
-        snap.questionIndex ?? moduleMap.get(modIdx).questions.length
-      ];
+      // Match the live question by ID within the module — assembly now varies
+      // question order per test (difficulty-ramp variation, 2026-08-13), so a
+      // positional lookup could cross-wire passages/diagrams from a different
+      // question. Ids are only unique WITHIN a module (bundles reuse 1-27
+      // across modules), hence the per-module find. Index fallback covers
+      // the oldest snapshots that never persisted question ids.
+      const liveQ =
+        (snap.id != null && liveMod?.questions?.find((q) => q.id === snap.id)) ||
+        liveMod?.questions?.[
+          snap.questionIndex ?? moduleMap.get(modIdx).questions.length
+        ];
       moduleMap.get(modIdx).questions.push({
         id: snap.id,
         type: snap.type,

@@ -2,6 +2,7 @@
 // Each test merges Reading & Writing modules followed by Math modules.
 
 import { rebalanceAnswerKey } from '../questions/bank/rebalanceAnswerKey';
+import { varyDifficultyOrder } from './varyDifficultyOrder';
 
 // Math sections (file exports `practiceTestN`; alias to *Math here so the
 // merged test can claim the public name).
@@ -124,8 +125,16 @@ const buildFullTest = (id, title, rw, math) => {
     section: 'reading-writing',
     title: `Reading and Writing Module ${idx + 1}`,
   }));
+  // Math Module 1 additionally gets seeded difficulty-order variation: the
+  // raw bundles share one EEEEE→M→H ramp across 11 of 12 tests (students
+  // learn the rhythm). Module 2 hard is left alone — its sequences are
+  // already genuinely varied on disk. R&W modules are NEVER reordered
+  // (official vocab-first flow is authentic and position-meaningful).
   const mathModules = math.modules.map((m, idx) => ({
-    ...rebalanceModule(m, `${id}:math:${idx}`),
+    ...rebalanceModule(
+      idx === 0 ? varyDifficultyOrder(m, `${id}:math:${idx}:order`) : m,
+      `${id}:math:${idx}`,
+    ),
     section: 'math',
     title: `Math Module ${idx + 1}`,
   }));
@@ -163,9 +172,19 @@ const withEasyVariant = (t) => {
   const math = easyVariants[t.id];
   const rw = rwEasyVariants[t.id];
   if (!math && !rw) return t;
+  // Math M2Easy also gets order variation — all 12 raw files share ONE
+  // identical difficulty sequence, the single worst monotony in the audit.
+  // R&W M2Easy keeps its official skill-flow order.
   return {
     ...t,
-    ...(math ? { module2Easy: rebalanceModule(math, `${t.id}:math-m2easy`) } : {}),
+    ...(math
+      ? {
+          module2Easy: rebalanceModule(
+            varyDifficultyOrder(math, `${t.id}:math-m2easy:order`),
+            `${t.id}:math-m2easy`,
+          ),
+        }
+      : {}),
     ...(rw ? { rwModule2Easy: rebalanceModule(rw, `${t.id}:rw-m2easy`) } : {}),
   };
 };

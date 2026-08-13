@@ -123,9 +123,11 @@ describe('rebalance preserves the correct answer content', () => {
       [rawMath[i].modules, mathModules],
     ].forEach(([rawMods, builtMods]) => {
       rawMods.forEach((rawMod, mi) => {
-        rawMod.questions.forEach((rawQ, qi) => {
+        rawMod.questions.forEach((rawQ) => {
           if (rawQ.type !== 'multiple-choice') return;
-          const builtQ = builtMods[mi].questions[qi];
+          // Match by id WITHIN the module — assembly varies math question
+          // order (ids are only unique per module, so no cross-module map).
+          const builtQ = builtMods[mi].questions.find((q) => q.id === rawQ.id);
           const rawText = rawQ.choices.find(
             (c) => c.id === String(rawQ.correctAnswer).toUpperCase(),
           )?.text;
