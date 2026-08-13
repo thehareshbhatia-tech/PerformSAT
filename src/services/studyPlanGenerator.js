@@ -336,7 +336,8 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     longitudinal,
     isFirstPlan,
     schedule,
-    scoreGap
+    scoreGap,
+    DAY_ORDER[(new Date().getDay() + 6) % 7] // JS Sunday-first → Monday-first
   );
 
   // ═══ Replay custom tasks from the ledger into the fresh plan ═══
@@ -938,7 +939,9 @@ const generateStrategyActivities = (diagnostic) => {
  * - End of week: More practice + self-assessment
  * - Every 3-4 weeks: Take a practice test
  */
-const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minutesPerWeek, diagnostic, previousPlan, longitudinal = null, isFirstPlan = false, schedule = null, scoreGap = null) => {
+const DAY_ORDER = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minutesPerWeek, diagnostic, previousPlan, longitudinal = null, isFirstPlan = false, schedule = null, scoreGap = null, createdDayName = null) => {
   const weeks = [];
 
   // ═══ SCHEDULE-AWARE DAY PLAN ═══
@@ -946,6 +949,19 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
   // review was always Monday, tests always Saturday, mid-week always Wed-Fri —
   // regardless of what the student told us in onboarding.
   const studyDays = schedule ? scheduledDayNames(schedule) : ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+  // ═══ WEEK 1 ANCHORS TO TODAY (Plan v3) ═══
+  // Week 1 shares its calendar week with the plan's creation moment. Filling
+  // it Monday-first scheduled a Thursday-born plan's whole first week into
+  // days already behind the student ("0 of 6 sessions" on day one, nothing
+  // to do today — founder-flagged). Week 1 only uses study days from TODAY
+  // onward; if none remain (created on/after the last study day), it uses
+  // the final study day so the week still holds its work.
+  const createdIdx = createdDayName ? DAY_ORDER.indexOf(createdDayName) : -1;
+  const firstWeekDays = createdIdx >= 0
+    ? studyDays.filter((d) => DAY_ORDER.indexOf(d) >= createdIdx)
+    : studyDays;
+  const week1Days = firstWeekDays.length > 0 ? firstWeekDays : studyDays.slice(-1);
   const dayBudget = (day) => (schedule?.days?.[day] > 0 ? schedule.days[day] : 35);
   const testDay = schedule ? testDayFor(schedule) : 'Saturday';
   const phaseFor = (day) => {
@@ -1103,15 +1119,17 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
 
     // Per-day remaining minutes for this week. Activities bin into the first
     // study day with room, so each day's load tracks the student's schedule
-    // instead of a hardcoded Mon-Fri spread.
+    // instead of a hardcoded Mon-Fri spread. Week 1 only schedules from the
+    // plan's creation day onward (see week1Days above).
+    const weekDays = weekNum === 1 ? week1Days : studyDays;
     const dayRemaining = {};
-    studyDays.forEach((d) => { dayRemaining[d] = dayBudget(d); });
+    weekDays.forEach((d) => { dayRemaining[d] = dayBudget(d); });
     const placeOn = (duration) => {
-      let day = studyDays.find((d) => dayRemaining[d] >= duration);
+      let day = weekDays.find((d) => dayRemaining[d] >= duration);
       // No day fits the whole activity: put it where the most room is left —
       // a slightly-overfull study day beats scheduling on a day the student
       // told us they don't study.
-      if (!day) day = studyDays.reduce((a, b) => (dayRemaining[a] >= dayRemaining[b] ? a : b));
+      if (!day) day = weekDays.reduce((a, b) => (dayRemaining[a] >= dayRemaining[b] ? a : b));
       dayRemaining[day] -= duration;
       return day;
     };

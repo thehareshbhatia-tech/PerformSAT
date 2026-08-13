@@ -58,5 +58,8 @@ test('generated plans attach because-lines to practice activities', () => {
   const plan = generateStudyPlan(diag, { targetScore: 1200, testDate: new Date(Date.now() + 30 * 86400000).toISOString() });
   const withBecause = plan.weeks.flatMap((w) => w.activities || []).filter((a) => a.because);
   expect(withBecause.length).toBeGreaterThan(0);
-  expect(withBecause[0].because).toMatch(/25%/);
+  // Order-independent: Plan v3's unified sessions (test-miss review, trap
+  // drills) also carry because-lines and can schedule ahead of the skill
+  // drill — the evidence-citing line just has to exist somewhere.
+  expect(withBecause.some((a) => /25%/.test(a.because))).toBe(true);
 });

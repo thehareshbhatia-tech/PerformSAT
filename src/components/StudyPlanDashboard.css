@@ -1730,3 +1730,182 @@ button.sp-tuneup-bar:hover { background: var(--sp-inset); }
   color: var(--sp-ink-soft, #6b6b6b);
   margin: 2px 0 4px;
 }
+
+/* ═══ Plan v3 — mission-control arc header (sp-arc) ═══
+   The plan's "you are here → goal" strip: phase rail, milestone markers,
+   week progress, one personalized line. Same warm palette as the page. */
+.sp-arc {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  border-radius: 18px;
+  box-shadow: var(--sp-shadow);
+  padding: 18px 20px 14px;
+  margin-bottom: 18px;
+}
+.sp-arc-top {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+}
+.sp-arc-node {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 74px;
+  border-radius: 14px;
+  padding: 8px 14px;
+}
+.sp-arc-node--start { background: var(--sp-tile-score); color: var(--sp-tile-score-ink); }
+.sp-arc-node--goal  { background: var(--sp-tile-goal);  color: var(--sp-tile-goal-ink); text-align: right; }
+.sp-arc-node-eyebrow {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.sp-arc-node-score {
+  font-family: var(--font-display, inherit);
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+.sp-arc-rail {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+  align-items: stretch;
+}
+.sp-arc-phase {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: var(--sp-inset);
+  border: 1px solid var(--sp-line);
+  min-width: 0;
+}
+.sp-arc-phase.is-current {
+  background: var(--sp-orange-tint);
+  border-color: var(--sp-orange);
+}
+.sp-arc-phase-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--sp-text);
+  white-space: nowrap;
+}
+.sp-arc-phase.is-current .sp-arc-phase-label { color: var(--sp-orange-600); }
+.sp-arc-phase-weeks {
+  font-size: 11.5px;
+  color: var(--sp-text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sp-arc-milestones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--sp-line);
+}
+.sp-arc-milestone {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--sp-text-2);
+}
+.sp-arc-milestone-glyph { color: var(--sp-purple); font-size: 10px; }
+.sp-arc-milestone.is-next { color: var(--sp-text); font-weight: 600; }
+.sp-arc-milestone.is-next .sp-arc-milestone-glyph { color: var(--sp-orange); }
+.sp-arc-milestone-next {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--sp-orange-600);
+  background: var(--sp-orange-tint);
+  border-radius: 6px;
+  padding: 1px 6px;
+}
+.sp-arc-footer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+}
+.sp-arc-line {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--sp-text-2);
+  margin: 0;
+  max-width: 62ch;
+}
+.sp-arc-week-progress {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--sp-text);
+  white-space: nowrap;
+}
+.sp-arc-insight {
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  color: var(--sp-text-3);
+}
+@media (max-width: 720px) {
+  .sp-arc-top { flex-direction: column; }
+  .sp-arc-rail { flex-direction: column; }
+  .sp-arc-node--goal { text-align: left; }
+}
+
+/* Plan v3 — due-review session card + upcoming-week rows */
+.sp-due-review {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--sp-purple-soft);
+  border: 1px solid var(--sp-purple-border);
+  border-radius: 14px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+}
+.sp-due-review-text { min-width: 0; }
+.sp-due-review-title { font-size: 14.5px; font-weight: 700; color: var(--sp-text); }
+.sp-due-review-sub { font-size: 12.5px; color: var(--sp-text-2); margin-top: 1px; }
+.sp-due-review-btn {
+  flex-shrink: 0;
+  border: none;
+  border-radius: 10px;
+  background: var(--sp-purple);
+  color: #fff;
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 9px 16px;
+  cursor: pointer;
+}
+.sp-upcoming-week {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+}
+.sp-upcoming-week-title { font-size: 13.5px; font-weight: 600; color: var(--sp-text); }
+.sp-upcoming-week-meta { font-size: 12px; color: var(--sp-text-3); white-space: nowrap; }
+.sp-earlier-fold {
+  font-size: 12.5px;
+  color: var(--sp-text-3);
+  margin: 4px 0 10px;
+}

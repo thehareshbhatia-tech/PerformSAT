@@ -43,7 +43,10 @@ import CalendarMonth from './CalendarMonth';
 import Avatar, { AVATAR_SIZES } from './ui/Avatar';
 import StudyPlanReviewSection from './StudyPlanReviewSection';
 import StudyPlanPacingSection from './StudyPlanPacingSection';
+import PlanArcHeader from './plan/PlanArcHeader';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
+import { buildPacingSession } from '../services/pacingService';
+import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
 import { getPacingStruggle } from '../services/selectors/pacingStruggle';
 import { groupFlaggedBySection, flaggedCount as countFlagged, toDrillSeeds } from '../services/selectors/flaggedQuestions';
 import { partitionReviewQueue } from '../services/selectors/planReviewQueue';
@@ -137,9 +140,13 @@ const WEEKDAY_FULL = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'S
 // four words so a round row never wraps.
 function humanizePattern(slug) {
   if (!slug || typeof slug !== 'string') return '';
-  const words = slug.split('-').filter(Boolean);
-  const label = words.slice(0, 4).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-  return words.length > 4 ? `${label}…` : label;
+  // Delegate to the canonical formatter (it expands R&W skill abbreviations —
+  // 'fss-subject-verb-agreement' → 'Form & Sense: Subject Verb Agreement';
+  // the old local title-caser leaked 'Fss …' to students), then cap length
+  // so a round row never wraps.
+  const label = formatPatternLabel(slug) || '';
+  const words = label.split(' ');
+  return words.length > 5 ? `${words.slice(0, 5).join(' ')}…` : label;
 }
 
 // Rough drill-time estimate from a question count (~1.2 min/Q, floored at 10).
@@ -172,7 +179,11 @@ function buildPlanModule(w, i, skillProgress, diagnosticSentence) {
   const sp = (skillProgress && w.skillId) ? skillProgress[w.skillId] : null;
   const attempts = sp?.attempts ?? 0;
   const mastery = sp ? (sp.mastery ?? (attempts ? (sp.correct / attempts) * 100 : 0)) : 0;
-  const hasStarted = !!w.hasDrillSignal || attempts > 0;
+  // DRILL evidence only. skillProgress.attempts includes test/diagnostic-seeded
+  // answers, which fabricated day-one session progress ("3/15 Q" and a
+  // "Continue" CTA on drills the student never opened — founder-flagged).
+  // A session reads as started only when a real drill signal exists.
+  const hasStarted = !!w.hasDrillSignal;
 
   const status = w.isMastered ? 'complete' : hasStarted ? 'progress' : 'start';
 
@@ -389,8 +400,16 @@ const StudyPlanLoaded = ({
   // and the list re-orders so declined skills rise, improved sink, and
   // mastered drop to the bottom. Pure selector; plan data untouched.
   const annotatedWeaknesses = useMemo(
-    () => annotateFocusAreas({ weaknesses, skillProgress, practiceTestResults, overlay: adaptiveOverlay }),
-    [weaknesses, skillProgress, practiceTestResults, adaptiveOverlay],
+    () => annotateFocusAreas({
+      weaknesses,
+      skillProgress,
+      practiceTestResults,
+      overlay: adaptiveOverlay,
+      // Drill evidence must postdate THIS plan — the diagnostic's own
+      // skillProgress seeding otherwise reads as day-one drill progress.
+      sinceMs: studyPlan?.generatedAt ? Date.parse(studyPlan.generatedAt) || null : null,
+    }),
+    [weaknesses, skillProgress, practiceTestResults, adaptiveOverlay, studyPlan?.generatedAt],
   );
   const totalActivities = weeks.reduce((s, w) => s + visibleActivities(w).length, 0);
   const completedActivities = weeks.reduce((s, w) => s + visibleActivities(w).filter(a => a.completed).length, 0);
@@ -411,6 +430,12 @@ const StudyPlanLoaded = ({
   // and trips React's "Rendered more hooks than during the previous
   // render" check the first time studyPlan hydrates from Firestore.
   const pastTestReviewEnabled = useFeatureFlag('pastTestReview');
+  // Plan v3 (ff:planV3): one timeline instead of the Today/Weekly tabs — the
+  // mission-control arc header on top, today's sessions expanded, the rest of
+  // the week beneath, and the old orphan sections (Beyond this week / Review
+  // Queue widget / Pacing card / How-you-test footer) folded into the plan
+  // itself. Flag OFF = the previous two-tab page, byte-identical (rollback).
+  const ffPlanV3 = useFeatureFlag('planV3');
   // Filter to attempts that actually have item-level telemetry — older
   // attempts had `diagnosticData.questionDetails` stripped so the doc
   // stayed under the Firestore 1MB limit, and surfacing them on the CTA
@@ -912,7 +937,13 @@ const StudyPlanLoaded = ({
     // per-skill breakdown. Breakdown is offered only for open practice cards;
     // today's cards start open (defaultOpen), the rest collapsed.
     const summary = activitySummary(act);
-    const breakdown = (act.type === 'practice' && !done && !act.custom) ? activityBreakdown(act, skillProgress) : [];
+    const breakdown = (act.type === 'practice' && !done && !act.custom)
+      ? activityBreakdown(act, skillProgress, {
+          // Drill evidence must postdate THIS plan — measurement seeding
+          // otherwise fabricates day-one round progress.
+          sinceMs: studyPlan?.generatedAt ? Date.parse(studyPlan.generatedAt) || null : null,
+        })
+      : [];
     const hasBreakdown = breakdown.length > 0;
     const bdOpen = (tipKey in expandedBreakdowns) ? expandedBreakdowns[tipKey] : defaultOpen;
 
@@ -1058,7 +1089,11 @@ const StudyPlanLoaded = ({
   // plain-language narrative (buildDayNarrative), then that day's cards. Cards
   // in today's group open their breakdown by default. Returns null when the
   // week has no visible sessions so the caller shows the "unlocks" state.
-  const renderWeekDays = (week, weekIdx) => {
+  const renderWeekDays = (week, weekIdx, opts = {}) => {
+    // Plan v3 timeline mode: today's sessions render above as the anchored
+    // module list, so this shows only what's AHEAD this week; days already
+    // behind fold into a one-line summary instead of re-listing.
+    const { upcomingOnly = false } = opts;
     const fullActivities = week?.activities || [];
     // In edit mode, also surface skipped tasks (greyed) so they can be
     // un-skipped or removed; otherwise hidden.
@@ -1086,13 +1121,29 @@ const StudyPlanLoaded = ({
       }
     });
 
-    const dayGroups = WEEKDAY_FULL
+    let dayGroups = WEEKDAY_FULL
       .filter((d) => byDay.has(d))
       .map((dayName) => {
         const date = new Date(monday);
         date.setDate(monday.getDate() + WEEKDAY_FULL.indexOf(dayName));
         return { dayName, date, entries: byDay.get(dayName) };
       });
+
+    // v3 timeline: today and everything ahead render as day groups (today
+    // expanded first); days already behind compress to a one-line fold.
+    let earlierFold = null;
+    if (upcomingOnly) {
+      const startOfToday = new Date();
+      startOfToday.setHours(0, 0, 0, 0);
+      const past = dayGroups.filter((g) => g.date < startOfToday);
+      dayGroups = dayGroups.filter((g) => g.date >= startOfToday);
+      const pastEntries = past.flatMap((g) => g.entries);
+      if (pastEntries.length > 0) {
+        const doneCount = pastEntries.filter(({ act }) => act.completed).length;
+        earlierFold = { total: pastEntries.length, done: doneCount };
+      }
+      if (dayGroups.length === 0 && anytime.length === 0 && !earlierFold) return null;
+    }
 
     const renderGroup = ({ key, heading, date, entries }) => {
       const isToday = date ? date.toDateString() === todayStr : false;
@@ -1127,6 +1178,11 @@ const StudyPlanLoaded = ({
 
     return (
       <div className="sp-daygroups">
+        {earlierFold && (
+          <p className="sp-earlier-fold">
+            Earlier this week: {earlierFold.done} of {earlierFold.total} session{earlierFold.total === 1 ? '' : 's'} done
+          </p>
+        )}
         {dayGroups.map(({ dayName, date, entries }) => renderGroup({
           key: dayName,
           heading: date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }),
@@ -1269,252 +1325,10 @@ const StudyPlanLoaded = ({
   // RENDER
   // ====================================================================
 
-  return (
-    <div className="study-plan-dashboard sp-with-rail" data-theme="light">
-      <div className="sp-main">
-
-      {studyPlan?.planSource === 'onboarding-starter' && (
-        <div className="sp-starter-note" role="note">
-          Starter plan from your answers. The 15-minute check-in rebuilds it from real evidence.
-        </div>
-      )}
-
-      {/* ── Title bar ─────────────────────────────────────────────── */}
-      {(user?.firstName || user?.targetScore || latestScore !== null) && (
-        <header className="sp-titlebar">
-          <div className="sp-titlebar-id">
-            {variant !== 'inline' && <Avatar user={user} size={AVATAR_SIZES.md} />}
-            <div style={{ minWidth: 0 }}>
-              <h1 className="sp-title">
-                {user?.firstName ? `${user.firstName}'s Study Plan` : 'Your Study Plan'}
-              </h1>
-              <div className="sp-title-meta">
-                {latestScore !== null && (
-                  <span>
-                    <strong>{latestScore}</strong>
-                    {isSectionScaleScore(latestScore, { isMultiSection: latestTest?.isMultiSection }) ? ' now' : ' composite'}
-                  </span>
-                )}
-                {user?.testDate && !testDateIsPast && daysUntilTest !== null && (
-                  <span>test in <strong>{daysUntilTest} day{daysUntilTest === 1 ? '' : 's'}</strong></span>
-                )}
-                {user?.targetScore && (
-                  <span>path to <strong>{user.targetScore}{user.targetScore <= 800 ? ' Math' : ''}</strong></span>
-                )}
-              </div>
-            </div>
-          </div>
-        </header>
-      )}
-
-      {/* ── Tabs + date pills ─────────────────────────────────────── */}
-      <div className="sp-tabs-row">
-          <div className="sp-tabs" role="tablist" aria-label="Study plan view">
-            <button
-              type="button" role="tab"
-              aria-selected={activeView === 'todaysTasks'}
-              className={`sp-tab${activeView === 'todaysTasks' ? ' is-active' : ''}`}
-              onClick={() => setActiveView('todaysTasks')}
-            >
-              Today's Tasks
-              {todaysTasksCount > 0 && <span className="sp-tab-count">{todaysTasksCount}</span>}
-            </button>
-            <button
-              type="button" role="tab"
-              aria-selected={activeView === 'weeklyView'}
-              className={`sp-tab${activeView === 'weeklyView' ? ' is-active' : ''}`}
-              onClick={() => setActiveView('weeklyView')}
-            >
-              Weekly View
-              {weeklyViewCount > 0 && <span className="sp-tab-count">{weeklyViewCount}</span>}
-            </button>
-          </div>
-          <div className="sp-datepills">
-            {practicedThisMonth > 0 && (
-              <span className="sp-datepill is-streak">{practicedThisMonth} DAYS PRACTICED</span>
-            )}
-            <span className="sp-datepill">{todayLongDate.toUpperCase()}</span>
-          </div>
-      </div>
-
-      {adaptiveOverlay?.isTriage && (
-        <div className="sp-triage-banner" role="status">
-          Triage mode: prioritizing your highest-impact skills before test day.
-        </div>
-      )}
-
-      {/* ════════════ TODAY'S TASKS TAB — focus modules with rounds ════════════ */}
-      {activeView === 'todaysTasks' && (
-        <div className="sp-today-panel">
-          <div className="sp-today-head">
-            <h2 className="sp-today-date">{todayLongDate}</h2>
-            <div className="sp-seg" role="tablist" aria-label="Plan section">
-              {SECTION_FILTERS.map((tab) => (
-                <button
-                  key={tab.id} type="button" role="tab"
-                  aria-selected={sectionFilter === tab.id}
-                  className={`sp-seg-btn${sectionFilter === tab.id ? ' is-active' : ''}`}
-                  onClick={() => setSectionFilter(tab.id)}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          </div>
-          {dailyIntro && <p className="sp-today-narrative">{dailyIntro}</p>}
-          {modules.length > 0 ? (
-            <>
-              <div className="sp-module-list">
-                {visibleModules.map((m, idx) => renderModule(m, idx))}
-              </div>
-              {modules.length > 3 && (
-                <button type="button" className="sp-showall" onClick={() => setShowAllFocus((v) => !v)}>
-                  {showAllFocus ? 'Show fewer' : `Show all ${modules.length} focus skills`}
-                </button>
-              )}
-            </>
-          ) : (
-            <div className="sp-today-empty">
-              {sectionFilter !== 'all'
-                ? `No ${sectionFilter === 'rw' ? 'Reading & Writing' : 'Math'} focus skills flagged right now. Switch to All to see your full plan.`
-                : 'No focus skills flagged right now — your latest test came back clean. Take another test to refresh your plan.'}
-            </div>
-          )}
-
-          {(todaySlice?.kind === 'rest-day'
-            || todaySlice?.kind === 'all-done'
-            || todaySlice?.kind === 'plan-complete')
-            && comingUpDays.length > 0 && (
-            <section className="sp-coming-up" aria-label="Coming up this week" style={{ marginTop: '16px' }}>
-              <div className="sp-coming-up-header">
-                <span className="sp-coming-up-eyebrow">Coming up this week</span>
-                <span className="sp-coming-up-week">Week {displayCurrentWeek + 1}</span>
-              </div>
-              <div className="sp-coming-up-list">
-                {comingUpDays.map((cu) => {
-                  const dayShort = cu.day.slice(0, 3).toUpperCase();
-                  const sampleTitle = cu.sample?.title || 'Practice';
-                  return (
-                    <div key={cu.day} className="sp-coming-up-row">
-                      <div className="sp-coming-up-day">
-                        <span className="sp-coming-up-daychip">{dayShort}</span>
-                        {cu.offset === 1 && <span className="sp-coming-up-soon">Tomorrow</span>}
-                      </div>
-                      <div className="sp-coming-up-text">
-                        <div className="sp-coming-up-title">{sampleTitle}</div>
-                        <div className="sp-coming-up-meta">
-                          {cu.incomplete} of {cu.total} task{cu.total === 1 ? '' : 's'}
-                          {cu.incomplete < cu.total && ` · ${cu.total - cu.incomplete} done`}
-                        </div>
-                      </div>
-                      <button type="button" className="sp-coming-up-cta" onClick={() => setActiveView('weeklyView')}>
-                        View →
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
-            </section>
-          )}
-        </div>
-      )}
-
-      {/* ════════════ WEEKLY VIEW TAB ════════════ */}
-      {activeView === 'weeklyView' && (
-      <div className="sp-weekly">
-
-        {/* Plan-updated banner (adaptive plan diff) */}
-        {!deltaDismissed && delta && !delta.isFirst && delta.headline && (
-          <div className="sp-banner is-info">
-            <div className="sp-banner-header">
-              <span className="sp-banner-icon">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
-              </span>
-              <span className="sp-banner-title">Plan Updated</span>
-              <button className="sp-banner-close" onClick={() => {
-                if (studyPlanMeta?.artifactId) localStorage.setItem(`dismissedDelta:${studyPlanMeta.artifactId}`, '1');
-                setDeltaDismissed(true);
-              }}>&times;</button>
-            </div>
-            <div className="sp-banner-content">{delta.headline}</div>
-            {delta.skillChanges?.length > 0 && (
-              <div className="sp-banner-changes">
-                {(showAllSkillChanges ? delta.skillChanges : delta.skillChanges.slice(0, 2)).map((sc, i) => {
-                  const dotColor = sc.direction === 'improved' ? 'var(--sp-done)'
-                    : sc.direction === 'worsened' ? 'var(--sp-error)'
-                    : sc.direction === 'new' ? 'var(--sp-orange)'
-                    : 'var(--sp-text-3)';
-                  const label = (sc.direction === 'improved' || sc.direction === 'worsened')
-                    ? `${sc.skill}: ${sc.oldAccuracy}% → ${sc.newAccuracy}%`
-                    : sc.direction === 'new'
-                    ? `${sc.skill}: new gap found on this test`
-                    : `${sc.skill}: was ${sc.oldAccuracy}%, no longer a weakness`;
-                  return (
-                    <div key={i} className="sp-banner-change">
-                      <span className="sp-banner-change-dot" style={{ background: dotColor }} aria-hidden="true" />
-                      <span>{label}</span>
-                    </div>
-                  );
-                })}
-                {delta.skillChanges.length > 2 && (
-                  <button type="button" className="sp-banner-morebtn" onClick={() => setShowAllSkillChanges(v => !v)}>
-                    {showAllSkillChanges ? 'Show less' : `Show ${delta.skillChanges.length - 2} more`}
-                  </button>
-                )}
-              </div>
-            )}
-            {delta.scoreChange && (
-              <div style={{ marginTop: '10px', fontSize: '13px', color: 'var(--sp-text-3)' }}>
-                Score: {delta.scoreChange.old} → {delta.scoreChange.new} ({delta.scoreChange.delta > 0 ? '+' : ''}{delta.scoreChange.delta} points)
-              </div>
-            )}
-          </div>
-        )}
-
-        {delta?.isFirst && (
-          <div className="sp-banner is-success">
-            <div className="sp-banner-header">
-              <span className="sp-banner-icon"><CheckIcon size={14} color="#fff" /></span>
-              <span className="sp-banner-title">Your First Study Plan</span>
-            </div>
-            <div className="sp-banner-content">
-              This is your focused starter plan, built from your first test. Work through it, then take Practice Test&nbsp;2 — that gathers the data to unlock your full, more personalized plan.
-            </div>
-          </div>
-        )}
-
-        {/* Adaptive coach notes */}
-        {(studyPlan.deltaFromPrevious || studyPlan.persistentWeaknessStrategy) && (
-          <div className="sp-notes">
-            {studyPlan.deltaFromPrevious && (
-              <div className="sp-note">
-                <span className="sp-note-eyebrow">Updated since your last test</span>
-                <p className="sp-note-text">
-                  {deltaExpanded ? deltaText : deltaFirstSentence}
-                  {deltaHasMore && (
-                    <button type="button" className="sp-note-toggle" onClick={() => setDeltaExpanded(v => !v)}>
-                      {deltaExpanded ? 'Show less' : 'Read more'}
-                    </button>
-                  )}
-                </p>
-              </div>
-            )}
-            {studyPlan.persistentWeaknessStrategy && (
-              <div className="sp-note">
-                <span className="sp-note-eyebrow">Stuck skill — different approach needed</span>
-                <p className="sp-note-text">
-                  {strategyExpanded ? strategyText : strategyFirstSentence}
-                  {strategyHasMore && (
-                    <button type="button" className="sp-note-toggle" onClick={() => setStrategyExpanded(v => !v)}>
-                      {strategyExpanded ? 'Show less' : 'Read more'}
-                    </button>
-                  )}
-                </p>
-              </div>
-            )}
-          </div>
-        )}
-
+  // Shared edit-plan controls — rendered in the legacy Weekly tab AND the
+  // v3 timeline (the tab that used to own them is gone when ff:planV3 is on).
+  const editPlanControls = (
+    <>
         {/* Edit-plan toggle (Weekly view) */}
         {onEditPlan && (
           <div className="sp-edit-bar">
@@ -1615,6 +1429,351 @@ const StudyPlanLoaded = ({
             </div>
           </div>
         )}
+    </>
+  );
+
+  return (
+    <div className="study-plan-dashboard sp-with-rail" data-theme="light">
+      <div className="sp-main">
+
+      {studyPlan?.planSource === 'onboarding-starter' && (
+        <div className="sp-starter-note" role="note">
+          Starter plan from your answers. The 15-minute check-in rebuilds it from real evidence.
+        </div>
+      )}
+
+      {/* ── Title bar ─────────────────────────────────────────────── */}
+      {(user?.firstName || user?.targetScore || latestScore !== null) && (
+        <header className="sp-titlebar">
+          <div className="sp-titlebar-id">
+            {variant !== 'inline' && <Avatar user={user} size={AVATAR_SIZES.md} />}
+            <div style={{ minWidth: 0 }}>
+              <h1 className="sp-title">
+                {user?.firstName ? `${user.firstName}'s Study Plan` : 'Your Study Plan'}
+              </h1>
+              <div className="sp-title-meta">
+                {latestScore !== null && (
+                  <span>
+                    <strong>{latestScore}</strong>
+                    {isSectionScaleScore(latestScore, { isMultiSection: latestTest?.isMultiSection }) ? ' now' : ' composite'}
+                  </span>
+                )}
+                {user?.testDate && !testDateIsPast && daysUntilTest !== null && (
+                  <span>test in <strong>{daysUntilTest} day{daysUntilTest === 1 ? '' : 's'}</strong></span>
+                )}
+                {user?.targetScore && (
+                  <span>path to <strong>{user.targetScore}{user.targetScore <= 800 ? ' Math' : ''}</strong></span>
+                )}
+              </div>
+            </div>
+          </div>
+        </header>
+      )}
+
+      {/* ── Plan v3: mission-control arc header ───────────────────── */}
+      {ffPlanV3 && (() => {
+        const cw = weeks[displayCurrentWeek];
+        const visibleWeekActs = (cw?.activities || []).filter(isVisibleActivity);
+        const doneWeekActs = visibleWeekActs.filter((a) => a.completed).length;
+        const arcStart = latestScore ?? studyPlan?.arc?.startScore ?? null;
+        const arcIsEstimate = latestScore === null && studyPlan?.planSource === 'mini-diagnostic';
+        const topInsight = identityInsights[0]
+          ? `${identityInsights[0].stat} ${identityInsights[0].label} — ${identityInsights[0].text}`
+          : null;
+        return (
+          <PlanArcHeader
+            arc={studyPlan?.arc || null}
+            startScoreLabel={arcStart}
+            startScoreIsEstimate={arcIsEstimate}
+            targetScore={user?.targetScore ?? studyPlan?.arc?.targetScore ?? null}
+            currentWeekNumber={displayCurrentWeek + 1}
+            totalWeeks={weeks.length}
+            weekSessionsDone={doneWeekActs}
+            weekSessionsTotal={visibleWeekActs.length}
+            personalizedLine={studyPlan?.summary?.headline || studyPlan?.summary?.diagnosis || ''}
+            insightLine={topInsight}
+            mondayForWeek={mondayForWeek}
+            weekdayIndex={(d) => WEEKDAY_FULL.indexOf(d)}
+          />
+        );
+      })()}
+
+      {/* ── Tabs + date pills (legacy two-tab view — flag OFF) ────── */}
+      {!ffPlanV3 && (
+      <div className="sp-tabs-row">
+          <div className="sp-tabs" role="tablist" aria-label="Study plan view">
+            <button
+              type="button" role="tab"
+              aria-selected={activeView === 'todaysTasks'}
+              className={`sp-tab${activeView === 'todaysTasks' ? ' is-active' : ''}`}
+              onClick={() => setActiveView('todaysTasks')}
+            >
+              Today's Tasks
+              {todaysTasksCount > 0 && <span className="sp-tab-count">{todaysTasksCount}</span>}
+            </button>
+            <button
+              type="button" role="tab"
+              aria-selected={activeView === 'weeklyView'}
+              className={`sp-tab${activeView === 'weeklyView' ? ' is-active' : ''}`}
+              onClick={() => setActiveView('weeklyView')}
+            >
+              Weekly View
+              {weeklyViewCount > 0 && <span className="sp-tab-count">{weeklyViewCount}</span>}
+            </button>
+          </div>
+          <div className="sp-datepills">
+            {practicedThisMonth > 0 && (
+              <span className="sp-datepill is-streak">{practicedThisMonth} DAYS PRACTICED</span>
+            )}
+            <span className="sp-datepill">{todayLongDate.toUpperCase()}</span>
+          </div>
+      </div>
+      )}
+
+      {adaptiveOverlay?.isTriage && (
+        <div className="sp-triage-banner" role="status">
+          Triage mode: prioritizing your highest-impact skills before test day.
+        </div>
+      )}
+
+      {/* ════════════ TODAY'S TASKS — the v3 timeline's anchor, or the legacy tab ════════════ */}
+      {(ffPlanV3 || activeView === 'todaysTasks') && (
+        <div className="sp-today-panel">
+          <div className="sp-today-head">
+            <h2 className="sp-today-date">{ffPlanV3 ? 'This week' : todayLongDate}</h2>
+            <div className="sp-seg" role="tablist" aria-label="Plan section">
+              {SECTION_FILTERS.map((tab) => (
+                <button
+                  key={tab.id} type="button" role="tab"
+                  aria-selected={sectionFilter === tab.id}
+                  className={`sp-seg-btn${sectionFilter === tab.id ? ' is-active' : ''}`}
+                  onClick={() => setSectionFilter(tab.id)}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          {dailyIntro && <p className="sp-today-narrative">{dailyIntro}</p>}
+          {/* Plan v3: the What-Changed moment lives on the timeline (it was
+              buried in the removed Weekly tab). */}
+          {ffPlanV3 && !deltaDismissed && delta && !delta.isFirst && delta.headline && (
+            <div className="sp-banner is-info" style={{ marginBottom: '12px' }}>
+              <div className="sp-banner-header">
+                <span className="sp-banner-title">Plan updated</span>
+                <button className="sp-banner-close" onClick={() => {
+                  if (studyPlanMeta?.artifactId) localStorage.setItem(`dismissedDelta:${studyPlanMeta.artifactId}`, '1');
+                  setDeltaDismissed(true);
+                }}>&times;</button>
+              </div>
+              <div className="sp-banner-content">{delta.headline}</div>
+            </div>
+          )}
+          {/* Plan v3: spaced-repetition dues are TODAY's first session — the
+              standalone Review Queue widget is gone; the science keeps its
+              own timing by riding the day it comes due. */}
+          {ffPlanV3 && todaySlice?.reviewSession?.sessionSize > 0 && (
+            <div className="sp-due-review">
+              <div className="sp-due-review-text">
+                <div className="sp-due-review-title">
+                  Review session — {todaySlice.reviewSession.sessionSize} due
+                </div>
+                <div className="sp-due-review-sub">
+                  Questions you missed before, back at their scheduled moment — clearing them is how they stop costing points.
+                </div>
+              </div>
+              <button type="button" className="sp-due-review-btn" onClick={() => onStartReview && onStartReview()}>
+                Start review
+              </button>
+            </div>
+          )}
+          {!ffPlanV3 && (modules.length > 0 ? (
+            <>
+              <div className="sp-module-list">
+                {visibleModules.map((m, idx) => renderModule(m, idx))}
+              </div>
+              {modules.length > 3 && (
+                <button type="button" className="sp-showall" onClick={() => setShowAllFocus((v) => !v)}>
+                  {showAllFocus ? 'Show fewer' : `Show all ${modules.length} focus skills`}
+                </button>
+              )}
+            </>
+          ) : (
+            <div className="sp-today-empty">
+              {sectionFilter !== 'all'
+                ? `No ${sectionFilter === 'rw' ? 'Reading & Writing' : 'Math'} focus skills flagged right now. Switch to All to see your full plan.`
+                : 'No focus skills flagged right now — your latest test came back clean. Take another test to refresh your plan.'}
+            </div>
+          ))}
+
+          {/* Plan v3: THE timeline — this week's scheduled sessions in one
+              card grammar, today expanded first, behind-you days folded. */}
+          {ffPlanV3 && weeks[displayCurrentWeek] && (
+            renderWeekDays(weeks[displayCurrentWeek], displayCurrentWeek, { upcomingOnly: true })
+              || <div className="sp-today-empty">Nothing scheduled this week — take a test or check-in to refresh your plan.</div>
+          )}
+
+          {!ffPlanV3 && (todaySlice?.kind === 'rest-day'
+            || todaySlice?.kind === 'all-done'
+            || todaySlice?.kind === 'plan-complete')
+            && comingUpDays.length > 0 && (
+            <section className="sp-coming-up" aria-label="Coming up this week" style={{ marginTop: '16px' }}>
+              <div className="sp-coming-up-header">
+                <span className="sp-coming-up-eyebrow">Coming up this week</span>
+                <span className="sp-coming-up-week">Week {displayCurrentWeek + 1}</span>
+              </div>
+              <div className="sp-coming-up-list">
+                {comingUpDays.map((cu) => {
+                  const dayShort = cu.day.slice(0, 3).toUpperCase();
+                  const sampleTitle = cu.sample?.title || 'Practice';
+                  return (
+                    <div key={cu.day} className="sp-coming-up-row">
+                      <div className="sp-coming-up-day">
+                        <span className="sp-coming-up-daychip">{dayShort}</span>
+                        {cu.offset === 1 && <span className="sp-coming-up-soon">Tomorrow</span>}
+                      </div>
+                      <div className="sp-coming-up-text">
+                        <div className="sp-coming-up-title">{sampleTitle}</div>
+                        <div className="sp-coming-up-meta">
+                          {cu.incomplete} of {cu.total} task{cu.total === 1 ? '' : 's'}
+                          {cu.incomplete < cu.total && ` · ${cu.total - cu.incomplete} done`}
+                        </div>
+                      </div>
+                      <button type="button" className="sp-coming-up-cta" onClick={() => setActiveView('weeklyView')}>
+                        View →
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
+          {/* Plan v3: plan editing lives on the timeline (the Weekly tab
+              that owned it is gone). */}
+          {ffPlanV3 && <div style={{ marginTop: '18px' }}>{editPlanControls}</div>}
+
+          {/* Plan v3: upcoming weeks as one-line rows — the arc header names
+              the phases; these show what each week actually holds. */}
+          {ffPlanV3 && weeks.length > displayCurrentWeek + 1 && (
+            <div style={{ marginTop: '18px' }}>
+              {weeks.slice(displayCurrentWeek + 1).map((w) => {
+                const phase = studyPlan?.arc?.phases?.find((p) => p.weekNumbers.includes(w.weekNumber));
+                const visibleCount = (w.activities || []).filter(isVisibleActivity).length;
+                return (
+                  <div key={w.weekNumber} className="sp-upcoming-week">
+                    <span className="sp-upcoming-week-title">
+                      Week {w.weekNumber}{w.title ? ` — ${w.title}` : ''}
+                    </span>
+                    <span className="sp-upcoming-week-meta">
+                      {phase ? `${phase.label} · ` : ''}{visibleCount} session{visibleCount === 1 ? '' : 's'}
+                      {w.isTestWeek ? ' · full test' : w.isCheckInWeek ? ' · check-in' : ''}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ════════════ WEEKLY VIEW TAB (legacy — flag OFF) ════════════ */}
+      {!ffPlanV3 && activeView === 'weeklyView' && (
+      <div className="sp-weekly">
+
+        {/* Plan-updated banner (adaptive plan diff) */}
+        {!deltaDismissed && delta && !delta.isFirst && delta.headline && (
+          <div className="sp-banner is-info">
+            <div className="sp-banner-header">
+              <span className="sp-banner-icon">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
+              </span>
+              <span className="sp-banner-title">Plan Updated</span>
+              <button className="sp-banner-close" onClick={() => {
+                if (studyPlanMeta?.artifactId) localStorage.setItem(`dismissedDelta:${studyPlanMeta.artifactId}`, '1');
+                setDeltaDismissed(true);
+              }}>&times;</button>
+            </div>
+            <div className="sp-banner-content">{delta.headline}</div>
+            {delta.skillChanges?.length > 0 && (
+              <div className="sp-banner-changes">
+                {(showAllSkillChanges ? delta.skillChanges : delta.skillChanges.slice(0, 2)).map((sc, i) => {
+                  const dotColor = sc.direction === 'improved' ? 'var(--sp-done)'
+                    : sc.direction === 'worsened' ? 'var(--sp-error)'
+                    : sc.direction === 'new' ? 'var(--sp-orange)'
+                    : 'var(--sp-text-3)';
+                  const label = (sc.direction === 'improved' || sc.direction === 'worsened')
+                    ? `${sc.skill}: ${sc.oldAccuracy}% → ${sc.newAccuracy}%`
+                    : sc.direction === 'new'
+                    ? `${sc.skill}: new gap found on this test`
+                    : `${sc.skill}: was ${sc.oldAccuracy}%, no longer a weakness`;
+                  return (
+                    <div key={i} className="sp-banner-change">
+                      <span className="sp-banner-change-dot" style={{ background: dotColor }} aria-hidden="true" />
+                      <span>{label}</span>
+                    </div>
+                  );
+                })}
+                {delta.skillChanges.length > 2 && (
+                  <button type="button" className="sp-banner-morebtn" onClick={() => setShowAllSkillChanges(v => !v)}>
+                    {showAllSkillChanges ? 'Show less' : `Show ${delta.skillChanges.length - 2} more`}
+                  </button>
+                )}
+              </div>
+            )}
+            {delta.scoreChange && (
+              <div style={{ marginTop: '10px', fontSize: '13px', color: 'var(--sp-text-3)' }}>
+                Score: {delta.scoreChange.old} → {delta.scoreChange.new} ({delta.scoreChange.delta > 0 ? '+' : ''}{delta.scoreChange.delta} points)
+              </div>
+            )}
+          </div>
+        )}
+
+        {delta?.isFirst && (
+          <div className="sp-banner is-success">
+            <div className="sp-banner-header">
+              <span className="sp-banner-icon"><CheckIcon size={14} color="#fff" /></span>
+              <span className="sp-banner-title">Your First Study Plan</span>
+            </div>
+            <div className="sp-banner-content">
+              This is your focused starter plan, built from your first test. Work through it, then take Practice Test&nbsp;2 — that gathers the data to unlock your full, more personalized plan.
+            </div>
+          </div>
+        )}
+
+        {/* Adaptive coach notes */}
+        {(studyPlan.deltaFromPrevious || studyPlan.persistentWeaknessStrategy) && (
+          <div className="sp-notes">
+            {studyPlan.deltaFromPrevious && (
+              <div className="sp-note">
+                <span className="sp-note-eyebrow">Updated since your last test</span>
+                <p className="sp-note-text">
+                  {deltaExpanded ? deltaText : deltaFirstSentence}
+                  {deltaHasMore && (
+                    <button type="button" className="sp-note-toggle" onClick={() => setDeltaExpanded(v => !v)}>
+                      {deltaExpanded ? 'Show less' : 'Read more'}
+                    </button>
+                  )}
+                </p>
+              </div>
+            )}
+            {studyPlan.persistentWeaknessStrategy && (
+              <div className="sp-note">
+                <span className="sp-note-eyebrow">Stuck skill — different approach needed</span>
+                <p className="sp-note-text">
+                  {strategyExpanded ? strategyText : strategyFirstSentence}
+                  {strategyHasMore && (
+                    <button type="button" className="sp-note-toggle" onClick={() => setStrategyExpanded(v => !v)}>
+                      {strategyExpanded ? 'Show less' : 'Read more'}
+                    </button>
+                  )}
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {editPlanControls}
 
         {/* This week — week carousel */}
         <div className="sp-wk">
