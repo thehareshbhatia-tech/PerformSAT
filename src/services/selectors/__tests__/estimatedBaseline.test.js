@@ -32,6 +32,16 @@ describe('getEstimatedBaseline', () => {
     expect(getEstimatedBaseline({ scoreBand: BAND }, results)).toBeNull();
   });
 
+  test('a BLANK real-test attempt (floor score, nothing answered) does NOT suppress the estimate', () => {
+    // Review finding: blank submissions persist a numeric floor scaledScore;
+    // counting them as "real scores" hid the estimate AND the score hero —
+    // no hero at all, the exact gap this feature fills.
+    const results = {
+      'practice-test-1': { attempts: [{ scaledScore: 400, isMultiSection: true, answeredCount: 0, rawScore: 0 }] },
+    };
+    expect(getEstimatedBaseline({ scoreBand: BAND }, results)).not.toBeNull();
+  });
+
   test('junk rows (no finite score anywhere) do NOT suppress the estimate', () => {
     const results = {
       'practice-test-3': { attempts: [{ scaledScore: null }, { scaledScore: undefined }] },

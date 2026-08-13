@@ -1438,7 +1438,7 @@ const StudyPlanLoaded = ({
 
       {studyPlan?.planSource === 'onboarding-starter' && (
         <div className="sp-starter-note" role="note">
-          Starter plan from your answers. The 15-minute check-in rebuilds it from real evidence.
+          Starter plan from your answers. Your diagnostic check-in rebuilds it from real evidence.
         </div>
       )}
 

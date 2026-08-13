@@ -301,9 +301,12 @@ const StudentDashboard = ({
   // Diagnostic v2: the diagnostic's estimated band fills the Current Score
   // hero ONLY until the first real test score exists (selector enforces the
   // outranking rule). Read-time fallback — never written to the profile.
+  // Flag-gated: the estimated hero is part of Diagnostic v2's dark ship —
+  // legacy v1 records must not light it up on flag-OFF production (that
+  // would make the flag no longer a rollback).
   const estimatedBaseline = useMemo(
-    () => getEstimatedBaseline(miniDiagnostic, practiceTestResults),
-    [miniDiagnostic, practiceTestResults],
+    () => (ffDiagnosticV2 ? getEstimatedBaseline(miniDiagnostic, practiceTestResults) : null),
+    [ffDiagnosticV2, miniDiagnostic, practiceTestResults],
   );
   // Delta vs the PREVIOUS attempt, from the SAME selector as the headline, so
   // the arrow can never contradict the number (e.g. an up-arrow on a lower
@@ -1007,7 +1010,7 @@ const StudentDashboard = ({
                 </div>
                 {studyPlan?.planSource === 'mini-diagnostic' && (
                   <div className="starter-plan-banner" style={{ marginBottom: '14px' }}>
-                    <span className="starter-plan-banner-text">Starter plan, built from your 15-minute check-in. A full practice test sharpens it into a complete diagnosis.</span>
+                    <span className="starter-plan-banner-text">{ffDiagnosticV2 ? 'Starter plan, built from your diagnostic. A full practice test sharpens it into a complete diagnosis.' : 'Starter plan, built from your 15-minute check-in. A full practice test sharpens it into a complete diagnosis.'}</span>
                     <button type="button" className="starter-plan-banner-cta" onClick={onStartPracticeTest}>Take a full test</button>
                   </div>
                 )}
@@ -1080,8 +1083,8 @@ const StudentDashboard = ({
                   <div className="hv2-focus-row">
                     <div className="hv2-focus-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></div>
                     <div className="hv2-focus-text">
-                      <div className="hv2-focus-titlerow"><span className="hv2-focus-title">{showCheckInCard ? 'Take your 15-minute check-in' : 'Take your first practice test'}</span></div>
-                      <p className="hv2-focus-desc">{showCheckInCard ? '24 quick questions build your starter plan — no prep needed.' : 'One test builds your personalized plan from every answer.'}</p>
+                      <div className="hv2-focus-titlerow"><span className="hv2-focus-title">{showCheckInCard ? (ffDiagnosticV2 ? 'Take your diagnostic' : 'Take your 15-minute check-in') : 'Take your first practice test'}</span></div>
+                      <p className="hv2-focus-desc">{showCheckInCard ? (ffDiagnosticV2 ? 'The real test experience, about half a full SAT — it builds your plan from every answer.' : '24 quick questions build your starter plan — no prep needed.') : 'One test builds your personalized plan from every answer.'}</p>
                     </div>
                     <button type="button" className="hv2-btn-primary" onClick={showCheckInCard ? onStartCheckIn : onStartPracticeTest}>
                       {showCheckInCard ? 'Start check-in' : 'Start test'}

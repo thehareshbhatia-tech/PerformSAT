@@ -227,6 +227,19 @@ describe('buildDiagnosticTest — check-in variant', () => {
     expect(mathFocus).toBeGreaterThanOrEqual(3);
   });
 
+  test('check-in math module covers ALL FOUR math domains (geometry included)', async () => {
+    // Review finding: fixed 2-per-domain stratification over 6 MC slots
+    // consumed the first three domains and geometry NEVER appeared in any
+    // check-in — its weaknesses silently vanished from refreshed plans.
+    for (let i = 0; i < 10; i++) {
+      const { test: t } = await buildDiagnosticTest({
+        userId: `checkin-dom-${i}`, attemptId: `cd-${i}`, variant: 'checkin',
+      });
+      const mathDomains = new Set(t.modules[1].questions.map((q) => q.domain));
+      MATH_DOMAIN_ORDER.forEach((d) => expect([...mathDomains]).toContain(d));
+    }
+  }, 20000);
+
   test('no duplicates and deterministic', async () => {
     const args = { userId: 'checkin-user', attemptId: 'c-3', variant: 'checkin' };
     const a = await buildDiagnosticTest(args);

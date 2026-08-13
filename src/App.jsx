@@ -835,8 +835,15 @@ const PerformSAT = () => {
     if (!ffOnRamp || !user || !progressHydrated) return;
     const hasResume = !!(inProgressTests && inProgressTests['mini-diagnostic']);
     // Resume an in-flight check-in even past a skip stamp; never auto-launch
-    // a fresh one.
-    setOnRampActive(hasResume === true);
+    // a fresh one. A student who deliberately exited mid-sitting gets a 24h
+    // snooze (set by the exit handler) instead of a full-screen seize at
+    // every login — the dashboard resume card stays as the way back in.
+    let snoozed = false;
+    try {
+      const ts = Number(localStorage.getItem(`seva:onrampSnooze:${user.uid}`) || 0);
+      snoozed = ts > 0 && (Date.now() - ts) < 24 * 60 * 60 * 1000;
+    } catch { /* storage unavailable — default to resuming */ }
+    setOnRampActive(hasResume === true && !snoozed);
   }, [onRampActive, ffOnRamp, user, progressHydrated, inProgressTests]);
 
   // Inner-onboarding eligibility — decided once per session after hydration.
@@ -884,6 +891,8 @@ const PerformSAT = () => {
   // in Profile).
   const handleResumeOnRamp = () => {
     if (!ensurePracticeAccess()) return;
+    // A deliberate launch clears the exit snooze — the student asked for it.
+    try { localStorage.removeItem(`seva:onrampSnooze:${user?.uid}`); } catch { /* storage unavailable */ }
     setOnRampActive(true);
   };
 
@@ -916,6 +925,12 @@ const PerformSAT = () => {
   // fresh. First-ever diagnostic gets the full 40Q adaptive variant; once a
   // plan or a prior diagnostic exists, check-ins get the ~25-min focused
   // variant weighted toward the plan's current focus skills.
+  // Inputs the async build reads at RUN time, held in a ref so their
+  // per-render identities (plain closures from useProgress, snapshot-churned
+  // objects) never re-trigger the effect — a restarted build re-rolls the
+  // attemptId and re-samples the sitting mid-load.
+  const diagBuildInputsRef = useRef(null);
+  diagBuildInputsRef.current = { getTestProgress, clearTestProgress, answeredQuestionIds, studyPlan, miniDiagnostic, practiceTestResults };
   useEffect(() => {
     if (onRampActive !== true || !ffDiagnosticV2 || !user?.uid) return undefined;
     if (diagnosticTest) return undefined; // built already (or 'error' — retry is explicit)
@@ -924,20 +939,35 @@ const PerformSAT = () => {
       try {
         const { buildDiagnosticTest, rebuildDiagnosticTest } =
           await import('./services/miniDiagnostic/buildDiagnosticTest');
-        const saved = getTestProgress('mini-diagnostic');
+        const inputs = diagBuildInputsRef.current;
+        const saved = inputs.getTestProgress('mini-diagnostic');
         if (saved?.diagnosticManifest) {
           const rebuilt = await rebuildDiagnosticTest(saved.diagnosticManifest);
           if (rebuilt) {
             if (!cancelled) setDiagnosticTest(rebuilt);
             return;
           }
-          clearTestProgress('mini-diagnostic');
+          if (!cancelled) inputs.clearTestProgress('mini-diagnostic');
+        } else if (saved) {
+          // A LEGACY v1-shell record (no manifest): its '0-*'/'1-*' answers
+          // would pre-fill a freshly sampled v2 test with phantom answers on
+          // questions the student never saw — corrupting routing, the band,
+          // and the plan. Clear it and start a fresh sitting.
+          if (!cancelled) inputs.clearTestProgress('mini-diagnostic');
         }
-        // First diagnostic = no diagnostic record yet. A funnel/onboarding
-        // starter plan does NOT count as prior evidence — a brand-new account
-        // with only that scaffold still gets the full 40Q sitting.
-        const isFirstDiagnostic = !miniDiagnostic;
-        const focusSkills = (studyPlan?.weaknesses || [])
+        if (cancelled) return;
+        // First diagnostic = no prior MEASUREMENT: no diagnostic record AND
+        // no scoreable real-test attempt. A funnel/onboarding starter plan is
+        // a scaffold, not evidence — but an account with real test scores has
+        // been measured, and its plan's "Quick check-in" card must launch the
+        // short focused variant it promises, not the 40Q full sitting.
+        const hasRealTestScore = Object.values(inputs.practiceTestResults || {}).some((row) => (
+          Array.isArray(row?.attempts)
+            ? row.attempts.some((a) => Number.isFinite(a?.scaledScore) && (a?.answeredCount ?? 1) > 0)
+            : Number.isFinite(row?.bestScaledScore)
+        ));
+        const isFirstDiagnostic = !inputs.miniDiagnostic && !hasRealTestScore;
+        const focusSkills = (inputs.studyPlan?.weaknesses || [])
           .map((w) => w.skillId)
           .filter(Boolean)
           .slice(0, 6);
@@ -945,7 +975,7 @@ const PerformSAT = () => {
         const { test } = await buildDiagnosticTest({
           userId: user.uid,
           attemptId,
-          excludeIds: answeredQuestionIds || [],
+          excludeIds: inputs.answeredQuestionIds || [],
           variant: isFirstDiagnostic ? 'full' : 'checkin',
           focusSkills,
         });
@@ -956,7 +986,7 @@ const PerformSAT = () => {
       }
     })();
     return () => { cancelled = true; };
-  }, [onRampActive, ffDiagnosticV2, user, diagnosticTest, studyPlan, miniDiagnostic, answeredQuestionIds, getTestProgress, clearTestProgress]);
+  }, [onRampActive, ffDiagnosticV2, user?.uid, diagnosticTest]);
 
   // Leaving the on-ramp drops the built test so the next entry (a later
   // check-in) samples a fresh sitting instead of remounting a finished one.
@@ -976,13 +1006,22 @@ const PerformSAT = () => {
               <p style={{ color: 'var(--color-slate-600)', fontSize: '15px', margin: '0 0 20px' }}>
                 Check your connection and try again.
               </p>
-              <button
-                type="button"
-                onClick={() => setDiagnosticTest(null)}
-                style={{ padding: '12px 24px', borderRadius: '10px', border: 'none', background: '#ea580c', color: '#ffffff', fontWeight: 600, fontSize: '15px', cursor: 'pointer' }}
-              >
-                Try again
-              </button>
+              <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                <button
+                  type="button"
+                  onClick={() => setDiagnosticTest(null)}
+                  style={{ padding: '12px 24px', borderRadius: '10px', border: 'none', background: '#ea580c', color: '#ffffff', fontWeight: 600, fontSize: '15px', cursor: 'pointer' }}
+                >
+                  Try again
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setOnRampActive(false)}
+                  style={{ padding: '12px 24px', borderRadius: '10px', border: '1px solid var(--color-slate-300)', background: '#ffffff', color: 'var(--color-slate-700)', fontWeight: 600, fontSize: '15px', cursor: 'pointer' }}
+                >
+                  Back to home
+                </button>
+              </div>
             </div>
           </div>
         );
@@ -1000,12 +1039,23 @@ const PerformSAT = () => {
               test={diagnosticTest}
               user={user}
               isTimed={true}
-              savedProgress={getTestProgress('mini-diagnostic')}
+              savedProgress={(() => {
+                // Belt for the v1→v2 boundary: never feed the runner a saved
+                // record that lacks the v2 manifest (its answer keys belong
+                // to a different question set).
+                const sp = getTestProgress('mini-diagnostic');
+                return sp?.diagnosticManifest ? sp : null;
+              })()}
               onSaveProgress={(progressData) => { if (user) saveTestProgress('mini-diagnostic', progressData); }}
               onClearProgress={() => clearTestProgress('mini-diagnostic')}
               onDiagnosticFinished={handleOnRampFinished}
               onGoToStudyPlan={() => { setOnRampActive(false); setView('studyPlan'); }}
-              onBack={() => setOnRampActive(false)}
+              onBack={() => {
+                // Deliberate exit: don't re-seize the app at every login for
+                // 24h (the dashboard resume card remains the way back in).
+                try { localStorage.setItem(`seva:onrampSnooze:${user?.uid}`, String(Date.now())); } catch { /* storage unavailable */ }
+                setOnRampActive(false);
+              }}
               answeredQuestionIds={answeredQuestionIds}
               completedLessons={completedLessons}
               practiceProgress={practiceProgress}

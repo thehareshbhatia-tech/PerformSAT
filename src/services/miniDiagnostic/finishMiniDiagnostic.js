@@ -182,6 +182,9 @@ export async function finishMiniDiagnostic({
     questionDetails,
     navigationPattern: navigation?.navigationPattern || 'linear',
     totalNavigationEvents: navigation?.totalNavigationEvents || 0,
+    // Pacing evidence from the timed runner (v2): per-module clock remainders
+    // feed diagnosticEngine's time analysis — absent on v1 shell sittings.
+    ...(navigation?.moduleTimeRemaining ? { moduleTimeRemaining: navigation.moduleTimeRemaining } : {}),
     questionsVisitedMultipleTimes: telemetryValues.filter(t => (t.visits || 0) > 1).length,
     calculatorUsageCount: telemetryValues.filter(t => t.usedCalculator).length,
     markedForReviewCount: telemetryValues.filter(t => t.markedForReview).length,
@@ -274,10 +277,15 @@ export async function finishMiniDiagnostic({
     answeredCount: Object.keys(answers).length,
     totalCount: totalServed,
     // v2 provenance: which experience produced this record and what the
-    // adaptive routing actually served. Absent on v1 shell records.
+    // adaptive routing actually served (null = no routing happened — the
+    // check-in ships no Module-2 variants). Absent on v1 shell records.
     ...(effectiveTest ? {
       diagnosticVariant: test.diagnosticVariant || 'full',
-      routes: { rw: routes?.rw || 'hard', math: routes?.math || 'hard' },
+      routes: { rw: routes?.rw ?? null, math: routes?.math ?? null },
+      // The check-in deliberately over-samples the plan's focus skills, so
+      // its band is NOT a representative score — the save path carries the
+      // last full-variant band forward instead of overwriting the baseline.
+      scoreBandFocusWeighted: (test.diagnosticVariant || 'full') === 'checkin',
     } : {}),
   };
 

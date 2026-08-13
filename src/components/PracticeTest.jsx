@@ -1128,11 +1128,20 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         telemetry: questionTelemetry.current,
         eliminatedChoices,
         attemptId: attemptIdRef.current || generateAttemptId(),
+        // Route provenance only where routing actually HAPPENED — the
+        // check-in variant ships no Module-2 variants, so recording 'hard'
+        // there would assert a routing decision that never occurred.
         routes: {
-          math: module2Variant === 'easy' ? 'easy' : 'hard',
-          rw: rwModule2Variant === 'easy' ? 'easy' : 'hard',
+          math: test.module2Easy ? (module2Variant === 'easy' ? 'easy' : 'hard') : null,
+          rw: test.rwModule2Easy ? (rwModule2Variant === 'easy' ? 'easy' : 'hard') : null,
         },
-        navigation: { navigationPattern, totalNavigationEvents: navHistory.length },
+        navigation: {
+          navigationPattern,
+          totalNavigationEvents: navHistory.length,
+          // Pacing evidence — the timed diagnostic's whole pitch is authentic
+          // pace; without this the diagnosis runs blind on the time dimension.
+          moduleTimeRemaining: { ...moduleTimeRemaining.current },
+        },
         answeredQuestionIds,
         completedLessons,
         practiceProgress,
@@ -2184,6 +2193,23 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       return;
     }
 
+    // Diagnostic floor: a diagnosis (and the study plan minted from it) needs
+    // real evidence. Ending below half the sitting SAVES progress and exits —
+    // it must not run the finish pipeline, which would persist a near-empty
+    // plan, write the miniDiagnostic record (permanently demoting future
+    // sittings to the short check-in), and stamp onboarding complete.
+    if (test?.isDiagnostic) {
+      const totalQ = effectiveModules.reduce((s2, m) => s2 + (m.questions?.length || 0), 0);
+      if (answeredCount < Math.ceil(totalQ * 0.5)) {
+        if (buildProgressRef.current && onSaveProgressRef.current) {
+          onSaveProgressRef.current(buildProgressRef.current());
+        }
+        showToast({ type: 'info', message: `Progress saved (${answeredCount} of ${totalQ} answered). Finish the diagnostic to build your plan.` });
+        onBack?.();
+        return;
+      }
+    }
+
     const mod = currentModuleRef.current;
     const q = currentQuestionRef.current;
     const now = Date.now();
@@ -2197,7 +2223,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     questionStartTime.current = now;
     moduleTimeRemaining.current[mod] = timerSecondsRef.current;
     setTestCompleted(true);
-  }, [onBack, onClearProgress]);
+  }, [onBack, onClearProgress, test, effectiveModules]);
 
   const handleConfirmLeave = useCallback(() => {
     setConfirmAction(null);
@@ -2989,7 +3015,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   if (testCompleted && test?.isDiagnostic) {
     if (diagnosticFinish.phase === 'results' && diagnosticFinish.result) {
       return (
-        <div style={{ height: '100vh', overflowY: 'auto', boxSizing: 'border-box', background: 'var(--color-slate-100)' }}>
+        <div style={{ height: '100vh', overflowY: 'auto', boxSizing: 'border-box', background: 'var(--color-slate-100)', display: 'flex', justifyContent: 'center', padding: '0 16px' }}>
           <MiniDiagnosticResults
             result={diagnosticFinish.result}
             user={user}
@@ -3324,7 +3350,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           is highlighted; the other is clickable. Click triggers
           handleRequestM2Switch, which confirms first if there are answers to
           discard. */}
-      {((currentModule === mathM2Index && !!test.module2Easy) || (currentModule === rwM2Index && !!test.rwModule2Easy)) && !testCompleted && !moduleCompleted && !onReviewPage && (
+      {/* Diagnostics NEVER show the switcher: the whole point is measuring
+          the route the engine picks — a manual override corrupts the score
+          band, the record's routing provenance, and the starter plan. */}
+      {!test?.isDiagnostic && ((currentModule === mathM2Index && !!test.module2Easy) || (currentModule === rwM2Index && !!test.rwModule2Easy)) && !testCompleted && !moduleCompleted && !onReviewPage && (
         <div style={{
           maxWidth: '1100px',
           margin: '12px auto 0',
@@ -4107,9 +4136,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           }}><DocumentIcon size={24} /></div>
         )}
         <p className="modal-text" style={{ textAlign: 'center' }}>
-          {confirmAction === 'endTest' 
-            ? "Unanswered questions will be marked wrong. Your score will be calculated from what you've completed so far."
-            : "Your progress will be saved. You can resume this test later from the test list."
+          {test?.isDiagnostic
+            ? (confirmAction === 'endTest'
+              ? 'Your diagnosis and study plan are built from what you answer — ending early with under half answered saves your progress instead of building a thin plan.'
+              : 'Your progress is saved. Pick the diagnostic back up from Home whenever you are ready.')
+            : (confirmAction === 'endTest'
+              ? "Unanswered questions will be marked wrong. Your score will be calculated from what you've completed so far."
+              : 'Your progress will be saved. You can resume this test later from the test list.')
           }
         </p>
       </Modal>

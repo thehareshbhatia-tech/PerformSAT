@@ -234,9 +234,15 @@ function buildModule({
   const fillinBudget = allowFillins ? Math.min(MAX_FILLINS_PER_MODULE, remainingAfterFocus) : 0;
   const mcTarget = remainingAfterFocus - fillinBudget;
   let mcPicked = 0;
+  // Per-domain quota adapts to the slot count: a fixed 2-per-domain over a
+  // 6-slot check-in module consumed everything on the first three domains
+  // and NEVER served the fourth (geometry vanished from every check-in).
+  // floor(target/domains) guarantees one lap over ALL domains first; the
+  // coverage loop below distributes any remainder.
+  const strataQuota = Math.max(1, Math.min(STRATIFIED_PER_DOMAIN, Math.floor(mcTarget / Math.max(1, perDomain.length))));
   perDomain.forEach(({ shuffled }) => {
     if (mcPicked >= mcTarget) return;
-    const want = Math.min(STRATIFIED_PER_DOMAIN, mcTarget - mcPicked);
+    const want = Math.min(strataQuota, mcTarget - mcPicked);
     const picks = pick(shuffled, want, { preferred, excluded, used, sectionSkills });
     picks.forEach((q) => used.add(q.id));
     mcPicked += picks.length;

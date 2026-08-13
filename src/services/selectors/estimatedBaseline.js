@@ -10,11 +10,16 @@
  * Pure selector: no Firebase, no React.
  */
 
-/** A finite scaled score on any attempt (or a legacy aggregate-only row). */
+import { isScoreableAttempt } from './latestTestStats';
+
+/** A SCOREABLE attempt on any row (or a legacy aggregate-only row). Uses the
+ *  same gate as the Current Score hero (isScoreableAttempt) — a blank/
+ *  abandoned attempt persists a floor scaledScore that must not suppress the
+ *  estimate while ALSO not rendering as a score (that left NO hero at all). */
 const rowHasScore = (row) => {
   if (!row || typeof row !== 'object') return false;
   if (Array.isArray(row.attempts)) {
-    return row.attempts.some((a) => Number.isFinite(a?.scaledScore));
+    return row.attempts.some((a) => isScoreableAttempt(a));
   }
   return Number.isFinite(row.bestScaledScore);
 };
