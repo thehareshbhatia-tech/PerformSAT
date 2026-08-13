@@ -43,18 +43,18 @@ export const practiceTest6M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 3,
-      question: "If $g(x) = 5x + 3$, what is the value of $g(2)$?",
+      question: "The function $m$ multiplies its input by $4$ and then subtracts $3$ from the result. What is the value of $m(6)$?",
       choices: [
-        // distractor: 2 + 5 + 3 = 10
-        { id: "A", text: "$10$" },
-        { id: "B", text: "$13$" },
-        // distractor: stops at 5(2)
-        { id: "C", text: "$8$" },
-        // distractor: subtracts 3 instead of adding
-        { id: "D", text: "$7$" }
+        // distractor: applies the steps in reverse order — subtracts 3 first, then multiplies
+        { id: "A", text: "$12$" },
+        { id: "B", text: "$21$" },
+        // distractor: stops one step early — multiplies by 4 but never subtracts 3
+        { id: "C", text: "$24$" },
+        // distractor: adds 3 instead of subtracting
+        { id: "D", text: "$27$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Substitute $x = 2$: $g(2) = 5(2) + 3 = 13$.\n\n**The Full Solution:**\nStep 1: $g(x) = 5x + 3$ means replace every $x$ with the input.\nStep 2: $g(2) = 5(2) + 3 = 10 + 3 = 13$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): stopped at $5(2) = 10$ and forgot to add $3$.\n* Choice C ($8$): added the input to the slope, $5 + 2 + 1$, instead of multiplying.\n* Choice D ($7$): subtracted $3$ instead of adding: $10 - 3 = 7$.\n\n**Test Day Takeaway:** $g(a)$ means substitute $a$ for $x$ in the rule, then evaluate with order of operations: multiply before you add.",
+      explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Follow the rule in order: $6 \\cdot 4 = 24$, then $24 - 3 = 21$.\n\n**The Full Solution:**\nStep 1: The verbal rule translates to $m(x) = 4x - 3$.\nStep 2: Substitute the input: $m(6) = 4(6) - 3$.\nStep 3: Multiply first, then subtract: $24 - 3 = 21$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): applies the steps in reverse order, computing $(6 - 3) \\cdot 4 = 12$.\n* Choice C ($24$): multiplies by $4$ but never subtracts the $3$.\n* Choice D ($27$): adds $3$ instead of subtracting: $24 + 3 = 27$.\n\n**Test Day Takeaway:** A function described in words is applied in the order the words give: here, multiply first, THEN subtract. Translating to $m(x) = 4x - 3$ keeps the order straight.",
       skills: ["function-evaluation", "function-notation"]
     },
     {

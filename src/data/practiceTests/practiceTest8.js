@@ -369,9 +369,9 @@ export const practiceTest8 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "For the quadratic equation $2x^2 + bx + 18 = 0$ to have exactly one real solution, $b$ must be positive. What is the value of $b$?",
-  correctAnswer: "12",
-  explanation: "**SAT Pattern: Discriminant Analysis**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~15s):** One real solution means the discriminant is $0$: $b^2-4(2)(18)=0 \\Rightarrow b^2=144 \\Rightarrow b=\\pm12$. The positive value is $b=12$.\n\n**The Full Solution:**\nStep 1: For exactly one real solution, set the discriminant $b^2-4ac=0$ with $a=2$, $c=18$.\nStep 2: $b^2-4(2)(18)=0 \\Rightarrow b^2-144=0 \\Rightarrow b^2=144 \\Rightarrow b=\\pm12$.\nStep 3: The problem requires $b>0$, so $b=12$. Check: $2x^2+12x+18=0 \\Rightarrow (x+3)^2=0$, one repeated root. $\\checkmark$\n\n**Common Mistakes:** Dropping the leading coefficient and using $4ac=4(18)=72$ instead of $4(2)(18)=144$; reporting $b=\\pm12$ and ignoring the positivity constraint.\n\n**Test Day Takeaway:** Exactly one real solution $\\iff$ discriminant $=0$. Always include the leading coefficient $a$ in $4ac$.",
+  question: "In the equation $3x^2 - 18x + c = 0$, where $c$ is a constant, the equation has exactly one real solution. What is the value of $c$?",
+  correctAnswer: "27",
+  explanation: "**SAT Pattern: Discriminant Analysis**\n\n**The correct answer is $27$.**\n\n**The Fast Way (~15s):** One real solution means the discriminant is $0$: $(-18)^2-4(3)c=0 \\Rightarrow 324=12c \\Rightarrow c=27$.\n\n**The Full Solution:**\nStep 1: For exactly one real solution, set the discriminant $b^2-4ac=0$ with $a=3$, $b=-18$.\nStep 2: $(-18)^2-4(3)c=0 \\Rightarrow 324-12c=0 \\Rightarrow 12c=324 \\Rightarrow c=27$.\nStep 3: Check: $3x^2-18x+27=3(x^2-6x+9)=3(x-3)^2=0$, one repeated root at $x=3$. $\\checkmark$\n\n**Common Mistakes:** Dropping the leading coefficient and solving $324-4c=0$ to get $c=81$; squaring $-18$ as $-324$ and concluding no positive $c$ works.\n\n**Test Day Takeaway:** Exactly one real solution $\\iff$ discriminant $=0$. The unknown can sit in any slot of $b^2-4ac$ — plug in what you know and solve for the rest.",
   skills: ["discriminant", "quadratic-equations"]
 },
 {

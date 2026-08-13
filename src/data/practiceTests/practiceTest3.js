@@ -103,18 +103,18 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "If $\\dfrac{5x}{8} = \\dfrac{45}{4}$, what is the value of $x - 6$?",
+  question: "The ratio of $x$ to $24$ is equal to the ratio of $2$ to $3$. What is the value of $x + 5$?",
   choices: [
-    // distractor: stops one step early — solves for x = 18 but forgets to subtract 6
-    { id: "A", text: "$18$" },
-    { id: "B", text: "$12$" },
-    // distractor: adds 6 instead of subtracting (wrong sign)
-    { id: "C", text: "$24$" },
-    // distractor: leaves answer at 5x = 90 instead of x
-    { id: "D", text: "$90$" }
+    // distractor: subtracts 5 from x instead of adding
+    { id: "A", text: "$11$" },
+    // distractor: stops one step early — solves for x = 16 but forgets to add 5
+    { id: "B", text: "$16$" },
+    { id: "C", text: "$21$" },
+    // distractor: inverts the ratio — solves x/24 = 3/2, then adds 5
+    { id: "D", text: "$41$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Cross-multiply $\\frac{5x}{8} = \\frac{45}{4}$: $20x = 360$, so $x = 18$. Then $x - 6 = 12$.\n\n**The Full Solution:**\nStep 1: Cross-multiply: $4 \\cdot 5x = 8 \\cdot 45 \\Rightarrow 20x = 360 \\Rightarrow x = 18$.\nStep 2: The question asks for $x - 6$, not $x$: $18 - 6 = 12$, which is choice B.\nStep 3: Check: $\\frac{5(18)}{8} = \\frac{90}{8} = \\frac{45}{4}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($18$): solves for $x$ but forgets to subtract $6$.\n* Choice C ($24$): adds $6$ to $x$ instead of subtracting.\n* Choice D ($90$): stops at $5x = 90$ without dividing.\n\n**Test Day Takeaway:** Re-read the last line before bubbling. The question often wants a shifted quantity ($x - 6$), not the variable itself.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** \"The ratio of $x$ to $24$ equals the ratio of $2$ to $3$\" means $\\frac{x}{24} = \\frac{2}{3}$. Since $24 = 8 \\cdot 3$, $x = 8 \\cdot 2 = 16$. Then $x + 5 = 21$.\n\n**The Full Solution:**\nStep 1: Translate the sentence: $\\dfrac{x}{24} = \\dfrac{2}{3}$.\nStep 2: Cross-multiply: $3x = 48 \\Rightarrow x = 16$.\nStep 3: The question asks for $x + 5$, not $x$: $16 + 5 = 21$, which is choice C.\nCheck: $\\frac{16}{24} = \\frac{2}{3}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($11$): subtracts $5$ from $x$ instead of adding.\n* Choice B ($16$): solves for $x$ but forgets to add $5$.\n* Choice D ($41$): inverts the ratio, solving $\\frac{x}{24} = \\frac{3}{2}$ to get $x = 36$, then adds $5$.\n\n**Test Day Takeaway:** Keep ratio order straight — \"the ratio of $x$ to $24$\" puts $x$ on top — and re-read the last line: the question wants $x + 5$, not $x$.",
   skills: ["solving-equations", "ratios"]
 },
 {

@@ -138,18 +138,18 @@ export const practiceTest9 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 4,
-  question: "A data set is modeled by the linear equation $y = 2.4x + 9.8$. According to this model, what is the predicted value of $y$ when $x = 12$?",
+  question: "A typing course models a student's typing speed with $w(t) = 3.5t + 14$, where $w(t)$ is the predicted speed, in words per minute, after $t$ weeks of practice. According to the model, after how many weeks of practice is the predicted typing speed $70$ words per minute?",
   choices: [
-    // distractor: stops at 2.4 \times 12 = 28.8 — forgets to add 9.8
-    { id: "A", text: "$28.8$" },
-    // distractor: adds only part of the intercept (uses 5)
-    { id: "B", text: "$33.8$" },
-    { id: "C", text: "$38.6$" },
-    // distractor: rounds 2.4 to 3 and 9.8 to 10 — wrong base
-    { id: "D", text: "$46.0$" }
+    { id: "A", text: "$16$" },
+    // distractor: divides 70 by 3.5 without subtracting the intercept
+    { id: "B", text: "$20$" },
+    // distractor: adds the intercept instead of subtracting — solves (70 + 14)/3.5
+    { id: "C", text: "$24$" },
+    // distractor: stops one step early — reports 3.5t = 56
+    { id: "D", text: "$56$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Substitute $x = 12$: $y = 2.4(12) + 9.8 = 28.8 + 9.8 = 38.6$.\n\n**The Full Solution:**\nStep 1: Plug $x = 12$ into $y = 2.4x + 9.8$.\nStep 2: $2.4 \\cdot 12 = 28.8$.\nStep 3: Add the intercept: $28.8 + 9.8 = 38.6$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($28.8$): stops at $2.4 \\cdot 12$ and forgets to add the intercept $9.8$.\n* Choice B ($33.8$): adds too small an intercept (e.g., $5$ instead of $9.8$).\n* Choice D ($46.0$): rounds $2.4 \\to 3$ and $9.8 \\to 10$, getting $3(12) + 10$.\n\n**Test Day Takeaway:** When you evaluate $y = mx + b$, never drop the constant term, and resist rounding the coefficients before you multiply.",
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Set the model equal to $70$: $3.5t + 14 = 70 \\Rightarrow 3.5t = 56 \\Rightarrow t = 16$.\n\n**The Full Solution:**\nStep 1: The question gives the OUTPUT ($70$ words per minute) and asks for the input $t$, so set $w(t) = 70$: $3.5t + 14 = 70$.\nStep 2: Subtract the intercept: $3.5t = 56$.\nStep 3: Divide by the rate: $t = \\dfrac{56}{3.5} = 16$ weeks.\nCheck: $3.5(16) + 14 = 56 + 14 = 70$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($20$): divides $70$ by $3.5$ without first subtracting the intercept $14$.\n* Choice C ($24$): adds the intercept instead of subtracting, solving $\\frac{70 + 14}{3.5}$.\n* Choice D ($56$): stops at $3.5t = 56$ and reports it as the answer.\n\n**Test Day Takeaway:** When a model gives the output and asks for the input, undo the equation in reverse order: subtract the constant first, then divide by the rate.",
   skills: ["scatterplots", "linear-functions"]
 },
 {
@@ -251,18 +251,18 @@ export const practiceTest9 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "Line $p$ has a slope of $-\\dfrac{3}{4}$. Line $q$ is perpendicular to line $p$ and passes through the point $(3, -3)$. What is the $y$-intercept of line $q$?",
+  question: "In the $xy$-plane, line $m$ has equation $6x + 2y = 9$. Line $n$ is perpendicular to line $m$. What is the slope of line $n$?",
   choices: [
-    { id: "A", text: "$-7$" },
-    // distractor: uses the same slope (parallel) instead of perpendicular
-    { id: "B", text: "$-\\dfrac{3}{4}$" },
-    // distractor: forgets to flip the sign — uses -4/3 instead of 4/3
-    { id: "C", text: "$1$" },
-    // distractor: drops the negative sign on the reciprocal — uses 4/3 with sign error
-    { id: "D", text: "$7$" }
+    // distractor: uses the slope of line m itself (parallel, not perpendicular)
+    { id: "A", text: "$-3$" },
+    // distractor: takes the reciprocal but forgets to change the sign
+    { id: "B", text: "$-\\dfrac{1}{3}$" },
+    { id: "C", text: "$\\dfrac{1}{3}$" },
+    // distractor: changes the sign but forgets to take the reciprocal
+    { id: "D", text: "$3$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Flip and negate the slope: $-\\frac{3}{4} \\Rightarrow \\frac{4}{3}$. Plug $(3, -3)$ into $y = \\frac{4}{3}x + b$: $-3 = 4 + b$, so $b = -7$.\n\n**The Full Solution:**\nStep 1: Perpendicular slopes are negative reciprocals. Line $p$ has slope $-\\frac{3}{4}$, so line $q$ has slope $\\frac{4}{3}$.\nStep 2: Use the point $(3, -3)$ in $y = \\frac{4}{3}x + b$: $-3 = \\frac{4}{3}(3) + b = 4 + b$.\nStep 3: Solve: $b = -7$. The $y$-intercept is $-7$.\n\nCheck: at $x = 3$, $\\frac{4}{3}(3) - 7 = 4 - 7 = -3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{3}{4}$): used the slope of $p$ itself instead of the $y$-intercept.\n* Choice C ($1$): kept the slope as $-\\frac{4}{3}$ (negated but not flipped correctly), landing at $b = 1$.\n* Choice D ($7$): dropped the negative sign in the final step.\n\n**Test Day Takeaway:** Perpendicular slopes are negative reciprocals — flip the fraction AND change the sign before using point-slope.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Solve for $y$: $2y = -6x + 9 \\Rightarrow y = -3x + \\frac{9}{2}$, so line $m$ has slope $-3$. The perpendicular slope is the negative reciprocal: $\\frac{1}{3}$.\n\n**The Full Solution:**\nStep 1: Put line $m$ in slope-intercept form: $6x + 2y = 9 \\Rightarrow 2y = -6x + 9 \\Rightarrow y = -3x + \\dfrac{9}{2}$.\nStep 2: Read off the slope of $m$: $-3$.\nStep 3: Perpendicular slopes multiply to $-1$, so the slope of $n$ is $-\\dfrac{1}{-3} = \\dfrac{1}{3}$.\nCheck: $(-3) \\cdot \\dfrac{1}{3} = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): uses the slope of line $m$ itself — that gives a parallel line, not a perpendicular one.\n* Choice B ($-\\frac{1}{3}$): flips the fraction but keeps the negative sign.\n* Choice D ($3$): changes the sign but never takes the reciprocal.\n\n**Test Day Takeaway:** From standard form $Ax + By = C$, isolate $y$ to read the slope. A perpendicular line's slope is the negative reciprocal — flip AND switch the sign.",
   skills: ["slope", "linear-functions", "coordinate-geometry"]
 },
 {
@@ -270,18 +270,18 @@ export const practiceTest9 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The system of equations below has the solution $(x, y)$.\n\n$5x - 4y = 22$\n$3x + 4y = 26$\n\nWhat is the value of $y$?",
+  question: "If $(x, y)$ is the solution to the system of equations $y = 2x - 5$ and $3x + 2y = 18$, what is the value of the product $xy$?",
   choices: [
-    // distractor: stops one step early — gives x instead of y
-    { id: "A", text: "$6$" },
-    { id: "B", text: "$2$" },
-    // distractor: arithmetic error — divides 6 by 6 to get 1
-    { id: "C", text: "$1$" },
-    // distractor: wrong base — picks one of the system coefficients
-    { id: "D", text: "$5$" }
+    // distractor: sign slip when back-substituting — gets y = -3 and xy = -12
+    { id: "A", text: "$-12$" },
+    // distractor: stops one step early — reports x instead of xy
+    { id: "B", text: "$4$" },
+    // distractor: computes x + y instead of xy
+    { id: "C", text: "$7$" },
+    { id: "D", text: "$12$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The $y$-terms are $-4y$ and $+4y$ — opposites. Add the equations: $8x = 48$, so $x = 6$. Then $3(6) + 4y = 26 \\Rightarrow 4y = 8 \\Rightarrow y = 2$.\n\n**The Full Solution:**\nStep 1: Add the two equations to cancel $y$: $(5x - 4y) + (3x + 4y) = 22 + 26$, giving $8x = 48$.\nStep 2: Solve for $x$: $x = 6$.\nStep 3: Substitute into $3x + 4y = 26$: $18 + 4y = 26 \\Rightarrow 4y = 8 \\Rightarrow y = 2$.\n\nCheck: $5(6) - 4(2) = 30 - 8 = 22$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): reported $x$ instead of $y$ — read the target carefully.\n* Choice C ($1$): divided $4$ by $4$ instead of $8$ by $4$ in the last step.\n* Choice D ($5$): grabbed a coefficient from the system rather than solving.\n\n**Test Day Takeaway:** When one variable has opposite coefficients in the two equations, ADD them to eliminate it in a single step.",
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The first equation already gives $y$, so substitute: $3x + 2(2x - 5) = 18 \\Rightarrow 7x - 10 = 18 \\Rightarrow x = 4$. Then $y = 2(4) - 5 = 3$, so $xy = 12$.\n\n**The Full Solution:**\nStep 1: Substitute $y = 2x - 5$ into the second equation: $3x + 2(2x - 5) = 18$.\nStep 2: Distribute and collect: $3x + 4x - 10 = 18 \\Rightarrow 7x = 28 \\Rightarrow x = 4$.\nStep 3: Back-substitute: $y = 2(4) - 5 = 3$.\nStep 4: The question asks for the product: $xy = 4 \\cdot 3 = 12$.\nCheck: $3(4) + 2(3) = 12 + 6 = 18$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): a sign slip in back-substitution gives $y = -3$, so the product comes out negative.\n* Choice B ($4$): stops at $x = 4$ and never computes the product.\n* Choice C ($7$): adds $x + y = 4 + 3$ instead of multiplying.\n\n**Test Day Takeaway:** When one equation is already solved for a variable, substitute it directly — and read the final ask: the question wants $xy$, not $x$ or $y$ alone.",
   skills: ["systems-of-equations", "solving-equations"]
 },
 {
@@ -299,18 +299,18 @@ export const practiceTest9 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "For what value of $c$ does the system of equations below have exactly one solution?\n\n$y = 3x^2 + 13x + 1$\n$y = 5x + c$",
+  question: "In the $xy$-plane, how many points of intersection do the graphs of $y = 3x^2 - 5x + 7$ and $y = 7x - 5$ have?",
   choices: [
-    { id: "A", text: "$c = -\\dfrac{13}{3}$" },
-    // distractor: sign error in the discriminant simplification
-    { id: "B", text: "$c = \\dfrac{13}{3}$" },
-    // distractor: sets 1 - c = 0 instead of using the discriminant
-    { id: "C", text: "$c = 1$" },
-    // distractor: uses (b/2a) directly without applying discriminant
-    { id: "D", text: "$c = -\\dfrac{8}{3}$" }
+    // distractor: takes the discriminant of 3x² - 5x + 7 alone (25 - 84 < 0) without combining
+    { id: "A", text: "Zero" },
+    { id: "B", text: "Exactly one" },
+    // distractor: arithmetic slip combining terms makes the discriminant come out positive
+    { id: "C", text: "Exactly two" },
+    // distractor: misreads the shared y-values as the graphs being identical
+    { id: "D", text: "Infinitely many" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Set the two right sides equal: $3x^2 + 13x + 1 = 5x + c \\Rightarrow 3x^2 + 8x + (1 - c) = 0$. One solution means discriminant $= 0$: $8^2 - 4(3)(1 - c) = 0 \\Rightarrow 64 - 12 + 12c = 0 \\Rightarrow c = -\\frac{13}{3}$.\n\n**The Full Solution:**\nStep 1: Substitute to get a single equation: $3x^2 + 13x + 1 = 5x + c$, which rearranges to $3x^2 + 8x + (1 - c) = 0$.\nStep 2: Exactly one solution requires the discriminant to be zero: $b^2 - 4ac = 8^2 - 4(3)(1 - c) = 0$.\nStep 3: Expand: $64 - 12(1 - c) = 64 - 12 + 12c = 52 + 12c = 0$.\nStep 4: Solve: $12c = -52 \\Rightarrow c = -\\frac{13}{3}$.\n\nCheck: with $c = -\\frac{13}{3}$ the constant is $1 - (-\\frac{13}{3}) = \\frac{16}{3}$, and $64 - 4(3)(\\frac{16}{3}) = 64 - 64 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{13}{3}$): sign error distributing $-12(1 - c)$, flipping the result's sign.\n* Choice C ($1$): set the constant term $1 - c = 0$ instead of the discriminant.\n* Choice D ($-\\frac{8}{3}$): used $-\\frac{b}{a} = -\\frac{8}{3}$ (a roots-sum shortcut) instead of the discriminant.\n\n**Test Day Takeaway:** A line meets a parabola exactly once when the combined equation's discriminant is zero — set the equations equal first, then force $b^2 - 4ac = 0$.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Set the right sides equal: $3x^2 - 5x + 7 = 7x - 5 \\Rightarrow 3x^2 - 12x + 12 = 0 \\Rightarrow x^2 - 4x + 4 = 0 \\Rightarrow (x - 2)^2 = 0$. One repeated root, so exactly one intersection point.\n\n**The Full Solution:**\nStep 1: Intersection points satisfy both equations, so set them equal: $3x^2 - 5x + 7 = 7x - 5$.\nStep 2: Bring everything to one side: $3x^2 - 12x + 12 = 0$, and divide by $3$: $x^2 - 4x + 4 = 0$.\nStep 3: Check the discriminant: $(-4)^2 - 4(1)(4) = 16 - 16 = 0$, so there is exactly one solution, $x = 2$.\nStep 4: The single intersection point is $(2, 9)$: parabola $3(4) - 10 + 7 = 9$ and line $7(2) - 5 = 9$. $\\checkmark$ The line is tangent to the parabola.\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): takes the discriminant of $3x^2 - 5x + 7$ by itself ($25 - 84 < 0$) — that counts the parabola's $x$-intercepts, not intersections with the line. You must combine the equations first.\n* Choice C (Exactly two): an arithmetic slip while combining terms leaves a positive discriminant.\n* Choice D (Infinitely many): the graphs share $y$-values at one $x$ only; they are not the same curve.\n\n**Test Day Takeaway:** To count intersections of two graphs, set the equations equal and apply the discriminant to the COMBINED quadratic: positive means two, zero means tangent (one), negative means none.",
   skills: ["quadratic-equations", "systems-of-equations", "discriminant"]
 },
 {

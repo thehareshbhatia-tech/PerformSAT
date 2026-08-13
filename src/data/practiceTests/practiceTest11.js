@@ -484,18 +484,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "If $\\dfrac{5x}{18} = \\dfrac{45}{4}$, what is the value of $x - 8$?",
+  question: "If $\\dfrac{3}{x} = \\dfrac{5}{x + 8}$, what is the value of $x + 8$?",
   choices: [
-    { id: "A", text: "$32\\dfrac{1}{2}$" },
-    // distractor: stops at x = 40.5 (forgets the - 8)
-    { id: "B", text: "$40\\dfrac{1}{2}$" },
-    // distractor: adds 8 instead of subtracting
-    { id: "C", text: "$48\\dfrac{1}{2}$" },
-    // distractor: leaves answer as 5x = 162.5
-    { id: "D", text: "$162\\dfrac{1}{2}$" }
+    // distractor: crosses the wrong pair — solves 3x = 5(x + 8), getting x = -20
+    { id: "A", text: "$-12$" },
+    // distractor: stops one step early — solves for x = 12 and reports it
+    { id: "B", text: "$12$" },
+    { id: "C", text: "$20$" },
+    // distractor: reports the value of 5x instead of x + 8
+    { id: "D", text: "$60$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Cross-multiply $\\frac{5x}{18}=\\frac{45}{4}$ to get $20x=810$, so $x=40.5$. The question wants $x-8=32.5=32\\frac{1}{2}$.\n\n**The Full Solution:**\nStep 1: Cross-multiply: $4 \\cdot 5x = 18 \\cdot 45 \\Rightarrow 20x = 810$.\nStep 2: Solve: $x = \\frac{810}{20} = 40.5$.\nStep 3: Read the target. The question asks for $x-8$, not $x$: $40.5 - 8 = 32.5 = 32\\frac{1}{2}$, which is choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B ($40\\frac{1}{2}$): solved for $x=40.5$ but forgot the final $-8$.\n* Choice C ($48\\frac{1}{2}$): added $8$ instead of subtracting.\n* Choice D ($162\\frac{1}{2}$): solved $5x=810$ instead of $20x=810$, getting $x=162.5$.\n\n**Test Day Takeaway:** Re-read the last line before bubbling. The question often asks for a shifted quantity like $x-8$, not the variable itself.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Cross-multiply $\\frac{3}{x}=\\frac{5}{x+8}$: $3(x+8)=5x \\Rightarrow 24=2x \\Rightarrow x=12$. The question wants $x+8=20$.\n\n**The Full Solution:**\nStep 1: Cross-multiply, keeping each numerator with the OTHER denominator: $3(x+8) = 5x$.\nStep 2: Distribute and collect: $3x + 24 = 5x \\Rightarrow 24 = 2x \\Rightarrow x = 12$.\nStep 3: Read the target. The question asks for $x+8$, not $x$: $12 + 8 = 20$, which is choice C.\nCheck: $\\frac{3}{12} = \\frac{1}{4}$ and $\\frac{5}{20} = \\frac{1}{4}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): crossed the wrong pair, solving $3x = 5(x+8)$ to get $x = -20$ and $x+8 = -12$.\n* Choice B ($12$): solved for $x$ but forgot the question asks for $x+8$.\n* Choice D ($60$): reported $5x = 60$ instead of $x+8$.\n\n**Test Day Takeaway:** In a proportion, each numerator multiplies the opposite denominator — then re-read the last line, because the question wants $x+8$, not $x$.",
   skills: ["solving-equations", "ratios"]
 },
 {

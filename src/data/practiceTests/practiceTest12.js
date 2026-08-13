@@ -83,18 +83,18 @@ export const practiceTest12 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "If $8x + 5 = 53$, what is the value of $8x - 5$?",
+  question: "If $5(x - 3) = 30$, what is the value of $x - 3$?",
   choices: [
-    // distractor: stops one step early — reports the value of $x$
     { id: "A", text: "$6$" },
-    // distractor: gives $8x = 48$ but forgets to subtract 5
-    { id: "B", text: "$48$" },
-    { id: "C", text: "$43$" },
-    // distractor: applies the inverse operation — re-uses the given total
-    { id: "D", text: "$53$" }
+    // distractor: solves all the way to x and reports x itself
+    { id: "B", text: "$9$" },
+    // distractor: subtracts 3 from 30 instead of dividing by 5
+    { id: "C", text: "$27$" },
+    // distractor: applies the inverse operation — multiplies 30 by 5
+    { id: "D", text: "$150$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** From $8x+5=53$, $8x=48$, so $8x-5=48-5=43$.\n\n**The Full Solution:**\nStep 1: $8x+5=53 \\Rightarrow 8x=48$.\nStep 2: $8x-5 = 48-5 = 43$.\nYou never need $x$ itself: the target differs from the given by $-10$, so $53-10=43$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): solves for $x$ and reports it instead of $8x-5$.\n* Choice B ($48$): stops at $8x=48$ and forgets to subtract $5$.\n* Choice D ($53$): re-uses the given total.\n\n**Test Day Takeaway:** Read the last clause. When it asks for a related expression like $8x-5$, isolate the whole quantity ($8x$), not the variable.",
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** The question asks for $x - 3$, and $5(x-3) = 30$ says five of that quantity make $30$. So $x - 3 = 30 \\div 5 = 6$. No need to find $x$.\n\n**The Full Solution:**\nStep 1: Treat $x - 3$ as a single block: $5 \\cdot (x-3) = 30$.\nStep 2: Divide both sides by $5$: $x - 3 = 6$ — and that is exactly what the question asks for.\nStep 3: (If you solved for $x$ anyway: $x = 9$, and $9 - 3 = 6$, the same answer with an extra step.)\nCheck: $5(9 - 3) = 5 \\cdot 6 = 30$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($9$): solves through to $x$ and reports $x$ instead of $x - 3$.\n* Choice C ($27$): subtracts $3$ from $30$ instead of dividing by $5$.\n* Choice D ($150$): multiplies $30$ by $5$ — the wrong inverse operation.\n\n**Test Day Takeaway:** When the expression the question asks for already sits inside the equation, isolate it as one block instead of solving for the variable first.",
   skills: ["solving-equations"]
 },
 {

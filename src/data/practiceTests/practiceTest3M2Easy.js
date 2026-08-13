@@ -14,18 +14,18 @@ export const practiceTest3M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 2,
-      question: "If $x - 7 = 12$, what is the value of $x$?",
+      question: "What is the solution to the equation $\\dfrac{x}{6} = 12$?",
       choices: [
-        // distractor: subtracts instead of adds
-        { id: "A", text: "$5$" },
-        { id: "B", text: "$19$" },
-        // distractor: stops one step early — leaves as 12
-        { id: "C", text: "$12$" },
-        // distractor: applies the inverse operation — divides
-        { id: "D", text: "$\\dfrac{12}{7}$" }
+        // distractor: applies the inverse operation — divides 12 by 6
+        { id: "A", text: "$2$" },
+        // distractor: subtracts 6 from 12 instead of multiplying
+        { id: "B", text: "$6$" },
+        // distractor: adds 6 and 12 instead of multiplying
+        { id: "C", text: "$18$" },
+        { id: "D", text: "$72$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~3s):** The $-7$ is subtracted from $x$, so add $7$ to both sides: $x = 12 + 7 = 19$.\n\n**The Full Solution:**\nStep 1: Start from $x - 7 = 12$. To isolate $x$, undo the subtraction by adding $7$ to both sides.\nStep 2: $x = 12 + 7 = 19$.\nStep 3: Check: $19 - 7 = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): subtracted $7$ instead of adding, $12 - 7 = 5$.\n* Choice C ($12$): copied the right-hand side without undoing the $-7$.\n* Choice D ($\\frac{12}{7}$): divided by $7$ instead of adding.\n\n**Test Day Takeaway:** To isolate a variable, apply the inverse operation to both sides. Subtraction is undone by addition.",
+      correctAnswer: "D",
+      explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~3s):** $x$ is divided by $6$, so multiply both sides by $6$: $x = 12 \\cdot 6 = 72$.\n\n**The Full Solution:**\nStep 1: In $\\dfrac{x}{6} = 12$, the variable is divided by $6$. Undo the division by multiplying both sides by $6$.\nStep 2: $x = 12 \\cdot 6 = 72$.\nStep 3: Check: $\\dfrac{72}{6} = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): divided $12$ by $6$ — the wrong inverse operation.\n* Choice B ($6$): subtracted $6$ from $12$ instead of multiplying.\n* Choice C ($18$): added $6$ and $12$ instead of multiplying.\n\n**Test Day Takeaway:** To isolate a variable, apply the inverse operation to both sides. Division is undone by multiplication.",
       skills: ["solving-equations", "linear-equations"]
     },
     {
@@ -110,18 +110,18 @@ export const practiceTest3M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The mean of four numbers is $11$. Three of the numbers are $8$, $10$, and $14$. What is the fourth number?",
+      question: "The mean of the $5$ numbers in a list is $16$. When a sixth number is added to the list, the mean of the $6$ numbers is $18$. What is the sixth number?",
       choices: [
-        // distractor: gives the total sum required
-        { id: "A", text: "$44$" },
-        // distractor: averages the three given
-        { id: "B", text: "$\\dfrac{32}{3}$" },
-        { id: "C", text: "$12$" },
-        // distractor: subtracts the mean from the sum of three
-        { id: "D", text: "$21$" }
+        // distractor: takes the difference of the two means
+        { id: "A", text: "$2$" },
+        // distractor: assumes the added number keeps the mean at 16
+        { id: "B", text: "$16$" },
+        // distractor: assumes the added number equals the new mean
+        { id: "C", text: "$18$" },
+        { id: "D", text: "$28$" }
       ],
-      correctAnswer: "C",
-      explanation: "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The four numbers must total $4 \\cdot 11 = 44$. The three given sum to $32$, so the fourth is $44 - 32 = 12$.\n\n**The Full Solution:**\nStep 1: Mean $= \\dfrac{\\text{sum}}{\\text{count}}$, so the total sum is mean $\\times$ count $= 4 \\cdot 11 = 44$.\nStep 2: $8 + 10 + 14 = 32$.\nStep 3: The missing number is $44 - 32 = 12$.\nStep 4: Check: $\\dfrac{8 + 10 + 14 + 12}{4} = \\dfrac{44}{4} = 11$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($44$): stopped at the required total sum instead of the missing value.\n* Choice B ($\\frac{32}{3}$): averaged only the three given numbers.\n* Choice D ($21$): subtracted the mean from the known sum, $32 - 11 = 21$.\n\n**Test Day Takeaway:** Mean $\\times$ count $=$ total sum. To find a missing value, subtract the known sum from that total.",
+      correctAnswer: "D",
+      explanation: "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Work with totals: the new total is $6 \\cdot 18 = 108$ and the old total is $5 \\cdot 16 = 80$. The added number is $108 - 80 = 28$.\n\n**The Full Solution:**\nStep 1: Mean $\\times$ count $=$ total sum. Before: $5 \\cdot 16 = 80$. After: $6 \\cdot 18 = 108$.\nStep 2: The sixth number is whatever the total gained: $108 - 80 = 28$.\nStep 3: Check: $\\dfrac{80 + 28}{6} = \\dfrac{108}{6} = 18$. $\\checkmark$\nIntuition: to pull the mean up from $16$ to $18$, the new number must sit ABOVE the new mean — $28$ is $10$ above $18$, which covers the $2$-point raise for each of the $5$ original numbers.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): takes the difference of the two means — that is the shift per number, not the number added.\n* Choice B ($16$): adding $16$ would keep the mean at $16$, not raise it.\n* Choice C ($18$): adding the new mean itself would leave the mean below $18$, since the original numbers average only $16$.\n\n**Test Day Takeaway:** Means hide totals. Convert every mean to a total (mean $\\times$ count), and the added value is the difference of the totals.",
       skills: ["calculate-mean", "statistics"]
     },
     {

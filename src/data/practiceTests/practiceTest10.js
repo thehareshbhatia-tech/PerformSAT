@@ -66,18 +66,18 @@ export const practiceTest10 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "If $\\dfrac{3x}{14} = \\dfrac{9}{7}$, what is the value of $x + 4$?",
+  question: "Three-fifths of the number $n$ is $24$. What is one-fifth of $n$?",
   choices: [
-    // distractor: stops one step early — solves for x = 6 and reports it
-    { id: "A", text: "$6$" },
-    // distractor: wrong sign — subtracts 4 instead of adding
-    { id: "B", text: "$2$" },
-    { id: "C", text: "$10$" },
-    // distractor: off-by-one — leaves the answer at 3x = 18 instead of x
-    { id: "D", text: "$18$" }
+    // distractor: takes one-fifth of 24 instead of one-fifth of n
+    { id: "A", text: "$4.8$" },
+    { id: "B", text: "$8$" },
+    // distractor: subtracts 8 from 24 — that is two-fifths of n, not one-fifth
+    { id: "C", text: "$16$" },
+    // distractor: stops one step early — solves for n and reports n itself
+    { id: "D", text: "$40$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Cross-multiply: $21x = 126$, so $x = 6$. The question wants $x + 4 = 10$.\n\n**The Full Solution:**\nStep 1: From $\\dfrac{3x}{14} = \\dfrac{9}{7}$, multiply both sides by $14$: $3x = 14 \\cdot \\dfrac{9}{7} = 2 \\cdot 9 = 18$.\nStep 2: Divide by $3$: $x = 6$.\nStep 3: The question asks for $x + 4$, not $x$: $6 + 4 = 10$.\nCheck: $\\dfrac{3(6)}{14} = \\dfrac{18}{14} = \\dfrac{9}{7}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): solves for $x$ but forgets the $+4$ the question asks for.\n* Choice B ($2$): subtracts $4$ from $x$ instead of adding.\n* Choice D ($18$): stops at $3x = 18$ without dividing by $3$.\n\n**Test Day Takeaway:** Re-read the final clause before bubbling in. The question often wants a value built from the variable, not the variable itself.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Three-fifths of $n$ is $24$, so ONE-fifth is a third of that: $24 \\div 3 = 8$. No need to find $n$ at all.\n\n**The Full Solution:**\nStep 1: Translate: $\\dfrac{3}{5}n = 24$.\nStep 2: One-fifth is one third of three-fifths, so $\\dfrac{1}{5}n = \\dfrac{24}{3} = 8$.\nStep 3: Alternatively, solve for $n$ first: $n = 24 \\cdot \\dfrac{5}{3} = 40$, and $\\dfrac{1}{5}(40) = 8$.\nCheck: $\\dfrac{3}{5}(40) = 24$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.8$): takes one-fifth of $24$ instead of one-fifth of $n$.\n* Choice C ($16$): computes $24 - 8 = 16$, which is two-fifths of $n$, not one-fifth.\n* Choice D ($40$): solves for $n$ correctly but reports $n$ instead of one-fifth of $n$.\n\n**Test Day Takeaway:** When fifths of the same number are involved, scale directly: one-fifth is a third of three-fifths. Answer the quantity asked, not the variable you solved for.",
   skills: ["solving-equations", "ratios"]
 },
 {
@@ -302,18 +302,18 @@ export const practiceTest10 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The equation $2x^2 + bx + 18 = 0$ has exactly one real solution. If $b > 0$, what is the value of $b$?",
+  question: "In the equation $x^2 - 10x + c = 0$, where $c$ is a constant, the equation has no real solutions. Which of the following must be true?",
   choices: [
-    // distractor: applies inverse op — divides 144 by something to get 6
-    { id: "A", text: "$6$" },
-    // distractor: off-by-one — miscalculates 4(2)(18) as 100
-    { id: "B", text: "$10$" },
-    { id: "C", text: "$12$" },
-    // distractor: wrong base — uses b² = 4(2)(18) + 4(2) or similar
-    { id: "D", text: "$14$" }
+    // distractor: flips the inequality — treats "no real solutions" as a positive discriminant
+    { id: "A", text: "$c < 25$" },
+    // distractor: sets the discriminant to zero — the "exactly one solution" condition
+    { id: "B", text: "$c = 25$" },
+    { id: "C", text: "$c > 25$" },
+    // distractor: drops the 4 in 4ac and solves 100 - c < 0
+    { id: "D", text: "$c > 100$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Exactly one real solution means the discriminant is $0$: $b^2-4(2)(18)=0 \\Rightarrow b^2=144 \\Rightarrow b=12$ since $b>0$. That is choice C.\n\n**The Full Solution:**\nStep 1: For $ax^2+bx+c=0$, one real solution requires $b^2-4ac=0$.\nStep 2: Substitute $a=2$, $c=18$: $b^2-4(2)(18)=b^2-144=0$.\nStep 3: Solve: $b^2=144$, so $b=\\pm 12$. Since $b>0$, $b=12$.\n\n**Verification:** $2x^2+12x+18=0 \\Rightarrow x^2+6x+9=0 \\Rightarrow (x+3)^2=0$, a single root at $x=-3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): solves $b^2=4 \\cdot \\frac{18}{2}=36$ by mishandling the $4ac$ term.\n* Choice B ($10$): miscomputes $4(2)(18)$ as $100$.\n* Choice D ($14$): adds an extra term to $b^2=144$, overshooting $12$.\n\n**Test Day Takeaway:** Exactly one real solution means the discriminant $b^2-4ac=0$ — set it to zero and solve.",
+  explanation: "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** No real solutions means a negative discriminant: $(-10)^2-4(1)c<0 \\Rightarrow 100<4c \\Rightarrow c>25$.\n\n**The Full Solution:**\nStep 1: For $ax^2+bx+c=0$, no real solutions requires $b^2-4ac<0$.\nStep 2: Here $a=1$ and $b=-10$: $(-10)^2-4(1)c=100-4c<0$.\nStep 3: Solve the inequality: $100<4c \\Rightarrow c>25$.\n\n**Verification:** Try $c=26$: discriminant $=100-104=-4<0$, no real solutions. Try $c=24$: discriminant $=100-96=4>0$, two real solutions. The boundary behaves as claimed. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($c < 25$): flips the inequality — that range gives a positive discriminant and TWO real solutions.\n* Choice B ($c = 25$): sets the discriminant to zero, which is the exactly-one-solution condition, not none.\n* Choice D ($c > 100$): drops the $4$ in $4ac$ and solves $100-c<0$.\n\n**Test Day Takeaway:** Map the words to the discriminant: two real solutions $\\iff b^2-4ac>0$, exactly one $\\iff =0$, none $\\iff <0$.",
   skills: ["quadratic-equations", "discriminant"]
 },
 {
