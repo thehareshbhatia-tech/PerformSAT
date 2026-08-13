@@ -342,7 +342,7 @@ const TwoLineContent = ({
       <line x1={line2Start.x} y1={line2Start.y} x2={line2End.x} y2={line2End.y} stroke="#000" strokeWidth="2" />
 
       {showIntersectionPoint && (
-        <circle cx={intPt.x} cy={intPt.y} r="5" fill="#cc0000" />
+        <circle cx={intPt.x} cy={intPt.y} r="4.5" fill="#000" />
       )}
 
       {intersectionLabel && (
