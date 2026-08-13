@@ -24,18 +24,18 @@ export const practiceTest8M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 2,
-      question: "If $\\dfrac{x}{4} = 7$, what is the value of $x$?",
+      question: "Which value of $w$ is the solution of the equation $2w = w + 11$?",
       choices: [
-        // distractor: divides instead of multiplies
-        { id: "A", text: "$\\dfrac{7}{4}$" },
-        // distractor: stops one step early — keeps as 7
-        { id: "B", text: "$7$" },
-        { id: "C", text: "$28$" },
-        // distractor: subtracts instead
-        { id: "D", text: "$3$" }
+        // distractor: treats the equation as 2w = 11
+        { id: "A", text: "$\\dfrac{11}{2}$" },
+        // distractor: multiplies 11 by 2
+        { id: "B", text: "$22$" },
+        { id: "C", text: "$11$" },
+        // distractor: sign slip when moving w across
+        { id: "D", text: "$-11$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~3s):** Multiply both sides by $4$: $x = 7 \\cdot 4 = 28$.\n\n**The Full Solution:**\nStep 1: The equation $\\frac{x}{4} = 7$ divides $x$ by $4$, so undo it by multiplying both sides by $4$.\nStep 2: $x = 7 \\cdot 4 = 28$. Check: $\\frac{28}{4} = 7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{4}$): divided $7$ by $4$ instead of multiplying.\n* Choice B ($7$): stopped without operating on the right side.\n* Choice D ($3$): subtracted $4$ from $7$ instead of multiplying.\n\n**Test Day Takeaway:** To undo division, multiply; to undo subtraction, add. Apply the inverse operation to both sides equally.",
+      explanation: "**SAT Pattern: Variable on Both Sides**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Subtract $w$ from both sides: $2w - w = 11$, so $w = 11$.\n\n**The Full Solution:**\nStep 1: The variable appears on both sides, so gather it on one side. Subtract $w$ from both sides of $2w = w + 11$.\nStep 2: $2w - w = 11 \\Rightarrow w = 11$.\nStep 3: Check: $2(11) = 22$ and $11 + 11 = 22$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{11}{2}$): ignores the $w$ on the right and solves $2w = 11$.\n* Choice B ($22$): reports $2w$, the value of each side, instead of $w$ itself.\n* Choice D ($-11$): flips the sign while moving the $w$ across the equals sign.\n\n**Test Day Takeaway:** When the variable shows up on both sides, subtract to collect it on one side first — only then divide.",
       skills: ["solving-equations", "linear-equations"]
     },
     {
@@ -81,9 +81,9 @@ export const practiceTest8M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 4,
-      question: "If $5(x + 3) = 35$, what is the value of $x$?",
-      correctAnswer: "4",
-      explanation: "**SAT Pattern: Linear Equation with Distribution**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~5s):** Divide both sides by $5$ first: $x + 3 = 7$, so $x = 4$.\n\n**The Full Solution:**\nStep 1: Divide both sides of $5(x + 3) = 35$ by $5$ to get $x + 3 = 7$.\nStep 2: Subtract $3$: $x = 4$. Check: $5(4 + 3) = 5 \\cdot 7 = 35$. $\\checkmark$\nDistributing first also works: $5x + 15 = 35 \\Rightarrow 5x = 20 \\Rightarrow x = 4$.\n\n**Common Mistakes:** Dropping the factor of $5$ on the constant when distributing; computing $35 \\div 5$ as $5$ instead of $7$.\n\n**Test Day Takeaway:** When a number multiplies a parenthesis, divide both sides by it first whenever the other side is cleanly divisible — it skips the distribution.",
+      question: "Twice a number, decreased by $7$, is equal to the number increased by $5$. What is the number?",
+      correctAnswer: "12",
+      explanation: "**SAT Pattern: Translating a Sentence with the Variable on Both Sides**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~10s):** Translate: $2n - 7 = n + 5$. Subtract $n$: $n - 7 = 5$, so $n = 12$.\n\n**The Full Solution:**\nStep 1: Let $n$ be the number. \"Twice a number, decreased by $7$\" is $2n - 7$; \"the number increased by $5$\" is $n + 5$.\nStep 2: Set them equal: $2n - 7 = n + 5$.\nStep 3: Subtract $n$ from both sides: $n - 7 = 5$, then add $7$: $n = 12$.\nStep 4: Check: $2(12) - 7 = 17$ and $12 + 5 = 17$. $\\checkmark$\n\n**Common Mistakes:** Translating \"decreased by $7$\" as $7 - 2n$ (order matters in subtraction); or combining the $7$ and $5$ by subtraction to get $n = 2$.\n\n**Test Day Takeaway:** Translate phrase by phrase before solving. \"Twice a number decreased by $7$\" means $2n - 7$ — the subtraction comes after the doubling.",
       skills: ["solving-equations", "linear-equations"]
     },
     {
@@ -91,19 +91,19 @@ export const practiceTest8M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "A right triangle has legs of length $5$ and $12$. What is the length of the hypotenuse?",
+      question: "A triangle has a base of length $10$ and an area of $35$. What is the height of the triangle drawn to that base?",
       choices: [
-        // distractor: subtracts squares
-        { id: "A", text: "$\\sqrt{119}$" },
-        { id: "B", text: "$13$" },
-        // distractor: adds without squaring
-        { id: "C", text: "$17$" },
-        // distractor: uses pythagorean for legs only
-        { id: "D", text: "$169$" }
+        // distractor: forgets the 1/2 in the area formula — 35/10
+        { id: "A", text: "$3.5$" },
+        { id: "B", text: "$7$" },
+        // distractor: doubles the correct height
+        { id: "C", text: "$14$" },
+        // distractor: subtracts the base from the area
+        { id: "D", text: "$25$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Pythagorean Theorem (5-12-13)**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $5$-$12$-$13$ is a Pythagorean triple, so the hypotenuse is $13$.\n\n**The Full Solution:**\nStep 1: Apply $c^2 = a^2 + b^2$: $c^2 = 5^2 + 12^2 = 25 + 144 = 169$.\nStep 2: Take the square root: $c = \\sqrt{169} = 13$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\sqrt{119}$): subtracted the squares ($144 - 25$) instead of adding.\n* Choice C ($17$): added the legs $5 + 12$ without squaring.\n* Choice D ($169$): stopped at $c^2$ and forgot to take the square root.\n\n**Test Day Takeaway:** Memorize the common triples — $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, $7$-$24$-$25$ — to skip the arithmetic.",
-      skills: ["pythagorean-theorem", "right-triangles"]
+      explanation: "**SAT Pattern: Solving the Triangle Area Formula for Height**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $A = \\frac{1}{2}bh \\Rightarrow 35 = \\frac{1}{2}(10)h = 5h \\Rightarrow h = 7$.\n\n**The Full Solution:**\nStep 1: Start with the triangle area formula $A = \\frac{1}{2}bh$.\nStep 2: Substitute what is known: $35 = \\frac{1}{2}(10)h$, which simplifies to $35 = 5h$.\nStep 3: Divide by $5$: $h = 7$.\nStep 4: Check: $\\frac{1}{2}(10)(7) = 35$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.5$): forgets the $\\frac{1}{2}$ and solves $10h = 35$.\n* Choice C ($14$): applies the $\\frac{1}{2}$ in the wrong direction, doubling instead of halving the base's effect.\n* Choice D ($25$): subtracts the base from the area, $35 - 10$ — the formula multiplies, it never subtracts.\n\n**Test Day Takeaway:** Area formulas run backward too: substitute what you know into $A = \\frac{1}{2}bh$ and solve for the missing dimension.",
+      skills: ["area", "triangles"]
     },
     {
       id: 7,

@@ -14,18 +14,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 2,
-      question: "If $5x - 7 = 18$, what is the value of $x$?",
+      question: "A climbing gym charges a one-time enrollment fee of $\\$30$ plus $\\$10$ for each visit. So far, Nadia has paid the gym $\\$70$ in total. For how many visits has she paid?",
       choices: [
-        // distractor: applies inverse — subtracts 7 instead of adding
-        { id: "A", text: "$2.2$" },
-        { id: "B", text: "$5$" },
-        // distractor: stops one step early — skips dividing by 5
-        { id: "C", text: "$25$" },
-        // distractor: divides 18 by 5 without first adding 7
-        { id: "D", text: "$3.6$" }
+        // distractor: stops at 70 - 30 = 40 without dividing
+        { id: "A", text: "$40$" },
+        { id: "B", text: "$4$" },
+        // distractor: ignores the enrollment fee — 70 / 10
+        { id: "C", text: "$7$" },
+        // distractor: adds the fee instead of subtracting — (70 + 30) / 10
+        { id: "D", text: "$10$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Undo the $-7$ first, then the $\\times 5$: $5x = 25 \\Rightarrow x = 5$.\n\n**The Full Solution:**\nStep 1: Add $7$ to both sides: $5x - 7 = 18 \\Rightarrow 5x = 25$.\nStep 2: Divide by $5$: $x = \\frac{25}{5} = 5$.\nStep 3: Check: $5(5) - 7 = 25 - 7 = 18$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.2$): subtracted $7$ instead of adding it, then divided: $\\frac{18 - 7}{5} = 2.2$.\n* Choice C ($25$): stopped at $5x = 25$ and forgot to divide by $5$.\n* Choice D ($3.6$): divided $18$ by $5$ before dealing with the $-7$.\n\n**Test Day Takeaway:** Undo a linear equation in reverse order: clear the added or subtracted constant first, then divide by the coefficient.",
+      explanation: "**SAT Pattern: Two-Step Equation from a Fee-Plus-Rate Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Take out the one-time fee: $70 - 30 = 40$ was spent on visits, and $\\frac{40}{10} = 4$ visits.\n\n**The Full Solution:**\nStep 1: Let $v$ be the number of visits. Total paid $=$ fee $+$ $10$ per visit: $30 + 10v = 70$.\nStep 2: Subtract the fee: $10v = 40$.\nStep 3: Divide by the per-visit cost: $v = 4$.\nStep 4: Check: $30 + 10(4) = 70$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($40$): stops at $70 - 30 = 40$ — that is dollars spent on visits, not the number of visits.\n* Choice C ($7$): divides the whole $\\$70$ by $\\$10$, ignoring the enrollment fee.\n* Choice D ($10$): adds the fee instead of removing it, $\\frac{70 + 30}{10}$.\n\n**Test Day Takeaway:** In fee-plus-rate problems, subtract the one-time amount first, then divide by the per-unit rate.",
       skills: ["solving-equations", "linear-equations"]
     },
     {
@@ -43,18 +43,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 3,
-      question: "If $f(x) = 6x + 2$, what is the value of $f(4)$?",
+      question: "If $t(x) = 4x + 9$, what is the value of $t(-2)$?",
       choices: [
-        // distractor: uses 4 + 6 + 2 = 12
-        { id: "A", text: "$12$" },
-        { id: "B", text: "$26$" },
-        // distractor: stops one step early — gives 6(4) without adding 2
-        { id: "C", text: "$24$" },
-        // distractor: applies inverse — subtracts 2 instead of adding
-        { id: "D", text: "$22$" }
+        // distractor: uses +2 instead of -2
+        { id: "A", text: "$17$" },
+        { id: "B", text: "$1$" },
+        // distractor: subtracts 9 instead of adding — -8 - 9
+        { id: "C", text: "$-17$" },
+        // distractor: sign slip on the final sum
+        { id: "D", text: "$-1$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Substitute $x = 4$: $f(4) = 6(4) + 2 = 26$.\n\n**The Full Solution:**\nStep 1: $f(x) = 6x + 2$ means replace every $x$ with the input.\nStep 2: $f(4) = 6(4) + 2 = 24 + 2 = 26$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): added instead of multiplying, $4 + 6 + 2 = 12$.\n* Choice C ($24$): stopped at $6(4) = 24$ and forgot to add $2$.\n* Choice D ($22$): subtracted $2$ instead of adding it.\n\n**Test Day Takeaway:** $f(a)$ means substitute $a$ for $x$ everywhere, then follow order of operations.",
+      explanation: "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Substitute $x = -2$: $t(-2) = 4(-2) + 9 = -8 + 9 = 1$.\n\n**The Full Solution:**\nStep 1: Replace $x$ with $-2$, keeping the parentheses: $t(-2) = 4(-2) + 9$.\nStep 2: Multiply first: $4(-2) = -8$.\nStep 3: Add: $-8 + 9 = 1$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): substitutes $+2$ instead of $-2$, giving $8 + 9$.\n* Choice C ($-17$): subtracts the $9$ instead of adding it, $-8 - 9$.\n* Choice D ($-1$): flips the sign of the correct sum $-8 + 9$.\n\n**Test Day Takeaway:** Wrap a negative input in parentheses before substituting: $4(-2)$ is $-8$, and adding $9$ to $-8$ moves right on the number line, to $1$.",
       skills: ["function-evaluation", "function-notation"]
     },
     {
@@ -81,18 +81,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "What is the slope of the line whose equation is $y = -4x + 9$?",
+      question: "What is the slope of the line with equation $y = 7 - \\dfrac{2}{3}x$?",
       choices: [
-        // distractor: gives the y-intercept
-        { id: "A", text: "$9$" },
-        { id: "B", text: "$-4$" },
+        // distractor: reads the leading constant as the slope
+        { id: "A", text: "$7$" },
+        { id: "B", text: "$-\\dfrac{2}{3}$" },
         // distractor: drops the negative
-        { id: "C", text: "$4$" },
-        // distractor: adds slope and intercept
-        { id: "D", text: "$5$" }
+        { id: "C", text: "$\\dfrac{2}{3}$" },
+        // distractor: flips the fraction
+        { id: "D", text: "$-\\dfrac{3}{2}$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** In $y = mx + b$, the coefficient of $x$ is the slope: $m = -4$.\n\n**The Full Solution:**\nStep 1: $y = -4x + 9$ is already in slope-intercept form $y = mx + b$.\nStep 2: Match terms: slope $m = -4$, $y$-intercept $b = 9$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): read the $y$-intercept $b$ instead of the slope.\n* Choice C ($4$): dropped the negative sign on the coefficient.\n* Choice D ($5$): added slope and intercept, $-4 + 9 = 5$.\n\n**Test Day Takeaway:** In $y = mx + b$, the slope is the number multiplying $x$ — sign included.",
+      explanation: "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Rewrite in $y = mx + b$ order: $y = -\\dfrac{2}{3}x + 7$. The slope is the coefficient of $x$: $-\\dfrac{2}{3}$.\n\n**The Full Solution:**\nStep 1: The terms are written constant-first, so reorder: $y = 7 - \\dfrac{2}{3}x$ is the same as $y = -\\dfrac{2}{3}x + 7$.\nStep 2: Match to $y = mx + b$: slope $m = -\\dfrac{2}{3}$ (the subtraction carries the negative sign), $y$-intercept $b = 7$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): grabs the first number in the equation, but $7$ is the $y$-intercept.\n* Choice C ($\\dfrac{2}{3}$): drops the negative that the subtraction sign attaches to the $x$-term.\n* Choice D ($-\\dfrac{3}{2}$): flips the fraction — that would be a perpendicular slope.\n\n**Test Day Takeaway:** The slope is whatever multiplies $x$, sign included — even when the equation lists the constant first. Reorder mentally before reading off $m$.",
       skills: ["slope-intercept-form", "linear-functions"]
     },
     {
@@ -100,10 +100,10 @@ export const practiceTest5M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 4,
-      question: "A right triangle has legs of length $5$ and $12$. What is the length of the hypotenuse?",
-      correctAnswer: "13",
-      explanation: "**SAT Pattern: Pythagorean Theorem (5-12-13 Triple)**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~5s):** $5$-$12$-$13$ is a classic Pythagorean triple, so the hypotenuse is $13$.\n\n**The Full Solution:**\nStep 1: Apply $c^2 = a^2 + b^2$ with legs $5$ and $12$.\nStep 2: $c^2 = 5^2 + 12^2 = 25 + 144 = 169$.\nStep 3: $c = \\sqrt{169} = 13$.\n\n**Common Mistakes:** Adding without squaring for $5 + 12 = 17$; stopping at $c^2 = 169$ and forgetting the square root.\n\n**Test Day Takeaway:** Memorize the common triples — $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, $7$-$24$-$25$ — to skip the arithmetic.",
-      skills: ["pythagorean-theorem", "right-triangles"]
+      question: "In a right triangle, one of the acute angles measures $34^{\\circ}$. What is the measure, in degrees, of the other acute angle?",
+      correctAnswer: "56",
+      explanation: "**SAT Pattern: Acute Angles of a Right Triangle**\n\n**The correct answer is $56$.**\n\n**The Fast Way (~5s):** The two acute angles of a right triangle add to $90^{\\circ}$, so the other one is $90 - 34 = 56$.\n\n**The Full Solution:**\nStep 1: The three angles of any triangle sum to $180^{\\circ}$, and the right angle uses $90^{\\circ}$ of that.\nStep 2: The two acute angles must share the remaining $180 - 90 = 90^{\\circ}$.\nStep 3: The other acute angle is $90 - 34 = 56^{\\circ}$.\n\n**Common Mistakes:** Subtracting from $180$ instead of $90$ ($180 - 34 = 146$, impossible for an acute angle); or subtracting from $100$ ($100 - 34 = 66$).\n\n**Test Day Takeaway:** In a right triangle, the two acute angles are complementary — they always add to $90^{\\circ}$.",
+      skills: ["triangle-angle-sum", "right-triangles"]
     },
     {
       id: 7,
@@ -148,9 +148,9 @@ export const practiceTest5M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "What is $25\\%$ of $80$?",
-      correctAnswer: "20",
-      explanation: "**SAT Pattern: Basic Percent of a Number**\n\n**The correct answer is $20$.**\n\n**The Fast Way (~5s):** $25\\% = \\frac{1}{4}$, so $25\\%$ of $80$ is $\\frac{80}{4} = 20$.\n\n**The Full Solution:**\nStep 1: Convert: $25\\% = 0.25$ (or $\\frac{1}{4}$).\nStep 2: Multiply by the whole: $0.25 \\cdot 80 = 20$.\n\n**Common Mistakes:** Adding $25 + 80 = 105$; subtracting $80 - 25 = 55$; computing $25 \\cdot 80 = 2000$ without converting the percent.\n\n**Test Day Takeaway:** \"Percent of\" means multiply by the decimal or fraction form: $25\\% = \\frac{1}{4}$, $50\\% = \\frac{1}{2}$, $20\\% = \\frac{1}{5}$.",
+      question: "$18$ is $30\\%$ of what number?",
+      correctAnswer: "60",
+      explanation: "**SAT Pattern: Finding the Whole from a Percent**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~5s):** $0.30 \\cdot n = 18 \\Rightarrow n = \\frac{18}{0.30} = 60$.\n\n**The Full Solution:**\nStep 1: \"$18$ is $30\\%$ of what number\" translates to $18 = 0.30 \\cdot n$.\nStep 2: Divide both sides by $0.30$: $n = \\frac{18}{0.30} = 60$.\nStep 3: Check: $30\\%$ of $60$ is $0.30 \\cdot 60 = 18$. $\\checkmark$\n\n**Common Mistakes:** Multiplying instead of dividing ($18 \\cdot 0.30 = 5.4$) — that finds $30\\%$ OF $18$, a different question; or dividing by $30$ without converting ($\\frac{18}{30} = 0.6$).\n\n**Test Day Takeaway:** \"$a$ is $p\\%$ of what\" means the whole is unknown: whole $= a \\div (p$ as a decimal$)$. The answer must be larger than $a$ whenever $p < 100$.",
       skills: ["percents", "percent-of-number"]
     },
     {
@@ -244,18 +244,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "In a right triangle, an acute angle $\\theta$ satisfies $\\cos(\\theta) = \\dfrac{4}{5}$. What is the value of $\\sin(\\theta)$?",
+      question: "In a right triangle, the two acute angles measure $x^{\\circ}$ and $y^{\\circ}$. If $\\sin(x^{\\circ}) = 0.6$, what is the value of $\\cos(y^{\\circ})$?",
       choices: [
-        // distractor: keeps same fraction
-        { id: "A", text: "$\\dfrac{4}{5}$" },
-        { id: "B", text: "$\\dfrac{3}{5}$" },
-        // distractor: gives tan
-        { id: "C", text: "$\\dfrac{3}{4}$" },
-        // distractor: reciprocal
-        { id: "D", text: "$\\dfrac{5}{4}$" }
+        // distractor: subtracts from 1
+        { id: "A", text: "$0.4$" },
+        { id: "B", text: "$0.6$" },
+        // distractor: computes cos(x°) instead of cos(y°)
+        { id: "C", text: "$0.8$" },
+        // distractor: squares the given value
+        { id: "D", text: "$0.36$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $\\cos(\\theta) = \\frac{\\text{adj}}{\\text{hyp}} = \\frac{4}{5}$ means adjacent $= 4$, hypotenuse $= 5$. That is the $3$-$4$-$5$ triangle, so opposite $= 3$ and $\\sin(\\theta) = \\frac{3}{5}$.\n\n**The Full Solution:**\nStep 1: $\\cos(\\theta) = \\frac{\\text{adjacent}}{\\text{hypotenuse}}$, so adjacent $= 4$ and hypotenuse $= 5$.\nStep 2: Find the opposite side with Pythagoras: $\\text{opp}^2 = 5^2 - 4^2 = 25 - 16 = 9$, so opposite $= 3$.\nStep 3: $\\sin(\\theta) = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{3}{5}$.\n\n**Why the wrong answers are tempting:**\n* Choice A $\\frac{4}{5}$: just repeats the value of $\\cos(\\theta)$.\n* Choice C $\\frac{3}{4}$: this is $\\tan(\\theta) = \\frac{\\text{opp}}{\\text{adj}}$, not $\\sin$.\n* Choice D $\\frac{5}{4}$: this is $\\sec(\\theta) = \\frac{1}{\\cos(\\theta)}$, the reciprocal of cosine.\n\n**Test Day Takeaway:** Given one ratio in a right triangle, label the two named sides, use Pythagoras for the third, then read off the ratio you need. Spot $3$-$4$-$5$ to skip the arithmetic.",
+      explanation: "**SAT Pattern: Cofunction Identity for Complementary Angles**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** The acute angles of a right triangle are complementary, and $\\cos(y^{\\circ}) = \\sin(90^{\\circ} - y^{\\circ}) = \\sin(x^{\\circ}) = 0.6$.\n\n**The Full Solution:**\nStep 1: In a right triangle the acute angles sum to $90^{\\circ}$, so $x + y = 90$.\nStep 2: The side opposite angle $x$ is the side adjacent to angle $y$. So $\\sin(x^{\\circ}) = \\dfrac{\\text{that side}}{\\text{hypotenuse}} = \\cos(y^{\\circ})$.\nStep 3: Therefore $\\cos(y^{\\circ}) = \\sin(x^{\\circ}) = 0.6$ — no computation needed.\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.4$): subtracts from $1$, misapplying $\\sin^2 + \\cos^2 = 1$ without the squares.\n* Choice C ($0.8$): computes $\\cos(x^{\\circ}) = \\sqrt{1 - 0.36}$ — the cosine of the WRONG angle.\n* Choice D ($0.36$): squares the given value, again misusing the Pythagorean identity.\n\n**Test Day Takeaway:** For complementary angles, $\\sin(x^{\\circ}) = \\cos(90^{\\circ} - x^{\\circ})$. The SAT loves this: the sine of one acute angle IS the cosine of the other.",
       skills: ["soh-cah-toa", "right-triangles"]
     },
     {
@@ -273,18 +273,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "If $4(x + 2) - 3x = x + 8$, how many solutions does the equation have?",
+      question: "If $2(3x - 5) = 4x + 8$, how many solutions does the equation have?",
       choices: [
-        { id: "A", text: "Infinitely many" },
-        // distractor: confuses identity with no solutions
+        { id: "A", text: "$1$" },
+        // distractor: misreads different constants as a contradiction
         { id: "B", text: "$0$" },
-        // distractor: assumes one solution
-        { id: "C", text: "$1$" },
+        // distractor: assumes matching x-terms means identity
+        { id: "C", text: "Infinitely many" },
         // distractor: quadratic-like answer
         { id: "D", text: "$2$" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: Identifying Identity Equations**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Distribute the left side: $4x + 8 - 3x = x + 8$, which is exactly the right side. Identical sides $\\Rightarrow$ infinitely many solutions.\n\n**The Full Solution:**\nStep 1: Expand the left side: $4(x + 2) - 3x = 4x + 8 - 3x = x + 8$.\nStep 2: The equation is now $x + 8 = x + 8$.\nStep 3: Subtract $x$ from both sides: $8 = 8$, which is true for every value of $x$.\nStep 4: Since any $x$ works, there are infinitely many solutions.\n\n**Why the wrong answers are tempting:**\n* Choice B $0$: that is the count for a contradiction (like $8 = 9$), not an identity.\n* Choice C $1$: assumes a generic linear equation, but here both sides are identical.\n* Choice D $2$: a quadratic-style count; this equation is linear.\n\n**Test Day Takeaway:** After simplifying both sides, identical sides $\\Rightarrow$ infinitely many solutions; same $x$-coefficient but different constants $\\Rightarrow$ no solution; different $x$-coefficients $\\Rightarrow$ exactly one solution.",
+      explanation: "**SAT Pattern: Counting Solutions of a Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Distribute: $6x - 10 = 4x + 8$. The $x$-coefficients differ ($6 \\ne 4$), so the equation has exactly one solution.\n\n**The Full Solution:**\nStep 1: Distribute the left side: $2(3x - 5) = 6x - 10$.\nStep 2: The equation is $6x - 10 = 4x + 8$. Because the $x$-coefficients are different, the two lines cross exactly once.\nStep 3: Solve it to confirm: $2x = 18 \\Rightarrow x = 9$. Check: $2(27 - 5) = 44$ and $4(9) + 8 = 44$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($0$): zero solutions requires matching $x$-terms with different constants (like $6x - 10 = 6x + 8$) — not the case here.\n* Choice C (Infinitely many): that requires both sides identical after simplifying; $6x - 10$ and $4x + 8$ are not.\n* Choice D ($2$): a quadratic-style count; a linear equation can never have exactly two solutions.\n\n**Test Day Takeaway:** Simplify both sides, then compare $x$-coefficients: different $\\Rightarrow$ one solution; same coefficient, different constants $\\Rightarrow$ none; identical sides $\\Rightarrow$ infinitely many.",
       skills: ["solving-equations", "linear-equations"]
     },
     {
@@ -302,18 +302,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "If $h(x) = x^2 + 4x - 1$, what is the value of $h(-2)$?",
+      question: "The function $h$ is defined by $h(x) = x^2 - 2x$. What is the value of $h(5) - h(4)$?",
       choices: [
-        // distractor: doesn't square the negative correctly
-        { id: "A", text: "$-13$" },
-        // distractor: forgets sign on linear term
-        { id: "B", text: "$11$" },
-        { id: "C", text: "$-5$" },
-        // distractor: stops at x^2 + 4x
-        { id: "D", text: "$-4$" }
+        // distractor: evaluates h(5 - 4) = h(1)
+        { id: "A", text: "$-1$" },
+        // distractor: reports h(5) alone
+        { id: "B", text: "$15$" },
+        { id: "C", text: "$7$" },
+        // distractor: adds h(5) + h(4) instead of subtracting
+        { id: "D", text: "$23$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $h(-2) = (-2)^2 + 4(-2) - 1 = 4 - 8 - 1 = -5$.\n\n**The Full Solution:**\nStep 1: Substitute $x = -2$ into $h(x) = x^2 + 4x - 1$, using parentheses around the negative.\nStep 2: $(-2)^2 = 4$ (squaring removes the sign) and $4(-2) = -8$.\nStep 3: Combine: $h(-2) = 4 - 8 - 1 = -5$.\n\n**Why the wrong answers are tempting:**\n* Choice A $-13$: treats $(-2)^2$ as $-4$, giving $-4 - 8 - 1$.\n* Choice B $11$: uses $+8$ for $4(-2)$ instead of $-8$, giving $4 + 8 - 1$.\n* Choice D $-4$: stops at $4 - 8 = -4$ and forgets to subtract the final $1$.\n\n**Test Day Takeaway:** $(-a)^2 = a^2 \\ge 0$. Wrap a negative input in parentheses before substituting so the square and the products keep the right signs.",
+      explanation: "**SAT Pattern: Difference of Two Function Values**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $h(5) = 25 - 10 = 15$ and $h(4) = 16 - 8 = 8$, so $h(5) - h(4) = 15 - 8 = 7$.\n\n**The Full Solution:**\nStep 1: Evaluate each value separately. $h(5) = 5^2 - 2(5) = 25 - 10 = 15$.\nStep 2: $h(4) = 4^2 - 2(4) = 16 - 8 = 8$.\nStep 3: Subtract: $h(5) - h(4) = 15 - 8 = 7$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): collapses the expression to $h(5 - 4) = h(1) = 1 - 2 = -1$. Function values do not subtract inside the parentheses.\n* Choice B ($15$): computes $h(5)$ and stops, ignoring the $- h(4)$.\n* Choice D ($23$): adds the two values, $15 + 8$, instead of subtracting.\n\n**Test Day Takeaway:** $h(a) - h(b)$ means evaluate twice, then subtract the outputs. It is NOT the same as $h(a - b)$.",
       skills: ["function-evaluation", "function-notation"]
     },
     {
@@ -321,18 +321,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "Line $\\ell$ has equation $y = 2x + 1$. Which of the following is the equation of a line parallel to $\\ell$ that passes through the point $(0, 7)$?",
+      question: "In the $xy$-plane, which of the following is the equation of a line parallel to the line with equation $2x + 3y = 6$?",
       choices: [
-        // distractor: perpendicular slope
-        { id: "A", text: "$y = -\\dfrac{1}{2}x + 7$" },
-        { id: "B", text: "$y = 2x + 7$" },
-        // distractor: keeps original line
-        { id: "C", text: "$y = 2x + 1$" },
-        // distractor: flips the slope sign
-        { id: "D", text: "$y = -2x + 7$" }
+        // distractor: drops the negative when isolating y
+        { id: "A", text: "$y = \\dfrac{2}{3}x + 1$" },
+        { id: "B", text: "$y = -\\dfrac{2}{3}x + 5$" },
+        // distractor: flips the coefficients into -3/2
+        { id: "C", text: "$y = -\\dfrac{3}{2}x + 2$" },
+        // distractor: reads the x-coefficient 2 as the slope
+        { id: "D", text: "$y = 2x - 3$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Parallel lines share a slope, so the slope is $2$. The line passes through $(0, 7)$, so the $y$-intercept is $7$: $y = 2x + 7$.\n\n**The Full Solution:**\nStep 1: Parallel lines have identical slopes, so the new line has slope $2$.\nStep 2: The point $(0, 7)$ has $x = 0$, which is the $y$-intercept, so $b = 7$.\nStep 3: Write the equation: $y = 2x + 7$. Check: $2(0) + 7 = 7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A $y = -\\frac{1}{2}x + 7$: uses the perpendicular slope $-\\frac{1}{2}$ instead of the parallel slope $2$.\n* Choice C $y = 2x + 1$: the original line — it has the right slope but does not pass through $(0, 7)$.\n* Choice D $y = -2x + 7$: flips the sign of the slope to $-2$, so the line is no longer parallel.\n\n**Test Day Takeaway:** Parallel means same slope. Perpendicular means the negative reciprocal — flip the fraction and change the sign.",
+      explanation: "**SAT Pattern: Parallel Slopes from Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Solve for $y$: $3y = -2x + 6 \\Rightarrow y = -\\dfrac{2}{3}x + 2$. The slope is $-\\dfrac{2}{3}$, and the only choice with that slope is $y = -\\dfrac{2}{3}x + 5$.\n\n**The Full Solution:**\nStep 1: Convert $2x + 3y = 6$ to slope-intercept form. Subtract $2x$: $3y = -2x + 6$.\nStep 2: Divide by $3$: $y = -\\dfrac{2}{3}x + 2$, so the slope is $-\\dfrac{2}{3}$.\nStep 3: Parallel lines have equal slopes and different intercepts. Choice B has slope $-\\dfrac{2}{3}$ and intercept $5 \\ne 2$, so it is a distinct parallel line.\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = \\dfrac{2}{3}x + 1$): loses the negative sign when moving $2x$ across the equals sign.\n* Choice C ($y = -\\dfrac{3}{2}x + 2$): flips the coefficients into $-\\dfrac{3}{2}$ — that is the reciprocal, not the slope.\n* Choice D ($y = 2x - 3$): reads the $x$-coefficient $2$ straight off standard form as if it were the slope.\n\n**Test Day Takeaway:** A line in standard form $Ax + By = C$ has slope $-\\dfrac{A}{B}$. Convert to $y = mx + b$ (or use that shortcut) before comparing slopes.",
       skills: ["parallel-line-slope", "writing-parallel-equation"]
     },
     {

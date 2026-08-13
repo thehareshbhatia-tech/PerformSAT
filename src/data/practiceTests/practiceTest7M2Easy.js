@@ -14,18 +14,18 @@ export const practiceTest7M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 2,
-      question: "If $2x + 3 = 11$, what is the value of $x$?",
+      question: "After giving away $15$ of her stickers, Lena has $27$ stickers left. How many stickers did Lena have at the start?",
       choices: [
-        // distractor: applies the inverse operation — adds 3 instead of subtracting
-        { id: "A", text: "$7$" },
-        { id: "B", text: "$4$" },
-        // distractor: stops one step early — divides 11 by 2 forgetting the 3
-        { id: "C", text: "$5.5$" },
-        // distractor: off-by-one — subtracts but doesn't divide
-        { id: "D", text: "$8$" }
+        // distractor: subtracts instead of adding back
+        { id: "A", text: "$12$" },
+        { id: "B", text: "$42$" },
+        // distractor: adds 15 twice
+        { id: "C", text: "$57$" },
+        // distractor: multiplies the two numbers
+        { id: "D", text: "$405$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Undo the $+3$ first, then the $\\times 2$: $2x = 8 \\Rightarrow x = 4$.\n\n**The Full Solution:**\nStep 1: Subtract $3$ from both sides: $2x + 3 = 11 \\Rightarrow 2x = 8$.\nStep 2: Divide both sides by $2$: $x = \\frac{8}{2} = 4$.\nStep 3: Check: $2(4) + 3 = 8 + 3 = 11$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): added $3$ instead of subtracting, then divided $14$ by $2$.\n* Choice C ($5.5$): divided $11$ by $2$ without subtracting the $3$ first.\n* Choice D ($8$): subtracted correctly but forgot to divide by $2$.\n\n**Test Day Takeaway:** Reverse the order of operations to isolate the variable: undo addition and subtraction first, then undo multiplication and division.",
+      explanation: "**SAT Pattern: Working Backward from a Result**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** She ended with $27$ after losing $15$, so she started with $27 + 15 = 42$.\n\n**The Full Solution:**\nStep 1: Let $s$ be the starting number of stickers. Giving away $15$ leaves $s - 15$.\nStep 2: Set up the equation: $s - 15 = 27$.\nStep 3: Add $15$ to both sides: $s = 42$.\nStep 4: Check: $42 - 15 = 27$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): subtracts again, $27 - 15$, moving the wrong direction in time.\n* Choice C ($57$): adds the $15$ twice, $27 + 15 + 15$.\n* Choice D ($405$): multiplies $27 \\cdot 15$ — the wrong operation entirely.\n\n**Test Day Takeaway:** To find a starting amount, undo what happened: if something was taken away, add it back. Check by replaying the story forward.",
       skills: ["solving-equations", "linear-equations"]
     },
     {
@@ -292,9 +292,9 @@ export const practiceTest7M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 6,
-      question: "A circle has center $(0, 0)$ and passes through the point $(3, 4)$. What is the radius of the circle?",
-      correctAnswer: "5",
-      explanation: "**SAT Pattern: Distance from Center as Radius**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~5s):** The radius is the distance from $(0,0)$ to $(3,4)$: $\\sqrt{3^2 + 4^2} = \\sqrt{25} = 5$. (It is the $3$-$4$-$5$ triple.)\n\n**The Full Solution:**\nStep 1: The radius equals the distance from the center to any point on the circle.\nStep 2: Apply the distance formula: $r = \\sqrt{(3 - 0)^2 + (4 - 0)^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$.\nStep 3: Verify with the circle's equation $x^2 + y^2 = 25$: $3^2 + 4^2 = 25$. $\\checkmark$\n\n**Common Mistakes:** Adding without squaring gives $3 + 4 = 7$; forgetting the square root leaves $25$; reporting the diameter gives $10$.\n\n**Test Day Takeaway:** The radius is the distance from the center to any point on the circle. The equation $x^2 + y^2 = r^2$ is just the distance formula in disguise.",
+      question: "A circle in the $xy$-plane has equation $(x - 3)^2 + (y + 2)^2 = 36$. What is the radius of the circle?",
+      correctAnswer: "6",
+      explanation: "**SAT Pattern: Reading the Radius from a Circle Equation**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~5s):** In $(x - h)^2 + (y - k)^2 = r^2$, the right side is $r^2$. Here $r^2 = 36$, so $r = 6$.\n\n**The Full Solution:**\nStep 1: The standard form of a circle is $(x - h)^2 + (y - k)^2 = r^2$ with center $(h, k)$ and radius $r$.\nStep 2: Match the given equation: center $(3, -2)$ and $r^2 = 36$.\nStep 3: Take the positive square root: $r = \\sqrt{36} = 6$.\n\n**Common Mistakes:** Reporting $36$ (that is $r^2$, not $r$); halving instead of square-rooting ($\\frac{36}{2} = 18$); or reading the center's coordinates as if they affected the radius.\n\n**Test Day Takeaway:** In circle standard form, the number on the right is $r^2$ — always square-root it. The center is $(h, k)$ with the SIGNS FLIPPED from what appears inside the parentheses.",
       skills: ["circle-equation", "circles"]
     },
     {

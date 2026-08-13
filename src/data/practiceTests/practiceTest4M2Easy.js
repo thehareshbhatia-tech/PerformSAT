@@ -14,18 +14,18 @@ export const practiceTest4M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 2,
-      question: "If $5x = 45$, what is the value of $x$?",
+      question: "Deshawn pays $\\$45$ for $5$ identical picture frames. What is the price, in dollars, of one picture frame?",
       choices: [
-        // distractor: subtracts instead of divides
-        { id: "A", text: "$40$" },
-        { id: "B", text: "$9$" },
-        // distractor: adds instead of divides
-        { id: "C", text: "$50$" },
-        // distractor: leaves as 45 (stops one step early)
-        { id: "D", text: "$45$" }
+        // distractor: subtracts 5 from 45
+        { id: "A", text: "$\\$40$" },
+        { id: "B", text: "$\\$9$" },
+        // distractor: adds 5 to 45
+        { id: "C", text: "$\\$50$" },
+        // distractor: multiplies 45 by 5
+        { id: "D", text: "$\\$225$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~3s):** Divide both sides by $5$: $x = \\frac{45}{5} = 9$.\n\n**The Full Solution:**\nStep 1: The equation is $5x = 45$. To isolate $x$, undo the multiplication by $5$.\nStep 2: Divide both sides by $5$: $x = \\frac{45}{5} = 9$.\nStep 3: Check: $5(9) = 45$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($40$): subtracts $5$ from $45$ instead of dividing.\n* Choice C ($50$): adds $5$ to $45$ instead of dividing.\n* Choice D ($45$): leaves $45$ unchanged, ignoring the coefficient.\n\n**Test Day Takeaway:** To undo multiplication, divide both sides by the coefficient. To undo division, multiply.",
+      explanation: "**SAT Pattern: Equal Groups — Finding a Unit Price**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Five identical frames cost $\\$45$, so one frame costs $\\frac{45}{5} = \\$9$.\n\n**The Full Solution:**\nStep 1: Let $p$ be the price of one frame. Five identical frames cost $5p$, so $5p = 45$.\nStep 2: Divide both sides by $5$: $p = \\frac{45}{5} = 9$.\nStep 3: Check: $5 \\cdot \\$9 = \\$45$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$40$): subtracts the count from the total, $45 - 5$.\n* Choice C ($\\$50$): adds the count to the total, $45 + 5$.\n* Choice D ($\\$225$): multiplies the total by the count, $45 \\cdot 5$.\n\n**Test Day Takeaway:** \"Total for $n$ identical items\" means unit price $= \\text{total} \\div n$. A unit price must be smaller than the total.",
       skills: ["solving-equations", "linear-equations"]
     },
     {
@@ -33,9 +33,9 @@ export const practiceTest4M2Easy = {
       type: "fill-in",
       difficulty: "easy",
       band: 2,
-      question: "What is $30\\%$ of $50$?",
-      correctAnswer: "15",
-      explanation: "**SAT Pattern: Percent of a Number**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~3s):** $30\\%$ of $50$ is $0.30 \\cdot 50 = 15$.\n\n**The Full Solution:**\nStep 1: Convert the percent to a decimal: $30\\% = 0.30$.\nStep 2: Multiply by the number: $0.30 \\cdot 50 = 15$.\n\nEquivalently, $\\frac{30}{100} \\cdot 50 = \\frac{3}{10} \\cdot 50 = 15$.\n\n**Common Mistakes:** Forgetting to convert and computing $30 \\cdot 50 = 1500$; or dividing instead of multiplying and getting $\\frac{50}{30} \\approx 1.67$.\n\n**Test Day Takeaway:** \"Percent of\" means percent (as a decimal) $\\times$ number. Convert $X\\%$ to $\\frac{X}{100}$, or shift the decimal two places left.",
+      question: "$12$ is what percent of $48$?",
+      correctAnswer: "25",
+      explanation: "**SAT Pattern: Finding the Percent**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~5s):** $\\frac{12}{48} = \\frac{1}{4}$, and $\\frac{1}{4} = 25\\%$.\n\n**The Full Solution:**\nStep 1: \"$12$ is what percent of $48$\" translates to $12 = \\frac{p}{100} \\cdot 48$.\nStep 2: Divide the part by the whole: $\\frac{12}{48} = \\frac{1}{4} = 0.25$.\nStep 3: Convert to a percent: $0.25 = 25\\%$.\n\n**Common Mistakes:** Dividing the whole by the part ($\\frac{48}{12} = 4$, so answering $4$); or subtracting ($48 - 12 = 36$).\n\n**Test Day Takeaway:** \"$a$ is what percent of $b$\" means $\\frac{a}{b} \\cdot 100$. The number after \"of\" is always the denominator.",
       skills: ["percent-of-value", "percents"]
     },
     {

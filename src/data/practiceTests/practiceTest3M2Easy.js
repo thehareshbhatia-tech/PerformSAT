@@ -43,18 +43,18 @@ export const practiceTest3M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 3,
-      question: "If $g(x) = 3x + 8$, what is the value of $g(2)$?",
+      question: "If $p(x) = x^2 - 1$, what is the value of $p(5)$?",
       choices: [
-        // distractor: uses 2 + 3 + 8 = 13 (wrong operation)
-        { id: "A", text: "$13$" },
-        { id: "B", text: "$14$" },
-        // distractor: stops one step early — gives 3(2) without adding
-        { id: "C", text: "$6$" },
-        // distractor: subtracts instead of adds
-        { id: "D", text: "$-2$" }
+        // distractor: doubles instead of squaring — 2(5) - 1
+        { id: "A", text: "$9$" },
+        { id: "B", text: "$24$" },
+        // distractor: adds 1 instead of subtracting
+        { id: "C", text: "$26$" },
+        // distractor: evaluates (5 - 1)^2
+        { id: "D", text: "$16$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Substitute $x = 2$: $g(2) = 3(2) + 8 = 14$.\n\n**The Full Solution:**\nStep 1: $g(x) = 3x + 8$ means replace every $x$ with the input value.\nStep 2: $g(2) = 3(2) + 8$.\nStep 3: Multiply first, then add: $6 + 8 = 14$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$): added everything, $2 + 3 + 8 = 13$, instead of multiplying first.\n* Choice C ($6$): stopped at $3(2) = 6$ and forgot the $+8$.\n* Choice D ($-2$): subtracted $8$ instead of adding, $6 - 8 = -2$.\n\n**Test Day Takeaway:** $g(a)$ means substitute $a$ for $x$ everywhere, then follow order of operations: multiply before you add.",
+      explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Substitute $x = 5$: $p(5) = 5^2 - 1 = 25 - 1 = 24$.\n\n**The Full Solution:**\nStep 1: $p(x) = x^2 - 1$ means square the input, then subtract $1$.\nStep 2: Square first: $5^2 = 25$.\nStep 3: Subtract: $25 - 1 = 24$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): doubled instead of squaring, $2(5) - 1 = 9$.\n* Choice C ($26$): added $1$ instead of subtracting, $25 + 1 = 26$.\n* Choice D ($16$): subtracted before squaring, $(5 - 1)^2 = 16$.\n\n**Test Day Takeaway:** $x^2$ means $x \\cdot x$, not $2x$. Apply the rule in the written order: square first, then subtract.",
       skills: ["function-evaluation", "function-notation"]
     },
     {
@@ -100,10 +100,10 @@ export const practiceTest3M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 4,
-      question: "A right triangle has legs of length $9$ and $12$. What is the length of the hypotenuse?",
-      correctAnswer: "15",
-      explanation: "**SAT Pattern: Pythagorean Theorem (3-4-5 Family)**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~5s):** $9$-$12$-$15$ is $3 \\times$ the $3$-$4$-$5$ triple, so the hypotenuse is $15$.\n\n**The Full Solution:**\nStep 1: Use $c^2 = a^2 + b^2$ with legs $9$ and $12$.\nStep 2: $c^2 = 9^2 + 12^2 = 81 + 144 = 225$.\nStep 3: $c = \\sqrt{225} = 15$.\n\n**Common Mistakes:** Adding without squaring, $9 + 12 = 21$; forgetting the square root and reporting $225$.\n\n**Test Day Takeaway:** Memorize the common triples $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$ and their multiples. $9$-$12$-$15$ is just $3 \\times 3$-$4$-$5$.",
-      skills: ["pythagorean-theorem", "right-triangles"]
+      question: "In the $xy$-plane, what is the distance between the points $(1, 2)$ and $(9, 17)$?",
+      correctAnswer: "17",
+      explanation: "**SAT Pattern: Distance Between Two Points**\n\n**The correct answer is $17$.**\n\n**The Fast Way (~10s):** The horizontal change is $9 - 1 = 8$ and the vertical change is $17 - 2 = 15$. Legs $8$ and $15$ give the $8$-$15$-$17$ triple, so the distance is $17$.\n\n**The Full Solution:**\nStep 1: Distance is the hypotenuse of a right triangle whose legs are the coordinate changes: $\\Delta x = 9 - 1 = 8$ and $\\Delta y = 17 - 2 = 15$.\nStep 2: Apply the Pythagorean theorem: $d^2 = 8^2 + 15^2 = 64 + 225 = 289$.\nStep 3: $d = \\sqrt{289} = 17$.\n\n**Common Mistakes:** Adding the changes without squaring ($8 + 15 = 23$); subtracting the squares instead of adding; or forgetting the square root and reporting $289$.\n\n**Test Day Takeaway:** Distance between points $= \\sqrt{(\\Delta x)^2 + (\\Delta y)^2}$ — the Pythagorean theorem applied to the coordinate grid.",
+      skills: ["pythagorean-theorem", "distance-formula"]
     },
     {
       id: 7,
@@ -244,18 +244,18 @@ export const practiceTest3M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "In a right triangle, an acute angle $\\theta$ satisfies $\\cos(\\theta) = \\dfrac{8}{17}$. What is the value of $\\sin(\\theta)$?",
+      question: "In right triangle $DEF$, the measure of angle $F$ is $90^{\\circ}$, $DF = 8$, $EF = 15$, and $DE = 17$. What is the value of $\\sin(D)$?",
       choices: [
-        // distractor: gives the same fraction
+        // distractor: uses the adjacent side — that is cos(D)
         { id: "A", text: "$\\dfrac{8}{17}$" },
         { id: "B", text: "$\\dfrac{15}{17}$" },
-        // distractor: gives tan instead of sin
+        // distractor: opposite over adjacent — that is tan(D)
         { id: "C", text: "$\\dfrac{15}{8}$" },
-        // distractor: reciprocal
-        { id: "D", text: "$\\dfrac{17}{8}$" }
+        // distractor: adjacent over opposite
+        { id: "D", text: "$\\dfrac{8}{15}$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: SOH-CAH-TOA in an 8-15-17 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $\\cos(\\theta) = \\frac{\\text{adj}}{\\text{hyp}} = \\frac{8}{17}$ means adjacent $= 8$, hypotenuse $= 17$, so the opposite is $\\sqrt{17^2 - 8^2} = \\sqrt{225} = 15$ and $\\sin(\\theta) = \\frac{15}{17}$.\n\n**The Full Solution:**\nStep 1: From $\\cos(\\theta) = \\frac{8}{17}$, label adjacent $= 8$ and hypotenuse $= 17$.\nStep 2: Find the opposite side with the Pythagorean theorem: $\\text{opp}^2 = 17^2 - 8^2 = 289 - 64 = 225 \\Rightarrow \\text{opp} = 15$.\nStep 3: $\\sin(\\theta) = \\frac{\\text{opp}}{\\text{hyp}} = \\frac{15}{17}$. This is the $8$-$15$-$17$ right triangle.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{17}$): just repeats $\\cos(\\theta)$.\n* Choice C ($\\frac{15}{8}$): that is $\\tan(\\theta) = \\frac{\\text{opp}}{\\text{adj}}$, not the sine.\n* Choice D ($\\frac{17}{8}$): that is $\\sec(\\theta)$, the reciprocal of cosine.\n\n**Test Day Takeaway:** Given one trig ratio, sketch the right triangle, label two sides, and use the Pythagorean theorem for the third. Memorize the triples $3$-$4$-$5$, $5$-$12$-$13$, and $8$-$15$-$17$.",
+      explanation: "**SAT Pattern: SOH-CAH-TOA from Labeled Sides**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The right angle is at $F$, so the hypotenuse is $DE = 17$. The side opposite angle $D$ is $EF = 15$, so $\\sin(D) = \\dfrac{15}{17}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse is always opposite the right angle: since angle $F$ is $90^{\\circ}$, the hypotenuse is $DE = 17$.\nStep 2: The side opposite angle $D$ is the side that does not touch $D$: that is $EF = 15$. The side $DF = 8$ is adjacent to angle $D$.\nStep 3: $\\sin(D) = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{15}{17}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{8}{17}$): uses the adjacent side $DF$ — that is $\\cos(D)$.\n* Choice C ($\\dfrac{15}{8}$): opposite over adjacent — that is $\\tan(D)$.\n* Choice D ($\\dfrac{8}{15}$): adjacent over opposite, an inverted tangent.\n\n**Test Day Takeaway:** Locate the hypotenuse first (opposite the right angle). Then \"opposite\" and \"adjacent\" are named relative to the angle in the question, not the right angle.",
       skills: ["soh-cah-toa", "right-triangles"]
     },
     {
@@ -302,18 +302,18 @@ export const practiceTest3M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "If $h(x) = -2x^2 + 5x - 1$, what is the value of $h(-2)$?",
+      question: "The table gives selected values of the function $f$.\n\n| $x$ | $1$ | $2$ | $3$ | $4$ |\n|---|---|---|---|---|\n| $f(x)$ | $2$ | $5$ | $1$ | $3$ |\n\nWhat is the value of $f(f(1))$?",
       choices: [
-        // distractor: doesn't square the negative correctly
-        { id: "A", text: "$-3$" },
-        { id: "B", text: "$-19$" },
-        // distractor: forgets the negative on the linear term
+        // distractor: stops at the inner evaluation f(1)
+        { id: "A", text: "$2$" },
+        { id: "B", text: "$5$" },
+        // distractor: reads f(3) from the table instead of composing
         { id: "C", text: "$1$" },
-        // distractor: stops one step early — gives -8 + 10 - 1 = 1 (sign mistake)
-        { id: "D", text: "$-9$" }
+        // distractor: multiplies f(1) by f(2)
+        { id: "D", text: "$10$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $h(-2) = -2(-2)^2 + 5(-2) - 1 = -2(4) - 10 - 1 = -8 - 10 - 1 = -19$.\n\n**The Full Solution:**\nStep 1: Substitute $x = -2$: $h(-2) = -2(-2)^2 + 5(-2) - 1$.\nStep 2: Square first: $(-2)^2 = 4$, so the first term is $-2(4) = -8$.\nStep 3: Finish: $-8 + (-10) - 1 = -19$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): mishandles the sign of the squared term.\n* Choice C ($1$): drops the negative on $5(-2) = -10$.\n* Choice D ($-9$): a sign slip somewhere in the arithmetic chain.\n\n**Test Day Takeaway:** Square before multiplying: $(-2)^2 = 4$ is positive, but a negative leading coefficient turns it negative. Write each step to keep signs straight.",
+      explanation: "**SAT Pattern: Composed Function Evaluation from a Table**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Work inside out. The table gives $f(1) = 2$, so $f(f(1)) = f(2) = 5$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function first: from the table, $f(1) = 2$.\nStep 2: The expression becomes $f(2)$.\nStep 3: Read the table again: $f(2) = 5$. So $f(f(1)) = 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): stops after the inner step, reporting $f(1)$ itself.\n* Choice C ($1$): reads $f(3)$ from the table instead of feeding $f(1) = 2$ back in.\n* Choice D ($10$): multiplies $f(1) \\cdot f(2)$ instead of composing.\n\n**Test Day Takeaway:** For nested function values, evaluate from the inside out: find the inner output first, then use it as the new input.",
       skills: ["function-evaluation", "function-notation"]
     },
     {

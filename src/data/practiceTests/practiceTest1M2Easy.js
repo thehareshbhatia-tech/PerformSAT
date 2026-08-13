@@ -116,7 +116,7 @@ export const practiceTest1M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "If $\\dfrac{x}{6} = \\dfrac{15}{10}$, what is the value of $x$?",
+      question: "What value of $x$ makes the proportion $\\dfrac{x}{6} = \\dfrac{15}{10}$ true?",
       choices: [
         // distractor: multiplies 15 \cdot 10 / 6
         { id: "A", text: "$25$" },
@@ -282,18 +282,18 @@ export const practiceTest1M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "If $\\dfrac{2}{3}x + 4 = 12$, what is the value of $x$?",
+      question: "What value of $x$ satisfies the equation $\\dfrac{x}{2} + \\dfrac{x}{3} = 10$?",
       choices: [
-        // distractor: doesn't divide by 2/3
-        { id: "A", text: "$8$" },
+        // distractor: solves x/2 = 10 alone, ignoring the x/3 term
+        { id: "A", text: "$20$" },
         { id: "B", text: "$12$" },
-        // distractor: subtracts then multiplies wrong
-        { id: "C", text: "$\\dfrac{16}{3}$" },
-        // distractor: ignores the +4
-        { id: "D", text: "$18$" }
+        // distractor: adds numerators and denominators to get 2x/5
+        { id: "C", text: "$25$" },
+        // distractor: clears denominators but stops at 5x = 60
+        { id: "D", text: "$60$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Two-Step Linear Equation with Fraction Coefficient**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Subtract $4$ to get $\\dfrac{2}{3}x = 8$, then multiply by $\\dfrac{3}{2}$: $x = 8 \\cdot \\dfrac{3}{2} = 12$ — choice B.\n\n**The Full Solution:**\nStep 1: Start from $\\dfrac{2}{3}x + 4 = 12$ and subtract $4$: $\\dfrac{2}{3}x = 8$.\nStep 2: Undo the $\\dfrac{2}{3}$ by multiplying both sides by its reciprocal $\\dfrac{3}{2}$: $x = 8 \\cdot \\dfrac{3}{2} = 12$.\nStep 3: Check: $\\dfrac{2}{3}(12) + 4 = 8 + 4 = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): stops at $\\dfrac{2}{3}x = 8$ and reads $x = 8$.\n* Choice C ($\\dfrac{16}{3}$): divides $8$ by $\\dfrac{3}{2}$ instead of multiplying.\n* Choice D ($18$): ignores the $+4$ and works from $\\dfrac{2}{3}x = 12$.\n\n**Test Day Takeaway:** To undo multiplication by a fraction $\\dfrac{a}{b}$, multiply by its reciprocal $\\dfrac{b}{a}$.",
+      explanation: "**SAT Pattern: Linear Equation with Fractional Terms**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Multiply every term by $6$: $3x + 2x = 60 \\Rightarrow 5x = 60 \\Rightarrow x = 12$.\n\n**The Full Solution:**\nStep 1: The denominators are $2$ and $3$, so multiply both sides of $\\dfrac{x}{2} + \\dfrac{x}{3} = 10$ by the common denominator $6$.\nStep 2: $6 \\cdot \\dfrac{x}{2} + 6 \\cdot \\dfrac{x}{3} = 6 \\cdot 10 \\Rightarrow 3x + 2x = 60$.\nStep 3: Combine like terms: $5x = 60 \\Rightarrow x = 12$.\nStep 4: Check: $\\dfrac{12}{2} + \\dfrac{12}{3} = 6 + 4 = 10$ $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): solves $\\dfrac{x}{2} = 10$ alone and ignores the $\\dfrac{x}{3}$ term.\n* Choice C ($25$): adds numerators and denominators, treating the left side as $\\dfrac{2x}{5}$.\n* Choice D ($60$): clears the denominators correctly but stops at $5x = 60$ without dividing.\n\n**Test Day Takeaway:** To clear fractions from an equation, multiply every term by the least common denominator, then combine like terms.",
       skills: ["solving-equations", "linear-equations"]
     },
     {

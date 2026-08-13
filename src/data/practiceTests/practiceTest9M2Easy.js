@@ -43,18 +43,18 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 3,
-      question: "If $4y - 1 = 11$, what is the value of $y$?",
+      question: "If $2m + 3m = 45$, what is the value of $m$?",
       choices: [
-        // distractor: divides 11 by 4
-        { id: "A", text: "$\\dfrac{11}{4}$" },
-        // distractor: stops one step early — gives 4y
-        { id: "B", text: "$12$" },
-        { id: "C", text: "$3$" },
-        // distractor: subtracts instead of adds
-        { id: "D", text: "$\\dfrac{5}{2}$" }
+        // distractor: divides by 3 instead of 5
+        { id: "A", text: "$15$" },
+        // distractor: subtracts 5 instead of dividing
+        { id: "B", text: "$40$" },
+        { id: "C", text: "$9$" },
+        // distractor: multiplies by 5 instead of dividing
+        { id: "D", text: "$225$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Add $1$ to both sides, then divide by $4$: $4y=12 \\Rightarrow y=3$.\n\n**The Full Solution:**\nStep 1: Start from $4y-1=11$. Add $1$ to both sides: $4y=12$.\nStep 2: Divide both sides by $4$: $y=3$. That is choice C.\nStep 3: Check: $4(3)-1=12-1=11$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{11}{4}$): divides $11$ by $4$ without first adding $1$.\n* Choice B ($12$): stops at $4y=12$ instead of dividing by $4$.\n* Choice D ($\\frac{5}{2}$): subtracts $1$ from $11$ to get $10$, then divides by $4$.\n\n**Test Day Takeaway:** In a linear equation, undo addition and subtraction first, then undo multiplication and division — reverse the order of operations.",
+      explanation: "**SAT Pattern: Combining Like Terms**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Combine: $2m + 3m = 5m$, so $5m = 45$ and $m = 9$.\n\n**The Full Solution:**\nStep 1: Both terms contain $m$, so add their coefficients: $2m + 3m = (2 + 3)m = 5m$.\nStep 2: The equation becomes $5m = 45$.\nStep 3: Divide both sides by $5$: $m = 9$.\nStep 4: Check: $2(9) + 3(9) = 18 + 27 = 45$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): divides $45$ by $3$, using only one of the two coefficients.\n* Choice B ($40$): subtracts $5$ from $45$ instead of dividing by $5$.\n* Choice D ($225$): multiplies $45$ by $5$ — the inverse of the correct move.\n\n**Test Day Takeaway:** Combine like terms before solving: $2m + 3m$ is $5m$, not $6m^2$ or $5m^2$. Then one division finishes it.",
       skills: ["solving-equations", "linear-equations"]
     },
     {

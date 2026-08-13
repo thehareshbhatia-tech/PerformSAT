@@ -16,18 +16,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 2,
-      question: "If $x + 9 = 23$, what is the value of $x$?",
+      question: "The sum of three consecutive integers is $42$. What is the smallest of the three integers?",
       choices: [
-        // distractor: adds 9 instead of subtracting
-        { id: "A", text: "$32$" },
-        // distractor: divides by 9 — gives near 2.5
-        { id: "B", text: "$2$" },
-        { id: "C", text: "$14$" },
-        // distractor: subtracts 23 from 9
-        { id: "D", text: "$-14$" }
+        // distractor: off by one below the answer
+        { id: "A", text: "$12$" },
+        // distractor: the largest of the three
+        { id: "B", text: "$15$" },
+        { id: "C", text: "$13$" },
+        // distractor: the middle integer (the mean)
+        { id: "D", text: "$14$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Undo the $+9$ by subtracting: $x = 23 - 9 = 14$.\n\n**The Full Solution:**\nStep 1: Start with $x + 9 = 23$.\nStep 2: Subtract $9$ from both sides: $x = 23 - 9 = 14$.\nStep 3: Check: $14 + 9 = 23$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($32$): added $9$ instead of subtracting it.\n* Choice B ($2$): divided $23$ by something or guessed a small leftover.\n* Choice D ($-14$): subtracted in the wrong direction, flipping the sign.\n\n**Test Day Takeaway:** To isolate a variable, apply the inverse operation. A $+9$ is undone by $-9$.",
+      explanation: "**SAT Pattern: Consecutive Integers**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Three consecutive integers average to the middle one: $\\frac{42}{3} = 14$. The three are $13, 14, 15$, so the smallest is $13$.\n\n**The Full Solution:**\nStep 1: Call the integers $n$, $n + 1$, and $n + 2$. Their sum is $3n + 3 = 42$.\nStep 2: Subtract $3$: $3n = 39$, so $n = 13$.\nStep 3: Check: $13 + 14 + 15 = 42$. $\\checkmark$ The smallest is $13$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): an off-by-one slip when stepping back from the middle integer.\n* Choice B ($15$): the LARGEST of the three, not the smallest.\n* Choice D ($14$): the middle integer — dividing by $3$ gives the mean, but the question asks for the smallest.\n\n**Test Day Takeaway:** Consecutive integers center on their mean: divide the sum by the count to get the middle value, then step to the one the question asks for.",
       skills: ["solving-equations"]
     },
     {
@@ -114,7 +114,7 @@ export const practiceTest11M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "If $\\dfrac{2x + 4}{6} = 5$, what is the value of $x$?",
+      question: "What value of $x$ is the solution to the equation $\\dfrac{2x + 4}{6} = 5$?",
       correctAnswer: "13",
       explanation: "**SAT Pattern: Linear Equation with a Fraction**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~10s):** Multiply both sides by $6$: $2x + 4 = 30$. Then $2x = 26$, so $x = 13$.\n\n**The Full Solution:**\nStep 1: Clear the fraction by multiplying both sides by $6$: $2x + 4 = 30$.\nStep 2: Subtract $4$: $2x = 26$.\nStep 3: Divide by $2$: $x = 13$.\nStep 4: Check: $\\frac{2(13) + 4}{6} = \\frac{30}{6} = 5$. $\\checkmark$\n\n**Common Mistakes:** Dividing $30$ by $2$ before subtracting the $4$; multiplying only the numerator by $6$ instead of the whole left side; forgetting to subtract $4$ first.\n\n**Test Day Takeaway:** Clear a fraction by multiplying both sides by the denominator, then solve the resulting linear equation step by step.",
       skills: ["solving-equations"]
@@ -124,7 +124,7 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "If $\\sqrt{x + 5} = 7$, what is the value of $x$?",
+      question: "For what value of $x$ is the equation $\\sqrt{x + 5} = 7$ true?",
       choices: [
         // distractor: stops at 49 - 5 — actually correct? Let me make it different
         { id: "A", text: "$2$" },
@@ -264,18 +264,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A line passes through the points $(1, 5)$ and $(4, 14)$. What is the equation of the line in slope-intercept form?",
+      question: "A line passes through the points $(-2, 7)$ and $(4, 7)$. What is the slope of the line?",
       choices: [
-        // distractor: keeps just the slope, no constant
-        { id: "A", text: "$y = 3x$" },
-        { id: "B", text: "$y = 3x + 2$" },
-        // distractor: takes y-intercept as 5 (one of the y-values)
-        { id: "C", text: "$y = 3x + 5$" },
-        // distractor: uses rise as slope without dividing
-        { id: "D", text: "$y = 9x + 2$" }
+        // distractor: reuses the shared y-coordinate
+        { id: "A", text: "$7$" },
+        { id: "B", text: "$0$" },
+        // distractor: confuses horizontal with vertical
+        { id: "C", text: "$\\text{undefined}$" },
+        // distractor: adds the y-values instead of subtracting
+        { id: "D", text: "$\\dfrac{7}{3}$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Equation of a Line through Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Slope $= \\dfrac{14 - 5}{4 - 1} = \\dfrac{9}{3} = 3$. Plug $(1, 5)$ into $y = 3x + b$: $5 = 3 + b$, so $b = 2$ and $y = 3x + 2$.\n\n**The Full Solution:**\nStep 1: Find the slope: $m = \\dfrac{14 - 5}{4 - 1} = \\dfrac{9}{3} = 3$.\nStep 2: Use point $(1, 5)$ in $y = mx + b$: $5 = 3(1) + b \\Rightarrow b = 2$.\nStep 3: Write the line: $y = 3x + 2$. Check $(4, 14)$: $3(4) + 2 = 14$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 3x$): found the slope but assumed $b = 0$ instead of solving for it.\n* Choice C ($y = 3x + 5$): used the $y$-value $5$ from a point as the intercept.\n* Choice D ($y = 9x + 2$): used the rise $9$ as the slope without dividing by the run $3$.\n\n**Test Day Takeaway:** Slope first ($\\dfrac{\\Delta y}{\\Delta x}$), then substitute one point into $y = mx + b$ to solve for $b$.",
+      explanation: "**SAT Pattern: Slope of a Horizontal Line**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Both points have $y = 7$: the line is horizontal, and every horizontal line has slope $0$.\n\n**The Full Solution:**\nStep 1: Apply the slope formula: $m = \\dfrac{7 - 7}{4 - (-2)}$.\nStep 2: The numerator is $0$ and the denominator is $6$, so $m = \\dfrac{0}{6} = 0$.\nStep 3: Interpretation: as $x$ changes, $y$ never changes — a flat, horizontal line.\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): reports the shared $y$-coordinate, not the slope.\n* Choice C (undefined): mixes up horizontal and vertical — the slope is undefined only when the $x$-coordinates match (division by zero).\n* Choice D ($\\dfrac{7}{3}$): adds the $y$-values, $\\dfrac{7 + 7}{4 - (-2)}$, instead of subtracting.\n\n**Test Day Takeaway:** Same $y$-values $\\Rightarrow$ horizontal $\\Rightarrow$ slope $0$. Same $x$-values $\\Rightarrow$ vertical $\\Rightarrow$ slope undefined. Zero and undefined are not the same thing.",
       skills: ["slope-from-points", "slope-intercept-form"]
     },
     {
@@ -293,18 +293,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "If $\\dfrac{x}{4} + 7 = 12$, what is the value of $x$?",
+      question: "If $\\dfrac{3}{4}$ of a number is $27$, what is $\\dfrac{1}{4}$ of the same number?",
       choices: [
-        // distractor: stops at x/4 = 5
-        { id: "A", text: "$5$" },
-        { id: "B", text: "$20$" },
-        // distractor: 12 * 4 = 48
-        { id: "C", text: "$48$" },
-        // distractor: 12 - 7 / 4 = 5/4
-        { id: "D", text: "$\\dfrac{5}{4}$" }
+        // distractor: solves for the number itself and stops
+        { id: "A", text: "$36$" },
+        { id: "B", text: "$9$" },
+        // distractor: multiplies 27 by 3
+        { id: "C", text: "$81$" },
+        // distractor: takes half of the number instead of a quarter
+        { id: "D", text: "$18$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Two-Step Equation with Fraction**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Subtract $7$: $\\dfrac{x}{4} = 5$. Multiply both sides by $4$: $x = 20$.\n\n**The Full Solution:**\nStep 1: $\\dfrac{x}{4} + 7 = 12 \\Rightarrow \\dfrac{x}{4} = 5$.\nStep 2: Multiply by $4$: $x = 5 \\cdot 4 = 20$.\nStep 3: Check: $\\dfrac{20}{4} + 7 = 5 + 7 = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): stopped at $\\dfrac{x}{4} = 5$ instead of solving for $x$.\n* Choice C ($48$): multiplied $12$ by $4$ before subtracting the $7$.\n* Choice D ($\\dfrac{5}{4}$): divided by $4$ instead of multiplying.\n\n**Test Day Takeaway:** Undo the operations in reverse order: clear the added constant first, then undo the division by multiplying.",
+      explanation: "**SAT Pattern: Fraction of an Unknown with a Shifted Ask**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** If three quarters make $27$, one quarter is $\\frac{27}{3} = 9$ — no need to find the number at all.\n\n**The Full Solution:**\nStep 1: Let $n$ be the number: $\\dfrac{3}{4}n = 27$.\nStep 2: Multiply both sides by $\\dfrac{4}{3}$: $n = 27 \\cdot \\dfrac{4}{3} = 36$.\nStep 3: The question asks for $\\dfrac{1}{4}$ of the number: $\\dfrac{36}{4} = 9$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): solves for the number itself and stops — but the question asks for a quarter of it.\n* Choice C ($81$): multiplies $27 \\cdot 3$, mishandling the fraction.\n* Choice D ($18$): computes half of the number instead of a quarter.\n\n**Test Day Takeaway:** Re-read what the question actually asks before answering — the SAT loves putting the natural stopping point ($n = 36$) among the choices. Here the slick move: $\\frac{3}{4}n = 27$ means each quarter is $27 \\div 3$.",
       skills: ["solving-equations"]
     },
     // ============================================================

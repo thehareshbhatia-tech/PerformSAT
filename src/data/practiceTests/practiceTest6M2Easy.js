@@ -100,10 +100,10 @@ export const practiceTest6M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 4,
-      question: "A right triangle has legs of length $9$ and $12$. What is the length of the hypotenuse?",
-      correctAnswer: "15",
-      explanation: "**SAT Pattern: Pythagorean Theorem (3-4-5 Family)**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~5s):** $9$-$12$-$15$ is the $3$-$4$-$5$ triple scaled by $3$, so the hypotenuse is $15$.\n\n**The Full Solution:**\nStep 1: Apply $c^2 = a^2 + b^2$ with legs $9$ and $12$.\nStep 2: $c^2 = 9^2 + 12^2 = 81 + 144 = 225$.\nStep 3: $c = \\sqrt{225} = 15$.\n\n**Common Mistakes:** Adding the legs without squaring to get $21$; stopping at $c^2 = 225$ and reporting $225$.\n\n**Test Day Takeaway:** Memorize the $3$-$4$-$5$ triple and its multiples ($6$-$8$-$10$, $9$-$12$-$15$, $12$-$16$-$20$) to skip the arithmetic on sight.",
-      skills: ["pythagorean-theorem", "right-triangles"]
+      question: "A rectangular postcard is $6$ inches long and $4$ inches wide. What is the perimeter of the postcard, in inches?",
+      correctAnswer: "20",
+      explanation: "**SAT Pattern: Perimeter of a Rectangle**\n\n**The correct answer is $20$.**\n\n**The Fast Way (~5s):** Perimeter $= 2(\\ell + w) = 2(6 + 4) = 20$ inches.\n\n**The Full Solution:**\nStep 1: A rectangle's perimeter is the total distance around: two lengths and two widths, $P = 2\\ell + 2w$.\nStep 2: Substitute: $P = 2(6) + 2(4) = 12 + 8 = 20$ inches.\n\n**Common Mistakes:** Multiplying the dimensions ($6 \\cdot 4 = 24$) — that is the area; adding only one of each side ($6 + 4 = 10$) and forgetting to double.\n\n**Test Day Takeaway:** Perimeter $= 2\\ell + 2w$ adds all four sides; area $= \\ell w$ covers the inside. Check which one the question asks for.",
+      skills: ["perimeter", "geometry"]
     },
     {
       id: 7,
@@ -244,18 +244,18 @@ export const practiceTest6M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "In a right triangle, an acute angle $\\theta$ satisfies $\\tan(\\theta) = \\dfrac{5}{12}$. What is the value of $\\sin(\\theta)$?",
+      question: "A wire runs from the top of a vertical pole that is $24$ feet tall to an anchor on level ground $10$ feet from the base of the pole. What is the tangent of the angle the wire makes with the ground?",
       choices: [
-        // distractor: gives cos
-        { id: "A", text: "$\\dfrac{12}{13}$" },
-        { id: "B", text: "$\\dfrac{5}{13}$" },
-        // distractor: keeps tan value
-        { id: "C", text: "$\\dfrac{5}{12}$" },
-        // distractor: reciprocal
-        { id: "D", text: "$\\dfrac{13}{5}$" }
+        // distractor: inverts the ratio — adjacent over opposite
+        { id: "A", text: "$\\dfrac{5}{12}$" },
+        { id: "B", text: "$\\dfrac{12}{5}$" },
+        // distractor: computes the sine, 24/26
+        { id: "C", text: "$\\dfrac{12}{13}$" },
+        // distractor: computes the cosine, 10/26
+        { id: "D", text: "$\\dfrac{5}{13}$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: SOH-CAH-TOA in a 5-12-13 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\tan(\\theta)=\\dfrac{\\text{opp}}{\\text{adj}}=\\dfrac{5}{12}$, so opposite $=5$, adjacent $=12$, hypotenuse $=\\sqrt{5^2+12^2}=13$. Then $\\sin(\\theta)=\\dfrac{5}{13}$.\n\n**The Full Solution:**\nStep 1: $\\tan(\\theta)=\\dfrac{\\text{opposite}}{\\text{adjacent}}=\\dfrac{5}{12}$, so the legs are opposite $=5$ and adjacent $=12$.\nStep 2: Find the hypotenuse by the Pythagorean theorem: $\\text{hyp}^2=5^2+12^2=25+144=169 \\Rightarrow \\text{hyp}=13$. This is the classic $5$-$12$-$13$ right triangle.\nStep 3: $\\sin(\\theta)=\\dfrac{\\text{opposite}}{\\text{hypotenuse}}=\\dfrac{5}{13}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{12}{13}$): that is $\\cos(\\theta)=\\dfrac{\\text{adjacent}}{\\text{hypotenuse}}$, not the sine.\n* Choice C ($\\frac{5}{12}$): repeats the given $\\tan(\\theta)$ instead of computing the sine.\n* Choice D ($\\frac{13}{5}$): that is $\\csc(\\theta)$, the reciprocal of $\\sin(\\theta)$.\n\n**Test Day Takeaway:** From one trig ratio, label two sides of the right triangle, find the third with the Pythagorean theorem, then read off whatever ratio you need. Memorize the $5$-$12$-$13$ triple to skip the arithmetic.",
+      explanation: "**SAT Pattern: Tangent Ratio from a Real-World Right Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** At the anchor, the opposite side is the pole ($24$) and the adjacent side is the ground distance ($10$): $\\tan = \\dfrac{24}{10} = \\dfrac{12}{5}$.\n\n**The Full Solution:**\nStep 1: The pole, the ground, and the wire form a right triangle. The angle in question sits at the anchor, on the ground.\nStep 2: Relative to that angle, the opposite side is the pole ($24$ ft) and the adjacent side is the ground segment ($10$ ft).\nStep 3: $\\tan(\\text{angle}) = \\dfrac{\\text{opposite}}{\\text{adjacent}} = \\dfrac{24}{10} = \\dfrac{12}{5}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{5}{12}$): inverts the ratio, putting adjacent over opposite.\n* Choice C ($\\dfrac{12}{13}$): computes the sine — $\\dfrac{24}{26}$ using the wire (hypotenuse $= 26$).\n* Choice D ($\\dfrac{5}{13}$): computes the cosine, $\\dfrac{10}{26}$.\n\n**Test Day Takeaway:** Tangent never uses the hypotenuse: it is opposite over adjacent, measured from the angle you are standing at. Sketch the triangle and label sides relative to that angle first.",
       skills: ["soh-cah-toa", "right-triangles"]
     },
     {
@@ -321,18 +321,18 @@ export const practiceTest6M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "Line $\\ell$ has equation $y = \\dfrac{1}{2}x - 3$. Which of the following is the equation of a line parallel to $\\ell$ that passes through the point $(0, 4)$?",
+      question: "Line $k$ is parallel to the line with equation $y = 3x + 1$ and passes through the point $(2, 4)$. What is the $y$-intercept of line $k$?",
       choices: [
-        // distractor: perpendicular slope
-        { id: "A", text: "$y = -2x + 4$" },
-        { id: "B", text: "$y = \\dfrac{1}{2}x + 4$" },
-        // distractor: keeps original line
-        { id: "C", text: "$y = \\dfrac{1}{2}x - 3$" },
-        // distractor: flips the slope sign
-        { id: "D", text: "$y = -\\dfrac{1}{2}x + 4$" }
+        // distractor: keeps the original line's intercept
+        { id: "A", text: "$(0, 1)$" },
+        { id: "B", text: "$(0, -2)$" },
+        // distractor: reuses the y-coordinate of the given point
+        { id: "C", text: "$(0, 4)$" },
+        // distractor: adds 3(2) instead of subtracting
+        { id: "D", text: "$(0, 10)$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Parallel lines share the slope $\\frac{1}{2}$, and the point $(0,4)$ is the $y$-intercept, so $y=\\dfrac{1}{2}x+4$.\n\n**The Full Solution:**\nStep 1: Parallel lines have identical slopes, so the new line has slope $\\dfrac{1}{2}$.\nStep 2: The point $(0,4)$ has $x=0$, which makes it the $y$-intercept: $b=4$.\nStep 3: Assemble slope-intercept form: $y=\\dfrac{1}{2}x+4$. Check: at $x=0$, $y=\\dfrac{1}{2}(0)+4=4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y=-2x+4$): uses the perpendicular slope $-2$ (the negative reciprocal) instead of the parallel slope.\n* Choice C ($y=\\frac{1}{2}x-3$): this is the original line $\\ell$, which does not pass through $(0,4)$.\n* Choice D ($y=-\\frac{1}{2}x+4$): flips the sign of the slope; parallel means the slope stays positive $\\frac{1}{2}$.\n\n**Test Day Takeaway:** Parallel means same slope; perpendicular means negative reciprocal. A point of the form $(0,b)$ hands you the $y$-intercept directly.",
+      explanation: "**SAT Pattern: Intercept of a Parallel Line**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Slope stays $3$. From $(2, 4)$, step back to $x = 0$: $y$ drops by $3 \\cdot 2 = 6$, landing at $4 - 6 = -2$. Intercept: $(0, -2)$.\n\n**The Full Solution:**\nStep 1: Parallel lines share slopes, so line $k$ is $y = 3x + b$ for some $b$.\nStep 2: Substitute the known point $(2, 4)$: $4 = 3(2) + b = 6 + b$.\nStep 3: Solve: $b = 4 - 6 = -2$, so the $y$-intercept is $(0, -2)$.\nStep 4: Check: $y = 3(2) - 2 = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(0, 1)$): keeps the intercept of the ORIGINAL line, but line $k$ is a different line.\n* Choice C ($(0, 4)$): reuses the $y$-coordinate of the given point as if the point were on the $y$-axis.\n* Choice D ($(0, 10)$): adds $3(2)$ instead of subtracting, computing $4 + 6$.\n\n**Test Day Takeaway:** For a line through a known point with a known slope, plug the point into $y = mx + b$ and solve for $b$ — the sign of that last step is where the traps live.",
       skills: ["parallel-line-slope", "writing-parallel-equation"]
     },
     {

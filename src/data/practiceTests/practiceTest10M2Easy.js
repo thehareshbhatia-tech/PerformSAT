@@ -16,18 +16,18 @@ export const practiceTest10M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 2,
-      question: "If $4x - 3 = 17$, what is the value of $x$?",
+      question: "The function $h$ multiplies its input by $2$ and then adds $9$ to the result. If the output of $h$ is $25$, what was the input?",
       choices: [
-        // distractor: forgets to divide by 4 — uses 17 + 3 = 20
-        { id: "A", text: "$20$" },
-        // distractor: applies the inverse operation — subtracts 3 instead of adding
-        { id: "B", text: "$\\dfrac{7}{2}$" },
-        { id: "C", text: "$5$" },
-        // distractor: divides 17 by 4 without first adding 3
-        { id: "D", text: "$\\dfrac{17}{4}$" }
+        // distractor: applies the machine forward to 25 — 2(25) = 50 before the +9 step
+        { id: "A", text: "$50$" },
+        // distractor: stops at 25 - 9 = 16 without dividing
+        { id: "B", text: "$16$" },
+        { id: "C", text: "$8$" },
+        // distractor: divides by 2 first, ignoring the +9
+        { id: "D", text: "$12.5$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Add $3$ to both sides: $4x = 20$. Divide by $4$: $x = 5$.\n\n**The Full Solution:**\nStep 1: Undo the subtraction. $4x - 3 = 17 \\Rightarrow 4x = 20$.\nStep 2: Undo the multiplication. $x = \\frac{20}{4} = 5$.\nStep 3: Check: $4(5) - 3 = 20 - 3 = 17$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): stops at $4x = 20$ and forgets to divide by $4$.\n* Choice B ($\\frac{7}{2}$): subtracts $3$ instead of adding when isolating $4x$.\n* Choice D ($\\frac{17}{4}$): divides $17$ by $4$ before handling the $-3$.\n\n**Test Day Takeaway:** Undo addition and subtraction first, then multiplication and division. Verify by substituting your answer back in.",
+      explanation: "**SAT Pattern: Reversing a Function Rule**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Run the machine backward: $25 - 9 = 16$, then $16 \\div 2 = 8$.\n\n**The Full Solution:**\nStep 1: Write the rule: $h(x) = 2x + 9$. The output is $25$, so $2x + 9 = 25$.\nStep 2: Subtract $9$ from both sides: $2x = 16$.\nStep 3: Divide by $2$: $x = 8$.\nStep 4: Check forward: $2(8) + 9 = 25$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($50$): runs the machine FORWARD on $25$, doubling it, instead of undoing the steps.\n* Choice B ($16$): undoes the $+9$ but stops before dividing by $2$.\n* Choice D ($12.5$): divides $25$ by $2$ first, undoing the steps in the wrong order.\n\n**Test Day Takeaway:** To recover an input from an output, undo the steps in REVERSE order: the last operation applied is the first one undone.",
       skills: ["solving-equations", "function-evaluation"]
     },
     {
@@ -35,18 +35,18 @@ export const practiceTest10M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 2,
-      question: "What is $25\\%$ of $80$?",
+      question: "Which decimal is equivalent to $65\\%$?",
       choices: [
-        // distractor: subtracts the percent — 80 - 25 = 55
-        { id: "A", text: "$55$" },
-        { id: "B", text: "$20$" },
-        // distractor: divides by 25 directly — 80 / 25
-        { id: "C", text: "$3.2$" },
-        // distractor: uses 25% of 100 instead — gives 25
-        { id: "D", text: "$25$" }
+        // distractor: shifts the decimal only one place
+        { id: "A", text: "$6.5$" },
+        { id: "B", text: "$0.65$" },
+        // distractor: shifts three places
+        { id: "C", text: "$0.065$" },
+        // distractor: drops the percent sign without shifting
+        { id: "D", text: "$65$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Percent of a Value**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $25\\%$ is $\\frac{1}{4}$, so $25\\%$ of $80$ is $\\frac{1}{4} \\cdot 80 = 20$.\n\n**The Full Solution:**\nStep 1: Convert the percent to a decimal: $25\\% = 0.25$.\nStep 2: Multiply by the base: $0.25 \\cdot 80 = 20$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($55$): subtracts $25$ from $80$ instead of taking $25\\%$ of $80$.\n* Choice C ($3.2$): divides $80$ by $25$ instead of multiplying by $0.25$.\n* Choice D ($25$): reports the percent itself as the answer.\n\n**Test Day Takeaway:** Lock in the easy fractions: $25\\% = \\frac{1}{4}$, $50\\% = \\frac{1}{2}$, $10\\% = \\frac{1}{10}$. Then dividing beats multiplying decimals.",
+      explanation: "**SAT Pattern: Percent to Decimal Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~3s):** Percent means \"per hundred\": $65\\% = \\frac{65}{100} = 0.65$.\n\n**The Full Solution:**\nStep 1: The percent symbol means division by $100$: $65\\% = \\frac{65}{100}$.\nStep 2: Dividing by $100$ moves the decimal point two places left: $65 \\to 6.5 \\to 0.65$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($6.5$): moves the decimal only one place — that is dividing by $10$.\n* Choice C ($0.065$): moves it three places — dividing by $1{,}000$.\n* Choice D ($65$): drops the percent sign without converting at all.\n\n**Test Day Takeaway:** Percent $\\to$ decimal: shift two places LEFT. Decimal $\\to$ percent: shift two places RIGHT. \"Cent\" = $100$.",
       skills: ["percent-of-value", "percent-decimal-conversion"]
     },
     {
@@ -76,18 +76,18 @@ export const practiceTest10M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "A line in the $xy$-plane passes through the points $(0, 4)$ and $(3, 13)$. What is the slope of the line?",
+      question: "The table gives three points that lie on a line in the $xy$-plane.\n\n| $x$ | $0$ | $2$ | $4$ |\n|---|---|---|---|\n| $y$ | $9$ | $3$ | $-3$ |\n\nWhat is the slope of the line?",
       choices: [
-        // distractor: stops at rise = 9
-        { id: "A", text: "$9$" },
-        { id: "B", text: "$3$" },
-        // distractor: takes reciprocal
-        { id: "C", text: "$\\dfrac{1}{3}$" },
-        // distractor: applies inverse — divides x-difference by y-difference, with sign error
-        { id: "D", text: "$-3$" }
+        // distractor: drops the negative sign
+        { id: "A", text: "$3$" },
+        { id: "B", text: "$-3$" },
+        // distractor: flips rise and run
+        { id: "C", text: "$-\\dfrac{1}{3}$" },
+        // distractor: uses the y-change alone
+        { id: "D", text: "$-6$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Slope $= \\frac{13 - 4}{3 - 0} = \\frac{9}{3} = 3$.\n\n**The Full Solution:**\nStep 1: Use slope $= \\frac{y_2 - y_1}{x_2 - x_1}$ with $(0, 4)$ and $(3, 13)$.\nStep 2: $\\frac{13 - 4}{3 - 0} = \\frac{9}{3} = 3$.\nStep 3: Check: the line $y = 3x + 4$ hits $(0, 4)$ and $3(3) + 4 = 13$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): reports the rise without dividing by the run.\n* Choice C ($\\frac{1}{3}$): flips numerator and denominator (run over rise).\n* Choice D ($-3$): sign-flips the slope.\n\n**Test Day Takeaway:** Slope $= \\frac{\\Delta y}{\\Delta x}$ — rise over run, in that order.",
+      explanation: "**SAT Pattern: Slope from a Table of Values**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Each step right by $2$ drops $y$ by $6$ (from $9$ to $3$ to $-3$), so the slope is $\\frac{-6}{2} = -3$.\n\n**The Full Solution:**\nStep 1: Pick two rows from the table, say $(0, 9)$ and $(2, 3)$.\nStep 2: Slope $= \\frac{\\Delta y}{\\Delta x} = \\frac{3 - 9}{2 - 0} = \\frac{-6}{2} = -3$.\nStep 3: Confirm with the third point: from $(2, 3)$ to $(4, -3)$ the slope is $\\frac{-3 - 3}{4 - 2} = \\frac{-6}{2} = -3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): drops the negative — $y$ is DECREASING as $x$ increases.\n* Choice C ($-\\dfrac{1}{3}$): flips the ratio to run over rise.\n* Choice D ($-6$): uses the change in $y$ alone without dividing by the change in $x$.\n\n**Test Day Takeaway:** A table hides the same slope formula: pick any two rows and compute $\\frac{\\Delta y}{\\Delta x}$. A third row is a free consistency check.",
       skills: ["slope-from-points", "slope"]
     },
     {
@@ -95,7 +95,7 @@ export const practiceTest10M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 4,
-      question: "If $\\dfrac{x}{8} = \\dfrac{15}{6}$, what is the value of $x$?",
+      question: "What value of $x$ satisfies the proportion $\\dfrac{x}{8} = \\dfrac{15}{6}$?",
       correctAnswer: "20",
       explanation: "**SAT Pattern: Proportions**\n\n**The correct answer is $20$.**\n\n**The Fast Way (~10s):** Cross-multiply: $6x = 8 \\cdot 15 = 120$, so $x = 20$.\n\n**The Full Solution:**\nStep 1: Start from $\\frac{x}{8} = \\frac{15}{6}$ and cross-multiply: $6 \\cdot x = 8 \\cdot 15$.\nStep 2: $6x = 120$, so $x = \\frac{120}{6} = 20$.\nStep 3: Check: $\\frac{20}{8} = 2.5$ and $\\frac{15}{6} = 2.5$. $\\checkmark$\n\n**Common Mistakes:** Multiplying the two denominators ($8 \\cdot 6 = 48$) and using that; cross-multiplying to $120$ but forgetting to divide by $6$; or reading the proportion as $\\frac{x}{6} = \\frac{15}{8}$.\n\n**Test Day Takeaway:** $\\frac{a}{b} = \\frac{c}{d} \\Rightarrow ad = bc$. Cross-multiply, then solve the linear equation that falls out.",
       skills: ["solving-equations", "rate-conversion"]
@@ -105,37 +105,37 @@ export const practiceTest10M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A right triangle has legs of length $5$ and $12$. What is the length of the hypotenuse?",
+      question: "The area of a square is $81$ square centimeters. What is the perimeter of the square, in centimeters?",
       choices: [
-        // distractor: adds the legs — 5 + 12
-        { id: "A", text: "$17$" },
-        { id: "B", text: "$13$" },
-        // distractor: uses sqrt(legs) without squaring
-        { id: "C", text: "$\\sqrt{17}$" },
-        // distractor: finds hypotenuse-squared without taking square root
-        { id: "D", text: "$169$" }
+        // distractor: stops at the side length
+        { id: "A", text: "$9$" },
+        { id: "B", text: "$36$" },
+        // distractor: doubles the side instead of multiplying by 4
+        { id: "C", text: "$18$" },
+        // distractor: multiplies the area by 4
+        { id: "D", text: "$324$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Pythagorean Theorem (5-12-13)**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Recognize the $5$-$12$-$13$ Pythagorean triple. The hypotenuse is $13$.\n\n**The Full Solution:**\nStep 1: Apply $a^2 + b^2 = c^2$ with legs $5$ and $12$.\nStep 2: $5^2 + 12^2 = 25 + 144 = 169 = c^2$.\nStep 3: $c = \\sqrt{169} = 13$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): adds the legs ($5 + 12$) instead of using $a^2 + b^2 = c^2$.\n* Choice C ($\\sqrt{17}$): adds the legs without squaring, then takes the root.\n* Choice D ($169$): gives $c^2$ and forgets to take the square root.\n\n**Test Day Takeaway:** Memorize the SAT triples — $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, $7$-$24$-$25$ — and skip the arithmetic.",
-      skills: ["pythagorean-theorem", "triangles"]
+      explanation: "**SAT Pattern: Area to Perimeter Chain**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Side $= \\sqrt{81} = 9$, so perimeter $= 4 \\cdot 9 = 36$ centimeters.\n\n**The Full Solution:**\nStep 1: A square's area is $s^2$, so $s^2 = 81$ and $s = \\sqrt{81} = 9$ cm.\nStep 2: A square's perimeter is $4s = 4 \\cdot 9 = 36$ cm.\nStep 3: Check: a $9 \\times 9$ square has area $81$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): finds the side length and stops — the question asks for the perimeter.\n* Choice C ($18$): doubles the side instead of counting all four sides.\n* Choice D ($324$): multiplies the AREA by $4$, skipping the square root entirely.\n\n**Test Day Takeaway:** Two-step geometry hides one formula inside another: area $\\to$ side (square root), then side $\\to$ perimeter ($\\times 4$). Answer the quantity actually asked for.",
+      skills: ["area", "perimeter"]
     },
     {
       id: 7,
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "What is the area of a rectangle with length $9$ centimeters and width $4$ centimeters?",
+      question: "A right triangle has legs of length $10$ centimeters and $7$ centimeters. What is the area of the triangle?",
       choices: [
-        // distractor: gives the perimeter
-        { id: "A", text: "$26\\text{ cm}^2$" },
-        { id: "B", text: "$36\\text{ cm}^2$" },
-        // distractor: gives semi-perimeter
-        { id: "C", text: "$13\\text{ cm}^2$" },
-        // distractor: adds length and width
-        { id: "D", text: "$13\\text{ cm}$" }
+        // distractor: multiplies the legs without halving
+        { id: "A", text: "$70\\text{ cm}^2$" },
+        { id: "B", text: "$35\\text{ cm}^2$" },
+        // distractor: adds the legs
+        { id: "C", text: "$17\\text{ cm}^2$" },
+        // distractor: doubles the product instead of halving
+        { id: "D", text: "$140\\text{ cm}^2$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Area of a Rectangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Area $= \\ell \\cdot w = 9 \\cdot 4 = 36$ square centimeters.\n\n**The Full Solution:**\nStep 1: Area of a rectangle $= \\text{length} \\times \\text{width}$.\nStep 2: $9 \\cdot 4 = 36$, so the area is $36 \\text{ cm}^2$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($26\\text{ cm}^2$): computes the perimeter $2(9 + 4) = 26$.\n* Choice C ($13\\text{ cm}^2$): adds length and width ($9 + 4 = 13$) instead of multiplying.\n* Choice D ($13\\text{ cm}$): adds the dimensions and uses a linear unit.\n\n**Test Day Takeaway:** Area multiplies and reports squared units; perimeter adds and reports linear units. The units in the choices catch this trap.",
+      explanation: "**SAT Pattern: Area of a Right Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** In a right triangle the two legs serve as base and height: area $= \\frac{1}{2}(10)(7) = 35 \\text{ cm}^2$.\n\n**The Full Solution:**\nStep 1: The legs of a right triangle are perpendicular, so one leg is the base and the other is the height — no extra work needed.\nStep 2: Apply $A = \\frac{1}{2}bh = \\frac{1}{2}(10)(7)$.\nStep 3: $A = \\frac{70}{2} = 35$ square centimeters.\n\n**Why the wrong answers are tempting:**\n* Choice A ($70\\text{ cm}^2$): multiplies the legs but skips the $\\frac{1}{2}$ — that is the area of the full rectangle.\n* Choice C ($17\\text{ cm}^2$): adds the legs, $10 + 7$, instead of multiplying.\n* Choice D ($140\\text{ cm}^2$): doubles the product instead of halving it.\n\n**Test Day Takeaway:** A right triangle is half a rectangle: multiply the legs, then halve. The hypotenuse never enters the area formula.",
       skills: ["triangle-area"]
     },
     {
@@ -200,9 +200,9 @@ export const practiceTest10M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "The mean of $5$ test scores is $82$. The first $4$ scores are $78, 85, 90,$ and $80$. What is the fifth score?",
-      correctAnswer: "77",
-      explanation: "**SAT Pattern: Mean from Total**\n\n**The correct answer is $77$.**\n\n**The Fast Way (~15s):** Total of the $5$ scores $= 5 \\cdot 82 = 410$. The first four sum to $78 + 85 + 90 + 80 = 333$, so the fifth is $410 - 333 = 77$.\n\n**The Full Solution:**\nStep 1: Mean $= 82$ over $5$ scores means total $= 5 \\cdot 82 = 410$.\nStep 2: Sum the four known scores: $78 + 85 + 90 + 80 = 333$.\nStep 3: Fifth score $= 410 - 333 = 77$.\nStep 4: Check: $\\frac{78 + 85 + 90 + 80 + 77}{5} = \\frac{410}{5} = 82$. $\\checkmark$\n\n**Common Mistakes:** Stopping at the sum of the four scores ($333$); dividing $410$ by $4$ instead of subtracting; or computing $82$ minus one of the scores.\n\n**Test Day Takeaway:** For a missing value in a mean: total $= n \\cdot \\text{mean}$, then missing value $= \\text{total} - \\text{sum of the rest}$.",
+      question: "The mean of a data set of five values is $40$. A new data set is formed by increasing each value in the original data set by $6$. What is the mean of the new data set?",
+      correctAnswer: "46",
+      explanation: "**SAT Pattern: Effect of Shifting Every Value on the Mean**\n\n**The correct answer is $46$.**\n\n**The Fast Way (~5s):** Adding $6$ to every value adds $6$ to the mean: $40 + 6 = 46$.\n\n**The Full Solution:**\nStep 1: The original five values total $5 \\cdot 40 = 200$.\nStep 2: Increasing each of the five values by $6$ raises the total by $5 \\cdot 6 = 30$, to $230$.\nStep 3: New mean $= \\frac{230}{5} = 46$.\n\n**Common Mistakes:** Multiplying the mean by $6$ ($240$); adding $30$ to the mean instead of to the total ($70$); or assuming the mean is unchanged because \"every value moved the same way\" — that holds for the RANGE, not the mean.\n\n**Test Day Takeaway:** Adding a constant $c$ to every data value shifts the mean (and median) by exactly $c$, while the range and standard deviation stay the same.",
       skills: ["calculate-mean"]
     },
     {

@@ -36,9 +36,9 @@ export const practiceTest2M2Easy = {
       type: "fill-in",
       difficulty: "easy",
       band: 2,
-      question: "If $4x + 2 = 18$, what is the value of $x$?",
-      correctAnswer: "4",
-      explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~5s):** Subtract $2$, then divide by $4$: $4x = 16 \\Rightarrow x = 4$.\n\n**The Full Solution:**\nStep 1: Undo the addition first: $4x = 18 - 2 = 16$.\nStep 2: Undo the multiplication: $x = \\frac{16}{4} = 4$.\nStep 3: Check: $4(4) + 2 = 16 + 2 = 18$. $\\checkmark$\n\n**Common Mistakes:** Dividing $18$ by $4$ before subtracting the $2$ (gives $4.5$); adding the $2$ instead of subtracting (gives $x = 5$).\n\n**Test Day Takeaway:** Solve a linear equation by reversing the order of operations: undo addition or subtraction first, then undo multiplication or division.",
+      question: "The sum of a number and $9$ is $31$. What is the number?",
+      correctAnswer: "22",
+      explanation: "**SAT Pattern: Translating Words into an Equation**\n\n**The correct answer is $22$.**\n\n**The Fast Way (~5s):** \"The sum ... is $31$\" means $n + 9 = 31$, so $n = 31 - 9 = 22$.\n\n**The Full Solution:**\nStep 1: Let $n$ be the number. \"The sum of a number and $9$\" translates to $n + 9$.\nStep 2: \"Is\" means equals: $n + 9 = 31$.\nStep 3: Subtract $9$ from both sides: $n = 22$.\nStep 4: Check: $22 + 9 = 31$. $\\checkmark$\n\n**Common Mistakes:** Adding instead of undoing the addition ($31 + 9 = 40$); or misreading \"sum\" as a product and dividing $31$ by $9$.\n\n**Test Day Takeaway:** Translate word-by-word — \"sum\" means add, \"is\" means equals — then undo the operation to isolate the unknown.",
       skills: ["solving-equations", "linear-equations"]
     },
     {
@@ -106,9 +106,9 @@ export const practiceTest2M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 4,
-      question: "A right triangle has legs of length $9$ and $12$. What is the length of the hypotenuse?",
-      correctAnswer: "15",
-      explanation: "**SAT Pattern: Pythagorean Theorem (Multiple of 3-4-5)**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~5s):** $9$-$12$-$15$ is the $3$-$4$-$5$ triple scaled by $3$, so the hypotenuse is $15$.\n\n**The Full Solution:**\nStep 1: Apply $c^2 = a^2 + b^2$ with legs $9$ and $12$.\nStep 2: $c^2 = 9^2 + 12^2 = 81 + 144 = 225$.\nStep 3: $c = \\sqrt{225} = 15$.\n\n**Common Mistakes:** Adding the legs without squaring ($9 + 12 = 21$); forgetting the square root and reporting $225$.\n\n**Test Day Takeaway:** Memorize the common triples and their multiples: $3$-$4$-$5$ (so $6$-$8$-$10$, $9$-$12$-$15$), $5$-$12$-$13$, $8$-$15$-$17$, $7$-$24$-$25$.",
+      question: "A $25$-foot ladder leans against a vertical wall. The base of the ladder rests on the ground $7$ feet from the wall. How many feet up the wall does the top of the ladder reach?",
+      correctAnswer: "24",
+      explanation: "**SAT Pattern: Pythagorean Theorem in Context**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~10s):** The ladder is the hypotenuse, and $7$-$24$-$25$ is a Pythagorean triple, so the ladder reaches $24$ feet up the wall.\n\n**The Full Solution:**\nStep 1: The wall, the ground, and the ladder form a right triangle: hypotenuse $25$ (the ladder) and one leg $7$ (the distance from the wall).\nStep 2: Apply $a^2 + b^2 = c^2$ and solve for the unknown leg: $h^2 = 25^2 - 7^2 = 625 - 49 = 576$.\nStep 3: $h = \\sqrt{576} = 24$ feet.\n\n**Common Mistakes:** Adding the squares ($625 + 49$) even though the hypotenuse is already known; or subtracting the lengths themselves ($25 - 7 = 18$) without squaring.\n\n**Test Day Takeaway:** The hypotenuse is the side opposite the right angle — here, the ladder itself. When the hypotenuse is known, subtract squares to find a leg.",
       skills: ["pythagorean-theorem", "right-triangles"]
     },
     {
