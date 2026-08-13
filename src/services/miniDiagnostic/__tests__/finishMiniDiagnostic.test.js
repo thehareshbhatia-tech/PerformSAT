@@ -308,6 +308,49 @@ describe('finishMiniDiagnostic — Diagnostic v2 runner path', () => {
     });
   });
 
+  it('check-in: the plan anchors on scoreAnchor, never the focus-weighted center', async () => {
+    const { test } = await buildDiagnosticTest({
+      userId: USER.uid, attemptId: 'v2-anchor-1', variant: 'checkin',
+    });
+    const { answers, telemetry } = answerRunnerTest(test.modules, 0.4);
+    const result = await finishMiniDiagnostic({
+      user: USER, effectiveTest: test, answers, telemetry,
+      attemptId: 'v2-anchor-1', routes: { rw: null, math: null },
+      scoreAnchor: 980,
+    });
+    // The arc (and the whole gap basis) starts from the trusted prior
+    // midpoint — a deflated check-in center must never become "Estimated now".
+    expect(result.plan.arc.startScore).toBe(980);
+    // The record's own band stays flagged as focus-weighted regardless.
+    expect(result.miniDiagnosticRecord.scoreBandFocusWeighted).toBe(true);
+  });
+
+  it('check-in without an anchor falls back to its own band midpoint', async () => {
+    const { test } = await buildDiagnosticTest({
+      userId: USER.uid, attemptId: 'v2-anchor-2', variant: 'checkin',
+    });
+    const { answers, telemetry } = answerRunnerTest(test.modules, 0.4);
+    const result = await finishMiniDiagnostic({
+      user: USER, effectiveTest: test, answers, telemetry,
+      attemptId: 'v2-anchor-2', routes: { rw: null, math: null },
+    });
+    const mid = Math.round((result.scoreBand.low + result.scoreBand.high) / 2 / 10) * 10;
+    expect(result.plan.arc.startScore).toBe(mid);
+  });
+
+  it('full variant ignores scoreAnchor (its band IS representative)', async () => {
+    const { test } = await buildDiagnosticTest({ userId: USER.uid, attemptId: 'v2-anchor-3' });
+    const { answers, telemetry } = answerRunnerTest(test.modules, 0.4);
+    const result = await finishMiniDiagnostic({
+      user: USER, effectiveTest: test, answers, telemetry,
+      attemptId: 'v2-anchor-3', routes: { rw: 'hard', math: 'hard' },
+      scoreAnchor: 1400,
+    });
+    const mid = Math.round((result.scoreBand.low + result.scoreBand.high) / 2 / 10) * 10;
+    expect(result.plan.arc.startScore).toBe(mid);
+    expect(result.plan.arc.startScore).not.toBe(1400);
+  });
+
   it('v1 shell path is unchanged: no variant/routes fields on its record', async () => {
     const { rwServed, mathServed, answers, telemetry } = await buildServedSession();
     const result = await finishMiniDiagnostic({

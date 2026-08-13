@@ -100,6 +100,10 @@ export default function MiniDiagnosticResults({ result, user, onViewPlan }) {
   // Question count comes from the record (Diagnostic v2 serves 40 full / 18
   // check-in; the legacy shell served 24) — never hardcode it.
   const questionCount = result?.miniDiagnosticRecord?.totalCount || 24;
+  // A check-in isn't a starting point — the student is weeks into a plan and
+  // this sitting re-tunes it. "Starting point" copy here would read as the
+  // plan resetting on them.
+  const isCheckin = result?.miniDiagnosticRecord?.diagnosticVariant === 'checkin';
   if (!view) return null;
   const { band, headline, keyInsight, totalWrong, errorBreakdown, strengths, focus } = view;
   const maxCount = errorBreakdown[0]?.count || 1;
@@ -107,10 +111,14 @@ export default function MiniDiagnosticResults({ result, user, onViewPlan }) {
   return (
     <div style={{ marginTop: '5vh', maxWidth: '640px', width: '100%', animation: 'fadeInUp 400ms ease', paddingBottom: spacing.xl }}>
       <h1 style={{ fontSize: typography.sizes['3xl'], fontWeight: typography.weights.bold, color: colors.text.primary, marginBottom: spacing.xs, textAlign: 'center' }}>
-        {user?.firstName ? `Your starting point, ${user.firstName}` : 'Your starting point'}
+        {isCheckin
+          ? (user?.firstName ? `Your progress check, ${user.firstName}` : 'Your progress check')
+          : (user?.firstName ? `Your starting point, ${user.firstName}` : 'Your starting point')}
       </h1>
       <p style={{ fontSize: typography.sizes.base, color: colors.text.secondary, textAlign: 'center', margin: `0 auto ${spacing.xl}`, maxWidth: '52ch', lineHeight: 1.5 }}>
-        Based on {questionCount} questions — a first read your first full practice test will sharpen. Here&rsquo;s exactly what it found.
+        {isCheckin
+          ? <>Based on {questionCount} questions aimed at your current focus areas. Your plan has been re-tuned around what this found.</>
+          : <>Based on {questionCount} questions &mdash; a first read your first full practice test will sharpen. Here&rsquo;s exactly what it found.</>}
       </p>
 
       {/* Where you stand — score band + the goal-gap headline */}
@@ -202,7 +210,7 @@ export default function MiniDiagnosticResults({ result, user, onViewPlan }) {
       )}
 
       <Button variant="primary" onClick={onViewPlan} style={{ width: '100%', fontSize: typography.sizes.md, marginTop: spacing.sm }}>
-        See my starter plan
+        {isCheckin ? 'See my updated plan' : 'See my starter plan'}
       </Button>
     </div>
   );

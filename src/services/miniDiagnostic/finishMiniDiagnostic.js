@@ -172,6 +172,7 @@ export async function finishMiniDiagnostic({
   effectiveTest = null,
   routes = null,
   navigation = null,
+  scoreAnchor = null,
 }) {
   if (!user?.uid) throw new Error('finishMiniDiagnostic: user.uid required');
 
@@ -235,9 +236,17 @@ export async function finishMiniDiagnostic({
     lowEvidence: !!effectiveTest && totalServed > 0 && answeredCount / totalServed < 0.8,
   });
   const bandMidpoint = Math.round((scoreBand.low + scoreBand.high) / 2 / 10) * 10;
+  // A check-in's band over-samples the plan's focus skills, so its center
+  // reads LOW — every score surface refuses it (scoreBandFocusWeighted), and
+  // the plan generator must too: fed raw, it becomes arc.startScore and the
+  // student's "Estimated now" drops after two weeks of studying. Anchor the
+  // regenerated plan on the last trustworthy midpoint the caller passed; the
+  // fresh center only anchors when no trusted prior exists.
+  const isCheckinVariant = (test.diagnosticVariant || 'full') === 'checkin';
+  const planScaled = (isCheckinVariant && Number.isFinite(scoreAnchor)) ? scoreAnchor : bandMidpoint;
   const planDiagnostic = {
     ...diagReport,
-    score: { ...(diagReport.score || {}), scaled: bandMidpoint },
+    score: { ...(diagReport.score || {}), scaled: planScaled },
   };
 
   const detPlan = generateStudyPlan(

@@ -39,6 +39,7 @@ import {
 } from './services/selectors/completedTests';
 import { sectionModuleLabel } from './services/selectors/moduleLabel';
 import { isScoreableAttempt } from './services/selectors/latestTestStats';
+import { getTrustedBandMidpoint } from './services/selectors/estimatedBaseline';
 // Corpus access (Stage 2b of the bundle-split plan): the question banks,
 // practice-test bundles, and the two corpus-coupled services load as their
 // own chunks via these memoized dynamic-import loaders. Handlers `await`
@@ -1068,6 +1069,11 @@ const PerformSAT = () => {
               onSaveProgress={(progressData) => { if (user) saveTestProgress('mini-diagnostic', progressData); }}
               onClearProgress={() => clearTestProgress('mini-diagnostic')}
               onDiagnosticFinished={handleOnRampFinished}
+              // Last trustworthy composite midpoint (the prior representative
+              // band). A check-in's own band over-samples focus skills and
+              // reads low — the finish pipeline anchors the regenerated plan's
+              // arc on this instead of the fresh deflated center.
+              diagnosticScoreAnchor={getTrustedBandMidpoint(miniDiagnostic)}
               onGoToStudyPlan={() => { setOnRampActive(false); setView('studyPlan'); }}
               onBack={() => {
                 // Deliberate exit: don't re-seize the app at every login for

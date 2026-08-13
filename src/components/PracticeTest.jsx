@@ -643,7 +643,7 @@ const sanitizeGridIn = (raw) => {
   return s.slice(0, s[0] === '-' ? 6 : 5);
 };
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null, initialSection = null, resultSaveStatus = null, onRetrySave = null, tutorLocked = false, onSubscribe = null, onDiagnosticFinished = null }) => {
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null, initialSection = null, resultSaveStatus = null, onRetrySave = null, tutorLocked = false, onSubscribe = null, onDiagnosticFinished = null, diagnosticScoreAnchor = null }) => {
   const [currentModule, setCurrentModule] = useState(
     pickInitialModuleIndex(test, savedProgress, initialSection)
   );
@@ -1145,6 +1145,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         answeredQuestionIds,
         completedLessons,
         practiceProgress,
+        scoreAnchor: diagnosticScoreAnchor,
       });
       if (onDiagnosticFinished) {
         try { await onDiagnosticFinished({ ...result, attemptId: attemptIdRef.current }); } catch (e) {
@@ -1165,7 +1166,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     } finally {
       diagnosticFinishingRef.current = false;
     }
-  }, [user, test, effectiveModules, answers, eliminatedChoices, module2Variant, rwModule2Variant, answeredQuestionIds, completedLessons, practiceProgress, onDiagnosticFinished, onClearProgress]);
+  }, [user, test, effectiveModules, answers, eliminatedChoices, module2Variant, rwModule2Variant, answeredQuestionIds, completedLessons, practiceProgress, onDiagnosticFinished, onClearProgress, diagnosticScoreAnchor]);
 
   // Save test results when test completes
   const completionInFlight = useRef(false);

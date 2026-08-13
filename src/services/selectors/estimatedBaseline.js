@@ -31,6 +31,23 @@ const rowHasScore = (row) => {
  *   Composite estimate (mid snapped to the 10-point grid), or null when a real
  *   test score exists / no diagnostic band is stored.
  */
+/**
+ * The stored diagnostic band's midpoint, but ONLY when the band is
+ * representative (not focus-weighted). Snapped to the 10-point score grid.
+ * Used as the score anchor for check-in plan generation: a check-in's own
+ * band over-samples the plan's focus skills, so its center reads low — the
+ * plan's arc must start from the last trustworthy measurement instead.
+ *
+ * @param {object|null} miniDiagnostic - progress.miniDiagnostic record
+ * @returns {number|null} Composite midpoint, or null when no trusted band.
+ */
+export function getTrustedBandMidpoint(miniDiagnostic) {
+  const band = miniDiagnostic?.scoreBand;
+  if (!band || !Number.isFinite(band.low) || !Number.isFinite(band.high)) return null;
+  if (miniDiagnostic?.scoreBandFocusWeighted) return null;
+  return Math.round((band.low + band.high) / 2 / 10) * 10;
+}
+
 export function getEstimatedBaseline(miniDiagnostic, practiceTestResults) {
   const band = miniDiagnostic?.scoreBand;
   if (!band || !Number.isFinite(band.low) || !Number.isFinite(band.high)) return null;

@@ -91,7 +91,7 @@ describe('measurement cadence', () => {
     // so only assert shape when one was inserted.
     checkIns.forEach((c) => {
       expect(c.type).toBe('test');
-      expect(c.duration).toBe(15);
+      expect(c.duration).toBe(20);
       expect(c.because).toMatch(/fresh evidence/i);
     });
   });

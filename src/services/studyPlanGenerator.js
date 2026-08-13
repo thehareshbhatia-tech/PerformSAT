@@ -1106,7 +1106,7 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
   // Measurement cadence: inside a month of test day, every week ends with a
   // full test. On a longer arc, FULL tests land every third week (a 70-minute
   // mock every other week is over-prescription students skip) and the
-  // 15-minute check-ins inserted below fill the gaps — so something measures
+  // short check-ins inserted below fill the gaps — so something measures
   // the student every 1-2 weeks, but it's usually the light thing. A small
   // score gap (final polish) doesn't add tests — it adds precision/strategy
   // work (see the strategy slot below).
@@ -1323,7 +1323,7 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
   }
 
   // ═══ Check-in cadence: never two consecutive weeks without a measurement ═══
-  // Full tests anchor the cadence; a 15-minute adaptive check-in fills any
+  // Full tests anchor the cadence; a short adaptive check-in fills any
   // 2-week stretch between them so the diagnosis (and therefore every
   // personalized piece of the plan) never goes stale. Founder decision D3.
   let weeksSinceMeasurement = 0;
@@ -1338,16 +1338,19 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
       week.activities.push({
         type: 'test',
         activityType: 'miniDiagnostic',
-        title: 'Quick check-in (15 min)',
+        // Duration is deliberately loose: the v2 focused check-in runs ~20-25
+        // timed minutes, the legacy shell ~15 — the title stays untimed so a
+        // stored plan never promises a length the flag state can't deliver.
+        title: 'Quick check-in',
         subtitle: 'A short adaptive check re-measures you and re-tunes the plan between full tests',
         because: 'Two weeks since your last measurement — fresh evidence keeps every task on this plan honest.',
-        duration: 15,
+        duration: 20,
         priority: 100,
         icon: null,
         day,
         weekPhase: 'end',
       });
-      week.totalMinutes = (week.totalMinutes || 0) + 15;
+      week.totalMinutes = (week.totalMinutes || 0) + 20;
       week.isCheckInWeek = true;
       weeksSinceMeasurement = 0;
     }

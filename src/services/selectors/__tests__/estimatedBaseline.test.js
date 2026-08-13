@@ -3,7 +3,7 @@
  * band fills the dashboard starting-score slot ONLY while no scoreable
  * full-test attempt exists; any real test score makes it disappear.
  */
-import { getEstimatedBaseline } from '../estimatedBaseline';
+import { getEstimatedBaseline, getTrustedBandMidpoint } from '../estimatedBaseline';
 
 const BAND = {
   low: 980, high: 1060,
@@ -63,5 +63,21 @@ describe('getEstimatedBaseline', () => {
 
   test('handles missing practiceTestResults map', () => {
     expect(getEstimatedBaseline({ scoreBand: BAND }, null)).not.toBeNull();
+  });
+});
+
+describe('getTrustedBandMidpoint (check-in plan anchor)', () => {
+  test('representative band yields its snapped midpoint', () => {
+    expect(getTrustedBandMidpoint({ scoreBand: BAND })).toBe(1020);
+  });
+
+  test('focus-weighted band is never trusted', () => {
+    expect(getTrustedBandMidpoint({ scoreBand: BAND, scoreBandFocusWeighted: true })).toBeNull();
+  });
+
+  test('null without a usable band', () => {
+    expect(getTrustedBandMidpoint(null)).toBeNull();
+    expect(getTrustedBandMidpoint({})).toBeNull();
+    expect(getTrustedBandMidpoint({ scoreBand: { low: NaN, high: 1000 } })).toBeNull();
   });
 });
