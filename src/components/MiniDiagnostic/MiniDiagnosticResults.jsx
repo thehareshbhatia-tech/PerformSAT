@@ -94,6 +94,9 @@ function buildView(result) {
 
 export default function MiniDiagnosticResults({ result, user, onViewPlan }) {
   const view = useMemo(() => buildView(result), [result]);
+  // Question count comes from the record (Diagnostic v2 serves 40 full / 18
+  // check-in; the legacy shell served 24) — never hardcode it.
+  const questionCount = result?.miniDiagnosticRecord?.totalCount || 24;
   if (!view) return null;
   const { band, headline, keyInsight, totalWrong, errorBreakdown, strengths, focus } = view;
   const maxCount = errorBreakdown[0]?.count || 1;
@@ -104,7 +107,7 @@ export default function MiniDiagnosticResults({ result, user, onViewPlan }) {
         {user?.firstName ? `Your starting point, ${user.firstName}` : 'Your starting point'}
       </h1>
       <p style={{ fontSize: typography.sizes.base, color: colors.text.secondary, textAlign: 'center', margin: `0 auto ${spacing.xl}`, maxWidth: '52ch', lineHeight: 1.5 }}>
-        Based on 24 questions — a first read your first full practice test will sharpen. Here&rsquo;s exactly what it found.
+        Based on {questionCount} questions — a first read your first full practice test will sharpen. Here&rsquo;s exactly what it found.
       </p>
 
       {/* Where you stand — score band + the goal-gap headline */}

@@ -346,6 +346,14 @@ const PerformSAT = () => {
   // the on-ramp goes straight to the 24Q check-in.
   const ffOnRamp = useFeatureFlag('onRamp');
   const [onRampActive, setOnRampActive] = useState(null);
+  // Diagnostic v2 (REACT_APP_FF_DIAGNOSTIC_V2 / ff:diagnosticV2): the
+  // diagnostic runs as a synthetic adaptive test inside the real PracticeTest
+  // runner (timed Bluebook modules, calculator, highlighting, fill-ins)
+  // instead of the custom MiniDiagnosticShell. Flag OFF = old shell path,
+  // which is the rollback. diagnosticTest: null = not built yet, 'error' =
+  // build failed (renderOnRamp shows retry), object = ready to mount.
+  const ffDiagnosticV2 = useFeatureFlag('diagnosticV2');
+  const [diagnosticTest, setDiagnosticTest] = useState(null);
   // Inner onboarding (post-signup, pre-home) state — same tri-state contract as
   // onRampActive. A fresh account runs this ONCE, then lands on the first-run
   // home where the diagnostic CTA is waiting; the diagnostic no longer
@@ -901,22 +909,128 @@ const PerformSAT = () => {
     }
   };
 
-  const renderOnRamp = () => (
-    <React.Suspense fallback={<div style={{ minHeight: '100vh', background: '#ffffff' }} />}>
-      <MiniDiagnosticShell
-        user={user}
-        savedProgress={getTestProgress('mini-diagnostic')}
-        onSaveProgress={saveTestProgress}
-        onClearProgress={clearTestProgress}
-        answeredQuestionIds={answeredQuestionIds}
-        completedLessons={completedLessons}
-        practiceProgress={practiceProgress}
-        onFinished={handleOnRampFinished}
-        onViewPlan={() => { setOnRampActive(false); setView('studyPlan'); }}
-        onSkip={handleOnRampSkip}
-      />
-    </React.Suspense>
-  );
+  // Diagnostic v2 build/rebuild — runs only while the on-ramp is mounted with
+  // the flag on. Resume rebuilds the EXACT sitting from the persisted manifest
+  // (never re-sampled — saved modIdx-qIdx answers must stay aligned); bank
+  // drift (a manifest id gone from the banks) discards the sitting and builds
+  // fresh. First-ever diagnostic gets the full 40Q adaptive variant; once a
+  // plan or a prior diagnostic exists, check-ins get the ~25-min focused
+  // variant weighted toward the plan's current focus skills.
+  useEffect(() => {
+    if (onRampActive !== true || !ffDiagnosticV2 || !user?.uid) return undefined;
+    if (diagnosticTest) return undefined; // built already (or 'error' — retry is explicit)
+    let cancelled = false;
+    (async () => {
+      try {
+        const { buildDiagnosticTest, rebuildDiagnosticTest } =
+          await import('./services/miniDiagnostic/buildDiagnosticTest');
+        const saved = getTestProgress('mini-diagnostic');
+        if (saved?.diagnosticManifest) {
+          const rebuilt = await rebuildDiagnosticTest(saved.diagnosticManifest);
+          if (rebuilt) {
+            if (!cancelled) setDiagnosticTest(rebuilt);
+            return;
+          }
+          clearTestProgress('mini-diagnostic');
+        }
+        // First diagnostic = no diagnostic record yet. A funnel/onboarding
+        // starter plan does NOT count as prior evidence — a brand-new account
+        // with only that scaffold still gets the full 40Q sitting.
+        const isFirstDiagnostic = !miniDiagnostic;
+        const focusSkills = (studyPlan?.weaknesses || [])
+          .map((w) => w.skillId)
+          .filter(Boolean)
+          .slice(0, 6);
+        const attemptId = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+        const { test } = await buildDiagnosticTest({
+          userId: user.uid,
+          attemptId,
+          excludeIds: answeredQuestionIds || [],
+          variant: isFirstDiagnostic ? 'full' : 'checkin',
+          focusSkills,
+        });
+        if (!cancelled) setDiagnosticTest(test);
+      } catch (e) {
+        console.error('[diagnosticV2] build failed:', e);
+        if (!cancelled) setDiagnosticTest('error');
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [onRampActive, ffDiagnosticV2, user, diagnosticTest, studyPlan, miniDiagnostic, answeredQuestionIds, getTestProgress, clearTestProgress]);
+
+  // Leaving the on-ramp drops the built test so the next entry (a later
+  // check-in) samples a fresh sitting instead of remounting a finished one.
+  useEffect(() => {
+    if (onRampActive === false && diagnosticTest) setDiagnosticTest(null);
+  }, [onRampActive, diagnosticTest]);
+
+  const renderOnRamp = () => {
+    if (ffDiagnosticV2) {
+      if (diagnosticTest === 'error') {
+        return (
+          <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#ffffff', padding: '24px' }}>
+            <div style={{ textAlign: 'center', maxWidth: '420px' }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', margin: '0 0 8px' }}>
+                Couldn't load your diagnostic
+              </h2>
+              <p style={{ color: 'var(--color-slate-600)', fontSize: '15px', margin: '0 0 20px' }}>
+                Check your connection and try again.
+              </p>
+              <button
+                type="button"
+                onClick={() => setDiagnosticTest(null)}
+                style={{ padding: '12px 24px', borderRadius: '10px', border: 'none', background: '#ea580c', color: '#ffffff', fontWeight: 600, fontSize: '15px', cursor: 'pointer' }}
+              >
+                Try again
+              </button>
+            </div>
+          </div>
+        );
+      }
+      if (!diagnosticTest) {
+        return <div style={{ minHeight: '100vh', background: '#ffffff' }} />;
+      }
+      return (
+        // Mimic the takingTest scroll-lock (#main-content style) — the
+        // runner's two-pane session shell manages its own scroll inside a
+        // locked 100vh parent; renderOnRamp mounts OUTSIDE #main-content.
+        <div style={{ height: '100vh', overflow: 'hidden' }}>
+          <React.Suspense fallback={<div style={{ minHeight: '100vh', background: '#ffffff' }} />}>
+            <PracticeTest
+              test={diagnosticTest}
+              user={user}
+              isTimed={true}
+              savedProgress={getTestProgress('mini-diagnostic')}
+              onSaveProgress={(progressData) => { if (user) saveTestProgress('mini-diagnostic', progressData); }}
+              onClearProgress={() => clearTestProgress('mini-diagnostic')}
+              onDiagnosticFinished={handleOnRampFinished}
+              onGoToStudyPlan={() => { setOnRampActive(false); setView('studyPlan'); }}
+              onBack={() => setOnRampActive(false)}
+              answeredQuestionIds={answeredQuestionIds}
+              completedLessons={completedLessons}
+              practiceProgress={practiceProgress}
+            />
+          </React.Suspense>
+        </div>
+      );
+    }
+    return (
+      <React.Suspense fallback={<div style={{ minHeight: '100vh', background: '#ffffff' }} />}>
+        <MiniDiagnosticShell
+          user={user}
+          savedProgress={getTestProgress('mini-diagnostic')}
+          onSaveProgress={saveTestProgress}
+          onClearProgress={clearTestProgress}
+          answeredQuestionIds={answeredQuestionIds}
+          completedLessons={completedLessons}
+          practiceProgress={practiceProgress}
+          onFinished={handleOnRampFinished}
+          onViewPlan={() => { setOnRampActive(false); setView('studyPlan'); }}
+          onSkip={handleOnRampSkip}
+        />
+      </React.Suspense>
+    );
+  };
 
   // Inner onboarding finished: persist the collected profile (one merged write)
   // then unmount → the app shell renders the first-run home. We land the student
@@ -2770,6 +2884,7 @@ const PerformSAT = () => {
               Object.keys(practiceTestResults || {}).length === 0
             }
             onStartCheckIn={handleResumeOnRamp}
+            miniDiagnostic={miniDiagnostic}
             onUpdateTestDate={updateTestDate}
             onUpdateTargetScore={updateTargetScore}
             onUpdateCurrentScore={updateCurrentScore}

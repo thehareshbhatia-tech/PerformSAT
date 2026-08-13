@@ -179,3 +179,143 @@ describe('withTimeout (offline-write hang guard)', () => {
       .rejects.toThrow('permission-denied');
   });
 });
+
+// ─── Diagnostic v2: runner-hosted (effectiveTest) path ───────────────────────
+// The v2 diagnostic runs inside the real PracticeTest runner: 4 modules,
+// adaptive M2 per section, answers keyed to the RUNNER's modIdx-qIdx space.
+// These tests drive finishMiniDiagnostic exactly the way the runner does.
+const { buildDiagnosticTest } = require('../buildDiagnosticTest');
+const { findFirestoreHostileValues } = require('../../../utils/firestoreSafe');
+
+/** Answer a runner-shaped test: `fraction` of each module correct, rest wrong. */
+function answerRunnerTest(modules, fraction = 0.5) {
+  const answers = {};
+  const telemetry = {};
+  modules.forEach((mod, modIdx) => {
+    mod.questions.forEach((q, qIdx) => {
+      const key = `${modIdx}-${qIdx}`;
+      const right = qIdx < Math.round(mod.questions.length * fraction);
+      if (q.type === 'fill-in') {
+        answers[key] = right ? String(q.correctAnswer) : '999999';
+      } else {
+        answers[key] = right
+          ? q.correctAnswer
+          : (q.choices.find((c) => c.id !== q.correctAnswer)?.id || 'A');
+      }
+      telemetry[key] = {
+        timeSpent: 40 + qIdx,
+        visits: 1,
+        answerChanges: [{ from: null, to: answers[key], timestamp: 1000 + qIdx }],
+        markedForReview: false,
+        usedCalculator: false,
+      };
+    });
+  });
+  return { answers, telemetry };
+}
+
+describe('finishMiniDiagnostic — Diagnostic v2 runner path', () => {
+  beforeEach(() => {
+    persistDeterministicArtifact.mockResolvedValue({ artifactId: 'artifact-v2' });
+    recordSkillAttemptsBatch.mockResolvedValue(undefined);
+  });
+
+  it('folds a 4-module effectiveTest into per-section domains and a full record', async () => {
+    const { test } = await buildDiagnosticTest({ userId: USER.uid, attemptId: 'v2-finish-1' });
+    const { answers, telemetry } = answerRunnerTest(test.modules, 0.6);
+
+    const result = await finishMiniDiagnostic({
+      user: USER,
+      effectiveTest: test,
+      answers,
+      telemetry,
+      attemptId: 'v2-finish-1',
+      routes: { rw: 'hard', math: 'hard' },
+      navigation: { navigationPattern: 'strategic-skip', totalNavigationEvents: 7 },
+    });
+
+    const rec = result.miniDiagnosticRecord;
+    expect(rec.totalCount).toBe(40);
+    expect(rec.itemIds).toHaveLength(40);
+    expect(rec.diagnosticVariant).toBe('full');
+    expect(rec.routes).toEqual({ rw: 'hard', math: 'hard' });
+    // Domain folds span BOTH modules of each section (20 items per section).
+    const sum = (domains) => Object.values(domains).reduce((s, d) => s + d.total, 0);
+    expect(sum(rec.domains.rw)).toBe(20);
+    expect(sum(rec.domains.math)).toBe(20);
+    // Real plan out the other side, artifact persisted through the real path.
+    expect(result.plan.planSource).toBe(MINI_DIAGNOSTIC_PLAN_SOURCE);
+    expect(persistDeterministicArtifact).toHaveBeenCalledWith(
+      USER.uid,
+      expect.anything(),
+      expect.objectContaining({ sourceTestId: MINI_DIAGNOSTIC_TEST_ID }),
+    );
+    // Every served item seeds skillProgress evidence.
+    expect(recordSkillAttemptsBatch).toHaveBeenCalledTimes(1);
+    expect(recordSkillAttemptsBatch.mock.calls[0][1].length).toBeGreaterThanOrEqual(38);
+  });
+
+  it('scores an easy-routed section on the easy column (band never above hard)', async () => {
+    const { test } = await buildDiagnosticTest({ userId: USER.uid, attemptId: 'v2-finish-2' });
+    // Simulate the runner's easy swap for math: M2 slot replaced by the easy module.
+    const easyModules = [...test.modules];
+    easyModules[3] = { ...easyModules[3], ...test.module2Easy, title: easyModules[3].title, section: 'math' };
+    const easyTest = { ...test, modules: easyModules };
+    const { answers, telemetry } = answerRunnerTest(easyTest.modules, 1.0);
+
+    const easyResult = await finishMiniDiagnostic({
+      user: USER, effectiveTest: easyTest, answers, telemetry,
+      attemptId: 'v2-finish-2e', routes: { rw: 'hard', math: 'easy' },
+    });
+    // A perfect run on the EASY route must cap below the hard ceiling (the
+    // easy raw→scaled column tops out ~600, mirroring real adaptive scoring).
+    expect(easyResult.scoreBand.mathBand.high).toBeLessThanOrEqual(650);
+    expect(easyResult.miniDiagnosticRecord.routes.math).toBe('easy');
+  });
+
+  it('widens the band on a thin sitting (under 80% answered)', async () => {
+    const { test } = await buildDiagnosticTest({ userId: USER.uid, attemptId: 'v2-finish-3' });
+    const full = answerRunnerTest(test.modules, 0.5);
+    // Thin sitting: drop 40% of the answers (24/40 answered = 60% < 80%).
+    const thinAnswers = {};
+    Object.entries(full.answers).forEach(([k, v], i) => {
+      if (i % 5 < 3) thinAnswers[k] = v;
+    });
+
+    const fullResult = await finishMiniDiagnostic({
+      user: USER, effectiveTest: test, answers: full.answers,
+      telemetry: full.telemetry, attemptId: 'v2-3a', routes: { rw: 'hard', math: 'hard' },
+    });
+    const thinResult = await finishMiniDiagnostic({
+      user: USER, effectiveTest: test, answers: thinAnswers,
+      telemetry: full.telemetry, attemptId: 'v2-3b', routes: { rw: 'hard', math: 'hard' },
+    });
+
+    const width = (b) => b.high - b.low;
+    expect(width(thinResult.scoreBand)).toBeGreaterThan(width(fullResult.scoreBand));
+  });
+
+  it('the v2 record is Firestore-safe (no Sets/Maps/undefined/nested arrays)', async () => {
+    const { test } = await buildDiagnosticTest({ userId: USER.uid, attemptId: 'v2-finish-4' });
+    const { answers, telemetry } = answerRunnerTest(test.modules, 0.4);
+    const result = await finishMiniDiagnostic({
+      user: USER, effectiveTest: test, answers, telemetry,
+      attemptId: 'v2-finish-4', routes: { rw: 'hard', math: 'hard' },
+    });
+    const hostile = findFirestoreHostileValues(result.miniDiagnosticRecord, 'record');
+    expect(hostile).toEqual({
+      nestedArrays: [], undefinedValues: [], nonFinite: [], customObjects: [],
+    });
+  });
+
+  it('v1 shell path is unchanged: no variant/routes fields on its record', async () => {
+    const { rwServed, mathServed, answers, telemetry } = await buildServedSession();
+    const result = await finishMiniDiagnostic({
+      user: USER, rwQuestions: rwServed, mathQuestions: mathServed,
+      answers, telemetry, attemptId: 'v1-compat',
+    });
+    expect(result.miniDiagnosticRecord.diagnosticVariant).toBeUndefined();
+    expect(result.miniDiagnosticRecord.routes).toBeUndefined();
+    expect(result.miniDiagnosticRecord.totalCount).toBe(24);
+  });
+});

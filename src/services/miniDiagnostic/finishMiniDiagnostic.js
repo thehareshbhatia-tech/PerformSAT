@@ -120,6 +120,25 @@ function buildDomainSummary(questions, answers, modIdx) {
 }
 
 /**
+ * Per-domain fold across EVERY module of one section — the multi-module
+ * (Diagnostic v2 runner) equivalent of buildDomainSummary. answers stay keyed
+ * by the test's own `${modIdx}-${qIdx}` space.
+ */
+function buildSectionDomainSummary(test, answers, section) {
+  const byDomain = {};
+  test.modules.forEach((mod, modIdx) => {
+    if ((mod.section || null) !== section) return;
+    mod.questions.forEach((q, qIdx) => {
+      const domain = q.domain || 'unknown';
+      if (!byDomain[domain]) byDomain[domain] = { correct: 0, total: 0 };
+      byDomain[domain].total += 1;
+      if (isAnswerCorrect(q, answers[`${modIdx}-${qIdx}`])) byDomain[domain].correct += 1;
+    });
+  });
+  return byDomain;
+}
+
+/**
  * Run the full diagnose-and-plan pipeline on a completed mini-diagnostic.
  *
  * Persists the deterministic plan artifact (artifact path handles the
@@ -129,6 +148,13 @@ function buildDomainSummary(questions, answers, modIdx) {
  * progress.miniDiagnostic record or users.onboardingCompletedAt — the
  * caller owns those via useProgress/useAuth so optimistic state stays
  * coherent.
+ *
+ * Diagnostic v2 (runner-hosted) callers pass `effectiveTest` — the full
+ * multi-module test object the student actually saw (post-M2-routing), with
+ * `answers` keyed to ITS `${modIdx}-${qIdx}` space — plus `routes` (the M2
+ * variants actually served, feeding the route-aware band) and `navigation`
+ * (the runner's real navigation classification). The v1 shell keeps calling
+ * with rwQuestions/mathQuestions and is byte-identical.
  *
  * @returns {Promise<{plan, diagReport, groundTruth, scoreBand, miniDiagnosticRecord}>}
  */
@@ -143,19 +169,26 @@ export async function finishMiniDiagnostic({
   answeredQuestionIds = [],
   completedLessons = {},
   practiceProgress = {},
+  effectiveTest = null,
+  routes = null,
+  navigation = null,
 }) {
   if (!user?.uid) throw new Error('finishMiniDiagnostic: user.uid required');
 
-  const test = buildSyntheticTest(rwQuestions, mathQuestions);
+  const test = effectiveTest || buildSyntheticTest(rwQuestions, mathQuestions);
   const questionDetails = buildQuestionDetails(test, answers, telemetry, eliminatedChoices);
   const telemetryValues = Object.values(telemetry);
   const diagnosticData = {
     questionDetails,
-    navigationPattern: 'linear',
-    totalNavigationEvents: 0,
+    navigationPattern: navigation?.navigationPattern || 'linear',
+    totalNavigationEvents: navigation?.totalNavigationEvents || 0,
     questionsVisitedMultipleTimes: telemetryValues.filter(t => (t.visits || 0) > 1).length,
     calculatorUsageCount: telemetryValues.filter(t => t.usedCalculator).length,
     markedForReviewCount: telemetryValues.filter(t => t.markedForReview).length,
+    // Route metadata: scoreTest/runDiagnostic read these so an easy-routed
+    // section grades on the easy scale column (same contract as real tests).
+    ...(routes?.math ? { mathRoute: routes.math } : {}),
+    ...(routes?.rw ? { rwRoute: routes.rw } : {}),
   };
 
   // Real engine, synthetic test. skillProgress {} + previousTests {} — this
@@ -175,13 +208,29 @@ export async function finishMiniDiagnostic({
   // engine's raw scaled score for a 24-item synthetic test undershoots the
   // calibrated band, so the band midpoint becomes the plan's currentScore.
   const answersById = {};
-  const collectAnswers = (qs, modIdx) => qs.forEach((q, qIdx) => {
-    const a = answers[`${modIdx}-${qIdx}`];
-    if (a !== undefined && a !== null && a !== '') answersById[q.id] = a;
+  test.modules.forEach((mod, modIdx) => {
+    mod.questions.forEach((q, qIdx) => {
+      const a = answers[`${modIdx}-${qIdx}`];
+      if (a !== undefined && a !== null && a !== '') answersById[q.id] = a;
+    });
   });
-  collectAnswers(rwQuestions, 0);
-  collectAnswers(mathQuestions, 1);
-  const scoreBand = computeScoreBand({ rwItems: rwQuestions, mathItems: mathQuestions, answersById });
+  const sectionItems = (section) => test.modules
+    .filter((m) => (m.section || null) === section)
+    .flatMap((m) => m.questions);
+  const rwItems = effectiveTest ? sectionItems('reading-writing') : rwQuestions;
+  const mathItems = effectiveTest ? sectionItems('math') : mathQuestions;
+  const totalServed = rwItems.length + mathItems.length;
+  const answeredCount = Object.values(answers)
+    .filter((a) => a !== undefined && a !== null && a !== '').length;
+  const scoreBand = computeScoreBand({
+    rwItems,
+    mathItems,
+    answersById,
+    rwRoute: routes?.rw || 'hard',
+    mathRoute: routes?.math || 'hard',
+    // Widen the band on thin sittings (v2 only — v1 keeps its fixed margins).
+    lowEvidence: !!effectiveTest && totalServed > 0 && answeredCount / totalServed < 0.8,
+  });
   const bandMidpoint = Math.round((scoreBand.low + scoreBand.high) / 2 / 10) * 10;
   const planDiagnostic = {
     ...diagReport,
@@ -212,13 +261,24 @@ export async function finishMiniDiagnostic({
     attemptId: attemptId || null,
     completedAt: new Date().toISOString(),
     scoreBand,
-    domains: {
-      rw: buildDomainSummary(rwQuestions, answers, 0),
-      math: buildDomainSummary(mathQuestions, answers, 1),
-    },
-    itemIds: [...rwQuestions.map(q => q.id), ...mathQuestions.map(q => q.id)].filter(Boolean),
+    domains: effectiveTest
+      ? {
+          rw: buildSectionDomainSummary(test, answers, 'reading-writing'),
+          math: buildSectionDomainSummary(test, answers, 'math'),
+        }
+      : {
+          rw: buildDomainSummary(rwQuestions, answers, 0),
+          math: buildDomainSummary(mathQuestions, answers, 1),
+        },
+    itemIds: [...rwItems.map(q => q.id), ...mathItems.map(q => q.id)].filter(Boolean),
     answeredCount: Object.keys(answers).length,
-    totalCount: rwQuestions.length + mathQuestions.length,
+    totalCount: totalServed,
+    // v2 provenance: which experience produced this record and what the
+    // adaptive routing actually served. Absent on v1 shell records.
+    ...(effectiveTest ? {
+      diagnosticVariant: test.diagnosticVariant || 'full',
+      routes: { rw: routes?.rw || 'hard', math: routes?.math || 'hard' },
+    } : {}),
   };
 
   // Persist the artifact (sets the currentStudyPlanArtifactId pointer).

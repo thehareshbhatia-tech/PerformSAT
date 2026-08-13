@@ -17,6 +17,8 @@ import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
 import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
 import { isScoreableAttempt, getLatestTestStats } from '../services/selectors/latestTestStats';
+import { getEstimatedBaseline } from '../services/selectors/estimatedBaseline';
+import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import { buildPerformanceTiles } from '../services/selectors/performanceTiles';
 import { snapToScale } from '../services/scoring/scaleTables';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
@@ -109,6 +111,7 @@ const StudentDashboard = ({
   onTabChange,
   showCheckInCard = false,
   onStartCheckIn,
+  miniDiagnostic = null,
 }) => {
   // Tab state is lifted to App when controlled (activeTab + onTabChange) so it
   // survives this component unmounting during a pacing drill / test review and
@@ -118,6 +121,10 @@ const StudentDashboard = ({
   const [internalActiveTab, setInternalActiveTab] = useState('dashboard');
   const activeTab = controlledActiveTab ?? internalActiveTab;
   const setActiveTab = onTabChange || setInternalActiveTab;
+  // Diagnostic v2 changes the first-run hero's promise copy (40Q adaptive in
+  // the real test runner vs the legacy 24Q shell). Same flag App gates the
+  // experience on, so copy and experience can never disagree.
+  const ffDiagnosticV2 = useFeatureFlag('diagnosticV2');
   // Practice-test resolver for the recent-misses card (Stage 2c of the
   // bundle-split plan). The test catalog is its own async chunk now, so we
   // hold the resolver FUNCTION in state once the chunk arrives — note the
@@ -291,6 +298,13 @@ const StudentDashboard = ({
   // disagree with the widget when the latest attempt wasn't the best.
   const latestStats = useMemo(() => getLatestTestStats(practiceTestResults), [practiceTestResults]);
   const latestScore = latestStats ? latestStats.scaledScore : null;
+  // Diagnostic v2: the diagnostic's estimated band fills the Current Score
+  // hero ONLY until the first real test score exists (selector enforces the
+  // outranking rule). Read-time fallback — never written to the profile.
+  const estimatedBaseline = useMemo(
+    () => getEstimatedBaseline(miniDiagnostic, practiceTestResults),
+    [miniDiagnostic, practiceTestResults],
+  );
   // Delta vs the PREVIOUS attempt, from the SAME selector as the headline, so
   // the arrow can never contradict the number (e.g. an up-arrow on a lower
   // retake). getLatestTestStats returns null on a single attempt or a
@@ -628,7 +642,9 @@ const StudentDashboard = ({
               <span className="fr-badge">First step</span>
               <h2 className="fr-hero-title">Let&rsquo;s find out exactly where you stand.</h2>
               <p className="fr-hero-desc">
-                Take a 15-minute adaptive diagnostic. SEVA pinpoints every weak skill, then builds your entire study plan around it.
+                {ffDiagnosticV2
+                  ? 'Take an adaptive diagnostic — the real test experience, about half the length of a full SAT. SEVA pinpoints every weak skill, then builds your entire study plan around it.'
+                  : 'Take a 15-minute adaptive diagnostic. SEVA pinpoints every weak skill, then builds your entire study plan around it.'}
               </p>
               <div className="fr-hero-actions">
                 <button type="button" className="fr-cta" onClick={onStartDiagnostic}>
@@ -646,9 +662,19 @@ const StudentDashboard = ({
                 ) : null}
               </div>
               <div className="fr-hero-meta">
-                <span><TimerIcon size={14} color="currentColor" /> ~15 minutes</span>
-                <span><CheckCircleIcon size={14} color="currentColor" /> 24 adaptive questions</span>
-                <span><CrossIcon size={13} color="currentColor" /> not a full test</span>
+                {ffDiagnosticV2 ? (
+                  <>
+                    <span><TimerIcon size={14} color="currentColor" /> ~55 minutes</span>
+                    <span><CheckCircleIcon size={14} color="currentColor" /> 40 adaptive questions</span>
+                    <span><CrossIcon size={13} color="currentColor" /> half a full test</span>
+                  </>
+                ) : (
+                  <>
+                    <span><TimerIcon size={14} color="currentColor" /> ~15 minutes</span>
+                    <span><CheckCircleIcon size={14} color="currentColor" /> 24 adaptive questions</span>
+                    <span><CrossIcon size={13} color="currentColor" /> not a full test</span>
+                  </>
+                )}
               </div>
             </div>
             {(user?.targetScore || user?.testDate) && (
@@ -817,31 +843,41 @@ const StudentDashboard = ({
               </div>
             )}
 
-            {/* SCORE TRAJECTORY HERO */}
-            {latestScore !== null && (() => {
-              const goalArgs = { latestScore, targetScore: user?.targetScore, isMultiSection: latestIsMultiSection };
+            {/* SCORE TRAJECTORY HERO — falls back to the diagnostic's
+                estimated band until the first real test score exists
+                (Diagnostic v2; the selector enforces full-tests-outrank). */}
+            {(latestScore !== null || estimatedBaseline) && (() => {
+              const isEstimated = latestScore === null;
+              const heroScore = isEstimated ? estimatedBaseline.mid : latestScore;
+              const heroIsMultiSection = isEstimated ? true : latestIsMultiSection;
+              const goalArgs = { latestScore: heroScore, targetScore: user?.targetScore, isMultiSection: heroIsMultiSection };
               const goalAchieved = isGoalAchieved(goalArgs);
               const goalGap = goalDelta(goalArgs);
               const goalForBar = (user?.targetScore && user.targetScore > 800) ? user.targetScore : 1500;
               // Progress is measured against the 400-1600 composite band (the
               // bar's floor label is "400"), so anchor the fill at 400 — not 0.
               // A raw latestScore/goalForBar made a 400 composite read 27% full.
-              const pct = Math.max(0, Math.min(100, Math.round(((latestScore - 400) / (goalForBar - 400)) * 100)));
+              const pct = Math.max(0, Math.min(100, Math.round(((heroScore - 400) / (goalForBar - 400)) * 100)));
               const testDateIsPast = daysUntilTest !== null && daysUntilTest < 0;
               return (
                 <div className="hv2-score-hero">
                   <div className="hv2-score-top">
                     <div>
-                      <div className="hv2-score-eyebrow">Current Score</div>
+                      <div className="hv2-score-eyebrow">{isEstimated ? 'Estimated Starting Score' : 'Current Score'}</div>
                       <div className="hv2-score-numrow">
-                        <span className="hv2-score-num">{latestScore}</span>
+                        <span className="hv2-score-num">{heroScore}</span>
                         {user?.targetScore != null && goalGap != null && (
                           <span className={`hv2-goal-pill${goalAchieved ? ' is-achieved' : ''}`}>
                             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-                            {goalAchieved ? `${goalGap} above target` : `${goalGap} to goal`}
+                            {goalAchieved ? `${Math.abs(goalGap)} above target` : `${Math.abs(goalGap)} to goal`}
                           </span>
                         )}
                       </div>
+                      {isEstimated && (
+                        <div className="hv2-hero-foot-label" style={{ marginTop: '6px' }}>
+                          Estimated {estimatedBaseline.low}&ndash;{estimatedBaseline.high} from your diagnostic &middot; a full practice test sharpens it
+                        </div>
+                      )}
                     </div>
                     {(latestStats?.math?.scaled != null || latestStats?.rw?.scaled != null) && (
                       <div className="hv2-sub-tiles">
@@ -853,11 +889,22 @@ const StudentDashboard = ({
                         )}
                       </div>
                     )}
+                    {isEstimated && (estimatedBaseline.mathBand || estimatedBaseline.rwBand) && (
+                      <div className="hv2-sub-tiles">
+                        {estimatedBaseline.mathBand && (
+                          <div className="hv2-sub-tile"><div className="hv2-sub-tile-label">Math</div><div className="hv2-sub-tile-num">{estimatedBaseline.mathBand.low}&ndash;{estimatedBaseline.mathBand.high}</div></div>
+                        )}
+                        {estimatedBaseline.rwBand && (
+                          <div className="hv2-sub-tile"><div className="hv2-sub-tile-label">R&amp;W</div><div className="hv2-sub-tile-num">{estimatedBaseline.rwBand.low}&ndash;{estimatedBaseline.rwBand.high}</div></div>
+                        )}
+                      </div>
+                    )}
                   </div>
                   {/* Only meaningful for a 400-1600 composite: a single-section
                       200-800 latest against a composite goal is apples-to-oranges,
-                      so hide the bar entirely when the latest isn't multi-section. */}
-                  {user?.targetScore != null && latestIsMultiSection && (
+                      so hide the bar entirely when the latest isn't multi-section.
+                      The estimated baseline is always composite. */}
+                  {user?.targetScore != null && heroIsMultiSection && (
                     <div className="hv2-progress-wrap">
                       <div className="hv2-progress-bar">
                         <div className="hv2-progress-fill" style={{ width: `${pct}%` }} />

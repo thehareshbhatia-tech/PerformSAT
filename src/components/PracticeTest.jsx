@@ -30,6 +30,8 @@ import { generateStudyPlan as generateDeterministicPlan } from '../services/stud
 import { buildPlanProfile } from '../services/studySchedule';
 import { STARTER_PLAN_SOURCE } from '../services/starterPlanService';
 import { runDiagnostic, getQuestionSkills } from '../services/diagnosticEngine';
+import { finishMiniDiagnostic } from '../services/miniDiagnostic/finishMiniDiagnostic';
+import MiniDiagnosticResults from './MiniDiagnostic/MiniDiagnosticResults';
 import { buildGroundTruthDiagnosis, enrichPlanWithGroundTruth } from '../services/groundTruth';
 import { scoreTest, isAnswerCorrect } from '../services/scoring';
 import { computeRemaining, deriveDeadline, shiftDeadlineForPause } from '../services/timerClock';
@@ -641,7 +643,7 @@ const sanitizeGridIn = (raw) => {
   return s.slice(0, s[0] === '-' ? 6 : 5);
 };
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null, initialSection = null, resultSaveStatus = null, onRetrySave = null, tutorLocked = false, onSubscribe = null }) => {
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null, initialSection = null, resultSaveStatus = null, onRetrySave = null, tutorLocked = false, onSubscribe = null, onDiagnosticFinished = null }) => {
   const [currentModule, setCurrentModule] = useState(
     pickInitialModuleIndex(test, savedProgress, initialSection)
   );
@@ -1033,6 +1035,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         rwModule2Variant,
         rwM2VariantManuallySet,
         moduleCompleted,
+        // Diagnostic v2: the manifest (item ids per module slot) rides the
+        // in-progress record so a resume REBUILDS the identical synthetic
+        // test instead of re-sampling — saved modIdx-qIdx answers stay
+        // aligned to the questions they were given for.
+        ...(test?.isDiagnostic && test.diagnosticManifest
+          ? { isDiagnostic: true, diagnosticManifest: test.diagnosticManifest }
+          : {}),
       };
     };
     // Freshest builder for the visibility flush below — timeRemaining reads
@@ -1084,16 +1093,82 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
 
   const planGenerationAttempted = useRef(false);
 
+  // ── Diagnostic v2 finish (test.isDiagnostic) ──────────────────────────────
+  // The diagnostic runs the on-ramp pipeline (finishMiniDiagnostic: real
+  // diagnosis → starter/check-in plan → artifact persist → skillProgress
+  // seed) instead of the practice-test save path. Nothing here may touch
+  // practiceTestResults or the review queue — a diagnostic must never enter
+  // score history. Phase: null | 'finishing' | 'results' | 'error'.
+  const [diagnosticFinish, setDiagnosticFinish] = useState({ phase: null, result: null });
+  const diagnosticFinishingRef = useRef(false);
+  const runDiagnosticFinish = useCallback(async () => {
+    if (diagnosticFinishingRef.current) return;
+    diagnosticFinishingRef.current = true;
+    setDiagnosticFinish({ phase: 'finishing', result: null });
+    try {
+      // Navigation classification — same rules as the practice-test path.
+      const navHistory = navigationHistory.current;
+      let navigationPattern = 'linear';
+      if (navHistory.length > 0) {
+        let backwardCount = 0;
+        let skipCount = 0;
+        for (const nav of navHistory) {
+          const [, fromQ] = nav.from.split('-').map(Number);
+          const [, toQ] = nav.to.split('-').map(Number);
+          if (toQ < fromQ) backwardCount++;
+          if (Math.abs(toQ - fromQ) > 1) skipCount++;
+        }
+        if (skipCount > navHistory.length * 0.3) navigationPattern = 'jumping';
+        else if (backwardCount > 2 || skipCount > 2) navigationPattern = 'strategic-skip';
+      }
+      const result = await finishMiniDiagnostic({
+        user,
+        effectiveTest: { ...test, modules: effectiveModules },
+        answers,
+        telemetry: questionTelemetry.current,
+        eliminatedChoices,
+        attemptId: attemptIdRef.current || generateAttemptId(),
+        routes: {
+          math: module2Variant === 'easy' ? 'easy' : 'hard',
+          rw: rwModule2Variant === 'easy' ? 'easy' : 'hard',
+        },
+        navigation: { navigationPattern, totalNavigationEvents: navHistory.length },
+        answeredQuestionIds,
+        completedLessons,
+        practiceProgress,
+      });
+      if (onDiagnosticFinished) {
+        try { await onDiagnosticFinished({ ...result, attemptId: attemptIdRef.current }); } catch (e) {
+          // App-level persistence (record/stamp) failing must not hide the
+          // student's diagnosis — same resilience order as the on-ramp sink.
+          console.error('[PracticeTest] onDiagnosticFinished handler error (continuing to results):', e);
+        }
+      }
+      // Success: the resumable in-progress record is now stale — clear it so
+      // the Tests/on-ramp surfaces stop offering a resume of a finished run.
+      if (onClearProgress) onClearProgress();
+      setDiagnosticFinish({ phase: 'results', result });
+    } catch (err) {
+      console.error('[PracticeTest] Diagnostic finish pipeline failed:', err);
+      // Keep the in-progress record — "Try again" re-runs the finish, and a
+      // reload resumes the completed sitting instead of losing 40 answers.
+      setDiagnosticFinish({ phase: 'error', result: null });
+    } finally {
+      diagnosticFinishingRef.current = false;
+    }
+  }, [user, test, effectiveModules, answers, eliminatedChoices, module2Variant, rwModule2Variant, answeredQuestionIds, completedLessons, practiceProgress, onDiagnosticFinished, onClearProgress]);
+
   // Save test results when test completes
   const completionInFlight = useRef(false);
   useEffect(() => {
-    if (!testCompleted || !onSaveResult || resultSaved || completionInFlight.current) return;
+    // Diagnostic mode has no onSaveResult (nothing to save to score history) —
+    // it routes to the finish pipeline instead.
+    if (!testCompleted || resultSaved || completionInFlight.current) return;
+    if (!test?.isDiagnostic && !onSaveResult) return;
     completionInFlight.current = true;
 
     // Yield to browser so the completion UI paints before heavy scoring computation
     const completionTimer = setTimeout(() => {
-      console.log('[PracticeTest] Attempting to save results...');
-
       // Record time spent on the last question before test completion
       const now = Date.now();
       const lastElapsed = (now - questionStartTime.current) / 1000;
@@ -1103,6 +1178,18 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           questionTelemetry.current[lastKey].timeSpent += lastElapsed;
         }
       }
+
+      // Diagnostic v2: the entire practice-test completion path below
+      // (snapshot, score row, session-complete seam, review feed, flag
+      // fanout, skill batch, plan generation) is replaced by the finish
+      // pipeline. Mint the attempt id here so retries reuse it.
+      if (test?.isDiagnostic) {
+        if (!attemptIdRef.current) attemptIdRef.current = generateAttemptId();
+        setResultSaved(true); // arm the same completion latch the save path uses
+        runDiagnosticFinish();
+        return;
+      }
+      console.log('[PracticeTest] Attempting to save results...');
 
       // Build per-question diagnostic details
       const questionDetails = {};
@@ -1531,7 +1618,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       clearTimeout(completionTimer);
       completionInFlight.current = false;
     };
-  }, [testCompleted, onSaveResult, onSessionComplete, onClearProgress, resultSaved, test, answers, isTimed, user, completedLessons, practiceProgress, practiceTestResults, onSaveStudyPlan]);
+  }, [testCompleted, onSaveResult, onSessionComplete, onClearProgress, resultSaved, test, answers, isTimed, user, completedLessons, practiceProgress, practiceTestResults, onSaveStudyPlan, runDiagnosticFinish]);
 
   // Post-test: generate AI diagnostic narrative automatically
   const diagnosticNarrativeAttempted = useRef(false);
@@ -1618,6 +1705,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   }, [user, test, practiceTestResults, skillProgress]);
 
   useEffect(() => {
+    // Diagnostics never generate the AI results narrative — their end screen
+    // is the diagnosis handoff, not the TestResults insights tab.
+    if (test?.isDiagnostic) return;
     if (!resultSaved || diagnosticNarrativeAttempted.current || !user?.uid) return;
     diagnosticNarrativeAttempted.current = true;
 
@@ -1942,13 +2032,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     const cur = effectiveModules[currentModule];
     const nxt = effectiveModules[currentModule + 1];
     const isLast = currentModule === effectiveModules.length - 1;
-    const isSectionBreak = !isLast && isTimed
+    const isSectionBreak = !isLast && isTimed && !test?.isDiagnostic
       && cur?.section === 'reading-writing'
       && ((nxt?.section || 'math') !== 'reading-writing');
     if (isSectionBreak) return undefined;
     const t = setTimeout(() => handleNextModule(), 5000);
     return () => clearTimeout(t);
-  }, [moduleCompleted, testCompleted, timeExpired, currentModule, effectiveModules, isTimed, handleNextModule]);
+  }, [moduleCompleted, testCompleted, timeExpired, currentModule, effectiveModules, isTimed, handleNextModule, test]);
 
   // Bluebook: at 5:00 remaining a hidden timer force-reveals and the student
   // gets a one-time warning. Timer remounts per module, so this fires once
@@ -2161,8 +2251,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     const nextModuleTitle = nextModuleMeta?.title;
 
     // Bluebook: a 10-minute break sits between the R&W and Math sections.
-    // Timed tests only — untimed mode has no clocks to break from.
-    const isSectionBreak = !isLastModule && isTimed
+    // Timed tests only — untimed mode has no clocks to break from. The
+    // diagnostic skips it too: a half-length sitting doesn't earn a 10-minute
+    // hole, and the module-complete card already gives a breather.
+    const isSectionBreak = !isLastModule && isTimed && !test?.isDiagnostic
       && module?.section === 'reading-writing'
       && ((nextModuleMeta?.section || 'math') !== 'reading-writing');
     if (isSectionBreak) {
@@ -2887,6 +2979,51 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             </button>
           </div>
 
+        </div>
+      </div>
+    );
+  }
+  // Diagnostic v2 completion — the finish pipeline's phases replace the
+  // TestResults page entirely: a diagnostic ends in the diagnosis + plan
+  // handoff (MiniDiagnosticResults), never in score-history results.
+  if (testCompleted && test?.isDiagnostic) {
+    if (diagnosticFinish.phase === 'results' && diagnosticFinish.result) {
+      return (
+        <div style={{ height: '100vh', overflowY: 'auto', boxSizing: 'border-box', background: 'var(--color-slate-100)' }}>
+          <MiniDiagnosticResults
+            result={diagnosticFinish.result}
+            user={user}
+            onViewPlan={onGoToStudyPlan}
+          />
+        </div>
+      );
+    }
+    if (diagnosticFinish.phase === 'error') {
+      return (
+        <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--color-slate-100)', padding: '24px' }}>
+          <div style={{ ...cardStyles.elevated, maxWidth: '440px', padding: '32px', textAlign: 'center' }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', margin: '0 0 8px' }}>
+              We couldn't build your plan
+            </h2>
+            <p style={{ color: colors.text.secondary, fontSize: '15px', margin: '0 0 20px' }}>
+              Your answers are saved on this device. Check your connection and try again.
+            </p>
+            <Button onClick={runDiagnosticFinish}>Try again</Button>
+          </div>
+        </div>
+      );
+    }
+    // 'finishing' (and the pre-effect frame): building diagnosis + plan —
+    // same composition as the old shell's finishing screen.
+    return (
+      <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--color-slate-100)' }}>
+        <div style={{ textAlign: 'center', padding: '24px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: 700, color: colors.text.primary, margin: '0 0 8px' }}>
+            Building your study plan
+          </h2>
+          <p style={{ fontFamily: 'var(--font-ui)', color: colors.text.secondary, fontSize: '15px', margin: 0 }}>
+            Scoring your answers and mapping your focus areas...
+          </p>
         </div>
       </div>
     );
