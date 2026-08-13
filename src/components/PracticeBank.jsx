@@ -37,13 +37,16 @@ const DOMAIN_BLURBS = {
   'expression-of-ideas':           'Say it sharper, link it smoother.',
 };
 
-// Domain accents rotate orange → purple → navy. Colors applied inline; lime ink
-// on the dark (purple/navy) badges. Orange is SEVA brand #EA580C (CSS var).
+// Domain badges rotate orange → purple → navy for IDENTITY only (the 01-04
+// number chips). Every ACTION on this page is orange — one button language
+// per the tri-color rule (orange = actions; purple/green stay reserved for
+// focus/strength states on chips and type tiles). The old rotation painted
+// the same "Practice" buttons three different colors and read as clutter.
 const ACCENT_ROTATION = ['orange', 'purple', 'navy'];
 const ACCENTS = {
-  orange: { badge: 'var(--pb-orange)', num: '#fff',         line: 'var(--pb-orange)', solid: 'var(--pb-orange)', out: 'var(--pb-orange)', outBorder: 'rgba(234,88,12,0.5)',  selTint: 'rgba(234,88,12,0.07)', selBorder: 'rgba(234,88,12,0.55)' },
-  purple: { badge: 'var(--pb-purple)', num: 'var(--pb-lime)', line: 'var(--pb-purple)', solid: 'var(--pb-purple)', out: 'var(--pb-purple)', outBorder: 'rgba(124,92,199,0.5)', selTint: 'rgba(124,92,199,0.08)', selBorder: 'rgba(124,92,199,0.55)' },
-  navy:   { badge: 'var(--pb-navy)',   num: 'var(--pb-lime)', line: 'var(--pb-navy)',   solid: 'var(--pb-navy)',   out: 'var(--pb-navy)',   outBorder: 'rgba(12,16,38,0.35)',  selTint: 'rgba(12,16,38,0.05)',  selBorder: 'rgba(12,16,38,0.4)' },
+  orange: { badge: 'var(--pb-orange)', num: '#fff' },
+  purple: { badge: 'var(--pb-purple)', num: 'var(--pb-lime)' },
+  navy:   { badge: 'var(--pb-navy)',   num: 'var(--pb-lime)' },
 };
 
 // "For you" recommendation kinds → eyebrow copy + tri-color tone. Orange = the
@@ -285,7 +288,6 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
   const categories = section === 'math' ? MATH_CATEGORIES : RW_CATEGORIES;
   const allItems = section === 'math' ? mathQuestionBank : rwQuestionBank;
   const sectionLabel = section === 'math' ? 'Math' : 'Reading & Writing';
-  const shortLabel = section === 'math' ? 'Math' : 'R&W';
   const fullLabel = section === 'math' ? 'Full Math' : 'Full R&W';
 
   const bankTotal = useMemo(() => categories.reduce((a, c) => a + c.total, 0), [categories]);
@@ -532,7 +534,6 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
   };
 
   const accentFor = (i) => ACCENTS[ACCENT_ROTATION[i % ACCENT_ROTATION.length]];
-  const bAcc = accentFor(builderDomainIdx);
 
   const resumeTotal = Array.isArray(activeDrill?.questionIds) ? activeDrill.questionIds.length : 0;
   const resumeAnswered = activeDrill?.answers ? Object.keys(activeDrill.answers).length : 0;
@@ -715,7 +716,6 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
                           <button
                             type="button"
                             className="pb-trow-drill"
-                            style={{ color: a.out, borderColor: a.outBorder }}
                             onClick={(e) => { e.stopPropagation(); launchSkillDrill(skill); }}
                           >
                             Practice <Arrow size={13} />
@@ -755,7 +755,6 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
                 <button
                   type="button"
                   className="pb-card-practice"
-                  style={{ background: a.solid, color: a.num }}
                   onClick={() => launchDomainMixed(cat)}
                 >
                   Practice this domain <Arrow size={15} />
@@ -784,7 +783,6 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
                 <div className="pb-chips">
                   {categories.map((cat, i) => {
                     const on = i === builderDomainIdx;
-                    const da = accentFor(i);
                     return (
                       <button
                         type="button"
@@ -792,7 +790,6 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
                         className={`pb-chip${on ? ' is-on' : ' is-off'}`}
                         aria-pressed={on}
                         onClick={() => pickBuilderDomain(i)}
-                        style={on ? { background: da.selTint, borderColor: da.selBorder } : undefined}
                       >
                         {cat.label}
                       </button>
@@ -809,7 +806,6 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
                     className={`pb-chip${allTopicsSelected ? ' is-on' : ' is-off'}`}
                     aria-pressed={allTopicsSelected}
                     onClick={() => setBuilderTopics(allTopicSlugs(builderDomain))}
-                    style={allTopicsSelected ? { background: bAcc.selTint, borderColor: bAcc.selBorder } : undefined}
                   >
                     All topics
                   </button>
@@ -823,7 +819,6 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
                         className={`pb-chip${on ? ' is-on' : ' is-off'}`}
                         aria-pressed={on}
                         onClick={() => toggleBuilderTopic(skill.slug)}
-                        style={on ? { background: bAcc.selTint, borderColor: bAcc.selBorder } : undefined}
                       >
                         {skill.label} <span className="pb-chip-n">{count}</span>
                       </button>
@@ -864,7 +859,6 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
                         className={`pb-chip${on ? ' is-on' : ' is-off'}${disabled ? ' is-disabled' : ''}`}
                         aria-pressed={on}
                         onClick={() => setBuilderDifficulty(key)}
-                        style={on ? { background: bAcc.selTint, borderColor: bAcc.selBorder } : undefined}
                       >
                         {label} <span className="pb-chip-n">{n}</span>
                       </button>
@@ -888,7 +882,6 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
                         className={`pb-chip${on ? ' is-on' : ' is-off'}${disabled ? ' is-disabled' : ''}`}
                         aria-pressed={on}
                         onClick={() => setBuilderPool(key)}
-                        style={on ? { background: bAcc.selTint, borderColor: bAcc.selBorder } : undefined}
                       >
                         {label} <span className="pb-chip-n">{n}</span>
                       </button>
@@ -902,7 +895,6 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
                 <button
                   type="button"
                   className="pb-builder-start"
-                  style={builderAvailable === 0 ? undefined : { background: bAcc.solid, color: bAcc.num }}
                   disabled={builderAvailable === 0}
                   onClick={launchCustomDrill}
                 >
