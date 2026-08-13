@@ -176,13 +176,15 @@ function buildPlanModule(w, i, skillProgress, diagnosticSentence) {
   const accBand = (w.isMastered || (acc != null && acc >= 70)) ? 'high'
     : (acc != null && acc < 40) ? 'low' : 'mid';
 
-  const sp = (skillProgress && w.skillId) ? skillProgress[w.skillId] : null;
-  const attempts = sp?.attempts ?? 0;
-  const mastery = sp ? (sp.mastery ?? (attempts ? (sp.correct / attempts) * 100 : 0)) : 0;
-  // DRILL evidence only. skillProgress.attempts includes test/diagnostic-seeded
-  // answers, which fabricated day-one session progress ("3/15 Q" and a
-  // "Continue" CTA on drills the student never opened — founder-flagged).
-  // A session reads as started only when a real drill signal exists.
+  // RECENT drill evidence only (same contract as activityBreakdown):
+  // lifetime sp.mastery includes test/diagnostic-seeded answers, which
+  // fabricated "done" rounds on sessions the student never opened — the
+  // phantom-progress class, surviving here after the other two sites were
+  // fixed (review finding). recentDrill comes from annotateFocusAreas
+  // (already sinceMs-cut to this plan's generatedAt).
+  const recent = w.drillStats || null;
+  const attempts = recent?.attempts ?? 0;
+  const mastery = recent?.accuracy ?? 0;
   const hasStarted = !!w.hasDrillSignal;
 
   const status = w.isMastered ? 'complete' : hasStarted ? 'progress' : 'start';
@@ -1473,10 +1475,18 @@ const StudyPlanLoaded = ({
       {/* ── Plan v3: mission-control arc header ───────────────────── */}
       {ffPlanV3 && (() => {
         const cw = weeks[displayCurrentWeek];
-        const visibleWeekActs = (cw?.activities || []).filter(isVisibleActivity);
+        // Filter-INDEPENDENT: the mission-control strip states absolute week
+        // progress; the section seg control filters only the task list below.
+        const visibleWeekActs = (cw?.activities || []).filter((a) => a && a.type !== 'lesson' && !a.skipped);
         const doneWeekActs = visibleWeekActs.filter((a) => a.completed).length;
-        const arcStart = latestScore ?? studyPlan?.arc?.startScore ?? null;
-        const arcIsEstimate = latestScore === null && studyPlan?.planSource === 'mini-diagnostic';
+        // Scale guard: a single-section latest score (200-800) must not sit
+        // in the "Now" node against a 400-1600 composite goal — fall back to
+        // the arc's composite start (the diagnostic band mid) instead.
+        const targetIsComposite = (user?.targetScore ?? studyPlan?.arc?.targetScore ?? 0) > 800;
+        const latestCompatible = latestScore !== null
+          && (!targetIsComposite || !!latestTest?.isMultiSection);
+        const arcStart = (latestCompatible ? latestScore : null) ?? studyPlan?.arc?.startScore ?? null;
+        const arcIsEstimate = !latestCompatible && studyPlan?.planSource === 'mini-diagnostic';
         const topInsight = identityInsights[0]
           ? `${identityInsights[0].stat} ${identityInsights[0].label} — ${identityInsights[0].text}`
           : null;
@@ -1582,7 +1592,7 @@ const StudyPlanLoaded = ({
                   Questions you missed before, back at their scheduled moment — clearing them is how they stop costing points.
                 </div>
               </div>
-              <button type="button" className="sp-due-review-btn" onClick={() => onStartReview && onStartReview()}>
+              <button type="button" className="sp-due-review-btn" onClick={() => onStartReview && onStartReview(todaySlice.reviewSession.items)}>
                 Start review
               </button>
             </div>
@@ -1609,8 +1619,42 @@ const StudyPlanLoaded = ({
           {/* Plan v3: THE timeline — this week's scheduled sessions in one
               card grammar, today expanded first, behind-you days folded. */}
           {ffPlanV3 && weeks[displayCurrentWeek] && (
-            renderWeekDays(weeks[displayCurrentWeek], displayCurrentWeek, { upcomingOnly: true })
-              || <div className="sp-today-empty">Nothing scheduled this week — take a test or check-in to refresh your plan.</div>
+            renderWeekDays(weeks[displayCurrentWeek], displayCurrentWeek, { upcomingOnly: !editMode })
+              || (
+                <div className="sp-today-empty">
+                  {sectionFilter !== 'all'
+                    ? `No ${sectionFilter === 'rw' ? 'Reading & Writing' : 'Math'} sessions this week — switch to All to see your full plan.`
+                    : 'Nothing scheduled this week — take a test or check-in to refresh your plan.'}
+                </div>
+              )
+          )}
+
+          {/* Plan v3 edit mode: add-a-task for the current week (the legacy
+              carousel that hosted this form is gone when the flag is on). */}
+          {ffPlanV3 && editMode && (
+            <div className="sp-add-task">
+              {addTaskWeek === displayCurrentWeek ? (
+                <div className="sp-add-task-form">
+                  <input
+                    type="text"
+                    className="sp-add-task-input"
+                    placeholder="Add your own task (e.g. Redo Test 3 misses)"
+                    value={addTaskTitle}
+                    onChange={(e) => setAddTaskTitle(e.target.value)}
+                    onKeyDown={(e) => { if (e.key === 'Enter') handleAddTask(displayCurrentWeek); }}
+                  />
+                  <select className="sp-edit-day" value={addTaskDay} onChange={(e) => setAddTaskDay(e.target.value)} aria-label="Day for new task">
+                    {EDIT_DAYS.map((d) => <option key={d} value={d}>{d.slice(0, 3)}</option>)}
+                  </select>
+                  <button type="button" className="sp-edit-btn" onClick={() => handleAddTask(displayCurrentWeek)}>Add</button>
+                  <button type="button" className="sp-edit-btn" onClick={() => { setAddTaskWeek(null); setAddTaskTitle(''); }}>Cancel</button>
+                </div>
+              ) : (
+                <button type="button" className="sp-add-task-btn" onClick={() => { setAddTaskWeek(displayCurrentWeek); setAddTaskDay('Monday'); }}>
+                  + Add a task
+                </button>
+              )}
+            </div>
           )}
 
           {!ffPlanV3 && (todaySlice?.kind === 'rest-day'
@@ -1657,9 +1701,24 @@ const StudyPlanLoaded = ({
               the phases; these show what each week actually holds. */}
           {ffPlanV3 && weeks.length > displayCurrentWeek + 1 && (
             <div style={{ marginTop: '18px' }}>
-              {weeks.slice(displayCurrentWeek + 1).map((w) => {
+              {weeks.slice(displayCurrentWeek + 1).map((w, offset) => {
+                const weekIdx = displayCurrentWeek + 1 + offset;
                 const phase = studyPlan?.arc?.phases?.find((p) => p.weekNumbers.includes(w.weekNumber));
                 const visibleCount = (w.activities || []).filter(isVisibleActivity).length;
+                // Edit mode expands future weeks into full day groups so every
+                // scheduled session stays editable (un-skip/remove/toggle) —
+                // the one-line rows are the read-only view.
+                if (editMode) {
+                  return (
+                    <div key={w.weekNumber} style={{ marginTop: '14px' }}>
+                      <div className="sp-upcoming-week">
+                        <span className="sp-upcoming-week-title">Week {w.weekNumber}{w.title ? ` — ${w.title}` : ''}</span>
+                        <span className="sp-upcoming-week-meta">{phase ? `${phase.label} · ` : ''}editing</span>
+                      </div>
+                      {renderWeekDays(w, weekIdx)}
+                    </div>
+                  );
+                }
                 return (
                   <div key={w.weekNumber} className="sp-upcoming-week">
                     <span className="sp-upcoming-week-title">
@@ -1672,6 +1731,62 @@ const StudyPlanLoaded = ({
                   </div>
                 );
               })}
+            </div>
+          )}
+
+          {/* Plan v3: the surfaces the removed Weekly tab used to host keep a
+              home below the timeline — flagged-question redrills + test-miss
+              review (legacy plans without session cards), the pacing section,
+              past-test review, the full How-you-test grid, and the score
+              trajectory. Without these, flipping the flag silently amputated
+              working features (review finding). */}
+          {ffPlanV3 && (
+            <div style={{ marginTop: '22px' }}>
+              <StudyPlanReviewSection
+                reviewQueue={reviewQueue}
+                onReviewTestWrong={onReviewTestWrong}
+                onStartReview={onStartReview}
+                flaggedGroups={flaggedGroups}
+                onRedrillFlagged={handleRedrillFlagged}
+                onUnflagQuestion={onUnflagQuestion}
+              />
+              <StudyPlanPacingSection
+                questionTelemetry={pacingTelemetry}
+                struggle={pacingStruggle}
+                onStartPacing={onStartPacing}
+                testDateIsPast={testDateIsPast}
+              />
+              {showReviewTestsButton && (
+                <div className="sp-past-test-review-cta">
+                  <button type="button" className="sp-past-test-review-btn" onClick={onReviewPastTests}>
+                    <span className="sp-past-test-review-icon" aria-hidden="true"><ClipboardIcon size={18} /></span>
+                    <span className="sp-past-test-review-text">
+                      <span className="sp-past-test-review-title">Review your tests</span>
+                      <span className="sp-past-test-review-sub">
+                        {completedTestCount === 1
+                          ? 'See every wrong answer explained from your test'
+                          : `See every wrong answer explained from your ${completedTestCount} tests`}
+                      </span>
+                    </span>
+                    <span className="sp-past-test-review-chev" aria-hidden="true">›</span>
+                  </button>
+                </div>
+              )}
+              {identityInsights.length > 1 && (
+                <div style={{ marginTop: '18px' }}>
+                  <h3 className="sp-section-title">How you test</h3>
+                  <div className="sp-identity-grid">
+                    {identityInsights.map((insight) => (
+                      <div key={insight.key} className="sp-identity-card">
+                        <div className="sp-identity-stat">{insight.stat}</div>
+                        <div className="sp-identity-label">{insight.label}</div>
+                        <p className="sp-identity-text">{insight.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <ScoreTrajectory artifact={studyPlanArtifact} />
             </div>
           )}
         </div>

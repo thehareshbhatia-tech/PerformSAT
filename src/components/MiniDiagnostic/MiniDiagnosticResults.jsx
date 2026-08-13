@@ -82,7 +82,10 @@ function buildView(result) {
   }));
 
   return {
-    band: result.scoreBand || null,
+    // Focus-weighted (check-in) bands over-sample weaknesses — showing that
+    // range as "Estimated starting range" reads as a score DROP right after
+    // two weeks of studying. The check-in results lead with the diagnosis.
+    band: result?.miniDiagnosticRecord?.scoreBandFocusWeighted ? null : (result.scoreBand || null),
     headline: summary.headline || null,
     keyInsight: summary.keyInsight || null,
     totalWrong: ep.totalWrong || 0,

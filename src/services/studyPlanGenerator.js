@@ -954,15 +954,23 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
   // Week 1 shares its calendar week with the plan's creation moment. Filling
   // it Monday-first scheduled a Thursday-born plan's whole first week into
   // days already behind the student ("0 of 6 sessions" on day one, nothing
-  // to do today — founder-flagged). Week 1 only uses study days from TODAY
-  // onward; if none remain (created on/after the last study day), it uses
-  // the final study day so the week still holds its work.
+  // to do today — founder-flagged). Week 1 only uses days from TODAY onward:
+  // remaining STUDY days when any exist, otherwise the remaining CALENDAR
+  // days (a Saturday-created plan under a Mon-Fri schedule schedules onto
+  // Sat/Sun — the student opening the app today is here to work today; the
+  // old fallback clamped onto the final PAST study day). Week 1's budget is
+  // also capped to its real days' capacity so a short first week never has
+  // a full week's minutes stuffed onto one or two days.
   const createdIdx = createdDayName ? DAY_ORDER.indexOf(createdDayName) : -1;
-  const firstWeekDays = createdIdx >= 0
+  const remainingStudyDays = createdIdx >= 0
     ? studyDays.filter((d) => DAY_ORDER.indexOf(d) >= createdIdx)
     : studyDays;
-  const week1Days = firstWeekDays.length > 0 ? firstWeekDays : studyDays.slice(-1);
+  const remainingCalendarDays = createdIdx >= 0
+    ? DAY_ORDER.slice(createdIdx)
+    : studyDays;
+  const week1Days = remainingStudyDays.length > 0 ? remainingStudyDays : remainingCalendarDays;
   const dayBudget = (day) => (schedule?.days?.[day] > 0 ? schedule.days[day] : 35);
+  const week1BudgetCap = week1Days.reduce((sum, d) => sum + dayBudget(d), 0);
   const testDay = schedule ? testDayFor(schedule) : 'Saturday';
   const phaseFor = (day) => {
     const idx = studyDays.indexOf(day);
@@ -1115,7 +1123,11 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
 
     const weekActivities = [];
     let weekMinutesUsed = 0;
-    const weekMinutesBudget = minutesPerWeek;
+    // Week 1 can be a partial week (created mid-week): its budget is the
+    // smaller of the weekly promise and its remaining days' real capacity.
+    const weekMinutesBudget = weekNum === 1
+      ? Math.min(minutesPerWeek, week1BudgetCap)
+      : minutesPerWeek;
 
     // Per-day remaining minutes for this week. Activities bin into the first
     // study day with room, so each day's load tracks the student's schedule

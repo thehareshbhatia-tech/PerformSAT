@@ -147,6 +147,41 @@ describe('A2 — density floor: thin weak-flags never produce half-empty weeks',
   });
 });
 
+describe('A1b — week 1 anchors forward, never onto past days (weekend fix)', () => {
+  afterEach(() => { jest.useRealTimers(); });
+
+  test('a Saturday-created plan schedules week 1 on Sat/Sun, not a past Friday', () => {
+    // 2026-08-15 is a Saturday. Default schedule is Mon-Fri, so no study
+    // days remain this week — the old clamp fell back to PAST Friday and
+    // stuffed the full weekly budget onto it (review finding).
+    jest.useFakeTimers({ doNotFake: ['performance'] });
+    jest.setSystemTime(new Date(2026, 7, 15, 10, 0, 0));
+    const plan = genPlan();
+    const week1Days = new Set((plan.weeks[0].activities || []).map((a) => a.day));
+    ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].forEach((d) => {
+      expect(week1Days.has(d)).toBe(false);
+    });
+    expect(plan.weeks[0].activities.length).toBeGreaterThan(0);
+    // The reviewed harm was ~3 HOURS stuffed onto one clamped past day.
+    // With the forward anchor + partial-week cap, no single weekend day
+    // carries more than a generous day's load.
+    const perDay = {};
+    (plan.weeks[0].activities || []).forEach((a) => {
+      perDay[a.day] = (perDay[a.day] || 0) + (a.duration || 0);
+    });
+    Object.values(perDay).forEach((mins) => expect(mins).toBeLessThanOrEqual(100));
+  });
+
+  test('a Thursday-created plan keeps Thu/Fri and drops Mon-Wed', () => {
+    jest.useFakeTimers({ doNotFake: ['performance'] });
+    jest.setSystemTime(new Date(2026, 7, 13, 10, 0, 0)); // Thursday
+    const plan = genPlan();
+    const week1Days = new Set((plan.weeks[0].activities || []).map((a) => a.day));
+    ['Monday', 'Tuesday', 'Wednesday'].forEach((d) => expect(week1Days.has(d)).toBe(false));
+    expect(plan.weeks[0].activities.length).toBeGreaterThan(0);
+  });
+});
+
 describe('A3 — journey arc', () => {
   test('phases are contiguous, labeled, and cover every week exactly once', () => {
     const plan = genPlan();

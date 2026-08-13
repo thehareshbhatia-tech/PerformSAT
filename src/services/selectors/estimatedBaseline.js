@@ -34,6 +34,10 @@ const rowHasScore = (row) => {
 export function getEstimatedBaseline(miniDiagnostic, practiceTestResults) {
   const band = miniDiagnostic?.scoreBand;
   if (!band || !Number.isFinite(band.low) || !Number.isFinite(band.high)) return null;
+  // A focus-weighted band was sampled from the student's WEAKEST skills —
+  // never present it as their starting score (it reads as "studying made me
+  // worse"). Only representative full-variant bands anchor the dashboard.
+  if (miniDiagnostic?.scoreBandFocusWeighted) return null;
   const hasRealScore = Object.values(practiceTestResults || {}).some(rowHasScore);
   if (hasRealScore) return null;
   return {

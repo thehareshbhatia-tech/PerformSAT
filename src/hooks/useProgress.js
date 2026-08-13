@@ -1037,8 +1037,15 @@ export const useProgress = (userId) => {
     // right after two weeks of studying. Carry the last representative
     // (full-variant) band forward; the check-in still refreshes everything
     // else (domains, skills, plan).
+    // The carried band inherits the PRIOR record's flag — stamping it clean
+    // would launder a deflated first-checkin band into "representative" on
+    // the following check-in.
     const toSave = (record?.scoreBandFocusWeighted && miniDiagnostic?.scoreBand)
-      ? { ...record, scoreBand: miniDiagnostic.scoreBand, scoreBandFocusWeighted: false }
+      ? {
+          ...record,
+          scoreBand: miniDiagnostic.scoreBand,
+          scoreBandFocusWeighted: !!miniDiagnostic.scoreBandFocusWeighted,
+        }
       : record;
 
     // Optimistic update — onSnapshot will confirm.

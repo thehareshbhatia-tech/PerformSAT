@@ -17,6 +17,7 @@
  * system.
  */
 import React from 'react';
+import { parseLocalDate } from '../../utils/localDate';
 
 const MILESTONE_GLYPHS = {
   checkIn: '◆',
@@ -33,8 +34,12 @@ const MILESTONE_LABELS = {
 /** Resolve a milestone's calendar date from the plan's week grid. */
 const milestoneDate = (m, mondayForWeek, weekdayIndex) => {
   if (m.date) {
-    const d = new Date(m.date);
-    return Number.isNaN(d.getTime()) ? null : d;
+    // testDate is a date-only 'YYYY-MM-DD' string — new Date() parses that
+    // as UTC midnight, showing US students their SAT day one day early and
+    // dropping its NEXT badge on the actual day. parseLocalDate is the
+    // repo's canonical fix for exactly this.
+    const d = parseLocalDate(m.date) || new Date(m.date);
+    return !d || Number.isNaN(d.getTime()) ? null : d;
   }
   if (!m.weekNumber || typeof mondayForWeek !== 'function') return null;
   const monday = mondayForWeek(m.weekNumber - 1);

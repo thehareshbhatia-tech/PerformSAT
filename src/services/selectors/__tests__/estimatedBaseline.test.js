@@ -12,6 +12,12 @@ const BAND = {
 };
 
 describe('getEstimatedBaseline', () => {
+  test('a focus-weighted (check-in) band never anchors the baseline', () => {
+    // Review finding: the check-in over-samples weaknesses — presenting its
+    // band as the starting score reads as "studying made me worse".
+    expect(getEstimatedBaseline({ scoreBand: BAND, scoreBandFocusWeighted: true }, {})).toBeNull();
+  });
+
   test('returns the band with a grid-snapped midpoint when no tests exist', () => {
     const out = getEstimatedBaseline({ scoreBand: BAND }, {});
     expect(out).toEqual({

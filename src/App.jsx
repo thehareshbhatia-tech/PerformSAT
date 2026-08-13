@@ -38,6 +38,7 @@ import {
   extractItemsFromAttempt,
 } from './services/selectors/completedTests';
 import { sectionModuleLabel } from './services/selectors/moduleLabel';
+import { isScoreableAttempt } from './services/selectors/latestTestStats';
 // Corpus access (Stage 2b of the bundle-split plan): the question banks,
 // practice-test bundles, and the two corpus-coupled services load as their
 // own chunks via these memoized dynamic-import loaders. Handlers `await`
@@ -833,7 +834,12 @@ const PerformSAT = () => {
     // user first resolves, loading still reads false from the boot no-user
     // state, and deciding there would miss an in-flight check-in resume.
     if (!ffOnRamp || !user || !progressHydrated) return;
-    const hasResume = !!(inProgressTests && inProgressTests['mini-diagnostic']);
+    const savedSitting = inProgressTests && inProgressTests['mini-diagnostic'];
+    // With Diagnostic v2 on, only a v2 record (manifest present) is resumable
+    // — a stale v1-shell record would be discarded by the build effect and
+    // replaced with a brand-new 40Q sitting, i.e. an unprompted auto-LAUNCH,
+    // which this effect must never do.
+    const hasResume = !!savedSitting && (!ffDiagnosticV2 || !!savedSitting.diagnosticManifest);
     // Resume an in-flight check-in even past a skip stamp; never auto-launch
     // a fresh one. A student who deliberately exited mid-sitting gets a 24h
     // snooze (set by the exit handler) instead of a full-screen seize at
@@ -844,7 +850,7 @@ const PerformSAT = () => {
       snoozed = ts > 0 && (Date.now() - ts) < 24 * 60 * 60 * 1000;
     } catch { /* storage unavailable — default to resuming */ }
     setOnRampActive(hasResume === true && !snoozed);
-  }, [onRampActive, ffOnRamp, user, progressHydrated, inProgressTests]);
+  }, [onRampActive, ffOnRamp, ffDiagnosticV2, user, progressHydrated, inProgressTests]);
 
   // Inner-onboarding eligibility — decided once per session after hydration.
   // Eligible: flagged on, a fresh account with nothing behind it yet (no inner
@@ -942,7 +948,11 @@ const PerformSAT = () => {
         const inputs = diagBuildInputsRef.current;
         const saved = inputs.getTestProgress('mini-diagnostic');
         if (saved?.diagnosticManifest) {
-          const rebuilt = await rebuildDiagnosticTest(saved.diagnosticManifest);
+          // A rebuild that THROWS (corrupt manifest, bank chunk error mid-
+          // lookup) is bank drift too — fall through to a fresh sitting
+          // instead of the error screen with the record stuck forever.
+          let rebuilt = null;
+          try { rebuilt = await rebuildDiagnosticTest(saved.diagnosticManifest); } catch { rebuilt = null; }
           if (rebuilt) {
             if (!cancelled) setDiagnosticTest(rebuilt);
             return;
@@ -961,9 +971,13 @@ const PerformSAT = () => {
         // a scaffold, not evidence — but an account with real test scores has
         // been measured, and its plan's "Quick check-in" card must launch the
         // short focused variant it promises, not the 40Q full sitting.
+        // isScoreableAttempt is the canonical gate (blank/abandoned attempts
+        // carry a floor scaledScore and NO answeredCount — the hand-rolled
+        // check counted them as real measurements and demoted a never-
+        // measured student's first diagnostic to the short check-in).
         const hasRealTestScore = Object.values(inputs.practiceTestResults || {}).some((row) => (
           Array.isArray(row?.attempts)
-            ? row.attempts.some((a) => Number.isFinite(a?.scaledScore) && (a?.answeredCount ?? 1) > 0)
+            ? row.attempts.some((a) => isScoreableAttempt(a))
             : Number.isFinite(row?.bestScaledScore)
         ));
         const isFirstDiagnostic = !inputs.miniDiagnostic && !hasRealTestScore;
@@ -1016,7 +1030,12 @@ const PerformSAT = () => {
                 </button>
                 <button
                   type="button"
-                  onClick={() => setOnRampActive(false)}
+                  onClick={() => {
+                    // Same contract as the runner's exit: a persistent build
+                    // failure must not re-seize the app at every login.
+                    try { localStorage.setItem(`seva:onrampSnooze:${user?.uid}`, String(Date.now())); } catch { /* storage unavailable */ }
+                    setOnRampActive(false);
+                  }}
                   style={{ padding: '12px 24px', borderRadius: '10px', border: '1px solid var(--color-slate-300)', background: '#ffffff', color: 'var(--color-slate-700)', fontWeight: 600, fontSize: '15px', cursor: 'pointer' }}
                 >
                   Back to home

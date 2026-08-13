@@ -192,6 +192,10 @@ function pick(shuffled, count, { preferred, excluded, used, sectionSkills = null
 
 // ─── Module assembly ─────────────────────────────────────────────────────────
 
+/** Items already in this module for a domain (fill-in tail ordering). */
+const domainCountForFillins = (questions, domain) =>
+  questions.filter((q) => q.domain === domain).length;
+
 /**
  * Assemble one module's question list.
  *
@@ -249,13 +253,17 @@ function buildModule({
     questions.push(...picks);
   });
 
-  // 3. Coverage slots: round-robin the domains for novel-skill items until
-  //    the MC target is met (thin domains backfill from richer ones).
+  // 3. Coverage slots: fill remaining MC targets prioritizing domains with
+  //    ZERO items in this module so far (focus picks + a small quota can
+  //    leave a domain — geometry, in the founder-flagged case — entirely
+  //    unrepresented; unrepresented-first closes that before round-robin).
+  const domainCount = (domain) => questions.filter((q) => q.domain === domain).length;
   let guard = 0;
   while (mcPicked < mcTarget && guard < 40) {
     guard += 1;
     let progressed = false;
-    for (const { shuffled } of perDomain) {
+    const ordered = [...perDomain].sort((a, b) => domainCount(a.domain) - domainCount(b.domain));
+    for (const { shuffled } of ordered) {
       if (mcPicked >= mcTarget) break;
       const picks = pick(shuffled, 1, { preferred, excluded, used, sectionSkills });
       if (picks.length) {
@@ -271,7 +279,11 @@ function buildModule({
   // 4. Grid-in tail (math only): novel-skill fill-ins at the preferred
   //    difficulty, MC backfill when the fill-in pools can't field enough.
   if (fillinBudget > 0) {
-    const fillinAll = perDomain.flatMap(({ domain }) => fillinsByDomain[domain] || []);
+    // Unrepresented domains first — the grid-in tail is the check-in's last
+    // chance to field a domain the focus picks crowded out.
+    const fillinAll = [...perDomain]
+      .sort((a, b) => domainCountForFillins(questions, a.domain) - domainCountForFillins(questions, b.domain))
+      .flatMap(({ domain }) => fillinsByDomain[domain] || []);
     const fills = pick(fillinAll, fillinBudget, { preferred, excluded, used, sectionSkills });
     fills.forEach((q) => used.add(q.id));
     questions.push(...fills);

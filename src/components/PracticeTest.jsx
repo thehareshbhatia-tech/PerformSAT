@@ -2200,12 +2200,20 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     // sittings to the short check-in), and stamp onboarding complete.
     if (test?.isDiagnostic) {
       const totalQ = effectiveModules.reduce((s2, m) => s2 + (m.questions?.length || 0), 0);
-      if (answeredCount < Math.ceil(totalQ * 0.5)) {
-        if (buildProgressRef.current && onSaveProgressRef.current) {
-          onSaveProgressRef.current(buildProgressRef.current());
-        }
-        showToast({ type: 'info', message: `Progress saved (${answeredCount} of ${totalQ} answered). Finish the diagnostic to build your plan.` });
-        onBack?.();
+      // A just-typed SPR value commits via setState and isn't in answersRef
+      // yet (same hazard the zero-answer guard compensates for) — count it,
+      // or a student at exactly the floor gets bounced and their final
+      // answer read as missing.
+      const effectiveAnswered = answeredCount + (fillInHasValueRef.current ? 1 : 0);
+      if (effectiveAnswered < Math.ceil(totalQ * 0.5)) {
+        // Flush after the fill-in commit renders so the snapshot carries it.
+        setTimeout(() => {
+          if (buildProgressRef.current && onSaveProgressRef.current) {
+            onSaveProgressRef.current(buildProgressRef.current());
+          }
+        }, 60);
+        showToast({ type: 'info', message: `Progress saved (${effectiveAnswered} of ${totalQ} answered). Finish the diagnostic to build your plan.` });
+        setTimeout(() => onBack?.(), 80);
         return;
       }
     }
