@@ -419,6 +419,11 @@ export const RW_READING_TYPE_BY_ID = {
   9033: 'rs-explain-finding',
   9034: 'coe-text-illustrate-quote',
   9035: 'wic-contrast',
+  9036: 'wic-contrast',
+  9037: 'wic-contrast',
+  9038: 'cid-main-idea',
+  9040: 'inf-generalization-conclusion',
+  9041: 'coe-text-illustrate-quote',
 };
 
 /**

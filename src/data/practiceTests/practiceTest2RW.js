@@ -168,7 +168,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "B",
-              "text": "The narrator describes a disagreement with her husband over whether the house they have rented for the summer is a suitable place to live."
+              "text": "The narrator describes a running disagreement with her husband, John, over whether the house they have rented for the summer is a suitable place for the family to live."
             },
             {
               "id": "C",
@@ -198,7 +198,7 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "To argue that Japanese printmakers of the 1830s preferred plant-based blue pigments to the newly available Prussian blue."
+              "text": "To argue that Japanese printmakers of the 1830s continued to prefer traditional plant-based blue pigments to the newly available Prussian blue."
             },
             {
               "id": "B",
@@ -228,7 +228,7 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "It poses a question about modern construction, answers it with a historical anecdote, and then recommends a specific building material."
+              "text": "It poses a question about the durability of modern construction, answers it with a historical anecdote about Roman harbor builders, and then recommends a specific building material for marine projects."
             },
             {
               "id": "B",
@@ -236,7 +236,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "C",
-              "text": "It presents two competing theories about Roman concrete and concludes that neither can currently be tested."
+              "text": "It presents two competing theories about the durability of Roman concrete and concludes that neither theory can currently be tested."
             },
             {
               "id": "D",
@@ -267,7 +267,7 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Period instruments, he would argue, distort Baroque music even more than modern orchestral instruments do, leaving today's performers further from the composer's intentions rather than closer to them."
+              "text": "Period instruments, he would argue, actively distort Baroque music even more than modern orchestral instruments do, leaving today's performers still further from the composer's original intentions rather than closer to them."
             },
             {
               "id": "B",
@@ -305,7 +305,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "C",
-              "text": "Berry argues that the National Ex-Slave Mutual Relief association drew most of its support from Union veterans rather than from formerly enslaved people."
+              "text": "Berry argues that the National Ex-Slave Mutual Relief, Bounty, and Pension Association drew most of its support from Union veterans rather than from formerly enslaved people across the South."
             },
             {
               "id": "D",
@@ -327,7 +327,7 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Miles reconstructs the route by which a single embroidered sack passed through an auction house before being recovered by archivists."
+              "text": "Miles reconstructs the route by which a single embroidered cloth sack passed through a southern auction house and a series of private collections before finally being recovered by archivists."
             },
             {
               "id": "B",
@@ -395,7 +395,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "C",
-              "text": "Students who reread the passages and students who tested themselves recalled the material equally well when tested immediately, before the one-week delay."
+              "text": "Students who repeatedly reread the passages and students who tested themselves recalled the studied material equally well when tested immediately, before the one-week delay had elapsed."
             },
             {
               "id": "D",
@@ -465,7 +465,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "D",
-              "text": "eastern forests lost 166 million birds compared with 35 million in aridlands, indicating that the percent decline in eastern forests was steeper than the percent decline in aridlands."
+              "text": "eastern forests lost 166 million birds compared with 35 million in aridlands, indicating that the percent decline in eastern forests was steeper than in aridlands."
             }
           ],
           "correctAnswer": "B",
@@ -521,7 +521,7 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the 1980-1999 anomaly of 0.30 °C is well above the 1960-1979 anomaly of -0.01 °C, marking the moment when the record breaks decisively above the 1951-1980 baseline."
+              "text": "the 1980-1999 anomaly of 0.30 °C sits well above the 1960-1979 anomaly of -0.01 °C, marking the moment when the twenty-year record first breaks decisively and permanently above the 1951-1980 baseline."
             },
             {
               "id": "B",
@@ -529,7 +529,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "C",
-              "text": "the anomaly rises from -0.21 °C in 1880-1899 to 0.02 °C in 1940-1959, an unbroken mid-century climb that mirrors the textbook narrative of steady twentieth-century warming."
+              "text": "the anomaly rises from -0.21 °C in 1880-1899 to -0.06 °C in 1920-1939 and 0.02 °C in 1940-1959, an unbroken mid-century climb that mirrors the textbook narrative of steady twentieth-century warming ahead of the record's sharp post-1980 surge."
             },
             {
               "id": "D",
@@ -786,7 +786,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "For much of the twentieth century, scholars assumed that Native Americans who moved from reservations to cities gradually lost their tribal identities, since belonging was thought to depend on remaining close to a home community. ______ ethnographic studies of urban Native families in the San Francisco Bay Area have found that city dwellers sustain strong tribal ties through regular visits, ceremonies, and family gatherings that keep them in close contact with reservation relatives.",
+          "passage": "In a study of urban Native families in Chicago, ethnographers documented how intertribal centers and regular powwows keep tribal identities alive for members living far from their home reservations. ______ ethnographic studies of urban Native families in the San Francisco Bay Area have found that city dwellers sustain strong tribal ties through regular visits, ceremonies, and family gatherings that keep them in close contact with reservation relatives.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -799,15 +799,15 @@ export const practiceTest2RW = {
             },
             {
               "id": "C",
-              "text": "Likewise,"
+              "text": "However,"
             },
             {
               "id": "D",
-              "text": "However,"
+              "text": "Likewise,"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The finding goes against the old assumption, so you need a contrast linking word (one that means but), and \"However,\" is that word.\n\n**The Full Solution:**\n- How to spot it: read both sentences and ask whether the second one agrees with the first, results from it, gives an example, or pushes against it. The linking word has to match that relationship.\n- Sentence one: the old belief that moving to a city erodes tribal identity.\n- Sentence two: the opposite finding - city dwellers actually keep strong tribal ties through visits, ceremonies, and gatherings. Since it pushes against sentence one, you need a but-type word: \"However.\"\n\n**Why the other choices are wrong:**\n- A: \"For example\" would make the finding an instance of the assumption, but it challenges the assumption instead.\n- B: \"Therefore\" means the finding follows from the first sentence, but it contradicts it.\n- C: \"Likewise\" means the two sentences agree - the opposite of what is happening."
+          "explanation": "**Choice D is correct.** The second study reports the same kind of finding as the first, in a second city, and \"Likewise,\" is the word for a matching parallel case.\n\n**The Full Solution:**\n- How to spot it: read both sentences and ask how the second relates to the first. Sentence one reports what one study found in Chicago - urban institutions keep tribal identities alive far from the reservations.\n- Sentence two reports what studies found in the San Francisco Bay Area - city dwellers sustain strong tribal ties through visits, ceremonies, and gatherings.\n- Two studies in two cities pointing to the same conclusion is a parallel, and \"Likewise\" is the signal for \"here is the same thing again, somewhere else.\"\n\n**Why the other choices are wrong:**\n- A: \"For example\" introduces an instance of a general claim, but the first sentence is itself a specific study, not a general claim the second illustrates.\n- B: \"Therefore\" would make the Bay Area findings a logical result of the Chicago study, but independent findings are not caused by earlier ones.\n- C: \"However\" signals a clash, yet the two studies agree completely."
         },
         {
           "id": 224,
@@ -829,7 +829,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "C",
-              "text": "For instance,"
+              "text": "Granted,"
             },
             {
               "id": "D",
@@ -837,7 +837,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The sentence before the blank says mothers held back attachment from the frailest newborns; the sentence after gives the outcome of that, so \"As a result,\" (a cause-and-effect word) fits.\n\n**The Full Solution:**\n- How to spot it: check whether the second sentence is the EFFECT of the first. If the first is a cause and the second is what happens because of it, use a result word.\n- Cause: mothers held back deep attachment from the frailest newborns.\n- Effect: scarce care could then go to the infants most likely to survive. Because the second is the result of the first, \"As a result\" is right.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" signals a contrast (but), yet the second sentence follows from the first, it does not oppose it.\n- C: \"For instance\" introduces an example, but concentrating care is a result of the restraint, not an example of it.\n- D: \"By contrast\" sets two things against each other, which misreads a plain cause-and-effect link."
+          "explanation": "**Choice A is correct.** The sentence before the blank says mothers held back attachment from the frailest newborns; the sentence after gives the outcome of that, so \"As a result,\" (a cause-and-effect word) fits.\n\n**The Full Solution:**\n- How to spot it: check whether the second sentence is the EFFECT of the first. If the first is a cause and the second is what happens because of it, use a result word.\n- Cause: mothers held back deep attachment from the frailest newborns.\n- Effect: scarce care could then go to the infants most likely to survive. Because the second is the result of the first, \"As a result\" is right.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" signals a contrast (but), yet the second sentence follows from the first, it does not oppose it.\n- C: \"Granted\" concedes a point before pushing back, but the sentence reports the outcome of the restraint, not a concession about it.\n- D: \"By contrast\" sets two things against each other, which misreads a plain cause-and-effect link."
         },
         {
           "id": 225,
@@ -851,7 +851,7 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "For example,"
+              "text": "By comparison,"
             },
             {
               "id": "B",
@@ -867,7 +867,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** What actually happened was the opposite of what publishers feared, so \"Instead,\" (the word for swapping a real result in for an expected one) fits.\n\n**The Full Solution:**\n- How to spot it: when the first sentence says people EXPECTED one thing and the second says something different actually happened, the word \"Instead\" makes that swap.\n- Expected: publishers feared cheap paperbacks would eat into hardcover sales.\n- Actually: the cheap editions brought in brand-new readers and grew the whole market. Since reality replaced the fear, \"Instead\" is right.\n\n**Why the other choices are wrong:**\n- A: \"For example\" would make the outcome an instance of the feared sales loss, but it is the opposite of that fear.\n- B: \"Therefore\" means the outcome follows from the expectation, but it defied the expectation.\n- D: \"Moreover\" just adds more information and misses the flip between what was feared and what happened."
+          "explanation": "**Choice C is correct.** What actually happened was the opposite of what publishers feared, so \"Instead,\" (the word for swapping a real result in for an expected one) fits.\n\n**The Full Solution:**\n- How to spot it: when the first sentence says people EXPECTED one thing and the second says something different actually happened, the word \"Instead\" makes that swap.\n- Expected: publishers feared cheap paperbacks would eat into hardcover sales.\n- Actually: the cheap editions brought in brand-new readers and grew the whole market. Since reality replaced the fear, \"Instead\" is right.\n\n**Why the other choices are wrong:**\n- A: \"By comparison\" would set two measured things side by side, but the sentence replaces an expectation with what actually happened - no comparison is being drawn.\n- B: \"Therefore\" means the outcome follows from the expectation, but it defied the expectation.\n- D: \"Moreover\" just adds more information and misses the flip between what was feared and what happened."
         },
         {
           "id": 226,
@@ -1128,7 +1128,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "B",
-              "text": "To describe the navigational challenges that Portuguese and Dutch ships faced on the trade route around Africa."
+              "text": "To describe the navigational challenges that Portuguese and Dutch spice ships faced on the long trade route around the coast of Africa."
             },
             {
               "id": "C",
@@ -1166,7 +1166,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "D",
-              "text": "It traces a scholar's career and argues that his later work proved more influential than his early studies of grammar."
+              "text": "It traces the entire arc of a scholar's long career and argues that his later work on deaf education proved more influential than his early studies of grammar."
             }
           ],
           "correctAnswer": "C",
@@ -1193,7 +1193,7 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "They would argue that the central content of significant events is immune to suggestion and is therefore always recalled with complete accuracy."
+              "text": "They would argue that the central content of emotionally significant events is entirely immune to suggestion and is therefore always recalled with complete accuracy, no matter the delay."
             },
             {
               "id": "B",
@@ -1218,28 +1218,28 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Geobiologist and paleobotanist Hope Jahren, who studies the chemistry of plants at the University of Oslo, has spent much of her career analyzing the wood of long-dead trees. Living trees draw water and dissolved minerals from soil and air, and the resulting ratios of stable isotopes locked into each new layer of wood reflect local conditions of temperature and rainfall during the year that layer formed. Jahren has shown that those isotope ratios remain measurable in the wood of fossil trees that grew tens of millions of years ago, long after most other biological signals have been lost. Reading them, she argues, lets researchers reconstruct, year by year, the climates of forests that no longer exist anywhere on Earth, turning a piece of petrified wood into a detailed environmental record of a vanished landscape.",
+          "passage": "The following text is adapted from Josiah Renshaw's 1878 novel The Wheelwright of Ketley Bridge. Peter has been apprenticed to Mr. Dunmore, a maker of wagon wheels.\n\nDunmore rarely corrected the boy outright. When a spoke was cut ill, he would set it beside a true one on the bench and go on with his own work, saying nothing, and Peter would presently carry the faulty piece back to the vise of his own accord. It was slower schooling than the trade demanded, the neighbors said; a sharper master would have had the boy fit for wages in half the time. But what Peter learned in that shop he learned as his own, and he was never after obliged to wait upon another man's judgment to know whether his work was sound.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "Jahren's research uses fossil wood to map the global geographic distribution of ancient forests across the continents tens of millions of years ago."
+              "text": "Peter's neighbors eventually persuaded Dunmore to adopt a quicker and more direct method of instruction so that the boy could be fit to earn wages in half the time."
             },
             {
               "id": "B",
-              "text": "Jahren's research argues that stable isotope ratios preserved in fossil wood can be used to reconstruct, year by year, the local climates of ancient forests that no longer exist."
+              "text": "Dunmore's habit of letting Peter find his own mistakes made the apprenticeship slow, but it taught the boy to judge the soundness of his work for himself."
             },
             {
               "id": "C",
-              "text": "Jahren's research suggests that the chemical signals once recorded in the wood of fossil trees have largely been erased over tens of millions of years and can no longer be read reliably."
+              "text": "Dunmore considered Peter too careless to be trusted with the finer work of the shop and kept him at cutting spokes until his work should improve."
             },
             {
               "id": "D",
-              "text": "Jahren's research describes how living trees draw water and dissolved minerals from soil and air as they form each new annual layer of wood."
+              "text": "Because Dunmore said nothing when a spoke was cut badly, Peter went on repeating the same errors at the vise."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The passage builds, sentence by sentence, to Jahren's main point: chemical signals saved in fossil wood can be used to rebuild, year by year, the local climates of ancient forests that no longer exist.\n\n**The Full Solution:**\n- How to spot it: for a main-idea question, follow where the sentences are headed; the final point they support is the answer, not the setup facts.\n- Setup: each new layer of living wood carries chemical signals that record that year's local temperature and rainfall.\n- Build: those signals stay readable in fossil wood tens of millions of years old. Payoff: reading them rebuilds vanished local climates year by year. That payoff is B.\n\n**Why the other choices are wrong:**\n- A: changes the scope to MAPPING where ancient forests were, not the year-by-year climate rebuilding the passage actually describes.\n- C: backwards - the text says the signals remain readable long after others are lost, not that they have been erased.\n- D: mistakes the supporting detail (how living trees take up water and minerals) for the bigger argument."
+          "explanation": "**Choice B is correct.** It holds both halves of the passage together: the wordless teaching made for slow schooling, and it left Peter able to judge his own work.\n\n**The Full Solution:**\n- How to spot it: for a main-idea question, find the sentence the passage has been building toward. Here it is the last one - what Peter learned \"he learned as his own,\" and he was never again obliged \"to wait upon another man's judgment\" to know whether his work was sound.\n- The earlier sentences show the method: Dunmore sets the faulty spoke beside a true one and says nothing, and Peter corrects it \"of his own accord.\"\n- The middle concedes the cost - the neighbors called it slower schooling than the trade demanded - so the main idea must keep both the slowness and the payoff. Choice B does.\n\n**Why the other choices are wrong:**\n- A: invents a change of method - the neighbors grumble, but nothing in the text says Dunmore ever altered his way of teaching.\n- C: invents a judgment of carelessness the passage never makes; the faulty spoke becomes an occasion for teaching, not a punishment.\n- D: contradicts the text - Peter carries the faulty piece back to the vise himself, which is learning from the mistake, not repeating it."
         },
         {
           "id": 237,
@@ -1287,7 +1287,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "B",
-              "text": "Franklin is best remembered today for the well-known story of the credit she was denied after her diffraction images contributed to a double-helix model that other scientists announced in 1953."
+              "text": "Franklin is best remembered today for the story of the credit she was denied after her diffraction images contributed to a double-helix model that other scientists announced in 1953."
             },
             {
               "id": "C",
@@ -1389,11 +1389,11 @@ export const practiceTest2RW = {
             },
             {
               "id": "B",
-              "text": "Facebook was used by 69% of U.S. adults in 2021, the highest reported share among the platforms with data available in 2012."
+              "text": "Facebook was used by 69% of U.S. adults in 2021, up from 54% in 2012 — the highest reported share among the platforms with data available in 2012."
             },
             {
               "id": "C",
-              "text": "Instagram use among U.S. adults contracted from 13% in 2012 to a smaller share by 2021, falling more sharply than any other platform listed."
+              "text": "Instagram use among U.S. adults contracted from its 13% share in 2012 to a smaller share of adult users by 2021, falling more sharply in proportional terms than any other platform listed in the table."
             },
             {
               "id": "D",
@@ -1445,7 +1445,7 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "between 1900 and 1925 the rate fell from 100 to 72 deaths per 1,000, a reduction of about 45 percent, whereas between 1950 and 1975 it fell from 29 to 16, a reduction of about 28 percent."
+              "text": "between 1900 and 1925 the rate fell from 100 to 72 deaths per 1,000, a reduction of about 45 percent, whereas between 1950 and 1975 it fell from 29 to 16 deaths per 1,000, a reduction of about 28 percent."
             },
             {
               "id": "B",
@@ -1745,7 +1745,7 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Likewise,"
+              "text": "Thereafter,"
             },
             {
               "id": "B",
@@ -1757,11 +1757,11 @@ export const practiceTest2RW = {
             },
             {
               "id": "D",
-              "text": "For instance,"
+              "text": "In turn,"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The first sentence states a problem and the second gives the workaround planners use in its place, so \"Instead,\" (the word for swapping in a different approach) fits.\n\n**The Full Solution:**\n- How to spot it: when the first sentence says one approach won't work and the second gives the approach used in its place, \"Instead\" makes that swap.\n- Problem: a spacecraft can't carry enough fuel to power itself the whole way.\n- Workaround: planners send the probes past big planets and use each planet's gravity to fling them onward for free. Since that replaces the unavailable approach, \"Instead\" is right.\n\n**Why the other choices are wrong:**\n- A: \"Likewise\" signals similarity, but the gravity trick is a different solution, not a parallel case.\n- C: \"Meanwhile\" marks two things happening at once, which misframes the link.\n- D: \"For instance\" introduces an example, but the gravity assist is the strategy chosen to solve the fuel problem, not an example of it."
+          "explanation": "**Choice B is correct.** The first sentence states a problem and the second gives the workaround planners use in its place, so \"Instead,\" (the word for swapping in a different approach) fits.\n\n**The Full Solution:**\n- How to spot it: when the first sentence says one approach won't work and the second gives the approach used in its place, \"Instead\" makes that swap.\n- Problem: a spacecraft can't carry enough fuel to power itself the whole way.\n- Workaround: planners send the probes past big planets and use each planet's gravity to fling them onward for free. Since that replaces the unavailable approach, \"Instead\" is right.\n\n**Why the other choices are wrong:**\n- A: \"Thereafter\" would place the routing after some completed event, but the first sentence states a standing problem, not an event in time.\n- C: \"Meanwhile\" marks two things happening at once, which misframes the link.\n- D: \"In turn\" marks the next step in a chain of effects, but the routing is a substitute for the impossible approach, not a further consequence of it."
         },
         {
           "id": 252,
@@ -1787,11 +1787,11 @@ export const practiceTest2RW = {
             },
             {
               "id": "D",
-              "text": "Likewise,"
+              "text": "Indeed,"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The two sentences put opposite views of what makes someone a tribal member side by side, so the contrast phrase \"On the other hand,\" fits.\n\n**The Full Solution:**\n- How to spot it: read both sentences and decide if the second agrees, follows from, adds to, or opposes the first. Here it opposes, so you need a contrast phrase.\n- Sentence 1: the companies say their DNA kits let customers confirm heritage and support tribal-membership claims.\n- Sentence 2: TallBear argues belonging comes from political and family relations \"rather than by genetic markers,\" so a DNA result can't establish membership. The phrase \"rather than by genetic markers\" rejects sentence 1, so \"On the other hand\" fits.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" signals a result, but sentence 2 opposes sentence 1 rather than following from it.\n- C: \"Moreover\" signals adding more, but the relationship is opposition.\n- D: \"Likewise\" signals agreement, the opposite of the actual contrast."
+          "explanation": "**Choice A is correct.** The two sentences put opposite views of what makes someone a tribal member side by side, so the contrast phrase \"On the other hand,\" fits.\n\n**The Full Solution:**\n- How to spot it: read both sentences and decide if the second agrees, follows from, adds to, or opposes the first. Here it opposes, so you need a contrast phrase.\n- Sentence 1: the companies say their DNA kits let customers confirm heritage and support tribal-membership claims.\n- Sentence 2: TallBear argues belonging comes from political and family relations \"rather than by genetic markers,\" so a DNA result can't establish membership. The phrase \"rather than by genetic markers\" rejects sentence 1, so \"On the other hand\" fits.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" signals a result, but sentence 2 opposes sentence 1 rather than following from it.\n- C: \"Moreover\" signals adding more, but the relationship is opposition.\n- D: \"Indeed\" intensifies and confirms the previous claim, but TallBear's argument rejects the companies' promise rather than reinforcing it."
         },
         {
           "id": 253,
@@ -1820,11 +1820,11 @@ export const practiceTest2RW = {
             },
             {
               "id": "B",
-              "text": "For decades after it was recovered from the shipwreck, the Antikythera mechanism's heavily corroded bronze gears left its original purpose unclear to researchers."
+              "text": "For most of a century after the device was recovered from the Mediterranean shipwreck in 1901, the Antikythera mechanism's heavily corroded bronze gears left its original purpose entirely unclear to the generations of researchers who examined and debated it."
             },
             {
               "id": "C",
-              "text": "Ancient Greek astronomers of the second century BCE were already able to predict eclipses and to model the motions of the Sun, the Moon, and the planets."
+              "text": "Ancient Greek astronomers of roughly the second century BCE were already able to predict eclipses and to model the motions of the Sun, the Moon, and the five planets known to them."
             },
             {
               "id": "D",

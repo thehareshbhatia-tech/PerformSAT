@@ -108,7 +108,7 @@ export const practiceTest4RWM2Easy = {
       skill: "text-structure-and-purpose",
       question: "Which choice best states the main purpose of the text?",
       choices: [
-        { id: "A", text: "To explain why bread made without a sourdough starter usually fails to rise in a home kitchen." },
+        { id: "A", text: "To explain why loaves of bread made without a sourdough starter usually fail to rise properly when they are baked in a home kitchen." },
         { id: "B", text: "To describe what a sourdough starter is, how the microbes in it work together, and how bakers keep one going and share it." },
         { id: "C", text: "To compare the tang of sourdough bread with the flavor of bread made using packaged baker's yeast." },
         { id: "D", text: "To trace the history of sourdough baking from its earliest known origins to its recent popularity." }
@@ -150,7 +150,7 @@ export const practiceTest4RWM2Easy = {
       skill: "text-structure-and-purpose",
       question: "Which choice best states the main purpose of the text?",
       choices: [
-        { id: "A", text: "To argue that pollen records are more reliable than every other method of reconstructing past climates." },
+        { id: "A", text: "To argue that pollen records preserved in lakebeds are more reliable than every other method researchers use to reconstruct past climates." },
         { id: "B", text: "To describe the technical difficulty of drilling an intact sediment core from the bottom of a deep lake." },
         { id: "C", text: "To explain why the pollen grains of pines, oaks, and grasses differ so markedly in their structure." },
         { id: "D", text: "To explain how pollen buried in lake sediments lets researchers work out which plants grew nearby in the past and how the climate changed." }
@@ -171,7 +171,7 @@ export const practiceTest4RWM2Easy = {
       skill: "cross-text-connections",
       question: "Based on the texts, how would the author of Text 2 most likely respond to the argument presented in Text 1?",
       choices: [
-        { id: "A", text: "He would deny that any translation has ever struck later readers as dated, arguing that the impression of stiffness comes entirely from the original work rather than from the translation." },
+        { id: "A", text: "He would deny that any translation has ever genuinely struck later readers as dated, arguing that the impression of stiffness comes entirely from the original work itself rather than from the language of the translation." },
         { id: "B", text: "He would agree that translations age at a steady and predictable rate, and would add that a classic therefore needs a fresh translation roughly every twenty years." },
         { id: "C", text: "He would accept that many translations do date quickly but object that Text 1 blames the passage of time itself, when the evidence points instead to a translator's reliance on the fashionable idiom of the moment." },
         { id: "D", text: "He would accept Text 1's account of why translations age but warn that newly made translations are rarely accurate enough to replace the older versions readers already know." }
@@ -201,7 +201,7 @@ export const practiceTest4RWM2Easy = {
       skill: "central-ideas-and-details",
       question: "Which choice best states the main idea of the text?",
       choices: [
-        { id: "A", text: "The insects that produce the dye known as cochineal feed on the pads of the prickly pear cactus and must be dried and ground before any cloth can be colored with them." },
+        { id: "A", text: "The insects that produce the dye known as cochineal feed on the prickly pear cactus and must be dried and ground before any quantity of cloth can be colored with them." },
         { id: "B", text: "Cochineal, a red dye made from insects that live on cactus, was prized for its strength and durability and became one of the most valuable goods shipped out of the Americas." },
         { id: "C", text: "Silver was the single most valuable cargo carried from the Americas to Europe during the three centuries after the Spanish arrived." },
         { id: "D", text: "European dyers of the period had no way at all of producing a red color on cloth before cochineal reached them." }
@@ -243,16 +243,16 @@ export const practiceTest4RWM2Easy = {
       skill: "central-ideas-and-details",
       question: "Which choice best states the main idea of the text?",
       choices: [
-        { id: "A", text: "Clouds of hydrogen gas lying between the stars give off almost no visible light of their own." },
-        { id: "B", text: "The wavelength of a radio wave is stretched or squeezed when the object emitting it is moving." },
-        { id: "C", text: "Dust spread through the Milky Way blocks optical telescopes from seeing large parts of the galaxy, including many of the regions in which clouds of hydrogen gas are found." },
-        { id: "D", text: "Because hydrogen's faint radio wave passes through obscuring dust and shifts with a cloud's motion, radio astronomers have used it to map the Milky Way's spiral structure." }
+        { id: "A", text: "The chant of a livestock auctioneer moves too quickly for most inexperienced listeners in the room to follow." },
+        { id: "B", text: "Auctioneers repeat the current bid and the asking bid in a rolling, rhythmic pattern throughout the chant." },
+        { id: "C", text: "Livestock auctioneers originally developed the rapid chant primarily to entertain buyers during long afternoons of bidding and to put their own professional showmanship on display for the crowd." },
+        { id: "D", text: "Far from being fast talk for its own sake, the auctioneer's chant uses a steady, repeated background to make every new bid stand out and to keep a room of bidders moving together." }
       ],
       correctAnswer: "D",
-      explanation: "**Choice D is correct.** The passage names two properties of hydrogen's twenty-one-centimeter wave - it passes through dust, and its wavelength shifts with a cloud's motion - and then reports what astronomers built out of them: a map of the galaxy's spiral arms.\n\n**The Full Solution:**\n- For a \"main idea\" question, first ask: what is the whole passage driving at? Here it is what the hydrogen signal has made possible.\n- Property one: the wave \"passes through the dust that blocks optical telescopes,\" so hydrogen can be detected even in hidden regions.\n- Property two: the wavelength is \"stretched or squeezed by a cloud's motion,\" which gives each cloud's speed.\n- The payoff: from thousands of such measurements, astronomers \"have mapped the spiral arms of the Milky Way from inside it.\"\n- The main idea has to tie both properties to that result.\n- How to spot it: if a choice states a fact the passage uses as a step, it is a supporting detail, not the main idea.\n\n**Why the other choices are wrong:**\n- A: It restates a supporting fact about hydrogen clouds giving off little visible light.\n- B: It restates the supporting fact about wavelength shifting with motion.\n- C: It restates the supporting fact about dust blocking optical telescopes.",
-      passage: "Clouds of hydrogen gas fill the space between the stars, and although they give off almost no visible light, they emit a faint radio wave with a wavelength of twenty-one centimeters. That wave passes through the dust that blocks optical telescopes, so radio astronomers can detect hydrogen clouds anywhere in the galaxy, including regions hidden from view. By measuring how far the wavelength is stretched or squeezed by a cloud's motion, they can also work out how fast each cloud is traveling — and from thousands of such measurements they have mapped the spiral arms of the Milky Way from inside it.",
+      explanation: "**Choice D is correct.** The passage's point is that the chant's speed is deliberate design: a steady, repeated background against which each new number stands out, keeping the whole room of bidders together.\n\n**The Full Solution:**\n- For a \"main idea\" question, first ask: what is the whole passage driving at? Here it is what the chant's design accomplishes.\n- The setup: the chant sounds like words too fast to follow, but most of it is rhythmic filler - the current bid and the bid being asked for, repeated in a rolling pattern.\n- The mechanism: against that steady background, \"any new number stands out the moment it appears, the way a changed note breaks a familiar tune.\"\n- The payoff sentence states the function: the chant keeps a room of bidders synchronized and makes each change of price impossible to miss.\n- The main idea has to tie the design to that function, which only D does.\n- How to spot it: if a choice states a fact the passage uses as a step, it is a supporting detail, not the main idea.\n\n**Why the other choices are wrong:**\n- A: It repeats the surface impression the passage opens with and then moves past.\n- B: It restates the supporting detail about the rolling filler pattern without the function that pattern serves.\n- C: It invents motives - entertainment and showmanship - that the passage never gives; the text says the chant is \"not fast talking for its own sake.\"",
+      passage: "The rapid chant of a livestock auctioneer sounds like a stream of words too fast to follow, but its speed comes from a deliberate design. Most of the chant is a rhythmic filler - the current bid and the bid being asked for, repeated in a rolling pattern - that buyers' ears quickly learn to ride. Against that steady background, any new number stands out the moment it appears, the way a changed note breaks a familiar tune. The chant, auctioneers say, is not fast talking for its own sake: it keeps a room of bidders synchronized, and it makes each change of price impossible to miss.",
       _meta: {
-        anchor: "radio astronomy — the twenty-one-centimeter hydrogen line"
+        anchor: "auctioneer's chant — rhythmic filler and bid salience"
       }
     },
     {
@@ -288,7 +288,7 @@ export const practiceTest4RWM2Easy = {
         { id: "A", text: "The interior courtyard averaged 58 decibels and the neighborhood park averaged 54 decibels." },
         { id: "B", text: "The location beside the six-lane road averaged 76 decibels, the loudest of the four locations measured." },
         { id: "C", text: "The two roadside locations averaged 76 and 72 decibels, while the interior courtyard and the neighborhood park averaged 58 and 54 decibels." },
-        { id: "D", text: "The location beside the bus depot averaged 72 decibels, 14 decibels above the interior courtyard's 58 decibels." }
+        { id: "D", text: "The location beside the bus depot averaged 72 decibels over the week, 14 decibels above the 58-decibel average recorded in the interior courtyard." }
       ],
       correctAnswer: "C",
       explanation: "**Choice C is correct.** The claim compares two groups of locations, so the evidence has to report both groups. Choice C gives the two roadside values (76 and 72 decibels) and the two set-back values (58 and 54 decibels), showing that both roadside sites were louder than both set-back sites.\n\n**The Full Solution:**\n- For a data question, first ask: what exactly does the claim say, and which rows of the table does it need?\n- The claim: the two locations beside heavy traffic were louder than the two locations set back from it - four values in all.\n- Roadside: six-lane road 76, bus depot 72. Set back: interior courtyard 58, neighborhood park 54.\n- Choice C reports all four, so the comparison the claim makes is fully supported.\n- How to spot it: when a claim compares one group with another, the correct answer must include numbers from BOTH groups.\n\n**Why the other choices are wrong:**\n- A: It gives only the two set-back locations, so there is nothing to compare them with.\n- B: It gives only one roadside value and never mentions the set-back locations.\n- D: It compares one roadside location with one set-back location, leaving out half the claim.",
@@ -580,7 +580,7 @@ export const practiceTest4RWM2Easy = {
       question: "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       choices: [
         { id: "A", text: "Nighttime noise above 55 decibels covered about a fifth of the city's residential blocks, and most of those blocks lay along the elevated highways and the rail lines." },
-        { id: "B", text: "The health department recommended sound-absorbing barriers along the elevated highways, a measure that quiets buildings within roughly a hundred meters of the road." },
+        { id: "B", text: "The city's health department recommended installing sound-absorbing barriers along the elevated highways, a measure that quiets buildings within roughly a hundred meters of the road." },
         { id: "C", text: "The city's health department measured nighttime noise levels on every residential block in the city and assembled the readings into a single map." },
         { id: "D", text: "Residents of the loudest blocks reported waking during the night about twice as often as residents of the quietest blocks did." }
       ],

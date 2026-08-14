@@ -309,7 +309,7 @@ export const practiceTest6RW = {
             },
             {
               "id": "D",
-              "text": "Goryeo potters developed the sanggam inlay technique because they wanted their celadon to be easily distinguishable from the Chinese wares that had inspired it."
+              "text": "Goryeo potters developed the sanggam inlay technique because they wanted their celadon to be easily distinguishable at a glance from the Chinese wares that had first inspired it."
             }
           ],
           "correctAnswer": "C",
@@ -331,7 +331,7 @@ export const practiceTest6RW = {
             },
             {
               "id": "B",
-              "text": "They are chosen mainly for the contrast they create against the narrow woven strips."
+              "text": "They are chosen mainly for the visual contrast they create against the narrow woven strips that make up the cloth."
             },
             {
               "id": "C",
@@ -365,7 +365,7 @@ export const practiceTest6RW = {
             },
             {
               "id": "C",
-              "text": "Before 1933, most library systems gave every book a single fixed number drawn from a predetermined list of subjects."
+              "text": "Before 1933, most of the library classification systems then in use gave every book a single fixed call number drawn from a long predetermined list of possible subject headings."
             },
             {
               "id": "D",
@@ -387,11 +387,11 @@ export const practiceTest6RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Mitochondria and chloroplasts cannot survive on their own outside the host cells in which they are found."
+              "text": "Mitochondria and chloroplasts cannot survive for long on their own when they are removed from the host cells in which they are found."
             },
             {
               "id": "B",
-              "text": "The number of mitochondria in a cell varies with how much energy that cell needs to produce."
+              "text": "The number of mitochondria found in a cell varies with how much energy that kind of cell needs to produce."
             },
             {
               "id": "C",
@@ -448,15 +448,15 @@ export const practiceTest6RW = {
           "choices": [
             {
               "id": "A",
-              "text": "across the four decades shown, the mean September extent fell continuously, from 7.2 million km² in the 1980s to 4.6 million km² in the 2010s."
+              "text": "across the four decades shown, the mean September extent fell continuously and without a single reversal, from 7.2 million km² in the 1980s to 4.6 million km² in the 2010s."
             },
             {
               "id": "B",
-              "text": "the lowest year recorded in the 1980s, 6.9 million km² in 1985, was higher than every subsequent decadal low and every subsequent decadal mean."
+              "text": "the lowest year recorded in the 1980s, 6.9 million km² in 1985, was higher not only than every subsequent decadal low but also than every subsequent decadal mean shown in the table."
             },
             {
               "id": "C",
-              "text": "the 2010s mean extent of 4.6 million km² is the lowest of any decade in the table, exceeding the 2010s decadal low of 3.6 million km²."
+              "text": "the 2010s mean extent of 4.6 million km² is the lowest mean of any decade in the table, though it still exceeds the 2010s decadal low of 3.6 million km²."
             },
             {
               "id": "D",
@@ -516,15 +516,15 @@ export const practiceTest6RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the 2000–2019 anomaly of +0.78°C is the highest of the seven twenty-year periods, exceeding every earlier period in the record."
+              "text": "the 2000–2019 anomaly of +0.78°C is by a wide margin the highest of the seven twenty-year periods, exceeding every earlier period in the record."
             },
             {
               "id": "B",
-              "text": "two of the seven periods, 1880–1899 and 1900–1919, registered negative anomalies, indicating that the late nineteenth century was the coolest stretch in the record."
+              "text": "two of the earliest periods shown, 1880–1899 and 1900–1919, registered negative anomalies of −0.21°C and −0.24°C, indicating that the decades around 1900 were the coolest stretch in the record."
             },
             {
               "id": "C",
-              "text": "across the seven twenty-year periods, the temperature anomaly rose monotonically from −0.21°C in 1880–1899 to +0.78°C in 2000–2019."
+              "text": "across all seven of the twenty-year periods, the temperature anomaly rose monotonically from −0.21°C in 1880–1899 up to +0.78°C in 2000–2019."
             },
             {
               "id": "D",
@@ -541,28 +541,28 @@ export const practiceTest6RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "Working in lowland rain forests in the state of Veracruz, the tropical ecologist Rodolfo Dirzo has spent decades comparing forest plots that retain their full complement of large vertebrates with neighboring plots from which those animals have been hunted out. Two patterns recur across his sites. In plots without large mammals and birds, the seedlings of tree species with big seeds — which the missing animals would have carried away from the parent tree — fail at high rates and recruit poorly. Over the same intervals, the seedlings of tree species with smaller seeds, which can be moved by wind or by the small rodents and insects that remain, persist and reach maturity at rates indistinguishable from the unhunted plots. Because the patterns track seed size and the kinds of dispersers each size requires, Dirzo's combined findings suggest that ______",
+          "passage": "Silicon solar panels dominate the commercial market, but manufacturing them requires melting refined silicon at high temperatures in specialized facilities. Perovskite solar cells, made from compounds that can be dissolved and printed onto surfaces at close to room temperature, can now match silicon's efficiency in laboratory tests, and analysts project that printing them at scale would cost a fraction of what silicon fabrication costs. Yet the compounds degrade quickly when exposed to moisture and heat: cells that perform impressively inside a sealed laboratory enclosure have tended to lose much of their output within months outdoors, while commercial silicon panels are routinely warranted for twenty-five years. Because a purchaser's real cost depends on how much electricity a panel delivers over its whole working life, these facts suggest that ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
               "id": "A",
-              "text": "tropical tree species with large seeds depend exclusively on a single species of large vertebrate for dispersal and cannot be moved by any other agent."
+              "text": "perovskite cells will remain considerably more expensive than silicon panels to manufacture at commercial scale for as long as the two technologies continue to compete for buyers around the world."
             },
             {
               "id": "B",
-              "text": "any tropical forest from which large vertebrates have been removed will lose its small-seeded tree species at the same rate as its large-seeded ones, regardless of which dispersers remain."
+              "text": "silicon panels owe their continued commercial dominance mainly to patent protections that keep printed alternatives from ever reaching the market."
             },
             {
               "id": "C",
-              "text": "the loss of large vertebrates in tropical forests can gradually shift the composition of the canopy toward tree species whose seeds do not depend on them for dispersal."
+              "text": "perovskite cells are unlikely to displace silicon panels commercially until their outdoor lifespan is substantially extended, whatever their advantages in efficiency and manufacturing cost."
             },
             {
               "id": "D",
-              "text": "removing large vertebrates from a tropical forest leaves the recruitment patterns of tree seedlings essentially unchanged from those observed in the unhunted plots."
+              "text": "the efficiencies that perovskite cells achieve in sealed laboratory enclosures systematically understate what those same cells would deliver outdoors."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Across Dirzo's plots, removing large animals causes big-seeded trees - whose seeds those animals once carried away - to \"fail at high rates and recruit poorly,\" while small-seeded trees keep recruiting at normal rates, so over time the trees that survive best are increasingly the small-seeded ones and the canopy gradually shifts toward them.\n\n**The Full Solution:**\n- How to spot it: the blank follows the evidence, so finish the thought the passage is already building - big seeds fail, small seeds thrive, so the forest tilts toward small seeds.\n- In plots without large mammals and birds, big-seeded seedlings fail at high rates because their dispersers are gone.\n- Small-seeded trees, movable by wind or surviving small rodents and insects, persist and mature at rates indistinguishable from unhunted plots.\n- Because the patterns track seed size and disperser type, the canopy gradually shifts toward small-seeded species that do not depend on large vertebrates - choice C.\n\n**Why the other choices are wrong:**\n- A: It overreaches by claiming big-seeded trees depend on \"a single species\" of disperser, which the passage never says.\n- B: It has the pattern backward; it is the small-seeded trees that continue to do well.\n- D: It claims removal leaves recruitment unchanged, contradicting the central finding that big-seeded seedlings fail at high rates."
+          "explanation": "**Choice C is correct.** A purchaser's real cost depends on electricity delivered over a panel's whole working life, and perovskite cells lose much of their output within months outdoors while silicon panels are warranted for twenty-five years - so cheap manufacturing and high lab efficiency cannot win the market until the cells last far longer outdoors.\n\n**The Full Solution:**\n- How to spot it: the blank follows the evidence, so finish the thought the passage is already building - cheap to print and efficient in the lab, but short-lived outdoors, and lifetime is what the buyer actually pays for.\n- Perovskite cells match silicon's efficiency in the lab and would cost a fraction as much to print at scale.\n- But the compounds degrade in moisture and heat, losing much of their output within months outdoors, while silicon panels carry twenty-five-year warranties.\n- Because the buyer's real cost is spread over a panel's whole working life, the short outdoor lifespan cancels the other advantages until it is fixed - choice C.\n\n**Why the other choices are wrong:**\n- A: It contradicts the stated projection that printing perovskite cells would cost a fraction of silicon fabrication.\n- B: It invents patent protections as the cause of silicon's dominance, a mechanism the passage never mentions.\n- D: It points the error the wrong way; the passage indicates sealed-enclosure results flatter the cells, since output falls once they are outdoors."
         },
         {
           "id": 616,
@@ -798,11 +798,11 @@ export const practiceTest6RW = {
             },
             {
               "id": "D",
-              "text": "Therefore,"
+              "text": "By comparison,"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The first part of the passage reports the long-held impression that life \"thins out rapidly below the sunlit surface,\" and the sentence after the blank overturns it with what the deep submersible dives revealed - communities \"as dense and varied as those near the top\" - so the reversal calls for the contrast transition \"However.\"\n\n**The Full Solution:**\n- How to spot it: read the sentence before and the sentence after, then ask - does the second one AGREE with the first, or push back against it? Pushing back calls for a contrast linking word (however, but, yet).\n- Shallow-water samples suggested life thins out with depth.\n- Sustained deep dives revealed dense, varied communities in the darker layers instead - the opposite of the earlier impression, so a contrast word fits.\n\n**Why the other choices are wrong:**\n- A: \"Additionally\" would signal the new information merely adds to the earlier point, not that it corrects it.\n- C: \"Finally\" would signal a concluding item in a list, not a reversal.\n- D: \"Therefore\" would make the dives' results a consequence of the old impression rather than a correction of it."
+          "explanation": "**Choice B is correct.** The first part of the passage reports the long-held impression that life \"thins out rapidly below the sunlit surface,\" and the sentence after the blank overturns it with what the deep submersible dives revealed - communities \"as dense and varied as those near the top\" - so the reversal calls for the contrast transition \"However.\"\n\n**The Full Solution:**\n- How to spot it: read the sentence before and the sentence after, then ask - does the second one AGREE with the first, or push back against it? Pushing back calls for a contrast linking word (however, but, yet).\n- Shallow-water samples suggested life thins out with depth.\n- Sustained deep dives revealed dense, varied communities in the darker layers instead - the opposite of the earlier impression, so a contrast word fits.\n\n**Why the other choices are wrong:**\n- A: \"Additionally\" would signal the new information merely adds to the earlier point, not that it corrects it.\n- C: \"Finally\" would signal a concluding item in a list, not a reversal.\n- D: \"By comparison\" would set the deep-water findings beside the shallow-water ones as parallel observations, but the new findings overturn the old impression rather than sitting alongside it."
         },
         {
           "id": 624,
@@ -820,7 +820,7 @@ export const practiceTest6RW = {
             },
             {
               "id": "B",
-              "text": "Likewise,"
+              "text": "Granted,"
             },
             {
               "id": "C",
@@ -832,7 +832,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The passage replaces the old assumption - that a forager simply \"led its nestmates back to a food source by scent\" - with a different account, the patterned \"waggle dance\" that encodes direction and distance, so \"Instead\" marks that substitution of one explanation for another.\n\n**The Full Solution:**\n- How to spot it: when the second sentence throws out the first idea and puts a different one in its place, you want a swap word like \"Instead.\"\n- Beekeepers once assumed returning foragers led others to food by scent.\n- Close observation showed the forager actually performs a waggle dance whose angle and duration encode direction and distance - a new explanation that REPLACES the scent one.\n\n**Why the other choices are wrong:**\n- A: \"For example\" would present the dance as an instance of leading by scent, which it is not.\n- B: \"Likewise\" would treat the two explanations as parallel rather than as one replacing the other.\n- D: \"In summary\" would signal a recap rather than a correction."
+          "explanation": "**Choice C is correct.** The passage replaces the old assumption - that a forager simply \"led its nestmates back to a food source by scent\" - with a different account, the patterned \"waggle dance\" that encodes direction and distance, so \"Instead\" marks that substitution of one explanation for another.\n\n**The Full Solution:**\n- How to spot it: when the second sentence throws out the first idea and puts a different one in its place, you want a swap word like \"Instead.\"\n- Beekeepers once assumed returning foragers led others to food by scent.\n- Close observation showed the forager actually performs a waggle dance whose angle and duration encode direction and distance - a new explanation that REPLACES the scent one.\n\n**Why the other choices are wrong:**\n- A: \"For example\" would present the dance as an instance of leading by scent, which it is not.\n- B: \"Granted\" would concede a point in favor of the scent account before pushing back, but the sentence simply reports what observation showed, conceding nothing.\n- D: \"In summary\" would signal a recap rather than a correction."
         },
         {
           "id": 625,
@@ -854,7 +854,7 @@ export const practiceTest6RW = {
             },
             {
               "id": "C",
-              "text": "Nevertheless,"
+              "text": "That said,"
             },
             {
               "id": "D",
@@ -862,7 +862,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage describes the famous desert lines and then introduces a second, separate achievement of the same people - their underground aqueducts, the puquios - so \"In addition\" correctly signals a further accomplishment alongside the lines.\n\n**The Full Solution:**\n- How to spot it: when the second sentence piles a SECOND, separate point on top of the first (without contrasting it or drawing a result), you want an adding word like \"In addition.\"\n- The Nazca are best known for the enormous desert lines and figures.\n- The next sentence introduces a separate achievement of the same people: a network of underground aqueducts still carrying water today - one more accomplishment alongside the lines.\n\n**Why the other choices are wrong:**\n- B: \"For example\" would wrongly cast the aqueducts as an instance of the lines.\n- C: \"Nevertheless\" signals a contrast the passage does not set up.\n- D: \"As a result\" would present the aqueducts as a consequence of the lines, which they are not."
+          "explanation": "**Choice A is correct.** The passage describes the famous desert lines and then introduces a second, separate achievement of the same people - their underground aqueducts, the puquios - so \"In addition\" correctly signals a further accomplishment alongside the lines.\n\n**The Full Solution:**\n- How to spot it: when the second sentence piles a SECOND, separate point on top of the first (without contrasting it or drawing a result), you want an adding word like \"In addition.\"\n- The Nazca are best known for the enormous desert lines and figures.\n- The next sentence introduces a separate achievement of the same people: a network of underground aqueducts still carrying water today - one more accomplishment alongside the lines.\n\n**Why the other choices are wrong:**\n- B: \"For example\" would wrongly cast the aqueducts as an instance of the lines.\n- C: \"That said\" concedes the point just made before qualifying it, but the second sentence adds a new achievement rather than qualifying the first.\n- D: \"As a result\" would present the aqueducts as a consequence of the lines, which they are not."
         },
         {
           "id": 626,
@@ -887,7 +887,7 @@ export const practiceTest6RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Both dendrochronology and radiocarbon dating are methods archaeologists use to date organic remains, and a 2019 study applied both to the timbers of a buried structure to see how closely their results would agree."
+              "text": "Both dendrochronology and radiocarbon dating are methods archaeologists use to date organic remains, and a 2019 study applied both to the timbers of a buried structure to see whether their results would agree."
             },
             {
               "id": "B",
@@ -927,7 +927,7 @@ export const practiceTest6RW = {
           "choices": [
             {
               "id": "A",
-              "text": "In 1967, Jocelyn Bell Burnell, then a graduate student at Cambridge, was using a new radio telescope to study distant quasars."
+              "text": "In 1967, the astronomer Jocelyn Bell Burnell, then a graduate student at Cambridge University, was using a newly built radio telescope to study distant quasars."
             },
             {
               "id": "B",
@@ -935,11 +935,11 @@ export const practiceTest6RW = {
             },
             {
               "id": "C",
-              "text": "Bell Burnell noticed a faint pulse in her data that arrived every 1.3 seconds, a regularity so exact that some at first wondered whether the signal was artificial rather than natural."
+              "text": "While studying distant quasars with a new radio telescope, Bell Burnell noticed a faint pulse in her data that arrived every 1.3 seconds, a regularity so exact that some at first wondered whether the signal was artificial rather than natural."
             },
             {
               "id": "D",
-              "text": "The pulses that Bell Burnell detected in 1967 came from a rapidly spinning, extremely dense collapsed star that was later named a pulsar."
+              "text": "The faint pulses that Bell Burnell detected in her data in 1967 came from a rapidly spinning, extremely dense collapsed star that was later given the name pulsar."
             }
           ],
           "correctAnswer": "B",
@@ -1247,7 +1247,7 @@ export const practiceTest6RW = {
           "choices": [
             {
               "id": "A",
-              "text": "They capture small organisms that drift down from the sunlit waters above the vents."
+              "text": "They capture and digest the small drifting organisms that sink down toward the vents from the sunlit waters far above them."
             },
             {
               "id": "B",
@@ -1277,7 +1277,7 @@ export const practiceTest6RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The Jazz Singer was the first film of any kind to use a synchronized-sound system in commercial release, surpassing all the synchronized-sound experiments that had come before it."
+              "text": "The Jazz Singer was the first film to use a synchronized-sound system in commercial release, surpassing all the synchronized-sound experiments that had come before it."
             },
             {
               "id": "B",
@@ -1379,11 +1379,11 @@ export const practiceTest6RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Instagram use among U.S. adults rose from 13% in 2012 to 40% in 2021, more than tripling across the period."
+              "text": "Instagram use among U.S. adults rose from 13% in 2012 to 28% in 2016 and 40% in 2021, more than tripling across the period shown."
             },
             {
               "id": "B",
-              "text": "Among the platforms shown, YouTube reached the highest 2021 adoption rate, with 81% of U.S. adults reporting use."
+              "text": "Among all of the platforms shown in the table, YouTube reached the highest 2021 adoption rate, with 81% of U.S. adults reporting use of the site."
             },
             {
               "id": "C",
@@ -1391,11 +1391,11 @@ export const practiceTest6RW = {
             },
             {
               "id": "D",
-              "text": "Between 2012 and 2021, Facebook adoption among U.S. adults rose from 54% to 69%, an increase that was steady across the decade as a whole."
+              "text": "Between 2012 and 2021, Facebook adoption among U.S. adults rose from 54% to 69%, a fifteen-percentage-point increase that, on this reading, accumulated steadily across the decade as a whole."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The team's claim about Facebook has two parts that must both be matched - a sharp jump in the first half of the decade and only marginal change in the second - and choice C supplies both: the 54-to-68% rise from 2012 to 2016 and the move of just one point, to 69%, from 2016 to 2021.\n\n**The Full Solution:**\n- How to spot it: the claim names ONE platform (Facebook) and has TWO parts (big early jump, tiny later change). The answer must be about that platform and show both parts.\n- The claim singles out Facebook: a sharp first-half jump, then only marginal second-half change.\n- A supporting choice must be about Facebook and must show both halves.\n- Choice C cites the fourteen-point rise (54% to 68%) and the one-point move (68% to 69%) - both parts of the claim.\n\n**Why the other choices are wrong:**\n- A: It reports Instagram's growth, a different platform than the claim is about.\n- B: It cites YouTube's high 2021 figure, again the wrong platform and only a single number.\n- D: It has the right platform and overall range but calls the increase \"steady across the decade,\" contradicting both the claim and the data, since the first-half gain dwarfs the second-half gain."
+          "explanation": "**Choice C is correct.** The team's claim about Facebook has two parts that must both be matched - a sharp jump in the first half of the decade and only marginal change in the second - and choice C supplies both: the 54-to-68% rise from 2012 to 2016 and the move of just one point, to 69%, from 2016 to 2021.\n\n**The Full Solution:**\n- How to spot it: the claim names ONE platform (Facebook) and has TWO parts (big early jump, tiny later change). The answer must be about that platform and show both parts.\n- The claim singles out Facebook: a sharp first-half jump, then only marginal second-half change.\n- A supporting choice must be about Facebook and must show both halves.\n- Choice C cites the fourteen-point rise (54% to 68%) and the one-point move (68% to 69%) - both parts of the claim.\n\n**Why the other choices are wrong:**\n- A: It reports Instagram's growth, a different platform than the claim is about.\n- B: It cites YouTube's high 2021 figure, again the wrong platform and only a single number.\n- D: It has the right platform and overall range but describes the increase as accumulating steadily across the decade, contradicting both the claim and the data, since the first-half gain dwarfs the second-half gain."
         },
         {
           "id": 641,
@@ -1727,11 +1727,11 @@ export const practiceTest6RW = {
             },
             {
               "id": "D",
-              "text": "Therefore,"
+              "text": "Accordingly,"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The passage contrasts an earlier time, when preregistration \"was rare,\" with the present, in which it is a \"routine requirement at many journals,\" so a transition marking that shift to the present is needed - \"Today.\"\n\n**The Full Solution:**\n- How to spot it: when the first sentence describes the PAST (\"was rare\") and the next describes how things are NOW, you want a time word like \"Today,\" not a contrast or result word.\n- The first sentence describes the past: preregistration was rare and after-the-fact analysis was the norm.\n- The sentence after the blank describes the present: preregistration is now routine, so \"Today\" marks that then-to-now shift.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a logical contrast rather than a movement in time.\n- C: \"In addition\" would treat the second sentence as one more point alongside the first.\n- D: \"Therefore\" would present current practice as a logical consequence of the earlier rarity, which it is not."
+          "explanation": "**Choice B is correct.** The passage contrasts an earlier time, when preregistration \"was rare,\" with the present, in which it is a \"routine requirement at many journals,\" so a transition marking that shift to the present is needed - \"Today.\"\n\n**The Full Solution:**\n- How to spot it: when the first sentence describes the PAST (\"was rare\") and the next describes how things are NOW, you want a time word like \"Today,\" not a contrast or result word.\n- The first sentence describes the past: preregistration was rare and after-the-fact analysis was the norm.\n- The sentence after the blank describes the present: preregistration is now routine, so \"Today\" marks that then-to-now shift.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a logical contrast rather than a movement in time.\n- C: \"In addition\" would treat the second sentence as one more point alongside the first.\n- D: \"Accordingly\" would present current practice as the fitting consequence of the earlier rarity, but the passage marks a change in time, not a logical result."
         },
         {
           "id": 651,
@@ -1753,7 +1753,7 @@ export const practiceTest6RW = {
             },
             {
               "id": "C",
-              "text": "Therefore,"
+              "text": "Conversely,"
             },
             {
               "id": "D",
@@ -1761,7 +1761,7 @@ export const practiceTest6RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The team \"expected the dispute to be about money\" but found that the parties agreed about funding and disagreed instead about wording, so the transition must mark that the reality replaced the expectation - \"Instead.\"\n\n**The Full Solution:**\n- How to spot it: when the second sentence replaces what was EXPECTED with what was actually found, you want a swap word like \"Instead.\"\n- The team expected a dispute over money - who would pay for construction and upkeep.\n- They actually found the parties agreed about funding and fought over the inscription's wording, replacing the expectation, so \"Instead\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Moreover\" would add a further point alongside the expectation.\n- B: \"Likewise\" would signal similarity between expectation and finding.\n- C: \"Therefore\" would make the finding a consequence of the expectation, not a reversal of it."
+          "explanation": "**Choice D is correct.** The team \"expected the dispute to be about money\" but found that the parties agreed about funding and disagreed instead about wording, so the transition must mark that the reality replaced the expectation - \"Instead.\"\n\n**The Full Solution:**\n- How to spot it: when the second sentence replaces what was EXPECTED with what was actually found, you want a swap word like \"Instead.\"\n- The team expected a dispute over money - who would pay for construction and upkeep.\n- They actually found the parties agreed about funding and fought over the inscription's wording, replacing the expectation, so \"Instead\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Moreover\" would add a further point alongside the expectation.\n- B: \"Likewise\" would signal similarity between expectation and finding.\n- C: \"Conversely\" sets two opposite cases side by side, but the sentence replaces an expectation with what was actually found rather than presenting a mirror-image case."
         },
         {
           "id": 652,
@@ -1770,12 +1770,12 @@ export const practiceTest6RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Some quilts made by Black women in the nineteenth-century American South carried information as well as warmth. The best-documented case is the work of Harriet Powers, whose surviving \"story quilts\" stitch together panels depicting biblical scenes and recorded local events. ______ one of her quilts sets the 1833 Leonid meteor storm beside scenes of drought and frost, preserving a community's memory of remarkable nights and seasons.",
+          "passage": "In West Africa, weavers and dyers had long worked memorable events and familiar sayings into patterned cloth, so that a length of fabric could serve as a public record. ______ some quilts made by Black women in the nineteenth-century American South carried information as well as warmth: the best-documented, the surviving \"story quilts\" of Harriet Powers, stitch together panels depicting biblical scenes and recorded local events, one setting the 1833 Leonid meteor storm beside scenes of drought and frost.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
               "id": "A",
-              "text": "For example,"
+              "text": "Similarly,"
             },
             {
               "id": "B",
@@ -1787,11 +1787,11 @@ export const practiceTest6RW = {
             },
             {
               "id": "D",
-              "text": "Therefore,"
+              "text": "For instance,"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The sentence after the blank gives a specific instance - a particular Powers quilt that \"sets the 1833 Leonid meteor storm beside scenes of drought and frost\" - of the general claim that her story quilts recorded local events, so \"For example\" introduces that instance.\n\n**The Full Solution:**\n- How to spot it: when the second sentence gives ONE specific case of a general point just made, you want \"For example.\"\n- The general point is that Powers's story quilts recorded local events.\n- The next sentence gives one concrete case: a quilt showing the 1833 meteor storm alongside drought and frost - an illustration, so \"For example\" fits.\n\n**Why the other choices are wrong:**\n- B: \"However\" signals contrast, but the quilt illustrates rather than opposes the prior statement.\n- C: \"Instead\" signals replacement, but nothing is being replaced.\n- D: \"Therefore\" would make the example a consequence of the general claim instead of an illustration of it."
+          "explanation": "**Choice A is correct.** The passage sets two like practices side by side - cloth serving as a public record in West Africa, and quilts carrying information in the American South - so the parallel word \"Similarly,\" is the right link.\n\n**The Full Solution:**\n- How to spot it: when the second sentence introduces a comparable case from a different place or tradition, you want a parallel word like \"Similarly.\"\n- First case: West African weavers and dyers worked memorable events and familiar sayings into patterned cloth, making fabric a public record.\n- Second case: quilts by Black women in the American South carried information as well as warmth - Harriet Powers's story quilts record biblical scenes and local events, one preserving the 1833 Leonid meteor storm beside drought and frost.\n- Two textile traditions doing the same kind of record-keeping is a parallel, and \"Similarly\" marks it.\n\n**Why the other choices are wrong:**\n- B: \"However\" signals a clash, but the two practices align rather than oppose each other.\n- C: \"Instead\" signals replacement, but the quilts do not replace the West African practice - the two stand side by side.\n- D: \"For instance\" would make the quilts an example of the West African weaving just described, but they are a comparable practice from a different tradition, not an instance of it."
         },
         {
           "id": 653,
@@ -1855,11 +1855,11 @@ export const practiceTest6RW = {
           "choices": [
             {
               "id": "A",
-              "text": "In experiments conducted in the 1970s and 1980s, two psychologists studying choice under risk identified a pattern they called loss aversion."
+              "text": "In a series of experiments conducted during the 1970s and 1980s, two psychologists studying how people choose under risk identified a consistent pattern they called loss aversion."
             },
             {
               "id": "B",
-              "text": "Loss aversion has since been used to explain behavior in markets, in insurance, and in household saving decisions."
+              "text": "Loss aversion has since been used to explain observed behavior in financial markets, in insurance purchases, and in household saving decisions."
             },
             {
               "id": "C",
@@ -1867,7 +1867,7 @@ export const practiceTest6RW = {
             },
             {
               "id": "D",
-              "text": "Two psychologists found that people making choices under risk disliked losing an amount about twice as much as they liked gaining the same amount, a pattern they documented across a long series of experiments."
+              "text": "Two psychologists found that people making choices under risk disliked losing an amount about twice as much as they liked gaining the same amount, a pattern they documented across a long series of experiments conducted in the 1970s and 1980s."
             }
           ],
           "correctAnswer": "C",

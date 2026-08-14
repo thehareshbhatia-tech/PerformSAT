@@ -106,16 +106,16 @@ export const practiceTest3RWM2Easy = {
       question: "Which choice best describes the function of the underlined sentence in the text as a whole?",
       choices: [
         { id: "A", text: "It presents the field evidence behind the explanation offered in the sentence that follows." },
-        { id: "B", text: "It repeats the question the archaeologists set out to answer without adding anything new." },
-        { id: "C", text: "It explains why the farmers eventually abandoned the raised fields." },
-        { id: "D", text: "It compares the Bolivian platforms with raised fields built in other parts of the world." }
+        { id: "B", text: "It repeats the question the historians set out to answer without adding anything new." },
+        { id: "C", text: "It explains why the windmills in the rows were eventually replaced by steam-driven pumping stations." },
+        { id: "D", text: "It compares the Dutch mills with the water-lifting machinery used in other parts of the world." }
       ],
       correctAnswer: "A",
-      explanation: "**Choice A is correct.** The underlined sentence reports what the team actually found in the ground - rich muck in the canals - and the very next sentence uses that find to explain what the canals were for.\n\n**The Full Solution:**\n- The sentence before the underlined one poses the question: what did the raised-field design accomplish?\n- The underlined sentence reports the digging and the find: layers of rich muck along the canals that farmers could have scooped onto the beds.\n- The sentence after it draws the conclusion - the canals may have drained the fields and fed them at the same time - so the underlined sentence is the evidence that conclusion rests on. How to spot it: read the sentence right after an underlined one. If it starts drawing a conclusion, the underlined sentence is almost always the evidence for it.\n\n**Why the other choices are wrong:**\n- B: It does not repeat the question; it reports a new find from the test pits.\n- C: The passage never says why the fields were abandoned.\n- D: No other region's raised fields are mentioned anywhere in the text.",
+      explanation: "**Choice A is correct.** The underlined sentence reports what the researchers actually found on the ground - a row of mills arranged like a staircase - and the very next sentence uses that find to explain what the rows were for.\n\n**The Full Solution:**\n- The sentence before the underlined one poses the question: what did the long rows of windmills accomplish?\n- The underlined sentence reports the mapping and the find: each mill stood slightly higher than the one before it, so a row formed a shallow staircase.\n- The sentence after it draws the conclusion - the rows worked as a relay, lifting water stage by stage toward the river - so the underlined sentence is the evidence that conclusion rests on. How to spot it: read the sentence right after an underlined one. If it starts drawing a conclusion, the underlined sentence is almost always the evidence for it.\n\n**Why the other choices are wrong:**\n- B: It does not repeat the question; it reports a new find from the mapping.\n- C: The passage never says why the mills were replaced.\n- D: No other country's water-lifting machinery is mentioned anywhere in the text.",
       _meta: {
-        anchor: "Indigenous agriculture; raised-field farming in seasonally flooded Bolivian lowlands"
+        anchor: "Dutch polder drainage; staircase rows of windmills lifting water in stages"
       },
-      passage: "In seasonally flooded lowlands of the Bolivian Amazon, farmers once built long earthen platforms raised above the surrounding wetland and planted crops on top of them. Archaeologists studying the abandoned fields wondered what the design accomplished. __Digging test pits along the canals between the platforms, the team found layers of rich muck that farmers could have scooped up onto the beds as fertilizer.__ The canals, in other words, may have done double duty, draining the fields and feeding them at the same time.",
+      passage: "In the low-lying polders of the Netherlands, windmills once stood in long rows across the flat fields, and for years historians of engineering wondered what the arrangement accomplished. __Mapping the surviving mills, researchers found that each one in a row stood slightly higher than the one before it, so that the line formed a shallow staircase.__ The rows, in other words, worked as a relay, each mill lifting water a stage closer to the river that would carry it away.",
       type: "multiple-choice"
     },
     {
@@ -147,7 +147,7 @@ export const practiceTest3RWM2Easy = {
       skill: "text-structure-and-purpose",
       question: "Which choice best describes the function of the underlined sentence in the text as a whole?",
       choices: [
-        { id: "A", text: "It concedes that the page turn remains an obstacle illustrators have found no way to work around." },
+        { id: "A", text: "It concedes that the physical page turn remains an obstacle that picture-book illustrators have found no reliable way to work around." },
         { id: "B", text: "It compares the work of picture-book illustrators with the work of novelists writing for adults." },
         { id: "C", text: "It reports the results of a study measuring how long readers pause before turning a page." },
         { id: "D", text: "It gives the specific technique by which illustrators turn the constraint named in the first sentence into a storytelling tool." }
@@ -219,7 +219,7 @@ export const practiceTest3RWM2Easy = {
       skill: "central-ideas-and-details",
       question: "Which choice best states the main idea of the text?",
       choices: [
-        { id: "A", text: "The conductors and directors who objected to supertitles in the 1980s have been proven right by the two decades of practice that followed their complaint." },
+        { id: "A", text: "The conductors and directors who objected to supertitles in the 1980s have been proven right by the two decades of practice." },
         { id: "B", text: "Translators working on supertitles have developed methods that preserve the humor and repetition of the original librettos." },
         { id: "C", text: "Opera houses adopted supertitles mainly to sell more tickets rather than to help audiences follow the story." },
         { id: "D", text: "Supertitles have made opera plots far easier for newcomers to follow, but the compression they require strips away shadings the original language carries." }
@@ -240,7 +240,7 @@ export const practiceTest3RWM2Easy = {
       skill: "central-ideas-and-details",
       question: "Which choice best states the main idea of the text?",
       choices: [
-        { id: "A", text: "Seed libraries use the same lending model as book libraries and are usually housed inside public library buildings." },
+        { id: "A", text: "Seed libraries lend and collect seed on the same borrowing model that book libraries use for books, and they are usually housed inside the public library buildings of the towns they serve." },
         { id: "B", text: "By circulating seed saved from local harvests, a seed library slowly builds varieties suited to one particular place, which regionally bred commercial seed cannot supply." },
         { id: "C", text: "Commercial seed catalogs sell varieties that fail in most home gardens because they are bred for large farms." },
         { id: "D", text: "Gardeners who save their own seed spend less money over time than gardeners who order from a catalog each spring." }
@@ -283,8 +283,8 @@ export const practiceTest3RWM2Easy = {
       question: "Which choice most effectively uses data from the table to complete the statement?",
       choices: [
         { id: "A", text: "at 40% cullet the furnace used 4.3 gigajoules per ton, more than the 4.6 gigajoules per ton it used at 30% cullet." },
-        { id: "B", text: "energy use climbed from 4.3 to 5.4 gigajoules per ton as the cullet share rose from 0% to 40%." },
-        { id: "C", text: "the furnace used the same amount of energy, 4.8 gigajoules per ton, at every cullet share shown." },
+        { id: "B", text: "energy use climbed steadily from 4.3 gigajoules per ton to 5.4 as the cullet share of the batch rose step by step from 0% to 40%." },
+        { id: "C", text: "the furnace used essentially the same amount of energy, about 4.8 gigajoules per ton, at every cullet share shown in the table." },
         { id: "D", text: "at 40% cullet the furnace used 4.3 gigajoules per ton, less than the 5.4 gigajoules per ton it used with no cullet at all." }
       ],
       correctAnswer: "D",
@@ -522,17 +522,17 @@ export const practiceTest3RWM2Easy = {
       skill: "transitions",
       question: "Which choice completes the text with the most logical transition?",
       choices: [
-        { id: "A", text: "As a result," },
-        { id: "B", text: "For example," },
+        { id: "A", text: "For example," },
+        { id: "B", text: "As a result," },
         { id: "C", text: "However," },
         { id: "D", text: "In contrast," }
       ],
       correctAnswer: "A",
-      explanation: "**Choice A is correct.** The sentence before the blank describes what farmers build, and the sentence after it describes what that construction accomplishes, so the blank needs a cause-and-effect transition.\n\n**The Full Solution:**\n- The passage opens with a problem: on a steep slope, rain runs downhill fast enough to carry topsoil away.\n- Farmers respond by cutting the slope into level steps held by low stone walls.\n- The sentence after the blank states the payoff - water on a level step has nowhere to gather speed, so the soil stays put - which is a direct result of the terracing. How to spot it: if the second sentence answers \"so what happened?\" rather than \"but what about ...?\", you want a result word like \"As a result.\"\n\n**Why the other choices are wrong:**\n- B: \"For example,\" would present the outcome as one instance of terracing, but it is the consequence of terracing.\n- C: \"However,\" signals a contrast, and the second sentence agrees with the first rather than pushing against it.\n- D: \"In contrast,\" also sets up an opposition the passage never makes.",
+      explanation: "**Choice A is correct.** The first sentence makes a general claim about mountain farming communities, and the sentence after the blank gives one concrete case of it, so the blank needs the example word.\n\n**The Full Solution:**\n- The passage opens with a general statement: on steep hillsides rain strips topsoil, and farming communities in many mountain regions have reshaped whole slopes to slow the water down.\n- The sentence after the blank narrows to one real case: farmers in the Andes cut hillsides into staircases of level steps held in place by low stone walls.\n- A specific place and practice offered to illustrate a general claim is the signal for \"For example.\" How to spot it: when the first sentence says \"in many regions\" and the second names one region, an example word almost always fits.\n\n**Why the other choices are wrong:**\n- B: \"As a result,\" would make the Andean terraces a consequence of the general claim, but they are an instance of it, not an effect.\n- C: \"However,\" signals a contrast, and the second sentence supports the first rather than pushing against it.\n- D: \"In contrast,\" also sets up an opposition the passage never makes.",
       _meta: {
         anchor: "Indigenous and traditional agriculture; hillside terracing and topsoil retention"
       },
-      passage: "On steep hillsides, rain runs downhill fast enough to carry topsoil away with it. Farmers in many mountain regions cut the slope into a staircase of level steps, each one held in place by a low stone wall. ______ water that falls on a terrace has nowhere to gather speed, and the soil stays where the crops are.",
+      passage: "On steep hillsides, rain runs downhill fast enough to carry topsoil away with it, and farming communities in many mountain regions have reshaped whole slopes to slow the water down. ______ farmers in the Andes cut hillsides into staircases of level steps, each one held in place by a low stone wall, so that water landing on any single step has nowhere to gather speed and the soil stays where the crops are.",
       type: "multiple-choice"
     },
     {
@@ -585,9 +585,9 @@ export const practiceTest3RWM2Easy = {
       skill: "rhetorical-synthesis",
       question: "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       choices: [
-        { id: "A", text: "Chapbooks were small, cheaply printed booklets of eight to twenty-four pages, usually sold unbound and illustrated with a single reused woodcut." },
-        { id: "B", text: "Selling for a penny or two, a chapbook cost a small fraction of the price of a bound book." },
-        { id: "C", text: "Printers chose titles a peddler could sell anywhere - ballads, almanacs, riddles, and abridged romances - rather than titles aimed at one town's readers." },
+        { id: "A", text: "Chapbooks of the seventeenth and eighteenth centuries were small, cheaply printed booklets of eight to twenty-four pages, usually sold unbound, printed on coarse paper, and illustrated with a single reused woodcut that often had little to do with the story inside." },
+        { id: "B", text: "Selling for only a penny or two in the seventeenth and eighteenth centuries, a chapbook cost a small fraction of the price of a bound book." },
+        { id: "C", text: "Printers favored titles that a traveling peddler could sell anywhere along his route - ballads, almanacs, riddle collections, and abridged romances - rather than titles aimed at the particular readers of any single town." },
         { id: "D", text: "Because most towns outside the largest cities had no bookshop at all, chapbooks reached country readers through traveling peddlers called chapmen, who carried packs of the booklets along village routes they walked several times a year." }
       ],
       correctAnswer: "D",

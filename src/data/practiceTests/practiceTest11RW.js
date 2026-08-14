@@ -91,10 +91,10 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage contrasts the old method, which watched only the glacier's front, with newer surveys that catch thinning hidden below the waterline; the old approach simply failed to notice those losses, and \"overlooked\" captures that failure to notice.\n\n**The Full Solution:**\n- How to spot it: the word \"hidden\" right before the blank is your clue. If the losses were hidden from the old method, the blank should mean the old method missed them.\n- The old method judged a glacier by how far its front moved; newer radar and satellite surveys show a glacier can hold a steady front while \"thinning dramatically from below.\"\n- So the blank needs a word for failing to notice, and \"overlooked\" fits.\n\n**Why the other choices are wrong:**\n- B: \"Prevented\" means stopping the melt, but the old method did not stop the losses - it just failed to see them.\n- C: \"Exaggerated\" would mean the old method saw the losses too vividly, the reverse of missing them.\n- D: \"Anticipated\" would mean the old method saw them coming, again the reverse of overlooking them.",
-          "passage": "For most of the twentieth century, glaciologists judged the health of a glacier mainly by measuring how far its front advanced or retreated each year. Recent radar and satellite surveys suggest that this surface view can mislead: a glacier may hold a steady front while thinning dramatically from below, where comparatively warm ocean water melts the ice from underneath. Such hidden losses, researchers note, were almost entirely ______ by the older method of tracking front position alone.",
+          "explanation": "**Choice A is correct.** Nora is described as \"too new to know where to look,\" so the signs of old sorrow went unnoticed by her, and \"overlooked\" names exactly that failure to notice.\n\n**The Full Solution:**\n- How to spot it: read the sentence around the blank and ask what the surrounding words have already told you. Nora \"mistook the widow's evenness for contentment\" - she was missing what was in front of her.\n- The signs are listed plainly - \"the shut room, the stopped clock, the garden let go wild\" - yet they meant nothing to someone so new to the household.\n- So the blank needs a word for failing to notice, and \"overlooked\" fits.\n\n**Why the other choices are wrong:**\n- B: \"Prevented\" would mean Nora stopped the sorrows from happening, but the griefs are old ones already settled in the house.\n- C: \"Exaggerated\" would mean she made too much of the signs, the reverse of missing them.\n- D: \"Anticipated\" would mean she saw the signs coming, again the reverse of overlooking them.",
+          "passage": "The following text is adapted from Margaret Ellery's 1908 novel The House on Dunmore Green. Nora has taken a position as companion to an elderly widow.\n\nThe household kept its griefs the way it kept its silver: locked away, brought out for no one. In her first weeks Nora mistook the widow's evenness for contentment, and the signs of old sorrow about the house - the shut room, the stopped clock, the garden let go wild - were almost entirely ______ by a young woman too new to know where to look.",
           "_meta": {
-            "anchor": "glaciology: front-position monitoring vs. basal thinning from warm ocean water"
+            "anchor": "period fiction (original): a new companion misses a household's old griefs"
           },
           "id": 1102
         },
@@ -174,7 +174,7 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The speaker describes a frightening creature in vivid detail, then gradually grows calmer as the description reveals the animal to be gentler than it first appeared."
+              "text": "The speaker describes a frightening creature in vivid physical detail, then gradually grows calmer over the closing stanzas as the description reveals the animal to be gentler than it first appeared."
             },
             {
               "id": "B",
@@ -182,7 +182,7 @@ export const practiceTest11RW = {
             },
             {
               "id": "C",
-              "text": "The speaker states a confident claim about the creature's origin at the outset, then spends the rest of the poem assembling evidence that steadily proves the claim correct."
+              "text": "The speaker states a confident claim about the fearsome creature's origin in the opening stanza, then spends the remaining stanzas assembling evidence that steadily proves that opening claim to be entirely correct."
             },
             {
               "id": "D",
@@ -321,7 +321,7 @@ export const practiceTest11RW = {
             },
             {
               "id": "B",
-              "text": "X-ray crystallography works by recording the pattern of scattered spots that reveals how the atoms inside a large, well-ordered crystal are arranged in space."
+              "text": "X-ray crystallography works by recording the pattern of scattered spots that reveals how the atoms inside a large, well-ordered crystal are arranged in three-dimensional space."
             },
             {
               "id": "C",
@@ -383,7 +383,7 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Play only the written bass line exactly as printed, adding nothing of the player's own to it."
+              "text": "Play only the written bass line exactly as printed, adding nothing whatsoever of the player's own to it."
             },
             {
               "id": "B",
@@ -453,7 +453,7 @@ export const practiceTest11RW = {
             },
             {
               "id": "B",
-              "text": "biomass declined in every decade shown, falling from 180 thousand metric tons in 1960 to 12 thousand metric tons in 2010, a total reduction of more than 90 percent over the fifty-year period."
+              "text": "biomass declined in every decade shown, falling from 180 thousand metric tons in 1960 to 12 thousand metric tons in 2010, a total reduction of more than 90 percent over the fifty-year period covered by the table."
             },
             {
               "id": "C",
@@ -529,7 +529,7 @@ export const practiceTest11RW = {
             },
             {
               "id": "D",
-              "text": "the share of the foreign-born from regions outside Europe, Latin America, and Asia held essentially steady at 11 percent in 1900 and 1960 before slipping to 7 percent in 2010, a far smaller change than that of any other category."
+              "text": "the share of the foreign-born from regions outside Europe, Latin America, and Asia held essentially steady at 11 percent in 1900 and 1960 before slipping to 7 percent in 2010, a far smaller change across the century than that recorded by any other category in the table."
             }
           ],
           "correctAnswer": "C",
@@ -861,7 +861,7 @@ export const practiceTest11RW = {
             },
             {
               "id": "B",
-              "text": "Likewise,"
+              "text": "In other words,"
             },
             {
               "id": "C",
@@ -873,7 +873,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The first sentence states a long-held assumption that nearly everyone needs about eight hours; the second reports that some people do fine on far less, which goes against that assumption, and \"However\" is the linking word for that kind of about-face.\n\n**The Full Solution:**\n- How to spot it: for a transition, read the two sentences and ask whether the second one agrees with the first, adds to it, or pushes against it. If it pushes against it, you want a contrast word like however or but.\n- Sentence 1 gives the rule: nearly everyone needs roughly eight hours, and much less must hurt your health.\n- Sentence 2 reports people with a rare genetic variant who \"feel fully rested after about six hours and show none of the health costs.\"\n- That cuts against the rule, so a contrast linking word - \"However\" - fits.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make the finding a consequence of the assumption.\n- B: \"Likewise\" would make it agree with the assumption.\n- C: \"For example\" would make it an example of the rule, when it actually contradicts the rule.",
+          "explanation": "**Choice D is correct.** The first sentence states a long-held assumption that nearly everyone needs about eight hours; the second reports that some people do fine on far less, which goes against that assumption, and \"However\" is the linking word for that kind of about-face.\n\n**The Full Solution:**\n- How to spot it: for a transition, read the two sentences and ask whether the second one agrees with the first, adds to it, or pushes against it. If it pushes against it, you want a contrast word like however or but.\n- Sentence 1 gives the rule: nearly everyone needs roughly eight hours, and much less must hurt your health.\n- Sentence 2 reports people with a rare genetic variant who \"feel fully rested after about six hours and show none of the health costs.\"\n- That cuts against the rule, so a contrast linking word - \"However\" - fits.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make the finding a consequence of the assumption.\n- B: \"In other words\" would make the finding a restatement of the assumption, but it contradicts the assumption instead.\n- C: \"For example\" would make it an example of the rule, when it actually contradicts the rule.",
           "passage": "For years, sleep advice rested on the assumption that nearly everyone needs roughly eight hours a night and that consistently sleeping much less must harm a person's health. ______ studies of a small number of families have identified a rare genetic variant whose carriers feel fully rested after about six hours and show none of the health costs that short sleep usually predicts, suggesting that the eight-hour rule does not apply uniformly to everyone.",
           "_meta": {
             "anchor": "epidemiology of sleep: short-sleep genetic variant (generic)"
@@ -890,7 +890,7 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Therefore,"
+              "text": "As a result,"
             },
             {
               "id": "B",
@@ -902,11 +902,11 @@ export const practiceTest11RW = {
             },
             {
               "id": "D",
-              "text": "Likewise,"
+              "text": "Thereafter,"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The first sentence reports doubt that a new sign language could build real grammar so fast; the second reports that, despite that doubt, the evidence for exactly such grammar piled up - and \"Nevertheless\" is the linking word for something that happens in spite of what people expected.\n\n**The Full Solution:**\n- How to spot it: ask if the second sentence holds true even though the first set up a reason to doubt it. If it does (it happened anyway), use a word like nevertheless or still.\n- Sentence 1: many language scholars doubted such a language \"could not arise so quickly without a model to learn from.\"\n- Sentence 2: observers watched each new group of children add grammar rules \"until the system showed the kind of structure linguists had assumed required generations.\"\n- The evidence holds in spite of the doubt, so \"Nevertheless\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" would make the evidence a result of the doubt.\n- B: \"Moreover\" would treat the second sentence as piling on to the first, when it actually works against it.\n- D: \"Likewise\" would treat the second sentence as agreeing with the first, again the reverse of what happens.",
+          "explanation": "**Choice C is correct.** The first sentence reports doubt that a new sign language could build real grammar so fast; the second reports that, despite that doubt, the evidence for exactly such grammar piled up - and \"Nevertheless\" is the linking word for something that happens in spite of what people expected.\n\n**The Full Solution:**\n- How to spot it: ask if the second sentence holds true even though the first set up a reason to doubt it. If it does (it happened anyway), use a word like nevertheless or still.\n- Sentence 1: many language scholars doubted such a language \"could not arise so quickly without a model to learn from.\"\n- Sentence 2: observers watched each new group of children add grammar rules \"until the system showed the kind of structure linguists had assumed required generations.\"\n- The evidence holds in spite of the doubt, so \"Nevertheless\" fits.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make the evidence a result of the doubt.\n- B: \"Moreover\" would treat the second sentence as piling on to the first, when it actually works against it.\n- D: \"Thereafter\" marks mere sequence in time, missing the tension between the skeptics' prediction and what the observers found.",
           "passage": "When researchers first proposed that a sign language emerging spontaneously among deaf children at a Nicaraguan school had developed its own grammar, many linguists were skeptical, reasoning that a language could not arise so quickly without a model to learn from. ______ as successive groups of younger children entered the school, observers documented that each cohort added grammatical regularities the previous one had lacked, until the system showed the kind of structure linguists had assumed required generations of established use.",
           "_meta": {
             "anchor": "sign-language linguistics: emergence of a new sign language (generic)"
@@ -931,15 +931,15 @@ export const practiceTest11RW = {
             },
             {
               "id": "C",
-              "text": "Therefore,"
+              "text": "In turn,"
             },
             {
               "id": "D",
-              "text": "Meanwhile,"
+              "text": "Nevertheless,"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The first sentence makes a broad point - that performers must settle things the composer left open - and the second gives one specific case of that, so \"For example\" is the right lead-in.\n\n**The Full Solution:**\n- How to spot it: when the second sentence is a single concrete case of the general point in the first sentence, you want \"for example.\" Watch for a jump from a broad statement to one specific instance.\n- Sentence 1: performers \"often have to make choices the composer left unspecified.\"\n- Sentence 2: a Baroque score might mark a passage simply \"adagio,\" forcing the performer to decide how slow to play - one concrete case of that general point.\n- A linking word that introduces an example - \"For example\" - fits the move from broad claim to specific case.\n\n**Why the other choices are wrong:**\n- B: \"However\" would signal a contrast, but the second sentence agrees with and illustrates the first.\n- C: \"Therefore\" would signal a result, not an example.\n- D: \"Meanwhile\" would mark a separate event happening at the same time, which does not fit a sentence that gives an example.",
+          "explanation": "**Choice A is correct.** The first sentence makes a broad point - that performers must settle things the composer left open - and the second gives one specific case of that, so \"For example\" is the right lead-in.\n\n**The Full Solution:**\n- How to spot it: when the second sentence is a single concrete case of the general point in the first sentence, you want \"for example.\" Watch for a jump from a broad statement to one specific instance.\n- Sentence 1: performers \"often have to make choices the composer left unspecified.\"\n- Sentence 2: a Baroque score might mark a passage simply \"adagio,\" forcing the performer to decide how slow to play - one concrete case of that general point.\n- A linking word that introduces an example - \"For example\" - fits the move from broad claim to specific case.\n\n**Why the other choices are wrong:**\n- B: \"However\" would signal a contrast, but the second sentence agrees with and illustrates the first.\n- C: \"In turn\" would present the score's vague marking as the next step in a chain of consequences, not the example it is.\n- D: \"Nevertheless\" would signal that the second sentence holds despite the first, but the two sentences pull in the same direction.",
           "passage": "Performers in the early-music movement often have to make choices the composer left unspecified. ______ a Baroque score might mark a passage simply \"adagio,\" giving the tempo in only the vaguest terms, so the performer must decide how slow the music should actually go by weighing the character of the piece, the size of the hall, and the conventions of the period.",
           "_meta": {
             "anchor": "Baroque performance practice: unspecified tempo markings (generic)"
@@ -960,7 +960,7 @@ export const practiceTest11RW = {
             },
             {
               "id": "B",
-              "text": "Ulugh Beg, a fifteenth-century ruler and astronomer in Samarkand, in present-day Uzbekistan, built a large observatory equipped with a giant stone sextant set into the ground, and with a team of astronomers he compiled the Zij-i Sultani there in 1437."
+              "text": "Ulugh Beg, a fifteenth-century ruler and astronomer in Samarkand, built a large observatory equipped with a giant stone sextant set into the ground, and with a team of trained astronomers he compiled the Zij-i Sultani there in 1437."
             },
             {
               "id": "C",
@@ -1357,7 +1357,7 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Sign languages rely on a much larger inventory of basic units than spoken languages do, a difference that linguists believe makes them considerably harder for hearing adults to learn later in life."
+              "text": "Sign languages rely on a much larger inventory of basic units than spoken languages do, a difference that linguists believe makes them harder for hearing adults to learn later in life."
             },
             {
               "id": "B",
@@ -1427,7 +1427,7 @@ export const practiceTest11RW = {
             },
             {
               "id": "B",
-              "text": "Documentary records of ukiyo-e print runs survive for only a small fraction of the many thousands of designs that were produced during the period."
+              "text": "Documentary records of individual ukiyo-e print runs survive for only a small fraction of the many thousands of designs that publishers issued during the Edo period."
             },
             {
               "id": "C",
@@ -1456,7 +1456,7 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the shift from -10.3 permil in the Middle Preclassic to -8.9 permil in the Late Preclassic is the largest single jump in the table, marking the decisive turn toward maize-centered diets."
+              "text": "the shift from -10.3 permil in the Middle Preclassic to -8.9 permil in the Late Preclassic, coming at the end of the sequence, is the single largest jump recorded in the table and marks the decisive turn toward fully maize-centered diets in the lowlands."
             },
             {
               "id": "B",
@@ -1472,7 +1472,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The claim is about which step was biggest - the largest move toward maize diets came at the start, not later - so the evidence has to compare the change from one period to the next.\n\n**The Full Solution:**\n- How to spot it: the claim says the biggest jump came \"at the very beginning,\" so you must measure each period-to-period change and check that the first one is largest.\n- Late Archaic to Early Preclassic: -15.4 to -12.8, a change of +2.6.\n- Early to Middle Preclassic: -12.8 to -10.3, a change of +2.5.\n- Middle to Late Preclassic: -10.3 to -8.9, a change of +1.4.\n- The first step's +2.6 is the biggest, so the largest move came at the very start, exactly as the claim says.\n\n**Why the other choices are wrong:**\n- A: It points to the highest value at the END of the sequence, which shows maize was a staple by then but not where the biggest jump fell.\n- B: It uses the sample-size column instead of the isotope column, and sample size does not track diet.\n- C: It calls the final 1.4 change the biggest jump when it is actually the smallest of the three.",
+          "explanation": "**Choice D is correct.** The claim is about which step was biggest - the largest move toward maize diets came at the start, not later - so the evidence has to compare the change from one period to the next.\n\n**The Full Solution:**\n- How to spot it: the claim says the biggest jump came \"at the very beginning,\" so you must measure each period-to-period change and check that the first one is largest.\n- Late Archaic to Early Preclassic: -15.4 to -12.8, a change of +2.6.\n- Early to Middle Preclassic: -12.8 to -10.3, a change of +2.5.\n- Middle to Late Preclassic: -10.3 to -8.9, a change of +1.4.\n- The first step's +2.6 is the biggest, so the largest move came at the very start, exactly as the claim says.\n\n**Why the other choices are wrong:**\n- A: It calls the final Middle-to-Late shift the largest, but at 1.4 permil that step is actually the smallest of the three.\n- B: It uses the sample-size column instead of the isotope column, and sample size does not track diet.\n- C: It points to the highest value at the END of the sequence, which shows maize was a staple by then but not where the biggest jump fell.",
           "passage": "Stable carbon isotope ratios (delta-13C) in human bone collagen rise as a person's diet incorporates more maize, a tropical grass whose photosynthetic pathway leaves a distinctive carbon signature. Reporting on cemetery samples from four Maya periods, Kennett and colleagues (2020) argue that the biggest single step toward maize-centered diets in the Maya lowlands occurred at the very beginning of the recorded transition rather than later in the sequence, because _______",
           "questionTable": {
             "type": "table",
@@ -1526,7 +1526,7 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "viewing rose from 5.9 hours per day in 1970 to 6.9 hours per day in 1990, a 1.0-hour increase that exceeds the gains recorded in either the earliest or the most recent twenty-year window in the table."
+              "text": "viewing rose from 5.9 hours per day in 1970 to 6.9 hours per day in 1990, a 1.0-hour increase that exceeds the gains recorded in either the earliest twenty-year window or the most recent twenty-year window in the table."
             },
             {
               "id": "B",
@@ -1864,7 +1864,7 @@ export const practiceTest11RW = {
             },
             {
               "id": "C",
-              "text": "Likewise,"
+              "text": "Granted,"
             },
             {
               "id": "D",
@@ -1872,7 +1872,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The first sentence reports a common belief - that a confident witness remembers events like a camera - and the second corrects it with what research really shows, so \"In fact\" is the linking word for setting the record straight.\n\n**The Full Solution:**\n- How to spot it: when the first sentence gives a common impression and the second gives the truer picture that overrides it, \"in fact\" fits - it signals \"here is what is really going on.\"\n- Sentence 1: eyewitness testimony seems convincing \"on the assumption that a confident witness is recalling the scene much as a camera would have recorded it.\"\n- Sentence 2: \"decades of laboratory work show that memory ... is reconstructed each time it is recalled and can be reshaped\" - which overturns that belief.\n- \"In fact\" introduces the truer picture that replaces the loose impression.\n\n**Why the other choices are wrong:**\n- B: \"Consequently\" would make the research a result of the belief.\n- C: \"Likewise\" would make the research agree with the belief.\n- D: \"Meanwhile\" would mark a separate event happening at the same time, which does not fit a sentence that overturns the belief.",
+          "explanation": "**Choice A is correct.** The first sentence reports a common belief - that a confident witness remembers events like a camera - and the second corrects it with what research really shows, so \"In fact\" is the linking word for setting the record straight.\n\n**The Full Solution:**\n- How to spot it: when the first sentence gives a common impression and the second gives the truer picture that overrides it, \"in fact\" fits - it signals \"here is what is really going on.\"\n- Sentence 1: eyewitness testimony seems convincing \"on the assumption that a confident witness is recalling the scene much as a camera would have recorded it.\"\n- Sentence 2: \"decades of laboratory work show that memory ... is reconstructed each time it is recalled and can be reshaped\" - which overturns that belief.\n- \"In fact\" introduces the truer picture that replaces the loose impression.\n\n**Why the other choices are wrong:**\n- B: \"Consequently\" would make the research a result of the belief.\n- C: \"Granted\" concedes a point to the belief, but the sentence overturns the belief rather than granting it anything.\n- D: \"Meanwhile\" would mark a separate event happening at the same time, which does not fit a sentence that overturns the belief.",
           "passage": "Eyewitness testimony is often described, even by jurors, as among the most compelling evidence a trial can offer, on the assumption that a confident witness is recalling the scene much as a camera would have recorded it. ______ decades of laboratory work show that memory for a witnessed event is reconstructed each time it is recalled and can be reshaped by leading questions, by exposure to other witnesses' accounts, and by the witness's own expectations, so that a vivid, confident memory may diverge sharply from what actually occurred.",
           "_meta": {
             "anchor": "cognitive science of memory: eyewitness memory as reconstructive (generic)"
@@ -1893,7 +1893,7 @@ export const practiceTest11RW = {
             },
             {
               "id": "B",
-              "text": "As a result,"
+              "text": "In turn,"
             },
             {
               "id": "C",
@@ -1905,7 +1905,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The sentence before the blank describes design changes - cleaner letters, wider spacing, standardized punctuation - and the blank's sentence reports the payoff, so \"As a result\" marks that cause-and-effect link.\n\n**The Full Solution:**\n- How to spot it: ask whether the second sentence is the EFFECT of the first. If the first names a cause and the second names what it led to, use a result word like \"as a result\" or \"so.\"\n- The sentence before lists what designers did over the next century: \"cut cleaner letterforms, widened the spacing between words, and standardized punctuation.\"\n- The blank's sentence reports the outcome: a 1550 page is \"markedly easier for a modern reader to scan than one from 1470.\"\n- The page's readability follows directly from those changes, so a cause-and-effect word - \"As a result\" - fits.\n\n**Why the other choices are wrong:**\n- A: \"However\" would signal a contrast, but the readability gain follows from the changes rather than clashing with them.\n- C: \"For example\" would signal an example of the changes, not their result.\n- D: \"Instead\" would signal a swap, which does not capture an effect following from a cause.",
+          "explanation": "**Choice B is correct.** The passage moves through a chain - printers first imitated cramped handwriting, designers then reformed the letterforms, and the blank's sentence reports the next consequence of those reforms - so \"In turn\" marks that next step in the chain.\n\n**The Full Solution:**\n- How to spot it: ask whether the second sentence is the EFFECT of the first. The passage is a sequence of developments, each following from the last, so the transition must carry the chain forward - which \"In turn\" does.\n- The sentence before lists what designers did over the next century: \"cut cleaner letterforms, widened the spacing between words, and standardized punctuation.\"\n- The blank's sentence reports the outcome those changes produced: a 1550 page is \"markedly easier for a modern reader to scan than one from 1470.\"\n- The page's readability follows directly from those changes, so a chain-of-consequence word - \"In turn\" - fits.\n\n**Why the other choices are wrong:**\n- A: \"However\" would signal a contrast, but the readability gain follows from the changes rather than clashing with them.\n- C: \"For example\" would signal an example of the changes, not their result.\n- D: \"Instead\" would signal a swap, which does not capture an effect following from a cause.",
           "passage": "When printers first set books in movable type, they imitated the dense, abbreviation-filled handwriting of scribes, packing as many characters onto a line as possible. Over the following century, type designers cut cleaner letterforms, widened the spacing between words, and standardized punctuation. ______ a printed page from 1550 is markedly easier for a modern reader to scan than one from 1470, even though both use the same alphabet.",
           "_meta": {
             "anchor": "typography history: legibility gains from sixteenth-century type reform (generic)"
@@ -1926,7 +1926,7 @@ export const practiceTest11RW = {
             },
             {
               "id": "B",
-              "text": "therefore,"
+              "text": "as a result,"
             },
             {
               "id": "C",
@@ -1938,7 +1938,7 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The first sentence says raw silk was easy to price quickly; the second says finished cloth was hard to price on the spot, and \"by contrast\" marks that the two are opposites.\n\n**The Full Solution:**\n- How to spot it: when the two sentences set up opposite cases - one easy, one hard - you want a contrast word like \"by contrast\" or \"however.\"\n- Sentence 1: raw silk was sold by weight, and a buyer \"could judge the quality of a lot fairly quickly.\"\n- Sentence 2: finished cloth \"was far harder to price on the spot,\" since its value depended on weave, dye, and reputation, \"none of which a quick inspection could fully reveal.\"\n- The two cases are set against each other, so a contrast word - \"by contrast\" - fits.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would make finished cloth an example of easy pricing, the opposite of the point.\n- B: \"Therefore\" would make finished cloth a result of the silk case.\n- D: \"In addition\" would make it another point on the same side, when the sentence draws a contrast.",
+          "explanation": "**Choice C is correct.** The first sentence says raw silk was easy to price quickly; the second says finished cloth was hard to price on the spot, and \"by contrast\" marks that the two are opposites.\n\n**The Full Solution:**\n- How to spot it: when the two sentences set up opposite cases - one easy, one hard - you want a contrast word like \"by contrast\" or \"however.\"\n- Sentence 1: raw silk was sold by weight, and a buyer \"could judge the quality of a lot fairly quickly.\"\n- Sentence 2: finished cloth \"was far harder to price on the spot,\" since its value depended on weave, dye, and reputation, \"none of which a quick inspection could fully reveal.\"\n- The two cases are set against each other, so a contrast word - \"by contrast\" - fits.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would make finished cloth an example of easy pricing, the opposite of the point.\n- B: \"As a result\" would make the difficulty of pricing finished cloth a consequence of the silk case, which it is not.\n- D: \"In addition\" would make it another point on the same side, when the sentence draws a contrast.",
           "passage": "In the textile trade of the early modern Ottoman cities, raw silk was typically sold by weight, and a buyer could judge the quality of a lot fairly quickly by inspecting and weighing a sample. Finished cloth, ______ was far harder to price on the spot: its value depended on the fineness of the weave, the fastness of the dyes, and the reputation of the workshop, none of which a quick inspection could fully reveal.",
           "_meta": {
             "anchor": "Ottoman trade history: pricing raw silk vs. finished cloth (generic)"
@@ -1959,11 +1959,11 @@ export const practiceTest11RW = {
             },
             {
               "id": "B",
-              "text": "D'Ignazio and Klein and conventional accounts of data work agree that objectivity and the suppression of the analyst's own perspective are what guarantee rigor in data analysis."
+              "text": "D'Ignazio and Klein and the conventional accounts of data work that they survey agree that objectivity and the suppression of the analyst's own personal perspective are the qualities that guarantee rigor in modern data analysis and data visualization."
             },
             {
               "id": "C",
-              "text": "D'Ignazio and Klein propose that disclosing the perspective behind data collection and analysis strengthens analytical rigor rather than weakening it, as is sometimes assumed."
+              "text": "D'Ignazio and Klein propose that fully disclosing the perspective behind data collection and data analysis strengthens analytical rigor rather than weakening it, as researchers have sometimes assumed."
             },
             {
               "id": "D",
@@ -1998,7 +1998,7 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "\"Certified Organic Intellectual\" and \"The Historian as Curandera\" both appear in Medicine Stories (1998) and both draw on Levins Morales's Puerto Rican Jewish heritage."
+              "text": "\"Certified Organic Intellectual\" and \"The Historian as Curandera\" both appear in Levins Morales's 1998 collection Medicine Stories, and both essays draw on their author's Puerto Rican Jewish heritage and her training as a historian."
             },
             {
               "id": "B",
@@ -2006,7 +2006,7 @@ export const practiceTest11RW = {
             },
             {
               "id": "C",
-              "text": "In \"Certified Organic Intellectual,\" Levins Morales argues that scholarship rooted in a community can recover sources and questions that more detached scholarship tends to overlook."
+              "text": "In \"Certified Organic Intellectual,\" Levins Morales argues that scholarship rooted in the communities it studies can recover neglected sources, from family records to oral testimony, along with questions that more detached academic scholarship tends to overlook entirely."
             },
             {
               "id": "D",

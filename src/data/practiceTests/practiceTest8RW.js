@@ -297,7 +297,7 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Sprengel believed that insects, rather than wind or chance, were responsible for fertilizing every kind of flowering plant he examined."
+              "text": "Sprengel believed that insects were responsible for fertilizing every kind of flowering plant he examined."
             },
             {
               "id": "B",
@@ -327,7 +327,7 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Green gathered most of the guide’s listings from letters that readers across the country mailed to him each year."
+              "text": "Green gathered most of the guide’s listings from the letters that readers all across the country mailed in to him each year."
             },
             {
               "id": "B",
@@ -339,7 +339,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "D",
-              "text": "Green hoped that publishing the guide annually would eventually persuade businesses to end their discriminatory practices."
+              "text": "Green hoped that publishing the guide annually would eventually persuade the businesses it listed to abandon their discriminatory practices altogether."
             }
           ],
           "correctAnswer": "B",
@@ -357,7 +357,7 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The bathysphere could not descend deep enough to reach the animals he most wanted to observe."
+              "text": "The bathysphere could not be lowered deep enough to reach the deep-sea animals that Beebe most wanted to observe alive."
             },
             {
               "id": "B",
@@ -478,7 +478,7 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the 1998-2007 rate (3.1 mm per year) was slightly higher than the 2003-2012 rate (3.0 mm per year)."
+              "text": "the 1998-2007 rate of rise (3.1 mm per year) was slightly higher than the 2003-2012 rate of rise (3.0 mm per year)."
             },
             {
               "id": "B",
@@ -486,7 +486,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "C",
-              "text": "the cumulative rise across the full record reached roughly 100 mm, the largest total the satellite record has documented."
+              "text": "the cumulative rise across the full satellite record reached roughly 100 mm, the largest total that the record has yet documented for any comparable span."
             },
             {
               "id": "D",
@@ -790,11 +790,11 @@ export const practiceTest8RW = {
             },
             {
               "id": "D",
-              "text": "Meanwhile,"
+              "text": "Granted,"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The eclipse measurement is the cause and the theory's new standing is the effect, so the linking word must signal a result: \"As a result.\"\n\n**The Full Solution:**\n- How to spot it: read the sentence before the blank and the sentence after, then ask: is the second one a RESULT of the first, an example of it, or an opposite? Name the link before you look at the choices.\n- Before the blank: Eddington's eclipse photos measured starlight bent by the Sun's gravity and matched Einstein's prediction.\n- After the blank: a once-math-only theory \"gained its first strong observational support,\" and Einstein became famous.\n- The second clearly happens because of the first, so a cause-and-effect linking word fits, and \"As a result\" is exactly that.\n\n**Why the other choices are wrong:**\n- A: \"For example\" introduces an example of the earlier point, but the last sentence is a result, not an example.\n- B: \"Nevertheless\" signals a contrast, but nothing here is being opposed.\n- D: \"Meanwhile\" marks two things happening at the same time, not the cause-and-effect link the passage draws."
+          "explanation": "**Choice C is correct.** The eclipse measurement is the cause and the theory's new standing is the effect, so the linking word must signal a result: \"As a result.\"\n\n**The Full Solution:**\n- How to spot it: read the sentence before the blank and the sentence after, then ask: is the second one a RESULT of the first, an example of it, or an opposite? Name the link before you look at the choices.\n- Before the blank: Eddington's eclipse photos measured starlight bent by the Sun's gravity and matched Einstein's prediction.\n- After the blank: a once-math-only theory \"gained its first strong observational support,\" and Einstein became famous.\n- The second clearly happens because of the first, so a cause-and-effect linking word fits, and \"As a result\" is exactly that.\n\n**Why the other choices are wrong:**\n- A: \"For example\" introduces an example of the earlier point, but the last sentence is a result, not an example.\n- B: \"Nevertheless\" signals a contrast, but nothing here is being opposed.\n- D: \"Granted\" concedes a point to an opposing side of an argument, but the sentence presses the eclipse result home rather than conceding anything."
         },
         {
           "id": 824,
@@ -812,7 +812,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "B",
-              "text": "Therefore,"
+              "text": "In turn,"
             },
             {
               "id": "C",
@@ -824,7 +824,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The architects went along with the old way of judging sound \"only by ear once the hall was built,\" but Sabine objected and built a measurable replacement instead, an opposition that calls for \"Nevertheless.\"\n\n**The Full Solution:**\n- How to spot it: compare the sentence before the blank with the one after, and ask whether the second AGREES with the first, follows from it, or pushes against it.\n- Before the blank: nineteenth-century architects accepted that a room's sound could only be judged by ear after the hall was built.\n- After the blank: Sabine objected to leaving sound to chance and worked out a measurable number to replace the old guesswork.\n- The second clearly goes against the first, so a contrast word fits, and \"Nevertheless\" is a contrast word.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would mean his objection follows naturally from that acceptance, which it does not.\n- C: \"Likewise\" signals agreement, but the two sentences clash.\n- D: \"For instance\" would introduce an example of the old way, but Sabine's method is a break from it, not an example of it."
+          "explanation": "**Choice A is correct.** The architects went along with the old way of judging sound \"only by ear once the hall was built,\" but Sabine objected and built a measurable replacement instead, an opposition that calls for \"Nevertheless.\"\n\n**The Full Solution:**\n- How to spot it: compare the sentence before the blank with the one after, and ask whether the second AGREES with the first, follows from it, or pushes against it.\n- Before the blank: nineteenth-century architects accepted that a room's sound could only be judged by ear after the hall was built.\n- After the blank: Sabine objected to leaving sound to chance and worked out a measurable number to replace the old guesswork.\n- The second clearly goes against the first, so a contrast word fits, and \"Nevertheless\" is a contrast word.\n\n**Why the other choices are wrong:**\n- B: \"In turn\" would present Sabine's work as simply the next step in a smooth sequence, missing the opposition between his measurable approach and the by-ear tradition the architects accepted.\n- C: \"Likewise\" signals agreement, but the two sentences clash.\n- D: \"For instance\" would introduce an example of the old way, but Sabine's method is a break from it, not an example of it."
         },
         {
           "id": 825,
@@ -875,7 +875,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "C",
-              "text": "Before Stokoe published his analysis, many people had assumed that American Sign Language was nothing more than a loose system of improvised gestures, or at best a simple manual code for spoken English."
+              "text": "Before Stokoe published his analysis, many people had assumed that American Sign Language was nothing more than a loose system of gestures, or at best a simple manual code for spoken English."
             },
             {
               "id": "D",
@@ -1040,28 +1040,28 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Underwater archaeologists excavating a shipwreck confront a problem that dry-land sites rarely pose. Wooden timbers that have lain stable on the seabed for centuries, their cells swollen with water, can ____ within hours of being raised into the air, splitting and shrinking as they dry. Conservators therefore keep many finds submerged until they can be treated with chemicals that replace the water without collapsing the wood.",
+          "passage": "The following text is adapted from Helen Marchbanks's 1908 novel The River Commission. Edith has returned to the survey office where she once kept the tide records.\n\nThe younger clerks explained the instruments to her slowly, in the careful voices men use with visitors, and Edith listened in kind, though the courtesy sat strangely on her. She had logged ten years of tides in the very ledgers stacked behind them; whatever the years away had made of her, her command of the office's work had not ____, and she waited, patient as the river, for the clerks to discover it.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
               "id": "A",
-              "text": "stabilize"
+              "text": "returned"
             },
             {
               "id": "B",
-              "text": "float"
+              "text": "improved"
             },
             {
               "id": "C",
-              "text": "deteriorate"
+              "text": "diminished"
             },
             {
               "id": "D",
-              "text": "harden"
+              "text": "mattered"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The timbers are \"splitting and shrinking as they dry\" within hours of being raised into the air, a fast decline, so the blank needs a verb for breaking down or falling apart: \"deteriorate.\"\n\n**The Full Solution:**\n- First ask: what happens to the wood once it's raised, good or bad? The follow-up phrase \"splitting and shrinking as they dry\" tells you it falls apart.\n- The whole passage explains why conservators keep finds underwater: to stop exactly this breakdown.\n- Read each word into the blank; only \"deteriorate\" means breaking down or falling apart.\n\n**Why the other choices are wrong:**\n- A: \"Stabilize\" means the wood holds together, the opposite of splitting and shrinking.\n- B: \"Float\" is about moving in water and has nothing to do with the drying damage the passage warns about.\n- D: \"Harden\" also suggests the wood stays sound, which clashes with the splitting and shrinking."
+          "explanation": "**Choice C is correct.** The sentence concedes the years away (\"whatever the years away had made of her\") and then denies the loss a reader might expect: her command of the work had not shrunk, so the blank needs a word for lessening, and \"diminished\" supplies it.\n\n**The Full Solution:**\n- First ask what the sentence's shape demands. \"Whatever the years away had made of her, her command...had not ____\" concedes a change and then denies one particular kind of change.\n- The evidence sits in the previous clause: she logged ten years of tides in the very ledgers behind the clerks, so her mastery is long and deep.\n- The ending confirms it: she waits, patient, \"for the clerks to discover it\" - her command still exists in full, so what the years did NOT do is reduce it. \"Diminished\" is the word.\n\n**Why the other choices are wrong:**\n- A: \"Returned\" would imply her command had gone away at some point, but the passage treats it as never having left her.\n- B: \"Improved\" points the wrong way; the sentence is denying a loss, not disclaiming a gain, and the closing clause celebrates what she retains.\n- D: \"Mattered\" would say her command had not been important, which contradicts the whole point that it is worth the clerks' discovering."
         },
         {
           "id": 832,
@@ -1220,7 +1220,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "D",
-              "text": "Humboldt spent five years traveling through South America measuring temperature, altitude, and soil at many elevations."
+              "text": "Humboldt spent five years traveling through South America measuring temperature, altitude, and soil conditions at many different elevations."
             }
           ],
           "correctAnswer": "C",
@@ -1263,28 +1263,28 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "The mathematician and astronomer Caroline Herschel worked alongside her brother William, recording his observations and grinding the mirrors for his telescopes. She also swept the night sky on her own, and between 1786 and 1797 she discovered eight comets, becoming the first woman credited with such finds. Late in her life the Royal Astronomical Society awarded her its Gold Medal, an honor it would not give to another woman for more than a century. Much of her most demanding labor, however, was the patient cataloguing work that organized her brother's scattered records into a reference astronomers could actually use.",
-          "question": "According to the text, what was Caroline Herschel the first woman to do?",
+          "passage": "For most of the twentieth century, the world's central banks held their foreign reserves overwhelmingly in a single currency, reasoning that the market for it was the deepest and the easiest to trade in quickly. Economists studying more recent records have documented a quiet shift. Since the turn of the century, reserve managers have moved a growing share of their holdings into a set of smaller currencies, among them the Australian dollar and the Korean won, attracted by higher returns and by new trading technology that has made these once-awkward markets cheap to deal in. The single dominant currency still accounts for the majority of reserves, but its share has declined steadily for two decades.",
+          "question": "According to the text, what has attracted reserve managers to the smaller currencies?",
           "choices": [
             {
               "id": "A",
-              "text": "Grind the mirrors used in a large reflecting telescope."
+              "text": "A belief that the market for the dominant currency is no longer deep enough to allow rapid trading."
             },
             {
               "id": "B",
-              "text": "Be credited with the discovery of comets."
+              "text": "Higher returns and new trading technology that has made once-awkward markets cheap to deal in."
             },
             {
               "id": "C",
-              "text": "Receive the Gold Medal of the Royal Astronomical Society."
+              "text": "International agreements that require central banks to spread their reserve holdings more evenly."
             },
             {
               "id": "D",
-              "text": "Publish a catalogue organizing another astronomer’s records."
+              "text": "A steady rise in the returns available on holdings of the single dominant reserve currency."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The passage says that in discovering eight comets between 1786 and 1797 Herschel became \"the first woman credited with such finds.\"\n\n**The Full Solution:**\n- For an \"according to the text\" question, the answer must be stated in the passage. Match the question's exact words (\"first woman to\") to where the passage uses them.\n- The text says she discovered eight comets and became \"the first woman credited with such finds.\"\n- That is the only \"first\" the passage attaches to her, so B is it.\n\n**Why the other choices are wrong:**\n- A: Grinding mirrors was real work she did, but the text never says she was the first woman to do it.\n- C: The Gold Medal was simply not given to another woman for over a century; the text does not say she was the first woman to receive it.\n- D: Her cataloguing work is described, but the text never calls it a first of its kind."
+          "explanation": "**Choice B is correct.** The passage says reserve managers have been \"attracted by higher returns and by new trading technology that has made these once-awkward markets cheap to deal in.\"\n\n**The Full Solution:**\n- For an \"according to the text\" question, the answer must be stated in the passage. Match the question's exact words (\"attracted...to the smaller currencies\") to where the passage uses them.\n- The sentence about the shift names two draws: higher returns, and new trading technology that made the smaller markets cheap to deal in.\n- B restates both, in the passage's own terms.\n\n**Why the other choices are wrong:**\n- A: The passage never says the dominant currency's market stopped being deep; that depth was the original reason for holding it.\n- C: No international agreements about spreading reserves appear anywhere in the text.\n- D: Rising returns are attached to the smaller currencies, not to the dominant one, so this flips the comparison."
         },
         {
           "id": 839,
@@ -1298,7 +1298,7 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Robins kept in a windowless room with no light of any kind grew restless at the season when they would normally migrate."
+              "text": "Robins kept in a windowless room with no light of any kind still grew restless and active at the season of year when they would normally have migrated."
             },
             {
               "id": "B",
@@ -1310,7 +1310,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "D",
-              "text": "Robins released near a powerful electrical installation took longer to settle on a heading than robins released in open countryside."
+              "text": "Robins released near a powerful electrical installation took noticeably longer to settle on a consistent migratory heading than did robins of the same population released in open countryside nearby."
             }
           ],
           "correctAnswer": "B",
@@ -1332,11 +1332,11 @@ export const practiceTest8RW = {
             },
             {
               "id": "B",
-              "text": "the 2010 September minimum (4.87 million km^2) was lower than the 2000 minimum (6.32 million km^2)."
+              "text": "the 2010 September minimum (4.87 million km^2) came in well below the 2000 September minimum (6.32 million km^2)."
             },
             {
               "id": "C",
-              "text": "the 2020 September minimum (3.92 million km^2) was the lowest of the five values shown, and the 1980 minimum (7.67 million km^2) was the highest."
+              "text": "the 2020 September minimum (3.92 million km^2) was the lowest of the five benchmark values shown, and the 1980 minimum (7.67 million km^2) was by some distance the highest."
             },
             {
               "id": "D",
@@ -1388,7 +1388,7 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Cepheid A has the shortest period in the table, at 3.0 days, and also the faintest median apparent magnitude, at 13.4."
+              "text": "Cepheid A has the shortest pulsation period of the four stars in the table, at 3.0 days, and it also has the faintest median apparent magnitude, at 13.4."
             },
             {
               "id": "B",
@@ -1396,11 +1396,11 @@ export const practiceTest8RW = {
             },
             {
               "id": "C",
-              "text": "Cepheid D has the longest period in the table, at 33.0 days, far longer than the 3.0-day period of Cepheid A."
+              "text": "Cepheid D has the longest pulsation period in the table, at 33.0 days, far longer than the 3.0-day period recorded for Cepheid A."
             },
             {
               "id": "D",
-              "text": "the four Cepheids in the table differ in both pulsation period and median apparent magnitude."
+              "text": "the four Cepheids listed in the table differ from one another in both pulsation period and median apparent magnitude."
             }
           ],
           "correctAnswer": "B",
@@ -1714,12 +1714,12 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Gregor Mendel's experiments with pea plants are often retold as the lucky discovery of a gardening monk who stumbled onto the laws of heredity. ______ Mendel designed his crosses with deliberate care, choosing traits that appeared in clear either-or forms, raising thousands of plants so that his ratios would be statistically meaningful, and counting the offspring with a rigor that was unusual for biology in his day.",
+          "passage": "Gregor Mendel's experiments with pea plants are often retold as the lucky discovery of a gardening monk, but his notebooks reveal a researcher of uncommon method. ______ Mendel designed his crosses with deliberate care, choosing traits that appeared in clear either-or forms, raising thousands of plants so that his ratios would be statistically meaningful, and counting the offspring with a rigor that was unusual for biology in his day.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
               "id": "A",
-              "text": "In reality,"
+              "text": "Specifically,"
             },
             {
               "id": "B",
@@ -1727,7 +1727,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "C",
-              "text": "For example,"
+              "text": "In reality,"
             },
             {
               "id": "D",
@@ -1735,7 +1735,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The first sentence gives the popular image of Mendel as a lucky amateur; the second corrects it with the careful work behind his results, so the linking word must signal that the truth differs from the story: \"In reality.\"\n\n**The Full Solution:**\n- How to spot it: read both sentences and ask whether the second AGREES with the first or corrects it. A word like \"often retold as\" is a hint that a correction is coming.\n- Before the blank: the story casts Mendel as a gardening monk who stumbled onto the laws of heredity by luck.\n- After the blank: he designed his crosses on purpose, picked clear either-or traits, raised thousands of plants, and counted offspring with unusual care.\n- The second sentence overturns the \"lucky\" image, so a word that signals the real truth fits, and \"In reality\" does that.\n\n**Why the other choices are wrong:**\n- B: \"Likewise\" marks agreement, but the second sentence contradicts the first.\n- C: \"For example\" would give an instance of the lucky-discovery story, which it does not.\n- D: \"As a result\" marks a cause and effect, but no cause-and-effect link is drawn here."
+          "explanation": "**Choice A is correct.** The first sentence ends with a general claim - Mendel's notebooks reveal a researcher of uncommon method - and the second spells that method out in detail, so \"Specifically,\" is the right link.\n\n**The Full Solution:**\n- How to spot it: when a sentence makes a general claim and the next one lists the precise details behind it, you want a narrowing word like \"Specifically.\"\n- The general claim: Mendel was no lucky gardener - his notebooks reveal a researcher of uncommon method.\n- The details: he designed his crosses with care, chose clear either-or traits, raised thousands of plants for statistically meaningful ratios, and counted offspring with unusual rigor.\n- Each detail is a precise piece of the method just claimed, which is exactly the job \"Specifically\" does.\n\n**Why the other choices are wrong:**\n- B: \"Likewise\" would introduce a second, parallel case, but the sentence stays with Mendel and fills in his method.\n- C: \"In reality\" corrects a false impression, but the correction already happened in the previous sentence (\"but his notebooks reveal\"); the blank sentence elaborates the true account rather than overturning anything.\n- D: \"As a result\" would make the careful design a consequence of the notebooks' testimony, but the sentence itemizes the method, not an effect."
         },
         {
           "id": 852,
@@ -1782,15 +1782,15 @@ export const practiceTest8RW = {
             },
             {
               "id": "B",
-              "text": "Steven Shapin studied the seventeenth-century scientific revolution in England, a period that produced many celebrated discoveries."
+              "text": "The historian Steven Shapin studied the seventeenth-century scientific revolution in England, a period that produced many of science's most celebrated discoveries."
             },
             {
               "id": "C",
-              "text": "Shapin argued that the assistants, instrument makers, and technicians of the seventeenth century were rarely named in the published scientific papers of the period, despite the central part they played in the laboratory."
+              "text": "Shapin argued that the assistants, instrument makers, and technicians of the seventeenth century were rarely named in the published scientific papers of the period, despite the central part they played in the day-to-day work of the laboratory."
             },
             {
               "id": "D",
-              "text": "The hands-on experimental work of the scientific revolution was carried out largely by assistants, instrument makers, and technicians."
+              "text": "The hands-on experimental work of the seventeenth-century scientific revolution was carried out largely by assistants, instrument makers, and technicians."
             }
           ],
           "correctAnswer": "A",
@@ -1818,15 +1818,15 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The geographer Luke Howard first documented the urban heat island effect in the city of London during the 1810s and 1820s."
+              "text": "The geographer Luke Howard first documented the urban heat island effect through observations he made in the city of London during the 1810s and 1820s."
             },
             {
               "id": "B",
-              "text": "Pavement and buildings absorb heat from the sun during the day and release it only slowly after dark, while tall buildings and narrow streets trap the warm air and block the cooling breezes that might carry it away."
+              "text": "Pavement and buildings absorb heat from the sun during the day and release it only slowly after dark, while tall buildings and narrow streets trap the warm air and block the cooling breezes that might otherwise carry it away from the streets."
             },
             {
               "id": "C",
-              "text": "City centers can be several degrees warmer than nearby rural areas, an effect that is especially pronounced after dark."
+              "text": "City centers can measure several degrees warmer than nearby rural areas, an effect that observers find especially pronounced after dark."
             },
             {
               "id": "D",

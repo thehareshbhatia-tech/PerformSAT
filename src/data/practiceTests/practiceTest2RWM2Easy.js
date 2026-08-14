@@ -148,7 +148,7 @@ export const practiceTest2RWM2Easy = {
       "choices": [
         {
           "id": "A",
-          "text": "To warn that discarded lead-acid batteries have become a growing hazard in landfills."
+          "text": "To warn that discarded lead-acid batteries have become a growing hazard in municipal landfills across the country."
         },
         {
           "id": "B",
@@ -186,7 +186,7 @@ export const practiceTest2RWM2Easy = {
         },
         {
           "id": "C",
-          "text": "It presents two competing lens designs and concludes that neither solved the problem of wasted light."
+          "text": "It presents two competing lighthouse lens designs and concludes that neither one fully solved the problem of wasted light."
         },
         {
           "id": "D",
@@ -255,11 +255,11 @@ export const practiceTest2RWM2Easy = {
         },
         {
           "id": "C",
-          "text": "They would claim that expected-goals models overvalue long-range attempts and therefore reward teams that shoot from poor positions."
+          "text": "They would claim that expected-goals models systematically overvalue long-range attempts and therefore reward teams that pile up shots from poor positions."
         },
         {
           "id": "D",
-          "text": "They would conclude that a team's past goal total predicts its future goals more accurately than any statistical model can."
+          "text": "They would conclude that a team's own goal total from past seasons predicts its future goals more accurately than any statistical model built from years of historical shot-position data can."
         }
       ],
       "correctAnswer": "B",
@@ -305,28 +305,28 @@ export const practiceTest2RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "Farmers have worked the slopes of active volcanoes for thousands of years, a choice that looks reckless until the soil is examined. Fresh volcanic ash carries phosphorus and potassium and breaks down quickly into fine particles that hold water without turning a field to mud, so ground dusted by a moderate eruption may yield more heavily a few seasons afterward than it did before. The very process that periodically flattens a village's houses, in other words, is what keeps its fields worth rebuilding beside.",
+      "passage": "Nearly every large cargo ship entering a major port takes on a harbor pilot — a local mariner who climbs aboard from a small boat and directs the vessel through the final miles of the approach. The requirement can look like a formality, since the ship's own officers have crossed oceans to get there. But a harbor's shifting sandbars, tidal currents, and traffic patterns change too quickly to be captured on any chart, and pilots spend years learning a single port's waters. What the crew brings is seamanship; what the pilot brings is the harbor itself.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
         {
           "id": "A",
-          "text": "Volcanic ash damages crops in the seasons right after an eruption but does no lasting harm to the soil."
+          "text": "Cargo ships entering a major port must take on a harbor pilot, a local mariner who climbs aboard from a small boat outside the harbor and directs the vessel through the final miles of its approach."
         },
         {
           "id": "B",
-          "text": "Farmers who cultivate the slopes of active volcanoes generally underestimate how dangerous an eruption can be."
+          "text": "Harbor pilots are required chiefly because the officers of oceangoing ships lack the formal training needed to steer large vessels safely."
         },
         {
           "id": "C",
-          "text": "The ash falls that make volcanic slopes dangerous also enrich their soils, which helps explain why farmers keep returning to them."
+          "text": "Although a ship's own officers are skilled mariners, harbor pilots are required because they supply the constantly changing local knowledge of one port that no chart can capture."
         },
         {
           "id": "D",
-          "text": "Phosphorus and potassium are the two nutrients that most limit crop yields in agricultural soils worldwide."
+          "text": "Modern charts have largely eliminated the need for harbor pilots by recording each port's sandbars, currents, and traffic patterns."
         }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The passage explains that the same ash falls that make volcanic slopes dangerous also make their soil unusually productive, which is why farmers stay.\n\n**The Full Solution:**\n- How to spot it: when a passage opens by calling a choice puzzling, the main idea is the explanation that resolves the puzzle.\n- Puzzle: farming an active volcano looks reckless.\n- Resolution: fresh ash adds phosphorus and potassium and breaks down into particles that hold water, so a dusted field can yield more heavily afterward. The last sentence spells it out - the process that destroys houses is what keeps the fields worth farming. That is C.\n\n**Why the other choices are wrong:**\n- A: reverses the passage, which credits ash with improving yields rather than damaging crops.\n- B: the passage never says farmers misjudge the danger; it explains why the risk can be worth taking.\n- D: stretches a detail about two nutrients in volcanic ash into a claim about soils everywhere."
+      "explanation": "**Choice C is correct.** The passage's point is that the pilot requirement is no formality: ocean officers bring general seamanship, but only the pilot brings up-to-date knowledge of that one harbor.\n\n**The Full Solution:**\n- How to spot it: the passage raises a puzzle - the requirement \"can look like a formality,\" since the crew has just crossed an ocean - and the main idea is the answer that resolves it.\n- The answer: sandbars, tidal currents, and traffic patterns \"change too quickly to be captured on any chart,\" and pilots spend years learning a single port's waters.\n- The closing line compresses the whole idea - the crew brings seamanship, the pilot brings the harbor - which is what C states.\n\n**Why the other choices are wrong:**\n- A: restates the opening description of what a pilot does without the reason the requirement exists - the passage's actual point.\n- B: contradicts the text, which grants that the ship's officers are accomplished mariners; the pilot adds local knowledge, not basic training.\n- D: reverses the passage, which says the harbor's conditions change too quickly for any chart to record."
     },
     {
       "id": 265,
@@ -436,7 +436,7 @@ export const practiceTest2RWM2Easy = {
       "choices": [
         {
           "id": "A",
-          "text": "cobalt is recovered at a high rate by both methods, 95% by smelting and 96% by leaching."
+          "text": "cobalt is recovered at a nearly identical high rate by both recycling methods, 95% by smelting and 96% by leaching, a difference of a single percentage point."
         },
         {
           "id": "B",
@@ -444,11 +444,11 @@ export const practiceTest2RWM2Easy = {
         },
         {
           "id": "C",
-          "text": "leaching recovers more aluminum than smelting does, 60% compared with 20%."
+          "text": "leaching recovers three times as much of the aluminum as smelting does, 60% compared with just 20%."
         },
         {
           "id": "D",
-          "text": "smelting recovers 94% of the nickel, nearly as much as the 95% recovered by leaching."
+          "text": "smelting recovers 94% of the nickel in a used pack, nearly as much as the 95% that leaching recovers from the same cells."
         }
       ],
       "correctAnswer": "B",
@@ -492,7 +492,7 @@ export const practiceTest2RWM2Easy = {
       "choices": [
         {
           "id": "A",
-          "text": "players in the highest load quarter recorded 7.8 injuries per 1,000 training hours, the highest rate in the table."
+          "text": "players in the highest load quarter, those running 4.5 km or more each week, recorded 7.8 injuries per 1,000 training hours, the highest rate in the table and well above both middle quarters."
         },
         {
           "id": "B",
@@ -504,7 +504,7 @@ export const practiceTest2RWM2Easy = {
         },
         {
           "id": "D",
-          "text": "injury rates fell steadily as weekly high-speed load rose across all four groups."
+          "text": "injury rates fell steadily as weekly high-speed running load rose, declining across all four load groups in the table."
         }
       ],
       "correctAnswer": "C",
@@ -780,11 +780,11 @@ export const practiceTest2RWM2Easy = {
         },
         {
           "id": "D",
-          "text": "For example,"
+          "text": "As a result,"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The first sentence says the pack is no longer good enough for a car and the second says it is still useful elsewhere, so the blank needs a contrast word - \"However,\".\n\n**The Full Solution:**\n- How to spot it: read both sentences and ask whether the second one agrees with the first, results from it, gives an example, or pushes against it.\n- Sentence one: the battery is retired because it can no longer move a car far enough.\n- Sentence two: that same weak pack still stores power just fine next to a solar array. Since the second sentence pushes against the first, you need a but-type word: \"However.\"\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" says the second sentence follows from the first, but being unfit for a car is not the reason it works beside a solar array.\n- C: \"Likewise\" signals agreement between the two sentences, the opposite of the contrast here.\n- D: \"For example\" would make stationary storage an instance of the pack being impractical, which reverses the point."
+      "explanation": "**Choice A is correct.** The first sentence says the pack is no longer good enough for a car and the second says it is still useful elsewhere, so the blank needs a contrast word - \"However,\".\n\n**The Full Solution:**\n- How to spot it: read both sentences and ask whether the second one agrees with the first, results from it, gives an example, or pushes against it.\n- Sentence one: the battery is retired because it can no longer move a car far enough.\n- Sentence two: that same weak pack still stores power just fine next to a solar array. Since the second sentence pushes against the first, you need a but-type word: \"However.\"\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" says the second sentence follows from the first, but being unfit for a car is not the reason it works beside a solar array.\n- C: \"Likewise\" signals agreement between the two sentences, the opposite of the contrast here.\n- D: \"As a result\" would make the second life beside a solar array a consequence of the pack's retirement, but the sentence contrasts what the pack can no longer do with what it still can."
     },
     {
       "id": 278,
@@ -802,7 +802,7 @@ export const practiceTest2RWM2Easy = {
         },
         {
           "id": "B",
-          "text": "For instance,"
+          "text": "Granted,"
         },
         {
           "id": "C",
@@ -814,7 +814,7 @@ export const practiceTest2RWM2Easy = {
         }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The last sentence states what the arrangement just described accomplished, so it needs a phrase that points back to that method - \"In this way,\".\n\n**The Full Solution:**\n- How to spot it: when a sentence sums up the payoff of a procedure just laid out step by step, the transition should point back to the method itself.\n- The method: leave coin with a banker at home, carry a written order, collect local money from the banker's agent at the fair.\n- The payoff: a season's profits crossed hundreds of miles as parchment instead of silver. \"In this way\" ties the payoff to the method that produced it.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals a contrast, but the last sentence agrees with and completes the paragraph rather than opposing it.\n- B: \"For instance\" introduces an example, and the last sentence restates the result of the method instead of illustrating it.\n- C: \"Meanwhile\" marks two things happening at the same time, which misdescribes a method and its result."
+      "explanation": "**Choice D is correct.** The last sentence states what the arrangement just described accomplished, so it needs a phrase that points back to that method - \"In this way,\".\n\n**The Full Solution:**\n- How to spot it: when a sentence sums up the payoff of a procedure just laid out step by step, the transition should point back to the method itself.\n- The method: leave coin with a banker at home, carry a written order, collect local money from the banker's agent at the fair.\n- The payoff: a season's profits crossed hundreds of miles as parchment instead of silver. \"In this way\" ties the payoff to the method that produced it.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals a contrast, but the last sentence agrees with and completes the paragraph rather than opposing it.\n- B: \"Granted\" concedes a point before pushing back against it, but the last sentence completes the account rather than conceding anything.\n- C: \"Meanwhile\" marks two things happening at the same time, which misdescribes a method and its result."
     },
     {
       "id": 279,

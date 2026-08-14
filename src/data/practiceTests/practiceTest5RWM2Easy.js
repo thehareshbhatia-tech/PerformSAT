@@ -43,18 +43,18 @@ export const practiceTest5RWM2Easy = {
       band: 2,
       domain: "craft-and-structure",
       skill: "words-in-context",
-      passage: "Growers who press their own olive oil have to decide when to pick. Olives harvested while still green yield less oil for the same weight of fruit, but that oil carries a sharp, peppery bite many buyers prize. Olives left on the tree until they darken give more oil per basket, though the flavor that comes out of the press is noticeably ______ than the flavor of oil from the earlier picking.",
+      passage: "The following text is adapted from Clara Ashworth's 1893 novel The Salt Meadows. Tom has returned to the harbor town where he was born.\n\nThe town he remembered was loud with gulls and auction bells, the quay so crowded that a boy could cross the harbor by stepping from deck to deck. What he found now was quieter work: two boats where a fleet had been, a shuttered fish market, and streets that seemed wider only because they were ______.",
       question: "Which choice completes the text with the most logical and precise word or phrase?",
       choices: [
-        { id: "A", text: "sharper" },
-        { id: "B", text: "scarcer" },
-        { id: "C", text: "milder" },
-        { id: "D", text: "cloudier" }
+        { id: "A", text: "cleaner" },
+        { id: "B", text: "steeper" },
+        { id: "C", text: "emptier" },
+        { id: "D", text: "brighter" }
       ],
       correctAnswer: "C",
-      explanation: "**Choice C is correct.** The early, green picking is described as having a \"sharp, peppery bite,\" and the sentence contrasts the later picking with it, so the blank needs a word for less sharp - which is \"milder.\"\n\n**The Full Solution:**\n- How to spot it: find the thing the blank is being compared with. The word \"than\" points you back to the oil from the earlier picking, described as sharp and peppery.\n- The passage sets up a trade: pick green for less oil with a strong bite, or pick dark for more oil.\n- If the later oil is being contrasted with a sharp, peppery one, its flavor must be gentler, and \"milder\" says exactly that.\n\n**Why the other choices are wrong:**\n- A: \"Sharper\" repeats the earlier oil's quality instead of contrasting with it.\n- B: \"Scarcer\" is about quantity, and the passage says the later picking gives more oil, not less.\n- D: \"Cloudier\" describes how the oil looks, not the flavor the sentence is comparing.",
+      explanation: "**Choice C is correct.** The passage contrasts the crowded, noisy town Tom remembers with the quiet one he finds - two boats where a fleet had been, a shuttered market - so the streets only seem wider because fewer people and things now fill them, which is to say they are \"emptier.\"\n\n**The Full Solution:**\n- How to spot it: the word \"because\" ties the blank to the illusion it explains. The streets have not changed size; something about them makes them look wider.\n- The whole passage runs on one contrast: then, a quay so crowded a boy could cross the harbor deck to deck; now, two boats, a shuttered market, quiet.\n- Streets stripped of that crowding would look wider precisely because they are \"emptier\" - the word the contrast forces.\n\n**Why the other choices are wrong:**\n- A: \"Cleaner\" is about dirt, which the passage never mentions, and clean streets do not look wider.\n- B: \"Steeper\" is about slope, which has nothing to do with the crowding the passage contrasts.\n- D: \"Brighter\" is about light, and the passage draws no contrast between dark and light.",
       _meta: {
-        anchor: "Olive cultivation — harvest timing and oil flavor trade-off"
+        anchor: "Literary — invented 1893 novel The Salt Meadows (Clara Ashworth); emptied harbor town; contrast-driven WIC"
       }
     },
     {
@@ -205,7 +205,7 @@ export const practiceTest5RWM2Easy = {
         { id: "A", text: "Nineteenth-century librarians were the first to compile catalogs listing every book that a library owned." },
         { id: "B", text: "Books about beekeeping were among the items most often requested by readers at early libraries." },
         { id: "C", text: "Shelving books by subject instead of by order of arrival let readers find related works at the shelf itself, not only through the catalog." },
-        { id: "D", text: "A library that shelves its books in the order they happen to arrive can fit considerably more volumes into the same amount of shelf space." }
+        { id: "D", text: "A library that shelves its books in the order they happen to arrive can fit more volumes into the same amount of shelf space." }
       ],
       correctAnswer: "C",
       explanation: "**Choice C is correct.** The passage contrasts shelving by arrival order with shelving by subject and ends by naming the benefit: a reader could walk to one spot and find related books that no catalog search had surfaced.\n\n**The Full Solution:**\n- How to spot it: for a \"main idea\" question on a passage with an old way and a new way, the main idea is usually the new way plus what it gained.\n- Old way: books sat in the order they arrived, so finding everything on a subject meant combing the catalog.\n- New way: each book got a subject number, so related books stood together, and a reader could find at the shelf what the catalog had not turned up. That gain is the main idea.\n\n**Why the other choices are wrong:**\n- A: The passage says early libraries already had catalogs, so classification was not the first catalog.\n- B: Beekeeping is just an example, not a claim about what readers requested most.\n- D: The passage never compares how many books each arrangement can hold.",
@@ -244,9 +244,9 @@ export const practiceTest5RWM2Easy = {
       passage: "Spreading basins need land, and in a built-up valley there is rarely a spare hundred acres to flood. Water agencies working under those conditions turn instead to injection wells, which push treated water down a pipe directly into the aquifer. Injection costs far more per gallon than a basin does, since the water has to be filtered and then pumped under pressure, and a well can clog if the water carries even a little sediment. What the method buys is somewhere to work: a well takes up a lot about the size of a parking space and can sit between a road and a warehouse, where no basin would ever fit.",
       question: "Which choice best states the main idea of the text?",
       choices: [
-        { id: "A", text: "Injection wells recharge an aquifer more cheaply than spreading basins do, which is why built-up valleys favor them." },
-        { id: "B", text: "The treated water sent down an injection well has to be filtered carefully, because even a little sediment can clog the well." },
-        { id: "C", text: "Water agencies in built-up valleys have largely given up trying to recharge the aquifers beneath their cities." },
+        { id: "A", text: "Injection wells recharge an aquifer more cheaply per gallon than spreading basins do, which is why agencies in built-up valleys favor them." },
+        { id: "B", text: "The treated water sent down an injection well has to be filtered with particular care, because even a little suspended sediment can quickly clog the well." },
+        { id: "C", text: "Water agencies operating in built-up valleys have largely given up trying to recharge the aquifers that lie beneath their cities." },
         { id: "D", text: "Injection wells cost more and clog more easily than spreading basins, but they are used in built-up areas because they need almost no land." }
       ],
       correctAnswer: "D",
@@ -267,7 +267,7 @@ export const practiceTest5RWM2Easy = {
       choices: [
         { id: "A", text: "In filmed flights, the offset between forewings and hindwings shifted in a consistent way just before each turn and went back to its earlier value once the dragonfly was flying straight." },
         { id: "B", text: "Dragonflies were found to beat their wings at a lower frequency than bees and flies of comparable body mass." },
-        { id: "C", text: "A dragonfly whose hindwings were held still by the experimenters could still produce enough lift to stay airborne, even when the insect was carrying a small weight attached to its own body." },
+        { id: "C", text: "A dragonfly whose hindwings were held still by the experimenters could still produce enough lift to stay airborne, even when the insect was carrying a small weight." },
         { id: "D", text: "The muscles that drive a dragonfly's forewings are anatomically separate from the muscles that drive its hindwings." }
       ],
       correctAnswer: "A",
@@ -286,10 +286,10 @@ export const practiceTest5RWM2Easy = {
       passage: "Packing houses increasingly sort fruit by camera: apples ride a conveyor belt beneath a bank of lights while software marks the ones with bruised skin so a mechanical arm can push them aside. An engineer who ran the same crate of apples past one such system at four belt speeds argues that the system's accuracy falls as the belt runs faster. The engineer supports the claim with data from the table.",
       question: "Which choice most effectively uses data from the table to support the claim?",
       choices: [
-        { id: "A", text: "At a belt speed of 20 centimeters per second, the system correctly identified 97 percent of the bruised apples." },
+        { id: "A", text: "At the slowest belt speed the engineer tested, 20 centimeters per second, the camera system correctly identified 97 percent of the bruised apples in the crate." },
         { id: "B", text: "The share of bruised apples correctly identified fell at every increase in speed, from 97 percent at 20 centimeters per second to 71 percent at 80." },
-        { id: "C", text: "The system correctly identified more than 70 percent of the bruised apples at each of the four belt speeds tested." },
-        { id: "D", text: "The four speeds tested were evenly spaced, each one 20 centimeters per second faster than the speed before it." }
+        { id: "C", text: "The system correctly identified more than 70 percent of the bruised apples at each one of the four belt speeds the engineer tested." },
+        { id: "D", text: "The four belt speeds tested were evenly spaced, with each one running 20 centimeters per second faster than the speed before it." }
       ],
       correctAnswer: "B",
       explanation: "**Choice B is correct.** The claim is that accuracy drops as the belt speeds up, and only B tracks the accuracy across the speeds to show that drop - 97 percent at the slowest speed down to 71 percent at the fastest.\n\n**The Full Solution:**\n- How to spot it: when a claim says one number falls as another rises, the right choice has to report both numbers at more than one point. A single reading can never show a trend.\n- Choice B walks the table from 20 centimeters per second to 80 and notes that the percentage fell at every step.\n- That is exactly the claimed pattern: faster belt, lower accuracy.\n\n**Why the other choices are wrong:**\n- A: It gives one speed and one percentage, so it shows no change at all.\n- C: It reports a floor the system stayed above, which says nothing about whether accuracy fell.\n- D: It describes how the speeds were spaced, not how accuracy responded to them.",
@@ -322,7 +322,7 @@ export const practiceTest5RWM2Easy = {
       question: "Which choice most effectively uses data from the table to support the claim?",
       choices: [
         { id: "A", text: "Groundwater at the North site rose 11.4 feet between 2015 and 2022, the largest change recorded at any of the four sites." },
-        { id: "B", text: "Averaged across the four sites in the table, groundwater levels rose over the period from 2015 to 2022." },
+        { id: "B", text: "Averaged across all four of the monitoring sites shown in the table, groundwater levels rose modestly from 2015 to 2022." },
         { id: "C", text: "The three sites served by a basin rose by different amounts, ranging from 2.8 feet at the East site to 11.4 feet at the North site." },
         { id: "D", text: "Each of the three sites with a basin gained water - 11.4, 6.2, and 2.8 feet - while the South site, which has no basin, lost 4.1 feet." }
       ],
@@ -527,11 +527,11 @@ export const practiceTest5RWM2Easy = {
       choices: [
         { id: "A", text: "For example," },
         { id: "B", text: "As a result," },
-        { id: "C", text: "Likewise," },
+        { id: "C", text: "Indeed," },
         { id: "D", text: "However," }
       ],
       correctAnswer: "D",
-      explanation: "**Choice D is correct.** The first part praises the stream gauge for recording melt without anyone climbing the ice, and the second part names a drawback - it also counts rain - so the sentences need a contrast word, which \"However,\" supplies.\n\n**The Full Solution:**\n- How to spot it: read both sides and ask whether the second adds to the first or pushes back on it. Here the second raises a problem with the method just praised.\n- Upside: the gauge records water volume hour by hour, all year, with nobody on the glacier.\n- Downside: it cannot tell rain from meltwater, so its readings need correcting against weather records. Moving from an upside to a drawback calls for \"However.\"\n\n**Why the other choices are wrong:**\n- A: \"For example,\" would make the rain problem an instance of the gauge's convenience, which it is not.\n- B: \"As a result,\" would make the rain problem a consequence of recording from the valley, but rain falls into the gauge whether or not anyone visits the ice.\n- C: \"Likewise,\" signals a matching point, and a drawback does not match a strength.",
+      explanation: "**Choice D is correct.** The first part praises the stream gauge for recording melt without anyone climbing the ice, and the second part names a drawback - it also counts rain - so the sentences need a contrast word, which \"However,\" supplies.\n\n**The Full Solution:**\n- How to spot it: read both sides and ask whether the second adds to the first or pushes back on it. Here the second raises a problem with the method just praised.\n- Upside: the gauge records water volume hour by hour, all year, with nobody on the glacier.\n- Downside: it cannot tell rain from meltwater, so its readings need correcting against weather records. Moving from an upside to a drawback calls for \"However.\"\n\n**Why the other choices are wrong:**\n- A: \"For example,\" would make the rain problem an instance of the gauge's convenience, which it is not.\n- B: \"As a result,\" would make the rain problem a consequence of recording from the valley, but rain falls into the gauge whether or not anyone visits the ice.\n- C: \"Indeed,\" would present the rain problem as confirming or amplifying the praise that came before, but the sentence undercuts that praise instead.",
       _meta: {
         anchor: "Glacier monitoring — stream gauging convenience vs. rain contamination"
       }
@@ -548,11 +548,11 @@ export const practiceTest5RWM2Easy = {
       choices: [
         { id: "A", text: "As a result," },
         { id: "B", text: "By contrast," },
-        { id: "C", text: "For instance," },
+        { id: "C", text: "In other words," },
         { id: "D", text: "Nevertheless," }
       ],
       correctAnswer: "A",
-      explanation: "**Choice A is correct.** The first sentences explain the problem - a hand-aimed beam that a performer can step out of - and the last sentence gives what operators do about it, so the link is cause and effect, which \"As a result,\" marks.\n\n**The Full Solution:**\n- How to spot it: if the second part happens because of the first, use a cause-and-effect word like \"As a result.\"\n- Cause: the beam is aimed by hand from the back of the house, and a performer who strays a step falls out of the light.\n- Effect: operators sit through rehearsals learning the principals' routes so they can move the beam before the performer does. The rehearsing follows from the difficulty.\n\n**Why the other choices are wrong:**\n- B: \"By contrast,\" needs two things being set against each other, and the last sentence is a response rather than a counterpoint.\n- C: \"For instance,\" would introduce an example of the problem, but attending rehearsals is a solution to it.\n- D: \"Nevertheless,\" signals a reversal, yet nothing in the last sentence goes against what came before.",
+      explanation: "**Choice A is correct.** The first sentences explain the problem - a hand-aimed beam that a performer can step out of - and the last sentence gives what operators do about it, so the link is cause and effect, which \"As a result,\" marks.\n\n**The Full Solution:**\n- How to spot it: if the second part happens because of the first, use a cause-and-effect word like \"As a result.\"\n- Cause: the beam is aimed by hand from the back of the house, and a performer who strays a step falls out of the light.\n- Effect: operators sit through rehearsals learning the principals' routes so they can move the beam before the performer does. The rehearsing follows from the difficulty.\n\n**Why the other choices are wrong:**\n- B: \"By contrast,\" needs two things being set against each other, and the last sentence is a response rather than a counterpoint.\n- C: \"In other words,\" promises a restatement of the problem in different terms, but attending rehearsals is a response to the problem, not a rewording of it.\n- D: \"Nevertheless,\" signals a reversal, yet nothing in the last sentence goes against what came before.",
       _meta: {
         anchor: "Theater lighting design — followspot operators rehearse performers' paths"
       }
@@ -564,18 +564,18 @@ export const practiceTest5RWM2Easy = {
       band: 4,
       domain: "expression-of-ideas",
       skill: "transitions",
-      passage: "No library owns everything, and interlibrary loan is the arrangement that lets one act as though it did: a reader asks for a book the local library lacks, a lending library ships it, and the borrower's own library handles the paperwork. The system is old and heavily used, and a busy university library may borrow and lend tens of thousands of items in a year. ______ the network reaches only what libraries chose to buy and keep. A book that no member library acquired while it was in print is a book the system cannot supply, however smoothly the request itself is handled.",
+      passage: "No library owns everything, and interlibrary loan is the arrangement that lets one act as though it did: a reader asks for a book the local library lacks, a lending library ships it, and the borrower's own library handles the paperwork. The system is old and heavily used, and a busy university library may borrow and lend tens of thousands of items in a year. Yet the network reaches only what libraries chose to buy and keep. ______ a nineteenth-century local history that no member library bought when it was new is a book the system cannot supply, however smoothly the request itself is handled.",
       question: "Which choice completes the text with the most logical transition?",
       choices: [
-        { id: "A", text: "In fact," },
-        { id: "B", text: "Even so," },
-        { id: "C", text: "Consequently," },
-        { id: "D", text: "For example," }
+        { id: "A", text: "Even so," },
+        { id: "B", text: "For example," },
+        { id: "C", text: "By contrast," },
+        { id: "D", text: "Granted," }
       ],
       correctAnswer: "B",
-      explanation: "**Choice B is correct.** The passage first builds the system up as old, heavily used, and effective, then names a hard limit on it, so the blank needs a word that concedes the strength before turning to the limit - which is what \"Even so,\" does.\n\n**The Full Solution:**\n- How to spot it: when a passage praises something and then points out a boundary it cannot cross, you need a despite-all-that word such as \"Even so.\"\n- The build-up: interlibrary loan lets any library act as though it owned everything, and busy libraries move tens of thousands of items a year.\n- The limit: the network reaches only what libraries chose to buy and keep, so a book nobody acquired in print cannot be supplied at all. That limit stands in spite of the system's reach.\n\n**Why the other choices are wrong:**\n- A: \"In fact,\" strengthens or confirms the point before it, but this sentence cuts against that point.\n- C: \"Consequently,\" would make the limit a result of heavy use, and heavy use is not why unpurchased books are missing.\n- D: \"For example,\" would make the limit an instance of the system's success rather than a check on it.",
+      explanation: "**Choice B is correct.** The sentence before the blank states a general limit - the network reaches only what libraries chose to buy and keep - and the sentence after the blank gives a concrete case of that limit: a nineteenth-century local history nobody bought. A specific instance of a general point is introduced with \"For example,\".\n\n**The Full Solution:**\n- How to spot it: ask what the sentence after the blank does. It does not push back on the limit or reverse it; it shows the limit at work in one particular case.\n- The general point, already marked by \"Yet\": interlibrary loan cannot reach a book no library ever acquired.\n- The particular case: an old local history that no member library bought when it was new cannot be supplied at all. That is the general limit made concrete, so \"For example\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Even so,\" concedes what came before and turns against it, but the sentence after the blank supports the limit rather than resisting it - and the passage has already made its turn with \"Yet.\"\n- C: \"By contrast,\" needs two things pointing in opposite directions, but the unsupplied book points the same way as the limit it illustrates.\n- D: \"Granted,\" concedes a point to the other side of an argument, but the sentence is not a concession; it presses the limit home with a case of it.",
       _meta: {
-        anchor: "Library science — interlibrary loan reach vs. what was never acquired"
+        anchor: "Library science — interlibrary loan reach vs. what was never acquired; general limit then concrete instance"
       }
     },
     {
@@ -599,8 +599,8 @@ export const practiceTest5RWM2Easy = {
       },
       question: "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       choices: [
-        { id: "A", text: "The Athenian tetradrachm, first struck in the late sixth century BCE, was a large silver coin that carried the head of the goddess Athena on one side and an owl on the other." },
-        { id: "B", text: "Athens drew the metal for its tetradrachms from the rich silver mines it controlled at Laurion." },
+        { id: "A", text: "The Athenian tetradrachm, a large silver coin first struck in the late sixth century BCE, carried the head of the goddess Athena on one side and an owl, the goddess's emblematic bird, on the other side of the coin." },
+        { id: "B", text: "Athens drew the silver for its tetradrachms from the rich mines it controlled at Laurion, southeast of the city." },
         { id: "C", text: "Athens kept the design of its tetradrachm almost unchanged for more than two centuries, long after Greek engraving styles had moved on." },
         { id: "D", text: "Because merchants across the eastern Mediterranean took the familiar Athena-and-owl coin by sight while an unfamiliar type had to be weighed and tested, Athens had reason to leave its design unchanged." }
       ],
@@ -631,10 +631,10 @@ export const practiceTest5RWM2Easy = {
       },
       question: "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       choices: [
-        { id: "A", text: "Olive growers propagate a named variety by grafting or by rooting cuttings, since a tree grown from seed bears fruit unlike its parent's." },
+        { id: "A", text: "Olive growers propagate a named variety by grafting or by rooting cuttings, since a tree grown from seed bears fruit unlike that of the tree the seed came from." },
         { id: "B", text: "Some olive varieties now grown around the Mediterranean have been propagated by grafting and by cuttings for centuries." },
         { id: "C", text: "A grove of a single olive variety ripens evenly, which suits mechanical harvesting, but because its trees are genetically identical, one tree's disease can spread through the whole grove." },
-        { id: "D", text: "Because the trees of a single olive variety are genetically identical to one another, a disease that damages any one of them can move through an entire grove of that variety." }
+        { id: "D", text: "Because the trees of a single olive variety are genetically identical to one another, a disease that damages any one of them can move through an entire grove planted with that variety alone." }
       ],
       correctAnswer: "C",
       explanation: "**Choice C is correct.** A trade-off has two sides, so the sentence must give both the gain and the cost of a single-variety grove, and C pairs the even ripening that suits mechanical harvesting with the disease risk that comes from identical trees.\n\n**The Full Solution:**\n- How to spot it: when the goal names a trade-off, the right choice has to hold both halves, usually joined by a word like but or while.\n- The gain is in one bullet: a single-variety grove ripens evenly, which suits mechanical harvesting.\n- The cost is in another: because the trees are genetically identical, one tree's disease can move through the whole grove. Choice C joins the two with \"but,\" so the trade-off is visible in a single sentence.\n\n**Why the other choices are wrong:**\n- A: It explains why growers graft rather than plant seed, which is background, not a trade-off.\n- B: It reports how long some varieties have been propagated and names neither side of the trade-off.\n- D: It gives only the cost, so the gain that makes it a trade-off is missing.",

@@ -40,17 +40,17 @@ export const practiceTest9RWM2Easy = {
       band: 2,
       domain: "craft-and-structure",
       skill: "words-in-context",
-      passage: "Emperor penguins breed on sea ice far from any research station, so counting them from the ground is slow and difficult. Satellite images offer a shortcut: the birds leave broad brown stains of guano on the white ice, and those patches show up plainly from orbit. Researchers now use the stains to ______ colonies that no one has ever visited, then estimate how many birds each one holds.",
+      passage: "A watermark is a design worked into a sheet of paper while the sheet is still wet: fine wires bent into a shape are sewn onto the papermaking mold, and the paper dries slightly thinner where the wires pressed against it. Held up to a light, the sheet shows the shape plainly. Because every mill bent its wires a little differently, scholars can use watermarks to ______ the workshop where an old sheet of paper was made.",
       question: "Which choice completes the text with the most logical and precise word or phrase?",
       choices: [
-        { id: "A", text: "abandon" },
-        { id: "B", text: "conceal" },
-        { id: "C", text: "locate" },
+        { id: "A", text: "avoid" },
+        { id: "B", text: "disguise" },
+        { id: "C", text: "identify" },
         { id: "D", text: "imitate" }
       ],
       correctAnswer: "C",
-      explanation: "**Choice C is correct.** The stains \"show up plainly from orbit\" and lead researchers to colonies \"no one has ever visited,\" so the blank needs a verb meaning to find - \"locate.\"\n\n**The Full Solution:**\n- How to spot it: read the whole sentence the blank sits in. The colonies are ones nobody has visited, so the action must be finding them in the first place.\n- Counting emperor penguins from the ground is hard because they breed far from any station, but their guano stains the white ice brown.\n- Because those stains are easy to see from space, researchers use them to find new colonies and only then estimate the number of birds - so \"locate\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Abandon\" is backward - the researchers are looking for colonies, not leaving them behind.\n- B: \"Conceal\" reverses the point: the stains reveal the colonies rather than hiding them.\n- D: \"Imitate\" makes no sense of what a satellite image lets a researcher do with a colony.",
-      _meta: { anchor: "satellite guano stains and penguin colony surveys" }
+      explanation: "**Choice C is correct.** Every mill bent its wires \"a little differently,\" so the mark points back to one particular workshop - the blank needs a verb meaning to pick out or name, which is \"identify.\"\n\n**The Full Solution:**\n- How to spot it: read the whole sentence the blank sits in. Scholars are using the mark to answer the question of WHERE an old sheet was made.\n- A watermark is a shape pressed into wet paper by bent wires, and the sheet shows that shape when held up to a light.\n- Because no two mills bent their wires exactly alike, the shape works like a signature: it lets scholars name the workshop, so \"identify\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Avoid\" is backward - scholars are trying to find the workshop, not stay away from it.\n- B: \"Disguise\" reverses the point: the watermark reveals the paper's origin rather than hiding it.\n- D: \"Imitate\" makes no sense of what a scholar does with a workshop by looking at a sheet of paper.",
+      _meta: { anchor: "watermarks in handmade paper as workshop signatures" }
     },
     {
       id: 957,
@@ -120,8 +120,8 @@ export const practiceTest9RWM2Easy = {
       question: "Which choice best describes the overall structure of the text?",
       choices: [
         { id: "A", text: "It describes how sediment builds land at a river's mouth and then explains how the river's shifting channels leave a record of its earlier courses." },
-        { id: "B", text: "It follows the course of a single river all the way from its headwaters down to the sea and lists the settlements that grew up along the route." },
-        { id: "C", text: "It contrasts deltas that form in freshwater lakes with those that form where a river meets the ocean." },
+        { id: "B", text: "It follows the course of a single river all the way from its mountain headwaters down to the sea and lists the settlements that grew up along its route." },
+        { id: "C", text: "It contrasts the deltas that form where rivers empty into freshwater lakes with the larger deltas that form where rivers meet the ocean." },
         { id: "D", text: "It argues that most of the sediment dropped at a river's mouth is eventually carried back upstream." }
       ],
       correctAnswer: "A",
@@ -139,7 +139,7 @@ export const practiceTest9RWM2Easy = {
       question: "Which choice best describes the overall structure of the text?",
       choices: [
         { id: "A", text: "It lists the working parts of a tower clock one by one and then describes how each of those parts was shaped by hand." },
-        { id: "B", text: "It compares the accuracy of pendulum clocks with the accuracy of modern electronic timekeepers." },
+        { id: "B", text: "It compares the accuracy of seventeenth-century pendulum clocks with the accuracy of the electronic timekeepers that eventually replaced them." },
         { id: "C", text: "It claims that early clockmakers deliberately hid their mechanisms' errors from the towns that paid for them." },
         { id: "D", text: "It explains why early clocks showed only hours and then identifies the improvement that made a minute hand worth adding." }
       ],
@@ -188,7 +188,7 @@ export const practiceTest9RWM2Easy = {
         { id: "A", text: "The soil is chosen for its pale color, which turns away most of the sun's light." },
         { id: "B", text: "The thick earth walls warm slowly, taking in heat during the day and releasing it after dark." },
         { id: "C", text: "The temporary wooden forms are left in place to shade the finished wall." },
-        { id: "D", text: "Narrow openings are built into the walls so that desert wind blows through the house all day." }
+        { id: "D", text: "Narrow openings are built into the walls so that desert wind blows through the house." }
       ],
       correctAnswer: "B",
       explanation: "**Choice B is correct.** The text says thick earth \"warms and cools slowly,\" taking in heat all day and giving it back only after dark.\n\n**The Full Solution:**\n- How to spot it: a \"why\" detail question is answered somewhere in the passage, not by your own reasoning. Find the sentence that states the cause and read it literally.\n- The passage says rammed-earth walls are built thick, and \"thick earth warms and cools slowly.\"\n- The colon then spells out the effect: the wall \"takes in heat all day and gives it back only after dark, once the outside air has turned cold\" - exactly Choice B.\n\n**Why the other choices are wrong:**\n- A: The soil's color is never mentioned; the passage credits the wall's thickness.\n- C: The forms are described as temporary and are not said to shade anything.\n- D: No openings or wind are mentioned; the comfort comes from the wall itself.",
@@ -204,8 +204,8 @@ export const practiceTest9RWM2Easy = {
       passage: "Mangrove trees grow in the salty mud of tropical coasts, their roots arching out of the water in a dense tangle. When a muddy tide washes through that tangle, the current slows and the fine particles it carries settle among the roots instead of drifting back out to sea. Layer by layer the trapped sediment lifts the mud around the trees, and the mangroves spread seaward onto the ground they have gathered. A coast lined with mangroves can therefore gain land where a bare shore would lose it.",
       question: "Which choice best states the main idea of the text?",
       choices: [
-        { id: "A", text: "Mangrove trees grow in the salty mud of tropical coasts and send arching roots out of the water." },
-        { id: "B", text: "The fine particles carried by a muddy tide are smaller and lighter than the sand found on open beaches." },
+        { id: "A", text: "Mangrove trees grow in the salty mud of tropical coasts, sending their arching roots up out of the water in a dense, interwoven tangle." },
+        { id: "B", text: "The fine particles that a muddy tide carries are smaller and lighter than the grains of sand found on open beaches." },
         { id: "C", text: "Bare tropical shorelines are losing ground to the sea more quickly than they did in the past." },
         { id: "D", text: "By slowing the tide and trapping sediment among their roots, mangroves build the coast upward and then spread onto the new ground." }
       ],
@@ -224,9 +224,9 @@ export const practiceTest9RWM2Easy = {
       question: "Which choice best states the main idea of the text?",
       choices: [
         { id: "A", text: "The descending-price clock at the Dutch flower auctions forces buyers to act at once, so the enormous number of lots can be sold before the flowers lose their value." },
-        { id: "B", text: "A large dial at the Dutch flower auctions starts well above any price a buyer would pay and sweeps downward toward zero." },
+        { id: "B", text: "A large dial at the Dutch flower auctions starts well above any price a buyer would be willing to pay and sweeps steadily downward toward zero until someone stops it." },
         { id: "C", text: "A buyer at the Dutch flower auctions presses a button in order to stop the pointer and claim a lot of flowers." },
-        { id: "D", text: "Because cut flowers lose their value quickly, growers in the Netherlands harvest their stems early in the morning." }
+        { id: "D", text: "Because cut flowers lose their value within hours, growers in the Netherlands harvest and ship their stems early in the morning." }
       ],
       correctAnswer: "A",
       explanation: "**Choice A is correct.** The passage explains that the falling-price clock makes buyers bid instantly, which is what lets thousands of perishable lots sell each morning.\n\n**The Full Solution:**\n- How to spot it: the main idea links the mechanism to its purpose. Look for the answer that carries both the how and the why.\n- The mechanism: the dial starts high and sweeps toward zero, and the first buyer to press a button takes the lot, so \"hesitating means losing the flowers\" and \"no one waits.\"\n- The purpose: \"the design suits a product that wilts,\" since thousands of consignments must sell each morning \"before the day's stems lose their value.\"\n\n**Why the other choices are wrong:**\n- B: The dial's starting figure is one detail of the mechanism, not the central point.\n- C: Pressing the button is a step in the process, not the idea the passage builds toward.\n- D: The passage says nothing about when growers harvest; that is invented.",
@@ -277,7 +277,7 @@ export const practiceTest9RWM2Easy = {
       },
       question: "Which choice most effectively uses data from the table to complete the statement?",
       choices: [
-        { id: "A", text: "brook was chosen by 30 percent of respondents in the West, its highest share in any region surveyed." },
+        { id: "A", text: "brook was chosen by 30 percent of respondents in the West, its highest share in any of the four regions surveyed." },
         { id: "B", text: "burn was chosen by 27 percent of respondents in the North, more than in any other region surveyed." },
         { id: "C", text: "creek was the most common choice in all four regions, from 51 percent in the North to 62 percent in the East." },
         { id: "D", text: "brook was chosen more often than creek in the West, where 30 percent of respondents preferred it." }
@@ -311,10 +311,10 @@ export const practiceTest9RWM2Easy = {
       },
       question: "Which choice most effectively uses data from the table to complete the statement?",
       choices: [
-        { id: "A", text: "North Head held 4,200 breeding pairs in 2010, fewer than any other colony recorded that year." },
+        { id: "A", text: "North Head held 4,200 breeding pairs in 2010, fewer than any other colony recorded along the coast that year." },
         { id: "B", text: "North Head rose from 4,200 breeding pairs to 5,100, while each of the other three colonies recorded fewer pairs in 2020 than in 2010." },
         { id: "C", text: "Seal Cove held 9,100 breeding pairs in 2010 and 7,600 in 2020, the largest count in both years." },
-        { id: "D", text: "Gull Rock and Long Beach both declined over the decade, a pattern shared by every colony on the coast." }
+        { id: "D", text: "Gull Rock and Long Beach both recorded fewer breeding pairs in 2020 than in 2010, a decline shared by every colony along this stretch of coast." }
       ],
       correctAnswer: "B",
       explanation: "**Choice B is correct.** The sentence says only one colony ended the decade larger, and the table shows North Head rising from 4,200 to 5,100 pairs while the other three fell.\n\n**The Full Solution:**\n- How to spot it: match the answer to the EXACT claim. The claim is about direction of change, so compare each colony's 2010 figure with its 2020 figure rather than ranking the columns.\n- North Head goes up (4,200 to 5,100). Gull Rock (6,800 to 5,400), Long Beach (3,500 to 2,900), and Seal Cove (9,100 to 7,600) all go down.\n- Choice B reports that one rise and the three declines, which is exactly the pattern the sentence describes.\n\n**Why the other choices are wrong:**\n- A: It misreads the 2010 column - Long Beach's 3,500 pairs is lower than North Head's 4,200 - and says nothing about change over the decade.\n- C: Seal Cove's figures are read correctly, but being the largest colony is not the claim; the claim is about which colony grew.\n- D: It is false as stated: North Head did not decline, so the pattern is not shared by every colony.",
@@ -483,12 +483,12 @@ export const practiceTest9RWM2Easy = {
       question: "Which choice completes the text with the most logical transition?",
       choices: [
         { id: "A", text: "However," },
-        { id: "B", text: "Therefore," },
+        { id: "B", text: "As a result," },
         { id: "C", text: "For example," },
-        { id: "D", text: "Likewise," }
+        { id: "D", text: "Similarly," }
       ],
       correctAnswer: "A",
-      explanation: "**Choice A is correct.** The passage flips from poles ruined in one season to poles that last fifty years, so the contrast word \"However\" is needed.\n\n**The Full Solution:**\n- How to spot it: for a transition, read the idea before the blank and the idea after, then ask whether they agree, oppose, or cause each other. Opposite outcomes need a contrast word.\n- Before the blank, untreated poles \"can be riddled with holes within a single season\" because beetles are drawn to their starch.\n- After the blank, treated poles \"lose that appeal to insects\" and last in roofs \"fifty years later.\" Ruined quickly versus lasting for decades is an opposition, so \"However\" fits.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would make the treated poles' durability a result of the untreated ones' destruction, which it is not.\n- C: \"For example\" would make treated poles an instance of beetle damage, but they are the opposite case.\n- D: \"Likewise\" signals similarity, and the two outcomes are unlike each other.",
+      explanation: "**Choice A is correct.** The passage flips from poles ruined in one season to poles that last fifty years, so the contrast word \"However\" is needed.\n\n**The Full Solution:**\n- How to spot it: for a transition, read the idea before the blank and the idea after, then ask whether they agree, oppose, or cause each other. Opposite outcomes need a contrast word.\n- Before the blank, untreated poles \"can be riddled with holes within a single season\" because beetles are drawn to their starch.\n- After the blank, treated poles \"lose that appeal to insects\" and last in roofs \"fifty years later.\" Ruined quickly versus lasting for decades is an opposition, so \"However\" fits.\n\n**Why the other choices are wrong:**\n- B: \"As a result\" would make the treated poles' durability an outcome of the untreated ones' destruction, which it is not.\n- C: \"For example\" would make treated poles an instance of beetle damage, but they are the opposite case.\n- D: \"Similarly\" signals similarity, and the two outcomes are unlike each other.",
       _meta: { anchor: "borax treatment of bamboo poles" }
     },
     {
@@ -504,10 +504,10 @@ export const practiceTest9RWM2Easy = {
         { id: "A", text: "Nevertheless," },
         { id: "B", text: "For example," },
         { id: "C", text: "As a result," },
-        { id: "D", text: "In contrast," }
+        { id: "D", text: "By comparison," }
       ],
       correctAnswer: "C",
-      explanation: "**Choice C is correct.** Late bidding is the behavior that follows from the incentives just described, so the cause-and-effect phrase \"As a result\" fits.\n\n**The Full Solution:**\n- How to spot it: if the second idea HAPPENS BECAUSE of the first, you need a cause-and-effect transition like \"as a result\" or \"so.\"\n- Before the blank, bidding early \"invites rivals to outbid him\" while waiting \"leaves those rivals no chance to answer\" - two reasons to hold back.\n- After the blank comes the behavior those reasons produce: experienced buyers \"enter no bid at all until the closing moments.\" That is an outcome, so \"As a result\" is correct.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals opposition, but sniping follows naturally from the incentives rather than clashing with them.\n- B: \"For example\" would make sniping an instance of something already stated, not the behavior the incentives cause.\n- D: \"In contrast\" signals opposition, which does not fit a cause-and-effect link.",
+      explanation: "**Choice C is correct.** Late bidding is the behavior that follows from the incentives just described, so the cause-and-effect phrase \"As a result\" fits.\n\n**The Full Solution:**\n- How to spot it: if the second idea HAPPENS BECAUSE of the first, you need a cause-and-effect transition like \"as a result\" or \"so.\"\n- Before the blank, bidding early \"invites rivals to outbid him\" while waiting \"leaves those rivals no chance to answer\" - two reasons to hold back.\n- After the blank comes the behavior those reasons produce: experienced buyers \"enter no bid at all until the closing moments.\" That is an outcome, so \"As a result\" is correct.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals opposition, but sniping follows naturally from the incentives rather than clashing with them.\n- B: \"For example\" would make sniping an instance of something already stated, not the behavior the incentives cause.\n- D: \"By comparison\" would weigh one bidding strategy against another, but the sentence reports an outcome, not a comparison.",
       _meta: { anchor: "last-second bidding on fixed-deadline auction sites" }
     },
     {
@@ -522,11 +522,11 @@ export const practiceTest9RWM2Easy = {
       choices: [
         { id: "A", text: "Consequently," },
         { id: "B", text: "Even so," },
-        { id: "C", text: "For instance," },
-        { id: "D", text: "In the same way," }
+        { id: "C", text: "In turn," },
+        { id: "D", text: "Granted," }
       ],
       correctAnswer: "B",
-      explanation: "**Choice B is correct.** The passage names a real weakness in the method and then keeps the method anyway, so it needs a concession word - \"Even so.\"\n\n**The Full Solution:**\n- How to spot it: when a passage admits a drawback and then holds on to the thing anyway, you need a yes-but transition like \"even so\" or \"nevertheless.\"\n- The sentence before the blank is the drawback: the echo \"depends on how each animal happens to be oriented,\" and a vertical krill \"sends back far less sound than one lying flat.\"\n- After the blank, the surveys \"remain the standard tool\" despite that flaw, because nets cannot cover the ground in time. Holding on in spite of a weakness calls for \"Even so.\"\n\n**Why the other choices are wrong:**\n- A: \"Consequently\" would make the method's continued use a result of its own unreliability, which is backward.\n- C: \"For instance\" would make the sentence an example of the orientation problem, but it reports the opposite - that the method is kept.\n- D: \"In the same way\" signals similarity, yet the two sentences pull against each other rather than matching.",
+      explanation: "**Choice B is correct.** The passage names a real weakness in the method and then keeps the method anyway, so it needs a concession word - \"Even so.\"\n\n**The Full Solution:**\n- How to spot it: when a passage admits a drawback and then holds on to the thing anyway, you need a yes-but transition like \"even so\" or \"nevertheless.\"\n- The sentence before the blank is the drawback: the echo \"depends on how each animal happens to be oriented,\" and a vertical krill \"sends back far less sound than one lying flat.\"\n- After the blank, the surveys \"remain the standard tool\" despite that flaw, because nets cannot cover the ground in time. Holding on in spite of a weakness calls for \"Even so.\"\n\n**Why the other choices are wrong:**\n- A: \"Consequently\" would make the method's continued use a result of its own unreliability, which is backward.\n- C: \"In turn\" would present the sentence as the next step in a causal chain, but the sentence pushes back against the drawback rather than following from it.\n- D: \"Granted\" introduces the admission of a weakness, but the weakness was already admitted in the previous sentence; the blank sentence answers it instead.",
       _meta: { anchor: "acoustic surveys of krill swarms" }
     },
     {
@@ -552,8 +552,8 @@ export const practiceTest9RWM2Easy = {
       choices: [
         { id: "A", text: "Because the last leg to a village clinic is made by motorcycle or on foot, the vaccines ride in unpowered insulated carriers that hold their temperature only for a set number of hours, so a delay on a bad road can spoil a batch." },
         { id: "B", text: "Most childhood vaccines must be held between 2 and 8 degrees Celsius from the factory until the moment they are given to a child." },
-        { id: "C", text: "Regional vaccine warehouses rely on large refrigerators backed by standby generators, and the temperatures inside them are monitored continuously around the clock." },
-        { id: "D", text: "Freezing ruins some vaccines as thoroughly as heat does, which is why the cooled water packs are conditioned before they are packed." }
+        { id: "C", text: "Regional vaccine warehouses rely on large refrigerators backed by standby generators, and the temperatures inside them are monitored continuously around the clock so that any lapse in cooling triggers an immediate alarm for the warehouse staff." },
+        { id: "D", text: "Freezing ruins some vaccines as thoroughly as heat does, which is why the cooled water packs must be conditioned before they are packed rather than taken straight from a freezer." }
       ],
       correctAnswer: "A",
       explanation: "**Choice A is correct.** The goal is to explain why the last stage is hardest to control, and Choice A names what makes it hard: no power, a carrier good for only a few hours, and a road that can delay the trip.\n\n**The Full Solution:**\n- How to spot it: in a notes question, the goal sentence is the whole assignment. This one asks specifically about the FINAL stage, so the answer must be about that stage and about why it is difficult.\n- Choice A links three notes: the last leg travels by motorcycle or on foot, the carriers are unpowered and hold temperature only for a set number of hours, and \"a delay on a bad road can spoil an entire batch.\"\n- That gives a newcomer both what happens on the final leg and why it is the fragile part of the chain.\n\n**Why the other choices are wrong:**\n- B: It states the temperature requirement for the whole journey without saying anything about the final stage.\n- C: It describes the warehouse stage, which the notes present as the well-controlled part of the chain.\n- D: It reports one handling precaution, but it does not explain why the last leg is hardest to control.",
@@ -580,9 +580,9 @@ export const practiceTest9RWM2Easy = {
       },
       question: "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       choices: [
-        { id: "A", text: "Fieldworkers building a dialect atlas interview speakers in hundreds of separate localities, asking the same list of questions at every stop." },
+        { id: "A", text: "Fieldworkers building a dialect atlas interview speakers in hundreds of separate localities across a region, asking exactly the same list of survey questions at every stop along the way." },
         { id: "B", text: "Because the interviews take years to finish, a dialect atlas records a region's speech as it stood when the project began." },
-        { id: "C", text: "Early dialect atlases favored older speakers who had spent their whole lives in one place, since their speech was assumed to be the most conservative." },
+        { id: "C", text: "Early dialect atlases favored older speakers who had spent their whole lives in a single place, since their speech was assumed to preserve the most conservative forms the fieldworkers could still hope to record." },
         { id: "D", text: "An isogloss is a line drawn on a dialect map between the area that uses one word or pronunciation and the area that uses another; where many such lines run close together, the map shows a dialect boundary." }
       ],
       correctAnswer: "D",

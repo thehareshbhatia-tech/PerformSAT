@@ -39,28 +39,28 @@ export const practiceTest7RW = {
           "band": 2,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "In the tropical forests of Mexico and beyond, the gradual loss of animal populations from places where no species has yet gone extinct is reshaping the plant life. Ecologists call this quiet crisis \"defaunation.\" Field studies suggest that the decline ______ plant communities well before any extinctions are recorded: when large seed-dispersing animals disappear, trees with big seeds fail to spread, and the forest's composition slowly tilts toward smaller-seeded plants.",
+          "passage": "A violin's voice depends less on any single part than on how all of its parts respond together. Luthiers know that two instruments built from the same plans, with wood cut from the same tree, can still sound noticeably different. Because so many small variations in carving and assembly ______ the finished tone, even experienced makers cannot fully predict how a new instrument will sound until it is strung and played.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
               "id": "A",
-              "text": "damages"
+              "text": "conceal"
             },
             {
               "id": "B",
-              "text": "preserves"
+              "text": "predict"
             },
             {
               "id": "C",
-              "text": "examines"
+              "text": "restore"
             },
             {
               "id": "D",
-              "text": "alters"
+              "text": "influence"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The passage describes a gradual change in the makeup of the forest - large-seeded trees give way to smaller-seeded plants - so the decline \"alters\" plant communities.\n\n**The Full Solution:**\n- How to spot it: cover the choices and predict your own word from the clues, then match. The clue words here are \"reshaping\" and \"slowly tilts toward\" - both signal a change, not harm.\n- The text frames the loss of animals as reshaping plant life - a change in what kinds of plants there are, not destruction.\n- When large seed-dispersing animals disappear, trees with big seeds fail to spread and the forest \"slowly tilts toward smaller-seeded plants\" - a shift. \"Alters\" means exactly that: changes.\n\n**Why the other choices are wrong:**\n- A: \"Damages\" is too strong - the text describes a shift in which plants grow, not harm.\n- B: \"Preserves\" is the opposite of what happens - the forest's makeup is changing, not being kept the same.\n- C: \"Examines\" makes no sense for a process acting on the forest; the decline reshapes plant life, it does not study it."
+          "explanation": "**Choice D is correct.** The passage says two violins built from the same plans can sound different because of small variations in carving and assembly, so those variations \"influence\" - have an effect on - the finished tone.\n\n**The Full Solution:**\n- How to spot it: cover the choices and predict your own word from the clues, then match. The clue is that identical plans still yield different-sounding instruments, so the small variations must affect the sound.\n- The opening says a violin's voice depends on how all the parts respond together, and the middle sentence shows the result: same plans, same tree, different sound.\n- If many small differences in the making can change the outcome, they \"influence\" the finished tone - which is also why makers cannot fully predict the sound in advance.\n\n**Why the other choices are wrong:**\n- A: \"Conceal\" would mean the variations hide the tone, but the passage is about what shapes the tone, not what covers it up.\n- B: \"Predict\" belongs to the makers, not to the variations; wood carving cannot forecast anything.\n- C: \"Restore\" would mean bringing back a tone that was lost, and nothing in the passage has been lost."
         },
         {
           "id": 702,
@@ -301,7 +301,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "B",
-              "text": "Charters issued by European traders that were used to regulate the markets operating throughout the region."
+              "text": "Charters issued by European traders that were later used to regulate the many organized markets operating throughout the region."
             },
             {
               "id": "C",
@@ -357,7 +357,7 @@ export const practiceTest7RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Groups that face discrimination always respond quickly to crises that threaten their most vulnerable members."
+              "text": "Groups that face discrimination almost always respond quickly and forcefully to crises that threaten their most vulnerable members."
             },
             {
               "id": "B",
@@ -365,7 +365,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "C",
-              "text": "Researchers continue to disagree sharply about whether the stigmatized members of any marginalized group ought to be actively defended during a moment of public crisis."
+              "text": "Researchers continue to disagree sharply about whether the stigmatized members of any marginalized group ought to be actively and publicly defended during a moment of public crisis."
             },
             {
               "id": "D",
@@ -457,7 +457,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "B",
-              "text": "in 1980 the wolf count of 14 was near the low end of the series and the moose count of 664 was likewise modest, showing both populations falling together."
+              "text": "in 1980 the wolf count of 14 was near the low end of the series and the moose count of 664 was likewise modest, showing the two populations falling together rather than moving apart."
             },
             {
               "id": "C",
@@ -465,7 +465,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "D",
-              "text": "in 1990 the wolves and moose were recorded at 16 and 1,216 respectively, a year when both species sustained relatively healthy counts."
+              "text": "in 1990 the wolves and moose were recorded at 16 and 1,216 respectively, a year in which both species sustained relatively healthy and stable counts."
             }
           ],
           "correctAnswer": "C",
@@ -797,15 +797,15 @@ export const practiceTest7RW = {
             },
             {
               "id": "C",
-              "text": "Likewise,"
+              "text": "Until then,"
             },
             {
               "id": "D",
-              "text": "For example,"
+              "text": "Specifically,"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage flips from the old, slow, unreliable method of gene editing to a new system that is fast and accurate, so the contrast linking word \"However\" fits.\n\n**The Full Solution:**\n- How to spot it: cover the choices, read the sentence before and the sentence after, and decide the relationship in plain words. Opposite ideas (old-bad versus new-good) call for a contrast word like \"however\" or \"but.\"\n- Before the blank: editing a gene was slow and costly, taking months and giving unreliable results.\n- After the blank: a reprogrammable RNA-guided system cuts almost any DNA sequence quickly and accurately.\n- The two ideas clash, so \"However\" is the right contrast signal.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" signals a result, as if the new system was caused by the old method's trouble - that is not the link.\n- C: \"Likewise\" signals the two ideas are similar, but they are opposites.\n- D: \"For example\" introduces an illustration of the previous point, not the contrast the sentence sets up."
+          "explanation": "**Choice A is correct.** The passage flips from the old, slow, unreliable method of gene editing to a new system that is fast and accurate, so the contrast linking word \"However\" fits.\n\n**The Full Solution:**\n- How to spot it: cover the choices, read the sentence before and the sentence after, and decide the relationship in plain words. Opposite ideas (old-bad versus new-good) call for a contrast word like \"however\" or \"but.\"\n- Before the blank: editing a gene was slow and costly, taking months and giving unreliable results.\n- After the blank: a reprogrammable RNA-guided system cuts almost any DNA sequence quickly and accurately.\n- The two ideas clash, so \"However\" is the right contrast signal.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" signals a result, as if the new system was caused by the old method's trouble - that is not the link.\n- C: \"Until then\" would say the new system was what scientists relied on before 2012, reversing the timeline: the reprogrammable system is what ended the old approach, not what preceded it.\n- D: \"Specifically\" promises a more precise statement of the point just made, but the sentence introduces a new development rather than narrowing the old one."
         },
         {
           "id": 724,
@@ -827,15 +827,15 @@ export const practiceTest7RW = {
             },
             {
               "id": "C",
-              "text": "In fact,"
+              "text": "Indeed,"
             },
             {
               "id": "D",
-              "text": "Meanwhile,"
+              "text": "That said,"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The second sentence reports field data that strikingly confirm the prediction made in the first, and \"In fact\" introduces a statement that backs up and strengthens what came before.\n\n**The Full Solution:**\n- How to spot it: name the link in plain words first. Here the second sentence proves the first one true - that calls for a confirming word like \"in fact,\" not a contrast word.\n- First sentence: a chemist proposed that reactions on polar-cloud surfaces would turn chlorine compounds into ozone-destroying forms.\n- Second sentence: field campaigns \"detected exactly\" the elevated reactive chlorine her idea predicted, in precisely the regions and seasons predicted.\n- The data confirm and reinforce the prediction, so \"In fact\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals a contrast that is not there, since the data support rather than challenge the idea.\n- B: \"Otherwise\" introduces an alternative or what-would-happen-instead, not a confirmation.\n- D: \"Meanwhile\" just marks two things happening at the same time, not the confirming force of the evidence."
+          "explanation": "**Choice C is correct.** The second sentence reports field data that strikingly confirm the prediction made in the first, and \"Indeed\" introduces a statement that backs up and strengthens what came before.\n\n**The Full Solution:**\n- How to spot it: name the link in plain words first. Here the second sentence proves the first one true - that calls for a confirming word like \"indeed,\" not a contrast word.\n- First sentence: a chemist proposed that reactions on polar-cloud surfaces would turn chlorine compounds into ozone-destroying forms.\n- Second sentence: field campaigns \"detected exactly\" the elevated reactive chlorine her idea predicted, in precisely the regions and seasons predicted.\n- The data confirm and reinforce the prediction, so \"Indeed\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals a contrast that is not there, since the data support rather than challenge the idea.\n- B: \"Otherwise\" introduces an alternative or what-would-happen-instead, not a confirmation.\n- D: \"That said\" concedes the point just made before qualifying it, but the field data reinforce the prediction rather than qualify it."
         },
         {
           "id": 725,
@@ -889,7 +889,7 @@ export const practiceTest7RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Eunice Newton Foote, an American scientist and advocate for women’s rights, carried out an experiment using glass cylinders filled with different gases in 1856."
+              "text": "Eunice Newton Foote, an American scientist and advocate for women’s rights, carried out an experiment using glass cylinders in 1856."
             },
             {
               "id": "B",
@@ -961,28 +961,28 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "In a forest, the fine threads of mycorrhizal fungi link the roots of many trees into a shared underground web. Experiments using labeled carbon have shown that sugars made by one tree can turn up in the roots of a neighbor, evidence that the fungal network does not simply store nutrients in one place but actively ______ them among the trees it connects, at times moving resources toward seedlings shaded on the forest floor.",
+          "passage": "The following text is adapted from Miriam Voss's 1911 novel The Cartographer's Daughter. Leonie has taken over her late father's map shop.\n\nCustomers who had dealt with her father for thirty years came in expecting to instruct her, and she received their advice with a patience she did not feel. It was simpler to nod than to explain that she had drafted half the charts they praised him for; her competence, so long ______ to her father, would in time speak for itself.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
               "id": "A",
-              "text": "withholds"
+              "text": "confided"
             },
             {
               "id": "B",
-              "text": "redistributes"
+              "text": "attributed"
             },
             {
               "id": "C",
-              "text": "produces"
+              "text": "submitted"
             },
             {
               "id": "D",
-              "text": "catalogs"
+              "text": "apparent"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The passage stresses that the network does not just store nutrients but moves them \"among\" many trees and \"toward\" shaded seedlings, so \"redistributes\" - spreading resources from place to place - is precise.\n\n**The Full Solution:**\n- How to spot it: predict your own word from the clues before reading the choices. The clue words \"among\" and \"toward\" point to moving things around, so look for a word about spreading or sharing.\n- Labeled-carbon experiments show sugars made by one tree turning up in a neighbor's roots.\n- The sentence sets simple storage in one spot against the network's active movement of resources among connected trees and toward shaded seedlings.\n- \"Redistributes\" means exactly that: spreading resources from one place to another.\n\n**Why the other choices are wrong:**\n- A: \"Withholds\" means to hold back - the opposite of moving resources around.\n- C: \"Produces\" wrongly makes the fungi the source of the carbon, but the trees are the ones that make it.\n- D: \"Catalogs\" means to record or list, not to move resources."
+          "explanation": "**Choice B is correct.** The key clue is that customers praised her father for charts Leonie herself had drafted - her skill was being credited to him - and \"attributed\" means assigned or credited to someone.\n\n**The Full Solution:**\n- How to spot it: let the semicolon's first half define the blank. \"She had drafted half the charts they praised him for\" tells you the work was hers but the credit was his.\n- The blank describes what happened to her competence \"so long\" - for years, it was counted as her father's.\n- Credit assigned to the wrong person is competence \"attributed\" to him, and the closing promise that it \"would in time speak for itself\" confirms the issue is recognition.\n\n**Why the other choices are wrong:**\n- A: \"Confided\" means entrusted as a secret, but her competence was not a secret shared with her father; it was mistaken for his.\n- C: \"Submitted\" means handed over for approval, and nothing in the passage has Leonie seeking her father's approval.\n- D: \"Apparent\" would mean only that her father could see her skill, but the sentence is about the customers crediting him for work that was hers, not about what he privately noticed."
         },
         {
           "id": 729,
@@ -1223,11 +1223,11 @@ export const practiceTest7RW = {
             },
             {
               "id": "B",
-              "text": "Archaeologists have so far used multispectral satellite imagery mainly to identify the many pits left behind by looters at archaeological sites located within active conflict zones."
+              "text": "Archaeologists have so far used multispectral satellite imagery mainly to identify the many pits left behind by looters at archaeological sites located within active conflict zones around the world."
             },
             {
               "id": "C",
-              "text": "Buried walls change the color of the vegetation directly above them far more reliably than they ever change the drainage of the surrounding soil."
+              "text": "Buried stone walls change the color of the vegetation directly above them far more reliably than they ever change the drainage of the soil that surrounds them."
             },
             {
               "id": "D",
@@ -1249,7 +1249,7 @@ export const practiceTest7RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The Chinese research program first screened many hundreds of different plant extracts before it eventually turned for guidance to a large body of historical medical texts."
+              "text": "The Chinese research program first screened hundreds of plant extracts before it eventually turned for guidance to a large body of historical medical texts."
             },
             {
               "id": "B",
@@ -1373,11 +1373,11 @@ export const practiceTest7RW = {
           "choices": [
             {
               "id": "A",
-              "text": "biomass fell from 180 kt in 1960 to 12 kt in 2010, a cumulative reduction of more than 90 percent over the period studied."
+              "text": "biomass fell from 180 kt in 1960 to 12 kt in 2010, a cumulative reduction of more than 90 percent across the full half-century covered by the assessments."
             },
             {
               "id": "B",
-              "text": "the 1960-to-1970 interval saw biomass drop by 110 kt, the largest absolute decline of any decade in the series."
+              "text": "the 1960-to-1970 interval saw biomass drop by 110 kt, by a wide margin the largest absolute decline of any decade in the series."
             },
             {
               "id": "C",
@@ -1385,7 +1385,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "D",
-              "text": "the per-decade losses grew from 15 kt between 1970 and 1980 to a peak of 110 kt between 1960 and 1970, indicating an intensifying decline."
+              "text": "the per-decade losses grew from 15 kt between 1970 and 1980 to a peak of 110 kt between 1960 and 1970, a pattern indicating a steadily intensifying decline."
             }
           ],
           "correctAnswer": "C",
@@ -1713,7 +1713,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "B",
-              "text": "Therefore,"
+              "text": "Indeed,"
             },
             {
               "id": "C",
@@ -1721,11 +1721,11 @@ export const practiceTest7RW = {
             },
             {
               "id": "D",
-              "text": "For example,"
+              "text": "By comparison,"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage sets the long-held belief that continents and ocean floors were fixed and unchanging against survey results showing the seafloor is constantly created and spreading, so the contrast word \"However\" fits.\n\n**The Full Solution:**\n- How to spot it: read both sides and name the link in plain words. Old belief versus new evidence that overturns it is a clash, so you need a contrast word like \"however\" or \"but.\"\n- Before the blank: most geologists held that continents were permanently fixed and ocean floors were ancient, barely changing surfaces.\n- After the blank: magnetic surveys found the seafloor grows younger toward mid-ocean ridges, evidence that new crust forms and spreads, carrying the continents.\n- The new evidence reverses the old belief, so \"However\" marks the contrast.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" makes the surveys sound like a result of the old belief, which flips the logic.\n- C: \"As a result\" also wrongly makes the surveys a consequence of the old view.\n- D: \"For example\" would introduce an illustration of the old belief, not evidence against it."
+          "explanation": "**Choice A is correct.** The passage sets the long-held belief that continents and ocean floors were fixed and unchanging against survey results showing the seafloor is constantly created and spreading, so the contrast word \"However\" fits.\n\n**The Full Solution:**\n- How to spot it: read both sides and name the link in plain words. Old belief versus new evidence that overturns it is a clash, so you need a contrast word like \"however\" or \"but.\"\n- Before the blank: most geologists held that continents were permanently fixed and ocean floors were ancient, barely changing surfaces.\n- After the blank: magnetic surveys found the seafloor grows younger toward mid-ocean ridges, evidence that new crust forms and spreads, carrying the continents.\n- The new evidence reverses the old belief, so \"However\" marks the contrast.\n\n**Why the other choices are wrong:**\n- B: \"Indeed\" would present the survey findings as confirming the old belief, but they overturn it.\n- C: \"As a result\" wrongly makes the surveys a consequence of the old view.\n- D: \"By comparison\" would set the survey results beside the old belief as parallel observations, but the results contradict that belief rather than sitting alongside it."
         },
         {
           "id": 751,
@@ -1751,11 +1751,11 @@ export const practiceTest7RW = {
             },
             {
               "id": "D",
-              "text": "Meanwhile,"
+              "text": "Ultimately,"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The satellite measurements in the second sentence are what let researchers separate real sea-level change from land movement, so the third sentence states a result and \"As a result\" fits.\n\n**The Full Solution:**\n- How to spot it: name the link in plain words. The third sentence is what the new satellites made possible - an effect of the previous sentence - so you need a result word like \"as a result\" or \"so.\"\n- Older tide gauges fixed to coastlines could be thrown off by the land's slow rise or sinking.\n- Since the 1990s, satellite instruments measure the open-ocean surface directly and continuously.\n- Because of those satellites, researchers can now separate genuine sea-level change from land movement - a cause-and-effect outcome that \"As a result\" marks.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" would mark a contrast that is not there.\n- C: \"For instance\" would introduce an example, not an outcome.\n- D: \"Meanwhile\" would signal two things happening at once, not the cause-and-effect link the passage draws."
+          "explanation": "**Choice B is correct.** The satellite measurements in the second sentence are what let researchers separate real sea-level change from land movement, so the third sentence states a result and \"As a result\" fits.\n\n**The Full Solution:**\n- How to spot it: name the link in plain words. The third sentence is what the new satellites made possible - an effect of the previous sentence - so you need a result word like \"as a result\" or \"so.\"\n- Older tide gauges fixed to coastlines could be thrown off by the land's slow rise or sinking.\n- Since the 1990s, satellite instruments measure the open-ocean surface directly and continuously.\n- Because of those satellites, researchers can now separate genuine sea-level change from land movement - a cause-and-effect outcome that \"As a result\" marks.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" would mark a contrast that is not there.\n- C: \"For instance\" would introduce an example, not an outcome.\n- D: \"Ultimately\" would mark the end point of a long development, but the sentence names a direct consequence of the satellite measurements, not a distant eventual state."
         },
         {
           "id": 752,
@@ -1769,7 +1769,7 @@ export const practiceTest7RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Nevertheless,"
+              "text": "Alternatively,"
             },
             {
               "id": "B",
@@ -1785,7 +1785,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The DNA-based method in the previous sentence is what makes it possible for a handful of soil to reveal dozens of species, so the final sentence states a result and \"As a result\" fits.\n\n**The Full Solution:**\n- How to spot it: decide the link in plain words. The last sentence is what the new DNA method makes possible - an effect - so use a result word like \"as a result\" or \"so.\"\n- Older surveys meant waiting for mushrooms to appear and naming each one by eye.\n- Newer methods pull fungal DNA straight from soil and match it against reference libraries.\n- Because of that method, a single handful of soil can now reveal dozens of species that mushroom-watching would have missed - an outcome \"As a result\" marks.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" would mark a contrast the passage does not set up.\n- B: \"Otherwise\" would introduce a what-would-happen-instead, not a result.\n- C: \"For example\" would signal an illustration rather than the outcome the new method produces."
+          "explanation": "**Choice D is correct.** The DNA-based method in the previous sentence is what makes it possible for a handful of soil to reveal dozens of species, so the final sentence states a result and \"As a result\" fits.\n\n**The Full Solution:**\n- How to spot it: decide the link in plain words. The last sentence is what the new DNA method makes possible - an effect - so use a result word like \"as a result\" or \"so.\"\n- Older surveys meant waiting for mushrooms to appear and naming each one by eye.\n- Newer methods pull fungal DNA straight from soil and match it against reference libraries.\n- Because of that method, a single handful of soil can now reveal dozens of species that mushroom-watching would have missed - an outcome \"As a result\" marks.\n\n**Why the other choices are wrong:**\n- A: \"Alternatively\" would introduce a different option in place of the DNA method, but the sentence reports what that method now makes possible, not a substitute for it.\n- B: \"Otherwise\" would introduce a what-would-happen-instead, not a result.\n- C: \"For example\" would signal an illustration rather than the outcome the new method produces."
         },
         {
           "id": 753,
@@ -1813,7 +1813,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "B",
-              "text": "Af Klint deliberately kept most of her many abstract works entirely private and asked that they not be publicly exhibited until several full decades had passed after her own death."
+              "text": "Af Klint, who had trained at the Royal Academy of Fine Arts in Stockholm, deliberately kept most of her many abstract works private and asked that they not be publicly exhibited until several full decades had passed after her own death in 1944."
             },
             {
               "id": "C",
@@ -1853,7 +1853,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "B",
-              "text": "Establishing a national historic site at Sand Creek ended up taking well over a century, in part because the various parties involved disagreed quite sharply about the meaning of the events."
+              "text": "Establishing a national historic site at Sand Creek ended up taking well over a century, in part because the federal agencies, the military, and the descendant communities involved disagreed quite sharply about the meaning of the events."
             },
             {
               "id": "C",

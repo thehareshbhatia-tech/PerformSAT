@@ -168,7 +168,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "B",
-              "text": "It describes a fossil-collecting technique and then explains why other researchers have found that technique difficult to reproduce."
+              "text": "It describes a technique for collecting fossilized flowers and then explains why other researchers have found that technique difficult to reproduce."
             },
             {
               "id": "C",
@@ -176,7 +176,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "D",
-              "text": "It traces the gradual acceptance of Friis's theory and then notes the objections that her critics have continued to raise."
+              "text": "It traces the gradual acceptance of Friis's theory among paleobotanists and then details the objections that skeptical critics of her fossil interpretations have continued to raise."
             }
           ],
           "correctAnswer": "C",
@@ -198,11 +198,11 @@ export const practiceTest1RW = {
             },
             {
               "id": "B",
-              "text": "To compare the hearing ranges of bats and whales with the hearing range of human beings."
+              "text": "To compare the hearing ranges of bats and whales with the far narrower hearing range of human beings."
             },
             {
               "id": "C",
-              "text": "To argue that software analysis has made the direct observation of animals largely unnecessary."
+              "text": "To argue that automated software analysis has made the direct observation of animals in the field largely unnecessary."
             },
             {
               "id": "D",
@@ -236,7 +236,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "D",
-              "text": "It reports a surprising discovery about coastlines and then traces the history of the instruments that produced it."
+              "text": "It reports a surprising discovery about sinking coastlines and then traces the long history of the instruments that produced it."
             }
           ],
           "correctAnswer": "C",
@@ -271,7 +271,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "C",
-              "text": "He would concede that the settlement of the Pacific was largely accidental but propose that only its final stages involved any deliberate navigation."
+              "text": "He would concede that the settlement of the Pacific was largely accidental but propose that only its final stages, after the major island groups had already been reached by chance, involved any deliberate navigation."
             },
             {
               "id": "D",
@@ -288,28 +288,28 @@ export const practiceTest1RW = {
           "band": 2,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "In 1978, while working at the Laetoli site in northern Tanzania, paleoanthropologist Mary Leakey uncovered a trail of fossilized footprints that offered uncommonly direct evidence of upright walking in early hominins. The prints had been preserved in fine volcanic ash that hardened soon after a nearby eruption roughly 3.6 million years ago. In her 1979 report on the site, Leakey described the prints as showing a clearly modern stride, with weight transferring from heel to toe along an arched foot, rather than the shuffling gait that some researchers had attributed to hominins of that period. Because the footprints recorded behavior rather than anatomy, they provided a kind of evidence that fossilized bones alone could not supply, demonstrating that habitual bipedal locomotion was already established in hominins more than three million years ago.",
+          "passage": "The following text is adapted from Marguerite Ellison's 1902 novel The Glass Verandah. The narrator recalls a winter from her childhood.\n\nAunt Sophronia arrived with four trunks and a settled conviction that our household was managed all wrong. Within a week she had rearranged the pantry, dismissed the grocer's boy for whistling, and drawn up a schedule of meals that admitted no variation. My mother bore these reforms with a patience I could not then account for; only years afterward did I understand that she had simply been waiting, certain that by spring the trunks would be packed again and the pantry would drift comfortably back into its old disorder.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "The Laetoli footprints were preserved in a layer of fine volcanic ash that hardened soon after a nearby eruption roughly 3.6 million years ago."
+              "text": "Aunt Sophronia's arrival obliged the narrator's family to adopt a rigid schedule of meals that admitted no variation and to accept a complete reorganization of the pantry."
             },
             {
               "id": "B",
-              "text": "Leakey argued that fossilized footprints generally provide less reliable evidence of early hominin behavior than fossilized bones do."
+              "text": "The narrator regrets that no one in the family defended the grocer's boy or the household's old routines against Aunt Sophronia's sweeping reforms."
             },
             {
               "id": "C",
-              "text": "Leakey's 1979 report concluded that the Laetoli footprints recorded a shuffling gait rather than a clearly modern walking stride."
+              "text": "The narrator's mother confronted Aunt Sophronia directly and persuaded her to give up her reorganization of the household."
             },
             {
               "id": "D",
-              "text": "Leakey's 1978 discovery of fossilized footprints at Laetoli supplied uncommonly direct evidence that habitual bipedal locomotion was already established in early hominins more than three million years ago."
+              "text": "Looking back, the narrator understands that her mother tolerated Aunt Sophronia's reforms because she knew the visit, and the changes that came with it, would not last."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** It names both the discovery and the big-picture point it supported: Leakey's 1978 footprints gave unusually direct evidence that early hominins were already walking upright more than three million years ago.\n\n**The Full Solution:**\n- To find the main idea, look for the sentence the rest of the passage is built to support. Here it's the opening: Leakey's footprint find gave uncommonly direct evidence of upright walking in early hominins.\n- Everything after just backs that up - how the prints were preserved (volcanic ash, ~3.6 million years ago), what they showed (a modern heel-to-toe stride), and why footprints matter (they record behavior, not just bones).\n- The right answer captures that big claim without zooming in on one detail. Choice D does.\n\n**Why the other choices are wrong:**\n- A: It gives only one supporting detail - the ash preservation - not the main idea.\n- B: It twists the text: footprints gave evidence bones could not, not that footprints are less reliable than bones.\n- C: It reports the shuffling walk Leakey actually rejected; she described a clearly modern stride."
+          "explanation": "**Choice D is correct.** It captures the point the whole memory builds to: the mother put up with the reforms because she knew they were temporary.\n\n**The Full Solution:**\n- To find the main idea, look for the sentence the rest of the passage exists to set up. Here it's the last one: the mother \"had simply been waiting,\" certain that by spring the trunks would be packed and the pantry would slide back into its old disorder.\n- The earlier sentences supply the setup - the aunt's arrival, the rearranged pantry, the dismissed grocer's boy, the unvarying meal schedule - and the mother's puzzling patience.\n- The narrator says she understood that patience \"only years afterward,\" so the passage is a looking-back realization: the mother endured the reforms because they would not last. Choice D states exactly that.\n\n**Why the other choices are wrong:**\n- A: It lists the aunt's reforms - supporting details - without the mother's patience or the reason behind it.\n- B: It invents a regret about defending the grocer's boy that the narrator never expresses.\n- C: It contradicts the text: the mother never confronts the aunt - her whole strategy is to wait."
         },
         {
           "id": 110,
@@ -378,28 +378,28 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
-          "passage": "Forest ecologist Suzanne Simard has proposed that trees are linked below ground by networks of fungal threads, and that older \"hub\" trees can pass carbon through these connections to nearby seedlings growing in shade. A research team wants to test the more specific claim that this carbon moves preferentially toward shaded seedlings rather than being shared at random among a hub tree's neighbors.",
+          "passage": "Economists have proposed that \"buy now, pay later\" installment plans raise total retail spending not by drawing in shoppers who would otherwise never buy but by loosening the restraint of shoppers already at the checkout. A research team wants to test the more specific claim that installment options prompt shoppers who came intending to buy one item to add further purchases they had not planned.",
           "question": "Which finding, if true, would most directly support the team's hypothesis?",
           "choices": [
             {
               "id": "A",
-              "text": "Shaded seedlings linked to a hub tree received measurably more of that tree's labeled carbon than equally linked seedlings growing in full sunlight did."
+              "text": "Shoppers randomly offered an installment option added unplanned items to their orders at a higher rate than shoppers offered only full-price checkout, while both groups bought their originally intended items at the same rate."
             },
             {
               "id": "B",
-              "text": "Seedlings cut off from the fungal network grew more slowly than seedlings that remained connected to it."
+              "text": "Retailers that introduced installment plans recorded higher total sales in the following quarter than retailers of similar size that did not offer the plans."
             },
             {
               "id": "C",
-              "text": "Hub trees were found to host a wider variety of fungal species on their roots than younger trees did."
+              "text": "Shoppers who selected an installment option were considerably more likely than other shoppers to be making their first purchase from the retailer, suggesting the plans drew in customers who had not previously shopped there at all."
             },
             {
               "id": "D",
-              "text": "Carbon labeled in a hub tree's leaves appeared in the surrounding fungal threads within a few days."
+              "text": "Most shoppers who chose an installment plan reported in follow-up surveys that they found the payment schedule straightforward to understand."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The claim being tested is that carbon flows MORE to shaded seedlings than to others, so the right evidence has to compare shaded and sunlit seedlings - and A shows the shaded ones getting \"measurably more.\"\n\n**The Full Solution:**\n- First nail down the exact claim. It's narrow: carbon goes preferentially to shaded seedlings, not shared evenly among all of a tree's neighbors.\n- To support \"prefers shaded ones,\" the evidence must put shaded against sunlit and show shaded winning. Anything that doesn't make that head-to-head comparison can't support it.\n- Choice A makes exactly that comparison: equally connected shaded seedlings got more of the tree's labeled carbon than seedlings in full sun. That's the proof the claim needs.\n\n**Why the other choices are wrong:**\n- B: It only shows the network helps growth, not that carbon favors shaded seedlings.\n- C: It's about how many fungus types are present, which says nothing about where carbon goes.\n- D: It shows carbon entering the network but not that it heads toward shaded seedlings in particular."
+          "explanation": "**Choice A is correct.** The claim being tested is that installment options make shoppers who already meant to buy ADD purchases they hadn't planned, so the right evidence has to compare add-on buying with and without the option - and A shows exactly that difference.\n\n**The Full Solution:**\n- First nail down the exact claim. It's narrow: the plans work on shoppers already at the checkout, prompting unplanned additions - not by bringing in new customers.\n- To support that, the evidence must hold everything else steady and show more unplanned additions when the option is present. A choice that doesn't isolate the add-on behavior can't support it.\n- Choice A makes the clean comparison: with the option, shoppers added unplanned items at a higher rate, while planned purchases stayed the same in both groups. That's the add-on effect the claim predicts.\n\n**Why the other choices are wrong:**\n- B: A rise in total sales could come from new customers, larger planned purchases, or anything else - it doesn't show unplanned additions.\n- C: It supports the rival mechanism the claim rules out - that the plans attract first-time customers rather than loosening existing shoppers' restraint.\n- D: Whether the schedule is easy to understand says nothing about whether shoppers added items they hadn't planned to buy."
         },
         {
           "id": 113,
@@ -463,15 +463,15 @@ export const practiceTest1RW = {
             },
             {
               "id": "C",
-              "text": "in the 2004-2006 records, marsh marigold bloomed on April 22, more than a month before lady's slipper orchid bloomed on May 27."
+              "text": "in the 2004-2006 records, marsh marigold bloomed on April 22 and highbush blueberry on May 1, well before lady's slipper orchid bloomed on May 27."
             },
             {
               "id": "D",
-              "text": "lady's slipper orchid bloomed on May 30 in Thoreau's records but only on May 27 in 2004-2006, suggesting that flowering was delayed by 3 days."
+              "text": "lady's slipper orchid, which bloomed on May 30 in Thoreau's records but on May 27 in the 2004-2006 observations, suggests that flowering across the community was delayed by roughly 3 days."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The sentence claims warming shifted blooming \"across the Concord plant community as a whole,\" so the evidence has to cover every species in the table - and only B does.\n\n**The Full Solution:**\n- First, underline the scope words in the claim. \"As a whole\" means the data must speak for ALL five species, not just one - that's your test for the right answer.\n- Choice B covers every row: all five bloomed earlier in 2004-2006 than in the 1850s, with shifts from 2 days (yellow wood sorrel) to 10 days (highbush blueberry).\n- Because all five moved the same direction (earlier), the data backs a claim about the whole community. A choice that names just one plant can't do that.\n\n**Why the other choices are wrong:**\n- A: It names only one species, highbush blueberry, which can't support a claim about the whole community.\n- C: It just compares two species' 2004-2006 dates and shows no shift over time at all.\n- D: It names only lady's slipper orchid and even misreads it as a delay - it bloomed earlier, not later."
+          "explanation": "**Choice B is correct.** The sentence claims warming shifted blooming \"across the Concord plant community as a whole,\" so the evidence has to cover every species in the table - and only B does.\n\n**The Full Solution:**\n- First, underline the scope words in the claim. \"As a whole\" means the data must speak for ALL five species, not just one - that's your test for the right answer.\n- Choice B covers every row: all five bloomed earlier in 2004-2006 than in the 1850s, with shifts from 2 days (yellow wood sorrel) to 10 days (highbush blueberry).\n- Because all five moved the same direction (earlier), the data backs a claim about the whole community. A choice that names just one plant can't do that.\n\n**Why the other choices are wrong:**\n- A: It names only one species, highbush blueberry, which can't support a claim about the whole community.\n- C: It compares blooming dates among species within 2004-2006 only and shows no shift over time at all.\n- D: It names only lady's slipper orchid and even misreads it as a delay - it bloomed earlier, not later."
         },
         {
           "id": 114,
@@ -525,7 +525,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "B",
-              "text": "manufacturing's share dropped between 1900 and 1950 and again between 1950 and 2000, declining in every interval the table records."
+              "text": "manufacturing's share of U.S. employment dropped between 1900 and 1950 and dropped again between 1950 and 2000, declining across every interval that the Census Bureau table records."
             },
             {
               "id": "C",
@@ -804,7 +804,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "B",
-              "text": "Therefore,"
+              "text": "Granted,"
             },
             {
               "id": "C",
@@ -816,7 +816,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The two sentences move from the past to right now, and \"Today,\" is the linking word for that then-versus-now jump.\n\n**The Full Solution:**\n- How to spot it: read both sentences and note their time frames. Sentence 1 starts with \"In the mid-1970s\" - the past. Sentence 2 says that coupled design \"forms the backbone\" of today's models - the present.\n- The clue is the time clash: a past date in one sentence, a present-tense verb in the next. That signals a shift from back then to now.\n- \"Today,\" is exactly the word that marks \"here's how it stands now.\" Plug it in and the jump reads smoothly.\n\n**Why the other choices are wrong:**\n- A: \"In addition\" just piles on another point and misses the time shift.\n- B: \"Therefore\" means \"as a result,\" but the second sentence isn't caused by the first.\n- C: \"Previously\" points backward, but the second sentence is about the present, not an earlier time."
+          "explanation": "**Choice D is correct.** The two sentences move from the past to right now, and \"Today,\" is the linking word for that then-versus-now jump.\n\n**The Full Solution:**\n- How to spot it: read both sentences and note their time frames. Sentence 1 starts with \"In the mid-1970s\" - the past. Sentence 2 says that coupled design \"forms the backbone\" of today's models - the present.\n- The clue is the time clash: a past date in one sentence, a present-tense verb in the next. That signals a shift from back then to now.\n- \"Today,\" is exactly the word that marks \"here's how it stands now.\" Plug it in and the jump reads smoothly.\n\n**Why the other choices are wrong:**\n- A: \"In addition\" just piles on another point and misses the time shift.\n- B: \"Granted\" concedes a point before pushing back against it, but the second sentence concedes nothing - it simply reports how things stand now.\n- C: \"Previously\" points backward, but the second sentence is about the present, not an earlier time."
         },
         {
           "id": 124,
@@ -834,7 +834,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "B",
-              "text": "Likewise,"
+              "text": "In turn,"
             },
             {
               "id": "C",
@@ -846,7 +846,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The second sentence gives one real example of the general idea in the first, and \"For instance,\" is the word for moving from a general point to an example.\n\n**The Full Solution:**\n- How to spot it: notice when a sentence goes from broad to specific. Sentence 1 makes a general claim about climate swings shifting disease timing - no names, no places.\n- Sentence 2 suddenly names a real case: Pascual's study of decades of Bangladeshi cholera records, where outbreaks track the El Nino pattern.\n- A specific country, disease, and climate pattern showing up after a general claim is the signal for \"For instance\" - the example word.\n\n**Why the other choices are wrong:**\n- A: \"By contrast\" sets up an opposite, but the second sentence supports the first, not opposes it.\n- B: \"Likewise\" means \"in the same way,\" used for a parallel point - but this is an example, not a parallel point.\n- D: \"Moreover\" adds a separate new point, while this sentence just illustrates the first."
+          "explanation": "**Choice C is correct.** The second sentence gives one real example of the general idea in the first, and \"For instance,\" is the word for moving from a general point to an example.\n\n**The Full Solution:**\n- How to spot it: notice when a sentence goes from broad to specific. Sentence 1 makes a general claim about climate swings shifting disease timing - no names, no places.\n- Sentence 2 suddenly names a real case: Pascual's study of decades of Bangladeshi cholera records, where outbreaks track the El Nino pattern.\n- A specific country, disease, and climate pattern showing up after a general claim is the signal for \"For instance\" - the example word.\n\n**Why the other choices are wrong:**\n- A: \"By contrast\" sets up an opposite, but the second sentence supports the first, not opposes it.\n- B: \"In turn\" marks the next step in a chain of consequences, but the second sentence illustrates the first claim rather than following from it as a further step.\n- D: \"Moreover\" adds a separate new point, while this sentence just illustrates the first."
         },
         {
           "id": 125,
@@ -868,7 +868,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "C",
-              "text": "For instance,"
+              "text": "Specifically,"
             },
             {
               "id": "D",
@@ -876,7 +876,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The sentences swing from a problem to a design that gets around it, and \"However,\" is the word for that reversal.\n\n**The Full Solution:**\n- How to spot it: ask whether the second sentence agrees with the first or pushes against it. Before the blank: packing in more material made electrodes thicker and slowed charging - a downside.\n- After the blank: new designs cut channels to keep the capacity AND speed charging back up - they beat the downside.\n- A problem followed by something that overcomes it is a reversal, and \"However,\" is the reversal signal. If the two sentences clash, reach for a contrast word.\n\n**Why the other choices are wrong:**\n- B: \"Likewise\" signals sameness, but these sentences clash.\n- C: \"For instance\" would introduce an example of the problem, not a fix for it.\n- D: \"Therefore\" would make the new designs a result of the slowdown, not a response that overcomes it."
+          "explanation": "**Choice A is correct.** The sentences swing from a problem to a design that gets around it, and \"However,\" is the word for that reversal.\n\n**The Full Solution:**\n- How to spot it: ask whether the second sentence agrees with the first or pushes against it. Before the blank: packing in more material made electrodes thicker and slowed charging - a downside.\n- After the blank: new designs cut channels to keep the capacity AND speed charging back up - they beat the downside.\n- A problem followed by something that overcomes it is a reversal, and \"However,\" is the reversal signal. If the two sentences clash, reach for a contrast word.\n\n**Why the other choices are wrong:**\n- B: \"Likewise\" signals sameness, but these sentences clash.\n- C: \"Specifically\" promises a closer look at the same point, but the second sentence introduces a response to the problem, not a more detailed statement of it.\n- D: \"Therefore\" would make the new designs a result of the slowdown, not a response that overcomes it."
         },
         {
           "id": 126,
@@ -1098,7 +1098,7 @@ export const practiceTest1RW = {
           "choices": [
             {
               "id": "A",
-              "text": "It lays out two competing theories about deep-sea microbes and explains why neither has yet been confirmed."
+              "text": "It lays out two competing theories about the origin of deep-sea trench microbes and explains why neither theory has yet been experimentally confirmed."
             },
             {
               "id": "B",
@@ -1128,7 +1128,7 @@ export const practiceTest1RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The narrator catalogues a series of illnesses he has actually suffered and then arranges them by the order in which they appeared."
+              "text": "The narrator catalogues the many illnesses he has actually suffered over the years and then arranges them chronologically by the order in which each first appeared."
             },
             {
               "id": "B",
@@ -1140,7 +1140,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "D",
-              "text": "The narrator records a sober medical self-examination and then notes the single condition that escaped his diagnosis."
+              "text": "The narrator records a sober, systematic medical self-examination and then notes with regret the single condition that escaped his otherwise complete diagnosis."
             }
           ],
           "correctAnswer": "C",
@@ -1170,11 +1170,11 @@ export const practiceTest1RW = {
             },
             {
               "id": "C",
-              "text": "It contrasts two scenographers' rival designs and then explains why neither was widely adopted during their lifetimes."
+              "text": "It contrasts two rival scenographers' competing designs for the same operas and then explains why neither approach was widely adopted during the designers' lifetimes."
             },
             {
               "id": "D",
-              "text": "It traces the steady technical improvement of painted backdrops across the course of the nineteenth century."
+              "text": "It traces the steady technical improvement of painted canvas backdrops in Europe's opera houses across the course of the nineteenth century."
             }
           ],
           "correctAnswer": "B",
@@ -1235,7 +1235,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "B",
-              "text": "Erdal's research at Hakemi Use suggests that the joint disease and dental wear observed in the burials are best explained as ordinary effects of aging rather than as signs of demanding labor or a grain-heavy diet."
+              "text": "Erdal's research at Hakemi Use suggests that the joint disease and dental wear are best explained as ordinary effects of aging rather than as signs of demanding labor."
             },
             {
               "id": "C",
@@ -1269,11 +1269,11 @@ export const practiceTest1RW = {
             },
             {
               "id": "C",
-              "text": "Hall's essay describes three audience interpretations of television messages: a dominant reading, a negotiated reading, and an oppositional reading."
+              "text": "Hall's essay describes three interpretations available to television audiences: a dominant reading aligned with the producers' frame, a negotiated reading accepting parts of it, and an oppositional reading rejecting it."
             },
             {
               "id": "D",
-              "text": "Hall argued that television producers and audiences generally share the same ideological frame, so encoded messages are usually decoded as their producers intended."
+              "text": "Hall argued that because television producers and their audiences generally share the same broad ideological frame, encoded television messages are usually decoded in just the way their producers intended, with negotiated and oppositional readings remaining rare exceptions."
             }
           ],
           "correctAnswer": "B",
@@ -1303,7 +1303,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "D",
-              "text": "It relies on a structure in the beak rather than on the birds' sense of vision."
+              "text": "It relies on an iron-rich structure in the birds' beaks rather than on their sense of vision."
             }
           ],
           "correctAnswer": "A",
@@ -1321,7 +1321,7 @@ export const practiceTest1RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Solid-state cells stored more energy for a given weight than conventional lithium-ion cells of the same size did."
+              "text": "Solid-state cells built with the ceramic electrolyte stored more energy for a given weight than conventional liquid-electrolyte lithium-ion cells of the same size did."
             },
             {
               "id": "B",
@@ -1390,7 +1390,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "C",
-              "text": "the decade-to-decade increase held steady at roughly 30 mm across the record, indicating that the ocean has been rising at an essentially constant pace."
+              "text": "the decade-to-decade increase held steady at roughly 30 mm in each interval recorded — 31 mm to 2003, 34 mm to 2013, and 40 mm to 2023 — indicating that the ocean has been rising at a constant pace."
             },
             {
               "id": "D",
@@ -1455,7 +1455,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "D",
-              "text": "the decadal means dropped by 2.6 million km² between the 1980s and the 2010s, while the decadal lows fell by only 3.3 million km² over the same span, a smaller change in the extreme years."
+              "text": "the decadal means dropped by 2.6 million km² between the 1980s and the 2010s, moving from 7.2 down to 4.6, while the decadal lows fell by only 3.3 million km² over the same span, a smaller change in the extreme years."
             }
           ],
           "correctAnswer": "B",
@@ -1748,7 +1748,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "C",
-              "text": "For example,"
+              "text": "Conversely,"
             },
             {
               "id": "D",
@@ -1756,7 +1756,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The second sentence says the first sentence's idea again in different words, and \"In other words,\" is the signal for restating something.\n\n**The Full Solution:**\n- How to spot it: ask whether the second sentence brings a NEW point or just re-says the first one. Sentence 1 states Collins's claim in formal terms - Black women's spot at the crossing of race, gender, and class produced a tradition you can't get from any one of those alone.\n- Sentence 2 renames the same idea in plainer terms - \"the simultaneous experience of being Black, female, and (for most) working class\" stands in for \"distinctive social location.\"\n- No new fact, name, or example appears - just a rewording. That's the signal for \"In other words.\"\n\n**Why the other choices are wrong:**\n- A: \"Consequently\" means \"as a result,\" but sentence 2 isn't a result of sentence 1.\n- C: \"For example\" promises a concrete case, but sentence 2 gives none.\n- D: \"In addition\" promises a new point, but sentence 2 only rephrases the same claim."
+          "explanation": "**Choice B is correct.** The second sentence says the first sentence's idea again in different words, and \"In other words,\" is the signal for restating something.\n\n**The Full Solution:**\n- How to spot it: ask whether the second sentence brings a NEW point or just re-says the first one. Sentence 1 states Collins's claim in formal terms - Black women's spot at the crossing of race, gender, and class produced a tradition you can't get from any one of those alone.\n- Sentence 2 renames the same idea in plainer terms - \"the simultaneous experience of being Black, female, and (for most) working class\" stands in for \"distinctive social location.\"\n- No new fact, name, or example appears - just a rewording. That's the signal for \"In other words.\"\n\n**Why the other choices are wrong:**\n- A: \"Consequently\" means \"as a result,\" but sentence 2 isn't a result of sentence 1.\n- C: \"Conversely\" sets up an opposite claim, but sentence 2 restates the first sentence rather than reversing it.\n- D: \"In addition\" promises a new point, but sentence 2 only rephrases the same claim."
         },
         {
           "id": 151,
@@ -1774,7 +1774,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "B",
-              "text": "Likewise,"
+              "text": "In fact,"
             },
             {
               "id": "C",
@@ -1786,7 +1786,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The second sentence reports the result that the setup in the first sentence produced, and \"Consequently,\" is the word for \"as a result.\"\n\n**The Full Solution:**\n- How to spot it: ask whether the second sentence is the OUTCOME of the first. Sentence 1 sets up the experiment - the same test given two ways, one group told it measured ability, the other told it didn't.\n- Sentence 2 reports what happened because of that: the \"it measures ability\" group \"scored measurably lower,\" an effect Steele names stereotype threat.\n- A setup in one sentence and its result in the next is a cause-and-effect link, and \"Consequently\" marks the result side.\n\n**Why the other choices are wrong:**\n- A: \"By contrast\" sets up an opposite, but sentence 2 is the result of sentence 1, not its opposite.\n- B: \"Likewise\" signals a parallel point, but sentence 2 reports an outcome, not a parallel claim.\n- C: \"Meanwhile\" just means \"at the same time,\" missing the cause-and-effect the sentences show."
+          "explanation": "**Choice D is correct.** The second sentence reports the result that the setup in the first sentence produced, and \"Consequently,\" is the word for \"as a result.\"\n\n**The Full Solution:**\n- How to spot it: ask whether the second sentence is the OUTCOME of the first. Sentence 1 sets up the experiment - the same test given two ways, one group told it measured ability, the other told it didn't.\n- Sentence 2 reports what happened because of that: the \"it measures ability\" group \"scored measurably lower,\" an effect Steele names stereotype threat.\n- A setup in one sentence and its result in the next is a cause-and-effect link, and \"Consequently\" marks the result side.\n\n**Why the other choices are wrong:**\n- A: \"By contrast\" sets up an opposite, but sentence 2 is the result of sentence 1, not its opposite.\n- B: \"In fact\" signals emphasis or a correction of what came before, but sentence 2 doesn't sharpen the setup - it reports the outcome the setup produced.\n- C: \"Meanwhile\" just means \"at the same time,\" missing the cause-and-effect the sentences show."
         },
         {
           "id": 152,
@@ -1795,12 +1795,12 @@ export const practiceTest1RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Sediment at the bottom of a lake accumulates in fine annual layers, and each layer traps pollen grains carried in from the surrounding landscape. Because the pollen of different plants has distinctive shapes, a core drawn from such a lakebed lets researchers read off which species grew nearby in a given year. ______ a sudden drop in tree pollen accompanied by a rise in grass pollen can mark the moment a forest gave way to open land, whether through a shift in climate or clearing by people.",
+          "passage": "Sediment at the bottom of a lake accumulates in fine annual layers, and each layer traps pollen grains carried in from the surrounding landscape. Because the pollen of different plants has distinctive shapes, a core drawn from such a lakebed lets researchers read off which species grew nearby in a given year. ______ a single core, drilled from one spot on a lakebed, can preserve a year-by-year record of the surrounding vegetation reaching back thousands of years.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
               "id": "A",
-              "text": "For instance,"
+              "text": "Therefore,"
             },
             {
               "id": "B",
@@ -1808,7 +1808,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "C",
-              "text": "In contrast,"
+              "text": "For instance,"
             },
             {
               "id": "D",
@@ -1816,7 +1816,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The second sentence gives one specific case of the general idea in the first, and \"For instance,\" is the example word.\n\n**The Full Solution:**\n- How to spot it: watch for a jump from broad to specific. The sentence before the blank states a general rule - because different plants' pollen has different shapes, a lakebed core tells researchers which species grew nearby each year.\n- The sentence after gives one concrete case: a sudden drop in tree pollen plus a rise in grass pollen can mark the moment a forest became open land.\n- A specific example backing up a general rule is the signal for \"For instance.\" If the example AGREES with the rule, you want an example word, not a contrast word.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" signals opposition, but the example supports the rule rather than fighting it.\n- C: \"In contrast\" also signals opposition, which this supporting example doesn't provide.\n- D: \"Earlier\" would wrongly suggest going back in time, but the example just applies the rule."
+          "explanation": "**Choice A is correct.** The final sentence states the conclusion that follows from the two facts before it, and \"Therefore,\" is the word that introduces a conclusion.\n\n**The Full Solution:**\n- How to spot it: ask what the final sentence is doing. The first two sentences establish two facts - the sediment layers are annual, and the pollen trapped in each layer identifies the plants growing nearby that year.\n- The last sentence puts those facts together: one core can hold a year-by-year record of the vegetation reaching back thousands of years. It adds no new evidence - it draws out what the earlier facts add up to.\n- A sentence that states what the preceding facts jointly establish is a conclusion, and \"Therefore,\" is the standard signal for one.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" signals opposition, but the final sentence follows from the earlier facts rather than pushing against them.\n- C: \"For instance\" promises one specific case, but the final sentence is a general conclusion about what any core can do, not a single example.\n- D: \"Earlier\" would shift the discussion back in time, but the final sentence draws a conclusion, not a flashback."
         },
         {
           "id": 153,
@@ -1886,7 +1886,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "B",
-              "text": "Lichens have long been described as a partnership between a fungus, which provides structure, and a photosynthetic partner, which provides food."
+              "text": "Lichens have long been described as a partnership between a fungus, which provides structure and protection, and a photosynthetic partner, an alga or a cyanobacterium, which provides food."
             },
             {
               "id": "C",
@@ -1894,7 +1894,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "D",
-              "text": "Because the yeast Spribille identified sits in the lichen's outer layer, it had been overlooked by the biologists who first described the two-partner model."
+              "text": "Because the basidiomycete yeast Spribille and his colleagues identified in 2016 sits in the lichen's outer layer, it had been overlooked for more than a century by the biologists who first described the two-partner fungus-and-alga model."
             }
           ],
           "correctAnswer": "C",

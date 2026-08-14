@@ -138,30 +138,30 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Excavations led by the archaeologist Ruth Shady at Caral, in Peru's Supe Valley, uncovered monumental platform mounds and sunken plazas that radiocarbon dating placed at roughly 2600 BCE. Because no fortifications, weapons, or other signs of warfare appeared anywhere at the site, Shady argued that Caral's scale had been ______ not by military conquest but by an economy of trade and shared ceremony that drew people into a common civic project.",
+          "passage": "The following text is adapted from Helena Marsh's 1903 novel The Orchard Stair. Mrs. Fanshawe, whose income has quietly diminished, is receiving an afternoon caller.\n\nHer economies were never announced; they were practiced in the seams of the household, where no visitor would think to look. The drawing room itself, however, remained ______: the silver polished, the fire generous, the tea poured from the good china, so that a caller might depart convinced the family's fortunes had never wavered.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
               "id": "A",
-              "text": "sustained"
+              "text": "sumptuous"
             },
             {
               "id": "B",
-              "text": "limited"
+              "text": "austere"
             },
             {
               "id": "C",
-              "text": "recorded"
+              "text": "neglected"
             },
             {
               "id": "D",
-              "text": "disguised"
+              "text": "inconspicuous"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The blank names how Caral's scale was produced - \"not by military conquest but by an economy of trade and shared ceremony\" - so it needs a verb meaning to produce or keep that scale up: \"sustained.\"\n\n**The Full Solution:**\n- How to spot it: the \"not... but...\" frame tells you the blank is about a cause. Both sides name a possible source of the city's size, so the blank must mean built or kept up.\n- Because no forts, weapons, or signs of war appeared, Shady ruled out military conquest as the source of the city's scale.\n- Ask yourself: did trade and ceremony build the scale or restrict it? They built it, so the blank needs a verb meaning produced and kept up: \"sustained.\"\n\n**Why the other choices are wrong:**\n- B: \"Limited\" reverses the meaning - trade and ceremony are credited with building the scale, not restricting it.\n- C: \"Recorded\" describes documenting the scale, not causing it, which the contrast requires.\n- D: \"Disguised\" makes no sense of the contrast between two possible causes of the city's size.",
+          "explanation": "**Choice A is correct.** The colon explains the blank: \"the silver polished, the fire generous, the tea poured from the good china\" - signs of comfort and plenty - so the drawing room stayed \"sumptuous.\"\n\n**The Full Solution:**\n- How to spot it: when a blank is followed by a colon, the list after the colon defines the word you need. Here the list is all luxury kept up for show.\n- The sentence turns on \"however\": her economies were hidden \"in the seams of the household,\" but the drawing room was kept up as the one room guests would judge.\n- Ask yourself: what impression is the room meant to give a caller? That \"the family's fortunes had never wavered\" - an impression of unbroken plenty, which \"sumptuous\" captures.\n\n**Why the other choices are wrong:**\n- B: \"Austere\" means severely plain - the opposite of polished silver, a generous fire, and the good china.\n- C: \"Neglected\" would mean the room was allowed to decay, but this is the one room deliberately kept up.\n- D: \"Inconspicuous\" means escaping notice, yet the room is staged precisely to be seen and judged by callers.",
           "_meta": {
-            "anchor": "Ruth Shady and Caral, Supe Valley"
+            "anchor": "period fiction (original): a drawing room kept up for show"
           }
         },
         {
@@ -323,11 +323,11 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "Earlier Arctic expeditions had depended on interpreters and so recorded Inuit stories and rituals only in fragments."
+              "text": "Arctic expeditions before Rasmussen's, because they depended on interpreters rather than speaking an Inuit language, managed to record Inuit stories, songs, and rituals only in scattered fragments."
             },
             {
               "id": "C",
-              "text": "Rasmussen regarded the Inuit songs and rituals he collected as curiosities rather than as serious evidence."
+              "text": "Rasmussen regarded the Inuit songs and rituals he collected chiefly as picturesque curiosities rather than as serious evidence of a shared tradition."
             },
             {
               "id": "D",
@@ -486,7 +486,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "halogen lamps last roughly 2,000 hours, the longest rated lifetime of any lamp type the table lists."
+              "text": "halogen lamps, at roughly 20 lumens per watt and about 2,000 rated hours, combine the longest lifetime in the table with a middling efficacy."
             },
             {
               "id": "C",
@@ -546,7 +546,7 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "global mean sea level rose by 40 millimeters between 2013 and 2023, a single-decade increase greater than the cumulative rise from 1993 to 2003."
+              "text": "global mean sea level rose by 40 millimeters between 2013 and 2023, a single-decade increase larger than the 31-millimeter cumulative rise recorded between 1993 and 2003."
             },
             {
               "id": "B",
@@ -558,7 +558,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "the decadal increases of 31, 34, and 40 millimeters are similar enough to indicate that the pace of sea-level rise has remained essentially steady since 1993."
+              "text": "the decadal increases of 31, 34, and 40 millimeters differ by only a few millimeters each, similar enough to indicate that the pace of sea-level rise has remained essentially steady since satellite records began in 1993."
             }
           ],
           "correctAnswer": "C",
@@ -843,7 +843,7 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Likewise,"
+              "text": "As a result,"
             },
             {
               "id": "B",
@@ -851,7 +851,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "Therefore,"
+              "text": "In fact,"
             },
             {
               "id": "D",
@@ -859,7 +859,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The passage flips direction at the blank, so the contrast linking word \"However\" is needed.\n\n**The Full Solution:**\n- How to spot it: for a transition, read the idea before the blank and the idea after, then ask if they agree, oppose, or cause each other. Opposite ideas need a contrast word.\n- Before the blank, the Moche were known only through their ceramics and through \"tombs that looters had emptied,\" with no record of how things were arranged.\n- After the blank, Alva dug up an \"intact royal tomb,\" finding everything in place and letting researchers reconstruct Moche burial practice \"for the first time.\" Scattered junk versus an untouched, informative tomb is an opposite, so \"However\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Likewise\" signals similarity, but the second sentence opposes the first rather than echoing it.\n- C: \"Therefore\" would make the discovery a result of the earlier ignorance, which it is not.\n- D: \"For example\" would make the intact tomb an example of the looted finds, but it is their opposite.",
+          "explanation": "**Choice B is correct.** The passage flips direction at the blank, so the contrast linking word \"However\" is needed.\n\n**The Full Solution:**\n- How to spot it: for a transition, read the idea before the blank and the idea after, then ask if they agree, oppose, or cause each other. Opposite ideas need a contrast word.\n- Before the blank, the Moche were known only through their ceramics and through \"tombs that looters had emptied,\" with no record of how things were arranged.\n- After the blank, Alva dug up an \"intact royal tomb,\" finding everything in place and letting researchers reconstruct Moche burial practice \"for the first time.\" Scattered junk versus an untouched, informative tomb is an opposite, so \"However\" fits.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make Alva's discovery an outcome of the looting and ignorance that preceded it, which it is not.\n- C: \"In fact\" intensifies or corrects the previous claim, but the second sentence reverses the situation rather than sharpening it.\n- D: \"For example\" would make the intact tomb an example of the looted finds, but it is their opposite.",
           "_meta": {
             "anchor": "Walter Alva, Sipan royal tomb"
           }
@@ -871,12 +871,12 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Through the 1960s, each library typed its own catalog cards, repeating description work that thousands of other libraries were doing for the very same books. At the Library of Congress, the programmer Henriette Avram designed MARC, a standard format that let one machine-readable catalog record be shared among institutions. ______ a library could simply download a record another library had already created instead of recataloging the book from scratch.",
+          "passage": "Through the 1960s, each library typed its own catalog cards, repeating description work that thousands of other libraries were doing for the very same books. At the Library of Congress, the programmer Henriette Avram designed MARC, a standard format that let one machine-readable catalog record be shared among institutions, so that a book needed to be described only once. ______ for years many libraries went on typing their own cards, reluctant to trust descriptions produced anywhere but in their own catalog departments.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
               "id": "A",
-              "text": "Nevertheless,"
+              "text": "As a result,"
             },
             {
               "id": "B",
@@ -884,15 +884,15 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "In contrast,"
+              "text": "In other words,"
             },
             {
               "id": "D",
-              "text": "As a result,"
+              "text": "Nevertheless,"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The sentence after the blank is the payoff of MARC - an effect of it - so \"As a result\" fits.\n\n**The Full Solution:**\n- How to spot it: if the second idea HAPPENS BECAUSE of the first, you need a cause-and-effect word like \"as a result\" or \"so.\"\n- Through the 1960s, each library typed its own catalog cards, repeating work thousands of other libraries did for the same books, until Avram's MARC \"let one machine-readable catalog record be shared.\"\n- The sentence after the blank gives the direct effect: a library \"could simply download a record another library had already created\" - a result, so \"As a result\" is correct.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals opposition, but downloading is the natural outcome of MARC, not a contrast to it.\n- B: \"For example\" would make the payoff an example of something already stated, but it is the result of the shared format.\n- C: \"In contrast\" signals opposition, which does not fit a cause-and-effect link.",
+          "explanation": "**Choice D is correct.** The sentence after the blank reports that libraries resisted the very format built to help them - a turn against expectation - so the concessive contrast word \"Nevertheless\" fits.\n\n**The Full Solution:**\n- How to spot it: when the first idea sets up an expectation and the second reports that the expectation did NOT come true, you need a concession word like \"nevertheless\" or \"even so.\"\n- Avram's MARC \"let one machine-readable catalog record be shared among institutions, so that a book needed to be described only once\" - the expectation is that libraries would stop duplicating work.\n- The sentence after the blank defeats that expectation: \"for years many libraries went on typing their own cards,\" wary of records made elsewhere. Progress despite which the old habit persisted - that calls for \"Nevertheless.\"\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make the continued card-typing an outcome of the shared format, but it is a refusal of that format's benefit, not its effect.\n- B: \"For example\" would make the continued typing an example of record sharing, but it is the opposite of sharing.\n- C: \"In other words\" signals a restatement, but the second sentence adds a new, contrary development rather than rephrasing the first.",
           "_meta": {
             "anchor": "Henriette Avram, MARC"
           }
@@ -913,7 +913,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "Therefore,"
+              "text": "In fact,"
             },
             {
               "id": "C",
@@ -921,11 +921,11 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "Meanwhile,"
+              "text": "By comparison,"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage tacks on a second fact about sodium thiosulfate after explaining its use in photography, so the adding-on word \"Moreover\" fits.\n\n**The Full Solution:**\n- How to spot it: if the second idea simply ADDS another point of the same kind (not opposing, not caused by the first), you need an adding-on word like \"moreover\" or \"also.\"\n- The passage first explains how a \"fixing\" bath dissolved leftover silver salts and made photographs permanent.\n- It then adds a separate point: the same compound \"found a second career in industry,\" still used to strip extra chlorine from treated water and bleached paper. That extra, same-direction fact calls for \"Moreover.\"\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would make the industrial use a result of fixing photographs, which it is not.\n- C: \"Nevertheless\" signals a contrast, but the two uses do not clash.\n- D: \"Meanwhile\" implies the two uses happen at the same time, which the passage does not claim.",
+          "explanation": "**Choice A is correct.** The passage tacks on a second fact about sodium thiosulfate after explaining its use in photography, so the adding-on word \"Moreover\" fits.\n\n**The Full Solution:**\n- How to spot it: if the second idea simply ADDS another point of the same kind (not opposing, not caused by the first), you need an adding-on word like \"moreover\" or \"also.\"\n- The passage first explains how a \"fixing\" bath dissolved leftover silver salts and made photographs permanent.\n- It then adds a separate point: the same compound \"found a second career in industry,\" still used to strip extra chlorine from treated water and bleached paper. That extra, same-direction fact calls for \"Moreover.\"\n\n**Why the other choices are wrong:**\n- B: \"In fact\" marks a correction or a sharpening of the previous claim, but the industrial use is a new, additional fact, not a correction.\n- C: \"Nevertheless\" signals a contrast, but the two uses do not clash.\n- D: \"By comparison\" would weigh one use against the other, but the passage adds a second use without comparing the two.",
           "_meta": {
             "anchor": "early photography chemistry: the fixing bath"
           }
@@ -961,7 +961,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "De Waal directed the Living Links Center at the Yerkes National Primate Research Center for many years before his death in 2024."
+              "text": "De Waal directed the Living Links Center at the Yerkes National Primate Research Center in Atlanta for many years while also holding a professorship at Emory University."
             },
             {
               "id": "D",
@@ -969,7 +969,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The goal is to introduce de Waal's research to someone who does not know it, and Choice A names who he was and the big idea running through his major books.\n\n**The Full Solution:**\n- How to spot it: in a notes question, the goal sentence is the whole assignment - do EXACTLY what it asks. \"Introduce... to a reader unfamiliar with his work\" calls for a broad overview, not one narrow fact.\n- Choice A identifies him as a Dutch-American primatologist and states the through-line of his books - that the seeds of human morality and social behavior are visible in other primates.\n- That gives a newcomer both who he was and what his work was about, which is the goal.\n\n**Why the other choices are wrong:**\n- B: It reports a single 2003 study and one term, too narrow to introduce his overall research.\n- C: It gives a job title (running the Living Links Center), not the substance of his research.\n- D: It shrinks his work to one zoo colony \"rather than... broad claims,\" which would mislead a newcomer about its scope.",
+          "explanation": "**Choice A is correct.** The goal is to introduce de Waal's research to someone who does not know it, and Choice A names who he was and the big idea running through his major books.\n\n**The Full Solution:**\n- How to spot it: in a notes question, the goal sentence is the whole assignment - do EXACTLY what it asks. \"Introduce... to a reader unfamiliar with his work\" calls for a broad overview, not one narrow fact.\n- Choice A identifies him as a Dutch-American primatologist and states the through-line of his books - that the seeds of human morality and social behavior are visible in other primates.\n- That gives a newcomer both who he was and what his work was about, which is the goal.\n\n**Why the other choices are wrong:**\n- B: It reports a single 2003 study and one term, too narrow to introduce his overall research.\n- C: It gives job titles and posts (running the Living Links Center, a professorship at Emory), not the substance of his research.\n- D: It shrinks his work to one zoo colony \"rather than... broad claims,\" which would mislead a newcomer about its scope.",
           "_meta": {
             "anchor": "Frans de Waal, primatology"
           }
@@ -997,7 +997,7 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Tom Dillehay, a Vanderbilt archaeologist, has led excavations at Monte Verde, a wetland site in southern Chile, since 1977."
+              "text": "Tom Dillehay, an American archaeologist based at Vanderbilt University, has led long-running excavations at Monte Verde, a waterlogged wetland site in southern Chile, since 1977."
             },
             {
               "id": "B",
@@ -1009,7 +1009,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "Because Monte Verde lies far from the better-known North American Clovis sites, its findings have remained peripheral to debates about the first Americans."
+              "text": "Because Monte Verde lies thousands of miles south of the better-known Clovis sites of North America, its waterlogged artifacts and early radiocarbon dates have remained largely peripheral to debates about when humans first reached the Americas."
             }
           ],
           "correctAnswer": "C",
@@ -1207,11 +1207,11 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "It compares Reiniger's silhouette films with the live-action films of the major studios and judges hers the better."
+              "text": "It compares Reiniger's cut-paper silhouette films with the live-action films of the major studios and judges hers the better of the two."
             },
             {
               "id": "C",
-              "text": "It argues that Reiniger gave up silhouette animation once newer techniques became available."
+              "text": "It argues that Reiniger abandoned silhouette animation once newer techniques such as cel animation became available."
             },
             {
               "id": "D",
@@ -1240,7 +1240,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "It argues that the astronomical method was, in the end, the most dependable way to determine longitude at sea."
+              "text": "It argues that the astronomical method of reading the moon's position against the fixed stars was, in the end, the most dependable way to determine longitude at sea."
             },
             {
               "id": "C",
@@ -1319,11 +1319,11 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "Two of Harriet Powers's pictorial quilts are still in existence in museum collections today."
+              "text": "Two of Harriet Powers's pictorial quilts still exist today, preserved in museum collections, where they rank among the most celebrated examples of nineteenth-century American textile art."
             },
             {
               "id": "D",
-              "text": "Powers's quilts depict a meteor shower and a dark day caused by distant forest fires."
+              "text": "Powers's quilts depict recorded local events, including a meteor shower and a dark day caused by the smoke of distant forest fires."
             }
           ],
           "correctAnswer": "B",
@@ -1381,7 +1381,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "Most movement-notation systems were devised to record dance and mark steps, jumps, and positions defined in relation to a stage and its audience."
+              "text": "Most movement-notation systems were devised to record theatrical dance, and they tend to mark steps, jumps, and held positions that are defined in relation to a proscenium stage and a seated audience."
             },
             {
               "id": "C",
@@ -1389,7 +1389,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "The Eshkol-Wachman system has been used to record the movement of animals and the gestures studied in physical therapy."
+              "text": "The Eshkol-Wachman system has been used to record the movement of animals as well as the rehabilitation gestures that practitioners study in physical therapy."
             }
           ],
           "correctAnswer": "C",
@@ -1418,11 +1418,11 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "The signal grew steadily stronger over the months the team observed it."
+              "text": "The signal grew steadily stronger over the months the team observed it, ending the campaign at more than twice the intensity recorded in the first weeks of monitoring."
             },
             {
               "id": "D",
-              "text": "The signal disappeared whenever the antenna was pointed away from the nearest planets."
+              "text": "The signal disappeared whenever the antenna was pointed away from the nearest planets and returned once the antenna swung back toward them."
             }
           ],
           "correctAnswer": "A",
@@ -1845,11 +1845,11 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Therefore,"
+              "text": "Granted,"
             },
             {
               "id": "B",
-              "text": "Likewise,"
+              "text": "As a result,"
             },
             {
               "id": "C",
@@ -1861,7 +1861,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The sentence corrects the researchers' wrong guess, and \"In fact\" marks that correction.\n\n**The Full Solution:**\n- How to spot it: when the second sentence overturns a guess made in the first - \"they thought X, but really Y\" - you need a correcting word like \"in fact.\"\n- Penzias and Wilson first assumed the hiss was \"a fault in the equipment,\" even removing pigeons that had nested in the antenna.\n- The sentence after the blank overturns that: the signal \"proved to be radiation left over from the early universe,\" confirming Big Bang cosmology - a move from wrong guess to surprising truth, so \"In fact\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" would make the discovery a result of removing pigeons, which it is not.\n- B: \"Likewise\" signals similarity, but the discovery clashes with their fault guess.\n- C: \"Meanwhile\" implies the two just happened at the same time, missing the correction.",
+          "explanation": "**Choice D is correct.** The sentence corrects the researchers' wrong guess, and \"In fact\" marks that correction.\n\n**The Full Solution:**\n- How to spot it: when the second sentence overturns a guess made in the first - \"they thought X, but really Y\" - you need a correcting word like \"in fact.\"\n- Penzias and Wilson first assumed the hiss was \"a fault in the equipment,\" even removing pigeons that had nested in the antenna.\n- The sentence after the blank overturns that: the signal \"proved to be radiation left over from the early universe,\" confirming Big Bang cosmology - a move from wrong guess to surprising truth, so \"In fact\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Granted\" concedes a point to an opposing view, but the sentence delivers the surprising truth, not a concession.\n- B: \"As a result\" would make the discovery an outcome of removing the pigeons, which it is not.\n- C: \"Meanwhile\" implies the two just happened at the same time, missing the correction.",
           "_meta": {
             "anchor": "Penzias and Wilson, cosmic microwave background"
           }
@@ -1886,7 +1886,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "For example,"
+              "text": "In fact,"
             },
             {
               "id": "D",
@@ -1894,7 +1894,7 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Because raising fares backfires, agencies turn to other budget fixes - that is an effect of the problem - so \"Consequently\" fits.\n\n**The Full Solution:**\n- How to spot it: if the second idea HAPPENS BECAUSE of the first, use a cause-and-effect word like \"consequently\" or \"so.\"\n- Transit systems get only part of their costs from fares, with the rest from public money, and raising fares \"can backfire, because higher prices drive away some riders,\" so the lost fares \"partly cancel the intended gain.\"\n- Because raising fares backfires, agencies have \"looked elsewhere to balance their budgets\" - trimming service, seeking tax money, redesigning routes - a result, so \"Consequently\" is correct.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals opposition, but the budget fixes follow logically from the fare problem.\n- C: \"For example\" would make the budget fixes an example of the fare problem, but they are its result.\n- D: \"By contrast\" signals opposition, which does not fit a cause-and-effect link.",
+          "explanation": "**Choice B is correct.** Because raising fares backfires, agencies turn to other budget fixes - that is an effect of the problem - so \"Consequently\" fits.\n\n**The Full Solution:**\n- How to spot it: if the second idea HAPPENS BECAUSE of the first, use a cause-and-effect word like \"consequently\" or \"so.\"\n- Transit systems get only part of their costs from fares, with the rest from public money, and raising fares \"can backfire, because higher prices drive away some riders,\" so the lost fares \"partly cancel the intended gain.\"\n- Because raising fares backfires, agencies have \"looked elsewhere to balance their budgets\" - trimming service, seeking tax money, redesigning routes - a result, so \"Consequently\" is correct.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals opposition, but the budget fixes follow logically from the fare problem.\n- C: \"In fact\" marks a correction or sharpening of the prior claim, but the second sentence follows from the first rather than correcting it.\n- D: \"By contrast\" signals opposition, which does not fit a cause-and-effect link.",
           "_meta": {
             "anchor": "transit farebox recovery and fare policy"
           }
@@ -1919,15 +1919,15 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "For example,"
+              "text": "Specifically,"
             },
             {
               "id": "D",
-              "text": "Likewise,"
+              "text": "By comparison,"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage moves from Giotto's breakthrough to its influence over later generations - a passage of time - which \"In time\" marks.\n\n**The Full Solution:**\n- How to spot it: if the second idea happens LATER and unfolds over years, you want a time word like \"in time\" or \"eventually.\" Watch for clues like \"came to be\" and \"from Masaccio onward.\"\n- Around 1305 Giotto broke with the \"flat, gold-ground\" style of medieval painting, giving figures weight, cast shadow, and visible emotion.\n- The next sentence reports what happened later: the cycle \"came to be regarded as a turning point,\" and painters \"from Masaccio onward\" treated his lifelike style as the basis of Renaissance painting - a development over time, so \"In time\" fits.\n\n**Why the other choices are wrong:**\n- B: \"However\" signals contrast, but the later influence grows out of his breakthrough rather than opposing it.\n- C: \"For example\" would mark an instance, but the second sentence reports a later development, not an example.\n- D: \"Likewise\" signals similarity, which does not fit the move from breakthrough to later influence.",
+          "explanation": "**Choice A is correct.** The passage moves from Giotto's breakthrough to its influence over later generations - a passage of time - which \"In time\" marks.\n\n**The Full Solution:**\n- How to spot it: if the second idea happens LATER and unfolds over years, you want a time word like \"in time\" or \"eventually.\" Watch for clues like \"came to be\" and \"from Masaccio onward.\"\n- Around 1305 Giotto broke with the \"flat, gold-ground\" style of medieval painting, giving figures weight, cast shadow, and visible emotion.\n- The next sentence reports what happened later: the cycle \"came to be regarded as a turning point,\" and painters \"from Masaccio onward\" treated his lifelike style as the basis of Renaissance painting - a development over time, so \"In time\" fits.\n\n**Why the other choices are wrong:**\n- B: \"However\" signals contrast, but the later influence grows out of his breakthrough rather than opposing it.\n- C: \"Specifically\" introduces a narrower detail of the same claim, but the second sentence reports a later development, not a specification.\n- D: \"By comparison\" would weigh the fresco cycle against something else, but nothing is being measured against it.",
           "_meta": {
             "anchor": "Giotto, Arena Chapel frescoes"
           }
@@ -1959,11 +1959,11 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "Recent scholars credit Densmore with treating song meaning as inseparable from ceremonial context, an approach that became standard only decades later."
+              "text": "Recent scholars credit Densmore with treating song meaning as inseparable from ceremonial context, an interpretive approach that would become standard in the field only decades later."
             },
             {
               "id": "C",
-              "text": "Frances Densmore recorded songs in over thirty Native American communities between 1907 and the 1950s for the Bureau of American Ethnology."
+              "text": "Frances Densmore made wax-cylinder field recordings of songs in more than thirty Native American communities between 1907 and the 1950s, working throughout that period under the auspices of the Bureau of American Ethnology."
             },
             {
               "id": "D",
@@ -1999,11 +1999,11 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Gary Urton is an American anthropologist at Harvard University who has studied Andean khipus since the 1990s."
+              "text": "Gary Urton is an American anthropologist at Harvard University who has studied the knotted cord assemblages known as khipus since the 1990s."
             },
             {
               "id": "B",
-              "text": "Spanish colonial accounts described khipus as recording both numerical accounts and forms of narrative content, though their exact workings remained unclear."
+              "text": "Spanish colonial accounts from the sixteenth century described khipus as recording both numerical accounts and forms of narrative content, though exactly how the cords carried that information remained unclear."
             },
             {
               "id": "C",

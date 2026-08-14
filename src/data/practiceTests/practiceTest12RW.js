@@ -172,7 +172,7 @@ export const practiceTest12RW = {
             },
             {
               "id": "C",
-              "text": "The speaker addresses a child directly, then describes a private memory the gift of grass has triggered and the social occasion surrounding it."
+              "text": "The speaker addresses a child directly, then describes a private memory the gift of grass has triggered and the social occasion that surrounded it."
             },
             {
               "id": "D",
@@ -305,7 +305,7 @@ export const practiceTest12RW = {
             },
             {
               "id": "C",
-              "text": "Widening highways lowers travel times, which over time encourages people to drive more often and over considerably longer distances than they did before."
+              "text": "Widening highways lowers travel times, which over time encourages people to drive more often and over considerably longer distances than they ever did before."
             },
             {
               "id": "D",
@@ -322,28 +322,28 @@ export const practiceTest12RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "The Global Positioning System works by precise timing: a receiver finds its location by comparing when signals leave several satellites and when they arrive. Because the satellites carry atomic clocks while users stand on the ground, the system's designers had to reckon with a prediction of Einstein's relativity. A clock in orbit, where gravity is weaker and the satellite moves quickly, does not tick at quite the same rate as a clock on the ground. The difference is tiny—microseconds a day—but in a system that turns timing into distance, an uncorrected error would pile up fast, throwing positions off by miles within hours. To keep the system accurate, engineers set the satellites' clock rates so that, once in orbit, they stay in step with clocks below.",
-          "question": "According to the text, why must the designers of the Global Positioning System adjust the rate of the satellites' onboard clocks?",
+          "passage": "The following text is adapted from Eleanor Trevose's 1894 novel The Copying House. Mr. Finch supervises the clerks of a London insurance office.\n\nMr. Finch required every policy to be copied twice, by two different clerks seated at opposite ends of the long room. The junior men grumbled at the double labor, taking it for an old man's distrust of them. His reason was otherwise. A single copyist, Finch knew, will repeat his own error a hundred times with perfect confidence, and a mistaken figure, once entered in the ledgers, traveled outward through renewals and claims until no one could say where it had begun. Two hands seldom fail in the same place; where the copies disagreed, there the error stood revealed.",
+          "question": "According to the text, why does Mr. Finch require every policy to be copied by two different clerks?",
           "choices": [
             {
               "id": "A",
-              "text": "Because the satellites' onboard atomic clocks gradually drift out of accuracy as their delicate electronic components slowly age over the many years of an orbital mission."
+              "text": "Because the junior clerks of the office had proved themselves careless, and Finch had gradually come to distrust the accuracy of their work."
             },
             {
               "id": "B",
-              "text": "Because the radio signals broadcast by the satellites travel too slowly to reach distant ground receivers on time."
+              "text": "Because the firm's policies had to be dispatched to its agents more quickly than any single clerk could possibly copy them."
             },
             {
               "id": "C",
-              "text": "Because relativity makes the orbiting clocks tick at a different rate than clocks on the ground, and an uncorrected gap would spoil position fixes."
+              "text": "Because a lone copyist repeats his own mistakes with confidence, while two independent copies rarely disagree except where an error lies."
             },
             {
               "id": "D",
-              "text": "Because the ground stations cannot keep time nearly as precisely as the atomic clocks the satellites carry aloft."
+              "text": "Because the office ledgers had grown too large and too numerous for any one clerk to manage without an assistant close at hand."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The passage says relativity makes the orbiting clocks tick at a different rate than clocks on the ground, and an uncorrected gap would ruin the position readings.\n\n**The Full Solution:**\n- How to spot it: a detail question wants the reason the PASSAGE actually gives. Hunt for the sentence that explains the why, and pick the choice that restates it.\n- GPS works by exact timing: a receiver finds where it is by comparing when signals leave several satellites and when they arrive.\n- An orbiting clock, in weaker gravity and moving fast, ticks at a slightly different rate than a clock on the ground, which is what Einstein's relativity predicts.\n- The gap is tiny (microseconds a day), but in a system that turns timing into distance, an uncorrected error piles up fast, throwing positions off by miles within hours.\n- So engineers set the satellites' clock rates so that, once in orbit, they stay in step with clocks below.\n\n**Why the other choices are wrong:**\n- A: It blames aging electronics, which the passage never mentions.\n- B: It says the signals travel too slowly, which clashes with the text's account of exact timing.\n- D: It says ground clocks are less precise than the satellites', which the passage does not claim and is not the reason it gives."
+          "explanation": "**Choice C is correct.** The passage gives Finch's reason directly: a single copyist \"will repeat his own error a hundred times with perfect confidence,\" while \"two hands seldom fail in the same place,\" so a disagreement between the copies exposes the error.\n\n**The Full Solution:**\n- How to spot it: a detail question wants the reason the PASSAGE actually gives. The clerks' guess (distrust) is explicitly set aside - \"His reason was otherwise\" - so find the sentences that follow it.\n- A lone copyist repeats his own mistake confidently, and a wrong figure, once in the ledgers, \"traveled outward through renewals and claims\" until its source was lost.\n- Two clerks rarely err in the same place, so \"where the copies disagreed, there the error stood revealed.\"\n- The double copying is an error-catching device, which is what Choice C states.\n\n**Why the other choices are wrong:**\n- A: It repeats the junior clerks' own mistaken guess, which the passage rejects with \"His reason was otherwise.\"\n- B: It invents a concern with speed, when the double copying in fact doubled the labor.\n- D: It invents crowded ledgers and an assistant, neither of which the passage mentions."
         },
         {
           "id": 1211,
@@ -357,7 +357,7 @@ export const practiceTest12RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Most early library classification systems sorted every book into a single fixed place within an elaborate tree of progressively narrower and narrower subject categories."
+              "text": "Most early library classification systems sorted every book into a single fixed place on the shelf within an elaborate tree of progressively narrower and narrower subject categories."
             },
             {
               "id": "B",
@@ -387,7 +387,7 @@ export const practiceTest12RW = {
           "choices": [
             {
               "id": "A",
-              "text": "\"Two vast and trunkless legs of stone / Stand in the desert.\""
+              "text": "\"I met a traveller from an antique land / Who said—'Two vast and trunkless legs of stone / Stand in the desert.'\""
             },
             {
               "id": "B",
@@ -467,7 +467,7 @@ export const practiceTest12RW = {
             },
             {
               "id": "B",
-              "text": "Sextans has a mean [Fe/H] of -1.94, the highest value of the five galaxies and a clear sign of advanced chemical enrichment."
+              "text": "Sextans has a mean [Fe/H] of -1.94, the highest value of the five galaxies listed in the table and a clear sign of advanced chemical enrichment among its stars."
             },
             {
               "id": "C",
@@ -817,11 +817,11 @@ export const practiceTest12RW = {
             },
             {
               "id": "D",
-              "text": "Therefore,"
+              "text": "In turn,"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The second sentence gives a matching case, another dry place where textiles lasted thousands of years, so \"Likewise\" (a linking word that signals similarity) fits.\n\n**The Full Solution:**\n- How to spot it: for a transition, cover the choices and ask how the two sentences relate, do they AGREE, CLASH, or does one CAUSE the other? Here they agree.\n- The first sentence describes Peruvian cave textiles preserved well enough that their dye colors can still be identified.\n- The second describes Chilean coastal sites where patterned cloth survived intact after thousands of years in rainless ground, the same thing in another dry place.\n- The two cases line up and match, so a same-as-this linking word is needed: \"Likewise.\"\n\n**Why the other choices are wrong:**\n- B: \"However\" signals a clash, but the two cases agree.\n- C: \"For instance\" introduces an example of a general claim, but the first sentence is itself a specific case, not a general statement.\n- D: \"Therefore\" signals a conclusion drawn from the first sentence, which is not the relationship here."
+          "explanation": "**Choice A is correct.** The second sentence gives a matching case, another dry place where textiles lasted thousands of years, so \"Likewise\" (a linking word that signals similarity) fits.\n\n**The Full Solution:**\n- How to spot it: for a transition, cover the choices and ask how the two sentences relate, do they AGREE, CLASH, or does one CAUSE the other? Here they agree.\n- The first sentence describes Peruvian cave textiles preserved well enough that their dye colors can still be identified.\n- The second describes Chilean coastal sites where patterned cloth survived intact after thousands of years in rainless ground, the same thing in another dry place.\n- The two cases line up and match, so a same-as-this linking word is needed: \"Likewise.\"\n\n**Why the other choices are wrong:**\n- B: \"However\" signals a clash, but the two cases agree.\n- C: \"For instance\" introduces an example of a general claim, but the first sentence is itself a specific case, not a general statement.\n- D: \"In turn\" would make the Chilean finds a consequence flowing from the Peruvian ones, but the two are parallel cases, not cause and effect."
         },
         {
           "id": 1224,
@@ -873,15 +873,15 @@ export const practiceTest12RW = {
             },
             {
               "id": "C",
-              "text": "Nevertheless,"
+              "text": "Even so,"
             },
             {
               "id": "D",
-              "text": "In contrast,"
+              "text": "Until then,"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The earlier sentences show that a flexible building handles a gust's energy better than a stiff one, and the last sentence reports the design choice that FOLLOWS from that, so \"As a result\" (a cause-and-effect link) fits.\n\n**The Full Solution:**\n- How to spot it: ask whether the last sentence is a CONSEQUENCE of what came before. If the earlier idea causes the later one, use a result word like \"as a result.\"\n- Engineers once assumed maximum stiffness was best for reducing sway.\n- Studies showed the opposite: a perfectly stiff tower passes a gust's energy straight through as a sharp jolt, while a building allowed to flex can soak up and spread out that energy over time.\n- The final sentence, that modern towers are deliberately given some controlled flexibility, is the practical payoff of that finding, so a result transition fits.\n\n**Why the other choices are wrong:**\n- A: \"For example\" gives an instance of an earlier claim, but this is an outcome, not an example.\n- C: \"Nevertheless\" signals a result that goes against expectation, which does not fit here.\n- D: \"In contrast\" sets up an opposition, but the flexible-tower practice agrees with the finding rather than opposing it."
+          "explanation": "**Choice B is correct.** The earlier sentences show that a flexible building handles a gust's energy better than a stiff one, and the last sentence reports the design choice that FOLLOWS from that, so \"As a result\" (a cause-and-effect link) fits.\n\n**The Full Solution:**\n- How to spot it: ask whether the last sentence is a CONSEQUENCE of what came before. If the earlier idea causes the later one, use a result word like \"as a result.\"\n- Engineers once assumed maximum stiffness was best for reducing sway.\n- Studies showed the opposite: a perfectly stiff tower passes a gust's energy straight through as a sharp jolt, while a building allowed to flex can soak up and spread out that energy over time.\n- The final sentence, that modern towers are deliberately given some controlled flexibility, is the practical payoff of that finding, so a result transition fits.\n\n**Why the other choices are wrong:**\n- A: \"For example\" gives an instance of an earlier claim, but this is an outcome, not an example.\n- C: \"Even so\" signals a result that holds despite what came before, but the design choice follows from the finding rather than defying it.\n- D: \"Until then\" points back to the time before the studies, but the sentence describes current design practice (\"are deliberately engineered\"), not what builders did before the findings arrived."
         },
         {
           "id": 1226,
@@ -906,7 +906,7 @@ export const practiceTest12RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Annie Jump Cannon worked as an astronomer at the Harvard College Observatory in the early 1900s, where she classified several hundred thousand individual stars."
+              "text": "Annie Jump Cannon worked as an astronomer at the Harvard College Observatory in the early 1900s, where she personally classified several hundred thousand individual stars by the patterns in their light."
             },
             {
               "id": "B",
@@ -918,7 +918,7 @@ export const practiceTest12RW = {
             },
             {
               "id": "D",
-              "text": "Cannon's ordering of stars into classes by temperature became the basis of the stellar classification system that professional astronomers around the world still rely on today."
+              "text": "Cannon's ordering of stars into spectral classes by surface temperature became the basis of the stellar classification system that professional astronomers around the world still rely on more than a century after she devised it."
             }
           ],
           "correctAnswer": "C",
@@ -947,7 +947,7 @@ export const practiceTest12RW = {
           "choices": [
             {
               "id": "A",
-              "text": "In her 2004 Science essay, Naomi Oreskes argued that any appearance of genuine scientific dispute over human-caused climate change belonged to popular and political commentary rather than to the peer-reviewed research literature itself."
+              "text": "In her 2004 Science essay, the historian Naomi Oreskes argued that any appearance of genuine scientific dispute over human-caused climate change belonged to popular and political commentary rather than to the peer-reviewed research literature itself."
             },
             {
               "id": "B",
@@ -1138,7 +1138,7 @@ export const practiceTest12RW = {
           "choices": [
             {
               "id": "A",
-              "text": "It presents one agency's fire-suppression policy as a clear and lasting success, then lists in sequence the specific firefighting techniques said to have produced that success."
+              "text": "It presents one agency's fire-suppression policy as a clear and lasting success, then lists in sequence the specific firefighting techniques that are said to have produced that success."
             },
             {
               "id": "B",
@@ -1297,7 +1297,7 @@ export const practiceTest12RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Before containerization, ocean cargo had to be loaded piece by piece by large gangs of dockworkers, a slow and expensive process that kept ships sitting idle in port for days at a time."
+              "text": "Before containerization, ocean cargo had to be loaded piece by piece by large gangs of dockworkers, a slow and expensive process that kept fully loaded ships sitting idle in port for days at a time."
             },
             {
               "id": "B",
@@ -1331,7 +1331,7 @@ export const practiceTest12RW = {
             },
             {
               "id": "B",
-              "text": "Males that had successfully defended their territory through the night went on to sing considerably more at dawn than males that had lost ground to their rivals overnight."
+              "text": "Males that had successfully defended their territory through the night went on to sing more at dawn than males that had lost ground to their rivals overnight."
             },
             {
               "id": "C",
@@ -1391,7 +1391,7 @@ export const practiceTest12RW = {
             },
             {
               "id": "B",
-              "text": "between Phase A and Phase B, Göllü Dağ East fell from 62 to 58 percent and Nenezi Dağ rose from 33 to 37 percent, the largest reorganization of sources documented at the site."
+              "text": "between Phase A and Phase B, Göllü Dağ East fell from 62 to 58 percent and Nenezi Dağ rose from 33 to 37 percent, the single largest reorganization of obsidian sources."
             },
             {
               "id": "C",
@@ -1723,7 +1723,7 @@ export const practiceTest12RW = {
           "choices": [
             {
               "id": "A",
-              "text": "However,"
+              "text": "Nevertheless,"
             },
             {
               "id": "B",
@@ -1739,7 +1739,7 @@ export const practiceTest12RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The study found something the model \"had not anticipated,\" and the next sentence reports the patches behaving AGAINST the prediction, so the contrast word \"However\" fits.\n\n**The Full Solution:**\n- How to spot it: the setup already says the study found something unexpected, so the following sentence will CLASH with the prediction, which calls for a contrast word.\n- The theory predicted that isolated forest patches would lose species slowly, then settle at a lower but steady number set by patch size.\n- The long-term Amazon study found something the simple model had not expected.\n- The completing sentence says the smallest patches kept losing species and never reached the predicted steady level, a result that goes against the prediction, so a contrast transition is needed.\n\n**Why the other choices are wrong:**\n- B: \"Likewise\" would signal agreement with the prediction, the opposite of the surprise.\n- C: \"Therefore\" would make the continued decline a RESULT of the prediction rather than a break from it.\n- D: \"For example\" would give an instance of what the model expected, but the sentence gives a result that contradicts it."
+          "explanation": "**Choice A is correct.** The model predicted that the fragments would settle at a stable number of species; the next sentence reports the patches defying that prediction, losing species without end. \"Nevertheless\" is the linking word for a result that holds in spite of what was predicted.\n\n**The Full Solution:**\n- How to spot it: the setup says the study found something the model had not anticipated, so the following sentence will push AGAINST the prediction - that calls for a concessive contrast word like \"nevertheless.\"\n- The theory predicted that isolated forest patches would lose species slowly, then settle at a lower but steady number set by patch size.\n- The long-term Amazon study found something the simple model had not expected.\n- The completing sentence says the smallest patches kept losing species and never reached the predicted steady level - despite the model's forecast, so \"Nevertheless\" fits.\n\n**Why the other choices are wrong:**\n- B: \"Likewise\" would signal agreement with the prediction, the opposite of the surprise.\n- C: \"Therefore\" would make the continued decline a RESULT of the prediction rather than a break from it.\n- D: \"For example\" would give an instance of what the model expected, but the sentence gives a result that contradicts it."
         },
         {
           "id": 1251,
@@ -1748,7 +1748,7 @@ export const practiceTest12RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "For years, researchers trying to reconstruct past ocean temperatures from the chemistry of fossil shells were limited by a stubborn ambiguity: the ratio they measured depended on both the temperature of the water and its isotopic composition, and the two effects could not be separated from a single measurement. A team developed a technique that reads a second, independent signal from the same shell—the way certain heavy isotopes bond together, which depends on temperature alone. Applying it to shells of known age let them pin down water temperature without having to assume the seawater's composition. ______ the team could extend reliable temperature reconstructions back across intervals where the older method had yielded only ranges too wide to be useful.",
+          "passage": "For years, researchers trying to reconstruct past ocean temperatures from the chemistry of fossil shells were limited by a stubborn ambiguity: the ratio they measured depended on both the temperature of the water and its isotopic composition, and the two effects could not be separated from a single measurement. A team developed a technique that reads a second, independent signal from the same shell—the way certain heavy isotopes bond together, which depends on temperature alone. Applying it to shells of known age let the team pin down ancient water temperatures to within a degree or two, with no assumptions about the seawater's composition. ______ the older ratio method, its two influences hopelessly entangled, could often place the same intervals only within ranges too wide to be useful.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1757,11 +1757,11 @@ export const practiceTest12RW = {
             },
             {
               "id": "B",
-              "text": "For instance,"
+              "text": "As a result,"
             },
             {
               "id": "C",
-              "text": "As a result,"
+              "text": "By comparison,"
             },
             {
               "id": "D",
@@ -1769,7 +1769,7 @@ export const practiceTest12RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The new technique cleared up the confusion that had limited the old method, and the last sentence reports the payoff that FOLLOWED, so \"As a result\" (a cause-and-effect link) fits.\n\n**The Full Solution:**\n- How to spot it: ask whether the last sentence is a RESULT of what came before. If the new method causes the new ability, use a result word.\n- The old method was limited because the number it measured depended on both the water's temperature and its makeup, and a single reading couldn't separate the two.\n- The new technique reads a second, separate signal that depends on temperature alone, letting the team find the temperature without guessing the seawater's makeup.\n- The final sentence, that the team could now extend reliable temperature readings across periods where the old method gave only useless ranges, is the direct payoff, so a result transition fits.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals an outcome that goes against expectation, which does not fit a straight payoff.\n- B: \"For instance\" introduces an example, not a result.\n- D: \"Meanwhile\" marks something happening at the same time elsewhere, not a result of the technique."
+          "explanation": "**Choice C is correct.** The sentence sets the older method's coarse ranges beside the new technique's degree-level precision - two measured performances weighed side by side - and \"By comparison\" is the phrase for that juxtaposition.\n\n**The Full Solution:**\n- How to spot it: ask what the last sentence does with the one before it. The previous sentence gives the new technique's precision (temperatures pinned to within a degree or two); the last gives the older method's performance on the same intervals (ranges too wide to be useful). Setting one measured result beside another calls for a comparison phrase.\n- New technique: it reads a signal that depends on temperature alone, so it pins temperatures down tightly.\n- Older method: with its two influences entangled, it could often offer only uselessly wide ranges.\n- \"By comparison\" places the old result next to the new one so the reader can see the gap.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals an outcome that defies what came before, but the older method's coarseness does not defy the new technique's precision - the two are simply being weighed against each other.\n- B: \"As a result\" would make the older method's wide ranges a consequence of the new technique, but the old method performed that way all along; nothing about the new technique caused it.\n- D: \"Meanwhile\" marks a separate event unfolding at the same time, not a measured comparison between two methods."
         },
         {
           "id": 1252,
@@ -1795,11 +1795,11 @@ export const practiceTest12RW = {
             },
             {
               "id": "D",
-              "text": "Meanwhile,"
+              "text": "Today,"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The sentence before says what the engineers did NOT do, and this sentence gives the different thing they did instead, so \"Instead\" (a swap word) fits.\n\n**The Full Solution:**\n- How to spot it: when one sentence says they did not do X and the next says what they did, you need a swap word that signals one thing replacing another.\n- The engineers \"might have responded in the obvious way, by raising the existing wall higher,\" but \"did not take that approach.\"\n- The completing sentence gives what they did instead: moved the banks well back from the channel and restored a strip of low meadow so high water could spread out and lose force.\n- Swapping one approach for a different one calls for \"Instead.\"\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" would make the action a logical result rather than a chosen alternative.\n- C: \"Likewise\" would say the two actions are similar, but raising a wall and setting the banks back are being contrasted.\n- D: \"Meanwhile\" would mark two things happening at once, which is not the relationship here."
+          "explanation": "**Choice B is correct.** The sentence before says what the engineers did NOT do, and this sentence gives the different thing they did instead, so \"Instead\" (a swap word) fits.\n\n**The Full Solution:**\n- How to spot it: when one sentence says they did not do X and the next says what they did, you need a swap word that signals one thing replacing another.\n- The engineers \"might have responded in the obvious way, by raising the existing wall higher,\" but \"did not take that approach.\"\n- The completing sentence gives what they did instead: moved the banks well back from the channel and restored a strip of low meadow so high water could spread out and lose force.\n- Swapping one approach for a different one calls for \"Instead.\"\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" would make the action a logical result rather than a chosen alternative.\n- C: \"Likewise\" would say the two actions are similar, but raising a wall and setting the banks back are being contrasted.\n- D: \"Today\" would shift the sentence to the present day, but the engineers' response is told in the past tense as part of the same episode."
         },
         {
           "id": 1253,
@@ -1828,7 +1828,7 @@ export const practiceTest12RW = {
             },
             {
               "id": "B",
-              "text": "Michael Ventris, a British architect, compiled grids that showed how the many signs of the Linear B script related to one another."
+              "text": "Michael Ventris, a British architect working in his spare time, compiled grids that showed how the many signs of the Linear B script related to one another."
             },
             {
               "id": "C",
@@ -1836,7 +1836,7 @@ export const practiceTest12RW = {
             },
             {
               "id": "D",
-              "text": "For decades after the tablets were unearthed, scholars could not read Linear B because they did not know what language its signs recorded."
+              "text": "For decades after the clay tablets were first unearthed at sites in Crete and on the Greek mainland, scholars could not read Linear B because no one knew even what language its many signs recorded."
             }
           ],
           "correctAnswer": "C",
@@ -1865,7 +1865,7 @@ export const practiceTest12RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Lonnie G. Bunch III, the founding director of the Smithsonian's National Museum of African American History and Culture, began the project in 2005 with no building, no permanent staff, and no founding collection."
+              "text": "Lonnie G. Bunch III, the founding director of the Smithsonian's National Museum of African American History and Culture, began the project in 2005 with no building of its own, no permanent staff, and no founding collection to draw upon."
             },
             {
               "id": "B",
@@ -1877,7 +1877,7 @@ export const practiceTest12RW = {
             },
             {
               "id": "D",
-              "text": "Through Save Our African American Treasures, Bunch's team held regional sessions where families brought photographs, garments, and documents for evaluation by curators, many of which were later donated to the museum."
+              "text": "Through Save Our African American Treasures, Bunch's team held regional sessions across the country where families brought heirlooms - photographs, garments, and documents - for evaluation by trained curators and conservators, many of which were later donated to the museum's founding collection."
             }
           ],
           "correctAnswer": "B",

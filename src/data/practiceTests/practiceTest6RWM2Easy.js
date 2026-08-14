@@ -305,28 +305,28 @@ export const practiceTest6RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "Freezing is the standard way to hold crop seeds for the long term: dried down to a low moisture content and stored below freezing, the seeds of wheat, rice, and most vegetables stay viable for decades. A large group of plants will not cooperate. The seeds of many tropical trees, cacao and mango among them, die when they are dried at all, so the usual treatment kills them instead of saving them. Conserving those species means keeping them alive in some other form, as orchards of growing trees or as tissue cultures tended in a laboratory, an approach that costs far more per species and never finishes.",
+      "passage": "The following text is adapted from Nathaniel Frey's 1902 novel The Junction. Asa is the stationmaster of a small prairie depot.\n\nTownspeople supposed the work to be a matter of the trains, and Asa let them think so. But the trains asked only minutes of his day; what the depot required was everything else - the ledgers balanced to the cent, the lamps filled, the telegraph key answered at any hour, the platform swept before the morning express. His predecessor had kept the office thirty years without one missed dispatch, and Asa understood that this, not the arrival of engines, was the keeping of a station.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
         {
           "id": "A",
-          "text": "Dried and frozen seeds of wheat, rice, and most vegetables remain viable for decades in storage."
+          "text": "The townspeople took more interest in the arriving trains than in any other part of the depot's daily business."
         },
         {
           "id": "B",
-          "text": "The seeds of tropical trees such as cacao and mango die when they are dried down below a certain moisture content, whatever the temperature at which they are then held."
+          "text": "Asa resents that his predecessor's thirty years of faultless service at the depot went entirely unnoticed by the town he served."
         },
         {
           "id": "C",
-          "text": "Laboratory tissue cultures have largely replaced frozen seed storage as the standard method of crop conservation."
+          "text": "The trains that passed the depot demanded Asa's constant attention at every hour of the day and night."
         },
         {
           "id": "D",
-          "text": "Because the seeds of many species cannot survive drying and freezing, conserving those species requires costlier living collections that must be tended without end."
+          "text": "Running the depot depends less on the visible drama of the trains than on the unending routine work that surrounds them."
         }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The passage sets up freezing as the standard method, notes that many species die when dried, and lands on what follows from that: those species must be held as living orchards or tissue cultures, \"an approach that costs far more per species and never finishes.\"\n\n**The Full Solution:**\n- How to spot it: the main idea is where the passage lands, not the background it opens with. The turn comes at \"A large group of plants will not cooperate.\"\n- Standard practice is to dry seeds and freeze them, which works for wheat, rice, and most vegetables.\n- Many tropical tree seeds die when dried, so that method destroys them.\n- Those species have to be kept alive instead, at much higher cost and with no end point, which is choice D.\n\n**Why the other choices are wrong:**\n- A: This is the background about the standard method, not the point the passage builds to.\n- B: This is the supporting detail that creates the problem, not the conclusion drawn from it.\n- C: The passage never says living collections have replaced freezing; freezing remains standard where it works."
+      "explanation": "**Choice D is correct.** The passage says the trains \"asked only minutes\" of Asa's day while the depot \"required everything else\" - ledgers, lamps, telegraph, platform - and closes with his understanding that this routine work, \"not the arrival of engines, was the keeping of a station.\"\n\n**The Full Solution:**\n- How to spot it: the main idea is where the passage lands, not the impression it opens with. The turn comes at \"But the trains asked only minutes of his day.\"\n- The townspeople equate the job with the trains, and Asa lets the impression stand.\n- The real work is the list of unglamorous tasks: balanced ledgers, filled lamps, the telegraph answered at any hour, the platform swept.\n- The closing sentence states the point outright: the routine, not the engines, is the keeping of a station - choice D.\n\n**Why the other choices are wrong:**\n- A: What the townspeople notice is the opening impression the passage moves past, not its point.\n- B: The passage reports the predecessor's record with respect, and nothing shows Asa resenting anyone.\n- C: This reverses the text, which says the trains asked only minutes of his day; it was the depot's other work that never ended."
     },
     {
       "id": 665,
@@ -340,11 +340,11 @@ export const practiceTest6RWM2Easy = {
       "choices": [
         {
           "id": "A",
-          "text": "A shipping container can travel from ship to truck to railcar without being unpacked along the way."
+          "text": "A standard shipping container can travel from ship to truck to railcar without ever being unpacked along the way."
         },
         {
           "id": "B",
-          "text": "Ports built for loose cargo lacked cranes tall enough to lift containers off a ship's deck."
+          "text": "Ports that had been built for loose cargo lacked cranes tall enough to lift containers off a ship's deck."
         },
         {
           "id": "C",
@@ -352,7 +352,7 @@ export const practiceTest6RWM2Easy = {
         },
         {
           "id": "D",
-          "text": "Rewriting dockside labor agreements was the single greatest obstacle to the spread of container shipping."
+          "text": "Rewriting the labor agreements that governed dockside work was by far the greatest obstacle to the worldwide spread of container shipping."
         }
       ],
       "correctAnswer": "C",
@@ -374,7 +374,7 @@ export const practiceTest6RWM2Easy = {
         },
         {
           "id": "B",
-          "text": "Birds of several species sing most often in the hour just after dawn, well before traffic in most large cities has built up to its heaviest volume of the day."
+          "text": "Birds of several species sing most often in the hour just after dawn, well before traffic in most large cities has built up to its heaviest volume."
         },
         {
           "id": "C",
@@ -430,7 +430,7 @@ export const practiceTest6RWM2Easy = {
       "choices": [
         {
           "id": "A",
-          "text": "the bridge opened in 1998 had a main span of 1,991 meters."
+          "text": "the bridge opened in 1998 had a main span of 1,991 meters, the longest single figure appearing anywhere in the table."
         },
         {
           "id": "B",
@@ -438,11 +438,11 @@ export const practiceTest6RWM2Easy = {
         },
         {
           "id": "C",
-          "text": "the record main span fell between 1937 and 1964, from 1,280 meters to 1,298 meters."
+          "text": "the record main span actually fell between 1937 and 1964, from 1,280 meters down to 1,298 meters."
         },
         {
           "id": "D",
-          "text": "the bridges opened in 1931 and in 1937 had main spans of 1,067 meters and 1,280 meters."
+          "text": "the record-holding bridges opened in 1931 and in 1937 had main spans of 1,067 meters and 1,280 meters."
         }
       ],
       "correctAnswer": "B",
@@ -768,11 +768,11 @@ export const practiceTest6RWM2Easy = {
         },
         {
           "id": "D",
-          "text": "Likewise,"
+          "text": "By comparison,"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The first sentence stresses how little land bogs cover and the second stresses how much carbon they hold, so the two sentences pull against each other and need the contrast transition \"However.\"\n\n**The Full Solution:**\n- How to spot it: read the sentence before and the sentence after, then ask whether the second agrees with the first or pushes against it. Pushing against it calls for a contrast word.\n- Sentence one: bogs cover only a few percent of the land.\n- Sentence two: they hold more carbon than all the world's forests.\n- Small area but huge store is a contrast, so \"However\" fits.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would make the carbon store a consequence of the small area, which it is not.\n- C: \"For example\" would make the second sentence an instance of the first, but it is not an example of small land area.\n- D: \"Likewise\" would signal that the two sentences point the same way, and they do not."
+      "explanation": "**Choice A is correct.** The first sentence stresses how little land bogs cover and the second stresses how much carbon they hold, so the two sentences pull against each other and need the contrast transition \"However.\"\n\n**The Full Solution:**\n- How to spot it: read the sentence before and the sentence after, then ask whether the second agrees with the first or pushes against it. Pushing against it calls for a contrast word.\n- Sentence one: bogs cover only a few percent of the land.\n- Sentence two: they hold more carbon than all the world's forests.\n- Small area but huge store is a contrast, so \"However\" fits.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would make the carbon store a consequence of the small area, which it is not.\n- C: \"For example\" would make the second sentence an instance of the first, but it is not an example of small land area.\n- D: \"By comparison\" would need the previous sentence to describe the thing being compared, but the comparison with forests happens inside the second sentence itself; between the two sentences the relationship is contrast, not comparison."
     },
     {
       "id": 678,
@@ -798,11 +798,11 @@ export const practiceTest6RWM2Easy = {
         },
         {
           "id": "D",
-          "text": "Meanwhile,"
+          "text": "Thereafter,"
         }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The second sentence gives a specific instance of the general point just made about producing scene noises, listing the whistle, hooves, doorbell, and siren available on a single console, so \"For example\" is the transition that fits.\n\n**The Full Solution:**\n- How to spot it: when the second sentence gives one concrete case of a general statement just made, you want \"For example.\"\n- The general point: these organs could produce the noises a scene called for.\n- The concrete case: one console with a bird whistle, horse hooves, a doorbell, and a siren on separate stops.\n- That is an illustration of the general point, not a contrast or a result.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals contrast, but the second sentence supports the first rather than opposing it.\n- B: \"Instead\" signals replacement, and nothing in the first sentence is being replaced.\n- D: \"Meanwhile\" signals that two things happen at the same time, which is not the relationship here."
+      "explanation": "**Choice C is correct.** The second sentence gives a specific instance of the general point just made about producing scene noises, listing the whistle, hooves, doorbell, and siren available on a single console, so \"For example\" is the transition that fits.\n\n**The Full Solution:**\n- How to spot it: when the second sentence gives one concrete case of a general statement just made, you want \"For example.\"\n- The general point: these organs could produce the noises a scene called for.\n- The concrete case: one console with a bird whistle, horse hooves, a doorbell, and a siren on separate stops.\n- That is an illustration of the general point, not a contrast or a result.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals contrast, but the second sentence supports the first rather than opposing it.\n- B: \"Instead\" signals replacement, and nothing in the first sentence is being replaced.\n- D: \"Thereafter\" would place the console's sound effects later in time than the point just made, but the sentence illustrates that point rather than continuing a story."
     },
     {
       "id": 679,
@@ -811,7 +811,7 @@ export const practiceTest6RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Plant breeders have long drawn on the wild cousins of domesticated crops, which still carry traits, resistance to a fungus or tolerance of salty soil, that centuries of selection for yield have thinned out of the cultivated lines. These wild relatives are no marginal resource. ______ the world's cereal harvest would be measurably smaller today without the resistance traits that breeders have carried into the crops from wild populations.",
+      "passage": "Plant breeders have long drawn on the wild cousins of domesticated crops, which still carry traits, resistance to a fungus or tolerance of salty soil, that centuries of selection for yield have thinned out of the cultivated lines. Modern wheat owes some of its most valuable disease-resistance genes to a wild grass crossed into the crop decades ago. ______ the cultivated tomato owes much of its tolerance of salty soil to genes bred in from a wild relative that grows along ocean shores.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         {
@@ -820,11 +820,11 @@ export const practiceTest6RWM2Easy = {
         },
         {
           "id": "B",
-          "text": "In fact,"
+          "text": "Likewise,"
         },
         {
           "id": "C",
-          "text": "Meanwhile,"
+          "text": "In fact,"
         },
         {
           "id": "D",
@@ -832,7 +832,7 @@ export const practiceTest6RWM2Easy = {
         }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The sentence before the blank makes a claim, that wild relatives are no marginal resource, and the sentence after the blank strengthens it by saying the cereal harvest itself would be smaller without them, which is what \"In fact\" signals.\n\n**The Full Solution:**\n- How to spot it: check the direction. If the second sentence pushes the first one further rather than opposing it or following from it, you want an intensifier like \"In fact.\"\n- Claim: these wild relatives are not marginal.\n- The next sentence raises the stakes on that claim by tying the size of the world cereal harvest to them.\n- A sentence that strengthens the previous claim takes \"In fact.\"\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a reversal, but the second sentence agrees with the first and drives it home.\n- C: \"Meanwhile\" signals that two things occur at the same time, which has nothing to do with these sentences.\n- D: \"Therefore\" points the wrong way: the harvest evidence is the reason the resource is not marginal, not a result of its not being marginal."
+      "explanation": "**Choice B is correct.** The sentence before the blank gives one case of a crop drawing a trait from a wild relative - wheat and its disease-resistance genes - and the sentence after the blank gives a second, matching case: the tomato and its salt tolerance. A second parallel case is joined to the first with \"Likewise.\"\n\n**The Full Solution:**\n- How to spot it: ask what the sentence after the blank does. It neither opposes the wheat case nor follows from it; it repeats the same pattern with a different crop.\n- Case one: wheat owes disease-resistance genes to a wild grass.\n- Case two: the tomato owes salt tolerance to a wild coastal relative - the same borrowing, in a second crop.\n- Two cases cut from the same pattern are linked with \"Likewise.\"\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a reversal, but the tomato case points the same way as the wheat case rather than against it.\n- C: \"In fact\" strengthens or confirms the point just made, but the tomato case does not intensify the wheat case; it stands beside it as a second instance.\n- D: \"Therefore\" would make the tomato's salt tolerance a consequence of wheat's disease resistance, and the two borrowings are independent of each other."
     },
     {
       "id": 680,
@@ -857,11 +857,11 @@ export const practiceTest6RWM2Easy = {
       "choices": [
         {
           "id": "A",
-          "text": "A map projection is a rule, worked out mathematically, for transferring positions on the curved surface of the earth onto the flat sheet of paper that a printed map is made from."
+          "text": "A map projection is a rule, worked out mathematically, for transferring each position on the curved surface of the earth onto the corresponding point of the flat sheet of paper that a printed map is made from."
         },
         {
           "id": "B",
-          "text": "The Mercator projection preserves angles, a property that made it useful to navigators setting a course across open water."
+          "text": "The Mercator projection preserves angles, so a straight line on the map crosses every meridian at the same angle, a property that made it useful to navigators setting a course across open water."
         },
         {
           "id": "C",
@@ -869,7 +869,7 @@ export const practiceTest6RWM2Easy = {
         },
         {
           "id": "D",
-          "text": "Equal-area projections keep the relative sizes of landmasses correct, though they distort the shapes of those landmasses."
+          "text": "Equal-area projections keep the relative sizes of the world's landmasses correct, though they noticeably distort the shapes of those landmasses."
         }
       ],
       "correctAnswer": "C",
@@ -902,15 +902,15 @@ export const practiceTest6RWM2Easy = {
         },
         {
           "id": "B",
-          "text": "Suspension bridges remain the usual choice for the longest crossings, while cable-stayed designs are common for spans of moderate length."
+          "text": "Suspension bridges remain the usual choice for the world's longest crossings, while cable-stayed designs are common for spans of more moderate length."
         },
         {
           "id": "C",
-          "text": "The main cables of a suspension bridge pass over the tops of the two towers and are held at each end by the massive blocks of concrete that anchor them in the ground on either shore."
+          "text": "The two main cables of a suspension bridge pass over the tops of the towers and are held at each end of the crossing by the massive blocks of concrete that anchor them firmly in the ground on either shore."
         },
         {
           "id": "D",
-          "text": "Cable-stayed bridges carry their load straight into the towers, which is one reason they have become common for spans of moderate length."
+          "text": "Cable-stayed bridges carry their load straight down into the towers, which is one reason they have become so common for spans of moderate length."
         }
       ],
       "correctAnswer": "A",

@@ -273,7 +273,7 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "He would accept that the earliest films were exhibitionist displays and agree that narrative had no place in screen practice until after about 1906."
+              "text": "He would accept Gunning's account that the earliest films were exhibitionist displays and agree with him that narrative had no real place in screen practice until continuity techniques emerged after about 1906."
             },
             {
               "id": "B",
@@ -285,7 +285,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "D",
-              "text": "Granting that early film favored spectacle, he would still deny that the medium could achieve the emotional effects of later narrative cinema."
+              "text": "Granting that early film favored spectacle over story, he would still deny that the young medium could ever achieve the emotional effects of later narrative cinema."
             }
           ],
           "correctAnswer": "B",
@@ -323,7 +323,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "C",
-              "text": "That the spread of farmers across West Africa happened far more rapidly than earlier scholars had assumed."
+              "text": "That the single southward spread of farmers across West Africa happened far more rapidly and uniformly than earlier generations of scholars had assumed."
             },
             {
               "id": "D",
@@ -348,7 +348,7 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Buckland and De la Beche credited Anning's preparation methods more consistently and more generously than the other naturalists who studied and published on the marine reptile fossils she had recovered."
+              "text": "William Buckland and Henry De la Beche credited Anning's preparation methods more consistently and more generously than the other naturalists who studied and published on the marine reptile fossils she had recovered."
             },
             {
               "id": "B",
@@ -385,7 +385,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "B",
-              "text": "Nochlin's essay is best understood as a careful survey that recovers the names of important women painters and sculptors whom earlier narrative histories of European art had long overlooked or dismissed."
+              "text": "Nochlin's essay is best understood as a careful survey that recovers the names of important women painters and sculptors whom earlier narrative histories of European art and its academies had long overlooked or dismissed."
             },
             {
               "id": "C",
@@ -447,7 +447,7 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Boreal forests and grasslands, where grasslands had both a larger absolute loss (717 million versus 501 million) and a larger percentage decline (53% versus 33%)."
+              "text": "Boreal forests and grasslands, where grasslands had both a larger absolute loss (717 million birds versus 501 million) and a larger percentage decline from the 1970 baseline (53% versus 33%)."
             },
             {
               "id": "B",
@@ -520,7 +520,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "B",
-              "text": "the average decline across the five intervals was about 19 deaths per 1,000, and the individual interval values clustered closely around that average."
+              "text": "the average decline across the five twenty-year intervals was about 19 deaths per 1,000 live births, and the individual interval values clustered closely around that overall average throughout the century."
             },
             {
               "id": "C",
@@ -899,11 +899,11 @@ export const practiceTest3RW = {
             },
             {
               "id": "D",
-              "text": "Similarly,"
+              "text": "By comparison,"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The older view and the newer argument are separated in time - one came first, the other later - which is what \"More recently,\" signals.\n\n**The Full Solution:**\n- The first sentence describes a long-standing way of telling the history of Abstract Expressionism, built around a few male painters in New York.\n- The second sentence brings in a newer account showing that women such as Lee Krasner and Elaine de Kooning were central all along, not tacked on afterward.\n- The newer argument comes later in time than the old view, so a time word, \"More recently,\" is the right link. How to spot it: when the second sentence describes a NEW or UPDATED view replacing an older one, a time-marker like \"more recently\" usually fits.\n\n**Why the other choices are wrong:**\n- A: \"Therefore,\" would make the second claim a result of the first, but it isn't caused by it.\n- B: \"Similarly,\" would say the new argument agrees with the old account, when it actually corrects it.\n- D: \"For example,\" would offer it as an instance of the old account, when it revises that account instead.",
+          "explanation": "**Choice C is correct.** The older view and the newer argument are separated in time - one came first, the other later - which is what \"More recently,\" signals.\n\n**The Full Solution:**\n- The first sentence describes a long-standing way of telling the history of Abstract Expressionism, built around a few male painters in New York.\n- The second sentence brings in a newer account showing that women such as Lee Krasner and Elaine de Kooning were central all along, not tacked on afterward.\n- The newer argument comes later in time than the old view, so a time word, \"More recently,\" is the right link. How to spot it: when the second sentence describes a NEW or UPDATED view replacing an older one, a time-marker like \"more recently\" usually fits.\n\n**Why the other choices are wrong:**\n- A: \"Therefore,\" would make the second claim a result of the first, but it isn't caused by it.\n- B: \"For example,\" would offer the newer scholarship as an instance of the old account, when it revises that account instead.\n- D: \"By comparison,\" would set two measured quantities side by side, but the sentence reports a newer account correcting an older one, not a comparison of amounts.",
           "_meta": {
             "anchor": "Abstract Expressionism historiography; Lee Krasner and Elaine de Kooning; temporal revision"
           },
@@ -965,7 +965,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "D",
-              "text": "Müller-Westermann curated a 2013 retrospective of af Klint's work at the Moderna Museet and edited the volume that accompanied that exhibition."
+              "text": "Müller-Westermann curated a major 2013 retrospective of af Klint's work at the Moderna Museet in Stockholm and edited the scholarly volume, Hilma af Klint: A Pioneer of Abstraction."
             }
           ],
           "correctAnswer": "B",
@@ -1245,27 +1245,27 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "It presents one widely held theory about the origins of Andean cities and then traces the long scholarly debate over who first proposed it."
+              "text": "It contrasts Mrs. Tansley's fond memories of village life with her sister's letters describing the comforts of Norwich and then explains why she finally chooses the village."
             },
             {
               "id": "B",
-              "text": "It compares the site of Caral with the cities of Mesopotamia in order to argue that the two arose for identical reasons."
+              "text": "It presents a firmly made decision, details the practical preparations undertaken to carry it out, and ends with the departure that the neighbors had long expected."
             },
             {
               "id": "C",
-              "text": "It states a standard assumption about how complex societies begin, describes findings that complicate it, and offers an alternative account."
+              "text": "It reports a firmly announced decision, catalogs the small postponements that follow, and closes by implying the decision will never be carried out."
             },
             {
               "id": "D",
-              "text": "It describes the architecture of Caral and explains the techniques archaeologists used to date its mounds."
+              "text": "It traces the neighbors' growing impatience with Mrs. Tansley and their eventual decision to confront her about her plans."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The passage states a common assumption, gives findings that complicate it, and then offers a different explanation.\n\n**The Full Solution:**\n- It states the common assumption: complex Andean society must have started with heavy grain farming, as it did elsewhere.\n- It reports findings from Caral that complicate it: the people grew cotton and squash and leaned on traded dried fish, with little sign of staple grains.\n- It offers the different explanation: a fishing-and-cotton trade, not grain farming, supported the region's earliest big building projects. How to spot this structure: track three beats - an assumption, then evidence that complicates it, then a new account - and confirm the new account actually replaces the assumption.\n\n**Why the other choices are wrong:**\n- A: The passage follows no scholarly fight over who first proposed a theory.\n- B: It doesn't argue Caral and Mesopotamia arose for identical reasons - the comparison only fixes the date, and the point is that Caral's path was different.\n- D: It shrinks the passage to architecture and dating methods, which it only mentions in passing.",
+          "explanation": "**Choice C is correct.** The passage announces a settled decision, strings together the small excuses that keep deferring it, and ends by implying the move will never happen.\n\n**The Full Solution:**\n- It opens with the decision delivered as final: she tells the neighbors she is going to her sister at Norwich, \"as one announces a thing settled beyond argument.\"\n- It then catalogs the postponements: the currants, the hen-house roof, the regatta - each week furnishing \"its small reason for delay.\"\n- It closes on the quiet reversal: the packed trunks still standing at the first snow, and the neighbors understanding \"what Mrs. Tansley did not yet permit herself to know\" - that she will not go. How to spot the structure: track what each stage DOES (announcement, deferrals, implied abandonment) rather than the household details themselves.\n\n**Why the other choices are wrong:**\n- A: No letters from the sister and no weighing of Norwich against the village appear - the comparison is invented.\n- B: It ends with a departure, but the passage ends with the trunks still standing in the passage and the plan silently abandoned.\n- D: The neighbors grow quieter, not more insistent - they \"long since ceased to ask\" - and no confrontation occurs.",
           "_meta": {
-            "anchor": "Caral / Norte Chico (Peru), ~2600 BCE; fishing-and-cotton economy [theme: Andean archaeology]"
+            "anchor": "Literary excerpt (original): Leonora Marchbanks, Glassmere (1894); deferred departure [theme: period fiction]"
           },
-          "passage": "On the desert coast of Peru, the site of Caral preserves stone platform mounds and sunken circular plazas built around 2600 BCE — roughly when the first cities arose in Mesopotamia. For decades archaeologists assumed that complex society in the Andes must have begun with intensive grain agriculture, as it had elsewhere. Excavations at Caral complicated that assumption: the inhabitants grew cotton and squash and relied heavily on dried fish traded from the coast, with little evidence of staple grains. Researchers proposed that a fishing-and-cotton exchange, rather than cereal farming, supported the region's earliest monumental construction.",
+          "passage": "The following text is adapted from Leonora Marchbanks's 1894 novel Glassmere. Widowed the previous spring, Mrs. Tansley has resolved to leave the coastal village where she has spent her married life.\n\nShe told the neighbors she was going to her sister at Norwich, and said it briskly, as one announces a thing settled beyond argument. Yet each week furnished its small reason for delay: the currants wanted picking; the roof of the hen-house wanted mending before winter; it would be a pity to miss the regatta, which came but once a year. By October the trunks stood packed in the passage, and there they stood still when the first snow came, and the neighbors, who had long since ceased to ask after Norwich, understood what Mrs. Tansley did not yet permit herself to know.",
           "type": "multiple-choice"
         },
         {
@@ -1320,7 +1320,7 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The doctors' ward admitted noticeably more patients each week than the midwives' ward did."
+              "text": "The doctors' ward admitted noticeably more maternity patients in a typical week than the midwives' ward did."
             },
             {
               "id": "B",
@@ -1460,7 +1460,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "C",
-              "text": "marsh marigold has the earliest mean flowering date in the modern record (April 22), which shows that warmer springs advance flowering across all species at the same rate."
+              "text": "marsh marigold has the earliest mean flowering date in the modern record (April 22), ahead of common buttercup and the rest, which shows that warmer springs advance flowering across all species at the same rate."
             },
             {
               "id": "D",
@@ -1527,7 +1527,7 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Proteobacteria reached the single largest share recorded in the table, 41% under short-term warming, which shows that warming steadily favors the most abundant groups."
+              "text": "Proteobacteria reached the single largest share recorded anywhere in the table, 41% under short-term warming, up from 39% in the control plots, which shows that warming steadily favors the community's most abundant bacterial groups."
             },
             {
               "id": "B",
@@ -1860,7 +1860,7 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Likewise,"
+              "text": "Meanwhile,"
             },
             {
               "id": "B",
@@ -1876,7 +1876,7 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The 1980s starting point and the mid-1990s development are linked just by time order - one came first, the other later - which \"Then,\" marks, and the words \"in the mid-1990s\" confirm it.\n\n**The Full Solution:**\n- The first sentence sets the 1980s starting point: opportunistic infections and steady decline, with treatments that extended life but couldn't stop the virus from copying itself.\n- The sentence after the blank brings in a mid-1990s development: a three-drug combination that pushed the virus far lower than before and could make the infection a manageable long-term condition.\n- The development comes later in time than the starting point, so the time word \"Then,\" fits - and \"in the mid-1990s\" right after the blank backs it up. How to spot it: when the sentences are separated mainly by dates (1980s, then mid-1990s), the missing word is usually a plain time-order word like \"Then.\"\n\n**Why the other choices are wrong:**\n- A: \"Likewise,\" would treat the development as similar to the starting point rather than a change from it.\n- C: \"For example,\" would make it an example of the starting point.\n- D: \"Otherwise,\" would signal a what-if the passage never raises.",
+          "explanation": "**Choice B is correct.** The 1980s starting point and the mid-1990s development are linked just by time order - one came first, the other later - which \"Then,\" marks, and the words \"in the mid-1990s\" confirm it.\n\n**The Full Solution:**\n- The first sentence sets the 1980s starting point: opportunistic infections and steady decline, with treatments that extended life but couldn't stop the virus from copying itself.\n- The sentence after the blank brings in a mid-1990s development: a three-drug combination that pushed the virus far lower than before and could make the infection a manageable long-term condition.\n- The development comes later in time than the starting point, so the time word \"Then,\" fits - and \"in the mid-1990s\" right after the blank backs it up. How to spot it: when the sentences are separated mainly by dates (1980s, then mid-1990s), the missing word is usually a plain time-order word like \"Then.\"\n\n**Why the other choices are wrong:**\n- A: \"Meanwhile,\" would set the mid-1990s development alongside the 1980s picture as simultaneous, but the passage moves forward in time from one period to the next.\n- C: \"For example,\" would make it an example of the starting point.\n- D: \"Otherwise,\" would signal a what-if the passage never raises.",
           "_meta": {
             "anchor": "David Ho — virologist; mid-1990s case for three-drug combination therapy for HIV"
           },
@@ -1934,7 +1934,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "C",
-              "text": "Even so,"
+              "text": "Still,"
             },
             {
               "id": "D",
@@ -1942,7 +1942,7 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The two sentences pull against each other - the systems exist, yet they still fall short - which \"Even so,\" marks (it means \"that's true, but still\").\n\n**The Full Solution:**\n- The passage explains that several systems exist for writing dance down, the most common being Labanotation, which records the direction, level, and timing of each move.\n- The sentence after the blank points out a catch: these systems are far less standardized than musical notation, so a dance written in one often can't be read by someone trained in another.\n- The systems exist yet still fall short - that's an admit-but-push-back relation, so \"Even so,\" is the right link. How to spot it: when the first sentence says something good exists and the next sentence says \"but it still has a problem,\" you want a but-anyway word like \"Even so\" or \"However,\" not a cause or example word.\n\n**Why the other choices are wrong:**\n- A: \"For instance,\" would offer the catch as an example, but it's a counterpoint, not an example.\n- B: \"As a result,\" would make the limitation a result of the systems existing, which it isn't.\n- D: \"In other words,\" would call it a restatement, when it actually adds a new, opposing point.",
+          "explanation": "**Choice C is correct.** The two sentences pull against each other - the systems exist, yet they still fall short - which \"Still,\" marks (it means \"that's true, but even so\").\n\n**The Full Solution:**\n- The passage explains that several systems exist for writing dance down, the most common being Labanotation, which records the direction, level, and timing of each move.\n- The sentence after the blank points out a catch: these systems are far less standardized than musical notation, so a dance written in one often can't be read by someone trained in another.\n- The systems exist yet still fall short - that's an admit-but-push-back relation, so \"Still,\" is the right link. How to spot it: when the first sentence says something good exists and the next sentence says \"but it still has a problem,\" you want a but-anyway word like \"Still\" or \"However,\" not a cause or example word.\n\n**Why the other choices are wrong:**\n- A: \"For instance,\" would offer the catch as an example, but it's a counterpoint, not an example.\n- B: \"As a result,\" would make the limitation a result of the systems existing, which it isn't.\n- D: \"In other words,\" would call it a restatement, when it actually adds a new, opposing point.",
           "_meta": {
             "anchor": "Dance notation; Labanotation and its limits [theme: dance notation]"
           },
@@ -1971,7 +1971,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "D",
-              "text": "After leaving NASA in 1993, Jemison founded a technology consulting firm and a science camp for teenagers, and since 2012 she has led the 100 Year Starship initiative."
+              "text": "After leaving NASA in 1993, Jemison founded a technology consulting company and an international science camp for teenagers, and since 2012 she has led the 100 Year Starship initiative, which investigates the engineering and societal challenges of human interstellar travel within the coming century."
             }
           ],
           "correctAnswer": "C",
@@ -2003,7 +2003,7 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Young published her single-author 1924 paper on the excretory apparatus in Paramecium while working with Ernest Just at Howard University and at Woods Hole."
+              "text": "Young published her single-author 1924 paper describing the excretory apparatus in Paramecium while collaborating throughout the 1920s with Ernest Just at Howard University and at the Marine Biological Laboratory at Woods Hole, the institutions where much of her earliest experimental research was conducted."
             },
             {
               "id": "B",
@@ -2011,7 +2011,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "C",
-              "text": "Roger Arliner Young, who lived from 1899 to 1964, studied the contractile vacuole system of Paramecium and the effects of radiation on marine egg cells."
+              "text": "Roger Arliner Young, who lived from 1899 to 1964, studied the contractile vacuole system of the single-celled Paramecium and the effects of radiation exposure on the egg cells of marine organisms."
             },
             {
               "id": "D",

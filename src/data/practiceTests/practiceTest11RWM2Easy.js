@@ -208,7 +208,7 @@ export const practiceTest11RWM2Easy = {
       question: "Which choice best states the main idea of the text?",
       choices: [
         { id: "A", text: "By grouping riders who are headed to nearby floors into the same car, newer elevator systems move more people without adding any elevators." },
-        { id: "B", text: "Riders in tall office buildings spend more of their morning commute standing in the lobby than they spend inside the elevator car." },
+        { id: "B", text: "Riders in tall office buildings spend more of their morning commute standing and waiting in the lobby than they spend riding inside the elevator car itself." },
         { id: "C", text: "Traditional elevator systems answer the calls they receive in the order in which those calls arrive." },
         { id: "D", text: "A crowded office building can shorten its morning lobby waits only by building additional elevator shafts." }
       ],
@@ -268,18 +268,18 @@ export const practiceTest11RWM2Easy = {
       band: 3,
       domain: "information-and-ideas",
       skill: "command-of-evidence-textual",
-      question: "Which finding, if true, would most directly support the archaeologist's argument?",
+      question: "Which finding, if true, would most directly support the historian's argument?",
       choices: [
-        { id: "A", text: "The tool marks on the trackway's planks were made by axes of a kind used across a wide region for many centuries." },
-        { id: "B", text: "Bog water preserves worked wood far better than the mineral soils that surround the bog do." },
-        { id: "C", text: "The timbers taken from a single trackway were cut over a span of many decades rather than within one or two seasons." },
-        { id: "D", text: "The trackway crosses the bog at its narrowest point, where the layer of peat is shallowest." }
+        { id: "A", text: "The tower's oldest surviving inventory lists all eight bells together, with weights recorded in units that remained in use across the region for many centuries." },
+        { id: "B", text: "Bell metal resists corrosion in a damp tower far better than the iron fittings from which the bells hang resist it." },
+        { id: "C", text: "The metal mixtures of the eight bells fall into several distinct groups, each matching the alloy practice of a different founder's workshop." },
+        { id: "D", text: "The bells hang from a frame of seasoned oak that is stouter than the frames found in most parish churches of similar size." }
       ],
       correctAnswer: "C",
-      explanation: "**Choice C is correct.** If the timbers in one trackway were cut decades apart, the walkway must have been added to over a long stretch of time rather than built in a single effort - exactly what the archaeologist claims.\n\n**The Full Solution:**\n- How to spot it: state the claim in plain words first, then ask which result would make that claim more believable. The claim is about TIMING: repaired again and again, not laid down all at once.\n- The archaeologist argues the trackway was \"repaired again and again over generations, as each wet season sank the previous surface.\"\n- Her test compares growth rings in timbers from different parts of one trackway, which reveals when each timber was cut.\n- A spread of many decades among those cutting dates means many separate episodes of building, which is what repeated repair would leave behind.\n\n**Why the other choices are wrong:**\n- A: Axes used widely for centuries cannot pin down when any one timber was cut, so this settles nothing about timing.\n- B: How well bog water preserves wood explains why the planks survive, not when they were laid.\n- D: Where the trackway crosses says nothing about how many times it was rebuilt.",
-      passage: "Wooden walkways laid across northern bogs thousands of years ago sometimes survive almost intact, their planks still bearing tool marks. One archaeologist argues that such a trackway was not laid down all at once but repaired again and again over generations, as each wet season sank the previous surface into the peat. To test the idea, she plans to compare the growth rings in timbers taken from different parts of a single trackway.",
+      explanation: "**Choice C is correct.** If the eight bells sort into several distinct alloy groups, each matching a different workshop's practice, the ring must have been bought in separate batches rather than cast as one commission - exactly what the historian claims.\n\n**The Full Solution:**\n- How to spot it: state the claim in plain words first, then ask which result would make that claim more believable. The claim is about HOW MANY castings: several purchases over time, not one.\n- The historian argues the ring was \"assembled piecemeal,\" one or two bells at a time as parish funds allowed.\n- Her test reads each bell's mix of copper, tin, and trace metals, which acts as a fingerprint of the batch and workshop that cast it.\n- Several distinct groups of metal mixtures mean several separate castings, which is what piecemeal buying would leave behind.\n\n**Why the other choices are wrong:**\n- A: Weight units used across the region for centuries cannot pin down when any one bell was cast, so this settles nothing about timing.\n- B: How well bell metal resists corrosion explains why the bells survive, not how many castings produced them.\n- D: The stoutness of the oak frame says nothing about whether the bells arrived together or over many years.",
+      passage: "The eight bells in a market town's church tower have long been credited to a single eighteenth-century founder. One historian of metalwork argues instead that the ring was assembled piecemeal: parishes of modest means, she notes, typically bought one or two bells at a time as funds allowed. To test the idea, she plans to have small drillings from each bell analyzed for the distinctive mix of copper, tin, and trace metals used in its casting.",
       _meta: {
-        anchor: "bog archaeology: dendrochronology of timbers from a preserved bog trackway"
+        anchor: "bell founding: alloy analysis of a parish ring of bells"
       },
       id: 1166
     },
@@ -291,13 +291,13 @@ export const practiceTest11RWM2Easy = {
       skill: "command-of-evidence-quantitative",
       question: "Which choice most effectively uses data from the table to complete the statement?",
       choices: [
-        { id: "A", text: "the concert hall's reverberation time of 2.1 seconds is longer than the school auditorium's 1.4 seconds." },
+        { id: "A", text: "the concert hall's reverberation time of 2.1 seconds is longer than both the school auditorium's 1.4 seconds and the carpeted classroom's 0.6 seconds." },
         { id: "B", text: "its reverberation time of 0.6 seconds is the shortest of the four rooms measured." },
         { id: "C", text: "the carpeted classroom, at 0.6 seconds, has the shortest reverberation time of the four rooms measured." },
         { id: "D", text: "its reverberation time of 6.8 seconds is the longest of the four rooms measured, so one syllable would still be sounding when the next began." }
       ],
       correctAnswer: "D",
-      explanation: "**Choice D is correct.** The claim is about the cathedral being the worst room for speech, so the data must show the cathedral has the longest reverberation of the four rooms.\n\n**The Full Solution:**\n- How to spot it: read the claim before the blank and note which room it is about. It is about the stone cathedral, so the right choice has to give the cathedral's number and say why that number is a problem.\n- Speech needs short reverberation \"so that one syllable dies away before the next arrives.\"\n- The cathedral's 6.8 seconds is the largest value in the table, well above the classroom's 0.6, the auditorium's 1.4, and the concert hall's 2.1.\n- With sound hanging for nearly seven seconds, syllables would pile on top of one another, which is exactly why the cathedral suits speech least.\n\n**Why the other choices are wrong:**\n- A: It compares two other rooms and never mentions the cathedral the claim is about.\n- B: It misreads the table - 0.6 seconds is the carpeted classroom, not the cathedral.\n- C: It reports the classroom's value correctly but says nothing about the cathedral.",
+      explanation: "**Choice D is correct.** The claim is about the cathedral being the worst room for speech, so the data must show the cathedral has the longest reverberation of the four rooms.\n\n**The Full Solution:**\n- How to spot it: read the claim before the blank and note which room it is about. It is about the stone cathedral, so the right choice has to give the cathedral's number and say why that number is a problem.\n- Speech needs short reverberation \"so that one syllable dies away before the next arrives.\"\n- The cathedral's 6.8 seconds is the largest value in the table, well above the classroom's 0.6, the auditorium's 1.4, and the concert hall's 2.1.\n- With sound hanging for nearly seven seconds, syllables would pile on top of one another, which is exactly why the cathedral suits speech least.\n\n**Why the other choices are wrong:**\n- A: It compares the other rooms with one another and never mentions the cathedral the claim is about.\n- B: It misreads the table - 0.6 seconds is the carpeted classroom, not the cathedral.\n- C: It reports the classroom's value correctly but says nothing about the cathedral.",
       passage: "Acousticians describe a room by its reverberation time: the number of seconds a sound takes to fade to near silence after the source stops. Choral directors often favor long reverberation, which blends voices, but speech needs short reverberation so that one syllable dies away before the next arrives. Reviewing measurements taken in four rooms, one acoustician notes that the stone cathedral is the room least suited to spoken announcements because _______",
       questionTable: {
         type: "table",
@@ -324,7 +324,7 @@ export const practiceTest11RWM2Easy = {
       skill: "command-of-evidence-quantitative",
       question: "Which choice most effectively uses data from the table to complete the statement?",
       choices: [
-        { id: "A", text: "the automated text reminder cut no-shows from 18 percent to 12 percent, the largest single improvement of any policy in the table." },
+        { id: "A", text: "the automated text reminder cut no-shows from 18 percent to 12 percent, the largest improvement of any policy in the table." },
         { id: "B", text: "the deposit policy's no-show rate of 4 percent is less than half the 11 percent recorded under the most thorough reminder policy." },
         { id: "C", text: "no-shows occurred under every policy the group tested, including the policy that required a deposit." },
         { id: "D", text: "adding a phone confirmation to the automated text reminder lowered the no-show rate from 12 percent to 11 percent." }
@@ -539,11 +539,11 @@ export const practiceTest11RWM2Easy = {
       choices: [
         { id: "A", text: "However," },
         { id: "B", text: "For example," },
-        { id: "C", text: "Nevertheless," },
+        { id: "C", text: "Similarly," },
         { id: "D", text: "For this reason," }
       ],
       correctAnswer: "D",
-      explanation: "**Choice D is correct.** The first sentences describe ants guarding aphids in exchange for honeydew, and the sentence after the blank reports the label biologists give that arrangement, so a cause-and-effect transition fits.\n\n**The Full Solution:**\n- How to spot it: ask whether the second part follows FROM the first. If the first explains why the second is true, use a result word such as \"for this reason\" or \"as a result.\"\n- The passage first sets up the trade: aphids give up honeydew, and the ants \"drive off the ladybugs and wasps that prey on the aphids.\"\n- The sentence with the blank reports the name that trade earned - ants \"keeping herds,\" aphids as \"livestock that pay for their protection in sugar.\"\n- The name follows directly from the behavior just described, so \"For this reason\" is the right link.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a contrast, but the naming agrees with the behavior rather than clashing with it.\n- B: \"For example\" would make the name an instance of the behavior, when it is a consequence of it.\n- C: \"Nevertheless\" would mean the name holds in spite of the behavior, which makes no sense here.",
+      explanation: "**Choice D is correct.** The first sentences describe ants guarding aphids in exchange for honeydew, and the sentence after the blank reports the label biologists give that arrangement, so a cause-and-effect transition fits.\n\n**The Full Solution:**\n- How to spot it: ask whether the second part follows FROM the first. If the first explains why the second is true, use a result word such as \"for this reason\" or \"as a result.\"\n- The passage first sets up the trade: aphids give up honeydew, and the ants \"drive off the ladybugs and wasps that prey on the aphids.\"\n- The sentence with the blank reports the name that trade earned - ants \"keeping herds,\" aphids as \"livestock that pay for their protection in sugar.\"\n- The name follows directly from the behavior just described, so \"For this reason\" is the right link.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a contrast, but the naming agrees with the behavior rather than clashing with it.\n- B: \"For example\" would make the name an instance of the behavior, when it is a consequence of it.\n- C: \"Similarly\" would introduce a parallel case, but the sentence names the very behavior just described, not another one like it.",
       passage: "Aphids feed on plant sap and give off a sugary liquid called honeydew. Certain ants collect that honeydew and, in exchange, drive off the ladybugs and wasps that prey on the aphids. ______ biologists have long described these ants as keeping herds, and the aphids as livestock that pay for their protection in sugar.",
       _meta: {
         anchor: "ant behavior: ants tending aphids for honeydew in exchange for protection"
@@ -582,10 +582,10 @@ export const practiceTest11RWM2Easy = {
         { id: "A", text: "Likewise," },
         { id: "B", text: "Even so," },
         { id: "C", text: "In other words," },
-        { id: "D", text: "For instance," }
+        { id: "D", text: "In fact," }
       ],
       correctAnswer: "B",
-      explanation: "**Choice B is correct.** The first sentence praises what chord-by-chord tuning achieves, and the sentence with the blank reports the drawback conductors have to guard against, so a contrast transition fits.\n\n**The Full Solution:**\n- How to spot it: ask whether the second sentence adds to the praise or works against it. Here it introduces a problem, so you need a word that signals a turn despite what was just said.\n- Sentence 1 gives the advantage: tuning each chord to itself produces an effect \"purer than a piano can manage.\"\n- The sentence with the blank gives the cost: a choir tuning chord by chord \"can finish a passage a quarter-step below where it started,\" so conductors keep an instrument offstage to sound the opening pitch.\n- The drawback stands in spite of the advantage, which is what \"Even so\" signals.\n\n**Why the other choices are wrong:**\n- A: \"Likewise\" would treat the drawback as one more point in favor of pure tuning.\n- C: \"In other words\" would make the second sentence a restatement of the first, but it introduces new and opposing information.\n- D: \"For instance\" would make it an example of the purity just praised, when it is the price of that purity.",
+      explanation: "**Choice B is correct.** The first sentence praises what chord-by-chord tuning achieves, and the sentence with the blank reports the drawback conductors have to guard against, so a contrast transition fits.\n\n**The Full Solution:**\n- How to spot it: ask whether the second sentence adds to the praise or works against it. Here it introduces a problem, so you need a word that signals a turn despite what was just said.\n- Sentence 1 gives the advantage: tuning each chord to itself produces an effect \"purer than a piano can manage.\"\n- The sentence with the blank gives the cost: a choir tuning chord by chord \"can finish a passage a quarter-step below where it started,\" so conductors keep an instrument offstage to sound the opening pitch.\n- The drawback stands in spite of the advantage, which is what \"Even so\" signals.\n\n**Why the other choices are wrong:**\n- A: \"Likewise\" would treat the drawback as one more point in favor of pure tuning.\n- C: \"In other words\" would make the second sentence a restatement of the first, but it introduces new and opposing information.\n- D: \"In fact\" would strengthen the purity claim just made, but the sentence reports the price of that purity rather than reinforcing it.",
       passage: "An unaccompanied choir tunes each chord to itself, nudging every note until the beating between voices disappears; the effect is purer than a piano can manage, since a keyboard's fixed tuning has to compromise every interval a little. ______ many conductors of long unaccompanied works keep a quiet instrument offstage to sound the opening pitch, since a choir tuning chord by chord can finish a passage a quarter-step below where it started.",
       _meta: {
         anchor: "choral tuning: pure chord-by-chord intonation and gradual pitch drift"
@@ -601,8 +601,8 @@ export const practiceTest11RWM2Easy = {
       question: "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       choices: [
         { id: "A", text: "Signature quilts, made in many nineteenth-century American communities, were assembled from blocks that were each sewn by a different person, whose name was then inked or embroidered onto the finished block." },
-        { id: "B", text: "Groups raising money for a church, a school, or a hospital sold the chance to have a name added to a signature quilt." },
-        { id: "C", text: "Most signature quilts were finished within a single season, and many of them carry a stitched or inked date." },
+        { id: "B", text: "Groups raising money for the benefit of a church, a school, or a hospital sold the chance to have a donor's name inked or embroidered onto one of the quilt's blocks, with prices that varied from place to place." },
+        { id: "C", text: "Most signature quilts were finished within a single quilting season, and many of them carry a stitched or inked date recording the year in which the final block of the set was completed." },
         { id: "D", text: "Because a signature quilt gathers dated names from one community, historians read it as a record of who belonged there that year, sometimes including names found in no other document." }
       ],
       correctAnswer: "D",
@@ -632,8 +632,8 @@ export const practiceTest11RWM2Easy = {
       skill: "rhetorical-synthesis",
       question: "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       choices: [
-        { id: "A", text: "Some African termites build mounds several meters tall, riddled with narrow channels that connect to the nest chambers below." },
-        { id: "B", text: "Researchers measured the movement of air inside a mound's channels over a full day, tracking how the sun warmed the structure." },
+        { id: "A", text: "Some African termites build mounds several meters tall above their nests, riddled with narrow channels that wind upward from the nest chambers below to the outer walls of the structure." },
+        { id: "B", text: "Researchers measured the movement of air inside a mound's narrow channels over the course of a full day, tracking how the sun warmed first one side of the structure and then the other." },
         { id: "C", text: "Because the sun warms one side of the mound and then the other, the temperature difference drives air up the warm channels and down the cool ones, flushing the nest on its own." },
         { id: "D", text: "The termites in the colony do not fan the air inside the mound themselves, and the mound, which stands several meters above the nest, is riddled with narrow channels that reach the chambers below." }
       ],

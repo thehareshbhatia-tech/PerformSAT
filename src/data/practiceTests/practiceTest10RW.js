@@ -206,7 +206,7 @@ export const practiceTest10RW = {
             },
             {
               "id": "C",
-              "text": "To explain why the males in a given humpback whale population revise their shared song over the course of a single breeding season, year after year."
+              "text": "To explain why all of the males in a given humpback whale population revise their shared song together over the course of a single breeding season, year after year."
             },
             {
               "id": "D",
@@ -223,28 +223,28 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Hydrologists have long known that aquifers in heavily irrigated regions are being drawn down, but measuring the loss across an entire river basin is difficult from the ground, where wells sample only scattered points. Reasoning that a large enough change in the water stored underground should register as a tiny change in the planet's gravity field, a research team turned to the paired GRACE satellites, which track minute variations in Earth's gravity from orbit. Over the decade they examined, the satellite record showed a steady decline in total stored water across northern India far larger than rainfall shortfalls alone could explain, pointing to groundwater pumping as the dominant cause.",
+          "passage": "Economic historians who want to compare living standards across the centuries face an obvious obstacle: for most of the past, no government collected statistics, and the scattered prices that survive come from different goods in different years. One team's solution was to follow a single, slow-changing trade. Building craftsmen appear in cathedral and college account books for seven centuries, paid by the day for the same kinds of work, and the same account books record the price of bread. Dividing the daily wage by the bread price yields, for each generation, roughly how many loaves a day's labor could buy. By that measure, the team found, a builder's real wage in 1800 barely exceeded its level of five hundred years earlier.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "It presents a widely accepted conclusion and then describes an experiment that called that conclusion into question."
+              "text": "It presents a widely accepted conclusion about the history of living standards and then describes a study of newly found records that called that conclusion into question."
             },
             {
               "id": "B",
-              "text": "It describes a measurement technique in exhaustive detail and then lists, region by region, the places where that technique has not yet been applied."
+              "text": "It describes the keeping of cathedral and college account books in exhaustive detail and then lists the centuries for which no usable records survive."
             },
             {
               "id": "C",
-              "text": "It compares two competing methods for measuring groundwater and argues that neither is reliable on its own."
+              "text": "It compares two competing methods for reconstructing historical wages and argues that neither method is reliable on its own."
             },
             {
               "id": "D",
-              "text": "It identifies a difficulty in measuring a known phenomenon, explains the principle behind a satellite-based approach, and reports what that approach revealed."
+              "text": "It identifies a difficulty in measuring a long-run phenomenon, explains the principle behind one team's record-based approach, and reports what that approach revealed."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The passage first names a measurement problem - ground wells sample \"only scattered points,\" so basin-wide groundwater loss is hard to gauge - then explains the idea behind the satellite approach, and finally reports what it revealed.\n\n**The Full Solution:**\nThis is a problem, then the idea behind a fix, then the finding.\n- How to spot it: read the answer choices as a sequence of moves and check each move against the passage in order. The passage opens with a difficulty, shifts to a method, and ends with a result - so the right choice names all three in that order.\n- The difficulty: measuring loss across an entire river basin is hard from the ground, where wells sample only scattered points.\n- The idea: a large change in stored water should show up as a tiny change in the planet's gravity, which the paired GRACE satellites can track.\n- The finding: a steady decline in stored water across northern India, larger than rainfall shortfalls explain, pointing to groundwater pumping.\n\n**Why the other choices are wrong:**\n- A: No widely accepted conclusion is overturned in the passage.\n- B: It misstates the ending, which gives a result, not a list of untested regions.\n- C: It invents a head-to-head comparison of two methods that the passage never makes."
+          "explanation": "**Choice D is correct.** The passage first names a measurement problem - for most of the past \"no government collected statistics\" - then explains the idea behind the wage-and-bread method, and finally reports what it revealed.\n\n**The Full Solution:**\nThis is a problem, then the idea behind a fix, then the finding.\n- How to spot it: read the answer choices as a sequence of moves and check each move against the passage in order. The passage opens with a difficulty, shifts to a method, and ends with a result - so the right choice names all three in that order.\n- The difficulty: surviving prices are scattered across \"different goods in different years,\" so living standards are hard to compare over centuries.\n- The idea: builders' daily wages and bread prices sit side by side in cathedral and college account books for seven centuries, so dividing one by the other shows how many loaves a day's work could buy.\n- The finding: by that measure, a builder's real wage in 1800 \"barely exceeded its level of five hundred years earlier.\"\n\n**Why the other choices are wrong:**\n- A: No widely accepted conclusion is overturned in the passage; the team fills a gap rather than refuting a consensus.\n- B: It misstates the ending, which gives a result, not a list of centuries without records.\n- C: It invents a head-to-head comparison of two methods that the passage never makes."
         },
         {
           "id": 1008,
@@ -357,7 +357,7 @@ export const practiceTest10RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The first transistor demonstrated at Bell Laboratories in 1947 was too fragile to be used in any setting outside of the controlled environment of the research laboratory itself."
+              "text": "The first transistor demonstrated at Bell Laboratories in 1947 was too fragile to be used reliably in any setting outside of the controlled environment of the research laboratory itself."
             },
             {
               "id": "B",
@@ -365,7 +365,7 @@ export const practiceTest10RW = {
             },
             {
               "id": "C",
-              "text": "Engineers in the decade after 1947 succeeded in packing many transistors onto a single chip of silicon."
+              "text": "Engineers in the decade after 1947 succeeded in making transistors smaller, cheaper, and more reliable, and in packing many of them onto a single chip of silicon."
             },
             {
               "id": "D",
@@ -391,7 +391,7 @@ export const practiceTest10RW = {
             },
             {
               "id": "B",
-              "text": "Stomata in modern plants open and close in response to the intensity of light as well as to the dryness of the air immediately around the leaf."
+              "text": "Stomata in modern plants open and close over the course of the day in response to the intensity of sunlight as well as to the dryness of the air immediately surrounding the leaf's surface."
             },
             {
               "id": "C",
@@ -399,7 +399,7 @@ export const practiceTest10RW = {
             },
             {
               "id": "D",
-              "text": "The oldest known fossils of land plants are often preserved in fine-grained rock that formed in calm, shallow water."
+              "text": "The oldest known fossils of land plants are often preserved in fine-grained sedimentary rock that formed in calm, shallow water near ancient shorelines."
             }
           ],
           "correctAnswer": "A",
@@ -459,7 +459,7 @@ export const practiceTest10RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Facebook's share rose from 54% in 2012 to 68% in 2016, a 14-percentage-point increase that was the largest gain reported for any platform across that interval."
+              "text": "Facebook's share rose from 54% in 2012 to 68% in 2016, a 14-percentage-point increase that was the largest gain reported for any platform across that four-year interval."
             },
             {
               "id": "B",
@@ -790,7 +790,7 @@ export const practiceTest10RW = {
           "choices": [
             {
               "id": "A",
-              "text": "As a result,"
+              "text": "In turn,"
             },
             {
               "id": "B",
@@ -806,7 +806,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The first sentences give a cause - dark city surfaces soak up heat by day and let it out slowly through the evening - and the sentence with the blank gives the result: cities stay warmer overnight than the countryside. \"As a result\" is the linking word (transition) for cause and effect.\n\n**The Full Solution:**\n- How to spot it: put the two sentences side by side and ask how they relate. The first explains WHY, the second states WHAT HAPPENS - that cause-then-effect link calls for \"As a result.\"\n- Cause: dark asphalt and concrete soak up the sun's energy by day and release stored heat slowly after sunset.\n- Effect: many large cities stay several degrees warmer overnight than the rural land around them.\n- \"As a result\" links the cause to the consequence.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" signals a contrast the passage does not present.\n- C: \"For example\" would introduce an example of an earlier general claim, which this is not.\n- D: \"Likewise\" signals a similar case, not a consequence."
+          "explanation": "**Choice A is correct.** The passage builds a chain: surfaces soak up heat by day, then hold that warmth after sunset, and the sentence with the blank gives the chain's next link - warmer city nights. \"In turn\" is the linking word (transition) for the next step in a sequence of causes.\n\n**The Full Solution:**\n- How to spot it: put the sentences side by side and ask how they relate. Each one follows from the one before - absorb by day, hold warmth through the evening, and finally warmer overnight temperatures - so the transition must mark the next consequence in the chain, which \"In turn\" does.\n- Step one: dark asphalt and concrete soak up the sun's energy by day and release stored heat slowly after sunset.\n- Step two: in a dense city, miles of such surfaces hold warmth long after dark.\n- The blank introduces the step that follows: many large cities stay several degrees warmer overnight than the rural land around them.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" signals a contrast the passage does not present.\n- C: \"For example\" would introduce an example of an earlier general claim, which this is not.\n- D: \"Likewise\" signals a similar case, not a consequence."
         },
         {
           "id": 1024,
@@ -824,7 +824,7 @@ export const practiceTest10RW = {
             },
             {
               "id": "B",
-              "text": "Therefore,"
+              "text": "As a result,"
             },
             {
               "id": "C",
@@ -832,11 +832,11 @@ export const practiceTest10RW = {
             },
             {
               "id": "D",
-              "text": "Likewise,"
+              "text": "In other words,"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The passage first states the usual pattern - most mountain glaciers are losing ice and retreating - and then turns to glaciers doing the opposite by advancing. \"By contrast\" is the linking word (transition) that flags that opposite.\n\n**The Full Solution:**\n- How to spot it: watch for the moment the passage flips to the OPPOSITE. \"Most glaciers retreat\" then \"a small number have actually advanced\" - the word \"actually\" signals a reversal, so the transition must mark a contrast.\n- Usual pattern: the great majority of mountain glaciers have been losing ice.\n- Exception: a small number in coastal ranges have actually advanced over the same decades.\n- \"By contrast\" sets the exception against the trend.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would give an example of the first claim, not an opposite case.\n- B: \"Therefore\" signals a consequence, which the advancing glaciers are not.\n- D: \"Likewise\" signals similarity, the reverse of the contrast the sentence sets up."
+          "explanation": "**Choice C is correct.** The passage first states the usual pattern - most mountain glaciers are losing ice and retreating - and then turns to glaciers doing the opposite by advancing. \"By contrast\" is the linking word (transition) that flags that opposite.\n\n**The Full Solution:**\n- How to spot it: watch for the moment the passage flips to the OPPOSITE. \"Most glaciers retreat\" then \"a small number have actually advanced\" - the word \"actually\" signals a reversal, so the transition must mark a contrast.\n- Usual pattern: the great majority of mountain glaciers have been losing ice.\n- Exception: a small number in coastal ranges have actually advanced over the same decades.\n- \"By contrast\" sets the exception against the trend.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would give an example of the first claim, not an opposite case.\n- B: \"As a result\" signals a consequence, but the advancing glaciers are not caused by the majority's retreat.\n- D: \"In other words\" signals a restatement, but the second sentence reports an opposite case, not the same claim rephrased."
         },
         {
           "id": 1025,
@@ -858,7 +858,7 @@ export const practiceTest10RW = {
             },
             {
               "id": "C",
-              "text": "For example,"
+              "text": "Instead,"
             },
             {
               "id": "D",
@@ -866,7 +866,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage first describes holding a course by the rising and setting points of particular stars, then says \"the stars were not their only guide\" before naming more methods - reading ocean swells and the flight of seabirds. \"In addition\" is the linking word (transition) for adding more guides alongside the stars.\n\n**The Full Solution:**\n- How to spot it: the sentence before the blank says the stars were \"not their only guide,\" which all but promises MORE guides are coming. A promise of more calls for an adding word like \"In addition.\"\n- First guide: navigators held a course by the rising and setting points of particular stars.\n- The passage flags more: \"the stars were not their only guide.\"\n- Added guides: feeling swells bending around islands and reading seabird flight paths.\n- \"In addition\" introduces these extra methods.\n\n**Why the other choices are wrong:**\n- B: \"However\" marks a contrast, but the sentence adds to rather than opposes the earlier point.\n- C: \"For example\" would treat swells and birds as cases of star navigation, which they are not.\n- D: \"As a result\" would wrongly make them a consequence of the star navigation."
+          "explanation": "**Choice A is correct.** The passage first describes holding a course by the rising and setting points of particular stars, then says \"the stars were not their only guide\" before naming more methods - reading ocean swells and the flight of seabirds. \"In addition\" is the linking word (transition) for adding more guides alongside the stars.\n\n**The Full Solution:**\n- How to spot it: the sentence before the blank says the stars were \"not their only guide,\" which all but promises MORE guides are coming. A promise of more calls for an adding word like \"In addition.\"\n- First guide: navigators held a course by the rising and setting points of particular stars.\n- The passage flags more: \"the stars were not their only guide.\"\n- Added guides: feeling swells bending around islands and reading seabird flight paths.\n- \"In addition\" introduces these extra methods.\n\n**Why the other choices are wrong:**\n- B: \"However\" marks a contrast, but the sentence adds to rather than opposes the earlier point.\n- C: \"Instead\" would have the swells and birds replace the stars, but \"not their ONLY guide\" shows the stars stayed in use alongside the rest.\n- D: \"As a result\" would wrongly make them a consequence of the star navigation."
         },
         {
           "id": 1026,
@@ -891,7 +891,7 @@ export const practiceTest10RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Florence Nightingale, best known as a Crimean War nurse, was also an early member of the Royal Statistical Society."
+              "text": "Florence Nightingale, though best known to the public as a nurse during the Crimean War, was also a pioneering statistician and an early member of the Royal Statistical Society."
             },
             {
               "id": "B",
@@ -903,11 +903,11 @@ export const practiceTest10RW = {
             },
             {
               "id": "D",
-              "text": "Nightingale's circular \"rose\" diagram used shaded wedges to display the number of deaths by cause in each month of the Crimean War."
+              "text": "Nightingale's circular \"rose\" diagram used shaded wedges to display, for each month of the Crimean War, the number of deaths from preventable disease, from battle wounds, and from all other causes, so that officials could compare the three at a glance."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The goal is to show how Nightingale used a data picture to bring about reform, so the best choice ties the diagram to what it was meant to do and what it achieved. Choice C names the rose diagram, says what it was meant to show officials, and connects it to the sanitary reforms it helped win.\n\n**The Full Solution:**\n- How to spot it: do exactly what the goal sentence asks. The goal wants the diagram AND the reform, so cross out any choice missing either one - the winner has to carry both.\n- It names the picture: the circular \"rose\" diagram of monthly deaths by cause.\n- It states the job: to show officials that disease, not combat, was killing most soldiers.\n- It names the result: it helped persuade the government to reform military hospital sanitation.\n\n**Why the other choices are wrong:**\n- A: It reports her statistics background without the diagram or the reform.\n- B: It states the finding but not the diagram or its effect.\n- D: It describes how the diagram worked but stops short of its persuasive job and its result."
+          "explanation": "**Choice C is correct.** The goal is to show how Nightingale used a data picture to bring about reform, so the best choice ties the diagram to what it was meant to do and what it achieved. Choice C names the rose diagram, says what it was meant to show officials, and connects it to the sanitary reforms it helped win.\n\n**The Full Solution:**\n- How to spot it: do exactly what the goal sentence asks. The goal wants the diagram AND the reform, so cross out any choice missing either one - the winner has to carry both.\n- It names the picture: the circular \"rose\" diagram of monthly deaths by cause.\n- It states the job: to show officials that disease, not combat, was killing most soldiers.\n- It names the result: it helped persuade the government to reform military hospital sanitation.\n\n**Why the other choices are wrong:**\n- A: It reports her statistics background without the diagram or the reform.\n- B: It states the finding but not the diagram or its effect.\n- D: It describes how the diagram worked and what it let officials compare, but it stops short of the reform the diagram helped bring about."
         },
         {
           "id": 1027,
@@ -940,11 +940,11 @@ export const practiceTest10RW = {
             },
             {
               "id": "C",
-              "text": "High in the stratosphere, a layer of ozone absorbs ultraviolet radiation that would otherwise damage the DNA of living things on the surface."
+              "text": "High in the stratosphere, a protective layer of ozone absorbs much of the Sun's ultraviolet radiation that would otherwise reach the surface and damage living things."
             },
             {
               "id": "D",
-              "text": "Near the ground, ozone forms when sunlight reacts with pollutants released by vehicles and industry, contributing to smog."
+              "text": "Near the ground, ozone forms when summer sunlight reacts with pollutants released by vehicles and industry, contributing to the smog that irritates human lungs."
             }
           ],
           "correctAnswer": "B",
@@ -1127,7 +1127,7 @@ export const practiceTest10RW = {
             },
             {
               "id": "B",
-              "text": "To explain why the steep fall in oil prices during the 1970s ultimately led Exxon to abandon its support for rechargeable-battery research."
+              "text": "To explain why the steep fall in oil prices at the end of the 1970s ultimately led Exxon to abandon its support for Whittingham's rechargeable-battery research."
             },
             {
               "id": "C",
@@ -1135,7 +1135,7 @@ export const practiceTest10RW = {
             },
             {
               "id": "D",
-              "text": "To trace the chemistry by which lithium ions move in and out of a layered electrode during intercalation."
+              "text": "To trace the chemistry by which lithium ions slip in and out of a layered electrode during the process known as intercalation."
             }
           ],
           "correctAnswer": "A",
@@ -1157,7 +1157,7 @@ export const practiceTest10RW = {
             },
             {
               "id": "B",
-              "text": "It centers on the trap's trigger hairs and argues that they are more sensitive to touch than any other plant structure yet described."
+              "text": "It centers on the tiny trigger hairs that line the inside of the trap and argues that they are more sensitive to repeated touch than any other plant structure that botanists have so far described."
             },
             {
               "id": "C",
@@ -1165,7 +1165,7 @@ export const practiceTest10RW = {
             },
             {
               "id": "D",
-              "text": "It warns that the flytrap's dependence on insects has left it unable to survive in soils where nitrogen is already plentiful."
+              "text": "It warns that the Venus flytrap's dependence on captured insects for nitrogen has left the species unable to survive in richer soils where nitrogen is already plentiful enough for ordinary roots to gather."
             }
           ],
           "correctAnswer": "C",
@@ -1217,28 +1217,28 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Charles Darwin is remembered for his work on evolution, but the last book he published, in 1881, was about earthworms. Over decades of patient observation in his own garden, Darwin measured how much soil worms brought to the surface as castings and calculated that, across a field, they could bury a layer of stones or ash under several inches of fresh soil within a few decades. Far from being lowly and insignificant, he argued, earthworms were among the most important agents shaping the fertile upper layer of the land, slowly turning and aerating the soil on which agriculture depends. What looked like the trivial activity of a humble animal was, in his account, a geological force operating everywhere underfoot.",
+          "passage": "The following text is adapted from Arthur Penhallow's 1896 novel The Weather Glass. Captain Isaiah Grier, long retired from the sea, keeps a shop of nautical instruments in a harbor town.\n\nThe instruments in the window were bought seldom and dusted often, and the townspeople had come to regard the shop as a kind of museum with a proprietor attached. Yet the captains of the harbor came to Grier's counter in a steady file, not to buy, but to ask: whether the glass foretold a hard blow before Thursday, whether the season's first ice would close the northern passage early. What Grier sold, though no ledger recorded it, was forty years of weather remembered - and the harbor, which paid him in nothing but respect, could not have put to sea without him.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "Darwin's 1881 book on earthworms was the last work he published before his death."
+              "text": "Grier's shop sold its nautical instruments so rarely that the townspeople had come to regard it as a kind of museum with a proprietor attached."
             },
             {
               "id": "B",
-              "text": "Over many years, Darwin carefully measured the amount of soil that earthworms bring up to the surface as castings in the beds of his own garden."
+              "text": "The captains of the harbor came to Grier's counter in a steady file to ask whether the glass foretold a hard blow before the week was out."
             },
             {
               "id": "C",
-              "text": "Darwin is far better known for his work on evolution than for his late study of earthworms."
+              "text": "Grier regretted that after forty years at sea he had been reduced to dusting unsold instruments in a quiet shop window."
             },
             {
               "id": "D",
-              "text": "Darwin argued that earthworms, often dismissed as insignificant, are in fact a major force continually building and renewing the fertile upper layer of soil."
+              "text": "Although Grier's shop earned him little trade, his remembered knowledge of forty years of weather made him indispensable to the harbor's captains."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The passage moves from Darwin's patient measurements toward his big claim: that earthworms, far from being trivial, are \"among the most important agents shaping the fertile upper layer of the land\" - a geological force working everywhere underfoot.\n\n**The Full Solution:**\n- How to spot the main idea: find the word that signals Darwin's ARGUMENT - \"he argued\" - and treat the measurements as support for it. The right answer states what he argued, not just how he measured it.\n- Darwin measured how much soil worms bring up and worked out they could bury a layer under inches of fresh soil within decades.\n- His main claim: earthworms are a major force slowly turning and airing the topsoil that farming depends on.\n- What looked like the trivial activity of a lowly animal was, in his account, a geological force underfoot.\n\n**Why the other choices are wrong:**\n- A: It reports a biography fact about when the book came out.\n- B: It describes the method (measuring castings) rather than the conclusion.\n- C: It notes his relative fame, which the passage mentions only to set up the surprise of the earthworm work."
+          "explanation": "**Choice D is correct.** The passage moves from the shop's slow trade toward its real point: what Grier actually supplied was \"forty years of weather remembered,\" and the harbor \"could not have put to sea without him.\"\n\n**The Full Solution:**\n- How to spot the main idea: watch for the turn - \"Yet\" - and the closing sentence that says what Grier truly sold. The right answer joins the failing trade to the knowledge that made him essential.\n- The setup: instruments \"bought seldom and dusted often,\" a shop the town treats as a museum.\n- The turn: captains come \"in a steady file, not to buy, but to ask\" about the weather to come.\n- The point: what he sold, \"though no ledger recorded it,\" was judgment built from forty years of weather - the harbor paid him in respect and depended on him.\n\n**Why the other choices are wrong:**\n- A: It reports the shop's slow trade, the setup rather than the point.\n- B: It describes the captains' visits without saying what those visits show - that his knowledge was the harbor's real resource.\n- C: It invents a regret the passage never attributes to Grier, who is shown being consulted, not lamenting."
         },
         {
           "id": 1037,
@@ -1290,11 +1290,11 @@ export const practiceTest10RW = {
             },
             {
               "id": "C",
-              "text": "Astronomers in the early twentieth century could measure a star's apparent brightness but not its distance."
+              "text": "Astronomers in the early twentieth century could measure a star's apparent brightness but had no general way to determine how far away it lay."
             },
             {
               "id": "D",
-              "text": "Within little more than a decade, astronomers used Leavitt's work to show that the universe extends beyond our own galaxy."
+              "text": "Within little more than a decade of Leavitt's discovery, other astronomers had used her relationship to show that the universe extends well beyond the boundaries of the Milky Way."
             }
           ],
           "correctAnswer": "B",
@@ -1316,7 +1316,7 @@ export const practiceTest10RW = {
             },
             {
               "id": "B",
-              "text": "Folk beliefs about the protective power of cowpox had circulated among dairy farmers for generations before Jenner began his work."
+              "text": "Folk beliefs about the protective power of cowpox had circulated among dairy farmers in the English countryside for generations before Jenner began his work."
             },
             {
               "id": "C",
@@ -1390,11 +1390,11 @@ export const practiceTest10RW = {
             },
             {
               "id": "D",
-              "text": "every latitudinal band shown in the table recorded a positive precipitation change, ranging from +1.1% in the tropical southern band to +8.2% in the high northern band."
+              "text": "every latitudinal band shown in the table recorded a positive precipitation change between 1981 and 2020 — +8.2% in the high northern, +1.7% in the mid northern, +0.4% in the tropical northern, +1.1% in the tropical southern, and +2.6% in the mid southern band."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The student's claim is carefully worded: not every band got wetter, but the great majority did. Backing it means showing both that most bands rose AND that not all did, and Choice B does exactly that.\n\n**The Full Solution:**\n- How to spot it: read the claim's wording closely. \"Great majority\" but \"not every\" means most-rose-with-one-exception, so the right answer must count the rising bands and admit the one that fell.\n- Choice B names the four bands that rose - high northern (+8.2%), mid northern (+1.7%), tropical southern (+1.1%), mid southern (+2.6%) - and pairs them with the one band that fell (tropical northern, -0.4%).\n\n**Why the other choices are wrong:**\n- A: It spotlights only the single falling band, which suggests a mixed picture, not a majority rise.\n- C: It cites only the largest single value, a size claim rather than a count of bands.\n- D: It overstates the pattern by saying every band rose, which the tropical northern band's -0.4% contradicts."
+          "explanation": "**Choice B is correct.** The student's claim is carefully worded: not every band got wetter, but the great majority did. Backing it means showing both that most bands rose AND that not all did, and Choice B does exactly that.\n\n**The Full Solution:**\n- How to spot it: read the claim's wording closely. \"Great majority\" but \"not every\" means most-rose-with-one-exception, so the right answer must count the rising bands and admit the one that fell.\n- Choice B names the four bands that rose - high northern (+8.2%), mid northern (+1.7%), tropical southern (+1.1%), mid southern (+2.6%) - and pairs them with the one band that fell (tropical northern, -0.4%).\n\n**Why the other choices are wrong:**\n- A: It spotlights only the single falling band, which suggests a mixed picture, not a majority rise.\n- C: It cites only the largest single value, a size claim rather than a count of bands.\n- D: It claims every band rose only by misreading the tropical northern band's -0.4% as a gain; the table's minus sign contradicts it."
         },
         {
           "id": 1041,
@@ -1718,11 +1718,11 @@ export const practiceTest10RW = {
             },
             {
               "id": "B",
-              "text": "Likewise,"
+              "text": "Still,"
             },
             {
               "id": "C",
-              "text": "For instance,"
+              "text": "Thereafter,"
             },
             {
               "id": "D",
@@ -1730,7 +1730,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The passage sets the early decades of flight - no central system, pilots steering by landmarks - against the present, when radar, beacons, and controllers track nearly every airliner. \"Today\" is the linking word (transition) that marks that move from the past to now.\n\n**The Full Solution:**\n- How to spot it: notice the time jump. The first sentences are about \"the first decades of powered flight\" (then); the blank's sentence describes how things work now. A then-to-now jump calls for \"Today.\"\n- Past: in the first decades of flight, pilots followed roads and rivers and could lose track of which way was up in a cloud.\n- Present: a dense network of radar, radio beacons, and controllers now tracks virtually every airliner.\n- \"Today\" signals the then-versus-now shift.\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" signals a consequence, not a shift in time.\n- B: \"Likewise\" signals a parallel, not a contrast across eras.\n- C: \"For instance\" would introduce an example, not the shift to how things work now."
+          "explanation": "**Choice D is correct.** The passage sets the early decades of flight - no central system, pilots steering by landmarks - against the present, when radar, beacons, and controllers track nearly every airliner. \"Today\" is the linking word (transition) that marks that move from the past to now.\n\n**The Full Solution:**\n- How to spot it: notice the time jump. The first sentences are about \"the first decades of powered flight\" (then); the blank's sentence describes how things work now. A then-to-now jump calls for \"Today.\"\n- Past: in the first decades of flight, pilots followed roads and rivers and could lose track of which way was up in a cloud.\n- Present: a dense network of radar, radio beacons, and controllers now tracks virtually every airliner.\n- \"Today\" signals the then-versus-now shift.\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" signals a consequence, not a shift in time.\n- B: \"Still\" concedes an opposing point that survives, but the sentence reports how completely things have changed.\n- C: \"Thereafter\" points onward from a single past event, but no such event anchors it, and the sentence describes the present day."
         },
         {
           "id": 1051,
@@ -1748,7 +1748,7 @@ export const practiceTest10RW = {
             },
             {
               "id": "B",
-              "text": "By contrast,"
+              "text": "In turn,"
             },
             {
               "id": "C",
@@ -1760,7 +1760,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The first sentence makes a general point - designing for the edges of the population tends to improve a product for everyone - and the sentence with the blank gives a real case: curb cuts added for wheelchair users that also help travelers with luggage, parents with strollers, and workers with carts. \"For instance\" is the linking word (transition) that introduces that example.\n\n**The Full Solution:**\n- How to spot it: ask whether the second sentence is a NEW general point or an EXAMPLE of the first. Curb cuts are a single concrete case of the broad claim, so the transition should introduce an example.\n- General point: designing for the edges of the population improves a product for everyone.\n- Real case: curb cuts brought in for a few turn out to serve nearly all.\n- \"For instance\" links the general point to its example.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals opposition, but the example backs the claim rather than fighting it.\n- B: \"By contrast\" signals opposition, which the example does not provide.\n- D: \"Instead\" signals a swap, not an example."
+          "explanation": "**Choice C is correct.** The first sentence makes a general point - designing for the edges of the population tends to improve a product for everyone - and the sentence with the blank gives a real case: curb cuts added for wheelchair users that also help travelers with luggage, parents with strollers, and workers with carts. \"For instance\" is the linking word (transition) that introduces that example.\n\n**The Full Solution:**\n- How to spot it: ask whether the second sentence is a NEW general point or an EXAMPLE of the first. Curb cuts are a single concrete case of the broad claim, so the transition should introduce an example.\n- General point: designing for the edges of the population improves a product for everyone.\n- Real case: curb cuts brought in for a few turn out to serve nearly all.\n- \"For instance\" links the general point to its example.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals opposition, but the example backs the claim rather than fighting it.\n- B: \"In turn\" would make the curb cuts the next consequence in a chain, but the sentence illustrates the claim with an example rather than extending it.\n- D: \"Instead\" signals a swap, not an example."
         },
         {
           "id": 1052,
@@ -1786,11 +1786,11 @@ export const practiceTest10RW = {
             },
             {
               "id": "D",
-              "text": "Meanwhile,"
+              "text": "In other words,"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The passage describes Wagner's changes - darkening the hall and sinking the orchestra out of sight - and then gives the result: nothing pulled the eye from the lit stage, so the staged world could hold the audience's attention unbroken. \"As a result\" is the linking word (transition) for that cause-and-effect.\n\n**The Full Solution:**\n- How to spot it: ask how the two sentences relate. The first lists what Wagner DID; the second states what FOLLOWED from it. Action then outcome calls for \"As a result.\"\n- Cause: Wagner kept the hall dark and hid the orchestra in a sunken pit, so audiences could not see one another and the players' lamps no longer competed with the scene.\n- Effect: nothing pulled the eye from the lit stage, and the spectacle could hold attention as a single, unbroken world.\n- \"As a result\" links the changes to their consequence.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals a contrast, not a consequence.\n- B: \"For example\" signals an example of an earlier claim.\n- D: \"Meanwhile\" signals something happening at the same time, not a consequence."
+          "explanation": "**Choice C is correct.** The passage describes Wagner's changes - darkening the hall and sinking the orchestra out of sight - and then gives the result: nothing pulled the eye from the lit stage, so the staged world could hold the audience's attention unbroken. \"As a result\" is the linking word (transition) for that cause-and-effect.\n\n**The Full Solution:**\n- How to spot it: ask how the two sentences relate. The first lists what Wagner DID; the second states what FOLLOWED from it. Action then outcome calls for \"As a result.\"\n- Cause: Wagner kept the hall dark and hid the orchestra in a sunken pit, so audiences could not see one another and the players' lamps no longer competed with the scene.\n- Effect: nothing pulled the eye from the lit stage, and the spectacle could hold attention as a single, unbroken world.\n- \"As a result\" links the changes to their consequence.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals a contrast, not a consequence.\n- B: \"For example\" signals an example of an earlier claim.\n- D: \"In other words\" signals a restatement, but the sentence states a new outcome rather than rephrasing the changes."
         },
         {
           "id": 1053,
@@ -1819,11 +1819,11 @@ export const practiceTest10RW = {
             },
             {
               "id": "B",
-              "text": "In the enriched creeks at Plum Island, marsh-edge plants grew taller, a striking morphological response Deegan attributed to the additional nitrogen her team supplied."
+              "text": "In the enriched creeks at Plum Island, marsh-edge plants grew noticeably taller within a few seasons, a striking morphological response that Deegan attributed to the additional nitrogen her team supplied to the tidal creeks."
             },
             {
               "id": "C",
-              "text": "From 2004 to 2014, Deegan ran a long-term tidal-creek enrichment experiment at the Plum Island Estuary in Massachusetts, simulating runoff from coastal fertilizer use."
+              "text": "From 2004 to 2014, Deegan and her collaborators ran a long-term enrichment experiment in the tidal creeks of the Plum Island Estuary in Massachusetts, adding small amounts of nitrogen directly to selected creeks each growing season to simulate the runoff produced by coastal fertilizer use."
             },
             {
               "id": "D",
@@ -1864,11 +1864,11 @@ export const practiceTest10RW = {
             },
             {
               "id": "C",
-              "text": "In one river survey, a single set of eDNA water samples recorded dozens of fish species, including some that had not been seen in the river in decades."
+              "text": "In one comprehensive river survey, a single collection of environmental-DNA samples documented dozens of resident fish species, including several unrecorded there for decades, an inventory that conventional netting-and-trapping censuses of comparable thoroughness would presumably have required years of repeated fieldwork to match."
             },
             {
               "id": "D",
-              "text": "Because it requires only a water sample, eDNA sampling disturbs habitats far less than traditional methods such as netting or trapping."
+              "text": "Because it requires nothing more than collecting a water sample from the river being studied, eDNA sampling disturbs aquatic habitats far less than traditional survey methods such as netting or trapping do."
             }
           ],
           "correctAnswer": "A",

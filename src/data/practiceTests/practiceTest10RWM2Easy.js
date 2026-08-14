@@ -192,7 +192,7 @@ export const practiceTest10RWM2Easy = {
       choices: [
         { id: "A", text: "They hold a column of air tuned to the bar's pitch, which takes up the bar's vibration and produces a fuller, longer note." },
         { id: "B", text: "They keep the wooden bars from knocking against one another while the instrument is being moved." },
-        { id: "C", text: "They let a player raise or lower the pitch of any bar by sliding the tube up or down while a piece is being performed." },
+        { id: "C", text: "They let a player raise or lower the pitch of any bar in the middle of a performance by sliding the tube up or down beneath it." },
         { id: "D", text: "They soak up unwanted vibration so that each bar sounds for a shorter time than it otherwise would." }
       ],
       correctAnswer: "A",
@@ -209,7 +209,7 @@ export const practiceTest10RWM2Easy = {
       question: "Which choice best states the main idea of the text?",
       choices: [
         { id: "A", text: "Spruce trees growing near the upper edge of a mountain forest are shorter than spruce growing lower on the same slope." },
-        { id: "B", text: "Surveys of mountain forests give more accurate results when they are repeated after several decades than when they are carried out only once." },
+        { id: "B", text: "Surveys of mountain forests give more accurate results when they are repeated after several decades than when they are carried out on a single occasion." },
         { id: "C", text: "Wind and ice are the two factors that determine how tall a tree can grow at any elevation on a mountain slope." },
         { id: "D", text: "The upper edge of a mountain forest is not a fixed boundary but a slow-moving front that shifts as the climate of the surrounding decades changes." }
       ],
@@ -228,7 +228,7 @@ export const practiceTest10RWM2Easy = {
       choices: [
         { id: "A", text: "Moths and other night-flying insects steer by faint natural light rather than by the artificial light of outdoor lamps." },
         { id: "B", text: "Outdoor lighting pulls night-flying insects out of the surrounding fields, a loss researchers now treat as a pressure on the wider food web." },
-        { id: "C", text: "Counts of night-flying insects are more accurate when they are taken along unlit roads than when they are taken along lit roads." },
+        { id: "C", text: "Counts of night-flying insects are more accurate when they are taken along unlit rural roads than when they are taken along brightly lit ones." },
         { id: "D", text: "Night-blooming plants depend on insect pollinators that are active only during the hours when outdoor lamps are switched on." }
       ],
       correctAnswer: "B",
@@ -244,9 +244,9 @@ export const practiceTest10RWM2Easy = {
       passage: "Citrus greening spreads when a tiny sap-feeding insect, the Asian citrus psyllid, carries a bacterium from an infected tree to a healthy one. Because a tree can hold the bacterium for a year or more before its leaves yellow and its fruit turns bitter, growers have argued that pulling out trees only after symptoms appear comes far too late to slow the disease, and that groves must be surveyed for the insect itself instead. A plant pathologist wants to test the growers' claim.",
       question: "Which finding, if true, would most directly support the growers' claim?",
       choices: [
-        { id: "A", text: "The bacterium that causes citrus greening cannot survive for long outside either a psyllid or a living citrus tree." },
+        { id: "A", text: "The bacterium that causes citrus greening cannot survive for more than a few hours outside the body of a psyllid or the tissues of a living citrus tree." },
         { id: "B", text: "Fruit from a tree infected with citrus greening is safe to eat, though its bitterness keeps it out of most markets." },
-        { id: "C", text: "Adult psyllids are small enough that an inspector walking a grove without a hand lens can easily overlook them." },
+        { id: "C", text: "Adult psyllids are so small that an inspector walking the rows of a grove without a hand lens can easily overlook an infestation until it has become too widespread to contain." },
         { id: "D", text: "In groves where infected trees were removed only after symptoms appeared, most neighboring trees had already been infected by psyllids that had fed on the symptomless tree." }
       ],
       correctAnswer: "D",
@@ -305,8 +305,8 @@ export const practiceTest10RWM2Easy = {
       choices: [
         { id: "A", text: "each of the four species first opened later in the higher meadow than in the lower meadow, with the delay ranging from 15 days for snow buttercup to 24 days for sky pilot." },
         { id: "B", text: "sky pilot first opened on June 27 in the lower meadow, later than any other species recorded in that meadow." },
-        { id: "C", text: "snow buttercup first opened on June 4 in the lower meadow and on June 19 in the higher meadow, a delay of 15 days." },
-        { id: "D", text: "in the higher meadow the four species first opened between June 19 and July 21, a spread of about a month." }
+        { id: "C", text: "snow buttercup, the earliest species on the slope, first opened on June 4 in the lower meadow and on June 19 in the higher meadow, a delay of exactly 15 days." },
+        { id: "D", text: "in the higher meadow, the four species first opened on four separate dates between June 19 and July 21, a spread of just over a month between the earliest first flower and the latest." }
       ],
       correctAnswer: "A",
       explanation: "**Choice A is correct.** The student's claim has two parts that both need support: the delay applies to every species, and it is not the same size for each. Choice A covers both by saying all four opened later up high and by giving the range of delays, 15 days to 24 days.\n\n**The Full Solution:**\n- How to spot it: list the parts of the claim, then make sure the answer hits every one. The claim is every-species-delayed AND unequal-delays, so a choice about a single species cannot finish the job.\n- All four species opened later in the higher meadow than in the lower one.\n- The delays differ: 15 days for snow buttercup, 24 days for sky pilot, with the other two in between.\n\n**Why the other choices are wrong:**\n- B: It compares species within the lower meadow only, so it shows no delay at all.\n- C: It gives one species' delay, which supports neither \"every species\" nor \"not the same amount.\"\n- D: It describes the spread of dates within the higher meadow rather than the shift between the two meadows."
@@ -474,10 +474,10 @@ export const practiceTest10RWM2Easy = {
         { id: "A", text: "For example," },
         { id: "B", text: "As a result," },
         { id: "C", text: "However," },
-        { id: "D", text: "Likewise," }
+        { id: "D", text: "In the same way," }
       ],
       correctAnswer: "B",
-      explanation: "**Choice B is correct.** The first sentences give a cause - bumblebees can warm themselves while other insects must wait for the sun - and the sentence with the blank gives the result: on cold mornings the bumblebees are often the only pollinators flying. \"As a result\" is the linking word (transition) for cause and effect.\n\n**The Full Solution:**\n- How to spot it: put the two parts side by side and ask how they relate. The first explains WHY the bumblebees have an advantage, the second states WHAT FOLLOWS from it - that calls for \"As a result.\"\n- Cause: bumblebees shiver their flight muscles to warm up; other insects have to wait for sunshine.\n- Effect: on cold, overcast mornings the bumblebees are often the only pollinators working.\n- \"As a result\" links the cause to its consequence.\n\n**Why the other choices are wrong:**\n- A: \"For example\" would introduce an example of an earlier general claim, which this is not.\n- C: \"However\" signals a contrast, but the sentence follows from what came before rather than opposing it.\n- D: \"Likewise\" signals a similar case, not a consequence."
+      explanation: "**Choice B is correct.** The first sentences give a cause - bumblebees can warm themselves while other insects must wait for the sun - and the sentence with the blank gives the result: on cold mornings the bumblebees are often the only pollinators flying. \"As a result\" is the linking word (transition) for cause and effect.\n\n**The Full Solution:**\n- How to spot it: put the two parts side by side and ask how they relate. The first explains WHY the bumblebees have an advantage, the second states WHAT FOLLOWS from it - that calls for \"As a result.\"\n- Cause: bumblebees shiver their flight muscles to warm up; other insects have to wait for sunshine.\n- Effect: on cold, overcast mornings the bumblebees are often the only pollinators working.\n- \"As a result\" links the cause to its consequence.\n\n**Why the other choices are wrong:**\n- A: \"For example\" would introduce an example of an earlier general claim, which this is not.\n- C: \"However\" signals a contrast, but the sentence follows from what came before rather than opposing it.\n- D: \"In the same way\" signals a similar case, not a consequence."
     },
     {
       id: 1078,
@@ -489,13 +489,13 @@ export const practiceTest10RWM2Easy = {
       passage: "A side-scan sonar towed behind a survey boat sweeps a fan of sound across the seabed and returns an image of everything standing above the mud, which makes it an efficient way to find wrecks that sit proud of the bottom. ______ a hull that has settled deep into soft sediment leaves almost no shadow for the sonar to catch, and such sites are usually located instead by instruments that read small disturbances in the seabed's magnetism.",
       question: "Which choice completes the text with the most logical transition?",
       choices: [
-        { id: "A", text: "Therefore," },
+        { id: "A", text: "As a result," },
         { id: "B", text: "For example," },
         { id: "C", text: "However," },
         { id: "D", text: "In addition," }
       ],
       correctAnswer: "C",
-      explanation: "**Choice C is correct.** The first sentence praises sonar for finding wrecks that stand above the seabed, and the sentence with the blank names the case it cannot handle - a hull buried in soft sediment. \"However\" is the linking word (transition) that flags that limitation.\n\n**The Full Solution:**\n- How to spot it: watch for the moment the passage turns from what a method DOES well to what it CANNOT do. That flip calls for a contrast word.\n- Strength: sonar images everything standing above the mud, so it finds wrecks that sit proud of the bottom.\n- Limit: a hull settled into soft sediment leaves almost no shadow to catch, and other instruments must find it.\n- \"However\" sets the limit against the strength.\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" signals a consequence, but the buried hull is an exception, not a result.\n- B: \"For example\" would make the buried hull a case of successful sonar searching, which it is not.\n- D: \"In addition\" would add another strength, missing the reversal the sentence makes."
+      explanation: "**Choice C is correct.** The first sentence praises sonar for finding wrecks that stand above the seabed, and the sentence with the blank names the case it cannot handle - a hull buried in soft sediment. \"However\" is the linking word (transition) that flags that limitation.\n\n**The Full Solution:**\n- How to spot it: watch for the moment the passage turns from what a method DOES well to what it CANNOT do. That flip calls for a contrast word.\n- Strength: sonar images everything standing above the mud, so it finds wrecks that sit proud of the bottom.\n- Limit: a hull settled into soft sediment leaves almost no shadow to catch, and other instruments must find it.\n- \"However\" sets the limit against the strength.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" signals a consequence, but the buried hull is an exception to the method's strength, not a result of it.\n- B: \"For example\" would make the buried hull a case of successful sonar searching, which it is not.\n- D: \"In addition\" would add another strength, missing the reversal the sentence makes."
     },
     {
       id: 1079,
@@ -504,16 +504,16 @@ export const practiceTest10RWM2Easy = {
       band: 4,
       domain: "expression-of-ideas",
       skill: "transitions",
-      passage: "When western states began adjudicating groundwater in the 1970s, the hard problem was not the law but the arithmetic: no one could say how much water a given well actually took from the river beside it. Modeling the underground connection between a well and a stream required decades of measurement, and the resulting models remain approximations that hydrologists still argue over. ______ the courts must issue a decree, and they now lean on those approximate models to decide whose pumping stops first in a dry year.",
+      passage: "When western states began adjudicating groundwater in the 1970s, the hard problem was not the law but the arithmetic: no one could say how much water a given well actually took from the river beside it. Decades of measurement have since produced models of the underground connection between a well and a stream, and courts now treat those models as the best evidence available. ______ the models remain approximations, and hydrologists still argue over their details. But a decree must issue all the same, and judges lean on those imperfect simulations to decide whose pumping stops first in a dry year.",
       question: "Which choice completes the text with the most logical transition?",
       choices: [
-        { id: "A", text: "Even so," },
-        { id: "B", text: "Therefore," },
+        { id: "A", text: "Granted," },
+        { id: "B", text: "In turn," },
         { id: "C", text: "In other words," },
-        { id: "D", text: "For instance," }
+        { id: "D", text: "Even so," }
       ],
       correctAnswer: "A",
-      explanation: "**Choice A is correct.** The passage admits that the models are approximations hydrologists still argue over, and then says the courts must rule anyway and use those very models. \"Even so\" is the linking word (transition) that concedes the weakness and pushes past it.\n\n**The Full Solution:**\n- How to spot it: ask whether the last sentence follows FROM the doubt or pushes AGAINST it. The models are shaky, yet courts rely on them regardless - that yielding-then-proceeding move calls for a concession word.\n- The concession: the models remain approximations that hydrologists still argue over.\n- The move past it: courts must issue a decree and lean on those models anyway.\n- \"Even so\" marks the step from the weakness to the decision made in spite of it.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would make court reliance on the models a consequence of their being disputed, which reverses the logic.\n- C: \"In other words\" signals a restatement, but the sentence adds new information rather than rephrasing.\n- D: \"For instance\" would present the courts' decrees as an example of modeling disputes, which they are not."
+      explanation: "**Choice A is correct.** The sentence at the blank admits a weakness in the models before the passage pushes past it in the next sentence (\"But a decree must issue all the same\"), and \"Granted,\" is the word that makes such an admission.\n\n**The Full Solution:**\n- How to spot it: watch where the concession sits. The sentence at the blank yields a point - the models are approximations, still argued over - and the following sentence answers it with \"But.\" A sentence that concedes on the way to a comeback opens with a concession word like \"Granted.\"\n- Before the blank: courts have come to treat the models as the best evidence available.\n- At the blank: the passage admits the models' limits.\n- After the blank: \"But a decree must issue all the same\" - the argument recovers and moves on. \"Granted\" fits that concede-then-answer shape exactly.\n\n**Why the other choices are wrong:**\n- B: \"In turn\" presents the next step in a chain of effects, but the sentence steps back to admit a weakness rather than advancing the chain.\n- C: \"In other words\" signals a restatement, but the sentence does not rephrase the previous one - it cuts against it.\n- D: \"Even so\" pushes past a concession, but this sentence IS the concession; the pushing-past comes only in the next sentence, with \"But.\" Using \"Even so\" at the blank would leave that \"But\" answering a rebuttal that had already happened."
     },
     {
       id: 1080,
@@ -565,10 +565,10 @@ export const practiceTest10RWM2Easy = {
       },
       question: "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       choices: [
-        { id: "A", text: "Harbor seals feed on fish and squid, which they chase near the seafloor during dives that may last several minutes." },
+        { id: "A", text: "Harbor seals feed on fish and squid, prey that they pursue near the seafloor during hunting dives that routinely last several minutes at a time and can stretch to more than twenty minutes underwater." },
         { id: "B", text: "Harbor seals routinely dive for several minutes at a time and can remain underwater for more than twenty minutes." },
         { id: "C", text: "A diving seal stretches its oxygen supply by storing most of it in blood and muscle rather than in its lungs and by slowing its heart so that blood flows chiefly to the heart and brain." },
-        { id: "D", text: "Before a dive, a harbor seal breathes out rather than filling its lungs with air." }
+        { id: "D", text: "Before a dive, a harbor seal breathes out rather than filling its lungs with air, entering the water with lungs that are nearly empty." }
       ],
       correctAnswer: "C",
       explanation: "**Choice C is correct.** The goal asks HOW a seal makes its oxygen last, so the best choice names the mechanisms: oxygen carried in blood and muscle rather than lungs, and a slowed heart sending blood to the organs that need it most.\n\n**The Full Solution:**\n- How to spot it: the goal asks how something works, so the right answer must describe the mechanism. Cross out any choice that only reports what seals do or what they eat.\n- Where the oxygen is: mostly in blood and muscle rather than in the lungs.\n- How it is spent slowly: the heart rate drops sharply and blood flow is directed to the heart and brain.\n- Choice C pairs both, which is exactly what the goal asks for.\n\n**Why the other choices are wrong:**\n- A: It reports what seals eat and where they hunt, not how their oxygen lasts.\n- B: It states how long the dives are, which is the feat to be explained rather than the explanation.\n- D: It gives one preparatory detail and stops short of explaining how the oxygen is made to last."

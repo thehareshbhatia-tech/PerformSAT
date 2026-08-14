@@ -117,7 +117,7 @@ export const practiceTest1RWM2Easy = {
       "passage": "For much of the twentieth century, farmers in many regions left fields bare between cash crops, on the assumption that a resting field lost nothing but a season. Agronomists who compared bare plots with plots sown to rye and clover found otherwise. Over a single winter the bare plots gave up several times as much topsoil to rain and wind, and their surfaces crusted so hard that the next planting struggled to root. Resting a field, the researchers concluded, had quietly been costing farmers the soil the next crop depended on.",
       "question": "Which choice best describes the overall structure of the text?",
       "choices": [
-        { "id": "A", "text": "It describes a method for measuring the topsoil that a field loses over a winter and then explains why other researchers have found that method hard to repeat." },
+        { "id": "A", "text": "It describes a method for measuring the topsoil that a field loses over a winter and then explains why other researchers have found that method hard to repeat in other regions." },
         { "id": "B", "text": "It compares two cover crops, rye and clover, and then explains why one of them protected the soil better." },
         { "id": "C", "text": "It traces the gradual adoption of cover crops and then lists the objections that critics have continued to raise." },
         { "id": "D", "text": "It states a long-held assumption about leaving fields bare, reports comparative findings that contradict it, and gives the conclusion drawn from those findings." }
@@ -136,9 +136,9 @@ export const practiceTest1RWM2Easy = {
       "question": "Which choice best states the main purpose of the text?",
       "choices": [
         { "id": "A", "text": "To explain how signers use locations in space to convey relationships that spoken languages express by other means." },
-        { "id": "B", "text": "To argue that signed languages are easier for adults to learn than spoken languages are." },
+        { "id": "B", "text": "To argue that signed languages are easier for adults to learn than spoken languages with complex pronoun systems are." },
         { "id": "C", "text": "To describe the difficulties translators face when they put signed conversation into writing." },
-        { "id": "D", "text": "To compare the vocabularies of two signed languages used in different countries." }
+        { "id": "D", "text": "To compare the vocabularies and grammars of two signed languages used in different countries." }
       ],
       "correctAnswer": "A",
       "explanation": "**Choice A is correct.** The whole text explains how a signer uses points in space to show who did what to whom.\n\n**The Full Solution:**\n- How to spot it: ask what every sentence is building toward. The first says a signer does not keep repeating names.\n- The second gives the method: each person is assigned a point in the space in front of the body, and a verb aimed from one point to the other shows who acted on whom.\n- The last names the payoff - direction, not sign order, carries what a spoken language handles with pronouns and word order. That is the purpose.\n\n**Why the other choices are wrong:**\n- B: The passage never compares how hard signed and spoken languages are to learn.\n- C: Translation into writing is never mentioned.\n- D: Only one signing practice is described; no two signed languages are compared."
@@ -162,10 +162,10 @@ export const practiceTest1RWM2Easy = {
       ],
       "question": "Based on the texts, how would the author of Text 2 most likely respond to the claim presented in Text 1?",
       "choices": [
-        { "id": "A", "text": "By denying that the fragmentation of northern forest measurably affects the nesting success of migratory songbirds." },
+        { "id": "A", "text": "By denying that the fragmentation of northern breeding forest into small woodlots measurably affects the nesting success of migratory songbirds." },
         { "id": "B", "text": "The author would grant that the loss of breeding forest harms these birds but would insist that the disappearance of coastal refueling sites is also decisive." },
         { "id": "C", "text": "Text 2 would treat the reported decline of long-distance migratory songbirds as far less severe than Text 1 claims." },
-        { "id": "D", "text": "With a recommendation that conservation funding be shifted away from coastal wetlands and toward the protection of northern forest." }
+        { "id": "D", "text": "With a recommendation that limited conservation funding be shifted away from coastal stopover wetlands and toward the protection and reconnection of northern breeding forest." }
       ],
       "correctAnswer": "B",
       "explanation": "**Choice B is correct.** The author of Text 2 grants that nesting matters but argues that the vanishing coastal refueling sites are also decisive.\n\n**The Full Solution:**\n- How to spot it: find the line where the second text agrees before it pushes back. Text 2 opens with \"That nesting success matters is not in dispute.\"\n- Then locate the disagreement. Text 1 says protecting breeding forest is the way to reverse the decline; Text 2 answers that migrants must nearly double their weight at a few coastal marshes and river mouths, and most of those sites have been drained, filled, or built over.\n- The right answer has to keep BOTH halves - the agreement and the added objection. Text 2's closing line does exactly that: breeding forest alone \"cannot by itself carry a population through a route whose refueling stations are disappearing.\"\n\n**Why the other choices are wrong:**\n- A: Text 2 explicitly accepts that nesting success matters, so it does not deny the effect of fragmentation.\n- C: Neither text questions that these populations have declined.\n- D: Text 2 argues that the refueling sites need protecting, not that funding should be moved away from them."
@@ -183,10 +183,10 @@ export const practiceTest1RWM2Easy = {
       "passage": "A day-old loaf turns firm and crumbly, and it is tempting to blame the change on drying out. Food chemists have shown that the main cause is different: as the loaf cools and sits, the starch inside it slowly rearranges into rigid, crystal-like structures that squeeze out the water they had taken up during baking. Because that rearrangement can be partly undone by heat, a stale loaf warmed in an oven turns soft again for a while — something a loaf that had simply dried out could never do.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
-        { "id": "A", "text": "A day-old loaf of bread becomes firm and crumbly rather than staying soft." },
-        { "id": "B", "text": "Warming a stale loaf in an oven softens it for a short time." },
+        { "id": "A", "text": "A day-old loaf of bread turns firm and crumbly as it sits, losing the soft, springy texture it had when it first came out of the oven." },
+        { "id": "B", "text": "Warming a stale loaf in an oven softens it again for a while, returning some of the texture the loaf had when it was freshly baked." },
         { "id": "C", "text": "Bread goes stale mainly because its starch rearranges into rigid structures rather than because the loaf dries out, which is why heating a stale loaf can soften it again." },
-        { "id": "D", "text": "The water that a loaf takes up during baking is driven out of the bread as the loaf cools, and no amount of reheating can put the lost softness back." }
+        { "id": "D", "text": "The water that a loaf takes up during baking is squeezed out of the bread as it cools and sits, and once that moisture is gone no amount of reheating can restore the loaf's softness." }
       ],
       "correctAnswer": "C",
       "explanation": "**Choice C is correct.** It states the passage's central claim - staling comes from starch rearranging, not from drying out - along with the evidence that heat can reverse it.\n\n**The Full Solution:**\n- How to spot it: look for the sentence the rest of the text is built to support. Here it is the second one: the main cause is starch rearranging into rigid, crystal-like structures.\n- The opening sets up the belief being corrected (that bread dries out), and the closing gives the proof: warming a stale loaf softens it again, which drying could never explain.\n- The best answer holds the claim and its support together instead of shrinking to one detail.\n\n**Why the other choices are wrong:**\n- A: It reports only the observation the passage sets out to explain.\n- B: It gives one supporting detail, the reheating, without the cause it demonstrates.\n- D: It twists the text - the water is squeezed out of the starch inside the loaf, and reheating shows the change is not permanent."
@@ -201,9 +201,9 @@ export const practiceTest1RWM2Easy = {
       "passage": "The big bands that filled American dance halls before the Second World War were expensive machines: fifteen or more players, a staff arranger, and a bus. When wartime travel restrictions and a postwar tax on dancing thinned the halls, many leaders could no longer hold such a payroll together. The groups that replaced them were small — a rhythm section and two or three horns — and the music changed with the size. Without written arrangements to carry the weight, a quintet's players stretched a tune's chord changes into long improvised lines, and the solo, rather than the ensemble chorus, became the center of the performance.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
-        { "id": "A", "text": "Big bands playing before the Second World War employed more than fifteen players along with a staff arranger." },
+        { "id": "A", "text": "Big bands playing in American dance halls before the Second World War employed more than fifteen players along with a staff arranger and a touring bus." },
         { "id": "B", "text": "A postwar tax on dancing reduced attendance at the American dance halls where big bands had performed." },
-        { "id": "C", "text": "The small jazz groups that replaced the big bands in the postwar years typically consisted of a rhythm section along with two or three horn players, a far smaller payroll." },
+        { "id": "C", "text": "The small jazz groups that replaced the big bands in the postwar years typically consisted of a rhythm section along with two or three horn players — a lineup with a far smaller payroll than the fifteen-piece bands had required." },
         { "id": "D", "text": "Economic pressures after the Second World War replaced big bands with small groups, and the smaller format moved the music's center from written ensemble arrangements to extended improvised solos." }
       ],
       "correctAnswer": "D",
@@ -222,7 +222,7 @@ export const practiceTest1RWM2Easy = {
         { "id": "A", "text": "It allowed keepers to burn a far brighter lamp than a metal reflector could withstand." },
         { "id": "B", "text": "It bent light that a reflector would have let escape into the beam directed toward ships." },
         { "id": "C", "text": "It required less frequent cleaning than a polished metal surface exposed to sea air." },
-        { "id": "D", "text": "It let a single lighthouse send beams in several directions at the same time." }
+        { "id": "D", "text": "It let a single lighthouse send out beams in several directions over the sea at the same time." }
       ],
       "correctAnswer": "B",
       "explanation": "**Choice B is correct.** The passage says the lens bent light that a reflector let escape back into the beam ships could see.\n\n**The Full Solution:**\n- How to spot it: this is a detail question, so go back to the sentences that compare the two devices rather than picking what sounds impressive.\n- The reflector \"caught only the light that happened to strike it,\" and the rest \"escaped upward or out to the sides, where it was of no use to a ship.\"\n- The lens fixed exactly that: rings of prisms bent \"light that would otherwise have been lost back into a single horizontal beam,\" so the same lamp could be seen farther away.\n\n**Why the other choices are wrong:**\n- A: The passage says the lamp's brightness was unchanged, not that a brighter lamp became possible.\n- C: Cleaning is never mentioned.\n- D: The lens gathered light into one horizontal beam rather than sending beams in several directions."
@@ -270,10 +270,10 @@ export const practiceTest1RWM2Easy = {
       },
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
-        { "id": "A", "text": "Site 4, with a mean tidal range of 9.6 m, had the highest estimated daily output of the four channels surveyed, 60 MWh." },
+        { "id": "A", "text": "Site 4, which had the greatest mean tidal range of the four channels at 9.6 m, also had the highest estimated daily output of the group, 60 MWh." },
         { "id": "B", "text": "Site 1 had a mean tidal range of 3.1 m, the smallest of the four channels the engineers surveyed." },
         { "id": "C", "text": "the four sites fall in the same order on both measures: output climbed from 12 MWh at the 3.1 m site to 21 MWh at 4.8 m, 38 MWh at 7.2 m, and 60 MWh at 9.6 m." },
-        { "id": "D", "text": "Site 3, with a mean tidal range of 7.2 m, had an estimated daily output of 38 MWh, more than three times the output estimated for Site 1." }
+        { "id": "D", "text": "Site 3, with a mean tidal range of 7.2 m, had an estimated daily output of 38 MWh, more than three times the 12 MWh estimated for Site 1, whose range was 3.1 m." }
       ],
       "correctAnswer": "C",
       "explanation": "**Choice C is correct.** The claim describes a pattern across all four sites, so the evidence has to run through every row - and only C does.\n\n**The Full Solution:**\n- How to spot it: check the scope of the claim before reading the choices. The engineers say output rises \"along with its tidal range,\" which is a pattern across sites, not a fact about one site.\n- A pattern claim needs the whole table: as the range climbs from 3.1 m to 4.8 m to 7.2 m to 9.6 m, output climbs from 12 to 21 to 38 to 60 MWh.\n- Choice C walks through all four pairs and shows they line up in the same order, which is what a rise-together claim requires.\n\n**Why the other choices are wrong:**\n- A: It reports the single highest site, which cannot establish a pattern.\n- B: It gives one site's tidal range and no output figure at all.\n- D: It compares two sites only, leaving half the table unused."
@@ -303,13 +303,13 @@ export const practiceTest1RWM2Easy = {
       },
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
-        { "id": "A", "text": "clay held 320 mm of water per meter of depth, more than any other texture in the table." },
-        { "id": "B", "text": "sand held the least water of the four textures, 80 mm, and also made the least available to plants, 50 mm." },
-        { "id": "C", "text": "loam made 170 mm of water available to plants, more than sandy loam's 110 mm and more than sand's 50 mm." },
+        { "id": "A", "text": "clay held the most water overall of the four soil textures, 320 mm per meter of soil depth, comfortably ahead of loam's 230 mm, sandy loam's 150 mm, and sand's 80 mm." },
+        { "id": "B", "text": "sand held the least water of the four textures, 80 mm per meter of depth, and also made the least of it available to plants, just 50 mm." },
+        { "id": "C", "text": "loam made 170 mm of water available to plants per meter of depth, more than sandy loam's 110 mm and more than three times sand's 50 mm." },
         { "id": "D", "text": "clay held the most water overall, 320 mm, but made only 120 mm of it available to plants, while loam held less in total, 230 mm, and yet made 170 mm available." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The claim has two parts - the soil holding the most water is not the soil supplying plants with the most - so the evidence must use both columns, and D does.\n\n**The Full Solution:**\n- How to spot it: break the claim into requirements. It needs (1) the soil that holds the most water overall and (2) a different soil that makes the most available to plants.\n- Clay tops the \"total water held\" column at 320 mm, but only 120 mm of that reaches plants.\n- Loam holds less overall, 230 mm, yet supplies 170 mm, the highest in the availability column. Choice D sets those two rows side by side, which is exactly the comparison the claim rests on.\n\n**Why the other choices are wrong:**\n- A: It gives clay's total only and never mentions what plants can use.\n- B: Sand is lowest on both measures, so it shows no gap between the two columns.\n- C: It ranks loam against sandy loam and sand but leaves out clay, the soil that holds the most water."
+      "explanation": "**Choice D is correct.** The claim has two parts - the soil holding the most water is not the soil supplying plants with the most - so the evidence must use both columns, and D does.\n\n**The Full Solution:**\n- How to spot it: break the claim into requirements. It needs (1) the soil that holds the most water overall and (2) a different soil that makes the most available to plants.\n- Clay tops the \"total water held\" column at 320 mm, but only 120 mm of that reaches plants.\n- Loam holds less overall, 230 mm, yet supplies 170 mm, the highest in the availability column. Choice D sets those two rows side by side, which is exactly the comparison the claim rests on.\n\n**Why the other choices are wrong:**\n- A: It stays entirely in the total-water column and never mentions what plants can use.\n- B: Sand is lowest on both measures, so it shows no gap between the two columns.\n- C: It ranks loam against sandy loam and sand but leaves out clay, the soil that holds the most water."
     },
     {
       "id": 169,
@@ -486,16 +486,16 @@ export const practiceTest1RWM2Easy = {
       "band": 3,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "A ten-inch shellac record turning at 78 revolutions per minute held a little over three minutes of music on a side, and no jazz group recording before the long-playing disc arrived could exceed that limit. ______ solos that ran chorus after chorus on a club bandstand were pared down to eight or sixteen bars the moment a band stepped into a studio.",
+      "passage": "A ten-inch shellac record turning at 78 revolutions per minute held a little over three minutes of music on a side, and no jazz group recording before the long-playing disc arrived could exceed that limit. ______ some of the solos cut on those cramped three-minute sides are among the most admired recorded statements in the music's history.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "For instance," },
-        { "id": "B", "text": "Nevertheless," },
+        { "id": "B", "text": "As a result," },
         { "id": "C", "text": "In the same way," },
-        { "id": "D", "text": "As a result," }
+        { "id": "D", "text": "Nevertheless," }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The three-minute limit is the cause and the shortened solos are its effect, so the blank needs a result word.\n\n**The Full Solution:**\n- How to spot it: ask what the second sentence does with the first. Sentence 1 states a hard limit - a little over three minutes a side, which no group recording before the long-playing disc could exceed.\n- Sentence 2 reports what happened because of that limit: solos that ran chorus after chorus in a club were cut to eight or sixteen bars in the studio.\n- A limit followed by what it forced musicians to do is cause and effect, and \"As a result,\" marks the effect side.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would make the second sentence an example of the limit, but it is the consequence of the limit.\n- B: \"Nevertheless\" signals that something happened despite the first sentence, yet the shortened solos happened because of it.\n- C: \"In the same way\" claims a parallel between two situations, and only one situation is described."
+      "explanation": "**Choice D is correct.** The second sentence reports a success the limit in the first sentence would lead you not to expect, and \"Nevertheless,\" is the word for that despite-it-all turn.\n\n**The Full Solution:**\n- How to spot it: read sentence 1 and form an expectation. A hard three-minute ceiling on every recorded side sounds like a handicap - you expect the recordings to suffer for it.\n- Sentence 2 defies that expectation: some of the solos cut on those cramped sides are among the most admired in the music's history.\n- A sentence that lands opposite to the expectation the previous one sets up takes a concession word, and \"Nevertheless\" is exactly that signal.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would make the admired solos an example of the limit, but they are a surprise measured against it.\n- B: \"As a result\" would credit the limit with producing the admired solos, but the sentence reports success despite the ceiling, not an effect of it.\n- C: \"In the same way\" claims a parallel between two situations, and only one situation is described."
     },
     {
       "id": 179,
@@ -507,13 +507,13 @@ export const practiceTest1RWM2Easy = {
       "passage": "Because signed languages are produced with the hands, early hearing observers catalogued handshapes carefully and treated a signer's face as emotional accompaniment to the real message. ______ brow raises, mouth positions, and head tilts turn out to do grammatical work: they begin and end with the exact clause they govern, and a sentence signed without them is not merely flat but ungrammatical.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
-        { "id": "A", "text": "In fact," },
+        { "id": "A", "text": "Actually," },
         { "id": "B", "text": "Likewise," },
         { "id": "C", "text": "For example," },
         { "id": "D", "text": "Therefore," }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The second sentence corrects the view stated in the first, and \"In fact,\" is the signal for setting the record straight.\n\n**The Full Solution:**\n- How to spot it: ask whether the second sentence agrees with the first, extends it, or corrects it. Sentence 1 reports what early observers assumed - that the face was emotional accompaniment to the real message in the hands.\n- Sentence 2 says the opposite is true: brow raises, mouth positions, and head tilts \"turn out to do grammatical work,\" and a sentence signed without them is ungrammatical.\n- When a sentence overturns the belief just described, you need the corrective transition, and \"In fact\" introduces what is actually the case.\n\n**Why the other choices are wrong:**\n- B: \"Likewise\" signals that the second point matches the first, but here it overturns it.\n- C: \"For example\" would make the second sentence an instance of the early assumption, which it contradicts instead.\n- D: \"Therefore\" would make the grammatical findings a result of the early cataloguing, which they are not."
+      "explanation": "**Choice A is correct.** The second sentence corrects the view stated in the first, and \"Actually,\" is the signal for setting the record straight.\n\n**The Full Solution:**\n- How to spot it: ask whether the second sentence agrees with the first, extends it, or corrects it. Sentence 1 reports what early observers assumed - that the face was emotional accompaniment to the real message in the hands.\n- Sentence 2 says the opposite is true: brow raises, mouth positions, and head tilts \"turn out to do grammatical work,\" and a sentence signed without them is ungrammatical.\n- When a sentence overturns the belief just described, you need the corrective transition, and \"Actually\" introduces what is really the case.\n\n**Why the other choices are wrong:**\n- B: \"Likewise\" signals that the second point matches the first, but here it overturns it.\n- C: \"For example\" would make the second sentence an instance of the early assumption, which it contradicts instead.\n- D: \"Therefore\" would make the grammatical findings a result of the early cataloguing, which they are not."
     },
     {
       "id": 180,
@@ -567,8 +567,8 @@ export const practiceTest1RWM2Easy = {
       "choices": [
         { "id": "A", "text": "A museum can display only a small fraction of its collection at any one time, while the rest of it remains in the closed storage rooms that visitors to the museum's galleries never enter and almost never see." },
         { "id": "B", "text": "Visible storage lets a visitor see thousands of objects rather than the few dozen in a themed exhibition, but because they are packed densely and barely labeled, it explains each one far less than a gallery does." },
-        { "id": "C", "text": "In visible storage, objects that would otherwise sit in closed storage rooms are shelved in glass-walled rooms where the public can see them." },
-        { "id": "D", "text": "Curators who have built visible storage rooms report that visitors leaving them understand a collection's scale better than visitors leaving a themed exhibition do." }
+        { "id": "C", "text": "In visible storage, objects that would otherwise sit in closed storage rooms hidden from the public are shelved densely in glass-walled rooms where any visitor walking past can see them." },
+        { "id": "D", "text": "Curators who have built visible storage rooms report that visitors leaving those rooms come away understanding a collection's true scale better than visitors leaving a carefully curated and thoroughly labeled themed exhibition do." }
       ],
       "correctAnswer": "B",
       "explanation": "**Choice B is correct.** A trade-off needs both sides, and B names the gain (thousands of objects in view) and the cost (far less explanation of each).\n\n**The Full Solution:**\n- How to spot it: turn the goal into a checklist. A trade-off means something gained AND something given up, so any choice carrying only one half fails.\n- The gain sits in one bullet: a visitor may see several thousand objects instead of the few dozen in a themed exhibition.\n- The cost sits in two others: objects are packed densely and labeled only briefly, so visible storage \"explains individual objects far less than a gallery does.\" Choice B keeps both.\n\n**Why the other choices are wrong:**\n- A: It gives background about closed storage and names no trade-off.\n- C: It defines visible storage without saying what is gained or lost.\n- D: It claims visitors understand a collection's scale better than exhibition visitors do, a comparison the notes never make."

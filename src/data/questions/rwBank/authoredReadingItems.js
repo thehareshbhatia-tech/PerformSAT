@@ -1289,5 +1289,214 @@ export const authoredReadingItems = [
       "sourceRef": "pilot-r5-wic-literary"
     },
     "passage": "The following text is adapted from Edith Calloway's 1889 novel The Return to Wychwood. Elinor has come back to her childhood home after many years abroad.\n\nThe house had not altered, and yet it would not receive her as before. Each familiar room seemed to hold itself at a ceremonious distance; she moved through the halls like a guest whose visit, though courteously endured, was privately ______."
+  },
+  {
+    "id": 9036,
+    "type": "multiple-choice",
+    "difficulty": "hard",
+    "band": 4,
+    "domain": "craft-and-structure",
+    "skill": "words-in-context",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "duplicitous"
+      },
+      {
+        "id": "B",
+        "text": "effusive"
+      },
+      {
+        "id": "C",
+        "text": "perfunctory"
+      },
+      {
+        "id": "D",
+        "text": "obsequious"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "**Choice C is correct.** The sentence sets up a fine correction — \"not insincere, exactly, so much as ______\" — and then defines the missing word itself: admiration \"worn down to a habit of the lips, outlasting the feeling that had once prompted it.\" Praise performed by routine after the feeling behind it has gone is precisely \"perfunctory\" — done mechanically, without real engagement.\n\n**The Full Solution:**\n- Find the structural signal: \"not X, exactly, so much as Y\" is a correction, so the blank must name something close to \"insincere\" but crucially different — the praise is not a lie; it is empty routine.\n- Let the colon do its work: everything after it defines the blank. \"Worn down to a habit of the lips\" names mechanical repetition, and \"outlasting the feeling\" removes the emotion, not the honesty.\n- \"Perfunctory\" captures exactly that — performed as a routine duty, with the motions intact and the feeling gone.\n\n**Why the other choices are wrong:**\n- A: \"Duplicitous\" means deliberately deceiving, but the text has just ruled deception out — her praise is \"not insincere, exactly.\"\n- B: \"Effusive\" means gushing with feeling — the opposite of praise from which the feeling has drained away.\n- D: \"Obsequious\" means fawning to win favor, but the passage shows habit, not flattery aimed at anyone; nothing suggests she wants something from her guests.\n\n**Test Day Takeaway:** When a literary sentence corrects itself — \"not X, exactly, so much as ___\" — the blank is a near-neighbor of X with one precise difference, and the clause after the colon usually spells that difference out.",
+    "authoredBy": "seva-cb-craft-literary",
+    "_meta": {
+      "authoredFor": "wic-contrast",
+      "sourceRef": "lit-r1-wic-correction-hard"
+    },
+    "passage": "The following text is adapted from Vera Ashwell's 1927 novel The Glass Hours. Mrs. Ramsden is giving the final party of the London season.\n\nShe praised the evening to each guest in turn—the flowers, the quartet, the talk that glittered and settled nowhere—and her praise was not insincere, exactly, so much as ______: the rooms had been made brilliant under her direction so many times that admiration had worn down to a habit of the lips, outlasting the feeling that had once prompted it."
+  },
+  {
+    "id": 9037,
+    "type": "multiple-choice",
+    "difficulty": "medium",
+    "band": 3,
+    "domain": "craft-and-structure",
+    "skill": "words-in-context",
+    "question": "Which choice completes the text with the most logical and precise word or phrase?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "denounce"
+      },
+      {
+        "id": "B",
+        "text": "commend"
+      },
+      {
+        "id": "C",
+        "text": "forsake"
+      },
+      {
+        "id": "D",
+        "text": "interrupt"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**Choice A is correct.** The sentence balances two refusals: \"though he would not join the celebration... neither would he ______ it.\" Joining sits at the approving pole, so the blank must supply the opposite pole — open condemnation — and the closing phrase confirms it: he has \"resolved to outlive rather than oppose\" the railroad. \"Denounce\" (condemn publicly) completes the balanced refusal exactly.\n\n**The Full Solution:**\n- Read the structure first: \"though he would not X, neither would he Y\" pairs two opposite actions the Deacon declines. Since X is joining the celebration, Y must be the contrary act — condemning it.\n- Confirm with the last clause: \"outlive rather than oppose\" restates the same two poles — he will neither celebrate the railroad nor fight it.\n- \"Denounce\" is the fighting pole, so it is the word the structure demands.\n\n**Why the other choices are wrong:**\n- B: \"Commend\" (praise) sits on the same side as joining the celebration, so the balanced \"neither\" structure collapses — the sentence needs the opposing pole.\n- C: \"Forsake\" (abandon) fails the logic: standing apart from a celebration he never joined cannot count as abandoning it.\n- D: \"Interrupt\" names a physical disruption, but the Deacon stands quietly at the fence; the sentence weighs his attitude, not an action he might take.",
+    "authoredBy": "seva-cb-craft-literary",
+    "_meta": {
+      "authoredFor": "wic-contrast",
+      "sourceRef": "lit-r2-wic-concession-medium"
+    },
+    "passage": "The following text is adapted from Josiah Merrell's 1854 novel The Surveyor of Candlewick. Deacon Hale long opposed the building of a railroad through his village.\n\nOn the morning the finished line opened, the Deacon walked its whole length through the meadow, and though he would not join the celebration at the depot, neither would he ______ it; he stood apart at the fence with his hat in his hands and watched the engine pass with the grave attention a man gives to a thing he has resolved to outlive rather than oppose."
+  },
+  {
+    "id": 9038,
+    "type": "multiple-choice",
+    "difficulty": "medium",
+    "band": 3,
+    "domain": "information-and-ideas",
+    "skill": "central-ideas-and-details",
+    "question": "Which choice best states the main idea of the text?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Margaret regrets that the town she treasured in childhood has fallen into a neglect that none of its residents seem inclined to repair."
+      },
+      {
+        "id": "B",
+        "text": "Margaret concludes that her childhood impressions of the town were mistaken and that it was never as grand as she once believed it to be."
+      },
+      {
+        "id": "C",
+        "text": "Margaret walks the seafront hoping to recover the feeling of being a child again, but the town has changed too much to permit it."
+      },
+      {
+        "id": "D",
+        "text": "Margaret takes the town's diminished appearance not as a loss to mourn but as a measure of how much she herself has changed."
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "**Choice D is correct.** The passage turns on a reversal: the town looks smaller and shabbier than she remembered, \"yet Margaret found she could not be sorry,\" because \"the town's shrinking did not diminish her; it measured her.\" The main idea is that reversal — she reads the town's diminishment as a gauge of her own growth, \"tallying the difference between the girl who had left and the woman who had returned.\"\n\n**The Full Solution:**\n- Locate the pivot: \"Yet Margaret found she could not be sorry.\" Everything before it is setup (the town seems smaller); everything after it is the point (what the shrinking means to her).\n- The text then states its thesis in miniature: the shrinking \"did not diminish her; it measured her\" — the town has become a yardstick for her growth.\n- A main-idea answer must cover both halves: the diminished town AND the use she makes of it. Only D holds both together.\n\n**Why the other choices are wrong:**\n- A: \"Regrets\" contradicts the pivot sentence — she \"could not be sorry\" — and the residents' willingness to make repairs is never mentioned.\n- B: The passage never calls her memories mistaken; the huts \"seemed\" palaces because she was small, which is exactly the measuring the text embraces, not an error it corrects.\n- C: It invents a motive — nothing says she hopes to feel like a child again — and its tone of defeat (\"too much to permit it\") reverses the passage's quiet satisfaction.",
+    "authoredBy": "seva-cb-craft-literary",
+    "_meta": {
+      "authoredFor": "cid-main-idea",
+      "sourceRef": "lit-r3-cid-main-idea-medium"
+    },
+    "passage": "The following text is adapted from Frances Ollerton's 1896 novel The Wintering House. Margaret has returned to the seaside town where she spent the summers of her childhood.\n\nThe esplanade was shorter than she remembered, and the bathing huts, which had once seemed to her a row of little palaces, wanted paint. Yet Margaret found she could not be sorry. The town's shrinking did not diminish her; it measured her. Every corner that had grown smaller was proof of how far she had traveled since she last stood in it, and she walked the seafront twice over, taking a kind of inventory, tallying the difference between the girl who had left and the woman who had returned."
+  },
+  {
+    "id": 9039,
+    "type": "multiple-choice",
+    "difficulty": "hard",
+    "band": 4,
+    "domain": "craft-and-structure",
+    "skill": "text-structure-and-purpose",
+    "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "It establishes the pride Anders takes in his own workmanship by introducing the image of the furrows running straight from the creek to the county road."
+      },
+      {
+        "id": "B",
+        "text": "It revisits the furrow image of the opening sentence, recasting the rows as a sign of the farm's future without Anders rather than as proof of his skill."
+      },
+      {
+        "id": "C",
+        "text": "It reveals the reason Anders finally agreed to sell the farm by suggesting that the yearly labor of plowing the north field had at last outgrown his strength."
+      },
+      {
+        "id": "D",
+        "text": "It contrasts the neglected condition of the field in the months after the sale with the exacting care that Anders had given it over his forty springs."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "**Choice B is correct.** The opening sentence introduces the furrows as a boast — straight as a chalk line, the proof of forty springs of skill. The underlined sentence returns to that same image after the sale and turns it over: the rows are \"still holding their line,\" but now they run \"away from him toward the road as if they meant to arrive somewhere without him.\" The image's meaning shifts from workmanship to displacement — the farm continuing on without its farmer — and staging that shift is the sentence's function in the text.\n\n**The Full Solution:**\n- Track the repeated image first: the furrows appear twice — before the sale (pride, straightness, skill) and after it, in the underlined sentence. When a function question underlines an image's second appearance, the answer must name how its meaning has changed.\n- Read the figurative turn inside the underlined sentence: \"as if they meant to arrive somewhere without him\" personifies the rows and points them toward a future that excludes Anders.\n- The final sentence confirms the shift: he latches the gate, \"a thing he had never before troubled to do\" — the field has become something he now stands outside of.\n\n**Why the other choices are wrong:**\n- A: It describes the function of the story's FIRST sentence, where the furrow image is introduced as pride; the underlined sentence revisits that image rather than establishing it.\n- C: The text gives no reason for the sale and never suggests failing strength; the April rows are straight and true, turned by Anders himself.\n- D: It contradicts the text — the rows are \"still holding their line,\" so the field shows no neglect; what changes is what the furrows mean, not their condition.\n\n**Test Day Takeaway:** When the underlined sentence repeats an image from earlier in the passage, reject \"introduces\" and \"describes\" answers — the credited choice names the shift in what the image MEANS between its first and second appearance.",
+    "authoredBy": "seva-cb-craft-literary",
+    "_meta": {
+      "sourceRef": "lit-r4-tsp-repeated-image-hard"
+    },
+    "passage": "The following text is adapted from Harold Wick's 1953 short story 'The Straight Furrow.' Anders, an aging farmer, has agreed to sell his farm to a developer.\n\nAnders had plowed the north field for forty springs, and he prided himself that his furrows ran straight as a chalk line from the creek to the county road. He signed the papers in the kitchen without ceremony, initialing wherever the developer's agent pointed. __That evening he walked out to the north field and looked down the rows he had turned in April, still holding their line, running away from him toward the road as if they meant to arrive somewhere without him.__ He stayed until the light failed, and then he latched the gate, a thing he had never before troubled to do."
+  },
+  {
+    "id": 9040,
+    "type": "multiple-choice",
+    "difficulty": "hard",
+    "band": 4,
+    "domain": "information-and-ideas",
+    "skill": "inferences",
+    "question": "Which choice most logically completes the text?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "reviewers were mistaken to praise the documentary quality of either of Alvey's collections, since both books plainly rendered invented settings rather than places she had ever observed."
+      },
+      {
+        "id": "B",
+        "text": "the mill poems of Alvey's first collection must likewise have been composed from reworked and composited memories, since a poet's working methods rarely change between one book and the next."
+      },
+      {
+        "id": "C",
+        "text": "the notebooks are of limited value as evidence of Alvey's working practice, since records produced years after the events they concern cannot establish how her poems actually took shape."
+      },
+      {
+        "id": "D",
+        "text": "the factory scenes of the second collection, at least, were shaped by memory and revision rather than direct observation, while the first collection's methods remain an open question."
+      }
+    ],
+    "correctAnswer": "D",
+    "explanation": "**Choice D is correct.** Two findings have to be combined, and one stated limit respected. The notebooks show that the second collection's mill poems were drafted years after Alvey left the valley, reworked through as many as a dozen versions, and assembled from details merged across different towns — so those scenes are reconstructions shaped by memory and revision, not firsthand records. But Reyes-Faulk states that the notebooks document ONLY the second collection, so no conclusion about the first is licensed. D draws exactly the supported conclusion at exactly the supported scope: the second collection \"at least,\" with the first left an open question.\n\n**The Full Solution:**\n- List what the evidence establishes: late composition, heavy revision, composite settings — all documented for the second collection's poems. That directly undercuts the \"documentary record\" reading for that book.\n- Mark the stated limit before choosing: \"the notebooks document only the second collection; no drafts of the first survive.\" A valid completion must stop at that boundary.\n- The credited completion is therefore hedged and scoped — a firm claim where the evidence reaches, agnosticism where it does not. That is D's exact shape.\n\n**Why the other choices are wrong:**\n- A: Overreaches twice — it extends the conclusion to \"either\" collection when the evidence covers only one, and it converts reworked memories of a real place into \"invented settings,\" which the notebooks do not show.\n- B: Smuggles in a premise the passage never offers (\"a poet's working methods rarely change\") to force the very conclusion about the first collection that the passage explicitly declines to support.\n- C: Turns the finding against itself — the notebooks' late dates are what they reveal ABOUT the poems' composition, not a defect in the notebooks as evidence; the passage treats the catalogue as reliable throughout.\n\n**Test Day Takeaway:** When a passage hands you strong evidence AND an explicit limit on that evidence, the credited completion does both jobs: it asserts firmly inside the limit and stays agnostic outside it. Distractors either ignore the limit or attack the evidence.",
+    "authoredBy": "seva-cb-craft-literary",
+    "_meta": {
+      "authoredFor": "inf-generalization-conclusion",
+      "sourceRef": "lit-r5-inf-scoped-hedge-hard"
+    },
+    "passage": "The poet Corinne Alvey published two collections during the 1930s, both set among the textile mills of the Merrimack Valley, and reviewers of her day praised the poems' factory scenes as documentary, valuing them as firsthand records of mill-town life. Yet Alvey's surviving notebooks, recently catalogued by the literary historian Tomas Reyes-Faulk, complicate that praise: they show that she drafted nearly all of the mill poems in her second collection years after leaving the valley, reworking a single remembered image through as many as a dozen versions and merging details from different towns into one composite setting. Reyes-Faulk notes, however, that the notebooks document only the second collection; no drafts of the first survive. His findings therefore suggest that ______"
+  },
+  {
+    "id": 9041,
+    "type": "multiple-choice",
+    "difficulty": "hard",
+    "band": 4,
+    "domain": "information-and-ideas",
+    "skill": "command-of-evidence-textual",
+    "question": "Which quotation from Marsh Light most effectively illustrates Okonkwo's claim?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "\"The last crossing done, he tied the skiff to its post and stood a long while looking down at the dark water, feeling himself already half a stranger to it.\""
+      },
+      {
+        "id": "B",
+        "text": "\"He had learned the tides before he had learned his letters; when the bridge came, he set himself to learn its lamps and signals with the same patience.\""
+      },
+      {
+        "id": "C",
+        "text": "\"Nights on the span, he caught himself listening for the slap of oars beneath him, and his hands still ached for the worn handles they remembered.\""
+      },
+      {
+        "id": "D",
+        "text": "\"The pilings went down month after month, and the channel slowly narrowed, until the estuary he had known lay divided from itself, span by iron span.\""
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "**Choice B is correct.** Okonkwo's claim binds two things together: Noah's adaptability AND the argument that it is mastery — \"the same patient attention\" carried from the old trade to the new. This quotation delivers both at once: the tides he \"had learned... before he had learned his letters\" establish the lifelong mastery, and \"he set himself to learn its lamps and signals with the same patience\" shows that mastery transferring, undiminished, to the bridge. The phrase \"the same patience\" is the claim's own mechanism in the novel's words.\n\n**The Full Solution:**\n- Restate the claim before touching the options: adaptation IS mastery continued, not defeat endured. A winning quotation must show Noah bringing his old skill TO the new work, not merely losing the old work or suffering the new.\n- Test each option against both halves: does it show skill, and does it show the skill carrying over? Only B has the transfer — old learning and new learning joined by \"the same patience.\"\n- Quotations that show loss, longing, or the bridge's encroachment support the \"defeat\" reading Okonkwo argues against, so they cannot illustrate her claim.\n\n**Why the other choices are wrong:**\n- A: Shows estrangement — \"already half a stranger\" to the water — which is evidence for the defeat reading, not for adaptability as mastery.\n- C: Shows longing for the lost trade (listening for oars, hands aching for the handles); nostalgia for what is gone is the opposite of attention turned to what the estuary now requires.\n- D: Describes the bridge dividing the estuary — the encroachment itself — and says nothing about Noah's response to it, so it cannot show his adaptability at all.\n\n**Test Day Takeaway:** In illustrate-the-claim questions about literature, split the critic's claim into its working parts and demand BOTH from the quotation. Distractors usually illustrate the rival reading the critic is rejecting.",
+    "authoredBy": "seva-cb-craft-literary",
+    "_meta": {
+      "authoredFor": "coe-text-illustrate-quote",
+      "sourceRef": "lit-r6-coe-illustrate-hard"
+    },
+    "passage": "Marsh Light, a 1904 novel by Everett Shand, follows Noah Tull, a ferryman who has carried passengers across a tidal estuary for thirty years as a railway bridge rises upstream. Some early readers took the novel's ending, in which Noah accepts a post as the bridge's night watchman, as a portrait of defeat, but the critic Adaeze Okonkwo argues otherwise: in her reading, Shand presents Noah's adaptability as itself a form of mastery, the same patient attention that once made him a ferryman now turned, undiminished, to whatever the changed estuary requires of him."
   }
 ];

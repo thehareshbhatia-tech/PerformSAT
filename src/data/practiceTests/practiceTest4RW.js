@@ -179,7 +179,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "B",
-              "text": "It rejects the endosymbiotic theory by showing that mitochondria and chloroplasts share more features with free-living bacteria than with the cells that contain them."
+              "text": "It rejects the endosymbiotic theory outright by showing that mitochondria and chloroplasts share more structural features with free-living bacteria than with the complex cells that contain them."
             },
             {
               "id": "C",
@@ -324,7 +324,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "C",
-              "text": "Rubin's first observations of Andromeda were less precise than she had expected, but later work with collaborators eventually confirmed the rotation pattern she had set out to measure."
+              "text": "Rubin's first spectrographic observations of Andromeda were less precise than she had expected, but later work with her collaborators on other galaxies eventually confirmed the rotation pattern she had originally set out to measure."
             },
             {
               "id": "D",
@@ -353,7 +353,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "B",
-              "text": "Earlier scholars of Maya inscriptions had already concluded that the monuments at Piedras Negras recorded the battles, marriages, and deaths of individual named rulers."
+              "text": "Earlier scholars of Maya inscriptions had already concluded, well before 1960, that the monuments at Piedras Negras recorded the births, accessions, battles, marriages, and deaths of individual named rulers of the city."
             },
             {
               "id": "C",
@@ -378,30 +378,30 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "question": "According to the text, what is one effect of earthworms' burrowing on the soil?",
+          "question": "According to the text, why does Tarrant refuse to sell a clock he has not kept in the shop for a month?",
           "choices": [
             {
               "id": "A",
-              "text": "It permanently keeps water and air from reaching the roots of most nearby plants."
+              "text": "He wants the shelves of his shop to appear fully stocked with finished clocks to the buyers who visit, even if it means turning some of them away empty-handed."
             },
             {
               "id": "B",
-              "text": "It opens channels through the soil that allow water and air to reach plant roots."
+              "text": "Running a clock for a month shows him how it behaves in different conditions, so he knows which clocks can be trusted before he sells them."
             },
             {
               "id": "C",
-              "text": "It restores the thick litter layer that native wildflowers in northern forests depend on."
+              "text": "He is reluctant to part with clocks he has assembled himself, each of which still requires a further month of finishing work at his bench."
             },
             {
               "id": "D",
-              "text": "It locks carbon in the ground for far longer than it would otherwise have remained."
+              "text": "A month's delay allows him to charge a higher price for the clocks that prove the most accurate over the trial period."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The passage states that as earthworms burrow they \"open channels that let water and air reach plant roots.\"\n\n**The Full Solution:**\n- For a detail question, first ask: exactly what is being asked? Here, one effect of the BURROWING specifically - so go find that line in the passage.\n- The passage names two burrowing effects: mixing leaf litter deep into the soil, and opening channels for water and air to reach roots.\n- Choice B restates that second effect directly and accurately.\n- How to spot it: the correct detail answer is a faithful restatement of a line in the text - match it to the exact words, don't pick what merely sounds reasonable.\n\n**Why the other choices are wrong:**\n- A: It reverses the effect; the burrowing lets water and air reach roots rather than keeping them out.\n- C: It describes the thick litter layer that spreading earthworms \"strip away,\" not restore.\n- D: It contradicts the passage, which says their activity \"speeds the breakdown of organic matter, releasing carbon\" rather than locking it in.",
-          "passage": "Earthworms are often credited with enriching soil, but their effects are more mixed than that reputation suggests. As they burrow, earthworms mix decaying leaf litter deep into the soil and open channels that let water and air reach plant roots. In doing so, however, they also speed the breakdown of organic matter, releasing carbon that might otherwise have stayed locked in the ground for decades. In some northern forests, where earthworms are not native, their recent spread has stripped away the thick layer of slowly decaying litter on which many native wildflowers and tree seedlings depend.",
+          "explanation": "**Choice B is correct.** The passage says the month of running is what tells Tarrant how each clock behaves - which run fast in the cold, which fail in damp weather - so he knows which can be trusted before they leave the shop.\n\n**The Full Solution:**\n- For a detail question, first ask: exactly what is being asked? Here, the REASON for the month-long rule - so find the lines where the rule is explained.\n- Tarrant compares a clock to a new acquaintance, \"civil enough on first meeting, and only showing its temper with keeping\" - a clock's flaws appear only over time.\n- The last sentence lists what the month reveals: which clocks run fast in the cold, which sulk when the damp comes in, and which \"could be trusted to keep another man's hours.\"\n- Choice B restates that reason faithfully.\n- How to spot it: the correct detail answer restates a line in the text - match it to the exact words rather than picking what merely sounds sensible.\n\n**Why the other choices are wrong:**\n- A: The stocked shelves are what the rule costs him, not its purpose - buyers leave empty-handed while finished clocks tick on the shelves.\n- C: Nothing says Tarrant builds the clocks or that they need further finishing work; the clocks on his shelves are described as finished.\n- D: Price is never mentioned anywhere in the passage.",
+          "passage": "The following text is adapted from Arthur Pemberton Lowell's 1886 novel The Clocks of Halden Street. Mr. Tarrant keeps a small shop of clocks and watches.\n\nTarrant kept to a rule that puzzled his neighbors: he would not sell a clock he had not first run in the shop for a full month. Buyers came in wanting a mantel clock that very day, and went away empty-handed while a dozen finished clocks ticked on the shelves behind him. But a clock, he said, was like a new acquaintance - civil enough on first meeting, and only showing its temper with keeping. The month told him which ones ran fast in the cold, which ones sulked when the damp came in, and which could be trusted to keep another man's hours as faithfully as his own.",
           "_meta": {
-            "anchor": "soil ecology — earthworm bioturbation; detail stem"
+            "anchor": "Literary excerpt (original): Arthur Pemberton Lowell, The Clocks of Halden Street (1886); the month-long rule [theme: period fiction]"
           }
         },
         {
@@ -415,7 +415,7 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Fungal species that produce the most dark pigment tend to grow more slowly than species producing little pigment, no matter where they grow."
+              "text": "Fungal species that produce the most dark pigment tend to grow more slowly than species producing little or no pigment, no matter where in the forest they happen to grow."
             },
             {
               "id": "B",
@@ -448,7 +448,7 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Instagram use rose from 13% in 2012 to 28% in 2016, an increase of 15 percentage points."
+              "text": "Instagram use rose from 13% of U.S. adults in 2012 to 28% in 2016, an increase of 15 percentage points across the earlier survey window."
             },
             {
               "id": "B",
@@ -460,7 +460,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "D",
-              "text": "Facebook was used by 54% of U.S. adults in 2012, the same year that Instagram was used by 13%."
+              "text": "Facebook was used by 54% of U.S. adults in 2012, the same survey year in which Instagram was used by just 13% of adults."
             }
           ],
           "correctAnswer": "B",
@@ -866,7 +866,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "B",
-              "text": "For instance,"
+              "text": "Indeed,"
             },
             {
               "id": "C",
@@ -878,7 +878,7 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The sentence with the blank pushes back against the popular take stated just before it - that the essay was a \"wholesale dismissal\" of the published research - by saying the essay is actually \"more carefully calibrated than that,\" so a contrast linking word fits.\n\n**The Full Solution:**\n- For a transition, first ask: does the sentence after the blank agree with the one before, go against it, give an example, or state a result? Decide the relationship, THEN pick the word.\n- Sentence before: the essay \"was sometimes read as a wholesale dismissal of the published literature.\"\n- Sentence with the blank: it is \"more carefully calibrated than that headline reading suggests\" - it corrects that take.\n- The two sentences disagree, so you need a contrast word: \"However.\"\n- How to spot it: when the second sentence corrects or pushes back on the first, the linking word should signal contrast (however, but, yet), not addition or result.\n\n**Why the other choices are wrong:**\n- A: \"In addition\" signals another point in the SAME direction, not a pushback.\n- B: \"For instance\" signals an example.\n- D: \"Therefore\" signals a result - none captures the correction the sentence makes.",
+          "explanation": "**Choice C is correct.** The sentence with the blank pushes back against the popular take stated just before it - that the essay was a \"wholesale dismissal\" of the published research - by saying the essay is actually \"more carefully calibrated than that,\" so a contrast linking word fits.\n\n**The Full Solution:**\n- For a transition, first ask: does the sentence after the blank agree with the one before, go against it, give an example, or state a result? Decide the relationship, THEN pick the word.\n- Sentence before: the essay \"was sometimes read as a wholesale dismissal of the published literature.\"\n- Sentence with the blank: it is \"more carefully calibrated than that headline reading suggests\" - it corrects that take.\n- The two sentences disagree, so you need a contrast word: \"However.\"\n- How to spot it: when the second sentence corrects or pushes back on the first, the linking word should signal contrast (however, but, yet), not addition or result.\n\n**Why the other choices are wrong:**\n- A: \"In addition\" signals another point in the SAME direction, not a pushback.\n- B: \"Indeed\" would intensify the misreading just described, but the sentence corrects that reading instead of reinforcing it.\n- D: \"Therefore\" signals a result - none captures the correction the sentence makes.",
           "passage": "In a 2005 essay that has been cited tens of thousands of times, the meta-research scientist John Ioannidis argued that under common conditions — small samples, modest prior probabilities, and analytic flexibility — the proportion of published statistically significant findings that reflect real effects is often below one half. The argument was sometimes read as a wholesale dismissal of the published literature. ______ the essay is more carefully calibrated than that headline reading suggests: it specifies the structural conditions under which a high false-positive rate is expected and does not claim that most findings in well-designed studies are mistaken.",
           "_meta": {
             "anchor": "John Ioannidis — 'Why Most Published Research Findings Are False' (entity_keep); contrast"
@@ -903,7 +903,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "C",
-              "text": "For example,"
+              "text": "Meanwhile,"
             },
             {
               "id": "D",
@@ -911,7 +911,7 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage describes one recycling method (grinding the battery and dissolving the metals with strong acids) and then gives a different method that does the same job more gently, so \"Alternatively\" (a different way) fits.\n\n**The Full Solution:**\n- For a transition, first ask: how does the second sentence relate to the first? Here it offers a rival way to do the same task.\n- First method: \"grinds the whole battery into a powder and then dissolves the metals out of it with strong acids.\"\n- Sentence with the blank: \"a newer approach uses gentler, water-based solutions and bacteria,\" cutting cost and harm.\n- The two are competing ways to reach the same goal, so the relationship is \"here's another way\" - that's \"Alternatively.\"\n- How to spot it: when sentence two offers a second, different method for the same job, the linking word should signal a choice between options, not a result or an example.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would mark a result, but the second method does not come out of the first.\n- C: \"For example\" would make the second method an instance of the first, not a rival to it.\n- D: \"Similarly\" wrongly says the two methods are alike, when the point is they differ (harsh acid vs. gentle, water-based).",
+          "explanation": "**Choice A is correct.** The passage describes one recycling method (grinding the battery and dissolving the metals with strong acids) and then gives a different method that does the same job more gently, so \"Alternatively\" (a different way) fits.\n\n**The Full Solution:**\n- For a transition, first ask: how does the second sentence relate to the first? Here it offers a rival way to do the same task.\n- First method: \"grinds the whole battery into a powder and then dissolves the metals out of it with strong acids.\"\n- Sentence with the blank: \"a newer approach uses gentler, water-based solutions and bacteria,\" cutting cost and harm.\n- The two are competing ways to reach the same goal, so the relationship is \"here's another way\" - that's \"Alternatively.\"\n- How to spot it: when sentence two offers a second, different method for the same job, the linking word should signal a choice between options, not a result or an example.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would mark a result, but the second method does not come out of the first.\n- C: \"Meanwhile\" would set the two methods side by side in time, but the sentence offers a rival method, not a simultaneous development.\n- D: \"Similarly\" wrongly says the two methods are alike, when the point is they differ (harsh acid vs. gentle, water-based).",
           "passage": "Recovering the valuable metals from a spent lithium-ion battery is surprisingly difficult, because the metals are bound up in complex compounds and spread across several thin layers. One common method grinds the whole battery into a powder and then dissolves the metals out of it with strong acids. ______ a newer approach uses gentler, water-based solutions and bacteria that draw the metals out of the powder, lowering both the cost and the environmental harm of the process.",
           "_meta": {
             "anchor": "battery chemistry — lithium-ion recycling methods; alternative"
@@ -932,7 +932,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "B",
-              "text": "For instance,"
+              "text": "In the meantime,"
             },
             {
               "id": "C",
@@ -944,7 +944,7 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The unstable, flammable film stock and the studios' neglect are why so many silent films were lost; the last sentence states what that led to - archivists now having to piece films back together from scattered prints - so a result linking word fits.\n\n**The Full Solution:**\n- For a transition, first ask: does sentence two follow FROM sentence one as a result, or does it contrast, add, or exemplify?\n- Cause: nitrate film stock was \"highly flammable and chemically unstable,\" and studios \"rarely paid to store them properly.\"\n- Result (sentence with the blank): \"archivists today must often reconstruct a single film from incomplete prints scattered among collections on several continents.\"\n- The second sentence is the outcome of the first, so a result word (\"As a result\") is needed.\n- How to spot it: if you can put \"because of that\" in front of the second sentence and it makes sense, the linking word should signal a result.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals contrast, not an outcome.\n- B: \"For instance\" signals an example.\n- D: \"Earlier\" marks time order, not a cause-and-result link.",
+          "explanation": "**Choice C is correct.** The unstable, flammable film stock and the studios' neglect are why so many silent films were lost; the last sentence states what that led to - archivists now having to piece films back together from scattered prints - so a result linking word fits.\n\n**The Full Solution:**\n- For a transition, first ask: does sentence two follow FROM sentence one as a result, or does it contrast, add, or exemplify?\n- Cause: nitrate film stock was \"highly flammable and chemically unstable,\" and studios \"rarely paid to store them properly.\"\n- Result (sentence with the blank): \"archivists today must often reconstruct a single film from incomplete prints scattered among collections on several continents.\"\n- The second sentence is the outcome of the first, so a result word (\"As a result\") is needed.\n- How to spot it: if you can put \"because of that\" in front of the second sentence and it makes sense, the linking word should signal a result.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals contrast, not an outcome.\n- B: \"In the meantime\" would mark something happening while another process runs its course, but no waiting period is described - the sentence states the outcome of the losses.\n- D: \"Earlier\" marks time order, not a cause-and-result link.",
           "passage": "Most films made during the silent era have been lost. Early motion pictures were printed on a nitrate film stock that was both highly flammable and chemically unstable, and studios, seeing little commercial value in old titles, rarely paid to store them properly. ______ archivists today must often reconstruct a single film from incomplete prints scattered among collections on several continents.",
           "_meta": {
             "anchor": "early film preservation — nitrate stock losses (NEW); result transition"
@@ -961,15 +961,15 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Eugenie Clark founded a marine research laboratory on the Gulf coast of Florida that remains active today."
+              "text": "Eugenie Clark founded a marine research laboratory on the Gulf coast of Florida that remains active in marine science today."
             },
             {
               "id": "B",
-              "text": "Sharks, animals that much of the public once imagined as little more than mindless killers, are now known to be capable of learning a range of simple tasks."
+              "text": "Sharks, animals that much of the public once imagined as little more than mindless killers acting purely on instinct, are now known to be capable of learning a range of simple tasks in laboratory settings and in the wild."
             },
             {
               "id": "C",
-              "text": "Eugenie Clark was a marine biologist who spent much of her long career studying the behavior of sharks."
+              "text": "Eugenie Clark was a marine biologist who spent much of her long scientific career studying the behavior of sharks in their own habitat."
             },
             {
               "id": "D",
@@ -1016,7 +1016,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "D",
-              "text": "Doudna's 2012 paper with Emmanuelle Charpentier and colleagues showed that the bacterial Cas9 enzyme could be guided by a single engineered RNA to cut specific DNA sequences, and her 2017 book A Crack in Creation makes the same argument for general readers."
+              "text": "Doudna's 2012 paper with Emmanuelle Charpentier and colleagues showed that the bacterial Cas9 enzyme could be guided by a single engineered RNA to cut specific DNA sequences, and her 2017 book A Crack in Creation makes the same argument again for a general readership."
             }
           ],
           "correctAnswer": "B",
@@ -1186,7 +1186,7 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "To argue that synthetic pesticides should never be used in agriculture under any circumstances and that Carson's book made exactly this case."
+              "text": "To argue that synthetic pesticides should never be used in agriculture under any circumstances and that Carson's 1962 book made exactly this case to the reading public."
             },
             {
               "id": "B",
@@ -1395,7 +1395,7 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Before the 1880s, a traveler crossing the United States passed through dozens of towns that each set their clocks slightly differently according to the local position of the sun."
+              "text": "Before the 1880s, a traveler crossing the United States passed through dozens of towns that each set their clocks slightly differently according to the local position of the sun overhead."
             },
             {
               "id": "B",
@@ -1465,7 +1465,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "B",
-              "text": "Manufacturing's share of employed U.S. workers was 26% in 1950, the highest value the manufacturing column reaches in any year shown."
+              "text": "Manufacturing's share of employed U.S. workers stood at 26% in 1950, the highest value that the manufacturing column reaches in any of the three years shown."
             },
             {
               "id": "C",
@@ -1530,7 +1530,7 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The 1980-1999 anomaly of 0.30 °C is higher than the 1960-1979 anomaly of -0.01 °C, supporting the claim that recent decades have been the warmest in the record."
+              "text": "The 1980-1999 anomaly of 0.30 °C is far higher than the 1960-1979 anomaly of -0.01 °C and the 1940-1959 anomaly of 0.02 °C, supporting the claim that recent decades have been the warmest periods in the record."
             },
             {
               "id": "B",
@@ -1906,7 +1906,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "C",
-              "text": "In addition,"
+              "text": "Meanwhile,"
             },
             {
               "id": "D",
@@ -1914,10 +1914,10 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The third sentence adds a second desert-plant survival trick - wide, shallow roots - to the first one already named, the waxy water-storing stems, so an \"adding more\" word fits.\n\n**The Full Solution:**\n- For a transition, first ask: does the third sentence agree, contrast, give an example, or pile on another point? Here it piles on a second trick.\n- Second sentence: many desert plants have \"thick, waxy stems that store water\" - trick one.\n- Third sentence: their roots \"spread out just below the surface over a wide area\" to soak up rain - trick two.\n- The two are separate, equal solutions to the same problem, so an adding word (\"In addition\") fits.\n- How to spot it: when sentence three names ANOTHER feature of the same kind as sentence two, you want a word that means \"and also,\" not contrast or example.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" marks contrast, but the roots do not oppose the stems.\n- B: \"For example\" would make the roots an instance of the stems, which they are not.\n- D: \"By contrast\" wrongly pits the two adaptations against each other.",
-          "passage": "A desert receives less than ten inches of rain a year, so the plants that live there cannot rely on a steady water supply. Many desert plants have thick, waxy stems that store water and lose very little of it to the dry air. ______ their roots often spread out just below the surface over a wide area, ready to soak up as much as possible from the brief, infrequent rains.",
+          "explanation": "**Choice C is correct.** The two sentences describe what is happening above ground and below ground at the same moment during a desert storm, and \"Meanwhile,\" is the word for shifting to a second, simultaneous scene.\n\n**The Full Solution:**\n- For a transition, first ask: how does the second sentence relate to the first? Here both describe the same storm, at the same time, in two different places.\n- Above ground: within hours of the rain breaking, the saguaro's pleated stem \"begins swelling with stored water.\"\n- Below ground, at that same moment: the shallow, wide-spread roots \"are drawing in water\" from soil that will be dry again by the following day.\n- A shift from one location to another while the clock keeps running is exactly what \"Meanwhile\" signals.\n- How to spot it: when two sentences narrate simultaneous action in different places - above and below, inside and outside - the linking word should mark same-time action, not addition or contrast.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" marks a concession and pushback, but the roots' work does not push against the stem's.\n- B: \"For example\" would make the roots an instance of the swelling stem, which they are not.\n- D: \"By contrast\" would pit the two processes against each other, but they are partners in the same response to rain.",
+          "passage": "A desert receives less than ten inches of rain a year, and what rain does fall arrives in brief, sudden downpours. When a storm finally breaks, a saguaro's thick, pleated stem begins swelling with stored water within hours. ______ below ground, the plant's roots, spread just beneath the surface over a wide area, are drawing in water from soil that will be dry again by the following day.",
           "_meta": {
-            "anchor": "desert plant adaptations; addition"
+            "anchor": "desert plant adaptations; simultaneous above/below-ground response"
           }
         },
         {
@@ -1964,11 +1964,11 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Marie Tharp was a geologist and mapmaker who spent the 1950s working at Columbia University in New York."
+              "text": "Marie Tharp was a geologist and mapmaker who spent the 1950s working in the geology department of Columbia University in New York."
             },
             {
               "id": "B",
-              "text": "For years, the maps Tharp drew were published under the name of a male colleague rather than under her own."
+              "text": "For many years, the maps that Tharp drew were published under the name of a male colleague at Columbia rather than under her own name."
             },
             {
               "id": "C",
@@ -1976,7 +1976,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "D",
-              "text": "Tharp drew her maps of the ocean floor by hand, plotting thousands of individual depth measurements collected by ships crossing the North Atlantic over many years."
+              "text": "Tharp drew her detailed maps of the ocean floor by hand, carefully plotting thousands of individual depth soundings collected by research ships crossing the North Atlantic over many years."
             }
           ],
           "correctAnswer": "C",

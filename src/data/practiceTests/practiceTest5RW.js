@@ -318,7 +318,7 @@ export const practiceTest5RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Tidal power is best understood as the practice of building barrages across estuaries to capture electricity from the water that flows in and out with the rising and falling tide."
+              "text": "Tidal power is best understood as the practice of building barrages across estuaries to capture electricity from the water that flows in and out with the rising and falling of the tide twice each day."
             },
             {
               "id": "B",
@@ -326,11 +326,11 @@ export const practiceTest5RW = {
             },
             {
               "id": "C",
-              "text": "The tidal station at the Rance estuary was built mainly to test whether turbines could survive the fast coastal currents that newer tidal-stream designs depend on."
+              "text": "The tidal station at the Rance estuary was built mainly to test whether turbines could survive operating in the fast coastal currents that newer tidal-stream designs now depend on."
             },
             {
               "id": "D",
-              "text": "Tidal-stream turbines are now known to produce far more electricity than any barrage ever could, and they have made estuary barrages effectively obsolete."
+              "text": "Tidal-stream turbines are now known to produce far more electricity than any estuary barrage ever could, and they have made barrages like the one at the Rance estuary effectively obsolete."
             }
           ],
           "correctAnswer": "B",
@@ -355,11 +355,11 @@ export const practiceTest5RW = {
             },
             {
               "id": "B",
-              "text": "They led the weavers of Bursa to give up silk in favor of working with other textiles."
+              "text": "They led the weavers of Bursa to give up silk altogether in favor of working with other textiles."
             },
             {
               "id": "C",
-              "text": "They prompted the Ottoman treasury to stop collecting any tax on raw silk at Bursa."
+              "text": "They prompted the Ottoman treasury to stop collecting any tax on the raw silk sold at Bursa."
             },
             {
               "id": "D",
@@ -388,7 +388,7 @@ export const practiceTest5RW = {
             },
             {
               "id": "B",
-              "text": "Researchers have now proven that adults need considerably less sleep than the commonly cited figure of eight hours a night."
+              "text": "Researchers studying sleep in societies without electric light have now proven that adults everywhere need considerably less sleep than the commonly cited figure of eight hours a night."
             },
             {
               "id": "C",
@@ -396,7 +396,7 @@ export const practiceTest5RW = {
             },
             {
               "id": "D",
-              "text": "Chronic sleep deprivation turns out to be less common in industrialized countries than in the small-scale societies without electric light."
+              "text": "Chronic sleep deprivation turns out to be far less common in industrialized countries than in the small-scale societies of Africa and South America that lack electric light."
             }
           ],
           "correctAnswer": "C",
@@ -454,15 +454,15 @@ export const practiceTest5RW = {
             },
             {
               "id": "B",
-              "text": "Facebook recorded the highest use of any platform in every year shown, beginning at 54% of U.S. adults in 2012 and reaching 69% of U.S. adults by the year 2021."
+              "text": "Facebook recorded the highest use of any platform in every one of the years shown in the table, beginning at 54% of U.S. adults in 2012 and reaching a high of 69% of U.S. adults by the year 2021."
             },
             {
               "id": "C",
-              "text": "Instagram use more than tripled across the period, rising from 13% of U.S. adults in 2012 to 28% in 2016 and then climbing to 40% of U.S. adults by 2021."
+              "text": "Instagram use more than tripled across the period shown, rising from 13% of U.S. adults in 2012 to 28% of U.S. adults in 2016 and then climbing further to 40% of U.S. adults by 2021."
             },
             {
               "id": "D",
-              "text": "LinkedIn and Twitter both grew slowly throughout the period, with LinkedIn moving from 20% to 28% and Twitter moving from 16% to 23% between 2012 and 2021."
+              "text": "LinkedIn and Twitter both grew slowly but steadily throughout the period, with LinkedIn moving from 20% to 28% of U.S. adults and Twitter moving from 16% to 23% between 2012 and 2021."
             }
           ],
           "correctAnswer": "A",
@@ -721,30 +721,30 @@ export const practiceTest5RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "Three institutions have been central to the recent expansion of long-running monitoring programs for North American forests: the U.S. Forest Service's Forest Inventory and Analysis program, founded in 1928 to track timber resources but now adapted to ecological ______ Smithsonian Institution's ForestGEO network, which maintains dozens of large permanent plots across many countries; and the National Ecological Observatory Network, a continental-scale infrastructure operated for the National Science Foundation.",
+          "passage": "Three companies have been central to the development of American modern dance over the past century: the Martha Graham Dance Company, founded in 1926 and still performing the angular, breath-driven works of its ______ Alvin Ailey American Dance Theater, which since 1958 has carried a repertory rooted in Black American experience to audiences on six continents; and the Paul Taylor Dance Company, formed in 1954, whose founder kept choreographing new dances into his eighties.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "questions, the"
+              "text": "founder, the"
             },
             {
               "id": "B",
-              "text": "questions: the"
+              "text": "founder: the"
             },
             {
               "id": "C",
-              "text": "questions; the"
+              "text": "founder; the"
             },
             {
               "id": "D",
-              "text": "questions. The"
+              "text": "founder. The"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The sentence lists three institutions, and because each item already has commas inside it, the items themselves are separated by semicolons so a reader can tell where one item ends and the next begins.\n\n**The Full Solution:**\n- How to spot it: when a list has items that each contain their own commas, use semicolons between the items so the reader does not get lost in all the commas.\n- The sentence names three forest-monitoring institutions, and each one comes with its own little description full of commas.\n- The third item is already introduced with a semicolon (\"in many countries; and\"), which shows semicolons are the level being used. So the second item should be set off with a semicolon too.\n\n**Why the other choices are wrong:**\n- A: A plain comma would blur the line between the first item and the second.\n- B: A colon would wrongly treat the second item as an explanation of the first.\n- D: A period would split one list across two sentences.",
+          "explanation": "**Choice C is correct.** The sentence lists three dance companies, and because each item already has commas inside it, the items themselves are separated by semicolons so a reader can tell where one item ends and the next begins.\n\n**The Full Solution:**\n- How to spot it: when a list has items that each contain their own commas, use semicolons between the items so the reader does not get lost in all the commas.\n- The sentence names three modern-dance companies, and each one comes with its own little description full of commas.\n- The third item is already introduced with a semicolon (\"six continents; and\"), which shows semicolons are the level being used. So the second item should be set off with a semicolon too.\n\n**Why the other choices are wrong:**\n- A: A plain comma would blur the line between the first item and the second.\n- B: A colon would wrongly treat the second item as an explanation of the first.\n- D: A period would split one list across two sentences.",
           "_meta": {
-            "anchor": "Forest Inventory and Analysis / ForestGEO / NEON — three forest-monitoring programs"
+            "anchor": "Graham / Ailey / Taylor — three American modern-dance companies; list semicolons"
           }
         },
         {
@@ -853,20 +853,20 @@ export const practiceTest5RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Among the gases linked to the springtime thinning of the ozone layer over Antarctica, the chlorofluorocarbons once used in refrigerants and aerosol sprays received the most public attention in the second half of the twentieth century. ______ those compounds are tightly restricted: the 1987 Montreal Protocol and its amendments have phased out their production almost entirely, and the remaining atmospheric concentrations are monitored at stations around the world.",
+          "passage": "Among the gases linked to the springtime thinning of the ozone layer over Antarctica, the chlorofluorocarbons once used in refrigerants and aerosol sprays received the most public attention in the second half of the twentieth century, a concern that culminated in the 1987 Montreal Protocol. ______ production of the compounds was phased out almost entirely under the protocol and its amendments, and their atmospheric concentrations began a slow decline that monitoring stations around the world still track.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
               "id": "A",
-              "text": "For example,"
+              "text": "In fact,"
             },
             {
               "id": "B",
-              "text": "Therefore,"
+              "text": "Today,"
             },
             {
               "id": "C",
-              "text": "Today,"
+              "text": "Thereafter,"
             },
             {
               "id": "D",
@@ -874,9 +874,9 @@ export const practiceTest5RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The first sentence is about the past (the attention CFCs got in the twentieth century) and the second is about now (they are tightly restricted), so the linking word should mark a then-versus-now shift, which \"Today,\" does.\n\n**The Full Solution:**\n- How to spot it: for a linking-word question, read both sentences and ask how they relate. Here the first is set in the past, the second in the present.\n- Sentence one (past): CFCs got the most public attention in the late twentieth century.\n- Sentence two (now): the compounds are tightly restricted, phased out by the Montreal Protocol, and monitored worldwide. Moving from then to now is exactly what \"Today,\" signals.\n\n**Why the other choices are wrong:**\n- A: \"For example,\" introduces an instance, but the second sentence is not an example of the first.\n- B: \"Therefore,\" would make the restrictions a result of the public attention, which is not the link.\n- D: \"However,\" signals a reversal, but the second sentence updates the first rather than contradicting it.",
+          "explanation": "**Choice C is correct.** The first sentence ends at a fixed past event - the 1987 Montreal Protocol - and the second reports what happened from that point on, so the forward-in-time word \"Thereafter,\" is the right link.\n\n**The Full Solution:**\n- How to spot it: look for a dated event in the first sentence and ask whether the next sentence narrates what followed it. Public concern culminated in the 1987 Montreal Protocol - a specific moment in the story.\n- The sentence after the blank stays in narrative past tense: production \"was phased out\" and concentrations \"began a slow decline.\" These are the events that followed the protocol.\n- \"Thereafter,\" means \"from that point on,\" which is exactly the relationship between the protocol and the phase-out that followed it.\n\n**Why the other choices are wrong:**\n- A: \"In fact,\" would present the phase-out as a correction or sharpening of the previous claim, but the sentence reports the next events in the story, not a correction.\n- B: \"Today,\" introduces a present-day situation, but the sentence is told in the past tense (\"was phased out,\" \"began\") - it narrates what followed the protocol, not how things stand now.\n- D: \"However,\" signals a reversal, but the phase-out carries the story of growing concern forward rather than pushing against it.",
           "_meta": {
-            "anchor": "CFCs and the 1987 Montreal Protocol; historical-then-present transition"
+            "anchor": "CFCs and the 1987 Montreal Protocol; event-then-aftermath transition"
           }
         },
         {
@@ -899,7 +899,7 @@ export const practiceTest5RW = {
             },
             {
               "id": "C",
-              "text": "Nevertheless,"
+              "text": "In turn,"
             },
             {
               "id": "D",
@@ -907,7 +907,7 @@ export const practiceTest5RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The first sentence makes a general point - a good text face goes unnoticed - and the second gives a specific case of how that shows up in design, so \"For example,\" is the right link.\n\n**The Full Solution:**\n- How to spot it: when the second sentence gives a concrete case of a general idea in the first, the link is \"For example.\"\n- General point: a text face works when readers do not notice it, the letters just carrying the words.\n- Specific case: such a typeface usually has plain, even proportions and gentle contrast between thick and thin strokes, letting the eye glide along. That is a worked example of the general point.\n\n**Why the other choices are wrong:**\n- B: \"Instead,\" signals a contrast, but the second sentence backs up the first rather than opposing it.\n- C: \"Nevertheless,\" signals giving ground to an opposing point, which is not the link here.\n- D: \"However,\" signals a contrast, but the second sentence illustrates the first rather than contradicting it.",
+          "explanation": "**Choice A is correct.** The first sentence makes a general point - a good text face goes unnoticed - and the second gives a specific case of how that shows up in design, so \"For example,\" is the right link.\n\n**The Full Solution:**\n- How to spot it: when the second sentence gives a concrete case of a general idea in the first, the link is \"For example.\"\n- General point: a text face works when readers do not notice it, the letters just carrying the words.\n- Specific case: such a typeface usually has plain, even proportions and gentle contrast between thick and thin strokes, letting the eye glide along. That is a worked example of the general point.\n\n**Why the other choices are wrong:**\n- B: \"Instead,\" signals a contrast, but the second sentence backs up the first rather than opposing it.\n- C: \"In turn,\" signals the next step in a chain or sequence, but the second sentence illustrates the first point rather than following from it as a further step.\n- D: \"However,\" signals a contrast, but the second sentence illustrates the first rather than contradicting it.",
           "_meta": {
             "anchor": "Typography; a text face that goes unnoticed; general-to-instance transition"
           }
@@ -924,7 +924,7 @@ export const practiceTest5RW = {
           "choices": [
             {
               "id": "A",
-              "text": "For example,"
+              "text": "By comparison,"
             },
             {
               "id": "B",
@@ -940,7 +940,7 @@ export const practiceTest5RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The first sentence reports the early finding that nonsense syllables are forgotten fast; the second reports a later finding that pushes back - meaningful material is remembered much better - so the contrast word \"However,\" is needed.\n\n**The Full Solution:**\n- How to spot it: if the second sentence pushes back on or limits the first, you need a contrast word like \"However.\"\n- Early finding: studies of nonsense syllables (following Ebbinghaus) showed rapid forgetting, the famous forgetting curve.\n- Later finding: meaningful material - a story, a familiar route - is remembered far better, and how well you remember depends a lot on how you learned it. That second finding limits the first, so \"However\" fits.\n\n**Why the other choices are wrong:**\n- A: \"For example,\" would make the second sentence a case of the first, which it is not.\n- B: \"Therefore,\" would make it a result of the first.\n- C: \"Likewise,\" would make it a matching point, but it actually pushes back on the first.",
+          "explanation": "**Choice D is correct.** The first sentence reports the early finding that nonsense syllables are forgotten fast; the second reports a later finding that pushes back - meaningful material is remembered much better - so the contrast word \"However,\" is needed.\n\n**The Full Solution:**\n- How to spot it: if the second sentence pushes back on or limits the first, you need a contrast word like \"However.\"\n- Early finding: studies of nonsense syllables (following Ebbinghaus) showed rapid forgetting, the famous forgetting curve.\n- Later finding: meaningful material - a story, a familiar route - is remembered far better, and how well you remember depends a lot on how you learned it. That second finding limits the first, so \"However\" fits.\n\n**Why the other choices are wrong:**\n- A: \"By comparison,\" would set the later findings beside the early ones as parallel results, but the later work overturns the earlier picture rather than sitting alongside it.\n- B: \"Therefore,\" would make it a result of the first.\n- C: \"Likewise,\" would make it a matching point, but it actually pushes back on the first.",
           "_meta": {
             "anchor": "Ebbinghaus forgetting curve vs. later findings on meaningful material"
           }
@@ -967,15 +967,15 @@ export const practiceTest5RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The star positions in the Zij-i Sultani were among the most accurate produced anywhere before the telescope was invented."
+              "text": "The star positions recorded in the Zij-i Sultani, a catalogue of more than a thousand stars compiled before the invention of the telescope, were among the most accurate that had been produced anywhere in the world up to that time."
             },
             {
               "id": "B",
-              "text": "Ulugh Beg's observatory at Samarkand, equipped with a giant measuring arc, was destroyed after his death in 1449."
+              "text": "Ulugh Beg's large observatory at Samarkand, equipped with a giant arc for measuring the positions of the stars, was destroyed after his death in 1449."
             },
             {
               "id": "C",
-              "text": "The Zij-i Sultani, compiled by a team of astronomers, was a catalogue of more than a thousand stars."
+              "text": "The Zij-i Sultani, compiled at Samarkand by a team of astronomers working under Ulugh Beg, was a catalogue of more than a thousand stars."
             },
             {
               "id": "D",
@@ -1010,11 +1010,11 @@ export const practiceTest5RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Wegener supported his proposal with matching coastlines, fossil distributions, and rock formations on opposite sides of the oceans."
+              "text": "Wegener supported his 1912 proposal that the continents had once formed a single landmass with matching coastlines, fossil distributions, and rock formations on opposite sides of the oceans."
             },
             {
               "id": "B",
-              "text": "Alfred Wegener (1880–1930), a German meteorologist and geophysicist, proposed in 1912 that the continents had once formed a single landmass."
+              "text": "Alfred Wegener (1880–1930), a German meteorologist and geophysicist, proposed in 1912 that all of the continents had once formed a single landmass and had since drifted apart."
             },
             {
               "id": "C",
@@ -1022,7 +1022,7 @@ export const practiceTest5RW = {
             },
             {
               "id": "D",
-              "text": "In the 1960s, evidence of seafloor spreading led geologists to accept continental drift within the broader theory of plate tectonics."
+              "text": "In the 1960s, evidence of seafloor spreading led geologists to accept continental drift, folding Wegener's proposal into the broader theory of plate tectonics."
             }
           ],
           "correctAnswer": "C",
@@ -1324,7 +1324,7 @@ export const practiceTest5RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Chemists working in the 1920s disagreed sharply with one another over whether the six-carbon ring of the benzene molecule was actually flat or was instead somehow puckered."
+              "text": "Chemists working in the 1920s disagreed sharply with one another over whether the six-carbon ring of the benzene molecule was actually flat or was instead puckered into some three-dimensional shape."
             },
             {
               "id": "B",
@@ -1332,11 +1332,11 @@ export const practiceTest5RW = {
             },
             {
               "id": "C",
-              "text": "Crystals of hexamethylbenzene happen to be especially well suited to study by the X-ray diffraction techniques available in the late 1920s."
+              "text": "Crystals of hexamethylbenzene happen to be especially well suited to study by the X-ray diffraction techniques that crystallographers had available to them in the late 1920s."
             },
             {
               "id": "D",
-              "text": "X-ray diffraction has by now largely replaced ordinary chemical reasoning as the principal tool for investigating the structure of molecules."
+              "text": "X-ray diffraction has by now largely replaced ordinary chemical reasoning as the principal tool that scientists rely on when investigating the structures of complicated molecules."
             }
           ],
           "correctAnswer": "B",
@@ -1357,7 +1357,7 @@ export const practiceTest5RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The concrete cured far more quickly than modern marine concrete typically does."
+              "text": "The Roman concrete cured far more quickly than modern marine concrete typically does."
             },
             {
               "id": "B",
@@ -1369,7 +1369,7 @@ export const practiceTest5RW = {
             },
             {
               "id": "D",
-              "text": "The harbor structures became unsuitable for any further use in saltwater."
+              "text": "The harbor structures gradually became unsuitable for any further use in saltwater."
             }
           ],
           "correctAnswer": "C",
@@ -1468,7 +1468,7 @@ export const practiceTest5RW = {
             },
             {
               "id": "D",
-              "text": "Jupiter's period of 11.9 years exceeds the combined orbital periods of Mercury, Venus, Earth, and Mars, which together total less than four Earth years."
+              "text": "Jupiter's orbital period of 11.9 Earth years exceeds the combined orbital periods of Mercury, Venus, Earth, and Mars, which together add up to less than four Earth years in total."
             }
           ],
           "correctAnswer": "A",
@@ -1852,7 +1852,7 @@ export const practiceTest5RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Engineers have long prized the dragline silk of orb-weaving spiders, a fiber that by weight rivals steel in tensile strength yet stretches and absorbs far more energy before it snaps. Producing the silk in quantity, however, proved stubbornly difficult: spiders are too territorial and cannibalistic to raise in colonies the way silkworms are, and the silk proteins manufactured in engineered bacteria tended to clump together rather than line up the way they do inside a spider's spinning ducts. ______ by carefully controlling the acidity and the flow of the protein solution as it was drawn into a fiber, researchers eventually spun synthetic threads whose toughness approached that of the natural silk.",
+          "passage": "Engineers have long prized the dragline silk of orb-weaving spiders, a fiber that by weight rivals steel in tensile strength yet stretches and absorbs far more energy before it snaps. Producing the silk in quantity, however, proved stubbornly difficult: spiders are too territorial and cannibalistic to raise in colonies the way silkworms are. ______ the silk proteins manufactured in engineered bacteria tended to clump together rather than line up the way they do inside a spider's spinning ducts. Only by carefully controlling the acidity and the flow of the protein solution as it was drawn into a fiber did researchers eventually spin synthetic threads whose toughness approached that of the natural silk.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1861,21 +1861,21 @@ export const practiceTest5RW = {
             },
             {
               "id": "B",
-              "text": "For instance,"
+              "text": "In contrast,"
             },
             {
               "id": "C",
-              "text": "Likewise,"
+              "text": "Even so,"
             },
             {
               "id": "D",
-              "text": "Even so,"
+              "text": "Likewise,"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The passage first lays out why spider silk was hard to make, and the sentence after the blank says that, in spite of those obstacles, researchers eventually spun synthetic fibers nearly as tough as the real silk - a \"despite the difficulty\" relation that \"Even so,\" captures.\n\n**The Full Solution:**\n- How to spot it: if the second sentence reports a success that came despite the problems just described, you need a despite-it-all word like \"Even so.\"\n- The obstacles: spiders are too territorial and cannibalistic to farm, and silk proteins made in bacteria clumped instead of lining up the way they do in a spider's ducts.\n- The payoff after the blank: by controlling acidity and flow, researchers eventually spun synthetic threads almost as tough as natural silk. That success came in spite of the difficulties, so \"Even so\" fits.\n\n**Why the other choices are wrong:**\n- A: \"As a result,\" would wrongly make the success a consequence of the obstacles.\n- B: \"For instance,\" would introduce an example, which the sentence is not.\n- C: \"Likewise,\" would signal a matching point, not the contrast the sentence sets up.",
+          "explanation": "**Choice D is correct.** The sentence before the blank gives one obstacle to producing spider silk in quantity - spiders cannot be raised in colonies the way silkworms are - and the sentence after the blank gives a second, parallel obstacle: proteins made in engineered bacteria clump instead of lining up. A second failure of the same kind is joined with \"Likewise,\".\n\n**The Full Solution:**\n- How to spot it: ask what the sentence after the blank is doing. It does not reverse the previous point or follow from it as a consequence; it adds another instance of the same difficulty.\n- Obstacle one: spiders are too territorial and cannibalistic to raise in colonies.\n- Obstacle two: the engineered-bacteria route also failed, because the silk proteins clumped together rather than lining up. Two parallel obstacles are linked with \"Likewise.\"\n\n**Why the other choices are wrong:**\n- A: \"As a result,\" would make the bacteria problem a consequence of the spiders' behavior, but the two failures are independent of each other.\n- B: \"In contrast,\" would set the two sentences against each other, but both report the same kind of difficulty, pointing the same way.\n- C: \"Even so,\" concedes an obstacle and introduces a success achieved in spite of it, but the sentence after the blank reports another failure, not a success - the eventual success arrives only in the final sentence.",
           "_meta": {
-            "anchor": "spider dragline silk biomechanics — manufacturing obstacles then synthetic-spinning success; concessive transition"
+            "anchor": "spider dragline silk biomechanics — two parallel production obstacles before synthetic-spinning success; additive transition"
           }
         },
         {
@@ -1898,7 +1898,7 @@ export const practiceTest5RW = {
             },
             {
               "id": "C",
-              "text": "For example,"
+              "text": "In fact,"
             },
             {
               "id": "D",
@@ -1906,7 +1906,7 @@ export const practiceTest5RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The first sentence describes teenagers' body clocks shifting later; the second describes older adults' clocks shifting earlier - an opposite pattern in a different group, which calls for a contrast word, supplied by \"By contrast.\"\n\n**The Full Solution:**\n- How to spot it: notice the word \"opposite\" in the second sentence. When the two groups move in opposite directions, you need a contrast word.\n- Teenagers' clocks shift later, making sleep before eleven hard and early school starts costly.\n- Older adults shift the opposite way: their clocks move earlier, leaving them sleepy in the early evening and awake before dawn. Two groups going opposite ways is a contrast, which \"By contrast,\" marks.\n\n**Why the other choices are wrong:**\n- A: \"As a result,\" would make the older adults' timing a consequence of the teenagers', which the text does not suggest.\n- C: \"For example,\" would make the second group a case of the first pattern, when it is the reverse.\n- D: \"Likewise,\" would claim the two groups shift the same way.",
+          "explanation": "**Choice B is correct.** The first sentence describes teenagers' body clocks shifting later; the second describes older adults' clocks shifting earlier - an opposite pattern in a different group, which calls for a contrast word, supplied by \"By contrast.\"\n\n**The Full Solution:**\n- How to spot it: notice the word \"opposite\" in the second sentence. When the two groups move in opposite directions, you need a contrast word.\n- Teenagers' clocks shift later, making sleep before eleven hard and early school starts costly.\n- Older adults shift the opposite way: their clocks move earlier, leaving them sleepy in the early evening and awake before dawn. Two groups going opposite ways is a contrast, which \"By contrast,\" marks.\n\n**Why the other choices are wrong:**\n- A: \"As a result,\" would make the older adults' timing a consequence of the teenagers', which the text does not suggest.\n- C: \"In fact,\" would present the older adults' pattern as confirming or strengthening the point about teenagers, but the second sentence describes an opposite shift, not a stronger version of the same one.\n- D: \"Likewise,\" would claim the two groups shift the same way.",
           "_meta": {
             "anchor": "circadian phase across the lifespan — adolescent delay vs older-adult advance"
           }
@@ -1935,11 +1935,11 @@ export const practiceTest5RW = {
             },
             {
               "id": "D",
-              "text": "Meanwhile,"
+              "text": "Specifically,"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The sentence before the blank says the silk supply became unreliable when the caravan roads closed; the sentence after says Bursa's authorities responded by seeking new sources closer to home - a cause-and-effect link that \"As a result,\" marks.\n\n**The Full Solution:**\n- How to spot it: if the second sentence is something that happened BECAUSE of the first, you need a cause-and-effect word like \"As a result.\"\n- Cause: when long wars kept closing the caravan roads, the flow of silk to Bursa became unreliable.\n- Effect: Bursa's authorities sought new sources, growing silk closer to home so the looms would not sit idle. The second is the result of the first, which \"As a result,\" expresses.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless,\" signals a contrast, not cause and effect.\n- B: \"For example,\" would introduce an example, which the second sentence is not.\n- D: \"Meanwhile,\" would mark two unrelated things happening at once, not a response.",
+          "explanation": "**Choice C is correct.** The sentence before the blank says the silk supply became unreliable when the caravan roads closed; the sentence after says Bursa's authorities responded by seeking new sources closer to home - a cause-and-effect link that \"As a result,\" marks.\n\n**The Full Solution:**\n- How to spot it: if the second sentence is something that happened BECAUSE of the first, you need a cause-and-effect word like \"As a result.\"\n- Cause: when long wars kept closing the caravan roads, the flow of silk to Bursa became unreliable.\n- Effect: Bursa's authorities sought new sources, growing silk closer to home so the looms would not sit idle. The second is the result of the first, which \"As a result,\" expresses.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless,\" signals a contrast, not cause and effect.\n- B: \"For example,\" would introduce an example, which the second sentence is not.\n- D: \"Specifically,\" promises a more precise restatement of what came before, but the sentence describes a response to the disruption, not a narrower version of it.",
           "_meta": {
             "anchor": "Ottoman Bursa silk trade; disrupted caravans prompt new local sources; causal transition"
           }
@@ -1966,15 +1966,15 @@ export const practiceTest5RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Muybridge's 1878 horse-gait study used a row of cameras to show that a galloping horse briefly has all four hooves off the ground at once."
+              "text": "Muybridge's 1878 horse-gait study used a row of cameras triggered in rapid sequence, with photographs taken at fixed intervals, to show that a galloping horse, at one moment in its stride, briefly has all four hooves off the ground at once."
             },
             {
               "id": "B",
-              "text": "Eadweard Muybridge (1830–1904) was a photographer who studied motion by using rows of cameras triggered in rapid sequence."
+              "text": "Eadweard Muybridge (1830–1904) was a photographer who made a career of studying motion by using rows of cameras that could be triggered in rapid sequence."
             },
             {
               "id": "C",
-              "text": "The 1880s project Animal Locomotion applied a multi-camera photographic method to people as they walked, ran, and climbed."
+              "text": "Muybridge's 1880s project Animal Locomotion applied a multi-camera photographic method to human subjects as they walked, ran, and climbed."
             },
             {
               "id": "D",
@@ -2013,19 +2013,19 @@ export const practiceTest5RW = {
             },
             {
               "id": "B",
-              "text": "Charles Darwin's 1859 book On the Origin of Species argued that species change over time through the process of natural selection."
+              "text": "Charles Darwin's 1859 book On the Origin of Species argued that species change over time through natural selection while deliberately saying almost nothing about human beings."
             },
             {
               "id": "C",
-              "text": "Charles Darwin (1809–1882) was a British naturalist whose books shaped the modern understanding of how living species change over time."
+              "text": "Charles Darwin (1809–1882) was a British naturalist whose published books shaped the modern understanding of how living species change over long stretches of time."
             },
             {
               "id": "D",
-              "text": "Darwin's 1871 book The Descent of Man applied evolution by natural and sexual selection directly to the question of human origins."
+              "text": "Darwin's 1871 book The Descent of Man applied evolution by natural selection and sexual selection directly to the question of human origins, a subject about which his earlier book On the Origin of Species (1859) had deliberately said almost nothing."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The goal is to stress that the 1871 book extends the approach of the 1859 book, so the sentence must connect the two books and show the carry-over - and A does.\n\n**The Full Solution:**\n- How to spot it: the goal says \"extends,\" which means carry something from one book to the next. The right choice has to mention both books and show that hand-off.\n- Choice A says The Descent of Man (1871) carried Darwin's explanatory approach to human origins.\n- It adds that On the Origin of Species (1859) had built that approach for other species while saying almost nothing about humans. Linking the two books this way makes the extension clear, which is what the goal asks for.\n\n**Why the other choices are wrong:**\n- B: It describes only the 1859 book, showing no carry-over.\n- C: It introduces Darwin in general without relating the two books' approaches.\n- D: It describes only the 1871 book, showing no carry-over from the earlier one.",
+          "explanation": "**Choice A is correct.** The goal is to stress that the 1871 book extends the approach of the 1859 book, so the sentence must connect the two books and show the carry-over - and A does.\n\n**The Full Solution:**\n- How to spot it: the goal says \"extends,\" which means carry something from one book to the next. The right choice has to mention both books and show that hand-off.\n- Choice A says The Descent of Man (1871) carried Darwin's explanatory approach to human origins.\n- It adds that On the Origin of Species (1859) had built that approach for other species while saying almost nothing about humans. Linking the two books this way makes the extension clear, which is what the goal asks for.\n\n**Why the other choices are wrong:**\n- B: It describes only the 1859 book, showing no carry-over.\n- C: It introduces Darwin in general without relating the two books' approaches.\n- D: It notes that the earlier book had said almost nothing about human beings, but it never says the 1871 book carried that book's explanatory approach forward.",
           "_meta": {
             "anchor": "Charles Darwin — Origin (1859) approach extended to humans in Descent of Man (1871)"
           }

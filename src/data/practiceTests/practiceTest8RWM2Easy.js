@@ -231,9 +231,9 @@ export const practiceTest8RWM2Easy = {
       passage: "A young songbird memorizes an adult's song months before it can sing anything like it, and researchers have asked what guides the long practice that follows. One team proposed that the bird improves by listening to itself: each attempt is measured against the remembered model, and the mismatch tells the bird what to adjust next. *The team's hypothesis is that a young bird has to hear its own voice in order to bring its practice song into line with the model it memorized earlier.*",
       question: "Which finding, if true, would most strongly support the team's hypothesis?",
       choices: [
-        { id: "A", text: "Young birds raised where they never hear an adult of their species still produce a rough, simplified song of their own." },
+        { id: "A", text: "Young birds raised in isolation, where they never hear an adult of their own species sing, still go on to produce a rough, simplified song of their own when the practice period arrives." },
         { id: "B", text: "Adult males of most songbird species sing far more often during the breeding season than at other times of year." },
-        { id: "C", text: "Young birds exposed to several different adult singers tend to memorize the song of the adult they see most often." },
+        { id: "C", text: "Young birds exposed to several different adult singers tend to memorize the song of the particular adult they see most often." },
         { id: "D", text: "Young birds that memorized an adult's song normally but lost their hearing before the practice period never matched the model, while birds that kept their hearing did." }
       ],
       correctAnswer: "D",
@@ -281,10 +281,10 @@ export const practiceTest8RWM2Easy = {
       passage: "Photojournalism contests routinely disqualify entries whose image files show more retouching than the rules allow. As the number of entries has climbed, the raw count of disqualifications has climbed as well, and some commentators have taken that rising count as a sign that manipulation is spreading among working photographers. A researcher reviewing one contest's published figures argues that the count by itself is misleading, because _______",
       question: "Which choice most effectively uses data from the table to support the claim?",
       choices: [
-        { id: "A", text: "the number of entries disqualified rose from 40 in 2013 to 60 in 2021." },
-        { id: "B", text: "the contest received 10,000 entries in 2021, more than twice the 4,000 it received in 2013." },
+        { id: "A", text: "the raw number of entries the contest disqualified rose steadily across the years shown, from 40 in 2013 to 48 in 2017 and then to 60 in 2021." },
+        { id: "B", text: "the contest received 10,000 entries in 2021, more than twice the 4,000 entries it had received back in 2013." },
         { id: "C", text: "although disqualifications rose from 40 to 60, the share of entries disqualified fell from 1.0 percent in 2013 to 0.6 percent in 2021." },
-        { id: "D", text: "the contest disqualified 48 entries in 2017, more than the 40 it disqualified in 2013." }
+        { id: "D", text: "the contest disqualified 48 of its entries in 2017, more than the 40 entries it had disqualified in 2013." }
       ],
       correctAnswer: "C",
       explanation: "**Choice C is correct.** The researcher says the raw count misleads, so the support has to set the rising count against the falling share of entries disqualified, and only C reports both.\n\n**The Full Solution:**\n- How to spot it: when a claim says a count is \"misleading,\" the answer almost always converts counts into a share or rate.\n- Work the two ends of the table: 40 out of 4,000 entries in 2013 is 1.0 percent, and 60 out of 10,000 entries in 2021 is 0.6 percent.\n- So the number of disqualified photos went up while the fraction of entries disqualified went down.\n- C states both halves, which is what shows the raw count on its own to be misleading.\n\n**Why the other choices are wrong:**\n- A: Citing only the rising count repeats the very number the researcher calls misleading.\n- B: The growth in entries alone leaves out disqualifications, so it proves nothing about the rate.\n- D: Comparing two disqualification counts still ignores how many entries each was drawn from.",
@@ -493,13 +493,13 @@ export const practiceTest8RWM2Easy = {
       passage: "True cinnamon is the inner bark of a small tree, and harvesting it destroys nothing: the harvester cuts the season's shoots, scrapes off the rough outer layer, and peels away the thin inner bark, which curls into quills as it dries. The stump that is left sends up new shoots within a year. ______ the work resists machinery, since judging how deeply to cut without scoring the wood beneath takes years to learn, and a grove that yields for decades still depends on hands trained one at a time.",
       question: "Which choice completes the text with the most logical transition?",
       choices: [
-        { id: "A", text: "Even so," },
+        { id: "A", text: "Still," },
         { id: "B", text: "As a result," },
         { id: "C", text: "Similarly," },
         { id: "D", text: "For instance," }
       ],
       correctAnswer: "A",
-      explanation: "**Choice A is correct.** The passage first makes the harvest sound gentle and self-renewing, then turns to a difficulty, that the work cannot be mechanized, so the transition has to concede that turn: \"Even so.\"\n\n**The Full Solution:**\n- How to spot it: name the tone of each side of the blank. If one side is favorable and the other names a catch, you need a contrast or concession word.\n- Before the blank: harvesting destroys nothing, and the stump sends up new shoots within a year, an easy, renewable picture.\n- After the blank: the work resists machinery and depends on hands trained one at a time, a real limitation.\n- \"Even so\" grants the favorable picture and then introduces the catch, which is exactly the turn the passage makes.\n\n**Why the other choices are wrong:**\n- B: \"As a result\" would mean the difficulty is CAUSED by the regrowth, and the passage draws no such cause.\n- C: \"Similarly\" claims the two points match, but the second one complicates the first.\n- D: \"For instance\" would make the difficulty an example of the regrowth, and it is not."
+      explanation: "**Choice A is correct.** The passage first makes the harvest sound gentle and self-renewing, then turns to a difficulty, that the work cannot be mechanized, so the transition has to concede that turn: \"Still.\"\n\n**The Full Solution:**\n- How to spot it: name the tone of each side of the blank. If one side is favorable and the other names a catch, you need a contrast or concession word.\n- Before the blank: harvesting destroys nothing, and the stump sends up new shoots within a year, an easy, renewable picture.\n- After the blank: the work resists machinery and depends on hands trained one at a time, a real limitation.\n- \"Still\" grants the favorable picture and then introduces the catch, which is exactly the turn the passage makes.\n\n**Why the other choices are wrong:**\n- B: \"As a result\" would mean the difficulty is CAUSED by the regrowth, and the passage draws no such cause.\n- C: \"Similarly\" claims the two points match, but the second one complicates the first.\n- D: \"For instance\" would make the difficulty an example of the regrowth, and it is not."
     },
     {
       id: 880,
@@ -510,10 +510,10 @@ export const practiceTest8RWM2Easy = {
       skill: "rhetorical-synthesis",
       question: "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       choices: [
-        { id: "A", text: "The wool churches have tall towers, wide windows, and carved timber roofs of a kind rarely found in country parishes." },
+        { id: "A", text: "The wool churches rebuilt in these districts have tall towers, wide windows, and carved timber roofs of a kind rarely found in ordinary country parishes anywhere else in England, and local guidebooks single them out for visitors." },
         { id: "B", text: "In the late Middle Ages, several districts of eastern England grew rich on wool and on the cloth woven from it." },
         { id: "C", text: "Known as wool churches, these grand buildings were paid for by merchants who had grown rich on the late-medieval wool trade, and they still tower over villages that have never held more than a few hundred people." },
-        { id: "D", text: "The wool trade in these districts fell away after the sixteenth century, and the villages around the churches never grew any larger." }
+        { id: "D", text: "The wool trade in these districts fell away after the end of the sixteenth century, and the villages around the churches never grew any larger afterward." }
       ],
       correctAnswer: "C",
       explanation: "**Choice C is correct.** The goal is to explain why the churches dwarf their villages, and C gives both halves of the explanation, the merchant wealth that paid for them and the small size of the villages they stand in.\n\n**The Full Solution:**\n- How to spot it: read the GOAL first and mark exactly what it asks for. Here it asks why the buildings are so much larger than the settlements around them.\n- An answer to that has to supply two things: where the money came from, and how small the villages are.\n- C names the buildings, credits the wool merchants who funded them, and adds that the villages have never held more than a few hundred people.\n- Cause plus comparison is exactly what the goal calls for.\n\n**Why the other choices are wrong:**\n- A: It describes the churches without saying why they are so large for their villages.\n- B: It gives the background wealth but never connects it to the buildings or the villages.\n- D: It explains why the villages stayed small but leaves out who paid for the churches.",
@@ -539,10 +539,10 @@ export const practiceTest8RWM2Easy = {
       skill: "rhetorical-synthesis",
       question: "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       choices: [
-        { id: "A", text: "Making ordinary cement means heating limestone to about 1,450 degrees Celsius, a process that burns fuel and drives carbon dioxide out of the rock itself." },
+        { id: "A", text: "Making ordinary cement means heating limestone to about 1,450 degrees Celsius, a process that both burns large amounts of fuel and drives carbon dioxide out of the rock itself." },
         { id: "B", text: "Blends that replace part of the cement with calcined clay, which is fired at a much lower temperature, can cut the carbon dioxide released per ton by about a third." },
-        { id: "C", text: "Cement production alone accounts for roughly 8 percent of the carbon dioxide emissions released across the world." },
-        { id: "D", text: "Blends of limestone and calcined clay are already being produced commercially in several different countries." }
+        { id: "C", text: "Cement production alone accounts for roughly 8 percent of all the carbon dioxide emissions released across the world each year." },
+        { id: "D", text: "Blends of limestone and calcined clay are already being produced commercially at full scale in several different countries." }
       ],
       correctAnswer: "B",
       explanation: "**Choice B is correct.** The goal is to emphasize how large the reduction is, and B is the only choice that reports the size of the cut, about a third of the carbon dioxide per ton.\n\n**The Full Solution:**\n- How to spot it: read the GOAL first and find the one word that pins it down. Here it is \"size of the reduction.\"\n- That means the answer must contain a number or measure of how much the emissions drop.\n- B names the blend, says the clay is fired at a much lower temperature, and gives the reduction: about a third per ton.\n- Naming the change and measuring it is exactly what the goal asks for.\n\n**Why the other choices are wrong:**\n- A: It explains why ordinary cement is carbon-heavy but never gives any reduction.\n- C: It measures the size of the PROBLEM rather than the size of the cut.\n- D: It reports where the blends are made, which says nothing about how much they reduce.",

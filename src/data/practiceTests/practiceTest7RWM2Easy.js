@@ -177,7 +177,7 @@ export const practiceTest7RWM2Easy = {
       question: "According to the text, what is true of the frogs raised in a laboratory?",
       choices: [
         { id: "A", text: "They grow up without toxins because their diet does not contain the compounds." },
-        { id: "B", text: "They make the same toxins as wild frogs but store them in smaller glands." },
+        { id: "B", text: "They produce the same skin toxins as wild frogs but store them in much smaller glands." },
         { id: "C", text: "They lose their bright coloring at the same time as they lose their toxins." },
         { id: "D", text: "They break down the compounds in their food rather than storing them." }
       ],
@@ -230,7 +230,7 @@ export const practiceTest7RWM2Easy = {
       passage: "A salamander that loses a limb can grow a new one, complete with bone, muscle, and skin. At the wound, cells gather into a mound called a blastema, and the new limb takes shape from it. Researchers have proposed that the blastema cannot form at all without signals carried by the nerves running into the stump: on this account the nerve supply is not merely helpful to regrowth but required for it. A team is testing the proposal by blocking nerve signaling at the stump while leaving the limb's blood supply untouched.",
       question: "Which finding from the study, if true, would most strongly support the researchers' proposal?",
       choices: [
-        { id: "A", text: "Salamanders whose stumps kept a normal nerve supply regrew their limbs slightly faster in warm water than in cold water." },
+        { id: "A", text: "Salamanders whose stumps kept a normal nerve supply regrew their missing limbs faster in warm water than in cold water." },
         { id: "B", text: "Stumps in which nerve signaling had been blocked still formed a blastema and went on to regrow a complete limb." },
         { id: "C", text: "Cells taken from a regrowing limb were found to carry the same genetic material as skin cells elsewhere in the body." },
         { id: "D", text: "Stumps with an untouched blood supply but blocked nerve signaling formed no blastema, while untreated stumps regrew normally." }
@@ -259,10 +259,10 @@ export const practiceTest7RWM2Easy = {
       },
       question: "Which choice most effectively uses data from the table to complete the statement?",
       choices: [
-        { id: "A", text: "the upright position produced a drag force of 38 newtons at the wind speed used in the test." },
-        { id: "B", text: "the aero-bar position produced 32 newtons of drag, the lowest reading of the four positions tested." },
+        { id: "A", text: "the upright riding position produced a drag force of 38 newtons at the single wind speed used in the test." },
+        { id: "B", text: "the aero-bar riding position produced 32 newtons of drag, the lowest reading of the four positions tested." },
         { id: "C", text: "drag fell from 38 newtons with the rider sitting upright to 22 newtons with the elbows on the aero bars, a drop of more than 40 percent." },
-        { id: "D", text: "all four positions were measured at the same wind speed, so the rider faced identical conditions in each test." }
+        { id: "D", text: "all four riding positions were measured at exactly the same wind speed, so the rider faced identical test conditions in each of the four runs." }
       ],
       correctAnswer: "C",
       explanation: "**Choice C is correct.** The student's claim is that posture makes a large difference, and C compares the highest reading with the lowest to show how big that difference is.\n\n**The Full Solution:**\n- How to spot it: read the claim, then ask what numbers would prove it. A claim about a large difference needs two readings compared - ideally the biggest and the smallest.\n- The table's highest drag is 38 newtons sitting upright; the lowest is 22 newtons on the aero bars.\n- C reports both and states the size of the gap: a drop of more than 40 percent, which is exactly what \"a large difference\" means.\n\n**Why the other choices are wrong:**\n- A: One reading on its own shows nothing about how much posture changes drag.\n- B: This misreads the table - the aero-bar position measured 22 newtons, not 32.\n- D: This describes how the test was run instead of using the drag data at all."
@@ -289,9 +289,9 @@ export const practiceTest7RWM2Easy = {
       question: "Which choice most effectively uses data from the table to complete the statement?",
       choices: [
         { id: "A", text: "the seven-day forecast rose from 38 percent to 74 percent, a gain of 36 percentage points, while the one-day forecast gained only 8 points." },
-        { id: "B", text: "the one-day forecast verified 96 percent of the time in 2020, the highest verification rate anywhere in the table." },
+        { id: "B", text: "the one-day forecast verified 96 percent of the time in 2020, the highest verification rate recorded anywhere in the table for either of the two years." },
         { id: "C", text: "every lead time verified more often in 2020 than in 1980, so forecasts improved across the whole range." },
-        { id: "D", text: "the five-day forecast verified 83 percent of the time in 2020, more often than the three-day forecast had verified in 1980." }
+        { id: "D", text: "the five-day forecast verified 83 percent of the time in 2020, more often than the shorter three-day forecast had verified back in 1980." }
       ],
       correctAnswer: "A",
       explanation: "**Choice A is correct.** The claim is about where the improvement was largest, so the answer must compare the size of the gain at a long lead time with the gain at a short one - which is what A does.\n\n**The Full Solution:**\n- How to spot it: the claim says gains show up \"most clearly in the longer-range forecasts,\" so you need the change from 1980 to 2020 at two different lead times, not one year's numbers.\n- At seven days the rate rose from 38 percent to 74 percent, a gain of 36 percentage points.\n- At one day it rose from 88 percent to 96 percent, a gain of only 8 points.\n- The far larger gain at the longer lead time is exactly the pattern the researcher describes.\n\n**Why the other choices are wrong:**\n- B: This gives the single highest rate in the table, which says nothing about how much anything improved.\n- C: This shows improvement everywhere but does not say the gains were largest at long lead times.\n- D: This compares two different lead times in two different years, so it does not measure improvement at any one lead time."
@@ -453,10 +453,10 @@ export const practiceTest7RWM2Easy = {
         { id: "A", text: "However," },
         { id: "B", text: "Therefore," },
         { id: "C", text: "For example," },
-        { id: "D", text: "Likewise," }
+        { id: "D", text: "Similarly," }
       ],
       correctAnswer: "A",
-      explanation: "**Choice A is correct.** The two sentences describe opposite situations - one book a year, by hand, for the wealthy, against hundreds of copies in weeks at falling prices - so a contrast word is needed.\n\n**The Full Solution:**\n- How to spot it: read both sides and name the link in plain words. Slow and expensive versus fast and cheap is a clash, which calls for a contrast word.\n- Before the blank: hand copying took most of a year and priced books out of reach for nearly everyone.\n- After the blank: a printing shop produced hundreds of copies in a few weeks and prices dropped.\n- \"However\" marks that reversal.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would make cheap printed books a result of slow hand copying, which reverses the logic.\n- C: \"For example\" would introduce an illustration of hand copying, not a contrasting method.\n- D: \"Likewise\" signals that two things are similar, but these two are opposites."
+      explanation: "**Choice A is correct.** The two sentences describe opposite situations - one book a year, by hand, for the wealthy, against hundreds of copies in weeks at falling prices - so a contrast word is needed.\n\n**The Full Solution:**\n- How to spot it: read both sides and name the link in plain words. Slow and expensive versus fast and cheap is a clash, which calls for a contrast word.\n- Before the blank: hand copying took most of a year and priced books out of reach for nearly everyone.\n- After the blank: a printing shop produced hundreds of copies in a few weeks and prices dropped.\n- \"However\" marks that reversal.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would make cheap printed books a result of slow hand copying, which reverses the logic.\n- C: \"For example\" would introduce an illustration of hand copying, not a contrasting method.\n- D: \"Similarly\" signals that two things are alike, but these two are opposites."
     },
     {
       id: 778,
@@ -488,11 +488,11 @@ export const practiceTest7RWM2Easy = {
       choices: [
         { id: "A", text: "In addition," },
         { id: "B", text: "As a result," },
-        { id: "C", text: "Even so," },
+        { id: "C", text: "Nevertheless," },
         { id: "D", text: "For instance," }
       ],
       correctAnswer: "C",
-      explanation: "**Choice C is correct.** The passage grants that visitors damage caves and that closing them helps, then argues that closing is still not always better - a give-ground-then-turn move that \"Even so\" marks.\n\n**The Full Solution:**\n- How to spot it: when a text admits a real drawback and then says something good happens anyway, you need a yes-but word such as \"even so,\" \"still,\" or \"nonetheless.\"\n- Before the blank: lamps grow algae, crowds slow stalagmite growth, and some caves have been closed to let the damage fade.\n- After the blank: closing is not always kinder, because visitors' fees pay for the surveys, gates, and wardens that protect the cave from far worse harm.\n- The turn from the case for closing to a benefit of staying open is exactly what \"Even so\" signals.\n\n**Why the other choices are wrong:**\n- A: \"In addition\" would add another reason to close caves, but the sentence pushes the other way.\n- B: \"As a result\" would make the argument against closing a consequence of the damage, which reverses the logic.\n- D: \"For instance\" would introduce an example of the damage rather than a point on the other side."
+      explanation: "**Choice C is correct.** The passage grants that visitors damage caves and that closing them helps, then argues that closing is still not always better - a give-ground-then-turn move that \"Nevertheless\" marks.\n\n**The Full Solution:**\n- How to spot it: when a text admits a real drawback and then says something good happens anyway, you need a yes-but word such as \"nevertheless,\" \"still,\" or \"even so.\"\n- Before the blank: lamps grow algae, crowds slow stalagmite growth, and some caves have been closed to let the damage fade.\n- After the blank: closing is not always kinder, because visitors' fees pay for the surveys, gates, and wardens that protect the cave from far worse harm.\n- The turn from the case for closing to a benefit of staying open is exactly what \"Nevertheless\" signals.\n\n**Why the other choices are wrong:**\n- A: \"In addition\" would add another reason to close caves, but the sentence pushes the other way.\n- B: \"As a result\" would make the argument against closing a consequence of the damage, which reverses the logic.\n- D: \"For instance\" would introduce an example of the damage rather than a point on the other side."
     },
     {
       id: 780,
@@ -514,7 +514,7 @@ export const practiceTest7RWM2Easy = {
       },
       question: "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       choices: [
-        { id: "A", text: "In the 1890s, builders of experimental gliders relied on published tables of the lift produced by curved surfaces moving through air." },
+        { id: "A", text: "In the 1890s, builders of experimental gliders relied on published tables of the lift produced by curved surfaces moving through air, tables compiled by earlier investigators that glider builders of the day treated as settled and dependable." },
         { id: "B", text: "Because their gliders produced far less lift than the published tables predicted, the two builders tested more than a hundred wing shapes in a wind tunnel of their own and drew up tables that the next season's gliders performed close to." },
         { id: "C", text: "The wind tunnel the builders assembled in 1901 was a wooden box with a fan at one end and a balance that compared two model surfaces at once." },
         { id: "D", text: "The builders flew a powered aircraft in 1903, two years after they first began testing model wings indoors." }
@@ -546,7 +546,7 @@ export const practiceTest7RWM2Easy = {
         { id: "A", text: "Because the Latin cloud names described shapes any observer could recognize and required no translation between countries, observations recorded in scattered places could at last be compared and plotted on a single map." },
         { id: "B", text: "Before the nineteenth century, observers described clouds using local expressions that meant different things in different regions." },
         { id: "C", text: "In 1802 an amateur meteorologist in London proposed Latin names for a few basic cloud forms, among them cirrus, cumulus, and stratus." },
-        { id: "D", text: "The Latin names described the shapes and heights of clouds, and the basic terms could be combined to describe forms that fell between them." }
+        { id: "D", text: "The Latin names described cloud shapes and heights that any observer could recognize by eye, and the basic terms - cirrus, cumulus, and stratus among them - could be combined to describe forms that fell between the named types." }
       ],
       correctAnswer: "A",
       explanation: "**Choice A is correct.** The goal asks why the naming system mattered, and A gives the reasons - recognizable shapes, no translation needed - together with the payoff: scattered observations could finally be compared on one map.\n\n**The Full Solution:**\n- How to spot it: turn the goal into a checklist. \"Why it mattered\" means the answer needs a consequence, not just a description of the names.\n- A names the features that made the system work: shapes any observer could recognize, and Latin terms that crossed borders without translation.\n- It then states the result those features produced: observations from scattered places could be compared and plotted on a single map.\n\n**Why the other choices are wrong:**\n- B: This describes the muddle before the system without saying what the system achieved.\n- C: This reports who proposed the names and when, which is background rather than significance.\n- D: This describes what the names could do as labels but stops short of why that mattered for observation."

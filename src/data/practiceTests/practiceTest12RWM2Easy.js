@@ -102,16 +102,16 @@ export const practiceTest12RWM2Easy = {
       band: 2,
       domain: "craft-and-structure",
       skill: "text-structure-and-purpose",
-      passage: "For decades biologists tracked the gray whale's yearly migration mostly by standing on headlands and counting the animals that swam past. Small satellite tags, set into the blubber of the back with a crossbow, now report one whale's position for months at a time. Because a tag follows a single animal without a break, researchers can see where that whale slows down to rest and feed along the coast, pauses that no count from shore could reveal.",
+      passage: "Before sound recording, a celebrated pianist's playing survived only in what listeners wrote about it. A reproducing piano changed that: as the artist played, a machine punched every keystroke into a paper roll, and the same roll, run back through the instrument, replays the performance keystroke for keystroke. Because the roll preserves the player's own timing and touch, historians can now study shadings of a performance that no written review could capture.",
       question: "Which choice best states the main purpose of the text?",
       choices: [
-        { id: "A", text: "To explain how satellite tags let researchers follow one whale continuously and see resting and feeding stops that shore counts miss." },
-        { id: "B", text: "To describe in detail the crossbow equipment used to attach a satellite tag to a whale's back." },
-        { id: "C", text: "To argue that counting whales from headlands should no longer be used in migration research of any kind." },
-        { id: "D", text: "To compare the migration route of the gray whale with the routes followed by other large whales." }
+        { id: "A", text: "To explain how reproducing-piano rolls let historians replay a pianist's performance and study details no written review could capture." },
+        { id: "B", text: "To describe in detail the punching mechanism that a reproducing piano uses to record every keystroke a pianist makes onto a moving roll of paper." },
+        { id: "C", text: "To argue that written concert reviews are no longer of any use to historians who study musical performance." },
+        { id: "D", text: "To compare the playing styles of several celebrated pianists whose reproducing-piano rolls survive today." }
       ],
       correctAnswer: "A",
-      explanation: "**Choice A is correct.** The passage explains what satellite tags add: they follow one whale without a break, so researchers can see stops that counting from shore never showed.\n\n**The Full Solution:**\n- How to spot it: for a main-purpose question, ask what the WHOLE passage is doing. Here it sets an old method against what a new one reveals.\n- The old method was counting whales from headlands as they swam past.\n- A satellite tag reports one whale's position for months at a time.\n- Because the tag follows a single animal without a break, researchers can see where it slows to rest and feed, pauses a shore count could not reveal.\n\n**Why the other choices are wrong:**\n- B: The crossbow is mentioned in passing; the passage is not about the equipment.\n- C: The passage never argues that shore counts should be dropped.\n- D: No other whale species is discussed, so no comparison is made."
+      explanation: "**Choice A is correct.** The passage explains what the reproducing piano adds: the roll replays the performance keystroke for keystroke, so historians can study shadings that no written review could capture.\n\n**The Full Solution:**\n- How to spot it: for a main-purpose question, ask what the WHOLE passage is doing. Here it sets an old source against what a new one reveals.\n- The old source was written accounts: a pianist's playing \"survived only in what listeners wrote about it.\"\n- The reproducing piano punches every keystroke into a paper roll, and the same roll replays the performance.\n- Because the roll preserves the player's own timing and touch, historians can study details of a performance that reviews could not record.\n\n**Why the other choices are wrong:**\n- B: The punching mechanism is mentioned only in passing; the passage is not about the machinery.\n- C: The passage never argues that written reviews are useless, only that the rolls preserve what reviews could not.\n- D: No comparison between different pianists is made anywhere in the passage."
     },
     {
       id: 1260,
@@ -189,10 +189,10 @@ export const practiceTest12RWM2Easy = {
       passage: "The oldest photographs in a city library's collection are not prints but glass plates, each coated on one side with a thin, light-sensitive layer called the emulsion. The glass is heavy and breaks easily, yet the emulsion is the more fragile half: a fingerprint or a scratch there destroys the image itself, while a cracked plate can usually still be printed. Archivists therefore lift each plate by its edges, stand it upright in a paper sleeve of its own, and write on the sleeve rather than on the plate.",
       question: "Which choice best states the main idea of the text?",
       choices: [
-        { id: "A", text: "A glass plate that has cracked can in most cases still be used to make a usable print." },
+        { id: "A", text: "A glass plate that has cracked can in most cases still be used to make a usable print of the photograph it carries." },
         { id: "B", text: "The oldest photographs in a city library's collection are glass plates rather than paper prints." },
         { id: "C", text: "Because a plate's emulsion is more vulnerable than its glass, archivists handle and store plates in ways that protect that coated side." },
-        { id: "D", text: "Archivists write on a plate's paper sleeve instead of on the plate so that nothing is ever marked on the emulsion." }
+        { id: "D", text: "Archivists write identifying information on a plate's paper sleeve instead of on the plate itself so that nothing is ever marked on the fragile emulsion." }
       ],
       correctAnswer: "C",
       explanation: "**Choice C is correct.** The passage's point is that the coated side, not the glass, is the fragile part, which is why archivists handle and store the plates the way they do.\n\n**The Full Solution:**\n- How to spot it: the main idea has to cover the passage's reasoning, not one supporting fact. Ask what all the handling rules are FOR.\n- Each plate carries a thin light-sensitive emulsion on one side.\n- The glass breaks easily, but the emulsion matters more: a fingerprint or scratch there destroys the image, while a cracked plate can usually still be printed.\n- So archivists lift plates by the edges, stand each one in its own sleeve, and write on the sleeve instead of the plate, all to spare that coated surface.\n\n**Why the other choices are wrong:**\n- A: True, but it is a supporting detail used to show the emulsion matters more than the glass.\n- B: This is the setup, not the point the passage develops.\n- D: This is one of the three practices, not the idea behind all of them."
@@ -210,7 +210,7 @@ export const practiceTest12RWM2Easy = {
         { id: "A", text: "Route planners chart fishing grounds and anchorages before choosing the path that a new cable will follow." },
         { id: "B", text: "Earthquakes and sharks damage undersea communication cables far less often than trawling and anchoring do." },
         { id: "C", text: "Because most cable faults occur in shallow water where human work reaches the seabed, planning and burying the route there matters as much as the cable's armor." },
-        { id: "D", text: "In deep water, where little machinery ever touches the seabed, a communication cable can simply be laid on the mud instead of being buried in a plow-cut trench." }
+        { id: "D", text: "In deep water, where little machinery ever touches the seabed, a cable can simply be laid on the mud instead of being buried in a plow-cut trench." }
       ],
       correctAnswer: "C",
       explanation: "**Choice C is correct.** The passage's point is that faults cluster in shallow water where people work the bottom, so the survey and the burial there count as much as the cable's armor.\n\n**The Full Solution:**\n- How to spot it: the main idea is the claim the details serve. Find the sentence that says what matters, then check that the answer covers it.\n- Most breaks come from everyday seafloor work, a trawl door or a dropped anchor, not from earthquakes or sharks.\n- Nearly all faults happen in water a few hundred feet deep or less.\n- That is why the survey done before laying matters as much as the armor: planners chart fishing grounds and anchorages, cross the busy shallows quickly and squarely, and bury the cable until the bottom drops away.\n- In deep water, where machinery rarely reaches, the cable can just lie on the mud, which reinforces that depth is the deciding factor.\n\n**Why the other choices are wrong:**\n- A: This is one step in the planning, not the point the passage builds to.\n- B: This is the opening contrast, a supporting detail.\n- D: This detail supports the main idea rather than stating it."
@@ -225,7 +225,7 @@ export const practiceTest12RWM2Easy = {
       passage: "What separates a green tea from a black tea is not the plant but what happens to the leaf in the hours after picking. A fresh leaf holds enzymes that, once the leaf's cells are bruised, begin reacting with other compounds inside it and turning them darker and less sharp on the tongue. A green-tea maker halts that reaction almost at once, steaming or pan-firing the leaf to shut the enzymes down while it is still pale and grassy. A black-tea maker does the reverse, spreading the leaf to soften, rolling it to break the cells open, and holding it in warm, damp air until the reaction has run nearly to its end before drying it.",
       question: "According to the text, why does a green-tea maker steam or pan-fire freshly picked leaves?",
       choices: [
-        { id: "A", text: "To break the leaf's cells open so that the enzymes inside can begin reacting" },
+        { id: "A", text: "To break the leaf's cells open so that the enzymes held inside can begin reacting" },
         { id: "B", text: "To soften the leaf enough that it can be rolled without tearing" },
         { id: "C", text: "To dry the leaf completely so that it can be stored for long periods" },
         { id: "D", text: "To shut down the leaf's enzymes before they can darken it, keeping the leaf pale" }
@@ -244,7 +244,7 @@ export const practiceTest12RWM2Easy = {
       question: "Which finding, if true, would most directly support the root explanation of the carbon gain?",
       choices: [
         { id: "A", text: "Plots sown with deep-rooted prairie species gained carbon mostly below two feet, while untilled plots left to shallow-rooted weeds gained carbon only near the surface." },
-        { id: "B", text: "Carbon rose near the surface in every plot that had gone unplowed for five years or more, whether or not prairie species had been planted in it." },
+        { id: "B", text: "Carbon rose near the soil surface in every plot that had gone unplowed for five years or more, whether or not deep-rooted prairie species had ever been sown or planted in it." },
         { id: "C", text: "Restored prairie plots supported a greater variety of insects than the croplands next to them did." },
         { id: "D", text: "Deep-rooted prairie plants grew more slowly in their first two seasons than the annual crops they had replaced." }
       ],
@@ -276,7 +276,7 @@ export const practiceTest12RWM2Easy = {
         { id: "A", text: "Lower Field, at 900 meters, sits lowest on the estate and was plucked first, on March 18." },
         { id: "B", text: "Old Nursery, at 1,150 meters, was plucked on March 26, two days after Mill Bank at 1,050 meters." },
         { id: "C", text: "Ridge Top, the highest garden at 1,700 meters, was not plucked until April 21, more than three weeks after any other garden." },
-        { id: "D", text: "Stone Terrace, at 1,200 meters, was plucked on March 29, the latest date recorded for any garden on the estate." }
+        { id: "D", text: "Stone Terrace, at 1,200 meters, was plucked on March 29, the latest first-plucking date recorded for any garden on the estate that spring." }
       ],
       correctAnswer: "C",
       explanation: "**Choice C is correct.** The sentence needs the one garden whose first plucking fell far later than the rest, and the table shows Ridge Top on April 21 while every other garden was plucked between March 18 and March 29.\n\n**The Full Solution:**\n- How to spot it: for a table question, reread the exact phrase the blank must support, here \"a single garden's first plucking fell far later than the rest,\" then look for the value that stands well apart.\n- Four gardens were plucked within about ten days of one another, from March 18 to March 29.\n- Ridge Top was not plucked until April 21, more than three weeks after the next-latest garden.\n- Ridge Top is also the highest at 1,700 meters, which fits the passage's point that a cooler, higher slope starts later.\n\n**Why the other choices are wrong:**\n- A: It names the earliest garden, not the late one the sentence is about.\n- B: A two-day gap between two middle gardens is not one garden falling far behind the rest.\n- D: It misreads the table, since March 29 is not the latest date; Ridge Top was plucked on April 21."
@@ -302,7 +302,7 @@ export const practiceTest12RWM2Easy = {
       question: "Which choice most effectively uses data from the table to complete the statement?",
       choices: [
         { id: "A", text: "the hand-planted plugs held 79 percent of the sown species after five years, only about five percentage points more than the 74 percent held by the drill-seeded plot." },
-        { id: "B", text: "broadcast seeding held only 57 percent of the sown species after five years, the lowest figure recorded for any of the three methods." },
+        { id: "B", text: "broadcast seeding held only 57 percent of the sown species after five years, by a clear margin the lowest figure recorded for any of the three establishment methods tested." },
         { id: "C", text: "the hand-planted plugs held 33 of the 42 species sown, more than either the drill-seeded plot or the broadcast plot managed." },
         { id: "D", text: "the drill-seeded plot held 31 of the 42 species sown while the broadcast plot held 24, a difference of seven species." }
       ],
@@ -470,12 +470,12 @@ export const practiceTest12RWM2Easy = {
       question: "Which choice completes the text with the most logical transition?",
       choices: [
         { id: "A", text: "Likewise," },
-        { id: "B", text: "Therefore," },
+        { id: "B", text: "As a result," },
         { id: "C", text: "However," },
         { id: "D", text: "For example," }
       ],
       correctAnswer: "C",
-      explanation: "**Choice C is correct.** The first sentence says panning works; the second points out its limit, so the contrast word \"However\" fits.\n\n**The Full Solution:**\n- How to spot it: for a transition, cover the choices and ask how the two sentences relate. Do they AGREE, CLASH, or does one CAUSE the other? Here they clash.\n- The first sentence explains why panning works: gold is dense, so it settles while the light material washes over the rim.\n- The second gives the drawback: a pan holds only a shovelful, and one lucky panful cannot settle the worth of a claim.\n- A strength followed by a limitation calls for a contrast word.\n\n**Why the other choices are wrong:**\n- A: \"Likewise\" signals agreement, but the second sentence pushes back on the first.\n- B: \"Therefore\" would make the limitation a result of gold's weight, which it is not.\n- D: \"For example\" would introduce an instance of panning working, not a limit on it."
+      explanation: "**Choice C is correct.** The first sentence says panning works; the second points out its limit, so the contrast word \"However\" fits.\n\n**The Full Solution:**\n- How to spot it: for a transition, cover the choices and ask how the two sentences relate. Do they AGREE, CLASH, or does one CAUSE the other? Here they clash.\n- The first sentence explains why panning works: gold is dense, so it settles while the light material washes over the rim.\n- The second gives the drawback: a pan holds only a shovelful, and one lucky panful cannot settle the worth of a claim.\n- A strength followed by a limitation calls for a contrast word.\n\n**Why the other choices are wrong:**\n- A: \"Likewise\" signals agreement, but the second sentence pushes back on the first.\n- B: \"As a result\" would make the limitation a result of gold's weight, which it is not.\n- D: \"For example\" would introduce an instance of panning working, not a limit on it."
     },
     {
       id: 1278,
@@ -489,11 +489,11 @@ export const practiceTest12RWM2Easy = {
       choices: [
         { id: "A", text: "Nevertheless," },
         { id: "B", text: "For instance," },
-        { id: "C", text: "In contrast," },
+        { id: "C", text: "In other words," },
         { id: "D", text: "As a result," }
       ],
       correctAnswer: "D",
-      explanation: "**Choice D is correct.** Because a plate holds a record that can be read in order, sampling along its length lets researchers recover the order of a whale's visits, so the last sentence is the consequence of what came before.\n\n**The Full Solution:**\n- How to spot it: ask whether the last sentence is a CONSEQUENCE of what precedes it. If the earlier idea makes the later one possible, use a result word.\n- Baleen grows continuously, and each new layer records the water the whale was feeding in at the time.\n- So one plate holds a record several years long that can be read in order from tip to base.\n- Sampling along the plate therefore yields the sequence of feeding grounds one whale visited, which is the payoff of the property just described.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" marks an outcome that goes against expectation, but this outcome follows naturally.\n- B: \"For instance\" would introduce an example, and this is a result rather than an example.\n- C: \"In contrast\" sets up an opposition, but the final sentence agrees with what comes before it."
+      explanation: "**Choice D is correct.** Because a plate holds a record that can be read in order, sampling along its length lets researchers recover the order of a whale's visits, so the last sentence is the consequence of what came before.\n\n**The Full Solution:**\n- How to spot it: ask whether the last sentence is a CONSEQUENCE of what precedes it. If the earlier idea makes the later one possible, use a result word.\n- Baleen grows continuously, and each new layer records the water the whale was feeding in at the time.\n- So one plate holds a record several years long that can be read in order from tip to base.\n- Sampling along the plate therefore yields the sequence of feeding grounds one whale visited, which is the payoff of the property just described.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" marks an outcome that goes against expectation, but this outcome follows naturally.\n- B: \"For instance\" would introduce an example, and this is a result rather than an example.\n- C: \"In other words\" signals a restatement, but the final sentence adds a new consequence - what researchers can now do - rather than rephrasing the point before it."
     },
     {
       id: 1279,
@@ -564,7 +564,7 @@ export const practiceTest12RWM2Easy = {
       question: "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       choices: [
         { id: "A", text: "Because every bush in a single-clone field is genetically identical, a disease that attacks that clone can sweep through the entire field, which is why some estates now interplant several clones instead." },
-        { id: "B", text: "Tea bushes may be raised either from seed, which yields a field of many slightly different plants, or from cuttings taken off a single parent bush, a practice that produces what growers call a clone." },
+        { id: "B", text: "Tea bushes may be raised either from seed, which yields a field of many different plants, or from cuttings taken off a single parent bush, a practice that produces what growers call a clonal field." },
         { id: "C", text: "A clonal field ripens evenly, which makes the work of plucking and processing much easier for an estate to schedule." },
         { id: "D", text: "In trials, a leaf disease that attacked one widely planted clone spared many of the plants growing in fields raised from seed." }
       ],
