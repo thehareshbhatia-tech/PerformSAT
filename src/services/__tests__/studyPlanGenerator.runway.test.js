@@ -38,7 +38,22 @@ const longitudinal = {
   skillHistory: {},
 };
 
-const dateWeeksOut = (w) => new Date(Date.now() + w * 7 * 86400000).toISOString();
+// Pin the clock: "w weeks out" from the REAL Date.now() flips between w-1 and
+// w week-buckets depending on the time of day the suite runs (the generator
+// rounds day fractions), which made this suite pass by day and fail by night.
+// A fixed mid-day system time keeps runway arithmetic deterministic.
+beforeAll(() => {
+  jest.useFakeTimers({ now: new Date('2026-08-12T12:00:00Z') });
+});
+afterAll(() => {
+  jest.useRealTimers();
+});
+
+// Sit 6 hours INSIDE the runway rather than on the exact w-week instant: a
+// test date at precisely 63.0 days is a rounding knife-edge the generator's
+// midnight normalization can resolve as 9 or 10 weeks. Real test dates are
+// calendar days, never exact instants.
+const dateWeeksOut = (w) => new Date(Date.now() + w * 7 * 86400000 - 6 * 3600000).toISOString();
 const allActivities = (plan) => plan.weeks.flatMap((w) => w.activities || []);
 
 describe('runway-sized arc', () => {
