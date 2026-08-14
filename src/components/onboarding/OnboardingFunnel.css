@@ -192,6 +192,54 @@
   text-wrap: balance;
 }
 
+/* The tutor's acknowledgment of the previous answer — voice, not chrome.
+   Sits between the eyebrow (structural label) and the title (the ask):
+   quiet italic body ink, no background/border/icon, one line at 375px. */
+.of-ack {
+  margin: 12px 0 -4px;
+  font: italic 500 15px/1.5 var(--of-body-font);
+  color: var(--of-ink-sub);
+  text-align: center;
+  text-wrap: pretty;
+}
+
+/* Path-screen "Built from your answers" recap — hairline dl rows, not a
+   card (replaces the "Here's the path to X" body line; the goal chip owns
+   the number on this screen). */
+.of-recap {
+  margin: 2px auto 18px;
+  width: 100%;
+  max-width: 430px;
+}
+.of-recap-label {
+  margin-bottom: 10px;
+  font: 700 11px/1 var(--of-body-font);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--of-ink-faint);
+  text-align: center;
+}
+.of-recap-list {
+  margin: 0;
+  border-top: 1px solid var(--of-line);
+}
+.of-recap-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 18px;
+  padding: 9px 2px;
+  border-bottom: 1px solid var(--of-line);
+  font: 400 15px/1.4 var(--of-body-font);
+}
+.of-recap-row dt { color: var(--of-ink-faint); }
+.of-recap-row dd {
+  margin: 0;
+  color: var(--of-ink);
+  font-weight: 600;
+  text-align: right;
+}
+
 .of-body {
   margin: 0 0 8px;
   font: 400 16.5px/1.55 var(--of-body-font);

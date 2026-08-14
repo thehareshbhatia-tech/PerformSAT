@@ -12,16 +12,24 @@
 
 global.IS_REACT_ACT_ENVIRONMENT = true;
 
+// Funnel analytics transport: mocked so tests pin event names + the
+// capture-before-signup ordering (the Stripe redirect races a late flush).
+jest.mock('../../../services/posthogClient', () => ({
+  phCapture: jest.fn(),
+}));
+
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { act } from 'react-dom/test-utils';
 import OnboardingFunnel from '../OnboardingFunnel';
+import { phCapture } from '../../../services/posthogClient';
 import {
   FUNNEL_QUESTIONS,
   FUNNEL_STEPS,
   FUNNEL_STORAGE_KEY,
   FUNNEL_STORAGE_VERSION,
 } from '../funnelConfig';
+import { trialEndDateLabel } from '../../../services/pricing';
 
 const EMOJI_RE = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u;
 
@@ -130,6 +138,117 @@ test('the build interlude checks rows in on a beat then auto-advances to the pat
     jest.advanceTimersByTime(4 * 650 + 900);
   });
   expect(container.textContent).toContain('this is exactly what SEVA was built for');
+});
+
+test('ack line responds to the previous answer on question screens (tutor thread)', () => {
+  const baselineIdx = FUNNEL_STEPS.findIndex((s) => s.id === 'baseline');
+  seedStep(baselineIdx, { answers: { timing: 'lt2m' } });
+  mount();
+  expect(container.querySelector('.of-ack').textContent).toContain('Under two months');
+});
+
+test('no ack directly after an interstitial (double-ack rule)', () => {
+  const stuckIdx = FUNNEL_STEPS.findIndex((s) => s.id === 'stuckHabit');
+  // The reassure interstitial precedes stuckHabit and already reflected the
+  // feeling answer — the screen must NOT acknowledge again.
+  seedStep(stuckIdx, { answers: { timing: 'lt2m', baseline: 'sat', feeling: 'stressed' } });
+  mount();
+  expect(container.querySelector('.of-ack')).toBeNull();
+});
+
+test('the goal screen carries the commitment ack (the only reflection of the flow\'s loudest yes)', () => {
+  const goalIdx = FUNNEL_STEPS.findIndex((s) => s.type === 'goal');
+  seedStep(goalIdx, { answers: { commitment: 'allin' } });
+  mount();
+  expect(container.querySelector('.of-ack').textContent).toContain('Twenty focused minutes');
+});
+
+test('interstitials adapt to the answers already given', () => {
+  const rmIdx = FUNNEL_STEPS.findIndex((s) => s.id === 'rightMinutes');
+  seedStep(rmIdx, { answers: { sessionLength: '60m' } });
+  mount();
+  expect(container.textContent).toContain('An hour is a weapon');
+});
+
+test('a session-length answer grows the build interlude to 5 rows and stretches the beat', () => {
+  const buildIdx = FUNNEL_STEPS.findIndex((s) => s.type === 'build');
+  seedStep(buildIdx, { name: 'Maya', answers: { timing: '2to6m', sessionLength: '30m', studyWindow: 'evening' }, goal: 1450 });
+  mount();
+  expect(container.querySelectorAll('.of-build-line')).toHaveLength(5);
+  expect(container.textContent).toContain('Sizing sessions to around half an hour, evenings');
+  // 4-line timing would already have advanced by now; 5 lines must not have.
+  act(() => { jest.advanceTimersByTime(4 * 650 + 900); });
+  expect(container.textContent).toContain('Assembling your plan');
+  act(() => { jest.advanceTimersByTime(650 + 10); });
+  expect(container.textContent).toContain('this is exactly what SEVA was built for');
+});
+
+test('the path screen recaps the answers once, with the goal number owned by the chip alone', () => {
+  const pathIdx = FUNNEL_STEPS.findIndex((s) => s.type === 'path');
+  seedStep(pathIdx, {
+    goal: 1510,
+    answers: { timing: 'lt2m', sessionLength: '15m', studyWindow: 'evening', blocker: 'plateau' },
+  });
+  mount();
+  expect(container.textContent).toContain('Built from your answers');
+  expect(container.textContent).toContain('About 15 focused minutes, evenings');
+  expect(container.textContent).toContain('Break the plateau');
+  expect(container.textContent).toContain('That is the fix for a stuck score.');
+  expect(container.textContent).not.toContain('path to 1510');
+  // The goal number renders exactly once (the chip).
+  expect(container.textContent.split('1510')).toHaveLength(2);
+});
+
+test('a recap-less student keeps the current path body line (fallback)', () => {
+  const pathIdx = FUNNEL_STEPS.findIndex((s) => s.type === 'path');
+  seedStep(pathIdx, { goal: 1400, answers: {} });
+  mount();
+  expect(container.textContent).toContain('path to 1400');
+  expect(container.querySelector('.of-recap')).toBeNull();
+});
+
+test('billing signup shows the computed payer trust date (local date parts)', () => {
+  jest.setSystemTime(new Date(2026, 7, 14, 22, 30));
+  const signupIdx = FUNNEL_STEPS.findIndex((s) => s.type === 'signup');
+  seedStep(signupIdx, { answers: { timing: 'lt2m' } });
+  mount({ billingLive: true });
+  expect(container.textContent).toContain(`not charged before ${trialEndDateLabel(new Date(2026, 7, 14))}`);
+  expect(container.textContent).toContain('not charged before Aug 17');
+});
+
+test('analytics: fresh entry fires funnel_started; resume does not; steps are tracked', () => {
+  mount();
+  expect(phCapture).toHaveBeenCalledWith('funnel_started', expect.objectContaining({ copyVariant: 'personal-v1' }));
+  expect(phCapture).toHaveBeenCalledWith('funnel_step_viewed', expect.objectContaining({ step: 'name', index: 0 }));
+  phCapture.mockClear();
+  act(() => root.unmount());
+  root = createRoot(container);
+  seedStep(3, { answers: { timing: 'lt2m', baseline: 'sat' } });
+  mount();
+  expect(phCapture).not.toHaveBeenCalledWith('funnel_started', expect.anything());
+  expect(phCapture).toHaveBeenCalledWith('funnel_step_viewed', expect.objectContaining({ step: 'feeling', index: 3 }));
+});
+
+test('analytics: funnel_signup_submitted fires BEFORE the signup promise (redirect-race guard)', async () => {
+  const order = [];
+  phCapture.mockImplementation((name) => order.push(name));
+  const signup = jest.fn(() => { order.push('signup()'); return Promise.resolve(); });
+  const signupIdx = FUNNEL_STEPS.findIndex((s) => s.type === 'signup');
+  seedStep(signupIdx, { name: 'Maya', answers: { timing: 'lt2m' } });
+  mount({ signup });
+  act(() => {
+    setInput(container.querySelector('input[type="email"]'), 'maya@example.com');
+    setInput(container.querySelector('input[type="password"]'), 'secret123');
+  });
+  const consent = container.querySelector('.of-consent input[type="checkbox"]');
+  act(() => { consent.click(); });
+  await act(async () => {
+    container.querySelector('form.of-form:not(.of-form--name)').dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+  });
+  const submitIdx = order.indexOf('funnel_signup_submitted');
+  const signupIdx2 = order.indexOf('signup()');
+  expect(submitIdx).toBeGreaterThanOrEqual(0);
+  expect(signupIdx2).toBeGreaterThan(submitIdx);
 });
 
 test('back from the path step skips over the build interlude to the goal slider', () => {

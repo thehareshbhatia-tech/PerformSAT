@@ -15,9 +15,17 @@ import {
   goalContextLine,
   normalizeFunnelGoal,
   buildFunnelProfile,
+  funnelAckFor,
+  reassureBody,
+  rightMinutesCopy,
+  neverStuckCopy,
+  buildPathRecap,
+  signupBodyLine,
+  pathStepThreeSub,
 } from './funnelConfig';
 import { stashPendingPromoCode, clearPendingPromoCode } from '../../services/pendingPromo';
-import { PRICE_MONTHLY, PRICE_ANNUAL_MONTHLY, PRICE_ANNUAL_TOTAL, ANNUAL_SAVINGS, TRIAL_DAYS } from '../../services/pricing';
+import { PRICE_MONTHLY, PRICE_ANNUAL_MONTHLY, PRICE_ANNUAL_TOTAL, ANNUAL_SAVINGS, TRIAL_DAYS, trialEndDateLabel } from '../../services/pricing';
+import { phCapture } from '../../services/posthogClient';
 import { getReferral } from '../../services/refTracker';
 import './OnboardingFunnel.css';
 
@@ -224,11 +232,37 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
     window.scrollTo(0, 0);
   }, [stepIndex]);
 
+  // Funnel analytics ride phCapture directly: analyticsService is uid-gated
+  // and pulls the firebase chain, both wrong for this pre-auth chunk. The
+  // anonymous PostHog distinct_id merges into the account on phIdentify at
+  // signup. copyVariant tags every event so before/after conversion is
+  // comparable without A/B infra.
+  useEffect(() => {
+    if (!saved) phCapture('funnel_started', { copyVariant: 'personal-v1', presetPlan: presetPlan || null });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  useEffect(() => {
+    phCapture('funnel_step_viewed', {
+      copyVariant: 'personal-v1',
+      step: FUNNEL_STEPS[stepIndex]?.id,
+      index: stepIndex,
+    });
+  }, [stepIndex]);
+
+
   const step = FUNNEL_STEPS[stepIndex];
   const totalSteps = FUNNEL_STEPS.length;
   const progressPct = Math.round((stepIndex / (totalSteps - 1)) * 100);
   const fills = chapterFills(stepIndex);
   const trimmedName = name.trim();
+  // ONE memoized array feeds BOTH the interlude render and its advance
+  // timer — deriving them separately is how the row count and the beat
+  // desync. Length is stable while the build screen is mounted (no input
+  // exists there), so the effect below keying on it never restarts mid-run.
+  const interludeLines = useMemo(
+    () => buildInterludeLines(answers, goal, trimmedName),
+    [answers, goal, trimmedName]
+  );
 
   const goNext = () => setStepIndex((i) => Math.min(i + 1, totalSteps - 1));
   const goBack = () => {
@@ -253,7 +287,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
   // Reduced motion resolves every row immediately and shortens the hold.
   useEffect(() => {
     if (step.type !== 'build') return undefined;
-    const lineCount = 4;
+    const lineCount = interludeLines.length;
     const reduce = prefersReducedMotion();
     setBuildProgress(reduce ? lineCount : 0);
     const timers = [];
@@ -267,7 +301,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
       setStepIndex((i) => (FUNNEL_STEPS[i]?.type === 'build' ? i + 1 : i));
     }, total));
     return () => timers.forEach(clearTimeout);
-  }, [step.type]);
+  }, [step.type, interludeLines.length]);
 
   const handleOption = (questionId, value) => {
     if (pendingAdvance) return; // ignore double-taps mid-transition
@@ -292,6 +326,14 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
     // to grant permanent free ("comped") access, bypassing Stripe entirely.
     const trimmedPromo = promoCode.trim();
     if (trimmedPromo) stashPendingPromoCode(trimmedPromo);
+    // Submit-intent event fires BEFORE the await: with billing live the
+    // browser navigates to Stripe Checkout the moment signup resolves, and
+    // a post-success capture would race posthog-js's batch flush and lose.
+    phCapture('funnel_signup_submitted', {
+      copyVariant: 'personal-v1',
+      plan: billingLive ? plan : null,
+      promo: !!trimmedPromo,
+    });
     try {
       const funnelProfile = buildFunnelProfile(answers, goal);
       await signup(email, password, signupName, {
@@ -374,9 +416,12 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
     </div>
   );
 
-  const renderQuestion = (question) => (
+  const renderQuestion = (question) => {
+    const ack = funnelAckFor(stepIndex, answers);
+    return (
     <div className="of-step" key={question.id}>
       {renderEyebrow(question.chapter)}
+      {ack && <p className="of-ack">{ack}</p>}
       <h1 className="of-title">{question.title}</h1>
       <div className="of-options" role="group" aria-label={question.title}>
         {question.options.map((opt) => {
@@ -396,17 +441,29 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
         })}
       </div>
     </div>
-  );
+    );
+  };
 
   const renderInterstitial = (interstitial) => {
     const Visual = VISUALS[interstitial.visual];
-    const heading = interstitial.id === 'reassure'
-      ? reassureHeading(answers.feeling, trimmedName)
-      : interstitial.heading;
+    // Each interstitial adapts to the answers already given: the heading and
+    // body quote the student's own reality back (fresh starters lose the
+    // plateau framing, session length shapes rightMinutes, neverStuck
+    // advances from the stuck habit to the mechanism without re-naming it).
+    let heading = interstitial.heading;
+    let body = interstitial.body;
+    if (interstitial.id === 'reassure') {
+      heading = reassureHeading(answers.feeling, trimmedName);
+      body = reassureBody(answers);
+    } else if (interstitial.id === 'rightMinutes') {
+      ({ heading, body } = rightMinutesCopy(answers));
+    } else if (interstitial.id === 'neverStuck') {
+      ({ heading, body } = neverStuckCopy(answers));
+    }
     return (
       <div className="of-step" key={interstitial.id}>
         <h1 className="of-title">{heading}</h1>
-        <p className="of-body">{interstitial.body}</p>
+        <p className="of-body">{body}</p>
         {Visual ? <Visual /> : null}
         <button type="button" className="of-cta" onClick={goNext}>
           {interstitial.cta}
@@ -415,9 +472,12 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
     );
   };
 
-  const renderGoal = () => (
+  const renderGoal = () => {
+    const ack = funnelAckFor(stepIndex, answers);
+    return (
     <div className="of-step" key="goal">
       {renderEyebrow(3)}
+      {ack && <p className="of-ack">{ack}</p>}
       <h1 className="of-title">Set your target score.</h1>
       <p className="of-body">You can change this anytime. Your plan bends around it.</p>
       <div className="of-goal-readout" aria-live="polite">{goal}</div>
@@ -438,15 +498,16 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
           <span>1600</span>
         </div>
       </div>
-      <div className="of-goal-context">{goalContextLine(goal)}</div>
+      <div className="of-goal-context">{goalContextLine(goal, answers.motivation)}</div>
       <button type="button" className="of-cta" onClick={goNext}>
         Build my plan
       </button>
     </div>
-  );
+    );
+  };
 
   const renderBuild = () => {
-    const lines = buildInterludeLines(answers, goal, trimmedName);
+    const lines = interludeLines;
     return (
       <div className="of-step of-step--build" key="build">
         <div className="of-build-arc" aria-hidden="true">
@@ -490,7 +551,9 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
     );
   };
 
-  const renderPath = () => (
+  const renderPath = () => {
+    const recapRows = buildPathRecap(answers);
+    return (
     <div className="of-step" key="path">
       <div className="of-goal-chip" aria-label={`Target score ${goal}`}>
         <span className="of-goal-chip-label">Target</span>
@@ -501,7 +564,21 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
           ? `${trimmedName}, this is exactly what SEVA was built for.`
           : 'This is exactly what SEVA was built for.'}
       </h1>
-      <p className="of-body">Here&rsquo;s the path to {goal}:</p>
+      {recapRows.length > 0 ? (
+        <div className="of-recap" aria-label="Built from your answers">
+          <div className="of-recap-label">Built from your answers</div>
+          <dl className="of-recap-list">
+            {recapRows.map((row) => (
+              <div className="of-recap-row" key={row.label}>
+                <dt>{row.label}</dt>
+                <dd>{row.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      ) : (
+        <p className="of-body">Here&rsquo;s the path to {goal}:</p>
+      )}
       <ol className="of-path">
         <li className="of-path-step">
           <span className="of-path-num of-path-num--orange">01</span>
@@ -527,7 +604,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
           <span className="of-path-num of-path-num--lime">03</span>
           <div>
             <div className="of-path-head">Watch the plan work</div>
-            <div className="of-path-sub">It rebuilds itself around what you miss, every session.</div>
+            <div className="of-path-sub">{pathStepThreeSub(answers)}</div>
           </div>
         </li>
       </ol>
@@ -548,7 +625,8 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
           : 'Free during early access: the full product, everything included.'}
       </p>
     </div>
-  );
+    );
+  };
 
   const renderSignup = () => (
     <div className="of-step" key="signup">
@@ -558,8 +636,8 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
           : (trimmedName ? `Last step, ${trimmedName}. Save your plan.` : 'Last step. Save your plan.')}
       </h1>
       <p className="of-body">
-        Everything you just set up — your target, your answers, your pacing —
-        rides along. The check-in is waiting on the other side.
+        {signupBodyLine(answers)
+          || 'Everything you just set up rides along. The check-in is waiting on the other side.'}
       </p>
       <form className="of-form" onSubmit={handleSignup}>
         {billingLive && getReferral() && (
@@ -684,9 +762,13 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
         </button>
         {billingLive && !promoCode.trim() && (
           <p className="of-fineprint">
+            {/* The date is computed at render and the trial starts at
+                checkout completion (always later), so "not charged before
+                {date}" stays literally true even for a stale tab. */}
             {plan === 'annual'
-              ? `$0 today. Free for ${TRIAL_DAYS} days, then one $${PRICE_ANNUAL_TOTAL} payment per year ($${PRICE_ANNUAL_MONTHLY}/month). Cancel anytime before day ${TRIAL_DAYS} and you won't be charged.`
-              : `$0 today. Free for ${TRIAL_DAYS} days, then $${PRICE_MONTHLY}/month. Cancel anytime before day ${TRIAL_DAYS} and you won't be charged.`}
+              ? `$0 today. Free for ${TRIAL_DAYS} days, then one $${PRICE_ANNUAL_TOTAL} payment per year ($${PRICE_ANNUAL_MONTHLY}/month). `
+              : `$0 today. Free for ${TRIAL_DAYS} days, then $${PRICE_MONTHLY}/month. `}
+            {`Start today and your card is not charged before ${trialEndDateLabel()}. Cancel from your profile before then and you pay nothing.`}
           </p>
         )}
       </form>
