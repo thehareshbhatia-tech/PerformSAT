@@ -1113,6 +1113,15 @@ const PerformSAT = () => {
   // (a failed stamp just re-offers the flow next session, per the on-ramp's
   // resilience model). The diagnostic is launched later, from the home CTA.
   const handleInnerOnboardingFinished = async (payload) => {
+    // Post-auth funnel analytics: the pre-signup events ride phCapture with
+    // an anonymous id; this one has a uid, closing the loop for the
+    // personal-onboarding conversion read (copyVariant tags the cohort).
+    trackEvent(user?.uid, 'onboarding', 'inner_onboarding_completed', {
+      copyVariant: 'personal-v1',
+      pickedAreas: (payload?.weakMathAreas?.length || 0) + (payload?.weakRWAreas?.length || 0),
+      hasTestDate: !!payload?.testDate,
+      studyDaysPerWeek: payload?.studyDaysPerWeek || null,
+    });
     // completeInnerOnboarding does a Firestore setDoc, which HANGS (never
     // settles) on network loss under the SDK's memory persistence. A bare
     // await here would strand the student behind InnerOnboarding's disabled
