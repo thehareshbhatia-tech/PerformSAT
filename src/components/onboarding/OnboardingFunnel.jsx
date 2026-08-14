@@ -17,6 +17,7 @@ import {
   buildFunnelProfile,
 } from './funnelConfig';
 import { stashPendingPromoCode, clearPendingPromoCode } from '../../services/pendingPromo';
+import { PRICE_MONTHLY, PRICE_ANNUAL_MONTHLY, PRICE_ANNUAL_TOTAL, ANNUAL_SAVINGS, TRIAL_DAYS } from '../../services/pricing';
 import { getReferral } from '../../services/refTracker';
 import './OnboardingFunnel.css';
 
@@ -510,7 +511,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
             </div>
             <div className="of-path-sub">
               {billingLive
-                ? 'Everything you just told us is saved into your plan. $0 today; 3 days free.'
+                ? `Everything you just told us is saved into your plan. $0 today; ${TRIAL_DAYS} days free.`
                 : 'Everything you just told us is saved into your plan.'}
             </div>
           </div>
@@ -543,7 +544,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
       </button>
       <p className="of-fineprint">
         {billingLive
-          ? "Free for 3 days, then $85/month or $349/year. Cancel anytime before day 3 and you won't be charged."
+          ? `Free for ${TRIAL_DAYS} days, then $${PRICE_MONTHLY}/month or $${PRICE_ANNUAL_TOTAL}/year. Cancel anytime before day ${TRIAL_DAYS} and you won't be charged.`
           : 'Free during early access: the full product, everything included.'}
       </p>
     </div>
@@ -570,8 +571,8 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
           <div className="of-plan-chosen">
             <span className="of-plan-chosen-label">
               {plan === 'annual'
-                ? 'Annual plan: $29/month, one $349 payment per year'
-                : 'Monthly plan: $85/month'}
+                ? `Annual plan: $${PRICE_ANNUAL_MONTHLY}/month, one $${PRICE_ANNUAL_TOTAL} payment per year`
+                : `Monthly plan: $${PRICE_MONTHLY}/month`}
             </span>
             <button type="button" className="of-plan-change" onClick={() => setPlanLocked(false)}>
               Change
@@ -588,8 +589,8 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
               onClick={() => setPlan('monthly')}
             >
               <span className="of-plan-name">Monthly</span>
-              <span className="of-plan-price">$85<span className="of-plan-per">/month</span></span>
-              <span className="of-plan-sub">Free for 3 days, then monthly. Cancel anytime.</span>
+              <span className="of-plan-price">{`$${PRICE_MONTHLY}`}<span className="of-plan-per">/month</span></span>
+              <span className="of-plan-sub">{`Free for ${TRIAL_DAYS} days, then monthly. Cancel anytime.`}</span>
             </button>
             <button
               type="button"
@@ -599,8 +600,8 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
               onClick={() => setPlan('annual')}
             >
               <span className="of-plan-name">Annual</span>
-              <span className="of-plan-price">$29<span className="of-plan-per">/month</span></span>
-              <span className="of-plan-sub">One payment of $349 per year. Save $671 vs monthly.</span>
+              <span className="of-plan-price">{`$${PRICE_ANNUAL_MONTHLY}`}<span className="of-plan-per">/month</span></span>
+              <span className="of-plan-sub">{`One payment of $${PRICE_ANNUAL_TOTAL} per year. Save $${ANNUAL_SAVINGS} vs monthly.`}</span>
             </button>
           </div>
         )}
@@ -678,14 +679,14 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
           {submitting
             ? (billingLive && !promoCode.trim() ? 'Setting up secure checkout…' : 'Creating your account…')
             : (billingLive
-              ? (promoCode.trim() ? 'Redeem my code' : 'Start my 3-day free trial')
+              ? (promoCode.trim() ? 'Redeem my code' : `Start my ${TRIAL_DAYS}-day free trial`)
               : 'Create my free account')}
         </button>
         {billingLive && !promoCode.trim() && (
           <p className="of-fineprint">
             {plan === 'annual'
-              ? "$0 today. Free for 3 days, then one $349 payment per year ($29/month). Cancel anytime before day 3 and you won't be charged."
-              : "$0 today. Free for 3 days, then $85/month. Cancel anytime before day 3 and you won't be charged."}
+              ? `$0 today. Free for ${TRIAL_DAYS} days, then one $${PRICE_ANNUAL_TOTAL} payment per year ($${PRICE_ANNUAL_MONTHLY}/month). Cancel anytime before day ${TRIAL_DAYS} and you won't be charged.`
+              : `$0 today. Free for ${TRIAL_DAYS} days, then $${PRICE_MONTHLY}/month. Cancel anytime before day ${TRIAL_DAYS} and you won't be charged.`}
           </p>
         )}
       </form>

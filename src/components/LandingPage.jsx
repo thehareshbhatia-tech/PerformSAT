@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import { getReferral } from '../services/refTracker';
+import { PRICE_MONTHLY, PRICE_ANNUAL_MONTHLY, PRICE_ANNUAL_TOTAL, ANNUAL_SAVINGS, TRIAL_DAYS } from '../services/pricing';
 import { Modal } from './ui/Modal';
 import Wordmark from './ui/Wordmark';
 import './LandingPage.css';
@@ -450,7 +451,7 @@ const LandingPage = () => {
               <a className="lp-btn-ghost-bordered" href="#how" onClick={scrollTo('how')}>See how it works</a>
             </div>
             {billingLive ? (
-              <p className="lp-hero-note lp-enter" style={{ '--d': '560ms' }}>Free for 3 days, then $85/month or $349/year. Cancel anytime before day 3 and you won't be charged.</p>
+              <p className="lp-hero-note lp-enter" style={{ '--d': '560ms' }}>{`Free for ${TRIAL_DAYS} days, then $${PRICE_MONTHLY}/month or $${PRICE_ANNUAL_TOTAL}/year. Cancel anytime before day ${TRIAL_DAYS} and you won't be charged.`}</p>
             ) : (
               <div className="lp-hero-trust lp-enter" style={{ '--d': '560ms' }}>
                 <span><CheckMark />Free to start</span>
@@ -831,16 +832,16 @@ const LandingPage = () => {
             <div className="lp-pricing-cards">
               <div className="lp-pricing-card">
                 <h3 className="lp-plan-name">Monthly</h3>
-                <div className="lp-plan-amount"><span className="lp-plan-price">$85</span><span className="lp-plan-period">/month</span></div>
+                <div className="lp-plan-amount"><span className="lp-plan-price">{`$${PRICE_MONTHLY}`}</span><span className="lp-plan-period">/month</span></div>
                 <p className="lp-plan-note">Billed monthly. Cancel anytime.</p>
-                <button type="button" className="lp-pricing-cta" onClick={() => openAuth(false, 'monthly')}>Start your 3-day free trial</button>
+                <button type="button" className="lp-pricing-cta" onClick={() => openAuth(false, 'monthly')}>{`Start your ${TRIAL_DAYS}-day free trial`}</button>
               </div>
               <div className="lp-pricing-card is-featured">
                 <span className="lp-pricing-badge">Best value</span>
                 <h3 className="lp-plan-name">Annual</h3>
-                <div className="lp-plan-amount"><span className="lp-plan-price">$29</span><span className="lp-plan-period">/month</span></div>
-                <p className="lp-plan-savings">One payment of $349 per year — save $671 vs monthly</p>
-                <button type="button" className="lp-pricing-cta" onClick={() => openAuth(false, 'annual')}>Start your 3-day free trial</button>
+                <div className="lp-plan-amount"><span className="lp-plan-price">{`$${PRICE_ANNUAL_MONTHLY}`}</span><span className="lp-plan-period">/month</span></div>
+                <p className="lp-plan-savings">{`One payment of $${PRICE_ANNUAL_TOTAL} per year — save $${ANNUAL_SAVINGS} vs monthly`}</p>
+                <button type="button" className="lp-pricing-cta" onClick={() => openAuth(false, 'annual')}>{`Start your ${TRIAL_DAYS}-day free trial`}</button>
               </div>
             </div>
             <p className="lp-pricing-reassurance">Cancel anytime before day 3 and you won't be charged.</p>

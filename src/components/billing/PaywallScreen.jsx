@@ -17,6 +17,7 @@
 import React, { useState, useEffect } from 'react';
 import { startCheckout, openBillingPortal, redeemPromoCode } from '../../services/billingService';
 import { takeFailedPromoCode } from '../../services/pendingPromo';
+import { PRICE_MONTHLY, PRICE_ANNUAL_MONTHLY, PRICE_ANNUAL_TOTAL, ANNUAL_SAVINGS, TRIAL_DAYS } from '../../services/pricing';
 import './PaywallScreen.css';
 
 const FEATURES = [
@@ -150,8 +151,8 @@ function PaywallScreen({ entitlement, onBack }) {
   const hardGated = !entitlement?.hasAccess && !entitlement?.hasBillingAccount;
   const startCta = mode === 'start' ? 'Start free trial' : 'Subscribe';
 
-  let title = 'Start your 3-day free trial';
-  let sub = 'Add a card to unlock everything free for 3 days. You will not be charged until day 3 — cancel anytime before then and you pay nothing.';
+  let title = `Start your ${TRIAL_DAYS}-day free trial`;
+  let sub = `Add a card to unlock everything free for ${TRIAL_DAYS} days. You will not be charged until day ${TRIAL_DAYS} — cancel anytime before then and you pay nothing.`;
   if (mode === 'resubscribe') {
     title = 'Your access has ended';
     sub = 'Your scores and progress are saved. Subscribe to pick up exactly where you left off — every test, drill, and tutor session unlocks instantly.';
@@ -195,10 +196,10 @@ function PaywallScreen({ entitlement, onBack }) {
             <div className="pw-plan">
               <h2 className="pw-plan-name">Monthly</h2>
               <div className="pw-plan-price">
-                <span className="pw-plan-amount">$85</span>
+                <span className="pw-plan-amount">{`$${PRICE_MONTHLY}`}</span>
                 <span className="pw-plan-cadence">/ month</span>
               </div>
-              <p className="pw-plan-note">Free for 3 days, then $85/month. Cancel anytime.</p>
+              <p className="pw-plan-note">{`Free for ${TRIAL_DAYS} days, then $${PRICE_MONTHLY}/month. Cancel anytime.`}</p>
               <button
                 type="button"
                 className="pw-plan-cta is-secondary"
@@ -218,10 +219,10 @@ function PaywallScreen({ entitlement, onBack }) {
               <span className="pw-plan-flag">Best value</span>
               <h2 className="pw-plan-name">Annual</h2>
               <div className="pw-plan-price">
-                <span className="pw-plan-amount">$29</span>
+                <span className="pw-plan-amount">{`$${PRICE_ANNUAL_MONTHLY}`}</span>
                 <span className="pw-plan-cadence">/ month</span>
               </div>
-              <p className="pw-plan-note">Free for 3 days, then one payment of $349 per year — save $671 vs monthly.</p>
+              <p className="pw-plan-note">{`Free for ${TRIAL_DAYS} days, then one payment of $${PRICE_ANNUAL_TOTAL} per year — save $${ANNUAL_SAVINGS} vs monthly.`}</p>
               <button
                 type="button"
                 className="pw-plan-cta is-primary"
@@ -273,7 +274,7 @@ function PaywallScreen({ entitlement, onBack }) {
         <p className="pw-fineprint">
           Secure checkout by Stripe. {mode === 'grace'
             ? 'Manage or cancel your plan anytime from Profile.'
-            : 'You will not be charged until your 3-day free trial ends — cancel anytime before then and you pay nothing. Manage or cancel anytime from Profile.'}{' '}
+            : `You will not be charged until your ${TRIAL_DAYS}-day free trial ends — cancel anytime before then and you pay nothing. Manage or cancel anytime from Profile.`}{' '}
           By {mode === 'start' ? 'starting your trial' : 'subscribing'} you agree
           to the <a href="/terms" target="_blank" rel="noreferrer">Terms</a> and{' '}
           <a href="/privacy" target="_blank" rel="noreferrer">Privacy Policy</a>.
