@@ -70,6 +70,8 @@ const billingLaunchEpoch = defineString("BILLING_LAUNCH_EPOCH", {default: ""});
 // gets the paid tutor for free). Kept as a distinct param — the launch epoch
 // governs grandfathering, NOT whether enforcement is live.
 const billingEnforced = defineString("BILLING_ENFORCED", {default: "false"});
+// PostHog project API key (public ingestion key). Empty = server analytics off.
+const posthogKey = defineString("POSTHOG_KEY", {default: ""});
 
 const getStripe = () => new Stripe(stripeSecretKey.value());
 
@@ -686,6 +688,46 @@ async function uidForSubscription(sub: {
   return q.empty ? null : q.docs[0].id;
 }
 
+
+/**
+ * Server-side product analytics. The client funnel events stop at the Stripe
+ * redirect, so the money events (trial started / converted / ended) are
+ * captured here — the webhook is the only place that observes them
+ * truthfully. Fire-and-forget: analytics must never fail a webhook (a non-2xx
+ * would make Stripe retry the whole event). distinct_id = uid, joining the
+ * client's phIdentify(uid) person graph. Inert when POSTHOG_KEY is unset.
+ * @param {string} eventName PostHog event name
+ * @param {string} uid Firebase uid (= PostHog distinct_id)
+ * @param {Object} properties event properties (no PII)
+ */
+function phServerCapture(
+  eventName: string,
+  uid: string,
+  properties: Record<string, unknown>,
+): void {
+  const key = posthogKey.value();
+  if (!key) return;
+  void fetch("https://us.i.posthog.com/batch/", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      api_key: key,
+      batch: [{
+        event: eventName,
+        distinct_id: uid,
+        properties: {...properties, source: "stripe-webhook"},
+        timestamp: new Date().toISOString(),
+      }],
+    }),
+  }).then((r) => {
+    if (!r.ok) {
+      logger.warn(`posthog capture ${eventName} rejected: ${r.status}`);
+    }
+  }).catch((err) => {
+    logger.warn(`posthog capture ${eventName} failed`, err);
+  });
+}
+
 export const stripeWebhook = onRequest(
   {secrets: [stripeSecretKey, stripeWebhookSecret], invoker: "public"},
   async (request, response) => {
@@ -733,6 +775,11 @@ export const stripeWebhook = onRequest(
         const patch = subscriptionToEntitlementPatch(sub, monthly, annual);
         await applyEntitlementPatch(uid, patch, customerId, event.created, event.id, false);
         logger.info(`Entitlement activated for ${uid} (${patch.plan})`);
+        phServerCapture(
+          sub.status === "trialing" ? "trial_started" : "subscription_started",
+          uid,
+          {plan: patch.plan, copyVariant: "personal-v1"},
+        );
         break;
       }
       case "customer.subscription.created":
@@ -752,6 +799,19 @@ export const stripeWebhook = onRequest(
           uid, patch, customerId, event.created, event.id,
           event.type === "customer.subscription.deleted",
         );
+        // trial_converted = the exact trialing -> active transition (Stripe
+        // sends the prior status in previous_attributes on updated events).
+        const prevStatus = (event.data.previous_attributes as
+          {status?: string} | undefined)?.status;
+        if (event.type === "customer.subscription.updated" &&
+            prevStatus === "trialing" && sub.status === "active") {
+          phServerCapture("trial_converted", uid, {plan: patch.plan});
+        }
+        if (event.type === "customer.subscription.deleted") {
+          phServerCapture("subscription_ended", uid, {
+            plan: patch.plan, lastStatus: sub.status,
+          });
+        }
         break;
       }
       default:
