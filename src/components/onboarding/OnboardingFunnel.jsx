@@ -237,10 +237,12 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
   // anonymous PostHog distinct_id merges into the account on phIdentify at
   // signup. copyVariant tags every event so before/after conversion is
   // comparable without A/B infra.
+  const startedTracked = useRef(false);
   useEffect(() => {
+    if (startedTracked.current) return;
+    startedTracked.current = true;
     if (!saved) phCapture('funnel_started', { copyVariant: 'personal-v1', presetPlan: presetPlan || null });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [saved, presetPlan]);
   useEffect(() => {
     phCapture('funnel_step_viewed', {
       copyVariant: 'personal-v1',
