@@ -13,6 +13,24 @@ import { setReviewStreakUser } from '../services/dailyReviewEngine';
 import { clearChatSessionStorage } from '../services/chatSessionService';
 import { phIdentify, phReset } from '../services/posthogClient';
 
+export const ALREADY_SIGNED_IN_MSG = 'You are already signed in. Log out first to create a new account.';
+
+/**
+ * Throws ALREADY_SIGNED_IN_MSG when a signup is attempted over a live
+ * Firebase session. Creating an account while signed in is never a valid
+ * state here — the funnel is the only signup surface, and completing it
+ * against an existing session risks writing onboarding data over the
+ * signed-in account (bug filed 2026-08-13). Pure and exported so the guard
+ * is testable without a renderer.
+ *
+ * @param {Object|null} currentUser - firebase auth.currentUser at call time
+ */
+export const assertNotAlreadySignedIn = (currentUser) => {
+  if (currentUser) {
+    throw new Error(ALREADY_SIGNED_IN_MSG);
+  }
+};
+
 /**
  * Build the users/{uid} document written at signup.
  * Pure helper extracted from signup so the doc shape (including the
@@ -175,6 +193,13 @@ export const useAuth = () => {
       const msg = 'Please confirm you are 13 or older and agree to the Terms of Service and Privacy Policy.';
       setError(msg);
       throw new Error(msg);
+    }
+
+    // Same before-the-try placement as the consent guard, for the same
+    // reason: the catch below rewrites unknown errors to a generic message.
+    if (auth.currentUser) {
+      setError(ALREADY_SIGNED_IN_MSG);
+      assertNotAlreadySignedIn(auth.currentUser);
     }
 
     try {

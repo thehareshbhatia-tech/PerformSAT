@@ -2610,7 +2610,14 @@ const PerformSAT = () => {
       <Routes>
         {/* Landing Page */}
         <Route path="/" element={
-          !user ? (
+          // Auth-restore gate: while Firebase is still resolving the session,
+          // render the same blank shell the lazy chunks use instead of the
+          // landing page. Without this, a signed-in student refreshing on "/"
+          // could mount the landing page (and its signup funnel) during the
+          // restore window — the funnel-while-logged-in hole filed 2026-08-13.
+          loading ? (
+            <div style={{ minHeight: '100vh', background: '#ffffff' }} />
+          ) : !user ? (
             <LandingPage />
           ) : (
             <Navigate to="/course" replace />

@@ -238,7 +238,7 @@ const LandingPage = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const { signup, login } = useAuth();
+  const { signup, login, user, loading: authLoading } = useAuth();
   const rootRef = useRef(null);
   const progressRef = useRef(null);
   const heroVisRef = useRef(null);
@@ -366,6 +366,13 @@ const LandingPage = () => {
     if (loginMode) {
       setShowFunnel(false);
       setShowAuth(true);
+    } else if (user || authLoading) {
+      // Defense-in-depth behind the App route gate: a live (or still
+      // resolving) session must never reach the signup funnel — completing
+      // it against an existing account mutates that account (bug filed
+      // 2026-08-13). The route redirects signed-in visitors anyway; this
+      // guard covers any direct mount during the auth-restore window.
+      return;
     } else {
       setFunnelPlan(plan === 'monthly' || plan === 'annual' ? plan : null);
       setShowAuth(false);
@@ -387,7 +394,7 @@ const LandingPage = () => {
   const prevCard = ROSTER[(ri - 1 + rn) % rn];
   const nextCard = ROSTER[(ri + 1) % rn];
 
-  if (showFunnel) {
+  if (showFunnel && !user) {
     return (
       <React.Suspense fallback={<div style={{ minHeight: '100vh', background: '#F6F4EF' }} />}>
         <OnboardingFunnel
