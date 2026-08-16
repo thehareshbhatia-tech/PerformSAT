@@ -266,7 +266,8 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
                 }}>
                   {user.firstName || 'Student'}
                 </div>
-                <div style={{
+                {/* ph-no-capture: keep the email out of PostHog session replays */}
+                <div className="ph-no-capture" style={{
                   fontSize: typography.sizes.xs,
                   color: 'var(--color-slate-400)',
                   overflow: 'hidden',

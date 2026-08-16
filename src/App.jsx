@@ -60,6 +60,7 @@ import {
 } from './services/reviewQueueResolve';
 import { selectPacingQuestions } from './services/pacingService';
 import { trackPacingDrillDone, trackReengagementOpened, trackEvent } from './services/analyticsService';
+import { phScreenView } from './services/posthogClient';
 import { consumeTutorExchange, makeQuestionKey } from './services/tutorExchangeTracker';
 import { buildDailySession } from './services/dailyReviewEngine';
 import { getReadyAiDiagnostic, loadAttemptSnapshot } from './services/practiceTestService';
@@ -555,6 +556,15 @@ const PerformSAT = () => {
       setView('paywall');
     }
   }, [entitlement.flagEnabled, entitlement.loading, entitlement.hasAccess, entitlement.hasBillingAccount, entitlement.hasEntitlementDoc, user, view]);
+
+  // Mirror in-app screen changes to PostHog as synthetic pageviews (the URL
+  // stays /course while `view` swaps, so history-based capture can't see
+  // them). Keyed on uid, not the user object, so profile-field updates that
+  // produce a new user identity don't re-fire the current screen.
+  const analyticsUid = user?.uid;
+  useEffect(() => {
+    if (analyticsUid) phScreenView(view);
+  }, [analyticsUid, view]);
 
   // ── Live plan reprioritization (adaptivity audit item 3) ─────────────────
   // reprioritizePlan used to run ONLY in the post-test save path, so its

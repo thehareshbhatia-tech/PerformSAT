@@ -272,7 +272,8 @@ const Profile = ({
         }}>
           {user?.firstName || 'Student'}
         </h1>
-        <p style={{
+        {/* ph-no-capture: keep the email out of PostHog session replays */}
+        <p className="ph-no-capture" style={{
           fontSize: typography.sizes.sm,
           color: colors.text.tertiary,
         }}>
