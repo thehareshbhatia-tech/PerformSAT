@@ -2746,6 +2746,7 @@ const PerformSAT = () => {
           <PaywallScreen
             entitlement={entitlement}
             onBack={() => setView('dashboard')}
+            onLogout={logout}
           />
         )}
         {view === 'tutor' && !billingLocked && (
@@ -2800,6 +2801,7 @@ const PerformSAT = () => {
           <PaywallScreen
             entitlement={entitlement}
             onBack={() => setView('dashboard')}
+            onLogout={logout}
           />
         )}
 

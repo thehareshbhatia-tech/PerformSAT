@@ -13,9 +13,17 @@
  *
  * No card form ever renders in-app — Checkout and the Portal are Stripe-owned
  * redirects.
+ *
+ * Escape hatches: even the hard-gated wall always offers "Sign out", and a
+ * never-subscribed account can also delete itself right here (type-DELETE
+ * confirm → deleteAccount Cloud Function → onLogout). Without these, a fresh
+ * signup that stops at the wall was permanently trapped: the sidebar (and its
+ * sign-out) is hidden on view='paywall', and Profile — the only other delete
+ * path — sits behind the very gate they can't pass.
  */
 import React, { useState, useEffect } from 'react';
 import { startCheckout, openBillingPortal, redeemPromoCode } from '../../services/billingService';
+import { deleteAccount } from '../../services/accountService';
 import { takeFailedPromoCode } from '../../services/pendingPromo';
 import { PRICE_MONTHLY, PRICE_ANNUAL_MONTHLY, PRICE_ANNUAL_TOTAL, ANNUAL_SAVINGS, TRIAL_DAYS } from '../../services/pricing';
 import './PaywallScreen.css';
@@ -67,7 +75,7 @@ function statusLine(entitlement) {
   return null;
 }
 
-function PaywallScreen({ entitlement, onBack }) {
+function PaywallScreen({ entitlement, onBack, onLogout }) {
   const [redirecting, setRedirecting] = useState(null); // 'monthly' | 'annual' | 'portal' | null
   const [error, setError] = useState(null);
 
@@ -140,6 +148,30 @@ function PaywallScreen({ entitlement, onBack }) {
       setPromoError(err.message || "That promo code isn't valid.");
     } finally {
       setPromoBusy(false);
+    }
+  };
+
+  // Delete-account escape (hard-gated accounts only). Mirrors Profile's flow:
+  // type DELETE to confirm → server removes all data + the Auth record →
+  // onLogout routes to the landing page.
+  const [deleteOpen, setDeleteOpen] = useState(false);
+  const [deleteText, setDeleteText] = useState('');
+  const [deleteBusy, setDeleteBusy] = useState(false);
+  const [deleteError, setDeleteError] = useState(null);
+
+  const confirmDelete = async (e) => {
+    e?.preventDefault?.();
+    if (deleteBusy || deleteText !== 'DELETE') return;
+    setDeleteBusy(true);
+    setDeleteError(null);
+    try {
+      await deleteAccount();
+      // Auth record is gone server-side, but the local ID token stays valid
+      // for up to an hour — sign out so the app doesn't keep acting on it.
+      onLogout?.();
+    } catch (err) {
+      setDeleteError(err?.message || 'Could not delete your account. Please try again.');
+      setDeleteBusy(false);
     }
   };
 
@@ -279,6 +311,60 @@ function PaywallScreen({ entitlement, onBack }) {
           to the <a href="/terms" target="_blank" rel="noreferrer">Terms</a> and{' '}
           <a href="/privacy" target="_blank" rel="noreferrer">Privacy Policy</a>.
         </p>
+
+        {onLogout && (
+          <div className="pw-escape">
+            <p className="pw-escape-line">
+              Not ready to start?{' '}
+              <button type="button" className="pw-escape-link" onClick={onLogout} disabled={deleteBusy}>
+                Sign out
+              </button>
+              {hardGated && (
+                <>
+                  {' · '}
+                  <button
+                    type="button"
+                    className="pw-escape-link is-danger"
+                    onClick={() => { setDeleteOpen((v) => !v); setDeleteError(null); }}
+                    disabled={deleteBusy}
+                  >
+                    Delete my account
+                  </button>
+                </>
+              )}
+            </p>
+            {hardGated && deleteOpen && (
+              <form className="pw-delete" onSubmit={confirmDelete}>
+                <p className="pw-delete-warn">
+                  This permanently deletes your account and all of its data — there is no
+                  way to undo it. Type <strong>DELETE</strong> to confirm.
+                </p>
+                <div className="pw-delete-row">
+                  <input
+                    type="text"
+                    className="pw-delete-input"
+                    placeholder="DELETE"
+                    value={deleteText}
+                    onChange={(e) => { setDeleteText(e.target.value); setDeleteError(null); }}
+                    autoCapitalize="characters"
+                    autoCorrect="off"
+                    spellCheck="false"
+                    aria-label="Type DELETE to confirm account deletion"
+                    disabled={deleteBusy}
+                  />
+                  <button
+                    type="submit"
+                    className="pw-delete-confirm"
+                    disabled={deleteBusy || deleteText !== 'DELETE'}
+                  >
+                    {deleteBusy ? 'Deleting…' : 'Delete account'}
+                  </button>
+                </div>
+                {deleteError && <p className="pw-promo-error" role="alert">{deleteError}</p>}
+              </form>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
