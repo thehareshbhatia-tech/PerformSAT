@@ -28,10 +28,11 @@ import { getSkillById, skillTaxonomy, getSkillsForDomain } from '../data/skillTa
 // taxonomy.js so this engine stays corpus-free — importing the bank/rwBank
 // indexes would weld both question corpora into every chunk that needs
 // diagnostics (App.jsx imports runDiagnostic eagerly).
-import { SKILL_ALIAS_MAP } from '../data/questions/bank/aliases';
 import { RW_CANONICAL_SKILLS, RW_DOMAINS } from '../data/questions/rwBank/taxonomy';
 import { deriveRWPattern } from '../data/questions/rwBank/deriveRWPattern';
 import { extractSatPattern } from '../data/questions/extractSatPattern';
+import { getCBSkillLabel } from '../data/questions/cbSkillTaxonomy';
+import { formatPatternLabel } from './selectors/missedPatternLabel';
 // Zero-import selector (bundleGuard-safe) — the single source of truth for
 // what counts as a blank/abandoned attempt.
 import { isBlankAttempt } from './selectors/latestTestStats';
@@ -126,17 +127,12 @@ const humanizeSkillId = (id) => {
   // Try taxonomy first
   const skill = getSkillById(id);
   if (skill?.name) return skill.name;
-  // Try resolving the first canonical target from the alias map for a better name
-  const aliases = SKILL_ALIAS_MAP[id];
-  if (aliases && aliases.length > 0) {
-    const canonical = getSkillById(aliases[0]);
-    if (canonical?.name) {
-      // Use the alias key itself but humanized, since it's broader than any single canonical
-      return id.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-    }
-  }
-  // Last resort: humanize the kebab-case ID
-  return id.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  // Canonical CB display name (both sections) — keeps official punctuation
+  // ("Form, Structure, and Sense"), which naive de-slugging loses.
+  const cbLabel = getCBSkillLabel(id);
+  if (cbLabel) return cbLabel;
+  // Last resort: polished de-slug (small words stay lowercase).
+  return formatPatternLabel(id) || id;
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -2606,7 +2602,7 @@ export function formatDiagnosticSentence(weakness) {
   if (!weakness || typeof weakness !== 'object') return '';
 
   const skill = weakness.skill || (weakness.skillId
-    ? weakness.skillId.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+    ? (getCBSkillLabel(weakness.skillId) || formatPatternLabel(weakness.skillId) || weakness.skillId)
     : null);
   const errorTypeId = normalizeErrorTypeId(weakness.errorType);
   const facts = parseEvidenceFacts(weakness.evidence);

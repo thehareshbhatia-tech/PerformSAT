@@ -143,6 +143,10 @@ export function stemPreview(q) {
     .replace(/\uE000/g, '$')
     .replace(/\\[a-zA-Z]+/g, '')
     .replace(/[{}]/g, '')
+    // Markdown emphasis renders in the main pane but the sidebar is plain
+    // text \u2014 drop paired markers so titles don't show literal asterisks.
+    .replace(/\*\*([^*\n]+?)\*\*/g, '$1')
+    .replace(/\*([^*\n]+?)\*/g, '$1')
     .replace(/\s+/g, ' ')
     .trim()
     .slice(0, 80);

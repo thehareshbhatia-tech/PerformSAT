@@ -303,6 +303,23 @@ export function getCBSkillForPattern(patternSlug) {
   return CB_MATH_BY_SLUG.get(skillSlug) || null;
 }
 
+// Canonical display label for ANY CB skill slug, both sections — the official
+// College Board names, punctuation included ("Form, Structure, and Sense").
+// Naive kebab-case de-slugging loses that punctuation, so every UI surface
+// that has only a slug should resolve it here first.
+const CB_LABEL_BY_SLUG = new Map(
+  [...CB_MATH_SKILLS, ...CB_RW_SKILLS].map((s) => [s.slug, s.label])
+);
+
+/**
+ * getCBSkillLabel — canonical display name for a CB skill slug (math or R&W).
+ * @param {string} slug  e.g. 'form-structure-and-sense'
+ * @returns {string|null} 'Form, Structure, and Sense' — null when unknown.
+ */
+export function getCBSkillLabel(slug) {
+  return CB_LABEL_BY_SLUG.get(slug) || null;
+}
+
 /**
  * Returns all patterns mapped to a given CB skill slug.
  */
