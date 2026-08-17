@@ -7,11 +7,11 @@ export const functionsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "If f(x) = 3x - 7, what is f(4)?",
+      question: "If $f(x) = 3x - 7$, what is f(4)?",
       choices: [
         { id: "A", text: "5" },
         { id: "B", text: "12" },
-        { id: "C", text: "−4" },
+        { id: "C", text: "$-4$" },
         { id: "D", text: "19" }
       ],
       correctAnswer: "A",
@@ -22,11 +22,11 @@ export const functionsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "For the function g(x) = x² + 2x, what is g(-3)?",
+      question: "For the function $g(x) = x^2 + 2x$, what is g(-3)?",
       choices: [
         { id: "A", text: "3" },
         { id: "B", text: "15" },
-        { id: "C", text: "−3" },
+        { id: "C", text: "$-3$" },
         { id: "D", text: "9" }
       ],
       correctAnswer: "A",
@@ -37,7 +37,7 @@ export const functionsQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "If f(x) = 2x + 1 and f(a) = 11, what is the value of a?",
+      question: "If $f(x) = 2x + 1$ and $f(a) = 11$, what is the value of a?",
       choices: [
         { id: "A", text: "5" },
         { id: "B", text: "6" },
@@ -56,8 +56,8 @@ export const functionsQuestions = {
       choices: [
         { id: "A", text: "{(1, 2), (1, 3), (2, 4)}" },
         { id: "B", text: "{(1, 2), (2, 2), (3, 4)}" },
-        { id: "C", text: "x² + y² = 4" },
-        { id: "D", text: "y² = x" }
+        { id: "C", text: "$x^2 + y^2 = 4$" },
+        { id: "D", text: "$y^2 = x$" }
       ],
       correctAnswer: "B",
       hint: "A function cannot have the same input (x-value) paired with different outputs. Check which option has unique x-values.",
@@ -67,12 +67,12 @@ export const functionsQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "What is the domain of f(x) = 1/(x - 3)?",
+      question: "What is the domain of $f(x) = 1/(x - 3)$?",
       choices: [
         { id: "A", text: "All real numbers" },
         { id: "B", text: "All real numbers except 3" },
         { id: "C", text: "All real numbers except 0" },
-        { id: "D", text: "x > 3" }
+        { id: "D", text: "$x > 3$" }
       ],
       correctAnswer: "B",
       hint: "The domain excludes any x-value that makes the denominator equal to zero. Find what value of x causes division by zero.",
@@ -86,11 +86,11 @@ export const functionsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "If f(x) = x² - 4 and g(x) = x + 2, what is f(g(1))?",
+      question: "If $f(x) = x^2 - 4$ and $g(x) = x + 2$, what is f(g(1))?",
       choices: [
         { id: "A", text: "5" },
         { id: "B", text: "9" },
-        { id: "C", text: "−3" },
+        { id: "C", text: "$-3$" },
         { id: "D", text: "3" }
       ],
       correctAnswer: "A",
@@ -101,12 +101,12 @@ export const functionsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "If h(x) = 5x - 2, what is h(x + 1)?",
+      question: "If $h(x) = 5x - 2$, what is h(x + 1)?",
       choices: [
-        { id: "A", text: "5x - 1" },
-        { id: "B", text: "5x + 3" },
-        { id: "C", text: "5x + 1" },
-        { id: "D", text: "5x - 3" }
+        { id: "A", text: "$5x - 1$" },
+        { id: "B", text: "$5x + 3$" },
+        { id: "C", text: "$5x + 1$" },
+        { id: "D", text: "$5x - 3$" }
       ],
       correctAnswer: "B",
       hint: "Replace every x in the formula with (x + 1), using parentheses, then distribute and simplify.",
@@ -116,12 +116,12 @@ export const functionsQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "If f(x) = 2x and g(x) = x + 3, what is f(x) + g(x)?",
+      question: "If $f(x) = 2x$ and $g(x) = x + 3$, what is f(x) + g(x)?",
       choices: [
-        { id: "A", text: "2x² + 3" },
-        { id: "B", text: "3x + 3" },
-        { id: "C", text: "2x + 3" },
-        { id: "D", text: "5x" }
+        { id: "A", text: "$2x^2 + 3$" },
+        { id: "B", text: "$3x + 3$" },
+        { id: "C", text: "$2x + 3$" },
+        { id: "D", text: "$5x$" }
       ],
       correctAnswer: "B",
       hint: "Add the two function expressions together and combine like terms.",
@@ -131,7 +131,7 @@ export const functionsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "For f(x) = x² - 1, what is f(2) - f(1)?",
+      question: "For $f(x) = x^2 - 1$, what is f(2) - f(1)?",
       choices: [
         { id: "A", text: "2" },
         { id: "B", text: "3" },
@@ -146,7 +146,7 @@ export const functionsQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "If f(x) = 4x + k and f(2) = 15, what is the value of k?",
+      question: "If $f(x) = 4x + k$ and $f(2) = 15$, what is the value of k?",
       choices: [
         { id: "A", text: "7" },
         { id: "B", text: "8" },
@@ -154,7 +154,7 @@ export const functionsQuestions = {
         { id: "D", text: "23" }
       ],
       correctAnswer: "A",
-      hint: "Substitute x = 2 into the function, set it equal to 15, and solve for k.",
+      hint: "Substitute $x = 2$ into the function, set it equal to 15, and solve for k.",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~10s):** $f(2)=4(2)+k=8+k$. Set $8+k=15$, so $k=7$.\n\n**The Full Solution:**\nStep 1: Substitute $x=2$: $f(2)=4(2)+k=8+k$.\nStep 2: Set equal to the given output: $8+k=15$.\nStep 3: Subtract $8$: $k=7$. Check: $4(2)+7=15$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($8$): reported $4(2)=8$, the product, not the constant $k$.\n* Choice C ($11$): subtracted $4$ from $15$ instead of $4(2)=8$.\n* Choice D ($23$): added instead of subtracted, $15+8=23$.\n\n**Test Day Takeaway:** With an unknown constant, plug in the known input, set the expression equal to the known output, and solve for the constant.",
       skills: ['function-evaluation', 'finding-function-from-conditions']
     }
@@ -165,7 +165,7 @@ export const functionsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "If f(x) = 3x - 1, what is f(f(2))?",
+      question: "If $f(x) = 3x - 1$, what is f(f(2))?",
       choices: [
         { id: "A", text: "5" },
         { id: "B", text: "8" },
@@ -180,12 +180,12 @@ export const functionsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "If f(x) = x + 2 and g(x) = x², what is g(f(x))?",
+      question: "If $f(x) = x + 2$ and $g(x) = x^2$, what is g(f(x))?",
       choices: [
-        { id: "A", text: "x² + 2" },
-        { id: "B", text: "(x + 2)²" },
-        { id: "C", text: "x² + 4" },
-        { id: "D", text: "x² + 4x + 4" }
+        { id: "A", text: "$x^2 + 2$" },
+        { id: "B", text: "$(x + 2)^2$" },
+        { id: "C", text: "$x^2 + 4$" },
+        { id: "D", text: "$x^2 + 4x + 4$" }
       ],
       correctAnswer: "B",
       hint: "For composition g(f(x)), replace the input of g with the entire expression f(x). Think about what gets squared.",
@@ -195,12 +195,12 @@ export const functionsQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "If f(x) = 2x + 3 and f(g(x)) = 4x + 7, what is g(x)?",
+      question: "If $f(x) = 2x + 3$ and f(g(x)) = 4x + 7, what is g(x)?",
       choices: [
-        { id: "A", text: "2x + 2" },
-        { id: "B", text: "2x + 4" },
-        { id: "C", text: "x + 2" },
-        { id: "D", text: "2x + 5" }
+        { id: "A", text: "$2x + 2$" },
+        { id: "B", text: "$2x + 4$" },
+        { id: "C", text: "$x + 2$" },
+        { id: "D", text: "$2x + 5$" }
       ],
       correctAnswer: "A",
       hint: "Write f(g(x)) by substituting g(x) into f, then compare coefficients with 4x + 7 to find g(x).",
@@ -210,7 +210,7 @@ export const functionsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "The graph of y = f(x) passes through point (2, 5). If g(x) = f(x) + 3, what point must be on the graph of g?",
+      question: "The graph of $y = f(x)$ passes through point (2, 5). If $g(x) = f(x) + 3$, what point must be on the graph of g?",
       choices: [
         { id: "A", text: "(2, 5)" },
         { id: "B", text: "(2, 8)" },
@@ -225,7 +225,7 @@ export const functionsQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "If f(x) = x² and f(a + 1) - f(a - 1) = 8, what is the value of a?",
+      question: "If $f(x) = x^2$ and $f(a + 1) - f(a - 1) = 8$, what is the value of a?",
       choices: [
         { id: "A", text: "1" },
         { id: "B", text: "2" },

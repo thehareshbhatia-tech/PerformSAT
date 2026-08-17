@@ -9,12 +9,12 @@ export const linearEquationsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "A phone plan charges a flat fee of $25 per month plus $0.10 per text message. Which equation represents the total monthly cost C in terms of the number of text messages t?",
+      question: "A phone plan charges a flat fee of \\$25 per month plus \\$0.10 per text message. Which equation represents the total monthly cost C in terms of the number of text messages t?",
       choices: [
-        { id: "A", text: "C = 0.10 + 25t" },
-        { id: "B", text: "C = 25 + 0.10t" },
-        { id: "C", text: "C = 25t + 0.10" },
-        { id: "D", text: "C = 10 + 25t" }
+        { id: "A", text: "$C = 0.10 + 25t$" },
+        { id: "B", text: "$C = 25 + 0.10t$" },
+        { id: "C", text: "$C = 25t + 0.10$" },
+        { id: "D", text: "$C = 10 + 25t$" }
       ],
       correctAnswer: "B",
       hint: "Think about what stays the same each month (the flat fee) and what changes based on usage (the per-text charge).",
@@ -26,10 +26,10 @@ export const linearEquationsQuestions = {
       difficulty: "easy",
       question: "The relationship between two variables, x and y, is linear. For every increase in the value of x by 1, the value of y increases by 8. When the value of x is 2, the value of y is 18. Which equation represents this relationship?",
       choices: [
-        { id: "A", text: "y = 2x + 18" },
-        { id: "B", text: "y = 2x + 8" },
-        { id: "C", text: "y = 8x + 2" },
-        { id: "D", text: "y = 3x + 26" }
+        { id: "A", text: "$y = 2x + 18$" },
+        { id: "B", text: "$y = 2x + 8$" },
+        { id: "C", text: "$y = 8x + 2$" },
+        { id: "D", text: "$y = 3x + 26$" }
       ],
       correctAnswer: "C",
       hint: "The rate of change (slope) is how much y changes when x changes by 1. Use the given point (2, 18) to find the y-intercept.",
@@ -41,10 +41,10 @@ export const linearEquationsQuestions = {
       difficulty: "medium",
       question: "A candle is 12 inches tall and burns at a rate of 0.5 inches per hour. Which equation gives the height h of the candle after t hours?",
       choices: [
-        { id: "A", text: "h = 12 + 0.5t" },
-        { id: "B", text: "h = 0.5 − 12t" },
-        { id: "C", text: "h = 12 − 0.5t" },
-        { id: "D", text: "h = 12t − 0.5" }
+        { id: "A", text: "$h = 12 + 0.5t$" },
+        { id: "B", text: "$h = 0.5 - 12t$" },
+        { id: "C", text: "$h = 12 - 0.5t$" },
+        { id: "D", text: "$h = 12t - 0.5$" }
       ],
       correctAnswer: "C",
       hint: "The candle is getting shorter over time (decreasing), so the slope should be negative. Start with the initial height.",
@@ -56,10 +56,10 @@ export const linearEquationsQuestions = {
       difficulty: "medium",
       question: "The relationship between two variables, x and y, is linear. For every increase in x by 1, y decreases by 5. When x is 4, y is 3. Which equation represents this relationship?",
       choices: [
-        { id: "A", text: "y = −5x + 23" },
-        { id: "B", text: "y = 5x − 17" },
-        { id: "C", text: "y = −5x − 17" },
-        { id: "D", text: "y = 5x + 23" }
+        { id: "A", text: "$y = -5x + 23$" },
+        { id: "B", text: "$y = 5x - 17$" },
+        { id: "C", text: "$y = -5x - 17$" },
+        { id: "D", text: "$y = 5x + 23$" }
       ],
       correctAnswer: "A",
       hint: "A decrease means negative slope. Use the point (4, 3) with slope −5 to find the y-intercept.",
@@ -96,10 +96,10 @@ export const linearEquationsQuestions = {
         }
       },
       choices: [
-        { id: "A", text: "y = −2x + 11" },
-        { id: "B", text: "y = 2x + 7" },
-        { id: "C", text: "y = −2x − 11" },
-        { id: "D", text: "y = 2x − 11" }
+        { id: "A", text: "$y = -2x + 11$" },
+        { id: "B", text: "$y = 2x + 7$" },
+        { id: "C", text: "$y = -2x - 11$" },
+        { id: "D", text: "$y = 2x - 11$" }
       ],
       correctAnswer: "A",
       hint: "The data shows y decreasing as x increases, so the slope should be negative. Estimate the rate of decrease and the y-intercept.",
@@ -119,13 +119,13 @@ export const linearEquationsQuestions = {
         }
       },
       choices: [
-        { id: "A", text: "y = −1.9x − 10.1" },
-        { id: "B", text: "y = −1.9x + 10.1" },
-        { id: "C", text: "y = 1.9x − 10.1" },
-        { id: "D", text: "y = 1.9x + 10.1" }
+        { id: "A", text: "$y = -1.9x - 10.1$" },
+        { id: "B", text: "$y = -1.9x + 10.1$" },
+        { id: "C", text: "$y = 1.9x - 10.1$" },
+        { id: "D", text: "$y = 1.9x + 10.1$" }
       ],
       correctAnswer: "B",
-      hint: "The data shows a downward trend (negative slope) and starts near y = 10 when x = 0 (positive y-intercept).",
+      hint: "The data shows a downward trend (negative slope) and starts near $y = 10$ when $x = 0$ (positive y-intercept).",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** The trend falls, so the slope is negative (kills C and D). The data starts near $y = 10$ at $x = 0$, so the intercept is positive: $y = -1.9x + 10.1$ — choice B.\n\n**The Full Solution:**\nStep 1: As $x$ rises from $0$ to $4$, $y$ drops from about $10$ to about $2$, so the slope is negative — eliminate the positive-slope choices C and D.\nStep 2: Estimate the slope from the endpoints: $m = \\frac{2 - 10}{4 - 0} = \\frac{-8}{4} = -2$, close to the regression value $-1.9$.\nStep 3: At $x = 0$ the data is near $y = 10$, so the intercept is positive ($\\approx 10.1$), not negative. That picks B over A.\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -1.9x - 10.1$): right slope, but a negative intercept; at $x = 0$ it gives $-10.1$, while the data is near $+10$.\n* Choice C ($y = 1.9x - 10.1$): positive slope trends upward, contradicting the falling data.\n* Choice D ($y = 1.9x + 10.1$): positive slope; at $x = 4$ it predicts $17.7$, far above the actual $\\approx 2$.\n\n**Test Day Takeaway:** Pin the sign of the slope and the sign of the intercept first — for a best-fit line that often eliminates three of the four choices before you compute anything.",
       skills: ['graph-to-equation', 'best-fit-line']
     },
@@ -144,10 +144,10 @@ export const linearEquationsQuestions = {
         }
       },
       choices: [
-        { id: "A", text: "y = 5x + 55" },
-        { id: "B", text: "y = 10x + 45" },
-        { id: "C", text: "y = 5x + 65" },
-        { id: "D", text: "y = 10x + 55" }
+        { id: "A", text: "$y = 5x + 55$" },
+        { id: "B", text: "$y = 10x + 45$" },
+        { id: "C", text: "$y = 5x + 65$" },
+        { id: "D", text: "$y = 10x + 55$" }
       ],
       correctAnswer: "A",
       hint: "Find the slope using two points, then check which equation works for all the given points.",
@@ -169,10 +169,10 @@ export const linearEquationsQuestions = {
         }
       },
       choices: [
-        { id: "A", text: "y = 3x + 4" },
-        { id: "B", text: "y = 4x + 3" },
-        { id: "C", text: "y = 2x + 4" },
-        { id: "D", text: "y = 3x + 10" }
+        { id: "A", text: "$y = 3x + 4$" },
+        { id: "B", text: "$y = 4x + 3$" },
+        { id: "C", text: "$y = 2x + 4$" },
+        { id: "D", text: "$y = 3x + 10$" }
       ],
       correctAnswer: "A",
       hint: "Use the slope formula: m = (y₂ − y₁)/(x₂ − x₁). The point where the line crosses the y-axis tells you the y-intercept directly.",
@@ -194,13 +194,13 @@ export const linearEquationsQuestions = {
         }
       },
       choices: [
-        { id: "A", text: "y = 8x + 12" },
-        { id: "B", text: "8x + 12y = 480" },
-        { id: "C", text: "y = 12x + 8" },
-        { id: "D", text: "12x + 8y = 480" }
+        { id: "A", text: "$y = 8x + 12$" },
+        { id: "B", text: "$8x + 12y = 480$" },
+        { id: "C", text: "$y = 12x + 8$" },
+        { id: "D", text: "$12x + 8y = 480$" }
       ],
       correctAnswer: "D",
-      hint: "Use the intercepts to find the equation. When x = 0, y = 40. When y = 0, x = 60. Which equation satisfies both?",
+      hint: "Use the intercepts to find the equation. When $x = 0$, $y = 40$. When $y = 0$, $x = 60$. Which equation satisfies both?",
       explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** Read the intercepts: the line hits $(40,0)$ and $(0,60)$. Test choice D: $12(40)+8(0) = 480$ and $12(0)+8(60) = 480$. Both hold, so $12x + 8y = 480$ — choice D.\n\n**The Full Solution:**\nStep 1: A budget line slopes downward, so $y$ falls as $x$ rises — eliminate the positive-slope choices A and C.\nStep 2: From the graph the line passes through $(40,0)$ and $(0,60)$.\nStep 3: Plug both into the standard-form candidates. Choice D, $12x + 8y = 480$: $(40,0) \\Rightarrow 480$ and $(0,60) \\Rightarrow 480$. Both satisfy it, so D is the relationship.\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 8x + 12$): positive slope; a budget constraint must decrease as $x$ grows.\n* Choice B ($8x + 12y = 480$): a downward line, but its intercepts are $(60,0)$ and $(0,40)$ — at $(40,0)$ it gives $320 \\neq 480$, so it misses the graphed points.\n* Choice C ($y = 12x + 8$): positive slope again; at $x = 0$ it gives $8$, not $60$.\n\n**Test Day Takeaway:** For a line through two axis intercepts, just substitute both intercept points into each candidate equation — the one that satisfies both is the answer.",
       skills: ['graph-to-equation', 'slope-from-points', 'standard-form']
     },
@@ -216,10 +216,10 @@ export const linearEquationsQuestions = {
         }
       },
       choices: [
-        { id: "A", text: "y = −2x + 4" },
-        { id: "B", text: "y = 2x + 12" },
-        { id: "C", text: "y = −2x − 4" },
-        { id: "D", text: "y = 2x − 4" }
+        { id: "A", text: "$y = -2x + 4$" },
+        { id: "B", text: "$y = 2x + 12$" },
+        { id: "C", text: "$y = -2x - 4$" },
+        { id: "D", text: "$y = 2x - 4$" }
       ],
       correctAnswer: "A",
       hint: "Calculate the slope using the two points, then use one point to find the y-intercept.",
@@ -241,13 +241,13 @@ export const linearEquationsQuestions = {
         }
       },
       choices: [
-        { id: "A", text: "f(x) = 3x + 29" },
-        { id: "B", text: "f(x) = 29x + 32" },
-        { id: "C", text: "f(x) = 35x + 29" },
-        { id: "D", text: "f(x) = 32x + 35" }
+        { id: "A", text: "$f(x) = 3x + 29$" },
+        { id: "B", text: "$f(x) = 29x + 32$" },
+        { id: "C", text: "$f(x) = 35x + 29$" },
+        { id: "D", text: "$f(x) = 32x + 35$" }
       ],
       correctAnswer: "A",
-      hint: "Find the slope by seeing how much f(x) changes when x increases by 1. The value when x = 0 is your y-intercept.",
+      hint: "Find the slope by seeing how much f(x) changes when x increases by 1. The value when $x = 0$ is your y-intercept.",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** The table gives $x = 0 \\to f(x) = 29$, so $b = 29$ directly. From $x = 0$ to $1$, $f$ rises $3$, so the slope is $3$: $f(x) = 3x + 29$ — choice A.\n\n**The Full Solution:**\nStep 1: When $x = 0$, $f(x) = 29$, so the intercept is read straight off: $b = 29$.\nStep 2: Slope from the table: as $x$ goes $0 \\to 1$, $f$ goes $29 \\to 32$, so $m = \\frac{32 - 29}{1 - 0} = 3$.\nStep 3: The equation is $f(x) = 3x + 29$; check $x = 2$: $3(2)+29 = 35$, matching the table.\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(x) = 29x + 32$): uses the output $29$ as the slope and $32$ as the intercept — both are $f(x)$ values, not a rate.\n* Choice C ($f(x) = 35x + 29$): takes $35$ (the value at $x = 2$) as the slope without computing $\\frac{\\Delta f}{\\Delta x}$.\n* Choice D ($f(x) = 32x + 35$): drops two table outputs in as slope and intercept; at $x = 0$ it gives $35 \\neq 29$.\n\n**Test Day Takeaway:** Slope is $\\frac{\\text{change in } f(x)}{\\text{change in } x}$. When the table includes $x = 0$, that row's output is the intercept — no calculation needed.",
       skills: ['table-to-equation', 'slope-from-points']
     },
@@ -264,13 +264,13 @@ export const linearEquationsQuestions = {
         }
       },
       choices: [
-        { id: "A", text: "y = 3x + 5" },
-        { id: "B", text: "y = 6x + 5" },
-        { id: "C", text: "y = 3x + 11" },
-        { id: "D", text: "y = 2x + 5" }
+        { id: "A", text: "$y = 3x + 5$" },
+        { id: "B", text: "$y = 6x + 5$" },
+        { id: "C", text: "$y = 3x + 11$" },
+        { id: "D", text: "$y = 2x + 5$" }
       ],
       correctAnswer: "A",
-      hint: "Find how much y changes when x increases by 2. That's your rise. Divide by 2 to get the slope. When x = 0, y gives you the y-intercept.",
+      hint: "Find how much y changes when x increases by 2. That's your rise. Divide by 2 to get the slope. When $x = 0$, y gives you the y-intercept.",
       explanation: "**Choice A is correct.** The line has slope $3$ and $y$-intercept $5$, giving $y=3x+5$.\n\n**The Fast Way (~20s):** Each step the $x$-values rise by $2$ and the $y$-values rise by $6$, so the slope is $\\frac{6}{2}=3$. At $x=0$, $y=5$, so the equation is $y=3x+5$.\n\n**The Full Solution:**\nStep 1: Find the slope. Across one row, $\\Delta y=6$ for $\\Delta x=2$, so $m=\\frac{\\Delta y}{\\Delta x}=\\frac{6}{2}=3$.\nStep 2: Read the intercept. When $x=0$, $y=5$, so $b=5$.\nStep 3: Combine: $y=3x+5$. Check a far row: $3(6)+5=23$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($y=6x+5$): used the raw $y$-jump of $6$ as the slope without dividing by $\\Delta x=2$.\n* Choice C ($y=3x+11$): right slope, but grabbed the $y$-value at $x=2$ as the intercept instead of the value at $x=0$.\n* Choice D ($y=2x+5$): slipped on the slope division, treating $\\frac{6}{2}$ as $2$.\n\n**Test Day Takeaway:** When table $x$-values jump by more than $1$, the slope is the $y$-change divided by the $x$-change — never the raw $y$-jump.",
       skills: ['table-to-equation', 'slope-from-points']
     },
@@ -287,10 +287,10 @@ export const linearEquationsQuestions = {
         }
       },
       choices: [
-        { id: "A", text: "g(x) = 3x + 4" },
-        { id: "B", text: "g(x) = 6x + 1" },
-        { id: "C", text: "g(x) = 3x + 7" },
-        { id: "D", text: "g(x) = 2x + 5" }
+        { id: "A", text: "$g(x) = 3x + 4$" },
+        { id: "B", text: "$g(x) = 6x + 1$" },
+        { id: "C", text: "$g(x) = 3x + 7$" },
+        { id: "D", text: "$g(x) = 2x + 5$" }
       ],
       correctAnswer: "A",
       hint: "Find the slope from consecutive x-values. Then use any point to find the y-intercept.",
@@ -310,13 +310,13 @@ export const linearEquationsQuestions = {
         }
       },
       choices: [
-        { id: "A", text: "f(x) = −3x + 9" },
-        { id: "B", text: "f(x) = 3x + 9" },
-        { id: "C", text: "f(x) = −3x − 9" },
-        { id: "D", text: "f(x) = 3x − 9" }
+        { id: "A", text: "$f(x) = -3x + 9$" },
+        { id: "B", text: "$f(x) = 3x + 9$" },
+        { id: "C", text: "$f(x) = -3x - 9$" },
+        { id: "D", text: "$f(x) = 3x - 9$" }
       ],
       correctAnswer: "A",
-      hint: "Notice that f(x) is decreasing as x increases, so the slope is negative. Use x = 0 to find the y-intercept directly.",
+      hint: "Notice that f(x) is decreasing as x increases, so the slope is negative. Use $x = 0$ to find the y-intercept directly.",
       explanation: "**Choice A is correct.** The slope is $-3$ and the $y$-intercept is $9$, giving $f(x)=-3x+9$.\n\n**The Fast Way (~20s):** At $x=0$, $f(x)=9$, so $b=9$ — that kills choices C and D. The outputs fall as $x$ rises, so the slope is negative: from $(0,9)$ to $(2,3)$, $m=\\frac{3-9}{2}=-3$.\n\n**The Full Solution:**\nStep 1: Read the intercept: $f(0)=9$, so $b=9$.\nStep 2: Slope from $(0,9)$ and $(2,3)$: $m=\\frac{3-9}{2-0}=\\frac{-6}{2}=-3$.\nStep 3: Combine: $f(x)=-3x+9$. Check $(4,-3)$: $-3(4)+9=-3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(x)=3x+9$): right intercept, but used a positive slope; the table's outputs decrease, so the slope must be negative.\n* Choice C ($f(x)=-3x-9$): right slope, but flipped the intercept sign to $-9$. At $x=0$ this gives $-9\\neq9$.\n* Choice D ($f(x)=3x-9$): both signs wrong — positive slope and negative intercept.\n\n**Test Day Takeaway:** When the table includes $x=0$, the matching output is $b$ for free. Then set the slope's sign by whether outputs rise or fall.",
       skills: ['table-to-equation', 'slope-from-points']
     },
@@ -325,27 +325,27 @@ export const linearEquationsQuestions = {
     {
       id: 16,
       difficulty: "easy",
-      question: "In the linear function f, f(0) = 8 and f(1) = 12. Which equation defines f?",
+      question: "In the linear function f, $f(0) = 8$ and $f(1) = 12$. Which equation defines f?",
       choices: [
-        { id: "A", text: "f(x) = 12x + 8" },
-        { id: "B", text: "f(x) = 4x" },
-        { id: "C", text: "f(x) = 4x + 12" },
-        { id: "D", text: "f(x) = 4x + 8" }
+        { id: "A", text: "$f(x) = 12x + 8$" },
+        { id: "B", text: "$f(x) = 4x$" },
+        { id: "C", text: "$f(x) = 4x + 12$" },
+        { id: "D", text: "$f(x) = 4x + 8$" }
       ],
       correctAnswer: "D",
-      hint: "f(0) = 8 means the y-intercept is 8. Use f(1) = 12 to find the slope.",
+      hint: "$f(0) = 8$ means the y-intercept is 8. Use $f(1) = 12$ to find the slope.",
       explanation: "**Choice D is correct.** The $y$-intercept is $8$ and the slope is $4$, giving $f(x)=4x+8$.\n\n**The Fast Way (~15s):** $f(0)=8$ is the intercept, and from $(0,8)$ to $(1,12)$ the slope is $\\frac{12-8}{1}=4$. So $f(x)=4x+8$.\n\n**The Full Solution:**\nStep 1: $f(0)=8$, so $b=8$.\nStep 2: Slope from $(0,8)$ and $(1,12)$: $m=\\frac{12-8}{1-0}=4$.\nStep 3: Combine: $f(x)=4x+8$. Check $f(1)=4(1)+8=12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x)=12x+8$): used the output $12$ at $x=1$ as the slope, confusing a value with a rate of change.\n* Choice B ($f(x)=4x$): right slope, but dropped the intercept; this gives $f(0)=0\\neq8$.\n* Choice C ($f(x)=4x+12$): right slope, but used $f(1)=12$ as the intercept instead of $f(0)=8$.\n\n**Test Day Takeaway:** $f(0)$ is always the $y$-intercept $b$ — read it straight off and save a step.",
       skills: ['function-notation-to-equation', 'slope-from-points']
     },
     {
       id: 17,
       difficulty: "medium",
-      question: "If f(x) is a linear function where f(2) = 7 and f(5) = 16, what is f(0)?",
+      question: "If f(x) is a linear function where $f(2) = 7$ and $f(5) = 16$, what is f(0)?",
       choices: [
         { id: "A", text: "1" },
-        { id: "B", text: "−1" },
+        { id: "B", text: "$-1$" },
         { id: "C", text: "3" },
-        { id: "D", text: "−3" }
+        { id: "D", text: "$-3$" }
       ],
       correctAnswer: "A",
       hint: "First find the slope using the two points (2, 7) and (5, 16). Then use point-slope form to find the y-intercept, which equals f(0).",
@@ -355,12 +355,12 @@ export const linearEquationsQuestions = {
     {
       id: 18,
       difficulty: "medium",
-      question: "For the linear function h, h(3) = 14 and h(7) = 26. Which equation defines h?",
+      question: "For the linear function h, $h(3) = 14$ and $h(7) = 26$. Which equation defines h?",
       choices: [
-        { id: "A", text: "h(x) = 3x + 5" },
-        { id: "B", text: "h(x) = 4x + 2" },
-        { id: "C", text: "h(x) = 3x + 14" },
-        { id: "D", text: "h(x) = 4x − 2" }
+        { id: "A", text: "$h(x) = 3x + 5$" },
+        { id: "B", text: "$h(x) = 4x + 2$" },
+        { id: "C", text: "$h(x) = 3x + 14$" },
+        { id: "D", text: "$h(x) = 4x - 2$" }
       ],
       correctAnswer: "A",
       hint: "Find the slope using the two given points, then find the y-intercept.",
@@ -370,22 +370,22 @@ export const linearEquationsQuestions = {
     {
       id: 19,
       difficulty: "hard",
-      question: "In the linear function g, g(−1) = 10 and g(3) = −2. What is the value of x when g(x) = 7?",
+      question: "In the linear function g, $g(-1) = 10$ and $g(3) = -2$. What is the value of x when $g(x) = 7$?",
       choices: [
         { id: "A", text: "0" },
         { id: "B", text: "1" },
-        { id: "C", text: "−2" },
+        { id: "C", text: "$-2$" },
         { id: "D", text: "2" }
       ],
       correctAnswer: "A",
-      hint: "First find the equation of g(x), then solve g(x) = 7 for x.",
+      hint: "First find the equation of g(x), then solve $g(x) = 7$ for x.",
       explanation: "**Choice A is correct.** When $g(x)=7$, $x=0$.\n\n**The Fast Way (~20s):** Slope from $(-1,10)$ and $(3,-2)$ is $\\frac{-2-10}{3-(-1)}=-3$, and solving gives intercept $b=7$. Since $g(x)=7$ asks for the intercept value, $x=0$ — no further algebra.\n\n**The Full Solution:**\nStep 1: Slope: $m=\\frac{-2-10}{3-(-1)}=\\frac{-12}{4}=-3$.\nStep 2: Solve for $b$ with $(-1,10)$: $10=-3(-1)+b\\Rightarrow b=7$, so $g(x)=-3x+7$.\nStep 3: Set $g(x)=7$: $-3x+7=7\\Rightarrow -3x=0\\Rightarrow x=0$. Check $g(0)=7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($1$): guessed without solving; $g(1)=-3(1)+7=4\\neq7$.\n* Choice C ($-2$): a sign error on $-3x=0$; $g(-2)=13\\neq7$.\n* Choice D ($2$): rushed the final solve; $g(2)=1\\neq7$.\n\n**Test Day Takeaway:** Solving $g(x)=b$ (the intercept value) always gives $x=0$ — spot it and skip the algebra.",
       skills: ['function-notation-to-equation', 'slope-from-points', 'solving-linear-equations']
     },
     {
       id: 20,
       difficulty: "hard",
-      question: "The linear function f is defined such that f(−2) = 25 and f(6) = 9. What is the y-intercept of the graph of y = f(x)?",
+      question: "The linear function f is defined such that $f(-2) = 25$ and $f(6) = 9$. What is the y-intercept of the graph of $y = f(x)$?",
       choices: [
         { id: "A", text: "17" },
         { id: "B", text: "21" },
@@ -393,7 +393,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "25" }
       ],
       correctAnswer: "B",
-      hint: "Find the slope, then use one of the given points to find b in f(x) = mx + b.",
+      hint: "Find the slope, then use one of the given points to find b in $f(x) = mx + b$.",
       explanation: "**Choice B is correct.** The $y$-intercept is $21$.\n\n**The Fast Way (~20s):** Slope from $(-2,25)$ and $(6,9)$ is $\\frac{9-25}{6-(-2)}=-2$. Solve for $b$ with $(6,9)$: $9-(-2)(6)=9+12=21$.\n\n**The Full Solution:**\nStep 1: Slope: $m=\\frac{9-25}{6-(-2)}=\\frac{-16}{8}=-2$.\nStep 2: Solve for $b$ with $(6,9)$: $9=-2(6)+b\\Rightarrow 9=-12+b\\Rightarrow b=21$.\nStep 3: So $f(x)=-2x+21$ and the $y$-intercept is $21$. Check $f(-2)=-2(-2)+21=25$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): averaged the two outputs, $\\frac{25+9}{2}=17$; the output midpoint is the intercept only when the input midpoint is $0$, but here it is $2$.\n* Choice C ($23$): an arithmetic slip computing $-2(-2)$ as $2$ instead of $4$ while solving for $b$.\n* Choice D ($25$): used the output at $x=-2$ as the intercept; the intercept is the value at $x=0$.\n\n**Test Day Takeaway:** The $y$-intercept is $f(0)$, so always solve $y=mx+b$ with the slope and a known point — never substitute an output from a non-zero input.",
       skills: ['function-notation-to-equation', 'slope-from-points', 'slope-intercept-form']
     }
@@ -406,39 +406,39 @@ export const linearEquationsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "f(x) = 3x + 7\n\nThe graph of y = f(x) in the xy-plane is a line. Line j is parallel to this graph. What is the slope of line j?",
+      question: "$f(x) = 3x + 7$\n\nThe graph of $y = f(x)$ in the xy-plane is a line. Line j is parallel to this graph. What is the slope of line j?",
       choices: [
         { id: "A", text: "3" },
         { id: "B", text: "7" },
-        { id: "C", text: "−3" },
+        { id: "C", text: "$-3$" },
         { id: "D", text: "−", fraction: { numerator: "1", denominator: "3" } }
       ],
       correctAnswer: "A",
-      hint: "Parallel lines have the same slope. What is the slope of f(x) = 3x + 7?",
+      hint: "Parallel lines have the same slope. What is the slope of $f(x) = 3x + 7$?",
       explanation: "**Choice A is correct.** Parallel lines have equal slopes, so line $j$ has slope $3$.\n\n**The Fast Way (~10s):** The slope of $f(x)=3x+7$ is $3$, and parallel lines copy the slope exactly, so line $j$ has slope $3$.\n\n**The Full Solution:**\nStep 1: In $y=mx+b$, the slope is the coefficient of $x$, so $f$ has slope $3$.\nStep 2: Parallel means identical slope, so line $j$ also has slope $3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($7$): grabbed the $y$-intercept instead of the slope.\n* Choice C ($-3$): negated the slope; parallel lines keep the same sign.\n* Choice D ($-\\frac{1}{3}$): used the negative reciprocal, which is the perpendicular slope, not the parallel one.\n\n**Test Day Takeaway:** Parallel lines have the same slope; perpendicular lines have negative-reciprocal slopes. Do not mix the two rules.",
       skills: ['parallel-line-slope']
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "g(x) = −4x + 9\n\nThe graph of y = g(x) in the xy-plane is a line. Line k is parallel to this graph. What is the slope of line k?",
+      question: "$g(x) = -4x + 9$\n\nThe graph of $y = g(x)$ in the xy-plane is a line. Line k is parallel to this graph. What is the slope of line k?",
       choices: [
         { id: "A", text: "9" },
         { id: "B", text: "4" },
-        { id: "C", text: "−4" },
-        { id: "D", text: "−9" }
+        { id: "C", text: "$-4$" },
+        { id: "D", text: "$-9$" }
       ],
       correctAnswer: "C",
-      hint: "Parallel lines have identical slopes. Identify the slope from the equation g(x) = −4x + 9.",
+      hint: "Parallel lines have identical slopes. Identify the slope from the equation $g(x) = -4x + 9$.",
       explanation: "**Choice C is correct.** Parallel lines have equal slopes, so line $k$ has slope $-4$.\n\n**The Fast Way (~10s):** The slope of $g(x)=-4x+9$ is $-4$, sign included, and a parallel line copies it exactly.\n\n**The Full Solution:**\nStep 1: In $y=mx+b$, the slope is the coefficient of $x$, so $g$ has slope $-4$.\nStep 2: Parallel means identical slope, so line $k$ has slope $-4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): grabbed the $y$-intercept instead of the slope.\n* Choice B ($4$): dropped the negative sign; the slope is $-4$, not $4$.\n* Choice D ($-9$): negated the intercept, conflating it with the slope.\n\n**Test Day Takeaway:** The slope is the coefficient of $x$, sign and all — and parallel lines preserve it exactly.",
       skills: ['parallel-line-slope']
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "h(x) = (2/5)x − 6\n\nThe graph of y = h(x) in the xy-plane is a line. Line m is parallel to this graph. What is the slope of line m?",
+      question: "$h(x) = (2/5)x - 6$\n\nThe graph of $y = h(x)$ in the xy-plane is a line. Line m is parallel to this graph. What is the slope of line m?",
       choices: [
-        { id: "A", text: "−6" },
+        { id: "A", text: "$-6$" },
         { id: "B", text: "−", fraction: { numerator: "5", denominator: "2" } },
         { id: "C", fraction: { numerator: "2", denominator: "5" } },
         { id: "D", text: "6" }
@@ -453,12 +453,12 @@ export const linearEquationsQuestions = {
     {
       id: 4,
       difficulty: "easy",
-      question: "What is the equation of the line that passes through the point (0, 8) and is parallel to the graph of y = 5x + 2 in the xy-plane?",
+      question: "What is the equation of the line that passes through the point (0, 8) and is parallel to the graph of $y = 5x + 2$ in the xy-plane?",
       choices: [
-        { id: "A", text: "y = 8x" },
-        { id: "B", text: "y = 5x + 8" },
-        { id: "C", text: "y = 5x" },
-        { id: "D", text: "y = 8x + 5" }
+        { id: "A", text: "$y = 8x$" },
+        { id: "B", text: "$y = 5x + 8$" },
+        { id: "C", text: "$y = 5x$" },
+        { id: "D", text: "$y = 8x + 5$" }
       ],
       correctAnswer: "B",
       hint: "Parallel lines have the same slope. The point (0, 8) tells you the y-intercept directly.",
@@ -468,27 +468,27 @@ export const linearEquationsQuestions = {
     {
       id: 5,
       difficulty: "medium",
-      question: "What is the equation of the line that passes through the point (3, 14) and is parallel to the graph of y = 3x − 2 in the xy-plane?",
+      question: "What is the equation of the line that passes through the point (3, 14) and is parallel to the graph of $y = 3x - 2$ in the xy-plane?",
       choices: [
-        { id: "A", text: "y = 3x + 5" },
-        { id: "B", text: "y = 3x − 2" },
-        { id: "C", text: "y = 3x + 14" },
-        { id: "D", text: "y = −", fraction: { numerator: "1", denominator: "3" }, textAfter: "x + 14" }
+        { id: "A", text: "$y = 3x + 5$" },
+        { id: "B", text: "$y = 3x - 2$" },
+        { id: "C", text: "$y = 3x + 14$" },
+        { id: "D", text: "$y = -$", fraction: { numerator: "1", denominator: "3" }, textAfter: "x + 14" }
       ],
       correctAnswer: "A",
-      hint: "Use slope 3 (same as the given line). Substitute point (3, 14) into y = 3x + b to find b.",
+      hint: "Use slope 3 (same as the given line). Substitute point (3, 14) into $y = 3x + b$ to find b.",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** Parallel means same slope, so $m=3$. Plug the point into $y=3x+b$: $14=3(3)+b$ gives $b=5$, so $y=3x+5$.\n\n**The Full Solution:**\nStep 1: Parallel lines share a slope. The given line $y=3x-2$ has slope $3$, so the new line is $y=3x+b$.\nStep 2: Use the point $(3,14)$: $14=3(3)+b \\Rightarrow 14=9+b \\Rightarrow b=5$.\nStep 3: The equation is $y=3x+5$. Check: $3(3)+5=14$ $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($y=3x-2$): the original line itself — right slope, but it passes through $(0,-2)$, not $(3,14)$.\n* Choice C ($y=3x+14$): drops the point's $y$-value straight into $b$; that only works when $x=0$.\n* Choice D ($y=-\\frac{1}{3}x+14$): uses the perpendicular slope $-\\frac{1}{3}$ instead of the parallel slope.\n\n**Test Day Takeaway:** For a parallel line through a point, keep the slope and solve $y=mx+b$ for $b$ using the point. The point's $y$-value is the intercept only when its $x$ is $0$.",
       skills: ['parallel-line-slope', 'writing-parallel-equation']
     },
     {
       id: 6,
       difficulty: "medium",
-      question: "What is the equation of the line that passes through the point (−2, 4) and is parallel to the graph of y = −2x + 5 in the xy-plane?",
+      question: "What is the equation of the line that passes through the point (−2, 4) and is parallel to the graph of $y = -2x + 5$ in the xy-plane?",
       choices: [
-        { id: "A", text: "y = −2x" },
-        { id: "B", text: "y = −2x + 4" },
-        { id: "C", text: "y = 2x + 8" },
-        { id: "D", text: "y = ", fraction: { numerator: "1", denominator: "2" }, textAfter: "x + 4" }
+        { id: "A", text: "$y = -2x$" },
+        { id: "B", text: "$y = -2x + 4$" },
+        { id: "C", text: "$y = 2x + 8$" },
+        { id: "D", text: "$y =$", fraction: { numerator: "1", denominator: "2" }, textAfter: "x + 4" }
       ],
       correctAnswer: "A",
       hint: "Parallel lines have slope −2. Use point (−2, 4) to find the y-intercept.",
@@ -500,27 +500,27 @@ export const linearEquationsQuestions = {
     {
       id: 7,
       difficulty: "medium",
-      question: "y = 4x + 12\n\nOne of the equations in a system of two linear equations is given. The system has no solution. Which equation could be the second equation in the system?",
+      question: "$y = 4x + 12$\n\nOne of the equations in a system of two linear equations is given. The system has no solution. Which equation could be the second equation in the system?",
       choices: [
-        { id: "A", text: "−4x + y = 12" },
-        { id: "B", text: "−4x + y = 20" },
-        { id: "C", text: "−8x + y = 24" },
-        { id: "D", text: "−8x + y = 12" }
+        { id: "A", text: "$-4x + y = 12$" },
+        { id: "B", text: "$-4x + y = 20$" },
+        { id: "C", text: "$-8x + y = 24$" },
+        { id: "D", text: "$-8x + y = 12$" }
       ],
       correctAnswer: "B",
-      hint: "No solution means parallel lines (same slope, different y-intercept). Rewrite each choice in y = mx + b form.",
+      hint: "No solution means parallel lines (same slope, different y-intercept). Rewrite each choice in $y = mx + b$ form.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** No solution means parallel lines: same slope, different intercept. The given line is $y=4x+12$, so look for slope $4$ with intercept $\\neq 12$. Choice B, $-4x+y=20$, becomes $y=4x+20$.\n\n**The Full Solution:**\nStep 1: The given line $y=4x+12$ has slope $4$.\nStep 2: Convert Choice B to slope-intercept form: $-4x+y=20 \\Rightarrow y=4x+20$ — slope $4$, intercept $20\\neq 12$. Parallel.\nStep 3: Confirm no solution: $4x+12=4x+20 \\Rightarrow 12=20$, impossible. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4x+y=12 \\Rightarrow y=4x+12$): the same line as the given equation — infinitely many solutions, not none.\n* Choice C ($-8x+y=24 \\Rightarrow y=8x+24$): slope $8$, so it crosses the given line at one point.\n* Choice D ($-8x+y=12 \\Rightarrow y=8x+12$): slope $8$ again — one intersection.\n\n**Test Day Takeaway:** No solution = parallel = same slope, different intercept. Same slope and same intercept means one identical line (infinitely many solutions), and different slopes means exactly one solution.",
       skills: ['parallel-line-slope', 'system-no-solution']
     },
     {
       id: 8,
       difficulty: "medium",
-      question: "y = −5x + 15\n\nOne of the equations in a system of two linear equations is given. The system has no solution. Which equation could be the second equation in the system?",
+      question: "$y = -5x + 15$\n\nOne of the equations in a system of two linear equations is given. The system has no solution. Which equation could be the second equation in the system?",
       choices: [
-        { id: "A", text: "5x + y = 15" },
-        { id: "B", text: "5x + y = 25" },
-        { id: "C", text: "−5x + y = 15" },
-        { id: "D", text: "10x + 2y = 30" }
+        { id: "A", text: "$5x + y = 15$" },
+        { id: "B", text: "$5x + y = 25$" },
+        { id: "C", text: "$-5x + y = 15$" },
+        { id: "D", text: "$10x + 2y = 30$" }
       ],
       correctAnswer: "B",
       hint: "Convert each answer to slope-intercept form. No solution requires same slope but different y-intercept.",
@@ -532,7 +532,7 @@ export const linearEquationsQuestions = {
     {
       id: 9,
       difficulty: "hard",
-      question: "−4x + 28px = 56\n\nIn the given equation, p is a constant. The equation has no solution. What is the value of p?",
+      question: "$-4x + 28px = 56$\n\nIn the given equation, p is a constant. The equation has no solution. What is the value of p?",
       choices: [
         { id: "A", text: "0" },
         { id: "B", fraction: { numerator: "1", denominator: "7" } },
@@ -540,22 +540,22 @@ export const linearEquationsQuestions = {
         { id: "D", text: "7" }
       ],
       correctAnswer: "B",
-      hint: "Combine the x terms: (−4 + 28p)x = 56. For no solution, the coefficient of x must be 0 while the right side is non-zero.",
+      hint: "Combine the x terms: $(-4 + 28p)x = 56$. For no solution, the coefficient of x must be 0 while the right side is non-zero.",
       explanation: "**The correct answer is $\\frac{1}{7}$.**\n\n**The Fast Way (~20s):** Combine $x$-terms: $(-4+28p)x=56$. A single-variable equation has no solution only when the coefficient is $0$ while the constant is not, so set $-4+28p=0 \\Rightarrow p=\\frac{4}{28}=\\frac{1}{7}$.\n\n**The Full Solution:**\nStep 1: Group like terms on the left: $-4x+28px=(-4+28p)x=56$.\nStep 2: For $kx=c$ to have no solution, $k=0$ and $c\\neq 0$ (the equation collapses to $0=56$, a contradiction).\nStep 3: Set $-4+28p=0 \\Rightarrow 28p=4 \\Rightarrow p=\\frac{1}{7}$. Since $56\\neq 0$, this gives no solution. $\\checkmark$\n\n**Common Mistakes:** Picking $p=0$ (gives $-4x=56$, one solution); picking $p=\\frac{2}{7}$ (coefficient becomes $+4$, one solution); inverting $\\frac{1}{7}$ to $7$.\n\n**Test Day Takeaway:** A linear equation $kx=c$ has no solution exactly when the variable's coefficient is $0$ and the constant is nonzero. Set the combined coefficient to $0$ and solve for the parameter.",
       skills: ['parallel-line-slope', 'no-solution-equation']
     },
     {
       id: 10,
       difficulty: "hard",
-      question: "7x − 21px = 42\n\nIn the given equation, p is a constant. The equation has no solution. What is the value of p?",
+      question: "$7x - 21px = 42$\n\nIn the given equation, p is a constant. The equation has no solution. What is the value of p?",
       choices: [
-        { id: "A", text: "−3" },
+        { id: "A", text: "$-3$" },
         { id: "B", text: "−", fraction: { numerator: "1", denominator: "3" } },
         { id: "C", fraction: { numerator: "1", denominator: "3" } },
         { id: "D", text: "3" }
       ],
       correctAnswer: "C",
-      hint: "Factor out x: (7 − 21p)x = 42. For no solution, make the x coefficient equal to 0.",
+      hint: "Factor out x: $(7 - 21p)x = 42$. For no solution, make the x coefficient equal to 0.",
       explanation: "**The correct answer is $\\frac{1}{3}$.**\n\n**The Fast Way (~20s):** Combine $x$-terms: $(7-21p)x=42$. No solution requires the coefficient to vanish, so set $7-21p=0 \\Rightarrow p=\\frac{7}{21}=\\frac{1}{3}$.\n\n**The Full Solution:**\nStep 1: Group like terms: $7x-21px=(7-21p)x=42$.\nStep 2: For $kx=c$ with $c\\neq 0$ to have no solution, $k=0$.\nStep 3: Set $7-21p=0 \\Rightarrow 21p=7 \\Rightarrow p=\\frac{1}{3}$. Since $42\\neq 0$, the equation becomes $0=42$, impossible. $\\checkmark$\n\n**Common Mistakes:** Choosing $p=-\\frac{1}{3}$ or $p=-3$ (wrong sign — the coefficient won't cancel); inverting $\\frac{1}{3}$ to $3$; forgetting to reduce $\\frac{7}{21}$ to $\\frac{1}{3}$.\n\n**Test Day Takeaway:** No solution means the $x$-coefficient collapses to $0$. Set the combined coefficient equal to zero, solve for the parameter, and reduce the fraction.",
       skills: ['parallel-line-slope', 'no-solution-equation']
     },
@@ -564,24 +564,24 @@ export const linearEquationsQuestions = {
     {
       id: 11,
       difficulty: "hard",
-      question: "36x − 48y = 36y + 18\nry = (1/6) − 9x\n\nIn the given system of equations, r is a constant. If the system has no solution, what is the value of r?",
+      question: "$36x - 48y = 36y + 18$\nry = (1/6) − 9x\n\nIn the given system of equations, r is a constant. If the system has no solution, what is the value of r?",
       choices: [
-        { id: "A", text: "−21" },
+        { id: "A", text: "$-21$" },
         { id: "B", text: "−", fraction: { numerator: "1", denominator: "4" } },
         { id: "C", fraction: { numerator: "1", denominator: "4" } },
         { id: "D", text: "21" }
       ],
       correctAnswer: "A",
-      hint: "Rewrite both equations in standard form (ax + by = c). For no solution, the ratios a₁/a₂ = b₁/b₂ ≠ c₁/c₂.",
+      hint: "Rewrite both equations in standard form ($ax + by = c$). For no solution, the ratios a₁/a₂ = b₁/b₂ ≠ c₁/c₂.",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** Reduce Equation 1 to $6x-14y=3$ and Equation 2 to $9x+ry=\\frac{1}{6}$. Parallel lines need matched coefficient ratios: $\\frac{6}{9}=\\frac{-14}{r}$, which gives $r=-21$.\n\n**The Full Solution:**\nStep 1: Equation 1: $36x-48y=36y+18 \\Rightarrow 36x-84y=18$. Divide by $6$: $6x-14y=3$.\nStep 2: Equation 2: $ry=\\frac{1}{6}-9x \\Rightarrow 9x+ry=\\frac{1}{6}$.\nStep 3: For no solution, the $x$ and $y$ coefficients are proportional but the constants are not: $\\frac{6}{9}=\\frac{-14}{r} \\Rightarrow \\frac{2}{3}=\\frac{-14}{r} \\Rightarrow r=\\frac{-14\\cdot 3}{2}=-21$.\nStep 4: Check the constants differ — Equation 1 scales to $6x-14y=3$ while Equation 2 scales to $6x-14y=\\frac{1}{9}$. Same left side, different right side, so the lines are parallel. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{1}{4}$): doesn't satisfy $\\frac{2}{3}=\\frac{-14}{r}$, so the slopes differ — one solution.\n* Choice C ($\\frac{1}{4}$): wrong both in size and sign; the slopes don't match.\n* Choice D ($21$): the right magnitude but positive, giving slope ratio $-\\frac{2}{3}$ instead of $+\\frac{2}{3}$ — $r$ must be negative.\n\n**Test Day Takeaway:** For $a_1x+b_1y=c_1$ and $a_2x+b_2y=c_2$, no solution means $\\frac{a_1}{a_2}=\\frac{b_1}{b_2}\\neq\\frac{c_1}{c_2}$. Put both equations in standard form before comparing.",
       skills: ['parallel-line-slope', 'system-no-solution', 'algebraic-manipulation']
     },
     {
       id: 12,
       difficulty: "hard",
-      question: "(5/2)y − (1/3)x = (1/2) − (5/2)y\n(1/3)x + (5/3) = py + (11/3)\n\nIn the given system of equations, p is a constant. If the system has no solution, what is the value of p?",
+      question: "$(5/2)y - (1/3)x = (1/2) - (5/2)y$\n(1/3)$x + (5/3) = py + (11/3)$\n\nIn the given system of equations, p is a constant. If the system has no solution, what is the value of p?",
       choices: [
-        { id: "A", text: "−5" },
+        { id: "A", text: "$-5$" },
         { id: "B", text: "−", fraction: { numerator: "1", denominator: "5" } },
         { id: "C", fraction: { numerator: "1", denominator: "5" } },
         { id: "D", text: "5" }
@@ -598,10 +598,10 @@ export const linearEquationsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "Line k has the equation y = 2x + 5. What is the slope of a line perpendicular to line k?",
+      question: "Line k has the equation $y = 2x + 5$. What is the slope of a line perpendicular to line k?",
       choices: [
         { id: "A", text: "2" },
-        { id: "B", text: "−2" },
+        { id: "B", text: "$-2$" },
         { id: "C", fraction: { numerator: "1", denominator: "2" } },
         { id: "D", text: "−", fraction: { numerator: "1", denominator: "2" } }
       ],
@@ -613,12 +613,12 @@ export const linearEquationsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "Which equation represents a line perpendicular to y = -3x + 1?",
+      question: "Which equation represents a line perpendicular to $y = -3x + 1$?",
       choices: [
-        { id: "A", text: "y = -3x + 4" },
-        { id: "B", text: "y = 3x - 2" },
-        { id: "C", text: "y = ", fraction: { numerator: "1", denominator: "3" }, textAfter: "x + 5" },
-        { id: "D", text: "y = −", fraction: { numerator: "1", denominator: "3" }, textAfter: "x + 1" }
+        { id: "A", text: "$y = -3x + 4$" },
+        { id: "B", text: "$y = 3x - 2$" },
+        { id: "C", text: "$y =$", fraction: { numerator: "1", denominator: "3" }, textAfter: "x + 5" },
+        { id: "D", text: "$y = -$", fraction: { numerator: "1", denominator: "3" }, textAfter: "x + 1" }
       ],
       correctAnswer: "C",
       hint: "The slope is -3. The negative reciprocal means flip it (1/3) and change the sign (positive).",
@@ -629,12 +629,12 @@ export const linearEquationsQuestions = {
       id: 3,
       difficulty: "medium",
       question: "A line passes through (2, 4) and is perpendicular to the line shown below. What is the equation of this line?",
-      questionFormula: { text: "y = ", fraction: { numerator: "1", denominator: "2" }, textAfter: "x − 3" },
+      questionFormula: { text: "$y =$", fraction: { numerator: "1", denominator: "2" }, textAfter: "x − 3" },
       choices: [
-        { id: "A", text: "y = -2x + 8" },
-        { id: "B", text: "y = 2x" },
-        { id: "C", text: "y = ", fraction: { numerator: "1", denominator: "2" }, textAfter: "x + 3" },
-        { id: "D", text: "y = -2x" }
+        { id: "A", text: "$y = -2x + 8$" },
+        { id: "B", text: "$y = 2x$" },
+        { id: "C", text: "$y =$", fraction: { numerator: "1", denominator: "2" }, textAfter: "x + 3" },
+        { id: "D", text: "$y = -2x$" }
       ],
       correctAnswer: "A",
       hint: "The negative reciprocal of 1/2 is -2. Use this slope with the point (2, 4) to find the equation.",
@@ -664,7 +664,7 @@ export const linearEquationsQuestions = {
       choices: [
         { id: "A", text: "1" },
         { id: "B", text: "3" },
-        { id: "C", text: "−1" },
+        { id: "C", text: "$-1$" },
         { id: "D", text: "5" }
       ],
       correctAnswer: "A",

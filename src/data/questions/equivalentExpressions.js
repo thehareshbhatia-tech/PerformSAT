@@ -9,10 +9,10 @@ export const equivalentExpressionsQuestions = {
       difficulty: "easy",
       question: "Which expression is equivalent to 3(2x + 4) - 2(x - 1)?",
       choices: [
-        { id: "A", text: "4x + 14" },
-        { id: "B", text: "4x + 10" },
-        { id: "C", text: "8x + 14" },
-        { id: "D", text: "4x + 12" }
+        { id: "A", text: "$4x + 14$" },
+        { id: "B", text: "$4x + 10$" },
+        { id: "C", text: "$8x + 14$" },
+        { id: "D", text: "$4x + 12$" }
       ],
       correctAnswer: "A",
       hint: "Use the distributive property to expand each term, then combine like terms. Pay close attention to signs when distributing a negative number.",
@@ -24,10 +24,10 @@ export const equivalentExpressionsQuestions = {
       difficulty: "easy",
       question: "Which expression is equivalent to (x + 3)(x - 3)?",
       choices: [
-        { id: "A", text: "x² - 6" },
-        { id: "B", text: "x² + 9" },
-        { id: "C", text: "x² - 9" },
-        { id: "D", text: "x² + 6x + 9" }
+        { id: "A", text: "$x^2 - 6$" },
+        { id: "B", text: "$x^2 + 9$" },
+        { id: "C", text: "$x^2 - 9$" },
+        { id: "D", text: "$x^2 + 6x + 9$" }
       ],
       correctAnswer: "C",
       hint: "Look for a special pattern here. When you have the sum and difference of the same two terms being multiplied, there's a shortcut formula you can use.",
@@ -39,8 +39,8 @@ export const equivalentExpressionsQuestions = {
       difficulty: "medium",
       question: "Simplify: (4x²y³)/(2xy)",
       choices: [
-        { id: "A", text: "2xy²" },
-        { id: "B", text: "2x²y²" },
+        { id: "A", text: "$2xy^2$" },
+        { id: "B", text: "$2x^2y^2$" },
         { id: "C", text: "2xy" },
         { id: "D", text: "8x³y⁴" }
       ],
@@ -54,10 +54,10 @@ export const equivalentExpressionsQuestions = {
       difficulty: "medium",
       question: "Which expression is equivalent to x² + 6x + 9?",
       choices: [
-        { id: "A", text: "(x + 3)²" },
-        { id: "B", text: "(x - 3)²" },
-        { id: "C", text: "(x + 9)(x + 1)" },
-        { id: "D", text: "(x + 6)(x + 3)" }
+        { id: "A", text: "$(x + 3)^2$" },
+        { id: "B", text: "$(x - 3)^2$" },
+        { id: "C", text: "$(x + 9)(x + 1)$" },
+        { id: "D", text: "$(x + 6)(x + 3)$" }
       ],
       correctAnswer: "A",
       hint: "Check if this is a perfect square trinomial by seeing if the first and last terms are perfect squares, and if the middle term equals twice the product of their square roots.",
@@ -69,13 +69,13 @@ export const equivalentExpressionsQuestions = {
       difficulty: "hard",
       question: "Which expression is equivalent to (2a + b)²?",
       choices: [
-        { id: "A", text: "4a² + b²" },
-        { id: "B", text: "4a² + 2ab + b²" },
-        { id: "C", text: "4a² + 4ab + b²" },
-        { id: "D", text: "2a² + 2ab + b²" }
+        { id: "A", text: "$4a^2 + b^2$" },
+        { id: "B", text: "$4a^2 + 2ab + b^2$" },
+        { id: "C", text: "$4a^2 + 4ab + b^2$" },
+        { id: "D", text: "$2a^2 + 2ab + b^2$" }
       ],
       correctAnswer: "C",
-      hint: "Use the perfect square formula: (a + b)² = a² + 2ab + b². Remember to square the entire first term, including its coefficient.",
+      hint: "Use the perfect square formula: $(a + b)^2 = a^2 + 2ab + b^2$. Remember to square the entire first term, including its coefficient.",
       explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** Square the binomial: $(2a)^2+2(2a)(b)+b^2=4a^2+4ab+b^2$. The key is squaring the full $2a$ and doubling the cross term.\n\n**The Full Solution:**\nStep 1: Apply $(x+y)^2=x^2+2xy+y^2$ with $x=2a$ and $y=b$.\nStep 2: First term: $(2a)^2=4a^2$.\nStep 3: Middle term: $2(2a)(b)=4ab$.\nStep 4: Last term: $b^2$. Combine: $4a^2+4ab+b^2$, which is choice C.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4a^2+b^2$): dropped the middle term; $(a+b)^2\\neq a^2+b^2$ — squaring a binomial always gives three terms.\n* Choice B ($4a^2+2ab+b^2$): used $2ab$ for the cross term, forgetting the inner $a$ is really $2a$, so it should be $4ab$.\n* Choice D ($2a^2+2ab+b^2$): computed $(2a)^2$ as $2a^2$; squaring hits both the coefficient and the variable, giving $4a^2$.\n\n**Test Day Takeaway:** $(ka+b)^2=k^2a^2+2kab+b^2$ — square the whole leading term and double the product for the middle. Never forget the cross term.",
       skills: ['perfect-square-trinomial']
     }

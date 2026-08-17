@@ -7,7 +7,7 @@ export const transformationsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "If f(x) = x², what transformation does f(x) + 3 represent?",
+      question: "If $f(x) = x^2$, what transformation does f(x) + 3 represent?",
       choices: [
         { id: "A", text: "Shift 3 units right" },
         { id: "B", text: "Shift 3 units left" },
@@ -37,11 +37,11 @@ export const transformationsQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "The graph of y = -f(x) is a reflection of y = f(x) across the:",
+      question: "The graph of $y = -f(x)$ is a reflection of $y = f(x)$ across the:",
       choices: [
-        { id: "A", text: "x-axis" },
-        { id: "B", text: "y-axis" },
-        { id: "C", text: "line y = x" },
+        { id: "A", text: "$x-axis$" },
+        { id: "B", text: "$y-axis$" },
+        { id: "C", text: "$line y = x$" },
         { id: "D", text: "origin" }
       ],
       correctAnswer: "A",
@@ -69,8 +69,8 @@ export const transformationsQuestions = {
       difficulty: "hard",
       question: "Which transformation does f(-x) represent?",
       choices: [
-        { id: "A", text: "Reflection across x-axis" },
-        { id: "B", text: "Reflection across y-axis" },
+        { id: "A", text: "$Reflection across x-axis$" },
+        { id: "B", text: "$Reflection across y-axis$" },
         { id: "C", text: "Shift left" },
         { id: "D", text: "Shift right" }
       ],
@@ -82,7 +82,7 @@ export const transformationsQuestions = {
     {
       id: 6,
       difficulty: "easy",
-      question: "If f(x) = 3x + 2, what transformation does f(x) - 7 represent?",
+      question: "If $f(x) = 3x + 2$, what transformation does f(x) - 7 represent?",
       choices: [
         { id: "A", text: "Shift 7 units right" },
         { id: "B", text: "Shift 7 units left" },
@@ -112,12 +112,12 @@ export const transformationsQuestions = {
     {
       id: 8,
       difficulty: "medium",
-      question: "The function f(x) = x² has its vertex at (0, 0). What is the vertex of f(x - 4) + 6?",
+      question: "The function $f(x) = x^2$ has its vertex at (0, 0). What is the vertex of f(x - 4) + 6?",
       choices: [
         { id: "A", text: "(4, 6)" },
-        { id: "B", text: "(-4, 6)" },
-        { id: "C", text: "(4, -6)" },
-        { id: "D", text: "(-4, -6)" }
+        { id: "B", text: "$(-4, 6)$" },
+        { id: "C", text: "$(4, -6)$" },
+        { id: "D", text: "$(-4, -6)$" }
       ],
       correctAnswer: "A",
       hint: "Apply both transformations: (x - 4) affects horizontal position (remember the opposite rule), and +6 affects vertical position.",
@@ -145,10 +145,10 @@ export const transformationsQuestions = {
       difficulty: "hard",
       question: "Which expression represents a reflection across the x-axis AND a shift up 4 units?",
       choices: [
-        { id: "A", text: "-f(x) + 4" },
-        { id: "B", text: "-f(x) - 4" },
-        { id: "C", text: "f(-x) + 4" },
-        { id: "D", text: "-f(x + 4)" }
+        { id: "A", text: "$-f(x) + 4$" },
+        { id: "B", text: "$-f(x) - 4$" },
+        { id: "C", text: "$f(-x) + 4$" },
+        { id: "D", text: "$-f(x + 4)$" }
       ],
       correctAnswer: "A",
       hint: "Reflection across x-axis means negating the output (-f(x)). Shifting up means adding to the result. Combine these in the right order.",
@@ -162,12 +162,12 @@ export const transformationsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "The vertex of f(x) = x² is at (0, 0). If a transformed parabola has vertex at (3, -2), which transformation was applied?",
+      question: "The vertex of $f(x) = x^2$ is at (0, 0). If a transformed parabola has vertex at (3, -2), which transformation was applied?",
       choices: [
-        { id: "A", text: "f(x - 3) - 2" },
-        { id: "B", text: "f(x + 3) - 2" },
-        { id: "C", text: "f(x - 3) + 2" },
-        { id: "D", text: "f(x + 3) + 2" }
+        { id: "A", text: "$f(x - 3) - 2$" },
+        { id: "B", text: "$f(x + 3) - 2$" },
+        { id: "C", text: "$f(x - 3) + 2$" },
+        { id: "D", text: "$f(x + 3) + 2$" }
       ],
       correctAnswer: "A",
       hint: "Track each coordinate separately. To move the x-coordinate right, you subtract inside the parentheses. To move the y-coordinate down, you subtract outside.",
@@ -177,12 +177,12 @@ export const transformationsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "Graph of f(x) passes through (2, 5). After transformation g(x) = f(x) - 3, what point is on g(x)?",
+      question: "Graph of f(x) passes through (2, 5). After transformation $g(x) = f(x) - 3$, what point is on g(x)?",
       choices: [
         { id: "A", text: "(2, 8)" },
         { id: "B", text: "(2, 2)" },
         { id: "C", text: "(5, 5)" },
-        { id: "D", text: "(-1, 5)" }
+        { id: "D", text: "$(-1, 5)$" }
       ],
       correctAnswer: "B",
       hint: "Subtracting 3 outside the function only changes the y-values. The x-coordinate stays the same.",
@@ -207,12 +207,12 @@ export const transformationsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "The graph of y = f(x) is reflected across the x-axis and shifted up 4 units. Which equation represents this?",
+      question: "The graph of $y = f(x)$ is reflected across the x-axis and shifted up 4 units. Which equation represents this?",
       choices: [
-        { id: "A", text: "y = -f(x) + 4" },
-        { id: "B", text: "y = -f(x) - 4" },
-        { id: "C", text: "y = f(-x) + 4" },
-        { id: "D", text: "y = -f(x + 4)" }
+        { id: "A", text: "$y = -f(x) + 4$" },
+        { id: "B", text: "$y = -f(x) - 4$" },
+        { id: "C", text: "$y = f(-x) + 4$" },
+        { id: "D", text: "$y = -f(x + 4)$" }
       ],
       correctAnswer: "A",
       hint: "Build the transformation step by step. First apply the reflection (which involves a negative sign), then the vertical shift (which involves adding or subtracting).",
@@ -222,7 +222,7 @@ export const transformationsQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "If y = f(x) has y-intercept at (0, 3), what is the y-intercept of y = 2f(x)?",
+      question: "If $y = f(x)$ has y-intercept at (0, 3), what is the y-intercept of $y = 2f(x)$?",
       choices: [
         { id: "A", text: "(0, 3)" },
         { id: "B", text: "(0, 5)" },
@@ -230,19 +230,19 @@ export const transformationsQuestions = {
         { id: "D", text: "(2, 3)" }
       ],
       correctAnswer: "C",
-      hint: "The y-intercept occurs when x = 0. Multiply the original y-value by 2 to find the new y-intercept.",
+      hint: "The y-intercept occurs when $x = 0$. Multiply the original y-value by 2 to find the new y-intercept.",
       explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** A factor outside, $2f(x)$, doubles every $y$-value. The intercept $(0,3)$ becomes $(0,2\\cdot 3)=(0,6)$.\n\n**The Full Solution:**\nStep 1: The $y$-intercept is where $x=0$, so evaluate $y=2f(0)$.\nStep 2: The original intercept gives $f(0)=3$, so $y=2(3)=6$.\nStep 3: New $y$-intercept: $(0,6)$. The $x$-value stays $0$ because the $2$ multiplies the output only. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A $(0,3)$: kept the original intercept and ignored the factor of $2$.\n* Choice B $(0,5)$: computed $3+2=5$, treating the transformation as $f(x)+2$ instead of $2f(x)$.\n* Choice D $(2,3)$: moved the $x$-coordinate by $2$; the factor is outside, so it scales $y$, not $x$.\n\n**Test Day Takeaway:** For $a\\cdot f(x)$, multiply each $y$-value by $a$. The intercept $(0,b)$ becomes $(0,ab)$ — the $x$-coordinate never changes.",
       skills: ['function-transformations']
     },
     {
       id: 6,
       difficulty: "easy",
-      question: "The graph of f(x) = x² has vertex at (0, 0). A transformed graph has vertex at (-2, 0). Which transformation was applied?",
+      question: "The graph of $f(x) = x^2$ has vertex at (0, 0). A transformed graph has vertex at (-2, 0). Which transformation was applied?",
       choices: [
-        { id: "A", text: "f(x - 2)" },
-        { id: "B", text: "f(x + 2)" },
-        { id: "C", text: "f(x) - 2" },
-        { id: "D", text: "f(x) + 2" }
+        { id: "A", text: "$f(x - 2)$" },
+        { id: "B", text: "$f(x + 2)$" },
+        { id: "C", text: "$f(x) - 2$" },
+        { id: "D", text: "$f(x) + 2$" }
       ],
       correctAnswer: "B",
       hint: "The vertex moved left 2 units (x changed from 0 to -2, y stayed at 0). Which transformation shifts the graph left?",
@@ -252,10 +252,10 @@ export const transformationsQuestions = {
     {
       id: 7,
       difficulty: "easy",
-      question: "Graph of f(x) passes through (0, 4). After transformation g(x) = f(x - 3), which point is on g(x)?",
+      question: "Graph of f(x) passes through (0, 4). After transformation $g(x) = f(x - 3)$, which point is on g(x)?",
       choices: [
         { id: "A", text: "(3, 4)" },
-        { id: "B", text: "(-3, 4)" },
+        { id: "B", text: "$(-3, 4)$" },
         { id: "C", text: "(0, 1)" },
         { id: "D", text: "(0, 7)" }
       ],
@@ -267,12 +267,12 @@ export const transformationsQuestions = {
     {
       id: 8,
       difficulty: "medium",
-      question: "The minimum of f(x) is at (1, -3). Where is the minimum of g(x) = f(x + 4) - 1?",
+      question: "The minimum of f(x) is at (1, -3). Where is the minimum of $g(x) = f(x + 4) - 1$?",
       choices: [
-        { id: "A", text: "(-3, -4)" },
-        { id: "B", text: "(5, -4)" },
-        { id: "C", text: "(-3, -2)" },
-        { id: "D", text: "(5, -2)" }
+        { id: "A", text: "$(-3, -4)$" },
+        { id: "B", text: "$(5, -4)$" },
+        { id: "C", text: "$(-3, -2)$" },
+        { id: "D", text: "$(5, -2)$" }
       ],
       correctAnswer: "A",
       hint: "Apply each transformation: (x + 4) shifts left 4 units, -1 shifts down 1 unit. Track the minimum point through both shifts.",
@@ -282,12 +282,12 @@ export const transformationsQuestions = {
     {
       id: 9,
       difficulty: "medium",
-      question: "The graph of y = f(x) is reflected across the y-axis and then shifted right 2 units. Which equation represents this?",
+      question: "The graph of $y = f(x)$ is reflected across the y-axis and then shifted right 2 units. Which equation represents this?",
       choices: [
-        { id: "A", text: "y = f(-x - 2)" },
-        { id: "B", text: "y = f(-x + 2)" },
-        { id: "C", text: "y = f(-(x - 2))" },
-        { id: "D", text: "y = -f(x - 2)" }
+        { id: "A", text: "$y = f(-x - 2)$" },
+        { id: "B", text: "$y = f(-x + 2)$" },
+        { id: "C", text: "$y = f(-(x - 2))$" },
+        { id: "D", text: "$y = -f(x - 2)$" }
       ],
       correctAnswer: "C",
       hint: "Reflect across y-axis first: f(-x). Then shift right 2: replace x with (x - 2). Be careful about where the negative sign goes!",
@@ -297,12 +297,12 @@ export const transformationsQuestions = {
     {
       id: 10,
       difficulty: "hard",
-      question: "If the x-intercepts of f(x) are at x = -1 and x = 5, what are the x-intercepts of f(x - 3)?",
+      question: "If the x-intercepts of f(x) are at $x = -1$ and $x = 5$, what are the x-intercepts of f(x - 3)?",
       choices: [
-        { id: "A", text: "x = -4 and x = 2" },
-        { id: "B", text: "x = 2 and x = 8" },
-        { id: "C", text: "x = -1 and x = 5" },
-        { id: "D", text: "x = -4 and x = 8" }
+        { id: "A", text: "$x = -4$ and $x = 2$" },
+        { id: "B", text: "$x = 2$ and $x = 8$" },
+        { id: "C", text: "$x = -1$ and $x = 5$" },
+        { id: "D", text: "$x = -4$ and $x = 8$" }
       ],
       correctAnswer: "B",
       hint: "f(x - 3) shifts the entire graph right 3 units. Each x-intercept moves right by 3.",
@@ -312,26 +312,26 @@ export const transformationsQuestions = {
     {
       id: 11,
       difficulty: "hard",
-      question: "If y = f(x) has x-intercept at (4, 0), what is the x-intercept of y = -f(x) + 5?",
+      question: "If $y = f(x)$ has x-intercept at (4, 0), what is the x-intercept of $y = -f(x) + 5$?",
       choices: [
         { id: "A", text: "(4, 0)" },
         { id: "B", text: "(4, 5)" },
-        { id: "C", text: "(-4, 0)" },
+        { id: "C", text: "$(-4, 0)$" },
         { id: "D", text: "Cannot be determined without more information" }
       ],
       correctAnswer: "D",
-      hint: "At the original x-intercept (4, 0), the transformed function gives -f(4) + 5 = -0 + 5 = 5. Is this a new x-intercept?",
+      hint: "At the original x-intercept (4, 0), the transformed function $gives -f(4) + 5 = -0 + 5$ = 5. Is this a new x-intercept?",
       explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** The old zero $x=4$ stops being a zero: $-f(4)+5=5$. The new zeros need $f(x)=5$, which one point of $f$ cannot pin down.\n\n**The Full Solution:**\nStep 1: At the original intercept, $f(4)=0$. After the transformation, the value there is $-f(4)+5=-0+5=5$, so $(4,0)$ becomes $(4,5)$ — not on the $x$-axis.\nStep 2: An $x$-intercept of $y=-f(x)+5$ needs $-f(x)+5=0$, i.e. $f(x)=5$.\nStep 3: All we know is $f(4)=0$. Where $f$ equals $5$ depends on the rest of the function, which is unknown, so the new $x$-intercept cannot be determined.\n\n**Why the wrong answers are tempting:**\n* Choice A $(4,0)$: assumes the intercept stays put, but $-f(4)+5=5\\neq 0$.\n* Choice B $(4,5)$: this point is on the new graph, yet $y=5$ means it is not an $x$-intercept.\n* Choice C $(-4,0)$: invents a $y$-axis reflection; $-f(x)$ flips across the $x$-axis, leaving $x$ unchanged.\n\n**Test Day Takeaway:** A vertical shift moves $x$-intercepts to wherever $f(x)=k$. Finding them requires the whole function, not a single known point.",
       skills: ['function-transformations']
     },
     {
       id: 12,
       difficulty: "hard",
-      question: "The vertex of a parabola f(x) is at (2, -4). After applying the transformation g(x) = 3f(x - 1) + 2, where is the new vertex?",
+      question: "The vertex of a parabola f(x) is at (2, -4). After applying the transformation $g(x) = 3f(x - 1) + 2$, where is the new vertex?",
       choices: [
-        { id: "A", text: "(3, -10)" },
-        { id: "B", text: "(1, -10)" },
-        { id: "C", text: "(3, -14)" },
+        { id: "A", text: "$(3, -10)$" },
+        { id: "B", text: "$(1, -10)$" },
+        { id: "C", text: "$(3, -14)$" },
         { id: "D", text: "(3, 2)" }
       ],
       correctAnswer: "A",
@@ -346,7 +346,7 @@ export const transformationsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "If f(2) = 7, what is g(2) if g(x) = f(x) + 5?",
+      question: "If $f(2) = 7$, what is g(2) if $g(x) = f(x) + 5$?",
       choices: [
         { id: "A", text: "2" },
         { id: "B", text: "7" },
@@ -354,14 +354,14 @@ export const transformationsQuestions = {
         { id: "D", text: "35" }
       ],
       correctAnswer: "C",
-      hint: "Substitute x = 2 into g(x) = f(x) + 5. You already know what f(2) equals.",
+      hint: "Substitute $x = 2$ into $g(x) = f(x) + 5$. You already know what f(2) equals.",
       explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** The $+5$ is outside, so $g(2)=f(2)+5=7+5=12$.\n\n**The Full Solution:**\nStep 1: $g(x)=f(x)+5$, so at $x=2$, $g(2)=f(2)+5$.\nStep 2: Substitute the given $f(2)=7$: $g(2)=7+5=12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A $2$: computed $7-5$, subtracting instead of adding.\n* Choice B $7$: just $f(2)$, with the $+5$ ignored.\n* Choice D $35$: computed $7\\times 5$, multiplying instead of adding.\n\n**Test Day Takeaway:** For $g(x)=f(x)+k$, look up $f$ at the same input and add $k$: $g(a)=f(a)+k$.",
       skills: ['function-transformations']
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "If f(3) = 8, what is h(5) if h(x) = f(x - 2)?",
+      question: "If $f(3) = 8$, what is h(5) if $h(x) = f(x - 2)$?",
       choices: [
         { id: "A", text: "6" },
         { id: "B", text: "8" },
@@ -369,18 +369,18 @@ export const transformationsQuestions = {
         { id: "D", text: "Cannot determine" }
       ],
       correctAnswer: "B",
-      hint: "First calculate what goes into f: when x = 5, what is (x - 2)? Does that value match something you know about f?",
+      hint: "First calculate what goes into f: when $x = 5$, what is (x - 2)? Does that value match something you know about f?",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** $h(5)=f(5-2)=f(3)=8$.\n\n**The Full Solution:**\nStep 1: $h(x)=f(x-2)$, so evaluate the inside first: $h(5)=f(5-2)$.\nStep 2: $5-2=3$, and the problem gives $f(3)=8$, so $h(5)=8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A $6$: computed $f(3)-2=6$; the $-2$ is inside, changing the input, not the output.\n* Choice C $10$: added $2$ to the output, as if the change acted on $y$.\n* Choice D Cannot determine: assumes you need $f(5)$, but $h(5)$ asks for $f(3)$, which is given.\n\n**Test Day Takeaway:** For $h(x)=f(x-c)$, evaluate the inside first: $h(a)=f(a-c)$. You need $f$ at the shifted input.",
       skills: ['function-transformations']
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "Given the table: f(1) = 4, f(2) = 7, f(3) = 10. If g(x) = -f(x), what is g(2)?",
+      question: "Given the table: $f(1) = 4$, $f(2) = 7$, $f(3) = 10$. If $g(x) = -f(x)$, what is g(2)?",
       choices: [
-        { id: "A", text: "−7" },
+        { id: "A", text: "$-7$" },
         { id: "B", text: "7" },
-        { id: "C", text: "−2" },
+        { id: "C", text: "$-2$" },
         { id: "D", text: "14" }
       ],
       correctAnswer: "A",
@@ -391,7 +391,7 @@ export const transformationsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "If f(4) = 10 and g(x) = f(x + 3) - 2, what is g(1)?",
+      question: "If $f(4) = 10$ and $g(x) = f(x + 3) - 2$, what is g(1)?",
       choices: [
         { id: "A", text: "5" },
         { id: "B", text: "8" },
@@ -399,14 +399,14 @@ export const transformationsQuestions = {
         { id: "D", text: "15" }
       ],
       correctAnswer: "B",
-      hint: "Work from the inside out: when x = 1, calculate (x + 3) first to see which f-value you need, then subtract 2 from the result.",
+      hint: "Work from the inside out: when $x = 1$, calculate (x + 3) first to see which f-value you need, then subtract 2 from the result.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** Work inside-out: the $+3$ is inside, so $g(1)=f(1+3)-2=f(4)-2=10-2=8$.\n\n**The Full Solution:**\nStep 1: $g(x)=f(x+3)-2$. The $+3$ changes the input; the $-2$ changes the output.\nStep 2: Inside first: $1+3=4$, so $g(1)=f(4)-2$.\nStep 3: $f(4)=10$, so $g(1)=10-2=8$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): misapplies the constants, e.g. $f(1)$-based arithmetic; the $+3$ is inside the input, not added to the output.\n* Choice C ($11$): computes $f(4)+1$ — adds instead of subtracting, or confuses the two constants.\n* Choice D ($15$): computes $f(4)+3+2$, treating both constants as outside additions.\n\n**Test Day Takeaway:** For $g(x)=f(x+a)+b$, evaluate the inside $x+a$ first, look up $f$ there, then apply the outside $+b$.",
       skills: ['function-transformations']
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "Table shows: x = [0, 1, 2], f(x) = [5, 8, 11]. For g(x) = 2f(x), what is g(1)?",
+      question: "Table shows: x = [0, 1, 2], f(x) = [5, 8, 11]. For $g(x) = 2f(x)$, what is g(1)?",
       choices: [
         { id: "A", text: "8" },
         { id: "B", text: "10" },
@@ -421,22 +421,22 @@ export const transformationsQuestions = {
     {
       id: 6,
       difficulty: "easy",
-      question: "If f(0) = 5, what is g(0) if g(x) = f(x) - 3?",
+      question: "If $f(0) = 5$, what is g(0) if $g(x) = f(x) - 3$?",
       choices: [
         { id: "A", text: "2" },
         { id: "B", text: "5" },
         { id: "C", text: "8" },
-        { id: "D", text: "−3" }
+        { id: "D", text: "$-3$" }
       ],
       correctAnswer: "A",
-      hint: "Substitute x = 0 into g(x) = f(x) - 3. Use the given value of f(0).",
+      hint: "Substitute $x = 0$ into $g(x) = f(x) - 3$. Use the given value of f(0).",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~10s):** The $-3$ is outside, so subtract it from the output: $g(0)=f(0)-3=5-3=2$.\n\n**The Full Solution:**\nStep 1: $g(x)=f(x)-3$ keeps the input and lowers the output by $3$.\nStep 2: $f(0)=5$ is given.\nStep 3: $g(0)=5-3=2$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($5$): just $f(0)$, ignoring the $-3$ shift.\n* Choice C ($8$): computes $f(0)+3$ — adds instead of subtracting.\n* Choice D ($-3$): reports only the shift constant, ignoring $f(0)$.\n\n**Test Day Takeaway:** For $g(x)=f(x)-k$, evaluate $f$ at the same input, then subtract $k$ from the result.",
       skills: ['function-transformations']
     },
     {
       id: 7,
       difficulty: "easy",
-      question: "If f(4) = 12, what is h(6) if h(x) = f(x - 2)?",
+      question: "If $f(4) = 12$, what is h(6) if $h(x) = f(x - 2)$?",
       choices: [
         { id: "A", text: "10" },
         { id: "B", text: "12" },
@@ -444,14 +444,14 @@ export const transformationsQuestions = {
         { id: "D", text: "Cannot determine" }
       ],
       correctAnswer: "B",
-      hint: "When x = 6, what is (x - 2)? Find f of that value.",
+      hint: "When $x = 6$, what is (x - 2)? Find f of that value.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** The $-2$ is inside, so it sets the input: $h(6)=f(6-2)=f(4)=12$.\n\n**The Full Solution:**\nStep 1: $h(x)=f(x-2)$ changes the input only.\nStep 2: $6-2=4$, so $h(6)=f(4)$.\nStep 3: $f(4)=12$ is given, so $h(6)=12$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): computes $f(4)-2$, applying the $-2$ to the output; it belongs inside, on the input.\n* Choice C ($14$): computes $f(4)+2$ — adds instead of recognizing the inside change.\n* Choice D (Cannot determine): assumes you need $f(6)$; but $h(6)=f(4)$, and $f(4)$ is given.\n\n**Test Day Takeaway:** An inside change redirects the input. For $h(x)=f(x-c)$, compute $x-c$ first, then look up $f$ there.",
       skills: ['function-transformations']
     },
     {
       id: 8,
       difficulty: "medium",
-      question: "Given the table: f(0) = 2, f(1) = 5, f(2) = 8. If g(x) = f(x - 1), what is g(2)?",
+      question: "Given the table: $f(0) = 2$, $f(1) = 5$, $f(2) = 8$. If $g(x) = f(x - 1)$, what is g(2)?",
       choices: [
         { id: "A", text: "2" },
         { id: "B", text: "5" },
@@ -459,14 +459,14 @@ export const transformationsQuestions = {
         { id: "D", text: "Cannot determine" }
       ],
       correctAnswer: "B",
-      hint: "g(2) = f(2 - 1) = f(1). Look up f(1) in the table.",
+      hint: "$g(2) = f(2 - 1)$ = f(1). Look up f(1) in the table.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** The $-1$ inside redirects the lookup: $g(2)=f(2-1)=f(1)=5$.\n\n**The Full Solution:**\nStep 1: $g(x)=f(x-1)$ changes the input only.\nStep 2: $2-1=1$, so $g(2)=f(1)$.\nStep 3: From the table, $f(1)=5$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reads $f(0)=2$, the wrong entry — likely confusing input with output.\n* Choice C ($8$): uses $f(2)=8$, the original input; the $-1$ inside shifts the lookup to $x=1$.\n* Choice D (Cannot determine): $f(1)$ is explicitly in the table, so the value is determined.\n\n**Test Day Takeaway:** For $g(x)=f(x-c)$, compute $x-c$ first, then look up that value. $g(2)=f(1)$, not $f(2)$.",
       skills: ['function-transformations']
     },
     {
       id: 9,
       difficulty: "medium",
-      question: "Given: f(1) = 3, f(2) = 7, f(3) = 11. If g(x) = f(x) + 4, what is g(2)?",
+      question: "Given: $f(1) = 3$, $f(2) = 7$, $f(3) = 11$. If $g(x) = f(x) + 4$, what is g(2)?",
       choices: [
         { id: "A", text: "7" },
         { id: "B", text: "11" },
@@ -474,14 +474,14 @@ export const transformationsQuestions = {
         { id: "D", text: "6" }
       ],
       correctAnswer: "B",
-      hint: "g(2) = f(2) + 4. Find f(2) from the given information, then add 4.",
+      hint: "$g(2) = f(2) + 4$. Find f(2) from the given information, then add 4.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** The $+4$ is outside, so add it to the output: $g(2)=f(2)+4=7+4=11$.\n\n**The Full Solution:**\nStep 1: $g(x)=f(x)+4$ keeps the input and raises the output by $4$.\nStep 2: From the table, $f(2)=7$.\nStep 3: $g(2)=7+4=11$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): just $f(2)$, ignoring the $+4$ shift.\n* Choice C ($15$): uses $f(3)+4=11+4$, the wrong table entry; you need $f(2)$, not $f(3)$.\n* Choice D ($6$): subtracts instead of adds, or otherwise misapplies the constant.\n\n**Test Day Takeaway:** For $g(x)=f(x)+k$, the input stays the same — just add $k$ to the output.",
       skills: ['function-transformations']
     },
     {
       id: 10,
       difficulty: "medium",
-      question: "If f(5) = 20 and g(x) = f(x + 2) - 6, what is g(3)?",
+      question: "If $f(5) = 20$ and $g(x) = f(x + 2) - 6$, what is g(3)?",
       choices: [
         { id: "A", text: "14" },
         { id: "B", text: "16" },
@@ -489,14 +489,14 @@ export const transformationsQuestions = {
         { id: "D", text: "26" }
       ],
       correctAnswer: "A",
-      hint: "First find what goes into f: when x = 3, calculate (x + 2). Then subtract 6 from the f-value.",
+      hint: "First find what goes into f: when $x = 3$, calculate (x + 2). Then subtract 6 from the f-value.",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** Inside first, then outside: $g(3)=f(3+2)-6=f(5)-6=20-6=14$.\n\n**The Full Solution:**\nStep 1: $g(x)=f(x+2)-6$. The $+2$ changes the input; the $-6$ changes the output.\nStep 2: $3+2=5$, so $g(3)=f(5)-6$.\nStep 3: $f(5)=20$, so $g(3)=20-6=14$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($16$): an arithmetic slip such as $20-4$, mishandling the subtraction.\n* Choice C ($20$): just $f(5)$, forgetting the outside $-6$.\n* Choice D ($26$): computes $f(5)+6$ — adds instead of subtracting.\n\n**Test Day Takeaway:** For $g(x)=f(x+a)+b$, compute the inside $x+a$, look up $f$ there, then apply the outside $+b$ — two operations, in order.",
       skills: ['function-transformations']
     },
     {
       id: 11,
       difficulty: "medium",
-      question: "Table shows: x = [1, 2, 3, 4], f(x) = [6, 9, 12, 15]. For g(x) = f(x + 1), what is g(1)?",
+      question: "Table shows: x = [1, 2, 3, 4], f(x) = [6, 9, 12, 15]. For $g(x) = f(x + 1)$, what is g(1)?",
       choices: [
         { id: "A", text: "6" },
         { id: "B", text: "9" },
@@ -504,14 +504,14 @@ export const transformationsQuestions = {
         { id: "D", text: "3" }
       ],
       correctAnswer: "B",
-      hint: "g(1) = f(1 + 1) = f(2). Look up f(2) in the table.",
+      hint: "$g(1) = f(1 + 1)$ = f(2). Look up f(2) in the table.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** The $+1$ inside shifts the lookup forward: $g(1)=f(1+1)=f(2)=9$.\n\n**The Full Solution:**\nStep 1: $g(x)=f(x+1)$ changes the input only.\nStep 2: $1+1=2$, so $g(1)=f(2)$.\nStep 3: From the table, $f(2)=9$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): uses $f(1)=6$, the original input, without applying the $+1$ shift.\n* Choice C ($12$): uses $f(3)=12$, as if the shift were $+2$ instead of $+1$.\n* Choice D ($3$): no table value equals $3$; likely a misapplied subtraction.\n\n**Test Day Takeaway:** For $g(x)=f(x+c)$, the $+c$ inside means look ahead $c$ steps. $g(1)=f(2)$, not $f(1)$.",
       skills: ['function-transformations']
     },
     {
       id: 12,
       difficulty: "hard",
-      question: "Given: f(2) = 8, f(4) = 14. If g(x) = f(2x), what is g(1)?",
+      question: "Given: $f(2) = 8$, $f(4) = 14$. If $g(x) = f(2x)$, what is g(1)?",
       choices: [
         { id: "A", text: "4" },
         { id: "B", text: "8" },
@@ -519,14 +519,14 @@ export const transformationsQuestions = {
         { id: "D", text: "Cannot determine" }
       ],
       correctAnswer: "B",
-      hint: "g(1) = f(2 × 1) = f(2). You're given f(2) in the problem.",
+      hint: "$g(1) = f(2 \times 1)$ = f(2). You're given f(2) in the problem.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** The $2x$ inside sets the input: $g(1)=f(2\\times 1)=f(2)=8$.\n\n**The Full Solution:**\nStep 1: $g(x)=f(2x)$ multiplies the input before $f$ acts.\nStep 2: $2\\times 1=2$, so $g(1)=f(2)$.\nStep 3: From the given data, $f(2)=8$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): computes $\\frac{f(2)}{2}=4$, dividing the output by $2$; the multiplier is inside, on the input.\n* Choice C ($14$): uses $f(4)=14$, as if computing $g(2)=f(2\\times 2)$; wrong input.\n* Choice D (Cannot determine): assumes you need $f(1)$; but $g(1)=f(2)$, which is given.\n\n**Test Day Takeaway:** For $g(x)=f(cx)$, the multiplier is inside. Compute $cx$ first, then look up $f$ there. $g(1)=f(2)$.",
       skills: ['function-transformations']
     },
     {
       id: 13,
       difficulty: "hard",
-      question: "Table: x = [0, 2, 4, 6], f(x) = [1, 5, 9, 13]. If h(x) = 3f(x) - 2, what is h(4)?",
+      question: "Table: x = [0, 2, 4, 6], f(x) = [1, 5, 9, 13]. If $h(x) = 3f(x) - 2$, what is h(4)?",
       choices: [
         { id: "A", text: "7" },
         { id: "B", text: "25" },
@@ -541,7 +541,7 @@ export const transformationsQuestions = {
     {
       id: 14,
       difficulty: "hard",
-      question: "If f(3) = 10 and g(x) = f(x - 2) + f(x + 2), and we also know f(1) = 4 and f(5) = 16, what is g(3)?",
+      question: "If $f(3) = 10$ and $g(x) = f(x - 2) + f(x + 2)$, and we also know $f(1) = 4$ and $f(5) = 16$, what is g(3)?",
       choices: [
         { id: "A", text: "14" },
         { id: "B", text: "20" },
@@ -549,7 +549,7 @@ export const transformationsQuestions = {
         { id: "D", text: "30" }
       ],
       correctAnswer: "B",
-      hint: "g(3) = f(3-2) + f(3+2) = f(1) + f(5). Look up both values from the given information.",
+      hint: "$g(3) = f(3-2) + f(3+2)$ = f(1) + f(5). Look up both values from the given information.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** Each term is a separate lookup: $g(3)=f(3-2)+f(3+2)=f(1)+f(5)=4+16=20$.\n\n**The Full Solution:**\nStep 1: $g(x)=f(x-2)+f(x+2)$. Evaluate each term on its own.\nStep 2: First term: $3-2=1$, so $f(1)=4$.\nStep 3: Second term: $3+2=5$, so $f(5)=16$.\nStep 4: $g(3)=4+16=20$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): uses $f(1)+f(3)=4+10$, taking $f(3)$ instead of $f(5)$ for the second term.\n* Choice C ($26$): uses $f(3)+f(5)=10+16$, taking $f(3)$ instead of $f(1)$ for the first term.\n* Choice D ($30$): adds an extra $f(3)$, summing $f(1)+f(3)+f(5)=4+10+16$.\n\n**Test Day Takeaway:** When a function is built from a sum of values, evaluate each term independently, then add. The given $f(3)=10$ is a decoy here.",
       skills: ['function-transformations']
     }
@@ -560,27 +560,27 @@ export const transformationsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "If f(x) = x², what is f(x + 3)?",
+      question: "If $f(x) = x^2$, what is f(x + 3)?",
       choices: [
-        { id: "A", text: "x² + 3" },
-        { id: "B", text: "x² + 6x + 9" },
-        { id: "C", text: "(x + 3)²" },
+        { id: "A", text: "$x^2 + 3$" },
+        { id: "B", text: "$x^2 + 6x + 9$" },
+        { id: "C", text: "$(x + 3)^2$" },
         { id: "D", text: "Both B and C" }
       ],
       correctAnswer: "D",
-      hint: "Replace every x in f(x) = x² with (x + 3). Then consider whether the factored form and expanded form are equivalent.",
+      hint: "Replace every x in $f(x) = x^2$ with (x + 3). Then consider whether the factored form and expanded form are equivalent.",
       explanation: "**Choice D is correct.**\n\n**The Fast Way (~15s):** Replace every $x$ with $(x+3)$ to get $(x+3)^2$ (Choice C). Expanding gives $x^2+6x+9$ (Choice B). Same expression, two forms, so both are right.\n\n**The Full Solution:**\nStep 1: $f(x)=x^2$, so $f(x+3)=(x+3)^2$. That is exactly Choice C.\nStep 2: Expand: $(x+3)^2 = x^2 + 2(x)(3) + 3^2 = x^2 + 6x + 9$. That is exactly Choice B.\nStep 3: Choices B and C are the same number for every $x$, so the complete answer is Choice D.\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^2+3$): this is $f(x)+3$, not $f(x+3)$. The $+3$ goes inside the squared expression, not added on after.\n* Choice B alone: $x^2+6x+9$ is correct, but it is not the only correct form — Choice C is equal to it.\n* Choice C alone: $(x+3)^2$ is correct, but Choice B is its expansion. Picking just one misses that D covers both.\n\n**Test Day Takeaway:** To evaluate $f(x+c)$, substitute $(x+c)$ for every $x$. A factored form and its expansion are always equal — if both appear as options, \"both\" is usually the intended answer.",
       skills: ['function-transformations']
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "If f(x) = 2x - 1, what is -f(x)?",
+      question: "If $f(x) = 2x - 1$, what is -f(x)?",
       choices: [
-        { id: "A", text: "−2x − 1" },
-        { id: "B", text: "−2x + 1" },
-        { id: "C", text: "2x + 1" },
-        { id: "D", text: "−2x" }
+        { id: "A", text: "$-2x - 1$" },
+        { id: "B", text: "$-2x + 1$" },
+        { id: "C", text: "$2x + 1$" },
+        { id: "D", text: "$-2x$" }
       ],
       correctAnswer: "B",
       hint: "Multiply the entire expression (2x - 1) by -1. Remember to distribute the negative to both terms.",
@@ -605,11 +605,11 @@ export const transformationsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "If f(x) = x³, what is f(-x)?",
+      question: "If $f(x) = x^3$, what is f(-x)?",
       choices: [
-        { id: "A", text: "x³" },
-        { id: "B", text: "-x³" },
-        { id: "C", text: "(-x)³ = -x³" },
+        { id: "A", text: "$x^3$" },
+        { id: "B", text: "$-x^3$" },
+        { id: "C", text: "$(-x)^3 = -x^3$" },
         { id: "D", text: "Both B and C" }
       ],
       correctAnswer: "D",
@@ -635,12 +635,12 @@ export const transformationsQuestions = {
     {
       id: 6,
       difficulty: "easy",
-      question: "If f(x) = x² + 1, what is f(x) - 4?",
+      question: "If $f(x) = x^2 + 1$, what is f(x) - 4?",
       choices: [
-        { id: "A", text: "x² - 3" },
-        { id: "B", text: "x² + 5" },
-        { id: "C", text: "(x - 4)² + 1" },
-        { id: "D", text: "x² - 4" }
+        { id: "A", text: "$x^2 - 3$" },
+        { id: "B", text: "$x^2 + 5$" },
+        { id: "C", text: "$(x - 4)^2 + 1$" },
+        { id: "D", text: "$x^2 - 4$" }
       ],
       correctAnswer: "A",
       hint: "f(x) - 4 means take the entire expression for f(x) and subtract 4 from it.",
@@ -650,42 +650,42 @@ export const transformationsQuestions = {
     {
       id: 7,
       difficulty: "easy",
-      question: "If g(x) = 5x, what is g(x - 2)?",
+      question: "If $g(x) = 5x$, what is g(x - 2)?",
       choices: [
-        { id: "A", text: "5x - 2" },
-        { id: "B", text: "5x - 10" },
-        { id: "C", text: "5(x - 2)" },
+        { id: "A", text: "$5x - 2$" },
+        { id: "B", text: "$5x - 10$" },
+        { id: "C", text: "$5(x - 2)$" },
         { id: "D", text: "Both B and C" }
       ],
       correctAnswer: "D",
-      hint: "Replace every x in g(x) = 5x with (x - 2). Then simplify to see if it matches any answer.",
+      hint: "Replace every x in $g(x) = 5x$ with (x - 2). Then simplify to see if it matches any answer.",
       explanation: "**Choice D is correct.**\n\n**The Fast Way (~15s):** $g(x-2)=5(x-2)$ (Choice C), which distributes to $5x-10$ (Choice B). Same value, so D.\n\n**The Full Solution:**\nStep 1: $g(x)=5x$, so $g(x-2)=5(x-2)$ — substitute $(x-2)$ for $x$. That is Choice C.\nStep 2: Distribute: $5(x-2)=5x-10$. That is Choice B.\nStep 3: B and C are the same expression, so the complete answer is Choice D.\n\n**Why the wrong answers are tempting:**\n* Choice A ($5x-2$): subtracted $2$ from $5x$ without distributing the $5$. The correct product is $5(x-2)=5x-10$.\n* Choice B alone ($5x-10$): correct, but it equals the factored Choice C.\n* Choice C alone ($5(x-2)$): correct, but it equals the distributed Choice B. Picking one misses that D covers both.\n\n**Test Day Takeaway:** Substituting $(x-c)$ into $g(x)=ax$ gives $a(x-c)=ax-ac$ — always distribute the coefficient through the shift.",
       skills: ['function-transformations']
     },
     {
       id: 8,
       difficulty: "medium",
-      question: "If f(x) = x² - 2x, what is f(x + 1)?",
+      question: "If $f(x) = x^2 - 2x$, what is f(x + 1)?",
       choices: [
-        { id: "A", text: "x² - 1" },
-        { id: "B", text: "x² + 1" },
-        { id: "C", text: "x² - 2x + 1" },
-        { id: "D", text: "x² - 2x - 1" }
+        { id: "A", text: "$x^2 - 1$" },
+        { id: "B", text: "$x^2 + 1$" },
+        { id: "C", text: "$x^2 - 2x + 1$" },
+        { id: "D", text: "$x^2 - 2x - 1$" }
       ],
       correctAnswer: "A",
-      hint: "Replace every x with (x + 1): f(x + 1) = (x + 1)² - 2(x + 1). Expand and simplify.",
+      hint: "Replace every x with (x + 1): $f(x + 1) = (x + 1)^2 - 2(x + 1)$. Expand and simplify.",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** Substitute $(x+1)$ everywhere: $(x+1)^2-2(x+1)$. The $+2x$ from the square cancels the $-2x$, leaving $x^2-1$.\n\n**The Full Solution:**\nStep 1: $f(x)=x^2-2x$, so $f(x+1)=(x+1)^2-2(x+1)$.\nStep 2: Expand $(x+1)^2=x^2+2x+1$ and $-2(x+1)=-2x-2$.\nStep 3: Combine: $x^2+2x+1-2x-2=x^2+(2x-2x)+(1-2)=x^2-1$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^2+1$): right that the $x$-terms cancel, but the constants combine to $1-2=-1$, not $+1$.\n* Choice C ($x^2-2x+1$): only expanded $(x+1)^2$ and forgot to apply the $-2(x+1)$ term.\n* Choice D ($x^2-2x-1$): missed that $(x+1)^2$ supplies a $+2x$ that cancels the $-2x$; the $x$-terms should vanish.\n\n**Test Day Takeaway:** For $f(x+c)$ on a multi-term function, substitute into every $x$, expand each piece separately, then collect like terms — watch for $x$-terms that cancel.",
       skills: ['function-transformations']
     },
     {
       id: 9,
       difficulty: "medium",
-      question: "If f(x) = 2x + 3, what is f(-x) + 5?",
+      question: "If $f(x) = 2x + 3$, what is f(-x) + 5?",
       choices: [
-        { id: "A", text: "−2x + 8" },
-        { id: "B", text: "−2x − 2" },
-        { id: "C", text: "2x + 8" },
-        { id: "D", text: "−2x + 3" }
+        { id: "A", text: "$-2x + 8$" },
+        { id: "B", text: "$-2x - 2$" },
+        { id: "C", text: "$2x + 8$" },
+        { id: "D", text: "$-2x + 3$" }
       ],
       correctAnswer: "A",
       hint: "First find f(-x) by replacing x with (-x), then add 5 to the result.",
@@ -695,11 +695,11 @@ export const transformationsQuestions = {
     {
       id: 10,
       difficulty: "medium",
-      question: "If g(x) = x³, what is -g(x)?",
+      question: "If $g(x) = x^3$, what is -g(x)?",
       choices: [
-        { id: "A", text: "(-x)³" },
-        { id: "B", text: "-x³" },
-        { id: "C", text: "x³" },
+        { id: "A", text: "$(-x)^3$" },
+        { id: "B", text: "$-x^3$" },
+        { id: "C", text: "$x^3$" },
         { id: "D", text: "Both A and B" }
       ],
       correctAnswer: "B",
@@ -725,12 +725,12 @@ export const transformationsQuestions = {
     {
       id: 12,
       difficulty: "hard",
-      question: "If f(x) = 3x² - 2x + 1, what is -f(x)?",
+      question: "If $f(x) = 3x^2 - 2x + 1$, what is -f(x)?",
       choices: [
-        { id: "A", text: "−3x² + 2x − 1" },
-        { id: "B", text: "3x² + 2x + 1" },
-        { id: "C", text: "−3x² − 2x − 1" },
-        { id: "D", text: "3x² - 2x - 1" }
+        { id: "A", text: "$-3x^2 + 2x - 1$" },
+        { id: "B", text: "$3x^2 + 2x + 1$" },
+        { id: "C", text: "$-3x^2 - 2x - 1$" },
+        { id: "D", text: "$3x^2 - 2x - 1$" }
       ],
       correctAnswer: "A",
       hint: "Multiply the entire expression by -1. Distribute the negative to every term.",
@@ -745,17 +745,17 @@ export const transformationsQuestions = {
     {
       id: 1,
       difficulty: "hard",
-      question: "The rational function f is defined by an equation in the form shown below, where a and b are constants. The partial graph of y = f(x) is shown. If g(x) = f(x + 4), which equation could define function g?",
-      questionFormula: { text: "f(x) = ", fraction: { numerator: "a", denominator: "x + b" } },
+      question: "The rational function f is defined by an equation in the form shown below, where a and b are constants. The partial graph of $y = f(x)$ is shown. If $g(x) = f(x + 4)$, which equation could define function g?",
+      questionFormula: { text: "$f(x) =$", fraction: { numerator: "a", denominator: "x + b" } },
       diagram: {
         type: "rationalFunction",
         params: { a: 6, b: 2, showPoints: [[0, 3], [1, 2]] }
       },
       choices: [
-        { id: "A", text: "g(x) = ", fraction: { numerator: "6", denominator: "x" } },
-        { id: "B", text: "g(x) = ", fraction: { numerator: "6", denominator: "x + 4" } },
-        { id: "C", text: "g(x) = ", fraction: { numerator: "6", denominator: "x + 6" } },
-        { id: "D", text: "g(x) = ", fraction: { numerator: "3", denominator: "x + 2" } }
+        { id: "A", text: "$g(x) =$", fraction: { numerator: "6", denominator: "x" } },
+        { id: "B", text: "$g(x) =$", fraction: { numerator: "6", denominator: "x + 4" } },
+        { id: "C", text: "$g(x) =$", fraction: { numerator: "6", denominator: "x + 6" } },
+        { id: "D", text: "$g(x) =$", fraction: { numerator: "3", denominator: "x + 2" } }
       ],
       correctAnswer: "C",
       hint: "Read two points from the graph to set up a system of equations. Solve for a and b, then apply the transformation.",
@@ -765,55 +765,55 @@ export const transformationsQuestions = {
     {
       id: 2,
       difficulty: "hard",
-      question: "The rational function f is defined by an equation in the form shown below, where a and b are constants. The partial graph of y = f(x) is shown. If g(x) = f(x − 2), which equation could define function g?",
-      questionFormula: { text: "f(x) = ", fraction: { numerator: "a", denominator: "x + b" } },
+      question: "The rational function f is defined by an equation in the form shown below, where a and b are constants. The partial graph of $y = f(x)$ is shown. If $g(x) = f(x - 2)$, which equation could define function g?",
+      questionFormula: { text: "$f(x) =$", fraction: { numerator: "a", denominator: "x + b" } },
       diagram: {
         type: "rationalFunction",
         params: { a: 8, b: 2, showPoints: [[0, 4], [2, 2]] }
       },
       choices: [
-        { id: "A", text: "g(x) = ", fraction: { numerator: "8", denominator: "x + 4" } },
-        { id: "B", text: "g(x) = ", fraction: { numerator: "8", denominator: "x" } },
-        { id: "C", text: "g(x) = ", fraction: { numerator: "8", denominator: "x + 2" } },
-        { id: "D", text: "g(x) = ", fraction: { numerator: "4", denominator: "x − 2" } }
+        { id: "A", text: "$g(x) =$", fraction: { numerator: "8", denominator: "x + 4" } },
+        { id: "B", text: "$g(x) =$", fraction: { numerator: "8", denominator: "x" } },
+        { id: "C", text: "$g(x) =$", fraction: { numerator: "8", denominator: "x + 2" } },
+        { id: "D", text: "$g(x) =$", fraction: { numerator: "4", denominator: "x − 2" } }
       ],
       correctAnswer: "B",
-      hint: "Read two points from the graph, solve for a and b, then apply the transformation g(x) = f(x - 2).",
+      hint: "Read two points from the graph, solve for a and b, then apply the transformation $g(x) = f(x - 2)$.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** Two points pin $f(x)=\\frac{8}{x+2}$. Then $f(x-2)$ makes the denominator $(x-2)+2=x$, leaving $\\frac{8}{x}$.\n\n**The Full Solution:**\nStep 1: The graph passes through $(0,4)$ and $(2,2)$. With $f(x)=\\frac{a}{x+b}$, the point $(0,4)$ gives $4=\\frac{a}{b}$, so $a=4b$.\nStep 2: The point $(2,2)$ gives $2=\\frac{a}{2+b}$. Substitute $a=4b$: $2(2+b)=4b \\Rightarrow 4+2b=4b \\Rightarrow b=2$, so $a=8$. Thus $f(x)=\\frac{8}{x+2}$.\nStep 3: $g(x)=f(x-2)=\\frac{8}{(x-2)+2}=\\frac{8}{x}$, which is Choice B.\nStep 4: Check: $g(4)=\\frac{8}{4}=2$ and $f(2)=\\frac{8}{4}=2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{x+4}$): added $2$ to the constant instead of subtracting; $f(x-2)$ gives $(x-2)+2=x$, not $x+4$.\n* Choice C ($\\frac{8}{x+2}$): this is $f(x)$ untouched — the shift was never applied.\n* Choice D ($\\frac{4}{x-2}$): changed the numerator and mishandled the shift; only the denominator's constant moves, and $a$ stays $8$.\n\n**Test Day Takeaway:** $f(x-c)$ replaces the denominator $x+b$ with $x+(b-c)$. When $c=b$, the constant cancels to leave just $x$.",
       skills: ['function-transformations', 'system-of-equations']
     },
     {
       id: 3,
       difficulty: "hard",
-      question: "The function f is defined by f(x) = (x - h)² + k. The graph of f has its vertex at (3, -4). If g(x) = f(x + 5), what are the coordinates of the vertex of the graph of g?",
+      question: "The function f is defined by $f(x) = (x - h)^2 + k$. The graph of f has its vertex at (3, -4). If $g(x) = f(x + 5)$, what are the coordinates of the vertex of the graph of g?",
       diagram: {
         type: "quadraticVertex",
         params: { vertex: [3, -4], direction: "up", showVertex: true }
       },
       choices: [
-        { id: "A", text: "(8, -4)" },
-        { id: "B", text: "(-2, -4)" },
+        { id: "A", text: "$(8, -4)$" },
+        { id: "B", text: "$(-2, -4)$" },
         { id: "C", text: "(3, 1)" },
-        { id: "D", text: "(-2, 1)" }
+        { id: "D", text: "$(-2, 1)$" }
       ],
       correctAnswer: "B",
-      hint: "The transformation g(x) = f(x + 5) shifts the graph horizontally. Adding inside the function shifts left (opposite direction). The y-coordinate stays the same.",
+      hint: "The transformation $g(x) = f(x + 5)$ shifts the graph horizontally. Adding inside the function shifts left (opposite direction). The y-coordinate stays the same.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** $f(x+5)$ shifts the graph left $5$, and an inside change moves only the $x$-coordinate: $(3,-4)\\to(-2,-4)$.\n\n**The Full Solution:**\nStep 1: $g(x)=f(x+5)$. The $+5$ is inside the function, so the graph slides left $5$ — opposite the sign.\nStep 2: The vertical position is untouched, so only the $x$-coordinate changes: $3-5=-2$. The vertex is $(-2,-4)$, which is Choice B.\nStep 3: Check by rewriting: $f(x)=(x-3)^2-4$, so $g(x)=((x+5)-3)^2-4=(x+2)^2-4$, with vertex at $x=-2$, $y=-4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(8,-4)$): shifted right $5$ instead of left; a $+5$ inside moves the graph left.\n* Choice C ($(3,1)$): added $5$ to the $y$-coordinate, treating the inside change as if it were outside.\n* Choice D ($(-2,1)$): applied the shift to both coordinates; an inside change affects horizontal position only.\n\n**Test Day Takeaway:** $f(x+c)$ shifts left by $c$ and changes only the $x$-coordinate; the vertex's $y$-value is fixed under any inside shift.",
       skills: ['function-transformations', 'vertex-form']
     },
     {
       id: 4,
       difficulty: "hard",
-      question: "The function f is defined by f(x) = |x + 2| - 3. The vertex of the graph of f is at (-2, -3). If g(x) = f(x - 4) + 2, what are the coordinates of the vertex of the graph of g?",
+      question: "The function f is defined by f(x) = |x + 2| - 3. The vertex of the graph of f is at (-2, -3). If $g(x) = f(x - 4) + 2$, what are the coordinates of the vertex of the graph of g?",
       diagram: {
         type: "absoluteValue",
         params: { vertex: [-2, -3], slope: 1 }
       },
       choices: [
-        { id: "A", text: "(2, -1)" },
-        { id: "B", text: "(-6, -1)" },
-        { id: "C", text: "(2, -5)" },
-        { id: "D", text: "(-6, -5)" }
+        { id: "A", text: "$(2, -1)$" },
+        { id: "B", text: "$(-6, -1)$" },
+        { id: "C", text: "$(2, -5)$" },
+        { id: "D", text: "$(-6, -5)$" }
       ],
       correctAnswer: "A",
       hint: "Apply both transformations step by step. f(x - 4) shifts right 4 units. The +2 outside shifts up 2 units.",
@@ -823,17 +823,17 @@ export const transformationsQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "The rational function f is defined by an equation in the form shown below, where a and b are constants. From the graph, f(1) = 6 and f(5) = 2. If g(x) = f(x + 4), which equation could define function g?",
-      questionFormula: { text: "f(x) = ", fraction: { numerator: "a", denominator: "x + b" } },
+      question: "The rational function f is defined by an equation in the form shown below, where a and b are constants. From the graph, $f(1) = 6$ and $f(5) = 2$. If $g(x) = f(x + 4)$, which equation could define function g?",
+      questionFormula: { text: "$f(x) =$", fraction: { numerator: "a", denominator: "x + b" } },
       diagram: {
         type: "rationalFunction",
         params: { a: 12, b: 1, showPoints: [[1, 6], [5, 2]] }
       },
       choices: [
-        { id: "A", text: "g(x) = ", fraction: { numerator: "12", denominator: "x + 6" } },
-        { id: "B", text: "g(x) = ", fraction: { numerator: "12", denominator: "x + 2" } },
-        { id: "C", text: "g(x) = ", fraction: { numerator: "6", denominator: "x + 4" } },
-        { id: "D", text: "g(x) = ", fraction: { numerator: "12", denominator: "x − 2" } }
+        { id: "A", text: "$g(x) =$", fraction: { numerator: "12", denominator: "x + 6" } },
+        { id: "B", text: "$g(x) =$", fraction: { numerator: "12", denominator: "x + 2" } },
+        { id: "C", text: "$g(x) =$", fraction: { numerator: "6", denominator: "x + 4" } },
+        { id: "D", text: "$g(x) =$", fraction: { numerator: "12", denominator: "x − 2" } }
       ],
       correctAnswer: "A",
       hint: "Set up two equations using the given function values. Solve for a and b, then apply the transformation.",
@@ -843,7 +843,7 @@ export const transformationsQuestions = {
     {
       id: 6,
       difficulty: "hard",
-      question: "The graph of y = f(x) passes through the points (2, 5) and (4, 9). The function g is defined by g(x) = f(x - 3) + 2. Which point must be on the graph of g?",
+      question: "The graph of $y = f(x)$ passes through the points (2, 5) and (4, 9). The function g is defined by $g(x) = f(x - 3) + 2$. Which point must be on the graph of g?",
       diagram: {
         type: "coordinatePoints",
         params: { points: [[2, 5], [4, 9]], labels: ["(2, 5)", "(4, 9)"] }
@@ -852,56 +852,56 @@ export const transformationsQuestions = {
         { id: "A", text: "(5, 7)" },
         { id: "B", text: "(7, 11)" },
         { id: "C", text: "(1, 7)" },
-        { id: "D", text: "(-1, 3)" }
+        { id: "D", text: "$(-1, 3)$" }
       ],
       correctAnswer: "B",
-      hint: "For g(x) = f(x - 3) + 2, the (x - 3) shifts right 3 units, and the +2 shifts up 2 units. Apply both to one of the given points.",
+      hint: "For $g(x) = f(x - 3) + 2$, the (x - 3) shifts right 3 units, and the +2 shifts up 2 units. Apply both to one of the given points.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** $g(x)=f(x-3)+2$ shifts every point right $3$ and up $2$. Map the known point $(4,9)$: $(4+3,\\;9+2)=(7,11)$.\n\n**The Full Solution:**\nStep 1: The inside $x-3$ moves points right $3$; the outside $+2$ moves them up $2$.\nStep 2: Apply this to $(4,9)$ from $f$: $x\\to 4+3=7$ and $y\\to 9+2=11$, giving $(7,11)$, which is Choice B.\nStep 3: Check: $g(7)=f(7-3)+2=f(4)+2=9+2=11$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(5,7)$): this is the image of the other listed point $(2,5)$ under the same rule; the question targets the image of $(4,9)$.\n* Choice C ($(1,7)$): shifted left $3$ instead of right; $f(x-3)$ moves points right.\n* Choice D ($(-1,3)$): reversed both shifts — left $3$ and down $2$.\n\n**Test Day Takeaway:** For $g(x)=f(x-h)+k$, every point $(a,b)$ on $f$ maps to $(a+h,\\;b+k)$ on $g$.",
       skills: ['function-transformations', 'combined-transformations']
     },
     {
       id: 7,
       difficulty: "hard",
-      question: "The quadratic function f has x-intercepts at x = -1 and x = 5. If g(x) = f(x + 3), what are the x-intercepts of the graph of g?",
+      question: "The quadratic function f has x-intercepts at $x = -1$ and $x = 5$. If $g(x) = f(x + 3)$, what are the x-intercepts of the graph of g?",
       diagram: {
         type: "quadraticIntercepts",
         params: { intercepts: [-1, 5], direction: "up" }
       },
       choices: [
-        { id: "A", text: "x = 2 and x = 8" },
-        { id: "B", text: "x = -4 and x = 2" },
-        { id: "C", text: "x = -1 and x = 5" },
-        { id: "D", text: "x = -4 and x = 8" }
+        { id: "A", text: "$x = 2$ and $x = 8$" },
+        { id: "B", text: "$x = -4$ and $x = 2$" },
+        { id: "C", text: "$x = -1$ and $x = 5$" },
+        { id: "D", text: "$x = -4$ and $x = 8$" }
       ],
       correctAnswer: "B",
-      hint: "g(x) = f(x + 3) shifts the graph left 3 units. Each x-intercept shifts left by 3.",
+      hint: "$g(x) = f(x + 3)$ shifts the graph left 3 units. Each x-intercept shifts left by 3.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** $f(x+3)$ shifts left $3$, so subtract $3$ from each intercept: $-1-3=-4$ and $5-3=2$.\n\n**The Full Solution:**\nStep 1: $g(x)=f(x+3)$. The $+3$ inside moves the graph left $3$ — opposite the sign.\nStep 2: Each $x$-intercept slides the same way: $-1\\to-4$ and $5\\to 2$. The new intercepts are $x=-4$ and $x=2$, which is Choice B.\nStep 3: Check: $g(-4)=f(-4+3)=f(-1)=0$ and $g(2)=f(2+3)=f(5)=0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x=2$ and $x=8$): shifted right $3$; seeing $+3$, students add instead of subtract, but $f(x+3)$ moves left.\n* Choice C ($x=-1$ and $x=5$): the original intercepts with no shift applied.\n* Choice D ($x=-4$ and $x=8$): shifted one intercept left and the other right; both must move the same direction.\n\n**Test Day Takeaway:** $f(x+c)$ moves every $x$-intercept from $x_0$ to $x_0-c$ — all features shift the same direction and amount.",
       skills: ['function-transformations', 'x-intercepts']
     },
     {
       id: 8,
       difficulty: "hard",
-      question: "The rational function f is defined by an equation in the form shown below, where a and b are constants. The graph passes through (0, 3) and (1, 2). Using the answer choice method: if g(x) = f(x + 2), which equation could define g?",
-      questionFormula: { text: "f(x) = ", fraction: { numerator: "a", denominator: "x + b" } },
+      question: "The rational function f is defined by an equation in the form shown below, where a and b are constants. The graph passes through (0, 3) and (1, 2). Using the answer choice method: if $g(x) = f(x + 2)$, which equation could define g?",
+      questionFormula: { text: "$f(x) =$", fraction: { numerator: "a", denominator: "x + b" } },
       diagram: {
         type: "rationalFunction",
         params: { a: 6, b: 2, showPoints: [[0, 3], [1, 2]] }
       },
       choices: [
-        { id: "A", text: "g(x) = ", fraction: { numerator: "6", denominator: "x + 4" } },
-        { id: "B", text: "g(x) = ", fraction: { numerator: "6", denominator: "x + 2" } },
-        { id: "C", text: "g(x) = ", fraction: { numerator: "3", denominator: "x + 1" } },
-        { id: "D", text: "g(x) = ", fraction: { numerator: "6", denominator: "x" } }
+        { id: "A", text: "$g(x) =$", fraction: { numerator: "6", denominator: "x + 4" } },
+        { id: "B", text: "$g(x) =$", fraction: { numerator: "6", denominator: "x + 2" } },
+        { id: "C", text: "$g(x) =$", fraction: { numerator: "3", denominator: "x + 1" } },
+        { id: "D", text: "$g(x) =$", fraction: { numerator: "6", denominator: "x" } }
       ],
       correctAnswer: "A",
-      hint: "Answer Choice Method: Work backwards from each answer. If g(x) = f(x + 2), then f(x) = g(x - 2). Test which answer gives f(0) = 3 and f(1) = 2.",
+      hint: "Answer Choice Method: Work backwards from each answer. If $g(x) = f(x + 2)$, then $f(x) = g(x - 2)$. Test which answer gives $f(0) = 3$ and $f(1) = 2$.",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** Since $g(x)=f(x+2)$, reverse it: $f(x)=g(x-2)$. Plug Choice A in — $\\frac{6}{(x-2)+4}=\\frac{6}{x+2}$ — and it hits both points $(0,3)$ and $(1,2)$.\n\n**The Full Solution:**\nStep 1: $g(x)=f(x+2)$ rearranges to $f(x)=g(x-2)$, so a correct $g$ must give back the original $f$ when shifted by $-2$.\nStep 2: Test Choice A, $g(x)=\\frac{6}{x+4}$: $f(x)=g(x-2)=\\frac{6}{(x-2)+4}=\\frac{6}{x+2}$.\nStep 3: Check the known points: $f(0)=\\frac{6}{2}=3$ and $f(1)=\\frac{6}{3}=2$. Both match, so Choice A is confirmed.\nStep 4: Forward check: $g(x)=f(x+2)=\\frac{6}{(x+2)+2}=\\frac{6}{x+4}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{6}{x+2}$): this is $f(x)$ itself; the shift was never applied, so $g(x)\\neq f(x)$.\n* Choice C ($\\frac{3}{x+1}$): testing gives $f(x)=\\frac{3}{x-1}$, so $f(0)=-3\\neq 3$.\n* Choice D ($\\frac{6}{x}$): testing gives $f(x)=\\frac{6}{x-2}$, so $f(0)=-3\\neq 3$.\n\n**Test Day Takeaway:** With answer choices in hand, invert the transformation — if $g(x)=f(x+c)$, then $f(x)=g(x-c)$ — and check each candidate against the known points.",
       skills: ['function-transformations', 'answer-choice-method']
     },
     {
       id: 9,
       difficulty: "hard",
-      question: "The graph of y = f(x) passes through the points (1, 4) and (3, 10). The function g is defined by g(x) = 2f(x - 1). Which point must be on the graph of g?",
+      question: "The graph of $y = f(x)$ passes through the points (1, 4) and (3, 10). The function g is defined by $g(x) = 2f(x - 1)$. Which point must be on the graph of g?",
       diagram: {
         type: "coordinatePoints",
         params: { points: [[1, 4], [3, 10]], labels: ["(1, 4)", "(3, 10)"] }
@@ -913,7 +913,7 @@ export const transformationsQuestions = {
         { id: "D", text: "(2, 20)" }
       ],
       correctAnswer: "C",
-      hint: "For g(x) = 2f(x - 1), first apply the horizontal shift (x - 1 shifts right 1), then the vertical stretch (multiply y by 2).",
+      hint: "For $g(x) = 2f(x - 1)$, first apply the horizontal shift (x - 1 shifts right 1), then the vertical stretch (multiply y by 2).",
       explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** $g(x)=2f(x-1)$ shifts right $1$ and stretches $y$ by $2$. Map $(3,10)$: $(3+1,\\;2\\cdot 10)=(4,20)$.\n\n**The Full Solution:**\nStep 1: The inside $x-1$ moves points right $1$; the factor $2$ outside multiplies each $y$-value by $2$.\nStep 2: Apply to $(3,10)$ from $f$: $x\\to 3+1=4$ and $y\\to 2\\cdot 10=20$, giving $(4,20)$, which is Choice C.\nStep 3: Check: $g(4)=2f(4-1)=2f(3)=2(10)=20$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(2,8)$): this is the image of the other listed point $(1,4)$ under the same rule; the question targets the image of $(3,10)$.\n* Choice B ($(0,8)$): shifted left $1$ instead of right, landing on $g(0)=2f(-1)$, which the given data does not determine.\n* Choice D ($(2,20)$): used the correct stretched $y=20$ from $(3,10)$ but shifted left to $x=2$; $f(x-1)$ moves right, to $x=4$.\n\n**Test Day Takeaway:** For $a\\cdot f(x-h)$, a point $(x_0,y_0)$ maps to $(x_0+h,\\;a\\cdot y_0)$: shift the input, scale the output.",
       skills: ['function-transformations', 'combined-transformations']
     }

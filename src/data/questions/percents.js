@@ -77,7 +77,7 @@ export const percentsQuestions = {
         { id: "D", text: "250%" }
       ],
       correctAnswer: "B",
-      hint: "Set up the equation: (unknown percent) × 200 = 50. Solve for the unknown by dividing, then convert to a percent.",
+      hint: "Set up the equation: $(unknown percent) \times 200 = 50$. Solve for the unknown by dividing, then convert to a percent.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** \"What percent of $200$ is $50$\" is $\\frac{\\text{part}}{\\text{whole}}=\\frac{50}{200}=\\frac{1}{4}=25\\%$.\n\n**The Full Solution:**\nStep 1: Translate to an equation. Let $x$ be the percent: $\\frac{x}{100}\\times 200 = 50$.\nStep 2: Simplify: $2x = 50$, so $x = 25$.\nStep 3: Check: $25\\%$ of $200$ is $0.25 \\times 200 = 50$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\%$): computed $\\frac{200}{50}=4$ — the part and whole are swapped.\n* Choice C ($40\\%$): a miscount of $\\frac{50}{200}$; the true ratio is $\\frac{1}{4}$, not $\\frac{2}{5}$.\n* Choice D ($250\\%$): inverted the ratio to $\\frac{200}{50}$ and scaled, treating the part as the whole.\n\n**Test Day Takeaway:** \"What percent of the whole is the part\" is always $\\frac{\\text{part}}{\\text{whole}}\\times 100$ — the whole follows the word \"of.\"",
       skills: ['percent-decimal-conversion']
     }
@@ -111,14 +111,14 @@ export const percentsQuestions = {
         { id: "D", text: "112" }
       ],
       correctAnswer: "C",
-      hint: "Let the unknown number be x. Write an equation: 0.40 × x = 28, then solve for x by dividing both sides.",
+      hint: "Let the unknown number be x. Write an equation: $0.40 \times x = 28$, then solve for x by dividing both sides.",
       explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** $40\\%$ of the number is $28$, so the number is $\\frac{28}{0.40}=70$.\n\n**The Full Solution:**\nStep 1: Let $x$ be the number: $0.40 \\times x = 28$.\nStep 2: Divide both sides by $0.40$: $x = \\frac{28}{0.40}=70$.\nStep 3: Check: $40\\%$ of $70$ is $0.40 \\times 70 = 28$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($11.2$): multiplied $0.40 \\times 28$ instead of dividing — applied the percent to the part.\n* Choice B ($68$): added $28 + 40 = 68$, treating $40\\%$ as the number $40$.\n* Choice D ($112$): multiplied $28 \\times 4$, confusing $40\\%$ with $25\\%$ (whose reciprocal is $4$).\n\n**Test Day Takeaway:** When you know the part and the percent, the whole is $\\frac{\\text{part}}{\\text{percent as a decimal}}$ — divide, don't multiply.",
       skills: ['percent-of-value', 'percent-word-problems']
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "A shirt originally costs $60. If it is 15% off, what is the discount amount?",
+      question: "A shirt originally costs \\$60. If it is 15% off, what is the discount amount?",
       choices: [
         { id: "A", text: "$4" },
         { id: "B", text: "$9" },
@@ -167,7 +167,7 @@ export const percentsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "A price increases from $80 to $100. What is the percent increase?",
+      question: "A price increases from \\$80 to \\$100. What is the percent increase?",
       choices: [
         { id: "A", text: "20%" },
         { id: "B", text: "25%" },
@@ -197,7 +197,7 @@ export const percentsQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "A stock increases by 20% one year and decreases by 20% the next year. If it started at $100, what is its final value?",
+      question: "A stock increases by 20% one year and decreases by 20% the next year. If it started at \\$100, what is its final value?",
       choices: [
         { id: "A", text: "$96" },
         { id: "B", text: "$100" },
@@ -212,7 +212,7 @@ export const percentsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "A shirt's price was reduced by 30% to $35. What was the original price?",
+      question: "A shirt's price was reduced by 30% to \\$35. What was the original price?",
       choices: [
         { id: "A", text: "$45.50" },
         { id: "B", text: "$50" },
@@ -220,7 +220,7 @@ export const percentsQuestions = {
         { id: "D", text: "$105" }
       ],
       correctAnswer: "B",
-      hint: "If the price was reduced by 30%, the sale price represents 70% of the original. Set up an equation where 70% of the original equals $35.",
+      hint: "If the price was reduced by 30%, the sale price represents 70% of the original. Set up an equation where 70% of the original equals \\$35.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** A $30\\%$ cut means $\\$35$ is $70\\%$ of the original, so divide: $\\$35 \\div 0.70 = \\$50$.\n\n**The Full Solution:**\nStep 1: Let $P$ be the original price. \"Reduced by $30\\%$\" means the buyer pays $100\\% - 30\\% = 70\\%$: $0.70P = 35$.\nStep 2: Solve: $P = \\frac{35}{0.70} = 50$.\nStep 3: Check: $30\\%$ of $\\$50$ is $\\$15$, and $\\$50 - \\$15 = \\$35$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$45.50$): computed $35 \\times 1.30$, increasing the sale price by $30\\%$ instead of recognizing it as $70\\%$ of the original.\n* Choice C ($\\$65$): added the number $30$ to $35$, treating a $30\\%$ discount as a flat $\\$30$ off.\n* Choice D ($\\$105$): multiplied $35 \\times 3$, misreading \"$30\\%$ off\" as \"one third of the original.\" But $30\\% = \\frac{3}{10}$, not $\\frac{1}{3}$.\n\n**Test Day Takeaway:** To undo a discount, divide the sale price by the fraction the buyer actually paid: $\\text{Original} = \\frac{\\text{Sale}}{1 - \\text{discount rate}}$.",
       skills: ['percent-change']
     },
@@ -276,7 +276,7 @@ export const percentsQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "A salesperson earns a 6% commission on sales. If they earn $450 in commission, what were their total sales?",
+      question: "A salesperson earns a 6% commission on sales. If they earn \\$450 in commission, what were their total sales?",
       choices: [
         { id: "A", text: "$27" },
         { id: "B", text: "$2,700" },
@@ -284,7 +284,7 @@ export const percentsQuestions = {
         { id: "D", text: "$75,000" }
       ],
       correctAnswer: "C",
-      hint: "Commission equals the percent rate times total sales. Set up the equation: 6% × (total sales) = $450, then solve for total sales.",
+      hint: "Commission equals the percent rate times total sales. Set up the equation: 6% × (total sales) = \\$450, then solve for total sales.",
       explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** Commission is $6\\%$ of sales, so sales $= \\frac{\\$450}{0.06} = \\$7{,}500$.\n\n**The Full Solution:**\nStep 1: Let $S$ be total sales. The relationship is $0.06 \\times S = 450$.\nStep 2: Solve: $S = \\frac{450}{0.06} = 7{,}500$.\nStep 3: Check: $6\\%$ of $\\$7{,}500 = 0.06 \\times 7{,}500 = \\$450$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$27$): computed $0.06 \\times 450$, applying the rate to the commission instead of dividing by it.\n* Choice B ($\\$2{,}700$): multiplied $450 \\times 6$, forgetting to convert $6\\%$ to the decimal $0.06$ before dividing.\n* Choice D ($\\$75{,}000$): divided by $0.006$ instead of $0.06$, slipping the decimal one place.\n\n**Test Day Takeaway:** When a part is a small percent of an unknown whole, divide: $\\text{Sales} = \\frac{\\text{Commission}}{\\text{Rate}}$. Dividing by a number below $1$ makes the result larger than the part.",
       skills: ['percent-word-problems', 'percent-of-value']
     },

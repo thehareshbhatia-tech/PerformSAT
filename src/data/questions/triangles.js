@@ -55,7 +55,7 @@ export const trianglesQuestions = {
       question: "Can a triangle have sides of length 2, 3, and 7?",
       choices: [
         { id: "A", text: "Yes" },
-        { id: "B", text: "No, because 2 + 3 < 7" },
+        { id: "B", text: "$No$, $because 2 + 3 < 7$" },
         { id: "C", text: "No, because 7 is too large" },
         { id: "D", text: "Only if it's a right triangle" }
       ],
@@ -139,14 +139,14 @@ export const trianglesQuestions = {
         { id: "D", text: "Equilateral" }
       ],
       correctAnswer: "A",
-      hint: "Triangles are classified by their largest angle: acute (all < 90°), right (one = 90°), or obtuse (one > 90°).",
+      hint: "Triangles are classified by their largest angle: acute ($all < 90$°), right ($one = 90$°), or obtuse ($one > 90$°).",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~5s):** All three angles below $90^\\circ$ is the definition of an acute triangle — choice A.\n\n**The Full Solution:**\nStep 1: Classify by angles: acute means all three angles $< 90^\\circ$; right means exactly one $= 90^\\circ$; obtuse means exactly one $> 90^\\circ$.\nStep 2: Every angle here is less than $90^\\circ$, matching the acute definition exactly. Example: $50^\\circ$, $60^\\circ$, $70^\\circ$.\n\n**Why the wrong answers are tempting:**\n* Choice B (Right): needs exactly one $90^\\circ$ angle, but all angles are below $90^\\circ$.\n* Choice C (Obtuse): needs one angle above $90^\\circ$, which is ruled out here.\n* Choice D (Equilateral): an equilateral triangle is acute, but \"equilateral\" classifies by sides, and not every acute triangle is equilateral.\n\n**Test Day Takeaway:** Angle classification depends on the largest angle: all under $90^\\circ \\Rightarrow$ acute, one equal to $90^\\circ \\Rightarrow$ right, one over $90^\\circ \\Rightarrow$ obtuse.",
       skills: ['triangle-angle-sum']
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "In triangle ABC, angle A = 2x, angle B = 3x, angle C = 4x. What is angle B?",
+      question: "In triangle ABC, angle $A = 2x$, angle $B = 3x$, angle $C = 4x$. What is angle B?",
       choices: [
         { id: "A", text: "20°" },
         { id: "B", text: "40°" },
@@ -154,7 +154,7 @@ export const trianglesQuestions = {
         { id: "D", text: "80°" }
       ],
       correctAnswer: "C",
-      hint: "First, set up an equation using the fact that 2x + 3x + 4x = 180°. Solve for x, then find angle B.",
+      hint: "First, set up an equation using the fact that $2x + 3x + 4x = 180$°. Solve for x, then find angle B.",
       explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** Sum the angles: $2x + 3x + 4x = 9x = 180^\\circ$, so $x = 20^\\circ$. Then angle $B = 3x = 60^\\circ$ — choice C.\n\n**The Full Solution:**\nStep 1: The angles sum to $180^\\circ$: $2x + 3x + 4x = 180^\\circ$, so $9x = 180^\\circ$.\nStep 2: Solve: $x = \\frac{180^\\circ}{9} = 20^\\circ$.\nStep 3: Angle $B = 3x = 3 \\times 20^\\circ = 60^\\circ$. Check: $40^\\circ + 60^\\circ + 80^\\circ = 180^\\circ$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($20^\\circ$): the value of $x$, not angle $B$ — forgot to multiply by the coefficient $3$.\n* Choice B ($40^\\circ$): $2x$, which is angle $A$, not $B$.\n* Choice D ($80^\\circ$): $4x$, which is angle $C$, not $B$.\n\n**Test Day Takeaway:** When angles are multiples of a variable, sum the coefficients, set equal to $180^\\circ$, solve for the variable, then substitute back into the exact angle requested.",
       skills: ['triangle-angle-sum']
     }
@@ -173,7 +173,7 @@ export const trianglesQuestions = {
         { id: "D", text: "120" }
       ],
       correctAnswer: "B",
-      hint: "The area formula for a triangle is half of base times height: A = (1/2) × b × h.",
+      hint: "The area formula for a triangle is half of base times height: $A = (1/2) \times b \times h$.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~5s):** $A = \\frac{1}{2}bh = \\frac{1}{2}(10)(6) = 30$ — choice B.\n\n**The Full Solution:**\nStep 1: The triangle area formula is $A = \\frac{1}{2} \\times b \\times h$.\nStep 2: Substitute: $A = \\frac{1}{2} \\times 10 \\times 6 = \\frac{60}{2} = 30$. A triangle is exactly half the bounding rectangle ($10 \\times 6 = 60$, then halve).\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): $10 + 6$ — adds base and height instead of multiplying.\n* Choice C ($60$): $10 \\times 6$ — the rectangle's area, forgetting the $\\frac{1}{2}$.\n* Choice D ($120$): $2 \\times 10 \\times 6$ — doubles instead of halving the product.\n\n**Test Day Takeaway:** Triangle area is $A = \\frac{1}{2}bh$ — half of base times height, not the full product.",
       skills: ['triangle-area']
     },
@@ -188,7 +188,7 @@ export const trianglesQuestions = {
         { id: "D", text: "16" }
       ],
       correctAnswer: "B",
-      hint: "Rearrange the area formula A = (1/2) × b × h to solve for h when you know A and b.",
+      hint: "Rearrange the area formula $A = (1/2) \times b \times h$ to solve for h when you know A and b.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** Use $h = \\frac{2A}{b} = \\frac{2(24)}{8} = \\frac{48}{8} = 6$ — choice B.\n\n**The Full Solution:**\nStep 1: Start from $A = \\frac{1}{2}bh$ and plug in: $24 = \\frac{1}{2} \\times 8 \\times h$.\nStep 2: Simplify the right side: $24 = 4h$.\nStep 3: Solve: $h = \\frac{24}{4} = 6$. Check: $\\frac{1}{2} \\times 8 \\times 6 = 24$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): $\\frac{24}{8}$ — divides area by base but drops the factor of $2$ from rearranging $A = \\frac{1}{2}bh$.\n* Choice C ($12$): an algebra slip, such as doubling $24$ then dividing by $4$ instead of $8$.\n* Choice D ($16$): $2 \\times 8$, unrelated to the given area.\n\n**Test Day Takeaway:** To get height from area, use $h = \\frac{2A}{b}$ — double the area before dividing by the base.",
       skills: ['triangle-area']
     },
@@ -244,7 +244,7 @@ export const trianglesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "Triangles ABC and DEF are similar. If AB = 6, DE = 9, and BC = 8, what is EF?",
+      question: "Triangles ABC and DEF are similar. If $AB = 6$, $DE = 9$, and $BC = 8$, what is EF?",
       choices: [
         { id: "A", text: "10" },
         { id: "B", text: "12" },
@@ -309,7 +309,7 @@ export const trianglesQuestions = {
         { id: "A", text: "AA (two angles equal)" },
         { id: "B", text: "SSS (all sides proportional)" },
         { id: "C", text: "SAS (two sides proportional and included angle equal)" },
-        { id: "D", text: "SSA (two sides proportional and non-included angle equal)" }
+        { id: "D", text: "$SSA (two sides proportional and non-included angle equal)$" }
       ],
       correctAnswer: "D",
       hint: "Think about which combinations uniquely determine a triangle's shape. One of these can produce two different triangles.",
@@ -331,7 +331,7 @@ export const trianglesQuestions = {
         { id: "D", text: "100" }
       ],
       correctAnswer: "B",
-      hint: "Use the Pythagorean Theorem: a² + b² = c², where c is the hypotenuse.",
+      hint: "Use the Pythagorean Theorem: $a^2 + b^2 = c^2$, where c is the hypotenuse.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** $6$-$8$-$10$ is the $3$-$4$-$5$ triple doubled, so the hypotenuse is $10$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[6,0],[6,8]],\"sideLabels\":[\"6\",\"8\",\"10\"],\"rightAngleVertex\":1},\"caption\":\"Legs 6 and 8 — hypotenuse 10.\"}\n```\n\n**The Full Solution:**\nStep 1: Apply the Pythagorean theorem: $c^2 = 6^2 + 8^2 = 36 + 64 = 100$.\nStep 2: Take the square root: $c = \\sqrt{100} = 10$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): averaged the legs, $\\frac{6+8}{2}$; the hypotenuse is not the average.\n* Choice C ($14$): added the legs, $6+8$; the hypotenuse is shorter than the legs' sum.\n* Choice D ($100$): stopped at $c^2$ and forgot to take the square root.\n\n**Test Day Takeaway:** Use $a^2 + b^2 = c^2$, then take the square root for $c$ — don't report $c^2$. Spotting $3$-$4$-$5$ multiples saves the arithmetic.",
       skills: ['pythagorean-theorem']
     },
@@ -355,9 +355,9 @@ export const trianglesQuestions = {
       difficulty: "medium",
       question: "Is a triangle with sides 7, 24, 25 a right triangle?",
       choices: [
-        { id: "A", text: "Yes, because 7² + 24² = 25²" },
+        { id: "A", text: "$Yes$, $because 7^2 + 24^2 = 25^2$" },
         { id: "B", text: "No, because 7² + 24² ≠ 25²" },
-        { id: "C", text: "Yes, because 7 + 24 > 25" },
+        { id: "C", text: "$Yes$, $because 7 + 24 > 25$" },
         { id: "D", text: "Cannot determine" }
       ],
       correctAnswer: "A",
@@ -376,7 +376,7 @@ export const trianglesQuestions = {
         { id: "D", text: "24" }
       ],
       correctAnswer: "B",
-      hint: "Rearrange the Pythagorean Theorem to solve for the missing leg: b² = c² - a².",
+      hint: "Rearrange the Pythagorean Theorem to solve for the missing leg: $b^2 = c^2 - a^2$.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** $(9, 12, 15)$ is the $3$-$4$-$5$ triple tripled, so the missing leg is $12$.\n\n```seva-figure\n{\"type\":\"rightTriangle\",\"params\":{\"vertices\":[[0,0],[12,0],[12,9]],\"sideLabels\":[\"12\",\"9\",\"15\"],\"rightAngleVertex\":1},\"caption\":\"Legs 9 and 12 — hypotenuse 15, the 3-4-5 triple scaled by 3.\"}\n```\n\n**The Full Solution:**\nStep 1: To find a leg, rearrange the Pythagorean theorem: $b^2 = c^2 - a^2 = 15^2 - 9^2$.\nStep 2: $b^2 = 225 - 81 = 144 \\Rightarrow b = \\sqrt{144} = 12$. Check: $9^2 + 12^2 = 81 + 144 = 225 = 15^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): computed $15 - 9$, using subtraction instead of the quadratic relationship.\n* Choice C ($18$): added the squares ($\\sqrt{225 + 81}$) instead of subtracting; a leg requires subtraction.\n* Choice D ($24$): added hypotenuse and leg, $15 + 9$, which has no Pythagorean meaning.\n\n**Test Day Takeaway:** To find a missing leg, $b = \\sqrt{c^2 - a^2}$ — subtract the known leg squared from the hypotenuse squared. Only add squares when solving for the hypotenuse.",
       skills: ['pythagorean-theorem']
     },
@@ -404,13 +404,13 @@ export const trianglesQuestions = {
       difficulty: "easy",
       question: "In a right triangle, sin(θ) equals:",
       choices: [
-        { id: "A", text: "Adjacent/Hypotenuse" },
-        { id: "B", text: "Opposite/Hypotenuse" },
-        { id: "C", text: "Opposite/Adjacent" },
-        { id: "D", text: "Hypotenuse/Opposite" }
+        { id: "A", text: "$Adjacent/Hypotenuse$" },
+        { id: "B", text: "$Opposite/Hypotenuse$" },
+        { id: "C", text: "$Opposite/Adjacent$" },
+        { id: "D", text: "$Hypotenuse/Opposite$" }
       ],
       correctAnswer: "B",
-      hint: "Remember SOH-CAH-TOA: Sine = Opposite/Hypotenuse, Cosine = Adjacent/Hypotenuse, Tangent = Opposite/Adjacent.",
+      hint: "Remember SOH-CAH-TOA: $Sine = Opposite/Hypotenuse$, $Cosine = Adjacent/Hypotenuse$, $Tangent = Opposite/Adjacent$.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~5s):** SOH: $\\sin(\\theta)=\\frac{\\text{Opposite}}{\\text{Hypotenuse}}$, which is choice B.\n\n**The Full Solution:**\nStep 1: The mnemonic SOH-CAH-TOA gives the three ratios: $\\sin=\\frac{O}{H}$, $\\cos=\\frac{A}{H}$, $\\tan=\\frac{O}{A}$.\nStep 2: The first block, SOH, reads $\\sin(\\theta)=\\frac{\\text{Opposite}}{\\text{Hypotenuse}}$. Check with a $3$-$4$-$5$ triangle: with $\\theta$ opposite the side of length $3$, $\\sin(\\theta)=\\frac{3}{5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{\\text{Adjacent}}{\\text{Hypotenuse}}$): that's $\\cos(\\theta)$, the most common sine/cosine swap.\n* Choice C ($\\frac{\\text{Opposite}}{\\text{Adjacent}}$): that's $\\tan(\\theta)$.\n* Choice D ($\\frac{\\text{Hypotenuse}}{\\text{Opposite}}$): that's $\\csc(\\theta)$, the reciprocal of sine — the fraction is flipped.\n\n**Test Day Takeaway:** Lock in SOH-CAH-TOA. Sine pairs Opposite over Hypotenuse; the hypotenuse sits in the denominator for both sine and cosine.",
       skills: ['soh-cah-toa']
     },
@@ -425,7 +425,7 @@ export const trianglesQuestions = {
         { id: "D", text: "10√3" }
       ],
       correctAnswer: "B",
-      hint: "Use the fact that sin(30°) = 1/2. Set up the equation: opposite/hypotenuse = 1/2.",
+      hint: "Use the fact that sin(30°) = 1/2. Set up the equation: $opposite/hypotenuse = 1/2$.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** The side opposite $30^\\circ$ is half the hypotenuse, so the hypotenuse is $2\\times5=10$, which is choice B.\n\n**The Full Solution:**\nStep 1: Use sine with the known angle and its opposite side: $\\sin(30^\\circ)=\\frac{\\text{Opposite}}{\\text{Hypotenuse}}=\\frac{5}{h}$.\nStep 2: Since $\\sin(30^\\circ)=\\frac{1}{2}$, $\\frac{1}{2}=\\frac{5}{h} \\Rightarrow h=10$.\nStep 3: Check the $30$-$60$-$90$ ratio $1:\\sqrt{3}:2$: short leg $\\frac{10}{2}=5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): repeats the opposite side; the hypotenuse must be the longest side, so it can't equal a leg.\n* Choice C ($5\\sqrt{3}$): that's the longer leg, opposite the $60^\\circ$ angle — wrong side.\n* Choice D ($10\\sqrt{3}$): multiplies the hypotenuse by an extra $\\sqrt{3}$ that doesn't belong.\n\n**Test Day Takeaway:** In a $30$-$60$-$90$ triangle the side opposite $30^\\circ$ is half the hypotenuse, so hypotenuse $=2\\times$ short leg.",
       skills: ['soh-cah-toa']
     },
@@ -440,7 +440,7 @@ export const trianglesQuestions = {
         { id: "D", text: "20" }
       ],
       correctAnswer: "B",
-      hint: "Cosine equals adjacent over hypotenuse. Set up: 0.8 = 12/h and solve for h.",
+      hint: "Cosine equals adjacent over hypotenuse. Set up: $0.8 = 12/h$ and solve for h.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** Cosine puts the adjacent side over the hypotenuse, so $h=\\frac{\\text{Adjacent}}{\\cos\\theta}=\\frac{12}{0.8}=15$, which is choice B.\n\n**The Full Solution:**\nStep 1: $\\cos(\\theta)=\\frac{\\text{Adjacent}}{\\text{Hypotenuse}}=\\frac{12}{h}$.\nStep 2: Substitute $\\cos(\\theta)=0.8$: $0.8=\\frac{12}{h} \\Rightarrow h=\\frac{12}{0.8}=15$.\nStep 3: Check: $\\frac{12}{15}=0.8$, and the opposite side is $\\sqrt{15^2-12^2}=\\sqrt{81}=9$, a $9$-$12$-$15$ triangle ($3\\times$ a $3$-$4$-$5$). $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9.6$): computes $12\\times0.8$ — multiplies by cosine instead of dividing.\n* Choice C ($16$): an arithmetic slip; $\\frac{12}{0.8}$ is $15$, not $16$.\n* Choice D ($20$): uses $\\frac{12}{0.6}$, swapping in $\\sin\\theta=0.6$ for $\\cos\\theta=0.8$.\n\n**Test Day Takeaway:** To find the hypotenuse from an adjacent side, divide by cosine: $\\text{Hyp}=\\frac{\\text{Adj}}{\\cos\\theta}$. Division, not multiplication.",
       skills: ['soh-cah-toa']
     },
@@ -455,14 +455,14 @@ export const trianglesQuestions = {
         { id: "D", fraction: { numerator: "4", denominator: "5" } }
       ],
       correctAnswer: "A",
-      hint: "Tangent = opposite/adjacent. Identify which leg is opposite to angle θ and which is adjacent.",
+      hint: "$Tangent = opposite/adjacent$. Identify which leg is opposite to angle θ and which is adjacent.",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~10s):** TOA: tangent is the opposite leg over the adjacent leg. Opposite $\\theta$ is $3$, adjacent is $4$, so $\\tan(\\theta)=\\frac{3}{4}$, which is choice A.\n\n**The Full Solution:**\nStep 1: Identify the sides relative to $\\theta$: opposite $=3$, adjacent $=4$. The hypotenuse ($5$) isn't needed for tangent.\nStep 2: Apply TOA: $\\tan(\\theta)=\\frac{\\text{Opposite}}{\\text{Adjacent}}=\\frac{3}{4}$.\nStep 3: Check: $\\arctan\\left(\\frac{3}{4}\\right)\\approx36.87^\\circ$, a valid acute angle. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{4}{3}$): tangent of the other acute angle, or $\\cot(\\theta)$ — the ratio is flipped.\n* Choice C ($\\frac{3}{5}$): that's $\\frac{\\text{Opposite}}{\\text{Hypotenuse}}=\\sin(\\theta)$, not tangent.\n* Choice D ($\\frac{4}{5}$): that's $\\frac{\\text{Adjacent}}{\\text{Hypotenuse}}=\\cos(\\theta)$, not tangent.\n\n**Test Day Takeaway:** Tangent uses only the two legs: $\\tan(\\theta)=\\frac{\\text{Opposite}}{\\text{Adjacent}}$. The hypotenuse never appears.",
       skills: ['soh-cah-toa']
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "If sin(A) = cos(B) in a right triangle, then angles A and B are:",
+      question: "If $sin(A) = cos(B)$ in a right triangle, then angles A and B are:",
       choices: [
         { id: "A", text: "Equal" },
         { id: "B", text: "Complementary (sum to 90°)" },
@@ -470,7 +470,7 @@ export const trianglesQuestions = {
         { id: "D", text: "No relationship" }
       ],
       correctAnswer: "B",
-      hint: "Recall that sin(θ) = cos(90° - θ). What relationship must A and B have for sin(A) = cos(B)?",
+      hint: "Recall that sin(θ) = cos(90° - θ). What relationship must A and B have for $sin(A) = cos(B)$?",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** The co-function identity says $\\sin(A)=\\cos(90^\\circ-A)$. If $\\sin(A)=\\cos(B)$, then $B=90^\\circ-A$, so $A+B=90^\\circ$ — complementary, choice B.\n\n**The Full Solution:**\nStep 1: Apply the co-function identity: $\\sin(A)=\\cos(90^\\circ-A)$.\nStep 2: Set equal to the given $\\cos(B)$: $\\cos(90^\\circ-A)=\\cos(B) \\Rightarrow 90^\\circ-A=B$.\nStep 3: Rearrange: $A+B=90^\\circ$, the definition of complementary angles. Check with $A=30^\\circ$, $B=60^\\circ$: $\\sin(30^\\circ)=0.5=\\cos(60^\\circ)$ and $30^\\circ+60^\\circ=90^\\circ$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Equal): $\\sin(A)=\\cos(A)$ only at $A=45^\\circ$ — a single special case, not the general rule.\n* Choice C (Supplementary): supplementary means $180^\\circ$; here the sum is $90^\\circ$.\n* Choice D (No relationship): the co-function identity gives a precise relationship.\n\n**Test Day Takeaway:** $\\sin(\\theta)=\\cos(90^\\circ-\\theta)$. Whenever $\\sin(A)=\\cos(B)$ in these problems, the angles are complementary: $A+B=90^\\circ$.",
       skills: ['soh-cah-toa']
     }

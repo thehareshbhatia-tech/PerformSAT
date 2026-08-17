@@ -54,10 +54,10 @@ export const systemsQuestions = {
       difficulty: "medium",
       question: "The solution to a system of equations represents:",
       choices: [
-        { id: "A", text: "The y-intercept of both lines" },
+        { id: "A", text: "$The y-intercept of both lines$" },
         { id: "B", text: "The slope of both lines" },
         { id: "C", text: "The point(s) that satisfy all equations" },
-        { id: "D", text: "The x-intercept of the first line" }
+        { id: "D", text: "$The x-intercept of the first line$" }
       ],
       correctAnswer: "C",
       hint: "What must be true about a solution? It needs to work when plugged into every equation in the system.",
@@ -67,7 +67,7 @@ export const systemsQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "Is (2, 3) a solution to the system: x + y = 5 and 2x - y = 1?",
+      question: "Is (2, 3) a solution to the system: $x + y = 5$ and $2x - y = 1$?",
       choices: [
         { id: "A", text: "Yes" },
         { id: "B", text: "No, it only satisfies the first equation" },
@@ -75,7 +75,7 @@ export const systemsQuestions = {
         { id: "D", text: "No, it satisfies neither equation" }
       ],
       correctAnswer: "A",
-      hint: "Substitute x = 2 and y = 3 into both equations separately. Does each equation become a true statement?",
+      hint: "Substitute $x = 2$ and $y = 3$ into both equations separately. Does each equation become a true statement?",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** Plug $(2,3)$ into both equations. $2+3=5$ holds and $2(2)-3=1$ holds, so the point satisfies the whole system. Choice A.\n\n**The Full Solution:**\nStep 1: Test equation 1: $x+y=5 \\Rightarrow 2+3=5$. $\\checkmark$\nStep 2: Test equation 2: $2x-y=1 \\Rightarrow 2(2)-3=4-3=1$. $\\checkmark$\nStep 3: Both equations are true, so $(2,3)$ is a solution to the system — answer \"Yes.\"\n\n**Why the wrong answers are tempting:**\n* Choice B: would be right only if the second equation failed, but $2(2)-3=1$ checks out.\n* Choice C: would be right only if the first equation failed, but $2+3=5$ checks out.\n* Choice D: comes from arithmetic slips like $2(2)-3=-1$ (forgetting to multiply) or $2+3=6$. Done carefully, both hold.\n\n**Test Day Takeaway:** To verify a candidate solution, substitute it into every equation — it counts only if all of them come out true.",
       skills: ['system-solution-types', 'substitution-method']
     }
@@ -88,10 +88,10 @@ export const systemsQuestions = {
       difficulty: "easy",
       question: "Adult tickets cost \\$8 and child tickets cost \\$5. Total sales were \\$95 for 14 tickets. Which system represents this?",
       choices: [
-        { id: "A", text: "a + c = 95, 8a + 5c = 14" },
-        { id: "B", text: "a + c = 14, 8a + 5c = 95" },
-        { id: "C", text: "8a + 5c = 14, a + c = 95" },
-        { id: "D", text: "a + c = 14, a + c = 95" }
+        { id: "A", text: "$a + c = 95$, $8a + 5c = 14$" },
+        { id: "B", text: "$a + c = 14$, $8a + 5c = 95$" },
+        { id: "C", text: "$8a + 5c = 14$, $a + c = 95$" },
+        { id: "D", text: "$a + c = 14$, $a + c = 95$" }
       ],
       correctAnswer: "B",
       hint: "Write one equation for the total number of tickets, and another for the total money. Make sure the units match on each side.",
@@ -101,12 +101,12 @@ export const systemsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "A store sells pens for \\$2 and notebooks for \\$5. Maria spent \\$29 on 8 items. If p = pens and n = notebooks, which system is correct?",
+      question: "A store sells pens for \\$2 and notebooks for \\$5. Maria spent \\$29 on 8 items. If $p = pens$ and $n = notebooks$, which system is correct?",
       choices: [
-        { id: "A", text: "p + n = 29, 2p + 5n = 8" },
-        { id: "B", text: "2p + 5n = 29, p + n = 8" },
-        { id: "C", text: "p + n = 8, 2p + 5n = 29" },
-        { id: "D", text: "5p + 2n = 29, p + n = 8" }
+        { id: "A", text: "$p + n = 29$, $2p + 5n = 8$" },
+        { id: "B", text: "$2p + 5n = 29$, $p + n = 8$" },
+        { id: "C", text: "$p + n = 8$, $2p + 5n = 29$" },
+        { id: "D", text: "$5p + 2n = 29$, $p + n = 8$" }
       ],
       correctAnswer: "C",
       hint: "One equation should count items, the other should count dollars. Make sure prices multiply with the correct variables.",
@@ -118,10 +118,10 @@ export const systemsQuestions = {
       difficulty: "medium",
       question: "The sum of two numbers is 20 and their difference is 6. Which system represents this?",
       choices: [
-        { id: "A", text: "x + y = 20, x - y = 6" },
-        { id: "B", text: "x + y = 6, x - y = 20" },
-        { id: "C", text: "xy = 20, x/y = 6" },
-        { id: "D", text: "x + y = 26, xy = 6" }
+        { id: "A", text: "$x + y = 20$, $x - y = 6$" },
+        { id: "B", text: "$x + y = 6$, $x - y = 20$" },
+        { id: "C", text: "$xy = 20$, $x/y = 6$" },
+        { id: "D", text: "$x + y = 26$, $xy = 6$" }
       ],
       correctAnswer: "A",
       hint: "Translate 'sum' and 'difference' directly into mathematical operations. Sum means add, difference means subtract.",
@@ -131,15 +131,15 @@ export const systemsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "A boat travels 30 miles downstream in 2 hours and 18 miles upstream in 3 hours. If b = boat speed and c = current speed, which equations are correct?",
+      question: "A boat travels 30 miles downstream in 2 hours and 18 miles upstream in 3 hours. If $b = boat$ speed and $c = current$ speed, which equations are correct?",
       choices: [
-        { id: "A", text: "b + c = 15, b - c = 6" },
-        { id: "B", text: "b + c = 30, b - c = 18" },
-        { id: "C", text: "2(b + c) = 30, 3(b - c) = 18" },
+        { id: "A", text: "$b + c = 15$, $b - c = 6$" },
+        { id: "B", text: "$b + c = 30$, $b - c = 18$" },
+        { id: "C", text: "$2(b + c) = 30$, $3(b - c) = 18$" },
         { id: "D", text: "Both A and C" }
       ],
       correctAnswer: "D",
-      hint: "Downstream, the current helps (add speeds). Upstream, the current slows you down (subtract). Use distance = rate times time.",
+      hint: "Downstream, the current helps (add speeds). Upstream, the current slows you down (subtract). Use $distance = rate$ times time.",
       explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** Use $d=rt$. Downstream: $(b+c)\\cdot 2 = 30 \\Rightarrow b+c=15$. Upstream: $(b-c)\\cdot 3 = 18 \\Rightarrow b-c=6$. Choice C is the unsimplified pair, Choice A is the simplified pair — both are correct, so the answer is D.\n\n**The Full Solution:**\nStep 1: Downstream the current helps, so the effective rate is $b+c$: $2(b+c)=30$.\nStep 2: Upstream the current opposes, so the effective rate is $b-c$: $3(b-c)=18$. These two equations are exactly Choice C.\nStep 3: Divide each by its time: $b+c=15$ and $b-c=6$. Those are Choice A. Since A and C describe the same system, \"Both A and C\" — Choice D — is the answer.\n\n**Why the wrong answers are tempting:**\n* Choice A: correct, but not the only correct option, so it's incomplete.\n* Choice B: sets $b+c=30$ and $b-c=18$, confusing the distance with the rate; you must divide distance by time.\n* Choice C: also correct on its own, but again not the only correct option.\n\n**Test Day Takeaway:** For current and wind problems use $d=rt$ with effective rate $b+c$ (with) or $b-c$ (against); when \"both\" is offered, check whether two forms describe the same system.",
       skills: ['setting-up-systems', 'word-problem-to-equation']
     },
@@ -148,10 +148,10 @@ export const systemsQuestions = {
       difficulty: "hard",
       question: "Coffee A costs \\$4/lb and Coffee B costs \\$7/lb. To make 10 lbs of a blend costing \\$5.50/lb, which system applies?",
       choices: [
-        { id: "A", text: "a + b = 10, 4a + 7b = 55" },
-        { id: "B", text: "a + b = 55, 4a + 7b = 10" },
-        { id: "C", text: "a + b = 10, 4a + 7b = 5.50" },
-        { id: "D", text: "4a + 7b = 10, a + b = 55" }
+        { id: "A", text: "$a + b = 10$, $4a + 7b = 55$" },
+        { id: "B", text: "$a + b = 55$, $4a + 7b = 10$" },
+        { id: "C", text: "$a + b = 10$, $4a + 7b = 5.50$" },
+        { id: "D", text: "$4a + 7b = 10$, $a + b = 55$" }
       ],
       correctAnswer: "A",
       hint: "The total weight is 10 lbs. For the cost equation, calculate the total value of the blend: 10 lbs times \\$5.50/lb.",
@@ -165,7 +165,7 @@ export const systemsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "Solve using substitution: y = 2x and x + y = 9. What is x?",
+      question: "Solve using substitution: $y = 2x$ and $x + y = 9$. What is x?",
       choices: [
         { id: "A", text: "2" },
         { id: "B", text: "3" },
@@ -180,7 +180,7 @@ export const systemsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "Solve: x = 3y - 1 and 2x + y = 12. What is y?",
+      question: "Solve: $x = 3y - 1$ and $2x + y = 12$. What is y?",
       choices: [
         { id: "A", text: "2" },
         { id: "B", text: "5" },
@@ -195,7 +195,7 @@ export const systemsQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "Which equation is best to solve first for substitution in: 3x + y = 10 and 2x - 3y = 1?",
+      question: "Which equation is best to solve first for substitution in: $3x + y = 10$ and $2x - 3y = 1$?",
       choices: [
         { id: "A", text: "Solve first equation for x" },
         { id: "B", text: "Solve first equation for y" },
@@ -210,7 +210,7 @@ export const systemsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "Solve: y = x + 4 and y = 3x - 2. What is the solution (x, y)?",
+      question: "Solve: $y = x + 4$ and $y = 3x - 2$. What is the solution (x, y)?",
       choices: [
         { id: "A", text: "(3, 7)" },
         { id: "B", text: "(1, 5)" },
@@ -218,14 +218,14 @@ export const systemsQuestions = {
         { id: "D", text: "(4, 8)" }
       ],
       correctAnswer: "A",
-      hint: "Both equations equal y, so set them equal to each other: x + 4 = 3x - 2. Solve for x first.",
+      hint: "Both equations equal y, so set them equal to each other: $x + 4 = 3x - 2$. Solve for x first.",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** Both equations are already $y = \\ldots$, so set the right sides equal: $x + 4 = 3x - 2 \\Rightarrow x = 3$, then $y = 3 + 4 = 7$, giving $(3, 7)$.\n\n**The Full Solution:**\nStep 1: Set the expressions for $y$ equal: $x + 4 = 3x - 2$.\nStep 2: Solve: $4 + 2 = 3x - x \\Rightarrow 6 = 2x \\Rightarrow x = 3$.\nStep 3: Back-substitute into $y = x + 4$: $y = 3 + 4 = 7$. Check the other equation: $3(3) - 2 = 7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: $(1, 5)$ satisfies $y = x + 4$ but not $y = 3x - 2$ (that gives $1$, not $5$) — a student who checks only one equation stops here.\n* Choice C: $(2, 6)$ satisfies $y = x + 4$ but $y = 3x - 2$ gives $4 \\neq 6$.\n* Choice D: $(4, 8)$ satisfies $y = x + 4$ but $y = 3x - 2$ gives $10 \\neq 8$.\n\n**Test Day Takeaway:** When both equations are solved for the same variable, set the right sides equal — the equal-values method skips a substitution step.",
       skills: ['substitution-method']
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "Using substitution on 2x - y = 7 and x + 2y = 1, what is x + y?",
+      question: "Using substitution on $2x - y = 7$ and $x + 2y = 1$, what is x + y?",
       choices: [
         { id: "A", text: "\u22122" },
         { id: "B", text: "2" },
@@ -244,7 +244,7 @@ export const systemsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "Solve by elimination: x + y = 10 and x - y = 2. What is x?",
+      question: "Solve by elimination: $x + y = 10$ and $x - y = 2$. What is x?",
       choices: [
         { id: "A", text: "4" },
         { id: "B", text: "6" },
@@ -259,7 +259,7 @@ export const systemsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "Solve: 3x + 2y = 12 and 3x - 2y = 0. What is y?",
+      question: "Solve: $3x + 2y = 12$ and $3x - 2y = 0$. What is y?",
       choices: [
         { id: "A", text: "2" },
         { id: "B", text: "3" },
@@ -274,7 +274,7 @@ export const systemsQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "To eliminate x from 2x + 3y = 8 and 5x - 2y = 1, multiply the first equation by:",
+      question: "To eliminate x from $2x + 3y = 8$ and $5x - 2y = 1$, multiply the first equation by:",
       choices: [
         { id: "A", text: "2" },
         { id: "B", text: "5" },
@@ -289,12 +289,12 @@ export const systemsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "Solve: 4x + y = 11 and 2x + 3y = 13. What is the solution?",
+      question: "Solve: $4x + y = 11$ and $2x + 3y = 13$. What is the solution?",
       choices: [
         { id: "A", text: "(2, 3)" },
         { id: "B", text: "(3, 2)" },
         { id: "C", text: "(1, 7)" },
-        { id: "D", text: "(4, -5)" }
+        { id: "D", text: "$(4, -5)$" }
       ],
       correctAnswer: "A",
       hint: "Multiply the first equation by -3 to make the y coefficients opposites, then add the equations.",
@@ -304,7 +304,7 @@ export const systemsQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "Using elimination on 2x + 5y = 24 and 3x + 5y = 29, what is 5x?",
+      question: "Using elimination on $2x + 5y = 24$ and $3x + 5y = 29$, what is 5x?",
       choices: [
         { id: "A", text: "5" },
         { id: "B", text: "10" },
@@ -325,8 +325,8 @@ export const systemsQuestions = {
       difficulty: "easy",
       question: "When graphing a system in Desmos, the solution is found at:",
       choices: [
-        { id: "A", text: "The y-intercepts" },
-        { id: "B", text: "The x-intercepts" },
+        { id: "A", text: "$The y-intercepts$" },
+        { id: "B", text: "$The x-intercepts$" },
         { id: "C", text: "The intersection point(s)" },
         { id: "D", text: "The highest point" }
       ],
@@ -383,7 +383,7 @@ export const systemsQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "A Desmos graph shows lines y = 2x + 1 and y = 2x - 3 never touching. This means:",
+      question: "A Desmos graph shows lines $y = 2x + 1$ and $y = 2x - 3$ never touching. This means:",
       choices: [
         { id: "A", text: "The solution is (0, 1)" },
         { id: "B", text: "The solution is (2, 1)" },
@@ -402,7 +402,7 @@ export const systemsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "The system x + y = 5 and 2x + 2y = 10 has:",
+      question: "The system $x + y = 5$ and $2x + 2y = 10$ has:",
       choices: [
         { id: "A", text: "No solution" },
         { id: "B", text: "One solution" },
@@ -432,12 +432,12 @@ export const systemsQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "For what value of k does 3x - 6y = 9 and x - 2y = k have infinite solutions?",
+      question: "For what value of k does $3x - 6y = 9$ and $x - 2y = k$ have infinite solutions?",
       choices: [
-        { id: "A", text: "k = 3" },
-        { id: "B", text: "k = 9" },
-        { id: "C", text: "k = -3" },
-        { id: "D", text: "k = 27" }
+        { id: "A", text: "$k = 3$" },
+        { id: "B", text: "$k = 9$" },
+        { id: "C", text: "$k = -3$" },
+        { id: "D", text: "$k = 27$" }
       ],
       correctAnswer: "A",
       hint: "Divide the first equation by 3 to put it in the same form as the second. What should k equal for them to be identical?",
@@ -447,7 +447,7 @@ export const systemsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "If using elimination gives 0 = 0, the system has:",
+      question: "If using elimination gives $0 = 0$, the system has:",
       choices: [
         { id: "A", text: "No solution" },
         { id: "B", text: "Exactly one solution" },
@@ -455,7 +455,7 @@ export const systemsQuestions = {
         { id: "D", text: "An error" }
       ],
       correctAnswer: "C",
-      hint: "Is 0 = 0 always true, never true, or sometimes true? What does that tell you about the equations?",
+      hint: "Is $0 = 0$ always true, never true, or sometimes true? What does that tell you about the equations?",
       explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** $0=0$ is always true, so the two equations carry the same information — a dependent system with infinitely many solutions.\n\n**The Full Solution:**\nStep 1: When elimination cancels all variable terms, you are left with a statement about constants only.\nStep 2: $0=0$ is a true identity, which means one equation is a multiple of the other and they describe the same line.\nStep 3: Because the equations are equivalent, every $(x,y)$ that satisfies one satisfies both, giving infinitely many solutions.\n\n**Why the wrong answers are tempting:**\n* Choice A (no solution): that comes from a false statement like $0=5$, not $0=0$. The two outcomes are easy to swap.\n* Choice B (exactly one solution): one solution requires isolating a variable, such as $x=3$. Reaching $0=0$ means no variable was pinned down.\n* Choice D (an error): $0=0$ is a valid, meaningful result signaling dependence, not a mistake.\n\n**Test Day Takeaway:** After elimination, $0=0$ means infinitely many solutions (dependent), while $0=c$ with $c \\neq 0$ means no solution (inconsistent).",
       skills: ['infinite-solutions-condition', 'elimination-method']
     },
@@ -464,10 +464,10 @@ export const systemsQuestions = {
       difficulty: "hard",
       question: "Which system has infinitely many solutions?",
       choices: [
-        { id: "A", text: "y = 2x + 3, y = 2x - 1" },
-        { id: "B", text: "y = 2x + 3, 2y = 4x + 6" },
-        { id: "C", text: "y = 2x + 3, y = 3x + 2" },
-        { id: "D", text: "y = 2x + 3, y = -2x + 3" }
+        { id: "A", text: "$y = 2x + 3$, $y = 2x - 1$" },
+        { id: "B", text: "$y = 2x + 3$, $2y = 4x + 6$" },
+        { id: "C", text: "$y = 2x + 3$, $y = 3x + 2$" },
+        { id: "D", text: "$y = 2x + 3$, $y = -2x + 3$" }
       ],
       correctAnswer: "B",
       hint: "Simplify each system to see if both equations reduce to the same line. Divide or multiply to compare.",

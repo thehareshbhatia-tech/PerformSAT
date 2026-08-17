@@ -37,7 +37,7 @@ export const circlesQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "A circle has a center at point O. If point P is on the circle and OP = 5, what is the radius of the circle?",
+      question: "A circle has a center at point O. If point P is on the circle and $OP = 5$, what is the radius of the circle?",
       choices: [
         { id: "A", text: "2.5" },
         { id: "B", text: "5" },
@@ -94,7 +94,7 @@ export const circlesQuestions = {
         { id: "D", text: "72π" }
       ],
       correctAnswer: "C",
-      hint: "Use the area formula A = πr². Make sure to square the radius, not just multiply it by π.",
+      hint: "Use the area formula $A = \pi r^2$. Make sure to square the radius, not just multiply it by π.",
       explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** Area is $\\pi r^2$, so $\\pi (6)^2 = 36\\pi$.\n\n**The Full Solution:**\nStep 1: Write $A = \\pi r^2$.\nStep 2: Substitute $r = 6$: $A = \\pi (6)^2 = 36\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($6\\pi$): used $\\pi r$ and forgot to square the radius.\n* Choice B ($12\\pi$): used the circumference formula $C = 2\\pi r = 2\\pi(6) = 12\\pi$.\n* Choice D ($72\\pi$): doubled the area, perhaps from blending area and circumference.\n\n**Test Day Takeaway:** Area is $A = \\pi r^2$ — square the radius first, then multiply by $\\pi$. Don't confuse it with circumference $2\\pi r$.",
       skills: ["circle-area"]
     },
@@ -124,7 +124,7 @@ export const circlesQuestions = {
         { id: "D", text: "50 meters" }
       ],
       correctAnswer: "B",
-      hint: "Work backwards from the area formula. If A = πr², then r² = A/π. What number squared gives you 100?",
+      hint: "Work backwards from the area formula. If $A = \pi r^2$, then $r^2 = A/\pi$. What number squared gives you 100?",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** $100\\pi = \\pi r^2 \\Rightarrow r^2 = 100 \\Rightarrow r = 10$ meters.\n\n**The Full Solution:**\nStep 1: Set $A = \\pi r^2$, so $100\\pi = \\pi r^2$.\nStep 2: Divide by $\\pi$: $r^2 = 100$.\nStep 3: Take the square root: $r = \\sqrt{100} = 10$ meters.\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$ meters): found $r = 10$ then halved it, confusing radius with diameter.\n* Choice C ($25$ meters): stopped at $r^2 = 100$ and mishandled it, or divided by $4$.\n* Choice D ($50$ meters): computed $\\frac{100}{2}$, mixing in the circumference structure instead of taking a square root.\n\n**Test Day Takeaway:** To get the radius from area, use $r = \\sqrt{\\frac{A}{\\pi}}$. When the area is a multiple of $\\pi$, the $\\pi$ cancels cleanly.",
       skills: ["circle-area"]
     },
@@ -140,7 +140,7 @@ export const circlesQuestions = {
         { id: "D", text: "77 feet" }
       ],
       correctAnswer: "A",
-      hint: "Set up the equation 154 = (22/7)r² and solve for r². Multiply both sides by 7/22 to isolate r².",
+      hint: "Set up the equation $154 = (22/7)r^2$ and solve for $r^2$. Multiply both sides by 7/22 to isolate $r^2$.",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** With $\\pi \\approx \\frac{22}{7}$, $154 = \\frac{22}{7} r^2$ gives $r^2 = 154 \\cdot \\frac{7}{22} = 49$, so $r = 7$ feet.\n\n**The Full Solution:**\nStep 1: Set up $A = \\pi r^2 \\Rightarrow 154 = \\frac{22}{7} \\cdot r^2$.\nStep 2: Multiply both sides by $\\frac{7}{22}$: $r^2 = 154 \\times \\frac{7}{22} = \\frac{1078}{22} = 49$.\nStep 3: Take the square root: $r = \\sqrt{49} = 7$ feet.\n\n**Why the wrong answers are tempting:**\n* Choice B ($14$ feet): doubled the radius to the diameter ($2 \\times 7$).\n* Choice C ($49$ feet): stopped at $r^2 = 49$ without taking the square root.\n* Choice D ($77$ feet): computed $\\frac{154}{2}$, misapplying the formula.\n\n**Test Day Takeaway:** When $\\pi \\approx \\frac{22}{7}$, multiply by the reciprocal $\\frac{7}{22}$ to isolate $r^2$, then take the square root.",
       skills: ["circle-area"]
     },
@@ -174,7 +174,7 @@ export const circlesQuestions = {
         { id: "D", text: "50π" }
       ],
       correctAnswer: "B",
-      hint: "Use the circumference formula C = 2πr. The circumference involves the radius multiplied by 2π.",
+      hint: "Use the circumference formula $C = 2\pi r$. The circumference involves the radius multiplied by 2π.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** Circumference is $2\\pi r$, so $2\\pi (5) = 10\\pi$.\n\n**The Full Solution:**\nStep 1: Write $C = 2\\pi r$.\nStep 2: Substitute $r = 5$: $C = 2\\pi (5) = 10\\pi$. Equivalently, $C = \\pi d = \\pi(10) = 10\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($5\\pi$): used $\\pi r$ and dropped the factor of $2$.\n* Choice C ($25\\pi$): used the area formula $\\pi r^2 = \\pi(5)^2 = 25\\pi$.\n* Choice D ($50\\pi$): applied a nonexistent $2\\pi r^2$, doubling the area.\n\n**Test Day Takeaway:** Circumference is $C = 2\\pi r = \\pi d$ (linear in $r$); area is $A = \\pi r^2$ (quadratic). Keep them straight.",
       skills: ["circumference"]
     },
@@ -189,7 +189,7 @@ export const circlesQuestions = {
         { id: "D", text: "48 cm" }
       ],
       correctAnswer: "C",
-      hint: "Use the formula C = πd. If the circumference is 24π, what value of d makes this equation true?",
+      hint: "Use the formula $C = \pi d$. If the circumference is 24π, what value of d makes this equation true?",
       explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** $C = \\pi d$, so $24\\pi = \\pi d$ gives $d = 24$ cm directly.\n\n**The Full Solution:**\nStep 1: Use $C = \\pi d$.\nStep 2: Substitute: $24\\pi = \\pi d$.\nStep 3: Divide both sides by $\\pi$: $d = 24$ cm.\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$ cm): divided by $4$ instead of solving cleanly.\n* Choice B ($12$ cm): found the radius, $r = \\frac{C}{2\\pi} = 12$, but the question asks for the diameter.\n* Choice D ($48$ cm): doubled the answer ($24 \\times 2$), applying $d = 2r$ to the wrong quantity.\n\n**Test Day Takeaway:** From $C = \\pi d$, the diameter is $d = \\frac{C}{\\pi}$. When $C$ is a multiple of $\\pi$, the coefficient is the diameter.",
       skills: ["circumference"]
     },
@@ -283,7 +283,7 @@ export const circlesQuestions = {
         { id: "D", text: "18" }
       ],
       correctAnswer: "C",
-      hint: "Set up the sector area formula with known values and solve for r². Remember that 60° is 1/6 of a full circle.",
+      hint: "Set up the sector area formula with known values and solve for $r^2$. Remember that 60° is 1/6 of a full circle.",
       explanation: "**Choice C is correct.**\n\n**The Fast Way (~20s):** $60^\\circ$ is $\\frac{1}{6}$ of the circle, so $\\frac{1}{6}\\pi r^2=18\\pi$ gives $r^2=108$ and $r=\\sqrt{108}=6\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: Use $A=\\frac{\\theta}{360^\\circ}\\times \\pi r^2$ with $A=18\\pi$ and $\\theta=60^\\circ$.\nStep 2: $18\\pi=\\frac{60^\\circ}{360^\\circ}\\times \\pi r^2=\\frac{1}{6}\\pi r^2$.\nStep 3: Multiply by $6$: $108\\pi=\\pi r^2$, so $r^2=108$.\nStep 4: Simplify: $r=\\sqrt{108}=\\sqrt{36\\times 3}=6\\sqrt{3}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3\\sqrt{6}$): got $r^2=54$ by multiplying by $3$ instead of $6$, then $\\sqrt{54}=3\\sqrt{6}$.\n* Choice B ($6$): used $r^2=36$, skipping the multiplication that undoes the $\\frac{1}{6}$ fraction.\n* Choice D ($18$): reported the area's coefficient $18$ without solving for $r$.\n\n**Test Day Takeaway:** Clear the angle fraction first to isolate $r^2$, then simplify the root by factoring out perfect squares: $\\sqrt{108}=6\\sqrt{3}$.",
       skills: ["sector-area"]
     },
@@ -324,22 +324,22 @@ export const circlesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "What is the center of the circle with equation (x - 3)² + (y + 2)² = 25?",
+      question: "What is the center of the circle with equation $(x - 3)^2 + (y + 2)^2 = 25$?",
       choices: [
         { id: "A", text: "(3, 2)" },
-        { id: "B", text: "(-3, 2)" },
-        { id: "C", text: "(3, -2)" },
-        { id: "D", text: "(-3, -2)" }
+        { id: "B", text: "$(-3, 2)$" },
+        { id: "C", text: "$(3, -2)$" },
+        { id: "D", text: "$(-3, -2)$" }
       ],
       correctAnswer: "C",
-      hint: "In the standard form (x - h)² + (y - k)² = r², the center is (h, k). Watch the signs carefully!",
+      hint: "In the standard form $(x - h)^2 + (y - k)^2 = r^2$, the center is (h, k). Watch the signs carefully!",
       explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** In $(x-h)^2+(y-k)^2=r^2$ the center is $(h,k)$, and the signs flip: $(x-3)$ gives $h=3$, $(y+2)$ gives $k=-2$, so the center is $(3,-2)$.\n\n**The Full Solution:**\nStep 1: Standard form is $(x-h)^2+(y-k)^2=r^2$ with center $(h,k)$.\nStep 2: Match $(x-3)^2\\Rightarrow h=3$.\nStep 3: Rewrite $(y+2)^2=(y-(-2))^2\\Rightarrow k=-2$. Center $=(3,-2)$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(3,2)$): read $(y+2)$ as $k=2$ instead of $k=-2$.\n* Choice B ($(-3,2)$): flipped both signs the wrong way.\n* Choice D ($(-3,-2)$): read $(x-3)$ as $h=-3$ while correctly getting $k=-2$.\n\n**Test Day Takeaway:** The standard form subtracts the center, so a \"$+$\" inside the parentheses means a negative coordinate — rewrite $(y+2)$ as $(y-(-2))$ to read it cleanly.",
       skills: ["circle-equation"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "What is the radius of the circle (x + 1)² + (y - 4)² = 49?",
+      question: "What is the radius of the circle $(x + 1)^2 + (y - 4)^2 = 49$?",
       choices: [
         { id: "A", text: "7" },
         { id: "B", text: "14" },
@@ -347,7 +347,7 @@ export const circlesQuestions = {
         { id: "D", text: "49" }
       ],
       correctAnswer: "A",
-      hint: "In standard form, the number on the right side equals r². Take the square root to find the radius.",
+      hint: "In standard form, the number on the right side equals $r^2$. Take the square root to find the radius.",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~10s):** The right side is $r^2$, so $r=\\sqrt{49}=7$.\n\n**The Full Solution:**\nStep 1: In standard form $(x-h)^2+(y-k)^2=r^2$, the right side is $r^2$.\nStep 2: Here $r^2=49$, so $r=\\sqrt{49}=7$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($14$): reported the diameter $2r$ instead of the radius.\n* Choice C ($24.5$): divided $49$ by $2$ instead of taking the square root.\n* Choice D ($49$): reported $r^2$ without taking the square root.\n\n**Test Day Takeaway:** The number on the right of a circle equation is $r^2$, not $r$ — always take the square root.",
       skills: ["circle-equation"]
     },
@@ -356,20 +356,20 @@ export const circlesQuestions = {
       difficulty: "medium",
       question: "Which equation represents a circle with center (0, 5) and radius 3?",
       choices: [
-        { id: "A", text: "x² + (y - 5)² = 3" },
-        { id: "B", text: "x² + (y - 5)² = 9" },
-        { id: "C", text: "x² + (y + 5)² = 9" },
-        { id: "D", text: "(x - 5)² + y² = 9" }
+        { id: "A", text: "$x^2 + (y - 5)^2 = 3$" },
+        { id: "B", text: "$x^2 + (y - 5)^2 = 9$" },
+        { id: "C", text: "$x^2 + (y + 5)^2 = 9$" },
+        { id: "D", text: "$(x - 5)^2 + y^2 = 9$" }
       ],
       correctAnswer: "B",
-      hint: "Plug the center coordinates into (x - h)² + (y - k)² = r². Remember that r² appears on the right, not r.",
+      hint: "Plug the center coordinates into $(x - h)^2 + (y - k)^2 = r^2$. Remember that r² appears on the right, not r.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** Plug $(h,k)=(0,5)$ and $r=3$ into $(x-h)^2+(y-k)^2=r^2$: $x^2+(y-5)^2=9$.\n\n**The Full Solution:**\nStep 1: Standard form is $(x-h)^2+(y-k)^2=r^2$.\nStep 2: Substitute $h=0$, $k=5$, $r=3$: $(x-0)^2+(y-5)^2=3^2$.\nStep 3: Simplify: $x^2+(y-5)^2=9$. Check $(0,8)$: $0^2+(8-5)^2=9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^2+(y-5)^2=3$): used $r=3$ on the right instead of $r^2=9$.\n* Choice C ($x^2+(y+5)^2=9$): used $(y+5)$, which places the center at $y=-5$.\n* Choice D ($(x-5)^2+y^2=9$): put the $5$ with $x$, giving center $(5,0)$ instead of $(0,5)$.\n\n**Test Day Takeaway:** When writing a circle equation, square the radius for the right side and match each coordinate to its own variable.",
       skills: ["circle-equation"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "The circle x² + y² = 36 has its center at:",
+      question: "The circle $x^2 + y^2 = 36$ has its center at:",
       choices: [
         { id: "A", text: "(0, 0)" },
         { id: "B", text: "(6, 0)" },
@@ -403,12 +403,12 @@ export const circlesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "If the circle x² + y² = 16 is translated 3 units right and 2 units up, what is the new equation?",
+      question: "If the circle $x^2 + y^2 = 16$ is translated 3 units right and 2 units up, what is the new equation?",
       choices: [
-        { id: "A", text: "(x - 3)² + (y - 2)² = 16" },
-        { id: "B", text: "(x + 3)² + (y + 2)² = 16" },
-        { id: "C", text: "(x - 3)² + (y + 2)² = 16" },
-        { id: "D", text: "(x + 3)² + (y - 2)² = 16" }
+        { id: "A", text: "$(x - 3)^2 + (y - 2)^2 = 16$" },
+        { id: "B", text: "$(x + 3)^2 + (y + 2)^2 = 16$" },
+        { id: "C", text: "$(x - 3)^2 + (y + 2)^2 = 16$" },
+        { id: "D", text: "$(x + 3)^2 + (y - 2)^2 = 16$" }
       ],
       correctAnswer: "A",
       hint: "Moving right means subtracting from x in the equation; moving up means subtracting from y. The radius stays the same.",
@@ -418,12 +418,12 @@ export const circlesQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "The circle (x - 2)² + (y + 1)² = 9 is translated so its new center is at (5, 3). What is the new equation?",
+      question: "The circle $(x - 2)^2 + (y + 1)^2 = 9$ is translated so its new center is at (5, 3). What is the new equation?",
       choices: [
-        { id: "A", text: "(x - 5)² + (y - 3)² = 9" },
-        { id: "B", text: "(x + 5)² + (y + 3)² = 9" },
-        { id: "C", text: "(x - 5)² + (y + 3)² = 9" },
-        { id: "D", text: "(x - 5)² + (y - 3)² = 3" }
+        { id: "A", text: "$(x - 5)^2 + (y - 3)^2 = 9$" },
+        { id: "B", text: "$(x + 5)^2 + (y + 3)^2 = 9$" },
+        { id: "C", text: "$(x - 5)^2 + (y + 3)^2 = 9$" },
+        { id: "D", text: "$(x - 5)^2 + (y - 3)^2 = 3$" }
       ],
       correctAnswer: "A",
       hint: "The new center is given directly. Just write the standard form equation with the new center; the radius remains unchanged.",
@@ -448,11 +448,11 @@ export const circlesQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "The circle (x + 4)² + (y - 1)² = 25 is reflected across the y-axis. What is the x-coordinate of the new center?",
+      question: "The circle $(x + 4)^2 + (y - 1)^2 = 25$ is reflected across the y-axis. What is the x-coordinate of the new center?",
       choices: [
-        { id: "A", text: "−4" },
+        { id: "A", text: "$-4$" },
         { id: "B", text: "4" },
-        { id: "C", text: "−1" },
+        { id: "C", text: "$-1$" },
         { id: "D", text: "1" }
       ],
       correctAnswer: "B",
@@ -463,11 +463,11 @@ export const circlesQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "After a circle is translated 5 units left, its equation is (x + 2)² + (y - 3)² = 4. What was the original center?",
+      question: "After a circle is translated 5 units left, its equation is $(x + 2)^2 + (y - 3)^2 = 4$. What was the original center?",
       choices: [
-        { id: "A", text: "(-7, 3)" },
+        { id: "A", text: "$(-7, 3)$" },
         { id: "B", text: "(3, 3)" },
-        { id: "C", text: "(-2, 3)" },
+        { id: "C", text: "$(-2, 3)$" },
         { id: "D", text: "(7, 3)" }
       ],
       correctAnswer: "B",
@@ -482,11 +482,11 @@ export const circlesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "What is the domain of the circle (x - 1)² + (y + 2)² = 9?",
+      question: "What is the domain of the circle $(x - 1)^2 + (y + 2)^2 = 9$?",
       choices: [
-        { id: "A", text: "−2 ≤ x ≤ 4" },
-        { id: "B", text: "−1 ≤ x ≤ 3" },
-        { id: "C", text: "−5 ≤ x ≤ 1" },
+        { id: "A", text: "$-2 \le x \le 4$" },
+        { id: "B", text: "$-1 \le x \le 3$" },
+        { id: "C", text: "$-5 \le x \le 1$" },
         { id: "D", text: "All real numbers" }
       ],
       correctAnswer: "A",
@@ -497,12 +497,12 @@ export const circlesQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "What is the range of the circle x² + (y - 5)² = 16?",
+      question: "What is the range of the circle $x^2 + (y - 5)^2 = 16$?",
       choices: [
-        { id: "A", text: "1 ≤ y ≤ 9" },
-        { id: "B", text: "−4 ≤ y ≤ 4" },
-        { id: "C", text: "1 ≤ y ≤ 5" },
-        { id: "D", text: "−1 ≤ y ≤ 9" }
+        { id: "A", text: "$1 \le y \le 9$" },
+        { id: "B", text: "$-4 \le y \le 4$" },
+        { id: "C", text: "$1 \le y \le 5$" },
+        { id: "D", text: "$-1 \le y \le 9$" }
       ],
       correctAnswer: "A",
       hint: "Find the center's y-coordinate and the radius. The range extends one radius above and one radius below the center.",
@@ -512,7 +512,7 @@ export const circlesQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "How many times does the line y = 3 intersect the circle x² + y² = 25?",
+      question: "How many times does the line $y = 3$ intersect the circle $x^2 + y^2 = 25$?",
       choices: [
         { id: "A", text: "0" },
         { id: "B", text: "1" },
@@ -520,29 +520,29 @@ export const circlesQuestions = {
         { id: "D", text: "Infinitely many" }
       ],
       correctAnswer: "C",
-      hint: "Substitute y = 3 into the circle equation and solve for x. The number of x-values equals the number of intersection points.",
+      hint: "Substitute $y = 3$ into the circle equation and solve for x. The number of x-values equals the number of intersection points.",
       explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** The line $y=3$ sits inside the circle since $|3|<5$ (the radius), so a horizontal line through the interior cuts it in $2$ points.\n\n**The Full Solution:**\nStep 1: Substitute $y=3$ into $x^2+y^2=25$: $x^2+9=25$.\nStep 2: $x^2=16\\Rightarrow x=\\pm 4$.\nStep 3: Two solutions give two points: $(4,3)$ and $(-4,3)$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): would hold only if the line missed the circle, i.e. $|3|>5$. It does not.\n* Choice B ($1$): kept only $x=4$ and forgot $x=-4$. $x^2=16$ has two roots.\n* Choice D (infinitely many): a line meets a circle in at most $2$ points; overlap only happens between identical curves.\n\n**Test Day Takeaway:** A horizontal line $y=c$ meets $x^2+y^2=r^2$ in $2$ points when $|c|<r$, $1$ when $|c|=r$ (tangent), and $0$ when $|c|>r$.",
       skills: ["circle-equation"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "At what points does the circle x² + y² = 25 intersect the x-axis?",
+      question: "At what points does the circle $x^2 + y^2 = 25$ intersect the x-axis?",
       choices: [
         { id: "A", text: "(5, 0) only" },
-        { id: "B", text: "(5, 0) and (-5, 0)" },
-        { id: "C", text: "(0, 5) and (0, -5)" },
+        { id: "B", text: "$(5, 0)$ and $(-5, 0)$" },
+        { id: "C", text: "$(0, 5)$ and $(0, -5)$" },
         { id: "D", text: "No intersection" }
       ],
       correctAnswer: "B",
-      hint: "On the x-axis, y = 0. Substitute this into the equation and solve for x.",
+      hint: "On the x-axis, $y = 0$. Substitute this into the equation and solve for x.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** On the $x$-axis $y=0$, so $x^2=25$ and $x=\\pm 5$ — two crossings at $(5,0)$ and $(-5,0)$.\n\n**The Full Solution:**\nStep 1: Set $y=0$ in $x^2+y^2=25$: $x^2+0=25$.\nStep 2: $x^2=25\\Rightarrow x=\\pm 5$.\nStep 3: Intersection points: $(5,0)$ and $(-5,0)$.\n\n**Why the wrong answers are tempting:**\n* Choice A: kept only the positive root $x=5$ and dropped $x=-5$.\n* Choice C: $(0,5)$ and $(0,-5)$ are the $y$-axis crossings (set $x=0$), not the $x$-axis.\n* Choice D: a radius-$5$ circle at the origin clearly reaches the $x$-axis.\n\n**Test Day Takeaway:** For $x$-axis intercepts set $y=0$; for $y$-axis intercepts set $x=0$. And $x^2=c$ always gives $x=\\pm\\sqrt{c}$ — keep both signs.",
       skills: ["circle-equation"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "The line y = x + 1 and circle x² + y² = 5 intersect at how many points?",
+      question: "The line $y = x + 1$ and circle $x^2 + y^2 = 5$ intersect at how many points?",
       choices: [
         { id: "A", text: "0" },
         { id: "B", text: "1" },
@@ -561,12 +561,12 @@ export const circlesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "Convert x² + y² - 6x + 4y = 12 to standard form. What is the center?",
+      question: "Convert $x^2 + y^2 - 6x + 4y = 12$ to standard form. What is the center?",
       choices: [
-        { id: "A", text: "(3, -2)" },
-        { id: "B", text: "(-3, 2)" },
-        { id: "C", text: "(6, -4)" },
-        { id: "D", text: "(-6, 4)" }
+        { id: "A", text: "$(3, -2)$" },
+        { id: "B", text: "$(-3, 2)$" },
+        { id: "C", text: "$(6, -4)$" },
+        { id: "D", text: "$(-6, 4)$" }
       ],
       correctAnswer: "A",
       hint: "Complete the square for both x and y terms. Remember to add the same values to both sides of the equation.",
@@ -576,7 +576,7 @@ export const circlesQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "For the circle x² + y² + 8x - 2y - 8 = 0, what is the radius?",
+      question: "For the circle $x^2 + y^2 + 8x - 2y - 8 = 0$, what is the radius?",
       choices: [
         { id: "A", text: "3" },
         { id: "B", text: "5" },
@@ -591,12 +591,12 @@ export const circlesQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "The equation x² + y² - 10y = 0 represents a circle with center at:",
+      question: "The equation $x^2 + y^2 - 10y = 0$ represents a circle with center at:",
       choices: [
         { id: "A", text: "(0, 5)" },
-        { id: "B", text: "(0, -5)" },
+        { id: "B", text: "$(0, -5)$" },
         { id: "C", text: "(5, 0)" },
-        { id: "D", text: "(-5, 0)" }
+        { id: "D", text: "$(-5, 0)$" }
       ],
       correctAnswer: "A",
       hint: "Since there's no x term to complete, focus on completing the square for the y terms only.",
@@ -606,7 +606,7 @@ export const circlesQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "Convert x² + y² + 2x - 6y + 6 = 0 to standard form. What is r²?",
+      question: "Convert $x^2 + y^2 + 2x - 6y + 6 = 0$ to standard form. What is $r^2$?",
       choices: [
         { id: "A", text: "2" },
         { id: "B", text: "4" },
@@ -614,19 +614,19 @@ export const circlesQuestions = {
         { id: "D", text: "10" }
       ],
       correctAnswer: "B",
-      hint: "After completing the square, the constant on the right side is r². Be careful with signs when moving terms.",
+      hint: "After completing the square, the constant on the right side is $r^2$. Be careful with signs when moving terms.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** Complete both squares: $x$ adds $1$, $y$ adds $9$. The right side is $-6+1+9=4$, so $r^2=4$.\n\n**The Full Solution:**\nStep 1: Move the constant and group: $(x^2+2x)+(y^2-6y)=-6$.\nStep 2: Complete the square for $x$: half of $2$ is $1$, and $1^2=1$. Add $1$ to both sides.\nStep 3: Complete the square for $y$: half of $-6$ is $-3$, and $(-3)^2=9$. Add $9$ to both sides.\nStep 4: $(x+1)^2+(y-3)^2=-6+1+9=4$, so $r^2=4$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): an arithmetic slip on $-6+1+9$, which equals $4$, not $2$.\n* Choice C ($6$): grabbed the constant $6$ from the original equation as $r^2$ without completing the square.\n* Choice D ($10$): added only the completing-the-square terms ($1+9$) and forgot the $-6$ that moved to the right.\n\n**Test Day Takeaway:** The right side after completing the square equals (the moved constant) plus (every completing-the-square addition). Track the signs: $-6+1+9=4$.",
       skills: ["completing-square-circles", "circle-equation"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "Which equation in general form represents the circle (x - 2)² + (y + 3)² = 16?",
+      question: "Which equation in general form represents the circle $(x - 2)^2 + (y + 3)^2 = 16$?",
       choices: [
-        { id: "A", text: "x² + y² - 4x + 6y - 3 = 0" },
-        { id: "B", text: "x² + y² - 4x - 6y - 3 = 0" },
-        { id: "C", text: "x² + y² + 4x - 6y - 3 = 0" },
-        { id: "D", text: "x² + y² - 4x + 6y + 3 = 0" }
+        { id: "A", text: "$x^2 + y^2 - 4x + 6y - 3 = 0$" },
+        { id: "B", text: "$x^2 + y^2 - 4x - 6y - 3 = 0$" },
+        { id: "C", text: "$x^2 + y^2 + 4x - 6y - 3 = 0$" },
+        { id: "D", text: "$x^2 + y^2 - 4x + 6y + 3 = 0$" }
       ],
       correctAnswer: "A",
       hint: "Expand both squared terms, combine like terms, and move everything to one side. Check signs carefully.",
@@ -685,7 +685,7 @@ export const circlesQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "A circle has center (0, 0) and radius 5. What is the distance from the center to the tangent line y = 5?",
+      question: "A circle has center (0, 0) and radius 5. What is the distance from the center to the tangent line $y = 5$?",
       choices: [
         { id: "A", text: "0" },
         { id: "B", text: "5" },

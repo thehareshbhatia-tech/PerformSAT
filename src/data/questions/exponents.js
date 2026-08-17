@@ -7,7 +7,7 @@ export const exponentsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "Simplify: x⁴ · x³",
+      question: "Simplify: x⁴ · $x^3$",
       choices: [
         { id: "A", text: "x⁷" },
         { id: "B", text: "x¹²" },
@@ -26,7 +26,7 @@ export const exponentsQuestions = {
       choices: [
         { id: "A", text: "x⁷" },
         { id: "B", text: "x¹²" },
-        { id: "C", text: "4x³" },
+        { id: "C", text: "$4x^3$" },
         { id: "D", text: "x⁶⁴" }
       ],
       correctAnswer: "B",
@@ -89,7 +89,7 @@ export const exponentsQuestions = {
       question: "Which is greater: 2⁵ or 5²?",
       choices: [
         { id: "A", text: "2⁵" },
-        { id: "B", text: "5²" },
+        { id: "B", text: "$5^2$" },
         { id: "C", text: "They are equal" },
         { id: "D", text: "Cannot be determined" }
       ],
@@ -119,7 +119,7 @@ export const exponentsQuestions = {
       question: "Which expression has the greatest value: 3⁴, 4³, or 2⁶?",
       choices: [
         { id: "A", text: "3⁴" },
-        { id: "B", text: "4³" },
+        { id: "B", text: "$4^3$" },
         { id: "C", text: "2⁶" },
         { id: "D", text: "All are equal" }
       ],
@@ -131,15 +131,15 @@ export const exponentsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "If x > 1, which is greater: x² or x³?",
+      question: "If $x > 1$, which is greater: x² or $x^3$?",
       choices: [
-        { id: "A", text: "x²" },
-        { id: "B", text: "x³" },
+        { id: "A", text: "$x^2$" },
+        { id: "B", text: "$x^3$" },
         { id: "C", text: "They are equal" },
         { id: "D", text: "Cannot be determined" }
       ],
       correctAnswer: "B",
-      hint: "Think about what x³ equals in terms of x². Since x > 1, consider what happens when you multiply a number greater than 1 by itself again.",
+      hint: "Think about what x³ equals in terms of $x^2$. Since $x > 1$, consider what happens when you multiply a number greater than 1 by itself again.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** For $x > 1$, multiplying by an extra $x$ grows the value, so $x^3 = x^2 \\cdot x > x^2$ — Choice B.\n\n**The Full Solution:**\nStep 1: Write $x^3 = x^2 \\cdot x$.\nStep 2: Since $x > 1$, the factor $x$ exceeds $1$, so $x^2 \\cdot x > x^2 \\cdot 1 = x^2$.\nStep 3: Therefore $x^3 > x^2$ whenever $x > 1$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^2$): this is larger only when $0 < x < 1$, where multiplying by a fraction shrinks the value — the constraint here is $x > 1$.\n* Choice C (They are equal): they match only at $x = 1$, which is excluded by $x > 1$.\n* Choice D (Cannot be determined): the condition $x > 1$ pins the relationship down completely.\n\n**Test Day Takeaway:** For $x > 1$, higher exponent means bigger value; for $0 < x < 1$ the inequality flips. The base relative to $1$ controls everything.",
       skills: ['comparing-exponentials', 'exponent-laws']
     },
@@ -165,7 +165,7 @@ export const exponentsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "The function f(x) = 2ˣ represents exponential:",
+      question: "The function $f(x) = 2$ˣ represents exponential:",
       choices: [
         { id: "A", text: "Decay" },
         { id: "B", text: "Growth" },
@@ -195,7 +195,7 @@ export const exponentsQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "The function f(x) = 500(0.8)ˣ represents a quantity that:",
+      question: "The function $f(x) = 500(0.8)$ˣ represents a quantity that:",
       choices: [
         { id: "A", text: "Increases by 80% each time period" },
         { id: "B", text: "Decreases by 80% each time period" },
@@ -218,19 +218,19 @@ export const exponentsQuestions = {
         { id: "D", text: "f(x) = 5ˣ + 2" }
       ],
       correctAnswer: "A",
-      hint: "The y-intercept occurs when x = 0. Substitute x = 0 into each function and remember that any number raised to the power of 0 equals 1.",
+      hint: "The y-intercept occurs when $x = 0$. Substitute $x = 0$ into each function and remember that any number raised to the power of 0 equals 1.",
       explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** The $y$-intercept is $f(0)$, and any nonzero base to the power $0$ is $1$. Test each: only $5(2)^0=5$ gives $5$.\n\n**The Full Solution:**\nStep 1: The $y$-intercept happens at $x=0$, so evaluate $f(0)$ for each choice.\nStep 2: Choice A: $f(0)=5(2)^0=5\\cdot1=5$.\nStep 3: Choice B: $2(5)^0=2$; Choice C: $2^0+5=6$; Choice D: $5^0+2=3$.\nStep 4: Only Choice A lands on $5$.\n\n**Why the wrong answers are tempting:**\n* Choice B: the $5$ sits in the base, not the coefficient; $f(0)=2$, the front coefficient.\n* Choice C: $2^0+5=1+5=6$, since $2^0=1$ — the constant shifts the intercept.\n* Choice D: $5^0+2=1+2=3$; remember $5^0=1$, not $5$.\n\n**Test Day Takeaway:** For $f(x)=a\\cdot b^x$, the $y$-intercept is the coefficient $a$, because $b^0=1$. For a shifted form like $b^x+c$, the intercept is $1+c$.",
       skills: ['exponential-y-intercept']
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "A car depreciates by 15% per year. If its initial value is $20,000, which expression gives its value after t years?",
+      question: "A car depreciates by 15% per year. If its initial value is \\$20,000, which expression gives its value after t years?",
       choices: [
         { id: "A", text: "20000(0.15)ᵗ" },
         { id: "B", text: "20000(0.85)ᵗ" },
         { id: "C", text: "20000(1.15)ᵗ" },
-        { id: "D", text: "20000 - 0.15t" }
+        { id: "D", text: "$20000 - 0.15t$" }
       ],
       correctAnswer: "B",
       hint: "Depreciation means losing value. If the car loses 15% of its value each year, what percentage of its value does it retain?",

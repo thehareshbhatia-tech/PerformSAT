@@ -7,7 +7,7 @@ export const dimensionalAnalysisQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "If 1 mile = 5,280 feet, how many feet are in 3.5 miles?",
+      question: "If 1 $mile = 5$,280 feet, how many feet are in 3.5 miles?",
       choices: [
         { id: "A", text: "1,508.57 feet" },
         { id: "B", text: "15,840 feet" },
@@ -37,7 +37,7 @@ export const dimensionalAnalysisQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "If 1 kilogram = 2.2 pounds, how many kilograms is 110 pounds?",
+      question: "If 1 $kilogram = 2.2$ pounds, how many kilograms is 110 pounds?",
       choices: [
         { id: "A", text: "50 kilograms" },
         { id: "B", text: "242 kilograms" },
@@ -67,7 +67,7 @@ export const dimensionalAnalysisQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "A recipe calls for 3 cups of flour. If 1 cup = 8 fluid ounces, how many fluid ounces of flour is needed?",
+      question: "A recipe calls for 3 cups of flour. If 1 $cup = 8$ fluid ounces, how many fluid ounces of flour is needed?",
       choices: [
         { id: "A", text: "0.375 fluid ounces" },
         { id: "B", text: "11 fluid ounces" },
@@ -86,7 +86,7 @@ export const dimensionalAnalysisQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "If 1 foot = 12 inches, how many square inches are in 1 square foot?",
+      question: "If 1 $foot = 12$ inches, how many square inches are in 1 square foot?",
       choices: [
         { id: "A", text: "12 square inches" },
         { id: "B", text: "24 square inches" },
@@ -94,19 +94,19 @@ export const dimensionalAnalysisQuestions = {
         { id: "D", text: "1,728 square inches" }
       ],
       correctAnswer: "C",
-      hint: "When converting area (square units), remember to apply the conversion factor twice - once for each dimension.",
+      hint: "When converting area (square units), remember to apply the conversion factor twice — once for each dimension.",
       explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** Area is two-dimensional, so square the linear factor: $12^2 = 144$ square inches.\n\n**The Full Solution:**\nStep 1: Start from the linear conversion $1 \\text{ ft} = 12 \\text{ in}$ and square both sides.\nStep 2: $(1 \\text{ ft})^2 = (12 \\text{ in})^2 \\Rightarrow 1 \\text{ ft}^2 = 144 \\text{ in}^2$.\nStep 3: Check: $\\sqrt{144} = 12$, matching $12 \\text{ in} = 1 \\text{ ft}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): used the linear factor once, forgetting area has two dimensions.\n* Choice B ($24$): doubled the factor ($12 \\times 2$) instead of squaring it.\n* Choice D ($1{,}728$): cubed the factor ($12^3$), which is the volume conversion, not area.\n\n**Test Day Takeaway:** For area, square the linear factor; for volume, cube it. Length uses factor$^1$, area factor$^2$, volume factor$^3$.",
       skills: ['squared-cubed-units']
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "Convert 3 square meters to square centimeters. (1 m = 100 cm)",
+      question: "Convert 3 square meters to square centimeters. (1 $m = 100$ cm)",
       choices: [
-        { id: "A", text: "300 cm²" },
-        { id: "B", text: "3,000 cm²" },
-        { id: "C", text: "30,000 cm²" },
-        { id: "D", text: "300,000 cm²" }
+        { id: "A", text: "$300 cm^2$" },
+        { id: "B", text: "$3,000 cm^2$" },
+        { id: "C", text: "$30,000 cm^2$" },
+        { id: "D", text: "$300,000 cm^2$" }
       ],
       correctAnswer: "C",
       hint: "For area conversions, square the linear conversion factor (100) before multiplying.",
@@ -116,7 +116,7 @@ export const dimensionalAnalysisQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "How many cubic feet are in 1 cubic yard? (1 yard = 3 feet)",
+      question: "How many cubic feet are in 1 cubic yard? (1 $yard = 3$ feet)",
       choices: [
         { id: "A", text: "3 cubic feet" },
         { id: "B", text: "9 cubic feet" },
@@ -131,7 +131,7 @@ export const dimensionalAnalysisQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "A room has an area of 180 square feet. What is this area in square yards? (1 yard = 3 feet)",
+      question: "A room has an area of 180 square feet. What is this area in square yards? (1 $yard = 3$ feet)",
       choices: [
         { id: "A", text: "20 square yards" },
         { id: "B", text: "60 square yards" },
@@ -146,7 +146,7 @@ export const dimensionalAnalysisQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "A tank holds 8,000 cubic centimeters. What is its volume in liters? (1 liter = 1,000 cm³)",
+      question: "A tank holds 8,000 cubic centimeters. What is its volume in liters? (1 $liter = 1$,000 cm³)",
       choices: [
         { id: "A", text: "0.8 liters" },
         { id: "B", text: "8 liters" },
@@ -154,7 +154,7 @@ export const dimensionalAnalysisQuestions = {
         { id: "D", text: "8,000,000 liters" }
       ],
       correctAnswer: "B",
-      hint: "Use the given relationship directly - this is already a cubic conversion, so no additional exponent is needed.",
+      hint: "Use the given relationship directly — this is already a cubic conversion, so no additional exponent is needed.",
       explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** The factor $1 \\text{ L} = 1{,}000 \\text{ cm}^3$ is already cubic, so just divide: $8{,}000 \\div 1{,}000 = 8$ liters.\n\n**The Full Solution:**\nStep 1: Set up the factor so cm$^3$ cancels: $8{,}000 \\text{ cm}^3 \\times \\frac{1 \\text{ liter}}{1{,}000 \\text{ cm}^3}$.\nStep 2: Divide: $\\frac{8{,}000}{1{,}000} = 8$ liters.\nStep 3: Check by reversing: $8 \\times 1{,}000 = 8{,}000 \\text{ cm}^3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.8$): divided by $10{,}000$, adding an extra power that the given factor does not need.\n* Choice C ($80$): divided by $100$ instead of $1{,}000$, mixing up the cm-to-m factor.\n* Choice D ($8{,}000{,}000$): multiplied by $1{,}000$ instead of dividing — wrong direction.\n\n**Test Day Takeaway:** When a conversion is already stated in the target dimension (here liters to cm$^3$), use it directly — do not square or cube it again.",
       skills: ['squared-cubed-units']
     }
