@@ -19,6 +19,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { act } from 'react-dom/test-utils';
 import StudyPlanDashboard from '../StudyPlanDashboard';
+import { setFeatureFlagForTest } from '../../hooks/useFeatureFlag';
 
 const todayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date().getDay()];
 
@@ -98,6 +99,13 @@ function renderWith(props) {
 }
 
 describe('StudyPlanDashboard redesign render', () => {
+  // These tests pin the LEGACY two-tab plan page, which remains reachable via
+  // the planV3 kill-switch (REACT_APP_FF_PLAN_V3=false / ff:planV3=0) after
+  // the flag graduated to default-ON (2026-08-14). The v3 timeline has its own
+  // render pins; here the flag is explicitly forced OFF.
+  beforeEach(() => setFeatureFlagForTest('planV3', false));
+  afterEach(() => setFeatureFlagForTest('planV3', undefined));
+
   it('renders the Today branch (module cards) without throwing', () => {
     const text = renderWith({ variant: 'default' });
     expect(text).toContain("Demo's Study Plan");
