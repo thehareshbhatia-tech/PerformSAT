@@ -112,7 +112,7 @@ describe('finishPreviewLine', () => {
       goal: 1500,
       testDate: '2027-03-14',
     });
-    expect(line).toBe('Your starter plan: 5 days a week, opening with algebra and grammar, aimed at 1500. Test day Mar 14 is on the calendar. The 15-minute check-in on your home screen sharpens it.');
+    expect(line).toBe('Your starter plan: 5 days a week, opening with algebra and grammar, aimed at 1500. Test day Mar 14 is on the calendar. The diagnostic on your home screen sharpens it.');
   });
 
   test('more than two areas collapses to "and more"; clauses omit independently', () => {
@@ -130,7 +130,7 @@ describe('finishPreviewLine', () => {
 
   test('a max-skip student gets the honest floor, never a hollow shell', () => {
     const line = finishPreviewLine({ weakMathAreas: [], weakRWAreas: [], studyDaysPerWeek: null, goal: 1400, testDate: '' });
-    expect(line).toBe('Your starter plan is ready. The 15-minute check-in fills in whatever you skipped.');
+    expect(line).toBe('Your starter plan is ready. The diagnostic fills in whatever you skipped.');
     expect(finishPreviewLine()).toContain('fills in whatever you skipped');
   });
 

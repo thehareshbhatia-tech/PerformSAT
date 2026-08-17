@@ -522,7 +522,7 @@ const InnerOnboarding = ({ user, onComplete, onExit }) => {
               Your focus
             </span>
             <h1 className="io-title">And in Reading and Writing?</h1>
-            <p className="io-body">{rwAreasBody(worryArea) || 'Same idea. The check-in will confirm or correct all of this.'}</p>
+            <p className="io-body">{rwAreasBody(worryArea) || 'Same idea. The diagnostic will confirm or correct all of this.'}</p>
             <MultiOptionList options={RW_AREA_OPTIONS} selected={weakRWAreas} onToggle={toggleIn(setWeakRWAreas)} />
             <button type="button" className="io-cta" onClick={advanceOnce()}>
               {weakRWAreas.length ? 'Continue' : 'Not sure yet, skip'}
@@ -593,7 +593,7 @@ const InnerOnboarding = ({ user, onComplete, onExit }) => {
               {finishPreviewLine({ weakMathAreas, weakRWAreas, studyDaysPerWeek, goal, testDate })}
             </p>
             <button type="button" className="io-cta io-cta--lg" onClick={finish} disabled={submitting}>
-              {submitting ? 'Setting things up…' : 'Take me to my check-in'}
+              {submitting ? 'Setting things up…' : 'Take me to my diagnostic'}
             </button>
           </div>
         );

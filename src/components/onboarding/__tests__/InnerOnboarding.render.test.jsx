@@ -106,7 +106,7 @@ test('walks to the end and reports the collected profile', () => {
   clickByText('.io-chip', '4 days'); flush();                 // 9 study days
   const year = String(new Date().getFullYear() + 2);
   clickByText('.io-chip', year); flush();                     // 10 grad year
-  clickByText('.io-cta', 'Take me to my check-in');           // 11 finish
+  clickByText('.io-cta', 'Take me to my diagnostic');         // 11 finish
 
   expect(onComplete).toHaveBeenCalledTimes(1);
   const payload = onComplete.mock.calls[0][0];
@@ -160,7 +160,7 @@ test('fresh starter: skip is the PRIMARY action on the score screen and clears t
   clickByText('.io-skip', "I haven't registered yet");
   expect(container.textContent).toContain("No scores yet, and that's fine.");
   const primary = container.querySelector('.io-cta');
-  expect(primary.textContent).toContain('Skip, the check-in will find it');
+  expect(primary.textContent).toContain('Skip, the diagnostic will find it');
   expect(primary.disabled).toBe(false);
   // Type a score, then skip anyway — the digits must not survive.
   const input = container.querySelector('.io-score-input');
@@ -169,7 +169,7 @@ test('fresh starter: skip is the PRIMARY action on the score screen and clears t
     setter.call(input, '1100');
     input.dispatchEvent(new Event('input', { bubbles: true }));
   });
-  clickByText('.io-cta', 'Skip, the check-in will find it');
+  clickByText('.io-cta', 'Skip, the diagnostic will find it');
   expect(container.querySelector('.io-goal-readout')).toBeTruthy();
   // Goal runway shows the no-score baseline, not the abandoned 1100.
   expect(container.textContent).toContain('Start 400');

@@ -216,7 +216,7 @@ describe('adaptive interstitials', () => {
       const { heading, body } = rightMinutesCopy({ sessionLength: v });
       expect(heading.length).toBeGreaterThan(10);
       expect(body).toContain('question types you actually miss');
-      expect(body).toContain('check-in');
+      expect(body).toContain('diagnostic');
     }
     const fallback = rightMinutesCopy({});
     expect(fallback.heading).toBe(FUNNEL_INTERSTITIALS.rightMinutes.heading);

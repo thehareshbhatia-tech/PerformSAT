@@ -10,7 +10,7 @@
  * at evidenceLevel 'suspected' (attempted: 0), which the generator already
  * treats as probe-sized commitments rather than multi-week bets.
  *
- * The 15-minute check-in is injected as the plan's first activity; completing
+ * The diagnostic is injected as the plan's first activity; completing
  * it runs the real diagnostic pipeline, which regenerates and REPLACES this
  * plan wholesale (plan.planSource === 'onboarding-starter' marks it as
  * provisional for the UI).
@@ -156,13 +156,13 @@ export const buildStarterDiagnostic = (profile = {}) => {
   };
 };
 
-/** First activity of every starter plan: the check-in that replaces it. */
+/** First activity of every starter plan: the diagnostic that replaces it. */
 const checkInActivity = (day) => ({
   type: 'test',
   activityType: 'miniDiagnostic',
-  title: 'Take the 15-minute check-in',
-  subtitle: '24 adaptive questions measure your real starting point and rebuild this plan from evidence.',
-  duration: 15,
+  title: 'Take your diagnostic',
+  subtitle: '40 adaptive questions measure your real starting point and rebuild this plan from evidence.',
+  duration: 55,
   priority: 100,
   icon: null,
   day,
@@ -223,7 +223,7 @@ export const buildStarterPlan = (profile = {}) => {
     const weaknesses = (diagnostic.skillAnalysis.weakSkills || []).map((s) => ({
       skillId: s.skillId,
       skill: s.name,
-      evidence: 'Self-reported in onboarding — the 15-minute check-in measures your real starting point',
+      evidence: 'Self-reported in onboarding — the diagnostic measures your real starting point',
       accuracy: s.testAccuracy,
       attempted: 0,
       blanks: 0,

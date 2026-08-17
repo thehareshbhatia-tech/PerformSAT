@@ -128,9 +128,9 @@ export function scoreScreenCopy(funnelAnswers = {}) {
     case 'fresh':
       return {
         title: "No scores yet, and that's fine.",
-        body: 'The 15-minute check-in finds your real starting point.',
+        body: 'The diagnostic finds your real starting point.',
         skipPrimary: true,
-        skipLabel: 'Skip, the check-in will find it',
+        skipLabel: 'Skip, the diagnostic will find it',
       };
     default:
       return null;
@@ -145,7 +145,7 @@ export function worryBody(funnelAnswers = {}) {
     case 'busy':
       return 'With a full schedule, this is where the limited time should go.';
     case 'lost':
-      return 'This is the first thing the check-in pins down.';
+      return 'This is the first thing the diagnostic pins down.';
     case 'procrastinate':
       return 'This is where starting gets easy.';
     default:
@@ -219,7 +219,7 @@ export function finishPreviewLine({ weakMathAreas = [], weakRWAreas = [], studyD
     .filter(Boolean);
   const hasDays = Number.isFinite(studyDaysPerWeek) && studyDaysPerWeek > 0;
   if (!hasDays && phrases.length === 0) {
-    return 'Your starter plan is ready. The 15-minute check-in fills in whatever you skipped.';
+    return 'Your starter plan is ready. The diagnostic fills in whatever you skipped.';
   }
   const parts = [];
   if (hasDays) parts.push(`${studyDaysPerWeek} days a week`);
@@ -229,5 +229,5 @@ export function finishPreviewLine({ weakMathAreas = [], weakRWAreas = [], studyD
   if (Number.isFinite(goal)) parts.push(`aimed at ${goal}`);
   const dateLabel = previewDate(testDate);
   const dateSentence = dateLabel ? ` Test day ${dateLabel} is on the calendar.` : '';
-  return `Your starter plan: ${parts.join(', ')}.${dateSentence} The 15-minute check-in on your home screen sharpens it.`;
+  return `Your starter plan: ${parts.join(', ')}.${dateSentence} The diagnostic on your home screen sharpens it.`;
 }

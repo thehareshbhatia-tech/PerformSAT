@@ -150,7 +150,7 @@ const Avatar = ({ src, name }) => {
 // Feature cards — icon inherits `currentColor` from the wrapper's color.
 const FEATURES = [
   { title: 'Adaptive Diagnostic', iconBg: 'var(--lp-orange-tint)', iconCol: 'var(--lp-orange)',
-    desc: 'A 15-minute adaptive test that pinpoints every weak skill — the foundation the rest of your prep is built on.',
+    desc: 'A full adaptive diagnostic — about half the length of a real SAT — that pinpoints every weak skill, the foundation the rest of your prep is built on.',
     icon: <><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="3.5" /><circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none" /></> },
   { title: 'Diagnostic-Driven Plan', iconBg: 'var(--lp-purple-tint)', iconCol: 'var(--lp-purple)',
     desc: 'A week-by-week study plan that starts where the points are cheapest to win and adapts as you improve.',
@@ -171,7 +171,7 @@ const FEATURES = [
 
 const STEPS = [
   { n: '1', title: 'Take your diagnostic', bg: 'orange',
-    desc: 'A short adaptive test finds exactly which skills are costing you points.',
+    desc: 'An adaptive diagnostic finds exactly which skills are costing you points.',
     icon: <><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /><path d="M11 8v6M8 11h6" /></> },
   { n: '2', title: 'Get your custom plan', bg: 'purple',
     desc: 'SEVA builds a week-by-week plan around your weak spots and your test date.',
@@ -875,8 +875,8 @@ const LandingPage = () => {
           <h2 className="lp-final-title">Ready to find your next 200 points?</h2>
           <p className="lp-final-sub">
             {billingLive
-              ? "Take the free diagnostic. In 15 minutes you'll know exactly where they are — then try everything free for 3 days."
-              : "Take the free diagnostic. In 15 minutes you'll know exactly where they are."}
+              ? "Take the free diagnostic. In about an hour you'll know exactly where they are — then try everything free for 3 days."
+              : "Take the free diagnostic. In about an hour you'll know exactly where they are."}
           </p>
           <button type="button" className="lp-final-cta" onClick={() => openAuth(false)}>
             Start your free diagnostic<ArrowRight />

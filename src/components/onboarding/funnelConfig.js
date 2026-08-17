@@ -174,7 +174,7 @@ export const FUNNEL_INTERSTITIALS = {
     visual: 'diagnosis',
     heading: "Hours don't raise scores. The right minutes do.",
     body:
-      'Twenty minutes on the question types you actually miss beats two unfocused hours on everything else. Your 15-minute check-in pinpoints exactly where your points are hiding.',
+      'Twenty minutes on the question types you actually miss beats two unfocused hours on everything else. Your diagnostic pinpoints exactly where your points are hiding.',
     cta: 'Continue',
   },
   neverStuck: {
@@ -299,7 +299,7 @@ export const STUDY_WINDOW_LABELS = {
  */
 export function reassureBody(answers = {}) {
   if (answers.baseline === 'fresh') {
-    return 'Starting from zero is simpler than it looks. The check-in finds where your points are hiding, and your plan starts there instead of page one of a giant book.';
+    return 'Starting from zero is simpler than it looks. The diagnostic finds where your points are hiding, and your plan starts there instead of page one of a giant book.';
   }
   return FUNNEL_INTERSTITIALS.reassure.body;
 }
@@ -312,7 +312,7 @@ export function reassureBody(answers = {}) {
  * @returns {{heading:string, body:string}}
  */
 export function rightMinutesCopy(answers = {}) {
-  const shared = 'Your 15-minute check-in pinpoints exactly where your points are hiding.';
+  const shared = 'Your diagnostic pinpoints exactly where your points are hiding.';
   switch (answers.sessionLength) {
     case '15m':
       return {

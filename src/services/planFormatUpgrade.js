@@ -69,7 +69,7 @@ export const buildBecauseLine = (gap = {}) => {
   // Onboarding self-reports (the starter plan stamps this exact error type)
   // have no test evidence to cite — frame the check-in instead.
   if (String(gap.primaryErrorType || '').toLowerCase().startsWith('self-reported')) {
-    return 'You flagged this in onboarding — the 15-minute check-in measures your real level.';
+    return 'You flagged this in onboarding — the diagnostic measures your real level.';
   }
   const parts = [];
   if (Number.isFinite(gap.testAccuracy)) {

@@ -126,7 +126,7 @@ const TrajectoryVisual = () => (
       />
       <circle className="of-trajectory-start" cx="16" cy="110" r="5" />
       <circle className="of-trajectory-end" cx="304" cy="48" r="6" />
-      <text x="16" y="94" className="of-trajectory-tick">check-in</text>
+      <text x="16" y="94" className="of-trajectory-tick">diagnostic</text>
       <text x="304" y="34" className="of-trajectory-tick" textAnchor="end">your target</text>
     </svg>
     <div className="of-visual-caption">Updated after every practice session, so you always know where you stand.</div>
@@ -157,7 +157,7 @@ const DiagnosisVisual = () => (
         </div>
       ))}
     </div>
-    <div className="of-visual-caption">Your check-in builds yours — down to the exact question types.</div>
+    <div className="of-visual-caption">Your diagnostic builds yours — down to the exact question types.</div>
   </div>
 );
 
@@ -598,8 +598,8 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
         <li className="of-path-step">
           <span className="of-path-num of-path-num--purple">02</span>
           <div>
-            <div className="of-path-head">Take the 15-minute check-in</div>
-            <div className="of-path-sub">24 adaptive questions find your real starting point.</div>
+            <div className="of-path-head">Take your diagnostic</div>
+            <div className="of-path-sub">40 adaptive questions — about half a real SAT — find your real starting point.</div>
           </div>
         </li>
         <li className="of-path-step">
@@ -639,7 +639,7 @@ const OnboardingFunnel = ({ signup, onExit, onLogIn, billingLive, presetPlan }) 
       </h1>
       <p className="of-body">
         {signupBodyLine(answers)
-          || 'Everything you just set up rides along. The check-in is waiting on the other side.'}
+          || 'Everything you just set up rides along. Your diagnostic is waiting on the other side.'}
       </p>
       <form className="of-form" onSubmit={handleSignup}>
         {billingLive && getReferral() && (
