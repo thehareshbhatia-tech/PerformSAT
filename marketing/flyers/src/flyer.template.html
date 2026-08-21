@@ -91,7 +91,7 @@ body {
 }
 
 /* ── Hero ───────────────────────────────────────────────────────────────── */
-.hero { padding-top: 17px; }
+.hero { padding-top: 18px; }
 .eyebrow {
   font-family: var(--display); font-weight: 700;
   font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
@@ -102,81 +102,69 @@ body {
 }
 h1 {
   font-family: var(--display); font-weight: 800;
-  font-size: 42px; line-height: 1.03; letter-spacing: -.035em;
-  margin-top: 12px;
+  font-size: 43px; line-height: 1.03; letter-spacing: -.035em;
+  margin-top: 13px;
 }
 h1 .muted { color: var(--text-3); }
 h1 .hit    { color: var(--orange); }
 .dek {
-  font-size: 14px; line-height: 1.55; color: var(--text-2);
-  max-width: 6.15in; margin-top: 13px;
+  font-size: 15px; line-height: 1.58; color: var(--text-2);
+  max-width: 6.15in; margin-top: 15px;
 }
 .dek strong { color: var(--text); font-weight: 700; }
 
-/* ── Prep block: the four steps, then the plan they produce ───────────────
-   The steps sit in a 2x2 grid across the full measure; the product shot runs
-   full-width beneath them. Full-width is not a style choice — see .shot. */
-.prep { margin-top: 16px; }
+/* ── The four steps ───────────────────────────────────────────────────────
+   One column, numbered, read top to bottom. A checklist implies things you
+   tick off in any order; a numbered list implies sequence, which is what this
+   is. Nothing sits beside them — the whole point of the page is that a
+   16-year-old holding it in a parking lot can follow it in one pass. */
+.prep { margin-top: 20px; }
 .prep-h {
   font-family: var(--display); font-weight: 800;
-  font-size: 26px; line-height: 1.06; letter-spacing: -.032em;
+  font-size: 27px; line-height: 1.06; letter-spacing: -.032em;
 }
 .prep-h .hit { color: var(--orange); }
-.prep-sub { font-size: 12.4px; line-height: 1.5; color: var(--text-2); margin-top: 7px; }
 
-.steps {
-  list-style: none; margin-top: 12px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 0 26px;
-}
+.steps { list-style: none; margin-top: 14px; }
 .step {
-  display: flex; gap: 10px; align-items: flex-start;
-  padding: 7px 0; border-top: 1px solid var(--line);
+  display: flex; gap: 18px; align-items: baseline;
+  padding: 12px 0; border-top: 1px solid var(--line-2);
 }
-.step:nth-child(1), .step:nth-child(2) { border-top: none; padding-top: 2px; }
-/* Lime-deep tick = the palette's "done" colour, and the only green on the page
-   besides the wordmark and the tri-color rule. Inline SVG, never a font glyph. */
-.step-check { flex: none; width: 16px; height: 16px; margin-top: 1.5px; }
+.step:first-child { border-top: none; }
+.step-n {
+  flex: none; width: 30px;
+  font-family: var(--display); font-weight: 800; font-size: 27px;
+  line-height: 1; letter-spacing: -.03em; color: var(--orange);
+}
 .step-b {
   display: block; font-family: var(--display); font-weight: 700;
-  font-size: 12.6px; letter-spacing: -.012em; color: var(--text);
+  font-size: 16.5px; line-height: 1.2; letter-spacing: -.02em; color: var(--text);
 }
-.step-v { display: block; font-size: 11.4px; line-height: 1.4; color: var(--text-2); margin-top: 2px; }
+.step-v {
+  display: block; font-size: 13px; line-height: 1.48;
+  color: var(--text-2); margin-top: 3px;
+}
 
-/* ── The product shot ─────────────────────────────────────────────────────
-   FULL WIDTH IS LOAD-BEARING, not decoration. The app's body text is ~14px in
-   a 1286px-wide capture; across the full 7.34in measure that lands at ~5.8pt
-   on paper, which reads. In a half-width column the same capture renders at
-   ~2.7pt — a grey smudge. If this ever moves back into a column, crop to a
-   detail instead of shrinking the whole frame.
-
-   The purple mat is what stops a light UI screenshot from dissolving into the
-   cream field. No box-shadow: Chrome's print pipeline turns shadows into hard
-   grey rectangles (see README). The mat IS the separation. */
-.shot { margin-top: 15px; }
-.shot-frame {
-  background: #EDE7F9;
-  border: 1px solid #D8CCF0;
-  border-radius: 13px;
-  padding: 8px;
+/* The one line that turns the method into the pitch. Left rule instead of a
+   box — a box here would compete with the scan card below it. */
+.bridge {
+  /* margin-BOTTOM, not just top: .scan uses `margin-top: auto` to sit at the
+     foot of the page, and auto collapses to 0 once the page fills — without a
+     floor here the scan card butts straight into this line. */
+  margin-top: 18px; margin-bottom: 22px; padding: 2px 0 2px 15px;
+  border-left: 3px solid var(--purple);
+  font-size: 13.6px; line-height: 1.5; color: var(--text-2);
 }
-.shot-frame img {
-  display: block; width: 100%; height: auto;
-  border-radius: 7px; border: 1px solid var(--line-2);
-}
-.shot-cap {
-  margin-top: 9px;
-  font-size: 11.2px; line-height: 1.45; color: var(--text-2);
-}
-.shot-cap b { font-family: var(--display); font-weight: 700; color: var(--text); }
+.bridge b { font-family: var(--display); font-weight: 700; color: var(--text); }
 
 /* ── Scan block ─────────────────────────────────────────────────────────── */
 .scan {
-  margin-top: auto; display: flex; align-items: center; gap: 24px;
+  margin-top: auto; display: flex; align-items: center; gap: 22px;
   background: var(--surface); border: 1px solid var(--line);
-  border-radius: 16px; padding: 17px 22px;
+  border-radius: 16px; padding: 15px 20px;
 }
 .qr-frame {
-  flex: none; width: 1.72in; height: 1.72in; padding: 0.09in;
+  flex: none; width: 1.6in; height: 1.6in; padding: 0.085in;
   background: #fff; border: 1px solid var(--line); border-radius: 10px;
 }
 .qr-frame svg { display: block; width: 100%; height: 100%; }
@@ -247,66 +235,41 @@ body.ink-light { --bg: #FFFFFF; --surface: #F7F6F2; --inset: #FFFFFF; }
 
   <section class="prep">
     <h2 class="prep-h">How to prepare for the digital SAT in <span class="hit">4 steps</span></h2>
-    <p class="prep-sub">
-      None of this is a secret. The first two you can do tonight, on your own, with any full-length test.
-    </p>
 
-    <ul class="steps">
-        <li class="step">
-          <svg class="step-check" viewBox="0 0 20 20" aria-hidden="true">
-            <circle cx="10" cy="10" r="10" fill="#5A8A16"/>
-            <path d="M5.7 10.3l2.8 2.8 5.8-6" fill="none" stroke="#FFFFFF"
-                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span>
-            <b class="step-b">Take a full-length test for a baseline.</b>
-            <span class="step-v">A real score under real timing, not a guess.</span>
-          </span>
-        </li>
-        <li class="step">
-          <svg class="step-check" viewBox="0 0 20 20" aria-hidden="true">
-            <circle cx="10" cy="10" r="10" fill="#5A8A16"/>
-            <path d="M5.7 10.3l2.8 2.8 5.8-6" fill="none" stroke="#FFFFFF"
-                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span>
-            <b class="step-b">Set a goal score and a test date.</b>
-            <span class="step-v">Two numbers. Everything after this is arithmetic against them.</span>
-          </span>
-        </li>
-        <li class="step">
-          <svg class="step-check" viewBox="0 0 20 20" aria-hidden="true">
-            <circle cx="10" cy="10" r="10" fill="#5A8A16"/>
-            <path d="M5.7 10.3l2.8 2.8 5.8-6" fill="none" stroke="#FFFFFF"
-                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span>
-            <b class="step-b">Work the gaps, in the right order.</b>
-            <span class="step-v">Sorted by <em>why</em> you missed each one, then scheduled.</span>
-          </span>
-        </li>
-        <li class="step">
-          <svg class="step-check" viewBox="0 0 20 20" aria-hidden="true">
-            <circle cx="10" cy="10" r="10" fill="#5A8A16"/>
-            <path d="M5.7 10.3l2.8 2.8 5.8-6" fill="none" stroke="#FFFFFF"
-                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span>
-            <b class="step-b">Re-test, and read the pacing.</b>
-            <span class="step-v">Accuracy tells you what you missed. Pacing tells you why.</span>
-          </span>
-        </li>
-    </ul>
-  </section>
+    <ol class="steps">
+      <li class="step">
+        <span class="step-n">1</span>
+        <span>
+          <b class="step-b">Take a full-length test.</b>
+          <span class="step-v">A real score under real timing &mdash; not a guess at where you stand.</span>
+        </span>
+      </li>
+      <li class="step">
+        <span class="step-n">2</span>
+        <span>
+          <b class="step-b">Set a goal score and a test date.</b>
+          <span class="step-v">Two numbers. Everything after this is arithmetic against them.</span>
+        </span>
+      </li>
+      <li class="step">
+        <span class="step-n">3</span>
+        <span>
+          <b class="step-b">Work your gaps, in the right order.</b>
+          <span class="step-v">Not every topic. The ones costing you the most points, first.</span>
+        </span>
+      </li>
+      <li class="step">
+        <span class="step-n">4</span>
+        <span>
+          <b class="step-b">Re-test, and read your pacing.</b>
+          <span class="step-v">Accuracy tells you what you missed. Pacing tells you why.</span>
+        </span>
+      </li>
+    </ol>
 
-  <section class="shot">
-    <div class="shot-frame">
-      <img src="__SHOT__"
-           alt="A SEVA study plan: current score 1040 on a two-week path to a 1300 goal, the week's focus, and a practice calendar.">
-    </div>
-    <p class="shot-cap">
-      <b>Steps 3 and 4, done for you.</b> Where you are, what the week holds, and the
-      one thing to fix first &mdash; rewritten every time you practice.
+    <p class="bridge">
+      <b>Steps 1 and 2 you can do tonight, on your own.</b> Steps 3 and 4 are the ones
+      nobody keeps up by hand for eight weeks. That is the part SEVA does for you.
     </p>
   </section>
 

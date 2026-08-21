@@ -67,41 +67,22 @@ expected URL, so a broken flyer cannot ship quietly.
 To split traffic by test center or date, edit `URL` in `make-qr.mjs`
 (e.g. `utm_campaign=testcenter-lynbrook-1004`) and re-run `npm run all`.
 
-The centrepiece is the **four steps** followed by a **real screenshot of the
-Study Plan**. The steps are the method any student should follow after a test;
-the screenshot is what SEVA builds out of steps 3 and 4. The pairing is the
-argument, so keep them together — the steps alone are advice anyone could give,
-and the screenshot alone is a UI with nothing to explain it.
+The centrepiece is **four numbered steps**, one column, read top to bottom.
+Numbered rather than ticked on purpose: a checklist implies items you clear in
+any order, and this is a sequence. Nothing sits beside them — the reader is a
+16-year-old holding this in a parking lot, and the page has to survive one
+pass.
 
-(An earlier version drew the plan as an SVG arc instead. The real screenshot
-supersedes it: the flyer now shows the product rather than a diagram of it.)
+The argument lands in the single `.bridge` line under the list: steps 1 and 2
+are yours, steps 3 and 4 are the ones nobody keeps up by hand, and that is what
+SEVA does. Keep that line; without it the page is generic study advice with a
+logo on it.
 
-The step ticks are `--lime-deep`, the palette's "done" colour — the only green
-on the page besides the wordmark and the tri-color rule. They are inline SVG,
-not a font glyph or an emoji, so they render identically without the SEVA
-fonts installed.
-
-## Re-shooting the screenshot
-
-`src/assets/studyplan.png` is a real capture of the Study Plan, base64-inlined
-into the PDF at build time so the template stays self-contained. `build.mjs`
-fails loudly if it is missing.
-
-To re-shoot it, with the dev server running on :3000:
-
-1. `viewport 1920x1200 --scale 2` — the 2x is what makes it print at ~350 DPI.
-   Note that changing scale recreates the browser context and logs you out, so
-   set it BEFORE logging in.
-2. Log in, open Home → Study Plan.
-3. **Mask the account email** before capturing. It renders in the sidebar
-   footer, and this is a printed piece — walk the text nodes and replace it.
-4. Capture the clip `424,308,1286,347`. That region is chosen to end cleanly:
-   it clears the bottom of the calendar card and cuts the "This week" card just
-   below its header, which reads as a scroll rather than as a mistake.
-
-The capture is real app state, not a mockup. The goal score showing in it is a
-real `targetScore` on the account — if it ever reads "—" again, set one in
-Profile → SAT Goals rather than faking the number.
+Two earlier versions are in the git history if they are ever wanted back: an
+SVG plan arc (commit `75efb66`) and a real Study Plan screenshot run full-width
+(commit `8455a38`). Both were dropped in favour of the plain list. If the
+screenshot ever comes back, note that it only reads at full width — see the
+load-bearing list below.
 
 Five things in the layout are load-bearing and will break silently if changed:
 
@@ -112,12 +93,17 @@ Five things in the layout are load-bearing and will break silently if changed:
 - **`print-color-adjust: exact`** on `body`. Without it the cream field and the
   tri-color rule are dropped as "backgrounds" at print time.
 
-- **The screenshot runs FULL WIDTH, and that is load-bearing.** The app's body
-  text is ~14px in a 1286px-wide capture; across the full 7.34in measure that
-  lands at ~5.8pt on paper, which reads. Dropped into a half-width column the
-  same capture renders at ~2.7pt — a grey smudge (measured both ways). If it
-  ever has to move into a column, crop to a legible detail instead of shrinking
-  the whole frame.
+- **`.bridge` carries a `margin-bottom`, not just a top margin.** `.scan` uses
+  `margin-top: auto` to sit at the foot of the page, and `auto` collapses to 0
+  once the page fills — without a floor below the bridge line, the scan card
+  butts straight into it. (`max(22px, auto)` is not valid CSS; do not reach for
+  it.)
+
+- **Any screenshot on this page has to run FULL WIDTH.** Measured when one was
+  briefly on it: the app's body text is ~14px in a 1286px-wide capture, which
+  lands at ~5.8pt across the full 7.34in measure and reads — but at ~2.7pt in a
+  half-width column, which is a grey smudge. Crop to a legible detail rather
+  than shrinking a whole frame.
 
 - **The QR check rasterizes at 200 DPI, not 300.** jsQR's locator fails to find
   the code on a 2550px-wide page but decodes reliably at 1700px (measured both

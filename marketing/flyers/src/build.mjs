@@ -14,16 +14,6 @@ const tpl   = fs.readFileSync(`${HERE}/flyer.template.html`, 'utf8');
 const fonts = fs.readFileSync(`${DIR}/fonts-inline.css`, 'utf8');
 const qr    = fs.readFileSync(`${DIR}/qr.svg`, 'utf8');
 
-// The product shot goes in as a data: URI, not a file reference, so the
-// template stays as self-contained as the fonts and the QR — one HTML file
-// that renders identically on any machine, with nothing to go missing.
-// Re-capture it with the recipe in ../README.md; it is a real Study Plan.
-const shotPath = `${HERE}/assets/studyplan.png`;
-if (!fs.existsSync(shotPath)) {
-  throw new Error(`missing product shot at ${shotPath} — see README "Re-shooting the screenshot"`);
-}
-const shot = 'data:image/png;base64,' + fs.readFileSync(shotPath).toString('base64');
-
 const VARIANTS = [
   { slug: 'seva-flyer-testcenter',           cls: '',          label: 'full-color (cream bleed)' },
   { slug: 'seva-flyer-testcenter-ink-light', cls: 'ink-light', label: 'ink-saver (white field)' },
@@ -33,7 +23,6 @@ for (const v of VARIANTS) {
   const html = tpl
     .replace('__FONTS__', fonts)
     .replace('__QR__', qr)
-    .replace('__SHOT__', shot)
     .replace('__VARIANT__', v.cls);
 
   const htmlPath = `${DIR}/${v.slug}.html`;
