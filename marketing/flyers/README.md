@@ -79,9 +79,15 @@ follow ("take a baseline test", "set a goal score") and it read as a study-tips
 handout that happened to have a logo on it. If you rewrite these, keep every
 one of them a thing the product does.
 
-The `.bridge` line under the list carries the differentiator: the plan is built
-from your test, not a template, so two students with the same score get
-different plans. That is true because the plan is generated from the diagnosis
+The `.bridge` line under the list answers the objection the reader is actually
+holding — "I'll just take more practice tests" — rather than restating a
+feature. That objection is the real competitor here: Bluebook is free and the
+student already knows about it. Volume without diagnosis is what the line
+argues against, and it is the same argument step 1 makes, which is why the two
+have to stay consistent if either is rewritten.
+
+The personalization claim now lives in step 2 ("built from that, not from a
+template"), and it holds because the plan is generated from the diagnosis
 (error classes + weak skills), not from the composite score.
 
 Claims on the page are checked against the code, and must stay that way:
