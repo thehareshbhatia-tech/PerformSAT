@@ -67,16 +67,38 @@ expected URL, so a broken flyer cannot ship quietly.
 To split traffic by test center or date, edit `URL` in `make-qr.mjs`
 (e.g. `utm_campaign=testcenter-lynbrook-1004`) and re-run `npm run all`.
 
-The centrepiece is **four numbered steps**, one column, read top to bottom.
-Numbered rather than ticked on purpose: a checklist implies items you clear in
-any order, and this is a sequence. Nothing sits beside them — the reader is a
-16-year-old holding this in a parking lot, and the page has to survive one
-pass.
+The centrepiece is **"How SEVA works" in four numbered steps**, one column,
+read top to bottom. Numbered rather than ticked on purpose: a checklist implies
+items you clear in any order, and this is a sequence. Nothing sits beside them
+— the reader is a 16-year-old holding this in a parking lot, and the page has
+to survive one pass.
 
-The argument lands in the single `.bridge` line under the list: steps 1 and 2
-are yours, steps 3 and 4 are the ones nobody keeps up by hand, and that is what
-SEVA does. Keep that line; without it the page is generic study advice with a
-logo on it.
+The four steps are what SEVA does — diagnosis, plan, drills, tutor — NOT
+generic study advice. An earlier draft listed the method any student should
+follow ("take a baseline test", "set a goal score") and it read as a study-tips
+handout that happened to have a logo on it. If you rewrite these, keep every
+one of them a thing the product does.
+
+The `.bridge` line under the list carries the differentiator: the plan is built
+from your test, not a template, so two students with the same score get
+different plans. That is true because the plan is generated from the diagnosis
+(error classes + weak skills), not from the composite score.
+
+Claims on the page are checked against the code, and must stay that way:
+
+| Claim | Source |
+| --- | --- |
+| "six kinds of mistake" | `ERROR_TYPES` in `src/services/diagnosticEngine.js` — six of them |
+| "2,200+ practice questions" | `node scripts/auditPracticeBank.mjs` — 1636 math + 648 R&W drillable = 2284 |
+| "12 adaptive full-length tests" | `src/data/practiceTests/` — practiceTest1..12, Module 2 routes in both sections |
+| "3 days ... $85/month or $349/year" | `TRIAL_DAYS` in `functions/src/stripePolicy.ts` + the Stripe Price objects named in `functions/.env` |
+
+Re-run the audit before changing the question count. It moves as the bank grows,
+and a printed piece has no way to walk a stale number back.
+
+Do NOT claim the bank is entirely hand-authored. Most of it is, but
+`scripts/runTier1.mjs` drafts candidates with Claude and gates them through a
+rubric before they land, so "no AI-generated questions" would be false.
 
 Two earlier versions are in the git history if they are ever wanted back: an
 SVG plan arc (commit `75efb66`) and a real Study Plan screenshot run full-width
