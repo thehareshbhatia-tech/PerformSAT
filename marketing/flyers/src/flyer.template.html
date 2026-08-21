@@ -113,30 +113,28 @@ h1 .hit    { color: var(--orange); }
 }
 .dek strong { color: var(--text); font-weight: 700; }
 
-/* ── Prep block: the four steps, beside the plan they produce ─────────────
-   Two columns. Left is the method any student should follow after a test;
-   right is the artifact SEVA builds out of it. The pairing is the argument —
-   steps 3 and 4 are the ones nobody keeps up by hand. */
-.prep {
-  margin-top: 17px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 0 26px;
-  align-items: start;
-}
+/* ── Prep block: the four steps, then the plan they produce ───────────────
+   The steps sit in a 2x2 grid across the full measure; the product shot runs
+   full-width beneath them. Full-width is not a style choice — see .shot. */
+.prep { margin-top: 16px; }
 .prep-h {
   font-family: var(--display); font-weight: 800;
-  font-size: 25.5px; line-height: 1.07; letter-spacing: -.032em;
+  font-size: 26px; line-height: 1.06; letter-spacing: -.032em;
 }
 .prep-h .hit { color: var(--orange); }
-.prep-sub { font-size: 12.2px; line-height: 1.5; color: var(--text-2); margin-top: 9px; }
+.prep-sub { font-size: 12.4px; line-height: 1.5; color: var(--text-2); margin-top: 7px; }
 
-.steps { list-style: none; margin-top: 13px; }
+.steps {
+  list-style: none; margin-top: 12px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0 26px;
+}
 .step {
   display: flex; gap: 10px; align-items: flex-start;
   padding: 7px 0; border-top: 1px solid var(--line);
 }
-.step:first-child { border-top: none; padding-top: 2px; }
-/* Lime-deep tick = the palette's "done" colour, and the only place green
-   appears on the page besides the wordmark and the tri-color rule. */
+.step:nth-child(1), .step:nth-child(2) { border-top: none; padding-top: 2px; }
+/* Lime-deep tick = the palette's "done" colour, and the only green on the page
+   besides the wordmark and the tri-color rule. Inline SVG, never a font glyph. */
 .step-check { flex: none; width: 16px; height: 16px; margin-top: 1.5px; }
 .step-b {
   display: block; font-family: var(--display); font-weight: 700;
@@ -144,51 +142,32 @@ h1 .hit    { color: var(--orange); }
 }
 .step-v { display: block; font-size: 11.4px; line-height: 1.4; color: var(--text-2); margin-top: 2px; }
 
-/* The arc card — same surface treatment as before, half the width. */
-.panel {
-  background: var(--surface);
-  border: 1px solid var(--line); border-radius: 14px;
-  padding: 14px 16px 13px;
-}
-.panel-head { padding-bottom: 10px; border-bottom: 1px solid var(--line); }
-.panel-title {
-  display: block; font-family: var(--display); font-weight: 700;
-  font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--text);
-}
-.panel-note { display: block; font-size: 10.6px; color: var(--text-3); margin-top: 3px; }
+/* ── The product shot ─────────────────────────────────────────────────────
+   FULL WIDTH IS LOAD-BEARING, not decoration. The app's body text is ~14px in
+   a 1286px-wide capture; across the full 7.34in measure that lands at ~5.8pt
+   on paper, which reads. In a half-width column the same capture renders at
+   ~2.7pt — a grey smudge. If this ever moves back into a column, crop to a
+   detail instead of shrinking the whole frame.
 
-/* The arc is redrawn for this column, NOT the full-width one scaled down:
-   at half width the old 656-unit viewBox rendered its 10px labels at ~4.6px,
-   which is unreadable in print. This viewBox is ~1:1 with its rendered size,
-   so label sizes here are the sizes that hit the paper. */
-.arc { display: block; width: 100%; height: auto; margin: 11px 0 0; }
-.arc text { font-family: var(--display); }
-.a-end { font-size: 9px; font-weight: 700; letter-spacing: .11em; fill: var(--text-3); }
-.a-hit { fill: var(--orange); }
-.a-ms  { font-size: 9.5px; font-weight: 600; fill: var(--text-2); }
-.a-ph  { font-size: 9px; font-weight: 700; letter-spacing: .045em; fill: var(--text); }
-
-.plan-notes {
-  border-top: 1px solid var(--line); margin-top: 11px; padding-top: 10px;
-  font-size: 10.6px; line-height: 1.45; color: var(--text-2);
+   The purple mat is what stops a light UI screenshot from dissolving into the
+   cream field. No box-shadow: Chrome's print pipeline turns shadows into hard
+   grey rectangles (see README). The mat IS the separation. */
+.shot { margin-top: 15px; }
+.shot-frame {
+  background: #EDE7F9;
+  border: 1px solid #D8CCF0;
+  border-radius: 13px;
+  padding: 8px;
 }
-.plan-notes b { font-family: var(--display); font-weight: 700; color: var(--text); }
-
-/* ── Inclusions strip ───────────────────────────────────────────────────── */
-.includes {
-  margin-top: 17px; display: grid; grid-template-columns: 1fr 1fr 1fr;
-  gap: 0 22px;
+.shot-frame img {
+  display: block; width: 100%; height: auto;
+  border-radius: 7px; border: 1px solid var(--line-2);
 }
-.inc { padding-left: 12px; border-left: 2px solid var(--line-2); }
-.inc:nth-child(1) { border-left-color: var(--orange); }
-.inc:nth-child(2) { border-left-color: var(--purple); }
-.inc:nth-child(3) { border-left-color: var(--lime-deep); }
-.inc-num {
-  font-family: var(--display); font-weight: 800; font-size: 21px;
-  letter-spacing: -.02em; line-height: 1.1;
+.shot-cap {
+  margin-top: 9px;
+  font-size: 11.2px; line-height: 1.45; color: var(--text-2);
 }
-.inc-label { font-size: 11.8px; line-height: 1.35; color: var(--text-2); margin-top: 2px; }
-.includes { margin-bottom: 18px; }
+.shot-cap b { font-family: var(--display); font-weight: 700; color: var(--text); }
 
 /* ── Scan block ─────────────────────────────────────────────────────────── */
 .scan {
@@ -267,14 +246,12 @@ body.ink-light { --bg: #FFFFFF; --surface: #F7F6F2; --inset: #FFFFFF; }
   </section>
 
   <section class="prep">
-    <div class="prep-steps">
-      <h2 class="prep-h">How to prepare for the digital&nbsp;SAT in <span class="hit">4 steps</span></h2>
-      <p class="prep-sub">
-        None of this is a secret. The first two you can do tonight, on your own,
-        with any full-length test.
-      </p>
+    <h2 class="prep-h">How to prepare for the digital SAT in <span class="hit">4 steps</span></h2>
+    <p class="prep-sub">
+      None of this is a secret. The first two you can do tonight, on your own, with any full-length test.
+    </p>
 
-      <ul class="steps">
+    <ul class="steps">
         <li class="step">
           <svg class="step-check" viewBox="0 0 20 20" aria-hidden="true">
             <circle cx="10" cy="10" r="10" fill="#5A8A16"/>
@@ -305,7 +282,7 @@ body.ink-light { --bg: #FFFFFF; --surface: #F7F6F2; --inset: #FFFFFF; }
           </svg>
           <span>
             <b class="step-b">Work the gaps, in the right order.</b>
-            <span class="step-v">Sorted by <em>why</em> you missed each question, then scheduled as real work &mdash; and re-sorted every time you practice.</span>
+            <span class="step-v">Sorted by <em>why</em> you missed each one, then scheduled.</span>
           </span>
         </li>
         <li class="step">
@@ -319,60 +296,18 @@ body.ink-light { --bg: #FFFFFF; --surface: #F7F6F2; --inset: #FFFFFF; }
             <span class="step-v">Accuracy tells you what you missed. Pacing tells you why.</span>
           </span>
         </li>
-      </ul>
-    </div>
-
-    <div class="panel">
-      <div class="panel-head">
-        <span class="panel-title">Steps 3 and 4, done for you</span>
-        <span class="panel-note">Your plan, tonight to test day</span>
-      </div>
-
-      <svg class="arc" viewBox="0 0 320 152" role="img"
-           aria-label="A rising plan from tonight to your target in three phases: Foundation, Build, Sharpen, with a check-in and a full test scheduled along the way.">
-        <line x1="18" y1="120" x2="302" y2="120" stroke="#D9D4C7" stroke-width="1"/>
-        <line x1="112" y1="114" x2="112" y2="126" stroke="#D9D4C7" stroke-width="1"/>
-        <line x1="207" y1="114" x2="207" y2="126" stroke="#D9D4C7" stroke-width="1"/>
-
-        <path d="M18 106 C 62 103, 88 97, 112 91 C 150 81, 180 72, 207 66 C 250 56, 282 49, 302 45"
-              fill="none" stroke="#15171C" stroke-width="2.1" stroke-linecap="round"/>
-
-        <circle cx="18" cy="106" r="3.6" fill="#15171C"/>
-        <rect x="107.8" y="86.8" width="8.4" height="8.4" transform="rotate(45 112 91)"
-              fill="#FFFFFF" stroke="#5B6068" stroke-width="1.5"/>
-        <rect x="202.8" y="61.8" width="8.4" height="8.4"
-              fill="#FFFFFF" stroke="#5B6068" stroke-width="1.5"/>
-        <circle cx="302" cy="45" r="5" fill="#EA580C"/>
-
-        <text x="14" y="97" class="a-end">TONIGHT</text>
-        <text x="302" y="33" class="a-end a-hit" text-anchor="end">YOUR TARGET</text>
-        <text x="112" y="79" class="a-ms" text-anchor="middle">Check-in</text>
-        <text x="207" y="54" class="a-ms" text-anchor="middle">Full test</text>
-        <text x="65" y="141" class="a-ph" text-anchor="middle">FOUNDATION</text>
-        <text x="160" y="141" class="a-ph" text-anchor="middle">BUILD</text>
-        <text x="254" y="141" class="a-ph" text-anchor="middle">SHARPEN</text>
-      </svg>
-
-      <div class="plan-notes">
-        <b>Built from your gaps.</b> Prove a skill and it leaves the plan &mdash;
-        the next gap moves up to take its place.
-      </div>
-    </div>
+    </ul>
   </section>
 
-  <section class="includes">
-    <div class="inc">
-      <div class="inc-num">2,200+</div>
-      <div class="inc-label">hand-authored practice questions the plan pulls from, aimed at your gaps</div>
+  <section class="shot">
+    <div class="shot-frame">
+      <img src="__SHOT__"
+           alt="A SEVA study plan: current score 1040 on a two-week path to a 1300 goal, the week's focus, and a practice calendar.">
     </div>
-    <div class="inc">
-      <div class="inc-num">12</div>
-      <div class="inc-label">full-length adaptive practice tests, scheduled into the plan as checkpoints</div>
-    </div>
-    <div class="inc">
-      <div class="inc-num">24/7</div>
-      <div class="inc-label">AI tutor that works the problem with you, step by step</div>
-    </div>
+    <p class="shot-cap">
+      <b>Steps 3 and 4, done for you.</b> Where you are, what the week holds, and the
+      one thing to fix first &mdash; rewritten every time you practice.
+    </p>
   </section>
 
   <section class="scan">

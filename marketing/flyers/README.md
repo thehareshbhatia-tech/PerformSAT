@@ -67,22 +67,41 @@ expected URL, so a broken flyer cannot ship quietly.
 To split traffic by test center or date, edit `URL` in `make-qr.mjs`
 (e.g. `utm_campaign=testcenter-lynbrook-1004`) and re-run `npm run all`.
 
-The centrepiece is a **two-column prep block**: the four steps any student
-should follow after a test on the left, and on the right the **plan arc** —
-the artifact SEVA builds out of steps 3 and 4. The pairing is the argument, so
-keep them side by side; the steps alone are advice anyone could give, and the
-arc alone is a chart with nothing to anchor it.
+The centrepiece is the **four steps** followed by a **real screenshot of the
+Study Plan**. The steps are the method any student should follow after a test;
+the screenshot is what SEVA builds out of steps 3 and 4. The pairing is the
+argument, so keep them together — the steps alone are advice anyone could give,
+and the screenshot alone is a UI with nothing to explain it.
 
-Phase names (Foundation / Build / Sharpen), the milestone types (check-in, full
-test) and their glyph shapes all mirror `buildPlanArc` in
-`src/services/studyPlanGenerator.js` and `components/plan/PlanArcHeader.jsx`.
-If the phase labels change there, change them here too; the whole point is that
-the flyer shows the real product.
+(An earlier version drew the plan as an SVG arc instead. The real screenshot
+supersedes it: the flyer now shows the product rather than a diagram of it.)
 
 The step ticks are `--lime-deep`, the palette's "done" colour — the only green
 on the page besides the wordmark and the tri-color rule. They are inline SVG,
 not a font glyph or an emoji, so they render identically without the SEVA
 fonts installed.
+
+## Re-shooting the screenshot
+
+`src/assets/studyplan.png` is a real capture of the Study Plan, base64-inlined
+into the PDF at build time so the template stays self-contained. `build.mjs`
+fails loudly if it is missing.
+
+To re-shoot it, with the dev server running on :3000:
+
+1. `viewport 1920x1200 --scale 2` — the 2x is what makes it print at ~350 DPI.
+   Note that changing scale recreates the browser context and logs you out, so
+   set it BEFORE logging in.
+2. Log in, open Home → Study Plan.
+3. **Mask the account email** before capturing. It renders in the sidebar
+   footer, and this is a printed piece — walk the text nodes and replace it.
+4. Capture the clip `424,308,1286,347`. That region is chosen to end cleanly:
+   it clears the bottom of the calendar card and cuts the "This week" card just
+   below its header, which reads as a scroll rather than as a mistake.
+
+The capture is real app state, not a mockup. The goal score showing in it is a
+real `targetScore` on the account — if it ever reads "—" again, set one in
+Profile → SAT Goals rather than faking the number.
 
 Five things in the layout are load-bearing and will break silently if changed:
 
@@ -93,11 +112,12 @@ Five things in the layout are load-bearing and will break silently if changed:
 - **`print-color-adjust: exact`** on `body`. Without it the cream field and the
   tri-color rule are dropped as "backgrounds" at print time.
 
-- **The arc's `viewBox` is sized ~1:1 with its rendered width.** It lives in a
-  half-width column now, so the viewBox is 320 units wide, not the 656 of the
-  old full-width panel. Scaling the wide one down instead rendered its 10px
-  labels at ~4.6px — invisible on paper. If the arc ever moves back to full
-  width, redraw it rather than stretching this one.
+- **The screenshot runs FULL WIDTH, and that is load-bearing.** The app's body
+  text is ~14px in a 1286px-wide capture; across the full 7.34in measure that
+  lands at ~5.8pt on paper, which reads. Dropped into a half-width column the
+  same capture renders at ~2.7pt — a grey smudge (measured both ways). If it
+  ever has to move into a column, crop to a legible detail instead of shrinking
+  the whole frame.
 
 - **The QR check rasterizes at 200 DPI, not 300.** jsQR's locator fails to find
   the code on a 2550px-wide page but decodes reliably at 1700px (measured both

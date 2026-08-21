@@ -1533,7 +1533,9 @@ const StudyPlanLoaded = ({
           </div>
           <div className="sp-datepills">
             {practicedThisMonth > 0 && (
-              <span className="sp-datepill is-streak">{practicedThisMonth} DAYS PRACTICED</span>
+              <span className="sp-datepill is-streak">
+                {practicedThisMonth} DAY{practicedThisMonth === 1 ? '' : 'S'} PRACTICED
+              </span>
             )}
             <span className="sp-datepill">{todayLongDate.toUpperCase()}</span>
           </div>

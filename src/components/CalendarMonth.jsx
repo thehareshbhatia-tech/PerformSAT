@@ -69,7 +69,7 @@ function CalendarMonth({ practicedDays, testDate, today, ariaLabel }) {
         <span className="cm-eyebrow-stat">
           {testInView && daysToTest !== null && daysToTest >= 0
             ? (daysToTest === 0 ? 'Test day is TODAY' : `Test day in ${daysToTest} day${daysToTest === 1 ? '' : 's'}`)
-            : `${practicedThisMonth} days practiced`}
+            : `${practicedThisMonth} day${practicedThisMonth === 1 ? '' : 's'} practiced`}
         </span>
         <span className="cm-eyebrow-today" aria-hidden="true">
           {todayDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}
