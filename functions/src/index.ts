@@ -38,6 +38,8 @@ import {
   createPortalSession,
   stripeWebhook,
   hasEntitlementAccess,
+  cancelSubscriptionsForUid,
+  stripeSecretKey,
 } from "./stripe";
 // AI-tutor systemBlocks v2 (cacheable multi-block system) + the deterministic
 // math-verification pass. Pure validation/mapping/parsing lives in these
@@ -2540,7 +2542,14 @@ export const sendReEngagementNudges = onSchedule("every day 23:00", async () => 
  * first so a failed Auth delete can be retried while still authenticated.
  */
 export const deleteAccount = onRequest(
-  {cors: ALLOWED_ORIGINS, timeoutSeconds: 300, memory: "512MiB"},
+  // secrets: deletion now cancels the Stripe subscription first, so this
+  // function needs the Stripe key bound to it.
+  {
+    cors: ALLOWED_ORIGINS,
+    timeoutSeconds: 300,
+    memory: "512MiB",
+    secrets: [stripeSecretKey],
+  },
   async (request, response) => {
     if (request.method !== "POST") {
       response.status(405).json({error: "Method not allowed"});
@@ -2562,6 +2571,14 @@ export const deleteAccount = onRequest(
     }
     const uid = user.uid;
     try {
+      // 0. STRIPE FIRST — cancel any live subscription before a byte of data
+      //    is removed. Deleting the account while the subscription runs bills
+      //    a customer who no longer has an account, and strands them: the
+      //    Customer Portal needs entitlements/{uid}.stripeCustomerId plus a
+      //    live Auth login, both of which the steps below destroy. Doing this
+      //    first also means a Stripe failure aborts the whole deletion with
+      //    nothing removed yet, so the retry below is clean.
+      const canceledSubs = await cancelSubscriptionsForUid(uid, user.email);
       // 1. progress/{uid} + ALL subcollections (studyPlanArtifacts, attempts,
       //    aiDiagnostics, aiChatSessions, and any added later)
       await db.recursiveDelete(db.collection("progress").doc(uid));
@@ -2593,7 +2610,13 @@ export const deleteAccount = onRequest(
       }
       // 5. Auth record LAST
       await getAuth().deleteUser(uid);
-      logger.info(`[deleteAccount] deleted all data for ${uid}`);
+      logger.info(
+        `[deleteAccount] deleted all data for ${uid}` +
+        (canceledSubs.length ?
+          ` (canceled ${canceledSubs.length} subscription(s): ` +
+          `${canceledSubs.join(", ")})` :
+          " (no live subscription)"),
+      );
       response.json({ok: true});
     } catch (error) {
       logger.error(`[deleteAccount] failed for ${uid}:`, error);
