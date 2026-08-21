@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SEVA — test-center flyer</title>
+<style>
+__FONTS__
+
+/* ── Print geometry ────────────────────────────────────────────────────────
+   Exactly one US Letter page, zero printer margin, so the cream field bleeds
+   to the trim edge at a print shop. All content sits inside SAFE (0.58in), a
+   margin no consumer inkjet clips into. */
+@page { size: 8.5in 11in; margin: 0; }
+
+:root {
+  --bg:        #F6F4EF;   /* landing --lp-bg, the warm cream students land on */
+  --surface:   #FFFFFF;
+  --inset:     #FAF8F3;
+  --line:      #E7E3D9;
+  --line-2:    #D9D4C7;
+  --text:      #15171C;
+  --text-2:    #5B6068;
+  --text-3:    #9A9EA6;
+  --orange:    #EA580C;
+  --lime:      #C2E83A;
+  --lime-deep: #5A8A16;
+  --purple:    #7C5CC7;
+  --display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  --body:    'Hanken Grotesk', 'Inter', system-ui, sans-serif;
+  --logo:    'Baloo 2', system-ui, sans-serif;
+  --safe: 0.58in;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { width: 8.5in; height: 11in; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+  /* Force the cream + every color block to survive the print pipeline rather
+     than being helpfully dropped as a "background". */
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  width: 8.5in; height: 11in;
+  padding: var(--safe);
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+}
+
+/* Tri-color rule — the brand's scroll-progress bar, laid flat across the head
+   of the page. Orange (action) → purple (focus) → lime (mastery). */
+.tricolor {
+  position: absolute; top: 0; left: 0; right: 0; height: 9px;
+  background: linear-gradient(90deg,
+    var(--orange) 0 38%, var(--purple) 38% 68%, var(--lime) 68% 100%);
+}
+
+/* ── Masthead ───────────────────────────────────────────────────────────── */
+.masthead {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 13px; border-bottom: 1px solid var(--line-2);
+}
+.wordmark { display: inline-flex; align-items: center; gap: 3px; line-height: .9; }
+.wordmark span {
+  font-family: var(--logo); font-weight: 800; font-size: 29px; letter-spacing: -.02em;
+}
+/* The S carries all three bands at once. A ghost copy sizes the box; three
+   absolute copies sit exactly on top of it, each clipped to one band. */
+.wm-s { position: relative; display: inline-block; }
+.wm-s > i { font-style: normal; }
+.wm-s > i.ghost { visibility: hidden; }
+.wm-s > i.band  { position: absolute; inset: 0; }
+.wm-s > i.b1 { color: #D5572B; clip-path: inset(0 0 58% 0); }
+.wm-s > i.b2 { color: #9A72C8; clip-path: inset(42% 0 40% 0); }
+.wm-s > i.b3 { color: #7FA81F; clip-path: inset(60% 0 0 0); }
+.wm-e { color: #D5572B; }
+.wm-v { color: #9A72C8; }
+/* Print-darkened lime: the screen wordmark's #C6EE4E disappears on paper. */
+.wm-a { color: #7FA81F; }
+
+.masthead-tag {
+  font-family: var(--display); font-weight: 700;
+  font-size: 10.5px; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* ── Hero ───────────────────────────────────────────────────────────────── */
+.hero { padding-top: 17px; }
+.eyebrow {
+  font-family: var(--display); font-weight: 700;
+  font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--orange); display: flex; align-items: center; gap: 8px;
+}
+.eyebrow::before {
+  content: ''; width: 18px; height: 2px; background: var(--orange); flex: none;
+}
+h1 {
+  font-family: var(--display); font-weight: 800;
+  font-size: 42px; line-height: 1.03; letter-spacing: -.035em;
+  margin-top: 12px;
+}
+h1 .muted { color: var(--text-3); }
+h1 .hit    { color: var(--orange); }
+.dek {
+  font-size: 14px; line-height: 1.55; color: var(--text-2);
+  max-width: 6.15in; margin-top: 13px;
+}
+.dek strong { color: var(--text); font-weight: 700; }
+
+/* ── Prep block: the four steps, beside the plan they produce ─────────────
+   Two columns. Left is the method any student should follow after a test;
+   right is the artifact SEVA builds out of it. The pairing is the argument —
+   steps 3 and 4 are the ones nobody keeps up by hand. */
+.prep {
+  margin-top: 17px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0 26px;
+  align-items: start;
+}
+.prep-h {
+  font-family: var(--display); font-weight: 800;
+  font-size: 25.5px; line-height: 1.07; letter-spacing: -.032em;
+}
+.prep-h .hit { color: var(--orange); }
+.prep-sub { font-size: 12.2px; line-height: 1.5; color: var(--text-2); margin-top: 9px; }
+
+.steps { list-style: none; margin-top: 13px; }
+.step {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 7px 0; border-top: 1px solid var(--line);
+}
+.step:first-child { border-top: none; padding-top: 2px; }
+/* Lime-deep tick = the palette's "done" colour, and the only place green
+   appears on the page besides the wordmark and the tri-color rule. */
+.step-check { flex: none; width: 16px; height: 16px; margin-top: 1.5px; }
+.step-b {
+  display: block; font-family: var(--display); font-weight: 700;
+  font-size: 12.6px; letter-spacing: -.012em; color: var(--text);
+}
+.step-v { display: block; font-size: 11.4px; line-height: 1.4; color: var(--text-2); margin-top: 2px; }
+
+/* The arc card — same surface treatment as before, half the width. */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line); border-radius: 14px;
+  padding: 14px 16px 13px;
+}
+.panel-head { padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.panel-title {
+  display: block; font-family: var(--display); font-weight: 700;
+  font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--text);
+}
+.panel-note { display: block; font-size: 10.6px; color: var(--text-3); margin-top: 3px; }
+
+/* The arc is redrawn for this column, NOT the full-width one scaled down:
+   at half width the old 656-unit viewBox rendered its 10px labels at ~4.6px,
+   which is unreadable in print. This viewBox is ~1:1 with its rendered size,
+   so label sizes here are the sizes that hit the paper. */
+.arc { display: block; width: 100%; height: auto; margin: 11px 0 0; }
+.arc text { font-family: var(--display); }
+.a-end { font-size: 9px; font-weight: 700; letter-spacing: .11em; fill: var(--text-3); }
+.a-hit { fill: var(--orange); }
+.a-ms  { font-size: 9.5px; font-weight: 600; fill: var(--text-2); }
+.a-ph  { font-size: 9px; font-weight: 700; letter-spacing: .045em; fill: var(--text); }
+
+.plan-notes {
+  border-top: 1px solid var(--line); margin-top: 11px; padding-top: 10px;
+  font-size: 10.6px; line-height: 1.45; color: var(--text-2);
+}
+.plan-notes b { font-family: var(--display); font-weight: 700; color: var(--text); }
+
+/* ── Inclusions strip ───────────────────────────────────────────────────── */
+.includes {
+  margin-top: 17px; display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 0 22px;
+}
+.inc { padding-left: 12px; border-left: 2px solid var(--line-2); }
+.inc:nth-child(1) { border-left-color: var(--orange); }
+.inc:nth-child(2) { border-left-color: var(--purple); }
+.inc:nth-child(3) { border-left-color: var(--lime-deep); }
+.inc-num {
+  font-family: var(--display); font-weight: 800; font-size: 21px;
+  letter-spacing: -.02em; line-height: 1.1;
+}
+.inc-label { font-size: 11.8px; line-height: 1.35; color: var(--text-2); margin-top: 2px; }
+.includes { margin-bottom: 18px; }
+
+/* ── Scan block ─────────────────────────────────────────────────────────── */
+.scan {
+  margin-top: auto; display: flex; align-items: center; gap: 24px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 16px; padding: 17px 22px;
+}
+.qr-frame {
+  flex: none; width: 1.72in; height: 1.72in; padding: 0.09in;
+  background: #fff; border: 1px solid var(--line); border-radius: 10px;
+}
+.qr-frame svg { display: block; width: 100%; height: 100%; }
+.scan-copy { min-width: 0; }
+.scan-kicker {
+  font-family: var(--display); font-weight: 700; font-size: 10.5px;
+  letter-spacing: .15em; text-transform: uppercase; color: var(--text-3);
+}
+.scan-title {
+  font-family: var(--display); font-weight: 800; font-size: 27px;
+  line-height: 1.08; letter-spacing: -.03em; margin-top: 6px;
+}
+.scan-title .hit { color: var(--orange); }
+.scan-sub { font-size: 13px; line-height: 1.48; color: var(--text-2); margin-top: 8px; }
+.scan-cta {
+  display: inline-flex; align-items: center; gap: 11px; margin-top: 12px;
+  background: var(--orange); color: #FFFFFF;
+  font-family: var(--display); font-weight: 800; font-size: 17.5px;
+  letter-spacing: -.01em; padding: 12px 22px; border-radius: 11px;
+}
+.scan-cta svg { width: 17px; height: 17px; flex: none; }
+.scan-url {
+  display: block; margin-top: 10px;
+  font-family: var(--display); font-weight: 700; font-size: 13.5px;
+  letter-spacing: -.01em; color: var(--text-2);
+}
+
+/* ── Fine print ─────────────────────────────────────────────────────────── */
+.fineprint {
+  margin-top: 13px; padding-top: 11px; border-top: 1px solid var(--line-2);
+  display: flex; justify-content: space-between; gap: 18px;
+  font-size: 10.6px; line-height: 1.45; color: var(--text-3);
+}
+.fineprint b { color: var(--text-2); font-weight: 700; }
+
+/* Ink-saver variant: white field instead of the cream bleed. Everything else
+   is identical, so the two PDFs stay in visual sync. */
+/* Drop the cream field to white, and tint the cards instead — otherwise the
+   white-on-white panels survive only on their hairline border and the page
+   reads flat. Inverting the two keeps the same separation with far less ink. */
+body.ink-light { --bg: #FFFFFF; --surface: #F7F6F2; --inset: #FFFFFF; }
+</style>
+</head>
+<body class="__VARIANT__">
+<div class="page">
+  <div class="tricolor"></div>
+
+  <header class="masthead">
+    <span class="wordmark" aria-label="SEVA">
+      <span class="wm-s"><i class="ghost">S</i><i class="band b1">S</i><i class="band b2">S</i><i class="band b3">S</i></span><span class="wm-e">E</span><span class="wm-v">V</span><span class="wm-a">A</span>
+    </span>
+    <span class="masthead-tag">Digital SAT prep</span>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">You just walked out of the SAT</div>
+    <h1>
+      Everyone out here<br>
+      is <span class="muted">guessing.</span><br>
+      You <span class="hit">don&rsquo;t have to be.</span>
+    </h1>
+    <p class="dek">
+      Your score won&rsquo;t land for two weeks &mdash; and even then it won&rsquo;t tell you what to
+      <strong>do next</strong>. Here is the order that actually works &mdash; and the part
+      nobody keeps up by hand.
+    </p>
+  </section>
+
+  <section class="prep">
+    <div class="prep-steps">
+      <h2 class="prep-h">How to prepare for the digital&nbsp;SAT in <span class="hit">4 steps</span></h2>
+      <p class="prep-sub">
+        None of this is a secret. The first two you can do tonight, on your own,
+        with any full-length test.
+      </p>
+
+      <ul class="steps">
+        <li class="step">
+          <svg class="step-check" viewBox="0 0 20 20" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#5A8A16"/>
+            <path d="M5.7 10.3l2.8 2.8 5.8-6" fill="none" stroke="#FFFFFF"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>
+            <b class="step-b">Take a full-length test for a baseline.</b>
+            <span class="step-v">A real score under real timing, not a guess.</span>
+          </span>
+        </li>
+        <li class="step">
+          <svg class="step-check" viewBox="0 0 20 20" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#5A8A16"/>
+            <path d="M5.7 10.3l2.8 2.8 5.8-6" fill="none" stroke="#FFFFFF"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>
+            <b class="step-b">Set a goal score and a test date.</b>
+            <span class="step-v">Two numbers. Everything after this is arithmetic against them.</span>
+          </span>
+        </li>
+        <li class="step">
+          <svg class="step-check" viewBox="0 0 20 20" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#5A8A16"/>
+            <path d="M5.7 10.3l2.8 2.8 5.8-6" fill="none" stroke="#FFFFFF"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>
+            <b class="step-b">Work the gaps, in the right order.</b>
+            <span class="step-v">Sorted by <em>why</em> you missed each question, then scheduled as real work &mdash; and re-sorted every time you practice.</span>
+          </span>
+        </li>
+        <li class="step">
+          <svg class="step-check" viewBox="0 0 20 20" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#5A8A16"/>
+            <path d="M5.7 10.3l2.8 2.8 5.8-6" fill="none" stroke="#FFFFFF"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>
+            <b class="step-b">Re-test, and read the pacing.</b>
+            <span class="step-v">Accuracy tells you what you missed. Pacing tells you why.</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-title">Steps 3 and 4, done for you</span>
+        <span class="panel-note">Your plan, tonight to test day</span>
+      </div>
+
+      <svg class="arc" viewBox="0 0 320 152" role="img"
+           aria-label="A rising plan from tonight to your target in three phases: Foundation, Build, Sharpen, with a check-in and a full test scheduled along the way.">
+        <line x1="18" y1="120" x2="302" y2="120" stroke="#D9D4C7" stroke-width="1"/>
+        <line x1="112" y1="114" x2="112" y2="126" stroke="#D9D4C7" stroke-width="1"/>
+        <line x1="207" y1="114" x2="207" y2="126" stroke="#D9D4C7" stroke-width="1"/>
+
+        <path d="M18 106 C 62 103, 88 97, 112 91 C 150 81, 180 72, 207 66 C 250 56, 282 49, 302 45"
+              fill="none" stroke="#15171C" stroke-width="2.1" stroke-linecap="round"/>
+
+        <circle cx="18" cy="106" r="3.6" fill="#15171C"/>
+        <rect x="107.8" y="86.8" width="8.4" height="8.4" transform="rotate(45 112 91)"
+              fill="#FFFFFF" stroke="#5B6068" stroke-width="1.5"/>
+        <rect x="202.8" y="61.8" width="8.4" height="8.4"
+              fill="#FFFFFF" stroke="#5B6068" stroke-width="1.5"/>
+        <circle cx="302" cy="45" r="5" fill="#EA580C"/>
+
+        <text x="14" y="97" class="a-end">TONIGHT</text>
+        <text x="302" y="33" class="a-end a-hit" text-anchor="end">YOUR TARGET</text>
+        <text x="112" y="79" class="a-ms" text-anchor="middle">Check-in</text>
+        <text x="207" y="54" class="a-ms" text-anchor="middle">Full test</text>
+        <text x="65" y="141" class="a-ph" text-anchor="middle">FOUNDATION</text>
+        <text x="160" y="141" class="a-ph" text-anchor="middle">BUILD</text>
+        <text x="254" y="141" class="a-ph" text-anchor="middle">SHARPEN</text>
+      </svg>
+
+      <div class="plan-notes">
+        <b>Built from your gaps.</b> Prove a skill and it leaves the plan &mdash;
+        the next gap moves up to take its place.
+      </div>
+    </div>
+  </section>
+
+  <section class="includes">
+    <div class="inc">
+      <div class="inc-num">2,200+</div>
+      <div class="inc-label">hand-authored practice questions the plan pulls from, aimed at your gaps</div>
+    </div>
+    <div class="inc">
+      <div class="inc-num">12</div>
+      <div class="inc-label">full-length adaptive practice tests, scheduled into the plan as checkpoints</div>
+    </div>
+    <div class="inc">
+      <div class="inc-num">24/7</div>
+      <div class="inc-label">AI tutor that works the problem with you, step by step</div>
+    </div>
+  </section>
+
+  <section class="scan">
+    <div class="qr-frame">__QR__</div>
+    <div class="scan-copy">
+      <div class="scan-kicker">Point your camera here</div>
+      <div class="scan-title">Find out <span class="hit">tonight.</span></div>
+      <p class="scan-sub">
+        About an hour, on your phone. You&rsquo;ll finish knowing exactly which
+        skills cost you points today &mdash; and what to do first.
+      </p>
+      <span class="scan-cta">Scan to start
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+      <span class="scan-url">or go to <b style="color:var(--orange);font-weight:800;">sevaprep.com</b></span>
+    </div>
+  </section>
+
+  <footer class="fineprint">
+    <span>
+      <b>Free for your first 3 days.</b> Starting the trial takes a card. Cancel any
+      time before day 3 and you are not charged &mdash; after that it&rsquo;s $85/month
+      or $349/year.
+    </span>
+    <span style="text-align:right; flex:none;">
+      SEVA &middot; sevaprep.com<br>Built for the Digital SAT
+    </span>
+  </footer>
+</div>
+</body>
+</html>
