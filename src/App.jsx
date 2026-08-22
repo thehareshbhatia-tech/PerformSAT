@@ -3566,6 +3566,7 @@ const PerformSAT = () => {
           <StudyPlanDashboard
             variant="immersive"
             onStartDiagnostic={handleStartPlanCheckIn}
+            miniDiagnostic={miniDiagnostic}
             studyPlan={studyPlan}
             practiceTestResults={practiceTestResults}
             practiceProgress={practiceProgress}
