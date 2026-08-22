@@ -865,21 +865,24 @@ const StudentDashboard = ({
                 {pointLevers.hasData ? (
                 <div className="hv2-perf">
                   <div className="hv2-perf-accuracy">
-                    <div className="hv2-eyebrow">Biggest point lever</div>
-                    <div className="hv2-big-pct">{pointLevers.lever?.points != null ? `~${pointLevers.lever.points}` : `${pointLevers.lever?.accuracy ?? 0}`}<span>{pointLevers.lever?.points != null ? ' pts' : '%'}</span></div>
-                    <div className="hv2-perf-detail">{pointLevers.lever ? `${pointLevers.lever.label} · ${pointLevers.lever.correct} of ${pointLevers.lever.total} correct` : 'Nothing left on the table'} · {tilesFromDiagnostic ? 'your diagnostic' : 'latest practice test'}</div>
+                    {/* Ranked by points on the table (selectors/pointLevers),
+                        SHOWN as accuracy — founder 2026-08-22: "show it as
+                        percent accuracy". */}
+                    <div className="hv2-eyebrow">Biggest opportunity</div>
+                    <div className="hv2-big-pct">{pointLevers.lever?.accuracy ?? 100}<span>%</span></div>
+                    <div className="hv2-perf-detail">{pointLevers.lever ? `${pointLevers.lever.label} · ${pointLevers.lever.correct} of ${pointLevers.lever.total} correct` : 'Every area answered correctly'} · {tilesFromDiagnostic ? 'your diagnostic' : 'latest practice test'}</div>
                   </div>
                   <div className="hv2-perf-stack">
                     <div className="hv2-split hv2-split-strong">
                       {pointLevers.lockedIn ? (
                         <>
-                          <div className="hv2-split-num">{pointLevers.lockedIn.correct}/{pointLevers.lockedIn.total}</div>
+                          <div className="hv2-split-num">{pointLevers.lockedIn.accuracy}%</div>
                           <div className="hv2-split-body">
                             <div className="hv2-split-eyebrow">{pointLevers.lockedIn.perfect ? 'Locked in' : 'Strongest area'}</div>
                             <div className="hv2-split-name">{pointLevers.lockedIn.label}</div>
-                            <div className="hv2-split-detail">{pointLevers.lockedIn.also?.length > 0
-                              ? `Also ${pointLevers.lockedIn.also[0]}${pointLevers.lockedIn.also.length > 1 ? ` and ${pointLevers.lockedIn.also.length - 1} more` : ''}`
-                              : `${pointLevers.lockedIn.correct} of ${pointLevers.lockedIn.total} correct`}</div>
+                            <div className="hv2-split-detail">{`${pointLevers.lockedIn.correct} of ${pointLevers.lockedIn.total} correct`}{pointLevers.lockedIn.also?.length > 0
+                              ? ` · also ${pointLevers.lockedIn.also[0]}${pointLevers.lockedIn.also.length > 1 ? ` and ${pointLevers.lockedIn.also.length - 1} more` : ''}`
+                              : ''}</div>
                           </div>
                         </>
                       ) : (
@@ -892,16 +895,16 @@ const StudentDashboard = ({
                     <div className="hv2-split hv2-split-opp">
                       {pointLevers.next ? (
                         <>
-                          <div className="hv2-split-num">{pointLevers.next.points != null ? `~${pointLevers.next.points}` : `${pointLevers.next.accuracy}%`}</div>
+                          <div className="hv2-split-num">{pointLevers.next.accuracy}%</div>
                           <div className="hv2-split-body">
-                            <div className="hv2-split-eyebrow">Next lever</div>
+                            <div className="hv2-split-eyebrow">Next opportunity</div>
                             <div className="hv2-split-name">{pointLevers.next.label}</div>
-                            <div className="hv2-split-detail">{pointLevers.next.correct} of {pointLevers.next.total} correct{pointLevers.next.points != null ? ' · points on the table' : ''}</div>
+                            <div className="hv2-split-detail">{pointLevers.next.correct} of {pointLevers.next.total} correct</div>
                           </div>
                         </>
                       ) : (
                         <div className="hv2-split-empty">
-                          <div className="hv2-split-eyebrow">Next lever</div>
+                          <div className="hv2-split-eyebrow">Next opportunity</div>
                           <div className="hv2-empty-hint">Every other area is locked in</div>
                         </div>
                       )}
