@@ -118,17 +118,17 @@ h1 .hit    { color: var(--orange); }
    tick off in any order; a numbered list implies sequence, which is what this
    is. Nothing sits beside them — the whole point of the page is that a
    16-year-old holding it in a parking lot can follow it in one pass. */
-.prep { margin-top: 20px; }
+.prep { margin-top: 17px; }
 .prep-h {
   font-family: var(--display); font-weight: 800;
   font-size: 27px; line-height: 1.06; letter-spacing: -.032em;
 }
 .prep-h .hit { color: var(--orange); }
 
-.steps { list-style: none; margin-top: 14px; }
+.steps { list-style: none; margin-top: 12px; }
 .step {
   display: flex; gap: 18px; align-items: baseline;
-  padding: 12px 0; border-top: 1px solid var(--line-2);
+  padding: 10px 0; border-top: 1px solid var(--line-2);
 }
 .step:first-child { border-top: none; }
 .step-n {
@@ -151,7 +151,7 @@ h1 .hit    { color: var(--orange); }
   /* margin-BOTTOM, not just top: .scan uses `margin-top: auto` to sit at the
      foot of the page, and auto collapses to 0 once the page fills — without a
      floor here the scan card butts straight into this line. */
-  margin-top: 18px; margin-bottom: 22px; padding: 2px 0 2px 15px;
+  margin-top: 16px; margin-bottom: 18px; padding: 2px 0 2px 15px;
   border-left: 3px solid var(--purple);
   font-size: 13.6px; line-height: 1.5; color: var(--text-2);
 }
@@ -161,7 +161,7 @@ h1 .hit    { color: var(--orange); }
 .scan {
   margin-top: auto; display: flex; align-items: center; gap: 22px;
   background: var(--surface); border: 1px solid var(--line);
-  border-radius: 16px; padding: 15px 20px;
+  border-radius: 16px; padding: 13px 20px;
 }
 .qr-frame {
   flex: none; width: 1.6in; height: 1.6in; padding: 0.085in;
@@ -186,6 +186,10 @@ h1 .hit    { color: var(--orange); }
   letter-spacing: -.01em; padding: 12px 22px; border-radius: 11px;
 }
 .scan-cta svg { width: 17px; height: 17px; flex: none; }
+.scan-terms {
+  display: block; margin-top: 9px; max-width: 4.1in;
+  font-size: 10.4px; line-height: 1.4; color: var(--text-3);
+}
 .scan-url {
   display: block; margin-top: 10px;
   font-family: var(--display); font-weight: 700; font-size: 13.5px;
@@ -278,22 +282,24 @@ body.ink-light { --bg: #FFFFFF; --surface: #F7F6F2; --inset: #FFFFFF; }
       <div class="scan-kicker">Point your camera here</div>
       <div class="scan-title">Find out <span class="hit">tonight.</span></div>
       <p class="scan-sub">
-        One hour tonight, on your phone. You finish knowing which skills cost you
-        points today, which mistakes were avoidable, and what to work on first.
+        One hour tonight. You finish knowing which skills cost you points today,
+        which mistakes were avoidable, and what to work on first.
       </p>
-      <span class="scan-cta">Scan to start
+      <span class="scan-cta">Start free today
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </span>
       <span class="scan-url">or go to <b style="color:var(--orange);font-weight:800;">sevaprep.com</b></span>
+      <!-- The card note rides with the offer, not in the footer. "Start free
+           today" without it is the promise that turns into a chargeback. -->
+      <span class="scan-terms">Free for 3 days. A card starts the trial; cancel before day 3.</span>
     </div>
   </section>
 
   <footer class="fineprint">
     <span>
-      <b>Free for your first 3 days.</b> Starting the trial takes a card. Cancel any
-      time before day 3 and you are not charged &mdash; after that it&rsquo;s $85/month
-      or $349/year.
+      <b>Best on a laptop.</b> Scan with your phone, then open SEVA on a full screen
+      &mdash; the same setup you take the real digital SAT on.
     </span>
     <span style="text-align:right; flex:none;">
       SEVA &middot; sevaprep.com<br>Built for the Digital SAT
