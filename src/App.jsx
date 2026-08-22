@@ -38,7 +38,7 @@ import {
   extractItemsFromAttempt,
 } from './services/selectors/completedTests';
 import { sectionModuleLabel } from './services/selectors/moduleLabel';
-import { isScoreableAttempt } from './services/selectors/latestTestStats';
+import { chooseDiagnosticVariant, DIAGNOSTIC_LAUNCH_FIRST, DIAGNOSTIC_LAUNCH_PLAN_CHECKIN } from './services/selectors/diagnosticVariant';
 import { getTrustedBandMidpoint } from './services/selectors/estimatedBaseline';
 // Corpus access (Stage 2b of the bundle-split plan): the question banks,
 // practice-test bundles, and the two corpus-coupled services load as their
@@ -906,12 +906,20 @@ const PerformSAT = () => {
   // the check-in runner (goal/context now arrive with signup via the funnel;
   // students without a goal get DEFAULT_GOAL_SCORE pacing and can edit it
   // in Profile).
-  const handleResumeOnRamp = () => {
+  // Launch source decides the sitting (see selectors/diagnosticVariant): the
+  // onboarding / home "Take your diagnostic" CTA is the starting point → full
+  // 40Q even over a stale record; only the plan's scheduled check-in card
+  // serves the short focus-weighted variant. Read by the build effect below.
+  const diagLaunchSourceRef = useRef(null);
+  const launchDiagnostic = (source) => {
     if (!ensurePracticeAccess()) return;
+    diagLaunchSourceRef.current = source;
     // A deliberate launch clears the exit snooze — the student asked for it.
     try { localStorage.removeItem(`seva:onrampSnooze:${user?.uid}`); } catch { /* storage unavailable */ }
     setOnRampActive(true);
   };
+  const handleResumeOnRamp = () => launchDiagnostic(DIAGNOSTIC_LAUNCH_FIRST);
+  const handleStartPlanCheckIn = () => launchDiagnostic(DIAGNOSTIC_LAUNCH_PLAN_CHECKIN);
 
   const handleOnRampFinished = async ({ plan, diagReport, miniDiagnosticRecord }) => {
     // Order matters for resilience: plan mirror first (the artifact is already
@@ -977,21 +985,19 @@ const PerformSAT = () => {
           if (!cancelled) inputs.clearTestProgress('mini-diagnostic');
         }
         if (cancelled) return;
-        // First diagnostic = no prior MEASUREMENT: no diagnostic record AND
-        // no scoreable real-test attempt. A funnel/onboarding starter plan is
-        // a scaffold, not evidence — but an account with real test scores has
-        // been measured, and its plan's "Quick check-in" card must launch the
-        // short focused variant it promises, not the 40Q full sitting.
-        // isScoreableAttempt is the canonical gate (blank/abandoned attempts
-        // carry a floor scaledScore and NO answeredCount — the hand-rolled
-        // check counted them as real measurements and demoted a never-
-        // measured student's first diagnostic to the short check-in).
-        const hasRealTestScore = Object.values(inputs.practiceTestResults || {}).some((row) => (
-          Array.isArray(row?.attempts)
-            ? row.attempts.some((a) => isScoreableAttempt(a))
-            : Number.isFinite(row?.bestScaledScore)
-        ));
-        const isFirstDiagnostic = !inputs.miniDiagnostic && !hasRealTestScore;
+        // Full vs check-in: the launch source decides (selectors/
+        // diagnosticVariant). Onboarding / home CTA → always the full 40Q
+        // starting point, even when a stale record exists (a check-in's band
+        // never anchors the score, so serving it there carried a stale band
+        // forward as the "starting score"). The plan's check-in card → the
+        // short variant, but only for a measured student (diagnostic record
+        // or scoreable real-test attempt — a funnel starter plan is a
+        // scaffold, not evidence).
+        const variant = chooseDiagnosticVariant({
+          launchSource: diagLaunchSourceRef.current,
+          miniDiagnostic: inputs.miniDiagnostic,
+          practiceTestResults: inputs.practiceTestResults,
+        });
         const focusSkills = (inputs.studyPlan?.weaknesses || [])
           .map((w) => w.skillId)
           .filter(Boolean)
@@ -1001,7 +1007,7 @@ const PerformSAT = () => {
           userId: user.uid,
           attemptId,
           excludeIds: inputs.answeredQuestionIds || [],
-          variant: isFirstDiagnostic ? 'full' : 'checkin',
+          variant,
           focusSkills,
         });
         if (!cancelled) setDiagnosticTest(test);
@@ -1017,6 +1023,7 @@ const PerformSAT = () => {
   // check-in) samples a fresh sitting instead of remounting a finished one.
   useEffect(() => {
     if (onRampActive === false && diagnosticTest) setDiagnosticTest(null);
+    if (onRampActive === false) diagLaunchSourceRef.current = null;
   }, [onRampActive, diagnosticTest]);
 
   const renderOnRamp = () => {
@@ -3007,6 +3014,7 @@ const PerformSAT = () => {
             onStartReview={startDailyReview}
             onStartPracticeTest={() => setView('practiceTests')}
             onStartDiagnostic={handleResumeOnRamp}
+            onStartPlanCheckIn={handleStartPlanCheckIn}
             innerOnboardingPending={innerOnboardingPending}
             onResumeInnerOnboarding={handleResumeInnerOnboarding}
             onStartPacing={startPacingDrill}
@@ -3557,7 +3565,7 @@ const PerformSAT = () => {
         {view === 'studyPlan' && (
           <StudyPlanDashboard
             variant="immersive"
-            onStartDiagnostic={handleResumeOnRamp}
+            onStartDiagnostic={handleStartPlanCheckIn}
             studyPlan={studyPlan}
             practiceTestResults={practiceTestResults}
             practiceProgress={practiceProgress}

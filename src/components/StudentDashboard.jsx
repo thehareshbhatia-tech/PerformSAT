@@ -85,6 +85,9 @@ const StudentDashboard = ({
   onStartReview,
   onStartPracticeTest,
   onStartDiagnostic,
+  // Plan check-in activity launch (short focus-weighted sitting). Falls back
+  // to onStartDiagnostic for callers that don't pass it.
+  onStartPlanCheckIn,
   innerOnboardingPending = false,
   onResumeInnerOnboarding,
   onStartPacing,
@@ -608,7 +611,7 @@ const StudentDashboard = ({
               user={user}
               onStartPractice={onStartPractice}
               onStartPracticeTest={onStartPracticeTest}
-              onStartDiagnostic={onStartDiagnostic}
+              onStartDiagnostic={onStartPlanCheckIn || onStartDiagnostic}
               onCompleteActivity={onCompleteActivity}
               onUncompleteActivity={onUncompleteActivity}
               onEditPlan={onEditPlan}
@@ -1025,12 +1028,13 @@ const StudentDashboard = ({
                     // Starter-plan check-in launches the mini-diagnostic, not a
                     // full test (mirrors StudyPlanDashboard's handleGo).
                     const isCheckIn = a?.activityType === 'miniDiagnostic';
+                    const startCheckIn = onStartPlanCheckIn || onStartDiagnostic;
                     const isTest = !isCheckIn && (a?.type === 'test' || a?.activityType === 'practiceTest');
-                    const isStartable = !!(a?.moduleId || a?.skillId || (isStrategy && typeof handleStartStrategyActivity === 'function') || (isMissReview && a?.testId && typeof onReviewTestWrong === 'function') || (isTest && typeof onStartPracticeTest === 'function') || (isCheckIn && typeof onStartDiagnostic === 'function'));
+                    const isStartable = !!(a?.moduleId || a?.skillId || (isStrategy && typeof handleStartStrategyActivity === 'function') || (isMissReview && a?.testId && typeof onReviewTestWrong === 'function') || (isTest && typeof onStartPracticeTest === 'function') || (isCheckIn && typeof startCheckIn === 'function'));
                     const minutes = typeof a?.duration === 'number' ? a.duration : null;
                     const onStart = () => {
                       if (!isStartable) return;
-                      if (isCheckIn) { onStartDiagnostic(); return; }
+                      if (isCheckIn) { startCheckIn(); return; }
                       if (isMissReview) { onReviewTestWrong(a.testId); return; }
                       if (isTest) { onStartPracticeTest(); return; }
                       if (isStrategy) { handleStartStrategyActivity(a); return; }
