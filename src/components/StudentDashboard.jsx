@@ -26,6 +26,7 @@ import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
 import { buildPacingSession } from '../services/pacingService';
 import { getRecentMisses } from '../services/selectors/recentMisses';
+import { pointLeversFromDiagnostic, pointLeversFromLatestTest } from '../services/selectors/pointLevers';
 import { buildDailySession } from '../services/dailyReviewEngine';
 import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
 import { loadPracticeTests, loadMathBank, loadRWBank } from '../data/corpusLoader';
@@ -315,6 +316,17 @@ const StudentDashboard = ({
   );
   const tilesFromDiagnostic = !!diagnosticTiles?.hasData;
   const tiles = tilesFromDiagnostic ? diagnosticTiles : performanceTiles;
+  // Tile CONTENT (founder, 2026-08-22: "80% English, 70% Math is not
+  // meaningful data"): the same three tiles now name areas and price them in
+  // points — biggest lever / next lever / locked in — from the diagnostic
+  // until the first real test, then from the latest test (selectors/
+  // pointLevers). Falls back to the accuracy tiles when neither can be built
+  // (legacy attempts without per-question details, bundle not resolved yet).
+  const pointLevers = useMemo(() => {
+    if (tilesFromDiagnostic) return pointLeversFromDiagnostic(miniDiagnostic);
+    if (performanceTiles.hasData) return pointLeversFromLatestTest(practiceTestResults, { resolveTest });
+    return { hasData: false };
+  }, [tilesFromDiagnostic, performanceTiles.hasData, miniDiagnostic, practiceTestResults, resolveTest]);
   // Delta vs the PREVIOUS attempt, from the SAME selector as the headline, so
   // the arrow can never contradict the number (e.g. an up-arrow on a lower
   // retake). getLatestTestStats returns null on a single attempt or a
@@ -850,6 +862,53 @@ const StudentDashboard = ({
                   <h2 className="hv2-section-title">Performance snapshot</h2>
                   <span className="hv2-section-meta">{tilesFromDiagnostic ? 'Your diagnostic' : 'Latest practice test'}</span>
                 </div>
+                {pointLevers.hasData ? (
+                <div className="hv2-perf">
+                  <div className="hv2-perf-accuracy">
+                    <div className="hv2-eyebrow">Biggest point lever</div>
+                    <div className="hv2-big-pct">{pointLevers.lever?.points != null ? `~${pointLevers.lever.points}` : `${pointLevers.lever?.accuracy ?? 0}`}<span>{pointLevers.lever?.points != null ? ' pts' : '%'}</span></div>
+                    <div className="hv2-perf-detail">{pointLevers.lever ? `${pointLevers.lever.label} · ${pointLevers.lever.correct} of ${pointLevers.lever.total} correct` : 'Nothing left on the table'} · {tilesFromDiagnostic ? 'your diagnostic' : 'latest practice test'}</div>
+                  </div>
+                  <div className="hv2-perf-stack">
+                    <div className="hv2-split hv2-split-strong">
+                      {pointLevers.lockedIn ? (
+                        <>
+                          <div className="hv2-split-num">{pointLevers.lockedIn.correct}/{pointLevers.lockedIn.total}</div>
+                          <div className="hv2-split-body">
+                            <div className="hv2-split-eyebrow">{pointLevers.lockedIn.perfect ? 'Locked in' : 'Strongest area'}</div>
+                            <div className="hv2-split-name">{pointLevers.lockedIn.label}</div>
+                            <div className="hv2-split-detail">{pointLevers.lockedIn.also?.length > 0
+                              ? `Also ${pointLevers.lockedIn.also[0]}${pointLevers.lockedIn.also.length > 1 ? ` and ${pointLevers.lockedIn.also.length - 1} more` : ''}`
+                              : `${pointLevers.lockedIn.correct} of ${pointLevers.lockedIn.total} correct`}</div>
+                          </div>
+                        </>
+                      ) : (
+                        <div className="hv2-split-empty">
+                          <div className="hv2-split-eyebrow">Locked in</div>
+                          <div className="hv2-empty-hint">No area is fully secure yet</div>
+                        </div>
+                      )}
+                    </div>
+                    <div className="hv2-split hv2-split-opp">
+                      {pointLevers.next ? (
+                        <>
+                          <div className="hv2-split-num">{pointLevers.next.points != null ? `~${pointLevers.next.points}` : `${pointLevers.next.accuracy}%`}</div>
+                          <div className="hv2-split-body">
+                            <div className="hv2-split-eyebrow">Next lever</div>
+                            <div className="hv2-split-name">{pointLevers.next.label}</div>
+                            <div className="hv2-split-detail">{pointLevers.next.correct} of {pointLevers.next.total} correct{pointLevers.next.points != null ? ' · points on the table' : ''}</div>
+                          </div>
+                        </>
+                      ) : (
+                        <div className="hv2-split-empty">
+                          <div className="hv2-split-eyebrow">Next lever</div>
+                          <div className="hv2-empty-hint">Every other area is locked in</div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                ) : (
                 <div className="hv2-perf">
                   <div className="hv2-perf-accuracy">
                     <div className="hv2-eyebrow">{tilesFromDiagnostic ? 'Diagnostic Accuracy' : 'Practice Accuracy'}</div>
@@ -893,6 +952,7 @@ const StudentDashboard = ({
                     </div>
                   </div>
                 </div>
+                )}
               </div>
             )}
 
