@@ -1058,22 +1058,42 @@ const StudentDashboard = ({
                     );
                   })()}
                 </div>
-                {studyPlan?.planSource === 'mini-diagnostic' && (
-                  <div className="starter-plan-banner" style={{ marginBottom: '14px' }}>
-                    <span className="starter-plan-banner-text">{ffDiagnosticV2 ? 'Starter plan, built from your diagnostic. A full practice test sharpens it into a complete diagnosis.' : 'Starter plan, built from your 15-minute check-in. A full practice test sharpens it into a complete diagnosis.'}</span>
-                    <button type="button" className="starter-plan-banner-cta" onClick={onStartPracticeTest}>Take a full test</button>
-                  </div>
-                )}
+                {/* Home shows ONE thing here: the next session, with its Start
+                    button. The full day — every reinforcement/maintenance set,
+                    the because-lines, the review block — lives in the Study
+                    Plan tab. The home is for starting, not reading (founder,
+                    2026-08-22: "this information is for the study plan, not
+                    the home screen"). */}
                 <div className="hv2-card">
-                  {todaySlice.activities.map((a, i) => {
-                    // 'strategyDrill' = legacy plans; 'pacingDrill' = Plan v3
-                    // unified sessions. Both route to the real pacing runner.
+                  {(() => {
+                    const allDone = todaySlice.kind === 'all-done';
+                    const a = allDone ? null : todaySlice.activities[0];
+                    const arrow = <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>;
+                    if (allDone || !a) {
+                      return (
+                        <div className="hv2-focus-row">
+                          <div className="hv2-focus-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg>
+                          </div>
+                          <div className="hv2-focus-text">
+                            <div className="hv2-focus-titlerow"><span className="hv2-focus-title">Today's sessions are done</span></div>
+                            <p className="hv2-focus-desc">Tomorrow's work is already queued in your plan.</p>
+                          </div>
+                          <button type="button" className="hv2-hero-link" style={{ marginTop: 0 }} onClick={() => setActiveTab('studyPlan')}>
+                            See your plan
+                            {arrow}
+                          </button>
+                        </div>
+                      );
+                    }
+                    // Same routing as the Study Plan timeline: 'strategyDrill' =
+                    // legacy plans; 'pacingDrill' = Plan v3 unified sessions
+                    // (both → the real pacing runner); testMissReview deep-links
+                    // the source test's misses; miniDiagnostic → the plan
+                    // check-in; test → the runner; anything with a skill/module
+                    // → the drill resolver.
                     const isStrategy = a?.activityType === 'strategyDrill' || a?.activityType === 'pacingDrill';
-                    // Plan v3: test-miss review deep-links the actual missed
-                    // questions from the source test.
                     const isMissReview = a?.activityType === 'testMissReview';
-                    // Starter-plan check-in launches the mini-diagnostic, not a
-                    // full test (mirrors StudyPlanDashboard's handleGo).
                     const isCheckIn = a?.activityType === 'miniDiagnostic';
                     const startCheckIn = onStartPlanCheckIn || onStartDiagnostic;
                     const isTest = !isCheckIn && (a?.type === 'test' || a?.activityType === 'practiceTest');
@@ -1087,44 +1107,35 @@ const StudentDashboard = ({
                       if (isStrategy) { handleStartStrategyActivity(a); return; }
                       handleStartTodaysActivity(a);
                     };
+                    const more = Math.max(0, todaySlice.activities.length - 1)
+                      + (todaySlice.reviewSession?.sessionSize > 0 ? 1 : 0);
                     return (
-                      <div className="hv2-focus-row" key={a?.id || i}>
-                        <div className="hv2-focus-icon">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M3 2v6h6"/><path d="M21 12A9 9 0 0 0 6 5.3L3 8"/><path d="M21 22v-6h-6"/><path d="M3 12a9 9 0 0 0 15 6.7l3-2.7"/></svg>
-                        </div>
-                        <div className="hv2-focus-text">
-                          <div className="hv2-focus-titlerow">
-                            <span className="hv2-focus-title">{a?.title || 'Practice session'}</span>
-                            {minutes !== null && <span className="hv2-chip">~{minutes} MIN</span>}
+                      <>
+                        <div className="hv2-focus-row">
+                          <div className="hv2-focus-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M3 2v6h6"/><path d="M21 12A9 9 0 0 0 6 5.3L3 8"/><path d="M21 22v-6h-6"/><path d="M3 12a9 9 0 0 0 15 6.7l3-2.7"/></svg>
                           </div>
-                          {(a?.subtitle || a?.skillName) && <p className="hv2-focus-desc">{a.subtitle || a.skillName}</p>}
-                          {a?.because && <p className="hv2-focus-because">{a.because}</p>}
+                          <div className="hv2-focus-text">
+                            <div className="hv2-focus-titlerow">
+                              <span className="hv2-focus-title">{a?.title || 'Practice session'}</span>
+                              {minutes !== null && <span className="hv2-chip">~{minutes} MIN</span>}
+                            </div>
+                            {(a?.subtitle || a?.skillName) && <p className="hv2-focus-desc">{a.subtitle || a.skillName}</p>}
+                          </div>
+                          <button type="button" className="hv2-btn-primary" onClick={onStart} disabled={!isStartable}>
+                            {isTest ? 'Start test' : 'Start now'}
+                            {arrow}
+                          </button>
                         </div>
-                        <button type="button" className="hv2-btn-primary" onClick={onStart} disabled={!isStartable}>
-                          {isTest ? 'Start test' : 'Start now'}
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                        </button>
-                      </div>
+                        {more > 0 && (
+                          <button type="button" className="hv2-hero-link hv2-focus-more" onClick={() => setActiveTab('studyPlan')}>
+                            {more} more {more === 1 ? 'session' : 'sessions'} today · see your plan
+                            {arrow}
+                          </button>
+                        )}
+                      </>
                     );
-                  })}
-                  {todaySlice.reviewSession?.sessionSize > 0 && typeof onStartReview === 'function' && (
-                    <div className="hv2-focus-row">
-                      <div className="hv2-focus-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-                      </div>
-                      <div className="hv2-focus-text">
-                        <div className="hv2-focus-titlerow">
-                          <span className="hv2-focus-title">Review {todaySlice.reviewSession.sessionSize} due {todaySlice.reviewSession.sessionSize === 1 ? 'question' : 'questions'}</span>
-                          <span className="hv2-chip">~{todaySlice.reviewSession.estimatedMinutes} MIN</span>
-                        </div>
-                        <p className="hv2-focus-desc">Questions you missed before, back at the right moment to stick.</p>
-                      </div>
-                      <button type="button" className="hv2-btn-primary" onClick={() => onStartReview(todaySlice.reviewSession.items)}>
-                        Start now
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                      </button>
-                    </div>
-                  )}
+                  })()}
                 </div>
               </div>
             ) : !hasStudyPlan ? (

@@ -289,6 +289,8 @@
   transition: gap .15s ease, opacity .15s ease;
 }
 .hv2-hero-link:hover { gap: 9px; opacity: .82; }
+/* Today's focus footer: the count of remaining sessions, as a link into the plan. */
+.hv2-focus-more { display: flex; width: 100%; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--hv2-line); }
 
 /* ── Projected-score card (re-added; protected UI, v2-styled) ──────────── */
 .hv2-proj-card {
