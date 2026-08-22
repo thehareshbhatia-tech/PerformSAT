@@ -2739,19 +2739,19 @@ const PerformSAT = () => {
         }}
         user={user}
         onLogout={logout}
-        hideNav={view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'learn'}
+        hideNav={view === 'takingTest' || view === 'pacingDrill' || view === 'reviewingPastResults' || view === 'practice' || view === 'learn'}
       >
       {/* Main Content — key={view} re-mounts the region on navigation so it fades
           in (fadeInUp keyframe in design/animations.js; reduced-motion handled
           globally). takingTest is excluded so the test-runner scroll-lock and the
           internal test->results flip (view stays 'takingTest') never animate. */}
       <div id="main-content" key={view} style={{
-        maxWidth: view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' || view === 'learn' || view === 'learnTab' || view === 'learnChapter' || view === 'modules' || view === 'practiceBank' || view === 'paywall' ? '100%' : view === 'studyPlan' ? '1220px' : view === 'practiceTests' ? '1040px' : '800px',
+        maxWidth: view === 'takingTest' || view === 'pacingDrill' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' || view === 'learn' || view === 'learnTab' || view === 'learnChapter' || view === 'modules' || view === 'practiceBank' || view === 'paywall' ? '100%' : view === 'studyPlan' ? '1220px' : view === 'practiceTests' ? '1040px' : '800px',
         margin: '0 auto',
         // Study Plan + Practice Tests paint their own warm canvas + framing, so
         // they want a tighter outer gutter than the default 32px content padding.
-        padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest' || view === 'learn' || view === 'learnTab' || view === 'learnChapter' || view === 'practiceBank' || view === 'paywall') ? '0' : (view === 'studyPlan' || view === 'practiceTests') ? '20px 20px 80px' : '32px 32px 100px',
-        ...(view === 'takingTest' ? { overflow: 'hidden', height: '100vh' } : { animation: 'fadeInUp 300ms cubic-bezier(0.25, 0.1, 0.25, 1)' })
+        padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest' || view === 'pacingDrill' || view === 'learn' || view === 'learnTab' || view === 'learnChapter' || view === 'practiceBank' || view === 'paywall') ? '0' : (view === 'studyPlan' || view === 'practiceTests') ? '20px 20px 80px' : '32px 32px 100px',
+        ...((view === 'takingTest' || view === 'pacingDrill') ? { overflow: 'hidden', height: '100vh' } : { animation: 'fadeInUp 300ms cubic-bezier(0.25, 0.1, 0.25, 1)' })
       }}>
       {/* ONE Suspense boundary for the whole view-switch region: every lazy
           view below suspends into the same skeleton fallback. It sits INSIDE
