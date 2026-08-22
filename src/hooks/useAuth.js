@@ -6,7 +6,7 @@ import {
   onAuthStateChanged,
   signOut
 } from 'firebase/auth';
-import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, getDoc, getDocFromServer, setDoc, serverTimestamp } from 'firebase/firestore';
 import { TERMS_VERSION } from '../constants/legal';
 import { toCompositeGoal } from '../services/selectors/goalProgress';
 import { setReviewStreakUser } from '../services/dailyReviewEngine';
@@ -107,6 +107,28 @@ export const normalizeProfileGoal = (profile) => {
   return { ...profile, targetScore: migrated };
 };
 
+/**
+ * Read the student's profile doc, preferring a SERVER round trip.
+ *
+ * Why not plain getDoc: on the landing-page login path, `login()` writes
+ * `lastLoginAt` (merge) on a doc this client has never read. The auth
+ * listener's concurrent getDoc then resolves from the local write overlay —
+ * a doc that "exists" with ONLY `lastLoginAt` — and the whole session runs
+ * on that shell profile (no firstName, no testDate, no onboarding stamps →
+ * inner onboarding re-seized returning students; reproduced 2026-08-22).
+ * getDocFromServer bypasses the overlay; getDoc is the offline fallback.
+ *
+ * @param {import('firebase/firestore').DocumentReference} ref
+ * @returns {Promise<import('firebase/firestore').DocumentSnapshot>}
+ */
+const readProfileDoc = async (ref) => {
+  try {
+    return await getDocFromServer(ref);
+  } catch {
+    return getDoc(ref);
+  }
+};
+
 export const useAuth = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -134,7 +156,7 @@ export const useAuth = () => {
         const isStale = () => auth.currentUser?.uid !== firebaseUser.uid;
         try {
           // Fetch user profile from Firestore
-          let userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
+          let userDoc = await readProfileDoc(doc(db, 'users', firebaseUser.uid));
           if (!userDoc.exists() && !isStale()) {
             // Signup race: the signup flow's users-doc write usually lands
             // within ~1.5s of the auth user existing. Retry once before
@@ -142,7 +164,7 @@ export const useAuth = () => {
             // doesn't strand a fresh signup without firstName/goal fields.
             await new Promise((resolve) => setTimeout(resolve, 1500));
             if (isStale()) return;
-            userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
+            userDoc = await readProfileDoc(doc(db, 'users', firebaseUser.uid));
           }
           if (isStale()) return;
           if (userDoc.exists()) {
@@ -261,13 +283,12 @@ export const useAuth = () => {
       // Sign in with Firebase
       const result = await signInWithEmailAndPassword(auth, email, password);
 
-      // Update last login time
-      await setDoc(doc(db, 'users', result.user.uid), {
-        lastLoginAt: serverTimestamp()
-      }, { merge: true });
-
-      // Fetch user data
-      const userDoc = await getDoc(doc(db, 'users', result.user.uid));
+      // Fetch user data FIRST — from the server. The lastLoginAt merge below
+      // used to run before this read; on a doc this client had never read,
+      // the concurrent auth-listener getDoc resolved from the local write
+      // overlay ({ lastLoginAt } only) and the session ran on a shell
+      // profile. Read, then stamp.
+      const userDoc = await readProfileDoc(doc(db, 'users', result.user.uid));
       const userData = normalizeProfileGoal({
         uid: result.user.uid,
         email: result.user.email,
@@ -275,6 +296,12 @@ export const useAuth = () => {
       });
 
       setUser(userData);
+
+      // Update last login time — best-effort, never blocks the login.
+      setDoc(doc(db, 'users', result.user.uid), {
+        lastLoginAt: serverTimestamp()
+      }, { merge: true }).catch((e) => console.warn('lastLoginAt stamp failed:', e?.message || e));
+
       return userData;
     } catch (err) {
       console.error('Error logging in:', err);
