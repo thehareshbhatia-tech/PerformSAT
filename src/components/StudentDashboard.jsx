@@ -19,7 +19,8 @@ import { isGoalAchieved, goalDelta } from '../services/selectors/goalProgress';
 import { isScoreableAttempt, getLatestTestStats } from '../services/selectors/latestTestStats';
 import { getEstimatedBaseline } from '../services/selectors/estimatedBaseline';
 import { useFeatureFlag } from '../hooks/useFeatureFlag';
-import { buildPerformanceTiles } from '../services/selectors/performanceTiles';
+import { buildPerformanceTiles, buildDiagnosticTiles } from '../services/selectors/performanceTiles';
+import { hasRealTestScore } from '../services/selectors/diagnosticVariant';
 import { snapToScale } from '../services/scoring/scaleTables';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
@@ -171,9 +172,6 @@ const StudentDashboard = ({
     () => buildPerformanceTiles(practiceTestResults),
     [practiceTestResults],
   );
-  const totalCorrect = performanceTiles.overall.correct;
-  const totalQuestions = performanceTiles.overall.total;
-  const practicePercent = performanceTiles.overall.percent;
 
   const { projectedScore, projectedRange, projectedTestsCount, scoreHistory, latestIsMultiSection } = useMemo(() => {
     if (!practiceTestResults || Object.keys(practiceTestResults).length === 0) {
@@ -241,13 +239,6 @@ const StudentDashboard = ({
     };
   }, [practiceTestResults]);
 
-  // Strongest / biggest-opportunity SECTION (Math vs R&W), derived from the
-  // combined per-section signal above. Replaces the old per-math-module pick,
-  // which could never surface R&W (it matched frozen practiceProgress against
-  // a hardcoded math-only module list).
-  const strongest = performanceTiles.strongest;
-  const opportunity = performanceTiles.opportunity;
-
   // Shared selector — one day-count for the SAT date everywhere (CalendarMonth,
   // study-plan hero, and this rail all consume the same signed integer).
   const daysUntilTest = getDaysUntilTest(user?.testDate);
@@ -311,6 +302,19 @@ const StudentDashboard = ({
     () => (ffDiagnosticV2 ? getEstimatedBaseline(miniDiagnostic, practiceTestResults) : null),
     [ffDiagnosticV2, miniDiagnostic, practiceTestResults],
   );
+  // Diagnostic v2: between finishing the diagnostic and the first scoreable
+  // practice test, the protected snapshot tiles read from the diagnostic —
+  // same tiles, same look, source labelled "your diagnostic" — instead of
+  // sitting empty above the estimated hero. Full tests outrank (the same
+  // rule the estimated hero uses); check-in records never feed them.
+  const diagnosticTiles = useMemo(
+    () => (ffDiagnosticV2 && !performanceTiles.hasData && !hasRealTestScore(practiceTestResults)
+      ? buildDiagnosticTiles(miniDiagnostic)
+      : null),
+    [ffDiagnosticV2, performanceTiles.hasData, miniDiagnostic, practiceTestResults],
+  );
+  const tilesFromDiagnostic = !!diagnosticTiles?.hasData;
+  const tiles = tilesFromDiagnostic ? diagnosticTiles : performanceTiles;
   // Delta vs the PREVIOUS attempt, from the SAME selector as the headline, so
   // the arrow can never contradict the number (e.g. an up-arrow on a lower
   // retake). getLatestTestStats returns null on a single attempt or a
@@ -337,6 +341,49 @@ const StudentDashboard = ({
     () => (resolveTest ? getRecentMisses(practiceTestResults, { resolveTest }) : []),
     [practiceTestResults, resolveTest],
   );
+  // Diagnostic-state twin of the "Pick up where you struggled" rail card: no
+  // test misses exist yet, so the card lists the diagnostic's weakest skills
+  // (the starter plan's weaknesses, lowest accuracy first) with a one-tap
+  // drill — same card, same rows, a practice path instead of a retry.
+  const diagnosticWeakSpots = useMemo(() => {
+    if (!tilesFromDiagnostic || recentMisses.length > 0 || !studyPlan) return [];
+    // plan.weaknesses is the ground-truth drill shape (can be EMPTY on a
+    // strong diagnostic — nothing crossed the weakness bar); plan.skillGaps
+    // carries every scored skill the plan is built from, so it's the
+    // fallback. Normalize both to { skillId, skill, accuracy, section }.
+    const fromWeaknesses = [...getMathWeaknesses(studyPlan), ...getRWWeaknesses(studyPlan)]
+      .filter((w) => w && w.skillId)
+      .map((w) => ({ skillId: w.skillId, skill: w.skill, accuracy: w.accuracy, section: w.section }));
+    const fromGaps = (Array.isArray(studyPlan.skillGaps) ? studyPlan.skillGaps : [])
+      .filter((g) => g && g.skillId)
+      .map((g) => ({
+        skillId: g.skillId,
+        skill: g.skillName,
+        accuracy: Number.isFinite(g.contentAccuracy) ? g.contentAccuracy : g.testAccuracy,
+        section: g.section === 'rw' ? 'rw' : 'math',
+      }));
+    // Last resort: the plan's own "Push past shaky" reinforcement drills
+    // (planRole 'reinforce' — skills that passed the attempt bar but sit
+    // 50-74% on the diagnostic). No per-row number here: the activity
+    // carries its accuracy only in prose, and skillProgress is all-time
+    // (drills + old tests), so a number from it would contradict the plan.
+    const fromReinforce = [];
+    (studyPlan.weeks || []).forEach((w) => (w?.activities || []).forEach((a) => {
+      if (!a || a.planRole !== 'reinforce' || !a.skillId) return;
+      fromReinforce.push({ skillId: a.skillId, skill: a.skillName, accuracy: null, section: a.section === 'rw' ? 'rw' : 'math', metaLabel: 'Not yet reliable' });
+    }));
+    const source = fromWeaknesses.length > 0 ? fromWeaknesses : (fromGaps.length > 0 ? fromGaps : fromReinforce);
+    const merged = source.sort((a, b) => (a.accuracy ?? 100) - (b.accuracy ?? 100));
+    const seen = new Set();
+    const out = [];
+    for (const w of merged) {
+      if (seen.has(w.skillId)) continue;
+      seen.add(w.skillId);
+      out.push(w);
+      if (out.length === 3) break;
+    }
+    return out;
+  }, [tilesFromDiagnostic, recentMisses.length, studyPlan]);
   // Tab count badges (Day 1 Acely-polish):
   //   dashboardCount = activities scheduled today that aren't completed
   //   studyPlanCount = total incomplete activities across all weeks
@@ -797,27 +844,27 @@ const StudentDashboard = ({
           <div className="hv2-main">
 
             {/* PERFORMANCE SNAPSHOT (protected tiles, restyled per mock) */}
-            {performanceTiles.hasData && (
+            {tiles.hasData && (
               <div>
                 <div className="hv2-section-head">
                   <h2 className="hv2-section-title">Performance snapshot</h2>
-                  <span className="hv2-section-meta">Latest practice test</span>
+                  <span className="hv2-section-meta">{tilesFromDiagnostic ? 'Your diagnostic' : 'Latest practice test'}</span>
                 </div>
                 <div className="hv2-perf">
                   <div className="hv2-perf-accuracy">
-                    <div className="hv2-eyebrow">Practice Accuracy</div>
-                    <div className="hv2-big-pct">{practicePercent || 0}<span>%</span></div>
-                    <div className="hv2-perf-detail">{totalCorrect} of {totalQuestions} correct · latest practice test</div>
+                    <div className="hv2-eyebrow">{tilesFromDiagnostic ? 'Diagnostic Accuracy' : 'Practice Accuracy'}</div>
+                    <div className="hv2-big-pct">{tiles.overall.percent || 0}<span>%</span></div>
+                    <div className="hv2-perf-detail">{tiles.overall.correct} of {tiles.overall.total} correct · {tilesFromDiagnostic ? 'your diagnostic' : 'latest practice test'}</div>
                   </div>
                   <div className="hv2-perf-stack">
                     <div className="hv2-split hv2-split-strong">
-                      {strongest ? (
+                      {tiles.strongest ? (
                         <>
-                          <div className="hv2-split-num">{strongest.accuracy}%</div>
+                          <div className="hv2-split-num">{tiles.strongest.accuracy}%</div>
                           <div className="hv2-split-body">
                             <div className="hv2-split-eyebrow">Strongest Section</div>
-                            <div className="hv2-split-name">{strongest.label}</div>
-                            <div className="hv2-split-detail">{strongest.correct} of {strongest.total} correct</div>
+                            <div className="hv2-split-name">{tiles.strongest.label}</div>
+                            <div className="hv2-split-detail">{tiles.strongest.correct} of {tiles.strongest.total} correct</div>
                           </div>
                         </>
                       ) : (
@@ -828,19 +875,19 @@ const StudentDashboard = ({
                       )}
                     </div>
                     <div className="hv2-split hv2-split-opp">
-                      {opportunity && !opportunity.empty ? (
+                      {tiles.opportunity && !tiles.opportunity.empty ? (
                         <>
-                          <div className="hv2-split-num">{opportunity.accuracy}%</div>
+                          <div className="hv2-split-num">{tiles.opportunity.accuracy}%</div>
                           <div className="hv2-split-body">
                             <div className="hv2-split-eyebrow">Biggest Opportunity</div>
-                            <div className="hv2-split-name">{opportunity.label}</div>
-                            <div className="hv2-split-detail">{opportunity.correct} of {opportunity.total} correct</div>
+                            <div className="hv2-split-name">{tiles.opportunity.label}</div>
+                            <div className="hv2-split-detail">{tiles.opportunity.correct} of {tiles.opportunity.total} correct</div>
                           </div>
                         </>
                       ) : (
                         <div className="hv2-split-empty">
                           <div className="hv2-split-eyebrow">Biggest Opportunity</div>
-                          <div className="hv2-empty-hint">{opportunity?.empty ? `Take a test with ${opportunity.label} to compare your sections` : 'Take a practice test to compare your sections'}</div>
+                          <div className="hv2-empty-hint">{tiles.opportunity?.empty ? `Take a test with ${tiles.opportunity.label} to compare your sections` : 'Take a practice test to compare your sections'}</div>
                         </div>
                       )}
                     </div>
@@ -1177,6 +1224,37 @@ const StudentDashboard = ({
                           <div className="hv2-struggled-meta">{m.difficulty ? m.difficulty : 'Review'}</div>
                         </div>
                       </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {recentMisses.length === 0 && diagnosticWeakSpots.length > 0 && (
+              <div className="hv2-card">
+                <div className="hv2-side-card-title">Pick up where you struggled</div>
+                <p className="hv2-struggled-sub">Weak spots from your diagnostic.</p>
+                <div className="hv2-struggled-list">
+                  {diagnosticWeakSpots.map((w) => {
+                    const name = w.skill || formatPatternLabel(w.skillId);
+                    const meta = w.metaLabel
+                      || (Number.isFinite(w.accuracy)
+                        ? `${Math.round(w.accuracy)}% on your diagnostic`
+                        : (w.section === 'rw' ? 'Reading & Writing' : 'Math'));
+                    return (
+                      <button
+                        type="button"
+                        className="hv2-struggled-row hv2-hov-soft"
+                        key={w.skillId}
+                        onClick={() => handleStartTodaysActivity({ skillId: w.skillId, skillName: w.skill, section: w.section, title: `${name} Practice` })}
+                      >
+                        <span className="hv2-struggled-dot" style={{ background: 'var(--hv2-orange)' }} />
+                        <div className="hv2-struggled-main">
+                          <div className="hv2-struggled-name">{name}</div>
+                          <div className="hv2-struggled-meta">{meta}</div>
+                        </div>
+                        <span className="hv2-struggled-retry">Practice →</span>
+                      </button>
                     );
                   })}
                 </div>
