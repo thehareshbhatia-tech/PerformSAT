@@ -1448,7 +1448,18 @@ button.sp-tuneup-bar:hover { background: var(--sp-inset); }
 .study-plan-dashboard .cm-cell-out { color: var(--sp-text-3); opacity: 0.45; }
 .study-plan-dashboard .cm-cell-practiced { background: var(--sp-cal-prac); color: var(--sp-cal-prac-ink); border-radius: 50%; }
 .study-plan-dashboard .cm-cell-today { background: var(--sp-orange); color: #fff; border-radius: 50%; box-shadow: none; }
-.study-plan-dashboard .cm-cell-test { box-shadow: inset 0 0 0 2px var(--sp-purple); border-radius: 50%; color: var(--sp-purple); }
+/* Test day: the gold star (CalendarMonth.css) is the marker — no ring, no
+ * fill, dark ink on gold. Today+test day keeps the star with a thin orange
+ * ring instead of the solid today disc, so the two never fight. */
+.study-plan-dashboard .cm-cell-test,
+.study-plan-dashboard .cm-cell-test.cm-cell-practiced,
+.study-plan-dashboard .cm-cell-test.cm-cell-today {
+  background: transparent;
+  box-shadow: none;
+  color: var(--color-slate-900, #15171C);
+  font-weight: 800;
+}
+.study-plan-dashboard .cm-cell-test.cm-cell-today { border-color: var(--sp-orange); }
 
 /* Colored summary tiles */
 .sp-tile {
