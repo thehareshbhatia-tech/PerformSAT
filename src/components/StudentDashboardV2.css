@@ -364,26 +364,48 @@
   margin: 2px 0 0;
 }
 
-/* ── Test-day countdown (top of the right rail) ─────────────────────────── */
+/* ── Test-day countdown (header, beside the greeting) ──────────────────────
+   Lives OUTSIDE the .hv2 scope, so every token carries a fallback. */
 .hv2-countdown {
-  background: var(--hv2-navy); color: #fff; border-radius: 22px; padding: 22px 24px 20px;
-  box-shadow: var(--hv2-shadow);
+  background: var(--hv2-navy, #0C1026); color: #fff; border-radius: 22px; padding: 22px 24px 20px;
+  box-shadow: var(--hv2-shadow, 0 1px 2px rgba(20,22,28,.04), 0 6px 18px rgba(20,22,28,.05));
+  font-family: var(--hv2-font-body, 'Hanken Grotesk', 'Inter', system-ui, sans-serif);
 }
 .hv2-countdown-eyebrow {
-  font-weight: 700; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--hv2-lime);
+  font-weight: 700; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--hv2-lime, #C2E83A);
 }
 .hv2-countdown-row { display: flex; align-items: baseline; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
 .hv2-countdown-num {
-  font-family: var(--hv2-font-display); font-weight: 700; font-size: 64px; line-height: .95;
+  font-family: var(--hv2-font-display, 'Bricolage Grotesque', 'Inter', system-ui, sans-serif); font-weight: 700; font-size: 64px; line-height: .95;
   letter-spacing: -0.03em; color: #fff; font-variant-numeric: tabular-nums;
 }
-.hv2-countdown-unit { font-family: var(--hv2-font-body); font-size: 15px; font-weight: 600; color: rgba(255,255,255,.72); }
+.hv2-countdown-unit { font-size: 15px; font-weight: 600; color: rgba(255,255,255,.72); }
 .hv2-countdown-date { margin-top: 10px; font-size: 15px; font-weight: 700; color: #fff; }
 .hv2-countdown-meta { margin-top: 4px; font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.58); line-height: 1.45; }
 .hv2-countdown-link {
   display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
-  font-family: var(--hv2-font-body); font-size: 13px; font-weight: 700; color: var(--hv2-lime);
+  font-family: inherit; font-size: 13px; font-weight: 700; color: var(--hv2-lime, #C2E83A);
   background: none; border: none; padding: 0; cursor: pointer; transition: gap .15s ease, opacity .15s ease;
 }
 .hv2-countdown-link:hover { gap: 9px; opacity: .85; }
 .hv2-countdown .tdp { color: var(--color-slate-900, #0f172a); }
+
+/* Header placement: a compact horizontal card that sits in the white space
+   beside the greeting; the date manager drops below it when open. */
+.hv2-countdown.is-header {
+  flex: 0 1 400px; min-width: 300px; padding: 16px 20px 14px; border-radius: 18px;
+  display: grid; grid-template-columns: auto 1fr; column-gap: 18px;
+  grid-template-areas: "eyebrow eyebrow" "num date" "num meta" "link link" "picker picker";
+  align-items: start;
+}
+.hv2-countdown.is-header .hv2-countdown-eyebrow { grid-area: eyebrow; }
+.hv2-countdown.is-header .hv2-countdown-row { grid-area: num; margin-top: 6px; flex-direction: column; align-items: flex-start; gap: 2px; }
+.hv2-countdown.is-header .hv2-countdown-num { font-size: 52px; }
+.hv2-countdown.is-header .hv2-countdown-unit { font-size: 12.5px; }
+.hv2-countdown.is-header .hv2-countdown-date { grid-area: date; align-self: end; margin-top: 0; font-size: 15px; padding-bottom: 2px; }
+.hv2-countdown.is-header .hv2-countdown-meta { grid-area: meta; align-self: start; margin-top: 0; font-size: 12px; }
+.hv2-countdown.is-header .hv2-countdown-link { grid-area: link; margin-top: 10px; }
+.hv2-countdown.is-header .tdp { grid-area: picker; }
+@media (max-width: 900px) {
+  .hv2-countdown.is-header { flex-basis: 100%; min-width: 0; }
+}

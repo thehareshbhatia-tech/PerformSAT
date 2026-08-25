@@ -24,7 +24,13 @@
 
 .dashboard-header-row {
   margin-bottom: 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
 }
+.dashboard-header-main { min-width: 0; flex: 1 1 420px; }
 
 /* ── Greeting row with profile pic (user call 2026-06-06: small avatar
    beside the original greeting — no hero card) ───────────────────────── */

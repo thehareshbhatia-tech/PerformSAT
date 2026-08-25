@@ -609,6 +609,7 @@ const StudentDashboard = ({
           firstName, not displayName — the user doc never carries
           displayName, so the old read rendered a nameless greeting. */}
       <div className="dashboard-header-row">
+        <div className="dashboard-header-main">
         <div className="dashboard-greeting-row">
           <button
             type="button"
@@ -662,6 +663,23 @@ const StudentDashboard = ({
             )}
           </button>
         </div>
+        </div>
+        {/* Test-day countdown — the upper white space beside the greeting
+            (founder 2026-08-25: prominent, but the rail keeps its calendar). */}
+        <TestDayCountdown
+          className="is-header"
+          testDate={user?.testDate}
+          testDates={userTestDates}
+          managing={countdownManaging}
+          onManage={(typeof onUpdateTestDates === 'function' || typeof onUpdateTestDate === 'function') ? () => setCountdownManaging((v) => !v) : null}
+        >
+          <TestDatePicker
+            selected={userTestDates}
+            allowClear
+            onChange={(dates) => { applyTestDates(dates); }}
+            onDone={() => setCountdownManaging(false)}
+          />
+        </TestDayCountdown>
       </div>
 
       {activeTab === 'studyPlan' ? (
@@ -1299,19 +1317,6 @@ const StudentDashboard = ({
 
           {/* ============ RIGHT RAIL ============ */}
           <div className="hv2-side">
-            <TestDayCountdown
-              testDate={user?.testDate}
-              testDates={userTestDates}
-              managing={countdownManaging}
-              onManage={(typeof onUpdateTestDates === 'function' || typeof onUpdateTestDate === 'function') ? () => setCountdownManaging((v) => !v) : null}
-            >
-              <TestDatePicker
-                selected={userTestDates}
-                allowClear
-                onChange={(dates) => { applyTestDates(dates); }}
-                onDone={() => setCountdownManaging(false)}
-              />
-            </TestDayCountdown>
             {hasStudyPlan && (
               <CalendarMonth practicedDays={practicedDayKeys} testDate={user?.testDate}
                 testDates={userTestDates} />

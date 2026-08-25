@@ -15,6 +15,7 @@
  * @param {()=>void} [props.onManage]       opens/closes the date manager
  * @param {boolean} [props.managing]        whether the manager is open (children render below)
  * @param {React.ReactNode} [props.children]
+ * @param {string} [props.className]       e.g. 'is-header' for the compact header placement
  */
 import React from 'react';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
@@ -27,7 +28,7 @@ function longDate(dateStr) {
   return d ? d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) : dateStr;
 }
 
-export default function TestDayCountdown({ testDate = null, testDates = null, today = new Date(), onManage = null, managing = false, children = null }) {
+export default function TestDayCountdown({ testDate = null, testDates = null, today = new Date(), onManage = null, managing = false, children = null, className = '' }) {
   const all = getUserTestDates({ testDate, testDates });
   const { upcoming, past } = splitTestDates(all, today);
   const primary = upcoming[0] || past[past.length - 1] || null;
@@ -74,7 +75,7 @@ export default function TestDayCountdown({ testDate = null, testDates = null, to
   }
 
   return (
-    <div className="hv2-countdown" data-testid="test-day-countdown" role="group" aria-label={primary ? `${big} ${unit}` : 'No test date yet'}>
+    <div className={`hv2-countdown${className ? ` ${className}` : ''}`} data-testid="test-day-countdown" role="group" aria-label={primary ? `${big} ${unit}` : 'No test date yet'}>
       <div className="hv2-countdown-eyebrow">{eyebrow}</div>
       <div className="hv2-countdown-row">
         <span className="hv2-countdown-num">{big}</span>
