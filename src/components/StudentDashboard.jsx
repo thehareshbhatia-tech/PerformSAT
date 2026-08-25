@@ -25,6 +25,7 @@ import { getScoreReportState, getLatestOfficialScore } from '../services/selecto
 import { getUserTestDates, splitTestDates } from '../services/selectors/testDates';
 import TestDatePicker from './TestDatePicker';
 import ScoreReportCard from './ScoreReportCard';
+import TestDayCountdown from './TestDayCountdown';
 import { hasRealTestScore } from '../services/selectors/diagnosticVariant';
 import { snapToScale } from '../services/scoring/scaleTables';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
@@ -159,6 +160,8 @@ const StudentDashboard = ({
     return () => { cancelled = true; };
   }, []);
   const [showDatePicker, setShowDatePicker] = useState(false);
+  // The rail countdown's own copy of the date manager (the hero has another).
+  const [countdownManaging, setCountdownManaging] = useState(false);
   const [showTargetPicker, setShowTargetPicker] = useState(false);
   const [showCurrentScorePicker, setShowCurrentScorePicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState(user?.testDate || '');
@@ -1296,6 +1299,19 @@ const StudentDashboard = ({
 
           {/* ============ RIGHT RAIL ============ */}
           <div className="hv2-side">
+            <TestDayCountdown
+              testDate={user?.testDate}
+              testDates={userTestDates}
+              managing={countdownManaging}
+              onManage={(typeof onUpdateTestDates === 'function' || typeof onUpdateTestDate === 'function') ? () => setCountdownManaging((v) => !v) : null}
+            >
+              <TestDatePicker
+                selected={userTestDates}
+                allowClear
+                onChange={(dates) => { applyTestDates(dates); }}
+                onDone={() => setCountdownManaging(false)}
+              />
+            </TestDayCountdown>
             {hasStudyPlan && (
               <CalendarMonth practicedDays={practicedDayKeys} testDate={user?.testDate}
                 testDates={userTestDates} />

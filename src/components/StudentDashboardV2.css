@@ -363,3 +363,27 @@
   color: #6b6b6b;
   margin: 2px 0 0;
 }
+
+/* ── Test-day countdown (top of the right rail) ─────────────────────────── */
+.hv2-countdown {
+  background: var(--hv2-navy); color: #fff; border-radius: 22px; padding: 22px 24px 20px;
+  box-shadow: var(--hv2-shadow);
+}
+.hv2-countdown-eyebrow {
+  font-weight: 700; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--hv2-lime);
+}
+.hv2-countdown-row { display: flex; align-items: baseline; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+.hv2-countdown-num {
+  font-family: var(--hv2-font-display); font-weight: 700; font-size: 64px; line-height: .95;
+  letter-spacing: -0.03em; color: #fff; font-variant-numeric: tabular-nums;
+}
+.hv2-countdown-unit { font-family: var(--hv2-font-body); font-size: 15px; font-weight: 600; color: rgba(255,255,255,.72); }
+.hv2-countdown-date { margin-top: 10px; font-size: 15px; font-weight: 700; color: #fff; }
+.hv2-countdown-meta { margin-top: 4px; font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.58); line-height: 1.45; }
+.hv2-countdown-link {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
+  font-family: var(--hv2-font-body); font-size: 13px; font-weight: 700; color: var(--hv2-lime);
+  background: none; border: none; padding: 0; cursor: pointer; transition: gap .15s ease, opacity .15s ease;
+}
+.hv2-countdown-link:hover { gap: 9px; opacity: .85; }
+.hv2-countdown .tdp { color: var(--color-slate-900, #0f172a); }
