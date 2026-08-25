@@ -27,6 +27,7 @@ import { DOMAIN_DISPLAY_NAMES } from '../../services/scoring/domainInference';
 import DiagnosticSittingDetail from './DiagnosticSittingDetail';
 import TestDatePicker from '../TestDatePicker';
 import { getLatestOfficialScore } from '../../services/selectors/scoreReport';
+import { getUserTestDates } from '../../services/selectors/testDates';
 
 const cardStyle = {
   padding: spacing.xl,
@@ -193,7 +194,7 @@ function LegacyDomainSection({ domains }) {
  * @param {'idle'|'loading'|'ready'|'missing'|'error'} sittingStatus
  * @param {(moduleIndex:number)=>void|null} onReviewQuestions  opens the review runner on the sitting
  */
-export default function MiniDiagnosticResults({ result: liveResult, record = null, plan = null, user, onViewPlan, onBack = null, backLabel = 'Back to Home', onEditGoals = null, onUpdateTestDate = null, onStartPracticeTest = null, sitting = null, sittingStatus = 'idle', onReviewQuestions = null }) {
+export default function MiniDiagnosticResults({ result: liveResult, record = null, plan = null, user, onViewPlan, onBack = null, backLabel = 'Back to Home', onEditGoals = null, onUpdateTestDate = null, onUpdateTestDates = null, onStartPracticeTest = null, sitting = null, sittingStatus = 'idle', onReviewQuestions = null }) {
   const [datePickerOpen, setDatePickerOpen] = useState(false);
   const result = useMemo(
     () => liveResult || resultFromRecord(record, plan),
@@ -225,7 +226,7 @@ export default function MiniDiagnosticResults({ result: liveResult, record = nul
     }
     // The test date is edited right here (inline picker); the target still
     // lives on Profile.
-    if (action.kind === 'testDate' && typeof onUpdateTestDate === 'function') {
+    if (action.kind === 'testDate' && (typeof onUpdateTestDates === 'function' || typeof onUpdateTestDate === 'function')) {
       setDatePickerOpen((v) => !v);
       return;
     }
@@ -234,7 +235,7 @@ export default function MiniDiagnosticResults({ result: liveResult, record = nul
   const actionAvailable = (action) => {
     if (!action) return false;
     if (action.kind === 'practiceTest') return typeof onStartPracticeTest === 'function';
-    if (action.kind === 'testDate') return typeof onUpdateTestDate === 'function' || typeof onEditGoals === 'function';
+    if (action.kind === 'testDate') return typeof onUpdateTestDates === 'function' || typeof onUpdateTestDate === 'function' || typeof onEditGoals === 'function';
     return typeof onEditGoals === 'function';
   };
   // Question count comes from the record (Diagnostic v2 serves 40 full / 18
@@ -322,12 +323,12 @@ export default function MiniDiagnosticResults({ result: liveResult, record = nul
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                 </button>
               )}
-              {n.action?.kind === 'testDate' && datePickerOpen && typeof onUpdateTestDate === 'function' && (
+              {n.action?.kind === 'testDate' && datePickerOpen && (typeof onUpdateTestDates === 'function' || typeof onUpdateTestDate === 'function') && (
                 <TestDatePicker
-                  value={user?.testDate || null}
+                  selected={getUserTestDates(user)}
                   allowClear
-                  onSelect={(d) => { onUpdateTestDate(d); setDatePickerOpen(false); }}
-                  onCancel={() => setDatePickerOpen(false)}
+                  onChange={(dates) => (typeof onUpdateTestDates === 'function' ? onUpdateTestDates(dates) : onUpdateTestDate(dates[0] || null))}
+                  onDone={() => setDatePickerOpen(false)}
                 />
               )}
             </div>

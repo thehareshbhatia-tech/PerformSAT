@@ -45,4 +45,21 @@ describe('CalendarMonth SAT-day states', () => {
     expect(container.textContent).toContain('Scores expected in 11 days');
     unmount();
   });
+  it('several sittings: past ones muted, upcoming gold, both legends, countdown to the next upcoming', () => {
+    const { container, unmount } = mount(<CalendarMonth practicedDays={[]} testDate="2026-10-03" testDates={['2026-08-22', '2026-08-29', '2026-10-03']} today={new Date(2026, 7, 25)} />);
+    const cells = Array.from(container.querySelectorAll('.cm-cell-test'));
+    expect(cells).toHaveLength(2); // Aug 22 (past) + Aug 29 (upcoming) in the August grid
+    expect(cells[0].classList.contains('is-past')).toBe(true);
+    expect(cells[1].classList.contains('is-past')).toBe(false);
+    expect(container.textContent).toContain('SAT taken');
+    expect(container.textContent).toContain('SAT test day');
+    expect(container.textContent).toContain('Test day in 4 days');
+    act(() => { container.querySelector('button[aria-label="Next month"]').click(); });
+    // September: only the PAST sitting (Aug 22) has a release marker (Sep 4);
+    // Aug 29 hasn't happened yet.
+    const releases = container.querySelectorAll('.cm-cell-release');
+    expect(releases).toHaveLength(1);
+    expect(releases[0].getAttribute('aria-label')).toContain('September 4');
+    unmount();
+  });
 });

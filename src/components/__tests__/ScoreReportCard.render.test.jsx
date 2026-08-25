@@ -23,19 +23,21 @@ describe('ScoreReportCard', () => {
   it('waits until release day and only offers "didn\'t take it"', async () => {
     const onRecord = jest.fn(() => Promise.resolve());
     const st = getScoreReportState({ testDate: '2026-08-22', today: new Date(2026, 7, 24) });
-    const { container, unmount } = mount(<ScoreReportCard state={st} onRecord={onRecord} onUpdateTestDate={() => {}} today={new Date(2026, 7, 24)} />);
+    const { container, unmount } = mount(<ScoreReportCard state={st} testDates={['2026-08-22']} onRecord={onRecord} onUpdateTestDates={() => {}} today={new Date(2026, 7, 24)} />);
     expect(container.textContent).toContain('Scores are expected Sep 4 — in 11 days');
     expect(btn(container, 'Save my score')).toBeUndefined();
     act(() => { btn(container, "didn’t take it").click(); });
     await flush();
     expect(onRecord).toHaveBeenCalledWith('2026-08-22', { status: 'not-taken' });
-    expect(container.textContent).toContain('Which date are you aiming at now?');
+    expect(container.textContent).toContain('you skipped Aug 22');
+    // No other sitting on the calendar → the date manager opens in place.
+    expect(container.querySelector('.tdp')).not.toBeNull();
     unmount();
   });
   it('asks after release, validates, and saves a reported score', async () => {
     const onRecord = jest.fn(() => Promise.resolve());
     const st = getScoreReportState({ testDate: '2026-08-22', today: new Date(2026, 8, 6) });
-    const { container, unmount } = mount(<ScoreReportCard state={st} onRecord={onRecord} onUpdateTestDate={() => {}} today={new Date(2026, 8, 6)} />);
+    const { container, unmount } = mount(<ScoreReportCard state={st} onRecord={onRecord} onUpdateTestDates={() => {}} today={new Date(2026, 8, 6)} />);
     expect(container.textContent).toContain('How did it go?');
     act(() => { btn(container, 'Save my score').click(); });
     expect(container.textContent).toContain('Enter a total between 400 and 1600');
@@ -54,11 +56,21 @@ describe('ScoreReportCard', () => {
   it('"Prefer not to say" records a decline', async () => {
     const onRecord = jest.fn(() => Promise.resolve());
     const st = getScoreReportState({ testDate: '2026-08-22', today: new Date(2026, 8, 6) });
-    const { container, unmount } = mount(<ScoreReportCard state={st} onRecord={onRecord} onUpdateTestDate={() => {}} />);
+    const { container, unmount } = mount(<ScoreReportCard state={st} onRecord={onRecord} onUpdateTestDates={() => {}} />);
     act(() => { btn(container, 'Prefer not to say').click(); });
     await flush();
     expect(onRecord).toHaveBeenCalledWith('2026-08-22', { status: 'declined' });
     expect(container.textContent).toContain('we won’t ask again');
+    unmount();
+  });
+  it('with another sitting already set, the follow-up names it instead of opening the picker', async () => {
+    const onRecord = jest.fn(() => Promise.resolve());
+    const st = getScoreReportState({ testDates: ['2026-08-22', '2026-10-03'], today: new Date(2026, 8, 6) });
+    const { container, unmount } = mount(<ScoreReportCard state={st} testDates={['2026-08-22', '2026-10-03']} onRecord={onRecord} onUpdateTestDates={() => {}} />);
+    act(() => { btn(container, 'Prefer not to say').click(); });
+    await flush();
+    expect(container.textContent).toContain('Next up: Oct 3');
+    expect(container.querySelector('.tdp')).toBeNull();
     unmount();
   });
 });

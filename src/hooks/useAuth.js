@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { auth, db } from '../firebase/config';
+import { getUserTestDates, derivePrimaryTestDate, normalizeTestDates, withPrimaryReplaced } from '../services/selectors/testDates';
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -89,6 +90,34 @@ export const buildSignupUserDoc = (email, firstName = '', additionalInfo = {}) =
  * @param {Object} profile - the assembled user profile (uid + Firestore data)
  * @returns {Object} the profile to hand to setUser, with a composite targetScore
  */
+/**
+ * Keep users/{uid}.testDate = the NEXT sitting in users/{uid}.testDates as
+ * time passes (see selectors/testDates). Read-time derivation is what every
+ * consumer sees; a drifted stored value is re-persisted best-effort so
+ * server-side readers (re-engagement) catch up too.
+ *
+ * @param {Object} profile
+ * @param {Date} [today]
+ * @returns {Object}
+ */
+export const normalizeProfileTestDates = (profile, today = new Date()) => {
+  if (!profile) return profile;
+  const list = getUserTestDates(profile);
+  if (list.length === 0) return profile;
+  const primary = derivePrimaryTestDate(list, today);
+  const listChanged = !Array.isArray(profile.testDates) || profile.testDates.length !== list.length || profile.testDates.some((d, i) => d !== list[i]);
+  if (primary === profile.testDate && !listChanged) return profile;
+  if (profile.uid && primary !== profile.testDate) {
+    Promise.resolve(
+      setDoc(doc(db, 'users', profile.uid), { testDate: primary, testDates: list }, { merge: true })
+    ).catch((err) => console.error('Error persisting derived test date:', err));
+  }
+  return { ...profile, testDate: primary, testDates: list };
+};
+
+/** Every read-time profile normalization, in order. */
+const normalizeProfile = (profile) => normalizeProfileTestDates(normalizeProfileGoal(profile));
+
 export const normalizeProfileGoal = (profile) => {
   if (!profile || typeof profile.targetScore !== 'number') return profile;
   // A goal written through the composite slider (400-1600) is stamped
@@ -168,7 +197,7 @@ export const useAuth = () => {
           }
           if (isStale()) return;
           if (userDoc.exists()) {
-            setUser(normalizeProfileGoal({
+            setUser(normalizeProfile({
               uid: firebaseUser.uid,
               email: firebaseUser.email,
               ...userDoc.data()
@@ -289,7 +318,7 @@ export const useAuth = () => {
       // overlay ({ lastLoginAt } only) and the session ran on a shell
       // profile. Read, then stamp.
       const userDoc = await readProfileDoc(doc(db, 'users', result.user.uid));
-      const userData = normalizeProfileGoal({
+      const userData = normalizeProfile({
         uid: result.user.uid,
         email: result.user.email,
         ...userDoc.data()
@@ -349,16 +378,39 @@ export const useAuth = () => {
     // string can never be persisted.
     const cleared = testDate === '' || testDate === null || testDate === undefined;
     if (!cleared && !/^\d{4}-\d{2}-\d{2}$/.test(testDate)) return;
-    const nextTestDate = cleared ? null : testDate;
+    // Single-date editors (Profile, onboarding) set the PRIMARY: swap it in
+    // the full list and keep the other sittings.
+    const list = withPrimaryReplaced(getUserTestDates(user), user.testDate || null, cleared ? null : testDate);
+    const nextTestDate = derivePrimaryTestDate(list) ?? null;
 
     try {
       await setDoc(doc(db, 'users', user.uid), {
-        testDate: nextTestDate
+        testDate: nextTestDate,
+        testDates: list,
       }, { merge: true });
 
-      setUser(prev => ({ ...prev, testDate: nextTestDate }));
+      setUser(prev => ({ ...prev, testDate: nextTestDate, testDates: list }));
     } catch (err) {
       console.error('Error updating test date:', err);
+      throw err;
+    }
+  };
+
+  /**
+   * Replace the student's full list of SAT dates (the inline picker). The
+   * primary (testDate) is re-derived from the list.
+   *
+   * @param {string[]} dates - 'YYYY-MM-DD' strings; [] clears everything
+   */
+  const updateTestDates = async (dates) => {
+    if (!user?.uid) return;
+    const list = normalizeTestDates(dates);
+    const primary = derivePrimaryTestDate(list) ?? null;
+    try {
+      await setDoc(doc(db, 'users', user.uid), { testDate: primary, testDates: list }, { merge: true });
+      setUser(prev => ({ ...prev, testDate: primary, testDates: list }));
+    } catch (err) {
+      console.error('Error updating test dates:', err);
       throw err;
     }
   };
@@ -573,6 +625,7 @@ export const useAuth = () => {
     // testDate: only a real 'YYYY-MM-DD' string is stored (plan pacing parses it).
     if (typeof testDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(testDate)) {
       update.testDate = testDate;
+      update.testDates = [testDate];
     }
     if (Number.isFinite(currentScore)) update.currentScore = currentScore;
     if (Number.isFinite(targetScore)) {
@@ -648,6 +701,7 @@ export const useAuth = () => {
     login,
     logout,
     updateTestDate,
+    updateTestDates,
     recordScoreReport,
     updateTargetScore,
     updateCurrentScore,

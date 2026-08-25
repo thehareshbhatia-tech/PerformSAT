@@ -39,3 +39,18 @@
 .tdp-btn-text { background: none; color: var(--color-slate-600, #475569); padding: 6px 2px; }
 .tdp-btn-text:hover { color: var(--color-brand-primary, #ea580c); }
 .tdp-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
+.tdp-hint { font-size: 12.5px; color: var(--color-slate-500, #64748b); margin: -4px 0 6px; line-height: 1.45; }
+.tdp-chosen { display: flex; flex-wrap: wrap; gap: 8px; }
+.tdp-chosen-item {
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 8px 6px 12px; border-radius: 999px;
+  background: rgba(234, 88, 12, .08); border: 1.5px solid var(--color-brand-primary, #ea580c); color: var(--color-slate-900, #0f172a);
+  font-size: 13px; font-weight: 800;
+}
+.tdp-chosen-item.is-past { background: var(--color-slate-100, #f1f5f9); border-color: var(--color-slate-300, #cbd5e1); color: var(--color-slate-500, #64748b); }
+.tdp-chosen-sub { font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-slate-400, #94a3b8); }
+.tdp-chosen-remove {
+  font: inherit; font-size: 15px; line-height: 1; width: 20px; height: 20px; border-radius: 50%; border: none; cursor: pointer;
+  background: rgba(15, 23, 42, .08); color: inherit; display: inline-grid; place-items: center; padding: 0;
+}
+.tdp-chosen-remove:hover { background: rgba(15, 23, 42, .16); }
+.tdp-btn-secondary { background: var(--color-slate-900, #0f172a); color: #fff; }

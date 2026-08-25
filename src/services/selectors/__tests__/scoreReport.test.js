@@ -20,7 +20,23 @@ describe('getScoreReportState', () => {
   });
   it('waits between the test and the release', () => {
     const s = getScoreReportState({ testDate: '2026-08-22', today: d(2026, 8, 24) });
-    expect(s).toEqual({ kind: 'waiting', testDate: '2026-08-22', releaseDate: '2026-09-04', daysSinceTest: 2, daysToRelease: 11, report: null });
+    expect(s).toEqual({ kind: 'waiting', testDate: '2026-08-22', nextDate: null, releaseDate: '2026-09-04', daysSinceTest: 2, daysToRelease: 11, report: null });
+  });
+  it('with several dates: asks about the latest unreported past sitting and names the next one', () => {
+    const dates = ['2026-08-22', '2026-10-03', '2026-12-05'];
+    const s = getScoreReportState({ testDate: '2026-10-03', testDates: dates, today: d(2026, 9, 6) });
+    expect(s.kind).toBe('ask');
+    expect(s.testDate).toBe('2026-08-22');
+    expect(s.nextDate).toBe('2026-10-03');
+    // Once Aug 22 is answered, nothing to ask until Oct 3 passes.
+    const done = getScoreReportState({ testDates: dates, scoreReports: { '2026-08-22': { status: 'declined' } }, today: d(2026, 9, 6) });
+    expect(done.kind).toBe('none');
+    expect(done.nextDate).toBe('2026-10-03');
+    // Two past sittings, only the older reported → asks about the newer one.
+    const two = getScoreReportState({ testDates: dates, scoreReports: { '2026-08-22': { status: 'reported', composite: 1300 } }, today: d(2026, 10, 20) });
+    expect(two.kind).toBe('ask');
+    expect(two.testDate).toBe('2026-10-03');
+    expect(two.nextDate).toBe('2026-12-05');
   });
   it('asks from release day on', () => {
     expect(getScoreReportState({ testDate: '2026-08-22', today: d(2026, 9, 4) }).kind).toBe('ask');
@@ -30,7 +46,7 @@ describe('getScoreReportState', () => {
     for (const status of ['reported', 'declined', 'not-taken']) {
       const s = getScoreReportState({ testDate: '2026-08-22', scoreReports: { '2026-08-22': { status, composite: 1450 } }, today: d(2026, 9, 20) });
       expect(s.kind).toBe('none');
-      expect(s.report.status).toBe(status);
+      expect(s.testDate).toBeNull();
     }
   });
 });

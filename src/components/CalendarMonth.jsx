@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { getScoreReleaseDate } from '../data/satTestDates';
+import { getUserTestDates } from '../services/selectors/testDates';
 import './CalendarMonth.css';
 
 /**
@@ -18,7 +19,8 @@ import './CalendarMonth.css';
  *   YYYY-MM-DD keys (local-time) of days the student practiced. Use
  *   `getPracticedDayKeys(practiceProgress)` from selectors/practicedDays.js
  *   (added alongside).
- * @param {string} [props.testDate]           YYYY-MM-DD SAT date from the user doc
+ * @param {string} [props.testDate]           YYYY-MM-DD SAT date from the user doc (primary)
+ * @param {string[]} [props.testDates]        every sitting (wins over testDate when present)
  * @param {Date} [props.today]               default = new Date()
  * @param {string} [props.ariaLabel]
  */
@@ -42,7 +44,7 @@ function GoldStar({ className, muted = false }) {
   );
 }
 
-function CalendarMonth({ practicedDays, testDate, today, ariaLabel }) {
+function CalendarMonth({ practicedDays, testDate, testDates = null, today, ariaLabel }) {
   const todayDate = today instanceof Date ? today : new Date();
   const [viewYear, setViewYear] = useState(todayDate.getFullYear());
   const [viewMonth, setViewMonth] = useState(todayDate.getMonth()); // 0-11
@@ -62,21 +64,31 @@ function CalendarMonth({ practicedDays, testDate, today, ariaLabel }) {
     .filter(c => c.inMonth && practicedSet.has(c.key))
     .length;
 
-  // Valid YYYY-MM-DD only; anything else is ignored so a malformed user doc
-  // can't break the grid.
-  const testKey = typeof testDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(testDate)
-    ? testDate
-    : null;
-  const testInView = !!testKey && cells.some(c => c.inMonth && c.key === testKey);
+  // Every sitting the student holds (testDates), or the lone testDate on a
+  // pre-list profile. Malformed values are dropped so a bad doc can't break
+  // the grid. Past sittings read as "taken" (muted star) and each one gets
+  // its expected score-release marker.
+  const allTestKeys = useMemo(
+    () => getUserTestDates({ testDate, testDates }),
+    [testDate, testDates],
+  );
+  const testKeySet = useMemo(() => new Set(allTestKeys), [allTestKeys]);
+  const pastKeySet = useMemo(() => new Set(allTestKeys.filter(k => k < todayKey)), [allTestKeys, todayKey]);
+  const releaseByKey = useMemo(() => {
+    const m = new Map();
+    allTestKeys.filter(k => k < todayKey).forEach(k => { const r = getScoreReleaseDate(k)?.date; if (r) m.set(r, k); });
+    return m;
+  }, [allTestKeys, todayKey]);
+  const upcomingInView = cells.filter(c => c.inMonth && testKeySet.has(c.key) && !pastKeySet.has(c.key)).map(c => c.key);
+  const pastInView = cells.some(c => c.inMonth && pastKeySet.has(c.key));
+  const testInView = upcomingInView.length > 0 || pastInView;
   // Shared selector — same signed day-count the hero subtitle and goal tile
   // render, so the three surfaces can never disagree at the <24h boundary.
-  const daysToTest = getDaysUntilTest(testKey, todayDate);
-  // A sitting that's behind them reads as "taken" (muted star), and the day
-  // College Board is expected to release its scores gets its own marker.
-  const testIsPast = daysToTest !== null && daysToTest < 0;
-  const releaseKey = testIsPast ? (getScoreReleaseDate(testKey)?.date || null) : null;
-  const releaseInView = !!releaseKey && cells.some(c => c.inMonth && c.key === releaseKey);
-  const daysToRelease = releaseKey ? getDaysUntilTest(releaseKey, todayDate) : null;
+  const daysToTest = upcomingInView.length ? getDaysUntilTest(upcomingInView[0], todayDate) : null;
+  const releasesInView = cells.filter(c => c.inMonth && releaseByKey.has(c.key)).map(c => c.key);
+  const releaseInView = releasesInView.length > 0;
+  const nextReleaseInView = releasesInView.find(k => k >= todayKey) || null;
+  const daysToRelease = nextReleaseInView ? getDaysUntilTest(nextReleaseInView, todayDate) : null;
 
   const goPrev = () => {
     if (viewMonth === 0) { setViewMonth(11); setViewYear(viewYear - 1); }
@@ -135,19 +147,20 @@ function CalendarMonth({ practicedDays, testDate, today, ariaLabel }) {
         {cells.map(cell => {
           const isToday = cell.inMonth && cell.key === todayKey;
           const isPracticed = cell.inMonth && practicedSet.has(cell.key);
-          const isTestDay = cell.inMonth && cell.key === testKey;
-          const isRelease = cell.inMonth && cell.key === releaseKey;
+          const isTestDay = cell.inMonth && testKeySet.has(cell.key);
+          const thisPast = isTestDay && pastKeySet.has(cell.key);
+          const isRelease = cell.inMonth && releaseByKey.has(cell.key);
           const cls = [
             'cm-cell',
             !cell.inMonth && 'cm-cell-out',
             isToday && 'cm-cell-today',
             isPracticed && 'cm-cell-practiced',
             isTestDay && 'cm-cell-test',
-            isTestDay && testIsPast && 'is-past',
+            thisPast && 'is-past',
             isRelease && 'cm-cell-release',
           ].filter(Boolean).join(' ');
           const label = isTestDay
-            ? `${cell.aria} — SAT ${testIsPast ? 'taken' : 'test day'}`
+            ? `${cell.aria} — SAT ${thisPast ? 'taken' : 'test day'}`
             : isRelease ? `${cell.aria} — SAT scores expected` : cell.aria;
           return (
             <span
@@ -155,10 +168,10 @@ function CalendarMonth({ practicedDays, testDate, today, ariaLabel }) {
               role="gridcell"
               aria-label={label}
               aria-current={isToday ? 'date' : undefined}
-              title={isTestDay ? (testIsPast ? 'SAT taken' : 'SAT test day') : isRelease ? 'SAT scores expected' : undefined}
+              title={isTestDay ? (thisPast ? 'SAT taken' : 'SAT test day') : isRelease ? 'SAT scores expected' : undefined}
               className={cls}
             >
-              {isTestDay && <GoldStar className="cm-star" muted={testIsPast} />}
+              {isTestDay && <GoldStar className="cm-star" muted={thisPast} />}
               <span className="cm-cell-day">{cell.day}</span>
               {isRelease && <span className="cm-release-mark" aria-hidden="true" />}
             </span>
@@ -168,10 +181,16 @@ function CalendarMonth({ practicedDays, testDate, today, ariaLabel }) {
 
       {(testInView || releaseInView) && (
         <div className="cm-legend" aria-hidden="true">
-          {testInView && (
+          {upcomingInView.length > 0 && (
             <span className="cm-legend-item">
-              <GoldStar className="cm-legend-star" muted={testIsPast} />
-              <span className="cm-legend-label">{testIsPast ? 'SAT taken' : 'SAT test day'}</span>
+              <GoldStar className="cm-legend-star" />
+              <span className="cm-legend-label">SAT test day</span>
+            </span>
+          )}
+          {pastInView && (
+            <span className="cm-legend-item">
+              <GoldStar className="cm-legend-star" muted />
+              <span className="cm-legend-label">SAT taken</span>
             </span>
           )}
           {releaseInView && (

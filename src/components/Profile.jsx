@@ -348,6 +348,11 @@ const Profile = ({
             onSave={onUpdateTestDate}
             type="date"
           />
+          {Array.isArray(user?.testDates) && user.testDates.length > 1 && (
+            <div style={{ fontSize: typography.sizes.xs, color: colors.text.tertiary, marginTop: '-6px' }}>
+              All your dates: {user.testDates.map(formatDate).join(' · ')} — this field edits the next one; manage the full list from Home.
+            </div>
+          )}
           <div style={{ borderTop: `1px solid ${colors.surface.gray}` }} />
           <EditableField
             label="Target Schools"

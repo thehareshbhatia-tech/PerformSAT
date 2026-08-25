@@ -22,6 +22,7 @@ import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import { buildPerformanceTiles, buildDiagnosticTiles } from '../services/selectors/performanceTiles';
 import { buildHomeTiles } from '../services/selectors/homeTiles';
 import { getScoreReportState, getLatestOfficialScore } from '../services/selectors/scoreReport';
+import { getUserTestDates, splitTestDates } from '../services/selectors/testDates';
 import TestDatePicker from './TestDatePicker';
 import ScoreReportCard from './ScoreReportCard';
 import { hasRealTestScore } from '../services/selectors/diagnosticVariant';
@@ -108,6 +109,8 @@ const StudentDashboard = ({
   onEditGoals,
   // Score prompt after a test date passes (useAuth.recordScoreReport).
   onRecordScoreReport,
+  // Full-list date writes (useAuth.updateTestDates) for the inline picker.
+  onUpdateTestDates,
   onBrowseLessons,
   onOpenPractice,
   onOpenTutor,
@@ -255,6 +258,17 @@ const StudentDashboard = ({
   // Shared selector — one day-count for the SAT date everywhere (CalendarMonth,
   // study-plan hero, and this rail all consume the same signed integer).
   const daysUntilTest = getDaysUntilTest(user?.testDate);
+  // Every sitting the student holds; user.testDate is the primary (next one).
+  const userTestDates = useMemo(() => getUserTestDates(user), [user?.testDate, user?.testDates]); // eslint-disable-line react-hooks/exhaustive-deps
+  const otherTestDates = useMemo(() => {
+    const { upcoming } = splitTestDates(userTestDates);
+    return upcoming.filter((d) => d !== user?.testDate);
+  }, [userTestDates, user?.testDate]);
+  const applyTestDates = (dates) => {
+    if (typeof onUpdateTestDates === 'function') return onUpdateTestDates(dates);
+    if (typeof onUpdateTestDate === 'function') return onUpdateTestDate(dates[0] || null);
+    return undefined;
+  };
 
   const recommendations = useMemo(() => {
     return generateRecommendations({
@@ -525,14 +539,6 @@ const StudentDashboard = ({
     return date ? date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
   };
 
-  const handleSelectDate = (dateValue) => {
-    // null = "I'm done with the SAT" (useAuth stores an explicit clear).
-    if (onUpdateTestDate && (dateValue === null || dateValue)) {
-      onUpdateTestDate(dateValue);
-      setSelectedDate(dateValue || '');
-    }
-    setShowDatePicker(false);
-  };
 
   useEffect(() => { injectAnimations(); }, []);
 
@@ -939,7 +945,7 @@ const StudentDashboard = ({
               // Test-date actions open the inline picker right here; only the
               // target still lives on Profile.
               const openGoals = (kind) => {
-                if (kind === 'testDate' && typeof onUpdateTestDate === 'function') { setShowDatePicker(true); return; }
+                if (kind === 'testDate' && (typeof onUpdateTestDates === 'function' || typeof onUpdateTestDate === 'function')) { setShowDatePicker(true); return; }
                 if (typeof onEditGoals === 'function') onEditGoals(kind);
                 else if (typeof onOpenProfile === 'function') onOpenProfile();
               };
@@ -1012,12 +1018,12 @@ const StudentDashboard = ({
                       )}
                     </div>
                   )}
-                  {showDatePicker && typeof onUpdateTestDate === 'function' && (
+                  {showDatePicker && (
                     <TestDatePicker
-                      value={user?.testDate || null}
+                      selected={userTestDates}
                       allowClear
-                      onSelect={(d) => { handleSelectDate(d); }}
-                      onCancel={() => setShowDatePicker(false)}
+                      onChange={(dates) => { applyTestDates(dates); }}
+                      onDone={() => setShowDatePicker(false)}
                     />
                   )}
                   {(user?.testDate || user?.targetSchools?.[0] || officialScore) && (
@@ -1031,9 +1037,10 @@ const StudentDashboard = ({
                         >
                           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--hv2-text-3)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                           <div>
-                            <div className="hv2-hero-foot-label">Exam</div>
+                            <div className="hv2-hero-foot-label">{otherTestDates.length > 0 ? `Exam · ${otherTestDates.length + 1} dates` : 'Exam'}</div>
                             <div className={`hv2-hero-foot-val${testDateIsPast ? ' is-warn' : ''}`}>
                               {parseLocalDate(user.testDate)?.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}{!testDateIsPast && daysUntilTest != null ? ` · ${daysUntilTest} days` : testDateIsPast ? ' · taken' : ''}
+                              {otherTestDates.length > 0 && <span style={{ color: 'var(--hv2-text-3)', fontWeight: 600 }}>{` · then ${otherTestDates.map((d) => parseLocalDate(d)?.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })).join(', ')}`}</span>}
                             </div>
                           </div>
                         </button>
@@ -1080,10 +1087,10 @@ const StudentDashboard = ({
             {/* SCORE PROMPT — the test date is behind them: wait for release
                 day, then ask (with "prefer not to say" / "didn't take it"). */}
             {(() => {
-              if (typeof onRecordScoreReport !== 'function' || typeof onUpdateTestDate !== 'function') return null;
-              const st = getScoreReportState({ testDate: user?.testDate, scoreReports: user?.scoreReports });
+              if (typeof onRecordScoreReport !== 'function' || (typeof onUpdateTestDates !== 'function' && typeof onUpdateTestDate !== 'function')) return null;
+              const st = getScoreReportState({ testDate: user?.testDate, testDates: userTestDates, scoreReports: user?.scoreReports });
               if (st.kind === 'none') return null;
-              return <ScoreReportCard state={st} onRecord={onRecordScoreReport} onUpdateTestDate={onUpdateTestDate} />;
+              return <ScoreReportCard state={st} testDates={userTestDates} onRecord={onRecordScoreReport} onUpdateTestDates={applyTestDates} />;
             })()}
 
             {/* PROJECTED SCORE — re-added per user (protected UI); v2-styled, gated on 2+ tests */}
@@ -1290,7 +1297,8 @@ const StudentDashboard = ({
           {/* ============ RIGHT RAIL ============ */}
           <div className="hv2-side">
             {hasStudyPlan && (
-              <CalendarMonth practicedDays={practicedDayKeys} testDate={user?.testDate} />
+              <CalendarMonth practicedDays={practicedDayKeys} testDate={user?.testDate}
+                testDates={userTestDates} />
             )}
 
             {recentMisses.length > 0 && (

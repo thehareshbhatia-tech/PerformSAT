@@ -469,7 +469,7 @@ const PerformSAT = () => {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [showCalculator]);
 
-  const { user, loading, logout, updateTestDate, recordScoreReport, updateTargetScore, updateCurrentScore, updateTargetSchools, updateProfilePhoto, updateFirstName, markOnboardingComplete, markOnboardingSkipped, completeInnerOnboarding } = useAuth();
+  const { user, loading, logout, updateTestDate, updateTestDates, recordScoreReport, updateTargetScore, updateCurrentScore, updateTargetSchools, updateProfilePhoto, updateFirstName, markOnboardingComplete, markOnboardingSkipped, completeInnerOnboarding } = useAuth();
   const { loading: progressLoading, hydrated: progressHydrated, completedLessons, practiceProgress, drillDays, reviewQueue, reviewStreak, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, interventionLog, studentFingerprint, miniDiagnostic, bankPractice, activeDrill, flaggedQuestions, recordDrillSkillAttempts, recordPracticedDay, recordBankPractice, saveActiveDrill, clearActiveDrill, toggleFlagQuestion, unflagQuestion, flagQuestionsBatch, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, resetPracticeTest, removeTestAttempt, getTestProgress, hasTestProgress, saveMiniDiagnostic, saveStudyPlan, saveEditedStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress, chaptersRead, markChapterComplete, unmarkChapterComplete, isChapterComplete, lastSaveStatus, retryLastSave } = useProgress(user?.uid);
 
   // Mount the analytics session lifecycle (session_start / session_end +
@@ -3141,6 +3141,7 @@ const PerformSAT = () => {
             }}
             onViewDiagnosis={miniDiagnostic ? () => setView('diagnosticResults') : undefined}
             onRecordScoreReport={recordScoreReport}
+            onUpdateTestDates={updateTestDates}
             onCompleteActivity={markStudyActivityComplete}
             onUncompleteActivity={unmarkStudyActivityComplete}
             onEditPlan={saveEditedStudyPlan}
@@ -3504,6 +3505,7 @@ const PerformSAT = () => {
                 backLabel="Back to Home"
                 onEditGoals={openProfileGoals}
                 onUpdateTestDate={updateTestDate}
+                onUpdateTestDates={updateTestDates}
                 onStartPracticeTest={() => setView('practiceTests')}
                 sitting={diagnosticSitting.status === 'ready' ? diagnosticSitting.data : null}
                 sittingStatus={diagnosticSitting.status}

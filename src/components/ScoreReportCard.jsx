@@ -29,10 +29,11 @@ const clampSection = (v) => {
  * @param {object} props
  * @param {{kind:'waiting'|'ask', testDate:string, releaseDate:string|null, daysToRelease:number|null}} props.state  getScoreReportState output
  * @param {(testDate:string, report:object)=>Promise<void>|void} props.onRecord
- * @param {(date:string|null)=>Promise<void>|void} props.onUpdateTestDate
+ * @param {(dates:string[])=>Promise<void>|void} props.onUpdateTestDates
+ * @param {string[]} [props.testDates]  the student's full date list (for the next-date step)
  * @param {Date} [props.today]
  */
-export default function ScoreReportCard({ state, onRecord, onUpdateTestDate, today = new Date() }) {
+export default function ScoreReportCard({ state, onRecord, onUpdateTestDates, testDates = [], today = new Date() }) {
   const [total, setTotal] = useState('');
   const [rw, setRw] = useState('');
   const [math, setMath] = useState('');
@@ -83,28 +84,27 @@ export default function ScoreReportCard({ state, onRecord, onUpdateTestDate, tod
   const input = { font: 'inherit', fontSize: '15px', fontWeight: 700, width: '92px', padding: '8px 10px', borderRadius: '9px', border: '1.5px solid var(--hv2-line, #e7e3d9)', background: '#fff', color: 'var(--hv2-text, #15171c)', fontVariantNumeric: 'tabular-nums' };
   const lbl = { display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '11px', fontWeight: 800, letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--hv2-text-3, #9a9ea6)' };
 
-  if (pickingNext) {
-    return (
-      <div className="hv2-card" data-testid="score-report-card">
-        <div className="hv2-eyebrow" style={{ color: 'var(--hv2-text-3)' }}>Your test date</div>
-        <div style={{ fontFamily: 'var(--hv2-font-display)', fontSize: '18px', fontWeight: 700, color: 'var(--hv2-text)', marginTop: '4px' }}>Got it — you skipped {shortDate(state.testDate)}.</div>
-        <TestDatePicker value={null} today={today} allowClear onSelect={(d) => { onUpdateTestDate(d); setPickingNext(false); }} title="Which date are you aiming at now?" />
-      </div>
-    );
-  }
+  // After any answer: if another sitting is already on the calendar, just
+  // say so; otherwise offer the date manager right here.
+  const nextStep = (headline) => (
+    <div className="hv2-card" data-testid="score-report-card">
+      <div className="hv2-eyebrow" style={{ color: 'var(--hv2-text-3)' }}>{shortDate(state.testDate)} SAT</div>
+      <div style={{ fontFamily: 'var(--hv2-font-display)', fontSize: '18px', fontWeight: 700, color: 'var(--hv2-text)', marginTop: '4px' }}>{headline}</div>
+      {state.nextDate ? (
+        <p style={{ fontSize: '13.5px', color: 'var(--hv2-text-2)', margin: '6px 0 0', lineHeight: 1.5 }}>
+          Next up: <strong style={{ color: 'var(--hv2-text)' }}>{shortDate(state.nextDate)}</strong> — the plan is pacing toward it.
+        </p>
+      ) : (
+        <>
+          <p style={{ fontSize: '13.5px', color: 'var(--hv2-text-2)', margin: '6px 0 0', lineHeight: 1.5 }}>Taking it again? Add the next date so the plan paces toward it.</p>
+          <TestDatePicker selected={testDates} today={today} allowClear onChange={(d) => onUpdateTestDates(d)} onDone={() => { setPickingNext(false); setSaved(null); }} title="Your SAT dates" />
+        </>
+      )}
+    </div>
+  );
 
-  if (saved) {
-    return (
-      <div className="hv2-card" data-testid="score-report-card">
-        <div className="hv2-eyebrow" style={{ color: 'var(--hv2-text-3)' }}>{shortDate(state.testDate)} SAT</div>
-        <div style={{ fontFamily: 'var(--hv2-font-display)', fontSize: '18px', fontWeight: 700, color: 'var(--hv2-text)', marginTop: '4px' }}>
-          {saved.status === 'reported' ? `Saved — official score ${saved.composite}.` : 'Got it — we won’t ask again.'}
-        </div>
-        <p style={{ fontSize: '13.5px', color: 'var(--hv2-text-2)', margin: '6px 0 0', lineHeight: 1.5 }}>Taking it again? Set the next date so the plan paces toward it.</p>
-        <TestDatePicker value={null} today={today} allowClear onSelect={(d) => { onUpdateTestDate(d); setSaved(null); }} title="Next test date" />
-      </div>
-    );
-  }
+  if (pickingNext) return nextStep(`Got it — you skipped ${shortDate(state.testDate)}.`);
+  if (saved) return nextStep(saved.status === 'reported' ? `Saved — official score ${saved.composite}.` : 'Got it — we won’t ask again.');
 
   if (state.kind === 'waiting') {
     return (

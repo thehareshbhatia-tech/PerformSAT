@@ -12,8 +12,9 @@
  *
  * Pure; `today` is injectable for tests.
  */
-import { parseLocalDate, } from '../../utils/localDate';
+import { parseLocalDate } from '../../utils/localDate';
 import { getScoreReleaseDate } from '../../data/satTestDates';
+import { normalizeTestDates, splitTestDates } from './testDates';
 
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
 
@@ -28,21 +29,27 @@ function dayDiff(dateStr, today) {
 
 /**
  * @param {object} args
- * @param {string|null} [args.testDate]   users/{uid}.testDate
+ * @param {string|null} [args.testDate]   users/{uid}.testDate (primary)
+ * @param {string[]|null} [args.testDates] users/{uid}.testDates (every sitting; wins over testDate)
  * @param {object|null} [args.scoreReports]
  * @param {Date} [args.today]
- * @returns {{kind:'none'|'waiting'|'ask', testDate:string|null, releaseDate:string|null, daysSinceTest:number|null, daysToRelease:number|null, report:object|null}}
+ * @returns {{kind:'none'|'waiting'|'ask', testDate:string|null, nextDate:string|null, releaseDate:string|null, daysSinceTest:number|null, daysToRelease:number|null, report:object|null}}
  */
-export function getScoreReportState({ testDate = null, scoreReports = null, today = new Date() } = {}) {
-  const none = { kind: 'none', testDate: testDate || null, releaseDate: null, daysSinceTest: null, daysToRelease: null, report: null };
-  if (!testDate || !/^\d{4}-\d{2}-\d{2}$/.test(testDate)) return none;
-  const daysToTest = dayDiff(testDate, today);
+export function getScoreReportState({ testDate = null, testDates = null, scoreReports = null, today = new Date() } = {}) {
+  // Every sitting the student holds; a pre-list profile only has testDate.
+  const all = normalizeTestDates(Array.isArray(testDates) && testDates.length ? testDates : (testDate ? [testDate] : []));
+  const { upcoming, past } = splitTestDates(all, today);
+  const nextDate = upcoming[0] || null;
+  const reports = scoreReports && typeof scoreReports === 'object' ? scoreReports : {};
+  const none = { kind: 'none', testDate: null, nextDate, releaseDate: null, daysSinceTest: null, daysToRelease: null, report: null };
+  // The most recent past sitting we haven't heard about is the subject.
+  const subject = [...past].reverse().find((d) => !reports[d]) || null;
+  if (!subject) return none;
+  const daysToTest = dayDiff(subject, today);
   if (daysToTest === null || daysToTest >= 0) return none;
-  const report = scoreReports && typeof scoreReports === 'object' ? (scoreReports[testDate] || null) : null;
-  const release = getScoreReleaseDate(testDate);
+  const release = getScoreReleaseDate(subject);
   const daysToRelease = release ? dayDiff(release.date, today) : null;
-  const base = { testDate, releaseDate: release?.date || null, daysSinceTest: -daysToTest, daysToRelease, report };
-  if (report) return { ...base, kind: 'none' };
+  const base = { testDate: subject, nextDate, releaseDate: release?.date || null, daysSinceTest: -daysToTest, daysToRelease, report: null };
   if (daysToRelease !== null && daysToRelease > 0) return { ...base, kind: 'waiting' };
   return { ...base, kind: 'ask' };
 }
