@@ -48,6 +48,37 @@ const chip = (color) => ({
 });
 
 /**
+ * Rebuild a finish-pipeline-shaped `result` from what was PERSISTED, so the
+ * same screen can be re-opened from the dashboard long after the sitting.
+ * Prefers the record's own lean `diagnosis` copy (written at finish since
+ * 2026-08-24); records from before that fall back to the plan mirror, whose
+ * strengths / weaknesses / summary came from the same diagnostic while no
+ * full practice test has replaced it. Pure; exported for tests.
+ *
+ * @param {object|null} record  progress.miniDiagnostic
+ * @param {object|null} plan    the current study plan (mirror), legacy fallback
+ * @returns {object|null} { scoreBand, plan, groundTruth, diagReport, miniDiagnosticRecord }
+ */
+export function resultFromRecord(record, plan) {
+  if (!record) return null;
+  const d = record.diagnosis || null;
+  const summary = d
+    ? { headline: d.headline || null, keyInsight: d.keyInsight || null }
+    : (plan?.summary || {});
+  const groundTruth = d
+    ? { strengths: d.strengths || [], weaknesses: d.weaknesses || [] }
+    : { strengths: plan?.strengths || [], weaknesses: plan?.weaknesses || [] };
+  const errorPatterns = d ? (d.errorPatterns || {}) : {};
+  return {
+    scoreBand: record.scoreBand || null,
+    plan: { summary },
+    groundTruth,
+    diagReport: { errorPatterns },
+    miniDiagnosticRecord: record,
+  };
+}
+
+/**
  * Pull the display model out of the finish-pipeline result. Pure; everything
  * here was already computed upstream — we only select and shape it.
  */
@@ -95,7 +126,16 @@ function buildView(result) {
   };
 }
 
-export default function MiniDiagnosticResults({ result, user, onViewPlan }) {
+/**
+ * Mount either straight off the finish pipeline (`result`) or from persisted
+ * state (`record` + `plan`, the dashboard's "View your diagnosis" path).
+ * `onBack` adds a back link above the title for the re-opened case.
+ */
+export default function MiniDiagnosticResults({ result: liveResult, record = null, plan = null, user, onViewPlan, onBack = null, backLabel = 'Back to Home' }) {
+  const result = useMemo(
+    () => liveResult || resultFromRecord(record, plan),
+    [liveResult, record, plan],
+  );
   const view = useMemo(() => buildView(result), [result]);
   // Question count comes from the record (Diagnostic v2 serves 40 full / 18
   // check-in; the legacy shell served 24) — never hardcode it.
@@ -110,6 +150,16 @@ export default function MiniDiagnosticResults({ result, user, onViewPlan }) {
 
   return (
     <div style={{ marginTop: '5vh', maxWidth: '640px', width: '100%', animation: 'fadeInUp 400ms ease', paddingBottom: spacing.xl }}>
+      {typeof onBack === 'function' && (
+        <button
+          type="button"
+          onClick={onBack}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', marginBottom: spacing.lg, padding: 0, border: 'none', background: 'none', cursor: 'pointer', fontSize: typography.sizes.sm, fontWeight: typography.weights.semibold, color: colors.text.secondary }}
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          {backLabel}
+        </button>
+      )}
       <h1 style={{ fontSize: typography.sizes['3xl'], fontWeight: typography.weights.bold, color: colors.text.primary, marginBottom: spacing.xs, textAlign: 'center' }}>
         {isCheckin
           ? (user?.firstName ? `Your progress check, ${user.firstName}` : 'Your progress check')

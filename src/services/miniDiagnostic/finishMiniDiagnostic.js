@@ -27,6 +27,7 @@ import {
 import { recordSkillAttemptsBatch } from '../skillService';
 import { computeScoreBand } from './scoreBand';
 import { logError, logInfo } from '../../utils/log';
+import { sanitizeForFirestore } from '../../utils/firestoreSafe';
 
 export const MINI_DIAGNOSTIC_TEST_ID = 'mini-diagnostic-v1';
 
@@ -136,6 +137,55 @@ function buildSectionDomainSummary(test, answers, section) {
     });
   });
   return byDomain;
+}
+
+/**
+ * Lean, self-contained copy of what the post-diagnostic results screen
+ * (MiniDiagnosticResults) renders, so the diagnosis can be re-opened from
+ * the home dashboard later ("View your diagnosis" on the Estimated Starting
+ * Score card). Everything else the finish pipeline computes is discarded
+ * after the results screen unmounts — the diagnostic never enters
+ * practiceTestResults / the per-attempt snapshot path — and the plan mirror
+ * gets rewritten by the next test, so the record itself has to carry it.
+ *
+ * Kept small on purpose (the record lives on the shared progress doc): the
+ * headline + key insight, the error-type counts, and the top strengths /
+ * focus skills with just the fields formatDiagnosticSentence reads.
+ * Firestore-safe by construction (undefined dropped, non-finite → null).
+ *
+ * @param {object} plan        enriched starter/check-in plan (summary lives here)
+ * @param {object} diagReport  runDiagnostic output (errorPatterns)
+ * @param {object} groundTruth buildGroundTruthDiagnosis output
+ * @returns {object} { headline, keyInsight, errorPatterns, strengths, weaknesses }
+ */
+export function buildDiagnosisSummary(plan, diagReport, groundTruth) {
+  const summary = plan?.summary || {};
+  const ep = diagReport?.errorPatterns || {};
+  const pickWeakness = (w) => ({
+    skillId: w.skillId ?? null,
+    skill: w.skill ?? w.name ?? null,
+    accuracy: typeof w.accuracy === 'number' ? w.accuracy : null,
+    attempted: typeof w.attempted === 'number' ? w.attempted : null,
+    evidenceLevel: w.evidenceLevel ?? null,
+    errorType: w.errorType ?? null,
+    evidence: typeof w.evidence === 'string' ? w.evidence : null,
+  });
+  const pickStrength = (s) => ({
+    skill: s.skill ?? s.name ?? null,
+    accuracy: typeof s.accuracy === 'number' ? s.accuracy : null,
+  });
+  return sanitizeForFirestore({
+    headline: summary.headline || null,
+    keyInsight: summary.keyInsight
+      ? { title: summary.keyInsight.title || null, message: summary.keyInsight.message || null }
+      : null,
+    errorPatterns: {
+      counts: ep.counts || {},
+      totalWrong: ep.totalWrong || 0,
+    },
+    strengths: (groundTruth?.strengths || []).slice(0, 3).map(pickStrength),
+    weaknesses: (groundTruth?.weaknesses || []).slice(0, 4).map(pickWeakness),
+  });
 }
 
 /**
@@ -285,6 +335,8 @@ export async function finishMiniDiagnostic({
     itemIds: [...rwItems.map(q => q.id), ...mathItems.map(q => q.id)].filter(Boolean),
     answeredCount: Object.keys(answers).length,
     totalCount: totalServed,
+    // What the results screen showed — re-openable from the dashboard.
+    diagnosis: buildDiagnosisSummary(plan, diagReport, groundTruth),
     // v2 provenance: which experience produced this record and what the
     // adaptive routing actually served (null = no routing happened — the
     // check-in ships no Module-2 variants). Absent on v1 shell records.

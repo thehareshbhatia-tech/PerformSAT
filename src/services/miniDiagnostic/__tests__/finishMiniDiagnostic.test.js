@@ -243,6 +243,21 @@ describe('finishMiniDiagnostic — Diagnostic v2 runner path', () => {
     const sum = (domains) => Object.values(domains).reduce((s, d) => s + d.total, 0);
     expect(sum(rec.domains.rw)).toBe(20);
     expect(sum(rec.domains.math)).toBe(20);
+    // The record carries a lean copy of what the results screen showed, so
+    // the dashboard can re-open the diagnosis later (2026-08-24). It must
+    // agree with the live pipeline output it was cut from.
+    expect(rec.diagnosis).toBeDefined();
+    expect(rec.diagnosis.headline).toBe(result.plan.summary.headline);
+    expect(rec.diagnosis.keyInsight.title).toBe(result.plan.summary.keyInsight.title);
+    expect(rec.diagnosis.errorPatterns.totalWrong).toBe(result.diagReport.errorPatterns.totalWrong);
+    expect(rec.diagnosis.weaknesses.length).toBeGreaterThan(0);
+    expect(rec.diagnosis.weaknesses.length).toBeLessThanOrEqual(4);
+    expect(rec.diagnosis.weaknesses[0].skill).toBe(result.groundTruth.weaknesses[0].skill);
+    expect(rec.diagnosis.weaknesses[0].evidence).toBe(result.groundTruth.weaknesses[0].evidence);
+    expect(rec.diagnosis.strengths.length).toBeLessThanOrEqual(3);
+    // Lean: no question payloads, no drill-routing arrays, nothing undefined.
+    expect(JSON.stringify(rec.diagnosis)).not.toContain('missedPatterns');
+    expect(JSON.stringify(rec.diagnosis)).not.toContain('choices');
     // Real plan out the other side, artifact persisted through the real path.
     expect(result.plan.planSource).toBe(MINI_DIAGNOSTIC_PLAN_SOURCE);
     expect(persistDeterministicArtifact).toHaveBeenCalledWith(

@@ -105,6 +105,10 @@ const TestResults = React.lazy(() => import('./components/TestResults'));
 // On-ramp check-in: lazy chunk carries the sampler + diagnosis pipeline
 // (banks, studyPlanGenerator) — never import it statically (bundle guard).
 const MiniDiagnosticShell = React.lazy(() => import('./components/MiniDiagnostic/MiniDiagnosticShell'));
+// Re-opened diagnosis (dashboard "View your diagnosis"): same results screen
+// the diagnostic ends on, rebuilt from the persisted record. Lazy for the same
+// reason as the shell — it imports diagnosticEngine (bundle guard).
+const MiniDiagnosticResults = React.lazy(() => import('./components/MiniDiagnostic/MiniDiagnosticResults'));
 // Post-signup inner onboarding: lazy chunk shown once, before the home screen.
 const InnerOnboarding = React.lazy(() => import('./components/onboarding/InnerOnboarding'));
 const Profile = React.lazy(() => import('./components/Profile'));
@@ -338,7 +342,7 @@ const PerformSAT = () => {
   const [lessonsLoadError, setLessonsLoadError] = useState(false);
   // Bumped by the Learn-view retry button to re-run the lesson-load effect.
   const [lessonsRetryToken, setLessonsRetryToken] = useState(0);
-  const [view, setView] = useState('dashboard'); // 'dashboard' | 'practice' | 'practiceTests' | 'takingTest' | 'profile' | 'studyPlan' | 'tutor' | 'viewingResults' | 'diagnosticReport' | 'reviewingPastResults' | 'pastTestReviewIndex' | 'pastTestReviewDetail' | 'pastTestReviewItem' | 'pacingDrill'
+  const [view, setView] = useState('dashboard'); // 'dashboard' | 'practice' | 'practiceTests' | 'takingTest' | 'profile' | 'studyPlan' | 'tutor' | 'viewingResults' | 'diagnosticReport' | 'diagnosticResults' | 'reviewingPastResults' | 'pastTestReviewIndex' | 'pastTestReviewDetail' | 'pastTestReviewItem' | 'pacingDrill'
   // On-ramp (signup mini-diagnostic) state. `onRampActive` is tri-state:
   // null = eligibility not yet decided, true = flow mounted instead of the
   // app shell, false = dismissed for this session. The activation effect
@@ -2746,11 +2750,11 @@ const PerformSAT = () => {
           globally). takingTest is excluded so the test-runner scroll-lock and the
           internal test->results flip (view stays 'takingTest') never animate. */}
       <div id="main-content" key={view} style={{
-        maxWidth: view === 'takingTest' || view === 'pacingDrill' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' || view === 'learn' || view === 'learnTab' || view === 'learnChapter' || view === 'modules' || view === 'practiceBank' || view === 'paywall' ? '100%' : view === 'studyPlan' ? '1220px' : view === 'practiceTests' ? '1040px' : '800px',
+        maxWidth: view === 'takingTest' || view === 'pacingDrill' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' || view === 'learn' || view === 'learnTab' || view === 'learnChapter' || view === 'modules' || view === 'practiceBank' || view === 'paywall' || view === 'diagnosticResults' ? '100%' : view === 'studyPlan' ? '1220px' : view === 'practiceTests' ? '1040px' : '800px',
         margin: '0 auto',
         // Study Plan + Practice Tests paint their own warm canvas + framing, so
         // they want a tighter outer gutter than the default 32px content padding.
-        padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest' || view === 'pacingDrill' || view === 'learn' || view === 'learnTab' || view === 'learnChapter' || view === 'practiceBank' || view === 'paywall') ? '0' : (view === 'studyPlan' || view === 'practiceTests') ? '20px 20px 80px' : '32px 32px 100px',
+        padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest' || view === 'pacingDrill' || view === 'learn' || view === 'learnTab' || view === 'learnChapter' || view === 'practiceBank' || view === 'paywall' || view === 'diagnosticResults') ? '0' : (view === 'studyPlan' || view === 'practiceTests') ? '20px 20px 80px' : '32px 32px 100px',
         ...((view === 'takingTest' || view === 'pacingDrill') ? { overflow: 'hidden', height: '100vh' } : { animation: 'fadeInUp 300ms cubic-bezier(0.25, 0.1, 0.25, 1)' })
       }}>
       {/* ONE Suspense boundary for the whole view-switch region: every lazy
@@ -3084,6 +3088,7 @@ const PerformSAT = () => {
                 });
               }
             }}
+            onViewDiagnosis={miniDiagnostic ? () => setView('diagnosticResults') : undefined}
             onCompleteActivity={markStudyActivityComplete}
             onUncompleteActivity={unmarkStudyActivityComplete}
             onEditPlan={saveEditedStudyPlan}
@@ -3426,6 +3431,26 @@ const PerformSAT = () => {
                   backLabel="Back to Home"
                 />
               </div>
+            </div>
+          </ErrorBoundary>
+        )}
+
+        {/* Re-opened diagnostic diagnosis — the "Your starting point" screen
+            the diagnostic ended on, rebuilt from progress.miniDiagnostic (its
+            lean `diagnosis` copy; legacy records fall back to the plan mirror).
+            Mounted from the dashboard's "View your diagnosis" link on the
+            Estimated Starting Score card. */}
+        {view === 'diagnosticResults' && miniDiagnostic && (
+          <ErrorBoundary message="Unable to load your diagnosis. Please go back and try again.">
+            <div style={{ minHeight: '100vh', background: 'var(--color-slate-100)', display: 'flex', justifyContent: 'center', padding: '0 16px' }}>
+              <MiniDiagnosticResults
+                record={miniDiagnostic}
+                plan={studyPlan}
+                user={user}
+                onViewPlan={() => setView('studyPlan')}
+                onBack={() => setView('dashboard')}
+                backLabel="Back to Home"
+              />
             </div>
           </ErrorBoundary>
         )}
