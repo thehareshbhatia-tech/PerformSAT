@@ -333,6 +333,20 @@
 }
 .hv2-proj-detail { font-size: 12px; font-weight: 600; color: var(--hv2-text-3); line-height: 1.5; }
 
+/* Phone width: the snapshot grid and the hero's sub-tiles must stack — as
+   two columns they forced the whole page wider than the viewport (a flex
+   ancestor with min-width:auto grew to fit them). Layout only; the tile
+   design is protected. */
+@media (max-width: 640px) {
+  .hv2-perf { grid-template-columns: 1fr; }
+  .hv2-review-topics { grid-template-columns: 1fr; }
+  .hv2-review-topic-name { min-width: 0; overflow-wrap: anywhere; }
+  .hv2-score-top { flex-wrap: wrap; }
+  .hv2-sub-tiles { width: 100%; }
+  .hv2-sub-tile { flex: 1 1 0; min-width: 0; }
+  .hv2-score-hero { padding: 24px 20px; }
+}
+
 @media (max-width: 560px) {
   .hv2-proj-card { flex-direction: column; gap: 16px; }
   .hv2-proj-info {

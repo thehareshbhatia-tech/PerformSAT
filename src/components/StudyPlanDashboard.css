@@ -1460,6 +1460,7 @@ button.sp-tuneup-bar:hover { background: var(--sp-inset); }
   font-weight: 800;
 }
 .study-plan-dashboard .cm-cell-test.cm-cell-today { border-color: var(--sp-orange); }
+.study-plan-dashboard .cm-cell-test.is-past { color: var(--sp-text-3); font-weight: 700; }
 
 /* Colored summary tiles */
 .sp-tile {

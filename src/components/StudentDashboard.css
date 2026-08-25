@@ -564,6 +564,10 @@
 }
 
 @media (max-width: 640px) {
+  /* The nowrap greeting's intrinsic width propagated up through two
+     min-width:auto flex wrappers and forced the whole page wider than a
+     phone viewport (horizontal scroll). Let it wrap on phones. */
+  .dashboard-greeting-row .dashboard-greeting { white-space: normal; overflow: visible; text-overflow: clip; }
   .dashboard-tile-pair {
     grid-template-columns: 1fr;
   }
