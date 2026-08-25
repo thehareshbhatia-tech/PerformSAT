@@ -17,7 +17,7 @@
  * Diagnostic, not prescriptive: it explains where you stand and why. The
  * "what to do" lives in the starter plan behind the CTA.
  */
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { MathText } from '../MathText';
 import { Button } from '../ui/Button';
 import { colors, typography, spacing } from '../../design/tokens';
@@ -25,6 +25,8 @@ import { formatDiagnosticSentence, ERROR_TYPE_LABELS, ERROR_TYPE_COLORS } from '
 import { buildDiagnosisNuances, TARGET_NUANCE_KINDS } from '../../services/selectors/diagnosisNuances';
 import { DOMAIN_DISPLAY_NAMES } from '../../services/scoring/domainInference';
 import DiagnosticSittingDetail from './DiagnosticSittingDetail';
+import TestDatePicker from '../TestDatePicker';
+import { getLatestOfficialScore } from '../../services/selectors/scoreReport';
 
 const cardStyle = {
   padding: spacing.xl,
@@ -191,7 +193,8 @@ function LegacyDomainSection({ domains }) {
  * @param {'idle'|'loading'|'ready'|'missing'|'error'} sittingStatus
  * @param {(moduleIndex:number)=>void|null} onReviewQuestions  opens the review runner on the sitting
  */
-export default function MiniDiagnosticResults({ result: liveResult, record = null, plan = null, user, onViewPlan, onBack = null, backLabel = 'Back to Home', onEditGoals = null, onStartPracticeTest = null, sitting = null, sittingStatus = 'idle', onReviewQuestions = null }) {
+export default function MiniDiagnosticResults({ result: liveResult, record = null, plan = null, user, onViewPlan, onBack = null, backLabel = 'Back to Home', onEditGoals = null, onUpdateTestDate = null, onStartPracticeTest = null, sitting = null, sittingStatus = 'idle', onReviewQuestions = null }) {
+  const [datePickerOpen, setDatePickerOpen] = useState(false);
   const result = useMemo(
     () => liveResult || resultFromRecord(record, plan),
     [liveResult, record, plan],
@@ -204,13 +207,15 @@ export default function MiniDiagnosticResults({ result: liveResult, record = nul
     const rec = result?.miniDiagnosticRecord || {};
     return buildDiagnosisNuances({
       band: result?.scoreBand || null,
+      officialScore: getLatestOfficialScore(user?.scoreReports)?.composite ?? null,
       targetScore: user?.targetScore ?? null,
       testDate: user?.testDate ?? null,
+      scoreReports: user?.scoreReports ?? null,
       answeredCount: rec.answeredCount ?? null,
       totalCount: rec.totalCount ?? null,
       isCheckin: rec.diagnosticVariant === 'checkin' || !!rec.scoreBandFocusWeighted,
     });
-  }, [result, user?.targetScore, user?.testDate]);
+  }, [result, user?.targetScore, user?.testDate, user?.scoreReports]);
   const hasTargetNuance = nuances.some((n) => TARGET_NUANCE_KINDS.has(n.kind));
   const handleNuanceAction = (action) => {
     if (!action) return;
@@ -218,7 +223,19 @@ export default function MiniDiagnosticResults({ result: liveResult, record = nul
       if (typeof onStartPracticeTest === 'function') onStartPracticeTest();
       return;
     }
+    // The test date is edited right here (inline picker); the target still
+    // lives on Profile.
+    if (action.kind === 'testDate' && typeof onUpdateTestDate === 'function') {
+      setDatePickerOpen((v) => !v);
+      return;
+    }
     if (typeof onEditGoals === 'function') onEditGoals(action.kind);
+  };
+  const actionAvailable = (action) => {
+    if (!action) return false;
+    if (action.kind === 'practiceTest') return typeof onStartPracticeTest === 'function';
+    if (action.kind === 'testDate') return typeof onUpdateTestDate === 'function' || typeof onEditGoals === 'function';
+    return typeof onEditGoals === 'function';
   };
   // Question count comes from the record (Diagnostic v2 serves 40 full / 18
   // check-in; the legacy shell served 24) — never hardcode it.
@@ -295,7 +312,7 @@ export default function MiniDiagnosticResults({ result: liveResult, record = nul
               <p style={{ fontSize: typography.sizes.sm, color: colors.text.secondary, lineHeight: 1.5, margin: 0 }}>
                 {n.message}
               </p>
-              {n.action && (n.action.kind === 'practiceTest' ? typeof onStartPracticeTest === 'function' : typeof onEditGoals === 'function') && (
+              {actionAvailable(n.action) && (
                 <button
                   type="button"
                   onClick={() => handleNuanceAction(n.action)}
@@ -304,6 +321,14 @@ export default function MiniDiagnosticResults({ result: liveResult, record = nul
                   {n.action.label}
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                 </button>
+              )}
+              {n.action?.kind === 'testDate' && datePickerOpen && typeof onUpdateTestDate === 'function' && (
+                <TestDatePicker
+                  value={user?.testDate || null}
+                  allowClear
+                  onSelect={(d) => { onUpdateTestDate(d); setDatePickerOpen(false); }}
+                  onCancel={() => setDatePickerOpen(false)}
+                />
               )}
             </div>
           ))}

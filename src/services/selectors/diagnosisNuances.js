@@ -16,7 +16,7 @@
  * ("Worth knowing"), the home score hero (one line, highest priority only).
  */
 import { parseLocalDate } from '../../utils/localDate';
-import { getUpcomingSATDates, formatSatChipLabel } from '../../data/satTestDates';
+import { getUpcomingSATDates, formatSatChipLabel, getScoreReleaseDate } from '../../data/satTestDates';
 
 /** Kinds, in priority order (most urgent first). Also drives pickHomeNuance. */
 export const NUANCE_PRIORITY = [
@@ -66,6 +66,8 @@ export function suggestRaisedTarget(bandHigh) {
  * @param {object} args
  * @param {{low:number, high:number}|null} [args.band]  composite score band (diagnostic)
  * @param {number|null} [args.score]   a single composite score (post-test home card) — used when no band
+ * @param {number|null} [args.officialScore]  a reported official SAT composite — outranks band/score for target rules
+ * @param {object|null} [args.scoreReports]  users/{uid}.scoreReports map — shapes the past-date advice
  * @param {number|null} [args.targetScore]  composite target (400–1600); section-scale targets are ignored
  * @param {string|null} [args.testDate]  'YYYY-MM-DD'
  * @param {Date} [args.today]  injectable "now" (tests)
@@ -77,8 +79,10 @@ export function suggestRaisedTarget(bandHigh) {
 export function buildDiagnosisNuances({
   band = null,
   score = null,
+  officialScore = null,
   targetScore = null,
   testDate = null,
+  scoreReports = null,
   today = new Date(),
   answeredCount = null,
   totalCount = null,
@@ -89,28 +93,57 @@ export function buildDiagnosisNuances({
   // Section-scale (≤800) legacy targets can't be compared to a composite band.
   const compositeTarget = hasTarget && targetScore > 800 && targetScore <= 1600;
 
-  // Range we can reason about: the band, or a point score as a zero-width band.
+  // Range we can reason about: an OFFICIAL reported score outranks everything
+  // (it's the real thing); else the band; else a point score as a zero-width band.
   let range = null;
-  if (!isCheckin) {
+  if (Number.isFinite(officialScore)) range = { low: officialScore, high: officialScore, isPoint: true, official: true };
+  else if (!isCheckin) {
     if (band && Number.isFinite(band.low) && Number.isFinite(band.high)) range = { low: band.low, high: band.high, isPoint: false };
     else if (Number.isFinite(score)) range = { low: score, high: score, isPoint: true };
   }
 
-  // 1. Test date already behind them.
+  // 1. Test date already behind them. What we say depends on whether they've
+  //    told us how it went (scoreReports[testDate]).
   const days = testDate ? daysBetween(testDate, today) : null;
   if (days !== null && days < 0) {
     const next = getUpcomingSATDates(today).slice(0, 2).map((s) => formatSatChipLabel(s.date));
     const nextClause = next.length
       ? ` The next official sittings are ${next.join(' and ')} — pick the one you're registered for, or aiming at.`
       : '';
-    out.push({
-      kind: 'test-date-passed',
-      eyebrow: 'Your test date',
-      title: `${formatShortDate(testDate)} has come and gone`,
-      message: `The plan paces itself off your test date, and right now that date is ${Math.abs(days)} day${Math.abs(days) === 1 ? '' : 's'} in the past.${nextClause}`,
-      short: `Your ${formatShortDate(testDate)} test date has passed.`,
-      action: { kind: 'testDate', label: 'Update your test date' },
-    });
+    const report = scoreReports && typeof scoreReports === 'object' ? scoreReports[testDate] : null;
+    const release = getScoreReleaseDate(testDate);
+    const releaseDays = release ? daysBetween(release.date, today) : null;
+    if (report?.status === 'not-taken') {
+      out.push({
+        kind: 'test-date-passed',
+        eyebrow: 'Your test date',
+        title: `You didn't sit the ${formatShortDate(testDate)} SAT`,
+        message: `The plan is still pacing itself toward that date.${nextClause}`,
+        short: `You skipped ${formatShortDate(testDate)} — pick the date you're aiming at.`,
+        action: { kind: 'testDate', label: 'Pick your next test date' },
+      });
+    } else if (report) {
+      out.push({
+        kind: 'test-date-passed',
+        eyebrow: 'Your test date',
+        title: `${formatShortDate(testDate)} is done`,
+        message: `That sitting is behind you${report.status === 'reported' && Number.isFinite(report.composite) ? ` (official score: ${report.composite})` : ''}. If you're taking it again, set the next date so the plan paces toward it; if you're finished, clear it.${nextClause}`,
+        short: `${formatShortDate(testDate)} is done — set your next date, or clear it.`,
+        action: { kind: 'testDate', label: 'Set your next test date' },
+      });
+    } else {
+      const scoresClause = releaseDays !== null && releaseDays > 0
+        ? ` Scores are expected ${formatShortDate(release.date)} — we'll ask how it went then.`
+        : ' Scores should be out now — tell us how it went on Home.';
+      out.push({
+        kind: 'test-date-passed',
+        eyebrow: 'Your test date',
+        title: `${formatShortDate(testDate)} has come and gone`,
+        message: `The plan paces itself off your test date, and right now that date is ${Math.abs(days)} day${Math.abs(days) === 1 ? '' : 's'} in the past.${scoresClause}${nextClause}`,
+        short: `Your ${formatShortDate(testDate)} test date has passed.`,
+        action: { kind: 'testDate', label: 'Update your test date' },
+      });
+    }
   }
 
   // 2. No target at all.
@@ -130,9 +163,11 @@ export function buildDiagnosisNuances({
     // 3. The whole range clears the target — the goal is too low to steer.
     if (low >= targetScore) {
       const suggested = suggestRaisedTarget(high);
-      const clears = isPoint
-        ? `Your latest score, ${low}, clears it.`
-        : `Even the low end of your range, ${low}, clears it.`;
+      const clears = range.official
+        ? `Your official SAT score, ${low}, clears it.`
+        : isPoint
+          ? `Your latest score, ${low}, clears it.`
+          : `Even the low end of your range, ${low}, clears it.`;
       const nearCeiling = low >= 1550;
       out.push({
         kind: 'target-below-range',

@@ -61,6 +61,28 @@ describe('buildDiagnosisNuances', () => {
     expect(out[0].action.kind).toBe('testDate');
   });
 
+  it('an official reported score outranks the band for the target rule', () => {
+    const out = buildDiagnosisNuances({ band: { low: 1160, high: 1240 }, officialScore: 1350, targetScore: 1300, today: TODAY });
+    expect(kinds(out)).toEqual(['target-below-range']);
+    expect(out[0].message).toContain('Your official SAT score, 1350, clears it.');
+    expect(out[0].suggestedTarget).toBe(1400);
+  });
+
+  it('a past date with a report changes the advice instead of nagging', () => {
+    const reported = buildDiagnosisNuances({ testDate: '2026-08-22', scoreReports: { '2026-08-22': { status: 'reported', composite: 1450 } }, today: TODAY });
+    expect(reported[0].title).toBe('Aug 22 is done');
+    expect(reported[0].message).toContain('official score: 1450');
+    expect(reported[0].action.label).toBe('Set your next test date');
+    const skipped = buildDiagnosisNuances({ testDate: '2026-08-22', scoreReports: { '2026-08-22': { status: 'not-taken' } }, today: TODAY });
+    expect(skipped[0].title).toBe("You didn't sit the Aug 22 SAT");
+    // No report yet, before release: says when scores are expected.
+    const pending = buildDiagnosisNuances({ testDate: '2026-08-22', today: TODAY });
+    expect(pending[0].message).toContain('Scores are expected Sep 4');
+    // After release: points at Home's prompt.
+    const out = buildDiagnosisNuances({ testDate: '2026-08-22', today: new Date(2026, 8, 10) });
+    expect(out[0].message).toContain('Scores should be out now');
+  });
+
   it('asks for a target when none is set', () => {
     const out = buildDiagnosisNuances({ band: { low: 1200, high: 1280 }, targetScore: null, today: TODAY });
     expect(kinds(out)).toEqual(['no-target']);

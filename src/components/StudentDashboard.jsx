@@ -21,6 +21,9 @@ import { getEstimatedBaseline } from '../services/selectors/estimatedBaseline';
 import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import { buildPerformanceTiles, buildDiagnosticTiles } from '../services/selectors/performanceTiles';
 import { buildHomeTiles } from '../services/selectors/homeTiles';
+import { getScoreReportState, getLatestOfficialScore } from '../services/selectors/scoreReport';
+import TestDatePicker from './TestDatePicker';
+import ScoreReportCard from './ScoreReportCard';
 import { hasRealTestScore } from '../services/selectors/diagnosticVariant';
 import { snapToScale } from '../services/scoring/scaleTables';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
@@ -103,6 +106,8 @@ const StudentDashboard = ({
   // Nuance actions on the score hero (raise a too-low target, fix a past test
   // date): opens Profile at SAT Goals. Falls back to onOpenProfile.
   onEditGoals,
+  // Score prompt after a test date passes (useAuth.recordScoreReport).
+  onRecordScoreReport,
   onBrowseLessons,
   onOpenPractice,
   onOpenTutor,
@@ -521,9 +526,10 @@ const StudentDashboard = ({
   };
 
   const handleSelectDate = (dateValue) => {
-    if (dateValue && onUpdateTestDate) {
+    // null = "I'm done with the SAT" (useAuth stores an explicit clear).
+    if (onUpdateTestDate && (dateValue === null || dateValue)) {
       onUpdateTestDate(dateValue);
-      setSelectedDate(dateValue);
+      setSelectedDate(dateValue || '');
     }
     setShowDatePicker(false);
   };
@@ -921,13 +927,22 @@ const StudentDashboard = ({
               // One nuance line, most urgent first: a goal the whole range
               // already clears is a goal that can't steer a plan — say so and
               // hand over the action, instead of "100% of the way there".
+              const officialScore = getLatestOfficialScore(user?.scoreReports);
               const heroNuance = pickHomeNuance(buildDiagnosisNuances({
                 band: isEstimated ? { low: estimatedBaseline.low, high: estimatedBaseline.high } : null,
                 score: (!isEstimated && heroIsMultiSection) ? heroScore : null,
+                officialScore: officialScore?.composite ?? null,
                 targetScore: user?.targetScore ?? null,
                 testDate: user?.testDate ?? null,
+                scoreReports: user?.scoreReports ?? null,
               }));
-              const openGoals = typeof onEditGoals === 'function' ? onEditGoals : onOpenProfile;
+              // Test-date actions open the inline picker right here; only the
+              // target still lives on Profile.
+              const openGoals = (kind) => {
+                if (kind === 'testDate' && typeof onUpdateTestDate === 'function') { setShowDatePicker(true); return; }
+                if (typeof onEditGoals === 'function') onEditGoals(kind);
+                else if (typeof onOpenProfile === 'function') onOpenProfile();
+              };
               return (
                 <div className="hv2-score-hero">
                   <div className="hv2-score-top">
@@ -989,7 +1004,7 @@ const StudentDashboard = ({
                   {heroNuance && (
                     <div className="hv2-hero-note" role="note">
                       <span>{heroNuance.short}</span>
-                      {heroNuance.action && typeof openGoals === 'function' && (
+                      {heroNuance.action && (
                         <button type="button" className="hv2-hero-note-link" onClick={() => openGoals(heroNuance.action.kind)}>
                           {heroNuance.action.label}
                           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -997,16 +1012,38 @@ const StudentDashboard = ({
                       )}
                     </div>
                   )}
-                  {(user?.testDate || user?.targetSchools?.[0]) && (
+                  {showDatePicker && typeof onUpdateTestDate === 'function' && (
+                    <TestDatePicker
+                      value={user?.testDate || null}
+                      allowClear
+                      onSelect={(d) => { handleSelectDate(d); }}
+                      onCancel={() => setShowDatePicker(false)}
+                    />
+                  )}
+                  {(user?.testDate || user?.targetSchools?.[0] || officialScore) && (
                     <div className="hv2-hero-footer">
                       {user?.testDate && (
-                        <div className="hv2-hero-foot-item">
+                        <button
+                          type="button"
+                          className="hv2-hero-foot-item hv2-hero-foot-btn"
+                          onClick={() => openGoals('testDate')}
+                          title="Change your test date"
+                        >
                           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--hv2-text-3)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                           <div>
                             <div className="hv2-hero-foot-label">Exam</div>
                             <div className={`hv2-hero-foot-val${testDateIsPast ? ' is-warn' : ''}`}>
-                              {parseLocalDate(user.testDate)?.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}{!testDateIsPast && daysUntilTest != null ? ` · ${daysUntilTest} days` : ''}
+                              {parseLocalDate(user.testDate)?.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}{!testDateIsPast && daysUntilTest != null ? ` · ${daysUntilTest} days` : testDateIsPast ? ' · taken' : ''}
                             </div>
+                          </div>
+                        </button>
+                      )}
+                      {officialScore && (
+                        <div className="hv2-hero-foot-item">
+                          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--hv2-text-3)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 15a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z"/><path d="m8.2 13.9-1.7 8.1 5.5-3 5.5 3-1.7-8.1"/></svg>
+                          <div>
+                            <div className="hv2-hero-foot-label">Official SAT · {parseLocalDate(officialScore.testDate)?.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</div>
+                            <div className="hv2-hero-foot-val">{officialScore.composite}{officialScore.rw != null && officialScore.math != null ? ` · ${officialScore.rw} R&W / ${officialScore.math} Math` : ''}</div>
                           </div>
                         </div>
                       )}
@@ -1038,6 +1075,15 @@ const StudentDashboard = ({
                   )}
                 </div>
               );
+            })()}
+
+            {/* SCORE PROMPT — the test date is behind them: wait for release
+                day, then ask (with "prefer not to say" / "didn't take it"). */}
+            {(() => {
+              if (typeof onRecordScoreReport !== 'function' || typeof onUpdateTestDate !== 'function') return null;
+              const st = getScoreReportState({ testDate: user?.testDate, scoreReports: user?.scoreReports });
+              if (st.kind === 'none') return null;
+              return <ScoreReportCard state={st} onRecord={onRecordScoreReport} onUpdateTestDate={onUpdateTestDate} />;
             })()}
 
             {/* PROJECTED SCORE — re-added per user (protected UI); v2-styled, gated on 2+ tests */}

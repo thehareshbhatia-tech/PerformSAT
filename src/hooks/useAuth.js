@@ -364,6 +364,44 @@ export const useAuth = () => {
   };
 
   /**
+   * Record what happened with an official SAT sitting (Home's score prompt).
+   * Stored as users/{uid}.scoreReports[testDate] so the prompt never re-asks
+   * for a date the student already answered. A reported composite also
+   * becomes currentScore — an official score is the most authoritative
+   * "where you are" the app can have.
+   *
+   * @param {string} testDate - 'YYYY-MM-DD'
+   * @param {{status:'reported'|'declined'|'not-taken', composite?:number, rw?:number, math?:number}} report
+   */
+  const recordScoreReport = async (testDate, report) => {
+    if (!user?.uid) return;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(testDate || '')) return;
+    const status = ['reported', 'declined', 'not-taken'].includes(report?.status) ? report.status : null;
+    if (!status) return;
+    const entry = { status, reportedAt: new Date().toISOString() };
+    if (status === 'reported') {
+      if (!Number.isFinite(report.composite)) return;
+      entry.composite = report.composite;
+      if (Number.isFinite(report.rw)) entry.rw = report.rw;
+      if (Number.isFinite(report.math)) entry.math = report.math;
+    }
+    const patch = { scoreReports: { [testDate]: entry } };
+    if (status === 'reported') patch.currentScore = report.composite;
+    try {
+      // setDoc+merge deep-merges the map: other dates' entries survive.
+      await setDoc(doc(db, 'users', user.uid), patch, { merge: true });
+      setUser(prev => ({
+        ...prev,
+        scoreReports: { ...(prev?.scoreReports || {}), [testDate]: entry },
+        ...(status === 'reported' ? { currentScore: report.composite } : {}),
+      }));
+    } catch (err) {
+      console.error('Error recording score report:', err);
+      throw err;
+    }
+  };
+
+  /**
    * Update the user's profile photo.
    * @param {string|null} photoDataUrl - small data-URL JPEG (client-resized,
    *   ~10-60KB) stored inline on the user doc; pass null to remove the photo.
@@ -610,6 +648,7 @@ export const useAuth = () => {
     login,
     logout,
     updateTestDate,
+    recordScoreReport,
     updateTargetScore,
     updateCurrentScore,
     updateTargetSchools,

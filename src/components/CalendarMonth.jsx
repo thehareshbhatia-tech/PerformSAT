@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
+import { getScoreReleaseDate } from '../data/satTestDates';
 import './CalendarMonth.css';
 
 /**
@@ -27,13 +28,13 @@ import './CalendarMonth.css';
  * swatch. Test day is the one date on the calendar that isn't about the
  * student's routine, so it gets the one non-brand color on the card.
  */
-function GoldStar({ className }) {
+function GoldStar({ className, muted = false }) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path
         d="M12 2.4l2.9 6.05 6.65.85-4.9 4.6 1.25 6.6L12 17.3l-5.9 3.2 1.25-6.6-4.9-4.6 6.65-.85z"
-        fill="#F5B301"
-        stroke="#C98A12"
+        fill={muted ? '#E4E1D8' : '#F5B301'}
+        stroke={muted ? '#B8B4A8' : '#C98A12'}
         strokeWidth="1"
         strokeLinejoin="round"
       />
@@ -70,6 +71,12 @@ function CalendarMonth({ practicedDays, testDate, today, ariaLabel }) {
   // Shared selector — same signed day-count the hero subtitle and goal tile
   // render, so the three surfaces can never disagree at the <24h boundary.
   const daysToTest = getDaysUntilTest(testKey, todayDate);
+  // A sitting that's behind them reads as "taken" (muted star), and the day
+  // College Board is expected to release its scores gets its own marker.
+  const testIsPast = daysToTest !== null && daysToTest < 0;
+  const releaseKey = testIsPast ? (getScoreReleaseDate(testKey)?.date || null) : null;
+  const releaseInView = !!releaseKey && cells.some(c => c.inMonth && c.key === releaseKey);
+  const daysToRelease = releaseKey ? getDaysUntilTest(releaseKey, todayDate) : null;
 
   const goPrev = () => {
     if (viewMonth === 0) { setViewMonth(11); setViewYear(viewYear - 1); }
@@ -89,7 +96,9 @@ function CalendarMonth({ practicedDays, testDate, today, ariaLabel }) {
         <span className="cm-eyebrow-stat">
           {testInView && daysToTest !== null && daysToTest >= 0
             ? (daysToTest === 0 ? 'Test day is TODAY' : `Test day in ${daysToTest} day${daysToTest === 1 ? '' : 's'}`)
-            : `${practicedThisMonth} day${practicedThisMonth === 1 ? '' : 's'} practiced`}
+            : (releaseInView && daysToRelease !== null && daysToRelease >= 0)
+              ? (daysToRelease === 0 ? 'Scores expected TODAY' : `Scores expected in ${daysToRelease} day${daysToRelease === 1 ? '' : 's'}`)
+              : `${practicedThisMonth} day${practicedThisMonth === 1 ? '' : 's'} practiced`}
         </span>
         <span className="cm-eyebrow-today" aria-hidden="true">
           {todayDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}
@@ -127,33 +136,50 @@ function CalendarMonth({ practicedDays, testDate, today, ariaLabel }) {
           const isToday = cell.inMonth && cell.key === todayKey;
           const isPracticed = cell.inMonth && practicedSet.has(cell.key);
           const isTestDay = cell.inMonth && cell.key === testKey;
+          const isRelease = cell.inMonth && cell.key === releaseKey;
           const cls = [
             'cm-cell',
             !cell.inMonth && 'cm-cell-out',
             isToday && 'cm-cell-today',
             isPracticed && 'cm-cell-practiced',
             isTestDay && 'cm-cell-test',
+            isTestDay && testIsPast && 'is-past',
+            isRelease && 'cm-cell-release',
           ].filter(Boolean).join(' ');
+          const label = isTestDay
+            ? `${cell.aria} — SAT ${testIsPast ? 'taken' : 'test day'}`
+            : isRelease ? `${cell.aria} — SAT scores expected` : cell.aria;
           return (
             <span
               key={cell.key}
               role="gridcell"
-              aria-label={isTestDay ? `${cell.aria} — SAT test day` : cell.aria}
+              aria-label={label}
               aria-current={isToday ? 'date' : undefined}
-              title={isTestDay ? 'SAT test day' : undefined}
+              title={isTestDay ? (testIsPast ? 'SAT taken' : 'SAT test day') : isRelease ? 'SAT scores expected' : undefined}
               className={cls}
             >
-              {isTestDay && <GoldStar className="cm-star" />}
+              {isTestDay && <GoldStar className="cm-star" muted={testIsPast} />}
               <span className="cm-cell-day">{cell.day}</span>
+              {isRelease && <span className="cm-release-mark" aria-hidden="true" />}
             </span>
           );
         })}
       </div>
 
-      {testInView && (
+      {(testInView || releaseInView) && (
         <div className="cm-legend" aria-hidden="true">
-          <GoldStar className="cm-legend-star" />
-          <span className="cm-legend-label">SAT test day</span>
+          {testInView && (
+            <span className="cm-legend-item">
+              <GoldStar className="cm-legend-star" muted={testIsPast} />
+              <span className="cm-legend-label">{testIsPast ? 'SAT taken' : 'SAT test day'}</span>
+            </span>
+          )}
+          {releaseInView && (
+            <span className="cm-legend-item">
+              <span className="cm-legend-release" />
+              <span className="cm-legend-label">Scores expected</span>
+            </span>
+          )}
         </div>
       )}
     </section>
