@@ -13,12 +13,16 @@ import {
 } from '../finishMiniDiagnostic';
 import { persistDeterministicArtifact } from '../../hybridStudyPlanService';
 import { recordSkillAttemptsBatch } from '../../skillService';
+import { saveDiagnosticSittingSnapshot } from '../../practiceTestService';
 
 jest.mock('../../hybridStudyPlanService', () => ({
   persistDeterministicArtifact: jest.fn(),
 }));
 jest.mock('../../skillService', () => ({
   recordSkillAttemptsBatch: jest.fn(),
+}));
+jest.mock('../../practiceTestService', () => ({
+  saveDiagnosticSittingSnapshot: jest.fn(),
 }));
 
 const USER = {
@@ -90,6 +94,7 @@ describe('finishMiniDiagnostic (real engine, mocked persistence)', () => {
   beforeEach(() => {
     persistDeterministicArtifact.mockResolvedValue({ artifactId: 'artifact-1' });
     recordSkillAttemptsBatch.mockResolvedValue(undefined);
+    saveDiagnosticSittingSnapshot.mockResolvedValue('attempt');
   });
 
   it('produces a tagged starter plan with drill routing and an honest band', async () => {
@@ -218,6 +223,7 @@ describe('finishMiniDiagnostic — Diagnostic v2 runner path', () => {
   beforeEach(() => {
     persistDeterministicArtifact.mockResolvedValue({ artifactId: 'artifact-v2' });
     recordSkillAttemptsBatch.mockResolvedValue(undefined);
+    saveDiagnosticSittingSnapshot.mockResolvedValue('attempt');
   });
 
   it('folds a 4-module effectiveTest into per-section domains and a full record', async () => {
@@ -258,6 +264,23 @@ describe('finishMiniDiagnostic — Diagnostic v2 runner path', () => {
     // Lean: no question payloads, no drill-routing arrays, nothing undefined.
     expect(JSON.stringify(rec.diagnosis)).not.toContain('missedPatterns');
     expect(JSON.stringify(rec.diagnosis)).not.toContain('choices');
+    // The FULL sitting goes to the per-attempt snapshot (same shape as a
+    // practice-test attempt) so "View your diagnosis" can rebuild the whole
+    // report later; the lean record just flags that it exists.
+    expect(rec.sittingSaved).toBe(true);
+    expect(saveDiagnosticSittingSnapshot).toHaveBeenCalledTimes(1);
+    const [uid, payload] = saveDiagnosticSittingSnapshot.mock.calls[0];
+    expect(uid).toBe(USER.uid);
+    expect(payload.attemptId).toBe('v2-finish-1');
+    expect(payload.diagnosticVariant).toBe('full');
+    expect(payload.questionsSnapshot).toHaveLength(40);
+    expect(payload.questionsSnapshot[0]).toEqual(expect.objectContaining({ moduleIndex: 0, questionIndex: 0, section: 'reading-writing' }));
+    expect(payload.questionsSnapshot.every((q) => q.correctAnswer != null && Array.isArray(q.skills))).toBe(true);
+    expect(payload.answers).toBe(answers);
+    expect(Object.keys(payload.diagnosticData.questionDetails)).toHaveLength(40);
+    expect(payload.diagnosticData.moduleTimeRemaining).toBeUndefined();
+    expect(payload.scoreBand).toEqual(result.scoreBand);
+    expect(payload.routes).toEqual({ rw: 'hard', math: 'hard' });
     // Real plan out the other side, artifact persisted through the real path.
     expect(result.plan.planSource).toBe(MINI_DIAGNOSTIC_PLAN_SOURCE);
     expect(persistDeterministicArtifact).toHaveBeenCalledWith(
@@ -286,6 +309,19 @@ describe('finishMiniDiagnostic — Diagnostic v2 runner path', () => {
     // easy raw→scaled column tops out ~600, mirroring real adaptive scoring).
     expect(easyResult.scoreBand.mathBand.high).toBeLessThanOrEqual(650);
     expect(easyResult.miniDiagnosticRecord.routes.math).toBe('easy');
+  });
+
+  it('a failed sitting-snapshot write degrades to sittingSaved:false, never fails the finish', async () => {
+    saveDiagnosticSittingSnapshot.mockRejectedValue(new Error('offline'));
+    const { test } = await buildDiagnosticTest({ userId: USER.uid, attemptId: 'v2-snap-fail' });
+    const { answers, telemetry } = answerRunnerTest(test.modules, 0.6);
+    const result = await finishMiniDiagnostic({
+      user: USER, effectiveTest: test, answers, telemetry, attemptId: 'v2-snap-fail',
+      routes: { rw: 'hard', math: 'hard' },
+    });
+    expect(result.plan.planSource).toBe(MINI_DIAGNOSTIC_PLAN_SOURCE);
+    expect(result.miniDiagnosticRecord.sittingSaved).toBe(false);
+    expect(persistDeterministicArtifact).toHaveBeenCalledTimes(1);
   });
 
   it('widens the band on a thin sitting (under 80% answered)', async () => {

@@ -387,6 +387,10 @@ const PerformSAT = () => {
   // Profile deep-link: 'goals' lands on the SAT Goals card (target / test
   // date) — set by the score surfaces' nuance actions, cleared on leaving.
   const [profileFocus, setProfileFocus] = useState(null);
+  // The diagnostic sitting snapshot behind "View your diagnosis": loaded on
+  // demand when that view opens, keyed by the record's attemptId so a
+  // re-open doesn't refetch. status: idle | loading | ready | missing | error.
+  const [diagnosticSitting, setDiagnosticSitting] = useState({ status: 'idle', data: null, attemptId: null });
   const openProfileGoals = () => { setProfileFocus('goals'); setView('profile'); };
   useEffect(() => {
     // Sidebar / palette routes into Profile must not inherit a stale deep-link.
@@ -932,6 +936,43 @@ const PerformSAT = () => {
   };
   const handleResumeOnRamp = () => launchDiagnostic(DIAGNOSTIC_LAUNCH_FIRST);
   const handleStartPlanCheckIn = () => launchDiagnostic(DIAGNOSTIC_LAUNCH_PLAN_CHECKIN);
+
+  // Sitting snapshot fetch for the re-opened diagnosis (needs user + the
+  // miniDiagnostic record, both declared above). Keyed by attemptId through a
+  // ref so the effect never re-arms on its own status change (a cleanup on
+  // that re-run used to drop the in-flight result and strand "Loading…").
+  const sittingLoadedFor = useRef(null);
+  useEffect(() => {
+    if (view !== 'diagnosticResults' || !user?.uid) return;
+    const attemptId = miniDiagnostic?.attemptId || null;
+    if (!attemptId) {
+      if (sittingLoadedFor.current !== '__none__') {
+        sittingLoadedFor.current = '__none__';
+        setDiagnosticSitting({ status: 'missing', data: null, attemptId: null });
+      }
+      return;
+    }
+    if (sittingLoadedFor.current === attemptId) return; // loaded / in flight
+    sittingLoadedFor.current = attemptId;
+    // Records that know their snapshot write failed skip the fetch outright.
+    if (miniDiagnostic?.sittingSaved === false) {
+      setDiagnosticSitting({ status: 'missing', data: null, attemptId });
+      return;
+    }
+    setDiagnosticSitting({ status: 'loading', data: null, attemptId });
+    import(/* webpackChunkName: "diagnostic-sitting-loader" */ './services/diagnosticSittingLoader')
+      .then(({ loadDiagnosticSitting }) => loadDiagnosticSitting({ userId: user.uid, attemptId }))
+      .then((data) => {
+        // A late result is still the right result — state is keyed by attemptId.
+        setDiagnosticSitting({ status: data ? 'ready' : 'missing', data, attemptId });
+      })
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.warn('[App] diagnostic sitting load failed:', err && err.message);
+        sittingLoadedFor.current = null; // let the next open retry
+        setDiagnosticSitting({ status: 'error', data: null, attemptId });
+      });
+  }, [view, user?.uid, miniDiagnostic?.attemptId, miniDiagnostic?.sittingSaved]);
 
   const handleOnRampFinished = async ({ plan, diagReport, miniDiagnosticRecord }) => {
     // Order matters for resilience: plan mirror first (the artifact is already
@@ -3462,6 +3503,21 @@ const PerformSAT = () => {
                 backLabel="Back to Home"
                 onEditGoals={openProfileGoals}
                 onStartPracticeTest={() => setView('practiceTests')}
+                sitting={diagnosticSitting.status === 'ready' ? diagnosticSitting.data : null}
+                sittingStatus={diagnosticSitting.status}
+                onReviewQuestions={diagnosticSitting.status === 'ready' && diagnosticSitting.data ? (moduleIndex) => {
+                  // Same review runner as past practice tests, on the rebuilt
+                  // sitting; back returns here, not to the results tab.
+                  setViewingResultsData({
+                    test: diagnosticSitting.data.test,
+                    answers: diagnosticSitting.data.answers,
+                    reviewModule: Number.isFinite(moduleIndex) ? moduleIndex : 0,
+                    attemptId: diagnosticSitting.data.attemptId,
+                    snapshotMissing: false,
+                    returnTo: 'diagnosticResults',
+                  });
+                  setView('reviewingPastResults');
+                } : null}
               />
             </div>
           </ErrorBoundary>
@@ -3486,7 +3542,7 @@ const PerformSAT = () => {
             tutorLocked={billingLocked}
             onSubscribe={() => setView('paywall')}
             onBack={() => {
-              setView('viewingResults');
+              setView(viewingResultsData.returnTo || 'viewingResults');
             }}
           />
           </ErrorBoundary>

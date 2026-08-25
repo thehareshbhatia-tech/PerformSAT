@@ -28,6 +28,7 @@ import { recordSkillAttemptsBatch } from '../skillService';
 import { computeScoreBand } from './scoreBand';
 import { logError, logInfo } from '../../utils/log';
 import { sanitizeForFirestore } from '../../utils/firestoreSafe';
+import { saveDiagnosticSittingSnapshot } from '../practiceTestService';
 
 export const MINI_DIAGNOSTIC_TEST_ID = 'mini-diagnostic-v1';
 
@@ -137,6 +138,47 @@ function buildSectionDomainSummary(test, answers, section) {
     });
   });
   return byDomain;
+}
+
+/**
+ * Per-question snapshot of the sitting — the SAME shape PracticeTest writes
+ * for a scored attempt (see its questionsSnapshot builder), so the review
+ * runner and the report loader read both identically. Carries the stimulus
+ * fields (passage / diagram / table) because the diagnostic's banks can drift
+ * and there is no live test to backfill from.
+ *
+ * @param {object} test  multi-module test object the student saw
+ * @returns {Array<object>}
+ */
+export function buildQuestionsSnapshot(test) {
+  const out = [];
+  (test?.modules || []).forEach((mod, modIdx) => {
+    (mod.questions || []).forEach((q, qIdx) => {
+      out.push({
+        id: q.id ?? null,
+        type: q.type ?? null,
+        stem: q.stem ?? q.question ?? null,
+        choices: q.choices || null,
+        correctAnswer: q.correctAnswer ?? null,
+        explanation: q.explanation ?? null,
+        difficulty: q.difficulty || null,
+        band: q.band ?? null,
+        skills: getQuestionSkills(q),
+        domain: q.domain ?? null,
+        passage: q.passage ?? null,
+        passages: q.passages ?? null,
+        studentNotes: q.studentNotes ?? null,
+        questionContinued: q.questionContinued ?? null,
+        diagram: q.diagram ?? null,
+        questionTable: q.questionTable ?? null,
+        questionFormula: q.questionFormula ?? null,
+        section: mod.section ?? null,
+        moduleIndex: modIdx,
+        questionIndex: qIdx,
+      });
+    });
+  });
+  return out;
 }
 
 /**
@@ -319,9 +361,38 @@ export async function finishMiniDiagnostic({
   plan.planSource = MINI_DIAGNOSTIC_PLAN_SOURCE;
   plan.basedOnTest = MINI_DIAGNOSTIC_TEST_ID;
 
+  const completedAt = new Date().toISOString();
+
+  // Full sitting snapshot (questions + answers + telemetry) → the per-attempt
+  // subcollection, so "View your diagnosis" can rebuild the whole report
+  // later (domains, skills, every question, pacing). Best-effort: a failed
+  // write degrades that screen to the lean record, never the finish itself.
+  let sittingSaved = false;
+  if (attemptId) {
+    try {
+      await withTimeout(saveDiagnosticSittingSnapshot(user.uid, {
+        attemptId,
+        testId: MINI_DIAGNOSTIC_TEST_ID,
+        diagnosticVariant: test.diagnosticVariant || 'full',
+        completedAt,
+        questionsSnapshot: buildQuestionsSnapshot(test),
+        answers,
+        diagnosticData,
+        scoreBand,
+        routes: { rw: routes?.rw ?? null, math: routes?.math ?? null },
+      }));
+      sittingSaved = true;
+      logInfo('miniDiagnostic', 'sitting snapshot persisted');
+    } catch (err) {
+      logError('miniDiagnostic', 'sitting snapshot save failed (non-blocking)', err);
+    }
+  }
+
   const miniDiagnosticRecord = {
     attemptId: attemptId || null,
-    completedAt: new Date().toISOString(),
+    completedAt,
+    // True when the full sitting snapshot exists under attempts/{attemptId}.
+    sittingSaved,
     scoreBand,
     domains: effectiveTest
       ? {

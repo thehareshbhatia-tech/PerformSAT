@@ -310,6 +310,33 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
 };
 
 /**
+ * Persist a DIAGNOSTIC sitting to the same per-attempt snapshot subcollection
+ * practice tests use (progress/{uid}/attempts/{attemptId}), so the diagnosis
+ * can be rebuilt in full later (Home → "View your diagnosis"). A diagnostic
+ * never enters the progress doc's attempts arrays / score history, so this
+ * doc is the ONLY durable record of the exact questions, answers and
+ * telemetry the student produced. Flagged `isDiagnostic: true` so readers
+ * that enumerate attempts can tell it apart from a scored practice test.
+ *
+ * @param {string} userId
+ * @param {object} payload - { attemptId, testId, diagnosticVariant, completedAt,
+ *   questionsSnapshot, answers, diagnosticData, scoreBand, routes }
+ * @returns {Promise<string>} the attemptId written
+ */
+export const saveDiagnosticSittingSnapshot = async (userId, payload) => {
+  if (!userId || !payload?.attemptId) {
+    throw new Error('saveDiagnosticSittingSnapshot: userId and payload.attemptId are required');
+  }
+  const ref = doc(db, 'progress', userId, 'attempts', payload.attemptId);
+  await setDoc(ref, sanitizeForFirestore({
+    ...payload,
+    isDiagnostic: true,
+    snapshotVersion: SNAPSHOT_VERSION,
+  }));
+  return payload.attemptId;
+};
+
+/**
  * Loads the per-attempt snapshot doc (questionsSnapshot + answers).
  * Returns null when the doc is missing — typical for legacy attempts recorded
  * before the snapshot subcollection was wired in. Callers should treat null as

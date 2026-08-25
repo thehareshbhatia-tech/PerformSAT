@@ -23,6 +23,8 @@ import { Button } from '../ui/Button';
 import { colors, typography, spacing } from '../../design/tokens';
 import { formatDiagnosticSentence, ERROR_TYPE_LABELS, ERROR_TYPE_COLORS } from '../../services/diagnosticEngine';
 import { buildDiagnosisNuances, TARGET_NUANCE_KINDS } from '../../services/selectors/diagnosisNuances';
+import { DOMAIN_DISPLAY_NAMES } from '../../services/scoring/domainInference';
+import DiagnosticSittingDetail from './DiagnosticSittingDetail';
 
 const cardStyle = {
   padding: spacing.xl,
@@ -132,7 +134,64 @@ function buildView(result) {
  * state (`record` + `plan`, the dashboard's "View your diagnosis" path).
  * `onBack` adds a back link above the title for the re-opened case.
  */
-export default function MiniDiagnosticResults({ result: liveResult, record = null, plan = null, user, onViewPlan, onBack = null, backLabel = 'Back to Home', onEditGoals = null, onStartPracticeTest = null }) {
+/**
+ * Legacy "by domain" rows for records that predate the sitting snapshot
+ * (no per-question detail exists for them — only per-domain correct/total).
+ */
+const SAT_DOMAIN_NAMES = {
+  'information-and-ideas': 'Information and Ideas',
+  'craft-and-structure': 'Craft and Structure',
+  'expression-of-ideas': 'Expression of Ideas',
+  'standard-english-conventions': 'Standard English Conventions',
+  algebra: 'Algebra',
+  'advanced-math': 'Advanced Math',
+  'problem-solving-and-data-analysis': 'Problem Solving & Data Analysis',
+  'geometry-and-trigonometry': 'Geometry & Trigonometry',
+};
+
+function LegacyDomainSection({ domains }) {
+  const sections = [
+    { key: 'rw', label: 'Reading & Writing', rows: domains?.rw || {} },
+    { key: 'math', label: 'Math', rows: domains?.math || {} },
+  ].map((sec) => ({
+    ...sec,
+    rows: Object.entries(sec.rows)
+      .map(([id, v]) => ({ id, name: SAT_DOMAIN_NAMES[id] || DOMAIN_DISPLAY_NAMES[id] || id.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()), correct: v.correct || 0, total: v.total || 0, accuracy: v.total ? Math.round((v.correct / v.total) * 100) : 0 }))
+      .sort((a, b) => a.accuracy - b.accuracy || b.total - a.total),
+  })).filter((sec) => sec.rows.length > 0);
+  if (sections.length === 0) return null;
+  const barColor = (p) => (p < 25 ? '#D9483B' : p < 50 ? '#C98A12' : p < 75 ? '#7C5CC7' : '#5A8A16');
+  return (
+    <div style={sectionStyle}>
+      <h3 style={{ ...sectionHeadingStyle, color: colors.text.primary }}>By domain</h3>
+      {sections.map((sec) => (
+        <div key={sec.key} style={{ marginBottom: spacing.md }}>
+          <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.semibold, color: colors.text.secondary, marginBottom: '6px' }}>{sec.label}</div>
+          {sec.rows.map((r) => (
+            <div key={r.id} style={{ display: 'flex', alignItems: 'center', gap: spacing.sm, marginBottom: '6px' }}>
+              <span style={{ flex: '0 0 220px', fontSize: typography.sizes.sm, color: colors.text.primary }}>{r.name}</span>
+              <span style={{ flex: 1, height: '8px', background: colors.surface.gray, borderRadius: '4px', overflow: 'hidden' }}>
+                <span style={{ display: 'block', height: '100%', width: `${r.accuracy}%`, background: barColor(r.accuracy), borderRadius: '4px' }} />
+              </span>
+              <span style={{ flex: '0 0 44px', textAlign: 'right', fontSize: typography.sizes.sm, fontWeight: typography.weights.semibold, color: colors.text.primary }}>{r.accuracy}%</span>
+              <span style={{ flex: '0 0 36px', textAlign: 'right', fontSize: typography.sizes.xs, color: colors.text.tertiary }}>{r.correct}/{r.total}</span>
+            </div>
+          ))}
+        </div>
+      ))}
+      <p style={{ fontSize: typography.sizes.xs, color: colors.text.tertiary, margin: 0, lineHeight: 1.5 }}>
+        Question-by-question detail is kept for diagnostics taken from now on — this sitting predates that, so only its domain totals survive.
+      </p>
+    </div>
+  );
+}
+
+/**
+ * @param {object|null} sitting  { test, answers, diagnosticData } from diagnosticSittingLoader — unlocks the full report
+ * @param {'idle'|'loading'|'ready'|'missing'|'error'} sittingStatus
+ * @param {(moduleIndex:number)=>void|null} onReviewQuestions  opens the review runner on the sitting
+ */
+export default function MiniDiagnosticResults({ result: liveResult, record = null, plan = null, user, onViewPlan, onBack = null, backLabel = 'Back to Home', onEditGoals = null, onStartPracticeTest = null, sitting = null, sittingStatus = 'idle', onReviewQuestions = null }) {
   const result = useMemo(
     () => liveResult || resultFromRecord(record, plan),
     [liveResult, record, plan],
@@ -171,9 +230,13 @@ export default function MiniDiagnosticResults({ result: liveResult, record = nul
   if (!view) return null;
   const { band, headline, keyInsight, totalWrong, errorBreakdown, strengths, focus } = view;
   const maxCount = errorBreakdown[0]?.count || 1;
+  // The full report (from the sitting snapshot) replaces the lean error bars
+  // and needs the wider column; the lean screen keeps its reading width.
+  const hasSitting = !!(sitting && sittingStatus === 'ready');
+  const wide = hasSitting || sittingStatus === 'loading';
 
   return (
-    <div style={{ marginTop: '5vh', maxWidth: '640px', width: '100%', animation: 'fadeInUp 400ms ease', paddingBottom: spacing.xl }}>
+    <div style={{ marginTop: '5vh', maxWidth: wide ? '880px' : '640px', width: '100%', animation: 'fadeInUp 400ms ease', paddingBottom: spacing.xl }}>
       {typeof onBack === 'function' && (
         <button
           type="button"
@@ -262,8 +325,29 @@ export default function MiniDiagnosticResults({ result: liveResult, record = nul
         </div>
       )}
 
-      {/* Why you missed — error-type breakdown (the "why", visualized) */}
-      {errorBreakdown.length > 0 && (
+      {/* Full report from the sitting snapshot (diagnostics from 2026-08-24 on) */}
+      {hasSitting && (
+        <div style={{ marginBottom: spacing.xl }}>
+          <DiagnosticSittingDetail sitting={sitting} user={user} onReviewQuestions={onReviewQuestions} />
+        </div>
+      )}
+      {sittingStatus === 'loading' && (
+        <div style={{ ...cardStyle, textAlign: 'center', color: colors.text.secondary, fontSize: typography.sizes.sm }} role="status">
+          Loading your full report&hellip;
+        </div>
+      )}
+      {sittingStatus === 'error' && (
+        <div style={{ ...cardStyle, color: colors.text.secondary, fontSize: typography.sizes.sm }} role="alert">
+          Couldn&rsquo;t load the full report right now. The summary below is still accurate.
+        </div>
+      )}
+      {sittingStatus === 'missing' && result?.miniDiagnosticRecord?.domains && (
+        <LegacyDomainSection domains={result.miniDiagnosticRecord.domains} />
+      )}
+
+      {/* Why you missed — error-type breakdown (the "why", visualized).
+          Superseded by the full report's section when the sitting exists. */}
+      {!hasSitting && errorBreakdown.length > 0 && (
         <div style={sectionStyle}>
           <h3 style={{ ...sectionHeadingStyle, color: colors.text.primary }}>Why you missed what you missed</h3>
           <p style={{ fontSize: typography.sizes.sm, color: colors.text.secondary, margin: `0 0 ${spacing.sm}` }}>
