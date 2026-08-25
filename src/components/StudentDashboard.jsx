@@ -23,6 +23,7 @@ import { buildPerformanceTiles, buildDiagnosticTiles } from '../services/selecto
 import { hasRealTestScore } from '../services/selectors/diagnosticVariant';
 import { snapToScale } from '../services/scoring/scaleTables';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
+import { buildDiagnosisNuances, pickHomeNuance } from '../services/selectors/diagnosisNuances';
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
 import { buildPacingSession } from '../services/pacingService';
 import { getRecentMisses } from '../services/selectors/recentMisses';
@@ -99,6 +100,9 @@ const StudentDashboard = ({
   // Diagnostic-only state: re-open the diagnosis screen the student saw when
   // the diagnostic finished (no practice test yet, so no DiagnosticReport).
   onViewDiagnosis,
+  // Nuance actions on the score hero (raise a too-low target, fix a past test
+  // date): opens Profile at SAT Goals. Falls back to onOpenProfile.
+  onEditGoals,
   onBrowseLessons,
   onOpenPractice,
   onOpenTutor,
@@ -979,6 +983,16 @@ const StudentDashboard = ({
               // A raw latestScore/goalForBar made a 400 composite read 27% full.
               const pct = Math.max(0, Math.min(100, Math.round(((heroScore - 400) / (goalForBar - 400)) * 100)));
               const testDateIsPast = daysUntilTest !== null && daysUntilTest < 0;
+              // One nuance line, most urgent first: a goal the whole range
+              // already clears is a goal that can't steer a plan — say so and
+              // hand over the action, instead of "100% of the way there".
+              const heroNuance = pickHomeNuance(buildDiagnosisNuances({
+                band: isEstimated ? { low: estimatedBaseline.low, high: estimatedBaseline.high } : null,
+                score: (!isEstimated && heroIsMultiSection) ? heroScore : null,
+                targetScore: user?.targetScore ?? null,
+                testDate: user?.testDate ?? null,
+              }));
+              const openGoals = typeof onEditGoals === 'function' ? onEditGoals : onOpenProfile;
               return (
                 <div className="hv2-score-hero">
                   <div className="hv2-score-top">
@@ -1032,9 +1046,20 @@ const StudentDashboard = ({
                       </div>
                       <div className="hv2-progress-labels">
                         <span className="lo">400</span>
-                        <span className="mid">You're {pct}% of the way there</span>
+                        <span className="mid">{goalAchieved ? "You're past your goal" : `You're ${pct}% of the way there`}</span>
                         <span className="hi">Goal {goalForBar}</span>
                       </div>
+                    </div>
+                  )}
+                  {heroNuance && (
+                    <div className="hv2-hero-note" role="note">
+                      <span>{heroNuance.short}</span>
+                      {heroNuance.action && typeof openGoals === 'function' && (
+                        <button type="button" className="hv2-hero-note-link" onClick={() => openGoals(heroNuance.action.kind)}>
+                          {heroNuance.action.label}
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </button>
+                      )}
                     </div>
                   )}
                   {(user?.testDate || user?.targetSchools?.[0]) && (

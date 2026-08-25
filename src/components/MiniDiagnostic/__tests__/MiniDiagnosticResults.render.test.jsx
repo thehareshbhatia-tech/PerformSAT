@@ -97,9 +97,49 @@ describe('MiniDiagnosticResults from a persisted record', () => {
     unmount();
   });
 
+  it('surfaces the nuance layer: a cleared target hides the plan headline and offers to raise it', () => {
+    const onEditGoals = jest.fn();
+    const { container, unmount } = mount(
+      <MiniDiagnosticResults
+        record={RECORD_WITH_DIAGNOSIS}
+        plan={null}
+        user={{ firstName: 'Haresh', targetScore: 1300, testDate: '2099-10-03' }}
+        onViewPlan={() => {}}
+        onEditGoals={onEditGoals}
+      />
+    );
+    const text = container.textContent;
+    expect(text).toContain('Worth knowing');
+    expect(text).toContain('Your 1300 target is below where you already stand');
+    expect(text).toContain('1500');
+    // The plan's "past your target" headline would contradict the advice.
+    expect(text).not.toContain('100 points above your 1300 goal');
+    const raise = Array.from(container.querySelectorAll('button')).find(b => b.textContent.includes('Raise your target'));
+    expect(raise).toBeTruthy();
+    act(() => { raise.click(); });
+    expect(onEditGoals).toHaveBeenCalledWith('target');
+    unmount();
+  });
+
+  it('keeps the plan headline when no target nuance fires, and hides actions without handlers', () => {
+    const { container, unmount } = mount(
+      <MiniDiagnosticResults
+        record={RECORD_WITH_DIAGNOSIS}
+        plan={null}
+        user={{ targetScore: 1550, testDate: '2020-01-01' }}
+        onViewPlan={() => {}}
+      />
+    );
+    const text = container.textContent;
+    expect(text).toContain('100 points above your 1300 goal');
+    expect(text).toContain('Jan 1 has come and gone');
+    expect(text).not.toContain('Update your test date'); // no onEditGoals → no dead button
+    unmount();
+  });
+
   it('renders a legacy record off the plan mirror (no error breakdown, no crash)', () => {
     const { container, unmount } = mount(
-      <MiniDiagnosticResults record={LEGACY_RECORD} plan={PLAN_MIRROR} user={{}} onViewPlan={() => {}} onBack={() => {}} />
+      <MiniDiagnosticResults record={LEGACY_RECORD} plan={PLAN_MIRROR} user={{ targetScore: 1550 }} onViewPlan={() => {}} onBack={() => {}} />
     );
     const text = container.textContent;
     expect(text).toContain('Your starting point');

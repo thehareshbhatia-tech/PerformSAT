@@ -384,6 +384,14 @@ const PerformSAT = () => {
   // section's first module on fresh start (instead of always starting at M1).
   const [initialTestSection, setInitialTestSection] = useState(null);
   const [viewingResultsData, setViewingResultsData] = useState(null); // { test, answers, diagnosticData, diagnosticReport }
+  // Profile deep-link: 'goals' lands on the SAT Goals card (target / test
+  // date) — set by the score surfaces' nuance actions, cleared on leaving.
+  const [profileFocus, setProfileFocus] = useState(null);
+  const openProfileGoals = () => { setProfileFocus('goals'); setView('profile'); };
+  useEffect(() => {
+    // Sidebar / palette routes into Profile must not inherit a stale deep-link.
+    if (view !== 'profile' && profileFocus !== null) setProfileFocus(null);
+  }, [view, profileFocus]);
 
   // Practice state.
   //
@@ -2796,6 +2804,7 @@ const PerformSAT = () => {
         {/* Profile View */}
         {view === 'profile' && (
           <Profile
+            initialFocus={profileFocus}
             user={user}
             onLogout={logout}
             onUpdateTargetScore={updateTargetScore}
@@ -3025,7 +3034,8 @@ const PerformSAT = () => {
             onReviewTestWrong={handleReviewTestWrong}
             activeTab={dashboardTab}
             onTabChange={setDashboardTab}
-            onOpenProfile={() => setView('profile')}
+            onOpenProfile={() => { setProfileFocus(null); setView('profile'); }}
+            onEditGoals={openProfileGoals}
             onRetrySimilar={handleTrySimilarFromReview}
             onBrowseLessons={() => {
               // "Or warm up first" link on the day-0 banner → the Videos/
@@ -3450,6 +3460,8 @@ const PerformSAT = () => {
                 onViewPlan={() => setView('studyPlan')}
                 onBack={() => setView('dashboard')}
                 backLabel="Back to Home"
+                onEditGoals={openProfileGoals}
+                onStartPracticeTest={() => setView('practiceTests')}
               />
             </div>
           </ErrorBoundary>

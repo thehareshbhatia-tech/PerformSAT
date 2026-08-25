@@ -22,6 +22,7 @@ import { MathText } from '../MathText';
 import { Button } from '../ui/Button';
 import { colors, typography, spacing } from '../../design/tokens';
 import { formatDiagnosticSentence, ERROR_TYPE_LABELS, ERROR_TYPE_COLORS } from '../../services/diagnosticEngine';
+import { buildDiagnosisNuances, TARGET_NUANCE_KINDS } from '../../services/selectors/diagnosisNuances';
 
 const cardStyle = {
   padding: spacing.xl,
@@ -131,12 +132,35 @@ function buildView(result) {
  * state (`record` + `plan`, the dashboard's "View your diagnosis" path).
  * `onBack` adds a back link above the title for the re-opened case.
  */
-export default function MiniDiagnosticResults({ result: liveResult, record = null, plan = null, user, onViewPlan, onBack = null, backLabel = 'Back to Home' }) {
+export default function MiniDiagnosticResults({ result: liveResult, record = null, plan = null, user, onViewPlan, onBack = null, backLabel = 'Back to Home', onEditGoals = null, onStartPracticeTest = null }) {
   const result = useMemo(
     () => liveResult || resultFromRecord(record, plan),
     [liveResult, record, plan],
   );
   const view = useMemo(() => buildView(result), [result]);
+  // The nuance layer: what the band + target + date imply that the numbers
+  // alone don't say (goal already met → raise it; date passed; steep climb;
+  // thin sitting). Computed live so it tracks the current profile.
+  const nuances = useMemo(() => {
+    const rec = result?.miniDiagnosticRecord || {};
+    return buildDiagnosisNuances({
+      band: result?.scoreBand || null,
+      targetScore: user?.targetScore ?? null,
+      testDate: user?.testDate ?? null,
+      answeredCount: rec.answeredCount ?? null,
+      totalCount: rec.totalCount ?? null,
+      isCheckin: rec.diagnosticVariant === 'checkin' || !!rec.scoreBandFocusWeighted,
+    });
+  }, [result, user?.targetScore, user?.testDate]);
+  const hasTargetNuance = nuances.some((n) => TARGET_NUANCE_KINDS.has(n.kind));
+  const handleNuanceAction = (action) => {
+    if (!action) return;
+    if (action.kind === 'practiceTest') {
+      if (typeof onStartPracticeTest === 'function') onStartPracticeTest();
+      return;
+    }
+    if (typeof onEditGoals === 'function') onEditGoals(action.kind);
+  };
   // Question count comes from the record (Diagnostic v2 serves 40 full / 18
   // check-in; the legacy shell served 24) — never hardcode it.
   const questionCount = result?.miniDiagnosticRecord?.totalCount || 24;
@@ -184,11 +208,42 @@ export default function MiniDiagnosticResults({ result: liveResult, record = nul
             <span>Reading &amp; Writing {band.rwBand.low}&ndash;{band.rwBand.high}</span>
             <span>Math {band.mathBand.low}&ndash;{band.mathBand.high}</span>
           </div>
-          {headline && (
+          {headline && !hasTargetNuance && (
             <div style={{ marginTop: spacing.md, paddingTop: spacing.md, borderTop: `1px solid ${colors.surface.gray}`, fontSize: typography.sizes.sm, fontWeight: typography.weights.medium, color: colors.text.primary, lineHeight: 1.5 }}>
               <MathText>{headline}</MathText>
             </div>
           )}
+        </div>
+      )}
+
+      {/* Worth knowing — the nuances the band alone hides. Each carries a
+          real next action (raise the target, fix the date, take a full test). */}
+      {nuances.length > 0 && (
+        <div style={sectionStyle}>
+          <h3 style={{ ...sectionHeadingStyle, color: colors.text.primary }}>Worth knowing</h3>
+          {nuances.map((n) => (
+            <div key={n.kind} style={{ ...cardStyle, padding: spacing.lg, marginBottom: spacing.sm }}>
+              <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.text.tertiary, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
+                {n.eyebrow}
+              </div>
+              <div style={{ fontSize: typography.sizes.md, fontWeight: typography.weights.bold, color: colors.text.primary, marginBottom: '4px' }}>
+                {n.title}
+              </div>
+              <p style={{ fontSize: typography.sizes.sm, color: colors.text.secondary, lineHeight: 1.5, margin: 0 }}>
+                {n.message}
+              </p>
+              {n.action && (n.action.kind === 'practiceTest' ? typeof onStartPracticeTest === 'function' : typeof onEditGoals === 'function') && (
+                <button
+                  type="button"
+                  onClick={() => handleNuanceAction(n.action)}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: spacing.sm, padding: 0, border: 'none', background: 'none', cursor: 'pointer', fontSize: typography.sizes.sm, fontWeight: typography.weights.bold, color: colors.accent.orange }}
+                >
+                  {n.action.label}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </button>
+              )}
+            </div>
+          ))}
         </div>
       )}
 

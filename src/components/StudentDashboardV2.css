@@ -289,6 +289,21 @@
   transition: gap .15s ease, opacity .15s ease;
 }
 .hv2-hero-link:hover { gap: 9px; opacity: .82; }
+/* Nuance line under the progress bar: one sentence of the honest read
+   (goal already cleared, date passed) plus its action. */
+.hv2-hero-note {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
+  margin-top: 14px; padding: 11px 14px; border-radius: 12px;
+  background: rgba(234, 88, 12, .07); border: 1px solid rgba(234, 88, 12, .18);
+  font-family: var(--hv2-font-body); font-size: 13px; font-weight: 600; color: var(--hv2-text-2);
+}
+.hv2-hero-note-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--hv2-font-body); font-size: 13px; font-weight: 700;
+  color: var(--hv2-orange); background: none; border: none; padding: 0; cursor: pointer;
+  transition: gap .15s ease, opacity .15s ease;
+}
+.hv2-hero-note-link:hover { gap: 8px; opacity: .82; }
 /* Today's focus footer: the count of remaining sessions, as a link into the plan. */
 .hv2-focus-more { display: flex; width: 100%; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--hv2-line); }
 
