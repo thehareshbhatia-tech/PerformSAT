@@ -227,7 +227,32 @@ export function buildDiagnosisSummary(plan, diagReport, groundTruth) {
     },
     strengths: (groundTruth?.strengths || []).slice(0, 3).map(pickStrength),
     weaknesses: (groundTruth?.weaknesses || []).slice(0, 4).map(pickWeakness),
+    // Pace counts (engine's per-question timeVsDifficulty) so Home's pacing
+    // tile has a source before any practice test exists.
+    pacing: summarizePaceFromReport(diagReport),
   });
+}
+
+/**
+ * Fold the engine's per-question pace classification into counts. 'slow'
+ * and 'very_slow' collapse into slow. Null when no question analysis exists.
+ * @param {object} diagReport runDiagnostic output
+ * @returns {{total:number,onPace:number,rushed:number,slow:number,avgSeconds:number}|null}
+ */
+export function summarizePaceFromReport(diagReport) {
+  const qa = Array.isArray(diagReport?.questionAnalysis) ? diagReport.questionAnalysis : [];
+  if (qa.length === 0) return null;
+  let onPace = 0;
+  let rushed = 0;
+  let slow = 0;
+  let seconds = 0;
+  qa.forEach((q) => {
+    if (q.timeVsDifficulty === 'normal') onPace += 1;
+    else if (q.timeVsDifficulty === 'rushed') rushed += 1;
+    else slow += 1;
+    seconds += Number.isFinite(q.timeSpent) ? q.timeSpent : 0;
+  });
+  return { total: qa.length, onPace, rushed, slow, avgSeconds: Math.round(seconds / qa.length) };
 }
 
 /**

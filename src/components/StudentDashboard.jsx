@@ -20,6 +20,7 @@ import { isScoreableAttempt, getLatestTestStats } from '../services/selectors/la
 import { getEstimatedBaseline } from '../services/selectors/estimatedBaseline';
 import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import { buildPerformanceTiles, buildDiagnosticTiles } from '../services/selectors/performanceTiles';
+import { buildHomeTiles } from '../services/selectors/homeTiles';
 import { hasRealTestScore } from '../services/selectors/diagnosticVariant';
 import { snapToScale } from '../services/scoring/scaleTables';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
@@ -27,7 +28,6 @@ import { buildDiagnosisNuances, pickHomeNuance } from '../services/selectors/dia
 import { buildPacingTelemetry } from '../services/selectors/pacingTelemetry';
 import { buildPacingSession } from '../services/pacingService';
 import { getRecentMisses } from '../services/selectors/recentMisses';
-import { pointLeversFromDiagnostic, pointLeversFromLatestTest } from '../services/selectors/pointLevers';
 import { buildDailySession } from '../services/dailyReviewEngine';
 import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
 import { loadPracticeTests, loadMathBank, loadRWBank } from '../data/corpusLoader';
@@ -322,18 +322,11 @@ const StudentDashboard = ({
     [ffDiagnosticV2, performanceTiles.hasData, miniDiagnostic, practiceTestResults],
   );
   const tilesFromDiagnostic = !!diagnosticTiles?.hasData;
-  const tiles = tilesFromDiagnostic ? diagnosticTiles : performanceTiles;
-  // Tile CONTENT (founder, 2026-08-22: "80% English, 70% Math is not
-  // meaningful data"): the same three tiles now name areas and price them in
-  // points — biggest lever / next lever / locked in — from the diagnostic
-  // until the first real test, then from the latest test (selectors/
-  // pointLevers). Falls back to the accuracy tiles when neither can be built
-  // (legacy attempts without per-question details, bundle not resolved yet).
-  const pointLevers = useMemo(() => {
-    if (tilesFromDiagnostic) return pointLeversFromDiagnostic(miniDiagnostic);
-    if (performanceTiles.hasData) return pointLeversFromLatestTest(practiceTestResults, { resolveTest });
-    return { hasData: false };
-  }, [tilesFromDiagnostic, performanceTiles.hasData, miniDiagnostic, practiceTestResults, resolveTest]);
+  // The three snapshot tiles: overall accuracy / consistency / pacing.
+  const homeTiles = useMemo(
+    () => buildHomeTiles({ miniDiagnostic, practiceTestResults, practiceProgress, drillDays, reviewStreak, studyPlan }),
+    [miniDiagnostic, practiceTestResults, practiceProgress, drillDays, reviewStreak, studyPlan],
+  );
   // Delta vs the PREVIOUS attempt, from the SAME selector as the headline, so
   // the arrow can never contradict the number (e.g. an up-arrow on a lower
   // retake). getLatestTestStats returns null on a single attempt or a
@@ -863,107 +856,49 @@ const StudentDashboard = ({
           {/* ============ LEFT COLUMN ============ */}
           <div className="hv2-main">
 
-            {/* PERFORMANCE SNAPSHOT (protected tiles, restyled per mock) */}
-            {tiles.hasData && (
+            {/* PERFORMANCE SNAPSHOT (protected tile design; data from
+                selectors/homeTiles — founder 2026-08-24: orange = overall
+                accuracy, green = practice consistency, purple = pacing) */}
+            {homeTiles.hasData && (
               <div>
                 <div className="hv2-section-head">
                   <h2 className="hv2-section-title">Performance snapshot</h2>
-                  <span className="hv2-section-meta">{tilesFromDiagnostic ? 'Your diagnostic' : 'Latest practice test'}</span>
+                  <span className="hv2-section-meta">{homeTiles.sourceLabel}</span>
                 </div>
-                {pointLevers.hasData ? (
                 <div className="hv2-perf">
                   <div className="hv2-perf-accuracy">
-                    {/* Ranked by points on the table (selectors/pointLevers),
-                        SHOWN as accuracy — founder 2026-08-22: "show it as
-                        percent accuracy". */}
-                    <div className="hv2-eyebrow">Biggest opportunity</div>
-                    <div className="hv2-big-pct">{pointLevers.lever?.accuracy ?? 100}<span>%</span></div>
-                    <div className="hv2-perf-detail">{pointLevers.lever ? `${pointLevers.lever.label} · ${pointLevers.lever.correct} of ${pointLevers.lever.total} correct` : 'Every area answered correctly'} · {tilesFromDiagnostic ? 'your diagnostic' : 'latest practice test'}</div>
+                    <div className="hv2-eyebrow">Overall accuracy</div>
+                    <div className="hv2-big-pct">{homeTiles.accuracy.percent}<span>%</span></div>
+                    <div className="hv2-perf-detail">{homeTiles.accuracy.detail}</div>
                   </div>
                   <div className="hv2-perf-stack">
                     <div className="hv2-split hv2-split-strong">
-                      {pointLevers.lockedIn ? (
-                        <>
-                          <div className="hv2-split-num">{pointLevers.lockedIn.accuracy}%</div>
-                          <div className="hv2-split-body">
-                            <div className="hv2-split-eyebrow">{pointLevers.lockedIn.perfect ? 'Locked in' : 'Strongest area'}</div>
-                            <div className="hv2-split-name">{pointLevers.lockedIn.label}</div>
-                            <div className="hv2-split-detail">{`${pointLevers.lockedIn.correct} of ${pointLevers.lockedIn.total} correct`}{pointLevers.lockedIn.also?.length > 0
-                              ? ` · also ${pointLevers.lockedIn.also[0]}${pointLevers.lockedIn.also.length > 1 ? ` and ${pointLevers.lockedIn.also.length - 1} more` : ''}`
-                              : ''}</div>
-                          </div>
-                        </>
-                      ) : (
-                        <div className="hv2-split-empty">
-                          <div className="hv2-split-eyebrow">Locked in</div>
-                          <div className="hv2-empty-hint">No area is fully secure yet</div>
-                        </div>
-                      )}
+                      <div className="hv2-split-num">{homeTiles.consistency.percent}%</div>
+                      <div className="hv2-split-body">
+                        <div className="hv2-split-eyebrow">Consistency</div>
+                        <div className="hv2-split-name">{homeTiles.consistency.name}</div>
+                        <div className="hv2-split-detail">{homeTiles.consistency.detail}</div>
+                      </div>
                     </div>
                     <div className="hv2-split hv2-split-opp">
-                      {pointLevers.next ? (
+                      {homeTiles.pacing ? (
                         <>
-                          <div className="hv2-split-num">{pointLevers.next.accuracy}%</div>
+                          <div className="hv2-split-num">{homeTiles.pacing.percent}%</div>
                           <div className="hv2-split-body">
-                            <div className="hv2-split-eyebrow">Next opportunity</div>
-                            <div className="hv2-split-name">{pointLevers.next.label}</div>
-                            <div className="hv2-split-detail">{pointLevers.next.correct} of {pointLevers.next.total} correct</div>
+                            <div className="hv2-split-eyebrow">Pacing</div>
+                            <div className="hv2-split-name">{homeTiles.pacing.name}</div>
+                            <div className="hv2-split-detail">{homeTiles.pacing.detail}</div>
                           </div>
                         </>
                       ) : (
                         <div className="hv2-split-empty">
-                          <div className="hv2-split-eyebrow">Next opportunity</div>
-                          <div className="hv2-empty-hint">Every other area is locked in</div>
+                          <div className="hv2-split-eyebrow">Pacing</div>
+                          <div className="hv2-empty-hint">Take a timed practice test to measure your pacing</div>
                         </div>
                       )}
                     </div>
                   </div>
                 </div>
-                ) : (
-                <div className="hv2-perf">
-                  <div className="hv2-perf-accuracy">
-                    <div className="hv2-eyebrow">{tilesFromDiagnostic ? 'Diagnostic Accuracy' : 'Practice Accuracy'}</div>
-                    <div className="hv2-big-pct">{tiles.overall.percent || 0}<span>%</span></div>
-                    <div className="hv2-perf-detail">{tiles.overall.correct} of {tiles.overall.total} correct · {tilesFromDiagnostic ? 'your diagnostic' : 'latest practice test'}</div>
-                  </div>
-                  <div className="hv2-perf-stack">
-                    <div className="hv2-split hv2-split-strong">
-                      {tiles.strongest ? (
-                        <>
-                          <div className="hv2-split-num">{tiles.strongest.accuracy}%</div>
-                          <div className="hv2-split-body">
-                            <div className="hv2-split-eyebrow">Strongest Section</div>
-                            <div className="hv2-split-name">{tiles.strongest.label}</div>
-                            <div className="hv2-split-detail">{tiles.strongest.correct} of {tiles.strongest.total} correct</div>
-                          </div>
-                        </>
-                      ) : (
-                        <div className="hv2-split-empty">
-                          <div className="hv2-split-eyebrow">Strongest Section</div>
-                          <div className="hv2-empty-hint">Take a practice test to see your strongest section</div>
-                        </div>
-                      )}
-                    </div>
-                    <div className="hv2-split hv2-split-opp">
-                      {tiles.opportunity && !tiles.opportunity.empty ? (
-                        <>
-                          <div className="hv2-split-num">{tiles.opportunity.accuracy}%</div>
-                          <div className="hv2-split-body">
-                            <div className="hv2-split-eyebrow">Biggest Opportunity</div>
-                            <div className="hv2-split-name">{tiles.opportunity.label}</div>
-                            <div className="hv2-split-detail">{tiles.opportunity.correct} of {tiles.opportunity.total} correct</div>
-                          </div>
-                        </>
-                      ) : (
-                        <div className="hv2-split-empty">
-                          <div className="hv2-split-eyebrow">Biggest Opportunity</div>
-                          <div className="hv2-empty-hint">{tiles.opportunity?.empty ? `Take a test with ${tiles.opportunity.label} to compare your sections` : 'Take a practice test to compare your sections'}</div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-                )}
               </div>
             )}
 

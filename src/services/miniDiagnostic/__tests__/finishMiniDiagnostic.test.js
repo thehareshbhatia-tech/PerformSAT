@@ -261,6 +261,12 @@ describe('finishMiniDiagnostic — Diagnostic v2 runner path', () => {
     expect(rec.diagnosis.weaknesses[0].skill).toBe(result.groundTruth.weaknesses[0].skill);
     expect(rec.diagnosis.weaknesses[0].evidence).toBe(result.groundTruth.weaknesses[0].evidence);
     expect(rec.diagnosis.strengths.length).toBeLessThanOrEqual(3);
+    // Pace counts for Home's pacing tile: every served item lands in exactly
+    // one bucket.
+    const pace = rec.diagnosis.pacing;
+    expect(pace.total).toBe(40);
+    expect(pace.onPace + pace.rushed + pace.slow).toBe(40);
+    expect(pace.avgSeconds).toBeGreaterThan(0);
     // Lean: no question payloads, no drill-routing arrays, nothing undefined.
     expect(JSON.stringify(rec.diagnosis)).not.toContain('missedPatterns');
     expect(JSON.stringify(rec.diagnosis)).not.toContain('choices');
