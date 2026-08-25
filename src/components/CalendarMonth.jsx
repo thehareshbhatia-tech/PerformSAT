@@ -21,6 +21,26 @@ import './CalendarMonth.css';
  * @param {Date} [props.today]               default = new Date()
  * @param {string} [props.ariaLabel]
  */
+/**
+ * The SAT-day marker: a gold five-point star (SVG, never an emoji) that sits
+ * behind the day number in the calendar cell and doubles as the legend
+ * swatch. Test day is the one date on the calendar that isn't about the
+ * student's routine, so it gets the one non-brand color on the card.
+ */
+function GoldStar({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path
+        d="M12 2.4l2.9 6.05 6.65.85-4.9 4.6 1.25 6.6L12 17.3l-5.9 3.2 1.25-6.6-4.9-4.6 6.65-.85z"
+        fill="#F5B301"
+        stroke="#C98A12"
+        strokeWidth="1"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function CalendarMonth({ practicedDays, testDate, today, ariaLabel }) {
   const todayDate = today instanceof Date ? today : new Date();
   const [viewYear, setViewYear] = useState(todayDate.getFullYear());
@@ -123,7 +143,8 @@ function CalendarMonth({ practicedDays, testDate, today, ariaLabel }) {
               title={isTestDay ? 'SAT test day' : undefined}
               className={cls}
             >
-              {cell.day}
+              {isTestDay && <GoldStar className="cm-star" />}
+              <span className="cm-cell-day">{cell.day}</span>
             </span>
           );
         })}
@@ -131,7 +152,7 @@ function CalendarMonth({ practicedDays, testDate, today, ariaLabel }) {
 
       {testInView && (
         <div className="cm-legend" aria-hidden="true">
-          <span className="cm-legend-swatch cm-legend-test" />
+          <GoldStar className="cm-legend-star" />
           <span className="cm-legend-label">SAT test day</span>
         </div>
       )}
