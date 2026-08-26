@@ -697,6 +697,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   // Open by default: the explanation is the point of the review; hiding it
   // is the secondary action and the choice persists across questions.
   const [reviewExplanationOpen, setReviewExplanationOpen] = useState(true);
+  // Bluebook review: the AI tutor lives in an on-demand slide-over, for when
+  // the explanation isn't enough. Closed by default so the screen stays a test.
+  const [reviewTutorOpen, setReviewTutorOpen] = useState(false);
 
   // Stale-content notice: shown only when the per-attempt snapshot is missing
   // (legacy attempts predate the snapshot subcollection). Dismissible per attempt
@@ -3288,14 +3291,25 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         <span className={`review-verdict-pill ${reviewAnswered ? (reviewIsCorrect ? 'is-correct' : 'is-wrong') : 'is-skipped'}`}>
           {reviewAnswered ? (reviewIsCorrect ? 'Correct' : 'Incorrect') : 'Not answered'}
         </span>
-        <button
-          type="button"
-          className="rw-mark-toggle review-explain-toggle"
-          onClick={() => setReviewExplanationOpen((v) => !v)}
-          aria-expanded={reviewExplanationOpen}
-        >
-          {reviewExplanationOpen ? 'Hide explanation' : 'Show explanation'}
-        </button>
+        <div className="review-verdict-actions">
+          <button
+            type="button"
+            className="rw-mark-toggle review-explain-toggle"
+            onClick={() => setReviewExplanationOpen((v) => !v)}
+            aria-expanded={reviewExplanationOpen}
+          >
+            {reviewExplanationOpen ? 'Hide explanation' : 'Show explanation'}
+          </button>
+          <button
+            type="button"
+            className="rw-mark-toggle review-tutor-toggle"
+            onClick={() => setReviewTutorOpen(true)}
+            aria-expanded={reviewTutorOpen}
+            title="Ask the AI tutor about this question"
+          >
+            Ask the tutor
+          </button>
+        </div>
       </div>
       {reviewExplanationOpen && (
         <div className="review-explanation">
@@ -4144,6 +4158,70 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               {reviewNextLabel}
             </button>
           </div>
+        </div>
+      )}
+
+      {/* Bluebook review: AI tutor slide-over for the current question */}
+      {bluebookReview && reviewTutorOpen && (
+        <div className="review-tutor-panel" role="dialog" aria-label="AI tutor">
+          {/* The chat draws its own compact header + close; only the locked
+              note needs a close control of its own. */}
+          {tutorLocked ? (
+            <div className="review-tutor-locked">
+              <button type="button" className="review-tutor-close" onClick={() => setReviewTutorOpen(false)} aria-label="Close chat">
+                Close
+              </button>
+              <p className="review-tutor-locked-title">The AI tutor is a Premium feature</p>
+              <p className="review-tutor-locked-text">Subscribe to ask the tutor about any question in this review.</p>
+              {onSubscribe && (
+                <button type="button" className="bottom-nav-btn is-primary" onClick={onSubscribe}>See plans</button>
+              )}
+            </div>
+          ) : (
+            <div className="review-tutor-body">
+              <AiTutorChat
+                key={`bb-review-tutor-${currentModule}-${currentQuestion}`}
+                isOpen={true}
+                onClose={() => setReviewTutorOpen(false)}
+                moduleId={test.id}
+                lessonId={`review-${currentModule}-${currentQuestion}`}
+                lessonTitle={`${test.title} - Question ${effectiveModules.slice(0, currentModule).reduce((n, m) => n + (m.questions?.length || 0), 0) + currentQuestion + 1}`}
+                isVideoLesson={false}
+                isPracticeQuestion={true}
+                skillProgress={skillProgress}
+                testDate={user?.testDate}
+                user={user}
+                practiceTestResults={practiceTestResults}
+                practiceContext={{
+                  question: question?.question || '',
+                  choices: question?.choices || [],
+                  hint: question?.hint || '',
+                  answerRevealed: true,
+                  correctAnswer: question?.type === 'fill-in'
+                    ? question?.correctAnswer
+                    : question?.choices?.find((c) => c.id === question?.correctAnswer)?.text || question?.correctAnswer,
+                  explanation: question?.explanation || '',
+                  isCorrect: reviewIsCorrect,
+                  selectedAnswer: reviewAnswered
+                    ? (question?.type === 'fill-in'
+                      ? currentAnswer
+                      : `${currentAnswer}) ${question?.choices?.find((c) => c.id === currentAnswer)?.text || ''}`)
+                    : undefined,
+                  userAnswer: reviewAnswered ? currentAnswer : undefined,
+                  skills: question?.skills || (question?.skill ? [question.skill] : []),
+                  section: question?.section || (isReadingWriting ? 'reading-writing' : 'math'),
+                  domain: question?.domain,
+                  passage: question?.passage,
+                  passages: question?.passages,
+                  studentNotes: question?.studentNotes,
+                  questionTable: question?.questionTable,
+                }}
+                embedded={true}
+                headerCompact={true}
+                standalone={false}
+              />
+            </div>
+          )}
         </div>
       )}
 

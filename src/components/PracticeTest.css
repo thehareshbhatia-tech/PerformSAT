@@ -1005,7 +1005,40 @@
 .review-verdict-pill.is-correct { background: var(--pt-green-tint); color: var(--pt-green); }
 .review-verdict-pill.is-wrong { background: var(--pt-red-tint); color: var(--pt-red); }
 .review-verdict-pill.is-skipped { background: var(--pt-surface-2); color: var(--pt-text-3); }
-.review-explain-toggle { margin-left: auto; }
+.review-verdict-actions { display: flex; gap: 8px; margin-left: auto; flex-wrap: wrap; }
+.review-tutor-toggle { color: var(--pt-orange); border-color: var(--pt-orange-ring); }
+.review-tutor-toggle:hover { background: var(--pt-orange-tint); }
+
+/* Tutor slide-over: sits over the right edge, under the header, above the bottom bar. */
+.review-tutor-panel {
+  position: fixed; top: 0; right: 0; bottom: 0;
+  width: min(460px, 100vw);
+  display: flex; flex-direction: column;
+  background: var(--pt-surface);
+  border-left: 1px solid var(--pt-line);
+  box-shadow: -12px 0 32px rgba(20, 22, 28, 0.14);
+  z-index: 60;
+}
+.review-tutor-head {
+  flex: none; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 12px 16px; border-bottom: 1px solid var(--pt-line);
+  font-family: var(--pt-font-body);
+}
+.review-tutor-title { font-size: 13.5px; font-weight: 700; color: var(--pt-text); }
+.review-tutor-close {
+  border: 1px solid var(--pt-line-strong); background: var(--pt-surface); color: var(--pt-text-2);
+  border-radius: 8px; padding: 6px 12px; font-size: 12.5px; font-weight: 600; cursor: pointer; font-family: inherit;
+}
+.review-tutor-close:hover { background: var(--pt-surface-2); }
+.review-tutor-body { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+.review-tutor-locked {
+  position: relative;
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  padding: 32px 24px; text-align: center; font-family: var(--pt-font-body);
+}
+.review-tutor-locked .review-tutor-close { position: absolute; top: 12px; right: 12px; }
+.review-tutor-locked-title { margin: 0; font-weight: 700; color: var(--pt-text); }
+.review-tutor-locked-text { margin: 0; font-size: 13.5px; color: var(--pt-text-3); max-width: 300px; }
 .review-explanation {
   margin-top: 14px; padding: 18px 20px; max-width: 720px;
   border: 1px solid var(--pt-line); border-radius: 12px; background: var(--pt-surface);
@@ -1039,5 +1072,5 @@
 @media (max-width: 767px) {
   .review-notice { padding: 8px 14px; font-size: 12px; }
   .review-module-tab { padding: 5px 9px; font-size: 11.5px; }
-  .review-explain-toggle { margin-left: 0; }
+  .review-verdict-actions { margin-left: 0; width: 100%; }
 }

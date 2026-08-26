@@ -119,6 +119,24 @@ describe('Bluebook-layout review (reviewLayout="bluebook")', () => {
     click(byText(container, 'button', 'Show explanation'));
     expect(container.querySelector('.review-explanation')).toBeTruthy();
     expect(byText(container, 'button', 'Tests')).toBeTruthy();
+    // The tutor is on demand: absent until asked for, in a slide-over, closable.
+    expect(container.querySelector('.review-tutor-panel')).toBeNull();
+    click(byText(container, 'button', 'Ask the tutor'));
+    expect(container.querySelector('.review-tutor-panel')).toBeTruthy();
+    // We advanced one question above, so the panel is titled for Q2.
+    expect(container.querySelector('.review-tutor-panel').textContent).toContain('Question 2');
+    click(container.querySelector('.review-tutor-panel button[aria-label="Close chat"]'));
+    expect(container.querySelector('.review-tutor-panel')).toBeNull();
+    unmount();
+  });
+
+  it('shows the Premium note instead of the tutor when locked', async () => {
+    const onSubscribe = jest.fn();
+    const { container, unmount } = await mountBluebook({ tutorLocked: true, onSubscribe });
+    click(byText(container, 'button', 'Ask the tutor'));
+    expect(container.querySelector('.review-tutor-locked').textContent).toContain('Premium');
+    click(byText(container, 'button', 'See plans'));
+    expect(onSubscribe).toHaveBeenCalledTimes(1);
     unmount();
   });
 
