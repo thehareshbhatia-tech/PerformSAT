@@ -1973,31 +1973,3 @@ button.sp-tuneup-bar:hover { background: var(--sp-inset); }
   .sp-s-row { flex-direction: column; align-items: flex-start; gap: 12px; }
   .sp-s-btn { width: 100%; justify-content: center; }
 }
-
-/* ── Your week — Monday-to-Sunday practice strip (This week view) ─────── */
-.wps {
-  background: var(--sp-surface); border: 1px solid var(--sp-line); border-radius: 18px;
-  padding: 14px 18px 16px; margin-bottom: 14px;
-  display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;
-}
-.wps-head { display: flex; flex-direction: column; gap: 3px; min-width: 0; flex: 1 1 220px; }
-.wps-eyebrow { font-weight: 700; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--sp-text-3); }
-.wps-caption { font-size: 14px; font-weight: 600; color: var(--sp-text); }
-.wps-days { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; flex: 0 0 auto; }
-.wps-day {
-  width: 38px; height: 46px; border-radius: 12px; box-sizing: border-box;
-  display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 6px; gap: 3px;
-  background: var(--sp-surface); border: 1.5px solid var(--sp-line); color: var(--sp-text-3);
-}
-.wps-day-mark { height: 12px; display: inline-flex; align-items: center; justify-content: center; }
-.wps-day-letter { font-weight: 700; font-size: 12.5px; line-height: 1; letter-spacing: .02em; }
-.wps-day.is-done, .wps-day.is-today-done { background: var(--sp-done); border-color: var(--sp-done); color: #fff; }
-.wps-day.is-today { border: 2px solid var(--sp-orange); color: var(--sp-orange); background: var(--sp-surface); }
-.wps-day.is-today-done { box-shadow: 0 0 0 2px var(--sp-surface), 0 0 0 4px var(--sp-orange); }
-.wps-day.is-missed { background: var(--sp-surface-2); border-color: var(--sp-surface-2); }
-.wps-day.is-upcoming { border-style: dashed; }
-@media (max-width: 640px) {
-  .wps { padding: 12px 14px 14px; }
-  .wps-days { width: 100%; justify-content: space-between; }
-  .wps-day { width: 34px; height: 42px; }
-}

@@ -1,6 +1,7 @@
 /**
- * WeekPracticeStrip — Monday-to-Sunday practice tracker at the top of the
- * Study Plan "This week" view (founder 2026-08-25). Seven rounded day tiles
+ * WeekPracticeStrip — Monday-to-Sunday practice tracker in the Home header
+ * under the Dashboard / Study Plan tabs (founder 2026-08-25: "there should
+ * be something like this on the homescreen"). Seven rounded day tiles
  * with the letter inside: green fill = practiced, orange ring = today,
  * muted = missed, dashed = ahead. Deliberately its own look — no flames,
  * no circles with letters underneath.
@@ -8,9 +9,11 @@
  * @param {object} props
  * @param {Set<string>|string[]} props.practicedDays  YYYY-MM-DD keys
  * @param {Date} [props.today]
+ * @param {'card'|'bare'} [props.variant]  'bare' drops the card chrome (Home header)
  */
 import React from 'react';
 import { getWeekPractice } from '../services/selectors/weekPractice';
+import './WeekPracticeStrip.css';
 
 function caption({ done, elapsed, todayDone, streak }) {
   if (done === 0) return elapsed === 1 ? 'Practice today to open the week.' : 'Nothing yet this week. Today counts.';
@@ -20,10 +23,10 @@ function caption({ done, elapsed, todayDone, streak }) {
   return `${soFar} · today is still open.`;
 }
 
-export default function WeekPracticeStrip({ practicedDays, today = new Date() }) {
+export default function WeekPracticeStrip({ practicedDays, today = new Date(), variant = 'card' }) {
   const week = getWeekPractice(practicedDays, today);
   return (
-    <section className="wps" aria-label="Your week" data-testid="week-practice-strip">
+    <section className={`wps${variant === 'bare' ? ' is-bare' : ''}`} aria-label="Your week" data-testid="week-practice-strip">
       <div className="wps-head">
         <span className="wps-eyebrow">Your week</span>
         <span className="wps-caption">{caption(week)}</span>

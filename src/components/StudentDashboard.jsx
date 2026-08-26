@@ -26,6 +26,7 @@ import { getUserTestDates, splitTestDates } from '../services/selectors/testDate
 import TestDatePicker from './TestDatePicker';
 import ScoreReportCard from './ScoreReportCard';
 import TestDayCountdown from './TestDayCountdown';
+import WeekPracticeStrip from './WeekPracticeStrip';
 import { hasRealTestScore } from '../services/selectors/diagnosticVariant';
 import { snapToScale } from '../services/scoring/scaleTables';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
@@ -663,6 +664,9 @@ const StudentDashboard = ({
             )}
           </button>
         </div>
+        {/* Your week — Mon-Sun practice strip (founder 2026-08-25: on the
+            home screen, under the tabs, so it's visible on both tabs). */}
+        <WeekPracticeStrip variant="bare" practicedDays={practicedDayKeys} />
         </div>
         {/* Test-day countdown — the upper white space beside the greeting
             (founder 2026-08-25: prominent, but the rail keeps its calendar). */}
