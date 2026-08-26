@@ -391,6 +391,10 @@ const PerformSAT = () => {
   // demand when that view opens, keyed by the record's attemptId so a
   // re-open doesn't refetch. status: idle | loading | ready | missing | error.
   const [diagnosticSitting, setDiagnosticSitting] = useState({ status: 'idle', data: null, attemptId: null });
+  // Where the re-opened diagnosis returns to: Home's "View your diagnosis"
+  // link or the Diagnostic card at the top of the Practice Tests list.
+  const [diagnosisReturnTo, setDiagnosisReturnTo] = useState('dashboard');
+  const openDiagnosis = (returnTo) => { setDiagnosisReturnTo(returnTo); setView('diagnosticResults'); };
   const openProfileGoals = () => { setProfileFocus('goals'); setView('profile'); };
   useEffect(() => {
     // Sidebar / palette routes into Profile must not inherit a stale deep-link.
@@ -3139,7 +3143,7 @@ const PerformSAT = () => {
                 });
               }
             }}
-            onViewDiagnosis={miniDiagnostic ? () => setView('diagnosticResults') : undefined}
+            onViewDiagnosis={miniDiagnostic ? () => openDiagnosis('dashboard') : undefined}
             onRecordScoreReport={recordScoreReport}
             onUpdateTestDates={updateTestDates}
             onCompleteActivity={markStudyActivityComplete}
@@ -3192,6 +3196,8 @@ const PerformSAT = () => {
             getTestBestScore={getTestBestScore}
             getTestAttempts={getTestAttempts}
             inProgressTests={inProgressTests}
+            miniDiagnostic={miniDiagnostic}
+            onViewDiagnosis={miniDiagnostic ? () => openDiagnosis('practiceTests') : undefined}
             onViewResults={async (test) => {
               // Pick the NEWEST attempt order-independently by completedAt. The
               // attempts array orientation is not stable: trimAttempts stores it
@@ -3501,8 +3507,8 @@ const PerformSAT = () => {
                 plan={studyPlan}
                 user={user}
                 onViewPlan={() => setView('studyPlan')}
-                onBack={() => setView('dashboard')}
-                backLabel="Back to Home"
+                onBack={() => setView(diagnosisReturnTo)}
+                backLabel={diagnosisReturnTo === 'practiceTests' ? 'Back to Practice Tests' : 'Back to Home'}
                 onEditGoals={openProfileGoals}
                 onUpdateTestDate={updateTestDate}
                 onUpdateTestDates={updateTestDates}

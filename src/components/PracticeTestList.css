@@ -194,6 +194,8 @@
 .pt-badge.is-completed { background: var(--sp-done-tint); color: var(--sp-done); }
 .pt-badge.is-progress { background: var(--sp-orange-tint); color: var(--sp-orange); }
 .pt-badge.is-notstarted { background: var(--sp-surface-2); color: var(--sp-text-3); }
+/* Diagnostic = focus purple: it is the sitting the study plan was built from. */
+.pt-badge.is-diagnostic { background: var(--sp-rw-tint); color: var(--sp-rw); }
 
 .pt-card-titlerow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .pt-card-title {
@@ -403,6 +405,9 @@
      title and progress bar keep their space instead of wrapping to slivers. */
   .pt-card.is-progress .pt-card-row { flex-wrap: wrap; }
   .pt-card.is-progress .pt-progress-actions { width: 100%; justify-content: flex-end; }
+  /* Diagnostic: same — the View diagnosis button takes its own row. */
+  .pt-card.is-diagnostic .pt-card-row { flex-wrap: wrap; }
+  .pt-card.is-diagnostic .pt-btn { flex: 0 0 100%; justify-content: center; }
   .pt-secrow { flex-wrap: wrap; }
   .pt-secrow-track { width: 100%; order: 3; margin-top: 6px; }
   .pt-secrow-info { flex-basis: 60%; }

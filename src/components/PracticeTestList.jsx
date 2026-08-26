@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { getAllPracticeTests } from '../data/practiceTests';
-import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon, TimerIcon, CircleDotIcon } from '../design/icons';
+import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon, TimerIcon, CircleDotIcon, TargetIcon } from '../design/icons';
 import { Modal } from './ui/Modal';
 import { showToast } from './ui/Toaster';
 import './PracticeTestList.css';
@@ -63,6 +63,10 @@ const PracticeTestList = ({
   onDeleteAttempt,
   billingLocked = false,
   onSubscribe,
+  // Completed diagnostic record (progress.miniDiagnostic). When present the
+  // list leads with a Diagnostic card above #1 that re-opens the diagnosis.
+  miniDiagnostic = null,
+  onViewDiagnosis,
 }) => {
   const tests = getAllPracticeTests();
   // One open launch dropdown at a time, keyed by `${testId}:launch`.
@@ -199,6 +203,9 @@ const PracticeTestList = ({
       )}
 
       <div className="pt-list">
+        {miniDiagnostic && typeof onViewDiagnosis === 'function' && (
+          <DiagnosticCard record={miniDiagnostic} onView={onViewDiagnosis} />
+        )}
         {tests.map((test, idx) => (
           <TestCard
             key={test.id}
@@ -335,6 +342,39 @@ const LaunchMenu = ({ totalTime, onPick, up }) => (
     </button>
   </div>
 );
+
+/**
+ * The student's diagnostic sitting, listed above Digital SAT #1. It is a
+ * different kind of test (adaptive, ~40 questions, no scaled score), so it
+ * never shows a TOTAL — its only action is re-opening the full diagnosis.
+ */
+const DiagnosticCard = ({ record, onView }) => {
+  const dateStr = fmtShortDate(record?.completedAt);
+  const total = typeof record?.totalCount === 'number' && record.totalCount > 0 ? record.totalCount : null;
+  const isCheckin = record?.diagnosticVariant === 'checkin';
+  const meta = [isCheckin ? 'Check-in' : 'Adaptive', total ? `${total} questions` : null, dateStr ? `Completed ${dateStr}` : null]
+    .filter(Boolean)
+    .join(' · ');
+  return (
+    <div className="pt-card is-diagnostic">
+      <div className="pt-card-row">
+        <span className="pt-badge is-diagnostic" aria-hidden="true">
+          <TargetIcon size={20} color="currentColor" />
+        </span>
+        <div className="pt-card-main">
+          <div className="pt-card-titlerow">
+            <span className="pt-card-title">Diagnostic</span>
+            <span className="pt-pill is-completed">Completed</span>
+          </div>
+          <div className="pt-card-meta">{meta}</div>
+        </div>
+        <button type="button" className="pt-btn is-primary" onClick={onView}>
+          View diagnosis <ArrowRightIcon size={16} color="currentColor" />
+        </button>
+      </div>
+    </div>
+  );
+};
 
 const SectionScoreRow = ({ kind, title, q, time, score }) => {
   const pct = typeof score === 'number' ? Math.max(3, Math.min(100, Math.round((score / SECTION_MAX) * 100))) : 0;
