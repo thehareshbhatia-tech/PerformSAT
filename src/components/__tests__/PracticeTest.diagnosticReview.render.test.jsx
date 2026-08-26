@@ -110,6 +110,11 @@ describe('Bluebook-layout review (reviewLayout="bluebook")', () => {
     expect(container.querySelector('.review-verdict-pill').textContent).toBe('Incorrect');
     // (Mark for Review stays in the DOM but is hidden by the .is-review stylesheet.)
     expect(container.textContent).not.toMatch(/Assisted Help|Ask me anything|Pause|Untimed Mode|End Test|Directions|Auto-Submit/);
+    // Explanation is open by default; hiding is the secondary action and sticks across questions.
+    expect(container.querySelector('.review-explanation')).toBeTruthy();
+    click(byText(container, 'button', 'Hide explanation'));
+    expect(container.querySelector('.review-explanation')).toBeNull();
+    click([...container.querySelectorAll('button')].filter((b) => b.textContent.trim() === 'Next').pop());
     expect(container.querySelector('.review-explanation')).toBeNull();
     click(byText(container, 'button', 'Show explanation'));
     expect(container.querySelector('.review-explanation')).toBeTruthy();

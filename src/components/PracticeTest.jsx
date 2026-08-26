@@ -694,7 +694,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   const [reviewQuestion, setReviewQuestion] = useState(0);
   const [reviewTab, setReviewTab] = useState('question');
   const [reviewRightPane, setReviewRightPane] = useState('both');
-  const [reviewExplanationOpen, setReviewExplanationOpen] = useState(false);
+  // Open by default: the explanation is the point of the review; hiding it
+  // is the secondary action and the choice persists across questions.
+  const [reviewExplanationOpen, setReviewExplanationOpen] = useState(true);
 
   // Stale-content notice: shown only when the per-attempt snapshot is missing
   // (legacy attempts predate the snapshot subcollection). Dismissible per attempt
@@ -3189,18 +3191,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   // previous module's last question, and Next past the final module leaves.
   const goToReviewPosition = (modIdx, qIdx) => {
     setShowQuestionGridPopover(false);
-    setReviewExplanationOpen(false);
     setCurrentModule(modIdx);
     setCurrentQuestion(qIdx);
   };
   const isLastReviewQuestion = currentModule === effectiveModules.length - 1 && currentQuestion === questions.length - 1;
   const handleReviewNext = () => {
-    if (currentQuestion < questions.length - 1) { setReviewExplanationOpen(false); setCurrentQuestion(currentQuestion + 1); return; }
+    if (currentQuestion < questions.length - 1) { setCurrentQuestion(currentQuestion + 1); return; }
     if (currentModule < effectiveModules.length - 1) { goToReviewPosition(currentModule + 1, 0); return; }
     onBack?.();
   };
   const handleReviewPrev = () => {
-    if (currentQuestion > 0) { setReviewExplanationOpen(false); setCurrentQuestion(currentQuestion - 1); return; }
+    if (currentQuestion > 0) { setCurrentQuestion(currentQuestion - 1); return; }
     if (currentModule > 0) {
       const prevLen = effectiveModules[currentModule - 1]?.questions?.length || 1;
       goToReviewPosition(currentModule - 1, prevLen - 1);
