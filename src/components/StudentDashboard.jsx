@@ -601,74 +601,7 @@ const StudentDashboard = ({
     return <DashboardSkeleton />;
   }
 
-  return (
-    <div className="student-dashboard-container">
-      {/* Greeting — original layout, plus the profile pic (user call
-          2026-06-06: the hero-card redesign was reverted; identity is a
-          small avatar beside the greeting, nothing more). Avatar click
-          opens Profile; camera badge signals add-a-photo when none set.
-          firstName, not displayName — the user doc never carries
-          displayName, so the old read rendered a nameless greeting. */}
-      <div className="dashboard-header-row">
-        <div className="dashboard-header-main">
-        <div className="dashboard-greeting-row">
-          <button
-            type="button"
-            className="dashboard-avatar-btn"
-            aria-label={user?.photoDataUrl ? 'Open your profile' : 'Add a profile photo'}
-            onClick={handleAvatarClick}
-          >
-            <Avatar user={user} size={AVATAR_SIZES.md} />
-            {!user?.photoDataUrl && (
-              <span className="dashboard-avatar-camera" aria-hidden="true">
-                <CameraIcon size={11} />
-              </span>
-            )}
-          </button>
-          <h1 className="dashboard-greeting">
-            {getGreeting()}{user?.firstName ? `, ${user.firstName}` : ''}
-          </h1>
-        </div>
-        {/* D-IH-2: hide the subtitle when the Today's focus section already
-            anchors the user — it has its own copy. Brand-new users still see
-            the longer pitch. */}
-        {!(activeTab === 'dashboard' && hasStudyPlan) && (
-          <p className="dashboard-subtitle">
-            Study with your personalized AI learning plan and get instant hints, explanations, and more with our AI Tutor.
-          </p>
-        )}
-        <div className="dashboard-top-tabs">
-          <button
-            className={`dashboard-top-tab${activeTab === 'dashboard' ? ' active' : ''}`}
-            onClick={() => setActiveTab('dashboard')}
-          >
-            Dashboard
-            {dashboardCount > 0 && (
-              <span className="tab-count" aria-label={`${dashboardCount} tasks today`}>
-                {dashboardCount}
-              </span>
-            )}
-          </button>
-          <button
-            className={`dashboard-top-tab${activeTab === 'studyPlan' ? ' active' : ''}`}
-            onClick={() => setActiveTab('studyPlan')}
-          >
-            Study Plan
-            {studyPlanCount > 0 && (
-              <span className="tab-count" aria-label={`${studyPlanCount} activities remaining`}>
-                {studyPlanCount}
-              </span>
-            )}
-            {studyPlanArtifact?.delta?.skillChanges?.length > 0 && !dismissedDelta && (
-              <span className="tab-badge">Updated</span>
-            )}
-          </button>
-        </div>
-        </div>
-        {/* Test-day countdown + the week's sparks, stacked in the upper-right
-            white space beside the greeting (founder 2026-08-25: the streak
-            belongs under the countdown, not under the tabs). */}
-        <div className="dashboard-header-aside">
+  const countdownBlock = (
         <TestDayCountdown
           className="is-header"
           testDate={user?.testDate}
@@ -683,9 +616,82 @@ const StudentDashboard = ({
             onDone={() => setCountdownManaging(false)}
           />
         </TestDayCountdown>
-        <WeekPracticeStrip variant="aside" practicedDays={practicedDayKeys} />
+  );
+  const renderHeader = (withAside) => (
+        <div className="dashboard-header-row">
+          <div className="dashboard-header-main">
+          <div className="dashboard-greeting-row">
+            <button
+              type="button"
+              className="dashboard-avatar-btn"
+              aria-label={user?.photoDataUrl ? 'Open your profile' : 'Add a profile photo'}
+              onClick={handleAvatarClick}
+            >
+              <Avatar user={user} size={AVATAR_SIZES.md} />
+              {!user?.photoDataUrl && (
+                <span className="dashboard-avatar-camera" aria-hidden="true">
+                  <CameraIcon size={11} />
+                </span>
+              )}
+            </button>
+            <h1 className="dashboard-greeting">
+              {getGreeting()}{user?.firstName ? `, ${user.firstName}` : ''}
+            </h1>
+          </div>
+          {/* D-IH-2: hide the subtitle when the Today's focus section already
+              anchors the user — it has its own copy. Brand-new users still see
+              the longer pitch. */}
+          {!(activeTab === 'dashboard' && hasStudyPlan) && (
+            <p className="dashboard-subtitle">
+              Study with your personalized AI learning plan and get instant hints, explanations, and more with our AI Tutor.
+            </p>
+          )}
+          <div className="dashboard-top-tabs">
+            <button
+              className={`dashboard-top-tab${activeTab === 'dashboard' ? ' active' : ''}`}
+              onClick={() => setActiveTab('dashboard')}
+            >
+              Dashboard
+              {dashboardCount > 0 && (
+                <span className="tab-count" aria-label={`${dashboardCount} tasks today`}>
+                  {dashboardCount}
+                </span>
+              )}
+            </button>
+            <button
+              className={`dashboard-top-tab${activeTab === 'studyPlan' ? ' active' : ''}`}
+              onClick={() => setActiveTab('studyPlan')}
+            >
+              Study Plan
+              {studyPlanCount > 0 && (
+                <span className="tab-count" aria-label={`${studyPlanCount} activities remaining`}>
+                  {studyPlanCount}
+                </span>
+              )}
+              {studyPlanArtifact?.delta?.skillChanges?.length > 0 && !dismissedDelta && (
+                <span className="tab-badge">Updated</span>
+              )}
+            </button>
+          </div>
+          </div>
+          {/* Test-day countdown beside the greeting — only when the page isn't
+              the v2 grid (Study Plan tab, first-run); on the v2 dashboard the
+              countdown + week sparks lead the right rail instead, so the rail
+              starts level with the greeting and the left column has no gap
+              (founder 2026-08-25). */}
+          {withAside && <div className="dashboard-header-aside">{countdownBlock}</div>}
         </div>
-      </div>
+  );
+
+  return (
+    <div className="student-dashboard-container">
+      {/* Greeting — original layout, plus the profile pic (user call
+          2026-06-06: the hero-card redesign was reverted; identity is a
+          small avatar beside the greeting, nothing more). Avatar click
+          opens Profile; camera badge signals add-a-photo when none set.
+          firstName, not displayName — the user doc never carries
+          displayName, so the old read rendered a nameless greeting. */}
+      {(activeTab === 'studyPlan' || noData) && renderHeader(true)}
 
       {activeTab === 'studyPlan' ? (
         <div className="studyplan-tab-content">
@@ -890,7 +896,8 @@ const StudentDashboard = ({
           />
         )}
 
-        <div className="hv2-grid">
+        <div className="hv2-grid is-page">
+          {renderHeader(false)}
           {/* ============ LEFT COLUMN ============ */}
           <div className="hv2-main">
 
@@ -1322,6 +1329,12 @@ const StudentDashboard = ({
 
           {/* ============ RIGHT RAIL ============ */}
           <div className="hv2-side">
+            {/* Countdown + this week's sparks lead the rail, level with the
+                greeting (founder 2026-08-25). */}
+            <div className="hv2-side-top">
+              {countdownBlock}
+              <WeekPracticeStrip variant="aside" practicedDays={practicedDayKeys} />
+            </div>
             {hasStudyPlan && (
               <CalendarMonth practicedDays={practicedDayKeys} testDate={user?.testDate}
                 testDates={userTestDates} />
