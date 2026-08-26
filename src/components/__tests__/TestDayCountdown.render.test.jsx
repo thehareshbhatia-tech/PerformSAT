@@ -18,8 +18,10 @@ describe('TestDayCountdown', () => {
   it('counts down to the next sitting, with registration deadline and the later dates', () => {
     const { container, unmount } = mount(<TestDayCountdown testDate="2026-11-07" testDates={['2026-11-07', '2026-12-05']} today={TODAY} onManage={() => {}} />);
     expect(container.querySelector('.hv2-countdown-num').textContent).toBe('74');
-    expect(text(container)).toContain('days to your SAT');
-    expect(text(container)).toContain('Saturday, November 7');
+    expect(container.querySelector('.hv2-countdown-unit').textContent).toBe('days');
+    expect(text(container)).toContain('Days until test');
+    expect(container.querySelector('.hv2-countdown-chip').textContent).toBe('Nov 7');
+    expect(container.querySelector('.hv2-countdown-link').getAttribute('aria-label')).toContain('Saturday, November 7');
     expect(text(container)).toContain('Register by Oct 23 · then Dec 5');
     expect(text(container)).toContain('Change dates');
     unmount();
@@ -37,7 +39,8 @@ describe('TestDayCountdown', () => {
     expect(text(taken.container)).toContain('Add your next date');
     taken.unmount();
     const none = mount(<TestDayCountdown testDate={null} today={TODAY} onManage={() => {}} />);
-    expect(text(none.container)).toContain('no test date yet');
+    expect(none.container.querySelector('.hv2-countdown-num').textContent).toBe('Not set');
+    expect(none.container.querySelector('.hv2-countdown-chip')).toBeNull();
     expect(text(none.container)).toContain('Pick a date');
     none.unmount();
   });

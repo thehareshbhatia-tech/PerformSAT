@@ -365,47 +365,63 @@
 }
 
 /* ── Test-day countdown (header, beside the greeting) ──────────────────────
-   Lives OUTSIDE the .hv2 scope, so every token carries a fallback. */
+   A light, compact call-to-action in the style of a calendar widget
+   (founder 2026-08-25: keep the placement, lose the navy tile). The whole
+   card is the button that opens the inline date manager below it. */
 .hv2-countdown {
-  background: var(--hv2-navy, #0C1026); color: #fff; border-radius: 22px; padding: 22px 24px 20px;
-  box-shadow: var(--hv2-shadow, 0 1px 2px rgba(20,22,28,.04), 0 6px 18px rgba(20,22,28,.05));
   font-family: var(--hv2-font-body, 'Hanken Grotesk', 'Inter', system-ui, sans-serif);
+  flex: 0 1 auto; min-width: 0; max-width: 100%;
 }
-.hv2-countdown-eyebrow {
-  font-weight: 700; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--hv2-lime, #C2E83A);
-}
-.hv2-countdown-row { display: flex; align-items: baseline; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
-.hv2-countdown-num {
-  font-family: var(--hv2-font-display, 'Bricolage Grotesque', 'Inter', system-ui, sans-serif); font-weight: 700; font-size: 64px; line-height: .95;
-  letter-spacing: -0.03em; color: #fff; font-variant-numeric: tabular-nums;
-}
-.hv2-countdown-unit { font-size: 15px; font-weight: 600; color: rgba(255,255,255,.72); }
-.hv2-countdown-date { margin-top: 10px; font-size: 15px; font-weight: 700; color: #fff; }
-.hv2-countdown-meta { margin-top: 4px; font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.58); line-height: 1.45; }
 .hv2-countdown-link {
-  display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
-  font-family: inherit; font-size: 13px; font-weight: 700; color: var(--hv2-lime, #C2E83A);
-  background: none; border: none; padding: 0; cursor: pointer; transition: gap .15s ease, opacity .15s ease;
+  display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
+  padding: 14px 16px 14px 18px; border-radius: 18px;
+  background: var(--hv2-surface, #fff); border: 1px solid var(--hv2-line, #E7E3D9);
+  box-shadow: var(--hv2-shadow, 0 1px 2px rgba(20,22,28,.04), 0 6px 18px rgba(20,22,28,.05));
+  font-family: inherit; color: var(--hv2-text, #15171C); cursor: pointer;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
 }
-.hv2-countdown-link:hover { gap: 9px; opacity: .85; }
+.hv2-countdown-link.is-static { cursor: default; }
+.hv2-countdown-link:not(.is-static):hover {
+  border-color: var(--hv2-orange-2, #F2865C); box-shadow: var(--hv2-shadow-lg, 0 2px 6px rgba(20,22,28,.05), 0 18px 40px rgba(20,22,28,.09));
+  transform: translateY(-1px);
+}
+.hv2-countdown-link:focus-visible { outline: 2px solid var(--hv2-orange, #EA580C); outline-offset: 2px; }
+.hv2-countdown-icon {
+  flex: 0 0 auto; display: inline-flex; color: var(--hv2-orange, #EA580C);
+}
+.hv2-countdown-glyph { display: block; }
+.hv2-countdown-body { display: flex; flex-direction: column; min-width: 0; gap: 2px; }
+.hv2-countdown-eyebrow {
+  font-weight: 700; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--hv2-text-3, #9A9EA6);
+}
+.hv2-countdown-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.hv2-countdown-num {
+  font-family: var(--hv2-font-display, 'Bricolage Grotesque', 'Inter', system-ui, sans-serif); font-weight: 700; font-size: 26px; line-height: 1.05;
+  letter-spacing: -0.02em; color: var(--hv2-text, #15171C); font-variant-numeric: tabular-nums;
+}
+.hv2-countdown-unit {
+  font-family: var(--hv2-font-display, 'Bricolage Grotesque', 'Inter', system-ui, sans-serif); font-weight: 700; font-size: 26px; line-height: 1.05;
+  letter-spacing: -0.02em; color: var(--hv2-text, #15171C); margin-left: -3px;
+}
+.hv2-countdown-chip {
+  display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 7px; margin-left: 2px;
+  background: var(--hv2-navy, #0C1026); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .01em; white-space: nowrap;
+}
+.hv2-countdown-meta { font-size: 12px; font-weight: 500; color: var(--hv2-text-2, #5B6068); line-height: 1.4; }
+.hv2-countdown-edit {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; margin-left: auto;
+  width: 32px; height: 32px; border-radius: 999px; color: var(--hv2-orange, #EA580C); background: var(--hv2-orange-tint, rgba(234,88,12,.1));
+  transition: background .15s ease, color .15s ease;
+}
+.hv2-countdown-link:not(.is-static):hover .hv2-countdown-edit { background: var(--hv2-orange, #EA580C); color: #fff; }
+.hv2-countdown.is-empty .hv2-countdown-num { color: var(--hv2-orange, #EA580C); }
+.hv2-countdown.is-today .hv2-countdown-num { color: var(--hv2-orange, #EA580C); }
+.hv2-countdown.is-taken .hv2-countdown-chip { background: var(--hv2-surface-2, #F1EEE7); color: var(--hv2-text-2, #5B6068); }
+.hv2-countdown.is-managing { flex-basis: 440px; }
 .hv2-countdown .tdp { color: var(--color-slate-900, #0f172a); }
-
-/* Header placement: a compact horizontal card that sits in the white space
-   beside the greeting; the date manager drops below it when open. */
-.hv2-countdown.is-header {
-  flex: 0 1 400px; min-width: 300px; padding: 16px 20px 14px; border-radius: 18px;
-  display: grid; grid-template-columns: auto 1fr; column-gap: 18px;
-  grid-template-areas: "eyebrow eyebrow" "num date" "num meta" "link link" "picker picker";
-  align-items: start;
+.hv2-sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
-.hv2-countdown.is-header .hv2-countdown-eyebrow { grid-area: eyebrow; }
-.hv2-countdown.is-header .hv2-countdown-row { grid-area: num; margin-top: 6px; flex-direction: column; align-items: flex-start; gap: 2px; }
-.hv2-countdown.is-header .hv2-countdown-num { font-size: 52px; }
-.hv2-countdown.is-header .hv2-countdown-unit { font-size: 12.5px; }
-.hv2-countdown.is-header .hv2-countdown-date { grid-area: date; align-self: end; margin-top: 0; font-size: 15px; padding-bottom: 2px; }
-.hv2-countdown.is-header .hv2-countdown-meta { grid-area: meta; align-self: start; margin-top: 0; font-size: 12px; }
-.hv2-countdown.is-header .hv2-countdown-link { grid-area: link; margin-top: 10px; }
-.hv2-countdown.is-header .tdp { grid-area: picker; }
 @media (max-width: 900px) {
-  .hv2-countdown.is-header { flex-basis: 100%; min-width: 0; }
+  .hv2-countdown.is-header, .hv2-countdown.is-managing { flex-basis: 100%; }
 }
