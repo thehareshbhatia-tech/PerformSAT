@@ -40,6 +40,7 @@ import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { parseLocalDate } from '../utils/localDate';
 import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import CalendarMonth from './CalendarMonth';
+import WeekPracticeStrip from './WeekPracticeStrip';
 import Avatar, { AVATAR_SIZES } from './ui/Avatar';
 import StudyPlanReviewSection from './StudyPlanReviewSection';
 import StudyPlanPacingSection from './StudyPlanPacingSection';
@@ -1748,6 +1749,9 @@ const StudyPlanLoaded = ({
       )}
 
       {ffPlanV3 && activeView === 'weeklyView' && (
+        <>
+        {/* Your week — Mon-Sun practice strip (founder 2026-08-25) */}
+        <WeekPracticeStrip practicedDays={practicedDayKeys} />
         <div className="sp-today-panel sp-s-panel">
           {weeks[displayCurrentWeek] && (
             renderWeekDays(weeks[displayCurrentWeek], displayCurrentWeek, { upcomingOnly: !editMode, skin: 'simple', narrative: 'short' })
@@ -1847,6 +1851,7 @@ const StudyPlanLoaded = ({
             )}
           </div>
         </div>
+        </>
       )}
 
       {/* ════════════ TODAY'S TASKS — legacy tab (flag OFF) ════════════ */}
