@@ -25,7 +25,7 @@ describe('WeekPracticeStrip', () => {
   });
   it('invites the first practice when the week is empty', () => {
     const { container, unmount } = mount(<WeekPracticeStrip practicedDays={new Set()} today={THU} />);
-    expect(container.querySelector('.wps-caption').textContent).toBe('Nothing yet this week. Today counts.');
+    expect(container.querySelector('.wps-caption').textContent).toBe('No sparks yet this week. Today counts.');
     expect(container.querySelectorAll('.wps-day.is-done')).toHaveLength(0);
     unmount();
   });
