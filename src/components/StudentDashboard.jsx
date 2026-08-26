@@ -664,12 +664,11 @@ const StudentDashboard = ({
             )}
           </button>
         </div>
-        {/* Your week — Mon-Sun practice strip (founder 2026-08-25: on the
-            home screen, under the tabs, so it's visible on both tabs). */}
-        <WeekPracticeStrip variant="bare" practicedDays={practicedDayKeys} />
         </div>
-        {/* Test-day countdown — the upper white space beside the greeting
-            (founder 2026-08-25: prominent, but the rail keeps its calendar). */}
+        {/* Test-day countdown + the week's sparks, stacked in the upper-right
+            white space beside the greeting (founder 2026-08-25: the streak
+            belongs under the countdown, not under the tabs). */}
+        <div className="dashboard-header-aside">
         <TestDayCountdown
           className="is-header"
           testDate={user?.testDate}
@@ -684,6 +683,8 @@ const StudentDashboard = ({
             onDone={() => setCountdownManaging(false)}
           />
         </TestDayCountdown>
+        <WeekPracticeStrip variant="aside" practicedDays={practicedDayKeys} />
+        </div>
       </div>
 
       {activeTab === 'studyPlan' ? (

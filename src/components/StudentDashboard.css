@@ -31,6 +31,11 @@
   flex-wrap: wrap;
 }
 .dashboard-header-main { min-width: 0; flex: 1 1 420px; }
+/* Countdown card + week sparks, stacked on the right of the header. */
+.dashboard-header-aside { display: flex; flex-direction: column; align-items: stretch; gap: 12px; flex: 0 1 auto; min-width: 0; max-width: 100%; }
+@media (max-width: 900px) {
+  .dashboard-header-aside { flex-basis: 100%; }
+}
 
 /* ── Greeting row with profile pic (user call 2026-06-06: small avatar
    beside the original greeting — no hero card) ───────────────────────── */

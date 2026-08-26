@@ -1,6 +1,6 @@
 /**
- * WeekPracticeStrip — Monday-to-Sunday practice tracker in the Home header
- * under the Dashboard / Study Plan tabs (founder 2026-08-25: "there should
+ * WeekPracticeStrip — Monday-to-Sunday practice tracker in the Home header,
+ * stacked under the test-day countdown card (founder 2026-08-25: "there should
  * be something like this on the homescreen … something unique like the
  * fire; a little more playful"). Each practiced day earns a SPARK — a
  * tri-color burst in the SEVA mark's purple / orange / lime that pops in.
@@ -11,7 +11,7 @@
  * @param {object} props
  * @param {Set<string>|string[]} props.practicedDays  YYYY-MM-DD keys
  * @param {Date} [props.today]
- * @param {'card'|'bare'} [props.variant]  'bare' drops the card chrome (Home header)
+ * @param {'card'|'bare'|'aside'} [props.variant]  'bare' = no card chrome; 'aside' = stacked under the countdown card
  */
 import React from 'react';
 import { getWeekPractice } from '../services/selectors/weekPractice';
@@ -49,7 +49,7 @@ function caption({ done, elapsed, todayDone, streak }) {
 export default function WeekPracticeStrip({ practicedDays, today = new Date(), variant = 'card' }) {
   const week = getWeekPractice(practicedDays, today);
   return (
-    <section className={`wps${variant === 'bare' ? ' is-bare' : ''}`} aria-label="Your week" data-testid="week-practice-strip">
+    <section className={`wps${variant !== 'card' ? ` is-${variant}` : ''}`} aria-label="Your week" data-testid="week-practice-strip">
       <ol className="wps-days">
         {week.days.map((d, i) => {
           const practiced = d.state === 'done' || d.state === 'today-done';
