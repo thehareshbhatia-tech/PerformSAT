@@ -395,6 +395,21 @@ const PerformSAT = () => {
   // link or the Diagnostic card at the top of the Practice Tests list.
   const [diagnosisReturnTo, setDiagnosisReturnTo] = useState('dashboard');
   const openDiagnosis = (returnTo) => { setDiagnosisReturnTo(returnTo); setView('diagnosticResults'); };
+  // Question-by-question review of the diagnostic sitting in the same runner
+  // past practice tests use. Needs the loaded snapshot; no-op until 'ready'.
+  const openDiagnosticReview = (moduleIndex, returnTo) => {
+    const data = diagnosticSitting.status === 'ready' ? diagnosticSitting.data : null;
+    if (!data) return;
+    setViewingResultsData({
+      test: data.test,
+      answers: data.answers,
+      reviewModule: Number.isFinite(moduleIndex) ? moduleIndex : 0,
+      attemptId: data.attemptId,
+      snapshotMissing: false,
+      returnTo,
+    });
+    setView('reviewingPastResults');
+  };
   const openProfileGoals = () => { setProfileFocus('goals'); setView('profile'); };
   useEffect(() => {
     // Sidebar / palette routes into Profile must not inherit a stale deep-link.
@@ -942,12 +957,15 @@ const PerformSAT = () => {
   const handleStartPlanCheckIn = () => launchDiagnostic(DIAGNOSTIC_LAUNCH_PLAN_CHECKIN);
 
   // Sitting snapshot fetch for the re-opened diagnosis (needs user + the
-  // miniDiagnostic record, both declared above). Keyed by attemptId through a
-  // ref so the effect never re-arms on its own status change (a cleanup on
-  // that re-run used to drop the in-flight result and strand "Loading…").
+  // miniDiagnostic record, both declared above). Also prefetched on the
+  // Practice Tests list, whose Diagnostic card offers "Review answers" — one
+  // doc read, and the attemptId key means the later diagnosis open is free.
+  // Keyed by attemptId through a ref so the effect never re-arms on its own
+  // status change (a cleanup on that re-run used to drop the in-flight result
+  // and strand "Loading…").
   const sittingLoadedFor = useRef(null);
   useEffect(() => {
-    if (view !== 'diagnosticResults' || !user?.uid) return;
+    if ((view !== 'diagnosticResults' && view !== 'practiceTests') || !user?.uid) return;
     const attemptId = miniDiagnostic?.attemptId || null;
     if (!attemptId) {
       if (sittingLoadedFor.current !== '__none__') {
@@ -3198,6 +3216,8 @@ const PerformSAT = () => {
             inProgressTests={inProgressTests}
             miniDiagnostic={miniDiagnostic}
             onViewDiagnosis={miniDiagnostic ? () => openDiagnosis('practiceTests') : undefined}
+            diagnosticReviewStatus={diagnosticSitting.status}
+            onReviewDiagnosticQuestions={() => openDiagnosticReview(0, 'practiceTests')}
             onViewResults={async (test) => {
               // Pick the NEWEST attempt order-independently by completedAt. The
               // attempts array orientation is not stable: trimAttempts stores it
@@ -3515,19 +3535,11 @@ const PerformSAT = () => {
                 onStartPracticeTest={() => setView('practiceTests')}
                 sitting={diagnosticSitting.status === 'ready' ? diagnosticSitting.data : null}
                 sittingStatus={diagnosticSitting.status}
-                onReviewQuestions={diagnosticSitting.status === 'ready' && diagnosticSitting.data ? (moduleIndex) => {
+                onReviewQuestions={diagnosticSitting.status === 'ready' && diagnosticSitting.data
                   // Same review runner as past practice tests, on the rebuilt
                   // sitting; back returns here, not to the results tab.
-                  setViewingResultsData({
-                    test: diagnosticSitting.data.test,
-                    answers: diagnosticSitting.data.answers,
-                    reviewModule: Number.isFinite(moduleIndex) ? moduleIndex : 0,
-                    attemptId: diagnosticSitting.data.attemptId,
-                    snapshotMissing: false,
-                    returnTo: 'diagnosticResults',
-                  });
-                  setView('reviewingPastResults');
-                } : null}
+                  ? (moduleIndex) => openDiagnosticReview(moduleIndex, 'diagnosticResults')
+                  : null}
               />
             </div>
           </ErrorBoundary>

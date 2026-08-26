@@ -63,6 +63,28 @@ describe('PracticeTestList diagnostic card', () => {
     b.unmount();
   });
 
+  test('"Review answers" appears once the sitting snapshot is ready and opens the review', () => {
+    const onReview = jest.fn();
+    const ready = mount(<PracticeTestList {...baseProps} miniDiagnostic={record} onViewDiagnosis={() => {}} diagnosticReviewStatus="ready" onReviewDiagnosticQuestions={onReview} />);
+    const btn = [...ready.container.querySelectorAll('.pt-card.is-diagnostic .pt-btn')].find((b) => b.textContent.trim() === 'Review answers');
+    expect(btn).toBeTruthy();
+    expect(btn.disabled).toBe(false);
+    act(() => { btn.click(); });
+    expect(onReview).toHaveBeenCalledTimes(1);
+    ready.unmount();
+
+    const loading = mount(<PracticeTestList {...baseProps} miniDiagnostic={record} onViewDiagnosis={() => {}} diagnosticReviewStatus="loading" onReviewDiagnosticQuestions={onReview} />);
+    const pending = [...loading.container.querySelectorAll('.pt-card.is-diagnostic .pt-btn')].find((b) => b.textContent.trim() === 'Review answers');
+    expect(pending.disabled).toBe(true);
+    loading.unmount();
+
+    // Legacy record with no snapshot → no review button, diagnosis still opens.
+    const missing = mount(<PracticeTestList {...baseProps} miniDiagnostic={record} onViewDiagnosis={() => {}} diagnosticReviewStatus="missing" onReviewDiagnosticQuestions={onReview} />);
+    expect(missing.container.querySelector('.pt-card.is-diagnostic').textContent).not.toContain('Review answers');
+    expect(missing.container.querySelector('.pt-card.is-diagnostic').textContent).toContain('View diagnosis');
+    missing.unmount();
+  });
+
   test('labels a check-in variant', () => {
     const { container, unmount } = mount(<PracticeTestList {...baseProps} miniDiagnostic={{ ...record, diagnosticVariant: 'checkin' }} onViewDiagnosis={() => {}} />);
     expect(container.querySelector('.pt-card.is-diagnostic').textContent).toContain('Check-in');

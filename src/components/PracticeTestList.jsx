@@ -67,6 +67,10 @@ const PracticeTestList = ({
   // list leads with a Diagnostic card above #1 that re-opens the diagnosis.
   miniDiagnostic = null,
   onViewDiagnosis,
+  // Sitting-snapshot load state ('idle'|'loading'|'ready'|'missing'|'error')
+  // gating the card's "Review answers"; the handler opens the review runner.
+  diagnosticReviewStatus = 'idle',
+  onReviewDiagnosticQuestions,
 }) => {
   const tests = getAllPracticeTests();
   // One open launch dropdown at a time, keyed by `${testId}:launch`.
@@ -204,7 +208,12 @@ const PracticeTestList = ({
 
       <div className="pt-list">
         {miniDiagnostic && typeof onViewDiagnosis === 'function' && (
-          <DiagnosticCard record={miniDiagnostic} onView={onViewDiagnosis} />
+          <DiagnosticCard
+            record={miniDiagnostic}
+            onView={onViewDiagnosis}
+            reviewStatus={diagnosticReviewStatus}
+            onReview={onReviewDiagnosticQuestions}
+          />
         )}
         {tests.map((test, idx) => (
           <TestCard
@@ -346,9 +355,11 @@ const LaunchMenu = ({ totalTime, onPick, up }) => (
 /**
  * The student's diagnostic sitting, listed above Digital SAT #1. It is a
  * different kind of test (adaptive, ~40 questions, no scaled score), so it
- * never shows a TOTAL — its only action is re-opening the full diagnosis.
+ * never shows a TOTAL. Actions: review the exact questions (once the sitting
+ * snapshot has loaded — legacy records without one get no review button)
+ * and re-open the full diagnosis.
  */
-const DiagnosticCard = ({ record, onView }) => {
+const DiagnosticCard = ({ record, onView, reviewStatus = 'idle', onReview }) => {
   const dateStr = fmtShortDate(record?.completedAt);
   const total = typeof record?.totalCount === 'number' && record.totalCount > 0 ? record.totalCount : null;
   const isCheckin = record?.diagnosticVariant === 'checkin';
@@ -368,9 +379,22 @@ const DiagnosticCard = ({ record, onView }) => {
           </div>
           <div className="pt-card-meta">{meta}</div>
         </div>
-        <button type="button" className="pt-btn is-primary" onClick={onView}>
-          View diagnosis <ArrowRightIcon size={16} color="currentColor" />
-        </button>
+        <div className="pt-diag-actions">
+          {typeof onReview === 'function' && (reviewStatus === 'ready' || reviewStatus === 'loading') && (
+            <button
+              type="button"
+              className="pt-btn is-outline"
+              onClick={onReview}
+              disabled={reviewStatus !== 'ready'}
+              title="Go through every question from your diagnostic with the answers and explanations"
+            >
+              Review answers
+            </button>
+          )}
+          <button type="button" className="pt-btn is-primary" onClick={onView}>
+            View diagnosis <ArrowRightIcon size={16} color="currentColor" />
+          </button>
+        </div>
       </div>
     </div>
   );
