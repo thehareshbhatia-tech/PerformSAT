@@ -407,6 +407,9 @@ const PerformSAT = () => {
       attemptId: data.attemptId,
       snapshotMissing: false,
       answersMissing: !!data.answersMissing,
+      // The diagnostic reviews on the live Bluebook screen (answers marked,
+      // explanation on demand, no tutor) rather than the three-pane review.
+      reviewLayout: 'bluebook',
       returnTo,
     });
     setView('reviewingPastResults');
@@ -3569,6 +3572,7 @@ const PerformSAT = () => {
             answeredQuestionIds={answeredQuestionIds}
             reviewSnapshotMissing={viewingResultsData.snapshotMissing}
             reviewAnswersMissing={!!viewingResultsData.answersMissing}
+            reviewLayout={viewingResultsData.reviewLayout || 'panel'}
             reviewBackLabel={viewingResultsData.returnTo === 'practiceTests' ? 'Tests' : viewingResultsData.returnTo === 'diagnosticResults' ? 'Diagnosis' : 'Results'}
             reviewAttemptId={viewingResultsData.attemptId}
             tutorLocked={billingLocked}

@@ -643,9 +643,19 @@ const sanitizeGridIn = (raw) => {
   return s.slice(0, s[0] === '-' ? 6 : 5);
 };
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAnswersMissing = false, reviewBackLabel = 'Results', reviewAttemptId = null, initialSection = null, resultSaveStatus = null, onRetrySave = null, tutorLocked = false, onSubscribe = null, onDiagnosticFinished = null, diagnosticScoreAnchor = null }) => {
+// Degraded-review notices: a practice-test snapshot that is gone (questions
+// may have changed) vs. a diagnostic rebuilt from its item ids (exact
+// questions, but the answer choices were never saved).
+const SNAPSHOT_MISSING_NOTICE = 'Questions have been updated since this attempt. Original problems are not available for review \u2014 what you see may differ from what you answered.';
+const ANSWERS_MISSING_NOTICE = 'These are the exact questions from your diagnostic, with the correct answers and explanations. Your own answer choices weren\u2019t saved for this sitting, so every question shows as unanswered.';
+
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAnswersMissing = false, reviewBackLabel = 'Results', reviewLayout = 'panel', reviewAttemptId = null, initialSection = null, resultSaveStatus = null, onRetrySave = null, tutorLocked = false, onSubscribe = null, onDiagnosticFinished = null, diagnosticScoreAnchor = null }) => {
+  // Bluebook-layout review: the live test screen itself, read-only, every
+  // choice marked, an explanation card under the answers — no clock, no
+  // tutor. `reviewLayout='panel'` keeps the three-pane review.
+  const bluebookReview = initialReviewModule !== null && reviewLayout === 'bluebook';
   const [currentModule, setCurrentModule] = useState(
-    pickInitialModuleIndex(test, savedProgress, initialSection)
+    bluebookReview ? initialReviewModule : pickInitialModuleIndex(test, savedProgress, initialSection)
   );
   const [currentQuestion, setCurrentQuestion] = useState(savedProgress?.currentQuestion || 0);
   const [answers, setAnswers] = useState(savedProgress?.answers || {});
@@ -675,15 +685,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   // next module) rather than re-entering an already-submitted module with the
   // frozen clock and editable answers.
   const [moduleCompleted, setModuleCompleted] = useState(savedProgress?.moduleCompleted || false);
-  const [testCompleted, setTestCompleted] = useState(initialReviewModule !== null);
+  const [testCompleted, setTestCompleted] = useState(initialReviewModule !== null && !bluebookReview);
   const [fillInValue, setFillInValue] = useState('');
   const [showCalculator, setShowCalculator] = useState(false);
   const [showReference, setShowReference] = useState(false);
-  const [reviewMode, setReviewMode] = useState(initialReviewModule !== null);
+  const [reviewMode, setReviewMode] = useState(initialReviewModule !== null && !bluebookReview);
   const [reviewModule, setReviewModule] = useState(initialReviewModule !== null ? initialReviewModule : 0);
   const [reviewQuestion, setReviewQuestion] = useState(0);
   const [reviewTab, setReviewTab] = useState('question');
   const [reviewRightPane, setReviewRightPane] = useState('both');
+  const [reviewExplanationOpen, setReviewExplanationOpen] = useState(false);
 
   // Stale-content notice: shown only when the per-attempt snapshot is missing
   // (legacy attempts predate the snapshot subcollection). Dismissible per attempt
@@ -1064,10 +1075,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
 
   useEffect(() => {
     if (testCompleted || reviewMode) return;
-    const onBeforeUnload = (e) => { e.preventDefault(); e.returnValue = ''; };
+    const onBeforeUnload = (e) => {
+      if (bluebookReview) return; e.preventDefault(); e.returnValue = ''; };
     window.addEventListener('beforeunload', onBeforeUnload);
     return () => window.removeEventListener('beforeunload', onBeforeUnload);
-  }, [testCompleted, reviewMode]);
+  }, [bluebookReview, testCompleted, reviewMode]);
 
   // Flush progress the moment the tab hides (refresh/close/app-switch).
   // The debounced save above only fires on interaction, so without this a
@@ -2400,9 +2412,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             }}
           >
             <span>
-              {reviewAnswersMissing
-                ? 'These are the exact questions from your diagnostic, with the correct answers and explanations. Your own answer choices weren\u2019t saved for this sitting, so every question shows as unanswered.'
-                : 'Questions have been updated since this attempt. Original problems are not available for review \u2014 what you see may differ from what you answered.'}
+              {reviewAnswersMissing ? ANSWERS_MISSING_NOTICE : SNAPSHOT_MISSING_NOTICE}
             </span>
             <button
               onClick={dismissSnapshotNotice}
@@ -3174,7 +3184,67 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     );
   }
 
+  // Bluebook review navigation crosses module boundaries: Next on a module's
+  // last question opens the next module, Back on its first returns to the
+  // previous module's last question, and Next past the final module leaves.
+  const goToReviewPosition = (modIdx, qIdx) => {
+    setShowQuestionGridPopover(false);
+    setReviewExplanationOpen(false);
+    setCurrentModule(modIdx);
+    setCurrentQuestion(qIdx);
+  };
+  const isLastReviewQuestion = currentModule === effectiveModules.length - 1 && currentQuestion === questions.length - 1;
+  const handleReviewNext = () => {
+    if (currentQuestion < questions.length - 1) { setReviewExplanationOpen(false); setCurrentQuestion(currentQuestion + 1); return; }
+    if (currentModule < effectiveModules.length - 1) { goToReviewPosition(currentModule + 1, 0); return; }
+    onBack?.();
+  };
+  const handleReviewPrev = () => {
+    if (currentQuestion > 0) { setReviewExplanationOpen(false); setCurrentQuestion(currentQuestion - 1); return; }
+    if (currentModule > 0) {
+      const prevLen = effectiveModules[currentModule - 1]?.questions?.length || 1;
+      goToReviewPosition(currentModule - 1, prevLen - 1);
+    }
+  };
+  const reviewNextHandler = bluebookReview ? handleReviewNext : (currentQuestion === questions.length - 1 ? handleGoToReview : handleNext);
+  const reviewPrevHandler = bluebookReview ? handleReviewPrev : handlePrev;
+  const reviewPrevDisabled = bluebookReview ? (currentModule === 0 && currentQuestion === 0) : currentQuestion === 0;
+  const reviewNextLabel = bluebookReview && isLastReviewQuestion ? 'Done' : 'Next';
+  // Section-relative short label for the review module tabs (R&W M1 …).
+  const shortModuleLabel = (mod, idx) => {
+    const sameSection = effectiveModules.filter((m) => m.section === mod.section).length;
+    const n = effectiveModules.slice(0, idx).filter((m) => m.section === mod.section).length + 1;
+    const base = mod.section === 'math' ? 'Math' : 'R&W';
+    return sameSection > 1 ? `${base} M${n}` : base;
+  };
+
   const currentAnswer = answers[`${currentModule}-${currentQuestion}`];
+  const reviewAnswered = currentAnswer !== undefined && currentAnswer !== null && currentAnswer !== '';
+  const reviewIsCorrect = bluebookReview && question ? isAnswerCorrect(question, currentAnswer) : false;
+  // Module tabs for the Bluebook review: in the header on desktop, on their
+  // own scrollable strip under it on phones (the header row can't wrap).
+  const reviewModuleTabs = bluebookReview ? (
+    <div className="review-module-tabs" role="tablist" aria-label="Modules">
+      {effectiveModules.map((mod, modIdx) => {
+        const total = mod.questions.length;
+        const correct = mod.questions.filter((q, qIdx) => isAnswerCorrect(q, answers[`${modIdx}-${qIdx}`])).length;
+        const active = modIdx === currentModule;
+        return (
+          <button
+            key={modIdx}
+            type="button"
+            role="tab"
+            aria-selected={active}
+            className={`review-module-tab${active ? ' is-active' : ''}`}
+            onClick={() => goToReviewPosition(modIdx, 0)}
+          >
+            {shortModuleLabel(mod, modIdx)}{' '}
+            <span className="review-module-score">{correct}/{total}</span>
+          </button>
+        );
+      })}
+    </div>
+  ) : null;
   const isMarked = markedForReview.includes(currentQuestion);
 
   // Derived chrome for the SEVA Test redesign (presentational only).
@@ -3185,7 +3255,56 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
 
   // Shared answer block (choices or fill-in) — the timed test uses the
   // Bluebook always-visible cross-out (crossOut="bluebook"); the drill does not.
-  const answerBlock = question?.type === 'fill-in' ? (
+  const answerBlock = bluebookReview ? (
+    <>
+      {question?.type === 'fill-in' ? (
+        <div className="review-fillin">
+          <div className="review-fillin-row">
+            <span>Your answer</span>
+            <strong className={reviewAnswered ? (reviewIsCorrect ? 'is-correct' : 'is-wrong') : ''}>
+              {reviewAnswered ? String(currentAnswer) : 'Not answered'}
+            </strong>
+          </div>
+          <div className="review-fillin-row">
+            <span>Correct answer</span>
+            <strong className="is-correct">{String(question?.correctAnswer ?? '')}</strong>
+          </div>
+        </div>
+      ) : (
+        <AnswerChoiceList
+          choices={question?.choices || []}
+          selectedId={currentAnswer}
+          eliminatedIds={[]}
+          showResult
+          correctId={question?.correctAnswer ?? null}
+          onSelect={() => {}}
+          onToggleEliminate={() => {}}
+          crossOut="bluebook"
+          crossOutControls={false}
+        />
+      )}
+      <div className="review-verdict">
+        <span className={`review-verdict-pill ${reviewAnswered ? (reviewIsCorrect ? 'is-correct' : 'is-wrong') : 'is-skipped'}`}>
+          {reviewAnswered ? (reviewIsCorrect ? 'Correct' : 'Incorrect') : 'Not answered'}
+        </span>
+        <button
+          type="button"
+          className="rw-mark-toggle review-explain-toggle"
+          onClick={() => setReviewExplanationOpen((v) => !v)}
+          aria-expanded={reviewExplanationOpen}
+        >
+          {reviewExplanationOpen ? 'Hide explanation' : 'Show explanation'}
+        </button>
+      </div>
+      {reviewExplanationOpen && (
+        <div className="review-explanation">
+          {question?.explanation
+            ? <SolutionExplanation explanation={question.explanation} isCorrect={reviewIsCorrect} />
+            : <p className="review-explanation-empty">No explanation available for this question.</p>}
+        </div>
+      )}
+    </>
+  ) : question?.type === 'fill-in' ? (
     <div style={{ marginTop: '8px' }}>
       <input
         type="text"
@@ -3229,13 +3348,19 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   );
 
   return (
-    <div className="test-session-shell" data-section={isReadingWriting ? 'reading-writing' : 'math'}>
+    <div className={`test-session-shell${bluebookReview ? ' is-review' : ''}`} data-section={isReadingWriting ? 'reading-writing' : 'math'}>
+      {bluebookReview && showSnapshotNotice && (
+        <div role="status" className="review-notice">
+          <span>{reviewAnswersMissing ? ANSWERS_MISSING_NOTICE : SNAPSHOT_MISSING_NOTICE}</span>
+          <button type="button" className="review-notice-dismiss" onClick={dismissSnapshotNotice} aria-label="Dismiss notice">Dismiss</button>
+        </div>
+      )}
       {/* Header */}
       <div className="test-session-header">
         <div className="header-left">
-          <button onClick={handleRequestLeave} className="test-exit-btn" type="button">
+          <button onClick={bluebookReview ? () => onBack?.() : handleRequestLeave} className="test-exit-btn" type="button">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-            Exit
+            {bluebookReview ? reviewBackLabel : 'Exit'}
           </button>
           {!isMobile && (
             <>
@@ -3244,20 +3369,26 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               <span className="test-name-tag">{test.title}</span>
             </>
           )}
-          <button className="test-top-btn" onClick={() => setDirectionsOpen(true)} type="button">
-            Directions
-          </button>
+          {!bluebookReview && (
+            <button className="test-top-btn" onClick={() => setDirectionsOpen(true)} type="button">
+              Directions
+            </button>
+          )}
         </div>
 
         <div className="header-center">
-          <div className="header-title">{module.title}</div>
-          <div className="header-subtitle">Question {currentQuestion + 1} of {questions.length}</div>
+          {bluebookReview && !isMobile ? reviewModuleTabs : (
+            <>
+              <div className="header-title">{module.title}</div>
+              <div className="header-subtitle">Question {currentQuestion + 1} of {questions.length}</div>
+            </>
+          )}
         </div>
 
         <div className="header-right">
           {/* Bluebook ABC answer-eliminator toggle — cross-out controls stay
               hidden until the tool is on; existing strikethroughs always show. */}
-          {question?.type !== 'fill-in' && (
+          {!bluebookReview && question?.type !== 'fill-in' && (
             <button
               className="test-top-btn"
               onClick={() => setEliminatorMode(v => !v)}
@@ -3305,14 +3436,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               Reference
             </button>
           )}
-          <button onClick={handlePauseToggle} className="test-top-btn" type="button">
+          {!bluebookReview && (<button onClick={handlePauseToggle} className="test-top-btn" type="button">
             {isPaused ? (
               <><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5v14l11-7z"/></svg>Resume</>
             ) : (
               <><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>Pause</>
             )}
-          </button>
-          {isTimed ? (
+          </button>)}
+          {bluebookReview ? null : isTimed ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <button
                 onClick={() => setShowTimer(!showTimer)}
@@ -3339,12 +3470,12 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               {isMobile ? 'Untimed' : 'Untimed Mode'}
             </span>
           )}
-          {!isMobile && (
+          {!isMobile && !bluebookReview && (
             <button onClick={handleRequestEndTest} className="test-end-btn" type="button">
               End Test
             </button>
           )}
-          {isDevMode && (
+          {isDevMode && !bluebookReview && (
             <button
               onClick={handleDevAutoSubmit}
               className="btn-launch"
@@ -3468,6 +3599,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
         </div>
       )}
 
+      {bluebookReview && isMobile && (
+        <div className="review-tabs-strip">{reviewModuleTabs}</div>
+      )}
       <div className="test-session-body">
         {/* Floating tools live OUTSIDE the workspace so entering the review
             page doesn't unmount them — unmounting the calculator destroys the
@@ -3863,17 +3997,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           <>
             {/* Math top controls */}
             <div className="test-controls-top">
-              <button onClick={handlePrev} disabled={currentQuestion === 0} className="bottom-nav-btn" type="button">
+              <button onClick={reviewPrevHandler} disabled={reviewPrevDisabled} className="bottom-nav-btn" type="button">
                 Previous
               </button>
               {/* Bluebook: the last question's Next goes to Check Your Work,
                   never straight out of the module. */}
               <button
                 className="bottom-nav-btn is-primary"
-                onClick={currentQuestion === questions.length - 1 ? handleGoToReview : handleNext}
+                onClick={reviewNextHandler}
                 type="button"
               >
-                Next Question
+                {bluebookReview ? reviewNextLabel : 'Next Question'}
               </button>
             </div>
 
@@ -3898,15 +4032,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           and never be able to advance to the next module. */}
       {isReadingWriting && isMobile && (
         <div className="test-controls-top" style={{ marginTop: '1.5rem' }}>
-          <button onClick={handlePrev} disabled={currentQuestion === 0} className="bottom-nav-btn" type="button">
+          <button onClick={reviewPrevHandler} disabled={reviewPrevDisabled} className="bottom-nav-btn" type="button">
             Back
           </button>
           <button
             className="bottom-nav-btn is-primary"
-            onClick={currentQuestion === questions.length - 1 ? handleGoToReview : handleNext}
+            onClick={reviewNextHandler}
             type="button"
           >
-            Next
+            {reviewNextLabel}
           </button>
         </div>
       )}
@@ -3971,14 +4105,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
                   <div className="nav-legend-item"><div className="nav-legend-icon"></div><span>Unanswered</span></div>
                 </div>
                 {/* Bluebook: the navigator links to the Check Your Work page */}
-                <button
-                  className="bottom-nav-btn"
-                  style={{ width: '100%', marginTop: '0.75rem' }}
-                  onClick={() => { setShowQuestionGridPopover(false); handleGoToReview(); }}
-                  type="button"
-                >
-                  Go to Review Page
-                </button>
+                {!bluebookReview && (
+                  <button
+                    className="bottom-nav-btn"
+                    style={{ width: '100%', marginTop: '0.75rem' }}
+                    onClick={() => { setShowQuestionGridPopover(false); handleGoToReview(); }}
+                    type="button"
+                  >
+                    Go to Review Page
+                  </button>
+                )}
               </div>
             )}
             <button
@@ -3995,16 +4131,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           <div className="bottom-bar-right">
             <button
               className="bottom-nav-btn"
-              onClick={handlePrev}
-              disabled={currentQuestion === 0}
+              onClick={reviewPrevHandler}
+              disabled={reviewPrevDisabled}
             >
               Back
             </button>
             <button
               className="bottom-nav-btn is-primary"
-              onClick={currentQuestion === questions.length - 1 ? handleGoToReview : handleNext}
+              onClick={reviewNextHandler}
             >
-              Next
+              {reviewNextLabel}
             </button>
           </div>
         </div>
