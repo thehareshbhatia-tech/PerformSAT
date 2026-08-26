@@ -961,7 +961,7 @@
 
 
 /* ── Bluebook review — the live screen, read-only, answers marked ──────── */
-.test-session-shell.is-review .rw-mark-toggle:not(.review-explain-toggle) { display: none; }
+.test-session-shell.is-review .rw-mark-toggle:not(.review-explain-toggle):not(.review-tutor-toggle) { display: none; }
 .test-session-shell.is-review .test-controls-bottom { display: none; }
 .test-session-shell.is-review .answer-choice-card { cursor: default; }
 .test-session-shell.is-review .answer-choice-card.is-correct { border-color: var(--pt-green); background: var(--pt-green-tint); }
