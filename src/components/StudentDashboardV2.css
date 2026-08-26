@@ -370,7 +370,7 @@
    card is the button that opens the inline date manager below it. */
 .hv2-countdown {
   font-family: var(--hv2-font-body, 'Hanken Grotesk', 'Inter', system-ui, sans-serif);
-  flex: 0 1 auto; min-width: 0; max-width: 100%;
+  flex: 0 1 auto; min-width: 0; max-width: 100%; position: relative;
 }
 .hv2-countdown-link {
   display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
@@ -417,11 +417,17 @@
 .hv2-countdown.is-empty .hv2-countdown-num { color: var(--hv2-orange, #EA580C); }
 .hv2-countdown.is-today .hv2-countdown-num { color: var(--hv2-orange, #EA580C); }
 .hv2-countdown.is-taken .hv2-countdown-chip { background: var(--hv2-surface-2, #F1EEE7); color: var(--hv2-text-2, #5B6068); }
-.hv2-countdown.is-managing { flex-basis: 440px; }
-.hv2-countdown .tdp { color: var(--color-slate-900, #0f172a); }
+.hv2-countdown.is-managing .hv2-countdown-link { border-color: var(--hv2-orange-2, #F2865C); }
+/* The date manager floats under the card instead of pushing the page down. */
+.hv2-countdown-pop {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 60;
+  width: 460px; max-width: calc(100vw - 32px);
+}
+.hv2-countdown-pop .tdp { margin-top: 0; color: var(--color-slate-900, #0f172a); box-shadow: var(--hv2-shadow-lg, 0 2px 6px rgba(20,22,28,.05), 0 18px 40px rgba(20,22,28,.09)); border-radius: 18px; }
 .hv2-sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
 @media (max-width: 900px) {
-  .hv2-countdown.is-header, .hv2-countdown.is-managing { flex-basis: 100%; }
+  .hv2-countdown.is-header { flex-basis: 100%; }
+  .hv2-countdown-pop { left: 0; right: 0; width: auto; max-width: none; }
 }

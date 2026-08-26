@@ -3,8 +3,10 @@
  * greeting on Home (founder 2026-08-25: keep the placement, lose the navy
  * tile — a light, compact card in the style of a calendar widget: icon,
  * small-caps label, big day count, date chip, edit control). The whole card
- * is the button that opens the inline date manager, which drops below it.
- * Reads the same primary date every other surface paces off.
+ * is the button that opens the date manager, which floats below the card as
+ * a popover (never in flow — founder 2026-08-25: pushing the whole dashboard
+ * down was "uncomfortable"). Escape or a click outside closes it. Reads the
+ * same primary date every other surface paces off.
  *
  * States: counting down · test day today · last sitting behind them with
  * nothing ahead ("add your next date") · no date at all ("pick a date").
@@ -18,7 +20,7 @@
  * @param {React.ReactNode} [props.children]
  * @param {string} [props.className]       e.g. 'is-header' for the header placement
  */
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { getUserTestDates, splitTestDates } from '../services/selectors/testDates';
 import { SAT_TEST_DATES, formatSatChipLabel } from '../data/satTestDates';
@@ -101,6 +103,15 @@ export default function TestDayCountdown({ testDate = null, testDates = null, to
   }
 
   const canManage = typeof onManage === 'function';
+  const rootRef = useRef(null);
+  useEffect(() => {
+    if (!managing || !canManage) return undefined;
+    const onKey = (e) => { if (e.key === 'Escape') onManage(); };
+    const onDown = (e) => { if (rootRef.current && !rootRef.current.contains(e.target)) onManage(); };
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('mousedown', onDown);
+    return () => { document.removeEventListener('keydown', onKey); document.removeEventListener('mousedown', onDown); };
+  }, [managing, canManage, onManage]);
   const summary = !primary ? 'No test date yet' : days === 0 ? `Test day today, ${longDate(primary)}` : days > 0 ? `${big} ${unit} until your SAT on ${longDate(primary)}` : `SAT taken ${longDate(primary)}`;
 
   const body = (
@@ -122,7 +133,7 @@ export default function TestDayCountdown({ testDate = null, testDates = null, to
   );
 
   return (
-    <div className={`hv2-countdown${className ? ` ${className}` : ''}${tone ? ` ${tone}` : ''}${managing ? ' is-managing' : ''}`} data-testid="test-day-countdown">
+    <div ref={rootRef} className={`hv2-countdown${className ? ` ${className}` : ''}${tone ? ` ${tone}` : ''}${managing ? ' is-managing' : ''}`} data-testid="test-day-countdown">
       {canManage ? (
         <button type="button" className="hv2-countdown-link" onClick={onManage} aria-expanded={managing} aria-label={`${summary}. ${managing ? 'Close' : action}`}>
           {body}
@@ -131,7 +142,9 @@ export default function TestDayCountdown({ testDate = null, testDates = null, to
       ) : (
         <div className="hv2-countdown-link is-static" role="group" aria-label={summary}>{body}</div>
       )}
-      {managing && children}
+      {managing && children && (
+        <div className="hv2-countdown-pop" role="dialog" aria-label="Your SAT dates">{children}</div>
+      )}
     </div>
   );
 }
