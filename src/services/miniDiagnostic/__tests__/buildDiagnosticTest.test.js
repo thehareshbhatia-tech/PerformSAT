@@ -13,6 +13,7 @@
  *    focus-skill items when the plan supplies focusSkills
  */
 
+import { manifestFromServedItemIds } from '../buildDiagnosticTest';
 import {
   buildDiagnosticTest,
   rebuildDiagnosticTest,
@@ -247,5 +248,42 @@ describe('buildDiagnosticTest — check-in variant', () => {
     const ids = collectAllItems(a.test).map((q) => q.id);
     expect(new Set(ids).size).toBe(ids.length);
     expect(collectAllItems(b.test).map((q) => q.id)).toEqual(ids);
+  });
+});
+
+
+describe('manifestFromServedItemIds (legacy record → manifest)', () => {
+  const ids = (n, prefix) => Array.from({ length: n }, (_, i) => `${prefix}-${i + 1}`);
+
+  it('slices 40 full-variant ids into R&W M1/M2 then Math M1/M2, 10 each', () => {
+    const itemIds = [...ids(20, 'rw'), ...ids(20, 'm')];
+    const manifest = manifestFromServedItemIds({ variant: 'full', itemIds });
+    expect(manifest.version).toBe(1);
+    expect(manifest.variant).toBe('full');
+    expect(manifest.modules.map((m) => [m.section, m.title, m.itemIds.length])).toEqual([
+      ['reading-writing', 'Reading and Writing Module 1', 10],
+      ['reading-writing', 'Reading and Writing Module 2', 10],
+      ['math', 'Math Module 1', 10],
+      ['math', 'Math Module 2', 10],
+    ]);
+    expect(manifest.modules[0].itemIds).toEqual(ids(10, 'rw'));
+    expect(manifest.modules[1].itemIds[0]).toBe('rw-11');
+    expect(manifest.modules[2].itemIds[0]).toBe('m-1');
+    expect(manifest.modules[3].itemIds[9]).toBe('m-20');
+    expect(manifest.rwModule2Easy).toBeNull();
+    expect(manifest.module2Easy).toBeNull();
+  });
+
+  it('slices a check-in into R&W (10) then Math (8)', () => {
+    const manifest = manifestFromServedItemIds({ variant: 'checkin', itemIds: [...ids(10, 'rw'), ...ids(8, 'm')] });
+    expect(manifest.variant).toBe('checkin');
+    expect(manifest.modules.map((m) => [m.section, m.itemIds.length])).toEqual([['reading-writing', 10], ['math', 8]]);
+  });
+
+  it('returns null when the ids do not fill the blueprint', () => {
+    expect(manifestFromServedItemIds({ variant: 'full', itemIds: ids(39, 'x') })).toBeNull();
+    expect(manifestFromServedItemIds({ variant: 'full', itemIds: [] })).toBeNull();
+    expect(manifestFromServedItemIds({ variant: 'full' })).toBeNull();
+    expect(manifestFromServedItemIds()).toBeNull();
   });
 });

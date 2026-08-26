@@ -13,6 +13,7 @@
  */
 import { loadAttemptSnapshot } from './practiceTestService';
 import { sectionModuleLabel } from './selectors/moduleLabel';
+import { rebuildDiagnosticTest, manifestFromServedItemIds } from './miniDiagnostic/buildDiagnosticTest';
 
 /** Matches finishMiniDiagnostic's MINI_DIAGNOSTIC_TEST_ID (not imported: that
  *  module drags the whole plan-generation stack into this chunk). */
@@ -77,27 +78,71 @@ export function rebuildSittingTest(snapshotDoc) {
 }
 
 /**
- * Load + rebuild one diagnostic sitting.
+ * Rebuild the exact QUESTIONS of a sitting that has no snapshot, from the
+ * lean record's served item ids. The student's answer choices were never
+ * persisted for those records, so `answers` is empty and `answersMissing`
+ * is set — enough for the review runner (every question, correct answer,
+ * explanation), NOT for the diagnosis report, which must keep its by-domain
+ * fallback. Null when the ids don't fill the blueprint or any id has left
+ * the banks.
+ *
+ * @param {object} record - progress.miniDiagnostic
+ * @returns {Promise<object|null>} sitting shaped like loadDiagnosticSitting's, plus answersMissing:true
+ */
+export async function rebuildLegacySitting(record) {
+  const manifest = manifestFromServedItemIds({
+    variant: record?.diagnosticVariant || 'full',
+    itemIds: record?.itemIds,
+  });
+  if (!manifest) return null;
+  const built = await rebuildDiagnosticTest(manifest);
+  if (!built) return null;
+  // Same shape the snapshot path hands the runner: a plain reviewable test.
+  // `isDiagnostic` + the manifest/easy variants are the LIVE runner's
+  // routing/finish hooks and must not ride along into review.
+  const { isDiagnostic, diagnosticManifest, rwModule2Easy, module2Easy, ...test } = built;
+  return {
+    test: { ...test, id: DIAGNOSTIC_SITTING_TEST_ID, title: 'Your diagnostic', isMiniDiagnostic: true },
+    answers: {},
+    answersMissing: true,
+    diagnosticData: null,
+    scoreBand: record?.scoreBand || null,
+    routes: record?.routes || null,
+    attemptId: record?.attemptId || null,
+    completedAt: record?.completedAt || null,
+  };
+}
+
+/**
+ * Load + rebuild one diagnostic sitting. Prefers the per-attempt snapshot
+ * (answers + timing + stimulus, complete by construction); falls back to
+ * rebuilding just the questions from the record's item ids when there is no
+ * snapshot (records from before 2026-08-24, or a failed snapshot write).
  *
  * @param {object} args
  * @param {string} args.userId
  * @param {string} args.attemptId - miniDiagnostic.attemptId
- * @returns {Promise<{test:object, answers:object, diagnosticData:object|null, scoreBand:object|null, routes:object|null, attemptId:string, completedAt:string|null}|null>}
- *   null when no snapshot exists (records from before 2026-08-24) or it isn't a diagnostic
+ * @param {object} [args.record] - progress.miniDiagnostic, enables the item-id fallback
+ * @param {boolean} [args.snapshotSaved] - record.sittingSaved; `false` skips the snapshot read
+ * @returns {Promise<{test:object, answers:object, answersMissing?:boolean, diagnosticData:object|null, scoreBand:object|null, routes:object|null, attemptId:string, completedAt:string|null}|null>}
+ *   null when nothing can be rebuilt
  */
-export async function loadDiagnosticSitting({ userId, attemptId } = {}) {
+export async function loadDiagnosticSitting({ userId, attemptId, record = null, snapshotSaved } = {}) {
   if (!userId || !attemptId) return null;
-  const snap = await loadAttemptSnapshot(userId, attemptId);
-  if (!snap || snap.isDiagnostic !== true) return null;
-  const test = rebuildSittingTest(snap);
-  if (!test) return null;
-  return {
-    test,
-    answers: { ...(snap.answers || {}) },
-    diagnosticData: snap.diagnosticData || null,
-    scoreBand: snap.scoreBand || null,
-    routes: snap.routes || null,
-    attemptId,
-    completedAt: snap.completedAt || null,
-  };
+  const snap = snapshotSaved === false ? null : await loadAttemptSnapshot(userId, attemptId);
+  if (snap && snap.isDiagnostic === true) {
+    const test = rebuildSittingTest(snap);
+    if (test) {
+      return {
+        test,
+        answers: { ...(snap.answers || {}) },
+        diagnosticData: snap.diagnosticData || null,
+        scoreBand: snap.scoreBand || null,
+        routes: snap.routes || null,
+        attemptId,
+        completedAt: snap.completedAt || null,
+      };
+    }
+  }
+  return record ? rebuildLegacySitting(record) : null;
 }

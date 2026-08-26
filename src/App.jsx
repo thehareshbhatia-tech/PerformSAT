@@ -406,10 +406,16 @@ const PerformSAT = () => {
       reviewModule: Number.isFinite(moduleIndex) ? moduleIndex : 0,
       attemptId: data.attemptId,
       snapshotMissing: false,
+      answersMissing: !!data.answersMissing,
       returnTo,
     });
     setView('reviewingPastResults');
   };
+  // The diagnosis REPORT needs the full snapshot (answers + timing); a
+  // questions-only legacy rebuild keeps that screen on its by-domain fallback.
+  const fullDiagnosticSitting = diagnosticSitting.status === 'ready' && diagnosticSitting.data && !diagnosticSitting.data.answersMissing
+    ? diagnosticSitting.data
+    : null;
   const openProfileGoals = () => { setProfileFocus('goals'); setView('profile'); };
   useEffect(() => {
     // Sidebar / palette routes into Profile must not inherit a stale deep-link.
@@ -976,14 +982,16 @@ const PerformSAT = () => {
     }
     if (sittingLoadedFor.current === attemptId) return; // loaded / in flight
     sittingLoadedFor.current = attemptId;
-    // Records that know their snapshot write failed skip the fetch outright.
-    if (miniDiagnostic?.sittingSaved === false) {
-      setDiagnosticSitting({ status: 'missing', data: null, attemptId });
-      return;
-    }
     setDiagnosticSitting({ status: 'loading', data: null, attemptId });
+    // Records with no snapshot (pre-2026-08-24, or a failed snapshot write)
+    // still rebuild their exact QUESTIONS from the record's item ids — the
+    // loader marks those `answersMissing`, which the diagnosis screen treats
+    // as 'missing' while the review runner still opens on them.
+    const record = miniDiagnostic;
     import(/* webpackChunkName: "diagnostic-sitting-loader" */ './services/diagnosticSittingLoader')
-      .then(({ loadDiagnosticSitting }) => loadDiagnosticSitting({ userId: user.uid, attemptId }))
+      .then(({ loadDiagnosticSitting }) => loadDiagnosticSitting({
+        userId: user.uid, attemptId, record, snapshotSaved: record?.sittingSaved,
+      }))
       .then((data) => {
         // A late result is still the right result — state is keyed by attemptId.
         setDiagnosticSitting({ status: data ? 'ready' : 'missing', data, attemptId });
@@ -994,7 +1002,7 @@ const PerformSAT = () => {
         sittingLoadedFor.current = null; // let the next open retry
         setDiagnosticSitting({ status: 'error', data: null, attemptId });
       });
-  }, [view, user?.uid, miniDiagnostic?.attemptId, miniDiagnostic?.sittingSaved]);
+  }, [view, user?.uid, miniDiagnostic]);
 
   const handleOnRampFinished = async ({ plan, diagReport, miniDiagnosticRecord }) => {
     // Order matters for resilience: plan mirror first (the artifact is already
@@ -3533,9 +3541,9 @@ const PerformSAT = () => {
                 onUpdateTestDate={updateTestDate}
                 onUpdateTestDates={updateTestDates}
                 onStartPracticeTest={() => setView('practiceTests')}
-                sitting={diagnosticSitting.status === 'ready' ? diagnosticSitting.data : null}
-                sittingStatus={diagnosticSitting.status}
-                onReviewQuestions={diagnosticSitting.status === 'ready' && diagnosticSitting.data
+                sitting={fullDiagnosticSitting}
+                sittingStatus={diagnosticSitting.status === 'ready' && !fullDiagnosticSitting ? 'missing' : diagnosticSitting.status}
+                onReviewQuestions={fullDiagnosticSitting
                   // Same review runner as past practice tests, on the rebuilt
                   // sitting; back returns here, not to the results tab.
                   ? (moduleIndex) => openDiagnosticReview(moduleIndex, 'diagnosticResults')
@@ -3560,6 +3568,8 @@ const PerformSAT = () => {
             practiceProgress={practiceProgress}
             answeredQuestionIds={answeredQuestionIds}
             reviewSnapshotMissing={viewingResultsData.snapshotMissing}
+            reviewAnswersMissing={!!viewingResultsData.answersMissing}
+            reviewBackLabel={viewingResultsData.returnTo === 'practiceTests' ? 'Tests' : viewingResultsData.returnTo === 'diagnosticResults' ? 'Diagnosis' : 'Results'}
             reviewAttemptId={viewingResultsData.attemptId}
             tutorLocked={billingLocked}
             onSubscribe={() => setView('paywall')}

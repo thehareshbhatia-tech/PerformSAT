@@ -1,7 +1,33 @@
-import { loadDiagnosticSitting, rebuildSittingTest, DIAGNOSTIC_SITTING_TEST_ID } from '../diagnosticSittingLoader';
+import { loadDiagnosticSitting, rebuildSittingTest, rebuildLegacySitting, DIAGNOSTIC_SITTING_TEST_ID } from '../diagnosticSittingLoader';
 import { loadAttemptSnapshot } from '../practiceTestService';
+import { rebuildDiagnosticTest } from '../miniDiagnostic/buildDiagnosticTest';
 
 jest.mock('../practiceTestService', () => ({ loadAttemptSnapshot: jest.fn() }));
+jest.mock('../miniDiagnostic/buildDiagnosticTest', () => ({
+  ...jest.requireActual('../miniDiagnostic/buildDiagnosticTest'),
+  rebuildDiagnosticTest: jest.fn(),
+}));
+
+const LEGACY_RECORD = {
+  attemptId: 'legacy-1',
+  completedAt: '2026-08-22T18:00:33.363Z',
+  diagnosticVariant: 'full',
+  itemIds: [
+    ...Array.from({ length: 20 }, (_, i) => `rw-${i + 1}`),
+    ...Array.from({ length: 20 }, (_, i) => `m-${i + 1}`),
+  ],
+  scoreBand: { low: 1360, high: 1440 },
+  routes: { rw: 'hard', math: 'hard' },
+};
+const BUILT = {
+  id: 'mini-diagnostic',
+  isDiagnostic: true,
+  diagnosticVariant: 'full',
+  title: 'SEVA Diagnostic',
+  modules: [{ title: 'Reading and Writing Module 1', section: 'reading-writing', timeLimit: 12, questions: [{ id: 'rw-1' }] }],
+  diagnosticManifest: { version: 1 },
+  module2Easy: { questions: [] },
+};
 
 const SNAP = {
   isDiagnostic: true,
@@ -60,5 +86,63 @@ describe('loadDiagnosticSitting', () => {
     expect(await loadDiagnosticSitting({ userId: 'u1', attemptId: 'a1' })).toBeNull();
     expect(await loadDiagnosticSitting({ userId: 'u1' })).toBeNull();
     expect(await loadDiagnosticSitting({})).toBeNull();
+  });
+});
+
+
+describe('legacy fallback (record with item ids, no snapshot)', () => {
+  beforeEach(() => { loadAttemptSnapshot.mockReset(); rebuildDiagnosticTest.mockReset(); });
+
+  it('rebuilds the exact questions with empty answers and answersMissing', async () => {
+    rebuildDiagnosticTest.mockResolvedValue(BUILT);
+    const sitting = await rebuildLegacySitting(LEGACY_RECORD);
+    const manifest = rebuildDiagnosticTest.mock.calls[0][0];
+    expect(manifest.modules).toHaveLength(4);
+    expect(manifest.modules[0].itemIds).toEqual(LEGACY_RECORD.itemIds.slice(0, 10));
+    expect(manifest.modules[3].itemIds).toEqual(LEGACY_RECORD.itemIds.slice(30, 40));
+    expect(sitting.answers).toEqual({});
+    expect(sitting.answersMissing).toBe(true);
+    expect(sitting.attemptId).toBe('legacy-1');
+    expect(sitting.completedAt).toBe(LEGACY_RECORD.completedAt);
+    expect(sitting.scoreBand).toEqual(LEGACY_RECORD.scoreBand);
+    // Review-shaped test: no live-runner hooks ride along.
+    expect(sitting.test.id).toBe(DIAGNOSTIC_SITTING_TEST_ID);
+    expect(sitting.test.isMiniDiagnostic).toBe(true);
+    expect(sitting.test.isDiagnostic).toBeUndefined();
+    expect(sitting.test.diagnosticManifest).toBeUndefined();
+    expect(sitting.test.module2Easy).toBeUndefined();
+    expect(sitting.test.modules[0].questions[0].id).toBe('rw-1');
+  });
+
+  it('loadDiagnosticSitting falls back to the record when the snapshot is absent', async () => {
+    loadAttemptSnapshot.mockResolvedValue(null);
+    rebuildDiagnosticTest.mockResolvedValue(BUILT);
+    const sitting = await loadDiagnosticSitting({ userId: 'u', attemptId: 'legacy-1', record: LEGACY_RECORD });
+    expect(loadAttemptSnapshot).toHaveBeenCalledWith('u', 'legacy-1');
+    expect(sitting.answersMissing).toBe(true);
+  });
+
+  it('skips the snapshot read when the record says the write failed', async () => {
+    rebuildDiagnosticTest.mockResolvedValue(BUILT);
+    const sitting = await loadDiagnosticSitting({ userId: 'u', attemptId: 'legacy-1', record: LEGACY_RECORD, snapshotSaved: false });
+    expect(loadAttemptSnapshot).not.toHaveBeenCalled();
+    expect(sitting.answersMissing).toBe(true);
+  });
+
+  it('prefers the snapshot when it exists', async () => {
+    loadAttemptSnapshot.mockResolvedValue(SNAP);
+    const sitting = await loadDiagnosticSitting({ userId: 'u', attemptId: 'a', record: LEGACY_RECORD });
+    expect(rebuildDiagnosticTest).not.toHaveBeenCalled();
+    expect(sitting.answersMissing).toBeUndefined();
+    expect(sitting.answers).toEqual(SNAP.answers);
+  });
+
+  it('is null when the ids do not fit the blueprint or have left the banks', async () => {
+    expect(await rebuildLegacySitting({ ...LEGACY_RECORD, itemIds: LEGACY_RECORD.itemIds.slice(0, 39) })).toBeNull();
+    expect(await rebuildLegacySitting({ ...LEGACY_RECORD, itemIds: undefined })).toBeNull();
+    rebuildDiagnosticTest.mockResolvedValue(null);
+    expect(await rebuildLegacySitting(LEGACY_RECORD)).toBeNull();
+    loadAttemptSnapshot.mockResolvedValue(null);
+    expect(await loadDiagnosticSitting({ userId: 'u', attemptId: 'x' })).toBeNull();
   });
 });

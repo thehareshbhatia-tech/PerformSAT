@@ -453,6 +453,46 @@ export async function buildDiagnosticTest({
 }
 
 /**
+ * Manifest for a sitting that only left behind its served item ids — the
+ * lean `miniDiagnostic.itemIds` on records from before the per-attempt
+ * snapshot existed (2026-08-24). finishMiniDiagnostic writes those ids as
+ * the served R&W modules then the served Math modules, in module order and
+ * with the routed Module 2 already in place, so slicing by the variant's
+ * blueprint recovers the exact modules the student saw. Pure; feed the
+ * result to `rebuildDiagnosticTest`.
+ *
+ * @param {object} args
+ * @param {string} [args.variant='full'] - record.diagnosticVariant
+ * @param {string[]} args.itemIds - record.itemIds (served order)
+ * @returns {object|null} manifest, or null when the ids don't fill the blueprint
+ */
+export function manifestFromServedItemIds({ variant = 'full', itemIds } = {}) {
+  if (!Array.isArray(itemIds) || itemIds.length === 0) return null;
+  const config = VARIANT_CONFIG[variant] || VARIANT_CONFIG.full;
+  const specs = [
+    ...config.rw.map((spec) => ({ ...spec, section: 'reading-writing' })),
+    ...config.math.map((spec) => ({ ...spec, section: 'math' })),
+  ];
+  const expected = specs.reduce((n, spec) => n + spec.count, 0);
+  if (itemIds.length !== expected) return null;
+  let cursor = 0;
+  const modules = specs.map((spec) => {
+    const ids = itemIds.slice(cursor, cursor + spec.count);
+    cursor += spec.count;
+    return { title: spec.title, section: spec.section, timeLimit: spec.timeLimit, itemIds: ids };
+  });
+  return {
+    version: MANIFEST_VERSION,
+    variant: VARIANT_CONFIG[variant] ? variant : 'full',
+    testId: DIAGNOSTIC_TEST_ID,
+    attemptId: null,
+    modules,
+    rwModule2Easy: null,
+    module2Easy: null,
+  };
+}
+
+/**
  * Reconstruct the exact synthetic test from a persisted manifest (resume
  * path). Returns null when the manifest is unusable or ANY item id has left
  * the banks — indices would shift and saved `modIdx-qIdx` answers would

@@ -643,7 +643,7 @@ const sanitizeGridIn = (raw) => {
   return s.slice(0, s[0] === '-' ? 6 : 5);
 };
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null, initialSection = null, resultSaveStatus = null, onRetrySave = null, tutorLocked = false, onSubscribe = null, onDiagnosticFinished = null, diagnosticScoreAnchor = null }) => {
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAnswersMissing = false, reviewBackLabel = 'Results', reviewAttemptId = null, initialSection = null, resultSaveStatus = null, onRetrySave = null, tutorLocked = false, onSubscribe = null, onDiagnosticFinished = null, diagnosticScoreAnchor = null }) => {
   const [currentModule, setCurrentModule] = useState(
     pickInitialModuleIndex(test, savedProgress, initialSection)
   );
@@ -694,7 +694,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     try { return window.localStorage.getItem(snapshotNoticeKey) === '1'; }
     catch (_) { return false; }
   });
-  const showSnapshotNotice = reviewSnapshotMissing && !snapshotNoticeDismissed;
+  // Two degraded-review flavors share the notice: the practice-test snapshot
+  // is gone (questions may have changed) vs. a diagnostic rebuilt from its
+  // item ids (exact questions, but the answer choices were never saved).
+  const showSnapshotNotice = (reviewSnapshotMissing || reviewAnswersMissing) && !snapshotNoticeDismissed;
   const dismissSnapshotNotice = () => {
     setSnapshotNoticeDismissed(true);
     if (snapshotNoticeKey && typeof window !== 'undefined') {
@@ -2397,7 +2400,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             }}
           >
             <span>
-              Questions have been updated since this attempt. Original problems are not available for review — what you see may differ from what you answered.
+              {reviewAnswersMissing
+                ? 'These are the exact questions from your diagnostic, with the correct answers and explanations. Your own answer choices weren\u2019t saved for this sitting, so every question shows as unanswered.'
+                : 'Questions have been updated since this attempt. Original problems are not available for review \u2014 what you see may differ from what you answered.'}
             </span>
             <button
               onClick={dismissSnapshotNotice}
@@ -2444,7 +2449,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             onMouseOut={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.04)'}
           >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            {!isMobile && "Results"}
+            {!isMobile && reviewBackLabel}
           </button>
 
           <div style={{ width: '1px', height: '20px', background: 'rgba(0,0,0,0.1)', flexShrink: 0 }} />
