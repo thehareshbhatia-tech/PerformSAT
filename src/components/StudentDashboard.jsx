@@ -127,7 +127,6 @@ const StudentDashboard = ({
   onCompleteActivity,
   onUncompleteActivity,
   onEditPlan,
-  onReviewPastTests,
   onReviewTestWrong,
   activeTab: controlledActiveTab,
   onTabChange,
@@ -719,7 +718,6 @@ const StudentDashboard = ({
               onCompleteActivity={onCompleteActivity}
               onUncompleteActivity={onUncompleteActivity}
               onEditPlan={onEditPlan}
-              onReviewPastTests={onReviewPastTests}
               onStartReview={onStartReview}
               onStartPacing={onStartPacing}
               onReviewTestWrong={onReviewTestWrong}

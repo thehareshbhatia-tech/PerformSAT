@@ -1321,31 +1321,6 @@ button.sp-task-summary.is-toggle:hover { color: var(--sp-text-2); }
 .sp-attention { display: flex; flex-direction: column; gap: 8px; margin-top: 24px; }
 
 /* Past-Test-Review CTA */
-.sp-past-test-review-cta { margin: 0; }
-.sp-past-test-review-btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  padding: 13px 16px;
-  background: var(--sp-surface);
-  border: 1px solid var(--sp-line);
-  border-radius: 14px;
-  cursor: pointer;
-  text-align: left;
-  box-shadow: var(--sp-shadow);
-  transition: border-color 0.15s ease, background 0.15s ease;
-}
-.sp-past-test-review-btn:hover { border-color: var(--sp-purple); }
-.sp-past-test-review-icon {
-  width: 34px; height: 34px; border-radius: 9px;
-  background: var(--sp-purple-soft); color: var(--sp-purple);
-  display: grid; place-items: center; flex: none;
-}
-.sp-past-test-review-text { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.sp-past-test-review-title { font-size: 14.5px; font-weight: 600; color: var(--sp-text); }
-.sp-past-test-review-sub { font-size: 12.5px; color: var(--sp-text-2); }
-.sp-past-test-review-chev { color: var(--sp-text-3); font-size: 20px; font-weight: 600; line-height: 1; }
 
 /* ── Quiet tune-up strips (review queue + pacing) ─────────────────────────
    One compact, muted row each. The review strip is collapsible; the pacing

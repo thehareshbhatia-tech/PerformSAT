@@ -9,7 +9,6 @@ import SATReferenceSheet from './SATReferenceSheet';
 import DesmosCalculator from './DesmosCalculator';
 import AnswerChoiceList from './shared/AnswerChoiceList';
 import HighlightablePassage, { mergeHighlights } from './rw/HighlightablePassage';
-import { sectionModuleShort } from '../services/selectors/moduleLabel';
 import { recordSkillAttemptsBatch } from '../services/skillService';
 import { showToast } from './ui/Toaster';
 import { buildTestReviewEntry } from '../services/reviewQueueResolve';
@@ -35,12 +34,12 @@ import MiniDiagnosticResults from './MiniDiagnostic/MiniDiagnosticResults';
 import { buildGroundTruthDiagnosis, enrichPlanWithGroundTruth } from '../services/groundTruth';
 import { scoreTest, isAnswerCorrect } from '../services/scoring';
 import { computeRemaining, deriveDeadline, shiftDeadlineForPause } from '../services/timerClock';
-import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
+import { colors, radius } from '../design/tokens';
 import { cardStyles } from '../design/components';
 import { Modal } from './ui/Modal';
 import { Button } from './ui/Button';
 import './PracticeTest.css';
-import { CheckIcon, CrossIcon, LightBulbIcon, MicroscopeIcon, WarningIcon, DocumentIcon } from '../design/icons';
+import { WarningIcon, DocumentIcon } from '../design/icons';
 
 // buildGroundTruthDiagnosis + enrichPlanWithGroundTruth moved verbatim to
 // src/services/groundTruth.js (imported above) so the mini-diagnostic
@@ -566,56 +565,6 @@ const renderFormula = (formula) => {
   return null;
 };
 
-// Render choice text (handles fractions and math)
-const renderChoice = (choice) => {
-  if (choice.fraction) {
-    return (
-      <Fraction
-        numerator={choice.fraction.numerator}
-        denominator={choice.fraction.denominator}
-        style={{ fontSize: '14px' }}
-      />
-    );
-  }
-  if (choice.table) {
-    return (
-      <table style={{ borderCollapse: 'collapse', fontSize: '14px', fontFamily: 'Times New Roman, Georgia, serif', background: '#fff', color: '#111' }}>
-        <thead>
-          <tr>
-            {choice.table.headers.map((h, i) => (
-              <th key={i} style={{
-                border: `1px solid ${colors.surface.grayMedium}`,
-                padding: '4px 12px',
-                background: colors.surface.offWhite,
-                fontWeight: '600',
-                fontStyle: 'italic'
-              }}>{h}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {choice.table.rows.map((row, i) => (
-            <tr key={i}>
-              {row.map((cell, j) => (
-                <td key={j} style={{
-                  border: `1px solid ${colors.surface.grayMedium}`,
-                  padding: '4px 12px',
-                  textAlign: 'center'
-                }}>{cell}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    );
-  }
-  // Handle structured content (arrays or objects) with QuestionRenderer
-  if (Array.isArray(choice.text) || (choice.text && typeof choice.text === 'object')) {
-    return <QuestionRenderer content={choice.text} />;
-  }
-  // Handle string content with MathText
-  return <MathText text={choice.text} />;
-};
 
 // Restrict a grid-in (fill-in) entry to the Bluebook SPR rules as the student
 // types or pastes: digits, at most one decimal point, at most one fraction
@@ -649,13 +598,14 @@ const sanitizeGridIn = (raw) => {
 const SNAPSHOT_MISSING_NOTICE = 'Questions have been updated since this attempt. Original problems are not available for review \u2014 what you see may differ from what you answered.';
 const ANSWERS_MISSING_NOTICE = 'These are the exact questions from your diagnostic, with the correct answers and explanations. Your own answer choices weren\u2019t saved for this sitting, so every question shows as unanswered.';
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAnswersMissing = false, reviewBackLabel = 'Results', reviewLayout = 'panel', reviewAttemptId = null, initialSection = null, resultSaveStatus = null, onRetrySave = null, tutorLocked = false, onSubscribe = null, onDiagnosticFinished = null, diagnosticScoreAnchor = null }) => {
-  // Bluebook-layout review: the live test screen itself, read-only, every
-  // choice marked, an explanation card under the answers — no clock, no
-  // tutor. `reviewLayout='panel'` keeps the three-pane review.
-  const bluebookReview = initialReviewModule !== null && reviewLayout === 'bluebook';
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplete, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAnswersMissing = false, reviewBackLabel = 'Results', reviewAttemptId = null, initialSection = null, resultSaveStatus = null, onRetrySave = null, tutorLocked = false, onSubscribe = null, onDiagnosticFinished = null, diagnosticScoreAnchor = null }) => {
+  // Review = the live test screen itself, read-only: every choice marked, an
+  // explanation card under the answers, the tutor on demand. Entered either
+  // by mounting with `initialReviewModule` (a past attempt) or from the
+  // post-test results screen (state flips on, results return on exit).
+  const [bluebookReview, setBluebookReview] = useState(initialReviewModule !== null);
   const [currentModule, setCurrentModule] = useState(
-    bluebookReview ? initialReviewModule : pickInitialModuleIndex(test, savedProgress, initialSection)
+    initialReviewModule !== null ? initialReviewModule : pickInitialModuleIndex(test, savedProgress, initialSection)
   );
   const [currentQuestion, setCurrentQuestion] = useState(savedProgress?.currentQuestion || 0);
   const [answers, setAnswers] = useState(savedProgress?.answers || {});
@@ -685,15 +635,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   // next module) rather than re-entering an already-submitted module with the
   // frozen clock and editable answers.
   const [moduleCompleted, setModuleCompleted] = useState(savedProgress?.moduleCompleted || false);
-  const [testCompleted, setTestCompleted] = useState(initialReviewModule !== null && !bluebookReview);
+  const [testCompleted, setTestCompleted] = useState(false);
   const [fillInValue, setFillInValue] = useState('');
   const [showCalculator, setShowCalculator] = useState(false);
   const [showReference, setShowReference] = useState(false);
-  const [reviewMode, setReviewMode] = useState(initialReviewModule !== null && !bluebookReview);
-  const [reviewModule, setReviewModule] = useState(initialReviewModule !== null ? initialReviewModule : 0);
-  const [reviewQuestion, setReviewQuestion] = useState(0);
-  const [reviewTab, setReviewTab] = useState('question');
-  const [reviewRightPane, setReviewRightPane] = useState('both');
+  // Post-test results: the score overview, or the AI diagnosis screen.
+  const [postTestScreen, setPostTestScreen] = useState('summary');
+  // True while a review was entered from the post-test results (exit returns
+  // there instead of leaving the runner).
+  const postTestReviewRef = useRef(false);
   // Open by default: the explanation is the point of the review; hiding it
   // is the secondary action and the choice persists across questions.
   const [reviewExplanationOpen, setReviewExplanationOpen] = useState(true);
@@ -720,6 +670,24 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       try { window.localStorage.setItem(snapshotNoticeKey, '1'); } catch (_) { /* ignore */ }
     }
   };
+  // Post-test "Review answers": the same read-only Bluebook screen a past
+  // attempt reviews in, on the live state; Exit/Done return to the results.
+  const openPostTestReview = (moduleIndex = 0) => {
+    postTestReviewRef.current = true;
+    setShowQuestionGridPopover(false);
+    setCurrentModule(Number.isFinite(moduleIndex) ? moduleIndex : 0);
+    setCurrentQuestion(0);
+    setBluebookReview(true);
+  };
+  const exitReview = () => {
+    if (postTestReviewRef.current) {
+      postTestReviewRef.current = false;
+      setBluebookReview(false);
+      return;
+    }
+    onBack?.();
+  };
+  const reviewExitLabel = postTestReviewRef.current ? 'Results' : reviewBackLabel;
   const [resultSaved, setResultSaved] = useState(false);
   const [savedStudyPlan, setSavedStudyPlan] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -1025,7 +993,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   const onSaveProgressRef = useRef(onSaveProgress);
   useEffect(() => { onSaveProgressRef.current = onSaveProgress; });
   useEffect(() => {
-    if (testCompleted || reviewMode || !onSaveProgressRef.current) return;
+    if (testCompleted || bluebookReview || !onSaveProgressRef.current) return;
     if (Object.keys(answers).length === 0) return;
 
     const buildProgressData = () => {
@@ -1076,22 +1044,22 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     // NOTE: onSaveProgress is deliberately absent from the deps — see the ref
     // note above. Adding it back re-opens the write loop (measured: a single
     // answer click then produced ~3 writes per 8 idle seconds, forever).
-  }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, highlightsByKey, testCompleted, reviewMode, isTimed, module2Variant, m2VariantManuallySet, rwModule2Variant, rwM2VariantManuallySet, moduleCompleted]);
+  }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, highlightsByKey, testCompleted, bluebookReview, isTimed, module2Variant, m2VariantManuallySet, rwModule2Variant, rwM2VariantManuallySet, moduleCompleted]);
 
   useEffect(() => {
-    if (testCompleted || reviewMode) return;
+    if (testCompleted || bluebookReview) return;
     const onBeforeUnload = (e) => {
       if (bluebookReview) return; e.preventDefault(); e.returnValue = ''; };
     window.addEventListener('beforeunload', onBeforeUnload);
     return () => window.removeEventListener('beforeunload', onBeforeUnload);
-  }, [bluebookReview, testCompleted, reviewMode]);
+  }, [bluebookReview, testCompleted]);
 
   // Flush progress the moment the tab hides (refresh/close/app-switch).
   // The debounced save above only fires on interaction, so without this a
   // refresh restored the clock to its value at the LAST answer — an
   // unbounded time refund on a timed module.
   useEffect(() => {
-    if (testCompleted || reviewMode) return;
+    if (testCompleted || bluebookReview) return;
     const flushOnHide = () => {
       if (document.visibilityState !== 'hidden') return;
       if (!buildProgressRef.current || !onSaveProgressRef.current) return;
@@ -1102,7 +1070,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     return () => document.removeEventListener('visibilitychange', flushOnHide);
     // NOTE: onSaveProgress is read through the ref (not a dep) so App
     // re-renders don't churn this listener.
-  }, [testCompleted, reviewMode]);
+  }, [testCompleted, bluebookReview]);
 
   // Flush any pending auto-save when test completes
   useEffect(() => {
@@ -1362,7 +1330,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       // re-gated by the orchestrator.
       const MAX_REVIEW_FEED = 20;
       const reviewFeed = [];
-      if (!reviewMode && test?.id) {
+      if (test?.id) {
         const missed = [];
         effectiveModules.forEach((mod, modIdx) => {
           mod.questions.forEach((q, qIdx) => {
@@ -1396,7 +1364,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       // App-level onSaveResult handler so they appear in the Review Queue's
       // Flagged group. No correctness signal — flagging stays user-driven.
       const markedForReviewRefs = [];
-      if (!reviewMode) {
+      {
         effectiveModules.forEach((mod, modIdx) => {
           mod.questions.forEach((q, qIdx) => {
             const key = `${modIdx}-${qIdx}`;
@@ -1457,7 +1425,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             isMultiSection: scored.isMultiSection,
             timedMode: isTimed,
             diagnosticReport: diagnosticReportRef.current || null,
-            reviewMode,
+            reviewMode: false,
             completedAt: attemptTimestampRef.current,
             reviewFeed,
           });
@@ -2348,701 +2316,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
 
   // Review mode screen - shows all questions with explanations
   // IMPORTANT: This must come BEFORE testCompleted check so review mode can render
-  if (reviewMode) {
-    const reviewMod = effectiveModules[reviewModule];
-    const reviewQuestions = reviewMod?.questions || [];
-    const reviewQ = reviewQuestions[reviewQuestion];
-    const reviewKey = `${reviewModule}-${reviewQuestion}`;
-    const userAnswer = answers[reviewKey];
 
-    // Check if answer is correct
-    const isCorrect = reviewQ ? isAnswerCorrect(reviewQ, userAnswer) : false;
-
-    // Build flat list of all questions for navigation
-    const allQuestions = [];
-    effectiveModules.forEach((mod, modIdx) => {
-      mod.questions.forEach((q, qIdx) => {
-        const key = `${modIdx}-${qIdx}`;
-        const ans = answers[key];
-        allQuestions.push({ modIdx, qIdx, correct: isAnswerCorrect(q, ans), answered: ans !== undefined });
-      });
-    });
-
-    const currentFlatIndex = allQuestions.findIndex(
-      q => q.modIdx === reviewModule && q.qIdx === reviewQuestion
-    );
-
-    const handleReviewNav = (direction) => {
-      const newIndex = currentFlatIndex + direction;
-      if (newIndex >= 0 && newIndex < allQuestions.length) {
-        const target = allQuestions[newIndex];
-        setReviewModule(target.modIdx);
-        setReviewQuestion(target.qIdx);
-      }
-    };
-
-    const handleReviewJump = (modIdx, qIdx) => {
-      setReviewModule(modIdx);
-      setReviewQuestion(qIdx);
-    };
-
-    const userAnswerDisplay = userAnswer !== undefined
-      ? (reviewQ?.type === 'fill-in' ? userAnswer : reviewQ?.choices?.find(c => c.id === userAnswer)?.text || userAnswer)
-      : 'Not answered';
-    const correctAnswerDisplay = reviewQ?.type === 'fill-in'
-      ? reviewQ.correctAnswer
-      : reviewQ?.choices?.find(c => c.id === reviewQ.correctAnswer)?.text;
-    const difficultyColor = reviewQ?.difficulty === 'hard' ? colors.semantic.error : reviewQ?.difficulty === 'medium' ? colors.semantic.warning : colors.semantic.success;
-    const difficultyBg = reviewQ?.difficulty === 'hard' ? colors.semantic.errorLight : reviewQ?.difficulty === 'medium' ? colors.semantic.warningBg : colors.semantic.successLight;
-
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: 'var(--color-slate-100)', overflow: 'hidden' }}>
-
-        {/* Stale-content notice (legacy attempts only, dismissible per-attempt) */}
-        {showSnapshotNotice && (
-          <div
-            role="status"
-            style={{
-              flexShrink: 0,
-              background: '#FEF3C7',
-              borderBottom: '1px solid #F59E0B',
-              color: '#78350F',
-              padding: isMobile ? '10px 14px' : '12px 24px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '12px',
-              fontSize: isMobile ? '12px' : '13px',
-              fontWeight: 500,
-            }}
-          >
-            <span>
-              {reviewAnswersMissing ? ANSWERS_MISSING_NOTICE : SNAPSHOT_MISSING_NOTICE}
-            </span>
-            <button
-              onClick={dismissSnapshotNotice}
-              aria-label="Dismiss notice"
-              style={{
-                flexShrink: 0,
-                background: 'transparent',
-                border: '1px solid #B45309',
-                color: '#78350F',
-                borderRadius: '8px',
-                padding: '4px 10px',
-                fontSize: '12px',
-                fontWeight: 600,
-                cursor: 'pointer',
-              }}
-            >
-              Dismiss
-            </button>
-          </div>
-        )}
-
-        {/* ── TOP BAR: Back + Progress + Nav ─────────────────────── */}
-        <div style={{
-          flexShrink: 0,
-          background: 'rgba(255, 255, 255, 0.85)',
-          backdropFilter: 'saturate(180%) blur(20px)',
-          WebkitBackdropFilter: 'saturate(180%) blur(20px)',
-          borderBottom: `1px solid rgba(0, 0, 0, 0.05)`,
-          padding: isMobile ? '8px 16px' : '10px 28px',
-          display: 'flex', alignItems: 'center', gap: isMobile ? '8px' : '16px',
-          overflowX: 'auto',
-          WebkitOverflowScrolling: 'touch',
-          zIndex: 10,
-        }}>
-          <button
-            onClick={() => initialReviewModule !== null ? onBack?.() : setReviewMode(false)}
-            style={{
-              padding: isMobile ? '6px 10px' : '8px 16px', background: 'rgba(0,0,0,0.04)', border: `none`,
-              borderRadius: '12px', fontSize: isMobile ? '12px' : '13px', fontWeight: typography.weights.semibold,
-              color: colors.text.primary, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px',
-              transition: `all ${transitions.fast}`, flexShrink: 0,
-            }}
-            onMouseOver={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.08)'}
-            onMouseOut={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.04)'}
-          >
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            {!isMobile && reviewBackLabel}
-          </button>
-
-          <div style={{ width: '1px', height: '20px', background: 'rgba(0,0,0,0.1)', flexShrink: 0 }} />
-
-          {/* Module tabs */}
-          <div style={{ display: 'flex', gap: '4px', flexShrink: 0 }}>
-            {effectiveModules.map((mod, modIdx) => {
-              const modQuestions = mod.questions.map((q, qIdx) => {
-                const key = `${modIdx}-${qIdx}`;
-                const ans = answers[key];
-                return { correct: isAnswerCorrect(q, ans), answered: ans !== undefined };
-              });
-              const correctCount = modQuestions.filter(q => q.answered && q.correct).length;
-              const isActiveModule = modIdx === reviewModule;
-              return (
-                <button
-                  key={modIdx}
-                  onClick={() => { setReviewModule(modIdx); setReviewQuestion(0); }}
-                  style={{
-                    padding: isMobile ? '4px 10px' : '6px 14px', borderRadius: '12px', border: 'none',
-                    background: isActiveModule ? colors.text.primary : 'transparent',
-                    color: isActiveModule ? colors.text.inverse : colors.text.secondary,
-                    fontSize: isMobile ? '12px' : '13px', fontWeight: typography.weights.semibold,
-                    cursor: 'pointer', whiteSpace: 'nowrap', transition: `all ${transitions.fast}`
-                  }}
-                >
-                  {sectionModuleShort(mod.section, modIdx)} <span style={{ opacity: 0.7, marginLeft: '2px', fontWeight: 'normal' }}>({correctCount}/{mod.questions.length})</span>
-                </button>
-              );
-            })}
-          </div>
-
-          <div style={{ width: '1px', height: '20px', background: 'rgba(0,0,0,0.1)', flexShrink: 0 }} />
-
-          {/* Question pills */}
-          <div style={{ display: 'flex', gap: '6px', flex: 1, overflowX: 'auto', paddingRight: '10px', alignItems: 'center' }}>
-            {(() => {
-              const currentMod = effectiveModules[reviewModule];
-              return currentMod.questions.map((q, qIdx) => {
-                const key = `${reviewModule}-${qIdx}`;
-                const ans = answers[key];
-                const correct = isAnswerCorrect(q, ans);
-                const answered = ans !== undefined;
-                const isActive = qIdx === reviewQuestion;
-                
-                let bgColor = !answered ? 'rgba(0,0,0,0.06)' : correct ? colors.semantic.success : colors.semantic.error;
-                let textColor = !answered ? colors.text.secondary : colors.text.inverse;
-                
-                return (
-                  <button
-                    key={qIdx}
-                    onClick={() => handleReviewJump(reviewModule, qIdx)}
-                    style={{
-                      width: isMobile ? '28px' : '32px', height: isMobile ? '28px' : '32px', borderRadius: '10px',
-                      border: isActive ? `2px solid ${colors.text.primary}` : '2px solid transparent',
-                      background: bgColor, color: textColor,
-                      fontSize: isMobile ? '11px' : '12px', fontWeight: typography.weights.bold,
-                      cursor: 'pointer', transition: `all ${transitions.fast}`,
-                      transform: isActive ? 'scale(1.08)' : 'scale(1)',
-                      flexShrink: 0,
-                      boxShadow: isActive ? '0 2px 8px rgba(0,0,0,0.1)' : 'none',
-                    }}
-                  >
-                    {qIdx + 1}
-                  </button>
-                );
-              });
-            })()}
-          </div>
-
-          {/* Legend */}
-          {!isMobile && (
-            <div style={{ display: 'flex', gap: '12px', fontSize: '12px', flexShrink: 0, fontWeight: '500' }}>
-              {[
-                { color: colors.semantic.success, label: 'Correct' },
-                { color: colors.semantic.error, label: 'Wrong' },
-                { color: 'rgba(0,0,0,0.15)', label: 'Skipped' },
-              ].map(({ color, label }) => (
-                <span key={label} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: color }} />
-                  <span style={{ color: colors.text.secondary }}>{label}</span>
-                </span>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* ── WORKSPACE ──────────────────────────────────── */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', padding: isMobile ? 0 : '16px', gap: isMobile ? 0 : '16px' }}>
-
-          {/* DESKTOP RIGHT PANE TOGGLE (Apple Segmented Control Style) */}
-          {!isMobile && (
-            <div style={{ display: 'flex', justifyContent: 'center', flexShrink: 0 }}>
-              <div style={{
-                display: 'flex', background: 'rgba(118, 118, 128, 0.12)', borderRadius: '10px', padding: '3px',
-              }}>
-                {['explanation', 'both', 'ai'].map(pane => (
-                  <button
-                    key={pane}
-                    onClick={() => setReviewRightPane(pane)}
-                    style={{
-                      padding: '6px 20px', 
-                      background: reviewRightPane === pane ? colors.surface.white : 'transparent',
-                      border: 'none', 
-                      borderRadius: '7px',
-                      color: reviewRightPane === pane ? colors.text.primary : colors.text.secondary,
-                      fontSize: '13px', fontWeight: typography.weights.semibold, textTransform: 'capitalize',
-                      boxShadow: reviewRightPane === pane ? '0 3px 8px rgba(0,0,0,0.12), 0 3px 1px rgba(0,0,0,0.04)' : 'none',
-                      cursor: 'pointer', transition: `all ${transitions.fast}`,
-                    }}
-                  >
-                    {pane === 'ai' ? 'AI Tutor' : pane}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          <div style={{
-            flex: 1, display: 'flex', overflow: 'hidden',
-            flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? 0 : '16px'
-          }}>
-            {/* LEFT / QUESTION PANE */}
-            {(!isMobile || reviewTab === 'question') && (
-              <div style={{
-                flex: isMobile ? 1 : '1 1 0%',
-                maxWidth: isMobile ? 'none' : '540px',
-                // No 340px floor below 1024px (iPad portrait) — let the question
-                // pane shrink instead of overflowing the screen.
-                minWidth: isMobile || windowWidth < 1024 ? 'none' : '340px',
-                borderRadius: isMobile ? 0 : '20px',
-                boxShadow: isMobile ? 'none' : '0 4px 20px rgba(0,0,0,0.03)',
-                border: isMobile ? 'none' : `1px solid rgba(0,0,0,0.06)`,
-                overflowY: 'auto',
-                background: colors.surface.white,
-                padding: isMobile ? '16px' : '32px',
-                display: 'flex', flexDirection: 'column'
-              }}>
-                {/* ── CONTEXT ZONE: Status + Question ──────────────────── */}
-                <div style={{
-                  display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap'
-                }}>
-                  {/* Correctness badge */}
-                  <div style={{
-                    display: 'flex', alignItems: 'center', gap: '8px',
-                    padding: '6px 12px', borderRadius: radius.full,
-                    background: !userAnswer ? colors.surface.gray : isCorrect ? colors.semantic.successLight : colors.semantic.errorLight,
-                    border: `1px solid ${!userAnswer ? colors.surface.grayDark : isCorrect ? colors.semantic.success : colors.semantic.error}`,
-                  }}>
-                    <div style={{
-                      width: '18px', height: '18px', borderRadius: '50%',
-                      background: !userAnswer ? colors.text.muted : isCorrect ? colors.semantic.success : colors.semantic.error,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: colors.text.inverse, fontSize: '10px',
-                    }}>
-                      {!userAnswer ? '?' : isCorrect ? <CheckIcon size={10} color={colors.text.inverse} /> : <CrossIcon size={10} color={colors.text.inverse} />}
-                    </div>
-                    <span style={{
-                      fontSize: '12px', fontWeight: typography.weights.semibold,
-                      color: !userAnswer ? colors.text.secondary : isCorrect ? colors.semantic.success : colors.semantic.error,
-                    }}>
-                      {!userAnswer ? 'Skipped' : isCorrect ? 'Correct' : 'Incorrect'}
-                    </span>
-                  </div>
-
-                  {/* Question number */}
-                  <span style={{
-                    fontSize: '12px', fontWeight: typography.weights.semibold,
-                    color: colors.text.muted,
-                  }}>
-                    Q{currentFlatIndex + 1} of {allQuestions.length}
-                  </span>
-
-                  {/* Difficulty chip */}
-                  {reviewQ?.difficulty && (
-                    <span style={{
-                      fontSize: '10px', fontWeight: typography.weights.bold,
-                      padding: '2px 8px', borderRadius: radius.full,
-                      background: difficultyBg, color: difficultyColor,
-                      letterSpacing: '0.02em',
-                    }}>
-                      {reviewQ.difficulty.charAt(0).toUpperCase() + reviewQ.difficulty.slice(1)}
-                    </span>
-                  )}
-
-                </div>
-
-                {/* Answer summary */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '13px', marginBottom: '20px', padding: '12px', background: colors.surface.offWhite, borderRadius: radius.md, border: `1px solid ${colors.surface.grayDark}` }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: colors.text.muted }}>Your Answer:</span>
-                    <span style={{ fontWeight: typography.weights.semibold, color: isCorrect ? colors.semantic.success : colors.semantic.error, textAlign: 'right' }}>{userAnswerDisplay}</span>
-                  </div>
-                  {!isCorrect && userAnswer !== undefined && (
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <span style={{ color: colors.text.muted }}>Correct Answer:</span>
-                      <span style={{ fontWeight: typography.weights.semibold, color: colors.semantic.success, textAlign: 'right' }}>{correctAnswerDisplay}</span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Passage(s) — for R&W questions, with italic/underline/blank markup */}
-                {reviewQ?.passage && (
-                  <HighlightablePassage
-                    text={reviewQ.passage}
-                    highlights={[]}
-                    hidden={false}
-                    onAddHighlight={() => {}}
-                    onRemoveHighlight={() => {}}
-                  />
-                )}
-                {reviewQ?.passages && Array.isArray(reviewQ.passages) && (
-                  <div className="rw-passage-stack">
-                    {reviewQ.passages.map((p, i) => (
-                      <div key={i}>
-                        <div className="rw-passage-label">{p.label || `Text ${i + 1}`}</div>
-                        <HighlightablePassage
-                          text={p.text}
-                          highlights={[]}
-                          hidden={false}
-                          onAddHighlight={() => {}}
-                          onRemoveHighlight={() => {}}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                )}
-                {reviewQ?.studentNotes && (
-                  <div className="rw-passage">
-                    {reviewQ.studentNotes.intro && (
-                      <div style={{ marginBottom: '0.5rem' }}>{reviewQ.studentNotes.intro}</div>
-                    )}
-                    <ul style={{ paddingLeft: '1.25rem', margin: '0.5rem 0' }}>
-                      {reviewQ.studentNotes.bullets.map((b, i) => (
-                        <li key={i} style={{ marginBottom: '0.25rem' }}>
-                          <MathText text={b} />
-                        </li>
-                      ))}
-                    </ul>
-                    {reviewQ.studentNotes.goal && (
-                      <div style={{ marginTop: '0.5rem' }}>
-                        <MathText text={reviewQ.studentNotes.goal} />
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* Question Text */}
-                <div style={{
-                  marginBottom: '16px', fontSize: '15px', lineHeight: '1.7',
-                  color: colors.text.primary, fontFamily: SAT_TYPOGRAPHY.questionFont,
-                }}>
-                  {Array.isArray(reviewQ?.question) || (reviewQ?.question && typeof reviewQ.question === 'object')
-                    ? <QuestionRenderer content={reviewQ.question} />
-                    : <MathText text={reviewQ?.question || ''} />
-                  }
-                </div>
-
-                {/* Formula if present */}
-                {reviewQ?.questionFormula && renderFormula(reviewQ.questionFormula)}
-
-                {/* Diagram */}
-                {reviewQ?.diagram && (
-                  <div style={{
-                    marginBottom: '16px', padding: '12px',
-                    background: colors.surface.offWhite, borderRadius: radius.md,
-                    border: `1px solid ${colors.surface.grayDark}`, display: 'flex', justifyContent: 'center',
-                  }}>
-                    <QuestionDiagram type={reviewQ.diagram.type} params={reviewQ.diagram.params} />
-                  </div>
-                )}
-
-                {/* Table */}
-                {reviewQ?.questionTable && (
-                  <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
-                    <table style={{ borderCollapse: 'collapse', fontSize: '14px', fontFamily: 'Times New Roman, Georgia, serif', background: '#fff', color: '#111' }}>
-                      <thead>
-                        <tr>
-                          {reviewQ.questionTable.headers.map((header, i) => (
-                            <th key={i} style={{
-                              border: '1.5px solid #111',
-                              padding: '6px 14px', background: '#fff', fontWeight: 'bold',
-                              fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: '13px',
-                            }}>
-                              <MathText text={header} />
-                            </th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {reviewQ.questionTable.rows.map((row, i) => (
-                          <tr key={i}>
-                            {row.map((cell, j) => (
-                              <td key={j} style={{
-                                border: '1px solid #111',
-                                padding: '6px 14px', textAlign: 'center', background: '#fff',
-                              }}>
-                                <MathText text={cell} />
-                              </td>
-                            ))}
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )}
-
-                {/* Answer choices */}
-                {reviewQ?.type === 'multiple-choice' && reviewQ?.choices && (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', flex: 1 }}>
-                    {reviewQ.choices.map((choice) => {
-                      const isUserChoice = userAnswer === choice.id;
-                      const isCorrectChoice = reviewQ.correctAnswer === choice.id;
-                      let bgColor = colors.surface.offWhite;
-                      let borderColor = colors.surface.grayDark;
-                      if (isCorrectChoice) { bgColor = colors.semantic.successLight; borderColor = colors.semantic.success; }
-                      else if (isUserChoice && !isCorrect) { bgColor = colors.semantic.errorLight; borderColor = colors.semantic.error; }
-
-                      return (
-                        <div key={choice.id} style={{
-                          padding: '10px 14px', borderRadius: radius.md,
-                          border: `1.5px solid ${borderColor}`, background: bgColor,
-                          display: 'flex', alignItems: 'center', gap: '12px',
-                        }}>
-                          <div style={{
-                            width: '24px', height: '24px', borderRadius: '4px',
-                            background: isCorrectChoice ? colors.semantic.success : isUserChoice ? colors.semantic.error : colors.surface.grayMedium,
-                            color: colors.text.inverse, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            fontWeight: typography.weights.semibold, fontSize: '12px', flexShrink: 0,
-                          }}>
-                            {choice.id}
-                          </div>
-                          <div style={{ flex: 1, fontSize: '14px', color: colors.text.primary }}>
-                            {renderChoice(choice)}
-                          </div>
-                          {isCorrectChoice && (
-                            <CheckIcon size={14} color={colors.semantic.success} />
-                          )}
-                          {isUserChoice && !isCorrect && (
-                            <CrossIcon size={14} color={colors.semantic.error} />
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-
-                {/* Fill-in display */}
-                {reviewQ?.type === 'fill-in' && (
-                  <div style={{
-                    padding: '16px', background: colors.semantic.successLight,
-                    borderRadius: '16px', border: `1px solid rgba(0,0,0,0.05)`,
-                    textAlign: 'center', flex: 1, boxShadow: '0 4px 12px rgba(0,0,0,0.02)'
-                  }}>
-                    <p style={{ fontSize: '11px', fontWeight: typography.weights.bold, color: colors.semantic.success, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>
-                      Correct Answer
-                    </p>
-                    <p style={{ fontSize: '28px', fontWeight: typography.weights.bold, color: colors.semantic.success, letterSpacing: '-0.02em' }}>
-                      {reviewQ.correctAnswer}
-                    </p>
-                    {!isCorrect && userAnswer !== undefined && (
-                      <p style={{ fontSize: '14px', color: colors.semantic.error, marginTop: '8px', fontWeight: '500' }}>
-                        Your answer: <strong>{userAnswer}</strong>
-                      </p>
-                    )}
-                  </div>
-                )}
-                
-                {/* Empty block to pad bottom for the floating navigation */}
-                <div style={{ height: '80px', flexShrink: 0 }}></div>
-
-              </div>
-            )}
-
-            {/* RIGHT / EXPLANATION + AI TUTOR PANE */}
-            {(!isMobile || reviewTab !== 'question') && (
-              <div style={{
-                flex: '1.2 1 0%', minWidth: 0, display: 'flex', flexDirection: reviewRightPane === 'both' && windowWidth >= 1024 ? 'row' : 'column',
-                overflow: 'hidden', background: 'transparent', gap: isMobile ? 0 : '16px'
-              }}>
-                {/* Explanation */}
-                {(!isMobile && (reviewRightPane === 'explanation' || reviewRightPane === 'both')) || (isMobile && reviewTab === 'explanation') ? (
-                  <div style={{
-                    flex: reviewRightPane === 'both' ? 1.2 : 1, overflowY: 'auto', 
-                    padding: isMobile ? '16px' : '32px',
-                    background: colors.surface.white,
-                    borderRadius: isMobile ? 0 : '20px',
-                    boxShadow: isMobile ? 'none' : '0 4px 20px rgba(0,0,0,0.03)',
-                    border: isMobile ? 'none' : `1px solid rgba(0,0,0,0.06)`,
-                  }}>
-                    <div style={{
-                      display: 'flex', alignItems: 'center', gap: '12px',
-                      marginBottom: '24px', paddingBottom: '16px',
-                      borderBottom: `1px solid rgba(0,0,0,0.06)`,
-                    }}>
-                      <div style={{
-                        width: '36px', height: '36px', borderRadius: '12px',
-                        background: colors.semantic.info, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        boxShadow: '0 2px 8px rgba(0,0,0,0.06)'
-                      }}>
-                        <LightBulbIcon size={20} color={colors.text.inverse} />
-                      </div>
-                      <h3 style={{
-                        fontSize: typography.sizes.lg, fontWeight: typography.weights.bold,
-                        color: colors.text.primary, margin: 0, letterSpacing: '-0.01em'
-                      }}>
-                        Solution Explanation
-                      </h3>
-                    </div>
-                    {reviewQ?.explanation ? (
-                      <SolutionExplanation explanation={reviewQ.explanation} isCorrect={isCorrect} />
-                    ) : (
-                      <p style={{ color: colors.text.muted, fontStyle: 'italic', fontSize: typography.sizes.sm }}>
-                        No explanation available for this question.
-                      </p>
-                    )}
-                  </div>
-                ) : null}
-
-                {/* AI Tutor Chat. Review stays read-only post-trial, but the
-                    tutor burns tokens — locked accounts get a subscribe note
-                    instead (the server enforces the same rule with a 402). */}
-                {((!isMobile && (reviewRightPane === 'ai' || reviewRightPane === 'both')) || (isMobile && reviewTab === 'ai')) && tutorLocked ? (
-                  <div style={{
-                    flex: 1, display: 'flex', flexDirection: 'column',
-                    alignItems: 'center', justifyContent: 'center', gap: '12px',
-                    background: '#ffffff',
-                    borderRadius: isMobile ? 0 : '20px',
-                    border: isMobile ? 'none' : '1px solid rgba(0,0,0,0.06)',
-                    padding: '32px 24px', textAlign: 'center',
-                  }}>
-                    <p style={{ margin: 0, fontWeight: 700, color: colors.text.primary }}>
-                      The AI tutor is a Premium feature
-                    </p>
-                    <p style={{ margin: 0, fontSize: typography.sizes.sm, color: colors.text.muted, maxWidth: '320px' }}>
-                      Subscribe to ask the tutor about any question in this review.
-                    </p>
-                    {onSubscribe && (
-                      <button
-                        type="button"
-                        onClick={onSubscribe}
-                        style={{
-                          border: 'none', borderRadius: '10px', padding: '10px 18px',
-                          background: '#ea580c', color: '#ffffff', fontWeight: 700,
-                          fontSize: typography.sizes.sm, cursor: 'pointer',
-                        }}
-                      >
-                        See plans
-                      </button>
-                    )}
-                  </div>
-                ) : null}
-                {(!isMobile && (reviewRightPane === 'ai' || reviewRightPane === 'both')) || (isMobile && reviewTab === 'ai') ? (!tutorLocked && (
-                  <div style={{
-                    flex: 1, display: 'flex', flexDirection: 'column',
-                    background: 'transparent',
-                    borderRadius: isMobile ? 0 : '20px',
-                    boxShadow: isMobile ? 'none' : '0 4px 20px rgba(0,0,0,0.03)',
-                    border: isMobile ? 'none' : `1px solid rgba(0,0,0,0.06)`,
-                    overflow: 'hidden'
-                  }}>
-                    <AiTutorChat
-                        key={`review-tutor-${reviewModule}-${reviewQuestion}`}
-                        isOpen={true}
-                        onClose={() => {}}
-                        moduleId={test.id}
-                        lessonId={`review-${reviewModule}-${reviewQuestion}`}
-                        lessonTitle={`${test.title} - Question ${currentFlatIndex + 1}`}
-                        isVideoLesson={false}
-                        isPracticeQuestion={true}
-                        skillProgress={skillProgress}
-                        testDate={user?.testDate}
-                        user={user}
-                        practiceTestResults={practiceTestResults}
-                        practiceContext={{
-                          question: reviewQ?.question || '',
-                          choices: reviewQ?.choices || [],
-                          hint: reviewQ?.hint || '',
-                          answerRevealed: true,
-                          correctAnswer: reviewQ?.type === 'fill-in'
-                            ? reviewQ?.correctAnswer
-                            : reviewQ?.choices?.find(c => c.id === reviewQ?.correctAnswer)?.text || reviewQ?.correctAnswer,
-                          explanation: reviewQ?.explanation || '',
-                          // Revive trap-analysis coaching: what the student picked + whether right.
-                          isCorrect,
-                          selectedAnswer: userAnswer !== undefined
-                            ? (reviewQ?.type === 'fill-in' ? userAnswer : `${userAnswer}) ${userAnswerDisplay}`)
-                            : undefined,
-                          userAnswer,
-                          skills: reviewQ?.skills || (reviewQ?.skill ? [reviewQ.skill] : []),
-                          // R&W stimulus + classification (undefined for math items → tutor stays math)
-                          section: reviewQ?.section || 'math',
-                          domain: reviewQ?.domain,
-                          passage: reviewQ?.passage,
-                          passages: reviewQ?.passages,
-                          studentNotes: reviewQ?.studentNotes,
-                          questionTable: reviewQ?.questionTable
-                        }}
-                        embedded={true}
-                        headerCompact={true}
-                        standalone={false}
-                      />
-                  </div>
-                )) : null}
-              </div>
-            )}
-          </div>
-
-          {/* ── FLOATING NAVIGATION PILL ────────────────────────────────── */}
-          <div style={{
-            position: 'absolute',
-            bottom: isMobile ? '24px' : '32px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '16px',
-            background: 'rgba(255, 255, 255, 0.85)',
-            backdropFilter: 'saturate(180%) blur(24px)',
-            WebkitBackdropFilter: 'saturate(180%) blur(24px)',
-            padding: '8px 12px',
-            borderRadius: '100px', 
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.04)',
-            border: `1px solid rgba(255, 255, 255, 0.5)`,
-            zIndex: 100,
-          }}>
-            <button
-              onClick={() => handleReviewNav(-1)}
-              disabled={currentFlatIndex === 0}
-              style={{
-                padding: '10px',
-                background: currentFlatIndex === 0 ? 'transparent' : colors.surface.white,
-                color: currentFlatIndex === 0 ? 'rgba(0,0,0,0.2)' : colors.text.primary,
-                border: 'none',
-                borderRadius: '50%', 
-                width: '40px', height: '40px',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                cursor: currentFlatIndex === 0 ? 'not-allowed' : 'pointer',
-                transition: `all ${transitions.fast}`,
-                boxShadow: currentFlatIndex === 0 ? 'none' : '0 2px 8px rgba(0,0,0,0.06)',
-              }}
-            >
-              <svg width="18" height="18" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </button>
-            <div style={{ textAlign: 'center', minWidth: '60px' }}>
-              <span style={{ color: colors.text.primary, fontSize: '14px', fontWeight: typography.weights.bold }}>
-                {currentFlatIndex + 1}
-              </span>
-              <span style={{ color: colors.text.secondary, fontSize: '13px', fontWeight: '500' }}>
-                <span style={{ opacity: 0.5, margin: '0 4px' }}>/</span>{allQuestions.length}
-              </span>
-            </div>
-            <button
-              onClick={() => handleReviewNav(1)}
-              disabled={currentFlatIndex === allQuestions.length - 1}
-              style={{
-                padding: '10px',
-                background: currentFlatIndex === allQuestions.length - 1 ? 'transparent' : colors.text.primary,
-                color: currentFlatIndex === allQuestions.length - 1 ? 'rgba(0,0,0,0.2)' : colors.text.inverse,
-                border: 'none', 
-                borderRadius: '50%',
-                width: '40px', height: '40px',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                cursor: currentFlatIndex === allQuestions.length - 1 ? 'not-allowed' : 'pointer',
-                transition: `all ${transitions.fast}`,
-                boxShadow: currentFlatIndex === allQuestions.length - 1 ? 'none' : '0 4px 12px rgba(0,0,0,0.15)',
-              }}
-            >
-              <svg width="18" height="18" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </button>
-          </div>
-
-        </div>
-      </div>
-    );
-  }
-  // Diagnostic v2 completion — the finish pipeline's phases replace the
-  // TestResults page entirely: a diagnostic ends in the diagnosis + plan
-  // handoff (MiniDiagnosticResults), never in score-history results.
-  if (testCompleted && test?.isDiagnostic) {
+  if (testCompleted && !bluebookReview && test?.isDiagnostic) {
     if (diagnosticFinish.phase === 'results' && diagnosticFinish.result) {
       return (
         <div style={{ height: '100vh', overflowY: 'auto', boxSizing: 'border-box', background: 'var(--color-slate-100)', display: 'flex', justifyContent: 'center', padding: '0 16px' }}>
@@ -3085,7 +2360,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     );
   }
   // Test completion screen - TestResults with direct navigation to Study Plan tab
-  if (testCompleted) {
+  if (testCompleted && !bluebookReview) {
     return (
       // App.jsx's #main-content locks to `height: 100vh; overflow: hidden`
       // while view === 'takingTest' (required so the active-test
@@ -3126,7 +2401,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             aiDiagnosticState={aiDiagnosticState}
             onRetryAiDiagnostic={retryAiDiagnostic}
             onGoToStudyPlan={onGoToStudyPlan}
-            onBack={onBack}
+            onBack={postTestScreen === 'diagnosis' ? () => setPostTestScreen('summary') : onBack}
             user={user}
             saveStatus={resultSaveStatus}
             onRetrySave={onRetrySave}
@@ -3172,16 +2447,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
               setEliminatorMode(false);
               setDirectionsOpen(true); // fresh attempt starts at the section directions
             }}
-            onReview={() => {
-              setReviewMode(true);
-              setReviewModule(0);
-              setReviewQuestion(0);
-            }}
-            onReviewModule={(moduleIndex) => {
-              setReviewMode(true);
-              setReviewModule(moduleIndex);
-              setReviewQuestion(0);
-            }}
+            screen={postTestScreen}
+            backLabel={postTestScreen === 'diagnosis' ? 'Back to results' : 'Back to Tests'}
+            onViewDiagnosis={() => setPostTestScreen('diagnosis')}
+            onReview={() => openPostTestReview(0)}
             savedStudyPlan={savedStudyPlan}
           />
         </div>
@@ -3201,7 +2470,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   const handleReviewNext = () => {
     if (currentQuestion < questions.length - 1) { setCurrentQuestion(currentQuestion + 1); return; }
     if (currentModule < effectiveModules.length - 1) { goToReviewPosition(currentModule + 1, 0); return; }
-    onBack?.();
+    exitReview();
   };
   const handleReviewPrev = () => {
     if (currentQuestion > 0) { setCurrentQuestion(currentQuestion - 1); return; }
@@ -3373,9 +2642,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       {/* Header */}
       <div className="test-session-header">
         <div className="header-left">
-          <button onClick={bluebookReview ? () => onBack?.() : handleRequestLeave} className="test-exit-btn" type="button">
+          <button onClick={bluebookReview ? exitReview : handleRequestLeave} className="test-exit-btn" type="button">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-            {bluebookReview ? reviewBackLabel : 'Exit'}
+            {bluebookReview ? reviewExitLabel : 'Exit'}
           </button>
           {!isMobile && (
             <>

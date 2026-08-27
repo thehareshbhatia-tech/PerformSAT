@@ -409,6 +409,9 @@
   .pt-card.is-progress .pt-progress-actions { width: 100%; justify-content: flex-end; }
   /* Diagnostic: same — the View diagnosis button takes its own row. */
   .pt-card.is-diagnostic .pt-card-row { flex-wrap: wrap; }
+  /* Completed: Retake / Review answers / View diagnosis take their own row. */
+  .pt-card-foot { flex-wrap: wrap; }
+  .pt-foot-actions { width: 100%; flex-wrap: wrap; justify-content: flex-end; }
   .pt-card.is-diagnostic .pt-diag-actions { width: 100%; }
   .pt-card.is-diagnostic .pt-diag-actions .pt-btn { flex: 1 1 0; min-width: 0; justify-content: center; white-space: nowrap; padding: 9px 10px; font-size: 13px; }
   .pt-secrow { flex-wrap: wrap; }

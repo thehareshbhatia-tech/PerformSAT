@@ -28,15 +28,7 @@ import CommandPalette from './components/ui/CommandPalette';
 import { ChartBarIcon, PlayIcon, ClipboardIcon, TargetIcon, CalendarIcon, BrainIcon, BookOpenIcon } from './design/icons';
 import { buildRounds, classifyRoundBoundary, findRoundIndexForQuestion } from './services/buildRounds';
 import { restoreAnswerStateForQuestion, buildResumableDrill } from './services/practiceNavigation';
-// diagnosticReportLoader (loadDiagnosticReportData / pickMostRecentTest) is
-// loaded as a lazy chunk via loadReportLoader() below — a static import here
-// welded diagnosticEngine (~190KB) into the main bundle. All call sites are async.
-import {
-  getLatestAttempt,
-  itemKey,
-  findErrorClassForItem,
-  extractItemsFromAttempt,
-} from './services/selectors/completedTests';
+import { pickMostRecentTest } from './services/selectors/recentTest';
 import { sectionModuleLabel } from './services/selectors/moduleLabel';
 import { chooseDiagnosticVariant, DIAGNOSTIC_LAUNCH_FIRST, DIAGNOSTIC_LAUNCH_PLAN_CHECKIN } from './services/selectors/diagnosticVariant';
 import { getTrustedBandMidpoint } from './services/selectors/estimatedBaseline';
@@ -117,14 +109,10 @@ const AdaptivePracticeShell = React.lazy(() => import('./components/AdaptivePrac
 const AssignedPracticeShell = React.lazy(() => import('./components/AssignedPracticeShell'));
 const PacingDrill = React.lazy(() => import('./components/PacingDrill'));
 const PracticeBank = React.lazy(() => import('./components/PracticeBank'));
-const DiagnosticReport = React.lazy(() => import('./components/DiagnosticReport'));
 const LearnWorkspace = React.lazy(() => import('./components/learn/LearnWorkspace'));
 const LessonBrowser = React.lazy(() => import('./components/LessonBrowser'));
 const LearnTab = React.lazy(() => import('./components/learnTab/LearnTab'));
 const ChapterReader = React.lazy(() => import('./components/learnTab/ChapterReader'));
-const ReviewItemCard = React.lazy(() => import('./components/PastTestReview/ReviewItemCard'));
-const PastTestReviewIndex = React.lazy(() => import('./components/PastTestReview/PastTestReviewIndex'));
-const TestReviewDetail = React.lazy(() => import('./components/PastTestReview/TestReviewDetail'));
 const PaywallScreen = React.lazy(() => import('./components/billing/PaywallScreen'));
 const TrialBanner = React.lazy(() => import('./components/billing/TrialBanner'));
 
@@ -175,19 +163,6 @@ const loadDiagnosticEngine = () => {
   }
   return diagnosticEngineChunkPromise;
 };
-// diagnosticReportLoader statically imports diagnosticEngine, so a static
-// import of it here (App is the main chunk) kept the whole ~190KB diagnostic
-// stack welded into main even after runDiagnostic went dynamic above. All of
-// its call sites are async, so load it as a chunk too.
-let reportLoaderChunkPromise = null;
-const loadReportLoader = () => {
-  if (!reportLoaderChunkPromise) {
-    reportLoaderChunkPromise = import(/* webpackChunkName: "diagnostic-report-loader" */ './services/diagnosticReportLoader')
-      .catch((err) => { reportLoaderChunkPromise = null; throw err; });
-  }
-  return reportLoaderChunkPromise;
-};
-
 // Shown when a corpus/chunk loader rejects at a launcher await (offline or a
 // stale chunk after deploy). The loaders above evict their poisoned cache on
 // rejection, so the same click works on retry once the network recovers.
@@ -198,21 +173,6 @@ const CORPUS_LOAD_ERROR = 'Could not load practice content. Check your connectio
 // webhook can't grant access indefinitely — after this we fall back to the
 // normal paywall gate. ~3 min comfortably covers Stripe's webhook latency.
 const CHECKOUT_GRACE_MS = 3 * 60 * 1000;
-
-// ── Past-Test-Review telemetry (Phase 7 of PAST_TEST_REVIEW_PLAN.md) ──
-// Events are scoped under [performsat:pastTestReview] so they're filterable
-// in DevTools and pre-shaped for a future analytics integration. Suppressed
-// in prod unless localStorage['performsat:logVerbose']='1'.
-//
-// Success thresholds (committed in plan doc, CEO R2-F3):
-//   - Adoption:  ≥30% of students-with-tests open the surface within 2 weeks
-//   - Engagement: median session reviews ≥5 items
-//   - Retry conv: ≥40% of TestReviewDetail visitors click Retry
-//   - Sunset gate: <15% adoption by week 4 → re-evaluate
-const PTR_LOG_SCOPE = 'pastTestReview';
-const logPtrEvent = (event, data = {}) => {
-  logInfo(PTR_LOG_SCOPE, event, data);
-};
 
 // Premium Design System - Clean, Modern, Professional
 const design = {
@@ -342,7 +302,7 @@ const PerformSAT = () => {
   const [lessonsLoadError, setLessonsLoadError] = useState(false);
   // Bumped by the Learn-view retry button to re-run the lesson-load effect.
   const [lessonsRetryToken, setLessonsRetryToken] = useState(0);
-  const [view, setView] = useState('dashboard'); // 'dashboard' | 'practice' | 'practiceTests' | 'takingTest' | 'profile' | 'studyPlan' | 'tutor' | 'viewingResults' | 'diagnosticReport' | 'diagnosticResults' | 'reviewingPastResults' | 'pastTestReviewIndex' | 'pastTestReviewDetail' | 'pastTestReviewItem' | 'pacingDrill'
+  const [view, setView] = useState('dashboard'); // 'dashboard' | 'practice' | 'practiceTests' | 'takingTest' | 'profile' | 'studyPlan' | 'tutor' | 'diagnosticReport' | 'diagnosticResults' | 'reviewingPastResults' | 'pacingDrill'
   // On-ramp (signup mini-diagnostic) state. `onRampActive` is tri-state:
   // null = eligibility not yet decided, true = flow mounted instead of the
   // app shell, false = dismissed for this session. The activation effect
@@ -407,9 +367,6 @@ const PerformSAT = () => {
       attemptId: data.attemptId,
       snapshotMissing: false,
       answersMissing: !!data.answersMissing,
-      // The diagnostic reviews on the live Bluebook screen (answers marked,
-      // explanation on demand, no tutor) rather than the three-pane review.
-      reviewLayout: 'bluebook',
       returnTo,
     });
     setView('reviewingPastResults');
@@ -454,32 +411,6 @@ const PerformSAT = () => {
     shuffledQuestions: [], // Store randomized questions
     practiceMode: 'standard' // pre-launch default; every live launcher sets 'assigned' | 'adaptive'
   });
-
-  // Past-Test-Review state (Phase 6 of PAST_TEST_REVIEW_PLAN.md).
-  // The "review bundle" is the result of loadDiagnosticReportData for the
-  // selected test — async-fetched once when a test is selected and reused
-  // by both TestReviewDetail and ReviewItemCard so the snapshot fetch
-  // happens only once per session.
-  const [selectedReviewTestId, setSelectedReviewTestId] = useState(null);
-  const [selectedReviewItem, setSelectedReviewItem] = useState(null);
-  const [reviewBundle, setReviewBundle] = useState(null);
-  const [reviewBundleLoading, setReviewBundleLoading] = useState(false);
-  const [reviewBundleError, setReviewBundleError] = useState(null);
-  // Tracks where the user opened past-test-review FROM, so the back path
-  // can return them to the same surface (Dashboard tab vs immersive Study
-  // Plan view). Without this, entering from the Dashboard tab and clicking
-  // back drops them on the standalone Study Plan view, losing tab context.
-  const [pastTestReviewEntryView, setPastTestReviewEntryView] = useState('studyPlan');
-  // True when the per-test review was opened by deep-linking from the plan's
-  // Review Queue (vs browsing the index). Controls the detail view's back
-  // target: deep-linked → back to the plan; browsed → back to the index.
-  const [reviewEnteredViaDeepLink, setReviewEnteredViaDeepLink] = useState(false);
-  // Monotonic request ID for handleSelectReviewTest — guards against
-  // the user clicking a second test card before the first fetch resolves.
-  // Without this, fetchB-resolves-first followed by fetchA-resolves-second
-  // would clobber B's bundle with A's data and the UI would show A while
-  // the user expected B.
-  const reviewBundleRequestRef = useRef(0);
 
   // Calculator state for practice
   const [showCalculator, setShowCalculator] = useState(false);
@@ -1708,115 +1639,195 @@ const PerformSAT = () => {
   };
 
   /**
-   * startRetryDrillFromTest — opens a retry drill of items from a past
-   * practice test (Phase 5 of PAST_TEST_REVIEW_PLAN.md).
-   *
-   * Bypasses resolveAssignedQuestions because snapshot questions live OUTSIDE
-   * the production drill bank — they are CB items the student already saw on
-   * the original test, fetched from the per-attempt snapshot subcollection.
-   *
-   * Sets `reviewMode: true` so the shell renders a "review session" banner.
-   * Already-safe constraints (no extra guards needed):
-   *   • legacy free-practice recording was removed with the standard/
-   *     prescriptive UI, so review-mode attempts can't pollute skill
-   *     mastery counters.
-   *   • buildGroundTruthDiagnosis lives in services/groundTruth.js and is
-   *     only invoked from PracticeTest.jsx (not App.jsx), so a review-mode
-   *     drill completion can't inflate Predicted vs Actual.
-   *
-   * @param {object} opts
-   * @param {string} opts.testId
-   * @param {string} opts.testTitle
-   * @param {Array<object>} opts.snapshotQuestions  drill-shape questions from
-   *                        the per-attempt snapshot, already filtered by the
-   *                        caller (typically to wrong items).
-   * @param {number} [opts.originalWrongCount]  total items the student got wrong
-   *                        on the source attempt — separate from
-   *                        snapshotQuestions.length so retry_completed
-   *                        telemetry can compute true retry-conversion.
+   * loadPastAttemptData — everything the diagnosis screen and the answer
+   * review need for a test's NEWEST attempt: the exact questions the student
+   * saw (per-attempt snapshot, live test as fallback), their answers, the
+   * stored score, the diagnostic report (regenerated for legacy attempts)
+   * and the saved AI narrative. Null when there is no attempt or a corpus
+   * chunk failed to load (already toasted).
    */
-  const startRetryDrillFromTest = ({ testId, testTitle, snapshotQuestions, originalWrongCount }) => {
-    if (!Array.isArray(snapshotQuestions) || snapshotQuestions.length === 0) return;
-    if (!ensurePracticeAccess()) return;
+  const loadPastAttemptData = async (test) => {
+    // Pick the NEWEST attempt order-independently by completedAt. The
+    // attempts array orientation is not stable: trimAttempts stores it
+    // newest-first after Firestore hydration, but the in-session
+    // optimistic write appends newest-last — so attempts[length-1]
+    // returned the OLDEST attempt on hydrated/retaken tests, making
+    // Review Answers show the first attempt's score/answers/diagnosis.
+    const testResults = practiceTestResults?.[test.id];
+    const lastAttempt = (testResults?.attempts || []).reduce((best, a) => {
+      if (!a) return best;
+      if (!best) return a;
+      return (Date.parse(a.completedAt) || 0) >= (Date.parse(best.completedAt) || 0) ? a : best;
+    }, null);
+    if (!lastAttempt) return null;
 
-    // Raw test ids restart at 1 inside every module (two id-7s in one math
-    // retry is the norm), and the whole session keys answers/eliminations/
-    // rounds by question id — so remint each snapshot question with a unique
-    // position-derived id. Idempotent: the completion screen's "Retry" relaunch
-    // passes already-reminted questions back in.
-    const uniqueQuestions = snapshotQuestions.map((q, i) => {
-      if (typeof q?.id === 'string' && q.id.startsWith('retry::')) return q;
-      return { ...q, id: `retry::${testId}::${q?.moduleIndex ?? 'm'}-${q?.questionIndex ?? i}` };
-    });
+    // Try to load the per-attempt snapshot. When present, Review Answers
+    // renders the *original* question objects the student saw; otherwise
+    // we fall back to the live test file and surface a stale-content
+    // notice (legacy attempts predate the snapshot subcollection).
+    let snapshotDoc = null;
+    if (user?.uid && lastAttempt.attemptId) {
+      try {
+        snapshotDoc = await loadAttemptSnapshot(user.uid, lastAttempt.attemptId);
+      } catch (err) {
+        console.warn('[ViewResults] Snapshot load failed:', err.message);
+      }
+    }
 
-    const rounds = buildRounds(uniqueQuestions.map(q => q.id), 8);
-    const roundsWithStart = rounds.map((r, i) =>
-      i === 0 ? { ...r, startedAt: new Date().toISOString() } : r,
-    );
+    // Build a `reviewTest` shaped like the live `test` but populated
+    // from the snapshot when available. Falls back to the live test.
+    let reviewTest = test;
+    let reconstructedAnswers = {};
+    const snapshotMissing = !snapshotDoc;
 
-    setTrySimilarExhausted(new Set());
-    setPracticeState({
-      currentQuestionIndex: 0,
-      selectedAnswer: null,
-      showFeedback: false,
-      showHint: false,
-      showRoundComplete: false,
-      answers: {},
-      isComplete: false,
-      shuffledQuestions: uniqueQuestions,
-      rounds: roundsWithStart,
-      currentRoundIndex: 0,
-      practiceMode: 'assigned',
-      reviewMode: true,
-      assignmentMeta: {
-        label: `Reviewing ${testTitle}`,
-        source: 'past-test-review',
-        sourceTestId: testId,
-        sourceTestTitle: testTitle,
-        sourceWrongCount: typeof originalWrongCount === 'number'
-          ? originalWrongCount
-          : snapshotQuestions.length,
-      },
-    });
-    setActiveModule(null);
-    setActiveSection('__pastTestReview__');
-    setShowCalculator(false);
-    setView('practice');
+    if (snapshotDoc?.questionsSnapshot?.length) {
+      // Group snapshot rows back into modules so the review UI sees the
+      // same shape it gets from a live test object.
+      const moduleMap = new Map();
+      snapshotDoc.questionsSnapshot.forEach(snap => {
+        const modIdx = snap.moduleIndex ?? 0;
+        if (!moduleMap.has(modIdx)) {
+          const liveMod = test.modules?.[modIdx];
+          // Keep the section axis ('reading-writing' | 'math') — without
+          // it scoreTest collapses every module into one 'default'(=math)
+          // bucket and the whole 98-item test scores as a single Math
+          // section (~210). Mirrors diagnosticReportLoader.js.
+          const section = snap.section ?? liveMod?.section ?? null;
+          moduleMap.set(modIdx, {
+            title: liveMod?.title || sectionModuleLabel(section, modIdx),
+            section,
+            questions: [],
+          });
+        }
+        // Backfill stimulus fields (passage/diagram/table/formula)
+        // from the live test at the same position — older snapshots
+        // never persisted them, which left R&W review passage-less
+        // and math review figure-less. Easy-route attempts saw an
+        // easy variant in that section's M2 slot (math M2 = final
+        // module; R&W M2 = second reading-writing module), so merge
+        // from the module the student actually took.
+        const mathRoute = lastAttempt.diagnosticData?.mathRoute;
+        const rwRoute = lastAttempt.diagnosticData?.rwRoute;
+        const rwSlots = (test.modules || [])
+          .map((m, i) => (m.section === 'reading-writing' ? i : -1))
+          .filter(i => i >= 0);
+        let liveMod = test.modules?.[modIdx];
+        if (mathRoute === 'easy'
+            && test.module2Easy
+            && modIdx === (test.modules?.length ?? 0) - 1) {
+          liveMod = test.module2Easy;
+        } else if (rwRoute === 'easy'
+            && test.rwModule2Easy
+            && modIdx === rwSlots[1]) {
+          liveMod = test.rwModule2Easy;
+        }
+        const liveQ = liveMod?.questions?.[
+          snap.questionIndex ?? moduleMap.get(modIdx).questions.length
+        ];
+        moduleMap.get(modIdx).questions.push({
+          id: snap.id,
+          type: snap.type,
+          question: snap.stem,
+          stem: snap.stem,
+          choices: snap.choices,
+          correctAnswer: snap.correctAnswer,
+          explanation: snap.explanation,
+          difficulty: snap.difficulty,
+          band: snap.band,
+          skills: snap.skills || [],
+          passage: snap.passage ?? liveQ?.passage,
+          passages: snap.passages ?? liveQ?.passages,
+          studentNotes: snap.studentNotes ?? liveQ?.studentNotes,
+          questionContinued: snap.questionContinued ?? liveQ?.questionContinued,
+          diagram: snap.diagram ?? liveQ?.diagram,
+          questionTable: snap.questionTable ?? liveQ?.questionTable,
+          questionFormula: snap.questionFormula ?? liveQ?.questionFormula,
+        });
+      });
+      reviewTest = {
+        ...test,
+        modules: Array.from(moduleMap.keys())
+          .sort((a, b) => a - b)
+          .map(k => moduleMap.get(k)),
+      };
+      // Snapshot-derived attempts persist exact answers, so use those.
+      reconstructedAnswers = { ...(snapshotDoc.answers || {}) };
+    } else {
+      // Legacy fallback: rebuild a synthetic answer map from
+      // diagnosticData.questionDetails so the review UI can color-code
+      // correct/incorrect even without the saved per-attempt snapshot.
+      const qDetails = lastAttempt.diagnosticData?.questionDetails || {};
+      Object.entries(qDetails).forEach(([key, detail]) => {
+        const [modIdx, qIdx] = key.split('-').map(Number);
+        const question = test.modules[modIdx]?.questions[qIdx];
+        if (!question) return;
+        if (detail.isCorrect) {
+          reconstructedAnswers[key] = question.correctAnswer;
+        } else {
+          reconstructedAnswers[key] = '__wrong__';
+        }
+      });
+    }
+
+    // Load saved diagnostic report — only regenerate if not saved
+    // (legacy attempts). diagnosticEngine is a ~190KB lazy chunk
+    // (loadDiagnosticEngine), awaited only on this legacy path.
+    let diagReport = lastAttempt.diagnosticReport;
+    if (!diagReport) {
+      let runDiagnostic;
+      try {
+        ({ runDiagnostic } = await loadDiagnosticEngine());
+      } catch (err) {
+        console.warn('[ViewResults] diagnostic engine load failed:', err && err.message);
+        showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
+        return null;
+      }
+      diagReport = runDiagnostic(
+        reviewTest, reconstructedAnswers, lastAttempt.diagnosticData,
+        skillProgress || {},
+        { targetScore: user?.targetScore, currentScore: user?.currentScore, testDate: user?.testDate },
+        practiceTestResults || {}
+      );
+    }
+
+    // Load saved AI diagnostic narrative from Firestore
+    let aiState = { status: 'idle', narrative: null, error: null };
+    if (user?.uid) {
+      try {
+        const savedAi = await getReadyAiDiagnostic(user.uid, test.id, lastAttempt.timestamp);
+        if (savedAi?.narrative) {
+          aiState = { status: 'ready', narrative: savedAi.narrative, error: null };
+        }
+      } catch (err) {
+        console.warn('[ViewResults] AI narrative load failed:', err.message);
+      }
+    }
+
+    return {
+      test: reviewTest,
+      liveTest: test,
+      answers: reconstructedAnswers,
+      // Authoritative score persisted at completion — the results
+      // screen displays this rather than re-scoring the reconstructed
+      // review test (which can diverge, e.g. a section-stripped or
+      // content-swapped snapshot scoring as a single ~210 Math bucket).
+      storedResult: (typeof lastAttempt.scaledScore === 'number') ? {
+        scaledScore: lastAttempt.scaledScore,
+        sectionScores: lastAttempt.sectionScores,
+        isMultiSection: lastAttempt.isMultiSection,
+      } : null,
+      diagnosticData: lastAttempt.diagnosticData,
+      diagnosticReport: diagReport,
+      aiDiagnosticState: aiState,
+      attemptId: lastAttempt.attemptId || null,
+      snapshotMissing,
+    };
   };
 
-  // ── Past-Test-Review handlers (Phase 6 of PAST_TEST_REVIEW_PLAN.md) ──
-
-  /**
-   * handleOpenPastTestReview — entry point from the Study Plan dashboard.
-   * Resets selection state and routes to the index view. Captures the
-   * current view so the back-handler can return the user to the surface
-   * they opened from (dashboard tab vs standalone study plan).
-   */
-  const handleOpenPastTestReview = () => {
-    setPastTestReviewEntryView(view === 'dashboard' ? 'dashboard' : 'studyPlan');
-    setReviewEnteredViaDeepLink(false);
-    setSelectedReviewTestId(null);
-    setSelectedReviewItem(null);
-    setReviewBundle(null);
-    setReviewBundleError(null);
-    setView('pastTestReviewIndex');
-    logPtrEvent('opened', { studentId: user?.uid || null });
-  };
-
-  /**
-   * handleSelectReviewTest — user clicked a test card in the index. Kicks
-   * off the async snapshot fetch via loadDiagnosticReportData and routes
-   * to the detail view. The detail view renders its own loading + error
-   * states (already handled by TestReviewDetail).
-   */
-  const handleSelectReviewTest = async (testId, maybeOpts) => {
-    // Callers historically passed (testId, latestAttemptId) — a string or
-    // null in the options slot. Destructuring null throws, which turned a
-    // legacy no-attemptId test card into a silent dead click. Only honor a
-    // real options object.
-    const { landOn = 'detail' } = (maybeOpts && typeof maybeOpts === 'object' && !Array.isArray(maybeOpts))
-      ? maybeOpts
-      : {};
+  // Study Plan / Review Queue deep link ("review your misses from Test N"):
+  // the same read-only Bluebook review of that test's newest attempt.
+  const handleReviewTestWrong = async (testId) => {
+    if (!testId) return;
     let getAllPracticeTests;
     try {
       ({ getAllPracticeTests } = await loadPracticeTests());
@@ -1824,92 +1835,27 @@ const PerformSAT = () => {
       showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
       return;
     }
-    const test = getAllPracticeTests().find(t => t.id === testId);
-    const lastAttempt = getLatestAttempt(practiceTestResults, testId);
-    if (!test || !lastAttempt) {
-      // The queue can outlive its source test (deleted/archived from the
-      // catalog, or an attempt that was reset). Log it so deep-link failures
-      // are debuggable, then surface a toast.
-      logWarn('pastTestReview', 'test_or_attempt_missing', {
-        testId, hasTest: !!test, hasAttempt: !!lastAttempt,
-      });
-      showToast({
-        type: 'error',
-        message: 'Could not load this test for review. Please try again.',
-      });
+    const test = getAllPracticeTests().find((t) => t.id === testId);
+    if (!test) {
+      showToast({ type: 'error', message: 'Could not load that test.' });
       return;
     }
-    const requestId = ++reviewBundleRequestRef.current;
-    setSelectedReviewTestId(testId);
-    setSelectedReviewItem(null);
-    setReviewBundle(null);
-    setReviewBundleError(null);
-    setReviewBundleLoading(true);
-    setView('pastTestReviewDetail');
-    try {
-      const { loadDiagnosticReportData } = await loadReportLoader();
-      const data = await loadDiagnosticReportData({
-        userId: user?.uid,
-        test,
-        lastAttempt,
-        practiceTestResults,
-        skillProgress,
-        user,
-      });
-      // Guard: if a newer fetch superseded this one (user clicked another
-      // test card mid-flight), drop this result.
-      if (requestId !== reviewBundleRequestRef.current) return;
-      setReviewBundle({
-        test: data.test,                    // snapshot-reconstructed
-        liveTest: data.liveTest,            // for retry-drill field merging
-        answers: data.answers || {},
-        diagnosticReport: data.diagnosticReport,
-        attempt: lastAttempt,
-        attemptId: data.attemptId,
-        testTitle: test.title || testId,
-        snapshotMissing: !!data.snapshotMissing,
-      });
-      logPtrEvent('test_selected', {
-        studentId: user?.uid || null,
-        testId,
-        attemptId: data.attemptId,
-        completedAt: lastAttempt.completedAt || null,
-        snapshotMissing: !!data.snapshotMissing,
-      });
-      // Deep-link from the plan's Review Queue: step straight into the first
-      // wrong question. The detail view's loading spinner shows during the
-      // fetch above, then flips to the single-question stepper here, whose
-      // prev/next walk the wrong-only slice (see the pastTestReviewItem route).
-      if (landOn === 'firstWrong') {
-        const firstWrong = extractItemsFromAttempt(lastAttempt).find(it => !it.isCorrect);
-        if (firstWrong) {
-          setSelectedReviewItem(firstWrong);
-          setView('pastTestReviewItem');
-          logPtrEvent('item_reviewed', {
-            studentId: user?.uid || null,
-            testId,
-            itemKey: firstWrong.key,
-            isCorrect: false,
-            source: 'review-queue-deeplink',
-          });
-        } else {
-          // Defensive: a test in the review queue should have wrong items, but
-          // stale/corrupted data could land here. Stay on the detail view
-          // (already set above) and tell the student why.
-          showToast({ type: 'info', message: 'No wrong answers to review on this test.' });
-        }
-      }
-    } catch (err) {
-      if (requestId !== reviewBundleRequestRef.current) return;
-      logWarn('pastTestReview', 'select_failed', { message: err?.message || String(err) });
-      setReviewBundleError(err?.message || 'load failed');
-    } finally {
-      // Only the latest request controls the loading flag — earlier
-      // resolutions must not flip it off while a newer fetch is pending.
-      if (requestId === reviewBundleRequestRef.current) {
-        setReviewBundleLoading(false);
-      }
+    openPastAttempt(test, 'review', view === 'dashboard' ? 'dashboard' : 'studyPlan');
+  };
+
+  // Tests list / Home → a past attempt's AI diagnosis ('diagnosis') or its
+  // read-only Bluebook review ('review'). `returnTo` is where Back lands.
+  const openPastAttempt = async (test, screen, returnTo = 'practiceTests') => {
+    const data = await loadPastAttemptData(test);
+    if (!data) return;
+    setSelectedPracticeTest(test);
+    if (screen === 'review') {
+      setViewingResultsData({ ...data, reviewModule: 0, returnTo });
+      setView('reviewingPastResults');
+      return;
     }
+    setViewingResultsData({ ...data, returnTo });
+    setView('diagnosticReport');
   };
 
   /**
@@ -1956,174 +1902,6 @@ const PerformSAT = () => {
         section,
         missedPatterns: weakSkills[0].missedPatterns,
       },
-    });
-  };
-
-  /**
-   * handleReviewTestWrong — deep-link from the plan's Review Queue into the
-   * specific wrong questions on a test. Reuses handleSelectReviewTest (same
-   * snapshot fetch) but lands on the single-question stepper at the first
-   * miss. Sets the back-target so the detail view returns to the plan.
-   *
-   * @param {string} testId
-   */
-  const handleReviewTestWrong = (testId) => {
-    if (!testId) return;
-    setPastTestReviewEntryView(view === 'dashboard' ? 'dashboard' : 'studyPlan');
-    setReviewEnteredViaDeepLink(true);
-    handleSelectReviewTest(testId, { landOn: 'firstWrong' });
-  };
-
-  /**
-   * handleSelectReviewItem — user clicked a per-item row in TestReviewDetail.
-   */
-  const handleSelectReviewItem = (item) => {
-    setSelectedReviewItem(item);
-    setView('pastTestReviewItem');
-    // Compute the per-item error class with the same logic the detail
-    // chips use, so the telemetry matches what the user saw. Only attach
-    // for incorrect items — the 6-class taxonomy is meaningless for items
-    // the student got right (a correct item whose skill is in weakSkills
-    // would otherwise log as e.g. 'conceptual_gap', distorting analytics).
-    const errorClass = (reviewBundle && !item.isCorrect)
-      ? findErrorClassForItem(item, reviewBundle.attempt, reviewBundle.diagnosticReport)
-      : null;
-    logPtrEvent('item_reviewed', {
-      studentId: user?.uid || null,
-      testId: selectedReviewTestId,
-      itemKey: item.key,
-      isCorrect: !!item.isCorrect,
-      errorClass,
-    });
-  };
-
-  /**
-   * handleRetryWrongFromReview — user clicked "Retry the N wrong" CTA in
-   * TestReviewDetail. Maps the telemetry-shape wrong items back to the
-   * snapshot question objects (via reviewBundle.test.modules) so they can
-   * be fed into startRetryDrillFromTest.
-   */
-  const handleRetryWrongFromReview = (wrongItems) => {
-    if (!reviewBundle || !Array.isArray(wrongItems)) return;
-    if (reviewBundle.snapshotMissing) {
-      showToast({
-        type: 'warn',
-        message: 'Original question text isn\'t archived for this attempt — retry isn\'t available.',
-      });
-      return;
-    }
-
-    // Snapshot questions are the canonical "what the student saw", but the
-    // loader strips passage/diagram/questionTable/questionFormula at write
-    // time (PracticeTest.jsx writes only the fields needed for the diagnostic
-    // engine). Re-attach those fields from the live test so R&W passages
-    // and math figures render in the retry drill.
-    const enrichFromLive = (snapshotQ, modIdx, qIdx) => {
-      if (!snapshotQ) return null;
-      // Easy-route attempts saw an easy variant's questions in that section's
-      // M2 slot (math M2 = final module; R&W M2 = second reading-writing
-      // module) — enriching from the standard module there would attach a
-      // foreign diagram/table/passage under an Easy stem.
-      const mathRoute = reviewBundle.attempt?.diagnosticData?.mathRoute;
-      const rwRoute = reviewBundle.attempt?.diagnosticData?.rwRoute;
-      const liveModules = reviewBundle.liveTest?.modules;
-      const rwSlots = (liveModules || [])
-        .map((m, i) => (m.section === 'reading-writing' ? i : -1))
-        .filter(i => i >= 0);
-      let liveMod = liveModules?.[modIdx];
-      if (mathRoute === 'easy'
-          && reviewBundle.liveTest?.module2Easy
-          && modIdx === (liveModules?.length ?? 0) - 1) {
-        liveMod = reviewBundle.liveTest.module2Easy;
-      } else if (rwRoute === 'easy'
-          && reviewBundle.liveTest?.rwModule2Easy
-          && modIdx === rwSlots[1]) {
-        liveMod = reviewBundle.liveTest.rwModule2Easy;
-      }
-      const liveQ = liveMod?.questions?.[qIdx];
-      // The snapshot reshape in loadDiagnosticReportData strips position
-      // metadata. Re-attach moduleIndex/questionIndex so the retry-drill
-      // header can show "M1·Q3 (originally missed)" instead of the
-      // generic round-position label. Tag the drill-contract `section`
-      // ('rw'|'math') from the owning module — without it the calculator
-      // gates and the tutor's R&W mode treat every test-sourced item as math.
-      const modSection = reviewBundle.test?.modules?.[modIdx]?.section
-        ?? liveModules?.[modIdx]?.section ?? null;
-      const withPosition = {
-        ...snapshotQ,
-        moduleIndex: modIdx,
-        questionIndex: qIdx,
-        section: modSection === 'reading-writing' ? 'rw' : 'math',
-      };
-      if (!liveQ) return withPosition;
-      return {
-        ...withPosition,
-        passage: snapshotQ.passage ?? liveQ.passage,
-        passages: snapshotQ.passages ?? liveQ.passages,
-        studentNotes: snapshotQ.studentNotes ?? liveQ.studentNotes,
-        questionContinued: snapshotQ.questionContinued ?? liveQ.questionContinued,
-        diagram: snapshotQ.diagram ?? liveQ.diagram,
-        questionTable: snapshotQ.questionTable ?? liveQ.questionTable,
-        questionFormula: snapshotQ.questionFormula ?? liveQ.questionFormula,
-        hint: snapshotQ.hint ?? liveQ.hint,
-      };
-    };
-
-    const mapped = wrongItems
-      .map(it => {
-        const snap = reviewBundle.test?.modules?.[it.moduleIndex]?.questions?.[it.questionIndex];
-        return enrichFromLive(snap, it.moduleIndex, it.questionIndex);
-      })
-      .filter(Boolean);
-
-    // AssignedPracticeShell renders multiple-choice only — it has no
-    // student-produced-response (fill-in) input, so a missed fill-in would be an
-    // unanswerable dead-end in the retry drill. Drop fill-ins (every other drill
-    // launcher applies the same MCQ filter).
-    const snapshotQuestions = mapped.filter(q => Array.isArray(q.choices) && q.choices.length >= 2);
-    const droppedFillIns = mapped.length - snapshotQuestions.length;
-
-    if (snapshotQuestions.length === 0) {
-      showToast({
-        type: 'info',
-        message: droppedFillIns > 0
-          ? "Those wrong items are fill-in questions, which aren't available in retry drills yet."
-          : 'No items available to retry.',
-      });
-      return;
-    }
-
-    // Surface partial-mapping when some wrong items were dropped — either they
-    // couldn't be located in the snapshot (rare; test edited after the attempt)
-    // or they were fill-ins. Telemetry helps us spot it; the toast keeps the
-    // user oriented.
-    if (snapshotQuestions.length < wrongItems.length) {
-      logPtrEvent('retry_dropped', {
-        studentId: user?.uid || null,
-        testId: selectedReviewTestId,
-        expected: wrongItems.length,
-        mapped: snapshotQuestions.length,
-        droppedFillIns,
-      });
-      showToast({
-        type: 'info',
-        message: droppedFillIns > 0
-          ? `Drilling ${snapshotQuestions.length} of ${wrongItems.length} wrong items — fill-in questions aren't available in retry drills yet.`
-          : `Drilling ${snapshotQuestions.length} of ${wrongItems.length} wrong items — some couldn't be loaded.`,
-      });
-    }
-
-    startRetryDrillFromTest({
-      testId: selectedReviewTestId,
-      testTitle: reviewBundle.testTitle,
-      snapshotQuestions,
-      originalWrongCount: wrongItems.length,
-    });
-    logPtrEvent('retry_started', {
-      studentId: user?.uid || null,
-      testId: selectedReviewTestId,
-      wrongCount: snapshotQuestions.length,
-      originalWrongCount: wrongItems.length,
     });
   };
 
@@ -2486,22 +2264,6 @@ const PerformSAT = () => {
         };
       });
     } else {
-      const correctCount = Object.values(practiceState.answers).filter(a => a.correct).length;
-      // Past-Test-Review retry-drill completion telemetry (Phase 7).
-      // `retryQuestionCount` is the number of items in this retry session
-      // (may include Try-Similar additions); `originalWrongCount` is the
-      // wrong-on-the-original-test denominator the CEO R2-F3 retry-conversion
-      // metric needs. Splitting them prevents the two from being conflated.
-      if (practiceState.reviewMode) {
-        const meta = practiceState.assignmentMeta || {};
-        logPtrEvent('retry_completed', {
-          studentId: user?.uid || null,
-          testId: meta.sourceTestId || null,
-          retryQuestionCount: questions.length,
-          originalWrongCount: meta.sourceWrongCount ?? questions.length,
-          newCorrectCount: correctCount,
-        });
-      }
       setPracticeState(prev => ({ ...prev, isComplete: true }));
       fireDrillSessionComplete(questions);
     }
@@ -2668,7 +2430,6 @@ const PerformSAT = () => {
         return;
     }
   }, [startAssignedPractice]);
-
 
   // Legal pages are real URLs that must render for logged-out AND logged-in
   // users without waiting on Firebase auth init. They are full-page navs
@@ -3121,56 +2882,25 @@ const PerformSAT = () => {
             onOpenPractice={() => setView('practiceBank')}
             onOpenTutor={() => setView('tutor')}
             onViewFullDiagnosis={async () => {
-              // Closes CEO C1: surface DiagnosticReport from the dashboard.
-              let pickMostRecentTest, loadDiagnosticReportData, getAllPracticeTests;
-              try {
-                ({ pickMostRecentTest, loadDiagnosticReportData } = await loadReportLoader());
-              } catch (err) {
-                showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
-                return;
-              }
+              // Home → the AI diagnosis of the most recent practice test.
               const { testId, lastAttempt } = pickMostRecentTest(practiceTestResults);
               if (!testId || !lastAttempt) {
-                showToast({
-                  type: 'info',
-                  message: 'Take a practice test to see your diagnostic report.',
-                });
+                showToast({ type: 'info', message: 'Take a practice test to see your diagnosis.' });
                 return;
               }
+              let getAllPracticeTests;
               try {
                 ({ getAllPracticeTests } = await loadPracticeTests());
               } catch (err) {
                 showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
                 return;
               }
-              const test = getAllPracticeTests().find(t => t.id === testId);
+              const test = getAllPracticeTests().find((t) => t.id === testId);
               if (!test) {
-                showToast({
-                  type: 'error',
-                  message: 'Could not load the test for your most recent attempt.',
-                });
+                showToast({ type: 'error', message: 'Could not load the test for your most recent attempt.' });
                 return;
               }
-              try {
-                const data = await loadDiagnosticReportData({
-                  userId: user?.uid,
-                  test,
-                  lastAttempt,
-                  practiceTestResults,
-                  skillProgress,
-                  user,
-                });
-                setViewingResultsData(data);
-                setSelectedPracticeTest(test);
-                setView('diagnosticReport');
-              } catch (err) {
-                // eslint-disable-next-line no-console
-                console.warn('[App] onViewFullDiagnosis load failed:', err && err.message);
-                showToast({
-                  type: 'error',
-                  message: 'Could not load your diagnostic report. Please try again.',
-                });
-              }
+              openPastAttempt(test, 'diagnosis', 'dashboard');
             }}
             onViewDiagnosis={miniDiagnostic ? () => openDiagnosis('dashboard') : undefined}
             onRecordScoreReport={recordScoreReport}
@@ -3178,7 +2908,6 @@ const PerformSAT = () => {
             onCompleteActivity={markStudyActivityComplete}
             onUncompleteActivity={unmarkStudyActivityComplete}
             onEditPlan={saveEditedStudyPlan}
-            onReviewPastTests={handleOpenPastTestReview}
           />
           </>
         )}
@@ -3229,201 +2958,21 @@ const PerformSAT = () => {
             onViewDiagnosis={miniDiagnostic ? () => openDiagnosis('practiceTests') : undefined}
             diagnosticReviewStatus={diagnosticSitting.status}
             onReviewDiagnosticQuestions={() => openDiagnosticReview(0, 'practiceTests')}
-            onViewResults={async (test) => {
-              // Pick the NEWEST attempt order-independently by completedAt. The
-              // attempts array orientation is not stable: trimAttempts stores it
-              // newest-first after Firestore hydration, but the in-session
-              // optimistic write appends newest-last — so attempts[length-1]
-              // returned the OLDEST attempt on hydrated/retaken tests, making
-              // Review Answers show the first attempt's score/answers/diagnosis.
-              const testResults = practiceTestResults?.[test.id];
-              const lastAttempt = (testResults?.attempts || []).reduce((best, a) => {
-                if (!a) return best;
-                if (!best) return a;
-                return (Date.parse(a.completedAt) || 0) >= (Date.parse(best.completedAt) || 0) ? a : best;
-              }, null);
-              if (!lastAttempt) return;
-
-              // Try to load the per-attempt snapshot. When present, Review Answers
-              // renders the *original* question objects the student saw; otherwise
-              // we fall back to the live test file and surface a stale-content
-              // notice (legacy attempts predate the snapshot subcollection).
-              let snapshotDoc = null;
-              if (user?.uid && lastAttempt.attemptId) {
-                try {
-                  snapshotDoc = await loadAttemptSnapshot(user.uid, lastAttempt.attemptId);
-                } catch (err) {
-                  console.warn('[ViewResults] Snapshot load failed:', err.message);
-                }
-              }
-
-              // Build a `reviewTest` shaped like the live `test` but populated
-              // from the snapshot when available. Falls back to the live test.
-              let reviewTest = test;
-              let reconstructedAnswers = {};
-              const snapshotMissing = !snapshotDoc;
-
-              if (snapshotDoc?.questionsSnapshot?.length) {
-                // Group snapshot rows back into modules so the review UI sees the
-                // same shape it gets from a live test object.
-                const moduleMap = new Map();
-                snapshotDoc.questionsSnapshot.forEach(snap => {
-                  const modIdx = snap.moduleIndex ?? 0;
-                  if (!moduleMap.has(modIdx)) {
-                    const liveMod = test.modules?.[modIdx];
-                    // Keep the section axis ('reading-writing' | 'math') — without
-                    // it scoreTest collapses every module into one 'default'(=math)
-                    // bucket and the whole 98-item test scores as a single Math
-                    // section (~210). Mirrors diagnosticReportLoader.js.
-                    const section = snap.section ?? liveMod?.section ?? null;
-                    moduleMap.set(modIdx, {
-                      title: liveMod?.title || sectionModuleLabel(section, modIdx),
-                      section,
-                      questions: [],
-                    });
-                  }
-                  // Backfill stimulus fields (passage/diagram/table/formula)
-                  // from the live test at the same position — older snapshots
-                  // never persisted them, which left R&W review passage-less
-                  // and math review figure-less. Easy-route attempts saw an
-                  // easy variant in that section's M2 slot (math M2 = final
-                  // module; R&W M2 = second reading-writing module), so merge
-                  // from the module the student actually took.
-                  const mathRoute = lastAttempt.diagnosticData?.mathRoute;
-                  const rwRoute = lastAttempt.diagnosticData?.rwRoute;
-                  const rwSlots = (test.modules || [])
-                    .map((m, i) => (m.section === 'reading-writing' ? i : -1))
-                    .filter(i => i >= 0);
-                  let liveMod = test.modules?.[modIdx];
-                  if (mathRoute === 'easy'
-                      && test.module2Easy
-                      && modIdx === (test.modules?.length ?? 0) - 1) {
-                    liveMod = test.module2Easy;
-                  } else if (rwRoute === 'easy'
-                      && test.rwModule2Easy
-                      && modIdx === rwSlots[1]) {
-                    liveMod = test.rwModule2Easy;
-                  }
-                  const liveQ = liveMod?.questions?.[
-                    snap.questionIndex ?? moduleMap.get(modIdx).questions.length
-                  ];
-                  moduleMap.get(modIdx).questions.push({
-                    id: snap.id,
-                    type: snap.type,
-                    question: snap.stem,
-                    stem: snap.stem,
-                    choices: snap.choices,
-                    correctAnswer: snap.correctAnswer,
-                    explanation: snap.explanation,
-                    difficulty: snap.difficulty,
-                    band: snap.band,
-                    skills: snap.skills || [],
-                    passage: snap.passage ?? liveQ?.passage,
-                    passages: snap.passages ?? liveQ?.passages,
-                    studentNotes: snap.studentNotes ?? liveQ?.studentNotes,
-                    questionContinued: snap.questionContinued ?? liveQ?.questionContinued,
-                    diagram: snap.diagram ?? liveQ?.diagram,
-                    questionTable: snap.questionTable ?? liveQ?.questionTable,
-                    questionFormula: snap.questionFormula ?? liveQ?.questionFormula,
-                  });
-                });
-                reviewTest = {
-                  ...test,
-                  modules: Array.from(moduleMap.keys())
-                    .sort((a, b) => a - b)
-                    .map(k => moduleMap.get(k)),
-                };
-                // Snapshot-derived attempts persist exact answers, so use those.
-                reconstructedAnswers = { ...(snapshotDoc.answers || {}) };
-              } else {
-                // Legacy fallback: rebuild a synthetic answer map from
-                // diagnosticData.questionDetails so the review UI can color-code
-                // correct/incorrect even without the saved per-attempt snapshot.
-                const qDetails = lastAttempt.diagnosticData?.questionDetails || {};
-                Object.entries(qDetails).forEach(([key, detail]) => {
-                  const [modIdx, qIdx] = key.split('-').map(Number);
-                  const question = test.modules[modIdx]?.questions[qIdx];
-                  if (!question) return;
-                  if (detail.isCorrect) {
-                    reconstructedAnswers[key] = question.correctAnswer;
-                  } else {
-                    reconstructedAnswers[key] = '__wrong__';
-                  }
-                });
-              }
-
-              // Load saved diagnostic report — only regenerate if not saved
-              // (legacy attempts). diagnosticEngine is a ~190KB lazy chunk
-              // (loadDiagnosticEngine), awaited only on this legacy path.
-              let diagReport = lastAttempt.diagnosticReport;
-              if (!diagReport) {
-                let runDiagnostic;
-                try {
-                  ({ runDiagnostic } = await loadDiagnosticEngine());
-                } catch (err) {
-                  console.warn('[ViewResults] diagnostic engine load failed:', err && err.message);
-                  showToast({ type: 'error', message: CORPUS_LOAD_ERROR });
-                  return;
-                }
-                diagReport = runDiagnostic(
-                  reviewTest, reconstructedAnswers, lastAttempt.diagnosticData,
-                  skillProgress || {},
-                  { targetScore: user?.targetScore, currentScore: user?.currentScore, testDate: user?.testDate },
-                  practiceTestResults || {}
-                );
-              }
-
-              // Load saved AI diagnostic narrative from Firestore
-              let aiState = { status: 'idle', narrative: null, error: null };
-              if (user?.uid) {
-                try {
-                  const savedAi = await getReadyAiDiagnostic(user.uid, test.id, lastAttempt.timestamp);
-                  if (savedAi?.narrative) {
-                    aiState = { status: 'ready', narrative: savedAi.narrative, error: null };
-                  }
-                } catch (err) {
-                  console.warn('[ViewResults] AI narrative load failed:', err.message);
-                }
-              }
-
-              setViewingResultsData({
-                test: reviewTest,
-                liveTest: test,
-                answers: reconstructedAnswers,
-                // Authoritative score persisted at completion — the results
-                // screen displays this rather than re-scoring the reconstructed
-                // review test (which can diverge, e.g. a section-stripped or
-                // content-swapped snapshot scoring as a single ~210 Math bucket).
-                storedResult: (typeof lastAttempt.scaledScore === 'number') ? {
-                  scaledScore: lastAttempt.scaledScore,
-                  sectionScores: lastAttempt.sectionScores,
-                  isMultiSection: lastAttempt.isMultiSection,
-                } : null,
-                diagnosticData: lastAttempt.diagnosticData,
-                diagnosticReport: diagReport,
-                aiDiagnosticState: aiState,
-                attemptId: lastAttempt.attemptId || null,
-                snapshotMissing,
-              });
-              setSelectedPracticeTest(test);
-              setView('viewingResults');
-            }}
+            onViewDiagnosis={(test) => openPastAttempt(test, 'diagnosis')}
+            onViewResults={(test) => openPastAttempt(test, 'review')}
             onResetTest={(test) => resetPracticeTest(test.id)}
             onDeleteAttempt={(testId, attemptId) => removeTestAttempt(testId, attemptId)}
           />
         )}
 
-        {/* Viewing Past Results — same screen as post-test completion */}
-        {view === 'viewingResults' && viewingResultsData && (
-          <ErrorBoundary message="Unable to load test results. Please go back and try again.">
-          <div style={{
-            minHeight: '100vh',
-            background: '#F5F5F7',
-            backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(255,255,255,0.8) 0%, rgba(245,245,247,0) 100%)',
-            padding: '32px',
-          }}>
+        {/* A past practice test's AI diagnosis — the same screen the runner
+            shows right after a test. Reached from the Tests list card and
+            from Home's "View full diagnosis"; Back returns to `returnTo`. */}
+        {view === 'diagnosticReport' && viewingResultsData && (
+          <ErrorBoundary message="Unable to load your diagnosis. Please go back and try again.">
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
               <TestResults
+                screen="diagnosis"
                 test={viewingResultsData.test}
                 answers={viewingResultsData.answers}
                 storedResult={viewingResultsData.storedResult}
@@ -3431,96 +2980,20 @@ const PerformSAT = () => {
                 diagnosticReport={viewingResultsData.diagnosticReport}
                 practiceTestResults={practiceTestResults}
                 aiDiagnosticState={viewingResultsData.aiDiagnosticState}
+                user={user}
+                backLabel={viewingResultsData.returnTo === 'dashboard' ? 'Back to Home' : 'Back to Tests'}
                 onBack={() => {
-                  setView('practiceTests');
+                  const to = viewingResultsData.returnTo || 'practiceTests';
                   setViewingResultsData(null);
-                }}
-                onRetake={() => {
-                  if (!ensurePracticeAccess()) return;
-                  // Retake must launch the pristine catalog test — the snapshot
-                  // reconstruction (viewingResultsData.test) has no passages,
-                  // diagrams, or per-module time limits, and may hold the Easy
-                  // M2 variant in the standard slot.
-                  const freshTest = viewingResultsData.liveTest || viewingResultsData.test;
-                  setViewingResultsData(null);
-                  setSelectedPracticeTest(freshTest);
-                  setIsTestTimed(true);
-                  setInitialTestSection(null);
-                  setView('takingTest');
+                  setView(to);
                 }}
                 onReview={() => {
-                  setViewingResultsData(prev => ({ ...prev, reviewModule: 0 }));
-                  setView('reviewingPastResults');
-                }}
-                onReviewModule={(moduleIndex) => {
-                  setViewingResultsData(prev => ({ ...prev, reviewModule: moduleIndex }));
+                  setViewingResultsData((prev) => ({ ...prev, reviewModule: 0, returnTo: 'diagnosticReport' }));
                   setView('reviewingPastResults');
                 }}
                 onDrillWeakness={handleDrillFromResults}
                 onGoToStudyPlan={() => { setViewingResultsData(null); setView('studyPlan'); }}
-                savedStudyPlan={studyPlan}
-                user={user}
               />
-            </div>
-          </div>
-          </ErrorBoundary>
-        )}
-
-        {/* Full Diagnostic Report — surfaces the deeper analysis that
-            TestResults summarizes. Mounted from StudentDashboard's
-            onViewFullDiagnosis (closes CEO C1 of the /autoplan review). */}
-        {view === 'diagnosticReport' && viewingResultsData && (
-          <ErrorBoundary message="Unable to load your diagnostic report. Please go back and try again.">
-            <div style={{
-              minHeight: '100vh',
-              background: '#F5F5F7',
-              padding: '32px',
-            }}>
-              <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-                <DiagnosticReport
-                  test={viewingResultsData.test}
-                  answers={viewingResultsData.answers}
-                  diagnosticData={viewingResultsData.diagnosticData}
-                  skillProgress={skillProgress}
-                  user={user}
-                  practiceTestResults={practiceTestResults}
-                  completedLessons={completedLessons}
-                  practiceProgress={practiceProgress}
-                  savedStudyPlan={studyPlan}
-                  answeredQuestionIds={answeredQuestionIds}
-                  onStartPractice={(moduleId, sectionName, opts) => {
-                    setViewingResultsData(null);
-                    // Drill-shaped next actions (format v2) arrive as resolved
-                    // question ids — same contract as the results-path mount.
-                    if (opts?.questionIds?.length) {
-                      startAssignedPractice(opts.questionIds, { label: opts.label, weakness: opts.weakness });
-                      return;
-                    }
-                    // Must go through startPrescriptivePractice — it populates
-                    // practiceState.shuffledQuestions (the practice view no
-                    // longer has a synchronous corpus fallback) and sets the
-                    // module/section/view itself once questions are in hand.
-                    startPrescriptivePractice(moduleId, sectionName);
-                  }}
-                  onStartPracticeTest={() => {
-                    setViewingResultsData(null);
-                    setView('practiceTests');
-                  }}
-                  onSaveStudyPlan={handleSaveStudyPlan}
-                  onGoToStudyPlan={() => {
-                    setViewingResultsData(null);
-                    setView('studyPlan');
-                  }}
-                  onBack={() => {
-                    // This mount is only reachable from the dashboard's
-                    // "View full diagnosis" — back returns there, not to the
-                    // study plan it never came from.
-                    setViewingResultsData(null);
-                    setView('dashboard');
-                  }}
-                  backLabel="Back to Home"
-                />
-              </div>
             </div>
           </ErrorBoundary>
         )}
@@ -3572,13 +3045,12 @@ const PerformSAT = () => {
             answeredQuestionIds={answeredQuestionIds}
             reviewSnapshotMissing={viewingResultsData.snapshotMissing}
             reviewAnswersMissing={!!viewingResultsData.answersMissing}
-            reviewLayout={viewingResultsData.reviewLayout || 'panel'}
-            reviewBackLabel={viewingResultsData.returnTo === 'practiceTests' ? 'Tests' : viewingResultsData.returnTo === 'diagnosticResults' ? 'Diagnosis' : 'Results'}
+            reviewBackLabel={({ practiceTests: 'Tests', diagnosticResults: 'Diagnosis', diagnosticReport: 'Diagnosis', dashboard: 'Home', studyPlan: 'Study Plan' })[viewingResultsData.returnTo] || 'Results'}
             reviewAttemptId={viewingResultsData.attemptId}
             tutorLocked={billingLocked}
             onSubscribe={() => setView('paywall')}
             onBack={() => {
-              setView(viewingResultsData.returnTo || 'viewingResults');
+              setView(viewingResultsData.returnTo || 'practiceTests');
             }}
           />
           </ErrorBoundary>
@@ -3726,124 +3198,11 @@ const PerformSAT = () => {
             onCompleteActivity={markStudyActivityComplete}
             onUncompleteActivity={unmarkStudyActivityComplete}
             onEditPlan={saveEditedStudyPlan}
-            onReviewPastTests={handleOpenPastTestReview}
             onStartReview={startDailyReview}
             onStartPacing={startPacingDrill}
             onReviewTestWrong={handleReviewTestWrong}
           />
         )}
-
-        {/* ── Past-Test-Review surfaces (Phases 2-6 of PAST_TEST_REVIEW_PLAN.md) ── */}
-        {view === 'pastTestReviewIndex' && (
-          <ErrorBoundary message="Couldn't load your test review. Please go back and try again.">
-            <div style={{ minHeight: '100vh', background: '#F5F5F7', padding: '32px' }}>
-              <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-                <PastTestReviewIndex
-                  practiceTestResults={practiceTestResults}
-                  onSelectTest={handleSelectReviewTest}
-                  onTakeTest={() => setView('practiceTests')}
-                  onBack={() => setView(pastTestReviewEntryView)}
-                />
-              </div>
-            </div>
-          </ErrorBoundary>
-        )}
-
-        {view === 'pastTestReviewDetail' && (
-          <ErrorBoundary message="Couldn't load this test's review. Please go back and try again.">
-            <div style={{ minHeight: '100vh', background: '#F5F5F7', padding: '32px' }}>
-              <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-                <TestReviewDetail
-                  testTitle={reviewBundle?.testTitle || selectedReviewTestId || 'Test review'}
-                  attempt={reviewBundle?.attempt}
-                  diagnosticReport={reviewBundle?.diagnosticReport}
-                  loading={reviewBundleLoading}
-                  error={reviewBundleError}
-                  snapshotMissing={!!reviewBundle?.snapshotMissing}
-                  onSelectItem={handleSelectReviewItem}
-                  onRetryWrong={handleRetryWrongFromReview}
-                  onBack={() => {
-                    // Deep-linked from the plan → back returns to the plan;
-                    // browsed from the index → back returns to the index.
-                    if (reviewEnteredViaDeepLink) {
-                      setReviewEnteredViaDeepLink(false);
-                      setView(pastTestReviewEntryView);
-                    } else {
-                      setView('pastTestReviewIndex');
-                    }
-                  }}
-                />
-              </div>
-            </div>
-          </ErrorBoundary>
-        )}
-
-        {view === 'pastTestReviewItem' && reviewBundle && selectedReviewItem && (() => {
-          const { moduleIndex, questionIndex } = selectedReviewItem;
-          const snapshotItem =
-            reviewBundle.test?.modules?.[moduleIndex]?.questions?.[questionIndex] || null;
-          const rawAnswer =
-            reviewBundle.answers?.[itemKey(moduleIndex, questionIndex)] ?? null;
-          // Legacy attempts (no per-attempt snapshot) feed the sentinel
-          // string '__wrong__' here from diagnosticReportLoader's fallback.
-          // Don't render that as the user's literal answer.
-          const studentAnswer = rawAnswer === '__wrong__' ? null : rawAnswer;
-          // Map this item's primary skill to its 6-class error type so the
-          // chip matches what TestReviewDetail showed. Only surface for
-          // wrong items — the chip is meaningless for correct ones.
-          const errorClass = !selectedReviewItem.isCorrect
-            ? findErrorClassForItem(
-                selectedReviewItem,
-                reviewBundle.attempt,
-                reviewBundle.diagnosticReport,
-              )
-            : null;
-
-          // Prev/Next walk the slice the user was viewing in TestReviewDetail.
-          // The detail view defaults to the wrong-only filter, but the All
-          // filter can open a CORRECT item — which isn't in the wrong-only
-          // slice, so scoping Prev/Next to wrong items gave currentIdx -1 and
-          // no navigation at all. Pick the slice by where the item actually
-          // lives: if it's a wrong item keep the wrong-only walk (the common
-          // path); otherwise walk the full item list so a correct item still
-          // has Prev/Next. Items arrive sorted by (moduleIndex, questionIndex).
-          // (For exact filter parity, TestReviewDetail could pass its `filter`
-          // as a 2nd arg to onSelectItem — one line there — but this App-side
-          // slice already fixes the dead-end for every filter.)
-          const allItems = reviewBundle.attempt
-            ? extractItemsFromAttempt(reviewBundle.attempt)
-            : [];
-          const wrongItems = allItems.filter(it => !it.isCorrect);
-          const wrongIdx = wrongItems.findIndex(it => it.key === selectedReviewItem.key);
-          const navItems = wrongIdx >= 0 ? wrongItems : allItems;
-          const currentIdx = navItems.findIndex(it => it.key === selectedReviewItem.key);
-          const prev = currentIdx > 0 ? navItems[currentIdx - 1] : null;
-          const next = currentIdx >= 0 && currentIdx < navItems.length - 1
-            ? navItems[currentIdx + 1]
-            : null;
-          return (
-            <ErrorBoundary message="Couldn't render this question. Please go back and try again.">
-              <div style={{ minHeight: '100vh', background: '#F5F5F7', padding: '32px' }}>
-                <div style={{ maxWidth: '780px', margin: '0 auto' }}>
-                  <ReviewItemCard
-                    snapshotItem={snapshotItem}
-                    studentAnswer={studentAnswer}
-                    isCorrect={selectedReviewItem.isCorrect}
-                    errorClass={errorClass}
-                    timeSpent={selectedReviewItem.timeSpent}
-                    testTitle={reviewBundle.testTitle}
-                    snapshotMissing={!!reviewBundle.snapshotMissing}
-                    onPrev={prev ? () => setSelectedReviewItem(prev) : undefined}
-                    onNext={next ? () => setSelectedReviewItem(next) : undefined}
-                    onBack={() => setView('pastTestReviewDetail')}
-                    onTrySimilar={() => handleTrySimilarFromReview(snapshotItem)}
-                  />
-                </div>
-              </div>
-            </ErrorBoundary>
-          );
-        })()}
-
 
         {/* Practice View */}
         {view === 'practice' && activeSection && (() => {
@@ -3971,15 +3330,6 @@ const PerformSAT = () => {
                       label: practiceState.adaptiveDomainLabel,
                       ephemeral: true,
                       source,
-                    });
-                  } else if (practiceState.reviewMode) {
-                    // Review-mode retries can't use startAssignedPractice
-                    // because snapshot question IDs aren't in the drill bank.
-                    // Re-launch with the snapshot questions in hand.
-                    startRetryDrillFromTest({
-                      testId: practiceState.assignmentMeta?.sourceTestId,
-                      testTitle: practiceState.assignmentMeta?.sourceTestTitle,
-                      snapshotQuestions: practiceState.shuffledQuestions,
                     });
                   } else {
                     startAssignedPractice(

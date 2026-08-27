@@ -59,6 +59,8 @@ const PracticeTestList = ({
   inProgressTests,
   onResumeTest,
   onViewResults,
+  // Opens a completed test's AI diagnosis (the screen shown right after a test).
+  onViewDiagnosis: onViewTestDiagnosis,
   onResetTest,
   onDeleteAttempt,
   billingLocked = false,
@@ -233,6 +235,7 @@ const PracticeTestList = ({
             onSelectTestWithMode={onSelectTestWithMode}
             onResumeTest={onResumeTest}
             onViewResults={onViewResults}
+            onViewDiagnosis={onViewTestDiagnosis}
             onRequestReset={onResetTest ? () => setResetTarget({ test, testNum: idx + 1, inProgress: !!inProgressTests?.[test.id] }) : undefined}
             onRequestDeleteAttempt={onDeleteAttempt ? (attempt) => setDeleteAttemptTarget({ test, testNum: idx + 1, attempt }) : undefined}
             billingLocked={billingLocked}
@@ -433,6 +436,7 @@ const TestCard = ({
   onSelectTestWithMode,
   onResumeTest,
   onViewResults,
+  onViewDiagnosis,
   onRequestReset,
   onRequestDeleteAttempt,
   billingLocked = false,
@@ -617,8 +621,18 @@ const TestCard = ({
                 {launchOpen && <LaunchMenu totalTime={totalTime} onPick={launch} up />}
               </div>
               {onViewResults && attempts > 0 && (
-                <button type="button" className="pt-btn is-primary is-sm" onClick={() => onViewResults(test)}>
-                  Review answers <ArrowRightIcon size={16} color="currentColor" />
+                <button
+                  type="button"
+                  className="pt-btn is-outline is-sm"
+                  onClick={() => onViewResults(test)}
+                  title="Go through every question with the answers and explanations"
+                >
+                  Review answers
+                </button>
+              )}
+              {onViewDiagnosis && attempts > 0 && (
+                <button type="button" className="pt-btn is-primary is-sm" onClick={() => onViewDiagnosis(test)}>
+                  View diagnosis <ArrowRightIcon size={16} color="currentColor" />
                 </button>
               )}
             </div>

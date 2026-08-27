@@ -34,7 +34,6 @@ import { getIdentityInsights, getPredictionTrust } from '../services/selectors/i
 import { getReviewStreak } from '../services/dailyReviewEngine';
 import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getPracticedDayKeys } from '../services/selectors/practicedDays';
-import { getCompletedTests } from '../services/selectors/completedTests';
 import { isGoalAchieved, goalDelta, isSectionScaleScore } from '../services/selectors/goalProgress';
 import { getDaysUntilTest } from '../services/selectors/daysUntilTest';
 import { parseLocalDate } from '../utils/localDate';
@@ -335,7 +334,6 @@ const StudyPlanLoaded = ({
   onEditPlan,
   studyPlanHistory,
   onSelectPlanVersion,
-  onReviewPastTests,
   onStartReview,
   onStartPacing,
   onReviewTestWrong,
@@ -441,24 +439,12 @@ const StudyPlanLoaded = ({
   // them above the early return shifts the hook count between renders
   // and trips React's "Rendered more hooks than during the previous
   // render" check the first time studyPlan hydrates from Firestore.
-  const pastTestReviewEnabled = useFeatureFlag('pastTestReview');
   // Plan v3 (ff:planV3): one timeline instead of the Today/Weekly tabs — the
   // mission-control arc header on top, today's sessions expanded, the rest of
   // the week beneath, and the old orphan sections (Beyond this week / Review
   // Queue widget / Pacing card / How-you-test footer) folded into the plan
   // itself. Flag OFF = the previous two-tab page, byte-identical (rollback).
   const ffPlanV3 = useFeatureFlag('planV3');
-  // Filter to attempts that actually have item-level telemetry — older
-  // attempts had `diagnosticData.questionDetails` stripped so the doc
-  // stayed under the Firestore 1MB limit, and surfacing them on the CTA
-  // misleads the user (they click in expecting wrong-items breakdown and
-  // hit empty).
-  const completedTestCount = useMemo(
-    () => getCompletedTests(practiceTestResults, { requireItemDetails: true }).length,
-    [practiceTestResults],
-  );
-  const showReviewTestsButton =
-    pastTestReviewEnabled && completedTestCount > 0 && typeof onReviewPastTests === 'function';
 
   // Acely-polish v2: right-rail derived state.
   const practicedDayKeys = useMemo(
@@ -1388,7 +1374,7 @@ const StudyPlanLoaded = ({
   // Distinguishes a genuinely empty "unlocks later" week from one filtered out.
   const shownAnyTasks = (shownWeek?.activities || []).some((a) => a && a.type !== 'lesson' && !a.skipped);
   const pacingWillShow = pacingTelemetry.length > 0 && !testDateIsPast;
-  const hasBeyond = showReviewTestsButton || reviewDue > 0 || pacingWillShow || flaggedTotal > 0;
+  const hasBeyond = reviewDue > 0 || pacingWillShow || flaggedTotal > 0;
 
   // ── Week-picker dropdown metadata ─────────────────────────────────────
   // Whether the plan carries the first-plan "Take Practice Test 2" checkpoint —
@@ -1829,22 +1815,6 @@ const StudyPlanLoaded = ({
               onStartPacing={onStartPacing}
               testDateIsPast={testDateIsPast}
             />
-            {showReviewTestsButton && (
-              <div className="sp-past-test-review-cta">
-                <button type="button" className="sp-past-test-review-btn" onClick={onReviewPastTests}>
-                  <span className="sp-past-test-review-icon" aria-hidden="true"><ClipboardIcon size={18} /></span>
-                  <span className="sp-past-test-review-text">
-                    <span className="sp-past-test-review-title">Review your tests</span>
-                    <span className="sp-past-test-review-sub">
-                      {completedTestCount === 1
-                        ? 'See every wrong answer explained from your test'
-                        : `See every wrong answer explained from your ${completedTestCount} tests`}
-                    </span>
-                  </span>
-                  <span className="sp-past-test-review-chev" aria-hidden="true">›</span>
-                </button>
-              </div>
-            )}
           </div>
         </div>
       )}
@@ -2185,22 +2155,6 @@ const StudyPlanLoaded = ({
               onStartPacing={onStartPacing}
               testDateIsPast={testDateIsPast}
             />
-            {showReviewTestsButton && (
-              <div className="sp-past-test-review-cta">
-                <button type="button" className="sp-past-test-review-btn" onClick={onReviewPastTests}>
-                  <span className="sp-past-test-review-icon" aria-hidden="true"><ClipboardIcon size={18} /></span>
-                  <span className="sp-past-test-review-text">
-                    <span className="sp-past-test-review-title">Review your tests</span>
-                    <span className="sp-past-test-review-sub">
-                      {completedTestCount === 1
-                        ? 'See every wrong answer explained from your test'
-                        : `See every wrong answer explained from your ${completedTestCount} tests`}
-                    </span>
-                  </span>
-                  <span className="sp-past-test-review-chev" aria-hidden="true">›</span>
-                </button>
-              </div>
-            )}
           </>
         )}
 
