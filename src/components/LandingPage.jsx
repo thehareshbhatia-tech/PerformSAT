@@ -241,7 +241,6 @@ const LandingPage = () => {
   const { signup, login, user, loading: authLoading } = useAuth();
   const rootRef = useRef(null);
   const progressRef = useRef(null);
-  const heroVisRef = useRef(null);
   const plxRefs = useRef([]);
   const addPlx = useCallback((el) => {
     if (el && !plxRefs.current.includes(el)) plxRefs.current.push(el);
@@ -311,37 +310,6 @@ const LandingPage = () => {
   }, [showFunnel]);
 
   // Pointer tilt on the hero product panel — desktop pointers only.
-  useEffect(() => {
-    if (showFunnel) return undefined;
-    const el = heroVisRef.current;
-    if (!el) return undefined;
-    if (prefersReducedMotion() || window.matchMedia?.('(pointer: coarse)').matches) return undefined;
-    let raf = 0;
-    const onMove = (e) => {
-      const r = el.getBoundingClientRect();
-      const dx = (e.clientX - r.left) / r.width - 0.5;
-      const dy = (e.clientY - r.top) / r.height - 0.5;
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        el.style.setProperty('--lp-tilt-x', `${(dy * -4.5).toFixed(2)}deg`);
-        el.style.setProperty('--lp-tilt-y', `${(dx * 6.5).toFixed(2)}deg`);
-      });
-    };
-    const onLeave = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        el.style.setProperty('--lp-tilt-x', '0deg');
-        el.style.setProperty('--lp-tilt-y', '0deg');
-      });
-    };
-    el.addEventListener('pointermove', onMove);
-    el.addEventListener('pointerleave', onLeave);
-    return () => {
-      el.removeEventListener('pointermove', onMove);
-      el.removeEventListener('pointerleave', onLeave);
-      cancelAnimationFrame(raf);
-    };
-  }, [showFunnel]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -440,7 +408,7 @@ const LandingPage = () => {
       <header className="lp-hero">
         <div className="lp-hero-blob lp-hero-blob-a lp-plx" data-speed="0.10" ref={addPlx} aria-hidden="true" />
         <div className="lp-hero-blob lp-hero-blob-b lp-plx" data-speed="0.16" ref={addPlx} aria-hidden="true" />
-        <div className="lp-hero-inner">
+        <div className="lp-hero-inner is-centered">
           <div>
             <span className="lp-badge lp-enter" style={{ '--d': '0ms' }}><span className="lp-badge-dot" />Built for the Digital SAT</span>
             <h1 className="lp-hero-title">
@@ -467,52 +435,21 @@ const LandingPage = () => {
             )}
           </div>
 
-          <div className="lp-hero-visual lp-enter" style={{ '--d': '300ms' }} ref={heroVisRef}>
-            <div className="lp-demo-panel lp-tilt">
-              <div className="lp-demo-blob-a" aria-hidden="true" />
-              <div className="lp-demo-blob-b" aria-hidden="true" />
-              <div className="lp-demo-head">
-                <span className="lp-demo-eyebrow">Your progress</span>
-                <span className="lp-demo-live"><span className="lp-demo-live-dot" />Live</span>
-              </div>
-              <div className="lp-demo-card lp-float">
-                <div className="lp-demo-card-top">
-                  <div className="lp-demo-card-label">Current Score</div>
-                  <span className="lp-demo-delta">
-                    <svg width="12" height="12" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.6" {...svgBase}><path d="M7 17 17 7M9 7h8v8" /></svg>+90 pts
-                  </span>
-                </div>
-                <div className="lp-demo-scorerow">
-                  <CountUp className="lp-demo-score" to={1280} duration={1900} />
-                  <span className="lp-demo-scoremax">/ 1600</span>
-                </div>
-                <div className="lp-demo-bar">
-                  <div className="lp-demo-bar-fill" />
-                  <div className="lp-demo-bar-goal" />
-                </div>
-                <div className="lp-demo-barlabels"><span>Now</span><span style={{ color: 'var(--lp-lime-deep)' }}>Goal 1500</span></div>
-                <div className="lp-demo-tiles">
-                  <div className="lp-demo-tile lp-demo-tile-orange">
-                    <div className="lp-demo-tile-num">40%</div>
-                    <div className="lp-demo-tile-label">Accuracy</div>
-                  </div>
-                  <div className="lp-demo-tile lp-demo-tile-lime">
-                    <div className="lp-demo-tile-num">R&amp;W</div>
-                    <div className="lp-demo-tile-label">Strongest</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="lp-tutor-pill">
-              <span className="lp-tutor-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" stroke="var(--lp-purple)" strokeWidth="2" {...svgBase}><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6z" /></svg>
-              </span>
-              <div>
-                <div className="lp-tutor-title">AI Tutor</div>
-                <div className="lp-tutor-sub">explaining question 4…</div>
-              </div>
-            </div>
-          </div>
+        </div>
+
+        {/* The product itself, right under the promise: the Home dashboard a
+            student sees every day, on a navy stage that runs into the stats. */}
+        <div className="lp-hero-stage">
+          <figure className="lp-hero-product lp-enter" style={{ '--d': '520ms' }}>
+            <div className="lp-shot-bar" aria-hidden="true"><span /><span /><span /></div>
+            <img
+              src={`${process.env.PUBLIC_URL}/showcase/dashboard.jpg`}
+              alt="SEVA Home dashboard: performance snapshot with overall accuracy, consistency and pacing tiles, an estimated starting score of 1400 with Math and R&W ranges, days until the test, a practice calendar, and weak spots to pick up"
+              width="2000"
+              height="1250"
+              fetchpriority="high"
+            />
+          </figure>
         </div>
       </header>
 
@@ -664,29 +601,13 @@ const LandingPage = () => {
         <div className="lp-section-head">
           <span className="lp-eyebrow">See it in action</span>
           <h2 className="lp-section-title">This is what your prep looks like.</h2>
-          <p className="lp-section-sub">The real product — the dashboard that runs your prep, and the Bluebook-style runner you'll take every practice test in.</p>
+          <p className="lp-section-sub">The real product, not a mockup — the test runner, the answer review, and the diagnosis that comes after every test.</p>
         </div>
 
         <div className="lp-shot-row">
           <figure className="lp-shot-frame">
             <div className="lp-shot-bar" aria-hidden="true"><span /><span /><span /></div>
-            <img src={`${process.env.PUBLIC_URL}/showcase/app-dashboard.png`} alt="SEVA dashboard: current score 1220 with Math and R&W splits, goal progress bar, practice accuracy, SAT-day calendar, and a retry queue of missed questions" loading="lazy" width="1920" height="1080" />
-          </figure>
-          <div className="lp-shot-copy">
-            <h3 className="lp-shot-title">A dashboard that knows exactly where you stand</h3>
-            <ul className="lp-shot-list">
-              <li><strong>Your score, live.</strong> Current score, section splits, and distance to your goal — updated after every test.</li>
-              <li><strong>Strongest section vs. biggest opportunity,</strong> pulled straight from your latest test.</li>
-              <li><strong>A calendar counting down</strong> to your SAT test day, with every practiced day marked.</li>
-              <li><strong>Pick up where you struggled.</strong> The hard questions you missed, queued up to retry.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="lp-shot-row is-flipped">
-          <figure className="lp-shot-frame">
-            <div className="lp-shot-bar" aria-hidden="true"><span /><span /><span /></div>
-            <img src={`${process.env.PUBLIC_URL}/showcase/app-test-runner.png`} alt="SEVA test runner on a math question: Bluebook-style two-pane layout with question strip, answer choices, Mark for Review, and the built-in Desmos graphing calculator graphing a quadratic" loading="lazy" width="1920" height="1080" />
+            <img src={`${process.env.PUBLIC_URL}/showcase/test-runner.jpg`} alt="SEVA test runner on a Reading and Writing question: Bluebook-style two-pane layout with the passage on the left, the question and four answer choices on the right, a question strip, Mark for Review, timer and Pause" loading="lazy" width="2000" height="1250" />
           </figure>
           <div className="lp-shot-copy">
             <h3 className="lp-shot-title">Practice tests that feel like the real thing</h3>
@@ -695,6 +616,38 @@ const LandingPage = () => {
               <li><strong>Built-in Desmos graphing calculator</strong> and reference sheet on every math question.</li>
               <li><strong>Timed or untimed.</strong> Practice against the clock, or slow down and think.</li>
               <li><strong>Adaptive Module 2.</strong> Your second module adjusts to your first — exactly like the official digital SAT.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="lp-shot-row is-flipped">
+          <figure className="lp-shot-frame">
+            <div className="lp-shot-bar" aria-hidden="true"><span /><span /><span /></div>
+            <img src={`${process.env.PUBLIC_URL}/showcase/review.jpg`} alt="SEVA answer review on the same test screen: module tabs showing 15 of 27 and 16 of 27 correct, the correct choice marked with a green check, a Correct pill, the explanation open below, and an Ask the tutor button" loading="lazy" width="2000" height="1250" />
+          </figure>
+          <div className="lp-shot-copy">
+            <h3 className="lp-shot-title">Every question, marked — with the why</h3>
+            <ul className="lp-shot-list">
+              <li><strong>Review on the screen you took the test on.</strong> Correct and wrong answers marked, module by module.</li>
+              <li><strong>The explanation is already open</strong> — a full walkthrough, every step written out, plus why the other choices are wrong.</li>
+              <li><strong>Your score per module</strong> in the tabs, so you can see exactly where the points went.</li>
+              <li><strong>Ask the AI tutor</strong> the second an explanation doesn't land.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="lp-shot-row">
+          <figure className="lp-shot-frame">
+            <div className="lp-shot-bar" aria-hidden="true"><span /><span /><span /></div>
+            <img src={`${process.env.PUBLIC_URL}/showcase/diagnosis.jpg`} alt="SEVA diagnosis after a practice test: score 990 against a 1500 target, 510 points to target, easy wins worth 50 points, Geometry and Trigonometry named the biggest lever, and the diagnosis naming recurring concept gaps as the biggest challenge" loading="lazy" width="2000" height="1250" />
+          </figure>
+          <div className="lp-shot-copy">
+            <h3 className="lp-shot-title">A diagnosis, not just a score</h3>
+            <ul className="lp-shot-list">
+              <li><strong>Your biggest challenge, named.</strong> Pacing misses, concept gaps, execution slips — in that order, from your actual answers and timing.</li>
+              <li><strong>Points to target and the easy wins</strong> you can bank first.</li>
+              <li><strong>The one domain</strong> that is your biggest lever right now.</li>
+              <li><strong>What to focus on next</strong> — wired straight into your study plan.</li>
             </ul>
           </div>
         </div>
