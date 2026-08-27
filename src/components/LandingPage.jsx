@@ -442,13 +442,18 @@ const LandingPage = () => {
         <div className="lp-hero-stage">
           <figure className="lp-hero-product lp-enter" style={{ '--d': '520ms' }}>
             <div className="lp-shot-bar" aria-hidden="true"><span /><span /><span /></div>
-            <img
-              src={`${process.env.PUBLIC_URL}/showcase/dashboard.jpg`}
-              alt="SEVA Home dashboard: performance snapshot with overall accuracy, consistency and pacing tiles, an estimated starting score of 1400 with Math and R&W ranges, days until the test, a practice calendar, and weak spots to pick up"
-              width="2000"
-              height="1250"
-              fetchpriority="high"
-            />
+            <picture>
+              <source type="image/webp" srcSet={`${process.env.PUBLIC_URL}/showcase/dashboard.webp 1440w, ${process.env.PUBLIC_URL}/showcase/dashboard@2x.webp 2880w`} sizes="(max-width: 1264px) calc(100vw - 64px), 1200px" />
+              <img
+                src={`${process.env.PUBLIC_URL}/showcase/dashboard@2x.png`}
+                srcSet={`${process.env.PUBLIC_URL}/showcase/dashboard.png 1440w, ${process.env.PUBLIC_URL}/showcase/dashboard@2x.png 2880w`}
+                sizes="(max-width: 1264px) calc(100vw - 64px), 1200px"
+                alt="SEVA Home dashboard: performance snapshot with overall accuracy, consistency and pacing tiles, an estimated starting score of 1400 with Math and R&W ranges, days until the test, a practice calendar, and weak spots to pick up"
+                width="2880"
+                height="1800"
+                fetchpriority="high" decoding="async"
+              />
+            </picture>
           </figure>
         </div>
       </header>
@@ -607,7 +612,18 @@ const LandingPage = () => {
         <div className="lp-shot-row">
           <figure className="lp-shot-frame">
             <div className="lp-shot-bar" aria-hidden="true"><span /><span /><span /></div>
-            <img src={`${process.env.PUBLIC_URL}/showcase/test-runner.jpg`} alt="SEVA test runner on a Reading and Writing question: Bluebook-style two-pane layout with the passage on the left, the question and four answer choices on the right, a question strip, Mark for Review, timer and Pause" loading="lazy" width="2000" height="1250" />
+            <picture>
+              <source type="image/webp" srcSet={`${process.env.PUBLIC_URL}/showcase/test-runner.webp 1440w, ${process.env.PUBLIC_URL}/showcase/test-runner@2x.webp 2880w`} sizes="(max-width: 960px) calc(100vw - 64px), (max-width: 1264px) calc((100vw - 112px) * 0.58), 660px" />
+              <img
+                src={`${process.env.PUBLIC_URL}/showcase/test-runner@2x.png`}
+                srcSet={`${process.env.PUBLIC_URL}/showcase/test-runner.png 1440w, ${process.env.PUBLIC_URL}/showcase/test-runner@2x.png 2880w`}
+                sizes="(max-width: 960px) calc(100vw - 64px), (max-width: 1264px) calc((100vw - 112px) * 0.58), 660px"
+                alt="SEVA test runner on a Reading and Writing question: Bluebook-style two-pane layout with the passage on the left, the question and four answer choices on the right, a question strip, Mark for Review, timer and Pause"
+                width="2880"
+                height="1800"
+                loading="lazy" decoding="async"
+              />
+            </picture>
           </figure>
           <div className="lp-shot-copy">
             <h3 className="lp-shot-title">Practice tests that feel like the real thing</h3>
@@ -623,7 +639,18 @@ const LandingPage = () => {
         <div className="lp-shot-row is-flipped">
           <figure className="lp-shot-frame">
             <div className="lp-shot-bar" aria-hidden="true"><span /><span /><span /></div>
-            <img src={`${process.env.PUBLIC_URL}/showcase/review.jpg`} alt="SEVA answer review on the same test screen: module tabs showing 15 of 27 and 16 of 27 correct, the correct choice marked with a green check, a Correct pill, the explanation open below, and an Ask the tutor button" loading="lazy" width="2000" height="1250" />
+            <picture>
+              <source type="image/webp" srcSet={`${process.env.PUBLIC_URL}/showcase/review.webp 1440w, ${process.env.PUBLIC_URL}/showcase/review@2x.webp 2880w`} sizes="(max-width: 960px) calc(100vw - 64px), (max-width: 1264px) calc((100vw - 112px) * 0.58), 660px" />
+              <img
+                src={`${process.env.PUBLIC_URL}/showcase/review@2x.png`}
+                srcSet={`${process.env.PUBLIC_URL}/showcase/review.png 1440w, ${process.env.PUBLIC_URL}/showcase/review@2x.png 2880w`}
+                sizes="(max-width: 960px) calc(100vw - 64px), (max-width: 1264px) calc((100vw - 112px) * 0.58), 660px"
+                alt="SEVA answer review on the same test screen: module tabs showing 15 of 27 and 16 of 27 correct, the correct choice marked with a green check, a Correct pill, the explanation open below, and an Ask the tutor button"
+                width="2880"
+                height="1800"
+                loading="lazy" decoding="async"
+              />
+            </picture>
           </figure>
           <div className="lp-shot-copy">
             <h3 className="lp-shot-title">Every question, marked — with the why</h3>
@@ -639,7 +666,18 @@ const LandingPage = () => {
         <div className="lp-shot-row">
           <figure className="lp-shot-frame">
             <div className="lp-shot-bar" aria-hidden="true"><span /><span /><span /></div>
-            <img src={`${process.env.PUBLIC_URL}/showcase/diagnosis.jpg`} alt="SEVA diagnosis after a practice test: score 990 against a 1500 target, 510 points to target, easy wins worth 50 points, Geometry and Trigonometry named the biggest lever, and the diagnosis naming recurring concept gaps as the biggest challenge" loading="lazy" width="2000" height="1250" />
+            <picture>
+              <source type="image/webp" srcSet={`${process.env.PUBLIC_URL}/showcase/diagnosis.webp 1440w, ${process.env.PUBLIC_URL}/showcase/diagnosis@2x.webp 2880w`} sizes="(max-width: 960px) calc(100vw - 64px), (max-width: 1264px) calc((100vw - 112px) * 0.58), 660px" />
+              <img
+                src={`${process.env.PUBLIC_URL}/showcase/diagnosis@2x.png`}
+                srcSet={`${process.env.PUBLIC_URL}/showcase/diagnosis.png 1440w, ${process.env.PUBLIC_URL}/showcase/diagnosis@2x.png 2880w`}
+                sizes="(max-width: 960px) calc(100vw - 64px), (max-width: 1264px) calc((100vw - 112px) * 0.58), 660px"
+                alt="SEVA diagnosis after a practice test: score 990 against a 1500 target, 510 points to target, easy wins worth 50 points, Geometry and Trigonometry named the biggest lever, and the diagnosis naming recurring concept gaps as the biggest challenge"
+                width="2880"
+                height="1800"
+                loading="lazy" decoding="async"
+              />
+            </picture>
           </figure>
           <div className="lp-shot-copy">
             <h3 className="lp-shot-title">A diagnosis, not just a score</h3>
