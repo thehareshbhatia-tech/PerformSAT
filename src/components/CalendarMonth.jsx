@@ -30,16 +30,32 @@ import './CalendarMonth.css';
  * swatch. Test day is the one date on the calendar that isn't about the
  * student's routine, so it gets the one non-brand color on the card.
  */
-function GoldStar({ className, muted = false }) {
+function GoldStar({ className }) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path
         d="M12 2.4l2.9 6.05 6.65.85-4.9 4.6 1.25 6.6L12 17.3l-5.9 3.2 1.25-6.6-4.9-4.6 6.65-.85z"
-        fill={muted ? '#E4E1D8' : '#F5B301'}
-        stroke={muted ? '#B8B4A8' : '#C98A12'}
+        fill="#F5B301"
+        stroke="#C98A12"
         strokeWidth="1"
         strokeLinejoin="round"
       />
+    </svg>
+  );
+}
+
+/**
+ * The "SAT taken" marker for a sitting that's already behind the student: a
+ * small green check badge at the corner of the day number (green = done in
+ * the brand palette), NOT a dimmed star — founder 2026-08-29: a past SAT is
+ * a finished thing, not a faded target. Color comes from CSS (currentColor)
+ * so the Study Plan reskin can retint it.
+ */
+function TakenCheck({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <circle cx="12" cy="12" r="11" fill="currentColor" />
+      <path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -66,7 +82,7 @@ function CalendarMonth({ practicedDays, testDate, testDates = null, today, ariaL
 
   // Every sitting the student holds (testDates), or the lone testDate on a
   // pre-list profile. Malformed values are dropped so a bad doc can't break
-  // the grid. Past sittings read as "taken" (muted star) and each one gets
+  // the grid. Past sittings read as "taken" (green check badge) and each one gets
   // its expected score-release marker.
   const allTestKeys = useMemo(
     () => getUserTestDates({ testDate, testDates }),
@@ -171,7 +187,8 @@ function CalendarMonth({ practicedDays, testDate, testDates = null, today, ariaL
               title={isTestDay ? (thisPast ? 'SAT taken' : 'SAT test day') : isRelease ? 'SAT scores expected' : undefined}
               className={cls}
             >
-              {isTestDay && <GoldStar className="cm-star" muted={thisPast} />}
+              {isTestDay && !thisPast && <GoldStar className="cm-star" />}
+              {thisPast && <TakenCheck className="cm-taken" />}
               <span className="cm-cell-day">{cell.day}</span>
               {isRelease && <span className="cm-release-mark" aria-hidden="true" />}
             </span>
@@ -189,7 +206,7 @@ function CalendarMonth({ practicedDays, testDate, testDates = null, today, ariaL
           )}
           {pastInView && (
             <span className="cm-legend-item">
-              <GoldStar className="cm-legend-star" muted />
+              <TakenCheck className="cm-legend-taken" />
               <span className="cm-legend-label">SAT taken</span>
             </span>
           )}

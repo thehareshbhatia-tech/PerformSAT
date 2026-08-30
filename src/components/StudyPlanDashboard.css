@@ -1436,6 +1436,8 @@ button.sp-tuneup-bar:hover { background: var(--sp-inset); }
 }
 .study-plan-dashboard .cm-cell-test.cm-cell-today { border-color: var(--sp-orange); }
 .study-plan-dashboard .cm-cell-test.is-past { color: var(--sp-text-3); font-weight: 700; }
+.study-plan-dashboard .cm-taken,
+.study-plan-dashboard .cm-legend-taken { color: var(--sp-done); }
 
 /* Colored summary tiles */
 .sp-tile {

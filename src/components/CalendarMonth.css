@@ -161,9 +161,19 @@
   pointer-events: none;
   filter: drop-shadow(0 1px 1.5px rgba(201, 138, 18, 0.45));
 }
-/* A sitting that's already behind them: muted star, quiet ink. */
+/* A sitting that's already behind them: no star — quiet ink plus a small
+ * green check badge at the corner of the number ("taken", green = done). */
 .cm-cell-test.is-past { color: var(--color-slate-500); font-weight: 700; }
-.cm-cell-test.is-past .cm-star { filter: none; }
+.cm-taken {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 11px;
+  height: 11px;
+  color: var(--color-brand-green-text, #5A8A16);
+  z-index: 2;
+  pointer-events: none;
+}
 /* Expected score-release day: a short lime bar under the number. */
 .cm-cell-release .cm-cell-day { color: var(--color-slate-900); font-weight: 800; }
 .cm-release-mark {
@@ -208,6 +218,12 @@
   height: 14px;
   flex-shrink: 0;
   filter: drop-shadow(0 1px 1px rgba(201, 138, 18, 0.4));
+}
+.cm-legend-taken {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  color: var(--color-brand-green-text, #5A8A16);
 }
 
 @media (max-width: 640px) {
