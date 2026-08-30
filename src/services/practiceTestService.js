@@ -3,7 +3,7 @@ import { doc, getDoc, setDoc, updateDoc, deleteField, serverTimestamp, arrayUnio
 import { sanitizeForFirestore, restoreFromFirestore } from '../utils/firestoreSafe';
 import { TEST_REVIEW_MODULE_PREFIX } from './reviewQueueResolve';
 import { clearPendingSavesForTest, removePendingSave } from './pendingTestSaveQueue';
-import { pickSurvivingArtifactId } from './studyPlanReset';
+import { pickSurvivingArtifactId, isDiagnosticSourceTestId } from './studyPlanReset';
 import { isSafeFirestoreFieldPathKey } from './firestoreFieldPath';
 
 /**
@@ -663,7 +663,8 @@ export const resetPracticeTest = async (userId, testId) => {
       if (data.currentStudyPlanArtifactId) {
         try {
           // Check the CURRENT artifact directly first. If its source test still
-          // exists (or it's a mini-diagnostic plan, sourceTestId null), keep the
+          // exists (or it's the diagnostic's plan — sourceTestId null or
+          // 'mini-diagnostic-*', see isDiagnosticSourceTestId), keep the
           // pointer untouched — resetting an unrelated test must not churn the
           // plan. Reading the doc by id also dodges the top-N window: an old
           // current artifact that survives is honored even past any query limit.
@@ -671,7 +672,7 @@ export const resetPracticeTest = async (userId, testId) => {
           const currentSnap = await getDoc(currentRef);
           const currentSourceTestId = currentSnap.exists() ? (currentSnap.data()?.linkage?.sourceTestId ?? null) : undefined;
           const currentSurvives = currentSnap.exists()
-            && (currentSourceTestId == null || Object.prototype.hasOwnProperty.call(results, currentSourceTestId));
+            && (isDiagnosticSourceTestId(currentSourceTestId) || Object.prototype.hasOwnProperty.call(results, currentSourceTestId));
 
           if (!currentSurvives) {
             // Current plan's source test was reset (or the artifact is gone) —

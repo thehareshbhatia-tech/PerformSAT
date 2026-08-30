@@ -935,6 +935,36 @@ describe('resetPracticeTest', () => {
     expect(getStore().get('progress/u1').currentStudyPlanArtifactId).toBe('art-mini');
   });
 
+  test('re-points to the v2 diagnostic artifact (sourceTestId "mini-diagnostic-v1") when the last full test is reset', async () => {
+    // 2026-08-29 founder repro: the v2 diagnostic stamps MINI_DIAGNOSTIC_TEST_ID
+    // (not null). The reset used to treat it as an orphan, null the pointer,
+    // and the home fell back to the first-run "take your diagnostic" hero.
+    getStore().set('progress/u1/studyPlanArtifacts/art-test', { linkage: { sourceTestId: 'practice-test-1' }, plan: { weeks: [{}] } });
+    getStore().set('progress/u1/studyPlanArtifacts/art-diag', { linkage: { sourceTestId: 'mini-diagnostic-v1' }, plan: { weeks: [{}] } });
+    seedProgress({
+      practiceTestResults: { 'practice-test-1': { testId: 'practice-test-1', attempts: [] } },
+      currentStudyPlanArtifactId: 'art-test',
+    });
+
+    await resetPracticeTest('u1', 'practice-test-1');
+
+    expect(getStore().get('progress/u1').currentStudyPlanArtifactId).toBe('art-diag');
+  });
+
+  test('keeps the pointer on the v2 diagnostic artifact when a practice test is reset while it is current', async () => {
+    // Student took the diagnostic, then a practice test whose plan write failed
+    // (pointer still on the diagnostic's plan). Resetting the test must not churn.
+    getStore().set('progress/u1/studyPlanArtifacts/art-diag', { linkage: { sourceTestId: 'mini-diagnostic-v1' }, plan: { weeks: [{}] } });
+    seedProgress({
+      practiceTestResults: { 'practice-test-1': { testId: 'practice-test-1', attempts: [] } },
+      currentStudyPlanArtifactId: 'art-diag',
+    });
+
+    await resetPracticeTest('u1', 'practice-test-1');
+
+    expect(getStore().get('progress/u1').currentStudyPlanArtifactId).toBe('art-diag');
+  });
+
   test('clears the study-plan pointer when no artifact survives the reset', async () => {
     getStore().set('progress/u1/studyPlanArtifacts/art-only', { linkage: { sourceTestId: 'practice-test-1' }, plan: { weeks: [{}] } });
     seedProgress({

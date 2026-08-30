@@ -300,11 +300,16 @@ const StudentDashboard = ({
     [practiceProgress, practiceTestResults, drillDays],
   );
   const hasStudyPlan = !!(studyPlan && Array.isArray(studyPlan.weeks) && studyPlan.weeks.length > 0);
-  // First-run (no-data) dashboard: no scored practice test AND no study plan.
-  // In this state the protected performance grid + projected chart are already
-  // gated off, so we replace the flat "everything is locked" dump with a single
-  // welcoming get-started layout (one CTA + goal/exam tiles + what-you'll-unlock).
-  const noData = !performanceTiles.hasData && !hasStudyPlan;
+  // First-run (no-data) dashboard: no scored practice test, no study plan AND
+  // no completed diagnostic. In this state the protected performance grid +
+  // projected chart are already gated off, so we replace the flat "everything
+  // is locked" dump with a single welcoming get-started layout (one CTA +
+  // goal/exam tiles + what-you'll-unlock). The diagnostic record is checked
+  // directly (same "completed" signal the Tests page uses) so a plan-hydration
+  // gap — e.g. right after resetting the only practice test — can never tell a
+  // measured student to "take your diagnostic" again.
+  const hasCompletedDiagnostic = !!miniDiagnostic;
+  const noData = !performanceTiles.hasData && !hasStudyPlan && !hasCompletedDiagnostic;
   // Predicted vs Actual (Day 5 ADD B). summarizePredictions returns null when
   // no validated prediction exists yet, so the card hides itself pre-2nd-test.
   const predictionSummary = useMemo(

@@ -341,8 +341,14 @@ export const useProgress = (userId) => {
             hydratingArtifact.current = true;
             console.log('[useProgress] Hydrating study plan via latest-query');
 
+            // Survivor-aware: after a practice-test reset the NEWEST artifact
+            // can be an orphan (its source test is gone) while the diagnostic's
+            // starter plan underneath it is still valid — the plain latest
+            // query returned the orphan and the account fell into the
+            // first-run "take your diagnostic" state despite a completed
+            // diagnostic (2026-08-29 founder repro).
             import('../services/hybridStudyPlanService')
-              .then(({ getLatestStudyPlanArtifact }) => getLatestStudyPlanArtifact(userId))
+              .then(({ getLatestSurvivingStudyPlanArtifact }) => getLatestSurvivingStudyPlanArtifact(userId, data.practiceTestResults || {}))
               .then(art => {
               // Stale-resolve guard: account switched while this fetch was in
               // flight — do not write the previous user's plan into state.
