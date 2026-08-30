@@ -8,12 +8,14 @@
  *                                 see performanceTiles.js for the history)
  *   green   → CONSISTENCY        days practiced out of the last 7, plus the
  *                                 daily-review streak
- *   purple  → PACING             share of questions answered at a healthy pace
- *                                 for their difficulty (engine thresholds)
+ *   purple  → PACING             questions answered OFF a healthy pace for
+ *                                 their difficulty (engine thresholds)
  *
- * Pure selector; every percentage carries the counts behind it so "78%"
- * always reads as "31 of 40". The tile DESIGN is protected — this module
- * only decides what the numbers mean.
+ * Pure selector. Only accuracy is a percentage (it carries its counts so
+ * "78%" always reads as "31 of 40"); consistency and pacing are plain counts
+ * with a unit — founder 2026-08-29: "0%" for days practiced and "83%" for
+ * pacing read as scores, not as what they measure. The tile DESIGN is
+ * protected — this module only decides what the numbers mean.
  */
 import { isScoreableAttempt } from './latestTestStats';
 import { getSessionAdherence } from './sessionAdherence';
@@ -146,12 +148,16 @@ export function buildHomeTiles({
   // ── Consistency: days practiced in the last 7 + review streak ──
   const adherence = getSessionAdherence({ practiceProgress, practiceTestResults, drillDays }, { now });
   const streak = Number.isFinite(reviewStreak?.current) ? reviewStreak.current : 0;
+  // Big figure: the day count with its unit ("3 days"), never a percent —
+  // the name supplies the window so the tile reads "3 days · in the last 7
+  // days".
   const consistency = {
-    percent: pct(adherence.uniqueDays, adherence.totalDays),
+    value: adherence.uniqueDays,
+    unit: adherence.uniqueDays === 1 ? 'day' : 'days',
     uniqueDays: adherence.uniqueDays,
     totalDays: adherence.totalDays,
     streak,
-    name: `${adherence.uniqueDays} of the last ${adherence.totalDays} days`,
+    name: `In the last ${adherence.totalDays} days`,
     detail: streak > 0
       ? `${streak}-day review streak`
       : (adherence.uniqueDays > 0 ? 'No review streak yet' : 'Practice today to start a streak'),
@@ -163,16 +169,21 @@ export function buildHomeTiles({
   const telemetry = buildPacingTelemetry(practiceTestResults);
   const fromTest = summarizePace(telemetry);
   const diagPace = miniDiagnostic?.diagnosis?.pacing;
+  // Big figure: how many questions were answered OFF a healthy pace (rushed
+  // or slow) — lower is better; the name ("Mostly on pace") gives the read
+  // and the detail gives the split.
   if (fromTest) {
     pacing = {
-      percent: pct(fromTest.onPace, fromTest.total),
+      value: fromTest.rushed + fromTest.slow,
+      unit: 'off pace',
       name: paceName(fromTest),
       detail: `${fromTest.onPace} of ${fromTest.total} at a healthy pace · ${fromTest.rushed} rushed · ${fromTest.slow} slow`,
       source: 'test',
     };
   } else if (diagPace && Number.isFinite(diagPace.total) && diagPace.total > 0) {
     pacing = {
-      percent: pct(diagPace.onPace || 0, diagPace.total),
+      value: (diagPace.rushed || 0) + (diagPace.slow || 0),
+      unit: 'off pace',
       name: paceName(diagPace),
       detail: `${diagPace.onPace || 0} of ${diagPace.total} at a healthy pace · ${diagPace.rushed || 0} rushed · ${diagPace.slow || 0} slow`,
       source: 'diagnostic',
@@ -186,7 +197,8 @@ export function buildHomeTiles({
     if (tpCount !== null) {
       const answered = miniDiagnostic?.answeredCount || diagTotal;
       pacing = {
-        percent: pct(answered - tpCount, answered),
+        value: tpCount,
+        unit: 'off pace',
         name: tpCount === 0 ? 'Healthy pace' : tpCount >= answered * 0.2 ? 'Rushing' : 'Mostly on pace',
         detail: tpCount === 0
           ? `No misses under time pressure · ${sourceText}`

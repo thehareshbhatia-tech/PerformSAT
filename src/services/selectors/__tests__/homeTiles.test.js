@@ -38,13 +38,16 @@ describe('buildHomeTiles — consistency', () => {
   it('counts days in the last 7 and carries the review streak', () => {
     const t = buildHomeTiles({ miniDiagnostic: DIAG, drillDays: ['2026-08-24', '2026-08-23', '2026-08-20', '2026-08-01'], reviewStreak: { current: 3 }, now: NOW });
     expect(t.consistency.uniqueDays).toBe(3);
-    expect(t.consistency.percent).toBe(43);
-    expect(t.consistency.name).toBe('3 of the last 7 days');
+    expect(t.consistency.value).toBe(3);
+    expect(t.consistency.unit).toBe('days');
+    expect(t.consistency.percent).toBeUndefined();
+    expect(t.consistency.name).toBe('In the last 7 days');
     expect(t.consistency.detail).toBe('3-day review streak');
   });
   it('zero state is honest', () => {
     const t = buildHomeTiles({ miniDiagnostic: DIAG, now: NOW });
-    expect(t.consistency.percent).toBe(0);
+    expect(t.consistency.value).toBe(0);
+    expect(t.consistency.unit).toBe('days');
     expect(t.consistency.detail).toBe('Practice today to start a streak');
   });
 });
@@ -64,13 +67,13 @@ describe('buildHomeTiles — pacing', () => {
     const details = {};
     for (let i = 0; i < 10; i += 1) details[`0-${i}`] = { timeSpent: i < 8 ? 70 : 10, difficulty: 'medium', isCorrect: true };
     const t = buildHomeTiles({ miniDiagnostic: { ...DIAG, diagnosis: { pacing: { total: 40, onPace: 10, rushed: 30, slow: 0 } } }, practiceTestResults: { 1: { attempts: [attempt({ diagnosticData: { questionDetails: details } })] } }, now: NOW });
-    expect(t.pacing).toEqual({ percent: 80, name: 'Healthy pace', detail: '8 of 10 at a healthy pace · 2 rushed · 0 slow', source: 'test' });
+    expect(t.pacing).toEqual({ value: 2, unit: 'off pace', name: 'Healthy pace', detail: '8 of 10 at a healthy pace · 2 rushed · 0 slow', source: 'test' });
   });
   it('falls back to the diagnostic pace summary, then to the legacy time-pressure count', () => {
     const fromDiag = buildHomeTiles({ miniDiagnostic: { ...DIAG, diagnosis: { pacing: { total: 40, onPace: 22, rushed: 15, slow: 3, avgSeconds: 50 } } }, now: NOW });
-    expect(fromDiag.pacing).toEqual({ percent: 55, name: 'Rushing', detail: '22 of 40 at a healthy pace · 15 rushed · 3 slow', source: 'diagnostic' });
+    expect(fromDiag.pacing).toEqual({ value: 18, unit: 'off pace', name: 'Rushing', detail: '22 of 40 at a healthy pace · 15 rushed · 3 slow', source: 'diagnostic' });
     const legacy = buildHomeTiles({ miniDiagnostic: DIAG, studyPlan: { summary: { errorBreakdown: [{ type: 'conceptual_gap', count: 5 }, { type: 'time_pressure', count: 7 }] } }, now: NOW });
-    expect(legacy.pacing).toEqual({ percent: 83, name: 'Mostly on pace', detail: '7 misses under time pressure · your diagnostic', source: 'legacy' });
+    expect(legacy.pacing).toEqual({ value: 7, unit: 'off pace', name: 'Mostly on pace', detail: '7 misses under time pressure · your diagnostic', source: 'legacy' });
     const none = buildHomeTiles({ miniDiagnostic: DIAG, now: NOW });
     expect(none.pacing).toBeNull();
   });

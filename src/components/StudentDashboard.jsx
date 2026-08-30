@@ -921,7 +921,9 @@ const StudentDashboard = ({
                   </div>
                   <div className="hv2-perf-stack">
                     <div className="hv2-split hv2-split-strong">
-                      <div className="hv2-split-num">{homeTiles.consistency.percent}%</div>
+                      <div className="hv2-split-num">
+                        <span className="hv2-split-figure">{homeTiles.consistency.value}<span className="hv2-split-unit">{homeTiles.consistency.unit}</span></span>
+                      </div>
                       <div className="hv2-split-body">
                         <div className="hv2-split-eyebrow">Consistency</div>
                         <div className="hv2-split-name">{homeTiles.consistency.name}</div>
@@ -931,7 +933,9 @@ const StudentDashboard = ({
                     <div className="hv2-split hv2-split-opp">
                       {homeTiles.pacing ? (
                         <>
-                          <div className="hv2-split-num">{homeTiles.pacing.percent}%</div>
+                          <div className="hv2-split-num">
+                            <span className="hv2-split-figure">{homeTiles.pacing.value}<span className="hv2-split-unit">{homeTiles.pacing.unit}</span></span>
+                          </div>
                           <div className="hv2-split-body">
                             <div className="hv2-split-eyebrow">Pacing</div>
                             <div className="hv2-split-name">{homeTiles.pacing.name}</div>

@@ -100,6 +100,12 @@
   flex: 0 0 42%; display: flex; align-items: center; padding: 0 22px;
   font-family: var(--hv2-font-display); font-weight: 700; font-size: 38px; letter-spacing: -.02em;
 }
+/* Count + unit ("3 days", "7 off pace") — the unit hangs off the numeral's
+   baseline at a small size, so the figure stays the tile's one big mark. */
+.hv2-split-figure { display: inline; white-space: nowrap; }
+.hv2-split-unit {
+  font-size: 14px; font-weight: 700; letter-spacing: .01em; margin-left: 6px; opacity: .85;
+}
 .hv2-split-body {
   flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 22px;
 }
