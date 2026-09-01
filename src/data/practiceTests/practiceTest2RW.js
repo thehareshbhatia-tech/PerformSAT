@@ -395,7 +395,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "C",
-              "text": "Clients who opened accounts with larger initial balances went on to save more than other clients did, whether or not they received reminders."
+              "text": "Clients who opened their accounts with larger initial balances went on to save substantially more in the year that followed than other clients did, whether or not they received reminders."
             },
             {
               "id": "D",
@@ -1144,7 +1144,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "B",
-              "text": "It describes an experiment researchers designed, details the obstacles they overcame in recruiting participants, and summarizes results that settled a scholarly controversy."
+              "text": "It describes an experiment that researchers deliberately designed, details the obstacles they overcame in recruiting and retaining participants, and summarizes results that settled a long-running scholarly controversy."
             },
             {
               "id": "C",
@@ -1428,7 +1428,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "C",
-              "text": "control-group profits rose in three of the four cities, confirming that local business conditions were generally improving during the study."
+              "text": "control-group profits rose in three of the four cities over the year, confirming that local business conditions were generally improving during the study period."
             },
             {
               "id": "D",
@@ -1791,7 +1791,7 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Paracas embroiderers of Peru's southern coast, working between roughly 800 and 100 BCE, stitched burial mantles with hundreds of colorful figures, and the desert's extreme dryness preserved many of the mantles for two millennia."
+              "text": "Paracas embroiderers of Peru's southern coast, working between roughly 800 and 100 BCE, stitched elaborate burial mantles with hundreds of colorful figures, and the coastal desert's extreme dryness preserved many of the buried mantles for two millennia."
             },
             {
               "id": "B",

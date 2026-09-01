@@ -493,7 +493,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "C",
-              "text": "the two reserves protected for fewer than ten years have lower biomass ratios than any of the three older reserves."
+              "text": "the two reserves protected for fewer than ten years have markedly lower biomass ratios than any of the three reserves whose fishing bans are more than a decade old."
             },
             {
               "id": "D",
@@ -1496,7 +1496,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "D",
-              "text": "the number of calls recorded per night varied more among the four restored prairies than among the four croplands."
+              "text": "the number of echolocation calls recorded per night varied considerably more among the four restored prairies than it did among the four adjacent croplands."
             }
           ],
           "correctAnswer": "A",

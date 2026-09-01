@@ -1716,7 +1716,11 @@ const getDaysUntil = (dateStr) => {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   target.setHours(0, 0, 0, 0);
-  return Math.ceil((target - today) / (1000 * 60 * 60 * 24));
+  // Both ends are local midnight, so the true difference is a whole number
+  // of days ± 1 hour of DST skew. Math.round absorbs the skew; Math.ceil
+  // inflated any span crossing a fall-back boundary by a day (a 63-day
+  // runway read as 64 → a 9-week plan rendered a phantom 10th week).
+  return Math.round((target - today) / (1000 * 60 * 60 * 24));
 };
 
 const calculateIntensity = (scoreGap, daysLeft) => {

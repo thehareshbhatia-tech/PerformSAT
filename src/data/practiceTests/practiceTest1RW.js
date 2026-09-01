@@ -383,7 +383,7 @@ export const practiceTest1RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Great tits living in the city begin singing earlier in the morning and sing more often throughout the day than great tits in nearby undisturbed forests do."
+              "text": "Great tits living in the city begin singing earlier in the morning and sing more often throughout the day than great tits in nearby undisturbed forests do, especially on weekday mornings when traffic is heaviest."
             },
             {
               "id": "B",
@@ -1133,7 +1133,7 @@ export const practiceTest1RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The speaker describes hope's song in times of comfort, contrasts it with hope's silence in times of crisis, and closes by questioning whether hope can be relied upon."
+              "text": "The speaker describes hope's song in times of comfort, contrasts it with hope's silence in times of crisis, and closes by questioning whether hope can be relied upon when circumstances become truly desperate."
             },
             {
               "id": "B",
@@ -1218,7 +1218,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "D",
-              "text": "While agreeing that dinosaurs' metabolic rates tracked the seasons in the way Text 1 describes, it attributes that seasonal pattern to shortages of food rather than to changes in the animals' body temperature."
+              "text": "While agreeing that dinosaurs' metabolic rates tracked the seasons in the way Text 1 describes, it attributes that seasonal pattern to recurring, region-wide shortages of food rather than to changes in the animals' body temperature."
             }
           ],
           "correctAnswer": "B",
@@ -1471,11 +1471,11 @@ export const practiceTest1RW = {
             },
             {
               "id": "C",
-              "text": "although richness rose at every reserve after farming ceased, the two reserves with reintroduced grazers gained roughly 34 species per plot, more than twice the gain of roughly 13 at the two abandoned reserves that began from similar baselines."
+              "text": "although richness rose at every reserve after farming ceased, the two grazer reserves gained roughly 34 species per plot, more than twice the roughly 13 gained at the abandoned reserves with similar baselines."
             },
             {
               "id": "D",
-              "text": "the two reserves with reintroduced grazers began the decade with 24 and 27 species per plot, values close to those recorded at the two reserves left to abandonment."
+              "text": "the two reserves with reintroduced grazers began the decade with 24 and 27 species per plot, values close to the 25 and 23 species per plot recorded in year 0 at the two reserves that were subsequently left to abandonment."
             }
           ],
           "correctAnswer": "C",
@@ -1523,7 +1523,7 @@ export const practiceTest1RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the youngest children's signing, though more systematic, must be considered a separate language rather than a development of the community's shared one."
+              "text": "the youngest children's signing, though more systematic, must be considered a separate language in its own right rather than a further development of the sign language the older students had already created together."
             },
             {
               "id": "B",

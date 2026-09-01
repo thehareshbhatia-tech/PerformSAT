@@ -4569,5 +4569,498 @@
    "form-structure-and-sense"
   ],
   "passagePromptHint": "Lange's Farm Security Administration photographs gave the Depression's rural toll a human face and built support for relief programs."
+ },
+ {
+  "id": "res-t4-001",
+  "name": "Thomas Gilovich",
+  "field": "psychology",
+  "affiliation": "Cornell University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "hot hand fallacy study (1985)",
+   "judgment under uncertainty"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "Co-authored the 1985 study concluding that the basketball hot hand is a cognitive illusion."
+ },
+ {
+  "id": "res-t4-002",
+  "name": "Joshua Miller",
+  "field": "economics",
+  "affiliation": "University of Melbourne",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "selection bias in streak statistics",
+   "hot hand re-analysis"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "With Adam Sanjurjo, showed a selection bias in early hot-hand studies; corrected records show a modest streak effect."
+ },
+ {
+  "id": "res-t4-003",
+  "name": "Adam Sanjurjo",
+  "field": "economics",
+  "affiliation": "Universidad de Alicante",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "selection bias in streak statistics",
+   "hot hand re-analysis"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "With Joshua Miller, identified the streak-selection bias in hot-hand research."
+ },
+ {
+  "id": "res-t4-004",
+  "name": "Elizabeth Tibbetts",
+  "field": "behavioral ecology",
+  "affiliation": "University of Michigan",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "paper wasp facial recognition",
+   "status badges in Polistes"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "Studies Polistes wasps' variable facial patches as signals of fighting ability and identity."
+ },
+ {
+  "id": "res-t4-005",
+  "name": "William Perkin",
+  "field": "chemistry",
+  "affiliation": "Royal College of Chemistry, London",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "accidental synthesis of mauveine (1856)",
+   "founding of the synthetic dye industry"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "Failed quinine synthesis yielded the first synthetic aniline dye, mauve; he industrialized it."
+ },
+ {
+  "id": "res-t4-006",
+  "name": "Friedrich Wöhler",
+  "field": "chemistry",
+  "affiliation": "University of Göttingen",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "synthesis of urea from inorganic materials (1828)"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "His urea synthesis is retold as the death of vitalism, though the doctrine faded only gradually."
+ },
+ {
+  "id": "res-t4-007",
+  "name": "Robert Bunsen",
+  "field": "chemistry",
+  "affiliation": "University of Heidelberg",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "flame spectroscopy with Kirchhoff",
+   "discovery of cesium and rubidium"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "With Kirchhoff, showed each element emits a fixed pattern of spectral lines."
+ },
+ {
+  "id": "res-t4-008",
+  "name": "Gustav Kirchhoff",
+  "field": "physics",
+  "affiliation": "University of Heidelberg",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "spectral analysis",
+   "discovery of cesium and rubidium"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "With Bunsen, founded spectroscopic identification of the elements."
+ },
+ {
+  "id": "res-t4-009",
+  "name": "Fridtjof Nansen",
+  "field": "polar exploration and oceanography",
+  "affiliation": "University of Kristiania",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Fram drift across the Arctic (1893-1896)",
+   "trans-polar current"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "Froze the purpose-built Fram into the pack ice to test the trans-polar drift current."
+ },
+ {
+  "id": "res-t4-010",
+  "name": "Matthew Fontaine Maury",
+  "field": "oceanography",
+  "affiliation": "United States Naval Observatory",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "wind and current charts from ships' logbooks"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "Charted seasonal winds and currents from thousands of logbooks; shipmasters paid in standardized logs."
+ },
+ {
+  "id": "res-t4-011",
+  "name": "Zeyaur Khan",
+  "field": "entomology and chemical ecology",
+  "affiliation": "International Centre of Insect Physiology and Ecology (icipe)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "push-pull intercropping against stemborers and striga"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "Developed push-pull: desmodium repels stemborer moths, napier grass borders attract them, desmodium roots defeat striga."
+ },
+ {
+  "id": "res-t4-012",
+  "name": "Élie Metchnikoff",
+  "field": "zoology and immunology",
+  "affiliation": "Pasteur Institute",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "phagocyte theory of immunity"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "Watched wandering cells engulf a splinter in starfish larvae; argued phagocytes are immunity's principal agents."
+ },
+ {
+  "id": "res-t4-013",
+  "name": "Emil von Behring",
+  "field": "physiology and immunology",
+  "affiliation": "University of Marburg",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "serum antitoxin therapy for diphtheria and tetanus"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "With Kitasato, showed cell-free serum from immunized animals transfers protection."
+ },
+ {
+  "id": "res-t4-014",
+  "name": "Shibasaburō Kitasato",
+  "field": "bacteriology",
+  "affiliation": "Kitasato Institute",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "tetanus antitoxin work with Behring"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "Co-demonstrated transferable serum immunity to diphtheria and tetanus toxins in 1890."
+ },
+ {
+  "id": "res-t4-015",
+  "name": "Mary Wortley Montagu",
+  "field": "letters and advocacy of inoculation",
+  "affiliation": "British embassy, Constantinople",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "introduction of smallpox inoculation to England"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "Observed Ottoman engrafting in 1717; had her own children inoculated and promoted the practice in England."
+ },
+ {
+  "id": "res-t4-016",
+  "name": "Nikolai Vavilov",
+  "field": "botany and plant genetics",
+  "affiliation": "All-Union Institute of Plant Industry, Leningrad",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "centers of origin of cultivated plants",
+   "world seed collections"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "Mapped uneven crop diversity worldwide; peak varietal diversity marks the likely region of domestication."
+ },
+ {
+  "id": "res-t4-017",
+  "name": "Cennino Cennini",
+  "field": "painting",
+  "affiliation": "Florentine workshop tradition",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Il Libro dell'Arte, a handbook of workshop practice"
+  ],
+  "publications": [
+   {
+    "title": "Il Libro dell'Arte",
+    "year": 1400,
+    "claim": "workshop procedures for panel preparation, gesso, and pigments, set down in writing"
+   }
+  ],
+  "suitableForSkills": [],
+  "passagePromptHint": "His handbook codified panel preparation, gesso layering, and pigment grinding around 1400."
+ },
+ {
+  "id": "res-t4-018",
+  "name": "Lorenzo Ghiberti",
+  "field": "sculpture and goldsmithing",
+  "affiliation": "Florence Baptistery workshop",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Baptistery bronze doors",
+   "training ground of Florentine bronze casting"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "Won the 1401 competition; his workshop and two sets of doors occupied him for decades."
+ },
+ {
+  "id": "res-t4-019",
+  "name": "Claudio Monteverdi",
+  "field": "music composition",
+  "affiliation": "Court of Mantua; later San Marco, Venice",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "L'Orfeo (1607)",
+   "early opera"
+  ],
+  "publications": [
+   {
+    "title": "L'Orfeo",
+    "year": 1607,
+    "claim": "the earliest opera still regularly staged"
+   }
+  ],
+  "suitableForSkills": [],
+  "passagePromptHint": "L'Orfeo combined recitative, arias, choruses, and a varied ensemble; helped establish opera as a lasting form."
+ },
+ {
+  "id": "res-t4-020",
+  "name": "William Thomson",
+  "field": "physics",
+  "affiliation": "University of Glasgow",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "mirror galvanometer for the Atlantic cable",
+   "thermodynamics"
+  ],
+  "publications": [],
+  "suitableForSkills": [],
+  "passagePromptHint": "His mirror galvanometer read minute currents, letting the 1866 Atlantic cable work without damaging voltages."
+ },
+ {
+  "id": "res-t5-001",
+  "name": "Nizar Ibrahim",
+  "field": "paleontology",
+  "affiliation": "University of Portsmouth",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Spinosaurus fossils from Morocco",
+   "Kem Kem beds vertebrates"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Ibrahim and colleagues described Spinosaurus limb bones, retracted nostrils, and paddle-like tail as evidence of an aquatic pursuit predator (2014, 2020)."
+ },
+ {
+  "id": "res-t5-002",
+  "name": "David Hone",
+  "field": "paleontology",
+  "affiliation": "Queen Mary University of London",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "dinosaur behavior and ecology",
+   "Spinosaurus wading-heron feeding model"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Hone and Holtz argued Spinosaurus fed like a giant heron, wading in shallows rather than swimming down prey."
+ },
+ {
+  "id": "res-t5-003",
+  "name": "Thomas Holtz",
+  "field": "paleontology",
+  "affiliation": "University of Maryland",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "theropod systematics",
+   "tyrannosaur paleobiology",
+   "Spinosaurus feeding-ecology critique"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Holtz, with David Hone, questioned deep-water pursuit swimming in Spinosaurus on buoyancy and tail-thrust grounds."
+ },
+ {
+  "id": "res-t5-004",
+  "name": "Jenny Saffran",
+  "field": "developmental psychology",
+  "affiliation": "University of Wisconsin-Madison",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "statistical learning in infants",
+   "1996 syllable-stream segmentation experiment"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Saffran and colleagues showed eight-month-olds segment continuous syllable streams using transitional probabilities alone."
+ },
+ {
+  "id": "res-t5-005",
+  "name": "Valerie Hansen",
+  "field": "history",
+  "affiliation": "Yale University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "The Silk Road: A New History",
+   "excavated documents from Silk Road oasis settlements"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Hansen argued from excavated documents that Silk Road trade was mostly small and local, with silk often serving as currency or army pay."
+ },
+ {
+  "id": "res-t5-006",
+  "name": "Clara Peeters",
+  "field": "painting",
+  "affiliation": "Antwerp still-life tradition",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "early Flemish still life",
+   "miniature reflected self-portraits in metalware"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Peeters painted tiny self-portraits reflected in pewter and gilt vessels, asserting authorship when women's work was often reattributed."
+ },
+ {
+  "id": "res-t5-007",
+  "name": "Rachel Ruysch",
+  "field": "painting",
+  "affiliation": "Amsterdam",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Dutch flower still lifes",
+   "long professional career into her eighties"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "boundaries"
+  ],
+  "passagePromptHint": "Ruysch's meticulously exact flower pieces commanded some of the highest prices of her era."
+ },
+ {
+  "id": "res-t5-009",
+  "name": "Jesse Ramsden",
+  "field": "instrument making",
+  "affiliation": "London",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "circular dividing engine (1775)",
+   "precision astronomical scales"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "form-structure-and-sense"
+  ],
+  "passagePromptHint": "Ramsden's dividing engine graduated scales finer and more even than hand ruling allowed."
+ },
+ {
+  "id": "res-t5-010",
+  "name": "Ottmar Mergenthaler",
+  "field": "invention",
+  "affiliation": "Baltimore",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Linotype machine (1886)",
+   "line-casting composition"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "rhetorical-synthesis"
+  ],
+  "passagePromptHint": "Mergenthaler's Linotype cast complete lines of type from a keyboard, multiplying composition speed over hand setting."
+ },
+ {
+  "id": "res-t5-012",
+  "name": "George Ellery Hale",
+  "field": "astronomy",
+  "affiliation": "Mount Wilson Observatory",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Yerkes 40-inch refractor",
+   "Mount Wilson 60-inch and 100-inch reflectors",
+   "observatory organizing"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "rhetorical-synthesis"
+  ],
+  "passagePromptHint": "Hale repeatedly built the world's largest telescope, first at Yerkes and then twice at Mount Wilson."
+ },
+ {
+  "id": "res-t5-013",
+  "name": "El Anatsui",
+  "field": "sculpture",
+  "affiliation": "University of Nigeria, Nsukka",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "bottle-cap metal wall hangings",
+   "cloth-like draped metal sheets"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "rhetorical-synthesis"
+  ],
+  "passagePromptHint": "Anatsui assembles monumental hangings from flattened aluminum bottle caps stitched with copper wire, draping like cloth."
  }
 ]
