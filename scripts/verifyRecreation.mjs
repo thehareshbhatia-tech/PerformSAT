@@ -104,7 +104,12 @@ function checkRWAuthored() {
 function checkRWEasy() {
   const p = path.join(TESTS, `practiceTest${testN}RWM2Easy.js`);
   const src = fs.readFileSync(p, 'utf8');
-  const passages = [...src.matchAll(/"passage":\s*"((?:[^"\\]|\\.)*)"/g)].map(m => m[1]);
+  // match quoted AND unquoted key styles — an unquoted `passage:` key must
+  // not silently dodge the uniqueness gate (caught on test 3's first draft)
+  const passages = [...src.matchAll(/["']?passage["']?\s*:\s*"((?:[^"\\]|\\.)*)"/g)].map(m => m[1]);
+  if (passages.length < 20) {
+    flag(`practiceTest${testN}RWM2Easy.js`, `only ${passages.length} passages extracted (expect ~24) — key-style dodge or structural break`);
+  }
   passages.forEach((s, i) => uniq(s.replace(/\\n/g, ' '), rwCache, `RWM2Easy passage#${i + 1}`));
   console.log(`practiceTest${testN}RWM2Easy.js: ${passages.length} passages checked`);
 }

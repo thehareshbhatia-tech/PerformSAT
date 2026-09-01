@@ -3973,5 +3973,601 @@
     "year": 1818
    }
   ]
+ },
+ {
+  "id": "res-t2-001",
+  "name": "Robert Allen",
+  "field": "economic history",
+  "affiliation": "New York University Abu Dhabi; formerly University of Oxford",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "high-wage economy explanation of the Industrial Revolution",
+   "global economic history"
+  ],
+  "publications": [
+   {
+    "title": "The British Industrial Revolution in Global Perspective",
+    "year": 2009,
+    "claim": "Britain industrialized first because high wages and cheap coal made labor-saving machines profitable there before anywhere else"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections",
+   "central-ideas-and-details",
+   "command-of-evidence-textual"
+  ],
+  "passagePromptHint": "Robert C. Allen argues the Industrial Revolution's origin lay in Britain's factor prices: expensive labor and cheap energy."
+ },
+ {
+  "id": "res-t2-002",
+  "name": "Joel Mokyr",
+  "field": "economic history",
+  "affiliation": "Northwestern University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "culture of useful knowledge",
+   "Industrial Enlightenment"
+  ],
+  "publications": [
+   {
+    "title": "A Culture of Growth",
+    "year": 2016,
+    "claim": "sustained technological progress in Europe grew out of a culture connecting scientists, engineers, and artisans committed to useful knowledge"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Joel Mokyr emphasizes cultural and intellectual preconditions for sustained innovation, contrasting with price-based accounts."
+ },
+ {
+  "id": "res-t2-003",
+  "name": "Anni Albers",
+  "field": "textile art and design",
+  "affiliation": "Bauhaus; Black Mountain College",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "modernist weaving",
+   "On Weaving (1965)"
+  ],
+  "publications": [
+   {
+    "title": "On Weaving",
+    "year": 1965,
+    "claim": "weaving is a structural art whose threads function as a disciplined design medium"
+   }
+  ],
+  "suitableForSkills": [
+   "boundaries",
+   "text-structure-and-purpose"
+  ],
+  "passagePromptHint": "Anni Albers entered the Bauhaus weaving workshop in 1922 and elevated weaving into a modernist art form."
+ },
+ {
+  "id": "res-t2-004",
+  "name": "Pierre de Fermat",
+  "field": "mathematics",
+  "affiliation": "Parlement of Toulouse (17th-century France)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "number theory",
+   "Fermat's Last Theorem marginal note (1637)"
+  ],
+  "publications": [
+   {
+    "title": "Observations on Diophantus",
+    "year": 1670,
+    "claim": "the margin note claiming a marvelous proof of what became Fermat's Last Theorem, published posthumously by his son"
+   }
+  ],
+  "suitableForSkills": [
+   "form-structure-and-sense",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Fermat's 1637 margin note claimed a proof the margin was too narrow to contain; none was ever found."
+ },
+ {
+  "id": "res-t2-005",
+  "name": "Léon Foucault",
+  "field": "physics",
+  "affiliation": "Paris Observatory (19th-century France)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Foucault pendulum demonstration of Earth's rotation (1851)",
+   "measurement of the speed of light"
+  ],
+  "publications": [
+   {
+    "title": "Physical demonstration of the rotation of the Earth by means of the pendulum",
+    "year": 1851,
+    "claim": "a freely swinging pendulum's plane appears to rotate because the Earth turns beneath it"
+   }
+  ],
+  "suitableForSkills": [
+   "boundaries",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Foucault's 1851 Panthéon pendulum made the Earth's rotation directly visible to a public audience."
+ },
+ {
+  "id": "res-t2-006",
+  "name": "Emmy Noether",
+  "field": "mathematics",
+  "affiliation": "University of Göttingen",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Noether's theorem linking symmetries and conservation laws",
+   "abstract algebra"
+  ],
+  "publications": [
+   {
+    "title": "Invariante Variationsprobleme",
+    "year": 1918,
+    "claim": "every continuous symmetry of the laws of physics corresponds to a conserved quantity"
+   }
+  ],
+  "suitableForSkills": [
+   "rhetorical-synthesis",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Noether's 1918 theorem resolved the energy-conservation puzzle raised by general relativity and remains a working tool of physics."
+ },
+ {
+  "id": "res-t2-007",
+  "name": "Zheng He",
+  "field": "maritime exploration",
+  "affiliation": "Ming dynasty court (15th-century China)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "seven Indian Ocean treasure-fleet voyages, 1405-1433"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "rhetorical-synthesis",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Zheng He led seven state-sponsored voyages whose fleets dwarfed later European expeditions; the Ming court ended them after 1433."
+ },
+ {
+  "id": "res-t2-008",
+  "name": "Miguel Montargès",
+  "field": "astronomy",
+  "affiliation": "LESIA, Paris Observatory",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "imaging of Betelgeuse's Great Dimming"
+  ],
+  "publications": [
+   {
+    "title": "A dusty veil shading Betelgeuse during its Great Dimming",
+    "year": 2021,
+    "claim": "the 2019-20 dimming of Betelgeuse arose from a cool surface patch combined with dust condensing in gas ejected from the star"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections",
+   "inferences"
+  ],
+  "passagePromptHint": "Montargès et al. imaged Betelgeuse before, during, and after the Great Dimming and favored a combined cool-patch-plus-dust explanation."
+ },
+ {
+  "id": "res-t2-009",
+  "name": "Robert Holzworth",
+  "field": "atmospheric and space physics",
+  "affiliation": "University of Washington; World Wide Lightning Location Network",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "global lightning detection",
+   "superbolt climatology"
+  ],
+  "publications": [
+   {
+    "title": "Global Distribution of Superbolts",
+    "year": 2019,
+    "claim": "superbolts cluster over oceans, especially the North Atlantic and Mediterranean, and peak in Northern Hemisphere winter"
+   }
+  ],
+  "suitableForSkills": [
+   "central-ideas-and-details",
+   "command-of-evidence-quantitative"
+  ],
+  "passagePromptHint": "Holzworth and colleagues found superbolts follow nearly the opposite geographic and seasonal pattern from ordinary lightning."
+ },
+ {
+  "id": "res-t2-010",
+  "name": "Madhava",
+  "field": "mathematics",
+  "affiliation": "Kerala school of astronomy and mathematics (14th-century India)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "founding the Kerala school",
+   "infinite-series expressions for trigonometric functions"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Madhava of Sangamagrama founded the Kerala school, whose infinite-series results anticipated European calculus-era discoveries by centuries."
+ },
+ {
+  "id": "res-t2-011",
+  "name": "John Napier",
+  "field": "mathematics",
+  "affiliation": "Merchiston, Scotland (16th-17th century)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "invention of logarithms (1614)"
+  ],
+  "publications": [
+   {
+    "title": "Mirifici Logarithmorum Canonis Descriptio",
+    "year": 1614,
+    "claim": "logarithm tables let practitioners replace multiplication with addition, transforming astronomical calculation"
+   }
+  ],
+  "suitableForSkills": [
+   "form-structure-and-sense"
+  ],
+  "passagePromptHint": "Napier spent two decades computing the logarithm tables he published in 1614."
+ },
+ {
+  "id": "res-t2-012",
+  "name": "Jean-Baptiste Vuillaume",
+  "field": "instrument making",
+  "affiliation": "Paris workshop (19th-century France)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "violin making",
+   "construction of the octobass around 1850"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "rhetorical-synthesis"
+  ],
+  "passagePromptHint": "Vuillaume built the roughly 3.5-meter octobass, played via levers and pedals that clamp its huge strings."
+ },
+ {
+  "id": "res-t3-001",
+  "name": "Julia Margaret Cameron",
+  "field": "photography",
+  "affiliation": "Freshwater, Isle of Wight (19th-century Britain)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Victorian portrait photography",
+   "deliberate soft focus"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "words-in-context",
+   "text-structure-and-purpose"
+  ],
+  "passagePromptHint": "Cameron's 1860s portraits were criticized as blurry; she defended the soft focus as a deliberate artistic choice."
+ },
+ {
+  "id": "res-t3-002",
+  "name": "George Beadle",
+  "field": "genetics",
+  "affiliation": "Caltech; University of Chicago",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "one gene-one enzyme (Nobel 1958)",
+   "teosinte hypothesis of maize origins"
+  ],
+  "publications": [
+   {
+    "title": "The mystery of maize",
+    "year": 1972,
+    "claim": "maize was domesticated from teosinte by human selection, with few genes governing the key differences"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Beadle crossed maize with teosinte in the 1930s and argued teosinte was the direct wild ancestor of maize."
+ },
+ {
+  "id": "res-t3-003",
+  "name": "Paul Mangelsdorf",
+  "field": "botany",
+  "affiliation": "Harvard University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "tripartite hypothesis of maize origins",
+   "opposition to the teosinte hypothesis"
+  ],
+  "publications": [
+   {
+    "title": "Corn: Its Origin, Evolution and Improvement",
+    "year": 1974,
+    "claim": "maize descended from an extinct wild maize; teosinte was an offshoot of crossing between maize and another grass"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Mangelsdorf argued teosinte differed too radically from maize to be its ancestor, proposing an extinct wild maize instead."
+ },
+ {
+  "id": "res-t3-004",
+  "name": "Dilip Mahalanabis",
+  "field": "medicine",
+  "affiliation": "Johns Hopkins Center for Medical Research and Training, Calcutta",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "oral rehydration therapy",
+   "1971 Bangladesh refugee camps cholera treatment"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "central-ideas-and-details",
+   "rhetorical-synthesis"
+  ],
+  "passagePromptHint": "Facing cholera with almost no intravenous fluid in 1971 refugee camps, Mahalanabis deployed an oral water-salt-glucose solution that cut deaths dramatically."
+ },
+ {
+  "id": "res-t3-005",
+  "name": "Gordon Parks",
+  "field": "photography",
+  "affiliation": "Farm Security Administration; Life magazine",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "documentary photography of segregation and poverty",
+   "first Black staff photographer at a major American picture magazine"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "boundaries",
+   "text-structure-and-purpose"
+  ],
+  "passagePromptHint": "Parks described his camera as a weapon against poverty and racism; his 1942 Washington, D.C., photographs are landmarks of documentary photography."
+ },
+ {
+  "id": "res-t3-006",
+  "name": "Alice Hamilton",
+  "field": "industrial medicine",
+  "affiliation": "Hull House; Harvard Medical School",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "industrial toxicology",
+   "first woman on the Harvard Medical School faculty (1919)"
+  ],
+  "publications": [
+   {
+    "title": "Industrial Poisons in the United States",
+    "year": 1925,
+    "claim": "workplace illnesses can be traced to specific industrial toxins such as lead and mercury"
+   }
+  ],
+  "suitableForSkills": [
+   "rhetorical-synthesis",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Hamilton traced workers' illnesses to lead, mercury, and other toxins in the early 1900s, prompting the first state workers' compensation laws."
+ },
+ {
+  "id": "res-t3-007",
+  "name": "Pearl Primus",
+  "field": "dance",
+  "affiliation": "New Dance Group, New York",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "African and African diaspora dance",
+   "dancer-anthropologist; 1948-49 West Africa research travels"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "words-in-context",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Primus, trained in anthropology, studied dances in West African communities and opposed staging them as exotic spectacle."
+ },
+ {
+  "id": "res-t3-008",
+  "name": "Adriaan de Groot",
+  "field": "psychology",
+  "affiliation": "University of Amsterdam",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Thought and Choice in Chess",
+   "chess expertise and pattern recognition"
+  ],
+  "publications": [
+   {
+    "title": "Thought and Choice in Chess",
+    "year": 1965,
+    "claim": "chess masters' superior recall of positions is limited to meaningful configurations and collapses for random boards"
+   }
+  ],
+  "suitableForSkills": [
+   "words-in-context",
+   "inferences"
+  ],
+  "passagePromptHint": "De Groot showed masters' near-perfect recall of glimpsed positions vanished when pieces were placed at random."
+ },
+ {
+  "id": "res-t3-009",
+  "name": "Carleton Watkins",
+  "field": "photography",
+  "affiliation": "San Francisco studio (19th-century United States)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "mammoth-plate photographs of Yosemite (1861)",
+   "influence on the 1864 Yosemite Grant"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "text-structure-and-purpose"
+  ],
+  "passagePromptHint": "Watkins's 1861 Yosemite photographs circulated in the East and were cited by lawmakers when Congress protected the valley in 1864."
+ },
+ {
+  "id": "res-t3-010",
+  "name": "John Martin",
+  "field": "oceanography",
+  "affiliation": "Moss Landing Marine Laboratories",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "iron hypothesis",
+   "iron limitation of phytoplankton growth"
+  ],
+  "publications": [
+   {
+    "title": "Glacial-interglacial CO2 change: The iron hypothesis",
+    "year": 1990,
+    "claim": "iron scarcity limits phytoplankton growth across large high-nutrient regions of the ocean"
+   }
+  ],
+  "suitableForSkills": [
+   "text-structure-and-purpose",
+   "inferences"
+  ],
+  "passagePromptHint": "Martin proposed in the late 1980s that iron scarcity, not light or major nutrients, limits phytoplankton in much of the ocean; seeding experiments produced rapid blooms."
+ },
+ {
+  "id": "res-t3-011",
+  "name": "Stephen Kosslyn",
+  "field": "psychology",
+  "affiliation": "Harvard University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "mental imagery scanning experiments",
+   "depictive theory of imagery"
+  ],
+  "publications": [
+   {
+    "title": "Image and Mind",
+    "year": 1980,
+    "claim": "mental images are picture-like spatial representations whose parts preserve the distances of depicted scenes"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Kosslyn found that scanning a mental image to distant locations takes longer than to nearby ones, arguing imagery is genuinely depictive."
+ },
+ {
+  "id": "res-t3-012",
+  "name": "Zenon Pylyshyn",
+  "field": "psychology",
+  "affiliation": "Rutgers University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "tacit-knowledge critique of imagery experiments",
+   "propositional theory of mental representation"
+  ],
+  "publications": [
+   {
+    "title": "The imagery debate: Analogue media versus tacit knowledge",
+    "year": 1981,
+    "claim": "imagery-scanning results reflect participants' tacit knowledge of how vision works, not a picture-like format of thought"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Pylyshyn argued scanning-time results arise from what participants know about looking at scenes, and that mental representation is description-like."
+ },
+ {
+  "id": "res-t3-013",
+  "name": "Thomas McKeown",
+  "field": "history of medicine",
+  "affiliation": "University of Birmingham",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "McKeown thesis",
+   "attribution of mortality decline to living standards and nutrition"
+  ],
+  "publications": [
+   {
+    "title": "The Modern Rise of Population",
+    "year": 1976,
+    "claim": "the decline of infectious-disease mortality in England owed more to nutrition and living standards than to medical treatment"
+   }
+  ],
+  "suitableForSkills": [
+   "command-of-evidence-textual",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "McKeown observed that effective drugs arrived only after most of the 1850-1950 mortality decline and credited rising living standards, especially nutrition."
+ },
+ {
+  "id": "res-t3-014",
+  "name": "Ynés Mexía",
+  "field": "botany",
+  "affiliation": "California Academy of Sciences (collector)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "botanical collecting across Mexico and South America",
+   "began collecting at fifty-five; some 145,000 specimens"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "boundaries",
+   "rhetorical-synthesis"
+  ],
+  "passagePromptHint": "Mexía began collecting at fifty-five and gathered roughly 145,000 plant specimens in thirteen years, including hundreds of new species."
+ },
+ {
+  "id": "res-t3-015",
+  "name": "A. E. Douglass",
+  "field": "astronomy and dendrochronology",
+  "affiliation": "University of Arizona; Laboratory of Tree-Ring Research",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "founding dendrochronology",
+   "tree-ring dating of Ancestral Puebloan sites (1929)"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "form-structure-and-sense",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Douglass built an unbroken tree-ring sequence linking living trees to ancient beams, letting archaeologists date Southwestern sites to the year."
+ },
+ {
+  "id": "res-t3-016",
+  "name": "Dorothea Lange",
+  "field": "photography",
+  "affiliation": "Farm Security Administration",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Depression-era documentary photography",
+   "photographs supporting New Deal relief programs"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "form-structure-and-sense"
+  ],
+  "passagePromptHint": "Lange's Farm Security Administration photographs gave the Depression's rural toll a human face and built support for relief programs."
  }
 ]

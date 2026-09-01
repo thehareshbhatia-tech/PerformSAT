@@ -1330,7 +1330,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "B",
-              "text": "Shaded seedlings growing in forests with abundant mycorrhizal fungi tend to be larger, on average, than shaded seedlings growing in forests where such fungi are scarce."
+              "text": "Shaded seedlings growing in forests with abundant mycorrhizal fungi tend to be larger, on average, than shaded seedlings growing in forests where such fungi are scarce, even when the two groups are matched for tree species, stand age, and the quality of the underlying soil."
             },
             {
               "id": "C",
