@@ -13,14 +13,14 @@ describe('deriveRWPattern (routing signal — grammar/punctuation/structure only
     // FSS counts re-frozen 2026-06-17: grammar sub-types are decided by the
     // authoritative `rwGrammarType.js` map (per-item, by what varies across the
     // answer choices) instead of the explanation-prose heuristic.
-    'boundaries-semicolon': 27,
-    'boundaries-comma': 22,
-    'boundaries-dash': 10,
-    'boundaries-colon': 10,
-    'transitions-contrast': 24,
+    'boundaries-semicolon': 28,
+    'boundaries-comma': 24,
+    'boundaries-dash': 8,
+    'boundaries-colon': 9,
+    'transitions-contrast': 25,
     'transitions-example-emphasis': 11,
     'transitions-cause-effect': 18,
-    'transitions-sequence-time': 11,
+    'transitions-sequence-time': 10,
     'tsp-main-purpose': 23,
     'tsp-overall-structure': 32,
     'tsp-function-of-underlined': 17,
@@ -129,14 +129,14 @@ describe('deriveRWQuestionType (browse type — grammar patterns PLUS reading su
   // shift when items are authored — re-run buildMap.mjs + appendAuthored.mjs.
   const EXPECTED_QT_COUNTS = {
     // grammar / punctuation / structure (same as deriveRWPattern)
-    'boundaries-semicolon': 27,
-    'boundaries-comma': 22,
-    'boundaries-dash': 10,
-    'boundaries-colon': 10,
-    'transitions-contrast': 24,
+    'boundaries-semicolon': 28,
+    'boundaries-comma': 24,
+    'boundaries-dash': 8,
+    'boundaries-colon': 9,
+    'transitions-contrast': 25,
     'transitions-example-emphasis': 11,
     'transitions-cause-effect': 18,
-    'transitions-sequence-time': 11,
+    'transitions-sequence-time': 10,
     'tsp-main-purpose': 23,
     'tsp-overall-structure': 32,
     'tsp-function-of-underlined': 17,
