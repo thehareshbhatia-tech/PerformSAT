@@ -2,6 +2,10 @@
 // For students routed to easier path after Module 1 (~<60% correct).
 // Distribution: 3E / 13M / 6H. Q1-3 easy openers. Max-score ceiling: ~650.
 // Domain mix: 7 Algebra / 6 Advanced Math / 5 Problem-Solving / 4 Geometry & Trig.
+// Official-calibration recreation (2026-09-01): every item re-authored against
+// the CB Educator Question Bank register (docs/TEST_RECREATION_SPEC.md);
+// slot metadata frozen. 4 visual items (scatterplot, right triangle,
+// triangle with angles, plus the M1-frozen set). Numeric MC choices ascending.
 
 export const practiceTest9M2Easy = {
   id: "module-2-easy",
@@ -14,18 +18,18 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 2,
-      question: "Which of the following is equivalent to $7 + 3x + 2 - x$?",
+      question: "Which of the following is equivalent to $10 + 7x + 2 - 3x$?",
       choices: [
-        // distractor: drops the constant
-        { id: "A", text: "$2x$" },
-        { id: "B", text: "$2x + 9$" },
-        // distractor: adds variables incorrectly
-        { id: "C", text: "$4x + 9$" },
-        // distractor: subtracts wrong direction
-        { id: "D", text: "$-2x + 9$" }
+        // distractor: keeps the variable term but drops the constants
+        { id: "A", text: "$4x$" },
+        // distractor: subtracts the constants (10 − 2) instead of adding
+        { id: "B", text: "$4x + 8$" },
+        { id: "C", text: "$4x + 12$" },
+        // distractor: adds the coefficients 7 + 3 instead of subtracting for 7x − 3x
+        { id: "D", text: "$10x + 12$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Combining Like Terms**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Group the constants and the variables: $7+2=9$ and $3x-x=2x$, giving $2x+9$.\n\n**The Full Solution:**\nStep 1: Collect the variable terms: $3x-x=2x$.\nStep 2: Collect the constants: $7+2=9$.\nStep 3: Combine: $2x+9$. That is choice B.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x$): keeps the variable term but drops the constants.\n* Choice C ($4x+9$): adds the coefficients $3+1=4$ instead of subtracting for $3x-x$.\n* Choice D ($-2x+9$): subtracts in the wrong direction, getting $x-3x$.\n\n**Test Day Takeaway:** Combine like terms by collecting all variable terms together and all constants together, then adding or subtracting within each group.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Combining Like Terms**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Group the constants and the variables: $10 + 2 = 12$ and $7x - 3x = 4x$, giving $4x + 12$.\n\n**The Full Solution:**\nStep 1: Collect the variable terms: $7x - 3x = 4x$.\nStep 2: Collect the constants: $10 + 2 = 12$.\nStep 3: Combine: $4x + 12$. That is choice C.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x$): keeps the variable term but drops the constants.\n* Choice B ($4x + 8$): subtracts the constants ($10 - 2$) instead of adding them.\n* Choice D ($10x + 12$): adds the coefficients $7 + 3 = 10$ instead of subtracting for $7x - 3x$.\n\n**Test Day Takeaway:** Combine like terms by collecting all variable terms together and all constants together, watching each term's sign.",
       skills: ["combining-like-terms", "equivalent-expressions"]
     },
     {
@@ -33,9 +37,9 @@ export const practiceTest9M2Easy = {
       type: "fill-in",
       difficulty: "easy",
       band: 2,
-      question: "What is $\\dfrac{3}{4} + \\dfrac{1}{2}$? Express your answer as a decimal.",
-      correctAnswer: "1.25",
-      explanation: "**SAT Pattern: Adding Fractions with Different Denominators**\n\n**The correct answer is $1.25$.**\n\n**The Fast Way (~10s):** Rewrite $\\frac{1}{2}$ as $\\frac{2}{4}$: $\\frac{3}{4}+\\frac{2}{4}=\\frac{5}{4}=1.25$.\n\n**The Full Solution:**\nStep 1: The least common denominator of $4$ and $2$ is $4$.\nStep 2: Convert: $\\frac{1}{2}=\\frac{2}{4}$.\nStep 3: Add the numerators over the common denominator: $\\frac{3}{4}+\\frac{2}{4}=\\frac{5}{4}$.\nStep 4: As a decimal, $\\frac{5}{4}=1.25$.\n\n**Common Mistakes:** Adding straight across to get $\\frac{4}{6}$; forgetting to convert $\\frac{1}{2}$ before adding.\n\n**Test Day Takeaway:** To add fractions, find a common denominator first, then add only the numerators. Convert to a decimal as the final step.",
+      question: "What is $\\dfrac{2}{5} + \\dfrac{1}{2}$? Express your answer as a decimal.",
+      correctAnswer: "0.9",
+      explanation: "**SAT Pattern: Adding Fractions with Different Denominators**\n\n**The correct answer is $0.9$.**\n\n**The Fast Way (~10s):** Use tenths: $\\frac{2}{5} = \\frac{4}{10}$ and $\\frac{1}{2} = \\frac{5}{10}$, so the sum is $\\frac{9}{10} = 0.9$.\n\n**The Full Solution:**\nStep 1: The least common denominator of $5$ and $2$ is $10$.\nStep 2: Convert: $\\frac{2}{5} = \\frac{4}{10}$ and $\\frac{1}{2} = \\frac{5}{10}$.\nStep 3: Add the numerators over the common denominator: $\\frac{4}{10} + \\frac{5}{10} = \\frac{9}{10}$.\nStep 4: As a decimal, $\\frac{9}{10} = 0.9$.\n\n**Common Mistakes:** Adding straight across to get $\\frac{3}{7}$; converting only one of the two fractions before adding.\n\n**Test Day Takeaway:** To add fractions, find a common denominator first, then add only the numerators. Convert to a decimal as the final step.",
       skills: ["arithmetic"]
     },
     {
@@ -43,18 +47,18 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 3,
-      question: "If $2m + 3m = 45$, what is the value of $m$?",
+      question: "If $2h + 7h = 63$, what is the value of $h$?",
       choices: [
-        // distractor: divides by 3 instead of 5
-        { id: "A", text: "$15$" },
-        // distractor: subtracts 5 instead of dividing
-        { id: "B", text: "$40$" },
-        { id: "C", text: "$9$" },
-        // distractor: multiplies by 5 instead of dividing
-        { id: "D", text: "$225$" }
+        { id: "A", text: "$7$" },
+        // distractor: divides 63 by 7, using only one of the two coefficients
+        { id: "B", text: "$9$" },
+        // distractor: subtracts 7 from 63 instead of dividing by 9
+        { id: "C", text: "$56$" },
+        // distractor: multiplies 63 by 7 — the inverse of the correct move
+        { id: "D", text: "$441$" }
       ],
-      correctAnswer: "C",
-      explanation: "**SAT Pattern: Combining Like Terms**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Combine: $2m + 3m = 5m$, so $5m = 45$ and $m = 9$.\n\n**The Full Solution:**\nStep 1: Both terms contain $m$, so add their coefficients: $2m + 3m = (2 + 3)m = 5m$.\nStep 2: The equation becomes $5m = 45$.\nStep 3: Divide both sides by $5$: $m = 9$.\nStep 4: Check: $2(9) + 3(9) = 18 + 27 = 45$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): divides $45$ by $3$, using only one of the two coefficients.\n* Choice B ($40$): subtracts $5$ from $45$ instead of dividing by $5$.\n* Choice D ($225$): multiplies $45$ by $5$ — the inverse of the correct move.\n\n**Test Day Takeaway:** Combine like terms before solving: $2m + 3m$ is $5m$, not $6m^2$ or $5m^2$. Then one division finishes it.",
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: Combining Like Terms**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Combine: $2h + 7h = 9h$, so $9h = 63$ and $h = 7$.\n\n**The Full Solution:**\nStep 1: Both terms contain $h$, so add their coefficients: $2h + 7h = (2 + 7)h = 9h$.\nStep 2: The equation becomes $9h = 63$.\nStep 3: Divide both sides by $9$: $h = 7$.\nStep 4: Check: $2(7) + 7(7) = 14 + 49 = 63$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($9$): divides $63$ by $7$, using only one of the two coefficients.\n* Choice C ($56$): subtracts $7$ from $63$ instead of dividing by $9$.\n* Choice D ($441$): multiplies $63$ by $7$ — the inverse of the correct move.\n\n**Test Day Takeaway:** Combine like terms before solving: $2h + 7h$ is $9h$. Then one division finishes it.",
       skills: ["solving-equations", "linear-equations"]
     },
     {
@@ -62,18 +66,18 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "What is the perimeter of a square with side length $7$ centimeters?",
+      question: "What is the perimeter of a square with side length $9$ centimeters?",
       choices: [
-        // distractor: gives the area
-        { id: "A", text: "$49$ cm" },
-        { id: "B", text: "$28$ cm" },
-        // distractor: doubles instead of quadruples
-        { id: "C", text: "$14$ cm" },
-        // distractor: takes 3 sides
-        { id: "D", text: "$21$ cm" }
+        // distractor: adds the number of sides (4) to the side length instead of multiplying
+        { id: "A", text: "$13$ cm" },
+        // distractor: adds only 2 sides
+        { id: "B", text: "$18$ cm" },
+        { id: "C", text: "$36$ cm" },
+        // distractor: computes the area s² instead of the perimeter
+        { id: "D", text: "$81$ cm" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Perimeter of a Square**\n\n**Choice B is correct.**\n\n**The Fast Way (~3s):** Perimeter $=4\\times\\text{side}=4\\times 7=28$ cm.\n\n**The Full Solution:**\nStep 1: A square has $4$ equal sides, and perimeter is the total distance around.\nStep 2: $P=4s=4\\times 7=28$ cm. That is choice B.\n\n**Why the wrong answers are tempting:**\n* Choice A ($49$ cm): computes the area $s^2=7^2$ instead of the perimeter.\n* Choice C ($14$ cm): adds only $2$ sides.\n* Choice D ($21$ cm): adds only $3$ sides.\n\n**Test Day Takeaway:** For a square, perimeter $=4s$ and area $=s^2$. Keep the two formulas straight — perimeter is a length, area is a square of a length.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Perimeter of a Square**\n\n**Choice C is correct.**\n\n**The Fast Way (~3s):** Perimeter $= 4 \\times \\text{side} = 4 \\times 9 = 36$ cm.\n\n**The Full Solution:**\nStep 1: A square has $4$ equal sides, and perimeter is the total distance around.\nStep 2: $P = 4s = 4 \\times 9 = 36$ cm. That is choice C.\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$ cm): adds the number of sides ($9 + 4$) instead of multiplying.\n* Choice B ($18$ cm): adds only $2$ sides.\n* Choice D ($81$ cm): computes the area $s^2 = 9^2$ instead of the perimeter.\n\n**Test Day Takeaway:** For a square, perimeter $= 4s$ and area $= s^2$. Perimeter is a length; area is a length squared.",
       skills: ["perimeter", "geometry"]
     },
     {
@@ -81,18 +85,18 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "Maya buys $3$ notebooks at $\\$2.50$ each and $2$ pens at $\\$1.25$ each. What is the total cost, in dollars?",
+      question: "At a batting cage, Leo buys $4$ token bundles at $\\$3.25$ each and $2$ bottles of water at $\\$1.50$ each. What is the total cost, in dollars?",
       choices: [
-        // distractor: stops at one item
-        { id: "A", text: "$\\$7.50$" },
-        // distractor: gives one item only
-        { id: "B", text: "$\\$2.50$" },
-        { id: "C", text: "$\\$10.00$" },
-        // distractor: adds quantities and prices
-        { id: "D", text: "$\\$8.75$" }
+        // distractor: gives only the water cost
+        { id: "A", text: "$\\$3.00$" },
+        // distractor: adds the two prices without multiplying by the quantities
+        { id: "B", text: "$\\$4.75$" },
+        // distractor: gives only the token-bundle cost
+        { id: "C", text: "$\\$13.00$" },
+        { id: "D", text: "$\\$16.00$" }
       ],
-      correctAnswer: "C",
-      explanation: "**SAT Pattern: Multi-Item Total Cost**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Notebooks: $3\\times 2.50=7.50$. Pens: $2\\times 1.25=2.50$. Total: $7.50+2.50=\\$10.00$.\n\n**The Full Solution:**\nStep 1: Cost of the notebooks: $3\\times\\$2.50=\\$7.50$.\nStep 2: Cost of the pens: $2\\times\\$1.25=\\$2.50$.\nStep 3: Add the two amounts: $\\$7.50+\\$2.50=\\$10.00$. That is choice C.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$7.50$): gives only the notebook cost.\n* Choice B ($\\$2.50$): gives only the pen cost (or the price of one notebook).\n* Choice D ($\\$8.75$): mixes the quantities and prices instead of multiplying each pair.\n\n**Test Day Takeaway:** For a multi-item total, multiply each quantity by its own price, then add the results.",
+      correctAnswer: "D",
+      explanation: "**SAT Pattern: Multi-Item Total Cost**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Bundles: $4 \\times 3.25 = 13.00$. Water: $2 \\times 1.50 = 3.00$. Total: $13.00 + 3.00 = \\$16.00$.\n\n**The Full Solution:**\nStep 1: Cost of the token bundles: $4 \\times \\$3.25 = \\$13.00$.\nStep 2: Cost of the water: $2 \\times \\$1.50 = \\$3.00$.\nStep 3: Add the two amounts: $\\$13.00 + \\$3.00 = \\$16.00$. That is choice D.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$3.00$): gives only the water cost.\n* Choice B ($\\$4.75$): adds the two prices ($3.25 + 1.50$) without multiplying by the quantities.\n* Choice C ($\\$13.00$): gives only the token-bundle cost.\n\n**Test Day Takeaway:** For a multi-item total, multiply each quantity by its own price, then add the results.",
       skills: ["word-problem-to-equation", "linear-functions"]
     },
     {
@@ -100,9 +104,9 @@ export const practiceTest9M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 4,
-      question: "A circle has a diameter of $14$. What is the circumference of the circle, in terms of $\\pi$? (Provide just the integer coefficient of $\\pi$.)",
-      correctAnswer: "14",
-      explanation: "**SAT Pattern: Circumference from Diameter**\n\n**The correct answer is $14$.**\n\n**The Fast Way (~5s):** $C=\\pi d=14\\pi$, so the coefficient of $\\pi$ is $14$.\n\n**The Full Solution:**\nStep 1: Circumference is $C=2\\pi r=\\pi d$.\nStep 2: The diameter is given as $14$, so $C=\\pi\\times 14=14\\pi$.\nStep 3: The integer coefficient of $\\pi$ is $14$.\n\n**Common Mistakes:** Treating $14$ as the radius and getting $28\\pi$; using the area formula $\\pi r^2$ for $49\\pi$; halving the diameter and reporting $7\\pi$.\n\n**Test Day Takeaway:** Since $C=\\pi d$, use the diameter directly when it is given — no need to convert to radius first.",
+      question: "A circle has a diameter of $18$. What is the circumference of the circle, in terms of $\\pi$? (Provide just the integer coefficient of $\\pi$.)",
+      correctAnswer: "18",
+      explanation: "**SAT Pattern: Circumference from Diameter**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~5s):** $C = \\pi d = 18\\pi$, so the coefficient of $\\pi$ is $18$.\n\n**The Full Solution:**\nStep 1: Circumference is $C = 2\\pi r = \\pi d$.\nStep 2: The diameter is given as $18$, so $C = \\pi \\times 18 = 18\\pi$.\nStep 3: The integer coefficient of $\\pi$ is $18$.\n\n**Common Mistakes:** Treating $18$ as the radius and getting $36\\pi$; using the area formula $\\pi r^2$ for $81\\pi$; halving the diameter and reporting $9\\pi$.\n\n**Test Day Takeaway:** Since $C = \\pi d$, use the diameter directly when it is given — no need to convert to radius first.",
       skills: ["circumference", "circles"]
     },
     {
@@ -110,18 +114,18 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "What is the value of $x$ in the equation $\\dfrac{2x}{5} = 6$?",
+      question: "What is the value of $x$ in the equation $\\dfrac{5x}{9} = 10$?",
       choices: [
-        // distractor: divides 6 by 2 alone
-        { id: "A", text: "$3$" },
-        { id: "B", text: "$15$" },
-        // distractor: stops one step early
-        { id: "C", text: "$30$" },
-        // distractor: applies inverse op
-        { id: "D", text: "$\\dfrac{6}{5}$" }
+        // distractor: divides 10 by 9 instead of multiplying to clear the fraction
+        { id: "A", text: "$\\dfrac{10}{9}$" },
+        // distractor: divides 10 by 5 and ignores the denominator 9
+        { id: "B", text: "$2$" },
+        // distractor: subtracts the coefficient 5 from 10 instead of solving
+        { id: "C", text: "$5$" },
+        { id: "D", text: "$18$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Linear Equation with Fractional Coefficient**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Multiply both sides by the reciprocal $\\frac{5}{2}$: $x=6\\times\\frac{5}{2}=15$.\n\n**The Full Solution:**\nStep 1: Start from $\\frac{2x}{5}=6$. Multiply both sides by $5$: $2x=30$.\nStep 2: Divide both sides by $2$: $x=15$. That is choice B.\nStep 3: Check: $\\frac{2(15)}{5}=\\frac{30}{5}=6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): divides $6$ by $2$ and ignores the denominator $5$.\n* Choice C ($30$): stops at $2x=30$ instead of dividing by $2$.\n* Choice D ($\\frac{6}{5}$): divides $6$ by $5$, the wrong operation for clearing the fraction.\n\n**Test Day Takeaway:** To solve $\\frac{ax}{b}=c$, clear the fraction by multiplying by $b$, then divide by $a$ — or multiply once by the reciprocal $\\frac{b}{a}$.",
+      correctAnswer: "D",
+      explanation: "**SAT Pattern: Linear Equation with Fractional Coefficient**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Multiply both sides by the reciprocal $\\frac{9}{5}$: $x = 10 \\times \\frac{9}{5} = 18$.\n\n**The Full Solution:**\nStep 1: Start from $\\frac{5x}{9} = 10$. Multiply both sides by $9$: $5x = 90$.\nStep 2: Divide both sides by $5$: $x = 18$. That is choice D.\nStep 3: Check: $\\frac{5(18)}{9} = \\frac{90}{9} = 10$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{10}{9}$): divides $10$ by $9$ instead of multiplying to clear the fraction.\n* Choice B ($2$): divides $10$ by $5$ and ignores the denominator $9$ entirely.\n* Choice C ($5$): subtracts the coefficient ($10 - 5$) instead of solving the equation.\n\n**Test Day Takeaway:** To solve $\\frac{ax}{b} = c$, clear the fraction by multiplying by $b$, then divide by $a$ — or multiply once by the reciprocal $\\frac{b}{a}$.",
       skills: ["solving-equations", "linear-equations"]
     },
     {
@@ -129,18 +133,18 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "If $x^2 = 64$ and $x < 0$, what is the value of $x$?",
+      question: "If $x^2 = 121$ and $x < 0$, what is the value of $x$?",
       choices: [
-        // distractor: gives positive root
-        { id: "A", text: "$8$" },
-        { id: "B", text: "$-8$" },
-        // distractor: divides 64 by 2
-        { id: "C", text: "$-32$" },
-        // distractor: doesn't square root
-        { id: "D", text: "$-64$" }
+        // distractor: negates 121 without taking the square root at all
+        { id: "A", text: "$-121$" },
+        // distractor: divides 121 by 2 instead of taking the square root
+        { id: "B", text: "$-60.5$" },
+        { id: "C", text: "$-11$" },
+        // distractor: the positive root, ignoring the constraint x < 0
+        { id: "D", text: "$11$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Square Root with Sign Restriction**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $x^2=64 \\Rightarrow x=\\pm 8$. The constraint $x<0$ selects $x=-8$.\n\n**The Full Solution:**\nStep 1: Take the square root of both sides: $x=\\pm\\sqrt{64}=\\pm 8$.\nStep 2: Apply the restriction $x<0$, which rules out $+8$ and leaves $x=-8$. That is choice B.\nStep 3: Check: $(-8)^2=64$ and $-8<0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): the positive root, ignoring the constraint $x<0$.\n* Choice C ($-32$): divides $64$ by $2$ instead of taking the square root.\n* Choice D ($-64$): negates $64$ without taking the square root at all.\n\n**Test Day Takeaway:** $x^2=k$ has two solutions, $x=\\pm\\sqrt{k}$. A sign constraint such as $x<0$ tells you which root to keep.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Square Root with Sign Restriction**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $x^2 = 121 \\Rightarrow x = \\pm 11$. The constraint $x < 0$ selects $x = -11$.\n\n**The Full Solution:**\nStep 1: Take the square root of both sides: $x = \\pm\\sqrt{121} = \\pm 11$.\nStep 2: Apply the restriction $x < 0$, which rules out $+11$ and leaves $x = -11$. That is choice C.\nStep 3: Check: $(-11)^2 = 121$ and $-11 < 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-121$): negates $121$ without taking the square root at all.\n* Choice B ($-60.5$): divides $121$ by $2$ instead of taking the square root.\n* Choice D ($11$): the positive root, ignoring the constraint $x < 0$.\n\n**Test Day Takeaway:** $x^2 = k$ has two solutions, $x = \\pm\\sqrt{k}$. A sign constraint such as $x < 0$ tells you which root to keep.",
       skills: ["finding-roots-factoring", "quadratic-equations"]
     },
     {
@@ -148,25 +152,25 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The scatterplot below shows weight ($x$, in pounds) versus height ($y$, in inches) for a group of dogs. The data show a positive linear association. Which of the following is a reasonable interpretation?",
+      question: "The scatterplot shows the number of hours $x$ each of $10$ climbers practices per week and the number of routes $y$ the climber completed at a competition. The data show a positive linear association. Which of the following is a reasonable interpretation?",
       diagram: { type: "scatterplot", params: {
-        points: [[8,9],[12,11],[20,13],[25,14],[35,16],[45,18],[55,20],[65,21],[80,24],[95,26]],
-        xMin: 0, xMax: 110, yMin: 0, yMax: 30,
-        xGridStep: 10, yGridStep: 2, xLabelStep: 20, yLabelStep: 5,
-        xLabel: "Weight (lb)", yLabel: "Height (in)",
-        bestFitLine: { slope: 0.2, intercept: 8 },
+        points: [[1,2],[2,4],[3,3],[4,5],[5,6],[6,6],[7,8],[8,7],[9,9],[10,10]],
+        xMin: 0, xMax: 12, yMin: 0, yMax: 12,
+        xGridStep: 1, yGridStep: 1, xLabelStep: 2, yLabelStep: 2,
+        xLabel: "Practice hours per week", yLabel: "Routes completed",
+        bestFitLine: { slope: 0.8, intercept: 1.5 },
       } },
       choices: [
         // distractor: confuses correlation with causation
-        { id: "A", text: "Heavier dogs are taller because of their weight." },
-        { id: "B", text: "On average, dogs that weigh more tend to be taller." },
-        // distractor: confuses positive with negative
-        { id: "C", text: "Dogs that weigh more tend to be shorter on average." },
-        // distractor: claims perfect relationship
-        { id: "D", text: "Every dog that weighs more is taller than every dog that weighs less." }
+        { id: "A", text: "Practicing more hours causes a climber to complete more routes." },
+        { id: "B", text: "On average, climbers who practice more hours tend to complete more routes." },
+        // distractor: describes a negative association, the wrong direction
+        { id: "C", text: "Climbers who practice more hours tend to complete fewer routes." },
+        // distractor: overstates the trend as holding for every single climber
+        { id: "D", text: "Every climber who practices more hours completes more routes than every climber who practices fewer." }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Interpreting Scatterplot Association**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A positive linear association means $x$ and $y$ tend to rise together, so heavier dogs tend to be taller on average — choice B.\n\n**The Full Solution:**\nStep 1: A positive association means as weight ($x$) increases, height ($y$) tends to increase.\nStep 2: An association describes a trend, not a guarantee for every dog, and it does not establish cause. The hedge \"on average\" captures exactly that.\nStep 3: Choice B states the trend with the correct hedge.\n\n**Why the wrong answers are tempting:**\n* Choice A: claims weight *causes* height — association is not causation.\n* Choice C: describes a negative association, the wrong direction.\n* Choice D: overstates the trend as holding for every single dog.\n\n**Test Day Takeaway:** Read scatterplot language carefully: \"positive\" means the variables increase together, and always phrase the interpretation with \"tends to\" or \"on average\" — never claim every point fits.",
+      explanation: "**SAT Pattern: Interpreting Scatterplot Association**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A positive linear association means $x$ and $y$ tend to rise together, so climbers who practice more tend to complete more routes on average — choice B.\n\n**The Full Solution:**\nStep 1: A positive association means as practice hours ($x$) increase, routes completed ($y$) tend to increase.\nStep 2: An association describes a trend, not a guarantee for every climber, and it does not establish cause. The hedge \"on average\" captures exactly that.\nStep 3: Choice B states the trend with the correct hedge.\n\n**Why the wrong answers are tempting:**\n* Choice A: claims practice *causes* the higher count — association is not causation.\n* Choice C: describes a negative association, the wrong direction.\n* Choice D: overstates the trend as holding for every single climber; the points at $x = 5$ and $x = 6$ already tie.\n\n**Test Day Takeaway:** Read scatterplot language carefully: \"positive\" means the variables increase together, and a sound interpretation says \"tends to\" or \"on average\" — never a guarantee or a cause.",
       skills: ["scatterplots", "statistics"]
     },
     {
@@ -174,9 +178,16 @@ export const practiceTest9M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "A ramp is in the shape of a right triangle. The horizontal base is $24$ inches and the vertical height is $10$ inches. What is the length, in inches, of the ramp's surface (the hypotenuse)?",
-      correctAnswer: "26",
-      explanation: "**SAT Pattern: Pythagorean Theorem (5-12-13 Family)**\n\n**The correct answer is $26$.**\n\n**The Fast Way (~10s):** $24$ and $10$ are $2\\times 12$ and $2\\times 5$, so this is the $5$-$12$-$13$ triple scaled by $2$. The hypotenuse is $2\\times 13=26$.\n\n**The Full Solution:**\nStep 1: The legs are $24$ and $10$, so $c^2=24^2+10^2=576+100=676$.\nStep 2: $c=\\sqrt{676}=26$ inches.\nStep 3: Confirm the shortcut: $24=2\\times 12$, $10=2\\times 5$, so the hypotenuse is $2\\times 13=26$.\n\n**Common Mistakes:** Adding the legs without squaring to get $34$; subtracting the squares; mis-evaluating $\\sqrt{676}$.\n\n**Test Day Takeaway:** Recognize Pythagorean triples and their multiples — $5$-$12$-$13$ scales to $10$-$24$-$26$. Spotting the pattern beats squaring and adding.",
+      question: "In the right triangle shown, the two legs have lengths $15$ centimeters and $36$ centimeters. What is the length, in centimeters, of the hypotenuse?",
+      diagram: {
+        type: "rightTriangle",
+        params: {
+          sideLabels: ["15", "36", ""],
+          rightAngleVertex: 1
+        }
+      },
+      correctAnswer: "39",
+      explanation: "**SAT Pattern: Pythagorean Theorem (5-12-13 Family)**\n\n**The correct answer is $39$.**\n\n**The Fast Way (~10s):** $15$ and $36$ are $3 \\times 5$ and $3 \\times 12$, so this is the $5$-$12$-$13$ triple scaled by $3$. The hypotenuse is $3 \\times 13 = 39$.\n\n**The Full Solution:**\nStep 1: The legs are $15$ and $36$, so $c^2 = 15^2 + 36^2 = 225 + 1296 = 1521$.\nStep 2: $c = \\sqrt{1521} = 39$ centimeters.\nStep 3: Confirm the shortcut: $15 = 3 \\times 5$ and $36 = 3 \\times 12$, so the hypotenuse is $3 \\times 13 = 39$.\n\n**Common Mistakes:** Adding the legs without squaring to get $51$; subtracting the squares instead of adding; mis-evaluating $\\sqrt{1521}$.\n\n**Test Day Takeaway:** Recognize Pythagorean triples and their multiples — $5$-$12$-$13$ scales to $15$-$36$-$39$. Spotting the pattern beats squaring and adding.",
       skills: ["pythagorean-theorem", "right-triangles"]
     },
     {
@@ -184,18 +195,18 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "If $f(x) = 2x^2 - 1$, what is the value of $f(3) - f(1)$?",
+      question: "If $f(x) = 3x^2 + 2$, what is the value of $f(4) - f(2)$?",
       choices: [
-        // distractor: gives only f(3)
-        { id: "A", text: "$17$" },
-        { id: "B", text: "$16$" },
-        // distractor: only f(1)
-        { id: "C", text: "$1$" },
-        // distractor: adds f(3) + f(1)
-        { id: "D", text: "$18$" }
+        // distractor: gives only f(2)
+        { id: "A", text: "$14$" },
+        { id: "B", text: "$36$" },
+        // distractor: gives only f(4) and forgets to subtract
+        { id: "C", text: "$50$" },
+        // distractor: adds f(4) + f(2) instead of subtracting
+        { id: "D", text: "$64$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Function Difference**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $f(3)=2(9)-1=17$ and $f(1)=2(1)-1=1$, so $f(3)-f(1)=17-1=16$.\n\n**The Full Solution:**\nStep 1: Evaluate $f(3)=2(3)^2-1=2(9)-1=17$.\nStep 2: Evaluate $f(1)=2(1)^2-1=2-1=1$.\nStep 3: Subtract: $f(3)-f(1)=17-1=16$. That is choice B.\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): gives just $f(3)$ and forgets to subtract.\n* Choice C ($1$): gives just $f(1)$.\n* Choice D ($18$): adds $f(3)+f(1)$ instead of subtracting.\n\n**Test Day Takeaway:** $f(a)-f(b)$ is two separate evaluations followed by one subtraction — compute each value first, then combine.",
+      explanation: "**SAT Pattern: Function Difference**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $f(4) = 3(16) + 2 = 50$ and $f(2) = 3(4) + 2 = 14$, so $f(4) - f(2) = 50 - 14 = 36$.\n\n**The Full Solution:**\nStep 1: Evaluate $f(4) = 3(4)^2 + 2 = 48 + 2 = 50$.\nStep 2: Evaluate $f(2) = 3(2)^2 + 2 = 12 + 2 = 14$.\nStep 3: Subtract: $f(4) - f(2) = 50 - 14 = 36$. That is choice B.\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): gives just $f(2)$.\n* Choice C ($50$): gives just $f(4)$ and forgets to subtract.\n* Choice D ($64$): adds $f(4) + f(2)$ instead of subtracting.\n\n**Test Day Takeaway:** $f(a) - f(b)$ is two separate evaluations followed by one subtraction — compute each value first, then combine.",
       skills: ["function-evaluation", "function-notation"]
     },
     {
@@ -203,18 +214,18 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A rectangle has length twice its width. If the perimeter is $36$, what is the width?",
+      question: "A rectangle has a length that is $3$ times its width. If the perimeter of the rectangle is $64$, what is its length?",
       choices: [
-        // distractor: gives length
-        { id: "A", text: "$12$" },
-        { id: "B", text: "$6$" },
-        // distractor: divides perimeter by 4
-        { id: "C", text: "$9$" },
-        // distractor: divides by 2
-        { id: "D", text: "$18$" }
+        // distractor: gives the width instead of the length
+        { id: "A", text: "$8$" },
+        // distractor: divides the perimeter by 4, treating the figure like a square
+        { id: "B", text: "$16$" },
+        { id: "C", text: "$24$" },
+        // distractor: gives half the perimeter
+        { id: "D", text: "$32$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Rectangle from Perimeter and Side Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Let width $=w$, so length $=2w$. Then perimeter $=2w+2(2w)=6w=36$, giving $w=6$.\n\n**The Full Solution:**\nStep 1: Let $w$ be the width; the length is $2w$.\nStep 2: Perimeter $=2(\\text{length})+2(\\text{width})=2(2w)+2w=6w$.\nStep 3: Set $6w=36$, so $w=6$. That is choice B.\nStep 4: Check: length $=2(6)=12$, and $2(12)+2(6)=24+12=36$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): gives the length instead of the width.\n* Choice C ($9$): divides the perimeter by $4$, treating the figure like a square.\n* Choice D ($18$): gives half the perimeter.\n\n**Test Day Takeaway:** When sides are related by \"twice\" or \"three times,\" let the smaller side be the variable, write the others in terms of it, then apply the perimeter constraint.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Rectangle from Perimeter and Side Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Let width $= w$, so length $= 3w$. Then perimeter $= 2(3w) + 2w = 8w = 64$, giving $w = 8$ and length $= 24$.\n\n**The Full Solution:**\nStep 1: Let $w$ be the width; the length is $3w$.\nStep 2: Perimeter $= 2(\\text{length}) + 2(\\text{width}) = 2(3w) + 2w = 8w$.\nStep 3: Set $8w = 64$, so $w = 8$ and the length is $3w = 24$. That is choice C.\nStep 4: Check: $2(24) + 2(8) = 48 + 16 = 64$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): gives the width instead of the length.\n* Choice B ($16$): divides the perimeter by $4$, treating the figure like a square.\n* Choice D ($32$): gives half the perimeter (length $+$ width), not the length.\n\n**Test Day Takeaway:** When sides are related by \"twice\" or \"three times,\" let the smaller side be the variable, apply the perimeter constraint, then answer the quantity actually asked for.",
       skills: ["perimeter", "geometry"]
     },
     {
@@ -222,9 +233,9 @@ export const practiceTest9M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "A pizzeria sells pizzas at $\\$12$ each. After a $25\\%$ price increase, what is the new price, in dollars?",
-      correctAnswer: "15",
-      explanation: "**SAT Pattern: Percent Increase**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~10s):** A $25\\%$ increase means you pay $125\\%$ of the old price: $12 \\times 1.25 = 15$ dollars.\n\n**The Full Solution:**\nStep 1: A percent increase multiplies by $(1 + r)$. Here $r = 0.25$, so the factor is $1.25$.\nStep 2: New price $= 12 \\times 1.25 = 15$ dollars.\n\nAlternative: the increase amount is $0.25 \\times 12 = 3$, so the new price is $12 + 3 = 15$.\n\n**Common Mistakes:** Adding $25$ to $12$ as if $25\\%$ meant $\\$25$, landing on $37$; treating it as a discount and computing $12 \\times 0.75 = 9$; reporting just the $\\$3$ increase instead of the new price.\n\n**Test Day Takeaway:** For a percent increase, multiply by $(1 + r)$; for a percent decrease, multiply by $(1 - r)$, where $r$ is the percent in decimal form.",
+      question: "At a print shop, a large poster print costs $\\$40$. After a $15\\%$ price increase, what is the new price, in dollars?",
+      correctAnswer: "46",
+      explanation: "**SAT Pattern: Percent Increase**\n\n**The correct answer is $46$.**\n\n**The Fast Way (~10s):** A $15\\%$ increase means you pay $115\\%$ of the old price: $40 \\times 1.15 = 46$ dollars.\n\n**The Full Solution:**\nStep 1: A percent increase multiplies by $(1 + r)$. Here $r = 0.15$, so the factor is $1.15$.\nStep 2: New price $= 40 \\times 1.15 = 46$ dollars.\n\nAlternative: the increase amount is $0.15 \\times 40 = 6$, so the new price is $40 + 6 = 46$.\n\n**Common Mistakes:** Adding $15$ to $40$ as if $15\\%$ meant $\\$15$, landing on $55$; treating it as a discount and computing $40 \\times 0.85 = 34$; reporting just the $\\$6$ increase instead of the new price.\n\n**Test Day Takeaway:** For a percent increase, multiply by $(1 + r)$; for a percent decrease, multiply by $(1 - r)$, where $r$ is the percent in decimal form.",
       skills: ["percent-change", "percents"]
     },
     {
@@ -232,18 +243,24 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "Two angles in a triangle measure $50^{\\circ}$ and $70^{\\circ}$. What is the measure of the third angle?",
+      question: "In the triangle shown, what is the value of $x$?",
+      diagram: {
+        type: "triangleWithAngles",
+        params: {
+          angleLabels: ["42°", "x°", "76°"]
+        }
+      },
       choices: [
-        // distractor: subtracts wrong way — gives 70 - 50 + 40 etc.
-        { id: "A", text: "$40^{\\circ}$" },
-        { id: "B", text: "$60^{\\circ}$" },
-        // distractor: gives a remainder of 50 + 70 directly
-        { id: "C", text: "$120^{\\circ}$" },
-        // distractor: uses 360 instead of 180
-        { id: "D", text: "$240^{\\circ}$" }
+        { id: "A", text: "$62$" },
+        // distractor: the sum of the two given angles, stopping one step early
+        { id: "B", text: "$118$" },
+        // distractor: subtracts only one given angle from 180
+        { id: "C", text: "$138$" },
+        // distractor: uses 360 (a quadrilateral's angle sum) instead of 180
+        { id: "D", text: "$242$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** The angles sum to $180^\\circ$, so the third is $180^\\circ - 50^\\circ - 70^\\circ = 60^\\circ$.\n\n**The Full Solution:**\nStep 1: The three interior angles of any triangle add to $180^\\circ$.\nStep 2: Third angle $= 180^\\circ - 50^\\circ - 70^\\circ = 60^\\circ$, which is choice B.\n\n**Why the wrong answers are tempting:**\n* Choice A ($40^\\circ$): a subtraction slip, dropping or mishandling part of $50^\\circ + 70^\\circ$.\n* Choice C ($120^\\circ$): the sum of the two known angles, $50^\\circ + 70^\\circ$, stopping one step early.\n* Choice D ($240^\\circ$): uses $360^\\circ$ (a quadrilateral's angle sum) instead of $180^\\circ$.\n\n**Test Day Takeaway:** A triangle's angles sum to $180^\\circ$; a quadrilateral's to $360^\\circ$; an $n$-gon's to $180(n-2)$ degrees.",
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** The angles sum to $180^\\circ$, so $x = 180 - 42 - 76 = 62$.\n\n**The Full Solution:**\nStep 1: The three interior angles of any triangle add to $180^\\circ$.\nStep 2: $x = 180 - 42 - 76 = 62$, which is choice A.\nStep 3: Check: $42 + 62 + 76 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($118$): the sum of the two given angles, $42 + 76$, stopping one step early.\n* Choice C ($138$): subtracts only one given angle: $180 - 42$.\n* Choice D ($242$): uses $360^\\circ$ (a quadrilateral's angle sum) instead of $180^\\circ$.\n\n**Test Day Takeaway:** A triangle's angles sum to $180^\\circ$; a quadrilateral's to $360^\\circ$; an $n$-gon's to $180(n-2)$ degrees.",
       skills: ["triangle-angle-sum", "triangles"]
     },
     {
@@ -251,18 +268,18 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "If $5x + 2y = 21$ and $y = x$, what is the value of $x$?",
+      question: "If $3x + 2y = 36$ and $y = 3x$, what is the value of $x$?",
       choices: [
-        // distractor: divides 21 by 5
-        { id: "A", text: "$\\dfrac{21}{5}$" },
-        { id: "B", text: "$3$" },
-        // distractor: divides 21 by 2
-        { id: "C", text: "$\\dfrac{21}{2}$" },
-        // distractor: stops one step early — gives 7x
-        { id: "D", text: "$21$" }
+        { id: "A", text: "$4$" },
+        // distractor: combines the coefficients as 3 + 2 = 5 and divides 36 by 5
+        { id: "B", text: "$\\dfrac{36}{5}$" },
+        // distractor: reports the value of y instead of x
+        { id: "C", text: "$12$" },
+        // distractor: reports the right side 36 instead of solving
+        { id: "D", text: "$36$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: System by Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Since $y = x$, replace $y$: $5x + 2x = 21 \\Rightarrow 7x = 21 \\Rightarrow x = 3$.\n\n**The Full Solution:**\nStep 1: Substitute $y = x$ into $5x + 2y = 21$ to get $5x + 2x = 21$.\nStep 2: Combine: $7x = 21$.\nStep 3: Divide: $x = 3$. Check: $y = 3$ and $5(3) + 2(3) = 15 + 6 = 21$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{21}{5}$): divides $21$ by $5$, ignoring the $2y$ term entirely.\n* Choice C ($\\frac{21}{2}$): divides $21$ by $2$, the wrong coefficient.\n* Choice D ($21$): reports the right side $21$ instead of solving for $x$.\n\n**Test Day Takeaway:** Substitution: use the simpler equation to replace one variable, then combine like terms and solve.",
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: System by Substitution**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Since $y = 3x$, replace $y$: $3x + 2(3x) = 36 \\Rightarrow 9x = 36 \\Rightarrow x = 4$.\n\n**The Full Solution:**\nStep 1: Substitute $y = 3x$ into $3x + 2y = 36$ to get $3x + 6x = 36$.\nStep 2: Combine: $9x = 36$.\nStep 3: Divide: $x = 4$. Check: $y = 12$ and $3(4) + 2(12) = 12 + 24 = 36$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{36}{5}$): combines the coefficients as $3 + 2 = 5$, forgetting that $2y = 6x$.\n* Choice C ($12$): reports $y = 12$ instead of $x$.\n* Choice D ($36$): reports the right side $36$ instead of solving for $x$.\n\n**Test Day Takeaway:** Substitution: use the simpler equation to replace one variable, multiply through carefully, then combine like terms and solve.",
       skills: ["substitution-method", "systems-of-equations"]
     },
     {
@@ -270,9 +287,9 @@ export const practiceTest9M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "A polynomial is given by $p(x) = x(x - 3)(x + 5)$. What is $p(0)$?",
+      question: "A polynomial is given by $p(x) = x(x + 4)(x - 7)$. What is $p(7)$?",
       correctAnswer: "0",
-      explanation: "**SAT Pattern: Function at a Root**\n\n**The correct answer is $0$.**\n\n**The Fast Way (~3s):** $p(0)$ has a leading factor of $x$, which becomes $0$, so the whole product is $0$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 0$: $p(0) = 0 \\cdot (0 - 3)(0 + 5)$.\nStep 2: The first factor is $0$, so $p(0) = 0 \\cdot (-3)(5) = 0$.\n\n**Common Mistakes:** Computing $(0 - 3)(0 + 5) = -15$ and forgetting the leading $x$ factor; accidentally evaluating at $x = 1$ instead of $x = 0$.\n\n**Test Day Takeaway:** Anything times $0$ is $0$. Scan a product for a factor that vanishes before grinding through arithmetic.",
+      explanation: "**SAT Pattern: Function at a Root**\n\n**The correct answer is $0$.**\n\n**The Fast Way (~3s):** At $x = 7$ the factor $(x - 7)$ becomes $0$, so the whole product is $0$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 7$: $p(7) = 7 \\cdot (7 + 4)(7 - 7)$.\nStep 2: The last factor is $0$, so $p(7) = 7 \\cdot 11 \\cdot 0 = 0$.\n\n**Common Mistakes:** Computing $7 \\cdot 11 = 77$ and forgetting the vanishing factor; accidentally evaluating at $x = -7$, which gives a nonzero value.\n\n**Test Day Takeaway:** Anything times $0$ is $0$. Scan a product for a factor that vanishes before grinding through arithmetic.",
       skills: ["function-evaluation", "polynomial-operations"]
     },
     {
@@ -280,18 +297,18 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "A bookstore has $200$ books in stock. Of these, $60$ are fiction and $80$ are non-fiction; the rest are reference books. What percent of the books are reference books?",
+      question: "A drone survey produced $240$ photos. Of these, $60$ show rooftops and $84$ show streets; the rest show parks. What percent of the photos show parks?",
       choices: [
-        // distractor: forgets to divide by total
-        { id: "A", text: "$60\\%$" },
-        { id: "B", text: "$30\\%$" },
-        // distractor: uses fiction count
+        // distractor: the percent of rooftop photos, not park photos
+        { id: "A", text: "$25\\%$" },
+        // distractor: the percent of street photos, not park photos
+        { id: "B", text: "$35\\%$" },
         { id: "C", text: "$40\\%$" },
-        // distractor: subtracts instead of computing percent
-        { id: "D", text: "$20\\%$" }
+        // distractor: reports the count of park photos (96) as a percent
+        { id: "D", text: "$96\\%$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Percent of a Whole — Multi-Step**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Reference books $= 200 - 60 - 80 = 60$, so the percent is $\\frac{60}{200} = 30\\%$.\n\n**The Full Solution:**\nStep 1: Subtract the known categories: $200 - 60 - 80 = 60$ reference books.\nStep 2: Convert to a percent of the total: $\\frac{60}{200} \\times 100 = 30\\%$, which is choice B.\n\nCheck: fiction $\\frac{60}{200} = 30\\%$, non-fiction $\\frac{80}{200} = 40\\%$, reference $30\\%$; together $30\\% + 40\\% + 30\\% = 100\\%$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($60\\%$): reports the count of reference books ($60$) as a percent.\n* Choice C ($40\\%$): the percent of non-fiction, not reference.\n* Choice D ($20\\%$): uses the difference $80 - 60 = 20$ as a percent.\n\n**Test Day Takeaway:** Percent of a whole $= \\frac{\\text{count}}{\\text{total}} \\times 100$. Find the missing count first, then divide by the full total.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Percent of a Whole — Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Park photos $= 240 - 60 - 84 = 96$, so the percent is $\\frac{96}{240} = 40\\%$.\n\n**The Full Solution:**\nStep 1: Subtract the known categories: $240 - 60 - 84 = 96$ park photos.\nStep 2: Convert to a percent of the total: $\\frac{96}{240} \\times 100 = 40\\%$, which is choice C.\n\nCheck: rooftops $\\frac{60}{240} = 25\\%$, streets $\\frac{84}{240} = 35\\%$, parks $40\\%$; together $25\\% + 35\\% + 40\\% = 100\\%$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($25\\%$): the percent of rooftop photos, not park photos.\n* Choice B ($35\\%$): the percent of street photos, not park photos.\n* Choice D ($96\\%$): reports the count of park photos ($96$) as if it were a percent.\n\n**Test Day Takeaway:** Percent of a whole $= \\frac{\\text{count}}{\\text{total}} \\times 100$. Find the missing count first, then divide by the full total.",
       skills: ["percent-of-value", "percents"]
     },
     {
@@ -299,18 +316,18 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "What is the value of $\\sqrt{50} + \\sqrt{8}$? (Simplify the radicals first.)",
+      question: "What is the value of $\\sqrt{75} + \\sqrt{27}$? (Simplify the radicals first.)",
       choices: [
-        // distractor: adds inside the radical
-        { id: "A", text: "$\\sqrt{58}$" },
-        { id: "B", text: "$7\\sqrt{2}$" },
-        // distractor: stops at one term
-        { id: "C", text: "$5\\sqrt{2}$" },
-        // distractor: multiplies coefficients
-        { id: "D", text: "$10\\sqrt{2}$" }
+        // distractor: stops after simplifying the first radical only
+        { id: "A", text: "$5\\sqrt{3}$" },
+        // distractor: adds the radicands directly, as if √75 + √27 = √102
+        { id: "B", text: "$\\sqrt{102}$" },
+        { id: "C", text: "$8\\sqrt{3}$" },
+        // distractor: multiplies the coefficients (5 × 3) instead of adding them
+        { id: "D", text: "$15\\sqrt{3}$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Simplifying and Adding Radicals**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\sqrt{50} = 5\\sqrt{2}$ and $\\sqrt{8} = 2\\sqrt{2}$, so the sum is $5\\sqrt{2} + 2\\sqrt{2} = 7\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: Factor out perfect squares. $\\sqrt{50} = \\sqrt{25 \\cdot 2} = 5\\sqrt{2}$ and $\\sqrt{8} = \\sqrt{4 \\cdot 2} = 2\\sqrt{2}$.\nStep 2: Both terms now have $\\sqrt{2}$, so add the coefficients: $5\\sqrt{2} + 2\\sqrt{2} = 7\\sqrt{2}$, which is choice B.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\sqrt{58}$): adds the radicands directly, as if $\\sqrt{50} + \\sqrt{8} = \\sqrt{58}$.\n* Choice C ($5\\sqrt{2}$): gives only the simplified $\\sqrt{50}$, dropping the second term.\n* Choice D ($10\\sqrt{2}$): multiplies the coefficients ($5 \\cdot 2$) instead of adding them.\n\n**Test Day Takeaway:** $\\sqrt{a} + \\sqrt{b} \\neq \\sqrt{a + b}$. Simplify each radical to $k\\sqrt{m}$ form, then add only the coefficients of like radicals.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Simplifying and Adding Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\sqrt{75} = 5\\sqrt{3}$ and $\\sqrt{27} = 3\\sqrt{3}$, so the sum is $5\\sqrt{3} + 3\\sqrt{3} = 8\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: Factor out perfect squares. $\\sqrt{75} = \\sqrt{25 \\cdot 3} = 5\\sqrt{3}$ and $\\sqrt{27} = \\sqrt{9 \\cdot 3} = 3\\sqrt{3}$.\nStep 2: Both terms now have $\\sqrt{3}$, so add the coefficients: $5\\sqrt{3} + 3\\sqrt{3} = 8\\sqrt{3}$, which is choice C.\n\n**Why the wrong answers are tempting:**\n* Choice A ($5\\sqrt{3}$): gives only the simplified $\\sqrt{75}$, dropping the second term.\n* Choice B ($\\sqrt{102}$): adds the radicands directly, as if $\\sqrt{75} + \\sqrt{27} = \\sqrt{102}$.\n* Choice D ($15\\sqrt{3}$): multiplies the coefficients ($5 \\cdot 3$) instead of adding them.\n\n**Test Day Takeaway:** $\\sqrt{a} + \\sqrt{b} \\neq \\sqrt{a + b}$. Simplify each radical to $k\\sqrt{m}$ form, then add only the coefficients of like radicals.",
       skills: ["radical-expressions", "exponent-rules"]
     },
     {
@@ -318,9 +335,9 @@ export const practiceTest9M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 6,
-      question: "If a savings account earns $4\\%$ simple interest per year and a deposit of $\\$500$ is made, how much interest, in dollars, is earned after $3$ years?",
-      correctAnswer: "60",
-      explanation: "**SAT Pattern: Simple Interest**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~10s):** $I = P \\cdot r \\cdot t = 500 \\times 0.04 \\times 3 = 60$ dollars.\n\n**The Full Solution:**\nStep 1: Use simple interest $I = Prt$ with $P = 500$, $r = 0.04$, $t = 3$.\nStep 2: $I = 500 \\times 0.04 \\times 3 = 20 \\times 3 = 60$ dollars.\n\nAlternative: $4\\%$ of $\\$500$ is $\\$20$ per year; over $3$ years that is $\\$60$.\n\n**Common Mistakes:** Skipping the percent-to-decimal step and computing $500 \\times 4 \\times 3 = 6000$; reporting the ending balance $\\$560$ instead of the interest; applying a compound-interest formula when simple interest is asked.\n\n**Test Day Takeaway:** Simple interest is $I = Prt$. Convert the percent to a decimal first, and read whether the question wants the interest or the final balance.",
+      question: "If a savings account earns $3\\%$ simple interest per year and a deposit of $\\$800$ is made, how much interest, in dollars, is earned after $4$ years?",
+      correctAnswer: "96",
+      explanation: "**SAT Pattern: Simple Interest**\n\n**The correct answer is $96$.**\n\n**The Fast Way (~10s):** $I = P \\cdot r \\cdot t = 800 \\times 0.03 \\times 4 = 96$ dollars.\n\n**The Full Solution:**\nStep 1: Use simple interest $I = Prt$ with $P = 800$, $r = 0.03$, $t = 4$.\nStep 2: $I = 800 \\times 0.03 \\times 4 = 24 \\times 4 = 96$ dollars.\n\nAlternative: $3\\%$ of $\\$800$ is $\\$24$ per year; over $4$ years that is $\\$96$.\n\n**Common Mistakes:** Skipping the percent-to-decimal step and computing $800 \\times 3 \\times 4 = 9600$; reporting the ending balance $\\$896$ instead of the interest; applying a compound-interest formula when simple interest is asked.\n\n**Test Day Takeaway:** Simple interest is $I = Prt$. Convert the percent to a decimal first, and read whether the question wants the interest or the final balance.",
       skills: ["percent-of-value", "percents"]
     },
     {
@@ -328,18 +345,18 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "A box contains $30$ balls: $12$ red, $10$ blue, and $8$ green. If two balls are drawn at random WITH REPLACEMENT, what is the probability that both are red?",
+      question: "A bin at a batting cage holds $24$ tokens: $9$ bronze, $8$ silver, and $7$ gold. If two tokens are drawn at random WITH REPLACEMENT, what is the probability that both are bronze?",
       choices: [
-        // distractor: adds probabilities
-        { id: "A", text: "$\\dfrac{24}{30}$" },
-        { id: "B", text: "$\\dfrac{4}{25}$" },
-        // distractor: uses one draw only
-        { id: "C", text: "$\\dfrac{2}{5}$" },
-        // distractor: uses without-replacement formula
-        { id: "D", text: "$\\dfrac{132}{870}$" }
+        // distractor: uses the without-replacement product (9/24)(8/23)
+        { id: "A", text: "$\\dfrac{72}{552}$" },
+        { id: "B", text: "$\\dfrac{9}{64}$" },
+        // distractor: the probability for a single draw, stopping one step early
+        { id: "C", text: "$\\dfrac{3}{8}$" },
+        // distractor: doubles the bronze count instead of multiplying probabilities
+        { id: "D", text: "$\\dfrac{18}{24}$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Independent Probability with Replacement**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $P(\\text{red}) = \\frac{12}{30} = \\frac{2}{5}$. With replacement: $\\left(\\frac{2}{5}\\right)^2 = \\frac{4}{25}$.\n\n**The Full Solution:**\nStep 1: One draw: $P(\\text{red}) = \\frac{12}{30} = \\frac{2}{5}$.\nStep 2: With replacement, the box resets, so the two draws are independent. Multiply: $\\frac{2}{5} \\cdot \\frac{2}{5} = \\frac{4}{25}$, which is choice B.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{24}{30}$): doubles the red count instead of multiplying probabilities.\n* Choice C ($\\frac{2}{5}$): the probability for a single draw, stopping one step early.\n* Choice D ($\\frac{132}{870}$): uses the without-replacement product $\\frac{12}{30} \\cdot \\frac{11}{29}$.\n\n**Test Day Takeaway:** With replacement, draws are independent, so multiply the same probability. Without replacement, the second draw uses adjusted counts.",
+      explanation: "**SAT Pattern: Independent Probability with Replacement**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $P(\\text{bronze}) = \\frac{9}{24} = \\frac{3}{8}$. With replacement: $\\left(\\frac{3}{8}\\right)^2 = \\frac{9}{64}$.\n\n**The Full Solution:**\nStep 1: One draw: $P(\\text{bronze}) = \\frac{9}{24} = \\frac{3}{8}$.\nStep 2: With replacement, the bin resets, so the two draws are independent. Multiply: $\\frac{3}{8} \\cdot \\frac{3}{8} = \\frac{9}{64}$, which is choice B.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{72}{552}$): uses the without-replacement product $\\frac{9}{24} \\cdot \\frac{8}{23}$.\n* Choice C ($\\frac{3}{8}$): the probability for a single draw, stopping one step early.\n* Choice D ($\\frac{18}{24}$): doubles the bronze count instead of multiplying probabilities.\n\n**Test Day Takeaway:** With replacement, draws are independent, so multiply the same probability. Without replacement, the second draw uses adjusted counts.",
       skills: ["probability-basics", "statistics"]
     },
     {
@@ -347,18 +364,18 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "If $f(x) = \\dfrac{x + 4}{x - 2}$, what is the value of $f(6)$?",
+      question: "If $f(x) = \\dfrac{x + 6}{x - 2}$, what is the value of $f(10)$?",
       choices: [
-        // distractor: subtracts instead of adds
-        { id: "A", text: "$\\dfrac{2}{4}$" },
-        { id: "B", text: "$\\dfrac{5}{2}$" },
-        // distractor: switches numerator and denominator
-        { id: "C", text: "$\\dfrac{2}{5}$" },
-        // distractor: stops one step early
-        { id: "D", text: "$10$" }
+        // distractor: swaps the operations, computing (10 − 6)/(10 + 2)
+        { id: "A", text: "$\\dfrac{1}{3}$" },
+        // distractor: the reciprocal of the correct answer, from flipping the fraction
+        { id: "B", text: "$\\dfrac{1}{2}$" },
+        { id: "C", text: "$2$" },
+        // distractor: evaluates only the numerator 10 + 6 and ignores the denominator
+        { id: "D", text: "$16$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Function Evaluation with Rational Function**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $f(6) = \\frac{6 + 4}{6 - 2} = \\frac{10}{4} = \\frac{5}{2}$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 6$ into both numerator and denominator: $f(6) = \\frac{6 + 4}{6 - 2}$.\nStep 2: Simplify: $\\frac{10}{4} = \\frac{5}{2}$, which is choice B.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{4}$): swaps the operations, treating the numerator as $6 - 4$.\n* Choice C ($\\frac{2}{5}$): the reciprocal of the correct answer, from flipping numerator and denominator.\n* Choice D ($10$): evaluates only the numerator $6 + 4$ and ignores the denominator.\n\n**Test Day Takeaway:** For a rational function, substitute into the numerator and denominator separately, then reduce the fraction.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Function Evaluation with Rational Function**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $f(10) = \\frac{10 + 6}{10 - 2} = \\frac{16}{8} = 2$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 10$ into both numerator and denominator: $f(10) = \\frac{10 + 6}{10 - 2}$.\nStep 2: Simplify: $\\frac{16}{8} = 2$, which is choice C.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{3}$): swaps the operations, computing $\\frac{10 - 6}{10 + 2}$.\n* Choice B ($\\frac{1}{2}$): the reciprocal of the correct answer, from flipping numerator and denominator.\n* Choice D ($16$): evaluates only the numerator $10 + 6$ and ignores the denominator.\n\n**Test Day Takeaway:** For a rational function, substitute into the numerator and denominator separately, then reduce the fraction.",
       skills: ["function-evaluation", "function-notation"]
     },
     {
@@ -366,9 +383,9 @@ export const practiceTest9M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 7,
-      question: "A spinner is divided into $5$ equal sectors numbered $1$ through $5$. The spinner is spun once. What is the probability that the result is an even number?",
-      correctAnswer: "2/5",
-      explanation: "**SAT Pattern: Counting Favorable Outcomes**\n\n**The correct answer is $\\frac{2}{5}$ (or $0.4$).**\n\n**The Fast Way (~5s):** The even sectors in $\\{1, 2, 3, 4, 5\\}$ are $2$ and $4$, so $P = \\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: Favorable outcomes (even): $2$ and $4$, a count of $2$.\nStep 2: Total outcomes: $1, 2, 3, 4, 5$, a count of $5$.\nStep 3: Probability $= \\frac{2}{5} = 0.4$.\n\n**Common Mistakes:** Counting $0$ as even when there is no $0$ on the spinner; including odd numbers in the favorable count; using a total other than $5$.\n\n**Test Day Takeaway:** Probability is favorable over total. When the outcomes are few, list the favorable ones explicitly to avoid a miscount.",
+      question: "A spinner is divided into $8$ equal sectors numbered $1$ through $8$. The spinner is spun once. What is the probability that the result is a multiple of $3$?",
+      correctAnswer: "1/4",
+      explanation: "**SAT Pattern: Counting Favorable Outcomes**\n\n**The correct answer is $\\frac{1}{4}$ (or $0.25$).**\n\n**The Fast Way (~5s):** The multiples of $3$ in $\\{1, 2, \\ldots, 8\\}$ are $3$ and $6$, so $P = \\frac{2}{8} = \\frac{1}{4}$.\n\n**The Full Solution:**\nStep 1: Favorable outcomes (multiples of $3$): $3$ and $6$, a count of $2$.\nStep 2: Total outcomes: $1$ through $8$, a count of $8$.\nStep 3: Probability $= \\frac{2}{8} = \\frac{1}{4} = 0.25$.\n\n**Common Mistakes:** Counting $9$ as a multiple of $3$ when the spinner stops at $8$; including $1$ because it divides $3$; using a total other than $8$.\n\n**Test Day Takeaway:** Probability is favorable over total. When the outcomes are few, list the favorable ones explicitly to avoid a miscount.",
       skills: ["probability-basics", "statistics"]
     }
   ]

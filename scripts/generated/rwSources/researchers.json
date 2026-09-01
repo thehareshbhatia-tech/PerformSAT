@@ -5782,5 +5782,294 @@
    "rhetorical-synthesis"
   ],
   "passagePromptHint": "Oppenheimer co-authored the laptop-versus-longhand note-taking studies with Pam Mueller."
+ },
+ {
+  "id": "res-t8-001",
+  "name": "William Smith",
+  "field": "geology / surveying",
+  "affiliation": "canal surveyor, England",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "1815 geological map of England and Wales",
+   "identifying strata by characteristic fossils"
+  ],
+  "publications": [
+   {
+    "title": "A Delineation of the Strata of England and Wales, with Part of Scotland",
+    "year": 1815,
+    "claim": "rock strata can be identified and traced across the country by their characteristic fossils"
+   }
+  ],
+  "suitableForSkills": [
+   "central-ideas-and-details",
+   "boundaries",
+   "transitions"
+  ],
+  "passagePromptHint": "Canal surveyor who recognized faunal succession and published the first geological map of England and Wales (1815); initially snubbed by the Geological Society, later awarded its first Wollaston Medal (1831)."
+ },
+ {
+  "id": "res-t8-002",
+  "name": "Emanuela Guidoboni",
+  "field": "historical seismology",
+  "affiliation": "INGV / EEDIS, Italy",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "catalogs of historical Mediterranean earthquakes",
+   "critical source analysis of documentary earthquake records"
+  ],
+  "publications": [
+   {
+    "title": "Catalogue of Ancient Earthquakes in the Mediterranean Area up to the 10th Century",
+    "year": 1994,
+    "claim": "historical earthquake catalogs must be built by tracing every report to its earliest source, since copied chronicles duplicate and misdate events"
+   }
+  ],
+  "suitableForSkills": [
+   "rhetorical-synthesis",
+   "inferences"
+  ],
+  "passagePromptHint": "Italian historical seismologist who rebuilt earthquake catalogs from primary documents, removing fake or duplicated events that earlier compilers had tallied at face value."
+ },
+ {
+  "id": "res-t8-003",
+  "name": "Nicolas Appert",
+  "field": "food preservation",
+  "affiliation": "confectioner, France",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "inventing heat-sealed food preservation (appertisation)",
+   "1810 French government prize"
+  ],
+  "publications": [
+   {
+    "title": "L'Art de conserver, pendant plusieurs années, toutes les substances animales et végétales",
+    "year": 1810,
+    "claim": "foods sealed in glass vessels and held in boiling water keep wholesome for months"
+   }
+  ],
+  "suitableForSkills": [
+   "text-structure-and-purpose",
+   "form-structure-and-sense",
+   "command-of-evidence-quantitative"
+  ],
+  "passagePromptHint": "Parisian confectioner who won the French government's food-preservation prize in 1810 by bottling and boiling foods, half a century before Pasteur explained why the method worked."
+ },
+ {
+  "id": "res-t8-004",
+  "name": "Joseph Talon",
+  "field": "truffle cultivation",
+  "affiliation": "farmer, Provence",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "first deliberate truffle cultivation by sowing acorns from truffle-bearing oaks (early 1800s)"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "rhetorical-synthesis",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Provençal peasant credited with founding trufficulture: he sowed acorns gathered under truffle-producing oaks and harvested truffles beneath the resulting trees."
+ },
+ {
+  "id": "res-t8-005",
+  "name": "Skúli Skúlason",
+  "field": "evolutionary biology / ichthyology",
+  "affiliation": "Hólar University, Iceland",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "resource polymorphism in Arctic char",
+   "Thingvallavatn char morphs",
+   "developmental plasticity in fishes"
+  ],
+  "publications": [
+   {
+    "title": "Resource polymorphisms in vertebrates",
+    "year": 1995,
+    "claim": "discrete morphs within a species can arise from both genetic divergence and diet-driven developmental plasticity"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Icelandic biologist whose rearing experiments showed that diet shifts young Arctic char toward another morph's body form, complicating purely genetic accounts of lake morphs."
+ },
+ {
+  "id": "res-t8-006",
+  "name": "Marta Braun",
+  "field": "history of photography",
+  "affiliation": "Toronto Metropolitan University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "scholarship on Etienne-Jules Marey and chronophotography",
+   "reception of motion photography"
+  ],
+  "publications": [
+   {
+    "title": "Picturing Time: The Work of Etienne-Jules Marey (1830-1904)",
+    "year": 1992,
+    "claim": "the authority of motion photographs was contested and had to be argued for; many artists long rejected poses the camera revealed"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Art historian of chronophotography who showed that Muybridge's and Marey's images did not command instant acceptance among artists."
+ },
+ {
+  "id": "res-t8-007",
+  "name": "Étienne-Jules Marey",
+  "field": "physiology / chronophotography",
+  "affiliation": "Collège de France",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "chronophotography on a single plate",
+   "graphical recording of movement",
+   "studies of bird flight"
+  ],
+  "publications": [
+   {
+    "title": "Le Vol des oiseaux",
+    "year": 1890,
+    "claim": "a bird's wing twists along its length during the stroke rather than flapping as a rigid plane"
+   }
+  ],
+  "suitableForSkills": [
+   "transitions",
+   "rhetorical-synthesis",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "French physiologist who layered successive instants of a movement on one photographic plate; his bird-flight plates informed early aviation experimenters."
+ },
+ {
+  "id": "res-t9-001",
+  "name": "John Rick",
+  "field": "archaeology",
+  "affiliation": "Stanford University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Chavín de Huántar excavations",
+   "Andean ceremonial architecture"
+  ],
+  "publications": [
+   {
+    "title": "The Evolution of Authority and Power at Chavín de Huántar, Peru",
+    "year": 2005,
+    "claim": "Chavín's built environment, including its gallery spaces, was used to stage authority-conferring ritual experiences"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Rick directed long-running excavations at Chavín de Huántar and interprets its galleries and sensory effects as instruments of ritual authority."
+ },
+ {
+  "id": "res-t9-002",
+  "name": "Miriam Kolar",
+  "field": "archaeoacoustics",
+  "affiliation": "Amherst College",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "acoustics of Chavín de Huántar",
+   "pututu (conch-shell trumpet) studies"
+  ],
+  "publications": [
+   {
+    "title": "Sensing sonically at Andean Formative Chavín de Huántar, Perú",
+    "year": 2017,
+    "claim": "the acoustics of Chavín's galleries can be measured and reconstructed, though inferring builder intent requires further evidence"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Kolar performed on-site acoustic measurements at Chavín, including studies of how galleries transform pututu sounds."
+ },
+ {
+  "id": "res-t9-003",
+  "name": "Claude Chappe",
+  "field": "engineering",
+  "affiliation": "French optical telegraph administration",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "optical semaphore telegraph",
+   "Paris-Lille signal line (1794)"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "text-structure-and-purpose",
+   "transitions"
+  ],
+  "passagePromptHint": "Chappe built the French optical semaphore network of the 1790s; towers with jointed arms relayed coded signals read by telescope."
+ },
+ {
+  "id": "res-t9-004",
+  "name": "Georg Wilhelm Steller",
+  "field": "natural history",
+  "affiliation": "Second Kamchatka Expedition (1741)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "first scientific description of Steller's sea cow",
+   "Bering Island natural history"
+  ],
+  "publications": [
+   {
+    "title": "De Bestiis Marinis (On the Beasts of the Sea)",
+    "year": 1751,
+    "claim": "the sea cow was a shallow-water kelp grazer unable to submerge fully"
+   }
+  ],
+  "suitableForSkills": [
+   "inferences",
+   "words-in-context",
+   "boundaries"
+  ],
+  "passagePromptHint": "Steller observed living sea cows while shipwrecked on Bering Island in 1741-42; the species was extinct by 1768."
+ },
+ {
+  "id": "res-t9-005",
+  "name": "William Hyde Wollaston",
+  "field": "chemistry and optics",
+  "affiliation": "Royal Society",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "camera lucida patent (1806)",
+   "discovery of palladium and rhodium"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "text-structure-and-purpose",
+   "rhetorical-synthesis"
+  ],
+  "passagePromptHint": "Wollaston patented the camera lucida, a prism drawing aid that superimposes scene and paper in the eye without projecting an image."
+ },
+ {
+  "id": "res-t9-006",
+  "name": "Louis-Georges Mulot",
+  "field": "engineering",
+  "affiliation": "Grenelle artesian well, Paris",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "drilling the Grenelle artesian well (1833-1841)"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "rhetorical-synthesis",
+   "command-of-evidence-quantitative"
+  ],
+  "passagePromptHint": "Mulot directed the eight-year boring of the Grenelle well, which struck pressurized water at 548 meters in 1841."
  }
 ]
