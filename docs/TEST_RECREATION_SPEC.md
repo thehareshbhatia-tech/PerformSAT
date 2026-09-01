@@ -124,12 +124,14 @@ be genuine public-domain text, verbatim, with correct attribution.
 8. **Independent math answer verification** (re-solve all items with python,
    check distractor derivations and diagram-param consistency) runs as a
    separate pass before commit.
-9. **Preserve each slot's SUB-TYPE, not just its skill** (added after wave 1):
-   for boundaries slots keep the punctuation convention the OLD item's correct
-   answer tested (comma/semicolon/colon/dash); for transitions slots keep the
-   OLD winner's relation category (cause-effect/contrast/example/restatement/
-   sequence). The bank-wide deriveRWPattern distributions are frozen in tests —
-   subtype churn forces re-freezes and can push a Tier-1 pool under 8.
+9. **Preserve each slot's SUB-TYPE, not just its skill** (added after wave 1;
+   amended after wave 2): for boundaries slots keep the punctuation convention,
+   for transitions slots the winner's relation category (bucket lists in
+   src/data/questions/rwBank/deriveRWPattern.js). **Baseline = the OLD
+   PRODUCTION BUNDLE** (`git show HEAD:src/data/practiceTests/practiceTest{N}RW.js`),
+   NOT the authored JSON — bundles diverged from authored sources historically,
+   and the live bank flattens from bundles. The frozen deriveRWPattern
+   distributions churn (and Tier-1 pools can dip under 8) when sub-types drift.
 10. **Choice-length parity**: max/min ≤ 2.4x in words per item. When
     rebalancing the longest-correct tell, pad moderately — overshooting
     creates parity violations.

@@ -782,8 +782,11 @@ const NestedRightTrianglesDiagram = ({
   const A = [pad, pad];
   const C = [pad + 70, pad];
   const E = [width - pad, pad];
-  const B = [pad + 70, pad + 80];
   const D = [width - pad, height - pad];
+  // B is defined to lie ON segment AD (directly below C, since BC ⊥ AC), so
+  // compute it from the diagonal instead of hardcoding — a fixed y put B ~37px
+  // past the diagonal, drawing C→B overshooting the line B belongs to.
+  const B = [C[0], A[1] + ((C[0] - A[0]) * (D[1] - A[1])) / (D[0] - A[0])];
 
   const rightAngleSize = 10;
   // Interior reference for pushing side labels to the outside.

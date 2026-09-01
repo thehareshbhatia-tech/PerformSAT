@@ -5062,5 +5062,725 @@
    "rhetorical-synthesis"
   ],
   "passagePromptHint": "Anatsui assembles monumental hangings from flattened aluminum bottle caps stitched with copper wire, draping like cloth."
+ },
+ {
+  "id": "res-t7-001",
+  "name": "Karl von Frisch",
+  "field": "zoology / animal behavior",
+  "affiliation": "University of Munich",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "honeybee waggle dance",
+   "bee sensory perception",
+   "1973 Nobel Prize in Physiology or Medicine"
+  ],
+  "publications": [
+   {
+    "title": "The Dance Language and Orientation of Bees",
+    "year": 1965,
+    "claim": "the waggle dance encodes the direction and distance of a food source, which recruited bees use to locate it"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections",
+   "central-ideas-and-details",
+   "command-of-evidence-textual"
+  ],
+  "passagePromptHint": "Von Frisch decoded the honeybee waggle dance as a symbolic communication system conveying direction and distance to food."
+ },
+ {
+  "id": "res-t7-002",
+  "name": "Adrian Wenner",
+  "field": "biology / animal behavior",
+  "affiliation": "University of California, Santa Barbara",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "odor-search hypothesis of honeybee recruitment",
+   "dance-language controversy"
+  ],
+  "publications": [
+   {
+    "title": "Anatomy of a Controversy: The Question of a Language Among Bees",
+    "year": 1990,
+    "claim": "honeybee recruitment to food sources can be explained by odor cues rather than by decoding of the waggle dance"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Wenner challenged the dance-language hypothesis, arguing recruits locate food by odor unless experiments separate scent from dance information."
+ },
+ {
+  "id": "res-t7-003",
+  "name": "Herman Hollerith",
+  "field": "engineering / statistics",
+  "affiliation": "U.S. Census Office; Tabulating Machine Company",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "punched-card tabulating machines",
+   "mechanized 1890 U.S. census"
+  ],
+  "publications": [
+   {
+    "title": "An Electric Tabulating System",
+    "year": 1889,
+    "claim": "census returns punched as holes in cards can be counted electrically, far faster than hand tallying"
+   }
+  ],
+  "suitableForSkills": [
+   "central-ideas-and-details",
+   "text-structure-and-purpose"
+  ],
+  "passagePromptHint": "Hollerith's punched-card machines rescued the 1890 census and founded a data-processing industry."
+ },
+ {
+  "id": "res-t7-004",
+  "name": "Milutin Milanković",
+  "field": "mathematics / climatology",
+  "affiliation": "University of Belgrade",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "orbital theory of ice ages",
+   "Milankovitch cycles"
+  ],
+  "publications": [
+   {
+    "title": "Canon of Insolation and the Ice-Age Problem",
+    "year": 1941,
+    "claim": "slow cycles in Earth's orbit and axial tilt redistribute sunlight, pacing the growth and retreat of ice sheets"
+   }
+  ],
+  "suitableForSkills": [
+   "central-ideas-and-details",
+   "inferences"
+  ],
+  "passagePromptHint": "Milanković computed how orbital cycles alter summer sunlight at high northern latitudes, proposing this paces the ice ages."
+ },
+ {
+  "id": "res-t7-005",
+  "name": "Paul Hoffman",
+  "field": "geology",
+  "affiliation": "Harvard University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Snowball Earth hypothesis",
+   "Neoproterozoic glaciation",
+   "cap carbonates"
+  ],
+  "publications": [
+   {
+    "title": "A Neoproterozoic Snowball Earth",
+    "year": 1998,
+    "claim": "around 700 million years ago ice sheets reached the tropics and the planet froze over entirely, ending in an abrupt greenhouse thaw"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections",
+   "command-of-evidence-textual"
+  ],
+  "passagePromptHint": "Hoffman championed the Snowball Earth reading of tropical glacial deposits and overlying cap carbonates."
+ },
+ {
+  "id": "res-t7-006",
+  "name": "Nicholas Christie-Blick",
+  "field": "geology",
+  "affiliation": "Columbia University, Lamont-Doherty Earth Observatory",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "sedimentology",
+   "critique of the hard Snowball Earth hypothesis"
+  ],
+  "publications": [
+   {
+    "title": "Considering a Neoproterozoic Snowball Earth (comment)",
+    "year": 1999,
+    "claim": "sedimentary structures within the glacial intervals indicate open, wave-stirred water, so a fully ice-sealed ocean is undemonstrated"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Christie-Blick accepts low-latitude glaciation but argues the sedimentary record shows persistent open seas, not a totally frozen planet."
+ },
+ {
+  "id": "res-t7-007",
+  "name": "June Almeida",
+  "field": "virology / electron microscopy",
+  "affiliation": "St Thomas' Hospital, London",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "first imaging of a human coronavirus (1966)",
+   "immune electron microscopy"
+  ],
+  "publications": [
+   {
+    "title": "The morphology of three previously uncharacterized human respiratory viruses that grow in organ culture",
+    "year": 1967,
+    "claim": "cold-patient samples contained virus particles ringed by crown-like surface projections, matching no known family"
+   }
+  ],
+  "suitableForSkills": [
+   "rhetorical-synthesis",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Almeida's antibody-clumping electron microscopy revealed the first human coronavirus and helped define the family."
+ },
+ {
+  "id": "res-t7-008",
+  "name": "Maria Sibylla Merian",
+  "field": "natural history / scientific illustration",
+  "affiliation": "independent naturalist (Frankfurt, Amsterdam, Suriname)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "insect metamorphosis studies",
+   "Metamorphosis Insectorum Surinamensium"
+  ],
+  "publications": [
+   {
+    "title": "Metamorphosis Insectorum Surinamensium",
+    "year": 1705,
+    "claim": "insects develop through observable life stages tied to specific food plants, contradicting spontaneous generation"
+   }
+  ],
+  "suitableForSkills": [
+   "rhetorical-synthesis",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Long dismissed as a flower painter, Merian is now identified as a founder of the study of insect life cycles."
+ },
+ {
+  "id": "res-t7-009",
+  "name": "Diego Rivera",
+  "field": "painting / muralism",
+  "affiliation": "Mexican mural movement",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "post-revolutionary Mexican murals",
+   "public-building fresco cycles"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "central-ideas-and-details",
+   "rhetorical-synthesis"
+  ],
+  "passagePromptHint": "Rivera painted government-commissioned murals presenting Mexican history and labor to a broad public."
+ },
+ {
+  "id": "res-t7-010",
+  "name": "José Clemente Orozco",
+  "field": "painting / muralism",
+  "affiliation": "Mexican mural movement",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Mexican mural cycles",
+   "frescoes at architectural scale"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Orozco, with Rivera among the leading Mexican muralists, covered public walls with scenes of history and labor."
+ },
+ {
+  "id": "res-t7-011",
+  "name": "Dmitri Mendeleev",
+  "field": "chemistry",
+  "affiliation": "Saint Petersburg University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "periodic table",
+   "prediction of gallium and germanium"
+  ],
+  "publications": [
+   {
+    "title": "The Periodic Law of the Chemical Elements",
+    "year": 1871,
+    "claim": "gaps in the periodic table correspond to undiscovered elements whose properties can be predicted in advance"
+   }
+  ],
+  "suitableForSkills": [
+   "transitions",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Mendeleev left gaps in his table and predicted the missing elements' properties; gallium matched the predictions."
+ },
+ {
+  "id": "res-t6-001",
+  "name": "Carl Haber",
+  "field": "experimental physics",
+  "affiliation": "Lawrence Berkeley National Laboratory",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "optical recovery of early audio recordings",
+   "IRENE system"
+  ],
+  "publications": [
+   {
+    "title": "IRENE optical audio restoration project",
+    "year": 2005,
+    "claim": "the groove of a fragile recording can be imaged optically and converted to sound without physical contact"
+   }
+  ],
+  "suitableForSkills": [
+   "text-structure-and-purpose",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Haber's IRENE system photographs the grooves of wax cylinders and discs so recordings can be played without a stylus touching them."
+ },
+ {
+  "id": "res-t6-002",
+  "name": "Jo Anne Van Tilburg",
+  "field": "archaeology",
+  "affiliation": "University of California, Los Angeles",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "moai documentation",
+   "Easter Island Statue Project"
+  ],
+  "publications": [
+   {
+    "title": "Easter Island Statue Project field studies",
+    "year": 1998,
+    "claim": "moai were likely transported horizontally on wooden sledges over rollers or rails"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Van Tilburg argues for horizontal sledge transport of the moai, demonstrated with replica experiments and drawn from island oral traditions."
+ },
+ {
+  "id": "res-t6-003",
+  "name": "Terry Hunt",
+  "field": "archaeology",
+  "affiliation": "University of Arizona",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Rapa Nui archaeology",
+   "moai walking hypothesis"
+  ],
+  "publications": [
+   {
+    "title": "The Statues That Walked",
+    "year": 2011,
+    "claim": "moai were moved upright by crews rocking them forward with ropes"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Hunt, with Carl Lipo, argues the moai were walked upright, citing road moai's forward lean and front-wide bases."
+ },
+ {
+  "id": "res-t6-004",
+  "name": "Carl Lipo",
+  "field": "archaeology",
+  "affiliation": "Binghamton University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Rapa Nui archaeology",
+   "moai walking hypothesis"
+  ],
+  "publications": [
+   {
+    "title": "The Statues That Walked",
+    "year": 2011,
+    "claim": "the statues' design records upright transport"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Lipo, with Terry Hunt, walked a five-ton upright moai replica hundreds of meters using three rope crews."
+ },
+ {
+  "id": "res-t6-005",
+  "name": "Henry Roediger",
+  "field": "cognitive psychology",
+  "affiliation": "Washington University in St. Louis",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "testing effect",
+   "retrieval practice"
+  ],
+  "publications": [
+   {
+    "title": "Test-Enhanced Learning",
+    "year": 2006,
+    "claim": "taking a memory test enhances later retention more than restudying does"
+   }
+  ],
+  "suitableForSkills": [
+   "command-of-evidence-textual",
+   "inferences"
+  ],
+  "passagePromptHint": "Roediger and Karpicke showed retrieval practice secures long-term retention better than rereading."
+ },
+ {
+  "id": "res-t6-006",
+  "name": "Jeffrey Karpicke",
+  "field": "cognitive psychology",
+  "affiliation": "Purdue University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "retrieval practice",
+   "learning research"
+  ],
+  "publications": [
+   {
+    "title": "Retrieval Practice Produces More Learning than Elaborative Studying",
+    "year": 2011,
+    "claim": "practicing retrieval outperforms elaborative studying on delayed tests"
+   }
+  ],
+  "suitableForSkills": [
+   "command-of-evidence-textual"
+  ],
+  "passagePromptHint": "Karpicke's studies compare self-testing with rereading on delayed retention tests."
+ },
+ {
+  "id": "res-t6-007",
+  "name": "Ignaz Semmelweis",
+  "field": "medicine",
+  "affiliation": "Vienna General Hospital",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "antiseptic handwashing",
+   "childbed fever"
+  ],
+  "publications": [
+   {
+    "title": "The Etiology, Concept, and Prophylaxis of Childbed Fever",
+    "year": 1861,
+    "claim": "chlorinated hand disinfection dramatically reduced maternal mortality in maternity clinics"
+   }
+  ],
+  "suitableForSkills": [
+   "form-structure-and-sense",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Semmelweis campaigned for handwashing decades before germ theory explained why it worked."
+ },
+ {
+  "id": "res-t6-008",
+  "name": "Nathaniel Bagshaw Ward",
+  "field": "medicine and horticulture",
+  "affiliation": "London",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Wardian case",
+   "live plant transport"
+  ],
+  "publications": [
+   {
+    "title": "On the Growth of Plants in Closely Glazed Cases",
+    "year": 1842,
+    "claim": "plants sealed in glass cases can thrive for years on recycled moisture"
+   }
+  ],
+  "suitableForSkills": [
+   "rhetorical-synthesis"
+  ],
+  "passagePromptHint": "Ward's sealed glass cases let live plants survive long sea voyages that killed open-deck shipments."
+ },
+ {
+  "id": "res-t6-009",
+  "name": "Carl Woese",
+  "field": "microbiology",
+  "affiliation": "University of Illinois at Urbana-Champaign",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "archaea",
+   "three-domain classification",
+   "ribosomal RNA phylogeny"
+  ],
+  "publications": [
+   {
+    "title": "Phylogenetic structure of the prokaryotic domain: The primary kingdoms",
+    "year": 1977,
+    "claim": "certain microbes form a group genetically as distant from bacteria as eukaryotes are"
+   }
+  ],
+  "suitableForSkills": [
+   "rhetorical-synthesis",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Woese's ribosomal RNA comparisons revealed archaea and led to the three-domain tree of life."
+ },
+ {
+  "id": "res-t6-010",
+  "name": "George Fox",
+  "field": "microbiology",
+  "affiliation": "University of Houston",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "archaea",
+   "ribosomal RNA phylogeny"
+  ],
+  "publications": [
+   {
+    "title": "Phylogenetic structure of the prokaryotic domain: The primary kingdoms",
+    "year": 1977,
+    "claim": "co-identified archaea as a separate primary kingdom of life"
+   }
+  ],
+  "suitableForSkills": [
+   "rhetorical-synthesis"
+  ],
+  "passagePromptHint": "Fox co-authored the 1977 paper with Carl Woese identifying archaea as a distinct group."
+ },
+ {
+  "id": "res-t6-011",
+  "name": "Koryo Miura",
+  "field": "astrophysics and aerospace engineering",
+  "affiliation": "Institute of Space and Astronautical Science, Japan",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Miura fold",
+   "deployable space structures"
+  ],
+  "publications": [
+   {
+    "title": "Method of Packaging and Deployment of Large Membranes in Space",
+    "year": 1985,
+    "claim": "a rigid-origami crease pattern lets a flat sheet deploy with a single continuous motion"
+   }
+  ],
+  "suitableForSkills": [
+   "text-structure-and-purpose"
+  ],
+  "passagePromptHint": "Miura devised the fold that deploys solar arrays with one pulling motion and no independently driven hinges."
+ },
+ {
+  "id": "res-t6-012",
+  "name": "James Estes",
+  "field": "ecology",
+  "affiliation": "University of California, Santa Cruz",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "sea otters",
+   "kelp forests",
+   "trophic cascades"
+  ],
+  "publications": [
+   {
+    "title": "Sea Otters: Their Role in Structuring Nearshore Communities",
+    "year": 1974,
+    "claim": "islands with otters had lush kelp and few urchins, while otterless islands had urchin barrens"
+   }
+  ],
+  "suitableForSkills": [
+   "text-structure-and-purpose",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Estes's Aleutian island comparisons revealed the otter-urchin-kelp trophic cascade."
+ },
+ {
+  "id": "res-t6-013",
+  "name": "Matthew Bennett",
+  "field": "geology",
+  "affiliation": "Bournemouth University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "fossil footprints",
+   "White Sands trackways"
+  ],
+  "publications": [
+   {
+    "title": "Evidence of humans in North America during the Last Glacial Maximum",
+    "year": 2021,
+    "claim": "human footprints at White Sands date to 21,000-23,000 years ago based on seed radiocarbon"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Bennett led the dating of the White Sands human trackways to the height of the last glaciation."
+ },
+ {
+  "id": "res-t6-014",
+  "name": "Anne Goldgar",
+  "field": "history",
+  "affiliation": "King's College London",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "tulip mania",
+   "Dutch Golden Age"
+  ],
+  "publications": [
+   {
+    "title": "Tulipmania: Money, Honor, and Knowledge in the Dutch Golden Age",
+    "year": 2007,
+    "claim": "archival records show tulip trading was small in scale, with no documented bankruptcies from the 1637 crash"
+   }
+  ],
+  "suitableForSkills": [
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Goldgar's archival work shrank the tulip mania legend and traced its reputation to moralizing pamphlets."
+ },
+ {
+  "id": "res-t6-015",
+  "name": "Ernst Fehr",
+  "field": "economics",
+  "affiliation": "University of Zurich",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "altruistic punishment",
+   "public-goods experiments"
+  ],
+  "publications": [
+   {
+    "title": "Cooperation and Punishment in Public Goods Experiments",
+    "year": 2000,
+    "claim": "costly punishment of free riders sustains cooperation in repeated public-goods games"
+   }
+  ],
+  "suitableForSkills": [
+   "inferences"
+  ],
+  "passagePromptHint": "Fehr and Gaechter showed players pay to punish free riders, and cooperation rises under the threat of sanction."
+ },
+ {
+  "id": "res-t6-016",
+  "name": "Simon Gächter",
+  "field": "economics",
+  "affiliation": "University of Nottingham",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "altruistic punishment",
+   "behavioral economics"
+  ],
+  "publications": [
+   {
+    "title": "Altruistic punishment in humans",
+    "year": 2002,
+    "claim": "punishment that brings no material return is common and stabilizes group cooperation"
+   }
+  ],
+  "suitableForSkills": [
+   "inferences"
+  ],
+  "passagePromptHint": "Gaechter co-authored the public-goods punishment experiments with Ernst Fehr."
+ },
+ {
+  "id": "res-t6-017",
+  "name": "Cynthia Beall",
+  "field": "anthropology",
+  "affiliation": "Case Western Reserve University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "high-altitude adaptation",
+   "Tibetan physiology"
+  ],
+  "publications": [
+   {
+    "title": "Two routes to functional adaptation: Tibetan and Andean high-altitude natives",
+    "year": 2007,
+    "claim": "Tibetan highlanders keep near sea-level hemoglobin, relying on faster breathing and elevated nitric oxide"
+   }
+  ],
+  "suitableForSkills": [
+   "inferences",
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Beall documented distinct Andean and Tibetan physiological adaptations to high altitude."
+ },
+ {
+  "id": "res-t6-018",
+  "name": "Wim Sombroek",
+  "field": "soil science",
+  "affiliation": "International Soil Reference and Information Centre",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "terra preta",
+   "Amazonian dark earths"
+  ],
+  "publications": [
+   {
+    "title": "Amazon Soils",
+    "year": 1966,
+    "claim": "the black earths of the Amazon are anthropogenic, created by pre-Columbian settlement"
+   }
+  ],
+  "suitableForSkills": [
+   "rhetorical-synthesis"
+  ],
+  "passagePromptHint": "Sombroek helped establish that terra preta was made fertile by pre-Columbian communities."
+ },
+ {
+  "id": "res-t6-019",
+  "name": "Pam Mueller",
+  "field": "psychology",
+  "affiliation": "Princeton University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "note-taking research"
+  ],
+  "publications": [
+   {
+    "title": "The Pen Is Mightier Than the Keyboard",
+    "year": 2014,
+    "claim": "longhand note-takers outperform laptop note-takers on conceptual questions"
+   }
+  ],
+  "suitableForSkills": [
+   "rhetorical-synthesis"
+  ],
+  "passagePromptHint": "Mueller and Oppenheimer compared laptop and longhand lecture notes on later conceptual tests."
+ },
+ {
+  "id": "res-t6-020",
+  "name": "Daniel Oppenheimer",
+  "field": "psychology",
+  "affiliation": "Carnegie Mellon University",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "judgment and decision making",
+   "note-taking research"
+  ],
+  "publications": [
+   {
+    "title": "The Pen Is Mightier Than the Keyboard",
+    "year": 2014,
+    "claim": "verbatim transcription on laptops impairs conceptual learning relative to handwriting"
+   }
+  ],
+  "suitableForSkills": [
+   "rhetorical-synthesis"
+  ],
+  "passagePromptHint": "Oppenheimer co-authored the laptop-versus-longhand note-taking studies with Pam Mueller."
  }
 ]
