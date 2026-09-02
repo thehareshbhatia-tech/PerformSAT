@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "On the grasslands of the nineteenth-century American West, enclosing land meant hauling timber for fence rails from distant woodlands, and the farther the timber traveled, the more a fence cost. A historian of agriculture argues that barbed wire, patented in 1874, did more than lower fencing costs generally: its advantage over wooden fencing was greatest precisely where timber had to travel farthest because ______",
+ "passage": "On the grasslands of nineteenth-century North America, enclosing land meant hauling timber for fence rails from distant woodlands, and the farther the timber traveled, the more a fence cost. A historian of agriculture argues that barbed wire, patented in 1874, did more than lower fencing costs generally: its advantage over wooden fencing was greatest precisely where timber had to travel farthest because ______",
  "questionTable": {
   "type": "table",
   "caption": "Estimated cost of fencing a 160-acre farm in the 1870s, by region (dollars)",

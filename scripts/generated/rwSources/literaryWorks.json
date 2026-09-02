@@ -2736,5 +2736,66 @@
         ]
       }
     ]
+  },
+  {
+    "id": "lit-077",
+    "author": "Paul Laurence Dunbar",
+    "title": "Sympathy",
+    "year": 1899,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1899,
+    "gutenbergId": null,
+    "sourceUrl": "https://en.wikisource.org/wiki/The_Complete_Poems_of_Paul_Laurence_Dunbar/Sympathy",
+    "collection": "Lyrics of the Hearthside (1899); text as printed in The Complete Poems of Paul Laurence Dunbar (1913)",
+    "themes": [
+      "confinement",
+      "longing",
+      "empathy",
+      "the caged bird"
+    ],
+    "excerptPointers": [
+      {
+        "section": "complete poem (3 stanzas)",
+        "approxWordCount": 160,
+        "summary": "The speaker knows what the caged bird feels amid spring, why it beats its wing on the bars, and why its song is a prayer rather than a carol of joy.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      }
+    ],
+    "addedBy": "test12-recreation-2026-09-01"
+  },
+  {
+    "id": "lit-078",
+    "author": "Emily Brontë",
+    "title": "Spellbound",
+    "year": 1837,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1850,
+    "gutenbergId": null,
+    "sourceUrl": "https://poets.org/poem/spellbound",
+    "collection": "Written November 1837; published posthumously (also known by its first line, 'The night is darkening round me')",
+    "themes": [
+      "storm",
+      "compulsion",
+      "will",
+      "night"
+    ],
+    "excerptPointers": [
+      {
+        "section": "complete poem (12 lines)",
+        "approxWordCount": 75,
+        "summary": "A storm intensifies stanza by stanza while the speaker repeats that she cannot go; the final line turns compulsion into choice: 'I will not, cannot go.'",
+        "suitableForSkills": [
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      }
+    ],
+    "addedBy": "test12-recreation-2026-09-01"
   }
 ]

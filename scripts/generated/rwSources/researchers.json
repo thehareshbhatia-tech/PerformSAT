@@ -6577,5 +6577,105 @@
     "notes": "https://en.wikipedia.org/wiki/Pedro_Cieza_de_Le%C3%B3n",
     "reviewer": "hareshbhatia",
     "verifiedAt": "2026-09-01"
+  },
+  {
+    "id": "res-t12-001",
+    "name": "Curtis F. Marbut",
+    "field": "soil science",
+    "affiliation": "United States Department of Agriculture, Bureau of Soils",
+    "real": true,
+    "verifiable": true,
+    "knownFor": [
+      "leading the national soil survey of the United States from 1913",
+      "reframing soils as natural bodies formed by climate, vegetation, and time",
+      "organizing American soil classification around the soil profile"
+    ],
+    "publications": [
+      {
+        "title": "Soils of the United States",
+        "year": 1935,
+        "claim": "atlas volume of the USDA Atlas of American Agriculture presenting his national soil classification"
+      }
+    ],
+    "suitableForSkills": [
+      "rhetorical-synthesis"
+    ],
+    "notes": "https://en.wikipedia.org/wiki/Curtis_Fletcher_Marbut",
+    "reviewer": "hareshbhatia",
+    "verifiedAt": "2026-09-01"
+  },
+  {
+    "id": "res-t12-002",
+    "name": "C. S. Orwin",
+    "field": "agricultural history",
+    "affiliation": "Institute for Research in Agricultural Economics, Oxford",
+    "real": true,
+    "verifiable": true,
+    "knownFor": [
+      "study of the surviving open-field system at Laxton, Nottinghamshire",
+      "The Open Fields (1938), with Christabel Orwin"
+    ],
+    "publications": [
+      {
+        "title": "The Open Fields",
+        "year": 1938,
+        "claim": "field-by-field study of Laxton's living open-field agriculture, treating the surviving system itself as evidence"
+      }
+    ],
+    "suitableForSkills": [
+      "rhetorical-synthesis"
+    ],
+    "notes": "https://en.wikipedia.org/wiki/Charles_Stewart_Orwin — Charles Stewart Orwin (1876-1955)",
+    "reviewer": "hareshbhatia",
+    "verifiedAt": "2026-09-01"
+  },
+  {
+    "id": "res-t12-003",
+    "name": "Christabel Orwin",
+    "field": "agricultural history",
+    "affiliation": "co-author, The Open Fields (1938)",
+    "real": true,
+    "verifiable": true,
+    "knownFor": [
+      "co-authoring The Open Fields (1938) with C. S. Orwin"
+    ],
+    "publications": [
+      {
+        "title": "The Open Fields",
+        "year": 1938,
+        "claim": "co-authored study of Laxton's open-field farming"
+      }
+    ],
+    "suitableForSkills": [
+      "rhetorical-synthesis"
+    ],
+    "notes": "Christabel Susan Orwin (née Lowry), co-author of The Open Fields",
+    "reviewer": "hareshbhatia",
+    "verifiedAt": "2026-09-01"
+  },
+  {
+    "id": "res-t12-004",
+    "name": "Benjamin Franklin",
+    "field": "natural philosophy and invention",
+    "affiliation": "Philadelphia; American Philosophical Society",
+    "real": true,
+    "verifiable": true,
+    "knownFor": [
+      "inventing the glass armonica (1761), with bowls ground to pitch nested on a rotating spindle",
+      "electrical experiments"
+    ],
+    "publications": [
+      {
+        "title": "Letter to Giambatista Beccaria describing the armonica",
+        "year": 1762,
+        "claim": "describes the design and playing technique of his glass armonica"
+      }
+    ],
+    "suitableForSkills": [
+      "rhetorical-synthesis"
+    ],
+    "notes": "https://en.wikipedia.org/wiki/Glass_harmonica",
+    "reviewer": "hareshbhatia",
+    "verifiedAt": "2026-09-01"
   }
 ]
