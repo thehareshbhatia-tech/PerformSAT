@@ -153,15 +153,17 @@ be genuine public-domain text, verbatim, with correct attribution.
 
 | Test | Math M1+M2 | Math M2Easy | RW 54 | RW M2Easy | Validated | Committed |
 |---|---|---|---|---|---|---|
-| 1 | | | | | | |
-| 2 | | | | | | |
-| 3 | | | | | | |
-| 4 | | | | | | |
-| 5 | | | | | | |
-| 6 | | | | | | |
-| 7 | | | | | | |
-| 8 | | | | | | |
-| 9 | | | | | | |
-| 10 | | | | | | |
-| 11 | | | | | | |
-| 12 | | | | | | |
+| 1 | done | done | done | done | done | done |
+| 2 | done | done | done | done | done | done |
+| 3 | done | done | done | done | done | done |
+| 4 | done | done | done | done | done | done |
+| 5 | done | done | done | done | done | done |
+| 6 | done | done | done | done | done | done |
+| 7 | done | done | done | done | done | done |
+| 8 | done | done | done | done | done | done |
+| 9 | done | done | done | done | done | done |
+| 10 | done | done | done | done | done | done |
+| 11 | done | done | done | done | done | done |
+| 12 | done | done | done | done | done | done |
+
+Catalog complete 2026-09-01: commits 64e7d5b, 8d40023, 1f9d194, 7661bb6, 62fa6c3, ff678b0, 9f2dcff. validateRWBank --all: 0 violations across 972 items. Full jest: 3,045/3,045.
