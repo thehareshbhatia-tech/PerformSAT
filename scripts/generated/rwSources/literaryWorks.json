@@ -1,2628 +1,2740 @@
 [
- {
-  "id": "lit-001",
-  "author": "Walt Whitman",
-  "title": "Song of Myself",
-  "year": 1855,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "1322",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/1322",
-  "themes": [
-   "self",
-   "democracy",
-   "nature",
-   "the body"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Section 1",
-    "approxWordCount": 200,
-    "summary": "An opening invocation of self and reader, asserting the equivalence of the speaker's atoms with the reader's.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Section 6 (the grass passage)",
-    "approxWordCount": 250,
-    "summary": "A child asks what the grass is, and the speaker offers cumulative metaphors that range across class, race, and mortality.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-002",
-  "author": "Emily Dickinson",
-  "title": "The Poems of Emily Dickinson",
-  "year": 1890,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "12242",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/12242",
-  "themes": [
-   "death",
-   "immortality",
-   "nature",
-   "interiority"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Because I could not stop for Death",
-    "approxWordCount": 150,
-    "summary": "A short lyric in which the speaker rides in a carriage with personified Death, passing scenes of childhood, harvest, and a setting sun.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Tell all the truth but tell it slant",
-    "approxWordCount": 80,
-    "summary": "A compact poem arguing that truth must be approached indirectly so that its brilliance does not blind the recipient.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-003",
-  "author": "Susan Glaspell",
-  "title": "Trifles",
-  "year": 1916,
-  "genre": "drama",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "10623",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/10623",
-  "themes": [
-   "gender",
-   "domesticity",
-   "justice",
-   "perception"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Opening scene in the kitchen",
-    "approxWordCount": 220,
-    "summary": "Two women remain in the Wright kitchen while the men investigate elsewhere; the stage directions and dialogue draw attention to small domestic details the men dismiss.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "The discovery of the bird cage",
-    "approxWordCount": 250,
-    "summary": "Mrs. Hale and Mrs. Peters notice a broken bird cage and reflect on what its condition might suggest about the household.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-004",
-  "author": "Angelina Weld Grimké",
-  "title": "Rachel",
-  "year": 1916,
-  "genre": "drama",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "",
-  "sourceUrl": "https://en.wikisource.org/wiki/Rachel_(Grimk%C3%A9)",
-  "themes": [
-   "race",
-   "motherhood",
-   "violence",
-   "childhood"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Opening domestic scene",
-    "approxWordCount": 230,
-    "summary": "An African American family in the Northern United States is introduced through warm domestic dialogue; the title character expresses her love of children.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Mrs. Loving's revelation",
-    "approxWordCount": 260,
-    "summary": "Rachel's mother discloses the racial violence that shaped the family's past, prompting Rachel to reconsider her future.",
-    "suitableForSkills": [
-     "inferences",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-005",
-  "author": "Thomas Hardy",
-  "title": "Far from the Madding Crowd",
-  "year": 1874,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "107",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/107",
-  "themes": [
-   "rural life",
-   "love",
-   "fate",
-   "labor"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Description of Gabriel Oak",
-    "approxWordCount": 240,
-    "summary": "The narrator characterizes Gabriel Oak through his Sunday demeanor and his daily one, drawing inferences about temperament from outward signs.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "The storm chapter",
-    "approxWordCount": 260,
-    "summary": "Gabriel and Bathsheba labor through the night to protect ricks of grain from a coming storm; the narration alternates between the natural world and human endurance.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-006",
-  "author": "Anton Chekhov",
-  "title": "The Lady with the Dog",
-  "year": 1899,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "13415",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/13415",
-  "themes": [
-   "love",
-   "regret",
-   "society",
-   "interior life"
-  ],
-  "excerptPointers": [
-   {
-    "section": "First meeting at Yalta",
-    "approxWordCount": 220,
-    "summary": "Gurov observes a young woman walking with a small dog; the narration sketches his routine cynicism alongside the new acquaintance.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Return to Moscow",
-    "approxWordCount": 240,
-    "summary": "Gurov returns to his life in Moscow expecting to forget Anna; the narration tracks the dissonance between his outward routine and his interior preoccupation.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-007",
-  "author": "Katherine Mansfield",
-  "title": "The Garden Party and Other Stories",
-  "year": 1922,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "1429",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/1429",
-  "themes": [
-   "class",
-   "perception",
-   "youth",
-   "death"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Opening of 'The Garden-Party'",
-    "approxWordCount": 220,
-    "summary": "Laura inspects the lawn and instructs the workmen setting up a marquee; her impressions of the men complicate her family's class assumptions.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Visit to the cottage",
-    "approxWordCount": 250,
-    "summary": "After the party, Laura takes leftovers to the home of a working-class family who have suffered a death; the contrast unsettles her composure.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-008",
-  "author": "Marianne Moore",
-  "title": "Poems",
-  "year": 1921,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "",
-  "sourceUrl": "https://en.wikisource.org/wiki/Author:Marianne_Craig_Moore",
-  "themes": [
-   "observation",
-   "animals",
-   "form",
-   "modernity"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Poetry",
-    "approxWordCount": 180,
-    "summary": "A poem that examines the genre of poetry itself, suggesting that authentic poems must contain real material rather than mere ornament.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "The Fish",
-    "approxWordCount": 200,
-    "summary": "A short poem describing marine creatures and a battered cliff, organized around precise visual imagery and a tightly patterned syllabic stanza.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-009",
-  "author": "Jerome K. Jerome",
-  "title": "Three Men in a Boat",
-  "year": 1889,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "308",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/308",
-  "themes": [
-   "leisure",
-   "friendship",
-   "comic narration",
-   "the Thames"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Opening medical chapter",
-    "approxWordCount": 220,
-    "summary": "The narrator consults a medical reference and convinces himself he suffers from every disease listed except housemaid's knee, in a comic register.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Packing the hampers",
-    "approxWordCount": 240,
-    "summary": "The narrator describes the chaos of packing for a river trip, using a tone that mocks both his own competence and that of his companions.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-010",
-  "author": "Frances Ellen Watkins Harper",
-  "title": "Iola Leroy",
-  "year": 1892,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "11953",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/11953",
-  "themes": [
-   "race",
-   "Reconstruction",
-   "uplift",
-   "family"
-  ],
-  "excerptPointers": [
-   {
-    "section": "The market exchange",
-    "approxWordCount": 230,
-    "summary": "Enslaved characters communicate news of the Civil War's progress through a coded conversation about marketing produce.",
-    "suitableForSkills": [
-     "inferences",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "Iola's school proposal",
-    "approxWordCount": 250,
-    "summary": "Iola argues for a particular vision of African American education in conversation with friends and family after the war.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-011",
-  "author": "Zora Neale Hurston",
-  "title": "Spunk",
-  "year": 1925,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "",
-  "sourceUrl": "https://en.wikisource.org/wiki/Spunk",
-  "themes": [
-   "folklore",
-   "community",
-   "rivalry",
-   "Southern dialect"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Opening porch scene",
-    "approxWordCount": 220,
-    "summary": "A porch full of townspeople observe and comment on a confrontation between two men, with the narration shifting between collective voice and individual speech.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "The bobcat",
-    "approxWordCount": 240,
-    "summary": "After Joe's death, a bobcat appears at the sawmill; the townspeople interpret the animal's presence in folkloric terms.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-012",
-  "author": "Willa Cather",
-  "title": "O Pioneers!",
-  "year": 1913,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "24",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/24",
-  "themes": [
-   "land",
-   "immigrant labor",
-   "perseverance",
-   "the prairie"
-  ],
-  "excerptPointers": [
-   {
-    "section": "The wild land",
-    "approxWordCount": 230,
-    "summary": "The narrator describes the Nebraska prairie in winter, characterizing the land as resistant to settlement and indifferent to the settlers' efforts.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Alexandra's plan",
-    "approxWordCount": 250,
-    "summary": "Alexandra Bergson explains to her brothers why the family should buy more land rather than sell out, using observational evidence about the soil and neighbors.",
-    "suitableForSkills": [
-     "command-of-evidence-textual",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-013",
-  "author": "Edith Wharton",
-  "title": "Ethan Frome",
-  "year": 1911,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "4517",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/4517",
-  "themes": [
-   "isolation",
-   "thwarted desire",
-   "rural New England",
-   "moral cost"
-  ],
-  "excerptPointers": [
-   {
-    "section": "The narrator's introduction",
-    "approxWordCount": 240,
-    "summary": "An outsider narrator recounts arriving in Starkfield and forming an impression of Ethan Frome from glimpses around the village.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "The sled descent",
-    "approxWordCount": 260,
-    "summary": "Ethan and Mattie agree to sled down a hill; the narration interweaves their physical descent with their decision-making.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-014",
-  "author": "Robert Louis Stevenson",
-  "title": "Kidnapped",
-  "year": 1886,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "421",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/421",
-  "themes": [
-   "adventure",
-   "loyalty",
-   "Scottish history",
-   "coming of age"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Departure from the house of Shaws",
-    "approxWordCount": 220,
-    "summary": "David Balfour leaves his uncle's home; the narration shifts from suspicion at the house to anticipation about the journey ahead.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "On the brig Covenant",
-    "approxWordCount": 250,
-    "summary": "After being kidnapped, David is held aboard a brig and meets Alan Breck Stewart; their alliance forms under pressure from the crew.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-015",
-  "author": "Rabindranath Tagore",
-  "title": "Gitanjali (Song Offerings)",
-  "year": 1912,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "7164",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/7164",
-  "themes": [
-   "devotion",
-   "longing",
-   "transcendence",
-   "humility"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Opening devotional lyric",
-    "approxWordCount": 180,
-    "summary": "The poet addresses a divine listener and reflects on the renewal of the self as an instrument for song.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Where the mind is without fear",
-    "approxWordCount": 150,
-    "summary": "A short poem that catalogs conditions for an awakened nation and culminates in a prayer for clarity of thought.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-016",
-  "author": "Lu Xun",
-  "title": "A Madman's Diary",
-  "year": 1918,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "",
-  "sourceUrl": "https://en.wikisource.org/wiki/A_Madman%27s_Diary",
-  "themes": [
-   "modernity",
-   "tradition",
-   "alienation",
-   "social critique"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Diary entry on the moon",
-    "approxWordCount": 220,
-    "summary": "The narrator records his sudden suspicion that everyone around him intends harm, beginning with an observation of the moon and the dog at the gate.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "Reading between the lines",
-    "approxWordCount": 240,
-    "summary": "The narrator examines historical texts and concludes that the words of Confucian morality conceal a different message.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-017",
-  "author": "Joseph Conrad",
-  "title": "Heart of Darkness",
-  "year": 1899,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "219",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/219",
-  "themes": [
-   "colonialism",
-   "moral ambiguity",
-   "narrative frame",
-   "the river"
-  ],
-  "excerptPointers": [
-   {
-    "section": "The Nellie at anchor",
-    "approxWordCount": 240,
-    "summary": "An anonymous narrator describes a yawl anchored on the Thames at dusk; Marlow begins his story with a reflection on London's own past as a place at the edge of empire.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "The Outer Station",
-    "approxWordCount": 260,
-    "summary": "Marlow describes his arrival at a colonial station, observing the disjunction between official accounting and the visible suffering of laborers.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-018",
-  "author": "Henry James",
-  "title": "The Turn of the Screw",
-  "year": 1898,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "209",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/209",
-  "themes": [
-   "narrative reliability",
-   "childhood",
-   "the uncanny",
-   "perception"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Frame narrative around the fire",
-    "approxWordCount": 230,
-    "summary": "A guest produces a manuscript at a Christmas gathering; the narration sets up the story of the governess as a document with multiple layers of mediation.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "First sighting on the tower",
-    "approxWordCount": 250,
-    "summary": "The governess sees a figure on the parapet of Bly; the narration tracks her shifting interpretations of what she has seen.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-019",
-  "author": "James Joyce",
-  "title": "Dubliners",
-  "year": 1914,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "2814",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/2814",
-  "themes": [
-   "paralysis",
-   "epiphany",
-   "Irish life",
-   "modernity"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Opening of 'Araby'",
-    "approxWordCount": 220,
-    "summary": "A boy describes the dead-end street where he lives and the priest who once occupied his house, establishing the texture of his neighborhood.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "central-ideas-and-details"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Conclusion of 'The Dead'",
-    "approxWordCount": 260,
-    "summary": "Gabriel watches snow fall over Ireland from a hotel window after his wife reveals a memory; the prose moves from interior reflection to a wide aerial view.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-020",
-  "author": "Charlotte Perkins Gilman",
-  "title": "The Yellow Wall-Paper",
-  "year": 1892,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "1952",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/1952",
-  "themes": [
-   "mental health",
-   "domestic confinement",
-   "narrative voice",
-   "gender"
-  ],
-  "excerptPointers": [
-   {
-    "section": "First impressions of the room",
-    "approxWordCount": 220,
-    "summary": "The narrator describes the upstairs nursery she has been assigned, including its barred windows and patterned wallpaper, in a tone that mixes observation and unease.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "The pattern at night",
-    "approxWordCount": 250,
-    "summary": "The narrator describes how the wallpaper appears different by moonlight; the entry tracks her growing identification with what she perceives behind the pattern.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-021",
-  "author": "Sui Sin Far (Edith Maude Eaton)",
-  "title": "Mrs. Spring Fragrance",
-  "year": 1912,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "30975",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/30975",
-  "themes": [
-   "Chinese American life",
-   "marriage",
-   "cross-cultural perception",
-   "humor"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Opening of the title story",
-    "approxWordCount": 220,
-    "summary": "Mrs. Spring Fragrance is introduced through her interactions with American neighbors; the narration registers small misunderstandings of language and custom.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Letter to her husband",
-    "approxWordCount": 240,
-    "summary": "Mrs. Spring Fragrance writes a letter from a trip to San Francisco; her observations on a lecture about American romance complicate her husband's traditional views.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-022",
-  "author": "Pauline Hopkins",
-  "title": "Contending Forces",
-  "year": 1900,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "21048",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/21048",
-  "themes": [
-   "race",
-   "lineage",
-   "Boston society",
-   "post-Reconstruction politics"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Boston boarding house",
-    "approxWordCount": 230,
-    "summary": "The narrator describes the Smith family's boarding house in late nineteenth-century Boston, with attention to its boarders and the social texture of the neighborhood.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "central-ideas-and-details"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Sapphira and the meeting",
-    "approxWordCount": 260,
-    "summary": "A character delivers a speech at a community meeting addressing political conditions for African Americans; the narration captures audience reaction.",
-    "suitableForSkills": [
-     "command-of-evidence-textual",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-023",
-  "author": "Charles W. Chesnutt",
-  "title": "The Conjure Woman",
-  "year": 1899,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "11666",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/11666",
-  "themes": [
-   "folklore",
-   "the American South",
-   "frame narrative",
-   "memory"
-  ],
-  "excerptPointers": [
-   {
-    "section": "John and Annie at the plantation",
-    "approxWordCount": 230,
-    "summary": "A Northern couple considers buying a former plantation; Uncle Julius offers a tale that bears on their decision.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Julius's tale of conjuration",
-    "approxWordCount": 260,
-    "summary": "Uncle Julius narrates an embedded story involving a conjure woman; the narration alternates between the embedded tale and its frame.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-024",
-  "author": "James Weldon Johnson",
-  "title": "The Autobiography of an Ex-Colored Man",
-  "year": 1912,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "11012",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/11012",
-  "themes": [
-   "racial passing",
-   "music",
-   "identity",
-   "American society"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Discovery of identity",
-    "approxWordCount": 240,
-    "summary": "The narrator describes the moment in school when a teacher's question forces a sudden reconsideration of his racial identity.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Ragtime in the club",
-    "approxWordCount": 260,
-    "summary": "The narrator describes hearing ragtime piano performed in a New York club, analyzing the formal qualities that distinguish the music.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-025",
-  "author": "Paul Laurence Dunbar",
-  "title": "Lyrics of Lowly Life",
-  "year": 1896,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "11422",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/11422",
-  "themes": [
-   "dialect",
-   "double consciousness",
-   "rural life",
-   "performance"
-  ],
-  "excerptPointers": [
-   {
-    "section": "We Wear the Mask",
-    "approxWordCount": 100,
-    "summary": "A short lyric describing a public face that conceals interior pain; the poem uses repeated rhyme to enact concealment.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Sympathy",
-    "approxWordCount": 140,
-    "summary": "The poem extends a sustained metaphor of a caged bird to articulate longing for freedom.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-026",
-  "author": "Sarah Orne Jewett",
-  "title": "The Country of the Pointed Firs",
-  "year": 1896,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "367",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/367",
-  "themes": [
-   "regionalism",
-   "memory",
-   "coastal Maine",
-   "women's friendship"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Arrival at Dunnet Landing",
-    "approxWordCount": 230,
-    "summary": "A summer visitor describes settling into a rented room with Mrs. Todd in a Maine coastal village; the prose attends to herbs, weather, and small social signs.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "central-ideas-and-details"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Visit to Green Island",
-    "approxWordCount": 250,
-    "summary": "The narrator and Mrs. Todd sail to visit Mrs. Todd's mother on a small island; the scene develops slow exposition through ordinary tasks.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-027",
-  "author": "Edgar Lee Masters",
-  "title": "Spoon River Anthology",
-  "year": 1915,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "26676",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/26676",
-  "themes": [
-   "small-town life",
-   "memory",
-   "voices of the dead",
-   "moral reckoning"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Lucinda Matlock",
-    "approxWordCount": 180,
-    "summary": "A first-person epitaph spoken by a long-lived woman who recalls a life of work, dance, and child-rearing in a Midwestern town.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "The Hill",
-    "approxWordCount": 180,
-    "summary": "An opening poem cataloging the residents of a graveyard through repeated questions, establishing the collection's premise.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-028",
-  "author": "Susan Glaspell",
-  "title": "A Jury of Her Peers",
-  "year": 1917,
-  "genre": "fiction",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "47829",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/47829",
-  "themes": [
-   "domestic evidence",
-   "judgment",
-   "gender",
-   "perspective"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Drive to the Wright farmhouse",
-    "approxWordCount": 220,
-    "summary": "Mrs. Hale rides to a neighbor's farmhouse with the sheriff's wife and reflects on what she has and has not done as a neighbor.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "The unfinished quilt",
-    "approxWordCount": 250,
-    "summary": "The two women examine a quilt and notice irregular stitches in one block; their observation prompts a private decision about what to share with the men.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-029",
-  "author": "Walt Whitman",
-  "title": "When Lilacs Last in the Dooryard Bloom'd",
-  "year": 1865,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "1322",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/1322",
-  "themes": [
-   "mourning",
-   "national grief",
-   "imagery of nature",
-   "elegy"
-  ],
-  "excerptPointers": [
-   {
-    "section": "The lilacs and the star",
-    "approxWordCount": 220,
-    "summary": "An elegy opens with the recurrence of lilacs and a western star; the speaker sets up three image-clusters that will return throughout the poem.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "central-ideas-and-details"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "Carol of death",
-    "approxWordCount": 250,
-    "summary": "An embedded song addresses death directly, framing it as a soothing presence; the section sits within the poem's larger structure of elegy.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-030",
-  "author": "Emily Dickinson",
-  "title": "Poems: Second Series",
-  "year": 1891,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "12241",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/12241",
-  "themes": [
-   "solitude",
-   "perception",
-   "compression",
-   "religion"
-  ],
-  "excerptPointers": [
-   {
-    "section": "There's a certain Slant of light",
-    "approxWordCount": 100,
-    "summary": "A short poem in which winter afternoon light is given a metaphysical weight; the speaker compares the light's effect to a wound and a seal.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "I heard a Fly buzz",
-    "approxWordCount": 100,
-    "summary": "The speaker recounts the moment of dying as a small auditory disturbance interposed between observers and the deathbed.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-031",
-  "author": "Ralph Waldo Emerson",
-  "title": "Self-Reliance",
-  "year": 1841,
-  "genre": "essay",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "16643",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/16643",
-  "themes": [
-   "individuality",
-   "conformity",
-   "intuition",
-   "moral courage"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Trust thyself passage",
-    "approxWordCount": 230,
-    "summary": "Emerson advances his central claim that each person should rely on the authority of their own intuition rather than imitate others.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Society and conformity",
-    "approxWordCount": 250,
-    "summary": "Emerson argues that society conspires against the self-reliance of its members and contrasts the original mind with the conforming one.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-032",
-  "author": "Henry David Thoreau",
-  "title": "Walden",
-  "year": 1854,
-  "genre": "essay",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "205",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/205",
-  "themes": [
-   "nature",
-   "simplicity",
-   "economy",
-   "deliberate living"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Why I went to the woods",
-    "approxWordCount": 240,
-    "summary": "Thoreau states his reasons for moving to Walden Pond and explains his program of deliberate living.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Sounds chapter",
-    "approxWordCount": 250,
-    "summary": "Thoreau describes the sounds that reach his cabin from a railroad and the surrounding woods, drawing observations about labor and time.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-033",
-  "author": "Mary Wollstonecraft",
-  "title": "A Vindication of the Rights of Woman",
-  "year": 1792,
-  "genre": "essay",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "3420",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/3420",
-  "themes": [
-   "gender",
-   "education",
-   "reason",
-   "civic virtue"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Introduction",
-    "approxWordCount": 240,
-    "summary": "Wollstonecraft frames her central claim that women's perceived inferiority is the result of inadequate education rather than inherent capacity.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "Critique of Rousseau",
-    "approxWordCount": 260,
-    "summary": "Wollstonecraft examines Rousseau's claims about female education in Émile and argues against his prescriptions point by point.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-034",
-  "author": "Anna Julia Cooper",
-  "title": "A Voice from the South",
-  "year": 1892,
-  "genre": "essay",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "2202",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/2202",
-  "themes": [
-   "race",
-   "gender",
-   "education",
-   "national progress"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Womanhood: A Vital Element",
-    "approxWordCount": 240,
-    "summary": "Cooper argues that the elevation of African American women is essential to the progress of the race and the nation.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "The Higher Education of Women",
-    "approxWordCount": 260,
-    "summary": "Cooper develops a case for women's higher education by examining historical examples and contemporary objections.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-035",
-  "author": "Ida B. Wells",
-  "title": "Southern Horrors: Lynch Law in All Its Phases",
-  "year": 1892,
-  "genre": "essay",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "14975",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/14975",
-  "themes": [
-   "racial violence",
-   "journalism",
-   "evidence",
-   "civic argument"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Statistical introduction",
-    "approxWordCount": 230,
-    "summary": "Wells assembles statistics on lynchings and shows how widely reported reasons for the killings fail to match the documented record.",
-    "suitableForSkills": [
-     "command-of-evidence-quantitative",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "The Black and White of It",
-    "approxWordCount": 250,
-    "summary": "Wells examines press coverage of specific cases and argues that the standard narrative used to justify lynching does not survive scrutiny of the underlying facts.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-036",
-  "author": "Frances Wright",
-  "title": "Course of Popular Lectures",
-  "year": 1829,
-  "genre": "essay",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "",
-  "sourceUrl": "https://en.wikisource.org/wiki/Course_of_Popular_Lectures",
-  "themes": [
-   "free inquiry",
-   "education",
-   "labor",
-   "public reason"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Lecture I: On the Nature of Knowledge",
-    "approxWordCount": 240,
-    "summary": "Wright argues that knowledge is not the property of any class but the inheritance of all who can be taught to inquire.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "Lecture II: Free Enquiry",
-    "approxWordCount": 250,
-    "summary": "Wright defends free inquiry against social pressure, treating dogmatic authority as incompatible with civic life.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-037",
-  "author": "Helen Keller",
-  "title": "Optimism: An Essay",
-  "year": 1903,
-  "genre": "essay",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "1532",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/1532",
-  "themes": [
-   "disability",
-   "hope",
-   "self-formation",
-   "philosophy of life"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Optimism within",
-    "approxWordCount": 230,
-    "summary": "Keller defines an inward optimism that develops from the discipline of meeting external limits with sustained effort.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Optimism in practice",
-    "approxWordCount": 250,
-    "summary": "Keller turns from a definition of optimism to its public consequences, considering the role of optimism in social reform.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-038",
-  "author": "W. E. B. Du Bois",
-  "title": "The Souls of Black Folk",
-  "year": 1903,
-  "genre": "essay",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "408",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/408",
-  "themes": [
-   "double consciousness",
-   "race",
-   "history",
-   "education"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Of Our Spiritual Strivings",
-    "approxWordCount": 240,
-    "summary": "Du Bois introduces the concept of double consciousness and reflects on the experience of identity in post-Reconstruction America.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "Of the Sorrow Songs",
-    "approxWordCount": 250,
-    "summary": "Du Bois examines the spirituals as historical documents and as art, considering what they preserve of African American experience.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-039",
-  "author": "William James",
-  "title": "Pragmatism: A New Name for Some Old Ways of Thinking",
-  "year": 1907,
-  "genre": "essay",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "5116",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/5116",
-  "themes": [
-   "philosophy",
-   "truth",
-   "method",
-   "American thought"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Lecture I: The Present Dilemma in Philosophy",
-    "approxWordCount": 240,
-    "summary": "James opens by sketching what he calls a temperamental conflict in philosophy between tender-minded and tough-minded positions.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "central-ideas-and-details"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "The squirrel example",
-    "approxWordCount": 230,
-    "summary": "James uses an anecdote about people disputing whether a man circles a squirrel to illustrate how the pragmatic method dissolves verbal disagreements.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-040",
-  "author": "William Hazlitt",
-  "title": "Table-Talk: Essays on Men and Manners",
-  "year": 1821,
-  "genre": "essay",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "5085",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/5085",
-  "themes": [
-   "criticism",
-   "character",
-   "everyday observation",
-   "the essay form"
-  ],
-  "excerptPointers": [
-   {
-    "section": "On the Pleasure of Painting",
-    "approxWordCount": 240,
-    "summary": "Hazlitt reflects on the experience of working in oils and what painting teaches about attention.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "On Familiar Style",
-    "approxWordCount": 260,
-    "summary": "Hazlitt distinguishes plain and ornamented prose styles and argues that what looks easy in writing requires careful selection.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-041",
-  "author": "Lafcadio Hearn",
-  "title": "Glimpses of Unfamiliar Japan",
-  "year": 1894,
-  "genre": "essay",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "8128",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/8128",
-  "themes": [
-   "cross-cultural observation",
-   "place",
-   "tradition",
-   "travel writing"
-  ],
-  "excerptPointers": [
-   {
-    "section": "First arrival in Yokohama",
-    "approxWordCount": 240,
-    "summary": "Hearn records his first impressions on landing in Japan and describes the sensory texture of the streets and shop signs.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "central-ideas-and-details"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "At a country shrine",
-    "approxWordCount": 260,
-    "summary": "Hearn visits a small shrine in a rural area and records local practices, with reflections on what they suggest about communal memory.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-042",
-  "author": "Walter Pater",
-  "title": "The Renaissance: Studies in Art and Poetry",
-  "year": 1873,
-  "genre": "essay",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "2398",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/2398",
-  "themes": [
-   "aesthetics",
-   "history",
-   "art criticism",
-   "perception"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Preface",
-    "approxWordCount": 240,
-    "summary": "Pater defines the role of the aesthetic critic as one who isolates what is distinctive in a work and analyzes the conditions under which it produces its effect.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "Conclusion",
-    "approxWordCount": 250,
-    "summary": "Pater closes by arguing for an attentive engagement with experience and characterizes the moments at which life becomes acute.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-043",
-  "author": "Pearl S. Buck",
-  "title": "East and West and the Novel",
-  "year": 1932,
-  "genre": "essay",
-  "publicDomain": false,
-  "publicDomainYear": null,
-  "gutenbergId": "",
-  "sourceUrl": "https://catalog.hathitrust.org/",
-  "themes": [
-   "cross-cultural literature",
-   "the novel",
-   "China",
-   "narrative form"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Note on availability",
-    "approxWordCount": 0,
-    "summary": "Pearl S. Buck's mature work is not yet in US public domain; this entry is retained for tracking but should not be selected for excerpt generation until rights status changes.",
-    "suitableForSkills": [],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-044",
-  "author": "Harriet Martineau",
-  "title": "Society in America",
-  "year": 1837,
-  "genre": "essay",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "33358",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/33358",
-  "themes": [
-   "sociology",
-   "American institutions",
-   "comparative observation",
-   "democracy"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Introductory chapter on method",
-    "approxWordCount": 240,
-    "summary": "Martineau lays out the program for her study of American institutions, distinguishing her approach from earlier travel writing.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "Section on women's economic position",
-    "approxWordCount": 260,
-    "summary": "Martineau examines the legal and economic conditions of women in the United States and contrasts them with the rhetoric of equality found in public documents.",
-    "suitableForSkills": [
-     "command-of-evidence-textual",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-045",
-  "author": "Lucy Stone",
-  "title": "Address to the Massachusetts Constitutional Convention",
-  "year": 1853,
-  "genre": "essay",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "",
-  "sourceUrl": "https://en.wikisource.org/wiki/Author:Lucy_Stone",
-  "themes": [
-   "women's suffrage",
-   "civic argument",
-   "natural rights",
-   "American reform"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Address to the Convention",
-    "approxWordCount": 240,
-    "summary": "Stone argues for the inclusion of women in the franchise on the basis of consent-of-the-governed principles, addressing delegates directly.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "Closing appeal",
-    "approxWordCount": 220,
-    "summary": "Stone closes by inviting delegates to consider the consistency of their stated principles with the law as currently constituted.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-046",
-  "author": "Frederick Douglass",
-  "title": "Narrative of the Life of Frederick Douglass, an American Slave",
-  "year": 1845,
-  "genre": "memoir",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "23",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/23",
-  "themes": [
-   "slavery",
-   "literacy",
-   "moral witness",
-   "freedom"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Learning to read",
-    "approxWordCount": 240,
-    "summary": "Douglass recounts how Mrs. Auld began teaching him the alphabet and how her husband intervened, treating literacy as a threat to the institution of slavery.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Confrontation with Covey",
-    "approxWordCount": 260,
-    "summary": "Douglass narrates his physical resistance against the overseer Covey and reflects on the change this confrontation produced in him.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-047",
-  "author": "Harriet Jacobs",
-  "title": "Incidents in the Life of a Slave Girl",
-  "year": 1861,
-  "genre": "memoir",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "11030",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/11030",
-  "themes": [
-   "slavery",
-   "gender",
-   "concealment",
-   "motherhood"
-  ],
-  "excerptPointers": [
-   {
-    "section": "The garret",
-    "approxWordCount": 240,
-    "summary": "Jacobs describes the small attic crawlspace where she hid for seven years to evade her owner, attending to the physical conditions of the hiding place.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "Address to the reader",
-    "approxWordCount": 240,
-    "summary": "Jacobs addresses Northern readers directly, acknowledging the difficulty of her testimony and asserting its truth.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-048",
-  "author": "Mary Antin",
-  "title": "The Promised Land",
-  "year": 1912,
-  "genre": "memoir",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "754",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/754",
-  "themes": [
-   "immigration",
-   "education",
-   "American identity",
-   "transformation"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Voyage and arrival",
-    "approxWordCount": 240,
-    "summary": "Antin recounts the family's voyage from Polotzk and their arrival in Boston, comparing the small details of each setting.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "First school days",
-    "approxWordCount": 250,
-    "summary": "Antin describes her first weeks of public school in Boston and the language acquisition that accompanied her early academic success.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-049",
-  "author": "Sojourner Truth",
-  "title": "Narrative of Sojourner Truth",
-  "year": 1850,
-  "genre": "memoir",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "1128",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/1128",
-  "themes": [
-   "slavery",
-   "religion",
-   "abolition",
-   "self-emancipation"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Departure from the Dumonts",
-    "approxWordCount": 230,
-    "summary": "Truth describes her decision to walk away from her enslaver before her legally promised emancipation date and her reflections on what would constitute a just departure.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "Recovering her son",
-    "approxWordCount": 250,
-    "summary": "Truth narrates her legal effort to recover her son, who had been illegally sold across state lines, including her interactions with sympathetic Quakers.",
-    "suitableForSkills": [
-     "command-of-evidence-textual",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-050",
-  "author": "Black Hawk",
-  "title": "Autobiography of Ma-ka-tai-me-she-kia-kiak, or Black Hawk",
-  "year": 1833,
-  "genre": "memoir",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "10644",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/10644",
-  "themes": [
-   "Indigenous history",
-   "displacement",
-   "treaty disputes",
-   "memoir"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Boyhood at Saukenuk",
-    "approxWordCount": 230,
-    "summary": "Black Hawk describes the community life of his Sauk village along the Rock River and details its agricultural and ceremonial calendar.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "central-ideas-and-details"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "On the disputed treaty",
-    "approxWordCount": 250,
-    "summary": "Black Hawk presents his account of the 1804 treaty and explains why he and his people did not consider its terms binding on the Sauk nation.",
-    "suitableForSkills": [
-     "command-of-evidence-textual",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-051",
-  "author": "Olaudah Equiano",
-  "title": "The Interesting Narrative of the Life of Olaudah Equiano",
-  "year": 1789,
-  "genre": "memoir",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "15399",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/15399",
-  "themes": [
-   "the Atlantic slave trade",
-   "religion",
-   "abolitionism",
-   "transformation"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Childhood in Igboland",
-    "approxWordCount": 240,
-    "summary": "Equiano describes the village life and customs of his early childhood before his capture, attending to family and community organization.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "central-ideas-and-details"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "The Middle Passage",
-    "approxWordCount": 260,
-    "summary": "Equiano recounts the conditions aboard the slave ship and the sensory disorientation of the voyage in language addressed to a European readership.",
-    "suitableForSkills": [
-     "command-of-evidence-textual",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-052",
-  "author": "John Stuart Mill",
-  "title": "Autobiography",
-  "year": 1873,
-  "genre": "memoir",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "10378",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/10378",
-  "themes": [
-   "education",
-   "intellectual formation",
-   "mental crisis",
-   "utilitarianism"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Early education",
-    "approxWordCount": 240,
-    "summary": "Mill describes the intensive education his father designed for him and reflects on what it provided and what it omitted.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "The mental crisis",
-    "approxWordCount": 260,
-    "summary": "Mill describes a period of depression in his early twenties and examines what reading Wordsworth contributed to his recovery.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-053",
-  "author": "Henry Adams",
-  "title": "The Education of Henry Adams",
-  "year": 1907,
-  "genre": "memoir",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "2044",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/2044",
-  "themes": [
-   "education",
-   "American history",
-   "modernity",
-   "self-construction"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Quincy and Boston",
-    "approxWordCount": 230,
-    "summary": "Adams compares the influences of his grandfather's house at Quincy with his family's Boston residence, treating the two as opposing principles in his early life.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "The Dynamo and the Virgin",
-    "approxWordCount": 260,
-    "summary": "Adams visits the Paris Exposition and reflects on the symbolic difference between the medieval cult of the Virgin and the modern dynamo.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-054",
-  "author": "Charlotte Forten Grimké",
-  "title": "The Journal of Charlotte L. Forten",
-  "year": 1854,
-  "genre": "memoir",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "",
-  "sourceUrl": "https://en.wikisource.org/wiki/Author:Charlotte_Forten_Grimk%C3%A9",
-  "themes": [
-   "abolitionism",
-   "education",
-   "Reconstruction",
-   "interior life"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Salem schooling",
-    "approxWordCount": 230,
-    "summary": "Forten records her studies at the Higginson Grammar School in Salem and her readings outside school in works of history and poetry.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "medium"
-   },
-   {
-    "section": "Sea Islands diary entries",
-    "approxWordCount": 250,
-    "summary": "Forten records her observations as a teacher among formerly enslaved people on the Sea Islands during the Civil War.",
-    "suitableForSkills": [
-     "command-of-evidence-textual",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-055",
-  "author": "Maxim Gorky",
-  "title": "My Childhood",
-  "year": 1913,
-  "genre": "memoir",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "29327",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/29327",
-  "themes": [
-   "Russian provincial life",
-   "family violence",
-   "labor",
-   "self-formation"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Grandfather's house",
-    "approxWordCount": 240,
-    "summary": "Gorky describes the household of his grandfather, including the daily violence and the dyeing-shop labor that punctuated family life.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "The grandmother's storytelling",
-    "approxWordCount": 250,
-    "summary": "The narrator recalls his grandmother's evening stories and the impression her speech and gestures left on him as a child.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-056",
-  "author": "Emily Dickinson",
-  "title": "Letters of Emily Dickinson",
-  "year": 1894,
-  "genre": "letters",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "37877",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/37877",
-  "themes": [
-   "correspondence",
-   "interiority",
-   "the New England circle",
-   "vocation"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Letter to T. W. Higginson, April 1862",
-    "approxWordCount": 220,
-    "summary": "Dickinson writes to Higginson asking whether he considers her verse alive, and characterizes her own habits of reading and composition.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "Letter to Susan Gilbert",
-    "approxWordCount": 220,
-    "summary": "Dickinson writes to her sister-in-law with a description of the household and a brief reflection on a recent reading.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-057",
-  "author": "Ralph Waldo Emerson",
-  "title": "The Correspondence of Thomas Carlyle and Ralph Waldo Emerson",
-  "year": 1883,
-  "genre": "letters",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "13201",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/13201",
-  "themes": [
-   "transatlantic correspondence",
-   "literary friendship",
-   "publishing",
-   "intellectual exchange"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Early letters from Emerson to Carlyle",
-    "approxWordCount": 230,
-    "summary": "Emerson writes to Carlyle about the reception of Sartor Resartus in America and about arrangements for an American edition.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "On The French Revolution",
-    "approxWordCount": 250,
-    "summary": "Emerson responds to Carlyle's manuscript and describes the experience of reading the work over multiple sessions.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "command-of-evidence-textual"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-058",
-  "author": "Frederick Douglass",
-  "title": "Letter to Thomas Auld",
-  "year": 1848,
-  "genre": "letters",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "",
-  "sourceUrl": "https://en.wikisource.org/wiki/Author:Frederick_Douglass",
-  "themes": [
-   "abolition",
-   "personal address",
-   "moral argument",
-   "memory"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Opening of the open letter",
-    "approxWordCount": 240,
-    "summary": "Douglass addresses his former enslaver directly in an open letter and explains his reasons for breaking the customary silence between an enslaved person and an enslaver.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "Imagining a daughter sold",
-    "approxWordCount": 240,
-    "summary": "Douglass invites Auld to consider how he would respond if his own daughter were subjected to what enslaved daughters routinely faced.",
-    "suitableForSkills": [
-     "command-of-evidence-textual",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "id": "lit-059",
-  "author": "John Keats",
-  "title": "Letters of John Keats",
-  "year": 1848,
-  "genre": "letters",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "35698",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/35698",
-  "themes": [
-   "poetics",
-   "negative capability",
-   "illness",
-   "friendship"
-  ],
-  "excerptPointers": [
-   {
-    "section": "On negative capability",
-    "approxWordCount": 220,
-    "summary": "Keats writes to his brothers and articulates his concept of negative capability through brief reflections on Shakespeare and Coleridge.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "Letter to Fanny Brawne",
-    "approxWordCount": 220,
-    "summary": "Keats writes to Fanny Brawne during his illness and describes the routine of his confinement and his uncertain recovery.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-060",
-  "author": "Vincent van Gogh",
-  "title": "Letters to His Brother Theo",
-  "year": 1914,
-  "genre": "letters",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "",
-  "sourceUrl": "https://en.wikisource.org/wiki/Author:Vincent_van_Gogh",
-  "themes": [
-   "artistic vocation",
-   "color",
-   "perception",
-   "family ties"
-  ],
-  "excerptPointers": [
-   {
-    "section": "On painting in Arles",
-    "approxWordCount": 240,
-    "summary": "Van Gogh writes to his brother about his work in Arles and the role of complementary colors in the canvases he is producing.",
-    "suitableForSkills": [
-     "central-ideas-and-details",
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "hard"
-   },
-   {
-    "section": "On the role of the artist",
-    "approxWordCount": 240,
-    "summary": "Van Gogh reflects on what he wants his paintings to communicate to ordinary viewers and contrasts this aim with academic painting.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ]
- },
- {
-  "author": "Emily Dickinson",
-  "title": "Because I could not stop for Death",
-  "year": 1890,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1890,
-  "gutenbergId": "12242",
-  "themes": [
-   "death",
-   "immortality",
-   "time"
-  ],
-  "id": "lit-061",
-  "addedBy": "rw-authenticity-dedupe-2026-06-11",
-  "excerptPointers": []
- },
- {
-  "author": "Lord Byron",
-  "title": "Childe Harold's Pilgrimage",
-  "year": 1818,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1818,
-  "gutenbergId": "5131",
-  "themes": [
-   "travel",
-   "ruins",
-   "nature",
-   "solitude"
-  ],
-  "id": "lit-062",
-  "addedBy": "rw-authenticity-dedupe-2026-06-11",
-  "excerptPointers": []
- },
- {
-  "author": "Percy Bysshe Shelley",
-  "title": "Ozymandias",
-  "year": 1818,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1818,
-  "gutenbergId": "4800",
-  "themes": [
-   "power",
-   "decay",
-   "time",
-   "hubris"
-  ],
-  "id": "lit-063",
-  "addedBy": "rw-authenticity-dedupe-2026-06-11",
-  "excerptPointers": []
- },
- {
-  "author": "Robert Frost",
-  "title": "Stopping by Woods on a Snowy Evening",
-  "year": 1923,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": null,
-  "themes": [
-   "nature",
-   "obligation",
-   "solitude"
-  ],
-  "id": "lit-064",
-  "addedBy": "rw-authenticity-dedupe-2026-06-11",
-  "excerptPointers": []
- },
- {
-  "author": "Alfred, Lord Tennyson",
-  "title": "The Kraken",
-  "year": 1830,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1830,
-  "gutenbergId": "8601",
-  "themes": [
-   "the sea",
-   "myth",
-   "sleep"
-  ],
-  "id": "lit-065",
-  "addedBy": "rw-authenticity-dedupe-2026-06-11",
-  "excerptPointers": []
- },
- {
-  "author": "Christina Rossetti",
-  "title": "Up-Hill",
-  "year": 1861,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1862,
-  "gutenbergId": "23044",
-  "themes": [
-   "journey",
-   "faith",
-   "mortality"
-  ],
-  "id": "lit-066",
-  "addedBy": "rw-authenticity-dedupe-2026-06-11",
-  "excerptPointers": []
- },
- {
-  "author": "Paul Laurence Dunbar",
-  "title": "We Wear the Mask",
-  "year": 1896,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1896,
-  "gutenbergId": null,
-  "themes": [
-   "concealment",
-   "dignity",
-   "suffering"
-  ],
-  "id": "lit-067",
-  "addedBy": "rw-authenticity-dedupe-2026-06-11",
-  "excerptPointers": []
- },
- {
-  "id": "lit-068",
-  "author": "William Blake",
-  "title": "The Tyger",
-  "year": 1794,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1794,
-  "gutenbergId": "574",
-  "themes": [
-   "creation",
-   "awe",
-   "duality",
-   "nature"
-  ],
-  "excerptPointers": [],
-  "addedBy": "rw-authenticity-dedupe-2026-06-11"
- },
- {
-  "id": "lit-069",
-  "author": "Claude McKay",
-  "title": "The Tropics in New York",
-  "year": 1920,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1978,
-  "sourceUrl": "https://en.wikisource.org/wiki/Harlem_Shadows/The_Tropics_in_New_York",
-  "collection": "Harlem Shadows (1922)",
-  "themes": [
-   "exile",
-   "memory",
-   "longing",
-   "the tropics"
-  ],
-  "excerptPointers": [
-   {
-    "section": "full poem (three quatrains)",
-    "approxWordCount": 85,
-    "summary": "Tropical fruit in a New York shop window stirs the speaker's memories of home and ends in a wave of longing and tears.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "central-ideas-and-details"
-    ],
-    "difficulty": "medium"
-   }
-  ]
- },
- {
-  "id": "lit-t8-001",
-  "author": "William Wordsworth",
-  "title": "I Wandered Lonely as a Cloud",
-  "year": 1807,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "32459",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/32459",
-  "themes": [
-   "nature",
-   "solitude",
-   "memory",
-   "joy"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Stanzas 1-2",
-    "approxWordCount": 95,
-    "summary": "The speaker, wandering alone, comes suddenly upon a vast crowd of daffodils beside a lake.",
-    "suitableForSkills": [
-     "text-structure-and-purpose"
-    ],
-    "difficulty": "medium"
-   }
-  ],
-  "_meta": {
-   "quoteVerify": "Quoted verbatim from the 1815 revised text as printed in standard Wordsworth editions (Poems, in Two Volumes, 1807; rev. 1815): 'I wandered lonely as a cloud / That floats on high o'er vales and hills, / When all at once I saw a crowd, / A host, of golden daffodils; / Beside the lake, beneath the trees, / Fluttering and dancing in the breeze.' Stanza 2 as in the 1815 text ('Continuous as the stars that shine...'). Public domain; used in test8 q05."
+  {
+    "id": "lit-001",
+    "author": "Walt Whitman",
+    "title": "Song of Myself",
+    "year": 1855,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "1322",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/1322",
+    "themes": [
+      "self",
+      "democracy",
+      "nature",
+      "the body"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Section 1",
+        "approxWordCount": 200,
+        "summary": "An opening invocation of self and reader, asserting the equivalence of the speaker's atoms with the reader's.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Section 6 (the grass passage)",
+        "approxWordCount": 250,
+        "summary": "A child asks what the grass is, and the speaker offers cumulative metaphors that range across class, race, and mortality.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-002",
+    "author": "Emily Dickinson",
+    "title": "The Poems of Emily Dickinson",
+    "year": 1890,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "12242",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/12242",
+    "themes": [
+      "death",
+      "immortality",
+      "nature",
+      "interiority"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Because I could not stop for Death",
+        "approxWordCount": 150,
+        "summary": "A short lyric in which the speaker rides in a carriage with personified Death, passing scenes of childhood, harvest, and a setting sun.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Tell all the truth but tell it slant",
+        "approxWordCount": 80,
+        "summary": "A compact poem arguing that truth must be approached indirectly so that its brilliance does not blind the recipient.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-003",
+    "author": "Susan Glaspell",
+    "title": "Trifles",
+    "year": 1916,
+    "genre": "drama",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "10623",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/10623",
+    "themes": [
+      "gender",
+      "domesticity",
+      "justice",
+      "perception"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Opening scene in the kitchen",
+        "approxWordCount": 220,
+        "summary": "Two women remain in the Wright kitchen while the men investigate elsewhere; the stage directions and dialogue draw attention to small domestic details the men dismiss.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "The discovery of the bird cage",
+        "approxWordCount": 250,
+        "summary": "Mrs. Hale and Mrs. Peters notice a broken bird cage and reflect on what its condition might suggest about the household.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-004",
+    "author": "Angelina Weld Grimké",
+    "title": "Rachel",
+    "year": 1916,
+    "genre": "drama",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "",
+    "sourceUrl": "https://en.wikisource.org/wiki/Rachel_(Grimk%C3%A9)",
+    "themes": [
+      "race",
+      "motherhood",
+      "violence",
+      "childhood"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Opening domestic scene",
+        "approxWordCount": 230,
+        "summary": "An African American family in the Northern United States is introduced through warm domestic dialogue; the title character expresses her love of children.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Mrs. Loving's revelation",
+        "approxWordCount": 260,
+        "summary": "Rachel's mother discloses the racial violence that shaped the family's past, prompting Rachel to reconsider her future.",
+        "suitableForSkills": [
+          "inferences",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-005",
+    "author": "Thomas Hardy",
+    "title": "Far from the Madding Crowd",
+    "year": 1874,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "107",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/107",
+    "themes": [
+      "rural life",
+      "love",
+      "fate",
+      "labor"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Description of Gabriel Oak",
+        "approxWordCount": 240,
+        "summary": "The narrator characterizes Gabriel Oak through his Sunday demeanor and his daily one, drawing inferences about temperament from outward signs.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "The storm chapter",
+        "approxWordCount": 260,
+        "summary": "Gabriel and Bathsheba labor through the night to protect ricks of grain from a coming storm; the narration alternates between the natural world and human endurance.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-006",
+    "author": "Anton Chekhov",
+    "title": "The Lady with the Dog",
+    "year": 1899,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "13415",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/13415",
+    "themes": [
+      "love",
+      "regret",
+      "society",
+      "interior life"
+    ],
+    "excerptPointers": [
+      {
+        "section": "First meeting at Yalta",
+        "approxWordCount": 220,
+        "summary": "Gurov observes a young woman walking with a small dog; the narration sketches his routine cynicism alongside the new acquaintance.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Return to Moscow",
+        "approxWordCount": 240,
+        "summary": "Gurov returns to his life in Moscow expecting to forget Anna; the narration tracks the dissonance between his outward routine and his interior preoccupation.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-007",
+    "author": "Katherine Mansfield",
+    "title": "The Garden Party and Other Stories",
+    "year": 1922,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "1429",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/1429",
+    "themes": [
+      "class",
+      "perception",
+      "youth",
+      "death"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Opening of 'The Garden-Party'",
+        "approxWordCount": 220,
+        "summary": "Laura inspects the lawn and instructs the workmen setting up a marquee; her impressions of the men complicate her family's class assumptions.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Visit to the cottage",
+        "approxWordCount": 250,
+        "summary": "After the party, Laura takes leftovers to the home of a working-class family who have suffered a death; the contrast unsettles her composure.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-008",
+    "author": "Marianne Moore",
+    "title": "Poems",
+    "year": 1921,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "",
+    "sourceUrl": "https://en.wikisource.org/wiki/Author:Marianne_Craig_Moore",
+    "themes": [
+      "observation",
+      "animals",
+      "form",
+      "modernity"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Poetry",
+        "approxWordCount": 180,
+        "summary": "A poem that examines the genre of poetry itself, suggesting that authentic poems must contain real material rather than mere ornament.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "The Fish",
+        "approxWordCount": 200,
+        "summary": "A short poem describing marine creatures and a battered cliff, organized around precise visual imagery and a tightly patterned syllabic stanza.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-009",
+    "author": "Jerome K. Jerome",
+    "title": "Three Men in a Boat",
+    "year": 1889,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "308",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/308",
+    "themes": [
+      "leisure",
+      "friendship",
+      "comic narration",
+      "the Thames"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Opening medical chapter",
+        "approxWordCount": 220,
+        "summary": "The narrator consults a medical reference and convinces himself he suffers from every disease listed except housemaid's knee, in a comic register.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Packing the hampers",
+        "approxWordCount": 240,
+        "summary": "The narrator describes the chaos of packing for a river trip, using a tone that mocks both his own competence and that of his companions.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-010",
+    "author": "Frances Ellen Watkins Harper",
+    "title": "Iola Leroy",
+    "year": 1892,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "11953",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/11953",
+    "themes": [
+      "race",
+      "Reconstruction",
+      "uplift",
+      "family"
+    ],
+    "excerptPointers": [
+      {
+        "section": "The market exchange",
+        "approxWordCount": 230,
+        "summary": "Enslaved characters communicate news of the Civil War's progress through a coded conversation about marketing produce.",
+        "suitableForSkills": [
+          "inferences",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "Iola's school proposal",
+        "approxWordCount": 250,
+        "summary": "Iola argues for a particular vision of African American education in conversation with friends and family after the war.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-011",
+    "author": "Zora Neale Hurston",
+    "title": "Spunk",
+    "year": 1925,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "",
+    "sourceUrl": "https://en.wikisource.org/wiki/Spunk",
+    "themes": [
+      "folklore",
+      "community",
+      "rivalry",
+      "Southern dialect"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Opening porch scene",
+        "approxWordCount": 220,
+        "summary": "A porch full of townspeople observe and comment on a confrontation between two men, with the narration shifting between collective voice and individual speech.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "The bobcat",
+        "approxWordCount": 240,
+        "summary": "After Joe's death, a bobcat appears at the sawmill; the townspeople interpret the animal's presence in folkloric terms.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-012",
+    "author": "Willa Cather",
+    "title": "O Pioneers!",
+    "year": 1913,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "24",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/24",
+    "themes": [
+      "land",
+      "immigrant labor",
+      "perseverance",
+      "the prairie"
+    ],
+    "excerptPointers": [
+      {
+        "section": "The wild land",
+        "approxWordCount": 230,
+        "summary": "The narrator describes the Nebraska prairie in winter, characterizing the land as resistant to settlement and indifferent to the settlers' efforts.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Alexandra's plan",
+        "approxWordCount": 250,
+        "summary": "Alexandra Bergson explains to her brothers why the family should buy more land rather than sell out, using observational evidence about the soil and neighbors.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-013",
+    "author": "Edith Wharton",
+    "title": "Ethan Frome",
+    "year": 1911,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "4517",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/4517",
+    "themes": [
+      "isolation",
+      "thwarted desire",
+      "rural New England",
+      "moral cost"
+    ],
+    "excerptPointers": [
+      {
+        "section": "The narrator's introduction",
+        "approxWordCount": 240,
+        "summary": "An outsider narrator recounts arriving in Starkfield and forming an impression of Ethan Frome from glimpses around the village.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "The sled descent",
+        "approxWordCount": 260,
+        "summary": "Ethan and Mattie agree to sled down a hill; the narration interweaves their physical descent with their decision-making.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-014",
+    "author": "Robert Louis Stevenson",
+    "title": "Kidnapped",
+    "year": 1886,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "421",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/421",
+    "themes": [
+      "adventure",
+      "loyalty",
+      "Scottish history",
+      "coming of age"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Departure from the house of Shaws",
+        "approxWordCount": 220,
+        "summary": "David Balfour leaves his uncle's home; the narration shifts from suspicion at the house to anticipation about the journey ahead.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "On the brig Covenant",
+        "approxWordCount": 250,
+        "summary": "After being kidnapped, David is held aboard a brig and meets Alan Breck Stewart; their alliance forms under pressure from the crew.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-015",
+    "author": "Rabindranath Tagore",
+    "title": "Gitanjali (Song Offerings)",
+    "year": 1912,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "7164",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/7164",
+    "themes": [
+      "devotion",
+      "longing",
+      "transcendence",
+      "humility"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Opening devotional lyric",
+        "approxWordCount": 180,
+        "summary": "The poet addresses a divine listener and reflects on the renewal of the self as an instrument for song.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Where the mind is without fear",
+        "approxWordCount": 150,
+        "summary": "A short poem that catalogs conditions for an awakened nation and culminates in a prayer for clarity of thought.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-016",
+    "author": "Lu Xun",
+    "title": "A Madman's Diary",
+    "year": 1918,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "",
+    "sourceUrl": "https://en.wikisource.org/wiki/A_Madman%27s_Diary",
+    "themes": [
+      "modernity",
+      "tradition",
+      "alienation",
+      "social critique"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Diary entry on the moon",
+        "approxWordCount": 220,
+        "summary": "The narrator records his sudden suspicion that everyone around him intends harm, beginning with an observation of the moon and the dog at the gate.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "Reading between the lines",
+        "approxWordCount": 240,
+        "summary": "The narrator examines historical texts and concludes that the words of Confucian morality conceal a different message.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-017",
+    "author": "Joseph Conrad",
+    "title": "Heart of Darkness",
+    "year": 1899,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "219",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/219",
+    "themes": [
+      "colonialism",
+      "moral ambiguity",
+      "narrative frame",
+      "the river"
+    ],
+    "excerptPointers": [
+      {
+        "section": "The Nellie at anchor",
+        "approxWordCount": 240,
+        "summary": "An anonymous narrator describes a yawl anchored on the Thames at dusk; Marlow begins his story with a reflection on London's own past as a place at the edge of empire.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "The Outer Station",
+        "approxWordCount": 260,
+        "summary": "Marlow describes his arrival at a colonial station, observing the disjunction between official accounting and the visible suffering of laborers.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-018",
+    "author": "Henry James",
+    "title": "The Turn of the Screw",
+    "year": 1898,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "209",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/209",
+    "themes": [
+      "narrative reliability",
+      "childhood",
+      "the uncanny",
+      "perception"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Frame narrative around the fire",
+        "approxWordCount": 230,
+        "summary": "A guest produces a manuscript at a Christmas gathering; the narration sets up the story of the governess as a document with multiple layers of mediation.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "First sighting on the tower",
+        "approxWordCount": 250,
+        "summary": "The governess sees a figure on the parapet of Bly; the narration tracks her shifting interpretations of what she has seen.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-019",
+    "author": "James Joyce",
+    "title": "Dubliners",
+    "year": 1914,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "2814",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/2814",
+    "themes": [
+      "paralysis",
+      "epiphany",
+      "Irish life",
+      "modernity"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Opening of 'Araby'",
+        "approxWordCount": 220,
+        "summary": "A boy describes the dead-end street where he lives and the priest who once occupied his house, establishing the texture of his neighborhood.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "central-ideas-and-details"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Conclusion of 'The Dead'",
+        "approxWordCount": 260,
+        "summary": "Gabriel watches snow fall over Ireland from a hotel window after his wife reveals a memory; the prose moves from interior reflection to a wide aerial view.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-020",
+    "author": "Charlotte Perkins Gilman",
+    "title": "The Yellow Wall-Paper",
+    "year": 1892,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "1952",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/1952",
+    "themes": [
+      "mental health",
+      "domestic confinement",
+      "narrative voice",
+      "gender"
+    ],
+    "excerptPointers": [
+      {
+        "section": "First impressions of the room",
+        "approxWordCount": 220,
+        "summary": "The narrator describes the upstairs nursery she has been assigned, including its barred windows and patterned wallpaper, in a tone that mixes observation and unease.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "The pattern at night",
+        "approxWordCount": 250,
+        "summary": "The narrator describes how the wallpaper appears different by moonlight; the entry tracks her growing identification with what she perceives behind the pattern.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-021",
+    "author": "Sui Sin Far (Edith Maude Eaton)",
+    "title": "Mrs. Spring Fragrance",
+    "year": 1912,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "30975",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/30975",
+    "themes": [
+      "Chinese American life",
+      "marriage",
+      "cross-cultural perception",
+      "humor"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Opening of the title story",
+        "approxWordCount": 220,
+        "summary": "Mrs. Spring Fragrance is introduced through her interactions with American neighbors; the narration registers small misunderstandings of language and custom.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Letter to her husband",
+        "approxWordCount": 240,
+        "summary": "Mrs. Spring Fragrance writes a letter from a trip to San Francisco; her observations on a lecture about American romance complicate her husband's traditional views.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-022",
+    "author": "Pauline Hopkins",
+    "title": "Contending Forces",
+    "year": 1900,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "21048",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/21048",
+    "themes": [
+      "race",
+      "lineage",
+      "Boston society",
+      "post-Reconstruction politics"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Boston boarding house",
+        "approxWordCount": 230,
+        "summary": "The narrator describes the Smith family's boarding house in late nineteenth-century Boston, with attention to its boarders and the social texture of the neighborhood.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "central-ideas-and-details"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Sapphira and the meeting",
+        "approxWordCount": 260,
+        "summary": "A character delivers a speech at a community meeting addressing political conditions for African Americans; the narration captures audience reaction.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-023",
+    "author": "Charles W. Chesnutt",
+    "title": "The Conjure Woman",
+    "year": 1899,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "11666",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/11666",
+    "themes": [
+      "folklore",
+      "the American South",
+      "frame narrative",
+      "memory"
+    ],
+    "excerptPointers": [
+      {
+        "section": "John and Annie at the plantation",
+        "approxWordCount": 230,
+        "summary": "A Northern couple considers buying a former plantation; Uncle Julius offers a tale that bears on their decision.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Julius's tale of conjuration",
+        "approxWordCount": 260,
+        "summary": "Uncle Julius narrates an embedded story involving a conjure woman; the narration alternates between the embedded tale and its frame.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-024",
+    "author": "James Weldon Johnson",
+    "title": "The Autobiography of an Ex-Colored Man",
+    "year": 1912,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "11012",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/11012",
+    "themes": [
+      "racial passing",
+      "music",
+      "identity",
+      "American society"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Discovery of identity",
+        "approxWordCount": 240,
+        "summary": "The narrator describes the moment in school when a teacher's question forces a sudden reconsideration of his racial identity.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Ragtime in the club",
+        "approxWordCount": 260,
+        "summary": "The narrator describes hearing ragtime piano performed in a New York club, analyzing the formal qualities that distinguish the music.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-025",
+    "author": "Paul Laurence Dunbar",
+    "title": "Lyrics of Lowly Life",
+    "year": 1896,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "11422",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/11422",
+    "themes": [
+      "dialect",
+      "double consciousness",
+      "rural life",
+      "performance"
+    ],
+    "excerptPointers": [
+      {
+        "section": "We Wear the Mask",
+        "approxWordCount": 100,
+        "summary": "A short lyric describing a public face that conceals interior pain; the poem uses repeated rhyme to enact concealment.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Sympathy",
+        "approxWordCount": 140,
+        "summary": "The poem extends a sustained metaphor of a caged bird to articulate longing for freedom.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-026",
+    "author": "Sarah Orne Jewett",
+    "title": "The Country of the Pointed Firs",
+    "year": 1896,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "367",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/367",
+    "themes": [
+      "regionalism",
+      "memory",
+      "coastal Maine",
+      "women's friendship"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Arrival at Dunnet Landing",
+        "approxWordCount": 230,
+        "summary": "A summer visitor describes settling into a rented room with Mrs. Todd in a Maine coastal village; the prose attends to herbs, weather, and small social signs.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "central-ideas-and-details"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Visit to Green Island",
+        "approxWordCount": 250,
+        "summary": "The narrator and Mrs. Todd sail to visit Mrs. Todd's mother on a small island; the scene develops slow exposition through ordinary tasks.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-027",
+    "author": "Edgar Lee Masters",
+    "title": "Spoon River Anthology",
+    "year": 1915,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "26676",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/26676",
+    "themes": [
+      "small-town life",
+      "memory",
+      "voices of the dead",
+      "moral reckoning"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Lucinda Matlock",
+        "approxWordCount": 180,
+        "summary": "A first-person epitaph spoken by a long-lived woman who recalls a life of work, dance, and child-rearing in a Midwestern town.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "The Hill",
+        "approxWordCount": 180,
+        "summary": "An opening poem cataloging the residents of a graveyard through repeated questions, establishing the collection's premise.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-028",
+    "author": "Susan Glaspell",
+    "title": "A Jury of Her Peers",
+    "year": 1917,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "47829",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/47829",
+    "themes": [
+      "domestic evidence",
+      "judgment",
+      "gender",
+      "perspective"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Drive to the Wright farmhouse",
+        "approxWordCount": 220,
+        "summary": "Mrs. Hale rides to a neighbor's farmhouse with the sheriff's wife and reflects on what she has and has not done as a neighbor.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "The unfinished quilt",
+        "approxWordCount": 250,
+        "summary": "The two women examine a quilt and notice irregular stitches in one block; their observation prompts a private decision about what to share with the men.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-029",
+    "author": "Walt Whitman",
+    "title": "When Lilacs Last in the Dooryard Bloom'd",
+    "year": 1865,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "1322",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/1322",
+    "themes": [
+      "mourning",
+      "national grief",
+      "imagery of nature",
+      "elegy"
+    ],
+    "excerptPointers": [
+      {
+        "section": "The lilacs and the star",
+        "approxWordCount": 220,
+        "summary": "An elegy opens with the recurrence of lilacs and a western star; the speaker sets up three image-clusters that will return throughout the poem.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "central-ideas-and-details"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "Carol of death",
+        "approxWordCount": 250,
+        "summary": "An embedded song addresses death directly, framing it as a soothing presence; the section sits within the poem's larger structure of elegy.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-030",
+    "author": "Emily Dickinson",
+    "title": "Poems: Second Series",
+    "year": 1891,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "12241",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/12241",
+    "themes": [
+      "solitude",
+      "perception",
+      "compression",
+      "religion"
+    ],
+    "excerptPointers": [
+      {
+        "section": "There's a certain Slant of light",
+        "approxWordCount": 100,
+        "summary": "A short poem in which winter afternoon light is given a metaphysical weight; the speaker compares the light's effect to a wound and a seal.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "I heard a Fly buzz",
+        "approxWordCount": 100,
+        "summary": "The speaker recounts the moment of dying as a small auditory disturbance interposed between observers and the deathbed.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-031",
+    "author": "Ralph Waldo Emerson",
+    "title": "Self-Reliance",
+    "year": 1841,
+    "genre": "essay",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "16643",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/16643",
+    "themes": [
+      "individuality",
+      "conformity",
+      "intuition",
+      "moral courage"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Trust thyself passage",
+        "approxWordCount": 230,
+        "summary": "Emerson advances his central claim that each person should rely on the authority of their own intuition rather than imitate others.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Society and conformity",
+        "approxWordCount": 250,
+        "summary": "Emerson argues that society conspires against the self-reliance of its members and contrasts the original mind with the conforming one.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-032",
+    "author": "Henry David Thoreau",
+    "title": "Walden",
+    "year": 1854,
+    "genre": "essay",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "205",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/205",
+    "themes": [
+      "nature",
+      "simplicity",
+      "economy",
+      "deliberate living"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Why I went to the woods",
+        "approxWordCount": 240,
+        "summary": "Thoreau states his reasons for moving to Walden Pond and explains his program of deliberate living.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Sounds chapter",
+        "approxWordCount": 250,
+        "summary": "Thoreau describes the sounds that reach his cabin from a railroad and the surrounding woods, drawing observations about labor and time.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-033",
+    "author": "Mary Wollstonecraft",
+    "title": "A Vindication of the Rights of Woman",
+    "year": 1792,
+    "genre": "essay",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "3420",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/3420",
+    "themes": [
+      "gender",
+      "education",
+      "reason",
+      "civic virtue"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Introduction",
+        "approxWordCount": 240,
+        "summary": "Wollstonecraft frames her central claim that women's perceived inferiority is the result of inadequate education rather than inherent capacity.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "Critique of Rousseau",
+        "approxWordCount": 260,
+        "summary": "Wollstonecraft examines Rousseau's claims about female education in Émile and argues against his prescriptions point by point.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-034",
+    "author": "Anna Julia Cooper",
+    "title": "A Voice from the South",
+    "year": 1892,
+    "genre": "essay",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "2202",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/2202",
+    "themes": [
+      "race",
+      "gender",
+      "education",
+      "national progress"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Womanhood: A Vital Element",
+        "approxWordCount": 240,
+        "summary": "Cooper argues that the elevation of African American women is essential to the progress of the race and the nation.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "The Higher Education of Women",
+        "approxWordCount": 260,
+        "summary": "Cooper develops a case for women's higher education by examining historical examples and contemporary objections.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-035",
+    "author": "Ida B. Wells",
+    "title": "Southern Horrors: Lynch Law in All Its Phases",
+    "year": 1892,
+    "genre": "essay",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "14975",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/14975",
+    "themes": [
+      "racial violence",
+      "journalism",
+      "evidence",
+      "civic argument"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Statistical introduction",
+        "approxWordCount": 230,
+        "summary": "Wells assembles statistics on lynchings and shows how widely reported reasons for the killings fail to match the documented record.",
+        "suitableForSkills": [
+          "command-of-evidence-quantitative",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "The Black and White of It",
+        "approxWordCount": 250,
+        "summary": "Wells examines press coverage of specific cases and argues that the standard narrative used to justify lynching does not survive scrutiny of the underlying facts.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-036",
+    "author": "Frances Wright",
+    "title": "Course of Popular Lectures",
+    "year": 1829,
+    "genre": "essay",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "",
+    "sourceUrl": "https://en.wikisource.org/wiki/Course_of_Popular_Lectures",
+    "themes": [
+      "free inquiry",
+      "education",
+      "labor",
+      "public reason"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Lecture I: On the Nature of Knowledge",
+        "approxWordCount": 240,
+        "summary": "Wright argues that knowledge is not the property of any class but the inheritance of all who can be taught to inquire.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "Lecture II: Free Enquiry",
+        "approxWordCount": 250,
+        "summary": "Wright defends free inquiry against social pressure, treating dogmatic authority as incompatible with civic life.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-037",
+    "author": "Helen Keller",
+    "title": "Optimism: An Essay",
+    "year": 1903,
+    "genre": "essay",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "1532",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/1532",
+    "themes": [
+      "disability",
+      "hope",
+      "self-formation",
+      "philosophy of life"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Optimism within",
+        "approxWordCount": 230,
+        "summary": "Keller defines an inward optimism that develops from the discipline of meeting external limits with sustained effort.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Optimism in practice",
+        "approxWordCount": 250,
+        "summary": "Keller turns from a definition of optimism to its public consequences, considering the role of optimism in social reform.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-038",
+    "author": "W. E. B. Du Bois",
+    "title": "The Souls of Black Folk",
+    "year": 1903,
+    "genre": "essay",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "408",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/408",
+    "themes": [
+      "double consciousness",
+      "race",
+      "history",
+      "education"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Of Our Spiritual Strivings",
+        "approxWordCount": 240,
+        "summary": "Du Bois introduces the concept of double consciousness and reflects on the experience of identity in post-Reconstruction America.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "Of the Sorrow Songs",
+        "approxWordCount": 250,
+        "summary": "Du Bois examines the spirituals as historical documents and as art, considering what they preserve of African American experience.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-039",
+    "author": "William James",
+    "title": "Pragmatism: A New Name for Some Old Ways of Thinking",
+    "year": 1907,
+    "genre": "essay",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "5116",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/5116",
+    "themes": [
+      "philosophy",
+      "truth",
+      "method",
+      "American thought"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Lecture I: The Present Dilemma in Philosophy",
+        "approxWordCount": 240,
+        "summary": "James opens by sketching what he calls a temperamental conflict in philosophy between tender-minded and tough-minded positions.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "central-ideas-and-details"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "The squirrel example",
+        "approxWordCount": 230,
+        "summary": "James uses an anecdote about people disputing whether a man circles a squirrel to illustrate how the pragmatic method dissolves verbal disagreements.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-040",
+    "author": "William Hazlitt",
+    "title": "Table-Talk: Essays on Men and Manners",
+    "year": 1821,
+    "genre": "essay",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "5085",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/5085",
+    "themes": [
+      "criticism",
+      "character",
+      "everyday observation",
+      "the essay form"
+    ],
+    "excerptPointers": [
+      {
+        "section": "On the Pleasure of Painting",
+        "approxWordCount": 240,
+        "summary": "Hazlitt reflects on the experience of working in oils and what painting teaches about attention.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "On Familiar Style",
+        "approxWordCount": 260,
+        "summary": "Hazlitt distinguishes plain and ornamented prose styles and argues that what looks easy in writing requires careful selection.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-041",
+    "author": "Lafcadio Hearn",
+    "title": "Glimpses of Unfamiliar Japan",
+    "year": 1894,
+    "genre": "essay",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "8128",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/8128",
+    "themes": [
+      "cross-cultural observation",
+      "place",
+      "tradition",
+      "travel writing"
+    ],
+    "excerptPointers": [
+      {
+        "section": "First arrival in Yokohama",
+        "approxWordCount": 240,
+        "summary": "Hearn records his first impressions on landing in Japan and describes the sensory texture of the streets and shop signs.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "central-ideas-and-details"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "At a country shrine",
+        "approxWordCount": 260,
+        "summary": "Hearn visits a small shrine in a rural area and records local practices, with reflections on what they suggest about communal memory.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-042",
+    "author": "Walter Pater",
+    "title": "The Renaissance: Studies in Art and Poetry",
+    "year": 1873,
+    "genre": "essay",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "2398",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/2398",
+    "themes": [
+      "aesthetics",
+      "history",
+      "art criticism",
+      "perception"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Preface",
+        "approxWordCount": 240,
+        "summary": "Pater defines the role of the aesthetic critic as one who isolates what is distinctive in a work and analyzes the conditions under which it produces its effect.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "Conclusion",
+        "approxWordCount": 250,
+        "summary": "Pater closes by arguing for an attentive engagement with experience and characterizes the moments at which life becomes acute.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-043",
+    "author": "Pearl S. Buck",
+    "title": "East and West and the Novel",
+    "year": 1932,
+    "genre": "essay",
+    "publicDomain": false,
+    "publicDomainYear": null,
+    "gutenbergId": "",
+    "sourceUrl": "https://catalog.hathitrust.org/",
+    "themes": [
+      "cross-cultural literature",
+      "the novel",
+      "China",
+      "narrative form"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Note on availability",
+        "approxWordCount": 0,
+        "summary": "Pearl S. Buck's mature work is not yet in US public domain; this entry is retained for tracking but should not be selected for excerpt generation until rights status changes.",
+        "suitableForSkills": [],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-044",
+    "author": "Harriet Martineau",
+    "title": "Society in America",
+    "year": 1837,
+    "genre": "essay",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "33358",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/33358",
+    "themes": [
+      "sociology",
+      "American institutions",
+      "comparative observation",
+      "democracy"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Introductory chapter on method",
+        "approxWordCount": 240,
+        "summary": "Martineau lays out the program for her study of American institutions, distinguishing her approach from earlier travel writing.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "Section on women's economic position",
+        "approxWordCount": 260,
+        "summary": "Martineau examines the legal and economic conditions of women in the United States and contrasts them with the rhetoric of equality found in public documents.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-045",
+    "author": "Lucy Stone",
+    "title": "Address to the Massachusetts Constitutional Convention",
+    "year": 1853,
+    "genre": "essay",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "",
+    "sourceUrl": "https://en.wikisource.org/wiki/Author:Lucy_Stone",
+    "themes": [
+      "women's suffrage",
+      "civic argument",
+      "natural rights",
+      "American reform"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Address to the Convention",
+        "approxWordCount": 240,
+        "summary": "Stone argues for the inclusion of women in the franchise on the basis of consent-of-the-governed principles, addressing delegates directly.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "Closing appeal",
+        "approxWordCount": 220,
+        "summary": "Stone closes by inviting delegates to consider the consistency of their stated principles with the law as currently constituted.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-046",
+    "author": "Frederick Douglass",
+    "title": "Narrative of the Life of Frederick Douglass, an American Slave",
+    "year": 1845,
+    "genre": "memoir",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "23",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/23",
+    "themes": [
+      "slavery",
+      "literacy",
+      "moral witness",
+      "freedom"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Learning to read",
+        "approxWordCount": 240,
+        "summary": "Douglass recounts how Mrs. Auld began teaching him the alphabet and how her husband intervened, treating literacy as a threat to the institution of slavery.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Confrontation with Covey",
+        "approxWordCount": 260,
+        "summary": "Douglass narrates his physical resistance against the overseer Covey and reflects on the change this confrontation produced in him.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-047",
+    "author": "Harriet Jacobs",
+    "title": "Incidents in the Life of a Slave Girl",
+    "year": 1861,
+    "genre": "memoir",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "11030",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/11030",
+    "themes": [
+      "slavery",
+      "gender",
+      "concealment",
+      "motherhood"
+    ],
+    "excerptPointers": [
+      {
+        "section": "The garret",
+        "approxWordCount": 240,
+        "summary": "Jacobs describes the small attic crawlspace where she hid for seven years to evade her owner, attending to the physical conditions of the hiding place.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "Address to the reader",
+        "approxWordCount": 240,
+        "summary": "Jacobs addresses Northern readers directly, acknowledging the difficulty of her testimony and asserting its truth.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-048",
+    "author": "Mary Antin",
+    "title": "The Promised Land",
+    "year": 1912,
+    "genre": "memoir",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "754",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/754",
+    "themes": [
+      "immigration",
+      "education",
+      "American identity",
+      "transformation"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Voyage and arrival",
+        "approxWordCount": 240,
+        "summary": "Antin recounts the family's voyage from Polotzk and their arrival in Boston, comparing the small details of each setting.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "First school days",
+        "approxWordCount": 250,
+        "summary": "Antin describes her first weeks of public school in Boston and the language acquisition that accompanied her early academic success.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-049",
+    "author": "Sojourner Truth",
+    "title": "Narrative of Sojourner Truth",
+    "year": 1850,
+    "genre": "memoir",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "1128",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/1128",
+    "themes": [
+      "slavery",
+      "religion",
+      "abolition",
+      "self-emancipation"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Departure from the Dumonts",
+        "approxWordCount": 230,
+        "summary": "Truth describes her decision to walk away from her enslaver before her legally promised emancipation date and her reflections on what would constitute a just departure.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "Recovering her son",
+        "approxWordCount": 250,
+        "summary": "Truth narrates her legal effort to recover her son, who had been illegally sold across state lines, including her interactions with sympathetic Quakers.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-050",
+    "author": "Black Hawk",
+    "title": "Autobiography of Ma-ka-tai-me-she-kia-kiak, or Black Hawk",
+    "year": 1833,
+    "genre": "memoir",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "10644",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/10644",
+    "themes": [
+      "Indigenous history",
+      "displacement",
+      "treaty disputes",
+      "memoir"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Boyhood at Saukenuk",
+        "approxWordCount": 230,
+        "summary": "Black Hawk describes the community life of his Sauk village along the Rock River and details its agricultural and ceremonial calendar.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "central-ideas-and-details"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "On the disputed treaty",
+        "approxWordCount": 250,
+        "summary": "Black Hawk presents his account of the 1804 treaty and explains why he and his people did not consider its terms binding on the Sauk nation.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-051",
+    "author": "Olaudah Equiano",
+    "title": "The Interesting Narrative of the Life of Olaudah Equiano",
+    "year": 1789,
+    "genre": "memoir",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "15399",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/15399",
+    "themes": [
+      "the Atlantic slave trade",
+      "religion",
+      "abolitionism",
+      "transformation"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Childhood in Igboland",
+        "approxWordCount": 240,
+        "summary": "Equiano describes the village life and customs of his early childhood before his capture, attending to family and community organization.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "central-ideas-and-details"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "The Middle Passage",
+        "approxWordCount": 260,
+        "summary": "Equiano recounts the conditions aboard the slave ship and the sensory disorientation of the voyage in language addressed to a European readership.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-052",
+    "author": "John Stuart Mill",
+    "title": "Autobiography",
+    "year": 1873,
+    "genre": "memoir",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "10378",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/10378",
+    "themes": [
+      "education",
+      "intellectual formation",
+      "mental crisis",
+      "utilitarianism"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Early education",
+        "approxWordCount": 240,
+        "summary": "Mill describes the intensive education his father designed for him and reflects on what it provided and what it omitted.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "The mental crisis",
+        "approxWordCount": 260,
+        "summary": "Mill describes a period of depression in his early twenties and examines what reading Wordsworth contributed to his recovery.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-053",
+    "author": "Henry Adams",
+    "title": "The Education of Henry Adams",
+    "year": 1907,
+    "genre": "memoir",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "2044",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/2044",
+    "themes": [
+      "education",
+      "American history",
+      "modernity",
+      "self-construction"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Quincy and Boston",
+        "approxWordCount": 230,
+        "summary": "Adams compares the influences of his grandfather's house at Quincy with his family's Boston residence, treating the two as opposing principles in his early life.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "The Dynamo and the Virgin",
+        "approxWordCount": 260,
+        "summary": "Adams visits the Paris Exposition and reflects on the symbolic difference between the medieval cult of the Virgin and the modern dynamo.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-054",
+    "author": "Charlotte Forten Grimké",
+    "title": "The Journal of Charlotte L. Forten",
+    "year": 1854,
+    "genre": "memoir",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "",
+    "sourceUrl": "https://en.wikisource.org/wiki/Author:Charlotte_Forten_Grimk%C3%A9",
+    "themes": [
+      "abolitionism",
+      "education",
+      "Reconstruction",
+      "interior life"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Salem schooling",
+        "approxWordCount": 230,
+        "summary": "Forten records her studies at the Higginson Grammar School in Salem and her readings outside school in works of history and poetry.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      },
+      {
+        "section": "Sea Islands diary entries",
+        "approxWordCount": 250,
+        "summary": "Forten records her observations as a teacher among formerly enslaved people on the Sea Islands during the Civil War.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-055",
+    "author": "Maxim Gorky",
+    "title": "My Childhood",
+    "year": 1913,
+    "genre": "memoir",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "29327",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/29327",
+    "themes": [
+      "Russian provincial life",
+      "family violence",
+      "labor",
+      "self-formation"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Grandfather's house",
+        "approxWordCount": 240,
+        "summary": "Gorky describes the household of his grandfather, including the daily violence and the dyeing-shop labor that punctuated family life.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "The grandmother's storytelling",
+        "approxWordCount": 250,
+        "summary": "The narrator recalls his grandmother's evening stories and the impression her speech and gestures left on him as a child.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-056",
+    "author": "Emily Dickinson",
+    "title": "Letters of Emily Dickinson",
+    "year": 1894,
+    "genre": "letters",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "37877",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/37877",
+    "themes": [
+      "correspondence",
+      "interiority",
+      "the New England circle",
+      "vocation"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Letter to T. W. Higginson, April 1862",
+        "approxWordCount": 220,
+        "summary": "Dickinson writes to Higginson asking whether he considers her verse alive, and characterizes her own habits of reading and composition.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "Letter to Susan Gilbert",
+        "approxWordCount": 220,
+        "summary": "Dickinson writes to her sister-in-law with a description of the household and a brief reflection on a recent reading.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-057",
+    "author": "Ralph Waldo Emerson",
+    "title": "The Correspondence of Thomas Carlyle and Ralph Waldo Emerson",
+    "year": 1883,
+    "genre": "letters",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "13201",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/13201",
+    "themes": [
+      "transatlantic correspondence",
+      "literary friendship",
+      "publishing",
+      "intellectual exchange"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Early letters from Emerson to Carlyle",
+        "approxWordCount": 230,
+        "summary": "Emerson writes to Carlyle about the reception of Sartor Resartus in America and about arrangements for an American edition.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "On The French Revolution",
+        "approxWordCount": 250,
+        "summary": "Emerson responds to Carlyle's manuscript and describes the experience of reading the work over multiple sessions.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "command-of-evidence-textual"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-058",
+    "author": "Frederick Douglass",
+    "title": "Letter to Thomas Auld",
+    "year": 1848,
+    "genre": "letters",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "",
+    "sourceUrl": "https://en.wikisource.org/wiki/Author:Frederick_Douglass",
+    "themes": [
+      "abolition",
+      "personal address",
+      "moral argument",
+      "memory"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Opening of the open letter",
+        "approxWordCount": 240,
+        "summary": "Douglass addresses his former enslaver directly in an open letter and explains his reasons for breaking the customary silence between an enslaved person and an enslaver.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "Imagining a daughter sold",
+        "approxWordCount": 240,
+        "summary": "Douglass invites Auld to consider how he would respond if his own daughter were subjected to what enslaved daughters routinely faced.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "id": "lit-059",
+    "author": "John Keats",
+    "title": "Letters of John Keats",
+    "year": 1848,
+    "genre": "letters",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "35698",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/35698",
+    "themes": [
+      "poetics",
+      "negative capability",
+      "illness",
+      "friendship"
+    ],
+    "excerptPointers": [
+      {
+        "section": "On negative capability",
+        "approxWordCount": 220,
+        "summary": "Keats writes to his brothers and articulates his concept of negative capability through brief reflections on Shakespeare and Coleridge.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "Letter to Fanny Brawne",
+        "approxWordCount": 220,
+        "summary": "Keats writes to Fanny Brawne during his illness and describes the routine of his confinement and his uncertain recovery.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-060",
+    "author": "Vincent van Gogh",
+    "title": "Letters to His Brother Theo",
+    "year": 1914,
+    "genre": "letters",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "",
+    "sourceUrl": "https://en.wikisource.org/wiki/Author:Vincent_van_Gogh",
+    "themes": [
+      "artistic vocation",
+      "color",
+      "perception",
+      "family ties"
+    ],
+    "excerptPointers": [
+      {
+        "section": "On painting in Arles",
+        "approxWordCount": 240,
+        "summary": "Van Gogh writes to his brother about his work in Arles and the role of complementary colors in the canvases he is producing.",
+        "suitableForSkills": [
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "hard"
+      },
+      {
+        "section": "On the role of the artist",
+        "approxWordCount": 240,
+        "summary": "Van Gogh reflects on what he wants his paintings to communicate to ordinary viewers and contrasts this aim with academic painting.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "author": "Emily Dickinson",
+    "title": "Because I could not stop for Death",
+    "year": 1890,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1890,
+    "gutenbergId": "12242",
+    "themes": [
+      "death",
+      "immortality",
+      "time"
+    ],
+    "id": "lit-061",
+    "addedBy": "rw-authenticity-dedupe-2026-06-11",
+    "excerptPointers": []
+  },
+  {
+    "author": "Lord Byron",
+    "title": "Childe Harold's Pilgrimage",
+    "year": 1818,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1818,
+    "gutenbergId": "5131",
+    "themes": [
+      "travel",
+      "ruins",
+      "nature",
+      "solitude"
+    ],
+    "id": "lit-062",
+    "addedBy": "rw-authenticity-dedupe-2026-06-11",
+    "excerptPointers": []
+  },
+  {
+    "author": "Percy Bysshe Shelley",
+    "title": "Ozymandias",
+    "year": 1818,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1818,
+    "gutenbergId": "4800",
+    "themes": [
+      "power",
+      "decay",
+      "time",
+      "hubris"
+    ],
+    "id": "lit-063",
+    "addedBy": "rw-authenticity-dedupe-2026-06-11",
+    "excerptPointers": []
+  },
+  {
+    "author": "Robert Frost",
+    "title": "Stopping by Woods on a Snowy Evening",
+    "year": 1923,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": null,
+    "themes": [
+      "nature",
+      "obligation",
+      "solitude"
+    ],
+    "id": "lit-064",
+    "addedBy": "rw-authenticity-dedupe-2026-06-11",
+    "excerptPointers": []
+  },
+  {
+    "author": "Alfred, Lord Tennyson",
+    "title": "The Kraken",
+    "year": 1830,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1830,
+    "gutenbergId": "8601",
+    "themes": [
+      "the sea",
+      "myth",
+      "sleep"
+    ],
+    "id": "lit-065",
+    "addedBy": "rw-authenticity-dedupe-2026-06-11",
+    "excerptPointers": []
+  },
+  {
+    "author": "Christina Rossetti",
+    "title": "Up-Hill",
+    "year": 1861,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1862,
+    "gutenbergId": "23044",
+    "themes": [
+      "journey",
+      "faith",
+      "mortality"
+    ],
+    "id": "lit-066",
+    "addedBy": "rw-authenticity-dedupe-2026-06-11",
+    "excerptPointers": []
+  },
+  {
+    "author": "Paul Laurence Dunbar",
+    "title": "We Wear the Mask",
+    "year": 1896,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1896,
+    "gutenbergId": null,
+    "themes": [
+      "concealment",
+      "dignity",
+      "suffering"
+    ],
+    "id": "lit-067",
+    "addedBy": "rw-authenticity-dedupe-2026-06-11",
+    "excerptPointers": []
+  },
+  {
+    "id": "lit-068",
+    "author": "William Blake",
+    "title": "The Tyger",
+    "year": 1794,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1794,
+    "gutenbergId": "574",
+    "themes": [
+      "creation",
+      "awe",
+      "duality",
+      "nature"
+    ],
+    "excerptPointers": [],
+    "addedBy": "rw-authenticity-dedupe-2026-06-11"
+  },
+  {
+    "id": "lit-069",
+    "author": "Claude McKay",
+    "title": "The Tropics in New York",
+    "year": 1920,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1978,
+    "sourceUrl": "https://en.wikisource.org/wiki/Harlem_Shadows/The_Tropics_in_New_York",
+    "collection": "Harlem Shadows (1922)",
+    "themes": [
+      "exile",
+      "memory",
+      "longing",
+      "the tropics"
+    ],
+    "excerptPointers": [
+      {
+        "section": "full poem (three quatrains)",
+        "approxWordCount": 85,
+        "summary": "Tropical fruit in a New York shop window stirs the speaker's memories of home and ends in a wave of longing and tears.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "central-ideas-and-details"
+        ],
+        "difficulty": "medium"
+      }
+    ]
+  },
+  {
+    "id": "lit-t8-001",
+    "author": "William Wordsworth",
+    "title": "I Wandered Lonely as a Cloud",
+    "year": 1807,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "32459",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/32459",
+    "themes": [
+      "nature",
+      "solitude",
+      "memory",
+      "joy"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Stanzas 1-2",
+        "approxWordCount": 95,
+        "summary": "The speaker, wandering alone, comes suddenly upon a vast crowd of daffodils beside a lake.",
+        "suitableForSkills": [
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      }
+    ],
+    "_meta": {
+      "quoteVerify": "Quoted verbatim from the 1815 revised text as printed in standard Wordsworth editions (Poems, in Two Volumes, 1807; rev. 1815): 'I wandered lonely as a cloud / That floats on high o'er vales and hills, / When all at once I saw a crowd, / A host, of golden daffodils; / Beside the lake, beneath the trees, / Fluttering and dancing in the breeze.' Stanza 2 as in the 1815 text ('Continuous as the stars that shine...'). Public domain; used in test8 q05."
+    }
+  },
+  {
+    "id": "lit-t8-002",
+    "author": "William Butler Yeats",
+    "title": "The Lake Isle of Innisfree",
+    "year": 1890,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "49608",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/49608",
+    "themes": [
+      "longing",
+      "retreat",
+      "nature",
+      "the city"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Full poem (three quatrains)",
+        "approxWordCount": 110,
+        "summary": "The speaker resolves to leave for the island of Innisfree, imagines the solitary life there, and reveals that its sounds reach him on the city pavements.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "hard"
+      }
+    ],
+    "_meta": {
+      "quoteVerify": "Quoted verbatim from the standard text (first collected in The Countess Kathleen and Various Legends and Lyrics, 1892; written 1888, first published in the National Observer, 1890): 'I will arise and go now, and go to Innisfree...' through '...I hear it in the deep heart's core.' Public domain; used in test8 q32."
+    }
+  },
+  {
+    "id": "lit-070",
+    "author": "William Hazlitt",
+    "title": "On Going a Journey",
+    "year": 1821,
+    "genre": "essay",
+    "publicDomain": true,
+    "sourceUrl": "https://en.wikisource.org/wiki/Table-Talk_(Hazlitt)/Essay_XIX._On_Going_a_Journey",
+    "collection": "Table-Talk: Essays on Men and Manners (1821)",
+    "themes": [
+      "solitude",
+      "travel",
+      "liberty",
+      "nature"
+    ],
+    "excerptPointers": [
+      {
+        "section": "opening paragraphs",
+        "approxWordCount": 80,
+        "summary": "The pleasure of journeying alone: society indoors, nature as company out of doors, liberty as the soul of a journey."
+      }
+    ]
+  },
+  {
+    "id": "lit-071",
+    "author": "Walt Whitman",
+    "title": "I Hear America Singing",
+    "year": 1860,
+    "genre": "poetry",
+    "publicDomain": true,
+    "sourceUrl": "https://en.wikisource.org/wiki/Leaves_of_Grass_(1860)/Chants_Democratic/20",
+    "collection": "Leaves of Grass (1860 edition)",
+    "themes": [
+      "labor",
+      "song",
+      "catalog",
+      "America"
+    ],
+    "excerptPointers": [
+      {
+        "section": "opening lines",
+        "approxWordCount": 95,
+        "summary": "A general declaration ('I hear America singing') elaborated through a catalog of workers, each singing at a characteristic task."
+      }
+    ]
+  },
+  {
+    "id": "lit-072",
+    "author": "Frederick II",
+    "title": "De arte venandi cum avibus",
+    "year": 1245,
+    "genre": "treatise",
+    "publicDomain": true,
+    "sourceUrl": "https://en.wikipedia.org/wiki/De_arte_venandi_cum_avibus",
+    "collection": "medieval manuscript tradition; standard English translation: The Art of Falconry (Wood & Fyfe, 1943)",
+    "themes": [
+      "falconry",
+      "empiricism",
+      "ornithology"
+    ],
+    "excerptPointers": [
+      {
+        "section": "referenced as a topical work, not excerpted",
+        "approxWordCount": 0,
+        "summary": "Frederick II's falconry treatise (c. 1245), notable for testing received claims (barnacle-goose legend, vulture senses) against observation."
+      }
+    ]
+  },
+  {
+    "id": "lit-073",
+    "author": "Henry Wadsworth Longfellow",
+    "title": "The Tide Rises, the Tide Falls",
+    "year": 1879,
+    "genre": "poetry",
+    "publicDomain": true,
+    "sourceUrl": "https://en.wikisource.org/wiki/The_Tide_Rises,_the_Tide_Falls",
+    "collection": "Ultima Thule (1880)",
+    "themes": [
+      "the sea",
+      "transience",
+      "mortality",
+      "nature's indifference"
+    ],
+    "excerptPointers": [
+      {
+        "section": "complete poem (15 lines)",
+        "approxWordCount": 100,
+        "summary": "Three refrain-linked stanzas move from twilight to night to morning; the traveler vanishes while the tide's rhythm persists.",
+        "suitableForSkills": [
+          "text-structure-and-purpose"
+        ]
+      }
+    ],
+    "notes": "Public-domain; verified against Wikisource text of Ultima Thule.",
+    "reviewer": "hareshbhatia",
+    "verifiedAt": "2026-09-01"
+  },
+  {
+    "id": "lit-074",
+    "author": "Sara Teasdale",
+    "title": "There Will Come Soft Rains",
+    "year": 1918,
+    "genre": "poetry",
+    "publicDomain": true,
+    "sourceUrl": "https://en.wikisource.org/wiki/Flame_and_Shadow/There_Will_Come_Soft_Rains",
+    "collection": "Flame and Shadow (1920); first published in Harper's Monthly Magazine, July 1918",
+    "themes": [
+      "nature's indifference",
+      "war",
+      "spring",
+      "human absence"
+    ],
+    "excerptPointers": [
+      {
+        "section": "complete poem (12 lines)",
+        "approxWordCount": 90,
+        "summary": "A catalog of spring images turns to the assertion that nature would neither notice nor mourn humanity's disappearance.",
+        "suitableForSkills": [
+          "text-structure-and-purpose"
+        ]
+      }
+    ],
+    "notes": "Public-domain (pre-1930 publication); verified against Wikisource text of Flame and Shadow.",
+    "reviewer": "hareshbhatia",
+    "verifiedAt": "2026-09-01"
+  },
+  {
+    "id": "lit-075",
+    "author": "Amy Lowell",
+    "title": "A London Thoroughfare. 2 A.M.",
+    "year": 1914,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1923,
+    "gutenbergId": "1020",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/1020",
+    "themes": [
+      "city at night",
+      "alienation",
+      "the moon"
+    ],
+    "excerptPointers": [
+      {
+        "section": "complete poem",
+        "approxWordCount": 105,
+        "summary": "From her window the speaker watches the lamplit street, contrasts the moon with the city glare, and sides with the moon in an alien city.",
+        "suitableForSkills": [
+          "text-structure-and-purpose",
+          "words-in-context"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lit-076",
+    "author": "Katherine Mansfield",
+    "title": "The Garden Party",
+    "year": 1922,
+    "genre": "short story",
+    "publicDomain": true,
+    "publicDomainYear": 2018,
+    "gutenbergId": "1429",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/1429",
+    "themes": [
+      "class",
+      "family",
+      "celebration"
+    ],
+    "excerptPointers": [
+      {
+        "section": "opening paragraph",
+        "approxWordCount": 120,
+        "summary": "An ideal summer morning before a garden party: perfect weather, dawn-mown lawns, roses in abundance.",
+        "suitableForSkills": [
+          "words-in-context",
+          "text-structure-and-purpose"
+        ]
+      }
+    ]
   }
- },
- {
-  "id": "lit-t8-002",
-  "author": "William Butler Yeats",
-  "title": "The Lake Isle of Innisfree",
-  "year": 1890,
-  "genre": "poetry",
-  "publicDomain": true,
-  "publicDomainYear": 1923,
-  "gutenbergId": "49608",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/49608",
-  "themes": [
-   "longing",
-   "retreat",
-   "nature",
-   "the city"
-  ],
-  "excerptPointers": [
-   {
-    "section": "Full poem (three quatrains)",
-    "approxWordCount": 110,
-    "summary": "The speaker resolves to leave for the island of Innisfree, imagines the solitary life there, and reveals that its sounds reach him on the city pavements.",
-    "suitableForSkills": [
-     "text-structure-and-purpose",
-     "inferences"
-    ],
-    "difficulty": "hard"
-   }
-  ],
-  "_meta": {
-   "quoteVerify": "Quoted verbatim from the standard text (first collected in The Countess Kathleen and Various Legends and Lyrics, 1892; written 1888, first published in the National Observer, 1890): 'I will arise and go now, and go to Innisfree...' through '...I hear it in the deep heart's core.' Public domain; used in test8 q32."
-  }
- },
- {
-  "id": "lit-070",
-  "author": "William Hazlitt",
-  "title": "On Going a Journey",
-  "year": 1821,
-  "genre": "essay",
-  "publicDomain": true,
-  "sourceUrl": "https://en.wikisource.org/wiki/Table-Talk_(Hazlitt)/Essay_XIX._On_Going_a_Journey",
-  "collection": "Table-Talk: Essays on Men and Manners (1821)",
-  "themes": [
-   "solitude",
-   "travel",
-   "liberty",
-   "nature"
-  ],
-  "excerptPointers": [
-   {
-    "section": "opening paragraphs",
-    "approxWordCount": 80,
-    "summary": "The pleasure of journeying alone: society indoors, nature as company out of doors, liberty as the soul of a journey."
-   }
-  ]
- },
- {
-  "id": "lit-071",
-  "author": "Walt Whitman",
-  "title": "I Hear America Singing",
-  "year": 1860,
-  "genre": "poetry",
-  "publicDomain": true,
-  "sourceUrl": "https://en.wikisource.org/wiki/Leaves_of_Grass_(1860)/Chants_Democratic/20",
-  "collection": "Leaves of Grass (1860 edition)",
-  "themes": [
-   "labor",
-   "song",
-   "catalog",
-   "America"
-  ],
-  "excerptPointers": [
-   {
-    "section": "opening lines",
-    "approxWordCount": 95,
-    "summary": "A general declaration ('I hear America singing') elaborated through a catalog of workers, each singing at a characteristic task."
-   }
-  ]
- },
- {
-  "id": "lit-072",
-  "author": "Frederick II",
-  "title": "De arte venandi cum avibus",
-  "year": 1245,
-  "genre": "treatise",
-  "publicDomain": true,
-  "sourceUrl": "https://en.wikipedia.org/wiki/De_arte_venandi_cum_avibus",
-  "collection": "medieval manuscript tradition; standard English translation: The Art of Falconry (Wood & Fyfe, 1943)",
-  "themes": [
-   "falconry",
-   "empiricism",
-   "ornithology"
-  ],
-  "excerptPointers": [
-   {
-    "section": "referenced as a topical work, not excerpted",
-    "approxWordCount": 0,
-    "summary": "Frederick II's falconry treatise (c. 1245), notable for testing received claims (barnacle-goose legend, vulture senses) against observation."
-   }
-  ]
- }
 ]

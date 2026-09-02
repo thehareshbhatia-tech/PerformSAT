@@ -1,6 +1,13 @@
 // Practice Test 11 — Math Module 2 Easy variant (22 questions)
 // For students routed to easier path after Module 1 (~<60% correct).
 // Distribution: 3E / 13M / 6H. Q1-3 easy openers. Max-score ceiling: ~650.
+// Official-calibration recreation (2026-09-01): fresh content authored per
+// docs/TEST_RECREATION_SPEC.md against the CB Educator QBank register.
+// Slot metadata (id/type/difficulty/band/skills/pattern) frozen. 4 diagram
+// items (triangle, bar graph, line graph, right triangle). Numeric MC
+// choices sorted ascending. Palette: ropes courses, vending machines,
+// camera-equipment rental, seed-drill calibration, hotel linen laundry,
+// elevator load limits.
 
 export const practiceTest11M2Easy = {
   id: "module-2-easy",
@@ -16,18 +23,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 2,
-      question: "The sum of three consecutive integers is $42$. What is the smallest of the three integers?",
+      question: "The sum of three consecutive integers is $78$. What is the greatest of the three integers?",
       choices: [
-        // distractor: off by one below the answer
-        { id: "A", text: "$12$" },
-        // distractor: the largest of the three
-        { id: "B", text: "$15$" },
-        { id: "C", text: "$13$" },
+        // distractor: the smallest of the three integers
+        { id: "A", text: "$25$" },
         // distractor: the middle integer (the mean)
-        { id: "D", text: "$14$" }
+        { id: "B", text: "$26$" },
+        { id: "C", text: "$27$" },
+        // distractor: off by one above the answer
+        { id: "D", text: "$28$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Consecutive Integers**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Three consecutive integers average to the middle one: $\\frac{42}{3} = 14$. The three are $13, 14, 15$, so the smallest is $13$.\n\n**The Full Solution:**\nStep 1: Call the integers $n$, $n + 1$, and $n + 2$. Their sum is $3n + 3 = 42$.\nStep 2: Subtract $3$: $3n = 39$, so $n = 13$.\nStep 3: Check: $13 + 14 + 15 = 42$. $\\checkmark$ The smallest is $13$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): an off-by-one slip when stepping back from the middle integer.\n* Choice B ($15$): the LARGEST of the three, not the smallest.\n* Choice D ($14$): the middle integer — dividing by $3$ gives the mean, but the question asks for the smallest.\n\n**Test Day Takeaway:** Consecutive integers center on their mean: divide the sum by the count to get the middle value, then step to the one the question asks for.",
+      explanation: "**SAT Pattern: Consecutive Integers**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Three consecutive integers average to the middle one: $\\frac{78}{3} = 26$. The three are $25, 26, 27$, so the greatest is $27$.\n\n**The Full Solution:**\nStep 1: Call the integers $n$, $n + 1$, and $n + 2$. Their sum is $3n + 3 = 78$.\nStep 2: Subtract $3$: $3n = 75$, so $n = 25$.\nStep 3: The integers are $25, 26, 27$. Check: $25 + 26 + 27 = 78$. $\\checkmark$ The greatest is $27$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($25$): the SMALLEST of the three, not the greatest.\n* Choice B ($26$): the middle integer — dividing by $3$ gives the mean, but the question asks for the greatest.\n* Choice D ($28$): an off-by-one slip when stepping forward from the middle integer.\n\n**Test Day Takeaway:** Consecutive integers center on their mean: divide the sum by the count to get the middle value, then step to the one the question asks for.",
       skills: ["solving-equations"]
     },
     {
@@ -35,18 +42,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 3,
-      question: "What is $\\dfrac{3}{4}$ expressed as a decimal?",
+      question: "What is $\\dfrac{2}{5}$ expressed as a decimal?",
       choices: [
-        // distractor: 3 + 4 = 7, then 0.07
-        { id: "A", text: "$0.07$" },
-        { id: "B", text: "$0.75$" },
-        // distractor: flips numerator and denominator — 4/3
-        { id: "C", text: "$1.33$" },
-        // distractor: drops decimal — gives 75
-        { id: "D", text: "$7.5$" }
+        // distractor: misplaces the decimal point one place too far
+        { id: "A", text: "$0.04$" },
+        // distractor: confuses 2/5 with the quarter conversion 1/4
+        { id: "B", text: "$0.25$" },
+        { id: "C", text: "$0.4$" },
+        // distractor: flips the fraction to 5/2
+        { id: "D", text: "$2.5$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Fraction-Decimal Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~3s):** $\\frac{3}{4}$ is a known conversion: $0.75$.\n\n**The Full Solution:**\nStep 1: A fraction is a division: $\\frac{3}{4} = 3 \\div 4$.\nStep 2: $3 \\div 4 = 0.75$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.07$): treated the fraction as $\\frac{3}{4}$ becoming $0.0$-something by misplacing the decimal.\n* Choice C ($1.33$): flipped the fraction to $\\frac{4}{3} \\approx 1.33$.\n* Choice D ($7.5$): found $75\\%$ but slid the decimal one place too far.\n\n**Test Day Takeaway:** Memorize the quarters and fifths: $\\frac{1}{4} = 0.25$, $\\frac{1}{2} = 0.5$, $\\frac{3}{4} = 0.75$, $\\frac{1}{5} = 0.2$.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Fraction-Decimal Conversion**\n\n**Choice C is correct.**\n\n**The Fast Way (~3s):** $\\frac{2}{5}$ is a known conversion: each fifth is $0.2$, so two fifths is $0.4$.\n\n**The Full Solution:**\nStep 1: A fraction is a division: $\\frac{2}{5} = 2 \\div 5$.\nStep 2: $2 \\div 5 = 0.4$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.04$): slides the decimal one place too far.\n* Choice B ($0.25$): swaps in the conversion for $\\frac{1}{4}$.\n* Choice D ($2.5$): flips the fraction, computing $\\frac{5}{2}$.\n\n**Test Day Takeaway:** Memorize the quarters and fifths: $\\frac{1}{4} = 0.25$, $\\frac{1}{2} = 0.5$, $\\frac{1}{5} = 0.2$, $\\frac{2}{5} = 0.4$.",
       skills: ["percent-decimal-conversion"]
     },
     {
@@ -54,18 +61,24 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 3,
-      question: "A triangle has angles measuring $50^{\\circ}$, $70^{\\circ}$, and $x^{\\circ}$. What is the value of $x$?",
+      question: "In the triangle shown, what is the value of $x$?",
+      diagram: {
+        type: "triangleWithAngles",
+        params: {
+          angleLabels: ["35°", "x°", "48°"]
+        }
+      },
       choices: [
-        // distractor: sums the two given
-        { id: "A", text: "$120$" },
-        { id: "B", text: "$60$" },
-        // distractor: 360 - 50 - 70
-        { id: "C", text: "$240$" },
-        // distractor: averages the two given
-        { id: "D", text: "$30$" }
+        // distractor: adds the two given angles and stops
+        { id: "A", text: "$83$" },
+        { id: "B", text: "$97$" },
+        // distractor: subtracts only the 48 from 180
+        { id: "C", text: "$132$" },
+        // distractor: subtracts only the 35 from 180
+        { id: "D", text: "$145$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** The three angles sum to $180^\\circ$, so $x = 180 - 50 - 70 = 60$.\n\n**The Full Solution:**\nStep 1: The interior angles of any triangle sum to $180^\\circ$.\nStep 2: $50 + 70 + x = 180$, so $120 + x = 180$.\nStep 3: $x = 60$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($120$): stopped after adding the two given angles, forgetting to subtract from $180$.\n* Choice C ($240$): used $360^\\circ$, the angle sum for a quadrilateral, not a triangle.\n* Choice D ($30$): averaged or otherwise mishandled the given angles.\n\n**Test Day Takeaway:** Triangle angles sum to $180^\\circ$; quadrilaterals to $360^\\circ$; pentagons to $540^\\circ$.",
+      explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** The three angles sum to $180^\\circ$, so $x = 180 - 35 - 48 = 97$.\n\n**The Full Solution:**\nStep 1: The interior angles of any triangle sum to $180^\\circ$.\nStep 2: $35 + 48 + x = 180$, so $83 + x = 180$.\nStep 3: $x = 97$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($83$): stops after adding the two given angles, forgetting to subtract from $180$.\n* Choice C ($132$): subtracts only the $48$, leaving the $35$ behind.\n* Choice D ($145$): subtracts only the $35$, leaving the $48$ behind.\n\n**Test Day Takeaway:** Triangle angles sum to $180^\\circ$ — subtract BOTH known angles before answering.",
       skills: ["triangle-angle-sum"]
     },
     // ============================================================
@@ -76,18 +89,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "If $f(x) = x^2 - 3x + 2$, what is the value of $f(4)$?",
+      question: "If $f(x) = x^2 - 6x + 3$, what is the value of $f(8)$?",
       choices: [
-        { id: "A", text: "$6$" },
-        // distractor: forgets to add 2 — 16 - 12
-        { id: "B", text: "$4$" },
-        // distractor: arithmetic — 4^2 - 3(4) - 2
-        { id: "C", text: "$2$" },
-        // distractor: 4^2 + 3(4) + 2 (sign error on middle)
-        { id: "D", text: "$30$" }
+        // distractor: treats 8^2 as 8 x 2 = 16, giving 16 - 48 + 3
+        { id: "A", text: "$-29$" },
+        // distractor: subtracts the constant 3 instead of adding it
+        { id: "B", text: "$13$" },
+        // distractor: drops the constant term entirely — 64 - 48
+        { id: "C", text: "$16$" },
+        { id: "D", text: "$19$" }
       ],
-      correctAnswer: "A",
-      explanation: "**SAT Pattern: Function Evaluation with Quadratic**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Substitute $x = 4$: $16 - 12 + 2 = 6$.\n\n**The Full Solution:**\nStep 1: Replace every $x$ with $4$: $f(4) = (4)^2 - 3(4) + 2$.\nStep 2: Evaluate the powers and products: $16 - 12 + 2$.\nStep 3: Combine left to right: $16 - 12 + 2 = 6$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): computed $16 - 12 = 4$ but dropped the $+2$.\n* Choice C ($2$): subtracted the final $2$ instead of adding it.\n* Choice D ($30$): flipped the middle sign, computing $16 + 12 + 2$.\n\n**Test Day Takeaway:** To find $f(a)$, replace every $x$ with $a$ and apply order of operations carefully — wrap negatives in parentheses.",
+      correctAnswer: "D",
+      explanation: "**SAT Pattern: Function Evaluation with Quadratic**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Substitute $x = 8$: $64 - 48 + 3 = 19$.\n\n**The Full Solution:**\nStep 1: Replace every $x$ with $8$: $f(8) = (8)^2 - 6(8) + 3$.\nStep 2: Evaluate the powers and products: $64 - 48 + 3$.\nStep 3: Combine left to right: $64 - 48 + 3 = 19$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-29$): treats $8^2$ as $8 \\times 2 = 16$, giving $16 - 48 + 3$.\n* Choice B ($13$): subtracts the final $3$ instead of adding it.\n* Choice C ($16$): computes $64 - 48$ but drops the $+3$.\n\n**Test Day Takeaway:** To find $f(a)$, replace every $x$ with $a$ and apply order of operations carefully — squaring means multiplying by itself, not by $2$.",
       skills: ["function-evaluation"]
     },
     {
@@ -95,18 +108,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "Solve the system of equations.\n\n$y = 2x + 1$\n$y = -x + 7$",
+      question: "Solve the system of equations.\n\n$y = 3x - 2$\n$y = -2x + 13$",
       choices: [
-        // distractor: switches x and y
-        { id: "A", text: "$(5, 2)$" },
-        { id: "B", text: "$(2, 5)$" },
-        // distractor: adds the equations literally
-        { id: "C", text: "$(3, 4)$" },
-        // distractor: averages
-        { id: "D", text: "$(4, 3)$" }
+        // distractor: satisfies only the first equation
+        { id: "A", text: "$(1, 1)$" },
+        // distractor: satisfies only the second equation
+        { id: "B", text: "$(2, 9)$" },
+        { id: "C", text: "$(3, 7)$" },
+        // distractor: swaps the x- and y-coordinates
+        { id: "D", text: "$(7, 3)$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: System by Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Both equations equal $y$, so set them equal: $2x + 1 = -x + 7 \\Rightarrow 3x = 6 \\Rightarrow x = 2$, then $y = 2(2) + 1 = 5$, giving $(2, 5)$.\n\n**The Full Solution:**\nStep 1: Since each right side equals $y$, set them equal: $2x + 1 = -x + 7$.\nStep 2: Add $x$ to both sides and subtract $1$: $3x = 6$, so $x = 2$.\nStep 3: Substitute back: $y = 2(2) + 1 = 5$. The solution is $(2, 5)$.\nStep 4: Check the second equation: $-2 + 7 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(5, 2)$): swapped the coordinates, writing $(y, x)$ instead of $(x, y)$.\n* Choice C ($(3, 4)$): solved or guessed without satisfying both equations.\n* Choice D ($(4, 3)$): a guess that fits neither line.\n\n**Test Day Takeaway:** When both equations are solved for $y$, set the right sides equal and solve for $x$ first, then back-substitute.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: System by Substitution**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Both equations equal $y$, so set them equal: $3x - 2 = -2x + 13 \\Rightarrow 5x = 15 \\Rightarrow x = 3$, then $y = 3(3) - 2 = 7$, giving $(3, 7)$.\n\n**The Full Solution:**\nStep 1: Since each right side equals $y$, set them equal: $3x - 2 = -2x + 13$.\nStep 2: Add $2x$ to both sides and add $2$: $5x = 15$, so $x = 3$.\nStep 3: Substitute back: $y = 3(3) - 2 = 7$. The solution is $(3, 7)$.\nStep 4: Check the second equation: $-2(3) + 13 = 7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(1, 1)$): satisfies the first equation only — the second gives $-2 + 13 = 11 \\neq 1$.\n* Choice B ($(2, 9)$): satisfies the second equation only — the first gives $6 - 2 = 4 \\neq 9$.\n* Choice D ($(7, 3)$): swaps the coordinates, writing $(y, x)$ instead of $(x, y)$.\n\n**Test Day Takeaway:** When both equations are solved for $y$, set the right sides equal, solve for $x$, then back-substitute — and verify in BOTH equations.",
       skills: ["substitution-method"]
     },
     {
@@ -114,9 +127,9 @@ export const practiceTest11M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "What value of $x$ is the solution to the equation $\\dfrac{2x + 4}{6} = 5$?",
-      correctAnswer: "13",
-      explanation: "**SAT Pattern: Linear Equation with a Fraction**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~10s):** Multiply both sides by $6$: $2x + 4 = 30$. Then $2x = 26$, so $x = 13$.\n\n**The Full Solution:**\nStep 1: Clear the fraction by multiplying both sides by $6$: $2x + 4 = 30$.\nStep 2: Subtract $4$: $2x = 26$.\nStep 3: Divide by $2$: $x = 13$.\nStep 4: Check: $\\frac{2(13) + 4}{6} = \\frac{30}{6} = 5$. $\\checkmark$\n\n**Common Mistakes:** Dividing $30$ by $2$ before subtracting the $4$; multiplying only the numerator by $6$ instead of the whole left side; forgetting to subtract $4$ first.\n\n**Test Day Takeaway:** Clear a fraction by multiplying both sides by the denominator, then solve the resulting linear equation step by step.",
+      question: "What value of $x$ is the solution to the equation $\\dfrac{3x - 6}{4} = 9$?",
+      correctAnswer: "14",
+      explanation: "**SAT Pattern: Linear Equation with a Fraction**\n\n**The correct answer is $14$.**\n\n**The Fast Way (~10s):** Multiply both sides by $4$: $3x - 6 = 36$. Then $3x = 42$, so $x = 14$.\n\n**The Full Solution:**\nStep 1: Clear the fraction by multiplying both sides by $4$: $3x - 6 = 36$.\nStep 2: Add $6$: $3x = 42$.\nStep 3: Divide by $3$: $x = 14$.\nStep 4: Check: $\\frac{3(14) - 6}{4} = \\frac{36}{4} = 9$. $\\checkmark$\n\n**Common Mistakes:** Multiplying only the $3x$ by $4$ instead of the whole numerator; dividing $36$ by $3$ before adding the $6$; subtracting $6$ instead of adding when isolating $3x$.\n\n**Test Day Takeaway:** Clear a fraction by multiplying both sides by the denominator, then undo the subtraction before the multiplication.",
       skills: ["solving-equations"]
     },
     {
@@ -124,18 +137,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "For what value of $x$ is the equation $\\sqrt{x + 5} = 7$ true?",
+      question: "For what value of $x$ is the equation $\\sqrt{x - 3} = 8$ true?",
       choices: [
-        // distractor: stops at 49 - 5 — actually correct? Let me make it different
-        { id: "A", text: "$2$" },
-        { id: "B", text: "$44$" },
-        // distractor: 7 - 5 without squaring
-        { id: "C", text: "$54$" },
-        // distractor: 7^2 + 5
-        { id: "D", text: "$49$" }
+        // distractor: computes 8 - 3 without squaring
+        { id: "A", text: "$5$" },
+        // distractor: computes 8 + 3 without squaring
+        { id: "B", text: "$11$" },
+        // distractor: subtracts 3 from 64 instead of adding
+        { id: "C", text: "$61$" },
+        { id: "D", text: "$67$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Square Root Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Square both sides: $x + 5 = 49$, so $x = 44$.\n\n**The Full Solution:**\nStep 1: Undo the square root by squaring both sides: $x + 5 = 7^2 = 49$.\nStep 2: Subtract $5$: $x = 44$.\nStep 3: Check: $\\sqrt{44 + 5} = \\sqrt{49} = 7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): computed $7 - 5$ without squaring first.\n* Choice C ($54$): added $5$ to $49$ instead of subtracting.\n* Choice D ($49$): stopped at $7^2 = 49$, forgetting to subtract the $5$.\n\n**Test Day Takeaway:** To eliminate a square root, square both sides; then solve the resulting equation and verify in the original.",
+      correctAnswer: "D",
+      explanation: "**SAT Pattern: Square Root Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Square both sides: $x - 3 = 64$, so $x = 67$.\n\n**The Full Solution:**\nStep 1: Undo the square root by squaring both sides: $x - 3 = 8^2 = 64$.\nStep 2: Add $3$: $x = 67$.\nStep 3: Check: $\\sqrt{67 - 3} = \\sqrt{64} = 8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): computes $8 - 3$ without ever squaring.\n* Choice B ($11$): computes $8 + 3$ without ever squaring.\n* Choice C ($61$): squares correctly but then subtracts the $3$ instead of adding it.\n\n**Test Day Takeaway:** To eliminate a square root, square both sides first; then move the constant, and verify in the original equation.",
       skills: ["solving-equations"]
     },
     {
@@ -143,18 +156,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The graph of a line in the $xy$-plane has slope $\\dfrac{2}{3}$ and passes through the point $(0, -4)$. What is the equation of the line?",
+      question: "The graph of a line in the $xy$-plane has slope $-\\dfrac{3}{4}$ and passes through the point $(0, 5)$. Which equation represents the line?",
       choices: [
-        // distractor: sign error on intercept
-        { id: "A", text: "$y = \\dfrac{2}{3}x + 4$" },
-        { id: "B", text: "$y = \\dfrac{2}{3}x - 4$" },
-        // distractor: flips slope
-        { id: "C", text: "$y = \\dfrac{3}{2}x - 4$" },
-        // distractor: uses x-intercept instead of y-intercept
-        { id: "D", text: "$y = \\dfrac{2}{3}(x - 4)$" }
+        // distractor: flips the slope to -4/3
+        { id: "A", text: "$y = -\\dfrac{4}{3}x + 5$" },
+        { id: "B", text: "$y = -\\dfrac{3}{4}x + 5$" },
+        // distractor: treats the intercept 5 as a horizontal shift
+        { id: "C", text: "$y = -\\dfrac{3}{4}(x + 5)$" },
+        // distractor: drops the negative sign on the slope
+        { id: "D", text: "$y = \\dfrac{3}{4}x + 5$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Slope-Intercept Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Slope $\\frac{2}{3}$ and $y$-intercept $-4$ plug straight into $y = mx + b$: $y = \\frac{2}{3}x - 4$.\n\n**The Full Solution:**\nStep 1: Slope-intercept form is $y = mx + b$.\nStep 2: The point $(0, -4)$ has $x = 0$, so it is the $y$-intercept: $b = -4$.\nStep 3: With $m = \\frac{2}{3}$, the line is $y = \\frac{2}{3}x - 4$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = \\frac{2}{3}x + 4$): used $+4$ instead of the negative intercept.\n* Choice C ($y = \\frac{3}{2}x - 4$): flipped the slope to $\\frac{3}{2}$.\n* Choice D ($y = \\frac{2}{3}(x - 4)$): treated $-4$ as a horizontal shift in point-slope form.\n\n**Test Day Takeaway:** A point of the form $(0, b)$ IS the $y$-intercept — drop $m$ and $b$ directly into $y = mx + b$.",
+      explanation: "**SAT Pattern: Slope-Intercept Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Slope $-\\frac{3}{4}$ and $y$-intercept $5$ plug straight into $y = mx + b$: $y = -\\frac{3}{4}x + 5$.\n\n**The Full Solution:**\nStep 1: Slope-intercept form is $y = mx + b$.\nStep 2: The point $(0, 5)$ has $x = 0$, so it IS the $y$-intercept: $b = 5$.\nStep 3: With $m = -\\frac{3}{4}$, the line is $y = -\\frac{3}{4}x + 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: flips the slope to $-\\frac{4}{3}$.\n* Choice C: treats the intercept $5$ as a horizontal shift inside parentheses.\n* Choice D: drops the negative sign from the slope.\n\n**Test Day Takeaway:** A point of the form $(0, b)$ IS the $y$-intercept — drop $m$ and $b$ directly into $y = mx + b$, signs included.",
       skills: ["slope-intercept-form"]
     },
     {
@@ -162,18 +175,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A jar contains $4$ red marbles, $6$ blue marbles, and $5$ green marbles. If one marble is drawn at random, what is the probability that it is NOT green?",
+      question: "A vending machine contains $6$ cola bottles, $9$ water bottles, and $5$ juice bottles. If one bottle is dispensed at random, what is the probability that it is NOT a juice bottle?",
       choices: [
-        // distractor: P(green)
-        { id: "A", text: "$\\dfrac{5}{15}$" },
-        { id: "B", text: "$\\dfrac{10}{15}$" },
-        // distractor: 4/15 (just red)
-        { id: "C", text: "$\\dfrac{4}{15}$" },
-        // distractor: 6/15 (just blue)
-        { id: "D", text: "$\\dfrac{6}{15}$" }
+        // distractor: gives P(juice), the complement of what was asked
+        { id: "A", text: "$\\dfrac{5}{20}$" },
+        // distractor: counts only the cola bottles
+        { id: "B", text: "$\\dfrac{6}{20}$" },
+        // distractor: counts only the water bottles
+        { id: "C", text: "$\\dfrac{9}{20}$" },
+        { id: "D", text: "$\\dfrac{15}{20}$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Complement Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Total marbles $= 15$; not green $= 4 + 6 = 10$, so $P(\\text{not green}) = \\frac{10}{15}$.\n\n**The Full Solution:**\nStep 1: Total $= 4 + 6 + 5 = 15$ marbles.\nStep 2: \"Not green\" means red or blue: $4 + 6 = 10$.\nStep 3: $P(\\text{not green}) = \\frac{10}{15}$. Equivalently, $1 - \\frac{5}{15} = \\frac{10}{15}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{15}$): gives $P(\\text{green})$, the complement of what was asked.\n* Choice C ($\\frac{4}{15}$): counted only the red marbles.\n* Choice D ($\\frac{6}{15}$): counted only the blue marbles.\n\n**Test Day Takeaway:** $P(\\text{not } A) = 1 - P(A)$. Subtracting the unwanted case is often faster than adding up all the favorable ones.",
+      correctAnswer: "D",
+      explanation: "**SAT Pattern: Complement Probability**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Total bottles $= 20$; not juice $= 6 + 9 = 15$, so $P(\\text{not juice}) = \\frac{15}{20}$.\n\n**The Full Solution:**\nStep 1: Total $= 6 + 9 + 5 = 20$ bottles.\nStep 2: \"Not juice\" means cola or water: $6 + 9 = 15$.\nStep 3: $P(\\text{not juice}) = \\frac{15}{20}$. Equivalently, $1 - \\frac{5}{20} = \\frac{15}{20}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{20}$): gives $P(\\text{juice})$ — the complement of what was asked.\n* Choice B ($\\frac{6}{20}$): counts only the cola bottles.\n* Choice C ($\\frac{9}{20}$): counts only the water bottles.\n\n**Test Day Takeaway:** $P(\\text{not } A) = 1 - P(A)$. Subtracting the unwanted case is often faster than adding up all the favorable ones.",
       skills: ["probability-basics"]
     },
     {
@@ -181,18 +194,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "What is the median of the following data set?\n\n$3, 7, 11, 14, 18, 21, 25$",
+      question: "What is the median of the following data set?\n\n$4, 7, 9, 10, 13, 16, 18$",
       choices: [
-        { id: "A", text: "$14$" },
-        // distractor: gives the mean
-        { id: "B", text: "$14.14$" },
-        // distractor: gives the range
-        { id: "C", text: "$22$" },
-        // distractor: the middle value of position rather than value
-        { id: "D", text: "$4$" }
+        { id: "A", text: "$10$" },
+        // distractor: gives the mean, 77/7 = 11
+        { id: "B", text: "$11$" },
+        // distractor: gives the range, 18 - 4
+        { id: "C", text: "$14$" },
+        // distractor: gives the greatest value
+        { id: "D", text: "$18$" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: Median of a Sorted List**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Seven values, already sorted — the median is the 4th one, $14$.\n\n**The Full Solution:**\nStep 1: The list $3, 7, 11, 14, 18, 21, 25$ is already in order.\nStep 2: With $7$ values, the middle position is the $\\frac{7+1}{2} = 4$th term.\nStep 3: The 4th term is $14$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($14.14$): computed the mean, $\\frac{99}{7} \\approx 14.14$, not the median.\n* Choice C ($22$): gave the range, $25 - 3$.\n* Choice D ($4$): reported the position of the middle term instead of its value.\n\n**Test Day Takeaway:** For a sorted list of odd length $n$, the median is the term in position $\\frac{n+1}{2}$; for even length, average the two middle terms.",
+      explanation: "**SAT Pattern: Median of a Sorted List**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Seven values, already sorted — the median is the 4th one, $10$.\n\n**The Full Solution:**\nStep 1: The list $4, 7, 9, 10, 13, 16, 18$ is already in order.\nStep 2: With $7$ values, the middle position is the $\\frac{7 + 1}{2} = 4$th term.\nStep 3: The 4th term is $10$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($11$): computes the mean, $\\frac{77}{7} = 11$, not the median.\n* Choice C ($14$): gives the range, $18 - 4$.\n* Choice D ($18$): reports the greatest value rather than the middle one.\n\n**Test Day Takeaway:** For a sorted list of odd length $n$, the median is the term in position $\\frac{n+1}{2}$; for even length, average the two middle terms.",
       skills: ["find-median"]
     },
     {
@@ -200,9 +213,9 @@ export const practiceTest11M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "A bicycle is on sale for $\\$240$ after a $20\\%$ discount. What was the original price of the bicycle, in dollars?",
-      correctAnswer: "300",
-      explanation: "**SAT Pattern: Reverse Percent**\n\n**The correct answer is $300$.**\n\n**The Fast Way (~15s):** A $20\\%$ discount leaves $80\\%$, so $\\$240$ is $80\\%$ of the original: $\\frac{240}{0.80} = 300$.\n\n**The Full Solution:**\nStep 1: Let $x$ be the original price. After a $20\\%$ discount the price is $80\\%$ of $x$: $0.80x = 240$.\nStep 2: Divide both sides by $0.80$: $x = \\frac{240}{0.80} = 300$.\nStep 3: Check: $20\\%$ of $\\$300$ is $\\$60$, so the sale price is $300 - 60 = \\$240$. $\\checkmark$\n\n**Common Mistakes:** Multiplying $240$ by $0.80$ instead of dividing; adding $20\\%$ of $240$ to get $288$; adding $\\$20$ to get $260$.\n\n**Test Day Takeaway:** \"After a $20\\%$ discount\" means the sale price is $80\\%$ of the original — reverse it by dividing by $0.80$, not by $0.20$.",
+      question: "A camera tripod is on sale for $\\$102$ after a $15\\%$ discount off its original price. What was the original price of the tripod, in dollars?",
+      correctAnswer: "120",
+      explanation: "**SAT Pattern: Reverse Percent**\n\n**The correct answer is $120$.**\n\n**The Fast Way (~15s):** A $15\\%$ discount leaves $85\\%$, so $\\$102$ is $85\\%$ of the original: $\\frac{102}{0.85} = 120$.\n\n**The Full Solution:**\nStep 1: Let $x$ be the original price. After a $15\\%$ discount the price is $85\\%$ of $x$: $0.85x = 102$.\nStep 2: Divide both sides by $0.85$: $x = \\frac{102}{0.85} = 120$.\nStep 3: Check: $15\\%$ of $\\$120$ is $\\$18$, so the sale price is $120 - 18 = \\$102$. $\\checkmark$\n\n**Common Mistakes:** Multiplying $102$ by $0.85$ instead of dividing; dividing by $0.15$ instead of $0.85$; adding $15\\%$ of $102$ to get $117.30$.\n\n**Test Day Takeaway:** \"After a $15\\%$ discount\" means the sale price is $85\\%$ of the original — reverse it by dividing by $0.85$, not by $0.15$.",
       skills: ["percent-change", "percent-word-problems"]
     },
     {
@@ -210,18 +223,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "Which expression is equivalent to $5(2x - 3) - 2(x + 4)$?",
+      question: "Which expression is equivalent to $4(3x - 2) - 3(x - 5)$?",
       choices: [
-        // distractor: forgets to distribute the negative
-        { id: "A", text: "$8x - 7$" },
-        { id: "B", text: "$8x - 23$" },
-        // distractor: adds wrong
-        { id: "C", text: "$12x - 23$" },
-        // distractor: keeps the +4 sign
-        { id: "D", text: "$8x - 11$" }
+        // distractor: fails to flip the sign when distributing -3 across -5
+        { id: "A", text: "$9x - 23$" },
+        { id: "B", text: "$9x + 7$" },
+        // distractor: distributes the 4 to only the first term inside its parentheses
+        { id: "C", text: "$9x + 13$" },
+        // distractor: adds the x-terms 12x + 3x instead of subtracting
+        { id: "D", text: "$15x + 7$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Distribute and Combine**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Distribute both factors: $10x - 15 - 2x - 8 = 8x - 23$.\n\n**The Full Solution:**\nStep 1: Distribute the $5$: $5(2x - 3) = 10x - 15$.\nStep 2: Distribute the $-2$: $-2(x + 4) = -2x - 8$.\nStep 3: Combine like terms: $(10x - 2x) + (-15 - 8) = 8x - 23$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($8x - 7$): kept $+8$ instead of $-8$ when distributing the $-2$.\n* Choice C ($12x - 23$): added $10x + 2x$ instead of subtracting.\n* Choice D ($8x - 11$): mishandled a sign while combining the constants.\n\n**Test Day Takeaway:** A negative outside parentheses flips the sign of every term inside: $-2(x + 4) = -2x - 8$.",
+      explanation: "**SAT Pattern: Distribute and Combine**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Distribute both factors: $12x - 8 - 3x + 15 = 9x + 7$.\n\n**The Full Solution:**\nStep 1: Distribute the $4$: $4(3x - 2) = 12x - 8$.\nStep 2: Distribute the $-3$: $-3(x - 5) = -3x + 15$ — two negatives make the $+15$.\nStep 3: Combine like terms: $(12x - 3x) + (-8 + 15) = 9x + 7$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($9x - 23$): keeps $-15$ instead of $+15$ when distributing $-3$ across $-5$.\n* Choice C ($9x + 13$): distributes the $4$ to the $3x$ but not the $-2$, giving $12x - 2 - 3x + 15$.\n* Choice D ($15x + 7$): adds $12x + 3x$ instead of subtracting.\n\n**Test Day Takeaway:** A negative outside parentheses flips the sign of EVERY term inside: $-3(x - 5) = -3x + 15$.",
       skills: ["distributive-property", "combining-like-terms"]
     },
     {
@@ -229,34 +242,34 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The bar graph (described below) shows the number of books read by five students last month: Alex read $8$, Bree read $5$, Cara read $11$, Devon read $4$, and Eli read $7$. What is the average (arithmetic mean) number of books read?",
+      question: "The bar graph shows the number of campers who completed each of five ropes courses at a camp in one afternoon. What is the average (arithmetic mean) number of campers per course?",
       diagram: {
         type: "barChart",
         params: {
           data: [
-            { label: "Alex", value: 8 },
-            { label: "Bree", value: 5 },
-            { label: "Cara", value: 11 },
-            { label: "Devon", value: 4 },
-            { label: "Eli", value: 7 }
+            { label: "Cedar", value: 4 },
+            { label: "Maple", value: 8 },
+            { label: "Oak", value: 12 },
+            { label: "Pine", value: 12 },
+            { label: "Spruce", value: 14 }
           ],
-          xAxisLabel: "Student",
-          yAxisLabel: "Books read",
-          yMax: 12,
-          yStep: 2
+          xAxisLabel: "Ropes course",
+          yAxisLabel: "Number of campers",
+          yMax: 16,
+          yStep: 4
         }
       },
       choices: [
-        // distractor: gives median
-        { id: "A", text: "$8$" },
-        { id: "B", text: "$7$" },
-        // distractor: gives mode (none, picks 8 instead)
-        { id: "C", text: "$5.5$" },
-        // distractor: total
-        { id: "D", text: "$35$" }
+        { id: "A", text: "$10$" },
+        // distractor: gives the median of the five values
+        { id: "B", text: "$12$" },
+        // distractor: gives the tallest bar's value (the maximum)
+        { id: "C", text: "$14$" },
+        // distractor: gives the total without dividing
+        { id: "D", text: "$50$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Mean of a Small Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Add the five values and divide by $5$: $\\dfrac{8 + 5 + 11 + 4 + 7}{5} = \\dfrac{35}{5} = 7$.\n\n**The Full Solution:**\nStep 1: Sum the counts: $8 + 5 + 11 + 4 + 7 = 35$.\nStep 2: Divide by the number of students: $\\dfrac{35}{5} = 7$ books.\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): grabs a single value from the list instead of averaging.\n* Choice C ($5.5$): averages just two of the values rather than all five.\n* Choice D ($35$): the sum, with the divide-by-$5$ step skipped.\n\n**Test Day Takeaway:** Mean $= \\dfrac{\\text{sum}}{\\text{count}}$. The last step is always dividing by how many values you added.",
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: Mean of a Small Data Set**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Add the five values and divide by $5$: $\\dfrac{4 + 8 + 12 + 12 + 14}{5} = \\dfrac{50}{5} = 10$.\n\n**The Full Solution:**\nStep 1: Read the bar heights: $4, 8, 12, 12, 14$.\nStep 2: Sum the counts: $4 + 8 + 12 + 12 + 14 = 50$.\nStep 3: Divide by the number of courses: $\\dfrac{50}{5} = 10$ campers.\n\n**Why the wrong answers are tempting:**\n* Choice B ($12$): gives the median (the middle value when sorted), not the mean.\n* Choice C ($14$): reads the tallest bar instead of averaging.\n* Choice D ($50$): the sum, with the divide-by-$5$ step skipped.\n\n**Test Day Takeaway:** Mean $= \\dfrac{\\text{sum}}{\\text{count}}$. The last step is always dividing by how many values you added.",
       skills: ["calculate-mean"]
     },
     {
@@ -264,18 +277,28 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A line passes through the points $(-2, 7)$ and $(4, 7)$. What is the slope of the line?",
+      question: "The graph of the linear function $g$ is shown in the $xy$-plane. The graph passes through the points $(-4, 3)$ and $(2, 3)$. What is the slope of the graph of $g$?",
+      diagram: {
+        type: "linearGraph",
+        params: {
+          slope: 0, yIntercept: 3,
+          xRange: [-6, 6], yRange: [-6, 6],
+          xTickInterval: 2, yTickInterval: 2, gridInterval: 1,
+          showPoints: [[-4, 3], [2, 3]],
+          label: "y = g(x)"
+        }
+      },
       choices: [
-        // distractor: reuses the shared y-coordinate
-        { id: "A", text: "$7$" },
-        { id: "B", text: "$0$" },
+        { id: "A", text: "$0$" },
+        // distractor: reports the constant y-value of the line
+        { id: "B", text: "$3$" },
+        // distractor: reports the run between the marked points, 2 - (-4)
+        { id: "C", text: "$6$" },
         // distractor: confuses horizontal with vertical
-        { id: "C", text: "$\\text{undefined}$" },
-        // distractor: adds the y-values instead of subtracting
-        { id: "D", text: "$\\dfrac{7}{3}$" }
+        { id: "D", text: "$\\text{undefined}$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Slope of a Horizontal Line**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Both points have $y = 7$: the line is horizontal, and every horizontal line has slope $0$.\n\n**The Full Solution:**\nStep 1: Apply the slope formula: $m = \\dfrac{7 - 7}{4 - (-2)}$.\nStep 2: The numerator is $0$ and the denominator is $6$, so $m = \\dfrac{0}{6} = 0$.\nStep 3: Interpretation: as $x$ changes, $y$ never changes — a flat, horizontal line.\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): reports the shared $y$-coordinate, not the slope.\n* Choice C (undefined): mixes up horizontal and vertical — the slope is undefined only when the $x$-coordinates match (division by zero).\n* Choice D ($\\dfrac{7}{3}$): adds the $y$-values, $\\dfrac{7 + 7}{4 - (-2)}$, instead of subtracting.\n\n**Test Day Takeaway:** Same $y$-values $\\Rightarrow$ horizontal $\\Rightarrow$ slope $0$. Same $x$-values $\\Rightarrow$ vertical $\\Rightarrow$ slope undefined. Zero and undefined are not the same thing.",
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: Slope of a Horizontal Line**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Both marked points have $y = 3$: the graph is horizontal, and every horizontal graph has slope $0$.\n\n**The Full Solution:**\nStep 1: Read the two marked points: $(-4, 3)$ and $(2, 3)$.\nStep 2: Apply the slope formula: $m = \\dfrac{3 - 3}{2 - (-4)} = \\dfrac{0}{6} = 0$.\nStep 3: Interpretation: as $x$ changes, $y$ never changes — a flat, horizontal graph.\n\n**Why the wrong answers are tempting:**\n* Choice B ($3$): reports the constant $y$-value of the graph, not its slope.\n* Choice C ($6$): reports the run between the marked points with no rise divided in.\n* Choice D (undefined): mixes up horizontal and vertical — slope is undefined only when the $x$-coordinates match.\n\n**Test Day Takeaway:** Same $y$-values $\\Rightarrow$ horizontal $\\Rightarrow$ slope $0$. Same $x$-values $\\Rightarrow$ vertical $\\Rightarrow$ slope undefined. Zero and undefined are not the same thing.",
       skills: ["slope-from-points", "slope-intercept-form"]
     },
     {
@@ -283,9 +306,16 @@ export const practiceTest11M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "A right triangle has one leg of length $8$ and a hypotenuse of length $10$. What is the length of the other leg?",
-      correctAnswer: "6",
-      explanation: "**SAT Pattern: Pythagorean Theorem (6-8-10 = 2x 3-4-5)**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~5s):** Recognize $8$ and $10$ as the leg and hypotenuse of a $6$-$8$-$10$ triangle (which is $3$-$4$-$5$ doubled). The missing leg is $6$.\n\n**The Full Solution:**\nStep 1: Apply $a^2 + b^2 = c^2$ with leg $8$ and hypotenuse $10$: $8^2 + b^2 = 10^2$.\nStep 2: $64 + b^2 = 100 \\Rightarrow b^2 = 36$.\nStep 3: $b = \\sqrt{36} = 6$. Check: $6^2 + 8^2 = 36 + 64 = 100 = 10^2$. $\\checkmark$\n\n**Common Mistakes:** Computing $\\sqrt{10^2 + 8^2} = \\sqrt{164}$ (treating the hypotenuse as a leg); adding $8 + 10 = 18$; forgetting the final square root and reporting $36$.\n\n**Test Day Takeaway:** Memorize the common Pythagorean triples and their multiples — $3$-$4$-$5$, $6$-$8$-$10$, $5$-$12$-$13$ — and spot them before reaching for the formula.",
+      question: "In the right triangle shown, one leg has length $5$ and the hypotenuse has length $13$. What is the length of the other leg?",
+      diagram: {
+        type: "rightTriangle",
+        params: {
+          sideLabels: ["5", "", "13"],
+          rightAngleVertex: 1
+        }
+      },
+      correctAnswer: "12",
+      explanation: "**SAT Pattern: Pythagorean Theorem (5-12-13)**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~5s):** Recognize $5$ and $13$ as the leg and hypotenuse of a $5$-$12$-$13$ triple. The missing leg is $12$.\n\n**The Full Solution:**\nStep 1: Apply $a^2 + b^2 = c^2$ with leg $5$ and hypotenuse $13$: $5^2 + b^2 = 13^2$.\nStep 2: $25 + b^2 = 169 \\Rightarrow b^2 = 144$.\nStep 3: $b = \\sqrt{144} = 12$. Check: $5^2 + 12^2 = 25 + 144 = 169 = 13^2$. $\\checkmark$\n\n**Common Mistakes:** Computing $\\sqrt{13^2 + 5^2} = \\sqrt{194}$ (treating the hypotenuse as a leg and adding); adding the lengths $5 + 13 = 18$; reporting $b^2 = 144$ without the final square root.\n\n**Test Day Takeaway:** Memorize the common Pythagorean triples — $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$ — and spot them before reaching for the formula.",
       skills: ["pythagorean-theorem", "triangles"]
     },
     {
@@ -293,18 +323,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "If $\\dfrac{3}{4}$ of a number is $27$, what is $\\dfrac{1}{4}$ of the same number?",
+      question: "If $\\dfrac{2}{3}$ of a number is $24$, what is $\\dfrac{1}{6}$ of the same number?",
       choices: [
+        // distractor: divides 24 by 6 as if 24 were the whole number
+        { id: "A", text: "$4$" },
+        { id: "B", text: "$6$" },
+        // distractor: finds 1/3 of the number instead of 1/6
+        { id: "C", text: "$12$" },
         // distractor: solves for the number itself and stops
-        { id: "A", text: "$36$" },
-        { id: "B", text: "$9$" },
-        // distractor: multiplies 27 by 3
-        { id: "C", text: "$81$" },
-        // distractor: takes half of the number instead of a quarter
-        { id: "D", text: "$18$" }
+        { id: "D", text: "$36$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Fraction of an Unknown with a Shifted Ask**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** If three quarters make $27$, one quarter is $\\frac{27}{3} = 9$ — no need to find the number at all.\n\n**The Full Solution:**\nStep 1: Let $n$ be the number: $\\dfrac{3}{4}n = 27$.\nStep 2: Multiply both sides by $\\dfrac{4}{3}$: $n = 27 \\cdot \\dfrac{4}{3} = 36$.\nStep 3: The question asks for $\\dfrac{1}{4}$ of the number: $\\dfrac{36}{4} = 9$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): solves for the number itself and stops — but the question asks for a quarter of it.\n* Choice C ($81$): multiplies $27 \\cdot 3$, mishandling the fraction.\n* Choice D ($18$): computes half of the number instead of a quarter.\n\n**Test Day Takeaway:** Re-read what the question actually asks before answering — the SAT loves putting the natural stopping point ($n = 36$) among the choices. Here the slick move: $\\frac{3}{4}n = 27$ means each quarter is $27 \\div 3$.",
+      explanation: "**SAT Pattern: Fraction of an Unknown with a Shifted Ask**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $\\frac{2}{3} = \\frac{4}{6}$, so four sixths make $24$ and one sixth is $\\frac{24}{4} = 6$ — no need to find the number at all.\n\n**The Full Solution:**\nStep 1: Let $n$ be the number: $\\dfrac{2}{3}n = 24$.\nStep 2: Multiply both sides by $\\dfrac{3}{2}$: $n = 24 \\cdot \\dfrac{3}{2} = 36$.\nStep 3: The question asks for $\\dfrac{1}{6}$ of the number: $\\dfrac{36}{6} = 6$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): divides $24$ by $6$, treating $24$ as the whole number.\n* Choice C ($12$): finds $\\dfrac{1}{3}$ of the number instead of $\\dfrac{1}{6}$.\n* Choice D ($36$): solves for the number itself and stops — but the question asks for a sixth of it.\n\n**Test Day Takeaway:** Re-read what the question actually asks — the SAT loves putting the natural stopping point ($n = 36$) among the choices.",
       skills: ["solving-equations"]
     },
     // ============================================================
@@ -315,18 +345,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "A solution requires mixing salt and water in the ratio $2 : 9$. If a chemist needs $33$ ounces of solution total, how many ounces of salt are needed?",
+      question: "A cover-crop seed mixture requires ryegrass seed and clover seed in a ratio of $3$ to $5$ by mass. How many kilograms of ryegrass seed are needed to make $48$ kilograms of the mixture?",
       choices: [
-        // distractor: just 2/9 of 33 — about 7.33
-        { id: "A", text: "$3$" },
-        { id: "B", text: "$6$" },
-        // distractor: misreads parts as 2 and 11
-        { id: "C", text: "$2$" },
-        // distractor: gives water portion
-        { id: "D", text: "$27$" }
+        // distractor: the mass of one part, not the 3-part ryegrass share
+        { id: "A", text: "$6$" },
+        // distractor: divides the total by 3 instead of using parts
+        { id: "B", text: "$16$" },
+        { id: "C", text: "$18$" },
+        // distractor: computes the clover share (5 parts) instead
+        { id: "D", text: "$30$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Ratios with a Total**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Total parts $= 2 + 9 = 11$. One part $= \\dfrac{33}{11} = 3$ ounces. Salt is $2$ parts: $2 \\cdot 3 = 6$ ounces.\n\n**The Full Solution:**\nStep 1: The ratio $2 : 9$ gives $2 + 9 = 11$ total parts, so salt is $\\dfrac{2}{11}$ of the solution.\nStep 2: Salt $= \\dfrac{2}{11} \\cdot 33 = \\dfrac{66}{11} = 6$ ounces.\nStep 3: Check: salt $6$ + water $27 = 33$, and $6 : 27 = 2 : 9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): the value of one part, not the $2$-part salt amount.\n* Choice C ($2$): copied the ratio number $2$ straight from the problem.\n* Choice D ($27$): solved for the water ($9$ parts) instead of the salt.\n\n**Test Day Takeaway:** For a ratio $a : b$ with total $T$, each part $= \\dfrac{T}{a + b}$; multiply by the part count you want.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Ratios with a Total**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Total parts $= 3 + 5 = 8$. One part $= \\dfrac{48}{8} = 6$ kilograms. Ryegrass is $3$ parts: $3 \\cdot 6 = 18$ kilograms.\n\n**The Full Solution:**\nStep 1: The ratio $3 : 5$ gives $3 + 5 = 8$ total parts, so ryegrass is $\\dfrac{3}{8}$ of the mixture.\nStep 2: Ryegrass $= \\dfrac{3}{8} \\cdot 48 = 18$ kilograms.\nStep 3: Check: ryegrass $18$ + clover $30 = 48$, and $18 : 30 = 3 : 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): the value of one part, not the $3$-part ryegrass amount.\n* Choice B ($16$): divides $48$ by the ratio number $3$ instead of by the total parts.\n* Choice D ($30$): solves for the clover ($5$ parts) instead of the ryegrass.\n\n**Test Day Takeaway:** For a ratio $a : b$ with total $T$, each part $= \\dfrac{T}{a + b}$; multiply by the part count you want.",
       skills: ["rate-conversion", "percent-word-problems"]
     },
     {
@@ -334,18 +364,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "If $2x + 3y = 18$ and $x = 3$, what is the value of $y$?",
+      question: "If $4x + 3y = 50$ and $x = 8$, what is the value of $y$?",
       choices: [
-        // distractor: divides 18/3
         { id: "A", text: "$6$" },
-        { id: "B", text: "$4$" },
-        // distractor: divides 12 by 4 instead of 3
-        { id: "C", text: "$3$" },
-        // distractor: 18 - 6 = 12 stops there
-        { id: "D", text: "$12$" }
+        // distractor: reuses the given x-value as the answer
+        { id: "B", text: "$8$" },
+        // distractor: divides 50 by 4 without substituting
+        { id: "C", text: "$12.5$" },
+        // distractor: stops at 3y = 18 without dividing
+        { id: "D", text: "$18$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Substitution into a Two-Variable Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Put $x = 3$ in: $2(3) + 3y = 18 \\Rightarrow 6 + 3y = 18 \\Rightarrow 3y = 12 \\Rightarrow y = 4$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 3$: $2(3) + 3y = 18$.\nStep 2: $6 + 3y = 18 \\Rightarrow 3y = 12$.\nStep 3: $y = \\dfrac{12}{3} = 4$. Check: $2(3) + 3(4) = 6 + 12 = 18$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): divided $18$ by $3$ without subtracting the $6$ first.\n* Choice C ($3$): reused the given $x = 3$ as the answer.\n* Choice D ($12$): stopped at $3y = 12$ instead of dividing by $3$.\n\n**Test Day Takeaway:** Substitute, then isolate the asked variable — don't quit at the line before the last division.",
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: Substitution into a Two-Variable Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Put $x = 8$ in: $4(8) + 3y = 50 \\Rightarrow 32 + 3y = 50 \\Rightarrow 3y = 18 \\Rightarrow y = 6$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 8$: $4(8) + 3y = 50$.\nStep 2: $32 + 3y = 50 \\Rightarrow 3y = 18$.\nStep 3: $y = \\dfrac{18}{3} = 6$. Check: $4(8) + 3(6) = 32 + 18 = 50$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($8$): reuses the given $x = 8$ as the answer.\n* Choice C ($12.5$): divides $50$ by $4$ without ever substituting.\n* Choice D ($18$): stops at $3y = 18$ instead of dividing by $3$.\n\n**Test Day Takeaway:** Substitute, then isolate the asked variable — don't quit at the line before the last division.",
       skills: ["substitution-method", "solving-equations"]
     },
     {
@@ -353,9 +383,9 @@ export const practiceTest11M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 6,
-      question: "The function $h$ models the height, in feet, of a ball $t$ seconds after it is thrown: $h(t) = -16t^2 + 32t + 5$. What is the height of the ball at $t = 1$ second?",
-      correctAnswer: "21",
-      explanation: "**SAT Pattern: Function Evaluation in Context**\n\n**The correct answer is $21$.**\n\n**The Fast Way (~15s):** Every power of $1$ is $1$, so $h(1) = -16 + 32 + 5 = 21$ feet.\n\n**The Full Solution:**\nStep 1: Substitute $t = 1$: $h(1) = -16(1)^2 + 32(1) + 5$.\nStep 2: $(1)^2 = 1$, so $= -16 + 32 + 5$.\nStep 3: $= 21$ feet.\n\n**Common Mistakes:** A sign slip on the $-16t^2$ term giving $16 + 32 + 5 = 53$; or dropping the $+5$ constant and reporting $16$.\n\n**Test Day Takeaway:** Evaluating a function means plugging the input in everywhere $t$ appears; at $t = 1$ this collapses to summing the coefficients with their signs.",
+      question: "The function $h$ models the height, in feet, of a water balloon $t$ seconds after it is launched upward: $h(t) = -16t^2 + 48t + 4$. What is the height, in feet, of the balloon $2$ seconds after launch?",
+      correctAnswer: "36",
+      explanation: "**SAT Pattern: Function Evaluation in Context**\n\n**The correct answer is $36$.**\n\n**The Fast Way (~15s):** $h(2) = -16(4) + 48(2) + 4 = -64 + 96 + 4 = 36$ feet.\n\n**The Full Solution:**\nStep 1: Substitute $t = 2$: $h(2) = -16(2)^2 + 48(2) + 4$.\nStep 2: $(2)^2 = 4$, so $h(2) = -64 + 96 + 4$.\nStep 3: $= 36$ feet.\n\n**Common Mistakes:** A sign slip on the $-16t^2$ term, giving $64 + 96 + 4 = 164$; squaring after multiplying, computing $-(16 \\cdot 2)^2$; dropping the $+4$ constant and reporting $32$.\n\n**Test Day Takeaway:** Evaluate the squared term first, keep its negative coefficient, then add the pieces — order of operations decides everything here.",
       skills: ["function-evaluation"]
     },
     {
@@ -363,18 +393,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "A bag of mixed nuts contains $40\\%$ peanuts by weight. If a bag weighs $250$ grams, what is the weight of the peanuts, in grams?",
+      question: "A hotel service elevator has a posted load limit of $840$ kilograms. A loaded linen cart has a mass equal to $35\\%$ of the load limit. What is the mass of the cart, in kilograms?",
       choices: [
-        // distractor: subtracts 40 from 250
+        // distractor: uses 25% (a quarter) instead of 35%
         { id: "A", text: "$210$" },
-        { id: "B", text: "$100$" },
-        // distractor: divides by 40
-        { id: "C", text: "$6.25$" },
-        // distractor: 250/4 = 62.5
-        { id: "D", text: "$62.5$" }
+        { id: "B", text: "$294$" },
+        // distractor: uses the complement 65% instead of 35%
+        { id: "C", text: "$546$" },
+        // distractor: subtracts 35 from 840 instead of taking a percent
+        { id: "D", text: "$805$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Percent of a Whole**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $40\\%$ of $250 = 0.40 \\cdot 250 = 100$ grams.\n\n**The Full Solution:**\nStep 1: Convert the percent: $40\\% = 0.40$.\nStep 2: Multiply by the whole: $0.40 \\cdot 250 = 100$ grams.\nStep 3: Check: peanuts $100$ + the rest $150 = 250$, and $\\dfrac{100}{250} = 40\\%$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($210$): subtracted $40$ from $250$ instead of taking a percent.\n* Choice C ($6.25$): divided $250$ by $40$.\n* Choice D ($62.5$): used $25\\%$ ($\\dfrac{1}{4}$ of $250$) instead of $40\\%$.\n\n**Test Day Takeaway:** \"$P\\%$ of a number\" means multiply by $\\dfrac{P}{100}$. Here $40\\% = \\dfrac{2}{5}$, so $\\dfrac{2}{5} \\cdot 250 = 100$.",
+      explanation: "**SAT Pattern: Percent of a Whole**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $35\\%$ of $840 = 0.35 \\cdot 840 = 294$ kilograms.\n\n**The Full Solution:**\nStep 1: Convert the percent: $35\\% = 0.35$.\nStep 2: Multiply by the whole: $0.35 \\cdot 840 = 294$ kilograms.\nStep 3: Check: $10\\%$ of $840$ is $84$, so $35\\% = 3.5 \\times 84 = 294$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($210$): uses $25\\%$ (a quarter of $840$) instead of $35\\%$.\n* Choice C ($546$): uses the complement $65\\%$ — the capacity NOT used by the cart.\n* Choice D ($805$): subtracts the number $35$ from $840$ instead of taking a percent.\n\n**Test Day Takeaway:** \"$P\\%$ of a number\" means multiply by $\\dfrac{P}{100}$. The $10\\%$-anchor trick ($84$, then $\\times 3.5$) is fast and calculator-free.",
       skills: ["percent-of-value"]
     },
     {
@@ -382,18 +412,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "If $(x + 4)(x - 2) = 0$, what are the solutions for $x$?",
+      question: "If $(x - 7)(x + 3) = 0$, what are the solutions to the equation?",
       choices: [
-        { id: "A", text: "$x = -4$ and $x = 2$" },
-        // distractor: sign flip
-        { id: "B", text: "$x = 4$ and $x = -2$" },
-        // distractor: multiplies the constants
-        { id: "C", text: "$x = -8$" },
-        // distractor: adds the constants
-        { id: "D", text: "$x = 2$" }
+        // distractor: multiplies the constants 7 and -3 instead of setting factors to zero
+        { id: "A", text: "$x = -21$" },
+        // distractor: copies the constants' signs instead of flipping them
+        { id: "B", text: "$x = -7 \\text{ and } x = 3$" },
+        { id: "C", text: "$x = -3 \\text{ and } x = 7$" },
+        // distractor: finds only one of the two roots
+        { id: "D", text: "$x = 7$" }
       ],
-      correctAnswer: "A",
-      explanation: "**SAT Pattern: Zero Product Property**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** A product equals $0$ only if a factor is $0$: $x + 4 = 0 \\Rightarrow x = -4$ and $x - 2 = 0 \\Rightarrow x = 2$.\n\n**The Full Solution:**\nStep 1: $(x + 4)(x - 2) = 0$ means $x + 4 = 0$ or $x - 2 = 0$.\nStep 2: Solve each: $x = -4$ or $x = 2$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($x = 4$ and $x = -2$): copied the constants' signs instead of flipping them.\n* Choice C ($x = -8$): multiplied the constants $4 \\cdot (-2)$ rather than setting each factor to $0$.\n* Choice D ($x = 2$): found only one of the two roots.\n\n**Test Day Takeaway:** Set each factor equal to $0$ and flip the sign of its constant: $(x + 4)$ gives $x = -4$, $(x - 2)$ gives $x = 2$.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Zero Product Property**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** A product equals $0$ only if a factor is $0$: $x - 7 = 0 \\Rightarrow x = 7$ and $x + 3 = 0 \\Rightarrow x = -3$.\n\n**The Full Solution:**\nStep 1: $(x - 7)(x + 3) = 0$ means $x - 7 = 0$ or $x + 3 = 0$.\nStep 2: Solve each: $x = 7$ or $x = -3$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($x = -21$): multiplies the constants $-7 \\cdot 3$ rather than setting each factor to $0$.\n* Choice B: copies the constants' signs straight from the factors instead of flipping them.\n* Choice D ($x = 7$): finds only one of the two roots.\n\n**Test Day Takeaway:** Set each factor equal to $0$ and flip the sign of its constant: $(x - 7)$ gives $x = 7$, $(x + 3)$ gives $x = -3$.",
       skills: ["finding-roots-factoring"]
     },
     {
@@ -401,9 +431,9 @@ export const practiceTest11M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 7,
-      question: "An online store sells a t-shirt for $\\$20$ and a mug for $\\$8$. In one day the store sold a total of $25$ items and made $\\$320$ in revenue. How many t-shirts were sold?",
-      correctAnswer: "10",
-      explanation: "**SAT Pattern: System of Equations from Word Problem**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~30s):** Let $t$ = t-shirts, so mugs $= 25 - t$. Revenue: $20t + 8(25 - t) = 320 \\Rightarrow 12t + 200 = 320 \\Rightarrow t = 10$.\n\n**The Full Solution:**\nStep 1: Set up two equations with $t$ t-shirts and $m$ mugs: $t + m = 25$ and $20t + 8m = 320$.\nStep 2: Solve the first for $m = 25 - t$ and substitute: $20t + 8(25 - t) = 320$.\nStep 3: $20t + 200 - 8t = 320 \\Rightarrow 12t = 120 \\Rightarrow t = 10$.\nStep 4: Check: $10$ t-shirts + $15$ mugs $= 25$ items, revenue $20(10) + 8(15) = 200 + 120 = \\$320$. $\\checkmark$\n\n**Common Mistakes:** Solving for mugs ($m = 15$) and reporting that; writing only the revenue equation $20t = 320 \\Rightarrow t = 16$; or subtracting prices ($20 - 8 = 12$) and dividing $\\dfrac{320}{12}$, which ignores the constant from the cheaper item.\n\n**Test Day Takeaway:** Two unknowns need two equations. Solve one for a variable and substitute into the other, then confirm you answered for the quantity asked.",
+      question: "A vending machine sells granola bars for $\\$2$ each and trail-mix packs for $\\$3$ each. In one day, the machine sold $60$ items in total for $\\$145$. How many trail-mix packs did the machine sell?",
+      correctAnswer: "25",
+      explanation: "**SAT Pattern: System of Equations from Word Problem**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~30s):** Let $t$ = trail-mix packs, so granola bars $= 60 - t$. Revenue: $3t + 2(60 - t) = 145 \\Rightarrow t + 120 = 145 \\Rightarrow t = 25$.\n\n**The Full Solution:**\nStep 1: Set up two equations with $t$ trail-mix packs and $g$ granola bars: $t + g = 60$ and $3t + 2g = 145$.\nStep 2: Solve the first for $g = 60 - t$ and substitute: $3t + 2(60 - t) = 145$.\nStep 3: $3t + 120 - 2t = 145 \\Rightarrow t = 25$.\nStep 4: Check: $25$ packs + $35$ bars $= 60$ items, revenue $3(25) + 2(35) = 75 + 70 = \\$145$. $\\checkmark$\n\n**Common Mistakes:** Solving for the granola bars ($g = 35$) and reporting that; writing only the revenue equation $3t = 145$; subtracting the prices ($3 - 2 = 1$) but then dividing $145$ by it instead of first removing the $2 \\times 60$ baseline.\n\n**Test Day Takeaway:** Two unknowns need two equations. Solve one for a variable and substitute into the other, then confirm you answered for the quantity asked.",
       skills: ["setting-up-systems", "substitution-method"]
     }
   ]
