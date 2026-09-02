@@ -171,7 +171,7 @@ export const practiceTest5RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "A large fossil rarely leaves the ground intact by luck alone. Field crews first expose the top of a specimen, then trench around it until the bones stand on a pedestal of rock. *Before the pedestal is undercut and the block turned over, the crew wraps everything in layers of burlap soaked in wet plaster, which harden into a rigid jacket.* Sealed inside, the brittle bones and their surrounding rock can survive the jolt of separation and the rough journey out of the field; months later, laboratory preparators saw the jacket open and finish, under magnification, the excavation the field crew began.",
+          "passage": "A large fossil rarely leaves the ground intact by luck alone. Field crews first expose the top of a specimen, then trench around it until the bones stand on a pedestal of rock. __Before the pedestal is undercut and the block turned over, the crew wraps everything in layers of burlap soaked in wet plaster, which harden into a rigid jacket.__ Sealed inside, the brittle bones and their surrounding rock can survive the jolt of separation and the rough journey out of the field; months later, laboratory preparators saw the jacket open and finish, under magnification, the excavation the field crew began.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
@@ -1165,7 +1165,7 @@ export const practiceTest5RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Ice several kilometers thick is opaque to the eye but transparent to radio waves. *Flying survey lines above Antarctica, glaciologists beam radar pulses down through the ice sheet and time the echoes returning from whatever lies at its base.* Where the pulse strikes bedrock, the echo comes back rough and scattered; where it strikes standing water, the echo returns with a mirror's flatness and brightness. By mapping those flat, bright reflections, researchers have charted hundreds of lakes sealed beneath the ice sheet, bodies of water that have been cut off from the surface, in some cases, for enormous stretches of time.",
+          "passage": "Ice several kilometers thick is opaque to the eye but transparent to radio waves. __Flying survey lines above Antarctica, glaciologists beam radar pulses down through the ice sheet and time the echoes returning from whatever lies at its base.__ Where the pulse strikes bedrock, the echo comes back rough and scattered; where it strikes standing water, the echo returns with a mirror's flatness and brightness. By mapping those flat, bright reflections, researchers have charted hundreds of lakes sealed beneath the ice sheet, bodies of water that have been cut off from the surface, in some cases, for enormous stretches of time.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {

@@ -237,7 +237,7 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
           "type": "multiple-choice",
-          "passage": "During the influenza pandemic of 1918, American cities differed sharply in how quickly they acted. Philadelphia allowed a large public parade to proceed in late September; within weeks its hospitals were overwhelmed, and its death rate became one of the highest of any major city. *St. Louis, by contrast, closed schools, theaters, and other gathering places within days of its first cases, and its death rate remained well below Philadelphia's.* Historians of public health caution that the two cities differed in more ways than their policies, but the comparison remains a touchstone in debates over how governments should act in an epidemic's earliest days.",
+          "passage": "During the influenza pandemic of 1918, American cities differed sharply in how quickly they acted. Philadelphia allowed a large public parade to proceed in late September; within weeks its hospitals were overwhelmed, and its death rate became one of the highest of any major city. __St. Louis, by contrast, closed schools, theaters, and other gathering places within days of its first cases, and its death rate remained well below Philadelphia's.__ Historians of public health caution that the two cities differed in more ways than their policies, but the comparison remains a touchstone in debates over how governments should act in an epidemic's earliest days.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
@@ -1208,7 +1208,7 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
           "type": "multiple-choice",
-          "passage": "In the late 1980s, oceanographer John Martin proposed that vast stretches of the ocean remain poor in phytoplankton not for lack of light or major nutrients but for lack of iron, a scarce trace element. Field experiments seeded patches of open water with dissolved iron, and the patches bloomed within days, turning visibly green with growth. *Yet the blooms proved short-lived, and only a small fraction of the carbon they absorbed sank into the deep ocean rather than returning quickly to the atmosphere.* Accordingly, most researchers who accept Martin's account of what limits phytoplankton growth nonetheless doubt that fertilizing the ocean with iron could meaningfully slow climate change.",
+          "passage": "In the late 1980s, oceanographer John Martin proposed that vast stretches of the ocean remain poor in phytoplankton not for lack of light or major nutrients but for lack of iron, a scarce trace element. Field experiments seeded patches of open water with dissolved iron, and the patches bloomed within days, turning visibly green with growth. __Yet the blooms proved short-lived, and only a small fraction of the carbon they absorbed sank into the deep ocean rather than returning quickly to the atmosphere.__ Accordingly, most researchers who accept Martin's account of what limits phytoplankton growth nonetheless doubt that fertilizing the ocean with iron could meaningfully slow climate change.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
