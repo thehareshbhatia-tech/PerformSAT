@@ -167,3 +167,12 @@ be genuine public-domain text, verbatim, with correct attribution.
 | 12 | done | done | done | done | done | done |
 
 Catalog complete 2026-09-01: commits 64e7d5b, 8d40023, 1f9d194, 7661bb6, 62fa6c3, ff678b0, 9f2dcff. validateRWBank --all: 0 violations across 972 items. Full jest: 3,045/3,045.
+
+**Diagnostic recreated 2026-09-02:** the diagnostic (full + check-in, plus the
+legacy flag-off sampler) now serves ONLY recreated content — math via
+`src/data/questions/mathTestBank/` (792 items flattened from the 12 math
+bundles + M2Easy variants, namespaced `math-test{N}-{moduleId}-{qId}`) and R&W
+via the bundle-fed rwBank minus its drill-only `rw-authored-*` fills. Resume of
+pre-switch in-progress sittings falls back to the legacy math drill bank. The
+hand-authored math drill bank still serves Study Plan drills and remains the
+one large pre-recreation-register corpus (candidate for a future wave).

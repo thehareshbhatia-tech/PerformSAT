@@ -26,11 +26,18 @@
  * re-sampled, so saved `modIdx-qIdx` answers stay aligned. If any id has
  * left the bank, rebuild returns null and the caller starts fresh.
  *
+ * Pools (diagnostic recreation, 2026-09-02): math draws from the
+ * mathTestBank flatten of the 12 recreated practice-test bundles; R&W draws
+ * from the bundle-fed rwBank minus its drill-only `rw-authored-*` fills. So
+ * every question a diagnostic serves is recreated official-register content
+ * with the production explanation scaffold. Rebuild falls back to the legacy
+ * math drill bank for manifests persisted before the switch.
+ *
  * Banks are reached ONLY through `data/corpusLoader.js` dynamic imports
  * (bundleGuard contract) — safe to import from App.jsx.
  */
 
-import { loadMathBank, loadRWBank } from '../../data/corpusLoader';
+import { loadMathBank, loadMathTestBank, loadRWBank } from '../../data/corpusLoader';
 
 // Canonical domain orders — mirror sampler.js / practiceAssignmentService.js
 // (private there; duplicated by the same bundle-isolation rationale).
@@ -349,7 +356,14 @@ export async function buildDiagnosticTest({
   focusSkills = [],
 }) {
   const config = VARIANT_CONFIG[variant] || VARIANT_CONFIG.full;
-  const [mathBank, rwBank] = await Promise.all([loadMathBank(), loadRWBank()]);
+  // Diagnostic recreation (2026-09-02): every served item comes from the
+  // recreated practice-test bundles — math via the mathTestBank flatten
+  // (replacing the pre-recreation hand-authored drill bank), R&W via the
+  // bundle-fed rwBank MINUS its drill-only `rw-authored-*` fills, which were
+  // out of the recreation's scope. Drills keep their own banks.
+  const [mathBank, rwBank] = await Promise.all([loadMathTestBank(), loadRWBank()]);
+  const rwRecreatedByDomain = (domain) => (rwBank.getQuestionsByDomain(domain) || [])
+    .filter((q) => !String(q.id).startsWith('rw-authored-'));
   const baseSeed = hashString(`${userId}:${attemptId}`);
   const excluded = new Set(excludeIds);
 
@@ -401,7 +415,7 @@ export async function buildDiagnosticTest({
   };
 
   const rw = buildSection({
-    bank: rwBank,
+    bank: { getQuestionsByDomain: rwRecreatedByDomain },
     domains: RW_DOMAIN_ORDER,
     sectionKey: 'rw',
     section: 'reading-writing',
@@ -505,9 +519,28 @@ export async function rebuildDiagnosticTest(manifest) {
   if (!manifest || manifest.version !== MANIFEST_VERSION || !Array.isArray(manifest.modules)) {
     return null;
   }
-  const [mathBank, rwBank] = await Promise.all([loadMathBank(), loadRWBank()]);
+  const [mathTestBank, rwBank] = await Promise.all([loadMathTestBank(), loadRWBank()]);
+
+  // Manifests written before the diagnostic served recreated content
+  // (2026-09-02) hold hand-authored drill-bank math ids. Load the legacy bank
+  // only when such an id appears, so a mid-migration in-progress sitting still
+  // resumes instead of restarting — new manifests never pay for the old chunk.
+  const allManifestModules = [
+    ...manifest.modules,
+    ...(manifest.rwModule2Easy ? [manifest.rwModule2Easy] : []),
+    ...(manifest.module2Easy ? [manifest.module2Easy] : []),
+  ];
+  const needsLegacyMath = allManifestModules.some((mod) => (
+    mod && mod.section !== 'reading-writing' && Array.isArray(mod.itemIds)
+      && mod.itemIds.some((id) => !mathTestBank.getQuestionById(id))
+  ));
+  const legacyMathBank = needsLegacyMath ? await loadMathBank() : null;
+
   const lookup = (section, id) => (
-    section === 'reading-writing' ? rwBank.getQuestionById(id) : mathBank.getQuestionById(id)
+    section === 'reading-writing'
+      ? rwBank.getQuestionById(id)
+      : (mathTestBank.getQuestionById(id)
+          || (legacyMathBank ? legacyMathBank.getQuestionById(id) : undefined))
   );
 
   const rebuildModule = (modManifest) => {

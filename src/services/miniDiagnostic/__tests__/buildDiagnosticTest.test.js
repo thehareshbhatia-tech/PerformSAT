@@ -104,6 +104,21 @@ describe('buildDiagnosticTest — full variant', () => {
     expect(badMcs).toEqual([]);
   });
 
+  test('serves only recreated content: math test bank + bundle-fed RW, no drill-only fills', () => {
+    const { test: t } = built;
+    const mods = [...t.modules];
+    if (t.rwModule2Easy) mods.push(t.rwModule2Easy);
+    if (t.module2Easy) mods.push(t.module2Easy);
+    mods.forEach((m) => m.questions.forEach((q) => {
+      if (m.section === 'math') {
+        expect(String(q.id)).toMatch(/^math-test\d/);
+      } else {
+        // `rw-test{N}-...` only — never an `rw-authored-*` drill fill.
+        expect(String(q.id)).toMatch(/^rw-test\d/);
+      }
+    }));
+  });
+
   test('served path covers every domain with ≥4 items and ≥24 distinct skills', () => {
     // Served path = the 4 standard modules (hard route; the easy swap keeps
     // the same stratification, pinned separately below).
@@ -176,6 +191,20 @@ describe('rebuildDiagnosticTest — manifest round-trip', () => {
       .toEqual(collectAllItems(original).map((q) => q.id));
     expect(rebuilt.modules.map((m) => m.timeLimit))
       .toEqual(original.modules.map((m) => m.timeLimit));
+  });
+
+  test('resumes a pre-recreation manifest holding legacy drill-bank math ids', async () => {
+    const { loadMathBank } = require('../../../data/corpusLoader');
+    const legacyBank = await loadMathBank();
+    const legacyId = legacyBank.getQuestionsByDomain('algebra')[0].id;
+    const { manifest } = await buildDiagnosticTest(seed);
+    const legacyManifest = JSON.parse(JSON.stringify(manifest));
+    const mathMod = legacyManifest.modules.find((m) => m.section === 'math');
+    mathMod.itemIds[0] = legacyId;
+    const rebuilt = await rebuildDiagnosticTest(legacyManifest);
+    expect(rebuilt).not.toBeNull();
+    const rebuiltMathMod = rebuilt.modules.find((m) => m.section === 'math');
+    expect(rebuiltMathMod.questions[0].id).toBe(legacyId);
   });
 
   test('returns null when an item id has left the bank (bank drift)', async () => {
