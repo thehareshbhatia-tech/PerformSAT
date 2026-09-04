@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-284",
+ "question": "$a(4x - 5) = 12x + b$\n\nIn the given equation, $a$ and $b$ are constants. If the equation has infinitely many solutions, what is the value of $a + b$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-18$"
+  },
+  {
+   "id": "B",
+   "text": "$-15$"
+  },
+  {
+   "id": "C",
+   "text": "$-12$"
+  },
+  {
+   "id": "D",
+   "text": "$3$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "sign error giving a = -3",
+  "B": "reports b alone",
+  "D": "reports a alone"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Identity / Contradiction — Match Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Distribute: $4ax - 5a = 12x + b$. Match coefficients: $4a = 12$ gives $a = 3$; then $b = -5a = -15$. So $a + b = -12$.\n\n**The Full Solution:**\nStep 1: Distribute the left side: $4ax - 5a$.\nStep 2: An identity requires equal $x$-coefficients: $4a = 12$, so $a = 3$.\nStep 3: Equal constants: $-5a = b$, so $b = -15$. Then $a + b = 3 + (-15) = -12$. Check: $3(4x - 5) = 12x - 15$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-18$): solves $4a = 12$ as $a = -3$ and adds $-15$.\n* Choice B ($-15$): reports $b$ alone rather than $a + b$.\n* Choice D ($3$): reports $a$ alone.\n\n**Test Day Takeaway:** Match the $x$-coefficients to find one constant, use it to find the other from the constant terms, then combine as asked."
+}

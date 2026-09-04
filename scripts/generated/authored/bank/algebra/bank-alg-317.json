@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-317",
+  "question": "The expression $5(3x - 2) - 4(x + 3)$ is equivalent to $ax + b$, where $a$ and $b$ are constants. What is the value of $b$?",
+  "correctAnswer": "-22",
+  "explanation": "**SAT Pattern: Combining Like Terms**\n\n**The correct answer is $-22$.**\n\n**The Fast Way (~10s):** Only the constants matter for $b$: $5(-2) - 4(3) = -10 - 12 = -22$.\n\n**The Full Solution:**\nStep 1: Distribute each product: $5(3x - 2) = 15x - 10$ and $-4(x + 3) = -4x - 12$.\nStep 2: Combine like terms: $x$-terms $15x - 4x = 11x$; constants $-10 - 12 = -22$.\nStep 3: The expression equals $11x - 22$, so $a = 11$ and $b = -22$.\nCheck: substitute $x = 0$: $5(-2) - 4(3) = -22$, and $11(0) - 22 = -22$. $\\checkmark$\n\n**Common Mistakes:** Distributing $-4$ to $x$ but not to $3$ gives $-10 + 3 = -7$. Treating $-4(x + 3)$ as $-4x + 12$ gives $-10 + 12 = 2$. Reporting $a = 11$ instead of $b$. Substituting $x = 0$ isolates the constant and catches each of these.\n\n**Test Day Takeaway:** To find the constant term of a linear expression, substitute $x = 0$; every $x$-term vanishes and only the constants remain."
+}

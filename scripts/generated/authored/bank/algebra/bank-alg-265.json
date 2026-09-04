@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-265",
+ "question": "$2x - 5y = k$\n\n$8x - 20y = 28$\n\nIn the given system of equations, $k$ is a constant. If the system has infinitely many solutions, what is the value of $k$?",
+ "correctAnswer": "7",
+ "explanation": "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~10s):** The second equation is $4$ times the first, so $4k = 28$ and $k = 7$.\n\n**The Full Solution:**\nStep 1: For the same line, the second equation must be a constant multiple of the first: $\\frac{8}{2} = \\frac{-20}{-5} = 4$.\nStep 2: The constants must scale by the same $4$: $4k = 28$.\nStep 3: $k = 7$. Check: $4(2x - 5y = 7)$ is $8x - 20y = 28$. $\\checkmark$\n\n**Common Mistakes:** Multiplying instead of dividing to get $k = 112$, or reading the multiplier as $-4$ from the $y$-coefficients and answering $-7$; the negatives cancel.\n\n**Test Day Takeaway:** Find the multiplier from the variable coefficients, then divide (or multiply) the known constant by it."
+}

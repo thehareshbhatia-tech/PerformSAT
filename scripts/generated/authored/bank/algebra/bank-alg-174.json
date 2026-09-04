@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-174",
+  "question": "$\\frac{4x + 6}{3} = 10$\n\nWhat value of $x$ is the solution to the given equation?",
+  "correctAnswer": "6",
+  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~6s):** Multiply by $3$: $4x + 6 = 30$. Subtract $6$: $4x = 24$. Divide: $x = 6$.\n\n**The Full Solution:**\nStep 1: Clear the fraction by multiplying both sides by $3$: $4x + 6 = 30$.\nStep 2: Subtract $6$: $4x = 24$. Divide by $4$: $x = 6$.\nStep 3: Check: $\\frac{4(6) + 6}{3} = \\frac{30}{3} = 10$. $\\checkmark$\n\n**Common Mistakes:** Entering $3$ (dividing only the $4x$ by $3$, as if the equation were $\\frac{4x}{3} + 6 = 10$, so $\\frac{4x}{3} = 4$); entering $9$ (adding $6$ to $30$ instead of subtracting); entering $24$ (stopping at $4x = 24$).\n\n**Test Day Takeaway:** A fraction bar groups everything above it. Multiply the whole numerator's equation by the denominator first, then solve the two-step equation that remains."
+}

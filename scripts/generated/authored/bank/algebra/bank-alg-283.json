@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-283",
+ "question": "$3(2x - 5) + 4x = 2(5x + k)$\n\nIn the given equation, $k$ is a constant. If the equation has infinitely many solutions, what is the value of $k$?",
+ "correctAnswer": "-7.5",
+ "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**The correct answer is $-7.5$.**\n\n**The Fast Way (~15s):** Left side: $6x - 15 + 4x = 10x - 15$. Right side: $10x + 2k$. The $x$-terms already agree, so $2k = -15$ and $k = -7.5$.\n\n**The Full Solution:**\nStep 1: Distribute and combine on the left: $3(2x - 5) + 4x = 6x - 15 + 4x = 10x - 15$.\nStep 2: Distribute on the right: $2(5x + k) = 10x + 2k$.\nStep 3: For an identity, $10x - 15 = 10x + 2k$ must hold for all $x$, so $2k = -15$ and $k = -\\frac{15}{2} = -7.5$. Check with $x = 0$: left $-15$, right $2(-7.5) = -15$. $\\checkmark$\n\n**Common Mistakes:** Answering $-15$ by forgetting that $k$ is multiplied by $2$ on the right, or $-30$ by multiplying $-15$ by $2$ instead of dividing by $2$.\n\n**Test Day Takeaway:** Fully simplify both sides before matching; the constant you match may still be scaled by a factor."
+}

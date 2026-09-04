@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-328",
+  "question": "A tailoring service charges a $\\$14$ fitting fee plus $\\$6$ for each alteration. The total cost of an order with $n$ alterations is $\\$56$. What is the value of $n$?",
+  "correctAnswer": "7",
+  "explanation": "**SAT Pattern: Linear Cost Equation Setup**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~10s):** Remove the fee first: $56 - 14 = 42$. Then $42 \\div 6 = 7$ alterations.\n\n**The Full Solution:**\nStep 1: Model the total: $14 + 6n = 56$.\nStep 2: Subtract the one-time fee from both sides: $6n = 42$.\nStep 3: Divide by the per-alteration rate: $n = 7$.\nCheck: $14 + 6(7) = 14 + 42 = 56$. $\\checkmark$\n\n**Common Mistakes:** Dividing the whole $\\$56$ by $6$ and getting $9.33$, which forgets the fitting fee; or subtracting $6$ and dividing by $14$, which swaps the roles of the fee and the rate.\n\n**Test Day Takeaway:** To find the count in a fee-plus-rate model, subtract the fee from the total FIRST, then divide by the rate."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-135",
+  "question": "The function $g$ is defined by $g(x) = 7x + 4$. What is the value of $g(6) - g(2)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$28$"
+    },
+    {
+      "id": "C",
+      "text": "$36$"
+    },
+    {
+      "id": "D",
+      "text": "$64$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts the inputs, 6 - 2, without applying g",
+    "C": "adds the constant 4 twice instead of letting it cancel: 42 - 14 + 8",
+    "D": "adds g(6) + g(2) instead of subtracting"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~8s):** For a linear function, $g(6) - g(2)$ is the slope times the change in input: $7(6 - 2) = 28$. The constant $4$ cancels.\n\n**The Full Solution:**\nStep 1: Evaluate each output. $g(6) = 7(6) + 4 = 46$ and $g(2) = 7(2) + 4 = 18$.\nStep 2: Subtract: $46 - 18 = 28$.\nStep 3: Check with the shortcut: $g(6) - g(2) = (42 + 4) - (14 + 4) = 42 - 14 = 28$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): subtracts the inputs, $6 - 2$, and never applies the function.\n* Choice C ($36$): keeps both $+4$ constants instead of letting them cancel, computing $42 - 14 + 8$.\n* Choice D ($64$): adds $g(6) + g(2) = 46 + 18$ instead of subtracting.\n\n**Test Day Takeaway:** A difference of two outputs of a linear function equals slope times the difference of inputs. Compute both outputs if unsure, but expect the constant to disappear."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-264",
+ "question": "$3x + 4y = 11$\n\n$9x + 12y = a$\n\nIn the given system of equations, $a$ is a constant. If the system has infinitely many solutions, what is the value of $a$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3$"
+  },
+  {
+   "id": "B",
+   "text": "$11$"
+  },
+  {
+   "id": "C",
+   "text": "$22$"
+  },
+  {
+   "id": "D",
+   "text": "$33$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports the multiplier instead of applying it",
+  "B": "copies the first constant without scaling",
+  "C": "scales by 2 instead of 3"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** The second equation's coefficients are $3$ times the first's, so its constant must be $3 \\cdot 11 = 33$.\n\n**The Full Solution:**\nStep 1: Infinitely many solutions means the two equations describe the same line, so one is a multiple of the other.\nStep 2: $9x + 12y = 3(3x + 4y)$, so the multiplier is $3$.\nStep 3: Apply it to the constant: $a = 3(11) = 33$. Check: $3(3x + 4y = 11)$ is $9x + 12y = 33$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): the multiplier itself, not the scaled constant.\n* Choice B ($11$): keeps the original constant, which would make the lines parallel and distinct (no solution).\n* Choice C ($22$): scales by $2$ instead of $3$.\n\n**Test Day Takeaway:** \"Infinitely many solutions\" means every part of the equation, including the constant, scales by the same factor."
+}

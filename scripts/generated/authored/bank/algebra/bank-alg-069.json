@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-069",
+  "question": "The function $p$ is defined by $p(x) = 9x - 63$. In the $xy$-plane, the graph of $y = p(x)$ has an $x$-intercept at $(a, 0)$. What is the value of $a$?",
+  "correctAnswer": "7",
+  "explanation": "**SAT Pattern: Find x-intercept (Zero of Function)**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~10s):** At the $x$-intercept, $y = 0$: $9x - 63 = 0 \\Rightarrow 9x = 63 \\Rightarrow x = 7$.\n\n**The Full Solution:**\nStep 1: The $x$-intercept is the point where the graph meets the $x$-axis, so $p(a) = 0$.\nStep 2: Set the rule equal to zero: $9a - 63 = 0$, so $9a = 63$.\nStep 3: Divide by $9$: $a = 7$. Check: $p(7) = 9(7) - 63 = 63 - 63 = 0$. $\\checkmark$\n\n**Common Mistakes:** Reporting $-63$, which is the $y$-intercept, not the $x$-intercept; computing $63 - 9 = 54$ instead of dividing; getting $-7$ by mishandling the sign when moving $-63$ across.\n\n**Test Day Takeaway:** \"$x$-intercept\" means output zero. Set the function equal to $0$ and solve; the $y$-intercept is the constant term, a different point."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-126",
+  "question": "$6x + 9y = -12$\n$-2x - 3y = c$\n\nIn the given system of equations, $c$ is a constant. If the system has infinitely many solutions, what is the value of $c$?",
+  "correctAnswer": "4",
+  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~8s):** Multiply the second equation by $-3$: $6x + 9y = -3c$. Matching the first equation requires $-3c = -12$, so $c = 4$.\n\n**The Full Solution:**\nStep 1: Infinitely many solutions means the two equations represent the same line, so one is a multiple of the other.\nStep 2: The multiplier from the second equation to the first is $\\frac{6}{-2} = -3$ (check: $-3 \\cdot (-3) = 9$ matches the $y$ coefficient).\nStep 3: The constants must satisfy $-3c = -12$, so $c = 4$. Check: $-3(-2x - 3y) = 6x + 9y$ and $-3(4) = -12$. $\\checkmark$\n\n**Common Mistakes:** Entering $-4$ (dividing $-12$ by $3$ instead of $-3$); entering $36$ (multiplying $-12$ by $-3$ instead of dividing); entering $-12$ (copying the constant without scaling).\n\n**Test Day Takeaway:** The multiplier can be negative. Find it from a coefficient ratio, then divide the known constant by that same multiplier, keeping the sign."
+}

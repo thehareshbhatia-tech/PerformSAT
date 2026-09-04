@@ -1,0 +1,58 @@
+{
+  "id": "bank-alg-084",
+  "question": "The graph of the linear function $f$ is shown in the $xy$-plane. The function $g$ is defined by $g(x) = f(x) - 11$. What is the $y$-coordinate of the $y$-intercept of the graph of $y = g(x)$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": -2,
+      "yIntercept": 7,
+      "xRange": [
+        -6,
+        8
+      ],
+      "yRange": [
+        -6,
+        10
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 1,
+      "showPoints": [
+        [
+          0,
+          7
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "label": "y = f(x)"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-18$"
+    },
+    {
+      "id": "B",
+      "text": "$-11$"
+    },
+    {
+      "id": "C",
+      "text": "$-4$"
+    },
+    {
+      "id": "D",
+      "text": "$4$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "misreads the intercept as -7, then subtracts 11",
+    "B": "uses the shift itself as the intercept, as if f(0) were 0",
+    "D": "subtracts in the wrong order, 11 - 7"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: y-Intercept After Vertical Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The graph of $f$ crosses the $y$-axis at $(0, 7)$, so $f(0) = 7$. Then $g(0) = f(0) - 11 = 7 - 11 = -4$.\n\n**The Full Solution:**\nStep 1: The $y$-intercept of $g$ is the point $(0, g(0))$, so evaluate $g$ at $x = 0$: $g(0) = f(0) - 11$.\nStep 2: Read $f(0)$ from the graph: the line meets the $y$-axis at $(0, 7)$, so $f(0) = 7$.\nStep 3: $g(0) = 7 - 11 = -4$. Check: subtracting $11$ from every output slides the whole line down $11$ units, so every point, including the $y$-intercept, drops by $11$: $7 - 11 = -4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-18$): misreads the intercept of $f$ as $-7$ and then subtracts $11$.\n* Choice B ($-11$): uses the shift itself as the intercept, as if $f(0)$ were $0$.\n* Choice D ($4$): subtracts in the wrong order, $11 - 7$.\n\n**Test Day Takeaway:** A vertical shift $f(x) + c$ moves every output by $c$, so the new $y$-intercept is the old one plus $c$; read the old intercept off the $y$-axis and add."
+}

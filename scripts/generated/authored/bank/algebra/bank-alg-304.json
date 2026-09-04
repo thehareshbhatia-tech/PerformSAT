@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-304",
+  "question": "$4(x - 3) = 36$\nWhat is the value of the expression $x - 3$ in the given equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$6$"
+    },
+    {
+      "id": "B",
+      "text": "$9$"
+    },
+    {
+      "id": "C",
+      "text": "$12$"
+    },
+    {
+      "id": "D",
+      "text": "$33$"
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "subtracted 3 from the quotient 9 even though the question asks for x - 3 itself",
+    "C": "solved for x instead of the requested expression x - 3",
+    "D": "subtracted 3 from 36 instead of dividing by 4"
+  },
+  "explanation": "**SAT Pattern: Shifted-Output Linear**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** The question asks for $x - 3$, which is the whole quantity inside the parentheses. Divide both sides by $4$: $x - 3 = 9$.\n\n**The Full Solution:**\nStep 1: Treat $x - 3$ as a single unknown. The equation says $4$ times that unknown equals $36$.\nStep 2: Divide both sides by $4$: $x - 3 = \\dfrac{36}{4} = 9$.\nStep 3: No further work is needed; solving for $x$ (which gives $12$) would answer a different question.\nCheck: if $x - 3 = 9$ then $x = 12$, and $4(12 - 3) = 4(9) = 36$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): finds $9$ and then subtracts $3$ again, treating the $9$ as $x$ instead of as $x - 3$.\n* Choice C ($12$): solves all the way to $x = 12$ and reports $x$, not the requested $x - 3$.\n* Choice D ($33$): subtracts $3$ from $36$ instead of dividing by $4$, misreading $4(x - 3)$ as $4x - 3$.\n\n**Test Day Takeaway:** When the requested expression already appears grouped in the equation, solve for the group directly; do not unpack it and then repack it."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-123",
+  "question": "$5(2x + 3) - 4 = 10x + c$\n\nIn the given equation, $c$ is a constant. The equation has infinitely many solutions. What is the value of $c$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-1$"
+    },
+    {
+      "id": "B",
+      "text": "$11$"
+    },
+    {
+      "id": "C",
+      "text": "$15$"
+    },
+    {
+      "id": "D",
+      "text": "$19$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "distributes the 5 to 2x only (10x + 3 - 4)",
+    "C": "distributes correctly but drops the -4",
+    "D": "adds 4 instead of subtracting it"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice B is correct.**\n\n**The Fast Way (~8s):** Simplify the left side: $10x + 15 - 4 = 10x + 11$. Infinitely many solutions means both sides are identical, so $c = 11$.\n\n**The Full Solution:**\nStep 1: Distribute on the left: $5(2x + 3) = 10x + 15$, so the left side is $10x + 15 - 4 = 10x + 11$.\nStep 2: The equation is now $10x + 11 = 10x + c$. Subtracting $10x$ from both sides leaves $11 = c$. Because the $x$ terms cancel, the equation is true for every $x$ exactly when the constants match.\nStep 3: Check with $c = 11$ and any $x$, say $x = 1$: left side $5(5) - 4 = 21$; right side $10 + 11 = 21$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): distributes the $5$ to $2x$ but not to $3$, getting $10x + 3 - 4$.\n* Choice C ($15$): distributes correctly but forgets the $-4$ on the left side.\n* Choice D ($19$): treats the $-4$ as $+4$, getting $15 + 4$.\n\n**Test Day Takeaway:** \"Infinitely many solutions\" means the two sides are the same expression. Simplify fully, match the $x$ coefficients (already equal here), then match the constants."
+}

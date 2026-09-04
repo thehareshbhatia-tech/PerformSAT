@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-211",
+  "question": "The equation $4y = 3x - 20$ is graphed in the $xy$-plane. What is the $y$-coordinate of the $y$-intercept of the graph?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-20$"
+    },
+    {
+      "id": "B",
+      "text": "$-5$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$5$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads the constant without dividing by 4",
+    "C": "reports the coefficient of x",
+    "D": "drops the sign after dividing"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Divide everything by $4$: $y = \\dfrac{3}{4}x - 5$. The constant term, $-5$, is the $y$-intercept.\n\n**The Full Solution:**\nStep 1: The equation is not yet in $y = mx + b$ form because $y$ has a coefficient of $4$.\nStep 2: Divide both sides by $4$: $y = \\dfrac{3}{4}x - \\dfrac{20}{4} = \\dfrac{3}{4}x - 5$.\nStep 3: Now $b = -5$. Check by substituting $x = 0$ into the original equation: $4y = -20$, so $y = -5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-20$): reads the constant from the original equation without dividing by the coefficient of $y$.\n* Choice C ($3$): reports the coefficient of $x$ from the original equation, which is neither the slope nor the intercept.\n* Choice D ($5$): divides correctly but drops the negative sign.\n\n**Test Day Takeaway:** Only read slope and intercept after $y$ stands alone with coefficient $1$. Substituting $x = 0$ into the original equation is a fast check."
+}

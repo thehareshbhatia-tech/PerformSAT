@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-176",
+  "question": "$\\frac{2}{5}(x + 3) = -4$\n\nWhat value of $x$ is the solution to the given equation?",
+  "correctAnswer": "-13",
+  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $-13$.**\n\n**The Fast Way (~8s):** Multiply by $\\frac{5}{2}$: $x + 3 = -10$. Subtract $3$: $x = -13$.\n\n**The Full Solution:**\nStep 1: Undo the multiplication by $\\frac{2}{5}$ by multiplying both sides by its reciprocal, $\\frac{5}{2}$: $x + 3 = -4 \\cdot \\frac{5}{2} = -10$.\nStep 2: Subtract $3$ from both sides: $x = -13$.\nStep 3: Check: $\\frac{2}{5}(-13 + 3) = \\frac{2}{5}(-10) = -4$. $\\checkmark$\n\n**Common Mistakes:** Entering $-11$ (multiplying $-4$ by $2$ only, getting $x + 3 = -8$); entering $-4.6$ (multiplying by $\\frac{2}{5}$ instead of its reciprocal, getting $x + 3 = -1.6$); entering $7$ (a dropped sign, from $x + 3 = 10$).\n\n**Test Day Takeaway:** A fraction multiplying a parenthesis is undone by its reciprocal. Do that before touching what is inside the parentheses."
+}

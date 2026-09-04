@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-293",
+ "question": "$3|x + 4| - 7 = 11$\n\nWhat is the greater of the two solutions to the given equation?",
+ "correctAnswer": "2",
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~10s):** Isolate: $3|x + 4| = 18$, so $|x + 4| = 6$. Then $x + 4 = 6$ gives the greater solution, $x = 2$.\n\n**The Full Solution:**\nStep 1: Add $7$ and divide by $3$: $|x + 4| = 6$.\nStep 2: Split: $x + 4 = 6$ gives $x = 2$; $x + 4 = -6$ gives $x = -10$.\nStep 3: The greater solution is $2$. Check: $3|2 + 4| - 7 = 18 - 7 = 11$. $\\checkmark$\n\n**Common Mistakes:** Splitting before isolating (using $|x + 4| = 11$ or $18$), or reporting $-10$ because it has the larger absolute value.\n\n**Test Day Takeaway:** Isolate the absolute value expression completely before writing the two cases."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-318",
+  "question": "$a(x^2 - 2x) + 3(x^2 + 4x) = 7x^2 + bx$\nIn the given equation, $a$ and $b$ are constants, and the equation is true for all values of $x$. What is the value of $a + b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$8$"
+    },
+    {
+      "id": "C",
+      "text": "$16$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "reported a alone",
+    "C": "forgot the -2a contribution to the x-coefficient (b = 12)",
+    "D": "sign slip: used +2a instead of -2a (b = 20)"
+  },
+  "explanation": "**SAT Pattern: Polynomial Identity with Two Parameters**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Expand: $(a + 3)x^2 + (-2a + 12)x = 7x^2 + bx$. Then $a + 3 = 7$ gives $a = 4$, and $b = -2(4) + 12 = 4$. So $a + b = 8$.\n\n**The Full Solution:**\nStep 1: Distribute both products: $ax^2 - 2ax + 3x^2 + 12x$.\nStep 2: Group by degree: $(a + 3)x^2 + (12 - 2a)x$. Match the $x^2$-coefficients with the right side: $a + 3 = 7$, so $a = 4$.\nStep 3: Match the $x$-coefficients: $b = 12 - 2a = 12 - 8 = 4$. Therefore $a + b = 4 + 4 = 8$.\nCheck: with $a = 4$ the left side is $4x^2 - 8x + 3x^2 + 12x = 7x^2 + 4x$, so $b = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): finds $a = 4$ correctly and stops, reporting $a$ rather than $a + b$.\n* Choice C ($16$): matches $b$ to the $12x$ alone, forgetting that $a(x^2 - 2x)$ also contributes $-2ax$; that gives $b = 12$.\n* Choice D ($24$): adds $2a$ instead of subtracting, giving $b = 8 + 12 = 20$ and $a + b = 24$.\n\n**Test Day Takeaway:** With two parameters, match the highest-degree coefficient first to pin down one parameter, then carry that value into the next coefficient match."
+}

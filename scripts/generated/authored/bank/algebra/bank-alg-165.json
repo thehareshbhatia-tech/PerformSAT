@@ -1,0 +1,25 @@
+{
+  "id": "bank-alg-165",
+  "question": "The points $(-4, 5)$ and $(2, -7)$ are shown in the $xy$-plane. Line $w$ passes through both points. What is the slope of line $w$?",
+  "diagram": {
+    "type": "coordinatePoints",
+    "params": {
+      "points": [
+        [
+          -4,
+          5
+        ],
+        [
+          2,
+          -7
+        ]
+      ],
+      "xMin": -6,
+      "xMax": 6,
+      "yMin": -8,
+      "yMax": 8
+    }
+  },
+  "correctAnswer": "-2",
+  "explanation": "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $-2$.**\n\n**The Fast Way (~6s):** $\\frac{-7 - 5}{2 - (-4)} = \\frac{-12}{6} = -2$. The right-hand point is lower, so the slope is negative.\n\n**The Full Solution:**\nStep 1: Take $(x_1, y_1) = (-4, 5)$ and $(x_2, y_2) = (2, -7)$.\nStep 2: Rise: $-7 - 5 = -12$. Run: $2 - (-4) = 6$.\nStep 3: Slope $= \\frac{-12}{6} = -2$. Check on the grid: from $(-4, 5)$, each step right drops $2$, and six steps right reach $(2, -7)$. $\\checkmark$\n\n**Common Mistakes:** Entering $2$ (dropping the sign); entering $6$ (using run $2 - 4 = -2$ by ignoring the negative in $-4$, giving $\\frac{-12}{-2} = 6$); entering $-\\frac{1}{2}$ (dividing run by rise).\n\n**Test Day Takeaway:** When points are plotted, use the picture to predict the sign before computing. Then rise over run, with the negative coordinates in parentheses."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-134",
+  "question": "The function $f$ is defined by $f(x) = 4x^2 - 5x + 1$. What is the value of $f(-2)$?",
+  "correctAnswer": "27",
+  "explanation": "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $27$.**\n\n**The Fast Way (~8s):** Substitute $-2$ in parentheses: $4(-2)^2 - 5(-2) + 1 = 4(4) + 10 + 1 = 27$.\n\n**The Full Solution:**\nStep 1: Replace every $x$ with $(-2)$, keeping the parentheses: $f(-2) = 4(-2)^2 - 5(-2) + 1$.\nStep 2: Evaluate the power first: $(-2)^2 = 4$, so the first term is $4(4) = 16$. The middle term is $-5(-2) = +10$.\nStep 3: Add: $16 + 10 + 1 = 27$. Sign check: a negative squared is positive, and a negative times a negative is positive. $\\checkmark$\n\n**Common Mistakes:** Entering $7$ (computing $-5(-2)$ as $-10$); entering $-5$ (treating $4(-2)^2$ as $-16$); entering $-1$ (making both sign errors at once).\n\n**Test Day Takeaway:** Wrap a negative input in parentheses before substituting. The two places sign errors hide are the square and the product with a negative coefficient."
+}

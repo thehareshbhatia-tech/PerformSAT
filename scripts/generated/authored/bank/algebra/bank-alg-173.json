@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-173",
+  "question": "$3(x - 5) = 24$\n\nWhat value of $x$ is the solution to the given equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3$"
+    },
+    {
+      "id": "B",
+      "text": "$8$"
+    },
+    {
+      "id": "C",
+      "text": "$13$"
+    },
+    {
+      "id": "D",
+      "text": "$29$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts 5 from 8 instead of adding",
+    "B": "stops at x - 5 = 8",
+    "D": "never divides by 3: x - 5 = 24"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Divide by $3$: $x - 5 = 8$. Add $5$: $x = 13$.\n\n**The Full Solution:**\nStep 1: Divide both sides by $3$ to remove the factor outside the parentheses: $x - 5 = 8$.\nStep 2: Add $5$ to both sides: $x = 13$.\nStep 3: Check: $3(13 - 5) = 3(8) = 24$. $\\checkmark$ (Distributing first also works: $3x - 15 = 24$, so $3x = 39$ and $x = 13$.)\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): subtracts $5$ from $8$ instead of adding.\n* Choice B ($8$): stops at $x - 5 = 8$ and reports $8$.\n* Choice D ($29$): adds $5$ to $24$ without ever dividing by $3$.\n\n**Test Day Takeaway:** When a number multiplies a parenthesis, dividing by it first avoids distributing. Either way, undo the outer operation before the inner one."
+}

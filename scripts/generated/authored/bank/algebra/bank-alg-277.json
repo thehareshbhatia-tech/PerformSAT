@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-277",
+ "question": "The expression $-(x - 3)^2 + 11$ is equivalent to $ax^2 + bx + c$, where $a$, $b$, and $c$ are constants. What is the value of $c$?",
+ "correctAnswer": "2",
+ "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~10s):** The constant term is the expression's value at $x = 0$: $-(0 - 3)^2 + 11 = -9 + 11 = 2$.\n\n**The Full Solution:**\nStep 1: Expand: $(x - 3)^2 = x^2 - 6x + 9$.\nStep 2: Apply the negative and add $11$: $-x^2 + 6x - 9 + 11 = -x^2 + 6x + 2$.\nStep 3: So $c = 2$ (with $a = -1$ and $b = 6$). Check at $x = 0$: $-9 + 11 = 2$. $\\checkmark$\n\n**Common Mistakes:** Answering $20$ by forgetting the leading negative on the $9$, or $-20$ by also negating the $11$; only the squared expression is negated.\n\n**Test Day Takeaway:** When the vertex form has a leading negative, distribute it to all three terms of the expanded square before adding the outside constant."
+}

@@ -1,0 +1,90 @@
+{
+  "id": "bank-alg-203",
+  "question": "The scatterplot shows the mass $y$, in grams, of a crystal $x$ days after it was seeded in a solution, along with the line of best fit $\\hat{y} = 1.8x + 3$. Which of the following is the best interpretation of the slope of the line of best fit in this context?",
+  "diagram": {
+    "type": "scatterplot",
+    "params": {
+      "points": [
+        [
+          1,
+          5.2
+        ],
+        [
+          2,
+          6.1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          9.7
+        ],
+        [
+          5,
+          12.6
+        ],
+        [
+          6,
+          13.1
+        ],
+        [
+          7,
+          16.2
+        ],
+        [
+          8,
+          17
+        ],
+        [
+          9,
+          20.1
+        ],
+        [
+          10,
+          20.4
+        ]
+      ],
+      "xMin": 0,
+      "xMax": 10,
+      "yMin": 0,
+      "yMax": 24,
+      "xGridStep": 1,
+      "yGridStep": 2,
+      "xLabelStep": 2,
+      "yLabelStep": 4,
+      "xLabel": "Days since seeding",
+      "yLabel": "Mass (grams)",
+      "bestFitLine": {
+        "slope": 1.8,
+        "intercept": 3
+      }
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "The predicted mass of the crystal, in grams, on the day it was seeded"
+    },
+    {
+      "id": "B",
+      "text": "The predicted number of days for the mass of the crystal to increase by $1$ gram"
+    },
+    {
+      "id": "C",
+      "text": "The predicted mass of the crystal, in grams, $1.8$ days after it was seeded"
+    },
+    {
+      "id": "D",
+      "text": "The predicted increase in the mass of the crystal, in grams, for each additional day"
+    }
+  ],
+  "distractorNotes": {
+    "A": "describes the y-intercept (3 grams), not the slope",
+    "B": "inverts the rate: days per gram instead of grams per day",
+    "C": "misreads the slope as an x-value to plug in"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Slope as Rate of Change in Context**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** In $\\hat{y} = 1.8x + 3$, the slope $1.8$ is the predicted change in mass (grams) for each one-day increase in $x$: an increase of $1.8$ grams per day.\n\n**The Full Solution:**\nStep 1: On the scatterplot, $x$ is days and $y$ is grams, so the slope of the line of best fit has units of grams per day.\nStep 2: The slope $1.8$ is positive, so the predicted mass increases by $1.8$ grams for each additional day.\nStep 3: Check against the line: from $x = 2$ to $x = 3$ the predicted mass goes from $6.6$ to $8.4$ grams, a change of $1.8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the mass on the seeding day is the $y$-intercept, $3$ grams, not the slope.\n* Choice B: inverts the rate; days per gram would be $\\dfrac{1}{1.8}$, not $1.8$.\n* Choice C: treats $1.8$ as an input to the model instead of as the rate itself.\n\n**Test Day Takeaway:** The slope of a best-fit line is the predicted change in $y$ per one-unit change in $x$. Say it with units, and the right choice is the one that names the per-unit change."
+}

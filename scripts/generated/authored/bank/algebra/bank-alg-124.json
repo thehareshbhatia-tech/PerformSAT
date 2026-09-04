@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-124",
+  "question": "$3(4x - 5) + 9 = 12x + d$\n\nIn the given equation, $d$ is a constant. If the equation has infinitely many solutions, what is the value of $d$?",
+  "correctAnswer": "-6",
+  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $-6$.**\n\n**The Fast Way (~8s):** Left side: $12x - 15 + 9 = 12x - 6$. For every $x$ to work, the right side must be the same expression, so $d = -6$.\n\n**The Full Solution:**\nStep 1: Distribute: $3(4x - 5) = 12x - 15$. The left side becomes $12x - 15 + 9 = 12x - 6$.\nStep 2: The equation reads $12x - 6 = 12x + d$. The $x$ terms already match, so the equation holds for all $x$ only if the constants match: $d = -6$.\nStep 3: Check with $x = 0$: left side $3(-5) + 9 = -6$; right side $0 + d = -6$. $\\checkmark$\n\n**Common Mistakes:** Entering $6$ (dropping the sign); entering $-15$ (forgetting to add the $9$); entering $-24$ (subtracting $9$ instead of adding it).\n\n**Test Day Takeaway:** Simplify one side completely before comparing. If the variable terms already agree, the constant term on the other side is the answer, sign included."
+}

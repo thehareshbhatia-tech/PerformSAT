@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-296",
+ "question": "$7x - 4 = 3x + 20$\n\nWhich of the following is the solution to the given equation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-6$"
+  },
+  {
+   "id": "B",
+   "text": "$4$"
+  },
+  {
+   "id": "C",
+   "text": "$6$"
+  },
+  {
+   "id": "D",
+   "text": "$8$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "sign error when moving terms (4x = -24)",
+  "B": "moves the constant the wrong way (4x = 16)",
+  "D": "divides 24 by 3 instead of 4"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Linear Equation with Variables on Both Sides**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Move $3x$ left and $-4$ right: $4x = 24$, so $x = 6$.\n\n**The Full Solution:**\nStep 1: Subtract $3x$ from both sides: $4x - 4 = 20$.\nStep 2: Add $4$ to both sides: $4x = 24$.\nStep 3: Divide by $4$: $x = 6$. Check: $7(6) - 4 = 38$ and $3(6) + 20 = 38$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): a sign error in collecting terms, such as $4x = -24$.\n* Choice B ($4$): subtracts $4$ from $20$ instead of adding, giving $4x = 16$.\n* Choice D ($8$): divides $24$ by the coefficient $3$ from the right side instead of the combined $4$.\n\n**Test Day Takeaway:** Collect variables on one side and constants on the other with opposite operations, then divide by the combined coefficient."
+}

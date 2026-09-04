@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-067",
+  "question": "The system of equations $3x + 8y = -6$ and $-15x - 40y = k$, where $k$ is a constant, has infinitely many solutions. What is the value of $k$?",
+  "correctAnswer": "30",
+  "explanation": "**SAT Pattern: Find Constant for Identical Equations**\n\n**The correct answer is $30$.**\n\n**The Fast Way (~10s):** $\\frac{-15}{3} = \\frac{-40}{8} = -5$, so the second equation is $-5$ times the first: $k = -5(-6) = 30$.\n\n**The Full Solution:**\nStep 1: Infinitely many solutions means the second equation is a constant multiple of the first.\nStep 2: The $x$-coefficients give the multiplier $\\frac{-15}{3} = -5$; the $y$-coefficients agree, $\\frac{-40}{8} = -5$. $\\checkmark$\nStep 3: Apply it to the constant: $k = -5(-6) = 30$. Check: $-5(3x + 8y) = -15x - 40y$ and $-5(-6) = 30$. $\\checkmark$\n\n**Common Mistakes:** Reporting $-30$ by losing the sign when multiplying two negatives; using $+5$ as the multiplier because the second equation \"looks bigger\"; adding $-6$ and $-15$ instead of scaling.\n\n**Test Day Takeaway:** Read the multiplier off a coefficient pair, confirm it on the other pair, then multiply the constant by that same factor, signs included."
+}

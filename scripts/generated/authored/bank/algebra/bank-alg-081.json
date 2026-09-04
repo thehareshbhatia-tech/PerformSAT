@@ -1,0 +1,39 @@
+{
+  "id": "bank-alg-081",
+  "question": "The graph of $y = f(x)$ is shown in the $xy$-plane. The graph of $y = g(x)$ is the result of translating the graph of $y = f(x)$ $3$ units to the right. Which of the following defines $g$?",
+  "diagram": {
+    "type": "absoluteValue",
+    "params": {
+      "vertex": [
+        -1,
+        2
+      ],
+      "slope": 1
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$g(x) = f(x - 3)$"
+    },
+    {
+      "id": "B",
+      "text": "$g(x) = f(x + 3)$"
+    },
+    {
+      "id": "C",
+      "text": "$g(x) = f(x) - 3$"
+    },
+    {
+      "id": "D",
+      "text": "$g(x) = f(x) + 3$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "f(x + 3) moves the graph left",
+    "C": "f(x) - 3 moves the graph down",
+    "D": "f(x) + 3 moves the graph up"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** A shift of $3$ units to the right replaces $x$ with $x - 3$ inside the function: $g(x) = f(x - 3)$.\n\n**The Full Solution:**\nStep 1: Horizontal translations act on the input. Moving right by $3$ means the new graph at $x$ shows what the old graph showed at $x - 3$, so $g(x) = f(x - 3)$.\nStep 2: Test with the vertex. The graph of $f$ has its vertex at $(-1, 2)$, so after moving right $3$ the vertex should be at $(2, 2)$.\nStep 3: Check: $g(2) = f(2 - 3) = f(-1) = 2$, and for any other input $g$ is not at its minimum, so the vertex of $g$ is $(2, 2)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($g(x) = f(x + 3)$): moves the graph $3$ units to the left; its vertex would be at $(-4, 2)$.\n* Choice C ($g(x) = f(x) - 3$): subtracting outside the function moves the graph down $3$, to vertex $(-1, -1)$.\n* Choice D ($g(x) = f(x) + 3$): adding outside the function moves the graph up $3$, to vertex $(-1, 5)$.\n\n**Test Day Takeaway:** Inside the parentheses is horizontal and works backward ($x - 3$ moves right); outside the parentheses is vertical and works as written."
+}

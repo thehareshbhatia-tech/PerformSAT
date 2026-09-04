@@ -1,0 +1,48 @@
+{
+  "id": "bank-alg-320",
+  "question": "The graph of the linear function $f$ is shown in the $xy$-plane. For what value of $x$ does $f(x) = -2$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": 2,
+      "yIntercept": -6,
+      "xRange": [
+        -4,
+        6
+      ],
+      "yRange": [
+        -10,
+        6
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 1,
+      "label": "y = f(x)"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-10$"
+    },
+    {
+      "id": "B",
+      "text": "$-6$"
+    },
+    {
+      "id": "C",
+      "text": "$-2$"
+    },
+    {
+      "id": "D",
+      "text": "$2$"
+    }
+  ],
+  "correctAnswer": "D",
+  "distractorNotes": {
+    "A": "used -2 as the input and read f(-2) = -10",
+    "B": "read the y-intercept f(0) = -6",
+    "C": "reported the given output -2 as the input"
+  },
+  "explanation": "**SAT Pattern: Solve for Input from Output**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** $f(x) = -2$ means the $y$-value is $-2$. Find where the line crosses the horizontal line $y = -2$: that happens at $x = 2$.\n\n**The Full Solution:**\nStep 1: On the graph of $y = f(x)$, the output $f(x)$ is the $y$-coordinate and the input $x$ is the $x$-coordinate. The question gives the output and asks for the input.\nStep 2: Locate $y = -2$ on the vertical axis and move horizontally to the line. The line passes through $(2, -2)$.\nStep 3: The $x$-coordinate of that point is $2$, so $f(2) = -2$.\nCheck: the line crosses the $y$-axis at $(0, -6)$ and rises $2$ units for each $1$ unit to the right, so $f(x) = 2x - 6$ and $f(2) = 4 - 6 = -2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): treats $-2$ as the input and reads $f(-2) = -10$ off the graph, reversing input and output.\n* Choice B ($-6$): reads the $y$-intercept, the output when $x = 0$, instead of finding where the output is $-2$.\n* Choice C ($-2$): repeats the given output as if it were the input.\n\n**Test Day Takeaway:** \"For what $x$ does $f(x) = k$\" is a horizontal read: start at $y = k$, go to the line, then drop to the $x$-axis."
+}

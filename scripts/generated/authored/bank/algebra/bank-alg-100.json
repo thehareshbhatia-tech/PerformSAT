@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-100",
+  "question": "What is the solution to the equation $5(x - 2) + 3x = 62$?",
+  "correctAnswer": "9",
+  "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~10s):** Distribute and combine: $5x - 10 + 3x = 62 \\Rightarrow 8x = 72 \\Rightarrow x = 9$.\n\n**The Full Solution:**\nStep 1: Distribute the $5$: $5(x - 2) = 5x - 10$, so the equation is $5x - 10 + 3x = 62$.\nStep 2: Combine like terms: $8x - 10 = 62$. Add $10$: $8x = 72$.\nStep 3: Divide by $8$: $x = 9$. Check: $5(9 - 2) + 3(9) = 35 + 27 = 62$. $\\checkmark$\n\n**Common Mistakes:** Distributing $5$ to $x$ only, giving $5x - 2 + 3x = 62$ and $x = 8$; subtracting $10$ instead of adding, giving $8x = 52$; combining $5x$ and $3x$ as $15x$.\n\n**Test Day Takeaway:** Distribute fully, gather the variable terms on one side and the constants on the other, then divide; a quick substitution catches distribution slips."
+}

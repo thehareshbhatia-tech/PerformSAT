@@ -1,0 +1,58 @@
+{
+  "id": "bank-alg-162",
+  "question": "Line $m$ is shown in the $xy$-plane. Line $m$ passes through the points $(-3, -2)$ and $(1, 6)$. What is the slope of line $m$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": 2,
+      "yIntercept": 4,
+      "xRange": [
+        -6,
+        6
+      ],
+      "yRange": [
+        -8,
+        8
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 1,
+      "showPoints": [
+        [
+          -3,
+          -2
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "label": "m"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-2$"
+    },
+    {
+      "id": "B",
+      "text": "$2$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$8$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sign error when subtracting negative coordinates",
+    "C": "reports the run, 1 - (-3)",
+    "D": "reports the rise, 6 - (-2)"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~8s):** Rise over run: $\\frac{6 - (-2)}{1 - (-3)} = \\frac{8}{4} = 2$. The line rises to the right, so the slope is positive.\n\n**The Full Solution:**\nStep 1: Slope $= \\frac{y_2 - y_1}{x_2 - x_1}$ with $(x_1, y_1) = (-3, -2)$ and $(x_2, y_2) = (1, 6)$.\nStep 2: Numerator: $6 - (-2) = 8$. Denominator: $1 - (-3) = 4$.\nStep 3: Slope $= \\frac{8}{4} = 2$. Check on the graph: from $(-3, -2)$, moving right $1$ and up $2$ repeatedly lands on $(1, 6)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): mishandles the double negatives, producing a negative slope for a line that clearly rises.\n* Choice C ($4$): reports the run, $1 - (-3)$, instead of the ratio.\n* Choice D ($8$): reports the rise, $6 - (-2)$, instead of the ratio.\n\n**Test Day Takeaway:** Subtracting a negative coordinate adds. Compute rise and run separately, then divide, and confirm the sign against the picture."
+}

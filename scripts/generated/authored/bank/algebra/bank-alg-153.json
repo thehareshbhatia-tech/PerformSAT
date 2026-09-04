@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-153",
+  "question": "$2x + 5y = 1$\n$x = 3y - 5$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $xy$?",
+  "correctAnswer": "-2",
+  "explanation": "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $-2$.**\n\n**The Fast Way (~10s):** Substitute $x = 3y - 5$: $2(3y - 5) + 5y = 1$, so $11y - 10 = 1$ and $y = 1$. Then $x = 3(1) - 5 = -2$, and $xy = -2$.\n\n**The Full Solution:**\nStep 1: Replace $x$ in the first equation: $2(3y - 5) + 5y = 1$.\nStep 2: Distribute and combine: $6y - 10 + 5y = 1$, so $11y = 11$ and $y = 1$.\nStep 3: Then $x = 3(1) - 5 = -2$. The product is $xy = (-2)(1) = -2$. Check: $2(-2) + 5(1) = -4 + 5 = 1$. $\\checkmark$\n\n**Common Mistakes:** Entering $2$ (dropping the sign of $x$); entering $-1$ (computing $x + y$ instead of $xy$); entering $1$ (reporting $y$ alone).\n\n**Test Day Takeaway:** When the answer is a product, a single negative coordinate flips the sign. Solve for both values, then multiply carefully and enter the minus sign."
+}

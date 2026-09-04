@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-227",
+  "question": "Line $q$ is parallel to the line with equation $y = \\dfrac{3}{2}x - 5$ and passes through the point $(-2, 4)$ in the $xy$-plane. What is the $y$-coordinate of the $y$-intercept of line $q$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-5$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$7$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "copies the intercept of the given line",
+    "B": "uses slope -3/2 (sign slip on the product with x = -2)",
+    "C": "reports the y-coordinate of the given point"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Slope stays $\\dfrac{3}{2}$. Substitute $(-2, 4)$: $4 = \\dfrac{3}{2}(-2) + b = -3 + b$, so $b = 7$.\n\n**The Full Solution:**\nStep 1: A line parallel to $y = \\dfrac{3}{2}x - 5$ has slope $\\dfrac{3}{2}$, so line $q$ is $y = \\dfrac{3}{2}x + b$ for some $b$.\nStep 2: The point $(-2, 4)$ lies on $q$: $4 = \\dfrac{3}{2}(-2) + b$, so $4 = -3 + b$.\nStep 3: $b = 7$. Check: $\\dfrac{3}{2}(-2) + 7 = -3 + 7 = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): keeps the intercept of the given line; a parallel line through a different point cannot share it.\n* Choice B ($1$): computes $\\dfrac{3}{2}(-2)$ as $+3$, a sign slip, giving $4 = 3 + b$.\n* Choice C ($4$): reports the $y$-coordinate of the given point, which is only the intercept when $x = 0$.\n\n**Test Day Takeaway:** Parallel copies the slope, never the intercept. Substitute the given point carefully, keeping the sign of a negative $x$-coordinate."
+}

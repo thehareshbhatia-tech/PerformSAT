@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-094",
+  "question": "The equation $\\frac{3x}{8} = \\frac{9}{4}$ is given. What is the value of $x + 7$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$6$"
+    },
+    {
+      "id": "B",
+      "text": "$10$"
+    },
+    {
+      "id": "C",
+      "text": "$13$"
+    },
+    {
+      "id": "D",
+      "text": "$31$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports x",
+    "B": "divides 9 by 3 to get x = 3, ignoring the 8/4",
+    "D": "forgets to divide by 4: 3x = 72"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Multiply both sides by $8$: $3x = \\frac{9 \\cdot 8}{4} = 18$, so $x = 6$ and $x + 7 = 13$.\n\n**The Full Solution:**\nStep 1: Clear the fraction on the left by multiplying both sides by $8$: $3x = \\frac{72}{4} = 18$.\nStep 2: Divide by $3$: $x = 6$.\nStep 3: Add $7$: $x + 7 = 13$. Check: $\\frac{3(6)}{8} = \\frac{18}{8} = \\frac{9}{4}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): reports $x$ and forgets the final $+7$.\n* Choice B ($10$): divides $9$ by $3$ to get $x = 3$, ignoring that the denominators $8$ and $4$ are different.\n* Choice D ($31$): cross-multiplies to $3x = 72$ but forgets to divide by $4$, getting $x = 24$.\n\n**Test Day Takeaway:** Clear denominators by cross-multiplying completely ($3x \\cdot 4 = 9 \\cdot 8$), solve, and then apply the shift the question actually asks for."
+}

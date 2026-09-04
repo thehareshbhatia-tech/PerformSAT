@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-058",
+  "question": "$5x + 2y = 31$\n$3x - 4y = 3$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $x + y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$5$"
+    },
+    {
+      "id": "C",
+      "text": "$8$"
+    },
+    {
+      "id": "D",
+      "text": "$13$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes x - y instead of x + y",
+    "B": "reports x only",
+    "D": "reports the combined x-coefficient 13"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Elimination with Scaling**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Double the first equation to get $10x + 4y = 62$; adding $3x - 4y = 3$ gives $13x = 65$, so $x = 5$. Then $2y = 31 - 25 = 6$, $y = 3$, and $x + y = 8$.\n\n**The Full Solution:**\nStep 1: The $y$-coefficients are $2$ and $-4$. Multiply the first equation by $2$ so they become opposites: $10x + 4y = 62$.\nStep 2: Add to the second equation: $13x = 65$, so $x = 5$. Substitute into the first original equation: $25 + 2y = 31$, so $y = 3$.\nStep 3: $x + y = 5 + 3 = 8$. Check the second equation: $3(5) - 4(3) = 15 - 12 = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): computes $x - y = 5 - 3$ instead of the sum.\n* Choice B ($5$): stops after finding $x$ and never adds $y$.\n* Choice D ($13$): reports the coefficient from $13x = 65$ rather than finishing the solution.\n\n**Test Day Takeaway:** Scale one equation so a variable's coefficients become opposites, add, then answer the exact combination asked (sum, difference, or a single coordinate)."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-223",
+  "question": "In the $xy$-plane, line $\\ell$ passes through the points $(a, 0)$ and $(0, b)$, where $a$ and $b$ are positive constants. Which expression represents the slope of a line that is perpendicular to line $\\ell$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\dfrac{a}{b}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{b}{a}$"
+    },
+    {
+      "id": "C",
+      "text": "$-\\dfrac{a}{b}$"
+    },
+    {
+      "id": "D",
+      "text": "$-\\dfrac{b}{a}$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "negates the slope of l without taking the reciprocal",
+    "C": "takes the reciprocal without changing the sign",
+    "D": "reports the slope of l itself"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Slope of $\\ell$: $\\dfrac{b - 0}{0 - a} = -\\dfrac{b}{a}$. Flip and negate: $\\dfrac{a}{b}$.\n\n**The Full Solution:**\nStep 1: Use the slope formula on $(a, 0)$ and $(0, b)$: $\\dfrac{b - 0}{0 - a} = \\dfrac{b}{-a} = -\\dfrac{b}{a}$. Since $a$ and $b$ are positive, $\\ell$ falls from left to right.\nStep 2: The perpendicular slope is the negative reciprocal of $-\\dfrac{b}{a}$: flipping gives $-\\dfrac{a}{b}$, and negating gives $\\dfrac{a}{b}$.\nStep 3: Check: $-\\dfrac{b}{a} \\cdot \\dfrac{a}{b} = -1$. $\\checkmark$ A positive perpendicular slope makes sense, since $\\ell$ has a negative one.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\dfrac{b}{a}$): negates the slope of $\\ell$ but forgets to flip the fraction.\n* Choice C ($-\\dfrac{a}{b}$): flips the fraction but keeps the negative sign.\n* Choice D ($-\\dfrac{b}{a}$): is the slope of $\\ell$ itself.\n\n**Test Day Takeaway:** With intercepts $(a, 0)$ and $(0, b)$, the slope is $-\\dfrac{b}{a}$. Treat the symbolic slope exactly like a numeric one: flip it, then change the sign."
+}

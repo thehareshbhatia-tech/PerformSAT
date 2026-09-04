@@ -1,0 +1,56 @@
+{
+  "id": "bank-alg-133",
+  "question": "The table gives four values of $x$ and the corresponding values of $g(x)$ for the linear function $g$. What is the value of $g(12)$?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "g(x)"
+      ],
+      "rows": [
+        [
+          "1",
+          "4"
+        ],
+        [
+          "3",
+          "10"
+        ],
+        [
+          "5",
+          "16"
+        ],
+        [
+          "7",
+          "22"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$34$"
+    },
+    {
+      "id": "B",
+      "text": "$36$"
+    },
+    {
+      "id": "C",
+      "text": "$37$"
+    },
+    {
+      "id": "D",
+      "text": "$40$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "extends the table by steps of 6 but stops at x = 11",
+    "B": "uses g(x) = 3x, dropping the constant term",
+    "D": "uses the first table output, 4, as the constant: 3(12) + 4"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~12s):** Each step of $2$ in $x$ adds $6$ to $g(x)$, so the slope is $3$. From $(1, 4)$: $g(x) = 3x + 1$. Then $g(12) = 36 + 1 = 37$.\n\n**The Full Solution:**\nStep 1: Find the rate of change from two rows: $\\frac{10 - 4}{3 - 1} = \\frac{6}{2} = 3$. The other rows agree, confirming $g$ is linear with slope $3$.\nStep 2: Find the constant using $(1, 4)$: $4 = 3(1) + b$, so $b = 1$ and $g(x) = 3x + 1$.\nStep 3: Evaluate: $g(12) = 3(12) + 1 = 37$. Check against the table: $g(7) = 22$, and five more steps of $3$ give $22 + 15 = 37$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($34$): continues the table in steps of $6$ ($28$, $34$) but stops at $x = 11$, one step short of $12$.\n* Choice B ($36$): uses $g(x) = 3x$, dropping the constant $1$.\n* Choice D ($40$): uses the first output, $4$, as the $y$-intercept, computing $3(12) + 4$.\n\n**Test Day Takeaway:** A linear table hides a rule. Get the slope from any two rows, the constant from one row, then evaluate. Confirm with a second row before trusting the rule."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-041",
+  "question": "$3x + 2y = 12$\n$6x - 4y = 8$\n\nHow many solutions does the given system of equations have?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Zero"
+    },
+    {
+      "id": "B",
+      "text": "Exactly one"
+    },
+    {
+      "id": "C",
+      "text": "Exactly two"
+    },
+    {
+      "id": "D",
+      "text": "Infinitely many"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sees the doubled x-coefficient and assumes parallel lines",
+    "C": "two lines cannot cross exactly twice",
+    "D": "assumes the second equation is a multiple of the first"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Classify System (Different Slopes)**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Slopes: $-\\frac{3}{2}$ for the first line and $-\\frac{6}{-4} = \\frac{3}{2}$ for the second. Different slopes mean the lines cross exactly once.\n\n**The Full Solution:**\nStep 1: Write each slope as $-\\frac{A}{B}$: first line $-\\frac{3}{2}$; second line $-\\frac{6}{-4} = \\frac{3}{2}$.\nStep 2: The slopes are not equal, so the lines are neither parallel nor identical; two non-parallel lines intersect in exactly one point.\nStep 3: Check by solving: doubling the first equation gives $6x + 4y = 24$; adding the second gives $12x = 32$, so $x = \\frac{8}{3}$, and then $y = 2$. One solution, $(\\frac{8}{3}, 2)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): notices that $6 = 2 \\cdot 3$ and assumes the lines are parallel, but the $y$-coefficient is $-4$, not $+4$, so the slopes differ.\n* Choice C (Exactly two): impossible for two straight lines.\n* Choice D (Infinitely many): would require the second equation to be exactly $2$ times the first, which fails on both the $y$-term and the constant.\n\n**Test Day Takeaway:** A doubled $x$-coefficient is bait; test the full ratio $\\frac{A_1}{A_2} = \\frac{B_1}{B_2}$ (with signs) before calling two lines parallel."
+}

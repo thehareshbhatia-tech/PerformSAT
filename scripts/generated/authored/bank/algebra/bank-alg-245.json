@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-245",
+ "question": "$5x + my = 20$\n\n$-10x + 6y = 7$\n\nIn the given system of equations, $m$ is a constant. The system has no solution. What is the value of $m$?",
+ "correctAnswer": "-3",
+ "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**The correct answer is $-3$.**\n\n**The Fast Way (~15s):** The $x$-coefficients scale by $\\frac{-10}{5} = -2$, so $6 = -2m$ and $m = -3$.\n\n**The Full Solution:**\nStep 1: Parallel lines in standard form have proportional variable coefficients: $\\frac{-10}{5} = \\frac{6}{m}$.\nStep 2: The left side is $-2$, so $-2m = 6$ and $m = -3$.\nStep 3: The constants $20$ and $7$ have ratio $\\frac{7}{20} \\neq -2$, so the lines are parallel but not identical. No solution. $\\checkmark$\n\n**Common Mistakes:** Writing $\\frac{5}{-10} = \\frac{m}{6}$ but then solving as if the ratio were $2$, giving $m = 3$. Both coefficient ratios must carry the same sign.\n\n**Test Day Takeaway:** Compute the multiplier from the known pair of coefficients, then solve one small equation for the unknown coefficient."
+}

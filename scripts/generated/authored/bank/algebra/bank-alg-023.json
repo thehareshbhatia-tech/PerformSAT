@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-023",
+  "question": "The function $g$ is defined by $g(x) = 6x - 11$. What is the value of $g(4)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-42$"
+    },
+    {
+      "id": "B",
+      "text": "$-13$"
+    },
+    {
+      "id": "C",
+      "text": "$13$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts inside first, 6(4 - 11)",
+    "B": "subtracts in the wrong order, 11 - 24",
+    "D": "drops the constant, 6(4) alone"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Direct Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Replace $x$ with $4$: $g(4) = 6(4) - 11 = 24 - 11 = 13$.\n\n**The Full Solution:**\nStep 1: $g(4)$ means the output of $g$ when the input is $4$, so substitute $4$ for every $x$ in the rule.\nStep 2: $g(4) = 6(4) - 11$. Multiply first: $6(4) = 24$.\nStep 3: Subtract: $24 - 11 = 13$. Check by reversing: $13 + 11 = 24$ and $24 \\div 6 = 4$, the input. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-42$): subtracts $11$ from $4$ before multiplying, as if the rule were $6(x - 11)$.\n* Choice B ($-13$): computes $11 - 24$, reversing the order of the subtraction.\n* Choice D ($24$): multiplies $6(4)$ but forgets to subtract $11$.\n\n**Test Day Takeaway:** Function notation is substitution: replace the variable, then follow the order of operations (multiply before subtracting)."
+}

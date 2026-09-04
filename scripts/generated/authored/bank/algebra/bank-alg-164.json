@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-164",
+  "question": "Line $t$ in the $xy$-plane contains the points $(2, -6)$ and $(5, 6)$. What is the slope of line $t$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-4$"
+    },
+    {
+      "id": "B",
+      "text": "$0$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$12$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reverses one subtraction, getting -12 over 3",
+    "B": "computes 6 - 6 in the rise, dropping the sign of -6",
+    "D": "reports the rise without dividing by the run"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Slope from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~6s):** $\\frac{6 - (-6)}{5 - 2} = \\frac{12}{3} = 4$.\n\n**The Full Solution:**\nStep 1: Assign $(x_1, y_1) = (2, -6)$ and $(x_2, y_2) = (5, 6)$.\nStep 2: Rise: $6 - (-6) = 12$. Run: $5 - 2 = 3$.\nStep 3: Slope $= \\frac{12}{3} = 4$. Check: starting at $(2, -6)$ and moving right $3$ and up $12$ reaches $(5, 6)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): subtracts in opposite orders for rise and run, getting $\\frac{-12}{3}$.\n* Choice B ($0$): computes the rise as $6 - 6$, losing the sign of $-6$.\n* Choice D ($12$): stops at the rise and never divides by the run.\n\n**Test Day Takeaway:** Write the subtraction with the negative coordinate in parentheses: $6 - (-6)$. Then divide rise by run; a slope is a ratio, never just a difference."
+}

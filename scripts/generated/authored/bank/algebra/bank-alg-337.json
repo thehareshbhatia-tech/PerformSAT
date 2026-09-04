@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-337",
+  "question": "In a choir, the number of altos is $4$ more than $3$ times the number $s$ of sopranos. If the choir has $44$ sopranos and altos in total, how many altos are in the choir?",
+  "correctAnswer": "34",
+  "explanation": "**SAT Pattern: Word-Problem to Multi-Step Linear**\n\n**The correct answer is $34$.**\n\n**The Fast Way (~15s):** $s + (3s + 4) = 4s + 4 = 44$, so $s = 10$ and altos $= 3(10) + 4 = 34$.\n\n**The Full Solution:**\nStep 1: Translate: altos $= 3s + 4$.\nStep 2: Total: $s + 3s + 4 = 44$, so $4s = 40$ and $s = 10$.\nStep 3: Altos $= 3(10) + 4 = 34$.\nCheck: $10 + 34 = 44$. $\\checkmark$\n\n**Common Mistakes:** Reporting $s = 10$, the number of sopranos; translating \"$4$ more than $3$ times\" as $3(s + 4)$, which gives $4s + 12 = 44$ and $s = 8$; or subtracting $4$ from $44$ and halving to get $20$.\n\n**Test Day Takeaway:** \"$4$ more than $3$ times $s$\" is $3s + 4$; the \"times\" attaches to $s$ alone, and the \"more than\" is added afterward."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-302",
+  "question": "$\\dfrac{ax - 4}{6} + \\dfrac{x + b}{3} = \\dfrac{5x + 2}{6}$\nIn the given equation, $a$ and $b$ are constants, and the equation is true for all values of $x$. What is the value of $a + b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$8$"
+    },
+    {
+      "id": "D",
+      "text": "$9$"
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "sign slip on the constant term (2b + 4 = 2 gives b = -1)",
+    "C": "matched a to 5 without accounting for the 2x from the second fraction",
+    "D": "forgot to double b when clearing the denominator 3"
+  },
+  "explanation": "**SAT Pattern: Polynomial Identity with Rational Expressions**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Multiply through by $6$: $ax - 4 + 2(x + b) = 5x + 2$, so $(a + 2)x + (2b - 4) = 5x + 2$. Match coefficients: $a = 3$, $b = 3$, and $a + b = 6$.\n\n**The Full Solution:**\nStep 1: Clear the denominators by multiplying every term by $6$, the least common denominator: $(ax - 4) + 2(x + b) = 5x + 2$.\nStep 2: Distribute and group: $ax - 4 + 2x + 2b = 5x + 2$, which is $(a + 2)x + (2b - 4) = 5x + 2$.\nStep 3: An identity holds for all $x$ only when the $x$-coefficients match and the constants match. $x$-terms: $a + 2 = 5$, so $a = 3$. Constants: $2b - 4 = 2$, so $b = 3$. Then $a + b = 6$.\nCheck: $\\dfrac{3x - 4}{6} + \\dfrac{x + 3}{3} = \\dfrac{3x - 4 + 2x + 6}{6} = \\dfrac{5x + 2}{6}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): writes the constant match as $2b + 4 = 2$, giving $b = -1$ and $a + b = 2$; the $-4$ keeps its sign.\n* Choice C ($8$): matches $a$ directly to $5$, forgetting that the second fraction contributes $2x$ once the denominator is cleared.\n* Choice D ($9$): multiplies the second fraction's constant by $1$ instead of $2$, giving $b - 4 = 2$ and $b = 6$.\n\n**Test Day Takeaway:** For an identity with fractions, clear denominators first, then match the $x$-coefficients and the constants separately; each match is its own small equation."
+}

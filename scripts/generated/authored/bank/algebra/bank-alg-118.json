@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-118",
+  "question": "The solution to the system of equations $3x + 4y = 34$ and $5x - 6y = -32$ is $(x, y)$. What is the value of $y$?",
+  "correctAnswer": "7",
+  "explanation": "**SAT Pattern: System of Equations — Elimination**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~20s):** Multiply the first equation by $3$ and the second by $2$: $9x + 12y = 102$ and $10x - 12y = -64$. Add: $19x = 38$, so $x = 2$, and then $6 + 4y = 34$ gives $y = 7$.\n\n**The Full Solution:**\nStep 1: To eliminate $y$, make its coefficients opposites: $3(3x + 4y = 34)$ gives $9x + 12y = 102$, and $2(5x - 6y = -32)$ gives $10x - 12y = -64$.\nStep 2: Add the equations: $19x = 38$, so $x = 2$.\nStep 3: Substitute into $3x + 4y = 34$: $6 + 4y = 34$, so $4y = 28$ and $y = 7$. Check: $5(2) - 6(7) = 10 - 42 = -32$. $\\checkmark$\n\n**Common Mistakes:** Reporting $x = 2$ instead of $y$; multiplying the constant $-32$ by $2$ as $-16$ or forgetting to scale it; subtracting the scaled equations instead of adding, which leaves $-x + 24y = 166$.\n\n**Test Day Takeaway:** Scale each equation by the other's coefficient of the variable you are eliminating (including the constants), add when the signs are opposite, and back-substitute for the variable actually requested."
+}

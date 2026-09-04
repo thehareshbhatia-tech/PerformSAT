@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-130",
+  "question": "$p(2x - 5) + 9 = 6x + q$\n\nIn the given equation, $p$ and $q$ are constants. If the equation has infinitely many solutions, what is the value of $pq$?",
+  "correctAnswer": "-18",
+  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $-18$.**\n\n**The Fast Way (~12s):** Expand: $2px - 5p + 9 = 6x + q$. Match $x$ coefficients: $2p = 6$, so $p = 3$. Match constants: $-5(3) + 9 = -6 = q$. Then $pq = 3(-6) = -18$.\n\n**The Full Solution:**\nStep 1: Distribute $p$: the left side is $2px - 5p + 9$.\nStep 2: For the equation to hold for every $x$, the $x$ coefficients must match: $2p = 6$, so $p = 3$.\nStep 3: The constants must also match: $-5p + 9 = q$, so $q = -15 + 9 = -6$. Then $pq = (3)(-6) = -18$. Check with $x = 1$: left side $3(-3) + 9 = 0$; right side $6 - 6 = 0$. $\\checkmark$\n\n**Common Mistakes:** Entering $18$ (dropping the sign of $q$); entering $-3$ (computing $p + q$ instead of $pq$); entering $-45$ (forgetting the $+9$ so that $q = -15$).\n\n**Test Day Takeaway:** Two unknown constants means two matches: variable coefficients first (that fixes $p$), then constants (that fixes $q$). Only then combine them as the question asks."
+}

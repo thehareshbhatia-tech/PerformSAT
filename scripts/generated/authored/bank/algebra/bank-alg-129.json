@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-129",
+  "question": "$3x - 5y = 8$\n$ax + by = -24$\n\nIn the given system of equations, $a$ and $b$ are constants. If the system has infinitely many solutions, what is the value of $a - b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-24$"
+    },
+    {
+      "id": "B",
+      "text": "$-2$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "uses the original coefficients 3 - 5 without scaling",
+    "C": "computes a + b instead of a - b",
+    "D": "uses multiplier +3 instead of -3 (a = 9, b = -15)"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice A is correct.**\n\n**The Fast Way (~12s):** The constants force the multiplier: $\\frac{-24}{8} = -3$. So $a = -3(3) = -9$ and $b = -3(-5) = 15$, giving $a - b = -9 - 15 = -24$.\n\n**The Full Solution:**\nStep 1: Infinitely many solutions means the second equation is a constant multiple of the first. The only known pair is the constants, so the multiplier is $\\frac{-24}{8} = -3$.\nStep 2: Scale the first equation by $-3$: $-9x + 15y = -24$. Therefore $a = -9$ and $b = 15$.\nStep 3: Compute $a - b = -9 - 15 = -24$. Check: $-3(3x - 5y) = -9x + 15y$ and $-3(8) = -24$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-2$): subtracts the original coefficients, $3 - 5$, without applying the multiplier.\n* Choice C ($6$): finds $a$ and $b$ correctly but adds them, $-9 + 15$, instead of subtracting.\n* Choice D ($24$): uses a multiplier of $+3$, getting $a = 9$ and $b = -15$; the sign of $-24 \\div 8$ is lost.\n\n**Test Day Takeaway:** When both coefficients are unknown, the constants determine the multiplier. Watch its sign, then apply it to each coefficient before combining."
+}

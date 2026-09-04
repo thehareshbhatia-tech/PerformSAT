@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-106",
+  "question": "What is the solution to the equation $\\frac{4x + 3}{6} - \\frac{x - 5}{4} = 3$?",
+  "correctAnswer": "3",
+  "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~20s):** Multiply by $12$: $2(4x + 3) - 3(x - 5) = 36 \\Rightarrow 8x + 6 - 3x + 15 = 36 \\Rightarrow 5x = 15 \\Rightarrow x = 3$.\n\n**The Full Solution:**\nStep 1: The least common denominator of $6$ and $4$ is $12$. Multiply every term by $12$: $2(4x + 3) - 3(x - 5) = 36$.\nStep 2: Distribute carefully, including the negative: $8x + 6 - 3x + 15 = 36$, so $5x + 21 = 36$.\nStep 3: Subtract $21$ and divide by $5$: $x = 3$. Check: $\\frac{15}{6} - \\frac{-2}{4} = 2.5 + 0.5 = 3$. $\\checkmark$\n\n**Common Mistakes:** Distributing $-3$ to $x$ only, giving $8x + 6 - 3x - 5 = 36$ and $x = 7$; forgetting to multiply the right side by $12$, giving $5x + 21 = 3$; using $24$ as the common denominator and then mis-scaling one term.\n\n**Test Day Takeaway:** When a fraction is subtracted, the negative applies to the whole numerator; multiply by the LCD, put the distributed numerator in parentheses, and distribute the sign to every term."
+}

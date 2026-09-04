@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-233",
+  "question": "The equation $(x - 5)(x + 2) = x^2 + cx - 10$ is true for all values of $x$, where $c$ is a constant. What is the value of $c$?",
+  "correctAnswer": "-3",
+  "explanation": "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is $-3$.**\n\n**The Fast Way (~10s):** The $x$-coefficient is the sum of the constants in the factors: $-5 + 2 = -3$.\n\n**The Full Solution:**\nStep 1: Expand the left side: $(x - 5)(x + 2) = x^2 + 2x - 5x - 10 = x^2 - 3x - 10$.\nStep 2: The equation holds for every $x$, so the coefficients of $x$ must agree: $c = -3$.\nStep 3: Check: the constant terms also agree, $-5 \\cdot 2 = -10$. $\\checkmark$\n\n**Common Mistakes:** Entering $3$ (dropping the sign); entering $-7$ (subtracting $5 + 2$); entering $-10$ (the constant term); entering $7$ (using $5 + 2$ with the wrong sign).\n\n**Test Day Takeaway:** In $(x + p)(x + q)$ the linear coefficient is $p + q$ with signs included. Negative answers are common here; enter the minus sign."
+}

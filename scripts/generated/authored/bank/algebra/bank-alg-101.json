@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-101",
+  "question": "What value of $y$ is the solution to the equation $6(2y - 3) = 4y + 30$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-6$"
+    },
+    {
+      "id": "B",
+      "text": "$1.5$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$6$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "-48 = -8y then divides by 8 instead of -8",
+    "B": "subtracts 18 instead of adding, 8y = 12",
+    "C": "adds 4y instead of subtracting, 16y = 48"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Distribute: $12y - 18 = 4y + 30$. Subtract $4y$ and add $18$: $8y = 48$, so $y = 6$.\n\n**The Full Solution:**\nStep 1: Distribute the $6$: $6(2y - 3) = 12y - 18$, so $12y - 18 = 4y + 30$.\nStep 2: Collect the $y$-terms on the left by subtracting $4y$: $8y - 18 = 30$. Add $18$: $8y = 48$.\nStep 3: Divide by $8$: $y = 6$. Check: $6(12 - 3) = 54$ and $4(6) + 30 = 54$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): collects the $y$-terms on the right, $-18 - 30 = 4y - 12y$, so $-48 = -8y$, then divides by $8$ instead of $-8$.\n* Choice B ($1.5$): subtracts $18$ instead of adding it, getting $8y = 12$.\n* Choice C ($3$): adds $4y$ to the left instead of subtracting, getting $16y = 48$.\n\n**Test Day Takeaway:** Distribute first, then move variable terms one way and constants the other, flipping each sign as it crosses the equals sign; verify by substituting into both sides."
+}

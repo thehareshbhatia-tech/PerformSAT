@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-159",
+  "question": "$ax + 6y = 10$\n$3x + 9y = 8$\n\nIn the given system of equations, $a$ is a constant. If the system has no solution, what is the value of $a$?",
+  "correctAnswer": "2",
+  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~8s):** The $y$-coefficients give the ratio $\\frac{6}{9} = \\frac{2}{3}$, so $a = \\frac{2}{3}(3) = 2$.\n\n**The Full Solution:**\nStep 1: For parallel lines, $\\frac{a}{3} = \\frac{6}{9}$.\nStep 2: Simplify: $\\frac{6}{9} = \\frac{2}{3}$, so $a = 3 \\cdot \\frac{2}{3} = 2$.\nStep 3: Confirm the lines are distinct: $\\frac{2}{3}(8) = \\frac{16}{3} \\ne 10$, so the first equation is not a multiple of the second. Parallel and distinct means no solution. $\\checkmark$\n\n**Common Mistakes:** Entering $4.5$ (inverting the ratio, $3 \\cdot \\frac{3}{2}$); entering $6$ (copying the $y$-coefficient); entering $18$ (multiplying $3$ by $6$ instead of by $\\frac{2}{3}$).\n\n**Test Day Takeaway:** The scale factor can be a fraction. Reduce it, apply it to the known coefficient, and confirm the constants do not scale the same way."
+}

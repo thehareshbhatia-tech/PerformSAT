@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-316",
+  "question": "$k(x + 2) - 3(x - 4) = 3x + 24$\nIn the given equation, $k$ is a constant. If the equation is true for all values of $x$, what is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$0$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$18$"
+    }
+  ],
+  "correctAnswer": "C",
+  "distractorNotes": {
+    "A": "wrote the coefficient match as k + 3 = 3",
+    "B": "matched k directly to 3, ignoring the -3x term",
+    "D": "sign slip on the constant match (2k - 12 = 24)"
+  },
+  "explanation": "**SAT Pattern: Parameter Inference (Identity)**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Distribute: $(k - 3)x + (2k + 12) = 3x + 24$. Match $x$-coefficients: $k - 3 = 3$, so $k = 6$.\n\n**The Full Solution:**\nStep 1: Distribute both products on the left: $kx + 2k - 3x + 12 = (k - 3)x + (2k + 12)$.\nStep 2: For the equation to hold for every $x$, the $x$-coefficients must agree: $k - 3 = 3$, so $k = 6$.\nStep 3: The constants must agree as well, which confirms the value: $2(6) + 12 = 24$. $\\checkmark$\nCheck: with $k = 6$ the left side is $6x + 12 - 3x + 12 = 3x + 24$, identical to the right side.\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): writes the coefficient match as $k + 3 = 3$, adding the $-3x$ instead of subtracting it.\n* Choice B ($3$): matches $k$ straight to $3$ and forgets that $-3(x - 4)$ also contributes an $x$-term.\n* Choice D ($18$): uses the constant match with a sign slip, $2k - 12 = 24$; distributing $-3$ across $-4$ gives $+12$.\n\n**Test Day Takeaway:** \"True for all values of $x$\" means the two sides are the same expression; match the $x$-coefficients, then use the constants to confirm."
+}

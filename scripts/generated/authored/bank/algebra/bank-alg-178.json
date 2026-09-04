@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-178",
+  "question": "Line $\\ell$ is defined by $y = \\frac{1}{4}x - 2$. What is the slope of a line that is perpendicular to line $\\ell$ in the $xy$-plane?",
+  "correctAnswer": "-4",
+  "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $-4$.**\n\n**The Fast Way (~5s):** The slope of $\\ell$ is $\\frac{1}{4}$. Flip and negate: $-4$.\n\n**The Full Solution:**\nStep 1: From $y = \\frac{1}{4}x - 2$, the slope of line $\\ell$ is $\\frac{1}{4}$.\nStep 2: A perpendicular line has slope $m$ with $\\frac{1}{4} \\cdot m = -1$, so $m = -4$.\nStep 3: Check: $\\frac{1}{4} \\cdot (-4) = -1$. $\\checkmark$\n\n**Common Mistakes:** Entering $4$ (reciprocal without the sign change); entering $-\\frac{1}{4}$ (sign change without the reciprocal); entering $2$ or $-2$ (using the $y$-intercept, which has nothing to do with slope).\n\n**Test Day Takeaway:** The $y$-intercept is a distraction for a perpendicular-slope question. Take the coefficient of $x$, invert it, and change its sign."
+}

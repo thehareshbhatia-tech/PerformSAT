@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-037",
+  "question": "In the $xy$-plane, line $g$ is perpendicular to the line with equation $y = \\frac{4}{3}x - 7$ and passes through the point $(8, 1)$. Which equation defines line $g$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -\\frac{4}{3}x + \\frac{35}{3}$"
+    },
+    {
+      "id": "B",
+      "text": "$y = -\\frac{3}{4}x + 7$"
+    },
+    {
+      "id": "C",
+      "text": "$y = -\\frac{3}{4}x + 1$"
+    },
+    {
+      "id": "D",
+      "text": "$y = \\frac{3}{4}x - 5$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "changes the sign but does not flip the fraction",
+    "C": "uses the point's y-coordinate as the intercept",
+    "D": "flips the fraction but keeps the sign"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Perpendicular Line Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Perpendicular slope: $-\\frac{3}{4}$. Substitute $(8, 1)$: $1 = -\\frac{3}{4}(8) + b = -6 + b$, so $b = 7$ and $y = -\\frac{3}{4}x + 7$.\n\n**The Full Solution:**\nStep 1: The given line has slope $\\frac{4}{3}$, so a perpendicular line has slope $-\\frac{3}{4}$ (flip and negate; check: $\\frac{4}{3} \\cdot (-\\frac{3}{4}) = -1$).\nStep 2: Write $y = -\\frac{3}{4}x + b$ and substitute $(8, 1)$: $1 = -6 + b$, so $b = 7$.\nStep 3: Line $g$ is $y = -\\frac{3}{4}x + 7$. Check: at $x = 8$, $y = -6 + 7 = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{4}{3}x + \\frac{35}{3}$): negates the slope without flipping it, then solves for $b$ with that wrong slope.\n* Choice C ($y = -\\frac{3}{4}x + 1$): has the right slope but uses the $y$-coordinate of $(8, 1)$ as the intercept.\n* Choice D ($y = \\frac{3}{4}x - 5$): flips the fraction but keeps the positive sign, then finds $b = 1 - 6 = -5$.\n\n**Test Day Takeaway:** Perpendicular = flip and negate, then substitute the point for $b$; a quick product check ($m_1 m_2 = -1$) catches the two half-done slopes."
+}

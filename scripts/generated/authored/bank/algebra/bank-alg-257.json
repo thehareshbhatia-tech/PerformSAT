@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-257",
+ "question": "$p + q = 14$\n\n$p - q = 6$\n\nIf $(p, q)$ is the solution to the given system of equations, what is the value of $4p - q$?",
+ "correctAnswer": "36",
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is $36$.**\n\n**The Fast Way (~10s):** Adding the equations gives $2p = 20$, so $p = 10$ and $q = 4$; then $4p - q = 40 - 4 = 36$.\n\n**The Full Solution:**\nStep 1: Add the equations: $2p = 20$, so $p = 10$.\nStep 2: Substitute into $p + q = 14$: $q = 4$.\nStep 3: Evaluate $4p - q = 4(10) - 4 = 36$. Check: $10 - 4 = 6$. $\\checkmark$\n\n**Common Mistakes:** Computing $4p + q = 44$ by ignoring the minus sign, or stopping at $p = 10$ without evaluating the requested expression.\n\n**Test Day Takeaway:** Sum-and-difference systems solve in one addition; then evaluate the target expression carefully, sign included."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-321",
+  "question": "The function $h$ is defined by $h(x) = 4x - 9$. If $h(a) = 15$, what is the value of $a$?",
+  "correctAnswer": "6",
+  "explanation": "**SAT Pattern: Solve for Input from Output**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~5s):** $h(a) = 15$ means $4a - 9 = 15$, so $4a = 24$ and $a = 6$.\n\n**The Full Solution:**\nStep 1: $h(a)$ is the output when the input is $a$, so replace $x$ with $a$ in the rule: $h(a) = 4a - 9$.\nStep 2: Set the output equal to $15$: $4a - 9 = 15$.\nStep 3: Add $9$ to both sides ($4a = 24$) and divide by $4$: $a = 6$.\nCheck: $h(6) = 4(6) - 9 = 24 - 9 = 15$. $\\checkmark$\n\n**Common Mistakes:** Evaluating $h(15) = 51$ instead of solving for the input; subtracting $9$ from $15$ to get $4a = 6$ and $a = 1.5$; or reporting $24$ after adding $9$ but before dividing by $4$.\n\n**Test Day Takeaway:** \"$h(a) = 15$\" gives you the OUTPUT; substitute $a$ into the rule, set it equal to $15$, and solve for the input."
+}

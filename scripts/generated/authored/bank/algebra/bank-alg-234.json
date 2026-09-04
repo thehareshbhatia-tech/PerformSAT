@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-234",
+  "question": "If $(3x + 2)(x - 5) = 3x^2 + kx - 10$ for all values of $x$, what is the value of the constant $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-17$"
+    },
+    {
+      "id": "B",
+      "text": "$-13$"
+    },
+    {
+      "id": "C",
+      "text": "$-10$"
+    },
+    {
+      "id": "D",
+      "text": "$13$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts the outer and inner products (-15 - 2) instead of adding",
+    "C": "reports the constant term",
+    "D": "drops the sign on the combined x-terms"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Outer plus inner: $3x(-5) + 2(x) = -15x + 2x = -13x$. So $k = -13$.\n\n**The Full Solution:**\nStep 1: Expand with FOIL: $(3x + 2)(x - 5) = 3x^2 - 15x + 2x - 10$.\nStep 2: Combine the $x$-terms: $-15x + 2x = -13x$, so the left side is $3x^2 - 13x - 10$.\nStep 3: Match coefficients with $3x^2 + kx - 10$: $k = -13$. Check: the $x^2$ and constant terms agree ($3$ and $-10$). $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-17$): subtracts the inner product instead of adding it, $-15 - 2$.\n* Choice C ($-10$): reports the constant term rather than the $x$-coefficient.\n* Choice D ($13$): combines correctly but drops the negative sign.\n\n**Test Day Takeaway:** When the leading coefficient is not $1$, you cannot just add the constants. Compute outer and inner products separately, keep their signs, and add."
+}

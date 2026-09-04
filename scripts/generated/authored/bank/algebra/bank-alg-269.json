@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-269",
+ "question": "$5x + by = 8$\n\n$-15x + 12y = -24$\n\nIn the given system of equations, $b$ is a constant. If the system has infinitely many solutions, what is the value of $b$?",
+ "correctAnswer": "-4",
+ "explanation": "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**The correct answer is $-4$.**\n\n**The Fast Way (~15s):** The multiplier is $\\frac{-15}{5} = -3$ (and $\\frac{-24}{8} = -3$ agrees), so $-3b = 12$ and $b = -4$.\n\n**The Full Solution:**\nStep 1: Same line means the second equation is a constant multiple of the first. From the $x$-coefficients: $-15 = -3(5)$, so the multiplier is $-3$.\nStep 2: The constants confirm it: $-24 = -3(8)$.\nStep 3: For the $y$-coefficients, $-3b = 12$, so $b = -4$. Check: $-3(5x - 4y = 8)$ is $-15x + 12y = -24$. $\\checkmark$\n\n**Common Mistakes:** Answering $4$ by using a multiplier of $3$ instead of $-3$, or answering $-36$ by multiplying $12$ by $-3$ instead of dividing.\n\n**Test Day Takeaway:** Verify the multiplier on two known pairs before solving for the unknown coefficient; the sign must match both."
+}

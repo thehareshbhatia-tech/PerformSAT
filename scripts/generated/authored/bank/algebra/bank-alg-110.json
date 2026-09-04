@@ -1,0 +1,23 @@
+{
+  "id": "bank-alg-110",
+  "question": "The table gives two values of $x$ and the corresponding values of $g(x)$ for the linear function $g$. What is the value of $g(9)$?",
+  "diagram": {
+    "type": "table",
+    "params": {
+      "xHeader": "x",
+      "yHeader": "g(x)",
+      "rows": [
+        [
+          "0",
+          "-7"
+        ],
+        [
+          "4",
+          "5"
+        ]
+      ]
+    }
+  },
+  "correctAnswer": "20",
+  "explanation": "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $20$.**\n\n**The Fast Way (~15s):** The outputs rise $12$ over a run of $4$, so the slope is $3$. With $g(0) = -7$, $g(x) = 3x - 7$ and $g(9) = 27 - 7 = 20$.\n\n**The Full Solution:**\nStep 1: Slope from the table: $\\frac{5 - (-7)}{4 - 0} = \\frac{12}{4} = 3$.\nStep 2: The row $x = 0$ gives the $y$-intercept directly: $g(0) = -7$, so $g(x) = 3x - 7$.\nStep 3: $g(9) = 3(9) - 7 = 27 - 7 = 20$. Check: $g(4) = 12 - 7 = 5$ matches the table. $\\checkmark$\n\n**Common Mistakes:** Using slope $\\frac{5 - 7}{4} = -0.5$ by dropping the negative on $-7$; extending from $x = 4$ by $9$ steps instead of $5$, getting $5 + 27 = 32$; reporting $27$ and forgetting the intercept.\n\n**Test Day Takeaway:** From a table, compute the slope from two rows, read the intercept from the $x = 0$ row if present, write the rule, and evaluate at the requested input."
+}

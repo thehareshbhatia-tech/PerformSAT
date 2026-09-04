@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-076",
+  "question": "The function $g$ is defined by $g(x) = \\frac{\\sqrt{12 - 3x}}{x + 2}$. Which of the following describes all values of $x$ for which $g(x)$ is a real number?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x \\le 4$"
+    },
+    {
+      "id": "B",
+      "text": "$x < 4$ and $x \\ne -2$"
+    },
+    {
+      "id": "C",
+      "text": "$x \\le 4$ and $x \\ne -2$"
+    },
+    {
+      "id": "D",
+      "text": "$x \\ge 4$ and $x \\ne -2$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "ignores the denominator",
+    "B": "excludes the endpoint where the radicand is 0",
+    "D": "forgets to reverse the inequality when dividing by -3"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Domain with Radical and Denominator**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The radicand must be nonnegative, $12 - 3x \\ge 0 \\Rightarrow x \\le 4$, and the denominator cannot be zero, $x \\ne -2$. Both conditions together: $x \\le 4$ and $x \\ne -2$.\n\n**The Full Solution:**\nStep 1: Square root: $12 - 3x \\ge 0 \\Rightarrow -3x \\ge -12 \\Rightarrow x \\le 4$ (dividing by $-3$ reverses the inequality). The value $x = 4$ is allowed because $\\sqrt{0} = 0$ is real.\nStep 2: Denominator: $x + 2 \\ne 0 \\Rightarrow x \\ne -2$. Note $-2 \\le 4$, so this exclusion actually removes a point from the interval.\nStep 3: Combine: $x \\le 4$ and $x \\ne -2$. Check: $g(4) = \\frac{0}{6} = 0$ is real; $g(-2) = \\frac{\\sqrt{18}}{0}$ is undefined; $g(5) = \\frac{\\sqrt{-3}}{7}$ is not real. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x \\le 4$): handles the radical but ignores the denominator, which is zero at $x = -2$.\n* Choice B ($x < 4$ and $x \\ne -2$): excludes $x = 4$, but a radicand of $0$ is fine; $\\sqrt{0} = 0$.\n* Choice D ($x \\ge 4$ and $x \\ne -2$): forgets to reverse the inequality when dividing by $-3$; for $x > 4$ the radicand is negative.\n\n**Test Day Takeaway:** Collect every restriction separately (radicand $\\ge 0$, denominator $\\ne 0$), remember that dividing by a negative flips the inequality, then intersect the conditions."
+}

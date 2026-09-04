@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-172",
+  "question": "$9 - 4x = 33$\n\nWhat value of $x$ is the solution to the given equation?",
+  "correctAnswer": "-6",
+  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $-6$.**\n\n**The Fast Way (~5s):** Subtract $9$: $-4x = 24$. Divide by $-4$: $x = -6$.\n\n**The Full Solution:**\nStep 1: Subtract $9$ from both sides: $-4x = 24$.\nStep 2: Divide both sides by $-4$, keeping the sign: $x = -6$.\nStep 3: Check: $9 - 4(-6) = 9 + 24 = 33$. $\\checkmark$\n\n**Common Mistakes:** Entering $6$ (dividing $24$ by $4$ instead of $-4$); entering $-10.5$ (adding $9$ instead of subtracting, getting $-4x = 42$); entering $24$ (stopping at $-4x = 24$).\n\n**Test Day Takeaway:** When the variable term is negative, divide by the negative coefficient. Substituting the answer back catches a dropped sign immediately."
+}

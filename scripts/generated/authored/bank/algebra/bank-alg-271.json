@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-271",
+ "question": "$ax + 12y = 24$\n\n$3x + ay = 2a$\n\nIn the given system of equations, $a$ is a negative constant. If the system has infinitely many solutions, what is the value of $a$?",
+ "correctAnswer": "-6",
+ "explanation": "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**The correct answer is $-6$.**\n\n**The Fast Way (~20s):** Same line means proportional coefficients: $\\frac{a}{3} = \\frac{12}{a}$, so $a^2 = 36$. Since $a$ is negative, $a = -6$.\n\n**The Full Solution:**\nStep 1: For the equations to describe one line, $\\frac{a}{3} = \\frac{12}{a} = \\frac{24}{2a}$.\nStep 2: From $\\frac{a}{3} = \\frac{12}{a}$, $a^2 = 36$, so $a = 6$ or $a = -6$. The stem requires $a < 0$, so $a = -6$.\nStep 3: Verify all three ratios with $a = -6$: $\\frac{-6}{3} = -2$, $\\frac{12}{-6} = -2$, $\\frac{24}{-12} = -2$. The first equation is $-2$ times the second, so the lines coincide. $\\checkmark$\n\n**Common Mistakes:** Reporting $6$, which ignores the sign condition, or checking only the variable coefficients; for infinitely many solutions the constants must scale by the same factor, so always verify the third ratio.\n\n**Test Day Takeaway:** When the unknown sits in both equations, the proportion becomes $a^2 = $ constant; use the sign restriction, then check the constants too."
+}

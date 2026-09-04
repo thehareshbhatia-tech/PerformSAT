@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-054",
+  "question": "$x + y = 16$\n$x - y = 6$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$5$"
+    },
+    {
+      "id": "B",
+      "text": "$8$"
+    },
+    {
+      "id": "C",
+      "text": "$11$"
+    },
+    {
+      "id": "D",
+      "text": "$22$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports y instead of x",
+    "B": "halves 16 only, ignoring the second equation",
+    "D": "stops at 2x = 22"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Elimination by Addition**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Adding the equations cancels $y$: $2x = 22$, so $x = 11$.\n\n**The Full Solution:**\nStep 1: The $y$-terms have opposite signs ($+y$ and $-y$), so adding the equations eliminates $y$.\nStep 2: $(x + y) + (x - y) = 16 + 6$ gives $2x = 22$, so $x = 11$.\nStep 3: Then $y = 16 - 11 = 5$. Check the second equation: $11 - 5 = 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): is the value of $y$, not $x$.\n* Choice B ($8$): halves $16$ as if $x = y$, ignoring the second equation.\n* Choice D ($22$): stops at $2x = 22$ without dividing by $2$.\n\n**Test Day Takeaway:** When a variable appears with opposite signs in the two equations, add them; the eliminated variable drops out in one step."
+}

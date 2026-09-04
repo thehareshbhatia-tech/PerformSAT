@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-282",
+ "question": "For which of the following equations are there infinitely many values of $x$ that satisfy the equation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4(x + 2) = 4x + 2$"
+  },
+  {
+   "id": "B",
+   "text": "$4(x + 2) = 4x + 8$"
+  },
+  {
+   "id": "C",
+   "text": "$4(x + 2) = 2x + 8$"
+  },
+  {
+   "id": "D",
+   "text": "$2(x + 4) = 4x + 8$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "same x-coefficient but 8 ≠ 2; no solution",
+  "C": "different x-coefficients; exactly one solution (x = 0)",
+  "D": "different x-coefficients; exactly one solution (x = 0)"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Distribute each left side and look for the equation whose two sides become identical: $4(x + 2) = 4x + 8$ is $4x + 8 = 4x + 8$.\n\n**The Full Solution:**\nStep 1: Distribute in choice B: $4x + 8 = 4x + 8$. Subtracting $4x$ leaves $8 = 8$, true for every $x$, so there are infinitely many solutions.\nStep 2: Choice A becomes $4x + 8 = 4x + 2$, or $8 = 2$: false, so no solution.\nStep 3: Choices C and D become $4x + 8 = 2x + 8$ and $2x + 8 = 4x + 8$; each gives $x = 0$, exactly one solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4(x + 2) = 4x + 2$): the matching $4x$ terms look like an identity, but the constants $8$ and $2$ differ, so it has no solution.\n* Choice C ($4(x + 2) = 2x + 8$): the constants match after distributing, but the $x$-coefficients differ, giving the single solution $x = 0$.\n* Choice D ($2(x + 4) = 4x + 8$): same trap as C with the sides swapped; $2x + 8 = 4x + 8$ has only $x = 0$.\n\n**Test Day Takeaway:** Distribute first, then compare: identical coefficients AND identical constants mean infinitely many solutions."
+}

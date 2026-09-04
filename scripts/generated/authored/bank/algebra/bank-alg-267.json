@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-267",
+ "question": "$kx - 6y = 15$\n\n$-4x + 8y = -20$\n\nIn the given system of equations, $k$ is a constant. If the system has infinitely many solutions, what is the value of $k$?",
+ "correctAnswer": "3",
+ "explanation": "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~15s):** The $y$-coefficients and constants both scale by $-\\frac{4}{3}$ (since $8 = -\\frac{4}{3}(-6)$ and $-20 = -\\frac{4}{3}(15)$), so $-4 = -\\frac{4}{3}k$ and $k = 3$.\n\n**The Full Solution:**\nStep 1: Same line requires one equation to be a multiple of the other. From the $y$-coefficients the multiplier is $\\frac{8}{-6} = -\\frac{4}{3}$.\nStep 2: Confirm with the constants: $\\frac{-20}{15} = -\\frac{4}{3}$. Consistent.\nStep 3: Apply to the $x$-coefficients: $-\\frac{4}{3}k = -4$, so $k = 3$. Check: $-\\frac{4}{3}(3x - 6y = 15)$ is $-4x + 8y = -20$. $\\checkmark$\n\n**Common Mistakes:** Answering $-3$ by pairing the signs incorrectly, or answering $-4$ by copying the second equation's $x$-coefficient without dividing by the multiplier.\n\n**Test Day Takeaway:** When the multiplier is a fraction, compute it from a complete pair, verify it on the constants, then solve for the missing coefficient."
+}

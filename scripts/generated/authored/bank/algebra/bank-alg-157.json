@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-157",
+  "question": "$6x - 5y = 8$\n$18x + ky = 20$\n\nIn the given system of equations, $k$ is a constant. The system has no solution. What is the value of $k$?",
+  "correctAnswer": "-15",
+  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $-15$.**\n\n**The Fast Way (~8s):** The $x$-coefficients scale by $\\frac{18}{6} = 3$. For parallel lines the $y$-coefficients must scale the same way: $k = 3(-5) = -15$.\n\n**The Full Solution:**\nStep 1: Parallel lines in standard form have proportional coefficients: $\\frac{18}{6} = \\frac{k}{-5}$.\nStep 2: The left ratio is $3$, so $k = 3(-5) = -15$.\nStep 3: Confirm the lines are distinct: $3(8) = 24 \\ne 20$, so the second equation is not a multiple of the first. Parallel and distinct means no solution. $\\checkmark$\n\n**Common Mistakes:** Entering $15$ (dropping the negative sign from $-5$); entering $-5$ (copying the coefficient without scaling); entering $5$ (both errors at once).\n\n**Test Day Takeaway:** Carry the sign of the coefficient through the scaling. A negative $y$-coefficient stays negative after multiplying by a positive factor."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-027",
+  "question": "The function $f$ is defined by $f(x) = -3x + 11$. If $f(4a - 7) = f(2a + 5)$, where $a$ is a constant, what is the value of $a$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-1$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$6$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "moves the constants with the wrong sign (2a = 5 - 7)",
+    "B": "sign error distributing -3 over +5 (gets -6a + 26 on the right)",
+    "C": "divides 12 by 4 instead of by 2 at the last step"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Function Equality (One-to-One Linear)**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** A linear function with nonzero slope never gives the same output for two different inputs, so $f(4a - 7) = f(2a + 5)$ forces $4a - 7 = 2a + 5$, giving $2a = 12$ and $a = 6$.\n\n**The Full Solution:**\nStep 1: Because $f(x) = -3x + 11$ has slope $-3 \\neq 0$, it is one-to-one: equal outputs require equal inputs. So $4a - 7 = 2a + 5$.\nStep 2: Subtract $2a$ from both sides and add $7$: $2a = 12$, so $a = 6$.\nStep 3: Check by evaluating both sides: $4(6) - 7 = 17$ and $2(6) + 5 = 17$, so both inputs are $17$ and $f(17) = -40$ on each side. $\\checkmark$ (Expanding fully gives the same result: $-12a + 32 = -6a - 4 \\Rightarrow -6a = -36 \\Rightarrow a = 6$.)\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): collects the constants as $5 - 7 = -2$ instead of $5 + 7 = 12$, giving $2a = -2$.\n* Choice B ($1$): expands the right side as $-6a + 15 + 11$, a sign error on $-3(5)$, leading to $-6a = -6$.\n* Choice C ($3$): reaches $2a = 12$ but divides by $4$ (the coefficient from the left side) instead of by $2$.\n\n**Test Day Takeaway:** When the same linear function appears on both sides, skip the expansion: equal outputs of a one-to-one function mean the inputs themselves are equal."
+}

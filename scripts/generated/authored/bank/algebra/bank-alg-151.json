@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-151",
+  "question": "$4m + 3n = 29$\n$n = m - 2$\n\nThe solution to the given system of equations is $(m, n)$. What is the value of $n$?",
+  "correctAnswer": "3",
+  "explanation": "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~8s):** Replace $n$ with $m - 2$: $4m + 3(m - 2) = 29$, so $7m - 6 = 29$, $m = 5$, and $n = 5 - 2 = 3$.\n\n**The Full Solution:**\nStep 1: The second equation gives $n$ in terms of $m$. Substitute into the first: $4m + 3(m - 2) = 29$.\nStep 2: Distribute and combine: $4m + 3m - 6 = 29$, so $7m = 35$ and $m = 5$.\nStep 3: Then $n = 5 - 2 = 3$. Check: $4(5) + 3(3) = 20 + 9 = 29$. $\\checkmark$\n\n**Common Mistakes:** Entering $5$ (the value of $m$, not $n$); entering $\\frac{23}{7}$ from $4m + 3m + 6 = 29$ (a sign slip on the $-2$); entering $7$ (finding $m = 5$ but then computing $n = m + 2$ instead of $m - 2$).\n\n**Test Day Takeaway:** Substitute with parentheses, distribute, solve, then return to the substitution equation for the second variable."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-344",
+  "question": "A crane rental costs $\\$280$ for the first $3$ hours plus a constant rate for each additional hour. A $7$-hour rental costs $\\$560$. Which function $f$ gives the total cost, in dollars, of a rental lasting $h$ hours, where $h \\geq 3$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$f(h) = 40h + 280$"
+    },
+    {
+      "id": "B",
+      "text": "$f(h) = 70h + 280$"
+    },
+    {
+      "id": "C",
+      "text": "$f(h) = 80h$"
+    },
+    {
+      "id": "D",
+      "text": "$f(h) = 70h + 70$"
+    }
+  ],
+  "correctAnswer": "D",
+  "distractorNotes": {
+    "A": "divided the extra $280 by all 7 hours instead of the 4 additional hours",
+    "B": "found the rate but charged it on all h hours on top of the $280",
+    "C": "assumed proportionality: 560/7"
+  },
+  "explanation": "**SAT Pattern: Linear Cost Model**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The $7$-hour job has $4$ additional hours costing $560 - 280 = 280$, so the rate is $\\$70$ per hour. Then $f(h) = 280 + 70(h - 3) = 70h + 70$.\n\n**The Full Solution:**\nStep 1: Find the hourly rate from the given job. Hours beyond the first $3$: $7 - 3 = 4$. Cost beyond the base: $560 - 280 = 280$. Rate: $280 \\div 4 = 70$ dollars per hour.\nStep 2: Write the model for $h \\geq 3$: base plus rate times additional hours, $f(h) = 280 + 70(h - 3)$.\nStep 3: Simplify: $280 + 70h - 210 = 70h + 70$.\nCheck: $f(7) = 70(7) + 70 = 560$ and $f(3) = 280$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(h) = 40h + 280$): divides the extra $\\$280$ by all $7$ hours rather than the $4$ additional ones, and still adds the full base.\n* Choice B ($f(h) = 70h + 280$): finds the correct rate but bills it for every hour, including the $3$ already covered by the $\\$280$; $f(7)$ would be $770$.\n* Choice C ($f(h) = 80h$): divides $560$ by $7$ and assumes proportionality; $f(3)$ would be $240$, not $280$.\n\n**Test Day Takeaway:** When the first $k$ units are bundled, the variable part is rate $\\times (h - k)$; simplify only after writing it that way, and check the bundle boundary."
+}

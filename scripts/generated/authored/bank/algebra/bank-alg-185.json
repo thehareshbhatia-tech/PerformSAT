@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-185",
+  "question": "What value of $x$ is the solution to the equation $10x - 4x = 84$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$6$"
+    },
+    {
+      "id": "B",
+      "text": "$14$"
+    },
+    {
+      "id": "C",
+      "text": "$78$"
+    },
+    {
+      "id": "D",
+      "text": "$504$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds the coefficients to get 14x = 84",
+    "C": "subtracts 6 from 84 instead of dividing",
+    "D": "multiplies 84 by 6 instead of dividing"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Combine like terms: $10x - 4x = 6x$. Then $6x = 84$ gives $x = 14$.\n\n**The Full Solution:**\nStep 1: The left side has two like terms. Subtract the coefficients: $10x - 4x = 6x$.\nStep 2: The equation becomes $6x = 84$. Divide both sides by $6$: $x = 14$.\nStep 3: Check: $10(14) - 4(14) = 140 - 56 = 84$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): adds the coefficients, $10 + 4 = 14$, then solves $14x = 84$.\n* Choice C ($78$): subtracts $6$ from $84$ instead of dividing by $6$.\n* Choice D ($504$): multiplies $84$ by $6$ instead of dividing.\n\n**Test Day Takeaway:** Collapse like terms before touching the other side. Then undo the multiplication with a division, never a subtraction."
+}

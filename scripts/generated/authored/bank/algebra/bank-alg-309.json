@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-309",
+  "question": "$5(2x - 3) + 8 = 43$\nWhat value of $x$ is the solution to the given equation?",
+  "correctAnswer": "5",
+  "explanation": "**SAT Pattern: Linear Equation with Distribution**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~10s):** Subtract $8$: $5(2x - 3) = 35$, so $2x - 3 = 7$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: Subtract $8$ from both sides to isolate the parenthetical group: $5(2x - 3) = 35$.\nStep 2: Divide by $5$: $2x - 3 = 7$.\nStep 3: Add $3$, then divide by $2$: $2x = 10$, so $x = 5$.\nCheck: $5(2 \\cdot 5 - 3) + 8 = 5(7) + 8 = 43$. $\\checkmark$\n\n**Common Mistakes:** Distributing $5$ only to $2x$ gives $10x - 3 + 8 = 43$ and $x = 3.8$. Moving $8$ to the right with the wrong sign gives $10x - 15 = 51$ and $x = 6.6$. Both fail the check.\n\n**Test Day Takeaway:** Undo the outermost operation first: the $+8$, then the factor of $5$, then the inside of the parentheses."
+}

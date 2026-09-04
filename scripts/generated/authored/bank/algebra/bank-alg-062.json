@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-062",
+  "question": "In the $xy$-plane, the graph of $y = 5x - 7$ and the graph of $y = -3x + 17$ intersect at exactly one point. What are the coordinates of that point?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(3, 8)$"
+    },
+    {
+      "id": "B",
+      "text": "$(3, 22)$"
+    },
+    {
+      "id": "C",
+      "text": "$(5, 18)$"
+    },
+    {
+      "id": "D",
+      "text": "$(8, 3)$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "drops the sign on -7 when computing y",
+    "C": "combines 5x - 3x = 17 - 7 as if on one side (2x = 10, x = 5)",
+    "D": "reports (y, x)"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Find Intersection by Setting Equal**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** At the intersection the $y$-values agree: $5x - 7 = -3x + 17 \\Rightarrow 8x = 24 \\Rightarrow x = 3$. Then $y = 5(3) - 7 = 8$, so the point is $(3, 8)$.\n\n**The Full Solution:**\nStep 1: Both equations give $y$, so set the right sides equal: $5x - 7 = -3x + 17$.\nStep 2: Add $3x$ to both sides and add $7$: $8x = 24$, so $x = 3$.\nStep 3: Substitute into either equation: $y = 5(3) - 7 = 8$. Check with the other: $-3(3) + 17 = 8$. $\\checkmark$ The intersection is $(3, 8)$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($(3, 22)$): finds $x = 3$ correctly but computes $y = 5(3) + 7$, dropping the sign on $-7$.\n* Choice C ($(5, 18)$): combines $5x$ and $-3x$ into $2x$ and $17$ and $-7$ into $10$ as if each pair sat on the same side of the equation, getting $2x = 10$, $x = 5$, and then $y = 5(5) - 7 = 18$.\n* Choice D ($(8, 3)$): swaps the coordinates, reporting $(y, x)$ instead of $(x, y)$.\n\n**Test Day Takeaway:** When both equations are solved for $y$, set the expressions equal to find $x$, then substitute back and verify the point in the second equation before choosing."
+}

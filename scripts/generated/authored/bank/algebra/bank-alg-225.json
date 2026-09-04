@@ -1,0 +1,58 @@
+{
+  "id": "bank-alg-225",
+  "question": "The graph of line $j$ is shown in the $xy$-plane. Line $k$ is parallel to line $j$ and passes through the point $(0, -3)$. Which equation defines line $k$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": 2,
+      "yIntercept": 1,
+      "xRange": [
+        -4,
+        6
+      ],
+      "yRange": [
+        -4,
+        8
+      ],
+      "gridInterval": 1,
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "highlightPoints": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "label": "j"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -3x + 2$"
+    },
+    {
+      "id": "B",
+      "text": "$y = -\\dfrac{1}{2}x - 3$"
+    },
+    {
+      "id": "C",
+      "text": "$y = 2x + 1$"
+    },
+    {
+      "id": "D",
+      "text": "$y = 2x - 3$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "swaps the slope and the intercept",
+    "B": "uses the perpendicular slope instead of the parallel one",
+    "C": "copies line j instead of shifting it to the new intercept"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Line $j$ rises from $(0, 1)$ to $(2, 5)$: slope $2$. A parallel line keeps slope $2$, and $(0, -3)$ is on the $y$-axis, so the intercept is $-3$: $y = 2x - 3$.\n\n**The Full Solution:**\nStep 1: Read the slope of $j$ from the marked points: $\\dfrac{5 - 1}{2 - 0} = 2$.\nStep 2: Parallel lines have equal slopes, so line $k$ has the form $y = 2x + b$.\nStep 3: The point $(0, -3)$ has $x = 0$, so it is the $y$-intercept: $b = -3$. Thus $y = 2x - 3$. Check: at $x = 0$, $y = -3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -3x + 2$): swaps the numbers, using $-3$ as a slope and $2$ as the intercept.\n* Choice B ($y = -\\dfrac{1}{2}x - 3$): uses the negative reciprocal slope, which gives a perpendicular line, not a parallel one.\n* Choice C ($y = 2x + 1$): is line $j$ itself; it does not pass through $(0, -3)$.\n\n**Test Day Takeaway:** Parallel means same slope, different intercept. When the given point has $x = 0$, its $y$-coordinate is the intercept and no further algebra is needed."
+}

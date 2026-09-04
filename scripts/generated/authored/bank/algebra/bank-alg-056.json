@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-056",
+  "question": "$7x + 2y = 41$\n$3x + 2y = 29$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3$"
+    },
+    {
+      "id": "B",
+      "text": "$7$"
+    },
+    {
+      "id": "C",
+      "text": "$10$"
+    },
+    {
+      "id": "D",
+      "text": "$12$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "adds the equations (10x + 4y = 70) and then divides 70 by 10",
+    "C": "reports y instead of x",
+    "D": "stops at 4x = 12"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Elimination by Subtraction**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Both equations have $+2y$, so subtract: $(7x + 2y) - (3x + 2y) = 41 - 29$ gives $4x = 12$ and $x = 3$.\n\n**The Full Solution:**\nStep 1: The $y$-coefficients are identical ($2$ and $2$), so subtracting one equation from the other eliminates $y$.\nStep 2: Subtract the second from the first: $4x + 0y = 12$, so $x = 3$.\nStep 3: Find $y$ from the second equation: $3(3) + 2y = 29 \\Rightarrow 2y = 20 \\Rightarrow y = 10$. Check the first: $7(3) + 2(10) = 21 + 20 = 41$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($7$): adds the equations to get $10x + 4y = 70$, then drops the $y$-term and divides $70$ by $10$.\n* Choice C ($10$): is the value of $y$, not $x$.\n* Choice D ($12$): stops at $4x = 12$ without dividing by $4$.\n\n**Test Day Takeaway:** Same sign and same coefficient means subtract; opposite signs mean add. Choose the operation that makes a variable vanish."
+}

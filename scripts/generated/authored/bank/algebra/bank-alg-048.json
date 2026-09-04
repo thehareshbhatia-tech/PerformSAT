@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-048",
+  "question": "$y = 2x - 5$\n$3x + y = 25$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$7$"
+    },
+    {
+      "id": "D",
+      "text": "$30$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sign error substituting (3x + 2x + 5 = 25)",
+    "C": "reports y instead of x",
+    "D": "stops at 5x = 30"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Substitution Method**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Substitute $y = 2x - 5$ into the second equation: $3x + (2x - 5) = 25$, so $5x = 30$ and $x = 6$.\n\n**The Full Solution:**\nStep 1: The first equation already gives $y$ in terms of $x$, so replace $y$ in the second equation: $3x + (2x - 5) = 25$.\nStep 2: Combine like terms: $5x - 5 = 25$, so $5x = 30$ and $x = 6$.\nStep 3: Find $y$ to check: $y = 2(6) - 5 = 7$, and $3(6) + 7 = 25$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): substitutes $2x + 5$ instead of $2x - 5$, getting $5x = 20$.\n* Choice C ($7$): finds the solution correctly but reports $y$ instead of $x$.\n* Choice D ($30$): stops at $5x = 30$ without dividing.\n\n**Test Day Takeaway:** Substitute the whole expression in parentheses, keep its sign, and reread whether the question wants $x$ or $y$."
+}

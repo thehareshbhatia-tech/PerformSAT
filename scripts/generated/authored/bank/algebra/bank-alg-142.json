@@ -1,0 +1,57 @@
+{
+  "id": "bank-alg-142",
+  "question": "The graph shows the relationship between the number of weeks $x$ since a seedling was planted and the height $y$, in centimeters, of the seedling. Which of the following is the best interpretation of the slope of the graph?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": 3,
+      "yIntercept": 4,
+      "xRange": [
+        0,
+        8
+      ],
+      "yRange": [
+        0,
+        30
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 4,
+      "gridInterval": 2,
+      "showPoints": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          16
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "The seedling was $3$ centimeters tall when it was planted."
+    },
+    {
+      "id": "B",
+      "text": "The seedling was $4$ centimeters tall when it was planted."
+    },
+    {
+      "id": "C",
+      "text": "The height of the seedling increases by $3$ centimeters each week."
+    },
+    {
+      "id": "D",
+      "text": "The height of the seedling increases by $4$ centimeters each week."
+    }
+  ],
+  "distractorNotes": {
+    "A": "assigns the slope value to the starting height",
+    "B": "true statement about the y-intercept, but it does not describe the slope",
+    "D": "uses the y-intercept 4 as the weekly rate"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Interpret Slope in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~8s):** From $(0, 4)$ to $(4, 16)$ the height rises $12$ centimeters over $4$ weeks: slope $= 3$ centimeters per week.\n\n**The Full Solution:**\nStep 1: Read two marked points: $(0, 4)$ and $(4, 16)$. Slope $= \\frac{16 - 4}{4 - 0} = \\frac{12}{4} = 3$.\nStep 2: Units: $y$ is in centimeters and $x$ is in weeks, so the slope is $3$ centimeters per week, the weekly growth.\nStep 3: Check: the $y$-intercept $4$ is the height at planting, a separate quantity. Only choice C describes the slope. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: puts the slope's value, $3$, in the role of the starting height.\n* Choice B: is a true reading of the $y$-intercept, but the question asks about the slope.\n* Choice D: uses the intercept's value, $4$, as the weekly rate.\n\n**Test Day Takeaway:** On a contextual graph, compute the slope from two clean points and attach units ($y$-units per $x$-unit). A true statement about the intercept is still the wrong answer to a slope question."
+}

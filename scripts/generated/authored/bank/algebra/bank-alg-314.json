@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-314",
+  "question": "Which of the following expressions is equivalent to $(5x - 7) - (2x - 3)$ for all values of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7x - 10$"
+    },
+    {
+      "id": "B",
+      "text": "$3x - 10$"
+    },
+    {
+      "id": "C",
+      "text": "$7x - 4$"
+    },
+    {
+      "id": "D",
+      "text": "$3x - 4$"
+    }
+  ],
+  "correctAnswer": "D",
+  "distractorNotes": {
+    "A": "added the x-terms and failed to distribute the minus to -3",
+    "B": "did not distribute the minus sign to -3 (kept -7 - 3)",
+    "C": "added the x-terms instead of subtracting"
+  },
+  "explanation": "**SAT Pattern: Combining Like Terms**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Distribute the minus sign: $5x - 7 - 2x + 3$. Combine: $3x - 4$.\n\n**The Full Solution:**\nStep 1: Subtracting a parenthetical negates every term inside it: $-(2x - 3) = -2x + 3$.\nStep 2: Rewrite without parentheses: $5x - 7 - 2x + 3$.\nStep 3: Combine like terms: $x$-terms $5x - 2x = 3x$; constants $-7 + 3 = -4$. The result is $3x - 4$.\nCheck: substitute $x = 2$: $(10 - 7) - (4 - 3) = 3 - 1 = 2$, and $3(2) - 4 = 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7x - 10$): makes both errors at once, adding the $x$-terms and leaving the $-3$ un-negated.\n* Choice B ($3x - 10$): subtracts the $x$-terms correctly but forgets that the minus sign also flips $-3$ to $+3$.\n* Choice C ($7x - 4$): negates the constant correctly but adds $5x + 2x$ instead of subtracting.\n\n**Test Day Takeaway:** A minus sign in front of parentheses changes the sign of EVERY term inside; rewrite the expression without parentheses before combining."
+}

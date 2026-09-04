@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-093",
+  "question": "The equation $4y - 13 = 35$ is given. What is the value of $4y + 7$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$12$"
+    },
+    {
+      "id": "B",
+      "text": "$42$"
+    },
+    {
+      "id": "C",
+      "text": "$48$"
+    },
+    {
+      "id": "D",
+      "text": "$55$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports y",
+    "B": "adds 7 to 35 without undoing the -13",
+    "C": "reports 4y"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Add $13$ to both sides: $4y = 48$. Then $4y + 7 = 48 + 7 = 55$. No need to find $y$.\n\n**The Full Solution:**\nStep 1: The target $4y + 7$ contains $4y$, so isolate $4y$ rather than $y$: $4y - 13 = 35 \\Rightarrow 4y = 48$.\nStep 2: Add $7$: $4y + 7 = 55$.\nStep 3: Check by solving fully: $y = 12$, and $4(12) + 7 = 48 + 7 = 55$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): reports $y$ itself instead of the requested expression.\n* Choice B ($42$): adds $7$ to $35$ without first undoing the $-13$; the two constants differ by $20$, not $7$.\n* Choice C ($48$): reports $4y$ and forgets the final $+7$.\n\n**Test Day Takeaway:** When the question asks for an expression, isolate that expression's variable part ($4y$ here) and shift by the new constant; solving for $y$ is an optional check."
+}

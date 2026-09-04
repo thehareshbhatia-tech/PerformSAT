@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-258",
+ "question": "$2x + 7y = 25$\n\n$5x + 3y = 19$\n\nIf $(x, y)$ is the solution to the given system of equations, what is the value of $3x - 4y$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-44$"
+  },
+  {
+   "id": "B",
+   "text": "$-6$"
+  },
+  {
+   "id": "C",
+   "text": "$6$"
+  },
+  {
+   "id": "D",
+   "text": "$44$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "negates the sum of the constants",
+  "C": "subtracts in the wrong order (first minus second)",
+  "D": "adds the equations instead of subtracting"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Second equation minus first: $(5x - 2x) + (3y - 7y) = 19 - 25$, so $3x - 4y = -6$.\n\n**The Full Solution:**\nStep 1: The target $3x - 4y$ matches $(5x + 3y) - (2x + 7y)$: $5x - 2x = 3x$ and $3y - 7y = -4y$.\nStep 2: Subtract the constants in the same order: $19 - 25 = -6$.\nStep 3: Check by solving: multiply the first equation by $5$ and the second by $2$ to get $10x + 35y = 125$ and $10x + 6y = 38$; subtracting gives $29y = 87$, so $y = 3$ and $x = 2$. Then $3(2) - 4(3) = -6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-44$): negates the sum of the constants; no combination of the equations produces $-44$ for this target.\n* Choice C ($6$): subtracts first minus second, which gives $-3x + 4y = 6$, the opposite sign of the target.\n* Choice D ($44$): adds the equations, but the sum is $7x + 10y$, not $3x - 4y$.\n\n**Test Day Takeaway:** When the target's coefficients are differences of the given coefficients, subtract the equations in the matching order and keep the sign of the constants."
+}

@@ -1,0 +1,52 @@
+{
+  "id": "bank-alg-345",
+  "question": "A language-learning subscription has a one-time enrollment fee plus a constant monthly charge. The table shows the total amount paid, in dollars, after $2$, $4$, and $6$ months. Which function $f$ gives the total amount paid, in dollars, after $m$ months?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "Months",
+        "Total paid (dollars)"
+      ],
+      "rows": [
+        [
+          "2",
+          "39.00"
+        ],
+        [
+          "4",
+          "54.00"
+        ],
+        [
+          "6",
+          "69.00"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$f(m) = 7.50m + 24$"
+    },
+    {
+      "id": "B",
+      "text": "$f(m) = 7.50m + 39$"
+    },
+    {
+      "id": "C",
+      "text": "$f(m) = 19.50m$"
+    },
+    {
+      "id": "D",
+      "text": "$f(m) = 24m + 7.50$"
+    }
+  ],
+  "correctAnswer": "A",
+  "distractorNotes": {
+    "B": "used the 2-month total as the enrollment fee",
+    "C": "assumed proportionality: 39/2 per month",
+    "D": "swapped the fee and the monthly charge"
+  },
+  "explanation": "**SAT Pattern: Linear Cost Model**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Two months add $15$, so the monthly charge is $7.50$. Fee: $39 - 2(7.50) = 24$. So $f(m) = 7.50m + 24$.\n\n**The Full Solution:**\nStep 1: The rows are $2$ months apart and the totals rise by $15$ each time, so the monthly charge is $15 \\div 2 = 7.50$.\nStep 2: The enrollment fee is the total at $0$ months: $39 - 2(7.50) = 24$.\nStep 3: Assemble: $f(m) = 7.50m + 24$.\nCheck: $f(6) = 7.50(6) + 24 = 45 + 24 = 69$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(m) = 7.50m + 39$): treats the $2$-month total as the fee; the intercept is the value at zero months.\n* Choice C ($f(m) = 19.50m$): divides $39$ by $2$ and assumes no fee; $f(4)$ would be $78$, not $54$.\n* Choice D ($f(m) = 24m + 7.50$): swaps the fee and the monthly charge.\n\n**Test Day Takeaway:** When table rows are $2$ apart, divide the change by $2$ to get the per-unit rate before backing out the intercept."
+}

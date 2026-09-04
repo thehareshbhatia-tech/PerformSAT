@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-089",
+  "question": "The function $f$ is linear, $f(-4) = 19$, and $f(6) = -6$. In the $xy$-plane, the graph of $y = f(x)$ crosses the $y$-axis at the point $(0, b)$. What is the value of $b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-31$"
+    },
+    {
+      "id": "B",
+      "text": "$9$"
+    },
+    {
+      "id": "C",
+      "text": "$19$"
+    },
+    {
+      "id": "D",
+      "text": "$29$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses run 6 - 4 = 2, slope -12.5",
+    "C": "reports f(-4) as the intercept",
+    "D": "uses slope +2.5"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Find y-Intercept from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Slope $= \\frac{-6 - 19}{6 - (-4)} = \\frac{-25}{10} = -2.5$. From $x = -4$ to $x = 0$ is a run of $4$, so $b = 19 + (-2.5)(4) = 9$.\n\n**The Full Solution:**\nStep 1: Slope from the two points $(-4, 19)$ and $(6, -6)$: $m = \\frac{-6 - 19}{6 - (-4)} = \\frac{-25}{10} = -2.5$. Note the run is $10$, not $2$, because the inputs are $-4$ and $6$.\nStep 2: Write $f(x) = -2.5x + b$ and use $f(-4) = 19$: $19 = -2.5(-4) + b = 10 + b$, so $b = 9$.\nStep 3: Check with the other point: $f(6) = -2.5(6) + 9 = -15 + 9 = -6$. $\\checkmark$ The $y$-intercept is $(0, 9)$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-31$): computes the run as $6 - 4 = 2$, getting slope $-12.5$, then $19 - 12.5(4) = -31$.\n* Choice C ($19$): reports $f(-4)$ as the intercept, treating the input $-4$ as if it were $0$.\n* Choice D ($29$): uses slope $+2.5$ and adds $10$ instead of subtracting.\n\n**Test Day Takeaway:** With a negative input, the run is $x_2 - x_1$ with the sign kept; then substitute one point into $y = mx + b$ and confirm with the other."
+}

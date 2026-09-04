@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-099",
+  "question": "What is the solution to the equation $4(x + 3) - 7 = 25$?",
+  "correctAnswer": "5",
+  "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~10s):** Distribute: $4x + 12 - 7 = 25 \\Rightarrow 4x + 5 = 25 \\Rightarrow 4x = 20 \\Rightarrow x = 5$.\n\n**The Full Solution:**\nStep 1: Distribute the $4$: $4(x + 3) = 4x + 12$, so the equation is $4x + 12 - 7 = 25$.\nStep 2: Combine constants on the left: $4x + 5 = 25$. Subtract $5$: $4x = 20$.\nStep 3: Divide by $4$: $x = 5$. Check: $4(5 + 3) - 7 = 32 - 7 = 25$. $\\checkmark$\n\n**Common Mistakes:** Distributing $4$ to $x$ only, giving $4x + 3 - 7 = 25$ and $x = 7.25$; adding $12$ and $7$ instead of subtracting, giving $4x = 6$; dividing $25$ by $4$ before moving the constants.\n\n**Test Day Takeaway:** Distribute to every term inside the parentheses, combine the constants, then isolate the variable; substitute back to confirm."
+}

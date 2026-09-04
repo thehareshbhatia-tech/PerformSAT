@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-357",
+  "question": "Which of the following inequalities represents all values of $x$ that are solutions to $4x - 3 > 13$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x > \\dfrac{5}{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$x < 4$"
+    },
+    {
+      "id": "C",
+      "text": "$x > 4$"
+    },
+    {
+      "id": "D",
+      "text": "$x > 16$"
+    }
+  ],
+  "correctAnswer": "C",
+  "distractorNotes": {
+    "A": "subtracted 3 instead of adding it (4x > 10)",
+    "B": "flipped the inequality after dividing by positive 4",
+    "D": "added 3 but never divided by 4"
+  },
+  "explanation": "**SAT Pattern: One-Variable Linear Inequality**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Add $3$: $4x > 16$. Divide by $4$: $x > 4$.\n\n**The Full Solution:**\nStep 1: Isolate the $x$-term by adding $3$ to both sides: $4x > 16$.\nStep 2: Divide both sides by $4$. Because $4$ is positive, the inequality symbol keeps its direction: $x > 4$.\nStep 3: The solution set is every number greater than $4$.\nCheck: $x = 5$ gives $4(5) - 3 = 17 > 13$ (true); $x = 4$ gives $13 > 13$ (false), so $4$ itself is excluded. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x > \\dfrac{5}{2}$): subtracts $3$ from $13$ instead of adding it, giving $4x > 10$.\n* Choice B ($x < 4$): flips the symbol when dividing by $4$; flipping happens only for a NEGATIVE divisor.\n* Choice D ($x > 16$): stops at $4x > 16$ and forgets to divide.\n\n**Test Day Takeaway:** Solve an inequality exactly like an equation, and flip the symbol only when you multiply or divide by a negative number."
+}

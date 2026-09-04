@@ -1,0 +1,90 @@
+{
+  "id": "bank-alg-207",
+  "question": "The scatterplot shows the number $y$ of bacterial colonies, in thousands, counted in a sample $x$ hours after an antibiotic was applied, along with the line of best fit $\\hat{y} = -2.4x + 30$. Which of the following is the best interpretation of the slope of the line of best fit in this context?",
+  "diagram": {
+    "type": "scatterplot",
+    "params": {
+      "points": [
+        [
+          1,
+          27.2
+        ],
+        [
+          2,
+          25.6
+        ],
+        [
+          3,
+          21.9
+        ],
+        [
+          4,
+          21.1
+        ],
+        [
+          5,
+          17.5
+        ],
+        [
+          6,
+          16.2
+        ],
+        [
+          7,
+          12.6
+        ],
+        [
+          8,
+          11.4
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          10,
+          6.7
+        ]
+      ],
+      "xMin": 0,
+      "xMax": 10,
+      "yMin": 0,
+      "yMax": 32,
+      "xGridStep": 1,
+      "yGridStep": 4,
+      "xLabelStep": 2,
+      "yLabelStep": 8,
+      "xLabel": "Hours after application",
+      "yLabel": "Colonies (thousands)",
+      "bestFitLine": {
+        "slope": -2.4,
+        "intercept": 30
+      }
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "The predicted number of colonies decreases by $2{,}400$ each hour."
+    },
+    {
+      "id": "B",
+      "text": "The predicted number of colonies decreases by $2.4$ each hour."
+    },
+    {
+      "id": "C",
+      "text": "The predicted number of colonies decreases by $24$ each hour."
+    },
+    {
+      "id": "D",
+      "text": "The predicted number of colonies is $30{,}000$ at the time the antibiotic was applied."
+    }
+  ],
+  "distractorNotes": {
+    "B": "ignores that y is measured in thousands",
+    "C": "scales by 10 instead of 1,000",
+    "D": "interprets the y-intercept, not the slope"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Slope as Rate of Change in Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The slope $-2.4$ is in thousands of colonies per hour. $2.4$ thousand is $2{,}400$, so the predicted count drops by $2{,}400$ colonies each hour.\n\n**The Full Solution:**\nStep 1: In $\\hat{y} = -2.4x + 30$, the slope is $-2.4$: the predicted change in $y$ for each additional hour.\nStep 2: The vertical axis is measured in thousands, so a change of $-2.4$ in $y$ is a change of $-2.4 \\times 1{,}000 = -2{,}400$ colonies.\nStep 3: The negative sign means a decrease. Check: from $x = 0$ to $x = 1$ the prediction falls from $30$ thousand to $27.6$ thousand, a drop of $2{,}400$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: reads $2.4$ directly off the equation and forgets that the axis unit is thousands.\n* Choice C: applies the wrong scale factor, $10$ instead of $1{,}000$.\n* Choice D: correctly scales $30$ thousand but describes the $y$-intercept, not the slope.\n\n**Test Day Takeaway:** When an axis is labeled in thousands, the slope is in thousands too. Convert the rate to plain units before matching it to a choice, and make sure you are describing the slope rather than the intercept."
+}

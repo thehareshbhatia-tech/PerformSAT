@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-136",
+  "question": "The function $f$ is defined by $f(x) = 2 \\cdot 3^{x} - 5$. What is the value of $f(4) - f(1)$?",
+  "correctAnswer": "156",
+  "explanation": "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $156$.**\n\n**The Fast Way (~10s):** $f(4) = 2(81) - 5 = 157$ and $f(1) = 2(3) - 5 = 1$, so $f(4) - f(1) = 156$. The $-5$ cancels in the subtraction.\n\n**The Full Solution:**\nStep 1: Evaluate $f(4)$. The exponent applies to $3$ only: $3^4 = 81$, so $f(4) = 2(81) - 5 = 162 - 5 = 157$.\nStep 2: Evaluate $f(1)$: $3^1 = 3$, so $f(1) = 2(3) - 5 = 1$.\nStep 3: Subtract: $157 - 1 = 156$. Check with the constants removed: $2(81) - 2(3) = 162 - 6 = 156$. $\\checkmark$\n\n**Common Mistakes:** Entering $1290$ (computing $(2 \\cdot 3)^4 = 1296$ by applying the exponent to the $2$ as well, so $f(4) = 1291$); entering $49$ (evaluating $f(3)$, as if $f(4) - f(1) = f(4 - 1)$); entering $151$ (using $f(1) = 6$, forgetting the $-5$ in the second evaluation).\n\n**Test Day Takeaway:** In $2 \\cdot 3^{x}$, only the $3$ is raised to the power. Evaluate each output separately before subtracting; a shared constant will cancel."
+}

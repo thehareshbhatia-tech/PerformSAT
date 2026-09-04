@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-112",
+  "question": "Which of the following is an equation of the line in the $xy$-plane that passes through the point $(-3, 5)$ and is parallel to the line with equation $2x + y = 8$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -2x + 5$"
+    },
+    {
+      "id": "B",
+      "text": "$y = \\dfrac{1}{2}x + \\dfrac{13}{2}$"
+    },
+    {
+      "id": "C",
+      "text": "$y = -2x - 1$"
+    },
+    {
+      "id": "D",
+      "text": "$y = 2x + 11$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses the y-coordinate 5 as the intercept",
+    "B": "uses the perpendicular slope",
+    "D": "reads the slope as +2 from the coefficient without solving for y"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Line from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $2x + y = 8$ is $y = -2x + 8$, slope $-2$. Parallel lines share the slope: $5 = -2(-3) + b \\Rightarrow b = -1$, so $y = -2x - 1$.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $y = -2x + 8$. Its slope is $-2$, and a parallel line has the same slope.\nStep 2: Write $y = -2x + b$ and substitute $(-3, 5)$: $5 = -2(-3) + b = 6 + b$, so $b = -1$.\nStep 3: The line is $y = -2x - 1$. Check: at $x = -3$, $y = 6 - 1 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x + 5$): has the right slope but uses the point's $y$-coordinate as the intercept; that line passes through $(0, 5)$, not $(-3, 5)$.\n* Choice B ($y = \\frac{1}{2}x + \\frac{13}{2}$): uses the perpendicular slope $\\frac{1}{2}$ instead of the parallel slope.\n* Choice D ($y = 2x + 11$): reads the slope as $+2$ from the coefficient of $x$ without solving for $y$ first.\n\n**Test Day Takeaway:** Convert the given line to slope-intercept form before reading its slope, reuse that slope for a parallel line, and solve for $b$ with the given point."
+}

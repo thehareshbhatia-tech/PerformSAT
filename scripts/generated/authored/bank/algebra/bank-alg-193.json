@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-193",
+  "question": "The solution to the system of equations $y = 4x$ and $y = x + 24$ is $(x, y)$. What is the value of $y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$8$"
+    },
+    {
+      "id": "B",
+      "text": "$24$"
+    },
+    {
+      "id": "C",
+      "text": "$32$"
+    },
+    {
+      "id": "D",
+      "text": "$96$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports x instead of y",
+    "B": "reports the constant term of the second equation",
+    "D": "substitutes 24 for x in y = 4x"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Both equations give $y$, so set them equal: $4x = x + 24$, so $3x = 24$ and $x = 8$. Then $y = 4(8) = 32$.\n\n**The Full Solution:**\nStep 1: Substitute $4x$ for $y$ in the second equation: $4x = x + 24$.\nStep 2: Subtract $x$ from both sides: $3x = 24$, so $x = 8$.\nStep 3: Back-substitute: $y = 4(8) = 32$. Check with the second equation: $8 + 24 = 32$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): reports $x$; the question asks for $y$.\n* Choice B ($24$): reports the constant from the second equation as if it were the answer.\n* Choice D ($96$): substitutes $24$ in for $x$ in $y = 4x$ instead of solving first.\n\n**Test Day Takeaway:** When both equations are solved for $y$, set the right sides equal, solve for $x$, then plug back in to get the variable actually requested."
+}

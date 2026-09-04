@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-192",
+  "question": "What value of $x$ is the solution to the equation $\\dfrac{3x}{4} - \\dfrac{x}{6} = 7$?",
+  "correctAnswer": "12",
+  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~20s):** Over the common denominator $12$: $\\dfrac{9x}{12} - \\dfrac{2x}{12} = \\dfrac{7x}{12}$. So $\\dfrac{7x}{12} = 7$ and $x = 12$.\n\n**The Full Solution:**\nStep 1: Both terms on the left are multiples of $x$. Combine them over the least common denominator of $4$ and $6$, which is $12$: $\\dfrac{3x}{4} = \\dfrac{9x}{12}$ and $\\dfrac{x}{6} = \\dfrac{2x}{12}$.\nStep 2: The equation becomes $\\dfrac{7x}{12} = 7$. Multiply both sides by $\\dfrac{12}{7}$: $x = 12$.\nStep 3: Check: $\\dfrac{3(12)}{4} - \\dfrac{12}{6} = 9 - 2 = 7$. $\\checkmark$\n\n**Common Mistakes:** Subtracting the denominators to get $\\dfrac{2x}{2}$; combining as $\\dfrac{3x - x}{4 - 6}$; clearing only one denominator; stopping at $7x = 84$ and entering $84$.\n\n**Test Day Takeaway:** Fractional like terms combine exactly as integer ones do once they share a denominator. Alternatively, multiply the whole equation by the LCD ($12$) to clear fractions in one move: $9x - 2x = 84$."
+}

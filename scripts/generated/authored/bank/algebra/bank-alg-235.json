@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-235",
+  "question": "The expressions $(4x + a)(x - 3)$ and $4x^2 - 7x - 15$ are equivalent, where $a$ is a constant. What is the value of $a$?",
+  "correctAnswer": "5",
+  "explanation": "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** Match the constant terms: $a \\cdot (-3) = -15$, so $a = 5$. Confirm with the $x$-terms: $-12 + 5 = -7$. $\\checkmark$\n\n**The Full Solution:**\nStep 1: Expand: $(4x + a)(x - 3) = 4x^2 - 12x + ax - 3a = 4x^2 + (a - 12)x - 3a$.\nStep 2: Equivalent expressions have equal coefficients. Constant terms: $-3a = -15$, so $a = 5$.\nStep 3: Check the $x$-coefficient: $a - 12 = 5 - 12 = -7$, matching $-7x$. $\\checkmark$\n\n**Common Mistakes:** Entering $-5$ (dividing $-15$ by $3$ instead of $-3$); entering $19$ (solving $a - 12 = 7$ with a sign error); entering $-7$ (copying the $x$-coefficient).\n\n**Test Day Takeaway:** With one unknown in the factors, the constant term usually pins it down in one step; use the $x$-term as a free check rather than a second unknown."
+}

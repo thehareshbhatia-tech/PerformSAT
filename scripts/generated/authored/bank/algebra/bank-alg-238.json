@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-238",
+  "question": "In the equation $(3x + a)(2x + b) = 6x^2 + 19x + 10$, $a$ and $b$ are positive integers, and the equation is true for all values of $x$. What is the value of $b - a$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-3$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$7$"
+    },
+    {
+      "id": "D",
+      "text": "$10$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes a - b instead of b - a",
+    "C": "computes a + b",
+    "D": "reports the product ab"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Matching Coefficients with Integer Constraints**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $ab = 10$ and $3b + 2a = 19$. Test the positive factor pairs of $10$: $(a, b) = (2, 5)$ gives $15 + 4 = 19$. So $b - a = 3$.\n\n**The Full Solution:**\nStep 1: Expand: $(3x + a)(2x + b) = 6x^2 + 3bx + 2ax + ab = 6x^2 + (3b + 2a)x + ab$.\nStep 2: Match coefficients: $ab = 10$ and $3b + 2a = 19$. Since $a$ and $b$ are positive integers, $(a, b)$ is one of $(1, 10)$, $(2, 5)$, $(5, 2)$, $(10, 1)$.\nStep 3: Test each in $3b + 2a$: $32$, $19$, $16$, $23$. Only $(2, 5)$ works. Check: $(3x + 2)(2x + 5) = 6x^2 + 15x + 4x + 10 = 6x^2 + 19x + 10$. $\\checkmark$ So $b - a = 5 - 2 = 3$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): computes $a - b$ instead of $b - a$.\n* Choice C ($7$): computes $a + b$, a different combination than the one asked for.\n* Choice D ($10$): reports the product $ab$, which is the constant term.\n\n**Test Day Takeaway:** With two unknowns in the factors, the constant term limits the candidates to a few integer pairs; the middle coefficient picks the winner. Then read the question again to see which combination it wants."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-230",
+  "question": "Line $f$ is parallel to the line $y = \\dfrac{5}{4}x + 3$ and passes through $(8, 2)$ in the $xy$-plane. At what value of $x$ does line $f$ intersect the $x$-axis?",
+  "correctAnswer": "6.4",
+  "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**The correct answer is $6.4$.**\n\n**The Fast Way (~25s):** Line $f$: $y = \\dfrac{5}{4}x + b$ with $2 = 10 + b$, so $b = -8$. Set $y = 0$: $\\dfrac{5}{4}x = 8$, so $x = \\dfrac{32}{5} = 6.4$.\n\n**The Full Solution:**\nStep 1: Parallel lines share slope, so $f$ is $y = \\dfrac{5}{4}x + b$. Substitute $(8, 2)$: $2 = \\dfrac{5}{4}(8) + b = 10 + b$, so $b = -8$.\nStep 2: The line meets the $x$-axis where $y = 0$: $0 = \\dfrac{5}{4}x - 8$, so $\\dfrac{5}{4}x = 8$.\nStep 3: Multiply by $\\dfrac{4}{5}$: $x = \\dfrac{32}{5} = 6.4$. Check: $\\dfrac{5}{4}(6.4) - 8 = 8 - 8 = 0$. $\\checkmark$\n\n**Common Mistakes:** Entering $-8$ (the $y$-intercept, not the $x$-intercept); using the intercept $3$ of the given line and entering $-2.4$; entering $10$ (the value of $\\dfrac{5}{4}(8)$, an intermediate step).\n\n**Test Day Takeaway:** Build the parallel line first, then set $y = 0$ for the $x$-intercept. Either $32/5$ or $6.4$ is acceptable for the answer field."
+}

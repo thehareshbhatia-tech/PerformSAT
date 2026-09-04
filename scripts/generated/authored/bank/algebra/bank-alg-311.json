@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-311",
+  "question": "$\\dfrac{2}{3}(9x - 6) = 5(x + 2) - 2$\nWhat value of $x$ is the solution to the given equation?",
+  "correctAnswer": "12",
+  "explanation": "**SAT Pattern: Linear Equation with Distribution**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~20s):** Distribute both sides: $6x - 4 = 5x + 10 - 2 = 5x + 8$. Then $x = 12$.\n\n**The Full Solution:**\nStep 1: Distribute $\\dfrac{2}{3}$ across both terms: $\\dfrac{2}{3} \\cdot 9x = 6x$ and $\\dfrac{2}{3} \\cdot (-6) = -4$, so the left side is $6x - 4$.\nStep 2: Distribute $5$ on the right and simplify: $5x + 10 - 2 = 5x + 8$.\nStep 3: Solve $6x - 4 = 5x + 8$: subtract $5x$ and add $4$ to get $x = 12$.\nCheck: left side $\\dfrac{2}{3}(108 - 6) = \\dfrac{2}{3}(102) = 68$; right side $5(14) - 2 = 68$. $\\checkmark$\n\n**Common Mistakes:** Applying $\\dfrac{2}{3}$ to $9x$ but not to $-6$ gives $6x - 6 = 5x + 8$ and $x = 14$. Adding the $2$ instead of subtracting gives $6x - 4 = 5x + 12$ and $x = 16$. Each fails the check.\n\n**Test Day Takeaway:** A fraction outside parentheses distributes like any other factor; multiply it into every term before combining anything."
+}

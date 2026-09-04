@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-221",
+  "question": "In the $xy$-plane, line $d$ has equation $5x - 2y = 14$. Which of the following is the slope of a line that is perpendicular to line $d$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\dfrac{5}{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\dfrac{2}{5}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{2}{5}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{5}{2}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "negates the slope of d without taking the reciprocal",
+    "C": "takes the reciprocal without changing the sign",
+    "D": "reports the slope of d itself"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Solve for $y$: $-2y = -5x + 14$, so $y = \\dfrac{5}{2}x - 7$. The slope of $d$ is $\\dfrac{5}{2}$; the perpendicular slope is $-\\dfrac{2}{5}$.\n\n**The Full Solution:**\nStep 1: Put the equation in slope-intercept form. Subtract $5x$: $-2y = -5x + 14$. Divide by $-2$: $y = \\dfrac{5}{2}x - 7$.\nStep 2: The slope of line $d$ is $\\dfrac{5}{2}$.\nStep 3: The negative reciprocal is $-\\dfrac{2}{5}$. Check: $\\dfrac{5}{2} \\cdot \\left(-\\dfrac{2}{5}\\right) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\dfrac{5}{2}$): negates the slope of $d$ but does not flip it; this is the slope you get by misreading $-2y$ as $2y$.\n* Choice C ($\\dfrac{2}{5}$): flips the slope but keeps its sign.\n* Choice D ($\\dfrac{5}{2}$): reports the slope of line $d$ itself, which a parallel line would have.\n\n**Test Day Takeaway:** In standard form $Ax + By = C$, the slope is $-\\dfrac{A}{B}$, so a perpendicular slope is $\\dfrac{B}{A}$. Watch the sign of $B$ when you divide."
+}

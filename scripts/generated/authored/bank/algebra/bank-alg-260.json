@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-260",
+ "question": "$6x - y = 14$\n\n$2x + 3y = 18$\n\nIf $(x, y)$ is the solution to the given system of equations, what is the value of $8x + 2y$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-4$"
+  },
+  {
+   "id": "B",
+   "text": "$16$"
+  },
+  {
+   "id": "C",
+   "text": "$32$"
+  },
+  {
+   "id": "D",
+   "text": "$64$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the equations (gives 4x - 4y = -4)",
+  "B": "halves the sum, confusing 8x + 2y with 4x + y",
+  "D": "doubles the sum"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Add the equations: $8x + 2y = 32$.\n\n**The Full Solution:**\nStep 1: The sum of the left sides is $(6x + 2x) + (-y + 3y) = 8x + 2y$, exactly the target.\nStep 2: The sum of the right sides is $14 + 18 = 32$.\nStep 3: Check by solving: from the first equation $y = 6x - 14$; then $2x + 3(6x - 14) = 18$ gives $20x = 60$, $x = 3$, $y = 4$, and $8(3) + 2(4) = 32$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): subtracts the equations, which gives $4x - 4y = -4$, a different combination.\n* Choice B ($16$): halves the sum, reporting $4x + y$ instead of $8x + 2y$.\n* Choice D ($64$): doubles the sum, as if the target were $16x + 4y$.\n\n**Test Day Takeaway:** Match the target's coefficients to a sum or difference of the equations before touching substitution."
+}

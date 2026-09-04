@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-295",
+ "question": "$|3x - 4| = |x + 8|$\n\nWhat is the sum of all solutions to the given equation?",
+ "correctAnswer": "5",
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** Two absolute values are equal when the insides are equal or opposite: $3x - 4 = x + 8$ gives $x = 6$; $3x - 4 = -(x + 8)$ gives $x = -1$. Sum: $5$.\n\n**The Full Solution:**\nStep 1: $|u| = |v|$ means $u = v$ or $u = -v$.\nStep 2: $3x - 4 = x + 8$: $2x = 12$, $x = 6$. Check: $|14| = |14|$. $\\checkmark$\nStep 3: $3x - 4 = -x - 8$: $4x = -4$, $x = -1$. Check: $|-7| = |7|$. $\\checkmark$ The sum is $6 + (-1) = 5$.\n\n**Common Mistakes:** Solving only $u = v$ and answering $6$, or distributing the negative to only one term in $-(x + 8)$, which gives $3x - 4 = -x + 8$ and the false root $x = 3$.\n\n**Test Day Takeaway:** Equal absolute values give two linear equations, equal and opposite; both roots are valid, so no extraneous check is needed."
+}

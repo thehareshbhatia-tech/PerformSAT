@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-095",
+  "question": "The function $h$ is defined by $h(x) = 6x - 5$. What is the value of $h(4) + 8$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$11$"
+    },
+    {
+      "id": "B",
+      "text": "$19$"
+    },
+    {
+      "id": "C",
+      "text": "$27$"
+    },
+    {
+      "id": "D",
+      "text": "$67$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts 8 instead of adding",
+    "B": "reports h(4), forgetting the +8",
+    "D": "adds 8 to the input, computing h(12)"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $h(4) = 6(4) - 5 = 19$, so $h(4) + 8 = 27$.\n\n**The Full Solution:**\nStep 1: Evaluate the function first: $h(4) = 6(4) - 5 = 24 - 5 = 19$.\nStep 2: The $+8$ is outside the function, so it is added to the output: $19 + 8 = 27$.\nStep 3: Check: $27 - 8 = 19 = h(4)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($11$): subtracts $8$ from $h(4)$ instead of adding it.\n* Choice B ($19$): reports $h(4)$ and forgets the $+8$.\n* Choice D ($67$): adds $8$ to the input, computing $h(12) = 67$ instead of $h(4) + 8$.\n\n**Test Day Takeaway:** Read the placement of a constant carefully: outside the parentheses it adjusts the output after evaluating; inside it changes the input before evaluating."
+}

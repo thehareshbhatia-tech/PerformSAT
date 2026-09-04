@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-128",
+  "question": "$\\frac{2}{5}(10x + 35) = 4x + c$\n\nIn the given equation, $c$ is a constant. The equation has infinitely many solutions. What is the value of $c$?",
+  "correctAnswer": "14",
+  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $14$.**\n\n**The Fast Way (~8s):** Distribute $\\frac{2}{5}$: $\\frac{2}{5}(10x) = 4x$ and $\\frac{2}{5}(35) = 14$. So the left side is $4x + 14$, and $c = 14$.\n\n**The Full Solution:**\nStep 1: Multiply each term inside the parentheses by $\\frac{2}{5}$: $\\frac{2}{5} \\cdot 10x = 4x$ and $\\frac{2}{5} \\cdot 35 = 14$.\nStep 2: The equation becomes $4x + 14 = 4x + c$. The $x$ terms already agree, so infinitely many solutions requires $c = 14$.\nStep 3: Check with $x = 1$: left side $\\frac{2}{5}(45) = 18$; right side $4 + 14 = 18$. $\\checkmark$\n\n**Common Mistakes:** Entering $35$ (forgetting to multiply the constant by $\\frac{2}{5}$); entering $87.5$ (dividing $35$ by $\\frac{2}{5}$ instead of multiplying); entering $0$ (assuming the constant must vanish).\n\n**Test Day Takeaway:** A fraction in front of parentheses multiplies every term inside. Once the variable terms match, the leftover constant is the answer."
+}

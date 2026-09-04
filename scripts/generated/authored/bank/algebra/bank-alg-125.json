@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-125",
+  "question": "$2x - 7y = 5$\n$8x - 28y = k$\n\nIn the given system of equations, $k$ is a constant. If the system has infinitely many solutions, what is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$5$"
+    },
+    {
+      "id": "B",
+      "text": "$10$"
+    },
+    {
+      "id": "C",
+      "text": "$20$"
+    },
+    {
+      "id": "D",
+      "text": "$40$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "copies the constant without scaling",
+    "B": "scales by 2 instead of 4",
+    "D": "multiplies the constant by the coefficient 8 instead of the scale factor 4"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice C is correct.**\n\n**The Fast Way (~8s):** The second equation's coefficients are $4$ times the first's ($8 = 4 \\cdot 2$, $-28 = 4 \\cdot (-7)$). For the equations to be the same line, the constant must scale by $4$ too: $k = 4 \\cdot 5 = 20$.\n\n**The Full Solution:**\nStep 1: Two linear equations have infinitely many common solutions only when they describe the same line, meaning one equation is a constant multiple of the other.\nStep 2: Compare coefficients: $\\frac{8}{2} = 4$ and $\\frac{-28}{-7} = 4$, so the multiplier is $4$.\nStep 3: Apply the same multiplier to the constant: $k = 4(5) = 20$. Check: $4(2x - 7y) = 8x - 28y$ and $4(5) = 20$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): copies the constant from the first equation without scaling it.\n* Choice B ($10$): scales by $2$, perhaps from the $2x$ coefficient rather than the ratio $8 \\div 2$.\n* Choice D ($40$): multiplies $5$ by $8$, the new coefficient, instead of by the scale factor $4$.\n\n**Test Day Takeaway:** For \"infinitely many solutions,\" find the multiplier from one pair of coefficients, confirm it with the other pair, then apply it to the constant."
+}

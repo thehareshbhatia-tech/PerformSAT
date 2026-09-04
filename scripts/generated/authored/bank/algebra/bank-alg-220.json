@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-220",
+  "question": "Line $a$ passes through the points $(1, 8)$ and $(5, 2)$ in the $xy$-plane. What is the slope of a line that is perpendicular to line $a$?",
+  "correctAnswer": "2/3",
+  "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is $\\dfrac{2}{3}$.**\n\n**The Fast Way (~15s):** Slope of $a$: $\\dfrac{2 - 8}{5 - 1} = -\\dfrac{6}{4} = -\\dfrac{3}{2}$. The negative reciprocal is $\\dfrac{2}{3}$.\n\n**The Full Solution:**\nStep 1: Compute the slope of line $a$ from the two points: $\\dfrac{2 - 8}{5 - 1} = \\dfrac{-6}{4} = -\\dfrac{3}{2}$.\nStep 2: A perpendicular line has the negative reciprocal slope: flip $-\\dfrac{3}{2}$ to $-\\dfrac{2}{3}$ and change the sign to get $\\dfrac{2}{3}$.\nStep 3: Check: $-\\dfrac{3}{2} \\cdot \\dfrac{2}{3} = -1$. $\\checkmark$\n\n**Common Mistakes:** Entering $-\\dfrac{3}{2}$ (the slope of $a$ itself); entering $-\\dfrac{2}{3}$ (flipping without negating); computing the slope as $\\dfrac{5 - 1}{2 - 8}$ and getting $-\\dfrac{2}{3}$; not reducing $\\dfrac{6}{4}$ and entering $\\dfrac{4}{6}$ (equivalent, but easy to mistype).\n\n**Test Day Takeaway:** Two points give the slope; the perpendicular slope is one flip-and-negate away. Reduce the fraction before flipping to keep the numbers small."
+}

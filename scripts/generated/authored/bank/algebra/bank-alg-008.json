@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-008",
+  "question": "In the $xy$-plane, a line has a slope of $-\\frac{3}{4}$ and a $y$-intercept of $(0, 6)$. Which of the following equations represents this line?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3x + 4y = 24$"
+    },
+    {
+      "id": "B",
+      "text": "$3x - 4y = 24$"
+    },
+    {
+      "id": "C",
+      "text": "$4x + 3y = 18$"
+    },
+    {
+      "id": "D",
+      "text": "$4x - 3y = -18$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "slope 3/4 and y-intercept -6 (sign errors when clearing the fraction)",
+    "C": "slope -4/3 (coefficients reversed)",
+    "D": "slope 4/3 with the correct intercept"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Slope-Intercept Form Identification**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The line is $y = -\\frac{3}{4}x + 6$. Multiplying by $4$ gives $4y = -3x + 24$, or $3x + 4y = 24$.\n\n**The Full Solution:**\nStep 1: In slope-intercept form the line is $y = -\\frac{3}{4}x + 6$. None of the choices is in that form, so rewrite it in standard form.\nStep 2: Multiply both sides by $4$ to clear the fraction: $4y = -3x + 24$. Add $3x$ to both sides: $3x + 4y = 24$.\nStep 3: Check choice A by solving for $y$: $4y = -3x + 24 \\Rightarrow y = -\\frac{3}{4}x + 6$, which has slope $-\\frac{3}{4}$ and passes through $(0, 6)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($3x - 4y = 24$): solving for $y$ gives $y = \\frac{3}{4}x - 6$, the wrong sign on both the slope and the intercept.\n* Choice C ($4x + 3y = 18$): gives $y = -\\frac{4}{3}x + 6$; the intercept is right but the coefficients of $x$ and $y$ are reversed, inverting the slope.\n* Choice D ($4x - 3y = -18$): gives $y = \\frac{4}{3}x + 6$, both the reciprocal and the wrong sign for the slope.\n\n**Test Day Takeaway:** When choices are in standard form $Ax + By = C$, the slope is $-\\frac{A}{B}$ and the $y$-intercept is $\\frac{C}{B}$; check both before committing."
+}

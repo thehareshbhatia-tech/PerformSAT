@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-247",
+ "question": "$ax + 2y = 12$\n\n$8x + ay = 5$\n\nIn the given system of equations, $a$ is a positive constant. The system has no solution. What is the value of $a$?",
+ "correctAnswer": "4",
+ "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~20s):** Parallel means $\\frac{a}{8} = \\frac{2}{a}$, so $a^2 = 16$. Since $a$ is positive, $a = 4$.\n\n**The Full Solution:**\nStep 1: The lines are parallel when the coefficient ratios agree: $\\frac{a}{8} = \\frac{2}{a}$.\nStep 2: Cross-multiply: $a^2 = 16$, so $a = 4$ or $a = -4$. The stem says $a$ is positive, so $a = 4$.\nStep 3: Check with $a = 4$: the system is $4x + 2y = 12$ and $8x + 4y = 5$. The second's coefficients are twice the first's, but $5 \\neq 2 \\cdot 12$, so the lines are parallel and distinct. $\\checkmark$\n\n**Common Mistakes:** Solving $a^2 = 16$ and reporting $-4$ (ignores the positivity condition), or setting $\\frac{a}{8} = \\frac{a}{2}$ by matching the wrong pairs of coefficients, which has no nonzero solution.\n\n**Test Day Takeaway:** When the unknown appears in both equations, the ratio condition becomes a quadratic; use the given sign restriction to pick the root."
+}

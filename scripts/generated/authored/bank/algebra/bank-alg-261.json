@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-261",
+ "question": "$4x + 5y = 33$\n\n$2x - 3y = -11$\n\nIf $(x, y)$ is the solution to the given system of equations, what is the value of $6x + 2y$?",
+ "correctAnswer": "22",
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is $22$.**\n\n**The Fast Way (~10s):** Add the equations: $(4x + 2x) + (5y - 3y) = 33 + (-11)$, so $6x + 2y = 22$.\n\n**The Full Solution:**\nStep 1: The target $6x + 2y$ is the sum of the left sides, since $4x + 2x = 6x$ and $5y + (-3y) = 2y$.\nStep 2: Add the constants: $33 + (-11) = 22$.\nStep 3: Check by solving: from the second equation $2x = 3y - 11$, so $4x = 6y - 22$; substituting, $6y - 22 + 5y = 33$ gives $y = 5$, $x = 2$, and $6(2) + 2(5) = 22$. $\\checkmark$\n\n**Common Mistakes:** Adding $33 + 11 = 44$ by dropping the negative on $-11$, or subtracting the equations, which gives $2x + 8y$, not the target.\n\n**Test Day Takeaway:** Line up the coefficients: if the target is the sum of the left sides, the answer is the sum of the right sides, signs included."
+}

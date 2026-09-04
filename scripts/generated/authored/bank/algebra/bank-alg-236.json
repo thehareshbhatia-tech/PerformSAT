@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-236",
+  "question": "For all values of $x$, $(px + 4)(x + q) = 3x^2 + 10x + 8$, where $p$ and $q$ are constants. What is the value of $p + q$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$5$"
+    },
+    {
+      "id": "D",
+      "text": "$6$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports q alone",
+    "B": "reports p alone",
+    "D": "reports the product pq"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The $x^2$-term gives $p = 3$; the constant term gives $4q = 8$, so $q = 2$. Then $p + q = 5$.\n\n**The Full Solution:**\nStep 1: Expand: $(px + 4)(x + q) = px^2 + pqx + 4x + 4q = px^2 + (pq + 4)x + 4q$.\nStep 2: Match the $x^2$-coefficients: $p = 3$. Match the constants: $4q = 8$, so $q = 2$.\nStep 3: Check the $x$-coefficient: $pq + 4 = 3 \\cdot 2 + 4 = 10$. $\\checkmark$ So $p + q = 3 + 2 = 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports $q$ alone.\n* Choice B ($3$): reports $p$ alone.\n* Choice D ($6$): reports the product $pq$ instead of the sum.\n\n**Test Day Takeaway:** The leading and constant terms each involve only one unknown; solve those first, then use the middle term to verify before combining as asked."
+}

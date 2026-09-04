@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-289",
+ "question": "$|3x - 12| = 0$\n\nWhat value of $x$ is the solution to the given equation?",
+ "correctAnswer": "4",
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~5s):** An absolute value is $0$ only when the inside is $0$: $3x - 12 = 0$, so $x = 4$.\n\n**The Full Solution:**\nStep 1: $|u| = 0$ has the single solution $u = 0$; there is no separate negative case because $-0 = 0$.\nStep 2: Set $3x - 12 = 0$, so $3x = 12$.\nStep 3: $x = 4$. Check: $|3(4) - 12| = |0| = 0$. $\\checkmark$\n\n**Common Mistakes:** Answering $-4$ from a phantom \"negative case,\" or $12$ by solving $3x = 12$ and reporting the constant instead of $x$.\n\n**Test Day Takeaway:** $|u| = 0$ is the one absolute value equation with exactly one solution: set the inside equal to $0$."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-102",
+  "question": "What is the solution to the equation $3(4x + 1) - 8 = 5(2x - 3)$?",
+  "correctAnswer": "-5",
+  "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $-5$.**\n\n**The Fast Way (~15s):** Distribute both sides: $12x + 3 - 8 = 10x - 15 \\Rightarrow 12x - 5 = 10x - 15 \\Rightarrow 2x = -10 \\Rightarrow x = -5$.\n\n**The Full Solution:**\nStep 1: Distribute: left side $3(4x + 1) - 8 = 12x + 3 - 8 = 12x - 5$; right side $5(2x - 3) = 10x - 15$.\nStep 2: Subtract $10x$ from both sides: $2x - 5 = -15$. Add $5$: $2x = -10$.\nStep 3: Divide by $2$: $x = -5$. Check: $3(-20 + 1) - 8 = -57 - 8 = -65$ and $5(-10 - 3) = -65$. $\\checkmark$\n\n**Common Mistakes:** Distributing $5$ to $2x$ only, giving $10x - 3$ on the right and $x = 1$; adding $5$ and $15$ with the wrong sign to get $2x = 10$ and $x = 5$; combining $3 - 8$ as $+5$.\n\n**Test Day Takeaway:** Distribute on both sides before moving anything, simplify each side to $ax + b$ form, then solve; a negative answer is a normal outcome, so check it rather than doubting it."
+}

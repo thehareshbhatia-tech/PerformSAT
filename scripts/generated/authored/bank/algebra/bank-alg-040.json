@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-040",
+  "question": "$y = -4x + 7$\n$y = -4x - 2$\n\nHow many solutions does the given system of equations have?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Exactly one"
+    },
+    {
+      "id": "B",
+      "text": "Exactly two"
+    },
+    {
+      "id": "C",
+      "text": "Infinitely many"
+    },
+    {
+      "id": "D",
+      "text": "Zero"
+    }
+  ],
+  "distractorNotes": {
+    "A": "assumes every linear system has one solution",
+    "B": "two lines cannot cross at exactly two points",
+    "C": "requires the same intercept as well as the same slope"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Classify System (Parallel Lines)**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Both lines have slope $-4$ but different $y$-intercepts ($7$ and $-2$), so they are parallel and never meet: zero solutions.\n\n**The Full Solution:**\nStep 1: Both equations are in slope-intercept form. The slopes are equal ($-4$ and $-4$), so the lines are either the same line or parallel.\nStep 2: The $y$-intercepts differ ($7 \\neq -2$), so the lines are distinct and parallel.\nStep 3: Parallel lines share no point, so the system has no solution. Algebraic check: setting $-4x + 7 = -4x - 2$ gives $7 = -2$, a false statement, confirming zero solutions. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Exactly one): assumes any two linear equations cross once, but lines with equal slopes never do.\n* Choice B (Exactly two): two distinct lines can never intersect at exactly two points.\n* Choice C (Infinitely many): would require the equations to describe the same line, which needs equal intercepts too.\n\n**Test Day Takeaway:** Compare slopes first: equal slopes with different intercepts means zero solutions; equal slopes and equal intercepts means infinitely many; different slopes means exactly one."
+}

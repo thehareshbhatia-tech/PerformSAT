@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-256",
+ "question": "$3x + 2y = 19$\n\n$x + 5y = 15$\n\nIf $(x, y)$ is the solution to the given system of equations, what is the value of $4x + 7y$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4$"
+  },
+  {
+   "id": "B",
+   "text": "$17$"
+  },
+  {
+   "id": "C",
+   "text": "$34$"
+  },
+  {
+   "id": "D",
+   "text": "$68$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the equations instead of adding",
+  "B": "averages the two constants",
+  "D": "doubles the sum"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Add the two equations: $(3x + x) + (2y + 5y) = 19 + 15$, which is exactly $4x + 7y = 34$.\n\n**The Full Solution:**\nStep 1: Notice that $4x + 7y$ is the sum of the left sides: $3x + x = 4x$ and $2y + 5y = 7y$.\nStep 2: Adding the equations gives $4x + 7y = 34$ directly.\nStep 3: Check by solving: from the second equation $x = 15 - 5y$; substituting, $3(15 - 5y) + 2y = 19$ gives $y = 2$, $x = 5$, and $4(5) + 7(2) = 34$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): subtracts the constants, $19 - 15$, but subtracting the equations gives $2x - 3y$, not $4x + 7y$.\n* Choice B ($17$): the average of $19$ and $15$, which corresponds to no valid combination.\n* Choice D ($68$): doubles the correct sum, as if $4x + 7y$ were twice the sum of the left sides.\n\n**Test Day Takeaway:** Before solving for $x$ and $y$, compare the target expression to the sum or difference of the equations."
+}

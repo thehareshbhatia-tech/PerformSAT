@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-305",
+  "question": "$6(x + 2) = 54$\nWhat value of $x$ is the solution to the given equation?",
+  "correctAnswer": "7",
+  "explanation": "**SAT Pattern: Linear Equation with Distribution**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~5s):** Divide both sides by $6$: $x + 2 = 9$, so $x = 7$.\n\n**The Full Solution:**\nStep 1: Either distribute ($6x + 12 = 54$) or divide both sides by $6$ first ($x + 2 = 9$). Dividing first is shorter because $54$ is a multiple of $6$.\nStep 2: Subtract $2$ from both sides: $x = 7$.\nStep 3: The distributing route agrees: $6x + 12 = 54$ gives $6x = 42$ and $x = 7$.\nCheck: $6(7 + 2) = 6(9) = 54$. $\\checkmark$\n\n**Common Mistakes:** Stopping at $x + 2 = 9$ and reporting $9$. Distributing $6$ to $x$ but not to $2$ gives $6x + 2 = 54$ and $x = \\dfrac{52}{6}$, which is not an integer, a sign the distribution was incomplete.\n\n**Test Day Takeaway:** When the right side is a multiple of the outside factor, divide first; otherwise distribute to every term inside the parentheses."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-239",
+  "question": "The equation $(x + a)(3x - b) = 3x^2 + 7x - 20$ is true for all values of $x$, where $a$ and $b$ are positive integers. What is the value of $a + b$?",
+  "correctAnswer": "9",
+  "explanation": "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~30s):** $ab = 20$ and $3a - b = 7$. Among factor pairs of $20$, $(a, b) = (4, 5)$ gives $12 - 5 = 7$. So $a + b = 9$.\n\n**The Full Solution:**\nStep 1: Expand: $(x + a)(3x - b) = 3x^2 - bx + 3ax - ab = 3x^2 + (3a - b)x - ab$.\nStep 2: Match coefficients: $-ab = -20$, so $ab = 20$; and $3a - b = 7$. Positive integer pairs with $ab = 20$: $(1, 20)$, $(2, 10)$, $(4, 5)$, $(5, 4)$, $(10, 2)$, $(20, 1)$.\nStep 3: Test $3a - b$: $-17$, $-4$, $7$, $11$, $28$, $59$. Only $(4, 5)$ gives $7$. Check: $(x + 4)(3x - 5) = 3x^2 - 5x + 12x - 20 = 3x^2 + 7x - 20$. $\\checkmark$ So $a + b = 9$.\n\n**Common Mistakes:** Entering $20$ (the product); entering $1$ (computing $b - a$); choosing $(5, 4)$ because $ab = 20$ without checking the middle term, which gives $a + b = 9$ by luck but $3a - b = 11$; entering $-9$ from a sign error in $-ab$.\n\n**Test Day Takeaway:** Two unknown constants need two matched coefficients. Let the constant term list the integer candidates and the $x$-term select the correct pair."
+}

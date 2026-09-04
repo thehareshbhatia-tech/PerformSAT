@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-057",
+  "question": "$6x + 5y = 50$\n$6x - 4y = 14$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$5$"
+    },
+    {
+      "id": "C",
+      "text": "$9$"
+    },
+    {
+      "id": "D",
+      "text": "$36$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "reports x instead of y",
+    "C": "reports the combined coefficient 5 - (-4)",
+    "D": "stops at 9y = 36"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Elimination (Subtract to Cancel x)**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Both equations start with $6x$, so subtract them: $(5y) - (-4y) = 50 - 14$ gives $9y = 36$ and $y = 4$.\n\n**The Full Solution:**\nStep 1: The $x$-coefficients are equal ($6$ and $6$), so subtracting the second equation from the first eliminates $x$.\nStep 2: $(6x + 5y) - (6x - 4y) = 50 - 14$. Careful with the double negative: $5y - (-4y) = 9y$. So $9y = 36$ and $y = 4$.\nStep 3: Find $x$: $6x + 5(4) = 50 \\Rightarrow 6x = 30 \\Rightarrow x = 5$. Check the second equation: $6(5) - 4(4) = 30 - 16 = 14$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($5$): is the value of $x$, not $y$.\n* Choice C ($9$): reports the combined coefficient $5 - (-4)$ instead of solving $9y = 36$.\n* Choice D ($36$): stops at $9y = 36$ without dividing.\n\n**Test Day Takeaway:** Subtracting an equation subtracts EVERY term, so a negative term becomes positive; write the subtraction out to avoid getting $y$ instead of $9y$."
+}

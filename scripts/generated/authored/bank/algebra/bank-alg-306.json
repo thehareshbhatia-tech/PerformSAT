@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-306",
+  "question": "$4(x + k) = 52$\nIn the given equation, $k$ is a constant. If $x = 6$ is the solution to the equation, what is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7$"
+    },
+    {
+      "id": "B",
+      "text": "$13$"
+    },
+    {
+      "id": "C",
+      "text": "$19$"
+    },
+    {
+      "id": "D",
+      "text": "$46$"
+    }
+  ],
+  "correctAnswer": "A",
+  "distractorNotes": {
+    "B": "stopped at 6 + k = 13 and reported 13",
+    "C": "added 6 to 13 instead of subtracting",
+    "D": "subtracted 6 from 52, never dividing by 4"
+  },
+  "explanation": "**SAT Pattern: Solve for a Parameter Given a Solution**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Substitute $x = 6$: $4(6 + k) = 52$, so $6 + k = 13$ and $k = 7$.\n\n**The Full Solution:**\nStep 1: A solution is a value of $x$ that makes the equation true, so replace $x$ with $6$: $4(6 + k) = 52$.\nStep 2: Divide both sides by $4$: $6 + k = 13$.\nStep 3: Subtract $6$: $k = 7$.\nCheck: with $k = 7$ the equation is $4(x + 7) = 52$, and $x = 6$ gives $4(13) = 52$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($13$): stops at $6 + k = 13$ and reports the value of the parenthetical, not $k$.\n* Choice C ($19$): computes $13 + 6$ instead of $13 - 6$ when isolating $k$.\n* Choice D ($46$): subtracts $6$ from $52$ without first dividing by $4$, treating $4(x + k)$ as $x + k$.\n\n**Test Day Takeaway:** \"$x = 6$ is the solution\" means substitute $6$ for $x$; the constant then becomes the only unknown in an ordinary one-step equation."
+}

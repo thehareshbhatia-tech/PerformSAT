@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-279",
+ "question": "The function $f$ is defined by $f(x) = 4(x - h)^2 + k$, where $h$ and $k$ are constants. When $f(x)$ is written in the form $ax^2 + bx + c$, the result is $4x^2 - 24x + 41$. What is the value of $h + k$?",
+ "correctAnswer": "8",
+ "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~20s):** Expanding gives $4x^2 - 8hx + 4h^2 + k$. Matching $-8h = -24$ gives $h = 3$; matching $4(9) + k = 41$ gives $k = 5$. So $h + k = 8$.\n\n**The Full Solution:**\nStep 1: Expand: $4(x - h)^2 + k = 4x^2 - 8hx + 4h^2 + k$.\nStep 2: Match the $x$-coefficients: $-8h = -24$, so $h = 3$.\nStep 3: Match the constants: $4(3)^2 + k = 41$, so $36 + k = 41$ and $k = 5$. Then $h + k = 8$. Check: $4(x - 3)^2 + 5 = 4x^2 - 24x + 36 + 5 = 4x^2 - 24x + 41$. $\\checkmark$\n\n**Common Mistakes:** Using $h = -3$ (sign slip from $-8h = -24$) to get $h + k = 2$, or setting $k = 41$ by forgetting the $4h^2$ contribution, which gives $44$.\n\n**Test Day Takeaway:** Expand the vertex form symbolically, then match coefficients term by term: the $x$-term fixes $h$, and the constant then fixes $k$."
+}

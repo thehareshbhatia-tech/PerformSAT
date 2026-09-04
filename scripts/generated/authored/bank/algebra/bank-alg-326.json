@@ -1,0 +1,25 @@
+{
+  "id": "bank-alg-326",
+  "question": "The graph of the linear function $f$ is shown in the $xy$-plane. The function $g$ is defined by $g(x) = f(x) - 11$. For what value of $x$ does $g(x) = 0$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": 2,
+      "yIntercept": 3,
+      "xRange": [
+        -4,
+        6
+      ],
+      "yRange": [
+        -6,
+        14
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 1,
+      "label": "y = f(x)"
+    }
+  },
+  "correctAnswer": "4",
+  "explanation": "**SAT Pattern: Solve for Input from Output**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~20s):** $g(x) = 0$ means $f(x) = 11$. From the graph, $f$ has $y$-intercept $3$ and slope $2$, so $2x + 3 = 11$ and $x = 4$.\n\n**The Full Solution:**\nStep 1: Translate the condition: $g(x) = f(x) - 11 = 0$ exactly when $f(x) = 11$. So the question is asking where the graph of $f$ reaches a height of $11$.\nStep 2: Read the rule for $f$ from the graph. The line crosses the $y$-axis at $(0, 3)$ and rises $2$ units for every $1$ unit to the right (for example, it passes through $(1, 5)$), so $f(x) = 2x + 3$.\nStep 3: Solve $2x + 3 = 11$: $2x = 8$, so $x = 4$.\nCheck: the point $(4, 11)$ lies on the line, and $g(4) = 11 - 11 = 0$. $\\checkmark$\n\n**Common Mistakes:** Solving $f(x) = 0$ instead of $f(x) = 11$, which gives $x = -1.5$, the $x$-intercept of $f$; reading the $y$-intercept $3$ as the answer; or subtracting $11$ from the input rather than the output.\n\n**Test Day Takeaway:** Rewrite a condition on a shifted function as a condition on the original: $f(x) - k = 0$ is the same as $f(x) = k$, then read or solve for that output."
+}

@@ -1,0 +1,50 @@
+{
+  "id": "bank-alg-083",
+  "question": "The graph of $y = f(x)$ is shown in the $xy$-plane. The function $g$ is defined by $g(x) = f(x - 2) + 5$. What are the coordinates of the vertex of the graph of $y = g(x)$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        -3,
+        4
+      ],
+      "a": -1,
+      "showPoints": [
+        [
+          -5,
+          0
+        ],
+        [
+          -1,
+          0
+        ]
+      ],
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-5, -1)$"
+    },
+    {
+      "id": "B",
+      "text": "$(-5, 9)$"
+    },
+    {
+      "id": "C",
+      "text": "$(-1, -1)$"
+    },
+    {
+      "id": "D",
+      "text": "$(-1, 9)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reverses both directions (left 2, down 5)",
+    "B": "shifts left 2 instead of right",
+    "C": "shifts down 5 instead of up"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Vertex from Transformations**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** The vertex of $f$ is at $(-3, 4)$. The $x - 2$ inside moves the graph right $2$; the $+ 5$ outside moves it up $5$. New vertex: $(-3 + 2, 4 + 5) = (-1, 9)$.\n\n**The Full Solution:**\nStep 1: Read the vertex of $f$ from the graph: the highest point is $(-3, 4)$.\nStep 2: $f(x - 2)$ is a horizontal translation $2$ units to the right (inside the function, opposite the sign), so the vertex moves to $(-1, 4)$.\nStep 3: Adding $5$ outside the function is a vertical translation up $5$, so the vertex moves to $(-1, 9)$. Check: $g(-1) = f(-1 - 2) + 5 = f(-3) + 5 = 4 + 5 = 9$, and no other input gives a larger value. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-5, -1)$): reverses both directions, moving left $2$ and down $5$.\n* Choice B ($(-5, 9)$): reads $x - 2$ as a shift to the left; inside the parentheses the sign works backward.\n* Choice C ($(-1, -1)$): reads $+ 5$ as a shift down; outside the parentheses the sign works as written.\n\n**Test Day Takeaway:** Track the vertex through each transformation one at a time: inside the function shifts horizontally (opposite the sign), outside shifts vertically (with the sign)."
+}

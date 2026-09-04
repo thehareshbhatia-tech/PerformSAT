@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-273",
+ "question": "The function $h$ is defined by $h(x) = (x - 6)^2 + 4$. When $h(x)$ is written in the form $x^2 + bx + c$, where $b$ and $c$ are constants, what is the value of $c$?",
+ "correctAnswer": "40",
+ "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~10s):** The constant term is $h(0)$: $(0 - 6)^2 + 4 = 36 + 4 = 40$.\n\n**The Full Solution:**\nStep 1: Expand: $(x - 6)^2 = x^2 - 12x + 36$.\nStep 2: Add $4$: $h(x) = x^2 - 12x + 40$, so $b = -12$ and $c = 40$.\nStep 3: Check: $h(0) = 40$ matches the constant term. $\\checkmark$\n\n**Common Mistakes:** Answering $4$ (the vertex-form constant, not the standard-form constant) or $-32$ (treating $(-6)^2$ as $-36$).\n\n**Test Day Takeaway:** The standard-form constant is the function's value at $0$: square the inside constant and add the outside constant."
+}

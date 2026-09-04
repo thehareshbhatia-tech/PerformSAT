@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-297",
+ "question": "$2x + 13 = 5x - 8$\n\nWhat value of $x$ is the solution to the given equation?",
+ "correctAnswer": "7",
+ "explanation": "**SAT Pattern: Linear Equation with Variables on Both Sides**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~10s):** Move $2x$ right and $-8$ left: $21 = 3x$, so $x = 7$.\n\n**The Full Solution:**\nStep 1: Subtract $2x$ from both sides: $13 = 3x - 8$.\nStep 2: Add $8$ to both sides: $21 = 3x$.\nStep 3: Divide by $3$: $x = 7$. Check: $2(7) + 13 = 27$ and $5(7) - 8 = 27$. $\\checkmark$\n\n**Common Mistakes:** Computing $13 - 8 = 5$ instead of $13 + 8 = 21$ (giving $x = \\frac{5}{3}$), or dividing by $7$ after combining the $x$-terms as $2x + 5x$.\n\n**Test Day Takeaway:** Move the smaller variable term so the coefficient stays positive, then handle the constants."
+}

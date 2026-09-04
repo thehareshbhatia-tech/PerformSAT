@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-262",
+ "question": "$3x + 5y = 21$\n\n$7x + y = 17$\n\nIf $(x, y)$ is the solution to the given system of equations, what is the value of $9y - x$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4$"
+  },
+  {
+   "id": "B",
+   "text": "$25$"
+  },
+  {
+   "id": "C",
+   "text": "$38$"
+  },
+  {
+   "id": "D",
+   "text": "$59$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the equations without scaling (gives -4x + 4y = 4)",
+  "C": "adds the equations, which gives 10x + 6y",
+  "D": "adds twice the first equation instead of subtracting the second"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Twice the first equation minus the second: $(6x - 7x) + (10y - y) = 42 - 17$, so $-x + 9y = 25$.\n\n**The Full Solution:**\nStep 1: Look for a combination $m(3x + 5y) + n(7x + y)$ that equals $-x + 9y$. The $y$-coefficients need $5m + n = 9$ and the $x$-coefficients need $3m + 7n = -1$; $m = 2$, $n = -1$ works.\nStep 2: Apply it to the constants: $2(21) - 17 = 25$.\nStep 3: Check by solving: from the second equation $y = 17 - 7x$; then $3x + 5(17 - 7x) = 21$ gives $-32x = -64$, $x = 2$, $y = 3$, and $9(3) - 2 = 25$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): subtracts the equations as written, producing $-4x + 4y = 4$, which is not the target.\n* Choice C ($38$): adds the equations, producing $10x + 6y = 38$.\n* Choice D ($59$): adds twice the first equation to the second, $2(21) + 17$, flipping the sign of the needed combination.\n\n**Test Day Takeaway:** When the target is not a plain sum or difference, solve the small coefficient system for the multipliers, or just solve for $x$ and $y$ and evaluate."
+}

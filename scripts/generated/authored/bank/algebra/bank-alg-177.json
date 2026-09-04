@@ -1,0 +1,30 @@
+{
+  "id": "bank-alg-177",
+  "question": "In the $xy$-plane, line $k$ is defined by $y = 4x - 1$. What is the slope of a line that is perpendicular to line $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-4$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\frac{1}{4}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\frac{1}{4}$"
+    },
+    {
+      "id": "D",
+      "text": "$4$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "negates without taking the reciprocal",
+    "C": "takes the reciprocal without negating",
+    "D": "reports the slope of line k itself (parallel)"
+  },
+  "choiceOrderNote": "Choices ascend by true value (-4 < -1/4 < 1/4 < 4); the stacked fractions are misread by the numeric parser.",
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Line $k$ has slope $4$. A perpendicular slope is the negative reciprocal: $-\\frac{1}{4}$.\n\n**The Full Solution:**\nStep 1: In $y = 4x - 1$, the coefficient of $x$ is the slope, so line $k$ has slope $4$.\nStep 2: Perpendicular lines have slopes whose product is $-1$. If $m$ is the perpendicular slope, $4m = -1$, so $m = -\\frac{1}{4}$.\nStep 3: Check: $4 \\cdot \\left(-\\frac{1}{4}\\right) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): flips the sign but forgets to take the reciprocal.\n* Choice C ($\\frac{1}{4}$): takes the reciprocal but forgets to flip the sign.\n* Choice D ($4$): reports the slope of line $k$ itself, which is a parallel line, not a perpendicular one.\n\n**Test Day Takeaway:** Perpendicular means \"flip and negate\": reciprocal and opposite sign. Both changes are required; the product of the two slopes must be $-1$."
+}

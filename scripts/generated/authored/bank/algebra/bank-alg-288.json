@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-288",
+ "question": "$|x + 2| = 6$\n\nWhich of the following is the set of all solutions to the given equation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\{-8, 4\\}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\{-4, 8\\}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\{4\\}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\{-6, 6\\}$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "sign-flipped: solves x - 2 = ±6",
+  "C": "keeps only the positive case",
+  "D": "solves |x| = 6, ignoring the +2"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $x + 2$ is $6$ units from $0$, so $x + 2 = 6$ or $x + 2 = -6$: $x = 4$ or $x = -8$.\n\n**The Full Solution:**\nStep 1: An absolute value equation $|u| = 6$ splits into $u = 6$ and $u = -6$.\nStep 2: $x + 2 = 6$ gives $x = 4$; $x + 2 = -6$ gives $x = -8$.\nStep 3: Check: $|4 + 2| = 6$ and $|-8 + 2| = |-6| = 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\{-4, 8\\}$): solves $x - 2 = \\pm 6$, flipping the sign inside the absolute value.\n* Choice C ($\\{4\\}$): handles only the positive case and misses $x + 2 = -6$.\n* Choice D ($\\{-6, 6\\}$): solves $|x| = 6$ and never accounts for the $+2$.\n\n**Test Day Takeaway:** Split into two linear equations, solve each, and verify both by substituting back."
+}

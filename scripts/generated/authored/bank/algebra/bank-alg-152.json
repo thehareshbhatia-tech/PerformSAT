@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-152",
+  "question": "$y = 3x - 2$\n$y = x^2 + 2x - 8$\n\nThe solution to the given system of equations is $(x, y)$, where $x > 0$. What is the value of $y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-8$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$7$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses the rejected root x = -2, giving y = -8",
+    "B": "reports x instead of y",
+    "C": "factors as (x + 3)(x - 2), takes x = 2, gets y = 4"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: System of Equations — Substitution**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Set the two expressions for $y$ equal: $x^2 + 2x - 8 = 3x - 2$, so $x^2 - x - 6 = 0$, which factors as $(x - 3)(x + 2) = 0$. With $x > 0$, $x = 3$ and $y = 3(3) - 2 = 7$.\n\n**The Full Solution:**\nStep 1: Substitute $3x - 2$ for $y$ in the second equation: $3x - 2 = x^2 + 2x - 8$.\nStep 2: Bring everything to one side: $0 = x^2 - x - 6 = (x - 3)(x + 2)$, so $x = 3$ or $x = -2$. The condition $x > 0$ selects $x = 3$.\nStep 3: Then $y = 3(3) - 2 = 7$. Check in the quadratic: $3^2 + 2(3) - 8 = 9 + 6 - 8 = 7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): uses the rejected root $x = -2$, for which $y = 3(-2) - 2 = -8$.\n* Choice B ($3$): stops at $x = 3$ and reports it instead of $y$.\n* Choice C ($4$): factors as $(x + 3)(x - 2)$, takes $x = 2$, and computes $y = 3(2) - 2$.\n\n**Test Day Takeaway:** A line meeting a parabola gives a quadratic with two roots. Use the stated condition to pick one, then compute the variable the question actually asks for."
+}

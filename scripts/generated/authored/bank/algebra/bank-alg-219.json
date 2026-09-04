@@ -1,0 +1,58 @@
+{
+  "id": "bank-alg-219",
+  "question": "The graph of line $r$ is shown in the $xy$-plane. Line $s$ is perpendicular to line $r$ and passes through the point $(2, 5)$. Which equation defines line $s$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": -0.5,
+      "yIntercept": 1,
+      "xRange": [
+        -4,
+        8
+      ],
+      "yRange": [
+        -4,
+        6
+      ],
+      "gridInterval": 1,
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "highlightPoints": [
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          -1
+        ]
+      ],
+      "label": "r"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -2x + 9$"
+    },
+    {
+      "id": "B",
+      "text": "$y = -\\dfrac{1}{2}x + 6$"
+    },
+    {
+      "id": "C",
+      "text": "$y = 2x + 1$"
+    },
+    {
+      "id": "D",
+      "text": "$y = 2x + 5$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses slope -2 (reciprocal without the sign change) through the point",
+    "B": "keeps the slope of r, giving a parallel line through the point",
+    "D": "uses the point's y-coordinate as the intercept"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Perpendicular Line Through a Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** From $(0, 1)$ to $(4, -1)$, line $r$ has slope $-\\dfrac{1}{2}$, so line $s$ has slope $2$. Through $(2, 5)$: $5 = 2(2) + b$, so $b = 1$ and $y = 2x + 1$.\n\n**The Full Solution:**\nStep 1: Read the slope of $r$ from the marked points: $\\dfrac{-1 - 1}{4 - 0} = -\\dfrac{2}{4} = -\\dfrac{1}{2}$.\nStep 2: The perpendicular slope is the negative reciprocal, $2$. So $s$ has the form $y = 2x + b$.\nStep 3: Substitute $(2, 5)$: $5 = 4 + b$, so $b = 1$. The equation is $y = 2x + 1$. Check: $2(2) + 1 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x + 9$): flips the fraction but keeps the negative sign, then fits the point correctly with the wrong slope.\n* Choice B ($y = -\\dfrac{1}{2}x + 6$): keeps the slope of $r$, producing a parallel line through $(2, 5)$ rather than a perpendicular one.\n* Choice D ($y = 2x + 5$): has the right slope but uses the $y$-coordinate of the given point as the intercept without substituting.\n\n**Test Day Takeaway:** Slope from the graph, negative reciprocal for the perpendicular, then substitute the given point to find $b$. Three of the four choices pass through the point; only one has the perpendicular slope."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-107",
+  "question": "In the $xy$-plane, a line with slope $-3$ passes through the point $(2, 5)$. What is the $y$-coordinate of the $y$-intercept of the line?",
+  "correctAnswer": "11",
+  "explanation": "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $11$.**\n\n**The Fast Way (~10s):** Substitute into $y = mx + b$: $5 = -3(2) + b \\Rightarrow 5 = -6 + b \\Rightarrow b = 11$.\n\n**The Full Solution:**\nStep 1: A line with slope $-3$ has equation $y = -3x + b$ for some constant $b$, and $b$ is the $y$-coordinate of the $y$-intercept.\nStep 2: The point $(2, 5)$ is on the line, so $5 = -3(2) + b$, which is $5 = -6 + b$.\nStep 3: Add $6$: $b = 11$. Check: at $x = 2$, $y = -3(2) + 11 = 5$. $\\checkmark$\n\n**Common Mistakes:** Getting $-1$ by computing $5 - 6$ instead of $5 + 6$; using $5 = -3(5) + b$ by substituting the $y$-coordinate for $x$; reporting the slope-point product $-6$.\n\n**Test Day Takeaway:** With slope and one point, plug both into $y = mx + b$ and solve for $b$; a negative slope times a positive $x$ makes $b$ larger than the given $y$."
+}

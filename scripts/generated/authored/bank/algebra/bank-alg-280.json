@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-280",
+ "question": "Each of the following is a linear equation in $x$. Which of the equations has no solution?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3x + 5 = 5x + 3$"
+  },
+  {
+   "id": "B",
+   "text": "$3x + 5 = -3x + 5$"
+  },
+  {
+   "id": "C",
+   "text": "$3x + 5 = 3x + 5$"
+  },
+  {
+   "id": "D",
+   "text": "$3x + 5 = 3x - 5$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "different x-coefficients give exactly one solution (x = 1)",
+  "B": "looks contradictory but solves to x = 0",
+  "C": "an identity; infinitely many solutions, not zero"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** No solution needs the same $x$-coefficient on both sides with different constants. Only $3x + 5 = 3x - 5$ fits: subtracting $3x$ leaves $5 = -5$, which is false.\n\n**The Full Solution:**\nStep 1: Subtract $3x$ from both sides of choice D: $5 = -5$. A false statement means no value of $x$ works.\nStep 2: Compare choice C: subtracting $3x$ gives $5 = 5$, always true, so infinitely many solutions.\nStep 3: Choices A and B have different $x$-coefficients on the two sides, so each has exactly one solution ($x = 1$ and $x = 0$). $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x + 5 = 5x + 3$): the coefficients differ, so $2x = 2$ and $x = 1$; one solution.\n* Choice B ($3x + 5 = -3x + 5$): the opposite coefficients suggest a contradiction, but $6x = 0$ gives $x = 0$.\n* Choice C ($3x + 5 = 3x + 5$): identical sides make an identity with infinitely many solutions, the opposite of none.\n\n**Test Day Takeaway:** Cancel the variable terms first: a false constant statement means zero solutions, a true one means infinitely many."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-199",
+  "question": "The system of equations $y = cx - 8$ and $y = -2x + d$, where $c$ and $d$ are constants, has the solution $(-3, 10)$. What is the value of $cd$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-24$"
+    },
+    {
+      "id": "B",
+      "text": "$-10$"
+    },
+    {
+      "id": "C",
+      "text": "$-2$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "computes c - d instead of cd",
+    "C": "computes c + d instead of cd",
+    "D": "drops the negative sign on c"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Substitute $(-3, 10)$ into each equation. First: $10 = -3c - 8$, so $c = -6$. Second: $10 = 6 + d$, so $d = 4$. Then $cd = -24$.\n\n**The Full Solution:**\nStep 1: A solution satisfies both equations, so put $x = -3$, $y = 10$ into $y = cx - 8$: $10 = -3c - 8$, so $-3c = 18$ and $c = -6$.\nStep 2: Put the same point into $y = -2x + d$: $10 = -2(-3) + d = 6 + d$, so $d = 4$.\nStep 3: $cd = (-6)(4) = -24$. Check: $y = -6(-3) - 8 = 10$ and $y = -2(-3) + 4 = 10$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-10$): computes $c - d = -6 - 4$ instead of the product.\n* Choice C ($-2$): computes $c + d = -6 + 4$ instead of the product.\n* Choice D ($24$): solves $-3c = 18$ as $c = 6$, dropping the sign.\n\n**Test Day Takeaway:** A given solution point turns each equation into a one-variable equation for its constant. Solve them separately, then combine exactly as the question directs."
+}

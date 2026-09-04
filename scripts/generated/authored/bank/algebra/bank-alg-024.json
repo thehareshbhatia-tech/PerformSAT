@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-024",
+  "question": "The function $h$ is defined by $h(x) = -4x + 9$. What is the value of $h(-6)$?",
+  "correctAnswer": "33",
+  "explanation": "**SAT Pattern: Function Evaluation with Negatives**\n\n**The correct answer is $33$.**\n\n**The Fast Way (~5s):** $h(-6) = -4(-6) + 9 = 24 + 9 = 33$.\n\n**The Full Solution:**\nStep 1: Substitute $-6$ for $x$, keeping the parentheses: $h(-6) = -4(-6) + 9$.\nStep 2: A negative times a negative is positive: $-4(-6) = 24$.\nStep 3: Add: $24 + 9 = 33$. Check: $33 - 9 = 24$ and $24 \\div (-4) = -6$, the original input. $\\checkmark$\n\n**Common Mistakes:** Getting $-15$ by computing $-24 + 9$, which forgets that $-4(-6)$ is positive; getting $15$ by subtracting $9$ instead of adding; dropping the input's sign and computing $h(6) = -15$.\n\n**Test Day Takeaway:** Always wrap a negative input in parentheses before multiplying; the sign of the product is decided before any addition."
+}

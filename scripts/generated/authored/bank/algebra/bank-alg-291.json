@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-291",
+ "question": "$|5x + 3| = 17$\n\nWhat is the negative solution to the given equation?",
+ "correctAnswer": "-4",
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**The correct answer is $-4$.**\n\n**The Fast Way (~10s):** The negative case is $5x + 3 = -17$, so $5x = -20$ and $x = -4$.\n\n**The Full Solution:**\nStep 1: Split: $5x + 3 = 17$ or $5x + 3 = -17$.\nStep 2: The first gives $5x = 14$, $x = 2.8$ (positive). The second gives $5x = -20$, $x = -4$.\nStep 3: The negative solution is $-4$. Check: $|5(-4) + 3| = |-17| = 17$. $\\checkmark$\n\n**Common Mistakes:** Answering $-2.8$ by negating the positive solution instead of solving the negative case, or $-\\frac{14}{5}$ by subtracting $3$ on the wrong side.\n\n**Test Day Takeaway:** The two cases are not negatives of each other; solve the case the question asks about from scratch."
+}

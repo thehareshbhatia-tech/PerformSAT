@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-194",
+  "question": "The solution to the system of equations $x = 3y$ and $2x + y = 42$ is $(x, y)$. What is the value of $x$?",
+  "correctAnswer": "18",
+  "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~15s):** Replace $x$ with $3y$: $2(3y) + y = 7y = 42$, so $y = 6$ and $x = 3(6) = 18$.\n\n**The Full Solution:**\nStep 1: The first equation gives $x$ in terms of $y$. Substitute into the second: $2(3y) + y = 42$.\nStep 2: Combine like terms: $6y + y = 7y$, so $7y = 42$ and $y = 6$.\nStep 3: Back-substitute: $x = 3(6) = 18$. Check: $2(18) + 6 = 42$. $\\checkmark$\n\n**Common Mistakes:** Entering $6$ (the value of $y$, not $x$); substituting $3x$ for $y$ instead of $3y$ for $x$; forgetting to multiply $3y$ by $2$ and solving $3y + y = 42$.\n\n**Test Day Takeaway:** Substitute the variable that is already isolated, then read the question again before entering: the system asks for $x$, so finish the back-substitution."
+}

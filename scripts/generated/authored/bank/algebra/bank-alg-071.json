@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-071",
+  "question": "The function $h$ is defined by $h(x) = 4 - 9x$. If $h(a) = -32$, what is the value of $a$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-36$"
+    },
+    {
+      "id": "B",
+      "text": "$-4$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$36$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "stops at -9a = -36",
+    "B": "divides -36 by 9 instead of -9",
+    "D": "reports 9a instead of a"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Solve for Input from Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $h(a) = -32$ means $4 - 9a = -32$. Subtract $4$: $-9a = -36$, so $a = 4$.\n\n**The Full Solution:**\nStep 1: The output is given, so replace $h(a)$ with $-32$ and $x$ with $a$: $4 - 9a = -32$.\nStep 2: Subtract $4$ from both sides: $-9a = -36$.\nStep 3: Divide both sides by $-9$: $a = 4$. Check: $h(4) = 4 - 9(4) = 4 - 36 = -32$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-36$): stops at $-9a = -36$ and reports the right side without dividing.\n* Choice B ($-4$): divides $-36$ by $9$ instead of by $-9$, losing the sign.\n* Choice D ($36$): reports the value of $9a$ rather than $a$.\n\n**Test Day Takeaway:** When the output is known, set the rule equal to it and undo the operations in reverse order; divide by the coefficient of the variable, sign included."
+}

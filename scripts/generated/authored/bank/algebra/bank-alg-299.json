@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-299",
+ "question": "$\\dfrac{3x + 6}{k} = \\dfrac{x - 2}{4}$\n\nIn the given equation, $k$ is a constant. If $x = 10$ is the solution to the equation, what is the value of $k$?",
+ "correctAnswer": "18",
+ "explanation": "**SAT Pattern: Parameter Inference from a Linear Equation**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~15s):** Substitute $x = 10$: $\\frac{36}{k} = \\frac{8}{4} = 2$, so $k = 18$.\n\n**The Full Solution:**\nStep 1: A solution makes the equation true, so replace $x$ with $10$: $\\frac{3(10) + 6}{k} = \\frac{10 - 2}{4}$.\nStep 2: Simplify: $\\frac{36}{k} = 2$.\nStep 3: Solve: $k = 18$. Check: $\\frac{36}{18} = 2$ and $\\frac{8}{4} = 2$. $\\checkmark$\n\n**Common Mistakes:** Cross-multiplying without substituting and trying to solve for two unknowns, or computing $\\frac{36}{2}$ as $72$ by multiplying instead of dividing.\n\n**Test Day Takeaway:** When the solution is given, substitute it immediately; the only unknown left is the parameter."
+}

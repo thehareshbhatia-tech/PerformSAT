@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-214",
+  "question": "The equation $y + 9 = \\dfrac{5}{4}x$ is graphed in the $xy$-plane. What is the $y$-coordinate of the $y$-intercept of the graph?",
+  "correctAnswer": "-9",
+  "explanation": "**SAT Pattern: Reading Slope-Intercept Form**\n\n**The correct answer is $-9$.**\n\n**The Fast Way (~5s):** Subtract $9$ from both sides: $y = \\dfrac{5}{4}x - 9$. The constant term is $-9$.\n\n**The Full Solution:**\nStep 1: Isolate $y$ to reach slope-intercept form: $y = \\dfrac{5}{4}x - 9$.\nStep 2: In $y = mx + b$, $b = -9$ is the $y$-coordinate of the $y$-intercept.\nStep 3: Check by substituting $x = 0$ into the original equation: $y + 9 = 0$, so $y = -9$. $\\checkmark$\n\n**Common Mistakes:** Entering $9$ (reading the constant from the left side without moving it); entering $\\dfrac{5}{4}$ (the slope); entering $\\dfrac{36}{5}$ (the $x$-intercept).\n\n**Test Day Takeaway:** Move every constant to the $x$ side before reading $b$. Substituting $x = 0$ into the original form is a two-second check."
+}

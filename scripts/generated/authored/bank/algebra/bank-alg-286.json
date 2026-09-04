@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-286",
+ "question": "$p(3x - 2) + 9 = 6x + q$\n\nIn the given equation, $p$ and $q$ are constants. If the equation has exactly one solution, which of the following CANNOT be the value of $p$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-2$"
+  },
+  {
+   "id": "B",
+   "text": "$0$"
+  },
+  {
+   "id": "C",
+   "text": "$2$"
+  },
+  {
+   "id": "D",
+   "text": "$3$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "sign-flipped version of the excluded value",
+  "B": "p = 0 still leaves 6x on the right, so one solution exists",
+  "D": "copies the coefficient inside the parentheses"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Distribute: $3px - 2p + 9 = 6x + q$. Exactly one solution requires the $x$-coefficients to differ: $3p \\neq 6$, so $p \\neq 2$.\n\n**The Full Solution:**\nStep 1: Distribute: $3px - 2p + 9 = 6x + q$.\nStep 2: Collect $x$-terms: $(3p - 6)x = q + 2p - 9$. This has exactly one solution when $3p - 6 \\neq 0$, that is, when $p \\neq 2$.\nStep 3: If $p = 2$, the left side is $0 \\cdot x$, and the equation is either an identity or a contradiction depending on $q$; it never has exactly one solution. So $p = 2$ is impossible. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): with $p = -2$ the $x$-coefficient is $-6 \\neq 6$, so one solution exists; the sign matters.\n* Choice B ($0$): $p = 0$ gives $9 = 6x + q$, still one solution; a zero multiplier does not remove the $6x$.\n* Choice D ($3$): copies the $3$ from inside the parentheses; $p = 3$ gives $9x$ on the left, which is fine.\n\n**Test Day Takeaway:** \"Exactly one solution\" fails only when the $x$-coefficients cancel; find the value that makes them equal and exclude it."
+}

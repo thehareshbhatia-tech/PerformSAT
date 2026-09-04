@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-290",
+ "question": "$|2x - 5| = 11$\n\nWhat is the sum of the solutions to the given equation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-5$"
+  },
+  {
+   "id": "B",
+   "text": "$5$"
+  },
+  {
+   "id": "C",
+   "text": "$8$"
+  },
+  {
+   "id": "D",
+   "text": "$16$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "sign error on both solutions (adds -8 and 3)",
+  "C": "reports only the positive solution",
+  "D": "treats both cases as positive (8 + 8)"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The two cases $2x - 5 = 11$ and $2x - 5 = -11$ give $x = 8$ and $x = -3$; the sum is $5$. (Shortcut: the solutions are symmetric about $x = \\frac{5}{2}$, so their sum is $2 \\cdot \\frac{5}{2} = 5$.)\n\n**The Full Solution:**\nStep 1: Case 1: $2x - 5 = 11$, so $2x = 16$ and $x = 8$.\nStep 2: Case 2: $2x - 5 = -11$, so $2x = -6$ and $x = -3$.\nStep 3: Sum: $8 + (-3) = 5$. Check: $|16 - 5| = 11$ and $|-6 - 5| = 11$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): flips the sign of each solution, adding $-8$ and $3$.\n* Choice C ($8$): reports the positive solution alone instead of the sum.\n* Choice D ($16$): treats both cases as $+11$ and doubles $8$.\n\n**Test Day Takeaway:** For $|ax - b| = c$ the two solutions are symmetric about $x = \\frac{b}{a}$, so their sum is $\\frac{2b}{a}$; a fast check."
+}

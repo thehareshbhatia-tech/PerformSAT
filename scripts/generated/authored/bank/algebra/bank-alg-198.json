@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-198",
+  "question": "In the $xy$-plane, the graphs of the equations $y = -2x + 13$ and $y = 4x - 11$ intersect at the point $(p, q)$. What is the value of $p$?",
+  "correctAnswer": "4",
+  "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~15s):** At the intersection both equations give the same $y$: $-2x + 13 = 4x - 11$, so $24 = 6x$ and $x = 4$. That is $p$.\n\n**The Full Solution:**\nStep 1: The intersection point satisfies both equations, so substitute one expression for $y$ into the other: $-2x + 13 = 4x - 11$.\nStep 2: Add $2x$ and $11$ to both sides: $24 = 6x$, so $x = 4$.\nStep 3: The $x$-coordinate of the intersection is $p = 4$. Check: $-2(4) + 13 = 5$ and $4(4) - 11 = 5$, so both lines pass through $(4, 5)$. $\\checkmark$\n\n**Common Mistakes:** Entering $5$ (the $y$-coordinate $q$); solving $-2x + 13 = 4x - 11$ as $2x = 2$ by mishandling signs; adding $13$ and $11$ to get $2x = 24$.\n\n**Test Day Takeaway:** \"Intersect at $(p, q)$\" is a system in disguise. Set the $y$-expressions equal, solve for $x$, and report the coordinate that was asked for."
+}

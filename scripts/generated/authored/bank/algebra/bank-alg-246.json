@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-246",
+ "question": "$y = \\dfrac{3}{4}x - 2$\n\n$ax - 8y = b$\n\nIn the given system of equations, $a$ and $b$ are constants. If the system has no solution, which of the following must be true?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$a = 6$ and $b = 16$"
+  },
+  {
+   "id": "B",
+   "text": "$a = 6$ and $b \\neq 16$"
+  },
+  {
+   "id": "C",
+   "text": "$a = -6$ and $b \\neq 16$"
+  },
+  {
+   "id": "D",
+   "text": "$a \\neq 6$ and $b = 16$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "those values make the lines identical (infinitely many solutions)",
+  "C": "sign error when solving -8y for y",
+  "D": "swaps the roles of the slope and intercept conditions"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Solve the second equation for $y$: $y = \\frac{a}{8}x - \\frac{b}{8}$. Parallel needs $\\frac{a}{8} = \\frac{3}{4}$, so $a = 6$; distinct needs $-\\frac{b}{8} \\neq -2$, so $b \\neq 16$.\n\n**The Full Solution:**\nStep 1: Rewrite $ax - 8y = b$ as $-8y = -ax + b$, then $y = \\frac{a}{8}x - \\frac{b}{8}$.\nStep 2: For no solution the slopes must be equal: $\\frac{a}{8} = \\frac{3}{4}$ gives $a = 6$.\nStep 3: The $y$-intercepts must differ: $-\\frac{b}{8} \\neq -2$ gives $b \\neq 16$. Check with $a = 6$, $b = 0$: $6x - 8y = 0$ is $y = \\frac{3}{4}x$, parallel to the first line and distinct. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($a = 6$ and $b = 16$): with $b = 16$ the second line becomes $y = \\frac{3}{4}x - 2$, the same line, which gives infinitely many solutions.\n* Choice C ($a = -6$ and $b \\neq 16$): loses a sign when dividing $-ax$ by $-8$; the slope is $+\\frac{a}{8}$.\n* Choice D ($a \\neq 6$ and $b = 16$): reverses the conditions; a different slope guarantees exactly one intersection.\n\n**Test Day Takeaway:** Two conditions define \"no solution\": equal slopes AND unequal intercepts. A choice that fixes only one of them is a trap."
+}

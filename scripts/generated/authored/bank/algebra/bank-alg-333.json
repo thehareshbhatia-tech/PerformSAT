@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-333",
+  "question": "A mobile mechanic charges a fixed travel fee plus a constant hourly rate. A $3$-hour repair costs $\\$205$ and a $5$-hour repair costs $\\$315$. What is the fixed travel fee, in dollars?",
+  "correctAnswer": "40",
+  "explanation": "**SAT Pattern: Linear Cost Equation Setup**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~20s):** Two extra hours cost $315 - 205 = 110$, so the rate is $\\$55$ per hour. The fee is $205 - 3(55) = 40$.\n\n**The Full Solution:**\nStep 1: Let $t$ be the travel fee and $r$ the hourly rate. The two jobs give $t + 3r = 205$ and $t + 5r = 315$.\nStep 2: Subtract the first equation from the second: $2r = 110$, so $r = 55$.\nStep 3: Substitute back: $t + 3(55) = 205$, so $t = 205 - 165 = 40$.\nCheck: $40 + 5(55) = 40 + 275 = 315$. $\\checkmark$\n\n**Common Mistakes:** Dividing $205$ by $3$ (about $68.33$) as if there were no fee; using $315 - 205 = 110$ as the fee itself rather than as two hours of labor; or reporting the hourly rate $55$ when the question asks for the fee.\n\n**Test Day Takeaway:** Two total costs at two durations pin down a line: the difference in cost over the difference in hours is the rate, and backing the rate out of either job leaves the fee."
+}

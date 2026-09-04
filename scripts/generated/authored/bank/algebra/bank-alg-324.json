@@ -1,0 +1,52 @@
+{
+  "id": "bank-alg-324",
+  "question": "Three values of the linear function $f$ are shown in the table. If $f(x) = 60$, what is the value of $x$?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "f(x)"
+      ],
+      "rows": [
+        [
+          "-2",
+          "0"
+        ],
+        [
+          "1",
+          "15"
+        ],
+        [
+          "4",
+          "30"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$10$"
+    },
+    {
+      "id": "B",
+      "text": "$12$"
+    },
+    {
+      "id": "C",
+      "text": "$14$"
+    },
+    {
+      "id": "D",
+      "text": "$310$"
+    }
+  ],
+  "correctAnswer": "A",
+  "distractorNotes": {
+    "B": "divided 60 by the slope 5, ignoring the intercept",
+    "C": "added the intercept instead of subtracting: (60 + 10)/5",
+    "D": "evaluated f(60) = 310 instead of solving for the input"
+  },
+  "explanation": "**SAT Pattern: Solve for Input from Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The outputs rise $15$ for every $3$ in $x$, so the slope is $5$ and, from $(-2, 0)$, $f(x) = 5(x + 2) = 5x + 10$. Then $5x + 10 = 60$ gives $x = 10$.\n\n**The Full Solution:**\nStep 1: Slope from the first two rows: $\\dfrac{15 - 0}{1 - (-2)} = \\dfrac{15}{3} = 5$.\nStep 2: Intercept from $(1, 15)$: $15 = 5(1) + b$, so $b = 10$ and $f(x) = 5x + 10$. The third row confirms it: $f(4) = 20 + 10 = 30$. $\\checkmark$\nStep 3: Solve $5x + 10 = 60$: $5x = 50$, so $x = 10$.\nCheck: $f(10) = 5(10) + 10 = 60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($12$): divides $60$ by the slope $5$ and skips the intercept, as if $f(x) = 5x$.\n* Choice C ($14$): adds $10$ to $60$ before dividing, moving the intercept across with the wrong sign.\n* Choice D ($310$): plugs $60$ in as the input and computes $f(60) = 310$.\n\n**Test Day Takeaway:** A table row with output $0$ is a gift: it is the $x$-intercept, so $f(x) = m(x - x_0)$ with only the slope left to find."
+}

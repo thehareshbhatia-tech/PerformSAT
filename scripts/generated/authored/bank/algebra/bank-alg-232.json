@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-232",
+  "question": "The expression $(x + 7)(x + 4)$ can be written in the form $x^2 + bx + 28$, where $b$ is a constant. What is the value of $b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$7$"
+    },
+    {
+      "id": "C",
+      "text": "$11$"
+    },
+    {
+      "id": "D",
+      "text": "$28$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports one factor's constant instead of the sum",
+    "B": "reports the other factor's constant instead of the sum",
+    "D": "reports the product 7 times 4, which is the constant term"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The $x$-coefficient of $(x + 7)(x + 4)$ is the sum $7 + 4 = 11$.\n\n**The Full Solution:**\nStep 1: Expand: $(x + 7)(x + 4) = x^2 + 4x + 7x + 28 = x^2 + 11x + 28$.\nStep 2: Two polynomials that are equal for all $x$ have identical coefficients, so match the $x$-terms: $b = 11$.\nStep 3: Check the other coefficients too: $x^2$ matches $x^2$, and $28$ matches $28$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): takes the constant from one factor as the whole $x$-coefficient.\n* Choice B ($7$): takes the constant from the other factor.\n* Choice D ($28$): is the product $7 \\cdot 4$, which is the constant term, not the $x$-coefficient.\n\n**Test Day Takeaway:** For $(x + p)(x + q)$, the $x$-coefficient is $p + q$ and the constant is $pq$. \"Can be written in the form\" means match coefficients term by term."
+}

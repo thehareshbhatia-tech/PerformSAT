@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-079",
+  "question": "The functions $f$ and $g$ are defined by $f(x) = x^2 + 2$ and $g(x) = 3x - 4$. Which of the following expressions is equivalent to $f(g(x))$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3x^2 + 2$"
+    },
+    {
+      "id": "B",
+      "text": "$9x^2 + 18$"
+    },
+    {
+      "id": "C",
+      "text": "$9x^2 - 24x + 14$"
+    },
+    {
+      "id": "D",
+      "text": "$9x^2 - 24x + 18$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes g(f(x)) instead",
+    "B": "squares the binomial term by term, (3x)^2 + 4^2",
+    "C": "subtracts 2 instead of adding it"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Function Composition (Expression)**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** $f(g(x))$ means substitute $g(x) = 3x - 4$ for $x$ in $f$: $(3x - 4)^2 + 2 = 9x^2 - 24x + 16 + 2 = 9x^2 - 24x + 18$.\n\n**The Full Solution:**\nStep 1: In $f(g(x))$ the inner function is $g$, so every $x$ in $f$'s rule becomes $3x - 4$: $f(g(x)) = (3x - 4)^2 + 2$.\nStep 2: Expand the square: $(3x - 4)^2 = 9x^2 - 24x + 16$.\nStep 3: Add $2$: $9x^2 - 24x + 18$. Check with $x = 1$: $g(1) = -1$, $f(-1) = 3$; and $9 - 24 + 18 = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x^2 + 2$): composes in the reverse order, $g(f(x)) = 3(x^2 + 2) - 4 = 3x^2 + 2$.\n* Choice B ($9x^2 + 18$): squares the binomial term by term, $(3x)^2 + 4^2$, dropping the middle term $-24x$.\n* Choice C ($9x^2 - 24x + 14$): expands correctly but subtracts $2$ instead of adding it.\n\n**Test Day Takeaway:** Substitute the entire inner expression in parentheses, expand $(a - b)^2$ as $a^2 - 2ab + b^2$, and test one numeric input to confirm the composition order."
+}

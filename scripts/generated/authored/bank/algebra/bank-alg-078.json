@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-078",
+  "question": "Let $f(x) = x^2 - 5$ and $g(x) = 3x + 7$. If the function $h$ is defined by $h(x) = g(f(x))$ for all real numbers $x$, what is the value of $h(3)$?",
+  "correctAnswer": "19",
+  "explanation": "**SAT Pattern: Composition with Specific Input**\n\n**The correct answer is $19$.**\n\n**The Fast Way (~10s):** $h(3) = g(f(3))$. Inner first: $f(3) = 9 - 5 = 4$. Then $g(4) = 3(4) + 7 = 19$.\n\n**The Full Solution:**\nStep 1: $h(3) = g(f(3))$, so evaluate the inner function first: $f(3) = 3^2 - 5 = 4$.\nStep 2: Use that output as the input to $g$: $g(f(3)) = g(4)$.\nStep 3: $g(4) = 3(4) + 7 = 12 + 7 = 19$. Check the order: $h$ applies $f$ first, then $g$. $\\checkmark$\n\n**Common Mistakes:** Composing in the reverse order, $f(g(3)) = f(16) = 251$; stopping at $f(3) = 4$ without applying $g$; adding the outputs, $f(3) + g(3) = 4 + 16 = 20$; multiplying them, $f(3) \\cdot g(3) = 64$.\n\n**Test Day Takeaway:** In $g(f(a))$, the function nearest the input acts first. Finish it completely, then feed the number into the outer function."
+}

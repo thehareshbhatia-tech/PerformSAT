@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-098",
+  "question": "If $w$ is the solution to the equation $\\frac{4w - 3}{9} = \\frac{8}{3}$, what is the value of $8w + 1$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$28$"
+    },
+    {
+      "id": "B",
+      "text": "$49$"
+    },
+    {
+      "id": "C",
+      "text": "$55$"
+    },
+    {
+      "id": "D",
+      "text": "$151$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports 4w + 1",
+    "B": "drops the -3, getting 4w = 24",
+    "D": "cross-multiplies as 4w - 3 = 72, forgetting to divide by 3"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiply by $9$: $4w - 3 = 24$, so $4w = 27$. Since $8w = 2(4w) = 54$, the value of $8w + 1$ is $55$.\n\n**The Full Solution:**\nStep 1: Multiply both sides by $9$: $4w - 3 = \\frac{8 \\cdot 9}{3} = 24$.\nStep 2: Add $3$: $4w = 27$. The target $8w + 1$ is built from $8w = 2 \\cdot 4w = 54$, so there is no need to find $w$.\nStep 3: $8w + 1 = 55$. Check with $w = 6.75$: $\\frac{4(6.75) - 3}{9} = \\frac{24}{9} = \\frac{8}{3}$ and $8(6.75) + 1 = 55$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($28$): reports $4w + 1$, forgetting to double $4w$.\n* Choice B ($49$): drops the $-3$, getting $4w = 24$ and $8w + 1 = 49$.\n* Choice D ($151$): cross-multiplies as $4w - 3 = 8 \\cdot 9 = 72$, forgetting to divide by $3$.\n\n**Test Day Takeaway:** Isolate the block ($4w$) that the target is built from, scale the block rather than solving for the variable, and keep every constant from the original equation."
+}

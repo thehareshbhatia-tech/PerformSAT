@@ -1,0 +1,50 @@
+{
+  "id": "bank-alg-082",
+  "question": "The graph of $y = f(x)$ is shown in the $xy$-plane. The graph of $y = g(x)$ is the reflection of the graph of $y = f(x)$ across the $x$-axis. Which of the following defines $g$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        1,
+        -4
+      ],
+      "a": 1,
+      "showPoints": [
+        [
+          -1,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$g(x) = f(-x)$"
+    },
+    {
+      "id": "B",
+      "text": "$g(x) = -f(-x)$"
+    },
+    {
+      "id": "C",
+      "text": "$g(x) = \\dfrac{1}{f(x)}$"
+    },
+    {
+      "id": "D",
+      "text": "$g(x) = -f(x)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "f(-x) reflects across the y-axis",
+    "B": "-f(-x) reflects across both axes",
+    "C": "takes reciprocals of outputs, not a reflection"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Reflection over Axis**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Reflecting across the $x$-axis keeps each $x$ and flips the sign of each $y$, so every output is negated: $g(x) = -f(x)$.\n\n**The Full Solution:**\nStep 1: A reflection across the $x$-axis sends the point $(x, y)$ to $(x, -y)$. The input is unchanged; the output changes sign.\nStep 2: In function notation, \"negate the output\" is $g(x) = -f(x)$.\nStep 3: Check with the vertex. The graph of $f$ has vertex $(1, -4)$, so the reflected graph should have vertex $(1, 4)$: $g(1) = -f(1) = -(-4) = 4$. $\\checkmark$ The $x$-intercepts $(-1, 0)$ and $(3, 0)$ stay fixed, as they should under this reflection.\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = f(-x)$): negates the input, which reflects across the $y$-axis; the vertex would move to $(-1, -4)$.\n* Choice B ($g(x) = -f(-x)$): reflects across both axes, sending the vertex to $(-1, 4)$.\n* Choice C ($g(x) = \\dfrac{1}{f(x)}$): takes reciprocals of the outputs, which is not a reflection and is undefined where $f(x) = 0$.\n\n**Test Day Takeaway:** Across the $x$-axis means negate the output ($-f(x)$); across the $y$-axis means negate the input ($f(-x)$). Confirm with one landmark point such as the vertex."
+}

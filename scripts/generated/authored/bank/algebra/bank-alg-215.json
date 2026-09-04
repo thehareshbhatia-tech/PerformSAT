@@ -1,0 +1,58 @@
+{
+  "id": "bank-alg-215",
+  "question": "In the $xy$-plane, the graph of line $\\ell$ is shown. Line $m$ is the reflection of line $\\ell$ across the $y$-axis. What is the slope of line $m$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": 1.5,
+      "yIntercept": -2,
+      "xRange": [
+        -4,
+        6
+      ],
+      "yRange": [
+        -6,
+        8
+      ],
+      "gridInterval": 1,
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "highlightPoints": [
+        [
+          0,
+          -2
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "label": "ℓ"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\dfrac{3}{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\dfrac{2}{3}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{2}{3}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{3}{2}$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "takes the negative reciprocal, as if m were perpendicular to l",
+    "C": "takes the reciprocal, as if reflecting across y = x",
+    "D": "assumes a reflection leaves the slope unchanged"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Slope of a Reflected Line**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** From $(0, -2)$ to $(4, 4)$, line $\\ell$ has slope $\\dfrac{6}{4} = \\dfrac{3}{2}$. Reflecting across the $y$-axis sends each point $(x, y)$ to $(-x, y)$, which negates the slope: $-\\dfrac{3}{2}$.\n\n**The Full Solution:**\nStep 1: Read the slope of $\\ell$ from the two marked points: $\\dfrac{4 - (-2)}{4 - 0} = \\dfrac{6}{4} = \\dfrac{3}{2}$.\nStep 2: A reflection across the $y$-axis maps $(x, y)$ to $(-x, y)$. The marked points become $(0, -2)$ and $(-4, 4)$, which lie on line $m$.\nStep 3: Slope of $m$: $\\dfrac{4 - (-2)}{-4 - 0} = \\dfrac{6}{-4} = -\\dfrac{3}{2}$. Check: the run flipped sign and the rise did not, so the slope is negated. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\dfrac{2}{3}$): takes the negative reciprocal, which is the rule for a perpendicular line, not a reflection across an axis.\n* Choice C ($\\dfrac{2}{3}$): takes the reciprocal, which is what reflecting across the line $y = x$ would do.\n* Choice D ($\\dfrac{3}{2}$): assumes the reflection leaves the slope unchanged; only a translation does that.\n\n**Test Day Takeaway:** Reflecting a line across either axis negates its slope (the $y$-axis flips the run, the $x$-axis flips the rise). Reflect two points and recompute if you are unsure."
+}

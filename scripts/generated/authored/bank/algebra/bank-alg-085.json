@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-085",
+  "question": "The function $g$ is defined by $g(x) = \\frac{1}{2}(x + 4)^2 - 7$. Which of the following describes how the graph of $y = x^2$ can be transformed into the graph of $y = g(x)$ in the $xy$-plane?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Translate $4$ units to the left, stretch vertically by a factor of $2$, then translate $7$ units down."
+    },
+    {
+      "id": "B",
+      "text": "Translate $4$ units to the right, compress vertically by a factor of $\\frac{1}{2}$, then translate $7$ units down."
+    },
+    {
+      "id": "C",
+      "text": "Translate $4$ units to the left, compress vertically by a factor of $\\frac{1}{2}$, then translate $7$ units up."
+    },
+    {
+      "id": "D",
+      "text": "Translate $4$ units to the left, compress vertically by a factor of $\\frac{1}{2}$, then translate $7$ units down."
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads the factor 1/2 as a stretch by 2",
+    "B": "reads x + 4 as a shift to the right",
+    "C": "reads -7 as a shift up"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Identify Multiple Transformations**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Compare with $y = a(x - h)^2 + k$: $h = -4$ (left $4$), $a = \\frac{1}{2}$ (vertical compression by $\\frac{1}{2}$), $k = -7$ (down $7$).\n\n**The Full Solution:**\nStep 1: Inside the square, $x + 4 = x - (-4)$, so the graph of $y = x^2$ is translated $4$ units to the left; the vertex moves from $(0, 0)$ to $(-4, 0)$.\nStep 2: The factor $\\frac{1}{2}$ multiplies every output, halving each distance from the $x$-axis: a vertical compression by a factor of $\\frac{1}{2}$ (the parabola opens wider).\nStep 3: The $-7$ outside translates the graph $7$ units down, putting the vertex at $(-4, -7)$. Check: $g(-4) = \\frac{1}{2}(0)^2 - 7 = -7$, and $g(-2) = \\frac{1}{2}(4) - 7 = -5$, which is $2$ above the vertex where $y = x^2$ would rise $4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (stretch by $2$): reads the factor $\\frac{1}{2}$ as a stretch; a coefficient between $0$ and $1$ compresses, making the parabola wider, not narrower.\n* Choice B (right $4$): reads $x + 4$ as a shift to the right; inside the parentheses the sign works backward.\n* Choice C (up $7$): reads $-7$ as a shift up; outside the parentheses the sign works as written.\n\n**Test Day Takeaway:** Match to $a(x - h)^2 + k$: $h$ shifts horizontally against its sign, $a$ between $0$ and $1$ compresses (wider), and $k$ shifts vertically with its sign."
+}

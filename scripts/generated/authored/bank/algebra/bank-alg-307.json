@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-307",
+  "question": "$3(2x - 5) + 4 = 25$\nWhat value of $x$ is the solution to the given equation?",
+  "correctAnswer": "6",
+  "explanation": "**SAT Pattern: Linear Equation with Distribution**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~10s):** Subtract $4$ first: $3(2x - 5) = 21$, so $2x - 5 = 7$ and $x = 6$.\n\n**The Full Solution:**\nStep 1: Isolate the parenthetical group by subtracting $4$ from both sides: $3(2x - 5) = 21$.\nStep 2: Divide by $3$: $2x - 5 = 7$.\nStep 3: Add $5$ and divide by $2$: $2x = 12$, so $x = 6$.\nCheck: $3(2 \\cdot 6 - 5) + 4 = 3(7) + 4 = 25$. $\\checkmark$\n\n**Common Mistakes:** Distributing $3$ to $2x$ but not to $-5$ gives $6x - 5 + 4 = 25$ and $x = \\dfrac{26}{6}$. Adding $4$ to the right side instead of subtracting gives $6x - 15 = 29$ and $x = \\dfrac{22}{3}$. A non-integer result on a clean equation is a signal to recheck the distribution.\n\n**Test Day Takeaway:** Peel the equation from the outside in: remove the added constant, then the multiplier, then work inside the parentheses."
+}

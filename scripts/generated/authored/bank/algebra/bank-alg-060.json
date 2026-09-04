@@ -1,0 +1,52 @@
+{
+  "id": "bank-alg-060",
+  "question": "The graphs of the two equations in a system of linear equations are shown in the $xy$-plane. What is the solution $(x, y)$ to the system?",
+  "diagram": {
+    "type": "twoLineGraph",
+    "params": {
+      "intersection": {
+        "x": -2,
+        "y": 3
+      },
+      "slope1": 1,
+      "slope2": -2,
+      "xRange": [
+        -6,
+        6
+      ],
+      "yRange": [
+        -4,
+        8
+      ],
+      "showIntersection": true,
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 1
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-2, 3)$"
+    },
+    {
+      "id": "B",
+      "text": "$(0, -1)$"
+    },
+    {
+      "id": "C",
+      "text": "$(0, 5)$"
+    },
+    {
+      "id": "D",
+      "text": "$(3, -2)$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "the y-intercept of the steeper line",
+    "C": "the y-intercept of the other line",
+    "D": "swaps the coordinates of the intersection"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Intersection as Solution**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** The solution to a system is the point where the graphs meet. The lines cross at $(-2, 3)$.\n\n**The Full Solution:**\nStep 1: A point is a solution to the system only if it lies on BOTH lines, so the solution is the intersection point.\nStep 2: Reading the graph, the lines cross $2$ units left of the $y$-axis and $3$ units above the $x$-axis: $(-2, 3)$.\nStep 3: Check with the lines' equations read from the graph: the rising line is $y = x + 5$ and the falling line is $y = -2x - 1$; at $x = -2$, both give $y = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($(0, -1)$): is the $y$-intercept of the falling line; it lies on only one of the two lines.\n* Choice C ($(0, 5)$): is the $y$-intercept of the rising line, again on only one line.\n* Choice D ($(3, -2)$): swaps the coordinates of the intersection point.\n\n**Test Day Takeaway:** Solution of a system = intersection of the graphs; read $x$ first (left-right), then $y$ (up-down), and write them in that order."
+}

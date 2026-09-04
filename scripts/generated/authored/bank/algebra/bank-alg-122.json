@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-122",
+  "question": "$3x + 7y = 16$\n$5x - 2y = 13$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $8x + 5y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-3$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$29$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts the first equation from the second (2x - 9y = -3) and reports that constant",
+    "B": "reports y instead of the requested expression",
+    "C": "reports x instead of the requested expression"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: System of Equations — Elimination**\n\n**Choice D is correct.**\n\n**The Fast Way (~8s):** Add the two equations as written: $(3x + 5x) + (7y - 2y) = 16 + 13$, which is exactly $8x + 5y = 29$. No solving required.\n\n**The Full Solution:**\nStep 1: Notice the target $8x + 5y$ has coefficients $3 + 5$ and $7 + (-2)$, the column sums of the system. Adding the equations gives $8x + 5y = 29$ directly.\nStep 2: Confirm by solving. Multiply the first equation by $2$ and the second by $7$: $6x + 14y = 32$ and $35x - 14y = 91$. Adding eliminates $y$: $41x = 123$, so $x = 3$. Then $3(3) + 7y = 16$ gives $y = 1$.\nStep 3: Check: $8(3) + 5(1) = 24 + 5 = 29$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): subtracts the first equation from the second, producing $2x - 9y = -3$, and reports that constant.\n* Choice B ($1$): solves the system correctly but reports $y$ instead of $8x + 5y$.\n* Choice C ($3$): solves the system correctly but reports $x$ instead of $8x + 5y$.\n\n**Test Day Takeaway:** When a system asks for an expression rather than $x$ or $y$, compare its coefficients to the column sums or differences of the equations first. One addition can replace the whole solve."
+}

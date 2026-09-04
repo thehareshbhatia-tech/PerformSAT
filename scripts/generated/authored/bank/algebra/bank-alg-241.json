@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-241",
+ "question": "$y = 6x - 9$\n\n$y = kx + 2$\n\nIn the given system of equations, $k$ is a constant. The system has no solution. What is the value of $k$?",
+ "correctAnswer": "6",
+ "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~10s):** Both equations are already solved for $y$. No solution means the lines are parallel, so the slopes must match: $k = 6$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has no solution exactly when its graphs are distinct parallel lines.\nStep 2: In slope-intercept form the slopes are $6$ and $k$, so parallel requires $k = 6$.\nStep 3: Check that the lines are distinct: the $y$-intercepts are $-9$ and $2$, which differ, so the lines never meet. $\\checkmark$\n\n**Common Mistakes:** Setting the intercepts equal ($k$-value confused with the constant $2$), or answering $-9$ by reading the wrong number from the first equation. Only the slope controls whether lines are parallel.\n\n**Test Day Takeaway:** In $y = mx + b$ form, \"no solution\" is a one-step read: equal $m$, different $b$."
+}

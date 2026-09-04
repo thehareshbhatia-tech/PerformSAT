@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-272",
+ "question": "The function $g$ is defined by $g(x) = (x + 4)^2 - 9$. Which of the following expressions is equivalent to $g(x)$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$x^2 + 8x + 25$"
+  },
+  {
+   "id": "B",
+   "text": "$x^2 + 16x + 7$"
+  },
+  {
+   "id": "C",
+   "text": "$x^2 + 7$"
+  },
+  {
+   "id": "D",
+   "text": "$x^2 + 8x + 7$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds 9 instead of subtracting",
+  "B": "doubles the middle term a second time (4x + 4x + 8x)",
+  "C": "squares term by term and drops the middle term"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** $(x + 4)^2 = x^2 + 8x + 16$, and $16 - 9 = 7$, so $g(x) = x^2 + 8x + 7$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x + 4)^2 = x^2 + 2(4)x + 4^2 = x^2 + 8x + 16$.\nStep 2: Subtract $9$: $x^2 + 8x + 16 - 9 = x^2 + 8x + 7$.\nStep 3: Check at $x = 0$: $g(0) = 4^2 - 9 = 7$, and $0 + 0 + 7 = 7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^2 + 8x + 25$): adds the $9$ instead of subtracting it.\n* Choice B ($x^2 + 16x + 7$): counts the cross term twice more, as if the middle term were $4 \\cdot 4x$.\n* Choice C ($x^2 + 7$): squares $x$ and $4$ separately and omits the $2 \\cdot 4 \\cdot x$ cross term.\n\n**Test Day Takeaway:** $(x + p)^2 = x^2 + 2px + p^2$; the cross term is always $2p$, and the outside constant combines only with $p^2$."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-301",
+  "question": "$7(x - 3) = 4(x + 6)$\nWhat value of $x$ is the solution to the given equation?",
+  "correctAnswer": "15",
+  "explanation": "**SAT Pattern: Linear Equation with Variables on Both Sides**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~15s):** Distribute both sides: $7x - 21 = 4x + 24$. Collect $x$ on the left and constants on the right: $3x = 45$, so $x = 15$.\n\n**The Full Solution:**\nStep 1: Distribute on each side. Left: $7(x - 3) = 7x - 21$. Right: $4(x + 6) = 4x + 24$. The equation becomes $7x - 21 = 4x + 24$.\nStep 2: Subtract $4x$ from both sides: $3x - 21 = 24$. Add $21$ to both sides: $3x = 45$.\nStep 3: Divide by $3$: $x = 15$.\nCheck: $7(15 - 3) = 7(12) = 84$ and $4(15 + 6) = 4(21) = 84$. $\\checkmark$\n\n**Common Mistakes:** Distributing $7$ to $x$ but not to $-3$ gives $7x - 3 = 4x + 24$ and $x = 9$. Moving $-21$ across with the wrong sign gives $3x = 3$ and $x = 1$. Both fail the check.\n\n**Test Day Takeaway:** Distribute to EVERY term inside the parentheses first, then move all $x$-terms to one side and all constants to the other in one pass."
+}

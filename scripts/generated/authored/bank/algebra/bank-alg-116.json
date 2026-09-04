@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-116",
+  "question": "The system of equations $4x + 7y = 43$ and $4x - 3y = 3$ has solution $(x, y)$. What is the value of $y$?",
+  "correctAnswer": "4",
+  "explanation": "**SAT Pattern: System of Equations — Elimination**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~10s):** The $x$-terms match, so subtract the second equation from the first: $10y = 40$, giving $y = 4$.\n\n**The Full Solution:**\nStep 1: Both equations have $4x$, so subtracting one from the other eliminates $x$.\nStep 2: $(4x + 7y) - (4x - 3y) = 43 - 3$, so $7y + 3y = 40$, or $10y = 40$, and $y = 4$.\nStep 3: Check by finding $x$: $4x + 28 = 43 \\Rightarrow x = 3.75$; then $4(3.75) - 3(4) = 15 - 12 = 3$. $\\checkmark$\n\n**Common Mistakes:** Subtracting $-3y$ as if it were $+3y$, getting $4y = 40$ and $y = 10$; adding the equations, which leaves $8x + 4y = 46$ with two unknowns; reporting $x = 3.75$ instead of $y$.\n\n**Test Day Takeaway:** When a variable has identical coefficients, subtract the equations, and distribute the subtraction across every term of the second equation, especially a negative one."
+}

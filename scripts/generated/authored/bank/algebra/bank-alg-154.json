@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-154",
+  "question": "$y = 5x - 2$\n$y = (k - 3)x + 8$\n\nIn the given system of equations, $k$ is a constant. The system has no solution. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$5$"
+    },
+    {
+      "id": "C",
+      "text": "$8$"
+    },
+    {
+      "id": "D",
+      "text": "$11$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes 5 - 3 instead of solving k - 3 = 5",
+    "B": "reports the slope 5 itself",
+    "D": "matches k - 3 to the intercept 8"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~8s):** No solution means parallel lines with different intercepts. The intercepts $-2$ and $8$ already differ, so match the slopes: $k - 3 = 5$, giving $k = 8$.\n\n**The Full Solution:**\nStep 1: Both equations are in slope-intercept form. The first line has slope $5$ and $y$-intercept $-2$; the second has slope $k - 3$ and $y$-intercept $8$.\nStep 2: Two lines never meet only if they are parallel and distinct. Distinct is guaranteed since $-2 \\ne 8$; parallel requires $k - 3 = 5$.\nStep 3: Solve: $k = 8$. Check: the second equation becomes $y = 5x + 8$, parallel to $y = 5x - 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): computes $5 - 3$ instead of solving $k - 3 = 5$.\n* Choice B ($5$): reports the required slope rather than the value of $k$ that produces it.\n* Choice D ($11$): sets $k - 3$ equal to the intercept $8$ instead of the slope.\n\n**Test Day Takeaway:** \"No solution\" for two lines means equal slopes and unequal intercepts. Set the slope expressions equal and solve for the constant; do not stop at the slope."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-115",
+  "question": "The solution to the system of equations $5x + 2y = 31$ and $3x - 2y = 17$ is $(x, y)$. What is the value of $x$?",
+  "correctAnswer": "6",
+  "explanation": "**SAT Pattern: System of Equations — Elimination**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~10s):** The $y$-terms are opposites, so add the equations: $8x = 48$, giving $x = 6$.\n\n**The Full Solution:**\nStep 1: The coefficients of $y$ are $+2$ and $-2$, so adding the equations eliminates $y$.\nStep 2: $(5x + 2y) + (3x - 2y) = 31 + 17$, so $8x = 48$ and $x = 6$.\nStep 3: Check by finding $y$: $5(6) + 2y = 31 \\Rightarrow 2y = 1 \\Rightarrow y = 0.5$; then $3(6) - 2(0.5) = 18 - 1 = 17$. $\\checkmark$\n\n**Common Mistakes:** Subtracting the equations instead of adding, which gives $2x + 4y = 14$ and does not eliminate anything; adding the left sides but subtracting the right sides to get $8x = 14$; reporting $y$ instead of $x$.\n\n**Test Day Takeaway:** When one variable's coefficients are opposites, add the equations to cancel it; add both sides consistently and solve for the remaining variable."
+}

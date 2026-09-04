@@ -1,0 +1,52 @@
+{
+  "id": "bank-alg-146",
+  "question": "$y = x + 3$\n$y = -2x + 9$\n\nThe graphs of the two equations in the given system are shown in the $xy$-plane. The solution to the system is $(x, y)$. What is the value of $x$?",
+  "diagram": {
+    "type": "twoLineGraph",
+    "params": {
+      "intersection": {
+        "x": 2,
+        "y": 5
+      },
+      "slope1": 1,
+      "slope2": -2,
+      "xRange": [
+        -4,
+        8
+      ],
+      "yRange": [
+        -2,
+        10
+      ],
+      "showIntersection": true,
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 1
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-2$"
+    },
+    {
+      "id": "B",
+      "text": "$2$"
+    },
+    {
+      "id": "C",
+      "text": "$5$"
+    },
+    {
+      "id": "D",
+      "text": "$6$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sign error: 3x = -6",
+    "C": "reports y instead of x",
+    "D": "stops at 3x = 6"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (~8s):** Both equations give $y$, so set them equal: $x + 3 = -2x + 9$, hence $3x = 6$ and $x = 2$. The graph confirms the lines cross at $(2, 5)$.\n\n**The Full Solution:**\nStep 1: Substitute $x + 3$ for $y$ in the second equation: $x + 3 = -2x + 9$.\nStep 2: Add $2x$ to both sides and subtract $3$: $3x = 6$, so $x = 2$.\nStep 3: Then $y = 2 + 3 = 5$. Check in the second equation: $-2(2) + 9 = 5$. $\\checkmark$ The intersection point on the graph is $(2, 5)$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): mishandles the signs when collecting terms, reaching $3x = -6$.\n* Choice C ($5$): reports the $y$-coordinate of the intersection instead of $x$.\n* Choice D ($6$): stops at $3x = 6$ without dividing by $3$.\n\n**Test Day Takeaway:** When both equations are solved for $y$, set the right sides equal. The graph's intersection is the same point, so use it as a check, not a substitute for the algebra."
+}

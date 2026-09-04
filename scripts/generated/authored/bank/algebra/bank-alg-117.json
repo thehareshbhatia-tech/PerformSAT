@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-117",
+  "question": "The solution to the system of equations $2x + 5y = 1$ and $3x - 4y = 13$ is $(x, y)$. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-2$"
+    },
+    {
+      "id": "B",
+      "text": "$-1$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$6$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses y = 1 from a sign slip, then 2x + 5 = 1",
+    "B": "reports y instead of x",
+    "D": "stops at 2x = 6"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: System of Equations — Elimination**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Multiply the first equation by $3$ and the second by $2$: $6x + 15y = 3$ and $6x - 8y = 26$. Subtract: $23y = -23$, so $y = -1$; then $2x - 5 = 1$ gives $x = 3$.\n\n**The Full Solution:**\nStep 1: To eliminate $x$, match its coefficients: $3(2x + 5y = 1)$ gives $6x + 15y = 3$; $2(3x - 4y = 13)$ gives $6x - 8y = 26$.\nStep 2: Subtract the second from the first: $15y - (-8y) = 3 - 26$, so $23y = -23$ and $y = -1$.\nStep 3: Substitute into $2x + 5y = 1$: $2x - 5 = 1$, so $2x = 6$ and $x = 3$. Check: $3(3) - 4(-1) = 9 + 4 = 13$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): a sign slip gives $y = 1$, and then $2x + 5 = 1$ yields $x = -2$.\n* Choice B ($-1$): reports $y$ instead of $x$.\n* Choice D ($6$): stops at $2x = 6$ without dividing.\n\n**Test Day Takeaway:** Scale both equations so one variable's coefficients match, subtract carefully (a minus applied to a negative becomes a plus), then back-substitute and reread which variable is asked for."
+}

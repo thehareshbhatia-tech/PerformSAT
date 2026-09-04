@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-137",
+  "question": "The function $f$ is defined by $f(x) = (3x + c)^2 - 4x$, where $c$ is a positive constant. If $f(0) = 4$, what is the value of $f(-2)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$8$"
+    },
+    {
+      "id": "B",
+      "text": "$24$"
+    },
+    {
+      "id": "C",
+      "text": "$48$"
+    },
+    {
+      "id": "D",
+      "text": "$72$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sign slip on -4(-2): computes 16 - 8",
+    "C": "expands (3x + 2)^2 as 9x^2 + 4, missing the middle term: 36 + 4 + 8",
+    "D": "uses c = -2 despite \"positive constant\": (-8)^2 + 8"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $f(0) = c^2 = 4$ gives $c = 2$ (positive). Then $f(-2) = (3(-2) + 2)^2 - 4(-2) = (-4)^2 + 8 = 16 + 8 = 24$.\n\n**The Full Solution:**\nStep 1: Use the given value to find $c$: $f(0) = (0 + c)^2 - 0 = c^2 = 4$, so $c = 2$ or $c = -2$. Since $c$ is positive, $c = 2$ and $f(x) = (3x + 2)^2 - 4x$.\nStep 2: Substitute $x = -2$: $3(-2) + 2 = -4$, so the squared term is $(-4)^2 = 16$. The second term is $-4(-2) = +8$.\nStep 3: Add: $16 + 8 = 24$. Check the signs: a negative squared is positive; negative times negative is positive. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): computes $-4(-2)$ as $-8$, getting $16 - 8$.\n* Choice C ($48$): expands $(3x + 2)^2$ as $9x^2 + 4$, dropping the middle term, and gets $36 + 4 + 8$.\n* Choice D ($72$): ignores \"positive\" and uses $c = -2$, so $(3(-2) - 2)^2 + 8 = 64 + 8$.\n\n**Test Day Takeaway:** When a function has an unknown constant, the given output pins it down first; read the sign condition before choosing a root. Then substitute with parentheses and evaluate the power before anything else."
+}

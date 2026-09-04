@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-167",
+  "question": "The graph of a linear equation in the $xy$-plane passes through the points $(-6, -1)$ and $(4, 4)$. What is the slope of the graph?",
+  "correctAnswer": "1/2",
+  "explanation": "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $\\frac{1}{2}$.**\n\n**The Fast Way (~6s):** $\\frac{4 - (-1)}{4 - (-6)} = \\frac{5}{10} = \\frac{1}{2}$, which can be entered as $1/2$ or $.5$.\n\n**The Full Solution:**\nStep 1: Let $(x_1, y_1) = (-6, -1)$ and $(x_2, y_2) = (4, 4)$.\nStep 2: Rise: $4 - (-1) = 5$. Run: $4 - (-6) = 10$.\nStep 3: Slope $= \\frac{5}{10} = \\frac{1}{2}$. Check: from $(-6, -1)$, moving right $10$ and up $5$ lands on $(4, 4)$. $\\checkmark$\n\n**Common Mistakes:** Entering $2$ (dividing run by rise); entering $\\frac{3}{10}$ (using rise $4 - 1 = 3$ by mishandling the negative in $-1$); entering $-\\frac{1}{2}$ (a stray sign, though the line rises to the right).\n\n**Test Day Takeaway:** A fractional slope is normal. Reduce the fraction and enter it as a fraction or an exact decimal; the sign follows the direction of the line."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-360",
+  "question": "What is the greatest integer value of $x$ that satisfies the inequality $9 - 4x > 2$?",
+  "correctAnswer": "1",
+  "explanation": "**SAT Pattern: One-Variable Linear Inequality**\n\n**The correct answer is $1$.**\n\n**The Fast Way (~10s):** $9 - 4x > 2$ gives $-4x > -7$, so $x < \\dfrac{7}{4} = 1.75$. The greatest integer below $1.75$ is $1$.\n\n**The Full Solution:**\nStep 1: Subtract $9$ from both sides: $-4x > -7$.\nStep 2: Divide by $-4$ and flip the symbol: $x < \\dfrac{7}{4}$, or $x < 1.75$.\nStep 3: The integers satisfying $x < 1.75$ are $1, 0, -1, \\ldots$; the greatest is $1$.\nCheck: $x = 1$ gives $9 - 4 = 5 > 2$ (true); $x = 2$ gives $9 - 8 = 1 > 2$ (false). $\\checkmark$\n\n**Common Mistakes:** Forgetting to flip and concluding $x > 1.75$, which has no greatest integer; rounding $1.75$ up to $2$, which fails the inequality; or computing $9 - 2 = 7$ and dividing by $4$ without the sign, giving $x > 1.75$.\n\n**Test Day Takeaway:** After solving, translate the bound into integers carefully: \"greatest integer less than $1.75$\" is $1$, not $2$; then substitute both $1$ and $2$ to be sure."
+}

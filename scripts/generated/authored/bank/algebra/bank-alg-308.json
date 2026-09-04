@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-308",
+  "question": "$k(x - 3) + 5 = 2x + c$\nIn the given equation, $k$ and $c$ are constants. If the equation has no solution, what is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-3$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$2$"
+    },
+    {
+      "id": "D",
+      "text": "$3$"
+    }
+  ],
+  "correctAnswer": "C",
+  "distractorNotes": {
+    "A": "took the constant inside the parentheses as k",
+    "B": "matched the constant term to the x-coefficient (-3k + 5 = 2)",
+    "D": "dropped the sign on the parenthetical constant"
+  },
+  "explanation": "**SAT Pattern: Linear Equation with Distribution (Solution-Count Condition)**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Distribute: $kx - 3k + 5 = 2x + c$. No solution requires equal $x$-coefficients with unequal constants, so $k = 2$.\n\n**The Full Solution:**\nStep 1: Distribute the left side: $kx - 3k + 5 = 2x + c$.\nStep 2: A linear equation has no solution exactly when both sides have the same $x$-coefficient but different constants (the two lines are parallel). Setting the $x$-coefficients equal gives $k = 2$.\nStep 3: With $k = 2$ the constants are $-3(2) + 5 = -1$ on the left and $c$ on the right; the equation has no solution for every $c \\neq -1$, and $k = 2$ is the only value that makes this possible.\nCheck: with $k = 2$ and, say, $c = 4$: $2x - 1 = 2x + 4$ reduces to $-1 = 4$, which is false for every $x$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): reads the $-3$ inside the parentheses as the value of $k$, rather than as the number $k$ multiplies.\n* Choice B ($1$): sets the left constant $-3k + 5$ equal to the $x$-coefficient $2$, mixing the constant match with the coefficient match.\n* Choice D ($3$): drops the sign on the parenthetical constant and reports $3$, confusing the shift inside the parentheses with the slope $k$.\n\n**Test Day Takeaway:** Solution counts come from comparing coefficients after distributing: same $x$-coefficient and different constants means no solution; same coefficient and same constant means infinitely many."
+}

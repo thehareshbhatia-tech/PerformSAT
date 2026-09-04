@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-217",
+  "question": "Line $k$ in the $xy$-plane has slope $-\\dfrac{3}{4}$. If line $n$ is perpendicular to line $k$, what is the slope of line $n$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\dfrac{4}{3}$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\dfrac{3}{4}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{3}{4}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{4}{3}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "takes the reciprocal but keeps the sign",
+    "B": "keeps the same slope, which describes a parallel line",
+    "C": "changes the sign but not the reciprocal"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Flip and negate: $-\\dfrac{3}{4}$ becomes $\\dfrac{4}{3}$.\n\n**The Full Solution:**\nStep 1: Perpendicular lines have slopes whose product is $-1$.\nStep 2: The negative reciprocal of $-\\dfrac{3}{4}$ is $-\\dfrac{1}{-3/4} = \\dfrac{4}{3}$.\nStep 3: Check: $-\\dfrac{3}{4} \\cdot \\dfrac{4}{3} = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\dfrac{4}{3}$): takes the reciprocal but keeps the negative sign; the product with $-\\dfrac{3}{4}$ is $+1$, not $-1$.\n* Choice B ($-\\dfrac{3}{4}$): repeats the given slope, which is the rule for parallel lines.\n* Choice C ($\\dfrac{3}{4}$): changes the sign but does not flip the fraction.\n\n**Test Day Takeaway:** \"Perpendicular\" means flip the fraction and change the sign, both. Multiply the two slopes; if the product is not $-1$, one of the two moves was skipped."
+}

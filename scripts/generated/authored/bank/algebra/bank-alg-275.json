@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-275",
+ "question": "The function $f$ is defined by $f(x) = (x - 7)^2 - 10$. When $f(x)$ is rewritten in the form $x^2 + bx + c$, where $b$ and $c$ are constants, what is the value of $b + c$?",
+ "correctAnswer": "25",
+ "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~15s):** $(x - 7)^2 - 10 = x^2 - 14x + 39$, so $b + c = -14 + 39 = 25$.\n\n**The Full Solution:**\nStep 1: Expand: $(x - 7)^2 = x^2 - 14x + 49$.\nStep 2: Subtract $10$: $x^2 - 14x + 39$, so $b = -14$ and $c = 39$.\nStep 3: $b + c = 25$. Check: $f(1) = (-6)^2 - 10 = 26 = 1 + b + c$, so $b + c = 25$. $\\checkmark$\n\n**Common Mistakes:** Using $b = 14$ (sign slip on the cross term) to get $53$, or forgetting to subtract $10$ and using $c = 49$ to get $35$.\n\n**Test Day Takeaway:** $1 + b + c = f(1)$ is a fast check for any monic quadratic."
+}

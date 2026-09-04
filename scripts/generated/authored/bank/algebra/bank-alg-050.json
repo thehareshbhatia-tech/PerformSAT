@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-050",
+  "question": "$x = 3y - 4$\n$2x + 5y = 25$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
+  "correctAnswer": "3",
+  "explanation": "**SAT Pattern: Substitution (x in terms of y)**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~10s):** Substitute $x = 3y - 4$ into the second equation: $2(3y - 4) + 5y = 25$, so $11y - 8 = 25$, $11y = 33$, and $y = 3$.\n\n**The Full Solution:**\nStep 1: The first equation gives $x$ in terms of $y$, so replace $x$ in the second equation: $2(3y - 4) + 5y = 25$.\nStep 2: Distribute and combine: $6y - 8 + 5y = 25 \\Rightarrow 11y = 33 \\Rightarrow y = 3$.\nStep 3: Check: $x = 3(3) - 4 = 5$, and $2(5) + 5(3) = 10 + 15 = 25$. $\\checkmark$\n\n**Common Mistakes:** Entering $5$, the value of $x$, when the question asks for $y$; getting $\\frac{29}{11}$ by writing $2(3y - 4)$ as $6y - 4$ (forgetting to distribute the $2$ to $-4$); getting $\\frac{17}{11}$ by moving the $-8$ across with the wrong sign, as $11y = 25 - 8$ instead of $25 + 8$.\n\n**Test Day Takeaway:** When an equation is already solved for $x$, substitute that whole expression, distribute fully, and reread which coordinate the question wants."
+}

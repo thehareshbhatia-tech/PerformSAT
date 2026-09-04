@@ -1,0 +1,52 @@
+{
+ "id": "bank-alg-244",
+ "question": "The table gives three values of $x$ and their corresponding values of $y$ for a linear equation. A system of two linear equations consists of this equation and the equation $y = cx + 5$, where $c$ is a constant. The system has no solution. What is the value of $c$?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "x",
+    "y"
+   ],
+   "rows": [
+    [
+     "1",
+     "9"
+    ],
+    [
+     "4",
+     "3"
+    ],
+    [
+     "7",
+     "-3"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-2$"
+  },
+  {
+   "id": "B",
+   "text": "$-0.5$"
+  },
+  {
+   "id": "C",
+   "text": "$0.5$"
+  },
+  {
+   "id": "D",
+   "text": "$2$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "change in x over change in y",
+  "C": "negative reciprocal (perpendicular slope)",
+  "D": "sign dropped; y decreases as x increases"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The line in the table drops $6$ units for every $3$ units of $x$, so its slope is $-2$. A parallel line has the same slope: $c = -2$.\n\n**The Full Solution:**\nStep 1: From the table, slope $= \\frac{3 - 9}{4 - 1} = \\frac{-6}{3} = -2$. Using $(1, 9)$: $9 = -2(1) + b$ gives $b = 11$, so the equation is $y = -2x + 11$.\nStep 2: The system has no solution only if $y = cx + 5$ is parallel to this line, so $c = -2$.\nStep 3: The intercepts $11$ and $5$ differ, so the lines are distinct parallel lines and never intersect. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-0.5$): computes $\\frac{\\Delta x}{\\Delta y} = \\frac{3}{-6}$ instead of $\\frac{\\Delta y}{\\Delta x}$.\n* Choice C ($0.5$): the negative reciprocal, which would make the lines perpendicular.\n* Choice D ($2$): ignores that $y$ decreases as $x$ increases; the slope is negative.\n\n**Test Day Takeaway:** A table hides a slope in plain sight: divide the change in $y$ by the change in $x$ between any two rows, then match it for \"no solution.\""
+}

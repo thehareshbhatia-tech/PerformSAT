@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-190",
+  "question": "What value of $p$ is the solution to the equation $\\dfrac{3}{8}p = 27$?",
+  "correctAnswer": "72",
+  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**The correct answer is $72$.**\n\n**The Fast Way (~10s):** Multiply both sides by the reciprocal $\\dfrac{8}{3}$: $p = 27 \\cdot \\dfrac{8}{3} = 9 \\cdot 8 = 72$.\n\n**The Full Solution:**\nStep 1: The coefficient of $p$ is $\\dfrac{3}{8}$. Undo it in one move by multiplying both sides by $\\dfrac{8}{3}$.\nStep 2: $p = \\dfrac{27 \\cdot 8}{3}$. Cancel the $3$ first: $\\dfrac{27}{3} = 9$, so $p = 9 \\cdot 8 = 72$.\nStep 3: Check: $\\dfrac{3}{8}(72) = 3 \\cdot 9 = 27$. $\\checkmark$\n\n**Common Mistakes:** Multiplying by $\\dfrac{3}{8}$ instead of $\\dfrac{8}{3}$ (giving $10.125$); multiplying by $8$ but forgetting to divide by $3$ (giving $216$); dividing by $8$ and multiplying by $3$ (giving $10.125$ again).\n\n**Test Day Takeaway:** A fraction coefficient is undone by its reciprocal in a single step. Cancel before multiplying to keep the arithmetic small."
+}

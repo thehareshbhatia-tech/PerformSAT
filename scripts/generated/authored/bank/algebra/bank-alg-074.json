@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-074",
+  "question": "The function $h$ is defined by $h(x) = \\frac{3x + 1}{2x - 5}$. For what value of $x$ is $h(x)$ undefined?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\frac{5}{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\frac{1}{3}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\frac{1}{3}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\frac{5}{2}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sign slip solving 2x - 5 = 0",
+    "B": "sets the numerator to zero (that gives h = 0, which is defined)",
+    "C": "sets the numerator to zero and drops the sign"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Find Undefined Point (Denominator Zero)**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** $h$ is undefined where the denominator is zero: $2x - 5 = 0 \\Rightarrow x = \\frac{5}{2}$.\n\n**The Full Solution:**\nStep 1: A rational expression is undefined exactly when its denominator equals $0$.\nStep 2: Solve $2x - 5 = 0$: $2x = 5$, so $x = \\frac{5}{2}$.\nStep 3: Confirm the numerator is not also $0$ there: $3\\left(\\frac{5}{2}\\right) + 1 = \\frac{17}{2} \\ne 0$, so $h\\left(\\frac{5}{2}\\right) = \\frac{17/2}{0}$ is undefined. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{5}{2}$): a sign slip when solving $2x - 5 = 0$; moving $-5$ across gives $2x = +5$.\n* Choice B ($-\\frac{1}{3}$): sets the numerator equal to zero instead of the denominator; $h\\left(-\\frac{1}{3}\\right) = 0$ is defined.\n* Choice C ($\\frac{1}{3}$): sets the numerator to zero and also drops the sign.\n\n**Test Day Takeaway:** \"Undefined\" points to the denominator. Solve denominator $= 0$ and ignore the numerator, which only decides where the output is zero."
+}

@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-287",
+ "question": "$\\dfrac{2}{3}(9x + a) = bx - 4$\n\nIn the given equation, $a$ and $b$ are constants. If the equation has infinitely many solutions, what is the value of $ab$?",
+ "correctAnswer": "-36",
+ "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**The correct answer is $-36$.**\n\n**The Fast Way (~15s):** Distribute: $6x + \\frac{2}{3}a = bx - 4$. Matching gives $b = 6$ and $\\frac{2}{3}a = -4$, so $a = -6$ and $ab = -36$.\n\n**The Full Solution:**\nStep 1: Distribute the $\\frac{2}{3}$: $\\frac{2}{3}(9x) + \\frac{2}{3}a = 6x + \\frac{2}{3}a$.\nStep 2: An identity needs equal $x$-coefficients: $b = 6$.\nStep 3: Equal constants: $\\frac{2}{3}a = -4$, so $a = -6$. Then $ab = (-6)(6) = -36$. Check: $\\frac{2}{3}(9x - 6) = 6x - 4$. $\\checkmark$\n\n**Common Mistakes:** Setting $a = -4$ by forgetting the $\\frac{2}{3}$ multiplies $a$ too (giving $ab = -24$), or setting $b = 9$ by not distributing (giving $-54$).\n\n**Test Day Takeaway:** A fraction outside parentheses scales every term inside, including the unknown constant."
+}

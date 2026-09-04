@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-315",
+  "question": "The expression $5x^2 - 3x + 2x^2 + 9x - 4$ is equivalent to $ax^2 + bx + c$, where $a$, $b$, and $c$ are constants. What is the value of $b$?",
+  "correctAnswer": "6",
+  "explanation": "**SAT Pattern: Combining Like Terms**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~5s):** Only the $x$-terms feed $b$: $-3x + 9x = 6x$, so $b = 6$.\n\n**The Full Solution:**\nStep 1: Sort the terms by degree. Squared terms: $5x^2 + 2x^2 = 7x^2$. First-degree terms: $-3x + 9x = 6x$. Constant: $-4$.\nStep 2: The simplified expression is $7x^2 + 6x - 4$, so $a = 7$, $b = 6$, $c = -4$.\nStep 3: The question asks only for $b$, the coefficient of $x$: $b = 6$.\nCheck: substitute $x = 1$ into the original: $5 - 3 + 2 + 9 - 4 = 9$; into $7x^2 + 6x - 4$: $7 + 6 - 4 = 9$. $\\checkmark$\n\n**Common Mistakes:** Reporting $a = 7$ (the coefficient of $x^2$) instead of $b$; combining $-3x$ with $2x^2$ because the numbers sit next to each other; or computing $-3 - 9 = -12$ by mishandling the sign.\n\n**Test Day Takeaway:** Like terms must share the same variable AND the same exponent; group by degree first, then read off the one coefficient asked for."
+}

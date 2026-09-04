@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-104",
+  "question": "What value of $x$ is the solution to the equation $\\frac{4x + 9}{6} = \\frac{7x - 3}{3}$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-1.5$"
+    },
+    {
+      "id": "B",
+      "text": "$1.5$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$15$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sign slip, 10x = -15",
+    "C": "drops both denominators",
+    "D": "reports 10x"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Multiply both sides by $6$: $4x + 9 = 2(7x - 3) = 14x - 6$. Then $15 = 10x$, so $x = 1.5$.\n\n**The Full Solution:**\nStep 1: The denominators are $6$ and $3$; multiply both sides by $6$. The left becomes $4x + 9$ and the right becomes $\\frac{6}{3}(7x - 3) = 2(7x - 3)$.\nStep 2: Distribute: $4x + 9 = 14x - 6$. Subtract $4x$ and add $6$: $15 = 10x$.\nStep 3: $x = 1.5$. Check: $\\frac{4(1.5) + 9}{6} = \\frac{15}{6} = 2.5$ and $\\frac{7(1.5) - 3}{3} = \\frac{7.5}{3} = 2.5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1.5$): a sign slip when collecting terms, $10x = -15$.\n* Choice C ($4$): drops both denominators as if they were equal, solving $4x + 9 = 7x - 3$.\n* Choice D ($15$): reports $10x$ instead of $x$.\n\n**Test Day Takeaway:** When the denominators differ, multiply through by the least common denominator and distribute the resulting factor over the whole numerator, not just its first term."
+}

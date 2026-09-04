@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-032",
+  "question": "Line $\\ell$ is defined by $5x - 2y = 8$. Line $n$ is parallel to line $\\ell$ in the $xy$-plane and passes through the point $(4, 3)$. Which equation defines line $n$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -\\frac{5}{2}x + 13$"
+    },
+    {
+      "id": "B",
+      "text": "$y = \\frac{5}{2}x - 7$"
+    },
+    {
+      "id": "C",
+      "text": "$y = \\frac{5}{2}x + 3$"
+    },
+    {
+      "id": "D",
+      "text": "$y = 5x - 17$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads the slope from standard form as -5/2 (sign error)",
+    "C": "uses the point's y-coordinate as the intercept",
+    "D": "uses the x-coefficient 5 as the slope"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Parallel from Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** From $5x - 2y = 8$, the slope is $-\\frac{5}{-2} = \\frac{5}{2}$. Then $3 = \\frac{5}{2}(4) + b = 10 + b$, so $b = -7$ and $y = \\frac{5}{2}x - 7$.\n\n**The Full Solution:**\nStep 1: Find the slope of $\\ell$: $-2y = -5x + 8 \\Rightarrow y = \\frac{5}{2}x - 4$, so the slope is $\\frac{5}{2}$.\nStep 2: Line $n$ is parallel, so it has slope $\\frac{5}{2}$: $y = \\frac{5}{2}x + b$. Substitute $(4, 3)$: $3 = 10 + b$, so $b = -7$.\nStep 3: Line $n$ is $y = \\frac{5}{2}x - 7$. Check: at $x = 4$, $y = 10 - 7 = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{5}{2}x + 13$): takes the slope as $-\\frac{5}{2}$, forgetting the negative sign on the $y$-coefficient, then solves for $b$ with that wrong slope.\n* Choice C ($y = \\frac{5}{2}x + 3$): has the right slope but uses the point's $y$-coordinate as the intercept.\n* Choice D ($y = 5x - 17$): uses the $x$-coefficient $5$ as the slope without dividing by the $y$-coefficient.\n\n**Test Day Takeaway:** Convert the standard-form line to $y = mx + b$ first (watch the sign of the $y$-coefficient), then reuse $m$ and solve for the new $b$."
+}

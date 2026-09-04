@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-195",
+  "question": "The solution to the system of equations $y = 2x + 9$ and $y = -3x - 6$ is $(x, y)$. What is the value of $y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-15$"
+    },
+    {
+      "id": "B",
+      "text": "$-3$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$15$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "stops at 5x = -15 and reports the right side",
+    "B": "reports x instead of y",
+    "D": "back-substitutes x = 3 instead of x = -3"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Set the expressions for $y$ equal: $2x + 9 = -3x - 6$, so $5x = -15$ and $x = -3$. Then $y = 2(-3) + 9 = 3$.\n\n**The Full Solution:**\nStep 1: Substitute $2x + 9$ for $y$ in the second equation: $2x + 9 = -3x - 6$.\nStep 2: Add $3x$ to both sides and subtract $9$: $5x = -15$, so $x = -3$.\nStep 3: Back-substitute: $y = 2(-3) + 9 = 3$. Check with the other equation: $-3(-3) - 6 = 9 - 6 = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-15$): stops at $5x = -15$ and reports that right side.\n* Choice B ($-3$): reports $x$; the question asks for $y$.\n* Choice D ($15$): drops the sign on $x$ and computes $2(3) + 9$.\n\n**Test Day Takeaway:** After solving for $x$, back-substitute carefully with its sign, and verify in the equation you did not use."
+}

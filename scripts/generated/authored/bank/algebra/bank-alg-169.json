@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-169",
+  "question": "$4x - 12 = 20$\n\nWhat value of $x$ is the solution to the given equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$8$"
+    },
+    {
+      "id": "C",
+      "text": "$17$"
+    },
+    {
+      "id": "D",
+      "text": "$32$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts 12 from 20 instead of adding: 4x = 8",
+    "C": "divides only the 20 by 4: x - 12 = 5",
+    "D": "stops at 4x = 32"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Add $12$: $4x = 32$. Divide by $4$: $x = 8$.\n\n**The Full Solution:**\nStep 1: Undo the subtraction first by adding $12$ to both sides: $4x = 32$.\nStep 2: Undo the multiplication by dividing both sides by $4$: $x = 8$.\nStep 3: Check: $4(8) - 12 = 32 - 12 = 20$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): subtracts $12$ from $20$ instead of adding, reaching $4x = 8$.\n* Choice C ($17$): divides only the $20$ by $4$, leaving $x - 12 = 5$.\n* Choice D ($32$): stops after adding $12$ and reports $4x$ instead of $x$.\n\n**Test Day Takeaway:** Reverse the order of operations: undo addition or subtraction first, then undo multiplication. Apply each step to the whole side."
+}

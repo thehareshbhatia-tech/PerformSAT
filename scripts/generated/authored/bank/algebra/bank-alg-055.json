@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-055",
+  "question": "$4x + y = 24$\n$-4x + 3y = 8$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
+  "correctAnswer": "8",
+  "explanation": "**SAT Pattern: Solving a System by Elimination**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~5s):** Adding the equations cancels $x$: $4y = 32$, so $y = 8$.\n\n**The Full Solution:**\nStep 1: The $x$-terms are $4x$ and $-4x$, opposites, so adding the equations eliminates $x$.\nStep 2: $(4x + y) + (-4x + 3y) = 24 + 8$ gives $4y = 32$, so $y = 8$.\nStep 3: Check: from the first equation $4x = 24 - 8 = 16$, so $x = 4$; then $-4(4) + 3(8) = -16 + 24 = 8$. $\\checkmark$\n\n**Common Mistakes:** Entering $4$, the value of $x$; subtracting the equations instead of adding, which gives $8x - 2y = 16$ and does not eliminate anything; entering $32$ by stopping at $4y = 32$.\n\n**Test Day Takeaway:** Look for a variable whose coefficients are exact opposites; adding the equations then eliminates it with no scaling."
+}

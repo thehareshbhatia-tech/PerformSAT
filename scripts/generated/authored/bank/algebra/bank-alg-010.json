@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-010",
+  "question": "Line $k$ is defined by $7x - 2y = 12$. Which of the following equations, written in slope-intercept form, also defines line $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -\\frac{7}{2}x - 6$"
+    },
+    {
+      "id": "B",
+      "text": "$y = -\\frac{7}{2}x + 6$"
+    },
+    {
+      "id": "C",
+      "text": "$y = \\frac{7}{2}x - 6$"
+    },
+    {
+      "id": "D",
+      "text": "$y = \\frac{7}{2}x + 6$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "moves 7x to the right side without changing its sign",
+    "B": "divides by 2 instead of -2",
+    "D": "flips the sign of the x-term only, not the constant"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Standard to Slope-Intercept**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $7x - 2y = 12 \\Rightarrow -2y = -7x + 12 \\Rightarrow y = \\frac{7}{2}x - 6$.\n\n**The Full Solution:**\nStep 1: Isolate the $y$-term by subtracting $7x$ from both sides: $-2y = -7x + 12$.\nStep 2: Divide every term by $-2$: $y = \\frac{-7x}{-2} + \\frac{12}{-2} = \\frac{7}{2}x - 6$.\nStep 3: Check with a point. From $y = \\frac{7}{2}x - 6$, $x = 2$ gives $y = 1$; substituting into the original, $7(2) - 2(1) = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{7}{2}x - 6$): moves $7x$ across without changing its sign, giving $-2y = 7x + 12$.\n* Choice B ($y = -\\frac{7}{2}x + 6$): divides $-7x + 12$ by $2$ instead of by $-2$, leaving both signs wrong.\n* Choice D ($y = \\frac{7}{2}x + 6$): divides the $x$-term by $-2$ correctly but forgets to divide the constant $12$ by $-2$.\n\n**Test Day Takeaway:** When dividing by a negative coefficient, every term on the other side changes sign, including the constant; verify with one quick point."
+}

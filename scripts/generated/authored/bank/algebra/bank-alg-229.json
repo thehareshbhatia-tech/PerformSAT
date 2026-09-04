@@ -1,0 +1,58 @@
+{
+  "id": "bank-alg-229",
+  "question": "The graph of line $\\ell$ is shown in the $xy$-plane. Line $n$ is parallel to line $\\ell$ and passes through the point $(4, 2)$. Which equation defines line $n$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": -1.5,
+      "yIntercept": 3,
+      "xRange": [
+        -4,
+        6
+      ],
+      "yRange": [
+        -6,
+        8
+      ],
+      "gridInterval": 1,
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "highlightPoints": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "label": "ℓ"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -\\dfrac{3}{2}x + 2$"
+    },
+    {
+      "id": "B",
+      "text": "$y = -\\dfrac{3}{2}x + 3$"
+    },
+    {
+      "id": "C",
+      "text": "$y = \\dfrac{3}{2}x - 4$"
+    },
+    {
+      "id": "D",
+      "text": "$y = -\\dfrac{3}{2}x + 8$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses the point's y-coordinate as the intercept",
+    "B": "copies line l instead of shifting it through the point",
+    "C": "drops the sign on the slope, then fits the point"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Line $\\ell$ drops from $(0, 3)$ to $(2, 0)$: slope $-\\dfrac{3}{2}$. Keep that slope and fit $(4, 2)$: $2 = -\\dfrac{3}{2}(4) + b = -6 + b$, so $b = 8$.\n\n**The Full Solution:**\nStep 1: Slope of $\\ell$ from the marked points: $\\dfrac{0 - 3}{2 - 0} = -\\dfrac{3}{2}$.\nStep 2: Line $n$ is parallel, so $n$ is $y = -\\dfrac{3}{2}x + b$.\nStep 3: Substitute $(4, 2)$: $2 = -6 + b$, so $b = 8$. The equation is $y = -\\dfrac{3}{2}x + 8$. Check: $-\\dfrac{3}{2}(4) + 8 = 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\dfrac{3}{2}x + 2$): uses the $y$-coordinate of $(4, 2)$ as the intercept without substituting.\n* Choice B ($y = -\\dfrac{3}{2}x + 3$): is line $\\ell$ itself; it passes through $(4, -3)$, not $(4, 2)$.\n* Choice C ($y = \\dfrac{3}{2}x - 4$): uses slope $+\\dfrac{3}{2}$, then fits the point; the graph falls, so the slope must be negative.\n\n**Test Day Takeaway:** Read the slope from two lattice points, keep it for the parallel line, and substitute the given point to find the intercept. The line that shares both slope and intercept with $\\ell$ is $\\ell$, not a new line."
+}

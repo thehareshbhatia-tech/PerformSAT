@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-064",
+  "question": "In the $xy$-plane, the graphs of the two equations in a system of linear equations are the same line. Which of the following could be that system?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2x + 3y = 12$ and $4x + 6y = 12$"
+    },
+    {
+      "id": "B",
+      "text": "$2x + 3y = 12$ and $2x - 3y = 12$"
+    },
+    {
+      "id": "C",
+      "text": "$2x + 3y = 12$ and $4x + 6y = 24$"
+    },
+    {
+      "id": "D",
+      "text": "$2x + 3y = 12$ and $3x + 2y = 12$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "doubles the left side but not the constant (parallel lines)",
+    "B": "flips the sign of the y-term (different slopes)",
+    "D": "swaps the coefficients (different slopes)"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Identify Identical-Lines System**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Multiplying every term of $2x + 3y = 12$ by $2$ gives $4x + 6y = 24$ exactly, so the two equations describe one line.\n\n**The Full Solution:**\nStep 1: Two equations graph as the same line when one is a constant multiple of the other, including the constant term.\nStep 2: $2 \\cdot (2x + 3y) = 4x + 6y$ and $2 \\cdot 12 = 24$, which is the second equation in choice C.\nStep 3: Check a point: $(0, 4)$ gives $3(4) = 12$ and $6(4) = 24$. $\\checkmark$ Every solution of one equation solves the other.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x + 6y = 12$): doubles the left side but keeps the constant $12$, producing a parallel line with no shared points.\n* Choice B ($2x - 3y = 12$): flips the sign of the $y$-term, so the slopes are $-\\frac{2}{3}$ and $\\frac{2}{3}$ and the lines cross once.\n* Choice D ($3x + 2y = 12$): swaps the coefficients, giving slopes $-\\frac{2}{3}$ and $-\\frac{3}{2}$, one intersection.\n\n**Test Day Takeaway:** Identical lines require every term, constant included, to scale by the same factor. Scaling only the left side makes parallel lines instead."
+}

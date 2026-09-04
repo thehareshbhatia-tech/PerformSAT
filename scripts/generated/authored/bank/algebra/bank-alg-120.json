@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-120",
+  "question": "The system of equations $7x - 3y = 41$ and $2x + 3y = 4$ has solution $(x, y)$. What is the value of $y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-6$"
+    },
+    {
+      "id": "B",
+      "text": "$-2$"
+    },
+    {
+      "id": "C",
+      "text": "$2$"
+    },
+    {
+      "id": "D",
+      "text": "$5$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports 3y",
+    "C": "sign slip, 3y = 6",
+    "D": "reports x"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: System of Equations — Elimination**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The $y$-terms are opposites, so add: $9x = 45$, $x = 5$. Then $2(5) + 3y = 4$ gives $3y = -6$ and $y = -2$.\n\n**The Full Solution:**\nStep 1: The coefficients of $y$ are $-3$ and $+3$, so adding the equations eliminates $y$: $9x = 45$, giving $x = 5$.\nStep 2: Substitute $x = 5$ into $2x + 3y = 4$: $10 + 3y = 4$, so $3y = -6$.\nStep 3: Divide by $3$: $y = -2$. Check in the first equation: $7(5) - 3(-2) = 35 + 6 = 41$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): stops at $3y = -6$ and reports that instead of $y$.\n* Choice C ($2$): a sign slip, computing $4 - 10$ as $6$ instead of $-6$.\n* Choice D ($5$): reports $x$ instead of $y$.\n\n**Test Day Takeaway:** After eliminating one variable, substitute back and finish the arithmetic on the other, then confirm which variable the question wants before answering."
+}

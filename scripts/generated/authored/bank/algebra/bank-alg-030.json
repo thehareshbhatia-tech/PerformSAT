@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-030",
+  "question": "In the $xy$-plane, the graph of the equation $9x - 6y = 27$ is a line. What is the slope of this line?",
+  "correctAnswer": "1.5",
+  "explanation": "**SAT Pattern: Slope from Standard Form**\n\n**The correct answer is $1.5$.**\n\n**The Fast Way (~10s):** For $Ax + By = C$, the slope is $-\\frac{A}{B} = -\\frac{9}{-6} = \\frac{3}{2} = 1.5$.\n\n**The Full Solution:**\nStep 1: Solve for $y$. Subtract $9x$: $-6y = -9x + 27$.\nStep 2: Divide by $-6$: $y = \\frac{9}{6}x - \\frac{27}{6} = \\frac{3}{2}x - \\frac{9}{2}$.\nStep 3: The coefficient of $x$ is the slope, $\\frac{3}{2} = 1.5$. Check with two points on the line: $(3, 0)$ and $(5, 3)$ both satisfy $9x - 6y = 27$, and $\\frac{3 - 0}{5 - 3} = \\frac{3}{2}$. $\\checkmark$ (Either $3/2$ or $1.5$ is accepted.)\n\n**Common Mistakes:** Entering $-1.5$ by reading the slope as $\\frac{9}{-6}$ without the extra negative from $-\\frac{A}{B}$; entering $9$ by taking the $x$-coefficient as the slope; entering $-4.5$, the $y$-intercept, instead of the slope.\n\n**Test Day Takeaway:** In standard form the slope is $-\\frac{A}{B}$; when $B$ is negative the two negatives cancel and the slope is positive."
+}

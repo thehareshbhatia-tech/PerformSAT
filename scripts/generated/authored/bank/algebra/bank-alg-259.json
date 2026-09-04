@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-259",
+ "question": "$5x + 2y = 23$\n\n$x + 4y = 13$\n\nIf $(x, y)$ is the solution to the given system of equations, what is the value of $x + y$?",
+ "correctAnswer": "6",
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~10s):** Add the equations: $6x + 6y = 36$, so $x + y = 6$.\n\n**The Full Solution:**\nStep 1: Adding the two equations gives $6x + 6y = 36$.\nStep 2: Divide by $6$: $x + y = 6$.\nStep 3: Check by solving: $x = 13 - 4y$, so $5(13 - 4y) + 2y = 23$ gives $65 - 18y = 23$, $y = \\frac{7}{3}$, $x = \\frac{11}{3}$, and $x + y = \\frac{18}{3} = 6$. $\\checkmark$\n\n**Common Mistakes:** Solving for $x$ and $y$ separately and making an arithmetic slip with the fractions, or reporting $36$ without dividing by $6$.\n\n**Test Day Takeaway:** If the two equations add to a multiple of the target, the answer is one addition and one division away, even when $x$ and $y$ themselves are fractions."
+}

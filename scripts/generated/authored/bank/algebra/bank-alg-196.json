@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-196",
+  "question": "The solution to the system of equations $3x + 2y = 32$ and $y = x - 4$ is $(x, y)$. What is the value of $y$?",
+  "correctAnswer": "4",
+  "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~15s):** Replace $y$ with $x - 4$: $3x + 2(x - 4) = 32$, so $5x - 8 = 32$, $x = 8$, and $y = 8 - 4 = 4$.\n\n**The Full Solution:**\nStep 1: The second equation isolates $y$, so substitute into the first: $3x + 2(x - 4) = 32$.\nStep 2: Distribute and combine: $3x + 2x - 8 = 32$, so $5x = 40$ and $x = 8$.\nStep 3: Back-substitute: $y = 8 - 4 = 4$. Check: $3(8) + 2(4) = 24 + 8 = 32$. $\\checkmark$\n\n**Common Mistakes:** Entering $8$ (the value of $x$); forgetting to distribute the $2$ to the $-4$ and solving $5x - 4 = 32$; substituting $x - 4$ for $x$ instead of for $y$.\n\n**Test Day Takeaway:** Distribute the coefficient across the entire substituted expression, including its constant, before combining like terms."
+}

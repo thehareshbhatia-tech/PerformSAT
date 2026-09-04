@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-109",
+  "question": "A line in the $xy$-plane passes through the points $(-2, 9)$ and $(4, -3)$. What is the $y$-coordinate of the point where the line crosses the $y$-axis?",
+  "correctAnswer": "5",
+  "explanation": "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** Slope $= \\frac{-3 - 9}{4 - (-2)} = \\frac{-12}{6} = -2$. Then $9 = -2(-2) + b \\Rightarrow b = 5$.\n\n**The Full Solution:**\nStep 1: Slope from the two points: $m = \\frac{-3 - 9}{4 - (-2)} = \\frac{-12}{6} = -2$.\nStep 2: Write $y = -2x + b$ and substitute $(-2, 9)$: $9 = -2(-2) + b = 4 + b$, so $b = 5$.\nStep 3: Check with the other point: $y = -2(4) + 5 = -3$. $\\checkmark$ The line crosses the $y$-axis at $(0, 5)$.\n\n**Common Mistakes:** Getting $b = 13$ by computing $-2(-2)$ as $-4$; using run $4 - 2 = 2$ to get slope $-6$; reporting the slope $-2$ instead of the intercept.\n\n**Test Day Takeaway:** Find the slope from the two points, substitute either point into $y = mx + b$ watching double negatives, and confirm the equation with the point you did not use."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-270",
+ "question": "$ax + 6y = b$\n\n$3x + 9y = 12$\n\nIn the given system of equations, $a$ and $b$ are constants. If the system has infinitely many solutions, what is the value of $a + b$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
+  },
+  {
+   "id": "B",
+   "text": "$8$"
+  },
+  {
+   "id": "C",
+   "text": "$10$"
+  },
+  {
+   "id": "D",
+   "text": "$20$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports a alone",
+  "B": "reports b alone",
+  "D": "scales the constant by 3/2 instead of 2/3 (b = 18)"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The $y$-coefficients give the multiplier $\\frac{6}{9} = \\frac{2}{3}$, so $a = \\frac{2}{3}(3) = 2$ and $b = \\frac{2}{3}(12) = 8$; $a + b = 10$.\n\n**The Full Solution:**\nStep 1: For the same line, the first equation must be a multiple of the second. From $6y$ and $9y$, the multiplier is $\\frac{2}{3}$.\nStep 2: $a = \\frac{2}{3} \\cdot 3 = 2$ and $b = \\frac{2}{3} \\cdot 12 = 8$.\nStep 3: $a + b = 2 + 8 = 10$. Check: $\\frac{2}{3}(3x + 9y = 12)$ is $2x + 6y = 8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): the value of $a$ only; the question asks for $a + b$.\n* Choice B ($8$): the value of $b$ only.\n* Choice D ($20$): uses the inverted multiplier $\\frac{3}{2}$ on the constant, giving $b = 18$, with $a = 2$.\n\n**Test Day Takeaway:** One multiplier scales every term; apply it consistently to both unknowns, then combine exactly as the question asks."
+}

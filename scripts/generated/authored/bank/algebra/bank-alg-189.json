@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-189",
+  "question": "In the equation $3(x - 4) = 27$, what is the value of the expression $x - 4$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$5$"
+    },
+    {
+      "id": "B",
+      "text": "$9$"
+    },
+    {
+      "id": "C",
+      "text": "$13$"
+    },
+    {
+      "id": "D",
+      "text": "$23$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "divides to get 9, then subtracts 4 again",
+    "C": "solves for x instead of the requested expression x - 4",
+    "D": "subtracts 4 from 27 instead of dividing by 3"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Treat $x - 4$ as a single unknown. Divide both sides by $3$: $x - 4 = 9$. Done; do not solve for $x$.\n\n**The Full Solution:**\nStep 1: The question asks for $x - 4$, which is exactly the quantity multiplied by $3$ on the left side.\nStep 2: Divide both sides by $3$: $x - 4 = \\dfrac{27}{3} = 9$.\nStep 3: Check: $3(9) = 27$. $\\checkmark$ (For the record, $x = 13$, but that is not what was asked.)\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): correctly gets $9$, then subtracts $4$ again, applying the $-4$ twice.\n* Choice C ($13$): solves all the way to $x$ and reports it, though the question asks for $x - 4$.\n* Choice D ($23$): subtracts $4$ from $27$ instead of dividing by $3$.\n\n**Test Day Takeaway:** When the question asks for an expression, look for that expression as a unit in the equation. One division may finish the problem; solving for $x$ is a wasted step and a common wrong answer."
+}

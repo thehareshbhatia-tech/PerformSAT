@@ -1,0 +1,6 @@
+{
+ "id": "bank-alg-243",
+ "question": "$5x - 2y = 9$\n\n$kx + 6y = 4$\n\nIn the system of equations shown, $k$ is a constant and the system has no solution. What is the value of $k$?",
+ "correctAnswer": "-15",
+ "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**The correct answer is $-15$.**\n\n**The Fast Way (~15s):** The $y$-coefficients scale by $\\frac{6}{-2} = -3$, so the $x$-coefficients must scale the same way: $k = 5 \\cdot (-3) = -15$.\n\n**The Full Solution:**\nStep 1: Two equations in standard form describe parallel lines when the $x$- and $y$-coefficients are proportional: $\\frac{k}{5} = \\frac{6}{-2}$.\nStep 2: $\\frac{6}{-2} = -3$, so $k = -15$.\nStep 3: Confirm the lines are not the same line: the constants would need the ratio $\\frac{4}{9}$, and $\\frac{4}{9} \\neq -3$, so the lines are parallel and distinct. $\\checkmark$\n\n**Common Mistakes:** Dropping the sign and answering $15$; the $y$-coefficients change sign from $-2$ to $6$, so the multiplier is negative. Another slip is matching $k$ to $6$ directly without applying the multiplier to $5$.\n\n**Test Day Takeaway:** In standard form, find the multiplier between one pair of coefficients, apply it to the other pair, and check that it fails for the constants."
+}

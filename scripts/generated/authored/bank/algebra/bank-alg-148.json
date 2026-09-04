@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-148",
+  "question": "$x = 3y - 4$\n$2x + y = 20$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$8$"
+    },
+    {
+      "id": "D",
+      "text": "$12$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "forgets to distribute the 2: 3y - 4 + y = 20",
+    "C": "reports x instead of y",
+    "D": "reports x + y"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: System of Equations — Substitution**\n\n**Choice A is correct.**\n\n**The Fast Way (~8s):** Substitute $3y - 4$ for $x$: $2(3y - 4) + y = 20$, so $7y - 8 = 20$ and $y = 4$.\n\n**The Full Solution:**\nStep 1: The first equation gives $x$ directly, so replace $x$ in the second: $2(3y - 4) + y = 20$.\nStep 2: Distribute and combine: $6y - 8 + y = 20$, so $7y = 28$ and $y = 4$.\nStep 3: Then $x = 3(4) - 4 = 8$. Check: $2(8) + 4 = 20$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): substitutes without distributing the $2$, solving $3y - 4 + y = 20$.\n* Choice C ($8$): solves correctly but reports $x$ instead of $y$.\n* Choice D ($12$): reports $x + y$ instead of $y$.\n\n**Test Day Takeaway:** When you substitute an expression, put it in parentheses so the coefficient in front multiplies every term. Then reread which variable is requested."
+}

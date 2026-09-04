@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-212",
+  "question": "The line with equation $y = 7 - \\dfrac{2x}{3}$ is graphed in the $xy$-plane. What is the slope of the line?",
+  "correctAnswer": "-2/3",
+  "explanation": "**SAT Pattern: Reading Slope-Intercept Form**\n\n**The correct answer is $-\\dfrac{2}{3}$.**\n\n**The Fast Way (~5s):** $\\dfrac{2x}{3}$ is the same as $\\dfrac{2}{3}x$, and it is subtracted, so the slope is $-\\dfrac{2}{3}$.\n\n**The Full Solution:**\nStep 1: Rewrite the equation in $y = mx + b$ order: $y = -\\dfrac{2}{3}x + 7$.\nStep 2: The coefficient of $x$ is $-\\dfrac{2}{3}$, so the slope is $-\\dfrac{2}{3}$; the $y$-intercept is $7$.\nStep 3: Check: at $x = 0$, $y = 7$; at $x = 3$, $y = 7 - 2 = 5$. A drop of $2$ over a run of $3$ is a slope of $-\\dfrac{2}{3}$. $\\checkmark$\n\n**Common Mistakes:** Entering $\\dfrac{2}{3}$ (missing the sign); entering $-\\dfrac{3}{2}$ (inverting the fraction); entering $7$ (the intercept); reading $\\dfrac{2x}{3}$ as having slope $2$.\n\n**Test Day Takeaway:** $\\dfrac{2x}{3}$ means $\\dfrac{2}{3} \\cdot x$. Pull the coefficient, keep the sign in front of it, and enter the fraction as $-2/3$."
+}

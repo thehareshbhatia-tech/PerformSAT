@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-026",
+  "question": "The function $p$ is defined by $p(x) = 2x^2 - 5x + 3$. What is the value of $p(-2)$?",
+  "correctAnswer": "21",
+  "explanation": "**SAT Pattern: Function Evaluation (Quadratic)**\n\n**The correct answer is $21$.**\n\n**The Fast Way (~10s):** $p(-2) = 2(-2)^2 - 5(-2) + 3 = 2(4) + 10 + 3 = 21$.\n\n**The Full Solution:**\nStep 1: Substitute $-2$ for $x$ with parentheses: $p(-2) = 2(-2)^2 - 5(-2) + 3$.\nStep 2: Evaluate the power first: $(-2)^2 = 4$, so the first term is $2(4) = 8$. The middle term is $-5(-2) = +10$.\nStep 3: Add: $8 + 10 + 3 = 21$. Check the signs once more: a squared negative is positive, and a negative times a negative is positive. $\\checkmark$\n\n**Common Mistakes:** Getting $5$ by computing $-2^2 = -4$ (squaring only the $2$ and leaving the sign outside), which turns the first term into $-8$; getting $1$ by writing $-5(-2)$ as $-10$; getting $-15$ by combining both sign errors.\n\n**Test Day Takeaway:** Write every substituted negative in parentheses; $(-2)^2$ and $-2^2$ are different numbers, and the parentheses decide which one you compute."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-042",
+  "question": "$4x - 10y = 14$\n$6x - 15y = k$\n\nIn the given system of equations, $k$ is a constant. If the system has infinitely many solutions, what is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7$"
+    },
+    {
+      "id": "B",
+      "text": "$14$"
+    },
+    {
+      "id": "C",
+      "text": "$21$"
+    },
+    {
+      "id": "D",
+      "text": "$42$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "divides 14 by 2 without multiplying by 3",
+    "B": "leaves the constant unchanged",
+    "D": "multiplies 14 by 3 without dividing by 2"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Parameter for Identical Equations**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The second equation's coefficients are $\\frac{3}{2}$ times the first's ($4 \\to 6$, $-10 \\to -15$). For the same line, the constant must scale the same way: $k = \\frac{3}{2}(14) = 21$.\n\n**The Full Solution:**\nStep 1: Infinitely many solutions means the two equations describe the same line, so one equation is a constant multiple of the other.\nStep 2: The multiplier is $\\frac{6}{4} = \\frac{-15}{-10} = \\frac{3}{2}$. Multiply the first equation by $\\frac{3}{2}$: $6x - 15y = 21$.\nStep 3: Matching constants gives $k = 21$. Check: $\\frac{21}{14} = \\frac{3}{2}$, the same ratio as the coefficients. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): divides $14$ by $2$ but forgets to multiply by $3$, applying only half of the $\\frac{3}{2}$ scale factor.\n* Choice B ($14$): keeps the constant unchanged, which gives parallel lines and zero solutions.\n* Choice D ($42$): multiplies by $3$ without dividing by $2$.\n\n**Test Day Takeaway:** For \"infinitely many solutions,\" find the scale factor from the variable coefficients and apply the SAME factor to the constant."
+}

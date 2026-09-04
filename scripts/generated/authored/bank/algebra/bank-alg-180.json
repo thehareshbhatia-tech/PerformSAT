@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-180",
+  "question": "In the $xy$-plane, line $p$ is defined by $3x - 4y = 8$. What is the slope of a line that is perpendicular to line $p$?",
+  "correctAnswer": "-4/3",
+  "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $-\\frac{4}{3}$.**\n\n**The Fast Way (~8s):** Solve for $y$: $-4y = -3x + 8$, so $y = \\frac{3}{4}x - 2$. The slope of $p$ is $\\frac{3}{4}$; the perpendicular slope is $-\\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: Convert to slope-intercept form. Subtract $3x$: $-4y = -3x + 8$. Divide by $-4$: $y = \\frac{3}{4}x - 2$.\nStep 2: The slope of line $p$ is $\\frac{3}{4}$.\nStep 3: A perpendicular line has slope $-\\frac{4}{3}$. Check: $\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = -1$. $\\checkmark$\n\n**Common Mistakes:** Entering $\\frac{4}{3}$ (reciprocal without the sign change); entering $-\\frac{3}{4}$ (reading the slope as $-\\frac{3}{4}$ from the coefficients $3$ and $-4$ without dividing by $-4$, then only negating); entering $\\frac{3}{4}$ (reporting the slope of $p$ itself instead of the perpendicular slope).\n\n**Test Day Takeaway:** In standard form $Ax + By = C$, the slope is $-\\frac{A}{B}$, here $-\\frac{3}{-4} = \\frac{3}{4}$. Convert first, then flip and negate."
+}

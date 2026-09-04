@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-156",
+  "question": "$3x + 4y = 7$\n$kx + 12y = 5$\n\nIn the given system of equations, $k$ is a constant. If the system has no solution, what is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$9$"
+    },
+    {
+      "id": "D",
+      "text": "$36$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "copies the x-coefficient of the first equation",
+    "B": "divides 12 by 3 instead of scaling 3 by 12 ÷ 4",
+    "D": "multiplies 3 by 12 instead of by 3"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~8s):** The $y$-coefficients scale by $\\frac{12}{4} = 3$. Parallel lines need the $x$-coefficients to scale the same way: $k = 3(3) = 9$. The constants $7$ and $5$ do not scale by $3$, so the lines are distinct.\n\n**The Full Solution:**\nStep 1: In standard form, lines are parallel when the ratios of the $x$-coefficients and $y$-coefficients are equal: $\\frac{k}{3} = \\frac{12}{4}$.\nStep 2: Solve: $\\frac{k}{3} = 3$, so $k = 9$.\nStep 3: Confirm the lines are not identical: scaling the first equation by $3$ gives $9x + 12y = 21$, and $21 \\ne 5$, so the lines are parallel and distinct. No solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): copies the $x$-coefficient of the first equation without scaling.\n* Choice B ($4$): computes $12 \\div 3$, mixing a $y$-coefficient with an $x$-coefficient.\n* Choice D ($36$): multiplies $3$ by $12$ instead of by the scale factor $3$.\n\n**Test Day Takeaway:** For $Ax + By = C$ systems, parallel means $\\frac{A_2}{A_1} = \\frac{B_2}{B_1}$. Find the scale factor from the known pair and apply it to the other, then check the constants break the match."
+}

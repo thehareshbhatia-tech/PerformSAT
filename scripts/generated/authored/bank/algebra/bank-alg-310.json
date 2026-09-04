@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-310",
+  "question": "$a(x + 4) - 3(x - 2) = 5x + c$\nIn the given equation, $a$ and $c$ are constants. If the equation has infinitely many solutions, what is the value of $a + c$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$16$"
+    },
+    {
+      "id": "B",
+      "text": "$31$"
+    },
+    {
+      "id": "C",
+      "text": "$34$"
+    },
+    {
+      "id": "D",
+      "text": "$46$"
+    }
+  ],
+  "correctAnswer": "D",
+  "distractorNotes": {
+    "A": "set a + 3 = 5 instead of a - 3 = 5 (a = 2, c = 14)",
+    "B": "ignored the -3x term when matching coefficients (a = 5, c = 26)",
+    "C": "sign slip on the +6 constant (c = 32 - 6 = 26)"
+  },
+  "explanation": "**SAT Pattern: Linear Equation with Distribution**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** Distribute: $(a - 3)x + (4a + 6) = 5x + c$. Infinitely many solutions means both sides are identical: $a - 3 = 5$ gives $a = 8$, and $c = 4(8) + 6 = 38$. So $a + c = 46$.\n\n**The Full Solution:**\nStep 1: Distribute and collect the left side: $ax + 4a - 3x + 6 = (a - 3)x + (4a + 6)$.\nStep 2: An equation has infinitely many solutions only when the two sides are the same expression, so match the $x$-coefficients: $a - 3 = 5$, giving $a = 8$.\nStep 3: Match the constants: $c = 4a + 6 = 4(8) + 6 = 38$. Therefore $a + c = 8 + 38 = 46$.\nCheck: with $a = 8$ the left side is $8x + 32 - 3x + 6 = 5x + 38$, identical to the right side $5x + 38$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): writes the coefficient match as $a + 3 = 5$, giving $a = 2$ and $c = 14$; the $-3x$ must be subtracted, not added.\n* Choice B ($31$): matches $a$ straight to $5$, ignoring the $-3x$ produced by the second distribution, then gets $c = 26$.\n* Choice C ($34$): finds $a = 8$ but computes the constant as $32 - 6 = 26$; distributing $-3$ across $-2$ gives $+6$.\n\n**Test Day Takeaway:** \"Infinitely many solutions\" is a two-part match, coefficients first and then constants; the constant match must use the value of $a$ you just found."
+}

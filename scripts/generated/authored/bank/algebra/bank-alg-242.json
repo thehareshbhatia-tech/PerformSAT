@@ -1,0 +1,58 @@
+{
+ "id": "bank-alg-242",
+ "question": "The graph of line $\\ell$ in the $xy$-plane is shown. A system of two linear equations consists of the equation of line $\\ell$ and the equation $y = cx - 4$, where $c$ is a constant. If the system has no solution, what is the value of $c$?",
+ "diagram": {
+  "type": "linearGraph",
+  "params": {
+   "slope": 2,
+   "yIntercept": 3,
+   "xRange": [
+    -6,
+    6
+   ],
+   "yRange": [
+    -8,
+    10
+   ],
+   "xTickInterval": 2,
+   "yTickInterval": 2,
+   "gridInterval": 1,
+   "showPoints": [
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     5
+    ]
+   ],
+   "label": "line ℓ"
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-2$"
+  },
+  {
+   "id": "B",
+   "text": "$-0.5$"
+  },
+  {
+   "id": "C",
+   "text": "$0.5$"
+  },
+  {
+   "id": "D",
+   "text": "$2$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "slope sign flipped (reads the rise as negative)",
+  "B": "negative reciprocal; the perpendicular slope",
+  "C": "run over rise instead of rise over run"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** No solution means the second line is parallel to $\\ell$, so $c$ equals the slope of $\\ell$. From the marked points $(0, 3)$ and $(1, 5)$ the slope is $2$, so $c = 2$.\n\n**The Full Solution:**\nStep 1: Read two lattice points on $\\ell$: $(0, 3)$ and $(1, 5)$. Slope $= \\frac{5 - 3}{1 - 0} = 2$, and the $y$-intercept is $3$, so $\\ell$ is $y = 2x + 3$.\nStep 2: The line $y = cx - 4$ is parallel to $\\ell$ exactly when $c = 2$.\nStep 3: With $c = 2$ the intercepts are $3$ and $-4$, which differ, so the lines are parallel and distinct and the system has no solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): flips the sign of the slope, as if $\\ell$ fell from left to right; the graph rises.\n* Choice B ($-0.5$): the negative reciprocal, which makes the lines perpendicular; one solution, not none.\n* Choice C ($0.5$): computes run over rise; between the marked points the rise is $2$ for a run of $1$.\n\n**Test Day Takeaway:** \"No solution\" on a graph is a slope-matching question: pull the slope from two clean lattice points and confirm the intercepts differ."
+}

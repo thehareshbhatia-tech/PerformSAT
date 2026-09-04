@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-200",
+  "question": "In the $xy$-plane, the graphs of $y = kx + 3$ and $y = -x + 15$, where $k$ is a constant, intersect at a point whose $y$-coordinate is $-5$. What is the value of $k$?",
+  "correctAnswer": "-2/5",
+  "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**The correct answer is $-\\dfrac{2}{5}$.**\n\n**The Fast Way (~25s):** Use the line without $k$ to find $x$: $-5 = -x + 15$, so $x = 20$. Then $-5 = 20k + 3$ gives $k = -\\dfrac{8}{20} = -\\dfrac{2}{5}$.\n\n**The Full Solution:**\nStep 1: The intersection point lies on $y = -x + 15$ with $y = -5$: $-5 = -x + 15$, so $x = 20$. The point is $(20, -5)$.\nStep 2: That point also lies on $y = kx + 3$: $-5 = 20k + 3$, so $20k = -8$.\nStep 3: $k = -\\dfrac{8}{20} = -\\dfrac{2}{5}$. Check: $-\\dfrac{2}{5}(20) + 3 = -8 + 3 = -5$. $\\checkmark$\n\n**Common Mistakes:** Substituting $y = -5$ into the $k$ equation first and getting stuck with two unknowns; solving $-5 = -x + 15$ as $x = -20$; entering $\\dfrac{2}{5}$ with the sign dropped; entering $-8$ (stopping at $20k = -8$).\n\n**Test Day Takeaway:** When one coordinate of an intersection is given, use the fully known line to recover the other coordinate first. The parameter then falls out of a single substitution."
+}

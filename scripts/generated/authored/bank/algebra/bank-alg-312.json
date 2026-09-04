@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-312",
+  "question": "What is the value of $y$ that satisfies the equation $9y - 4y + 3y = 48$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$8$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "added all three coefficients (9 + 4 + 3 = 16) and divided 48 by 16",
+    "C": "reported the combined coefficient 8 instead of solving",
+    "D": "subtracted both later coefficients (9 - 4 - 3 = 2) and divided 48 by 2"
+  },
+  "explanation": "**SAT Pattern: Combining Like Terms — Solve for the Variable**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Combine the $y$-terms: $9 - 4 + 3 = 8$, so $8y = 48$ and $y = 6$.\n\n**The Full Solution:**\nStep 1: All three terms are like terms (each is a number times $y$), so add their coefficients with their signs: $9 - 4 + 3 = 8$.\nStep 2: The equation becomes $8y = 48$.\nStep 3: Divide both sides by $8$: $y = 6$.\nCheck: $9(6) - 4(6) + 3(6) = 54 - 24 + 18 = 48$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): adds all three coefficients as positives ($9 + 4 + 3 = 16$) and divides $48$ by $16$, ignoring the minus sign on $4y$.\n* Choice C ($8$): reports the combined coefficient $8$ and stops before dividing.\n* Choice D ($24$): subtracts both $4$ and $3$ from $9$ to get $2$, treating the $+3y$ as if it were $-3y$.\n\n**Test Day Takeaway:** Combine like terms by adding coefficients WITH their signs; then one division finishes the problem."
+}

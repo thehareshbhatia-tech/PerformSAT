@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-186",
+  "question": "What value of $w$ is the solution to the equation $w + 23 = 15$?",
+  "correctAnswer": "-8",
+  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**The correct answer is $-8$.**\n\n**The Fast Way (~5s):** Subtract $23$ from both sides: $w = 15 - 23 = -8$.\n\n**The Full Solution:**\nStep 1: The variable has $23$ added to it, so undo the addition by subtracting $23$ from both sides.\nStep 2: $w = 15 - 23 = -8$.\nStep 3: Check: $-8 + 23 = 15$. $\\checkmark$\n\n**Common Mistakes:** Entering $8$ (dropping the negative sign because the answer \"should\" be positive); entering $38$ (adding $23$ instead of subtracting); entering $-38$ (subtracting in the wrong direction).\n\n**Test Day Takeaway:** A one-step equation can have a negative solution. Compute $15 - 23$ carefully and enter the minus sign."
+}

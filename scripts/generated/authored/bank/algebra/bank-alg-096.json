@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-096",
+  "question": "If $p$ is the solution to the equation $3(2p - 7) + 4 = 5(2p - 7) - 10$, what is the value of $2p + 3$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7$"
+    },
+    {
+      "id": "B",
+      "text": "$10$"
+    },
+    {
+      "id": "C",
+      "text": "$13$"
+    },
+    {
+      "id": "D",
+      "text": "$17$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports 2p - 7",
+    "B": "treats 2p as 7, forgetting to add 7 back",
+    "C": "sign slip 2u = 6 gives u = 3"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Treat $2p - 7$ as one unit $u$: $3u + 4 = 5u - 10 \\Rightarrow 14 = 2u \\Rightarrow u = 7$. Then $2p = u + 7 = 14$, so $2p + 3 = 17$.\n\n**The Full Solution:**\nStep 1: Both sides contain the same expression $2p - 7$, so let $u = 2p - 7$: $3u + 4 = 5u - 10$.\nStep 2: Subtract $3u$ and add $10$: $14 = 2u$, so $u = 7$, meaning $2p - 7 = 7$ and $2p = 14$.\nStep 3: $2p + 3 = 14 + 3 = 17$. Check with $p = 7$: left side $3(7) + 4 = 25$, right side $5(7) - 10 = 25$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): reports the value of $2p - 7$ instead of $2p + 3$.\n* Choice B ($10$): treats $2p$ as $7$, forgetting to add the $7$ back before adding $3$.\n* Choice C ($13$): a sign slip, $2u = 6$, gives $u = 3$ and $2p = 10$.\n\n**Test Day Takeaway:** When the same expression appears on both sides, solve for that expression as a single unit, then convert to the expression the question asks for by adjusting the constant."
+}

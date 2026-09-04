@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-036",
+  "question": "In the $xy$-plane, line $u$ has a slope of $-\\frac{2}{5}$. Line $v$ is perpendicular to line $u$. What is the slope of line $v$?",
+  "correctAnswer": "2.5",
+  "explanation": "**SAT Pattern: Perpendicular Slope as Decimal**\n\n**The correct answer is $2.5$.**\n\n**The Fast Way (~5s):** Flip and negate: the negative reciprocal of $-\\frac{2}{5}$ is $\\frac{5}{2} = 2.5$.\n\n**The Full Solution:**\nStep 1: Perpendicular lines (neither vertical) have slopes whose product is $-1$: $-\\frac{2}{5} \\cdot m = -1$.\nStep 2: Solve for $m$: $m = \\frac{-1}{-\\frac{2}{5}} = \\frac{5}{2}$.\nStep 3: As a decimal, $\\frac{5}{2} = 2.5$. Check: $-\\frac{2}{5} \\cdot 2.5 = -1$. $\\checkmark$ (Either $5/2$ or $2.5$ is accepted.)\n\n**Common Mistakes:** Entering $-2.5$ (reciprocal without the sign change); entering $0.4$ (sign change without the reciprocal, $\\frac{2}{5} = 0.4$); entering $-0.4$ (the original slope).\n\n**Test Day Takeaway:** For a fill-in, a fraction and its decimal are both accepted; the risk is the sign, so multiply your answer by the original slope and confirm you get $-1$."
+}

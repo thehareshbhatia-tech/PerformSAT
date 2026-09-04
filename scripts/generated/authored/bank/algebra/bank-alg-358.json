@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-358",
+  "question": "Which of the following describes the solution set of the inequality $-3x + 8 \\leq 2$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x \\leq -2$"
+    },
+    {
+      "id": "B",
+      "text": "$x \\leq 2$"
+    },
+    {
+      "id": "C",
+      "text": "$x \\geq 6$"
+    },
+    {
+      "id": "D",
+      "text": "$x \\geq 2$"
+    }
+  ],
+  "correctAnswer": "D",
+  "distractorNotes": {
+    "A": "divided -6 by 3 instead of -3 and kept the direction",
+    "B": "divided by -3 but did not flip the symbol",
+    "C": "flipped the symbol but never divided by 3"
+  },
+  "explanation": "**SAT Pattern: One-Variable Linear Inequality**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Subtract $8$: $-3x \\leq -6$. Divide by $-3$ and FLIP: $x \\geq 2$.\n\n**The Full Solution:**\nStep 1: Subtract $8$ from both sides: $-3x \\leq -6$.\nStep 2: Divide both sides by $-3$. Dividing by a negative reverses the inequality: $x \\geq 2$.\nStep 3: The solution set is all numbers greater than or equal to $2$.\nCheck: $x = 3$ gives $-9 + 8 = -1 \\leq 2$ (true); $x = 0$ gives $8 \\leq 2$ (false), so values below $2$ are excluded. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x \\leq -2$): divides $-6$ by $3$ rather than $-3$, getting the wrong sign on $2$, and never flips.\n* Choice B ($x \\leq 2$): gets $2$ but keeps the original direction; $x = 0$ would then be a solution, and it is not.\n* Choice C ($x \\geq 6$): flips correctly but forgets to divide $-6$ by $-3$, reading $-3x \\leq -6$ as $x \\geq 6$.\n\n**Test Day Takeaway:** A negative coefficient on $x$ means one flip of the symbol at the division step; test a number afterward to confirm the direction."
+}

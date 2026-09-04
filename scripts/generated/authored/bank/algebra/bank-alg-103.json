@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-103",
+  "question": "What is the solution to the equation $\\frac{x - 2}{3} + \\frac{x + 4}{6} = 4$?",
+  "correctAnswer": "8",
+  "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~15s):** Multiply every term by $6$: $2(x - 2) + (x + 4) = 24 \\Rightarrow 3x = 24 \\Rightarrow x = 8$.\n\n**The Full Solution:**\nStep 1: The least common denominator of $3$ and $6$ is $6$. Multiply both sides by $6$: $6 \\cdot \\frac{x - 2}{3} + 6 \\cdot \\frac{x + 4}{6} = 24$, which is $2(x - 2) + (x + 4) = 24$.\nStep 2: Distribute and combine: $2x - 4 + x + 4 = 24$, so $3x = 24$.\nStep 3: Divide by $3$: $x = 8$. Check: $\\frac{6}{3} + \\frac{12}{6} = 2 + 2 = 4$. $\\checkmark$\n\n**Common Mistakes:** Multiplying only the left side by $6$ and leaving $4$ unchanged, giving $3x = 4$; distributing $2$ to $x$ only, giving $2x - 2 + x + 4 = 24$ and $x = \\frac{22}{3}$; adding the denominators to get $\\frac{2x + 2}{9} = 4$.\n\n**Test Day Takeaway:** Clear fractions by multiplying every term, including the constant on the other side, by the least common denominator, then solve the resulting linear equation."
+}

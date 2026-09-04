@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-158",
+  "question": "$mx + 10y = 3$\n$4x - 5y = 12$\n\nIn the given system of equations, $m$ is a constant. The system has no solution. What is the value of $m$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-8$"
+    },
+    {
+      "id": "B",
+      "text": "$-2$"
+    },
+    {
+      "id": "C",
+      "text": "$2$"
+    },
+    {
+      "id": "D",
+      "text": "$8$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "reports the scale factor -2 instead of m",
+    "C": "drops the sign of the scale factor and reports it",
+    "D": "uses scale factor +2 instead of -2"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice A is correct.**\n\n**The Fast Way (~8s):** From the $y$-coefficients, the first equation is $\\frac{10}{-5} = -2$ times the second. So $m = -2(4) = -8$.\n\n**The Full Solution:**\nStep 1: Parallel lines need proportional coefficients: $\\frac{m}{4} = \\frac{10}{-5}$.\nStep 2: The right side is $-2$, so $m = -2(4) = -8$.\nStep 3: Confirm distinct lines: $-2(12) = -24 \\ne 3$, so the equations are not the same line. No solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-2$): reports the scale factor instead of applying it to $4$.\n* Choice C ($2$): drops the sign of the scale factor and reports it.\n* Choice D ($8$): uses $+2$ as the scale factor, losing the sign from $10 \\div (-5)$.\n\n**Test Day Takeaway:** Compute the ratio from the pair of coefficients you know, sign included, then multiply the remaining known coefficient by that ratio."
+}

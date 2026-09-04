@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-170",
+  "question": "$7x + 15 = 64$\n\nWhat value of $x$ is the solution to the given equation?",
+  "correctAnswer": "7",
+  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~5s):** Subtract $15$: $7x = 49$. Divide by $7$: $x = 7$.\n\n**The Full Solution:**\nStep 1: Subtract $15$ from both sides: $7x = 49$.\nStep 2: Divide both sides by $7$: $x = 7$.\nStep 3: Check: $7(7) + 15 = 49 + 15 = 64$. $\\checkmark$\n\n**Common Mistakes:** Entering $49$ (stopping at $7x = 49$); entering $\\frac{79}{7}$ (adding $15$ instead of subtracting); entering $\\frac{49}{15}$ (dividing by the wrong number).\n\n**Test Day Takeaway:** Isolate the variable term first, then divide by its coefficient. A quick substitution confirms the answer in seconds."
+}

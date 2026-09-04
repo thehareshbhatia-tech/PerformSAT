@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-294",
+ "question": "$|2x - 7| = 3x - 2$\n\nWhich of the following values of $x$ is the solution to the given equation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-5$"
+  },
+  {
+   "id": "B",
+   "text": "$1.8$"
+  },
+  {
+   "id": "C",
+   "text": "$5$"
+  },
+  {
+   "id": "D",
+   "text": "$9$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "extraneous root from the positive case (right side becomes negative)",
+  "C": "sign slip in the positive case, and still fails the check",
+  "D": "forgets to divide by 5 in the negative case"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Case 1: $2x - 7 = 3x - 2$ gives $x = -5$, but then $3x - 2 = -17 < 0$, impossible for an absolute value. Case 2: $2x - 7 = -(3x - 2)$ gives $5x = 9$, $x = 1.8$, and $3(1.8) - 2 = 3.4 = |3.6 - 7|$. $\\checkmark$\n\n**The Full Solution:**\nStep 1: An absolute value is never negative, so any solution must satisfy $3x - 2 \\geq 0$, that is, $x \\geq \\frac{2}{3}$.\nStep 2: Case $2x - 7 = 3x - 2$: $x = -5$, which violates $x \\geq \\frac{2}{3}$; reject it.\nStep 3: Case $2x - 7 = -3x + 2$: $5x = 9$, $x = \\frac{9}{5} = 1.8$. Check: $|3.6 - 7| = 3.4$ and $3(1.8) - 2 = 3.4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): solves the positive case correctly but never checks; the right side is $-17$, so it is extraneous.\n* Choice C ($5$): a sign slip in the positive case; $|3| = 3$ but $3(5) - 2 = 13$, so it fails too.\n* Choice D ($9$): stops at $5x = 9$ without dividing.\n\n**Test Day Takeaway:** When the other side contains $x$, every candidate must be substituted back; a negative right side kills the root."
+}

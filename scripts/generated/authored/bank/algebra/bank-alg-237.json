@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-237",
+  "question": "The expression $(2x + 3)^2$ is equivalent to $4x^2 + kx + 9$, where $k$ is a constant. What is the value of $k$?",
+  "correctAnswer": "12",
+  "explanation": "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~10s):** $(a + b)^2 = a^2 + 2ab + b^2$ with $a = 2x$, $b = 3$: the middle term is $2(2x)(3) = 12x$, so $k = 12$.\n\n**The Full Solution:**\nStep 1: Write the square as a product: $(2x + 3)(2x + 3)$.\nStep 2: Expand: $4x^2 + 6x + 6x + 9 = 4x^2 + 12x + 9$.\nStep 3: Match with $4x^2 + kx + 9$: $k = 12$. Check: the $x^2$-term $4$ and constant $9$ agree. $\\checkmark$\n\n**Common Mistakes:** Entering $6$ (writing only one of the two cross terms); entering $0$ (assuming $(2x + 3)^2 = 4x^2 + 9$); entering $3$ or $9$ (copying a constant).\n\n**Test Day Takeaway:** A squared binomial always has a middle term of $2ab$. Forgetting the doubled cross term is the single most common expansion error on the test."
+}

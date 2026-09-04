@@ -1,0 +1,58 @@
+{
+  "id": "bank-alg-179",
+  "question": "Line $\\ell$ is shown in the $xy$-plane. Line $n$ is perpendicular to line $\\ell$ and passes through the point $(0, -3)$. Which of the following equations defines line $n$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": 0.5,
+      "yIntercept": 2,
+      "xRange": [
+        -6,
+        6
+      ],
+      "yRange": [
+        -4,
+        6
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 1,
+      "showPoints": [
+        [
+          0,
+          2
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "label": "ℓ"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -\\frac{1}{2}x - 3$"
+    },
+    {
+      "id": "B",
+      "text": "$y = -2x - 3$"
+    },
+    {
+      "id": "C",
+      "text": "$y = \\frac{1}{2}x - 3$"
+    },
+    {
+      "id": "D",
+      "text": "$y = 2x - 3$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "negates the slope of ℓ without taking the reciprocal",
+    "C": "uses the same slope as ℓ (a parallel line)",
+    "D": "takes the reciprocal without negating"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** From $(0, 2)$ and $(4, 4)$, line $\\ell$ has slope $\\frac{2}{4} = \\frac{1}{2}$. The perpendicular slope is $-2$, and the line through $(0, -3)$ has $y$-intercept $-3$: $y = -2x - 3$.\n\n**The Full Solution:**\nStep 1: Read the slope of $\\ell$ from the marked points: $\\frac{4 - 2}{4 - 0} = \\frac{1}{2}$.\nStep 2: The slope of a perpendicular line is the negative reciprocal: $-2$.\nStep 3: The point $(0, -3)$ is on the $y$-axis, so it is the $y$-intercept of line $n$. In slope-intercept form, $n$ is $y = -2x - 3$. Check: $\\frac{1}{2} \\cdot (-2) = -1$, and $(0, -3)$ satisfies $y = -2(0) - 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{1}{2}x - 3$): negates the slope of $\\ell$ but forgets the reciprocal.\n* Choice C ($y = \\frac{1}{2}x - 3$): keeps the slope of $\\ell$, producing a parallel line.\n* Choice D ($y = 2x - 3$): takes the reciprocal but forgets the sign change.\n\n**Test Day Takeaway:** Get the graphed slope from two lattice points, flip and negate it, then use the given point. A point with $x = 0$ hands you the intercept for free."
+}

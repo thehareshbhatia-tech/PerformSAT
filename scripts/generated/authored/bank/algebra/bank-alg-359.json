@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-359",
+  "question": "Which inequality represents all values of $x$ that satisfy $3(x - 4) < 7x + 8$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x < -5$"
+    },
+    {
+      "id": "B",
+      "text": "$x > -5$"
+    },
+    {
+      "id": "C",
+      "text": "$x > -3$"
+    },
+    {
+      "id": "D",
+      "text": "$x > -1$"
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "collected as -4x < 20 and forgot to flip when dividing by -4",
+    "C": "did not distribute the 3 to -4 (3x - 4 < 7x + 8)",
+    "D": "combined the constants as 8 - 12 = -4 with the wrong sign"
+  },
+  "explanation": "**SAT Pattern: One-Variable Linear Inequality**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Distribute: $3x - 12 < 7x + 8$. Move $x$ to the right to keep its coefficient positive: $-20 < 4x$, so $x > -5$.\n\n**The Full Solution:**\nStep 1: Distribute the $3$ across BOTH terms: $3x - 12 < 7x + 8$.\nStep 2: Subtract $3x$ from both sides and subtract $8$ from both sides: $-12 - 8 < 7x - 3x$, which is $-20 < 4x$.\nStep 3: Divide by the positive number $4$: $-5 < x$, that is, $x > -5$.\nCheck: $x = 0$ gives $-12 < 8$ (true, and $0 > -5$); $x = -6$ gives $-30 < -34$ (false, and $-6$ is not greater than $-5$). $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x < -5$): collects the terms as $-4x < 20$ and then forgets to flip the symbol when dividing by $-4$.\n* Choice C ($x > -3$): distributes $3$ to $x$ but not to $-4$, working from $3x - 4 < 7x + 8$.\n* Choice D ($x > -1$): mishandles the constants, combining them as $-4$ instead of $-20$.\n\n**Test Day Takeaway:** Move the $x$-terms toward the side with the larger coefficient so you divide by a positive number and never have to flip."
+}

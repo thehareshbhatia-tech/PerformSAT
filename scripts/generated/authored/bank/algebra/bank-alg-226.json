@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-226",
+  "question": "In the $xy$-plane, line $m$ is parallel to the line with equation $y = -4x + 9$ and passes through the point $(0, 6)$. If $(1, y)$ is a point on line $m$, what is the value of $y$?",
+  "correctAnswer": "2",
+  "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~10s):** Line $m$ has slope $-4$ and $y$-intercept $6$, so $y = -4x + 6$. At $x = 1$, $y = 2$.\n\n**The Full Solution:**\nStep 1: Parallel lines share a slope, so line $m$ has slope $-4$.\nStep 2: The point $(0, 6)$ is on the $y$-axis, so the $y$-intercept of $m$ is $6$: $y = -4x + 6$.\nStep 3: Substitute $x = 1$: $y = -4(1) + 6 = 2$. Check: moving one unit right from $(0, 6)$ along a slope of $-4$ lands at $(1, 2)$. $\\checkmark$\n\n**Common Mistakes:** Entering $5$ (using the intercept $9$ of the given line: $-4 + 9$); entering $10$ (using slope $+4$); entering $6$ (forgetting to move from the intercept to $x = 1$).\n\n**Test Day Takeaway:** Borrow only the slope from the given line. The intercept comes from the point the new line passes through."
+}

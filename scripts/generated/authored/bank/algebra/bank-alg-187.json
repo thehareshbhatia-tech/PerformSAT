@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-187",
+  "question": "What value of $k$ is the solution to the equation $\\dfrac{k}{8} = 12$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$1.5$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$20$"
+    },
+    {
+      "id": "D",
+      "text": "$96$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "divides 12 by 8 instead of multiplying",
+    "B": "subtracts 8 from 12",
+    "C": "adds 8 to 12"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** $k$ is divided by $8$, so multiply both sides by $8$: $k = 96$.\n\n**The Full Solution:**\nStep 1: The equation $\\dfrac{k}{8} = 12$ says $k$ divided by $8$ equals $12$.\nStep 2: Undo the division by multiplying both sides by $8$: $k = 12 \\cdot 8 = 96$.\nStep 3: Check: $\\dfrac{96}{8} = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.5$): divides $12$ by $8$, applying the operation a second time instead of undoing it.\n* Choice B ($4$): subtracts $8$ from $12$, treating the fraction bar like a minus sign.\n* Choice C ($20$): adds $8$ to $12$, treating the fraction bar like a plus sign.\n\n**Test Day Takeaway:** A fraction bar under the variable is a division. Undo it by multiplying, and expect the result to be larger than the right side."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-168",
+  "question": "In the $xy$-plane, a line with slope $-3$ passes through the points $(2k, 5)$ and $(k + 3, -1)$, where $k$ is a constant. What is the value of $k$?",
+  "correctAnswer": "1",
+  "explanation": "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $1$.**\n\n**The Fast Way (~12s):** Set up the slope: $\\frac{-1 - 5}{(k + 3) - 2k} = -3$, so $\\frac{-6}{3 - k} = -3$. Then $3 - k = 2$ and $k = 1$.\n\n**The Full Solution:**\nStep 1: Write the slope with the unknown: $\\frac{-1 - 5}{(k + 3) - 2k} = \\frac{-6}{3 - k}$.\nStep 2: Set it equal to $-3$: $\\frac{-6}{3 - k} = -3$. Multiply both sides by $3 - k$: $-6 = -3(3 - k) = -9 + 3k$, so $3k = 3$ and $k = 1$.\nStep 3: Check: the points become $(2, 5)$ and $(4, -1)$, and $\\frac{-1 - 5}{4 - 2} = \\frac{-6}{2} = -3$. $\\checkmark$\n\n**Common Mistakes:** Entering $5$ (writing the run as $2k - (k + 3) = k - 3$ but keeping the rise as $-6$, an inconsistent order, giving $k - 3 = 2$); entering $-1$ (sign slip when distributing $-3$ over $3 - k$); entering $2$ (stopping at $3 - k = 2$ and reporting the $2$).\n\n**Test Day Takeaway:** With a parameter in the coordinates, write rise and run in the same order, set the ratio equal to the given slope, and clear the denominator. Always substitute back to confirm the slope."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-300",
+ "question": "$4(2x - 3) = 6x + 9 - x$\n\nIf $x$ satisfies the given equation, what is the value of $x$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-7$"
+  },
+  {
+   "id": "B",
+   "text": "$-1$"
+  },
+  {
+   "id": "C",
+   "text": "$7$"
+  },
+  {
+   "id": "D",
+   "text": "$21$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "sign error: 3x = -21",
+  "B": "collects constants as 9 - 12 = -3 and divides by 3",
+  "D": "stops at 3x = 21"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Linear Equation with Variables on Both Sides**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Left: $8x - 12$. Right: $5x + 9$. Then $3x = 21$ and $x = 7$.\n\n**The Full Solution:**\nStep 1: Distribute on the left: $8x - 12$. Combine on the right: $6x - x + 9 = 5x + 9$.\nStep 2: Subtract $5x$ and add $12$: $3x = 21$.\nStep 3: $x = 7$. Check: $4(14 - 3) = 44$ and $42 + 9 - 7 = 44$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): flips the sign of the combined constant, solving $3x = -21$; moving $-12$ across the equals sign makes it $+12$.\n* Choice B ($-1$): computes $9 - 12 = -3$ and divides by $3$.\n* Choice D ($21$): stops at $3x = 21$ without dividing.\n\n**Test Day Takeaway:** Simplify each side completely (distribute, combine like terms) before moving anything across the equals sign."
+}

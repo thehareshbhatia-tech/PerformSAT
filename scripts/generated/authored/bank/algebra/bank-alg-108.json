@@ -1,0 +1,29 @@
+{
+ "id": "bank-alg-108",
+ "question": "Line $m$ is graphed in the $xy$-plane and passes through the points $(-4, 1)$ and $(4, 7)$. What is the slope of line $m$?",
+ "diagram": {
+  "type": "linearLine",
+  "params": {
+   "points": [
+    [
+     -4,
+     1
+    ],
+    [
+     4,
+     7
+    ]
+   ],
+   "xRange": [
+    -6,
+    8
+   ],
+   "yRange": [
+    -6,
+    8
+   ]
+  }
+ },
+ "correctAnswer": "3/4",
+ "explanation": "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $\\frac{3}{4}$.**\n\n**The Fast Way (~10s):** Slope $= \\frac{7 - 1}{4 - (-4)} = \\frac{6}{8} = \\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: Slope is rise over run between any two points: $m = \\frac{y_2 - y_1}{x_2 - x_1}$.\nStep 2: Using $(-4, 1)$ and $(4, 7)$: rise $= 7 - 1 = 6$, run $= 4 - (-4) = 8$.\nStep 3: $m = \\frac{6}{8} = \\frac{3}{4}$. Check on the graph: moving right $8$ and up $6$ from $(-4, 1)$ lands on $(4, 7)$. $\\checkmark$\n\n**Common Mistakes:** Computing the run as $4 - 4 = 0$ by dropping the sign of $-4$ (an undefined slope for a clearly non-vertical line is the tell); inverting to $\\frac{8}{6}$ (run over rise); subtracting in mixed order to get $-\\frac{3}{4}$.\n\n**Test Day Takeaway:** Subtract the coordinates in the same order for both rise and run, treating subtraction of a negative as addition, then reduce the fraction."
+}

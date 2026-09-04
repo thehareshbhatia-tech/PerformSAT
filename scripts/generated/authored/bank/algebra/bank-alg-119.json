@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-119",
+  "question": "The solution to the system of equations $3x - y = 7$ and $x + 2y = 14$ is $(x, y)$. What is the value of $4x + y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$5$"
+    },
+    {
+      "id": "C",
+      "text": "$9$"
+    },
+    {
+      "id": "D",
+      "text": "$21$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports x",
+    "B": "reports y",
+    "C": "reports x + y"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: System of Equations — Elimination**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Add the two equations: $(3x - y) + (x + 2y) = 7 + 14$, which is exactly $4x + y = 21$.\n\n**The Full Solution:**\nStep 1: Notice the target $4x + y$ is the sum of the left sides: $3x + x = 4x$ and $-y + 2y = y$.\nStep 2: Add the equations: $4x + y = 7 + 14 = 21$.\nStep 3: Check by solving: from the first equation $y = 3x - 7$; substituting, $x + 6x - 14 = 14$, so $x = 4$ and $y = 5$. Then $4(4) + 5 = 21$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): reports $x$ after solving the system, not the requested expression.\n* Choice B ($5$): reports $y$.\n* Choice C ($9$): reports $x + y$ instead of $4x + y$.\n\n**Test Day Takeaway:** Before solving a system, compare the requested expression to the sum or difference of the equations; often one combination gives the answer in a single step."
+}

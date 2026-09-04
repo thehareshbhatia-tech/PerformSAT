@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-325",
+  "question": "The function $f$ is defined by $f(x) = x^2 + 4x$. If $f(a) = 21$ and $a > 0$, what is the value of $a$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-7$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$7$"
+    },
+    {
+      "id": "D",
+      "text": "$21$"
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "the negative root, excluded by a > 0",
+    "C": "sign slip in the factoring: (a - 7)(a + 3)",
+    "D": "reported the given output as the input"
+  },
+  "explanation": "**SAT Pattern: Solve for Input from Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $a^2 + 4a = 21$ becomes $a^2 + 4a - 21 = 0$, which factors as $(a + 7)(a - 3) = 0$. Since $a > 0$, $a = 3$.\n\n**The Full Solution:**\nStep 1: Substitute $a$ for $x$ and set the output to $21$: $a^2 + 4a = 21$.\nStep 2: Move everything to one side: $a^2 + 4a - 21 = 0$. Look for two numbers with product $-21$ and sum $4$: they are $7$ and $-3$, so $(a + 7)(a - 3) = 0$.\nStep 3: The solutions are $a = -7$ and $a = 3$. The condition $a > 0$ selects $a = 3$.\nCheck: $f(3) = 9 + 12 = 21$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): is the other root of the quadratic; it satisfies $f(a) = 21$ but violates $a > 0$.\n* Choice C ($7$): comes from factoring as $(a - 7)(a + 3)$, which would require a sum of $-4$, not $4$.\n* Choice D ($21$): repeats the output as the input; $f(21) = 525$, not $21$.\n\n**Test Day Takeaway:** When solving for an input of a quadratic gives two roots, the stem's sign condition ($a > 0$) is there to pick one; always apply it."
+}

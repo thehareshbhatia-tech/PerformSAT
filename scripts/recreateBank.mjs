@@ -92,7 +92,17 @@ const kebab = sectionSlug;
 const patternTitleOf = expl => { const m = String(expl || '').match(/\*\*SAT Pattern:\s*([^*]+?)\s*\*\*/); return m ? m[1] : null; };
 const wordCount = s => String(s || '').replace(/\$[^$]*\$/g, 'M').split(/\s+/).filter(Boolean).length;
 const dollarBalanced = s => ((String(s || '').replace(/\\\$/g, '').match(/\$/g) || []).length % 2) === 0;
-const numericOf = t => { const s = String(t ?? '').replace(/\\[a-zA-Z]+/g, '').replace(/[$,{}\s]/g, ''); if (!/^-?\d*\.?\d+$/.test(s)) return NaN; return parseFloat(s); };
+const numericOf = t => {
+  let s = String(t ?? '').replace(/\$/g, '').replace(/\\,/g, '').replace(/\{,\}/g, '').replace(/,/g, '').trim();
+  // \frac{a}{b}, -\frac{a}{b}, \dfrac, and plain a/b
+  const fr = s.match(/^(-?)\\d?frac\{(-?\d*\.?\d+)\}\{(-?\d*\.?\d+)\}$/);
+  if (fr) return (fr[1] === '-' ? -1 : 1) * parseFloat(fr[2]) / parseFloat(fr[3]);
+  const sl = s.match(/^(-?\d*\.?\d+)\/(\d*\.?\d+)$/);
+  if (sl) return parseFloat(sl[1]) / parseFloat(sl[2]);
+  s = s.replace(/\\[a-zA-Z]+/g, '').replace(/[{}\s]/g, '');
+  if (!/^-?\d*\.?\d+$/.test(s)) return NaN;
+  return parseFloat(s);
+};
 const median = a => { if (!a.length) return null; const b = [...a].sort((x, y) => x - y); return b[Math.floor(b.length / 2)]; };
 
 function fileIdOf(kind, meta) {
@@ -453,7 +463,19 @@ function mergeItem(kind, oldQ, a) {
 
 const deepEq = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
-async function assemble(names, { dry = false } = {}) {
+function chunkAllowList(chunkArg) {
+  if (!chunkArg) return null;
+  const allow = new Set();
+  for (const c of String(chunkArg).split(',')) {
+    const p = path.join(WORK, 'chunks', `${c.trim()}.json`);
+    if (!fs.existsSync(p)) throw new Error(`no chunk ${c}`);
+    for (const r of JSON.parse(fs.readFileSync(p, 'utf8')).items) allow.add(`${r.source}/${r.fileId}`);
+  }
+  return allow;
+}
+
+async function assemble(names, { dry = false, chunks = null } = {}) {
+  const allow = chunkAllowList(chunks);
   for (const name of names) {
     const { src, items } = await loadSource(name);
     const file = path.join(ROOT, src.file);
@@ -471,6 +493,7 @@ async function assemble(names, { dry = false } = {}) {
       const f = frozenOf(src.kind, it, name);
       const got = readAuthored(name, fileIdOf(src.kind, f));
       if (!got || got.error) { plan.push({ span, text: null }); return; }
+      if (allow && !allow.has(`${name}/${fileIdOf(src.kind, f)}`)) { plan.push({ span, text: null }); return; }
       const ctx = { numeric: 0, ascending: 0, figures: 0, stems: [] };
       const { errs } = checkItem({ ...f, fileId: fileIdOf(src.kind, f), source: name, kind: src.kind }, got.data, ctx);
       if (errs.length) throw new Error(`${name}/${fileIdOf(src.kind, f)}: authored JSON fails check — run check first (${errs[0]})`);
@@ -570,7 +593,12 @@ async function solvesheet(chunkId) {
   switch (cmd) {
     case 'manifest': await manifest(names || Object.keys(SOURCES)); break;
     case 'check': await check({ chunk: args.chunk, source: args.source, all: args.all }); break;
-    case 'assemble': if (!names) throw new Error('need --source or --all'); await assemble(names, { dry: !!args.dry }); break;
+    case 'assemble': {
+      let n = names;
+      if (!n && args.chunk) n = [...new Set(String(args.chunk).split(',').map(c => c.trim().replace(/-\d+$/, '')))];
+      if (!n) throw new Error('need --source, --all, or --chunk');
+      await assemble(n, { dry: !!args.dry, chunks: args.chunk || null }); break;
+    }
     case 'verify': await verify(names || Object.keys(SOURCES)); break;
     case 'status': await status(); break;
     case 'solvesheet': await solvesheet(args.chunk); break;

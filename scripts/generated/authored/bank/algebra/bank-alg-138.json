@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-138",
+  "question": "The function $f$ is defined by $f(x) = k \\cdot 2^{x}$, where $k$ is a constant. If $f(3) = 56$, what is the value of $f(6)$?",
+  "correctAnswer": "448",
+  "explanation": "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $448$.**\n\n**The Fast Way (~10s):** Going from $x = 3$ to $x = 6$ multiplies $2^{x}$ by $2^3 = 8$, so $f(6) = 8 \\cdot f(3) = 8(56) = 448$.\n\n**The Full Solution:**\nStep 1: Use $f(3) = 56$ to find $k$: $k \\cdot 2^3 = 8k = 56$, so $k = 7$.\nStep 2: Write the rule: $f(x) = 7 \\cdot 2^{x}$.\nStep 3: Evaluate: $f(6) = 7 \\cdot 2^6 = 7 \\cdot 64 = 448$. Check via the shortcut: $56 \\cdot 8 = 448$. $\\checkmark$\n\n**Common Mistakes:** Entering $112$ (assuming doubling the input doubles the output); entering $84$ (finding $k = 7$ but then treating $2^{6}$ as $2 \\cdot 6 = 12$, computing $7 \\cdot 12$); entering $64$ (reporting $2^6$ and forgetting $k$).\n\n**Test Day Takeaway:** For $k \\cdot b^{x}$, one known output determines $k$. Or skip $k$ entirely: each step of $+1$ in $x$ multiplies the output by $b$, so three steps multiply by $b^3$."
+}

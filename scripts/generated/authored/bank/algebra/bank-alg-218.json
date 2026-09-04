@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-218",
+  "question": "In the $xy$-plane, line $p$ is perpendicular to the line with equation $y = 6x + 1$. What is the slope of line $p$?",
+  "correctAnswer": "-1/6",
+  "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is $-\\dfrac{1}{6}$.**\n\n**The Fast Way (~5s):** The given slope is $6$; its negative reciprocal is $-\\dfrac{1}{6}$.\n\n**The Full Solution:**\nStep 1: In $y = 6x + 1$ the slope is the coefficient of $x$, which is $6$. The intercept $1$ plays no role.\nStep 2: A perpendicular line has slope equal to the negative reciprocal: $-\\dfrac{1}{6}$.\nStep 3: Check: $6 \\cdot \\left(-\\dfrac{1}{6}\\right) = -1$. $\\checkmark$\n\n**Common Mistakes:** Entering $-6$ (negating without flipping); entering $\\dfrac{1}{6}$ (flipping without negating); entering $-1$ (using the intercept).\n\n**Test Day Takeaway:** Only the slope matters for perpendicularity. Write $6$ as $\\dfrac{6}{1}$, flip to $\\dfrac{1}{6}$, then attach the negative sign."
+}

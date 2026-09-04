@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-131",
+  "question": "The function $f$ is defined by $f(x) = 6x - 9$. What is the value of $f(5)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-24$"
+    },
+    {
+      "id": "B",
+      "text": "$2$"
+    },
+    {
+      "id": "C",
+      "text": "$21$"
+    },
+    {
+      "id": "D",
+      "text": "$39$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes 6(5 - 9) instead of 6(5) - 9",
+    "B": "adds instead of multiplies: 6 + 5 - 9",
+    "D": "adds 9 instead of subtracting"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Replace $x$ with $5$: $6(5) - 9 = 30 - 9 = 21$.\n\n**The Full Solution:**\nStep 1: $f(5)$ means \"the output of $f$ when the input is $5$.\" Substitute $5$ for every $x$ in the rule.\nStep 2: $f(5) = 6(5) - 9$. Multiply first: $6(5) = 30$.\nStep 3: Subtract: $30 - 9 = 21$. Check the order of operations: multiplication before subtraction. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-24$): subtracts inside first, computing $6(5 - 9) = 6(-4)$.\n* Choice B ($2$): adds $6 + 5$ instead of multiplying, then subtracts $9$.\n* Choice D ($39$): adds $9$ instead of subtracting it.\n\n**Test Day Takeaway:** $f(5)$ is a substitution, not an equation to solve. Put the input in parentheses where $x$ was, then follow the order of operations."
+}

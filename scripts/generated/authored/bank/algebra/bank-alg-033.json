@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-033",
+  "question": "Line $\\ell$ passes through the points $(-2, 9)$ and $(4, -6)$ in the $xy$-plane. Which of the following equations defines a line that is parallel to line $\\ell$ and has a $y$-intercept of $(0, 5)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -\\frac{5}{2}x + 4$"
+    },
+    {
+      "id": "B",
+      "text": "$y = -\\frac{2}{5}x + 5$"
+    },
+    {
+      "id": "C",
+      "text": "$y = \\frac{5}{2}x + 5$"
+    },
+    {
+      "id": "D",
+      "text": "$y = -\\frac{5}{2}x + 5$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "the equation of line l itself (intercept 4), not the required intercept 5",
+    "B": "inverts the slope",
+    "C": "drops the negative sign on the slope"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Parallel with Specified Intercept**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Slope of $\\ell$: $\\frac{-6 - 9}{4 - (-2)} = \\frac{-15}{6} = -\\frac{5}{2}$. A parallel line with $y$-intercept $5$ is $y = -\\frac{5}{2}x + 5$.\n\n**The Full Solution:**\nStep 1: Slope of $\\ell$: $m = \\frac{-6 - 9}{4 - (-2)} = \\frac{-15}{6} = -\\frac{5}{2}$.\nStep 2: A parallel line has the same slope, and the $y$-intercept is given directly as $(0, 5)$, so $b = 5$.\nStep 3: The line is $y = -\\frac{5}{2}x + 5$. Check that it is not $\\ell$ itself: $\\ell$ has intercept $9 - (-\\frac{5}{2})(-2) = 4$, so the two lines are distinct and parallel. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{5}{2}x + 4$): is line $\\ell$ itself; it has the right slope but the wrong intercept.\n* Choice B ($y = -\\frac{2}{5}x + 5$): inverts the slope, dividing the change in $x$ by the change in $y$.\n* Choice C ($y = \\frac{5}{2}x + 5$): drops the negative sign even though $\\ell$ falls from left to right.\n\n**Test Day Takeaway:** When the intercept is given, the only work is the slope; compute it from the two points with signs and reuse it unchanged."
+}
