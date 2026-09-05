@@ -1,0 +1,94 @@
+{
+  "id": "bank-ps-135",
+  "question": "The scatterplot shows the width $x$, in millimeters, and the mass $y$, in grams, of each of $11$ crab shells. The line of best fit is $\\hat{y} = 1.8x - 30$. Which of the following is the best interpretation of the slope of the line of best fit in this context?",
+  "diagram": {
+    "type": "scatterplot",
+    "params": {
+      "points": [
+        [
+          32,
+          30
+        ],
+        [
+          38,
+          36
+        ],
+        [
+          44,
+          52
+        ],
+        [
+          45,
+          50
+        ],
+        [
+          50,
+          58
+        ],
+        [
+          55,
+          72
+        ],
+        [
+          60,
+          74
+        ],
+        [
+          66,
+          92
+        ],
+        [
+          72,
+          98
+        ],
+        [
+          78,
+          108
+        ],
+        [
+          80,
+          116
+        ]
+      ],
+      "xMin": 30,
+      "xMax": 80,
+      "yMin": 0,
+      "yMax": 120,
+      "xGridStep": 5,
+      "yGridStep": 10,
+      "xLabelStep": 10,
+      "yLabelStep": 20,
+      "xLabel": "Width (mm)",
+      "yLabel": "Mass (g)",
+      "bestFitLine": {
+        "slope": 1.8,
+        "intercept": -30
+      }
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "For every increase of $1$ gram in mass, the predicted width increases by $1.8$ millimeters."
+    },
+    {
+      "id": "B",
+      "text": "The predicted mass of a shell with a width of $0$ millimeters is $1.8$ grams."
+    },
+    {
+      "id": "C",
+      "text": "The mass of each shell is predicted to be $1.8$ times its width."
+    },
+    {
+      "id": "D",
+      "text": "For every increase of $1$ millimeter in width, the predicted mass increases by $1.8$ grams."
+    }
+  ],
+  "distractorNotes": {
+    "A": "swaps the variables; the slope is grams per millimeter, not millimeters per gram",
+    "B": "describes the y-intercept, and the intercept here is -30, not 1.8",
+    "C": "ignores the intercept; the model is 1.8x - 30, not 1.8x"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** The slope is $\\dfrac{\\text{change in } \\hat{y}}{\\text{change in } x} = 1.8$ grams per millimeter: each additional millimeter of width predicts $1.8$ more grams of mass.\n\n**The Full Solution:**\nStep 1: In $\\hat{y} = mx + b$, the slope $m$ is the change in the predicted $y$ for each $1$-unit increase in $x$.\nStep 2: Here $x$ is width in millimeters and $y$ is mass in grams, so $m = 1.8$ means $1.8$ grams of predicted mass per $1$ millimeter of width.\nStep 3: Check with the equation: $x = 50$ gives $\\hat{y} = 60$, and $x = 51$ gives $\\hat{y} = 61.8$, an increase of exactly $1.8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: Swaps the variables; a change of $1$ gram corresponds to about $\\frac{1}{1.8} \\approx 0.56$ millimeters, not $1.8$.\n* Choice B: Describes the $y$-intercept, the predicted value at $x = 0$, and that intercept is $-30$, not $1.8$.\n* Choice C: Ignores the intercept; the predicted mass is $1.8x - 30$, so it is not simply $1.8$ times the width.\n\n**Test Day Takeaway:** Slope means \"units of $y$ per one unit of $x$\"; the intercept is the predicted $y$ when $x = 0$. Match the direction of the variables before choosing."
+}

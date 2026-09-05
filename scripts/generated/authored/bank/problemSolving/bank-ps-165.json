@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-165",
+  "question": "The mean of six numbers is $31$. Five of the numbers are $27$, $30$, $33$, $35$, and $40$. What is the sixth number?",
+  "correctAnswer": "21",
+  "explanation": "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**The correct answer is $21$.**\n\n**The Fast Way (~10s):** Total $= 6(31) = 186$; the five known numbers sum to $165$; the sixth is $186 - 165 = 21$.\n\n**The Full Solution:**\nStep 1: The sum of all six numbers is $6 \\times 31 = 186$.\nStep 2: Add the five given numbers: $27 + 30 + 33 + 35 + 40 = 165$.\nStep 3: Sixth number $= 186 - 165 = 21$. Check: $\\frac{165 + 21}{6} = \\frac{186}{6} = 31$. $\\checkmark$\n\n**Common Mistakes:** Using $5 \\times 31 = 155$ as the total, which gives $155 - 165 = -10$; answering the mean of the five known numbers, $33$; assuming the sixth number must equal the mean, $31$.\n\n**Test Day Takeaway:** Multiply the mean by the full count (including the unknown) to get the total, then subtract the known values."
+}

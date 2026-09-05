@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-162",
+  "question": "The ratio of $a$ to $b$ is $3 : 4$, and the ratio of $b$ to $c$ is $6 : 5$. If $a + c = 152$, what is the value of $b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$72$"
+    },
+    {
+      "id": "B",
+      "text": "$76$"
+    },
+    {
+      "id": "C",
+      "text": "$80$"
+    },
+    {
+      "id": "D",
+      "text": "$96$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports a (9 parts x 8) instead of b",
+    "B": "chains the ratios as 3 : 4 : 5 without matching b; then a + c = 8 parts gives 19 per part and b = 4(19) = 76",
+    "C": "reports c (10 parts x 8) instead of b"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Proportion / Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Make $b$ match: $a : b = 9 : 12$ and $b : c = 12 : 10$, so $a : b : c = 9 : 12 : 10$. Then $a + c = 19$ parts $= 152$, one part is $8$, and $b = 12(8) = 96$.\n\n**The Full Solution:**\nStep 1: $b$ is $4$ in the first ratio and $6$ in the second; the least common multiple is $12$. Scale $3 : 4$ by $3$ to get $9 : 12$, and $6 : 5$ by $2$ to get $12 : 10$.\nStep 2: Let one part be $k$: $a = 9k$, $b = 12k$, $c = 10k$. Then $a + c = 19k = 152$, so $k = 8$.\nStep 3: $b = 12k = 96$. Check: $a = 72$ and $c = 80$ give $72 + 80 = 152$. $\\checkmark$ Also $72 : 96 = 3 : 4$ and $96 : 80 = 6 : 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($72$): This is $a = 9k$, the wrong variable.\n* Choice B ($76$): Chains the ratios as $3 : 4 : 5$ without matching $b$; then $a + c = 8$ parts gives $19$ per part and $b = 4(19) = 76$, but $4 : 5$ is not the given ratio of $b$ to $c$.\n* Choice C ($80$): This is $c = 10k$, the wrong variable.\n\n**Test Day Takeaway:** Two ratios that share a variable must be rescaled so that variable has the same number in both before combining; then translate the given sum into parts."
+}

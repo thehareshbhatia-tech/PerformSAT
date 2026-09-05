@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-154",
+  "question": "Positive numbers $x$, $y$, and $z$ satisfy $x = 1.5(y + z)$, and $z$ is $25\\%$ of $y$. What percent of $y$ is $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$150\\%$"
+    },
+    {
+      "id": "B",
+      "text": "$187.5\\%$"
+    },
+    {
+      "id": "C",
+      "text": "$337.5\\%$"
+    },
+    {
+      "id": "D",
+      "text": "$750\\%$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "drops z entirely and uses x = 1.5y",
+    "C": "misreads 'z is 25% of y' as z = 1.25y, giving x = 1.5(2.25y)",
+    "D": "expresses x as a percent of z instead of y (1.875 / 0.25)"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $z = 0.25y$, so $y + z = 1.25y$ and $x = 1.5(1.25y) = 1.875y$, which is $187.5\\%$ of $y$.\n\n**The Full Solution:**\nStep 1: Translate the percent: $z = 0.25y$.\nStep 2: Substitute into the first equation: $x = 1.5(y + 0.25y) = 1.5(1.25y) = 1.875y$.\nStep 3: As a percent, $1.875 = 187.5\\%$. Check with $y = 100$: $z = 25$, $x = 1.5(125) = 187.5$, and $187.5$ is $187.5\\%$ of $100$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($150\\%$): Drops $z$ and uses $x = 1.5y$; the $25\\%$ contribution of $z$ is lost.\n* Choice C ($337.5\\%$): Misreads \"$z$ is $25\\%$ of $y$\" as \"$z$ is $25\\%$ more than $y$,\" using $z = 1.25y$ and $x = 1.5(2.25y)$.\n* Choice D ($750\\%$): Expresses $x$ as a percent of $z$ rather than of $y$: $\\frac{1.875y}{0.25y} = 7.5$.\n\n**Test Day Takeaway:** Write every relationship as a multiple of one variable, then read \"what percent of $y$\" as the coefficient of $y$ times $100$; plugging in $y = 100$ is a fast check."
+}

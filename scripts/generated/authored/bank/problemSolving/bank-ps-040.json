@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-040",
+  "question": "A data set has a range of $36$. If the maximum value of the data set is doubled and the minimum value is unchanged, the range of the new data set is $84$. What is the maximum value of the original data set?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$12$"
+    },
+    {
+      "id": "B",
+      "text": "$42$"
+    },
+    {
+      "id": "C",
+      "text": "$48$"
+    },
+    {
+      "id": "D",
+      "text": "$96$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the minimum value instead of the maximum.",
+    "B": "halves the new range, $\\frac{84}{2}$, as if doubling the maximum doubled the range.",
+    "D": "reports the doubled maximum, $2M$, instead of the original maximum."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Algebra from Range Constraints**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Doubling the maximum adds one more copy of it to the range: $84 - 36 = 48$, so the maximum is $48$.\n\n**The Full Solution:**\nStep 1: Let $M$ be the maximum and $m$ the minimum. Range: $M - m = 36$.\nStep 2: After doubling the maximum: $2M - m = 84$. Subtract the first equation from the second: $(2M - m) - (M - m) = 84 - 36$, so $M = 48$.\nStep 3: Then $m = 48 - 36 = 12$. Check: $2(48) - 12 = 96 - 12 = 84$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): reports the minimum value instead of the maximum.\n* Choice B ($42$): halves the new range, $\\frac{84}{2}$, as if doubling the maximum doubled the range.\n* Choice D ($96$): reports the doubled maximum, $2M$, instead of the original maximum.\n\n**Test Day Takeaway:** Write the range as $M - m$ for each situation and subtract the equations; the unchanged minimum cancels, leaving the maximum."
+}

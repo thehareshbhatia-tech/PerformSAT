@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-157",
+  "question": "For what value of $w$ is the proportion $\\dfrac{14}{w} = \\dfrac{35}{45}$ true?",
+  "correctAnswer": "18",
+  "explanation": "**SAT Pattern: Proportion / Ratio**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~10s):** Simplify the right side to $\\frac{7}{9}$; since $14 = 2(7)$, $w = 2(9) = 18$.\n\n**The Full Solution:**\nStep 1: Cross-multiply: $14 \\times 45 = 35w$, so $630 = 35w$.\nStep 2: Divide both sides by $35$: $w = \\frac{630}{35} = 18$.\nStep 3: Check: $\\frac{14}{18} = \\frac{7}{9}$ and $\\frac{35}{45} = \\frac{7}{9}$. $\\checkmark$\n\n**Common Mistakes:** Cross-multiplying the wrong pair, $14 \\times 35 = 45w$, which gives $w \\approx 10.89$; simplifying $\\frac{35}{45}$ to $\\frac{7}{9}$ and answering $9$ without scaling up to match $14$; reasoning additively ($45 - 35 = 10$, so $w = 14 + 10 = 24$).\n\n**Test Day Takeaway:** In a proportion, the products of the diagonals are equal; or reduce one side and scale it to match the known numerator."
+}

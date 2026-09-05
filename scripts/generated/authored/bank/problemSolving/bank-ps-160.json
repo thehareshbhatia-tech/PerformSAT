@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-160",
+  "question": "On a blueprint, a length of $2$ centimeters represents an actual length of $5$ meters. A wall is $11$ centimeters long on the blueprint. What is the actual length of the wall, in meters?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4.4$"
+    },
+    {
+      "id": "B",
+      "text": "$22$"
+    },
+    {
+      "id": "C",
+      "text": "$27.5$"
+    },
+    {
+      "id": "D",
+      "text": "$55$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "inverts the scale, 11 x 2/5",
+    "B": "multiplies 11 by 2, the blueprint side of the scale",
+    "D": "multiplies 11 by 5 without dividing by 2"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Proportion / Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Each centimeter represents $\\frac{5}{2} = 2.5$ meters, so $11$ centimeters represents $11 \\times 2.5 = 27.5$ meters.\n\n**The Full Solution:**\nStep 1: Set up the proportion $\\frac{2 \\text{ cm}}{5 \\text{ m}} = \\frac{11 \\text{ cm}}{L \\text{ m}}$.\nStep 2: Cross-multiply: $2L = 55$, so $L = 27.5$.\nStep 3: Check: $27.5 \\div 11 = 2.5$ meters per centimeter, matching $5 \\div 2 = 2.5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.4$): Inverts the scale, computing $11 \\times \\frac{2}{5}$; a blueprint shrinks reality, so the actual length must be the larger number.\n* Choice B ($22$): Multiplies $11$ by $2$, the blueprint side of the scale, instead of converting to meters.\n* Choice D ($55$): Multiplies by $5$ but never divides by $2$; the scale is $5$ meters per $2$ centimeters, not per $1$.\n\n**Test Day Takeaway:** Convert a scale to \"actual units per one drawing unit\" before multiplying, and confirm the direction (drawing to actual should enlarge)."
+}

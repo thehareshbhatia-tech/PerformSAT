@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-130",
+  "question": "A data set of $15$ values has a mean of $52$ and a median of $52$. The least value in the data set is decreased by $30$, the greatest value is increased by $45$, and no other values change. What are the mean and the median of the resulting data set?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Mean $53$, median $52$"
+    },
+    {
+      "id": "B",
+      "text": "Mean $53$, median $53$"
+    },
+    {
+      "id": "C",
+      "text": "Mean $52$, median $52$"
+    },
+    {
+      "id": "D",
+      "text": "Mean $67$, median $52$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "assumes the median moves with the mean, but only the two extremes changed",
+    "C": "assumes the two changes cancel; they net to +15, not 0",
+    "D": "adds the net change 15 to the mean without dividing by 15"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Outlier Effect**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The sum changes by $-30 + 45 = +15$, spread over $15$ values, so the mean rises by $1$, to $53$. The least value is still the least and the greatest is still the greatest, so the middle value is untouched: the median stays $52$.\n\n**The Full Solution:**\nStep 1: Original sum $= 15 \\times 52 = 780$. New sum $= 780 - 30 + 45 = 795$. New mean $= \\frac{795}{15} = 53$.\nStep 2: With $15$ values, the median is the 8th value in order. Decreasing the least value keeps it the least, and increasing the greatest keeps it the greatest, so the order of the list and its 8th value are unchanged: the median is still $52$.\nStep 3: Check: the mean moved by $\\frac{+15}{15} = +1$, from $52$ to $53$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (mean $53$, median $53$): Assumes the median drifts with the mean; but only the two end values changed, and the 8th value never moved.\n* Choice C (mean $52$, median $52$): Assumes the decrease and increase cancel; they net to $+15$, not $0$.\n* Choice D (mean $67$, median $52$): Adds the net change of $15$ directly to the mean instead of dividing it by the $15$ values.\n\n**Test Day Takeaway:** Changing the extremes alters the mean by (net change) $\\div n$ and leaves the median alone as long as the extremes stay the extremes."
+}

@@ -1,0 +1,67 @@
+{
+  "id": "bank-ps-132",
+  "question": "The scatterplot shows the height $y$, in centimeters, of each of $10$ seedlings $x$ weeks after planting, along with the line of best fit $\\hat{y} = 2.5x + 4$. According to the line of best fit, what is the predicted height, in centimeters, of a seedling $8$ weeks after planting?",
+  "diagram": {
+    "type": "scatterplot",
+    "params": {
+      "points": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          12
+        ],
+        [
+          4,
+          13
+        ],
+        [
+          5,
+          17
+        ],
+        [
+          6,
+          18
+        ],
+        [
+          7,
+          22
+        ],
+        [
+          8,
+          23
+        ],
+        [
+          9,
+          27
+        ],
+        [
+          10,
+          28
+        ]
+      ],
+      "xMin": 0,
+      "xMax": 10,
+      "yMin": 0,
+      "yMax": 32,
+      "xGridStep": 1,
+      "yGridStep": 4,
+      "xLabelStep": 2,
+      "yLabelStep": 8,
+      "xLabel": "Weeks since planting",
+      "yLabel": "Height (cm)",
+      "bestFitLine": {
+        "slope": 2.5,
+        "intercept": 4
+      }
+    }
+  },
+  "correctAnswer": "24",
+  "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~10s):** Substitute $x = 8$ into the line: $\\hat{y} = 2.5(8) + 4 = 20 + 4 = 24$.\n\n**The Full Solution:**\nStep 1: A predicted value comes from the line of best fit, not from a plotted point.\nStep 2: Substitute $x = 8$: $2.5 \\times 8 = 20$, then $20 + 4 = 24$ centimeters.\nStep 3: Check against the graph: at $x = 8$ the line passes through about $24$, and the actual data point $(8, 23)$ sits just below it. $\\checkmark$\n\n**Common Mistakes:** Reading the data point at $x = 8$, which is $23$, instead of the line's value; adding the numbers, $2.5 + 4 + 8 = 14.5$; substituting $8$ for $y$ and solving for $x$, which gives $1.6$.\n\n**Test Day Takeaway:** \"According to the line of best fit\" means substitute into the equation; the actual dot at that $x$ answers a different question (the residual)."
+}

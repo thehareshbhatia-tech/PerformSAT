@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-167",
+  "question": "The mean of $8$ values is $27.5$. Seven of the values have a sum of $187$. What is the eighth value?",
+  "correctAnswer": "33",
+  "explanation": "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**The correct answer is $33$.**\n\n**The Fast Way (~10s):** Total $= 8(27.5) = 220$; eighth value $= 220 - 187 = 33$.\n\n**The Full Solution:**\nStep 1: Sum of all $8$ values: $8 \\times 27.5 = 220$.\nStep 2: The seven known values contribute $187$.\nStep 3: Eighth value $= 220 - 187 = 33$. Check: $\\frac{187 + 33}{8} = \\frac{220}{8} = 27.5$. $\\checkmark$\n\n**Common Mistakes:** Using $7 \\times 27.5 = 192.5$ as the total, which gives $5.5$; answering the mean of the seven known values, $\\frac{187}{7} \\approx 26.71$; dividing $220$ by $8$ again and reporting $27.5$.\n\n**Test Day Takeaway:** When a sum of the known values is given directly, the problem is one subtraction after computing mean $\\times$ count."
+}

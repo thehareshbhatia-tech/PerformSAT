@@ -1,0 +1,75 @@
+{
+  "id": "bank-ps-138",
+  "question": "The scatterplot shows the age $x$, in years, and the trunk circumference $y$, in centimeters, of each of $12$ pine trees. The line of best fit passes through the points $(3, 21)$ and $(9, 45)$. According to the line of best fit, what is the predicted circumference, in centimeters, of a pine tree that is $15$ years old?",
+  "diagram": {
+    "type": "scatterplot",
+    "params": {
+      "points": [
+        [
+          2,
+          18
+        ],
+        [
+          3,
+          20
+        ],
+        [
+          4,
+          27
+        ],
+        [
+          5,
+          28
+        ],
+        [
+          6,
+          34
+        ],
+        [
+          7,
+          36
+        ],
+        [
+          8,
+          43
+        ],
+        [
+          9,
+          44
+        ],
+        [
+          10,
+          50
+        ],
+        [
+          11,
+          52
+        ],
+        [
+          12,
+          58
+        ],
+        [
+          14,
+          64
+        ]
+      ],
+      "xMin": 0,
+      "xMax": 16,
+      "yMin": 0,
+      "yMax": 80,
+      "xGridStep": 1,
+      "yGridStep": 10,
+      "xLabelStep": 2,
+      "yLabelStep": 20,
+      "xLabel": "Age (years)",
+      "yLabel": "Circumference (cm)",
+      "bestFitLine": {
+        "slope": 4,
+        "intercept": 9
+      }
+    }
+  },
+  "correctAnswer": "69",
+  "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $69$.**\n\n**The Fast Way (~20s):** The slope is $\\frac{45 - 21}{9 - 3} = 4$ centimeters per year. From $(9, 45)$, six more years add $6(4) = 24$: $45 + 24 = 69$.\n\n**The Full Solution:**\nStep 1: Slope from the two given points: $\\frac{45 - 21}{9 - 3} = \\frac{24}{6} = 4$.\nStep 2: Find the intercept using $(3, 21)$: $21 = 4(3) + b$, so $b = 9$ and $\\hat{y} = 4x + 9$.\nStep 3: Substitute $x = 15$: $\\hat{y} = 4(15) + 9 = 69$. Check: from $(9, 45)$, moving $15 - 9 = 6$ years at $4$ per year gives $45 + 24 = 69$. $\\checkmark$\n\n**Common Mistakes:** Inverting the slope to $\\frac{6}{24} = 0.25$, which leads to $0.25(15) + 20.25 = 24$; using $\\hat{y} = 4x$ with no intercept, which gives $60$; estimating by eye beyond the last plotted point $(14, 64)$ instead of using the line.\n\n**Test Day Takeaway:** Two points on the line give the slope, then the intercept, then the prediction; never eyeball a value that lies past the plotted data."
+}

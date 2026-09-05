@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-012",
+  "question": "After a $35\\%$ discount, the price of a camera lens is $\\$247$. What was the price of the lens, in dollars, before the discount?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$160.55$"
+    },
+    {
+      "id": "B",
+      "text": "$333.45$"
+    },
+    {
+      "id": "C",
+      "text": "$380$"
+    },
+    {
+      "id": "D",
+      "text": "$705.71$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies the sale price by $0.65$, applying the discount a second time instead of undoing it.",
+    "B": "adds $35\\%$ of the sale price ($247 \\times 1.35$); $35\\%$ of the smaller sale price is less than the discount that was taken.",
+    "D": "divides by $0.35$, the discount rate, instead of by $0.65$, the fraction that remains."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Reverse Percent Change**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The sale price is $65\\%$ of the original, so original $= \\frac{247}{0.65} = 380$.\n\n**The Full Solution:**\nStep 1: Let $p$ be the original price. A $35\\%$ discount leaves $100\\% - 35\\% = 65\\%$ of $p$, so $0.65p = 247$.\nStep 2: Divide: $p = \\frac{247}{0.65} = 380$.\nStep 3: Check: $35\\%$ of $380$ is $133$, and $380 - 133 = 247$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($160.55$): multiplies the sale price by $0.65$, applying the discount a second time instead of undoing it.\n* Choice B ($333.45$): adds $35\\%$ of the sale price ($247 \\times 1.35$); $35\\%$ of the smaller sale price is less than the discount that was taken.\n* Choice D ($705.71$): divides by $0.35$, the discount rate, instead of by $0.65$, the fraction that remains.\n\n**Test Day Takeaway:** To undo a percent decrease, divide by $(1 - \\text{rate})$. Adding the same percent back never returns to the original."
+}

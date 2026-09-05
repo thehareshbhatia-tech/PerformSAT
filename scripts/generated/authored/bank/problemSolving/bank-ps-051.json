@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-051",
+  "question": "The tip of a wind turbine blade moves at a speed of $252$ kilometers per hour. What is this speed in meters per second?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$0.07$"
+    },
+    {
+      "id": "B",
+      "text": "$4.2$"
+    },
+    {
+      "id": "C",
+      "text": "$70$"
+    },
+    {
+      "id": "D",
+      "text": "$4{,}200$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "divides by $3{,}600$ seconds but never multiplies by $1{,}000$ meters per kilometer.",
+    "B": "converts hours to minutes only ($\\div 60$) and leaves the distance in kilometers.",
+    "D": "converts kilometers to meters but hours only to minutes ($\\div 60$ instead of $\\div 3{,}600$)."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Compound Unit Conversion**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Convert both units: $252 \\times \\frac{1{,}000 \\text{ m}}{1 \\text{ km}} \\times \\frac{1 \\text{ h}}{3{,}600 \\text{ s}} = \\frac{252{,}000}{3{,}600} = 70$ meters per second.\n\n**The Full Solution:**\nStep 1: Kilometers per hour has two units to convert: kilometers to meters ($\\times 1{,}000$) and hours to seconds ($\\div 3{,}600$).\nStep 2: $\\frac{252 \\text{ km}}{1 \\text{ h}} \\times \\frac{1{,}000 \\text{ m}}{1 \\text{ km}} \\times \\frac{1 \\text{ h}}{3{,}600 \\text{ s}} = \\frac{252{,}000}{3{,}600} \\frac{\\text{m}}{\\text{s}} = 70$ meters per second.\nStep 3: Check with the shortcut: dividing km/h by $3.6$ gives m/s, and $\\frac{252}{3.6} = 70$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.07$): divides by $3{,}600$ seconds but never multiplies by $1{,}000$ meters per kilometer.\n* Choice B ($4.2$): converts hours to minutes only ($\\div 60$) and leaves the distance in kilometers.\n* Choice D ($4{,}200$): converts kilometers to meters but hours only to minutes ($\\div 60$ instead of $\\div 3{,}600$).\n\n**Test Day Takeaway:** A rate has two units; convert each with its own factor and let the units cancel. From km/h to m/s, multiply by $1{,}000$ and divide by $3{,}600$."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-158",
+  "question": "A printer prints $45$ pages in $3.6$ minutes at a constant rate. At this rate, how many pages does the printer print in $8$ minutes?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$12.5$"
+    },
+    {
+      "id": "B",
+      "text": "$20.25$"
+    },
+    {
+      "id": "C",
+      "text": "$100$"
+    },
+    {
+      "id": "D",
+      "text": "$162$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "the unit rate in pages per minute (45/3.6), not the total for 8 minutes",
+    "B": "inverts the proportion, 45 x 3.6/8",
+    "D": "multiplies 45 by 3.6, never dividing by the time"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Proportion / Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Unit rate: $\\frac{45}{3.6} = 12.5$ pages per minute. In $8$ minutes: $12.5 \\times 8 = 100$ pages.\n\n**The Full Solution:**\nStep 1: Write the proportion $\\frac{45 \\text{ pages}}{3.6 \\text{ min}} = \\frac{p \\text{ pages}}{8 \\text{ min}}$.\nStep 2: Cross-multiply: $3.6p = 360$, so $p = 100$.\nStep 3: Check: $8$ minutes is $\\frac{8}{3.6} = \\frac{20}{9}$ times as long, and $45 \\times \\frac{20}{9} = 100$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($12.5$): The rate in pages per minute; the question asks for the total over $8$ minutes.\n* Choice B ($20.25$): Inverts the proportion, $45 \\times \\frac{3.6}{8}$; more time must mean more pages, not fewer.\n* Choice D ($162$): Multiplies $45$ by $3.6$, mixing pages and minutes without forming a rate.\n\n**Test Day Takeaway:** Find the unit rate (quantity per one unit of time), then multiply by the new time; check that the direction of change makes sense."
+}

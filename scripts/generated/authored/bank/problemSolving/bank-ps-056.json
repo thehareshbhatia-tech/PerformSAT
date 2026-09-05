@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-056",
+  "question": "A rectangular ceramic tile measures $9$ inches by $24$ inches. What is the area of the tile in square feet? ($1$ foot $= 12$ inches)",
+  "correctAnswer": "1.5",
+  "explanation": "**SAT Pattern: Tile Area in Square Feet**\n\n**The correct answer is $1.5$.**\n\n**The Fast Way (~15s):** Convert the sides first: $9$ inches $= 0.75$ foot and $24$ inches $= 2$ feet. Area $= 0.75 \\times 2 = 1.5$ square feet.\n\n**The Full Solution:**\nStep 1: Convert each side to feet: $\\frac{9}{12} = 0.75$ foot and $\\frac{24}{12} = 2$ feet.\nStep 2: Area $= 0.75 \\times 2 = 1.5$ square feet.\nStep 3: Check by converting the area instead: $9 \\times 24 = 216$ square inches, and $1$ square foot $= 12^2 = 144$ square inches, so $\\frac{216}{144} = 1.5$. $\\checkmark$\n\n**Common Mistakes:** Entering $18$ (dividing $216$ square inches by $12$ instead of by $144$); entering $216$ (leaving the area in square inches); entering $0.75$ or $2$ (reporting one converted side length instead of the area). Both methods, sides first or area first, must agree.\n\n**Test Day Takeaway:** Either convert each length before multiplying, or divide the area by the SQUARE of the length factor ($144$, not $12$)."
+}

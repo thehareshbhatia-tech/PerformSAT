@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-129",
+  "question": "A data set of $25$ values has a mean of $18$ and a median of $24$. Based only on this information, which of the following statements must be true?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "More than half of the values in the data set are less than $18$."
+    },
+    {
+      "id": "B",
+      "text": "No value in the data set is greater than $24$."
+    },
+    {
+      "id": "C",
+      "text": "The greatest value in the data set is greater than $24$."
+    },
+    {
+      "id": "D",
+      "text": "At least one value in the data set is less than $18$."
+    }
+  ],
+  "distractorNotes": {
+    "A": "a median of 24 means at least 13 values are 24 or more, so at most 12 (fewer than half) can be below 18",
+    "B": "values above 24 are allowed as long as the 13th ordered value stays 24",
+    "C": "the median can equal the maximum when 24 is repeated many times"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Outlier Effect**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** If no value were below $18$, the mean would be at least $18$, with equality only if every value were exactly $18$, which would force the median to be $18$, not $24$. So some value must be less than $18$.\n\n**The Full Solution:**\nStep 1: The sum of the values is $25 \\times 18 = 450$. Suppose every value were $18$ or more; then the sum would be at least $450$, with equality only if all $25$ values were $18$. That data set has median $18$, contradicting the given median of $24$. Therefore at least one value is less than $18$: choice D must be true.\nStep 2: Test the other choices with a concrete data set that fits the givens: thirteen values of $24$ (sum $312$) plus twelve values of $11.5$ (sum $138$). The sum is $450$, so the mean is $18$, and the 13th ordered value is $24$, so the median is $24$.\nStep 3: In that set only $12$ of $25$ values are below $18$ (not more than half), so A fails; the greatest value is $24$, so C fails. For B, change the largest $24$ to $30$ and lower one $11.5$ to $5.5$: the sum is still $450$ and thirteen values are still at least $24$, so the median is still $24$, but now a value exceeds $24$, so B fails. Check: only D survived every test. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: A median of $24$ means at least $13$ of the $25$ values are $24$ or more, so at most $12$ can be below $18$; that is never more than half.\n* Choice B: Nothing caps the largest value; the median only fixes the middle of the ordered list.\n* Choice C: The median can equal the maximum when $24$ is repeated many times, as in the example above.\n\n**Test Day Takeaway:** For \"must be true\" statistics questions, build one small data set that matches the givens and attack each choice with it; a single counterexample eliminates a choice."
+}

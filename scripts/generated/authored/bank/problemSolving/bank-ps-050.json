@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-050",
+  "question": "A road race course is $12.8$ kilometers long. If $1$ mile is approximately equal to $1.6$ kilometers, approximately how many miles long is the course?",
+  "correctAnswer": "8",
+  "explanation": "**SAT Pattern: km to Miles Conversion**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~10s):** Every $1.6$ kilometers is one mile, so $\\frac{12.8}{1.6} = 8$ miles.\n\n**The Full Solution:**\nStep 1: Multiply by a factor that cancels kilometers: $12.8 \\text{ km} \\times \\frac{1 \\text{ mi}}{1.6 \\text{ km}}$.\nStep 2: $\\frac{12.8}{1.6} = 8$ miles.\nStep 3: Check: $8$ miles $\\times 1.6 = 12.8$ kilometers. A mile is longer than a kilometer, so the mile count should be smaller than $12.8$. $\\checkmark$\n\n**Common Mistakes:** Entering $20.48$ (multiplying by $1.6$, which converts miles to kilometers, the wrong direction); entering $11.2$ (subtracting $1.6$ instead of dividing); entering $14.4$ (adding $1.6$).\n\n**Test Day Takeaway:** Converting to a LARGER unit divides; the count must shrink. Check direction with the size of the units before computing."
+}

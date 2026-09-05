@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-052",
+  "question": "A pump moves water at a constant rate of $2{,}520$ liters per hour. At this rate, how many liters of water does the pump move in $15$ minutes?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$42$"
+    },
+    {
+      "id": "B",
+      "text": "$168$"
+    },
+    {
+      "id": "C",
+      "text": "$630$"
+    },
+    {
+      "id": "D",
+      "text": "$37{,}800$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "stops at the per-minute rate and never multiplies by the $15$ minutes.",
+    "B": "divides the hourly amount by $15$ instead of converting to minutes and multiplying.",
+    "D": "multiplies the hourly rate by $15$ minutes without converting the rate to per-minute."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Rate Per Minute from Per Hour**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Per minute: $\\frac{2{,}520}{60} = 42$ liters. In $15$ minutes: $42 \\times 15 = 630$ liters.\n\n**The Full Solution:**\nStep 1: Convert the rate to liters per minute: $\\frac{2{,}520 \\text{ L}}{60 \\text{ min}} = 42$ liters per minute.\nStep 2: Multiply by the time: $42 \\times 15 = 630$ liters.\nStep 3: Check: $15$ minutes is $\\frac{1}{4}$ of an hour, and $\\frac{2{,}520}{4} = 630$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($42$): stops at the per-minute rate and never multiplies by the $15$ minutes.\n* Choice B ($168$): divides the hourly amount by $15$ instead of converting to minutes and multiplying.\n* Choice D ($37{,}800$): multiplies the hourly rate by $15$ minutes without converting the rate to per-minute.\n\n**Test Day Takeaway:** Match the time units before multiplying: convert the rate to per-minute (or the time to hours), then rate $\\times$ time."
+}

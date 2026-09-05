@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-128",
+  "question": "A data set gives the completion time, in minutes, of each of $40$ entrants in a race. The mean of the data set is $24$ and the median is $30$. If each time is converted to seconds, what are the mean and the median of the converted data set?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Mean $24$, median $30$"
+    },
+    {
+      "id": "B",
+      "text": "Mean $84$, median $90$"
+    },
+    {
+      "id": "C",
+      "text": "Mean $1{,}440$, median $30$"
+    },
+    {
+      "id": "D",
+      "text": "Mean $1{,}440$, median $1{,}800$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "forgets that converting units changes every value",
+    "B": "adds 60 to each statistic instead of multiplying by 60",
+    "C": "converts the mean but leaves the median in minutes"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Outlier Effect**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Converting minutes to seconds multiplies every value by $60$, so both the mean and the median are multiplied by $60$: $24(60) = 1{,}440$ and $30(60) = 1{,}800$.\n\n**The Full Solution:**\nStep 1: The mean is the sum divided by $40$. Multiplying every value by $60$ multiplies the sum by $60$, so the mean becomes $60 \\times 24 = 1{,}440$ seconds.\nStep 2: Multiplying by a positive constant preserves the order, so the two middle values stay in the middle; each is multiplied by $60$, so the median becomes $60 \\times 30 = 1{,}800$ seconds.\nStep 3: Check with a tiny example in minutes: $\\{1, 2, 6\\}$ has mean $3$ and median $2$; in seconds, $\\{60, 120, 360\\}$ has mean $180 = 3(60)$ and median $120 = 2(60)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (mean $24$, median $30$): Keeps the minute values, but every time was rescaled, so every summary statistic was too.\n* Choice B (mean $84$, median $90$): Adds $60$ rather than multiplying by $60$; a conversion factor multiplies.\n* Choice C (mean $1{,}440$, median $30$): Converts the mean but leaves the median in minutes; the median is one of the data values (or an average of two), so it converts as well.\n\n**Test Day Takeaway:** Multiplying every value by $c$ multiplies the mean, the median, the range, and the standard deviation by $c$; adding a constant shifts only the center."
+}
