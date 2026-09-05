@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-471",
+  "question": "The graph of $ky - 8x = 12$ in the $xy$-plane is the same as the graph of $3y - 2x = 3$, where $k$ is a constant. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\frac{3}{4}$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$12$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "divides 3 by the factor 4 instead of multiplying.",
+    "B": "copies the y-coefficient 3 without scaling it.",
+    "C": "reports the scale factor 4 itself instead of 4 \\cdot 3."
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice D is correct.**\n\n**The Fast Way (~8s):** From $-2x$ to $-8x$ and $3$ to $12$ the factor is $4$, so $k = 4 \\cdot 3 = 12$.\n\n**The Full Solution:**\nStep 1: The same graph means the first equation is a multiple of the second. Compare the known terms: $-8x = 4(-2x)$ and $12 = 4(3)$, so the factor is $4$.\nStep 2: Apply the factor to the $y$-coefficient: $k = 4 \\cdot 3 = 12$.\nStep 3: Check: $12y - 8x = 12$ divided by $4$ is $3y - 2x = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{4}$): divides $3$ by the factor $4$ instead of multiplying.\n* Choice B ($3$): copies the $y$-coefficient $3$ without scaling it.\n* Choice C ($4$): reports the scale factor $4$ itself instead of $4 \\cdot 3$.\n\n**Test Day Takeaway:** Two matching terms are enough to find the factor; check that both agree, then scale the term holding the unknown."
+}

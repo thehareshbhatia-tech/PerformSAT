@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-493",
+  "question": "For what value of $x$ is the expression $-4x + 10$ equal to $34$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-11$"
+    },
+    {
+      "id": "B",
+      "text": "$-6$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds 10 to 34 instead of subtracting, giving -4x = 44",
+    "C": "drops the negative sign on the coefficient and divides 24 by 4",
+    "D": "stops at -4x = 24 and reports 24"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Set $-4x + 10 = 34$. Then $-4x = 24$, so $x = -6$.\n\n**The Full Solution:**\nStep 1: Translate the sentence into the equation $-4x + 10 = 34$ and subtract $10$ from both sides: $-4x = 24$.\nStep 2: Divide both sides by $-4$, keeping the sign: $x = \\dfrac{24}{-4} = -6$.\nStep 3: Check: $-4(-6) + 10 = 24 + 10 = 34$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-11$): adds $10$ to $34$ instead of subtracting, producing $-4x = 44$.\n* Choice C ($6$): divides $24$ by $4$ instead of by $-4$, losing the sign of the coefficient.\n* Choice D ($24$): isolates $-4x = 24$ and stops, never dividing by the coefficient.\n\n**Test Day Takeaway:** A negative coefficient is part of the coefficient; when you divide, divide by the whole thing, sign included, and confirm with a substitution."
+}

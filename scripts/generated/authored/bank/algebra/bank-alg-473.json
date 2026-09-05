@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-473",
+  "question": "If $x + y = 21$ and $x - y = 9$, what is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$6$"
+    },
+    {
+      "id": "B",
+      "text": "$12$"
+    },
+    {
+      "id": "C",
+      "text": "$15$"
+    },
+    {
+      "id": "D",
+      "text": "$30$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports y = 6 instead of x.",
+    "B": "subtracts the equations, getting 2y = 12, and reports 12.",
+    "D": "stops at 2x = 30 without dividing by 2."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: System of Equations (Elimination)**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Add the equations: $2x = 30$, so $x = 15$.\n\n**The Full Solution:**\nStep 1: The $y$-terms are opposites ($+y$ and $-y$), so adding the equations eliminates $y$.\nStep 2: $(x + y) + (x - y) = 21 + 9$ gives $2x = 30$, so $x = 15$.\nStep 3: Check: then $y = 21 - 15 = 6$, and $15 - 6 = 9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): reports $y = 6$ instead of $x$.\n* Choice B ($12$): subtracts the equations, getting $2y = 12$, and reports $12$.\n* Choice D ($30$): stops at $2x = 30$ without dividing by $2$.\n\n**Test Day Takeaway:** Opposite coefficients mean add; identical coefficients mean subtract. Then divide, and report the variable that was asked for."
+}

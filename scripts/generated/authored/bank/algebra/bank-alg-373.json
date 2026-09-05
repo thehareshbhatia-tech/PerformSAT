@@ -1,0 +1,48 @@
+{
+  "id": "bank-alg-373",
+  "question": "The points $(-2, 1)$ and $(4, 9)$ are shown in the $xy$-plane. What is the distance, in units, between the two points?",
+  "diagram": {
+    "type": "coordinatePoints",
+    "params": {
+      "points": [
+        [
+          -2,
+          1
+        ],
+        [
+          4,
+          9
+        ]
+      ],
+      "xMin": -6,
+      "xMax": 6,
+      "yMin": -2,
+      "yMax": 10
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$8$"
+    },
+    {
+      "id": "C",
+      "text": "$10$"
+    },
+    {
+      "id": "D",
+      "text": "$14$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts the two leg lengths, 8 - 6",
+    "B": "uses only the vertical change",
+    "D": "adds the two leg lengths instead of using the Pythagorean theorem"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The horizontal change is $4 - (-2) = 6$ and the vertical change is $9 - 1 = 8$; a $6$-$8$ right triangle has hypotenuse $10$.\n\n**The Full Solution:**\nStep 1: The distance between $(x_1, y_1)$ and $(x_2, y_2)$ is $\\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$, the hypotenuse of the right triangle whose legs are the horizontal and vertical changes.\nStep 2: Horizontal change: $4 - (-2) = 6$. Vertical change: $9 - 1 = 8$.\nStep 3: Distance $= \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$. Check: $6$-$8$-$10$ is twice the $3$-$4$-$5$ triple. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): subtracts the leg lengths, $8 - 6$, instead of combining their squares.\n* Choice B ($8$): reports only the vertical change and ignores the horizontal change.\n* Choice D ($14$): adds the legs, $6 + 8$, which measures a path along the grid rather than the straight-line distance.\n\n**Test Day Takeaway:** Distance in the plane is always a hypotenuse: find the two changes, square them, add, and take the square root, watching for the common Pythagorean triples."
+}

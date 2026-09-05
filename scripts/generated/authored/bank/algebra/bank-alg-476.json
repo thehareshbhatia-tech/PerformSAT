@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-476",
+  "question": "For the system of equations $6x - 5y = 3$ and $6x + 2y = 24$, what is the value of $y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-3$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$7$"
+    },
+    {
+      "id": "D",
+      "text": "$21$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts in the other order, -7y = -21, and then forgets that dividing two negatives gives a positive.",
+    "C": "reports the coefficient 7 instead of solving 7y = 21.",
+    "D": "stops at 7y = 21 without dividing by 7."
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: System of Equations (Elimination)**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Subtract the first equation from the second: $7y = 21$, so $y = 3$.\n\n**The Full Solution:**\nStep 1: Both equations have $6x$, so subtracting eliminates $x$. Subtract the first from the second: $(6x + 2y) - (6x - 5y) = 24 - 3$.\nStep 2: Simplify: $2y - (-5y) = 7y$ and $24 - 3 = 21$, so $7y = 21$ and $y = 3$.\nStep 3: Check: $6x + 2(3) = 24$ gives $x = 3$, and $6(3) - 5(3) = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): subtracts in the other order, $-7y = -21$, and then forgets that dividing two negatives gives a positive.\n* Choice C ($7$): reports the coefficient $7$ instead of solving $7y = 21$.\n* Choice D ($21$): stops at $7y = 21$ without dividing by $7$.\n\n**Test Day Takeaway:** Subtracting a negative term adds: $2y - (-5y) = 7y$. Either subtraction order works if the signs are tracked on both sides."
+}

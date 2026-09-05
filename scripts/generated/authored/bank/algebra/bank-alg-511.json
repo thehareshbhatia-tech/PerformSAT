@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-511",
+  "question": "$$y = 3x^2 - 14x + 20$$\n$$y = 4x + c$$\n\nIn the given system of equations, $c$ is a constant. The graphs of the equations in the system intersect at exactly one point, $(x, y)$, in the $xy$-plane. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-3$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{7}{3}$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$6$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses b/(2a) instead of -b/(2a), giving -18/6",
+    "B": "uses the parabola's own vertex, 14/6, ignoring the 4x from the line",
+    "D": "uses -b/a instead of -b/(2a), giving 18/3"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Tangent Line — Discriminant Equals Zero**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Set the expressions for $y$ equal: $3x^2 - 14x + 20 = 4x + c$, or $3x^2 - 18x + (20 - c) = 0$. Exactly one intersection means this quadratic has a double root, which sits at $x = -\\dfrac{b}{2a} = \\dfrac{18}{6} = 3$.\n\n**The Full Solution:**\nStep 1: Substitute the line into the parabola: $3x^2 - 14x + 20 = 4x + c$. Collect terms: $3x^2 - 18x + (20 - c) = 0$.\nStep 2: One intersection point means one solution, so the discriminant is zero: $(-18)^2 - 4(3)(20 - c) = 0$, giving $324 - 240 + 12c = 0$ and $c = -7$. The quadratic becomes $3x^2 - 18x + 27 = 3(x - 3)^2 = 0$.\nStep 3: The double root is $x = 3$. Check: the parabola gives $y = 27 - 42 + 20 = 5$, and the line gives $y = 4(3) - 7 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): computes $\\dfrac{b}{2a} = \\dfrac{-18}{6}$ and forgets the negative in $-\\dfrac{b}{2a}$.\n* Choice B ($\\dfrac{7}{3}$): uses the vertex of the original parabola, $\\dfrac{14}{6}$, without moving the $4x$ from the line into the quadratic.\n* Choice D ($6$): computes $-\\dfrac{b}{a} = \\dfrac{18}{3}$, dropping the $2$ in the denominator.\n\n**Test Day Takeaway:** A line tangent to a parabola meets it at a double root; combine the equations into one quadratic, and the tangency point is at $-\\dfrac{b}{2a}$ of that combined quadratic, whether or not you ever find $c$."
+}

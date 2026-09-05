@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-394",
+  "question": "$6(x + 4) - 2x = 4(x + c) + 4$\n\nIn the given equation, $c$ is a constant. If the equation has infinitely many solutions, what is the value of $c$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$5$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$7$"
+    },
+    {
+      "id": "D",
+      "text": "$20$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "divides 24 by 4 and ignores the +4 on the right side",
+    "C": "adds 4 to 24 before dividing by 4",
+    "D": "subtracts 4 from 24 but never divides by 4"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Left side: $6x + 24 - 2x = 4x + 24$. Right side: $4x + 4c + 4$. The $x$-terms already match, so the constants must match: $4c + 4 = 24$, giving $c = 5$.\n\n**The Full Solution:**\nStep 1: Simplify each side. Left: $6(x + 4) - 2x = 6x + 24 - 2x = 4x + 24$. Right: $4(x + c) + 4 = 4x + 4c + 4$.\nStep 2: An equation has infinitely many solutions only when both sides are the same expression. The $x$-coefficients are both $4$, so the constants must be equal: $24 = 4c + 4$.\nStep 3: Subtract $4$: $4c = 20$, so $c = 5$. Check: with $c = 5$ the right side is $4x + 24$, identical to the left side, so every $x$ works. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): matches $4c$ to $24$ and forgets the extra $+4$ on the right side.\n* Choice C ($7$): adds $4$ to $24$ instead of subtracting it, solving $4c = 28$.\n* Choice D ($20$): correctly gets $4c = 20$ but reports $20$ without dividing by $4$.\n\n**Test Day Takeaway:** Simplify both sides fully, then force the two sides to be identical: equal $x$-coefficients and equal constants; the constant condition is the one that determines $c$."
+}

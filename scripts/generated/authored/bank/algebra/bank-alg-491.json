@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-491",
+  "question": "$$4x + 8 = 60$$\n\nWhat value of $x$ is the solution to the given equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7$"
+    },
+    {
+      "id": "B",
+      "text": "$13$"
+    },
+    {
+      "id": "C",
+      "text": "$17$"
+    },
+    {
+      "id": "D",
+      "text": "$52$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "divides 60 by 4 first and then subtracts 8",
+    "C": "adds 8 to 60 instead of subtracting, then divides by 4",
+    "D": "subtracts 8 but never divides by 4"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Undo the $+8$ first, then the $\\times 4$: $4x = 52$, so $x = 13$.\n\n**The Full Solution:**\nStep 1: Isolate the variable term by subtracting $8$ from both sides: $4x + 8 - 8 = 60 - 8$, so $4x = 52$.\nStep 2: Divide both sides by $4$: $x = \\dfrac{52}{4} = 13$.\nStep 3: Check: $4(13) + 8 = 52 + 8 = 60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): divides $60$ by $4$ before removing the $8$, then subtracts $8$ from $15$; the constant must be undone before the coefficient.\n* Choice C ($17$): adds $8$ to $60$ instead of subtracting, giving $\\dfrac{68}{4}$.\n* Choice D ($52$): stops at $4x = 52$ and reports $52$ as if it were $x$.\n\n**Test Day Takeaway:** Undo operations in reverse order: subtract (or add) the constant first, then divide by the coefficient, and plug the result back in."
+}

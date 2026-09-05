@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-363",
+  "question": "In the inequality $-3(x - k) + 5 \\geq 2x - 10$, $k$ is a constant. The solution set of the inequality is all values of $x$ such that $x \\leq 6$. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-5$"
+    },
+    {
+      "id": "B",
+      "text": "$-3$"
+    },
+    {
+      "id": "C",
+      "text": "$5$"
+    },
+    {
+      "id": "D",
+      "text": "$10$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "distributes -3(x - k) as -3x - 3k",
+    "B": "sets 3k + 15 = 6, forgetting to multiply the bound by 5",
+    "D": "sets 3k = 30 without first subtracting 15"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: One-Variable Linear Inequality**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The boundary $x = 6$ must make the two sides equal: $-3(6 - k) + 5 = 2(6) - 10$ gives $-18 + 3k + 5 = 2$, so $3k = 15$ and $k = 5$.\n\n**The Full Solution:**\nStep 1: Solve the inequality for $x$ in terms of $k$. Distribute: $-3x + 3k + 5 \\geq 2x - 10$. Collect the $x$-terms on the right by adding $3x$ to both sides and adding $10$ to both sides: $3k + 15 \\geq 5x$.\nStep 2: Divide by the positive number $5$ (no sign flip): $x \\leq \\dfrac{3k + 15}{5}$. The solution set is given as $x \\leq 6$, so the boundaries must match: $\\dfrac{3k + 15}{5} = 6$.\nStep 3: Multiply by $5$: $3k + 15 = 30$, so $3k = 15$ and $k = 5$. Check: with $k = 5$ the inequality is $-3x + 20 \\geq 2x - 10$, or $30 \\geq 5x$, or $x \\leq 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): distributes $-3(x - k)$ as $-3x - 3k$, which leads to $x \\leq \\dfrac{15 - 3k}{5}$ and the wrong sign on $k$.\n* Choice B ($-3$): sets $3k + 15 = 6$, matching the numerator to the bound without multiplying by the denominator $5$.\n* Choice D ($10$): jumps from $3k + 15 = 30$ to $3k = 30$, skipping the subtraction of $15$.\n\n**Test Day Takeaway:** When a solution set is given, the boundary value is where both sides are equal; substitute it as an equation to find the constant, then confirm the direction of the inequality."
+}

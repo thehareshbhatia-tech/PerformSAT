@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-382",
+  "question": "In the $xy$-plane, what is the midpoint of the line segment whose endpoints are $(-8, -1)$ and $(2, 7)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-3, 3)$"
+    },
+    {
+      "id": "B",
+      "text": "$(-5, -4)$"
+    },
+    {
+      "id": "C",
+      "text": "$(-6, 6)$"
+    },
+    {
+      "id": "D",
+      "text": "$(3, 3)$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "halves the differences of the coordinates instead of the sums",
+    "C": "adds the coordinates but never divides by 2",
+    "D": "drops the negative sign on the x-coordinate"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $\\dfrac{-8 + 2}{2} = -3$ and $\\dfrac{-1 + 7}{2} = 3$, so the midpoint is $(-3, 3)$.\n\n**The Full Solution:**\nStep 1: The midpoint averages the endpoints coordinate by coordinate: $\\left(\\dfrac{x_1 + x_2}{2}, \\dfrac{y_1 + y_2}{2}\\right)$.\nStep 2: $x$: $\\dfrac{-8 + 2}{2} = \\dfrac{-6}{2} = -3$. $y$: $\\dfrac{-1 + 7}{2} = \\dfrac{6}{2} = 3$.\nStep 3: The midpoint is $(-3, 3)$. Check: it is $5$ units right and $4$ units up from $(-8, -1)$, and $(2, 7)$ is another $5$ right and $4$ up. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($(-5, -4)$): halves the differences $-8 - 2$ and $-1 - 7$ instead of the sums.\n* Choice C ($(-6, 6)$): adds the coordinates but forgets to divide by $2$.\n* Choice D ($(3, 3)$): loses the sign of $\\dfrac{-6}{2}$; the average of $-8$ and $2$ is negative.\n\n**Test Day Takeaway:** Add, then halve, in each coordinate, and keep the signs: the midpoint of a negative and a smaller positive is still negative."
+}

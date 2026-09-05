@@ -1,0 +1,58 @@
+{
+  "id": "bank-alg-433",
+  "question": "The graph of line $k$ is shown in the $xy$-plane. Which equation defines the line that is parallel to line $k$ and passes through the point $(4, 1)$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": -0.5,
+      "yIntercept": 2,
+      "xRange": [
+        -4,
+        6
+      ],
+      "yRange": [
+        -4,
+        6
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 1,
+      "showPoints": [
+        [
+          0,
+          2
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      "label": "k"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -\\frac{1}{2}x - 1$"
+    },
+    {
+      "id": "B",
+      "text": "$y = -\\frac{1}{2}x + 1$"
+    },
+    {
+      "id": "C",
+      "text": "$y = -\\frac{1}{2}x + 3$"
+    },
+    {
+      "id": "D",
+      "text": "$y = 2x - 7$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "solves 1 = -2 + b as b = 1 - 2, subtracting instead of adding 2.",
+    "B": "uses the y-coordinate of the given point as the y-intercept without accounting for x = 4.",
+    "D": "uses the perpendicular slope 2 (through (4, 1): 1 = 8 + b, b = -7) instead of the parallel slope."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Parallel Line through a Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Line $k$ drops $2$ over a run of $4$: slope $-\\frac{1}{2}$. Through $(4, 1)$: $1 = -\\frac{1}{2}(4) + b$, so $b = 3$.\n\n**The Full Solution:**\nStep 1: From the graph, line $k$ passes through $(0, 2)$ and $(4, 0)$, so its slope is $\\frac{0 - 2}{4 - 0} = -\\frac{1}{2}$.\nStep 2: The parallel line has slope $-\\frac{1}{2}$: $y = -\\frac{1}{2}x + b$. Substitute $(4, 1)$: $1 = -2 + b$, so $b = 3$.\nStep 3: Check: $y = -\\frac{1}{2}(4) + 3 = 1$. $\\checkmark$ The intercept $3$ differs from $2$, so this is a distinct parallel line.\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{1}{2}x - 1$): solves $1 = -2 + b$ as $b = 1 - 2$, subtracting instead of adding $2$.\n* Choice B ($y = -\\frac{1}{2}x + 1$): uses the $y$-coordinate of the given point as the $y$-intercept without accounting for $x = 4$.\n* Choice D ($y = 2x - 7$): uses the perpendicular slope $2$ (through $(4, 1)$: $1 = 8 + b$, $b = -7$) instead of the parallel slope.\n\n**Test Day Takeaway:** Borrow the slope, then solve $y_1 = m x_1 + b$ for $b$; a point with $x \\neq 0$ is never the intercept itself."
+}

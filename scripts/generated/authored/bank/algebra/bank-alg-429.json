@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-429",
+  "question": "Which value of $x$ is the solution to the equation $4x = -30$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-120$"
+    },
+    {
+      "id": "B",
+      "text": "$-34$"
+    },
+    {
+      "id": "C",
+      "text": "$-7.5$"
+    },
+    {
+      "id": "D",
+      "text": "$7.5$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies -30 by 4 instead of dividing.",
+    "B": "subtracts 4 from -30, treating 4x as x + 4.",
+    "D": "divides correctly but drops the negative sign."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Divide both sides by $4$: $x = -\\frac{30}{4} = -7.5$.\n\n**The Full Solution:**\nStep 1: The variable is multiplied by $4$, so divide each side by $4$.\nStep 2: $x = \\frac{-30}{4} = -\\frac{15}{2} = -7.5$.\nStep 3: Check: $4(-7.5) = -30$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-120$): multiplies $-30$ by $4$ instead of dividing.\n* Choice B ($-34$): subtracts $4$ from $-30$, treating $4x$ as $x + 4$.\n* Choice D ($7.5$): divides correctly but drops the negative sign.\n\n**Test Day Takeaway:** A non-integer answer is fine on the SAT; $-\\frac{30}{4}$ simplifies to $-7.5$, and the sign of the constant carries over."
+}

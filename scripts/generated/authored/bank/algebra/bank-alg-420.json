@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-420",
+  "question": "$3x + 4y = 12$\n$y = mx + 9$\n\nIn the given system of equations, $m$ is a constant. If the system has no solution, what is the value of $m$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\dfrac{4}{3}$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\dfrac{3}{4}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{3}{4}$"
+    },
+    {
+      "id": "D",
+      "text": "$3$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "inverts the slope of the first line",
+    "C": "drops the negative sign on the slope",
+    "D": "uses the coefficient of x in the first equation as the slope"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Solve the first equation for $y$: $y = -\\dfrac{3}{4}x + 3$. Parallel and distinct lines have equal slopes, so $m = -\\dfrac{3}{4}$.\n\n**The Full Solution:**\nStep 1: Put the first equation in slope-intercept form. Subtract $3x$: $4y = -3x + 12$. Divide by $4$: $y = -\\dfrac{3}{4}x + 3$. Its slope is $-\\dfrac{3}{4}$ and its $y$-intercept is $3$.\nStep 2: No solution requires the lines to be parallel with different intercepts. The intercepts $3$ and $9$ already differ, so set the slopes equal: $m = -\\dfrac{3}{4}$.\nStep 3: Check: $y = -\\dfrac{3}{4}x + 9$ is parallel to $y = -\\dfrac{3}{4}x + 3$ and never meets it. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\dfrac{4}{3}$): divides the coefficients in the wrong order, $\\dfrac{4}{3}$ instead of $\\dfrac{3}{4}$.\n* Choice C ($\\dfrac{3}{4}$): forgets the sign change that comes from moving $3x$ to the other side.\n* Choice D ($3$): reads the coefficient of $x$ in $3x + 4y = 12$ as the slope without solving for $y$.\n\n**Test Day Takeaway:** Rewrite standard form as $y = mx + b$ before comparing slopes; the slope of $Ax + By = C$ is $-\\dfrac{A}{B}$, sign included."
+}

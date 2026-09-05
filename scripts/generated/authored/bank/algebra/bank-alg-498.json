@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-498",
+  "question": "For all values of $x$, which expression is equivalent to $(x - 6)^2 + 2$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x^2 - 12x - 34$"
+    },
+    {
+      "id": "B",
+      "text": "$x^2 + 38$"
+    },
+    {
+      "id": "C",
+      "text": "$x^2 - 12x + 38$"
+    },
+    {
+      "id": "D",
+      "text": "$x^2 + 12x + 38$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "writes -36 instead of +36 for (-6)^2",
+    "B": "drops the middle term by squaring term by term",
+    "D": "uses +12x for the middle term, losing the sign of -6"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $(x - 6)^2 = x^2 - 12x + 36$, and adding $2$ gives $x^2 - 12x + 38$.\n\n**The Full Solution:**\nStep 1: Expand $(x - 6)(x - 6) = x^2 - 6x - 6x + 36 = x^2 - 12x + 36$. Note $(-6)(-6) = +36$.\nStep 2: Add the constant outside the square: $x^2 - 12x + 36 + 2 = x^2 - 12x + 38$.\nStep 3: Check with $x = 6$: the original is $0 + 2 = 2$, and $36 - 72 + 38 = 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^2 - 12x - 34$): treats $(-6)^2$ as $-36$; a square of a negative is positive.\n* Choice B ($x^2 + 38$): squares $x$ and $-6$ separately and omits the $-12x$ middle term.\n* Choice D ($x^2 + 12x + 38$): forgets that the cross term $2(-6)x$ is negative.\n\n**Test Day Takeaway:** Track two signs when expanding $(x - a)^2$: the middle term is $-2ax$ and the constant $a^2$ is positive."
+}

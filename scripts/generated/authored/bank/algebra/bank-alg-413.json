@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-413",
+  "question": "$y = 4x - 9$\n$y = 2x + 5$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$7$"
+    },
+    {
+      "id": "C",
+      "text": "$14$"
+    },
+    {
+      "id": "D",
+      "text": "$19$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "solves 2x = 9 - 5 by subtracting instead of adding, then reports that x",
+    "B": "reports x instead of y",
+    "C": "adds 9 and 5 and stops"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Set the expressions for $y$ equal: $4x - 9 = 2x + 5$, so $2x = 14$ and $x = 7$. Then $y = 2(7) + 5 = 19$.\n\n**The Full Solution:**\nStep 1: Both equations give $y$, so substitute one into the other: $4x - 9 = 2x + 5$.\nStep 2: Subtract $2x$ and add $9$: $2x = 14$, so $x = 7$.\nStep 3: Find $y$ from either equation: $y = 2(7) + 5 = 19$. Check with the first: $4(7) - 9 = 19$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): solves $2x = 9 - 5$ instead of $2x = 9 + 5$ and reports that value.\n* Choice B ($7$): is the value of $x$; the question asks for $y$.\n* Choice C ($14$): stops at $2x = 14$ and reports $14$.\n\n**Test Day Takeaway:** When both equations are solved for $y$, set the right sides equal to get $x$, then substitute back and confirm both equations give the same $y$."
+}

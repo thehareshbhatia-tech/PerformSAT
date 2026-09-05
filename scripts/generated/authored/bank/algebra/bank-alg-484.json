@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-484",
+  "question": "$$\\dfrac{y}{3} = x + 2$$\n$$4x + 2y = 52$$\n\nIf $(x, y)$ is the solution to the given system of equations, what is the value of $x + y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$14$"
+    },
+    {
+      "id": "C",
+      "text": "$18$"
+    },
+    {
+      "id": "D",
+      "text": "$22$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports x alone",
+    "B": "computes y - x instead of x + y",
+    "C": "reports y alone (also the sum obtained by substituting y = x + 2, ignoring the 3)"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: System of Equations (Substitution)**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Clear the fraction first: $y = 3x + 6$. Substituting into the second equation gives $4x + 2(3x + 6) = 52$, so $10x = 40$, $x = 4$, $y = 18$, and $x + y = 22$.\n\n**The Full Solution:**\nStep 1: Multiply both sides of $\\dfrac{y}{3} = x + 2$ by $3$ to isolate $y$: $y = 3x + 6$. Every term on the right gets multiplied, not just $x$.\nStep 2: Substitute into $4x + 2y = 52$: $4x + 2(3x + 6) = 52$, so $4x + 6x + 12 = 52$, $10x = 40$, and $x = 4$. Then $y = 3(4) + 6 = 18$.\nStep 3: The question asks for the sum: $x + y = 4 + 18 = 22$. Check the original first equation: $\\dfrac{18}{3} = 6 = 4 + 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): stops at $x = 4$ and forgets the question asks for $x + y$.\n* Choice B ($14$): subtracts, $18 - 4$, instead of adding the coordinates.\n* Choice C ($18$): is $y$ alone; it is also what you get by substituting $y = x + 2$ (multiplying only the left side by $3$, so the $3$ never reaches $x + 2$), which yields $x = 8$, $y = 10$, and a sum of $18$.\n\n**Test Day Takeaway:** When an equation gives a variable divided by a constant, multiply every term to clear it before substituting, and finish by computing exactly the combination the question names."
+}

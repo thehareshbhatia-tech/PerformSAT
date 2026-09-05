@@ -1,0 +1,58 @@
+{
+  "id": "bank-alg-418",
+  "question": "The graph of line $\\ell$ in the $xy$-plane is shown. Line $\\ell$ passes through the points $(-3, -1)$ and $(3, 3)$. At which point does line $\\ell$ intersect the graph of $y = -x + 11$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": 0.6666667,
+      "yIntercept": 1,
+      "xRange": [
+        -6,
+        6
+      ],
+      "yRange": [
+        -4,
+        6
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 1,
+      "showPoints": [
+        [
+          -3,
+          -1
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "label": "ℓ"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(3, 3)$"
+    },
+    {
+      "id": "B",
+      "text": "$(4, 7)$"
+    },
+    {
+      "id": "C",
+      "text": "$(5, 6)$"
+    },
+    {
+      "id": "D",
+      "text": "$(6, 5)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "picks a marked point on line l, which is not on the second line",
+    "B": "uses the inverted slope 3/2 for line l",
+    "C": "swaps the coordinates of the intersection point"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** Line $\\ell$ has slope $\\dfrac{3 - (-1)}{3 - (-3)} = \\dfrac{2}{3}$ and $y$-intercept $1$, so $y = \\dfrac{2}{3}x + 1$. Setting $\\dfrac{2}{3}x + 1 = -x + 11$ gives $\\dfrac{5}{3}x = 10$, so $x = 6$ and $y = 5$.\n\n**The Full Solution:**\nStep 1: Write an equation for $\\ell$. Slope $= \\dfrac{3 - (-1)}{3 - (-3)} = \\dfrac{4}{6} = \\dfrac{2}{3}$. Using $(3, 3)$: $3 = \\dfrac{2}{3}(3) + b = 2 + b$, so $b = 1$ and $\\ell$ is $y = \\dfrac{2}{3}x + 1$.\nStep 2: At the intersection both equations hold, so substitute: $\\dfrac{2}{3}x + 1 = -x + 11$. Add $x$ and subtract $1$: $\\dfrac{5}{3}x = 10$, so $x = 6$.\nStep 3: Then $y = -6 + 11 = 5$. Check on $\\ell$: $\\dfrac{2}{3}(6) + 1 = 5$. $\\checkmark$ The intersection is $(6, 5)$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(3, 3)$): is a marked point on $\\ell$, but $-3 + 11 = 8 \\neq 3$, so it is not on the second line.\n* Choice B ($(4, 7)$): comes from using the inverted slope $\\dfrac{3}{2}$ for $\\ell$, which gives $\\dfrac{3}{2}x + 1 = -x + 11$ and $x = 4$.\n* Choice C ($(5, 6)$): swaps the coordinates of the correct point; $(5, 6)$ satisfies $y = -x + 11$ but not $\\ell$.\n\n**Test Day Takeaway:** Turn the graphed line into an equation from two grid points, then solve the resulting system by substitution and check the point in both equations."
+}

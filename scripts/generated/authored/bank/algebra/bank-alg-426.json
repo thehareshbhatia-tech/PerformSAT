@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-426",
+  "question": "$\\frac{x}{6} = -7$ What value of $x$ is the solution to the given equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-42$"
+    },
+    {
+      "id": "B",
+      "text": "$-13$"
+    },
+    {
+      "id": "C",
+      "text": "$-\\frac{7}{6}$"
+    },
+    {
+      "id": "D",
+      "text": "$42$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "subtracts 6 from -7 instead of multiplying by 6.",
+    "C": "divides -7 by 6, applying division a second time instead of undoing it.",
+    "D": "multiplies correctly but drops the negative sign."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Multiply both sides by $6$: $x = -42$.\n\n**The Full Solution:**\nStep 1: The variable is divided by $6$, so multiply each side by $6$ to isolate $x$.\nStep 2: $6 \\cdot \\frac{x}{6} = 6 \\cdot (-7)$, so $x = -42$.\nStep 3: Check: $\\frac{-42}{6} = -7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-13$): subtracts $6$ from $-7$ instead of multiplying by $6$.\n* Choice C ($-\\frac{7}{6}$): divides $-7$ by $6$, applying division a second time instead of undoing it.\n* Choice D ($42$): multiplies correctly but drops the negative sign.\n\n**Test Day Takeaway:** Division is undone by multiplication; a negative times a positive stays negative, so carry the sign through."
+}

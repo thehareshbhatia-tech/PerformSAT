@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-477",
+  "question": "In the system of equations $4x + 3y = 30$ and $7x - 3y = 36$, what is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$22$"
+    },
+    {
+      "id": "D",
+      "text": "$66$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports y = 2 instead of x.",
+    "C": "divides 66 by 3, the y-coefficient, instead of by 11.",
+    "D": "stops at 11x = 66 without dividing by 11."
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: System of Equations (Elimination)**\n\n**Choice B is correct.**\n\n**The Fast Way (~8s):** Add to cancel the $y$-terms: $11x = 66$, so $x = 6$.\n\n**The Full Solution:**\nStep 1: The $y$-terms are $+3y$ and $-3y$, so adding the equations eliminates $y$.\nStep 2: $(4x + 3y) + (7x - 3y) = 30 + 36$ gives $11x = 66$, so $x = 6$.\nStep 3: Check: $4(6) + 3y = 30$ gives $y = 2$, and $7(6) - 3(2) = 36$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports $y = 2$ instead of $x$.\n* Choice C ($22$): divides $66$ by $3$, the $y$-coefficient, instead of by $11$.\n* Choice D ($66$): stops at $11x = 66$ without dividing by $11$.\n\n**Test Day Takeaway:** After adding, divide by the combined coefficient of the surviving variable ($4 + 7 = 11$), not by a coefficient of the eliminated one."
+}

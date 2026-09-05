@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-408",
+  "question": "What is the greater of the two solutions to the equation $|5 - 2x| = 13$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-4$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$9$"
+    },
+    {
+      "id": "D",
+      "text": "$18$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the lesser solution",
+    "B": "solves 2x = 13 - 5, dropping the sign on x",
+    "D": "reaches 2x = 18 but never divides by 2"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $5 - 2x = 13$ gives $x = -4$; $5 - 2x = -13$ gives $x = 9$. The greater is $9$.\n\n**The Full Solution:**\nStep 1: Split into two cases: $5 - 2x = 13$ or $5 - 2x = -13$.\nStep 2: Case 1: $-2x = 8$, so $x = -4$. Case 2: $-2x = -18$, so $x = 9$.\nStep 3: The greater solution is $9$. Check: $|5 - 2(9)| = |5 - 18| = |-13| = 13$. $\\checkmark$ (And $|5 - 2(-4)| = |13| = 13$.)\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): is the lesser solution, from the case $5 - 2x = 13$.\n* Choice B ($4$): solves $2x = 13 - 5$ as if the $x$-term were positive, losing the sign.\n* Choice D ($18$): reaches $2x = 18$ in the second case and reports $18$ without dividing.\n\n**Test Day Takeaway:** Solve both cases completely before comparing them; with a negative coefficient on $x$, the case with $-13$ often produces the larger $x$."
+}

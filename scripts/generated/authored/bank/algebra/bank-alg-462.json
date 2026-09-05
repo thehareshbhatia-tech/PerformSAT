@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-462",
+  "question": "If $5x - 2y = 19$ and $x + 2y = 5$, what is the value of $3x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\frac{3}{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$12$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports 3y = \\frac{3}{2} instead of 3x.",
+    "B": "solves for x = 4 but forgets to multiply by 3.",
+    "D": "reports 6x = 24 without halving it to get 3x."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.**\n\n**The Fast Way (~8s):** The $y$-terms are opposites, so adding gives $6x = 24$; then $3x$ is half of that, $12$.\n\n**The Full Solution:**\nStep 1: Add the equations to eliminate $y$: $(5x - 2y) + (x + 2y) = 19 + 5$, so $6x = 24$.\nStep 2: The question asks for $3x$, which is $\\frac{6x}{2} = 12$. (Equivalently, $x = 4$ and $3(4) = 12$.)\nStep 3: Check: with $x = 4$, the second equation gives $2y = 1$, $y = \\frac{1}{2}$; then $5(4) - 2(\\frac{1}{2}) = 19$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{2}$): reports $3y = \\frac{3}{2}$ instead of $3x$.\n* Choice B ($4$): solves for $x = 4$ but forgets to multiply by $3$.\n* Choice D ($24$): reports $6x = 24$ without halving it to get $3x$.\n\n**Test Day Takeaway:** Read what is asked before finishing: $6x = 24$ is one step from $3x$ or from $x$, and the answer choices include both traps."
+}

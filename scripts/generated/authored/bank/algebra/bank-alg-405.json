@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-405",
+  "question": "The graph of $y = -\\dfrac{3}{4}x + 6$ in the $xy$-plane has a $y$-intercept at $(0, b)$, where $b$ is a constant. What is the value of $b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\dfrac{3}{4}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{3}{4}$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$8$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the slope",
+    "B": "reports the slope without its sign",
+    "D": "reports the x-intercept"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** In $y = mx + b$, the constant term is the $y$-intercept, so $b = 6$.\n\n**The Full Solution:**\nStep 1: The $y$-intercept is where the graph crosses the $y$-axis, which is where $x = 0$.\nStep 2: Substitute $x = 0$: $y = -\\dfrac{3}{4}(0) + 6 = 6$. So the $y$-intercept is $(0, 6)$ and $b = 6$.\nStep 3: Check: the equation is already in slope-intercept form $y = mx + b$ with $m = -\\dfrac{3}{4}$ and $b = 6$, which agrees. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\dfrac{3}{4}$): reports the slope, the coefficient of $x$, instead of the constant term.\n* Choice B ($\\dfrac{3}{4}$): reports the slope with its sign dropped.\n* Choice D ($8$): solves $0 = -\\dfrac{3}{4}x + 6$ for $x$, which gives the $x$-intercept, not the $y$-intercept.\n\n**Test Day Takeaway:** In $y = mx + b$, the number multiplying $x$ is the slope and the lone constant is the $y$-intercept; setting $x = 0$ confirms it in one step."
+}

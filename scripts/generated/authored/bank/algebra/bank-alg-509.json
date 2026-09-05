@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-509",
+  "question": "The function $h$ is defined by $h(x) = c\\sqrt{x - d}$, where $c$ and $d$ are constants. In the $xy$-plane, the graph of $y = h(x)$ has an $x$-intercept at $(-7, 0)$, and $h(2) < 0$. Which of the following must be true?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$c > 0$"
+    },
+    {
+      "id": "B",
+      "text": "$d > 0$"
+    },
+    {
+      "id": "C",
+      "text": "$c > d$"
+    },
+    {
+      "id": "D",
+      "text": "$cd > 0$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reverses the sign conclusion: h(2) = 3c < 0 forces c < 0, not c > 0",
+    "B": "reads the intercept x = -7 as d = 7 instead of solving x - d = 0 to get d = -7",
+    "C": "can be true (c = -1) or false (c = -20); it is not forced"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Square Root Function — Sign Reasoning**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The square root is zero only when its input is zero, so the $x$-intercept at $x = -7$ forces $-7 - d = 0$, giving $d = -7$. Then $h(2) = c\\sqrt{9} = 3c < 0$ forces $c < 0$. Two negatives multiply to a positive: $cd > 0$.\n\n**The Full Solution:**\nStep 1: Use the intercept: $h(-7) = c\\sqrt{-7 - d} = 0$. If $c$ were $0$, then $h(x) = 0$ for every $x$, contradicting $h(2) < 0$. So $c \\neq 0$ and $\\sqrt{-7 - d} = 0$, which gives $d = -7$. The function is $h(x) = c\\sqrt{x + 7}$.\nStep 2: Use the sign condition: $h(2) = c\\sqrt{2 + 7} = 3c$. Since $3c < 0$, $c < 0$.\nStep 3: With $c < 0$ and $d = -7 < 0$, the product $cd$ is positive, so $cd > 0$ must be true. Check with a concrete pair such as $c = -2$, $d = -7$: $h(-7) = 0$ and $h(2) = -6 < 0$, and $cd = 14 > 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($c > 0$): reverses the conclusion from $h(2) < 0$; a positive $c$ would make $h(2) = 3c$ positive.\n* Choice B ($d > 0$): reads the intercept $-7$ as the value of $d$ with the sign dropped; solving $x - d = 0$ at $x = -7$ gives $d = -7$.\n* Choice C ($c > d$): holds for $c = -1$ (since $-1 > -7$) but fails for $c = -20$; the conditions do not fix the size of $c$, so this need not be true.\n\n**Test Day Takeaway:** For $c\\sqrt{x - d}$, the $x$-intercept pins down $d$ and a single signed output pins down the sign of $c$; a \"must be true\" answer has to follow from those two facts alone, not from a convenient example."
+}

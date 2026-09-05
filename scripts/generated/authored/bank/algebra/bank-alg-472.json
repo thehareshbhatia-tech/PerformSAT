@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-472",
+  "question": "The system of equations $ax - 6y = 8$ and $9x + by = -12$, where $a$ and $b$ are constants, has infinitely many solutions. What is the value of $a + b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-15$"
+    },
+    {
+      "id": "B",
+      "text": "$-3$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$15$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "applies the negative factor to a but not to b, taking b = -9: -6 + (-9) = -15.",
+    "B": "uses the factor +\\frac{3}{2} (ignoring the sign change from 8 to -12): a = 6, b = -9.",
+    "D": "works with magnitudes only, a = 6 and b = 9, dropping both signs."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The constants give the factor $\\frac{-12}{8} = -\\frac{3}{2}$. Then $9 = -\\frac{3}{2}a$ gives $a = -6$, and $b = -\\frac{3}{2}(-6) = 9$; $a + b = 3$.\n\n**The Full Solution:**\nStep 1: Same line means the second equation equals the first times some factor $t$. The constants are both known: $t = \\frac{-12}{8} = -\\frac{3}{2}$.\nStep 2: Match the $x$-terms: $9 = t \\cdot a = -\\frac{3}{2}a$, so $a = -6$. Match the $y$-terms: $b = t \\cdot (-6) = -\\frac{3}{2}(-6) = 9$.\nStep 3: $a + b = -6 + 9 = 3$. Check: $-\\frac{3}{2}(-6x - 6y) = 9x + 9y$ and $-\\frac{3}{2}(8) = -12$, giving $9x + 9y = -12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-15$): applies the negative factor to $a$ but not to $b$, taking $b = -9$: $-6 + (-9) = -15$.\n* Choice B ($-3$): uses the factor $+\\frac{3}{2}$ (ignoring the sign change from $8$ to $-12$): $a = 6$, $b = -9$.\n* Choice D ($15$): works with magnitudes only, $a = 6$ and $b = 9$, dropping both signs.\n\n**Test Day Takeaway:** Let the fully known pair (here the constants) determine the factor, sign included, and apply that one factor to every other term."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-409",
+  "question": "What is the sum of all solutions to the equation $|4x - 6| = 14$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-10$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$5$"
+    },
+    {
+      "id": "D",
+      "text": "$7$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies the solutions instead of adding them",
+    "C": "reports only the solution from the positive case",
+    "D": "subtracts the solutions instead of adding them"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $4x - 6 = 14$ gives $x = 5$; $4x - 6 = -14$ gives $x = -2$. Sum: $5 + (-2) = 3$.\n\n**The Full Solution:**\nStep 1: Split into two cases: $4x - 6 = 14$ or $4x - 6 = -14$.\nStep 2: Case 1: $4x = 20$, so $x = 5$. Case 2: $4x = -8$, so $x = -2$.\nStep 3: The sum is $5 + (-2) = 3$. Check: the solutions are symmetric about the value that makes $4x - 6 = 0$, namely $x = \\dfrac{3}{2}$, and $2 \\cdot \\dfrac{3}{2} = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): multiplies $5$ and $-2$ instead of adding them.\n* Choice C ($5$): finds only the positive-case solution and reports it as the sum.\n* Choice D ($7$): computes $5 - (-2)$, the distance between the solutions, not their sum.\n\n**Test Day Takeaway:** The two solutions of $|ax + b| = c$ sit symmetrically around the point where $ax + b = 0$, so their sum is twice that point; use it to check your addition."
+}

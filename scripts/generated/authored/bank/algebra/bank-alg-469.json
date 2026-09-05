@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-469",
+  "question": "Which of the following equations represents the same line in the $xy$-plane as the equation $y = -\\frac{3}{4}x + 2$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3x + 4y = 2$"
+    },
+    {
+      "id": "B",
+      "text": "$3x - 4y = 8$"
+    },
+    {
+      "id": "C",
+      "text": "$4x + 3y = 8$"
+    },
+    {
+      "id": "D",
+      "text": "$3x + 4y = 8$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies the x-term by 4 but leaves the constant 2 unscaled; it has the same slope but intercept \\frac{1}{2}.",
+    "B": "mishandles the sign when moving -3x; its slope is \\frac{3}{4}.",
+    "C": "swaps the coefficients; its slope is -\\frac{4}{3}."
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice D is correct.**\n\n**The Fast Way (~8s):** Multiply by $4$: $4y = -3x + 8$; move the $x$-term: $3x + 4y = 8$.\n\n**The Full Solution:**\nStep 1: Clear the fraction by multiplying every term by $4$: $4y = -3x + 8$.\nStep 2: Add $3x$ to both sides to reach standard form: $3x + 4y = 8$.\nStep 3: Check: solving $3x + 4y = 8$ for $y$ gives $y = -\\frac{3}{4}x + 2$, the original equation. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x + 4y = 2$): multiplies the $x$-term by $4$ but leaves the constant $2$ unscaled; it has the same slope but intercept $\\frac{1}{2}$.\n* Choice B ($3x - 4y = 8$): mishandles the sign when moving $-3x$; its slope is $\\frac{3}{4}$.\n* Choice C ($4x + 3y = 8$): swaps the coefficients; its slope is $-\\frac{4}{3}$.\n\n**Test Day Takeaway:** Multiply EVERY term (including the constant) by the denominator, then move the $x$-term with its sign flipped."
+}

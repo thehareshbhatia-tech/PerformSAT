@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-421",
+  "question": "The system of equations $6x - 4y = 9$ and $kx + 10y = 1$, where $k$ is a constant, has no solution. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-15$"
+    },
+    {
+      "id": "B",
+      "text": "$-6$"
+    },
+    {
+      "id": "C",
+      "text": "$-\\frac{12}{5}$"
+    },
+    {
+      "id": "D",
+      "text": "$15$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "sets k to the opposite of the x-coefficient 6, treating \"parallel\" as opposite coefficients rather than proportional ones; k = -6 gives slope \\frac{3}{5}, and the lines cross.",
+    "C": "multiplies 6 by \\frac{-4}{10} instead of dividing by it, inverting the proportion.",
+    "D": "drops the negative when solving -\\frac{k}{10} = \\frac{3}{2}; k = 15 gives slope -\\frac{3}{2}, and the lines intersect."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** No solution means the coefficient ratios match: $\\frac{6}{k} = \\frac{-4}{10}$, so $k = 6 \\cdot \\frac{10}{-4} = -15$.\n\n**The Full Solution:**\nStep 1: Write each equation in slope-intercept form. First: $y = \\frac{3}{2}x - \\frac{9}{4}$, slope $\\frac{3}{2}$. Second: $y = -\\frac{k}{10}x + \\frac{1}{10}$, slope $-\\frac{k}{10}$.\nStep 2: A system of two lines has no solution only when the lines are parallel and distinct, so the slopes must be equal: $-\\frac{k}{10} = \\frac{3}{2}$, giving $k = -15$.\nStep 3: Check that the lines are distinct: the $y$-intercepts $-\\frac{9}{4}$ and $\\frac{1}{10}$ differ, so with $k = -15$ the lines are parallel and never meet. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-6$): sets $k$ to the opposite of the $x$-coefficient $6$, treating \"parallel\" as opposite coefficients rather than proportional ones; $k = -6$ gives slope $\\frac{3}{5}$, and the lines cross.\n* Choice C ($-\\frac{12}{5}$): multiplies $6$ by $\\frac{-4}{10}$ instead of dividing by it, inverting the proportion.\n* Choice D ($15$): drops the negative when solving $-\\frac{k}{10} = \\frac{3}{2}$; $k = 15$ gives slope $-\\frac{3}{2}$, and the lines intersect.\n\n**Test Day Takeaway:** In standard form, no solution requires $\\frac{A_1}{A_2} = \\frac{B_1}{B_2} \\neq \\frac{C_1}{C_2}$: match the $x$- and $y$-coefficient ratio, then confirm the constants break it."
+}

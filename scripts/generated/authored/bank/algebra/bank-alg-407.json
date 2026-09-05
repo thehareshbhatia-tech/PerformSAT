@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-407",
+  "question": "Which of the following is the solution set of the equation $|x + 3| = 5$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\{-2, 8\\}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\{-8, 2\\}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\{2\\}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\{-5, 5\\}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds 3 instead of subtracting when solving each case",
+    "C": "keeps only the positive case",
+    "D": "ignores the +3 inside the absolute value"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $x + 3 = 5$ or $x + 3 = -5$, so $x = 2$ or $x = -8$.\n\n**The Full Solution:**\nStep 1: An absolute value equals $5$ when the expression inside is $5$ or $-5$. Split into two cases: $x + 3 = 5$ and $x + 3 = -5$.\nStep 2: Solve each: $x = 5 - 3 = 2$ and $x = -5 - 3 = -8$.\nStep 3: The solution set is $\\{-8, 2\\}$. Check: $|2 + 3| = |5| = 5$ and $|-8 + 3| = |-5| = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\{-2, 8\\}$): adds $3$ to $\\pm 5$ instead of subtracting; $|8 + 3| = 11$, not $5$.\n* Choice C ($\\{2\\}$): solves only the positive case and misses $x = -8$.\n* Choice D ($\\{-5, 5\\}$): treats the equation as $|x| = 5$, ignoring the $+3$.\n\n**Test Day Takeaway:** An absolute value equation is two equations in disguise; solve both cases and substitute each answer back to confirm."
+}

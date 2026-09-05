@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-425",
+  "question": "Which of the following is the solution to the equation $x + 26 = 9$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-35$"
+    },
+    {
+      "id": "B",
+      "text": "$-17$"
+    },
+    {
+      "id": "C",
+      "text": "$17$"
+    },
+    {
+      "id": "D",
+      "text": "$35$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts 26 from -9 instead of from 9, mishandling the sign of the constant.",
+    "C": "computes 26 - 9, reversing the subtraction and losing the negative sign.",
+    "D": "adds 26 to 9 instead of subtracting, doing the same operation as the equation rather than the inverse."
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Subtract $26$ from both sides: $x = 9 - 26 = -17$.\n\n**The Full Solution:**\nStep 1: The variable has $26$ added to it, so undo the addition by subtracting $26$ from each side.\nStep 2: $x + 26 - 26 = 9 - 26$, which simplifies to $x = -17$.\nStep 3: Check: $-17 + 26 = 9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-35$): subtracts $26$ from $-9$ instead of from $9$, mishandling the sign of the constant.\n* Choice C ($17$): computes $26 - 9$, reversing the subtraction and losing the negative sign.\n* Choice D ($35$): adds $26$ to $9$ instead of subtracting, doing the same operation as the equation rather than the inverse.\n\n**Test Day Takeaway:** Undo whatever is done to the variable with the inverse operation on both sides, and keep the order of subtraction: $9 - 26$, not $26 - 9$."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-480",
+  "question": "The solution to the system of equations $x = 5 - 2y$ and $3x + y = 10$ is $(x, y)$. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-5$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$7$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "distributes the 3 to the 5 only (15 - 2y + y = 10, y = 5), giving x = 5 - 10 = -5.",
+    "B": "reports y = 1 instead of x.",
+    "D": "computes x = 5 + 2(1) = 7, flipping the sign of the 2y term."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: System of Equations (Substitution)**\n\n**Choice C is correct.**\n\n**The Fast Way (~8s):** Substitute: $3(5 - 2y) + y = 10$, so $15 - 5y = 10$, $y = 1$, and $x = 5 - 2(1) = 3$.\n\n**The Full Solution:**\nStep 1: Replace $x$ in the second equation with $5 - 2y$: $3(5 - 2y) + y = 10$.\nStep 2: Distribute the $3$ to both terms: $15 - 6y + y = 10$, so $15 - 5y = 10$, $-5y = -5$, and $y = 1$.\nStep 3: Then $x = 5 - 2(1) = 3$. Check: $3(3) + 1 = 10$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): distributes the $3$ to the $5$ only ($15 - 2y + y = 10$, $y = 5$), giving $x = 5 - 10 = -5$.\n* Choice B ($1$): reports $y = 1$ instead of $x$.\n* Choice D ($7$): computes $x = 5 + 2(1) = 7$, flipping the sign of the $2y$ term.\n\n**Test Day Takeaway:** When substituting into a term with a coefficient, distribute to every part of the expression: $3(5 - 2y) = 15 - 6y$."
+}

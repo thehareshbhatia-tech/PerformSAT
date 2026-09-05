@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-446",
+  "question": "In the system of equations $8x + 6y = 22$ and $12x + ky = 33$, $k$ is a constant. The system has infinitely many solutions. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-9$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$9$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "drops the sign; 12x - 9y = 33 has slope \\frac{4}{3}, not -\\frac{4}{3}, so the lines would cross.",
+    "B": "multiplies 6 by \\frac{2}{3}, inverting the scale factor.",
+    "C": "copies the y-coefficient from the first equation, ignoring that the second equation is scaled by \\frac{3}{2}."
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Same Line Infinitely Many Solutions**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** The second equation is the first scaled by $\\frac{3}{2}$ (since $12 = \\frac{3}{2}(8)$ and $33 = \\frac{3}{2}(22)$), so $k = \\frac{3}{2}(6) = 9$.\n\n**The Full Solution:**\nStep 1: Infinitely many solutions means the equations are multiples of each other. Find the scale factor from the $x$-terms: $\\frac{12}{8} = \\frac{3}{2}$.\nStep 2: Confirm the constants use the same factor: $\\frac{33}{22} = \\frac{3}{2}$. So every term of the first equation is multiplied by $\\frac{3}{2}$, and $k = \\frac{3}{2} \\cdot 6 = 9$.\nStep 3: Check: $\\frac{3}{2}(8x + 6y) = 12x + 9y$ and $\\frac{3}{2}(22) = 33$, giving $12x + 9y = 33$, the second equation. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): drops the sign; $12x - 9y = 33$ has slope $\\frac{4}{3}$, not $-\\frac{4}{3}$, so the lines would cross.\n* Choice B ($4$): multiplies $6$ by $\\frac{2}{3}$, inverting the scale factor.\n* Choice C ($6$): copies the $y$-coefficient from the first equation, ignoring that the second equation is scaled by $\\frac{3}{2}$.\n\n**Test Day Takeaway:** For the same line in standard form, all three ratios must agree: find the factor from the terms you can see, then apply it to the unknown coefficient."
+}

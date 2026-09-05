@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-374",
+  "question": "In the $xy$-plane, what is the distance between the origin and the point $(-5, 12)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7$"
+    },
+    {
+      "id": "B",
+      "text": "$13$"
+    },
+    {
+      "id": "C",
+      "text": "$17$"
+    },
+    {
+      "id": "D",
+      "text": "$169$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts the coordinates, 12 - 5",
+    "C": "adds the coordinates, 5 + 12",
+    "D": "forgets to take the square root"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** From the origin, the legs are $5$ and $12$, and $5$-$12$-$13$ is a Pythagorean triple, so the distance is $13$.\n\n**The Full Solution:**\nStep 1: The origin is $(0, 0)$, so the horizontal change to $(-5, 12)$ is $-5$ and the vertical change is $12$.\nStep 2: Apply the distance formula: $\\sqrt{(-5)^2 + 12^2} = \\sqrt{25 + 144} = \\sqrt{169}$. The negative sign disappears when squared.\nStep 3: $\\sqrt{169} = 13$. Check: $13^2 = 169 = 25 + 144$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): subtracts $5$ from $12$, treating the distance as a difference of coordinates.\n* Choice C ($17$): adds $5$ and $12$, the length of a path along the axes rather than the straight line.\n* Choice D ($169$): stops at $25 + 144$ and never takes the square root.\n\n**Test Day Takeaway:** The distance from the origin to $(a, b)$ is $\\sqrt{a^2 + b^2}$; a negative coordinate contributes exactly as its positive counterpart does."
+}

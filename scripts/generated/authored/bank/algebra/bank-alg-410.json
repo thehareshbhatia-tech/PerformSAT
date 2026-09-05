@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-410",
+  "question": "$|2x - 9| + 5 = 3$\n\nHow many real solutions does the given equation have?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Zero"
+    },
+    {
+      "id": "B",
+      "text": "Exactly one"
+    },
+    {
+      "id": "C",
+      "text": "Exactly two"
+    },
+    {
+      "id": "D",
+      "text": "Infinitely many"
+    }
+  ],
+  "distractorNotes": {
+    "B": "assumes the absolute value equals 0 after isolating",
+    "C": "assumes every absolute value equation has two solutions",
+    "D": "confuses this with an identity"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Isolate the absolute value: $|2x - 9| = -2$. An absolute value is never negative, so there are no solutions.\n\n**The Full Solution:**\nStep 1: Subtract $5$ from both sides to isolate the absolute value: $|2x - 9| = 3 - 5 = -2$.\nStep 2: For every real $x$, $|2x - 9| \\geq 0$, so it can never equal $-2$.\nStep 3: The equation has zero real solutions. Check: the smallest the left side of the original equation can be is $0 + 5 = 5$, which is already greater than $3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): would be right if the isolated absolute value equaled $0$, but here it must equal $-2$.\n* Choice C (Exactly two): assumes the usual two cases $2x - 9 = \\pm 2$ apply, without checking that the right side is positive.\n* Choice D (Infinitely many): treats the equation as an identity, but the left side is at least $5$ and the right side is $3$.\n\n**Test Day Takeaway:** Isolate the absolute value first and look at the sign of the other side: positive means two solutions, zero means one, negative means none."
+}

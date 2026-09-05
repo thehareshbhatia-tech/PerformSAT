@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-406",
+  "question": "What is the slope of the graph of the equation $y = 12 - 2x$ in the $xy$-plane?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-2$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\dfrac{1}{2}$"
+    },
+    {
+      "id": "C",
+      "text": "$2$"
+    },
+    {
+      "id": "D",
+      "text": "$12$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "takes the negative reciprocal of the slope",
+    "C": "drops the negative sign",
+    "D": "reports the y-intercept"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Rewrite as $y = -2x + 12$; the coefficient of $x$ is $-2$.\n\n**The Full Solution:**\nStep 1: Slope-intercept form is $y = mx + b$. The given equation lists the constant first, so reorder the terms: $y = 12 - 2x = -2x + 12$.\nStep 2: The slope $m$ is the coefficient of $x$, including its sign: $m = -2$.\nStep 3: Check with two points: at $x = 0$, $y = 12$; at $x = 1$, $y = 10$. The change is $10 - 12 = -2$ per unit of $x$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\dfrac{1}{2}$): gives the slope of a perpendicular line rather than of this line.\n* Choice C ($2$): takes the coefficient without its negative sign; the line falls, so its slope must be negative.\n* Choice D ($12$): reports the constant term, which is the $y$-intercept.\n\n**Test Day Takeaway:** When the equation is written out of the usual order, reorder it into $y = mx + b$ before reading the slope, and keep the sign that travels with $x$."
+}

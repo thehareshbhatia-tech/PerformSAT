@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-361",
+  "question": "Which of the following inequalities has the same solution set as the inequality $-\\dfrac{2}{5}(x - 10) \\geq 6$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x \\leq -5$"
+    },
+    {
+      "id": "B",
+      "text": "$x \\geq -5$"
+    },
+    {
+      "id": "C",
+      "text": "$x \\leq 5$"
+    },
+    {
+      "id": "D",
+      "text": "$x \\geq 25$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "does not reverse the inequality when multiplying by a negative number",
+    "C": "solves x - 10 <= -15 as x <= 15 - 10",
+    "D": "ignores the negative sign on the coefficient"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: One-Variable Linear Inequality**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Multiply both sides by $-\\dfrac{5}{2}$ and reverse the inequality: $x - 10 \\leq -15$, so $x \\leq -5$.\n\n**The Full Solution:**\nStep 1: The coefficient of $(x - 10)$ is $-\\dfrac{2}{5}$. To undo it, multiply both sides by its reciprocal, $-\\dfrac{5}{2}$. Because that number is negative, the direction of the inequality reverses: $x - 10 \\leq 6 \\cdot \\left(-\\dfrac{5}{2}\\right) = -15$.\nStep 2: Add $10$ to both sides: $x \\leq -5$.\nStep 3: Check with $x = -10$ (which satisfies $x \\leq -5$): $-\\dfrac{2}{5}(-10 - 10) = -\\dfrac{2}{5}(-20) = 8 \\geq 6$. $\\checkmark$ Check with $x = 0$ (which does not): $-\\dfrac{2}{5}(-10) = 4$, and $4 \\geq 6$ is false. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($x \\geq -5$): keeps the original direction after multiplying by the negative number $-\\dfrac{5}{2}$; the direction must reverse.\n* Choice C ($x \\leq 5$): reverses correctly to $x - 10 \\leq -15$ but then moves the $10$ by computing $15 - 10 = 5$, dropping the negative that belongs to $-15$.\n* Choice D ($x \\geq 25$): drops the negative sign on the coefficient, solving $\\dfrac{2}{5}(x - 10) \\geq 6$ instead.\n\n**Test Day Takeaway:** Every time you multiply or divide an inequality by a negative number, flip the sign; then verify with one number from your solution set and one from outside it."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-438",
+  "question": "In the $xy$-plane, the graph of $y = 6x - 1$ and the graph of $y = 6x + 4$ are lines. At how many points do the two lines intersect?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Exactly one"
+    },
+    {
+      "id": "B",
+      "text": "Exactly two"
+    },
+    {
+      "id": "C",
+      "text": "Infinitely many"
+    },
+    {
+      "id": "D",
+      "text": "Zero"
+    }
+  ],
+  "distractorNotes": {
+    "A": "assumes any two distinct lines must cross; equal slopes rule that out.",
+    "B": "two straight lines can never intersect at exactly two points.",
+    "C": "infinitely many points would require the same intercept as well as the same slope."
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Parallel Lines No Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Both lines have slope $6$ but different $y$-intercepts ($-1$ and $4$), so they are parallel and never meet.\n\n**The Full Solution:**\nStep 1: Compare slopes: both equations are in $y = mx + b$ form with $m = 6$, so the lines are parallel.\nStep 2: Compare intercepts: $-1 \\neq 4$, so the lines are distinct parallel lines.\nStep 3: Check algebraically: setting $6x - 1 = 6x + 4$ gives $-1 = 4$, a false statement, so no $x$ satisfies both equations. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Exactly one): assumes any two distinct lines must cross; equal slopes rule that out.\n* Choice B (Exactly two): two straight lines can never intersect at exactly two points.\n* Choice C (Infinitely many): infinitely many points would require the same intercept as well as the same slope.\n\n**Test Day Takeaway:** Same slope, different intercept means parallel: the equations can never both hold, so the intersection count is zero."
+}

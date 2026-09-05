@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-383",
+  "question": "In the $xy$-plane, the midpoint of the line segment with endpoints $(-5, k)$ and $(9, -3)$ is $(2, 4)$. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$1$"
+    },
+    {
+      "id": "B",
+      "text": "$5$"
+    },
+    {
+      "id": "C",
+      "text": "$7$"
+    },
+    {
+      "id": "D",
+      "text": "$11$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes 4 - 3 without doubling the midpoint coordinate",
+    "B": "doubles 4 but subtracts 3 instead of adding it",
+    "C": "adds 3 to 4 without doubling first"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The $y$-coordinates average to $4$: $\\dfrac{k + (-3)}{2} = 4$, so $k - 3 = 8$ and $k = 11$.\n\n**The Full Solution:**\nStep 1: Only the $y$-coordinate involves $k$. The midpoint's $y$-coordinate is the average of the endpoints' $y$-coordinates: $\\dfrac{k + (-3)}{2} = 4$.\nStep 2: Multiply both sides by $2$: $k - 3 = 8$. Add $3$: $k = 11$.\nStep 3: Check the $x$-coordinate for consistency: $\\dfrac{-5 + 9}{2} = 2$, matching the given midpoint. And $\\dfrac{11 + (-3)}{2} = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): computes $4 - 3$, never doubling the midpoint coordinate to undo the division by $2$.\n* Choice B ($5$): doubles to $8$ but then subtracts $3$ instead of adding it.\n* Choice C ($7$): adds $3$ to $4$ without first doubling.\n\n**Test Day Takeaway:** To recover a missing endpoint coordinate, double the midpoint coordinate and subtract the known endpoint coordinate: $k = 2(4) - (-3)$."
+}

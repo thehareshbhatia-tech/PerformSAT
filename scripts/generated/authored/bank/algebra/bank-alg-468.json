@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-468",
+  "question": "The equations $2x + 5y = 6$ and $ax + by = 18$, where $a$ and $b$ are constants, represent the same line in the $xy$-plane. What is the value of $a + b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7$"
+    },
+    {
+      "id": "B",
+      "text": "$15$"
+    },
+    {
+      "id": "C",
+      "text": "$18$"
+    },
+    {
+      "id": "D",
+      "text": "$21$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds the original coefficients 2 + 5 without scaling them.",
+    "B": "reports b = 15 alone.",
+    "C": "reports the constant 18."
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice D is correct.**\n\n**The Fast Way (~8s):** The constants go from $6$ to $18$, a factor of $3$, so $a = 6$ and $b = 15$; $a + b = 21$.\n\n**The Full Solution:**\nStep 1: Same line means the second equation is a multiple of the first. The constants fix the factor: $\\frac{18}{6} = 3$.\nStep 2: Apply the factor to each coefficient: $a = 3 \\cdot 2 = 6$ and $b = 3 \\cdot 5 = 15$.\nStep 3: $a + b = 6 + 15 = 21$. Check: $6x + 15y = 18$ divided by $3$ is $2x + 5y = 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): adds the original coefficients $2 + 5$ without scaling them.\n* Choice B ($15$): reports $b = 15$ alone.\n* Choice C ($18$): reports the constant $18$.\n\n**Test Day Takeaway:** When the constant is the known pair, use it to find the multiplier, then scale every coefficient by it before combining."
+}

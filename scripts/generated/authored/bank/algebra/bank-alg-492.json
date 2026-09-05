@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-492",
+  "question": "$$3x + 6 = 21$$\n\nWhich of the following is the solution to the given equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$5$"
+    },
+    {
+      "id": "B",
+      "text": "$9$"
+    },
+    {
+      "id": "C",
+      "text": "$13$"
+    },
+    {
+      "id": "D",
+      "text": "$15$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "adds 6 to 21 instead of subtracting, then divides by 3",
+    "C": "divides 21 by 3 first and then adds 6",
+    "D": "subtracts 6 but never divides by 3"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $3x = 21 - 6 = 15$, so $x = 5$.\n\n**The Full Solution:**\nStep 1: Subtract $6$ from both sides to isolate the $x$-term: $3x = 15$.\nStep 2: Divide both sides by $3$: $x = 5$.\nStep 3: Check: $3(5) + 6 = 15 + 6 = 21$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($9$): adds $6$ to $21$ instead of subtracting, giving $\\dfrac{27}{3} = 9$.\n* Choice C ($13$): divides $21$ by $3$ first, then adds $6$ to $7$, undoing the operations in the wrong order.\n* Choice D ($15$): is the value of $3x$, not $x$; the division by $3$ was skipped.\n\n**Test Day Takeaway:** A two-step equation is solved by peeling off the constant, then the coefficient; a ten-second substitution check catches every one of these slips."
+}

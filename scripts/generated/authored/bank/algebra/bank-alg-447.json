@@ -1,0 +1,58 @@
+{
+  "id": "bank-alg-447",
+  "question": "Line $g$ is shown in the $xy$-plane. The system consisting of the equation of line $g$ and the equation $y = \\frac{a}{4}x + b$, where $a$ and $b$ are constants, has infinitely many solutions. What is the value of $a + b$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": 0.5,
+      "yIntercept": -3,
+      "xRange": [
+        -4,
+        6
+      ],
+      "yRange": [
+        -6,
+        4
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 1,
+      "showPoints": [
+        [
+          0,
+          -3
+        ],
+        [
+          4,
+          -1
+        ]
+      ],
+      "label": "g"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\frac{5}{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$-1$"
+    },
+    {
+      "id": "C",
+      "text": "$2$"
+    },
+    {
+      "id": "D",
+      "text": "$5$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sets a = \\frac{1}{2}, reading the slope as a and ignoring the divisor 4: \\frac{1}{2} - 3 = -\\frac{5}{2}.",
+    "C": "reports a = 2 alone, forgetting to add b = -3.",
+    "D": "reads the slope as run over rise, 2, so \\frac{a}{4} = 2 gives a = 8; 8 - 3 = 5."
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Same Line Infinitely Many Solutions**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Line $g$ has slope $\\frac{1}{2}$ and $y$-intercept $-3$. Same line means $\\frac{a}{4} = \\frac{1}{2}$, so $a = 2$, and $b = -3$; $a + b = -1$.\n\n**The Full Solution:**\nStep 1: Read line $g$ from the graph: it passes through $(0, -3)$ and $(4, -1)$, so slope $= \\frac{-1 - (-3)}{4 - 0} = \\frac{2}{4} = \\frac{1}{2}$ and the equation is $y = \\frac{1}{2}x - 3$.\nStep 2: Infinitely many solutions means $y = \\frac{a}{4}x + b$ is the same line: $\\frac{a}{4} = \\frac{1}{2}$ gives $a = 2$, and $b = -3$.\nStep 3: So $a + b = 2 + (-3) = -1$. Check: $y = \\frac{2}{4}x - 3 = \\frac{1}{2}x - 3$ matches line $g$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{5}{2}$): sets $a = \\frac{1}{2}$, reading the slope as $a$ and ignoring the divisor $4$: $\\frac{1}{2} - 3 = -\\frac{5}{2}$.\n* Choice C ($2$): reports $a = 2$ alone, forgetting to add $b = -3$.\n* Choice D ($5$): reads the slope as run over rise, $2$, so $\\frac{a}{4} = 2$ gives $a = 8$; $8 - 3 = 5$.\n\n**Test Day Takeaway:** Same line = same slope and same intercept; when the slope is written as $\\frac{a}{4}$, solve $\\frac{a}{4} = m$ rather than setting $a = m$."
+}

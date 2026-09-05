@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-440",
+  "question": "In the system of equations $y = 3x - 7$ and $y = (2m - 1)x + 5$, $m$ is a constant. If the system has no solution, what is the value of $m$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-3$"
+    },
+    {
+      "id": "B",
+      "text": "$-1$"
+    },
+    {
+      "id": "C",
+      "text": "$1$"
+    },
+    {
+      "id": "D",
+      "text": "$2$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "negates the slope and ignores the expression 2m - 1, setting m = -3.",
+    "B": "sets 2m - 1 = -3, matching the opposite of the slope.",
+    "C": "moves the 1 to the wrong side, solving 2m = 3 - 1."
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Parallel Lines No Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** No solution means equal slopes: $2m - 1 = 3$, so $m = 2$.\n\n**The Full Solution:**\nStep 1: Both equations are in slope-intercept form. The first has slope $3$; the second has slope $2m - 1$ and intercept $5$.\nStep 2: The intercepts $-7$ and $5$ already differ, so the lines are distinct; no solution then requires equal slopes: $2m - 1 = 3$, $2m = 4$, $m = 2$.\nStep 3: Check: with $m = 2$ the second line is $y = 3x + 5$; solving $3x - 7 = 3x + 5$ gives $-7 = 5$, false, so no solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): negates the slope and ignores the expression $2m - 1$, setting $m = -3$.\n* Choice B ($-1$): sets $2m - 1 = -3$, matching the opposite of the slope.\n* Choice C ($1$): moves the $1$ to the wrong side, solving $2m = 3 - 1$.\n\n**Test Day Takeaway:** When the slope is an expression in a parameter, set the whole expression equal to the other slope and solve; check the intercepts differ."
+}

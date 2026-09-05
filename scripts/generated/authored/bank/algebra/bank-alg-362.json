@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-362",
+  "question": "Which of the following describes all values of $x$ that satisfy the compound inequality $-7 \\leq 3 - 2x < 11$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-7 < x \\leq 2$"
+    },
+    {
+      "id": "B",
+      "text": "$-5 \\leq x < 4$"
+    },
+    {
+      "id": "C",
+      "text": "$-4 \\leq x < 5$"
+    },
+    {
+      "id": "D",
+      "text": "$-4 < x \\leq 5$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds 3 to each part instead of subtracting 3",
+    "B": "divides by 2 and never reverses the inequality signs",
+    "C": "reverses the order of the bounds but leaves the strict and inclusive signs in their original places"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: One-Variable Linear Inequality**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Subtract $3$ from all three parts to get $-10 \\leq -2x < 8$; divide by $-2$ and reverse both signs: $5 \\geq x > -4$, which is $-4 < x \\leq 5$.\n\n**The Full Solution:**\nStep 1: Isolate the $x$-term in the middle. Subtracting $3$ from each part of $-7 \\leq 3 - 2x < 11$ gives $-10 \\leq -2x < 8$.\nStep 2: Divide each part by $-2$. Dividing by a negative reverses both inequality signs: $5 \\geq x > -4$.\nStep 3: Rewrite in increasing order: $-4 < x \\leq 5$. Note that the strict sign now sits next to $-4$ and the inclusive sign next to $5$. Check the endpoints: $x = 5$ gives $3 - 10 = -7$, and $-7 \\leq -7$ holds. $\\checkmark$ $x = -4$ gives $3 + 8 = 11$, and $11 < 11$ fails, so $-4$ is correctly excluded. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7 < x \\leq 2$): adds $3$ to each part instead of subtracting it, producing $-4 \\leq -2x < 14$ before dividing.\n* Choice B ($-5 \\leq x < 4$): divides by $2$ as though the coefficient were positive, so neither sign is reversed.\n* Choice C ($-4 \\leq x < 5$): swaps the bounds correctly but keeps the inclusive sign on the left and the strict sign on the right; the signs travel with their numbers when the order flips.\n\n**Test Day Takeaway:** In a compound inequality, whatever you do to the middle you do to both ends, and dividing by a negative flips both signs, carrying each sign with its own bound."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-375",
+  "question": "In the $xy$-plane, triangle $ABC$ has vertices $A(-4, 1)$, $B(5, 1)$, and $C(5, 13)$. What is the perimeter of triangle $ABC$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$21$"
+    },
+    {
+      "id": "B",
+      "text": "$33$"
+    },
+    {
+      "id": "C",
+      "text": "$36$"
+    },
+    {
+      "id": "D",
+      "text": "$54$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds only the two legs and omits side AC",
+    "B": "uses 12, the longer leg, in place of the hypotenuse 15",
+    "D": "computes the area (1/2)(9)(12) instead of the perimeter"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $AB$ is horizontal with length $9$, $BC$ is vertical with length $12$, and $AC$ is the hypotenuse of a $9$-$12$-$15$ right triangle. Perimeter $= 9 + 12 + 15 = 36$.\n\n**The Full Solution:**\nStep 1: $A$ and $B$ share the $y$-coordinate $1$, so $AB = 5 - (-4) = 9$. $B$ and $C$ share the $x$-coordinate $5$, so $BC = 13 - 1 = 12$. These sides are perpendicular, so the triangle is a right triangle with the right angle at $B$.\nStep 2: Find $AC$ with the distance formula: $\\sqrt{(5 - (-4))^2 + (13 - 1)^2} = \\sqrt{81 + 144} = \\sqrt{225} = 15$.\nStep 3: Perimeter $= 9 + 12 + 15 = 36$. Check: $9$-$12$-$15$ is three times $3$-$4$-$5$, so $AC = 15$ is consistent. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($21$): adds only the two legs, $9 + 12$, and forgets the third side.\n* Choice B ($33$): uses $12$ for $AC$, as if the hypotenuse equaled the longer leg.\n* Choice D ($54$): computes $\\dfrac{1}{2}(9)(12)$, the area, instead of the sum of the side lengths.\n\n**Test Day Takeaway:** When two vertices share a coordinate, that side's length is a simple subtraction; save the distance formula for the slanted side, then add all three."
+}

@@ -1,0 +1,58 @@
+{
+  "id": "bank-alg-422",
+  "question": "Line $m$ is shown in the $xy$-plane. The equation of line $m$ and the equation $4x - ky = 6$, where $k$ is a constant, form a system of equations with no solution. What is the value of $k$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": 2,
+      "yIntercept": -2,
+      "xRange": [
+        -4,
+        4
+      ],
+      "yRange": [
+        -6,
+        8
+      ],
+      "xTickInterval": 1,
+      "yTickInterval": 2,
+      "gridInterval": 1,
+      "showPoints": [
+        [
+          0,
+          -2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "label": "m"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-2$"
+    },
+    {
+      "id": "B",
+      "text": "$\\frac{1}{2}$"
+    },
+    {
+      "id": "C",
+      "text": "$2$"
+    },
+    {
+      "id": "D",
+      "text": "$8$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "moves 4x across with the wrong sign and solves -\\frac{4}{k} = 2; with k = -2 the second line has slope -2 and crosses line m.",
+    "B": "reads the slope of line m as run over rise, \\frac{3}{6} = \\frac{1}{2}, and reports that number as k.",
+    "D": "multiplies 4 by the slope instead of dividing: 4 \\cdot 2 = 8, but \\frac{4}{8} = \\frac{1}{2} \\neq 2."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Line $m$ rises $6$ over a run of $3$, so its slope is $2$; the second line has slope $\\frac{4}{k}$, and $\\frac{4}{k} = 2$ gives $k = 2$.\n\n**The Full Solution:**\nStep 1: From the graph, line $m$ passes through $(0, -2)$ and $(3, 4)$, so its slope is $\\frac{4 - (-2)}{3 - 0} = 2$ and its equation is $y = 2x - 2$.\nStep 2: Solve $4x - ky = 6$ for $y$: $-ky = -4x + 6$, so $y = \\frac{4}{k}x - \\frac{6}{k}$. No solution means parallel lines, so $\\frac{4}{k} = 2$ and $k = 2$.\nStep 3: Check distinctness: with $k = 2$ the second line is $y = 2x - 3$, whose $y$-intercept $-3$ differs from $-2$. Same slope, different intercept, no intersection. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): moves $4x$ across with the wrong sign and solves $-\\frac{4}{k} = 2$; with $k = -2$ the second line has slope $-2$ and crosses line $m$.\n* Choice B ($\\frac{1}{2}$): reads the slope of line $m$ as run over rise, $\\frac{3}{6} = \\frac{1}{2}$, and reports that number as $k$.\n* Choice D ($8$): multiplies $4$ by the slope instead of dividing: $4 \\cdot 2 = 8$, but $\\frac{4}{8} = \\frac{1}{2} \\neq 2$.\n\n**Test Day Takeaway:** Read the slope off two lattice points, put the second equation in $y = mx + b$ form, and match slopes; then confirm the intercepts differ."
+}

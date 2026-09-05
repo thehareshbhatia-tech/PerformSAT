@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-377",
+  "question": "In the $xy$-plane, the distance between the points $(k, 3)$ and $(2, -5)$ is $10$ units, where $k$ is a positive constant. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$8$"
+    },
+    {
+      "id": "D",
+      "text": "$12$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "solves k - 2 = 6 as k = 6 - 2",
+    "B": "reports the horizontal leg k - 2 instead of k",
+    "D": "sets k - 2 = 10, ignoring the vertical leg"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The vertical leg is $3 - (-5) = 8$ and the hypotenuse is $10$, so the horizontal leg is $6$ (a $6$-$8$-$10$ triangle). Then $k - 2 = 6$, so $k = 8$.\n\n**The Full Solution:**\nStep 1: Set up the distance formula: $\\sqrt{(k - 2)^2 + (3 - (-5))^2} = 10$, so $(k - 2)^2 + 64 = 100$.\nStep 2: Subtract $64$: $(k - 2)^2 = 36$, so $k - 2 = 6$ or $k - 2 = -6$, giving $k = 8$ or $k = -4$.\nStep 3: The question states $k$ is positive, so $k = 8$. Check: the points $(8, 3)$ and $(2, -5)$ have changes $6$ and $8$, and $\\sqrt{36 + 64} = 10$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): solves $k - 2 = 6$ as $k = 6 - 2$, subtracting instead of adding.\n* Choice B ($6$): stops at the leg length $k - 2 = 6$ and reports it as $k$.\n* Choice D ($12$): sets $k - 2 = 10$, treating the whole distance as the horizontal leg and ignoring the $8$-unit vertical change.\n\n**Test Day Takeaway:** Square the distance equation to remove the root, solve for the squared quantity, and keep both signs until the question's condition ($k > 0$) tells you which one to keep."
+}

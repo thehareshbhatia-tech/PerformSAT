@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-384",
+  "question": "In the $xy$-plane, the midpoint of the line segment with endpoints $(a, -6)$ and $(3, b)$ is $(-2, 1)$. What is the value of $a - b$?",
+  "correctAnswer": "-15",
+  "explanation": "**SAT Pattern: Midpoint Formula**\n\n**The correct answer is $-15$.**\n\n**The Fast Way (~20s):** Double each midpoint coordinate and subtract the known endpoint: $a = 2(-2) - 3 = -7$ and $b = 2(1) - (-6) = 8$. Then $a - b = -7 - 8 = -15$.\n\n**The Full Solution:**\nStep 1: Write the midpoint conditions. $x$: $\\dfrac{a + 3}{2} = -2$. $y$: $\\dfrac{-6 + b}{2} = 1$.\nStep 2: Solve each. From the first, $a + 3 = -4$, so $a = -7$. From the second, $-6 + b = 2$, so $b = 8$.\nStep 3: $a - b = -7 - 8 = -15$. Check: the midpoint of $(-7, -6)$ and $(3, 8)$ is $\\left(\\dfrac{-4}{2}, \\dfrac{2}{2}\\right) = (-2, 1)$. $\\checkmark$\n\n**Common Mistakes:** Entering $1$, the value of $a + b$, when the question asks for $a - b$; entering $15$ by dropping the sign; solving $a + 3 = -2$ without doubling, which gives $a = -5$; solving $-6 + b = 1$ to get $b = 7$ for the same reason.\n\n**Test Day Takeaway:** Handle the two coordinates as two separate equations, double before you subtract, and reread whether the question wants a sum, a difference, or a product of the unknowns."
+}

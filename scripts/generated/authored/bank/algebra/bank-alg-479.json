@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-479",
+  "question": "The system of equations $y = 4x - 3$ and $2x + y = 15$ has solution $(x, y)$. What is the value of $y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3$"
+    },
+    {
+      "id": "B",
+      "text": "$7$"
+    },
+    {
+      "id": "C",
+      "text": "$9$"
+    },
+    {
+      "id": "D",
+      "text": "$12$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports x = 3 instead of y.",
+    "B": "drops the -3 when combining (6x = 15, x = 2.5) and gets y = 7.",
+    "D": "computes 15 - 3 = 12, subtracting the constant instead of substituting."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: System of Equations (Substitution)**\n\n**Choice C is correct.**\n\n**The Fast Way (~8s):** Substitute $4x - 3$ for $y$: $2x + 4x - 3 = 15$, so $x = 3$ and $y = 4(3) - 3 = 9$.\n\n**The Full Solution:**\nStep 1: The first equation gives $y$ in terms of $x$, so replace $y$ in the second: $2x + (4x - 3) = 15$.\nStep 2: Combine: $6x - 3 = 15$, so $6x = 18$ and $x = 3$.\nStep 3: Then $y = 4(3) - 3 = 9$. Check: $2(3) + 9 = 15$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports $x = 3$ instead of $y$.\n* Choice B ($7$): drops the $-3$ when combining ($6x = 15$, $x = 2.5$) and gets $y = 7$.\n* Choice D ($12$): computes $15 - 3 = 12$, subtracting the constant instead of substituting.\n\n**Test Day Takeaway:** Substitute the whole expression in parentheses, keep its constant, solve for $x$, then go back for the variable actually requested."
+}

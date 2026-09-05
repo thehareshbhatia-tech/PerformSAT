@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-466",
+  "question": "The equations $4x + 3y - 2z = 21$ and $2x - 3y + 2z = 3$ are true for some values of $x$, $y$, and $z$. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$12$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts the right-hand sides, 21 - 3 = 18, and divides by 6.",
+    "C": "divides 24 by 2, the x-coefficient of the second equation, instead of by 6.",
+    "D": "reports 6x = 24 without dividing by 6."
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The $y$- and $z$-terms are exact opposites, so adding the equations leaves $6x = 24$ and $x = 4$.\n\n**The Full Solution:**\nStep 1: Two equations cannot pin down three unknowns in general, so look for a combination that cancels both $y$ and $z$ at once: $3y$ with $-3y$ and $-2z$ with $2z$.\nStep 2: Add: $(4x + 3y - 2z) + (2x - 3y + 2z) = 21 + 3$, so $6x = 24$ and $x = 4$.\nStep 3: Check: substituting $x = 4$ gives $3y - 2z = 5$ and $-3y + 2z = -5$, which are consistent (the same condition), so $x = 4$ holds for every such solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): subtracts the right-hand sides, $21 - 3 = 18$, and divides by $6$.\n* Choice C ($12$): divides $24$ by $2$, the $x$-coefficient of the second equation, instead of by $6$.\n* Choice D ($24$): reports $6x = 24$ without dividing by $6$.\n\n**Test Day Takeaway:** Extra variables are not a problem when their terms are opposites; add the equations and the unwanted variables vanish together."
+}

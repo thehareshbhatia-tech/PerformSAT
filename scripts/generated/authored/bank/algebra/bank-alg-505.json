@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-505",
+  "question": "$$5x - 2y = 8$$\n$$cx + dy = 8$$\n\nIn the given pair of equations, $c$ and $d$ are constants. In the $xy$-plane, the graphs of the two equations are perpendicular lines. Which of the following pairs of equations also represents a pair of perpendicular lines?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$10x - 2y = 8$\n\n$2cx + dy = 8$"
+    },
+    {
+      "id": "B",
+      "text": "$5x - 4y = 8$\n\n$cx + dy = 8$"
+    },
+    {
+      "id": "C",
+      "text": "$10x - 2y = 8$\n\n$cx + 2dy = 8$"
+    },
+    {
+      "id": "D",
+      "text": "$5x + 2y = 8$\n\n$cx + dy = 8$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "doubles both x-coefficients; slopes become 5 and -4/5, product -4",
+    "B": "changes only the first line; slopes 5/4 and -2/5, product -1/2",
+    "D": "flips the sign of one slope; slopes -5/2 and -2/5 have product +1, not -1"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Perpendicular Slopes (Standard Form)**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** A line $Ax + By = C$ has slope $-\\dfrac{A}{B}$. The first line's slope is $\\dfrac{5}{2}$, so the second's must be $-\\dfrac{2}{5}$, which forces $\\dfrac{c}{d} = \\dfrac{2}{5}$. In choice C the slopes are $\\dfrac{10}{2} = 5$ and $-\\dfrac{c}{2d} = -\\dfrac{1}{5}$, whose product is $-1$.\n\n**The Full Solution:**\nStep 1: From $5x - 2y = 8$, the slope is $-\\dfrac{5}{-2} = \\dfrac{5}{2}$. Perpendicular slopes multiply to $-1$, so the slope of $cx + dy = 8$, which is $-\\dfrac{c}{d}$, must equal $-\\dfrac{2}{5}$. Hence $\\dfrac{c}{d} = \\dfrac{2}{5}$.\nStep 2: Test choice C. The first line $10x - 2y = 8$ has slope $\\dfrac{10}{2} = 5$. The second line $cx + 2dy = 8$ has slope $-\\dfrac{c}{2d} = -\\dfrac{1}{2} \\cdot \\dfrac{c}{d} = -\\dfrac{1}{2} \\cdot \\dfrac{2}{5} = -\\dfrac{1}{5}$.\nStep 3: The product is $5 \\cdot \\left(-\\dfrac{1}{5}\\right) = -1$, so the lines are perpendicular. $\\checkmark$ (Doubling one slope and halving the other, with the sign relationship kept, preserves perpendicularity.)\n\n**Why the wrong answers are tempting:**\n* Choice A ($10x - 2y = 8$ and $2cx + dy = 8$): doubles both $x$-coefficients, so both slopes double: $5$ and $-\\dfrac{4}{5}$, with product $-4$.\n* Choice B ($5x - 4y = 8$ and $cx + dy = 8$): changes only the first slope, to $\\dfrac{5}{4}$, while the second stays $-\\dfrac{2}{5}$; the product is $-\\dfrac{1}{2}$.\n* Choice D ($5x + 2y = 8$ and $cx + dy = 8$): makes the first slope $-\\dfrac{5}{2}$; paired with $-\\dfrac{2}{5}$ the product is $+1$. Reciprocal is not enough; the signs must be opposite.\n\n**Test Day Takeaway:** In standard form the slope is $-\\dfrac{A}{B}$; for perpendicular lines, check that the product of the two slopes is exactly $-1$, tracking what each coefficient change does to each slope."
+}

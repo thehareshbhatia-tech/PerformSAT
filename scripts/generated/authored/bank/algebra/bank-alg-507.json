@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-507",
+  "question": "$$3(kx + 2) = 8x - 5$$\n\nIn the given equation, $k$ is a constant. If the equation has no solution, what is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\dfrac{8}{3}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{3}{8}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{8}{3}$"
+    },
+    {
+      "id": "D",
+      "text": "$8$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "moves 8x to the left without changing its sign, solving 3k + 8 = 0",
+    "B": "solves 8k = 3 instead of 3k = 8 (swaps the coefficients)",
+    "D": "ignores the factor of 3 and sets the x-coefficient k equal to 8"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: No-Solution Condition (Single Linear Equation)**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Distribute: $3kx + 6 = 8x - 5$. A linear equation has no solution when the $x$-coefficients match but the constants do not. Here $6 \\neq -5$, so set $3k = 8$: $k = \\dfrac{8}{3}$.\n\n**The Full Solution:**\nStep 1: Distribute the $3$: $3kx + 6 = 8x - 5$. Collect the $x$-terms on one side: $(3k - 8)x = -11$.\nStep 2: If $3k - 8 \\neq 0$, dividing gives exactly one solution, $x = \\dfrac{-11}{3k - 8}$. If $3k - 8 = 0$, the equation reads $0 = -11$, which is false for every $x$, so there is no solution.\nStep 3: Set $3k - 8 = 0$: $k = \\dfrac{8}{3}$. Check: $3\\left(\\dfrac{8}{3}x + 2\\right) = 8x + 6$, and $8x + 6 = 8x - 5$ has no solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\dfrac{8}{3}$): brings $8x$ to the left side as $+8x$, solving $3k + 8 = 0$.\n* Choice B ($\\dfrac{3}{8}$): swaps the roles of the coefficients and solves $8k = 3$.\n* Choice D ($8$): matches $k$ directly to $8$, forgetting that the coefficient of $x$ on the left is $3k$, not $k$.\n\n**Test Day Takeaway:** \"No solution\" for a linear equation means the $x$-terms cancel and the constants disagree; distribute first, then set the two $x$-coefficients equal and confirm the constants differ."
+}

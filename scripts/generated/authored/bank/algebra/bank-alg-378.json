@@ -1,0 +1,48 @@
+{
+  "id": "bank-alg-378",
+  "question": "The points $(-3, 2)$ and $(5, 8)$ shown in the $xy$-plane are two adjacent vertices of a square. What is the perimeter of the square?",
+  "diagram": {
+    "type": "coordinatePoints",
+    "params": {
+      "points": [
+        [
+          -3,
+          2
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "xMin": -6,
+      "xMax": 8,
+      "yMin": -2,
+      "yMax": 10
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$10$"
+    },
+    {
+      "id": "B",
+      "text": "$40$"
+    },
+    {
+      "id": "C",
+      "text": "$56$"
+    },
+    {
+      "id": "D",
+      "text": "$100$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the side length only",
+    "C": "uses 8 + 6 = 14 as the side length",
+    "D": "computes the area of the square"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Adjacent vertices are the ends of one side. The changes are $8$ and $6$, so the side is $10$ and the perimeter is $4(10) = 40$.\n\n**The Full Solution:**\nStep 1: Adjacent vertices of a square are joined by a side, so the side length is the distance between the two points. Horizontal change: $5 - (-3) = 8$. Vertical change: $8 - 2 = 6$.\nStep 2: Side $= \\sqrt{8^2 + 6^2} = \\sqrt{64 + 36} = \\sqrt{100} = 10$.\nStep 3: A square has four equal sides, so the perimeter is $4 \\times 10 = 40$. Check: $40 \\div 4 = 10$ and $10^2 = 100 = 64 + 36$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): stops at the side length and never multiplies by $4$.\n* Choice C ($56$): adds the changes, $8 + 6 = 14$, as the side length instead of using the distance formula, then multiplies by $4$.\n* Choice D ($100$): squares the side to get the area, $10^2$, rather than the perimeter.\n\n**Test Day Takeaway:** Translate the geometry word first: \"adjacent vertices\" means one side, \"opposite vertices\" means a diagonal; then compute the distance and apply the shape's formula."
+}

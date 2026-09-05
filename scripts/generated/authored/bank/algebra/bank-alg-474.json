@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-474",
+  "question": "What is the value of $y$ in the solution to the system of equations $3x + y = 20$ and $x - y = 4$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$8$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "reports the constant 4 from the second equation as if it were y.",
+    "C": "reports x = 6 instead of y.",
+    "D": "reports x + y = 8."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: System of Equations (Elimination)**\n\n**Choice A is correct.**\n\n**The Fast Way (~8s):** Add to eliminate $y$: $4x = 24$, $x = 6$. Then $y = x - 4 = 2$.\n\n**The Full Solution:**\nStep 1: The $y$-terms are $+y$ and $-y$, so add the equations: $4x = 24$, giving $x = 6$.\nStep 2: Substitute into $x - y = 4$: $6 - y = 4$, so $y = 2$.\nStep 3: Check: $3(6) + 2 = 20$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): reports the constant $4$ from the second equation as if it were $y$.\n* Choice C ($6$): reports $x = 6$ instead of $y$.\n* Choice D ($8$): reports $x + y = 8$.\n\n**Test Day Takeaway:** Eliminating one variable is only half the job; substitute back and make sure the value you circle is the variable the question names."
+}

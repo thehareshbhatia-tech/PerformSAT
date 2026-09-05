@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-504",
+  "question": "$$6x - 4y = 10$$\n$$9x - 6y = 15$$\n\nFor any real number $r$, which of the following ordered pairs $(x, y)$ is a solution to the given system of equations?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\left(r,\\ \\dfrac{3r}{2} - \\dfrac{5}{2}\\right)$"
+    },
+    {
+      "id": "B",
+      "text": "$\\left(r,\\ \\dfrac{3r}{2} + \\dfrac{5}{2}\\right)$"
+    },
+    {
+      "id": "C",
+      "text": "$\\left(r,\\ -\\dfrac{3r}{2} - \\dfrac{5}{2}\\right)$"
+    },
+    {
+      "id": "D",
+      "text": "$\\left(\\dfrac{3r}{2} - \\dfrac{5}{2},\\ r\\right)$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "moves the constant across with the wrong sign when solving for y",
+    "C": "flips the sign of the slope when dividing by -4",
+    "D": "swaps the coordinates, putting the y-expression in the x position"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Same Line — Infinitely Many Solutions (Parametric)**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The second equation is $\\dfrac{3}{2}$ times the first, so both describe the same line, $y = \\dfrac{3}{2}x - \\dfrac{5}{2}$. Every point on that line is a solution: with $x = r$, the point is $\\left(r,\\ \\dfrac{3r}{2} - \\dfrac{5}{2}\\right)$.\n\n**The Full Solution:**\nStep 1: Multiply $6x - 4y = 10$ by $\\dfrac{3}{2}$: $9x - 6y = 15$, which is exactly the second equation. The two equations represent one line, so the system has infinitely many solutions, namely every point on that line.\nStep 2: Solve for $y$: $-4y = 10 - 6x$, so $y = \\dfrac{6x - 10}{4} = \\dfrac{3}{2}x - \\dfrac{5}{2}$.\nStep 3: Letting $x = r$ gives $y = \\dfrac{3r}{2} - \\dfrac{5}{2}$. Check in the second equation: $9r - 6\\left(\\dfrac{3r}{2} - \\dfrac{5}{2}\\right) = 9r - 9r + 15 = 15$ for every $r$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\left(r,\\ \\dfrac{3r}{2} + \\dfrac{5}{2}\\right)$): carries the $10$ across as $+10$ when isolating $y$, so the constant has the wrong sign; substituting gives $6r - 6r - 10 = -10 \\neq 10$.\n* Choice C ($\\left(r,\\ -\\dfrac{3r}{2} - \\dfrac{5}{2}\\right)$): divides $6x$ by $-4$ but forgets the resulting sign change on the $x$-term; it satisfies the system only when $r = 0$.\n* Choice D ($\\left(\\dfrac{3r}{2} - \\dfrac{5}{2},\\ r\\right)$): places the $y$-expression in the $x$ slot; substituting gives $5r - 15$, which equals $10$ only for $r = 5$.\n\n**Test Day Takeaway:** When one equation is a multiple of the other, the \"system\" is a single line; solve it for $y$ and any $x = r$ generates a solution, so verify a candidate pair by substituting and watching the $r$-terms cancel."
+}

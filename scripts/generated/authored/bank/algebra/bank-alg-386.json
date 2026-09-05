@@ -1,0 +1,48 @@
+{
+  "id": "bank-alg-386",
+  "question": "The points $(-7, 5)$ and $(3, -1)$ shown in the $xy$-plane are the endpoints of a diameter of a circle. What are the coordinates of the center of the circle?",
+  "diagram": {
+    "type": "coordinatePoints",
+    "params": {
+      "points": [
+        [
+          -7,
+          5
+        ],
+        [
+          3,
+          -1
+        ]
+      ],
+      "xMin": -8,
+      "xMax": 6,
+      "yMin": -4,
+      "yMax": 8
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-5, 3)$"
+    },
+    {
+      "id": "B",
+      "text": "$(-2, 2)$"
+    },
+    {
+      "id": "C",
+      "text": "$(-4, 4)$"
+    },
+    {
+      "id": "D",
+      "text": "$(5, -3)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "halves the differences of the coordinates instead of the sums",
+    "C": "adds the coordinates without dividing by 2",
+    "D": "halves the differences taken in the other order"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The center of a circle is the midpoint of any diameter: $\\left(\\dfrac{-7 + 3}{2}, \\dfrac{5 + (-1)}{2}\\right) = (-2, 2)$.\n\n**The Full Solution:**\nStep 1: A diameter passes through the center, and the center is equidistant from the diameter's endpoints, so the center is the midpoint of the diameter.\nStep 2: $x$: $\\dfrac{-7 + 3}{2} = \\dfrac{-4}{2} = -2$. $y$: $\\dfrac{5 + (-1)}{2} = \\dfrac{4}{2} = 2$.\nStep 3: The center is $(-2, 2)$. Check: from the center, $(-7, 5)$ is $5$ left and $3$ up, and $(3, -1)$ is $5$ right and $3$ down, so both endpoints are the same distance from the center. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-5, 3)$): halves $-7 - 3$ and $5 - (-1)$, the differences rather than the sums.\n* Choice C ($(-4, 4)$): adds the coordinates but skips the division by $2$.\n* Choice D ($(5, -3)$): halves the differences in the opposite order, giving a displacement with the wrong meaning.\n\n**Test Day Takeaway:** \"Endpoints of a diameter\" is a midpoint question in disguise: average the coordinates to find the center."
+}

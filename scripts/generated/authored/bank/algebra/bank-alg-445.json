@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-445",
+  "question": "In the system of equations $y = -\\frac{1}{2}x + c$ and $2y + x = 9$, $c$ is a constant. If the system has infinitely many solutions, what is the value of $c$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\frac{9}{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\frac{9}{2}$"
+    },
+    {
+      "id": "C",
+      "text": "$9$"
+    },
+    {
+      "id": "D",
+      "text": "$18$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "isolates 2y with a sign error, writing 2y = -x - 9, and gets -\\frac{9}{2}.",
+    "C": "moves x across but forgets to divide the 9 by 2.",
+    "D": "multiplies 9 by 2 instead of dividing."
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Same Line Infinitely Many Solutions**\n\n**Choice B is correct.**\n\n**The Fast Way (~8s):** Solve the second equation for $y$: $y = -\\frac{1}{2}x + \\frac{9}{2}$. Matching intercepts gives $c = \\frac{9}{2}$.\n\n**The Full Solution:**\nStep 1: Infinitely many solutions means the two equations describe the same line, so slopes and $y$-intercepts must both match.\nStep 2: Rewrite $2y + x = 9$: $2y = -x + 9$, so $y = -\\frac{1}{2}x + \\frac{9}{2}$. The slopes already match ($-\\frac{1}{2}$), so set $c = \\frac{9}{2}$.\nStep 3: Check: with $c = \\frac{9}{2}$, doubling the first equation gives $2y = -x + 9$, exactly the second equation. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{9}{2}$): isolates $2y$ with a sign error, writing $2y = -x - 9$, and gets $-\\frac{9}{2}$.\n* Choice C ($9$): moves $x$ across but forgets to divide the $9$ by $2$.\n* Choice D ($18$): multiplies $9$ by $2$ instead of dividing.\n\n**Test Day Takeaway:** \"Infinitely many solutions\" = same line: convert to $y = mx + b$ and match both $m$ and $b$, dividing every term by the $y$-coefficient."
+}

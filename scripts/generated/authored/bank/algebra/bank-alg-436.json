@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-436",
+  "question": "In the $xy$-plane, the line with equation $y = \\frac{2}{5}x + c$, where $c$ is a constant, is parallel to the line that passes through the points $(-3, 8)$ and $(k, 2)$. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-18$"
+    },
+    {
+      "id": "B",
+      "text": "$-12$"
+    },
+    {
+      "id": "C",
+      "text": "$-\\frac{27}{5}$"
+    },
+    {
+      "id": "D",
+      "text": "$12$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "writes the run as k - 3 instead of k - (-3), then solves k - 3 = -15.",
+    "C": "sets the slope equal to the reciprocal \\frac{5}{2}: -6 = \\frac{5}{2}(k + 3) gives k = -\\frac{27}{5}.",
+    "D": "drops the negative from the rise 2 - 8 = -6 and solves k + 3 = 15."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Parallel Line through a Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Parallel means the slope through the two points is $\\frac{2}{5}$: $\\frac{2 - 8}{k - (-3)} = \\frac{2}{5}$, so $k + 3 = -15$ and $k = -18$.\n\n**The Full Solution:**\nStep 1: The constant $c$ does not affect slope; the given line has slope $\\frac{2}{5}$, so the line through $(-3, 8)$ and $(k, 2)$ must also have slope $\\frac{2}{5}$.\nStep 2: Set up the slope: $\\frac{2 - 8}{k - (-3)} = \\frac{-6}{k + 3} = \\frac{2}{5}$. Cross-multiply: $2(k + 3) = -30$, so $k + 3 = -15$ and $k = -18$.\nStep 3: Check: the slope through $(-3, 8)$ and $(-18, 2)$ is $\\frac{2 - 8}{-18 + 3} = \\frac{-6}{-15} = \\frac{2}{5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-12$): writes the run as $k - 3$ instead of $k - (-3)$, then solves $k - 3 = -15$.\n* Choice C ($-\\frac{27}{5}$): sets the slope equal to the reciprocal $\\frac{5}{2}$: $-6 = \\frac{5}{2}(k + 3)$ gives $k = -\\frac{27}{5}$.\n* Choice D ($12$): drops the negative from the rise $2 - 8 = -6$ and solves $k + 3 = 15$.\n\n**Test Day Takeaway:** A parameter like $c$ is often a decoy; slope conditions ignore it. Write the run as $x_2 - x_1$ with the negative coordinate in parentheses."
+}

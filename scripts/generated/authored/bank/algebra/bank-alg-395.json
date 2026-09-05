@@ -1,0 +1,58 @@
+{
+  "id": "bank-alg-395",
+  "question": "The graph of line $k$ in the $xy$-plane is shown. Line $k$ passes through the points $(-2, -1)$ and $(2, 5)$. Which of the following is an equation of line $k$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": 1.5,
+      "yIntercept": 2,
+      "xRange": [
+        -6,
+        6
+      ],
+      "yRange": [
+        -6,
+        8
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 1,
+      "showPoints": [
+        [
+          -2,
+          -1
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "label": "k"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = \\dfrac{3}{2}x + 2$"
+    },
+    {
+      "id": "B",
+      "text": "$y = \\dfrac{2}{3}x + 2$"
+    },
+    {
+      "id": "C",
+      "text": "$y = \\dfrac{3}{2}x - 1$"
+    },
+    {
+      "id": "D",
+      "text": "$y = -\\dfrac{3}{2}x + 2$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "inverts the slope (run over rise)",
+    "C": "uses the y-coordinate of the first point as the y-intercept",
+    "D": "gives the slope the wrong sign for a rising line"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Slope $= \\dfrac{5 - (-1)}{2 - (-2)} = \\dfrac{6}{4} = \\dfrac{3}{2}$. The line crosses the $y$-axis at $(0, 2)$, so $y = \\dfrac{3}{2}x + 2$.\n\n**The Full Solution:**\nStep 1: Compute the slope from the two points: $m = \\dfrac{\\Delta y}{\\Delta x} = \\dfrac{5 - (-1)}{2 - (-2)} = \\dfrac{6}{4} = \\dfrac{3}{2}$. The line rises from left to right, so a positive slope is expected.\nStep 2: Find the $y$-intercept by substituting one point into $y = \\dfrac{3}{2}x + b$. Using $(2, 5)$: $5 = \\dfrac{3}{2}(2) + b = 3 + b$, so $b = 2$.\nStep 3: The equation is $y = \\dfrac{3}{2}x + 2$. Check with the other point: $\\dfrac{3}{2}(-2) + 2 = -3 + 2 = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = \\dfrac{2}{3}x + 2$): divides run by rise, inverting the slope; it fails at $(2, 5)$ since $\\dfrac{4}{3} + 2 \\neq 5$.\n* Choice C ($y = \\dfrac{3}{2}x - 1$): has the right slope but takes $-1$, the $y$-value of a point with $x = -2$, as the $y$-intercept.\n* Choice D ($y = -\\dfrac{3}{2}x + 2$): flips the sign of the slope, describing a line that falls from left to right.\n\n**Test Day Takeaway:** Slope is rise over run between the two points, then solve for $b$ with one point and confirm with the other; the graph's direction tells you the sign to expect."
+}

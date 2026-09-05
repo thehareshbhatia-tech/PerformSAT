@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-463",
+  "question": "The solution to the system of equations $4x + y = 26$ and $4x - y = 14$ is $(x, y)$. What is the value of $xy$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$11$"
+    },
+    {
+      "id": "B",
+      "text": "$20$"
+    },
+    {
+      "id": "C",
+      "text": "$30$"
+    },
+    {
+      "id": "D",
+      "text": "$40$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes x + y = 11 instead of the product.",
+    "B": "reports 4x = 20.",
+    "D": "reports 8x = 40, the sum of the right-hand sides."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Add: $8x = 40$, $x = 5$. Subtract: $2y = 12$, $y = 6$. So $xy = 30$.\n\n**The Full Solution:**\nStep 1: Add the equations to eliminate $y$: $8x = 40$, so $x = 5$.\nStep 2: Subtract the second from the first to eliminate $x$: $2y = 12$, so $y = 6$.\nStep 3: Then $xy = 5 \\cdot 6 = 30$. Check: $4(5) + 6 = 26$ and $4(5) - 6 = 14$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($11$): computes $x + y = 11$ instead of the product.\n* Choice B ($20$): reports $4x = 20$.\n* Choice D ($40$): reports $8x = 40$, the sum of the right-hand sides.\n\n**Test Day Takeaway:** Adding and subtracting the same pair of equations gives both variables quickly; then form exactly the expression asked for."
+}

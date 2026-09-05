@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-497",
+  "question": "Which of the following expressions is equivalent to $(x + 4)^2 - 9$ for all values of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x^2 + 8x + 7$"
+    },
+    {
+      "id": "B",
+      "text": "$x^2 + 8x + 25$"
+    },
+    {
+      "id": "C",
+      "text": "$x^2 + 4x + 7$"
+    },
+    {
+      "id": "D",
+      "text": "$x^2 + 7$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "adds 9 to 16 instead of subtracting",
+    "C": "uses 4x for the middle term instead of 2(4)x = 8x",
+    "D": "squares term by term, (x + 4)^2 = x^2 + 16, dropping the middle term"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $(x + 4)^2 = x^2 + 8x + 16$; subtract $9$ to get $x^2 + 8x + 7$.\n\n**The Full Solution:**\nStep 1: Expand the square as a product: $(x + 4)(x + 4) = x^2 + 4x + 4x + 16 = x^2 + 8x + 16$.\nStep 2: Apply the $-9$: $x^2 + 8x + 16 - 9 = x^2 + 8x + 7$.\nStep 3: Check with $x = 1$: the original gives $(5)^2 - 9 = 16$, and $1 + 8 + 7 = 16$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^2 + 8x + 25$): adds the $9$ to $16$ instead of subtracting it.\n* Choice C ($x^2 + 4x + 7$): keeps only one of the two $4x$ cross terms, so the middle coefficient is half of what it should be.\n* Choice D ($x^2 + 7$): squares $x$ and $4$ separately as $x^2 + 16$; a binomial squared always has a middle term.\n\n**Test Day Takeaway:** $(x + a)^2 = x^2 + 2ax + a^2$: double the cross term, square the constant, then apply the outside constant last."
+}

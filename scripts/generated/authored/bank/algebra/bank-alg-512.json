@@ -1,0 +1,6 @@
+{
+  "id": "bank-alg-512",
+  "question": "The number $p$ is $35\\%$ less than the number $q$. The number $q$ is $250\\%$ greater than $24$. What is the value of $p$?",
+  "correctAnswer": "54.6",
+  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $54.6$.**\n\n**The Fast Way (~25s):** \"$250\\%$ greater than $24$\" is $24 + 2.5(24) = 3.5(24) = 84$, so $q = 84$. \"$35\\%$ less than $q$\" is $0.65q = 0.65(84) = 54.6$.\n\n**The Full Solution:**\nStep 1: Resolve the chain from the known number outward. $q$ is $250\\%$ greater than $24$, so $q = 24 + 2.50(24) = 24(1 + 2.50) = 24(3.5) = 84$.\nStep 2: $p$ is $35\\%$ less than $q$, so $p = q - 0.35q = 0.65q = 0.65(84) = 54.6$.\nStep 3: Check the percents: $84 - 54.6 = 29.4$, and $\\dfrac{29.4}{84} = 0.35$; also $\\dfrac{84 - 24}{24} = 2.5 = 250\\%$. $\\checkmark$\n\n**Common Mistakes:** Reading \"$250\\%$ greater than\" as \"$250\\%$ of\" and using $q = 2.5(24) = 60$, which gives $p = 39$; multiplying by $0.35$ instead of $0.65$ for \"$35\\%$ less,\" which gives $29.4$; applying the $35\\%$ to $24$ instead of to $q$.\n\n**Test Day Takeaway:** \"$k\\%$ greater than\" multiplies by $1 + \\dfrac{k}{100}$ and \"$k\\%$ less than\" multiplies by $1 - \\dfrac{k}{100}$; in a chain, start from the only actual number and apply each multiplier in order."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-448",
+  "question": "The system of equations $px + qy = r$ and $3x - 6y = 15$, where $p$, $q$, and $r$ are constants, has infinitely many solutions. Which of the following must be true?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$q = -2p$"
+    },
+    {
+      "id": "B",
+      "text": "$q = 2p$"
+    },
+    {
+      "id": "C",
+      "text": "$r = 5q$"
+    },
+    {
+      "id": "D",
+      "text": "$p = 3$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "has the wrong sign; q = 2p would give slope -\\frac{p}{2p} = -\\frac{1}{2}, but the given line has slope \\frac{1}{2}.",
+    "C": "confuses p and q: r = 5p is true, but r = 15t and 5q = -30t are not equal.",
+    "D": "assumes the equations must be identical; any nonzero multiple works, so p could be 6 or -3."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Same Line Infinitely Many Solutions**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Same line means $(p, q, r)$ is a multiple of $(3, -6, 15)$: $p = 3t$, $q = -6t$, so $q = -2p$.\n\n**The Full Solution:**\nStep 1: Infinitely many solutions means the two equations represent the same line, so the first equation is a nonzero multiple of the second: $p = 3t$, $q = -6t$, $r = 15t$ for some $t \\neq 0$.\nStep 2: Eliminate $t$: $q = -6t = -2(3t) = -2p$. This holds for every allowed $t$, so it must be true. (Also $r = 5p$, but that is not among the choices.)\nStep 3: Check with $t = 2$: $6x - 12y = 30$ is the same line, and $q = -12 = -2(6) = -2p$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($q = 2p$): has the wrong sign; $q = 2p$ would give slope $-\\frac{p}{2p} = -\\frac{1}{2}$, but the given line has slope $\\frac{1}{2}$.\n* Choice C ($r = 5q$): confuses $p$ and $q$: $r = 5p$ is true, but $r = 15t$ and $5q = -30t$ are not equal.\n* Choice D ($p = 3$): assumes the equations must be identical; any nonzero multiple works, so $p$ could be $6$ or $-3$.\n\n**Test Day Takeaway:** \"Same line\" does not mean identical coefficients; it means proportional ones. Write $(p, q, r) = t(3, -6, 15)$ and test each choice for all $t$."
+}

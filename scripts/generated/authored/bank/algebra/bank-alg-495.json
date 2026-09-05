@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-495",
+  "question": "$$5x + 9 - 2x = 30$$\n\nWhat value of $x$ satisfies the given equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3$"
+    },
+    {
+      "id": "B",
+      "text": "$7$"
+    },
+    {
+      "id": "C",
+      "text": "$13$"
+    },
+    {
+      "id": "D",
+      "text": "$21$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds the coefficients (5 + 2 = 7) instead of subtracting, giving 7x = 21",
+    "C": "moves the 9 to the right side with the wrong sign, giving 3x = 39",
+    "D": "combines to 3x = 21 but never divides by 3"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Combine the $x$-terms first: $3x + 9 = 30$, so $3x = 21$ and $x = 7$.\n\n**The Full Solution:**\nStep 1: Combine like terms on the left: $5x - 2x = 3x$, so the equation is $3x + 9 = 30$.\nStep 2: Subtract $9$ from both sides: $3x = 21$. Divide by $3$: $x = 7$.\nStep 3: Check in the original form: $5(7) + 9 - 2(7) = 35 + 9 - 14 = 30$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): treats $-2x$ as $+2x$ and combines to $7x + 9 = 30$, giving $x = 3$.\n* Choice C ($13$): adds $9$ to $30$ instead of subtracting, producing $3x = 39$.\n* Choice D ($21$): is the value of $3x$; the final division by $3$ was skipped.\n\n**Test Day Takeaway:** Collect like terms before isolating anything; the sign in front of each term travels with it when you combine."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-513",
+  "question": "$$-5x + 8y = 13$$\n$$kx - 24y = 4$$\n\nIn the given system of equations, $k$ is a constant. If the system has no solution, what is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-15$"
+    },
+    {
+      "id": "B",
+      "text": "$-3$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$15$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies 5 by -3 but forgets that the x-coefficient in the first equation is -5",
+    "B": "reports the scale factor -24/8 = -3 instead of k",
+    "C": "reports the magnitude of the scale factor"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: System With No Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** No solution means the lines are parallel, so the coefficients of $x$ and $y$ are in the same ratio. The $y$-coefficients go from $8$ to $-24$, a factor of $-3$, so $k = -3(-5) = 15$.\n\n**The Full Solution:**\nStep 1: Two lines have no common point when they are parallel and distinct. In standard form, parallel means one equation's $x$- and $y$-coefficients are the same multiple of the other's: $\\dfrac{k}{-5} = \\dfrac{-24}{8}$.\nStep 2: $\\dfrac{-24}{8} = -3$, so $k = -3(-5) = 15$.\nStep 3: Confirm the lines are distinct, not identical: scaling the first equation by $-3$ gives $15x - 24y = -39$, and $-39 \\neq 4$, so the lines are parallel and never meet. Slope check: both lines have slope $\\dfrac{5}{8}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-15$): multiplies $5$ by $-3$ but overlooks that the first $x$-coefficient is $-5$, so the sign comes out wrong.\n* Choice B ($-3$): stops at the scale factor $\\dfrac{-24}{8}$ and reports it as $k$.\n* Choice C ($3$): reports the size of the scale factor and drops its sign.\n\n**Test Day Takeaway:** For a no-solution system in standard form, find the multiplier that maps one $y$-coefficient to the other, apply that same multiplier to the $x$-coefficient with its sign, and confirm the constants do not match."
+}

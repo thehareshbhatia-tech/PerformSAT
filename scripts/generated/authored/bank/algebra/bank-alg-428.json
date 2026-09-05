@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-428",
+  "question": "The equation $15 = x - 8$ is true for what value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-7$"
+    },
+    {
+      "id": "B",
+      "text": "$\\frac{15}{8}$"
+    },
+    {
+      "id": "C",
+      "text": "$7$"
+    },
+    {
+      "id": "D",
+      "text": "$23$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes 8 - 15, subtracting in the wrong direction.",
+    "B": "divides 15 by 8, treating x - 8 as 8x.",
+    "C": "subtracts 8 from 15 instead of adding, repeating the equation's operation instead of undoing it."
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Add $8$ to both sides: $x = 15 + 8 = 23$.\n\n**The Full Solution:**\nStep 1: The variable has $8$ subtracted from it, so add $8$ to each side.\nStep 2: $15 + 8 = x - 8 + 8$, so $23 = x$.\nStep 3: Check: $23 - 8 = 15$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): computes $8 - 15$, subtracting in the wrong direction.\n* Choice B ($\\frac{15}{8}$): divides $15$ by $8$, treating $x - 8$ as $8x$.\n* Choice C ($7$): subtracts $8$ from $15$ instead of adding, repeating the equation's operation instead of undoing it.\n\n**Test Day Takeaway:** The variable can sit on the right side; isolate it the same way by adding back what was subtracted."
+}

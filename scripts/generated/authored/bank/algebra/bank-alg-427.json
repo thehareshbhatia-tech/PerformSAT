@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-427",
+  "question": "For the equation $-9x = 63$, what is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-7$"
+    },
+    {
+      "id": "B",
+      "text": "$7$"
+    },
+    {
+      "id": "C",
+      "text": "$54$"
+    },
+    {
+      "id": "D",
+      "text": "$72$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "divides 63 by 9 but ignores the negative sign on the coefficient.",
+    "C": "subtracts 9 from 63, treating -9x as x - 9.",
+    "D": "adds 9 to 63, as if the -9 were being subtracted from x."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Divide both sides by $-9$: $x = \\frac{63}{-9} = -7$.\n\n**The Full Solution:**\nStep 1: The variable is multiplied by $-9$, so divide each side by $-9$.\nStep 2: $\\frac{-9x}{-9} = \\frac{63}{-9}$, so $x = -7$.\nStep 3: Check: $-9(-7) = 63$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($7$): divides $63$ by $9$ but ignores the negative sign on the coefficient.\n* Choice C ($54$): subtracts $9$ from $63$, treating $-9x$ as $x - 9$.\n* Choice D ($72$): adds $9$ to $63$, as if the $-9$ were being subtracted from $x$.\n\n**Test Day Takeaway:** A coefficient is undone by division, including its sign: divide by $-9$, not by $9$."
+}

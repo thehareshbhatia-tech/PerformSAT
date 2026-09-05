@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-510",
+  "question": "The linear function $f$ is defined by $f(x) = 9x + k$, where $k$ is a constant. If $f(2n - 1) = \\dfrac{n}{2}$, where $n$ is a constant, which of the following expressions represents the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\dfrac{35n}{2} - 9$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\dfrac{35n}{2} + 9$"
+    },
+    {
+      "id": "C",
+      "text": "$-\\dfrac{17n}{2} + 9$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{37n}{2} - 9$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "moves the -9 to the other side without changing its sign",
+    "C": "distributes 9 to 2n as 9n instead of 18n",
+    "D": "adds the left-side terms to n/2 instead of subtracting them"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Solve for a Linear Parameter from a Conditional Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Substitute $2n - 1$ for $x$: $9(2n - 1) + k = \\dfrac{n}{2}$, so $18n - 9 + k = \\dfrac{n}{2}$ and $k = \\dfrac{n}{2} - 18n + 9 = -\\dfrac{35n}{2} + 9$.\n\n**The Full Solution:**\nStep 1: Evaluate $f$ at the input $2n - 1$: $f(2n - 1) = 9(2n - 1) + k = 18n - 9 + k$.\nStep 2: Set this equal to the given output: $18n - 9 + k = \\dfrac{n}{2}$. Isolate $k$ by subtracting $18n$ and adding $9$: $k = \\dfrac{n}{2} - 18n + 9$.\nStep 3: Combine the $n$-terms with a common denominator: $\\dfrac{n}{2} - \\dfrac{36n}{2} = -\\dfrac{35n}{2}$, so $k = -\\dfrac{35n}{2} + 9$. Check with $n = 2$: $k = -35 + 9 = -26$, and $f(3) = 27 - 26 = 1 = \\dfrac{2}{2}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\dfrac{35n}{2} - 9$): moves the $-9$ across the equals sign without flipping it to $+9$.\n* Choice C ($-\\dfrac{17n}{2} + 9$): distributes the $9$ to $2n$ as $9n$ instead of $18n$, so the $n$-coefficient becomes $\\dfrac{1}{2} - 9$.\n* Choice D ($\\dfrac{37n}{2} - 9$): adds $18n$ and subtracts $9$ instead of the reverse, effectively solving for $-k$.\n\n**Test Day Takeaway:** Substitute the whole input expression in parentheses, distribute fully, then move every non-$k$ term across with its sign flipped; a quick numeric check with a small $n$ catches sign errors."
+}

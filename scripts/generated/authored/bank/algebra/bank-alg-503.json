@@ -1,0 +1,58 @@
+{
+  "id": "bank-alg-503",
+  "question": "The graph of line $h$ in the $xy$-plane is shown. Line $h$ passes through the points $(-4, -2)$ and $(2, 7)$. Line $k$ is the result of translating line $h$ down $10$ units. What is the $x$-intercept of line $k$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": 1.5,
+      "yIntercept": 4,
+      "xRange": [
+        -8,
+        8
+      ],
+      "yRange": [
+        -8,
+        12
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 1,
+      "showPoints": [
+        [
+          -4,
+          -2
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "label": "h"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-6, 0)$"
+    },
+    {
+      "id": "B",
+      "text": "$(-4, 0)$"
+    },
+    {
+      "id": "C",
+      "text": "$\\left(-\\dfrac{8}{3}, 0\\right)$"
+    },
+    {
+      "id": "D",
+      "text": "$(4, 0)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the y-intercept of line k (-6) as the x-intercept",
+    "B": "solves (3/2)x = 6 with a sign slip, giving x = -4",
+    "C": "finds the x-intercept of line h itself, ignoring the translation"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Vertical Shift of a Line — $x$-intercept**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** From the two points, the slope of $h$ is $\\dfrac{7 - (-2)}{2 - (-4)} = \\dfrac{9}{6} = \\dfrac{3}{2}$, and the graph crosses the $y$-axis at $4$, so $h$ is $y = \\dfrac{3}{2}x + 4$. Shifting down $10$ gives $y = \\dfrac{3}{2}x - 6$, whose $x$-intercept is where $\\dfrac{3}{2}x = 6$, so $x = 4$.\n\n**The Full Solution:**\nStep 1: Slope of $h$: $\\dfrac{7 - (-2)}{2 - (-4)} = \\dfrac{9}{6} = \\dfrac{3}{2}$. Using the point $(2, 7)$: $7 = \\dfrac{3}{2}(2) + b$, so $b = 4$ and $h$ is $y = \\dfrac{3}{2}x + 4$, matching the $y$-intercept visible on the graph.\nStep 2: Translating a line down $10$ units subtracts $10$ from every $y$-value, so line $k$ is $y = \\dfrac{3}{2}x + 4 - 10 = \\dfrac{3}{2}x - 6$. The slope is unchanged.\nStep 3: The $x$-intercept has $y = 0$: $0 = \\dfrac{3}{2}x - 6$, so $\\dfrac{3}{2}x = 6$ and $x = 4$. The intercept is $(4, 0)$. Check: on $h$, the point directly above is $(4, 10)$, and $10 - 10 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-6, 0)$): takes the new $y$-intercept, $-6$, and reports it as an $x$-intercept.\n* Choice B ($(-4, 0)$): solves $\\dfrac{3}{2}x = 6$ but attaches a stray negative, giving $x = -4$.\n* Choice C ($\\left(-\\dfrac{8}{3}, 0\\right)$): finds where line $h$ crosses the $x$-axis, $\\dfrac{3}{2}x + 4 = 0$, and never applies the translation.\n\n**Test Day Takeaway:** A vertical translation changes only the constant term of a line's equation; build the original equation from the graph, adjust the constant, then set $y = 0$ for the $x$-intercept."
+}

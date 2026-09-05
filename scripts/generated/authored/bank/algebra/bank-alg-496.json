@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-496",
+  "question": "Which of the following is the value of $x$ that satisfies the equation $2.5x - 4 = 11$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$0.4$"
+    },
+    {
+      "id": "B",
+      "text": "$2.8$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$15$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "divides 11 by 2.5 first and then subtracts 4",
+    "B": "subtracts 4 from 11 instead of adding, then divides by 2.5",
+    "D": "adds 4 to get 15 but never divides by 2.5"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Add $4$: $2.5x = 15$. Since $2.5 \\times 6 = 15$, $x = 6$.\n\n**The Full Solution:**\nStep 1: Add $4$ to both sides to isolate the variable term: $2.5x = 15$.\nStep 2: Divide both sides by $2.5$. Writing $2.5 = \\dfrac{5}{2}$ makes it clean: $x = 15 \\cdot \\dfrac{2}{5} = 6$.\nStep 3: Check: $2.5(6) - 4 = 15 - 4 = 11$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.4$): divides $11$ by $2.5$ to get $4.4$, then subtracts $4$; the constant must be undone first.\n* Choice B ($2.8$): subtracts $4$ from $11$ instead of adding, then divides $7$ by $2.5$.\n* Choice D ($15$): is the value of $2.5x$ after adding $4$; the division by the coefficient was skipped.\n\n**Test Day Takeaway:** A decimal coefficient changes nothing about the order of operations; turn $2.5$ into $\\dfrac{5}{2}$ and dividing becomes multiplying by $\\dfrac{2}{5}$."
+}

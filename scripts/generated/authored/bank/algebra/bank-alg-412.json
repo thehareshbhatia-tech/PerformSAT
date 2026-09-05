@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-412",
+  "question": "$|2x - 6| + c = 4$\n\nIn the given equation, $c$ is a constant. For what value of $c$ does the equation have exactly one real solution?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$0$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$6$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "leaves |2x - 6| = 4, which has two solutions",
+    "B": "uses the x-value that makes 2x - 6 equal 0",
+    "D": "uses the constant inside the absolute value"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Isolate: $|2x - 6| = 4 - c$. An absolute value equation has exactly one solution only when the right side is $0$, so $c = 4$.\n\n**The Full Solution:**\nStep 1: Subtract $c$ from both sides: $|2x - 6| = 4 - c$.\nStep 2: Count solutions by the sign of the right side. If $4 - c > 0$, there are two solutions ($2x - 6 = \\pm(4 - c)$). If $4 - c < 0$, there are none. If $4 - c = 0$, the only solution is where $2x - 6 = 0$, that is, $x = 3$.\nStep 3: Exactly one solution requires $4 - c = 0$, so $c = 4$. Check: with $c = 4$, the equation is $|2x - 6| + 4 = 4$, or $|2x - 6| = 0$, whose only solution is $x = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): gives $|2x - 6| = 4$, which has two solutions, $x = 5$ and $x = 1$.\n* Choice B ($3$): is the $x$-value of the single solution, not the value of $c$ that produces it.\n* Choice D ($6$): copies the constant inside the absolute value; with $c = 6$ the right side is $-2$ and there are no solutions.\n\n**Test Day Takeaway:** Isolate the absolute value and set the other side to $0$ for \"exactly one solution\"; a positive right side gives two, a negative gives none."
+}

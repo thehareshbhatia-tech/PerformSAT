@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-424",
+  "question": "The equation $5x - 2(y - 4) = 3x + 1$ is one of the two equations in a system of linear equations in $x$ and $y$. The system has no solution. Which of the following could be the other equation in the system?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2x - 4y = -7$"
+    },
+    {
+      "id": "B",
+      "text": "$4x - 4y = 14$"
+    },
+    {
+      "id": "C",
+      "text": "$4x - 4y = -14$"
+    },
+    {
+      "id": "D",
+      "text": "$4x + 4y = 14$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "keeps 2x but doubles only the y-coefficient; its slope is \\frac{1}{2}, so it crosses the given line exactly once.",
+    "C": "doubles every term including the constant, producing the same line, which gives infinitely many solutions rather than none.",
+    "D": "flips the sign of the y-term; its slope is -1, so the lines intersect."
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Simplify the given equation to $2x - 2y = -7$. The other line must have the same slope but a different intercept: $4x - 4y = 14$ doubles the left side but not the constant.\n\n**The Full Solution:**\nStep 1: Expand and collect: $5x - 2y + 8 = 3x + 1$ gives $2x - 2y = -7$, so the given line has slope $1$ and $y$-intercept $\\frac{7}{2}$.\nStep 2: For no solution the other line needs slope $1$ (coefficients proportional to $2$ and $-2$) and a constant that is NOT the same multiple. Choice B, $4x - 4y = 14$, has coefficients doubled ($4, -4$) but constant $14 \\neq 2(-7)$.\nStep 3: Check: $4x - 4y = 14$ is $y = x - \\frac{7}{2}$, slope $1$, intercept $-\\frac{7}{2} \\neq \\frac{7}{2}$. Parallel, distinct, no solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x - 4y = -7$): keeps $2x$ but doubles only the $y$-coefficient; its slope is $\\frac{1}{2}$, so it crosses the given line exactly once.\n* Choice C ($4x - 4y = -14$): doubles every term including the constant, producing the same line, which gives infinitely many solutions rather than none.\n* Choice D ($4x + 4y = 14$): flips the sign of the $y$-term; its slope is $-1$, so the lines intersect.\n\n**Test Day Takeaway:** Simplify first, then test candidates on two things: proportional $x$- and $y$-coefficients (parallel) AND a constant that breaks the proportion (distinct)."
+}

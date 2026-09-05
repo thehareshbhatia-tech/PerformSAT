@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-393",
+  "question": "For which of the following equations is there no value of $x$ that makes the equation true?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$5(x + 2) = 5x + 10$"
+    },
+    {
+      "id": "B",
+      "text": "$5(x + 2) = 5x + 7$"
+    },
+    {
+      "id": "C",
+      "text": "$5(x + 2) = 4x + 10$"
+    },
+    {
+      "id": "D",
+      "text": "$5(x + 2) = 3x + 4$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "is an identity, true for every x",
+    "C": "has exactly one solution, x = 0",
+    "D": "has exactly one solution, x = -3"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Expand the left side: $5x + 10$. An equation has no solution when the $x$-terms match but the constants differ; $5x + 10 = 5x + 7$ reduces to $10 = 7$, which is false.\n\n**The Full Solution:**\nStep 1: Distribute on the left of each choice: $5(x + 2) = 5x + 10$. Compare with each right side.\nStep 2: Choice B becomes $5x + 10 = 5x + 7$. Subtracting $5x$ from both sides leaves $10 = 7$, a false statement with no $x$ remaining. No value of $x$ can make it true.\nStep 3: Confirm the others have solutions. Choice A: $5x + 10 = 5x + 10$ is true for every $x$. Choice C: $5x + 10 = 4x + 10$ gives $x = 0$. Choice D: $5x + 10 = 3x + 4$ gives $2x = -6$, so $x = -3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5(x + 2) = 5x + 10$): has the same coefficient on both sides, which can look like \"no solution,\" but the constants also match, so it is an identity with infinitely many solutions.\n* Choice C ($5(x + 2) = 4x + 10$): has different $x$-coefficients, so it has exactly one solution, $x = 0$.\n* Choice D ($5(x + 2) = 3x + 4$): also has different $x$-coefficients and one solution, $x = -3$.\n\n**Test Day Takeaway:** Same $x$-coefficient and same constant means infinitely many solutions; same $x$-coefficient and different constant means none; different $x$-coefficients means exactly one."
+}

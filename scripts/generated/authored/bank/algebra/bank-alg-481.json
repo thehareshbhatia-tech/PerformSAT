@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-481",
+  "question": "If $(x, y)$ is the solution to the system of equations $y = 2x + 3$ and $5x - y = 9$, what is the value of $y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$7$"
+    },
+    {
+      "id": "D",
+      "text": "$11$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sign slip when distributing the negative (5x - 2x + 3 = 9 gives x = 2), and reports x",
+    "B": "reports x instead of y",
+    "C": "sign slip when distributing the negative gives x = 2, then y = 2(2) + 3 = 7"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: System of Equations (Substitution)**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The first equation already isolates $y$, so replace $y$ in the second equation: $5x - (2x + 3) = 9$ gives $3x = 12$, so $x = 4$ and $y = 2(4) + 3 = 11$.\n\n**The Full Solution:**\nStep 1: Substitute $2x + 3$ for $y$ in $5x - y = 9$: $5x - (2x + 3) = 9$. Distribute the negative to both terms: $5x - 2x - 3 = 9$.\nStep 2: Combine like terms: $3x - 3 = 9$, so $3x = 12$ and $x = 4$.\nStep 3: The question asks for $y$, so return to $y = 2x + 3$: $y = 2(4) + 3 = 11$. Check in the second equation: $5(4) - 11 = 20 - 11 = 9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): distributes the negative to $2x$ only, writing $5x - 2x + 3 = 9$, which gives $x = 2$; it is also the wrong variable.\n* Choice B ($4$): is the value of $x$, not $y$; the question asks for $y$.\n* Choice C ($7$): follows the same sign slip as choice A ($x = 2$) and then computes $y = 2(2) + 3 = 7$.\n\n**Test Day Takeaway:** When you substitute an expression that is being subtracted, wrap it in parentheses so the negative reaches every term, then reread which variable the question wants."
+}

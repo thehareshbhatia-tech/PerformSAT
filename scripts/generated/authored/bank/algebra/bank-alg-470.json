@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-470",
+  "question": "The equation $-2x + 6y = 9$ is one of two equations in a system of linear equations that has infinitely many solutions. Which of the following could be the other equation in the system?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-x + 3y = 9$"
+    },
+    {
+      "id": "B",
+      "text": "$4x - 12y = 18$"
+    },
+    {
+      "id": "C",
+      "text": "$4x - 12y = -18$"
+    },
+    {
+      "id": "D",
+      "text": "$6x - 2y = 9$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "halves the coefficients but not the constant; the constant should be \\frac{9}{2}, so this line is parallel with no solution.",
+    "B": "scales the coefficients by -2 but the constant by +2; the sign mismatch makes a distinct parallel line.",
+    "D": "swaps the coefficients, changing the slope; that line crosses the given one exactly once."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Multiply the given equation by $-2$: $4x - 12y = -18$. Same line, infinitely many solutions.\n\n**The Full Solution:**\nStep 1: Infinitely many solutions means the other equation is a nonzero multiple of $-2x + 6y = 9$, with every term scaled by the same factor.\nStep 2: Choice C has $x$-coefficient $4 = -2(-2)$ and $y$-coefficient $-12 = -2(6)$, so the factor is $-2$; the constant must be $-2(9) = -18$, which matches.\nStep 3: Check: dividing $4x - 12y = -18$ by $-2$ gives $-2x + 6y = 9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-x + 3y = 9$): halves the coefficients but not the constant; the constant should be $\\frac{9}{2}$, so this line is parallel with no solution.\n* Choice B ($4x - 12y = 18$): scales the coefficients by $-2$ but the constant by $+2$; the sign mismatch makes a distinct parallel line.\n* Choice D ($6x - 2y = 9$): swaps the coefficients, changing the slope; that line crosses the given one exactly once.\n\n**Test Day Takeaway:** Test the factor on all three numbers; a factor that fits the coefficients but not the constant gives a parallel line, not the same line."
+}

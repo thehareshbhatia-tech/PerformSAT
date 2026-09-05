@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-486",
+  "question": "The sum of two numbers is $53$, and their difference is $17$. What is the larger of the two numbers?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$18$"
+    },
+    {
+      "id": "B",
+      "text": "$35$"
+    },
+    {
+      "id": "C",
+      "text": "$36$"
+    },
+    {
+      "id": "D",
+      "text": "$70$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the smaller number",
+    "C": "computes 53 - 17 and forgets to divide by 2",
+    "D": "computes 53 + 17 and forgets to divide by 2"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Adding the sum and the difference doubles the larger number: $53 + 17 = 70$, so the larger number is $\\dfrac{70}{2} = 35$.\n\n**The Full Solution:**\nStep 1: Let $L$ be the larger number and $S$ the smaller. The conditions give $L + S = 53$ and $L - S = 17$.\nStep 2: Add the two equations: the $S$ terms cancel, leaving $2L = 70$, so $L = 35$.\nStep 3: Then $S = 53 - 35 = 18$. Check the difference: $35 - 18 = 17$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($18$): is the smaller number, found from $2S = 53 - 17 = 36$.\n* Choice C ($36$): stops at $53 - 17 = 36$, which is $2S$, without dividing by $2$.\n* Choice D ($70$): stops at $53 + 17 = 70$, which is $2L$, without dividing by $2$.\n\n**Test Day Takeaway:** Sum and difference of two numbers: add the equations to get twice the larger, subtract to get twice the smaller, and always finish with the division by $2$."
+}

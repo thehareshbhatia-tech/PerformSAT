@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-397",
+  "question": "$9x - 14 = 5x + 10$\n\nWhat value of $x$ is the solution to the given equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-1$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{12}{7}$"
+    },
+    {
+      "id": "D",
+      "text": "$6$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "moves the constant with the wrong sign: 4x = 10 - 14",
+    "B": "subtracts 10 from 14 instead of adding: 4x = 4",
+    "C": "adds 5x to 9x instead of subtracting: 14x = 24"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Linear Equation with Variables on Both Sides**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Subtract $5x$ and add $14$: $4x = 24$, so $x = 6$.\n\n**The Full Solution:**\nStep 1: Gather the $x$-terms on one side. Subtract $5x$ from both sides: $4x - 14 = 10$.\nStep 2: Gather the constants on the other side. Add $14$ to both sides: $4x = 24$.\nStep 3: Divide by $4$: $x = 6$. Check: left side $9(6) - 14 = 40$; right side $5(6) + 10 = 40$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): moves $-14$ across as $-14$ instead of $+14$, giving $4x = -4$.\n* Choice B ($1$): subtracts $10$ from $14$ instead of adding them, giving $4x = 4$.\n* Choice C ($\\dfrac{12}{7}$): adds $5x$ to $9x$ instead of subtracting, giving $14x = 24$.\n\n**Test Day Takeaway:** Move variables to one side and constants to the other by doing the opposite operation on both sides, then plug the answer back into both sides to confirm they match."
+}

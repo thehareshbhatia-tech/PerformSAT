@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-392",
+  "question": "The function $g$ is defined by $g(x) = 3x^2 - 5x - 4$. What is the value of $g(-2)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-6$"
+    },
+    {
+      "id": "B",
+      "text": "$-2$"
+    },
+    {
+      "id": "C",
+      "text": "$18$"
+    },
+    {
+      "id": "D",
+      "text": "$22$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "evaluates (-2)^2 as -4",
+    "B": "evaluates -5(-2) as -10",
+    "D": "drops the constant term -4"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $g(-2) = 3(-2)^2 - 5(-2) - 4 = 12 + 10 - 4 = 18$.\n\n**The Full Solution:**\nStep 1: Substitute $-2$ for $x$ with parentheses: $g(-2) = 3(-2)^2 - 5(-2) - 4$.\nStep 2: Evaluate each term. $(-2)^2 = 4$, so $3(-2)^2 = 12$. Next, $-5(-2) = +10$. The constant stays $-4$.\nStep 3: Combine: $12 + 10 - 4 = 18$. Check: $g(2) = 12 - 10 - 4 = -2$, and the two values differ by $20 = 2 \\cdot 5 \\cdot 2$, exactly the change caused by the $-5x$ term flipping sign. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): treats $(-2)^2$ as $-4$, giving $-12 + 10 - 4$.\n* Choice B ($-2$): writes $-5(-2)$ as $-10$, giving $12 - 10 - 4$; this is actually $g(2)$.\n* Choice D ($22$): forgets the constant term, stopping at $12 + 10$.\n\n**Test Day Takeaway:** With a negative input, square it inside parentheses so the result is positive, and watch for the double negative in a term like $-5x$."
+}

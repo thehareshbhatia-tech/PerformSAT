@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-379",
+  "question": "The points $(-3, 4)$ and $(x, -2)$ in the $xy$-plane are $10$ units apart. What is the sum of all possible values of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-11$"
+    },
+    {
+      "id": "B",
+      "text": "$-6$"
+    },
+    {
+      "id": "C",
+      "text": "$5$"
+    },
+    {
+      "id": "D",
+      "text": "$16$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports only the negative solution",
+    "C": "reports only the positive solution",
+    "D": "adds the absolute values of the two solutions, 5 + 11"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The vertical leg is $4 - (-2) = 6$ and the hypotenuse is $10$, so the horizontal leg is $8$: $x + 3 = \\pm 8$, giving $x = 5$ or $x = -11$. Their sum is $-6$.\n\n**The Full Solution:**\nStep 1: Apply the distance formula: $\\sqrt{(x - (-3))^2 + (-2 - 4)^2} = 10$, so $(x + 3)^2 + 36 = 100$.\nStep 2: Subtract $36$: $(x + 3)^2 = 64$. A squared quantity equal to $64$ can be $8$ or $-8$: $x + 3 = 8$ gives $x = 5$, and $x + 3 = -8$ gives $x = -11$. Both $(5, -2)$ and $(-11, -2)$ are $10$ units from $(-3, 4)$.\nStep 3: The sum of all possible values is $5 + (-11) = -6$. Check: the two solutions are symmetric about $x = -3$, so their sum is $2(-3) = -6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-11$): keeps only the solution from $x + 3 = -8$.\n* Choice C ($5$): keeps only the solution from $x + 3 = 8$, forgetting that a square has two roots.\n* Choice D ($16$): adds $5$ and $11$ as if both solutions were positive, ignoring the sign of $-11$.\n\n**Test Day Takeaway:** A distance condition produces a squared term with two roots; when the question says \"all possible values,\" find both and use the symmetry about the fixed coordinate as a check."
+}

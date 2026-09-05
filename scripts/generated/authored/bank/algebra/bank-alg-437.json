@@ -1,0 +1,58 @@
+{
+  "id": "bank-alg-437",
+  "question": "Line $h$ is shown in the $xy$-plane. Which of the following equations, when paired with the equation of line $h$, gives a system of equations with no solution?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": -1,
+      "yIntercept": 3,
+      "xRange": [
+        -4,
+        6
+      ],
+      "yRange": [
+        -4,
+        6
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 1,
+      "showPoints": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "label": "h"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -x - 2$"
+    },
+    {
+      "id": "B",
+      "text": "$y = -x + 3$"
+    },
+    {
+      "id": "C",
+      "text": "$y = x - 2$"
+    },
+    {
+      "id": "D",
+      "text": "$y = x + 3$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "is the equation of line h itself, so the system has infinitely many solutions, not zero.",
+    "C": "has slope 1, perpendicular to line h; the lines meet at exactly one point.",
+    "D": "shares the y-intercept 3 but has slope 1, so the lines cross at (0, 3)."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Parallel Lines No Solution**\n\n**Choice A is correct.**\n\n**The Fast Way (~8s):** Line $h$ has slope $-1$ and $y$-intercept $3$. No solution needs the same slope with a different intercept: $y = -x - 2$.\n\n**The Full Solution:**\nStep 1: From the graph, line $h$ passes through $(0, 3)$ and $(3, 0)$, so its slope is $\\frac{0 - 3}{3 - 0} = -1$ and its equation is $y = -x + 3$.\nStep 2: A system has no solution when the lines are parallel and distinct. Among the choices, only $y = -x - 2$ has slope $-1$ with an intercept other than $3$.\nStep 3: Check: $-x + 3 = -x - 2$ simplifies to $3 = -2$, which is never true, so the lines share no point. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = -x + 3$): is the equation of line $h$ itself, so the system has infinitely many solutions, not zero.\n* Choice C ($y = x - 2$): has slope $1$, perpendicular to line $h$; the lines meet at exactly one point.\n* Choice D ($y = x + 3$): shares the $y$-intercept $3$ but has slope $1$, so the lines cross at $(0, 3)$.\n\n**Test Day Takeaway:** Zero solutions = same slope, different intercept. Identify the slope from the graph, then eliminate the choice that IS the line and the choices with a different slope."
+}

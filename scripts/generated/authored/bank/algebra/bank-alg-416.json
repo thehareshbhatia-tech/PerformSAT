@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-416",
+  "question": "$y = 5x$\n$3x + 2y = 52$\n\nIf $(x, y)$ is the solution to the given system of equations, what is the value of $xy$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$20$"
+    },
+    {
+      "id": "C",
+      "text": "$24$"
+    },
+    {
+      "id": "D",
+      "text": "$80$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports x only",
+    "B": "reports y only",
+    "C": "computes x + y instead of xy"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Substitute $5x$ for $y$: $3x + 10x = 52$, so $x = 4$ and $y = 20$. Then $xy = 80$.\n\n**The Full Solution:**\nStep 1: Replace $y$ in the second equation with $5x$: $3x + 2(5x) = 52$.\nStep 2: Simplify: $13x = 52$, so $x = 4$. Then $y = 5(4) = 20$.\nStep 3: $xy = 4 \\times 20 = 80$. Check in the second equation: $3(4) + 2(20) = 12 + 40 = 52$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): is $x$ alone.\n* Choice B ($20$): is $y$ alone.\n* Choice C ($24$): adds $x$ and $y$ instead of multiplying.\n\n**Test Day Takeaway:** A \"$y = kx$\" equation substitutes in one move; after solving, form the exact product or sum the question asks for."
+}

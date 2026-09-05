@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-494",
+  "question": "$$\\dfrac{x}{5} - 7 = 3$$\n\nWhat is the solution to the given equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-20$"
+    },
+    {
+      "id": "B",
+      "text": "$2$"
+    },
+    {
+      "id": "C",
+      "text": "$8$"
+    },
+    {
+      "id": "D",
+      "text": "$50$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts 7 from 3 instead of adding, then multiplies by 5",
+    "B": "divides 10 by 5 instead of multiplying",
+    "C": "multiplies 3 by 5 first and then subtracts 7"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Add $7$ to get $\\dfrac{x}{5} = 10$, then multiply by $5$: $x = 50$.\n\n**The Full Solution:**\nStep 1: Add $7$ to both sides to isolate the fraction: $\\dfrac{x}{5} = 10$.\nStep 2: The variable is divided by $5$, so undo that by multiplying both sides by $5$: $x = 50$.\nStep 3: Check: $\\dfrac{50}{5} - 7 = 10 - 7 = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-20$): subtracts $7$ from $3$ instead of adding, giving $\\dfrac{x}{5} = -4$ and $x = -20$.\n* Choice B ($2$): divides $10$ by $5$; but $x$ is already divided by $5$, so the inverse operation is multiplication.\n* Choice C ($8$): multiplies $3$ by $5$ first and then subtracts $7$, undoing the steps in the wrong order.\n\n**Test Day Takeaway:** $\\dfrac{x}{5}$ means $x$ divided by $5$, so after isolating it you multiply by $5$; add the constant back before touching the fraction."
+}

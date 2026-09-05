@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-415",
+  "question": "$y = -3x + 14$\n$y = 2x - 6$\n\nIf $(x, y)$ is the solution to the given system of equations, what is the value of $x + y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$8$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports y only",
+    "B": "reports x only",
+    "D": "computes the product xy instead of the sum"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $-3x + 14 = 2x - 6$ gives $5x = 20$, so $x = 4$ and $y = 2(4) - 6 = 2$. Then $x + y = 6$.\n\n**The Full Solution:**\nStep 1: Set the two expressions for $y$ equal: $-3x + 14 = 2x - 6$.\nStep 2: Add $3x$ and add $6$ to both sides: $20 = 5x$, so $x = 4$. Substitute into the second equation: $y = 2(4) - 6 = 2$.\nStep 3: $x + y = 4 + 2 = 6$. Check in the first equation: $-3(4) + 14 = 2 = y$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): is $y$ alone.\n* Choice B ($4$): is $x$ alone.\n* Choice D ($8$): multiplies $4$ and $2$ instead of adding them.\n\n**Test Day Takeaway:** Solve for both coordinates, then build exactly the combination the question names; $x + y$, $xy$, and the single coordinates are all common answer choices."
+}

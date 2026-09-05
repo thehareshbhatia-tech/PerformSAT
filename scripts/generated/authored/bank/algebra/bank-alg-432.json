@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-432",
+  "question": "In the $xy$-plane, line $\\ell$ passes through the point $(0, -5)$ and is parallel to the line with equation $y = 4x - 2$. Which of the following equations defines line $\\ell$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = 4x - 5$"
+    },
+    {
+      "id": "B",
+      "text": "$y = 4x - 2$"
+    },
+    {
+      "id": "C",
+      "text": "$y = -4x - 5$"
+    },
+    {
+      "id": "D",
+      "text": "$y = -\\frac{1}{4}x - 5$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "keeps the given line's intercept -2; this line does not pass through (0, -5).",
+    "C": "negates the slope; -4 is not parallel to slope 4.",
+    "D": "uses the negative reciprocal -\\frac{1}{4}, the slope of a perpendicular line."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Parallel Line through a Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~8s):** Same slope $4$; the point $(0, -5)$ is the $y$-intercept, so $y = 4x - 5$.\n\n**The Full Solution:**\nStep 1: Parallel lines share a slope. The given line $y = 4x - 2$ has slope $4$, so line $\\ell$ has slope $4$.\nStep 2: The point $(0, -5)$ has $x = 0$, so it is the $y$-intercept: $b = -5$. Line $\\ell$ is $y = 4x - 5$.\nStep 3: Check: at $x = 0$, $y = 4(0) - 5 = -5$, so $(0, -5)$ is on the line, and the slope $4$ matches. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = 4x - 2$): keeps the given line's intercept $-2$; this line does not pass through $(0, -5)$.\n* Choice C ($y = -4x - 5$): negates the slope; $-4$ is not parallel to slope $4$.\n* Choice D ($y = -\\frac{1}{4}x - 5$): uses the negative reciprocal $-\\frac{1}{4}$, the slope of a perpendicular line.\n\n**Test Day Takeaway:** A point with $x = 0$ hands you the $y$-intercept directly; combine it with the borrowed slope and you are done."
+}

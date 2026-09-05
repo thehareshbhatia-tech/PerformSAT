@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-419",
+  "question": "$y = 6x - 1$\n$y = (k + 3)x + 8$\n\nIn the given system of equations, $k$ is a constant. If the system has no solution, what is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-9$"
+    },
+    {
+      "id": "B",
+      "text": "$-3$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$6$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sets k + 3 = -6, using the opposite slope",
+    "B": "sets k + 3 = 0",
+    "D": "reports the required slope instead of solving for k"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** No solution means parallel lines with different intercepts. The intercepts $-1$ and $8$ already differ, so match the slopes: $k + 3 = 6$, giving $k = 3$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has no solution exactly when the lines are parallel and distinct: equal slopes, different $y$-intercepts.\nStep 2: The slopes are $6$ and $k + 3$. Set them equal: $k + 3 = 6$, so $k = 3$.\nStep 3: Confirm the lines are distinct: the $y$-intercepts are $-1$ and $8$, which differ, so the lines never meet. Check: with $k = 3$ the second equation is $y = 6x + 8$, parallel to $y = 6x - 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): sets $k + 3 = -6$, matching the slope's opposite instead of the slope.\n* Choice B ($-3$): sets $k + 3 = 0$, producing a horizontal line that would cross $y = 6x - 1$.\n* Choice D ($6$): reports the slope the second line needs rather than the value of $k$ that produces it.\n\n**Test Day Takeaway:** For \"no solution,\" make the slopes equal and confirm the intercepts differ; then solve for the constant, not the slope itself."
+}

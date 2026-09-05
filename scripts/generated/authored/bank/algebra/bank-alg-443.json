@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-443",
+  "question": "How many solutions does the system of equations $y = 5x - 4$ and $2y - 10x = -8$ have?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Exactly one"
+    },
+    {
+      "id": "B",
+      "text": "Exactly two"
+    },
+    {
+      "id": "C",
+      "text": "Infinitely many"
+    },
+    {
+      "id": "D",
+      "text": "Zero"
+    }
+  ],
+  "distractorNotes": {
+    "A": "treats two equations that look different as two different lines; rearranging shows they are the same.",
+    "B": "two lines cannot intersect at exactly two points.",
+    "D": "spots the matching slopes and assumes parallel lines, but the intercepts also match (\\frac{-8}{2} = -4), so the lines are not distinct."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Same Line Infinitely Many Solutions**\n\n**Choice C is correct.**\n\n**The Fast Way (~8s):** Divide the second equation by $2$: $y - 5x = -4$, or $y = 5x - 4$. Both equations describe the same line, so every point on it is a solution.\n\n**The Full Solution:**\nStep 1: Rewrite the second equation in slope-intercept form: $2y = 10x - 8$, so $y = 5x - 4$.\nStep 2: This is identical to the first equation: same slope $5$ and same $y$-intercept $-4$. The graphs coincide.\nStep 3: Check: any point on the line, such as $(1, 1)$, satisfies both: $1 = 5(1) - 4$ and $2(1) - 10(1) = -8$. $\\checkmark$ Infinitely many such points exist.\n\n**Why the wrong answers are tempting:**\n* Choice A (Exactly one): treats two equations that look different as two different lines; rearranging shows they are the same.\n* Choice B (Exactly two): two lines cannot intersect at exactly two points.\n* Choice D (Zero): spots the matching slopes and assumes parallel lines, but the intercepts also match ($\\frac{-8}{2} = -4$), so the lines are not distinct.\n\n**Test Day Takeaway:** Before counting solutions, put both equations in the same form; identical slope AND identical intercept means infinitely many solutions."
+}

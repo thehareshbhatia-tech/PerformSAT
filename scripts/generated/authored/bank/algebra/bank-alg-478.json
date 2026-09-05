@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-478",
+  "question": "$3x + 2y = 32$ and $5x - 4y = 2$. If $(x, y)$ is the solution to the given system of equations, what is the value of $xy$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$13$"
+    },
+    {
+      "id": "B",
+      "text": "$36$"
+    },
+    {
+      "id": "C",
+      "text": "$42$"
+    },
+    {
+      "id": "D",
+      "text": "$84$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes x + y = 13 instead of the product.",
+    "B": "uses x twice, 6 \\cdot 6 = 36.",
+    "D": "forgets to divide 2y = 14 by 2, taking y = 14 and getting 6 \\cdot 14 = 84."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: System of Equations (Elimination)**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Double the first equation ($6x + 4y = 64$) and add: $11x = 66$, $x = 6$; then $2y = 14$, $y = 7$; $xy = 42$.\n\n**The Full Solution:**\nStep 1: No coefficients match yet. Multiply the first equation by $2$ so the $y$-terms become opposites: $6x + 4y = 64$.\nStep 2: Add to $5x - 4y = 2$: $11x = 66$, so $x = 6$. Substitute: $3(6) + 2y = 32$, so $2y = 14$ and $y = 7$.\nStep 3: $xy = 6 \\cdot 7 = 42$. Check: $5(6) - 4(7) = 30 - 28 = 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$): computes $x + y = 13$ instead of the product.\n* Choice B ($36$): uses $x$ twice, $6 \\cdot 6 = 36$.\n* Choice D ($84$): forgets to divide $2y = 14$ by $2$, taking $y = 14$ and getting $6 \\cdot 14 = 84$.\n\n**Test Day Takeaway:** Scale one equation so a pair of terms becomes opposites, eliminate, back-substitute, and only then build the expression the question asks for."
+}

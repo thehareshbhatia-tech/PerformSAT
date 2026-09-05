@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-483",
+  "question": "In the $xy$-plane, the graphs of $y = -2x + 9$ and $3x - 2y = 10$ intersect at the point $(a, b)$. What is the value of $a$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-28$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$8$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes -2(-2x) as -4x instead of +4x, giving -x - 18 = 10",
+    "B": "reports b (the y-coordinate) instead of a",
+    "D": "treats -2y as +2y, giving 3x - 4x + 18 = 10 and x = 8"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: System of Equations (Substitution)**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The intersection point satisfies both equations, so substitute $-2x + 9$ for $y$: $3x - 2(-2x + 9) = 10$, which simplifies to $7x - 18 = 10$, so $x = 4$.\n\n**The Full Solution:**\nStep 1: At the intersection, the $y$-values agree, so replace $y$ in $3x - 2y = 10$ with $-2x + 9$: $3x - 2(-2x + 9) = 10$.\nStep 2: Distribute $-2$ carefully: $-2(-2x) = +4x$ and $-2(9) = -18$, so $3x + 4x - 18 = 10$, giving $7x = 28$ and $x = 4$.\nStep 3: The point is $(a, b) = (4, b)$ with $b = -2(4) + 9 = 1$. Check: $3(4) - 2(1) = 12 - 2 = 10$. $\\checkmark$ So $a = 4$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-28$): multiplies $-2$ by $-2x$ and gets $-4x$, leaving $-x - 18 = 10$ and $x = -28$.\n* Choice B ($1$): is $b$, the $y$-coordinate of the intersection point, not $a$.\n* Choice D ($8$): drops the negative on $-2y$, computing $3x + 2y = 10$, which gives $3x - 4x + 18 = 10$ and $x = 8$.\n\n**Test Day Takeaway:** A negative times a negative inside a substitution is the most common sign trap; write the two products separately ($+4x$ and $-18$) before combining."
+}

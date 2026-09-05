@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-500",
+  "question": "Which of the following is equivalent to the expression $-(x - 3)^2 + 10$ for every value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-x^2 - 6x + 1$"
+    },
+    {
+      "id": "B",
+      "text": "$-x^2 + 6x + 1$"
+    },
+    {
+      "id": "C",
+      "text": "$-x^2 + 6x + 19$"
+    },
+    {
+      "id": "D",
+      "text": "$-x^2 + 19$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "fails to flip the sign of the middle term when applying the negative",
+    "C": "fails to negate the constant 9, so 9 + 10 = 19",
+    "D": "squares term by term as x^2 - 9, then negates: -x^2 + 9 + 10"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $(x - 3)^2 = x^2 - 6x + 9$; negating every term gives $-x^2 + 6x - 9$, and adding $10$ gives $-x^2 + 6x + 1$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x - 3)^2 = x^2 - 6x + 9$.\nStep 2: The leading negative applies to all three terms: $-(x^2 - 6x + 9) = -x^2 + 6x - 9$.\nStep 3: Add $10$: $-x^2 + 6x + 1$. Check with $x = 3$: the original is $-0 + 10 = 10$, and $-9 + 18 + 1 = 10$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-x^2 - 6x + 1$): negates $x^2$ and $9$ but leaves the middle term $-6x$ unchanged.\n* Choice C ($-x^2 + 6x + 19$): negates $x^2$ and the middle term but not the $9$, then adds $10$ to $+9$.\n* Choice D ($-x^2 + 19$): squares term by term as $x^2 - 9$, losing the middle term, then negates and adds $10$.\n\n**Test Day Takeaway:** A negative in front of a squared binomial must reach all three terms of the expansion; write the expansion first, then distribute the sign."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-403",
+  "question": "Line $k$ is defined by $y = \\dfrac{2}{5}x - 3$. Line $j$ is perpendicular to line $k$ in the $xy$-plane. What is the slope of line $j$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\dfrac{5}{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\dfrac{2}{5}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{2}{5}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{5}{2}$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "changes only the sign, without taking the reciprocal",
+    "C": "uses the same slope, as for a parallel line",
+    "D": "takes only the reciprocal, without changing the sign"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The slope of $k$ is $\\dfrac{2}{5}$; a perpendicular line has the negative reciprocal slope, $-\\dfrac{5}{2}$.\n\n**The Full Solution:**\nStep 1: In slope-intercept form $y = mx + b$, the coefficient of $x$ is the slope, so line $k$ has slope $\\dfrac{2}{5}$.\nStep 2: Perpendicular lines have slopes whose product is $-1$. If $m_j \\cdot \\dfrac{2}{5} = -1$, then $m_j = -\\dfrac{5}{2}$.\nStep 3: Check the product: $\\dfrac{2}{5} \\cdot \\left(-\\dfrac{5}{2}\\right) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\dfrac{2}{5}$): flips the sign but keeps the same fraction; the product with $\\dfrac{2}{5}$ is $-\\dfrac{4}{25}$, not $-1$.\n* Choice C ($\\dfrac{2}{5}$): is the slope of a line parallel to $k$, not perpendicular.\n* Choice D ($\\dfrac{5}{2}$): takes the reciprocal but not the negative; the product is $+1$.\n\n**Test Day Takeaway:** Perpendicular means \"flip and negate\": invert the fraction and change the sign, then multiply the two slopes to confirm you get $-1$."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-475",
+  "question": "The solution to the system of equations $5x + 3y = 27$ and $2x + 3y = 18$ is $(x, y)$. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$9$"
+    },
+    {
+      "id": "D",
+      "text": "$15$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "reports y = 4 instead of x.",
+    "C": "stops at 3x = 9 without dividing by 3.",
+    "D": "adds the equations instead, getting 7x + 6y = 45, then divides 45 by 3."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: System of Equations (Elimination)**\n\n**Choice A is correct.**\n\n**The Fast Way (~8s):** The $y$-terms match, so subtract: $3x = 9$, $x = 3$.\n\n**The Full Solution:**\nStep 1: Both equations contain $3y$, so subtracting the second from the first eliminates $y$.\nStep 2: $(5x + 3y) - (2x + 3y) = 27 - 18$ gives $3x = 9$, so $x = 3$.\nStep 3: Check: $2(3) + 3y = 18$ gives $y = 4$, and $5(3) + 3(4) = 27$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): reports $y = 4$ instead of $x$.\n* Choice C ($9$): stops at $3x = 9$ without dividing by $3$.\n* Choice D ($15$): adds the equations instead, getting $7x + 6y = 45$, then divides $45$ by $3$.\n\n**Test Day Takeaway:** Identical terms cancel by subtraction; subtract the whole equation, constants included, then divide by the surviving coefficient."
+}

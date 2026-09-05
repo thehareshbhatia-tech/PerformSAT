@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-414",
+  "question": "$x = 3y - 4$\n$2x + y = 13$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3$"
+    },
+    {
+      "id": "B",
+      "text": "$5$"
+    },
+    {
+      "id": "C",
+      "text": "$8$"
+    },
+    {
+      "id": "D",
+      "text": "$21$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "reports x instead of y",
+    "C": "reports x + y",
+    "D": "reaches 7y = 21 but never divides by 7"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Substitute $3y - 4$ for $x$: $2(3y - 4) + y = 13$, so $7y - 8 = 13$ and $y = 3$.\n\n**The Full Solution:**\nStep 1: The first equation gives $x$ in terms of $y$, so replace $x$ in the second equation: $2(3y - 4) + y = 13$.\nStep 2: Distribute and combine: $6y - 8 + y = 13$, so $7y = 21$ and $y = 3$.\nStep 3: Then $x = 3(3) - 4 = 5$. Check in the second equation: $2(5) + 3 = 13$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($5$): is the value of $x$, not $y$.\n* Choice C ($8$): adds $x$ and $y$ together.\n* Choice D ($21$): stops at $7y = 21$ without dividing by $7$.\n\n**Test Day Takeaway:** Substitute the expression for one variable into the other equation with parentheses, distribute carefully, and reread which coordinate the question wants."
+}

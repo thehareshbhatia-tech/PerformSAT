@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-411",
+  "question": "If $|4 - 3x| = 11$ and $x > 0$, what is the value of $3x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-7$"
+    },
+    {
+      "id": "B",
+      "text": "$5$"
+    },
+    {
+      "id": "C",
+      "text": "$7$"
+    },
+    {
+      "id": "D",
+      "text": "$15$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses the case 4 - 3x = 11, which gives a negative x",
+    "B": "reports x instead of 3x",
+    "C": "subtracts 4 from 11 instead of adding"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The case $4 - 3x = -11$ gives $3x = 15$ (and $x = 5 > 0$); the other case gives a negative $x$. So $3x = 15$.\n\n**The Full Solution:**\nStep 1: Split into two cases: $4 - 3x = 11$ or $4 - 3x = -11$.\nStep 2: Case 1: $-3x = 7$, so $x = -\\dfrac{7}{3}$, which violates $x > 0$. Case 2: $-3x = -15$, so $x = 5$, which satisfies $x > 0$.\nStep 3: The question asks for $3x$, not $x$: $3x = 15$. Check: $|4 - 15| = |-11| = 11$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): comes from the case $4 - 3x = 11$, whose solution $x = -\\dfrac{7}{3}$ is ruled out by $x > 0$.\n* Choice B ($5$): is the value of $x$; the question asks for $3x$.\n* Choice C ($7$): computes $11 - 4$ instead of $11 + 4$ when isolating $3x$ in the valid case.\n\n**Test Day Takeaway:** Use the given condition to discard the invalid case, then reread the question to see which expression, $x$ or $3x$, it actually wants."
+}

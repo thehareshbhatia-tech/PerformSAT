@@ -1,0 +1,29 @@
+{
+  "id": "bank-alg-398",
+  "question": "$5 - 4x = 2x + 23$\n\nWhat value of $x$ is the solution to the given equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-9$"
+    },
+    {
+      "id": "B",
+      "text": "$-3$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$14$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "combines -4x and 2x as -2x",
+    "C": "drops the sign when dividing: 6x = 18",
+    "D": "adds the constants and divides by 2"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Linear Equation with Variables on Both Sides**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Subtract $2x$ and subtract $5$: $-6x = 18$, so $x = -3$.\n\n**The Full Solution:**\nStep 1: Subtract $2x$ from both sides to collect the $x$-terms: $5 - 6x = 23$.\nStep 2: Subtract $5$ from both sides: $-6x = 18$.\nStep 3: Divide by $-6$: $x = -3$. Check: left side $5 - 4(-3) = 5 + 12 = 17$; right side $2(-3) + 23 = 17$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): combines $-4x - 2x$ as $-2x$, then solves $-2x = 18$.\n* Choice C ($3$): reaches $-6x = 18$ but divides as if the coefficient were $+6$.\n* Choice D ($14$): adds $5$ and $23$ and divides by $2$, ignoring the $-4x$ term entirely.\n\n**Test Day Takeaway:** When the variable has a negative coefficient, keep the sign attached through every step, and finish by checking that both sides give the same number."
+}
