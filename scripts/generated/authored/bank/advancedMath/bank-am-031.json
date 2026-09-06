@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-031",
+  "question": "In the $xy$-plane, the graphs of $y = x^2 - 6x + 14$ and $y = 2x + k$ meet at exactly one point, where $k$ is a constant. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-14$"
+    },
+    {
+      "id": "B",
+      "text": "$-2$"
+    },
+    {
+      "id": "C",
+      "text": "$2$"
+    },
+    {
+      "id": "D",
+      "text": "$14$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "solves $4k = -56$, dropping the $+64$ from $b^2$",
+    "C": "sign slip when solving $8 + 4k = 0$",
+    "D": "copies the parabola's constant term"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Tangent Line to Parabola (Discriminant Method)**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Setting the sides equal gives $x^2 - 8x + (14 - k) = 0$. One shared point means the discriminant is $0$: $64 - 4(14 - k) = 0$, so $k = -2$.\n\n**The Full Solution:**\nStep 1: At a shared point both equations give the same $y$, so $x^2 - 6x + 14 = 2x + k$.\nStep 2: Move everything to one side: $x^2 - 8x + (14 - k) = 0$. The two graphs meet exactly once when this quadratic has exactly one real solution.\nStep 3: Set the discriminant to zero: $(-8)^2 - 4(1)(14 - k) = 0$, so $64 - 56 + 4k = 0$ and $4k = -8$, giving $k = -2$. Check: $x^2 - 8x + 16 = (x - 4)^2 = 0$ has the single root $x = 4$, and both graphs pass through $(4, 6)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-14$): solves $4k = -56$, forgetting that $b^2 = 64$ also enters the discriminant.\n* Choice C ($2$): reaches $8 + 4k = 0$ but reports the positive value.\n* Choice D ($14$): grabs the parabola's constant term without forming the combined equation.\n\n**Test Day Takeaway:** Two graphs meeting exactly once collapse to one quadratic with a zero discriminant — combine first, then set $b^2 - 4ac = 0$."
+}

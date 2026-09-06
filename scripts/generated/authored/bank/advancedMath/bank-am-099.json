@@ -1,0 +1,46 @@
+{
+  "id": "bank-am-099",
+  "question": "In the $xy$-plane, the graph of $y = a(x - h)^2 + k$ is shown, where $a$, $h$, and $k$ are constants. The vertex of the graph is $(-2, -6)$, and the graph passes through the marked point $(0, 2)$. What is the value of $ahk$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        -2,
+        -6
+      ],
+      "a": 2,
+      "showPoints": [
+        [
+          0,
+          2
+        ]
+      ],
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-24$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$12$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads $h$ as $2$ rather than $-2$",
+    "B": "solves $4a = 2$ without undoing $k$, getting $a = \\frac{1}{2}$",
+    "C": "assumes $a = 1$ instead of using the marked point"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice D is correct.**\n\n**The Fast Way (~50s):** The vertex gives $h = -2$ and $k = -6$; the point $(0, 2)$ gives $4a - 6 = 2$, so $a = 2$ and $ahk = 2(-2)(-6) = 24$.\n\n**The Full Solution:**\nStep 1: In $y = a(x - h)^2 + k$ the vertex is $(h, k)$, so $h = -2$ and $k = -6$ and the equation is $y = a(x + 2)^2 - 6$.\nStep 2: Substitute the marked point $(0, 2)$: $2 = a(0 + 2)^2 - 6 = 4a - 6$, so $4a = 8$ and $a = 2$.\nStep 3: Multiply: $ahk = (2)(-2)(-6) = 24$. Check: $y = 2(x + 2)^2 - 6$ gives $y = 2$ at $x = 0$ and $y = -6$ at $x = -2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-24$): takes $h = 2$ because the equation displays $(x - h)$, missing that the graph is shifted left; that gives $(2)(2)(-6)$.\n* Choice B ($6$): solves $4a = 2$, forgetting to add $6$ to both sides, so $a = \\frac{1}{2}$ and the product is $\\left(\\frac{1}{2}\\right)(-2)(-6)$.\n* Choice C ($12$): assumes the leading coefficient is $1$ without using the marked point, giving $(1)(-2)(-6)$.\n\n**Test Day Takeaway:** A vertex at $(-2, -6)$ means $h = -2$, so the factor is $(x + 2)$. Get $h$ and $k$ from the vertex, $a$ from a second point, and then read the question once more."
+}

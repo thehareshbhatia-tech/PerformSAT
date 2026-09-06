@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-115",
+  "question": "The function $f$ is defined by $f(x) = (x - 3)^2$, and the function $g$ is defined by $g(x) = -4f(x + 2) + 5$. What is the vertex of the graph of $y = g(x)$ in the $xy$-plane?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(1, 5)$"
+    },
+    {
+      "id": "B",
+      "text": "$(1, -5)$"
+    },
+    {
+      "id": "C",
+      "text": "$(3, 5)$"
+    },
+    {
+      "id": "D",
+      "text": "$(5, 5)$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "multiplies the $+5$ by the $-4$ as well",
+    "C": "keeps the vertex of $f$, ignoring the horizontal shift",
+    "D": "computes $3 + 2$, shifting right instead of left"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** $f$ has its vertex where $x - 3 = 0$. For $g$, the inside is $x + 2$, so $x + 2 = 3$ gives $x = 1$, and $g(1) = -4(0) + 5 = 5$: the vertex is $(1, 5)$.\n\n**The Full Solution:**\nStep 1: $f(x) = (x - 3)^2$ has vertex $(3, 0)$, its minimum, since a square is never negative.\nStep 2: In $g(x) = -4f(x + 2) + 5$, the vertex occurs where the input to $f$ equals $3$: $x + 2 = 3$, so $x = 1$.\nStep 3: The output there is $-4 \\cdot f(3) + 5 = -4(0) + 5 = 5$, so the vertex is $(1, 5)$. Check by expanding: $g(x) = -4(x + 2 - 3)^2 + 5 = -4(x - 1)^2 + 5$, a downward parabola with vertex $(1, 5)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($(1, -5)$): multiplies the $+5$ by $-4$; the $-4$ scales only $f$, not the constant added afterward.\n* Choice C ($(3, 5)$): keeps $x = 3$ from $f$ and never solves $x + 2 = 3$.\n* Choice D ($(5, 5)$): computes $3 + 2$, moving the graph right when $f(x + 2)$ moves it left.\n\n**Test Day Takeaway:** With a stretch, a reflection, and two shifts at once, solve the inside for $x$ first, then apply the outside operations to the old output in the order written."
+}

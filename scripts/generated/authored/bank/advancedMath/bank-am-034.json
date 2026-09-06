@@ -1,0 +1,50 @@
+{
+  "id": "bank-am-034",
+  "question": "The parabola shown is the graph of the function $g$ in the $xy$-plane. Its vertex is $(1, 8)$, and its $x$-intercepts are $(-1, 0)$ and $(3, 0)$. What is the value of $g(-3)$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        1,
+        8
+      ],
+      "a": -2,
+      "showPoints": [
+        [
+          -1,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-24$"
+    },
+    {
+      "id": "B",
+      "text": "$0$"
+    },
+    {
+      "id": "C",
+      "text": "$16$"
+    },
+    {
+      "id": "D",
+      "text": "$40$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "evaluates at $x = 3$ instead of $x = -3$",
+    "C": "forgets to square the horizontal difference",
+    "D": "uses $a = 2$ instead of $a = -2$"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Vertex Form from Vertex + Intercepts**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** From the vertex, $g(x) = a(x - 1)^2 + 8$; the intercept $(3, 0)$ gives $4a + 8 = 0$, so $a = -2$. Then $g(-3) = -2(16) + 8 = -24$.\n\n**The Full Solution:**\nStep 1: Vertex $(1, 8)$ gives $g(x) = a(x - 1)^2 + 8$.\nStep 2: Substitute the intercept $(3, 0)$: $0 = a(3 - 1)^2 + 8 = 4a + 8$, so $a = -2$ and $g(x) = -2(x - 1)^2 + 8$.\nStep 3: Evaluate at $x = -3$: $g(-3) = -2(-3 - 1)^2 + 8 = -2(16) + 8 = -32 + 8 = -24$. Check the other intercept: $g(-1) = -2(4) + 8 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($0$): this is $g(3)$ — reading the intercept instead of evaluating at $x = -3$.\n* Choice C ($16$): computes $-2(-3 - 1) + 8$, skipping the square.\n* Choice D ($40$): uses $a = +2$, which contradicts a graph that opens downward.\n\n**Test Day Takeaway:** A vertex plus one more point determines a parabola completely. Solve for $a$ first, then substitute — and square the difference before multiplying."
+}

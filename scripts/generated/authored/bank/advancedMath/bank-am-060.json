@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-060",
+  "question": "For all values of $x$, which of the following expressions is equivalent to $5x^2 + 8x - 9x^2 - 3x + 7$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-4x^2 - 5x + 7$"
+    },
+    {
+      "id": "B",
+      "text": "$-4x^2 + 5x + 7$"
+    },
+    {
+      "id": "C",
+      "text": "$-4x^2 + 11x + 7$"
+    },
+    {
+      "id": "D",
+      "text": "$14x^2 + 5x + 7$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reverses the sign of the combined $x$-term",
+    "C": "adds $8x$ and $3x$ instead of subtracting",
+    "D": "adds the $x^2$ coefficients instead of subtracting"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Combine Like Terms**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $5x^2 - 9x^2 = -4x^2$, $8x - 3x = 5x$, and the $7$ stands alone: $-4x^2 + 5x + 7$.\n\n**The Full Solution:**\nStep 1: Group the $x^2$ terms: $5x^2 - 9x^2 = (5 - 9)x^2 = -4x^2$.\nStep 2: Group the $x$ terms: $8x - 3x = (8 - 3)x = 5x$.\nStep 3: The constant $7$ has no partner, so the simplified expression is $-4x^2 + 5x + 7$. Check at $x = 1$: the original is $5 + 8 - 9 - 3 + 7 = 8$, and the answer gives $-4 + 5 + 7 = 8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5x$): flips the sign of the $x$-term; at $x = 1$ this gives $-2$, not $8$.\n* Choice C ($+11x$): adds $8$ and $3$ instead of subtracting, ignoring the minus in front of $3x$.\n* Choice D ($14x^2$): adds $5$ and $9$ rather than subtracting, ignoring the minus in front of $9x^2$.\n\n**Test Day Takeaway:** Carry the sign that sits in FRONT of each term into the grouping, then check the whole simplification with $x = 1$."
+}

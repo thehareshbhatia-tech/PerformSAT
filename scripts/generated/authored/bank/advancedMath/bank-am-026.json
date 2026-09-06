@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-026",
+  "question": "The function $h$ is defined by $h(x) = 3(x - 5)^2 + c$, where $c$ is a constant. The graph of $y = h(x)$ in the $xy$-plane passes through the point $(2, 40)$. What is the minimum value of $h$?",
+  "correctAnswer": "13",
+  "explanation": "**SAT Pattern: Read Minimum from Vertex Form**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~30s):** $40 = 3(2 - 5)^2 + c = 27 + c$, so $c = 13$; in vertex form the minimum value IS $c$.\n\n**The Full Solution:**\nStep 1: Substitute the given point into $h(x) = 3(x - 5)^2 + c$: $40 = 3(2 - 5)^2 + c$.\nStep 2: Simplify: $(2 - 5)^2 = 9$, so $40 = 27 + c$ and $c = 13$.\nStep 3: Since $3 > 0$, the squared term is never negative and is $0$ only at $x = 5$. The minimum value is therefore $h(5) = 0 + 13 = 13$. Check: $h(2) = 3(9) + 13 = 40$, as given. $\\checkmark$\n\n**Common Mistakes:** Reporting $5$, the input where the minimum occurs, instead of the minimum value. Reporting $40$, the output at the given point. Forgetting to square $(2 - 5)$ and solving $3(-3) + c = 40$, which gives $c = 49$.\n\n**Test Day Takeaway:** In $a(x - h)^2 + k$ with $a > 0$, the minimum value is $k$ — so a question about the minimum really asks for the constant term outside the square."
+}

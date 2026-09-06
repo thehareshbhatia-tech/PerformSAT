@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-069",
+  "question": "Which of the following is a factorization of the expression $25x^2 + 40x + 16$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(5x - 4)^2$"
+    },
+    {
+      "id": "B",
+      "text": "$(5x + 4)^2$"
+    },
+    {
+      "id": "C",
+      "text": "$(5x + 4)(5x - 4)$"
+    },
+    {
+      "id": "D",
+      "text": "$(25x + 16)(x + 1)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sign slip: this square has a $-40x$ middle term",
+    "C": "treats the trinomial as a difference of squares, which erases the middle term",
+    "D": "uses $25$ and $16$ themselves as the factor terms instead of their square roots"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Factor Perfect Square Trinomial**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $25x^2 = (5x)^2$, $16 = 4^2$, and $2(5x)(4) = 40x$ matches the middle term, so the trinomial is $(5x + 4)^2$.\n\n**The Full Solution:**\nStep 1: Check the outer terms for perfect squares: $\\sqrt{25x^2} = 5x$ and $\\sqrt{16} = 4$.\nStep 2: Test the middle term against $2AB$: $2(5x)(4) = 40x$, which is exactly the middle term, and it is positive, so both signs are positive.\nStep 3: Therefore $25x^2 + 40x + 16 = (5x + 4)^2$. Check at $x = 1$: $25 + 40 + 16 = 81$, and $(5 + 4)^2 = 81$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(5x - 4)^2$): the right square roots with the wrong sign; expanding gives $25x^2 - 40x + 16$.\n* Choice C ($(5x + 4)(5x - 4)$): applies the difference-of-squares pattern, giving $25x^2 - 16$ with no middle term at all.\n* Choice D ($(25x + 16)(x + 1)$): uses $25$ and $16$ as the factor terms rather than $5$ and $4$; expanding gives $25x^2 + 41x + 16$.\n\n**Test Day Takeaway:** A trinomial is a perfect square only if the middle term equals $2AB$. Verify that product before you commit to the squared form, and let its sign choose the sign inside."
+}

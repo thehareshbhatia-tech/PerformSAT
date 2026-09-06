@@ -301,7 +301,8 @@ function checkItem(row, authored, ctx) {
   if (a.diagram) {
     if (!a.diagram.type || !SUPPORTED_DIAGRAM_TYPES.has(a.diagram.type)) errs.push(`unsupported diagram type ${a.diagram?.type}`);
     if (!a.diagram.params || typeof a.diagram.params !== 'object') errs.push('diagram.params missing');
-    else if (a.diagram.type === 'scatterplot') {
+    else if (JSON.stringify(a.diagram.params).includes('$')) errs.push('diagram.params contains "$" — diagram renderers (DataTableDiagram, SATTable, SVG labels) print raw text, not KaTeX; write plain text there (questionTable cells DO render KaTeX)');
+    if (a.diagram.params && typeof a.diagram.params === 'object' && a.diagram.type === 'scatterplot') {
       // The renderer draws bestFitLine from xMin to xMax with no clip path and plots every point as given.
       const P = a.diagram.params; const num = v => typeof v === 'number' && Number.isFinite(v);
       if ([P.xMin, P.xMax, P.yMin, P.yMax].every(num)) {

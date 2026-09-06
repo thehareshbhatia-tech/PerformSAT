@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-102",
+  "question": "Which expression is equivalent to $\\dfrac{x^2 - 10x + 25}{x^2 - 25}$ for all values of $x$ where the expression is defined?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\dfrac{1}{x + 5}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{2x - 5}{5}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{x + 5}{x - 5}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{x - 5}{x + 5}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "cancels the entire squared factor $(x - 5)^2$ against one $(x - 5)$",
+    "B": "cancels the $x^2$ terms as if they were factors",
+    "C": "factors the numerator as $(x + 5)^2$, a sign slip"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** $\\frac{(x - 5)^2}{(x - 5)(x + 5)}$ — one $(x - 5)$ cancels, leaving $\\frac{x - 5}{x + 5}$.\n\n**The Full Solution:**\nStep 1: The numerator is a perfect-square trinomial: $x^2 - 10x + 25 = (x - 5)^2$, since $2(5) = 10$.\nStep 2: The denominator is a difference of squares: $x^2 - 25 = (x - 5)(x + 5)$.\nStep 3: Cancel one factor of $(x - 5)$ from each part: $\\frac{x - 5}{x + 5}$. Check at $x = 0$: $\\frac{25}{-25} = -1$, and $\\frac{-5}{5} = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{x + 5}$): cancels both copies of $(x - 5)$ from the numerator against the single one below, leaving $1$ on top.\n* Choice B ($\\frac{2x - 5}{5}$): cancels the $x^2$ terms, then reduces $\\frac{-10x + 25}{-25}$; terms of a sum are not factors.\n* Choice C ($\\frac{x + 5}{x - 5}$): factors the numerator as $(x + 5)^2$; that square has a $+10x$ middle term, not $-10x$.\n\n**Test Day Takeaway:** A squared factor cancels only once against a single copy. Count the factors on each side before you strike anything out."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-058",
+  "question": "For all values of $x$, the equation $(x + 9)(x - 5) = x^2 + bx + c$ is true, where $b$ and $c$ are constants. What is the value of $c$?",
+  "correctAnswer": "-45",
+  "explanation": "**SAT Pattern: Constant Term from Factored Form**\n\n**The correct answer is $-45$.**\n\n**The Fast Way (~10s):** The constant term of the product is the product of the constants: $9 \\cdot (-5) = -45$.\n\n**The Full Solution:**\nStep 1: Expand: $(x + 9)(x - 5) = x^2 - 5x + 9x - 45$.\nStep 2: Combine like terms: $x^2 + 4x - 45$.\nStep 3: Matching to $x^2 + bx + c$ gives $b = 4$ and $c = -45$. Check at $x = 0$: the left side is $(9)(-5) = -45$, and the right side is $c$. $\\checkmark$\n\n**Common Mistakes:** Reporting $4$, which is $b$, not $c$. Reporting $45$ by dropping the negative from $9 \\cdot (-5)$.\n\n**Test Day Takeaway:** Substituting $x = 0$ isolates the constant term instantly — both sides reduce to the product of the two constants."
+}

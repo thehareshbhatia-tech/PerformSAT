@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-085",
+  "question": "If $3^y = 81$, what is the value of $3^{y + 2}$?",
+  "correctAnswer": "729",
+  "explanation": "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $729$.**\n\n**The Fast Way (~10s):** $3^{y + 2} = 3^y \\cdot 3^2 = 81 \\cdot 9 = 729$.\n\n**The Full Solution:**\nStep 1: Split the exponent using the product rule: $3^{y + 2} = 3^y \\cdot 3^2$.\nStep 2: Substitute the given value $3^y = 81$ and evaluate $3^2 = 9$: the expression is $81 \\cdot 9$.\nStep 3: $81 \\cdot 9 = 729$. Check: $3^y = 81$ means $y = 4$, and $3^{4 + 2} = 3^6 = 729$. $\\checkmark$\n\n**Common Mistakes:** Adding $2$ to the value and answering $83$; multiplying the value by $2$ and answering $162$; or reporting $6$, the new exponent $y + 2$, instead of the power's value.\n\n**Test Day Takeaway:** An added constant in an exponent becomes a multiplied factor: $b^{m + n} = b^m \\cdot b^n$. You rarely need to solve for the variable itself."
+}

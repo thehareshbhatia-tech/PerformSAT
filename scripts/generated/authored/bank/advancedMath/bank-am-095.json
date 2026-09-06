@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-095",
+  "question": "In the $xy$-plane, the parabola with equation $y = 2(x - h)^2 + k$ has its vertex on the line $x = -3$ and passes through the point $(-1, 7)$, where $h$ and $k$ are constants. What is the value of $k$?",
+  "correctAnswer": "-1",
+  "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $-1$.**\n\n**The Fast Way (~30s):** The vertex lies on $x = -3$, so $h = -3$. Then $2(-1 + 3)^2 + k = 7$ gives $8 + k = 7$, so $k = -1$.\n\n**The Full Solution:**\nStep 1: In $y = 2(x - h)^2 + k$ the vertex is $(h, k)$. The vertex is on the line $x = -3$, so $h = -3$ and the equation is $y = 2(x + 3)^2 + k$.\nStep 2: Substitute the point $(-1, 7)$: $7 = 2(-1 + 3)^2 + k = 2(4) + k = 8 + k$.\nStep 3: So $k = 7 - 8 = -1$. Check: $y = 2(x + 3)^2 - 1$ gives $y = 2(4) - 1 = 7$ at $x = -1$. $\\checkmark$\n\n**Common Mistakes:** Using $h = 3$ instead of $h = -3$, which gives $2(-4)^2 + k = 7$ and $k = -25$; forgetting to square and computing $2(2) + k = 7$ to get $k = 3$; or reporting $h$ when the question asks for $k$.\n\n**Test Day Takeaway:** \"The vertex is on the line $x = c$\" is just $h = c$ in disguise. Substitute it into $(x - h)$ carefully — a negative $h$ turns the factor into a sum."
+}

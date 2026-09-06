@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-036",
+  "question": "For $x > 0$, which of the following expressions is equivalent to $\\dfrac{x^{11}}{x^{4}}$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x^{-7}$"
+    },
+    {
+      "id": "B",
+      "text": "$x^{7}$"
+    },
+    {
+      "id": "C",
+      "text": "$x^{15}$"
+    },
+    {
+      "id": "D",
+      "text": "$x^{44}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts in the wrong order, $4 - 11$",
+    "C": "adds the exponents instead of subtracting them",
+    "D": "multiplies the exponents"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Quotient Rule of Exponents**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Dividing powers of the same base subtracts exponents: $11 - 4 = 7$, so the quotient is $x^{7}$.\n\n**The Full Solution:**\nStep 1: The quotient rule says $\\dfrac{x^{m}}{x^{n}} = x^{m - n}$ for $x \\neq 0$.\nStep 2: Here $m = 11$ and $n = 4$, so the exponent is $11 - 4 = 7$.\nStep 3: The expression equals $x^{7}$. Check with $x = 2$: $\\dfrac{2^{11}}{2^{4}} = \\dfrac{2048}{16} = 128 = 2^{7}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{-7}$): subtracts the numerator's exponent from the denominator's, reversing the order.\n* Choice C ($x^{15}$): adds $11 + 4$, which is the rule for MULTIPLYING powers.\n* Choice D ($x^{44}$): multiplies $11 \\cdot 4$, which is the rule for a power raised to a power.\n\n**Test Day Takeaway:** Multiply powers, add exponents; divide powers, subtract exponents; raise a power to a power, multiply exponents. The operation on the bases is always one step gentler than the operation on the exponents."
+}

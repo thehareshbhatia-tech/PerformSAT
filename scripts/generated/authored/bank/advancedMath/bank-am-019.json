@@ -1,0 +1,60 @@
+{
+  "id": "bank-am-019",
+  "question": "The table shows the value of the quadratic function $f$ at five values of $x$. In the $xy$-plane, what is the vertex of the graph of $y = f(x)$?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "f(x)"
+      ],
+      "rows": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "2",
+          "-3"
+        ],
+        [
+          "3",
+          "-4"
+        ],
+        [
+          "4",
+          "-3"
+        ],
+        [
+          "5",
+          "0"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(1, 0)$"
+    },
+    {
+      "id": "B",
+      "text": "$(3, -4)$"
+    },
+    {
+      "id": "C",
+      "text": "$(-4, 3)$"
+    },
+    {
+      "id": "D",
+      "text": "$(5, 0)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the first $x$-intercept listed in the table",
+    "C": "reverses the coordinates of the vertex",
+    "D": "reports the other $x$-intercept, the largest $x$ in the table"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Vertex Coordinates**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The outputs fall to $-4$ at $x = 3$ and rise again symmetrically, so the vertex is $(3, -4)$.\n\n**The Full Solution:**\nStep 1: A quadratic function is symmetric about the vertical line through its vertex. In the table, $f(2) = f(4) = -3$ and $f(1) = f(5) = 0$, so the axis of symmetry is halfway between each pair: $x = 3$.\nStep 2: The vertex sits on that axis, so its $x$-coordinate is $3$ and its $y$-coordinate is $f(3) = -4$.\nStep 3: The vertex is $(3, -4)$, and because the outputs are larger on both sides of $x = 3$, it is a minimum. Check: the values $0, -3, -4, -3, 0$ mirror across the middle entry. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(1, 0)$): this is where the graph crosses the $x$-axis, not where it turns.\n* Choice C ($(-4, 3)$): the two vertex coordinates are swapped and one sign is carried along with them.\n* Choice D ($(5, 0)$): the other $x$-intercept — the last row of the table, not the middle one.\n\n**Test Day Takeaway:** In a table of a quadratic, the vertex is the row where the outputs stop falling and start rising; matched outputs on either side confirm the axis of symmetry."
+}

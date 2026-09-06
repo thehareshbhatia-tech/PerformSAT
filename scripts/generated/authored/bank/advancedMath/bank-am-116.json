@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-116",
+  "question": "What value of $x$ satisfies the equation $5^{x - 2} = 125$?",
+  "correctAnswer": "5",
+  "explanation": "**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~10s):** $125 = 5^3$, so $x - 2 = 3$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: Write both sides with base $5$: $125 = 5 \\cdot 5 \\cdot 5 = 5^3$, so the equation is $5^{x - 2} = 5^3$.\nStep 2: Equal powers of the same base have equal exponents: $x - 2 = 3$.\nStep 3: So $x = 5$. Check: $5^{5 - 2} = 5^3 = 125$. $\\checkmark$\n\n**Common Mistakes:** Reporting $3$, which is the value of $x - 2$ rather than $x$; dividing $125$ by $5$ and answering $25$; or adding $2$ to $125$ instead of solving for the exponent.\n\n**Test Day Takeaway:** Rewrite both sides as powers of the same base, set the exponents equal, and then finish solving for the variable itself."
+}

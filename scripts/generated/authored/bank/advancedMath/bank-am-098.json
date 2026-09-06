@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-098",
+  "question": "The function $f$ is defined by $f(x) = a(x - h)^2 + k$, where $a$, $h$, and $k$ are constants. The minimum value of $f$ is $-7$ and occurs at $x = -2$, and $f(2) = 25$. What is the value of $f(4)$?",
+  "correctAnswer": "65",
+  "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $65$.**\n\n**The Fast Way (~50s):** The minimum puts the vertex at $(-2, -7)$, so $f(x) = a(x + 2)^2 - 7$; $f(2) = 25$ gives $16a = 32$ and $a = 2$, so $f(4) = 2(36) - 7 = 65$.\n\n**The Full Solution:**\nStep 1: A minimum value of $-7$ at $x = -2$ means $h = -2$ and $k = -7$, so $f(x) = a(x + 2)^2 - 7$ with $a > 0$.\nStep 2: Use $f(2) = 25$: $a(2 + 2)^2 - 7 = 25$, so $16a = 32$ and $a = 2$. The function is $f(x) = 2(x + 2)^2 - 7$.\nStep 3: Evaluate at $x = 4$: $f(4) = 2(4 + 2)^2 - 7 = 2(36) - 7 = 65$. Check the minimum: $f(-2) = -7$, and $f(2) = 2(16) - 7 = 25$. $\\checkmark$\n\n**Common Mistakes:** Assuming $a = 1$ and answering $29$; forgetting to add the $7$ back when solving for $a$, which gives $16a = 25$, $a = 1.5625$, and $f(4) = 49.25$; or reading \"minimum value $-7$ at $x = -2$\" as the vertex $(-7, -2)$.\n\n**Test Day Takeaway:** \"Minimum value $m$ at $x = c$\" hands you the vertex $(c, m)$. One more function value then determines $a$, and the function is fully known."
+}

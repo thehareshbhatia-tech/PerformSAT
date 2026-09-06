@@ -1,0 +1,46 @@
+{
+  "id": "bank-am-093",
+  "question": "The graph of the quadratic function $f$ is shown in the $xy$-plane, and $f(x) = a(x - 2)^2 + k$, where $a$ and $k$ are constants. The graph passes through the marked point $(4, 4)$. What is the value of $a + k$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        2,
+        -4
+      ],
+      "a": 2,
+      "showPoints": [
+        [
+          4,
+          4
+        ]
+      ],
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-6$"
+    },
+    {
+      "id": "B",
+      "text": "$-3$"
+    },
+    {
+      "id": "C",
+      "text": "$-2$"
+    },
+    {
+      "id": "D",
+      "text": "$2$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes $k - a$ instead of $a + k$",
+    "B": "solves $4a = 4$ without adding $k$ back, getting $a = 1$",
+    "D": "reports the value of $a$ alone"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The vertex is $(2, -4)$, so $k = -4$. Substituting $(4, 4)$ gives $4a - 4 = 4$, so $a = 2$ and $a + k = -2$.\n\n**The Full Solution:**\nStep 1: In $f(x) = a(x - 2)^2 + k$ the vertex is $(2, k)$; the graph shows the vertex at $(2, -4)$, so $k = -4$.\nStep 2: Substitute the marked point $(4, 4)$: $4 = a(4 - 2)^2 - 4$, so $4 = 4a - 4$ and $4a = 8$, giving $a = 2$.\nStep 3: Then $a + k = 2 + (-4) = -2$. Check: $f(x) = 2(x - 2)^2 - 4$ gives $f(4) = 8 - 4 = 4$ and $f(2) = -4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): computes $k - a = -4 - 2$ instead of the requested sum.\n* Choice B ($-3$): solves $4a = 4$ by forgetting to add the $4$ back when undoing $k = -4$, which gives $a = 1$ and $1 + (-4)$.\n* Choice D ($2$): finds $a = 2$ correctly but never adds $k$.\n\n**Test Day Takeaway:** Read $k$ straight off the vertex, then use the extra point for $a$. Finish by rereading exactly which combination of constants the question wants."
+}

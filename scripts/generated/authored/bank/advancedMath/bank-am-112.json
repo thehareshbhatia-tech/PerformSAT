@@ -1,0 +1,40 @@
+{
+  "id": "bank-am-112",
+  "question": "The graph of the function $f$ is shown in the $xy$-plane, and $f$ has its minimum at the point $(-2, -6)$. The function $g$ is defined by $g(x) = f(x - 3)$. For what value of $x$ does $g$ attain its minimum value?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        -2,
+        -6
+      ],
+      "a": 1,
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-5$"
+    },
+    {
+      "id": "B",
+      "text": "$-2$"
+    },
+    {
+      "id": "C",
+      "text": "$1$"
+    },
+    {
+      "id": "D",
+      "text": "$3$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "shifts left by $3$, computing $-2 - 3$",
+    "B": "reports where $f$ is smallest, ignoring the shift",
+    "D": "reports the size of the shift instead of the new location"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $g$ is smallest when its inside matches $f$'s low point: $x - 3 = -2$, so $x = 1$.\n\n**The Full Solution:**\nStep 1: The graph shows $f$ attaining its minimum at $x = -2$.\nStep 2: $g(x) = f(x - 3)$ feeds the number $x - 3$ into $f$, so $g$ is smallest when $x - 3 = -2$.\nStep 3: Solving gives $x = 1$. Check: $g(1) = f(1 - 3) = f(-2) = -6$, the same minimum value, three units to the right. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): computes $-2 - 3$, moving the graph left; replacing $x$ with $x - 3$ moves it right.\n* Choice B ($-2$): reports the minimum location of $f$ and ignores the transformation.\n* Choice D ($3$): reports the shift amount rather than the new $x$-value of the minimum.\n\n**Test Day Takeaway:** Set the expression inside the function equal to the original key input and solve. The sign inside always points the opposite way from the shift."
+}

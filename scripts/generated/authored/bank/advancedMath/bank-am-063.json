@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-063",
+  "question": "The expression $5(3x^2 - ax) + 4(x^2 + 2x - b)$ is equivalent to $19x^2 - 7x + 12$ for all values of $x$, where $a$ and $b$ are constants. What is the value of $ab$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-45$"
+    },
+    {
+      "id": "B",
+      "text": "$-9$"
+    },
+    {
+      "id": "C",
+      "text": "$0$"
+    },
+    {
+      "id": "D",
+      "text": "$9$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "distributes the $5$ to $3x^2$ only, solving $8 - a = -7$ to get $a = 15$",
+    "C": "reports $a + b$ instead of $ab$",
+    "D": "solves $-4b = 12$ as $b = 3$, dropping the negative sign"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Match Coefficients of Equivalent Polynomials**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Expanding gives $19x^2 + (8 - 5a)x - 4b$. Matching coefficients, $8 - 5a = -7$ gives $a = 3$ and $-4b = 12$ gives $b = -3$, so $ab = -9$.\n\n**The Full Solution:**\nStep 1: Distribute: $5(3x^2 - ax) = 15x^2 - 5ax$ and $4(x^2 + 2x - b) = 4x^2 + 8x - 4b$.\nStep 2: Collect like terms: $(15 + 4)x^2 + (8 - 5a)x - 4b = 19x^2 + (8 - 5a)x - 4b$. Two polynomials are equivalent for all $x$ only when matching coefficients are equal.\nStep 3: $8 - 5a = -7$ gives $5a = 15$, so $a = 3$; $-4b = 12$ gives $b = -3$. Then $ab = (3)(-3) = -9$. Check: $5(3x^2 - 3x) + 4(x^2 + 2x + 3) = 15x^2 - 15x + 4x^2 + 8x + 12 = 19x^2 - 7x + 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-45$): multiplies the $5$ only into $3x^2$, so the $x$-equation becomes $8 - a = -7$ and $a = 15$, giving $(15)(-3) = -45$.\n* Choice C ($0$): finds $a = 3$ and $b = -3$ correctly but reports $a + b = 0$ instead of the product.\n* Choice D ($9$): solves $-4b = 12$ as $b = 3$, losing the negative sign, and gets $(3)(3) = 9$.\n\n**Test Day Takeaway:** \"Equivalent for all values of $x$\" means coefficient-by-coefficient equality. Expand fully, then set up one small equation per power of $x$ — and reread which combination of the constants is being asked for."
+}

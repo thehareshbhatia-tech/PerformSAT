@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-072",
+  "question": "The expression $\\dfrac{x^2 - 9}{x^2 - 7x + 12}$ is defined for all values of $x$ except $x = 3$ and $x = 4$. Which of the following is equivalent to this expression?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\dfrac{x + 3}{x - 4}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{x - 3}{x - 4}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{x + 3}{x + 4}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{9}{7x - 12}$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "cancels $(x + 3)$ instead of $(x - 3)$, keeping the wrong numerator factor",
+    "C": "factors the denominator as $(x - 3)(x + 4)$, a sign slip",
+    "D": "cancels the $x^2$ terms as if they were factors"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Simplify Rational Expression (Cancel Common Factor)**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $\\frac{(x - 3)(x + 3)}{(x - 3)(x - 4)}$ — the $(x - 3)$ factors cancel, leaving $\\frac{x + 3}{x - 4}$.\n\n**The Full Solution:**\nStep 1: Factor the numerator as a difference of squares: $x^2 - 9 = (x - 3)(x + 3)$.\nStep 2: Factor the denominator: two numbers with product $12$ and sum $-7$ are $-3$ and $-4$, so $x^2 - 7x + 12 = (x - 3)(x - 4)$.\nStep 3: Cancel the common factor $(x - 3)$, which is nonzero because $x \\neq 3$: the expression equals $\\frac{x + 3}{x - 4}$. Check at $x = 0$: the original is $\\frac{-9}{12} = -\\frac{3}{4}$, and $\\frac{3}{-4} = -\\frac{3}{4}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{x - 3}{x - 4}$): cancels the $(x + 3)$ factor, which appears only in the numerator, instead of the shared $(x - 3)$.\n* Choice C ($\\frac{x + 3}{x + 4}$): factors the denominator as $(x - 3)(x + 4)$; that product is $x^2 + x - 12$, not the given denominator.\n* Choice D ($\\frac{9}{7x - 12}$): cancels the $x^2$ terms term by term. Only common *factors* cancel, never individual terms of a sum.\n\n**Test Day Takeaway:** Factor both parts completely before you cancel anything, and cancel only whole factors that appear in both."
+}

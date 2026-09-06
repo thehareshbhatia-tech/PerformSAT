@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-081",
+  "question": "A machine's resale value is modeled by $R(t) = 42{,}000(0.85)^t$, where $R(t)$ is the resale value in dollars and $t$ is the number of years since the machine was purchased. Which statement best describes what $0.85$ represents in this model?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The resale value decreases by $85\\%$ each year."
+    },
+    {
+      "id": "B",
+      "text": "The resale value decreases by $15\\%$ each year."
+    },
+    {
+      "id": "C",
+      "text": "The resale value decreases by $0.85$ dollar each year."
+    },
+    {
+      "id": "D",
+      "text": "The resale value is $15\\%$ of its value the previous year."
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads the decay factor itself as the percent decrease",
+    "C": "treats the factor as a fixed dollar amount subtracted each year",
+    "D": "swaps the percent retained with the percent lost"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $0.85 = 1 - 0.15$, so each year the machine keeps $85\\%$ of its value and loses $15\\%$ of it.\n\n**The Full Solution:**\nStep 1: Each increase of $1$ in $t$ multiplies the resale value by $0.85$.\nStep 2: Write the factor as $1 - r$: $0.85 = 1 - 0.15$, so $r = 0.15$ is the fraction of the value lost each year.\nStep 3: That is a $15\\%$ decrease per year. Check: $R(0) = 42{,}000$ and $R(1) = 35{,}700$, and $\\frac{42{,}000 - 35{,}700}{42{,}000} = 0.15$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reports the factor as the loss; an $85\\%$ drop would leave a factor of $0.15$.\n* Choice C: describes subtracting a fixed amount each year, which is a linear model, not repeated multiplication.\n* Choice D: reverses the roles — the machine retains $85\\%$ of its previous value, not $15\\%$.\n\n**Test Day Takeaway:** For a decay factor $b$, the percent decrease is $1 - b$, not $b$. Always convert the base to $1 \\pm r$ before choosing an interpretation."
+}

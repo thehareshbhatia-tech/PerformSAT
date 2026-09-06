@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-067",
+  "question": "Which expression is the complete factorization of $3x^5 - 243x$ over the integers?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3x(x^4 - 81)$"
+    },
+    {
+      "id": "B",
+      "text": "$3x(x^2 - 9)(x^2 + 9)$"
+    },
+    {
+      "id": "C",
+      "text": "$3x(x - 3)(x + 3)(x^2 + 9)$"
+    },
+    {
+      "id": "D",
+      "text": "$3x(x - 3)^2(x + 3)^2$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "removes the common factor $3x$ and stops",
+    "B": "stops after the first difference-of-squares split, leaving $x^2 - 9$ factorable",
+    "D": "factors the sum $x^2 + 9$ as $(x + 3)(x - 3)$"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Nested Difference of Squares**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Pull out $3x$ first: $3x(x^4 - 81)$. Then $x^4 - 81 = (x^2 - 9)(x^2 + 9)$ and $x^2 - 9 = (x - 3)(x + 3)$, giving $3x(x - 3)(x + 3)(x^2 + 9)$.\n\n**The Full Solution:**\nStep 1: The greatest common factor of $3x^5$ and $243x$ is $3x$, so $3x^5 - 243x = 3x(x^4 - 81)$.\nStep 2: $x^4 - 81 = (x^2)^2 - 9^2 = (x^2 - 9)(x^2 + 9)$.\nStep 3: $x^2 - 9 = (x - 3)(x + 3)$, while $x^2 + 9$ is a sum of squares and is irreducible over the integers. The complete factorization is $3x(x - 3)(x + 3)(x^2 + 9)$. Check at $x = 2$: the original is $3(32) - 486 = -390$, and $3(2)(-1)(5)(13) = -390$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x(x^4 - 81)$): a correct first move, but $x^4 - 81$ is still a difference of squares.\n* Choice B ($3x(x^2 - 9)(x^2 + 9)$): stops one step early — $x^2 - 9$ factors further.\n* Choice D ($3x(x - 3)^2(x + 3)^2$): treats $x^2 + 9$ as $(x - 3)(x + 3)$, but that product is $x^2 - 9$.\n\n**Test Day Takeaway:** Always factor out the greatest common factor first; it often exposes a difference of squares that then splits twice."
+}

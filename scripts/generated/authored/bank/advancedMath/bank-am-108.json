@@ -1,0 +1,31 @@
+{
+  "id": "bank-am-108",
+  "question": "For the function $f$, the table lists $f(x)$ at four values of $x$. The function $g$ is defined by $g(x) = f(x - 2)$. What is the value of $g(6)$?",
+  "diagram": {
+    "type": "table",
+    "params": {
+      "xHeader": "x",
+      "yHeader": "f(x)",
+      "rows": [
+        [
+          "0",
+          "5"
+        ],
+        [
+          "2",
+          "1"
+        ],
+        [
+          "4",
+          "-3"
+        ],
+        [
+          "6",
+          "9"
+        ]
+      ]
+    }
+  },
+  "correctAnswer": "-3",
+  "explanation": "**SAT Pattern: Function Transformation**\n\n**The correct answer is $-3$.**\n\n**The Fast Way (~15s):** $g(6) = f(6 - 2) = f(4)$, and the table gives $f(4) = -3$.\n\n**The Full Solution:**\nStep 1: The rule $g(x) = f(x - 2)$ says: subtract $2$ from the input, then apply $f$.\nStep 2: With $x = 6$, the input to $f$ is $6 - 2 = 4$.\nStep 3: The table gives $f(4) = -3$, so $g(6) = -3$. Check with another entry: $g(2) = f(0) = 5$, which also comes straight from the table. $\\checkmark$\n\n**Common Mistakes:** Reading the table at $x = 6$ and answering $9$, which is $f(6)$, not $g(6)$; subtracting $2$ from the output instead of the input, giving $9 - 2 = 7$; or shifting the wrong way and looking for $f(8)$, a value the table does not list.\n\n**Test Day Takeaway:** $f(x - 2)$ changes the input, not the output. Compute the inside first, then look that number up."
+}

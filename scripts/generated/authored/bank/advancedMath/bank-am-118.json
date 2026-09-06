@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-118",
+  "question": "If $8^x = 16^{x - 1}$, what is the value of $x$?",
+  "correctAnswer": "4",
+  "explanation": "**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~30s):** Both sides are powers of $2$: $2^{3x} = 2^{4(x - 1)}$, so $3x = 4x - 4$ and $x = 4$.\n\n**The Full Solution:**\nStep 1: Rewrite each base as a power of $2$: $8 = 2^3$ and $16 = 2^4$, so $8^x = 2^{3x}$ and $16^{x - 1} = 2^{4(x - 1)}$.\nStep 2: Equal powers of $2$ have equal exponents: $3x = 4(x - 1) = 4x - 4$.\nStep 3: Subtracting $3x$ from both sides gives $0 = x - 4$, so $x = 4$. Check: $8^4 = 4096$ and $16^3 = 4096$. $\\checkmark$\n\n**Common Mistakes:** Treating the bases as coefficients and solving $8x = 16(x - 1)$, which gives $x = 2$; forgetting to distribute the $4$ and solving $3x = 4x - 1$, which gives $x = 1$; or trying to compare $8$ and $16$ directly without a common base.\n\n**Test Day Takeaway:** When the bases differ, rewrite both as powers of the same small base. Then the equation becomes linear in the exponents."
+}

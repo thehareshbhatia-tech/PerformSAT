@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-084",
+  "question": "For $x > 0$, the product $\\sqrt{x} \\cdot x^5$ is written in the form $x^k$. What is the value of $k$? Give your answer as a fraction.",
+  "correctAnswer": "11/2",
+  "explanation": "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\frac{11}{2}$.**\n\n**The Fast Way (~15s):** $\\sqrt{x} = x^{\\frac{1}{2}}$, and multiplying like bases adds exponents: $\\frac{1}{2} + 5 = \\frac{11}{2}$.\n\n**The Full Solution:**\nStep 1: Rewrite the radical as a fractional exponent: $\\sqrt{x} = x^{\\frac{1}{2}}$.\nStep 2: Multiply the powers by adding exponents: $x^{\\frac{1}{2}} \\cdot x^5 = x^{\\frac{1}{2} + 5}$.\nStep 3: $\\frac{1}{2} + 5 = \\frac{1}{2} + \\frac{10}{2} = \\frac{11}{2}$, so $k = \\frac{11}{2}$. Check at $x = 4$: $\\sqrt{4} \\cdot 4^5 = 2 \\cdot 1024 = 2048$, and $4^{\\frac{11}{2}} = 2^{11} = 2048$. $\\checkmark$\n\n**Common Mistakes:** Ignoring the radical and answering $5$; reading $\\sqrt{x}$ as $x^2$ and answering $7$; or multiplying the exponents instead of adding them, which gives $\\frac{5}{2}$.\n\n**Test Day Takeaway:** Convert every radical to a fractional exponent first. A square root is the power $\\frac{1}{2}$, and multiplication of like bases adds the exponents."
+}

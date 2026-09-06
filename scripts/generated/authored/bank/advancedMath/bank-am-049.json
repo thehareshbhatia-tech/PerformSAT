@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-049",
+  "question": "A tractor purchased for $\\$48{,}000$ loses $15\\%$ of its value each year. Which of the following expressions gives the tractor's value, in dollars, $t$ years after it was purchased?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$48{,}000(0.15)^{t}$"
+    },
+    {
+      "id": "B",
+      "text": "$48{,}000(0.85)^{t}$"
+    },
+    {
+      "id": "C",
+      "text": "$48{,}000(1.15)^{t}$"
+    },
+    {
+      "id": "D",
+      "text": "$48{,}000 - 0.15t$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses the percent lost as the multiplier instead of the percent kept",
+    "C": "models a 15% increase instead of a decrease",
+    "D": "models a constant dollar loss rather than a constant percent"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Compound Depreciation Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Losing $15\\%$ leaves $85\\%$, so each year multiplies the value by $0.85$: $48{,}000(0.85)^{t}$.\n\n**The Full Solution:**\nStep 1: A constant percent decrease is exponential decay: value $=$ (starting value)(decay factor)$^{t}$.\nStep 2: If $15\\%$ is lost, $100\\% - 15\\% = 85\\%$ remains, so the decay factor is $0.85$.\nStep 3: The value after $t$ years is $48{,}000(0.85)^{t}$. Check after one year: $48{,}000(0.85) = 40{,}800$, and $48{,}000 - 0.15(48{,}000) = 48{,}000 - 7{,}200 = 40{,}800$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: after one year this gives $7{,}200$ dollars — the amount LOST, not the amount remaining.\n* Choice C: $1.15$ makes the value grow by $15\\%$ a year.\n* Choice D: subtracts $0.15$ dollars per year, a linear model that ignores both the percent and the compounding.\n\n**Test Day Takeaway:** For a percent decrease the multiplier is $1 - r$, and it sits in the base with $t$ as the exponent — never as a subtraction."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-012",
+  "question": "A rectangular photographic print has width $(x - 2)$ inches and height $(x + 5)$ inches. The area of the print is $60$ square inches. What is the value of $x$?",
+  "correctAnswer": "7",
+  "explanation": "**SAT Pattern: Area Equation to Quadratic**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~30s):** $(x - 2)(x + 5) = 60$ becomes $x^2 + 3x - 70 = 0$, or $(x + 10)(x - 7) = 0$. Only $x = 7$ gives positive side lengths.\n\n**The Full Solution:**\nStep 1: Area is width times height: $(x - 2)(x + 5) = 60$.\nStep 2: Expand and move everything to one side: $x^2 + 3x - 10 = 60$, so $x^2 + 3x - 70 = 0$.\nStep 3: Factor: $(x + 10)(x - 7) = 0$, so $x = -10$ or $x = 7$. A width of $x - 2$ must be positive, which rules out $x = -10$. Check $x = 7$: the print is $5$ inches by $12$ inches, and $5 \\cdot 12 = 60$. $\\checkmark$\n\n**Common Mistakes:** Reporting $-10$, which makes both dimensions negative. Forgetting to subtract $60$ and solving $x^2 + 3x - 10 = 0$ instead, which gives $x = 2$ — a width of $0$ inches.\n\n**Test Day Takeaway:** Set the product equal to the area, move the area across so one side is $0$, then throw out any root that makes a length zero or negative."
+}

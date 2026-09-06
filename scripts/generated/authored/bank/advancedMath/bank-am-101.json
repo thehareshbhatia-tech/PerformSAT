@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-101",
+  "question": "Which expression is equivalent to $\\dfrac{x^2 - 4x}{x^2 - 16}$ for all values of $x$ where the expression is defined?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\dfrac{1}{x + 4}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{x}{4}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{x}{x - 4}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{x}{x + 4}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "cancels the factor $x$ along with $(x - 4)$, losing it from the numerator",
+    "B": "cancels the $x^2$ terms as if they were factors",
+    "C": "cancels $(x + 4)$ instead of the shared factor $(x - 4)$"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** $\\frac{x(x - 4)}{(x - 4)(x + 4)}$ — the $(x - 4)$ factors cancel, leaving $\\frac{x}{x + 4}$.\n\n**The Full Solution:**\nStep 1: Factor the numerator by its common monomial: $x^2 - 4x = x(x - 4)$.\nStep 2: Factor the denominator as a difference of squares: $x^2 - 16 = (x - 4)(x + 4)$.\nStep 3: Cancel $(x - 4)$, leaving $\\frac{x}{x + 4}$. Check at $x = 1$: $\\frac{1 - 4}{1 - 16} = \\frac{-3}{-15} = \\frac{1}{5}$, and $\\frac{1}{1 + 4} = \\frac{1}{5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{x + 4}$): cancels the whole numerator $x(x - 4)$ against $(x - 4)$, discarding the $x$ that should remain.\n* Choice B ($\\frac{x}{4}$): cancels the $x^2$ terms, leaving $\\frac{-4x}{-16}$; individual terms of a difference never cancel.\n* Choice C ($\\frac{x}{x - 4}$): cancels $(x + 4)$, which appears in the denominator only.\n\n**Test Day Takeaway:** Pull out a common monomial before looking for a special pattern — the leftover factor often matches something in the denominator."
+}

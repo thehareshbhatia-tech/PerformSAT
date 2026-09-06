@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-068",
+  "question": "For all values of $x$, the expression $(2x + 5)^2$ is equivalent to which of the following?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2x^2 + 20x + 25$"
+    },
+    {
+      "id": "B",
+      "text": "$4x^2 + 25$"
+    },
+    {
+      "id": "C",
+      "text": "$4x^2 + 10x + 25$"
+    },
+    {
+      "id": "D",
+      "text": "$4x^2 + 20x + 25$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "squares only the variable in $2x$, writing $(2x)^2$ as $2x^2$",
+    "B": "squares each term separately and drops the middle term",
+    "C": "uses $2(x)(5) = 10x$ for the middle term, ignoring the coefficient $2$ in $2x$"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Expand Perfect Square**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** $(A + B)^2 = A^2 + 2AB + B^2$ with $A = 2x$ and $B = 5$: $4x^2 + 2(2x)(5) + 25 = 4x^2 + 20x + 25$.\n\n**The Full Solution:**\nStep 1: Write the square as a product: $(2x + 5)^2 = (2x + 5)(2x + 5)$.\nStep 2: Multiply term by term: $(2x)(2x) = 4x^2$, $(2x)(5) + (5)(2x) = 20x$, and $(5)(5) = 25$.\nStep 3: The expansion is $4x^2 + 20x + 25$. Check at $x = 1$: $(2 + 5)^2 = 49$, and $4 + 20 + 25 = 49$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x^2 + 20x + 25$): squares the variable but not its coefficient, writing $(2x)^2$ as $2x^2$.\n* Choice B ($4x^2 + 25$): squares each term separately, which is the most common perfect-square error — the middle term $2AB$ disappears.\n* Choice C ($4x^2 + 10x + 25$): computes the middle term as $2(x)(5) = 10x$, forgetting that $A = 2x$, not $x$.\n\n**Test Day Takeaway:** A binomial square always has three terms. Write $2AB$ explicitly, using the entire first term including its coefficient."
+}

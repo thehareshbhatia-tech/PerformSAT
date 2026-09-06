@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-097",
+  "question": "The function $f$ is defined by $f(x) = (x + 5)^2 - 1$. The function $g$ is defined by $g(x) = f(x - 2) + 6$. At what value of $x$ does $g$ attain its minimum value?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-7$"
+    },
+    {
+      "id": "B",
+      "text": "$-5$"
+    },
+    {
+      "id": "C",
+      "text": "$-3$"
+    },
+    {
+      "id": "D",
+      "text": "$3$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "shifts left by $2$ instead of right, computing $-5 - 2$",
+    "B": "reports where $f$ is smallest, ignoring the horizontal shift",
+    "D": "reads the vertex of $f$ as $x = 5$, dropping the sign"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $f$ bottoms out where its squared factor is zero, at $x = -5$. In $g(x) = f(x - 2) + 6$ that happens when $x - 2 = -5$, so $x = -3$.\n\n**The Full Solution:**\nStep 1: $f(x) = (x + 5)^2 - 1$ has its minimum where $(x + 5)^2 = 0$, that is, at $x = -5$.\nStep 2: $g(x) = f(x - 2) + 6$ evaluates $f$ at the input $x - 2$, so $g$ is smallest when $x - 2 = -5$.\nStep 3: Solving gives $x = -3$; the outside $+6$ raises every output by $6$ but never moves the low point sideways. Check by expanding: $g(x) = (x - 2 + 5)^2 - 1 + 6 = (x + 3)^2 + 5$, whose minimum is at $x = -3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): computes $-5 - 2$, shifting the graph left when replacing $x$ with $x - 2$ shifts it right.\n* Choice B ($-5$): reports the location of the minimum of $f$ and ignores the transformation entirely.\n* Choice D ($3$): reads the vertex of $f$ as $x = 5$ from the \"$+5$\" inside the parentheses, then subtracts $2$.\n\n**Test Day Takeaway:** Replacing $x$ with $x - c$ moves the graph $c$ units in the $+x$ direction. Set the inside of the squared factor equal to zero and solve — the outside constant is irrelevant to *where* the minimum is."
+}

@@ -1,0 +1,46 @@
+{
+  "id": "bank-am-096",
+  "question": "The graph of the quadratic function $g$ is shown in the $xy$-plane. Its vertex is $(1, -2)$, and the graph passes through the marked point $(3, 2)$. What is the value of $g(5)$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        1,
+        -2
+      ],
+      "a": 1,
+      "showPoints": [
+        [
+          3,
+          2
+        ]
+      ],
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$14$"
+    },
+    {
+      "id": "C",
+      "text": "$18$"
+    },
+    {
+      "id": "D",
+      "text": "$23$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "forgets to square, computing $(5 - 1) - 2$",
+    "C": "uses $+2$ for the vertex constant instead of $-2$",
+    "D": "computes $5^2 - 2$, ignoring the horizontal shift"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The vertex gives $g(x) = a(x - 1)^2 - 2$; the point $(3, 2)$ forces $a = 1$, so $g(5) = (5 - 1)^2 - 2 = 14$.\n\n**The Full Solution:**\nStep 1: With vertex $(1, -2)$, write $g(x) = a(x - 1)^2 - 2$.\nStep 2: Substitute the marked point: $2 = a(3 - 1)^2 - 2$, so $4a = 4$ and $a = 1$. The function is $g(x) = (x - 1)^2 - 2$.\nStep 3: Evaluate: $g(5) = (5 - 1)^2 - 2 = 16 - 2 = 14$. Check with symmetry: $x = 5$ is $4$ units right of the vertex, and $x = -3$ is $4$ units left; $g(-3) = 16 - 2 = 14$ as well. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): computes $(5 - 1) - 2$ and never squares the shifted input.\n* Choice C ($18$): uses $+2$ as the constant, so $(5 - 1)^2 + 2 = 18$; the vertex $y$-value is $-2$.\n* Choice D ($23$): computes $5^2 - 2$, forgetting that the input is shifted by the vertex's $x$-coordinate.\n\n**Test Day Takeaway:** Build the equation from the vertex, pin $a$ with the marked point, and only then substitute. Reading a value straight off the grid fails as soon as the curve leaves the window."
+}

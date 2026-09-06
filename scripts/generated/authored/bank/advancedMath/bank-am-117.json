@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-117",
+  "question": "The expression $\\dfrac{y^9}{y^4}$ is equivalent to $y^n$ for $y \\neq 0$, where $n$ is a constant. What is the value of $n$?",
+  "correctAnswer": "5",
+  "explanation": "**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~10s):** Dividing like bases subtracts exponents: $9 - 4 = 5$.\n\n**The Full Solution:**\nStep 1: The quotient rule says $\\frac{y^m}{y^p} = y^{m - p}$ when $y \\neq 0$.\nStep 2: Here $m = 9$ and $p = 4$, so the exponent is $9 - 4$.\nStep 3: Therefore $n = 5$. Check at $y = 2$: $\\frac{2^9}{2^4} = \\frac{512}{16} = 32 = 2^5$. $\\checkmark$\n\n**Common Mistakes:** Multiplying the exponents and answering $36$; adding them and answering $13$; or dividing them and answering $2.25$.\n\n**Test Day Takeaway:** Division subtracts exponents, multiplication adds them, and a power of a power multiplies them. Name the operation before you touch the numbers."
+}

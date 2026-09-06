@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-011",
+  "question": "The function $f$ is defined by $f(x) = 3x^2 - 11x - 20$. What are all values of $x$ for which $f(x) = 0$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x = -\\dfrac{4}{3}$ and $x = 5$"
+    },
+    {
+      "id": "B",
+      "text": "$x = -\\dfrac{3}{4}$ and $x = 5$"
+    },
+    {
+      "id": "C",
+      "text": "$x = \\dfrac{4}{3}$ and $x = -5$"
+    },
+    {
+      "id": "D",
+      "text": "$x = -4$ and $x = 5$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "inverts the fraction from the factor $3x + 4$",
+    "C": "flips the sign of both roots",
+    "D": "forgets to divide by the leading coefficient in $3x + 4 = 0$"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Factor with Leading Coefficient ≠ 1**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Split $-11x$ using $-15$ and $+4$ (product $3 \\cdot (-20) = -60$): $3x^2 - 15x + 4x - 20 = (3x + 4)(x - 5)$, so $x = -\\dfrac{4}{3}$ or $x = 5$.\n\n**The Full Solution:**\nStep 1: Multiply the leading coefficient by the constant: $3(-20) = -60$. Find two numbers with product $-60$ and sum $-11$: $-15$ and $4$.\nStep 2: Rewrite and group: $3x^2 - 15x + 4x - 20 = 3x(x - 5) + 4(x - 5) = (3x + 4)(x - 5)$.\nStep 3: Set each factor to zero. $3x + 4 = 0$ gives $x = -\\dfrac{4}{3}$; $x - 5 = 0$ gives $x = 5$. Check $x = -\\dfrac{4}{3}$: $3\\left(\\dfrac{16}{9}\\right) + \\dfrac{44}{3} - 20 = \\dfrac{16}{3} + \\dfrac{44}{3} - 20 = 20 - 20 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\dfrac{3}{4}$ and $5$): reverses the fraction — solving $3x + 4 = 0$ gives $-\\dfrac{4}{3}$, not $-\\dfrac{3}{4}$.\n* Choice C ($\\dfrac{4}{3}$ and $-5$): flips both signs; then $f(-5) = 75 + 55 - 20 \\neq 0$.\n* Choice D ($-4$ and $5$): reads $3x + 4 = 0$ as $x = -4$, skipping the division by $3$.\n\n**Test Day Takeaway:** When the leading coefficient is not $1$, one root is a fraction. Solve each factor as its own tiny linear equation instead of reading numbers off the parentheses."
+}

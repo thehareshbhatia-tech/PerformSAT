@@ -1,0 +1,35 @@
+{
+  "id": "bank-am-111",
+  "question": "The table gives five values of the function $h$. The function $p$ is defined by $p(x) = h(x + 2) - 5$. What is the value of $p(-1)$?",
+  "diagram": {
+    "type": "table",
+    "params": {
+      "xHeader": "x",
+      "yHeader": "h(x)",
+      "rows": [
+        [
+          "-3",
+          "8"
+        ],
+        [
+          "-1",
+          "0"
+        ],
+        [
+          "1",
+          "-4"
+        ],
+        [
+          "3",
+          "0"
+        ],
+        [
+          "5",
+          "8"
+        ]
+      ]
+    }
+  },
+  "correctAnswer": "-9",
+  "explanation": "**SAT Pattern: Function Transformation**\n\n**The correct answer is $-9$.**\n\n**The Fast Way (~25s):** $p(-1) = h(-1 + 2) - 5 = h(1) - 5 = -4 - 5 = -9$.\n\n**The Full Solution:**\nStep 1: The rule $p(x) = h(x + 2) - 5$ adds $2$ to the input before applying $h$, then subtracts $5$ from the result.\nStep 2: With $x = -1$, the input to $h$ is $-1 + 2 = 1$, and the table gives $h(1) = -4$.\nStep 3: Subtract $5$: $p(-1) = -4 - 5 = -9$. Check another entry: $p(1) = h(3) - 5 = 0 - 5 = -5$. $\\checkmark$\n\n**Common Mistakes:** Subtracting $2$ from the input instead of adding, which uses $h(-3) = 8$ and gives $3$; ignoring the inside shift and using $h(-1) = 0$ to get $-5$; or adding the $5$ instead of subtracting it, which gives $1$.\n\n**Test Day Takeaway:** Handle the inside first, the outside second. $h(x + 2)$ needs the table entry at $x + 2$, not at $x$."
+}

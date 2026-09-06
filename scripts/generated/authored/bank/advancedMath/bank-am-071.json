@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-071",
+  "question": "The expression $9x^2 + kx + 64$ is a perfect-square trinomial, where $k$ is a constant. Which of the following gives all possible values of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-24$ and $24$"
+    },
+    {
+      "id": "B",
+      "text": "$-16$ and $16$"
+    },
+    {
+      "id": "C",
+      "text": "$48$ only"
+    },
+    {
+      "id": "D",
+      "text": "$-48$ and $48$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses $3 \\cdot 8 = 24$ and omits the factor of $2$ in $2AB$",
+    "B": "uses $2 \\cdot 8 = 16$, treating the leading coefficient as $1$",
+    "C": "finds the magnitude but keeps only the positive value"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Find k for Perfect Square Trinomial (Both Signs)**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** With $A = 3x$ and $B = 8$, the middle term must be $\\pm 2AB = \\pm 2(3)(8)x = \\pm 48x$, so $k = 48$ or $k = -48$.\n\n**The Full Solution:**\nStep 1: For $(Ax + B)^2 = A^2x^2 + 2ABx + B^2$, match the outer terms: $A^2 = 9$ gives $A = 3$, and $B^2 = 64$ gives $B = 8$ or $B = -8$.\nStep 2: The middle coefficient is $2AB$. With $B = 8$, $k = 2(3)(8) = 48$; with $B = -8$, $k = 2(3)(-8) = -48$.\nStep 3: Both work: $(3x + 8)^2 = 9x^2 + 48x + 64$ and $(3x - 8)^2 = 9x^2 - 48x + 64$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-24$ and $24$): computes $AB = 3 \\cdot 8 = 24$ and forgets to double it.\n* Choice B ($-16$ and $16$): uses $2(1)(8) = 16$, reading the leading coefficient as $1$ instead of taking $\\sqrt{9} = 3$.\n* Choice C ($48$ only): finds the correct magnitude but overlooks that $B^2 = 64$ has two square roots, so the middle term can be negative.\n\n**Test Day Takeaway:** A constant term that is a perfect square has two square roots, so \"perfect-square trinomial\" questions with an unknown middle coefficient almost always have a $\\pm$ answer."
+}

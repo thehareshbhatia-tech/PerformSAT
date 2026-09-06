@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-075",
+  "question": "For $x \\neq 0$ and $x \\neq 5$, which expression is equivalent to $\\dfrac{\\frac{1}{x} - \\frac{1}{5}}{\\frac{x - 5}{10}}$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\dfrac{x}{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\dfrac{2}{x}$"
+    },
+    {
+      "id": "C",
+      "text": "$-\\dfrac{1}{x}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{2}{x}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "inverts the top fraction instead of the bottom one",
+    "C": "cancels $\\frac{10}{5}$ as $1$ instead of $2$",
+    "D": "writes the numerator as $\\frac{x - 5}{5x}$, reversing the subtraction"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Complex Fraction Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** The top combines to $\\frac{5 - x}{5x}$. Dividing by $\\frac{x - 5}{10}$ means multiplying by $\\frac{10}{x - 5}$, and $\\frac{5 - x}{x - 5} = -1$, so the result is $-\\frac{10}{5x} = -\\frac{2}{x}$.\n\n**The Full Solution:**\nStep 1: Combine the numerator over the common denominator $5x$: $\\frac{1}{x} - \\frac{1}{5} = \\frac{5 - x}{5x}$.\nStep 2: Division by a fraction is multiplication by its reciprocal: $\\frac{5 - x}{5x} \\cdot \\frac{10}{x - 5}$.\nStep 3: Since $5 - x = -(x - 5)$, the $(x - 5)$ factors cancel with a leftover $-1$: $-\\frac{10}{5x} = -\\frac{2}{x}$. Check at $x = 1$: the original is $\\frac{1 - 0.2}{-0.4} = -2$, and $-\\frac{2}{1} = -2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{x}{2}$): flips the numerator fraction instead of the denominator fraction, computing $\\frac{5x}{5 - x} \\cdot \\frac{x - 5}{10} = -\\frac{x}{2}$.\n* Choice C ($-\\frac{1}{x}$): handles the sign correctly but reduces $\\frac{10}{5x}$ to $\\frac{1}{x}$, losing the factor $2$.\n* Choice D ($\\frac{2}{x}$): writes $\\frac{1}{x} - \\frac{1}{5}$ as $\\frac{x - 5}{5x}$, which reverses the subtraction and flips the sign of the answer.\n\n**Test Day Takeaway:** Simplify a complex fraction in two moves: combine the top into a single fraction, then multiply by the reciprocal of the bottom. Watch for $a - b$ against $b - a$ — that pair cancels to $-1$, not $1$."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-015",
+  "question": "The equation $(x - 13)(x + 6) = 0$ has two solutions. What is the sum of the two solutions?",
+  "correctAnswer": "7",
+  "explanation": "**SAT Pattern: Sum of Roots from Factors**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~10s):** The roots are $13$ and $-6$, so their sum is $13 + (-6) = 7$.\n\n**The Full Solution:**\nStep 1: A product equals zero only when one of its factors is zero, so $x - 13 = 0$ or $x + 6 = 0$.\nStep 2: The solutions are $x = 13$ and $x = -6$.\nStep 3: Their sum is $13 + (-6) = 7$. Check with the expanded form: $(x - 13)(x + 6) = x^2 - 7x - 78$, and the sum of the roots is $-\\dfrac{b}{a} = -\\dfrac{-7}{1} = 7$. $\\checkmark$\n\n**Common Mistakes:** Adding the numbers as they appear in the parentheses, $-13 + 6 = -7$, instead of the actual roots. Reporting the PRODUCT of the roots, $13 \\cdot (-6) = -78$, when the question asks for the sum.\n\n**Test Day Takeaway:** Flip the sign inside each factor to get the roots, then read the question once more — sum and product are different requests."
+}

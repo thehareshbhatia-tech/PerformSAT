@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-100",
+  "question": "Which expression is equivalent to $\\dfrac{x^2 - 64}{x + 8}$ for all values of $x$ where the expression is defined?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x - 8$"
+    },
+    {
+      "id": "B",
+      "text": "$x - 56$"
+    },
+    {
+      "id": "C",
+      "text": "$x + 8$"
+    },
+    {
+      "id": "D",
+      "text": "$x^2 - 8$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "subtracts the denominator's $8$ from the $64$ instead of factoring",
+    "C": "cancels $(x - 8)$ instead of the shared factor $(x + 8)$",
+    "D": "divides only the constants, $\\frac{64}{8}$, and keeps $x^2$"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $x^2 - 64 = (x - 8)(x + 8)$, so the $(x + 8)$ factors cancel and the expression equals $x - 8$.\n\n**The Full Solution:**\nStep 1: Factor the numerator as a difference of squares: $x^2 - 64 = (x - 8)(x + 8)$.\nStep 2: The fraction becomes $\\frac{(x - 8)(x + 8)}{x + 8}$.\nStep 3: Cancel the common factor $(x + 8)$, valid because $x \\neq -8$, leaving $x - 8$. Check at $x = 0$: $\\frac{-64}{8} = -8$, and $0 - 8 = -8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($x - 56$): subtracts $8$ from $64$ term by term instead of factoring; at $x = 0$ this gives $-56$, not $-8$.\n* Choice C ($x + 8$): cancels the factor that is not shared; the denominator contains $(x + 8)$, so that is the one that cancels.\n* Choice D ($x^2 - 8$): divides the constants only, treating $\\frac{64}{8}$ as a legal cancellation inside a sum.\n\n**Test Day Takeaway:** Factor before you cancel. A difference of squares over one of its own factors always collapses to the other factor."
+}

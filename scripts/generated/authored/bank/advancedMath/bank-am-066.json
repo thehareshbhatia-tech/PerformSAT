@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-066",
+  "question": "If $p^2 - q^2 = 96$ and $p - q = 8$, what is the value of $p + q$?",
+  "correctAnswer": "12",
+  "explanation": "**SAT Pattern: Difference of Squares Application**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~15s):** Since $p^2 - q^2 = (p - q)(p + q)$, the equation reads $8(p + q) = 96$, so $p + q = 12$.\n\n**The Full Solution:**\nStep 1: Factor the left side of the first equation: $p^2 - q^2 = (p - q)(p + q)$.\nStep 2: Substitute the given value $p - q = 8$: $8(p + q) = 96$.\nStep 3: Divide both sides by $8$: $p + q = 12$. Check: $p - q = 8$ and $p + q = 12$ give $p = 10$ and $q = 2$, and $10^2 - 2^2 = 100 - 4 = 96$. $\\checkmark$\n\n**Common Mistakes:** Subtracting instead of dividing, $96 - 8 = 88$; multiplying, $96 \\times 8 = 768$; or assuming $p^2 - q^2 = (p - q)^2$, which would force $p - q = \\sqrt{96} \\approx 9.80$ and contradict the given $p - q = 8$.\n\n**Test Day Takeaway:** When a question hands you $a^2 - b^2$ together with $a - b$ or $a + b$, the difference-of-squares identity turns it into one division. You never need the individual values."
+}

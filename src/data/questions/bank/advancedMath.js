@@ -1,1579 +1,1710 @@
 export const advancedMathBank = [
   // ── identify-quadratic (4 questions) ──────────────────────────────
   {
-    id: 'bank-am-001',
-    domain: 'advanced-math',
-    skills: ['identify-quadratic'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'Which of the following is a quadratic equation?',
+    id: "bank-am-001",
+    domain: "advanced-math",
+    skills: ["identify-quadratic"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "A quadratic equation in one variable can be written in the form $ax^2 + bx + c = 0$, where $a$, $b$, and $c$ are constants and $a \\neq 0$. Which of the following is a quadratic equation in $x$?",
     choices: [
-      // distractor: degree 1 (linear), not quadratic
-      { id: 'A', text: '$3x + 7 = 0$' },
-      { id: 'B', text: '$x^2 - 5x + 6 = 0$' },
-      // distractor: rational equation, not polynomial
-      { id: 'C', text: '$\\frac{1}{x} + 2 = 5$' },
-      // distractor: degree 3 (cubic)
-      { id: 'D', text: '$x^3 - x = 0$' },
+      // distractor: degree 1 — a linear equation
+      { id: "A", text: "$13x - 26 = 0$" },
+      // distractor: variable in a denominator — not a polynomial equation at all
+      { id: "B", text: "$\\dfrac{6}{x} + 4 = 0$" },
+      { id: "C", text: "$2x^2 - 5x + 3 = 0$" },
+      // distractor: degree 3 — a cubic equation
+      { id: "D", text: "$x^3 - 8x = 0$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Identify Quadratic Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A quadratic has the variable raised to the power exactly $2$. Only $x^2 - 5x + 6 = 0$ fits.\n\n**The Full Solution:**\nStep 1: A quadratic equation has the form $ax^2 + bx + c = 0$ with $a \\neq 0$ — the highest power of the variable is exactly $2$.\nStep 2: Check each option. $x^2 - 5x + 6 = 0$ has $a = 1$, $b = -5$, $c = 6$, with $x^2$ as the highest power. That is quadratic.\nStep 3: Confirm it factors as $(x - 2)(x - 3) = 0$, giving two roots — the signature of a quadratic. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: $3x + 7 = 0$ is degree $1$ (linear), not $2$.\n* Choice C: $\\frac{1}{x} + 2 = 5$ has the variable in the denominator; clearing it gives $1 + 2x = 5x$, which is linear.\n* Choice D: $x^3 - x = 0$ has highest power $3$ (cubic).\n\n**Test Day Takeaway:** Quadratic means the highest power of the variable is EXACTLY $2$ — not $1$, not $3$, and not a variable in the denominator.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Identify Quadratic Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Look for a highest power of exactly $2$ with the variable in the numerator. Only $2x^2 - 5x + 3 = 0$ qualifies.\n\n**The Full Solution:**\nStep 1: A quadratic equation in $x$ has a term with $x^2$ and no higher power of $x$, and every power of $x$ must be a whole number in the numerator.\nStep 2: Test each equation. $13x - 26 = 0$ has highest power $1$. $\\dfrac{6}{x} + 4 = 0$ has $x$ in a denominator, which is the power $x^{-1}$. $x^3 - 8x = 0$ has highest power $3$.\nStep 3: $2x^2 - 5x + 3 = 0$ matches $ax^2 + bx + c = 0$ with $a = 2$, $b = -5$, $c = 3$, and $a \\neq 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($13x - 26 = 0$): the largest power of $x$ is $1$, so this is linear, not quadratic.\n* Choice B ($\\dfrac{6}{x} + 4 = 0$): the variable sits in a denominator, so the equation is rational, not polynomial.\n* Choice D ($x^3 - 8x = 0$): the largest power of $x$ is $3$, so this is cubic.\n\n**Test Day Takeaway:** Classify by the HIGHEST power of the variable, and check that the variable never appears in a denominator or under a radical.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'concept-identification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "concept-identification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-002',
-    domain: 'advanced-math',
-    skills: ['identify-quadratic'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'A landscaper models the area $A$ of a rectangular flower bed as $A = w(18 - w)$, where $w$ is the width in feet. What type of equation best describes this model?',
+    id: "bank-am-002",
+    domain: "advanced-math",
+    skills: ["identify-quadratic"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "A concert hall models its ticket revenue as $R(p) = p(900 - 15p)$ dollars, where $p$ is the ticket price in dollars. The table gives $R(p)$ for three ticket prices. Which of the following best describes $R$ as a function of $p$?",
+    diagram: { type: "dataTable", params: { headers: ["Ticket price p (dollars)", "Revenue R(p) (dollars)"], rows: [["10", "7,500"], ["20", "12,000"], ["30", "13,500"]] } },
     choices: [
-      // distractor: looks linear before expanding
-      { id: 'A', text: 'Linear' },
-      // distractor: confuses any growth with exponential
-      { id: 'B', text: 'Exponential' },
-      { id: 'C', text: 'Quadratic' },
-      // distractor: not rational (no variable in denominator)
-      { id: 'D', text: 'Rational' },
+      // distractor: treats "increasing" as proof of linearity; the differences 4,500 and 1,500 are not constant
+      { id: "A", text: "Linear, because $R(p)$ increases as $p$ increases." },
+      // distractor: classifies one factor instead of the product
+      { id: "B", text: "Linear, because the factor $900 - 15p$ is linear in $p$." },
+      { id: "C", text: "Quadratic, because expanding gives $R(p) = -15p^2 + 900p$." },
+      // distractor: claims a constant ratio; the ratios are 1.6 then 1.125
+      { id: "D", text: "Exponential, because $R(p)$ grows by a constant factor." }
     ],
-    correctAnswer: 'C',
-    explanation: "**SAT Pattern: Classify Model by Expanding**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Expand the product: $A = w(18 - w) = -w^2 + 18w$. The highest power of $w$ is $2$, so the model is quadratic.\n\n**The Full Solution:**\nStep 1: Distribute $w$ across the parentheses: $A = w(18 - w) = 18w - w^2$.\nStep 2: Written in standard form this is $A = -w^2 + 18w$, degree $2$ in $w$, so quadratic.\nStep 3: Sanity check the shape: $A = 0$ at both $w = 0$ and $w = 18$, the two roots of a downward parabola. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: The two factors are each linear, so the model looks linear before you multiply them out.\n* Choice B: Exponential models have the variable in the exponent (a base raised to $w$), not a polynomial in $w$.\n* Choice D: Rational models have the variable in a denominator; there is none here.\n\n**Test Day Takeaway:** Always EXPAND a product before classifying. A product of two linear factors is quadratic, not linear.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Classify Model by Expanding**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Distribute: $p(900 - 15p) = 900p - 15p^2$. A $p^2$ term with a nonzero coefficient makes $R$ quadratic.\n\n**The Full Solution:**\nStep 1: Expand the product. $R(p) = p(900) - p(15p) = 900p - 15p^2$, or $R(p) = -15p^2 + 900p$.\nStep 2: The highest power of $p$ is $2$ and its coefficient $-15$ is not zero, so $R$ is a quadratic function of $p$.\nStep 3: Check against the table. From $p = 10$ to $p = 20$ revenue rises by $12{,}000 - 7{,}500 = 4{,}500$; from $p = 20$ to $p = 30$ it rises by only $13{,}500 - 12{,}000 = 1{,}500$. Unequal increases over equal steps rule out a linear model, and the ratios $\\frac{12{,}000}{7{,}500} = 1.6$ and $\\frac{13{,}500}{12{,}000} = 1.125$ rule out an exponential one. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: \"increasing\" is not the same as \"linear\" — the table's increases are $4{,}500$ then $1{,}500$, not equal.\n* Choice B: $900 - 15p$ is linear by itself, but multiplying it by $p$ raises the degree to $2$.\n* Choice D: an exponential model needs a constant ratio between outputs at equally spaced inputs; here the ratios are $1.6$ and $1.125$.\n\n**Test Day Takeaway:** Classify a model only after expanding it. A product of two linear factors is quadratic, no matter how linear each factor looks.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'model-classification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "model-classification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-003',
-    domain: 'advanced-math',
-    skills: ['identify-quadratic'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'After simplification, which expression is equivalent to a quadratic in $t$?\n\nI. $t(t + 4) - t^2$\nII. $(2t - 1)(t + 3)$\nIII. $\\frac{t^3 - t}{t}$, $t \\neq 0$',
+    id: "bank-am-003",
+    domain: "advanced-math",
+    skills: ["identify-quadratic"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "Three expressions in $m$ are given below.\n\nI. $(m + 6)^2 - m^2$\nII. $(3m - 2)(m + 5)$\nIII. $\\dfrac{m^4 - m^2}{m^2}$, where $m \\neq 0$\n\nAfter simplification, which of the expressions are quadratic in $m$?",
     choices: [
-      // distractor: misses III which simplifies to t² - 1
-      { id: 'A', text: 'II only' },
-      // distractor: includes I, which collapses to 4t (linear)
-      { id: 'B', text: 'I and II only' },
-      { id: 'C', text: 'II and III only' },
-      // distractor: includes I incorrectly
-      { id: 'D', text: 'I, II, and III' },
+      // distractor: assumes squaring a binomial always leaves an $m^2$ term
+      { id: "A", text: "I only" },
+      // distractor: stops before reducing III, which becomes $m^2 - 1$
+      { id: "B", text: "II only" },
+      { id: "C", text: "II and III only" },
+      // distractor: counts I, whose $m^2$ terms cancel
+      { id: "D", text: "I, II, and III" }
     ],
-    correctAnswer: 'C',
-    explanation: "**SAT Pattern: Classify After Simplification**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Simplify each: I becomes $4t$ (linear), II becomes $2t^2 + 5t - 3$ (quadratic), III becomes $t^2 - 1$ (quadratic). Quadratic ones are II and III.\n\n**The Full Solution:**\nStep 1: I. $t(t + 4) - t^2 = t^2 + 4t - t^2 = 4t$. The $t^2$ terms cancel, leaving a linear expression.\nStep 2: II. $(2t - 1)(t + 3) = 2t^2 + 6t - t - 3 = 2t^2 + 5t - 3$. Highest power $2$, so quadratic.\nStep 3: III. $\\frac{t^3 - t}{t} = \\frac{t(t^2 - 1)}{t} = t^2 - 1$ for $t \\neq 0$. Highest power $2$, so quadratic.\nStep 4: Only II and III are quadratic. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: Stops at II only, missing that III simplifies to a quadratic once the $t$ cancels.\n* Choice B: Treats I as quadratic, not noticing the $t^2$ terms cancel to leave $4t$.\n* Choice D: Includes I as well, again failing to cancel the $t^2$ terms.\n\n**Test Day Takeaway:** ALWAYS simplify before judging degree. Cancellations — like $t^2 - t^2 = 0$ in I, or dividing out the $t$ in III — can change the degree of an expression.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Classify After Simplification**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** I collapses to $12m + 36$ (linear). II expands to $3m^2 + 13m - 10$ and III reduces to $m^2 - 1$, both quadratic.\n\n**The Full Solution:**\nStep 1: Expression I: $(m + 6)^2 - m^2 = m^2 + 12m + 36 - m^2 = 12m + 36$. The $m^2$ terms cancel, so I is linear.\nStep 2: Expression II: $(3m - 2)(m + 5) = 3m^2 + 15m - 2m - 10 = 3m^2 + 13m - 10$, which is quadratic.\nStep 3: Expression III: $\\dfrac{m^4 - m^2}{m^2} = \\dfrac{m^2(m^2 - 1)}{m^2} = m^2 - 1$ for $m \\neq 0$, which is quadratic. So II and III only. Check at $m = 2$: I gives $60 = 12(2) + 36$, II gives $(4)(7) = 28 = 3(4) + 26 - 10$, III gives $\\frac{16 - 4}{4} = 3 = 2^2 - 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: expanding $(m + 6)^2$ does produce an $m^2$ term, but subtracting $m^2$ removes it — I is linear.\n* Choice B: III looks like a fourth-degree expression until the common factor $m^2$ is divided out.\n* Choice D: includes I, which loses its quadratic term in the subtraction.\n\n**Test Day Takeaway:** Degree is a property of the SIMPLIFIED expression. Expand and reduce first, then read the highest surviving power.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'classify-after-simplify',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "classify-after-simplify",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-004',
-    domain: 'advanced-math',
-    skills: ['identify-quadratic'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'The height, in meters, of a drone $t$ seconds after launch is modeled by $h(t) = -4.9t^2 + 20t + 1.5$. Which statement about this model is true?',
+    id: "bank-am-004",
+    domain: "advanced-math",
+    skills: ["identify-quadratic"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The height above the nozzle, in feet, of a stream of water $x$ feet horizontally from a fountain nozzle is modeled by $h(x) = -0.5x^2 + 4x$. The graph of $y = h(x)$ is shown. Which statement about this model is true?",
+    diagram: { type: "parabola", params: { vertex: { h: 4, k: 8 }, a: -0.5, xRange: [0, 10], yRange: [0, 10], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showVertex: false } },
     choices: [
-      // distractor: ignores the t² term
-      { id: 'A', text: 'The model is linear because height changes at a constant rate.' },
-      // distractor: confuses acceleration with exponential growth
-      { id: 'B', text: 'The model is exponential because the drone accelerates.' },
-      { id: 'C', text: 'The model is quadratic because the highest power of $t$ is 2.' },
-      // distractor: any curve must be cubic (wrong)
-      { id: 'D', text: 'The model is cubic because the drone path curves.' },
+      // distractor: calls a curved graph linear
+      { id: "A", text: "The model is linear, because the height changes at a constant rate." },
+      // distractor: labels any rise-then-fall shape exponential
+      { id: "B", text: "The model is exponential, because the height falls off after its peak." },
+      { id: "C", text: "The model is quadratic, and the stream rises to a greatest height of $8$ feet." },
+      // distractor: reports the vertex's $x$-coordinate as the maximum height
+      { id: "D", text: "The model is quadratic, and the stream rises to a greatest height of $4$ feet." }
     ],
-    correctAnswer: 'C',
-    explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $h(t) = -4.9t^2 + 20t + 1.5$ has highest power $t^2$, so the model is quadratic.\n\n**The Full Solution:**\nStep 1: Read off the highest power of $t$. The $-4.9t^2$ term makes the degree $2$.\nStep 2: That is the definition of a quadratic model: $h(t) = at^2 + bt + c$ with $a = -4.9$, $b = 20$, $c = 1.5$.\nStep 3: Physically, projectile motion under constant gravity is always quadratic — the $-4.9$ comes from $-\\frac{g}{2}$ with $g \\approx 9.8$ m/s$^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: Height does not change at a constant rate; the $t^2$ term means the rate keeps changing, so it is not linear.\n* Choice B: Acceleration under gravity produces a quadratic, not an exponential, model.\n* Choice D: A curved path does not imply cubic — the highest power here is $2$, not $3$.\n\n**Test Day Takeaway:** Classify by the highest power of the variable. Projectile motion under gravity is ALWAYS quadratic, with a $-\\frac{g}{2}t^2$ leading term.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The $x^2$ term makes $h$ quadratic, and its vertex is at $x = -\\dfrac{4}{2(-0.5)} = 4$, where $h(4) = -8 + 16 = 8$ feet.\n\n**The Full Solution:**\nStep 1: $h(x) = -0.5x^2 + 4x$ has degree $2$, so the model is quadratic and its graph is a parabola. Because $-0.5 < 0$, the parabola opens downward and has a maximum.\nStep 2: The maximum occurs at the vertex, $x = -\\dfrac{b}{2a} = -\\dfrac{4}{2(-0.5)} = 4$ feet from the nozzle.\nStep 3: The greatest height is $h(4) = -0.5(16) + 4(4) = -8 + 16 = 8$ feet. Check with the symmetric points: $h(0) = 0$ and $h(8) = -32 + 32 = 0$, and $4$ is halfway between them. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the graph is curved, so the height does not change at a constant rate.\n* Choice B: exponential models never come back down to a previous value the way this stream does at $x = 0$ and $x = 8$.\n* Choice D ($4$ feet): $4$ is the horizontal distance at which the peak occurs, not the peak height.\n\n**Test Day Takeaway:** In a quadratic model the vertex has two numbers with two different jobs: the input tells you WHERE the extreme happens, the output tells you WHAT it is.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'model-classification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "model-classification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
 
   // ── parabola-direction (4 questions) ──────────────────────────────
   {
-    id: 'bank-am-005',
-    domain: 'advanced-math',
-    skills: ['parabola-direction'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'The graph of $y = -3x^2 + 12x - 7$ is a parabola. In which direction does it open?',
+    id: "bank-am-005",
+    domain: "advanced-math",
+    skills: ["parabola-direction"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "In the $xy$-plane, the graph of $y = -\\dfrac{1}{4}x^2 + 6x - 11$ is a parabola. Which of the following correctly describes the direction in which the parabola opens, and why?",
     choices: [
-      // distractor: confuses leading coefficient sign
-      { id: 'A', text: 'Upward' },
-      { id: 'B', text: 'Downward' },
-      // distractor: applies to x = f(y) parabolas, not y = f(x)
-      { id: 'C', text: 'To the right' },
-      // distractor: applies to x = f(y) parabolas
-      { id: 'D', text: 'To the left' },
+      // distractor: reads the coefficient of $x$ instead of the coefficient of $x^2$
+      { id: "A", text: "Upward, because the coefficient of $x$ is positive." },
+      // distractor: reads the constant term instead of the leading coefficient
+      { id: "B", text: "Upward, because the constant term is negative." },
+      { id: "C", text: "Downward, because the coefficient of $x^2$ is negative." },
+      // distractor: reaches the right direction from the wrong coefficient
+      { id: "D", text: "Downward, because the constant term is negative." }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Parabola Direction**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** The leading coefficient is $a = -3 < 0$, so the parabola opens DOWNWARD.\n\n**The Full Solution:**\nStep 1: For $y = ax^2 + bx + c$, the sign of $a$ alone sets the direction: $a > 0$ opens upward, $a < 0$ opens downward.\nStep 2: Here $a = -3$, which is negative, so the parabola opens downward (its vertex is a maximum).\nStep 3: Confirm: with $a < 0$ the curve rises to a peak then falls — a downward-opening shape. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: Looks at the positive $12x$ term instead of the leading coefficient $-3$.\n* Choice C: Sideways parabolas come from $x = f(y)$ equations, not this $y = f(x)$ form.\n* Choice D: Same error as C — there is no sideways opening for $y = ax^2 + bx + c$.\n\n**Test Day Takeaway:** To find which way $y = ax^2 + bx + c$ opens, look ONLY at the sign of $a$. The other coefficients never affect direction.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Parabola Direction**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Only the coefficient of $x^2$ controls direction. Here it is $-\\dfrac{1}{4} < 0$, so the parabola opens downward.\n\n**The Full Solution:**\nStep 1: Write the equation as $y = ax^2 + bx + c$ with $a = -\\dfrac{1}{4}$, $b = 6$, and $c = -11$.\nStep 2: A parabola opens upward when $a > 0$ and downward when $a < 0$. Neither $b$ nor $c$ affects the direction.\nStep 3: Since $a = -\\dfrac{1}{4} < 0$, the parabola opens downward. Check with two far-out inputs: $y(100) = -2500 + 600 - 11 < 0$ and $y(-100) = -2500 - 600 - 11 < 0$, so both arms fall. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: $b = 6$ is positive, but $b$ shifts the vertex sideways; it never flips the parabola.\n* Choice B: $c = -11$ is the $y$-intercept, not the leading coefficient.\n* Choice D: the direction is right but the reason is wrong — the constant term does not determine which way a parabola opens.\n\n**Test Day Takeaway:** Direction is decided by one number: the sign of the coefficient on $x^2$. Ignore everything else.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'parabola-orientation',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "parabola-orientation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-006',
-    domain: 'advanced-math',
-    skills: ['parabola-direction'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'A ball\'s height is modeled by $h = -16t^2 + 48t + 5$. Does the parabola have a maximum or minimum value, and why?',
+    id: "bank-am-006",
+    domain: "advanced-math",
+    skills: ["parabola-direction"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "A vehicle's fuel efficiency $E$, in miles per gallon, at a speed of $v$ miles per hour is modeled by $E(v) = -0.02v^2 + 2v + 6$. The graph of $E$ is shown. Does $E$ have a maximum value or a minimum value, and why?",
+    diagram: { type: "parabola", params: { vertex: { h: 50, k: 56 }, a: -0.02, xRange: [0, 80], yRange: [0, 60], xTickInterval: 20, yTickInterval: 10, gridInterval: 10, showVertex: true } },
     choices: [
-      { id: 'A', text: 'Maximum, because $a = -16 < 0$' },
-      // distractor: wrong direction (a < 0 means max, not min)
-      { id: 'B', text: 'Minimum, because $a = -16 < 0$' },
-      // distractor: uses c (initial height) instead of a
-      { id: 'C', text: 'Maximum, because $c = 5 > 0$' },
-      // distractor: uses b (initial velocity) instead of a
-      { id: 'D', text: 'Minimum, because $b = 48 > 0$' },
+      { id: "A", text: "A maximum, because the coefficient of $v^2$ is negative." },
+      // distractor: credits the constant term for the shape of the graph
+      { id: "B", text: "A maximum, because the constant term $6$ is positive." },
+      // distractor: reads the coefficient of $v$ and inverts the conclusion
+      { id: "C", text: "A minimum, because the coefficient of $v$ is positive." },
+      // distractor: treats the vertex's position as evidence of a minimum
+      { id: "D", text: "A minimum, because the vertex lies to the right of the $E$-axis." }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Max vs Min Reasoning**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $a = -16 < 0$ means the parabola opens downward, so the vertex is a MAXIMUM.\n\n**The Full Solution:**\nStep 1: The leading coefficient $a$ decides max vs min: $a > 0$ opens up (vertex is a minimum), $a < 0$ opens down (vertex is a maximum).\nStep 2: Here $a = -16 < 0$, so the vertex is a maximum height.\nStep 3: This matches the physics — the ball rises, peaks, then falls, so its height has a maximum. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: Right premise ($a = -16 < 0$) but the wrong conclusion — a negative $a$ gives a maximum, not a minimum.\n* Choice C: Uses $c = 5$, the initial height, which does not determine max vs min.\n* Choice D: Uses $b = 48$, the initial velocity, which also does not determine max vs min.\n\n**Test Day Takeaway:** ONLY the leading coefficient $a$ decides whether a parabola's vertex is a maximum or a minimum. The other coefficients shift it but never flip it.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Max vs Min Reasoning**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The coefficient of $v^2$ is $-0.02 < 0$, so the parabola opens downward and its vertex is the highest point — a maximum.\n\n**The Full Solution:**\nStep 1: In $E(v) = -0.02v^2 + 2v + 6$, the leading coefficient is $a = -0.02$.\nStep 2: When $a < 0$ a parabola opens downward, so the vertex is the highest point of the graph and the function has a maximum value (and no minimum).\nStep 3: Locate it: $v = -\\dfrac{2}{2(-0.02)} = 50$ miles per hour, and $E(50) = -0.02(2500) + 100 + 6 = 56$ miles per gallon. Check a nearby speed: $E(40) = -32 + 80 + 6 = 54 < 56$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: the verdict is right, but $6$ is only $E(0)$ — the constant term never decides which way a parabola opens.\n* Choice C: $b = 2$ is positive, yet $b$ only slides the vertex; the sign of $a$ is what matters.\n* Choice D: the vertex does sit to the right of the vertical axis, but a downward parabola with a right-of-center vertex still has a maximum.\n\n**Test Day Takeaway:** Downward-opening ($a < 0$) means maximum; upward-opening ($a > 0$) means minimum. The verdict and the reason must both come from $a$.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'max-min-reasoning',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "max-min-reasoning",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-007',
-    domain: 'advanced-math',
-    skills: ['parabola-direction'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'For what values of $k$ does the graph of $y = (k - 2)x^2 + 5x - 1$ open upward?',
+    id: "bank-am-007",
+    domain: "advanced-math",
+    skills: ["parabola-direction"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "In the $xy$-plane, the graph of $y = (5 - k)x^2 + 8x + 3$ opens downward, where $k$ is a constant. Which of the following describes all possible values of $k$?",
     choices: [
-      { id: 'A', text: '$k > 2$' },
-      // distractor: opposite inequality
-      { id: 'B', text: '$k < 2$' },
-      // distractor: ignores the shift by 2
-      { id: 'C', text: '$k > 0$' },
-      // distractor: gives degenerate case (no quadratic at all)
-      { id: 'D', text: '$k = 2$' },
+      // distractor: solves the condition for opening UPWARD
+      { id: "A", text: "$k < 5$" },
+      { id: "B", text: "$k > 5$" },
+      // distractor: moves $k$ across the inequality without changing its sign correctly
+      { id: "C", text: "$k < -5$" },
+      // distractor: only rules out the case where the graph stops being a parabola
+      { id: "D", text: "$k \\neq 5$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Parameter Constraint on Leading Coefficient**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Opening upward needs the leading coefficient positive: $k - 2 > 0 \\Rightarrow k > 2$.\n\n**The Full Solution:**\nStep 1: For $y = (k - 2)x^2 + 5x - 1$, the leading coefficient is $a = k - 2$.\nStep 2: A parabola opens upward exactly when $a > 0$, so set $k - 2 > 0$.\nStep 3: Solve: $k > 2$.\nStep 4: Check: at $k = 3$, $a = 1 > 0$ (opens up); at $k = 1$, $a = -1 < 0$ (opens down). $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: Flips the inequality; $k < 2$ makes $a$ negative, opening downward.\n* Choice C: Uses $k > 0$ directly, ignoring the $-2$ shift in the coefficient.\n* Choice D: At $k = 2$ the coefficient is $0$, so the graph is not a parabola at all.\n\n**Test Day Takeaway:** When the leading coefficient contains a parameter, solve the inequality on that coefficient ($a > 0$ to open up). Watch the degenerate case $a = 0$, where there is no parabola.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Parameter Constraint on Leading Coefficient**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Downward means the leading coefficient is negative: $5 - k < 0$, so $k > 5$.\n\n**The Full Solution:**\nStep 1: The leading coefficient of $y = (5 - k)x^2 + 8x + 3$ is $5 - k$.\nStep 2: A parabola opens downward exactly when its leading coefficient is negative, so $5 - k < 0$.\nStep 3: Add $k$ to both sides: $5 < k$, that is, $k > 5$. Check with $k = 9$: the coefficient is $5 - 9 = -4 < 0$, and the graph opens downward. Check with $k = 1$: the coefficient is $4 > 0$, and it opens upward. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($k < 5$): this makes $5 - k > 0$, which is the upward-opening case.\n* Choice C ($k < -5$): this comes from solving $5 - k < 0$ as $-k < -5$ and then dropping the sign flip.\n* Choice D ($k \\neq 5$): $k = 5$ does have to be excluded — at $k = 5$ the graph is a line, not a parabola — but that alone allows values like $k = 1$, which open upward.\n\n**Test Day Takeaway:** When a parameter sits in the leading coefficient, translate the picture into one inequality about that whole coefficient, then solve it like any linear inequality.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'parameter-constraint',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "parameter-constraint",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-008',
-    domain: 'advanced-math',
-    skills: ['parabola-direction', 'vertex-form'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'The function $f(x) = -2(x - 4)^2 + 18$ models daily profit in thousands of dollars, where $x$ is the unit price. Which statement must be true?',
+    id: "bank-am-008",
+    domain: "advanced-math",
+    skills: ["parabola-direction", "vertex-form"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "The function $C$ defined by $C(x) = 0.5(x - 6)^2 + 4$ gives the production cost, in dollars per unit, when $x$ thousand units are made. The graph of $y = C(x)$ is shown. Which of the following must be true?",
+    diagram: { type: "parabola", params: { vertex: { h: 6, k: 4 }, a: 0.5, xRange: [0, 12], yRange: [0, 24], xTickInterval: 2, yTickInterval: 4, gridInterval: 2, showVertex: true } },
     choices: [
-      // distractor: wrong direction (a < 0 means max, not min)
-      { id: 'A', text: 'Profit is minimized at a unit price of 4.' },
-      { id: 'B', text: 'Profit is maximized at 18 thousand dollars.' },
-      // distractor: wrong direction past the vertex (decreases for x > 4)
-      { id: 'C', text: 'Profit increases for all $x > 4$.' },
-      // distractor: swaps h and k from the vertex (4, 18)
-      { id: 'D', text: 'Profit is maximized at a unit price of 18.' },
+      // distractor: swaps the two vertex coordinates
+      { id: "A", text: "The least cost per unit is $\\$6$, and it occurs when $x = 4$." },
+      { id: "B", text: "The cost per unit is the same when $x = 2$ as it is when $x = 10$." },
+      // distractor: reads the vertex output as the value at $x = 0$
+      { id: "C", text: "The cost per unit is $\\$4$ when $x = 0$." },
+      // distractor: assumes the curve keeps falling past the vertex
+      { id: "D", text: "The cost per unit decreases as $x$ increases, for every $x > 0$." }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Interpret Vertex Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Vertex form $a(x - h)^2 + k$ has vertex $(h, k) = (4, 18)$. Since $a = -2 < 0$, the max value is $k = 18$ thousand dollars.\n\n**The Full Solution:**\nStep 1: Match $f(x) = -2(x - 4)^2 + 18$ to $a(x - h)^2 + k$: $h = 4$, $k = 18$, $a = -2$.\nStep 2: Because $a = -2 < 0$, the parabola opens downward, so the vertex is a maximum.\nStep 3: The maximum profit is $k = 18$ thousand dollars, achieved at price $x = h = 4$.\nStep 4: Check: $f(4) = -2(0) + 18 = 18$, and $f(5) = -2(1) + 18 = 16 < 18$, confirming $18$ is the peak. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: Calls the vertex a minimum; with $a < 0$ it is a maximum, not a minimum.\n* Choice C: Profit increases only for $x < 4$ and decreases for $x > 4$, so it does not increase for all $x > 4$.\n* Choice D: Swaps the vertex coordinates — the maximizing price is $4$, while $18$ is the max profit, not the price.\n\n**Test Day Takeaway:** In vertex form $a(x - h)^2 + k$, the vertex is $(h, k)$: $h$ is the input that achieves the extreme, $k$ is the extreme value. With $a < 0$, $k$ is the maximum.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Interpret Vertex Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The vertex is at $x = 6$, and $2$ and $10$ are each $4$ units from $6$. Equal distances from the axis of symmetry give equal outputs.\n\n**The Full Solution:**\nStep 1: In $C(x) = 0.5(x - 6)^2 + 4$ the vertex is $(6, 4)$, so the axis of symmetry is the vertical line $x = 6$ and the least cost per unit is $\\$4$ at $x = 6$.\nStep 2: A parabola takes the same value at inputs that are the same distance from its axis of symmetry. Since $6 - 2 = 4$ and $10 - 6 = 4$, the inputs $x = 2$ and $x = 10$ are a matched pair.\nStep 3: Confirm by computing: $C(2) = 0.5(-4)^2 + 4 = 8 + 4 = 12$ and $C(10) = 0.5(4)^2 + 4 = 8 + 4 = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: it reverses the vertex — the minimum VALUE is $4$ dollars and it happens AT $x = 6$, not the other way around.\n* Choice C: $4$ is the minimum, not $C(0)$; in fact $C(0) = 0.5(36) + 4 = 22$ dollars per unit.\n* Choice D: the cost falls only until $x = 6$; past the vertex it rises again, as $C(10) = 12 > C(6) = 4$ shows.\n\n**Test Day Takeaway:** Vertex form hands you the axis of symmetry for free. Two inputs equally far from it always produce the same output — that is the fastest \"must be true\" to verify.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-form-interpretation',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "vertex-form-interpretation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
 
   // ── finding-roots-factoring (5 questions) ─────────────────────────
   {
-    id: 'bank-am-009',
-    domain: 'advanced-math',
-    skills: ['finding-roots-factoring'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'What are the solutions to $x^2 - 9x + 20 = 0$?',
+    id: "bank-am-009",
+    domain: "advanced-math",
+    skills: ["finding-roots-factoring"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "In the equation $x^2 - 13x + 30 = 0$, the left side is the product of two binomials with integer constants. What are all solutions to this equation?",
     choices: [
-      { id: 'A', text: '$x = 4$ and $x = 5$' },
-      // distractor: reverses both signs
-      { id: 'B', text: '$x = -4$ and $x = -5$' },
-      // distractor: uses pair that multiplies to 20 but sums to wrong value
-      { id: 'C', text: '$x = 2$ and $x = 10$' },
-      // distractor: mixes signs incorrectly
-      { id: 'D', text: '$x = -4$ and $x = 5$' },
+      // distractor: keeps the signs of the numbers inside the factors instead of solving
+      { id: "A", text: "$x = -10$ and $x = -3$" },
+      // distractor: flips the sign of only one factor
+      { id: "B", text: "$x = -3$ and $x = 10$" },
+      { id: "C", text: "$x = 3$ and $x = 10$" },
+      // distractor: pairs one true root with the constant term
+      { id: "D", text: "$x = 3$ and $x = 30$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Factor and Solve**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Find two numbers that multiply to $20$ and add to $9$: that's $4$ and $5$. So $(x - 4)(x - 5) = 0$, giving $x = 4$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: For $x^2 + bx + c = 0$ with leading coefficient $1$, find two numbers with product $c$ and sum $-b$. Here $b = -9$, $c = 20$, so product $20$ and sum $9$.\nStep 2: $4$ and $5$ work: $4 \\cdot 5 = 20$ and $4 + 5 = 9$.\nStep 3: Factor: $(x - 4)(x - 5) = 0$, so $x = 4$ or $x = 5$.\nStep 4: Check: $4^2 - 9(4) + 20 = 16 - 36 + 20 = 0$ and $5^2 - 9(5) + 20 = 25 - 45 + 20 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: Reverses both signs to $-4$ and $-5$; those would require a middle term of $+9x$.\n* Choice C: Uses $2$ and $10$ (product $20$), but $2 + 10 = 12 \\neq 9$.\n* Choice D: Mixes signs ($-4$ and $5$), which does not give the correct product or sum.\n\n**Test Day Takeaway:** For $x^2 + bx + c$ with $a = 1$, find the factor pair of $c$ that sums to $-b$. Each root has the OPPOSITE sign of the number inside its factor: $(x - 4)$ gives $x = 4$.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Factor and Solve**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Two numbers multiply to $30$ and add to $-13$: $-3$ and $-10$. So $(x - 3)(x - 10) = 0$ and $x = 3$ or $x = 10$.\n\n**The Full Solution:**\nStep 1: Factor $x^2 - 13x + 30$. The constant is positive and the middle coefficient is negative, so both numbers are negative: $(-3)(-10) = 30$ and $-3 + (-10) = -13$.\nStep 2: Write $(x - 3)(x - 10) = 0$.\nStep 3: Set each factor to zero: $x - 3 = 0$ gives $x = 3$, and $x - 10 = 0$ gives $x = 10$. Check $x = 3$: $9 - 39 + 30 = 0$. Check $x = 10$: $100 - 130 + 30 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$ and $-3$): reports the numbers that appear inside the factors instead of the values that make each factor zero.\n* Choice B ($-3$ and $10$): flips the sign of one root only; then the product of the roots would be $-30$, not $30$.\n* Choice D ($3$ and $30$): keeps one correct root and grabs the constant term $30$ for the other.\n\n**Test Day Takeaway:** After factoring, the roots are the values that make each factor zero — the OPPOSITES of the numbers you see inside the parentheses.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'factor-and-solve',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "factor-and-solve",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-010',
-    domain: 'advanced-math',
-    skills: ['finding-roots-factoring'],
-    difficulty: 'easy',
-    type: 'fill-in',
-    question: 'What is the positive solution to $x^2 + 2x - 35 = 0$?',
-    correctAnswer: '5',
-    explanation: "**SAT Pattern: Factor and Solve (Fill-in)**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** Two numbers with product $-35$ and sum $2$ are $7$ and $-5$, so $(x + 7)(x - 5) = 0$. The roots are $-7$ and $5$; the positive one is $5$.\n\n**The Full Solution:**\nStep 1: For $x^2 + 2x - 35 = 0$, find a factor pair of $-35$ summing to $2$: $7$ and $-5$ ($7 \\cdot (-5) = -35$, $7 + (-5) = 2$).\nStep 2: Factor: $(x + 7)(x - 5) = 0$.\nStep 3: Roots are $x = -7$ and $x = 5$; the positive solution is $5$.\nStep 4: Check: $5^2 + 2(5) - 35 = 25 + 10 - 35 = 0$. $\\checkmark$\n\n**Common Mistakes:** Reporting $-7$ (the negative root) when the question asks for the positive one; flipping a sign in factoring to $(x - 7)(x + 5)$, which gives the wrong roots.\n\n**Test Day Takeaway:** When the constant $c$ is negative, the two factors have opposite signs. Pick the root that matches what the question asks for — here, the positive value.",
+    id: "bank-am-010",
+    domain: "advanced-math",
+    skills: ["finding-roots-factoring"],
+    difficulty: "easy",
+    type: "fill-in",
+    question: "The equation $x^2 + 3x - 54 = 0$ has two solutions. What is the positive solution to this equation?",
+    correctAnswer: "6",
+    explanation: "**SAT Pattern: Factor and Solve (Fill-in)**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~15s):** Two numbers multiply to $-54$ and add to $3$: $9$ and $-6$. So $(x + 9)(x - 6) = 0$, and the positive root is $6$.\n\n**The Full Solution:**\nStep 1: The constant $-54$ is negative, so the two numbers have opposite signs, and their sum is $+3$, so the positive one is larger in size.\nStep 2: $9 \\cdot (-6) = -54$ and $9 + (-6) = 3$, so $x^2 + 3x - 54 = (x + 9)(x - 6)$.\nStep 3: Setting each factor to zero gives $x = -9$ and $x = 6$. The positive solution is $6$. Check: $36 + 18 - 54 = 0$. $\\checkmark$\n\n**Common Mistakes:** Reporting $-9$, which is the other (negative) solution. Mis-signing the binomials as $(x - 9)(x + 6)$ and answering $9$ — but that product expands to $x^2 - 3x - 54$, with the wrong middle term.\n\n**Test Day Takeaway:** With a negative constant, the two factor numbers have opposite signs; the sign of the middle coefficient tells you which one is larger in absolute value.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'factor-and-solve',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "factor-and-solve",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-011',
-    domain: 'advanced-math',
-    skills: ['finding-roots-factoring'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'What are all solutions to $2x^2 - 7x - 15 = 0$?',
+    id: "bank-am-011",
+    domain: "advanced-math",
+    skills: ["finding-roots-factoring"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The function $f$ is defined by $f(x) = 3x^2 - 11x - 20$. What are all values of $x$ for which $f(x) = 0$?",
     choices: [
-      { id: 'A', text: '$x = -\\frac{3}{2}$ and $x = 5$' },
-      // distractor: flips both signs
-      { id: 'B', text: '$x = \\frac{3}{2}$ and $x = -5$' },
-      // distractor: uses (x - 3)(2x + 5) factoring
-      { id: 'C', text: '$x = 3$ and $x = -\\frac{5}{2}$' },
-      // distractor: flips signs of choice C
-      { id: 'D', text: '$x = -3$ and $x = \\frac{5}{2}$' },
+      { id: "A", text: "$x = -\\dfrac{4}{3}$ and $x = 5$" },
+      // distractor: inverts the fraction from the factor $3x + 4$
+      { id: "B", text: "$x = -\\dfrac{3}{4}$ and $x = 5$" },
+      // distractor: flips the sign of both roots
+      { id: "C", text: "$x = \\dfrac{4}{3}$ and $x = -5$" },
+      // distractor: forgets to divide by the leading coefficient in $3x + 4 = 0$
+      { id: "D", text: "$x = -4$ and $x = 5$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Factor with Leading Coefficient ≠ 1**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** AC method: $a \\cdot c = 2 \\cdot (-15) = -30$. Find a pair summing to $b = -7$: $-10$ and $3$. Split and group to get $(2x + 3)(x - 5) = 0$, so $x = -\\frac{3}{2}$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: For $2x^2 - 7x - 15 = 0$, compute $a \\cdot c = 2 \\cdot (-15) = -30$, then find two numbers with product $-30$ and sum $-7$: that's $-10$ and $3$.\nStep 2: Split the middle term: $2x^2 - 10x + 3x - 15$.\nStep 3: Group: $2x(x - 5) + 3(x - 5) = (2x + 3)(x - 5) = 0$.\nStep 4: Solve each factor: $2x + 3 = 0 \\Rightarrow x = -\\frac{3}{2}$, and $x - 5 = 0 \\Rightarrow x = 5$.\nStep 5: Check: $2\\left(-\\frac{3}{2}\\right)^2 - 7\\left(-\\frac{3}{2}\\right) - 15 = \\frac{9}{2} + \\frac{21}{2} - \\frac{30}{2} = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: Flips both signs to $\\frac{3}{2}$ and $-5$; those satisfy a different equation.\n* Choice C: Uses $(x - 3)(2x + 5)$, which expands to $2x^2 - x - 15$, not the given equation.\n* Choice D: Flips the signs of Choice C's roots — still not a valid factoring.\n\n**Test Day Takeaway:** For $ax^2 + bx + c$ with $a \\neq 1$, find the factor pair of $ac$ that sums to $b$, then split and group. The denominators of the roots come from the variable coefficients in each factor.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Factor with Leading Coefficient ≠ 1**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Split $-11x$ using $-15$ and $+4$ (product $3 \\cdot (-20) = -60$): $3x^2 - 15x + 4x - 20 = (3x + 4)(x - 5)$, so $x = -\\dfrac{4}{3}$ or $x = 5$.\n\n**The Full Solution:**\nStep 1: Multiply the leading coefficient by the constant: $3(-20) = -60$. Find two numbers with product $-60$ and sum $-11$: $-15$ and $4$.\nStep 2: Rewrite and group: $3x^2 - 15x + 4x - 20 = 3x(x - 5) + 4(x - 5) = (3x + 4)(x - 5)$.\nStep 3: Set each factor to zero. $3x + 4 = 0$ gives $x = -\\dfrac{4}{3}$; $x - 5 = 0$ gives $x = 5$. Check $x = -\\dfrac{4}{3}$: $3\\left(\\dfrac{16}{9}\\right) + \\dfrac{44}{3} - 20 = \\dfrac{16}{3} + \\dfrac{44}{3} - 20 = 20 - 20 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\dfrac{3}{4}$ and $5$): reverses the fraction — solving $3x + 4 = 0$ gives $-\\dfrac{4}{3}$, not $-\\dfrac{3}{4}$.\n* Choice C ($\\dfrac{4}{3}$ and $-5$): flips both signs; then $f(-5) = 75 + 55 - 20 \\neq 0$.\n* Choice D ($-4$ and $5$): reads $3x + 4 = 0$ as $x = -4$, skipping the division by $3$.\n\n**Test Day Takeaway:** When the leading coefficient is not $1$, one root is a fraction. Solve each factor as its own tiny linear equation instead of reading numbers off the parentheses.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'factor-and-solve',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "factor-and-solve",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-012',
-    domain: 'advanced-math',
-    skills: ['finding-roots-factoring'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'A rectangular garden has length $(x + 3)$ meters and width $(x - 1)$ meters. If the area is 45 square meters, what is the value of $x$?',
-    correctAnswer: '6',
-    explanation: "**SAT Pattern: Area Equation to Quadratic**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~25s):** $(x + 3)(x - 1) = 45 \\Rightarrow x^2 + 2x - 48 = 0 \\Rightarrow (x + 8)(x - 6) = 0$. The dimensions must be positive, so $x = 6$.\n\n**The Full Solution:**\nStep 1: Set area equal to the product of the sides: $(x + 3)(x - 1) = 45$.\nStep 2: Expand: $x^2 + 2x - 3 = 45$.\nStep 3: Move everything to one side: $x^2 + 2x - 48 = 0$.\nStep 4: Factor (pair of $-48$ summing to $2$ is $8$ and $-6$): $(x + 8)(x - 6) = 0$, so $x = -8$ or $x = 6$.\nStep 5: A garden needs positive sides, and $x - 1 > 0$ requires $x > 1$, so $x = 6$.\nStep 6: Check: at $x = 6$, length $= 9$, width $= 5$, area $= 45$. $\\checkmark$\n\n**Common Mistakes:** Reporting $-8$, which makes the width negative and is impossible; stopping after expanding without moving the $45$ over; forgetting to subtract $45$ from both sides before factoring.\n\n**Test Day Takeaway:** Area equals length times width, so these problems become quadratics after expanding. Always discard any root that gives a negative dimension.",
+    id: "bank-am-012",
+    domain: "advanced-math",
+    skills: ["finding-roots-factoring"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "A rectangular photographic print has width $(x - 2)$ inches and height $(x + 5)$ inches. The area of the print is $60$ square inches. What is the value of $x$?",
+    correctAnswer: "7",
+    explanation: "**SAT Pattern: Area Equation to Quadratic**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~30s):** $(x - 2)(x + 5) = 60$ becomes $x^2 + 3x - 70 = 0$, or $(x + 10)(x - 7) = 0$. Only $x = 7$ gives positive side lengths.\n\n**The Full Solution:**\nStep 1: Area is width times height: $(x - 2)(x + 5) = 60$.\nStep 2: Expand and move everything to one side: $x^2 + 3x - 10 = 60$, so $x^2 + 3x - 70 = 0$.\nStep 3: Factor: $(x + 10)(x - 7) = 0$, so $x = -10$ or $x = 7$. A width of $x - 2$ must be positive, which rules out $x = -10$. Check $x = 7$: the print is $5$ inches by $12$ inches, and $5 \\cdot 12 = 60$. $\\checkmark$\n\n**Common Mistakes:** Reporting $-10$, which makes both dimensions negative. Forgetting to subtract $60$ and solving $x^2 + 3x - 10 = 0$ instead, which gives $x = 2$ — a width of $0$ inches.\n\n**Test Day Takeaway:** Set the product equal to the area, move the area across so one side is $0$, then throw out any root that makes a length zero or negative.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'area-equation',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "area-equation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-013',
-    domain: 'advanced-math',
-    skills: ['finding-roots-factoring'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'If $3x^2 + kx - 14 = 0$ has $x = 2$ as a root, what is the other root?',
+    id: "bank-am-013",
+    domain: "advanced-math",
+    skills: ["finding-roots-factoring"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "In the quadratic equation $5x^2 + kx - 12 = 0$, $k$ is a constant and the equation has two solutions. One of the solutions is $x = -3$. What is the other solution?",
     choices: [
-      { id: 'A', text: '$x = -\\frac{7}{3}$' },
-      // distractor: drops the negative sign
-      { id: 'B', text: '$x = \\frac{7}{3}$' },
-      // distractor: uses c/a = -14/3 ... wait, treats c directly
-      { id: 'C', text: '$x = -7$' },
-      // distractor: gives c/a as a root
-      { id: 'D', text: '$x = -\\frac{14}{3}$' },
+      // distractor: reports the product of the roots instead of dividing it by the known root
+      { id: "A", text: "$-\\dfrac{12}{5}$" },
+      // distractor: divides the product of the roots by $3$ instead of by $-3$
+      { id: "B", text: "$-\\dfrac{4}{5}$" },
+      { id: "C", text: "$\\dfrac{4}{5}$" },
+      // distractor: reports $\frac{k}{5}$ after finding $k = 11$
+      { id: "D", text: "$\\dfrac{11}{5}$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Back-Solve Parameter, Then Find Other Root**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Vieta's gives the product of roots as $\\frac{c}{a}=\\frac{-14}{3}$. One root is $2$, so the other is $\\frac{-14/3}{2}=-\\frac{7}{3}$. That is choice A.\n\n**The Full Solution:**\nStep 1: Find $k$ by substituting the known root $x=2$: $3(2)^2+k(2)-14=0 \\Rightarrow 12+2k-14=0 \\Rightarrow 2k=2 \\Rightarrow k=1$.\nStep 2: The equation is $3x^2+x-14=0$. Factor by the AC method ($ac=-42$, pair $7$ and $-6$): $3x^2+7x-6x-14=(3x+7)(x-2)=0$.\nStep 3: The factor $(3x+7)=0$ gives the other root $x=-\\frac{7}{3}$. Check with Vieta's product: $2\\cdot\\left(-\\frac{7}{3}\\right)=-\\frac{14}{3}=\\frac{c}{a}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{7}{3}$): drops the negative sign on the root.\n* Choice C ($-7$): forgets the leading coefficient $3$, treating the root as $-7$ instead of $-\\frac{7}{3}$.\n* Choice D ($-\\frac{14}{3}$): reports the product of the roots ($\\frac{c}{a}$) as if it were a root itself.\n\n**Test Day Takeaway:** When one root of $ax^2+bx+c=0$ is given, use Vieta's: the product of the roots is $\\frac{c}{a}$, so divide by the known root to get the other.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Back-Solve Parameter, Then Find Other Root**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The product of the roots is $\\dfrac{-12}{5}$. Dividing by the known root: $\\dfrac{-12/5}{-3} = \\dfrac{4}{5}$ — and $k$ is never needed.\n\n**The Full Solution:**\nStep 1: Substitute $x = -3$ to find $k$: $5(9) + k(-3) - 12 = 0$, so $45 - 3k - 12 = 0$ and $3k = 33$, giving $k = 11$.\nStep 2: The equation is $5x^2 + 11x - 12 = 0$. For $ax^2 + bx + c = 0$ the product of the roots is $\\dfrac{c}{a} = \\dfrac{-12}{5}$.\nStep 3: If one root is $-3$ and the product is $-\\dfrac{12}{5}$, the other root is $\\dfrac{-12/5}{-3} = \\dfrac{4}{5}$. Check: $5\\left(\\dfrac{16}{25}\\right) + 11\\left(\\dfrac{4}{5}\\right) - 12 = \\dfrac{16}{5} + \\dfrac{44}{5} - 12 = 12 - 12 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\dfrac{12}{5}$): this is $\\dfrac{c}{a}$, the PRODUCT of the two roots, not the second root.\n* Choice B ($-\\dfrac{4}{5}$): divides $-\\dfrac{12}{5}$ by $3$ rather than by $-3$, losing a sign.\n* Choice D ($\\dfrac{11}{5}$): finds $k = 11$ correctly and then reports $\\dfrac{k}{a}$, mistaking the parameter for the answer.\n\n**Test Day Takeaway:** Once one root is known, $\\dfrac{c}{a}$ (product) or $-\\dfrac{b}{a}$ (sum) delivers the other root in a single division or subtraction.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'back-solve-parameter',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "back-solve-parameter",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
 
   // ── roots-from-factors (4 questions) ──────────────────────────────
   {
-    id: 'bank-am-014',
-    domain: 'advanced-math',
-    skills: ['roots-from-factors'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'What are the solutions to the equation $(x - 7)(x + 2) = 0$?',
+    id: "bank-am-014",
+    domain: "advanced-math",
+    skills: ["roots-from-factors"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "In the $xy$-plane, the graph of $y = (x + 9)(x - 4)$ crosses the $x$-axis at two points. What are the $x$-coordinates of those two points?",
     choices: [
-      { id: 'A', text: '$x = 7$ and $x = -2$' },
-      // distractor: flips both signs
-      { id: 'B', text: '$x = -7$ and $x = 2$' },
-      // distractor: keeps both signs the same (positive)
-      { id: 'C', text: '$x = 7$ and $x = 2$' },
-      // distractor: keeps both signs the same (negative)
-      { id: 'D', text: '$x = -7$ and $x = -2$' },
+      // distractor: keeps the sign of $-4$ instead of solving $x - 4 = 0$
+      { id: "A", text: "$-9$ and $-4$" },
+      { id: "B", text: "$-9$ and $4$" },
+      // distractor: flips the sign of both numbers
+      { id: "C", text: "$-4$ and $9$" },
+      // distractor: reads the numbers inside the parentheses as the roots
+      { id: "D", text: "$4$ and $9$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Zero Product Property**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Set each factor to zero: $x-7=0 \\Rightarrow x=7$ and $x+2=0 \\Rightarrow x=-2$. That is choice A.\n\n**The Full Solution:**\nThe Zero Product Property says if a product equals zero, at least one factor is zero. So $(x-7)(x+2)=0$ requires:\nStep 1: $x-7=0 \\Rightarrow x=7$, or\nStep 2: $x+2=0 \\Rightarrow x=-2$.\nCheck: $(7-7)(7+2)=0\\cdot 9=0$ and $(-2-7)(-2+2)=-9\\cdot 0=0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-7$ and $2$): flips the sign of both roots.\n* Choice C ($7$ and $2$): keeps the $+2$ factor's sign instead of negating it.\n* Choice D ($-7$ and $-2$): negates the wrong factor.\n\n**Test Day Takeaway:** Each root is the OPPOSITE of the sign inside its factor: $(x-7)$ gives $x=7$, and $(x+2)$ gives $x=-2$.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Zero Product Property**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The graph meets the $x$-axis where $y = 0$, so $(x + 9)(x - 4) = 0$ and $x = -9$ or $x = 4$.\n\n**The Full Solution:**\nStep 1: A point on the $x$-axis has $y = 0$, so set $(x + 9)(x - 4) = 0$.\nStep 2: A product is zero only when a factor is zero: $x + 9 = 0$ or $x - 4 = 0$.\nStep 3: Solving gives $x = -9$ and $x = 4$. Check $x = -9$: $(0)(-13) = 0$. Check $x = 4$: $(13)(0) = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$ and $-4$): solves the first factor correctly but copies the $-4$ straight out of the second.\n* Choice C ($-4$ and $9$): flips both signs, which would come from the factors $(x + 4)(x - 9)$.\n* Choice D ($4$ and $9$): reads $9$ and $4$ off the parentheses without changing signs.\n\n**Test Day Takeaway:** Each factor contributes one root, and that root is the value that makes the factor zero — so the sign always flips.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'zero-product-property',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "zero-product-property",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-015',
-    domain: 'advanced-math',
-    skills: ['roots-from-factors'],
-    difficulty: 'easy',
-    type: 'fill-in',
-    question: 'If $(x - 11)(x + 3) = 0$, what is the sum of all solutions?',
-    correctAnswer: '8',
-    explanation: "**SAT Pattern: Sum of Roots from Factors**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~5s):** The roots are $11$ and $-3$, so their sum is $11+(-3)=8$.\n\n**The Full Solution:**\nStep 1: Set each factor to zero: $x-11=0 \\Rightarrow x=11$ and $x+3=0 \\Rightarrow x=-3$.\nStep 2: Add the roots: $11+(-3)=8$.\nCheck with Vieta's: expanding gives $(x-11)(x+3)=x^2-8x-33$, and the sum of roots is $-\\frac{b}{a}=-(-8)=8$. $\\checkmark$\n\n**Common Mistakes:** Reporting $14$ (adding magnitudes and ignoring the negative sign on $-3$); reporting $-33$ (the product of the roots, not the sum).\n\n**Test Day Takeaway:** For $x^2+bx+c$ with leading coefficient $1$, the sum of the roots is $-b$ — faster than solving for each root once the polynomial is expanded.",
+    id: "bank-am-015",
+    domain: "advanced-math",
+    skills: ["roots-from-factors"],
+    difficulty: "easy",
+    type: "fill-in",
+    question: "The equation $(x - 13)(x + 6) = 0$ has two solutions. What is the sum of the two solutions?",
+    correctAnswer: "7",
+    explanation: "**SAT Pattern: Sum of Roots from Factors**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~10s):** The roots are $13$ and $-6$, so their sum is $13 + (-6) = 7$.\n\n**The Full Solution:**\nStep 1: A product equals zero only when one of its factors is zero, so $x - 13 = 0$ or $x + 6 = 0$.\nStep 2: The solutions are $x = 13$ and $x = -6$.\nStep 3: Their sum is $13 + (-6) = 7$. Check with the expanded form: $(x - 13)(x + 6) = x^2 - 7x - 78$, and the sum of the roots is $-\\dfrac{b}{a} = -\\dfrac{-7}{1} = 7$. $\\checkmark$\n\n**Common Mistakes:** Adding the numbers as they appear in the parentheses, $-13 + 6 = -7$, instead of the actual roots. Reporting the PRODUCT of the roots, $13 \\cdot (-6) = -78$, when the question asks for the sum.\n\n**Test Day Takeaway:** Flip the sign inside each factor to get the roots, then read the question once more — sum and product are different requests.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'zero-product-property',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "zero-product-property",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-016',
-    domain: 'advanced-math',
-    skills: ['roots-from-factors'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'The equation $(2x - 5)(3x + 4) = 0$ has solutions $x = a$ and $x = b$. What is $a \\cdot b$?',
+    id: "bank-am-016",
+    domain: "advanced-math",
+    skills: ["roots-from-factors"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The solutions to the equation $(4x - 3)(2x + 7) = 0$ are $x = r$ and $x = s$. What is the value of $rs$?",
     choices: [
-      // distractor: equivalent value but unsimplified
-      { id: 'A', text: '$-\\frac{20}{6}$' },
-      // distractor: sign error
-      { id: 'B', text: '$\\frac{20}{6}$' },
-      { id: 'C', text: '$-\\frac{10}{3}$' },
-      // distractor: arbitrary
-      { id: 'D', text: '$-1$' },
+      // distractor: multiplies the constants $3$ and $-7$ as if the roots were $3$ and $-7$
+      { id: "A", text: "$-21$" },
+      // distractor: reports the SUM of the roots instead of their product
+      { id: "B", text: "$-\\dfrac{11}{4}$" },
+      { id: "C", text: "$-\\dfrac{21}{8}$" },
+      // distractor: drops the negative sign from the product
+      { id: "D", text: "$\\dfrac{21}{8}$" }
     ],
-    correctAnswer: 'C',
-    explanation: "**SAT Pattern: Product of Roots from Factors**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The roots are $\\frac{5}{2}$ and $-\\frac{4}{3}$. Their product is $\\frac{5}{2}\\cdot\\left(-\\frac{4}{3}\\right)=-\\frac{20}{6}=-\\frac{10}{3}$, which is choice C.\n\n**The Full Solution:**\nStep 1: Set each factor to zero: $2x-5=0 \\Rightarrow x=\\frac{5}{2}$ and $3x+4=0 \\Rightarrow x=-\\frac{4}{3}$.\nStep 2: Multiply: $\\frac{5}{2}\\cdot\\left(-\\frac{4}{3}\\right)=-\\frac{20}{6}=-\\frac{10}{3}$.\nCheck with Vieta's: expanding gives $(2x-5)(3x+4)=6x^2-7x-20$, and the product of roots is $\\frac{c}{a}=\\frac{-20}{6}=-\\frac{10}{3}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{20}{6}$): numerically equal but unsimplified; the SAT lists the reduced form.\n* Choice B ($\\frac{20}{6}$): drops the negative sign.\n* Choice D ($-1$): not a valid product of these roots.\n\n**Test Day Takeaway:** The product of the roots of $ax^2+bx+c$ is $\\frac{c}{a}$. Always reduce the fraction to lowest terms before matching a choice.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Product of Roots from Factors**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The roots are $\\dfrac{3}{4}$ and $-\\dfrac{7}{2}$, so $rs = \\dfrac{3}{4} \\cdot \\left(-\\dfrac{7}{2}\\right) = -\\dfrac{21}{8}$.\n\n**The Full Solution:**\nStep 1: Set each factor to zero: $4x - 3 = 0$ gives $x = \\dfrac{3}{4}$, and $2x + 7 = 0$ gives $x = -\\dfrac{7}{2}$.\nStep 2: Multiply the two roots: $\\dfrac{3}{4} \\cdot \\left(-\\dfrac{7}{2}\\right) = -\\dfrac{21}{8}$.\nStep 3: Confirm with the expanded equation. $(4x - 3)(2x + 7) = 8x^2 + 22x - 21$, and the product of the roots of $ax^2 + bx + c = 0$ is $\\dfrac{c}{a} = \\dfrac{-21}{8}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-21$): multiplies the constants $3$ and $-7$ straight from the parentheses, ignoring the coefficients $4$ and $2$.\n* Choice B ($-\\dfrac{11}{4}$): this is $\\dfrac{3}{4} + \\left(-\\dfrac{7}{2}\\right)$, the sum of the roots, not the product.\n* Choice D ($\\dfrac{21}{8}$): loses the negative sign, which would require both roots to have the same sign.\n\n**Test Day Takeaway:** Solve each factor for its own root before combining. Alternatively, expand once and read $\\dfrac{c}{a}$ for the product and $-\\dfrac{b}{a}$ for the sum.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'root-product',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "root-product",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-017',
-    domain: 'advanced-math',
-    skills: ['roots-from-factors'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'If one factor of $6x^2 - x - 12$ is $(2x - 3)$, what is the other factor and the sum of the roots?',
+    id: "bank-am-017",
+    domain: "advanced-math",
+    skills: ["roots-from-factors"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "The expression $10x^2 + 11x - 6$ can be written as the product of two binomials, one of which is $(5x - 2)$. What is the other binomial factor, and what is the sum of the solutions to $10x^2 + 11x - 6 = 0$?",
     choices: [
-      { id: 'A', text: '$(3x + 4)$; sum $= \\frac{1}{6}$' },
-      // distractor: wrong factor + wrong sum
-      { id: 'B', text: '$(3x - 4)$; sum $= \\frac{17}{6}$' },
-      // distractor: right factor, wrong sum sign
-      { id: 'C', text: '$(3x + 4)$; sum $= -\\frac{1}{6}$' },
-      // distractor: wrong factor with right-looking sum
-      { id: 'D', text: '$(3x - 4)$; sum $= \\frac{1}{6}$' },
+      { id: "A", text: "$(2x + 3)$ and $-\\dfrac{11}{10}$" },
+      // distractor: flips the sign inside the second factor, which changes the constant term to $+6$
+      { id: "B", text: "$(2x - 3)$ and $-\\dfrac{11}{10}$" },
+      // distractor: drops the negative sign in $-\frac{b}{a}$
+      { id: "C", text: "$(2x + 3)$ and $\\dfrac{11}{10}$" },
+      // distractor: reports $\frac{c}{a}$, the product of the roots, instead of the sum
+      { id: "D", text: "$(2x + 3)$ and $-\\dfrac{3}{5}$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Factor Division + Vieta's**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The other factor of $6x^2-x-12$ must start with $3x$ (to make $6x^2$) and end with $+4$ (since $-3\\cdot 4=-12$): that is $(3x+4)$. By Vieta's, the sum of roots is $-\\frac{b}{a}=-\\frac{-1}{6}=\\frac{1}{6}$. That is choice A.\n\n**The Full Solution:**\nStep 1: Divide $6x^2-x-12$ by $(2x-3)$. The other factor is $(3x+4)$; verify: $(2x-3)(3x+4)=6x^2+8x-9x-12=6x^2-x-12$. $\\checkmark$\nStep 2: Roots: $2x-3=0 \\Rightarrow x=\\frac{3}{2}$ and $3x+4=0 \\Rightarrow x=-\\frac{4}{3}$.\nStep 3: Sum: $\\frac{3}{2}+\\left(-\\frac{4}{3}\\right)=\\frac{9}{6}-\\frac{8}{6}=\\frac{1}{6}$. This matches Vieta's $-\\frac{b}{a}=\\frac{1}{6}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($(3x-4)$; sum $=\\frac{17}{6}$): wrong factor sign and an incorrect sum.\n* Choice C ($(3x+4)$; sum $=-\\frac{1}{6}$): correct factor but flips the sign of the sum.\n* Choice D ($(3x-4)$; sum $=\\frac{1}{6}$): $(2x-3)(3x-4)=6x^2-17x+12$, not the original polynomial.\n\n**Test Day Takeaway:** Match leading and constant terms to find a missing factor, then use Vieta's: sum of roots $=-\\frac{b}{a}$, product $=\\frac{c}{a}$.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Factor Division + Vieta's**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The leading terms force $5x \\cdot 2x = 10x^2$ and the constants force $(-2)(3) = -6$, so the other factor is $(2x + 3)$. The sum of the roots is $-\\dfrac{b}{a} = -\\dfrac{11}{10}$.\n\n**The Full Solution:**\nStep 1: Write $10x^2 + 11x - 6 = (5x - 2)(px + q)$. Matching the $x^2$ terms gives $5p = 10$, so $p = 2$; matching the constants gives $-2q = -6$, so $q = 3$.\nStep 2: Check the middle term: $(5x - 2)(2x + 3) = 10x^2 + 15x - 4x - 6 = 10x^2 + 11x - 6$. $\\checkmark$\nStep 3: The roots are $x = \\dfrac{2}{5}$ and $x = -\\dfrac{3}{2}$, and their sum is $\\dfrac{4}{10} - \\dfrac{15}{10} = -\\dfrac{11}{10}$, which matches $-\\dfrac{b}{a} = -\\dfrac{11}{10}$.\n\n**Why the wrong answers are tempting:**\n* Choice B: with $(2x - 3)$ the constant term would be $(-2)(-3) = +6$, not $-6$.\n* Choice C: the factor is right, but the sum of the roots is $-\\dfrac{b}{a}$, and $b = 11$ is positive, so the sum is negative.\n* Choice D ($-\\dfrac{3}{5}$): this is $\\dfrac{c}{a} = \\dfrac{-6}{10}$, the product of the roots, not the sum.\n\n**Test Day Takeaway:** Recover a missing factor by matching the leading and constant terms, then verify with the middle term. For the sum of the roots, $-\\dfrac{b}{a}$ beats solving.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'factor-division-vieta',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "factor-division-vieta",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
 
   // ── vertex-formula (5 questions) ──────────────────────────────────
   {
-    id: 'bank-am-018',
-    domain: 'advanced-math',
-    skills: ['vertex-formula'],
-    difficulty: 'easy',
-    type: 'fill-in',
-    question: 'What is the $x$-coordinate of the vertex of $y = x^2 - 10x + 21$?',
-    correctAnswer: '5',
-    explanation: "**SAT Pattern: Vertex x-coordinate Formula**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~10s):** The vertex $x$-coordinate is $-\\frac{b}{2a}=-\\frac{-10}{2(1)}=5$.\n\n**The Full Solution:**\nStep 1: For $y=ax^2+bx+c$, the axis of symmetry (vertex $x$-coordinate) is $-\\frac{b}{2a}$. Here $a=1$, $b=-10$.\nStep 2: $x=-\\frac{-10}{2(1)}=\\frac{10}{2}=5$.\nCheck: factoring gives $(x-3)(x-7)$, so the roots are $3$ and $7$; the vertex sits at their midpoint $\\frac{3+7}{2}=5$. $\\checkmark$\n\n**Common Mistakes:** Forgetting the leading negative and getting $-5$; dividing by $a$ instead of $2a$; reporting the constant $c=21$.\n\n**Test Day Takeaway:** The vertex $x$-coordinate is $-\\frac{b}{2a}$, which equals the average of the two roots when they exist.",
+    id: "bank-am-018",
+    domain: "advanced-math",
+    skills: ["vertex-formula"],
+    difficulty: "easy",
+    type: "fill-in",
+    question: "In the $xy$-plane, the graph of $y = x^2 - 16x + 55$ is a parabola. What is the $x$-coordinate of the vertex of this parabola?",
+    correctAnswer: "8",
+    explanation: "**SAT Pattern: Vertex x-coordinate Formula**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~10s):** $x = -\\dfrac{b}{2a} = -\\dfrac{-16}{2(1)} = 8$.\n\n**The Full Solution:**\nStep 1: Read the coefficients from $y = ax^2 + bx + c$: $a = 1$, $b = -16$, $c = 55$.\nStep 2: The vertex of a parabola lies on its axis of symmetry, $x = -\\dfrac{b}{2a}$.\nStep 3: $x = -\\dfrac{-16}{2(1)} = \\dfrac{16}{2} = 8$. Check with symmetry: $y(7) = 49 - 112 + 55 = -8$ and $y(9) = 81 - 144 + 55 = -8$, equal values on either side of $x = 8$. $\\checkmark$\n\n**Common Mistakes:** Reporting $-8$ by using $\\dfrac{b}{2a}$ and forgetting the leading negative sign. Reporting $16$ or $-16$ by stopping at $b$ without dividing by $2a$.\n\n**Test Day Takeaway:** The axis of symmetry is $x = -\\dfrac{b}{2a}$; the minus sign is part of the formula, so a negative $b$ produces a positive vertex.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-coordinate',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "vertex-coordinate",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-019',
-    domain: 'advanced-math',
-    skills: ['vertex-formula'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'What is the vertex of the parabola $y = x^2 + 6x + 5$?',
+    id: "bank-am-019",
+    domain: "advanced-math",
+    skills: ["vertex-formula"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "The table shows the value of the quadratic function $f$ at five values of $x$. In the $xy$-plane, what is the vertex of the graph of $y = f(x)$?",
+    diagram: { type: "dataTable", params: { headers: ["x", "f(x)"], rows: [["1", "0"], ["2", "-3"], ["3", "-4"], ["4", "-3"], ["5", "0"]] } },
     choices: [
-      { id: 'A', text: '$(-3, -4)$' },
-      // distractor: wrong sign on x
-      { id: 'B', text: '$(3, -4)$' },
-      // distractor: wrong sign on y
-      { id: 'C', text: '$(-3, 4)$' },
-      // distractor: uses b and c directly without computing
-      { id: 'D', text: '$(6, 5)$' },
+      // distractor: reports the first $x$-intercept listed in the table
+      { id: "A", text: "$(1, 0)$" },
+      { id: "B", text: "$(3, -4)$" },
+      // distractor: reverses the coordinates of the vertex
+      { id: "C", text: "$(-4, 3)$" },
+      // distractor: reports the other $x$-intercept, the largest $x$ in the table
+      { id: "D", text: "$(5, 0)$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Vertex Coordinates**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $x=-\\frac{b}{2a}=-\\frac{6}{2}=-3$, then $y=(-3)^2+6(-3)+5=-4$. Vertex $(-3,-4)$ is choice A.\n\n**The Full Solution:**\nStep 1: $x$-coordinate: $-\\frac{b}{2a}=-\\frac{6}{2(1)}=-3$.\nStep 2: $y$-coordinate: substitute $x=-3$: $y=(-3)^2+6(-3)+5=9-18+5=-4$.\nStep 3: Vertex is $(-3,-4)$.\nCheck by completing the square: $y=(x+3)^2-9+5=(x+3)^2-4$, vertex $(-3,-4)$. $\\checkmark$\n\n```seva-figure\n{\"type\":\"parabola\",\"params\":{\"vertex\":{\"h\":-3,\"k\":-4},\"a\":1,\"xRange\":[-8,2],\"yRange\":[-6,6]},\"caption\":\"$y = x^2 + 6x + 5$ bottoms out at the vertex $(-3, -4)$.\"}\n```\n\n**Why the wrong answers are tempting:**\n* Choice B ($(3,-4)$): wrong sign on the $x$-coordinate.\n* Choice C ($(-3,4)$): wrong sign on the $y$-coordinate.\n* Choice D ($(6,5)$): grabs $b$ and $c$ as coordinates without computing.\n\n**Test Day Takeaway:** Compute the vertex $x=-\\frac{b}{2a}$ first, then substitute back into the original equation for $y$. Never read the vertex straight off the coefficients.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Vertex Coordinates**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The outputs fall to $-4$ at $x = 3$ and rise again symmetrically, so the vertex is $(3, -4)$.\n\n**The Full Solution:**\nStep 1: A quadratic function is symmetric about the vertical line through its vertex. In the table, $f(2) = f(4) = -3$ and $f(1) = f(5) = 0$, so the axis of symmetry is halfway between each pair: $x = 3$.\nStep 2: The vertex sits on that axis, so its $x$-coordinate is $3$ and its $y$-coordinate is $f(3) = -4$.\nStep 3: The vertex is $(3, -4)$, and because the outputs are larger on both sides of $x = 3$, it is a minimum. Check: the values $0, -3, -4, -3, 0$ mirror across the middle entry. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(1, 0)$): this is where the graph crosses the $x$-axis, not where it turns.\n* Choice C ($(-4, 3)$): the two vertex coordinates are swapped and one sign is carried along with them.\n* Choice D ($(5, 0)$): the other $x$-intercept — the last row of the table, not the middle one.\n\n**Test Day Takeaway:** In a table of a quadratic, the vertex is the row where the outputs stop falling and start rising; matched outputs on either side confirm the axis of symmetry.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-coordinate',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "vertex-coordinate",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-020',
-    domain: 'advanced-math',
-    skills: ['vertex-formula'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'A fireworks shell\'s height in feet is $h(t) = -16t^2 + 128t + 4$. At what time does the shell reach its maximum height?',
+    id: "bank-am-020",
+    domain: "advanced-math",
+    skills: ["vertex-formula"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The height, in feet, of a model rocket $t$ seconds after launch is $h(t) = -16t^2 + 96t + 5$. The table gives the rocket's height at four times. At what time, in seconds, does the rocket reach its greatest height?",
+    diagram: { type: "dataTable", params: { headers: ["Time t (seconds)", "Height h(t) (feet)"], rows: [["1", "85"], ["2", "133"], ["4", "133"], ["5", "85"]] } },
     choices: [
-      // distractor: half of correct
-      { id: 'A', text: '2 seconds' },
-      { id: 'B', text: '4 seconds' },
-      // distractor: divides 128 by 16 instead of 32
-      { id: 'C', text: '8 seconds' },
-      // distractor: uses 128/8 or similar wrong factor
-      { id: 'D', text: '16 seconds' },
+      // distractor: picks the earlier of the two tied rows instead of the midpoint
+      { id: "A", text: "$2$" },
+      { id: "B", text: "$3$" },
+      // distractor: picks the later of the two tied rows instead of the midpoint
+      { id: "C", text: "$4$" },
+      // distractor: computes $-\frac{b}{a} = \frac{96}{16}$, dropping the $2$
+      { id: "D", text: "$6$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Vertex Time for Projectile Motion**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Max height is at the vertex: $t=-\\frac{b}{2a}=-\\frac{128}{2(-16)}=\\frac{128}{32}=4$ seconds. That is choice B.\n\n**The Full Solution:**\nStep 1: The height is a downward parabola, so the maximum is at the vertex with $t=-\\frac{b}{2a}$.\nStep 2: With $a=-16$ and $b=128$: $t=-\\frac{128}{2(-16)}=-\\frac{128}{-32}=4$ seconds.\nCheck: $h(4)=-16(16)+128(4)+4=260$ ft, while $h(3)=244$ and $h(5)=244$, both lower. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (2 seconds): half the correct value — a misplaced factor of $2$.\n* Choice C (8 seconds): divides $128$ by $16$ instead of by $32$.\n* Choice D (16 seconds): uses the wrong divisor entirely.\n\n**Test Day Takeaway:** For $h(t)=-16t^2+v_0 t+h_0$, the time of maximum height is $t=-\\frac{b}{2a}=\\frac{v_0}{32}$.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Vertex Time for Projectile Motion**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $t = -\\dfrac{b}{2a} = -\\dfrac{96}{2(-16)} = 3$ seconds — also the midpoint of the tied heights at $t = 2$ and $t = 4$.\n\n**The Full Solution:**\nStep 1: The model is quadratic with $a = -16 < 0$, so the graph is a downward parabola and the greatest height occurs at the vertex.\nStep 2: The vertex time is $t = -\\dfrac{b}{2a} = -\\dfrac{96}{-32} = 3$ seconds.\nStep 3: The table confirms it: $h(2) = h(4) = 133$ feet, and equal heights sit at equal distances from the axis of symmetry, so the axis is at $t = \\dfrac{2 + 4}{2} = 3$. Check: $h(3) = -144 + 288 + 5 = 149 > 133$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): the greatest height IN THE TABLE is tied at $t = 2$ and $t = 4$; picking the first of them misses the true peak between them.\n* Choice C ($4$): same trap from the other end of the tie.\n* Choice D ($6$): uses $\\dfrac{96}{16}$, forgetting the $2$ in $-\\dfrac{b}{2a}$ — that is when the rocket returns near its launch height, not its peak.\n\n**Test Day Takeaway:** Two equal outputs bracket the vertex; the vertex time is their average, which must agree with $-\\dfrac{b}{2a}$.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-application',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "vertex-application",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-021',
-    domain: 'advanced-math',
-    skills: ['vertex-formula'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'A toy company models its monthly profit as $P(x) = -2x^2 + 40x - 150$, where $x$ is the number of toys produced in hundreds. What is the maximum profit in dollars?',
-    correctAnswer: '50',
-    explanation: "**SAT Pattern: Max Profit via Vertex**\n\n**The correct answer is $50$.**\n\n**The Fast Way (~20s):** Vertex at $x=-\\frac{b}{2a}=-\\frac{40}{2(-2)}=10$, then $P(10)=-2(100)+400-150=50$.\n\n**The Full Solution:**\nStep 1: Maximum profit is the $y$-value at the vertex of this downward parabola. $x$-coordinate: $-\\frac{b}{2a}=-\\frac{40}{-4}=10$.\nStep 2: Substitute: $P(10)=-2(10)^2+40(10)-150=-200+400-150=50$.\nCheck by completing the square: $P(x)=-2(x-10)^2+50$, so the maximum is $50$ at $x=10$. $\\checkmark$\n\n**Common Mistakes:** Reporting $10$ (the $x$-value, not the profit); mishandling the $-150$ at the end; evaluating $P$ at the wrong $x$.\n\n**Test Day Takeaway:** For max/min profit, find $x=-\\frac{b}{2a}$, then substitute back. The $y$-value at the vertex IS the maximum (or minimum) profit.",
+    id: "bank-am-021",
+    domain: "advanced-math",
+    skills: ["vertex-formula"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "A workshop's weekly profit, in dollars, is modeled by $P(n) = -3n^2 + 72n - 180$, where $n$ is the number of chairs built that week. What is the greatest weekly profit, in dollars, this model predicts?",
+    correctAnswer: "252",
+    explanation: "**SAT Pattern: Max Profit via Vertex**\n\n**The correct answer is $252$.**\n\n**The Fast Way (~25s):** The peak is at $n = -\\dfrac{72}{2(-3)} = 12$, and $P(12) = -432 + 864 - 180 = 252$ dollars.\n\n**The Full Solution:**\nStep 1: The leading coefficient $-3$ is negative, so the parabola opens downward and the vertex gives the greatest profit.\nStep 2: The vertex input is $n = -\\dfrac{b}{2a} = -\\dfrac{72}{-6} = 12$ chairs.\nStep 3: Evaluate: $P(12) = -3(144) + 72(12) - 180 = -432 + 864 - 180 = 252$. Check a neighbor: $P(11) = -363 + 792 - 180 = 249 < 252$. $\\checkmark$\n\n**Common Mistakes:** Reporting $12$, the number of chairs at which the maximum occurs, instead of the profit itself. Losing the sign in $-\\frac{b}{2a}$ and evaluating $P(-12) = -432 - 864 - 180 = -1{,}476$.\n\n**Test Day Takeaway:** \"How much\" wants the vertex's OUTPUT, so finding $-\\dfrac{b}{2a}$ is only half the work — substitute it back in.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-application',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "vertex-application",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-022',
-    domain: 'advanced-math',
-    skills: ['vertex-formula'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'The parabola $y = 3x^2 + bx + 27$ has its vertex on the $x$-axis. Which could be a value of $b$?',
+    id: "bank-am-022",
+    domain: "advanced-math",
+    skills: ["vertex-formula"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "In the $xy$-plane, the vertex of the graph of $y = 2x^2 + bx + 50$ lies on the $x$-axis, where $b$ is a constant. Which of the following could be the value of $b$?",
     choices: [
-      { id: 'A', text: '$-18$' },
-      // distractor: random value, not from discriminant
-      { id: 'B', text: '$9$' },
-      // distractor: uses c = -27 as b
-      { id: 'C', text: '$-27$' },
-      // distractor: random value
-      { id: 'D', text: '$12$' },
+      // distractor: sets the vertex's $x$-coordinate to zero instead of its $y$-coordinate
+      { id: "A", text: "$0$" },
+      // distractor: uses $b^2 = ac$, dropping the factor of $4$
+      { id: "B", text: "$10$" },
+      { id: "C", text: "$20$" },
+      // distractor: finds $4ac = 400$ but never takes the square root
+      { id: "D", text: "$400$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Vertex Constraint via Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** A vertex on the $x$-axis means a double root, so the discriminant is $0$: $b^2-4(3)(27)=0 \\Rightarrow b^2=324 \\Rightarrow b=\\pm 18$. Choice A ($-18$) is one valid value.\n\n**The Full Solution:**\nStep 1: The vertex lies on the $x$-axis exactly when the parabola touches the axis at one point — a double root — which requires discriminant $=0$.\nStep 2: $b^2-4ac=0 \\Rightarrow b^2-4(3)(27)=0 \\Rightarrow b^2-324=0 \\Rightarrow b^2=324 \\Rightarrow b=\\pm 18$.\nStep 3: Of the choices, $b=-18$ works.\nCheck: at $b=-18$, $y=3x^2-18x+27=3(x-3)^2$, vertex $(3,0)$ on the $x$-axis. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($9$): does not satisfy $b^2=324$.\n* Choice C ($-27$): grabs the constant $27$ as $b$.\n* Choice D ($12$): does not make the discriminant zero.\n\n**Test Day Takeaway:** Vertex on the $x$-axis $\\Leftrightarrow$ double root $\\Leftrightarrow$ discriminant $=0$. Solve $b^2=4ac$ for the parameter.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Vertex Constraint via Discriminant**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** A vertex on the $x$-axis means one repeated root, so $b^2 - 4ac = 0$: $b^2 = 4(2)(50) = 400$ and $b = 20$ (or $-20$).\n\n**The Full Solution:**\nStep 1: The vertex lies on the $x$-axis exactly when the parabola touches the axis at a single point, so $2x^2 + bx + 50 = 0$ has exactly one real solution.\nStep 2: One real solution means the discriminant is zero: $b^2 - 4(2)(50) = 0$, so $b^2 = 400$.\nStep 3: Then $b = 20$ or $b = -20$; of these, $20$ appears among the choices. Check: $2x^2 + 20x + 50 = 2(x + 5)^2$, whose only zero is $x = -5$, and the vertex $(-5, 0)$ is on the $x$-axis. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): $b = 0$ puts the vertex ON the $y$-axis at $(0, 50)$, which is nowhere near the $x$-axis.\n* Choice B ($10$): comes from $b^2 = ac = 2(50) = 100$, which drops the $4$ in $b^2 = 4ac$.\n* Choice D ($400$): this is $4ac$ itself; the square root step is missing.\n\n**Test Day Takeaway:** \"Vertex on the $x$-axis\", \"exactly one solution\", and \"perfect square trinomial\" are three names for $b^2 - 4ac = 0$.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-constraint',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "vertex-constraint",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
 
   // ── vertex-form (4 questions) ─────────────────────────────────────
   {
-    id: 'bank-am-023',
-    domain: 'advanced-math',
-    skills: ['vertex-form'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'What is the vertex of $f(x) = (x - 3)^2 + 7$?',
+    id: "bank-am-023",
+    domain: "advanced-math",
+    skills: ["vertex-form"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "The function $g$ is defined by $g(x) = -4(x + 7)^2 + 11$. In the $xy$-plane, what is the vertex of the graph of $y = g(x)$?",
     choices: [
-      { id: 'A', text: '$(3, 7)$' },
-      // distractor: misreads (x - 3) as h = -3
-      { id: 'B', text: '$(-3, 7)$' },
-      // distractor: flips sign of k
-      { id: 'C', text: '$(3, -7)$' },
-      // distractor: flips both signs
-      { id: 'D', text: '$(-3, -7)$' },
+      { id: "A", text: "$(-7, 11)$" },
+      // distractor: flips the sign of $k$
+      { id: "B", text: "$(-7, -11)$" },
+      // distractor: reads $x + 7$ as $h = 7$ instead of $h = -7$
+      { id: "C", text: "$(7, 11)$" },
+      // distractor: reverses the two coordinates
+      { id: "D", text: "$(11, -7)$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Read Vertex Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Vertex form $a(x-h)^2+k$ has vertex $(h,k)$. Here $h=3$ and $k=7$, so the vertex is $(3,7)$ — choice A.\n\n**The Full Solution:**\nStep 1: In $f(x)=a(x-h)^2+k$, the vertex is $(h,k)$.\nStep 2: Matching $(x-3)^2+7$ gives $h=3$ and $k=7$, so the vertex is $(3,7)$.\nCheck: at $x=3$, $f(3)=0+7=7$, the minimum since $a=1>0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($(-3,7)$): reads $(x-3)$ as $h=-3$, flipping the sign.\n* Choice C ($(3,-7)$): flips the sign of $k$.\n* Choice D ($(-3,-7)$): flips the sign of both coordinates.\n\n**Test Day Takeaway:** In $a(x-h)^2+k$, $h$ is the OPPOSITE of the sign inside the parentheses: $(x-3)$ means $h=+3$; $(x+3)$ means $h=-3$.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Read Vertex Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Vertex form $a(x - h)^2 + k$ has vertex $(h, k)$. Here $x + 7 = x - (-7)$, so the vertex is $(-7, 11)$.\n\n**The Full Solution:**\nStep 1: Match $g(x) = -4(x + 7)^2 + 11$ to $a(x - h)^2 + k$. Rewrite $x + 7$ as $x - (-7)$, so $h = -7$ and $k = 11$.\nStep 2: The vertex is $(h, k) = (-7, 11)$.\nStep 3: Check: $g(-7) = -4(0)^2 + 11 = 11$, and since $a = -4 < 0$ every other input gives a smaller output, for example $g(-6) = -4 + 11 = 7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($(-7, -11)$): negates $k$; the $+11$ is added, not subtracted.\n* Choice C ($(7, 11)$): reads the $7$ straight out of $(x + 7)$ without flipping its sign.\n* Choice D ($(11, -7)$): swaps the coordinates, reporting the output first.\n\n**Test Day Takeaway:** In $a(x - h)^2 + k$ the $h$ flips sign and the $k$ does not — $(x + 7)$ means the vertex sits at $x = -7$.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'read-vertex-form',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "read-vertex-form",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-024',
-    domain: 'advanced-math',
-    skills: ['vertex-form'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Which function has vertex $(-2, 5)$ and passes through the point $(0, 13)$?',
+    id: "bank-am-024",
+    domain: "advanced-math",
+    skills: ["vertex-form"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The parabola shown in the $xy$-plane is the graph of the function $f$. Its vertex is $(2, -9)$, and it passes through the point $(5, 0)$. Which equation defines $f$?",
+    diagram: { type: "quadraticVertex", params: { vertex: [2, -9], a: 1, showPoints: [[5, 0], [-1, 0]], showVertex: true } },
     choices: [
-      { id: 'A', text: '$f(x) = 2(x + 2)^2 + 5$' },
-      // distractor: wrong sign inside parentheses
-      { id: 'B', text: '$f(x) = 2(x - 2)^2 + 5$' },
-      // distractor: a = 1 gives f(0) = 9 ≠ 13
-      { id: 'C', text: '$f(x) = (x + 2)^2 + 5$' },
-      // distractor: a = 3 gives f(0) = 17 ≠ 13
-      { id: 'D', text: '$f(x) = 3(x + 2)^2 + 5$' },
+      { id: "A", text: "$f(x) = (x - 2)^2 - 9$" },
+      // distractor: flips the sign of $h$, moving the vertex to $x = -2$
+      { id: "B", text: "$f(x) = (x + 2)^2 - 9$" },
+      // distractor: flips the sign of $k$, moving the vertex above the $x$-axis
+      { id: "C", text: "$f(x) = (x - 2)^2 + 9$" },
+      // distractor: divides $9$ by $5 - 2 = 3$ instead of by $(5 - 2)^2 = 9$
+      { id: "D", text: "$f(x) = 3(x - 2)^2 - 9$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Construct Vertex Form from Conditions**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Vertex $(-2,5)$ gives $f(x)=a(x+2)^2+5$. Plug in $(0,13)$: $4a+5=13 \\Rightarrow a=2$, so $f(x)=2(x+2)^2+5$ — choice A.\n\n**The Full Solution:**\nStep 1: Vertex $(-2,5)$ gives the form $f(x)=a(x-(-2))^2+5=a(x+2)^2+5$.\nStep 2: Use the point $(0,13)$ to find $a$: $f(0)=a(2)^2+5=4a+5=13 \\Rightarrow 4a=8 \\Rightarrow a=2$.\nStep 3: So $f(x)=2(x+2)^2+5$.\nCheck: $f(0)=2(4)+5=13$ and $f(-2)=0+5=5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($2(x-2)^2+5$): uses $(x-2)$, which puts the vertex at $(2,5)$, not $(-2,5)$.\n* Choice C ($(x+2)^2+5$): leaves $a=1$ unsolved; gives $f(0)=9\\neq 13$.\n* Choice D ($3(x+2)^2+5$): uses $a=3$; gives $f(0)=17\\neq 13$.\n\n**Test Day Takeaway:** The vertex sets $h$ and $k$; a second point pins down $a$. Build $a(x-h)^2+k$, solve for $a$, then verify with the point.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Construct Vertex Form from Conditions**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Vertex $(2, -9)$ gives $f(x) = a(x - 2)^2 - 9$. Substituting $(5, 0)$: $0 = 9a - 9$, so $a = 1$.\n\n**The Full Solution:**\nStep 1: Vertex form is $f(x) = a(x - h)^2 + k$ with vertex $(h, k)$. The graphed vertex is $(2, -9)$, so $f(x) = a(x - 2)^2 - 9$.\nStep 2: Use the second marked point to pin down $a$: $0 = a(5 - 2)^2 - 9 = 9a - 9$, so $a = 1$.\nStep 3: Therefore $f(x) = (x - 2)^2 - 9$. Check the other marked point: $f(-1) = (-3)^2 - 9 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: $(x + 2)^2$ places the vertex at $x = -2$, but the graph turns at $x = 2$.\n* Choice C: $+9$ raises the vertex to $(2, 9)$, a graph that never reaches the $x$-axis.\n* Choice D: solves $9 = a(5 - 2)$ instead of $9 = a(5 - 2)^2$, forgetting to square the horizontal difference.\n\n**Test Day Takeaway:** Read $h$ and $k$ from the vertex first, then force the curve through one more point — and remember to square the horizontal difference before dividing.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'construct-vertex-form',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "construct-vertex-form",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-025',
-    domain: 'advanced-math',
-    skills: ['vertex-form', 'converting-quadratic-forms'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Which of the following is equivalent to $y = x^2 - 8x + 19$ written in vertex form?',
+    id: "bank-am-025",
+    domain: "advanced-math",
+    skills: ["vertex-form", "converting-quadratic-forms"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The function $f$ is defined by $f(x) = x^2 + 12x + 41$. Which of the following equivalent forms of $f(x)$ displays the coordinates of the vertex of the graph of $y = f(x)$ as constants?",
     choices: [
-      { id: 'A', text: '$y = (x - 4)^2 + 3$' },
-      // distractor: subtracts instead of adds the remainder
-      { id: 'B', text: '$y = (x - 4)^2 - 3$' },
-      // distractor: wrong sign on h
-      { id: 'C', text: '$y = (x + 4)^2 + 3$' },
-      // distractor: doesn\'t complete the square at all
-      { id: 'D', text: '$y = (x - 8)^2 + 19$' },
+      { id: "A", text: "$(x + 6)^2 + 5$" },
+      // distractor: subtracts the leftover constant instead of adding it
+      { id: "B", text: "$(x + 6)^2 - 5$" },
+      // distractor: forgets to remove the $36$ that completing the square adds
+      { id: "C", text: "$(x + 6)^2 + 41$" },
+      // distractor: uses $b$ rather than $\frac{b}{2}$ inside the square
+      { id: "D", text: "$(x + 12)^2 + 41$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Complete the Square (Vertex Form)**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Half of $-8$ is $-4$, and $(-4)^2=16$, so $(x-4)^2=x^2-8x+16$. The original constant is $19$, which is $3$ more than $16$, so $y=(x-4)^2+3$.\n\n**The Full Solution:**\nStep 1: Complete the square on $y=x^2-8x+19$. Take half of the linear coefficient: $\\frac{-8}{2}=-4$, then square it: $(-4)^2=16$.\nStep 2: Add and subtract $16$: $y=(x^2-8x+16)+19-16=(x-4)^2+3$.\nStep 3: Confirm by expanding: $(x-4)^2+3=x^2-8x+16+3=x^2-8x+19$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($(x-4)^2-3$): subtracted the leftover $3$ instead of adding it.\n* Choice C ($(x+4)^2+3$): used $+4$ inside; the sign of $h$ is the opposite of the sign you'd guess from $-8x$.\n* Choice D ($(x-8)^2+19$): treated the coefficient $-8$ as $h$ directly and never completed the square.\n\n**Test Day Takeaway:** To convert $x^2+bx+c$ to vertex form, $h$ is half of $b$ (with the sign flipped inside the parentheses) and $k$ is $c$ minus the square you added back.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Complete the Square (Vertex Form)**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Half of $12$ is $6$, and $6^2 = 36$: $x^2 + 12x + 41 = (x + 6)^2 + (41 - 36) = (x + 6)^2 + 5$.\n\n**The Full Solution:**\nStep 1: To complete the square on $x^2 + 12x$, take half the coefficient of $x$: $\\dfrac{12}{2} = 6$, then square it: $36$.\nStep 2: Write $x^2 + 12x + 41 = (x^2 + 12x + 36) + 41 - 36$, since adding $36$ inside requires subtracting $36$ outside.\nStep 3: This is $(x + 6)^2 + 5$, so the vertex is $(-6, 5)$. Check by expanding: $(x + 6)^2 + 5 = x^2 + 12x + 36 + 5 = x^2 + 12x + 41$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: expands to $x^2 + 12x + 31$ — the leftover $41 - 36 = 5$ is added, not subtracted.\n* Choice C: expands to $x^2 + 12x + 77$; the $36$ introduced by the square was never compensated for.\n* Choice D: uses the full $12$ inside the parentheses, which expands to $x^2 + 24x + 185$.\n\n**Test Day Takeaway:** Completing the square adds $\\left(\\dfrac{b}{2}\\right)^2$ inside, so subtract the same amount outside — then expand once to confirm.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'complete-the-square',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "complete-the-square",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-026',
-    domain: 'advanced-math',
-    skills: ['vertex-form'],
-    difficulty: 'hard',
-    type: 'fill-in',
-    question: 'A cable hangs in the shape $y = 0.5(x - 6)^2 + 2$, where $y$ is the height in meters above the ground and $x$ is the horizontal distance in meters. What is the minimum height of the cable above the ground?',
-    correctAnswer: '2',
-    explanation: "**SAT Pattern: Read Minimum from Vertex Form**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~10s):** In vertex form $a(x-h)^2+k$ with $a>0$, the minimum height is just $k$. Here $k=2$.\n\n**The Full Solution:**\nStep 1: The equation $y=0.5(x-6)^2+2$ is already in vertex form $a(x-h)^2+k$ with $a=0.5>0$, so the parabola opens upward and the vertex is its lowest point.\nStep 2: The vertex is $(6,2)$, so the minimum height is $k=2$.\nStep 3: Confirm: the squared term $(x-6)^2$ is never negative, so $y$ is smallest when $(x-6)^2=0$ (at $x=6$), giving $y=2$. $\\checkmark$\n\n**Common Mistakes:** Reporting $6$ (the $x$-coordinate where the minimum occurs, not the height); reporting $0.5$ (the leading coefficient); reporting $0$ (the value of $(x-6)^2$ at the vertex, before adding $k$).\n\n**Test Day Takeaway:** For vertex form $a(x-h)^2+k$, the extreme height is $k$: a minimum when $a>0$, a maximum when $a<0$.",
+    id: "bank-am-026",
+    domain: "advanced-math",
+    skills: ["vertex-form"],
+    difficulty: "hard",
+    type: "fill-in",
+    question: "The function $h$ is defined by $h(x) = 3(x - 5)^2 + c$, where $c$ is a constant. The graph of $y = h(x)$ in the $xy$-plane passes through the point $(2, 40)$. What is the minimum value of $h$?",
+    correctAnswer: "13",
+    explanation: "**SAT Pattern: Read Minimum from Vertex Form**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~30s):** $40 = 3(2 - 5)^2 + c = 27 + c$, so $c = 13$; in vertex form the minimum value IS $c$.\n\n**The Full Solution:**\nStep 1: Substitute the given point into $h(x) = 3(x - 5)^2 + c$: $40 = 3(2 - 5)^2 + c$.\nStep 2: Simplify: $(2 - 5)^2 = 9$, so $40 = 27 + c$ and $c = 13$.\nStep 3: Since $3 > 0$, the squared term is never negative and is $0$ only at $x = 5$. The minimum value is therefore $h(5) = 0 + 13 = 13$. Check: $h(2) = 3(9) + 13 = 40$, as given. $\\checkmark$\n\n**Common Mistakes:** Reporting $5$, the input where the minimum occurs, instead of the minimum value. Reporting $40$, the output at the given point. Forgetting to square $(2 - 5)$ and solving $3(-3) + c = 40$, which gives $c = 49$.\n\n**Test Day Takeaway:** In $a(x - h)^2 + k$ with $a > 0$, the minimum value is $k$ — so a question about the minimum really asks for the constant term outside the square.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-form-interpretation',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "vertex-form-interpretation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
 
   // ── discriminant-analysis (5 questions) ───────────────────────────
   {
-    id: 'bank-am-027',
-    domain: 'advanced-math',
-    skills: ['discriminant-analysis'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'How many real solutions does $x^2 + 4x + 7 = 0$ have?',
+    id: "bank-am-027",
+    domain: "advanced-math",
+    skills: ["discriminant-analysis"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "The equation $2x^2 - 5x + 9 = 0$ is given. How many distinct real solutions does this equation have?",
     choices: [
-      { id: 'A', text: '0' },
-      // distractor: thinks discriminant = 0
-      { id: 'B', text: '1' },
-      // distractor: assumes quadratics always have 2 real roots
-      { id: 'C', text: '2' },
-      // distractor: confuses with identities (0 = 0)
-      { id: 'D', text: 'Infinitely many' },
+      { id: "A", text: "Zero" },
+      // distractor: the count for a discriminant of exactly $0$
+      { id: "B", text: "Exactly one" },
+      // distractor: the count for a positive discriminant
+      { id: "C", text: "Exactly two" },
+      // distractor: no quadratic equation with $a \neq 0$ has infinitely many solutions
+      { id: "D", text: "Infinitely many" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Count Real Solutions via Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The discriminant is $b^2-4ac=16-28=-12<0$, and a negative discriminant means $0$ real solutions.\n\n**The Full Solution:**\nStep 1: For $ax^2+bx+c=0$, the number of real solutions is set by the discriminant $\\Delta=b^2-4ac$: $\\Delta>0$ gives $2$, $\\Delta=0$ gives $1$, $\\Delta<0$ gives $0$.\nStep 2: Here $a=1$, $b=4$, $c=7$, so $\\Delta=4^2-4(1)(7)=16-28=-12$.\nStep 3: Since $\\Delta<0$, there are $0$ real solutions. Confirm by completing the square: $x^2+4x+7=(x+2)^2+3\\ge 3$, which is never $0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($1$): assumes $\\Delta=0$ (a repeated root) without computing it.\n* Choice C ($2$): assumes every quadratic has two real roots.\n* Choice D (Infinitely many): confuses a quadratic equation with an identity.\n\n**Test Day Takeaway:** The discriminant $b^2-4ac$ counts real solutions: positive gives $2$, zero gives $1$, negative gives $0$.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Count Real Solutions via Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $b^2 - 4ac = (-5)^2 - 4(2)(9) = 25 - 72 = -47 < 0$, so there are no real solutions.\n\n**The Full Solution:**\nStep 1: Identify $a = 2$, $b = -5$, $c = 9$.\nStep 2: Compute the discriminant: $b^2 - 4ac = 25 - 72 = -47$.\nStep 3: A negative discriminant means the quadratic formula would require the square root of a negative number, so the equation has zero real solutions. Check graphically: the parabola opens upward and its minimum value is $9 - \\dfrac{25}{8} > 0$, so it never touches the $x$-axis. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: exactly one real solution requires $b^2 - 4ac = 0$, but here it is $-47$.\n* Choice C: two real solutions requires a positive discriminant; a student who computes $25 + 72$ instead of $25 - 72$ lands here.\n* Choice D: a quadratic equation with $a \\neq 0$ has at most two solutions, never infinitely many.\n\n**Test Day Takeaway:** Compute $b^2 - 4ac$ and read its SIGN: negative means none, zero means one, positive means two.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'discriminant-count',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "discriminant-count",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-028',
-    domain: 'advanced-math',
-    skills: ['discriminant-analysis'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'The discriminant of $2x^2 - 8x + 8 = 0$ is:',
+    id: "bank-am-028",
+    domain: "advanced-math",
+    skills: ["discriminant-analysis"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "What is the value of the discriminant of the quadratic equation $3x^2 - 12x + 7 = 0$?",
     choices: [
-      { id: 'A', text: '0' },
-      // distractor: forgets to subtract 4ac
-      { id: 'B', text: '64' },
-      // distractor: sign error
-      { id: 'C', text: '$-64$' },
-      // distractor: adds 4ac instead of subtracting
-      { id: 'D', text: '128' },
+      { id: "A", text: "$60$" },
+      // distractor: omits the leading coefficient, computing $144 - 4(7)$
+      { id: "B", text: "$116$" },
+      // distractor: stops at $b^2$ and never subtracts $4ac$
+      { id: "C", text: "$144$" },
+      // distractor: adds $4ac$ instead of subtracting it
+      { id: "D", text: "$228$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Compute Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $b^2-4ac=(-8)^2-4(2)(8)=64-64=0$.\n\n**The Full Solution:**\nStep 1: For $ax^2+bx+c$, the discriminant is $\\Delta=b^2-4ac$. Here $a=2$, $b=-8$, $c=8$.\nStep 2: $\\Delta=(-8)^2-4(2)(8)=64-64=0$.\nStep 3: A discriminant of $0$ means a repeated root. Factor to confirm: $2x^2-8x+8=2(x-2)^2$, with double root $x=2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($64$): stopped at $b^2$ and never subtracted $4ac$.\n* Choice C ($-64$): kept only $-4ac$ and dropped the $b^2$ term.\n* Choice D ($128$): added $4ac$ instead of subtracting it ($64+64$).\n\n**Test Day Takeaway:** The discriminant is $b^2-4ac$. The sign of $b$ never matters because it gets squared; $\\Delta=0$ flags a perfect-square trinomial.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Compute Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $b^2 - 4ac = (-12)^2 - 4(3)(7) = 144 - 84 = 60$.\n\n**The Full Solution:**\nStep 1: Match the equation to $ax^2 + bx + c = 0$: $a = 3$, $b = -12$, $c = 7$.\nStep 2: Square $b$: $(-12)^2 = 144$. The square removes the negative sign.\nStep 3: Subtract $4ac$: $4(3)(7) = 84$, so the discriminant is $144 - 84 = 60$. Since $60 > 0$, the equation has two real solutions. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($116$): computes $144 - 4(7) = 116$, leaving the leading coefficient $3$ out of $4ac$.\n* Choice C ($144$): reports $b^2$ alone, skipping the $-4ac$ term entirely.\n* Choice D ($228$): computes $144 + 84$, treating the discriminant as a sum.\n\n**Test Day Takeaway:** The discriminant is $b^2 - 4ac$ — three numbers, one square, one product, one subtraction. Substitute all three coefficients, signs included.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'discriminant-compute',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "discriminant-compute",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-029',
-    domain: 'advanced-math',
-    skills: ['discriminant-analysis'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'For what value of $c$ does $x^2 - 6x + c = 0$ have exactly one real solution?',
+    id: "bank-am-029",
+    domain: "advanced-math",
+    skills: ["discriminant-analysis"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "In the equation $x^2 - 14x + c = 0$, $c$ is a constant. In the $xy$-plane, the graph of $y = x^2 - 14x + c$ intersects the $x$-axis at exactly one point. What is the value of $c$?",
     choices: [
-      // distractor: gives -b/2a = 3 (vertex x-coord, not c)
-      { id: 'A', text: '3' },
-      // distractor: gives b (or |b|) as c
-      { id: 'B', text: '6' },
-      { id: 'C', text: '9' },
-      // distractor: arbitrary
-      { id: 'D', text: '12' },
+      // distractor: reports $-\frac{b}{2} = 7$, the $x$-coordinate of the single intersection point
+      { id: "A", text: "$7$" },
+      // distractor: reports $|b|$ without using the discriminant
+      { id: "B", text: "$14$" },
+      { id: "C", text: "$49$" },
+      // distractor: sets $c = b^2$, dropping the factor of $4a$
+      { id: "D", text: "$196$" }
     ],
-    correctAnswer: 'C',
-    explanation: "**SAT Pattern: Parameter for Discriminant = 0**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Exactly one solution means $\\Delta=0$: $b^2-4ac=36-4c=0$, so $c=9$.\n\n**The Full Solution:**\nStep 1: A quadratic has exactly one real solution when its discriminant is $0$. For $x^2-6x+c$, $a=1$, $b=-6$.\nStep 2: $\\Delta=(-6)^2-4(1)(c)=36-4c$. Set it to $0$: $36-4c=0$.\nStep 3: Solve: $4c=36$, so $c=9$. Confirm: $x^2-6x+9=(x-3)^2=0$ has the double root $x=3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): this is the vertex $x$-coordinate $-\\frac{b}{2a}=3$, not the constant $c$.\n* Choice B ($6$): used $|b|$ as the answer instead of solving for $c$.\n* Choice D ($12$): does not satisfy $\\Delta=0$; it leaves $\\Delta=36-48<0$ (no real solutions).\n\n**Test Day Takeaway:** \"Exactly one solution\" means a repeated root, which means $\\Delta=0$. For $x^2+bx+c$, that forces $c=\\left(\\frac{b}{2}\\right)^2$.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Parameter for Discriminant = 0**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** One intersection point means one repeated root, so $b^2 - 4ac = 0$: $196 - 4c = 0$ and $c = 49$.\n\n**The Full Solution:**\nStep 1: The graph meets the $x$-axis where $y = 0$, so the number of intersection points equals the number of real solutions of $x^2 - 14x + c = 0$. Here $a = 1$ and $b = -14$.\nStep 2: One intersection point means one repeated real solution, which happens exactly when the discriminant is zero: $(-14)^2 - 4(1)c = 0$, so $196 - 4c = 0$.\nStep 3: Solve: $4c = 196$, so $c = 49$. Check: $x^2 - 14x + 49 = (x - 7)^2$, whose only zero is $x = 7$, so the graph touches the axis at the single point $(7, 0)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): $7$ is where the graph touches the axis, not the constant term that puts it there.\n* Choice B ($14$): copies the size of $b$ instead of using the discriminant.\n* Choice D ($196$): stops at $b^2$ and never divides by $4a$.\n\n**Test Day Takeaway:** A graph that touches the $x$-axis once is a perfect square, so with $a = 1$ the constant must be $\\left(\\dfrac{b}{2}\\right)^2$ — exactly what $b^2 - 4ac = 0$ gives.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'discriminant-parameter',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "discriminant-parameter",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-030',
-    domain: 'advanced-math',
-    skills: ['discriminant-analysis'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'The equation $3x^2 - mx + 12 = 0$ has no real solutions. Which of the following could be the value of $m$?',
+    id: "bank-am-030",
+    domain: "advanced-math",
+    skills: ["discriminant-analysis"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "In the equation $2x^2 + mx + 18 = 0$, $m$ is a constant. If the equation has no real solutions, which of the following could be the value of $m$?",
     choices: [
-      // distractor: boundary (gives Δ = 0, one root)
-      { id: 'A', text: '12' },
-      // distractor: outside the range
-      { id: 'B', text: '13' },
-      // distractor: boundary
-      { id: 'C', text: '$-12$' },
-      { id: 'D', text: '11' },
+      // distractor: $|-15| > 12$, so the discriminant is positive and there are two real solutions
+      { id: "A", text: "$-15$" },
+      // distractor: the boundary case: the discriminant is exactly $0$, giving one real solution
+      { id: "B", text: "$-12$" },
+      { id: "C", text: "$9$" },
+      // distractor: $13 > 12$, so the discriminant is positive
+      { id: "D", text: "$13$" }
     ],
-    correctAnswer: 'D',
-    explanation: "**SAT Pattern: Discriminant Inequality**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** No real solutions means $\\Delta<0$: $(-m)^2-4(3)(12)<0\\Rightarrow m^2<144\\Rightarrow -12<m<12$. Only $m=11$ lands strictly inside.\n\n**The Full Solution:**\nStep 1: A quadratic has no real solutions when $\\Delta<0$. For $3x^2-mx+12$, $a=3$, $b=-m$, $c=12$.\nStep 2: $\\Delta=(-m)^2-4(3)(12)=m^2-144<0$, so $m^2<144$, which means $-12<m<12$.\nStep 3: Test the choices: $12$ and $-12$ are the boundaries ($\\Delta=0$, one root), $13$ is outside, and $11$ is strictly inside. Confirm $m=11$: $\\Delta=121-144=-23<0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): the boundary, where $\\Delta=0$ gives exactly one real root, not zero.\n* Choice B ($13$): outside the range, where $\\Delta>0$ gives two real roots.\n* Choice C ($-12$): the other boundary, also $\\Delta=0$ with one root.\n\n**Test Day Takeaway:** A strict inequality $\\Delta<0$ means strictly inside the interval. Boundary values where $\\Delta=0$ give one root, so they fail \"no real solutions.\"",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Discriminant Inequality**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** No real solutions means $m^2 - 4(2)(18) < 0$, so $m^2 < 144$ and $-12 < m < 12$. Only $9$ lies strictly inside.\n\n**The Full Solution:**\nStep 1: With $a = 2$ and $c = 18$, the discriminant is $m^2 - 4(2)(18) = m^2 - 144$.\nStep 2: \"No real solutions\" means the discriminant is negative: $m^2 - 144 < 0$, so $m^2 < 144$.\nStep 3: Taking square roots gives $-12 < m < 12$. Of the choices, only $m = 9$ satisfies this. Check: with $m = 9$ the discriminant is $81 - 144 = -63 < 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-15$): $(-15)^2 = 225 > 144$, so the discriminant is $+81$ and there are two real solutions.\n* Choice B ($-12$): the discriminant is exactly $0$ — one repeated real solution, which the question excludes.\n* Choice D ($13$): $169 > 144$, again a positive discriminant.\n\n**Test Day Takeaway:** $m^2 < k$ becomes a two-sided band $-\\sqrt{k} < m < \\sqrt{k}$, and the endpoints belong to the \"exactly one solution\" case, not to \"none.\"",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'discriminant-inequality',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "discriminant-inequality",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-031',
-    domain: 'advanced-math',
-    skills: ['discriminant-analysis'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'The system $y = x^2 + 2$ and $y = 4x + k$ has exactly one solution. What is the value of $k$?',
+    id: "bank-am-031",
+    domain: "advanced-math",
+    skills: ["discriminant-analysis"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "In the $xy$-plane, the graphs of $y = x^2 - 6x + 14$ and $y = 2x + k$ meet at exactly one point, where $k$ is a constant. What is the value of $k$?",
     choices: [
-      { id: 'A', text: '$-2$' },
-      // distractor: sign error
-      { id: 'B', text: '$2$' },
-      // distractor: arbitrary
-      { id: 'C', text: '$-4$' },
-      // distractor: arbitrary
-      { id: 'D', text: '$4$' },
+      // distractor: solves $4k = -56$, dropping the $+64$ from $b^2$
+      { id: "A", text: "$-14$" },
+      { id: "B", text: "$-2$" },
+      // distractor: sign slip when solving $8 + 4k = 0$
+      { id: "C", text: "$2$" },
+      // distractor: copies the parabola's constant term
+      { id: "D", text: "$14$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Tangent Line to Parabola (Discriminant Method)**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Set the curves equal: $x^2+2=4x+k\\Rightarrow x^2-4x+(2-k)=0$. One solution means $\\Delta=0$: $16-4(2-k)=0\\Rightarrow k=-2$.\n\n**The Full Solution:**\nStep 1: Substitute $y=x^2+2$ into $y=4x+k$: $x^2+2=4x+k$.\nStep 2: Move everything to one side: $x^2-4x+(2-k)=0$.\nStep 3: The system has exactly one solution when this quadratic has a repeated root, so $\\Delta=0$: $(-4)^2-4(1)(2-k)=16-8+4k=8+4k=0$, giving $k=-2$.\nStep 4: Confirm at $k=-2$: $x^2-4x+4=(x-2)^2=0$, a single solution $x=2$. The line $y=4x-2$ is tangent at $(2,6)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): the right magnitude with the wrong sign, from a sign slip in $8+4k=0$.\n* Choice C ($-4$): does not give $\\Delta=0$; it leaves the line crossing the parabola twice.\n* Choice D ($4$): same crossing problem, far from the tangent value.\n\n**Test Day Takeaway:** A line meets a parabola in exactly one point when it is tangent. Substitute to get a single quadratic, then set $\\Delta=0$.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Tangent Line to Parabola (Discriminant Method)**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Setting the sides equal gives $x^2 - 8x + (14 - k) = 0$. One shared point means the discriminant is $0$: $64 - 4(14 - k) = 0$, so $k = -2$.\n\n**The Full Solution:**\nStep 1: At a shared point both equations give the same $y$, so $x^2 - 6x + 14 = 2x + k$.\nStep 2: Move everything to one side: $x^2 - 8x + (14 - k) = 0$. The two graphs meet exactly once when this quadratic has exactly one real solution.\nStep 3: Set the discriminant to zero: $(-8)^2 - 4(1)(14 - k) = 0$, so $64 - 56 + 4k = 0$ and $4k = -8$, giving $k = -2$. Check: $x^2 - 8x + 16 = (x - 4)^2 = 0$ has the single root $x = 4$, and both graphs pass through $(4, 6)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-14$): solves $4k = -56$, forgetting that $b^2 = 64$ also enters the discriminant.\n* Choice C ($2$): reaches $8 + 4k = 0$ but reports the positive value.\n* Choice D ($14$): grabs the parabola's constant term without forming the combined equation.\n\n**Test Day Takeaway:** Two graphs meeting exactly once collapse to one quadratic with a zero discriminant — combine first, then set $b^2 - 4ac = 0$.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'system-tangency',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "system-tangency",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
 
   // ── converting-quadratic-forms (4 questions) ──────────────────────
   {
-    id: 'bank-am-032',
-    domain: 'advanced-math',
-    skills: ['converting-quadratic-forms'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'Which is the expanded (standard) form of $y = (x + 5)^2 - 4$?',
+    id: "bank-am-032",
+    domain: "advanced-math",
+    skills: ["converting-quadratic-forms"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "In the $xy$-plane, the graph of $y = (x - 7)^2 + 4$ is a parabola. Which of the following equations, written in the form $y = ax^2 + bx + c$, defines the same parabola?",
     choices: [
-      { id: 'A', text: '$y = x^2 + 10x + 21$' },
-      // distractor: doesn\'t expand the square (uses 5x instead of 10x + 25)
-      { id: 'B', text: '$y = x^2 + 5x - 4$' },
-      // distractor: uses 25x as middle term (squares incorrectly)
-      { id: 'C', text: '$y = x^2 + 25x - 4$' },
-      // distractor: adds 4 instead of subtracting (25 + 4 = 29)
-      { id: 'D', text: '$y = x^2 + 10x + 29$' },
+      { id: "A", text: "$y = x^2 - 14x + 53$" },
+      // distractor: subtracts the $4$ instead of adding it
+      { id: "B", text: "$y = x^2 - 14x + 45$" },
+      // distractor: loses the negative sign on the middle term
+      { id: "C", text: "$y = x^2 + 14x + 53$" },
+      // distractor: squares term by term, treating $(x - 7)^2$ as $x^2 + 49$ with no middle term
+      { id: "D", text: "$y = x^2 + 53$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Vertex to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $(x+5)^2=x^2+10x+25$, then subtract $4$: $x^2+10x+21$.\n\n**The Full Solution:**\nStep 1: Expand the square with $(a+b)^2=a^2+2ab+b^2$: $(x+5)^2=x^2+2(5)x+25=x^2+10x+25$.\nStep 2: Subtract the $4$: $y=x^2+10x+25-4=x^2+10x+21$.\nStep 3: Confirm at $x=0$: the original gives $(0+5)^2-4=21$, and the standard form gives $21$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^2+5x-4$): used the middle term as $5x$ instead of $2\\cdot5x=10x$ and never expanded the $25$.\n* Choice C ($x^2+25x-4$): wrote $25$ as the middle coefficient instead of the constant.\n* Choice D ($x^2+10x+29$): added $4$ instead of subtracting it.\n\n**Test Day Takeaway:** In $(x+a)^2=x^2+2ax+a^2$, the middle term is $2a$, not $a$. Expand fully before combining with the outside constant.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Vertex to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $(x - 7)^2 = x^2 - 14x + 49$, and adding $4$ gives $x^2 - 14x + 53$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x - 7)^2 = (x - 7)(x - 7) = x^2 - 7x - 7x + 49 = x^2 - 14x + 49$.\nStep 2: Add the constant outside the square: $x^2 - 14x + 49 + 4 = x^2 - 14x + 53$.\nStep 3: Check at $x = 7$: the vertex form gives $0 + 4 = 4$, and the expanded form gives $49 - 98 + 53 = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: uses $49 - 4$; the $+4$ sits outside the square and is added.\n* Choice C: writes $+14x$, which would come from $(x + 7)^2$ and move the vertex to $x = -7$.\n* Choice D: squares each term separately, dropping the middle term $-14x$ entirely.\n\n**Test Day Takeaway:** $(x - h)^2$ always contributes three terms, not two — the middle term $-2hx$ is where expansions go wrong.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-to-standard',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "vertex-to-standard",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-033',
-    domain: 'advanced-math',
-    skills: ['converting-quadratic-forms'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'The function $f(x) = 2x^2 + 12x + 14$ can be written as $f(x) = 2(x + h)^2 + k$. What is $h + k$?',
+    id: "bank-am-033",
+    domain: "advanced-math",
+    skills: ["converting-quadratic-forms"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The expression $3x^2 - 30x + 82$ can be written in the form $3(x + h)^2 + k$, where $h$ and $k$ are constants. What is the value of $h + k$?",
     choices: [
-      // distractor: sign error
-      { id: 'A', text: '$1$' },
-      { id: 'B', text: '$-1$' },
-      // distractor: arbitrary
-      { id: 'C', text: '$5$' },
-      // distractor: sign error variant
-      { id: 'D', text: '$-5$' },
+      // distractor: halves $-30$ before factoring out the $3$, giving $h = -15$
+      { id: "A", text: "$-8$" },
+      { id: "B", text: "$2$" },
+      // distractor: reads $h = 5$ from $(x - 5)^2$ instead of $h = -5$ in $(x + h)^2$
+      { id: "C", text: "$12$" },
+      // distractor: subtracts $25$ instead of $3 \cdot 25 = 75$ when balancing
+      { id: "D", text: "$52$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Complete the Square with Leading Coefficient**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Factor out $2$: $2(x^2+6x)+14$. Half of $6$ is $3$ and $3^2=9$, so $2(x+3)^2+14-2(9)=2(x+3)^2-4$. Thus $h=3$, $k=-4$, and $h+k=-1$.\n\n**The Full Solution:**\nStep 1: Factor $2$ from the variable terms: $f(x)=2(x^2+6x)+14$.\nStep 2: Complete the square inside: half of $6$ is $3$, and $3^2=9$. Add and subtract $9$ inside, but balance with $2$ outside: $f(x)=2(x^2+6x+9)+14-2(9)=2(x+3)^2-4$.\nStep 3: Read off $h=3$ and $k=-4$, so $h+k=3+(-4)=-1$.\nStep 4: Confirm by expanding: $2(x+3)^2-4=2x^2+12x+18-4=2x^2+12x+14$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): forgot to multiply the offset by $2$ when balancing, landing on $k=-2$, so $h+k=3+(-2)=1$.\n* Choice C ($5$): kept $k$ positive at $+4$ instead of $-4$, so $h+k=3+(\\text{wrong})$ — a dropped negative sign on $k$.\n* Choice D ($-5$): combined a sign slip on $h$ (using $-3$ from the $(x+3)$ term) with the unbalanced $k=-2$, giving $-3+(-2)=-5$.\n\n**Test Day Takeaway:** With a leading coefficient $a\\neq1$, factor $a$ out first, complete the square inside the parentheses, and multiply the balancing term by $a$ when you bring it out.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Complete the Square with Leading Coefficient**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Factor: $3(x^2 - 10x) + 82 = 3(x - 5)^2 - 75 + 82 = 3(x - 5)^2 + 7$. So $h = -5$, $k = 7$, and $h + k = 2$.\n\n**The Full Solution:**\nStep 1: Factor $3$ out of the two $x$-terms only: $3x^2 - 30x + 82 = 3(x^2 - 10x) + 82$.\nStep 2: Complete the square inside: half of $-10$ is $-5$, and $(-5)^2 = 25$. Adding $25$ inside adds $3(25) = 75$ overall, so subtract $75$ outside: $3(x^2 - 10x + 25) - 75 + 82 = 3(x - 5)^2 + 7$.\nStep 3: Match to $3(x + h)^2 + k$: $x - 5 = x + (-5)$, so $h = -5$ and $k = 7$, giving $h + k = 2$. Check by expanding: $3(x - 5)^2 + 7 = 3x^2 - 30x + 75 + 7 = 3x^2 - 30x + 82$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): halves $-30$ directly to get $h = -15$ without first dividing by the $3$, then keeps $k = 7$.\n* Choice C ($12$): uses $h = 5$; but the target form is $(x + h)^2$, and $(x - 5)^2$ means $h = -5$.\n* Choice D ($52$): subtracts only $25$ instead of $3 \\cdot 25 = 75$, leaving $k = 57$.\n\n**Test Day Takeaway:** When a leading coefficient is factored out, whatever you add inside the parentheses is multiplied by that coefficient before you subtract it outside.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'complete-the-square',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "complete-the-square",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
-  { id: 'bank-am-034', domain: 'advanced-math', skills: ['converting-quadratic-forms'], difficulty: 'hard', type: 'multiple-choice',
-    question: 'In the $xy$-plane, the graph of $y = f(x)$ is a parabola with vertex $(2, 9)$. The parabola intersects the $x$-axis at $x = -1$ and $x = 5$. What is the value of $f(-3)$?',
-    choices: [{ id: 'A', text: '$-25$' }, { id: 'B', text: '$-16$' }, { id: 'C', text: '$0$' }, { id: 'D', text: '$9$' }],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Vertex Form from Vertex + Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** With vertex $(2,9)$, write $f(x)=a(x-2)^2+9$. Use $x=-1$: $9a+9=0\\Rightarrow a=-1$. Then $f(-3)=-(-5)^2+9=-25+9=-16$.\n\n**The Full Solution:**\nStep 1: Use the vertex to write $f(x)=a(x-2)^2+9$.\nStep 2: Plug in the $x$-intercept $x=-1$, where $f(-1)=0$: $a(-1-2)^2+9=9a+9=0$, so $a=-1$.\nStep 3: The function is $f(x)=-(x-2)^2+9$.\nStep 4: Evaluate at $x=-3$: $f(-3)=-(-3-2)^2+9=-(-5)^2+9=-25+9=-16$. Confirm with the other intercept: $f(5)=-(3)^2+9=0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-25$): computed $-(-5)^2=-25$ but forgot to add the $+9$ from the vertex.\n* Choice C ($0$): assumed $x=-3$ is an intercept; $f$ is zero only at $x=-1$ and $x=5$.\n* Choice D ($9$): reported the vertex value (the maximum) instead of the value at $x=-3$.\n\n**Test Day Takeaway:** Given a vertex and one more point, vertex form $a(x-h)^2+k$ gives $h$ and $k$ for free; solve for $a$ with the extra point, then evaluate.",
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'factored-to-standard', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   {
-    id: 'bank-am-035',
-    domain: 'advanced-math',
-    skills: ['converting-quadratic-forms'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'When $y = x^2 - 14x + 53$ is rewritten in vertex form $y = (x - h)^2 + k$, what is the value of $k$?',
-    correctAnswer: '4',
-    explanation: "**SAT Pattern: Standard to Vertex (k value)**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~15s):** Half of $-14$ is $-7$, and $(-7)^2=49$. Then $k=53-49=4$.\n\n**The Full Solution:**\nStep 1: Complete the square on $y=x^2-14x+53$. Half of $-14$ is $-7$; squaring gives $49$.\nStep 2: Add and subtract $49$: $y=(x^2-14x+49)+53-49=(x-7)^2+4$.\nStep 3: In $y=(x-h)^2+k$, this gives $h=7$ and $k=4$. Confirm: $(x-7)^2+4=x^2-14x+49+4=x^2-14x+53$. $\\checkmark$\n\n**Common Mistakes:** Reporting $7$ (the value of $h$, not $k$); reporting $-4$ (a sign slip on $53-49$); reporting $53$ (the original constant, never adjusted by the $49$).\n\n**Test Day Takeaway:** For $y=x^2+bx+c$, vertex form has $h=-\\frac{b}{2}$ and $k=c-h^2$. The constant shifts down by the square you complete.",
+    id: "bank-am-034",
+    domain: "advanced-math",
+    skills: ["converting-quadratic-forms"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "The parabola shown is the graph of the function $g$ in the $xy$-plane. Its vertex is $(1, 8)$, and its $x$-intercepts are $(-1, 0)$ and $(3, 0)$. What is the value of $g(-3)$?",
+    diagram: { type: "quadraticVertex", params: { vertex: [1, 8], a: -2, showPoints: [[-1, 0], [3, 0]], showVertex: true } },
+    choices: [
+      { id: "A", text: "$-24$" },
+      // distractor: evaluates at $x = 3$ instead of $x = -3$
+      { id: "B", text: "$0$" },
+      // distractor: forgets to square the horizontal difference
+      { id: "C", text: "$16$" },
+      // distractor: uses $a = 2$ instead of $a = -2$
+      { id: "D", text: "$40$" }
+    ],
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Vertex Form from Vertex + Intercepts**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** From the vertex, $g(x) = a(x - 1)^2 + 8$; the intercept $(3, 0)$ gives $4a + 8 = 0$, so $a = -2$. Then $g(-3) = -2(16) + 8 = -24$.\n\n**The Full Solution:**\nStep 1: Vertex $(1, 8)$ gives $g(x) = a(x - 1)^2 + 8$.\nStep 2: Substitute the intercept $(3, 0)$: $0 = a(3 - 1)^2 + 8 = 4a + 8$, so $a = -2$ and $g(x) = -2(x - 1)^2 + 8$.\nStep 3: Evaluate at $x = -3$: $g(-3) = -2(-3 - 1)^2 + 8 = -2(16) + 8 = -32 + 8 = -24$. Check the other intercept: $g(-1) = -2(4) + 8 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($0$): this is $g(3)$ — reading the intercept instead of evaluating at $x = -3$.\n* Choice C ($16$): computes $-2(-3 - 1) + 8$, skipping the square.\n* Choice D ($40$): uses $a = +2$, which contradicts a graph that opens downward.\n\n**Test Day Takeaway:** A vertex plus one more point determines a parabola completely. Solve for $a$ first, then substitute — and square the difference before multiplying.",
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: "factored-to-standard",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-12"
+  },
+  {
+    id: "bank-am-035",
+    domain: "advanced-math",
+    skills: ["converting-quadratic-forms"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "The equation $y = x^2 + 22x + 130$ is rewritten in the form $y = (x + h)^2 + k$, where $h$ and $k$ are constants. What is the value of $k$?",
+    correctAnswer: "9",
+    explanation: "**SAT Pattern: Standard to Vertex (k value)**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~20s):** Half of $22$ is $11$ and $11^2 = 121$, so $y = (x + 11)^2 + (130 - 121) = (x + 11)^2 + 9$.\n\n**The Full Solution:**\nStep 1: To complete the square on $x^2 + 22x$, take half the coefficient of $x$: $\\dfrac{22}{2} = 11$, then square it: $121$.\nStep 2: Rewrite: $x^2 + 22x + 130 = (x^2 + 22x + 121) + 130 - 121$.\nStep 3: This is $(x + 11)^2 + 9$, so $h = 11$ and $k = 9$. Check by expanding: $(x + 11)^2 + 9 = x^2 + 22x + 121 + 9 = x^2 + 22x + 130$. $\\checkmark$\n\n**Common Mistakes:** Reporting $11$, which is $h$, not $k$. Reporting $130$ by forgetting to subtract the $121$ that completing the square introduced. Reporting $-9$ by subtracting in the wrong order, $121 - 130$.\n\n**Test Day Takeaway:** After completing the square, $k$ is what is LEFT OVER from the original constant: $c - \\left(\\dfrac{b}{2}\\right)^2$.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'standard-to-vertex',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "standard-to-vertex",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
 
   // ── exponent-laws (5 questions) ───────────────────────────────────
   {
-    id: 'bank-am-036',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'Which expression is equivalent to $\\frac{x^8}{x^3}$?',
+    id: "bank-am-036",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "For $x > 0$, which of the following expressions is equivalent to $\\dfrac{x^{11}}{x^{4}}$?",
     choices: [
-      // distractor: adds instead of subtracting
-      { id: 'A', text: '$x^{11}$' },
-      { id: 'B', text: '$x^5$' },
-      // distractor: multiplies exponents
-      { id: 'C', text: '$x^{24}$' },
-      // distractor: divides exponents
-      { id: 'D', text: '$x^{8/3}$' },
+      // distractor: subtracts in the wrong order, $4 - 11$
+      { id: "A", text: "$x^{-7}$" },
+      { id: "B", text: "$x^{7}$" },
+      // distractor: adds the exponents instead of subtracting them
+      { id: "C", text: "$x^{15}$" },
+      // distractor: multiplies the exponents
+      { id: "D", text: "$x^{44}$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Quotient Rule of Exponents**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $\\frac{x^8}{x^3}=x^{8-3}=x^5$.\n\n**The Full Solution:**\nStep 1: The quotient rule says $\\frac{x^m}{x^n}=x^{m-n}$ for $x\\neq0$.\nStep 2: Subtract the exponents: $\\frac{x^8}{x^3}=x^{8-3}=x^5$.\nStep 3: Confirm by multiplying back: $x^5\\cdot x^3=x^{5+3}=x^8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{11}$): added the exponents ($8+3$) instead of subtracting.\n* Choice C ($x^{24}$): multiplied the exponents ($8\\cdot3$), which is the power-of-a-power rule, not division.\n* Choice D ($x^{8/3}$): divided the exponents instead of subtracting.\n\n**Test Day Takeaway:** Dividing like bases subtracts exponents, multiplying adds, and raising a power to a power multiplies. Match the operation to the rule.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Quotient Rule of Exponents**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Dividing powers of the same base subtracts exponents: $11 - 4 = 7$, so the quotient is $x^{7}$.\n\n**The Full Solution:**\nStep 1: The quotient rule says $\\dfrac{x^{m}}{x^{n}} = x^{m - n}$ for $x \\neq 0$.\nStep 2: Here $m = 11$ and $n = 4$, so the exponent is $11 - 4 = 7$.\nStep 3: The expression equals $x^{7}$. Check with $x = 2$: $\\dfrac{2^{11}}{2^{4}} = \\dfrac{2048}{16} = 128 = 2^{7}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{-7}$): subtracts the numerator's exponent from the denominator's, reversing the order.\n* Choice C ($x^{15}$): adds $11 + 4$, which is the rule for MULTIPLYING powers.\n* Choice D ($x^{44}$): multiplies $11 \\cdot 4$, which is the rule for a power raised to a power.\n\n**Test Day Takeaway:** Multiply powers, add exponents; divide powers, subtract exponents; raise a power to a power, multiply exponents. The operation on the bases is always one step gentler than the operation on the exponents.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponent-simplify',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "exponent-simplify",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-037',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'Which expression is equivalent to $(3a^2b)^3$?',
+    id: "bank-am-037",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "For all positive values of $a$ and $b$, which of the following expressions is equivalent to $(2a^{3}b)^{4}$?",
     choices: [
-      // distractor: 3² = 9 instead of 3³
-      { id: 'A', text: '$9a^6b^3$' },
-      { id: 'B', text: '$27a^6b^3$' },
-      // distractor: 2 + 3 instead of 2 × 3
-      { id: 'C', text: '$27a^5b^3$' },
-      // distractor: doesn\'t raise 3 to the power
-      { id: 'D', text: '$3a^6b^3$' },
+      // distractor: computes $2^{3}$ instead of $2^{4}$ for the coefficient
+      { id: "A", text: "$8a^{12}b^{4}$" },
+      // distractor: adds the exponents $3 + 4$ instead of multiplying them
+      { id: "B", text: "$16a^{7}b^{4}$" },
+      { id: "C", text: "$16a^{12}b^{4}$" },
+      // distractor: leaves $b$ unraised, forgetting that the outer exponent hits every factor
+      { id: "D", text: "$16a^{12}b$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Power of a Product**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Distribute the outer cube to every factor: $(3a^2b)^3 = 3^3 \\cdot a^{2 \\cdot 3} \\cdot b^3 = 27a^6b^3$.\n\n**The Full Solution:**\nStep 1: The power-of-a-product rule says $(xyz)^n = x^n y^n z^n$ — every factor inside gets the exponent.\nStep 2: Apply it: $(3a^2b)^3 = 3^3 \\cdot (a^2)^3 \\cdot b^3$.\nStep 3: Simplify each piece. $3^3 = 27$, and power-of-a-power multiplies exponents: $(a^2)^3 = a^6$. So the result is $27a^6b^3$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($9a^6b^3$): uses $3^2 = 9$ instead of $3^3 = 27$.\n* Choice C ($27a^5b^3$): adds the exponents on $a$ ($2 + 3 = 5$) instead of multiplying them.\n* Choice D ($3a^6b^3$): leaves the coefficient as $3$ — forgets to raise it to the third power at all.\n\n**Test Day Takeaway:** Every factor inside the parentheses takes the outside exponent, including the numerical coefficient. $(3 \\cdot \\ldots)^3$ means $3^3 = 27$, not just $3$.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Power of a Product**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Raise each factor to the fourth power: $2^{4} = 16$, $(a^{3})^{4} = a^{12}$, $b^{4} = b^{4}$.\n\n**The Full Solution:**\nStep 1: The power-of-a-product rule gives $(2a^{3}b)^{4} = 2^{4} \\cdot (a^{3})^{4} \\cdot b^{4}$.\nStep 2: Evaluate each piece: $2^{4} = 16$; $(a^{3})^{4} = a^{3 \\cdot 4} = a^{12}$; $b^{4}$ stays as is.\nStep 3: The product is $16a^{12}b^{4}$. Check with $a = b = 1$: the original is $2^{4} = 16$ and the answer is $16$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8a^{12}b^{4}$): raises the coefficient to the third power instead of the fourth.\n* Choice B ($16a^{7}b^{4}$): adds $3 + 4$; a power raised to a power multiplies exponents.\n* Choice D ($16a^{12}b$): never applies the outer exponent to $b$.\n\n**Test Day Takeaway:** An exponent outside parentheses lands on EVERY factor inside, including the numerical coefficient.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'power-of-product',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "power-of-product",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-038',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'What value of $n$ satisfies the equation $\\frac{(2^n)^4 \\cdot 2^3}{2^7} = 2^{12}$?',
+    id: "bank-am-038",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "In the equation $\\dfrac{(2^{n})^{3} \\cdot 2^{6}}{2^{3}} = 2^{21}$, what is the value of $n$?",
     choices: [
-      // distractor: solves 4n = 12 without other exponent terms
-      { id: 'A', text: '3' },
-      { id: 'B', text: '4' },
-      // distractor: arithmetic slip
-      { id: 'C', text: '5' },
-      // distractor: arithmetic slip
-      { id: 'D', text: '6' },
+      // distractor: adds the denominator's exponent instead of subtracting it
+      { id: "A", text: "$4$" },
+      { id: "B", text: "$6$" },
+      // distractor: drops the factor $2^{6}$ from the numerator
+      { id: "C", text: "$8$" },
+      // distractor: treats $(2^{n})^{3}$ as $2^{n + 3}$
+      { id: "D", text: "$15$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Exponent Equation (Combine then Solve)**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Collapse the left side to a single power of $2$: $\\frac{2^{4n} \\cdot 2^3}{2^7} = 2^{4n + 3 - 7} = 2^{4n - 4}$. Match exponents: $4n - 4 = 12 \\Rightarrow n = 4$.\n\n**The Full Solution:**\nStep 1: Power-of-a-power turns $(2^n)^4$ into $2^{4n}$.\nStep 2: Combine on one base. Multiplying adds exponents, dividing subtracts: $\\frac{2^{4n} \\cdot 2^3}{2^7} = 2^{4n + 3 - 7} = 2^{4n - 4}$.\nStep 3: Set the exponent equal to $12$: $4n - 4 = 12 \\Rightarrow 4n = 16 \\Rightarrow n = 4$.\n\nCheck: at $n = 4$, $\\frac{(2^4)^4 \\cdot 2^3}{2^7} = \\frac{2^{16} \\cdot 2^3}{2^7} = 2^{12}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): solves $4n = 12$ without folding in the $+3$ and $-7$ terms first.\n* Choice C ($5$): arithmetic slip after combining the exponents.\n* Choice D ($6$): arithmetic slip after combining the exponents.\n\n**Test Day Takeaway:** With a single base, the exponents form one linear equation. Combine every term first, then solve — don't equate a fragment.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Exponent Equation (Combine then Solve)**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The left side is $2^{3n + 6 - 3} = 2^{3n + 3}$, so $3n + 3 = 21$ and $n = 6$.\n\n**The Full Solution:**\nStep 1: A power raised to a power multiplies exponents: $(2^{n})^{3} = 2^{3n}$.\nStep 2: Multiplying adds exponents and dividing subtracts them: $\\dfrac{2^{3n} \\cdot 2^{6}}{2^{3}} = 2^{3n + 6 - 3} = 2^{3n + 3}$.\nStep 3: With the same base on both sides, the exponents must be equal: $3n + 3 = 21$, so $3n = 18$ and $n = 6$. Check: $\\dfrac{(2^{6})^{3} \\cdot 2^{6}}{2^{3}} = \\dfrac{2^{18} \\cdot 2^{6}}{2^{3}} = 2^{21}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): solves $3n + 6 + 3 = 21$, adding the denominator's exponent instead of subtracting it.\n* Choice C ($8$): solves $3n - 3 = 21$, ignoring the $\\cdot 2^{6}$ in the numerator.\n* Choice D ($15$): reads $(2^{n})^{3}$ as $2^{n + 3}$ and solves $n + 3 + 6 - 3 = 21$.\n\n**Test Day Takeaway:** Collapse the whole side to a single power of the common base first; only then set the exponents equal.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponent-equation',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
-  },
-  { id: 'bank-am-039', domain: 'advanced-math', skills: ['exponent-laws'], difficulty: 'medium', type: 'fill-in',
-    question: 'For all positive values of $x$, the equation $\\dfrac{x^{2a + 3}}{x^a} = x^{12}$ holds. What is the value of $a$?',
-    correctAnswer: '9',
-    explanation: "**SAT Pattern: Exponent Laws — Quotient Rule + Solve**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~10s):** Quotient rule: $\\frac{x^{2a + 3}}{x^a} = x^{(2a + 3) - a} = x^{a + 3}$. Set $a + 3 = 12 \\Rightarrow a = 9$.\n\n**The Full Solution:**\nStep 1: Dividing same-base powers subtracts exponents: $\\frac{x^m}{x^n} = x^{m - n}$. So $\\frac{x^{2a + 3}}{x^a} = x^{(2a + 3) - a} = x^{a + 3}$.\nStep 2: Because the equation holds for all $x > 0$, the exponents must match: $a + 3 = 12 \\Rightarrow a = 9$.\n\nCheck: $\\frac{x^{2(9) + 3}}{x^9} = \\frac{x^{21}}{x^9} = x^{12}$. $\\checkmark$\n\n**Common Mistakes:** Reporting $5$ (mis-reading the target exponent and solving $a + 3 = 8$); reporting $12$ (copying the target exponent straight into $a$); reporting $6$ (mis-applying the quotient rule).\n\n**Test Day Takeaway:** Dividing same-base powers subtracts the exponents: $\\frac{x^m}{x^n} = x^{m - n}$. The \"for all positive $x$\" clause is what lets you equate exponents on both sides.",
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'exponent-equation', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
-  { id: 'bank-am-040', domain: 'advanced-math', skills: ['exponent-laws'], difficulty: 'hard', type: 'multiple-choice',
-    question: 'For all positive values of $x$ and $y$, the equation $\\dfrac{12 x^a y^b}{4 x^{-1} y^3} = 3 x^6 y^{-5}$ is true, where $a$ and $b$ are constants. What is the value of $a + b$?',
-    choices: [{ id: 'A', text: '$-7$' }, { id: 'B', text: '$-2$' }, { id: 'C', text: '$3$' }, { id: 'D', text: '$5$' }],
-    correctAnswer: 'C',
-    explanation: "**SAT Pattern: Match Coefficients After Exponent Simplification**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Simplify the left side to $\\frac{12}{4} x^{a + 1} y^{b - 3} = 3 x^{a + 1} y^{b - 3}$. Match exponents with $3 x^6 y^{-5}$: $a + 1 = 6 \\Rightarrow a = 5$ and $b - 3 = -5 \\Rightarrow b = -2$. So $a + b = 5 + (-2) = 3$.\n\n**The Full Solution:**\nStep 1: Subtract exponents on each variable. $\\frac{x^a}{x^{-1}} = x^{a - (-1)} = x^{a + 1}$ and $\\frac{y^b}{y^3} = y^{b - 3}$. The coefficient is $\\frac{12}{4} = 3$. Left side: $3 x^{a + 1} y^{b - 3}$.\nStep 2: Match each piece to the right side $3 x^6 y^{-5}$: $a + 1 = 6 \\Rightarrow a = 5$ and $b - 3 = -5 \\Rightarrow b = -2$.\nStep 3: Add: $a + b = 5 + (-2) = 3$.\n\nCheck: with $a = 5$, $b = -2$: $\\frac{12 x^5 y^{-2}}{4 x^{-1} y^3} = 3 x^6 y^{-5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): sign-flips the $x$-exponent equation, solving $a + 1 = -6$ for $a = -7$.\n* Choice B ($-2$): reports $b$ alone, stopping after the $y$-exponent.\n* Choice D ($5$): reports $a$ alone, stopping after the $x$-exponent.\n\n**Test Day Takeaway:** When the equation is already simplified, reverse the exponent rules to get one equation per variable, then re-read what's asked — $a$, $b$, or $a + b$.",
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'simplify-exponent-quotient', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
-  {
-    id: 'bank-am-041',
-    domain: 'advanced-math',
-    skills: ['zero-negative-exponents'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'What is the value of $5^0 + 5^{-1}$?',
-    choices: [
-      { id: 'A', text: '$\\frac{6}{5}$' },
-      // distractor: assumes 5^0 = 0
-      { id: 'B', text: '$0$' },
-      // distractor: skips the 5^0 term
-      { id: 'C', text: '$\\frac{1}{5}$' },
-      // distractor: skips the 5^-1 term
-      { id: 'D', text: '$1$' },
-    ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Zero and Negative Exponent Evaluation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $5^0 = 1$ and $5^{-1} = \\frac{1}{5}$, so the sum is $1 + \\frac{1}{5} = \\frac{6}{5}$.\n\n**The Full Solution:**\nStep 1: Anything nonzero to the zero power is $1$: $5^0 = 1$.\nStep 2: A negative exponent is a reciprocal: $5^{-1} = \\frac{1}{5}$.\nStep 3: Add over a common denominator: $1 + \\frac{1}{5} = \\frac{5}{5} + \\frac{1}{5} = \\frac{6}{5}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($0$): assumes $5^0 = 0$ — the classic zero-exponent error.\n* Choice C ($\\frac{1}{5}$): drops the $5^0$ term and reports only $\\frac{1}{5}$.\n* Choice D ($1$): drops the $5^{-1}$ term and reports only $5^0$.\n\n**Test Day Takeaway:** $x^0 = 1$ for any $x \\neq 0$, and $x^{-1} = \\frac{1}{x}$. Both rules are tested constantly.",
-    calculatorAllowed: true,
-    tags: [],
-    sourceStyleRef: 'zero-neg-exponent-eval',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "exponent-equation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-042',
-    domain: 'advanced-math',
-    skills: ['zero-negative-exponents'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Which expression equals $\\frac{1}{x^4}$ for $x \\neq 0$?',
-    choices: [
-      // distractor: doesn\'t invert
-      { id: 'A', text: '$x^4$' },
-      { id: 'B', text: '$x^{-4}$' },
-      // distractor: confuses reciprocal with negation
-      { id: 'C', text: '$-x^4$' },
-      // distractor: confuses negative with fractional exponent
-      { id: 'D', text: '$x^{1/4}$' },
-    ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Reciprocal as Negative Exponent**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** A reciprocal flips the sign of the exponent: $\\frac{1}{x^n} = x^{-n}$, so $\\frac{1}{x^4} = x^{-4}$.\n\n**The Full Solution:**\nStep 1: By definition, $x^{-n} = \\frac{1}{x^n}$, which rearranges to $\\frac{1}{x^n} = x^{-n}$.\nStep 2: Apply it with $n = 4$: $\\frac{1}{x^4} = x^{-4}$.\n\nCheck: $x^{-4} \\cdot x^4 = x^0 = 1$, confirming the two are reciprocals. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^4$): doesn't invert at all — leaves the exponent positive.\n* Choice C ($-x^4$): confuses a reciprocal with a negation of the whole expression.\n* Choice D ($x^{1/4}$): a fractional exponent is the fourth root $\\sqrt[4]{x}$, not a reciprocal.\n\n**Test Day Takeaway:** A negative exponent means reciprocal; a fractional exponent means root. They are different operations.",
-    calculatorAllowed: true,
+    id: "bank-am-039",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "For all positive values of $x$, the equation $\\dfrac{x^{3a - 4}}{x^{a}} = x^{16}$ is true, where $a$ is a constant. What is the value of $a$?",
+    correctAnswer: "10",
+    explanation: "**SAT Pattern: Exponent Laws — Quotient Rule + Solve**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~20s):** Subtract exponents: $(3a - 4) - a = 2a - 4 = 16$, so $a = 10$.\n\n**The Full Solution:**\nStep 1: The quotient rule gives $\\dfrac{x^{3a - 4}}{x^{a}} = x^{(3a - 4) - a} = x^{2a - 4}$.\nStep 2: Since the bases match and $x > 0$, the exponents must be equal: $2a - 4 = 16$.\nStep 3: Solve: $2a = 20$, so $a = 10$. Check: with $a = 10$ the numerator is $x^{26}$ and the denominator is $x^{10}$, and $\\dfrac{x^{26}}{x^{10}} = x^{16}$. $\\checkmark$\n\n**Common Mistakes:** Adding the exponents instead of subtracting, which gives $4a - 4 = 16$ and $a = 5$. Dropping the $-4$ and solving $2a = 16$, which gives $a = 8$.\n\n**Test Day Takeaway:** Subtract the ENTIRE denominator exponent — put parentheses around $3a - 4$ before subtracting $a$ so no term gets lost.",
+    calculatorAllowed: false,
     tags: [],
-    sourceStyleRef: 'negative-exponent-rewrite',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "exponent-equation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-12"
   },
   {
-    id: 'bank-am-043',
-    domain: 'advanced-math',
-    skills: ['zero-negative-exponents'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Simplify $\\frac{(2x)^{-3}}{x^{-1}}$ for $x \\neq 0$.',
+    id: "bank-am-040",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "For all positive values of $x$ and $y$, the equation $\\dfrac{20x^{a}y^{b}}{5x^{2}y^{-4}} = 4x^{9}y^{-1}$ is true, where $a$ and $b$ are constants. What is the value of $a + b$?",
     choices: [
-      { id: 'A', text: '$\\frac{1}{8x^2}$' },
-      // distractor: wrong x exponent (-3 - 1 = -4)
-      { id: 'B', text: '$\\frac{1}{8x^4}$' },
-      // distractor: x exponent error
-      { id: 'C', text: '$\\frac{x}{8}$' },
-      // distractor: forgets to cube the 2
-      { id: 'D', text: '$\\frac{1}{2x^2}$' },
+      // distractor: adds the denominator's $x$-exponent instead of subtracting it
+      { id: "A", text: "$2$" },
+      { id: "B", text: "$6$" },
+      // distractor: makes both errors: adds for $x$ and subtracts the wrong sign for $y$
+      { id: "C", text: "$10$" },
+      // distractor: computes $b - 4 = -1$, missing that subtracting $-4$ adds $4$
+      { id: "D", text: "$14$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Negative Exponent Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $(2x)^{-3} = \\frac{1}{8x^3}$. Dividing by $x^{-1}$ multiplies by $x$: $\\frac{1}{8x^3} \\cdot x = \\frac{1}{8x^2}$.\n\n**The Full Solution:**\nStep 1: Expand the numerator. The exponent hits both factors: $(2x)^{-3} = \\frac{1}{(2x)^3} = \\frac{1}{8x^3}$.\nStep 2: Dividing by $x^{-1}$ is the same as multiplying by $x$: $\\frac{1}{8x^3} \\cdot x = \\frac{x}{8x^3} = \\frac{1}{8x^2}$.\n\nCheck with exponent laws: $\\frac{(2x)^{-3}}{x^{-1}} = \\frac{2^{-3} x^{-3}}{x^{-1}} = \\frac{1}{8} x^{-3 - (-1)} = \\frac{1}{8} x^{-2} = \\frac{1}{8x^2}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{1}{8x^4}$): combines the $x$-exponents as $-3 - 1 = -4$ instead of $-3 - (-1) = -2$.\n* Choice C ($\\frac{x}{8}$): mishandles the $x$ exponent, landing on $x^1$ in the numerator.\n* Choice D ($\\frac{1}{2x^2}$): forgets to cube the $2$, using $\\frac{1}{2}$ instead of $\\frac{1}{8}$.\n\n**Test Day Takeaway:** $(ab)^n = a^n b^n$ — the exponent applies to the coefficient too. Dividing by a negative exponent flips its sign before you subtract.",
-    calculatorAllowed: true,
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Match Coefficients After Exponent Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The left side simplifies to $4x^{a - 2}y^{b + 4}$, so $a - 2 = 9$ and $b + 4 = -1$, giving $a = 11$, $b = -5$, and $a + b = 6$.\n\n**The Full Solution:**\nStep 1: Divide the coefficients: $\\dfrac{20}{5} = 4$, which already matches the right side.\nStep 2: Subtract exponents for each variable: $x^{a - 2}$ and $y^{b - (-4)} = y^{b + 4}$.\nStep 3: Match to $4x^{9}y^{-1}$: $a - 2 = 9$ gives $a = 11$, and $b + 4 = -1$ gives $b = -5$. So $a + b = 11 + (-5) = 6$. Check: $\\dfrac{20x^{11}y^{-5}}{5x^{2}y^{-4}} = 4x^{9}y^{-1}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): solves $a + 2 = 9$, adding instead of subtracting, so $a = 7$ while $b = -5$.\n* Choice C ($10$): combines both slips, $a = 7$ and $b = 3$.\n* Choice D ($14$): solves $b - 4 = -1$, forgetting that subtracting the exponent $-4$ ADDS $4$.\n\n**Test Day Takeaway:** A negative exponent in the denominator becomes positive when you subtract it. Handle each variable, and the coefficient, as a separate equation.",
+    calculatorAllowed: false,
     tags: [],
-    sourceStyleRef: 'negative-exponent-simplify',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "simplify-exponent-quotient",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-12"
   },
   {
-    id: 'bank-am-044',
-    domain: 'advanced-math',
-    skills: ['zero-negative-exponents'],
-    difficulty: 'hard',
-    type: 'fill-in',
-    question: 'What value of $n$ satisfies the equation $4^{-n} = \\frac{1}{256}$?',
-    correctAnswer: '4',
-    explanation: "**SAT Pattern: Negative Exponent Equation**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~15s):** Write the right side as a power of $4$: $\\frac{1}{256} = \\frac{1}{4^4} = 4^{-4}$. So $4^{-n} = 4^{-4} \\Rightarrow n = 4$.\n\n**The Full Solution:**\nStep 1: Recognize $256 = 4^4$, so $\\frac{1}{256} = \\frac{1}{4^4} = 4^{-4}$.\nStep 2: With equal bases, equate the exponents: $-n = -4 \\Rightarrow n = 4$.\n\nCheck: $4^{-4} = \\frac{1}{4^4} = \\frac{1}{256}$. $\\checkmark$\n\n**Common Mistakes:** Reporting $-4$ (forgetting that $-n = -4$ gives $n = 4$); computing $\\frac{256}{4} = 64$; misreading $\\frac{1}{256}$ as $\\frac{1}{4^{256}}$.\n\n**Test Day Takeaway:** $\\frac{1}{a^n} = a^{-n}$. Rewrite both sides on a common base, then equate exponents.",
+    id: "bank-am-041",
+    domain: "advanced-math",
+    skills: ["zero-negative-exponents"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "In the expression $3^{0} + 3^{-2}$, one term has an exponent of zero and one has a negative exponent. What is the value of the expression?",
+    choices: [
+      // distractor: reads $3^{-2}$ as $-9$
+      { id: "A", text: "$-8$" },
+      // distractor: sets $3^{0} = 0$ instead of $1$
+      { id: "B", text: "$\\dfrac{1}{9}$" },
+      { id: "C", text: "$\\dfrac{10}{9}$" },
+      // distractor: reads $3^{-2}$ as $9$
+      { id: "D", text: "$10$" }
+    ],
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Zero and Negative Exponent Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $3^{0} = 1$ and $3^{-2} = \\dfrac{1}{9}$, so the sum is $1 + \\dfrac{1}{9} = \\dfrac{10}{9}$.\n\n**The Full Solution:**\nStep 1: Any nonzero number raised to the power $0$ equals $1$, so $3^{0} = 1$.\nStep 2: A negative exponent means a reciprocal: $3^{-2} = \\dfrac{1}{3^{2}} = \\dfrac{1}{9}$.\nStep 3: Add: $1 + \\dfrac{1}{9} = \\dfrac{9}{9} + \\dfrac{1}{9} = \\dfrac{10}{9}$. Check as a decimal: $1 + 0.111\\ldots \\approx 1.11$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): treats $3^{-2}$ as $-3^{2} = -9$, giving $1 - 9$; a negative exponent never makes the value negative.\n* Choice B ($\\dfrac{1}{9}$): sets $3^{0} = 0$; the zero exponent gives $1$, not $0$.\n* Choice D ($10$): treats $3^{-2}$ as $9$, dropping the reciprocal.\n\n**Test Day Takeaway:** A negative exponent flips the base into a denominator; it never changes the sign of the value.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'negative-exponent-equation',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "zero-neg-exponent-eval",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
+  },
+  {
+    id: "bank-am-042",
+    domain: "advanced-math",
+    skills: ["zero-negative-exponents"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "For $x \\neq 0$, which of the following expressions is equivalent to $\\dfrac{1}{x^{6}}$?",
+    choices: [
+      // distractor: negates the expression rather than the exponent
+      { id: "A", text: "$-x^{6}$" },
+      { id: "B", text: "$x^{-6}$" },
+      // distractor: confuses a negative exponent with a fractional exponent, which means a root
+      { id: "C", text: "$x^{\\frac{1}{6}}$" },
+      // distractor: moves the negative sign onto the base
+      { id: "D", text: "$(-x)^{6}$" }
+    ],
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Reciprocal as Negative Exponent**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A reciprocal of a power is that power with the opposite exponent: $\\dfrac{1}{x^{6}} = x^{-6}$.\n\n**The Full Solution:**\nStep 1: The definition of a negative exponent is $x^{-n} = \\dfrac{1}{x^{n}}$ for $x \\neq 0$.\nStep 2: Reading it right to left with $n = 6$ gives $\\dfrac{1}{x^{6}} = x^{-6}$.\nStep 3: Check with $x = 2$: $\\dfrac{1}{2^{6}} = \\dfrac{1}{64}$ and $2^{-6} = \\dfrac{1}{64}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-x^{6}$): at $x = 2$ this is $-64$, not $\\dfrac{1}{64}$ — the minus sign belongs on the exponent, not on the whole expression.\n* Choice C ($x^{\\frac{1}{6}}$): a fractional exponent means a root, so at $x = 64$ this equals $2$, not $\\dfrac{1}{64^{6}}$.\n* Choice D ($(-x)^{6}$): at $x = 2$ this is $64$, since an even power erases the sign.\n\n**Test Day Takeaway:** Negative exponent means reciprocal; fractional exponent means root. They are different operations and cannot be swapped.",
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: "negative-exponent-rewrite",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
+  },
+  {
+    id: "bank-am-043",
+    domain: "advanced-math",
+    skills: ["zero-negative-exponents"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "For $x > 0$, which of the following expressions is equivalent to $\\dfrac{(3x)^{-3}}{x^{-6}}$?",
+    choices: [
+      { id: "A", text: "$\\dfrac{x^{3}}{27}$" },
+      // distractor: computes $3^{-3}$ as $\frac{1}{9}$ by multiplying the base and the exponent
+      { id: "B", text: "$\\dfrac{x^{3}}{9}$" },
+      // distractor: adds the exponents, $-3 + (-6)$, instead of subtracting
+      { id: "C", text: "$\\dfrac{1}{27x^{9}}$" },
+      // distractor: moves the $27$ to the numerator, treating $3^{-3}$ as $27$
+      { id: "D", text: "$27x^{3}$" }
+    ],
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Negative Exponent Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $(3x)^{-3} = \\dfrac{1}{27x^{3}}$, and dividing by $x^{-6}$ multiplies by $x^{6}$: $\\dfrac{x^{6}}{27x^{3}} = \\dfrac{x^{3}}{27}$.\n\n**The Full Solution:**\nStep 1: Apply the outer exponent to both factors: $(3x)^{-3} = 3^{-3}x^{-3} = \\dfrac{1}{27}x^{-3}$.\nStep 2: Divide by $x^{-6}$ by subtracting exponents: $x^{-3 - (-6)} = x^{3}$.\nStep 3: The expression is $\\dfrac{x^{3}}{27}$. Check with $x = 1$: the original is $\\dfrac{3^{-3}}{1} = \\dfrac{1}{27}$, and the answer is $\\dfrac{1}{27}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\dfrac{x^{3}}{9}$): computes $3^{-3}$ as $\\dfrac{1}{9}$ by multiplying $3 \\cdot 3$ instead of cubing.\n* Choice C ($\\dfrac{1}{27x^{9}}$): adds the exponents $-3$ and $-6$ instead of subtracting the denominator's.\n* Choice D ($27x^{3}$): puts the $27$ in the numerator, as if $3^{-3} = 27$.\n\n**Test Day Takeaway:** Clear the negative exponents one factor at a time — the numerical base and the variable base each follow the same rule separately.",
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: "negative-exponent-simplify",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
+  },
+  {
+    id: "bank-am-044",
+    domain: "advanced-math",
+    skills: ["zero-negative-exponents"],
+    difficulty: "hard",
+    type: "fill-in",
+    question: "The function $f$ is defined by $f(n) = 2^{-3n}$, and the function $g$ is defined by $g(n) = \\dfrac{1}{4^{n + 3}}$. For what value of $n$ is $f(n) = g(n)$?",
+    correctAnswer: "6",
+    explanation: "**SAT Pattern: Negative Exponent Equation**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~35s):** Write $g$ in base $2$: $\\dfrac{1}{4^{n + 3}} = 2^{-2(n + 3)} = 2^{-2n - 6}$. Then $-3n = -2n - 6$, so $n = 6$.\n\n**The Full Solution:**\nStep 1: Rewrite $4$ as $2^{2}$: $4^{n + 3} = (2^{2})^{n + 3} = 2^{2n + 6}$.\nStep 2: A reciprocal flips the sign of the exponent: $g(n) = \\dfrac{1}{2^{2n + 6}} = 2^{-2n - 6}$.\nStep 3: Set $f(n) = g(n)$. With equal bases the exponents are equal: $-3n = -2n - 6$, so $-n = -6$ and $n = 6$. Check: $f(6) = 2^{-18}$ and $g(6) = \\dfrac{1}{4^{9}} = \\dfrac{1}{2^{18}} = 2^{-18}$. $\\checkmark$\n\n**Common Mistakes:** Leaving the bases unmatched and setting $-3n = -(n + 3)$, which gives $n = \\dfrac{3}{2}$. Forgetting that the reciprocal flips the sign and solving $-3n = 2n + 6$, which gives $n = -\\dfrac{6}{5}$.\n\n**Test Day Takeaway:** Two exponent rules run in order here: rewrite every base as a power of the smallest base, then convert the reciprocal into a negative exponent. Only then compare exponents.",
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: "negative-exponent-equation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
 
   // ── comparing-exponentials (3 questions) ──────────────────────────
   {
-    id: 'bank-am-045',
-    domain: 'advanced-math',
-    skills: ['comparing-exponentials'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Town A has a population of 8,000 growing at 3% per year. Town B has a population of 10,000 growing at 1% per year. Which comparison of their growth models is correct?',
+    id: "bank-am-045",
+    domain: "advanced-math",
+    skills: ["comparing-exponentials"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "A biologist records the cell count of two cultures, $P$ and $Q$, every $3$ hours. The table gives the counts. Each culture grows exponentially. Which of the following statements comparing the cultures is true?",
+    diagram: { type: "dataTable", params: { headers: ["Time (hours)", "Culture P", "Culture Q"], rows: [["0", "250", "640"], ["3", "500", "960"], ["6", "1,000", "1,440"]] } },
     choices: [
-      { id: 'A', text: 'Town A: $8000(1.03)^t$; Town B: $10000(1.01)^t$; Town A will eventually surpass Town B.' },
-      // distractor: uses growth rates as the base (shrinks)
-      { id: 'B', text: 'Town A: $8000(0.03)^t$; Town B: $10000(0.01)^t$; both shrink over time.' },
-      // distractor: uses linear growth instead of exponential
-      { id: 'C', text: 'Town A: $8000 + 240t$; Town B: $10000 + 100t$; Town A grows faster linearly.' },
-      // distractor: correct models but wrong conclusion
-      { id: 'D', text: 'Town A: $8000(1.03)^t$; Town B: $10000(1.01)^t$; Town B always has a larger population.' },
+      // distractor: misreads the hour-$0$ row
+      { id: "A", text: "Culture $P$ has the larger count at hour $0$, and $P$ grows by the larger constant factor." },
+      { id: "B", text: "Culture $Q$ has the larger count at hour $0$, and $P$ grows by the larger constant factor." },
+      // distractor: compares the size of the first increase ($320$ vs $250$) instead of the ratio
+      { id: "C", text: "Culture $Q$ has the larger count at hour $0$, and $Q$ grows by the larger constant factor." },
+      // distractor: assumes both columns double
+      { id: "D", text: "Both cultures grow by the same constant factor every $3$ hours." }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Compare Exponential Growth Models**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** A growth rate $r$ gives the per-year multiplier $(1 + r)$, so the models are $8000(1.03)^t$ and $10000(1.01)^t$. Exponential growth is set by the rate, not the head start — Town A's higher rate eventually overtakes Town B.\n\n**The Full Solution:**\nStep 1: Exponential growth at rate $r$ per year is $P_0(1 + r)^t$. Town A: $8000(1.03)^t$. Town B: $10000(1.01)^t$. This already eliminates B, C, and D.\nStep 2: A starts lower but grows at $3\\% > 1\\%$. A higher growth rate always wins for large enough $t$, so A surpasses B eventually.\nStep 3: Confirm with a sample year. At $t = 20$: A $\\approx 8000 \\cdot 1.81 = 14{,}460$ and B $\\approx 10000 \\cdot 1.22 = 12{,}200$, so A has pulled ahead.\n\n**Why the wrong answers are tempting:**\n* Choice B: uses the raw rate ($0.03$, $0.01$) as the multiplier instead of $1 + r$, which would mean shrinking — wrong base.\n* Choice C: models linear growth ($8000 + 240t$) instead of exponential.\n* Choice D: gets the models right but assumes the larger starting value stays ahead forever, ignoring the higher rate.\n\n**Test Day Takeaway:** Exponential growth is $P_0(1 + r)^t$. A higher rate always eventually overtakes a lower one, no matter the starting values.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Compare Exponential Growth Models**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** At hour $0$, $640 > 250$, so $Q$ starts larger. The ratios are $\\dfrac{500}{250} = 2$ for $P$ and $\\dfrac{960}{640} = 1.5$ for $Q$, so $P$ grows faster.\n\n**The Full Solution:**\nStep 1: Read the hour-$0$ row: $P$ has $250$ cells and $Q$ has $640$, so $Q$ starts with more cells.\nStep 2: For an exponential model, divide consecutive counts. Culture $P$: $\\dfrac{500}{250} = 2$ and $\\dfrac{1000}{500} = 2$. Culture $Q$: $\\dfrac{960}{640} = 1.5$ and $\\dfrac{1440}{960} = 1.5$.\nStep 3: $P$ multiplies by $2$ every $3$ hours while $Q$ multiplies by $1.5$, so $P$ has the larger growth factor even though it starts smaller. Check: continuing the pattern, $P$ reaches $4{,}000$ at hour $12$ while $Q$ reaches only $3{,}240$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reverses the hour-$0$ comparison; $250 < 640$.\n* Choice C: compares the raw increases over the first interval, $320$ for $Q$ against $250$ for $P$; exponential growth is compared by RATIOS, not differences.\n* Choice D: the factors are $2$ and $1.5$, not equal.\n\n**Test Day Takeaway:** Compare exponential models by dividing consecutive outputs, and keep the starting value and the growth factor as two separate comparisons.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'compare-growth-models',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "compare-growth-models",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-046',
-    domain: 'advanced-math',
-    skills: ['comparing-exponentials'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Account X earns interest according to $V_X = 500(1.04)^t$, and Account Y earns interest according to $V_Y = 500(1.06)^t$. After 5 years, approximately how much more is Account Y worth than Account X?',
+    id: "bank-am-046",
+    domain: "advanced-math",
+    skills: ["comparing-exponentials"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "Account $J$ has a value of $2{,}000(1.05)^{t}$ dollars $t$ years after it was opened, and Account $K$ has a value of $2{,}000(1.09)^{t}$ dollars $t$ years after it was opened. To the nearest dollar, how much greater is the value of Account $K$ than the value of Account $J$ after $10$ years?",
     choices: [
-      // distractor: ignores compounding, uses simple difference
-      { id: 'A', text: '$\\$10$' },
-      { id: 'B', text: '$\\$60$' },
-      // distractor: underestimates by rounding down too aggressively
-      { id: 'C', text: '$\\$59$' },
-      // distractor: overestimates the gap
-      { id: 'D', text: '$\\$100$' },
+      // distractor: uses simple interest instead of compounding
+      { id: "A", text: "$800$" },
+      { id: "B", text: "$1{,}477$" },
+      // distractor: reports Account $J$'s value rather than the difference
+      { id: "C", text: "$3{,}258$" },
+      // distractor: reports Account $K$'s value rather than the difference
+      { id: "D", text: "$4{,}735$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Compare Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $V_X(5) = 500(1.04)^5 \\approx 608.33$ and $V_Y(5) = 500(1.06)^5 \\approx 669.11$. The gap is about $60.78$, rounding to \\$60.\n\n**The Full Solution:**\nStep 1: Evaluate each account at $t = 5$. $V_X(5) = 500(1.04)^5 \\approx 500 \\times 1.2167 = 608.33$.\nStep 2: $V_Y(5) = 500(1.06)^5 \\approx 500 \\times 1.3382 = 669.11$.\nStep 3: Subtract: $669.11 - 608.33 \\approx 60.78$, which rounds to \\$60.\n\n**Why the wrong answers are tempting:**\n* Choice A (\\$10): treats it as simple interest, $(0.06 - 0.04) \\cdot 500 = 10$.\n* Choice C (\\$59): under-rounds the compound difference.\n* Choice D (\\$100): overstates the gap.\n\n**Test Day Takeaway:** Compound interest grows as $(1 + r)^t$. Compute each balance fully, then subtract — the difference is not just the rate gap times the principal.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Compare Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $2{,}000(1.09)^{10} \\approx 4{,}734.73$ and $2{,}000(1.05)^{10} \\approx 3{,}257.79$; the difference is about $1{,}477$ dollars.\n\n**The Full Solution:**\nStep 1: Evaluate each model at $t = 10$. Account $K$: $2{,}000(1.09)^{10} \\approx 2{,}000(2.36736) \\approx 4{,}734.73$ dollars.\nStep 2: Account $J$: $2{,}000(1.05)^{10} \\approx 2{,}000(1.62889) \\approx 3{,}257.79$ dollars.\nStep 3: Subtract: $4{,}734.73 - 3{,}257.79 \\approx 1{,}476.94$, which rounds to $1{,}477$ dollars. Check the sizes: $K$ is roughly $45\\%$ larger than $J$, and $\\dfrac{1{,}477}{3{,}258} \\approx 0.45$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($800$): treats the growth as simple interest, computing $2{,}000(0.09)(10) - 2{,}000(0.05)(10) = 1{,}800 - 1{,}000$.\n* Choice C ($3{,}258$): stops after evaluating Account $J$.\n* Choice D ($4{,}735$): stops after evaluating Account $K$ and never subtracts.\n\n**Test Day Takeaway:** \"How much greater\" always ends in a subtraction. Evaluate both exponential models fully before comparing — the gap grows much faster than the rate difference suggests.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponential-comparison',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "exponential-comparison",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-047',
-    domain: 'advanced-math',
-    skills: ['comparing-exponentials'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'Machine A depreciates according to $V_A = 20000(0.85)^t$ and Machine B according to $V_B = 15000(0.90)^t$, where $t$ is in years. Which statement is true?',
+    id: "bank-am-047",
+    domain: "advanced-math",
+    skills: ["comparing-exponentials"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "The table gives the purchase price and the annual percent decrease in value of two machines. The value of each machine decreases exponentially from its purchase price at the given annual rate. Which of the following statements comparing the two machines is true?",
+    diagram: { type: "dataTable", params: { headers: ["Machine", "Purchase price (dollars)", "Annual percent decrease"], rows: [["R", "36,000", "20%"], ["S", "24,000", "10%"]] } },
     choices: [
-      // distractor: starts higher but eventually loses lead
-      { id: 'A', text: 'Machine A always has a higher value than Machine B.' },
-      { id: 'B', text: 'Machine A loses a greater fraction of its value each year than Machine B.' },
-      // distractor: confuses initial value with depreciation rate
-      { id: 'C', text: 'Machine B depreciates faster because its initial value is lower.' },
-      // distractor: ignores compounding (dollar amounts differ)
-      { id: 'D', text: 'Both machines lose the same dollar amount per year.' },
+      { id: "A", text: "Machine $R$ loses a greater percent of its value each year, and Machine $R$ is worth more than Machine $S$ at the end of year $3$." },
+      // distractor: true through year 3 but false from year 4 on, when Machine $S$ is worth more
+      { id: "B", text: "Machine $R$ loses a greater percent of its value each year, and Machine $R$ is worth more than Machine $S$ at the end of every year." },
+      // distractor: confuses percent rate with dollar loss: $S$ loses $2{,}400$ and $R$ loses $7{,}200$ in year 1
+      { id: "C", text: "Machine $S$ loses a greater dollar amount during the first year, because its value decreases more slowly." },
+      // distractor: the year-2 values are $23{,}040$ and $19{,}440$, not equal
+      { id: "D", text: "The two machines are worth the same amount at the end of year $2$." }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Compare Depreciation Models**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The multiplier is $1 - r$, so Machine A's $0.85$ means it loses $15\\%$ per year and Machine B's $0.90$ means $10\\%$. A loses the greater fraction.\n\n**The Full Solution:**\nStep 1: In decay, the multiplier $1 - r$ is the retention rate and $r$ is the fraction lost each year.\nStep 2: Machine A keeps $85\\%$ (loses $15\\%$); Machine B keeps $90\\%$ (loses $10\\%$).\nStep 3: Since $15\\% > 10\\%$, Machine A loses a greater fraction of its value annually.\n\nCheck the long run at $t = 10$: $V_A \\approx 20000 \\cdot 0.197 \\approx 3{,}940$ and $V_B \\approx 15000 \\cdot 0.349 \\approx 5{,}230$, so B eventually passes A despite the lower start. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: A starts higher, but its faster decline lets B overtake it later, so it is not always higher.\n* Choice C: depreciation rate comes from the multiplier, not the initial value.\n* Choice D: decay is multiplicative (a percent), so the dollar loss differs each year.\n\n**Test Day Takeaway:** Compound decay multiplier is $1 - r$. A lower multiplier means a faster percent decline; the starting value sets where the decline begins, not how fast it falls.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Compare Depreciation Models**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** The models are $36{,}000(0.80)^{t}$ and $24{,}000(0.90)^{t}$. At $t = 3$: $18{,}432$ versus $17{,}496$, so $R$ is still worth more — but only just.\n\n**The Full Solution:**\nStep 1: A $20\\%$ annual decrease multiplies the value by $0.80$ each year, and a $10\\%$ decrease multiplies it by $0.90$. So $V_R(t) = 36{,}000(0.80)^{t}$ and $V_S(t) = 24{,}000(0.90)^{t}$.\nStep 2: Machine $R$ loses the greater PERCENT each year, since $20\\% > 10\\%$.\nStep 3: Compare at $t = 3$: $V_R(3) = 36{,}000(0.512) = 18{,}432$ dollars and $V_S(3) = 24{,}000(0.729) = 17{,}496$ dollars, so $R$ is worth more. Check the next year: $V_R(4) = 14{,}745.60$ and $V_S(4) = 15{,}746.40$, so the ranking flips after year $3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: correct through year $3$, but at $t = 4$ Machine $S$ is worth $15{,}746.40$ against Machine $R$'s $14{,}745.60$ — \"every year\" is too strong.\n* Choice C: reverses the dollar comparison. In year $1$, $S$ loses $2{,}400$ dollars while $R$ loses $7{,}200$ dollars.\n* Choice D: at $t = 2$ the values are $23{,}040$ and $19{,}440$ dollars, which are not equal.\n\n**Test Day Takeaway:** A larger percent decrease does not mean a smaller value right away — the starting amount can keep the faster-depreciating item ahead for several years. Test the specific year the choice names.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'depreciation-comparison',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "depreciation-comparison",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
 
   // ── exponential-growth-decay (5 questions) ────────────────────────
   {
-    id: 'bank-am-048',
-    domain: 'advanced-math',
-    skills: ['exponential-growth-decay'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'A colony of bacteria doubles every 4 hours. If there are initially 300 bacteria, which function models the population after $t$ hours?',
+    id: "bank-am-048",
+    domain: "advanced-math",
+    skills: ["exponential-growth-decay"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "A colony of algae doubles in size every $6$ hours. The colony contains $150$ cells at time $t = 0$. Which of the following functions models the number of cells in the colony $t$ hours after $t = 0$?",
     choices: [
-      { id: 'A', text: '$P(t) = 300(2)^{t/4}$' },
-      // distractor: t × 4 in exponent (grows way too fast)
-      { id: 'B', text: '$P(t) = 300(2)^{4t}$' },
-      // distractor: linear instead of exponential
-      { id: 'C', text: '$P(t) = 300 + 2t$' },
-      // distractor: wrong base (4 instead of 2)
-      { id: 'D', text: '$P(t) = 300(4)^{t/2}$' },
+      // distractor: swaps the starting amount and the growth factor
+      { id: "A", text: "$f(t) = 2(150)^{t/6}$" },
+      // distractor: multiplies $t$ by the doubling time instead of dividing
+      { id: "B", text: "$f(t) = 150(2)^{6t}$" },
+      { id: "C", text: "$f(t) = 150(2)^{t/6}$" },
+      // distractor: swaps the growth factor and the doubling time
+      { id: "D", text: "$f(t) = 150(6)^{t/2}$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Exponential Model from Doubling Time**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** With doubling time $T = 4$ hours, $P(t) = P_0 \\cdot 2^{t/T} = 300 \\cdot 2^{t/4}$.\n\n**The Full Solution:**\nStep 1: A quantity that doubles every $T$ units follows $P(t) = P_0 \\cdot 2^{t/T}$.\nStep 2: Here $P_0 = 300$ and $T = 4$, giving $P(t) = 300(2)^{t/4}$.\n\nCheck: at $t = 0$, $P = 300 \\cdot 2^0 = 300$; at $t = 4$, $P = 300 \\cdot 2^1 = 600$, exactly doubled. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($300(2)^{4t}$): puts $4t$ in the exponent, doubling every $\\frac{1}{4}$ hour — far too fast.\n* Choice C ($300 + 2t$): models linear growth instead of doubling.\n* Choice D ($300(4)^{t/2}$): rewrites to $300 \\cdot 2^{t}$, which doubles every hour, not every $4$ hours — wrong base for this doubling time.\n\n**Test Day Takeaway:** Doubling-time growth is $P_0 \\cdot 2^{t/T}$ — the exponent is time divided by the doubling period, reaching $1$ after exactly one period.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Exponential Model from Doubling Time**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Start at $150$, multiply by $2$ once per $6$ hours: $f(t) = 150(2)^{t/6}$.\n\n**The Full Solution:**\nStep 1: An exponential model has the form (starting amount)(growth factor) raised to (number of growth periods). The starting amount is $150$ and the growth factor is $2$.\nStep 2: One doubling period is $6$ hours, so in $t$ hours the number of periods is $\\dfrac{t}{6}$.\nStep 3: The model is $f(t) = 150(2)^{t/6}$. Check: $f(0) = 150(2)^{0} = 150$, and $f(6) = 150(2)^{1} = 300$, exactly double. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: puts $150$ in the base, so $f(0) = 2$ — the colony would start with $2$ cells.\n* Choice B: $f(6) = 150(2)^{36}$, an absurd jump; multiplying by $6$ counts $6$ doublings per hour.\n* Choice D: uses $6$ as the growth factor, so $f(2) = 150(6) = 900$, which is six times the start after only $2$ hours.\n\n**Test Day Takeaway:** The doubling time belongs in the DENOMINATOR of the exponent — it converts elapsed time into a count of growth periods.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponential-model-setup',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "exponential-model-setup",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-049',
-    domain: 'advanced-math',
-    skills: ['exponential-growth-decay'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'A car purchased for $\\$22{,}000$ depreciates at 12% per year. Which expression represents its value after $t$ years?',
+    id: "bank-am-049",
+    domain: "advanced-math",
+    skills: ["exponential-growth-decay"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "A tractor purchased for $\\$48{,}000$ loses $15\\%$ of its value each year. Which of the following expressions gives the tractor's value, in dollars, $t$ years after it was purchased?",
     choices: [
-      // distractor: uses rate as base (would shrink to near zero fast)
-      { id: 'A', text: '$22000(0.12)^t$' },
-      // distractor: applies growth multiplier (would grow, not decay)
-      { id: 'B', text: '$22000(1.12)^t$' },
-      { id: 'C', text: '$22000(0.88)^t$' },
-      // distractor: linear (simple) instead of compound depreciation
-      { id: 'D', text: '$22000 - 0.12t$' },
+      // distractor: uses the percent lost as the multiplier instead of the percent kept
+      { id: "A", text: "$48{,}000(0.15)^{t}$" },
+      { id: "B", text: "$48{,}000(0.85)^{t}$" },
+      // distractor: models a 15% increase instead of a decrease
+      { id: "C", text: "$48{,}000(1.15)^{t}$" },
+      // distractor: models a constant dollar loss rather than a constant percent
+      { id: "D", text: "$48{,}000 - 0.15t$" }
     ],
-    correctAnswer: 'C',
-    explanation: "**SAT Pattern: Compound Depreciation Model**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Losing $12\\%$ a year means keeping $88\\%$, so the multiplier is $0.88$ and the value is $22000(0.88)^t$ — choice C.\n\n**The Full Solution:**\nStep 1: For decay at rate $r$ per year, the value is $V(t) = V_0(1 - r)^t$.\nStep 2: Here $V_0 = 22000$ and $r = 0.12$, so $1 - r = 0.88$, giving $V(t) = 22000(0.88)^t$.\nStep 3: Sanity check at $t = 1$: $22000 \\times 0.88 = 19360$, which is $22000 - 2640$, exactly a $12\\%$ drop. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: uses the loss rate $0.12$ as the base, which would erase almost all value after one year.\n* Choice B: uses the growth multiplier $1.12$, modeling appreciation instead of depreciation.\n* Choice D: models linear loss; it hits $0$ around $t \\approx 8.3$ years, but true depreciation only approaches $0$, never reaches it.\n\n**Test Day Takeaway:** Decay is $V_0(1 - r)^t$, growth is $V_0(1 + r)^t$. The base is the fraction you keep, not the rate you lose.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Compound Depreciation Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Losing $15\\%$ leaves $85\\%$, so each year multiplies the value by $0.85$: $48{,}000(0.85)^{t}$.\n\n**The Full Solution:**\nStep 1: A constant percent decrease is exponential decay: value $=$ (starting value)(decay factor)$^{t}$.\nStep 2: If $15\\%$ is lost, $100\\% - 15\\% = 85\\%$ remains, so the decay factor is $0.85$.\nStep 3: The value after $t$ years is $48{,}000(0.85)^{t}$. Check after one year: $48{,}000(0.85) = 40{,}800$, and $48{,}000 - 0.15(48{,}000) = 48{,}000 - 7{,}200 = 40{,}800$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: after one year this gives $7{,}200$ dollars — the amount LOST, not the amount remaining.\n* Choice C: $1.15$ makes the value grow by $15\\%$ a year.\n* Choice D: subtracts $0.15$ dollars per year, a linear model that ignores both the percent and the compounding.\n\n**Test Day Takeaway:** For a percent decrease the multiplier is $1 - r$, and it sits in the base with $t$ as the exponent — never as a subtraction.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'decay-model',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "decay-model",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-050',
-    domain: 'advanced-math',
-    skills: ['exponential-growth-decay'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'A radioactive sample decays according to $A(t) = 800(0.5)^{t/6}$, where $t$ is in hours. How many grams remain after 18 hours?',
-    correctAnswer: '100',
-    explanation: "**SAT Pattern: Half-Life Evaluation**\n\n**The correct answer is $100$.**\n\n**The Fast Way (~15s):** $\\frac{t}{6} = \\frac{18}{6} = 3$, and $(0.5)^3 = \\frac{1}{8}$, so $\\frac{800}{8} = 100$ grams.\n\n**The Full Solution:**\nStep 1: The exponent $\\frac{t}{6}$ counts half-lives, so the half-life is $6$ hours. In $18$ hours exactly $3$ half-lives pass.\nStep 2: $A(18) = 800(0.5)^3 = 800 \\cdot \\frac{1}{8} = 100$ grams.\nStep 3: Track it directly: $800 \\to 400 \\to 200 \\to 100$ after three halvings. $\\checkmark$\n\n**Common Mistakes:** Computing $(0.5)^{18}$ instead of $(0.5)^3$ (forgetting to divide $t$ by $6$); stopping at $400$ (one half-life) or going one too far to $50$.\n\n**Test Day Takeaway:** In a model $A_0(0.5)^{t/T}$, compute $\\frac{t}{T}$ first — that small integer is the number of half-lives.",
+    id: "bank-am-050",
+    domain: "advanced-math",
+    skills: ["exponential-growth-decay"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "The table gives the mass, in grams, of a sample of a radioactive isotope at two times after the sample was first measured. The mass of the sample decreases exponentially. What is the mass of the sample, in grams, $72$ hours after it was first measured?",
+    diagram: { type: "dataTable", params: { headers: ["Time (hours)", "Mass (grams)"], rows: [["0", "1,920"], ["12", "960"]] } },
+    correctAnswer: "30",
+    explanation: "**SAT Pattern: Half-Life Evaluation**\n\n**The correct answer is $30$.**\n\n**The Fast Way (~35s):** The mass halves in $12$ hours, and $72$ hours is $6$ half-lives: $\\dfrac{1{,}920}{2^{6}} = \\dfrac{1{,}920}{64} = 30$ grams.\n\n**The Full Solution:**\nStep 1: From the table, the mass falls from $1{,}920$ grams to $960$ grams in $12$ hours, and $\\dfrac{960}{1{,}920} = \\dfrac{1}{2}$, so the half-life is $12$ hours.\nStep 2: The model is $A(t) = 1{,}920\\left(\\dfrac{1}{2}\\right)^{t/12}$, where $t$ is in hours.\nStep 3: At $t = 72$, the exponent is $\\dfrac{72}{12} = 6$, so $A(72) = 1{,}920\\left(\\dfrac{1}{2}\\right)^{6} = \\dfrac{1{,}920}{64} = 30$ grams. Check by halving six times: $1{,}920 \\to 960 \\to 480 \\to 240 \\to 120 \\to 60 \\to 30$. $\\checkmark$\n\n**Common Mistakes:** Dividing by $6$ instead of halving six times, which gives $320$ grams. Counting only five half-lives and answering $60$ grams.\n\n**Test Day Takeaway:** Convert the elapsed time into a COUNT of half-lives first, then halve that many times — the count is the exponent, not the divisor.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'half-life-evaluation',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "half-life-evaluation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-051',
-    domain: 'advanced-math',
-    skills: ['exponential-growth-decay'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'An investment of $\\$5{,}000$ grows at 6% compounded annually. After how many full years will the investment first exceed $\\$7{,}000$?',
+    id: "bank-am-051",
+    domain: "advanced-math",
+    skills: ["exponential-growth-decay"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "A deposit of $\\$5{,}000$ earns $7\\%$ interest compounded annually, and no money is added or withdrawn. After how many full years does the balance first exceed $\\$7{,}500$?",
     choices: [
-      // distractor: rounds down prematurely
-      { id: 'A', text: '5' },
-      { id: 'B', text: '6' },
-      // distractor: overshoots by one year
-      { id: 'C', text: '7' },
-      // distractor: overshoots by two years
-      { id: 'D', text: '8' },
+      // distractor: reads the ratio $1.5$ as a number of years
+      { id: "A", text: "$2$" },
+      // distractor: rounds $t \approx 5.99$ down instead of taking the next whole year
+      { id: "B", text: "$5$" },
+      { id: "C", text: "$6$" },
+      // distractor: uses simple interest instead of compounding
+      { id: "D", text: "$8$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Compound Growth Threshold**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $5000(1.06)^t > 7000$ means $(1.06)^t > 1.4$. Since $(1.06)^5 \\approx 1.338 < 1.4$ but $(1.06)^6 \\approx 1.419 > 1.4$, the first full year is $6$ — choice B.\n\n**The Full Solution:**\nStep 1: Set up the inequality: $5000(1.06)^t > 7000$, so $(1.06)^t > \\frac{7000}{5000} = 1.4$.\nStep 2: Test integer years. $(1.06)^5 \\approx 1.338$, which is still below $1.4$.\nStep 3: $(1.06)^6 \\approx 1.419$, which clears $1.4$. So $t = 6$ is the first full year above the threshold.\nStep 4: In dollars: year $5$ gives $\\approx \\$6690 < \\$7000$; year $6$ gives $\\approx \\$7095 > \\$7000$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): year $5$ is still below $\\$7000$ — off by one.\n* Choice C ($7$): overshoots; the value already passed $\\$7000$ at year $6$.\n* Choice D ($8$): overshoots by two years.\n\n**Test Day Takeaway:** For \"first full year exceeding,\" test $(1 + r)^t$ at consecutive integers and take the smallest $t$ that crosses the threshold.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Compound Growth Threshold**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Need $(1.07)^{t} > 1.5$. Since $(1.07)^{5} \\approx 1.403$ and $(1.07)^{6} \\approx 1.501$, the balance first passes $\\$7{,}500$ at $t = 6$.\n\n**The Full Solution:**\nStep 1: The balance after $t$ years is $5{,}000(1.07)^{t}$, and the target is $5{,}000(1.07)^{t} > 7{,}500$.\nStep 2: Divide by $5{,}000$: $(1.07)^{t} > 1.5$.\nStep 3: Test whole years. $(1.07)^{5} \\approx 1.4026$, giving a balance of about $\\$7{,}013$ — still short. $(1.07)^{6} \\approx 1.5007$, giving about $\\$7{,}504$ — past the target. So the first full year is $6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reads $\\dfrac{7{,}500}{5{,}000} = 1.5$ as \"about $2$ years\" without using the growth factor at all.\n* Choice B ($5$): the exact crossing is near $t = 5.99$, so year $5$ is the last year BELOW the target, not the first above it.\n* Choice D ($8$): uses simple interest, $5{,}000(1 + 0.07t) > 7{,}500$, which needs $t > 7.1$.\n\n**Test Day Takeaway:** Divide out the starting amount first, then test whole-number exponents. \"First exceeds\" means round the crossing time UP.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'growth-threshold',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "growth-threshold",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-052',
-    domain: 'advanced-math',
-    skills: ['exponential-growth-decay'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'A lake\'s fish population is modeled by $P(t) = \\frac{4000}{1 + 19e^{-0.3t}}$, where $t$ is in years. What is the long-term maximum population the lake can sustain?',
+    id: "bank-am-052",
+    domain: "advanced-math",
+    skills: ["exponential-growth-decay"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "The number of deer in a preserve $t$ years after monitoring began is modeled by $D(t) = \\dfrac{5{,}400}{3 + 24e^{-0.4t}}$. As $t$ increases without bound, the value of $D(t)$ gets closer and closer to which of the following?",
     choices: [
-      // distractor: P(0) = 4000/20 = 200 (initial, not max)
-      { id: 'A', text: '200' },
-      { id: 'B', text: '4000' },
-      // distractor: uses the 19 coefficient
-      { id: 'C', text: '19' },
-      // distractor: multiplies numerator by 19
-      { id: 'D', text: '76000' },
+      // distractor: reports $D(0) = 200$, the herd size when monitoring began
+      { id: "A", text: "$200$" },
+      // distractor: reports half the ceiling, the size at the model's steepest point
+      { id: "B", text: "$900$" },
+      { id: "C", text: "$1{,}800$" },
+      // distractor: quotes the numerator, assuming the denominator's constant is $1$ rather than $3$
+      { id: "D", text: "$5{,}400$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Logistic Carrying Capacity**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** As $t \\to \\infty$, $e^{-0.3t} \\to 0$, so the denominator approaches $1$ and $P \\to 4000$ — choice B.\n\n**The Full Solution:**\nStep 1: This is a logistic model. The long-term population is the limit as $t \\to \\infty$.\nStep 2: As $t$ grows, $e^{-0.3t} \\to 0$, so $1 + 19e^{-0.3t} \\to 1$.\nStep 3: Therefore $P(t) \\to \\frac{4000}{1} = 4000$, the carrying capacity.\nStep 4: Check the trend: $P(0) = \\frac{4000}{1 + 19} = \\frac{4000}{20} = 200$, and the population climbs from $200$ toward $4000$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($200$): that is $P(0)$, the initial population, not the long-term limit.\n* Choice C ($19$): grabs the coefficient inside the denominator, which is unrelated to the limit.\n* Choice D ($76000$): multiplies the numerator by $19$ instead of letting the exponential decay to $0$.\n\n**Test Day Takeaway:** For $\\frac{K}{1 + Ae^{-rt}}$, the carrying capacity is $K$, the numerator — the exponential vanishes as $t \\to \\infty$.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Logistic Carrying Capacity**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** As $t \\to \\infty$, $e^{-0.4t} \\to 0$, so the denominator approaches $3$, not $1$. The value approaches $\\dfrac{5{,}400}{3} = 1{,}800$ deer.\n\n**The Full Solution:**\nStep 1: The only place $t$ appears is in $e^{-0.4t}$. Because the exponent $-0.4t$ becomes large and negative as $t$ grows, $e^{-0.4t}$ shrinks toward $0$.\nStep 2: The denominator $3 + 24e^{-0.4t}$ therefore approaches $3 + 24(0) = 3$. The constant term of the denominator survives, and here that constant is $3$ rather than the $1$ of the textbook form.\nStep 3: So $D(t)$ approaches $\\dfrac{5{,}400}{3} = 1{,}800$ deer, the largest population the model allows. Check the trend: $D(0) = \\dfrac{5{,}400}{27} = 200$, $D(10) \\approx 1{,}570$, and $D(20) \\approx 1{,}795$ — rising toward $1{,}800$ but never reaching it. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($200$): this is $D(0) = \\dfrac{5{,}400}{3 + 24}$, the starting herd size, not the long-run size.\n* Choice B ($900$): half of $1{,}800$ is the population at the model's steepest point, not its ceiling.\n* Choice D ($5{,}400$): quotes the numerator, which is the ceiling only when the denominator's constant term is $1$; here it is $3$.\n\n**Test Day Takeaway:** In $\\dfrac{N}{c + Ae^{-kt}}$ with $k > 0$ the decaying term dies out, so the long-run value is $\\dfrac{N}{c}$ — read the denominator's constant before quoting the numerator.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'logistic-carrying-capacity',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "logistic-carrying-capacity",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
 
   // ── exponential-y-intercept (3 questions) ─────────────────────────
   {
-    id: 'bank-am-053',
-    domain: 'advanced-math',
-    skills: ['exponential-y-intercept'],
-    difficulty: 'easy',
-    type: 'fill-in',
-    question: 'What is the $y$-intercept of the function $f(x) = 250(1.08)^x$?',
-    correctAnswer: '250',
-    explanation: "**SAT Pattern: y-intercept of Exponential**\n\n**The correct answer is $250$.**\n\n**The Fast Way (~5s):** The $y$-intercept is $f(0) = 250(1.08)^0 = 250 \\cdot 1 = 250$.\n\n**The Full Solution:**\nStep 1: The $y$-intercept is the value at $x = 0$.\nStep 2: $f(0) = 250(1.08)^0$, and any nonzero base to the $0$ power is $1$.\nStep 3: So $f(0) = 250 \\cdot 1 = 250$. In the form $a \\cdot b^x$, the $y$-intercept is always the coefficient $a$.\n\n**Common Mistakes:** Reporting $1.08$ (the growth factor, not the intercept); reporting $0$ as if $f(0) = 0$; multiplying $250 \\cdot 1.08$ as if the exponent were $1$.\n\n**Test Day Takeaway:** For $a \\cdot b^x$, the $y$-intercept is $a$, because $b^0 = 1$ for any $b \\neq 0$.",
+    id: "bank-am-053",
+    domain: "advanced-math",
+    skills: ["exponential-y-intercept"],
+    difficulty: "easy",
+    type: "fill-in",
+    question: "The table shows the value of the exponential function $f$ at three values of $x$. In the $xy$-plane, the graph of $y = f(x)$ intersects the $y$-axis at the point $(0, k)$. What is the value of $k$?",
+    diagram: { type: "dataTable", params: { headers: ["x", "f(x)"], rows: [["0", "400"], ["1", "600"], ["2", "900"]] } },
+    correctAnswer: "400",
+    explanation: "**SAT Pattern: y-intercept of Exponential**\n\n**The correct answer is $400$.**\n\n**The Fast Way (~10s):** The $y$-intercept is the output at $x = 0$, and the table gives $f(0) = 400$.\n\n**The Full Solution:**\nStep 1: A graph crosses the $y$-axis where $x = 0$, so $k = f(0)$.\nStep 2: The first row of the table gives $f(0) = 400$.\nStep 3: So the graph passes through $(0, 400)$ and $k = 400$. Check that the table really is exponential: $\\dfrac{600}{400} = 1.5$ and $\\dfrac{900}{600} = 1.5$, a constant ratio, so $f(x) = 400(1.5)^{x}$ and $f(0) = 400$. $\\checkmark$\n\n**Common Mistakes:** Reporting $600$, the value at $x = 1$ rather than at $x = 0$. Reporting $1.5$, the growth factor, which is the base rather than the initial value.\n\n**Test Day Takeaway:** For $f(x) = ab^{x}$ the $y$-intercept is always $a$, the value at $x = 0$ — the growth factor never appears in it.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'y-intercept-eval',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "y-intercept-eval",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-054',
-    domain: 'advanced-math',
-    skills: ['exponential-y-intercept'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'The number of subscribers to a newsletter is modeled by $S(t) = 150(1.2)^t$, where $t$ is the number of months since January. What does the value 150 represent?',
+    id: "bank-am-054",
+    domain: "advanced-math",
+    skills: ["exponential-y-intercept"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The function $M$ defined by $M(t) = 320(1.15)^{t}$ models the number of members of a hiking club $t$ years after the club was founded. Which of the following is the best interpretation of $320$ in this context?",
     choices: [
-      // distractor: confuses coefficient with rate
-      { id: 'A', text: 'The monthly growth rate' },
-      { id: 'B', text: 'The number of subscribers in January' },
-      // distractor: would require evaluation at t = 12
-      { id: 'C', text: 'The total subscribers after one year' },
-      // distractor: rate not absolute count
-      { id: 'D', text: 'The number of new subscribers per month' },
+      { id: "A", text: "The club had $320$ members when it was founded." },
+      // distractor: reads the initial value as a constant yearly increase
+      { id: "B", text: "The club gains $320$ members each year." },
+      // distractor: confuses the initial value with the growth rate
+      { id: "C", text: "The number of members increases by $320\\%$ each year." },
+      // distractor: evaluates at $t = 1$ instead of $t = 0$
+      { id: "D", text: "The club had $320$ members one year after it was founded." }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The coefficient $a$ in $a \\cdot b^t$ is the value at $t = 0$. Here $t = 0$ is January, so $150$ is the number of subscribers in January — choice B.\n\n**The Full Solution:**\nStep 1: In $S(t) = a \\cdot b^t$, the coefficient $a$ is the value at $t = 0$ and $b$ is the per-month growth factor.\nStep 2: Here $a = 150$ and $t$ counts months since January, so $t = 0$ is January.\nStep 3: Therefore $150 = S(0)$ is the subscriber count in January. Check: $S(0) = 150(1.2)^0 = 150$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: confuses the coefficient with the growth rate, which is carried by $b = 1.2$.\n* Choice C: that would be $S(12) = 150(1.2)^{12} \\approx 1338$, not $150$.\n* Choice D: $150$ is the starting total, not a per-month increase.\n\n**Test Day Takeaway:** In $a \\cdot b^t$, $a$ is the initial value, $b$ is the growth factor, and $t$ is elapsed time. Read the units of $t$ to know what \"initial\" means.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $M(0) = 320(1.15)^{0} = 320$, so $320$ is the membership at the founding.\n\n**The Full Solution:**\nStep 1: In $M(t) = ab^{t}$, the constant $a$ is the output when the exponent is $0$.\nStep 2: Substituting $t = 0$ gives $M(0) = 320(1.15)^{0} = 320(1) = 320$.\nStep 3: Since $t$ counts years since the club was founded, $t = 0$ is the founding, so the club began with $320$ members. Check the other constant: $1.15$ means membership grows by $15\\%$ per year. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: a fixed yearly gain would be a linear model like $320 + ct$; here the yearly gain grows every year.\n* Choice C: the growth rate is $15\\%$, carried by the base $1.15$, not by $320$.\n* Choice D: after one year the club has $M(1) = 320(1.15) = 368$ members, not $320$.\n\n**Test Day Takeaway:** In an exponential model the coefficient out front is the value at time zero; the base carries the rate. Read each constant's job before interpreting.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'interpret-initial-value',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "interpret-initial-value",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-055',
-    domain: 'advanced-math',
-    skills: ['exponential-y-intercept'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'The value of a collectible is $V(t) = a \\cdot b^t$. If $V(0) = 320$ and $V(2) = 500$, what is the approximate value of $b$?',
+    id: "bank-am-055",
+    domain: "advanced-math",
+    skills: ["exponential-y-intercept"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The value of a rare coin, in dollars, $t$ years after it was appraised is modeled by $V(t) = a \\cdot b^{t}$, where $a$ and $b$ are constants. The table gives the coin's value at two times. What is the value of $b$?",
+    diagram: { type: "dataTable", params: { headers: ["Time t (years)", "Value (dollars)"], rows: [["0", "400"], ["2", "576"]] } },
     choices: [
-      { id: 'A', text: '$1.25$' },
-      // distractor: gives b² instead of b
-      { id: 'B', text: '$1.56$' },
-      // distractor: reciprocal of correct value
-      { id: 'C', text: '$0.80$' },
-      // distractor: wrong base
-      { id: 'D', text: '$1.80$' },
+      // distractor: divides the two-year ratio by $2$ instead of taking its square root
+      { id: "A", text: "$0.72$" },
+      { id: "B", text: "$1.2$" },
+      // distractor: reports the two-year growth factor as the annual factor
+      { id: "C", text: "$1.44$" },
+      // distractor: subtracts the square roots instead of dividing them
+      { id: "D", text: "$4$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Find Base from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $V(0) = a = 320$, so $320b^2 = 500$ gives $b^2 = 1.5625$ and $b = \\sqrt{1.5625} = 1.25$ — choice A.\n\n**The Full Solution:**\nStep 1: $V(0) = a \\cdot b^0 = a$, so $a = 320$.\nStep 2: $V(2) = 320 b^2 = 500$, so $b^2 = \\frac{500}{320} = 1.5625$.\nStep 3: Take the positive root: $b = \\sqrt{1.5625} = 1.25$.\nStep 4: Check: $320(1.25)^2 = 320 \\cdot 1.5625 = 500$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($1.56$): leaves the answer at $b^2 = 1.5625$ and forgets to take the square root.\n* Choice C ($0.80$): reports the reciprocal $\\frac{1}{1.25}$, inverting the base.\n* Choice D ($1.80$): not consistent with either point.\n\n**Test Day Takeaway:** $V(0)$ gives $a$ directly; the second point gives $b^t$. After solving for the power of $b$, take the matching root.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Find Base from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $\\dfrac{V(2)}{V(0)} = \\dfrac{576}{400} = 1.44 = b^{2}$, so $b = \\sqrt{1.44} = 1.2$.\n\n**The Full Solution:**\nStep 1: At $t = 0$, $V(0) = a \\cdot b^{0} = a$, and the table gives $V(0) = 400$, so $a = 400$.\nStep 2: At $t = 2$, $400b^{2} = 576$, so $b^{2} = \\dfrac{576}{400} = 1.44$.\nStep 3: Since a growth factor is positive, $b = \\sqrt{1.44} = 1.2$. Check: $400(1.2)^{2} = 400(1.44) = 576$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.72$): divides $1.44$ by $2$; two years of growth compound, so the ratio is a square, not a doubling.\n* Choice C ($1.44$): this is the factor over TWO years, not one.\n* Choice D ($4$): computes $\\sqrt{576} - \\sqrt{400} = 24 - 20$ instead of $\\dfrac{\\sqrt{576}}{\\sqrt{400}}$.\n\n**Test Day Takeaway:** Two points that are $n$ periods apart give $b^{n}$, so take the $n$th root — dividing by $n$ is the linear reflex and is always wrong here.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'find-base-from-points',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "find-base-from-points",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
 
   // ── distributive-property (4 questions) ───────────────────────────
   {
-    id: 'bank-am-056',
-    domain: 'advanced-math',
-    skills: ['distributive-property'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'Which expression is equivalent to $-4(3x - 7)$?',
+    id: "bank-am-056",
+    domain: "advanced-math",
+    skills: ["distributive-property"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "For all values of $x$, which of the following expressions is equivalent to $-6(2x - 9)$?",
     choices: [
-      { id: 'A', text: '$-12x + 28$' },
-      // distractor: sign error on constant
-      { id: 'B', text: '$-12x - 28$' },
-      // distractor: drops the negative on the first term
-      { id: 'C', text: '$12x + 28$' },
-      // distractor: doesn\'t multiply the constant
-      { id: 'D', text: '$-12x - 7$' },
+      // distractor: keeps the second term negative instead of flipping its sign
+      { id: "A", text: "$-12x - 54$" },
+      { id: "B", text: "$-12x + 54$" },
+      // distractor: distributes to the first term only
+      { id: "C", text: "$-12x - 9$" },
+      // distractor: loses the negative on the first term
+      { id: "D", text: "$12x + 54$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Distribute a Negative**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $-4 \\cdot 3x = -12x$ and $-4 \\cdot (-7) = +28$, giving $-12x + 28$ — choice A.\n\n**The Full Solution:**\nStep 1: Distribute $-4$ to the first term: $-4 \\cdot 3x = -12x$.\nStep 2: Distribute $-4$ to the second term: $-4 \\cdot (-7) = +28$, since negative times negative is positive.\nStep 3: Combine: $-12x + 28$.\n\n**Why the wrong answers are tempting:**\n* Choice B: keeps $-28$, missing that $(-4)(-7) = +28$.\n* Choice C: drops the negative on the first term, giving $+12x$.\n* Choice D: leaves the $-7$ unmultiplied instead of distributing the $-4$ to it.\n\n**Test Day Takeaway:** Distribute a negative coefficient to every term inside the parentheses, and remember negative times negative is positive.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Distribute a Negative**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $-6 \\cdot 2x = -12x$ and $-6 \\cdot (-9) = +54$, so the expression is $-12x + 54$.\n\n**The Full Solution:**\nStep 1: The distributive property multiplies the outside factor by EACH term inside: $-6(2x) + (-6)(-9)$.\nStep 2: $-6(2x) = -12x$, and a negative times a negative is positive, so $(-6)(-9) = 54$.\nStep 3: The result is $-12x + 54$. Check at $x = 1$: the original is $-6(2 - 9) = -6(-7) = 42$, and the answer gives $-12 + 54 = 42$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12x - 54$): multiplies $-6$ by $9$ and keeps the minus sign, ignoring that the $9$ inside is already negative.\n* Choice C ($-12x - 9$): distributes only to the $2x$ and copies the $-9$ unchanged.\n* Choice D ($12x + 54$): drops the negative on the first product; at $x = 1$ this gives $66$, not $42$.\n\n**Test Day Takeaway:** Distribute the sign along with the number, term by term, then test one value of $x$ to confirm.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'distribute-monomial',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "distribute-monomial",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-057',
-    domain: 'advanced-math',
-    skills: ['distributive-property'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Expand and simplify $(2x + 3)(4x - 5)$.',
+    id: "bank-am-057",
+    domain: "advanced-math",
+    skills: ["distributive-property"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "For all values of $x$, which of the following expressions is equivalent to $(3x - 4)(5x + 2)$?",
     choices: [
-      { id: 'A', text: '$8x^2 + 2x - 15$' },
-      // distractor: combines middle terms wrong (-10 + 12 ≠ -2)
-      { id: 'B', text: '$8x^2 - 2x - 15$' },
-      // distractor: adds magnitudes (10 + 12) instead of signed sum
-      { id: 'C', text: '$8x^2 + 22x - 15$' },
-      // distractor: 2×4 = 6 (wrong arithmetic)
-      { id: 'D', text: '$6x^2 + 2x - 15$' },
+      // distractor: makes the outer product negative, combining $-6x$ with $-20x$
+      { id: "A", text: "$15x^2 - 26x - 8$" },
+      { id: "B", text: "$15x^2 - 14x - 8$" },
+      // distractor: gets the size of the middle term right but the sign wrong
+      { id: "C", text: "$15x^2 + 14x - 8$" },
+      // distractor: multiplies only the first terms and the last terms
+      { id: "D", text: "$15x^2 - 8$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: FOIL Two Binomials**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** FOIL gives $8x^2 - 10x + 12x - 15$, and the middle terms combine to $8x^2 + 2x - 15$ — choice A.\n\n**The Full Solution:**\nStep 1: First: $(2x)(4x) = 8x^2$.\nStep 2: Outer: $(2x)(-5) = -10x$. Inner: $(3)(4x) = 12x$.\nStep 3: Last: $(3)(-5) = -15$.\nStep 4: Sum: $8x^2 - 10x + 12x - 15 = 8x^2 + 2x - 15$. Check at $x = 1$: $(5)(-1) = -5$ and $8 + 2 - 15 = -5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: combines the middle terms as $-10x + 12x = -2x$ with the wrong sign instead of $+2x$.\n* Choice C: adds the magnitudes $10 + 12 = 22$ instead of the signed sum.\n* Choice D: multiplies the leading coefficients $2 \\cdot 4$ as $6$.\n\n**Test Day Takeaway:** FOIL gives four terms; the Outer and Inner products combine. Track the signs carefully when you add them.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: FOIL Two Binomials**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $15x^2$ from the first terms; $6x - 20x = -14x$ in the middle; $-8$ from the last terms.\n\n**The Full Solution:**\nStep 1: Multiply the first terms: $3x \\cdot 5x = 15x^2$.\nStep 2: Multiply the outer and inner pairs and combine: $3x \\cdot 2 = 6x$ and $-4 \\cdot 5x = -20x$, so the middle term is $6x - 20x = -14x$.\nStep 3: Multiply the last terms: $-4 \\cdot 2 = -8$. The product is $15x^2 - 14x - 8$. Check at $x = 1$: $(3 - 4)(5 + 2) = -7$, and $15 - 14 - 8 = -7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-26x$): treats the outer product as $-6x$, then adds $-20x$.\n* Choice C ($+14x$): reverses the sign of the middle term; at $x = 1$ this gives $21$, not $-7$.\n* Choice D ($15x^2 - 8$): multiplies first-by-first and last-by-last only, skipping the outer and inner products.\n\n**Test Day Takeaway:** Every term of the first binomial meets every term of the second — four products. Substituting $x = 1$ is a two-second check on the whole expansion.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'foil-binomials',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "foil-binomials",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-058',
-    domain: 'advanced-math',
-    skills: ['distributive-property'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'What value of $c$ satisfies the equation $(x + 4)(x - 6) = x^2 + bx + c$?',
-    correctAnswer: '-24',
-    explanation: "**SAT Pattern: Constant Term from Factored Form**\n\n**The correct answer is $-24$.**\n\n**The Fast Way (~10s):** The constant of the product is the product of the constants: $4 \\cdot (-6) = -24$.\n\n**The Full Solution:**\nStep 1: Expand $(x + 4)(x - 6)$. The only term with no $x$ comes from multiplying the two constants.\nStep 2: $4 \\cdot (-6) = -24$, so $c = -24$.\nStep 3: Full expansion: $x^2 - 6x + 4x - 24 = x^2 - 2x - 24$, confirming $c = -24$ (and $b = -2$).\n\n**Common Mistakes:** Reporting $24$ (dropping the sign); reporting $-2$ (that is $b$, the middle coefficient, not $c$); reporting $4$ or $-6$ (one of the factor constants alone).\n\n**Test Day Takeaway:** For $(x + p)(x + q)$, the constant term is $pq$ and the middle coefficient is $p + q$.",
+    id: "bank-am-058",
+    domain: "advanced-math",
+    skills: ["distributive-property"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "For all values of $x$, the equation $(x + 9)(x - 5) = x^2 + bx + c$ is true, where $b$ and $c$ are constants. What is the value of $c$?",
+    correctAnswer: "-45",
+    explanation: "**SAT Pattern: Constant Term from Factored Form**\n\n**The correct answer is $-45$.**\n\n**The Fast Way (~10s):** The constant term of the product is the product of the constants: $9 \\cdot (-5) = -45$.\n\n**The Full Solution:**\nStep 1: Expand: $(x + 9)(x - 5) = x^2 - 5x + 9x - 45$.\nStep 2: Combine like terms: $x^2 + 4x - 45$.\nStep 3: Matching to $x^2 + bx + c$ gives $b = 4$ and $c = -45$. Check at $x = 0$: the left side is $(9)(-5) = -45$, and the right side is $c$. $\\checkmark$\n\n**Common Mistakes:** Reporting $4$, which is $b$, not $c$. Reporting $45$ by dropping the negative from $9 \\cdot (-5)$.\n\n**Test Day Takeaway:** Substituting $x = 0$ isolates the constant term instantly — both sides reduce to the product of the two constants.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'foil-identify-constant',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
-  },
-  { id: 'bank-am-059', domain: 'advanced-math', skills: ['distributive-property'], difficulty: 'hard', type: 'multiple-choice',
-    question: 'For all values of $x$, the equation $(x + 2)^3 = ax^3 + bx^2 + cx + d$ is true, where $a$, $b$, $c$, and $d$ are constants. What is the value of $a - b + c - d$?',
-    choices: [{ id: 'A', text: '$-27$' }, { id: 'B', text: '$-1$' }, { id: 'C', text: '$1$' }, { id: 'D', text: '$27$' }],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Alternating-Sign Coefficient Sum via $f(-1)$**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** With $f(x) = ax^3 + bx^2 + cx + d$, $f(-1) = -a + b - c + d$, so $a - b + c - d = -f(-1)$. Since $f(x) = (x + 2)^3$, $f(-1) = 1^3 = 1$, giving $a - b + c - d = -1$ — choice B.\n\n**The Full Solution:**\nStep 1: Let $f(x) = ax^3 + bx^2 + cx + d = (x + 2)^3$.\nStep 2: Substitute $x = -1$: $f(-1) = -a + b - c + d$, which is the negative of the target combination, so $a - b + c - d = -f(-1)$.\nStep 3: Evaluate the right side: $f(-1) = (-1 + 2)^3 = 1^3 = 1$, so $a - b + c - d = -1$.\nStep 4: Confirm by expanding: $(x + 2)^3 = x^3 + 6x^2 + 12x + 8$, so $1 - 6 + 12 - 8 = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-27$): plugs in $x = 1$ (the wrong substitution) and then sign-flips.\n* Choice C ($1$): finds $f(-1) = 1$ correctly but forgets the answer is $-f(-1)$.\n* Choice D ($27$): plugs in $x = 1$, computing $a + b + c + d = f(1) = 27$ instead.\n\n**Test Day Takeaway:** For a \"sum of coefficients\" question plug in $x = 1$; for an alternating-sign sum plug in $x = -1$, then match the sign of $f(-1)$ to the exact combination asked.",
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'cube-of-binomial', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
-  { id: 'bank-am-060', domain: 'advanced-math', skills: ['combining-like-terms'], difficulty: 'easy', type: 'multiple-choice',
-    question: 'Which of the following expressions is equivalent to $7x^2 - 3x + 4x^2 + 9x - 2$?',
-    choices: [{ id: 'A', text: '$3x^2 + 6x - 2$' }, { id: 'B', text: '$11x^2 - 12x - 2$' }, { id: 'C', text: '$11x^2 + 6x - 2$' }, { id: 'D', text: '$11x^4 + 6x - 2$' }],
-    correctAnswer: 'C',
-    explanation: "**SAT Pattern: Combine Like Terms**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $x^2$: $7 + 4 = 11$; $x$: $-3 + 9 = 6$; constant: $-2$. Result: $11x^2 + 6x - 2$ — choice C.\n\n**The Full Solution:**\nStep 1: Group terms sharing the same variable and exponent.\nStep 2: $x^2$ terms: $7x^2 + 4x^2 = 11x^2$.\nStep 3: $x$ terms: $-3x + 9x = 6x$. Constant: $-2$.\nStep 4: Combine: $11x^2 + 6x - 2$. Check at $x = 1$: original $= 7 - 3 + 4 + 9 - 2 = 15$, simplified $= 11 + 6 - 2 = 15$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: subtracts the $x^2$ coefficients ($7 - 4 = 3$) instead of adding them.\n* Choice B: subtracts the $x$ coefficients ($-3 - 9 = -12$) instead of adding ($-3 + 9 = 6$).\n* Choice D: adds the exponents to get $x^4$; combining like terms leaves the exponent unchanged.\n\n**Test Day Takeaway:** Like terms share the same variable and exponent. Add only their coefficients — the exponent never changes, so $7x^2 + 4x^2 = 11x^2$, not $11x^4$.",
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'combine-polynomial', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
-  {
-    id: 'bank-am-061',
-    domain: 'advanced-math',
-    skills: ['combining-like-terms'],
-    difficulty: 'easy',
-    type: 'fill-in',
-    question: 'Simplify $5a - 2b + 3a + 8b$. What is the coefficient of $b$ in the result?',
-    correctAnswer: '6',
-    explanation: "**SAT Pattern: Coefficient After Combining**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~5s):** Only the $b$ terms matter: $-2b + 8b = 6b$, so the coefficient is $6$.\n\n**The Full Solution:**\nStep 1: Group like terms in $5a - 2b + 3a + 8b$.\nStep 2: $a$ terms: $5a + 3a = 8a$.\nStep 3: $b$ terms: $-2b + 8b = 6b$.\nStep 4: The simplified result is $8a + 6b$, so the coefficient of $b$ is $6$.\n\n**Common Mistakes:** Reporting $8$ (that is the coefficient of $a$); reporting $-2$ or $8$ (the original $b$ coefficients before combining); reporting $10$ (adding $2 + 8$ and ignoring the negative sign).\n\n**Test Day Takeaway:** When a question asks for one specific coefficient, isolate just those terms and combine them with their signs. Ignore everything else.",
-    calculatorAllowed: true,
-    tags: [],
-    sourceStyleRef: 'combine-terms',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "foil-identify-constant",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-062',
-    domain: 'advanced-math',
-    skills: ['combining-like-terms'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Simplify $(3x^2 + 5x - 2) - (x^2 - 4x + 7)$.',
+    id: "bank-am-059",
+    domain: "advanced-math",
+    skills: ["distributive-property"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "The expression $(2x - 3)^3$ is equivalent to $ax^3 + bx^2 + cx + d$ for all values of $x$, where $a$, $b$, $c$, and $d$ are constants. What is the value of $a - b + c - d$?",
     choices: [
-      { id: 'A', text: '$2x^2 + 9x - 9$' },
-      // distractor: forgets to flip -4x to +4x
-      { id: 'B', text: '$2x^2 + x - 9$' },
-      // distractor: adds instead of subtracting throughout
-      { id: 'C', text: '$4x^2 + x + 5$' },
-      // distractor: forgets to flip +7 to -7
-      { id: 'D', text: '$2x^2 + 9x + 5$' },
+      // distractor: reports $-a + b - c + d$, the value at $x = -1$, without negating it
+      { id: "A", text: "$-125$" },
+      // distractor: substitutes $x = 1$, which produces $a + b + c + d$
+      { id: "B", text: "$-1$" },
+      // distractor: loses the sign on $d$, computing $8 + 36 + 54 - 27$
+      { id: "C", text: "$71$" },
+      { id: "D", text: "$125$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Subtract Polynomials**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Distribute the minus across the second polynomial: $3x^2 + 5x - 2 - x^2 + 4x - 7 = 2x^2 + 9x - 9$, which is Choice A.\n\n**The Full Solution:**\nStep 1: Distribute the negative to every term of the second polynomial: $(3x^2 + 5x - 2) - (x^2 - 4x + 7) = 3x^2 + 5x - 2 - x^2 + 4x - 7$.\nStep 2: Combine like terms.\n* $x^2$: $3 - 1 = 2$\n* $x$: $5 + 4 = 9$\n* constant: $-2 - 7 = -9$\nStep 3: The result is $2x^2 + 9x - 9$.\n\nCheck at $x = 1$: original $= (3 + 5 - 2) - (1 - 4 + 7) = 6 - 4 = 2$; Choice A $= 2 + 9 - 9 = 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($2x^2 + x - 9$): forgot to flip $-4x$ to $+4x$, so the $x$ terms came out as $5 - 4 = 1$ instead of $5 + 4 = 9$.\n* Choice C ($4x^2 + x + 5$): added the polynomials instead of subtracting.\n* Choice D ($2x^2 + 9x + 5$): forgot to flip $+7$ to $-7$, leaving the constant as $-2 + 7 = 5$.\n\n**Test Day Takeaway:** To subtract a polynomial, flip the sign of every term inside the second parentheses, then combine. The minus distributes to all terms, not just the first.",
-    calculatorAllowed: true,
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Alternating-Sign Coefficient Sum via $f(-1)$**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** Substituting $x = -1$ gives $-a + b - c + d = (2(-1) - 3)^3 = -125$. The requested sum is its opposite: $a - b + c - d = 125$.\n\n**The Full Solution:**\nStep 1: Let $f(x) = ax^3 + bx^2 + cx + d$. Then $f(-1) = -a + b - c + d$, which is exactly the negative of the requested expression.\nStep 2: Because the two expressions are equivalent, $f(-1) = (2(-1) - 3)^3 = (-5)^3 = -125$.\nStep 3: Therefore $a - b + c - d = -f(-1) = 125$. Check by expanding: $(2x - 3)^3 = 8x^3 - 36x^2 + 54x - 27$, so $a - b + c - d = 8 + 36 + 54 + 27 = 125$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-125$): stops at $f(-1)$, which equals $-a + b - c + d$ — every sign is backwards.\n* Choice B ($-1$): substitutes $x = 1$, which gives $a + b + c + d = (2 - 3)^3 = -1$, the all-plus combination.\n* Choice C ($71$): expands correctly but subtracts $d$'s magnitude instead of subtracting $d = -27$, giving $8 + 36 + 54 - 27$.\n\n**Test Day Takeaway:** An alternating sum of coefficients is $\\pm f(-1)$. Decide which sign the odd-power terms need, then evaluate the original expression once — no expansion required.",
+    calculatorAllowed: false,
     tags: [],
-    sourceStyleRef: 'subtract-polynomials',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "cube-of-binomial",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-12"
   },
-  { id: 'bank-am-063', domain: 'advanced-math', skills: ['combining-like-terms', 'distributive-property'], difficulty: 'hard', type: 'multiple-choice',
-    question: 'The expression $3(2x^2 + ax) - 2(x^2 + x - b)$ is equivalent to $4x^2 + 16x + 6$ for all values of $x$, where $a$ and $b$ are constants. What is the value of $a + b$?',
-    choices: [{ id: 'A', text: '$3$' }, { id: 'B', text: '$6$' }, { id: 'C', text: '$9$' }, { id: 'D', text: '$12$' }],
-    correctAnswer: 'C',
-    explanation: "**SAT Pattern: Match Coefficients of Equivalent Polynomials**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Expand to $4x^2 + (3a - 2)x + 2b$. Match the target: $3a - 2 = 16 \\Rightarrow a = 6$ and $2b = 6 \\Rightarrow b = 3$, so $a + b = 9$, which is Choice C.\n\n**The Full Solution:**\nStep 1: Expand each product. $3(2x^2 + ax) = 6x^2 + 3ax$ and $-2(x^2 + x - b) = -2x^2 - 2x + 2b$.\nStep 2: Combine: $(6 - 2)x^2 + (3a - 2)x + 2b = 4x^2 + (3a - 2)x + 2b$.\nStep 3: Match the $x$ coefficient against $4x^2 + 16x + 6$: $3a - 2 = 16 \\Rightarrow 3a = 18 \\Rightarrow a = 6$.\nStep 4: Match the constant: $2b = 6 \\Rightarrow b = 3$.\nStep 5: $a + b = 6 + 3 = 9$.\n\nCheck: $3(2x^2 + 6x) - 2(x^2 + x - 3) = 6x^2 + 18x - 2x^2 - 2x + 6 = 4x^2 + 16x + 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): mishandles the constant sign, solving $-2b = 6$ to get $b = -3$, then $a + b = 6 + (-3) = 3$.\n* Choice B ($6$): reports $a$ alone and forgets to add $b$.\n* Choice D ($12$): treats the expanded constant as $b$ instead of $2b$, reading $b = 6$, then $a + b = 6 + 6 = 12$.\n\n**Test Day Takeaway:** \"Equivalent for all $x$\" means the two polynomials match term by term. Match each coefficient column separately ($x^2$, $x$, constant), and watch how distribution multiplies the unknown — here the constant is $2b$, not $b$.",
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'multi-distribute-combine', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   {
-    id: 'bank-am-064',
-    domain: 'advanced-math',
-    skills: ['difference-of-squares'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'Which of the following is a factorization of $x^2 - 49$?',
+    id: "bank-am-060",
+    domain: "advanced-math",
+    skills: ["combining-like-terms"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "For all values of $x$, which of the following expressions is equivalent to $5x^2 + 8x - 9x^2 - 3x + 7$?",
     choices: [
-      { id: 'A', text: '$(x + 7)(x - 7)$' },
-      // distractor: squares the factor instead
-      { id: 'B', text: '$(x - 7)^2$' },
-      // distractor: wrong factor pair
-      { id: 'C', text: '$(x + 49)(x - 1)$' },
-      // distractor: squares with wrong sign
-      { id: 'D', text: '$(x + 7)^2$' },
+      // distractor: reverses the sign of the combined $x$-term
+      { id: "A", text: "$-4x^2 - 5x + 7$" },
+      { id: "B", text: "$-4x^2 + 5x + 7$" },
+      // distractor: adds $8x$ and $3x$ instead of subtracting
+      { id: "C", text: "$-4x^2 + 11x + 7$" },
+      // distractor: adds the $x^2$ coefficients instead of subtracting
+      { id: "D", text: "$14x^2 + 5x + 7$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Difference of Squares**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $49 = 7^2$, and $a^2 - b^2 = (a + b)(a - b)$, so $x^2 - 49 = (x + 7)(x - 7)$, which is Choice A.\n\n**The Full Solution:**\nStep 1: Recognize $x^2 - 49$ as a difference of two squares, since $49 = 7^2$.\nStep 2: Apply $a^2 - b^2 = (a + b)(a - b)$ with $a = x$, $b = 7$: $x^2 - 49 = (x + 7)(x - 7)$.\n\nCheck: $(x + 7)(x - 7) = x^2 - 7x + 7x - 49 = x^2 - 49$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($(x - 7)^2$): this is a perfect square, expanding to $x^2 - 14x + 49$, which has an extra middle term.\n* Choice C ($(x + 49)(x - 1)$): the constants multiply to $-49$ but expand to $x^2 + 48x - 49$, not $x^2 - 49$.\n* Choice D ($(x + 7)^2$): expands to $x^2 + 14x + 49$, again with a middle term.\n\n**Test Day Takeaway:** A difference of squares $a^2 - b^2$ factors into two different binomials $(a + b)(a - b)$ — never a single squared binomial.",
-    calculatorAllowed: true,
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Combine Like Terms**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $5x^2 - 9x^2 = -4x^2$, $8x - 3x = 5x$, and the $7$ stands alone: $-4x^2 + 5x + 7$.\n\n**The Full Solution:**\nStep 1: Group the $x^2$ terms: $5x^2 - 9x^2 = (5 - 9)x^2 = -4x^2$.\nStep 2: Group the $x$ terms: $8x - 3x = (8 - 3)x = 5x$.\nStep 3: The constant $7$ has no partner, so the simplified expression is $-4x^2 + 5x + 7$. Check at $x = 1$: the original is $5 + 8 - 9 - 3 + 7 = 8$, and the answer gives $-4 + 5 + 7 = 8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5x$): flips the sign of the $x$-term; at $x = 1$ this gives $-2$, not $8$.\n* Choice C ($+11x$): adds $8$ and $3$ instead of subtracting, ignoring the minus in front of $3x$.\n* Choice D ($14x^2$): adds $5$ and $9$ rather than subtracting, ignoring the minus in front of $9x^2$.\n\n**Test Day Takeaway:** Carry the sign that sits in FRONT of each term into the grouping, then check the whole simplification with $x = 1$.",
+    calculatorAllowed: false,
     tags: [],
-    sourceStyleRef: 'difference-of-squares',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
-  },
-  { id: 'bank-am-065', domain: 'advanced-math', skills: ['difference-of-squares'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'Which of the following is the complete factorization of $x^4 - 16y^4$ over the integers?',
-    choices: [{ id: 'A', text: '$(x^2 - 4y^2)(x^2 + 4y^2)$' }, { id: 'B', text: '$(x - 2y)(x + 2y)(x^2 + 4y^2)$' }, { id: 'C', text: '$(x - 4y)(x + 4y)(x^2 + 4y^2)$' }, { id: 'D', text: '$(x - 2y)^2(x + 2y)^2$' }],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Two-Step Difference of Squares**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $x^4 - 16y^4 = (x^2 - 4y^2)(x^2 + 4y^2)$, then factor $x^2 - 4y^2 = (x - 2y)(x + 2y)$. The sum $x^2 + 4y^2$ stays. Full factorization: $(x - 2y)(x + 2y)(x^2 + 4y^2)$, which is Choice B.\n\n**The Full Solution:**\nStep 1: Write each term as a square: $x^4 = (x^2)^2$ and $16y^4 = (4y^2)^2$. So $x^4 - 16y^4 = (x^2 - 4y^2)(x^2 + 4y^2)$.\nStep 2: $x^2 - 4y^2$ is itself a difference of squares: $x^2 - (2y)^2 = (x - 2y)(x + 2y)$.\nStep 3: $x^2 + 4y^2$ is a sum of squares and does not factor over the integers.\nStep 4: Combine: $(x - 2y)(x + 2y)(x^2 + 4y^2)$.\n\nCheck: $(x - 2y)(x + 2y) = x^2 - 4y^2$, then $(x^2 - 4y^2)(x^2 + 4y^2) = x^4 - 16y^4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: stops after the first difference-of-squares step; $x^2 - 4y^2$ still factors further.\n* Choice C: takes $\\sqrt{16y^4}$ as $4y$ instead of $4y^2$, giving the wrong linear factors.\n* Choice D: tries to factor the sum $x^2 + 4y^2$, which is irreducible over the integers.\n\n**Test Day Takeaway:** With even powers like $x^4$, keep applying difference of squares until each factor is linear or an irreducible sum of squares. Always take the full square root: $\\sqrt{16y^4} = 4y^2$, not $4y$.",
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'difference-of-squares', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
-  {
-    id: 'bank-am-066',
-    domain: 'advanced-math',
-    skills: ['difference-of-squares'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'If $a^2 - b^2 = 77$ and $a + b = 11$, what is the value of $a - b$?',
-    correctAnswer: '7',
-    explanation: "**SAT Pattern: Difference of Squares Application**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~10s):** $a^2 - b^2 = (a + b)(a - b)$, so $11 \\cdot (a - b) = 77 \\Rightarrow a - b = 7$.\n\n**The Full Solution:**\nStep 1: Factor the left side: $a^2 - b^2 = (a + b)(a - b)$.\nStep 2: Substitute the known values: $(a + b)(a - b) = 77$ becomes $11 \\cdot (a - b) = 77$.\nStep 3: Divide: $a - b = \\frac{77}{11} = 7$.\n\nCheck: solving $a + b = 11$ and $a - b = 7$ gives $a = 9$, $b = 2$; then $81 - 4 = 77$. $\\checkmark$\n\n**Common Mistakes:** Setting up a full quadratic system instead of dividing (overcomplicates); reporting $11$ or $77$ by copying a given value; not spotting that $a^2 - b^2$ factors.\n\n**Test Day Takeaway:** When the SAT gives both $a^2 - b^2$ and one of $a + b$ or $a - b$, divide to get the other. The factorization turns it into one step.",
-    calculatorAllowed: true,
-    tags: [],
-    sourceStyleRef: 'difference-of-squares-application',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "combine-polynomial",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-12"
   },
   {
-    id: 'bank-am-067',
-    domain: 'advanced-math',
-    skills: ['difference-of-squares'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'Factor completely: $x^4 - 16$.',
+    id: "bank-am-061",
+    domain: "advanced-math",
+    skills: ["combining-like-terms"],
+    difficulty: "easy",
+    type: "fill-in",
+    question: "The expression $7m + 4n - 3m + 9n$ is equivalent to $am + bn$, where $a$ and $b$ are constants. What is the value of $b$?",
+    correctAnswer: "13",
+    explanation: "**SAT Pattern: Coefficient After Combining**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~10s):** Only the $n$-terms decide $b$: $4n + 9n = 13n$, so $b = 13$.\n\n**The Full Solution:**\nStep 1: Group the like terms: $(7m - 3m) + (4n + 9n)$.\nStep 2: Combine each group separately: $7m - 3m = 4m$, and $4n + 9n = 13n$, so the expression equals $4m + 13n$.\nStep 3: Matching $4m + 13n$ with $am + bn$ gives $a = 4$ and $b = 13$. Check with $m = 1$ and $n = 1$: the original is $7 + 4 - 3 + 9 = 17$, and $4(1) + 13(1) = 17$. $\\checkmark$\n\n**Common Mistakes:** Reporting $4$, the coefficient of $m$, when the question asks for the coefficient of $n$; adding every coefficient in sight, $7 + 4 - 3 + 9 = 17$; letting the minus sign in front of $3m$ leak into the $n$-terms and computing $9 - 4 = 5$.\n\n**Test Day Takeaway:** Combining like terms is two independent sums, one per variable. Decide which coefficient the question wants before you simplify.",
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: "combine-terms",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
+  },
+  {
+    id: "bank-am-062",
+    domain: "advanced-math",
+    skills: ["combining-like-terms"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "For all values of $x$, which of the following expressions is equivalent to $(5x^2 - 3x + 8) - (2x^2 + 7x - 5)$?",
     choices: [
-      { id: 'A', text: '$(x^2 + 4)(x + 2)(x - 2)$' },
-      // distractor: correct first step but not fully factored
-      { id: 'B', text: '$(x^2 + 4)(x^2 - 4)$' },
-      // distractor: wrong factorization
-      { id: 'C', text: '$(x + 2)^2(x - 2)^2$' },
-      // distractor: squares the difference
-      { id: 'D', text: '$(x^2 - 4)^2$' },
+      { id: "A", text: "$3x^2 - 10x + 13$" },
+      // distractor: distributes the minus sign to the first two terms but adds the constants, $8 + (-5) = 3$
+      { id: "B", text: "$3x^2 - 10x + 3$" },
+      // distractor: distributes the minus sign to only the first term of the second polynomial
+      { id: "C", text: "$3x^2 + 4x + 3$" },
+      // distractor: adds the two polynomials instead of subtracting
+      { id: "D", text: "$7x^2 + 4x + 3$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Nested Difference of Squares**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $x^4 - 16 = (x^2 + 4)(x^2 - 4) = (x^2 + 4)(x + 2)(x - 2)$, which is Choice A.\n\n**The Full Solution:**\nStep 1: Treat $x^4 - 16$ as $(x^2)^2 - 4^2$ and factor: $(x^2 + 4)(x^2 - 4)$.\nStep 2: $x^2 - 4$ is another difference of squares: $(x + 2)(x - 2)$.\nStep 3: $x^2 + 4$ is a sum of squares and does not factor over the reals.\nStep 4: Combine: $(x^2 + 4)(x + 2)(x - 2)$.\n\nCheck at $x = 1$: $(1 + 4)(1 + 2)(1 - 2) = 5 \\cdot 3 \\cdot (-1) = -15$; original $= 1 - 16 = -15$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($(x^2 + 4)(x^2 - 4)$): stops one step early without factoring $x^2 - 4$.\n* Choice C ($(x + 2)^2(x - 2)^2$): expands to a different polynomial; these are not the correct factors.\n* Choice D ($(x^2 - 4)^2$): squares a difference instead of factoring; expands to $x^4 - 8x^2 + 16$.\n\n**Test Day Takeaway:** \"Factor completely\" means keep going until no factor reduces further. Recheck every factor for another difference of squares — but $a^2 + b^2$ is irreducible over the reals.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Subtract Polynomials**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Flip every sign in the second polynomial and add: $5x^2 - 3x + 8 - 2x^2 - 7x + 5 = 3x^2 - 10x + 13$.\n\n**The Full Solution:**\nStep 1: Distribute the subtraction across all three terms: $-(2x^2 + 7x - 5) = -2x^2 - 7x + 5$.\nStep 2: Combine like terms: $5x^2 - 2x^2 = 3x^2$; $-3x - 7x = -10x$; $8 + 5 = 13$.\nStep 3: The result is $3x^2 - 10x + 13$. Check at $x = 1$: the original is $(5 - 3 + 8) - (2 + 7 - 5) = 10 - 4 = 6$, and $3 - 10 + 13 = 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($3x^2 - 10x + 3$): subtracts the $x^2$- and $x$-terms correctly but adds the constants, $8 + (-5) = 3$, missing the sign change on $-5$.\n* Choice C ($3x^2 + 4x + 3$): applies the minus sign only to $2x^2$, so $-3x + 7x = 4x$ and $8 - 5 = 3$.\n* Choice D ($7x^2 + 4x + 3$): adds the two polynomials instead of subtracting.\n\n**Test Day Takeaway:** The minus sign in front of a parenthesis belongs to every term inside it. Rewrite the subtraction as an addition of the opposite before you combine anything.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'nested-difference-of-squares',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "subtract-polynomials",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
+  },
+  {
+    id: "bank-am-063",
+    domain: "advanced-math",
+    skills: ["combining-like-terms", "distributive-property"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "The expression $5(3x^2 - ax) + 4(x^2 + 2x - b)$ is equivalent to $19x^2 - 7x + 12$ for all values of $x$, where $a$ and $b$ are constants. What is the value of $ab$?",
+    choices: [
+      // distractor: distributes the $5$ to $3x^2$ only, solving $8 - a = -7$ to get $a = 15$
+      { id: "A", text: "$-45$" },
+      { id: "B", text: "$-9$" },
+      // distractor: reports $a + b$ instead of $ab$
+      { id: "C", text: "$0$" },
+      // distractor: solves $-4b = 12$ as $b = 3$, dropping the negative sign
+      { id: "D", text: "$9$" }
+    ],
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Match Coefficients of Equivalent Polynomials**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Expanding gives $19x^2 + (8 - 5a)x - 4b$. Matching coefficients, $8 - 5a = -7$ gives $a = 3$ and $-4b = 12$ gives $b = -3$, so $ab = -9$.\n\n**The Full Solution:**\nStep 1: Distribute: $5(3x^2 - ax) = 15x^2 - 5ax$ and $4(x^2 + 2x - b) = 4x^2 + 8x - 4b$.\nStep 2: Collect like terms: $(15 + 4)x^2 + (8 - 5a)x - 4b = 19x^2 + (8 - 5a)x - 4b$. Two polynomials are equivalent for all $x$ only when matching coefficients are equal.\nStep 3: $8 - 5a = -7$ gives $5a = 15$, so $a = 3$; $-4b = 12$ gives $b = -3$. Then $ab = (3)(-3) = -9$. Check: $5(3x^2 - 3x) + 4(x^2 + 2x + 3) = 15x^2 - 15x + 4x^2 + 8x + 12 = 19x^2 - 7x + 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-45$): multiplies the $5$ only into $3x^2$, so the $x$-equation becomes $8 - a = -7$ and $a = 15$, giving $(15)(-3) = -45$.\n* Choice C ($0$): finds $a = 3$ and $b = -3$ correctly but reports $a + b = 0$ instead of the product.\n* Choice D ($9$): solves $-4b = 12$ as $b = 3$, losing the negative sign, and gets $(3)(3) = 9$.\n\n**Test Day Takeaway:** \"Equivalent for all values of $x$\" means coefficient-by-coefficient equality. Expand fully, then set up one small equation per power of $x$ — and reread which combination of the constants is being asked for.",
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: "multi-distribute-combine",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-12"
+  },
+  {
+    id: "bank-am-064",
+    domain: "advanced-math",
+    skills: ["difference-of-squares"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "For all values of $x$, which of the following is equivalent to $49x^2 - 4$?",
+    choices: [
+      // distractor: uses the constant $4$ itself instead of its square root, $2$
+      { id: "A", text: "$(7x - 4)(7x + 4)$" },
+      // distractor: squares a single factor, which produces a $-28x$ middle term
+      { id: "B", text: "$(7x - 2)(7x - 2)$" },
+      { id: "C", text: "$(7x - 2)(7x + 2)$" },
+      // distractor: squares a single factor, which produces a $+28x$ middle term
+      { id: "D", text: "$(7x + 2)(7x + 2)$" }
+    ],
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Difference of Squares**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $49x^2 - 4 = (7x)^2 - 2^2$, and $A^2 - B^2 = (A - B)(A + B)$, so the factorization is $(7x - 2)(7x + 2)$.\n\n**The Full Solution:**\nStep 1: Write each term as a perfect square: $49x^2 = (7x)^2$ and $4 = 2^2$.\nStep 2: Apply the difference-of-squares identity with $A = 7x$ and $B = 2$: $(7x)^2 - 2^2 = (7x - 2)(7x + 2)$.\nStep 3: Expand to confirm: $(7x - 2)(7x + 2) = 49x^2 + 14x - 14x - 4 = 49x^2 - 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(7x - 4)(7x + 4)$): uses the constant $4$ in the factors instead of $\\sqrt{4} = 2$; this product is $49x^2 - 16$.\n* Choice B ($(7x - 2)(7x - 2)$): squares one factor instead of pairing the two signs; this product is $49x^2 - 28x + 4$.\n* Choice D ($(7x + 2)(7x + 2)$): the same squaring error with the other sign; this product is $49x^2 + 28x + 4$.\n\n**Test Day Takeaway:** A binomial with a minus sign between two perfect squares always factors into a difference and a sum of the square roots — and it never has a middle term.",
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: "difference-of-squares",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
+  },
+  {
+    id: "bank-am-065",
+    domain: "advanced-math",
+    skills: ["difference-of-squares"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "Which of the following is the complete factorization of $81a^4 - b^4$ over the integers?",
+    choices: [
+      // distractor: treats the binomial as a perfect square instead of a difference of squares
+      { id: "A", text: "$(9a^2 - b^2)^2$" },
+      // distractor: stops after the first difference-of-squares step, leaving $9a^2 - b^2$ factorable
+      { id: "B", text: "$(9a^2 - b^2)(9a^2 + b^2)$" },
+      { id: "C", text: "$(3a - b)(3a + b)(9a^2 + b^2)$" },
+      // distractor: factors the sum $9a^2 + b^2$ as if it were a difference of squares
+      { id: "D", text: "$(3a - b)(3a + b)(3a - b)(3a + b)$" }
+    ],
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Two-Step Difference of Squares**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $81a^4 - b^4 = (9a^2 - b^2)(9a^2 + b^2)$, and $9a^2 - b^2$ is itself a difference of squares: $(3a - b)(3a + b)(9a^2 + b^2)$.\n\n**The Full Solution:**\nStep 1: Both terms are perfect squares: $81a^4 = (9a^2)^2$ and $b^4 = (b^2)^2$, so $81a^4 - b^4 = (9a^2 - b^2)(9a^2 + b^2)$.\nStep 2: The first factor is again a difference of squares, $(3a)^2 - b^2 = (3a - b)(3a + b)$. The second factor, $9a^2 + b^2$, is a sum of squares and does not factor over the integers.\nStep 3: The complete factorization is $(3a - b)(3a + b)(9a^2 + b^2)$. Check with $a = 1$, $b = 1$: the original is $81 - 1 = 80$, and $(2)(4)(10) = 80$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(9a^2 - b^2)^2$): reads the expression as a perfect square; expanding gives $81a^4 - 18a^2b^2 + b^4$, which has an extra middle term.\n* Choice B ($(9a^2 - b^2)(9a^2 + b^2)$): a correct first step, but $9a^2 - b^2$ still factors, so the factorization is not complete.\n* Choice D ($(3a - b)(3a + b)(3a - b)(3a + b)$): factors the sum of squares $9a^2 + b^2$ as $(3a - b)(3a + b)$, which equals $9a^2 - b^2$, not the sum.\n\n**Test Day Takeaway:** After every difference-of-squares split, look at each factor again. A sum of squares stops the process; a difference of squares keeps it going.",
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: "difference-of-squares",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-12"
+  },
+  {
+    id: "bank-am-066",
+    domain: "advanced-math",
+    skills: ["difference-of-squares"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "If $p^2 - q^2 = 96$ and $p - q = 8$, what is the value of $p + q$?",
+    correctAnswer: "12",
+    explanation: "**SAT Pattern: Difference of Squares Application**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~15s):** Since $p^2 - q^2 = (p - q)(p + q)$, the equation reads $8(p + q) = 96$, so $p + q = 12$.\n\n**The Full Solution:**\nStep 1: Factor the left side of the first equation: $p^2 - q^2 = (p - q)(p + q)$.\nStep 2: Substitute the given value $p - q = 8$: $8(p + q) = 96$.\nStep 3: Divide both sides by $8$: $p + q = 12$. Check: $p - q = 8$ and $p + q = 12$ give $p = 10$ and $q = 2$, and $10^2 - 2^2 = 100 - 4 = 96$. $\\checkmark$\n\n**Common Mistakes:** Subtracting instead of dividing, $96 - 8 = 88$; multiplying, $96 \\times 8 = 768$; or assuming $p^2 - q^2 = (p - q)^2$, which would force $p - q = \\sqrt{96} \\approx 9.80$ and contradict the given $p - q = 8$.\n\n**Test Day Takeaway:** When a question hands you $a^2 - b^2$ together with $a - b$ or $a + b$, the difference-of-squares identity turns it into one division. You never need the individual values.",
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: "difference-of-squares-application",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
+  },
+  {
+    id: "bank-am-067",
+    domain: "advanced-math",
+    skills: ["difference-of-squares"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "Which expression is the complete factorization of $3x^5 - 243x$ over the integers?",
+    choices: [
+      // distractor: removes the common factor $3x$ and stops
+      { id: "A", text: "$3x(x^4 - 81)$" },
+      // distractor: stops after the first difference-of-squares split, leaving $x^2 - 9$ factorable
+      { id: "B", text: "$3x(x^2 - 9)(x^2 + 9)$" },
+      { id: "C", text: "$3x(x - 3)(x + 3)(x^2 + 9)$" },
+      // distractor: factors the sum $x^2 + 9$ as $(x + 3)(x - 3)$
+      { id: "D", text: "$3x(x - 3)^2(x + 3)^2$" }
+    ],
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Nested Difference of Squares**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Pull out $3x$ first: $3x(x^4 - 81)$. Then $x^4 - 81 = (x^2 - 9)(x^2 + 9)$ and $x^2 - 9 = (x - 3)(x + 3)$, giving $3x(x - 3)(x + 3)(x^2 + 9)$.\n\n**The Full Solution:**\nStep 1: The greatest common factor of $3x^5$ and $243x$ is $3x$, so $3x^5 - 243x = 3x(x^4 - 81)$.\nStep 2: $x^4 - 81 = (x^2)^2 - 9^2 = (x^2 - 9)(x^2 + 9)$.\nStep 3: $x^2 - 9 = (x - 3)(x + 3)$, while $x^2 + 9$ is a sum of squares and is irreducible over the integers. The complete factorization is $3x(x - 3)(x + 3)(x^2 + 9)$. Check at $x = 2$: the original is $3(32) - 486 = -390$, and $3(2)(-1)(5)(13) = -390$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x(x^4 - 81)$): a correct first move, but $x^4 - 81$ is still a difference of squares.\n* Choice B ($3x(x^2 - 9)(x^2 + 9)$): stops one step early — $x^2 - 9$ factors further.\n* Choice D ($3x(x - 3)^2(x + 3)^2$): treats $x^2 + 9$ as $(x - 3)(x + 3)$, but that product is $x^2 - 9$.\n\n**Test Day Takeaway:** Always factor out the greatest common factor first; it often exposes a difference of squares that then splits twice.",
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: "nested-difference-of-squares",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
 
   // ── perfect-square-trinomial (4 questions) ────────────────────────
   {
-    id: 'bank-am-068',
-    domain: 'advanced-math',
-    skills: ['perfect-square-trinomial'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'Which expression is equivalent to $(x + 9)^2$?',
+    id: "bank-am-068",
+    domain: "advanced-math",
+    skills: ["perfect-square-trinomial"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "For all values of $x$, the expression $(2x + 5)^2$ is equivalent to which of the following?",
     choices: [
-      // distractor: omits the middle term
-      { id: 'A', text: '$x^2 + 81$' },
-      { id: 'B', text: '$x^2 + 18x + 81$' },
-      // distractor: uses 9x instead of 18x
-      { id: 'C', text: '$x^2 + 9x + 81$' },
-      // distractor: squares the wrong constant
-      { id: 'D', text: '$x^2 + 18x + 9$' },
+      // distractor: squares only the variable in $2x$, writing $(2x)^2$ as $2x^2$
+      { id: "A", text: "$2x^2 + 20x + 25$" },
+      // distractor: squares each term separately and drops the middle term
+      { id: "B", text: "$4x^2 + 25$" },
+      // distractor: uses $2(x)(5) = 10x$ for the middle term, ignoring the coefficient $2$ in $2x$
+      { id: "C", text: "$4x^2 + 10x + 25$" },
+      { id: "D", text: "$4x^2 + 20x + 25$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Expand Perfect Square**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $(a + b)^2 = a^2 + 2ab + b^2$, so $(x + 9)^2 = x^2 + 18x + 81$, which is Choice B.\n\n**The Full Solution:**\nStep 1: Use the perfect-square pattern $(a + b)^2 = a^2 + 2ab + b^2$ with $a = x$, $b = 9$.\nStep 2: $x^2 + 2(x)(9) + 9^2 = x^2 + 18x + 81$.\n\nCheck at $x = 1$: $(1 + 9)^2 = 100$; Choice B $= 1 + 18 + 81 = 100$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^2 + 81$): drops the middle term $2ab$ entirely — the common $(a+b)^2 = a^2 + b^2$ error.\n* Choice C ($x^2 + 9x + 81$): uses $9x$ instead of $18x$, forgetting the factor of $2$ in $2ab$.\n* Choice D ($x^2 + 18x + 9$): squares $9$ as $9$ instead of $81$.\n\n**Test Day Takeaway:** $(a + b)^2 \\neq a^2 + b^2$. The middle term $2ab$ is required: $(a + b)^2 = a^2 + 2ab + b^2$.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Expand Perfect Square**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** $(A + B)^2 = A^2 + 2AB + B^2$ with $A = 2x$ and $B = 5$: $4x^2 + 2(2x)(5) + 25 = 4x^2 + 20x + 25$.\n\n**The Full Solution:**\nStep 1: Write the square as a product: $(2x + 5)^2 = (2x + 5)(2x + 5)$.\nStep 2: Multiply term by term: $(2x)(2x) = 4x^2$, $(2x)(5) + (5)(2x) = 20x$, and $(5)(5) = 25$.\nStep 3: The expansion is $4x^2 + 20x + 25$. Check at $x = 1$: $(2 + 5)^2 = 49$, and $4 + 20 + 25 = 49$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x^2 + 20x + 25$): squares the variable but not its coefficient, writing $(2x)^2$ as $2x^2$.\n* Choice B ($4x^2 + 25$): squares each term separately, which is the most common perfect-square error — the middle term $2AB$ disappears.\n* Choice C ($4x^2 + 10x + 25$): computes the middle term as $2(x)(5) = 10x$, forgetting that $A = 2x$, not $x$.\n\n**Test Day Takeaway:** A binomial square always has three terms. Write $2AB$ explicitly, using the entire first term including its coefficient.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'expand-perfect-square',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "expand-perfect-square",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-069',
-    domain: 'advanced-math',
-    skills: ['perfect-square-trinomial'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Which of the following is a factorization of $9x^2 - 30x + 25$?',
+    id: "bank-am-069",
+    domain: "advanced-math",
+    skills: ["perfect-square-trinomial"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "Which of the following is a factorization of the expression $25x^2 + 40x + 16$?",
     choices: [
-      { id: 'A', text: '$(3x - 5)^2$' },
-      // distractor: incorrect factoring
-      { id: 'B', text: '$(9x - 5)(x - 5)$' },
-      // distractor: wrong sign in middle
-      { id: 'C', text: '$(3x + 5)^2$' },
-      // distractor: difference of squares (wrong middle term)
-      { id: 'D', text: '$(3x - 5)(3x + 5)$' },
+      // distractor: sign slip: this square has a $-40x$ middle term
+      { id: "A", text: "$(5x - 4)^2$" },
+      { id: "B", text: "$(5x + 4)^2$" },
+      // distractor: treats the trinomial as a difference of squares, which erases the middle term
+      { id: "C", text: "$(5x + 4)(5x - 4)$" },
+      // distractor: uses $25$ and $16$ themselves as the factor terms instead of their square roots
+      { id: "D", text: "$(25x + 16)(x + 1)$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Factor Perfect Square Trinomial**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $9x^2 = (3x)^2$, $25 = 5^2$, and $30x = 2(3x)(5)$ with a negative middle term, so $9x^2 - 30x + 25 = (3x - 5)^2$, which is Choice A.\n\n**The Full Solution:**\nStep 1: Test the perfect-square pattern $(a - b)^2 = a^2 - 2ab + b^2$.\nStep 2: First term: $9x^2 = (3x)^2$, so $a = 3x$. Last term: $25 = 5^2$, so $b = 5$.\nStep 3: Middle check: $-2ab = -2(3x)(5) = -30x$, which matches.\nStep 4: Since the middle term is negative, $9x^2 - 30x + 25 = (3x - 5)^2$.\n\nCheck: $(3x - 5)^2 = 9x^2 - 30x + 25$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($(9x - 5)(x - 5)$): expands to $9x^2 - 50x + 25$ — wrong middle term.\n* Choice C ($(3x + 5)^2$): a sign error; this expands to $9x^2 + 30x + 25$.\n* Choice D ($(3x - 5)(3x + 5)$): difference-of-squares factoring, which gives $9x^2 - 25$ with no middle term.\n\n**Test Day Takeaway:** Spot a perfect-square trinomial when both end terms are perfect squares and the middle is $2ab$. The sign of the middle term sets the sign inside the binomial.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Factor Perfect Square Trinomial**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $25x^2 = (5x)^2$, $16 = 4^2$, and $2(5x)(4) = 40x$ matches the middle term, so the trinomial is $(5x + 4)^2$.\n\n**The Full Solution:**\nStep 1: Check the outer terms for perfect squares: $\\sqrt{25x^2} = 5x$ and $\\sqrt{16} = 4$.\nStep 2: Test the middle term against $2AB$: $2(5x)(4) = 40x$, which is exactly the middle term, and it is positive, so both signs are positive.\nStep 3: Therefore $25x^2 + 40x + 16 = (5x + 4)^2$. Check at $x = 1$: $25 + 40 + 16 = 81$, and $(5 + 4)^2 = 81$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(5x - 4)^2$): the right square roots with the wrong sign; expanding gives $25x^2 - 40x + 16$.\n* Choice C ($(5x + 4)(5x - 4)$): applies the difference-of-squares pattern, giving $25x^2 - 16$ with no middle term at all.\n* Choice D ($(25x + 16)(x + 1)$): uses $25$ and $16$ as the factor terms rather than $5$ and $4$; expanding gives $25x^2 + 41x + 16$.\n\n**Test Day Takeaway:** A trinomial is a perfect square only if the middle term equals $2AB$. Verify that product before you commit to the squared form, and let its sign choose the sign inside.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'factor-perfect-square',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "factor-perfect-square",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-070',
-    domain: 'advanced-math',
-    skills: ['perfect-square-trinomial'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'What value of $k$ makes $x^2 + 20x + k$ a perfect-square trinomial?',
-    correctAnswer: '100',
-    explanation: "**SAT Pattern: Complete the Square (Find Constant)**\n\n**The correct answer is $100$.**\n\n**The Fast Way (~10s):** Take half of $20$ to get $10$, then square it: $10^2 = 100$, so $k = 100$.\n\n**The Full Solution:**\nStep 1: For $x^2 + 2bx + b^2 = (x + b)^2$ to be a perfect square, match $2b = 20$, so $b = 10$.\nStep 2: The constant must be $k = b^2 = 10^2 = 100$.\n\nCheck: $x^2 + 20x + 100 = (x + 10)^2$. $\\checkmark$\n\n**Common Mistakes:** Reporting $20$ (the linear coefficient); reporting $10$ (half the coefficient, but $k$ is its square); reporting $400$ ($20^2$ — squaring before halving).\n\n**Test Day Takeaway:** To make $x^2 + bx + k$ a perfect square, set $k = \\left(\\frac{b}{2}\\right)^2$ — halve the linear coefficient, then square.",
+    id: "bank-am-070",
+    domain: "advanced-math",
+    skills: ["perfect-square-trinomial"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "In the expression $x^2 - 18x + c$, $c$ is a constant. If the expression can be written in the form $(x - d)^2$, where $d$ is a constant, what is the value of $c$?",
+    correctAnswer: "81",
+    explanation: "**SAT Pattern: Complete the Square (Find Constant)**\n\n**The correct answer is $81$.**\n\n**The Fast Way (~15s):** Half of $18$ is $9$, and $9^2 = 81$, so $c = 81$ and the expression is $(x - 9)^2$.\n\n**The Full Solution:**\nStep 1: Expand the target form: $(x - d)^2 = x^2 - 2dx + d^2$.\nStep 2: Match the $x$-coefficients: $-2d = -18$, so $d = 9$.\nStep 3: Match the constants: $c = d^2 = 81$. Check: $(x - 9)^2 = x^2 - 18x + 81$. $\\checkmark$\n\n**Common Mistakes:** Reporting $9$, the value of $d$, instead of $d^2$; squaring the whole coefficient without halving it first, $18^2 = 324$; or writing $c = -81$ because the middle term is negative, even though a square is never negative.\n\n**Test Day Takeaway:** To complete the square on $x^2 + bx$, add $\\left(\\frac{b}{2}\\right)^2$. Halve first, then square — the order matters.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'complete-perfect-square',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "complete-perfect-square",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-071',
-    domain: 'advanced-math',
-    skills: ['perfect-square-trinomial'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'If $4x^2 + kx + 49$ is a perfect-square trinomial, what are the possible values of $k$?',
+    id: "bank-am-071",
+    domain: "advanced-math",
+    skills: ["perfect-square-trinomial"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "The expression $9x^2 + kx + 64$ is a perfect-square trinomial, where $k$ is a constant. Which of the following gives all possible values of $k$?",
     choices: [
-      // distractor: misses the negative case
-      { id: 'A', text: '$28$ only' },
-      // distractor: misses the positive case
-      { id: 'B', text: '$-28$ only' },
-      { id: 'C', text: '$28$ or $-28$' },
-      // distractor: half the correct value (forgets the factor of 2)
-      { id: 'D', text: '$14$ or $-14$' },
+      // distractor: uses $3 \cdot 8 = 24$ and omits the factor of $2$ in $2AB$
+      { id: "A", text: "$-24$ and $24$" },
+      // distractor: uses $2 \cdot 8 = 16$, treating the leading coefficient as $1$
+      { id: "B", text: "$-16$ and $16$" },
+      // distractor: finds the magnitude but keeps only the positive value
+      { id: "C", text: "$48$ only" },
+      { id: "D", text: "$-48$ and $48$" }
     ],
-    correctAnswer: 'C',
-    explanation: "**SAT Pattern: Find k for Perfect Square Trinomial (Both Signs)**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $(2x \\pm 7)^2 = 4x^2 \\pm 28x + 49$, so $k = 28$ or $k = -28$, which is Choice C.\n\n**The Full Solution:**\nStep 1: For $4x^2 + kx + 49$ to be a perfect square, write it as $(2x + a)^2$ since $4x^2 = (2x)^2$ and the constant is $49$.\nStep 2: The constant requires $a^2 = 49 \\Rightarrow a = \\pm 7$.\nStep 3: The middle term is $2(2x)(a) = 4a \\cdot x$, so $k = 4a$.\nStep 4: If $a = 7$, $k = 28$; if $a = -7$, $k = -28$. Both produce a perfect square.\n\nCheck: $(2x + 7)^2 = 4x^2 + 28x + 49$ and $(2x - 7)^2 = 4x^2 - 28x + 49$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($28$ only): considers only $a = 7$ and misses the negative case.\n* Choice B ($-28$ only): considers only $a = -7$.\n* Choice D ($14$ or $-14$): forgets the factor of $2$ in the middle term $2ab$.\n\n**Test Day Takeaway:** A perfect-square trinomial $a^2 \\pm 2ab + b^2$ allows a positive or negative middle term. Unless the problem restricts the sign, both values of $k$ are valid.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Find k for Perfect Square Trinomial (Both Signs)**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** With $A = 3x$ and $B = 8$, the middle term must be $\\pm 2AB = \\pm 2(3)(8)x = \\pm 48x$, so $k = 48$ or $k = -48$.\n\n**The Full Solution:**\nStep 1: For $(Ax + B)^2 = A^2x^2 + 2ABx + B^2$, match the outer terms: $A^2 = 9$ gives $A = 3$, and $B^2 = 64$ gives $B = 8$ or $B = -8$.\nStep 2: The middle coefficient is $2AB$. With $B = 8$, $k = 2(3)(8) = 48$; with $B = -8$, $k = 2(3)(-8) = -48$.\nStep 3: Both work: $(3x + 8)^2 = 9x^2 + 48x + 64$ and $(3x - 8)^2 = 9x^2 - 48x + 64$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-24$ and $24$): computes $AB = 3 \\cdot 8 = 24$ and forgets to double it.\n* Choice B ($-16$ and $16$): uses $2(1)(8) = 16$, reading the leading coefficient as $1$ instead of taking $\\sqrt{9} = 3$.\n* Choice C ($48$ only): finds the correct magnitude but overlooks that $B^2 = 64$ has two square roots, so the middle term can be negative.\n\n**Test Day Takeaway:** A constant term that is a perfect square has two square roots, so \"perfect-square trinomial\" questions with an unknown middle coefficient almost always have a $\\pm$ answer.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'pst-parameter',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "pst-parameter",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
 
   // ── simplifying-rational-expressions (4 questions) ────────────────
   {
-    id: 'bank-am-072',
-    domain: 'advanced-math',
-    skills: ['simplifying-rational-expressions'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Simplify $\\frac{x^2 - 4}{x^2 + 5x + 6}$ for $x \\neq -2, -3$.',
+    id: "bank-am-072",
+    domain: "advanced-math",
+    skills: ["simplifying-rational-expressions"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The expression $\\dfrac{x^2 - 9}{x^2 - 7x + 12}$ is defined for all values of $x$ except $x = 3$ and $x = 4$. Which of the following is equivalent to this expression?",
     choices: [
-      { id: 'A', text: '$\\frac{x - 2}{x + 3}$' },
-      // distractor: cancels (x - 2) instead of (x + 2)
-      { id: 'B', text: '$\\frac{x + 2}{x + 3}$' },
-      // distractor: sign error in denominator
-      { id: 'C', text: '$\\frac{x - 2}{x - 3}$' },
-      // distractor: only factors denominator
-      { id: 'D', text: '$\\frac{x^2 - 4}{x + 3}$' },
+      { id: "A", text: "$\\dfrac{x + 3}{x - 4}$" },
+      // distractor: cancels $(x + 3)$ instead of $(x - 3)$, keeping the wrong numerator factor
+      { id: "B", text: "$\\dfrac{x - 3}{x - 4}$" },
+      // distractor: factors the denominator as $(x - 3)(x + 4)$, a sign slip
+      { id: "C", text: "$\\dfrac{x + 3}{x + 4}$" },
+      // distractor: cancels the $x^2$ terms as if they were factors
+      { id: "D", text: "$\\dfrac{9}{7x - 12}$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Simplify Rational Expression (Cancel Common Factor)**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Factor both: $\\frac{(x - 2)(x + 2)}{(x + 2)(x + 3)}$, cancel the shared $(x + 2)$, and get $\\frac{x - 2}{x + 3}$, which is Choice A.\n\n**The Full Solution:**\nStep 1: Factor the numerator as a difference of squares: $x^2 - 4 = (x - 2)(x + 2)$.\nStep 2: Factor the denominator: $x^2 + 5x + 6 = (x + 2)(x + 3)$.\nStep 3: The expression is $\\frac{(x - 2)(x + 2)}{(x + 2)(x + 3)}$; cancel the common factor $(x + 2)$.\nStep 4: Result: $\\frac{x - 2}{x + 3}$.\n\nCheck at $x = 0$: original $= \\frac{-4}{6} = -\\frac{2}{3}$; Choice A $= \\frac{-2}{3} = -\\frac{2}{3}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{x + 2}{x + 3}$): cancels $(x - 2)$ instead of the actual common factor $(x + 2)$.\n* Choice C ($\\frac{x - 2}{x - 3}$): mis-factors the denominator with a $(x - 3)$.\n* Choice D ($\\frac{x^2 - 4}{x + 3}$): only factors the denominator and cancels without factoring the numerator.\n\n**Test Day Takeaway:** Always factor numerator and denominator fully before canceling, and only cancel identical factors. The domain restrictions ($x \\neq -2, -3$) mark where the original was undefined.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Simplify Rational Expression (Cancel Common Factor)**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $\\frac{(x - 3)(x + 3)}{(x - 3)(x - 4)}$ — the $(x - 3)$ factors cancel, leaving $\\frac{x + 3}{x - 4}$.\n\n**The Full Solution:**\nStep 1: Factor the numerator as a difference of squares: $x^2 - 9 = (x - 3)(x + 3)$.\nStep 2: Factor the denominator: two numbers with product $12$ and sum $-7$ are $-3$ and $-4$, so $x^2 - 7x + 12 = (x - 3)(x - 4)$.\nStep 3: Cancel the common factor $(x - 3)$, which is nonzero because $x \\neq 3$: the expression equals $\\frac{x + 3}{x - 4}$. Check at $x = 0$: the original is $\\frac{-9}{12} = -\\frac{3}{4}$, and $\\frac{3}{-4} = -\\frac{3}{4}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{x - 3}{x - 4}$): cancels the $(x + 3)$ factor, which appears only in the numerator, instead of the shared $(x - 3)$.\n* Choice C ($\\frac{x + 3}{x + 4}$): factors the denominator as $(x - 3)(x + 4)$; that product is $x^2 + x - 12$, not the given denominator.\n* Choice D ($\\frac{9}{7x - 12}$): cancels the $x^2$ terms term by term. Only common *factors* cancel, never individual terms of a sum.\n\n**Test Day Takeaway:** Factor both parts completely before you cancel anything, and cancel only whole factors that appear in both.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'simplify-rational',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "simplify-rational",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-073',
-    domain: 'advanced-math',
-    skills: ['simplifying-rational-expressions'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Simplify $\\frac{3x^2 - 12}{6x + 12}$ for $x \\neq -2$.',
+    id: "bank-am-073",
+    domain: "advanced-math",
+    skills: ["simplifying-rational-expressions"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The expression $\\dfrac{3x^2 - 27}{6x + 18}$ is defined for all $x \\neq -3$. Which of the following is equivalent to this expression?",
     choices: [
-      { id: 'A', text: '$\\frac{x - 2}{2}$' },
-      // distractor: sign error in canceling
-      { id: 'B', text: '$\\frac{x + 2}{2}$' },
-      // distractor: doesn\'t reduce 3/6
-      { id: 'C', text: '$\\frac{3(x - 2)}{6}$' },
-      // distractor: stops before canceling
-      { id: 'D', text: '$\\frac{x^2 - 4}{2(x + 2)}$' },
+      // distractor: reduces $\frac{3}{6}$ to $\frac{1}{3}$ instead of $\frac{1}{2}$
+      { id: "A", text: "$\\dfrac{x - 3}{3}$" },
+      // distractor: divides the $6$ by $3$ but leaves the $3$ in the numerator
+      { id: "B", text: "$\\dfrac{3(x - 3)}{2}$" },
+      // distractor: cancels $(x - 3)$ instead of the shared factor $(x + 3)$
+      { id: "C", text: "$\\dfrac{x + 3}{2}$" },
+      { id: "D", text: "$\\dfrac{x - 3}{2}$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Factor Out GCF then Cancel**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Pull the GCF out of each part: $\\frac{3(x^2-4)}{6(x+2)}$. The numerator is a difference of squares, so $\\frac{3(x-2)(x+2)}{6(x+2)}$. Cancel $(x+2)$ and reduce $\\frac{3}{6}$: $\\frac{x-2}{2}$.\n\n**The Full Solution:**\nStep 1: Factor the numerator. $3x^2-12=3(x^2-4)=3(x-2)(x+2)$.\nStep 2: Factor the denominator. $6x+12=6(x+2)$.\nStep 3: Write the ratio and cancel: $\\frac{3(x-2)(x+2)}{6(x+2)}=\\frac{3(x-2)}{6}=\\frac{x-2}{2}$.\nCheck at $x=4$: original $=\\frac{36}{36}=1$; simplified $=\\frac{2}{2}=1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{x+2}{2}$): kept the wrong difference-of-squares factor — canceled $(x-2)$ instead of $(x+2)$.\n* Choice C ($\\frac{3(x-2)}{6}$): correct factoring but stopped before reducing $\\frac{3}{6}$ to $\\frac{1}{2}$.\n* Choice D ($\\frac{x^2-4}{2(x+2)}$): reduced the coefficients but never factored $x^2-4$, so the $(x+2)$ never canceled.\n\n**Test Day Takeaway:** Factor the GCF out of numerator and denominator first, then look for a deeper factorization like a difference of squares, then reduce the leftover numbers. Skipping the last step is the most common near-miss.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Factor Out GCF then Cancel**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** $\\frac{3(x - 3)(x + 3)}{6(x + 3)}$ — cancel $(x + 3)$ and reduce $\\frac{3}{6}$ to get $\\frac{x - 3}{2}$.\n\n**The Full Solution:**\nStep 1: Factor the greatest common factor out of each part: $3x^2 - 27 = 3(x^2 - 9)$ and $6x + 18 = 6(x + 3)$.\nStep 2: Factor the difference of squares: $3(x^2 - 9) = 3(x - 3)(x + 3)$.\nStep 3: Cancel the common factor $(x + 3)$ and reduce $\\frac{3}{6} = \\frac{1}{2}$, leaving $\\frac{x - 3}{2}$. Check at $x = 0$: the original is $\\frac{-27}{18} = -\\frac{3}{2}$, and $\\frac{-3}{2} = -\\frac{3}{2}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{x - 3}{3}$): cancels the $3$ into the $6$ but records the result as $\\frac{1}{3}$ rather than $\\frac{1}{2}$.\n* Choice B ($\\frac{3(x - 3)}{2}$): divides the denominator's $6$ by $3$ but forgets to remove the matching $3$ from the numerator, so the value is tripled.\n* Choice C ($\\frac{x + 3}{2}$): cancels the $(x - 3)$ factor, which the denominator does not contain.\n\n**Test Day Takeaway:** Numeric coefficients cancel by division, variable factors by matching. Do both, and check the reduced coefficient by plugging in a number.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'simplify-rational',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "simplify-rational",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-074',
-    domain: 'advanced-math',
-    skills: ['simplifying-rational-expressions'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'Simplify $\\frac{x^2 - x - 6}{x^2 - 9} \\cdot \\frac{x + 3}{x^2 - 4}$ for all valid $x$.',
+    id: "bank-am-074",
+    domain: "advanced-math",
+    skills: ["simplifying-rational-expressions"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "Which expression is equivalent to $\\dfrac{x^2 - 2x - 15}{x^2 - 25} \\cdot \\dfrac{x^2 + 5x}{x^2 - 9}$ for all values of $x$ where the expression is defined?",
     choices: [
-      { id: 'A', text: '$\\frac{1}{x - 2}$' },
-      // distractor: stops with partial cancellation
-      { id: 'B', text: '$\\frac{x + 2}{x - 3}$' },
-      // distractor: sign error in denominator
-      { id: 'C', text: '$\\frac{1}{x + 2}$' },
-      // distractor: doesn\'t cancel (x + 2) completely
-      { id: 'D', text: '$\\frac{x - 2}{x + 2}$' },
+      { id: "A", text: "$\\dfrac{x}{x - 3}$" },
+      // distractor: drops the leftover factor $x$ from $x^2 + 5x$
+      { id: "B", text: "$\\dfrac{1}{x - 3}$" },
+      // distractor: cancels $(x - 3)$ instead of $(x + 3)$ from $x^2 - 9$
+      { id: "C", text: "$\\dfrac{x}{x + 3}$" },
+      // distractor: moves the leftover $(x + 3)$ into the numerator instead of cancelling it
+      { id: "D", text: "$\\dfrac{x(x + 3)}{x - 3}$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Multiply Rational Expressions (Factor + Cancel)**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Factor everything: $\\frac{(x-3)(x+2)}{(x-3)(x+3)}\\cdot\\frac{x+3}{(x-2)(x+2)}$. Across the product, $(x-3)$, $(x+3)$, and $(x+2)$ each appear in a numerator and a denominator and cancel, leaving $\\frac{1}{x-2}$.\n\n**The Full Solution:**\nStep 1: Factor each polynomial. $x^2-x-6=(x-3)(x+2)$, $x^2-9=(x-3)(x+3)$, $x^2-4=(x-2)(x+2)$.\nStep 2: Write the product: $\\frac{(x-3)(x+2)}{(x-3)(x+3)}\\cdot\\frac{x+3}{(x-2)(x+2)}$.\nStep 3: Cancel every factor shared between any numerator and any denominator: $(x-3)$, $(x+3)$, $(x+2)$. What remains is $\\frac{1}{x-2}$.\nCheck at $x=5$: $\\frac{14}{16}\\cdot\\frac{8}{21}=\\frac{112}{336}=\\frac{1}{3}$, and $\\frac{1}{5-2}=\\frac{1}{3}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{x+2}{x-3}$): canceled too little — left $(x+2)$ and $(x-3)$ uncanceled.\n* Choice C ($\\frac{1}{x+2}$): kept $(x+2)$ in the denominator instead of $(x-2)$ — a factor mismatch.\n* Choice D ($\\frac{x-2}{x+2}$): inverted the leftover factor instead of fully canceling.\n\n**Test Day Takeaway:** For a product of rational expressions, factor every polynomial first, then cancel any factor that shows up in any numerator against any denominator. You never have to \"match within one fraction.\"",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Multiply Rational Expressions (Factor + Cancel)**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** Factor everything: $\\frac{(x - 5)(x + 3)}{(x - 5)(x + 5)} \\cdot \\frac{x(x + 5)}{(x - 3)(x + 3)}$. The $(x - 5)$, $(x + 5)$, and $(x + 3)$ pairs all cancel, leaving $\\frac{x}{x - 3}$.\n\n**The Full Solution:**\nStep 1: Factor each quadratic: $x^2 - 2x - 15 = (x - 5)(x + 3)$, $x^2 - 25 = (x - 5)(x + 5)$, $x^2 + 5x = x(x + 5)$, and $x^2 - 9 = (x - 3)(x + 3)$.\nStep 2: Write the product as one fraction: $\\frac{(x - 5)(x + 3) \\cdot x(x + 5)}{(x - 5)(x + 5) \\cdot (x - 3)(x + 3)}$.\nStep 3: Cancel the matching factors $(x - 5)$, $(x + 5)$, and $(x + 3)$, leaving $\\frac{x}{x - 3}$. Check at $x = 1$: the original is $\\frac{-16}{-24} \\cdot \\frac{6}{-8} = \\frac{2}{3} \\cdot \\left(-\\frac{3}{4}\\right) = -\\frac{1}{2}$, and $\\frac{1}{1 - 3} = -\\frac{1}{2}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{1}{x - 3}$): cancels the whole factor $x(x + 5)$ against $(x + 5)$, discarding the $x$ that should survive.\n* Choice C ($\\frac{x}{x + 3}$): cancels $(x - 3)$ with $(x + 3)$; those are different factors and never cancel.\n* Choice D ($\\frac{x(x + 3)}{x - 3}$): keeps the numerator's $(x + 3)$ even though the denominator of the second fraction contains the same factor.\n\n**Test Day Takeaway:** For a product of rational expressions, factor all four pieces first and cancel across the whole product — never multiply the quadratics out.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'multiply-rational',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "multiply-rational",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
   {
-    id: 'bank-am-075',
-    domain: 'advanced-math',
-    skills: ['simplifying-rational-expressions'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'For $x \\neq 0$ and $x \\neq 3$, simplify $\\frac{\\frac{1}{x} - \\frac{1}{3}}{\\frac{x - 3}{9}}$.',
+    id: "bank-am-075",
+    domain: "advanced-math",
+    skills: ["simplifying-rational-expressions"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "For $x \\neq 0$ and $x \\neq 5$, which expression is equivalent to $\\dfrac{\\frac{1}{x} - \\frac{1}{5}}{\\frac{x - 5}{10}}$?",
     choices: [
-      { id: 'A', text: '$\\frac{-3}{x}$' },
-      // distractor: misses the sign flip from (3 - x) → -(x - 3)
-      { id: 'B', text: '$\\frac{3}{x}$' },
-      // distractor: doesn\'t reduce 9/(3x) properly
-      { id: 'C', text: '$\\frac{-9}{x}$' },
-      // distractor: inverts everything
-      { id: 'D', text: '$\\frac{x}{3}$' },
+      // distractor: inverts the top fraction instead of the bottom one
+      { id: "A", text: "$-\\dfrac{x}{2}$" },
+      { id: "B", text: "$-\\dfrac{2}{x}$" },
+      // distractor: cancels $\frac{10}{5}$ as $1$ instead of $2$
+      { id: "C", text: "$-\\dfrac{1}{x}$" },
+      // distractor: writes the numerator as $\frac{x - 5}{5x}$, reversing the subtraction
+      { id: "D", text: "$\\dfrac{2}{x}$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Complex Fraction Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Combine the top: $\\frac{1}{x}-\\frac{1}{3}=\\frac{3-x}{3x}$. Dividing by $\\frac{x-3}{9}$ means multiplying by $\\frac{9}{x-3}$, and $3-x=-(x-3)$, so $\\frac{-(x-3)}{3x}\\cdot\\frac{9}{x-3}=\\frac{-9}{3x}=\\frac{-3}{x}$.\n\n**The Full Solution:**\nStep 1: Combine the numerator over a common denominator: $\\frac{1}{x}-\\frac{1}{3}=\\frac{3}{3x}-\\frac{x}{3x}=\\frac{3-x}{3x}$.\nStep 2: Divide by $\\frac{x-3}{9}$ by multiplying by its reciprocal: $\\frac{3-x}{3x}\\cdot\\frac{9}{x-3}$.\nStep 3: Use $3-x=-(x-3)$ to cancel $(x-3)$: $\\frac{-(x-3)}{3x}\\cdot\\frac{9}{x-3}=\\frac{-9}{3x}=\\frac{-3}{x}$.\nCheck at $x=1$: top $=1-\\frac{1}{3}=\\frac{2}{3}$; bottom $=\\frac{1-3}{9}=-\\frac{2}{9}$; ratio $=\\frac{2}{3}\\cdot\\left(-\\frac{9}{2}\\right)=-3$, and $\\frac{-3}{1}=-3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{3}{x}$): missed the sign flip from $3-x=-(x-3)$, dropping the negative.\n* Choice C ($\\frac{-9}{x}$): forgot to reduce $\\frac{-9}{3x}$ — left the $3$ in.\n* Choice D ($\\frac{x}{3}$): mishandled the division, effectively flipping the wrong fraction.\n\n**Test Day Takeaway:** For a complex fraction, combine the numerator and denominator into single fractions, then divide by multiplying by the reciprocal. Always watch for $(a-b)=-(b-a)$ — that hidden sign is the usual trap.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Complex Fraction Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** The top combines to $\\frac{5 - x}{5x}$. Dividing by $\\frac{x - 5}{10}$ means multiplying by $\\frac{10}{x - 5}$, and $\\frac{5 - x}{x - 5} = -1$, so the result is $-\\frac{10}{5x} = -\\frac{2}{x}$.\n\n**The Full Solution:**\nStep 1: Combine the numerator over the common denominator $5x$: $\\frac{1}{x} - \\frac{1}{5} = \\frac{5 - x}{5x}$.\nStep 2: Division by a fraction is multiplication by its reciprocal: $\\frac{5 - x}{5x} \\cdot \\frac{10}{x - 5}$.\nStep 3: Since $5 - x = -(x - 5)$, the $(x - 5)$ factors cancel with a leftover $-1$: $-\\frac{10}{5x} = -\\frac{2}{x}$. Check at $x = 1$: the original is $\\frac{1 - 0.2}{-0.4} = -2$, and $-\\frac{2}{1} = -2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{x}{2}$): flips the numerator fraction instead of the denominator fraction, computing $\\frac{5x}{5 - x} \\cdot \\frac{x - 5}{10} = -\\frac{x}{2}$.\n* Choice C ($-\\frac{1}{x}$): handles the sign correctly but reduces $\\frac{10}{5x}$ to $\\frac{1}{x}$, losing the factor $2$.\n* Choice D ($\\frac{2}{x}$): writes $\\frac{1}{x} - \\frac{1}{5}$ as $\\frac{x - 5}{5x}$, which reverses the subtraction and flips the sign of the answer.\n\n**Test Day Takeaway:** Simplify a complex fraction in two moves: combine the top into a single fraction, then multiply by the reciprocal of the bottom. Watch for $a - b$ against $b - a$ — that pair cancels to $-1$, not $1$.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'complex-fraction',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
+    sourceStyleRef: "complex-fraction",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-02-28"
   },
 
   // === EXPONENTIAL GROWTH/DECAY (8 questions) — Phase 2 priority pattern ===
@@ -1581,169 +1712,170 @@ export const advancedMathBank = [
   // doubling/halving language, factor interpretation, percent-change extraction,
   // period mismatch, and compounded-to-annual rate conversion.
   {
-    id: 'bank-am-076',
-    domain: 'advanced-math',
-    skills: ['exponential-growth-decay'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'A colony of bacteria triples every $2$ hours. If the initial population is $60$, which of the following functions $P$ models the population $t$ hours after the initial measurement?',
+    id: "bank-am-076",
+    domain: "advanced-math",
+    skills: ["exponential-growth-decay"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "The table gives the mass, in grams, of a yeast culture at three times during an experiment, and the mass grows exponentially with time. Which function $m$ gives the mass, in grams, $t$ hours after the experiment began?",
+    questionTable: { headers: ["Time t (hours)", "Mass (grams)"], rows: [["0", "40"], ["1", "120"], ["2", "360"]] },
     choices: [
-      // distractor: linear growth instead of exponential
-      { id: 'A', text: '$P(t) = 60 + 3t$' },
-      { id: 'B', text: '$P(t) = 60 \\cdot 3^{\\frac{t}{2}}$' },
-      // distractor: uses 2t instead of t/2 (triples every half-hour)
-      { id: 'C', text: '$P(t) = 60 \\cdot 3^{2t}$' },
-      // distractor: confuses initial value with the growth factor
-      { id: 'D', text: '$P(t) = 3 \\cdot 60^{\\frac{t}{2}}$' }
+      { id: "A", text: "$m(t) = 40(3)^t$" },
+      // distractor: swaps the initial amount and the growth factor
+      { id: "B", text: "$m(t) = 3(40)^t$" },
+      // distractor: multiplies by $3t$ instead of raising $3$ to the power $t$
+      { id: "C", text: "$m(t) = 40(3t)$" },
+      // distractor: uses the mass at $t = 1$ as the initial amount
+      { id: "D", text: "$m(t) = 120(3)^t$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** \"Triples every $2$ hours\" sets the base at $3$ and forces the exponent to equal $1$ when $t=2$, so the exponent is $\\frac{t}{2}$. The initial $60$ rides out front: $P(t)=60\\cdot 3^{\\frac{t}{2}}$.\n\n**The Full Solution:**\nStep 1: Use the periodic-multiplier model $P(t)=P_0\\cdot b^{\\frac{t}{d}}$ with $P_0=60$, $b=3$, period $d=2$.\nStep 2: Substitute: $P(t)=60\\cdot 3^{\\frac{t}{2}}$.\nStep 3: Spot-check. $P(0)=60$, $P(2)=60\\cdot 3=180$ (one tripling), $P(4)=60\\cdot 9=540$ (two triplings). $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($60+3t$): linear growth — adds instead of multiplying, so it ignores compounding entirely.\n* Choice C ($60\\cdot 3^{2t}$): uses $2t$ instead of $\\frac{t}{2}$, which would triple every half hour, not every $2$ hours.\n* Choice D ($3\\cdot 60^{\\frac{t}{2}}$): swaps the roles of the initial value and the growth factor.\n\n**Test Day Takeaway:** \"Triples every $d$ units\" $\\Rightarrow$ base $3$ with exponent $\\frac{t}{d}$. The starting amount is the front multiplier; the growth factor is the base.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The mass triples each hour ($40 \\to 120 \\to 360$) and starts at $40$ grams, so $m(t) = 40(3)^t$.\n\n**The Full Solution:**\nStep 1: An exponential model has the form $m(t) = m_0(b)^t$, where $m_0$ is the value at $t = 0$ and $b$ is the factor per hour.\nStep 2: The table gives $m_0 = 40$ grams, and each step multiplies the mass by $\\frac{120}{40} = 3$, so $b = 3$.\nStep 3: The model is $m(t) = 40(3)^t$. Check at $t = 2$: $40(3)^2 = 40(9) = 360$ grams, matching the table. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($m(t) = 3(40)^t$): puts the growth factor in front and the initial mass in the exponent's base; at $t = 0$ this gives $3$ grams, not $40$.\n* Choice C ($m(t) = 40(3t)$): multiplies by $3t$ instead of raising $3$ to the $t$, which describes a linear pattern; at $t = 2$ it gives $240$ grams.\n* Choice D ($m(t) = 120(3)^t$): reads the initial amount from the $t = 1$ row instead of the $t = 0$ row.\n\n**Test Day Takeaway:** In $m_0(b)^t$, the coefficient is the value at $t = 0$ and the base is the constant multiplier per unit of time. Get both from the table before you look at the choices.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponential-growth-decay',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponential-growth-decay",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-077',
-    domain: 'advanced-math',
-    skills: ['exponential-growth-decay'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'A function $g$ is defined by $g(t) = 4{,}500(1.07)^t$, where $t$ is the number of years since 2020. The expression $1.07$ in the definition of $g$ best represents which of the following?',
+    id: "bank-am-077",
+    domain: "advanced-math",
+    skills: ["exponential-growth-decay"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "The function $h$ is defined by $h(x) = 250(1.12)^x$, where $h(x)$ is the number of members of a hiking club $x$ years after 2018. Which of the following is the best interpretation of $1.12$ in this context?",
     choices: [
-      // distractor: reads 1.07 as the rate without subtracting 1
-      { id: 'A', text: 'The annual growth rate of $107\\%$.' },
-      { id: 'B', text: 'The annual growth rate of $7\\%$.' },
-      // distractor: confuses growth factor with initial value
-      { id: 'C', text: 'The initial value of $g$.' },
-      // distractor: reads 1.07 as a dollar amount
-      { id: 'D', text: 'The annual growth of $\\$1.07$.' }
+      // distractor: reads the base as an initial amount, which is the role of $250$
+      { id: "A", text: "The club had $112$ members in 2018." },
+      { id: "B", text: "The number of members increases by $12\\%$ each year." },
+      // distractor: reads the base as a constant amount added each year (a linear model)
+      { id: "C", text: "The number of members increases by $1.12$ members each year." },
+      // distractor: reads the digits $12$ as a multiplier instead of a percent increase
+      { id: "D", text: "The number of members is $12$ times as great each year." }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Split the base: $1.07=1+0.07$. The $1$ holds the current value and the $0.07$ is the new growth, so the annual rate is $7\\%$.\n\n**The Full Solution:**\nStep 1: In the model $g(t)=P_0(1+r)^t$, the base $(1+r)$ is the per-year multiplier.\nStep 2: Match it: $1.07=1+0.07$, so $r=0.07$.\nStep 3: Convert: $r=0.07=7\\%$ growth per year.\n\n**Why the wrong answers are tempting:**\n* Choice A ($107\\%$): reads the whole base as the rate, forgetting the $1$ is just the value being carried over.\n* Choice C (initial value): confuses the base with the coefficient out front; the initial value is $4{,}500$.\n* Choice D ($\\$1.07$ per year): treats the base as a fixed dollar amount, which would be linear growth, not exponential.\n\n**Test Day Takeaway:** In $P_0(1+r)^t$, the growth rate is $r=(\\text{base})-1$. Subtract $1$ from the base, then read the result as a percent.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** In $a(b)^x$, the base is $1 + r$. Here $1.12 = 1 + 0.12$, so membership grows by $12\\%$ per year.\n\n**The Full Solution:**\nStep 1: The model $h(x) = 250(1.12)^x$ multiplies the membership by $1.12$ for each increase of $1$ in $x$, where $x$ counts years.\nStep 2: Multiplying by $1.12$ keeps $100\\%$ of the previous total and adds $12\\%$ of it, since $1.12 = 1 + 0.12$.\nStep 3: So the yearly percent increase is $12\\%$. Check: $250(1.12) = 280$, and $\\frac{280 - 250}{250} = 0.12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: assigns the base the role of the initial value; the $2018$ membership is the coefficient $250$.\n* Choice C: describes adding $1.12$ members per year, which would be linear growth, not repeated multiplication.\n* Choice D: reads \"$12$\" as the multiplier; a $12$-fold yearly increase would need a base of $12$, not $1.12$.\n\n**Test Day Takeaway:** Split an exponential base into $1 + r$ or $1 - r$. The digits after the decimal point are the percent change per unit of the exponent.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponential-growth-decay',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponential-growth-decay",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-078',
-    domain: 'advanced-math',
-    skills: ['exponential-growth-decay', 'percent-change'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'The number of customers at a store is modeled by $C(t) = 12{,}000(0.82)^{\\frac{t}{5}}$, where $t$ is the number of years since the store opened. By what percent does the customer count decrease every $5$ years?',
-    correctAnswer: '18',
-    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~10s):** Every $5$ years the count is multiplied by $0.82$, so the percent decrease per period is $1-0.82=0.18=18\\%$.\n\n**The Full Solution:**\nStep 1: Advance $t$ by one period of $5$ years: $C(t+5)=12{,}000(0.82)^{\\frac{t+5}{5}}=12{,}000(0.82)^{\\frac{t}{5}}\\cdot 0.82=0.82\\cdot C(t)$.\nStep 2: A multiplier of $0.82$ means the count keeps $82\\%$ and loses $1-0.82=0.18=18\\%$ each $5$-year period.\nCheck: at $t=0$, $C=12{,}000$; at $t=5$, $C=12{,}000\\cdot 0.82=9{,}840$, a drop of $\\frac{2{,}160}{12{,}000}=0.18=18\\%$. $\\checkmark$\n\n**Common Mistakes:** Answering $82$ (the retention multiplier, not the loss); or dividing $18$ by $5$ to \"annualize\" — exponential decay does not scale linearly across periods.\n\n**Test Day Takeaway:** For a decay base $b<1$ over its stated period, the percent decrease per period is $(1-b)\\times 100\\%$. Read the period off the exponent and don't rescale it.",
+    id: "bank-am-078",
+    domain: "advanced-math",
+    skills: ["exponential-growth-decay", "percent-change"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "The number of bees in a hive is modeled by $B(t) = 9{,}400(0.76)^{\\frac{t}{3}}$, where $t$ is the number of months since the count began. By what percent does the number of bees decrease every $3$ months?",
+    correctAnswer: "24",
+    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~20s):** Every $3$ months the exponent increases by $1$, so the count is multiplied by $0.76$ — a decrease of $1 - 0.76 = 0.24$, or $24\\%$.\n\n**The Full Solution:**\nStep 1: Replacing $t$ with $t + 3$ raises the exponent $\\frac{t}{3}$ by exactly $1$, so $B(t + 3) = 0.76 \\cdot B(t)$.\nStep 2: A factor of $0.76$ leaves $76\\%$ of the previous count, so the count drops by $1 - 0.76 = 0.24$ of itself.\nStep 3: As a percent, that is $24\\%$. Check: $B(0) = 9{,}400$ and $B(3) = 9{,}400(0.76) = 7{,}144$, and $\\frac{9{,}400 - 7{,}144}{9{,}400} = 0.24$. $\\checkmark$\n\n**Common Mistakes:** Reporting $76$, the percent that remains rather than the percent lost; reporting $0.76$ instead of converting the factor to a percent decrease; or dividing the $24\\%$ by the $3$ months in the exponent to get $8$, which answers a question about one month that the model does not support.\n\n**Test Day Takeaway:** The percent change belongs to whatever period makes the exponent increase by $1$. Read the denominator in the exponent before you name the period.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponential-growth-decay',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponential-growth-decay",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-079',
-    domain: 'advanced-math',
-    skills: ['exponential-growth-decay'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'A medication concentration in the bloodstream halves every $8$ hours. If the initial dose results in a concentration of $240$ mg/L, which of the following functions $C$ models the concentration $t$ hours after the dose?',
+    id: "bank-am-079",
+    domain: "advanced-math",
+    skills: ["exponential-growth-decay"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "A sample of a compound has a mass of $180$ milligrams, and the mass is reduced by half every $12$ minutes. Which function $M$ gives the mass, in milligrams, $t$ minutes after the sample was measured?",
     choices: [
-      // distractor: linear decay instead of exponential
-      { id: 'A', text: '$C(t) = 240 - 30t$' },
-      // distractor: uses 8t instead of t/8 (halves every 1/8 hour)
-      { id: 'B', text: '$C(t) = 240 \\left(\\dfrac{1}{2}\\right)^{8t}$' },
-      { id: 'C', text: '$C(t) = 240 \\left(\\dfrac{1}{2}\\right)^{\\frac{t}{8}}$' },
-      // distractor: wrong base (uses 2 instead of 1/2 - growth not decay)
-      { id: 'D', text: '$C(t) = 240 \\cdot 2^{\\frac{t}{8}}$' }
+      // distractor: halves the initial mass instead of using it as the coefficient
+      { id: "A", text: "$M(t) = 90\\left(\\frac{1}{2}\\right)^{\\frac{t}{12}}$" },
+      // distractor: multiplies $t$ by $12$ instead of dividing, so the mass halves every minute twelve times over
+      { id: "B", text: "$M(t) = 180\\left(\\frac{1}{2}\\right)^{12t}$" },
+      { id: "C", text: "$M(t) = 180\\left(\\frac{1}{2}\\right)^{\\frac{t}{12}}$" },
+      // distractor: uses a base of $2$, which doubles the mass instead of halving it
+      { id: "D", text: "$M(t) = 180(2)^{\\frac{t}{12}}$" }
     ],
-    correctAnswer: 'C',
-    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** \"Halves every $8$ hours\" makes the base $\\frac{1}{2}$ and the exponent $\\frac{t}{8}$, so the exponent hits $1$ exactly at $t=8$: $C(t)=240\\left(\\frac{1}{2}\\right)^{\\frac{t}{8}}$.\n\n**The Full Solution:**\nStep 1: Use the half-life model $C(t)=C_0\\cdot\\left(\\frac{1}{2}\\right)^{\\frac{t}{h}}$ with $C_0=240$ and half-life $h=8$.\nStep 2: Substitute: $C(t)=240\\left(\\frac{1}{2}\\right)^{\\frac{t}{8}}$.\nStep 3: Spot-check. $C(0)=240$, $C(8)=240\\cdot\\frac{1}{2}=120$, $C(16)=240\\cdot\\frac{1}{4}=60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($240-30t$): linear decay — it would hit $0$ at $t=8$ and go negative, which decay never does.\n* Choice B ($240\\left(\\frac{1}{2}\\right)^{8t}$): uses $8t$ instead of $\\frac{t}{8}$, halving every $\\frac{1}{8}$ of an hour — far too fast.\n* Choice D ($240\\cdot 2^{\\frac{t}{8}}$): uses base $2$ instead of $\\frac{1}{2}$, which doubles rather than decays.\n\n**Test Day Takeaway:** \"Halves every $h$ units\" $\\Rightarrow$ base $\\frac{1}{2}$ with exponent $\\frac{t}{h}$. The exponent must equal $1$ when $t=h$, since one half-life has passed.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Start at $180$, multiply by $\\frac{1}{2}$, and let the exponent count $12$-minute periods: $M(t) = 180\\left(\\frac{1}{2}\\right)^{\\frac{t}{12}}$.\n\n**The Full Solution:**\nStep 1: The model is $M(t) = M_0(b)^{\\frac{t}{p}}$, where $M_0$ is the initial mass, $b$ is the factor per period, and $p$ is the length of one period.\nStep 2: Here $M_0 = 180$ milligrams, $b = \\frac{1}{2}$ because the mass halves, and $p = 12$ minutes.\nStep 3: So $M(t) = 180\\left(\\frac{1}{2}\\right)^{\\frac{t}{12}}$. Check at $t = 12$: $180\\left(\\frac{1}{2}\\right)^1 = 90$ milligrams, exactly half the starting mass. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: uses $90$ as the coefficient, which is the mass after one half-life, not at $t = 0$.\n* Choice B: writes the exponent as $12t$, so at $t = 12$ the mass would be halved $144$ times.\n* Choice D: keeps the right period but uses base $2$, which models doubling; at $t = 12$ it gives $360$ milligrams.\n\n**Test Day Takeaway:** Divide the time variable by the length of one period. If a period is $p$ units long, the exponent is $\\frac{t}{p}$ — never $pt$.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponential-growth-decay',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponential-growth-decay",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-080',
-    domain: 'advanced-math',
-    skills: ['exponential-growth-decay'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'A social media platform\'s active user count grows by $5\\%$ every $4$ months. If the platform has $80{,}000$ active users at the start of the year, which of the following expressions gives the number of active users $y$ years later?',
+    id: "bank-am-080",
+    domain: "advanced-math",
+    skills: ["exponential-growth-decay"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The number of subscribers to a streaming service increases by $8\\%$ every $6$ months. The service had $45{,}000$ subscribers on January 1, 2022. Which expression gives the number of subscribers $y$ years after January 1, 2022?",
     choices: [
-      // distractor: uses y/4 (growth every 4 years) instead of 3y (3 four-month periods per year)
-      { id: 'A', text: '$80{,}000(1.05)^{\\frac{y}{4}}$' },
-      { id: 'B', text: '$80{,}000(1.05)^{3y}$' },
-      // distractor: scales the rate instead of the exponent (3 × 5% = 15%)
-      { id: 'C', text: '$80{,}000(1.15)^y$' },
-      // distractor: misses that 4 months × 3 = 1 year (uses 4y)
-      { id: 'D', text: '$80{,}000(1.05)^{4y}$' }
+      { id: "A", text: "$45{,}000(1.08)^{2y}$" },
+      // distractor: divides by $2$ instead of multiplying, giving one increase every two years
+      { id: "B", text: "$45{,}000(1.08)^{\\frac{y}{2}}$" },
+      // distractor: uses the $6$ from "6 months" as the number of periods per year
+      { id: "C", text: "$45{,}000(1.08)^{6y}$" },
+      // distractor: doubles the rate instead of doubling the number of periods
+      { id: "D", text: "$45{,}000(1.16)^{y}$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The factor per $4$-month period is $1.05$. There are $\\frac{12}{4}=3$ such periods per year, so over $y$ years the exponent is $3y$: $80{,}000(1.05)^{3y}$.\n\n**The Full Solution:**\nStep 1: Convert the rate to a multiplier: $5\\%$ growth means $1+0.05=1.05$ per $4$-month period.\nStep 2: Count periods in $y$ years: $\\frac{12\\text{ months}}{4\\text{ months}}\\cdot y=3y$.\nStep 3: Raise the factor to the period count: $80{,}000(1.05)^{3y}$.\nCheck at $y=1$: $(1.05)^3=1.157625$, so users $\\approx 80{,}000\\cdot 1.157625\\approx 92{,}610$, the same as three back-to-back $5\\%$ increases. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($80{,}000(1.05)^{\\frac{y}{4}}$): uses $\\frac{y}{4}$, treating \"every $4$ months\" as \"every $4$ years.\"\n* Choice C ($80{,}000(1.15)^y$): multiplies the rate by $3$ to get $15\\%$ a year, but compounding gives $1.05^3\\neq 1.15$.\n* Choice D ($80{,}000(1.05)^{4y}$): uses $4y$, mistaking the \"$4$ months\" length for the number of periods per year.\n\n**Test Day Takeaway:** Match units before exponentiating. If growth happens every $d$ months and time is in years, the exponent is $\\frac{12}{d}\\cdot y$ periods.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** There are $2$ six-month periods per year, so the factor $1.08$ is applied $2y$ times: $45{,}000(1.08)^{2y}$.\n\n**The Full Solution:**\nStep 1: An $8\\%$ increase multiplies the count by $1 + 0.08 = 1.08$ once per six-month period.\nStep 2: In $y$ years there are $2y$ six-month periods, so the factor $1.08$ is applied $2y$ times.\nStep 3: The expression is $45{,}000(1.08)^{2y}$. Check at $y = 1$: $45{,}000(1.08)^2 = 52{,}488$, which is $45{,}000$ increased by $8\\%$ twice. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($45{,}000(1.08)^{\\frac{y}{2}}$): divides instead of multiplying, modeling one $8\\%$ increase every two years.\n* Choice C ($45{,}000(1.08)^{6y}$): reads \"$6$ months\" as six periods per year, applying the increase six times a year.\n* Choice D ($45{,}000(1.16)^y$): doubles the rate to $16\\%$ per year; compounding twice gives $16.64\\%$, not $16\\%$.\n\n**Test Day Takeaway:** When the period is shorter than the time unit, multiply the exponent by how many periods fit in one unit. Two half-years per year means an exponent of $2y$.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponential-growth-decay',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponential-growth-decay",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-081',
-    domain: 'advanced-math',
-    skills: ['exponential-growth-decay'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'A car\'s value is modeled by $V(t) = 28{,}000(0.88)^t$, where $V(t)$ is in dollars and $t$ is the number of years since purchase. Which of the following best describes the role of $0.88$ in this model?',
+    id: "bank-am-081",
+    domain: "advanced-math",
+    skills: ["exponential-growth-decay"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "A machine's resale value is modeled by $R(t) = 42{,}000(0.85)^t$, where $R(t)$ is the resale value in dollars and $t$ is the number of years since the machine was purchased. Which statement best describes what $0.85$ represents in this model?",
     choices: [
-      // distractor: confuses retention with loss
-      { id: 'A', text: 'The car loses $88\\%$ of its value each year.' },
-      { id: 'B', text: 'The car retains $88\\%$ of its value each year.' },
-      // distractor: treats 0.88 as a dollar amount
-      { id: 'C', text: 'The car loses $\\$0.88$ in value each year.' },
-      // distractor: confuses base with initial value
-      { id: 'D', text: 'The car is worth $\\$0.88$ initially.' }
+      // distractor: reads the decay factor itself as the percent decrease
+      { id: "A", text: "The resale value decreases by $85\\%$ each year." },
+      { id: "B", text: "The resale value decreases by $15\\%$ each year." },
+      // distractor: treats the factor as a fixed dollar amount subtracted each year
+      { id: "C", text: "The resale value decreases by $0.85$ dollar each year." },
+      // distractor: swaps the percent retained with the percent lost
+      { id: "D", text: "The resale value is $15\\%$ of its value the previous year." }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A base of $0.88$ is below $1$, so this is decay. Multiplying by $0.88$ each year keeps $88\\%$ of the value, which is exactly what choice B says.\n\n**The Full Solution:**\nStep 1: In $V(t)=V_0\\cdot b^t$, the base $b$ is the yearly multiplier.\nStep 2: Since $b=0.88<1$, each year the car retains $0.88\\cdot 100\\%=88\\%$.\nStep 3: The loss is the rest: $1-0.88=0.12$, so $12\\%$ per year. The base names the retention, not the loss.\n\n**Why the wrong answers are tempting:**\n* Choice A (loses $88\\%$): losing $88\\%$ would leave $12\\%$, giving a base of $0.12$, not $0.88$.\n* Choice C (loses $\\$0.88$): treats the base as a fixed dollar drop, which would be linear, not exponential.\n* Choice D (worth $\\$0.88$ initially): confuses the multiplier with the initial value $V_0=28{,}000$.\n\n**Test Day Takeaway:** A base $b<1$ means the quantity keeps $b\\cdot 100\\%$ and loses $(1-b)\\cdot 100\\%$ each period. Decide whether the question wants retention or loss before answering.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $0.85 = 1 - 0.15$, so each year the machine keeps $85\\%$ of its value and loses $15\\%$ of it.\n\n**The Full Solution:**\nStep 1: Each increase of $1$ in $t$ multiplies the resale value by $0.85$.\nStep 2: Write the factor as $1 - r$: $0.85 = 1 - 0.15$, so $r = 0.15$ is the fraction of the value lost each year.\nStep 3: That is a $15\\%$ decrease per year. Check: $R(0) = 42{,}000$ and $R(1) = 35{,}700$, and $\\frac{42{,}000 - 35{,}700}{42{,}000} = 0.15$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reports the factor as the loss; an $85\\%$ drop would leave a factor of $0.15$.\n* Choice C: describes subtracting a fixed amount each year, which is a linear model, not repeated multiplication.\n* Choice D: reverses the roles — the machine retains $85\\%$ of its previous value, not $15\\%$.\n\n**Test Day Takeaway:** For a decay factor $b$, the percent decrease is $1 - b$, not $b$. Always convert the base to $1 \\pm r$ before choosing an interpretation.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponential-growth-decay',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponential-growth-decay",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-082',
-    domain: 'advanced-math',
-    skills: ['exponential-growth-decay', 'percent-change'],
-    difficulty: 'hard',
-    type: 'fill-in',
-    question: 'A savings account is modeled by $S(t) = 15{,}000(1.004)^{12t}$, where $t$ is the number of years since the account was opened. What is the annual percent increase in $S$, to the nearest tenth of a percent?',
-    correctAnswer: '4.9',
-    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $4.9$.**\n\n**The Fast Way (~30s):** One year is $12$ monthly steps, so the annual factor is $(1.004)^{12}\\approx 1.0490$. The annual increase is $1.0490-1=0.0490\\approx 4.9\\%$.\n\n**The Full Solution:**\nStep 1: The exponent $12t$ compounds at $0.4\\%$ per month. Set $t=1$ to capture one year.\nStep 2: Compute the annual factor: $(1.004)^{12}\\approx 1.04907$.\nStep 3: Subtract $1$: annual increase $\\approx 1.04907-1=0.04907\\approx 4.9\\%$.\nCheck: at $t=1$, $S=15{,}000\\cdot 1.04907\\approx 15{,}736.05$, matching monthly compounding for $12$ months. $\\checkmark$\n\n**Common Mistakes:** Reporting $0.4$ (the monthly rate, not the annual one); or reporting $4.8$ from $0.4\\%\\times 12$, which treats compounding as linear.\n\n**Test Day Takeaway:** The effective annual rate is (growth factor over one year) $-1$, read as a percent. Compounding always beats the naive multiple, here $4.9\\%$ versus $4.8\\%$.",
+    id: "bank-am-082",
+    domain: "advanced-math",
+    skills: ["exponential-growth-decay", "percent-change"],
+    difficulty: "hard",
+    type: "fill-in",
+    question: "The value of an investment account is modeled by $V(t) = 6{,}200(1.015)^{4t}$, where $V(t)$ is the value in dollars and $t$ is the number of years since the account was opened. To the nearest tenth of a percent, what is the annual percent increase in the value of the account?",
+    correctAnswer: "6.1",
+    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $6.1$.**\n\n**The Fast Way (~40s):** One year multiplies the value by $(1.015)^4 \\approx 1.0614$, an increase of about $6.1\\%$.\n\n**The Full Solution:**\nStep 1: Rewrite the model with a yearly base: $6{,}200(1.015)^{4t} = 6{,}200\\left[(1.015)^4\\right]^t$.\nStep 2: Compute the yearly factor: $(1.015)^4 = 1.06136\\ldots$\nStep 3: Subtract $1$ and convert: $1.06136 - 1 = 0.06136$, which is $6.136\\%$, or $6.1\\%$ to the nearest tenth. Check: $6{,}200(1.015)^4 = 6{,}580.45$, and one $6.136\\%$ increase gives $6{,}200(1.06136) = 6{,}580.43$ — the same amount to the nearest dollar. $\\checkmark$\n\n**Common Mistakes:** Multiplying the quarterly rate by $4$ to get $6.0$, which ignores compounding; reporting $1.5$, the rate for one quarter rather than one year; or reporting $106.1$, the growth factor as a percent instead of the percent increase.\n\n**Test Day Takeaway:** To convert a model with exponent $nt$ into a per-unit rate, raise the base to the $n$ and subtract $1$. Compounding always makes the annual rate slightly larger than $n$ times the periodic rate.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponential-growth-decay',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponential-growth-decay",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-083',
-    domain: 'advanced-math',
-    skills: ['exponential-growth-decay', 'percent-change'],
-    difficulty: 'hard',
-    type: 'fill-in',
-    question: 'A radioactive isotope decays according to $A(t) = 320 \\cdot (0.5)^{\\frac{t}{24}}$, where $A(t)$ is the mass in grams and $t$ is the time in days. To the nearest hundredth of a percent, by what percent does the mass decrease in one day?',
-    correctAnswer: '2.85',
-    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $2.85$ (also accept $2.86$).**\n\n**The Fast Way (~30s):** The per-day multiplier is $(0.5)^{\\frac{1}{24}}\\approx 0.97153$, so the daily decrease is $1-0.97153\\approx 0.02847\\approx 2.85\\%$.\n\n**The Full Solution:**\nStep 1: Rewrite to expose the daily factor: $A(t)=320\\cdot(0.5)^{\\frac{t}{24}}=320\\cdot\\left[(0.5)^{\\frac{1}{24}}\\right]^{t}$.\nStep 2: Compute that factor: $(0.5)^{\\frac{1}{24}}\\approx 0.97153$.\nStep 3: The decrease in one day is $1-0.97153\\approx 0.02847\\approx 2.85\\%$.\nCheck: after $24$ days, $A\\to 320\\cdot 0.97153^{24}\\approx 320\\cdot 0.5=160$, exactly half the start. $\\checkmark$\n\n**Common Mistakes:** Computing $\\frac{50\\%}{24}\\approx 2.08\\%$ — decay does not scale linearly across days; or reporting $50$ or $24$, mixing up the half-life period with the daily rate.\n\n**Test Day Takeaway:** To get a per-period rate from a half-life, use $(0.5)^{\\frac{1}{n}}$ where $n$ is the number of those periods in one half-life. The decrease is $1-(0.5)^{\\frac{1}{n}}$, never $\\frac{50\\%}{n}$.",
+    id: "bank-am-083",
+    domain: "advanced-math",
+    skills: ["exponential-growth-decay", "percent-change"],
+    difficulty: "hard",
+    type: "fill-in",
+    question: "A sample of a radioactive isotope decays according to $A(t) = 750(0.5)^{\\frac{t}{18}}$, where $A(t)$ is the mass in grams and $t$ is the time in hours. To the nearest hundredth of a percent, by what percent does the mass decrease each hour?",
+    correctAnswer: "3.78",
+    explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $3.78$.**\n\n**The Fast Way (~40s):** The hourly factor is $(0.5)^{\\frac{1}{18}} \\approx 0.96222$, so the hourly loss is $1 - 0.96222 = 0.03778$, about $3.78\\%$.\n\n**The Full Solution:**\nStep 1: Rewrite the model so the exponent counts hours: $750(0.5)^{\\frac{t}{18}} = 750\\left[(0.5)^{\\frac{1}{18}}\\right]^t$.\nStep 2: Compute the hourly factor: $(0.5)^{\\frac{1}{18}} = 0.9622238\\ldots$\nStep 3: The percent decrease is $1 - 0.9622238 = 0.0377762$, or $3.77762\\%$, which rounds to $3.78\\%$. Check: $(0.9622238)^{18} = 0.5$, so eighteen hours of this decrease do halve the mass. $\\checkmark$\n\n**Common Mistakes:** Dividing the $50\\%$ half-life loss by $18$ to get $2.78$, which assumes the loss is spread evenly instead of compounded; reporting $96.22$, the percent of the mass that remains; or rounding $3.7776$ to $3.8$ when the question asks for hundredths.\n\n**Test Day Takeaway:** To rescale an exponential model to a new time unit, take the appropriate root of the base — $\\left(b^{\\frac{1}{p}}\\right)$ — and only then convert to a percent change.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponential-growth-decay',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponential-growth-decay",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
 
   // === EXPONENT RULES WITH RADICALS (8 questions) — Phase 2 priority pattern ===
@@ -1751,142 +1883,142 @@ export const advancedMathBank = [
   // divide same-base radicals, nested radical with outer power, negative
   // exponent, p+q from rational form, identity-based value computation.
   {
-    id: 'bank-am-084',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'easy',
-    type: 'fill-in',
-    question: 'If $\\sqrt{x} \\cdot x^3 = x^k$ for $x > 0$, what is the value of $k$? Express your answer as a fraction.',
-    correctAnswer: '7/2',
-    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\frac{7}{2}$.**\n\n**The Fast Way (~10s):** Rewrite $\\sqrt{x}=x^{\\frac{1}{2}}$, then add exponents on the same base: $x^{\\frac{1}{2}}\\cdot x^3=x^{\\frac{1}{2}+3}=x^{\\frac{7}{2}}$, so $k=\\frac{7}{2}$.\n\n**The Full Solution:**\nStep 1: Convert the radical to a fractional exponent: $\\sqrt{x}=x^{\\frac{1}{2}}$.\nStep 2: Multiply same-base powers by adding exponents: $x^{\\frac{1}{2}}\\cdot x^3=x^{\\frac{1}{2}+\\frac{6}{2}}=x^{\\frac{7}{2}}$.\nStep 3: So $k=\\frac{7}{2}$.\nCheck at $x=4$: $\\sqrt{4}\\cdot 4^3=2\\cdot 64=128$, and $4^{\\frac{7}{2}}=\\left(4^{\\frac{1}{2}}\\right)^7=2^7=128$. $\\checkmark$\n\n**Common Mistakes:** Writing $\\sqrt{x}=x^2$ instead of $x^{\\frac{1}{2}}$; or multiplying the exponents ($\\frac{1}{2}\\cdot 3=\\frac{3}{2}$) instead of adding them.\n\n**Test Day Takeaway:** $\\sqrt{x}=x^{\\frac{1}{2}}$, and multiplying same-base powers means adding exponents. Convert every radical to a fractional exponent before combining.",
+    id: "bank-am-084",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "easy",
+    type: "fill-in",
+    question: "For $x > 0$, the product $\\sqrt{x} \\cdot x^5$ is written in the form $x^k$. What is the value of $k$? Give your answer as a fraction.",
+    correctAnswer: "11/2",
+    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\frac{11}{2}$.**\n\n**The Fast Way (~15s):** $\\sqrt{x} = x^{\\frac{1}{2}}$, and multiplying like bases adds exponents: $\\frac{1}{2} + 5 = \\frac{11}{2}$.\n\n**The Full Solution:**\nStep 1: Rewrite the radical as a fractional exponent: $\\sqrt{x} = x^{\\frac{1}{2}}$.\nStep 2: Multiply the powers by adding exponents: $x^{\\frac{1}{2}} \\cdot x^5 = x^{\\frac{1}{2} + 5}$.\nStep 3: $\\frac{1}{2} + 5 = \\frac{1}{2} + \\frac{10}{2} = \\frac{11}{2}$, so $k = \\frac{11}{2}$. Check at $x = 4$: $\\sqrt{4} \\cdot 4^5 = 2 \\cdot 1024 = 2048$, and $4^{\\frac{11}{2}} = 2^{11} = 2048$. $\\checkmark$\n\n**Common Mistakes:** Ignoring the radical and answering $5$; reading $\\sqrt{x}$ as $x^2$ and answering $7$; or multiplying the exponents instead of adding them, which gives $\\frac{5}{2}$.\n\n**Test Day Takeaway:** Convert every radical to a fractional exponent first. A square root is the power $\\frac{1}{2}$, and multiplication of like bases adds the exponents.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponent-rules-with-radicals',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponent-rules-with-radicals",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-085',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'easy',
-    type: 'fill-in',
-    question: 'If $2^x = 16$, what is the value of $2^{x + 1}$?',
-    correctAnswer: '32',
-    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $32$.**\n\n**The Fast Way (~5s):** Bumping the exponent up by $1$ multiplies by the base: $2^{x+1} = 2^x \\cdot 2 = 16 \\cdot 2 = 32$.\n\n**The Full Solution:**\nStep 1: Split the exponent with the product rule: $2^{x+1} = 2^x \\cdot 2^1$.\nStep 2: Substitute the known value $2^x = 16$: $16 \\cdot 2 = 32$.\nStep 3 (check): $2^x = 16$ means $x = 4$, so $2^{x+1} = 2^5 = 32$. $\\checkmark$\n\n**Common Mistakes:** Adding $1$ to the value to get $17$ (the $+1$ lives in the exponent, not the result); reading $2^{x+1}$ as $2^{x \\cdot 1}$ and leaving it at $16$.\n\n**Test Day Takeaway:** $a^{m+n} = a^m \\cdot a^n$. To shift an exponent by $+1$, just multiply by the base — you never need to solve for the variable.",
+    id: "bank-am-085",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "easy",
+    type: "fill-in",
+    question: "If $3^y = 81$, what is the value of $3^{y + 2}$?",
+    correctAnswer: "729",
+    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $729$.**\n\n**The Fast Way (~10s):** $3^{y + 2} = 3^y \\cdot 3^2 = 81 \\cdot 9 = 729$.\n\n**The Full Solution:**\nStep 1: Split the exponent using the product rule: $3^{y + 2} = 3^y \\cdot 3^2$.\nStep 2: Substitute the given value $3^y = 81$ and evaluate $3^2 = 9$: the expression is $81 \\cdot 9$.\nStep 3: $81 \\cdot 9 = 729$. Check: $3^y = 81$ means $y = 4$, and $3^{4 + 2} = 3^6 = 729$. $\\checkmark$\n\n**Common Mistakes:** Adding $2$ to the value and answering $83$; multiplying the value by $2$ and answering $162$; or reporting $6$, the new exponent $y + 2$, instead of the power's value.\n\n**Test Day Takeaway:** An added constant in an exponent becomes a multiplied factor: $b^{m + n} = b^m \\cdot b^n$. You rarely need to solve for the variable itself.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponent-rules-with-radicals',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponent-rules-with-radicals",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-086',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'If $\\sqrt[3]{x^2} \\cdot \\sqrt{x^5} = x^{\\frac{p}{q}}$ for $x > 0$, where $\\dfrac{p}{q}$ is in lowest terms, what is the value of $p + q$?',
+    id: "bank-am-086",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "For $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt{x^7}$ is equivalent to $x^{\\frac{p}{q}}$, where $\\frac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
     choices: [
-      // distractor: gives just p (numerator)
-      { id: 'A', text: '$19$' },
-      { id: 'B', text: '$25$' },
-      // distractor: gives the original numerators added (2+5)
-      { id: 'C', text: '$7$' },
-      // distractor: multiplies p and q (19 × 6 / something)
-      { id: 'D', text: '$30$' }
+      // distractor: adds numerators and denominators separately, giving $\frac{10}{6} = \frac{5}{3}$
+      { id: "A", text: "$8$" },
+      { id: "B", text: "$21$" },
+      // distractor: multiplies the exponents instead of adding them, giving $\frac{21}{8}$
+      { id: "C", text: "$29$" },
+      // distractor: inverts each fractional exponent, giving $x^{\frac{4}{3}} \cdot x^{\frac{2}{7}} = x^{\frac{34}{21}}$
+      { id: "D", text: "$55$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Convert: $\\sqrt[3]{x^2} = x^{\\frac{2}{3}}$ and $\\sqrt{x^5} = x^{\\frac{5}{2}}$. Add exponents over denominator $6$: $\\frac{4}{6} + \\frac{15}{6} = \\frac{19}{6}$. Already reduced, so $p+q = 19 + 6 = 25$.\n\n**The Full Solution:**\nStep 1: Rewrite each radical as a fractional exponent — power on top, root on bottom: $\\sqrt[3]{x^2} = x^{\\frac{2}{3}}$, $\\sqrt{x^5} = x^{\\frac{5}{2}}$.\nStep 2: Multiplying same-base powers adds exponents: $x^{\\frac{2}{3}} \\cdot x^{\\frac{5}{2}} = x^{\\frac{2}{3} + \\frac{5}{2}}$.\nStep 3: Common denominator $6$: $\\frac{2}{3} = \\frac{4}{6}$, $\\frac{5}{2} = \\frac{15}{6}$, sum $= \\frac{19}{6}$.\nStep 4: $\\gcd(19,6) = 1$, so $p = 19$, $q = 6$, and $p+q = 25$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($19$): reports $p$ alone and forgets to add $q$.\n* Choice C ($7$): adds the radical numerators $2 + 5$ without converting to fractional exponents.\n* Choice D ($30$): arithmetic slip combining the fractions.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$ — power up, root down. After adding fractional exponents, confirm the fraction is reduced before reading off $p$ and $q$.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The exponents are $\\frac{3}{4}$ and $\\frac{7}{2}$, and $\\frac{3}{4} + \\frac{7}{2} = \\frac{17}{4}$, so $p + q = 17 + 4 = 21$.\n\n**The Full Solution:**\nStep 1: Convert both radicals: $\\sqrt[4]{x^3} = x^{\\frac{3}{4}}$ and $\\sqrt{x^7} = x^{\\frac{7}{2}}$.\nStep 2: Multiplying like bases adds exponents: $\\frac{3}{4} + \\frac{7}{2} = \\frac{3}{4} + \\frac{14}{4} = \\frac{17}{4}$, which is already in lowest terms.\nStep 3: So $p = 17$, $q = 4$, and $p + q = 21$. Check at $x = 16$: $\\sqrt[4]{16^3} \\cdot \\sqrt{16^7} = 8 \\cdot 16384 = 131072 = 2^{17}$, and $16^{\\frac{17}{4}} = 2^{17}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): adds the numerators and the denominators, $\\frac{3 + 7}{4 + 2} = \\frac{5}{3}$, giving $5 + 3$.\n* Choice C ($29$): multiplies the exponents, $\\frac{3}{4} \\cdot \\frac{7}{2} = \\frac{21}{8}$, giving $21 + 8$.\n* Choice D ($55$): flips each fractional exponent to $\\frac{4}{3}$ and $\\frac{2}{7}$, whose sum $\\frac{34}{21}$ gives $34 + 21$.\n\n**Test Day Takeaway:** In $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$ the index is the denominator. Rewrite first, then add exponents over a common denominator.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponent-rules-with-radicals',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponent-rules-with-radicals",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-087',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'If $\\dfrac{x^{\\frac{5}{2}}}{x^{\\frac{1}{6}}} = x^k$ for $x > 0$, what is the value of $k$? Express your answer as a fraction.',
-    correctAnswer: '7/3',
-    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\frac{7}{3}$.**\n\n**The Fast Way (~15s):** Same base divided means subtract exponents: $\\frac{5}{2} - \\frac{1}{6} = \\frac{15}{6} - \\frac{1}{6} = \\frac{14}{6} = \\frac{7}{3}$.\n\n**The Full Solution:**\nStep 1: $\\frac{x^{\\frac{5}{2}}}{x^{\\frac{1}{6}}} = x^{\\frac{5}{2} - \\frac{1}{6}}$ (quotient rule: subtract exponents).\nStep 2: Common denominator $6$: $\\frac{5}{2} = \\frac{15}{6}$, so $\\frac{15}{6} - \\frac{1}{6} = \\frac{14}{6}$.\nStep 3: Reduce: $\\frac{14}{6} = \\frac{7}{3}$, so $k = \\frac{7}{3}$.\nCheck: at $x = 64$, $\\frac{64^{\\frac{5}{2}}}{64^{\\frac{1}{6}}} = \\frac{32768}{2} = 16384$, and $64^{\\frac{7}{3}} = 4^7 = 16384$. $\\checkmark$\n\n**Common Mistakes:** Adding the exponents instead of subtracting; leaving the answer as $\\frac{14}{6}$ without reducing.\n\n**Test Day Takeaway:** Dividing same-base powers $\\Rightarrow$ subtract exponents, then reduce the resulting fraction.",
+    id: "bank-am-087",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "If $x$ is a positive number and $\\dfrac{x^{\\frac{7}{3}}}{x^{\\frac{1}{4}}} = x^k$, what is the value of $k$? Give your answer as a fraction.",
+    correctAnswer: "25/12",
+    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\frac{25}{12}$.**\n\n**The Fast Way (~20s):** Dividing like bases subtracts exponents: $\\frac{7}{3} - \\frac{1}{4} = \\frac{28 - 3}{12} = \\frac{25}{12}$.\n\n**The Full Solution:**\nStep 1: Apply the quotient rule: $\\frac{x^{\\frac{7}{3}}}{x^{\\frac{1}{4}}} = x^{\\frac{7}{3} - \\frac{1}{4}}$.\nStep 2: Use the common denominator $12$: $\\frac{7}{3} = \\frac{28}{12}$ and $\\frac{1}{4} = \\frac{3}{12}$.\nStep 3: $\\frac{28}{12} - \\frac{3}{12} = \\frac{25}{12}$, so $k = \\frac{25}{12}$. Check at $x = 2^{12}$: the numerator is $2^{28}$, the denominator is $2^3$, and $\\frac{2^{28}}{2^3} = 2^{25} = \\left(2^{12}\\right)^{\\frac{25}{12}}$. $\\checkmark$\n\n**Common Mistakes:** Adding the exponents instead of subtracting, giving $\\frac{31}{12}$; dividing the exponents, giving $\\frac{7}{3} \\div \\frac{1}{4} = \\frac{28}{3}$; or subtracting numerators and denominators separately, which is not a valid operation on fractions.\n\n**Test Day Takeaway:** Division of like bases subtracts exponents — and subtracting fractions needs a common denominator, not a shortcut.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponent-rules-with-radicals',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponent-rules-with-radicals",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-088',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'If $(\\sqrt{x} \\cdot x^2)^3 = x^k$ for $x > 0$, what is the value of $k$? Express your answer as a fraction.',
-    correctAnswer: '15/2',
-    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\frac{15}{2}$.**\n\n**The Fast Way (~20s):** Inside first: $\\sqrt{x} \\cdot x^2 = x^{\\frac{1}{2} + 2} = x^{\\frac{5}{2}}$. Then the outer cube multiplies: $(x^{\\frac{5}{2}})^3 = x^{\\frac{15}{2}}$.\n\n**The Full Solution:**\nStep 1: Simplify inside the parentheses by adding exponents: $\\sqrt{x} \\cdot x^2 = x^{\\frac{1}{2}} \\cdot x^2 = x^{\\frac{1}{2} + 2} = x^{\\frac{5}{2}}$.\nStep 2: Apply the outer power by multiplying exponents: $(x^{\\frac{5}{2}})^3 = x^{\\frac{5}{2} \\cdot 3} = x^{\\frac{15}{2}}$.\nStep 3: So $k = \\frac{15}{2}$.\nCheck: at $x = 4$, $(\\sqrt{4} \\cdot 16)^3 = (2 \\cdot 16)^3 = 32^3 = 32768$, and $4^{\\frac{15}{2}} = 2^{15} = 32768$. $\\checkmark$\n\n**Common Mistakes:** Distributing the cube to each factor before simplifying inside; adding the outer exponent instead of multiplying; writing $\\sqrt{x} = x^2$ instead of $x^{\\frac{1}{2}}$.\n\n**Test Day Takeaway:** Nested exponents: simplify inside the parentheses first (multiply same bases $\\Rightarrow$ add exponents), then apply the outer power (multiply exponents).",
+    id: "bank-am-088",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "For positive values of $x$, $(x^3 \\cdot \\sqrt{x})^5 = x^k$, where $k$ is a constant. What is the value of $k$? Enter your answer as a fraction.",
+    correctAnswer: "35/2",
+    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\frac{35}{2}$.**\n\n**The Fast Way (~25s):** Inside the parentheses, $3 + \\frac{1}{2} = \\frac{7}{2}$; raising to the fifth power multiplies: $\\frac{7}{2} \\cdot 5 = \\frac{35}{2}$.\n\n**The Full Solution:**\nStep 1: Rewrite the radical and combine inside the parentheses: $x^3 \\cdot x^{\\frac{1}{2}} = x^{3 + \\frac{1}{2}} = x^{\\frac{7}{2}}$.\nStep 2: Apply the power-of-a-power rule: $\\left(x^{\\frac{7}{2}}\\right)^5 = x^{\\frac{7}{2} \\cdot 5}$.\nStep 3: $\\frac{7}{2} \\cdot 5 = \\frac{35}{2}$, so $k = \\frac{35}{2}$. Check at $x = 4$: $4^3 \\cdot \\sqrt{4} = 128 = 2^7$, and $\\left(2^7\\right)^5 = 2^{35} = 4^{\\frac{35}{2}}$. $\\checkmark$\n\n**Common Mistakes:** Adding the outer $5$ instead of multiplying by it, giving $\\frac{17}{2}$; multiplying only the $3$ by $5$ and leaving the $\\frac{1}{2}$ alone, giving $\\frac{31}{2}$; or reading $\\sqrt{x}$ as $x^2$, giving $(3 + 2)(5) = 25$.\n\n**Test Day Takeaway:** Work from the inside out: combine the exponents inside the parentheses first, then multiply by the outer power.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponent-rules-with-radicals',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponent-rules-with-radicals",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-089',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'If $\\dfrac{x^{\\frac{7}{2}} \\cdot x^{-\\frac{2}{3}}}{x^{\\frac{1}{6}}} = x^k$ for $x > 0$, what is the value of $k$? Express your answer as a fraction.',
-    correctAnswer: '8/3',
-    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\frac{8}{3}$.**\n\n**The Fast Way (~25s):** Combine all three over denominator $6$: $\\frac{7}{2} - \\frac{2}{3} - \\frac{1}{6} = \\frac{21}{6} - \\frac{4}{6} - \\frac{1}{6} = \\frac{16}{6} = \\frac{8}{3}$.\n\n**The Full Solution:**\nStep 1: Numerator multiplies same bases (add exponents); the denominator subtracts. Net exponent: $\\frac{7}{2} - \\frac{2}{3} - \\frac{1}{6}$.\nStep 2: Common denominator $6$: $\\frac{7}{2} = \\frac{21}{6}$, $\\frac{2}{3} = \\frac{4}{6}$, $\\frac{1}{6} = \\frac{1}{6}$.\nStep 3: $\\frac{21 - 4 - 1}{6} = \\frac{16}{6} = \\frac{8}{3}$, so $k = \\frac{8}{3}$.\nCheck: $8^{\\frac{8}{3}} = (8^{\\frac{1}{3}})^8 = 2^8 = 256$, which matches evaluating the original at $x = 8$. $\\checkmark$\n\n**Common Mistakes:** Treating $x^{-\\frac{2}{3}}$ as adding $\\frac{2}{3}$ (the negative exponent contributes a subtraction); adding the denominator's exponent instead of subtracting; mis-summing $\\frac{21 - 4 - 1}{6}$ as $\\frac{18}{6} = 3$.\n\n**Test Day Takeaway:** Track every sign in one expression: same-base factors add, denominator exponents subtract, and a negative exponent contributes a subtraction.",
+    id: "bank-am-089",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "The equation $\\dfrac{x^{\\frac{5}{2}} \\cdot x^{-\\frac{3}{4}}}{x^{\\frac{1}{3}}} = x^k$ is true for all $x > 0$. What is the value of $k$? Write your answer as a fraction.",
+    correctAnswer: "17/12",
+    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\frac{17}{12}$.**\n\n**The Fast Way (~30s):** Add the two exponents on top and subtract the one below: $\\frac{5}{2} - \\frac{3}{4} - \\frac{1}{3} = \\frac{30 - 9 - 4}{12} = \\frac{17}{12}$.\n\n**The Full Solution:**\nStep 1: Combine the numerator with the product rule: $x^{\\frac{5}{2}} \\cdot x^{-\\frac{3}{4}} = x^{\\frac{5}{2} - \\frac{3}{4}}$.\nStep 2: Divide using the quotient rule: the exponent becomes $\\frac{5}{2} - \\frac{3}{4} - \\frac{1}{3}$.\nStep 3: Over the common denominator $12$: $\\frac{30}{12} - \\frac{9}{12} - \\frac{4}{12} = \\frac{17}{12}$, so $k = \\frac{17}{12}$. Check at $x = 2^{12}$: the expression is $\\frac{2^{30} \\cdot 2^{-9}}{2^4} = 2^{17}$, and $\\left(2^{12}\\right)^{\\frac{17}{12}} = 2^{17}$. $\\checkmark$\n\n**Common Mistakes:** Treating the negative exponent as positive and computing $\\frac{5}{2} + \\frac{3}{4} - \\frac{1}{3} = \\frac{35}{12}$; adding the denominator's exponent instead of subtracting it, giving $\\frac{25}{12}$; or moving $x^{-\\frac{3}{4}}$ to the denominator and then subtracting it a second time.\n\n**Test Day Takeaway:** Every factor above the bar contributes $+$ its exponent, every factor below contributes $-$. Write one signed sum and evaluate it over a common denominator.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponent-rules-with-radicals',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponent-rules-with-radicals",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-090',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'If $a^{\\frac{2}{5}} = 9$ for $a > 0$, what is the value of $a^{\\frac{6}{5}}$?',
+    id: "bank-am-090",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "The constant $a$ is positive and satisfies $a^{\\frac{3}{4}} = 8$. What is the value of $a^{\\frac{9}{4}}$?",
     choices: [
-      // distractor: multiplies 9 by 3 (the exponent ratio 6/5 ÷ 2/5)
-      { id: 'A', text: '$27$' },
-      // distractor: triples 9
-      { id: 'B', text: '$72$' },
-      { id: 'C', text: '$729$' },
-      // distractor: solves for a (243) and reports it
-      { id: 'D', text: '$243$' }
+      // distractor: reports $a$ itself, since $a = 8^{\frac{4}{3}} = 16$
+      { id: "A", text: "$16$" },
+      // distractor: multiplies $8$ by $3$ instead of cubing it
+      { id: "B", text: "$24$" },
+      { id: "C", text: "$512$" },
+      // distractor: raises $8$ to the fourth power, using the denominator of the exponent
+      { id: "D", text: "$4{,}096$" }
     ],
-    correctAnswer: 'C',
-    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Notice $\\frac{6}{5} = 3 \\cdot \\frac{2}{5}$, so $a^{\\frac{6}{5}} = (a^{\\frac{2}{5}})^3 = 9^3 = 729$.\n\n**The Full Solution:**\nStep 1: You already know $a^{\\frac{2}{5}} = 9$ and want $a^{\\frac{6}{5}}$.\nStep 2: The target exponent is a multiple of the known one: $\\frac{6}{5} = 3 \\cdot \\frac{2}{5}$.\nStep 3: Power-of-a-power: $a^{\\frac{6}{5}} = (a^{\\frac{2}{5}})^3 = 9^3 = 729$.\nCheck: solving directly, $a = 9^{\\frac{5}{2}} = 3^5 = 243$, and $243^{\\frac{6}{5}} = 3^6 = 729$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($27$): multiplies $9 \\cdot 3$, treating the exponent ratio as a multiplier.\n* Choice B ($72$): an arithmetic slip with no valid rule behind it.\n* Choice D ($243$): solves for $a$ and reports $a$ instead of $a^{\\frac{6}{5}}$.\n\n**Test Day Takeaway:** When you know $a^n$ and need $a^m$, write $m = k \\cdot n$ so $a^m = (a^n)^k$ — far faster than solving for $a$.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\frac{9}{4} = 3 \\cdot \\frac{3}{4}$, so $a^{\\frac{9}{4}} = \\left(a^{\\frac{3}{4}}\\right)^3 = 8^3 = 512$.\n\n**The Full Solution:**\nStep 1: Notice that the target exponent is a multiple of the given one: $\\frac{9}{4} = 3 \\cdot \\frac{3}{4}$.\nStep 2: By the power-of-a-power rule, $a^{\\frac{9}{4}} = \\left(a^{\\frac{3}{4}}\\right)^3$.\nStep 3: Substitute the given value: $8^3 = 512$. Check by solving for $a$: $a = 8^{\\frac{4}{3}} = 16$, and $16^{\\frac{9}{4}} = \\left(2^4\\right)^{\\frac{9}{4}} = 2^9 = 512$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): solves for $a$ and stops there; $a = 16$, but the question asks for $a^{\\frac{9}{4}}$.\n* Choice B ($24$): multiplies $8$ by $3$ instead of raising it to the third power.\n* Choice D ($4{,}096$): computes $8^4$, using the denominator $4$ rather than the ratio $\\frac{9/4}{3/4} = 3$.\n\n**Test Day Takeaway:** When one exponent is a multiple of another, treat the given power as a single block and raise that block — you never have to find the base.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponent-rules-with-radicals',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponent-rules-with-radicals",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-091',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'hard',
-    type: 'fill-in',
-    question: 'If $\\dfrac{\\sqrt[3]{x^4}}{\\sqrt[5]{x^2}} = x^{\\frac{p}{q}}$ for $x > 0$, where $\\dfrac{p}{q}$ is in lowest terms, what is the value of $p + q$?',
-    correctAnswer: '29',
-    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $29$.**\n\n**The Fast Way (~30s):** Convert: $\\sqrt[3]{x^4} = x^{\\frac{4}{3}}$, $\\sqrt[5]{x^2} = x^{\\frac{2}{5}}$. Subtract: $\\frac{4}{3} - \\frac{2}{5} = \\frac{20}{15} - \\frac{6}{15} = \\frac{14}{15}$. Reduced, so $p+q = 14 + 15 = 29$.\n\n**The Full Solution:**\nStep 1: Rewrite each radical — power up, root down: $\\sqrt[3]{x^4} = x^{\\frac{4}{3}}$, $\\sqrt[5]{x^2} = x^{\\frac{2}{5}}$.\nStep 2: Quotient rule subtracts exponents: $\\frac{x^{\\frac{4}{3}}}{x^{\\frac{2}{5}}} = x^{\\frac{4}{3} - \\frac{2}{5}}$.\nStep 3: Common denominator $15$: $\\frac{4}{3} = \\frac{20}{15}$, $\\frac{2}{5} = \\frac{6}{15}$, so $\\frac{20}{15} - \\frac{6}{15} = \\frac{14}{15}$.\nStep 4: $\\gcd(14,15) = 1$, so $p = 14$, $q = 15$, and $p+q = 29$.\n\n**Common Mistakes:** Writing $\\sqrt[5]{x^2} = x^{\\frac{5}{2}}$ (inverting power and index); adding exponents instead of subtracting; reporting $p$ alone; failing to reduce before reading $p$ and $q$.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$ — power up, root down. Divide $\\Rightarrow$ subtract exponents, then reduce before reading off $p$ and $q$.",
+    id: "bank-am-091",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "hard",
+    type: "fill-in",
+    question: "The quotient $\\dfrac{\\sqrt[4]{x^5}}{\\sqrt[3]{x^2}}$ is equal to $x^{\\frac{p}{q}}$ for every $x > 0$, where $\\frac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+    correctAnswer: "19",
+    explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $19$.**\n\n**The Fast Way (~35s):** The exponents are $\\frac{5}{4}$ and $\\frac{2}{3}$, and $\\frac{5}{4} - \\frac{2}{3} = \\frac{7}{12}$, so $p + q = 7 + 12 = 19$.\n\n**The Full Solution:**\nStep 1: Convert both radicals: $\\sqrt[4]{x^5} = x^{\\frac{5}{4}}$ and $\\sqrt[3]{x^2} = x^{\\frac{2}{3}}$.\nStep 2: Dividing like bases subtracts exponents: $\\frac{5}{4} - \\frac{2}{3} = \\frac{15}{12} - \\frac{8}{12} = \\frac{7}{12}$, which is in lowest terms.\nStep 3: So $p = 7$, $q = 12$, and $p + q = 19$. Check at $x = 2^{12}$: the expression is $\\frac{2^{15}}{2^8} = 2^7$, and $\\left(2^{12}\\right)^{\\frac{7}{12}} = 2^7$. $\\checkmark$\n\n**Common Mistakes:** Adding the exponents instead of subtracting, which gives $\\frac{23}{12}$ and an answer of $35$; reporting only the numerator $7$; or writing the exponents upside down as $\\frac{4}{5}$ and $\\frac{3}{2}$, which puts the index on top.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$ — the power goes on top, the index underneath. Reduce the final fraction before reading off $p$ and $q$.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'exponent-rules-with-radicals',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "exponent-rules-with-radicals",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
 
   // === VERTEX FORM FROM TWO CONDITIONS (8 questions) — Phase 2 batch 2 ===
@@ -1895,160 +2027,165 @@ export const advancedMathBank = [
   // minimum, minimum-condition + point. SAT Pattern kebab matches:
   // 'vertex-form-from-two-conditions'.
   {
-    id: 'bank-am-092',
-    domain: 'advanced-math',
-    skills: ['vertex-form', 'function-evaluation'],
-    difficulty: 'easy',
-    type: 'fill-in',
-    question: 'In the $xy$-plane, a parabola with equation $y = a(x - 4)^2 + 3$ passes through the point $(5, 7)$. What is the value of $a$?',
-    correctAnswer: '4',
-    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~10s):** Plug the point in: $7 = a(5-4)^2 + 3 = a + 3$, so $a = 4$.\n\n**The Full Solution:**\nStep 1: Substitute $(x, y) = (5, 7)$ into $y = a(x-4)^2 + 3$: $7 = a(5-4)^2 + 3$.\nStep 2: $(5-4)^2 = 1$, so $7 = a + 3$.\nStep 3: $a = 4$.\nCheck: $y = 4(x-4)^2 + 3$ at $x = 5$ gives $4(1) + 3 = 7$. $\\checkmark$\n\n**Common Mistakes:** Forgetting to square the $(5-4)$ factor (harmless here since it equals $1$, but fatal in problems like $(5-3)^2 = 4$); subtracting $3$ in the wrong direction.\n\n**Test Day Takeaway:** To find $a$ in vertex form $y = a(x-h)^2 + k$, plug in the known point, then isolate $a$ by dividing out the squared factor.",
+    id: "bank-am-092",
+    domain: "advanced-math",
+    skills: ["vertex-form", "function-evaluation"],
+    difficulty: "easy",
+    type: "fill-in",
+    question: "In the $xy$-plane, the graph of $y = a(x - 1)^2 - 6$ is shown, where $a$ is a constant. The graph passes through the marked point $(3, 6)$. What is the value of $a$?",
+    diagram: { type: "quadraticVertex", params: { vertex: [1, -6], a: 3, showPoints: [[3, 6]], showVertex: true } },
+    correctAnswer: "3",
+    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~20s):** Substitute $(3, 6)$: $a(2)^2 - 6 = 6$, so $4a = 12$ and $a = 3$.\n\n**The Full Solution:**\nStep 1: Every point on the graph satisfies the equation, so replace $x$ with $3$ and $y$ with $6$: $6 = a(3 - 1)^2 - 6$.\nStep 2: Simplify the square: $(3 - 1)^2 = 4$, so $6 = 4a - 6$.\nStep 3: Add $6$ to both sides and divide: $12 = 4a$, so $a = 3$. Check: $y = 3(3 - 1)^2 - 6 = 12 - 6 = 6$, and the vertex is at $(1, -6)$ as shown. $\\checkmark$\n\n**Common Mistakes:** Forgetting to undo the $-6$ and solving $4a = 6$ to get $\\frac{3}{2}$; dividing by $2$ instead of $(3 - 1)^2 = 4$ and answering $6$; or computing the slope between the vertex and the marked point, $\\frac{6 - (-6)}{3 - 1} = 6$, which is not what $a$ measures.\n\n**Test Day Takeaway:** In vertex form the vertex is already built in, so one extra point is all you need. Substitute, undo the constant, then divide by the squared factor.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-form-from-two-conditions',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "vertex-form-from-two-conditions",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-093',
-    domain: 'advanced-math',
-    skills: ['vertex-form', 'function-evaluation'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'The graph of $y = (x - 2)^2 - 3$ is a parabola in the $xy$-plane. What is the $y$-intercept of the parabola?',
+    id: "bank-am-093",
+    domain: "advanced-math",
+    skills: ["vertex-form", "function-evaluation"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "The graph of the quadratic function $f$ is shown in the $xy$-plane, and $f(x) = a(x - 2)^2 + k$, where $a$ and $k$ are constants. The graph passes through the marked point $(4, 4)$. What is the value of $a + k$?",
+    diagram: { type: "quadraticVertex", params: { vertex: [2, -4], a: 2, showPoints: [[4, 4]], showVertex: true } },
     choices: [
-      // distractor: gives vertex y-coordinate
-      { id: 'A', text: '$-3$' },
-      // distractor: gives -2 (vertex x with sign issue)
-      { id: 'B', text: '$-2$' },
-      { id: 'C', text: '$1$' },
-      // distractor: gives 4 (forgot to subtract 3)
-      { id: 'D', text: '$4$' }
+      // distractor: computes $k - a$ instead of $a + k$
+      { id: "A", text: "$-6$" },
+      // distractor: solves $4a = 4$ without adding $k$ back, getting $a = 1$
+      { id: "B", text: "$-3$" },
+      { id: "C", text: "$-2$" },
+      // distractor: reports the value of $a$ alone
+      { id: "D", text: "$2$" }
     ],
-    correctAnswer: 'C',
-    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The $y$-intercept is the value at $x = 0$: $y = (0-2)^2 - 3 = 4 - 3 = 1$.\n\n**The Full Solution:**\nStep 1: A $y$-intercept is the $y$-value when $x = 0$.\nStep 2: Substitute into $y = (x-2)^2 - 3$: $y = (0-2)^2 - 3 = (-2)^2 - 3$.\nStep 3: $= 4 - 3 = 1$.\nCheck: the vertex is $(2, -3)$; moving $2$ units left to $x = 0$ raises $y$ by $4$, giving $-3 + 4 = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): reports the vertex $y$-coordinate instead of evaluating at $x = 0$.\n* Choice B ($-2$): sign-flips the vertex $x$-coordinate.\n* Choice D ($4$): computes $(0-2)^2 = 4$ and forgets to subtract $3$.\n\n**Test Day Takeaway:** For a $y$-intercept, substitute $x = 0$ and compute. Don't confuse it with the vertex $y$ unless the vertex sits on the $y$-axis.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The vertex is $(2, -4)$, so $k = -4$. Substituting $(4, 4)$ gives $4a - 4 = 4$, so $a = 2$ and $a + k = -2$.\n\n**The Full Solution:**\nStep 1: In $f(x) = a(x - 2)^2 + k$ the vertex is $(2, k)$; the graph shows the vertex at $(2, -4)$, so $k = -4$.\nStep 2: Substitute the marked point $(4, 4)$: $4 = a(4 - 2)^2 - 4$, so $4 = 4a - 4$ and $4a = 8$, giving $a = 2$.\nStep 3: Then $a + k = 2 + (-4) = -2$. Check: $f(x) = 2(x - 2)^2 - 4$ gives $f(4) = 8 - 4 = 4$ and $f(2) = -4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): computes $k - a = -4 - 2$ instead of the requested sum.\n* Choice B ($-3$): solves $4a = 4$ by forgetting to add the $4$ back when undoing $k = -4$, which gives $a = 1$ and $1 + (-4)$.\n* Choice D ($2$): finds $a = 2$ correctly but never adds $k$.\n\n**Test Day Takeaway:** Read $k$ straight off the vertex, then use the extra point for $a$. Finish by rereading exactly which combination of constants the question wants.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-form-from-two-conditions',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "vertex-form-from-two-conditions",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-094',
-    domain: 'advanced-math',
-    skills: ['vertex-form'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'The parabola defined by $y = 3(x - h)^2 + k$ has its vertex at $(2, -5)$ and passes through the point $(4, 7)$. What is the value of $h + k$?',
-    correctAnswer: '-3',
-    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $-3$.**\n\n**The Fast Way (~10s):** In $y = a(x-h)^2 + k$ the vertex is $(h, k)$, so $h = 2$, $k = -5$ and $h+k = 2 + (-5) = -3$.\n\n**The Full Solution:**\nStep 1: Vertex form $y = a(x-h)^2 + k$ has its vertex at $(h, k)$. The given vertex $(2, -5)$ reads off directly: $h = 2$, $k = -5$.\nStep 2: $h + k = 2 + (-5) = -3$.\nCheck: $y = 3(4-2)^2 + (-5) = 3(4) - 5 = 7$, matching the given point $(4, 7)$. $\\checkmark$\n\n**Common Mistakes:** Reading the vertex as $(-2, 5)$ from the $(x-h)$ form (the sign is already handled — vertex at $x = 2$ means $h = 2$); swapping $h$ and $k$; reporting $h - k = 7$.\n\n**Test Day Takeaway:** In $y = a(x-h)^2 + k$, read $(h, k)$ straight off the vertex coordinates, then compute exactly the combination the question asks for.",
+    id: "bank-am-094",
+    domain: "advanced-math",
+    skills: ["vertex-form"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "The parabola shown in the $xy$-plane has its vertex at $(-1, -8)$ and passes through the marked point $(1, 0)$. What is the $y$-coordinate of the point on this parabola whose $x$-coordinate is $3$?",
+    diagram: { type: "quadraticVertex", params: { vertex: [-1, -8], a: 2, showPoints: [[1, 0]], showVertex: true } },
+    correctAnswer: "24",
+    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~40s):** Vertex form gives $y = a(x + 1)^2 - 8$; the point $(1, 0)$ forces $a = 2$, so at $x = 3$, $y = 2(16) - 8 = 24$.\n\n**The Full Solution:**\nStep 1: With vertex $(-1, -8)$, the equation is $y = a(x + 1)^2 - 8$.\nStep 2: Substitute $(1, 0)$: $0 = a(1 + 1)^2 - 8 = 4a - 8$, so $a = 2$ and $y = 2(x + 1)^2 - 8$.\nStep 3: Evaluate at $x = 3$: $y = 2(3 + 1)^2 - 8 = 2(16) - 8 = 24$. Check the symmetry: $x = 3$ is $4$ units right of the vertex and $x = -5$ is $4$ units left, and both give $y = 24$. $\\checkmark$\n\n**Common Mistakes:** Using $a = 1$ and answering $8$; writing the squared factor as $(x - 1)^2$ because the vertex's $x$-coordinate is negative, which gives $2(2)^2 - 8 = 0$; or trying to read the answer off the grid, where the curve has already left the visible window.\n\n**Test Day Takeaway:** A vertex plus one point pins down the whole parabola. Solve for $a$ first, then evaluate — the figure is a check, not a lookup table.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-form-from-two-conditions',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "vertex-form-from-two-conditions",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-095',
-    domain: 'advanced-math',
-    skills: ['vertex-form'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'The parabola defined by $y = -2(x - h)^2 + k$ has its vertex at $(3, 8)$ and passes through the point $(5, 0)$. What is the value of $h - k$?',
-    correctAnswer: '-5',
-    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $-5$.**\n\n**The Fast Way (~10s):** The vertex $(h, k) = (3, 8)$, so $h - k = 3 - 8 = -5$.\n\n**The Full Solution:**\nStep 1: In vertex form $y = a(x-h)^2 + k$, the vertex is $(h, k)$. Given vertex $(3, 8)$: $h = 3$, $k = 8$.\nStep 2: $h - k = 3 - 8 = -5$.\nCheck: $y = -2(5-3)^2 + 8 = -2(4) + 8 = 0$, matching the given point $(5, 0)$. $\\checkmark$\n\n**Common Mistakes:** Reporting $h + k = 11$ instead of $h - k$; flipping to $k - h = 5$; letting the coefficient $a = -2$ leak into $h$ or $k$.\n\n**Test Day Takeaway:** Re-read the last line — it asks for a specific combination ($h - k$ here). Pin down $(h, k)$ first, then compute exactly what's requested.",
+    id: "bank-am-095",
+    domain: "advanced-math",
+    skills: ["vertex-form"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "In the $xy$-plane, the parabola with equation $y = 2(x - h)^2 + k$ has its vertex on the line $x = -3$ and passes through the point $(-1, 7)$, where $h$ and $k$ are constants. What is the value of $k$?",
+    correctAnswer: "-1",
+    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $-1$.**\n\n**The Fast Way (~30s):** The vertex lies on $x = -3$, so $h = -3$. Then $2(-1 + 3)^2 + k = 7$ gives $8 + k = 7$, so $k = -1$.\n\n**The Full Solution:**\nStep 1: In $y = 2(x - h)^2 + k$ the vertex is $(h, k)$. The vertex is on the line $x = -3$, so $h = -3$ and the equation is $y = 2(x + 3)^2 + k$.\nStep 2: Substitute the point $(-1, 7)$: $7 = 2(-1 + 3)^2 + k = 2(4) + k = 8 + k$.\nStep 3: So $k = 7 - 8 = -1$. Check: $y = 2(x + 3)^2 - 1$ gives $y = 2(4) - 1 = 7$ at $x = -1$. $\\checkmark$\n\n**Common Mistakes:** Using $h = 3$ instead of $h = -3$, which gives $2(-4)^2 + k = 7$ and $k = -25$; forgetting to square and computing $2(2) + k = 7$ to get $k = 3$; or reporting $h$ when the question asks for $k$.\n\n**Test Day Takeaway:** \"The vertex is on the line $x = c$\" is just $h = c$ in disguise. Substitute it into $(x - h)$ carefully — a negative $h$ turns the factor into a sum.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-form-from-two-conditions',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "vertex-form-from-two-conditions",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-096',
-    domain: 'advanced-math',
-    skills: ['vertex-form', 'function-evaluation'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'In the $xy$-plane, a parabola has vertex $(3, -4)$ and passes through the point $(5, 8)$. What is the $y$-intercept of this parabola?',
+    id: "bank-am-096",
+    domain: "advanced-math",
+    skills: ["vertex-form", "function-evaluation"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The graph of the quadratic function $g$ is shown in the $xy$-plane. Its vertex is $(1, -2)$, and the graph passes through the marked point $(3, 2)$. What is the value of $g(5)$?",
+    diagram: { type: "quadraticVertex", params: { vertex: [1, -2], a: 1, showPoints: [[3, 2]], showVertex: true } },
     choices: [
-      // distractor: gives the vertex y-coord
-      { id: 'A', text: '$-4$' },
-      // distractor: just plugs x=0 without solving for a (uses a=1)
-      { id: 'B', text: '$5$' },
-      { id: 'C', text: '$23$' },
-      // distractor: y-intercept calculated with wrong sign on (0-3)^2
-      { id: 'D', text: '$-23$' }
+      // distractor: forgets to square, computing $(5 - 1) - 2$
+      { id: "A", text: "$2$" },
+      { id: "B", text: "$14$" },
+      // distractor: uses $+2$ for the vertex constant instead of $-2$
+      { id: "C", text: "$18$" },
+      // distractor: computes $5^2 - 2$, ignoring the horizontal shift
+      { id: "D", text: "$23$" }
     ],
-    correctAnswer: 'C',
-    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Write $y = a(x-3)^2 - 4$. From $(5, 8)$: $8 = a(4) - 4 \\Rightarrow a = 3$. Then $y(0) = 3(9) - 4 = 23$.\n\n**The Full Solution:**\nStep 1: Use the vertex $(3, -4)$ to write $y = a(x-3)^2 - 4$.\nStep 2: Solve for $a$ with the point $(5, 8)$: $8 = a(5-3)^2 - 4 = 4a - 4$, so $4a = 12$ and $a = 3$.\nStep 3: The $y$-intercept is the value at $x = 0$: $y = 3(0-3)^2 - 4 = 3(9) - 4 = 27 - 4 = 23$.\nCheck: at $x = 5$, $y = 3(2)^2 - 4 = 8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): stops at the vertex $y$-coordinate without finding the $y$-intercept.\n* Choice B ($5$): assumes $a = 1$, skipping the solve-for-$a$ step: $(0-3)^2 - 4 = 5$.\n* Choice D ($-23$): sign error turning $(0-3)^2$ into $-9$.\n\n**Test Day Takeaway:** Vertex plus a point in three moves: write vertex form from $(h, k)$, solve for $a$ with the second condition, then evaluate at $x = 0$ (or wherever asked).",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The vertex gives $g(x) = a(x - 1)^2 - 2$; the point $(3, 2)$ forces $a = 1$, so $g(5) = (5 - 1)^2 - 2 = 14$.\n\n**The Full Solution:**\nStep 1: With vertex $(1, -2)$, write $g(x) = a(x - 1)^2 - 2$.\nStep 2: Substitute the marked point: $2 = a(3 - 1)^2 - 2$, so $4a = 4$ and $a = 1$. The function is $g(x) = (x - 1)^2 - 2$.\nStep 3: Evaluate: $g(5) = (5 - 1)^2 - 2 = 16 - 2 = 14$. Check with symmetry: $x = 5$ is $4$ units right of the vertex, and $x = -3$ is $4$ units left; $g(-3) = 16 - 2 = 14$ as well. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): computes $(5 - 1) - 2$ and never squares the shifted input.\n* Choice C ($18$): uses $+2$ as the constant, so $(5 - 1)^2 + 2 = 18$; the vertex $y$-value is $-2$.\n* Choice D ($23$): computes $5^2 - 2$, forgetting that the input is shifted by the vertex's $x$-coordinate.\n\n**Test Day Takeaway:** Build the equation from the vertex, pin $a$ with the marked point, and only then substitute. Reading a value straight off the grid fails as soon as the curve leaves the window.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-form-from-two-conditions',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "vertex-form-from-two-conditions",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-097',
-    domain: 'advanced-math',
-    skills: ['vertex-form', 'function-transformations'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'The function $f$ is defined by $f(x) = (x - 2)^2 + 3$. The function $g$ is defined by $g(x) = f(x + 4) - 5$. For what value of $x$ does $g$ attain its minimum value?',
+    id: "bank-am-097",
+    domain: "advanced-math",
+    skills: ["vertex-form", "function-transformations"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The function $f$ is defined by $f(x) = (x + 5)^2 - 1$. The function $g$ is defined by $g(x) = f(x - 2) + 6$. At what value of $x$ does $g$ attain its minimum value?",
     choices: [
-      // distractor: subtracts 4 from wrong baseline (uses vertex y)
-      { id: 'A', text: '$-1$' },
-      { id: 'B', text: '$-2$' },
-      // distractor: adds 4 instead of subtracting
-      { id: 'C', text: '$6$' },
-      // distractor: uses 4 without combining with original vertex
-      { id: 'D', text: '$2$' }
+      // distractor: shifts left by $2$ instead of right, computing $-5 - 2$
+      { id: "A", text: "$-7$" },
+      // distractor: reports where $f$ is smallest, ignoring the horizontal shift
+      { id: "B", text: "$-5$" },
+      { id: "C", text: "$-3$" },
+      // distractor: reads the vertex of $f$ as $x = 5$, dropping the sign
+      { id: "D", text: "$3$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $f(x)=(x-2)^2+3$ has its minimum at $x=2$. Replacing $x$ with $x+4$ shifts the graph LEFT by $4$, so the new minimum sits at $x=2-4=-2$. The $-5$ only moves it down, not sideways. Choice B.\n\n**The Full Solution:**\nStep 1: $f(x)=(x-2)^2+3$ opens upward, so its vertex $(2,3)$ is a minimum — $f$ bottoms out at $x=2$.\nStep 2: $g(x)=f(x+4)-5$ feeds the input $x+4$ into $f$. To hit $f$'s minimum, the input must equal $2$: set $x+4=2$, so $x=-2$.\nStep 3: The $-5$ shifts every output down by $5$ but changes no $x$-value, so $g$ still attains its minimum at $x=-2$.\n\nCheck: $g(-2)=f(-2+4)-5=f(2)-5=3-5=-2$, the lowest possible value. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): subtracts $4$ from the vertex $y$-value ($3-4=-1$) instead of the $x$-value.\n* Choice C ($6$): treats $f(x+4)$ as a RIGHT shift and adds, giving $2+4=6$.\n* Choice D ($2$): reports $f$'s original minimum location without applying the horizontal shift.\n\n**Test Day Takeaway:** $f(x+c)$ shifts LEFT by $c$. To find where the shifted minimum lands, set the inside expression equal to the original vertex input and solve.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $f$ bottoms out where its squared factor is zero, at $x = -5$. In $g(x) = f(x - 2) + 6$ that happens when $x - 2 = -5$, so $x = -3$.\n\n**The Full Solution:**\nStep 1: $f(x) = (x + 5)^2 - 1$ has its minimum where $(x + 5)^2 = 0$, that is, at $x = -5$.\nStep 2: $g(x) = f(x - 2) + 6$ evaluates $f$ at the input $x - 2$, so $g$ is smallest when $x - 2 = -5$.\nStep 3: Solving gives $x = -3$; the outside $+6$ raises every output by $6$ but never moves the low point sideways. Check by expanding: $g(x) = (x - 2 + 5)^2 - 1 + 6 = (x + 3)^2 + 5$, whose minimum is at $x = -3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): computes $-5 - 2$, shifting the graph left when replacing $x$ with $x - 2$ shifts it right.\n* Choice B ($-5$): reports the location of the minimum of $f$ and ignores the transformation entirely.\n* Choice D ($3$): reads the vertex of $f$ as $x = 5$ from the \"$+5$\" inside the parentheses, then subtracts $2$.\n\n**Test Day Takeaway:** Replacing $x$ with $x - c$ moves the graph $c$ units in the $+x$ direction. Set the inside of the squared factor equal to zero and solve — the outside constant is irrelevant to *where* the minimum is.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-form-from-two-conditions',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "vertex-form-from-two-conditions",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-098',
-    domain: 'advanced-math',
-    skills: ['vertex-form', 'function-evaluation'],
-    difficulty: 'hard',
-    type: 'fill-in',
-    question: 'The function $f$ is defined by $f(x) = a(x - h)^2 + k$, where $a$, $h$, and $k$ are constants. $f$ has a minimum value of $-5$ at $x = 3$ and $f(7) = 27$. What is the value of $f(0)$?',
-    correctAnswer: '13',
-    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~25s):** Minimum $-5$ at $x=3$ means the vertex is $(3,-5)$, so $h=3$, $k=-5$. Use $f(7)=27$: $27=a(4)^2-5\\Rightarrow 16a=32\\Rightarrow a=2$. Then $f(0)=2(9)-5=13$.\n\n**The Full Solution:**\nStep 1: The minimum VALUE is the $y$-coordinate of the vertex and the LOCATION is the $x$-coordinate. Minimum $-5$ at $x=3$ gives vertex $(3,-5)$, so $h=3$ and $k=-5$. Thus $f(x)=a(x-3)^2-5$, with $a>0$.\nStep 2: Apply $f(7)=27$: $27=a(7-3)^2-5=16a-5$, so $16a=32$ and $a=2$.\nStep 3: Now $f(x)=2(x-3)^2-5$. Evaluate at $0$: $f(0)=2(0-3)^2-5=2\\cdot 9-5=18-5=13$.\n\nCheck: $f(3)=-5$ (the minimum) and $f(7)=2(16)-5=27$. $\\checkmark$\n\n**Common Mistakes:** Reading \"minimum value $-5$\" as $h=-5$ instead of $k=-5$; forgetting to square $(7-3)=4$ before solving for $a$; using the wrong $a$ when evaluating $f(0)$.\n\n**Test Day Takeaway:** \"Minimum/maximum value at $x=x_0$\" hands you the vertex directly as $(x_0,\\text{value})$. Build the form, use the second point to solve for $a$, then evaluate wherever asked.",
+    id: "bank-am-098",
+    domain: "advanced-math",
+    skills: ["vertex-form", "function-evaluation"],
+    difficulty: "hard",
+    type: "fill-in",
+    question: "The function $f$ is defined by $f(x) = a(x - h)^2 + k$, where $a$, $h$, and $k$ are constants. The minimum value of $f$ is $-7$ and occurs at $x = -2$, and $f(2) = 25$. What is the value of $f(4)$?",
+    correctAnswer: "65",
+    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $65$.**\n\n**The Fast Way (~50s):** The minimum puts the vertex at $(-2, -7)$, so $f(x) = a(x + 2)^2 - 7$; $f(2) = 25$ gives $16a = 32$ and $a = 2$, so $f(4) = 2(36) - 7 = 65$.\n\n**The Full Solution:**\nStep 1: A minimum value of $-7$ at $x = -2$ means $h = -2$ and $k = -7$, so $f(x) = a(x + 2)^2 - 7$ with $a > 0$.\nStep 2: Use $f(2) = 25$: $a(2 + 2)^2 - 7 = 25$, so $16a = 32$ and $a = 2$. The function is $f(x) = 2(x + 2)^2 - 7$.\nStep 3: Evaluate at $x = 4$: $f(4) = 2(4 + 2)^2 - 7 = 2(36) - 7 = 65$. Check the minimum: $f(-2) = -7$, and $f(2) = 2(16) - 7 = 25$. $\\checkmark$\n\n**Common Mistakes:** Assuming $a = 1$ and answering $29$; forgetting to add the $7$ back when solving for $a$, which gives $16a = 25$, $a = 1.5625$, and $f(4) = 49.25$; or reading \"minimum value $-7$ at $x = -2$\" as the vertex $(-7, -2)$.\n\n**Test Day Takeaway:** \"Minimum value $m$ at $x = c$\" hands you the vertex $(c, m)$. One more function value then determines $a$, and the function is fully known.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-form-from-two-conditions',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "vertex-form-from-two-conditions",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-099',
-    domain: 'advanced-math',
-    skills: ['vertex-form'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'The parabola defined by $y = -2(x - h)^2 + k$ has its vertex at $(5, 16)$ and passes through the point $(3, 8)$. What is the value of $h - k$?',
+    id: "bank-am-099",
+    domain: "advanced-math",
+    skills: ["vertex-form"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "In the $xy$-plane, the graph of $y = a(x - h)^2 + k$ is shown, where $a$, $h$, and $k$ are constants. The vertex of the graph is $(-2, -6)$, and the graph passes through the marked point $(0, 2)$. What is the value of $ahk$?",
+    diagram: { type: "quadraticVertex", params: { vertex: [-2, -6], a: 2, showPoints: [[0, 2]], showVertex: true } },
     choices: [
-      { id: 'A', text: '$-11$' },
-      // distractor: h+k instead of h-k
-      { id: 'B', text: '$21$' },
-      // distractor: sign-flip on h-k
-      { id: 'C', text: '$11$' },
-      // distractor: -h-k
-      { id: 'D', text: '$-21$' }
+      // distractor: reads $h$ as $2$ rather than $-2$
+      { id: "A", text: "$-24$" },
+      // distractor: solves $4a = 2$ without undoing $k$, getting $a = \frac{1}{2}$
+      { id: "B", text: "$6$" },
+      // distractor: assumes $a = 1$ instead of using the marked point
+      { id: "C", text: "$12$" },
+      { id: "D", text: "$24$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** In $y=a(x-h)^2+k$, the vertex is $(h,k)$. Given vertex $(5,16)$, $h=5$ and $k=16$, so $h-k=5-16=-11$. The passing point is just a consistency check. Choice A.\n\n**The Full Solution:**\nStep 1: Vertex form $y=a(x-h)^2+k$ has vertex $(h,k)$. The vertex is given as $(5,16)$, so $h=5$ and $k=16$.\nStep 2: The point $(3,8)$ only confirms the equation — $a$ is already given as $-2$. Verify: $y=-2(3-5)^2+16=-2(4)+16=-8+16=8$. $\\checkmark$\nStep 3: Compute the requested combination: $h-k=5-16=-11$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($21$): computes $h+k=5+16=21$ instead of $h-k$.\n* Choice C ($11$): flips the order to $k-h=16-5=11$ (a sign error).\n* Choice D ($-21$): computes $-(h+k)=-21$.\n\n**Test Day Takeaway:** Read $(h,k)$ straight off the vertex in $a(x-h)^2+k$. When the question asks for a specific combination, the extra point is usually just a check — don't overwork it.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice D is correct.**\n\n**The Fast Way (~50s):** The vertex gives $h = -2$ and $k = -6$; the point $(0, 2)$ gives $4a - 6 = 2$, so $a = 2$ and $ahk = 2(-2)(-6) = 24$.\n\n**The Full Solution:**\nStep 1: In $y = a(x - h)^2 + k$ the vertex is $(h, k)$, so $h = -2$ and $k = -6$ and the equation is $y = a(x + 2)^2 - 6$.\nStep 2: Substitute the marked point $(0, 2)$: $2 = a(0 + 2)^2 - 6 = 4a - 6$, so $4a = 8$ and $a = 2$.\nStep 3: Multiply: $ahk = (2)(-2)(-6) = 24$. Check: $y = 2(x + 2)^2 - 6$ gives $y = 2$ at $x = 0$ and $y = -6$ at $x = -2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-24$): takes $h = 2$ because the equation displays $(x - h)$, missing that the graph is shifted left; that gives $(2)(2)(-6)$.\n* Choice B ($6$): solves $4a = 2$, forgetting to add $6$ to both sides, so $a = \\frac{1}{2}$ and the product is $\\left(\\frac{1}{2}\\right)(-2)(-6)$.\n* Choice C ($12$): assumes the leading coefficient is $1$ without using the marked point, giving $(1)(-2)(-6)$.\n\n**Test Day Takeaway:** A vertex at $(-2, -6)$ means $h = -2$, so the factor is $(x + 2)$. Get $h$ and $k$ from the vertex, $a$ from a second point, and then read the question once more.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'vertex-form-from-two-conditions',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "vertex-form-from-two-conditions",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
 
   // === RATIONAL EXPRESSION SIMPLIFICATION (8 questions) — Phase 2 batch 3 ===
@@ -2057,196 +2194,196 @@ export const advancedMathBank = [
   // identify equivalent factored form.
   // SAT Pattern kebab matches test bundle: 'rational-expression-simplification'.
   {
-    id: 'bank-am-100',
-    domain: 'advanced-math',
-    skills: ['simplifying-rational-expressions', 'difference-of-squares'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'Which expression is equivalent to $\\dfrac{x^2 - 9}{x - 3}$ for all values of $x$ where the expression is defined?',
+    id: "bank-am-100",
+    domain: "advanced-math",
+    skills: ["simplifying-rational-expressions", "difference-of-squares"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "Which expression is equivalent to $\\dfrac{x^2 - 64}{x + 8}$ for all values of $x$ where the expression is defined?",
     choices: [
-      // distractor: subtracts incorrectly
-      { id: 'A', text: '$x - 3$' },
-      { id: 'B', text: '$x + 3$' },
-      // distractor: divides each term separately
-      { id: 'C', text: '$x^2 - 3$' },
-      // distractor: cancels wrong
-      { id: 'D', text: '$3$' }
+      { id: "A", text: "$x - 8$" },
+      // distractor: subtracts the denominator's $8$ from the $64$ instead of factoring
+      { id: "B", text: "$x - 56$" },
+      // distractor: cancels $(x - 8)$ instead of the shared factor $(x + 8)$
+      { id: "C", text: "$x + 8$" },
+      // distractor: divides only the constants, $\frac{64}{8}$, and keeps $x^2$
+      { id: "D", text: "$x^2 - 8$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Factor the numerator: $x^2-9=(x-3)(x+3)$. The $(x-3)$ cancels with the denominator, leaving $x+3$. Choice B.\n\n**The Full Solution:**\nStep 1: Factor the numerator as a difference of squares: $x^2-9=(x-3)(x+3)$.\nStep 2: $\\dfrac{x^2-9}{x-3}=\\dfrac{(x-3)(x+3)}{x-3}=x+3$ for $x\\neq 3$.\n\nCheck at $x=5$: $\\dfrac{25-9}{5-3}=\\dfrac{16}{2}=8=5+3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x-3$): keeps the wrong factor of the difference of squares.\n* Choice C ($x^2-3$): divides $x^2$ by $x$ and $-9$ by $-3$ as if the expression splits term by term — it does not.\n* Choice D ($3$): cancels the $x$ terms and the constants separately, which is not legal.\n\n**Test Day Takeaway:** Factor first, then cancel whole matching factors. The difference of squares is $a^2-b^2=(a-b)(a+b)$.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $x^2 - 64 = (x - 8)(x + 8)$, so the $(x + 8)$ factors cancel and the expression equals $x - 8$.\n\n**The Full Solution:**\nStep 1: Factor the numerator as a difference of squares: $x^2 - 64 = (x - 8)(x + 8)$.\nStep 2: The fraction becomes $\\frac{(x - 8)(x + 8)}{x + 8}$.\nStep 3: Cancel the common factor $(x + 8)$, valid because $x \\neq -8$, leaving $x - 8$. Check at $x = 0$: $\\frac{-64}{8} = -8$, and $0 - 8 = -8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($x - 56$): subtracts $8$ from $64$ term by term instead of factoring; at $x = 0$ this gives $-56$, not $-8$.\n* Choice C ($x + 8$): cancels the factor that is not shared; the denominator contains $(x + 8)$, so that is the one that cancels.\n* Choice D ($x^2 - 8$): divides the constants only, treating $\\frac{64}{8}$ as a legal cancellation inside a sum.\n\n**Test Day Takeaway:** Factor before you cancel. A difference of squares over one of its own factors always collapses to the other factor.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'rational-expression-simplification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "rational-expression-simplification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-101',
-    domain: 'advanced-math',
-    skills: ['simplifying-rational-expressions', 'difference-of-squares'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'Which expression is equivalent to $\\dfrac{x^2 - 25}{x^2 + 5x}$ for all values of $x$ where the expression is defined?',
+    id: "bank-am-101",
+    domain: "advanced-math",
+    skills: ["simplifying-rational-expressions", "difference-of-squares"],
+    difficulty: "easy",
+    type: "multiple-choice",
+    question: "Which expression is equivalent to $\\dfrac{x^2 - 4x}{x^2 - 16}$ for all values of $x$ where the expression is defined?",
     choices: [
-      // distractor: cancels x²/x² = 1 wrongly
-      { id: 'A', text: '$\\dfrac{-25}{5x}$' },
-      { id: 'B', text: '$\\dfrac{x - 5}{x}$' },
-      // distractor: cancels (x+5)/x instead of cancelling fully
-      { id: 'C', text: '$\\dfrac{x - 5}{5}$' },
-      // distractor: factors incorrectly
-      { id: 'D', text: '$\\dfrac{x + 5}{x}$' }
+      // distractor: cancels the factor $x$ along with $(x - 4)$, losing it from the numerator
+      { id: "A", text: "$\\dfrac{1}{x + 4}$" },
+      // distractor: cancels the $x^2$ terms as if they were factors
+      { id: "B", text: "$\\dfrac{x}{4}$" },
+      // distractor: cancels $(x + 4)$ instead of the shared factor $(x - 4)$
+      { id: "C", text: "$\\dfrac{x}{x - 4}$" },
+      { id: "D", text: "$\\dfrac{x}{x + 4}$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Factor both: $\\dfrac{(x-5)(x+5)}{x(x+5)}$. Cancel $(x+5)$ to get $\\dfrac{x-5}{x}$. Choice B.\n\n**The Full Solution:**\nStep 1: Factor the numerator (difference of squares): $x^2-25=(x-5)(x+5)$.\nStep 2: Factor the denominator (pull out $x$): $x^2+5x=x(x+5)$.\nStep 3: $\\dfrac{(x-5)(x+5)}{x(x+5)}=\\dfrac{x-5}{x}$ for $x\\neq -5$ and $x\\neq 0$ (cancel the common $(x+5)$).\n\nCheck at $x=10$: $\\dfrac{100-25}{100+50}=\\dfrac{75}{150}=\\dfrac{1}{2}$, and $\\dfrac{10-5}{10}=\\dfrac{1}{2}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{-25}{5x}$): cancels $x^2$ over $x^2$ and the loose $5x$ as if pieces of a sum cancel — they don't.\n* Choice C ($\\dfrac{x-5}{5}$): cancels the wrong factor, leaving $5$ on the bottom instead of $x$.\n* Choice D ($\\dfrac{x+5}{x}$): keeps the wrong factor of the difference of squares.\n\n**Test Day Takeaway:** Factor the numerator AND denominator fully, then cancel only whole common factors — never individual terms inside a sum.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** $\\frac{x(x - 4)}{(x - 4)(x + 4)}$ — the $(x - 4)$ factors cancel, leaving $\\frac{x}{x + 4}$.\n\n**The Full Solution:**\nStep 1: Factor the numerator by its common monomial: $x^2 - 4x = x(x - 4)$.\nStep 2: Factor the denominator as a difference of squares: $x^2 - 16 = (x - 4)(x + 4)$.\nStep 3: Cancel $(x - 4)$, leaving $\\frac{x}{x + 4}$. Check at $x = 1$: $\\frac{1 - 4}{1 - 16} = \\frac{-3}{-15} = \\frac{1}{5}$, and $\\frac{1}{1 + 4} = \\frac{1}{5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{x + 4}$): cancels the whole numerator $x(x - 4)$ against $(x - 4)$, discarding the $x$ that should remain.\n* Choice B ($\\frac{x}{4}$): cancels the $x^2$ terms, leaving $\\frac{-4x}{-16}$; individual terms of a difference never cancel.\n* Choice C ($\\frac{x}{x - 4}$): cancels $(x + 4)$, which appears in the denominator only.\n\n**Test Day Takeaway:** Pull out a common monomial before looking for a special pattern — the leftover factor often matches something in the denominator.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'rational-expression-simplification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "rational-expression-simplification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-102',
-    domain: 'advanced-math',
-    skills: ['simplifying-rational-expressions', 'perfect-square-trinomial', 'difference-of-squares'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Which expression is equivalent to $\\dfrac{x^2 + 8x + 16}{x^2 - 16}$ for all values of $x$ where the expression is defined?',
+    id: "bank-am-102",
+    domain: "advanced-math",
+    skills: ["simplifying-rational-expressions", "perfect-square-trinomial", "difference-of-squares"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "Which expression is equivalent to $\\dfrac{x^2 - 10x + 25}{x^2 - 25}$ for all values of $x$ where the expression is defined?",
     choices: [
-      // distractor: ignores sign in difference of squares
-      { id: 'A', text: '$\\dfrac{x + 4}{x + 4}$' },
-      { id: 'B', text: '$\\dfrac{x + 4}{x - 4}$' },
-      // distractor: doesn't square (x+4)^2
-      { id: 'C', text: '$\\dfrac{1}{x - 4}$' },
-      // distractor: factors trinomial wrong
-      { id: 'D', text: '$\\dfrac{x - 4}{x + 4}$' }
+      // distractor: cancels the entire squared factor $(x - 5)^2$ against one $(x - 5)$
+      { id: "A", text: "$\\dfrac{1}{x + 5}$" },
+      // distractor: cancels the $x^2$ terms as if they were factors
+      { id: "B", text: "$\\dfrac{2x - 5}{5}$" },
+      // distractor: factors the numerator as $(x + 5)^2$, a sign slip
+      { id: "C", text: "$\\dfrac{x + 5}{x - 5}$" },
+      { id: "D", text: "$\\dfrac{x - 5}{x + 5}$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Numerator is a perfect square $(x+4)^2$; denominator is $(x-4)(x+4)$. Cancel one $(x+4)$ to get $\\dfrac{x+4}{x-4}$. Choice B.\n\n**The Full Solution:**\nStep 1: Factor the numerator (perfect square trinomial): $x^2+8x+16=(x+4)^2=(x+4)(x+4)$.\nStep 2: Factor the denominator (difference of squares): $x^2-16=(x-4)(x+4)$.\nStep 3: $\\dfrac{(x+4)(x+4)}{(x-4)(x+4)}=\\dfrac{x+4}{x-4}$ for $x\\neq -4$ and $x\\neq 4$ (cancel one $(x+4)$).\n\nCheck at $x=5$: $\\dfrac{25+40+16}{25-16}=\\dfrac{81}{9}=9$, and $\\dfrac{5+4}{5-4}=9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{x+4}{x+4}$): misses the difference of squares and treats the denominator as a single $(x+4)$.\n* Choice C ($\\dfrac{1}{x-4}$): cancels BOTH $(x+4)$ factors instead of just one.\n* Choice D ($\\dfrac{x-4}{x+4}$): swaps which factor survives, flipping top and bottom.\n\n**Test Day Takeaway:** $a^2+2ab+b^2=(a+b)^2$ and $a^2-b^2=(a-b)(a+b)$. With $(x+4)^2$ over $(x-4)(x+4)$, exactly one $(x+4)$ cancels.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** $\\frac{(x - 5)^2}{(x - 5)(x + 5)}$ — one $(x - 5)$ cancels, leaving $\\frac{x - 5}{x + 5}$.\n\n**The Full Solution:**\nStep 1: The numerator is a perfect-square trinomial: $x^2 - 10x + 25 = (x - 5)^2$, since $2(5) = 10$.\nStep 2: The denominator is a difference of squares: $x^2 - 25 = (x - 5)(x + 5)$.\nStep 3: Cancel one factor of $(x - 5)$ from each part: $\\frac{x - 5}{x + 5}$. Check at $x = 0$: $\\frac{25}{-25} = -1$, and $\\frac{-5}{5} = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{x + 5}$): cancels both copies of $(x - 5)$ from the numerator against the single one below, leaving $1$ on top.\n* Choice B ($\\frac{2x - 5}{5}$): cancels the $x^2$ terms, then reduces $\\frac{-10x + 25}{-25}$; terms of a sum are not factors.\n* Choice C ($\\frac{x + 5}{x - 5}$): factors the numerator as $(x + 5)^2$; that square has a $+10x$ middle term, not $-10x$.\n\n**Test Day Takeaway:** A squared factor cancels only once against a single copy. Count the factors on each side before you strike anything out.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'rational-expression-simplification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "rational-expression-simplification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-103',
-    domain: 'advanced-math',
-    skills: ['simplifying-rational-expressions', 'difference-of-squares'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Which expression is equivalent to $\\dfrac{x^2 - 4}{x + 3} \\cdot \\dfrac{x + 3}{x - 2}$ for all values of $x$ where the expression is defined?',
+    id: "bank-am-103",
+    domain: "advanced-math",
+    skills: ["simplifying-rational-expressions", "difference-of-squares"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "Which expression is equivalent to $\\dfrac{x^2 - 36}{x^2 - 4} \\cdot \\dfrac{x + 2}{x + 6}$ for all values of $x$ where the expression is defined?",
     choices: [
-      // distractor: forgets to cancel (x-2)
-      { id: 'A', text: '$\\dfrac{(x + 2)(x + 3)}{x - 2}$' },
-      { id: 'B', text: '$x + 2$' },
-      // distractor: doesn't factor (x²-4)
-      { id: 'C', text: '$\\dfrac{x^2 - 4}{x - 2}$' },
-      // distractor: sign error: x-2 instead of x+2
-      { id: 'D', text: '$x - 2$' }
+      // distractor: cancels $(x + 2)$ against $(x - 2)$ as if they were the same factor
+      { id: "A", text: "$x - 6$" },
+      { id: "B", text: "$\\dfrac{x - 6}{x - 2}$" },
+      // distractor: cancels $(x - 2)$ instead of $(x + 2)$ from $x^2 - 4$
+      { id: "C", text: "$\\dfrac{x - 6}{x + 2}$" },
+      // distractor: cancels $(x - 6)$ instead of $(x + 6)$ from $x^2 - 36$
+      { id: "D", text: "$\\dfrac{x + 6}{x - 2}$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Factor $x^2-4=(x-2)(x+2)$. The product is $\\dfrac{(x-2)(x+2)(x+3)}{(x+3)(x-2)}$; cancel $(x+3)$ and $(x-2)$, leaving $x+2$. Choice B.\n\n**The Full Solution:**\nStep 1: Factor the first numerator (difference of squares): $x^2-4=(x-2)(x+2)$.\nStep 2: Multiply across: $\\dfrac{(x-2)(x+2)}{x+3}\\cdot\\dfrac{x+3}{x-2}=\\dfrac{(x-2)(x+2)(x+3)}{(x+3)(x-2)}$.\nStep 3: Cancel the common $(x+3)$ and $(x-2)$ for $x\\neq -3$ and $x\\neq 2$, leaving $x+2$.\n\nCheck at $x=5$: $\\dfrac{25-4}{8}\\cdot\\dfrac{8}{3}=\\dfrac{21}{8}\\cdot\\dfrac{8}{3}=7=5+2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{(x+2)(x+3)}{x-2}$): never cancels — it just rewrites the product without factoring $x^2-4$.\n* Choice C ($\\dfrac{x^2-4}{x-2}$): cancels $(x+3)$ but leaves $x^2-4$ unfactored, so $(x-2)$ never cancels.\n* Choice D ($x-2$): keeps the wrong factor of the difference of squares.\n\n**Test Day Takeaway:** Before multiplying rational expressions, factor everything. Then cancel matching factors across numerator and denominator before combining.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $\\frac{(x - 6)(x + 6)}{(x - 2)(x + 2)} \\cdot \\frac{x + 2}{x + 6}$ — the $(x + 6)$ and $(x + 2)$ pairs cancel, leaving $\\frac{x - 6}{x - 2}$.\n\n**The Full Solution:**\nStep 1: Factor both differences of squares: $x^2 - 36 = (x - 6)(x + 6)$ and $x^2 - 4 = (x - 2)(x + 2)$.\nStep 2: Write the product as a single fraction: $\\frac{(x - 6)(x + 6)(x + 2)}{(x - 2)(x + 2)(x + 6)}$.\nStep 3: Cancel $(x + 6)$ and $(x + 2)$, leaving $\\frac{x - 6}{x - 2}$. Check at $x = 0$: the original is $\\frac{-36}{-4} \\cdot \\frac{2}{6} = 9 \\cdot \\frac{1}{3} = 3$, and $\\frac{-6}{-2} = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x - 6$): cancels $(x + 2)$ with $(x - 2)$; opposite signs mean different factors, and they never cancel.\n* Choice C ($\\frac{x - 6}{x + 2}$): cancels the $(x - 2)$ factor, which has no match anywhere in the product.\n* Choice D ($\\frac{x + 6}{x - 2}$): cancels $(x - 6)$ against the $(x + 6)$ in the second denominator.\n\n**Test Day Takeaway:** Factor all four pieces, then cancel factor against identical factor across the whole product. $(x + a)$ and $(x - a)$ are never the same factor.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'rational-expression-simplification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "rational-expression-simplification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-104',
-    domain: 'advanced-math',
-    skills: ['simplifying-rational-expressions', 'difference-of-squares'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Which expression is equivalent to $\\dfrac{4x^2 - 9}{2x^2 - x - 3}$ for all values of $x$ where the expression is defined?',
+    id: "bank-am-104",
+    domain: "advanced-math",
+    skills: ["simplifying-rational-expressions", "difference-of-squares"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "Which expression is equivalent to $\\dfrac{9x^2 - 16}{3x^2 + 2x - 8}$ for all values of $x$ where the expression is defined?",
     choices: [
-      // distractor: factors numerator wrong
-      { id: 'A', text: '$\\dfrac{2x - 3}{x - 1}$' },
-      { id: 'B', text: '$\\dfrac{2x + 3}{x + 1}$' },
-      // distractor: doesn't factor (4x²-9)
-      { id: 'C', text: '$\\dfrac{4x^2 - 9}{x + 1}$' },
-      // distractor: factors denominator wrong
-      { id: 'D', text: '$\\dfrac{2x + 3}{x - 1}$' }
+      // distractor: factors the denominator as $(3x + 4)(x - 2)$ and cancels $(3x + 4)$
+      { id: "A", text: "$\\dfrac{3x - 4}{x - 2}$" },
+      // distractor: cancels $(3x + 4)$ against $(3x - 4)$ as if they were the same factor
+      { id: "B", text: "$\\dfrac{3x - 4}{x + 2}$" },
+      // distractor: factors the denominator as $(3x - 4)(x - 2)$, a sign slip
+      { id: "C", text: "$\\dfrac{3x + 4}{x - 2}$" },
+      { id: "D", text: "$\\dfrac{3x + 4}{x + 2}$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $4x^2-9=(2x-3)(2x+3)$ and $2x^2-x-3=(2x-3)(x+1)$. Cancel $(2x-3)$, leaving $\\dfrac{2x+3}{x+1}$. Choice B.\n\n**The Full Solution:**\nStep 1: Factor the numerator as a difference of squares with $2x$ and $3$: $4x^2-9=(2x)^2-3^2=(2x-3)(2x+3)$.\nStep 2: Factor the denominator. Find two numbers multiplying to $2\\cdot(-3)=-6$ and summing to $-1$: that's $-3$ and $2$. So $2x^2-x-3=(2x-3)(x+1)$.\nStep 3: $\\dfrac{(2x-3)(2x+3)}{(2x-3)(x+1)}=\\dfrac{2x+3}{x+1}$ for $x\\neq \\frac{3}{2}$ and $x\\neq -1$ (cancel $(2x-3)$).\n\nCheck at $x=2$: $\\dfrac{16-9}{8-2-3}=\\dfrac{7}{3}$, and $\\dfrac{4+3}{2+1}=\\dfrac{7}{3}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{2x-3}{x-1}$): keeps the wrong numerator factor and miswrites the denominator.\n* Choice C ($\\dfrac{4x^2-9}{x+1}$): never factors the numerator, so $(2x-3)$ can't cancel.\n* Choice D ($\\dfrac{2x+3}{x-1}$): factors the denominator wrong, landing on $(x-1)$ instead of $(x+1)$.\n\n**Test Day Takeaway:** $a^2-b^2=(a-b)(a+b)$ holds even when \"$a$\" is $2x$. For $ax^2+bx+c$, split the middle using two numbers that multiply to $ac$ and add to $b$.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** $\\frac{(3x - 4)(3x + 4)}{(3x - 4)(x + 2)}$ — the $(3x - 4)$ factors cancel, leaving $\\frac{3x + 4}{x + 2}$.\n\n**The Full Solution:**\nStep 1: The numerator is a difference of squares: $9x^2 - 16 = (3x)^2 - 4^2 = (3x - 4)(3x + 4)$.\nStep 2: Factor the denominator: $3x^2 + 2x - 8 = (3x - 4)(x + 2)$, since $(3x)(x) = 3x^2$ and $-4(x) + 2(3x) = 2x$.\nStep 3: Cancel $(3x - 4)$, leaving $\\frac{3x + 4}{x + 2}$. Check at $x = 0$: $\\frac{-16}{-8} = 2$, and $\\frac{4}{2} = 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3x - 4}{x - 2}$): factors the denominator as $(3x + 4)(x - 2)$, whose expansion is $3x^2 - 2x - 8$ — the middle sign is wrong.\n* Choice B ($\\frac{3x - 4}{x + 2}$): keeps the wrong numerator factor by cancelling $(3x + 4)$ against $(3x - 4)$.\n* Choice C ($\\frac{3x + 4}{x - 2}$): factors the denominator as $(3x - 4)(x - 2)$, whose expansion is $3x^2 - 10x + 8$.\n\n**Test Day Takeaway:** Always expand your trial factorization mentally to confirm the middle term before cancelling. One sign controls the entire answer.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'rational-expression-simplification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "rational-expression-simplification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-105',
-    domain: 'advanced-math',
-    skills: ['simplifying-rational-expressions'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Which expression is equivalent to $\\dfrac{3}{x - 1} + \\dfrac{2}{x + 2}$ for all values of $x$ where the expression is defined?',
+    id: "bank-am-105",
+    domain: "advanced-math",
+    skills: ["simplifying-rational-expressions"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "Which expression is equivalent to $\\dfrac{4}{x + 1} + \\dfrac{5}{x - 3}$ for all values of $x$ where the expression is defined?",
     choices: [
-      // distractor: adds numerators and denominators separately
-      { id: 'A', text: '$\\dfrac{5}{2x + 1}$' },
-      { id: 'B', text: '$\\dfrac{5x + 4}{(x - 1)(x + 2)}$' },
-      // distractor: forgets to distribute when combining
-      { id: 'C', text: '$\\dfrac{5}{(x - 1)(x + 2)}$' },
-      // distractor: sign error on numerator
-      { id: 'D', text: '$\\dfrac{5x - 4}{(x - 1)(x + 2)}$' }
+      // distractor: adds numerators and denominators straight across
+      { id: "A", text: "$\\dfrac{9}{2x - 2}$" },
+      // distractor: uses the correct common denominator but adds only the original numerators
+      { id: "B", text: "$\\dfrac{9}{x^2 - 2x - 3}$" },
+      { id: "C", text: "$\\dfrac{9x - 7}{x^2 - 2x - 3}$" },
+      // distractor: distributes $4(x - 3)$ as $4x + 12$, a sign slip
+      { id: "D", text: "$\\dfrac{9x + 17}{x^2 - 2x - 3}$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The LCD is $(x-1)(x+2)$. Build the numerator: $3(x+2)+2(x-1)=3x+6+2x-2=5x+4$. So the sum is $\\dfrac{5x+4}{(x-1)(x+2)}$. Choice B.\n\n**The Full Solution:**\nStep 1: The common denominator is $(x-1)(x+2)$.\nStep 2: Rewrite each fraction over the LCD: $\\dfrac{3}{x-1}=\\dfrac{3(x+2)}{(x-1)(x+2)}$ and $\\dfrac{2}{x+2}=\\dfrac{2(x-1)}{(x-1)(x+2)}$.\nStep 3: Add the numerators: $\\dfrac{3(x+2)+2(x-1)}{(x-1)(x+2)}=\\dfrac{3x+6+2x-2}{(x-1)(x+2)}=\\dfrac{5x+4}{(x-1)(x+2)}$.\n\nCheck at $x=2$: $\\dfrac{3}{1}+\\dfrac{2}{4}=3.5$, and $\\dfrac{5(2)+4}{(1)(4)}=\\dfrac{14}{4}=3.5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{5}{2x+1}$): adds numerators and denominators term by term, which is not how fractions add.\n* Choice C ($\\dfrac{5}{(x-1)(x+2)}$): uses the LCD but forgets to multiply each numerator by the missing factor.\n* Choice D ($\\dfrac{5x-4}{(x-1)(x+2)}$): mishandles a sign when distributing $2(x-1)$.\n\n**Test Day Takeaway:** To add rational expressions, find the LCD, multiply each numerator by what its denominator is missing, then add. Never add term by term.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Over the common denominator $(x + 1)(x - 3)$ the numerator is $4(x - 3) + 5(x + 1) = 9x - 7$, so the sum is $\\frac{9x - 7}{x^2 - 2x - 3}$.\n\n**The Full Solution:**\nStep 1: The common denominator is $(x + 1)(x - 3) = x^2 - 2x - 3$.\nStep 2: Rewrite each fraction: $\\frac{4}{x + 1} = \\frac{4(x - 3)}{(x + 1)(x - 3)}$ and $\\frac{5}{x - 3} = \\frac{5(x + 1)}{(x + 1)(x - 3)}$.\nStep 3: Add the numerators: $4x - 12 + 5x + 5 = 9x - 7$, giving $\\frac{9x - 7}{x^2 - 2x - 3}$. Check at $x = 0$: $\\frac{4}{1} + \\frac{5}{-3} = 4 - \\frac{5}{3} = \\frac{7}{3}$, and $\\frac{-7}{-3} = \\frac{7}{3}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{9}{2x - 2}$): adds numerators and denominators separately, which is never a valid way to add fractions.\n* Choice B ($\\frac{9}{x^2 - 2x - 3}$): finds the right common denominator but forgets to multiply each numerator by the missing factor.\n* Choice D ($\\frac{9x + 17}{x^2 - 2x - 3}$): distributes $4(x - 3)$ as $4x + 12$, so the constants become $12 + 5$.\n\n**Test Day Takeaway:** Each numerator must be multiplied by whatever its denominator was missing. Distribute carefully — the constant term is where the sign slips.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'rational-expression-simplification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "rational-expression-simplification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-106',
-    domain: 'advanced-math',
-    skills: ['simplifying-rational-expressions'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'How many real solutions does the equation $\\dfrac{3}{x - 2} + \\dfrac{4}{x + 2} = \\dfrac{14}{x^2 - 4}$ have?',
+    id: "bank-am-106",
+    domain: "advanced-math",
+    skills: ["simplifying-rational-expressions"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "The equation $\\dfrac{5}{x - 3} + \\dfrac{2}{x + 3} = \\dfrac{30}{x^2 - 9}$ is given, where $x$ is a real number. How many solutions does the equation have?",
     choices: [
-      // distractor: claims no solutions (mistakenly identifies x=2 or -2 as extraneous when it's not)
-      { id: 'A', text: '$0$' },
-      { id: 'B', text: '$1$' },
-      // distractor: counts both solutions of expanded quadratic
-      { id: 'C', text: '$2$' },
-      // distractor: claims infinitely many (linear → no solution)
-      { id: 'D', text: 'Infinitely many' }
+      { id: "A", text: "Zero" },
+      // distractor: solves to $x = 3$ and never checks it against the restrictions
+      { id: "B", text: "Exactly one" },
+      // distractor: expects two solutions because $x^2 - 9$ appears in a denominator
+      { id: "C", text: "Exactly two" },
+      // distractor: concludes the two sides are identical after clearing denominators
+      { id: "D", text: "Infinitely many" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Multiply through by the LCD $(x-2)(x+2)=x^2-4$: $3(x+2)+4(x-2)=14\\Rightarrow 7x-2=14\\Rightarrow x=\\dfrac{16}{7}$. That value isn't $2$ or $-2$, so it's valid — exactly ONE solution. Choice B.\n\n**The Full Solution:**\nStep 1: The denominators are $x-2$, $x+2$, and $x^2-4=(x-2)(x+2)$, so the LCD is $(x-2)(x+2)$.\nStep 2: Multiply both sides by the LCD: $3(x+2)+4(x-2)=14$.\nStep 3: Expand and solve: $3x+6+4x-8=14\\Rightarrow 7x-2=14\\Rightarrow 7x=16\\Rightarrow x=\\dfrac{16}{7}$.\nStep 4: Check for extraneous roots. The equation forbids $x=2$ and $x=-2$. Since $\\dfrac{16}{7}$ is neither, it is a genuine solution.\n\nSo the equation has exactly $1$ real solution.\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): wrongly discards $x=\\frac{16}{7}$ as extraneous even though it breaks no denominator.\n* Choice C ($2$): expects a quadratic, but clearing the LCD leaves a LINEAR equation with a single root.\n* Choice D (Infinitely many): would require both sides to be identical, which they are not.\n\n**Test Day Takeaway:** For rational equations, multiply by the LCD, solve the resulting polynomial, then discard any root that zeros an original denominator. Count only what survives.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** Clearing denominators gives $7x + 9 = 30$, so $x = 3$ — but $x = 3$ makes $x - 3$ zero, so it is extraneous and no solution remains.\n\n**The Full Solution:**\nStep 1: Since $x^2 - 9 = (x - 3)(x + 3)$, the expression is undefined at $x = 3$ and $x = -3$; neither can be a solution.\nStep 2: Multiply every term by $(x - 3)(x + 3)$: $5(x + 3) + 2(x - 3) = 30$, so $5x + 15 + 2x - 6 = 30$ and $7x + 9 = 30$.\nStep 3: Then $7x = 21$ and $x = 3$, which is excluded. Check by substituting $x = 3$ into the original equation: the first and third terms have denominator $0$, so the equation has no solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): stops at $x = 3$ without testing it in the original equation, where that value is undefined.\n* Choice C (Exactly two): assumes the $x^2$ in the denominator forces a quadratic; after clearing denominators the equation is linear.\n* Choice D (Infinitely many): mistakes the cleared equation $7x + 9 = 30$ for an identity; it is a single linear equation with one root.\n\n**Test Day Takeaway:** List the excluded values before you solve a rational equation, and check every root against that list. A \"solution\" that kills a denominator is not a solution.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'rational-expression-simplification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "rational-expression-simplification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-107',
-    domain: 'advanced-math',
-    skills: ['simplifying-rational-expressions', 'finding-roots-factoring'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'Which expression is equivalent to $\\dfrac{x^2 - 9}{x^2 + 5x + 6} \\cdot \\dfrac{x^2 + 4x + 4}{x^2 - x - 6}$ for all values of $x$ where the expression is defined?',
+    id: "bank-am-107",
+    domain: "advanced-math",
+    skills: ["simplifying-rational-expressions", "finding-roots-factoring"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "Which expression is equivalent to $\\dfrac{x^2 - 4}{x^2 + 7x + 10} \\cdot \\dfrac{x^2 + 10x + 25}{x^2 - 3x + 2}$ for all values of $x$ where the expression is defined?",
     choices: [
-      { id: 'A', text: '$1$' },
-      // distractor: forgets to cancel one (x+2)
-      { id: 'B', text: '$\\dfrac{x + 2}{x - 3}$' },
-      // distractor: leaves (x-3) in denominator
-      { id: 'C', text: '$\\dfrac{x - 3}{x + 2}$' },
-      // distractor: keeps (x+2) squared
-      { id: 'D', text: '$(x + 2)^2$' }
+      { id: "A", text: "$\\dfrac{x + 5}{x - 1}$" },
+      // distractor: cancels both copies of $(x + 5)$ against the single one below
+      { id: "B", text: "$\\dfrac{1}{x - 1}$" },
+      // distractor: cancels $(x - 1)$ instead of $(x - 2)$ from $x^2 - 3x + 2$
+      { id: "C", text: "$\\dfrac{x + 5}{x - 2}$" },
+      // distractor: factors $x^2 + 10x + 25$ as $(x - 5)^2$, a sign slip
+      { id: "D", text: "$\\dfrac{x - 5}{x - 1}$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Factor all four pieces. The numerator becomes $(x-3)(x+3)(x+2)^2$ and the denominator becomes $(x+2)(x+3)(x-3)(x+2)$ — the exact same set of factors. Everything cancels, leaving $1$. Choice A.\n\n**The Full Solution:**\nStep 1: Factor each piece.\n* $x^2-9=(x-3)(x+3)$ (difference of squares).\n* $x^2+5x+6=(x+2)(x+3)$.\n* $x^2+4x+4=(x+2)^2$ (perfect square).\n* $x^2-x-6=(x-3)(x+2)$.\nStep 2: Write the product: $\\dfrac{(x-3)(x+3)}{(x+2)(x+3)}\\cdot\\dfrac{(x+2)(x+2)}{(x-3)(x+2)}=\\dfrac{(x-3)(x+3)(x+2)(x+2)}{(x+2)(x+3)(x-3)(x+2)}$.\nStep 3: Every numerator factor has a matching denominator factor, so the expression equals $1$ for $x\\neq -3,-2,3$.\n\nCheck at $x=1$: first fraction $=\\dfrac{-8}{12}=-\\dfrac{2}{3}$, second $=\\dfrac{9}{-6}=-\\dfrac{3}{2}$, product $=1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\dfrac{x+2}{x-3}$): leaves one $(x+2)$ and one $(x-3)$ uncancelled.\n* Choice C ($\\dfrac{x-3}{x+2}$): only partially cancels, surviving with the opposite leftover.\n* Choice D ($(x+2)^2$): forgets to cancel the $(x+2)^2$ against the denominator's $(x+2)$ factors.\n\n**Test Day Takeaway:** Factor every numerator and denominator fully, then match factors across the whole product. When each factor pairs off, the answer is $1$.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~60s):** Factored, the product is $\\frac{(x - 2)(x + 2)}{(x + 2)(x + 5)} \\cdot \\frac{(x + 5)^2}{(x - 1)(x - 2)}$. Cancelling $(x + 2)$, $(x - 2)$, and one $(x + 5)$ leaves $\\frac{x + 5}{x - 1}$.\n\n**The Full Solution:**\nStep 1: Factor all four quadratics: $x^2 - 4 = (x - 2)(x + 2)$, $x^2 + 7x + 10 = (x + 2)(x + 5)$, $x^2 + 10x + 25 = (x + 5)^2$, and $x^2 - 3x + 2 = (x - 1)(x - 2)$.\nStep 2: Write one fraction: $\\frac{(x - 2)(x + 2)(x + 5)^2}{(x + 2)(x + 5)(x - 1)(x - 2)}$.\nStep 3: Cancel $(x - 2)$, $(x + 2)$, and one copy of $(x + 5)$, leaving $\\frac{x + 5}{x - 1}$. Check at $x = 0$: the original is $\\frac{-4}{10} \\cdot \\frac{25}{2} = -5$, and $\\frac{5}{-1} = -5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{1}{x - 1}$): cancels $(x + 5)^2$ entirely against the single $(x + 5)$ below, when only one copy cancels.\n* Choice C ($\\frac{x + 5}{x - 2}$): cancels the $(x - 1)$ factor, which has no partner, instead of the $(x - 2)$ that matches the first numerator.\n* Choice D ($\\frac{x - 5}{x - 1}$): reads $x^2 + 10x + 25$ as $(x - 5)^2$; that square has a $-10x$ middle term.\n\n**Test Day Takeaway:** In a product of four quadratics, factor everything first and track how many copies of each factor sit above and below. Squared factors cancel one at a time.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'rational-expression-simplification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "rational-expression-simplification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
 
   // === FUNCTION TRANSFORMATION (8 questions) — Phase 2 batch 3 priority pattern ===
@@ -2255,160 +2392,166 @@ export const advancedMathBank = [
   // shift, combined shifts, reflection + scaling.
   // SAT Pattern kebab matches test bundle: 'function-transformation'.
   {
-    id: 'bank-am-108',
-    domain: 'advanced-math',
-    skills: ['function-transformations', 'function-evaluation'],
-    difficulty: 'easy',
-    type: 'fill-in',
-    question: 'The function $f$ is defined by $f(x) = x^2 + 2x$. The function $g$ is defined by $g(x) = f(x - 3)$. What is the value of $g(5)$?',
-    correctAnswer: '8',
-    explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~10s):** $g(5)=f(5-3)=f(2)=2^2+2(2)=4+4=8$.\n\n**The Full Solution:**\nStep 1: $g(x)=f(x-3)$, so plug $5$ into the input: $g(5)=f(5-3)=f(2)$.\nStep 2: Evaluate $f$ at $2$: $f(2)=2^2+2(2)=4+4=8$.\n\n**Common Mistakes:** Evaluating $f(5)$ and then subtracting $3$ (gives $32-3=29$); adding instead of subtracting, $f(5+3)=f(8)=80$.\n\n**Test Day Takeaway:** $g(x)=f(x-c)$ means \"evaluate $f$ at the shifted input $x-c$.\" Do the subtraction inside first, then run that number through $f$.",
+    id: "bank-am-108",
+    domain: "advanced-math",
+    skills: ["function-transformations", "function-evaluation"],
+    difficulty: "easy",
+    type: "fill-in",
+    question: "For the function $f$, the table lists $f(x)$ at four values of $x$. The function $g$ is defined by $g(x) = f(x - 2)$. What is the value of $g(6)$?",
+    diagram: { type: "table", params: { xHeader: "x", yHeader: "f(x)", rows: [["0", "5"], ["2", "1"], ["4", "-3"], ["6", "9"]] } },
+    correctAnswer: "-3",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $-3$.**\n\n**The Fast Way (~15s):** $g(6) = f(6 - 2) = f(4)$, and the table gives $f(4) = -3$.\n\n**The Full Solution:**\nStep 1: The rule $g(x) = f(x - 2)$ says: subtract $2$ from the input, then apply $f$.\nStep 2: With $x = 6$, the input to $f$ is $6 - 2 = 4$.\nStep 3: The table gives $f(4) = -3$, so $g(6) = -3$. Check with another entry: $g(2) = f(0) = 5$, which also comes straight from the table. $\\checkmark$\n\n**Common Mistakes:** Reading the table at $x = 6$ and answering $9$, which is $f(6)$, not $g(6)$; subtracting $2$ from the output instead of the input, giving $9 - 2 = 7$; or shifting the wrong way and looking for $f(8)$, a value the table does not list.\n\n**Test Day Takeaway:** $f(x - 2)$ changes the input, not the output. Compute the inside first, then look that number up.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'function-transformation',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "function-transformation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-109',
-    domain: 'advanced-math',
-    skills: ['function-transformations', 'function-evaluation'],
-    difficulty: 'easy',
-    type: 'fill-in',
-    question: 'The function $f$ is defined by $f(x) = 3x - 4$. The function $g$ is defined by $g(x) = f(x) + 7$. What is the value of $g(2)$?',
-    correctAnswer: '9',
-    explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~5s):** $g(2)=f(2)+7$. Since $f(2)=6-4=2$, $g(2)=2+7=9$.\n\n**The Full Solution:**\nStep 1: Read the definition. $g(x)=f(x)+7$ adds $7$ to the *output* of $f$.\nStep 2: Compute the output. $f(2)=3(2)-4=6-4=2$.\nStep 3: Add $7$ last: $g(2)=2+7=9$.\n\nCheck: $g(2)=f(2)+7=2+7=9$. $\\checkmark$\n\n**Common Mistakes:** Adding $7$ to the *input* and computing $f(2+7)=f(9)=23$; or stopping at $f(2)=2$ and forgetting the $+7$.\n\n**Test Day Takeaway:** $g(x)=f(x)+c$ adds $c$ to the output (apply $f$ first, then add). $g(x)=f(x+c)$ adds $c$ to the input — a completely different move.",
+    id: "bank-am-109",
+    domain: "advanced-math",
+    skills: ["function-transformations", "function-evaluation"],
+    difficulty: "easy",
+    type: "fill-in",
+    question: "The function $f$ is defined by $f(x) = 5x + 2$, and the function $g$ is defined by $g(x) = f(x) - 9$. What is the value of $g(4)$?",
+    correctAnswer: "13",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~15s):** $f(4) = 22$, and $g$ subtracts $9$ from the output: $22 - 9 = 13$.\n\n**The Full Solution:**\nStep 1: Evaluate $f$ at $4$: $f(4) = 5(4) + 2 = 22$.\nStep 2: The rule $g(x) = f(x) - 9$ subtracts $9$ after $f$ has been applied.\nStep 3: So $g(4) = 22 - 9 = 13$. Check with a formula for $g$: $g(x) = 5x + 2 - 9 = 5x - 7$, and $5(4) - 7 = 13$. $\\checkmark$\n\n**Common Mistakes:** Reporting $22$ and forgetting the shift; subtracting $9$ from the input instead of the output, computing $f(-5) = -23$; or subtracting $9$ from the slope and evaluating $-4x + 2$ at $4$, which gives $-14$.\n\n**Test Day Takeaway:** A constant added or subtracted *outside* the function changes every output by that amount. Evaluate first, then shift.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'function-transformation',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "function-transformation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-110',
-    domain: 'advanced-math',
-    skills: ['function-transformations', 'vertex-form'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'The function $f$ is defined by $f(x) = 2x^2 - 8x + 3$. The function $g$ is defined by $g(x) = f(x + 1)$. What is the minimum value of $g(x)$?',
-    correctAnswer: '-5',
-    explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $-5$.**\n\n**The Fast Way (~20s):** A horizontal shift never changes the minimum *value*, only its location. So find $f$'s minimum: at $x=-\\frac{b}{2a}=\\frac{8}{4}=2$, $f(2)=8-16+3=-5$. The min of $g$ is the same: $-5$.\n\n**The Full Solution:**\nStep 1: $f(x)=2x^2-8x+3$ opens upward ($a=2>0$), so its minimum is at $x=-\\frac{b}{2a}=-\\frac{-8}{2(2)}=2$.\nStep 2: Minimum value: $f(2)=2(4)-8(2)+3=8-16+3=-5$.\nStep 3: $g(x)=f(x+1)$ shifts the graph left by $1$. A horizontal shift moves *where* the minimum occurs but not *how low* it is.\nStep 4: So $g$ still bottoms out at $-5$ (now at $x=1$, since $1+1=2$).\n\nCheck: $g(1)=f(1+1)=f(2)=-5$. $\\checkmark$\n\n**Common Mistakes:** Adding or subtracting $1$ from the minimum value (treating a horizontal shift as vertical); or plugging in $g(0)=f(1)=-3$ and reporting $-3$.\n\n**Test Day Takeaway:** $g(x)=f(x+c)$ changes *where* the extremum lands, never its value. Only a vertical shift $f(x)+c$ changes the value itself.",
+    id: "bank-am-110",
+    domain: "advanced-math",
+    skills: ["function-transformations", "vertex-form"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "In the $xy$-plane, the parabola shown is the graph of $y = f(x)$, and its vertex is at $(3, -5)$. The function $g$ is defined by $g(x) = f(x + 4) - 2$. What is the minimum value of $g$?",
+    diagram: { type: "quadraticVertex", params: { vertex: [3, -5], a: 1, showVertex: true } },
+    correctAnswer: "-7",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $-7$.**\n\n**The Fast Way (~25s):** A horizontal shift cannot change the smallest output, so the minimum of $g$ is the minimum of $f$ lowered by $2$: $-5 - 2 = -7$.\n\n**The Full Solution:**\nStep 1: The graph shows that the smallest value $f$ takes is $-5$, at $x = 3$.\nStep 2: In $g(x) = f(x + 4) - 2$, replacing $x$ with $x + 4$ only relocates that low point: it now occurs when $x + 4 = 3$, that is, at $x = -1$.\nStep 3: The $-2$ then lowers every output by $2$, so the minimum value is $-5 - 2 = -7$. Check: $g(-1) = f(3) - 2 = -5 - 2 = -7$. $\\checkmark$\n\n**Common Mistakes:** Answering $-5$ by ignoring the outside $-2$; answering $-3$ by adding $2$ instead of subtracting; or answering $-1$ by letting the inside $+4$ raise the minimum value, when a horizontal shift never changes the value.\n\n**Test Day Takeaway:** Inside the parentheses moves the graph sideways; outside moves it up or down. Only the outside constant can change a minimum *value*.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'function-transformation',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "function-transformation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-111',
-    domain: 'advanced-math',
-    skills: ['function-transformations', 'function-evaluation'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'The function $f$ is defined by $f(x) = x^2 - 4x + 1$. The function $g$ is defined by $g(x) = f(x + 3)$. What is the value of $g(0)$?',
-    correctAnswer: '-2',
-    explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $-2$.**\n\n**The Fast Way (~10s):** $g(0)=f(0+3)=f(3)=9-12+1=-2$.\n\n**The Full Solution:**\nStep 1: Apply the definition $g(x)=f(x+3)$ at $x=0$: $g(0)=f(0+3)=f(3)$.\nStep 2: Evaluate $f(3)=3^2-4(3)+1=9-12+1=-2$.\n\nCheck: $g(0)=f(3)=-2$. $\\checkmark$\n\n**Common Mistakes:** Treating the shift as vertical and computing $f(0)+3=1+3=4$; or subtracting inside and getting $f(-3)=9+12+1=22$.\n\n**Test Day Takeaway:** For $g(x)=f(x+c)$, substitute $x+c$ into $f$'s formula, then evaluate like any ordinary function call.",
+    id: "bank-am-111",
+    domain: "advanced-math",
+    skills: ["function-transformations", "function-evaluation"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "The table gives five values of the function $h$. The function $p$ is defined by $p(x) = h(x + 2) - 5$. What is the value of $p(-1)$?",
+    diagram: { type: "table", params: { xHeader: "x", yHeader: "h(x)", rows: [["-3", "8"], ["-1", "0"], ["1", "-4"], ["3", "0"], ["5", "8"]] } },
+    correctAnswer: "-9",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $-9$.**\n\n**The Fast Way (~25s):** $p(-1) = h(-1 + 2) - 5 = h(1) - 5 = -4 - 5 = -9$.\n\n**The Full Solution:**\nStep 1: The rule $p(x) = h(x + 2) - 5$ adds $2$ to the input before applying $h$, then subtracts $5$ from the result.\nStep 2: With $x = -1$, the input to $h$ is $-1 + 2 = 1$, and the table gives $h(1) = -4$.\nStep 3: Subtract $5$: $p(-1) = -4 - 5 = -9$. Check another entry: $p(1) = h(3) - 5 = 0 - 5 = -5$. $\\checkmark$\n\n**Common Mistakes:** Subtracting $2$ from the input instead of adding, which uses $h(-3) = 8$ and gives $3$; ignoring the inside shift and using $h(-1) = 0$ to get $-5$; or adding the $5$ instead of subtracting it, which gives $1$.\n\n**Test Day Takeaway:** Handle the inside first, the outside second. $h(x + 2)$ needs the table entry at $x + 2$, not at $x$.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'function-transformation',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "function-transformation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-112',
-    domain: 'advanced-math',
-    skills: ['function-transformations', 'vertex-form'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'The function $f$ is defined by $f(x) = (x - 2)^2 + 5$. The function $g$ is defined by $g(x) = f(x - 3)$. For what value of $x$ does $g$ attain its minimum value?',
+    id: "bank-am-112",
+    domain: "advanced-math",
+    skills: ["function-transformations", "vertex-form"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The graph of the function $f$ is shown in the $xy$-plane, and $f$ has its minimum at the point $(-2, -6)$. The function $g$ is defined by $g(x) = f(x - 3)$. For what value of $x$ does $g$ attain its minimum value?",
+    diagram: { type: "quadraticVertex", params: { vertex: [-2, -6], a: 1, showVertex: true } },
     choices: [
-      // distractor: subtracts 3 from f's vertex x instead of adding
-      { id: 'A', text: '$-1$' },
-      // distractor: uses f's vertex x without shifting
-      { id: 'B', text: '$2$' },
-      { id: 'C', text: '$5$' },
-      // distractor: just uses 3 (the shift amount)
-      { id: 'D', text: '$3$' }
+      // distractor: shifts left by $3$, computing $-2 - 3$
+      { id: "A", text: "$-5$" },
+      // distractor: reports where $f$ is smallest, ignoring the shift
+      { id: "B", text: "$-2$" },
+      { id: "C", text: "$1$" },
+      // distractor: reports the size of the shift instead of the new location
+      { id: "D", text: "$3$" }
     ],
-    correctAnswer: 'C',
-    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $f$ has its minimum at $x=2$. $g(x)=f(x-3)$ shifts the graph right by $3$, so $g$'s minimum lands at $x=2+3=5$. That is choice C.\n\n**The Full Solution:**\nStep 1: $f(x)=(x-2)^2+5$ is smallest when $(x-2)^2=0$, i.e. at $x=2$.\nStep 2: $g(x)=f(x-3)$ shifts $f$ horizontally. The minimum occurs where the input to $f$ equals the original min argument: $x-3=2\\Rightarrow x=5$.\n\nCheck: $g(5)=f(5-3)=f(2)=0+5=5$, and $g(x)>5$ everywhere else. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): subtracts $3$ from $f$'s min instead of adding. $f(x-c)$ shifts *right*, not left.\n* Choice B ($2$): uses $f$'s original min $x=2$ without applying the shift.\n* Choice D ($3$): reports the shift amount itself instead of combining it with $f$'s min.\n\n**Test Day Takeaway:** $g(x)=f(x-c)$ shifts the graph *right* by $c$. Set the inside $x-c$ equal to the original min argument $x_0$; then $x=x_0+c$.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $g$ is smallest when its inside matches $f$'s low point: $x - 3 = -2$, so $x = 1$.\n\n**The Full Solution:**\nStep 1: The graph shows $f$ attaining its minimum at $x = -2$.\nStep 2: $g(x) = f(x - 3)$ feeds the number $x - 3$ into $f$, so $g$ is smallest when $x - 3 = -2$.\nStep 3: Solving gives $x = 1$. Check: $g(1) = f(1 - 3) = f(-2) = -6$, the same minimum value, three units to the right. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): computes $-2 - 3$, moving the graph left; replacing $x$ with $x - 3$ moves it right.\n* Choice B ($-2$): reports the minimum location of $f$ and ignores the transformation.\n* Choice D ($3$): reports the shift amount rather than the new $x$-value of the minimum.\n\n**Test Day Takeaway:** Set the expression inside the function equal to the original key input and solve. The sign inside always points the opposite way from the shift.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'function-transformation',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "function-transformation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-113',
-    domain: 'advanced-math',
-    skills: ['function-transformations'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'The function $f$ is defined by $f(x) = 2x^2 + 1$. The function $g$ is defined by $g(x) = f(x) - 6$. What is the minimum value of $g(x)$?',
+    id: "bank-am-113",
+    domain: "advanced-math",
+    skills: ["function-transformations"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The graph of the quadratic function $f$ is shown in the $xy$-plane, where $f$ has vertex $(2, -3)$ and passes through the marked point $(0, 1)$. The function $h$ is defined by $h(x) = f(x) + 7$. What is the $y$-coordinate of the $y$-intercept of the graph of $h$?",
+    diagram: { type: "quadraticVertex", params: { vertex: [2, -3], a: 1, showPoints: [[0, 1]], showVertex: true } },
     choices: [
-      // distractor: minimum of f
-      { id: 'A', text: '$1$' },
-      { id: 'B', text: '$-5$' },
-      // distractor: sign error
-      { id: 'C', text: '$7$' },
-      // distractor: adds 6 instead of subtracting
-      { id: 'D', text: '$5$' }
+      // distractor: reports $f(0)$ and forgets the shift
+      { id: "A", text: "$1$" },
+      // distractor: reports the minimum value of $h$, $-3 + 7$, instead of its $y$-intercept
+      { id: "B", text: "$4$" },
+      // distractor: reports the size of the shift
+      { id: "C", text: "$7$" },
+      { id: "D", text: "$8$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $f$'s minimum is $f(0)=1$. $g(x)=f(x)-6$ drops the whole graph down $6$, so $g$'s minimum is $1-6=-5$. That is choice B.\n\n**The Full Solution:**\nStep 1: $f(x)=2x^2+1$ opens upward with vertex at $x=0$, so its minimum value is $f(0)=1$.\nStep 2: $g(x)=f(x)-6$ is a vertical shift down by $6$. This lowers the minimum *value* but keeps its location at $x=0$.\nStep 3: Minimum of $g$: $1-6=-5$.\n\nCheck: $g(0)=f(0)-6=1-6=-5$, and $g(x)>-5$ elsewhere. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): reports $f$'s minimum without applying the $-6$ shift.\n* Choice C ($7$): flips the shift direction and computes $1-(-6)=7$.\n* Choice D ($5$): takes the magnitude of the correct value $-5$ and drops the sign.\n\n**Test Day Takeaway:** A vertical shift $g(x)=f(x)+c$ changes the min/max value by $c$ but not its location. Keep the sign: subtracting $6$ shifts *down* by $6$.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The graph gives $f(0) = 1$, and $h$ raises every output by $7$: $h(0) = 1 + 7 = 8$.\n\n**The Full Solution:**\nStep 1: A $y$-intercept is the value of the function at $x = 0$, so the question asks for $h(0)$.\nStep 2: The marked point shows $f(0) = 1$.\nStep 3: Since $h(x) = f(x) + 7$, $h(0) = 1 + 7 = 8$. Check with a formula: the vertex form is $f(x) = (x - 2)^2 - 3$, so $f(0) = 4 - 3 = 1$ and $h(0) = 8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): reads $f(0)$ off the graph and never applies the $+7$.\n* Choice B ($4$): shifts the vertex value instead, $-3 + 7$, which is the minimum of $h$, not its $y$-intercept.\n* Choice C ($7$): reports the shift amount by itself, as if $f(0)$ were $0$.\n\n**Test Day Takeaway:** A vertical shift moves the $y$-intercept by exactly the shift amount. Locate $f(0)$ first, then add.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'function-transformation',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "function-transformation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-114',
-    domain: 'advanced-math',
-    skills: ['function-transformations', 'vertex-form'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'The function $f$ is defined by $f(x) = (x + 1)^2 - 2$. The function $g$ is defined by $g(x) = f(x - 4) + 7$. At what value of $x$ does $g$ attain its minimum, and what is that minimum?',
+    id: "bank-am-114",
+    domain: "advanced-math",
+    skills: ["function-transformations", "vertex-form"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "The graph of the function $f$ is shown in the $xy$-plane, and the vertex of the graph is $(4, 1)$. The function $g$ is defined by $g(x) = 3f(x + 2) - 5$. Which of the following is the vertex of the graph of $y = g(x)$?",
+    diagram: { type: "quadraticVertex", params: { vertex: [4, 1], a: 1, showVertex: true } },
     choices: [
-      { id: 'A', text: '$x = 3$, minimum $= 5$' },
-      // distractor: only horizontal shift applied
-      { id: 'B', text: '$x = 3$, minimum $= -2$' },
-      // distractor: wrong horizontal shift direction
-      { id: 'C', text: '$x = -5$, minimum $= 5$' },
-      // distractor: only vertical shift applied
-      { id: 'D', text: '$x = -1$, minimum $= 5$' }
+      // distractor: reads the $+2$ inside the parentheses as the new $x$-coordinate
+      { id: "A", text: "$(-2, -2)$" },
+      { id: "B", text: "$(2, -2)$" },
+      // distractor: applies the $-5$ but not the factor $3$, computing $1 - 5$
+      { id: "C", text: "$(2, -4)$" },
+      // distractor: shifts right by $2$ instead of left
+      { id: "D", text: "$(6, -2)$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $f$ has vertex $(-1,-2)$. $g(x)=f(x-4)+7$ shifts it right $4$ and up $7$: new vertex $(-1+4,\\,-2+7)=(3,5)$. So the minimum is $5$, attained at $x=3$ — choice A.\n\n**The Full Solution:**\nStep 1: $f(x)=(x+1)^2-2$ has its vertex (a minimum) at $(-1,-2)$.\nStep 2: $f(x-4)$ shifts right by $4$: the vertex $x$ moves from $-1$ to $-1+4=3$.\nStep 3: $+7$ shifts up by $7$: the vertex $y$ moves from $-2$ to $-2+7=5$.\nStep 4: $g$'s vertex is $(3,5)$, so its minimum value $5$ is attained at $x=3$.\n\nCheck: $g(3)=f(3-4)+7=f(-1)+7=-2+7=5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($x=3$, min $=-2$): applies the horizontal shift but forgets to add $7$ to the value.\n* Choice C ($x=-5$, min $=5$): subtracts $4$ from the vertex $x$ instead of adding, shifting left.\n* Choice D ($x=-1$, min $=5$): applies the vertical shift only, keeping $f$'s original vertex $x$.\n\n**Test Day Takeaway:** For $f(x-c)+d$, move the vertex right by $c$ and up by $d$. Track the horizontal and vertical components separately.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The vertex moves when $x + 2 = 4$, so $x = 2$; its height becomes $3(1) - 5 = -2$. The vertex of $g$ is $(2, -2)$.\n\n**The Full Solution:**\nStep 1: The graph shows the vertex of $f$ at $(4, 1)$, so $f(4) = 1$ is the extreme output.\nStep 2: In $g(x) = 3f(x + 2) - 5$, the extreme output occurs when the inside matches $4$: $x + 2 = 4$, so $x = 2$.\nStep 3: The output is scaled by $3$ and then lowered by $5$: $g(2) = 3f(4) - 5 = 3(1) - 5 = -2$. The vertex is $(2, -2)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-2, -2)$): reads the \"$+2$\" as the new $x$-coordinate instead of solving $x + 2 = 4$.\n* Choice C ($(2, -4)$): finds the correct $x$ but applies only the $-5$, forgetting that the output is first tripled.\n* Choice D ($(6, -2)$): computes $4 + 2$, shifting the graph right; $f(x + 2)$ shifts it left.\n\n**Test Day Takeaway:** Transform the input and the output separately: solve the inside for the new $x$, then run the old $y$-value through the outside operations in order.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'function-transformation',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "function-transformation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-115',
-    domain: 'advanced-math',
-    skills: ['function-transformations', 'vertex-form'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'The function $f$ is defined by $f(x) = x^2$. The function $g$ is defined by $g(x) = -2 f(x - 1) + 3$. What is the vertex of the graph of $g$ in the $xy$-plane?',
+    id: "bank-am-115",
+    domain: "advanced-math",
+    skills: ["function-transformations", "vertex-form"],
+    difficulty: "hard",
+    type: "multiple-choice",
+    question: "The function $f$ is defined by $f(x) = (x - 3)^2$, and the function $g$ is defined by $g(x) = -4f(x + 2) + 5$. What is the vertex of the graph of $y = g(x)$ in the $xy$-plane?",
     choices: [
-      { id: 'A', text: '$(1, 3)$' },
-      // distractor: wrong horizontal shift direction
-      { id: 'B', text: '$(-1, 3)$' },
-      // distractor: wrong vertical sign
-      { id: 'C', text: '$(1, -3)$' },
-      // distractor: f's vertex unchanged
-      { id: 'D', text: '$(0, 0)$' }
+      { id: "A", text: "$(1, 5)$" },
+      // distractor: multiplies the $+5$ by the $-4$ as well
+      { id: "B", text: "$(1, -5)$" },
+      // distractor: keeps the vertex of $f$, ignoring the horizontal shift
+      { id: "C", text: "$(3, 5)$" },
+      // distractor: computes $3 + 2$, shifting right instead of left
+      { id: "D", text: "$(5, 5)$" }
     ],
-    correctAnswer: 'A',
-    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Write $g(x)=-2(x-1)^2+3$. Vertex form $a(x-h)^2+k$ reads the vertex straight off: $(h,k)=(1,3)$. The $-2$ only flips and stretches the parabola; it does not move the vertex. Choice A.\n\n**The Full Solution:**\nStep 1: $f(x)=x^2$ has vertex $(0,0)$.\nStep 2: $g(x)=-2f(x-1)+3=-2(x-1)^2+3$.\nStep 3: This is vertex form with $h=1$, $k=3$, so the vertex is $(1,3)$.\nStep 4: The coefficient $-2$ makes the parabola open downward and stretch vertically, but the vertex stays put.\n\nCheck: $g(1)=-2(0)^2+3=3$, and $g(0)=g(2)=-2(1)+3=1<3$, confirming $(1,3)$ is the turning point. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($(-1,3)$): reads the shift as $(x+1)$, moving left instead of right.\n* Choice C ($(1,-3)$): flips the sign of the vertical shift to $-3$.\n* Choice D ($(0,0)$): reports $f$'s vertex before any transformation.\n\n**Test Day Takeaway:** In $g(x)=a\\,f(x-h)+k$, the vertex moves to $(h,k)$. The leading coefficient $a$ (sign and size) controls direction and width only — never the vertex location.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** $f$ has its vertex where $x - 3 = 0$. For $g$, the inside is $x + 2$, so $x + 2 = 3$ gives $x = 1$, and $g(1) = -4(0) + 5 = 5$: the vertex is $(1, 5)$.\n\n**The Full Solution:**\nStep 1: $f(x) = (x - 3)^2$ has vertex $(3, 0)$, its minimum, since a square is never negative.\nStep 2: In $g(x) = -4f(x + 2) + 5$, the vertex occurs where the input to $f$ equals $3$: $x + 2 = 3$, so $x = 1$.\nStep 3: The output there is $-4 \\cdot f(3) + 5 = -4(0) + 5 = 5$, so the vertex is $(1, 5)$. Check by expanding: $g(x) = -4(x + 2 - 3)^2 + 5 = -4(x - 1)^2 + 5$, a downward parabola with vertex $(1, 5)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($(1, -5)$): multiplies the $+5$ by $-4$; the $-4$ scales only $f$, not the constant added afterward.\n* Choice C ($(3, 5)$): keeps $x = 3$ from $f$ and never solves $x + 2 = 3$.\n* Choice D ($(5, 5)$): computes $3 + 2$, moving the graph right when $f(x + 2)$ moves it left.\n\n**Test Day Takeaway:** With a stretch, a reflection, and two shifts at once, solve the inside for $x$ first, then apply the outside operations to the old output in the order written.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'function-transformation',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "function-transformation",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
 
   // === COMMON-BASE EXPONENT SIMPLIFICATION (8 questions) — Phase 2 batch 4 ===
@@ -2418,88 +2561,88 @@ export const advancedMathBank = [
   // SAT Pattern uses hyphen in "Common-Base": kebab is
   // 'common-base-exponent-simplification'.
   {
-    id: 'bank-am-116',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'easy',
-    type: 'fill-in',
-    question: 'What value of $x$ satisfies the equation $2^{x + 3} = 16$?',
-    correctAnswer: '1',
-    explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $1$.**\n\n**The Fast Way (~10s):** $16=2^4$, so $2^{x+3}=2^4$ gives $x+3=4\\Rightarrow x=1$.\n\n**The Full Solution:**\nStep 1: Rewrite the right side with base $2$: $16=2^4$.\nStep 2: Now $2^{x+3}=2^4$. Equal bases force equal exponents: $x+3=4$.\nStep 3: Solve: $x=1$.\n\nCheck: $2^{1+3}=2^4=16$. $\\checkmark$\n\n**Common Mistakes:** Writing $16=4^2$ and equating $x+3=2$ (that base does not match the left side); or solving $2^x=16$ as if the $+3$ weren't there.\n\n**Test Day Takeaway:** For $a^M=a^N$, match the bases first, then set $M=N$. Make the right side a power of the same base as the left.",
+    id: "bank-am-116",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "easy",
+    type: "fill-in",
+    question: "What value of $x$ satisfies the equation $5^{x - 2} = 125$?",
+    correctAnswer: "5",
+    explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~10s):** $125 = 5^3$, so $x - 2 = 3$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: Write both sides with base $5$: $125 = 5 \\cdot 5 \\cdot 5 = 5^3$, so the equation is $5^{x - 2} = 5^3$.\nStep 2: Equal powers of the same base have equal exponents: $x - 2 = 3$.\nStep 3: So $x = 5$. Check: $5^{5 - 2} = 5^3 = 125$. $\\checkmark$\n\n**Common Mistakes:** Reporting $3$, which is the value of $x - 2$ rather than $x$; dividing $125$ by $5$ and answering $25$; or adding $2$ to $125$ instead of solving for the exponent.\n\n**Test Day Takeaway:** Rewrite both sides as powers of the same base, set the exponents equal, and then finish solving for the variable itself.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'common-base-exponent-simplification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "common-base-exponent-simplification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-117',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'easy',
-    type: 'fill-in',
-    question: 'Which expression is equivalent to $\\dfrac{x^5}{x^2}$ for $x \\neq 0$? Express your answer in the form $x^n$, where $n$ is an integer; enter the value of $n$.',
-    correctAnswer: '3',
-    explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~5s):** Same-base division subtracts exponents: $\\frac{x^5}{x^2}=x^{5-2}=x^3$, so $n=3$.\n\n**The Full Solution:**\nStep 1: Dividing powers of the same base subtracts the exponents: $\\frac{x^5}{x^2}=x^{5-2}$.\nStep 2: $5-2=3$, so the expression is $x^3$ and $n=3$.\n\nCheck: at $x=2$, $\\frac{32}{4}=8=2^3$. $\\checkmark$\n\n**Common Mistakes:** Dividing the exponents ($5\\div 2=2.5$) instead of subtracting; adding them ($5+2=7$); or writing $x^3$ when the question asks for the integer $n=3$.\n\n**Test Day Takeaway:** Same-base division subtracts exponents; multiplication adds them; a power of a power multiplies them.",
+    id: "bank-am-117",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "easy",
+    type: "fill-in",
+    question: "The expression $\\dfrac{y^9}{y^4}$ is equivalent to $y^n$ for $y \\neq 0$, where $n$ is a constant. What is the value of $n$?",
+    correctAnswer: "5",
+    explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~10s):** Dividing like bases subtracts exponents: $9 - 4 = 5$.\n\n**The Full Solution:**\nStep 1: The quotient rule says $\\frac{y^m}{y^p} = y^{m - p}$ when $y \\neq 0$.\nStep 2: Here $m = 9$ and $p = 4$, so the exponent is $9 - 4$.\nStep 3: Therefore $n = 5$. Check at $y = 2$: $\\frac{2^9}{2^4} = \\frac{512}{16} = 32 = 2^5$. $\\checkmark$\n\n**Common Mistakes:** Multiplying the exponents and answering $36$; adding them and answering $13$; or dividing them and answering $2.25$.\n\n**Test Day Takeaway:** Division subtracts exponents, multiplication adds them, and a power of a power multiplies them. Name the operation before you touch the numbers.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'common-base-exponent-simplification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "common-base-exponent-simplification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-118',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'What value of $x$ satisfies the equation $9^x = 27^{x - 1}$?',
-    correctAnswer: '3',
-    explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~15s):** Both sides are powers of $3$: $3^{2x}=3^{3(x-1)}$. So $2x=3x-3\\Rightarrow x=3$.\n\n**The Full Solution:**\nStep 1: Rewrite with base $3$. Left: $9^x=(3^2)^x=3^{2x}$. Right: $27^{x-1}=(3^3)^{x-1}=3^{3(x-1)}=3^{3x-3}$.\nStep 2: Equal bases force equal exponents: $2x=3x-3$.\nStep 3: Solve: $-x=-3\\Rightarrow x=3$.\n\nCheck: $9^3=729$ and $27^{3-1}=27^2=729$. $\\checkmark$\n\n**Common Mistakes:** Equating exponents without converting the bases ($x=x-1$, which has no solution); or mis-distributing the outer power, writing $3^{3x-1}$ instead of $3^{3x-3}$.\n\n**Test Day Takeaway:** When both sides are powers of one number, rewrite each as that base raised to a power, then equate exponents. Distribute the outer exponent across every term inside.",
+    id: "bank-am-118",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "If $8^x = 16^{x - 1}$, what is the value of $x$?",
+    correctAnswer: "4",
+    explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~30s):** Both sides are powers of $2$: $2^{3x} = 2^{4(x - 1)}$, so $3x = 4x - 4$ and $x = 4$.\n\n**The Full Solution:**\nStep 1: Rewrite each base as a power of $2$: $8 = 2^3$ and $16 = 2^4$, so $8^x = 2^{3x}$ and $16^{x - 1} = 2^{4(x - 1)}$.\nStep 2: Equal powers of $2$ have equal exponents: $3x = 4(x - 1) = 4x - 4$.\nStep 3: Subtracting $3x$ from both sides gives $0 = x - 4$, so $x = 4$. Check: $8^4 = 4096$ and $16^3 = 4096$. $\\checkmark$\n\n**Common Mistakes:** Treating the bases as coefficients and solving $8x = 16(x - 1)$, which gives $x = 2$; forgetting to distribute the $4$ and solving $3x = 4x - 1$, which gives $x = 1$; or trying to compare $8$ and $16$ directly without a common base.\n\n**Test Day Takeaway:** When the bases differ, rewrite both as powers of the same small base. Then the equation becomes linear in the exponents.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'common-base-exponent-simplification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "common-base-exponent-simplification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-119',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Which expression is equivalent to $\\dfrac{8x^4 y^7}{2x y^3}$ for $x \\neq 0$ and $y \\neq 0$?',
+    id: "bank-am-119",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "medium",
+    type: "multiple-choice",
+    question: "The expression $\\dfrac{12a^6b^3}{3a^2b^7}$ is defined for $a \\neq 0$ and $b \\neq 0$. Which of the following is equivalent to this expression?",
     choices: [
-      // distractor: doesn't subtract exponents
-      { id: 'A', text: '$4x^4 y^7$' },
-      { id: 'B', text: '$4x^3 y^4$' },
-      // distractor: adds y exponents
-      { id: 'C', text: '$4x^3 y^{10}$' },
-      // distractor: adds x exponents
-      { id: 'D', text: '$4x^5 y^4$' }
+      // distractor: divides the exponents, $\frac{6}{2} = 3$, instead of subtracting them
+      { id: "A", text: "$\\dfrac{4a^3}{b^4}$" },
+      // distractor: subtracts the coefficients, $12 - 3$, instead of dividing them
+      { id: "B", text: "$\\dfrac{9a^4}{b^4}$" },
+      // distractor: drops the negative sign on the $b$-exponent, leaving $b^4$ in the numerator
+      { id: "C", text: "$4a^4b^4$" },
+      { id: "D", text: "$\\dfrac{4a^4}{b^4}$" }
     ],
-    correctAnswer: 'B',
-    explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Coefficients: $\\frac{8}{2}=4$. Variables (subtract exponents): $x^{4-1}=x^3$ and $y^{7-3}=y^4$. Result: $4x^3y^4$ — choice B.\n\n**The Full Solution:**\nStep 1: Split into constant and variable factors: $\\frac{8x^4y^7}{2xy^3}=\\frac{8}{2}\\cdot\\frac{x^4}{x}\\cdot\\frac{y^7}{y^3}$.\nStep 2: $\\frac{8}{2}=4$; $\\frac{x^4}{x}=x^{4-1}=x^3$; $\\frac{y^7}{y^3}=y^{7-3}=y^4$.\nStep 3: Combine: $4x^3y^4$.\n\nCheck: at $x=2,\\,y=1$, the original is $\\frac{8\\cdot 16\\cdot 1}{2\\cdot 2\\cdot 1}=\\frac{128}{4}=32$, and $4\\cdot 8\\cdot 1=32$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x^4y^7$): divides the coefficients but never subtracts the exponents.\n* Choice C ($4x^3y^{10}$): adds the $y$ exponents ($7+3$) instead of subtracting.\n* Choice D ($4x^5y^4$): adds the $x$ exponents ($4+1$) instead of subtracting.\n\n**Test Day Takeaway:** To divide monomials, divide the coefficients and subtract exponents for each shared variable. Read a bare $x$ as $x^1$.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** $\\frac{12}{3} = 4$, $a^{6 - 2} = a^4$, and $b^{3 - 7} = b^{-4}$, so the expression is $\\frac{4a^4}{b^4}$.\n\n**The Full Solution:**\nStep 1: Divide the coefficients: $\\frac{12}{3} = 4$.\nStep 2: Subtract exponents on each base: $a^{6 - 2} = a^4$ and $b^{3 - 7} = b^{-4}$.\nStep 3: A negative exponent moves its base to the denominator: $4a^4b^{-4} = \\frac{4a^4}{b^4}$. Check at $a = b = 2$: $\\frac{12(64)(8)}{3(4)(128)} = \\frac{6144}{1536} = 4$, and $\\frac{4(16)}{16} = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4a^3}{b^4}$): divides the $a$-exponents, $\\frac{6}{2} = 3$, instead of subtracting them.\n* Choice B ($\\frac{9a^4}{b^4}$): subtracts the coefficients, $12 - 3 = 9$; coefficients divide, exponents subtract.\n* Choice C ($4a^4b^4$): keeps $b^4$ in the numerator, ignoring that the larger $b$-exponent is in the denominator.\n\n**Test Day Takeaway:** Handle coefficients and each variable separately: divide the numbers, subtract the exponents, and rewrite any negative exponent as a denominator.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'common-base-exponent-simplification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "common-base-exponent-simplification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
-    id: 'bank-am-120',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'medium',
-    type: 'fill-in',
-    question: 'What value of $x$ satisfies the equation $4^{2x} = 8^{x + 3}$?',
-    correctAnswer: '9',
-    explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~15s):** Both sides are powers of $2$: $2^{4x}=2^{3(x+3)}=2^{3x+9}$. So $4x=3x+9\\Rightarrow x=9$.\n\n**The Full Solution:**\nStep 1: Rewrite with base $2$. Left: $4^{2x}=(2^2)^{2x}=2^{4x}$. Right: $8^{x+3}=(2^3)^{x+3}=2^{3(x+3)}=2^{3x+9}$.\nStep 2: Equal bases force equal exponents: $4x=3x+9$.\nStep 3: Solve: $x=9$.\n\nCheck: $4^{2(9)}=4^{18}=2^{36}$ and $8^{9+3}=8^{12}=2^{36}$. $\\checkmark$\n\n**Common Mistakes:** Failing to distribute the outer exponent — writing $2^{3x+3}$ instead of $2^{3x+9}$; or equating $2x=x+3$ before converting both sides to base $2$.\n\n**Test Day Takeaway:** Since $4$ and $8$ are both powers of $2$, rewrite each side as $2$ to a power, distribute the outer exponents fully, then equate.",
+    id: "bank-am-120",
+    domain: "advanced-math",
+    skills: ["exponent-laws"],
+    difficulty: "medium",
+    type: "fill-in",
+    question: "In the equation $27^{x + 1} = 9^{2x}$, what is the value of $x$?",
+    correctAnswer: "3",
+    explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~30s):** Rewrite with base $3$: $3^{3(x + 1)} = 3^{4x}$, so $3x + 3 = 4x$ and $x = 3$.\n\n**The Full Solution:**\nStep 1: Express both bases as powers of $3$: $27 = 3^3$ and $9 = 3^2$, so $27^{x + 1} = 3^{3(x + 1)}$ and $9^{2x} = 3^{2(2x)} = 3^{4x}$.\nStep 2: Equate the exponents: $3(x + 1) = 4x$, so $3x + 3 = 4x$.\nStep 3: Subtract $3x$: $x = 3$. Check: $27^4 = 531{,}441$ and $9^6 = 531{,}441$. $\\checkmark$\n\n**Common Mistakes:** Forgetting to double the exponent on the right and solving $3x + 3 = 2x$, which gives $x = -3$; distributing the $3$ to only the $x$ and solving $3x + 1 = 4x$, which gives $1$; or treating the bases as coefficients and solving $27(x + 1) = 18x$.\n\n**Test Day Takeaway:** A power of a power multiplies exponents, so $9^{2x} = 3^{4x}$. Convert both sides to the same base before comparing anything.",
     calculatorAllowed: true,
     tags: [],
-    sourceStyleRef: 'common-base-exponent-simplification',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-05-11'
+    sourceStyleRef: "common-base-exponent-simplification",
+    authoredBy: "seva-bank-recreation",
+    createdAt: "2026-05-11"
   },
   {
     id: 'bank-am-121',

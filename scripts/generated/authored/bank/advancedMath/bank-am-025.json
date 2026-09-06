@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-025",
+  "question": "The function $f$ is defined by $f(x) = x^2 + 12x + 41$. Which of the following equivalent forms of $f(x)$ displays the coordinates of the vertex of the graph of $y = f(x)$ as constants?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(x + 6)^2 + 5$"
+    },
+    {
+      "id": "B",
+      "text": "$(x + 6)^2 - 5$"
+    },
+    {
+      "id": "C",
+      "text": "$(x + 6)^2 + 41$"
+    },
+    {
+      "id": "D",
+      "text": "$(x + 12)^2 + 41$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "subtracts the leftover constant instead of adding it",
+    "C": "forgets to remove the $36$ that completing the square adds",
+    "D": "uses $b$ rather than $\\frac{b}{2}$ inside the square"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Complete the Square (Vertex Form)**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Half of $12$ is $6$, and $6^2 = 36$: $x^2 + 12x + 41 = (x + 6)^2 + (41 - 36) = (x + 6)^2 + 5$.\n\n**The Full Solution:**\nStep 1: To complete the square on $x^2 + 12x$, take half the coefficient of $x$: $\\dfrac{12}{2} = 6$, then square it: $36$.\nStep 2: Write $x^2 + 12x + 41 = (x^2 + 12x + 36) + 41 - 36$, since adding $36$ inside requires subtracting $36$ outside.\nStep 3: This is $(x + 6)^2 + 5$, so the vertex is $(-6, 5)$. Check by expanding: $(x + 6)^2 + 5 = x^2 + 12x + 36 + 5 = x^2 + 12x + 41$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: expands to $x^2 + 12x + 31$ — the leftover $41 - 36 = 5$ is added, not subtracted.\n* Choice C: expands to $x^2 + 12x + 77$; the $36$ introduced by the square was never compensated for.\n* Choice D: uses the full $12$ inside the parentheses, which expands to $x^2 + 24x + 185$.\n\n**Test Day Takeaway:** Completing the square adds $\\left(\\dfrac{b}{2}\\right)^2$ inside, so subtract the same amount outside — then expand once to confirm."
+}

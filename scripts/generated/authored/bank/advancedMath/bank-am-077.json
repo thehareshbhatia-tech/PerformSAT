@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-077",
+  "question": "The function $h$ is defined by $h(x) = 250(1.12)^x$, where $h(x)$ is the number of members of a hiking club $x$ years after 2018. Which of the following is the best interpretation of $1.12$ in this context?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The club had $112$ members in 2018."
+    },
+    {
+      "id": "B",
+      "text": "The number of members increases by $12\\%$ each year."
+    },
+    {
+      "id": "C",
+      "text": "The number of members increases by $1.12$ members each year."
+    },
+    {
+      "id": "D",
+      "text": "The number of members is $12$ times as great each year."
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads the base as an initial amount, which is the role of $250$",
+    "C": "reads the base as a constant amount added each year (a linear model)",
+    "D": "reads the digits $12$ as a multiplier instead of a percent increase"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** In $a(b)^x$, the base is $1 + r$. Here $1.12 = 1 + 0.12$, so membership grows by $12\\%$ per year.\n\n**The Full Solution:**\nStep 1: The model $h(x) = 250(1.12)^x$ multiplies the membership by $1.12$ for each increase of $1$ in $x$, where $x$ counts years.\nStep 2: Multiplying by $1.12$ keeps $100\\%$ of the previous total and adds $12\\%$ of it, since $1.12 = 1 + 0.12$.\nStep 3: So the yearly percent increase is $12\\%$. Check: $250(1.12) = 280$, and $\\frac{280 - 250}{250} = 0.12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: assigns the base the role of the initial value; the $2018$ membership is the coefficient $250$.\n* Choice C: describes adding $1.12$ members per year, which would be linear growth, not repeated multiplication.\n* Choice D: reads \"$12$\" as the multiplier; a $12$-fold yearly increase would need a base of $12$, not $1.12$.\n\n**Test Day Takeaway:** Split an exponential base into $1 + r$ or $1 - r$. The digits after the decimal point are the percent change per unit of the exponent."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-107",
+  "question": "Which expression is equivalent to $\\dfrac{x^2 - 4}{x^2 + 7x + 10} \\cdot \\dfrac{x^2 + 10x + 25}{x^2 - 3x + 2}$ for all values of $x$ where the expression is defined?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\dfrac{x + 5}{x - 1}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{1}{x - 1}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{x + 5}{x - 2}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{x - 5}{x - 1}$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "cancels both copies of $(x + 5)$ against the single one below",
+    "C": "cancels $(x - 1)$ instead of $(x - 2)$ from $x^2 - 3x + 2$",
+    "D": "factors $x^2 + 10x + 25$ as $(x - 5)^2$, a sign slip"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~60s):** Factored, the product is $\\frac{(x - 2)(x + 2)}{(x + 2)(x + 5)} \\cdot \\frac{(x + 5)^2}{(x - 1)(x - 2)}$. Cancelling $(x + 2)$, $(x - 2)$, and one $(x + 5)$ leaves $\\frac{x + 5}{x - 1}$.\n\n**The Full Solution:**\nStep 1: Factor all four quadratics: $x^2 - 4 = (x - 2)(x + 2)$, $x^2 + 7x + 10 = (x + 2)(x + 5)$, $x^2 + 10x + 25 = (x + 5)^2$, and $x^2 - 3x + 2 = (x - 1)(x - 2)$.\nStep 2: Write one fraction: $\\frac{(x - 2)(x + 2)(x + 5)^2}{(x + 2)(x + 5)(x - 1)(x - 2)}$.\nStep 3: Cancel $(x - 2)$, $(x + 2)$, and one copy of $(x + 5)$, leaving $\\frac{x + 5}{x - 1}$. Check at $x = 0$: the original is $\\frac{-4}{10} \\cdot \\frac{25}{2} = -5$, and $\\frac{5}{-1} = -5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{1}{x - 1}$): cancels $(x + 5)^2$ entirely against the single $(x + 5)$ below, when only one copy cancels.\n* Choice C ($\\frac{x + 5}{x - 2}$): cancels the $(x - 1)$ factor, which has no partner, instead of the $(x - 2)$ that matches the first numerator.\n* Choice D ($\\frac{x - 5}{x - 1}$): reads $x^2 + 10x + 25$ as $(x - 5)^2$; that square has a $-10x$ middle term.\n\n**Test Day Takeaway:** In a product of four quadratics, factor everything first and track how many copies of each factor sit above and below. Squared factors cancel one at a time."
+}

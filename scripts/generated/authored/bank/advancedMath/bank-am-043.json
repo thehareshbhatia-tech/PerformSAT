@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-043",
+  "question": "For $x > 0$, which of the following expressions is equivalent to $\\dfrac{(3x)^{-3}}{x^{-6}}$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\dfrac{x^{3}}{27}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{x^{3}}{9}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{1}{27x^{9}}$"
+    },
+    {
+      "id": "D",
+      "text": "$27x^{3}$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "computes $3^{-3}$ as $\\frac{1}{9}$ by multiplying the base and the exponent",
+    "C": "adds the exponents, $-3 + (-6)$, instead of subtracting",
+    "D": "moves the $27$ to the numerator, treating $3^{-3}$ as $27$"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Negative Exponent Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $(3x)^{-3} = \\dfrac{1}{27x^{3}}$, and dividing by $x^{-6}$ multiplies by $x^{6}$: $\\dfrac{x^{6}}{27x^{3}} = \\dfrac{x^{3}}{27}$.\n\n**The Full Solution:**\nStep 1: Apply the outer exponent to both factors: $(3x)^{-3} = 3^{-3}x^{-3} = \\dfrac{1}{27}x^{-3}$.\nStep 2: Divide by $x^{-6}$ by subtracting exponents: $x^{-3 - (-6)} = x^{3}$.\nStep 3: The expression is $\\dfrac{x^{3}}{27}$. Check with $x = 1$: the original is $\\dfrac{3^{-3}}{1} = \\dfrac{1}{27}$, and the answer is $\\dfrac{1}{27}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\dfrac{x^{3}}{9}$): computes $3^{-3}$ as $\\dfrac{1}{9}$ by multiplying $3 \\cdot 3$ instead of cubing.\n* Choice C ($\\dfrac{1}{27x^{9}}$): adds the exponents $-3$ and $-6$ instead of subtracting the denominator's.\n* Choice D ($27x^{3}$): puts the $27$ in the numerator, as if $3^{-3} = 27$.\n\n**Test Day Takeaway:** Clear the negative exponents one factor at a time — the numerical base and the variable base each follow the same rule separately."
+}

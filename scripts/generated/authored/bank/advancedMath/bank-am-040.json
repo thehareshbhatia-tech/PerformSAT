@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-040",
+  "question": "For all positive values of $x$ and $y$, the equation $\\dfrac{20x^{a}y^{b}}{5x^{2}y^{-4}} = 4x^{9}y^{-1}$ is true, where $a$ and $b$ are constants. What is the value of $a + b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$10$"
+    },
+    {
+      "id": "D",
+      "text": "$14$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds the denominator's $x$-exponent instead of subtracting it",
+    "C": "makes both errors: adds for $x$ and subtracts the wrong sign for $y$",
+    "D": "computes $b - 4 = -1$, missing that subtracting $-4$ adds $4$"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Match Coefficients After Exponent Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The left side simplifies to $4x^{a - 2}y^{b + 4}$, so $a - 2 = 9$ and $b + 4 = -1$, giving $a = 11$, $b = -5$, and $a + b = 6$.\n\n**The Full Solution:**\nStep 1: Divide the coefficients: $\\dfrac{20}{5} = 4$, which already matches the right side.\nStep 2: Subtract exponents for each variable: $x^{a - 2}$ and $y^{b - (-4)} = y^{b + 4}$.\nStep 3: Match to $4x^{9}y^{-1}$: $a - 2 = 9$ gives $a = 11$, and $b + 4 = -1$ gives $b = -5$. So $a + b = 11 + (-5) = 6$. Check: $\\dfrac{20x^{11}y^{-5}}{5x^{2}y^{-4}} = 4x^{9}y^{-1}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): solves $a + 2 = 9$, adding instead of subtracting, so $a = 7$ while $b = -5$.\n* Choice C ($10$): combines both slips, $a = 7$ and $b = 3$.\n* Choice D ($14$): solves $b - 4 = -1$, forgetting that subtracting the exponent $-4$ ADDS $4$.\n\n**Test Day Takeaway:** A negative exponent in the denominator becomes positive when you subtract it. Handle each variable, and the coefficient, as a separate equation."
+}

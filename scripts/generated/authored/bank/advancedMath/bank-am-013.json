@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-013",
+  "question": "In the quadratic equation $5x^2 + kx - 12 = 0$, $k$ is a constant and the equation has two solutions. One of the solutions is $x = -3$. What is the other solution?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\dfrac{12}{5}$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\dfrac{4}{5}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{4}{5}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{11}{5}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the product of the roots instead of dividing it by the known root",
+    "B": "divides the product of the roots by $3$ instead of by $-3$",
+    "D": "reports $\\frac{k}{5}$ after finding $k = 11$"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Back-Solve Parameter, Then Find Other Root**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The product of the roots is $\\dfrac{-12}{5}$. Dividing by the known root: $\\dfrac{-12/5}{-3} = \\dfrac{4}{5}$ — and $k$ is never needed.\n\n**The Full Solution:**\nStep 1: Substitute $x = -3$ to find $k$: $5(9) + k(-3) - 12 = 0$, so $45 - 3k - 12 = 0$ and $3k = 33$, giving $k = 11$.\nStep 2: The equation is $5x^2 + 11x - 12 = 0$. For $ax^2 + bx + c = 0$ the product of the roots is $\\dfrac{c}{a} = \\dfrac{-12}{5}$.\nStep 3: If one root is $-3$ and the product is $-\\dfrac{12}{5}$, the other root is $\\dfrac{-12/5}{-3} = \\dfrac{4}{5}$. Check: $5\\left(\\dfrac{16}{25}\\right) + 11\\left(\\dfrac{4}{5}\\right) - 12 = \\dfrac{16}{5} + \\dfrac{44}{5} - 12 = 12 - 12 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\dfrac{12}{5}$): this is $\\dfrac{c}{a}$, the PRODUCT of the two roots, not the second root.\n* Choice B ($-\\dfrac{4}{5}$): divides $-\\dfrac{12}{5}$ by $3$ rather than by $-3$, losing a sign.\n* Choice D ($\\dfrac{11}{5}$): finds $k = 11$ correctly and then reports $\\dfrac{k}{a}$, mistaking the parameter for the answer.\n\n**Test Day Takeaway:** Once one root is known, $\\dfrac{c}{a}$ (product) or $-\\dfrac{b}{a}$ (sum) delivers the other root in a single division or subtraction."
+}

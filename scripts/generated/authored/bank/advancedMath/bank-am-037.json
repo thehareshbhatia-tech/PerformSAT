@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-037",
+  "question": "For all positive values of $a$ and $b$, which of the following expressions is equivalent to $(2a^{3}b)^{4}$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$8a^{12}b^{4}$"
+    },
+    {
+      "id": "B",
+      "text": "$16a^{7}b^{4}$"
+    },
+    {
+      "id": "C",
+      "text": "$16a^{12}b^{4}$"
+    },
+    {
+      "id": "D",
+      "text": "$16a^{12}b$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes $2^{3}$ instead of $2^{4}$ for the coefficient",
+    "B": "adds the exponents $3 + 4$ instead of multiplying them",
+    "D": "leaves $b$ unraised, forgetting that the outer exponent hits every factor"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Power of a Product**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Raise each factor to the fourth power: $2^{4} = 16$, $(a^{3})^{4} = a^{12}$, $b^{4} = b^{4}$.\n\n**The Full Solution:**\nStep 1: The power-of-a-product rule gives $(2a^{3}b)^{4} = 2^{4} \\cdot (a^{3})^{4} \\cdot b^{4}$.\nStep 2: Evaluate each piece: $2^{4} = 16$; $(a^{3})^{4} = a^{3 \\cdot 4} = a^{12}$; $b^{4}$ stays as is.\nStep 3: The product is $16a^{12}b^{4}$. Check with $a = b = 1$: the original is $2^{4} = 16$ and the answer is $16$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8a^{12}b^{4}$): raises the coefficient to the third power instead of the fourth.\n* Choice B ($16a^{7}b^{4}$): adds $3 + 4$; a power raised to a power multiplies exponents.\n* Choice D ($16a^{12}b$): never applies the outer exponent to $b$.\n\n**Test Day Takeaway:** An exponent outside parentheses lands on EVERY factor inside, including the numerical coefficient."
+}

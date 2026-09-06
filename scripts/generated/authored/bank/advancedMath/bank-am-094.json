@@ -1,0 +1,23 @@
+{
+  "id": "bank-am-094",
+  "question": "The parabola shown in the $xy$-plane has its vertex at $(-1, -8)$ and passes through the marked point $(1, 0)$. What is the $y$-coordinate of the point on this parabola whose $x$-coordinate is $3$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        -1,
+        -8
+      ],
+      "a": 2,
+      "showPoints": [
+        [
+          1,
+          0
+        ]
+      ],
+      "showVertex": true
+    }
+  },
+  "correctAnswer": "24",
+  "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~40s):** Vertex form gives $y = a(x + 1)^2 - 8$; the point $(1, 0)$ forces $a = 2$, so at $x = 3$, $y = 2(16) - 8 = 24$.\n\n**The Full Solution:**\nStep 1: With vertex $(-1, -8)$, the equation is $y = a(x + 1)^2 - 8$.\nStep 2: Substitute $(1, 0)$: $0 = a(1 + 1)^2 - 8 = 4a - 8$, so $a = 2$ and $y = 2(x + 1)^2 - 8$.\nStep 3: Evaluate at $x = 3$: $y = 2(3 + 1)^2 - 8 = 2(16) - 8 = 24$. Check the symmetry: $x = 3$ is $4$ units right of the vertex and $x = -5$ is $4$ units left, and both give $y = 24$. $\\checkmark$\n\n**Common Mistakes:** Using $a = 1$ and answering $8$; writing the squared factor as $(x - 1)^2$ because the vertex's $x$-coordinate is negative, which gives $2(2)^2 - 8 = 0$; or trying to read the answer off the grid, where the curve has already left the visible window.\n\n**Test Day Takeaway:** A vertex plus one point pins down the whole parabola. Solve for $a$ first, then evaluate — the figure is a check, not a lookup table."
+}

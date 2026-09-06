@@ -1,0 +1,17 @@
+{
+  "id": "bank-am-110",
+  "question": "In the $xy$-plane, the parabola shown is the graph of $y = f(x)$, and its vertex is at $(3, -5)$. The function $g$ is defined by $g(x) = f(x + 4) - 2$. What is the minimum value of $g$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        3,
+        -5
+      ],
+      "a": 1,
+      "showVertex": true
+    }
+  },
+  "correctAnswer": "-7",
+  "explanation": "**SAT Pattern: Function Transformation**\n\n**The correct answer is $-7$.**\n\n**The Fast Way (~25s):** A horizontal shift cannot change the smallest output, so the minimum of $g$ is the minimum of $f$ lowered by $2$: $-5 - 2 = -7$.\n\n**The Full Solution:**\nStep 1: The graph shows that the smallest value $f$ takes is $-5$, at $x = 3$.\nStep 2: In $g(x) = f(x + 4) - 2$, replacing $x$ with $x + 4$ only relocates that low point: it now occurs when $x + 4 = 3$, that is, at $x = -1$.\nStep 3: The $-2$ then lowers every output by $2$, so the minimum value is $-5 - 2 = -7$. Check: $g(-1) = f(3) - 2 = -5 - 2 = -7$. $\\checkmark$\n\n**Common Mistakes:** Answering $-5$ by ignoring the outside $-2$; answering $-3$ by adding $2$ instead of subtracting; or answering $-1$ by letting the inside $+4$ raise the minimum value, when a horizontal shift never changes the value.\n\n**Test Day Takeaway:** Inside the parentheses moves the graph sideways; outside moves it up or down. Only the outside constant can change a minimum *value*."
+}

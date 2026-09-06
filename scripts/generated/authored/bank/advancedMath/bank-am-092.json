@@ -1,0 +1,23 @@
+{
+  "id": "bank-am-092",
+  "question": "In the $xy$-plane, the graph of $y = a(x - 1)^2 - 6$ is shown, where $a$ is a constant. The graph passes through the marked point $(3, 6)$. What is the value of $a$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        1,
+        -6
+      ],
+      "a": 3,
+      "showPoints": [
+        [
+          3,
+          6
+        ]
+      ],
+      "showVertex": true
+    }
+  },
+  "correctAnswer": "3",
+  "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~20s):** Substitute $(3, 6)$: $a(2)^2 - 6 = 6$, so $4a = 12$ and $a = 3$.\n\n**The Full Solution:**\nStep 1: Every point on the graph satisfies the equation, so replace $x$ with $3$ and $y$ with $6$: $6 = a(3 - 1)^2 - 6$.\nStep 2: Simplify the square: $(3 - 1)^2 = 4$, so $6 = 4a - 6$.\nStep 3: Add $6$ to both sides and divide: $12 = 4a$, so $a = 3$. Check: $y = 3(3 - 1)^2 - 6 = 12 - 6 = 6$, and the vertex is at $(1, -6)$ as shown. $\\checkmark$\n\n**Common Mistakes:** Forgetting to undo the $-6$ and solving $4a = 6$ to get $\\frac{3}{2}$; dividing by $2$ instead of $(3 - 1)^2 = 4$ and answering $6$; or computing the slope between the vertex and the marked point, $\\frac{6 - (-6)}{3 - 1} = 6$, which is not what $a$ measures.\n\n**Test Day Takeaway:** In vertex form the vertex is already built in, so one extra point is all you need. Substitute, undo the constant, then divide by the squared factor."
+}

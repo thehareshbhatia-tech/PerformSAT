@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-035",
+  "question": "The equation $y = x^2 + 22x + 130$ is rewritten in the form $y = (x + h)^2 + k$, where $h$ and $k$ are constants. What is the value of $k$?",
+  "correctAnswer": "9",
+  "explanation": "**SAT Pattern: Standard to Vertex (k value)**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~20s):** Half of $22$ is $11$ and $11^2 = 121$, so $y = (x + 11)^2 + (130 - 121) = (x + 11)^2 + 9$.\n\n**The Full Solution:**\nStep 1: To complete the square on $x^2 + 22x$, take half the coefficient of $x$: $\\dfrac{22}{2} = 11$, then square it: $121$.\nStep 2: Rewrite: $x^2 + 22x + 130 = (x^2 + 22x + 121) + 130 - 121$.\nStep 3: This is $(x + 11)^2 + 9$, so $h = 11$ and $k = 9$. Check by expanding: $(x + 11)^2 + 9 = x^2 + 22x + 121 + 9 = x^2 + 22x + 130$. $\\checkmark$\n\n**Common Mistakes:** Reporting $11$, which is $h$, not $k$. Reporting $130$ by forgetting to subtract the $121$ that completing the square introduced. Reporting $-9$ by subtracting in the wrong order, $121 - 130$.\n\n**Test Day Takeaway:** After completing the square, $k$ is what is LEFT OVER from the original constant: $c - \\left(\\dfrac{b}{2}\\right)^2$."
+}

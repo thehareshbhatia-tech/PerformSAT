@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-027",
+  "question": "The equation $2x^2 - 5x + 9 = 0$ is given. How many distinct real solutions does this equation have?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Zero"
+    },
+    {
+      "id": "B",
+      "text": "Exactly one"
+    },
+    {
+      "id": "C",
+      "text": "Exactly two"
+    },
+    {
+      "id": "D",
+      "text": "Infinitely many"
+    }
+  ],
+  "distractorNotes": {
+    "B": "the count for a discriminant of exactly $0$",
+    "C": "the count for a positive discriminant",
+    "D": "no quadratic equation with $a \\neq 0$ has infinitely many solutions"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Count Real Solutions via Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $b^2 - 4ac = (-5)^2 - 4(2)(9) = 25 - 72 = -47 < 0$, so there are no real solutions.\n\n**The Full Solution:**\nStep 1: Identify $a = 2$, $b = -5$, $c = 9$.\nStep 2: Compute the discriminant: $b^2 - 4ac = 25 - 72 = -47$.\nStep 3: A negative discriminant means the quadratic formula would require the square root of a negative number, so the equation has zero real solutions. Check graphically: the parabola opens upward and its minimum value is $9 - \\dfrac{25}{8} > 0$, so it never touches the $x$-axis. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: exactly one real solution requires $b^2 - 4ac = 0$, but here it is $-47$.\n* Choice C: two real solutions requires a positive discriminant; a student who computes $25 + 72$ instead of $25 - 72$ lands here.\n* Choice D: a quadratic equation with $a \\neq 0$ has at most two solutions, never infinitely many.\n\n**Test Day Takeaway:** Compute $b^2 - 4ac$ and read its SIGN: negative means none, zero means one, positive means two."
+}

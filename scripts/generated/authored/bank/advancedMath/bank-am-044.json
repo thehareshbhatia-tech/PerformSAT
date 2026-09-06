@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-044",
+  "question": "The function $f$ is defined by $f(n) = 2^{-3n}$, and the function $g$ is defined by $g(n) = \\dfrac{1}{4^{n + 3}}$. For what value of $n$ is $f(n) = g(n)$?",
+  "correctAnswer": "6",
+  "explanation": "**SAT Pattern: Negative Exponent Equation**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~35s):** Write $g$ in base $2$: $\\dfrac{1}{4^{n + 3}} = 2^{-2(n + 3)} = 2^{-2n - 6}$. Then $-3n = -2n - 6$, so $n = 6$.\n\n**The Full Solution:**\nStep 1: Rewrite $4$ as $2^{2}$: $4^{n + 3} = (2^{2})^{n + 3} = 2^{2n + 6}$.\nStep 2: A reciprocal flips the sign of the exponent: $g(n) = \\dfrac{1}{2^{2n + 6}} = 2^{-2n - 6}$.\nStep 3: Set $f(n) = g(n)$. With equal bases the exponents are equal: $-3n = -2n - 6$, so $-n = -6$ and $n = 6$. Check: $f(6) = 2^{-18}$ and $g(6) = \\dfrac{1}{4^{9}} = \\dfrac{1}{2^{18}} = 2^{-18}$. $\\checkmark$\n\n**Common Mistakes:** Leaving the bases unmatched and setting $-3n = -(n + 3)$, which gives $n = \\dfrac{3}{2}$. Forgetting that the reciprocal flips the sign and solving $-3n = 2n + 6$, which gives $n = -\\dfrac{6}{5}$.\n\n**Test Day Takeaway:** Two exponent rules run in order here: rewrite every base as a power of the smallest base, then convert the reciprocal into a negative exponent. Only then compare exponents."
+}

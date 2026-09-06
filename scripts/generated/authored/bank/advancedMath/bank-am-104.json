@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-104",
+  "question": "Which expression is equivalent to $\\dfrac{9x^2 - 16}{3x^2 + 2x - 8}$ for all values of $x$ where the expression is defined?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\dfrac{3x - 4}{x - 2}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{3x - 4}{x + 2}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{3x + 4}{x - 2}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{3x + 4}{x + 2}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "factors the denominator as $(3x + 4)(x - 2)$ and cancels $(3x + 4)$",
+    "B": "cancels $(3x + 4)$ against $(3x - 4)$ as if they were the same factor",
+    "C": "factors the denominator as $(3x - 4)(x - 2)$, a sign slip"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** $\\frac{(3x - 4)(3x + 4)}{(3x - 4)(x + 2)}$ — the $(3x - 4)$ factors cancel, leaving $\\frac{3x + 4}{x + 2}$.\n\n**The Full Solution:**\nStep 1: The numerator is a difference of squares: $9x^2 - 16 = (3x)^2 - 4^2 = (3x - 4)(3x + 4)$.\nStep 2: Factor the denominator: $3x^2 + 2x - 8 = (3x - 4)(x + 2)$, since $(3x)(x) = 3x^2$ and $-4(x) + 2(3x) = 2x$.\nStep 3: Cancel $(3x - 4)$, leaving $\\frac{3x + 4}{x + 2}$. Check at $x = 0$: $\\frac{-16}{-8} = 2$, and $\\frac{4}{2} = 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3x - 4}{x - 2}$): factors the denominator as $(3x + 4)(x - 2)$, whose expansion is $3x^2 - 2x - 8$ — the middle sign is wrong.\n* Choice B ($\\frac{3x - 4}{x + 2}$): keeps the wrong numerator factor by cancelling $(3x + 4)$ against $(3x - 4)$.\n* Choice C ($\\frac{3x + 4}{x - 2}$): factors the denominator as $(3x - 4)(x - 2)$, whose expansion is $3x^2 - 10x + 8$.\n\n**Test Day Takeaway:** Always expand your trial factorization mentally to confirm the middle term before cancelling. One sign controls the entire answer."
+}

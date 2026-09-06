@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-106",
+  "question": "The equation $\\dfrac{5}{x - 3} + \\dfrac{2}{x + 3} = \\dfrac{30}{x^2 - 9}$ is given, where $x$ is a real number. How many solutions does the equation have?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Zero"
+    },
+    {
+      "id": "B",
+      "text": "Exactly one"
+    },
+    {
+      "id": "C",
+      "text": "Exactly two"
+    },
+    {
+      "id": "D",
+      "text": "Infinitely many"
+    }
+  ],
+  "distractorNotes": {
+    "B": "solves to $x = 3$ and never checks it against the restrictions",
+    "C": "expects two solutions because $x^2 - 9$ appears in a denominator",
+    "D": "concludes the two sides are identical after clearing denominators"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** Clearing denominators gives $7x + 9 = 30$, so $x = 3$ — but $x = 3$ makes $x - 3$ zero, so it is extraneous and no solution remains.\n\n**The Full Solution:**\nStep 1: Since $x^2 - 9 = (x - 3)(x + 3)$, the expression is undefined at $x = 3$ and $x = -3$; neither can be a solution.\nStep 2: Multiply every term by $(x - 3)(x + 3)$: $5(x + 3) + 2(x - 3) = 30$, so $5x + 15 + 2x - 6 = 30$ and $7x + 9 = 30$.\nStep 3: Then $7x = 21$ and $x = 3$, which is excluded. Check by substituting $x = 3$ into the original equation: the first and third terms have denominator $0$, so the equation has no solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): stops at $x = 3$ without testing it in the original equation, where that value is undefined.\n* Choice C (Exactly two): assumes the $x^2$ in the denominator forces a quadratic; after clearing denominators the equation is linear.\n* Choice D (Infinitely many): mistakes the cleared equation $7x + 9 = 30$ for an identity; it is a single linear equation with one root.\n\n**Test Day Takeaway:** List the excluded values before you solve a rational equation, and check every root against that list. A \"solution\" that kills a denominator is not a solution."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-039",
+  "question": "For all positive values of $x$, the equation $\\dfrac{x^{3a - 4}}{x^{a}} = x^{16}$ is true, where $a$ is a constant. What is the value of $a$?",
+  "correctAnswer": "10",
+  "explanation": "**SAT Pattern: Exponent Laws — Quotient Rule + Solve**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~20s):** Subtract exponents: $(3a - 4) - a = 2a - 4 = 16$, so $a = 10$.\n\n**The Full Solution:**\nStep 1: The quotient rule gives $\\dfrac{x^{3a - 4}}{x^{a}} = x^{(3a - 4) - a} = x^{2a - 4}$.\nStep 2: Since the bases match and $x > 0$, the exponents must be equal: $2a - 4 = 16$.\nStep 3: Solve: $2a = 20$, so $a = 10$. Check: with $a = 10$ the numerator is $x^{26}$ and the denominator is $x^{10}$, and $\\dfrac{x^{26}}{x^{10}} = x^{16}$. $\\checkmark$\n\n**Common Mistakes:** Adding the exponents instead of subtracting, which gives $4a - 4 = 16$ and $a = 5$. Dropping the $-4$ and solving $2a = 16$, which gives $a = 8$.\n\n**Test Day Takeaway:** Subtract the ENTIRE denominator exponent — put parentheses around $3a - 4$ before subtracting $a$ so no term gets lost."
+}

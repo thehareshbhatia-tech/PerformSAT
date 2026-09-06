@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-056",
+  "question": "For all values of $x$, which of the following expressions is equivalent to $-6(2x - 9)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-12x - 54$"
+    },
+    {
+      "id": "B",
+      "text": "$-12x + 54$"
+    },
+    {
+      "id": "C",
+      "text": "$-12x - 9$"
+    },
+    {
+      "id": "D",
+      "text": "$12x + 54$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "keeps the second term negative instead of flipping its sign",
+    "C": "distributes to the first term only",
+    "D": "loses the negative on the first term"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Distribute a Negative**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $-6 \\cdot 2x = -12x$ and $-6 \\cdot (-9) = +54$, so the expression is $-12x + 54$.\n\n**The Full Solution:**\nStep 1: The distributive property multiplies the outside factor by EACH term inside: $-6(2x) + (-6)(-9)$.\nStep 2: $-6(2x) = -12x$, and a negative times a negative is positive, so $(-6)(-9) = 54$.\nStep 3: The result is $-12x + 54$. Check at $x = 1$: the original is $-6(2 - 9) = -6(-7) = 42$, and the answer gives $-12 + 54 = 42$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12x - 54$): multiplies $-6$ by $9$ and keeps the minus sign, ignoring that the $9$ inside is already negative.\n* Choice C ($-12x - 9$): distributes only to the $2x$ and copies the $-9$ unchanged.\n* Choice D ($12x + 54$): drops the negative on the first product; at $x = 1$ this gives $66$, not $42$.\n\n**Test Day Takeaway:** Distribute the sign along with the number, term by term, then test one value of $x$ to confirm."
+}

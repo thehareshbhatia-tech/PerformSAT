@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-042",
+  "question": "For $x \\neq 0$, which of the following expressions is equivalent to $\\dfrac{1}{x^{6}}$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-x^{6}$"
+    },
+    {
+      "id": "B",
+      "text": "$x^{-6}$"
+    },
+    {
+      "id": "C",
+      "text": "$x^{\\frac{1}{6}}$"
+    },
+    {
+      "id": "D",
+      "text": "$(-x)^{6}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "negates the expression rather than the exponent",
+    "C": "confuses a negative exponent with a fractional exponent, which means a root",
+    "D": "moves the negative sign onto the base"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Reciprocal as Negative Exponent**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A reciprocal of a power is that power with the opposite exponent: $\\dfrac{1}{x^{6}} = x^{-6}$.\n\n**The Full Solution:**\nStep 1: The definition of a negative exponent is $x^{-n} = \\dfrac{1}{x^{n}}$ for $x \\neq 0$.\nStep 2: Reading it right to left with $n = 6$ gives $\\dfrac{1}{x^{6}} = x^{-6}$.\nStep 3: Check with $x = 2$: $\\dfrac{1}{2^{6}} = \\dfrac{1}{64}$ and $2^{-6} = \\dfrac{1}{64}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-x^{6}$): at $x = 2$ this is $-64$, not $\\dfrac{1}{64}$ — the minus sign belongs on the exponent, not on the whole expression.\n* Choice C ($x^{\\frac{1}{6}}$): a fractional exponent means a root, so at $x = 64$ this equals $2$, not $\\dfrac{1}{64^{6}}$.\n* Choice D ($(-x)^{6}$): at $x = 2$ this is $64$, since an even power erases the sign.\n\n**Test Day Takeaway:** Negative exponent means reciprocal; fractional exponent means root. They are different operations and cannot be swapped."
+}

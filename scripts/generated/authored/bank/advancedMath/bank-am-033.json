@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-033",
+  "question": "The expression $3x^2 - 30x + 82$ can be written in the form $3(x + h)^2 + k$, where $h$ and $k$ are constants. What is the value of $h + k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-8$"
+    },
+    {
+      "id": "B",
+      "text": "$2$"
+    },
+    {
+      "id": "C",
+      "text": "$12$"
+    },
+    {
+      "id": "D",
+      "text": "$52$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "halves $-30$ before factoring out the $3$, giving $h = -15$",
+    "C": "reads $h = 5$ from $(x - 5)^2$ instead of $h = -5$ in $(x + h)^2$",
+    "D": "subtracts $25$ instead of $3 \\cdot 25 = 75$ when balancing"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Complete the Square with Leading Coefficient**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Factor: $3(x^2 - 10x) + 82 = 3(x - 5)^2 - 75 + 82 = 3(x - 5)^2 + 7$. So $h = -5$, $k = 7$, and $h + k = 2$.\n\n**The Full Solution:**\nStep 1: Factor $3$ out of the two $x$-terms only: $3x^2 - 30x + 82 = 3(x^2 - 10x) + 82$.\nStep 2: Complete the square inside: half of $-10$ is $-5$, and $(-5)^2 = 25$. Adding $25$ inside adds $3(25) = 75$ overall, so subtract $75$ outside: $3(x^2 - 10x + 25) - 75 + 82 = 3(x - 5)^2 + 7$.\nStep 3: Match to $3(x + h)^2 + k$: $x - 5 = x + (-5)$, so $h = -5$ and $k = 7$, giving $h + k = 2$. Check by expanding: $3(x - 5)^2 + 7 = 3x^2 - 30x + 75 + 7 = 3x^2 - 30x + 82$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): halves $-30$ directly to get $h = -15$ without first dividing by the $3$, then keeps $k = 7$.\n* Choice C ($12$): uses $h = 5$; but the target form is $(x + h)^2$, and $(x - 5)^2$ means $h = -5$.\n* Choice D ($52$): subtracts only $25$ instead of $3 \\cdot 25 = 75$, leaving $k = 57$.\n\n**Test Day Takeaway:** When a leading coefficient is factored out, whatever you add inside the parentheses is multiplied by that coefficient before you subtract it outside."
+}

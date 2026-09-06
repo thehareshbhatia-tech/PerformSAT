@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-030",
+  "question": "In the equation $2x^2 + mx + 18 = 0$, $m$ is a constant. If the equation has no real solutions, which of the following could be the value of $m$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-15$"
+    },
+    {
+      "id": "B",
+      "text": "$-12$"
+    },
+    {
+      "id": "C",
+      "text": "$9$"
+    },
+    {
+      "id": "D",
+      "text": "$13$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "$|-15| > 12$, so the discriminant is positive and there are two real solutions",
+    "B": "the boundary case: the discriminant is exactly $0$, giving one real solution",
+    "D": "$13 > 12$, so the discriminant is positive"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Discriminant Inequality**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** No real solutions means $m^2 - 4(2)(18) < 0$, so $m^2 < 144$ and $-12 < m < 12$. Only $9$ lies strictly inside.\n\n**The Full Solution:**\nStep 1: With $a = 2$ and $c = 18$, the discriminant is $m^2 - 4(2)(18) = m^2 - 144$.\nStep 2: \"No real solutions\" means the discriminant is negative: $m^2 - 144 < 0$, so $m^2 < 144$.\nStep 3: Taking square roots gives $-12 < m < 12$. Of the choices, only $m = 9$ satisfies this. Check: with $m = 9$ the discriminant is $81 - 144 = -63 < 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-15$): $(-15)^2 = 225 > 144$, so the discriminant is $+81$ and there are two real solutions.\n* Choice B ($-12$): the discriminant is exactly $0$ — one repeated real solution, which the question excludes.\n* Choice D ($13$): $169 > 144$, again a positive discriminant.\n\n**Test Day Takeaway:** $m^2 < k$ becomes a two-sided band $-\\sqrt{k} < m < \\sqrt{k}$, and the endpoints belong to the \"exactly one solution\" case, not to \"none.\""
+}

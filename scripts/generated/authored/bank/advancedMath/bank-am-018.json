@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-018",
+  "question": "In the $xy$-plane, the graph of $y = x^2 - 16x + 55$ is a parabola. What is the $x$-coordinate of the vertex of this parabola?",
+  "correctAnswer": "8",
+  "explanation": "**SAT Pattern: Vertex x-coordinate Formula**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~10s):** $x = -\\dfrac{b}{2a} = -\\dfrac{-16}{2(1)} = 8$.\n\n**The Full Solution:**\nStep 1: Read the coefficients from $y = ax^2 + bx + c$: $a = 1$, $b = -16$, $c = 55$.\nStep 2: The vertex of a parabola lies on its axis of symmetry, $x = -\\dfrac{b}{2a}$.\nStep 3: $x = -\\dfrac{-16}{2(1)} = \\dfrac{16}{2} = 8$. Check with symmetry: $y(7) = 49 - 112 + 55 = -8$ and $y(9) = 81 - 144 + 55 = -8$, equal values on either side of $x = 8$. $\\checkmark$\n\n**Common Mistakes:** Reporting $-8$ by using $\\dfrac{b}{2a}$ and forgetting the leading negative sign. Reporting $16$ or $-16$ by stopping at $b$ without dividing by $2a$.\n\n**Test Day Takeaway:** The axis of symmetry is $x = -\\dfrac{b}{2a}$; the minus sign is part of the formula, so a negative $b$ produces a positive vertex."
+}

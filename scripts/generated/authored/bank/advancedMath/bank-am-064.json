@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-064",
+  "question": "For all values of $x$, which of the following is equivalent to $49x^2 - 4$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(7x - 4)(7x + 4)$"
+    },
+    {
+      "id": "B",
+      "text": "$(7x - 2)(7x - 2)$"
+    },
+    {
+      "id": "C",
+      "text": "$(7x - 2)(7x + 2)$"
+    },
+    {
+      "id": "D",
+      "text": "$(7x + 2)(7x + 2)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses the constant $4$ itself instead of its square root, $2$",
+    "B": "squares a single factor, which produces a $-28x$ middle term",
+    "D": "squares a single factor, which produces a $+28x$ middle term"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Difference of Squares**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $49x^2 - 4 = (7x)^2 - 2^2$, and $A^2 - B^2 = (A - B)(A + B)$, so the factorization is $(7x - 2)(7x + 2)$.\n\n**The Full Solution:**\nStep 1: Write each term as a perfect square: $49x^2 = (7x)^2$ and $4 = 2^2$.\nStep 2: Apply the difference-of-squares identity with $A = 7x$ and $B = 2$: $(7x)^2 - 2^2 = (7x - 2)(7x + 2)$.\nStep 3: Expand to confirm: $(7x - 2)(7x + 2) = 49x^2 + 14x - 14x - 4 = 49x^2 - 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(7x - 4)(7x + 4)$): uses the constant $4$ in the factors instead of $\\sqrt{4} = 2$; this product is $49x^2 - 16$.\n* Choice B ($(7x - 2)(7x - 2)$): squares one factor instead of pairing the two signs; this product is $49x^2 - 28x + 4$.\n* Choice D ($(7x + 2)(7x + 2)$): the same squaring error with the other sign; this product is $49x^2 + 28x + 4$.\n\n**Test Day Takeaway:** A binomial with a minus sign between two perfect squares always factors into a difference and a sum of the square roots — and it never has a middle term."
+}

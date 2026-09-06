@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-010",
+  "question": "The equation $x^2 + 3x - 54 = 0$ has two solutions. What is the positive solution to this equation?",
+  "correctAnswer": "6",
+  "explanation": "**SAT Pattern: Factor and Solve (Fill-in)**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~15s):** Two numbers multiply to $-54$ and add to $3$: $9$ and $-6$. So $(x + 9)(x - 6) = 0$, and the positive root is $6$.\n\n**The Full Solution:**\nStep 1: The constant $-54$ is negative, so the two numbers have opposite signs, and their sum is $+3$, so the positive one is larger in size.\nStep 2: $9 \\cdot (-6) = -54$ and $9 + (-6) = 3$, so $x^2 + 3x - 54 = (x + 9)(x - 6)$.\nStep 3: Setting each factor to zero gives $x = -9$ and $x = 6$. The positive solution is $6$. Check: $36 + 18 - 54 = 0$. $\\checkmark$\n\n**Common Mistakes:** Reporting $-9$, which is the other (negative) solution. Mis-signing the binomials as $(x - 9)(x + 6)$ and answering $9$ — but that product expands to $x^2 - 3x - 54$, with the wrong middle term.\n\n**Test Day Takeaway:** With a negative constant, the two factor numbers have opposite signs; the sign of the middle coefficient tells you which one is larger in absolute value."
+}

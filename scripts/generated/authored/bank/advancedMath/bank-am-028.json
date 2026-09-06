@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-028",
+  "question": "What is the value of the discriminant of the quadratic equation $3x^2 - 12x + 7 = 0$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$60$"
+    },
+    {
+      "id": "B",
+      "text": "$116$"
+    },
+    {
+      "id": "C",
+      "text": "$144$"
+    },
+    {
+      "id": "D",
+      "text": "$228$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "omits the leading coefficient, computing $144 - 4(7)$",
+    "C": "stops at $b^2$ and never subtracts $4ac$",
+    "D": "adds $4ac$ instead of subtracting it"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Compute Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $b^2 - 4ac = (-12)^2 - 4(3)(7) = 144 - 84 = 60$.\n\n**The Full Solution:**\nStep 1: Match the equation to $ax^2 + bx + c = 0$: $a = 3$, $b = -12$, $c = 7$.\nStep 2: Square $b$: $(-12)^2 = 144$. The square removes the negative sign.\nStep 3: Subtract $4ac$: $4(3)(7) = 84$, so the discriminant is $144 - 84 = 60$. Since $60 > 0$, the equation has two real solutions. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($116$): computes $144 - 4(7) = 116$, leaving the leading coefficient $3$ out of $4ac$.\n* Choice C ($144$): reports $b^2$ alone, skipping the $-4ac$ term entirely.\n* Choice D ($228$): computes $144 + 84$, treating the discriminant as a sum.\n\n**Test Day Takeaway:** The discriminant is $b^2 - 4ac$ — three numbers, one square, one product, one subtraction. Substitute all three coefficients, signs included."
+}

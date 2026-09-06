@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-088",
+  "question": "For positive values of $x$, $(x^3 \\cdot \\sqrt{x})^5 = x^k$, where $k$ is a constant. What is the value of $k$? Enter your answer as a fraction.",
+  "correctAnswer": "35/2",
+  "explanation": "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\frac{35}{2}$.**\n\n**The Fast Way (~25s):** Inside the parentheses, $3 + \\frac{1}{2} = \\frac{7}{2}$; raising to the fifth power multiplies: $\\frac{7}{2} \\cdot 5 = \\frac{35}{2}$.\n\n**The Full Solution:**\nStep 1: Rewrite the radical and combine inside the parentheses: $x^3 \\cdot x^{\\frac{1}{2}} = x^{3 + \\frac{1}{2}} = x^{\\frac{7}{2}}$.\nStep 2: Apply the power-of-a-power rule: $\\left(x^{\\frac{7}{2}}\\right)^5 = x^{\\frac{7}{2} \\cdot 5}$.\nStep 3: $\\frac{7}{2} \\cdot 5 = \\frac{35}{2}$, so $k = \\frac{35}{2}$. Check at $x = 4$: $4^3 \\cdot \\sqrt{4} = 128 = 2^7$, and $\\left(2^7\\right)^5 = 2^{35} = 4^{\\frac{35}{2}}$. $\\checkmark$\n\n**Common Mistakes:** Adding the outer $5$ instead of multiplying by it, giving $\\frac{17}{2}$; multiplying only the $3$ by $5$ and leaving the $\\frac{1}{2}$ alone, giving $\\frac{31}{2}$; or reading $\\sqrt{x}$ as $x^2$, giving $(3 + 2)(5) = 25$.\n\n**Test Day Takeaway:** Work from the inside out: combine the exponents inside the parentheses first, then multiply by the outer power."
+}

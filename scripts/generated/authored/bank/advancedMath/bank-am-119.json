@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-119",
+  "question": "The expression $\\dfrac{12a^6b^3}{3a^2b^7}$ is defined for $a \\neq 0$ and $b \\neq 0$. Which of the following is equivalent to this expression?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\dfrac{4a^3}{b^4}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{9a^4}{b^4}$"
+    },
+    {
+      "id": "C",
+      "text": "$4a^4b^4$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{4a^4}{b^4}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "divides the exponents, $\\frac{6}{2} = 3$, instead of subtracting them",
+    "B": "subtracts the coefficients, $12 - 3$, instead of dividing them",
+    "C": "drops the negative sign on the $b$-exponent, leaving $b^4$ in the numerator"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** $\\frac{12}{3} = 4$, $a^{6 - 2} = a^4$, and $b^{3 - 7} = b^{-4}$, so the expression is $\\frac{4a^4}{b^4}$.\n\n**The Full Solution:**\nStep 1: Divide the coefficients: $\\frac{12}{3} = 4$.\nStep 2: Subtract exponents on each base: $a^{6 - 2} = a^4$ and $b^{3 - 7} = b^{-4}$.\nStep 3: A negative exponent moves its base to the denominator: $4a^4b^{-4} = \\frac{4a^4}{b^4}$. Check at $a = b = 2$: $\\frac{12(64)(8)}{3(4)(128)} = \\frac{6144}{1536} = 4$, and $\\frac{4(16)}{16} = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4a^3}{b^4}$): divides the $a$-exponents, $\\frac{6}{2} = 3$, instead of subtracting them.\n* Choice B ($\\frac{9a^4}{b^4}$): subtracts the coefficients, $12 - 3 = 9$; coefficients divide, exponents subtract.\n* Choice C ($4a^4b^4$): keeps $b^4$ in the numerator, ignoring that the larger $b$-exponent is in the denominator.\n\n**Test Day Takeaway:** Handle coefficients and each variable separately: divide the numbers, subtract the exponents, and rewrite any negative exponent as a denominator."
+}

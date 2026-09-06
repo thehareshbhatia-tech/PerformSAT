@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-016",
+  "question": "The solutions to the equation $(4x - 3)(2x + 7) = 0$ are $x = r$ and $x = s$. What is the value of $rs$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-21$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\dfrac{11}{4}$"
+    },
+    {
+      "id": "C",
+      "text": "$-\\dfrac{21}{8}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{21}{8}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies the constants $3$ and $-7$ as if the roots were $3$ and $-7$",
+    "B": "reports the SUM of the roots instead of their product",
+    "D": "drops the negative sign from the product"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Product of Roots from Factors**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The roots are $\\dfrac{3}{4}$ and $-\\dfrac{7}{2}$, so $rs = \\dfrac{3}{4} \\cdot \\left(-\\dfrac{7}{2}\\right) = -\\dfrac{21}{8}$.\n\n**The Full Solution:**\nStep 1: Set each factor to zero: $4x - 3 = 0$ gives $x = \\dfrac{3}{4}$, and $2x + 7 = 0$ gives $x = -\\dfrac{7}{2}$.\nStep 2: Multiply the two roots: $\\dfrac{3}{4} \\cdot \\left(-\\dfrac{7}{2}\\right) = -\\dfrac{21}{8}$.\nStep 3: Confirm with the expanded equation. $(4x - 3)(2x + 7) = 8x^2 + 22x - 21$, and the product of the roots of $ax^2 + bx + c = 0$ is $\\dfrac{c}{a} = \\dfrac{-21}{8}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-21$): multiplies the constants $3$ and $-7$ straight from the parentheses, ignoring the coefficients $4$ and $2$.\n* Choice B ($-\\dfrac{11}{4}$): this is $\\dfrac{3}{4} + \\left(-\\dfrac{7}{2}\\right)$, the sum of the roots, not the product.\n* Choice D ($\\dfrac{21}{8}$): loses the negative sign, which would require both roots to have the same sign.\n\n**Test Day Takeaway:** Solve each factor for its own root before combining. Alternatively, expand once and read $\\dfrac{c}{a}$ for the product and $-\\dfrac{b}{a}$ for the sum."
+}

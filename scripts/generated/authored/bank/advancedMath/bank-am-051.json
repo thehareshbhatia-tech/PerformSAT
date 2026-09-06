@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-051",
+  "question": "A deposit of $\\$5{,}000$ earns $7\\%$ interest compounded annually, and no money is added or withdrawn. After how many full years does the balance first exceed $\\$7{,}500$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$5$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$8$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads the ratio $1.5$ as a number of years",
+    "B": "rounds $t \\approx 5.99$ down instead of taking the next whole year",
+    "D": "uses simple interest instead of compounding"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Compound Growth Threshold**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Need $(1.07)^{t} > 1.5$. Since $(1.07)^{5} \\approx 1.403$ and $(1.07)^{6} \\approx 1.501$, the balance first passes $\\$7{,}500$ at $t = 6$.\n\n**The Full Solution:**\nStep 1: The balance after $t$ years is $5{,}000(1.07)^{t}$, and the target is $5{,}000(1.07)^{t} > 7{,}500$.\nStep 2: Divide by $5{,}000$: $(1.07)^{t} > 1.5$.\nStep 3: Test whole years. $(1.07)^{5} \\approx 1.4026$, giving a balance of about $\\$7{,}013$ — still short. $(1.07)^{6} \\approx 1.5007$, giving about $\\$7{,}504$ — past the target. So the first full year is $6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reads $\\dfrac{7{,}500}{5{,}000} = 1.5$ as \"about $2$ years\" without using the growth factor at all.\n* Choice B ($5$): the exact crossing is near $t = 5.99$, so year $5$ is the last year BELOW the target, not the first above it.\n* Choice D ($8$): uses simple interest, $5{,}000(1 + 0.07t) > 7{,}500$, which needs $t > 7.1$.\n\n**Test Day Takeaway:** Divide out the starting amount first, then test whole-number exponents. \"First exceeds\" means round the crossing time UP."
+}

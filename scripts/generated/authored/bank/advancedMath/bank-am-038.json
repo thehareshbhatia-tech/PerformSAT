@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-038",
+  "question": "In the equation $\\dfrac{(2^{n})^{3} \\cdot 2^{6}}{2^{3}} = 2^{21}$, what is the value of $n$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$8$"
+    },
+    {
+      "id": "D",
+      "text": "$15$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds the denominator's exponent instead of subtracting it",
+    "C": "drops the factor $2^{6}$ from the numerator",
+    "D": "treats $(2^{n})^{3}$ as $2^{n + 3}$"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Exponent Equation (Combine then Solve)**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The left side is $2^{3n + 6 - 3} = 2^{3n + 3}$, so $3n + 3 = 21$ and $n = 6$.\n\n**The Full Solution:**\nStep 1: A power raised to a power multiplies exponents: $(2^{n})^{3} = 2^{3n}$.\nStep 2: Multiplying adds exponents and dividing subtracts them: $\\dfrac{2^{3n} \\cdot 2^{6}}{2^{3}} = 2^{3n + 6 - 3} = 2^{3n + 3}$.\nStep 3: With the same base on both sides, the exponents must be equal: $3n + 3 = 21$, so $3n = 18$ and $n = 6$. Check: $\\dfrac{(2^{6})^{3} \\cdot 2^{6}}{2^{3}} = \\dfrac{2^{18} \\cdot 2^{6}}{2^{3}} = 2^{21}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): solves $3n + 6 + 3 = 21$, adding the denominator's exponent instead of subtracting it.\n* Choice C ($8$): solves $3n - 3 = 21$, ignoring the $\\cdot 2^{6}$ in the numerator.\n* Choice D ($15$): reads $(2^{n})^{3}$ as $2^{n + 3}$ and solves $n + 3 + 6 - 3 = 21$.\n\n**Test Day Takeaway:** Collapse the whole side to a single power of the common base first; only then set the exponents equal."
+}
