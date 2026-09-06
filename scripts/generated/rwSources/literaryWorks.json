@@ -358,8 +358,8 @@
     "genre": "fiction",
     "publicDomain": true,
     "publicDomainYear": 1923,
-    "gutenbergId": "11953",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/11953",
+    "gutenbergId": "12352",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/12352",
     "themes": [
       "race",
       "Reconstruction",
@@ -787,8 +787,8 @@
     "genre": "fiction",
     "publicDomain": true,
     "publicDomainYear": 1923,
-    "gutenbergId": "30975",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/30975",
+    "gutenbergId": "62940",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/62940",
     "themes": [
       "Chinese American life",
       "marriage",
@@ -943,8 +943,8 @@
     "genre": "poetry",
     "publicDomain": true,
     "publicDomainYear": 1923,
-    "gutenbergId": "11422",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/11422",
+    "gutenbergId": "18338",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/18338",
     "themes": [
       "dialect",
       "double consciousness",
@@ -1567,8 +1567,8 @@
     "genre": "essay",
     "publicDomain": true,
     "publicDomainYear": 1923,
-    "gutenbergId": "8128",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/8128",
+    "gutenbergId": "8130",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/8130",
     "themes": [
       "cross-cultural observation",
       "place",
@@ -1827,8 +1827,8 @@
     "genre": "memoir",
     "publicDomain": true,
     "publicDomainYear": 1923,
-    "gutenbergId": "754",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/754",
+    "gutenbergId": "20885",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/20885",
     "themes": [
       "immigration",
       "education",
@@ -2797,5 +2797,235 @@
       }
     ],
     "addedBy": "test12-recreation-2026-09-01"
+  },
+  {
+    "id": "lw-a-001",
+    "author": "Elizabeth Gaskell",
+    "title": "Cranford",
+    "year": 1853,
+    "genre": "fiction",
+    "publicDomain": true,
+    "publicDomainYear": 1929,
+    "gutenbergId": "394",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/394",
+    "themes": [
+      "small-town society",
+      "genteel poverty",
+      "custom",
+      "women’s community"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Chapter I, Our Society (the rules for visiting)",
+        "approxWordCount": 240,
+        "summary": "The narrator sets out the visiting rules of a small English town governed by its older women and reports the effects of obeying them.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      }
+    ],
+    "notes": "Verified full text at Project Gutenberg (ebook 394). Gaskell died 1865; first published 1853 — US public domain.",
+    "reviewer": "seva-rw-fill-recreation",
+    "verifiedAt": "2026-09-05"
+  },
+  {
+    "id": "lw-a-002",
+    "author": "Mark Twain",
+    "title": "Life on the Mississippi",
+    "year": 1883,
+    "genre": "memoir",
+    "publicDomain": true,
+    "publicDomainYear": 1929,
+    "gutenbergId": "245",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/245",
+    "themes": [
+      "river piloting",
+      "apprenticeship",
+      "expertise",
+      "perception"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Chapter 9, reading the face of the water",
+        "approxWordCount": 260,
+        "summary": "The narrator describes learning to read the river as a text and weighs the skill he gained against the beauty he stopped seeing.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      }
+    ],
+    "notes": "Verified full text at Project Gutenberg (ebook 245). First published 1883 — US public domain.",
+    "reviewer": "seva-rw-fill-recreation",
+    "verifiedAt": "2026-09-05"
+  },
+  {
+    "id": "lw-a-003",
+    "author": "Alice Dunbar-Nelson",
+    "title": "M’sieu Fortier’s Violin",
+    "year": 1899,
+    "genre": "short story",
+    "publicDomain": true,
+    "publicDomainYear": 1929,
+    "gutenbergId": "688",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/688",
+    "themes": [
+      "New Orleans",
+      "music",
+      "aging",
+      "vocation"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Opening: the last man out of the French Opera",
+        "approxWordCount": 250,
+        "summary": "An elderly first violinist leaves the opera house and the narrator sketches the quiet routine of his life and what his work asks of him.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      }
+    ],
+    "notes": "Story in The Goodness of St. Rocque, and Other Stories (1899); verified full text at Project Gutenberg (ebook 688). Author died 1935; work published 1899 — US public domain.",
+    "reviewer": "seva-rw-fill-recreation",
+    "verifiedAt": "2026-09-05"
+  },
+  {
+    "id": "lw-a-004",
+    "author": "John Keats",
+    "title": "To Autumn",
+    "year": 1820,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1929,
+    "gutenbergId": "23684",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/23684",
+    "themes": [
+      "seasons",
+      "harvest",
+      "personification",
+      "ripeness"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Stanzas 1-3 (complete ode)",
+        "approxWordCount": 260,
+        "summary": "A three-stanza ode addressing autumn directly, picturing the season first as ripening force, then as a figure resting amid the harvest, then as its own music.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "text-structure-and-purpose",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      }
+    ],
+    "notes": "Text from Keats: Poems Published in 1820, Project Gutenberg ebook 23684. Published 1820 — US public domain.",
+    "reviewer": "seva-rw-fill-recreation",
+    "verifiedAt": "2026-09-05"
+  },
+  {
+    "id": "lw-a-005",
+    "author": "Robert Browning",
+    "title": "My Last Duchess",
+    "year": 1842,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1929,
+    "gutenbergId": "16376",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/16376",
+    "themes": [
+      "dramatic monologue",
+      "art collecting",
+      "control",
+      "self-revelation"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Complete monologue (Ferrara)",
+        "approxWordCount": 300,
+        "summary": "A duke shows an envoy the portrait of his late wife and, while describing the painting, betrays his resentment of her evenhanded gratitude.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "inferences",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "hard"
+      }
+    ],
+    "notes": "Text from Browning’s Shorter Poems, Project Gutenberg ebook 16376. First published in Dramatic Lyrics, 1842 — US public domain.",
+    "reviewer": "seva-rw-fill-recreation",
+    "verifiedAt": "2026-09-05"
+  },
+  {
+    "id": "lw-a-006",
+    "author": "Paul Laurence Dunbar",
+    "title": "The Poet and His Song",
+    "year": 1896,
+    "genre": "poetry",
+    "publicDomain": true,
+    "publicDomainYear": 1929,
+    "gutenbergId": "18338",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/18338",
+    "themes": [
+      "labor",
+      "song",
+      "endurance",
+      "obscurity"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Complete lyric (four stanzas)",
+        "approxWordCount": 200,
+        "summary": "Four stanzas in which the speaker names the hardships of his farming life and answers each of them with the refrain that he sings and all is well.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "central-ideas-and-details",
+          "text-structure-and-purpose"
+        ],
+        "difficulty": "medium"
+      }
+    ],
+    "notes": "Poem first collected in Lyrics of Lowly Life (1896); text verified in The Complete Poems of Paul Laurence Dunbar, Project Gutenberg ebook 18338 — US public domain. CB official item e662866f quotes the first stanza verbatim — do not quote this poem in authored items.",
+    "reviewer": "seva-rw-fill-recreation",
+    "verifiedAt": "2026-09-05"
+  },
+  {
+    "id": "lw-a-007",
+    "author": "Mary E. Wilkins Freeman",
+    "title": "A New England Nun",
+    "year": 1891,
+    "genre": "short story",
+    "publicDomain": true,
+    "publicDomainYear": 1929,
+    "sourceUrl": "https://en.wikisource.org/wiki/A_New_England_Nun_and_Other_Stories/A_New_England_Nun",
+    "themes": [
+      "solitude",
+      "domestic order",
+      "habit",
+      "choice"
+    ],
+    "excerptPointers": [
+      {
+        "section": "Opening: Louisa Ellis at her supper",
+        "approxWordCount": 250,
+        "summary": "A woman who has lived alone for years puts away her sewing, picks currants, and lays a careful table for one; the narrator dwells on the exactness of every habit.",
+        "suitableForSkills": [
+          "command-of-evidence-textual",
+          "central-ideas-and-details",
+          "inferences"
+        ],
+        "difficulty": "medium"
+      }
+    ],
+    "notes": "Collected in A New England Nun and Other Stories (1891); full text transcribed at Wikisource. Freeman died 1930; the story was published 1891 — US public domain.",
+    "reviewer": "seva-rw-fill-recreation",
+    "verifiedAt": "2026-09-05"
   }
 ]
