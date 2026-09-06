@@ -1,0 +1,65 @@
+{
+  "id": "bank-ps-088",
+  "question": "The scatterplot shows the mass $y$, in grams, of each of $9$ metal castings and the cooling time $x$, in minutes, for that casting, along with the line of best fit $\\hat{y} = 0.45x + 12$. What is the residual for the highlighted data point $(40, 27)$?",
+  "diagram": {
+    "type": "scatterplot",
+    "params": {
+      "points": [
+        [
+          10,
+          18
+        ],
+        [
+          15,
+          18
+        ],
+        [
+          20,
+          22
+        ],
+        [
+          25,
+          22
+        ],
+        [
+          30,
+          27
+        ],
+        [
+          50,
+          36
+        ],
+        [
+          55,
+          36
+        ],
+        [
+          60,
+          40
+        ]
+      ],
+      "xMin": 0,
+      "xMax": 65,
+      "yMin": 0,
+      "yMax": 45,
+      "xGridStep": 5,
+      "yGridStep": 5,
+      "xLabelStep": 10,
+      "yLabelStep": 10,
+      "xLabel": "Cooling time (minutes)",
+      "yLabel": "Mass (grams)",
+      "bestFitLine": {
+        "slope": 0.45,
+        "intercept": 12
+      },
+      "highlightPoint": [
+        40,
+        27
+      ],
+      "highlightLabel": "(40, 27)",
+      "showResidual": true
+    }
+  },
+  "correctAnswer": "-3",
+  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is $-3$.**\n\n**The Fast Way (~10s):** $\\hat{y} = 0.45(40) + 12 = 30$, so the residual is $27 - 30 = -3$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $x = 40$: $0.45(40) = 18$.\nStep 2: Add the intercept: $\\hat{y} = 18 + 12 = 30$ grams.\nStep 3: Residual $= y - \\hat{y} = 27 - 30 = -3$ grams.\nCheck: the highlighted point lies below the line, matching the negative sign. $\\checkmark$\n\n**Common Mistakes:** Reporting the predicted mass $30$; computing $\\hat{y} - y = 3$ and losing the sign; forgetting the intercept and computing $27 - 18 = 9$.\n\n**Test Day Takeaway:** Evaluate the whole model, intercept included, before subtracting."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-420",
+  "question": "A reservoir holds $1{,}250$ acre-feet of water when full, and it currently holds $875$ acre-feet. The current volume is what percent of the full volume?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$30\\%$"
+    },
+    {
+      "id": "B",
+      "text": "$42.9\\%$"
+    },
+    {
+      "id": "C",
+      "text": "$70\\%$"
+    },
+    {
+      "id": "D",
+      "text": "$142.9\\%$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the percent of the full volume that is missing",
+    "B": "divides the $375$ acre-foot shortfall by the current volume, $\\frac{375}{875}$",
+    "D": "divides the full volume by the current volume, reversing the comparison"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Percent of a Whole**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\frac{875}{1250} = 0.7 = 70\\%$.\n\n**The Full Solution:**\nStep 1: The full volume, $1{,}250$ acre-feet, follows \"percent of,\" so it is the whole.\nStep 2: Divide the current volume by the full volume: $\\frac{875}{1250}$.\nStep 3: $\\frac{875}{1250} = 0.7 = 70\\%$. Check: $70\\%$ of $1{,}250$ is $875$, and the missing $375$ acre-feet are the other $30\\%$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($30\\%$): reports the percent of the full volume that is missing\n* Choice B ($42.9\\%$): divides the $375$ acre-foot shortfall by the current volume, $\\frac{375}{875}$\n* Choice D ($142.9\\%$): divides the full volume by the current volume, reversing the comparison\n\n**Test Day Takeaway:** A part-of-whole percent is at most $100\\%$; a result above $100\\%$ means the division was reversed."
+}

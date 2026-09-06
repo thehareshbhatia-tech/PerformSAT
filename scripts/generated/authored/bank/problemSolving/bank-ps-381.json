@@ -1,0 +1,90 @@
+{
+  "id": "bank-ps-381",
+  "question": "The scatterplot shows the mean water temperature, in degrees Celsius, of each of $10$ lakes against the lake's elevation, in hundreds of meters, along with the line of best fit $\\hat{y} = -0.45x + 32$. Which of the following is the best interpretation of the slope of the line of best fit?",
+  "diagram": {
+    "type": "scatterplot",
+    "params": {
+      "points": [
+        [
+          3,
+          31
+        ],
+        [
+          5,
+          30
+        ],
+        [
+          7,
+          28
+        ],
+        [
+          9,
+          28
+        ],
+        [
+          11,
+          27
+        ],
+        [
+          13,
+          26
+        ],
+        [
+          15,
+          25
+        ],
+        [
+          17,
+          25
+        ],
+        [
+          19,
+          23
+        ],
+        [
+          20,
+          22
+        ]
+      ],
+      "xMin": 0,
+      "xMax": 22,
+      "yMin": 20,
+      "yMax": 34,
+      "xGridStep": 2,
+      "yGridStep": 2,
+      "xLabelStep": 4,
+      "yLabelStep": 4,
+      "xLabel": "Elevation (hundreds of m)",
+      "yLabel": "Mean water temp. (C)",
+      "bestFitLine": {
+        "slope": -0.45,
+        "intercept": 32
+      }
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "For each increase of $100$ meters in elevation, the predicted mean water temperature decreases by $0.45$ degree Celsius."
+    },
+    {
+      "id": "B",
+      "text": "For each increase of $100$ meters in elevation, the predicted mean water temperature increases by $0.45$ degree Celsius."
+    },
+    {
+      "id": "C",
+      "text": "At an elevation of $0$ meters, the predicted mean water temperature is $0.45$ degree Celsius."
+    },
+    {
+      "id": "D",
+      "text": "For each increase of $1$ degree Celsius in mean water temperature, the predicted elevation decreases by $0.45$ hundred meters."
+    }
+  ],
+  "distractorNotes": {
+    "B": "keeps the size of the slope but drops its negative sign, reversing the direction of the relationship",
+    "C": "describes a value at $x = 0$, which is the role of the intercept, not the slope",
+    "D": "swaps the predictor and the response, describing elevation as a function of temperature"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The slope $-0.45$ is the predicted change in $y$ for a one-unit increase in $x$, and one unit of $x$ is $100$ meters of elevation.\n\n**The Full Solution:**\nStep 1: In $\\hat{y} = mx + b$, the slope $m$ gives the predicted change in $\\hat{y}$ for each increase of $1$ in $x$.\nStep 2: Here $m = -0.45$ and $x$ is measured in hundreds of meters, so an increase of $1$ in $x$ means an increase of $100$ meters in elevation.\nStep 3: The negative sign means the predicted mean water temperature falls, by $0.45$ degree Celsius, for each additional $100$ meters. Check: from $x = 3$ to $x = 13$, the line drops from $30.65$ to $26.15$, which is $4.5$ degrees over $10$ units, or $0.45$ per unit. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (For each increase of $100$ meters in elevation, the predicted mean water temperature increases by $0.45$ degree Celsius.): keeps the size of the slope but drops its negative sign, reversing the direction of the relationship\n* Choice C (At an elevation of $0$ meters, the predicted mean water temperature is $0.45$ degree Celsius.): describes a value at $x = 0$, which is the role of the intercept, not the slope\n* Choice D (For each increase of $1$ degree Celsius in mean water temperature, the predicted elevation decreases by $0.45$ hundred meters.): swaps the predictor and the response, describing elevation as a function of temperature\n\n**Test Day Takeaway:** Slope interpretations must name the unit of $x$, the unit of $y$, and the direction. Read the units off the axis labels before writing the sentence."
+}

@@ -1,0 +1,86 @@
+{
+  "id": "bank-ps-322",
+  "question": "The scatterplot shows the total charge $y$, in dollars, and the number of rides $x$ taken in one month for each of $9$ members of a scooter-share plan, along with the line of best fit $\\hat{y} = 1.75x + 6$. Which of the following is the best interpretation of the slope of the line of best fit?",
+  "diagram": {
+    "type": "scatterplot",
+    "params": {
+      "points": [
+        [
+          2,
+          10
+        ],
+        [
+          4,
+          12
+        ],
+        [
+          5,
+          16
+        ],
+        [
+          7,
+          17
+        ],
+        [
+          9,
+          23
+        ],
+        [
+          11,
+          24
+        ],
+        [
+          13,
+          29
+        ],
+        [
+          15,
+          31
+        ],
+        [
+          18,
+          38
+        ]
+      ],
+      "xMin": 0,
+      "xMax": 20,
+      "yMin": 0,
+      "yMax": 45,
+      "xGridStep": 2,
+      "yGridStep": 5,
+      "xLabelStep": 4,
+      "yLabelStep": 10,
+      "xLabel": "Number of rides",
+      "yLabel": "Total charge (dollars)",
+      "bestFitLine": {
+        "slope": 1.75,
+        "intercept": 6
+      }
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "The estimated total charge for a member who takes no rides is $\\$1.75$."
+    },
+    {
+      "id": "B",
+      "text": "The estimated total charge increases by $\\$1.75$ for each additional ride taken."
+    },
+    {
+      "id": "C",
+      "text": "The estimated total charge for a member is $\\$1.75$, with no other charges."
+    },
+    {
+      "id": "D",
+      "text": "The estimated number of rides increases by $1.75$ for each additional dollar charged."
+    }
+  ],
+  "distractorNotes": {
+    "A": "describes the $y$-intercept, which is $6$, not the slope.",
+    "C": "reads the slope as the whole charge and drops the $\\$6$ the model adds at $x = 0$.",
+    "D": "swaps the roles of $x$ and $y$, interpreting the slope as rides per dollar rather than dollars per ride."
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Slope is the change in $y$ per one-unit change in $x$: dollars per ride. So each additional ride adds an estimated $\\$1.75$ to the charge.\n\n**The Full Solution:**\nStep 1: In $\\hat{y} = 1.75x + 6$, the variable $x$ counts rides and $\\hat{y}$ predicts the total charge in dollars.\nStep 2: The slope $1.75$ carries the units of $y$ over the units of $x$, dollars per ride.\nStep 3: Increasing $x$ by $1$ increases $\\hat{y}$ by $1.75$, so each additional ride raises the predicted charge by $\\$1.75$. Check: at $x = 4$ the model gives $\\$13$; at $x = 5$ it gives $\\$14.75$, a rise of $\\$1.75$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: describes the $y$-intercept, which is $6$, not the slope.\n* Choice C: reads the slope as the whole charge and drops the $\\$6$ the model adds at $x = 0$.\n* Choice D: swaps the roles of $x$ and $y$, interpreting the slope as rides per dollar rather than dollars per ride.\n\n**Test Day Takeaway:** Say the slope's units out loud — \"dollars per ride\" — and the interpretation writes itself: one more ride, $\\$1.75$ more charge."
+}

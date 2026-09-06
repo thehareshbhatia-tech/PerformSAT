@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-398",
+  "question": "A data set of $12$ values has a mean of $47$. A $13$th value is added to the data set, and the mean of the $13$ values is $49$. What is the $13$th value?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$24$"
+    },
+    {
+      "id": "B",
+      "text": "$49$"
+    },
+    {
+      "id": "C",
+      "text": "$71$"
+    },
+    {
+      "id": "D",
+      "text": "$73$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports $12(2)$, the extra amount needed by the original values, rather than the new value itself",
+    "B": "assumes the added value equals the new mean",
+    "C": "adds $12(2) = 24$ to the old mean $47$ instead of to the new mean $49$"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The sums are $12(47) = 564$ and $13(49) = 637$, so the added value is $637 - 564 = 73$.\n\n**The Full Solution:**\nStep 1: The original sum is $12(47) = 564$.\nStep 2: The new sum is $13(49) = 637$.\nStep 3: The added value is $637 - 564 = 73$. Check: raising $12$ values by $2$ each requires $24$, and the new value must also supply its own $49$, so $49 + 24 = 73$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($24$): reports $12(2)$, the extra amount needed by the original values, rather than the new value itself\n* Choice B ($49$): assumes the added value equals the new mean\n* Choice C ($71$): adds $12(2) = 24$ to the old mean $47$ instead of to the new mean $49$\n\n**Test Day Takeaway:** A new value must cover its own share of the new mean plus the raise it gives every value already there: new value $=$ new mean $+ n(\\text{change in mean})$."
+}

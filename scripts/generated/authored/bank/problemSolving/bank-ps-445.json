@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-445",
+  "question": "A technician's hourly rate increased by $5\\%$ at the start of one year and by $12\\%$ at the start of the next year. The rate after both increases is $\\$47.04$ per hour. What was the hourly rate, in dollars, before the two increases?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$40$"
+    },
+    {
+      "id": "B",
+      "text": "$40.21$"
+    },
+    {
+      "id": "C",
+      "text": "$44.80$"
+    },
+    {
+      "id": "D",
+      "text": "$55.32$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "nets the percents to a single $17\\%$ increase instead of multiplying the factors.",
+    "C": "undoes only the $5\\%$ increase.",
+    "D": "multiplies by the combined factor $1.176$ instead of dividing by it."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Reverse Percent Multi-Step**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The combined factor is $1.05\\times 1.12=1.176$, so the original rate is $\\frac{47.04}{1.176}=40$ dollars per hour.\n\n**The Full Solution:**\nStep 1: Let $r$ be the original hourly rate. After the $5\\%$ raise the rate is $1.05r$.\nStep 2: After the $12\\%$ raise the rate is $1.12(1.05r)=1.176r$, so $1.176r=47.04$.\nStep 3: $r=\\frac{47.04}{1.176}=40$ dollars per hour. Check: $1.05(40)=42$, and $1.12(42)=47.04$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($40.21$): divides by $1.17$, adding the two percents instead of multiplying the factors.\n* Choice C ($44.80$): computes $\\frac{47.04}{1.05}$, reversing only the first raise.\n* Choice D ($55.32$): computes $1.176\\times 47.04$, growing the final rate instead of walking it back.\n\n**Test Day Takeaway:** Two raises compound: $1.05\\times 1.12=1.176$, slightly more than a single $17\\%$ raise. Divide the ending value by the product."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-460",
+  "question": "The speed of a train is increasing at a constant rate of $2.4$ meters per second squared. What is this rate, in kilometers per minute squared? (Use $1$ kilometer $=1{,}000$ meters and $1$ minute $=60$ seconds.)",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$0.0024$"
+    },
+    {
+      "id": "B",
+      "text": "$0.144$"
+    },
+    {
+      "id": "C",
+      "text": "$8.64$"
+    },
+    {
+      "id": "D",
+      "text": "$8{,}640$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "converts meters to kilometers but leaves the time in seconds squared.",
+    "B": "applies the $60$-seconds-per-minute factor once instead of squaring it.",
+    "D": "squares the time factor but never converts meters to kilometers."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Chained Unit Conversion — Squared Time**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Divide once by $1{,}000$ for meters to kilometers and multiply by $60^2$ because the time unit is squared: $\\frac{2.4\\times 3{,}600}{1{,}000}=8.64$.\n\n**The Full Solution:**\nStep 1: Start from $2.4\\,\\frac{\\text{m}}{\\text{s}^2}$ and multiply by conversion factors that cancel the unwanted units.\nStep 2: Meters to kilometers: $\\times\\frac{1\\text{ km}}{1{,}000\\text{ m}}$.\nStep 3: Seconds to minutes, squared: since $1$ minute $=60$ seconds, $\\frac{1}{\\text{s}^2}=\\frac{60^2}{\\text{min}^2}=\\frac{3{,}600}{\\text{min}^2}$.\nStep 4: Combine: $\\frac{2.4\\times 3{,}600}{1{,}000}=\\frac{8{,}640}{1{,}000}=8.64$ kilometers per minute squared. Check: $8.64$ km/min$^2$ is $8{,}640$ m/min$^2$, and dividing by $3{,}600$ returns $2.4$ m/s$^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.0024$): converts the length unit only and leaves the rate per second squared.\n* Choice B ($0.144$): multiplies by $60$ once, treating the squared time unit as if it were linear.\n* Choice D ($8{,}640$): squares the time conversion correctly but reports meters per minute squared.\n\n**Test Day Takeaway:** A squared unit takes its conversion factor squared. Per second squared needs the seconds-to-minutes factor applied twice."
+}

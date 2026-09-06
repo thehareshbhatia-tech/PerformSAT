@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-440",
+  "question": "A membership fee increased by $8\\%$ this year, making the fee $\\$378$. By how many dollars did the membership fee increase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$28$"
+    },
+    {
+      "id": "B",
+      "text": "$30.24$"
+    },
+    {
+      "id": "C",
+      "text": "$350$"
+    },
+    {
+      "id": "D",
+      "text": "$408.24$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "takes $8\\%$ of the new fee instead of $8\\%$ of last year's fee.",
+    "C": "reports last year's fee rather than the size of the increase.",
+    "D": "adds another $8\\%$ to the new fee."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Reverse Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Last year's fee is $\\frac{378}{1.08}=350$ dollars, so the increase is $378-350=28$ dollars.\n\n**The Full Solution:**\nStep 1: Let $f$ be last year's fee. An $8\\%$ increase gives $1.08f=378$.\nStep 2: $f=\\frac{378}{1.08}=350$ dollars.\nStep 3: The increase is the difference: $378-350=28$ dollars. Check: $8\\%$ of $350$ is $28$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($30.24$): computes $0.08\\times 378$, taking the percent of this year's fee instead of last year's.\n* Choice C ($350$): reports last year's fee, stopping one step before the question is answered.\n* Choice D ($408.24$): computes $1.08\\times 378$, raising the new fee again.\n\n**Test Day Takeaway:** Percent increases are measured against the earlier amount. Recover that amount by dividing, then subtract to get the increase itself."
+}

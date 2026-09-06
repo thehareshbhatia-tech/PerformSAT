@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-295",
+  "question": "A rectangular plot of land has an area of $0.75$ square kilometer. What is the area of the plot, in square meters? ($1$ kilometer $= 1{,}000$ meters.)",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$750$"
+    },
+    {
+      "id": "B",
+      "text": "$1{,}500$"
+    },
+    {
+      "id": "C",
+      "text": "$750{,}000$"
+    },
+    {
+      "id": "D",
+      "text": "$750{,}000{,}000$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "applies the length factor $1{,}000$ once, as if the area were a length",
+    "B": "doubles the conversion factor instead of squaring it",
+    "D": "cubes the conversion factor, as for a volume"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Unit Conversion**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $1$ square kilometer is $1{,}000^2 = 1{,}000{,}000$ square meters, so $0.75 \\times 1{,}000{,}000 = 750{,}000$ square meters.\n\n**The Full Solution:**\nStep 1: The conversion factor for area is the length factor squared: $1 \\text{ km}^2 = (1{,}000 \\text{ m})^2 = 1{,}000{,}000 \\text{ m}^2$.\nStep 2: Multiply: $0.75 \\text{ km}^2 \\times \\frac{1{,}000{,}000 \\text{ m}^2}{1 \\text{ km}^2} = 750{,}000$ square meters.\nStep 3: Check with a concrete shape. A plot $1{,}000$ meters by $750$ meters has area $750{,}000$ square meters, and its dimensions are $1$ kilometer by $0.75$ kilometer, an area of $0.75$ square kilometer. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($750$): $0.75 \\times 1{,}000$, the factor for a length; a square kilometer is far more than $1{,}000$ square meters.\n* Choice B ($1{,}500$): $0.75 \\times 2{,}000$, doubling the factor rather than squaring it.\n* Choice D ($750{,}000{,}000$): $0.75 \\times 1{,}000^3$, the factor for a volume in cubic units.\n\n**Test Day Takeaway:** Squared units need a squared factor and cubed units a cubed factor. Convert the side length first if you are unsure, then rebuild the area."
+}

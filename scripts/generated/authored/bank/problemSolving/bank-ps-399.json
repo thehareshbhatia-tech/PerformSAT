@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-399",
+  "question": "A data set of $n$ values has a mean of $18$. When the value $46$ is added to the data set, the mean of the resulting $n + 1$ values is $22$. What is the value of $n$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$7$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports $22 - 18$, the change in the mean",
+    "C": "computes $\\frac{46 - 18}{22 - 18}$, which counts the new value among the original $n$ values",
+    "D": "reports $46 - 22$ without dividing by the change in the mean"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Set $18n + 46 = 22(n + 1)$. Then $46 - 22 = 22n - 18n$, so $24 = 4n$ and $n = 6$.\n\n**The Full Solution:**\nStep 1: The original sum is $18n$, so the new sum is $18n + 46$ over $n + 1$ values.\nStep 2: Set the new mean equal to $22$: $18n + 46 = 22(n + 1) = 22n + 22$.\nStep 3: Subtract $18n$ and $22$ from each side: $24 = 4n$, so $n = 6$. Check: six values averaging $18$ sum to $108$; adding $46$ gives $154$ over $7$ values, and $\\frac{154}{7} = 22$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): reports $22 - 18$, the change in the mean\n* Choice C ($7$): computes $\\frac{46 - 18}{22 - 18}$, which counts the new value among the original $n$ values\n* Choice D ($24$): reports $46 - 22$ without dividing by the change in the mean\n\n**Test Day Takeaway:** When the count is unknown, write both sums in terms of $n$ and set the new mean equal to its stated value; the excess of the new value over the new mean, $46 - 22$, is what raises the other $n$ values by $4$ each."
+}

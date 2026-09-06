@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-434",
+  "question": "A linear model is given by $\\hat{y}=5x+9$. For the data point at $x=8$, the value of $y-\\hat{y}$ is $-6$. What is the observed value of $y$ at $x=8$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$34$"
+    },
+    {
+      "id": "B",
+      "text": "$43$"
+    },
+    {
+      "id": "C",
+      "text": "$49$"
+    },
+    {
+      "id": "D",
+      "text": "$55$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "drops the constant term, using $\\hat{y}=40$.",
+    "C": "reports the predicted value and ignores the difference.",
+    "D": "adds $6$ to the predicted value instead of subtracting it."
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\hat{y}=5(8)+9=49$, and $y=\\hat{y}+(y-\\hat{y})=49-6=43$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $x=8$: $\\hat{y}=5(8)+9=49$.\nStep 2: Rearrange $y-\\hat{y}=-6$ to $y=\\hat{y}-6$.\nStep 3: $y=49-6=43$. Check: $43-49=-6$, the given difference. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($34$): computes $5(8)-6$, dropping the constant $9$ from the model.\n* Choice C ($49$): reports $\\hat{y}$ and never applies the given difference.\n* Choice D ($55$): adds $6$ instead of subtracting, which would follow from $y-\\hat{y}=+6$.\n\n**Test Day Takeaway:** A negative difference means the observation lies below the model, so subtract from the prediction to recover $y$."
+}

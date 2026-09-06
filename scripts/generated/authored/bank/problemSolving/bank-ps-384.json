@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-384",
+  "question": "A fair $10$-sided die with faces numbered $1$ through $10$ is rolled once. What is the probability that the number rolled is prime?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\frac{3}{10}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\frac{2}{5}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\frac{1}{2}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\frac{3}{5}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "omits $2$, the only even prime",
+    "C": "counts $1$ as prime, which it is not",
+    "D": "gives the probability that the number rolled is not prime"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The primes from $1$ to $10$ are $2$, $3$, $5$, and $7$, so the probability is $\\frac{4}{10} = \\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: A prime number has exactly two positive factors, itself and $1$; by that definition $1$ is not prime.\nStep 2: Checking $1$ through $10$, the primes are $2$, $3$, $5$, and $7$, so $4$ of the $10$ faces are favorable.\nStep 3: The probability is $\\frac{4}{10} = \\frac{2}{5}$. Check: the non-primes are $1$, $4$, $6$, $8$, $9$, and $10$, which is $6$ faces, and $4 + 6 = 10$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{10}$): omits $2$, the only even prime\n* Choice C ($\\frac{1}{2}$): counts $1$ as prime, which it is not\n* Choice D ($\\frac{3}{5}$): gives the probability that the number rolled is not prime\n\n**Test Day Takeaway:** List the favorable values explicitly on small ranges. The two traps with primes are counting $1$ and skipping $2$."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-112",
+  "question": "The number of registered volunteers at a park increased by $16\\%$ from last year to this year. This year there are $638$ registered volunteers. How many registered volunteers were there last year?",
+  "correctAnswer": "550",
+  "explanation": "**SAT Pattern: Reverse-Percent**\n\n**The correct answer is $550$.**\n\n**The Fast Way (~20s):** This year is $1.16$ times last year, so last year is $\\dfrac{638}{1.16} = 550$.\n\n**The Full Solution:**\nStep 1: Let $v$ be last year's number of registered volunteers. A $16\\%$ increase gives $v + 0.16v = 1.16v$.\nStep 2: $1.16v = 638$, so $v = \\dfrac{638}{1.16}$.\nStep 3: $v = 550$ volunteers.\nCheck: $16\\%$ of $550$ is $88$, and $550 + 88 = 638$. $\\checkmark$\n\n**Common Mistakes:** Taking $16\\%$ off this year's number, $638(0.84) = 535.92$; dividing by the rate itself, $\\dfrac{638}{0.16} = 3{,}987.5$; increasing again, $638(1.16) = 740.08$.\n\n**Test Day Takeaway:** The percent always applies to the earlier value, so the earlier value is what you solve for — dividing, not multiplying."
+}

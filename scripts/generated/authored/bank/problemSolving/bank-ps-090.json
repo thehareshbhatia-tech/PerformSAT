@@ -1,0 +1,59 @@
+{
+  "id": "bank-ps-090",
+  "question": "For the scatterplot shown, $x$ is the curing time, in days, and $y$ is the compressive strength, in megapascals, of a concrete sample. The line of best fit passes through $(0, 7)$ and $(10, 32)$. One of the data points has a $y$-value of $30$ and a residual of $-4.5$. What is the $x$-coordinate of that data point?",
+  "diagram": {
+    "type": "scatterplot",
+    "params": {
+      "points": [
+        [
+          2,
+          13
+        ],
+        [
+          4,
+          16
+        ],
+        [
+          6,
+          23
+        ],
+        [
+          8,
+          26
+        ],
+        [
+          11,
+          30
+        ],
+        [
+          12,
+          38
+        ],
+        [
+          14,
+          41
+        ],
+        [
+          16,
+          48
+        ]
+      ],
+      "xMin": 0,
+      "xMax": 18,
+      "yMin": 0,
+      "yMax": 55,
+      "xGridStep": 2,
+      "yGridStep": 5,
+      "xLabelStep": 4,
+      "yLabelStep": 10,
+      "xLabel": "Curing time (days)",
+      "yLabel": "Compressive strength (MPa)",
+      "bestFitLine": {
+        "slope": 2.5,
+        "intercept": 7
+      }
+    }
+  },
+  "correctAnswer": "11",
+  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is $11$.**\n\n**The Fast Way (~35s):** The line is $\\hat{y} = 2.5x + 7$. A residual of $-4.5$ at $y = 30$ means $\\hat{y} = 34.5$, so $2.5x + 7 = 34.5$ and $x = 11$.\n\n**The Full Solution:**\nStep 1: The line of best fit has slope $\\dfrac{32 - 7}{10 - 0} = 2.5$ and $y$-intercept $7$, so $\\hat{y} = 2.5x + 7$.\nStep 2: Residual $= y - \\hat{y}$ gives $-4.5 = 30 - \\hat{y}$, so $\\hat{y} = 34.5$ megapascals.\nStep 3: Solve $2.5x + 7 = 34.5$: $2.5x = 27.5$, so $x = 11$ days.\nCheck: $2.5(11) + 7 = 34.5$ and $30 - 34.5 = -4.5$. $\\checkmark$\n\n**Common Mistakes:** Treating $30$ as the predicted value and solving $2.5x + 7 = 30$, which gives $9.2$; subtracting the residual instead of adding its opposite, using $\\hat{y} = 25.5$ and getting $7.4$; reporting the predicted value $34.5$ instead of the $x$-coordinate.\n\n**Test Day Takeaway:** Build the line first, convert the residual into a predicted value, and only then solve for $x$."
+}

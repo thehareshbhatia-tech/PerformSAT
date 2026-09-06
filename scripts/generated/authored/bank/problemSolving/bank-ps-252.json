@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-252",
+  "question": "The value of $c$ is $36\\%$ less than the value of $d$. If $d = 425$, what is the value of $c$?",
+  "correctAnswer": "272",
+  "explanation": "**SAT Pattern: Percent Greater Than / Less Than**\n\n**The correct answer is $272$.**\n\n**The Fast Way (~10s):** $36\\%$ less leaves $64\\%$: $0.64 \\times 425 = 272$.\n\n**The Full Solution:**\nStep 1: A value $36\\%$ less than $d$ is $d - 0.36d = 0.64d$.\nStep 2: Substitute $d = 425$: $c = 0.64(425)$.\nStep 3: Compute: $0.64 \\times 425 = 0.64 \\times 400 + 0.64 \\times 25 = 256 + 16 = 272$. Check: $425 - 272 = 153$, and $\\frac{153}{425} = 0.36$. $\\checkmark$\n\n**Common Mistakes:** Entering $153$, which is $36\\%$ of $425$ (the decrease, not the result); entering $389$, from $425 - 36$, which subtracts $36$ as units rather than as a percent; entering $578$, from $1.36 \\times 425$, which increases instead of decreases.\n\n**Test Day Takeaway:** For \"$p\\%$ less than,\" multiply by $1 - \\frac{p}{100}$ in one step rather than computing the decrease and subtracting."
+}

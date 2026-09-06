@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-368",
+  "question": "A certificate of deposit is opened with a deposit of $\\$4{,}500$ and earns simple interest at an annual rate of $3\\%$. How much interest, in dollars, does the certificate earn in $2$ years?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$135$"
+    },
+    {
+      "id": "B",
+      "text": "$270$"
+    },
+    {
+      "id": "C",
+      "text": "$2{,}700$"
+    },
+    {
+      "id": "D",
+      "text": "$4{,}770$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses $1$ year instead of $2$",
+    "C": "uses $30\\%$ instead of $3\\%$",
+    "D": "reports the balance, principal plus interest, instead of the interest alone"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Simple interest is $I = Prt = 4500(0.03)(2) = 270$.\n\n**The Full Solution:**\nStep 1: Simple interest is $I = Prt$, where $P$ is the principal, $r$ is the annual rate as a decimal, and $t$ is the number of years.\nStep 2: Substitute $P = 4500$, $r = 0.03$, and $t = 2$: $I = 4500(0.03)(2)$.\nStep 3: $4500(0.03) = 135$ dollars per year, and $135(2) = 270$ dollars. Check: $\\$135$ each year for $2$ years is $\\$270$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($135$): uses $1$ year instead of $2$\n* Choice C ($2{,}700$): uses $30\\%$ instead of $3\\%$\n* Choice D ($4{,}770$): reports the balance, principal plus interest, instead of the interest alone\n\n**Test Day Takeaway:** Simple interest is earned on the original principal only, so it is the same dollar amount every year: find one year's interest, then multiply by the number of years."
+}

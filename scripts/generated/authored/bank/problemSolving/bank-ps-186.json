@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-186",
+  "question": "If $12\\%$ of $y$ is equal to $30\\%$ of $45$, what is $y\\%$ of $200$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$27$"
+    },
+    {
+      "id": "B",
+      "text": "$36$"
+    },
+    {
+      "id": "C",
+      "text": "$112.5$"
+    },
+    {
+      "id": "D",
+      "text": "$225$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses 13.5 (30% of 45) as the percent: 0.135 × 200",
+    "B": "swaps the percents, y = 45 × 0.12 ÷ 0.30 = 18, then 18% of 200",
+    "C": "stops at y = 112.5 without taking y% of 200"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Percent of a Whole**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** $30\\%$ of $45$ is $13.5$, so $0.12y = 13.5$ and $y = 112.5$. Then $y\\%$ of $200$ is $1.125 \\times 200 = 225$.\n\n**The Full Solution:**\nStep 1: Compute the known side: $30\\%$ of $45$ is $0.30 \\times 45 = 13.5$.\nStep 2: Solve $0.12y = 13.5$: $y = \\frac{13.5}{0.12} = 112.5$.\nStep 3: The question asks for $y\\%$ of $200$, not $y$: $\\frac{112.5}{100} \\times 200 = 225$. Check: $12\\%$ of $112.5$ is $13.5$, matching Step 1. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($27$): uses $13.5$ as the percent, computing $13.5\\%$ of $200 = 27$ instead of first solving for $y$.\n* Choice B ($36$): swaps the percents, computing $y = \\frac{45 \\times 0.12}{0.30} = 18$ and then $18\\%$ of $200$.\n* Choice C ($112.5$): correctly finds $y$ but stops there; the question asks for $y\\%$ of $200$.\n\n**Test Day Takeaway:** Read the final ask twice. Hard percent items often solve for a variable and then use it as a percent — a value over $100$ percent is fine and simply means more than the whole."
+}

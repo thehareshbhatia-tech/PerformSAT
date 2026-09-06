@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-249",
+  "question": "The value of $k$ is $35\\%$ greater than $60$. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$21$"
+    },
+    {
+      "id": "B",
+      "text": "$39$"
+    },
+    {
+      "id": "C",
+      "text": "$81$"
+    },
+    {
+      "id": "D",
+      "text": "$95$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports 35% of 60, the increase itself, instead of the increased value",
+    "B": "subtracts the 35% instead of adding it (60 - 21)",
+    "D": "adds 35 as a number of units instead of as a percent (60 + 35)"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** \"$35\\%$ greater than $60$\" means $60$ plus $35\\%$ of $60$: $60 \\times 1.35 = 81$.\n\n**The Full Solution:**\nStep 1: Translate the phrase. A quantity that is $35\\%$ greater than $60$ equals $60 + 0.35(60)$, which is $(1 + 0.35)(60) = 1.35(60)$.\nStep 2: Compute: $0.35 \\times 60 = 21$, so $k = 60 + 21 = 81$.\nStep 3: Check: $81 - 60 = 21$, and $\\frac{21}{60} = 0.35 = 35\\%$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($21$): $0.35 \\times 60 = 21$ is the amount of the increase, not the value of $k$.\n* Choice B ($39$): $60 - 21 = 39$ is $35\\%$ less than $60$; the sign of the change is reversed.\n* Choice D ($95$): $60 + 35 = 95$ adds $35$ as if it were a number of units rather than a percent of $60$.\n\n**Test Day Takeaway:** \"$p\\%$ greater than $N$\" is $N\\left(1 + \\frac{p}{100}\\right)$; compute the multiplier first, then multiply once."
+}

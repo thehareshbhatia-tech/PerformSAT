@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-223",
+  "question": "On a laboratory shelf, $\\dfrac{7}{16}$ of the bottles contain a buffer solution and the rest contain distilled water. What percent of the bottles contain distilled water?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$9\\%$"
+    },
+    {
+      "id": "B",
+      "text": "$43.75\\%$"
+    },
+    {
+      "id": "C",
+      "text": "$56.25\\%$"
+    },
+    {
+      "id": "D",
+      "text": "$93.75\\%$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the numerator 9 of 9/16 as the percent",
+    "B": "converts 7/16, the buffer share, to a percent",
+    "D": "subtracts 1/16 instead of 7/16"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Percent Complement**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The water share is $1 - \\frac{7}{16} = \\frac{9}{16}$, and $\\frac{9}{16} = 0.5625$, or $56.25\\%$.\n\n**The Full Solution:**\nStep 1: The bottles are either buffer or water, so the water share is $1 - \\frac{7}{16} = \\frac{16}{16} - \\frac{7}{16} = \\frac{9}{16}$.\nStep 2: Convert the fraction to a decimal: $\\frac{9}{16} = \\frac{9 \\times 6.25}{100} = 0.5625$.\nStep 3: Write as a percent: $56.25\\%$. Check: $\\frac{7}{16} = 43.75\\%$, and $43.75\\% + 56.25\\% = 100\\%$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\%$): reads the numerator of $\\frac{9}{16}$ as a percent without dividing by $16$.\n* Choice B ($43.75\\%$): converts $\\frac{7}{16}$, the buffer bottles, instead of the remaining bottles.\n* Choice D ($93.75\\%$): subtracts $\\frac{1}{16}$ from $1$, treating the numerator as $1$.\n\n**Test Day Takeaway:** Complement in fraction form first, then convert once. Sixteenths are worth memorizing: each sixteenth is $6.25\\%$."
+}

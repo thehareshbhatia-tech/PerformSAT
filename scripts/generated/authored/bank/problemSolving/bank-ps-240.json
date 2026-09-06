@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-240",
+  "question": "A researcher analyzes county-level census data and finds that counties with a higher share of residents holding library cards have lower average commute times. Based on this analysis alone, which of the following is the most defensible conclusion?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Issuing more library cards would reduce average commute times in these counties."
+    },
+    {
+      "id": "B",
+      "text": "A resident who holds a library card has a shorter commute than a resident who does not."
+    },
+    {
+      "id": "C",
+      "text": "Across the counties analyzed, there is an association between the share of residents holding library cards and average commute time."
+    },
+    {
+      "id": "D",
+      "text": "Average commute time in a county determines how many of its residents obtain library cards."
+    }
+  ],
+  "distractorNotes": {
+    "A": "treats an observed association as an intervention that would change outcomes",
+    "B": "applies a county-level pattern to individual residents",
+    "D": "asserts causation in the reverse direction, which the data also cannot show"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Census data involve no assignment and no individual-level measurement, so only an association across counties can be claimed.\n\n**The Full Solution:**\nStep 1: Identify the design. The researcher analyzed existing records; nothing was assigned or manipulated.\nStep 2: The unit of analysis is the county, not the resident, so the pattern describes county averages rather than individuals.\nStep 3: Both restrictions leave one defensible statement: an association across the counties analyzed. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: predicts the effect of an intervention, which requires an experiment rather than existing records.\n* Choice B: applies a county-level relationship to individual residents, a comparison the county data never measured.\n* Choice D: reverses the causal direction, but the analysis supports no causal direction at all.\n\n**Test Day Takeaway:** Ask two questions of any records-based study: was anything assigned, and what was the unit measured? Both limit how far the conclusion may travel."
+}

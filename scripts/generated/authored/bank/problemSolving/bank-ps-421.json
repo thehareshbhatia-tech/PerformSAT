@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-421",
+  "question": "A coastal preserve covers $250$ acres, and $185$ of these acres are forested. What percent of the area of the preserve is forested?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$0.74\\%$"
+    },
+    {
+      "id": "B",
+      "text": "$26\\%$"
+    },
+    {
+      "id": "C",
+      "text": "$74\\%$"
+    },
+    {
+      "id": "D",
+      "text": "$135\\%$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the quotient $0.74$ as a percent without multiplying by $100$.",
+    "B": "gives the percent of the preserve that is NOT forested.",
+    "D": "inverts the ratio, dividing the total acreage by the forested acreage."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Percent of a Whole**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The part over the whole is $\\frac{185}{250}=0.74$, and $0.74\\times 100=74$, so $74\\%$ of the preserve is forested.\n\n**The Full Solution:**\nStep 1: The forested acreage is the part and the full preserve is the whole, so the percent is $\\frac{185}{250}\\times 100$.\nStep 2: $\\frac{185}{250}=\\frac{37}{50}=0.74$.\nStep 3: $0.74\\times 100=74$, so $74\\%$. Check: $74\\%$ of $250$ is $0.74\\times 250=185$ acres. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.74\\%$): reports the quotient $0.74$ as a percent without multiplying by $100$.\n* Choice B ($26\\%$): uses the $65$ unforested acres, giving the percent that is NOT forested.\n* Choice D ($135\\%$): inverts the ratio as $\\frac{250}{185}\\approx 1.35$; a part can never exceed $100\\%$ of its whole.\n\n**Test Day Takeaway:** Percent of a whole is always part divided by whole, then times $100$. If the part is smaller than the whole, the answer must land between $0\\%$ and $100\\%$."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-231",
+  "question": "For positive numbers $c$, $d$, and $e$, $c = 0.36d$ and $c$ is $90\\%$ of $e$. What percent of $d$ is $e$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$32.4\\%$"
+    },
+    {
+      "id": "B",
+      "text": "$40\\%$"
+    },
+    {
+      "id": "C",
+      "text": "$60\\%$"
+    },
+    {
+      "id": "D",
+      "text": "$250\\%$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies 0.36 by 0.90 instead of dividing",
+    "C": "reports the complement of the correct 40%",
+    "D": "divides 0.90 by 0.36, reversing the ratio"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $0.90e = 0.36d$, so $e = \\frac{0.36}{0.90}d = 0.4d$, which is $40\\%$.\n\n**The Full Solution:**\nStep 1: Translate the second statement: $c = 0.90e$.\nStep 2: Set the two expressions for $c$ equal: $0.90e = 0.36d$.\nStep 3: Solve for $e$: $e = \\frac{0.36}{0.90}d = 0.4d$, so $e$ is $40\\%$ of $d$. Check with $d = 100$: $c = 36$, and $\\frac{36}{0.90} = 40 = e$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($32.4\\%$): multiplies, $0.36 \\times 0.90$, but here $e$ is the larger unknown being solved for, so the $90\\%$ divides rather than multiplies.\n* Choice C ($60\\%$): reports $100\\% - 40\\%$, the share of $d$ that $e$ falls short by.\n* Choice D ($250\\%$): computes $\\frac{0.90}{0.36}$, which gives $d$ as a percent of $e$ instead.\n\n**Test Day Takeaway:** When the chain runs backward, isolate the requested variable in the equation rather than guessing whether to multiply or divide."
+}

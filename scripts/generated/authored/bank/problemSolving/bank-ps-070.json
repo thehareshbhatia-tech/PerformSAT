@@ -1,0 +1,56 @@
+{
+  "id": "bank-ps-070",
+  "question": "The table shows the rainfall, in millimeters, recorded at a weather station in each of four months. What is the mean monthly rainfall, in millimeters, for these four months?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "Month",
+        "Rainfall (mm)"
+      ],
+      "rows": [
+        [
+          "March",
+          "62"
+        ],
+        [
+          "April",
+          "48"
+        ],
+        [
+          "May",
+          "75"
+        ],
+        [
+          "June",
+          "55"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$60$"
+    },
+    {
+      "id": "B",
+      "text": "$75$"
+    },
+    {
+      "id": "C",
+      "text": "$80$"
+    },
+    {
+      "id": "D",
+      "text": "$240$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "reports the greatest value instead of the mean",
+    "C": "divides the total by 3 instead of 4",
+    "D": "stops at the sum"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Mean of Four Values**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $62 + 48 + 75 + 55 = 240$, and $\\frac{240}{4} = 60$.\n\n**The Full Solution:**\nStep 1: The mean is the sum of the values divided by the number of values. Read the four rainfall amounts from the table: $62, 48, 75, 55$.\nStep 2: Sum: $62 + 48 = 110$, $75 + 55 = 130$, and $110 + 130 = 240$.\nStep 3: Divide by the $4$ months: $\\frac{240}{4} = 60$ millimeters. Check: the values above $60$ exceed it by $2 + 15 = 17$, and the values below fall short by $12 + 5 = 17$; the deviations balance. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($75$): reports the greatest value in the table rather than the average.\n* Choice C ($80$): divides the $240$ total by $3$ instead of by the $4$ months.\n* Choice D ($240$): stops at the sum and never divides.\n\n**Test Day Takeaway:** Mean $=$ total $\\div$ count; a quick sanity check is that the mean must sit between the smallest and largest values."
+}

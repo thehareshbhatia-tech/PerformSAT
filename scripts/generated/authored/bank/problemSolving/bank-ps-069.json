@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-069",
+  "question": "An auditorium has $640$ seats. If $35\\%$ of the seats are in the balcony, how many of the seats are in the balcony?",
+  "correctAnswer": "224",
+  "explanation": "**SAT Pattern: Percent of Total**\n\n**The correct answer is $224$.**\n\n**The Fast Way (~10s):** $35\\%$ of $640$ is $0.35 \\times 640 = 224$.\n\n**The Full Solution:**\nStep 1: \"$35\\%$ of the seats\" means $\\frac{35}{100}$ of the total, so multiply: $0.35 \\times 640$.\nStep 2: $0.35 \\times 640 = 0.35 \\times 600 + 0.35 \\times 40 = 210 + 14 = 224$.\nStep 3: Check: $\\frac{224}{640} = 0.35$, so $224$ seats is $35\\%$ of the total. $\\checkmark$\n\n**Common Mistakes:** Dividing instead of multiplying, $\\frac{640}{0.35} \\approx 1{,}829$, which is larger than the whole auditorium; reporting the seats NOT in the balcony, $640 - 224 = 416$; or using $3.5$ instead of $0.35$ for $35\\%$.\n\n**Test Day Takeaway:** \"Percent of\" a known total is a multiplication by the decimal form of the percent, and the result must be smaller than the total whenever the percent is under $100$."
+}

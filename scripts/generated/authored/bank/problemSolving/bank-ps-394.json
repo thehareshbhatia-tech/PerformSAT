@@ -1,0 +1,56 @@
+{
+  "id": "bank-ps-394",
+  "question": "The mean of $5$ wind speeds recorded at a monitoring station is $21$ kilometers per hour. The table gives four of the five recorded speeds. What is the fifth recorded speed, in kilometers per hour?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "Reading",
+        "Speed (km/h)"
+      ],
+      "rows": [
+        [
+          "1",
+          "15"
+        ],
+        [
+          "2",
+          "19"
+        ],
+        [
+          "3",
+          "24"
+        ],
+        [
+          "4",
+          "30"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$17$"
+    },
+    {
+      "id": "B",
+      "text": "$21$"
+    },
+    {
+      "id": "C",
+      "text": "$22$"
+    },
+    {
+      "id": "D",
+      "text": "$67$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "assumes the missing value must equal the mean",
+    "C": "reports the mean of the four given speeds, $\\frac{88}{4}$",
+    "D": "subtracts the mean from the sum of the four given speeds, $88 - 21$"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The five speeds total $5(21) = 105$, and the four listed total $88$, so the fifth is $105 - 88 = 17$.\n\n**The Full Solution:**\nStep 1: Mean $\\times$ count gives the sum: the five speeds total $5(21) = 105$ kilometers per hour.\nStep 2: The four speeds in the table total $15 + 19 + 24 + 30 = 88$.\nStep 3: The fifth speed is $105 - 88 = 17$. Check: $\\frac{15 + 19 + 24 + 30 + 17}{5} = \\frac{105}{5} = 21$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($21$): assumes the missing value must equal the mean\n* Choice C ($22$): reports the mean of the four given speeds, $\\frac{88}{4}$\n* Choice D ($67$): subtracts the mean from the sum of the four given speeds, $88 - 21$\n\n**Test Day Takeaway:** Turn a mean into a sum before doing anything else; missing-value problems are subtraction problems once you have the total."
+}

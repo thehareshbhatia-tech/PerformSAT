@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-251",
+  "question": "The value of $a$ is $65\\%$ greater than the value of $b$, where $b > 0$. Which of the following expressions represents $a$ in terms of $b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$0.35b$"
+    },
+    {
+      "id": "B",
+      "text": "$0.65b$"
+    },
+    {
+      "id": "C",
+      "text": "$1.65b$"
+    },
+    {
+      "id": "D",
+      "text": "$65b$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses 1 - 0.65, which is 65% less than b",
+    "B": "gives 65% of b, dropping the original 100%",
+    "D": "never converts the percent to a decimal"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** \"$65\\%$ greater than $b$\" is all of $b$ plus $65\\%$ more: $b + 0.65b = 1.65b$.\n\n**The Full Solution:**\nStep 1: Write $65\\%$ as the decimal $0.65$. Then $65\\%$ of $b$ is $0.65b$.\nStep 2: A value that is $65\\%$ greater than $b$ is $b$ increased by that amount: $a = b + 0.65b$.\nStep 3: Combine like terms: $a = (1 + 0.65)b = 1.65b$. Check with $b = 100$: $a$ should be $165$, and $1.65(100) = 165$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.35b$): $1 - 0.65 = 0.35$ describes a value $65\\%$ less than $b$, the opposite direction.\n* Choice B ($0.65b$): this is $65\\%$ of $b$, the increase alone, without the original $b$.\n* Choice D ($65b$): treats the percent $65$ as the multiplier without dividing by $100$; this would be $6{,}400\\%$ greater than $b$.\n\n**Test Day Takeaway:** \"Greater than\" adds to $1$; \"of\" does not. $p\\%$ greater than $b$ is $\\left(1 + \\frac{p}{100}\\right)b$."
+}

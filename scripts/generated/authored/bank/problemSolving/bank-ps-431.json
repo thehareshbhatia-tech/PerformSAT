@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-431",
+  "question": "For a certain data set, a linear model is given by $\\hat{y}=-3x+22$. At $x=5$, the observed value of $y$ is $4$. What is the value of $y-\\hat{y}$ at $x=5$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-33$"
+    },
+    {
+      "id": "B",
+      "text": "$-3$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$19$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "drops the negative sign on the slope, using $\\hat{y}=37$.",
+    "C": "computes $\\hat{y}-y$ instead of $y-\\hat{y}$.",
+    "D": "drops the constant term, using $\\hat{y}=-15$."
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $\\hat{y}=-3(5)+22=7$, so $y-\\hat{y}=4-7=-3$.\n\n**The Full Solution:**\nStep 1: Substitute $x=5$: $\\hat{y}=-3(5)+22$.\nStep 2: $\\hat{y}=-15+22=7$.\nStep 3: $y-\\hat{y}=4-7=-3$. Check: $7+(-3)=4$, the observed value. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-33$): uses $\\hat{y}=3(5)+22=37$, losing the negative sign on the slope.\n* Choice C ($3$): computes $7-4$, subtracting the observed value from the predicted value.\n* Choice D ($19$): uses $\\hat{y}=-15$, dropping the constant $22$, giving $4-(-15)$.\n\n**Test Day Takeaway:** Evaluate the model completely before subtracting. A negative slope makes the sign errors on this item look like reasonable answers."
+}

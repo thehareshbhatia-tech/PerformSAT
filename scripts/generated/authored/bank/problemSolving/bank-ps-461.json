@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-461",
+  "question": "The number $p$ is $140\\%$ greater than the number $q$. The number $q$ is $75\\%$ less than $96$. What is the value of $p$?",
+  "correctAnswer": "57.6",
+  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $57.6$.**\n\n**The Fast Way (~25s):** $75\\%$ less than $96$ leaves $25\\%$: $q=96(0.25)=24$. Then $140\\%$ greater means $\\times 2.40$, so $p=2.40(24)=57.6$.\n\n**The Full Solution:**\nStep 1: \"$q$ is $75\\%$ less than $96$\" means $q=96(1-0.75)=96(0.25)$.\nStep 2: $q=24$.\nStep 3: \"$p$ is $140\\%$ greater than $q$\" means $p=q(1+1.40)=2.40q=2.40(24)=57.6$. Check: $57.6-24=33.6$, and $\\frac{33.6}{24}=1.40$, an increase of $140\\%$. $\\checkmark$\n\n**Common Mistakes:** Reading \"$140\\%$ greater\" as a factor of $1.40$ gives $33.6$; reading \"$75\\%$ less\" as a factor of $0.75$ makes $q=72$ and $p=172.8$.\n\n**Test Day Takeaway:** \"Greater than\" is $1+r$ and \"less than\" is $1-r$, where $r$ is the percent written as a decimal. A percent above $100$ more than doubles the number."
+}

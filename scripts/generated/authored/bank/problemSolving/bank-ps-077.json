@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-077",
+  "question": "A list of $5$ numbers has a mean of $30$. When a sixth number is added to the list, the mean of the $6$ numbers is $33$. What is the sixth number?",
+  "correctAnswer": "48",
+  "explanation": "**SAT Pattern: Mean from List**\n\n**The correct answer is $48$.**\n\n**The Fast Way (~10s):** New total minus old total: $6(33) - 5(30) = 198 - 150 = 48$.\n\n**The Full Solution:**\nStep 1: The original $5$ numbers total $5 \\times 30 = 150$.\nStep 2: After the sixth number is added, the $6$ numbers total $6 \\times 33 = 198$.\nStep 3: The sixth number is the difference, $198 - 150 = 48$. Check: $\\frac{150 + 48}{6} = \\frac{198}{6} = 33$. $\\checkmark$\n\n**Common Mistakes:** Answering $33$, assuming the new number equals the new mean; or answering $3$, the change in the mean, which is not the number added. The new number must exceed $33$ to pull five values averaging $30$ up to a mean of $33$.\n\n**Test Day Takeaway:** When a value joins a list, compare totals: (new count)(new mean) $-$ (old count)(old mean) is the value added."
+}

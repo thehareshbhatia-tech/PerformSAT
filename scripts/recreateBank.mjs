@@ -90,7 +90,7 @@ const cmd = process.argv[2];
 const sectionSlug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const kebab = sectionSlug;
 const patternTitleOf = expl => { const m = String(expl || '').match(/\*\*SAT Pattern:\s*([^*]+?)\s*\*\*/); return m ? m[1] : null; };
-const wordCount = s => String(s || '').replace(/\$[^$]*\$/g, 'M').split(/\s+/).filter(Boolean).length;
+const wordCount = s => String(s || '').replace(/\\\$/g, 'S').replace(/\$[^$]*\$/g, 'M').split(/\s+/).filter(Boolean).length; // escaped \$ (money) is not a math delimiter
 const dollarBalanced = s => ((String(s || '').replace(/\\\$/g, '').match(/\$/g) || []).length % 2) === 0;
 const numericOf = t => {
   let s = String(t ?? '').replace(/\$/g, '').replace(/\\,/g, '').replace(/\{,\}/g, '').replace(/,/g, '').trim();
@@ -271,6 +271,7 @@ function checkItem(row, authored, ctx) {
   if (wc > 90) warns.push(`stem ${wc} words (>90)`);
   for (const [k, v] of Object.entries({ question: a.question, explanation: a.explanation, hint: a.hint, questionFormula: a.questionFormula })) {
     if (v && !dollarBalanced(v)) errs.push(`${k}: unbalanced $`);
+    if (v && /\\"/.test(v)) errs.push(`${k}: backslash-escaped quote (\\") renders as a literal backslash — use a plain "`);
   }
   if (row.type === 'multiple-choice') {
     if (!Array.isArray(a.choices) || a.choices.length !== 4) errs.push('MC needs exactly 4 choices');
@@ -294,11 +295,27 @@ function checkItem(row, authored, ctx) {
     const ca = String(a.correctAnswer ?? '').trim();
     if (!ca) errs.push('fill-in correctAnswer missing');
     else if (!/^-?\d*\.?\d+$|^-?\d+\/\d+$/.test(ca)) errs.push(`fill-in correctAnswer "${ca}" must be a number or fraction`);
+    else if (ca.length > (ca.startsWith('-') ? 6 : 5)) errs.push(`fill-in correctAnswer "${ca}" exceeds the Bluebook grid (5 characters, 6 with a leading minus) — retune the numbers`);
   }
   if (row.kind === 'topic' && row.hasHint && !(a.hint && a.hint.length > 5)) errs.push('topic item needs a hint');
   if (a.diagram) {
     if (!a.diagram.type || !SUPPORTED_DIAGRAM_TYPES.has(a.diagram.type)) errs.push(`unsupported diagram type ${a.diagram?.type}`);
     if (!a.diagram.params || typeof a.diagram.params !== 'object') errs.push('diagram.params missing');
+    else if (a.diagram.type === 'scatterplot') {
+      // The renderer draws bestFitLine from xMin to xMax with no clip path and plots every point as given.
+      const P = a.diagram.params; const num = v => typeof v === 'number' && Number.isFinite(v);
+      if ([P.xMin, P.xMax, P.yMin, P.yMax].every(num)) {
+        const eps = 1e-9;
+        (Array.isArray(P.points) ? P.points : []).forEach((pt, i) => {
+          const [x, y] = Array.isArray(pt) ? pt : [pt?.x, pt?.y];
+          if (num(x) && num(y) && (x < P.xMin - eps || x > P.xMax + eps || y < P.yMin - eps || y > P.yMax + eps)) errs.push(`scatterplot point #${i + 1} (${x}, ${y}) lies outside the axis window`);
+        });
+        const L = P.bestFitLine;
+        if (L && num(L.slope) && num(L.intercept)) {
+          for (const x of [P.xMin, P.xMax]) { const y = L.slope * x + L.intercept; if (y < P.yMin - eps || y > P.yMax + eps) warns.push(`bestFitLine leaves the plot window at x=${x} (y=${y}); the renderer does not clip — adjust xMin/xMax/yMin/yMax`); }
+        }
+      }
+    }
   }
   if (a.questionTable && (!Array.isArray(a.questionTable.headers) || !Array.isArray(a.questionTable.rows))) errs.push('questionTable needs headers[] and rows[]');
   if (VISUAL_CUE_RE.test(a.question || '') && !a.diagram && !a.questionTable) errs.push('stem names a visual (table/figure/plot) but carries no diagram/questionTable');

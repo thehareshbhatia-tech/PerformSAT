@@ -1,0 +1,92 @@
+{
+  "id": "bank-ps-086",
+  "question": "The scatterplot shows the length $y$, in centimeters, of each of $10$ icicles and the number of hours $x$ since a storm ended, along with the line of best fit $\\hat{y} = 0.6x + 12.4$. What is the residual for the highlighted data point $(25, 30)$?",
+  "diagram": {
+    "type": "scatterplot",
+    "params": {
+      "points": [
+        [
+          4,
+          14
+        ],
+        [
+          8,
+          16
+        ],
+        [
+          12,
+          21
+        ],
+        [
+          16,
+          21
+        ],
+        [
+          18,
+          24
+        ],
+        [
+          20,
+          23
+        ],
+        [
+          22,
+          27
+        ],
+        [
+          28,
+          28
+        ],
+        [
+          30,
+          29
+        ]
+      ],
+      "xMin": 0,
+      "xMax": 32,
+      "yMin": 0,
+      "yMax": 36,
+      "xGridStep": 2,
+      "yGridStep": 4,
+      "xLabelStep": 4,
+      "yLabelStep": 8,
+      "xLabel": "Hours since storm",
+      "yLabel": "Length (cm)",
+      "bestFitLine": {
+        "slope": 0.6,
+        "intercept": 12.4
+      },
+      "highlightPoint": [
+        25,
+        30
+      ],
+      "highlightLabel": "(25, 30)",
+      "showResidual": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-5.4$"
+    },
+    {
+      "id": "B",
+      "text": "$-2.6$"
+    },
+    {
+      "id": "C",
+      "text": "$2.6$"
+    },
+    {
+      "id": "D",
+      "text": "$27.4$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "swaps the coordinates: uses x = 30, then 25 - 30.4",
+    "B": "computes predicted minus actual",
+    "D": "reports the predicted value"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\hat{y} = 0.6(25) + 12.4 = 27.4$, so the residual is $30 - 27.4 = 2.6$.\n\n**The Full Solution:**\nStep 1: Residual $= y - \\hat{y}$, with $\\hat{y}$ evaluated at the point's $x$-value.\nStep 2: At $x = 25$: $0.6(25) = 15$, and $15 + 12.4 = 27.4$ centimeters.\nStep 3: The actual length is $30$, so the residual is $30 - 27.4 = 2.6$ centimeters.\nCheck: $27.4 + 2.6 = 30$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5.4$): This swaps the coordinates, using $x = 30$ to get $\\hat{y} = 30.4$ and then $25 - 30.4 = -5.4$.\n* Choice B ($-2.6$): This computes predicted minus actual, $27.4 - 30$, reversing the definition.\n* Choice D ($27.4$): This is the predicted length itself, not the gap between the point and the line.\n\n**Test Day Takeaway:** Substitute the point's $x$ into the model first, then subtract in the order actual $-$ predicted."
+}

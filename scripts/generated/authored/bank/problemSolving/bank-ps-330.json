@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-330",
+  "question": "A linear model gives the total charge $y$, in dollars, for renting a kayak for $x$ hours: $\\hat{y} = 9x + 14$. Which of the following is the best interpretation of the $y$-intercept of this model?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "A fixed charge of $\\$14$ applies to the rental before any hourly charge."
+    },
+    {
+      "id": "B",
+      "text": "The charge for each hour of the rental is $\\$14$."
+    },
+    {
+      "id": "C",
+      "text": "The total charge for a $1$-hour rental is $\\$14$."
+    },
+    {
+      "id": "D",
+      "text": "A rental lasts $14$ hours."
+    }
+  ],
+  "distractorNotes": {
+    "B": "describes the slope, which is $9$ dollars per hour, not the intercept.",
+    "C": "evaluates at $x = 1$, which the model puts at $9(1) + 14 = 23$ dollars, not $14$.",
+    "D": "reads $14$ as a number of hours, but $14$ is a value of $y$ and $y$ is measured in dollars."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Interpret Intercept of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The $y$-intercept is the value of $\\hat{y}$ when $x = 0$: $\\hat{y} = 9(0) + 14 = 14$ dollars charged before any hours are counted.\n\n**The Full Solution:**\nStep 1: The $y$-intercept of $\\hat{y} = 9x + 14$ is $14$, the predicted charge when $x = 0$ hours.\nStep 2: In this context $x = 0$ means no hourly time has been billed, so $\\$14$ is charged regardless of the rental length.\nStep 3: That is a fixed charge applied on top of the $\\$9$ per hour. Check: a $2$-hour rental costs $9(2) + 14 = \\$32$, which is the fixed $\\$14$ plus $\\$18$ of hourly charges. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: describes the slope, which is $9$ dollars per hour, not the intercept.\n* Choice C: evaluates at $x = 1$, which the model puts at $9(1) + 14 = 23$ dollars, not $14$.\n* Choice D: reads $14$ as a number of hours, but $14$ is a value of $y$ and $y$ is measured in dollars.\n\n**Test Day Takeaway:** The intercept is the predicted $y$ at $x = 0$, and it carries the units of $y$. In a cost model, that is the fixed part of the bill."
+}

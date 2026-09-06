@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-227",
+  "question": "If $u$ is $65\\%$ of $v$ and $v$ is $24\\%$ of $w$, then $u$ is what percent of $w$? (Report only the number, without the percent sign.)",
+  "correctAnswer": "15.6",
+  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $15.6$.**\n\n**The Fast Way (~20s):** $0.65 \\times 0.24 = 0.156$, so $u$ is $15.6\\%$ of $w$.\n\n**The Full Solution:**\nStep 1: Translate: $u = 0.65v$ and $v = 0.24w$.\nStep 2: Substitute: $u = 0.65(0.24w) = 0.156w$.\nStep 3: Convert the coefficient to a percent: $15.6\\%$. Check with $w = 500$: $v = 120$ and $u = 0.65(120) = 78$, and $\\frac{78}{500} = 0.156$. $\\checkmark$\n\n**Common Mistakes:** Adding the percents for $89$; subtracting them for $41$; or dividing $65$ by $24$ for about $270.8$, which would make $u$ larger than $w$ even though $u$ is a part of a part.\n\n**Test Day Takeaway:** Multiply the decimal forms, then move the decimal two places to report a percent — $0.156$ is $15.6\\%$, not $0.156\\%$."
+}

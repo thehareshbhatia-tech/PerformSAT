@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-080",
+  "question": "The mean of a list of $12$ values is $27$. If a value of $15$ in the list is replaced by a value of $51$, what is the mean of the resulting list of $12$ values?",
+  "correctAnswer": "30",
+  "explanation": "**SAT Pattern: Mean from List**\n\n**The correct answer is $30$.**\n\n**The Fast Way (~10s):** The total rises by $51 - 15 = 36$, so the mean rises by $\\frac{36}{12} = 3$: from $27$ to $30$.\n\n**The Full Solution:**\nStep 1: The original total is $12 \\times 27 = 324$.\nStep 2: Replacing $15$ with $51$ changes the total by $51 - 15 = +36$, so the new total is $324 + 36 = 360$. The count is still $12$.\nStep 3: New mean $= \\frac{360}{12} = 30$. Check: $30 - 27 = 3$, and $3 \\times 12 = 36$, the amount the total changed. $\\checkmark$\n\n**Common Mistakes:** Adding $51$ without removing $15$, $\\frac{324 + 51}{12} = 31.25$; changing the count to $13$, $\\frac{375}{13} \\approx 28.8$; or entering $3$, the change in the mean rather than the new mean.\n\n**Test Day Takeaway:** A replacement changes the total by (new $-$ old) with the count fixed, so the mean shifts by that difference divided by the count."
+}

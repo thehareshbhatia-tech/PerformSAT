@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-357",
+  "question": "A ferry crosses a lake at a constant speed of $18$ miles per hour. How many miles does the ferry travel in $2.5$ hours?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7.2$"
+    },
+    {
+      "id": "B",
+      "text": "$20.5$"
+    },
+    {
+      "id": "C",
+      "text": "$36$"
+    },
+    {
+      "id": "D",
+      "text": "$45$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "divides the speed by the time, $\\frac{18}{2.5}$, instead of multiplying.",
+    "B": "adds the speed and the time, $18 + 2.5$, combining quantities with different units.",
+    "C": "uses only the whole number of hours, $18 \\times 2$, dropping the half hour."
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Distance = Rate × Time**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Distance $=$ rate $\\times$ time $= 18 \\times 2.5 = 45$ miles.\n\n**The Full Solution:**\nStep 1: At a constant speed, distance is the product of the rate and the time.\nStep 2: The rate is $18$ miles per hour and the time is $2.5$ hours, and the hours cancel to leave miles.\nStep 3: $18 \\times 2.5 = 45$ miles. Check: in $2$ hours the ferry covers $36$ miles and in the extra half hour it covers $9$ more, for $45$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7.2$): divides the speed by the time, $\\frac{18}{2.5}$, instead of multiplying.\n* Choice B ($20.5$): adds the speed and the time, $18 + 2.5$, combining quantities with different units.\n* Choice C ($36$): uses only the whole number of hours, $18 \\times 2$, dropping the half hour.\n\n**Test Day Takeaway:** Check the units before computing: miles per hour times hours gives miles. If the units of your operation do not produce the units asked for, the operation is wrong."
+}

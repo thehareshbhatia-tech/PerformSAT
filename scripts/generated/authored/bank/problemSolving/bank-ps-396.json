@@ -1,0 +1,52 @@
+{
+  "id": "bank-ps-396",
+  "question": "A student's mean score on four lab reports is $88$. The table gives the scores on the first three reports. What is the score on the fourth report?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "Lab report",
+        "Score"
+      ],
+      "rows": [
+        [
+          "1",
+          "90"
+        ],
+        [
+          "2",
+          "81"
+        ],
+        [
+          "3",
+          "84"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$9$"
+    },
+    {
+      "id": "B",
+      "text": "$85$"
+    },
+    {
+      "id": "C",
+      "text": "$88$"
+    },
+    {
+      "id": "D",
+      "text": "$97$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies the mean by $3$ instead of $4$ before subtracting, giving $264 - 255$",
+    "B": "reports the mean of the three given scores, $\\frac{255}{3}$",
+    "C": "assumes the fourth score equals the mean"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The four scores total $4(88) = 352$, and the first three total $255$, so the fourth is $352 - 255 = 97$.\n\n**The Full Solution:**\nStep 1: Convert the mean to a total: the four scores sum to $4(88) = 352$.\nStep 2: Add the three scores in the table: $90 + 81 + 84 = 255$.\nStep 3: The fourth score is $352 - 255 = 97$. Check: $\\frac{90 + 81 + 84 + 97}{4} = \\frac{352}{4} = 88$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): multiplies the mean by $3$ instead of $4$ before subtracting, giving $264 - 255$\n* Choice B ($85$): reports the mean of the three given scores, $\\frac{255}{3}$\n* Choice C ($88$): assumes the fourth score equals the mean\n\n**Test Day Takeaway:** Multiply the mean by the count of all the values, including the unknown one; using the count of the known values is the standard slip."
+}

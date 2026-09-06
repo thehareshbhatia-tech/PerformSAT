@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-354",
+  "question": "A data set has a mean of $72$ and a standard deviation of $8$. Each value $x$ in the data set is replaced by $\\frac{x - 72}{8}$ to create a new data set. What are the mean and the standard deviation of the new data set?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Mean $0$ and standard deviation $0$"
+    },
+    {
+      "id": "B",
+      "text": "Mean $0$ and standard deviation $1$"
+    },
+    {
+      "id": "C",
+      "text": "Mean $72$ and standard deviation $1$"
+    },
+    {
+      "id": "D",
+      "text": "Mean $9$ and standard deviation $1$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "assumes that centering the data at $0$ also removes the spread, but dividing by $8$ leaves a standard deviation of $1$, not $0$.",
+    "C": "leaves the mean unshifted, applying the subtraction only to the spread rule.",
+    "D": "divides the mean by $8$ without subtracting first, $\\frac{72}{8} = 9$."
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Subtracting $72$ moves the mean to $0$; dividing by $8$ divides the standard deviation by $8$, giving $\\frac{8}{8} = 1$.\n\n**The Full Solution:**\nStep 1: Write the transformation as $\\frac{1}{8}x - 9$, so the multiplier is $\\frac{1}{8}$ and the shift is $-9$.\nStep 2: The mean transforms the same way: $\\frac{72 - 72}{8} = 0$.\nStep 3: The standard deviation is multiplied by $\\frac{1}{8}$ and unaffected by the shift: $\\frac{8}{8} = 1$. Check: subtracting the mean centers the data at $0$, and dividing by the standard deviation rescales the spread to $1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: assumes that centering the data at $0$ also removes the spread, but dividing by $8$ leaves a standard deviation of $1$, not $0$.\n* Choice C: leaves the mean unshifted, applying the subtraction only to the spread rule.\n* Choice D: divides the mean by $8$ without subtracting first, $\\frac{72}{8} = 9$.\n\n**Test Day Takeaway:** Subtracting the mean and dividing by the standard deviation always produces a data set with mean $0$ and standard deviation $1$, whatever the original numbers were."
+}

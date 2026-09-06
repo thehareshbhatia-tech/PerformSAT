@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-397",
+  "question": "The mean of $9$ measurements is $32$. One of the measurements is removed, and the mean of the remaining $8$ measurements is $30$. What is the value of the measurement that was removed?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$18$"
+    },
+    {
+      "id": "C",
+      "text": "$32$"
+    },
+    {
+      "id": "D",
+      "text": "$48$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the difference between the two means, $32 - 30$",
+    "B": "uses $9(30)$ instead of $8(30)$ for the remaining sum, giving $288 - 270$",
+    "C": "assumes the removed measurement equals the original mean"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The nine measurements total $9(32) = 288$ and the remaining eight total $8(30) = 240$, so the removed value is $288 - 240 = 48$.\n\n**The Full Solution:**\nStep 1: Before the removal, the sum is $9(32) = 288$.\nStep 2: After the removal, the sum is $8(30) = 240$.\nStep 3: The removed measurement is the difference of the sums: $288 - 240 = 48$. Check: $48$ is well above the original mean of $32$, which is why removing it pulls the mean down. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports the difference between the two means, $32 - 30$\n* Choice B ($18$): uses $9(30)$ instead of $8(30)$ for the remaining sum, giving $288 - 270$\n* Choice C ($32$): assumes the removed measurement equals the original mean\n\n**Test Day Takeaway:** Compare sums, not means. Each mean must be multiplied by its own count before you subtract."
+}

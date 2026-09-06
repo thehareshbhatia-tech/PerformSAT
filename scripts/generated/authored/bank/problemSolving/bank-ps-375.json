@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-375",
+  "question": "For an account earning simple interest, the balance $A$, in dollars, after $t$ years is given by $A = P(1 + rt)$, where $P$ is the principal, in dollars, and $r$ is the annual interest rate expressed as a decimal. Which equation gives $r$ in terms of $A$, $P$, and $t$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$r = \\dfrac{A}{Pt}$"
+    },
+    {
+      "id": "B",
+      "text": "$r = \\dfrac{A - P}{t}$"
+    },
+    {
+      "id": "C",
+      "text": "$r = \\dfrac{A - P}{Pt}$"
+    },
+    {
+      "id": "D",
+      "text": "$r = \\dfrac{A - P}{P} - t$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "divides by $Pt$ without first subtracting the principal, so it uses the balance instead of the interest",
+    "B": "subtracts the principal but never divides by $P$, so it gives dollars per year rather than a rate",
+    "D": "divides by $P$ and then subtracts $t$ instead of dividing by $t$"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Simple Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Expanding gives $A = P + Prt$, so $A - P = Prt$ and $r = \\frac{A - P}{Pt}$.\n\n**The Full Solution:**\nStep 1: Distribute: $A = P + Prt$.\nStep 2: Isolate the interest term by subtracting $P$ from each side: $A - P = Prt$.\nStep 3: Divide each side by $Pt$: $r = \\frac{A - P}{Pt}$. Check with $P = 2000$, $r = 0.03$, $t = 4$: the balance is $\\$2{,}240$, and $\\frac{2240 - 2000}{2000(4)} = \\frac{240}{8000} = 0.03$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($r = \\dfrac{A}{Pt}$): divides by $Pt$ without first subtracting the principal, so it uses the balance instead of the interest\n* Choice B ($r = \\dfrac{A - P}{t}$): subtracts the principal but never divides by $P$, so it gives dollars per year rather than a rate\n* Choice D ($r = \\dfrac{A - P}{P} - t$): divides by $P$ and then subtracts $t$ instead of dividing by $t$\n\n**Test Day Takeaway:** To solve a formula for a variable, strip away the added terms first, then divide by everything multiplying that variable."
+}

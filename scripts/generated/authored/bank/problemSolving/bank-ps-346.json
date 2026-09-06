@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-346",
+  "question": "The data set $\\{6,\\ 11,\\ 11,\\ 14,\\ 14,\\ x\\}$ has exactly one mode, and that mode is $14$. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$6$"
+    },
+    {
+      "id": "B",
+      "text": "$11$"
+    },
+    {
+      "id": "C",
+      "text": "$12$"
+    },
+    {
+      "id": "D",
+      "text": "$14$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "makes $6$, $11$, and $14$ each occur twice, so the data set would have three modes rather than one.",
+    "B": "makes $11$ occur three times, so the single mode would be $11$, not $14$.",
+    "C": "adds a value that occurs once, leaving $11$ and $14$ tied at two occurrences each, so there would be two modes."
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Mode from List**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Without $x$, both $11$ and $14$ occur twice. Only $x = 14$ breaks the tie in favor of $14$.\n\n**The Full Solution:**\nStep 1: Count the fixed values: $6$ occurs once, $11$ occurs twice, and $14$ occurs twice.\nStep 2: For $14$ to be the only mode, it must occur strictly more often than every other value, so $14$ must gain the extra occurrence.\nStep 3: Setting $x = 14$ gives three $14$s against two $11$s and one $6$, exactly one mode. Check: any other value of $x$ leaves $11$ tied with $14$ or creates a new tie. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): makes $6$, $11$, and $14$ each occur twice, so the data set would have three modes rather than one.\n* Choice B ($11$): makes $11$ occur three times, so the single mode would be $11$, not $14$.\n* Choice C ($12$): adds a value that occurs once, leaving $11$ and $14$ tied at two occurrences each, so there would be two modes.\n\n**Test Day Takeaway:** \"Exactly one mode\" is a tie-breaking condition. Count the existing occurrences first, then place the unknown where it makes one value strictly most frequent."
+}

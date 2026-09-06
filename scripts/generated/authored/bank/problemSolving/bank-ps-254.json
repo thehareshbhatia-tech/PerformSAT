@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-254",
+  "question": "The value of $s$ is $85\\%$ less than the value of $t$, where $t > 0$. The value of $s$ is what fraction of the value of $t$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\frac{3}{20}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\frac{3}{17}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\frac{17}{20}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\frac{20}{3}$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "divides the percent kept by the percent removed (15/85)",
+    "C": "uses the percent removed, 85/100, as the fraction kept",
+    "D": "reciprocal of the correct fraction: t as a fraction of s"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Removing $85\\%$ leaves $15\\%$, and $15\\% = \\frac{15}{100} = \\frac{3}{20}$.\n\n**The Full Solution:**\nStep 1: A value $85\\%$ less than $t$ is $t - 0.85t = 0.15t$.\nStep 2: So $s = 0.15t$, which means $\\frac{s}{t} = 0.15$.\nStep 3: Write $0.15$ as a fraction in lowest terms: $\\frac{15}{100} = \\frac{3}{20}$. Check with $t = 20$: $85\\%$ of $20$ is $17$, so $s = 20 - 17 = 3$, and $\\frac{3}{20}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{3}{17}$): $\\frac{15}{85}$ compares the part kept to the part removed instead of to the whole.\n* Choice C ($\\frac{17}{20}$): $\\frac{85}{100}$ is the fraction removed, not the fraction that remains.\n* Choice D ($\\frac{20}{3}$): this is $\\frac{t}{s}$, the reciprocal; the question asks for $s$ as a fraction of $t$.\n\n**Test Day Takeaway:** \"$p\\%$ less\" keeps $(100 - p)\\%$; convert that remaining percent to a fraction over $100$ and reduce."
+}

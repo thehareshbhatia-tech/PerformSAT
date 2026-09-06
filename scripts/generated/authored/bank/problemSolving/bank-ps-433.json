@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-433",
+  "question": "For one data point in a study, a linear model gives a predicted value of $\\hat{y}=48$, and the observed value at that point is $y=39$. What is the value of $y-\\hat{y}$ for this data point?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-9$"
+    },
+    {
+      "id": "B",
+      "text": "$9$"
+    },
+    {
+      "id": "C",
+      "text": "$39$"
+    },
+    {
+      "id": "D",
+      "text": "$48$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "computes $\\hat{y}-y$, reversing the order of subtraction.",
+    "C": "reports the observed value instead of the difference.",
+    "D": "reports the predicted value instead of the difference."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $y-\\hat{y}=39-48=-9$.\n\n**The Full Solution:**\nStep 1: The quantity $y-\\hat{y}$ is the observed value minus the predicted value.\nStep 2: Substitute: $39-48$.\nStep 3: $39-48=-9$. Check: $48+(-9)=39$, the observed value. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($9$): computes $48-39$, subtracting the observed value from the predicted value.\n* Choice C ($39$): reports the observed value on its own.\n* Choice D ($48$): reports the predicted value on its own.\n\n**Test Day Takeaway:** When the observation falls below the model, $y-\\hat{y}$ is negative. Order the subtraction before you touch the numbers."
+}

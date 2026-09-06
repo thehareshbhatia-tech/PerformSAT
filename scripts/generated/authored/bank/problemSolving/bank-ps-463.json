@@ -1,0 +1,56 @@
+{
+  "id": "bank-ps-463",
+  "question": "A laboratory tested $500$ soil samples and classified each sample by pH level and by the field from which it was taken, as shown in the table. If one of the samples from Field A is selected at random, which of the following is closest to the probability that the selected sample has a pH of at least $6.0$?",
+  "diagram": {
+    "type": "twoWayTable",
+    "params": {
+      "headers": [
+        "pH level",
+        "Field A",
+        "Field B"
+      ],
+      "rows": [
+        [
+          "Less than 6.0",
+          "63",
+          "52"
+        ],
+        [
+          "6.0 to 7.0",
+          "96",
+          "84"
+        ],
+        [
+          "Above 7.0",
+          "51",
+          "154"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$0.29$"
+    },
+    {
+      "id": "B",
+      "text": "$0.30$"
+    },
+    {
+      "id": "C",
+      "text": "$0.38$"
+    },
+    {
+      "id": "D",
+      "text": "$0.70$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "divides by all $500$ samples, computing a joint probability instead of a conditional one.",
+    "B": "gives the complement, the probability the Field A sample has a pH below $6.0$.",
+    "C": "conditions on the pH category instead of on Field A."
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Two-Way Table Conditional Probability**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Conditioning on Field A makes that column the denominator: $63+96+51=210$. A pH of at least $6.0$ covers the bottom two rows: $96+51=147$. $\\frac{147}{210}=0.70$.\n\n**The Full Solution:**\nStep 1: \"Selected from the samples from Field A\" fixes the denominator as the entire Field A column. The table lists no totals, so add them: $63+96+51=210$.\nStep 2: \"pH of at least $6.0$\" spans TWO rows, $6.0$ to $7.0$ and above $7.0$: $96+51=147$.\nStep 3: The conditional probability is $\\frac{147}{210}=\\frac{7}{10}=0.70$. Check: the remaining $63$ Field A samples give $\\frac{63}{210}=0.30$, and $0.70+0.30=1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.29$): computes $\\frac{147}{500}$, dividing by every sample rather than by the Field A samples.\n* Choice B ($0.30$): computes $\\frac{63}{210}$, the probability of a pH below $6.0$.\n* Choice C ($0.38$): computes $\\frac{147}{385}$, conditioning on pH at least $6.0$ and asking for Field A instead.\n\n**Test Day Takeaway:** The phrase after \"given\" or \"from the\" names the denominator. Sum that row or column yourself when the table omits totals."
+}

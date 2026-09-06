@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-349",
+  "question": "The mean of a data set is $34$. Each value in the data set is multiplied by $5$ to create a new data set. What is the mean of the new data set?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$6.8$"
+    },
+    {
+      "id": "B",
+      "text": "$39$"
+    },
+    {
+      "id": "C",
+      "text": "$170$"
+    },
+    {
+      "id": "D",
+      "text": "$850$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "divides by $5$ instead of multiplying, $\\frac{34}{5} = 6.8$.",
+    "B": "adds $5$ to the mean instead of multiplying, applying the rule for a shift.",
+    "D": "applies the factor twice, $34 \\times 25$, as if the mean scaled by $5^2$."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Multiplying every value by $5$ multiplies the mean by $5$: $5(34) = 170$.\n\n**The Full Solution:**\nStep 1: The mean is the sum of the values divided by how many there are.\nStep 2: Multiplying every value by $5$ multiplies the sum by $5$ while leaving the count unchanged.\nStep 3: So the mean is multiplied by $5$: $5 \\times 34 = 170$. Check: for the small set $\\{30, 38\\}$ with mean $34$, the scaled set $\\{150, 190\\}$ has mean $170$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6.8$): divides by $5$ instead of multiplying, $\\frac{34}{5} = 6.8$.\n* Choice B ($39$): adds $5$ to the mean instead of multiplying, applying the rule for a shift.\n* Choice D ($850$): applies the factor twice, $34 \\times 25$, as if the mean scaled by $5^2$.\n\n**Test Day Takeaway:** Multiplying every value by $k$ multiplies the mean, median, range, and standard deviation by $k$. Adding a constant moves only the center."
+}

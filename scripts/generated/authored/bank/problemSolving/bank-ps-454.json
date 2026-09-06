@@ -1,0 +1,56 @@
+{
+  "id": "bank-ps-454",
+  "question": "Two data sets, P and Q, each consist of $24$ integers. The two data sets are summarized by the same histogram, shown, where each interval gives the frequency of the integers from the lower bound through the upper bound of that interval. What is the smallest possible difference between the mean of data set P and the mean of data set Q?",
+  "diagram": {
+    "type": "barChart",
+    "params": {
+      "data": [
+        {
+          "label": "30-39",
+          "value": 6
+        },
+        {
+          "label": "40-49",
+          "value": 8
+        },
+        {
+          "label": "50-59",
+          "value": 7
+        },
+        {
+          "label": "60-69",
+          "value": 3
+        }
+      ],
+      "xAxisLabel": "Interval",
+      "yAxisLabel": "Frequency",
+      "yMax": 10,
+      "yStep": 2
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$0$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$5$"
+    },
+    {
+      "id": "D",
+      "text": "$10$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "assumes two distinct data sets must have means at least $1$ apart.",
+    "C": "uses half an interval width, the largest gap between a value and its interval's midpoint.",
+    "D": "uses the interval width, which bounds how far apart the means can be, not how close."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Grouped Data — Smallest Possible Mean Difference**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** A histogram fixes only how many integers land in each interval, not which integers. Identical histograms therefore allow identical data sets, whose means differ by $0$.\n\n**The Full Solution:**\nStep 1: Each bar reports a frequency for a $10$-wide interval, so many different data sets produce the same histogram.\nStep 2: Within an interval, the actual integers are free to vary, which means the mean of a data set is not determined by its histogram.\nStep 3: Because P and Q are summarized by the same histogram, one admissible choice is to give them the same $24$ integers. Their means are then equal, so the smallest possible difference is $0$. Check: no rule forces the two sets to differ, so no positive value can be the minimum. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($1$): assumes the two data sets must differ somewhere, and that the smallest gap between integers forces a gap between means.\n* Choice C ($5$): uses half the interval width, the farthest a value can sit from its interval's midpoint.\n* Choice D ($10$): uses the interval width, which limits how far apart the means could be, not how close together.\n\n**Test Day Takeaway:** Grouped frequencies pin down a range of possible data sets, not one. When a question asks for the smallest possible difference, look for the case that makes the two sets identical."
+}

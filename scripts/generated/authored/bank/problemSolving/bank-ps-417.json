@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-417",
+  "question": "In a survey of $850$ residents, $36\\%$ selected plan A and $22\\%$ selected plan B. How many more residents selected plan A than selected plan B?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$14$"
+    },
+    {
+      "id": "B",
+      "text": "$119$"
+    },
+    {
+      "id": "C",
+      "text": "$306$"
+    },
+    {
+      "id": "D",
+      "text": "$493$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the difference in the percents, $36 - 22$, as a number of residents",
+    "C": "reports the number of residents who selected plan A",
+    "D": "reports the number of residents who selected either plan, $58\\%$ of $850$"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Percent of a Number**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The gap is $36\\% - 22\\% = 14\\%$ of the residents, and $0.14(850) = 119$.\n\n**The Full Solution:**\nStep 1: Because both percents are taken from the same total, their difference is also a percent of that total: $36\\% - 22\\% = 14\\%$.\nStep 2: Apply that percent to the $850$ residents: $0.14(850)$.\nStep 3: $0.14(850) = 119$ residents. Check directly: $0.36(850) = 306$ and $0.22(850) = 187$, and $306 - 187 = 119$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): reports the difference in the percents, $36 - 22$, as a number of residents\n* Choice C ($306$): reports the number of residents who selected plan A\n* Choice D ($493$): reports the number of residents who selected either plan, $58\\%$ of $850$\n\n**Test Day Takeaway:** Percentage points are not people. Convert the difference in percents into a count before reporting it."
+}

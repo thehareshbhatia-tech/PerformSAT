@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-250",
+  "question": "The value of $r$ is $45\\%$ less than $120$. What is the value of $r$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$54$"
+    },
+    {
+      "id": "B",
+      "text": "$66$"
+    },
+    {
+      "id": "C",
+      "text": "$75$"
+    },
+    {
+      "id": "D",
+      "text": "$174$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports 45% of 120, the decrease itself, instead of the decreased value",
+    "C": "subtracts 45 as a number of units instead of as a percent (120 - 45)",
+    "D": "adds the 45% instead of subtracting it (120 + 54)"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"$45\\%$ less than $120$\" keeps $55\\%$ of $120$: $0.55 \\times 120 = 66$.\n\n**The Full Solution:**\nStep 1: Translate the phrase. A quantity that is $45\\%$ less than $120$ equals $120 - 0.45(120) = (1 - 0.45)(120) = 0.55(120)$.\nStep 2: Compute: $0.45 \\times 120 = 54$, so $r = 120 - 54 = 66$.\nStep 3: Check: $120 - 66 = 54$, and $\\frac{54}{120} = 0.45 = 45\\%$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($54$): $0.45 \\times 120 = 54$ is the amount removed, not what remains.\n* Choice C ($75$): $120 - 45 = 75$ subtracts $45$ as a number of units rather than as $45\\%$ of $120$.\n* Choice D ($174$): $120 + 54 = 174$ is $45\\%$ greater than $120$; the direction of the change is reversed.\n\n**Test Day Takeaway:** \"$p\\%$ less than $N$\" is $N\\left(1 - \\frac{p}{100}\\right)$; find what percent remains before multiplying."
+}

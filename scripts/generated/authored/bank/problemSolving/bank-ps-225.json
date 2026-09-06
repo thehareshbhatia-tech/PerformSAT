@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-225",
+  "question": "If $r$ is $30\\%$ of $s$ and $s$ is $40\\%$ of $t$, then $r$ is what percent of $t$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$10\\%$"
+    },
+    {
+      "id": "B",
+      "text": "$12\\%$"
+    },
+    {
+      "id": "C",
+      "text": "$70\\%$"
+    },
+    {
+      "id": "D",
+      "text": "$75\\%$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts the two percents",
+    "C": "adds the two percents",
+    "D": "divides 30 by 40"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $r = 0.30(0.40t) = 0.12t$, so $r$ is $12\\%$ of $t$.\n\n**The Full Solution:**\nStep 1: Translate each statement: $r = 0.30s$ and $s = 0.40t$.\nStep 2: Substitute the second equation into the first: $r = 0.30(0.40t) = 0.12t$.\nStep 3: Write the coefficient as a percent: $12\\%$. Check with $t = 100$: $s = 40$ and $r = 0.30(40) = 12$, which is $12\\%$ of $100$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($10\\%$): subtracts, $40 - 30$, but the two percents describe different wholes.\n* Choice C ($70\\%$): adds the percents; $r$ is a part of a part, so it must be smaller than either share.\n* Choice D ($75\\%$): divides $30$ by $40$, comparing the two rates with each other instead of chaining them.\n\n**Test Day Takeaway:** Chained percents multiply. Setting the last variable to $100$ turns the whole chain into arithmetic."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-356",
+  "question": "The data set $\\{x_1,\\ x_2,\\ \\ldots,\\ x_n\\}$ has mean $\\bar{x}$ and standard deviation $s$, where $s > 0$. A new data set is created by $y_i = 3x_i + 2$ for each $i$ from $1$ to $n$. Which of the following expressions gives the variance of the new data set?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3s^{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$9s$"
+    },
+    {
+      "id": "C",
+      "text": "$9s^{2}$"
+    },
+    {
+      "id": "D",
+      "text": "$9s^{2} + 2$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "scales the variance by $3$ rather than by $3^2$, applying the standard-deviation factor to the variance.",
+    "B": "scales the standard deviation by $9$ but never squares it, so it reports a standard deviation, not a variance.",
+    "D": "adds the shift $2$ to the variance, though adding a constant to every value leaves all spread measures unchanged."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The multiplier $3$ scales the standard deviation to $3s$, and variance is the square of the standard deviation: $(3s)^2 = 9s^2$.\n\n**The Full Solution:**\nStep 1: Adding $2$ to every value shifts the data and the mean equally, so every distance from the mean is unchanged and the shift cannot affect the variance.\nStep 2: Multiplying every value by $3$ multiplies every distance from the mean by $3$, so the standard deviation of the new data set is $|3| \\cdot s = 3s$.\nStep 3: Variance is the square of the standard deviation, so the new variance is $(3s)^2 = 9s^2$. Check: the original variance is $s^2$, and the new one is $9$ times as large, matching the factor $3^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: scales the variance by $3$ rather than by $3^2$, applying the standard-deviation factor to the variance.\n* Choice B: scales the standard deviation by $9$ but never squares it, so it reports a standard deviation, not a variance.\n* Choice D: adds the shift $2$ to the variance, though adding a constant to every value leaves all spread measures unchanged.\n\n**Test Day Takeaway:** Standard deviation scales by $|a|$; variance, being the square, scales by $a^2$. The constant term $b$ never appears in either."
+}

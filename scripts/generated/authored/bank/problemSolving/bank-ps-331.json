@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-331",
+  "question": "A linear model gives the volume of water $y$, in gallons, in a tank $x$ minutes after a pump is switched on: $\\hat{y} = 7.5x + 40$. Which of the following is the best interpretation of the value $40$ in this model?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The tank gains $40$ gallons of water each minute."
+    },
+    {
+      "id": "B",
+      "text": "The tank contained $40$ gallons of water when the pump was switched on."
+    },
+    {
+      "id": "C",
+      "text": "The tank takes $40$ minutes to fill."
+    },
+    {
+      "id": "D",
+      "text": "The tank holds a maximum of $40$ gallons of water."
+    }
+  ],
+  "distractorNotes": {
+    "A": "assigns the intercept the slope's job; the per-minute gain is $7.5$ gallons.",
+    "C": "reads $40$ as a time, but $40$ is a value of $y$, measured in gallons.",
+    "D": "treats the starting amount as a capacity, though the model shows the volume growing past $40$ gallons."
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Interpret Intercept of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** At $x = 0$, the model gives $\\hat{y} = 40$: the tank already held $40$ gallons the moment the pump started.\n\n**The Full Solution:**\nStep 1: The value $40$ is the constant term, so it is the predicted volume when $x = 0$ minutes.\nStep 2: $x = 0$ is the instant the pump is switched on.\nStep 3: So the tank contained $40$ gallons at that instant, and the pump adds $7.5$ gallons per minute after that. Check: after $4$ minutes the model predicts $7.5(4) + 40 = 70$ gallons, which is $40$ gallons plus $30$ gallons pumped in. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: assigns the intercept the slope's job; the per-minute gain is $7.5$ gallons.\n* Choice C: reads $40$ as a time, but $40$ is a value of $y$, measured in gallons.\n* Choice D: treats the starting amount as a capacity, though the model shows the volume growing past $40$ gallons.\n\n**Test Day Takeaway:** Ask what $x = 0$ means in the story. The intercept is the predicted amount at that moment, in the units of $y$."
+}

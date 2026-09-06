@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-299",
+  "question": "A solution is prepared by dissolving $60$ grams of salt in $240$ grams of water. What percent of the mass of the solution is salt?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$20\\%$"
+    },
+    {
+      "id": "B",
+      "text": "$25\\%$"
+    },
+    {
+      "id": "C",
+      "text": "$60\\%$"
+    },
+    {
+      "id": "D",
+      "text": "$80\\%$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "divides by the mass of the water instead of the mass of the solution",
+    "C": "reads the $60$ grams of salt as a percent",
+    "D": "gives the percent of the solution that is water"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Mixture Problems**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The solution has mass $60 + 240 = 300$ grams, and $\\frac{60}{300} = 0.20$, or $20\\%$.\n\n**The Full Solution:**\nStep 1: The solution is everything in the container, so its mass is $60 + 240 = 300$ grams.\nStep 2: The part that is salt is $60$ grams, so the fraction of the solution that is salt is $\\frac{60}{300} = \\frac{1}{5}$.\nStep 3: Convert to a percent: $\\frac{1}{5} = 0.20 = 20\\%$. Check: $20\\%$ of $300$ grams is $60$ grams of salt, leaving $240$ grams of water. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($25\\%$): $\\frac{60}{240}$, which compares salt to water rather than salt to the whole solution.\n* Choice C ($60\\%$): the $60$ grams of salt read as if it were already a percent.\n* Choice D ($80\\%$): $\\frac{240}{300}$, the percent of the solution that is water.\n\n**Test Day Takeaway:** In a mixture, the denominator is the whole mixture. Add the parts before dividing."
+}

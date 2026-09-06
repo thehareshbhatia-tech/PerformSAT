@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-413",
+  "question": "A theater has $250$ seats, and $16\\%$ of the seats are in the balcony. How many of the theater's seats are in the balcony?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$40$"
+    },
+    {
+      "id": "C",
+      "text": "$210$"
+    },
+    {
+      "id": "D",
+      "text": "$234$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "misplaces the decimal and computes $1.6\\%$ of $250$",
+    "C": "counts the seats that are not in the balcony, $84\\%$ of $250$",
+    "D": "subtracts $16$ from $250$ instead of subtracting $16\\%$ of $250$"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Percent of a Number**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $16\\%$ of $250$ is $0.16(250) = 40$ seats.\n\n**The Full Solution:**\nStep 1: The balcony seats are $16\\%$ of the $250$ total seats.\nStep 2: Convert and multiply: $0.16(250)$.\nStep 3: $0.16(250) = 40$ seats. Check: $\\frac{40}{250} = 0.16$, so $40$ seats is indeed $16\\%$ of the theater. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): misplaces the decimal and computes $1.6\\%$ of $250$\n* Choice C ($210$): counts the seats that are not in the balcony, $84\\%$ of $250$\n* Choice D ($234$): subtracts $16$ from $250$ instead of subtracting $16\\%$ of $250$\n\n**Test Day Takeaway:** Verify a percent-of answer by dividing it back into the whole; the quotient should reproduce the percent."
+}

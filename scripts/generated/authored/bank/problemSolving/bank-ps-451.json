@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-451",
+  "question": "Two contractors split a payment of $\\$7{,}020$ in the ratio $4 : 9$. How much, in dollars, does the contractor with the smaller share receive?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$540$"
+    },
+    {
+      "id": "B",
+      "text": "$2{,}160$"
+    },
+    {
+      "id": "C",
+      "text": "$3{,}510$"
+    },
+    {
+      "id": "D",
+      "text": "$4{,}860$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the size of one part instead of a contractor's share.",
+    "C": "splits the payment evenly instead of in the ratio $4 : 9$.",
+    "D": "gives the larger share, the $9$-part amount."
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** There are $4+9=13$ parts, so one part is $\\frac{7{,}020}{13}=540$ dollars, and the smaller share is $4(540)=2{,}160$ dollars.\n\n**The Full Solution:**\nStep 1: Write the shares as $4k$ and $9k$ dollars, so $4k+9k=7{,}020$.\nStep 2: $13k=7{,}020$, so $k=540$.\nStep 3: The smaller share is $4k=4(540)=2{,}160$ dollars. Check: $9(540)=4{,}860$, and $2{,}160+4{,}860=7{,}020$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($540$): reports $k$, the value of one part.\n* Choice C ($3{,}510$): halves the payment, ignoring the $4 : 9$ split.\n* Choice D ($4{,}860$): gives the $9$-part share, the larger payment.\n\n**Test Day Takeaway:** Dividing the total by the sum of the ratio numbers must give a value that fits both shares. Multiply by the ratio number the question asks for."
+}

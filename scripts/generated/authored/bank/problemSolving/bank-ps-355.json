@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-355",
+  "question": "A data set has a standard deviation of $7$. A new data set is created by multiplying each value of the original data set by $-2$ and then adding $11$ to each result. What is the standard deviation of the new data set?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-14$"
+    },
+    {
+      "id": "B",
+      "text": "$7$"
+    },
+    {
+      "id": "C",
+      "text": "$14$"
+    },
+    {
+      "id": "D",
+      "text": "$25$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "keeps the negative sign from the multiplier, but a standard deviation is a distance and can never be negative.",
+    "B": "leaves the standard deviation unchanged, applying the shift rule and ignoring the multiplication.",
+    "D": "adds the $11$ to the scaled standard deviation, $2(7) + 11$, though a shift does not affect spread."
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Standard deviation scales by the absolute value of the multiplier and ignores the shift: $|-2| \\cdot 7 = 14$.\n\n**The Full Solution:**\nStep 1: The transformation has the form $-2x + 11$, a multiplication by $-2$ followed by a shift of $11$.\nStep 2: Adding $11$ to every value moves the mean along with the values, so all distances from the mean are unchanged.\nStep 3: Multiplying by $-2$ doubles every distance from the mean and reflects the data, so the standard deviation is $|-2| \\cdot 7 = 14$. Check: reflecting a data set does not change how spread out it is, so only the factor $2$ matters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-14$): keeps the negative sign from the multiplier, but a standard deviation is a distance and can never be negative.\n* Choice B ($7$): leaves the standard deviation unchanged, applying the shift rule and ignoring the multiplication.\n* Choice D ($25$): adds the $11$ to the scaled standard deviation, $2(7) + 11$, though a shift does not affect spread.\n\n**Test Day Takeaway:** Under $y = ax + b$, the standard deviation becomes $|a|$ times the original. The sign of $a$ and the value of $b$ never appear in the answer."
+}

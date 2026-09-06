@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-116",
+  "question": "In a collection of books, the ratio of the number of paperback books to the number of hardcover books is $7 : 5$. The collection contains $336$ books. How many of the books are hardcover?",
+  "correctAnswer": "140",
+  "explanation": "**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $140$.**\n\n**The Fast Way (~20s):** The ratio has $7 + 5 = 12$ parts, so one part is $\\dfrac{336}{12} = 28$ books and the hardcovers are $5(28) = 140$.\n\n**The Full Solution:**\nStep 1: Write the counts as $7k$ paperbacks and $5k$ hardcovers, so $7k + 5k = 336$.\nStep 2: $12k = 336$, so $k = 28$.\nStep 3: The number of hardcover books is $5k = 5(28) = 140$.\nCheck: $196 + 140 = 336$, and $196 : 140$ reduces to $7 : 5$. $\\checkmark$\n\n**Common Mistakes:** Reporting $k = 28$, the size of one part, instead of the five parts asked for; reporting $196$, the number of paperbacks; dividing by a single term of the ratio, $\\dfrac{336}{5} = 67.2$.\n\n**Test Day Takeaway:** Add the terms of the ratio to get the number of parts in the whole, then scale up the part you are asked for."
+}

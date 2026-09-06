@@ -1,0 +1,90 @@
+{
+  "id": "bank-ps-323",
+  "question": "The scatterplot shows the number of chirps per minute $y$ produced by a cricket at each of $10$ air temperatures $x$, in degrees Fahrenheit, along with the line of best fit $\\hat{y} = 4.2x - 160$. Which of the following is the best interpretation of the slope of the line of best fit?",
+  "diagram": {
+    "type": "scatterplot",
+    "params": {
+      "points": [
+        [
+          52,
+          62
+        ],
+        [
+          56,
+          78
+        ],
+        [
+          60,
+          88
+        ],
+        [
+          64,
+          110
+        ],
+        [
+          68,
+          122
+        ],
+        [
+          72,
+          148
+        ],
+        [
+          76,
+          156
+        ],
+        [
+          80,
+          180
+        ],
+        [
+          84,
+          190
+        ],
+        [
+          88,
+          208
+        ]
+      ],
+      "xMin": 45,
+      "xMax": 95,
+      "yMin": 0,
+      "yMax": 240,
+      "xGridStep": 5,
+      "yGridStep": 20,
+      "xLabelStep": 10,
+      "yLabelStep": 40,
+      "xLabel": "Air temperature (°F)",
+      "yLabel": "Chirps per minute",
+      "bestFitLine": {
+        "slope": 4.2,
+        "intercept": -160
+      }
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "For each increase of $1$ degree Fahrenheit in air temperature, the predicted number of chirps per minute increases by $4.2$."
+    },
+    {
+      "id": "B",
+      "text": "For each increase of $1$ chirp per minute, the predicted air temperature increases by $4.2$ degrees Fahrenheit."
+    },
+    {
+      "id": "C",
+      "text": "At an air temperature of $0$ degrees Fahrenheit, the predicted number of chirps per minute is $4.2$."
+    },
+    {
+      "id": "D",
+      "text": "The predicted number of chirps per minute is $4.2$ at every air temperature."
+    }
+  ],
+  "distractorNotes": {
+    "B": "inverts the ratio, reporting degrees per chirp instead of chirps per degree.",
+    "C": "describes a $y$-intercept, and even then the model's intercept is $-160$, not $4.2$.",
+    "D": "treats the slope as a constant predicted value, which would require a slope of $0$."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The slope $4.2$ is measured in chirps per minute per degree Fahrenheit, so one more degree predicts $4.2$ more chirps per minute.\n\n**The Full Solution:**\nStep 1: In $\\hat{y} = 4.2x - 160$, $x$ is the air temperature in degrees Fahrenheit and $\\hat{y}$ predicts chirps per minute.\nStep 2: Slope is $\\frac{\\text{change in } \\hat{y}}{\\text{change in } x}$, so its units are chirps per minute per degree.\nStep 3: Raising $x$ by $1$ raises $\\hat{y}$ by $4.2$, so each additional degree is associated with about $4.2$ more chirps per minute. Check: at $70$ degrees the model predicts $134$ chirps and at $71$ degrees it predicts $138.2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: inverts the ratio, reporting degrees per chirp instead of chirps per degree.\n* Choice C: describes a $y$-intercept, and even then the model's intercept is $-160$, not $4.2$.\n* Choice D: treats the slope as a constant predicted value, which would require a slope of $0$.\n\n**Test Day Takeaway:** The slope always reads \"change in the $y$-quantity per one unit of the $x$-quantity.\" If a choice reverses those two quantities, it is describing the wrong rate."
+}

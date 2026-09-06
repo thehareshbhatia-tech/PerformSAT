@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-230",
+  "question": "If $g$ is $40\\%$ of $h$ and $h$ is $35\\%$ greater than $k$, then $g$ is what percent of $k$? (Report only the number, without the percent sign.)",
+  "correctAnswer": "54",
+  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $54$.**\n\n**The Fast Way (~25s):** $h = 1.35k$, so $g = 0.40(1.35k) = 0.54k$, or $54\\%$.\n\n**The Full Solution:**\nStep 1: \"$35\\%$ greater than $k$\" means $h = k + 0.35k = 1.35k$.\nStep 2: Substitute into $g = 0.40h$: $g = 0.40(1.35k) = 0.54k$.\nStep 3: Read the coefficient as a percent: $54\\%$. Check with $k = 200$: $h = 270$ and $g = 108$, and $\\frac{108}{200} = 54\\%$. $\\checkmark$\n\n**Common Mistakes:** Using $0.35$ instead of $1.35$, which gives $14$; adding the percents for $75$; or subtracting them for $5$.\n\n**Test Day Takeaway:** \"Greater than\" is a multiplier above $1$: $35\\%$ greater is $\\times 1.35$, never $\\times 0.35$."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-255",
+  "question": "The value of $x$ is $p\\%$ greater than $40$, where $p$ is a positive constant. If $x = 160$, what is the value of $p$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$75$"
+    },
+    {
+      "id": "B",
+      "text": "$120$"
+    },
+    {
+      "id": "C",
+      "text": "$300$"
+    },
+    {
+      "id": "D",
+      "text": "$400$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes the percent that 40 is less than 160 (120/160), using the wrong base",
+    "B": "reports the difference 160 - 40 as if it were the percent",
+    "D": "reports the ratio 160/40 as a percent, forgetting to subtract the original 100%"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $160$ is $4$ times $40$, so the increase is $3$ times $40$, which is $300\\%$ of $40$.\n\n**The Full Solution:**\nStep 1: Translate: $x = 40\\left(1 + \\frac{p}{100}\\right)$. Substitute $x = 160$: $160 = 40\\left(1 + \\frac{p}{100}\\right)$.\nStep 2: Divide by $40$: $4 = 1 + \\frac{p}{100}$, so $\\frac{p}{100} = 3$.\nStep 3: Multiply by $100$: $p = 300$. Check: $300\\%$ of $40$ is $120$, and $40 + 120 = 160$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($75$): $\\frac{160 - 40}{160} = 0.75$ uses $160$ as the base; that is the percent by which $40$ is LESS than $160$.\n* Choice B ($120$): $160 - 40 = 120$ is the increase in units, not the increase as a percent of $40$.\n* Choice D ($400$): $\\frac{160}{40} = 4 = 400\\%$ is what percent $160$ is OF $40$; \"greater than\" requires subtracting the original $100\\%$.\n\n**Test Day Takeaway:** Percent greater $= \\frac{\\text{new} - \\text{original}}{\\text{original}} \\times 100$; the base is always the original value."
+}

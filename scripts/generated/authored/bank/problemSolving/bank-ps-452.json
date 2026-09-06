@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-452",
+  "question": "A $91$-centimeter length of copper tubing is cut into two pieces whose lengths are in the ratio $2 : 5$. What is the length, in centimeters, of the longer piece?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$13$"
+    },
+    {
+      "id": "B",
+      "text": "$26$"
+    },
+    {
+      "id": "C",
+      "text": "$45.5$"
+    },
+    {
+      "id": "D",
+      "text": "$65$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the size of one part instead of the longer piece.",
+    "B": "gives the shorter piece, the $2$-part length.",
+    "C": "cuts the tubing in half instead of in the ratio $2 : 5$."
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The ratio has $2+5=7$ parts, so one part is $\\frac{91}{7}=13$ centimeters, and the longer piece is $5(13)=65$ centimeters.\n\n**The Full Solution:**\nStep 1: Write the pieces as $2k$ and $5k$ centimeters, so $2k+5k=91$.\nStep 2: $7k=91$, so $k=13$.\nStep 3: The longer piece is $5k=5(13)=65$ centimeters. Check: $2(13)=26$, and $26+65=91$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$): reports $k$, the length of a single part.\n* Choice B ($26$): gives the shorter piece, matching the ratio number $2$.\n* Choice C ($45.5$): halves the tubing, which fits a $1 : 1$ cut, not $2 : 5$.\n\n**Test Day Takeaway:** Two pieces in the ratio $2 : 5$ must add back to the whole. Check your two answers sum to the original length before choosing."
+}

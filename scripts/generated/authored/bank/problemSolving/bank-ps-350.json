@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-350",
+  "question": "The standard deviation of a data set is $7.5$. Each value in the data set is increased by $12$ to create a new data set. What is the standard deviation of the new data set?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7.5$"
+    },
+    {
+      "id": "B",
+      "text": "$12$"
+    },
+    {
+      "id": "C",
+      "text": "$19.5$"
+    },
+    {
+      "id": "D",
+      "text": "$90$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "reports the amount added, treating the shift itself as the new spread.",
+    "C": "adds $12$ to the standard deviation, $7.5 + 12$, applying the shift to the spread as well as the center.",
+    "D": "multiplies by $12$, $7.5 \\times 12$, using the rule for scaling instead of shifting."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Adding the same amount to every value slides the data without stretching it, so the standard deviation is unchanged at $7.5$.\n\n**The Full Solution:**\nStep 1: Standard deviation depends only on the distances between the values and their mean.\nStep 2: Adding $12$ to every value also adds $12$ to the mean, so each distance from the mean is unchanged.\nStep 3: The standard deviation therefore stays $7.5$. Check: the set $\\{2, 6\\}$ and the shifted set $\\{14, 18\\}$ have the same spacing, so the same spread. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($12$): reports the amount added, treating the shift itself as the new spread.\n* Choice C ($19.5$): adds $12$ to the standard deviation, $7.5 + 12$, applying the shift to the spread as well as the center.\n* Choice D ($90$): multiplies by $12$, $7.5 \\times 12$, using the rule for scaling instead of shifting.\n\n**Test Day Takeaway:** Shifts move the center and leave every spread measure alone. Only multiplication changes the standard deviation."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-079",
+  "question": "The mean of a list of $10$ values is $36$. If the value $63$ is removed from the list, what is the mean of the remaining $9$ values?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$29.7$"
+    },
+    {
+      "id": "B",
+      "text": "$33$"
+    },
+    {
+      "id": "C",
+      "text": "$36$"
+    },
+    {
+      "id": "D",
+      "text": "$40$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts 63 but divides by the original 10 (297/10)",
+    "C": "assumes the mean is unchanged",
+    "D": "divides the original total by 9 without removing 63 (360/9)"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Mean from List**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Total $= 10(36) = 360$; remove $63$ to get $297$; $\\frac{297}{9} = 33$.\n\n**The Full Solution:**\nStep 1: The $10$ values total $10 \\times 36 = 360$.\nStep 2: Removing $63$ leaves a total of $360 - 63 = 297$ for the $9$ remaining values.\nStep 3: New mean $= \\frac{297}{9} = 33$. Check: $9(33) + 63 = 297 + 63 = 360$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($29.7$): subtracts the $63$ but divides by the original $10$ values, $\\frac{297}{10}$.\n* Choice C ($36$): assumes the mean is unchanged; removing a value above the mean must lower it.\n* Choice D ($40$): divides the original total by $9$ without removing the $63$, $\\frac{360}{9}$.\n\n**Test Day Takeaway:** Adjust the total AND the count together; removing a value larger than the mean always pulls the mean down."
+}

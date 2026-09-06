@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-353",
+  "question": "The median of a data set is $15$. Each value in the data set is multiplied by $6$ and then decreased by $4$ to create a new data set. What is the median of the new data set?",
+  "correctAnswer": "86",
+  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**The correct answer is $86$.**\n\n**The Fast Way (~10s):** The transformation preserves order, so apply it to the median: $6(15) - 4 = 86$.\n\n**The Full Solution:**\nStep 1: Multiplying by a positive number and then subtracting a constant preserves the order of the values, so the value in the middle stays in the middle.\nStep 2: The new median is the transformed old median: apply $6x - 4$ to $x = 15$.\nStep 3: $6(15) - 4 = 90 - 4 = 86$. Check: with the small set $\\{13, 15, 17\\}$, the new set is $\\{74, 86, 98\\}$, whose median is $86$. $\\checkmark$\n\n**Common Mistakes:** Subtracting before multiplying gives $6(15 - 4) = 66$, which reverses the stated order of operations. Applying only the subtraction gives $15 - 4 = 11$. Applying only the multiplication gives $90$.\n\n**Test Day Takeaway:** For an increasing transformation, the median of the new data set is the transformation applied to the old median — carry out the steps in the order the question states."
+}

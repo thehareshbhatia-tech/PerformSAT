@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-219",
+  "question": "A rowing machine is on sale for $\\$276$, which is $20\\%$ off its original price. What was the original price of the rowing machine, in dollars?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$220.80$"
+    },
+    {
+      "id": "B",
+      "text": "$331.20$"
+    },
+    {
+      "id": "C",
+      "text": "$345$"
+    },
+    {
+      "id": "D",
+      "text": "$1{,}380$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "takes another 20% off the sale price",
+    "B": "adds 20% of the sale price instead of dividing by 0.80",
+    "D": "divides by 0.20, the discount rate, instead of by 0.80"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Reverse Percent (Find Original from Sale)**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The sale price is $80\\%$ of the original, so the original is $\\frac{276}{0.80} = 345$.\n\n**The Full Solution:**\nStep 1: Let $p$ be the original price. A $20\\%$ discount leaves $100\\% - 20\\% = 80\\%$ of $p$, so $0.80p = 276$.\nStep 2: Divide both sides by $0.80$: $p = \\frac{276}{0.80} = 345$.\nStep 3: Check: $20\\%$ of $345$ is $69$, and $345 - 69 = 276$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($220.80$): computes $0.80 \\times 276$, discounting the already-discounted price.\n* Choice B ($331.20$): computes $1.20 \\times 276$; adding $20\\%$ of the smaller sale price does not undo taking $20\\%$ of the larger original price.\n* Choice D ($1{,}380$): divides by $0.20$, the part removed, instead of by $0.80$, the part paid.\n\n**Test Day Takeaway:** Reverse percent divides by the fraction that remains. Always verify by running the discount forward on your answer."
+}

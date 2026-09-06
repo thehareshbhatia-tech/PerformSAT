@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-319",
+  "question": "A data set has a mean of $47$ and a standard deviation of $8$. A new data set is created by subtracting $12$ from each value of the original data set. What are the mean and the standard deviation of the new data set?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Mean $35$ and standard deviation $8$"
+    },
+    {
+      "id": "B",
+      "text": "Mean $35$ and standard deviation $-4$"
+    },
+    {
+      "id": "C",
+      "text": "Mean $47$ and standard deviation $8$"
+    },
+    {
+      "id": "D",
+      "text": "Mean $59$ and standard deviation $8$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "shifts the mean correctly but also subtracts $12$ from the standard deviation, producing an impossible negative spread.",
+    "C": "leaves the mean unshifted, applying the constant only to the spread rule instead of to the center.",
+    "D": "adds $12$ instead of subtracting it, shifting the center the wrong way."
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Subtracting $12$ from every value slides the whole data set left: the mean drops to $47 - 12 = 35$, and the spacing between values is unchanged, so the standard deviation stays $8$.\n\n**The Full Solution:**\nStep 1: Subtracting the same constant from every value moves each value the same distance in the same direction.\nStep 2: The mean moves with the data: $47 - 12 = 35$.\nStep 3: Every distance from the mean is unchanged, because both the value and the mean dropped by $12$, so the standard deviation remains $8$. Check: a shift relabels the number line without stretching it. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: shifts the mean correctly but also subtracts $12$ from the standard deviation, producing an impossible negative spread.\n* Choice C: leaves the mean unshifted, applying the constant only to the spread rule instead of to the center.\n* Choice D: adds $12$ instead of subtracting it, shifting the center the wrong way.\n\n**Test Day Takeaway:** Adding or subtracting a constant moves the center and leaves every spread measure — standard deviation, range, IQR — exactly the same."
+}

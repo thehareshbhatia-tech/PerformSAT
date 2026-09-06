@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-393",
+  "question": "In a county, $40\\%$ of the registered voters are under age $40$. Of the registered voters under age $40$, $30\\%$ voted in the primary. If $2{,}160$ registered voters under age $40$ voted in the primary, how many registered voters are in the county?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$864$"
+    },
+    {
+      "id": "B",
+      "text": "$5{,}400$"
+    },
+    {
+      "id": "C",
+      "text": "$7{,}200$"
+    },
+    {
+      "id": "D",
+      "text": "$18{,}000$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies by $0.40$ instead of dividing, running the chain forward instead of backward",
+    "B": "divides by $0.40$ only, using the wrong percent and stopping after one step",
+    "C": "reports the number of registered voters under age $40$ and stops"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Undo the chain: $\\frac{2160}{0.30} = 7{,}200$ voters under $40$, then $\\frac{7200}{0.40} = 18{,}000$ registered voters.\n\n**The Full Solution:**\nStep 1: Let $N$ be the number of registered voters. The chain forward is $N(0.40)(0.30) = 2160$.\nStep 2: Work backward one factor at a time. The number under age $40$ is $\\frac{2160}{0.30} = 7200$.\nStep 3: Those $7{,}200$ voters are $40\\%$ of the county, so $N = \\frac{7200}{0.40} = 18{,}000$. Check: $0.40(18000) = 7{,}200$ and $0.30(7200) = 2{,}160$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($864$): multiplies by $0.40$ instead of dividing, running the chain forward instead of backward\n* Choice B ($5{,}400$): divides by $0.40$ only, using the wrong percent and stopping after one step\n* Choice C ($7{,}200$): reports the number of registered voters under age $40$ and stops\n\n**Test Day Takeaway:** Reverse a percent chain by dividing in the opposite order, and confirm by running the chain forward on your answer."
+}

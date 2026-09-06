@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-111",
+  "question": "The price of a document scanner was reduced by $25\\%$. After the reduction, the price of the scanner is $\\$63$. What was the price of the scanner, in dollars, before the reduction?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$47.25$"
+    },
+    {
+      "id": "B",
+      "text": "$78.75$"
+    },
+    {
+      "id": "C",
+      "text": "$84$"
+    },
+    {
+      "id": "D",
+      "text": "$252$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "63(0.75) = 47.25, applying the discount a second time",
+    "B": "63(1.25) = 78.75, adding 25% of the reduced price",
+    "D": "63/0.25 = 252, dividing by the discount rate instead of by what remains"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** After a $25\\%$ reduction the price is $75\\%$ of the original, so the original is $\\dfrac{63}{0.75} = 84$.\n\n**The Full Solution:**\nStep 1: Let $p$ be the original price, in dollars. A $25\\%$ reduction leaves $p - 0.25p = 0.75p$.\nStep 2: $0.75p = 63$, so $p = \\dfrac{63}{0.75}$.\nStep 3: $p = 84$ dollars.\nCheck: $25\\%$ of $84$ is $21$, and $84 - 21 = 63$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($47.25$): This takes another $25\\%$ off the reduced price, $63(0.75)$, moving in the wrong direction.\n* Choice B ($78.75$): This adds $25\\%$ of the reduced price, $63(1.25)$; the discount was $25\\%$ of the original price, which is larger.\n* Choice D ($252$): This divides by $0.25$, the part removed, instead of by $0.75$, the part that remains.\n\n**Test Day Takeaway:** Undo a percent change by dividing by the multiplier that produced it: $1 - r$ for a decrease, $1 + r$ for an increase."
+}

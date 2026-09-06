@@ -1,0 +1,29 @@
+{
+  "id": "bank-ps-351",
+  "question": "A data set has a mean of $28$ and a standard deviation of $4.5$. Each value in the data set is multiplied by $3$ to create a new data set. What are the mean and the standard deviation of the new data set?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Mean $28$ and standard deviation $13.5$"
+    },
+    {
+      "id": "B",
+      "text": "Mean $84$ and standard deviation $4.5$"
+    },
+    {
+      "id": "C",
+      "text": "Mean $84$ and standard deviation $7.5$"
+    },
+    {
+      "id": "D",
+      "text": "Mean $84$ and standard deviation $13.5$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "scales the standard deviation but leaves the mean unscaled, as if multiplication moved only the spread.",
+    "B": "scales the mean but leaves the standard deviation unchanged, using the shift rule for the spread.",
+    "C": "adds $3$ to the standard deviation, $4.5 + 3$, instead of multiplying by it."
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Multiplying every value by $3$ multiplies both the mean and the standard deviation by $3$: $3(28) = 84$ and $3(4.5) = 13.5$.\n\n**The Full Solution:**\nStep 1: Multiplying every value by $3$ multiplies the sum by $3$, so the mean becomes $3 \\times 28 = 84$.\nStep 2: Each value's distance from the mean is also multiplied by $3$, because both the value and the mean triple.\nStep 3: So the standard deviation becomes $3 \\times 4.5 = 13.5$. Check: tripling stretches the whole picture by a factor of $3$, center and spread alike. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: scales the standard deviation but leaves the mean unscaled, as if multiplication moved only the spread.\n* Choice B: scales the mean but leaves the standard deviation unchanged, using the shift rule for the spread.\n* Choice C: adds $3$ to the standard deviation, $4.5 + 3$, instead of multiplying by it.\n\n**Test Day Takeaway:** Under multiplication by $k$, center and spread both scale by $k$. Under addition of $c$, only the center moves."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-ps-373",
+  "question": "An account earns simple interest at an annual rate of $6\\%$, and no deposits or withdrawals are made. After $8$ years the balance is $\\$5{,}550$. What was the initial deposit, in dollars?",
+  "correctAnswer": "3750",
+  "explanation": "**SAT Pattern: Simple Interest**\n\n**The correct answer is $3{,}750$.**\n\n**The Fast Way (~30s):** The balance is $P(1 + 0.06 \\cdot 8) = 1.48P$, so $P = \\frac{5550}{1.48} = 3{,}750$.\n\n**The Full Solution:**\nStep 1: A simple-interest balance is $A = P(1 + rt)$, so $5550 = P(1 + 0.06 \\cdot 8)$.\nStep 2: Evaluate the factor: $0.06(8) = 0.48$, so $5550 = 1.48P$.\nStep 3: $P = \\frac{5550}{1.48} = 3750$ dollars. Check: $3750(0.06)(8) = 1{,}800$ in interest, and $3750 + 1800 = 5{,}550$. $\\checkmark$\n\n**Common Mistakes:** Subtracting $48\\%$ of the final balance instead of dividing: $5550 - 0.48(5550) = 2{,}886$; dividing by $1.06$ just once, giving about $5{,}235.85$; or applying compound interest, $\\frac{5550}{1.06^{8}} \\approx 3{,}482.14$.\n\n**Test Day Takeaway:** Working backward from a balance means dividing by $(1 + rt)$, not subtracting the interest percent from the balance."
+}
