@@ -1,0 +1,30 @@
+{
+ "id": 4,
+ "question": "Two sides of a triangle have lengths $8$ and $15$. Which of the following could be the length of the third side?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$5$"
+  },
+  {
+   "id": "B",
+   "text": "$7$"
+  },
+  {
+   "id": "C",
+   "text": "$12$"
+  },
+  {
+   "id": "D",
+   "text": "$23$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "$5 + 8 = 13$, which is less than $15$, so the three lengths cannot close into a triangle",
+  "B": "equals the difference $15 - 8$, which flattens the triangle into a segment",
+  "D": "equals the sum $15 + 8$, which also flattens the triangle into a segment"
+ },
+ "correctAnswer": "C",
+ "hint": "Compare each choice to the sum and to the difference of the two lengths you were given.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** The third side must lie strictly between $15 - 8 = 7$ and $15 + 8 = 23$, and only $12$ does.\n\n**The Full Solution:**\nStep 1: The Triangle Inequality requires the sum of any two side lengths to be greater than the third.\nStep 2: Let $x$ be the third length. Then $x + 8 > 15$ gives $x > 7$, and $8 + 15 > x$ gives $x < 23$.\nStep 3: So $7 < x < 23$, and among the choices only $12$ satisfies this.\n\nVerification: $8 + 12 = 20 > 15$, $8 + 15 = 23 > 12$, and $12 + 15 = 27 > 8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): $5 + 8 = 13$, which is less than $15$, so the three lengths cannot close into a triangle.\n* Choice B ($7$): equals the difference $15 - 8$, which flattens the triangle into a segment.\n* Choice D ($23$): equals the sum $15 + 8$, which also flattens the triangle into a segment.\n\n**Test Day Takeaway:** A third side always lands strictly between the difference and the sum of the other two — both endpoints are excluded."
+}

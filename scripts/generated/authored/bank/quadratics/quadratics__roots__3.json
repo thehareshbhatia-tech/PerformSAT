@@ -1,0 +1,30 @@
+{
+  "id": 3,
+  "question": "In the $xy$-plane, the graph of $y = x^2 - 36$ crosses the $x$-axis at two points. What are the $x$-coordinates of those two points?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-36$ and $36$"
+    },
+    {
+      "id": "B",
+      "text": "$-18$ and $18$"
+    },
+    {
+      "id": "C",
+      "text": "$-6$ and $6$"
+    },
+    {
+      "id": "D",
+      "text": "$0$ and $36$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "no square root taken",
+    "B": "divides by 2 instead of taking a root",
+    "D": "reads a linear term that is not there"
+  },
+  "correctAnswer": "C",
+  "hint": "A difference of two squares factors into a sum times a difference.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $x^2 - 36 = (x - 6)(x + 6)$, so the graph crosses at $x = 6$ and $x = -6$.\n\n**The Full Solution:**\nStep 1: A graph crosses the $x$-axis where $y = 0$, so solve $x^2 - 36 = 0$.\nStep 2: Both terms are perfect squares, so factor as a difference of squares: $x^2 - 36 = (x - 6)(x + 6)$.\nStep 3: Setting each factor to zero gives $x = 6$ and $x = -6$. Check: $6^2 - 36 = 0$ and $(-6)^2 - 36 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: treats $x^2 = 36$ as $x = \\pm 36$, taking no square root at all.\n* Choice B: divides $36$ by $2$ instead of taking its square root.\n* Choice D: reads the equation as $x^2 - 36x = 0$ and factors out an $x$.\n\n**Test Day Takeaway:** $a^2 - b^2$ always factors as $(a - b)(a + b)$; solving $x^2 = c$ takes a square root, never a division by $2$."
+}

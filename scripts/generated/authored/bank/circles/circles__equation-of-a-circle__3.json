@@ -1,0 +1,30 @@
+{
+ "id": 3,
+ "question": "In the $xy$-plane, a circle has center $(0, -6)$ and radius $\\frac{5}{2}$. Which of the following equations defines this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$x^2 + (y + 6)^2 = \\frac{25}{4}$"
+  },
+  {
+   "id": "B",
+   "text": "$x^2 + (y - 6)^2 = \\frac{25}{4}$"
+  },
+  {
+   "id": "C",
+   "text": "$x^2 + (y + 6)^2 = \\frac{5}{2}$"
+  },
+  {
+   "id": "D",
+   "text": "$x^2 + (y + 6)^2 = \\frac{25}{2}$"
+  }
+ ],
+ "correctAnswer": "A",
+ "hint": "Two details decide this one: the sign inside the parentheses and whether the radius has been squared.",
+ "distractorNotes": {
+  "B": "flips the sign of the center",
+  "C": "never squares the radius",
+  "D": "squares only the numerator"
+ },
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~25s):** With $h = 0$ and $k = -6$, the equation is $x^2 + (y + 6)^2 = \\left(\\frac{5}{2}\\right)^2 = \\frac{25}{4}$.\n\n**The Full Solution:**\nStep 1: Standard form is $(x - h)^2 + (y - k)^2 = r^2$.\nStep 2: Substitute $h = 0$ and $k = -6$: $(x - 0)^2 + (y - (-6))^2 = x^2 + (y + 6)^2$.\nStep 3: Square the radius: $\\left(\\frac{5}{2}\\right)^2 = \\frac{25}{4}$. Check: the point $\\left(0, -\\frac{7}{2}\\right)$ is $\\frac{5}{2}$ above the center, and $0 + \\left(\\frac{5}{2}\\right)^2 = \\frac{25}{4}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^2 + (y - 6)^2 = \\frac{25}{4}$): uses $(y - 6)^2$, which places the center at $(0, 6)$ instead of $(0, -6)$.\n* Choice C ($x^2 + (y + 6)^2 = \\frac{5}{2}$): leaves the radius unsquared on the right side.\n* Choice D ($x^2 + (y + 6)^2 = \\frac{25}{2}$): squares only the numerator of $\\frac{5}{2}$, forgetting that the denominator is squared too.\n\n**Test Day Takeaway:** Square the whole fraction, top and bottom, and let a negative center coordinate become a plus sign inside the parentheses."
+}

@@ -1,0 +1,30 @@
+{
+  "id": 4,
+  "question": "In the $xy$-plane, the graph of $y = x^2 + 12x + n$ touches the $x$-axis at exactly one point, where $n$ is a constant. What is the value of $n$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$6$"
+    },
+    {
+      "id": "B",
+      "text": "$12$"
+    },
+    {
+      "id": "C",
+      "text": "$36$"
+    },
+    {
+      "id": "D",
+      "text": "$144$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the touch point, not n",
+    "B": "reports the coefficient of x",
+    "D": "never divides by 4"
+  },
+  "correctAnswer": "C",
+  "hint": "A curve that meets the axis only once has a discriminant of zero.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $12^2 - 4(1)n = 0$ gives $144 = 4n$, so $n = 36$.\n\n**The Full Solution:**\nStep 1: The graph meets the $x$-axis where $x^2 + 12x + n = 0$, and exactly one such point means exactly one real solution.\nStep 2: One real solution requires a discriminant of zero: $12^2 - 4(1)(n) = 0$, so $144 - 4n = 0$.\nStep 3: Solve: $4n = 144$, so $n = 36$. Check: $x^2 + 12x + 36 = (x + 6)^2$, which is zero only at $x = -6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): reports the $x$-coordinate where the curve meets the axis, $x = -6$, without its sign, instead of the constant $n$.\n* Choice B ($12$): reports the coefficient of $x$ rather than solving for $n$.\n* Choice D ($144$): stops at $b^2 = 144$ and never divides by the $4$ in $4ac$.\n\n**Test Day Takeaway:** One point of contact with the $x$-axis is the geometric version of a zero discriminant, and the resulting trinomial is always a perfect square."
+}

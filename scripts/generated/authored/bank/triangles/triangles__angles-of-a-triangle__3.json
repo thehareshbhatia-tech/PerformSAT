@@ -1,0 +1,30 @@
+{
+ "id": 3,
+ "question": "In right triangle $LMN$, angle $M$ is a right angle and the measure of angle $L$ is $5$ times the measure of angle $N$. What is the measure, in degrees, of angle $L$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$15$"
+  },
+  {
+   "id": "B",
+   "text": "$30$"
+  },
+  {
+   "id": "C",
+   "text": "$75$"
+  },
+  {
+   "id": "D",
+   "text": "$150$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "gives angle $N$, the smaller of the two acute angles",
+  "B": "splits $180$ instead of $90$ into six equal parts and reports the smaller angle",
+  "D": "splits $180$ instead of $90$ and reports the larger angle"
+ },
+ "correctAnswer": "C",
+ "hint": "The right angle already uses up half of the $180°$ total.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** The two acute angles total $90°$, so $6n = 90$, $n = 15$, and angle $L$ is $5(15) = 75$.\n\n**The Full Solution:**\nStep 1: The angles total $180°$ and angle $M$ is $90°$, so $m\\angle L + m\\angle N = 90$.\nStep 2: Let $m\\angle N = n$. Then $m\\angle L = 5n$, and $5n + n = 90$ gives $6n = 90$, so $n = 15$.\nStep 3: Therefore $m\\angle L = 5(15) = 75$.\n\nVerification: $75 + 15 + 90 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): gives angle $N$, the smaller of the two acute angles.\n* Choice B ($30$): splits $180$ instead of $90$ into six equal parts and reports the smaller angle.\n* Choice D ($150$): splits $180$ instead of $90$ and reports the larger angle.\n\n**Test Day Takeaway:** In a right triangle the two acute angles are complementary, so set the equation up on $90$, not on $180$."
+}

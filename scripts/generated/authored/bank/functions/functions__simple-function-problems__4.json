@@ -1,0 +1,30 @@
+{
+  "id": 4,
+  "question": "The function $f$ is defined by $f(x) = x^2 + 6x$, where $x$ is a real number. What is the value of $f(5) - f(3)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$16$"
+    },
+    {
+      "id": "B",
+      "text": "$28$"
+    },
+    {
+      "id": "C",
+      "text": "$64$"
+    },
+    {
+      "id": "D",
+      "text": "$82$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "evaluates f(5-3)",
+    "C": "drops the sign on the last term of f(3)",
+    "D": "adds the outputs instead of subtracting"
+  },
+  "correctAnswer": "B",
+  "hint": "Evaluate the function separately at each input, then subtract the two outputs.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** $f(5) = 55$ and $f(3) = 27$, so the difference is $55 - 27 = 28$.\n\n**The Full Solution:**\nStep 1: $f(5) = 5^2 + 6(5) = 25 + 30 = 55$.\nStep 2: $f(3) = 3^2 + 6(3) = 9 + 18 = 27$.\nStep 3: Subtract the outputs: $55 - 27 = 28$. Check by factoring the difference: $f(5) - f(3) = (25 - 9) + 6(5 - 3) = 16 + 12 = 28$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): subtracts the inputs first and evaluates $f(5 - 3) = f(2) = 4 + 12$.\n* Choice C ($64$): distributes the subtraction over only the first term of $f(3)$, computing $25 + 30 - 9 + 18$.\n* Choice D ($82$): adds the two outputs instead of subtracting them.\n\n**Test Day Takeaway:** $f(5) - f(3)$ is never $f(5 - 3)$ for a nonlinear function; evaluate first, subtract second, and bracket the whole second output."
+}

@@ -1,0 +1,30 @@
+{
+  "id": 5,
+  "question": "Data set V has a standard deviation of $6$. Data set W is formed by multiplying each value in data set V by $-4$. What is the standard deviation of data set W?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-24$"
+    },
+    {
+      "id": "B",
+      "text": "$2$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies by $-4$ and keeps the sign, but a standard deviation is a distance and is never negative.",
+    "B": "adds $-4$ to the standard deviation, treating the multiplier as a shift.",
+    "C": "assumes the standard deviation is unchanged, which is true for a shift but not for a multiplier."
+  },
+  "correctAnswer": "D",
+  "hint": "A negative multiplier reflects the values but does not shrink or reverse how spread out they are.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~45s):** Multiplying every value by $-4$ scales all distances by $|-4| = 4$, so the standard deviation becomes $4(6) = 24$.\n\n**The Full Solution:**\nStep 1: If the mean of V is $\\mu$, then the mean of W is $-4\\mu$, and each deviation becomes $-4x - (-4\\mu) = -4(x - \\mu)$.\nStep 2: Standard deviation is built from squared deviations, so each contributes $(-4)^2 = 16$ times as much as before, and the square root multiplies the standard deviation by $4$.\nStep 3: The standard deviation of W is $4(6) = 24$. Check: distances between values are multiplied by $4$ whether the multiplier is $4$ or $-4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-24$): multiplies by $-4$ and keeps the sign, but a standard deviation is a distance and is never negative.\n* Choice B ($2$): adds $-4$ to the standard deviation, treating the multiplier as a shift.\n* Choice C ($6$): assumes the standard deviation is unchanged, which is true for a shift but not for a multiplier.\n\n**Test Day Takeaway:** Scaling every value by $k$ multiplies the standard deviation by $|k|$. The sign of $k$ flips the data around the mean but never changes the spread."
+}

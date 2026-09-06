@@ -1,0 +1,30 @@
+{
+  "id": 4,
+  "question": "A quadratic function $f$ has zeros at $x = -1$ and $x = 6$, and $f(2) = -24$. Which of the following defines $f$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$f(x) = -2x^2 + 10x + 12$"
+    },
+    {
+      "id": "B",
+      "text": "$f(x) = x^2 - 5x - 6$"
+    },
+    {
+      "id": "C",
+      "text": "$f(x) = 2x^2 - 10x - 12$"
+    },
+    {
+      "id": "D",
+      "text": "$f(x) = 2x^2 + 10x - 12$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sign error solving for a",
+    "B": "assumes a = 1",
+    "D": "reverses the signs of the zeros"
+  },
+  "correctAnswer": "C",
+  "hint": "The zeros give the factors; the extra ordered pair is what determines the leading coefficient.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** $f(x) = a(x + 1)(x - 6)$ and $-24 = a(3)(-4)$ give $a = 2$, so $f(x) = 2x^2 - 10x - 12$.\n\n**The Full Solution:**\nStep 1: Zeros at $-1$ and $6$ give the factors $(x + 1)$ and $(x - 6)$, so $f(x) = a(x + 1)(x - 6)$.\nStep 2: Use the given value: $f(2) = a(2 + 1)(2 - 6) = a(3)(-4) = -12a$. Setting $-12a = -24$ gives $a = 2$.\nStep 3: Expand: $f(x) = 2(x^2 - 5x - 6) = 2x^2 - 10x - 12$. Check: $f(6) = 72 - 60 - 12 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: solves $-12a = -24$ as $a = -2$, so its graph opens the wrong way and $f(2)$ comes out $+24$.\n* Choice B: keeps $a = 1$ and ignores the condition $f(2) = -24$; it gives $f(2) = -12$.\n* Choice D: builds the factors as $(x - 1)(x + 6)$, reversing the signs of the zeros.\n\n**Test Day Takeaway:** Always test a candidate equation against EVERY given condition; two of these choices have the right zeros but the wrong value at $x = 2$."
+}

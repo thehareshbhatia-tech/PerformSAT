@@ -1,0 +1,30 @@
+{
+  "id": 8,
+  "question": "The function $f$ is defined by $f(x)=x^{2}-6x$. The function $g$ is defined by $g(x)=f(x+2)$. Which expression is equivalent to $g(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x^{2}-10x+16$"
+    },
+    {
+      "id": "B",
+      "text": "$x^{2}-6x+2$"
+    },
+    {
+      "id": "C",
+      "text": "$x^{2}-2x-8$"
+    },
+    {
+      "id": "D",
+      "text": "$x^{2}-2x+4$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "substitutes the opposite shift",
+    "B": "treats the shift as an outside constant",
+    "D": "substitutes in only one term"
+  },
+  "correctAnswer": "C",
+  "hint": "Every occurrence of $x$ in the rule must be replaced before you expand anything.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $g(x)=(x+2)^{2}-6(x+2)=x^{2}+4x+4-6x-12=x^{2}-2x-8$.\n\n**The Full Solution:**\nStep 1: Substituting $x+2$ into both terms of the rule gives $g(x)=(x+2)^{2}-6(x+2)$.\nStep 2: Expanding: $(x+2)^{2}=x^{2}+4x+4$ and $-6(x+2)=-6x-12$.\nStep 3: Combining, $x^{2}+4x+4-6x-12=x^{2}-2x-8$. Check at $x=0$: $g(0)=f(2)=4-12=-8$, and the expression gives $-8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2}-10x+16$): substitutes $x-2$ instead of $x+2$, which shifts the graph the wrong way.\n* Choice B ($x^{2}-6x+2$): adds $2$ to the output, which describes $f(x)+2$.\n* Choice D ($x^{2}-2x+4$): substitutes into the squared term only, leaving $-6x$ untouched.\n\n**Test Day Takeaway:** Replace $x$ everywhere it appears in the rule — a partial substitution changes the function."
+}

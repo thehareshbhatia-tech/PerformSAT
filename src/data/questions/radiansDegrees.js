@@ -7,77 +7,78 @@ export const radiansDegreesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "Convert 180° to radians.",
+      question: "An angle has a measure of $210^{\\circ}$. What is the measure of this angle, in radians?",
       choices: [
-        { id: "A", text: "π/2" },
-        { id: "B", text: "π" },
-        { id: "C", text: "2π" },
-        { id: "D", text: "180π" }
+        { id: "A", text: "$\\frac{7\\pi}{12}$" },
+        { id: "B", text: "$\\frac{6\\pi}{7}$" },
+        { id: "C", text: "$\\frac{7\\pi}{6}$" },
+        { id: "D", text: "$\\frac{7\\pi}{3}$" }
       ],
-      correctAnswer: "B",
-      hint: "To convert degrees to radians, multiply the degree value by π/180. Think about what happens when the numerator and denominator simplify.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** $180^\\circ$ is the defining half-circle benchmark: $180^\\circ = \\pi$ radians. Done.\n\n**The Full Solution:**\nStep 1: Convert degrees to radians by multiplying by $\\frac{\\pi}{180}$.\nStep 2: $180^\\circ \\times \\frac{\\pi}{180} = \\frac{180\\pi}{180} = \\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{\\pi}{2}$): that is $90^\\circ$, a quarter turn — halved one step too far.\n* Choice C ($2\\pi$): that is $360^\\circ$, a full rotation — doubled instead of taken straight across.\n* Choice D ($180\\pi$): multiplied $180 \\times \\pi$ but forgot to divide by $180$.\n\n**Test Day Takeaway:** Anchor every radian conversion to $180^\\circ = \\pi$. From there, $90^\\circ = \\frac{\\pi}{2}$ and $360^\\circ = 2\\pi$ follow instantly.",
-      skills: ['degrees-to-radians']
+      correctAnswer: "C",
+      hint: "A straight angle is $180^{\\circ}$, and a straight angle is also $\\pi$ radians — that pairing is the conversion factor.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiply by $\\frac{\\pi}{180}$: $210\\cdot\\frac{\\pi}{180}=\\frac{7\\pi}{6}$ — choice C.\n\n**The Full Solution:**\nStep 1: To move from degrees to radians, multiply the degree measure by $\\frac{\\pi}{180}$: $210\\cdot\\frac{\\pi}{180}=\\frac{210\\pi}{180}$.\nStep 2: Reduce the fraction by $30$: $\\frac{210}{180}=\\frac{7}{6}$, so the measure is $\\frac{7\\pi}{6}$ radians.\nStep 3: Check the size: $\\frac{7\\pi}{6}$ is a little more than $\\pi$, and $\\pi$ radians is $180^{\\circ}$, so the angle should be a little more than $180^{\\circ}$. It is $210^{\\circ}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7\\pi}{12}$): divides by $360$ instead of $180$, using a full rotation where a straight angle belongs: $\\frac{210\\pi}{360}=\\frac{7\\pi}{12}$.\n* Choice B ($\\frac{6\\pi}{7}$): inverts the conversion factor and computes $\\frac{180\\pi}{210}=\\frac{6\\pi}{7}$ — that is degrees per radian, not radians per degree.\n* Choice D ($\\frac{7\\pi}{3}$): divides by $90$ instead of $180$: $\\frac{210\\pi}{90}=\\frac{7\\pi}{3}$, an angle larger than a full rotation.\n\n**Test Day Takeaway:** Degrees to radians multiplies by $\\frac{\\pi}{180}$; radians to degrees multiplies by $\\frac{180}{\\pi}$. Sanity-check the result against $\\pi \\leftrightarrow 180^{\\circ}$ before you commit.",
+      skills: ["degrees-to-radians"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "Convert π/6 radians to degrees.",
+      question: "An angle has a measure of $\\frac{5\\pi}{4}$ radians. What is the measure of this angle, in degrees?",
       choices: [
-        { id: "A", text: "30°" },
-        { id: "B", text: "45°" },
-        { id: "C", text: "60°" },
-        { id: "D", text: "90°" }
+        { id: "A", text: "$45^{\\circ}$" },
+        { id: "B", text: "$112.5^{\\circ}$" },
+        { id: "C", text: "$225^{\\circ}$" },
+        { id: "D", text: "$450^{\\circ}$" }
       ],
-      correctAnswer: "A",
-      hint: "To convert radians to degrees, multiply by 180/π. Notice that the π in the numerator and denominator will cancel out.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~10s):** Multiply by $\\frac{180}{\\pi}$ so the $\\pi$ cancels: $\\frac{\\pi}{6} \\cdot \\frac{180}{\\pi} = \\frac{180}{6} = 30^\\circ$.\n\n**The Full Solution:**\nStep 1: To go radians to degrees, multiply by $\\frac{180}{\\pi}$.\nStep 2: $\\frac{\\pi}{6} \\times \\frac{180}{\\pi} = \\frac{180}{6} = 30^\\circ$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($45^\\circ$): that is $\\frac{\\pi}{4}$, not $\\frac{\\pi}{6}$ — a swapped benchmark.\n* Choice C ($60^\\circ$): that is $\\frac{\\pi}{3}$; $\\frac{\\pi}{6}$ and $\\frac{\\pi}{3}$ are the most commonly confused pair.\n* Choice D ($90^\\circ$): that is $\\frac{\\pi}{2}$ — a deeper benchmark mix-up.\n\n**Test Day Takeaway:** Radians to degrees means multiply by $\\frac{180}{\\pi}$. Memorize the four anchors: $\\frac{\\pi}{6}=30^\\circ$, $\\frac{\\pi}{4}=45^\\circ$, $\\frac{\\pi}{3}=60^\\circ$, $\\frac{\\pi}{2}=90^\\circ$.",
-      skills: ['radians-to-degrees']
+      correctAnswer: "C",
+      hint: "Multiplying a radian measure by $\\frac{180}{\\pi}$ cancels the $\\pi$ — the arithmetic that is left is easy.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiply by $\\frac{180}{\\pi}$: the $\\pi$ cancels and $\\frac{5(180)}{4}=225$ — choice C.\n\n**The Full Solution:**\nStep 1: To move from radians to degrees, multiply by $\\frac{180}{\\pi}$: $\\frac{5\\pi}{4}\\cdot\\frac{180}{\\pi}$.\nStep 2: The factor of $\\pi$ cancels, leaving $\\frac{5(180)}{4}=\\frac{900}{4}=225$ degrees.\nStep 3: Check the size: $\\frac{5\\pi}{4}$ sits between $\\pi$ and $\\frac{3\\pi}{2}$, so the degree measure must sit between $180^{\\circ}$ and $270^{\\circ}$. $225^{\\circ}$ does. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($45^{\\circ}$): converts only the $\\frac{\\pi}{4}$ and drops the factor of $5$ in the numerator.\n* Choice B ($112.5^{\\circ}$): multiplies by $\\frac{90}{\\pi}$, treating $\\pi$ radians as a right angle instead of a straight angle: $\\frac{5(90)}{4}=112.5$.\n* Choice D ($450^{\\circ}$): multiplies by $\\frac{360}{\\pi}$, pairing $\\pi$ with a full rotation: $\\frac{5(360)}{4}=450$, more than one full turn.\n\n**Test Day Takeaway:** Write the conversion as a fraction and let the units cancel: $\\pi$ in the numerator must cancel with $\\pi$ in the denominator, which tells you which way the factor goes.",
+      skills: ["radians-to-degrees"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "How many radians are in a full rotation (360°)?",
+      question: "In the circle shown, central angle $AOB$ measures $135^{\\circ}$ and the radius of the circle is $8$ centimeters. What is the length, in centimeters, of arc $AB$?",
+      diagram: { type: "circleWithSector", params: { centralAngle: 135, radius: 8, showRadiusLabel: true, labelCenter: "O", labelPoint1: "A", labelPoint2: "B" } },
       choices: [
-        { id: "A", text: "π" },
-        { id: "B", text: "2π" },
-        { id: "C", text: "360π" },
-        { id: "D", text: "π/2" }
+        { id: "A", text: "$\\frac{3\\pi}{4}$" },
+        { id: "B", text: "$6\\pi$" },
+        { id: "C", text: "$12\\pi$" },
+        { id: "D", text: "$24\\pi$" }
       ],
       correctAnswer: "B",
-      hint: "Remember that 180° equals π radians. A full rotation is twice a half rotation, so think about how that relationship scales.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** A half turn is $180^\\circ = \\pi$, so a full turn is double: $360^\\circ = 2\\pi$.\n\n**The Full Solution:**\nStep 1: Convert with $\\frac{\\pi}{180}$: $360^\\circ \\times \\frac{\\pi}{180} = \\frac{360\\pi}{180} = 2\\pi$.\nStep 2: Sanity check against the benchmark — $360^\\circ = 2 \\times 180^\\circ = 2\\pi$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\pi$): that is only $180^\\circ$, a half rotation — forgot to double.\n* Choice C ($360\\pi$): multiplied $360 \\times \\pi$ without dividing by $180$.\n* Choice D ($\\frac{\\pi}{2}$): that is $90^\\circ$, a quarter turn — far short of a full circle.\n\n**Test Day Takeaway:** A full circle is $2\\pi$ radians; a half circle is $\\pi$. These two facts anchor every radian problem.",
-      skills: ['radian-measure-understanding', 'degrees-to-radians']
+      hint: "The arc-length relationship $s = r\\theta$ only works when $\\theta$ is measured in radians.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** $135^{\\circ}=\\frac{3\\pi}{4}$ radians, and $s = r\\theta = 8\\left(\\frac{3\\pi}{4}\\right)=6\\pi$ — choice B.\n\n**The Full Solution:**\nStep 1: Convert the central angle: $135\\cdot\\frac{\\pi}{180}=\\frac{3\\pi}{4}$ radians.\nStep 2: Apply the arc-length relationship with the radian measure: $s = r\\theta = 8\\left(\\frac{3\\pi}{4}\\right)=6\\pi$ centimeters.\nStep 3: Check with the fraction of the circle: the sector is $\\frac{135}{360}=\\frac{3}{8}$ of the circle, and $\\frac{3}{8}$ of the circumference $2\\pi(8)=16\\pi$ is $6\\pi$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3\\pi}{4}$): converts the angle correctly but stops there, reporting the radian measure instead of multiplying by the radius.\n* Choice C ($12\\pi$): uses the diameter, $16$, in place of the radius: $16\\left(\\frac{3\\pi}{4}\\right)=12\\pi$.\n* Choice D ($24\\pi$): computes the sector's area, $\\frac{1}{2}r^{2}\\theta=\\frac{1}{2}(64)\\left(\\frac{3\\pi}{4}\\right)=24\\pi$, rather than the arc's length.\n\n**Test Day Takeaway:** Arc length is $r\\theta$ and sector area is $\\frac{1}{2}r^{2}\\theta$ — both demand radians. Convert first, then decide which of the two the question asked for.",
+      skills: ["radian-measure-understanding", "degrees-to-radians"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "Convert 45° to radians.",
+      question: "The measure of angle $R$ is $18^{\\circ}$ greater than the measure of angle $S$, and the measure of angle $S$ is $54^{\\circ}$. What is the measure of angle $R$, in radians?",
       choices: [
-        { id: "A", text: "π/6" },
-        { id: "B", text: "π/4" },
-        { id: "C", text: "π/3" },
-        { id: "D", text: "π/2" }
+        { id: "A", text: "$\\frac{\\pi}{5}$" },
+        { id: "B", text: "$\\frac{3\\pi}{10}$" },
+        { id: "C", text: "$\\frac{2\\pi}{5}$" },
+        { id: "D", text: "$\\frac{4\\pi}{5}$" }
       ],
-      correctAnswer: "B",
-      hint: "Use the conversion factor π/180 to convert degrees to radians. After multiplying, simplify the fraction by finding the greatest common factor of 45 and 180.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** Divide the degree measure by $180$ and attach $\\pi$: $\\frac{45}{180} = \\frac{1}{4}$, so $45^\\circ = \\frac{\\pi}{4}$.\n\n**The Full Solution:**\nStep 1: Multiply by $\\frac{\\pi}{180}$: $45^\\circ \\times \\frac{\\pi}{180} = \\frac{45\\pi}{180}$.\nStep 2: Divide top and bottom by $45$: $\\frac{45\\pi}{180} = \\frac{\\pi}{4}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{\\pi}{6}$): that is $30^\\circ$ — a swapped benchmark angle.\n* Choice C ($\\frac{\\pi}{3}$): that is $60^\\circ$ — adjacent to $\\frac{\\pi}{4}$ on the unit circle, an easy mix-up.\n* Choice D ($\\frac{\\pi}{2}$): that is $90^\\circ$ — doubled $45^\\circ$ before converting.\n\n**Test Day Takeaway:** Degrees to radians: put the degree over $180$, simplify, and attach $\\pi$. So $45/180 = 1/4$ gives $\\frac{\\pi}{4}$.",
-      skills: ['degrees-to-radians']
+      correctAnswer: "C",
+      hint: "Two moves, in order: find the degree measure the question actually asks about, then convert that measure.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $m\\angle R = 54 + 18 = 72$ degrees, and $72\\cdot\\frac{\\pi}{180}=\\frac{2\\pi}{5}$ — choice C.\n\n**The Full Solution:**\nStep 1: Angle $R$ exceeds angle $S$ by $18^{\\circ}$, so $m\\angle R = 54 + 18 = 72$ degrees.\nStep 2: Convert to radians: $72\\cdot\\frac{\\pi}{180}=\\frac{72\\pi}{180}$, which reduces by $36$ to $\\frac{2\\pi}{5}$.\nStep 3: Check: $\\frac{2\\pi}{5}=0.4\\pi$, and $0.4$ of a straight angle is $0.4(180)=72$ degrees. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{\\pi}{5}$): divides by $360$ rather than $180$: $\\frac{72\\pi}{360}=\\frac{\\pi}{5}$.\n* Choice B ($\\frac{3\\pi}{10}$): converts angle $S$, $54^{\\circ}$, instead of angle $R$: $\\frac{54\\pi}{180}=\\frac{3\\pi}{10}$.\n* Choice D ($\\frac{4\\pi}{5}$): divides by $90$ rather than $180$: $\\frac{72\\pi}{90}=\\frac{4\\pi}{5}$, twice the correct measure.\n\n**Test Day Takeaway:** When a question stacks a comparison on top of a conversion, finish the comparison first — converting the wrong angle produces a choice that is always on the list.",
+      skills: ["degrees-to-radians"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "Convert 3π/2 radians to degrees.",
+      question: "A circle has a radius of $r$, where $r > 0$. An arc of this circle has a length of $\\frac{7\\pi r}{10}$. What is the degree measure of the central angle that bounds this arc?",
       choices: [
-        { id: "A", text: "90°" },
-        { id: "B", text: "180°" },
-        { id: "C", text: "270°" },
-        { id: "D", text: "360°" }
+        { id: "A", text: "$\\frac{7\\pi}{10}$" },
+        { id: "B", text: "$63^{\\circ}$" },
+        { id: "C", text: "$126^{\\circ}$" },
+        { id: "D", text: "$252^{\\circ}$" }
       ],
       correctAnswer: "C",
-      hint: "Multiply the radian value by 180/π to convert to degrees. The π will cancel, leaving you with a simple arithmetic calculation.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** $\\frac{3\\pi}{2} = 3 \\times \\frac{\\pi}{2} = 3 \\times 90^\\circ = 270^\\circ$.\n\n**The Full Solution:**\nStep 1: Multiply by $\\frac{180}{\\pi}$ so the $\\pi$ cancels: $\\frac{3\\pi}{2} \\times \\frac{180}{\\pi} = \\frac{3 \\times 180}{2}$.\nStep 2: $\\frac{540}{2} = 270^\\circ$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($90^\\circ$): that is $\\frac{\\pi}{2}$ — dropped the coefficient $3$.\n* Choice B ($180^\\circ$): that is $\\pi$ — divided away the $\\frac{3}{2}$ or confused it with a half turn.\n* Choice D ($360^\\circ$): that is $2\\pi$ — rounded $\\frac{3\\pi}{2}$ up to a full rotation.\n\n**Test Day Takeaway:** Break a radian multiple into the benchmark times its coefficient: $\\frac{3\\pi}{2} = 3 \\cdot \\frac{\\pi}{2}$, and $\\frac{\\pi}{2} = 90^\\circ$ lands you at $270^\\circ$.",
-      skills: ['radians-to-degrees']
+      hint: "Solve $s = r\\theta$ for $\\theta$ before you convert anything — watch what happens to $r$.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\theta=\\frac{s}{r}=\\frac{7\\pi}{10}$ radians once $r$ cancels; multiplying by $\\frac{180}{\\pi}$ gives $126$ degrees — choice C.\n\n**The Full Solution:**\nStep 1: Arc length satisfies $s = r\\theta$ with $\\theta$ in radians, so $\\theta = \\frac{s}{r} = \\frac{7\\pi r}{10r} = \\frac{7\\pi}{10}$. The radius cancels, so the angle does not depend on the size of the circle.\nStep 2: Convert that radian measure to degrees: $\\frac{7\\pi}{10}\\cdot\\frac{180}{\\pi}=\\frac{7(180)}{10}=126$ degrees.\nStep 3: Check by fractions of a turn: $126^{\\circ}$ is $\\frac{126}{360}=\\frac{7}{20}$ of the circle, and $\\frac{7}{20}$ of the circumference $2\\pi r$ is $\\frac{7\\pi r}{10}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7\\pi}{10}$): is the correct radian measure, but the question asks for the degree measure — the conversion step is missing.\n* Choice B ($63^{\\circ}$): multiplies by $\\frac{90}{\\pi}$ instead of $\\frac{180}{\\pi}$, pairing $\\pi$ radians with a right angle: $\\frac{7(90)}{10}=63$.\n* Choice D ($252^{\\circ}$): multiplies by $\\frac{360}{\\pi}$, pairing $\\pi$ radians with a full rotation: $\\frac{7(360)}{10}=252$, which is twice too large.\n\n**Test Day Takeaway:** An arc length written as a multiple of $r$ pins the central angle by itself — divide out the radius, then convert. Read the last four words of the stem to see which unit the answer needs.",
+      skills: ["radians-to-degrees"]
     }
   ]
 };

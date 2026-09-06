@@ -1,0 +1,30 @@
+{
+  "id": 1,
+  "question": "The functions $p$ and $q$ are defined by $p(x) = x^2 + 1$ and $q(x) = 2x - 3$. What is the value of $p(q(4))$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$5$"
+    },
+    {
+      "id": "B",
+      "text": "$22$"
+    },
+    {
+      "id": "C",
+      "text": "$26$"
+    },
+    {
+      "id": "D",
+      "text": "$31$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "stops at the inner value q(4)",
+    "B": "adds p(4) and q(4)",
+    "D": "composes in the wrong order"
+  },
+  "correctAnswer": "C",
+  "hint": "Work from the inside out: evaluate the inner function first, then feed that number into the outer one.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $q(4) = 5$, and $p(5) = 25 + 1 = 26$.\n\n**The Full Solution:**\nStep 1: In $p(q(4))$ the inner function is evaluated first: $q(4) = 2(4) - 3 = 8 - 3 = 5$.\nStep 2: That output becomes the input of $p$: $p(5) = 5^2 + 1$.\nStep 3: $p(5) = 25 + 1 = 26$. Check with the composite rule: $p(q(x)) = (2x - 3)^2 + 1$, and at $x = 4$ that is $5^2 + 1 = 26$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): stops after the inner step and reports $q(4)$.\n* Choice B ($22$): adds the two separate outputs, $p(4) + q(4) = 17 + 5$, instead of composing them.\n* Choice D ($31$): composes in the wrong order, computing $q(p(4)) = q(17) = 31$.\n\n**Test Day Takeaway:** Composition is not commutative. Read $p(q(4))$ from the inside out, and the parentheses tell you which function acts first."
+}

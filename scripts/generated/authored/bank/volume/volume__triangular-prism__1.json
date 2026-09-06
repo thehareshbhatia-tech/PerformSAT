@@ -1,0 +1,42 @@
+{
+ "id": 1,
+ "question": "The base of a right prism is a right triangle with legs of length $12$ centimeters and $5$ centimeters. The height of the prism is $7$ centimeters. What is the volume, in cubic centimeters, of the prism?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "sideLabels": [
+    "12",
+    "5",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$24$"
+  },
+  {
+   "id": "B",
+   "text": "$105$"
+  },
+  {
+   "id": "C",
+   "text": "$210$"
+  },
+  {
+   "id": "D",
+   "text": "$420$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds the three given lengths",
+  "B": "halves the base area a second time",
+  "D": "multiplies all three lengths without halving the triangular base"
+ },
+ "correctAnswer": "C",
+ "hint": "Handle the triangle completely before the height of the prism enters.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** The base area is $\\frac{1}{2}(12)(5) = 30$, so $V = 30(7) = 210$.\n\n**The Full Solution:**\nStep 1: For any prism, $V = Bh$, where $B$ is the area of the base.\nStep 2: The base is a right triangle, so $B = \\frac{1}{2}(12)(5) = 30$ square centimeters.\nStep 3: $V = 30(7) = 210$ cubic centimeters.\n\nVerification: $\\frac{210}{7} = 30$, the area of the base. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($24$): adds the three given lengths.\n* Choice B ($105$): halves the base area a second time.\n* Choice D ($420$): multiplies all three lengths without halving the triangular base.\n\n**Test Day Takeaway:** Finish the base area as its own number, then multiply by the height of the prism."
+}

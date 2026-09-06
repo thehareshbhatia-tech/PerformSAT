@@ -1,0 +1,25 @@
+{
+  "id": 20,
+  "question": "The linear function $f$ satisfies $f(-3) = 20$ and $f(5) = -4$. In the $xy$-plane, the graph of $y = f(x)$ has a $y$-intercept at $(0, b)$, where $b$ is a constant. What is the value of $b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-3$"
+    },
+    {
+      "id": "B",
+      "text": "$11$"
+    },
+    {
+      "id": "C",
+      "text": "$20$"
+    },
+    {
+      "id": "D",
+      "text": "$29$"
+    }
+  ],
+  "correctAnswer": "B",
+  "hint": "Substituting a negative input into a negative rate of change produces a positive product — write the multiplication out.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** $m = \\frac{-4-20}{5-(-3)} = -3$, and $20 = -3(-3)+b$ gives $b = 11$ — choice B.\n\n**The Full Solution:**\nStep 1: Rate of change: $m = \\frac{-4-20}{5-(-3)} = \\frac{-24}{8} = -3$.\nStep 2: Substitute $(-3, 20)$ into $y = -3x + b$: $20 = -3(-3)+b = 9+b$, so $b = 11$.\nStep 3: The $y$-intercept is $(0, 11)$. Check the other value: $f(5) = -3(5)+11 = -4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): reports the rate of change, $-3$, instead of the $y$-coordinate of the $y$-intercept.\n* Choice C ($20$): reports $f(-3) = 20$, the output at $x = -3$ rather than at $x = 0$.\n* Choice D ($29$): evaluates $-3(-3)$ as $-9$, turning $20 = -9 + b$ into $b = 29$.\n\n**Test Day Takeaway:** The $y$-intercept is the output at $x = 0$, never an output listed in the stem. Get there by substituting a full ordered pair and watching the sign of the product."
+}

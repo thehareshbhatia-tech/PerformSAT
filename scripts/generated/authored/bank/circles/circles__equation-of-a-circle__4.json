@@ -1,0 +1,30 @@
+{
+ "id": 4,
+ "question": "The graph of $x^2 + y^2 = 90$ in the $xy$-plane is a circle. What is the radius of the circle, in simplest radical form?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3\\sqrt{10}$"
+  },
+  {
+   "id": "B",
+   "text": "$45$"
+  },
+  {
+   "id": "C",
+   "text": "$90$"
+  },
+  {
+   "id": "D",
+   "text": "$8{,}100$"
+  }
+ ],
+ "correctAnswer": "A",
+ "hint": "Look for a perfect-square factor hiding inside $90$.",
+ "distractorNotes": {
+  "B": "halves the constant",
+  "C": "reports r squared",
+  "D": "squares instead of taking a root"
+ },
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $r = \\sqrt{90} = \\sqrt{9 \\cdot 10} = 3\\sqrt{10}$.\n\n**The Full Solution:**\nStep 1: The circle is centered at the origin with $r^2 = 90$.\nStep 2: Factor out the largest perfect square: $90 = 9 \\cdot 10$.\nStep 3: $r = \\sqrt{9}\\sqrt{10} = 3\\sqrt{10}$. Check: $\\left(3\\sqrt{10}\\right)^2 = 9(10) = 90$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($45$): halves $90$, treating the constant as a diameter.\n* Choice C ($90$): reports $r^2$ without taking a square root.\n* Choice D ($8{,}100$): squares $90$ instead of taking its square root.\n\n**Test Day Takeaway:** When $r^2$ is not a perfect square, split off the largest square factor rather than reaching for a decimal."
+}

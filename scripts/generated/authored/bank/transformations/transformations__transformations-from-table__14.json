@@ -1,0 +1,30 @@
+{
+  "id": 14,
+  "question": "For a function $f$, $f(-1)=2$, $f(2)=9$, and $f(5)=17$. The function $g$ is defined by $g(x)=f(x+3)-f(x-3)$. What is the value of $g(2)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-15$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$15$"
+    },
+    {
+      "id": "D",
+      "text": "$19$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reverses the order of subtraction",
+    "B": "shifts the outputs instead of the inputs",
+    "D": "adds instead of subtracting"
+  },
+  "correctAnswer": "C",
+  "hint": "Build the two inputs separately before you subtract anything.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** $g(2)=f(5)-f(-1)=17-2=15$.\n\n**The Full Solution:**\nStep 1: The first term uses the input $2+3=5$, giving $f(5)=17$.\nStep 2: The second term uses the input $2-3=-1$, giving $f(-1)=2$.\nStep 3: Subtracting in the order written, $g(2)=17-2=15$. The value $f(2)=9$ is never needed. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-15$): subtracts in the reverse order: $f(-1)-f(5)=2-17=-15$.\n* Choice B ($6$): applies the $\\pm 3$ to the outputs instead of the inputs: $(9+3)-(9-3)=6$.\n* Choice D ($19$): adds the two values instead of subtracting: $17+2=19$.\n\n**Test Day Takeaway:** In a difference of shifted values, evaluate each piece at its own input and keep the written order of subtraction."
+}

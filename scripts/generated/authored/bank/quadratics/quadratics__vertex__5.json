@@ -1,0 +1,30 @@
+{
+  "id": 5,
+  "question": "In the $xy$-plane, the graph of $y = 3x^2 + kx + 7$ has an axis of symmetry given by the line $x = -4$, where $k$ is a constant. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-24$"
+    },
+    {
+      "id": "B",
+      "text": "$-4$"
+    },
+    {
+      "id": "C",
+      "text": "$8$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "drops the leading minus sign",
+    "B": "reports the axis value",
+    "C": "uses 2 instead of 2a"
+  },
+  "correctAnswer": "D",
+  "hint": "Set the axis-of-symmetry formula equal to $-4$ and solve for the unknown coefficient.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~30s):** $-\\frac{k}{2(3)} = -4$ gives $k = 24$.\n\n**The Full Solution:**\nStep 1: For $y = ax^2 + bx + c$, the axis of symmetry is the vertical line $x = -\\frac{b}{2a}$. Here $a = 3$ and $b = k$.\nStep 2: Set the formula equal to the given line: $-\\frac{k}{6} = -4$.\nStep 3: Multiply both sides by $-6$: $k = 24$. Check: with $k = 24$ the vertex is at $x = -\\frac{24}{6} = -4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-24$): drops the leading minus sign and solves $\\frac{k}{6} = -4$.\n* Choice B ($-4$): reports the axis of symmetry itself as the value of $k$.\n* Choice C ($8$): uses $-\\frac{k}{2} = -4$, forgetting to multiply the $2$ by the leading coefficient $3$.\n\n**Test Day Takeaway:** In $-\\frac{b}{2a}$ the denominator is $2a$, not $2$ — a leading coefficient other than $1$ is exactly what this kind of item is testing."
+}

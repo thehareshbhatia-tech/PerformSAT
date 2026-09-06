@@ -1,0 +1,30 @@
+{
+ "id": 4,
+ "question": "In right triangle $RST$, angle $T$ is a right angle, leg $\\overline{RT}$ has length $9$, and leg $\\overline{TS}$ has length $40$. What is the value of $\\cos R$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{9}{41}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{9}{40}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{40}{41}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{40}{9}$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "the value of $\\tan R$, dividing by the opposite leg instead of the hypotenuse",
+  "C": "the value of $\\sin R$, putting the opposite leg in the numerator",
+  "D": "the reciprocal of $\\tan R$, swapping the two legs"
+ },
+ "correctAnswer": "A",
+ "hint": "The denominator of a cosine is the hypotenuse, and that length is not given yet.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~35s):** $RS = \\sqrt{9^2 + 40^2} = 41$, so $\\cos R = \\frac{9}{41}$.\n\n**The Full Solution:**\nStep 1: Angle $T$ is the right angle, so $\\overline{RS}$ is the hypotenuse: $RS^2 = 9^2 + 40^2 = 81 + 1600 = 1681$.\nStep 2: $RS = \\sqrt{1681} = 41$.\nStep 3: $\\cos R$ is adjacent over hypotenuse: $\\frac{RT}{RS} = \\frac{9}{41}$.\n\nVerification: $9^2 + 40^2 = 81 + 1600 = 1681 = 41^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{9}{40}$): the value of $\\tan R$, dividing by the opposite leg instead of the hypotenuse.\n* Choice C ($\\frac{40}{41}$): the value of $\\sin R$, putting the opposite leg in the numerator.\n* Choice D ($\\frac{40}{9}$): the reciprocal of $\\tan R$, swapping the two legs.\n\n**Test Day Takeaway:** Cosine needs the hypotenuse, so compute the hypotenuse before writing the ratio down."
+}

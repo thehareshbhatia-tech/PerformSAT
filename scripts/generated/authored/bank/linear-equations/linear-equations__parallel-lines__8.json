@@ -1,0 +1,25 @@
+{
+  "id": 8,
+  "question": "$4x + y = 9$\n\nOne equation in a system of two linear equations is given. If the system has no solution, which of the following could be the second equation in the system?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x + 4y = 9$"
+    },
+    {
+      "id": "B",
+      "text": "$4x - y = 9$"
+    },
+    {
+      "id": "C",
+      "text": "$8x + 2y = 18$"
+    },
+    {
+      "id": "D",
+      "text": "$8x + 2y = 30$"
+    }
+  ],
+  "correctAnswer": "D",
+  "hint": "Rewrite each candidate in slope-intercept form; two of them differ from the given line only in appearance.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~30s):** $8x + 2y = 30$ is $y = -4x + 15$: the same slope as $y = -4x + 9$ but a different intercept — choice D.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $y = -4x + 9$, so its slope is $-4$ and its $y$-intercept is $9$.\nStep 2: No solution requires a second line with slope $-4$ and a different $y$-intercept. Rewrite the candidate: $8x + 2y = 30$ gives $2y = -8x + 30$, so $y = -4x + 15$.\nStep 3: The slopes match and the intercepts differ, so the lines are parallel and distinct. Check by elimination: doubling the given equation gives $8x + 2y = 18$, and $18 \\neq 30$, so no pair $(x, y)$ satisfies both. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x + 4y = 9$): swaps the coefficients, giving slope $-\\frac{1}{4}$ instead of $-4$, so the lines cross once.\n* Choice B ($4x - y = 9$): changes the sign on $y$, giving slope $4$; the two lines then intersect at a single point.\n* Choice C ($8x + 2y = 18$): is exactly twice the given equation, so it is the same line and the system has infinitely many solutions.\n\n**Test Day Takeaway:** In standard form, proportional coefficients with a proportional constant means one line; proportional coefficients with a non-proportional constant means no solution."
+}

@@ -1,0 +1,30 @@
+{
+ "id": 5,
+ "question": "In triangle $RST$, the measure of angle $S$ is $12°$ greater than the measure of angle $R$, and the measure of angle $T$ is twice the measure of angle $S$. What is the measure, in degrees, of angle $T$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$36$"
+  },
+  {
+   "id": "B",
+   "text": "$48$"
+  },
+  {
+   "id": "C",
+   "text": "$84$"
+  },
+  {
+   "id": "D",
+   "text": "$96$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "gives angle $R$, the angle the other two were described from",
+  "B": "gives angle $S$, stopping one step short of angle $T$",
+  "C": "doubles angle $R$ instead of angle $S$, which yields $4a + 12 = 180$ and $a = 42$"
+ },
+ "correctAnswer": "D",
+ "hint": "Let the angle the others are described from be a variable, then write the other two in terms of it.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~45s):** With $m\\angle R = a$ the angles are $a$, $a + 12$, and $2a + 24$; $4a + 36 = 180$ gives $a = 36$ and $m\\angle T = 96$.\n\n**The Full Solution:**\nStep 1: Let $m\\angle R = a$. Then $m\\angle S = a + 12$ and $m\\angle T = 2(a + 12) = 2a + 24$.\nStep 2: The angles total $180$: $a + (a + 12) + (2a + 24) = 180$, so $4a + 36 = 180$.\nStep 3: Then $4a = 144$ and $a = 36$, so $m\\angle T = 2(36 + 12) = 96$.\n\nVerification: $36 + 48 + 96 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): gives angle $R$, the angle the other two were described from.\n* Choice B ($48$): gives angle $S$, stopping one step short of angle $T$.\n* Choice C ($84$): doubles angle $R$ instead of angle $S$, which yields $4a + 12 = 180$ and $a = 42$.\n\n**Test Day Takeaway:** Name the angle every other angle is described from, write the rest in terms of it, and set the total to $180$."
+}

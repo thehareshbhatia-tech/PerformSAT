@@ -1,0 +1,30 @@
+{
+ "id": 2,
+ "question": "A right circular cylinder has a volume of $245\\pi$ cubic inches and a radius of $7$ inches. What is the height, in inches, of the cylinder?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$5$"
+  },
+  {
+   "id": "B",
+   "text": "$35$"
+  },
+  {
+   "id": "C",
+   "text": "$238$"
+  },
+  {
+   "id": "D",
+   "text": "$1{,}715$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "divides by the radius instead of by the radius squared",
+  "C": "subtracts the radius from the numerical part of the volume",
+  "D": "multiplies by the radius instead of dividing by it"
+ },
+ "correctAnswer": "A",
+ "hint": "Divide out $\\pi$ before working with the numbers.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $\\pi(49)h = 245\\pi$ gives $h = 5$.\n\n**The Full Solution:**\nStep 1: $V = \\pi r^2 h$, so $245\\pi = \\pi(7^2)h$.\nStep 2: Divide both sides by $\\pi$: $245 = 49h$.\nStep 3: $h = \\frac{245}{49} = 5$ inches.\n\nVerification: $\\pi(49)(5) = 245\\pi$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($35$): divides by the radius instead of by the radius squared.\n* Choice C ($238$): subtracts the radius from the numerical part of the volume.\n* Choice D ($1{,}715$): multiplies by the radius instead of dividing by it.\n\n**Test Day Takeaway:** Cancel $\\pi$ from both sides immediately — it never changes the arithmetic."
+}

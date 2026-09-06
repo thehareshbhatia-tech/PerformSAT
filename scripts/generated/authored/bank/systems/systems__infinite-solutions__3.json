@@ -1,0 +1,30 @@
+{
+  "id": 3,
+  "question": "The system of equations $\\frac{1}{2}x + 3y = 9$ and $2x + ty = 36$, where $t$ is a constant, has infinitely many solutions. What is the value of $t$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$12$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "copies the $y$-coefficient of the first equation, as if the scale factor applied to the other terms only.",
+    "B": "reports the scale factor $4$ itself instead of multiplying the $y$-coefficient $3$ by it.",
+    "C": "reads the $x$-coefficients as $1$ and $2$ and scales by $2$, ignoring the $\\frac{1}{2}$."
+  },
+  "correctAnswer": "D",
+  "hint": "Compare the two $x$-terms to find the factor that turns the first equation into the second.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~35s):** Multiplying the first equation by $4$ gives $2x + 12y = 36$, which is the second equation, so $t = 12$.\n\n**The Full Solution:**\nStep 1: A system has infinitely many solutions only when the two equations describe the same line, so the second equation must be a nonzero multiple of the first.\nStep 2: The $x$-terms give the factor: $2 \\div \\frac{1}{2} = 4$. The constants agree with that factor, since $4(9) = 36$.\nStep 3: The same factor must apply to the $y$-term, so $t = 4(3) = 12$. Check: multiplying $\\frac{1}{2}x + 3y = 9$ by $4$ gives exactly $2x + 12y = 36$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): copies the $y$-coefficient of the first equation, as if the scale factor applied to the other terms only.\n* Choice B ($4$): reports the scale factor $4$ itself instead of multiplying the $y$-coefficient $3$ by it.\n* Choice C ($6$): reads the $x$-coefficients as $1$ and $2$ and scales by $2$, ignoring the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** A fractional coefficient does not change the rule: find the factor from one pair of terms, confirm it on the constants, then apply it to the term you need."
+}

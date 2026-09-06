@@ -1,0 +1,30 @@
+{
+ "id": 2,
+ "question": "The graph of $(x - 5)^2 + (y + 9)^2 = 144$ in the $xy$-plane is a circle. What is the radius of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$12$"
+  },
+  {
+   "id": "B",
+   "text": "$24$"
+  },
+  {
+   "id": "C",
+   "text": "$72$"
+  },
+  {
+   "id": "D",
+   "text": "$144$"
+  }
+ ],
+ "correctAnswer": "A",
+ "hint": "The number on the right side of the equation is not the radius itself.",
+ "distractorNotes": {
+  "B": "reports the diameter",
+  "C": "halves the constant",
+  "D": "reports r squared"
+ },
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~10s):** The right side is $r^2$, so $r = \\sqrt{144} = 12$.\n\n**The Full Solution:**\nStep 1: In standard form $(x - h)^2 + (y - k)^2 = r^2$, the constant on the right is the square of the radius.\nStep 2: Set $r^2 = 144$.\nStep 3: $r = 12$, taking the positive root because a radius is a length. Check: $12^2 = 144$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($24$): doubles the radius and reports the diameter.\n* Choice C ($72$): halves the constant, treating $144$ as a diameter rather than as $r^2$.\n* Choice D ($144$): reports $r^2$ straight from the equation.\n\n**Test Day Takeaway:** Take the square root before you answer anything about a radius. The equation always stores $r^2$."
+}

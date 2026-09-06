@@ -1,0 +1,25 @@
+{
+  "id": 2,
+  "question": "In the $xy$-plane, which of the following equations represents a line perpendicular to the graph of $y = -\\frac{2}{7}x + 4$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -\\frac{7}{2}x + 4$"
+    },
+    {
+      "id": "B",
+      "text": "$y = -\\frac{2}{7}x - 4$"
+    },
+    {
+      "id": "C",
+      "text": "$y = \\frac{2}{7}x + 4$"
+    },
+    {
+      "id": "D",
+      "text": "$y = \\frac{7}{2}x - 1$"
+    }
+  ],
+  "correctAnswer": "D",
+  "hint": "Work out the required slope first, then scan the choices for it and ignore the constants entirely.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~15s):** The negative reciprocal of $-\\frac{2}{7}$ is $\\frac{7}{2}$, and only one choice has that slope — choice D.\n\n**The Full Solution:**\nStep 1: The given line has slope $-\\frac{2}{7}$.\nStep 2: Flip the fraction to get $\\frac{7}{2}$, then reverse the sign; reversing the sign of a negative gives a positive, so the required slope is $\\frac{7}{2}$.\nStep 3: Only $y = \\frac{7}{2}x - 1$ has that slope. Check: $-\\frac{2}{7}\\left(\\frac{7}{2}\\right) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{7}{2}x + 4$): flips the fraction but keeps it negative: $-\\frac{2}{7}\\left(-\\frac{7}{2}\\right) = 1$, not $-1$.\n* Choice B ($y = -\\frac{2}{7}x - 4$): has the same slope as the given line, so it is parallel rather than perpendicular.\n* Choice C ($y = \\frac{2}{7}x + 4$): reverses the sign without flipping: $-\\frac{2}{7}\\left(\\frac{2}{7}\\right) = -\\frac{4}{49}$.\n\n**Test Day Takeaway:** When the original slope is negative, the perpendicular slope is positive — the two sign changes cancel. Confirm with the product test rather than trusting the reflex."
+}

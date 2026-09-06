@@ -18,7 +18,7 @@
         -4,
         8
       ],
-      "showIntersection": true,
+      "showIntersection": false,
       "xTickInterval": 2,
       "yTickInterval": 2,
       "gridInterval": 1

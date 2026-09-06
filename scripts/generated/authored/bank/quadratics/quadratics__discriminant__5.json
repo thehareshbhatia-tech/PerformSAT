@@ -1,0 +1,30 @@
+{
+  "id": 5,
+  "question": "The equation $3x^2 + 12x + c = 0$ has no real solutions, where $c$ is a constant. Which of the following could be the value of $c$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-12$"
+    },
+    {
+      "id": "B",
+      "text": "$0$"
+    },
+    {
+      "id": "C",
+      "text": "$12$"
+    },
+    {
+      "id": "D",
+      "text": "$15$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "gives a positive discriminant",
+    "B": "gives two real solutions",
+    "C": "boundary value gives exactly one solution"
+  },
+  "correctAnswer": "D",
+  "hint": "No real solutions means the discriminant is strictly negative, so solve the resulting inequality.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~30s):** $144 - 12c < 0$ gives $c > 12$, and only $15$ clears that bar.\n\n**The Full Solution:**\nStep 1: Write the discriminant with $a = 3$, $b = 12$: $b^2 - 4ac = 12^2 - 4(3)c = 144 - 12c$.\nStep 2: No real solutions requires $144 - 12c < 0$, so $144 < 12c$ and $c > 12$.\nStep 3: Among the choices, only $15$ satisfies $c > 12$. Check: with $c = 15$ the discriminant is $144 - 180 = -36 < 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): gives a discriminant of $144 + 144 = 288$, which is positive, so there are two real solutions.\n* Choice B ($0$): gives a discriminant of $144$, and the equation $3x^2 + 12x = 0$ has the real solutions $0$ and $-4$.\n* Choice C ($12$): gives a discriminant of exactly $0$, which is one real solution, not none — the boundary value is excluded.\n\n**Test Day Takeaway:** Strict wording matters: no real solutions is a strict inequality, so the value that makes the discriminant zero is the trap, not the answer."
+}

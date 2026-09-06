@@ -1,0 +1,25 @@
+{
+  "id": 5,
+  "question": "Which of the following is equivalent to $(3c-5d)^{2}-(3c+5d)^{2}$, where $c$ and $d$ are constants?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-60cd$"
+    },
+    {
+      "id": "B",
+      "text": "$0$"
+    },
+    {
+      "id": "C",
+      "text": "$60cd$"
+    },
+    {
+      "id": "D",
+      "text": "$18c^{2}+50d^{2}$"
+    }
+  ],
+  "correctAnswer": "A",
+  "hint": "Expand both squares in full before subtracting, and keep the parentheses around the second square while you distribute the minus sign.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** Both squares carry $9c^{2}+25d^{2}$, so those cancel; only the middle terms survive: $-30cd-(+30cd)=-60cd$ — choice A.\n\n**The Full Solution:**\nStep 1: Expand the first square: $(3c-5d)^{2}=9c^{2}-30cd+25d^{2}$.\nStep 2: Expand the second square: $(3c+5d)^{2}=9c^{2}+30cd+25d^{2}$.\nStep 3: Subtract, distributing the minus sign across all three terms: $(9c^{2}-30cd+25d^{2})-9c^{2}-30cd-25d^{2}=-60cd$.\nStep 4: Check at $c=1$, $d=1$: $(-2)^{2}-(8)^{2}=4-64=-60$, and $-60(1)(1)=-60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($0$): assumes squaring distributes over the terms, so both squares would expand to $9c^{2}+25d^{2}$ and cancel completely.\n* Choice C ($60cd$): subtracts in the wrong order, computing $(3c+5d)^{2}-(3c-5d)^{2}$ instead.\n* Choice D ($18c^{2}+50d^{2}$): adds the two squares rather than subtracting them: the $\\pm 30cd$ terms cancel and the squares double to $18c^{2}+50d^{2}$.\n\n**Test Day Takeaway:** A difference of two squared binomials keeps only the cross terms. Distribute the subtraction across every term of the second expansion — that dropped minus sign is the whole trap."
+}

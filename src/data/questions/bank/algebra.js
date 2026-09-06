@@ -1380,7 +1380,7 @@ export const algebraBank = [
     difficulty: "easy",
     type: "multiple-choice",
     question: "The graphs of the two equations in a system of linear equations are shown in the $xy$-plane. What is the solution $(x, y)$ to the system?",
-    diagram: { type: "twoLineGraph", params: { intersection: { x: -2, y: 3 }, slope1: 1, slope2: -2, xRange: [-6, 6], yRange: [-4, 8], showIntersection: true, xTickInterval: 2, yTickInterval: 2, gridInterval: 1 } },
+    diagram: { type: "twoLineGraph", params: { intersection: { x: -2, y: 3 }, slope1: 1, slope2: -2, xRange: [-6, 6], yRange: [-4, 8], showIntersection: false, xTickInterval: 2, yTickInterval: 2, gridInterval: 1 } },
     choices: [
       { id: "A", text: "$(-2, 3)$" },
       // distractor: the y-intercept of the steeper line
@@ -3259,7 +3259,7 @@ export const algebraBank = [
     difficulty: "easy",
     type: "multiple-choice",
     question: "$y = x + 3$\n$y = -2x + 9$\n\nThe graphs of the two equations in the given system are shown in the $xy$-plane. The solution to the system is $(x, y)$. What is the value of $x$?",
-    diagram: { type: "twoLineGraph", params: { intersection: { x: 2, y: 5 }, slope1: 1, slope2: -2, xRange: [-4, 8], yRange: [-2, 10], showIntersection: true, xTickInterval: 2, yTickInterval: 2, gridInterval: 1 } },
+    diagram: { type: "twoLineGraph", params: { intersection: { x: 2, y: 5 }, slope1: 1, slope2: -2, xRange: [-4, 8], yRange: [-2, 10], showIntersection: false, xTickInterval: 2, yTickInterval: 2, gridInterval: 1 } },
     choices: [
       // distractor: sign error: 3x = -6
       { id: "A", text: "$-2$" },

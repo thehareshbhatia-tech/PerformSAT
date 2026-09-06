@@ -1,0 +1,30 @@
+{
+  "id": 1,
+  "question": "The function $f$ is defined by $f(x)=x^{2}$. Which of the following expressions is equivalent to $f(x-6)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(x+6)^{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$(x-6)^{2}$"
+    },
+    {
+      "id": "C",
+      "text": "$x^{2}-6$"
+    },
+    {
+      "id": "D",
+      "text": "$x^{2}-36$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "flips the sign of the substituted input",
+    "C": "applies the constant after the rule",
+    "D": "squares the terms separately"
+  },
+  "correctAnswer": "B",
+  "hint": "Substitute the entire quantity $x-6$ wherever the rule for $f$ shows an $x$.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** The rule squares its input, and the input is now $x-6$, so the result is $(x-6)^{2}$.\n\n**The Full Solution:**\nStep 1: $f$ takes whatever it is handed and squares it.\nStep 2: Here it is handed $x-6$, so $f(x-6)=(x-6)^{2}$.\nStep 3: Check with a number: $f(10-6)=f(4)=16$, and $(10-6)^{2}=16$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x+6)^{2}$): changes the sign inside the parentheses; the substituted input is $x-6$ exactly as written.\n* Choice C ($x^{2}-6$): subtracts $6$ after squaring, which describes $f(x)-6$ instead.\n* Choice D ($x^{2}-36$): squares each term separately; $(x-6)^{2}$ expands to $x^{2}-12x+36$, not $x^{2}-36$.\n\n**Test Day Takeaway:** Substitution replaces $x$ with the whole new input, parentheses and all."
+}

@@ -1,0 +1,25 @@
+{
+  "id": 5,
+  "question": "In the $xy$-plane, line $j$ passes through the points $(-4, 9)$ and $(8, 6)$. Line $k$ is perpendicular to line $j$ and passes through the point $(2, -3)$. What is the $y$-coordinate of the $y$-intercept of line $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-11$"
+    },
+    {
+      "id": "B",
+      "text": "$-3$"
+    },
+    {
+      "id": "C",
+      "text": "$-\\frac{5}{2}$"
+    },
+    {
+      "id": "D",
+      "text": "$5$"
+    }
+  ],
+  "correctAnswer": "A",
+  "hint": "Three moves in order: the slope of line $j$, the perpendicular slope, then the constant from the point on line $k$.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~40s):** Line $j$ has slope $-\\frac{1}{4}$, so line $k$ has slope $4$; then $-3 = 4(2)+b$ gives $b = -11$ — choice A.\n\n**The Full Solution:**\nStep 1: Slope of line $j$: $m = \\frac{6-9}{8-(-4)} = \\frac{-3}{12} = -\\frac{1}{4}$.\nStep 2: Line $k$ is perpendicular, so its slope is the negative reciprocal of $-\\frac{1}{4}$, which is $4$.\nStep 3: Substitute $(2, -3)$ into $y = 4x + b$: $-3 = 8 + b$, so $b = -11$.\nStep 4: Check: $y = 4x - 11$ passes through $(2, -3)$ because $8 - 11 = -3$, and $-\\frac{1}{4}(4) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-3$): reports the $y$-coordinate of the given point $(2, -3)$; that value occurs at $x = 2$, not at $x = 0$.\n* Choice C ($-\\frac{5}{2}$): uses the slope of line $j$ itself, $-\\frac{1}{4}$; anchoring that at $(2, -3)$ gives $-\\frac{5}{2}$, the intercept of the line parallel to $j$ rather than perpendicular to it.\n* Choice D ($5$): computes $-3 + 8$ instead of $-3 - 8$ when isolating $b$.\n\n**Test Day Takeaway:** A three-step chain gives three places to stop early, and each stopping point is one of the choices. Finish with a line that satisfies every condition in the stem."
+}

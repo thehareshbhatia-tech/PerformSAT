@@ -1,0 +1,30 @@
+{
+  "id": 6,
+  "question": "The graph of $y=f(x)$ in the $xy$-plane passes through $(0,4)$. The function $r$ is defined by $r(x)=f(x)-9$. What is the value of $r(0)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-9$"
+    },
+    {
+      "id": "B",
+      "text": "$-5$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$13$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the shift alone",
+    "C": "omits the shift",
+    "D": "adds instead of subtracts"
+  },
+  "correctAnswer": "B",
+  "hint": "Translate the point into a statement about $f$ before you use the rule for $r$.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** The point gives $f(0)=4$, so $r(0)=4-9=-5$.\n\n**The Full Solution:**\nStep 1: A graph passing through $(0,4)$ means the output at the input $0$ is $4$: $f(0)=4$.\nStep 2: The definition $r(x)=f(x)-9$ evaluated at $x=0$ gives $r(0)=f(0)-9$.\nStep 3: So $r(0)=4-9=-5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): reports the size of the shift and ignores the value of $f(0)$.\n* Choice C ($4$): reports $f(0)$ without applying the $-9$.\n* Choice D ($13$): adds $9$ instead of subtracting it.\n\n**Test Day Takeaway:** A point on a graph is a ready-made function value: $(a,b)$ means $f(a)=b$."
+}

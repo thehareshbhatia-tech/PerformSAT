@@ -1,0 +1,47 @@
+{
+  "id": 1,
+  "question": "In the $xy$-plane, the graph of $y=f(x)$ is shown, where $f(x)=\\dfrac{a}{x+b}$ and $a$ and $b$ are constants. The graph passes through $(0,4)$ and $(3,2)$. The function $g$ is defined by $g(x)=f(x+4)$. Which equation could define $g$?",
+  "diagram": {
+    "type": "rationalFunction",
+    "params": {
+      "a": 12,
+      "b": 3,
+      "showPoints": [
+        [
+          0,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$g(x)=\\dfrac{12}{x-1}$"
+    },
+    {
+      "id": "B",
+      "text": "$g(x)=\\dfrac{12}{x+4}$"
+    },
+    {
+      "id": "C",
+      "text": "$g(x)=\\dfrac{12}{x+7}$"
+    },
+    {
+      "id": "D",
+      "text": "$g(x)=\\dfrac{16}{x+3}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts the shift from b",
+    "B": "replaces b with the shift",
+    "D": "applies the shift to the numerator"
+  },
+  "correctAnswer": "C",
+  "hint": "Use the two marked points to pin down $a$ and $b$ first; the shift is the last step, not the first.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~45s):** The points give $f(x)=\\dfrac{12}{x+3}$, and replacing $x$ with $x+4$ turns the denominator into $x+7$.\n\n**The Full Solution:**\nStep 1: The point $(0,4)$ gives $\\dfrac{a}{0+b}=4$, so $a=4b$. The point $(3,2)$ gives $\\dfrac{a}{3+b}=2$, so $a=6+2b$.\nStep 2: Setting the two expressions equal: $4b=6+2b$, so $2b=6$, $b=3$, and $a=12$. Thus $f(x)=\\dfrac{12}{x+3}$.\nStep 3: Then $g(x)=f(x+4)=\\dfrac{12}{(x+4)+3}=\\dfrac{12}{x+7}$. Check: $g(-1)=\\dfrac{12}{6}=2$ and $f(3)=\\dfrac{12}{6}=2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{12}{x-1}$): subtracts $4$ from the constant; $f(x+4)$ increases the denominator's constant to $3+4=7$.\n* Choice B ($\\dfrac{12}{x+4}$): replaces the denominator with the shift itself instead of substituting $x+4$ into $x+3$.\n* Choice D ($\\dfrac{16}{x+3}$): adds the shift to the numerator; a horizontal shift never changes $a$.\n\n**Test Day Takeaway:** For $f(x)=\\dfrac{a}{x+b}$, the shift $f(x+c)$ leaves $a$ alone and turns the denominator into $x+(b+c)$."
+}

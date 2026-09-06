@@ -1,0 +1,25 @@
+{
+  "id": 4,
+  "question": "A pump delivers water at a constant rate of $4$ liters every $5$ seconds. At this rate, how many liters of water does the pump deliver in $45$ minutes?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$36$"
+    },
+    {
+      "id": "B",
+      "text": "$540$"
+    },
+    {
+      "id": "C",
+      "text": "$2{,}160$"
+    },
+    {
+      "id": "D",
+      "text": "$3{,}375$"
+    }
+  ],
+  "correctAnswer": "C",
+  "hint": "The rate is stated in seconds but the time is stated in minutes — reconcile the two units before dividing anything.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** $45$ minutes is $2{,}700$ seconds; that is $\\frac{2{,}700}{5}=540$ five-second intervals, each delivering $4$ liters: $540(4)=2{,}160$ liters — choice C.\n\n**The Full Solution:**\nStep 1: Convert the elapsed time to seconds: $45(60)=2{,}700$ seconds.\nStep 2: Count the five-second intervals: $\\frac{2{,}700}{5}=540$ intervals.\nStep 3: Each interval delivers $4$ liters, so the pump delivers $540(4)=2{,}160$ liters.\nStep 4: Check with a unit rate: $\\frac{4}{5}=0.8$ liter per second, and $0.8(2{,}700)=2{,}160$ liters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): treats the $45$ minutes as $45$ seconds: $\\frac{45}{5}(4)=36$.\n* Choice B ($540$): converts the time correctly but stops at the number of intervals, $\\frac{2{,}700}{5}=540$, without multiplying by the $4$ liters each one delivers.\n* Choice D ($3{,}375$): inverts the rate to $5$ liters every $4$ seconds: $\\frac{2{,}700}{4}(5)=3{,}375$.\n\n**Test Day Takeaway:** Turn a two-number rate into a unit rate when the arithmetic gets crowded: liters per second times seconds is a single multiplication with no intervals to miscount."
+}

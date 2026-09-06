@@ -1,0 +1,30 @@
+{
+ "id": 5,
+ "question": "In right triangle $JKL$, angle $L$ is a right angle and $\\sin J = \\frac{3}{5}$. If the perimeter of triangle $JKL$ is $60$, what is the length of $\\overline{KL}$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$15$"
+  },
+  {
+   "id": "B",
+   "text": "$20$"
+  },
+  {
+   "id": "C",
+   "text": "$25$"
+  },
+  {
+   "id": "D",
+   "text": "$36$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "gives $JL$, the leg adjacent to angle $J$",
+  "C": "gives $JK$, the hypotenuse",
+  "D": "applies the ratio $\\frac{3}{5}$ directly to the perimeter"
+ },
+ "correctAnswer": "A",
+ "hint": "A ratio of $3$ to $5$ fixes the shape only, so introduce a multiplier for the actual lengths.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~60s):** The sides are $3k$, $4k$, and $5k$; $12k = 60$ gives $k = 5$, so $KL = 15$.\n\n**The Full Solution:**\nStep 1: $\\sin J = \\frac{KL}{JK} = \\frac{3}{5}$, so the opposite leg and the hypotenuse are $3k$ and $5k$ for some positive $k$.\nStep 2: The third side is $\\sqrt{(5k)^2 - (3k)^2} = 4k$, so the perimeter is $3k + 4k + 5k = 12k$.\nStep 3: $12k = 60$ gives $k = 5$, so $KL = 3(5) = 15$.\n\nVerification: $15 + 20 + 25 = 60$ and $\\frac{15}{25} = \\frac{3}{5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($20$): gives $JL$, the leg adjacent to angle $J$.\n* Choice C ($25$): gives $JK$, the hypotenuse.\n* Choice D ($36$): applies the ratio $\\frac{3}{5}$ directly to the perimeter.\n\n**Test Day Takeaway:** A given sine fixes the shape but not the size — introduce a scale factor and let the perimeter pin it down."
+}

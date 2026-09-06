@@ -1,0 +1,47 @@
+{
+ "id": 1,
+ "question": "In right triangle $ABC$, angle $C$ is a right angle, $AC = 20$, and $CB = 21$. What is the length of $\\overline{AB}$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "A",
+    "C",
+    "B"
+   ],
+   "sideLabels": [
+    "20",
+    "21",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$20.5$"
+  },
+  {
+   "id": "B",
+   "text": "$29$"
+  },
+  {
+   "id": "C",
+   "text": "$41$"
+  },
+  {
+   "id": "D",
+   "text": "$841$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "averages the two legs",
+  "C": "adds the legs instead of applying the Pythagorean theorem",
+  "D": "stops at $AB^2$ without taking the square root"
+ },
+ "correctAnswer": "B",
+ "hint": "Identify the side opposite the right angle before writing the theorem down.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** $AB = \\sqrt{20^2 + 21^2} = \\sqrt{841} = 29$.\n\n**The Full Solution:**\nStep 1: Angle $C$ is the right angle, so $\\overline{AB}$ is the hypotenuse.\nStep 2: $AC^2 + CB^2 = AB^2$ gives $400 + 441 = AB^2$, so $AB^2 = 841$.\nStep 3: $AB = \\sqrt{841} = 29$.\n\nVerification: $20^2 + 21^2 = 400 + 441 = 841$ and $29^2 = 841$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($20.5$): averages the two legs.\n* Choice C ($41$): adds the legs instead of applying the Pythagorean theorem.\n* Choice D ($841$): stops at $AB^2$ without taking the square root.\n\n**Test Day Takeaway:** The side opposite the right angle is the hypotenuse, and it is always the side isolated on its own."
+}

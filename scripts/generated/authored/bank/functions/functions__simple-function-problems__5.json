@@ -1,0 +1,30 @@
+{
+  "id": 5,
+  "question": "The function $f$ is defined by $f(x) = ax + 9$, where $a$ is a constant. If the graph of $y = f(x)$ passes through the point $(-3, 24)$, what is the value of $f(5)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-25$"
+    },
+    {
+      "id": "B",
+      "text": "$-16$"
+    },
+    {
+      "id": "C",
+      "text": "$-5$"
+    },
+    {
+      "id": "D",
+      "text": "$34$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "forgets the constant 9",
+    "C": "reports a instead of f(5)",
+    "D": "sign error solving for a"
+  },
+  "correctAnswer": "B",
+  "hint": "Use the given output to pin down $a$ first, then evaluate at the new input.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $-3a + 9 = 24$ gives $a = -5$, so $f(5) = -25 + 9 = -16$.\n\n**The Full Solution:**\nStep 1: The point $(-3, 24)$ on the graph says $f(-3) = 24$, so $a(-3) + 9 = 24$, or $-3a + 9 = 24$.\nStep 2: Subtract $9$: $-3a = 15$, so $a = -5$ and $f(x) = -5x + 9$.\nStep 3: Evaluate at the requested input: $f(5) = -5(5) + 9 = -25 + 9 = -16$. Check the first condition again: $-5(-3) + 9 = 15 + 9 = 24$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-25$): finds $a = -5$ and computes $-5(5)$ but forgets to add the constant $9$.\n* Choice C ($-5$): reports the constant $a$ rather than the requested output $f(5)$.\n* Choice D ($34$): solves $-3a = 15$ as $a = 5$, dropping the negative sign, and gets $5(5) + 9$.\n\n**Test Day Takeaway:** When a rule contains an unknown constant, one input-output pair determines it; write the full rule before evaluating anywhere else."
+}

@@ -1,0 +1,30 @@
+{
+  "id": 7,
+  "question": "The function $g$ is defined by $g(x)=7x$. Which expression is equivalent to $g(x+3)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7x-21$"
+    },
+    {
+      "id": "B",
+      "text": "$7x+3$"
+    },
+    {
+      "id": "C",
+      "text": "$7x+21$"
+    },
+    {
+      "id": "D",
+      "text": "$10x$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "flips the sign after distributing",
+    "B": "fails to distribute the coefficient",
+    "D": "adds the constant to the coefficient"
+  },
+  "correctAnswer": "C",
+  "hint": "After substituting, remember that the multiplier reaches both terms of the new input.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $g(x+3)=7(x+3)=7x+21$.\n\n**The Full Solution:**\nStep 1: The rule multiplies its input by $7$, and the input is now $x+3$.\nStep 2: So $g(x+3)=7(x+3)$.\nStep 3: Distributing gives $7x+21$. Check at $x=1$: $g(4)=28$, and $7(1)+21=28$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7x-21$): distributes the $7$ but flips the sign of the constant.\n* Choice B ($7x+3$): forgets to distribute: the $7$ multiplies the $3$ as well.\n* Choice D ($10x$): adds $3$ to the coefficient instead of to the input.\n\n**Test Day Takeaway:** Substitute first, then distribute — the multiplier applies to every part of the new input."
+}

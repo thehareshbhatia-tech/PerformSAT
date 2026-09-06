@@ -1,0 +1,30 @@
+{
+  "id": 2,
+  "question": "For a function $f$, $f(2)=9$. The function $h$ is defined by $h(x)=f(x-6)$. What is the value of $h(8)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$9$"
+    },
+    {
+      "id": "D",
+      "text": "$15$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the input rather than the output",
+    "B": "applies the inside shift to the output",
+    "D": "adds the shift to the output"
+  },
+  "correctAnswer": "C",
+  "hint": "Work out which input of $f$ the expression $x-6$ produces when $x=8$.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $h(8)=f(8-6)=f(2)=9$.\n\n**The Full Solution:**\nStep 1: The definition of $h$ says: subtract $6$ from the input, then hand the result to $f$.\nStep 2: At $x=8$, the input passed to $f$ is $8-6=2$.\nStep 3: Since $f(2)=9$, it follows that $h(8)=9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports the input handed to $f$ instead of the output that comes back.\n* Choice B ($3$): subtracts $6$ from the output: $9-6=3$. The $-6$ is inside the function, so it acts on the input.\n* Choice D ($15$): adds $6$ to the output: $9+6=15$.\n\n**Test Day Takeaway:** An inside change is done before $f$ acts; simplify the input first, then look up the output."
+}

@@ -1,0 +1,30 @@
+{
+  "id": 5,
+  "question": "In the equation $ax^2 = bx$, $a$ and $b$ are positive constants. Which of the following lists all values of $x$ that satisfy this equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x = \\frac{b}{a}$ only"
+    },
+    {
+      "id": "B",
+      "text": "$x = 0$ and $x = \\frac{b}{a}$"
+    },
+    {
+      "id": "C",
+      "text": "$x = 0$ and $x = \\frac{a}{b}$"
+    },
+    {
+      "id": "D",
+      "text": "$x = 0$ and $x = b - a$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "divides by x and loses a solution",
+    "C": "inverts the ratio",
+    "D": "subtracts instead of dividing"
+  },
+  "correctAnswer": "B",
+  "hint": "Move everything to one side and factor; dividing both sides by the variable can throw a solution away.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** $ax^2 - bx = x(ax - b) = 0$, so $x = 0$ or $x = \\frac{b}{a}$.\n\n**The Full Solution:**\nStep 1: Bring every term to one side: $ax^2 - bx = 0$.\nStep 2: Factor out the common factor $x$: $x(ax - b) = 0$.\nStep 3: A product is zero when a factor is zero, so $x = 0$ or $ax - b = 0$, which gives $x = \\frac{b}{a}$ (defined because $a$ is positive). Check with $a = 2$ and $b = 6$: $2x^2 = 6x$ holds at $x = 0$ and at $x = 3 = \\frac{6}{2}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: divides both sides by $x$ at the start, which is only legal when $x \\neq 0$ and silently discards the solution $x = 0$.\n* Choice C: inverts the ratio, solving $bx = a$ instead of $ax = b$.\n* Choice D: subtracts the constants instead of dividing, as if $ax = b$ were $x = b - a$.\n\n**Test Day Takeaway:** Never divide an equation by the variable. Factor instead, so the solution $x = 0$ survives."
+}

@@ -1,0 +1,55 @@
+{
+ "id": 1,
+ "question": "For the function $f$, the table lists the value of $f(x)$ at four values of $x$. Which of the following best describes $f$?",
+ "diagram": {
+  "type": "table",
+  "params": {
+   "xHeader": "x",
+   "yHeader": "f(x)",
+   "rows": [
+    [
+     "0",
+     "5"
+    ],
+    [
+     "1",
+     "15"
+    ],
+    [
+     "2",
+     "45"
+    ],
+    [
+     "3",
+     "135"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "Decreasing linear"
+  },
+  {
+   "id": "B",
+   "text": "Decreasing exponential"
+  },
+  {
+   "id": "C",
+   "text": "Increasing linear"
+  },
+  {
+   "id": "D",
+   "text": "Increasing exponential"
+  }
+ ],
+ "correctAnswer": "D",
+ "hint": "Compare the differences between consecutive values with the ratios between them.",
+ "distractorNotes": {
+  "A": "reads the table bottom to top",
+  "B": "right pattern, wrong direction",
+  "C": "sees growth but not its shape"
+ },
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** Each value is $3$ times the one before it, and the values are rising, so $f$ is an increasing exponential function.\n\n**The Full Solution:**\nStep 1: The differences between consecutive values are $10$, $30$, and $90$, which are not constant, so $f$ is not linear.\nStep 2: The ratios are $\\frac{15}{5} = 3$, $\\frac{45}{15} = 3$, and $\\frac{135}{45} = 3$, a constant multiplier — the signature of an exponential function.\nStep 3: Because the multiplier is greater than $1$, the values increase, so $f$ is an increasing exponential function. Check: $f(x) = 5(3)^x$ reproduces every entry in the table.\n\n**Why the wrong answers are tempting:**\n* Choice A (Decreasing linear): reads the table from the bottom up, where the values appear to fall.\n* Choice B (Decreasing exponential): spots the constant ratio but reverses the direction of the change.\n* Choice C (Increasing linear): notices that the values grow and stops there, without checking whether they grow by a constant amount.\n\n**Test Day Takeaway:** Constant differences mean linear; constant ratios mean exponential. Compute one of each before you name the model."
+}

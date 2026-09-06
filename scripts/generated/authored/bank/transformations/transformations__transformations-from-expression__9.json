@@ -1,0 +1,30 @@
+{
+  "id": 9,
+  "question": "The function $f$ is defined by $f(x)=4x-1$. The function $v$ is defined by $v(x)=f(-x)+6$. Which of the following expressions represents $v(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-4x-7$"
+    },
+    {
+      "id": "B",
+      "text": "$-4x+5$"
+    },
+    {
+      "id": "C",
+      "text": "$-4x+7$"
+    },
+    {
+      "id": "D",
+      "text": "$4x+5$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts the outside constant",
+    "C": "negates the constant term of the rule",
+    "D": "omits the input negation"
+  },
+  "correctAnswer": "B",
+  "hint": "The negative belongs to the input only; the constant term of the rule is not part of the substitution.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $f(-x)=4(-x)-1=-4x-1$, and adding $6$ gives $v(x)=-4x+5$.\n\n**The Full Solution:**\nStep 1: Substituting $-x$ into the rule gives $f(-x)=4(-x)-1=-4x-1$.\nStep 2: The $+6$ is applied to that output: $-4x-1+6$.\nStep 3: Combining constants gives $v(x)=-4x+5$. Check at $x=1$: $f(-1)=-5$, so $v(1)=-5+6=1$, which matches $-4(1)+5=1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4x-7$): subtracts $6$ instead of adding it.\n* Choice C ($-4x+7$): negates the constant term as well: substitution replaces $x$, not the $-1$.\n* Choice D ($4x+5$): never negates the input, treating $f(-x)$ as $f(x)$.\n\n**Test Day Takeaway:** Substitute into the variable positions only, then combine like terms with the outside constant."
+}

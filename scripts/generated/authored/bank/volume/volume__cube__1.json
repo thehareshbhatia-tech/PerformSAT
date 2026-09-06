@@ -1,0 +1,30 @@
+{
+ "id": 1,
+ "question": "A cube has edges of length $7$ millimeters. What is the volume, in cubic millimeters, of the cube?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$21$"
+  },
+  {
+   "id": "B",
+   "text": "$49$"
+  },
+  {
+   "id": "C",
+   "text": "$294$"
+  },
+  {
+   "id": "D",
+   "text": "$343$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "multiplies the edge by $3$ instead of cubing it",
+  "B": "squares the edge, which gives the area of one face",
+  "C": "computes the surface area, $6(7^2)$"
+ },
+ "correctAnswer": "D",
+ "hint": "All three dimensions of a cube are the same length.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~10s):** $V = 7^3 = 343$.\n\n**The Full Solution:**\nStep 1: The volume of a cube is $s^3$, where $s$ is the edge length.\nStep 2: $7^2 = 49$.\nStep 3: $49 \\cdot 7 = 343$ cubic millimeters.\n\nVerification: $343 = 7 \\cdot 7 \\cdot 7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($21$): multiplies the edge by $3$ instead of cubing it.\n* Choice B ($49$): squares the edge, which gives the area of one face.\n* Choice C ($294$): computes the surface area, $6(7^2)$.\n\n**Test Day Takeaway:** Cubing means three factors of the edge, not three times the edge."
+}

@@ -1,0 +1,30 @@
+{
+ "id": 2,
+ "question": "Two similar triangles have corresponding side lengths in the ratio $2:5$. The perimeter of the larger triangle is $60$ centimeters. What is the perimeter, in centimeters, of the smaller triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$12$"
+  },
+  {
+   "id": "B",
+   "text": "$24$"
+  },
+  {
+   "id": "C",
+   "text": "$30$"
+  },
+  {
+   "id": "D",
+   "text": "$150$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "divides by $5$ and stops, giving one part of the ratio instead of two",
+  "C": "halves the larger perimeter, as if the ratio were $1:2$",
+  "D": "multiplies by $\\frac{5}{2}$, scaling up instead of down"
+ },
+ "correctAnswer": "B",
+ "hint": "A perimeter is built out of side lengths, so it scales the same way a single side does.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** Perimeters share the side ratio: $60 \\cdot \\frac{2}{5} = 24$.\n\n**The Full Solution:**\nStep 1: All corresponding lengths in similar triangles share one ratio, and a perimeter is a sum of lengths, so the perimeters are in the ratio $2:5$.\nStep 2: Let $p$ be the smaller perimeter. Then $\\frac{p}{60} = \\frac{2}{5}$.\nStep 3: Cross multiply: $5p = 120$, so $p = 24$ centimeters.\n\nVerification: $\\frac{24}{60} = \\frac{2}{5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): divides by $5$ and stops, giving one part of the ratio instead of two.\n* Choice C ($30$): halves the larger perimeter, as if the ratio were $1:2$.\n* Choice D ($150$): multiplies by $\\frac{5}{2}$, scaling up instead of down.\n\n**Test Day Takeaway:** Perimeter scales by the side ratio itself; only area scales by its square."
+}

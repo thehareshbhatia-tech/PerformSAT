@@ -1,0 +1,25 @@
+{
+  "id": 19,
+  "question": "The function $g$ is linear, $g(-2) = 17$, and $g(4) = -1$. In the $xy$-plane, the graph of $y = g(x)$ is a line. What is the value of $x$ for which $g(x) = 5$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\frac{16}{3}$"
+    },
+    {
+      "id": "B",
+      "text": "$-4$"
+    },
+    {
+      "id": "C",
+      "text": "$-2$"
+    },
+    {
+      "id": "D",
+      "text": "$2$"
+    }
+  ],
+  "correctAnswer": "D",
+  "hint": "Build the equation for $g$ first; the question then asks for an input, not an output.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~35s):** $m = \\frac{-1-17}{4-(-2)} = -3$ and $b = 11$, so $-3x + 11 = 5$ gives $x = 2$ — choice D.\n\n**The Full Solution:**\nStep 1: Rate of change: $m = \\frac{-1-17}{4-(-2)} = \\frac{-18}{6} = -3$.\nStep 2: Substitute $(4, -1)$ into $g(x) = -3x + b$: $-1 = -12 + b$, so $b = 11$ and $g(x) = -3x + 11$.\nStep 3: Solve $-3x + 11 = 5$: subtract $11$ to get $-3x = -6$, then divide by $-3$ to get $x = 2$.\nStep 4: Check: $g(2) = -6 + 11 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{16}{3}$): adds $11$ to both sides instead of subtracting it, solving $-3x = 16$.\n* Choice B ($-4$): computes $g(5) = -3(5)+11 = -4$ instead of solving $g(x) = 5$ — the input and the output are swapped.\n* Choice C ($-2$): reaches $-3x = -6$ but divides without tracking the two negatives, reporting $x = -2$.\n\n**Test Day Takeaway:** The phrase 'the value of $x$ for which $g(x) = 5$' asks for an input. Substituting $5$ for $x$ answers a different question, and that answer is always among the choices."
+}

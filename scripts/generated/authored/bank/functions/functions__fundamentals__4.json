@@ -1,0 +1,30 @@
+{
+  "id": 4,
+  "question": "Each of the following sets lists the ordered pairs $(x, y)$ of a relation. For which set is $y$ a function of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\{(3, 1), (3, 4), (8, 6)\\}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\{(0, 7), (2, 7), (5, 7)\\}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\{(4, 2), (9, 5), (4, 5)\\}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\{(6, 0), (6, 1), (6, 2)\\}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "input 3 is paired with two outputs",
+    "C": "the repeated input 4 is not adjacent",
+    "D": "one input with three outputs"
+  },
+  "correctAnswer": "B",
+  "hint": "A set fails only when the same first coordinate is paired with two different second coordinates.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** Scan the first coordinates. Only in choice B are they all different: $0$, $2$, and $5$.\n\n**The Full Solution:**\nStep 1: $y$ is a function of $x$ when every input $x$ is paired with exactly one output $y$.\nStep 2: In choice B the inputs are $0$, $2$, and $5$, all distinct, so no input receives two outputs.\nStep 3: The repeated output $7$ is not a problem — a function may send several inputs to the same output. Check the vertical-line idea: the three points sit at three different $x$-values, so no vertical line meets the set twice. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the input $3$ appears with the outputs $1$ and $4$.\n* Choice C: the input $4$ appears with the outputs $2$ and $5$; the two pairs are not next to each other, so the repeat is easy to miss.\n* Choice D: every pair has the input $6$, so one input is matched with three different outputs.\n\n**Test Day Takeaway:** Check the inputs, not the outputs. Repeated outputs are allowed; a repeated input with different outputs is what breaks a function."
+}

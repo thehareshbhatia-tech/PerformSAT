@@ -1,0 +1,30 @@
+{
+ "id": 3,
+ "question": "The equation $x^2 + y^2 + 16y = 0$ defines a circle in the $xy$-plane whose center lies on the $y$-axis. What is the radius of this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4$"
+  },
+  {
+   "id": "B",
+   "text": "$8$"
+  },
+  {
+   "id": "C",
+   "text": "$16$"
+  },
+  {
+   "id": "D",
+   "text": "$64$"
+  }
+ ],
+ "correctAnswer": "B",
+ "hint": "There is no $x$-term to complete here — only the $y$-terms need work.",
+ "distractorNotes": {
+  "A": "halves the completed value",
+  "C": "reports the coefficient",
+  "D": "reports r squared"
+ },
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** $x^2 + (y + 8)^2 = 64$, so $r = 8$.\n\n**The Full Solution:**\nStep 1: The $x$-terms are already a perfect square, so only $y^2 + 16y$ needs completing.\nStep 2: Add $\\left(\\frac{16}{2}\\right)^2 = 64$ to both sides: $x^2 + (y + 8)^2 = 64$.\nStep 3: $r^2 = 64$, so $r = 8$. Check: the circle has center $(0, -8)$ and passes through the origin, whose distance from $(0, -8)$ is $8$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): halves the $8$ from the completed square, treating it as a diameter.\n* Choice C ($16$): reports the coefficient of $y$ from the original equation.\n* Choice D ($64$): reports $r^2$ without taking the square root.\n\n**Test Day Takeaway:** A missing linear term means that variable's square is already complete. Add to both sides only for the variable that needs it."
+}

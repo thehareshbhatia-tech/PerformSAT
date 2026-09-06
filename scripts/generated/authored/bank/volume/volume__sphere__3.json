@@ -1,0 +1,30 @@
+{
+ "id": 3,
+ "question": "A spherical ball bearing has a diameter of $18$ millimeters. What is the volume, in cubic millimeters, of the ball bearing?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$243\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$972\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$2{,}916\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$7{,}776\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses $\\frac{1}{3}\\pi r^3$ instead of $\\frac{4}{3}\\pi r^3$",
+  "C": "omits the division by $3$",
+  "D": "uses the diameter $18$ in place of the radius"
+ },
+ "correctAnswer": "B",
+ "hint": "The formula uses a radius, and a diameter is what you were given.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** The radius is $9$, so $V = \\frac{4}{3}\\pi(729) = 972\\pi$.\n\n**The Full Solution:**\nStep 1: The radius is half the diameter: $r = 9$ millimeters.\nStep 2: $9^3 = 729$.\nStep 3: $V = \\frac{4}{3}\\pi(729) = 972\\pi$ cubic millimeters.\n\nVerification: $\\frac{972(3)}{4} = 729 = 9^3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($243\\pi$): uses $\\frac{1}{3}\\pi r^3$ instead of $\\frac{4}{3}\\pi r^3$.\n* Choice C ($2{,}916\\pi$): omits the division by $3$.\n* Choice D ($7{,}776\\pi$): uses the diameter $18$ in place of the radius.\n\n**Test Day Takeaway:** Halve a diameter before cubing — cubing first multiplies the error by $8$."
+}

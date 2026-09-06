@@ -1,0 +1,30 @@
+{
+ "id": 4,
+ "question": "For every value of $x$ with $x \\ne 0$, the expression $\\dfrac{x^{-3}}{x^{-7}}$ is equivalent to which of the following?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$x^{-10}$"
+  },
+  {
+   "id": "B",
+   "text": "$x^{-4}$"
+  },
+  {
+   "id": "C",
+   "text": "$x^4$"
+  },
+  {
+   "id": "D",
+   "text": "$x^{10}$"
+  }
+ ],
+ "correctAnswer": "C",
+ "hint": "If the negatives feel slippery, rewrite each power with a positive exponent before dividing.",
+ "distractorNotes": {
+  "A": "adds the exponents",
+  "B": "subtracts in the wrong order",
+  "D": "ignores both negative signs"
+ },
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** Subtract exponents: $x^{-3 - (-7)} = x^{4}$.\n\n**The Full Solution:**\nStep 1: The quotient rule is $\\frac{x^m}{x^n} = x^{m-n}$, with $m = -3$ and $n = -7$.\nStep 2: Compute the exponent: $-3 - (-7) = -3 + 7 = 4$.\nStep 3: The expression equals $x^4$. Check by clearing the negatives first: $\\frac{x^{-3}}{x^{-7}} = \\frac{x^7}{x^3} = x^4$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{-10}$): adds the exponents, $-3 + (-7)$, instead of subtracting.\n* Choice B ($x^{-4}$): subtracts in the wrong order, computing $-7 - (-3) = -4$.\n* Choice D ($x^{10}$): drops both negative signs and adds $3 + 7$.\n\n**Test Day Takeaway:** A negative exponent in the denominator becomes positive in the numerator. Flipping first turns the sign work into ordinary subtraction."
+}

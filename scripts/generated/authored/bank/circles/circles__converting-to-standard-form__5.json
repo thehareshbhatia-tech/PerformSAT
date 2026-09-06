@@ -1,0 +1,30 @@
+{
+ "id": 5,
+ "question": "A circle in the $xy$-plane has center $(4, -1)$ and radius $6$. Which of the following equations, written in general form, defines this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$x^2 + y^2 - 8x + 2y - 19 = 0$"
+  },
+  {
+   "id": "B",
+   "text": "$x^2 + y^2 - 8x + 2y + 11 = 0$"
+  },
+  {
+   "id": "C",
+   "text": "$x^2 + y^2 - 8x + 2y + 53 = 0$"
+  },
+  {
+   "id": "D",
+   "text": "$x^2 + y^2 + 8x - 2y - 19 = 0$"
+  }
+ ],
+ "correctAnswer": "A",
+ "hint": "Write the standard form first, then expand and collect every constant.",
+ "distractorNotes": {
+  "B": "uses r instead of r squared",
+  "C": "adds 36 instead of subtracting",
+  "D": "flips the linear signs"
+ },
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~45s):** Standard form is $(x - 4)^2 + (y + 1)^2 = 36$; expanding gives $x^2 + y^2 - 8x + 2y + 17 = 36$, or $x^2 + y^2 - 8x + 2y - 19 = 0$.\n\n**The Full Solution:**\nStep 1: With center $(4, -1)$ and $r = 6$, standard form is $(x - 4)^2 + (y + 1)^2 = 36$.\nStep 2: Expand: $x^2 - 8x + 16 + y^2 + 2y + 1 = 36$.\nStep 3: Collect and move everything to one side: $x^2 + y^2 - 8x + 2y + 17 - 36 = 0$, so the constant is $-19$. Check: half of $-8$ is $-4$ and half of $2$ is $1$, returning the center $(4, -1)$, and $16 + 1 + 19 = 36 = r^2$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^2 + y^2 - 8x + 2y + 11 = 0$): uses the radius $6$ in place of $r^2 = 36$, leaving a constant of $17 - 6 = 11$.\n* Choice C ($x^2 + y^2 - 8x + 2y + 53 = 0$): adds $36$ instead of subtracting it, giving $17 + 36 = 53$.\n* Choice D ($x^2 + y^2 + 8x - 2y - 19 = 0$): flips the signs of both linear terms, which relocates the center to $(-4, 1)$.\n\n**Test Day Takeaway:** Going from standard to general form, the constant is $h^2 + k^2 - r^2$. Expanding carefully beats guessing the sign."
+}

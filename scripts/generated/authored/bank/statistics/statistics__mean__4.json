@@ -1,0 +1,30 @@
+{
+  "id": 4,
+  "question": "The mean of the $10$ values in a data set is $21$. The two values $33$ and $37$ are removed from the data set. What is the mean of the remaining $8$ values?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$14$"
+    },
+    {
+      "id": "B",
+      "text": "$17.5$"
+    },
+    {
+      "id": "C",
+      "text": "$21$"
+    },
+    {
+      "id": "D",
+      "text": "$26.25$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses the reduced total but keeps the original count, $\\frac{140}{10}$.",
+    "C": "assumes removing values leaves the mean unchanged.",
+    "D": "reduces the count but not the total, $\\frac{210}{8}$."
+  },
+  "correctAnswer": "B",
+  "hint": "Removing values changes both the total and the number of values you divide by.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** The original total is $10(21) = 210$. Removing $33 + 37 = 70$ leaves $140$ across $8$ values: $\\frac{140}{8} = 17.5$.\n\n**The Full Solution:**\nStep 1: Total of the original data set: $10(21) = 210$.\nStep 2: The two removed values contribute $33 + 37 = 70$, so the remaining total is $210 - 70 = 140$.\nStep 3: Eight values remain, so the new mean is $\\frac{140}{8} = 17.5$. Check: both removed values are above $21$, so the mean should fall, and $17.5 < 21$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): uses the reduced total but keeps the original count, $\\frac{140}{10}$.\n* Choice C ($21$): assumes removing values leaves the mean unchanged.\n* Choice D ($26.25$): reduces the count but not the total, $\\frac{210}{8}$.\n\n**Test Day Takeaway:** When values leave a data set, adjust the sum and the count together. Changing only one of them is the standard trap."
+}

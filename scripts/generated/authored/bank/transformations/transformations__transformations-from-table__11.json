@@ -1,0 +1,30 @@
+{
+  "id": 11,
+  "question": "A function $f$ satisfies $f(-5)=13$ and $f(-1)=6$. The function $g$ is defined by $g(x)=f(x-2)$. What is the value of $g(-3)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$11$"
+    },
+    {
+      "id": "D",
+      "text": "$13$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses the wrong input and shifts the output",
+    "B": "shifts the input the wrong way",
+    "C": "applies the inside shift to the output"
+  },
+  "correctAnswer": "D",
+  "hint": "Two outputs of $f$ are given; only one of them belongs to the input you actually need.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** $g(-3)=f(-3-2)=f(-5)=13$.\n\n**The Full Solution:**\nStep 1: The rule for $g$ subtracts $2$ from the input before $f$ is applied: $g(-3)=f(-3-2)$.\nStep 2: That input is $-5$, and the problem states $f(-5)=13$.\nStep 3: So $g(-3)=13$. The value $f(-1)=6$ belongs to a different input and is not used. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): uses the wrong output and then subtracts $2$ from it: $6-2=4$.\n* Choice B ($6$): adds $2$ to the input instead of subtracting: $f(-3+2)=f(-1)=6$.\n* Choice C ($11$): subtracts $2$ from the correct output: $13-2=11$. The $-2$ is inside the function.\n\n**Test Day Takeaway:** Do the input arithmetic first; the constant inside the parentheses never touches the output."
+}

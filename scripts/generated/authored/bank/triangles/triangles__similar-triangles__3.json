@@ -1,0 +1,30 @@
+{
+ "id": 3,
+ "question": "Two similar triangles have areas of $50$ square centimeters and $98$ square centimeters. What is the ratio of a side length of the smaller triangle to the corresponding side length of the larger triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$5:7$"
+  },
+  {
+   "id": "B",
+   "text": "$7:5$"
+  },
+  {
+   "id": "C",
+   "text": "$25:49$"
+  },
+  {
+   "id": "D",
+   "text": "$\\sqrt{5}:\\sqrt{7}$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "reverses the order, giving larger to smaller",
+  "C": "reports the reduced ratio of the areas without taking its square root",
+  "D": "takes a square root a second time, after the side ratio has already been found"
+ },
+ "correctAnswer": "A",
+ "hint": "Areas of similar figures compare by the square of the ratio their sides use.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~35s):** $\\frac{50}{98} = \\frac{25}{49}$, and the side ratio is $\\sqrt{\\frac{25}{49}} = \\frac{5}{7}$.\n\n**The Full Solution:**\nStep 1: For similar figures, the ratio of the areas equals the square of the ratio of corresponding sides.\nStep 2: Reduce the area ratio: $\\frac{50}{98} = \\frac{25}{49}$, so $\\left(\\frac{s_1}{s_2}\\right)^2 = \\frac{25}{49}$.\nStep 3: Take the positive square root: $\\frac{s_1}{s_2} = \\frac{5}{7}$, or $5:7$.\n\nVerification: $\\left(\\frac{5}{7}\\right)^2 = \\frac{25}{49} = \\frac{50}{98}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($7:5$): reverses the order, giving larger to smaller.\n* Choice C ($25:49$): reports the reduced ratio of the areas without taking its square root.\n* Choice D ($\\sqrt{5}:\\sqrt{7}$): takes a square root a second time, after the side ratio has already been found.\n\n**Test Day Takeaway:** Areas carry the square of the side ratio: reduce the area ratio first, then take exactly one square root."
+}

@@ -1,0 +1,30 @@
+{
+ "id": 3,
+ "question": "For all positive values of $x$ and $y$, the expression $\\dfrac{24x^7y^3}{6x^2y^3}$ is equivalent to which of the following?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4x^5$"
+  },
+  {
+   "id": "B",
+   "text": "$4x^5y^6$"
+  },
+  {
+   "id": "C",
+   "text": "$4x^9$"
+  },
+  {
+   "id": "D",
+   "text": "$18x^5$"
+  }
+ ],
+ "correctAnswer": "A",
+ "hint": "Handle the numbers and each variable as separate, independent divisions.",
+ "distractorNotes": {
+  "B": "adds the y exponents",
+  "C": "adds the x exponents",
+  "D": "subtracts the coefficients"
+ },
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $\\frac{24}{6} = 4$, $\\frac{x^7}{x^2} = x^5$, and $\\frac{y^3}{y^3} = 1$, so the quotient is $4x^5$.\n\n**The Full Solution:**\nStep 1: Divide the coefficients: $\\frac{24}{6} = 4$.\nStep 2: Divide the powers of $x$ by subtracting exponents: $x^{7-2} = x^5$.\nStep 3: The powers of $y$ are identical, so $y^{3-3} = y^0 = 1$, leaving $4x^5$. Check at $x = y = 1$: the original is $\\frac{24}{6} = 4$, and $4(1)^5 = 4$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($4x^5y^6$): adds the $y$-exponents instead of subtracting them, so a factor that should cancel survives.\n* Choice C ($4x^9$): adds the $x$-exponents, $7 + 2$, applying the product rule to a quotient.\n* Choice D ($18x^5$): subtracts the coefficients, $24 - 6$, instead of dividing them.\n\n**Test Day Takeaway:** In a quotient of monomials, coefficients divide and exponents subtract. Treat each base on its own line of work."
+}

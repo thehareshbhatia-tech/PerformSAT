@@ -1,0 +1,30 @@
+{
+ "id": 2,
+ "question": "A rectangular garden plot measures $24$ meters by $45$ meters. What is the length, in meters, of a straight path connecting two opposite corners of the plot?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$21$"
+  },
+  {
+   "id": "B",
+   "text": "$51$"
+  },
+  {
+   "id": "C",
+   "text": "$69$"
+  },
+  {
+   "id": "D",
+   "text": "$2{,}601$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the two side lengths",
+  "C": "adds the two side lengths",
+  "D": "stops at the square of the path length"
+ },
+ "correctAnswer": "B",
+ "hint": "Two sides of the plot and the path enclose a right triangle.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** The path is $\\sqrt{24^2 + 45^2} = \\sqrt{2601} = 51$ meters.\n\n**The Full Solution:**\nStep 1: The path and two sides of the rectangle form a right triangle with legs $24$ and $45$.\nStep 2: $24^2 + 45^2 = 576 + 2025 = 2601$.\nStep 3: The path length is $\\sqrt{2601} = 51$ meters.\n\nVerification: $51^2 = 2601 = 576 + 2025$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($21$): subtracts the two side lengths.\n* Choice C ($69$): adds the two side lengths.\n* Choice D ($2{,}601$): stops at the square of the path length.\n\n**Test Day Takeaway:** A diagonal of a rectangle cuts it into two right triangles whose legs are the sides of the rectangle."
+}

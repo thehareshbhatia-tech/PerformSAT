@@ -1,0 +1,30 @@
+{
+  "id": 11,
+  "question": "In the $xy$-plane, the graph of $y=f(x)$ has exactly one $x$-intercept, at $(9,0)$. The function $g$ is defined by $g(x)=f(x)+7$. Which of the following must be true about the graph of $y=g(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "It passes through $(2,0)$."
+    },
+    {
+      "id": "B",
+      "text": "It passes through $(9,0)$."
+    },
+    {
+      "id": "C",
+      "text": "It passes through $(9,7)$."
+    },
+    {
+      "id": "D",
+      "text": "It passes through $(16,0)$."
+    }
+  ],
+  "distractorNotes": {
+    "A": "moves the intercept left by the shift",
+    "B": "assumes the x-intercept is preserved",
+    "D": "adds the shift to the x-coordinate"
+  },
+  "correctAnswer": "C",
+  "hint": "The only value of $f$ you are given is at a single input — use it and nothing else.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** The intercept says $f(9)=0$, so $g(9)=0+7=7$ and the point $(9,7)$ is guaranteed.\n\n**The Full Solution:**\nStep 1: The $x$-intercept $(9,0)$ means $f(9)=0$; the problem gives no other value of $f$.\nStep 2: Evaluating the definition at that input, $g(9)=f(9)+7=0+7=7$, so $(9,7)$ lies on the graph of $g$.\nStep 3: Nothing forces $g$ to have an $x$-intercept at any particular place: raising the graph $7$ units can move a crossing anywhere, or remove it entirely. Only $(9,7)$ must be on the graph. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(2,0)$): subtracts $7$ from the input; an outside constant cannot move a point horizontally.\n* Choice B ($(9,0)$): assumes the $x$-intercept survives the shift, but $g(9)=7$, not $0$.\n* Choice D ($(16,0)$): adds $7$ to the input rather than to the output.\n\n**Test Day Takeaway:** A vertical shift preserves inputs, not intercepts: the guaranteed new point is $(a,\\,f(a)+k)$."
+}

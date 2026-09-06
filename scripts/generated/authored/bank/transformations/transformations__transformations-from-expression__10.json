@@ -1,0 +1,30 @@
+{
+  "id": 10,
+  "question": "The function $g$ is defined by $g(x)=x^{3}-4x^{2}$, and the function $c$ is defined by $c(x)=-g(x)$. Which expression is equivalent to $c(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-x^{3}-4x^{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$-x^{3}+4x^{2}$"
+    },
+    {
+      "id": "C",
+      "text": "$x^{3}-4x^{2}$"
+    },
+    {
+      "id": "D",
+      "text": "$x^{3}+4x^{2}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "negates only the leading term",
+    "C": "omits the negation",
+    "D": "negates only the second term"
+  },
+  "correctAnswer": "B",
+  "hint": "Distribute the negative sign across both terms and watch what happens to the one that is already negative.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** $c(x)=-\\left(x^{3}-4x^{2}\\right)=-x^{3}+4x^{2}$.\n\n**The Full Solution:**\nStep 1: $c(x)$ multiplies the entire rule for $g$ by $-1$.\nStep 2: The first term becomes $-x^{3}$; the second, already negative, becomes $+4x^{2}$.\nStep 3: So $c(x)=-x^{3}+4x^{2}$. Check at $x=1$: $g(1)=1-4=-3$, so $c(1)=3$, and $-1+4=3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-x^{3}-4x^{2}$): negates the leading term only and leaves $-4x^{2}$ negative.\n* Choice C ($x^{3}-4x^{2}$): reproduces $g$ itself; nothing was negated.\n* Choice D ($x^{3}+4x^{2}$): negates the second term only.\n\n**Test Day Takeaway:** Reflecting across the $x$-axis flips the sign of every term, including the ones that are already negative."
+}

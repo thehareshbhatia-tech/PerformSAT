@@ -1,0 +1,41 @@
+{
+ "id": 3,
+ "question": "In the figure, $O$ is the center of the circle and the measure of $\\angle POQ$ is $60^{\\circ}$. If the area of sector $POQ$ is $24\\pi$, what is the radius of the circle?",
+ "diagram": {
+  "type": "circleWithSector",
+  "params": {
+   "centralAngle": 60,
+   "showAngleLabel": true,
+   "labelCenter": "O",
+   "labelPoint1": "P",
+   "labelPoint2": "Q",
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2\\sqrt{6}$"
+  },
+  {
+   "id": "B",
+   "text": "$12$"
+  },
+  {
+   "id": "C",
+   "text": "$72$"
+  },
+  {
+   "id": "D",
+   "text": "$144$"
+  }
+ ],
+ "correctAnswer": "B",
+ "hint": "The angle tells you what fraction of the circle's area you were handed.",
+ "distractorNotes": {
+  "A": "ignores the sector fraction",
+  "C": "uses the arc-length formula",
+  "D": "stops at r squared"
+ },
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~35s):** The sector is $\\frac{1}{6}$ of the circle, so the circle's area is $6(24\\pi) = 144\\pi$, giving $r^2 = 144$ and $r = 12$.\n\n**The Full Solution:**\nStep 1: A $60^{\\circ}$ central angle takes $\\frac{60}{360} = \\frac{1}{6}$ of the circle, so $\\frac{1}{6}\\pi r^2 = 24\\pi$.\nStep 2: Multiply both sides by $6$: $\\pi r^2 = 144\\pi$, so $r^2 = 144$.\nStep 3: $r = 12$. Check: $\\frac{1}{6}\\pi(12)^2 = \\frac{144\\pi}{6} = 24\\pi$, the given sector area.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2\\sqrt{6}$): solves $\\pi r^2 = 24\\pi$ and never undoes the $\\frac{1}{6}$.\n* Choice C ($72$): uses the arc-length formula $\\frac{1}{6}(2\\pi r) = 24\\pi$, which is a length equation.\n* Choice D ($144$): finds $r^2 = 144$ correctly and reports it without taking the square root.\n\n**Test Day Takeaway:** Working backwards from a sector, undo the angle fraction first and the square last."
+}

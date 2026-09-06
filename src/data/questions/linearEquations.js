@@ -9,393 +9,320 @@ export const linearEquationsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "A phone plan charges a flat fee of \\$25 per month plus \\$0.10 per text message. Which equation represents the total monthly cost C in terms of the number of text messages t?",
+      question: "A gym charges a one-time registration fee of \\$40 plus \\$18 for each month of membership. Which equation gives the total amount $A$, in dollars, paid for $m$ months of membership?",
       choices: [
-        { id: "A", text: "$C = 0.10 + 25t$" },
-        { id: "B", text: "$C = 25 + 0.10t$" },
-        { id: "C", text: "$C = 25t + 0.10$" },
-        { id: "D", text: "$C = 10 + 25t$" }
+        { id: "A", text: "$A = 18m + 40$" },
+        { id: "B", text: "$A = 40m + 18$" },
+        { id: "C", text: "$A = 58m$" },
+        { id: "D", text: "$A = 18m - 40$" }
       ],
-      correctAnswer: "B",
-      hint: "Think about what stays the same each month (the flat fee) and what changes based on usage (the per-text charge).",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** A fee that stays put is the constant; a per-text charge multiplies $t$. So $C = 25 + 0.10t$ — that's choice B.\n\n**The Full Solution:**\nStep 1: The flat fee is $\\$25$ every month no matter how many texts you send, so it is the constant term: $b = 25$.\nStep 2: The $\\$0.10$ per text is the rate, so it multiplies the count $t$: the slope is $0.10$.\nStep 3: In $y = mx + b$ form, $C = 25 + 0.10t$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($C = 0.10 + 25t$): swaps the roles, treating $\\$0.10$ as the fixed fee and $\\$25$ as the per-text rate.\n* Choice C ($C = 25t + 0.10$): makes $25$ the coefficient of $t$, charging $\\$25$ per text.\n* Choice D ($C = 10 + 25t$): misreads $\\$0.10$ as $10$ for the fee and again charges $\\$25$ per text.\n\n**Test Day Takeaway:** The quantity that does not depend on the variable is the constant; the per-unit rate is the coefficient that multiplies the variable.",
-      skills: ['word-problem-to-equation', 'slope-intercept-form']
+      correctAnswer: "A",
+      hint: "One of the two amounts is charged again every month and the other is charged only once — that decides which one multiplies $m$.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** The \\$18 recurs, so it multiplies $m$; the \\$40 is paid once, so it is the constant: $A = 18m + 40$ — choice A.\n\n**The Full Solution:**\nStep 1: The membership charge is \\$18 for each month, so $m$ months contribute $18m$ dollars.\nStep 2: The registration fee is paid once no matter how long the membership lasts, so it is the constant term, $40$.\nStep 3: Combine the two: $A = 18m + 40$. Check $m = 3$: $18(3)+40 = 94$, which is the \\$40 fee plus three monthly charges of \\$18. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($A = 40m + 18$): swaps the two amounts, charging \\$40 every month and \\$18 only once.\n* Choice C ($A = 58m$): adds the two amounts before multiplying, so the \\$40 fee is charged every month along with the \\$18.\n* Choice D ($A = 18m - 40$): subtracts the registration fee; a fee raises the total paid, so it must be added.\n\n**Test Day Takeaway:** In a linear model the per-unit amount is the slope and the one-time amount is the constant. Substitute a small value like $m = 3$ and count the charges by hand to confirm you have not swapped them.",
+      skills: ["word-problem-to-equation", "slope-intercept-form"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "The relationship between two variables, x and y, is linear. For every increase in the value of x by 1, the value of y increases by 8. When the value of x is 2, the value of y is 18. Which equation represents this relationship?",
+      question: "A seedling is $5$ centimeters tall when it is first measured, and it grows $2$ centimeters each week after that. Which equation gives the height $h$, in centimeters, of the seedling $w$ weeks after it is first measured?",
       choices: [
-        { id: "A", text: "$y = 2x + 18$" },
-        { id: "B", text: "$y = 2x + 8$" },
-        { id: "C", text: "$y = 8x + 2$" },
-        { id: "D", text: "$y = 3x + 26$" }
+        { id: "A", text: "$h = 2w$" },
+        { id: "B", text: "$h = 2w + 5$" },
+        { id: "C", text: "$h = 5 - 2w$" },
+        { id: "D", text: "$h = 5w + 2$" }
       ],
-      correctAnswer: "C",
-      hint: "The rate of change (slope) is how much y changes when x changes by 1. Use the given point (2, 18) to find the y-intercept.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** \"Increases by $8$ for each $+1$ in $x$\" means slope $8$, killing A and B. Plug $(2,18)$ into $y=8x+b$: $18=16+b$, so $b=2$, giving $y=8x+2$ — choice C.\n\n**The Full Solution:**\nStep 1: The rate of change is the slope: $m = \\frac{\\Delta y}{\\Delta x} = \\frac{8}{1} = 8$.\nStep 2: Use the point $(2,18)$ in $y = mx + b$: $18 = 8(2) + b = 16 + b$, so $b = 2$.\nStep 3: The equation is $y = 8x + 2$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 2x + 18$): uses the point's coordinates as the parameters — slope $2$ from the $x$-value, intercept $18$ from the $y$-value.\n* Choice B ($y = 2x + 8$): again takes slope $2$ from the $x$-value but slots $8$ as the intercept.\n* Choice D ($y = 3x + 26$): wrong slope $3$; check $(2,18)$: $3(2)+26 = 32 \\neq 18$.\n\n**Test Day Takeaway:** \"$y$ goes up by $k$ for every $+1$ in $x$\" means the slope is $k$. Then substitute a known point to solve for the intercept.",
-      skills: ['word-problem-to-equation', 'slope-intercept-form']
+      correctAnswer: "B",
+      hint: "At $w = 0$ the seedling already has a height — the equation has to produce that value.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** Growth of $2$ centimeters per week gives $2w$, and the seedling starts at $5$: $h = 2w + 5$ — choice B.\n\n**The Full Solution:**\nStep 1: The height at the first measurement corresponds to $w = 0$, so the constant term is $5$.\nStep 2: The seedling gains $2$ centimeters each week, so $w$ weeks add $2w$ centimeters.\nStep 3: Combine: $h = 2w + 5$. Check $w = 4$: $2(4)+5 = 13$ centimeters, which is $5$ plus four weeks of $2$-centimeter growth. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($h = 2w$): ignores the height at the first measurement, so the model starts the seedling at $0$ centimeters.\n* Choice C ($h = 5 - 2w$): subtracts the weekly growth, which would make the seedling shrink over time.\n* Choice D ($h = 5w + 2$): swaps the two numbers, treating $5$ centimeters as the weekly growth and $2$ centimeters as the starting height.\n\n**Test Day Takeaway:** Evaluate a candidate equation at the input $0$: whatever it returns should be the quantity described as the starting amount.",
+      skills: ["word-problem-to-equation", "slope-intercept-form"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "A candle is 12 inches tall and burns at a rate of 0.5 inches per hour. Which equation gives the height h of the candle after t hours?",
+      question: "A delivery drone begins a flight with its battery at $96$ percent charge, and the charge decreases by $1.5$ percentage points for each minute of flight. Which equation gives the battery charge $c$, as a percent, after $t$ minutes of flight?",
       choices: [
-        { id: "A", text: "$h = 12 + 0.5t$" },
-        { id: "B", text: "$h = 0.5 - 12t$" },
-        { id: "C", text: "$h = 12 - 0.5t$" },
-        { id: "D", text: "$h = 12t - 0.5$" }
+        { id: "A", text: "$c = 96 - 1.5t$" },
+        { id: "B", text: "$c = 96 - 15t$" },
+        { id: "C", text: "$c = 1.5t + 96$" },
+        { id: "D", text: "$c = 1.5t - 96$" }
       ],
-      correctAnswer: "C",
-      hint: "The candle is getting shorter over time (decreasing), so the slope should be negative. Start with the initial height.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** It starts at $12$ and shrinks, so a decreasing line from $12$: $h = 12 - 0.5t$ — choice C.\n\n**The Full Solution:**\nStep 1: At $t = 0$ the candle is $12$ inches, so the starting value (intercept) is $12$.\nStep 2: It burns down, so height decreases at $0.5$ in/hr: the slope is $-0.5$.\nStep 3: Assemble: $h = 12 - 0.5t$. Check $t = 4$: $h = 12 - 2 = 10$ inches.\n\n**Why the wrong answers are tempting:**\n* Choice A ($h = 12 + 0.5t$): uses $+0.5t$, which makes the candle grow — but \"burns\" means it shrinks.\n* Choice B ($h = 0.5 - 12t$): swaps the roles of $0.5$ and $12$; at $t = 0$ this gives $0.5$, not $12$.\n* Choice D ($h = 12t - 0.5$): makes $12$ the rate, so the candle grows $12$ inches per hour.\n\n**Test Day Takeaway:** A quantity that decreases at a constant rate has a negative slope: $y = (\\text{start}) - (\\text{rate})t$.",
-      skills: ['word-problem-to-equation', 'slope-intercept-form']
+      correctAnswer: "A",
+      hint: "A quantity that falls at a steady rate has a negative rate of change; the starting value stays positive.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** The charge starts at $96$ and falls $1.5$ points per minute: $c = 96 - 1.5t$ — choice A.\n\n**The Full Solution:**\nStep 1: At $t = 0$ the charge is $96$ percent, so the constant term is $96$.\nStep 2: The charge decreases, so the rate of change is negative: $-1.5$ percentage points per minute, contributing $-1.5t$.\nStep 3: Combine: $c = 96 - 1.5t$. Check $t = 10$: $96 - 15 = 81$ percent, a drop of $15$ points across $10$ minutes at $1.5$ points per minute. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($c = 96 - 15t$): reads the rate as $15$ percentage points per minute; the battery would then be empty after $6.4$ minutes.\n* Choice C ($c = 1.5t + 96$): uses the right numbers but adds, so the battery would gain charge during the flight.\n* Choice D ($c = 1.5t - 96$): reverses both roles, starting the battery at $-96$ percent and raising it.\n\n**Test Day Takeaway:** Read the direction of change before the size of it. A decreasing quantity forces a negative coefficient on the variable, never on the starting value.",
+      skills: ["word-problem-to-equation", "slope-intercept-form"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "The relationship between two variables, x and y, is linear. For every increase in x by 1, y decreases by 5. When x is 4, y is 3. Which equation represents this relationship?",
+      question: "In a linear relationship between $x$ and $y$, each increase of $4$ in the value of $x$ corresponds to a decrease of $10$ in the value of $y$. When the value of $x$ is $6$, the value of $y$ is $1$. Which equation represents this relationship?",
       choices: [
-        { id: "A", text: "$y = -5x + 23$" },
-        { id: "B", text: "$y = 5x - 17$" },
-        { id: "C", text: "$y = -5x - 17$" },
-        { id: "D", text: "$y = 5x + 23$" }
+        { id: "A", text: "$y = -10x + 61$" },
+        { id: "B", text: "$y = -2.5x + 1$" },
+        { id: "C", text: "$y = -2.5x + 16$" },
+        { id: "D", text: "$y = 2.5x - 14$" }
       ],
-      correctAnswer: "A",
-      hint: "A decrease means negative slope. Use the point (4, 3) with slope −5 to find the y-intercept.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** \"Decreases by $5$\" means slope $-5$, eliminating B and D. Plug $(4,3)$ into $y = -5x + b$: $3 = -20 + b$, so $b = 23$, giving $y = -5x + 23$ — choice A.\n\n**The Full Solution:**\nStep 1: $y$ decreases by $5$ for each $+1$ in $x$, so the slope is $m = -5$.\nStep 2: Use $(4,3)$ in $y = mx + b$: $3 = -5(4) + b = -20 + b$, so $b = 23$.\nStep 3: The equation is $y = -5x + 23$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = 5x - 17$): drops the negative sign on the slope; $+5$ contradicts \"decreases.\"\n* Choice C ($y = -5x - 17$): right slope, but the intercept is sign-flipped — subtracting instead of adding gives the false $b = 3 - 20 = -17$ instead of $b = 23$.\n* Choice D ($y = 5x + 23$): both signs wrong; at $x = 4$, $5(4) + 23 = 43 \\neq 3$.\n\n**Test Day Takeaway:** \"$y$ decreases by $k$\" forces the slope to be $-k$. Lock in the sign before solving for the intercept.",
-      skills: ['word-problem-to-equation', 'slope-intercept-form']
+      correctAnswer: "C",
+      hint: "A drop of $10$ across a run of $4$ is not a rate of change until you divide.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $m = \\frac{-10}{4} = -2.5$, and $1 = -2.5(6)+b$ gives $b = 16$: $y = -2.5x + 16$ — choice C.\n\n**The Full Solution:**\nStep 1: The rate of change is the change in $y$ divided by the change in $x$: $m = \\frac{-10}{4} = -2.5$.\nStep 2: Substitute the given pair $(6, 1)$ into $y = -2.5x + b$: $1 = -15 + b$, so $b = 16$.\nStep 3: The equation is $y = -2.5x + 16$. Check by stepping $4$ units right from $x = 6$: at $x = 10$, $y = -25+16 = -9$, which is $10$ less than $1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -10x + 61$): uses the $10$-unit drop as the rate of change without dividing by the $4$-unit run; then $1 = -10(6)+b$ forces $b = 61$.\n* Choice B ($y = -2.5x + 1$): has the correct rate of change but treats the given value $y = 1$ as the value at $x = 0$; it occurs at $x = 6$.\n* Choice D ($y = 2.5x - 14$): makes the rate of change positive, so $y$ would rise as $x$ rises; then $1 = 2.5(6)+b$ forces $b = -14$.\n\n**Test Day Takeaway:** The phrase '$y$ drops $10$ for every $4$ that $x$ rises' describes a ratio, not a slope — divide first, then anchor the line with the given point.",
+      skills: ["word-problem-to-equation", "slope-intercept-form"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "A water tank contains 500 gallons. Water drains from the tank at a constant rate of 15 gallons per minute. For every 2-minute interval, how much does the water level change, and which equation represents the remaining water W after m minutes?",
+      question: "A cable is wound onto a drum at a constant rate. After $4$ minutes of winding, $118$ meters of cable remain on the ground, and after $9$ minutes, $63$ meters remain. Which equation gives the number of meters $L$ of cable remaining on the ground after $t$ minutes of winding?",
       choices: [
-        { id: "A", text: "Decreases by 30 gallons; W = 500 − 15m" },
-        { id: "B", text: "Decreases by 15 gallons; W = 500 − 15m" },
-        { id: "C", text: "Decreases by 30 gallons; W = 500 + 15m" },
-        { id: "D", text: "Decreases by 7.5 gallons; W = 500 − 7.5m" }
+        { id: "A", text: "$L = 118 - 11t$" },
+        { id: "B", text: "$L = 162 - 55t$" },
+        { id: "C", text: "$L = 162 - 11t$" },
+        { id: "D", text: "$L = 162 + 11t$" }
       ],
-      correctAnswer: "A",
-      hint: "In 2 minutes, how much drains? The equation uses the rate per minute, not per 2 minutes.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** Over $2$ minutes at $15$ gal/min, $2 \\times 15 = 30$ gallons drain. The equation keeps the per-minute rate and subtracts because the tank empties: $W = 500 - 15m$ — choice A.\n\n**The Full Solution:**\nStep 1: Change over a $2$-minute interval: $15 \\times 2 = 30$ gallons.\nStep 2: The tank starts at $500$ gallons and drains at $15$ gal/min, so the slope is negative: $W = 500 - 15m$.\nStep 3: Check $m = 2$: $W = 500 - 15(2) = 470$, a drop of $30$ gallons. Both parts match choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B (decreases by $15$): correct equation, but it reports the per-minute rate ($15$) instead of the $2$-minute change ($30$).\n* Choice C (uses $W = 500 + 15m$): right $30$-gallon change, but $+15m$ means the tank fills, not drains.\n* Choice D (decreases by $7.5$): divides $15 \\div 2 = 7.5$ instead of multiplying by $2$, and uses the wrong rate in the equation.\n\n**Test Day Takeaway:** The equation always uses the unit rate; to get the change over $n$ units, multiply the rate by $n$.",
-      skills: ['word-problem-to-equation', 'slope-intercept-form']
+      correctAnswer: "C",
+      hint: "Neither reading happens at $t = 0$, so the constant term has to be recovered rather than read off.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** $55$ meters disappear over $5$ minutes, so the rate is $-11$; backing up $4$ minutes from $118$ gives $118 + 44 = 162$ at $t = 0$ — choice C.\n\n**The Full Solution:**\nStep 1: Rate of change: $\\frac{63 - 118}{9 - 4} = \\frac{-55}{5} = -11$ meters per minute.\nStep 2: Find the amount at $t = 0$ by substituting the first reading: $118 = -11(4)+b$, so $b = 118 + 44 = 162$ meters.\nStep 3: The equation is $L = 162 - 11t$. Check the second reading: $162 - 11(9) = 162 - 99 = 63$ meters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($L = 118 - 11t$): finds the rate correctly but uses the $4$-minute reading, $118$, as the amount at $t = 0$.\n* Choice B ($L = 162 - 55t$): uses the total drop between the two readings, $55$ meters, as the per-minute rate instead of dividing by the $5$ elapsed minutes.\n* Choice D ($L = 162 + 11t$): uses a positive rate, which would pile cable onto the ground while the drum winds it up.\n\n**Test Day Takeaway:** Two readings at nonzero times give the rate directly, but the constant term still has to be back-solved. Verify with the reading you did not use to find it.",
+      skills: ["word-problem-to-equation", "slope-intercept-form"]
     },
 
     // === FROM GRAPH (Scatterplot - find best-fit model) ===
     {
       id: 6,
       difficulty: "easy",
-      question: "Which of the following equations is the most appropriate linear model for the data shown in the scatterplot?",
-      diagram: {
-        type: "scatterplot",
-        params: {
-          points: [[1, 9], [2, 7], [3, 5], [4, 3]],
-          xMax: 5,
-          yMax: 10
-        }
-      },
+      question: "For each of six trials, a technician recorded the value of $x$ and the corresponding value of $y$. The scatterplot shows the results. Which equation is the most appropriate linear model for these data?",
+      diagram: { type: "scatterplot", params: { points: [[1, 7], [2, 12], [3, 16], [4, 23], [5, 27], [6, 32]], xMin: 0, xMax: 7, yMin: 0, yMax: 35, xGridStep: 1, yGridStep: 5, yLabelStep: 10 } },
       choices: [
-        { id: "A", text: "$y = -2x + 11$" },
-        { id: "B", text: "$y = 2x + 7$" },
-        { id: "C", text: "$y = -2x - 11$" },
-        { id: "D", text: "$y = 2x - 11$" }
+        { id: "A", text: "$y = 2x + 5$" },
+        { id: "B", text: "$y = 5x + 2$" },
+        { id: "C", text: "$y = 5x - 2$" },
+        { id: "D", text: "$y = -5x + 2$" }
       ],
-      correctAnswer: "A",
-      hint: "The data shows y decreasing as x increases, so the slope should be negative. Estimate the rate of decrease and the y-intercept.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** The data falls as $x$ rises, so the slope is negative — only A and C survive. The line sits near $y = 11$ at $x = 0$, so the intercept is positive: $y = -2x + 11$ — choice A.\n\n**The Full Solution:**\nStep 1: Take two points, $(1,9)$ and $(4,3)$: $m = \\frac{3 - 9}{4 - 1} = \\frac{-6}{3} = -2$.\nStep 2: Use $(1,9)$ in $y = -2x + b$: $9 = -2 + b$, so $b = 11$.\nStep 3: The equation is $y = -2x + 11$, which fits every plotted point.\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = 2x + 7$): positive slope $+2$ would trend upward, but the data clearly falls.\n* Choice C ($y = -2x - 11$): right slope, but a negative intercept; at $x = 1$, $-2 - 11 = -13 \\neq 9$.\n* Choice D ($y = 2x - 11$): both signs wrong; the line would rise from deep negatives, matching no point.\n\n**Test Day Takeaway:** For a scatterplot model, first fix the slope's sign from the trend direction, then read the intercept's sign — that usually kills three choices at once.",
-      skills: ['graph-to-equation', 'slope-from-points', 'best-fit-line']
+      correctAnswer: "B",
+      hint: "Fix the sign of the rate of change from the direction of the trend, then read where the pattern would meet the vertical axis.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** The points climb about $5$ units per step and, traced back to $x = 0$, land near $2$: $y = 5x + 2$ — choice B.\n\n**The Full Solution:**\nStep 1: The values rise as $x$ rises, so the rate of change is positive, which rules out the negative-slope choice.\nStep 2: Estimate the rate from the two end points, $(1, 7)$ and $(6, 32)$: $\\frac{32-7}{6-1} = \\frac{25}{5} = 5$.\nStep 3: Estimate the starting value: at $x = 1$ the data are near $7$, so at $x = 0$ they would be near $7 - 5 = 2$, a positive number.\nStep 4: That gives $y = 5x + 2$, which lands within a unit or two of every plotted point. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 2x + 5$): swaps the rate of change and the starting value; at $x = 6$ it predicts $17$, while the data are near $32$.\n* Choice C ($y = 5x - 2$): has the right rate of change but a negative starting value; the trend traced back to $x = 0$ sits above the axis, not below it.\n* Choice D ($y = -5x + 2$): uses a negative rate of change, but the plotted values increase as $x$ increases.\n\n**Test Day Takeaway:** For a scatterplot model, settle the sign of the slope and the sign of the intercept first — that alone usually eliminates three of the four choices.",
+      skills: ["graph-to-equation", "slope-from-points", "best-fit-line"]
     },
     {
       id: 7,
       difficulty: "medium",
-      question: "Which equation is the most appropriate linear model for the data shown in the scatterplot?",
-      diagram: {
-        type: "scatterplot",
-        params: {
-          points: [[0, 10], [1, 8], [2, 7], [3, 5], [4, 2]],
-          xMax: 5,
-          yMax: 12
-        }
-      },
+      question: "The scatterplot shows the age, in years, and the resale value, in thousands of dollars, of each of eight delivery vans. Which equation is the most appropriate linear model for these data?",
+      diagram: { type: "scatterplot", params: { points: [[1, 21], [2, 19], [3, 18], [4, 16], [5, 15], [6, 12], [7, 12], [8, 10]], xMin: 0, xMax: 9, yMin: 0, yMax: 24, xGridStep: 1, yGridStep: 2, yLabelStep: 4, xLabel: "Age (years)", yLabel: "Resale value (thousands of dollars)" } },
       choices: [
-        { id: "A", text: "$y = -1.9x - 10.1$" },
-        { id: "B", text: "$y = -1.9x + 10.1$" },
-        { id: "C", text: "$y = 1.9x - 10.1$" },
-        { id: "D", text: "$y = 1.9x + 10.1$" }
+        { id: "A", text: "$y = -22x + 1.5$" },
+        { id: "B", text: "$y = -1.5x - 22$" },
+        { id: "C", text: "$y = -1.5x + 22$" },
+        { id: "D", text: "$y = 1.5x + 10$" }
       ],
-      correctAnswer: "B",
-      hint: "The data shows a downward trend (negative slope) and starts near $y = 10$ when $x = 0$ (positive y-intercept).",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** The trend falls, so the slope is negative (kills C and D). The data starts near $y = 10$ at $x = 0$, so the intercept is positive: $y = -1.9x + 10.1$ — choice B.\n\n**The Full Solution:**\nStep 1: As $x$ rises from $0$ to $4$, $y$ drops from about $10$ to about $2$, so the slope is negative — eliminate the positive-slope choices C and D.\nStep 2: Estimate the slope from the endpoints: $m = \\frac{2 - 10}{4 - 0} = \\frac{-8}{4} = -2$, close to the regression value $-1.9$.\nStep 3: At $x = 0$ the data is near $y = 10$, so the intercept is positive ($\\approx 10.1$), not negative. That picks B over A.\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -1.9x - 10.1$): right slope, but a negative intercept; at $x = 0$ it gives $-10.1$, while the data is near $+10$.\n* Choice C ($y = 1.9x - 10.1$): positive slope trends upward, contradicting the falling data.\n* Choice D ($y = 1.9x + 10.1$): positive slope; at $x = 4$ it predicts $17.7$, far above the actual $\\approx 2$.\n\n**Test Day Takeaway:** Pin the sign of the slope and the sign of the intercept first — for a best-fit line that often eliminates three of the four choices before you compute anything.",
-      skills: ['graph-to-equation', 'best-fit-line']
+      correctAnswer: "C",
+      hint: "Estimate the drop per year from the two ends of the trend, then ask what value the trend points to for a brand-new van.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** Value falls about $1.5$ thousand dollars per year and the trend reaches about $22$ at age $0$: $y = -1.5x + 22$ — choice C.\n\n**The Full Solution:**\nStep 1: Resale value falls as age rises, so the rate of change is negative.\nStep 2: Estimate it from the ends, $(1, 21)$ and $(8, 10)$: $\\frac{10-21}{8-1} = \\frac{-11}{7} \\approx -1.6$, close to $-1.5$.\nStep 3: At $x = 1$ the value is about $21$, so at $x = 0$ it would be about $21 + 1.5 = 22.5$, near $22$.\nStep 4: The model $y = -1.5x + 22$ predicts $10$ thousand dollars at age $8$, matching the plotted point. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -22x + 1.5$): swaps the rate of change and the starting value, so the model would lose $22$ thousand dollars of value each year.\n* Choice B ($y = -1.5x - 22$): has the right rate of change but a negative starting value; at age $1$ it predicts $-23.5$ thousand dollars.\n* Choice D ($y = 1.5x + 10$): uses a positive rate of change, which would mean older vans resell for more.\n\n**Test Day Takeaway:** Read the intercept as the value the model assigns at input $0$ — here, a brand-new van — and reject any model whose prediction there is impossible.",
+      skills: ["graph-to-equation", "best-fit-line"]
     },
     {
       id: 8,
       difficulty: "hard",
-      question: "The scatterplot shows the relationship between hours studied (x) and test score (y). Which equation best models this relationship?",
-      diagram: {
-        type: "scatterplot",
-        params: {
-          points: [[2, 65], [4, 75], [6, 85], [8, 95]],
-          xLabel: "Hours",
-          yLabel: "Score",
-          xMax: 10,
-          yMax: 100
-        }
-      },
+      question: "The scatterplot shows the depth, in meters, and the water temperature, in degrees Celsius, at each of ten sampling sites in a lake, along with the line of best fit for the data. The line of best fit passes through the points $(5, 22)$ and $(20, 10)$. Which equation represents the line of best fit?",
+      diagram: { type: "scatterplot", params: { points: [[2, 25], [4, 23], [6, 20], [8, 21], [10, 18], [13, 15], [16, 14], [19, 10], [22, 9], [24, 6]], xMin: 0, xMax: 25, yMin: 0, yMax: 28, xGridStep: 5, yGridStep: 4, xLabelStep: 5, yLabelStep: 8, xLabel: "Depth (meters)", yLabel: "Temperature (degrees Celsius)", bestFitLine: { slope: -0.8, intercept: 26 } } },
       choices: [
-        { id: "A", text: "$y = 5x + 55$" },
-        { id: "B", text: "$y = 10x + 45$" },
-        { id: "C", text: "$y = 5x + 65$" },
-        { id: "D", text: "$y = 10x + 55$" }
+        { id: "A", text: "$y = -1.25x + 28.25$" },
+        { id: "B", text: "$y = -0.8x + 22$" },
+        { id: "C", text: "$y = -0.8x + 26$" },
+        { id: "D", text: "$y = 0.8x + 18$" }
       ],
-      correctAnswer: "A",
-      hint: "Find the slope using two points, then check which equation works for all the given points.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** From $(2,65)$ to $(8,95)$ the score climbs $30$ over $6$ hours, so $m = \\frac{30}{6} = 5$. Back-solve the intercept: $65 = 5(2) + b$ gives $b = 55$, so $y = 5x + 55$ — choice A.\n\n**The Full Solution:**\nStep 1: Slope from $(2,65)$ and $(8,95)$: $m = \\frac{95 - 65}{8 - 2} = \\frac{30}{6} = 5$.\nStep 2: Intercept from $(2,65)$: $65 = 5(2) + b = 10 + b$, so $b = 55$.\nStep 3: The equation $y = 5x + 55$ hits every point: $5(4)+55 = 75$, $5(6)+55 = 85$, $5(8)+55 = 95$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = 10x + 45$): uses slope $10$ — the $y$-rise without dividing by the $x$-run; fails $(4,75)$: $10(4)+45 = 85$.\n* Choice C ($y = 5x + 65$): right slope, but takes $b = 65$ straight from $(2,65)$, forgetting to subtract $5(2)$; check: $5(2)+65 = 75 \\neq 65$.\n* Choice D ($y = 10x + 55$): combines the bad slope $10$ with $55$; fails $(2,65)$: $10(2)+55 = 75$.\n\n**Test Day Takeaway:** Compute the slope as rise over run, then back-solve the intercept with one point — and confirm against a second point so a near-miss can't fool you.",
-      skills: ['graph-to-equation', 'slope-from-points', 'best-fit-line']
+      correctAnswer: "C",
+      hint: "Two points determine the line exactly — no estimating is needed once you use them both.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** $m = \\frac{10-22}{20-5} = -0.8$, and $22 = -0.8(5)+b$ gives $b = 26$: $y = -0.8x + 26$ — choice C.\n\n**The Full Solution:**\nStep 1: Rate of change from the two given points: $m = \\frac{10-22}{20-5} = \\frac{-12}{15} = -0.8$ degree Celsius per meter.\nStep 2: Substitute $(5, 22)$ into $y = -0.8x + b$: $22 = -4 + b$, so $b = 26$.\nStep 3: The equation is $y = -0.8x + 26$. Check the second point: $-0.8(20)+26 = -16+26 = 10$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -1.25x + 28.25$): inverts the rate of change, computing $\\frac{20-5}{10-22} = -1.25$; anchoring that at $(5, 22)$ then forces $b = 28.25$.\n* Choice B ($y = -0.8x + 22$): has the correct rate of change but takes $22$, the temperature at a depth of $5$ meters, as the value at depth $0$.\n* Choice D ($y = 0.8x + 18$): drops the negative sign on the rate of change, which would make deeper water warmer; anchoring $+0.8$ at $(5, 22)$ gives $b = 18$.\n\n**Test Day Takeaway:** When a stem hands you two points on the line, compute the slope from them and back-solve the intercept — then confirm with the point you did not use.",
+      skills: ["graph-to-equation", "slope-from-points", "best-fit-line"]
     },
 
     // === FROM GRAPH (Line with intercepts) ===
     {
       id: 9,
       difficulty: "easy",
-      question: "What is the equation of the line shown in the graph?",
-      diagram: {
-        type: "simpleLine",
-        params: {
-          points: [[0, 4], [2, 10]],
-          xMax: 4,
-          yMax: 12
-        }
-      },
+      question: "The graph of a line in the $xy$-plane is shown. Which equation represents this line?",
+      diagram: { type: "simpleLine", params: { points: [[0, 3], [4, 11]], xMax: 6, yMax: 14 } },
       choices: [
-        { id: "A", text: "$y = 3x + 4$" },
-        { id: "B", text: "$y = 4x + 3$" },
-        { id: "C", text: "$y = 2x + 4$" },
-        { id: "D", text: "$y = 3x + 10$" }
+        { id: "A", text: "$y = 0.5x + 3$" },
+        { id: "B", text: "$y = 2x + 3$" },
+        { id: "C", text: "$y = 2x + 11$" },
+        { id: "D", text: "$y = 3x + 2$" }
       ],
-      correctAnswer: "A",
-      hint: "Use the slope formula: m = (y₂ − y₁)/(x₂ − x₁). The point where the line crosses the y-axis tells you the y-intercept directly.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** The line crosses the $y$-axis at $4$, so $b = 4$. Rising $6$ over a run of $2$ gives slope $3$: $y = 3x + 4$ — choice A.\n\n**The Full Solution:**\nStep 1: Read the intercept directly: the line passes through $(0,4)$, so $b = 4$.\nStep 2: Slope from $(0,4)$ to $(2,10)$: $m = \\frac{10 - 4}{2 - 0} = \\frac{6}{2} = 3$.\nStep 3: The equation is $y = 3x + 4$; check $(2,10)$: $3(2)+4 = 10$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = 4x + 3$): swaps slope and intercept, using $m = 4$, $b = 3$.\n* Choice C ($y = 2x + 4$): wrong slope $2$; at $x = 2$, $2(2)+4 = 8 \\neq 10$.\n* Choice D ($y = 3x + 10$): right slope, but uses $10$ (the $y$ at $x = 2$) as the intercept instead of the value at $x = 0$.\n\n**Test Day Takeaway:** The $y$-intercept is the $y$-value at $x = 0$ — when the graph crosses the axis at a grid point, read $b$ directly and only compute the slope.",
-      skills: ['slope-from-points', 'slope-intercept-form', 'graph-to-equation']
+      correctAnswer: "B",
+      hint: "The line crosses the vertical axis at a grid point, so one of the two constants can simply be read off.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** The line crosses the vertical axis at $3$ and rises $8$ over a run of $4$, so the slope is $2$: $y = 2x + 3$ — choice B.\n\n**The Full Solution:**\nStep 1: Read the $y$-intercept: the line passes through $(0, 3)$, so $b = 3$.\nStep 2: Compute the slope from $(0, 3)$ and $(4, 11)$: $m = \\frac{11-3}{4-0} = \\frac{8}{4} = 2$.\nStep 3: The equation is $y = 2x + 3$. Check the second point: $2(4)+3 = 11$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 0.5x + 3$): inverts the slope, dividing the run by the rise, $\\frac{4}{8}$, instead of the rise by the run.\n* Choice C ($y = 2x + 11$): uses $11$, the height of the line at $x = 4$, as the $y$-intercept; the intercept is the height at $x = 0$.\n* Choice D ($y = 3x + 2$): swaps the slope and the $y$-intercept.\n\n**Test Day Takeaway:** When the graph crosses the vertical axis at a lattice point, read $b$ for free and spend your time only on the slope.",
+      skills: ["slope-from-points", "slope-intercept-form", "graph-to-equation"]
     },
     {
       id: 10,
       difficulty: "medium",
-      question: "The graph shows the relationship between the number of shares of Company A stock (x) and the number of shares of Company B stock (y) that Simone can purchase. Which equation could represent this relationship?",
-      diagram: {
-        type: "linearLine",
-        params: {
-          points: [[0, 40], [60, 0]],
-          xLabel: "Company A",
-          yLabel: "Company B",
-          xRange: [0, 100],
-          yRange: [0, 50]
-        }
-      },
+      question: "In the $xy$-plane, the graph shown models the combinations of $x$ small crates and $y$ large crates that exactly fill one delivery truck. Which equation could represent this relationship?",
+      diagram: { type: "linearLine", params: { points: [[0, 15], [20, 0]], xRange: [0, 24], yRange: [0, 20] } },
       choices: [
-        { id: "A", text: "$y = 8x + 12$" },
-        { id: "B", text: "$8x + 12y = 480$" },
-        { id: "C", text: "$y = 12x + 8$" },
-        { id: "D", text: "$12x + 8y = 480$" }
+        { id: "A", text: "$4x + 3y = 60$" },
+        { id: "B", text: "$3x + 4y = 20$" },
+        { id: "C", text: "$3x + 4y = 60$" },
+        { id: "D", text: "$20x + 15y = 60$" }
       ],
-      correctAnswer: "D",
-      hint: "Use the intercepts to find the equation. When $x = 0$, $y = 40$. When $y = 0$, $x = 60$. Which equation satisfies both?",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** Read the intercepts: the line hits $(40,0)$ and $(0,60)$. Test choice D: $12(40)+8(0) = 480$ and $12(0)+8(60) = 480$. Both hold, so $12x + 8y = 480$ — choice D.\n\n**The Full Solution:**\nStep 1: A budget line slopes downward, so $y$ falls as $x$ rises — eliminate the positive-slope choices A and C.\nStep 2: From the graph the line passes through $(40,0)$ and $(0,60)$.\nStep 3: Plug both into the standard-form candidates. Choice D, $12x + 8y = 480$: $(40,0) \\Rightarrow 480$ and $(0,60) \\Rightarrow 480$. Both satisfy it, so D is the relationship.\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 8x + 12$): positive slope; a budget constraint must decrease as $x$ grows.\n* Choice B ($8x + 12y = 480$): a downward line, but its intercepts are $(60,0)$ and $(0,40)$ — at $(40,0)$ it gives $320 \\neq 480$, so it misses the graphed points.\n* Choice C ($y = 12x + 8$): positive slope again; at $x = 0$ it gives $8$, not $60$.\n\n**Test Day Takeaway:** For a line through two axis intercepts, just substitute both intercept points into each candidate equation — the one that satisfies both is the answer.",
-      skills: ['graph-to-equation', 'slope-from-points', 'standard-form']
+      correctAnswer: "C",
+      hint: "Both intercepts are visible on the graph; the correct equation has to be satisfied by each of them.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** The line hits $(20, 0)$ and $(0, 15)$; only $3x + 4y = 60$ gives $60$ at both — choice C.\n\n**The Full Solution:**\nStep 1: Read the intercepts from the graph: the line passes through $(20, 0)$ and $(0, 15)$.\nStep 2: Substitute $(20, 0)$ into $3x + 4y = 60$: $3(20)+4(0) = 60$. $\\checkmark$\nStep 3: Substitute $(0, 15)$ into the same equation: $3(0)+4(15) = 60$. $\\checkmark$ Both intercepts satisfy it, so it represents the graph.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x + 3y = 60$): swaps the coefficients, which places the intercepts at $(15, 0)$ and $(0, 20)$ instead.\n* Choice B ($3x + 4y = 20$): keeps the correct coefficients but uses an intercept value, $20$, as the constant; at $(20, 0)$ the left side is $60$, not $20$.\n* Choice D ($20x + 15y = 60$): uses the intercepts themselves as the coefficients; at $(20, 0)$ the left side is $400$, not $60$.\n\n**Test Day Takeaway:** With a line in standard form, test the two intercepts rather than converting to slope-intercept form — two substitutions settle it.",
+      skills: ["graph-to-equation", "slope-from-points", "standard-form"]
     },
     {
       id: 11,
       difficulty: "hard",
-      question: "Which equation represents the line shown in the graph?",
-      diagram: {
-        type: "coordinatePoints",
-        params: {
-          points: [[-2, 8], [4, -4]],
-          label: ""
-        }
-      },
+      question: "In the $xy$-plane, line $\\ell$ passes through the two points plotted in the figure shown. The equation of line $\\ell$ can be written in the form $y = mx + b$, where $m$ and $b$ are constants. Which equation represents line $\\ell$?",
+      diagram: { type: "coordinatePoints", params: { points: [[-6, 9], [3, -3]], xMin: -10, xMax: 10, yMin: -10, yMax: 10 } },
       choices: [
-        { id: "A", text: "$y = -2x + 4$" },
-        { id: "B", text: "$y = 2x + 12$" },
-        { id: "C", text: "$y = -2x - 4$" },
-        { id: "D", text: "$y = 2x - 4$" }
+        { id: "A", text: "$y = -\\frac{4}{3}x + 1$" },
+        { id: "B", text: "$y = -\\frac{4}{3}x + 9$" },
+        { id: "C", text: "$y = -\\frac{3}{4}x + \\frac{9}{2}$" },
+        { id: "D", text: "$y = \\frac{4}{3}x + 17$" }
       ],
       correctAnswer: "A",
-      hint: "Calculate the slope using the two points, then use one point to find the y-intercept.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** The line falls left to right, so the slope is negative — only A and C survive. Find $b$ from $(4,-4)$: $-4 = -2(4) + b$ gives $b = 4$, so $y = -2x + 4$ — choice A.\n\n**The Full Solution:**\nStep 1: Slope from $(-2,8)$ and $(4,-4)$: $m = \\frac{-4 - 8}{4 - (-2)} = \\frac{-12}{6} = -2$.\nStep 2: Intercept from $(4,-4)$: $-4 = -2(4) + b = -8 + b$, so $b = 4$.\nStep 3: The equation is $y = -2x + 4$; check $(-2,8)$: $-2(-2)+4 = 8$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = 2x + 12$): positive slope, but the line clearly descends.\n* Choice C ($y = -2x - 4$): right slope, but uses $-4$ (the $y$ at $x = 4$) as the intercept instead of solving, which gives $b = 4$.\n* Choice D ($y = 2x - 4$): wrong slope sign and wrong intercept; at $(-2,8)$, $2(-2)-4 = -8 \\neq 8$.\n\n**Test Day Takeaway:** With negative coordinates, subtracting a negative adds: $4 - (-2) = 6$ in the run. Watch that sign in the slope formula.",
-      skills: ['slope-from-points', 'slope-intercept-form', 'graph-to-equation']
+      hint: "Subtracting a negative coordinate lengthens the run — write the subtraction out rather than doing it in your head.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** $m = \\frac{-3-9}{3-(-6)} = -\\frac{4}{3}$, and $-3 = -\\frac{4}{3}(3)+b$ gives $b = 1$ — choice A.\n\n**The Full Solution:**\nStep 1: Compute the slope: $m = \\frac{-3-9}{3-(-6)} = \\frac{-12}{9} = -\\frac{4}{3}$. The run is $3-(-6) = 9$, not $3$.\nStep 2: Substitute $(3, -3)$ into $y = -\\frac{4}{3}x + b$: $-3 = -4 + b$, so $b = 1$.\nStep 3: The equation is $y = -\\frac{4}{3}x + 1$. Check the other point: $-\\frac{4}{3}(-6)+1 = 8+1 = 9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = -\\frac{4}{3}x + 9$): takes $9$, the second coordinate of the left-hand point, as the $y$-intercept; that height occurs at $x = -6$.\n* Choice C ($y = -\\frac{3}{4}x + \\frac{9}{2}$): inverts the slope to $\\frac{3-(-6)}{-3-9} = -\\frac{3}{4}$, which then forces $b = \\frac{9}{2}$.\n* Choice D ($y = \\frac{4}{3}x + 17$): drops a negative sign in the run, computing $\\frac{-12}{-9}$; anchoring $+\\frac{4}{3}$ at $(-6, 9)$ gives $b = 17$.\n\n**Test Day Takeaway:** With negative coordinates the run is where slopes go wrong: $3 - (-6) = 9$. Compute it explicitly, then confirm the finished equation on the point you did not use.",
+      skills: ["slope-from-points", "slope-intercept-form", "graph-to-equation"]
     },
 
     // === FROM TABLE ===
     {
       id: 12,
       difficulty: "easy",
-      question: "For the linear function f, the table shows three values of x and their corresponding values of f(x). Which equation defines f(x)?",
-      diagram: {
-        type: "table",
-        params: {
-          rows: [[0, 29], [1, 32], [2, 35]],
-          xHeader: "x",
-          yHeader: "f(x)"
-        }
-      },
+      question: "Three ordered pairs that satisfy the linear function $f$ are recorded in the table. Which equation defines $f$?",
+      diagram: { type: "table", params: { rows: [[0, 17], [1, 22], [2, 27]], xHeader: "x", yHeader: "f(x)" } },
       choices: [
-        { id: "A", text: "$f(x) = 3x + 29$" },
-        { id: "B", text: "$f(x) = 29x + 32$" },
-        { id: "C", text: "$f(x) = 35x + 29$" },
-        { id: "D", text: "$f(x) = 32x + 35$" }
+        { id: "A", text: "$f(x) = 5x + 17$" },
+        { id: "B", text: "$f(x) = 5x + 22$" },
+        { id: "C", text: "$f(x) = 17x + 5$" },
+        { id: "D", text: "$f(x) = 22x + 17$" }
       ],
       correctAnswer: "A",
-      hint: "Find the slope by seeing how much f(x) changes when x increases by 1. The value when $x = 0$ is your y-intercept.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** The table gives $x = 0 \\to f(x) = 29$, so $b = 29$ directly. From $x = 0$ to $1$, $f$ rises $3$, so the slope is $3$: $f(x) = 3x + 29$ — choice A.\n\n**The Full Solution:**\nStep 1: When $x = 0$, $f(x) = 29$, so the intercept is read straight off: $b = 29$.\nStep 2: Slope from the table: as $x$ goes $0 \\to 1$, $f$ goes $29 \\to 32$, so $m = \\frac{32 - 29}{1 - 0} = 3$.\nStep 3: The equation is $f(x) = 3x + 29$; check $x = 2$: $3(2)+29 = 35$, matching the table.\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(x) = 29x + 32$): uses the output $29$ as the slope and $32$ as the intercept — both are $f(x)$ values, not a rate.\n* Choice C ($f(x) = 35x + 29$): takes $35$ (the value at $x = 2$) as the slope without computing $\\frac{\\Delta f}{\\Delta x}$.\n* Choice D ($f(x) = 32x + 35$): drops two table outputs in as slope and intercept; at $x = 0$ it gives $35 \\neq 29$.\n\n**Test Day Takeaway:** Slope is $\\frac{\\text{change in } f(x)}{\\text{change in } x}$. When the table includes $x = 0$, that row's output is the intercept — no calculation needed.",
-      skills: ['table-to-equation', 'slope-from-points']
+      hint: "One row of the table hands you the value of the function at an input of $0$.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** $f(0) = 17$ gives the constant, and one step of $x$ raises the output by $5$: $f(x) = 5x + 17$ — choice A.\n\n**The Full Solution:**\nStep 1: The table includes $x = 0$, so the constant term is read directly: $f(0) = 17$.\nStep 2: From $x = 0$ to $x = 1$ the output rises from $17$ to $22$, so the rate of change is $\\frac{22-17}{1-0} = 5$.\nStep 3: The equation is $f(x) = 5x + 17$. Check the last row: $5(2)+17 = 27$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(x) = 5x + 22$): uses the correct rate of change but takes $22$, the output at $x = 1$, as the constant term.\n* Choice C ($f(x) = 17x + 5$): finds both numbers correctly but puts them in the wrong slots, using $17$ as the rate of change and $5$ as the constant term.\n* Choice D ($f(x) = 22x + 17$): treats the output $22$ as a rate of change instead of computing the change in output over the change in input.\n\n**Test Day Takeaway:** A table row with $x = 0$ hands you the constant term for free; spend the effort on the rate of change and then verify on a row you did not use.",
+      skills: ["table-to-equation", "slope-from-points"]
     },
     {
       id: 13,
       difficulty: "medium",
-      question: "The table shows values of x and their corresponding values of y. Which equation represents this linear relationship?",
-      diagram: {
-        type: "table",
-        params: {
-          rows: [[0, 5], [2, 11], [4, 17], [6, 23]],
-          xHeader: "x",
-          yHeader: "y"
-        }
-      },
+      question: "The table lists three pairs of values that satisfy a linear relationship between $x$ and $y$. Which equation represents this relationship?",
+      diagram: { type: "table", params: { rows: [[1, 34], [4, 22], [7, 10]], xHeader: "x", yHeader: "y" } },
       choices: [
-        { id: "A", text: "$y = 3x + 5$" },
-        { id: "B", text: "$y = 6x + 5$" },
-        { id: "C", text: "$y = 3x + 11$" },
-        { id: "D", text: "$y = 2x + 5$" }
+        { id: "A", text: "$y = -12x + 46$" },
+        { id: "B", text: "$y = -4x + 34$" },
+        { id: "C", text: "$y = -4x + 38$" },
+        { id: "D", text: "$y = 4x + 30$" }
       ],
-      correctAnswer: "A",
-      hint: "Find how much y changes when x increases by 2. That's your rise. Divide by 2 to get the slope. When $x = 0$, y gives you the y-intercept.",
-      explanation: "**Choice A is correct.** The line has slope $3$ and $y$-intercept $5$, giving $y=3x+5$.\n\n**The Fast Way (~20s):** Each step the $x$-values rise by $2$ and the $y$-values rise by $6$, so the slope is $\\frac{6}{2}=3$. At $x=0$, $y=5$, so the equation is $y=3x+5$.\n\n**The Full Solution:**\nStep 1: Find the slope. Across one row, $\\Delta y=6$ for $\\Delta x=2$, so $m=\\frac{\\Delta y}{\\Delta x}=\\frac{6}{2}=3$.\nStep 2: Read the intercept. When $x=0$, $y=5$, so $b=5$.\nStep 3: Combine: $y=3x+5$. Check a far row: $3(6)+5=23$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($y=6x+5$): used the raw $y$-jump of $6$ as the slope without dividing by $\\Delta x=2$.\n* Choice C ($y=3x+11$): right slope, but grabbed the $y$-value at $x=2$ as the intercept instead of the value at $x=0$.\n* Choice D ($y=2x+5$): slipped on the slope division, treating $\\frac{6}{2}$ as $2$.\n\n**Test Day Takeaway:** When table $x$-values jump by more than $1$, the slope is the $y$-change divided by the $x$-change — never the raw $y$-jump.",
-      skills: ['table-to-equation', 'slope-from-points']
+      correctAnswer: "C",
+      hint: "The $x$-values jump by more than $1$ between rows, so the drop in $y$ is not the rate of change on its own.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $y$ falls $12$ for every $3$ that $x$ rises, so $m = -4$; then $34 = -4(1)+b$ gives $b = 38$ — choice C.\n\n**The Full Solution:**\nStep 1: Rate of change from the first two rows: $m = \\frac{22-34}{4-1} = \\frac{-12}{3} = -4$.\nStep 2: Substitute $(1, 34)$ into $y = -4x + b$: $34 = -4 + b$, so $b = 38$.\nStep 3: The equation is $y = -4x + 38$. Check the last row: $-4(7)+38 = 10$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -12x + 46$): uses the $12$-unit drop between rows as the rate of change without dividing by the $3$-unit change in $x$; that then forces $b = 46$.\n* Choice B ($y = -4x + 34$): has the correct rate of change but takes $34$, the value of $y$ at $x = 1$, as the $y$-intercept.\n* Choice D ($y = 4x + 30$): makes the rate of change positive even though $y$ falls as $x$ rises; that then forces $b = 30$.\n\n**Test Day Takeaway:** Divide by the change in $x$ every time. When table inputs step by $3$, the raw drop in the output is three rate-of-change steps, not one.",
+      skills: ["table-to-equation", "slope-from-points"]
     },
     {
       id: 14,
       difficulty: "medium",
-      question: "For the linear function g, the table shows three values of x and their corresponding values of g(x). Which equation defines g(x)?",
-      diagram: {
-        type: "table",
-        params: {
-          rows: [[1, 7], [3, 13], [5, 19]],
-          xHeader: "x",
-          yHeader: "g(x)"
-        }
-      },
+      question: "For the linear function $g$, the table gives the value of $g(x)$ at three inputs. Which equation defines $g$?",
+      diagram: { type: "table", params: { rows: [[2, 5], [5, 14], [8, 23]], xHeader: "x", yHeader: "g(x)" } },
       choices: [
-        { id: "A", text: "$g(x) = 3x + 4$" },
-        { id: "B", text: "$g(x) = 6x + 1$" },
-        { id: "C", text: "$g(x) = 3x + 7$" },
-        { id: "D", text: "$g(x) = 2x + 5$" }
+        { id: "A", text: "$g(x) = 3x - 1$" },
+        { id: "B", text: "$g(x) = 3x + 1$" },
+        { id: "C", text: "$g(x) = 3x + 5$" },
+        { id: "D", text: "$g(x) = 9x - 13$" }
       ],
       correctAnswer: "A",
-      hint: "Find the slope from consecutive x-values. Then use any point to find the y-intercept.",
-      explanation: "**Choice A is correct.** The slope is $3$ and the $y$-intercept is $4$, giving $g(x)=3x+4$.\n\n**The Fast Way (~20s):** From $(1,7)$ to $(3,13)$ the slope is $\\frac{13-7}{3-1}=3$. Back the line up one step from $(1,7)$ to $x=0$: $7-3=4$, so $b=4$ and $g(x)=3x+4$.\n\n**The Full Solution:**\nStep 1: Slope from two rows: $m=\\frac{13-7}{3-1}=\\frac{6}{2}=3$.\nStep 2: Solve for $b$ with $(1,7)$: $7=3(1)+b\\Rightarrow b=4$.\nStep 3: Combine: $g(x)=3x+4$. Check $(3,13)$: $3(3)+4=13$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($g(x)=6x+1$): used the $y$-jump of $6$ as the slope without dividing by $\\Delta x=2$.\n* Choice C ($g(x)=3x+7$): right slope, but treated the output $7$ at $x=1$ as the $y$-intercept; the intercept is at $x=0$.\n* Choice D ($g(x)=2x+5$): mis-divided the slope as $2$; it fits $x=1$ but fails $x=3$.\n\n**Test Day Takeaway:** When the table skips $x=0$, you cannot read $b$ directly — find the slope first, then solve $y=mx+b$ with any known point.",
-      skills: ['table-to-equation', 'slope-from-points']
+      hint: "No row has an input of $0$, so the constant term has to be solved for rather than read.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** $m = \\frac{9}{3} = 3$, and $5 = 3(2)+b$ gives $b = -1$: $g(x) = 3x - 1$ — choice A.\n\n**The Full Solution:**\nStep 1: Rate of change: $m = \\frac{14-5}{5-2} = \\frac{9}{3} = 3$.\nStep 2: Substitute $(2, 5)$ into $g(x) = 3x + b$: $5 = 6 + b$, so $b = -1$.\nStep 3: The equation is $g(x) = 3x - 1$. Check the last row: $3(8)-1 = 23$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($g(x) = 3x + 1$): solves $5 = 6 + b$ but records $b$ as $+1$ instead of $-1$.\n* Choice C ($g(x) = 3x + 5$): has the correct rate of change but reads the output $5$ at $x = 2$ as the value at $x = 0$.\n* Choice D ($g(x) = 9x - 13$): uses the $9$-unit jump in the output as the rate of change without dividing by the $3$-unit jump in the input; anchoring that at $(2, 5)$ gives $-13$ as the constant.\n\n**Test Day Takeaway:** When the table skips the input $0$, find the rate of change first and substitute one full ordered pair — then test the equation on a different row.",
+      skills: ["table-to-equation", "slope-from-points"]
     },
     {
       id: 15,
       difficulty: "hard",
-      question: "The table shows values of x and their corresponding values of f(x). Which equation defines f(x)?",
-      diagram: {
-        type: "table",
-        params: {
-          rows: [["−2", 15], [0, 9], [2, 3], [4, "−3"]],
-          xHeader: "x",
-          yHeader: "f(x)"
-        }
-      },
+      question: "For the linear function $f$, the table records three inputs and their corresponding outputs. If $f$ is defined by $f(x) = mx + b$, where $m$ and $b$ are constants, which equation defines $f$?",
+      diagram: { type: "table", params: { rows: [["−6", 20], ["−2", 14], [6, 2]], xHeader: "x", yHeader: "f(x)" } },
       choices: [
-        { id: "A", text: "$f(x) = -3x + 9$" },
-        { id: "B", text: "$f(x) = 3x + 9$" },
-        { id: "C", text: "$f(x) = -3x - 9$" },
-        { id: "D", text: "$f(x) = 3x - 9$" }
+        { id: "A", text: "$f(x) = -6x + 2$" },
+        { id: "B", text: "$f(x) = -\\frac{3}{2}x + 11$" },
+        { id: "C", text: "$f(x) = -\\frac{3}{2}x + 14$" },
+        { id: "D", text: "$f(x) = \\frac{3}{2}x + 11$" }
       ],
-      correctAnswer: "A",
-      hint: "Notice that f(x) is decreasing as x increases, so the slope is negative. Use $x = 0$ to find the y-intercept directly.",
-      explanation: "**Choice A is correct.** The slope is $-3$ and the $y$-intercept is $9$, giving $f(x)=-3x+9$.\n\n**The Fast Way (~20s):** At $x=0$, $f(x)=9$, so $b=9$ — that kills choices C and D. The outputs fall as $x$ rises, so the slope is negative: from $(0,9)$ to $(2,3)$, $m=\\frac{3-9}{2}=-3$.\n\n**The Full Solution:**\nStep 1: Read the intercept: $f(0)=9$, so $b=9$.\nStep 2: Slope from $(0,9)$ and $(2,3)$: $m=\\frac{3-9}{2-0}=\\frac{-6}{2}=-3$.\nStep 3: Combine: $f(x)=-3x+9$. Check $(4,-3)$: $-3(4)+9=-3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(x)=3x+9$): right intercept, but used a positive slope; the table's outputs decrease, so the slope must be negative.\n* Choice C ($f(x)=-3x-9$): right slope, but flipped the intercept sign to $-9$. At $x=0$ this gives $-9\\neq9$.\n* Choice D ($f(x)=3x-9$): both signs wrong — positive slope and negative intercept.\n\n**Test Day Takeaway:** When the table includes $x=0$, the matching output is $b$ for free. Then set the slope's sign by whether outputs rise or fall.",
-      skills: ['table-to-equation', 'slope-from-points']
+      correctAnswer: "B",
+      hint: "The inputs are unevenly spaced, so pick a pair and divide — do not read the drop between rows as the rate.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~35s):** $m = \\frac{14-20}{-2-(-6)} = -\\frac{3}{2}$, and $14 = -\\frac{3}{2}(-2)+b$ gives $b = 11$ — choice B.\n\n**The Full Solution:**\nStep 1: Rate of change from the first two rows: $m = \\frac{14-20}{-2-(-6)} = \\frac{-6}{4} = -\\frac{3}{2}$.\nStep 2: Substitute $(-2, 14)$: $14 = -\\frac{3}{2}(-2)+b = 3+b$, so $b = 11$.\nStep 3: The equation is $f(x) = -\\frac{3}{2}x + 11$. Check the last row: $-\\frac{3}{2}(6)+11 = -9+11 = 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x) = -6x + 2$): uses the $-6$ change in output between the first two rows as the rate of change; anchoring that at $(-2, 14)$ gives $2$ as the constant.\n* Choice C ($f(x) = -\\frac{3}{2}x + 14$): has the correct rate of change but takes $14$, the output at $x = -2$, as the value at $x = 0$.\n* Choice D ($f(x) = \\frac{3}{2}x + 11$): drops the negative sign on the rate of change even though the outputs fall as the inputs rise.\n\n**Test Day Takeaway:** Unevenly spaced inputs are the trap: the difference between consecutive outputs is a rate only after you divide by the difference between the inputs.",
+      skills: ["table-to-equation", "slope-from-points"]
     },
 
     // === FROM FUNCTION NOTATION ===
     {
       id: 16,
       difficulty: "easy",
-      question: "In the linear function f, $f(0) = 8$ and $f(1) = 12$. Which equation defines f?",
+      question: "For the linear function $f$, $f(0) = 5$ and $f(1) = 12$. Which equation defines $f$?",
       choices: [
-        { id: "A", text: "$f(x) = 12x + 8$" },
-        { id: "B", text: "$f(x) = 4x$" },
-        { id: "C", text: "$f(x) = 4x + 12$" },
-        { id: "D", text: "$f(x) = 4x + 8$" }
+        { id: "A", text: "$f(x) = 5x + 7$" },
+        { id: "B", text: "$f(x) = 7x + 5$" },
+        { id: "C", text: "$f(x) = 7x + 12$" },
+        { id: "D", text: "$f(x) = 12x + 5$" }
       ],
-      correctAnswer: "D",
-      hint: "$f(0) = 8$ means the y-intercept is 8. Use $f(1) = 12$ to find the slope.",
-      explanation: "**Choice D is correct.** The $y$-intercept is $8$ and the slope is $4$, giving $f(x)=4x+8$.\n\n**The Fast Way (~15s):** $f(0)=8$ is the intercept, and from $(0,8)$ to $(1,12)$ the slope is $\\frac{12-8}{1}=4$. So $f(x)=4x+8$.\n\n**The Full Solution:**\nStep 1: $f(0)=8$, so $b=8$.\nStep 2: Slope from $(0,8)$ and $(1,12)$: $m=\\frac{12-8}{1-0}=4$.\nStep 3: Combine: $f(x)=4x+8$. Check $f(1)=4(1)+8=12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x)=12x+8$): used the output $12$ at $x=1$ as the slope, confusing a value with a rate of change.\n* Choice B ($f(x)=4x$): right slope, but dropped the intercept; this gives $f(0)=0\\neq8$.\n* Choice C ($f(x)=4x+12$): right slope, but used $f(1)=12$ as the intercept instead of $f(0)=8$.\n\n**Test Day Takeaway:** $f(0)$ is always the $y$-intercept $b$ — read it straight off and save a step.",
-      skills: ['function-notation-to-equation', 'slope-from-points']
+      correctAnswer: "B",
+      hint: "An input of $0$ tells you one of the two constants outright; the other comes from the single step to the next input.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** $f(0) = 5$ is the constant, and $12 - 5 = 7$ is the rate of change: $f(x) = 7x + 5$ — choice B.\n\n**The Full Solution:**\nStep 1: Because $f(0) = 5$, the constant term of the equation is $5$.\nStep 2: Increasing the input by $1$ raises the output from $5$ to $12$, so the rate of change is $12 - 5 = 7$.\nStep 3: The equation is $f(x) = 7x + 5$. Check: $f(1) = 7+5 = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x) = 5x + 7$): swaps the rate of change and the value at $0$.\n* Choice C ($f(x) = 7x + 12$): has the correct rate of change but uses $12$, the output at an input of $1$, as the constant term.\n* Choice D ($f(x) = 12x + 5$): treats the output $12$ as the rate of change rather than the difference $f(1)-f(0)$.\n\n**Test Day Takeaway:** With inputs one unit apart, the rate of change is just the difference of the outputs — no division needed, so the only real risk is mixing up which number is which.",
+      skills: ["function-notation-to-equation", "slope-from-points"]
     },
     {
       id: 17,
       difficulty: "medium",
-      question: "If f(x) is a linear function where $f(2) = 7$ and $f(5) = 16$, what is f(0)?",
+      question: "The function $f$ is linear, $f(3) = 11$, and $f(7) = 27$. What is the value of $f(0)$?",
       choices: [
-        { id: "A", text: "1" },
+        { id: "A", text: "$-37$" },
         { id: "B", text: "$-1$" },
-        { id: "C", text: "3" },
-        { id: "D", text: "$-3$" }
+        { id: "C", text: "$4$" },
+        { id: "D", text: "$23$" }
       ],
-      correctAnswer: "A",
-      hint: "First find the slope using the two points (2, 7) and (5, 16). Then use point-slope form to find the y-intercept, which equals f(0).",
-      explanation: "**Choice A is correct.** $f(0)=1$.\n\n**The Fast Way (~20s):** Slope from $(2,7)$ and $(5,16)$ is $\\frac{16-7}{5-2}=3$. Back up from $(2,7)$ to $x=0$: subtract two slopes, $7-2(3)=1$, so $f(0)=1$.\n\n**The Full Solution:**\nStep 1: Slope: $m=\\frac{16-7}{5-2}=\\frac{9}{3}=3$.\nStep 2: Solve for $b$ with $(2,7)$: $7=3(2)+b\\Rightarrow b=1$.\nStep 3: Since $f(0)=b$, $f(0)=1$. Check $f(5)=3(5)+1=16$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-1$): a sign slip on $7-6$, writing $-1$ instead of $1$.\n* Choice C ($3$): reported the slope $m=3$ instead of $f(0)=b$.\n* Choice D ($-3$): combined the slope mix-up with a sign error.\n\n**Test Day Takeaway:** $f(0)$ means the $y$-intercept $b$ — find the slope, solve for $b$ with one point, and report $b$, not $m$.",
-      skills: ['function-notation-to-equation', 'slope-from-points', 'slope-intercept-form']
+      correctAnswer: "B",
+      hint: "Moving from an input of $3$ down to an input of $0$ changes the output by three rate-of-change steps — in which direction?",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** $m = \\frac{27-11}{7-3} = 4$, and stepping back $3$ units from $f(3) = 11$ gives $11 - 12 = -1$ — choice B.\n\n**The Full Solution:**\nStep 1: Rate of change: $m = \\frac{27-11}{7-3} = \\frac{16}{4} = 4$.\nStep 2: Going from $x = 3$ to $x = 0$ decreases the input by $3$, so the output decreases by $4(3) = 12$.\nStep 3: Therefore $f(0) = 11 - 12 = -1$. Check with the full equation $f(x) = 4x - 1$: $f(7) = 28-1 = 27$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-37$): uses the $16$-unit change in output as the rate of change without dividing by the $4$-unit change in input: $11 - 16(3) = -37$.\n* Choice C ($4$): reports the rate of change, $4$, rather than the output at an input of $0$.\n* Choice D ($23$): moves in the wrong direction, adding three rate-of-change steps: $11 + 4(3) = 23$.\n\n**Test Day Takeaway:** Decide the direction of travel before you compute: moving toward a smaller input subtracts rate-of-change steps, and that sign error is the most common miss on this pattern.",
+      skills: ["function-notation-to-equation", "slope-from-points", "slope-intercept-form"]
     },
     {
       id: 18,
       difficulty: "medium",
-      question: "For the linear function h, $h(3) = 14$ and $h(7) = 26$. Which equation defines h?",
+      question: "For the linear function $h$, $h(2) = -3$ and $h(6) = 13$. Which equation defines $h$?",
       choices: [
-        { id: "A", text: "$h(x) = 3x + 5$" },
-        { id: "B", text: "$h(x) = 4x + 2$" },
-        { id: "C", text: "$h(x) = 3x + 14$" },
-        { id: "D", text: "$h(x) = 4x - 2$" }
+        { id: "A", text: "$h(x) = 16x - 35$" },
+        { id: "B", text: "$h(x) = 4x - 11$" },
+        { id: "C", text: "$h(x) = 4x - 3$" },
+        { id: "D", text: "$h(x) = 4x + 11$" }
       ],
-      correctAnswer: "A",
-      hint: "Find the slope using the two given points, then find the y-intercept.",
-      explanation: "**Choice A is correct.** The slope is $3$ and the $y$-intercept is $5$, giving $h(x)=3x+5$.\n\n**The Fast Way (~20s):** Slope from $(3,14)$ and $(7,26)$ is $\\frac{26-14}{7-3}=3$. Solve for $b$ with $(3,14)$: $14-3(3)=5$. So $h(x)=3x+5$.\n\n**The Full Solution:**\nStep 1: Slope: $m=\\frac{26-14}{7-3}=\\frac{12}{4}=3$.\nStep 2: Solve for $b$ with $(3,14)$: $14=3(3)+b\\Rightarrow b=5$.\nStep 3: Combine: $h(x)=3x+5$. Check $h(7)=3(7)+5=26$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($h(x)=4x+2$): divided by the bare $x$-value $3$ instead of $\\Delta x=4$, getting slope $4$.\n* Choice C ($h(x)=3x+14$): right slope, but used the output $14$ at $x=3$ as the intercept.\n* Choice D ($h(x)=4x-2$): same slope error as B, plus a sign slip on the constant.\n\n**Test Day Takeaway:** Slope uses the difference of the $x$-values, $\\frac{y_2-y_1}{x_2-x_1}$ — never a single $x$-value as the denominator.",
-      skills: ['function-notation-to-equation', 'slope-from-points']
+      correctAnswer: "B",
+      hint: "Neither given input is $0$, so the constant term must come out of a substitution.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** $m = \\frac{16}{4} = 4$, and $-3 = 4(2)+b$ gives $b = -11$ — choice B.\n\n**The Full Solution:**\nStep 1: Rate of change: $m = \\frac{13-(-3)}{6-2} = \\frac{16}{4} = 4$.\nStep 2: Substitute $(2, -3)$ into $h(x) = 4x + b$: $-3 = 8 + b$, so $b = -11$.\nStep 3: The equation is $h(x) = 4x - 11$. Check: $h(6) = 24-11 = 13$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($h(x) = 16x - 35$): uses the $16$-unit change in output as the rate of change without dividing by the $4$-unit change in input; that forces $b = -35$.\n* Choice C ($h(x) = 4x - 3$): has the correct rate of change but reads $h(2) = -3$ as the value at an input of $0$.\n* Choice D ($h(x) = 4x + 11$): solves $-3 = 8 + b$ but reverses the sign of the result, recording $+11$.\n\n**Test Day Takeaway:** Isolating $b$ from $-3 = 8 + b$ means subtracting $8$ from a negative number. Write that arithmetic out — the sign slip there is what separates two of these choices.",
+      skills: ["function-notation-to-equation", "slope-from-points"]
     },
     {
       id: 19,
       difficulty: "hard",
-      question: "In the linear function g, $g(-1) = 10$ and $g(3) = -2$. What is the value of x when $g(x) = 7$?",
+      question: "The function $g$ is linear, $g(-2) = 17$, and $g(4) = -1$. In the $xy$-plane, the graph of $y = g(x)$ is a line. What is the value of $x$ for which $g(x) = 5$?",
       choices: [
-        { id: "A", text: "0" },
-        { id: "B", text: "1" },
+        { id: "A", text: "$-\\frac{16}{3}$" },
+        { id: "B", text: "$-4$" },
         { id: "C", text: "$-2$" },
-        { id: "D", text: "2" }
+        { id: "D", text: "$2$" }
       ],
-      correctAnswer: "A",
-      hint: "First find the equation of g(x), then solve $g(x) = 7$ for x.",
-      explanation: "**Choice A is correct.** When $g(x)=7$, $x=0$.\n\n**The Fast Way (~20s):** Slope from $(-1,10)$ and $(3,-2)$ is $\\frac{-2-10}{3-(-1)}=-3$, and solving gives intercept $b=7$. Since $g(x)=7$ asks for the intercept value, $x=0$ — no further algebra.\n\n**The Full Solution:**\nStep 1: Slope: $m=\\frac{-2-10}{3-(-1)}=\\frac{-12}{4}=-3$.\nStep 2: Solve for $b$ with $(-1,10)$: $10=-3(-1)+b\\Rightarrow b=7$, so $g(x)=-3x+7$.\nStep 3: Set $g(x)=7$: $-3x+7=7\\Rightarrow -3x=0\\Rightarrow x=0$. Check $g(0)=7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($1$): guessed without solving; $g(1)=-3(1)+7=4\\neq7$.\n* Choice C ($-2$): a sign error on $-3x=0$; $g(-2)=13\\neq7$.\n* Choice D ($2$): rushed the final solve; $g(2)=1\\neq7$.\n\n**Test Day Takeaway:** Solving $g(x)=b$ (the intercept value) always gives $x=0$ — spot it and skip the algebra.",
-      skills: ['function-notation-to-equation', 'slope-from-points', 'solving-linear-equations']
+      correctAnswer: "D",
+      hint: "Build the equation for $g$ first; the question then asks for an input, not an output.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~35s):** $m = \\frac{-1-17}{4-(-2)} = -3$ and $b = 11$, so $-3x + 11 = 5$ gives $x = 2$ — choice D.\n\n**The Full Solution:**\nStep 1: Rate of change: $m = \\frac{-1-17}{4-(-2)} = \\frac{-18}{6} = -3$.\nStep 2: Substitute $(4, -1)$ into $g(x) = -3x + b$: $-1 = -12 + b$, so $b = 11$ and $g(x) = -3x + 11$.\nStep 3: Solve $-3x + 11 = 5$: subtract $11$ to get $-3x = -6$, then divide by $-3$ to get $x = 2$.\nStep 4: Check: $g(2) = -6 + 11 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{16}{3}$): adds $11$ to both sides instead of subtracting it, solving $-3x = 16$.\n* Choice B ($-4$): computes $g(5) = -3(5)+11 = -4$ instead of solving $g(x) = 5$ — the input and the output are swapped.\n* Choice C ($-2$): reaches $-3x = -6$ but divides without tracking the two negatives, reporting $x = -2$.\n\n**Test Day Takeaway:** The phrase 'the value of $x$ for which $g(x) = 5$' asks for an input. Substituting $5$ for $x$ answers a different question, and that answer is always among the choices.",
+      skills: ["function-notation-to-equation", "slope-from-points", "solving-linear-equations"]
     },
     {
       id: 20,
       difficulty: "hard",
-      question: "The linear function f is defined such that $f(-2) = 25$ and $f(6) = 9$. What is the y-intercept of the graph of $y = f(x)$?",
+      question: "The linear function $f$ satisfies $f(-3) = 20$ and $f(5) = -4$. In the $xy$-plane, the graph of $y = f(x)$ has a $y$-intercept at $(0, b)$, where $b$ is a constant. What is the value of $b$?",
       choices: [
-        { id: "A", text: "17" },
-        { id: "B", text: "21" },
-        { id: "C", text: "23" },
-        { id: "D", text: "25" }
+        { id: "A", text: "$-3$" },
+        { id: "B", text: "$11$" },
+        { id: "C", text: "$20$" },
+        { id: "D", text: "$29$" }
       ],
       correctAnswer: "B",
-      hint: "Find the slope, then use one of the given points to find b in $f(x) = mx + b$.",
-      explanation: "**Choice B is correct.** The $y$-intercept is $21$.\n\n**The Fast Way (~20s):** Slope from $(-2,25)$ and $(6,9)$ is $\\frac{9-25}{6-(-2)}=-2$. Solve for $b$ with $(6,9)$: $9-(-2)(6)=9+12=21$.\n\n**The Full Solution:**\nStep 1: Slope: $m=\\frac{9-25}{6-(-2)}=\\frac{-16}{8}=-2$.\nStep 2: Solve for $b$ with $(6,9)$: $9=-2(6)+b\\Rightarrow 9=-12+b\\Rightarrow b=21$.\nStep 3: So $f(x)=-2x+21$ and the $y$-intercept is $21$. Check $f(-2)=-2(-2)+21=25$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): averaged the two outputs, $\\frac{25+9}{2}=17$; the output midpoint is the intercept only when the input midpoint is $0$, but here it is $2$.\n* Choice C ($23$): an arithmetic slip computing $-2(-2)$ as $2$ instead of $4$ while solving for $b$.\n* Choice D ($25$): used the output at $x=-2$ as the intercept; the intercept is the value at $x=0$.\n\n**Test Day Takeaway:** The $y$-intercept is $f(0)$, so always solve $y=mx+b$ with the slope and a known point — never substitute an output from a non-zero input.",
-      skills: ['function-notation-to-equation', 'slope-from-points', 'slope-intercept-form']
+      hint: "Substituting a negative input into a negative rate of change produces a positive product — write the multiplication out.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** $m = \\frac{-4-20}{5-(-3)} = -3$, and $20 = -3(-3)+b$ gives $b = 11$ — choice B.\n\n**The Full Solution:**\nStep 1: Rate of change: $m = \\frac{-4-20}{5-(-3)} = \\frac{-24}{8} = -3$.\nStep 2: Substitute $(-3, 20)$ into $y = -3x + b$: $20 = -3(-3)+b = 9+b$, so $b = 11$.\nStep 3: The $y$-intercept is $(0, 11)$. Check the other value: $f(5) = -3(5)+11 = -4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): reports the rate of change, $-3$, instead of the $y$-coordinate of the $y$-intercept.\n* Choice C ($20$): reports $f(-3) = 20$, the output at $x = -3$ rather than at $x = 0$.\n* Choice D ($29$): evaluates $-3(-3)$ as $-9$, turning $20 = -9 + b$ into $b = 29$.\n\n**Test Day Takeaway:** The $y$-intercept is the output at $x = 0$, never an output listed in the stem. Get there by substituting a full ordered pair and watching the sign of the product.",
+      skills: ["function-notation-to-equation", "slope-from-points", "slope-intercept-form"]
     }
   ],
 
@@ -406,190 +333,190 @@ export const linearEquationsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "$f(x) = 3x + 7$\n\nThe graph of $y = f(x)$ in the xy-plane is a line. Line j is parallel to this graph. What is the slope of line j?",
+      question: "$f(x) = 6x - 11$\n\nThe function $f$ is defined by the given equation. In the $xy$-plane, the graph of $y = f(x)$ is a line, and line $p$ is parallel to that line. What is the slope of line $p$?",
       choices: [
-        { id: "A", text: "3" },
-        { id: "B", text: "7" },
-        { id: "C", text: "$-3$" },
-        { id: "D", text: "−", fraction: { numerator: "1", denominator: "3" } }
+        { id: "A", text: "$-11$" },
+        { id: "B", text: "$-6$" },
+        { id: "C", text: "$-\\frac{1}{6}$" },
+        { id: "D", text: "$6$" }
       ],
-      correctAnswer: "A",
-      hint: "Parallel lines have the same slope. What is the slope of $f(x) = 3x + 7$?",
-      explanation: "**Choice A is correct.** Parallel lines have equal slopes, so line $j$ has slope $3$.\n\n**The Fast Way (~10s):** The slope of $f(x)=3x+7$ is $3$, and parallel lines copy the slope exactly, so line $j$ has slope $3$.\n\n**The Full Solution:**\nStep 1: In $y=mx+b$, the slope is the coefficient of $x$, so $f$ has slope $3$.\nStep 2: Parallel means identical slope, so line $j$ also has slope $3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($7$): grabbed the $y$-intercept instead of the slope.\n* Choice C ($-3$): negated the slope; parallel lines keep the same sign.\n* Choice D ($-\\frac{1}{3}$): used the negative reciprocal, which is the perpendicular slope, not the parallel one.\n\n**Test Day Takeaway:** Parallel lines have the same slope; perpendicular lines have negative-reciprocal slopes. Do not mix the two rules.",
-      skills: ['parallel-line-slope']
+      correctAnswer: "D",
+      hint: "The equation is already solved for the output, so no rearranging is needed before you read the rate of change.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~10s):** The graph of $y = 6x - 11$ has slope $6$, and parallel lines have equal slopes — choice D.\n\n**The Full Solution:**\nStep 1: The equation $y = 6x - 11$ is in slope-intercept form, so the graph of $y = f(x)$ has slope $6$ and $y$-intercept $-11$.\nStep 2: Two distinct lines in the $xy$-plane are parallel exactly when their slopes are equal.\nStep 3: Therefore line $p$ has slope $6$. Check: any other slope would eventually meet the graph of $f$, so the lines could not be parallel. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-11$): reports $-11$, the $y$-intercept of the graph of $f$, rather than its slope.\n* Choice B ($-6$): negates the slope; parallel lines have equal slopes, not opposite ones.\n* Choice C ($-\\frac{1}{6}$): gives the negative reciprocal, which is the slope of a line perpendicular to the graph of $f$.\n\n**Test Day Takeaway:** Parallel means equal slopes — nothing is flipped and nothing changes sign. Confirm which number in $y = mx + b$ is the slope before you answer.",
+      skills: ["parallel-line-slope"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "$g(x) = -4x + 9$\n\nThe graph of $y = g(x)$ in the xy-plane is a line. Line k is parallel to this graph. What is the slope of line k?",
+      question: "In the $xy$-plane, the graph of $g(x) = -\\frac{3}{4}x + 5$ is a line. Line $k$ is parallel to this line. What is the slope of line $k$?",
       choices: [
-        { id: "A", text: "9" },
-        { id: "B", text: "4" },
-        { id: "C", text: "$-4$" },
-        { id: "D", text: "$-9$" }
+        { id: "A", text: "$-\\frac{4}{3}$" },
+        { id: "B", text: "$-\\frac{3}{4}$" },
+        { id: "C", text: "$\\frac{3}{4}$" },
+        { id: "D", text: "$\\frac{4}{3}$" }
       ],
-      correctAnswer: "C",
-      hint: "Parallel lines have identical slopes. Identify the slope from the equation $g(x) = -4x + 9$.",
-      explanation: "**Choice C is correct.** Parallel lines have equal slopes, so line $k$ has slope $-4$.\n\n**The Fast Way (~10s):** The slope of $g(x)=-4x+9$ is $-4$, sign included, and a parallel line copies it exactly.\n\n**The Full Solution:**\nStep 1: In $y=mx+b$, the slope is the coefficient of $x$, so $g$ has slope $-4$.\nStep 2: Parallel means identical slope, so line $k$ has slope $-4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): grabbed the $y$-intercept instead of the slope.\n* Choice B ($4$): dropped the negative sign; the slope is $-4$, not $4$.\n* Choice D ($-9$): negated the intercept, conflating it with the slope.\n\n**Test Day Takeaway:** The slope is the coefficient of $x$, sign and all — and parallel lines preserve it exactly.",
-      skills: ['parallel-line-slope']
+      correctAnswer: "B",
+      hint: "Copy the coefficient of $x$ exactly as it stands — sign included.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** Parallel lines share a slope, and the coefficient of $x$ here is $-\\frac{3}{4}$ — choice B.\n\n**The Full Solution:**\nStep 1: The equation is already in slope-intercept form, so the slope of the graph of $g$ is $-\\frac{3}{4}$.\nStep 2: Parallel lines have equal slopes.\nStep 3: Line $k$ therefore has slope $-\\frac{3}{4}$. Check the direction: a negative slope falls left to right, and any parallel line must fall at the same steepness. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{4}{3}$): flips the fraction while keeping the sign; parallel lines require no flip at all.\n* Choice C ($\\frac{3}{4}$): keeps the fraction but drops the negative sign, describing a line that rises rather than falls.\n* Choice D ($\\frac{4}{3}$): gives the negative reciprocal, the slope of a perpendicular line.\n\n**Test Day Takeaway:** Fraction slopes invite two reflexes that do not belong here — flipping and negating. Parallel means copy the coefficient exactly.",
+      skills: ["parallel-line-slope"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "$h(x) = (2/5)x - 6$\n\nThe graph of $y = h(x)$ in the xy-plane is a line. Line m is parallel to this graph. What is the slope of line m?",
+      question: "In the $xy$-plane, line $m$ is parallel to the graph of $4x + 10y = 25$. What is the slope of line $m$?",
       choices: [
-        { id: "A", text: "$-6$" },
-        { id: "B", text: "−", fraction: { numerator: "5", denominator: "2" } },
-        { id: "C", fraction: { numerator: "2", denominator: "5" } },
-        { id: "D", text: "6" }
+        { id: "A", text: "$-\\frac{5}{2}$" },
+        { id: "B", text: "$-\\frac{2}{5}$" },
+        { id: "C", text: "$\\frac{2}{5}$" },
+        { id: "D", text: "$\\frac{5}{2}$" }
       ],
-      correctAnswer: "C",
-      hint: "Parallel lines have the same slope. The slope is the coefficient of x.",
-      explanation: "**Choice C is correct.** Parallel lines have equal slopes, so line $m$ has slope $\\frac{2}{5}$.\n\n**The Fast Way (~10s):** The slope of $h(x)=\\frac{2}{5}x-6$ is $\\frac{2}{5}$, and a parallel line copies it exactly — do not flip or negate the fraction.\n\n**The Full Solution:**\nStep 1: In $y=mx+b$, the slope is the coefficient of $x$, so $h$ has slope $\\frac{2}{5}$.\nStep 2: Parallel means identical slope, so line $m$ has slope $\\frac{2}{5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): grabbed the $y$-intercept instead of the slope.\n* Choice B ($-\\frac{5}{2}$): used the negative reciprocal, which is the perpendicular slope.\n* Choice D ($6$): just the absolute value of the intercept — neither the slope's value nor sign.\n\n**Test Day Takeaway:** A parallel slope is identical, even when it is a fraction; flipping and negating gives the perpendicular slope.",
-      skills: ['parallel-line-slope']
+      correctAnswer: "B",
+      hint: "The equation is not in slope-intercept form yet; isolate $y$ before you read anything off.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** Solving for $y$ gives $y = -\\frac{2}{5}x + \\frac{5}{2}$, so the shared slope is $-\\frac{2}{5}$ — choice B.\n\n**The Full Solution:**\nStep 1: Isolate the $y$-term: $10y = -4x + 25$.\nStep 2: Divide every term by $10$: $y = -\\frac{4}{10}x + \\frac{25}{10} = -\\frac{2}{5}x + \\frac{5}{2}$, so the slope is $-\\frac{2}{5}$.\nStep 3: Parallel lines have equal slopes, so line $m$ has slope $-\\frac{2}{5}$. Check with a point: $\\left(5, \\frac{1}{2}\\right)$ satisfies $4(5)+10\\left(\\frac{1}{2}\\right)=25$ and $-\\frac{2}{5}(5)+\\frac{5}{2}=\\frac{1}{2}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{5}{2}$): flips the fraction, reporting the change in $x$ over the change in $y$.\n* Choice C ($\\frac{2}{5}$): loses the negative sign; moving $4x$ across the equals sign makes the coefficient negative.\n* Choice D ($\\frac{5}{2}$): reports the negative reciprocal, which belongs to a perpendicular line.\n\n**Test Day Takeaway:** From $Ax + By = C$ the slope is $-\\frac{A}{B}$ — the minus sign comes from moving $Ax$ across, and it is the step most often skipped.",
+      skills: ["parallel-line-slope"]
     },
 
     // === TYPE 2: Write equation through point parallel to given line ===
     {
       id: 4,
       difficulty: "easy",
-      question: "What is the equation of the line that passes through the point (0, 8) and is parallel to the graph of $y = 5x + 2$ in the xy-plane?",
+      question: "In the $xy$-plane, line $t$ passes through the point $(0, -7)$ and is parallel to the graph of $y = 9x + 4$. Which equation represents line $t$?",
       choices: [
-        { id: "A", text: "$y = 8x$" },
-        { id: "B", text: "$y = 5x + 8$" },
-        { id: "C", text: "$y = 5x$" },
-        { id: "D", text: "$y = 8x + 5$" }
+        { id: "A", text: "$y = 9x - 7$" },
+        { id: "B", text: "$y = 9x + 4$" },
+        { id: "C", text: "$y = -7x + 9$" },
+        { id: "D", text: "$y = -\\frac{1}{9}x - 7$" }
       ],
-      correctAnswer: "B",
-      hint: "Parallel lines have the same slope. The point (0, 8) tells you the y-intercept directly.",
-      explanation: "**Choice B is correct.** The line has slope $5$ and passes through $(0,8)$, giving $y=5x+8$.\n\n**The Fast Way (~15s):** Parallel to $y=5x+2$ means slope $5$, and the point $(0,8)$ sits on the $y$-axis, so $b=8$. The equation is $y=5x+8$.\n\n**The Full Solution:**\nStep 1: Copy the slope from the parallel line: $m=5$.\nStep 2: The point has $x=0$, so its $y$-value is the intercept: $b=8$.\nStep 3: Combine: $y=5x+8$. Check $(0,8)$: $5(0)+8=8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y=8x$): used $8$ as the slope and dropped the intercept, swapping the roles of the numbers.\n* Choice C ($y=5x$): right slope, but forgot the intercept; this passes through $(0,0)$, not $(0,8)$.\n* Choice D ($y=8x+5$): swapped slope and intercept — used $8$ as slope and $5$ as intercept.\n\n**Test Day Takeaway:** For a parallel line through a point, copy the slope and use the point for $b$; when the point has $x=0$, its $y$-value is the intercept.",
-      skills: ['parallel-line-slope', 'writing-parallel-equation']
+      correctAnswer: "A",
+      hint: "The given point sits on the $y$-axis, so it names one of the two constants outright.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** Parallel forces slope $9$, and $(0, -7)$ is the $y$-intercept: $y = 9x - 7$ — choice A.\n\n**The Full Solution:**\nStep 1: Parallel lines have equal slopes, so line $t$ has slope $9$.\nStep 2: The point $(0, -7)$ has $x$-coordinate $0$, so it is the $y$-intercept and $b = -7$.\nStep 3: The equation is $y = 9x - 7$. Check: substituting $x = 0$ gives $y = -7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = 9x + 4$): has the correct slope but is the given line itself, which passes through $(0, 4)$ rather than $(0, -7)$.\n* Choice C ($y = -7x + 9$): swaps the slope and the $y$-intercept.\n* Choice D ($y = -\\frac{1}{9}x - 7$): uses the negative reciprocal, $-\\frac{1}{9}$, giving a line perpendicular to the given one.\n\n**Test Day Takeaway:** A point whose $x$-coordinate is $0$ is the $y$-intercept — recognize it and the equation is finished in one step.",
+      skills: ["parallel-line-slope", "writing-parallel-equation"]
     },
     {
       id: 5,
       difficulty: "medium",
-      question: "What is the equation of the line that passes through the point (3, 14) and is parallel to the graph of $y = 3x - 2$ in the xy-plane?",
+      question: "Line $n$ passes through the point $(6, 5)$ and is parallel to the graph of $y = -2x + 9$ in the $xy$-plane. Which equation represents line $n$?",
       choices: [
-        { id: "A", text: "$y = 3x + 5$" },
-        { id: "B", text: "$y = 3x - 2$" },
-        { id: "C", text: "$y = 3x + 14$" },
-        { id: "D", text: "$y = -$", fraction: { numerator: "1", denominator: "3" }, textAfter: "x + 14" }
+        { id: "A", text: "$y = -2x - 7$" },
+        { id: "B", text: "$y = -2x + 5$" },
+        { id: "C", text: "$y = -2x + 17$" },
+        { id: "D", text: "$y = \\frac{1}{2}x + 2$" }
       ],
-      correctAnswer: "A",
-      hint: "Use slope 3 (same as the given line). Substitute point (3, 14) into $y = 3x + b$ to find b.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** Parallel means same slope, so $m=3$. Plug the point into $y=3x+b$: $14=3(3)+b$ gives $b=5$, so $y=3x+5$.\n\n**The Full Solution:**\nStep 1: Parallel lines share a slope. The given line $y=3x-2$ has slope $3$, so the new line is $y=3x+b$.\nStep 2: Use the point $(3,14)$: $14=3(3)+b \\Rightarrow 14=9+b \\Rightarrow b=5$.\nStep 3: The equation is $y=3x+5$. Check: $3(3)+5=14$ $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($y=3x-2$): the original line itself — right slope, but it passes through $(0,-2)$, not $(3,14)$.\n* Choice C ($y=3x+14$): drops the point's $y$-value straight into $b$; that only works when $x=0$.\n* Choice D ($y=-\\frac{1}{3}x+14$): uses the perpendicular slope $-\\frac{1}{3}$ instead of the parallel slope.\n\n**Test Day Takeaway:** For a parallel line through a point, keep the slope and solve $y=mx+b$ for $b$ using the point. The point's $y$-value is the intercept only when its $x$ is $0$.",
-      skills: ['parallel-line-slope', 'writing-parallel-equation']
+      correctAnswer: "C",
+      hint: "Copy the slope, then let the given point determine the constant.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~20s):** Slope $-2$, and $5 = -2(6)+b$ gives $b = 17$: $y = -2x + 17$ — choice C.\n\n**The Full Solution:**\nStep 1: Parallel lines have equal slopes, so line $n$ has slope $-2$.\nStep 2: Substitute $(6, 5)$ into $y = -2x + b$: $5 = -12 + b$, so $b = 17$.\nStep 3: The equation is $y = -2x + 17$. Check the point: $-2(6)+17 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x - 7$): computes $b = 5 - 12$ instead of $5 + 12$, reversing the sign when moving $-12$ across the equals sign.\n* Choice B ($y = -2x + 5$): uses the $y$-coordinate of the given point as the constant; the value $5$ occurs at $x = 6$, not at $x = 0$.\n* Choice D ($y = \\frac{1}{2}x + 2$): uses the negative reciprocal slope, $\\frac{1}{2}$, which produces the perpendicular line through the same point.\n\n**Test Day Takeaway:** After substituting a point, isolate $b$ by adding the opposite of the product — that single step is where the two look-alike choices split.",
+      skills: ["parallel-line-slope", "writing-parallel-equation"]
     },
     {
       id: 6,
       difficulty: "medium",
-      question: "What is the equation of the line that passes through the point (−2, 4) and is parallel to the graph of $y = -2x + 5$ in the xy-plane?",
+      question: "In the $xy$-plane, line $q$ is parallel to the graph of $2x - 3y = 12$ and passes through the point $(6, 1)$. Which equation represents line $q$?",
       choices: [
-        { id: "A", text: "$y = -2x$" },
-        { id: "B", text: "$y = -2x + 4$" },
-        { id: "C", text: "$y = 2x + 8$" },
-        { id: "D", text: "$y =$", fraction: { numerator: "1", denominator: "2" }, textAfter: "x + 4" }
+        { id: "A", text: "$y = -\\frac{3}{2}x + 10$" },
+        { id: "B", text: "$y = -\\frac{2}{3}x + 5$" },
+        { id: "C", text: "$y = \\frac{2}{3}x - 3$" },
+        { id: "D", text: "$y = \\frac{2}{3}x + 1$" }
       ],
-      correctAnswer: "A",
-      hint: "Parallel lines have slope −2. Use point (−2, 4) to find the y-intercept.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** Same slope $m=-2$. Plug in $(-2,4)$: $4=-2(-2)+b=4+b$, so $b=0$ and the line is $y=-2x$.\n\n**The Full Solution:**\nStep 1: Parallel to $y=-2x+5$ means slope $-2$, so the line is $y=-2x+b$.\nStep 2: Substitute $(-2,4)$: $4=-2(-2)+b \\Rightarrow 4=4+b \\Rightarrow b=0$.\nStep 3: The equation is $y=-2x$. Check: $-2(-2)=4$ $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($y=-2x+4$): drops the point's $y$-value ($4$) into $b$ without solving; that line passes through $(-2,8)$, not $(-2,4)$.\n* Choice C ($y=2x+8$): uses slope $+2$ — the sign of the slope was dropped.\n* Choice D ($y=\\frac{1}{2}x+4$): uses the perpendicular slope $\\frac{1}{2}$ instead of the parallel slope.\n\n**Test Day Takeaway:** Watch the double negative: $-2(-2)=+4$. Keep the slope for a parallel line and solve for $b$ with the given point.",
-      skills: ['parallel-line-slope', 'writing-parallel-equation']
+      correctAnswer: "C",
+      hint: "Dividing by a negative coefficient changes the sign of every term — do that before deciding the slope.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $2x - 3y = 12$ gives $y = \\frac{2}{3}x - 4$, so the slope is $\\frac{2}{3}$; then $1 = 4 + b$ gives $b = -3$ — choice C.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $-3y = -2x + 12$, and dividing by $-3$ gives $y = \\frac{2}{3}x - 4$. The slope is $\\frac{2}{3}$.\nStep 2: Line $q$ has the same slope. Substitute $(6, 1)$: $1 = \\frac{2}{3}(6)+b = 4+b$, so $b = -3$.\nStep 3: The equation is $y = \\frac{2}{3}x - 3$. Check: $\\frac{2}{3}(6)-3 = 4-3 = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{3}{2}x + 10$): uses the negative reciprocal, $-\\frac{3}{2}$, giving the perpendicular line through the point.\n* Choice B ($y = -\\frac{2}{3}x + 5$): reads the slope as $-\\frac{2}{3}$, forgetting that dividing by $-3$ flips the sign of $-2x$; that then forces $b = 5$.\n* Choice D ($y = \\frac{2}{3}x + 1$): has the correct slope but takes the $y$-coordinate $1$ as the constant instead of solving for it.\n\n**Test Day Takeaway:** When the $y$-coefficient is negative, the slope's sign flips during the division. Rearrange fully, then anchor the parallel line with the given point.",
+      skills: ["parallel-line-slope", "writing-parallel-equation"]
     },
 
     // === TYPE 3: System with no solution - identify parallel equation ===
     {
       id: 7,
       difficulty: "medium",
-      question: "$y = 4x + 12$\n\nOne of the equations in a system of two linear equations is given. The system has no solution. Which equation could be the second equation in the system?",
+      question: "$y = 7x - 3$\n\nThe given equation is one of the two equations in a system of linear equations in the $xy$-plane. The system has no solution. Which equation could be the other equation in the system?",
       choices: [
-        { id: "A", text: "$-4x + y = 12$" },
-        { id: "B", text: "$-4x + y = 20$" },
-        { id: "C", text: "$-8x + y = 24$" },
-        { id: "D", text: "$-8x + y = 12$" }
+        { id: "A", text: "$y = -7x - 3$" },
+        { id: "B", text: "$y = 7x + 5$" },
+        { id: "C", text: "$y = 7x - 3$" },
+        { id: "D", text: "$y = -\\frac{1}{7}x - 3$" }
       ],
       correctAnswer: "B",
-      hint: "No solution means parallel lines (same slope, different y-intercept). Rewrite each choice in $y = mx + b$ form.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** No solution means parallel lines: same slope, different intercept. The given line is $y=4x+12$, so look for slope $4$ with intercept $\\neq 12$. Choice B, $-4x+y=20$, becomes $y=4x+20$.\n\n**The Full Solution:**\nStep 1: The given line $y=4x+12$ has slope $4$.\nStep 2: Convert Choice B to slope-intercept form: $-4x+y=20 \\Rightarrow y=4x+20$ — slope $4$, intercept $20\\neq 12$. Parallel.\nStep 3: Confirm no solution: $4x+12=4x+20 \\Rightarrow 12=20$, impossible. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4x+y=12 \\Rightarrow y=4x+12$): the same line as the given equation — infinitely many solutions, not none.\n* Choice C ($-8x+y=24 \\Rightarrow y=8x+24$): slope $8$, so it crosses the given line at one point.\n* Choice D ($-8x+y=12 \\Rightarrow y=8x+12$): slope $8$ again — one intersection.\n\n**Test Day Takeaway:** No solution = parallel = same slope, different intercept. Same slope and same intercept means one identical line (infinitely many solutions), and different slopes means exactly one solution.",
-      skills: ['parallel-line-slope', 'system-no-solution']
+      hint: "Picture the graphs: no solution means the two lines never meet, and there is only one way that happens.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** No solution means parallel but distinct: same slope $7$, different constant — choice B.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has no solution exactly when the graphs are parallel and distinct.\nStep 2: Parallel requires the same slope, $7$, which eliminates the choices with slopes $-7$ and $-\\frac{1}{7}$.\nStep 3: Distinct requires a different $y$-intercept, so $y = 7x + 5$ works. Check: $7x - 3 = 7x + 5$ reduces to $-3 = 5$, which is never true, so the system has no solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -7x - 3$): changes the slope, so the two lines cross once and the system has exactly one solution.\n* Choice C ($y = 7x - 3$): repeats the given equation; identical lines share every point, so the system has infinitely many solutions rather than none.\n* Choice D ($y = -\\frac{1}{7}x - 3$): uses the negative reciprocal slope, giving perpendicular lines that meet at exactly one point.\n\n**Test Day Takeaway:** No solution needs both conditions: equal slopes and unequal intercepts. The same-equation choice satisfies only the first and is the standard trap.",
+      skills: ["parallel-line-slope", "system-no-solution"]
     },
     {
       id: 8,
       difficulty: "medium",
-      question: "$y = -5x + 15$\n\nOne of the equations in a system of two linear equations is given. The system has no solution. Which equation could be the second equation in the system?",
+      question: "$4x + y = 9$\n\nOne equation in a system of two linear equations is given. If the system has no solution, which of the following could be the second equation in the system?",
       choices: [
-        { id: "A", text: "$5x + y = 15$" },
-        { id: "B", text: "$5x + y = 25$" },
-        { id: "C", text: "$-5x + y = 15$" },
-        { id: "D", text: "$10x + 2y = 30$" }
+        { id: "A", text: "$x + 4y = 9$" },
+        { id: "B", text: "$4x - y = 9$" },
+        { id: "C", text: "$8x + 2y = 18$" },
+        { id: "D", text: "$8x + 2y = 30$" }
       ],
-      correctAnswer: "B",
-      hint: "Convert each answer to slope-intercept form. No solution requires same slope but different y-intercept.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** No solution means same slope, different intercept. The given line is $y=-5x+15$, so look for slope $-5$ with intercept $\\neq 15$. Choice B, $5x+y=25$, becomes $y=-5x+25$.\n\n**The Full Solution:**\nStep 1: The given line $y=-5x+15$ has slope $-5$.\nStep 2: Convert Choice B: $5x+y=25 \\Rightarrow y=-5x+25$ — slope $-5$, intercept $25\\neq 15$. Parallel.\nStep 3: Confirm: $-5x+15=-5x+25 \\Rightarrow 15=25$, impossible, so no solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5x+y=15 \\Rightarrow y=-5x+15$): identical to the given line — infinitely many solutions.\n* Choice C ($-5x+y=15 \\Rightarrow y=5x+15$): moving $-5x$ across flips its sign to $+5x$, so the slope is $+5$ — one intersection.\n* Choice D ($10x+2y=30 \\Rightarrow y=-5x+15$): just the original equation doubled — same line, infinitely many solutions.\n\n**Test Day Takeaway:** Multiplying an equation through by a constant gives an equivalent line, not a parallel one. For no solution you need the same slope but a genuinely different intercept.",
-      skills: ['parallel-line-slope', 'system-no-solution']
+      correctAnswer: "D",
+      hint: "Rewrite each candidate in slope-intercept form; two of them differ from the given line only in appearance.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** $8x + 2y = 30$ is $y = -4x + 15$: the same slope as $y = -4x + 9$ but a different intercept — choice D.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $y = -4x + 9$, so its slope is $-4$ and its $y$-intercept is $9$.\nStep 2: No solution requires a second line with slope $-4$ and a different $y$-intercept. Rewrite the candidate: $8x + 2y = 30$ gives $2y = -8x + 30$, so $y = -4x + 15$.\nStep 3: The slopes match and the intercepts differ, so the lines are parallel and distinct. Check by elimination: doubling the given equation gives $8x + 2y = 18$, and $18 \\neq 30$, so no pair $(x, y)$ satisfies both. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x + 4y = 9$): swaps the coefficients, giving slope $-\\frac{1}{4}$ instead of $-4$, so the lines cross once.\n* Choice B ($4x - y = 9$): changes the sign on $y$, giving slope $4$; the two lines then intersect at a single point.\n* Choice C ($8x + 2y = 18$): is exactly twice the given equation, so it is the same line and the system has infinitely many solutions.\n\n**Test Day Takeaway:** In standard form, proportional coefficients with a proportional constant means one line; proportional coefficients with a non-proportional constant means no solution.",
+      skills: ["parallel-line-slope", "system-no-solution"]
     },
 
     // === TYPE 4: Find constant p for no solution (single equation) ===
     {
       id: 9,
       difficulty: "hard",
-      question: "$-4x + 28px = 56$\n\nIn the given equation, p is a constant. The equation has no solution. What is the value of p?",
+      question: "$9x - 45px = 27$\n\nIn the given equation, $p$ is a constant. The equation has no solution. What is the value of $p$?",
       choices: [
-        { id: "A", text: "0" },
-        { id: "B", fraction: { numerator: "1", denominator: "7" } },
-        { id: "C", fraction: { numerator: "2", denominator: "7" } },
-        { id: "D", text: "7" }
+        { id: "A", text: "$-\\frac{2}{5}$" },
+        { id: "B", text: "$-\\frac{1}{5}$" },
+        { id: "C", text: "$\\frac{1}{5}$" },
+        { id: "D", text: "$5$" }
       ],
-      correctAnswer: "B",
-      hint: "Combine the x terms: $(-4 + 28p)x = 56$. For no solution, the coefficient of x must be 0 while the right side is non-zero.",
-      explanation: "**The correct answer is $\\frac{1}{7}$.**\n\n**The Fast Way (~20s):** Combine $x$-terms: $(-4+28p)x=56$. A single-variable equation has no solution only when the coefficient is $0$ while the constant is not, so set $-4+28p=0 \\Rightarrow p=\\frac{4}{28}=\\frac{1}{7}$.\n\n**The Full Solution:**\nStep 1: Group like terms on the left: $-4x+28px=(-4+28p)x=56$.\nStep 2: For $kx=c$ to have no solution, $k=0$ and $c\\neq 0$ (the equation collapses to $0=56$, a contradiction).\nStep 3: Set $-4+28p=0 \\Rightarrow 28p=4 \\Rightarrow p=\\frac{1}{7}$. Since $56\\neq 0$, this gives no solution. $\\checkmark$\n\n**Common Mistakes:** Picking $p=0$ (gives $-4x=56$, one solution); picking $p=\\frac{2}{7}$ (coefficient becomes $+4$, one solution); inverting $\\frac{1}{7}$ to $7$.\n\n**Test Day Takeaway:** A linear equation $kx=c$ has no solution exactly when the variable's coefficient is $0$ and the constant is nonzero. Set the combined coefficient to $0$ and solve for the parameter.",
-      skills: ['parallel-line-slope', 'no-solution-equation']
+      correctAnswer: "C",
+      hint: "Factor $x$ out of the left side first; a linear equation loses its solution only when something on the left disappears.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** Factoring gives $(9 - 45p)x = 27$; no solution requires $9 - 45p = 0$, so $p = \\frac{1}{5}$ — choice C.\n\n**The Full Solution:**\nStep 1: Combine the terms on the left: $9x - 45px = (9 - 45p)x$, so the equation is $(9 - 45p)x = 27$.\nStep 2: An equation of the form $kx = 27$ has no solution exactly when $k = 0$, because $0 = 27$ is never true. Set $9 - 45p = 0$.\nStep 3: Solve: $45p = 9$, so $p = \\frac{9}{45} = \\frac{1}{5}$.\nStep 4: Check: at $p = \\frac{1}{5}$ the left side is $9x - 9x = 0$, and $0 = 27$ has no solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{2}{5}$): sets the coefficient equal to the right-hand side, solving $9 - 45p = 27$ and getting $-\\frac{2}{5}$.\n* Choice B ($-\\frac{1}{5}$): reaches $-45p = -9$ but divides without tracking the two negatives, reporting $-\\frac{1}{5}$.\n* Choice D ($5$): divides $45$ by $9$ instead of $9$ by $45$.\n\n**Test Day Takeaway:** For a one-variable linear equation, no solution means the variable vanishes and a false numerical statement remains. Set the coefficient of $x$ to $0$, never to the constant on the right.",
+      skills: ["parallel-line-slope", "no-solution-equation"]
     },
     {
       id: 10,
       difficulty: "hard",
-      question: "$7x - 21px = 42$\n\nIn the given equation, p is a constant. The equation has no solution. What is the value of p?",
+      question: "$2(3x - 7) = ax + 14$\n\nIn the given equation, $a$ is a constant. If the equation has no solution, what is the value of $a$?",
       choices: [
-        { id: "A", text: "$-3$" },
-        { id: "B", text: "−", fraction: { numerator: "1", denominator: "3" } },
-        { id: "C", fraction: { numerator: "1", denominator: "3" } },
-        { id: "D", text: "3" }
+        { id: "A", text: "$-6$" },
+        { id: "B", text: "$2$" },
+        { id: "C", text: "$3$" },
+        { id: "D", text: "$6$" }
       ],
-      correctAnswer: "C",
-      hint: "Factor out x: $(7 - 21p)x = 42$. For no solution, make the x coefficient equal to 0.",
-      explanation: "**The correct answer is $\\frac{1}{3}$.**\n\n**The Fast Way (~20s):** Combine $x$-terms: $(7-21p)x=42$. No solution requires the coefficient to vanish, so set $7-21p=0 \\Rightarrow p=\\frac{7}{21}=\\frac{1}{3}$.\n\n**The Full Solution:**\nStep 1: Group like terms: $7x-21px=(7-21p)x=42$.\nStep 2: For $kx=c$ with $c\\neq 0$ to have no solution, $k=0$.\nStep 3: Set $7-21p=0 \\Rightarrow 21p=7 \\Rightarrow p=\\frac{1}{3}$. Since $42\\neq 0$, the equation becomes $0=42$, impossible. $\\checkmark$\n\n**Common Mistakes:** Choosing $p=-\\frac{1}{3}$ or $p=-3$ (wrong sign — the coefficient won't cancel); inverting $\\frac{1}{3}$ to $3$; forgetting to reduce $\\frac{7}{21}$ to $\\frac{1}{3}$.\n\n**Test Day Takeaway:** No solution means the $x$-coefficient collapses to $0$. Set the combined coefficient equal to zero, solve for the parameter, and reduce the fraction.",
-      skills: ['parallel-line-slope', 'no-solution-equation']
+      correctAnswer: "D",
+      hint: "Distribute before you compare anything; the coefficient of $x$ on the left is not visible yet.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** Distributing gives $6x - 14 = ax + 14$; the $x$-terms must match while the constants do not, so $a = 6$ — choice D.\n\n**The Full Solution:**\nStep 1: Distribute the $2$: $6x - 14 = ax + 14$.\nStep 2: Gather the $x$-terms on one side: $(6 - a)x = 28$.\nStep 3: No solution requires the coefficient of $x$ to be $0$ while the constant is not, so $6 - a = 0$ and $a = 6$.\nStep 4: Check: at $a = 6$ the equation reduces to $-14 = 14$, which is never true. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): solves $6 - a = 0$ but records the opposite sign; substituting $a = -6$ leaves $12x = 28$, which has a solution.\n* Choice B ($2$): reads the multiplier outside the parentheses, $2$, as the coefficient of $x$ on the left.\n* Choice C ($3$): reads the coefficient inside the parentheses, $3$, without distributing the $2$ across it.\n\n**Test Day Takeaway:** Distribute first, then match coefficients. An equation with no solution is one where both sides change at the same rate but start from different places.",
+      skills: ["parallel-line-slope", "no-solution-equation"]
     },
 
     // === TYPE 5: Find constant for no solution in system (advanced) ===
     {
       id: 11,
       difficulty: "hard",
-      question: "$36x - 48y = 36y + 18$\nry = (1/6) − 9x\n\nIn the given system of equations, r is a constant. If the system has no solution, what is the value of r?",
+      question: "$5x + 2y = 8$\n$ry = 15 - 10x$\n\nIn the given system of two linear equations, $r$ is a constant. If the system has no solution, what is the value of $r$?",
       choices: [
-        { id: "A", text: "$-21$" },
-        { id: "B", text: "−", fraction: { numerator: "1", denominator: "4" } },
-        { id: "C", fraction: { numerator: "1", denominator: "4" } },
-        { id: "D", text: "21" }
+        { id: "A", text: "$-4$" },
+        { id: "B", text: "$1$" },
+        { id: "C", text: "$2$" },
+        { id: "D", text: "$4$" }
       ],
-      correctAnswer: "A",
-      hint: "Rewrite both equations in standard form ($ax + by = c$). For no solution, the ratios a₁/a₂ = b₁/b₂ ≠ c₁/c₂.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** Reduce Equation 1 to $6x-14y=3$ and Equation 2 to $9x+ry=\\frac{1}{6}$. Parallel lines need matched coefficient ratios: $\\frac{6}{9}=\\frac{-14}{r}$, which gives $r=-21$.\n\n**The Full Solution:**\nStep 1: Equation 1: $36x-48y=36y+18 \\Rightarrow 36x-84y=18$. Divide by $6$: $6x-14y=3$.\nStep 2: Equation 2: $ry=\\frac{1}{6}-9x \\Rightarrow 9x+ry=\\frac{1}{6}$.\nStep 3: For no solution, the $x$ and $y$ coefficients are proportional but the constants are not: $\\frac{6}{9}=\\frac{-14}{r} \\Rightarrow \\frac{2}{3}=\\frac{-14}{r} \\Rightarrow r=\\frac{-14\\cdot 3}{2}=-21$.\nStep 4: Check the constants differ — Equation 1 scales to $6x-14y=3$ while Equation 2 scales to $6x-14y=\\frac{1}{9}$. Same left side, different right side, so the lines are parallel. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{1}{4}$): doesn't satisfy $\\frac{2}{3}=\\frac{-14}{r}$, so the slopes differ — one solution.\n* Choice C ($\\frac{1}{4}$): wrong both in size and sign; the slopes don't match.\n* Choice D ($21$): the right magnitude but positive, giving slope ratio $-\\frac{2}{3}$ instead of $+\\frac{2}{3}$ — $r$ must be negative.\n\n**Test Day Takeaway:** For $a_1x+b_1y=c_1$ and $a_2x+b_2y=c_2$, no solution means $\\frac{a_1}{a_2}=\\frac{b_1}{b_2}\\neq\\frac{c_1}{c_2}$. Put both equations in standard form before comparing.",
-      skills: ['parallel-line-slope', 'system-no-solution', 'algebraic-manipulation']
+      correctAnswer: "D",
+      hint: "Put the second equation in the same arrangement as the first before you compare coefficients.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~40s):** Rewritten, the second equation is $10x + ry = 15$; its $x$-coefficient is twice the first equation's, so $r$ must be twice $2$ — choice D.\n\n**The Full Solution:**\nStep 1: Rearrange the second equation into standard form: $10x + ry = 15$.\nStep 2: Two linear equations have no solution when one equation's variable coefficients are a common multiple of the other's while the constants are not in that same ratio. Here $10 = 2(5)$, so the multiplier is $2$.\nStep 3: Matching the $y$-coefficients under that multiplier gives $r = 2(2) = 4$.\nStep 4: Check: with $r = 4$ the system is $5x + 2y = 8$ and $10x + 4y = 15$. Doubling the first gives $10x + 4y = 16$, and $16 \\neq 15$, so the lines are parallel and distinct. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): equates the slopes with a sign error, solving $-\\frac{10}{r} = \\frac{5}{2}$ instead of $-\\frac{10}{r} = -\\frac{5}{2}$.\n* Choice B ($1$): sets up the proportion upside down, $\\frac{2}{r} = \\frac{10}{5}$, rather than $\\frac{2}{r} = \\frac{5}{10}$.\n* Choice C ($2$): copies the first equation's $y$-coefficient, ignoring that the $x$-coefficients differ by a factor of $2$.\n\n**Test Day Takeaway:** Rearrange both equations into the same form, find the multiplier from a coefficient pair you can see, and apply that one multiplier to every coefficient.",
+      skills: ["parallel-line-slope", "system-no-solution", "algebraic-manipulation"]
     },
     {
       id: 12,
       difficulty: "hard",
-      question: "$(5/2)y - (1/3)x = (1/2) - (5/2)y$\n(1/3)$x + (5/3) = py + (11/3)$\n\nIn the given system of equations, p is a constant. If the system has no solution, what is the value of p?",
+      question: "$\\frac{3}{4}x + \\frac{1}{2}y = 6$\n$y = kx - 7$\n\nIn the given system of two linear equations, $k$ is a constant. If the system has no solution, what is the value of $k$?",
       choices: [
-        { id: "A", text: "$-5$" },
-        { id: "B", text: "−", fraction: { numerator: "1", denominator: "5" } },
-        { id: "C", fraction: { numerator: "1", denominator: "5" } },
-        { id: "D", text: "5" }
+        { id: "A", text: "$-\\frac{3}{2}$" },
+        { id: "B", text: "$-\\frac{3}{4}$" },
+        { id: "C", text: "$\\frac{2}{3}$" },
+        { id: "D", text: "$\\frac{3}{2}$" }
       ],
-      correctAnswer: "D",
-      hint: "Simplify each equation to standard form. Then set up the parallel condition where the slopes are equal.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** Reduce Equation 1 to $x-15y=-\\frac{3}{2}$ and Equation 2 to $x-3py=6$. Matching the $y$-coefficients needs $-3p=-15$, so $p=5$.\n\n**The Full Solution:**\nStep 1: Equation 1: add $\\frac{5}{2}y$ to both sides: $5y-\\frac{1}{3}x=\\frac{1}{2}$. Multiply by $-3$: $x-15y=-\\frac{3}{2}$.\nStep 2: Equation 2: $\\frac{1}{3}x+\\frac{5}{3}=py+\\frac{11}{3} \\Rightarrow \\frac{1}{3}x-py=\\frac{11}{3}-\\frac{5}{3}=2$. Multiply by $3$: $x-3py=6$.\nStep 3: For no solution, the coefficients of $x$ and $y$ match but the constants differ. The $x$-coefficients are both $1$, so set $-3p=-15 \\Rightarrow p=5$.\nStep 4: Check: the two lines become $x-15y=-\\frac{3}{2}$ and $x-15y=6$ — same left side, different right side. Parallel, no solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): makes the $y$-coefficient $+15$ instead of $-15$ — different slopes, one solution.\n* Choice B ($-\\frac{1}{5}$): gives a $y$-coefficient of $\\frac{3}{5}$, nowhere near $-15$.\n* Choice C ($\\frac{1}{5}$): gives a $y$-coefficient of $-\\frac{3}{5}$ — still not $-15$, so the lines cross.\n\n**Test Day Takeaway:** Clear all fractions first, then match coefficients. No solution means identical coefficients of $x$ and $y$ but a different constant.",
-      skills: ['parallel-line-slope', 'system-no-solution', 'algebraic-manipulation']
+      correctAnswer: "A",
+      hint: "The second equation is already solved for $y$; put the first one in that same form so the two slopes can be compared directly.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~40s):** The first equation is $y = 12 - \\frac{3}{2}x$, so parallel and distinct requires $k = -\\frac{3}{2}$ — choice A.\n\n**The Full Solution:**\nStep 1: Solve the first equation for $y$: $\\frac{1}{2}y = 6 - \\frac{3}{4}x$, and multiplying through by $2$ gives $y = 12 - \\frac{3}{2}x$.\nStep 2: No solution means the graphs are parallel and distinct, so the slopes must be equal: $k = -\\frac{3}{2}$.\nStep 3: Confirm the lines are distinct: their $y$-intercepts are $12$ and $-7$, which differ, so the lines never meet.\nStep 4: Check by substitution: $12 - \\frac{3}{2}x = -\\frac{3}{2}x - 7$ reduces to $12 = -7$, which is never true. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{3}{4}$): moves $\\frac{3}{4}x$ across the equals sign correctly but never divides by the $\\frac{1}{2}$ attached to $y$, so the slope comes out half its true size.\n* Choice C ($\\frac{2}{3}$): uses the negative reciprocal, which makes the lines perpendicular — they would then meet at exactly one point.\n* Choice D ($\\frac{3}{2}$): drops the negative sign that appears when $\\frac{3}{4}x$ moves to the other side of the equation.\n\n**Test Day Takeaway:** Fractional coefficients hide the slope. Clear the fraction on $y$ first — the slope is the coefficient of $x$ only after $y$ stands alone with coefficient $1$.",
+      skills: ["parallel-line-slope", "system-no-solution", "algebraic-manipulation"]
     }
   ],
 
@@ -598,79 +525,77 @@ export const linearEquationsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "Line k has the equation $y = 2x + 5$. What is the slope of a line perpendicular to line k?",
+      question: "Line $c$ is represented by the equation $y = 5x - 8$ in the $xy$-plane. What is the slope of any line perpendicular to line $c$?",
       choices: [
-        { id: "A", text: "2" },
-        { id: "B", text: "$-2$" },
-        { id: "C", fraction: { numerator: "1", denominator: "2" } },
-        { id: "D", text: "−", fraction: { numerator: "1", denominator: "2" } }
+        { id: "A", text: "$-5$" },
+        { id: "B", text: "$-\\frac{1}{5}$" },
+        { id: "C", text: "$\\frac{1}{5}$" },
+        { id: "D", text: "$5$" }
       ],
-      correctAnswer: "D",
-      hint: "Perpendicular slopes are negative reciprocals. Flip the fraction and change the sign.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~10s):** Perpendicular slopes are negative reciprocals. The slope of $y=2x+5$ is $2$, so flip and negate: $-\\frac{1}{2}$.\n\n**The Full Solution:**\nStep 1: Line $k$ has slope $2$.\nStep 2: The perpendicular slope is the negative reciprocal: flip $2=\\frac{2}{1}$ to $\\frac{1}{2}$, then negate to $-\\frac{1}{2}$.\nStep 3: Check: $2\\cdot\\left(-\\frac{1}{2}\\right)=-1$ $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): the same slope — that's a parallel line, not perpendicular.\n* Choice B ($-2$): only negated, never flipped; $2\\cdot(-2)=-4\\neq -1$.\n* Choice C ($\\frac{1}{2}$): only flipped, never negated; $2\\cdot\\frac{1}{2}=1\\neq -1$.\n\n**Test Day Takeaway:** Perpendicular slopes satisfy $m_1\\cdot m_2=-1$. Do both moves — flip the fraction and change the sign.",
-      skills: ['perpendicular-negative-reciprocal']
+      correctAnswer: "B",
+      hint: "Two moves are required, not one: the fraction turns over and the sign changes.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** Perpendicular slopes multiply to $-1$, so the slope is $-\\frac{1}{5}$ — choice B.\n\n**The Full Solution:**\nStep 1: In the form $y = 5x - 8$, line $c$ has slope $5$.\nStep 2: Perpendicular slopes are negative reciprocals: write $5$ as $\\frac{5}{1}$, flip it to $\\frac{1}{5}$, and change the sign to $-\\frac{1}{5}$.\nStep 3: Check the defining relationship: $5\\left(-\\frac{1}{5}\\right) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): changes the sign without flipping: $5(-5) = -25$, not $-1$.\n* Choice C ($\\frac{1}{5}$): flips without changing the sign: $5\\left(\\frac{1}{5}\\right) = 1$, not $-1$.\n* Choice D ($5$): repeats the slope of line $c$, which describes a parallel line.\n\n**Test Day Takeaway:** Verify a perpendicular slope by multiplying: the product with the original slope must be exactly $-1$, which catches a missed flip or a missed sign in one step.",
+      skills: ["perpendicular-negative-reciprocal"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "Which equation represents a line perpendicular to $y = -3x + 1$?",
+      question: "In the $xy$-plane, which of the following equations represents a line perpendicular to the graph of $y = -\\frac{2}{7}x + 4$?",
       choices: [
-        { id: "A", text: "$y = -3x + 4$" },
-        { id: "B", text: "$y = 3x - 2$" },
-        { id: "C", text: "$y =$", fraction: { numerator: "1", denominator: "3" }, textAfter: "x + 5" },
-        { id: "D", text: "$y = -$", fraction: { numerator: "1", denominator: "3" }, textAfter: "x + 1" }
+        { id: "A", text: "$y = -\\frac{7}{2}x + 4$" },
+        { id: "B", text: "$y = -\\frac{2}{7}x - 4$" },
+        { id: "C", text: "$y = \\frac{2}{7}x + 4$" },
+        { id: "D", text: "$y = \\frac{7}{2}x - 1$" }
       ],
-      correctAnswer: "C",
-      hint: "The slope is -3. The negative reciprocal means flip it (1/3) and change the sign (positive).",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** The slope of $y=-3x+1$ is $-3$; its negative reciprocal is $\\frac{1}{3}$. Only Choice C, $y=\\frac{1}{3}x+5$, has that slope.\n\n**The Full Solution:**\nStep 1: The given line has slope $-3$.\nStep 2: Negative reciprocal of $-3=\\frac{-3}{1}$: flip to $\\frac{1}{-3}=-\\frac{1}{3}$, then negate to $+\\frac{1}{3}$.\nStep 3: Choice C has slope $\\frac{1}{3}$. Check: $(-3)\\cdot\\frac{1}{3}=-1$ $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y=-3x+4$): same slope $-3$ — parallel, not perpendicular.\n* Choice B ($y=3x-2$): only negated to $+3$; $(-3)(3)=-9\\neq -1$.\n* Choice D ($y=-\\frac{1}{3}x+1$): flipped but not negated, so it stays negative; $(-3)\\left(-\\frac{1}{3}\\right)=1\\neq -1$.\n\n**Test Day Takeaway:** When the original slope is negative, its negative reciprocal is positive — the two negatives cancel. Always confirm with $m_1\\cdot m_2=-1$.",
-      skills: ['perpendicular-negative-reciprocal']
+      correctAnswer: "D",
+      hint: "Work out the required slope first, then scan the choices for it and ignore the constants entirely.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~15s):** The negative reciprocal of $-\\frac{2}{7}$ is $\\frac{7}{2}$, and only one choice has that slope — choice D.\n\n**The Full Solution:**\nStep 1: The given line has slope $-\\frac{2}{7}$.\nStep 2: Flip the fraction to get $\\frac{7}{2}$, then reverse the sign; reversing the sign of a negative gives a positive, so the required slope is $\\frac{7}{2}$.\nStep 3: Only $y = \\frac{7}{2}x - 1$ has that slope. Check: $-\\frac{2}{7}\\left(\\frac{7}{2}\\right) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{7}{2}x + 4$): flips the fraction but keeps it negative: $-\\frac{2}{7}\\left(-\\frac{7}{2}\\right) = 1$, not $-1$.\n* Choice B ($y = -\\frac{2}{7}x - 4$): has the same slope as the given line, so it is parallel rather than perpendicular.\n* Choice C ($y = \\frac{2}{7}x + 4$): reverses the sign without flipping: $-\\frac{2}{7}\\left(\\frac{2}{7}\\right) = -\\frac{4}{49}$.\n\n**Test Day Takeaway:** When the original slope is negative, the perpendicular slope is positive — the two sign changes cancel. Confirm with the product test rather than trusting the reflex.",
+      skills: ["perpendicular-negative-reciprocal"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "A line passes through (2, 4) and is perpendicular to the line shown below. What is the equation of this line?",
-      questionFormula: { text: "$y =$", fraction: { numerator: "1", denominator: "2" }, textAfter: "x − 3" },
+      question: "In the $xy$-plane, line $w$ passes through the point $(10, 3)$ and is perpendicular to the graph of $y = -\\frac{5}{2}x + 1$. Which equation represents line $w$?",
       choices: [
-        { id: "A", text: "$y = -2x + 8$" },
-        { id: "B", text: "$y = 2x$" },
-        { id: "C", text: "$y =$", fraction: { numerator: "1", denominator: "2" }, textAfter: "x + 3" },
-        { id: "D", text: "$y = -2x$" }
+        { id: "A", text: "$y = -\\frac{5}{2}x + 28$" },
+        { id: "B", text: "$y = -\\frac{2}{5}x + 7$" },
+        { id: "C", text: "$y = \\frac{2}{5}x - 1$" },
+        { id: "D", text: "$y = \\frac{5}{2}x - 22$" }
       ],
-      correctAnswer: "A",
-      hint: "The negative reciprocal of 1/2 is -2. Use this slope with the point (2, 4) to find the equation.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** The given line has slope $\\frac{1}{2}$, so the perpendicular slope is $-2$. Through $(2,4)$: $y-4=-2(x-2)$ gives $y=-2x+8$.\n\n**The Full Solution:**\nStep 1: The shown line has slope $\\frac{1}{2}$; its negative reciprocal is $-2$.\nStep 2: Use point-slope form at $(2,4)$: $y-4=-2(x-2) \\Rightarrow y-4=-2x+4$.\nStep 3: Solve: $y=-2x+8$. Check the point: $-2(2)+8=4$ $\\checkmark$, and $\\frac{1}{2}\\cdot(-2)=-1$ $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($y=2x$): uses slope $+2$ (reciprocal without negating); it happens to pass through $(2,4)$, which makes it a tempting trap, but $\\frac{1}{2}\\cdot 2=1\\neq -1$.\n* Choice C ($y=\\frac{1}{2}x+3$): keeps the original slope $\\frac{1}{2}$ — that's parallel, not perpendicular.\n* Choice D ($y=-2x$): correct slope but $b=0$; at $(2,4)$ this gives $-4$, not $4$.\n\n**Test Day Takeaway:** Perpendicular line through a point: take the negative-reciprocal slope, then anchor it with point-slope form so the intercept lands right.",
-      skills: ['perpendicular-negative-reciprocal', 'writing-perpendicular-equation']
+      correctAnswer: "C",
+      hint: "Settle the slope completely before the point comes into play — a wrong slope produces a wrong constant as well.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** The perpendicular slope is $\\frac{2}{5}$, and $3 = \\frac{2}{5}(10)+b$ gives $b = -1$ — choice C.\n\n**The Full Solution:**\nStep 1: The given line has slope $-\\frac{5}{2}$, so line $w$ has slope $\\frac{2}{5}$, its negative reciprocal.\nStep 2: Substitute $(10, 3)$ into $y = \\frac{2}{5}x + b$: $3 = 4 + b$, so $b = -1$.\nStep 3: The equation is $y = \\frac{2}{5}x - 1$. Check both conditions: $\\frac{2}{5}(10)-1 = 3$, and $-\\frac{5}{2}\\left(\\frac{2}{5}\\right) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{5}{2}x + 28$): keeps the slope of the given line, producing the parallel line through the point instead of the perpendicular one.\n* Choice B ($y = -\\frac{2}{5}x + 7$): flips the fraction but keeps the negative sign; anchoring $-\\frac{2}{5}$ at $(10, 3)$ then gives $b = 7$.\n* Choice D ($y = \\frac{5}{2}x - 22$): changes the sign without flipping; anchoring $\\frac{5}{2}$ at $(10, 3)$ then gives $b = -22$.\n\n**Test Day Takeaway:** Each wrong version of the slope carries its own constant, so all four choices look like real work. Check the finished line against both requirements: it contains the point and its slope times the original is $-1$.",
+      skills: ["perpendicular-negative-reciprocal", "writing-perpendicular-equation"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "If two lines are perpendicular and one has the slope shown below, what is the slope of the other?",
-      questionFormula: { fraction: { numerator: "4", denominator: "5" } },
+      question: "Line $u$ is perpendicular to the graph of $6x - 15y = 45$ in the $xy$-plane. What is the slope of line $u$?",
       choices: [
-        { id: "A", fraction: { numerator: "4", denominator: "5" } },
-        { id: "B", text: "−", fraction: { numerator: "4", denominator: "5" } },
-        { id: "C", fraction: { numerator: "5", denominator: "4" } },
-        { id: "D", text: "−", fraction: { numerator: "5", denominator: "4" } }
+        { id: "A", text: "$-\\frac{5}{2}$" },
+        { id: "B", text: "$-\\frac{2}{5}$" },
+        { id: "C", text: "$\\frac{2}{5}$" },
+        { id: "D", text: "$\\frac{5}{2}$" }
       ],
-      correctAnswer: "D",
-      hint: "To find the negative reciprocal: flip 4/5 to get 5/4, then make it negative.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~10s):** Perpendicular slope is the negative reciprocal. Flip $\\frac{4}{5}$ to $\\frac{5}{4}$, then negate: $-\\frac{5}{4}$.\n\n**The Full Solution:**\nStep 1: The given slope is $\\frac{4}{5}$.\nStep 2: Flip the fraction: $\\frac{5}{4}$. Negate: $-\\frac{5}{4}$.\nStep 3: Check: $\\frac{4}{5}\\cdot\\left(-\\frac{5}{4}\\right)=-\\frac{20}{20}=-1$ $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4}{5}$): the same slope — parallel, not perpendicular.\n* Choice B ($-\\frac{4}{5}$): only negated, never flipped; $\\frac{4}{5}\\cdot\\left(-\\frac{4}{5}\\right)=-\\frac{16}{25}\\neq -1$.\n* Choice C ($\\frac{5}{4}$): only flipped, never negated; $\\frac{4}{5}\\cdot\\frac{5}{4}=1\\neq -1$.\n\n**Test Day Takeaway:** A negative reciprocal needs both moves — flip and negate. Verify the product of perpendicular slopes is $-1$.",
-      skills: ['perpendicular-negative-reciprocal']
+      correctAnswer: "A",
+      hint: "Two steps stand between the printed equation and the answer: rearrange, then take the negative reciprocal.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** Solving gives $y = \\frac{2}{5}x - 3$, so the perpendicular slope is $-\\frac{5}{2}$ — choice A.\n\n**The Full Solution:**\nStep 1: Isolate the $y$-term: $-15y = -6x + 45$.\nStep 2: Divide by $-15$: $y = \\frac{6}{15}x - 3 = \\frac{2}{5}x - 3$, so the given line has slope $\\frac{2}{5}$.\nStep 3: Take the negative reciprocal: $-\\frac{5}{2}$. Check: $\\frac{2}{5}\\left(-\\frac{5}{2}\\right) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{2}{5}$): changes the sign of the given slope without flipping the fraction.\n* Choice C ($\\frac{2}{5}$): reports the slope of the given line itself, which describes a parallel line.\n* Choice D ($\\frac{5}{2}$): flips the given slope without changing its sign.\n\n**Test Day Takeaway:** Dividing by a negative $y$-coefficient makes the slope positive here — finish the rearrangement before applying the perpendicular rule, or both steps go wrong at once.",
+      skills: ["perpendicular-negative-reciprocal"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "Line j passes through (0, 3) and (4, 1). A line perpendicular to j passes through (2, 5). What is the y-intercept of the perpendicular line?",
+      question: "In the $xy$-plane, line $j$ passes through the points $(-4, 9)$ and $(8, 6)$. Line $k$ is perpendicular to line $j$ and passes through the point $(2, -3)$. What is the $y$-coordinate of the $y$-intercept of line $k$?",
       choices: [
-        { id: "A", text: "1" },
-        { id: "B", text: "3" },
-        { id: "C", text: "$-1$" },
-        { id: "D", text: "5" }
+        { id: "A", text: "$-11$" },
+        { id: "B", text: "$-3$" },
+        { id: "C", text: "$-\\frac{5}{2}$" },
+        { id: "D", text: "$5$" }
       ],
       correctAnswer: "A",
-      hint: "First find the slope of line j, then find the perpendicular slope. Use point (2, 5) to write the equation and find b.",
-      explanation: "**Choice A is correct.** The $y$-intercept of the perpendicular line is $1$.\n\n**The Fast Way (~25s):** Line $j$ drops $2$ over a run of $4$, so its slope is $-\\frac{1}{2}$; the perpendicular slope is the negative reciprocal, $2$. Plug the point $(2,5)$ into $y=2x+b$: $5=2(2)+b \\Rightarrow b=1$.\n\n**The Full Solution:**\nStep 1: Slope of $j$ from $(0,3)$ and $(4,1)$: $m_j=\\frac{1-3}{4-0}=\\frac{-2}{4}=-\\frac{1}{2}$.\nStep 2: Perpendicular slope is the negative reciprocal of $-\\frac{1}{2}$, which is $2$.\nStep 3: Write the perpendicular line through $(2,5)$: $y-5=2(x-2) \\Rightarrow y=2x-4+5 \\Rightarrow y=2x+1$.\nStep 4: The $y$-intercept is $b=1$, so the answer is Choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B ($3$): the $y$-intercept of line $j$ itself (from $(0,3)$), not the perpendicular line. The question asks for the perpendicular line's intercept.\n* Choice C ($-1$): a sign slip on $-4+5$, reading it as $-(4+5)$ or $-1$ instead of $+1$.\n* Choice D ($5$): the $y$-coordinate of the given point $(2,5)$, mistaken for the intercept. That value occurs at $x=2$, not at $x=0$.\n\n**Test Day Takeaway:** Perpendicular slopes are negative reciprocals; once you have the slope and a point, substitute into $y=mx+b$ and solve for $b$ — don't grab a $y$-coordinate that isn't at $x=0$.",
-      skills: ['slope-from-points', 'perpendicular-negative-reciprocal', 'writing-perpendicular-equation']
+      hint: "Three moves in order: the slope of line $j$, the perpendicular slope, then the constant from the point on line $k$.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~40s):** Line $j$ has slope $-\\frac{1}{4}$, so line $k$ has slope $4$; then $-3 = 4(2)+b$ gives $b = -11$ — choice A.\n\n**The Full Solution:**\nStep 1: Slope of line $j$: $m = \\frac{6-9}{8-(-4)} = \\frac{-3}{12} = -\\frac{1}{4}$.\nStep 2: Line $k$ is perpendicular, so its slope is the negative reciprocal of $-\\frac{1}{4}$, which is $4$.\nStep 3: Substitute $(2, -3)$ into $y = 4x + b$: $-3 = 8 + b$, so $b = -11$.\nStep 4: Check: $y = 4x - 11$ passes through $(2, -3)$ because $8 - 11 = -3$, and $-\\frac{1}{4}(4) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-3$): reports the $y$-coordinate of the given point $(2, -3)$; that value occurs at $x = 2$, not at $x = 0$.\n* Choice C ($-\\frac{5}{2}$): uses the slope of line $j$ itself, $-\\frac{1}{4}$; anchoring that at $(2, -3)$ gives $-\\frac{5}{2}$, the intercept of the line parallel to $j$ rather than perpendicular to it.\n* Choice D ($5$): computes $-3 + 8$ instead of $-3 - 8$ when isolating $b$.\n\n**Test Day Takeaway:** A three-step chain gives three places to stop early, and each stopping point is one of the choices. Finish with a line that satisfies every condition in the stem.",
+      skills: ["slope-from-points", "perpendicular-negative-reciprocal", "writing-perpendicular-equation"]
     }
   ]
 };

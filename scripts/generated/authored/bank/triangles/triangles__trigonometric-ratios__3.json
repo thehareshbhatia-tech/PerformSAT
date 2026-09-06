@@ -1,0 +1,30 @@
+{
+ "id": 3,
+ "question": "In right triangle $UVW$, angle $V$ is a right angle and $\\sin U = \\frac{8}{17}$. If the hypotenuse $\\overline{UW}$ has length $51$, what is the length of $\\overline{VW}$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$8$"
+  },
+  {
+   "id": "B",
+   "text": "$24$"
+  },
+  {
+   "id": "C",
+   "text": "$45$"
+  },
+  {
+   "id": "D",
+   "text": "$51$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reads the numerator of the ratio as an actual length",
+  "C": "gives $UV$, the leg adjacent to angle $U$",
+  "D": "repeats the hypotenuse"
+ },
+ "correctAnswer": "B",
+ "hint": "The ratio $\\frac{8}{17}$ and the ratio of the two real lengths are the same fraction.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** $\\sin U = \\frac{VW}{UW}$, so $VW = 51 \\cdot \\frac{8}{17} = 24$.\n\n**The Full Solution:**\nStep 1: Angle $V$ is the right angle, so $\\overline{UW}$ is the hypotenuse and $\\overline{VW}$ is the leg opposite angle $U$.\nStep 2: $\\sin U = \\frac{VW}{UW}$ gives $\\frac{VW}{51} = \\frac{8}{17}$.\nStep 3: Cross multiply: $17 \\cdot VW = 408$, so $VW = 24$.\n\nVerification: $\\frac{24}{51} = \\frac{8}{17}$, the given ratio. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): reads the numerator of the ratio as an actual length.\n* Choice C ($45$): gives $UV$, the leg adjacent to angle $U$.\n* Choice D ($51$): repeats the hypotenuse.\n\n**Test Day Takeaway:** A trigonometric ratio is a proportion: set it equal to the ratio of the real lengths and solve."
+}

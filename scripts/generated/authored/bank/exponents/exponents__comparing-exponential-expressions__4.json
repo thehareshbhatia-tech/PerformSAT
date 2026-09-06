@@ -1,0 +1,30 @@
+{
+ "id": 4,
+ "question": "If $x$ is a number such that $0 < x < 1$, which of the following expressions has the greatest value?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$x^4$"
+  },
+  {
+   "id": "B",
+   "text": "$x^2$"
+  },
+  {
+   "id": "C",
+   "text": "$x$"
+  },
+  {
+   "id": "D",
+   "text": "$\\sqrt{x}$"
+  }
+ ],
+ "correctAnswer": "D",
+ "hint": "Test a convenient value such as $x = \\frac{1}{4}$ and compare.",
+ "distractorNotes": {
+  "A": "assumes a bigger exponent means a bigger value",
+  "B": "same habit, one step less extreme",
+  "C": "assumes no power can exceed the base"
+ },
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~30s):** For a base between $0$ and $1$, larger exponents give smaller values, so the smallest exponent wins: $\\sqrt{x} = x^{\\frac{1}{2}}$.\n\n**The Full Solution:**\nStep 1: When $0 < x < 1$, multiplying by $x$ makes a number smaller, so $x^4 < x^2 < x$.\nStep 2: Since $\\sqrt{x} = x^{\\frac{1}{2}}$ and $\\frac{1}{2} < 1$, the square root is larger than $x$ itself.\nStep 3: The order is $x^4 < x^2 < x < \\sqrt{x}$, so $\\sqrt{x}$ is greatest. Check at $x = \\frac{1}{4}$: the values are $\\frac{1}{256}$, $\\frac{1}{16}$, $\\frac{1}{4}$, and $\\frac{1}{2}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^4$): applies the habit that a bigger exponent means a bigger value, which is true only for bases greater than $1$.\n* Choice B ($x^2$): the same habit, one step less extreme; at $x = \\frac{1}{4}$ it is only $\\frac{1}{16}$.\n* Choice C ($x$): assumes no power of $x$ can exceed $x$, overlooking that a fractional exponent enlarges a number between $0$ and $1$.\n\n**Test Day Takeaway:** Between $0$ and $1$ the size order of powers reverses. Testing $x = \\frac{1}{4}$ settles the comparison in seconds."
+}

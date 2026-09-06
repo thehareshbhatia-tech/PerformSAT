@@ -1,0 +1,30 @@
+{
+ "id": 4,
+ "question": "In triangle $ABC$, the measure of angle $A$ is $47°$ and the measure of angle $B$ is $43°$. Which of the following must be true?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Triangle $ABC$ is a right triangle."
+  },
+  {
+   "id": "B",
+   "text": "Triangle $ABC$ is an acute triangle."
+  },
+  {
+   "id": "C",
+   "text": "Triangle $ABC$ is an obtuse triangle."
+  },
+  {
+   "id": "D",
+   "text": "Angle $C$ is the smallest angle of triangle $ABC$."
+  }
+ ],
+ "distractorNotes": {
+  "B": "classifies from the two given acute angles alone and never computes angle $C$",
+  "C": "follows from a slip such as $47 + 43 = 80$, which would leave $100°$ for angle $C$",
+  "D": "angle $C$ measures $90°$, making it the largest angle rather than the smallest"
+ },
+ "correctAnswer": "A",
+ "hint": "Two angles are given; find the third before deciding what kind of triangle this is.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~25s):** $47 + 43 = 90$, so angle $C$ measures $180 - 90 = 90°$ and the triangle is right.\n\n**The Full Solution:**\nStep 1: The interior angles satisfy $47 + 43 + m\\angle C = 180$.\nStep 2: Combine the known measures: $90 + m\\angle C = 180$, so $m\\angle C = 90$.\nStep 3: A triangle containing a $90°$ angle is a right triangle.\n\nVerification: $47 + 43 + 90 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Triangle $ABC$ is an acute triangle.): classifies from the two given acute angles alone and never computes angle $C$.\n* Choice C (Triangle $ABC$ is an obtuse triangle.): follows from a slip such as $47 + 43 = 80$, which would leave $100°$ for angle $C$.\n* Choice D (Angle $C$ is the smallest angle of triangle $ABC$.): angle $C$ measures $90°$, making it the largest angle rather than the smallest.\n\n**Test Day Takeaway:** When the two given angles add to $90$, the third is a right angle — compute the third angle before classifying."
+}

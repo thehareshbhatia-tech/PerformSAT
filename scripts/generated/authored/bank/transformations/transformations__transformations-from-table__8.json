@@ -1,0 +1,30 @@
+{
+  "id": 8,
+  "question": "For a function $f$, $f(3)=11$, and the function $g$ is defined by $g(x)=f(x-4)$. For what value of $x$ is $g(x)=11$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-1$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$7$"
+    },
+    {
+      "id": "D",
+      "text": "$11$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts the shift instead of adding it",
+    "B": "reuses the input of f",
+    "D": "confuses the output with the input"
+  },
+  "correctAnswer": "C",
+  "hint": "You are given the output; work backwards to the input that produces it.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $g(x)=f(x-4)$ equals $11$ when $x-4=3$, so $x=7$.\n\n**The Full Solution:**\nStep 1: The only input known to produce the output $11$ is $3$, since $f(3)=11$.\nStep 2: For $g(x)=f(x-4)$ to return that same output, the inside expression must equal $3$: $x-4=3$.\nStep 3: Solving gives $x=7$. Check: $g(7)=f(7-4)=f(3)=11$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): subtracts $4$ from $3$ instead of adding it: the shift moves the graph right, so inputs increase.\n* Choice B ($3$): reuses the input for $f$; $g$ needs a different input to reach the same output.\n* Choice D ($11$): reports the output as if it were the input.\n\n**Test Day Takeaway:** Going backwards through $f(x-c)$ means solving $x-c=a$, which adds $c$ to the original input."
+}

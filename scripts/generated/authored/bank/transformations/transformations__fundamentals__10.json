@@ -1,0 +1,30 @@
+{
+  "id": 10,
+  "question": "The graph of $y=j(x)$ is obtained by first reflecting the graph of $y=k(x)$ across the $x$-axis and then raising the result $9$ units. Which equation defines $j$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$j(x)=-k(x)-9$"
+    },
+    {
+      "id": "B",
+      "text": "$j(x)=-k(x)+9$"
+    },
+    {
+      "id": "C",
+      "text": "$j(x)=-k(x+9)$"
+    },
+    {
+      "id": "D",
+      "text": "$j(x)=k(-x)+9$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "shifts up before reflecting, which flips the direction of the shift",
+    "C": "places the vertical shift inside the function",
+    "D": "reflects across the y-axis"
+  },
+  "correctAnswer": "B",
+  "hint": "Write the two steps in the order performed and apply the second one to the result of the first.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** Reflecting gives $-k(x)$; raising that by $9$ adds $9$ to it, so $j(x)=-k(x)+9$.\n\n**The Full Solution:**\nStep 1: Reflecting across the $x$-axis negates every output, producing the intermediate function $-k(x)$.\nStep 2: Raising a graph $9$ units adds $9$ to whatever function is being graphed, so the result is $-k(x)+9$.\nStep 3: Check with a sample value: if $k(2)=4$, the reflection sends the point $(2,4)$ to $(2,-4)$, and the lift sends it to $(2,5)$. The formula agrees: $-k(2)+9=-4+9=5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($j(x)=-k(x)-9$): applies the lift before the reflection: $-\\left(k(x)+9\\right)=-k(x)-9$ pushes the graph down, not up.\n* Choice C ($j(x)=-k(x+9)$): puts the $9$ inside the function, which shifts the graph horizontally instead of vertically.\n* Choice D ($j(x)=k(-x)+9$): negates the input, reflecting across the $y$-axis rather than the $x$-axis.\n\n**Test Day Takeaway:** Order matters when a reflection meets a vertical shift: reflect first, then add the shift to the reflected expression."
+}

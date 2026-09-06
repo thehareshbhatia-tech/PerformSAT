@@ -1,0 +1,30 @@
+{
+ "id": 2,
+ "question": "In the $xy$-plane, a circle has center $(2, -1)$, and a line is tangent to the circle at the point $(5, 3)$. What is the slope of the radius drawn to the point of tangency?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-\\frac{4}{3}$"
+  },
+  {
+   "id": "B",
+   "text": "$-\\frac{3}{4}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{3}{4}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{4}{3}$"
+  }
+ ],
+ "correctAnswer": "D",
+ "hint": "The radius runs from the center to the point of tangency, so only those two points matter here.",
+ "distractorNotes": {
+  "A": "negates the slope",
+  "B": "gives the tangent line slope",
+  "C": "divides run by rise"
+ },
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** The radius joins $(2, -1)$ and $(5, 3)$, so its slope is $\\frac{3 - (-1)}{5 - 2} = \\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: The radius to the point of tangency has endpoints $(2, -1)$ and $(5, 3)$.\nStep 2: Slope is $\\frac{y_2 - y_1}{x_2 - x_1} = \\frac{3 - (-1)}{5 - 2}$.\nStep 3: The slope is $\\frac{4}{3}$. Check: moving $3$ right and $4$ up from $(2, -1)$ lands exactly on $(5, 3)$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{4}{3}$): negates the rise, as if the point of tangency were below the center.\n* Choice B ($-\\frac{3}{4}$): reports the slope of the tangent line, which is the negative reciprocal of what was asked.\n* Choice C ($\\frac{3}{4}$): divides the run by the rise instead of the rise by the run.\n\n**Test Day Takeaway:** Read which segment the question wants. The radius and the tangent line at the same point have negative reciprocal slopes, so mixing them up is a one-character error with a whole-answer cost."
+}

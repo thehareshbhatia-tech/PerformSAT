@@ -1,0 +1,30 @@
+{
+ "id": 1,
+ "question": "A right rectangular prism has a length of $9$ centimeters, a width of $4$ centimeters, and a height of $6$ centimeters. What is the volume, in cubic centimeters, of the prism?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$19$"
+  },
+  {
+   "id": "B",
+   "text": "$108$"
+  },
+  {
+   "id": "C",
+   "text": "$216$"
+  },
+  {
+   "id": "D",
+   "text": "$228$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds the three dimensions instead of multiplying them",
+  "B": "halves the product, as though the base were a triangle",
+  "D": "computes the surface area, $2(36 + 54 + 24)$"
+ },
+ "correctAnswer": "C",
+ "hint": "The volume of a box is a single product of three numbers.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $V = 9 \\cdot 4 \\cdot 6 = 216$.\n\n**The Full Solution:**\nStep 1: For a right rectangular prism, $V = \\ell wh$.\nStep 2: Multiply the base dimensions first: $9 \\cdot 4 = 36$.\nStep 3: Then $36 \\cdot 6 = 216$ cubic centimeters.\n\nVerification: $\\frac{216}{6} = 36 = 9 \\cdot 4$, the area of the base. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($19$): adds the three dimensions instead of multiplying them.\n* Choice B ($108$): halves the product, as though the base were a triangle.\n* Choice D ($228$): computes the surface area, $2(36 + 54 + 24)$.\n\n**Test Day Takeaway:** Multiply all three dimensions; nothing gets halved unless the base is a triangle."
+}

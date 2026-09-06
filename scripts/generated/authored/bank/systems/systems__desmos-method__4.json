@@ -1,0 +1,30 @@
+{
+  "id": 4,
+  "question": "In the $xy$-plane, the graph of $y = -2x + 11$ and the graph of $y = \\frac{1}{2}x + 1$ intersect at the point $(a, b)$. What is the value of $b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$1$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$11$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the $y$-intercept of the second line rather than the $y$-coordinate of the intersection.",
+    "C": "reports $a$, the $x$-coordinate of the intersection point.",
+    "D": "reports the $y$-intercept of the first line."
+  },
+  "correctAnswer": "B",
+  "hint": "Find where the two expressions for $y$ agree, then evaluate one of them.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~35s):** Setting $-2x + 11 = \\frac{1}{2}x + 1$ gives $10 = \\frac{5}{2}x$, so $a = 4$ and $b = \\frac{1}{2}(4) + 1 = 3$.\n\n**The Full Solution:**\nStep 1: At the intersection both equations give the same $y$, so $-2x + 11 = \\frac{1}{2}x + 1$.\nStep 2: Add $2x$ to both sides and subtract $1$: $10 = \\frac{5}{2}x$, so $x = 4$ and $a = 4$.\nStep 3: Substitute to find $b$: $b = \\frac{1}{2}(4) + 1 = 3$. Check: $-2(4) + 11 = 3$ as well. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): reports the $y$-intercept of the second line rather than the $y$-coordinate of the intersection.\n* Choice C ($4$): reports $a$, the $x$-coordinate of the intersection point.\n* Choice D ($11$): reports the $y$-intercept of the first line.\n\n**Test Day Takeaway:** An intersection point has two coordinates. Solve for the input first, then substitute back to get the output the question names."
+}

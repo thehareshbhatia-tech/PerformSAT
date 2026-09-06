@@ -1,0 +1,62 @@
+{
+  "id": 4,
+  "question": "In the $xy$-plane, the graph of the quadratic function $f$ is shown, and its two $x$-intercepts are marked. Which equation defines $f$?",
+  "diagram": {
+    "type": "parabola",
+    "params": {
+      "vertex": {
+        "h": 2,
+        "k": -16
+      },
+      "a": 1,
+      "xRange": [
+        -6,
+        10
+      ],
+      "yRange": [
+        -20,
+        12
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 4,
+      "gridInterval": 2,
+      "showVertex": false,
+      "highlightPoints": [
+        [
+          -2,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = x^2 - 4x - 12$"
+    },
+    {
+      "id": "B",
+      "text": "$y = x^2 + 4x - 12$"
+    },
+    {
+      "id": "C",
+      "text": "$y = x^2 - 4x + 12$"
+    },
+    {
+      "id": "D",
+      "text": "$y = x^2 + 8x + 12$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "swaps the signs of the intercepts",
+    "C": "flips the constant's sign, leaving no real x-intercepts",
+    "D": "treats both intercepts as negative"
+  },
+  "correctAnswer": "A",
+  "hint": "Each $x$-intercept at $x = r$ contributes the factor $(x - r)$.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~25s):** Intercepts at $-2$ and $6$ give $(x + 2)(x - 6) = x^2 - 4x - 12$.\n\n**The Full Solution:**\nStep 1: The marked intercepts are $(-2, 0)$ and $(6, 0)$, so $x = -2$ and $x = 6$ make $f(x) = 0$.\nStep 2: An intercept at $x = r$ comes from the factor $(x - r)$, so the factors are $(x + 2)$ and $(x - 6)$, and the graph's shape shows a leading coefficient of $1$.\nStep 3: Expand: $(x + 2)(x - 6) = x^2 - 6x + 2x - 12 = x^2 - 4x - 12$. Check the $y$-intercept: the equation gives $-12$, and the graph passes below the origin. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: uses $(x - 2)(x + 6)$, swapping which intercept is negative.\n* Choice C: flips the sign of the constant term; $x^2 - 4x + 12$ has a negative discriminant, so its graph has no $x$-intercepts at all.\n* Choice D: uses $(x + 2)(x + 6)$, treating both intercepts as negative numbers.\n\n**Test Day Takeaway:** Read intercepts off the graph, flip each sign to build its factor, then expand — and confirm with the $y$-intercept."
+}

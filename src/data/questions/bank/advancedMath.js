@@ -2535,18 +2535,18 @@ export const advancedMathBank = [
     skills: ["function-transformations", "vertex-form"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The function $f$ is defined by $f(x) = (x - 3)^2$, and the function $g$ is defined by $g(x) = -4f(x + 2) + 5$. What is the vertex of the graph of $y = g(x)$ in the $xy$-plane?",
+    question: "The function $q$ is defined by $q(x) = 2(x + 1)^2 - 8$, and the function $r$ is defined by $r(x) = q(x - c) + d$, where $c$ and $d$ are constants. In the $xy$-plane, the vertex of the graph of $y = r(x)$ is $(3, 1)$. What is the value of $c + d$?",
     choices: [
-      { id: "A", text: "$(1, 5)$" },
-      // distractor: multiplies the $+5$ by the $-4$ as well
-      { id: "B", text: "$(1, -5)$" },
-      // distractor: keeps the vertex of $f$, ignoring the horizontal shift
-      { id: "C", text: "$(3, 5)$" },
-      // distractor: computes $3 + 2$, shifting right instead of left
-      { id: "D", text: "$(5, 5)$" }
+      // distractor: reverses both shifts, taking $c = -4$ and $d = -9$
+      { id: "A", text: "$-13$" },
+      // distractor: reads the $+ d$ as a downward shift, taking $d = -9$
+      { id: "B", text: "$-5$" },
+      // distractor: reads $x - c$ as a shift to the left, taking $c = -4$
+      { id: "C", text: "$5$" },
+      { id: "D", text: "$13$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** $f$ has its vertex where $x - 3 = 0$. For $g$, the inside is $x + 2$, so $x + 2 = 3$ gives $x = 1$, and $g(1) = -4(0) + 5 = 5$: the vertex is $(1, 5)$.\n\n**The Full Solution:**\nStep 1: $f(x) = (x - 3)^2$ has vertex $(3, 0)$, its minimum, since a square is never negative.\nStep 2: In $g(x) = -4f(x + 2) + 5$, the vertex occurs where the input to $f$ equals $3$: $x + 2 = 3$, so $x = 1$.\nStep 3: The output there is $-4 \\cdot f(3) + 5 = -4(0) + 5 = 5$, so the vertex is $(1, 5)$. Check by expanding: $g(x) = -4(x + 2 - 3)^2 + 5 = -4(x - 1)^2 + 5$, a downward parabola with vertex $(1, 5)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($(1, -5)$): multiplies the $+5$ by $-4$; the $-4$ scales only $f$, not the constant added afterward.\n* Choice C ($(3, 5)$): keeps $x = 3$ from $f$ and never solves $x + 2 = 3$.\n* Choice D ($(5, 5)$): computes $3 + 2$, moving the graph right when $f(x + 2)$ moves it left.\n\n**Test Day Takeaway:** With a stretch, a reflection, and two shifts at once, solve the inside for $x$ first, then apply the outside operations to the old output in the order written.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** The vertex of $q$ is $(-1, -8)$, and $r$ moves it to $(-1 + c, -8 + d)$. Matching that to $(3, 1)$ gives $c = 4$ and $d = 9$, so $c + d = 13$.\n\n**The Full Solution:**\nStep 1: The equation $q(x) = 2(x + 1)^2 - 8$ is already in vertex form, so the vertex of $q$ is $(-1, -8)$.\nStep 2: Replacing $x$ with $x - c$ slides the graph $c$ units in the $+x$ direction, and adding $d$ raises it $d$ units, so the vertex of $r$ is $(-1 + c, -8 + d)$.\nStep 3: Match coordinates with the given vertex $(3, 1)$: $-1 + c = 3$ gives $c = 4$, and $-8 + d = 1$ gives $d = 9$, so $c + d = 13$. Check: $r(x) = 2(x - 4 + 1)^2 - 8 + 9 = 2(x - 3)^2 + 1$, whose vertex is $(3, 1)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): reverses both shifts, solving $-1 - c = 3$ and $-8 - d = 1$ to get $c = -4$ and $d = -9$.\n* Choice B ($-5$): finds $c = 4$ but reads the $+ d$ as a downward shift, solving $-8 - d = 1$ for $d = -9$.\n* Choice C ($5$): finds $d = 9$ but reads $x - c$ as a shift to the left, solving $-1 - c = 3$ for $c = -4$.\n\n**Test Day Takeaway:** Push the known vertex through the transformation first — $q(x - c) + d$ sends $(h, k)$ to $(h + c, k + d)$ — then match it to the new vertex. Each coordinate becomes one small equation for one constant.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-transformation",

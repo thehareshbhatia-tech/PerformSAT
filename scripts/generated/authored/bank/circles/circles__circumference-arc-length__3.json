@@ -1,0 +1,43 @@
+{
+ "id": 3,
+ "question": "In the figure, $O$ is the center of the circle, $OA = 18$, and the measure of $\\angle AOB$ is $40^{\\circ}$. What is the length of minor arc $AB$?",
+ "diagram": {
+  "type": "circleWithSector",
+  "params": {
+   "centralAngle": 40,
+   "radius": 18,
+   "showRadiusLabel": true,
+   "showAngleLabel": true,
+   "labelCenter": "O",
+   "labelPoint1": "A",
+   "labelPoint2": "B",
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{2\\pi}{9}$"
+  },
+  {
+   "id": "B",
+   "text": "$2\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$4\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$36\\pi$"
+  }
+ ],
+ "correctAnswer": "C",
+ "hint": "Compare the central angle with a full turn of $360^{\\circ}$ first.",
+ "distractorNotes": {
+  "A": "leaves the radius out",
+  "B": "uses pi r for the circumference",
+  "D": "reports the whole circumference"
+ },
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** The arc is $\\frac{40}{360} = \\frac{1}{9}$ of the circumference $36\\pi$, so its length is $4\\pi$.\n\n**The Full Solution:**\nStep 1: The circumference is $C = 2\\pi(18) = 36\\pi$.\nStep 2: A central angle of $40^{\\circ}$ cuts off $\\frac{40}{360} = \\frac{1}{9}$ of the circle.\nStep 3: The arc length is $\\frac{1}{9}(36\\pi) = 4\\pi$. Check: nine such arcs would total $36\\pi$, the full circumference.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2\\pi}{9}$): multiplies $\\frac{40}{360}$ by $2\\pi$ but leaves the radius out of the circumference.\n* Choice B ($2\\pi$): uses $\\pi r = 18\\pi$ as the circumference, half of what it should be.\n* Choice D ($36\\pi$): reports the entire circumference instead of the piece the angle cuts off.\n\n**Test Day Takeaway:** Arc length is $\\frac{\\text{central angle}}{360} \\cdot 2\\pi r$. Write the fraction first, and the rest is one multiplication."
+}

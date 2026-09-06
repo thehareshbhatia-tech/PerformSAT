@@ -1,0 +1,25 @@
+{
+  "id": 4,
+  "question": "Line $u$ is perpendicular to the graph of $6x - 15y = 45$ in the $xy$-plane. What is the slope of line $u$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\frac{5}{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\frac{2}{5}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\frac{2}{5}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\frac{5}{2}$"
+    }
+  ],
+  "correctAnswer": "A",
+  "hint": "Two steps stand between the printed equation and the answer: rearrange, then take the negative reciprocal.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~25s):** Solving gives $y = \\frac{2}{5}x - 3$, so the perpendicular slope is $-\\frac{5}{2}$ — choice A.\n\n**The Full Solution:**\nStep 1: Isolate the $y$-term: $-15y = -6x + 45$.\nStep 2: Divide by $-15$: $y = \\frac{6}{15}x - 3 = \\frac{2}{5}x - 3$, so the given line has slope $\\frac{2}{5}$.\nStep 3: Take the negative reciprocal: $-\\frac{5}{2}$. Check: $\\frac{2}{5}\\left(-\\frac{5}{2}\\right) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{2}{5}$): changes the sign of the given slope without flipping the fraction.\n* Choice C ($\\frac{2}{5}$): reports the slope of the given line itself, which describes a parallel line.\n* Choice D ($\\frac{5}{2}$): flips the given slope without changing its sign.\n\n**Test Day Takeaway:** Dividing by a negative $y$-coefficient makes the slope positive here — finish the rearrangement before applying the perpendicular rule, or both steps go wrong at once."
+}

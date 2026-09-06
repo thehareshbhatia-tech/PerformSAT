@@ -1,0 +1,30 @@
+{
+ "id": 2,
+ "question": "For all positive values of $x$, the expression $\\left(x^5\\right)^3$ is equivalent to which of the following?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$x^8$"
+  },
+  {
+   "id": "B",
+   "text": "$x^{15}$"
+  },
+  {
+   "id": "C",
+   "text": "$3x^5$"
+  },
+  {
+   "id": "D",
+   "text": "$x^{125}$"
+  }
+ ],
+ "correctAnswer": "B",
+ "hint": "Writing the expression out as three identical factors settles which rule applies.",
+ "distractorNotes": {
+  "A": "adds the exponents",
+  "C": "pulls the outer exponent down as a coefficient",
+  "D": "cubes the inner exponent"
+ },
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** A power raised to a power multiplies the exponents: $\\left(x^5\\right)^3 = x^{5 \\cdot 3} = x^{15}$.\n\n**The Full Solution:**\nStep 1: The power-of-a-power rule is $\\left(x^m\\right)^n = x^{mn}$.\nStep 2: Apply it: $\\left(x^5\\right)^3 = x^{5 \\cdot 3}$.\nStep 3: The result is $x^{15}$. Check by expanding: $x^5 \\cdot x^5 \\cdot x^5 = x^{5+5+5} = x^{15}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^8$): adds the exponents, the rule for $x^5 \\cdot x^3$ rather than for $\\left(x^5\\right)^3$.\n* Choice C ($3x^5$): brings the outer exponent down as a coefficient instead of applying it as a power.\n* Choice D ($x^{125}$): computes $5^3 = 125$ and uses that as the exponent.\n\n**Test Day Takeaway:** Nested parentheses mean multiply the exponents. If you are unsure, expand the outer power once and the addition inside does the rest."
+}

@@ -1,0 +1,30 @@
+{
+  "id": 5,
+  "question": "The equations $4x + 6y = 14$ and $ax + 15y = 40$ form a system of two linear equations, where $a$ is a constant. In the $xy$-plane, the graphs of these two equations are lines, and the system has no solution. What is the value of $a$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\frac{8}{5}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\frac{5}{2}$"
+    },
+    {
+      "id": "C",
+      "text": "$10$"
+    },
+    {
+      "id": "D",
+      "text": "$13$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "inverts the proportion, solving $\\frac{a}{4} = \\frac{6}{15}$.",
+    "B": "reports the scale factor $\\frac{15}{6}$ itself instead of multiplying it by $4$.",
+    "D": "adds the difference of the $y$-coefficients, $15 - 6 = 9$, to $4$ rather than scaling $4$ by the factor."
+  },
+  "correctAnswer": "C",
+  "hint": "No solution means the left sides are proportional even though the equations are not equivalent.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~55s):** The $y$-coefficients scale by $\\frac{15}{6} = \\frac{5}{2}$, so $a = \\frac{5}{2}(4) = 10$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has no solution when the two lines are parallel and distinct, which requires the $x$- and $y$-coefficients to be proportional.\nStep 2: The $y$-coefficients go from $6$ to $15$, a factor of $\\frac{15}{6} = \\frac{5}{2}$, so the $x$-coefficients must satisfy $\\frac{a}{4} = \\frac{5}{2}$, giving $a = 10$.\nStep 3: With $a = 10$ the second equation is $10x + 15y = 40$, or $2x + 3y = 8$, while the first is $2x + 3y = 7$. The constants differ, so the lines are parallel and distinct and there is no solution. Check: solving the first equation for $y$ and substituting into the second gives $0 = 1$, which is never true. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{5}$): inverts the proportion, solving $\\frac{a}{4} = \\frac{6}{15}$.\n* Choice B ($\\frac{5}{2}$): reports the scale factor $\\frac{15}{6}$ itself instead of multiplying it by $4$.\n* Choice D ($13$): adds the difference of the $y$-coefficients, $15 - 6 = 9$, to $4$ rather than scaling $4$ by the factor.\n\n**Test Day Takeaway:** Parallel lines come from a scale factor applied to both coefficients, never from a difference. Confirm the constants do not scale by the same factor, or the system has infinitely many solutions instead."
+}

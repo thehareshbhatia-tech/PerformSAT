@@ -1,0 +1,30 @@
+{
+  "id": 5,
+  "question": "The function $h$ is defined by $h(x)=\\sqrt{x}$, and the function $w$ is defined by $w(x)=-3h(x-4)+7$. Which of the following expressions defines $w(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-3\\sqrt{x-4}-7$"
+    },
+    {
+      "id": "B",
+      "text": "$-3\\sqrt{x-4}+7$"
+    },
+    {
+      "id": "C",
+      "text": "$-3\\sqrt{x+4}+7$"
+    },
+    {
+      "id": "D",
+      "text": "$3\\sqrt{4-x}+7$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "flips the sign of the vertical shift",
+    "C": "flips the sign of the horizontal shift",
+    "D": "moves the reflection inside the radical"
+  },
+  "correctAnswer": "B",
+  "hint": "Only one of the three constants belongs under the radical.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** $h(x-4)=\\sqrt{x-4}$; multiplying by $-3$ and adding $7$ gives $w(x)=-3\\sqrt{x-4}+7$.\n\n**The Full Solution:**\nStep 1: The input to $h$ is $x-4$, so $h(x-4)=\\sqrt{x-4}$ — the $4$ is the only constant that goes under the radical.\nStep 2: The factor $-3$ multiplies that square root, producing $-3\\sqrt{x-4}$.\nStep 3: Finally $+7$ is added to the result: $w(x)=-3\\sqrt{x-4}+7$. Check at $x=8$: $h(4)=2$, so $w(8)=-3(2)+7=1$, and the expression gives $-3\\sqrt{4}+7=1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3\\sqrt{x-4}-7$): reverses the sign of the outside constant.\n* Choice C ($-3\\sqrt{x+4}+7$): reverses the sign of the input shift; the substitution is $x-4$.\n* Choice D ($3\\sqrt{4-x}+7$): moves the negative sign under the radical, which reflects the graph horizontally instead of vertically.\n\n**Test Day Takeaway:** Build a composed expression in stages: substitute the input, apply the multiplier, then add the constant."
+}

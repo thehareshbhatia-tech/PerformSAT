@@ -1,0 +1,25 @@
+{
+  "id": 2,
+  "question": "An angle has a measure of $\\frac{5\\pi}{4}$ radians. What is the measure of this angle, in degrees?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$45^{\\circ}$"
+    },
+    {
+      "id": "B",
+      "text": "$112.5^{\\circ}$"
+    },
+    {
+      "id": "C",
+      "text": "$225^{\\circ}$"
+    },
+    {
+      "id": "D",
+      "text": "$450^{\\circ}$"
+    }
+  ],
+  "correctAnswer": "C",
+  "hint": "Multiplying a radian measure by $\\frac{180}{\\pi}$ cancels the $\\pi$ — the arithmetic that is left is easy.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiply by $\\frac{180}{\\pi}$: the $\\pi$ cancels and $\\frac{5(180)}{4}=225$ — choice C.\n\n**The Full Solution:**\nStep 1: To move from radians to degrees, multiply by $\\frac{180}{\\pi}$: $\\frac{5\\pi}{4}\\cdot\\frac{180}{\\pi}$.\nStep 2: The factor of $\\pi$ cancels, leaving $\\frac{5(180)}{4}=\\frac{900}{4}=225$ degrees.\nStep 3: Check the size: $\\frac{5\\pi}{4}$ sits between $\\pi$ and $\\frac{3\\pi}{2}$, so the degree measure must sit between $180^{\\circ}$ and $270^{\\circ}$. $225^{\\circ}$ does. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($45^{\\circ}$): converts only the $\\frac{\\pi}{4}$ and drops the factor of $5$ in the numerator.\n* Choice B ($112.5^{\\circ}$): multiplies by $\\frac{90}{\\pi}$, treating $\\pi$ radians as a right angle instead of a straight angle: $\\frac{5(90)}{4}=112.5$.\n* Choice D ($450^{\\circ}$): multiplies by $\\frac{360}{\\pi}$, pairing $\\pi$ with a full rotation: $\\frac{5(360)}{4}=450$, more than one full turn.\n\n**Test Day Takeaway:** Write the conversion as a fraction and let the units cancel: $\\pi$ in the numerator must cancel with $\\pi$ in the denominator, which tells you which way the factor goes."
+}

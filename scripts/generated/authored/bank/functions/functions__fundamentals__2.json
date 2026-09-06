@@ -1,0 +1,30 @@
+{
+  "id": 2,
+  "question": "The function $h$ is defined by $h(x) = x^2 - 3x + 2$ for all real numbers $x$. What is the value of $h(-4)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-2$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$28$"
+    },
+    {
+      "id": "D",
+      "text": "$30$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "treats (-4)^2 as -16",
+    "B": "reads -3(-4) as -12",
+    "C": "drops the constant term"
+  },
+  "correctAnswer": "D",
+  "hint": "Wrap the negative input in parentheses before squaring, and watch the sign of the middle term.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~15s):** $h(-4) = (-4)^2 - 3(-4) + 2 = 16 + 12 + 2 = 30$.\n\n**The Full Solution:**\nStep 1: Substitute $-4$ for $x$, keeping the parentheses: $h(-4) = (-4)^2 - 3(-4) + 2$.\nStep 2: Square first. A negative squared is positive, so $(-4)^2 = 16$.\nStep 3: Handle the middle term: $-3(-4) = +12$. Then $16 + 12 + 2 = 30$. Check with a second route: $h(x) = (x - 1)(x - 2)$, and $(-5)(-6) = 30$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): treats $(-4)^2$ as $-16$, giving $-16 + 12 + 2$.\n* Choice B ($6$): reads $-3(-4)$ as $-12$, giving $16 - 12 + 2$.\n* Choice C ($28$): stops at $16 + 12$ and never adds the constant term $2$.\n\n**Test Day Takeaway:** Two sign traps live in the same substitution: $(-4)^2$ is positive, and subtracting a negative adds."
+}

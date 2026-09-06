@@ -1,0 +1,40 @@
+{
+  "id": 4,
+  "question": "The V-shaped graph of $y=f(x)$ is shown in the $xy$-plane. The function $g$ is defined by $g(x)=-f(x)+1$. What are the coordinates of the vertex of the graph of $y=g(x)$?",
+  "diagram": {
+    "type": "absoluteValue",
+    "params": {
+      "vertex": [
+        2,
+        -5
+      ],
+      "slope": 1
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-2,6)$"
+    },
+    {
+      "id": "B",
+      "text": "$(2,-4)$"
+    },
+    {
+      "id": "C",
+      "text": "$(2,4)$"
+    },
+    {
+      "id": "D",
+      "text": "$(2,6)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reflects across the y-axis instead of the x-axis",
+    "B": "omits the reflection",
+    "C": "subtracts 1 after reflecting"
+  },
+  "correctAnswer": "D",
+  "hint": "Apply the negative sign to the height of the vertex before you use the $+1$.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** The vertex sits at $(2,-5)$; negating the height gives $5$, and adding $1$ gives $(2,6)$.\n\n**The Full Solution:**\nStep 1: The corner of the V shown is at $(2,-5)$, so $f(2)=-5$.\nStep 2: $g(2)=-f(2)+1=-(-5)+1=5+1=6$, and the reflection plus vertical shift keep the corner at the same input, $x=2$.\nStep 3: The vertex of $g$ is $(2,6)$; the V now opens downward, so this point is the maximum. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-2,6)$): negates the input as well, which is the effect of $f(-x)$, not of $-f(x)$.\n* Choice B ($(2,-4)$): skips the reflection and only adds $1$: $-5+1=-4$.\n* Choice C ($(2,4)$): reflects correctly but then subtracts $1$ instead of adding it: $5-1=4$.\n\n**Test Day Takeaway:** With $-f(x)+d$, flip the sign of the output first and add the constant to the flipped value."
+}

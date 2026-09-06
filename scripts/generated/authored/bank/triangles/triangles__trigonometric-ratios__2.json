@@ -1,0 +1,30 @@
+{
+ "id": 2,
+ "question": "In right triangle $PQR$, angle $Q$ is a right angle and $\\tan R = \\frac{5}{12}$. What is the value of $\\tan P$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{5}{13}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{5}{12}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{12}{13}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{12}{5}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "the value of $\\sin R$, built from the same legs but with hypotenuse $13$",
+  "B": "repeats $\\tan R$ instead of switching to the other acute angle",
+  "C": "the value of $\\cos R$, again bringing in the hypotenuse"
+ },
+ "correctAnswer": "D",
+ "hint": "A leg opposite one acute angle is adjacent to the other one.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** Angles $P$ and $R$ are complementary, so their opposite and adjacent legs swap: $\\tan P = \\frac{12}{5}$.\n\n**The Full Solution:**\nStep 1: $\\tan R = \\frac{PQ}{QR} = \\frac{5}{12}$, since $\\overline{PQ}$ is opposite angle $R$ and $\\overline{QR}$ is adjacent to it.\nStep 2: For angle $P$ those roles reverse: $\\overline{QR}$ is opposite and $\\overline{PQ}$ is adjacent.\nStep 3: So $\\tan P = \\frac{QR}{PQ} = \\frac{12}{5}$.\n\nVerification: $\\tan P \\cdot \\tan R = \\frac{12}{5} \\cdot \\frac{5}{12} = 1$, as it must be for complementary angles. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{13}$): the value of $\\sin R$, built from the same legs but with hypotenuse $13$.\n* Choice B ($\\frac{5}{12}$): repeats $\\tan R$ instead of switching to the other acute angle.\n* Choice C ($\\frac{12}{13}$): the value of $\\cos R$, again bringing in the hypotenuse.\n\n**Test Day Takeaway:** The two acute angles of a right triangle have reciprocal tangents."
+}

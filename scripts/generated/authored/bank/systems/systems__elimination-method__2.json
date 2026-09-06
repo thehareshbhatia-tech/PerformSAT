@@ -1,0 +1,30 @@
+{
+  "id": 2,
+  "question": "For the system of equations $5x + 2y = 34$ and $5x - 2y = 6$, subtracting the second equation from the first eliminates $x$. What is the value of $y$ in the solution to this system?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$7$"
+    },
+    {
+      "id": "C",
+      "text": "$10$"
+    },
+    {
+      "id": "D",
+      "text": "$14$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the value of $x$ rather than $y$.",
+    "C": "adds the equations instead of subtracting, reaching $10x = 40$, and then divides $40$ by $4$.",
+    "D": "subtracts correctly to $4y = 28$ but divides by $2$ instead of $4$."
+  },
+  "correctAnswer": "B",
+  "hint": "Subtracting removes the matching terms; watch the sign on the terms that remain.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** Subtracting gives $4y = 28$, so $y = 7$.\n\n**The Full Solution:**\nStep 1: Both equations contain $5x$, so subtracting the second from the first removes $x$.\nStep 2: On the left, $(5x + 2y) - (5x - 2y) = 4y$; on the right, $34 - 6 = 28$.\nStep 3: So $4y = 28$ and $y = 7$. Check: adding the equations gives $10x = 40$, so $x = 4$, and $5(4) + 2(7) = 34$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): reports the value of $x$ rather than $y$.\n* Choice C ($10$): adds the equations instead of subtracting, reaching $10x = 40$, and then divides $40$ by $4$.\n* Choice D ($14$): subtracts correctly to $4y = 28$ but divides by $2$ instead of $4$.\n\n**Test Day Takeaway:** Subtract the whole equation, both terms and constant, and keep track of the coefficient you must divide by at the end."
+}

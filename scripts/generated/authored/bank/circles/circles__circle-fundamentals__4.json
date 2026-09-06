@@ -1,0 +1,30 @@
+{
+ "id": 4,
+ "question": "In a circle, $\\overline{PQ}$ is a chord that does not pass through the center. Which of the following must be true?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\overline{PQ}$ is longer than a diameter of the circle."
+  },
+  {
+   "id": "B",
+   "text": "$\\overline{PQ}$ has the same length as a radius of the circle."
+  },
+  {
+   "id": "C",
+   "text": "Both endpoints of $\\overline{PQ}$ lie on the circle."
+  },
+  {
+   "id": "D",
+   "text": "$\\overline{PQ}$ is perpendicular to every diameter of the circle."
+  }
+ ],
+ "correctAnswer": "C",
+ "hint": "Argue from the definition of a chord, not from one particular picture of one.",
+ "distractorNotes": {
+  "A": "no chord exceeds the diameter",
+  "B": "true only for one special chord length",
+  "D": "true for at most one diameter"
+ },
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** A chord is by definition a segment whose two endpoints are on the circle, so Choice C restates the definition.\n\n**The Full Solution:**\nStep 1: A chord joins two points of the circle; every other property depends on which chord you draw.\nStep 2: Test the other statements against a short chord and a long one. A chord near the edge is much shorter than a radius; a chord near the center is nearly as long as a diameter.\nStep 3: Only the endpoint condition survives both tests, so Choice C is the statement that must be true. Check: a chord drawn near the edge of the circle is far shorter than a radius, and one drawn near the center is nearly a diameter, yet both still have their endpoints on the circle.\n\n**Why the wrong answers are tempting:**\n* Choice A: no chord is longer than a diameter, since the diameter is the longest chord a circle has.\n* Choice B: a chord can equal a radius, but only for one specific length; most chords do not.\n* Choice D: exactly one diameter is perpendicular to a given chord (the one through its midpoint), not every diameter.\n\n**Test Day Takeaway:** On a *must be true* question, hunt for the statement that follows from the definition, then break the others with one extreme example."
+}

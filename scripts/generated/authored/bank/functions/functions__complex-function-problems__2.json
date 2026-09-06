@@ -1,0 +1,30 @@
+{
+  "id": 2,
+  "question": "Functions $u$ and $v$ are defined by $u(x) = x - 4$ and $v(x) = x^2$. Which of the following is equivalent to $v(u(x))$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x^2 - 16$"
+    },
+    {
+      "id": "B",
+      "text": "$x^2 - 4$"
+    },
+    {
+      "id": "C",
+      "text": "$(x - 4)^2$"
+    },
+    {
+      "id": "D",
+      "text": "$x^2 + 16$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "treats the square as a difference of squares",
+    "B": "reverses the order of composition",
+    "D": "drops the cross term"
+  },
+  "correctAnswer": "C",
+  "hint": "The inner rule acts first: put all of $u(x)$ into the input slot of $v$.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $v$ squares its input, and its input here is $u(x) = x - 4$, so $v(u(x)) = (x - 4)^2$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function symbolically: $u(x) = x - 4$.\nStep 2: Feed that entire expression into $v$, which squares whatever it receives: $v(u(x)) = (x - 4)^2$.\nStep 3: Expanded, that is $x^2 - 8x + 16$, which matches choice C. Check at $x = 6$: $u(6) = 2$ and $v(2) = 4$, while $(6 - 4)^2 = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^2 - 16$): treats $(x - 4)^2$ as a difference of squares, $x^2 - 4^2$.\n* Choice B ($x^2 - 4$): composes in the reverse order, computing $u(v(x)) = x^2 - 4$.\n* Choice D ($x^2 + 16$): squares each term separately and drops the cross term $-8x$.\n\n**Test Day Takeaway:** Squaring a binomial always produces three terms; $(x - 4)^2$ is $(x - 4)(x - 4)$, never $x^2 - 16$."
+}

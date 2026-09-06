@@ -1,0 +1,30 @@
+{
+ "id": 1,
+ "question": "A triangle has a base of length $14$ centimeters and a corresponding height of $9$ centimeters. What is the area, in square centimeters, of the triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$23$"
+  },
+  {
+   "id": "B",
+   "text": "$31.5$"
+  },
+  {
+   "id": "C",
+   "text": "$63$"
+  },
+  {
+   "id": "D",
+   "text": "$126$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds the base and the height instead of multiplying them",
+  "B": "divides the product by $4$ rather than by $2$",
+  "D": "multiplies base by height but omits the factor $\\frac{1}{2}$"
+ },
+ "correctAnswer": "C",
+ "hint": "A triangle fills exactly half of the rectangle built on the same base and height.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~10s):** $A = \\frac{1}{2}(14)(9) = 63$.\n\n**The Full Solution:**\nStep 1: The area of a triangle is $A = \\frac{1}{2}bh$, where $h$ is the height drawn to base $b$.\nStep 2: Substitute $b = 14$ and $h = 9$: $A = \\frac{1}{2}(14)(9)$.\nStep 3: $\\frac{1}{2}(126) = 63$ square centimeters.\n\nVerification: $2(63) = 126 = 14 \\cdot 9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($23$): adds the base and the height instead of multiplying them.\n* Choice B ($31.5$): divides the product by $4$ rather than by $2$.\n* Choice D ($126$): multiplies base by height but omits the factor $\\frac{1}{2}$.\n\n**Test Day Takeaway:** Halve one factor before multiplying — it keeps the arithmetic small and stops the missing $\\frac{1}{2}$."
+}

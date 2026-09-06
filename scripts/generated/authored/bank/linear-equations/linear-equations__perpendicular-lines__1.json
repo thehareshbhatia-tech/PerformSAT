@@ -1,0 +1,25 @@
+{
+  "id": 1,
+  "question": "Line $c$ is represented by the equation $y = 5x - 8$ in the $xy$-plane. What is the slope of any line perpendicular to line $c$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-5$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\frac{1}{5}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\frac{1}{5}$"
+    },
+    {
+      "id": "D",
+      "text": "$5$"
+    }
+  ],
+  "correctAnswer": "B",
+  "hint": "Two moves are required, not one: the fraction turns over and the sign changes.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** Perpendicular slopes multiply to $-1$, so the slope is $-\\frac{1}{5}$ — choice B.\n\n**The Full Solution:**\nStep 1: In the form $y = 5x - 8$, line $c$ has slope $5$.\nStep 2: Perpendicular slopes are negative reciprocals: write $5$ as $\\frac{5}{1}$, flip it to $\\frac{1}{5}$, and change the sign to $-\\frac{1}{5}$.\nStep 3: Check the defining relationship: $5\\left(-\\frac{1}{5}\\right) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): changes the sign without flipping: $5(-5) = -25$, not $-1$.\n* Choice C ($\\frac{1}{5}$): flips without changing the sign: $5\\left(\\frac{1}{5}\\right) = 1$, not $-1$.\n* Choice D ($5$): repeats the slope of line $c$, which describes a parallel line.\n\n**Test Day Takeaway:** Verify a perpendicular slope by multiplying: the product with the original slope must be exactly $-1$, which catches a missed flip or a missed sign in one step."
+}

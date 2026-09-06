@@ -1,0 +1,30 @@
+{
+  "id": 3,
+  "question": "The function $f$ is defined by $f(x) = 4x - 12$. If $f(c) = 44$ for some constant $c$, what is the value of $c$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$8$"
+    },
+    {
+      "id": "B",
+      "text": "$11$"
+    },
+    {
+      "id": "C",
+      "text": "$14$"
+    },
+    {
+      "id": "D",
+      "text": "$56$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts 12 instead of adding it back",
+    "B": "ignores the constant term",
+    "D": "reports 4c instead of c"
+  },
+  "correctAnswer": "C",
+  "hint": "Set the rule equal to $44$; undo the subtraction before you undo the multiplication.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $4c - 12 = 44$ gives $4c = 56$, so $c = 14$.\n\n**The Full Solution:**\nStep 1: $f(c)$ means substitute $c$ for $x$, so $f(c) = 4c - 12$.\nStep 2: Set that equal to the given output: $4c - 12 = 44$. Add $12$ to both sides: $4c = 56$.\nStep 3: Divide both sides by $4$: $c = 14$. Check: $f(14) = 4(14) - 12 = 56 - 12 = 44$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): subtracts the constant instead of adding it back, solving $4c = 44 - 12 = 32$.\n* Choice B ($11$): divides the output by the coefficient and ignores the $-12$ entirely.\n* Choice D ($56$): stops at $4c = 56$ and reports $4c$ rather than $c$.\n\n**Test Day Takeaway:** Working backward from an output means undoing the operations in reverse order: addition or subtraction first, then multiplication or division."
+}

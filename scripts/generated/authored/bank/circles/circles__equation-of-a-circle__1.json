@@ -1,0 +1,30 @@
+{
+ "id": 1,
+ "question": "In the $xy$-plane, the equation $(x + 7)^2 + (y - 4)^2 = 81$ defines a circle. What are the coordinates of the center of this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(-7, -4)$"
+  },
+  {
+   "id": "B",
+   "text": "$(-7, 4)$"
+  },
+  {
+   "id": "C",
+   "text": "$(4, -7)$"
+  },
+  {
+   "id": "D",
+   "text": "$(7, -4)$"
+  }
+ ],
+ "correctAnswer": "B",
+ "hint": "Line the equation up term by term against $(x - h)^2 + (y - k)^2 = r^2$.",
+ "distractorNotes": {
+  "A": "copies the y-term sign as written",
+  "C": "swaps the coordinates",
+  "D": "reads both signs off the equation"
+ },
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** Standard form is $(x - h)^2 + (y - k)^2 = r^2$; matching gives $h = -7$ and $k = 4$, so the center is $(-7, 4)$.\n\n**The Full Solution:**\nStep 1: Rewrite each factor as a subtraction: $(x + 7)^2 = (x - (-7))^2$ and $(y - 4)^2$ is already in that form.\nStep 2: Read off $h = -7$ and $k = 4$.\nStep 3: The center is $(-7, 4)$. Check: substituting the center's coordinates makes both squares zero, as it should.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-7, -4)$): negates the $x$-value correctly but also negates the $4$, even though $(y - 4)^2$ is already in standard form.\n* Choice C ($(4, -7)$): swaps the two coordinates after negating them.\n* Choice D ($(7, -4)$): copies the signs straight out of the equation without negating either one.\n\n**Test Day Takeaway:** Standard form subtracts the center. A plus sign inside the parentheses means a negative coordinate."
+}

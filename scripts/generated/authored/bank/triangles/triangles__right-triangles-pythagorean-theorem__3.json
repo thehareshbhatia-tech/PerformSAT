@@ -1,0 +1,30 @@
+{
+ "id": 3,
+ "question": "In right triangle $DEF$, angle $E$ is a right angle, $DE = 15$, and $EF = 8$. Point $G$ is the midpoint of $\\overline{DF}$. What is the length of $\\overline{DG}$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$8.5$"
+  },
+  {
+   "id": "B",
+   "text": "$11.5$"
+  },
+  {
+   "id": "C",
+   "text": "$17$"
+  },
+  {
+   "id": "D",
+   "text": "$23$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "averages the two legs instead of halving the hypotenuse",
+  "C": "gives $DF$, the whole hypotenuse, instead of half of it",
+  "D": "adds the two legs"
+ },
+ "correctAnswer": "A",
+ "hint": "Find the hypotenuse before doing anything with the word midpoint.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~35s):** $DF = \\sqrt{15^2 + 8^2} = 17$, so $DG = \\frac{17}{2} = 8.5$.\n\n**The Full Solution:**\nStep 1: Angle $E$ is the right angle, so $\\overline{DF}$ is the hypotenuse: $DF^2 = 15^2 + 8^2 = 225 + 64 = 289$.\nStep 2: $DF = \\sqrt{289} = 17$.\nStep 3: $G$ is the midpoint of $\\overline{DF}$, so $DG = \\frac{1}{2}(17) = 8.5$.\n\nVerification: $8.5 + 8.5 = 17$, the full hypotenuse. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($11.5$): averages the two legs instead of halving the hypotenuse.\n* Choice C ($17$): gives $DF$, the whole hypotenuse, instead of half of it.\n* Choice D ($23$): adds the two legs.\n\n**Test Day Takeaway:** Finish the Pythagorean step, then read the question again to see what it actually asks for."
+}

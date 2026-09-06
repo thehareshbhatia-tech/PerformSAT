@@ -1,0 +1,30 @@
+{
+ "id": 3,
+ "question": "The expressions $2^{12}$ and $8^k$ are equal, where $k$ is a constant. What is the value of $k$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3$"
+  },
+  {
+   "id": "B",
+   "text": "$4$"
+  },
+  {
+   "id": "C",
+   "text": "$9$"
+  },
+  {
+   "id": "D",
+   "text": "$36$"
+  }
+ ],
+ "correctAnswer": "B",
+ "hint": "Rewrite both sides as powers of the same base.",
+ "distractorNotes": {
+  "A": "reports the rewriting exponent",
+  "C": "subtracts 3 from 12",
+  "D": "multiplies 12 by 3"
+ },
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** $8 = 2^3$, so $8^k = 2^{3k}$; setting $3k = 12$ gives $k = 4$.\n\n**The Full Solution:**\nStep 1: Write $8$ as a power of $2$: $8 = 2^3$.\nStep 2: Then $8^k = \\left(2^3\\right)^k = 2^{3k}$, so $2^{3k} = 2^{12}$.\nStep 3: Equal powers of the same base have equal exponents, so $3k = 12$ and $k = 4$. Check: $8^4 = 4{,}096 = 2^{12}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the exponent used to rewrite $8$ as $2^3$ rather than solving for $k$.\n* Choice C ($9$): subtracts, computing $12 - 3$, as if the bases were being divided.\n* Choice D ($36$): multiplies $12$ by $3$ instead of dividing.\n\n**Test Day Takeaway:** Common base, then compare exponents. Rewriting one side is almost always faster than taking logarithms."
+}

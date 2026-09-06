@@ -1,0 +1,30 @@
+{
+  "id": 4,
+  "question": "The function $g$ is defined by $g(x)=f(x+7)-3$, where $f$ is a function with $f(9)=20$. What is the value of $g(2)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$10$"
+    },
+    {
+      "id": "B",
+      "text": "$13$"
+    },
+    {
+      "id": "C",
+      "text": "$17$"
+    },
+    {
+      "id": "D",
+      "text": "$23$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "applies both constants to the output",
+    "B": "applies the inside constant to the output",
+    "D": "reverses the sign of the outside constant"
+  },
+  "correctAnswer": "C",
+  "hint": "The $7$ and the $3$ act on different things: one changes the input, the other changes the output.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** $g(2)=f(2+7)-3=f(9)-3=20-3=17$.\n\n**The Full Solution:**\nStep 1: Inside the function, the input becomes $2+7=9$, which is exactly the input whose output you know.\nStep 2: That gives $f(9)=20$ as the value coming out of $f$.\nStep 3: The $-3$ is applied to that output: $g(2)=20-3=17$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): subtracts both constants from the output: $20-7-3=10$.\n* Choice B ($13$): subtracts the inside $7$ from the output: $20-7=13$.\n* Choice D ($23$): adds $3$ instead of subtracting it: $20+3=23$.\n\n**Test Day Takeaway:** Sort the constants by position: the one inside the parentheses builds the input, the one outside adjusts the output."
+}

@@ -1,0 +1,25 @@
+{
+  "id": 11,
+  "question": "$5x + 2y = 8$\n$ry = 15 - 10x$\n\nIn the given system of two linear equations, $r$ is a constant. If the system has no solution, what is the value of $r$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-4$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$2$"
+    },
+    {
+      "id": "D",
+      "text": "$4$"
+    }
+  ],
+  "correctAnswer": "D",
+  "hint": "Put the second equation in the same arrangement as the first before you compare coefficients.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~40s):** Rewritten, the second equation is $10x + ry = 15$; its $x$-coefficient is twice the first equation's, so $r$ must be twice $2$ — choice D.\n\n**The Full Solution:**\nStep 1: Rearrange the second equation into standard form: $10x + ry = 15$.\nStep 2: Two linear equations have no solution when one equation's variable coefficients are a common multiple of the other's while the constants are not in that same ratio. Here $10 = 2(5)$, so the multiplier is $2$.\nStep 3: Matching the $y$-coefficients under that multiplier gives $r = 2(2) = 4$.\nStep 4: Check: with $r = 4$ the system is $5x + 2y = 8$ and $10x + 4y = 15$. Doubling the first gives $10x + 4y = 16$, and $16 \\neq 15$, so the lines are parallel and distinct. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): equates the slopes with a sign error, solving $-\\frac{10}{r} = \\frac{5}{2}$ instead of $-\\frac{10}{r} = -\\frac{5}{2}$.\n* Choice B ($1$): sets up the proportion upside down, $\\frac{2}{r} = \\frac{10}{5}$, rather than $\\frac{2}{r} = \\frac{5}{10}$.\n* Choice C ($2$): copies the first equation's $y$-coefficient, ignoring that the $x$-coefficients differ by a factor of $2$.\n\n**Test Day Takeaway:** Rearrange both equations into the same form, find the multiplier from a coefficient pair you can see, and apply that one multiplier to every coefficient."
+}

@@ -1,0 +1,25 @@
+{
+  "id": 7,
+  "question": "$y = 7x - 3$\n\nThe given equation is one of the two equations in a system of linear equations in the $xy$-plane. The system has no solution. Which equation could be the other equation in the system?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -7x - 3$"
+    },
+    {
+      "id": "B",
+      "text": "$y = 7x + 5$"
+    },
+    {
+      "id": "C",
+      "text": "$y = 7x - 3$"
+    },
+    {
+      "id": "D",
+      "text": "$y = -\\frac{1}{7}x - 3$"
+    }
+  ],
+  "correctAnswer": "B",
+  "hint": "Picture the graphs: no solution means the two lines never meet, and there is only one way that happens.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** No solution means parallel but distinct: same slope $7$, different constant — choice B.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has no solution exactly when the graphs are parallel and distinct.\nStep 2: Parallel requires the same slope, $7$, which eliminates the choices with slopes $-7$ and $-\\frac{1}{7}$.\nStep 3: Distinct requires a different $y$-intercept, so $y = 7x + 5$ works. Check: $7x - 3 = 7x + 5$ reduces to $-3 = 5$, which is never true, so the system has no solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -7x - 3$): changes the slope, so the two lines cross once and the system has exactly one solution.\n* Choice C ($y = 7x - 3$): repeats the given equation; identical lines share every point, so the system has infinitely many solutions rather than none.\n* Choice D ($y = -\\frac{1}{7}x - 3$): uses the negative reciprocal slope, giving perpendicular lines that meet at exactly one point.\n\n**Test Day Takeaway:** No solution needs both conditions: equal slopes and unequal intercepts. The same-equation choice satisfies only the first and is the standard trap."
+}

@@ -1,0 +1,30 @@
+{
+  "id": 12,
+  "question": "The function $f$ is defined by $f(x)=x^{2}+5x$, and the function $g$ is defined by $g(x)=f(x-3)+2$. Which expression defines $g(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x^{2}-x-6$"
+    },
+    {
+      "id": "B",
+      "text": "$x^{2}-x-4$"
+    },
+    {
+      "id": "C",
+      "text": "$x^{2}+5x-1$"
+    },
+    {
+      "id": "D",
+      "text": "$x^{2}+11x+26$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "omits the outside constant",
+    "C": "treats the inside shift as an outside shift",
+    "D": "substitutes the opposite shift"
+  },
+  "correctAnswer": "B",
+  "hint": "Do the substitution completely, expand, and only then add the constant that sits outside $f$.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~35s):** $(x-3)^{2}+5(x-3)+2=x^{2}-6x+9+5x-15+2=x^{2}-x-4$.\n\n**The Full Solution:**\nStep 1: Substituting $x-3$ into both terms of $f$ gives $f(x-3)=(x-3)^{2}+5(x-3)$.\nStep 2: Expanding: $(x-3)^{2}=x^{2}-6x+9$ and $5(x-3)=5x-15$, so $f(x-3)=x^{2}-x-6$.\nStep 3: Adding the outside $2$ gives $g(x)=x^{2}-x-4$. Check at $x=3$: $g(3)=f(0)+2=0+2=2$, and $9-3-4=2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2}-x-6$): stops at $f(x-3)$ and never adds the outside $2$.\n* Choice C ($x^{2}+5x-1$): applies both constants outside: $x^{2}+5x-3+2$, treating the $-3$ as a vertical shift.\n* Choice D ($x^{2}+11x+26$): substitutes $x+3$ instead of $x-3$, moving the graph left rather than right.\n\n**Test Day Takeaway:** A composed rule is built inside-out: substitute, expand, combine, then apply the outside constant."
+}

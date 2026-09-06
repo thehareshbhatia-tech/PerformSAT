@@ -1,0 +1,30 @@
+{
+  "id": 4,
+  "question": "The function $w$ is defined by $w(x)=|x|$. Which of the following describes the graph of $y=5w(x)$ compared with the graph of $y=w(x)$ in the $xy$-plane?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "A horizontal compression by a factor of $5$"
+    },
+    {
+      "id": "B",
+      "text": "A horizontal stretch by a factor of $5$"
+    },
+    {
+      "id": "C",
+      "text": "A vertical compression by a factor of $\\frac{1}{5}$"
+    },
+    {
+      "id": "D",
+      "text": "A vertical stretch by a factor of $5$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "attaches the multiplier to the input",
+    "B": "attaches the multiplier to the input and inverts it",
+    "C": "reverses stretch and compression"
+  },
+  "correctAnswer": "D",
+  "hint": "Multiplying outside the function changes one coordinate of every point — decide which one.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** The factor $5$ multiplies the output, so every height is $5$ times as large: a vertical stretch by $5$.\n\n**The Full Solution:**\nStep 1: $5w(x)=5|x|$ takes the value of $w$ at an input and multiplies it by $5$; the input itself is untouched.\nStep 2: A point $(a,b)$ on $y=w(x)$ becomes $(a,5b)$, so the graph is pulled away from the $x$-axis.\nStep 3: Check: $w(3)=3$ while $5w(3)=15$, so $(3,3)$ becomes $(3,15)$ — five times as high at the same $x$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (horizontal compression by $5$): that comes from $w(5x)$, a factor attached to the input, not to the output.\n* Choice B (horizontal stretch by $5$): that would be $w\\!\\left(\\frac{x}{5}\\right)$; no horizontal change occurs when the multiplier is outside.\n* Choice C (vertical compression by $\\frac{1}{5}$): the direction of the scaling is reversed; a factor greater than $1$ outside stretches vertically.\n\n**Test Day Takeaway:** A multiplier outside the function scales $y$; a multiplier inside scales $x$ by the reciprocal."
+}

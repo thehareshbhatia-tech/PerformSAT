@@ -1,0 +1,30 @@
+{
+ "id": 2,
+ "question": "The graph of $x^2 + (y - 7)^2 = 9$ in the $xy$-plane is a circle. Which of the following describes all possible values of $y$ for points on this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-10 \\le y \\le -4$"
+  },
+  {
+   "id": "B",
+   "text": "$-3 \\le y \\le 3$"
+  },
+  {
+   "id": "C",
+   "text": "$-2 \\le y \\le 16$"
+  },
+  {
+   "id": "D",
+   "text": "$4 \\le y \\le 10$"
+  }
+ ],
+ "correctAnswer": "D",
+ "hint": "The center's height sets the middle of the range; the radius sets how far the circle reaches from it.",
+ "distractorNotes": {
+  "A": "uses a center of -7",
+  "B": "ignores the vertical shift",
+  "C": "uses 9 as the radius"
+ },
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** The center is $(0, 7)$ with radius $3$, so $y$ runs from $7 - 3 = 4$ to $7 + 3 = 10$.\n\n**The Full Solution:**\nStep 1: Matching standard form gives center $(0, 7)$ and $r^2 = 9$, so $r = 3$.\nStep 2: Vertically the circle reaches $3$ units above and below the center: from $7 - 3$ to $7 + 3$.\nStep 3: The values of $y$ satisfy $4 \\le y \\le 10$. Check: at $y = 4$ the equation gives $x^2 + 9 = 9$, so $x = 0$ and $(0, 4)$ is the lowest point.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10 \\le y \\le -4$): reads $(y - 7)^2$ as a downward shift and centers the range at $-7$.\n* Choice B ($-3 \\le y \\le 3$): ignores the shift entirely and centers the range at $0$.\n* Choice C ($-2 \\le y \\le 16$): uses $9$ as the radius rather than as $r^2$, stretching the range to $7 \\pm 9$.\n\n**Test Day Takeaway:** Range for a circle is $k - r$ to $k + r$. Both the center's coordinate and the square root have to be handled before you write the interval."
+}

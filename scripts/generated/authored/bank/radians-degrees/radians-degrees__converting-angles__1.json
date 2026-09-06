@@ -1,0 +1,25 @@
+{
+  "id": 1,
+  "question": "An angle has a measure of $210^{\\circ}$. What is the measure of this angle, in radians?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\frac{7\\pi}{12}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\frac{6\\pi}{7}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\frac{7\\pi}{6}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\frac{7\\pi}{3}$"
+    }
+  ],
+  "correctAnswer": "C",
+  "hint": "A straight angle is $180^{\\circ}$, and a straight angle is also $\\pi$ radians — that pairing is the conversion factor.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiply by $\\frac{\\pi}{180}$: $210\\cdot\\frac{\\pi}{180}=\\frac{7\\pi}{6}$ — choice C.\n\n**The Full Solution:**\nStep 1: To move from degrees to radians, multiply the degree measure by $\\frac{\\pi}{180}$: $210\\cdot\\frac{\\pi}{180}=\\frac{210\\pi}{180}$.\nStep 2: Reduce the fraction by $30$: $\\frac{210}{180}=\\frac{7}{6}$, so the measure is $\\frac{7\\pi}{6}$ radians.\nStep 3: Check the size: $\\frac{7\\pi}{6}$ is a little more than $\\pi$, and $\\pi$ radians is $180^{\\circ}$, so the angle should be a little more than $180^{\\circ}$. It is $210^{\\circ}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7\\pi}{12}$): divides by $360$ instead of $180$, using a full rotation where a straight angle belongs: $\\frac{210\\pi}{360}=\\frac{7\\pi}{12}$.\n* Choice B ($\\frac{6\\pi}{7}$): inverts the conversion factor and computes $\\frac{180\\pi}{210}=\\frac{6\\pi}{7}$ — that is degrees per radian, not radians per degree.\n* Choice D ($\\frac{7\\pi}{3}$): divides by $90$ instead of $180$: $\\frac{210\\pi}{90}=\\frac{7\\pi}{3}$, an angle larger than a full rotation.\n\n**Test Day Takeaway:** Degrees to radians multiplies by $\\frac{\\pi}{180}$; radians to degrees multiplies by $\\frac{180}{\\pi}$. Sanity-check the result against $\\pi \\leftrightarrow 180^{\\circ}$ before you commit."
+}

@@ -1,0 +1,30 @@
+{
+  "id": 1,
+  "question": "The function $g$ is defined by $g(x) = (x - 6)^2 + 5$. Which of the following is equivalent to $g(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x^2 - 12x + 41$"
+    },
+    {
+      "id": "B",
+      "text": "$x^2 - 12x + 31$"
+    },
+    {
+      "id": "C",
+      "text": "$x^2 + 41$"
+    },
+    {
+      "id": "D",
+      "text": "$x^2 - 6x + 41$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "subtracts the outside constant",
+    "C": "drops the cross term",
+    "D": "forgets to double the cross term"
+  },
+  "correctAnswer": "A",
+  "hint": "Write the square as a product of two identical binomials before combining the constants.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $(x - 6)^2 = x^2 - 12x + 36$, and $36 + 5 = 41$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x - 6)^2 = (x - 6)(x - 6) = x^2 - 6x - 6x + 36 = x^2 - 12x + 36$.\nStep 2: Add the outside constant: $x^2 - 12x + 36 + 5$.\nStep 3: Combine like terms: $g(x) = x^2 - 12x + 41$. Check at $x = 6$: the original gives $0 + 5 = 5$, and $36 - 72 + 41 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^2 - 12x + 31$): subtracts the $5$ instead of adding it, giving $36 - 5$.\n* Choice C ($x^2 + 41$): squares each term separately and loses the cross term $-12x$.\n* Choice D ($x^2 - 6x + 41$): uses $-6x$ rather than $-12x$, forgetting that the cross term is $2(-6)x$.\n\n**Test Day Takeaway:** Expanding $(x - h)^2$ always produces three terms, and the middle one is twice $-h$ times $x$."
+}

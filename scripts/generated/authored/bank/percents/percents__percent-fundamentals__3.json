@@ -1,0 +1,30 @@
+{
+  "id": 3,
+  "question": "A transportation survey found that $\\frac{7}{40}$ of the respondents commute by bicycle. What percent of the respondents commute by bicycle?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7\\%$"
+    },
+    {
+      "id": "B",
+      "text": "$17.5\\%$"
+    },
+    {
+      "id": "C",
+      "text": "$40\\%$"
+    },
+    {
+      "id": "D",
+      "text": "$175\\%$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the numerator as the percent",
+    "C": "reports the denominator as the percent",
+    "D": "multiplies by 1,000"
+  },
+  "correctAnswer": "B",
+  "hint": "Divide the numerator by the denominator first; the decimal you get is not yet the percent.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\frac{7}{40} = 0.175$, and $0.175 \\times 100 = 17.5$.\n\n**The Full Solution:**\nStep 1: Convert the fraction to a decimal: $7 \\div 40 = 0.175$.\nStep 2: Convert the decimal to a percent by multiplying by $100$: $0.175 \\times 100 = 17.5$.\nStep 3: So $\\frac{7}{40} = 17.5\\%$. Check with an equivalent fraction: $\\frac{7}{40} = \\frac{17.5}{100}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7\\%$): reports the numerator as the percent, ignoring the denominator.\n* Choice C ($40\\%$): reports the denominator as the percent.\n* Choice D ($175\\%$): multiplies the decimal by $1{,}000$ instead of $100$; a part of a whole cannot exceed $100\\%$.\n\n**Test Day Takeaway:** A fraction of a whole must land between $0\\%$ and $100\\%$ — that size check kills two distractors immediately."
+}

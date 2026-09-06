@@ -1,0 +1,43 @@
+{
+ "id": 4,
+ "question": "In the figure, $O$ is the center of the circle and $OA = 15$. If minor arc $AB$ has length $10\\pi$, what is the measure, in degrees, of $\\angle AOB$?",
+ "diagram": {
+  "type": "circleWithSector",
+  "params": {
+   "centralAngle": 120,
+   "radius": 15,
+   "showRadiusLabel": true,
+   "showAngleLabel": false,
+   "labelCenter": "O",
+   "labelPoint1": "A",
+   "labelPoint2": "B",
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{2\\pi}{3}$"
+  },
+  {
+   "id": "B",
+   "text": "$60$"
+  },
+  {
+   "id": "C",
+   "text": "$120$"
+  },
+  {
+   "id": "D",
+   "text": "$240$"
+  }
+ ],
+ "correctAnswer": "C",
+ "hint": "The whole circumference is the yardstick the arc has to be measured against.",
+ "distractorNotes": {
+  "A": "reports the radian measure",
+  "B": "uses 180 degrees for a full turn",
+  "D": "uses pi r as the circumference"
+ },
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** The circumference is $30\\pi$, so the arc is $\\frac{10\\pi}{30\\pi} = \\frac{1}{3}$ of the circle, and $\\frac{1}{3}(360^{\\circ}) = 120^{\\circ}$.\n\n**The Full Solution:**\nStep 1: The circumference is $C = 2\\pi(15) = 30\\pi$.\nStep 2: The arc is the fraction $\\frac{10\\pi}{30\\pi} = \\frac{1}{3}$ of the circle.\nStep 3: The central angle is that same fraction of a full turn: $\\frac{1}{3}(360^{\\circ}) = 120^{\\circ}$. Check: $\\frac{120}{360}(30\\pi) = 10\\pi$, the given arc length.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2\\pi}{3}$): solves $s = r\\theta$ and reports the radian measure where degrees were requested.\n* Choice B ($60$): uses $180^{\\circ}$ as a full turn, halving every angle.\n* Choice D ($240$): uses $\\pi r = 15\\pi$ as the circumference, which doubles the fraction to $\\frac{2}{3}$.\n\n**Test Day Takeaway:** Arc-to-circumference and angle-to-$360^{\\circ}$ are the same ratio. Set them equal and solve for whichever one is missing."
+}

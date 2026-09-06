@@ -1,0 +1,30 @@
+{
+  "id": 2,
+  "question": "The point $(6,11)$ lies on the graph of $y=f(x)$ in the $xy$-plane. The function $g$ is defined by $g(x)=f(x)-4$. Which point must lie on the graph of $y=g(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(2,11)$"
+    },
+    {
+      "id": "B",
+      "text": "$(6,7)$"
+    },
+    {
+      "id": "C",
+      "text": "$(6,15)$"
+    },
+    {
+      "id": "D",
+      "text": "$(10,11)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts the shift from the x-coordinate",
+    "C": "adds instead of subtracts",
+    "D": "adds the shift to the x-coordinate"
+  },
+  "correctAnswer": "B",
+  "hint": "Evaluate the definition of $g$ at the input you already know something about.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** $g(6)=f(6)-4=11-4=7$, so the point is $(6,7)$.\n\n**The Full Solution:**\nStep 1: The point $(6,11)$ tells you that $f(6)=11$.\nStep 2: The definition $g(x)=f(x)-4$ evaluated at $x=6$ gives $g(6)=f(6)-4$.\nStep 3: Substituting, $g(6)=11-4=7$, so $(6,7)$ is on the graph of $g$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(2,11)$): subtracts $4$ from the input; the $-4$ is outside the function and cannot move a point horizontally.\n* Choice C ($(6,15)$): adds $4$ instead of subtracting it.\n* Choice D ($(10,11)$): adds $4$ to the input, treating an outside change as a horizontal shift.\n\n**Test Day Takeaway:** When a constant sits outside the function, keep the input and adjust the output."
+}

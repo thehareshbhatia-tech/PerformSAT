@@ -1,0 +1,30 @@
+{
+ "id": 1,
+ "question": "For all positive values of $a$, the expression $a^6 \\cdot a^5$ is equivalent to which of the following?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$a$"
+  },
+  {
+   "id": "B",
+   "text": "$a^{11}$"
+  },
+  {
+   "id": "C",
+   "text": "$2a^{11}$"
+  },
+  {
+   "id": "D",
+   "text": "$a^{30}$"
+  }
+ ],
+ "correctAnswer": "B",
+ "hint": "Identify which operation is being performed on the two powers before touching the exponents.",
+ "distractorNotes": {
+  "A": "subtracts the exponents",
+  "C": "adds the coefficients too",
+  "D": "multiplies the exponents"
+ },
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** Same base, multiplication, so add the exponents: $a^{6+5} = a^{11}$.\n\n**The Full Solution:**\nStep 1: The product rule for powers with the same base is $a^m \\cdot a^n = a^{m+n}$.\nStep 2: Apply it: $a^6 \\cdot a^5 = a^{6+5}$.\nStep 3: The result is $a^{11}$. Check by counting factors: six copies of $a$ times five copies of $a$ is eleven copies of $a$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($a$): subtracts the exponents, $6 - 5$, which is the rule for division, not multiplication.\n* Choice C ($2a^{11}$): adds the two understood coefficients of $1$; coefficients multiply, and $1 \\cdot 1 = 1$.\n* Choice D ($a^{30}$): multiplies the exponents, which is the rule for a power raised to a power.\n\n**Test Day Takeaway:** Match the operation to the rule first: multiply the powers and you add the exponents, divide them and you subtract."
+}

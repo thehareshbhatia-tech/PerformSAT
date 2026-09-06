@@ -1,0 +1,25 @@
+{
+  "id": 5,
+  "question": "Line $n$ passes through the point $(6, 5)$ and is parallel to the graph of $y = -2x + 9$ in the $xy$-plane. Which equation represents line $n$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -2x - 7$"
+    },
+    {
+      "id": "B",
+      "text": "$y = -2x + 5$"
+    },
+    {
+      "id": "C",
+      "text": "$y = -2x + 17$"
+    },
+    {
+      "id": "D",
+      "text": "$y = \\frac{1}{2}x + 2$"
+    }
+  ],
+  "correctAnswer": "C",
+  "hint": "Copy the slope, then let the given point determine the constant.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** Slope $-2$, and $5 = -2(6)+b$ gives $b = 17$: $y = -2x + 17$ — choice C.\n\n**The Full Solution:**\nStep 1: Parallel lines have equal slopes, so line $n$ has slope $-2$.\nStep 2: Substitute $(6, 5)$ into $y = -2x + b$: $5 = -12 + b$, so $b = 17$.\nStep 3: The equation is $y = -2x + 17$. Check the point: $-2(6)+17 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x - 7$): computes $b = 5 - 12$ instead of $5 + 12$, reversing the sign when moving $-12$ across the equals sign.\n* Choice B ($y = -2x + 5$): uses the $y$-coordinate of the given point as the constant; the value $5$ occurs at $x = 6$, not at $x = 0$.\n* Choice D ($y = \\frac{1}{2}x + 2$): uses the negative reciprocal slope, $\\frac{1}{2}$, which produces the perpendicular line through the same point.\n\n**Test Day Takeaway:** After substituting a point, isolate $b$ by adding the opposite of the product — that single step is where the two look-alike choices split."
+}

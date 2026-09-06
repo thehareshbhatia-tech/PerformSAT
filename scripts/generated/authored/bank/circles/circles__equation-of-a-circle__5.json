@@ -1,0 +1,30 @@
+{
+ "id": 5,
+ "question": "The point $(2, 0)$ lies on a circle in the $xy$-plane whose center is $(6, -3)$. Which of the following equations defines this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(x - 2)^2 + y^2 = 25$"
+  },
+  {
+   "id": "B",
+   "text": "$(x + 6)^2 + (y - 3)^2 = 25$"
+  },
+  {
+   "id": "C",
+   "text": "$(x - 6)^2 + (y + 3)^2 = 5$"
+  },
+  {
+   "id": "D",
+   "text": "$(x - 6)^2 + (y + 3)^2 = 25$"
+  }
+ ],
+ "correctAnswer": "D",
+ "hint": "The two given points do different jobs: one locates the circle, the pair sets its size.",
+ "distractorNotes": {
+  "A": "uses the given point as the center",
+  "B": "copies the center without negating",
+  "C": "puts r where r squared belongs"
+ },
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~40s):** The radius runs from $(6, -3)$ to $(2, 0)$, so $r^2 = 4^2 + 3^2 = 25$, and standard form about $(6, -3)$ is $(x - 6)^2 + (y + 3)^2 = 25$.\n\n**The Full Solution:**\nStep 1: From center to point, the horizontal change is $2 - 6 = -4$ and the vertical change is $0 - (-3) = 3$.\nStep 2: The distance formula gives $r^2 = (-4)^2 + 3^2 = 16 + 9 = 25$, so $r = 5$ — a $3$-$4$-$5$ triangle.\nStep 3: Standard form is $(x - h)^2 + (y - k)^2 = r^2$ with $h = 6$ and $k = -3$, so the circle is $(x - 6)^2 + (y + 3)^2 = 25$. Check: substituting $(2, 0)$ gives $16 + 9 = 25$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 2)^2 + y^2 = 25$): builds the equation around $(2, 0)$, the point on the circle, instead of around the center.\n* Choice B ($(x + 6)^2 + (y - 3)^2 = 25$): copies the center's coordinates into the parentheses without negating them, placing the center at $(-6, 3)$.\n* Choice C ($(x - 6)^2 + (y + 3)^2 = 5$): writes the radius $5$ on the right where $r^2 = 25$ belongs.\n\n**Test Day Takeaway:** The distance formula hands you $r^2$ directly — the very number standard form wants. Taking a square root here only creates a step you have to undo."
+}

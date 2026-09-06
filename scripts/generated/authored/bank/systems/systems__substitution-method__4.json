@@ -1,0 +1,30 @@
+{
+  "id": 4,
+  "question": "A system of two linear equations consists of $y = 5x - 9$ and $y = 2x + 6$. Which ordered pair $(x, y)$ is the solution to this system?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-1, 4)$"
+    },
+    {
+      "id": "B",
+      "text": "$(5, 16)$"
+    },
+    {
+      "id": "C",
+      "text": "$(5, 19)$"
+    },
+    {
+      "id": "D",
+      "text": "$(16, 5)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "changes the sign of the $-9$ when substituting, solving $5x + 9 = 2x + 6$ to get $x = -1$.",
+    "C": "finds $x = 5$ correctly but evaluates $2x + 9$, mixing the constants from the two equations.",
+    "D": "finds the solution but reports the coordinates in the wrong order."
+  },
+  "correctAnswer": "B",
+  "hint": "Both equations already give $y$, so set the two expressions equal to each other.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~35s):** Setting $5x - 9 = 2x + 6$ gives $3x = 15$, so $x = 5$ and $y = 2(5) + 6 = 16$.\n\n**The Full Solution:**\nStep 1: Since both equations give $y$, substitute one expression for the other: $5x - 9 = 2x + 6$.\nStep 2: Subtract $2x$ from both sides and add $9$ to both sides: $3x = 15$, so $x = 5$.\nStep 3: Substitute into either equation: $y = 2(5) + 6 = 16$, so the solution is $(5, 16)$. Check: $5(5) - 9 = 16$ as well. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-1, 4)$): changes the sign of the $-9$ when substituting, solving $5x + 9 = 2x + 6$ to get $x = -1$.\n* Choice C ($(5, 19)$): finds $x = 5$ correctly but evaluates $2x + 9$, mixing the constants from the two equations.\n* Choice D ($(16, 5)$): finds the solution but reports the coordinates in the wrong order.\n\n**Test Day Takeaway:** When both equations are solved for the same variable, set the expressions equal. Then substitute back and write the ordered pair as $(x, y)$."
+}

@@ -1,0 +1,30 @@
+{
+ "id": 4,
+ "question": "In the $xy$-plane, the graph of $x^2 + y^2 = 64$ is a circle centered at the origin. At which points does this circle intersect the $y$-axis?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(0, -64)$ and $(0, 64)$"
+  },
+  {
+   "id": "B",
+   "text": "$(0, -8)$ and $(0, 8)$"
+  },
+  {
+   "id": "C",
+   "text": "$(-8, 0)$ and $(8, 0)$"
+  },
+  {
+   "id": "D",
+   "text": "$(0, -4)$ and $(0, 4)$"
+  }
+ ],
+ "correctAnswer": "B",
+ "hint": "Every point on the $y$-axis has $x = 0$.",
+ "distractorNotes": {
+  "A": "uses 64 as the radius",
+  "C": "reports the x-intercepts",
+  "D": "halves the radius"
+ },
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** Setting $x = 0$ gives $y^2 = 64$, so $y = \\pm 8$ and the points are $(0, -8)$ and $(0, 8)$.\n\n**The Full Solution:**\nStep 1: A point on the $y$-axis has $x = 0$.\nStep 2: Substitute: $0^2 + y^2 = 64$, so $y^2 = 64$.\nStep 3: $y = 8$ or $y = -8$, giving $(0, 8)$ and $(0, -8)$. Check: the circle is centered at the origin with radius $8$, so it meets each axis exactly $8$ units out.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(0, -64)$ and $(0, 64)$): uses $64$ itself as the radius instead of taking the square root.\n* Choice C ($(-8, 0)$ and $(8, 0)$): solves for the $x$-intercepts and reports those points instead.\n* Choice D ($(0, -4)$ and $(0, 4)$): halves the radius, as if $8$ were a diameter.\n\n**Test Day Takeaway:** Substituting $x = 0$ turns any curve into its $y$-intercepts. For a circle centered at the origin, they are $\\pm r$."
+}

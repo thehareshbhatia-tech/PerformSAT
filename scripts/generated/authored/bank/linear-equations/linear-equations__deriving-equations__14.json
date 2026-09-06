@@ -1,0 +1,46 @@
+{
+  "id": 14,
+  "question": "For the linear function $g$, the table gives the value of $g(x)$ at three inputs. Which equation defines $g$?",
+  "diagram": {
+    "type": "table",
+    "params": {
+      "rows": [
+        [
+          2,
+          5
+        ],
+        [
+          5,
+          14
+        ],
+        [
+          8,
+          23
+        ]
+      ],
+      "xHeader": "x",
+      "yHeader": "g(x)"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$g(x) = 3x - 1$"
+    },
+    {
+      "id": "B",
+      "text": "$g(x) = 3x + 1$"
+    },
+    {
+      "id": "C",
+      "text": "$g(x) = 3x + 5$"
+    },
+    {
+      "id": "D",
+      "text": "$g(x) = 9x - 13$"
+    }
+  ],
+  "correctAnswer": "A",
+  "hint": "No row has an input of $0$, so the constant term has to be solved for rather than read.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~25s):** $m = \\frac{9}{3} = 3$, and $5 = 3(2)+b$ gives $b = -1$: $g(x) = 3x - 1$ — choice A.\n\n**The Full Solution:**\nStep 1: Rate of change: $m = \\frac{14-5}{5-2} = \\frac{9}{3} = 3$.\nStep 2: Substitute $(2, 5)$ into $g(x) = 3x + b$: $5 = 6 + b$, so $b = -1$.\nStep 3: The equation is $g(x) = 3x - 1$. Check the last row: $3(8)-1 = 23$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($g(x) = 3x + 1$): solves $5 = 6 + b$ but records $b$ as $+1$ instead of $-1$.\n* Choice C ($g(x) = 3x + 5$): has the correct rate of change but reads the output $5$ at $x = 2$ as the value at $x = 0$.\n* Choice D ($g(x) = 9x - 13$): uses the $9$-unit jump in the output as the rate of change without dividing by the $3$-unit jump in the input; anchoring that at $(2, 5)$ gives $-13$ as the constant.\n\n**Test Day Takeaway:** When the table skips the input $0$, find the rate of change first and substitute one full ordered pair — then test the equation on a different row."
+}

@@ -1,0 +1,25 @@
+{
+  "id": 10,
+  "question": "$2(3x - 7) = ax + 14$\n\nIn the given equation, $a$ is a constant. If the equation has no solution, what is the value of $a$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-6$"
+    },
+    {
+      "id": "B",
+      "text": "$2$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$6$"
+    }
+  ],
+  "correctAnswer": "D",
+  "hint": "Distribute before you compare anything; the coefficient of $x$ on the left is not visible yet.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~30s):** Distributing gives $6x - 14 = ax + 14$; the $x$-terms must match while the constants do not, so $a = 6$ — choice D.\n\n**The Full Solution:**\nStep 1: Distribute the $2$: $6x - 14 = ax + 14$.\nStep 2: Gather the $x$-terms on one side: $(6 - a)x = 28$.\nStep 3: No solution requires the coefficient of $x$ to be $0$ while the constant is not, so $6 - a = 0$ and $a = 6$.\nStep 4: Check: at $a = 6$ the equation reduces to $-14 = 14$, which is never true. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): solves $6 - a = 0$ but records the opposite sign; substituting $a = -6$ leaves $12x = 28$, which has a solution.\n* Choice B ($2$): reads the multiplier outside the parentheses, $2$, as the coefficient of $x$ on the left.\n* Choice C ($3$): reads the coefficient inside the parentheses, $3$, without distributing the $2$ across it.\n\n**Test Day Takeaway:** Distribute first, then match coefficients. An equation with no solution is one where both sides change at the same rate but start from different places."
+}

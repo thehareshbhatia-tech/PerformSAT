@@ -1,0 +1,30 @@
+{
+  "id": 9,
+  "question": "The point $(36,6)$ lies on the graph of $y=h(x)$ in the $xy$-plane, where $h(x)=\\sqrt{x}$. Which point lies on the graph of $y=\\frac{1}{3}h(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(12,2)$"
+    },
+    {
+      "id": "B",
+      "text": "$(12,6)$"
+    },
+    {
+      "id": "C",
+      "text": "$(36,2)$"
+    },
+    {
+      "id": "D",
+      "text": "$(36,18)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "scales both coordinates",
+    "B": "scales the input instead of the output",
+    "D": "multiplies by 3 instead of dividing"
+  },
+  "correctAnswer": "C",
+  "hint": "The factor is applied after $h$ produces its output, so only one coordinate can change.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** The input stays $36$ and the output is divided by $3$: $\\frac{1}{3}(6)=2$, giving $(36,2)$.\n\n**The Full Solution:**\nStep 1: At $x=36$, $h(36)=\\sqrt{36}=6$, which is the height given in the problem.\nStep 2: The new function multiplies that output by $\\frac{1}{3}$: $\\frac{1}{3}h(36)=\\frac{1}{3}(6)=2$.\nStep 3: The input was never altered, so the point is $(36,2)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(12,2)$): divides both coordinates by $3$; the factor outside the function touches the output only.\n* Choice B ($(12,6)$): divides the input by $3$, which is the effect of $h\\!\\left(\\frac{x}{3}\\right)$, not of $\\frac{1}{3}h(x)$.\n* Choice D ($(36,18)$): multiplies the output by $3$ instead of dividing by $3$.\n\n**Test Day Takeaway:** A factor outside the function scales heights only: $(a,b)$ becomes $(a,cb)$."
+}

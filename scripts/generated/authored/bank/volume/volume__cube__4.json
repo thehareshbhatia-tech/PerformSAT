@@ -1,0 +1,30 @@
+{
+ "id": 4,
+ "question": "The surface area of a cube is $150$ square inches. What is the volume, in cubic inches, of the cube?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$25$"
+  },
+  {
+   "id": "B",
+   "text": "$125$"
+  },
+  {
+   "id": "C",
+   "text": "$900$"
+  },
+  {
+   "id": "D",
+   "text": "$3{,}375$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "stops at the area of one face",
+  "C": "multiplies the surface area by $6$ instead of dividing by it",
+  "D": "uses an edge of $15$, obtained by dividing the surface area by $10$"
+ },
+ "correctAnswer": "B",
+ "hint": "Divide by the number of faces before doing anything else.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** One face has area $25$, so $s = 5$ and $V = 125$.\n\n**The Full Solution:**\nStep 1: A cube has $6$ congruent square faces, so $6s^2 = 150$ and $s^2 = 25$.\nStep 2: Take the square root: $s = 5$ inches.\nStep 3: $V = 5^3 = 125$ cubic inches.\n\nVerification: $6(5^2) = 150$ square inches, the given surface area. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($25$): stops at the area of one face.\n* Choice C ($900$): multiplies the surface area by $6$ instead of dividing by it.\n* Choice D ($3{,}375$): uses an edge of $15$, obtained by dividing the surface area by $10$.\n\n**Test Day Takeaway:** Divide a cube surface area by $6$ to get one face, square-root for the edge, then cube."
+}

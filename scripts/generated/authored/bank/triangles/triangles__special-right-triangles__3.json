@@ -1,0 +1,30 @@
+{
+ "id": 3,
+ "question": "The hypotenuse of a $45°$-$45°$-$90°$ triangle has length $14$ centimeters. What is the length, in centimeters, of each leg of the triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$7$"
+  },
+  {
+   "id": "B",
+   "text": "$7\\sqrt{2}$"
+  },
+  {
+   "id": "C",
+   "text": "$7\\sqrt{3}$"
+  },
+  {
+   "id": "D",
+   "text": "$14\\sqrt{2}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "halves the hypotenuse, which is the $30°$-$60°$-$90°$ rule",
+  "C": "brings in $\\sqrt{3}$ from the $30°$-$60°$-$90°$ ratios",
+  "D": "multiplies by $\\sqrt{2}$ instead of dividing by it"
+ },
+ "correctAnswer": "B",
+ "hint": "Undo the $\\sqrt{2}$ that turned a leg into the hypotenuse.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** Each leg is $\\frac{14}{\\sqrt{2}} = 7\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The legs are equal; call each $\\ell$, so the sides are $\\ell : \\ell : \\ell\\sqrt{2}$.\nStep 2: $\\ell\\sqrt{2} = 14$, so $\\ell = \\frac{14}{\\sqrt{2}}$.\nStep 3: Rationalize: $\\frac{14}{\\sqrt{2}} \\cdot \\frac{\\sqrt{2}}{\\sqrt{2}} = \\frac{14\\sqrt{2}}{2} = 7\\sqrt{2}$.\n\nVerification: $(7\\sqrt{2})^2 + (7\\sqrt{2})^2 = 98 + 98 = 196 = 14^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): halves the hypotenuse, which is the $30°$-$60°$-$90°$ rule.\n* Choice C ($7\\sqrt{3}$): brings in $\\sqrt{3}$ from the $30°$-$60°$-$90°$ ratios.\n* Choice D ($14\\sqrt{2}$): multiplies by $\\sqrt{2}$ instead of dividing by it.\n\n**Test Day Takeaway:** Hypotenuse to leg in a $45°$-$45°$-$90°$ triangle means dividing by $\\sqrt{2}$ and rationalizing."
+}

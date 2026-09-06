@@ -1,0 +1,30 @@
+{
+  "id": 5,
+  "question": "The function $f$ is defined by $f(x) = x^2 + 3$. If $f(t + 2) - f(t) = 32$, where $t$ is a constant, what is the value of $t$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$6$"
+    },
+    {
+      "id": "B",
+      "text": "$7$"
+    },
+    {
+      "id": "C",
+      "text": "$8$"
+    },
+    {
+      "id": "D",
+      "text": "$9$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "mis-factors the difference as 4(t + 2)",
+    "C": "drops the constant in the difference",
+    "D": "adds 4 instead of subtracting"
+  },
+  "correctAnswer": "B",
+  "hint": "Expand $f(t + 2)$ completely before subtracting; the squared terms cancel.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~35s):** The difference simplifies to $4t + 4$, and $4t + 4 = 32$ gives $t = 7$.\n\n**The Full Solution:**\nStep 1: Expand the shifted output: $f(t + 2) = (t + 2)^2 + 3 = t^2 + 4t + 4 + 3 = t^2 + 4t + 7$.\nStep 2: Subtract the other output: $f(t + 2) - f(t) = (t^2 + 4t + 7) - (t^2 + 3) = 4t + 4$.\nStep 3: Solve $4t + 4 = 32$: $4t = 28$, so $t = 7$. Check: $f(9) - f(7) = 84 - 52 = 32$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): factors the difference as $4(t + 2)$ instead of $4(t + 1)$ and solves $t + 2 = 8$.\n* Choice C ($8$): drops the constant term of the difference and solves $4t = 32$.\n* Choice D ($9$): adds $4$ to both sides instead of subtracting it, solving $4t = 36$.\n\n**Test Day Takeaway:** For a quadratic rule, a difference of outputs collapses to a linear expression once the squared terms cancel — expand fully before you subtract."
+}

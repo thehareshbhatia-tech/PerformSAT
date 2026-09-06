@@ -1,0 +1,30 @@
+{
+ "id": 2,
+ "question": "In the $xy$-plane, the equation $x^2 + y^2 - 12x + 4y - 9 = 0$ defines a circle. What is the radius of this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3$"
+  },
+  {
+   "id": "B",
+   "text": "$2\\sqrt{10}$"
+  },
+  {
+   "id": "C",
+   "text": "$7$"
+  },
+  {
+   "id": "D",
+   "text": "$49$"
+  }
+ ],
+ "correctAnswer": "C",
+ "hint": "The constant term has to move across the equal sign before the squares are completed.",
+ "distractorNotes": {
+  "A": "takes the root of the constant",
+  "B": "never moves the constant",
+  "D": "reports r squared"
+ },
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~40s):** Completing both squares gives $(x - 6)^2 + (y + 2)^2 = 9 + 36 + 4 = 49$, so $r = 7$.\n\n**The Full Solution:**\nStep 1: Move the constant: $\\left(x^2 - 12x\\right) + \\left(y^2 + 4y\\right) = 9$.\nStep 2: Add $\\left(\\frac{-12}{2}\\right)^2 = 36$ and $\\left(\\frac{4}{2}\\right)^2 = 4$ to both sides: $(x - 6)^2 + (y + 2)^2 = 9 + 36 + 4$.\nStep 3: $r^2 = 49$, so $r = 7$. Check: expanding $(x - 6)^2 + (y + 2)^2 = 49$ gives $x^2 + y^2 - 12x + 4y - 9 = 0$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): takes the square root of the constant term $9$ and calls it the radius.\n* Choice B ($2\\sqrt{10}$): leaves the $-9$ on the left, using $r^2 = 36 + 4 = 40$.\n* Choice D ($49$): reports $r^2$ instead of the radius.\n\n**Test Day Takeaway:** Every constant you add on the left must also be added on the right, and the original constant moves over first."
+}

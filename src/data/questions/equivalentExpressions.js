@@ -7,77 +7,78 @@ export const equivalentExpressionsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "Which expression is equivalent to 3(2x + 4) - 2(x - 1)?",
+      question: "The table shows the number of units of each supply a bakery buys and the price per unit, in dollars, in terms of $x$. Which expression represents the total amount, in dollars, the bakery pays for these supplies?",
+      diagram: { type: "dataTable", params: { headers: ["Supply", "Number of units", "Price per unit (dollars)"], rows: [["Flour sacks", "4", "x + 3"], ["Yeast packets", "3", "2x − 1"]] } },
       choices: [
-        { id: "A", text: "$4x + 14$" },
-        { id: "B", text: "$4x + 10$" },
-        { id: "C", text: "$8x + 14$" },
-        { id: "D", text: "$4x + 12$" }
+        { id: "A", text: "$10x + 2$" },
+        { id: "B", text: "$10x + 9$" },
+        { id: "C", text: "$10x + 15$" },
+        { id: "D", text: "$21x + 14$" }
       ],
-      correctAnswer: "A",
-      hint: "Use the distributive property to expand each term, then combine like terms. Pay close attention to signs when distributing a negative number.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** Distribute both products and track the signs: $6x+12$ from the first, $-2x+2$ from the second. Combine to get $4x+14$.\n\n**The Full Solution:**\nStep 1: Distribute the $3$: $3(2x+4)=6x+12$.\nStep 2: Distribute the $-2$: $-2(x-1)=-2x+2$ (negative times negative is positive).\nStep 3: Combine like terms: $(6x-2x)+(12+2)=4x+14$, which is choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B ($4x+10$): distributed $-2(x-1)$ as $-2x-2$, dropping the sign flip on the $-1$.\n* Choice C ($8x+14$): added the $x$ terms ($6x+2x$) instead of subtracting; $6x-2x=4x$.\n* Choice D ($4x+12$): forgot the $+2$ from $-2(-1)$, distributing only to the first inner term.\n\n**Test Day Takeaway:** A negative outside parentheses flips the sign of every term inside — apply it to all terms, not just the first.",
-      skills: ['distributive-property', 'combining-like-terms']
+      correctAnswer: "B",
+      hint: "Each row contributes (number of units)(price per unit); distribute each product completely before you combine anything.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** $4(x+3)=4x+12$ and $3(2x-1)=6x-3$; adding gives $10x+9$ — choice B.\n\n**The Full Solution:**\nStep 1: The flour sacks cost $4(x+3)=4x+12$ dollars.\nStep 2: The yeast packets cost $3(2x-1)=6x-3$ dollars.\nStep 3: Add the two costs and combine like terms: $(4x+6x)+(12-3)=10x+9$.\nStep 4: Check with a number. At $x=2$ the unit prices are $5$ and $3$ dollars, so the bill is $4(5)+3(3)=29$ dollars, and $10(2)+9=29$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($10x + 2$): multiplies each quantity by only the $x$-term and copies the constants over untouched: $4x+3+6x-1$.\n* Choice C ($10x + 15$): distributes the $3$ across $2x-1$ as $6x+3$, losing the subtraction sign on the constant.\n* Choice D ($21x + 14$): adds the two unit prices first, $(x+3)+(2x-1)=3x+2$, then multiplies by the total number of units, $7$ — but the two supplies have different unit counts.\n\n**Test Day Takeaway:** Distribute the multiplier across every term inside the parentheses, sign included, and only then collect like terms. A quick numerical check with a convenient value of $x$ catches a dropped sign in seconds.",
+      skills: ["distributive-property", "combining-like-terms"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "Which expression is equivalent to (x + 3)(x - 3)?",
+      question: "The expression $(4y+9)(4y-9)$ is equivalent to which of the following expressions?",
       choices: [
-        { id: "A", text: "$x^2 - 6$" },
-        { id: "B", text: "$x^2 + 9$" },
-        { id: "C", text: "$x^2 - 9$" },
-        { id: "D", text: "$x^2 + 6x + 9$" }
+        { id: "A", text: "$8y^{2}-81$" },
+        { id: "B", text: "$16y^{2}-81$" },
+        { id: "C", text: "$16y^{2}+81$" },
+        { id: "D", text: "$16y^{2}-72y-81$" }
       ],
-      correctAnswer: "C",
-      hint: "Look for a special pattern here. When you have the sum and difference of the same two terms being multiplied, there's a shortcut formula you can use.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** This is difference of squares: $(a+b)(a-b)=a^2-b^2$. With $a=x$, $b=3$, you get $x^2-9$ instantly.\n\n**The Full Solution:**\nStep 1: Recognize the pattern $(a+b)(a-b)=a^2-b^2$ — the cross terms cancel.\nStep 2: Here $a=x$ and $b=3$, so $(x+3)(x-3)=x^2-3^2=x^2-9$, which is choice C.\nStep 3: FOIL to confirm: $x^2-3x+3x-9=x^2-9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^2-6$): computed $3^2$ as $6$ instead of $9$ — confused doubling with squaring.\n* Choice B ($x^2+9$): kept a plus sign; difference of squares gives $a^2-b^2$, not $a^2+b^2$.\n* Choice D ($x^2+6x+9$): expanded $(x+3)^2$ instead, treating both factors as $(x+3)$.\n\n**Test Day Takeaway:** $(a+b)(a-b)=a^2-b^2$ — when you see matching terms with opposite signs, skip FOIL and write the difference of squares.",
-      skills: ['difference-of-squares']
+      correctAnswer: "B",
+      hint: "The two binomials differ only in the sign of the second term — look at what that does to the two middle products.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** A sum times a difference leaves $(4y)^{2}-9^{2}=16y^{2}-81$ — choice B.\n\n**The Full Solution:**\nStep 1: Expand: $(4y+9)(4y-9)=16y^{2}-36y+36y-81$.\nStep 2: The middle terms $-36y$ and $+36y$ are opposites, so they add to $0$.\nStep 3: What remains is $16y^{2}-81$. Check at $y=1$: $(13)(-5)=-65$, and $16-81=-65$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8y^{2}-81$): adds $4y$ to itself instead of squaring it; the correct first term is $4y\\cdot 4y = 16y^{2}$.\n* Choice C ($16y^{2}+81$): treats the product as a sum of squares, $(4y)^{2}+9^{2}$; the last pair of terms multiplies to $9(-9)=-81$, so the constant is negative.\n* Choice D ($16y^{2}-72y-81$): mis-signs both middle products as $-36y$ and $-36y$, so they add to $-72y$ instead of cancelling.\n\n**Test Day Takeaway:** $(A+B)(A-B)=A^{2}-B^{2}$: recognizing the pattern removes the middle terms before you write them down, and squaring $4y$ means squaring the coefficient too.",
+      skills: ["difference-of-squares"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "Simplify: (4x²y³)/(2xy)",
+      question: "Which of the following is equivalent to $\\frac{18a^{5}b^{2}}{6a^{2}b^{5}}$, where $a>0$ and $b>0$?",
       choices: [
-        { id: "A", text: "$2xy^2$" },
-        { id: "B", text: "$2x^2y^2$" },
-        { id: "C", text: "2xy" },
-        { id: "D", text: "8x³y⁴" }
+        { id: "A", text: "$3a^{3}b^{3}$" },
+        { id: "B", text: "$\\frac{3a^{3}}{b^{3}}$" },
+        { id: "C", text: "$\\frac{3a^{7}}{b^{7}}$" },
+        { id: "D", text: "$\\frac{12a^{3}}{b^{3}}$" }
       ],
-      correctAnswer: "A",
-      hint: "When dividing terms with the same base, subtract the exponents. Handle the coefficients and each variable separately.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** Divide coefficients ($4\\div 2=2$) and subtract exponents on each base: $x^{2-1}=x$ and $y^{3-1}=y^2$. That gives $2xy^2$.\n\n**The Full Solution:**\nStep 1: Coefficients: $\\frac{4}{2}=2$.\nStep 2: Base $x$: $\\frac{x^2}{x}=x^{2-1}=x$.\nStep 3: Base $y$: $\\frac{y^3}{y}=y^{3-1}=y^2$.\nStep 4: Combine: $\\frac{4x^2y^3}{2xy}=2xy^2$, which is choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B ($2x^2y^2$): forgot to subtract the $x$ exponent; $\\frac{x^2}{x}=x$, not $x^2$.\n* Choice C ($2xy$): over-subtracted on $y$; $y^{3-1}=y^2$, not $y^1$.\n* Choice D ($8x^3y^4$): multiplied instead of dividing — added exponents and multiplied coefficients.\n\n**Test Day Takeaway:** Dividing same-base powers means subtracting exponents: $\\frac{a^m}{a^n}=a^{m-n}$. A fraction signals subtraction, never addition.",
-      skills: ['simplifying-rational-expressions', 'exponent-laws']
+      correctAnswer: "B",
+      hint: "Handle the coefficients and each variable separately, and watch which variable has the larger exponent on top.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** $18\\div 6=3$, $a^{5-2}=a^{3}$, and $b^{2-5}=b^{-3}$, so the $b^{3}$ lands in the denominator: $\\frac{3a^{3}}{b^{3}}$ — choice B.\n\n**The Full Solution:**\nStep 1: Divide the coefficients: $\\frac{18}{6}=3$.\nStep 2: Subtract exponents on $a$: $a^{5-2}=a^{3}$, which stays in the numerator.\nStep 3: Subtract exponents on $b$: $b^{2-5}=b^{-3}$, and a negative exponent means the factor belongs in the denominator, giving $\\frac{3a^{3}}{b^{3}}$.\nStep 4: Check at $a=b=2$: the original is $\\frac{18(32)(4)}{6(4)(32)}=3$, and $\\frac{3(8)}{8}=3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3a^{3}b^{3}$): subtracts the $b$ exponents but leaves the result in the numerator, ignoring that $b^{2-5}$ is negative.\n* Choice C ($\\frac{3a^{7}}{b^{7}}$): adds the exponents instead of subtracting them: $a^{5+2}$ and $b^{2+5}$.\n* Choice D ($\\frac{12a^{3}}{b^{3}}$): subtracts the coefficients, $18-6=12$, instead of dividing them.\n\n**Test Day Takeaway:** Division of like bases subtracts exponents; a negative result just moves that factor across the fraction bar. Coefficients divide — they never subtract.",
+      skills: ["simplifying-rational-expressions", "exponent-laws"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "Which expression is equivalent to x² + 6x + 9?",
+      question: "The expression $9m^{2}-30m+25$ can be written in the form $(am+b)^{2}$, where $a$ and $b$ are constants and $a>0$. What is the value of $a+b$?",
       choices: [
-        { id: "A", text: "$(x + 3)^2$" },
-        { id: "B", text: "$(x - 3)^2$" },
-        { id: "C", text: "$(x + 9)(x + 1)$" },
-        { id: "D", text: "$(x + 6)(x + 3)$" }
+        { id: "A", text: "$-12$" },
+        { id: "B", text: "$-2$" },
+        { id: "C", text: "$8$" },
+        { id: "D", text: "$34$" }
       ],
-      correctAnswer: "A",
-      hint: "Check if this is a perfect square trinomial by seeing if the first and last terms are perfect squares, and if the middle term equals twice the product of their square roots.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~10s):** The first and last terms are perfect squares ($x^2$ and $9$) and the middle is $2\\cdot x\\cdot 3=6x$, so this factors as $(x+3)^2$.\n\n**The Full Solution:**\nStep 1: Match the pattern $a^2+2ab+b^2=(a+b)^2$. Here $a=x$ (since $a^2=x^2$) and $b=3$ (since $b^2=9$).\nStep 2: Check the middle term: $2ab=2(x)(3)=6x$. $\\checkmark$\nStep 3: Factor: $x^2+6x+9=(x+3)^2$, which is choice A.\n\n**Why the wrong answers are tempting:**\n* Choice B ($(x-3)^2$): expands to $x^2-6x+9$; a $+6x$ middle term needs a plus inside the parentheses.\n* Choice C ($(x+9)(x+1)$): multiplies to $9$ but expands to $x^2+10x+9$, so the middle term is wrong.\n* Choice D ($(x+6)(x+3)$): expands to $x^2+9x+18$; mistook the $6$ coefficient for a factor.\n\n**Test Day Takeaway:** When both end terms are perfect squares and the middle equals $2\\sqrt{\\text{first}}\\cdot\\sqrt{\\text{last}}$, it factors as a perfect square binomial.",
-      skills: ['perfect-square-trinomial']
+      correctAnswer: "B",
+      hint: "Expand $(am+b)^{2}$ in general first, then match it term by term against the given trinomial.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** $9m^{2}=(3m)^{2}$ and $25=(-5)^{2}$, and $2(3)(-5)=-30$ matches the middle term, so $a=3$, $b=-5$ and $a+b=-2$ — choice B.\n\n**The Full Solution:**\nStep 1: Expanding the target form gives $(am+b)^{2}=a^{2}m^{2}+2abm+b^{2}$.\nStep 2: Match the squared term: $a^{2}=9$, and since $a>0$, $a=3$.\nStep 3: Match the middle term: $2ab=-30$, so $2(3)b=-30$ and $b=-5$. That is consistent with $b^{2}=25$.\nStep 4: Then $a+b=3+(-5)=-2$. Check: $(3m-5)^{2}=9m^{2}-30m+25$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): takes $a=3$ correctly but reads $b$ as half the middle coefficient, $\\frac{-30}{2}=-15$, giving $3+(-15)$.\n* Choice C ($8$): gets both magnitudes right but keeps $b=5$; the negative middle term forces $b$ to be negative.\n* Choice D ($34$): uses the coefficients $9$ and $25$ themselves as $a$ and $b$ rather than their square roots.\n\n**Test Day Takeaway:** To match a form, expand the form symbolically and line up coefficients. The sign of the middle term, not the constant term, is what decides the sign of $b$.",
+      skills: ["perfect-square-trinomial"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "Which expression is equivalent to (2a + b)²?",
+      question: "Which of the following is equivalent to $(3c-5d)^{2}-(3c+5d)^{2}$, where $c$ and $d$ are constants?",
       choices: [
-        { id: "A", text: "$4a^2 + b^2$" },
-        { id: "B", text: "$4a^2 + 2ab + b^2$" },
-        { id: "C", text: "$4a^2 + 4ab + b^2$" },
-        { id: "D", text: "$2a^2 + 2ab + b^2$" }
+        { id: "A", text: "$-60cd$" },
+        { id: "B", text: "$0$" },
+        { id: "C", text: "$60cd$" },
+        { id: "D", text: "$18c^{2}+50d^{2}$" }
       ],
-      correctAnswer: "C",
-      hint: "Use the perfect square formula: $(a + b)^2 = a^2 + 2ab + b^2$. Remember to square the entire first term, including its coefficient.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** Square the binomial: $(2a)^2+2(2a)(b)+b^2=4a^2+4ab+b^2$. The key is squaring the full $2a$ and doubling the cross term.\n\n**The Full Solution:**\nStep 1: Apply $(x+y)^2=x^2+2xy+y^2$ with $x=2a$ and $y=b$.\nStep 2: First term: $(2a)^2=4a^2$.\nStep 3: Middle term: $2(2a)(b)=4ab$.\nStep 4: Last term: $b^2$. Combine: $4a^2+4ab+b^2$, which is choice C.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4a^2+b^2$): dropped the middle term; $(a+b)^2\\neq a^2+b^2$ — squaring a binomial always gives three terms.\n* Choice B ($4a^2+2ab+b^2$): used $2ab$ for the cross term, forgetting the inner $a$ is really $2a$, so it should be $4ab$.\n* Choice D ($2a^2+2ab+b^2$): computed $(2a)^2$ as $2a^2$; squaring hits both the coefficient and the variable, giving $4a^2$.\n\n**Test Day Takeaway:** $(ka+b)^2=k^2a^2+2kab+b^2$ — square the whole leading term and double the product for the middle. Never forget the cross term.",
-      skills: ['perfect-square-trinomial']
+      correctAnswer: "A",
+      hint: "Expand both squares in full before subtracting, and keep the parentheses around the second square while you distribute the minus sign.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** Both squares carry $9c^{2}+25d^{2}$, so those cancel; only the middle terms survive: $-30cd-(+30cd)=-60cd$ — choice A.\n\n**The Full Solution:**\nStep 1: Expand the first square: $(3c-5d)^{2}=9c^{2}-30cd+25d^{2}$.\nStep 2: Expand the second square: $(3c+5d)^{2}=9c^{2}+30cd+25d^{2}$.\nStep 3: Subtract, distributing the minus sign across all three terms: $(9c^{2}-30cd+25d^{2})-9c^{2}-30cd-25d^{2}=-60cd$.\nStep 4: Check at $c=1$, $d=1$: $(-2)^{2}-(8)^{2}=4-64=-60$, and $-60(1)(1)=-60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($0$): assumes squaring distributes over the terms, so both squares would expand to $9c^{2}+25d^{2}$ and cancel completely.\n* Choice C ($60cd$): subtracts in the wrong order, computing $(3c+5d)^{2}-(3c-5d)^{2}$ instead.\n* Choice D ($18c^{2}+50d^{2}$): adds the two squares rather than subtracting them: the $\\pm 30cd$ terms cancel and the squares double to $18c^{2}+50d^{2}$.\n\n**Test Day Takeaway:** A difference of two squared binomials keeps only the cross terms. Distribute the subtraction across every term of the second expansion — that dropped minus sign is the whole trap.",
+      skills: ["perfect-square-trinomial"]
     }
   ]
 };

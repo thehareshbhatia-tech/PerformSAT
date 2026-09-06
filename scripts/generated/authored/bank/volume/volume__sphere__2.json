@@ -1,0 +1,30 @@
+{
+ "id": 2,
+ "question": "A sphere has a volume of $36\\pi$ cubic centimeters. What is the radius, in centimeters, of the sphere?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3$"
+  },
+  {
+   "id": "B",
+   "text": "$6$"
+  },
+  {
+   "id": "C",
+   "text": "$9$"
+  },
+  {
+   "id": "D",
+   "text": "$27$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "gives the diameter instead of the radius",
+  "C": "divides the coefficient $36$ by $4$ and stops",
+  "D": "reports $r^3$ rather than $r$"
+ },
+ "correctAnswer": "A",
+ "hint": "Clear the fraction $\\frac{4}{3}$ before undoing the cube.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~25s):** $\\frac{4}{3}r^3 = 36$ gives $r^3 = 27$ and $r = 3$.\n\n**The Full Solution:**\nStep 1: $\\frac{4}{3}\\pi r^3 = 36\\pi$; divide both sides by $\\pi$ to get $\\frac{4}{3}r^3 = 36$.\nStep 2: Multiply both sides by $\\frac{3}{4}$: $r^3 = 27$.\nStep 3: $r = \\sqrt[3]{27} = 3$ centimeters.\n\nVerification: $\\frac{4}{3}\\pi(3^3) = \\frac{4}{3}\\pi(27) = 36\\pi$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): gives the diameter instead of the radius.\n* Choice C ($9$): divides the coefficient $36$ by $4$ and stops.\n* Choice D ($27$): reports $r^3$ rather than $r$.\n\n**Test Day Takeaway:** Back-solving a sphere means clearing $\\frac{4}{3}$ and then taking a cube root, in that order."
+}

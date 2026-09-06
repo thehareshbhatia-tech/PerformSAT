@@ -1,0 +1,46 @@
+{
+  "id": 13,
+  "question": "The table lists three pairs of values that satisfy a linear relationship between $x$ and $y$. Which equation represents this relationship?",
+  "diagram": {
+    "type": "table",
+    "params": {
+      "rows": [
+        [
+          1,
+          34
+        ],
+        [
+          4,
+          22
+        ],
+        [
+          7,
+          10
+        ]
+      ],
+      "xHeader": "x",
+      "yHeader": "y"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -12x + 46$"
+    },
+    {
+      "id": "B",
+      "text": "$y = -4x + 34$"
+    },
+    {
+      "id": "C",
+      "text": "$y = -4x + 38$"
+    },
+    {
+      "id": "D",
+      "text": "$y = 4x + 30$"
+    }
+  ],
+  "correctAnswer": "C",
+  "hint": "The $x$-values jump by more than $1$ between rows, so the drop in $y$ is not the rate of change on its own.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $y$ falls $12$ for every $3$ that $x$ rises, so $m = -4$; then $34 = -4(1)+b$ gives $b = 38$ — choice C.\n\n**The Full Solution:**\nStep 1: Rate of change from the first two rows: $m = \\frac{22-34}{4-1} = \\frac{-12}{3} = -4$.\nStep 2: Substitute $(1, 34)$ into $y = -4x + b$: $34 = -4 + b$, so $b = 38$.\nStep 3: The equation is $y = -4x + 38$. Check the last row: $-4(7)+38 = 10$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -12x + 46$): uses the $12$-unit drop between rows as the rate of change without dividing by the $3$-unit change in $x$; that then forces $b = 46$.\n* Choice B ($y = -4x + 34$): has the correct rate of change but takes $34$, the value of $y$ at $x = 1$, as the $y$-intercept.\n* Choice D ($y = 4x + 30$): makes the rate of change positive even though $y$ falls as $x$ rises; that then forces $b = 30$.\n\n**Test Day Takeaway:** Divide by the change in $x$ every time. When table inputs step by $3$, the raw drop in the output is three rate-of-change steps, not one."
+}

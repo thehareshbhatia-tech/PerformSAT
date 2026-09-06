@@ -1,0 +1,30 @@
+{
+  "id": 4,
+  "question": "The function $f$ is defined by $f(x) = x^2 - 12x + 40$. What is the minimum value of $f(x)$ for all real values of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-6$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$40$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "drops the negative in the vertex formula",
+    "C": "reports the input, not the output",
+    "D": "reports the constant term"
+  },
+  "correctAnswer": "B",
+  "hint": "Find the input at the vertex first, then evaluate the function there.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** The vertex is at $x = 6$, and $f(6) = 36 - 72 + 40 = 4$.\n\n**The Full Solution:**\nStep 1: The leading coefficient is $1$, which is positive, so the parabola opens upward and the vertex gives the minimum value.\nStep 2: The vertex occurs at $x = -\\frac{b}{2a} = -\\frac{-12}{2} = 6$.\nStep 3: Evaluate: $f(6) = 6^2 - 12(6) + 40 = 36 - 72 + 40 = 4$. Check by completing the square: $f(x) = (x - 6)^2 + 4$, whose smallest value is $4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): computes $\\frac{b}{2a}$ without the leading negative sign and reports that instead of an output.\n* Choice C ($6$): reports the input at which the minimum occurs rather than the minimum value itself.\n* Choice D ($40$): reports $f(0)$, the constant term, which is a value of the function but not the smallest one.\n\n**Test Day Takeaway:** Minimum VALUE means a $y$-value. The vertex formula gives you the $x$-value, and you still have to substitute."
+}

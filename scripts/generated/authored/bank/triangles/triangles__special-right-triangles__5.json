@@ -1,0 +1,30 @@
+{
+ "id": 5,
+ "question": "In an equilateral triangle, the altitude drawn to one of the sides has length $12$ centimeters. What is the perimeter, in centimeters, of the triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$8\\sqrt{3}$"
+  },
+  {
+   "id": "B",
+   "text": "$24$"
+  },
+  {
+   "id": "C",
+   "text": "$36$"
+  },
+  {
+   "id": "D",
+   "text": "$24\\sqrt{3}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "gives one side length rather than the perimeter",
+  "B": "divides $24$ by $3$ instead of by $\\sqrt{3}$, getting a side of $8$ and a perimeter of $24$",
+  "C": "triples the altitude, treating the altitude itself as a side"
+ },
+ "correctAnswer": "D",
+ "hint": "The altitude of an equilateral triangle is not one of its sides — split the triangle in half first.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~60s):** $\\frac{s\\sqrt{3}}{2} = 12$ gives $s = 8\\sqrt{3}$, so the perimeter is $24\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: The altitude splits the equilateral triangle into two $30°$-$60°$-$90°$ triangles in which the altitude is the longer leg and a full side is the hypotenuse.\nStep 2: If a side is $s$, the altitude is $\\frac{s\\sqrt{3}}{2}$. Setting $\\frac{s\\sqrt{3}}{2} = 12$ gives $s = \\frac{24}{\\sqrt{3}} = 8\\sqrt{3}$.\nStep 3: The perimeter is $3s = 24\\sqrt{3}$.\n\nVerification: With $s = 8\\sqrt{3} \\approx 13.86$, half a side is about $6.93$ and $\\sqrt{13.86^2 - 6.93^2} \\approx 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8\\sqrt{3}$): gives one side length rather than the perimeter.\n* Choice B ($24$): divides $24$ by $3$ instead of by $\\sqrt{3}$, getting a side of $8$ and a perimeter of $24$.\n* Choice C ($36$): triples the altitude, treating the altitude itself as a side.\n\n**Test Day Takeaway:** The altitude of an equilateral triangle is the longer leg of a $30°$-$60°$-$90°$ triangle, never a side of it."
+}

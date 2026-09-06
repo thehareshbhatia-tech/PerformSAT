@@ -1,0 +1,30 @@
+{
+ "id": 5,
+ "question": "The equation $9^{x + 1} = 27^{x - 1}$ is true for exactly one value of $x$, where $x$ is a real number. What is the value of $x$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-5$"
+  },
+  {
+   "id": "B",
+   "text": "$-1$"
+  },
+  {
+   "id": "C",
+   "text": "$2$"
+  },
+  {
+   "id": "D",
+   "text": "$5$"
+  }
+ ],
+ "correctAnswer": "D",
+ "hint": "Both $9$ and $27$ are powers of the same base.",
+ "distractorNotes": {
+  "A": "sign slip isolating x",
+  "B": "reads the right exponent as x plus 1",
+  "C": "distributes to the variable only"
+ },
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~50s):** Writing both sides base $3$ gives $3^{2(x+1)} = 3^{3(x-1)}$, so $2x + 2 = 3x - 3$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: Rewrite each side with base $3$: $9^{x+1} = \\left(3^2\\right)^{x+1} = 3^{2x+2}$ and $27^{x-1} = \\left(3^3\\right)^{x-1} = 3^{3x-3}$.\nStep 2: Equal powers of $3$ force equal exponents: $2x + 2 = 3x - 3$.\nStep 3: Subtract $2x$ from both sides to get $2 = x - 3$, so $x = 5$. Check: $9^6 = 3^{12}$ and $27^4 = 3^{12}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): reaches $2x + 2 = 3x - 3$ but drops a sign while isolating $x$.\n* Choice B ($-1$): reads the right side as $27^{x+1}$, producing $2x + 2 = 3x + 3$.\n* Choice C ($2$): distributes the new exponent to the variable only, producing $2x + 1 = 3x - 1$.\n\n**Test Day Takeaway:** Convert to a common base, then distribute the outer exponent across the entire binomial exponent — constant included."
+}

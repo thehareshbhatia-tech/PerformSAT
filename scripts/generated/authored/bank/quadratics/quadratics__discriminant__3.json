@@ -1,0 +1,30 @@
+{
+  "id": 3,
+  "question": "In the $xy$-plane, the graph of $y = 2x^2 - 8x + 11$ is a parabola. How many $x$-intercepts does this parabola have?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "No $x$-intercepts"
+    },
+    {
+      "id": "B",
+      "text": "One $x$-intercept"
+    },
+    {
+      "id": "C",
+      "text": "Two $x$-intercepts"
+    },
+    {
+      "id": "D",
+      "text": "Three $x$-intercepts"
+    }
+  ],
+  "distractorNotes": {
+    "B": "the zero-discriminant case",
+    "C": "assumes two crossings",
+    "D": "impossible for a parabola"
+  },
+  "correctAnswer": "A",
+  "hint": "Count the real solutions of $y = 0$ without solving the equation itself.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $(-8)^2 - 4(2)(11) = 64 - 88 = -24 < 0$, so there are no real solutions and no $x$-intercepts.\n\n**The Full Solution:**\nStep 1: An $x$-intercept is a real solution of $2x^2 - 8x + 11 = 0$, so count those solutions.\nStep 2: Compute the discriminant: $b^2 - 4ac = (-8)^2 - 4(2)(11) = 64 - 88 = -24$.\nStep 3: A negative discriminant means no real solutions, so the parabola never meets the $x$-axis. Check by completing the square: $y = 2(x - 2)^2 + 3$, whose smallest value is $3$, always above zero. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: is the case of a discriminant equal to zero, where the vertex sits exactly on the axis.\n* Choice C: assumes every parabola crosses the $x$-axis twice, which is only true when the discriminant is positive.\n* Choice D: a parabola and a line meet at most twice, so three intercepts are impossible.\n\n**Test Day Takeaway:** Counting intercepts never requires solving — one discriminant computation answers the question."
+}

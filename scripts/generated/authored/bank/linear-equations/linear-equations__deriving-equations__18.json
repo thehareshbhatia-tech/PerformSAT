@@ -1,0 +1,25 @@
+{
+  "id": 18,
+  "question": "For the linear function $h$, $h(2) = -3$ and $h(6) = 13$. Which equation defines $h$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$h(x) = 16x - 35$"
+    },
+    {
+      "id": "B",
+      "text": "$h(x) = 4x - 11$"
+    },
+    {
+      "id": "C",
+      "text": "$h(x) = 4x - 3$"
+    },
+    {
+      "id": "D",
+      "text": "$h(x) = 4x + 11$"
+    }
+  ],
+  "correctAnswer": "B",
+  "hint": "Neither given input is $0$, so the constant term must come out of a substitution.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $m = \\frac{16}{4} = 4$, and $-3 = 4(2)+b$ gives $b = -11$ — choice B.\n\n**The Full Solution:**\nStep 1: Rate of change: $m = \\frac{13-(-3)}{6-2} = \\frac{16}{4} = 4$.\nStep 2: Substitute $(2, -3)$ into $h(x) = 4x + b$: $-3 = 8 + b$, so $b = -11$.\nStep 3: The equation is $h(x) = 4x - 11$. Check: $h(6) = 24-11 = 13$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($h(x) = 16x - 35$): uses the $16$-unit change in output as the rate of change without dividing by the $4$-unit change in input; that forces $b = -35$.\n* Choice C ($h(x) = 4x - 3$): has the correct rate of change but reads $h(2) = -3$ as the value at an input of $0$.\n* Choice D ($h(x) = 4x + 11$): solves $-3 = 8 + b$ but reverses the sign of the result, recording $+11$.\n\n**Test Day Takeaway:** Isolating $b$ from $-3 = 8 + b$ means subtracting $8$ from a negative number. Write that arithmetic out — the sign slip there is what separates two of these choices."
+}

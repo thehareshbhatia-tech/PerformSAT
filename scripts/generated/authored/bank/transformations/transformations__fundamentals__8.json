@@ -1,0 +1,30 @@
+{
+  "id": 8,
+  "question": "The function $z$ is defined by $z(x)=x^{2}$, and the lowest point of the graph of $y=z(x)$ in the $xy$-plane is $(0,0)$. What is the lowest point of the graph of $y=z(x-7)+4$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-7,4)$"
+    },
+    {
+      "id": "B",
+      "text": "$(4,7)$"
+    },
+    {
+      "id": "C",
+      "text": "$(7,-4)$"
+    },
+    {
+      "id": "D",
+      "text": "$(7,4)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "shifts left instead of right",
+    "B": "swaps the two coordinates",
+    "C": "reverses the sign of the outside constant"
+  },
+  "correctAnswer": "D",
+  "hint": "Handle the inside change and the outside change one at a time, each on its own coordinate.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** Inside, $x-7$ moves the low point $7$ units right; outside, $+4$ lifts it $4$ units: $(0,0)\\to(7,4)$.\n\n**The Full Solution:**\nStep 1: $z(x-7)=(x-7)^{2}$ is smallest when $x-7=0$, that is, at $x=7$, so the horizontal position moves from $0$ to $7$.\nStep 2: The $+4$ is added after squaring, so it raises the minimum output from $0$ to $0+4=4$.\nStep 3: The lowest point is therefore $(7,4)$. Check: $z(7-7)+4=0+4=4$, and any other $x$ gives $(x-7)^{2}>0$, hence a larger value. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-7,4)$): moves left instead of right; $z(x-7)$ shifts the graph in the positive direction.\n* Choice B ($(4,7)$): assigns the inside number to the height and the outside number to the horizontal position — the roles are swapped.\n* Choice C ($(7,-4)$): reverses the sign of the outside constant, which adds rather than subtracts height.\n\n**Test Day Takeaway:** Vertex bookkeeping: the inside constant changes $x$ and reverses its sign; the outside constant changes $y$ and keeps its sign."
+}

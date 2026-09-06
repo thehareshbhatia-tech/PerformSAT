@@ -1,0 +1,30 @@
+{
+ "id": 5,
+ "question": "For all positive values of $x$ and $y$, the expression $\\left(\\dfrac{8x^6}{y^{-3}}\\right)^{\\frac{2}{3}}$ is equivalent to which of the following?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\dfrac{4x^4}{y^2}$"
+  },
+  {
+   "id": "B",
+   "text": "$4x^4y^2$"
+  },
+  {
+   "id": "C",
+   "text": "$\\dfrac{16x^4y^2}{3}$"
+  },
+  {
+   "id": "D",
+   "text": "$8x^4y^2$"
+  }
+ ],
+ "correctAnswer": "B",
+ "hint": "Clear the negative exponent out of the denominator before the outer power is applied.",
+ "distractorNotes": {
+  "A": "drops the negative sign on the y exponent",
+  "C": "multiplies 8 by two-thirds",
+  "D": "never raises the coefficient"
+ },
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~50s):** The inside is $8x^6y^3$; raising each factor to the $\\frac{2}{3}$ power gives $4x^4y^2$.\n\n**The Full Solution:**\nStep 1: A negative exponent in the denominator moves to the numerator: $\\frac{8x^6}{y^{-3}} = 8x^6y^3$.\nStep 2: Distribute the outer exponent over every factor: $8^{\\frac{2}{3}}\\left(x^6\\right)^{\\frac{2}{3}}\\left(y^3\\right)^{\\frac{2}{3}}$.\nStep 3: $8^{\\frac{2}{3}} = \\left(\\sqrt[3]{8}\\right)^2 = 2^2 = 4$, $x^{6 \\cdot \\frac{2}{3}} = x^4$, and $y^{3 \\cdot \\frac{2}{3}} = y^2$, so the expression is $4x^4y^2$. Check at $x = y = 1$: the original is $8^{\\frac{2}{3}} = 4$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4x^4}{y^2}$): drops the negative sign and treats the denominator as $y^3$, so $\\left(y^3\\right)^{\\frac{2}{3}} = y^2$ stays underneath instead of moving up.\n* Choice C ($\\frac{16x^4y^2}{3}$): multiplies $8$ by $\\frac{2}{3}$ instead of raising $8$ to the $\\frac{2}{3}$ power.\n* Choice D ($8x^4y^2$): applies the outer exponent to the variables but leaves the coefficient $8$ untouched.\n\n**Test Day Takeaway:** A rational exponent is a root and a power: the denominator takes the root, the numerator raises it. The coefficient obeys the same rule as the variables."
+}

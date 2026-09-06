@@ -1,0 +1,30 @@
+{
+  "id": 2,
+  "question": "The function $f$ is defined by $f(x)=5x-8$. Which expression is equivalent to $-f(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-5x-8$"
+    },
+    {
+      "id": "B",
+      "text": "$-5x+8$"
+    },
+    {
+      "id": "C",
+      "text": "$5x-8$"
+    },
+    {
+      "id": "D",
+      "text": "$5x+8$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "negates only the leading term",
+    "C": "omits the negation entirely",
+    "D": "negates only the constant term"
+  },
+  "correctAnswer": "B",
+  "hint": "The negative sign multiplies the entire output, so every term feels it.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** $-f(x)=-(5x-8)=-5x+8$.\n\n**The Full Solution:**\nStep 1: $-f(x)$ means multiply the whole expression $5x-8$ by $-1$.\nStep 2: Distributing gives $-1(5x)+(-1)(-8)=-5x+8$.\nStep 3: Check at $x=2$: $f(2)=2$, so $-f(2)=-2$, and $-5(2)+8=-2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5x-8$): negates only the first term; the $-8$ must change sign as well.\n* Choice C ($5x-8$): leaves the expression untouched, as though $-f(x)$ meant $f(x)$.\n* Choice D ($5x+8$): negates only the constant term and leaves the $x$-term alone.\n\n**Test Day Takeaway:** A leading negative distributes over every term of the output — check the sign of each one."
+}

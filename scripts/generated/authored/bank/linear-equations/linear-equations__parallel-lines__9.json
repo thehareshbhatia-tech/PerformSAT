@@ -1,0 +1,25 @@
+{
+  "id": 9,
+  "question": "$9x - 45px = 27$\n\nIn the given equation, $p$ is a constant. The equation has no solution. What is the value of $p$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\frac{2}{5}$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\frac{1}{5}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\frac{1}{5}$"
+    },
+    {
+      "id": "D",
+      "text": "$5$"
+    }
+  ],
+  "correctAnswer": "C",
+  "hint": "Factor $x$ out of the left side first; a linear equation loses its solution only when something on the left disappears.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** Factoring gives $(9 - 45p)x = 27$; no solution requires $9 - 45p = 0$, so $p = \\frac{1}{5}$ — choice C.\n\n**The Full Solution:**\nStep 1: Combine the terms on the left: $9x - 45px = (9 - 45p)x$, so the equation is $(9 - 45p)x = 27$.\nStep 2: An equation of the form $kx = 27$ has no solution exactly when $k = 0$, because $0 = 27$ is never true. Set $9 - 45p = 0$.\nStep 3: Solve: $45p = 9$, so $p = \\frac{9}{45} = \\frac{1}{5}$.\nStep 4: Check: at $p = \\frac{1}{5}$ the left side is $9x - 9x = 0$, and $0 = 27$ has no solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{2}{5}$): sets the coefficient equal to the right-hand side, solving $9 - 45p = 27$ and getting $-\\frac{2}{5}$.\n* Choice B ($-\\frac{1}{5}$): reaches $-45p = -9$ but divides without tracking the two negatives, reporting $-\\frac{1}{5}$.\n* Choice D ($5$): divides $45$ by $9$ instead of $9$ by $45$.\n\n**Test Day Takeaway:** For a one-variable linear equation, no solution means the variable vanishes and a false numerical statement remains. Set the coefficient of $x$ to $0$, never to the constant on the right."
+}

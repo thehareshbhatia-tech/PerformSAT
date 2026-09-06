@@ -1,0 +1,30 @@
+{
+ "id": 3,
+ "question": "In isosceles triangle $PQR$, $PQ = PR$ and the measure of angle $P$ is $34°$. What is the measure, in degrees, of angle $Q$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$34$"
+  },
+  {
+   "id": "B",
+   "text": "$73$"
+  },
+  {
+   "id": "C",
+   "text": "$112$"
+  },
+  {
+   "id": "D",
+   "text": "$146$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "copies the given vertex angle instead of finding a base angle",
+  "C": "treats $34°$ as one of the two equal base angles and reports $180 - 34 - 34$",
+  "D": "subtracts $34$ from $180$ but never splits the remainder between the two equal angles"
+ },
+ "correctAnswer": "B",
+ "hint": "Equal sides sit opposite equal angles — decide which two angles must match here.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** Angles $Q$ and $R$ are equal, so each measures $\\frac{180 - 34}{2} = 73$.\n\n**The Full Solution:**\nStep 1: Because $PQ = PR$, the angles opposite those sides — angles $R$ and $Q$ — have equal measure.\nStep 2: The three angles total $180°$: $34 + m\\angle Q + m\\angle R = 180$, so $m\\angle Q + m\\angle R = 146$.\nStep 3: The two are equal, so $m\\angle Q = \\frac{146}{2} = 73$.\n\nVerification: $34 + 73 + 73 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($34$): copies the given vertex angle instead of finding a base angle.\n* Choice C ($112$): treats $34°$ as one of the two equal base angles and reports $180 - 34 - 34$.\n* Choice D ($146$): subtracts $34$ from $180$ but never splits the remainder between the two equal angles.\n\n**Test Day Takeaway:** In an isosceles triangle the equal angles sit opposite the equal sides: subtract the vertex angle from $180$, then halve."
+}

@@ -1,0 +1,30 @@
+{
+ "id": 4,
+ "question": "In the $xy$-plane, the circle $(x + 4)^2 + (y - 1)^2 = 25$ is reflected across the $x$-axis. Which of the following equations defines the image of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(x - 4)^2 + (y - 1)^2 = 25$"
+  },
+  {
+   "id": "B",
+   "text": "$(x + 4)^2 + (y + 1)^2 = 25$"
+  },
+  {
+   "id": "C",
+   "text": "$(x + 4)^2 + (y - 1)^2 = 25$"
+  },
+  {
+   "id": "D",
+   "text": "$(x - 4)^2 + (y + 1)^2 = 25$"
+  }
+ ],
+ "correctAnswer": "B",
+ "hint": "Track where the center $(-4, 1)$ lands.",
+ "distractorNotes": {
+  "A": "reflects across the y-axis",
+  "C": "leaves the circle unchanged",
+  "D": "reflects through the origin"
+ },
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** Reflecting across the $x$-axis sends the center $(-4, 1)$ to $(-4, -1)$, so the image is $(x + 4)^2 + (y + 1)^2 = 25$.\n\n**The Full Solution:**\nStep 1: The given circle has center $(-4, 1)$ and radius $5$.\nStep 2: A reflection across the $x$-axis keeps $x$ and negates $y$, so the center becomes $(-4, -1)$; the radius is unchanged.\nStep 3: The image is $(x + 4)^2 + (y + 1)^2 = 25$. Check: the original and its image are the same distance from the $x$-axis, one unit above and one unit below.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 4)^2 + (y - 1)^2 = 25$): negates the $x$-coordinate, which is a reflection across the $y$-axis.\n* Choice C ($(x + 4)^2 + (y - 1)^2 = 25$): repeats the original equation, as if the center were already on the axis of reflection.\n* Choice D ($(x - 4)^2 + (y + 1)^2 = 25$): negates both coordinates, which is a reflection through the origin.\n\n**Test Day Takeaway:** Reflecting across the $x$-axis changes the sign of $y$ only. Apply it to the center and copy the radius."
+}

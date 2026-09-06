@@ -1,0 +1,30 @@
+{
+ "id": 1,
+ "question": "A circular fountain has a radius of $13$ feet. What is the circumference, in feet, of the fountain?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$13\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$26\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$52\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$169\\pi$"
+  }
+ ],
+ "correctAnswer": "B",
+ "hint": "Circumference grows with the radius itself, not with its square.",
+ "distractorNotes": {
+  "A": "uses pi times r",
+  "C": "uses 2 pi d",
+  "D": "computes the area"
+ },
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** $C = 2\\pi r = 2\\pi(13) = 26\\pi$ feet.\n\n**The Full Solution:**\nStep 1: The circumference of a circle is $C = 2\\pi r$.\nStep 2: Substitute $r = 13$: $C = 2\\pi(13)$.\nStep 3: $C = 26\\pi$ feet. Check: the equivalent form $C = \\pi d$ with $d = 26$ gives the same $26\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($13\\pi$): uses $\\pi r$, dropping the factor of $2$ that turns a radius into a diameter.\n* Choice C ($52\\pi$): applies $2\\pi d$, doubling a length that was already doubled.\n* Choice D ($169\\pi$): computes the area $\\pi r^2$, which is measured in square feet.\n\n**Test Day Takeaway:** $C = 2\\pi r$ and $C = \\pi d$ are the same rule. Whichever you use, the radius appears to the first power."
+}

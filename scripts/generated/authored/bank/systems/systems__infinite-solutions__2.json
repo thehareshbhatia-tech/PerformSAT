@@ -1,0 +1,30 @@
+{
+  "id": 2,
+  "question": "Two linear equations in $x$ and $y$ are each written in the form $ax + by = c$. The system of these two equations has infinitely many solutions. Which statement must be true?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The two equations have the same value of $c$ but different values of $a$."
+    },
+    {
+      "id": "B",
+      "text": "Each equation can be obtained from the other by multiplying every term by the same nonzero constant."
+    },
+    {
+      "id": "C",
+      "text": "The two equations have the same value of $a$ and different values of $c$."
+    },
+    {
+      "id": "D",
+      "text": "The graphs of the two equations are parallel and distinct."
+    }
+  ],
+  "distractorNotes": {
+    "A": "matching only the constant term leaves the coefficients free, so the lines generally cross at a single point.",
+    "C": "matching one coefficient while the constants differ gives lines that either cross once or never meet at all.",
+    "D": "parallel and distinct lines share no points, so that system has no solution rather than infinitely many."
+  },
+  "correctAnswer": "B",
+  "hint": "Infinitely many solutions means the two equations carry exactly the same information.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** Infinitely many solutions occur only when the equations describe the same line, which means one is a nonzero multiple of the other.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has infinitely many solutions exactly when every solution of one equation solves the other, so the two graphs are the same line.\nStep 2: Two equations in the form $ax + by = c$ have the same graph exactly when all three of $a$, $b$, and $c$ are scaled by one nonzero constant.\nStep 3: So each equation must be a nonzero multiple of the other. Check: $2x + 3y = 8$ and $6x + 9y = 24$ describe one line, while $6x + 9y = 20$ describes a different, parallel one. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: matching only the constant term leaves the coefficients free, so the lines generally cross at a single point.\n* Choice C: matching one coefficient while the constants differ gives lines that either cross once or never meet at all.\n* Choice D: parallel and distinct lines share no points, so that system has no solution rather than infinitely many.\n\n**Test Day Takeaway:** Infinitely many solutions means one equation is a scaled copy of the other, coefficients and constant alike. Scaling only part of it gives no solution instead."
+}

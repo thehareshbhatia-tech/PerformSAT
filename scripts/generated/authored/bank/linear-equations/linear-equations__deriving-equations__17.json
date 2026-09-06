@@ -1,0 +1,25 @@
+{
+  "id": 17,
+  "question": "The function $f$ is linear, $f(3) = 11$, and $f(7) = 27$. What is the value of $f(0)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-37$"
+    },
+    {
+      "id": "B",
+      "text": "$-1$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$23$"
+    }
+  ],
+  "correctAnswer": "B",
+  "hint": "Moving from an input of $3$ down to an input of $0$ changes the output by three rate-of-change steps — in which direction?",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $m = \\frac{27-11}{7-3} = 4$, and stepping back $3$ units from $f(3) = 11$ gives $11 - 12 = -1$ — choice B.\n\n**The Full Solution:**\nStep 1: Rate of change: $m = \\frac{27-11}{7-3} = \\frac{16}{4} = 4$.\nStep 2: Going from $x = 3$ to $x = 0$ decreases the input by $3$, so the output decreases by $4(3) = 12$.\nStep 3: Therefore $f(0) = 11 - 12 = -1$. Check with the full equation $f(x) = 4x - 1$: $f(7) = 28-1 = 27$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-37$): uses the $16$-unit change in output as the rate of change without dividing by the $4$-unit change in input: $11 - 16(3) = -37$.\n* Choice C ($4$): reports the rate of change, $4$, rather than the output at an input of $0$.\n* Choice D ($23$): moves in the wrong direction, adding three rate-of-change steps: $11 + 4(3) = 23$.\n\n**Test Day Takeaway:** Decide the direction of travel before you compute: moving toward a smaller input subtracts rate-of-change steps, and that sign error is the most common miss on this pattern."
+}

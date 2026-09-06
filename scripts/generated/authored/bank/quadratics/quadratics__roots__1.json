@@ -1,0 +1,30 @@
+{
+  "id": 1,
+  "question": "In the equation $x^2 + 4x - 21 = 0$, what are all values of $x$ that satisfy the equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x = -7$ and $x = 3$"
+    },
+    {
+      "id": "B",
+      "text": "$x = -3$ and $x = 7$"
+    },
+    {
+      "id": "C",
+      "text": "$x = -21$ and $x = 1$"
+    },
+    {
+      "id": "D",
+      "text": "$x = 3$ and $x = 7$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "reverses both signs",
+    "C": "uses the constant term as a solution",
+    "D": "product would be positive"
+  },
+  "correctAnswer": "A",
+  "hint": "Look for two numbers whose product is $-21$ and whose sum is $4$.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $7$ and $-3$ multiply to $-21$ and add to $4$, so $(x + 7)(x - 3) = 0$ and $x = -7$ or $x = 3$.\n\n**The Full Solution:**\nStep 1: To factor $x^2 + 4x - 21$, find two numbers whose product is $-21$ and whose sum is $4$. Those numbers are $7$ and $-3$.\nStep 2: So the equation becomes $(x + 7)(x - 3) = 0$.\nStep 3: A product is zero only when a factor is zero, so $x + 7 = 0$ or $x - 3 = 0$, giving $x = -7$ and $x = 3$. Check: $(-7)^2 + 4(-7) - 21 = 49 - 28 - 21 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: reverses both signs, which comes from factoring as $(x + 3)(x - 7)$ and getting a middle term of $-4x$.\n* Choice C: uses the constant term and $1$ as the solutions, since $-21 \\cdot 1 = -21$, but those numbers sum to $-20$, not $4$.\n* Choice D: takes both solutions positive, but then their product would be $+21$ rather than $-21$.\n\n**Test Day Takeaway:** A negative constant term forces the two solutions to have OPPOSITE signs — that single check eliminates two choices instantly."
+}

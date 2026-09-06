@@ -1,0 +1,30 @@
+{
+  "id": 1,
+  "question": "In the system of equations $x = 4y$ and $x + 3y = 63$, the solution is $(x, y)$. What is the value of $y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$9$"
+    },
+    {
+      "id": "B",
+      "text": "$15$"
+    },
+    {
+      "id": "C",
+      "text": "$36$"
+    },
+    {
+      "id": "D",
+      "text": "$63$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "drops the variable from $3y$, solving $4y + 3 = 63$.",
+    "C": "solves the system correctly but reports $x$ instead of $y$.",
+    "D": "subtracts instead of adding when combining like terms, treating $4y + 3y$ as $y$."
+  },
+  "correctAnswer": "A",
+  "hint": "The first equation already gives $x$ in terms of $y$, so put that expression into the second equation.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** Substituting $4y$ for $x$ gives $4y + 3y = 63$, so $7y = 63$ and $y = 9$.\n\n**The Full Solution:**\nStep 1: The first equation gives $x = 4y$, an expression for $x$ ready to substitute.\nStep 2: Replace $x$ in the second equation: $4y + 3y = 63$.\nStep 3: Combine like terms to get $7y = 63$, so $y = 9$. Check: $x = 4(9) = 36$, and $36 + 3(9) = 36 + 27 = 63$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($15$): drops the variable from $3y$, solving $4y + 3 = 63$.\n* Choice C ($36$): solves the system correctly but reports $x$ instead of $y$.\n* Choice D ($63$): subtracts instead of adding when combining like terms, treating $4y + 3y$ as $y$.\n\n**Test Day Takeaway:** After substituting, combine like terms carefully and reread which variable the question wants."
+}

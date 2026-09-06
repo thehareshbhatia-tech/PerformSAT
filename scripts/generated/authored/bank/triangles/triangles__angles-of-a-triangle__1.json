@@ -1,0 +1,46 @@
+{
+ "id": 1,
+ "question": "In triangle $GHJ$ shown, the measure of angle $G$ is $28°$ and the measure of angle $H$ is $96°$. What is the measure, in degrees, of angle $J$?",
+ "diagram": {
+  "type": "triangleWithAngles",
+  "params": {
+   "vertexLabels": [
+    "G",
+    "H",
+    "J"
+   ],
+   "angleLabels": [
+    "28°",
+    "96°",
+    ""
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$56$"
+  },
+  {
+   "id": "B",
+   "text": "$84$"
+  },
+  {
+   "id": "C",
+   "text": "$124$"
+  },
+  {
+   "id": "D",
+   "text": "$152$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "subtracts only angle $H$ from $180$, ignoring angle $G$",
+  "C": "adds the two given measures instead of subtracting their sum from $180$",
+  "D": "subtracts only angle $G$ from $180$, ignoring angle $H$"
+ },
+ "correctAnswer": "A",
+ "hint": "Combine the two angles you already know before going anywhere near $180$.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** $m\\angle J = 180 - 28 - 96 = 56$.\n\n**The Full Solution:**\nStep 1: The interior angles of triangle $GHJ$ satisfy $m\\angle G + m\\angle H + m\\angle J = 180$.\nStep 2: Substitute the given measures: $28 + 96 + m\\angle J = 180$, so $124 + m\\angle J = 180$.\nStep 3: Subtract $124$ from both sides: $m\\angle J = 56$.\n\nVerification: $28 + 96 + 56 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($84$): subtracts only angle $H$ from $180$, ignoring angle $G$.\n* Choice C ($124$): adds the two given measures instead of subtracting their sum from $180$.\n* Choice D ($152$): subtracts only angle $G$ from $180$, ignoring angle $H$.\n\n**Test Day Takeaway:** Add the two known angles once, then subtract that single sum from $180$."
+}

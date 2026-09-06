@@ -1,0 +1,25 @@
+{
+  "id": 16,
+  "question": "For the linear function $f$, $f(0) = 5$ and $f(1) = 12$. Which equation defines $f$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$f(x) = 5x + 7$"
+    },
+    {
+      "id": "B",
+      "text": "$f(x) = 7x + 5$"
+    },
+    {
+      "id": "C",
+      "text": "$f(x) = 7x + 12$"
+    },
+    {
+      "id": "D",
+      "text": "$f(x) = 12x + 5$"
+    }
+  ],
+  "correctAnswer": "B",
+  "hint": "An input of $0$ tells you one of the two constants outright; the other comes from the single step to the next input.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** $f(0) = 5$ is the constant, and $12 - 5 = 7$ is the rate of change: $f(x) = 7x + 5$ — choice B.\n\n**The Full Solution:**\nStep 1: Because $f(0) = 5$, the constant term of the equation is $5$.\nStep 2: Increasing the input by $1$ raises the output from $5$ to $12$, so the rate of change is $12 - 5 = 7$.\nStep 3: The equation is $f(x) = 7x + 5$. Check: $f(1) = 7+5 = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x) = 5x + 7$): swaps the rate of change and the value at $0$.\n* Choice C ($f(x) = 7x + 12$): has the correct rate of change but uses $12$, the output at an input of $1$, as the constant term.\n* Choice D ($f(x) = 12x + 5$): treats the output $12$ as the rate of change rather than the difference $f(1)-f(0)$.\n\n**Test Day Takeaway:** With inputs one unit apart, the rate of change is just the difference of the outputs — no division needed, so the only real risk is mixing up which number is which."
+}

@@ -1,0 +1,30 @@
+{
+  "id": 10,
+  "question": "The graph of $y=f(x)$ in the $xy$-plane contains the point $(-6,18)$. The function $g$ is defined by $g(x)=\\frac{1}{2}f(x)+4$. What is the value of $g(-6)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$9$"
+    },
+    {
+      "id": "B",
+      "text": "$11$"
+    },
+    {
+      "id": "C",
+      "text": "$13$"
+    },
+    {
+      "id": "D",
+      "text": "$22$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "omits the vertical shift",
+    "B": "adds before scaling",
+    "D": "omits the scaling"
+  },
+  "correctAnswer": "C",
+  "hint": "Halve the output before the $4$ joins in — the factor is written closest to $f$.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** $g(-6)=\\frac{1}{2}(18)+4=9+4=13$.\n\n**The Full Solution:**\nStep 1: The given point tells you that $f(-6)=18$, and the input is unchanged by the transformation.\nStep 2: The factor $\\frac{1}{2}$ acts on that output: $\\frac{1}{2}(18)=9$.\nStep 3: Adding $4$ gives $g(-6)=9+4=13$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): halves the output but drops the $+4$.\n* Choice B ($11$): adds $4$ before halving: $\\frac{18+4}{2}=11$, which would require the form $\\frac{1}{2}\\left(f(x)+4\\right)$.\n* Choice D ($22$): adds $4$ without halving: $18+4=22$.\n\n**Test Day Takeaway:** A vertical stretch or compression multiplies the output first; the vertical shift is applied to the scaled value."
+}

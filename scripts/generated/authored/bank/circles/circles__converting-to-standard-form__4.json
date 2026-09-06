@@ -1,0 +1,30 @@
+{
+ "id": 4,
+ "question": "The equation $x^2 + y^2 + 6x - 8y + 21 = 0$ defines a circle in the $xy$-plane. What is the value of $r^2$ for this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
+  },
+  {
+   "id": "B",
+   "text": "$4$"
+  },
+  {
+   "id": "C",
+   "text": "$25$"
+  },
+  {
+   "id": "D",
+   "text": "$46$"
+  }
+ ],
+ "correctAnswer": "B",
+ "hint": "Whatever you add on the left has to show up on the right as well.",
+ "distractorNotes": {
+  "A": "reports the radius",
+  "C": "never moves the 21",
+  "D": "adds 21 instead of subtracting"
+ },
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~40s):** Completing the squares gives $(x + 3)^2 + (y - 4)^2 = -21 + 9 + 16 = 4$, so $r^2 = 4$.\n\n**The Full Solution:**\nStep 1: Move the constant: $\\left(x^2 + 6x\\right) + \\left(y^2 - 8y\\right) = -21$.\nStep 2: Add $\\left(\\frac{6}{2}\\right)^2 = 9$ and $\\left(\\frac{-8}{2}\\right)^2 = 16$ to both sides: $(x + 3)^2 + (y - 4)^2 = -21 + 9 + 16$.\nStep 3: $r^2 = 4$. Check: expanding $(x + 3)^2 + (y - 4)^2 = 4$ gives $x^2 + 6x + 9 + y^2 - 8y + 16 = 4$, which rearranges to the original equation.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports the radius $r = 2$ rather than $r^2$, which is what the question asked for.\n* Choice C ($25$): adds $9 + 16$ but never moves the $+21$ to the right side.\n* Choice D ($46$): adds $21$ to $9 + 16$ instead of subtracting it.\n\n**Test Day Takeaway:** The right side after completing both squares is $r^2$, not $r$. Read the question to see which one it wants."
+}

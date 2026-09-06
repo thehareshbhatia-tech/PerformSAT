@@ -1,0 +1,55 @@
+{
+  "id": 4,
+  "question": "In the $xy$-plane, the graph of the linear function $f$ is shown, and the point $(3, 5)$ lies on the graph. The function $g$ is defined by $g(x) = f(x) - 4$. Which point must lie on the graph of $y = g(x)$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": 2,
+      "yIntercept": -1,
+      "xRange": [
+        -6,
+        6
+      ],
+      "yRange": [
+        -10,
+        10
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 1,
+      "showPoints": [
+        [
+          3,
+          5
+        ]
+      ],
+      "label": "f"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-1, 5)$"
+    },
+    {
+      "id": "B",
+      "text": "$(3, 1)$"
+    },
+    {
+      "id": "C",
+      "text": "$(3, 9)$"
+    },
+    {
+      "id": "D",
+      "text": "$(7, 5)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "shifts the input left instead of the output down",
+    "C": "adds 4 instead of subtracting",
+    "D": "shifts the input right"
+  },
+  "correctAnswer": "B",
+  "hint": "Subtracting a constant from the output moves every point in one direction only.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** $g(3) = f(3) - 4 = 5 - 4 = 1$, so $(3, 1)$ is on the graph of $g$.\n\n**The Full Solution:**\nStep 1: The marked point says $f(3) = 5$.\nStep 2: The rule $g(x) = f(x) - 4$ changes only the output, so $g(3) = f(3) - 4 = 5 - 4 = 1$.\nStep 3: An input of $3$ with an output of $1$ is the point $(3, 1)$. Check with the graph's equation $f(x) = 2x - 1$: $g(x) = 2x - 5$, and $g(3) = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-1, 5)$): shifts the point $4$ units left, treating the $-4$ as a change to the input.\n* Choice C ($(3, 9)$): adds $4$ to the output instead of subtracting it.\n* Choice D ($(7, 5)$): shifts the point $4$ units right, again changing the input rather than the output.\n\n**Test Day Takeaway:** A constant added or subtracted OUTSIDE the function moves the graph vertically; a constant inside the parentheses moves it horizontally."
+}

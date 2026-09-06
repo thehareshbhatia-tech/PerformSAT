@@ -1,0 +1,30 @@
+{
+ "id": 3,
+ "question": "A right circular cone has a volume of $147\\pi$ cubic centimeters and a radius of $7$ centimeters. What is the height, in centimeters, of the cone?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3$"
+  },
+  {
+   "id": "B",
+   "text": "$9$"
+  },
+  {
+   "id": "C",
+   "text": "$21$"
+  },
+  {
+   "id": "D",
+   "text": "$63$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "forgets the factor $\\frac{1}{3}$ and divides only by $r^2$",
+  "C": "divides $147$ by the radius instead of by $\\frac{1}{3}r^2$, computing $\\frac{147}{7}$",
+  "D": "divides by the radius and then multiplies by $3$"
+ },
+ "correctAnswer": "B",
+ "hint": "Multiply through by $3$ before dividing by anything.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** $\\frac{1}{3}(49)h = 147$ gives $h = 9$.\n\n**The Full Solution:**\nStep 1: $\\frac{1}{3}\\pi r^2 h = 147\\pi$; divide by $\\pi$ to get $\\frac{1}{3}(49)h = 147$.\nStep 2: Multiply both sides by $3$: $49h = 441$.\nStep 3: $h = \\frac{441}{49} = 9$ centimeters.\n\nVerification: $\\frac{1}{3}\\pi(49)(9) = 147\\pi$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): forgets the factor $\\frac{1}{3}$ and divides only by $r^2$.\n* Choice C ($21$): divides $147$ by the radius instead of by $\\frac{1}{3}r^2$, computing $\\frac{147}{7}$.\n* Choice D ($63$): divides by the radius and then multiplies by $3$.\n\n**Test Day Takeaway:** Clear $\\pi$ and the $\\frac{1}{3}$ first, and what is left is one division."
+}

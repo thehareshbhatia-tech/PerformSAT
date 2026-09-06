@@ -1,0 +1,43 @@
+{
+ "id": 1,
+ "question": "In the figure, $O$ is the center of the circle, $OA = 6$, and the measure of $\\angle AOB$ is $120^{\\circ}$. What is the area of sector $AOB$?",
+ "diagram": {
+  "type": "circleWithSector",
+  "params": {
+   "centralAngle": 120,
+   "radius": 6,
+   "showRadiusLabel": true,
+   "showAngleLabel": true,
+   "labelCenter": "O",
+   "labelPoint1": "A",
+   "labelPoint2": "B",
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$12\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$36\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$48\\pi$"
+  }
+ ],
+ "correctAnswer": "B",
+ "hint": "Decide first what fraction of the whole circle the sector covers.",
+ "distractorNotes": {
+  "A": "computes the arc length",
+  "C": "reports the whole circle",
+  "D": "uses the diameter as the radius"
+ },
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** The sector is $\\frac{120}{360} = \\frac{1}{3}$ of the circle, whose area is $36\\pi$, so the sector's area is $12\\pi$.\n\n**The Full Solution:**\nStep 1: The circle's area is $\\pi r^2 = \\pi(6)^2 = 36\\pi$.\nStep 2: A central angle of $120^{\\circ}$ takes $\\frac{120}{360} = \\frac{1}{3}$ of that area.\nStep 3: The sector's area is $\\frac{1}{3}(36\\pi) = 12\\pi$. Check: three such sectors tile the circle, and $3(12\\pi) = 36\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\pi$): computes $\\frac{1}{3}$ of the circumference $12\\pi$, which is the arc length, not the area.\n* Choice C ($36\\pi$): reports the area of the entire circle and never applies the fraction.\n* Choice D ($48\\pi$): uses the diameter $12$ in place of the radius: $\\frac{1}{3}\\pi(12)^2$.\n\n**Test Day Takeaway:** Sector area is $\\frac{\\text{central angle}}{360} \\cdot \\pi r^2$. The same fraction with $2\\pi r$ gives the arc — pick the one whose units the question wants."
+}

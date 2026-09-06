@@ -1,0 +1,25 @@
+{
+  "id": 2,
+  "question": "The expression $(4y+9)(4y-9)$ is equivalent to which of the following expressions?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$8y^{2}-81$"
+    },
+    {
+      "id": "B",
+      "text": "$16y^{2}-81$"
+    },
+    {
+      "id": "C",
+      "text": "$16y^{2}+81$"
+    },
+    {
+      "id": "D",
+      "text": "$16y^{2}-72y-81$"
+    }
+  ],
+  "correctAnswer": "B",
+  "hint": "The two binomials differ only in the sign of the second term — look at what that does to the two middle products.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** A sum times a difference leaves $(4y)^{2}-9^{2}=16y^{2}-81$ — choice B.\n\n**The Full Solution:**\nStep 1: Expand: $(4y+9)(4y-9)=16y^{2}-36y+36y-81$.\nStep 2: The middle terms $-36y$ and $+36y$ are opposites, so they add to $0$.\nStep 3: What remains is $16y^{2}-81$. Check at $y=1$: $(13)(-5)=-65$, and $16-81=-65$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8y^{2}-81$): adds $4y$ to itself instead of squaring it; the correct first term is $4y\\cdot 4y = 16y^{2}$.\n* Choice C ($16y^{2}+81$): treats the product as a sum of squares, $(4y)^{2}+9^{2}$; the last pair of terms multiplies to $9(-9)=-81$, so the constant is negative.\n* Choice D ($16y^{2}-72y-81$): mis-signs both middle products as $-36y$ and $-36y$, so they add to $-72y$ instead of cancelling.\n\n**Test Day Takeaway:** $(A+B)(A-B)=A^{2}-B^{2}$: recognizing the pattern removes the middle terms before you write them down, and squaring $4y$ means squaring the coefficient too."
+}

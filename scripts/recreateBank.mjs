@@ -285,7 +285,7 @@ function checkItem(row, authored, ctx) {
   const textGate = (k, v, rendered = true) => {
     if (!v) return;
     if (rendered && !dollarBalanced(v)) errs.push(`${k}: unbalanced $`);
-    if (/\\"/.test(v)) errs.push(`${k}: backslash-escaped quote (\\") renders as a literal backslash — use a plain "`);
+    if (/\\["']/.test(v)) errs.push(`${k}: backslash-escaped quote (\\" or \\') renders as a literal backslash — use a plain " or '`);
     if (/[\x00-\x08\x0b\x0c\x0e-\x1f]/.test(v)) errs.push(`${k}: control character in text (a bad JSON escape such as \\f for \\frac or \\t for \\theta?)`);
     if (rendered) for (const m of String(v).matchAll(/\$([^$]*)\$/g)) { const b = m[1].match(/(^|[^\\a-zA-Z])(pi|sqrt|frac|dfrac|theta|cdot|circ)(?![a-zA-Z])/); if (b) { warns.push(`${k}: bare "${b[2]}" inside math — missing backslash (\\${b[2]})? (single-quoted JS strings eat backslashes; author with String.raw)`); break; } }
   };
@@ -323,6 +323,8 @@ function checkItem(row, authored, ctx) {
     if (!a.diagram.type || !SUPPORTED_DIAGRAM_TYPES.has(a.diagram.type)) errs.push(`unsupported diagram type ${a.diagram?.type}`);
     if (!a.diagram.params || typeof a.diagram.params !== 'object') errs.push('diagram.params missing');
     else if (JSON.stringify(a.diagram.params).includes('$')) errs.push('diagram.params contains "$" — diagram renderers (DataTableDiagram, SATTable, SVG labels) print raw text, not KaTeX; write plain text there (questionTable cells DO render KaTeX)');
+    if (a.diagram.params && typeof a.diagram.params === 'object' && a.diagram.type === 'twoLineGraph' && a.diagram.params.showIntersection === true) warns.push('twoLineGraph showIntersection:true PRINTS the intersection coordinates on the figure — set it false if the item asks for the intersection or either coordinate');
+    if (a.diagram.params && typeof a.diagram.params === 'object' && a.diagram.type === 'parabola' && a.diagram.params.showVertex === true) warns.push(`parabola showVertex:true labels the vertex coordinates on the figure (quadraticVertex only draws a dot) — set it false if the item asks for the vertex, the max/min, or its coordinates`);
     if (a.diagram.params && typeof a.diagram.params === 'object' && a.diagram.type === 'scatterplot') {
       // The renderer draws bestFitLine from xMin to xMax with no clip path and plots every point as given.
       const P = a.diagram.params; const num = v => typeof v === 'number' && Number.isFinite(v);

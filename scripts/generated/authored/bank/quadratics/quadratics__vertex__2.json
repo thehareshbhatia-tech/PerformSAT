@@ -1,0 +1,30 @@
+{
+  "id": 2,
+  "question": "The function $h$ is defined by $h(x) = (x + 5)^2 - 8$. What is the vertex of the graph of $y = h(x)$ in the $xy$-plane?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-5, -8)$"
+    },
+    {
+      "id": "B",
+      "text": "$(5, -8)$"
+    },
+    {
+      "id": "C",
+      "text": "$(-5, 8)$"
+    },
+    {
+      "id": "D",
+      "text": "$(5, 8)$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "reads h with the wrong sign",
+    "C": "flips the sign of k",
+    "D": "flips both signs"
+  },
+  "correctAnswer": "A",
+  "hint": "Vertex form reads $a(x - h)^2 + k$, so watch the minus sign already built into the formula.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** $(x + 5)^2$ is $(x - (-5))^2$, so $h = -5$ and $k = -8$.\n\n**The Full Solution:**\nStep 1: Vertex form is $y = a(x - h)^2 + k$, and the vertex is the point $(h, k)$.\nStep 2: Match the given rule to that form: $(x + 5)^2 = (x - (-5))^2$, so $h = -5$, and the constant added outside is $k = -8$.\nStep 3: The vertex is $(-5, -8)$. Check: $h(-5) = 0 - 8 = -8$, and every other input makes the square positive, so $-8$ is the smallest output. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: reads $h$ straight off the parentheses as $+5$, ignoring the subtraction built into the form.\n* Choice C: flips the sign of $k$, placing the vertex above the $x$-axis.\n* Choice D: flips both signs at once.\n\n**Test Day Takeaway:** The $x$-coordinate of the vertex is the value that makes the squared quantity zero — solve $x + 5 = 0$ if the sign is ever in doubt."
+}

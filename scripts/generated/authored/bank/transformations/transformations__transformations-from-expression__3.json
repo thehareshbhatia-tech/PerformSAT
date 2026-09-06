@@ -1,0 +1,30 @@
+{
+  "id": 3,
+  "question": "The function $g$ is defined by $g(x)=|x|$, and the function $k$ is defined by $k(x)=g(x+7)-3$. Which of the following expressions defines $k(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$|x-7|-3$"
+    },
+    {
+      "id": "B",
+      "text": "$|x+7|-3$"
+    },
+    {
+      "id": "C",
+      "text": "$|x+7|+3$"
+    },
+    {
+      "id": "D",
+      "text": "$|x+4|$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "flips the sign inside the bars",
+    "C": "flips the sign of the outside constant",
+    "D": "merges the inside and outside constants"
+  },
+  "correctAnswer": "B",
+  "hint": "The $7$ belongs inside the absolute value bars and the $3$ belongs outside them.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** Feeding $x+7$ into $g$ gives $|x+7|$, and the $-3$ is applied afterwards, so $k(x)=|x+7|-3$.\n\n**The Full Solution:**\nStep 1: $g$ takes the absolute value of its input, and the input is $x+7$, so $g(x+7)=|x+7|$.\nStep 2: The $-3$ is written outside $g$, so it is subtracted from that result.\nStep 3: So $k(x)=|x+7|-3$. Check at $x=-7$: $|-7+7|-3=-3$, the lowest possible value, matching the vertex of the shifted V. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($|x-7|-3$): reverses the sign inside the bars; the substituted input is $x+7$.\n* Choice C ($|x+7|+3$): reverses the sign of the outside constant.\n* Choice D ($|x+4|$): combines $7$ and $-3$ inside the bars; the two constants act at different stages and cannot be merged.\n\n**Test Day Takeaway:** Inside constants ride along with the input; outside constants are applied to the finished output."
+}

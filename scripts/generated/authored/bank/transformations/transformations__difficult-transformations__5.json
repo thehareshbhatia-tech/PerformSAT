@@ -1,0 +1,47 @@
+{
+  "id": 5,
+  "question": "The function $f$ is defined by $f(x)=\\dfrac{a}{x+b}$, where $a$ and $b$ are constants, and the graph of $y=f(x)$ passes through the marked points $(1,6)$ and $(5,2)$ in the $xy$-plane. The function $m$ is defined by $m(x)=2f(x+4)-7$. What is the value of $m(-3)$?",
+  "diagram": {
+    "type": "rationalFunction",
+    "params": {
+      "a": 12,
+      "b": 1,
+      "showPoints": [
+        [
+          1,
+          6
+        ],
+        [
+          5,
+          2
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-2$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$5$"
+    },
+    {
+      "id": "D",
+      "text": "$12$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "applies the outside constant before the stretch",
+    "B": "treats the factor 2 as an added constant",
+    "D": "omits the outside constant"
+  },
+  "correctAnswer": "C",
+  "hint": "Work out which input of $f$ the shift produces before deciding whether you need $a$ and $b$ at all.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~45s):** $m(-3)=2f(1)-7$, and the marked point gives $f(1)=6$, so $m(-3)=12-7=5$.\n\n**The Full Solution:**\nStep 1: The rule hands $f$ the input $-3+4=1$, and the graph marks the point $(1,6)$, so $f(1)=6$ — the constants $a$ and $b$ are never needed.\nStep 2: The factor $2$ acts on that output first: $2(6)=12$.\nStep 3: The $-7$ is applied to the stretched value: $12-7=5$, so $m(-3)=5$. Check with the constants: $\\dfrac{a}{1+b}=6$ and $\\dfrac{a}{5+b}=2$ give $4b=4$, so $b=1$ and $a=12$; then $f(1)=\\dfrac{12}{2}=6$ and $2(6)-7=5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): subtracts $7$ before doubling: $2(6-7)=-2$. The $-7$ sits outside the factor $2$, so it is applied last.\n* Choice B ($1$): treats the $2$ as a quantity added to the output rather than a multiplier: $6+2-7=1$.\n* Choice D ($12$): stretches the output correctly but never applies the $-7$.\n\n**Test Day Takeaway:** When the shift lands on a labeled point, read the output off the figure — then apply the outside operations in written order, multiplier first."
+}

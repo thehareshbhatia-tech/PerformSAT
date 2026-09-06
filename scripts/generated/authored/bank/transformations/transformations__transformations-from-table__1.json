@@ -1,0 +1,30 @@
+{
+  "id": 1,
+  "question": "For a function $f$, $f(4)=15$. The function $g$ is defined by $g(x)=f(x)+8$. What is the value of $g(4)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7$"
+    },
+    {
+      "id": "B",
+      "text": "$15$"
+    },
+    {
+      "id": "C",
+      "text": "$23$"
+    },
+    {
+      "id": "D",
+      "text": "$120$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts the constant",
+    "B": "omits the constant",
+    "D": "multiplies by the constant"
+  },
+  "correctAnswer": "C",
+  "hint": "Substitute the input into the definition of $g$ and use the one output of $f$ you were given.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~10s):** $g(4)=f(4)+8=15+8=23$.\n\n**The Full Solution:**\nStep 1: The definition of $g$ says: evaluate $f$ at the same input, then add $8$.\nStep 2: At $x=4$, $f(4)=15$, so $g(4)=15+8$.\nStep 3: Therefore $g(4)=23$. Check: subtracting $8$ from $23$ returns $15$, the given value of $f(4)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): subtracts $8$ instead of adding it: $15-8=7$.\n* Choice B ($15$): reports $f(4)$ and never applies the $+8$.\n* Choice D ($120$): multiplies by $8$ rather than adding: $15\\cdot 8=120$.\n\n**Test Day Takeaway:** An outside $+k$ is a single addition applied to the output — never to the input, and never as a factor."
+}

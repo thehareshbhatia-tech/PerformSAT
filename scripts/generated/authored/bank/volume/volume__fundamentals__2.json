@@ -1,0 +1,30 @@
+{
+ "id": 2,
+ "question": "Each dimension of a right rectangular prism is multiplied by $4$. The volume of the resulting prism is $k$ times the volume of the original prism. What is the value of $k$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4$"
+  },
+  {
+   "id": "B",
+   "text": "$12$"
+  },
+  {
+   "id": "C",
+   "text": "$16$"
+  },
+  {
+   "id": "D",
+   "text": "$64$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses the scale factor once rather than once for each dimension",
+  "B": "multiplies the scale factor by $3$ instead of raising it to the third power",
+  "C": "squares the scale factor, which is the rule for area"
+ },
+ "correctAnswer": "D",
+ "hint": "Each of the three dimensions picks up the same factor.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** Three dimensions each scale by $4$, so the volume scales by $4^3 = 64$.\n\n**The Full Solution:**\nStep 1: Write the original volume as $V = \\ell wh$.\nStep 2: The new volume is $(4\\ell)(4w)(4h) = 64\\ell wh$.\nStep 3: So the new volume is $64V$, and $k = 64$.\n\nVerification: A $1$ by $1$ by $1$ cube has volume $1$, and a $4$ by $4$ by $4$ cube has volume $64$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): uses the scale factor once rather than once for each dimension.\n* Choice B ($12$): multiplies the scale factor by $3$ instead of raising it to the third power.\n* Choice C ($16$): squares the scale factor, which is the rule for area.\n\n**Test Day Takeaway:** Scaling every dimension by $r$ multiplies volume by $r^3$ and surface area by $r^2$."
+}
