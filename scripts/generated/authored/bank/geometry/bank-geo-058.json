@@ -1,0 +1,40 @@
+{
+ "id": "bank-geo-058",
+ "question": "In a circle with a radius of $10$, a sector has a central angle of $\\frac{7\\pi}{10}$ radians. What is the area of the region that lies inside the circle but outside this sector?",
+ "diagram": {
+  "type": "circleWithSector",
+  "params": {
+   "centralAngle": 126,
+   "angleLabel": "7π/10",
+   "radius": 10,
+   "labelCenter": "O",
+   "showRadiusLabel": true,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$6.5\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$35\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$65\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$130\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "applies one half r theta to the leftover angle and never squares the radius",
+  "B": "reports the given sector instead of the region outside it",
+  "D": "omits the factor of one half"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Sector Area in Radians**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The circle covers $\\pi(10)^2 = 100\\pi$ and the given sector covers $\\frac{1}{2}(100)\\left(\\frac{7\\pi}{10}\\right) = 35\\pi$, so the region outside it covers $100\\pi - 35\\pi = 65\\pi$.\n\n**The Full Solution:**\nStep 1: With the central angle in radians, a sector's area is $A = \\frac{1}{2}r^2\\theta$. Here $\\frac{1}{2}r^2 = \\frac{1}{2}(100) = 50$.\nStep 2: The given sector has area $50 \\cdot \\frac{7\\pi}{10} = \\frac{350\\pi}{10} = 35\\pi$, and the whole circle has area $\\pi(10)^2 = 100\\pi$.\nStep 3: The region asked for is everything else inside the circle: $100\\pi - 35\\pi = 65\\pi$.\n\nVerification: that region is itself a sector, on the leftover angle $2\\pi - \\frac{7\\pi}{10} = \\frac{13\\pi}{10}$, and $50 \\cdot \\frac{13\\pi}{10} = 65\\pi$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6.5\\pi$): uses $\\frac{1}{2}r\\theta$ on the leftover angle $\\frac{13\\pi}{10}$, never squaring the radius.\n* Choice B ($35\\pi$): stops at the sector the figure marks instead of the region outside it.\n* Choice D ($130\\pi$): uses $r^2\\theta$ on the leftover angle and drops the factor $\\frac{1}{2}$.\n\n**Test Day Takeaway:** Read which region the question wants before reaching for $A = \\frac{1}{2}r^2\\theta$. The complement of a sector is either the circle minus the sector or the sector on the angle $2\\pi - \\theta$; the two must agree."
+}

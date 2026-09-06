@@ -1,0 +1,29 @@
+{
+  "id": "bank-geo-175",
+  "question": "In right triangle $ABC$, angle $C$ is a right angle and the perimeter of the triangle is $90$. If $\\tan A = \\frac{5}{12}$, what is the length of side $BC$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3$"
+    },
+    {
+      "id": "B",
+      "text": "$15$"
+    },
+    {
+      "id": "C",
+      "text": "$36$"
+    },
+    {
+      "id": "D",
+      "text": "$39$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the scale factor k instead of a side length",
+    "C": "gives AC, the leg adjacent to angle A",
+    "D": "gives AB, the hypotenuse"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $\\tan A = \\frac{5}{12}$ makes the sides $5k$, $12k$, $13k$. The perimeter gives $30k = 90$, so $k = 3$ and $BC = 5(3) = 15$.\n\n**The Full Solution:**\nStep 1: Angle $C$ is the right angle, so $BC$ is opposite angle $A$ and $AC$ is adjacent to it. Then $\\tan A = \\frac{BC}{AC} = \\frac{5}{12}$, so $BC = 5k$ and $AC = 12k$.\nStep 2: The hypotenuse is $AB = \\sqrt{(5k)^2 + (12k)^2} = 13k$, so the perimeter is $5k + 12k + 13k = 30k = 90$ and $k = 3$.\nStep 3: $BC = 5k = 15$. Check: the sides are $15$, $36$, and $39$, which sum to $90$, and $15^2 + 36^2 = 225 + 1{,}296 = 1{,}521 = 39^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the scale factor $k$ rather than the side $5k$.\n* Choice C ($36$): gives $AC = 12k$, the leg adjacent to angle $A$.\n* Choice D ($39$): gives $AB = 13k$, the hypotenuse.\n\n**Test Day Takeaway:** A tangent value hands you the two legs as multiples of $k$; the hypotenuse follows, and the perimeter fixes $k$. Then read off the side actually named."
+}

@@ -1,0 +1,55 @@
+{
+ "id": "bank-geo-320",
+ "question": "The legs of a right triangle have lengths $2$ and $2\\sqrt{6}$. What is the length of the hypotenuse of the triangle?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     49,
+     0
+    ],
+    [
+     49,
+     20
+    ]
+   ],
+   "sideLabels": [
+    "2√6",
+    "2",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2\\sqrt{5}$"
+  },
+  {
+   "id": "B",
+   "text": "$2\\sqrt{7}$"
+  },
+  {
+   "id": "C",
+   "text": "$2\\sqrt{6}+2$"
+  },
+  {
+   "id": "D",
+   "text": "$4\\sqrt{7}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the squares",
+  "C": "adds the side lengths",
+  "D": "doubles the correct hypotenuse"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $c^2=2^2+(2\\sqrt{6})^2=4+24=28$, so $c=\\sqrt{28}=2\\sqrt{7}$.\n\n**The Full Solution:**\nStep 1: Square each leg. $2^2=4$, and $(2\\sqrt{6})^2=2^2\\cdot(\\sqrt{6})^2=4\\cdot 6=24$.\nStep 2: Add: $c^2=4+24=28$.\nStep 3: $c=\\sqrt{28}=\\sqrt{4\\cdot 7}=2\\sqrt{7}$.\n\nCheck: $(2\\sqrt{7})^2=4\\cdot 7=28=4+24$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2\\sqrt{5}$): subtracted the squares, $24-4=20$, instead of adding them.\n* Choice C ($2\\sqrt{6}+2$): added the two side lengths rather than their squares.\n* Choice D ($4\\sqrt{7}$): squared the coefficient but then failed to take the square root of $4$, doubling the correct hypotenuse.\n\n**Test Day Takeaway:** Squaring a term like $2\\sqrt{6}$ squares both parts: the coefficient and the radicand. Forgetting the coefficient is the most common slip in radical Pythagorean problems."
+}

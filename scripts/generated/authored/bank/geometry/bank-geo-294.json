@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-294",
+ "question": "A cylindrical storage tank has a diameter of $10$ feet and a height of $6$ feet. What is the volume, in cubic feet, of the tank?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$30\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$60\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$150\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$600\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "multiplies r by h without squaring",
+  "B": "uses the lateral surface area",
+  "D": "uses the diameter as the radius"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The radius is $5$, so $V = \\pi(5)^2(6) = 150\\pi$ cubic feet.\n\n**The Full Solution:**\nStep 1: Convert the diameter to a radius: $r = \\frac{10}{2} = 5$ feet.\nStep 2: The base area is $\\pi(5)^2 = 25\\pi$ square feet.\nStep 3: $V = 25\\pi(6) = 150\\pi$ cubic feet. Check: doubling the height would double the volume to $300\\pi$, confirming the linear role of $h$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($30\\pi$): uses $rh$ instead of $r^2h$.\n* Choice B ($60\\pi$): computes the lateral surface area $2\\pi rh$ rather than the volume.\n* Choice D ($600\\pi$): uses the diameter $10$ in place of the radius, multiplying the volume by four.\n\n**Test Day Takeaway:** A diameter in a volume problem is a trap unless you halve it first — the error is magnified by the square."
+}

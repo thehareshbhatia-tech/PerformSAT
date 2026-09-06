@@ -1,0 +1,18 @@
+{
+ "id": "bank-geo-078",
+ "question": "In the right triangle shown, one leg measures $16$ centimeters and the other leg measures $30$ centimeters. What is the length, in centimeters, of the hypotenuse?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "sideLabels": [
+    "16",
+    "30",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "correctAnswer": "34",
+ "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $34$.**\n\n**The Fast Way (~20s):** $16^2 + 30^2 = 256 + 900 = 1{,}156$, and $\\sqrt{1{,}156} = 34$.\n\n**The Full Solution:**\nStep 1: The two given sides meet at the right angle, so they are the legs and the unknown side is the hypotenuse $c$.\nStep 2: $16^2 + 30^2 = c^2$ gives $256 + 900 = 1{,}156 = c^2$.\nStep 3: $c = \\sqrt{1{,}156} = 34$ centimeters.\n\nCheck: $16$, $30$, $34$ is the $8$-$15$-$17$ triple scaled by $2$.\n\n**Common Mistakes:**\n* Answering $1{,}156$, which is $c^2$, by stopping before the square root.\n* Answering $46$ by adding the two legs instead of adding their squares.\n* Squaring the sum instead of summing the squares: $(16 + 30)^2 = 2{,}116$ leads to $46$, not $34$.\n\n**Test Day Takeaway:** $(a + b)^2$ is not $a^2 + b^2$; square each leg separately before you add."
+}

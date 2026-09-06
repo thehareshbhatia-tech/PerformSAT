@@ -1,0 +1,45 @@
+{
+ "id": "bank-geo-269",
+ "question": "In the figure shown, lines $\\ell$ and $m$ intersect, and the two marked angles are adjacent. What is the measure, in degrees, of the angle vertical to the smaller of the two marked angles?",
+ "diagram": {
+  "type": "intersectingLines",
+  "params": {
+   "angles": [
+    "(3x + 22)°",
+    "(7x - 12)°",
+    "",
+    ""
+   ],
+   "lineLabels": [
+    "ℓ",
+    "m"
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$17$"
+  },
+  {
+   "id": "B",
+   "text": "$73$"
+  },
+  {
+   "id": "C",
+   "text": "$107$"
+  },
+  {
+   "id": "D",
+   "text": "$287$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports x",
+  "C": "reports the larger marked angle",
+  "D": "subtracts from 360"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Vertical Angles**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $(7x - 12) + (3x + 22) = 180$ gives $x = 17$, so the angles are $107^\\circ$ and $73^\\circ$. The angle vertical to the smaller one also measures $73^\\circ$.\n\n**The Full Solution:**\nStep 1: The two marked angles are adjacent at the intersection, so they form a linear pair: $(7x - 12) + (3x + 22) = 180$.\nStep 2: Combine like terms: $10x + 10 = 180$, so $10x = 170$ and $x = 17$.\nStep 3: The angles measure $7(17) - 12 = 107$ and $3(17) + 22 = 73$ degrees. The smaller is $73^\\circ$, and its vertical angle is congruent to it, so the answer is $73$. Check: $107 + 73 = 180$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): reports $x$ instead of an angle measure.\n* Choice C ($107$): reports the larger marked angle, which is adjacent to the smaller one rather than vertical to it.\n* Choice D ($287$): subtracts $73$ from $360$, as if the vertical angle completed a full turn.\n\n**Test Day Takeaway:** Vertical means congruent, so the extra step costs nothing — but you still have to identify which of the two computed angles the question named."
+}

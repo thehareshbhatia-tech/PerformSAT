@@ -1,0 +1,6 @@
+{
+  "id": "bank-geo-164",
+  "question": "Two parallel lines are cut by a transversal, forming a pair of alternate interior angles with measures $(4x - 9)°$ and $(2x + 27)°$. What is the value of $x$?",
+  "correctAnswer": "18",
+  "explanation": "**SAT Pattern: Angles with Parallel Lines and Transversals**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~20s):** Alternate interior angles are congruent, so $4x - 9 = 2x + 27$ gives $x = 18$.\n\n**The Full Solution:**\nStep 1: When a transversal cuts parallel lines, alternate interior angles are congruent, so set the two measures equal: $4x - 9 = 2x + 27$.\nStep 2: Subtract $2x$ from both sides and add $9$: $2x = 36$.\nStep 3: $x = 18$. Check: $4(18) - 9 = 63$ and $2(18) + 27 = 63$, so both angles measure $63°$. $\\checkmark$\n\n**Common Mistakes:**\n* Setting the sum equal to $180$, the rule for same-side interior angles: $6x + 18 = 180$ gives $x = 27$.\n* Gridding the angle measure $63$ instead of the value of $x$.\n* Setting the sum equal to $90$, which gives $x = 12$ and applies to complementary angles, not this pair.\n\n**Test Day Takeaway:** Alternate interior and corresponding angles are equal; same-side interior angles add to $180°$. Identify the pair before writing the equation."
+}

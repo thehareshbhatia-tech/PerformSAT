@@ -1,0 +1,46 @@
+{
+ "id": "bank-geo-012",
+ "question": "In the right triangle shown, the side opposite the acute angle $\\theta$ has length $8$ and the hypotenuse has length $17$. What is the value of $\\sin(\\theta)$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "θ",
+    "",
+    ""
+   ],
+   "sideLabels": [
+    "",
+    "8",
+    "17"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{8}{17}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{9}{17}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{15}{17}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{17}{8}$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "subtracts 8 from 17 for the numerator",
+  "C": "uses the adjacent leg, which gives cosine",
+  "D": "inverts the ratio"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: SOH-CAH-TOA**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $\\sin(\\theta) = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{8}{17}$.\n\n**The Full Solution:**\nStep 1: SOH means sine equals the opposite side over the hypotenuse.\nStep 2: The side opposite $\\theta$ is $8$ and the hypotenuse is $17$.\nStep 3: $\\sin(\\theta) = \\frac{8}{17}$, which is already in lowest terms.\n\nVerification: the sine of an acute angle is always between $0$ and $1$, and $\\frac{8}{17} \\approx 0.47$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{9}{17}$): subtracts $17 - 8$ to build the numerator instead of reading the opposite side directly.\n* Choice C ($\\frac{15}{17}$): uses the adjacent leg $\\sqrt{17^2 - 8^2} = 15$, which gives $\\cos(\\theta)$, not $\\sin(\\theta)$.\n* Choice D ($\\frac{17}{8}$): inverts the ratio, putting the hypotenuse on top; that value exceeds $1$ and cannot be a sine.\n\n**Test Day Takeaway:** Sine and cosine of an acute angle are always less than $1$ because the hypotenuse is the longest side. Any choice above $1$ is out immediately."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-328",
+ "question": "In the $xy$-plane, triangle $ABC$ has vertices $A(-4,\\,1)$, $B(10,\\,1)$, and $C(c,\\,8)$, where $c$ is a constant and $-4<c<10$. What is the area of triangle $ABC$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$24.5$"
+  },
+  {
+   "id": "B",
+   "text": "$49$"
+  },
+  {
+   "id": "C",
+   "text": "$56$"
+  },
+  {
+   "id": "D",
+   "text": "$98$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "halves twice",
+  "C": "uses 8 as the height instead of the vertical distance",
+  "D": "omits the factor one half"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\overline{AB}$ is horizontal with length $14$, and $C$ sits $7$ units above that line, so $A=\\frac{1}{2}(14)(7)=49$ no matter what $c$ is.\n\n**The Full Solution:**\nStep 1: $A$ and $B$ share the $y$-coordinate $1$, so $\\overline{AB}$ is horizontal and its length is $10-(-4)=14$. Use it as the base.\nStep 2: The height is the perpendicular distance from $C$ to the line $y=1$, which is $8-1=7$. The value of $c$ only slides $C$ sideways along the line $y=8$, so it never changes that distance.\nStep 3: $A=\\frac{1}{2}(14)(7)=49$.\n\nCheck: with $c=0$ the vertices are $(-4,\\,1)$, $(10,\\,1)$, $(0,\\,8)$, and the same base and height give $49$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($24.5$): applied the factor $\\frac{1}{2}$ a second time, computing $\\frac{1}{4}(14)(7)$.\n* Choice C ($56$): used the $y$-coordinate $8$ as the height instead of the vertical distance $8-1=7$.\n* Choice D ($98$): multiplied base by height and skipped the factor $\\frac{1}{2}$.\n\n**Test Day Takeaway:** Sliding a vertex parallel to the opposite side leaves the height, and therefore the area, unchanged. A free parameter along that direction is a signal that the answer does not depend on it."
+}

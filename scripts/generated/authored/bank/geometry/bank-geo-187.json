@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-187",
+ "question": "A right rectangular prism has a square base with side length $3n$ centimeters and a height of $7n$ centimeters. Which expression gives the volume, in cubic centimeters, of the prism?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$21n^2$"
+  },
+  {
+   "id": "B",
+   "text": "$21n^3$"
+  },
+  {
+   "id": "C",
+   "text": "$63n^2$"
+  },
+  {
+   "id": "D",
+   "text": "$63n^3$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses only two of the three dimensions",
+  "B": "squares the variable but not the coefficient",
+  "C": "adds the exponents incorrectly"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Volume $=$ (base area)(height) $= (3n)^2(7n) = 9n^2 \\cdot 7n = 63n^3$.\n\n**The Full Solution:**\nStep 1: The base is a square with side $3n$, so its area is $(3n)^2 = 9n^2$ square centimeters.\nStep 2: Multiply by the height: $V = 9n^2 \\cdot 7n$.\nStep 3: Multiply coefficients and add exponents: $9 \\cdot 7 = 63$ and $n^2 \\cdot n = n^3$, so $V = 63n^3$.\n\nVerification: at $n = 1$ the prism is $3$ by $3$ by $7$, with volume $63$, and $63(1)^3 = 63$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($21n^2$): multiplies only two of the three dimensions, $(3n)(7n)$; that is the area of a side face, not a volume.\n* Choice B ($21n^3$): squares the variable but not the coefficient, using $3n^2$ in place of $(3n)^2 = 9n^2$.\n* Choice C ($63n^2$): gets the coefficient right but keeps the exponent at $2$, as if $n^2 \\cdot n = n^2$.\n\n**Test Day Takeaway:** When a dimension is $3n$, squaring it squares the $3$ as well. A quick $n = 1$ substitution catches every coefficient slip in these symbolic volume choices."
+}

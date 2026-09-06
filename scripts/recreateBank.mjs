@@ -99,8 +99,8 @@ const numericOf = t => {
     .replace(/\\left|\\right/g, '').replace(/\^\{?\\circ\}?/g, '').replace(/\\%/g, '').replace(/\\!/g, '').trim();
   if (!s) return NaN;
   if (/,/.test(String(t ?? '').replace(/\{,\}/g, '').replace(/\\,/g, '').replace(/\d,\d{3}(?!\d)/g, ''))) return NaN; // ordered pairs / lists
+  for (let i = 0; i < 4; i++) s = s.replace(/\\sqrt\{([^{}]*)\}/g, 'sqrt($1)');   // sqrt first so \frac{\sqrt{3}}{3} parses
   for (let i = 0; i < 4; i++) s = s.replace(/\\d?frac\{([^{}]*)\}\{([^{}]*)\}/g, '(($1)/($2))');
-  for (let i = 0; i < 4; i++) s = s.replace(/\\sqrt\{([^{}]*)\}/g, 'sqrt($1)');
   s = s.replace(/\\pi/g, 'pi').replace(/[{}\s]/g, '');
   if (/[^0-9.+\-*/()sqrtpi]/.test(s)) return NaN;                 // letters other than sqrt/pi → not numeric
   if (/[a-z]/.test(s.replace(/sqrt|pi/g, ''))) return NaN;

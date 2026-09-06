@@ -1,0 +1,46 @@
+{
+ "id": "bank-geo-010",
+ "question": "In the right triangle shown, the two acute angles each measure $45°$ and each leg has length $9$. What is the length of the hypotenuse?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "45°",
+    "",
+    "45°"
+   ],
+   "sideLabels": [
+    "9",
+    "9",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$9$"
+  },
+  {
+   "id": "B",
+   "text": "$9\\sqrt{2}$"
+  },
+  {
+   "id": "C",
+   "text": "$9\\sqrt{3}$"
+  },
+  {
+   "id": "D",
+   "text": "$18\\sqrt{2}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "copies a leg as the hypotenuse",
+  "C": "uses the 30-60-90 long-leg ratio",
+  "D": "doubles the leg before applying the ratio"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** In a $45°$-$45°$-$90°$ triangle the hypotenuse is $\\sqrt{2}$ times a leg, so it is $9\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The two legs are equal because the two acute angles are equal, so both legs measure $9$.\nStep 2: Apply the Pythagorean theorem: $c^2 = 9^2 + 9^2 = 81 + 81 = 162$.\nStep 3: $c = \\sqrt{162} = \\sqrt{81 \\cdot 2} = 9\\sqrt{2}$.\n\nVerification: $(9\\sqrt{2})^2 = 81 \\cdot 2 = 162 = 81 + 81$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): copies a leg; the hypotenuse is the longest side and must exceed $9$.\n* Choice C ($9\\sqrt{3}$): uses the $\\sqrt{3}$ ratio from a $30°$-$60°$-$90°$ triangle.\n* Choice D ($18\\sqrt{2}$): doubles the leg before applying the $\\sqrt{2}$ ratio, scaling the triangle by $2$.\n\n**Test Day Takeaway:** Memorize the two ratios: $45$-$45$-$90$ is $x : x : x\\sqrt{2}$ and $30$-$60$-$90$ is $x : x\\sqrt{3} : 2x$. Matching the given side to its position in the ratio is the whole problem."
+}

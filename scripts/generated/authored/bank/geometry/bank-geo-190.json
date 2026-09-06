@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-190",
+ "question": "The two legs of a right triangle have lengths $3w$ and $8w$. Which expression gives the area of the triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$6w^2$"
+  },
+  {
+   "id": "B",
+   "text": "$12w^2$"
+  },
+  {
+   "id": "C",
+   "text": "$24w^2$"
+  },
+  {
+   "id": "D",
+   "text": "$48w^2$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "halves both legs before multiplying",
+  "C": "omits the one-half factor",
+  "D": "doubles instead of halving"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In a right triangle the legs are the base and height, so the area is $\\frac{1}{2}(3w)(8w) = 12w^2$.\n\n**The Full Solution:**\nStep 1: The area of a triangle is $\\frac{1}{2}bh$, and in a right triangle the two legs meet at a right angle, so they serve as $b$ and $h$.\nStep 2: Substitute: area $= \\frac{1}{2}(3w)(8w)$.\nStep 3: Multiply: $3 \\cdot 8 = 24$, and half of $24w^2$ is $12w^2$.\n\nVerification: at $w = 2$ the legs are $6$ and $16$, giving area $\\frac{1}{2}(6)(16) = 48$, and $12(2)^2 = 48$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6w^2$): halves each leg before multiplying, computing $(1.5w)(4w)$ — the $\\frac{1}{2}$ applies once to the product, not to both factors.\n* Choice C ($24w^2$): multiplies the legs but never applies the $\\frac{1}{2}$; that is the area of the rectangle the triangle fills half of.\n* Choice D ($48w^2$): doubles the leg product instead of halving it.\n\n**Test Day Takeaway:** Apply the $\\frac{1}{2}$ once, to the finished product. Sanity check: a right triangle is exactly half of the rectangle built on its legs."
+}

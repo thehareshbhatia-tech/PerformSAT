@@ -1,0 +1,60 @@
+{
+ "id": "bank-geo-340",
+ "question": "Triangle $ABC$ has a right angle at $B$, with $AB=45$ and $BC=24$. What is the value of $\\cos C$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     45,
+     0
+    ],
+    [
+     45,
+     24
+    ]
+   ],
+   "labels": [
+    "A",
+    "B",
+    "C"
+   ],
+   "sideLabels": [
+    "45",
+    "24",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{8}{17}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{8}{15}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{15}{17}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{15}{8}$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "divides one leg by the other",
+  "C": "gives sine instead of cosine",
+  "D": "gives tangent instead of cosine"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Dividing the legs by $3$ gives $15$ and $8$, so the hypotenuse is $3(17)=51$. For angle $C$ the adjacent leg is $24$, so $\\cos C=\\frac{24}{51}=\\frac{8}{17}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse is not given, so find it: $AC=\\sqrt{45^2+24^2}=\\sqrt{2{,}025+576}=\\sqrt{2{,}601}=51$.\nStep 2: Angle $C$ touches $\\overline{BC}$ and $\\overline{AC}$, so the leg adjacent to $C$ is $\\overline{BC}=24$ and the hypotenuse is $\\overline{AC}=51$.\nStep 3: $\\cos C=\\frac{24}{51}$. Dividing numerator and denominator by $3$ gives $\\frac{8}{17}$.\n\nCheck: $24$, $45$, $51$ is the $8$, $15$, $17$ triple scaled by $3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{8}{15}$): divided the adjacent leg by the opposite leg, $\\frac{24}{45}$, instead of by the hypotenuse.\n* Choice C ($\\frac{15}{17}$): used $\\frac{45}{51}$, the opposite leg over the hypotenuse, which is $\\sin C$.\n* Choice D ($\\frac{15}{8}$): used $\\frac{45}{24}$, opposite over adjacent, which is $\\tan C$.\n\n**Test Day Takeaway:** When a cosine is asked for and the hypotenuse is missing, compute it first. Factoring out a common divisor from the legs turns the Pythagorean step into recall."
+}

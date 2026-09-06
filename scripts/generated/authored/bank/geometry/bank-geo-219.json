@@ -1,0 +1,59 @@
+{
+ "id": "bank-geo-219",
+ "question": "Triangle $GHJ$ is similar to triangle $KLM$, where $G$, $H$, and $J$ correspond to $K$, $L$, and $M$, respectively. If $GH = 5$, $KL = 15$, and $HJ = 7$, what is the length of $LM$?",
+ "diagram": {
+  "type": "similarTriangles",
+  "params": {
+   "triangle1": {
+    "labels": [
+     "G",
+     "H",
+     "J"
+    ],
+    "sideLabels": [
+     "5",
+     "7",
+     ""
+    ]
+   },
+   "triangle2": {
+    "labels": [
+     "K",
+     "L",
+     "M"
+    ],
+    "sideLabels": [
+     "15",
+     "",
+     ""
+    ]
+   },
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$7$"
+  },
+  {
+   "id": "B",
+   "text": "$15$"
+  },
+  {
+   "id": "C",
+   "text": "$21$"
+  },
+  {
+   "id": "D",
+   "text": "$35$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "copies HJ without scaling",
+  "B": "copies KL",
+  "D": "multiplies 5 by 7 instead of using the proportion"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The scale factor from $GHJ$ to $KLM$ is $\\frac{15}{5} = 3$, so $LM = 3 \\cdot 7 = 21$.\n\n**The Full Solution:**\nStep 1: Corresponding sides of similar triangles are proportional, and the naming order tells you which sides correspond: $GH$ with $KL$, and $HJ$ with $LM$.\nStep 2: Set up the proportion $\\frac{GH}{KL} = \\frac{HJ}{LM}$, that is $\\frac{5}{15} = \\frac{7}{LM}$.\nStep 3: Cross-multiply: $5 \\cdot LM = 15 \\cdot 7 = 105$, so $LM = 21$.\n\nVerification: $\\frac{5}{15} = \\frac{1}{3}$ and $\\frac{7}{21} = \\frac{1}{3}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): copies $HJ$ without applying the scale factor.\n* Choice B ($15$): copies $KL$, the side already given in the larger triangle.\n* Choice D ($35$): multiplies $5 \\cdot 7$ instead of setting up a proportion.\n\n**Test Day Takeaway:** Read the correspondence out of the vertex order. $GH \\leftrightarrow KL$ and $HJ \\leftrightarrow LM$ because $G, H, J$ map to $K, L, M$ in that order."
+}

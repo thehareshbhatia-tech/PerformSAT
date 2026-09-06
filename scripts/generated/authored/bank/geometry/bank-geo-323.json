@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-323",
+ "question": "A triangle has a base of $18$ centimeters and a height of $7$ centimeters. What is the area, in square centimeters, of the triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$25$"
+  },
+  {
+   "id": "B",
+   "text": "$31.5$"
+  },
+  {
+   "id": "C",
+   "text": "$63$"
+  },
+  {
+   "id": "D",
+   "text": "$126$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds base and height",
+  "B": "halves twice",
+  "D": "omits the factor one half"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $A=\\frac{1}{2}bh=\\frac{1}{2}(18)(7)=63$ square centimeters.\n\n**The Full Solution:**\nStep 1: The area of a triangle is $A=\\frac{1}{2}bh$.\nStep 2: Substitute $b=18$ and $h=7$: $A=\\frac{1}{2}(18)(7)$.\nStep 3: $\\frac{1}{2}(18)=9$, and $9\\cdot 7=63$ square centimeters.\n\nCheck: doubling the area gives $126=18\\cdot 7$, the full rectangle the triangle fills half of. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($25$): added the base and the height, $18+7$, instead of multiplying them.\n* Choice B ($31.5$): applied the factor $\\frac{1}{2}$ twice, computing $\\frac{1}{4}(18)(7)$.\n* Choice D ($126$): multiplied base by height but left off the factor $\\frac{1}{2}$; that product is the area of the surrounding rectangle.\n\n**Test Day Takeaway:** A triangle fills exactly half of the rectangle built on its base and height. If an answer equals $bh$, the factor $\\frac{1}{2}$ was dropped."
+}

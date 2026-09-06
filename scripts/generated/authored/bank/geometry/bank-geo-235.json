@@ -1,0 +1,45 @@
+{
+ "id": "bank-geo-235",
+ "question": "In triangle $PQR$, the measure of angle $P$ is $30°$, $PQ = 16$, and the area of the triangle is $60$ square units. What is the length of $PR$?",
+ "diagram": {
+  "type": "triangleWithAngles",
+  "params": {
+   "vertexLabels": [
+    "P",
+    "Q",
+    "R"
+   ],
+   "angleLabels": [
+    "30°",
+    "",
+    ""
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3.75$"
+  },
+  {
+   "id": "B",
+   "text": "$7.5$"
+  },
+  {
+   "id": "C",
+   "text": "$15$"
+  },
+  {
+   "id": "D",
+   "text": "$240$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "drops both the one-half and the sine factor",
+  "B": "drops the sine factor",
+  "D": "multiplies by the area instead of dividing"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** With two sides and the included angle, area $= \\frac{1}{2}(PQ)(PR)\\sin P$. So $60 = \\frac{1}{2}(16)(PR)\\left(\\frac{1}{2}\\right) = 4 \\cdot PR$, giving $PR = 15$.\n\n**The Full Solution:**\nStep 1: The height from $R$ to line $PQ$ is $PR \\sin 30° = \\frac{PR}{2}$, so the area is $\\frac{1}{2}(PQ)\\left(\\frac{PR}{2}\\right)$.\nStep 2: Substitute the known values: $60 = \\frac{1}{2}(16)\\left(\\frac{PR}{2}\\right) = 4 \\cdot PR$.\nStep 3: Solve: $PR = \\frac{60}{4} = 15$.\n\nVerification: with $PR = 15$ the height is $15 \\sin 30° = 7.5$, and $\\frac{1}{2}(16)(7.5) = 60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.75$): drops both the $\\frac{1}{2}$ and the $\\sin 30°$, solving $16 \\cdot PR = 60$.\n* Choice B ($7.5$): drops only the $\\sin 30°$ factor, solving $\\frac{1}{2}(16)(PR) = 60$; $7.5$ is the height, not the side.\n* Choice D ($240$): multiplies by the area instead of dividing, computing $\\frac{1}{2}(16)(60)\\sin 30°$.\n\n**Test Day Takeaway:** With two sides and the angle between them, area $= \\frac{1}{2}ab\\sin C$. Collapse the constants into one coefficient before dividing, and check whether the answer is the side or the altitude."
+}

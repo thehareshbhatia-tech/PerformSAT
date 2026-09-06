@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-184",
+ "question": "In the $xy$-plane, a line passes through the point $(0, 13)$ and is tangent to the circle $x^2 + y^2 = 25$. What is one possible slope of this line?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{5}{13}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{5}{12}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{12}{13}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{12}{5}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "radius over distance to center",
+  "B": "inverts: radius over tangent length",
+  "C": "tangent length over distance to center"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The line is $y = mx + 13$, so $\\frac{13}{\\sqrt{m^2 + 1}} = 5$. Then $m^2 + 1 = \\frac{169}{25}$, so $m^2 = \\frac{144}{25}$ and $m = \\frac{12}{5}$.\n\n**The Full Solution:**\nStep 1: Any non-vertical line through $(0, 13)$ has the form $y = mx + 13$, or $mx - y + 13 = 0$. The circle has center $(0, 0)$ and radius $5$.\nStep 2: Tangency forces the distance from the origin to the line to equal $5$: $\\frac{|13|}{\\sqrt{m^2 + 1}} = 5$.\nStep 3: So $\\sqrt{m^2 + 1} = \\frac{13}{5}$, giving $m^2 + 1 = \\frac{169}{25}$ and $m^2 = \\frac{144}{25}$. The two tangent lines have slopes $\\pm\\frac{12}{5}$, and $\\frac{12}{5}$ is listed.\n\nVerification: the radius, the tangent segment, and the segment from the center to $(0,13)$ form a right triangle with legs $5$ and $12$ and hypotenuse $13$; the slope magnitude is $\\frac{12}{5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{13}$): divides the radius by the distance from the center to the external point, a ratio that gives $\\sin$ of the half-angle, not the slope.\n* Choice B ($\\frac{5}{12}$): inverts the legs — uses radius over tangent length instead of tangent length over radius.\n* Choice C ($\\frac{12}{13}$): pairs the tangent length with the hypotenuse $13$ instead of with the radius $5$.\n\n**Test Day Takeaway:** Drop the perpendicular from the center to the tangent line: the radius, the tangent length, and the center-to-point distance form a right triangle. Here it is the $5$-$12$-$13$ triple."
+}

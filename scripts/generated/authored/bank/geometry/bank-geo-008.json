@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-008",
+ "question": "An angle has a measure of $\\frac{7\\pi}{12}$ radians. What is the measure of this angle, in degrees?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$15$"
+  },
+  {
+   "id": "B",
+   "text": "$52.5$"
+  },
+  {
+   "id": "C",
+   "text": "$105$"
+  },
+  {
+   "id": "D",
+   "text": "$210$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "divides 180 by 12 but never multiplies by 7",
+  "B": "uses 90 degrees per pi radians",
+  "D": "uses 360 degrees per pi radians"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Radians to Degrees**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Multiply by $\\frac{180}{\\pi}$: $\\frac{7\\pi}{12} \\cdot \\frac{180}{\\pi} = \\frac{7 \\cdot 180}{12} = 105$.\n\n**The Full Solution:**\nStep 1: Since $\\pi$ radians $= 180°$, converting from radians to degrees means multiplying by $\\frac{180}{\\pi}$.\nStep 2: The factors of $\\pi$ cancel: $\\frac{7\\pi}{12} \\cdot \\frac{180}{\\pi} = \\frac{7 \\cdot 180}{12}$.\nStep 3: $\\frac{180}{12} = 15$, so the measure is $7 \\cdot 15 = 105$ degrees.\n\nVerification: $\\frac{7}{12}$ of a straight angle is $\\frac{7}{12}(180) = 105$, and $105°$ lies between $90°$ and $180°$ as an obtuse angle should. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): computes $\\frac{180}{12}$ and stops, never multiplying by the numerator $7$.\n* Choice B ($52.5$): uses $90°$ per $\\pi$ radians, halving the correct measure.\n* Choice D ($210$): uses $360°$ per $\\pi$ radians; $360°$ corresponds to $2\\pi$, not $\\pi$.\n\n**Test Day Takeaway:** Read $\\frac{a\\pi}{b}$ radians as the fraction $\\frac{a}{b}$ of a straight angle, then take that fraction of $180$."
+}

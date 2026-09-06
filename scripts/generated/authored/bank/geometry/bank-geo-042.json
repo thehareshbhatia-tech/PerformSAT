@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-042",
+ "question": "An angle has a measure of $x$ radians. Which of the following expressions gives the measure of this angle in degrees?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{\\pi x}{180}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{180x}{\\pi}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{x}{180\\pi}$"
+  },
+  {
+   "id": "D",
+   "text": "$180\\pi x$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "converts degrees to radians instead",
+  "C": "divides by 180*pi",
+  "D": "multiplies by 180*pi"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Radian-Degree Conversion Factor**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Since $\\pi$ radians $= 180°$, one radian is $\\frac{180}{\\pi}$ degrees, so $x$ radians is $\\frac{180x}{\\pi}$ degrees.\n\n**The Full Solution:**\nStep 1: The single conversion fact is $\\pi \\text{ radians} = 180°$.\nStep 2: Divide both sides by $\\pi$ to get the degree measure of one radian: $1 \\text{ radian} = \\frac{180}{\\pi}$ degrees.\nStep 3: Multiply by $x$: the angle measures $\\frac{180x}{\\pi}$ degrees.\n\nVerification: substituting $x = \\pi$ gives $\\frac{180\\pi}{\\pi} = 180$, and $\\pi$ radians is indeed $180°$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{\\pi x}{180}$): this is the degrees-to-radians conversion run backwards; substituting $x = \\pi$ gives about $0.055$, not $180$.\n* Choice C ($\\frac{x}{180\\pi}$): divides by both factors instead of forming the ratio $\\frac{180}{\\pi}$.\n* Choice D ($180\\pi x$): multiplies by both factors, producing a value roughly $32{,}000$ times too large.\n\n**Test Day Takeaway:** Test a candidate expression with $x = \\pi$. The one that returns $180$ is the radians-to-degrees converter."
+}

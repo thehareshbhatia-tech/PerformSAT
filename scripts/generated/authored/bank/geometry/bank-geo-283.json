@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-283",
+ "question": "A circle is defined by $x^2 + y^2 - 10x + 14y + 25 = 0$. Which point is the center of this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(-5, 7)$"
+  },
+  {
+   "id": "B",
+   "text": "$(5, -7)$"
+  },
+  {
+   "id": "C",
+   "text": "$(10, -14)$"
+  },
+  {
+   "id": "D",
+   "text": "$(25, -49)$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "flips both signs the wrong way",
+  "C": "forgets to halve the coefficients",
+  "D": "uses the completed-square constants"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Halve and negate: $-10 \\to 5$ and $14 \\to -7$, so the center is $(5, -7)$.\n\n**The Full Solution:**\nStep 1: Group the variables: $(x^2 - 10x) + (y^2 + 14y) = -25$.\nStep 2: Add $\\left(\\frac{-10}{2}\\right)^2 = 25$ and $\\left(\\frac{14}{2}\\right)^2 = 49$ to both sides: $(x - 5)^2 + (y + 7)^2 = -25 + 25 + 49 = 49$.\nStep 3: Reading the standard form, the center is $(5, -7)$ and the radius is $7$. Check: the point $(12, -7)$ lies $7$ units to the right of the center and satisfies $144 + 49 - 120 - 98 + 25 = 0$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-5, 7)$): halves correctly but negates in the wrong direction, giving the reflection of the center through the origin.\n* Choice C ($(10, -14)$): negates the coefficients without halving them.\n* Choice D ($(25, -49)$): uses the numbers added while completing the square as coordinates.\n\n**Test Day Takeaway:** The sign inside the binomial is the opposite of the sign of the center coordinate: $(x - 5)^2$ means the center's $x$ is $+5$."
+}

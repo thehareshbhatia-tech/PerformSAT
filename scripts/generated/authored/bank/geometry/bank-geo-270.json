@@ -1,0 +1,45 @@
+{
+ "id": "bank-geo-270",
+ "question": "In the figure shown, lines $p$ and $q$ intersect, forming four angles. The angle marked $x°$ is adjacent to the angle that measures $53°$. What is the value of $x$?",
+ "diagram": {
+  "type": "intersectingLines",
+  "params": {
+   "angles": [
+    "53°",
+    "x°",
+    "",
+    ""
+   ],
+   "lineLabels": [
+    "p",
+    "q"
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$37$"
+  },
+  {
+   "id": "B",
+   "text": "$53$"
+  },
+  {
+   "id": "C",
+   "text": "$127$"
+  },
+  {
+   "id": "D",
+   "text": "$143$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "takes the complement instead of the supplement",
+  "B": "treats the marked angles as vertical angles",
+  "D": "adds 90 to the given angle"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Vertical Angles**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Adjacent angles at a crossing form a straight angle, so $x = 180 - 53 = 127$.\n\n**The Full Solution:**\nStep 1: The angle marked $x^\\circ$ and the $53^\\circ$ angle share a side, and their remaining sides are opposite rays of line $p$. The two angles therefore form a linear pair.\nStep 2: A linear pair is supplementary, so $x + 53 = 180$.\nStep 3: $x = 127$. Check: the angle vertical to each of these has the same measure, so the four angles are $53$, $127$, $53$, and $127$, which total $360$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($37$): computes $90 - 53$, treating adjacent angles as complementary rather than supplementary.\n* Choice B ($53$): treats the two marked angles as vertical angles and copies the given measure; only the angle straight across from the $53^\\circ$ angle measures $53^\\circ$.\n* Choice D ($143$): adds $90$ to the given measure instead of subtracting it from $180$.\n\n**Test Day Takeaway:** At a crossing, angles that share a side add to $180^\\circ$ and angles straight across from each other are equal. Decide which pair the figure marks before doing any arithmetic."
+}

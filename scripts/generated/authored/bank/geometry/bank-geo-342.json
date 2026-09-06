@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-342",
+ "question": "The measure of angle $R$ is $\\dfrac{5\\pi}{6}$ radians. The measure of angle $S$ is $\\dfrac{4\\pi}{9}$ radians greater than the measure of angle $R$. What is the measure of angle $S$, in degrees?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$108$"
+  },
+  {
+   "id": "B",
+   "text": "$130$"
+  },
+  {
+   "id": "C",
+   "text": "$150$"
+  },
+  {
+   "id": "D",
+   "text": "$230$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds numerators and denominators",
+  "B": "rescales the denominator without the numerator",
+  "C": "gives angle R instead of angle S"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Radian Sum to Degrees**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Convert first: $\\frac{5\\pi}{6}=150^\\circ$ and $\\frac{4\\pi}{9}=80^\\circ$, so angle $S$ measures $150+80=230$ degrees.\n\n**The Full Solution:**\nStep 1: Multiply each radian measure by $\\frac{180^\\circ}{\\pi}$. For angle $R$: $\\frac{5\\pi}{6}\\cdot\\frac{180}{\\pi}=5\\cdot 30=150^\\circ$.\nStep 2: For the increase: $\\frac{4\\pi}{9}\\cdot\\frac{180}{\\pi}=4\\cdot 20=80^\\circ$.\nStep 3: Angle $S$ is $80^\\circ$ greater than angle $R$, so its measure is $150+80=230$ degrees.\n\nCheck: in radians, $\\frac{5\\pi}{6}+\\frac{4\\pi}{9}=\\frac{15\\pi}{18}+\\frac{8\\pi}{18}=\\frac{23\\pi}{18}$, and $\\frac{23}{18}\\cdot 180=230$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($108$): added the fractions by adding numerators and denominators, getting $\\frac{9\\pi}{15}=\\frac{3\\pi}{5}$, which converts to $108^\\circ$.\n* Choice B ($130$): rewrote $\\frac{5\\pi}{6}$ as $\\frac{5\\pi}{18}$ when finding a common denominator, scaling the denominator but not the numerator; $\\frac{5\\pi}{18}+\\frac{8\\pi}{18}=\\frac{13\\pi}{18}$ converts to $130^\\circ$.\n* Choice C ($150$): converted angle $R$ correctly and stopped, never adding the increase.\n\n**Test Day Takeaway:** Converting each radian measure to degrees before adding avoids the common-denominator step entirely, and $\\pi$ radians is always $180^\\circ$."
+}

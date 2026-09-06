@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-297",
+ "question": "Two right circular cylinders have the same volume. The first has a radius of $6$ and a height of $8$. The second has a radius of $4$. What is the height of the second cylinder?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$12$"
+  },
+  {
+   "id": "B",
+   "text": "$18$"
+  },
+  {
+   "id": "C",
+   "text": "$72$"
+  },
+  {
+   "id": "D",
+   "text": "$288$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "scales the height by the ratio of radii",
+  "C": "divides the volume by r instead of r squared",
+  "D": "reports the volume coefficient"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The shared volume is $\\pi(36)(8) = 288\\pi$, so $\\pi(16)h = 288\\pi$ and $h = 18$.\n\n**The Full Solution:**\nStep 1: Compute the first volume: $V = \\pi(6)^2(8) = 288\\pi$.\nStep 2: The second cylinder has base area $\\pi(4)^2 = 16\\pi$, and its volume must also be $288\\pi$: $16\\pi h = 288\\pi$.\nStep 3: $h = \\frac{288}{16} = 18$. Check: the base area shrank by a factor of $\\frac{16}{36} = \\frac{4}{9}$, so the height must grow by $\\frac{9}{4}$, and $8 \\cdot \\frac{9}{4} = 18$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): scales the height by $\\frac{6}{4}$, using the ratio of the radii rather than the ratio of their squares.\n* Choice C ($72$): divides $288$ by the radius $4$ instead of by $r^2 = 16$.\n* Choice D ($288$): reports the volume coefficient rather than the height.\n\n**Test Day Takeaway:** Equal volumes mean base area and height trade off inversely — and base area moves with the square of the radius."
+}

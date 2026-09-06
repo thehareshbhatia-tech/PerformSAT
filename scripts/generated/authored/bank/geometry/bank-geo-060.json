@@ -1,0 +1,40 @@
+{
+ "id": "bank-geo-060",
+ "question": "A circular running track has a circumference of $360$ meters and center $O$. A runner starts at point $A$ on the track and runs along the track to point $B$, covering an arc of $135$ meters. What is the area, in square meters, of sector $AOB$?",
+ "diagram": {
+  "type": "circleWithSector",
+  "params": {
+   "centralAngle": 135,
+   "showAngleLabel": false,
+   "labelCenter": "O",
+   "labelPoint1": "A",
+   "labelPoint2": "B",
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{4{,}050}{\\pi}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{12{,}150}{\\pi}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{32{,}400}{\\pi}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{48{,}600}{\\pi}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "divides the circle area by 8 but drops the factor 3",
+  "C": "reports the area of the whole circle",
+  "D": "uses C over pi as the radius instead of C over 2 pi"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circumference → Radius → Sector**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** The arc is $\\frac{135}{360} = \\frac{3}{8}$ of the track. With $r = \\frac{360}{2\\pi} = \\frac{180}{\\pi}$, the circle's area is $\\frac{32{,}400}{\\pi}$, so the sector is $\\frac{3}{8} \\cdot \\frac{32{,}400}{\\pi} = \\frac{12{,}150}{\\pi}$ square meters.\n\n**The Full Solution:**\nStep 1: From $C = 2\\pi r$, the radius is $r = \\frac{360}{2\\pi} = \\frac{180}{\\pi}$ meters.\nStep 2: The circle's area is $\\pi r^2 = \\pi \\cdot \\frac{32{,}400}{\\pi^2} = \\frac{32{,}400}{\\pi}$ square meters.\nStep 3: The sector is the same fraction of the area that the arc is of the circumference, namely $\\frac{135}{360} = \\frac{3}{8}$, so its area is $\\frac{3}{8} \\cdot \\frac{32{,}400}{\\pi} = \\frac{12{,}150}{\\pi}$ square meters.\n\nVerification: the shortcut $A = \\frac{1}{2}sr$ gives $\\frac{1}{2}(135)\\left(\\frac{180}{\\pi}\\right) = \\frac{12{,}150}{\\pi}$, the same value. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4{,}050}{\\pi}$): divides the circle's area by $8$ but never multiplies by the $3$ in $\\frac{3}{8}$.\n* Choice C ($\\frac{32{,}400}{\\pi}$): reports the area enclosed by the entire track.\n* Choice D ($\\frac{48{,}600}{\\pi}$): uses $r = \\frac{C}{\\pi}$ instead of $r = \\frac{C}{2\\pi}$, doubling the radius and quadrupling every area.\n\n**Test Day Takeaway:** Circumference gives the radius through $r = \\frac{C}{2\\pi}$, and the arc-to-circumference ratio equals the sector-to-circle ratio. Keeping $\\pi$ symbolic avoids rounding on the way through."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-036",
+ "question": "In the $xy$-plane, the endpoints of a diameter of a circle are $(-2, 5)$ and $(6, 11)$. Which equation represents this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(x + 2)^2 + (y - 5)^2 = 25$"
+  },
+  {
+   "id": "B",
+   "text": "$(x - 2)^2 + (y - 8)^2 = 25$"
+  },
+  {
+   "id": "C",
+   "text": "$(x - 2)^2 + (y - 8)^2 = 100$"
+  },
+  {
+   "id": "D",
+   "text": "$(x + 2)^2 + (y + 8)^2 = 25$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses an endpoint as the center",
+  "C": "uses the diameter as the radius",
+  "D": "copies the center signs incorrectly"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circle from Diameter Endpoints**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The center is the midpoint $(2, 8)$, the diameter is $\\sqrt{8^2 + 6^2} = 10$, so $r = 5$ and the equation is $(x - 2)^2 + (y - 8)^2 = 25$.\n\n**The Full Solution:**\nStep 1: The center of a circle is the midpoint of any diameter: $\\left(\\frac{-2 + 6}{2}, \\frac{5 + 11}{2}\\right) = (2, 8)$.\nStep 2: The diameter's length is the distance between the endpoints: $\\sqrt{(6 - (-2))^2 + (11 - 5)^2} = \\sqrt{64 + 36} = 10$, so the radius is $5$ and $r^2 = 25$.\nStep 3: Substitute into $(x - h)^2 + (y - k)^2 = r^2$: $(x - 2)^2 + (y - 8)^2 = 25$.\n\nVerification: the endpoint $(6, 11)$ satisfies the equation: $(6 - 2)^2 + (11 - 8)^2 = 16 + 9 = 25$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x + 2)^2 + (y - 5)^2 = 25$): uses the endpoint $(-2, 5)$ as the center instead of the midpoint.\n* Choice C ($(x - 2)^2 + (y - 8)^2 = 100$): squares the diameter $10$ rather than the radius $5$.\n* Choice D ($(x + 2)^2 + (y + 8)^2 = 25$): mishandles the signs, describing a circle centered at $(-2, -8)$.\n\n**Test Day Takeaway:** Diameter endpoints give the center by midpoint and the radius by half the distance. Halve before squaring, never after."
+}

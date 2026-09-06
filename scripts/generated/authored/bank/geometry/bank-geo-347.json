@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-347",
+ "question": "Angle $\\theta$ has a measure of $\\dfrac{119\\pi}{6}$ radians. What is the value of $\\tan\\theta$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-\\sqrt{3}$"
+  },
+  {
+   "id": "B",
+   "text": "$-\\dfrac{\\sqrt{3}}{3}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\dfrac{\\sqrt{3}}{3}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\sqrt{3}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses pi/3 as the reference angle",
+  "C": "drops the negative sign",
+  "D": "wrong reference angle and wrong sign"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Coterminal-Angle Reduction for Tangent**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Subtract full turns: $\\frac{119\\pi}{6}-18\\pi=\\frac{11\\pi}{6}$. That angle is $\\frac{\\pi}{6}$ short of a full turn, so $\\tan\\theta=-\\tan\\frac{\\pi}{6}=-\\frac{\\sqrt{3}}{3}$.\n\n**The Full Solution:**\nStep 1: Adding or subtracting $2\\pi$ does not change an angle's terminal ray. Write $\\frac{119\\pi}{6}$ as a multiple of $2\\pi$ plus a remainder: $119=6(18)+11$, so $\\frac{119\\pi}{6}=\\frac{108\\pi}{6}+\\frac{11\\pi}{6}=18\\pi+\\frac{11\\pi}{6}$, and $18\\pi$ is $9$ full turns.\nStep 2: So $\\tan\\theta=\\tan\\frac{11\\pi}{6}$. The angle $\\frac{11\\pi}{6}$ lies in the fourth quadrant, $\\frac{\\pi}{6}$ below the positive $x$-axis, so its reference angle is $\\frac{\\pi}{6}$ and tangent is negative there.\nStep 3: $\\tan\\frac{\\pi}{6}=\\frac{1}{\\sqrt{3}}=\\frac{\\sqrt{3}}{3}$, so $\\tan\\theta=-\\frac{\\sqrt{3}}{3}$.\n\nCheck: $\\frac{11\\pi}{6}$ corresponds to $330^\\circ$, and $\\tan 330^\\circ=-\\tan 30^\\circ$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\sqrt{3}$): used $\\frac{\\pi}{3}$ as the reference angle instead of $\\frac{\\pi}{6}$, swapping the two special-angle tangents.\n* Choice C ($\\frac{\\sqrt{3}}{3}$): reduced the angle correctly but kept the value positive; tangent is negative in the fourth quadrant.\n* Choice D ($\\sqrt{3}$): made both slips at once, using the wrong reference angle and the wrong sign.\n\n**Test Day Takeaway:** Reduce a large radian measure by subtracting whole multiples of $2\\pi$ first, then read the quadrant to fix the sign before evaluating the reference angle."
+}

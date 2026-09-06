@@ -1,0 +1,41 @@
+{
+ "id": "bank-geo-268",
+ "question": "In the figure shown, two lines intersect, forming four angles with measures $a°$, $b°$, $c°$, and $d°$ in order around the point of intersection. If $b = 4a$, what is the value of $a$?",
+ "diagram": {
+  "type": "intersectingLines",
+  "params": {
+   "angles": [
+    "a°",
+    "b°",
+    "c°",
+    "d°"
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$36$"
+  },
+  {
+   "id": "B",
+   "text": "$45$"
+  },
+  {
+   "id": "C",
+   "text": "$72$"
+  },
+  {
+   "id": "D",
+   "text": "$144$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "divides 180 by 4",
+  "C": "uses 360 instead of 180",
+  "D": "reports b instead of a"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Vertical Angles**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $a$ and $b$ are adjacent, so $a + b = 180$. Substituting $b = 4a$ gives $5a = 180$ and $a = 36$.\n\n**The Full Solution:**\nStep 1: Angles listed consecutively around the intersection are adjacent, so $a^\\circ$ and $b^\\circ$ form a linear pair: $a + b = 180$.\nStep 2: Replace $b$ with $4a$: $a + 4a = 180$, so $5a = 180$.\nStep 3: $a = 36$. Check: $b = 144$, and the four angles are $36$, $144$, $36$, $144$, which sum to $360$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($45$): divides $180$ by $4$, using the multiplier as the number of parts.\n* Choice C ($72$): divides $360$ by $5$, applying the linear-pair split to a full turn.\n* Choice D ($144$): solves correctly but reports $b$ rather than $a$.\n\n**Test Day Takeaway:** Consecutive angles at a crossing are supplementary. Turn the given relationship into a single equation in one variable."
+}

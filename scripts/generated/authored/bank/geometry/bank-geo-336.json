@@ -1,0 +1,60 @@
+{
+ "id": "bank-geo-336",
+ "question": "A right triangle has side lengths $12$, $35$, and $37$. Angle $\\theta$ is opposite the side of length $12$. What is the value of $\\cos\\theta$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     35,
+     0
+    ],
+    [
+     35,
+     12
+    ]
+   ],
+   "labels": [
+    "θ",
+    "",
+    ""
+   ],
+   "sideLabels": [
+    "35",
+    "12",
+    "37"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{12}{37}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{12}{35}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{35}{37}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{37}{35}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "gives sine instead of cosine",
+  "B": "gives tangent instead of cosine",
+  "D": "inverts the ratio"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The hypotenuse is $37$. Since $12$ is opposite $\\theta$, the adjacent leg is $35$, so $\\cos\\theta=\\frac{35}{37}$.\n\n**The Full Solution:**\nStep 1: The longest side, $37$, is the hypotenuse, so $12$ and $35$ are the legs.\nStep 2: The leg opposite $\\theta$ is $12$, so the leg adjacent to $\\theta$ must be the other one, $35$.\nStep 3: Cosine is adjacent over hypotenuse: $\\cos\\theta=\\frac{35}{37}$.\n\nCheck: $12^2+35^2=144+1{,}225=1{,}369=37^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{12}{37}$): used the opposite leg over the hypotenuse, which is $\\sin\\theta$.\n* Choice B ($\\frac{12}{35}$): used opposite over adjacent, which is $\\tan\\theta$.\n* Choice D ($\\frac{37}{35}$): inverted the correct ratio, putting the hypotenuse on top.\n\n**Test Day Takeaway:** In a right triangle the two legs are opposite and adjacent to each other's angles. Once one leg is named as opposite, the other is automatically the adjacent one."
+}

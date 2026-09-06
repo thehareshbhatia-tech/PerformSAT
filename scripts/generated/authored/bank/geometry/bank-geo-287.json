@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-287",
+ "question": "Which equation represents the circle in the $xy$-plane with center $(-4, 7)$ and radius $3$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(x - 4)^2 + (y + 7)^2 = 9$"
+  },
+  {
+   "id": "B",
+   "text": "$(x + 4)^2 + (y - 7)^2 = 3$"
+  },
+  {
+   "id": "C",
+   "text": "$(x + 4)^2 + (y - 7)^2 = 9$"
+  },
+  {
+   "id": "D",
+   "text": "$(x + 4)^2 + (y + 7)^2 = 9$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reverses both center signs",
+  "B": "uses r instead of r squared",
+  "D": "gets the sign of k wrong"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Subtract each center coordinate inside the squares and square the radius: $(x + 4)^2 + (y - 7)^2 = 9$.\n\n**The Full Solution:**\nStep 1: The standard form is $(x - h)^2 + (y - k)^2 = r^2$ with center $(h, k)$.\nStep 2: With $h = -4$, the first factor is $(x - (-4))^2 = (x + 4)^2$; with $k = 7$, the second is $(y - 7)^2$.\nStep 3: The right side is $r^2 = 3^2 = 9$. Check: the point $(-1, 7)$ is $3$ units right of the center and satisfies $9 + 0 = 9$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 4)^2 + (y + 7)^2 = 9$): reverses both center signs, describing the circle centered at $(4, -7)$.\n* Choice B ($(x + 4)^2 + (y - 7)^2 = 3$): places the radius on the right side instead of the radius squared.\n* Choice D ($(x + 4)^2 + (y + 7)^2 = 9$): uses $(y + 7)^2$, which corresponds to a $y$-coordinate of $-7$.\n\n**Test Day Takeaway:** The binomial signs are always the opposite of the center coordinates, and the right side is $r^2$, never $r$."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-304",
+ "question": "A circle in the $xy$-plane has center $(-6,\\,2)$ and passes through the point $(-6+8c,\\,2-15c)$, where $c$ is a positive constant. Which equation represents this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(x-6)^2+(y+2)^2=289c^2$"
+  },
+  {
+   "id": "B",
+   "text": "$(x+6)^2+(y-2)^2=17c$"
+  },
+  {
+   "id": "C",
+   "text": "$(x+6)^2+(y-2)^2=289c$"
+  },
+  {
+   "id": "D",
+   "text": "$(x+6)^2+(y-2)^2=289c^2$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "flips the signs of the center coordinates",
+  "B": "uses r instead of r squared",
+  "C": "squares 17 but not c"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The point is $8c$ right and $15c$ down from the center, so $r=17c$ by the $8$, $15$, $17$ triple, and $r^2=289c^2$. With center $(-6,\\,2)$ the equation is $(x+6)^2+(y-2)^2=289c^2$.\n\n**The Full Solution:**\nStep 1: A circle with center $(h,\\,k)$ and radius $r$ has equation $(x-h)^2+(y-k)^2=r^2$. Here $h=-6$ and $k=2$, so the left side is $(x+6)^2+(y-2)^2$.\nStep 2: The horizontal change from the center to the given point is $(-6+8c)-(-6)=8c$ and the vertical change is $(2-15c)-2=-15c$, so $r=\\sqrt{(8c)^2+(-15c)^2}=\\sqrt{64c^2+225c^2}=\\sqrt{289c^2}=17c$ (positive because $c>0$).\nStep 3: Square the radius: $r^2=(17c)^2=289c^2$.\n\nCheck: substituting $x=-6+8c$ and $y=2-15c$ gives $(8c)^2+(-15c)^2=289c^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x-6)^2+(y+2)^2=289c^2$): flipped the signs inside the parentheses, placing the center at $(6,\\,-2)$ instead of $(-6,\\,2)$.\n* Choice B ($(x+6)^2+(y-2)^2=17c$): put the radius $17c$ on the right side instead of the radius squared.\n* Choice C ($(x+6)^2+(y-2)^2=289c$): squared the $17$ but forgot to square the $c$ as well.\n\n**Test Day Takeaway:** In $(x-h)^2+(y-k)^2=r^2$, the center's coordinates change sign inside the parentheses and the whole radius, constant factor included, gets squared on the right."
+}

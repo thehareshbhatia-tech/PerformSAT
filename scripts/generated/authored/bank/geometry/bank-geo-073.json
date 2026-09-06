@@ -1,0 +1,24 @@
+{
+ "id": "bank-geo-073",
+ "question": "A circle in the $xy$-plane is defined by the equation $x^2 + y^2 - 6x + 10y + 9 = 0$. What is the area of this circle, in square units, in terms of $\\pi$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$5\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$10\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$25\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$100\\pi$"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Completing the squares gives $r^2 = 25$, and the area of a circle is $\\pi r^2$, so the area is $25\\pi$ square units.\n\n**The Full Solution:**\nStep 1: Group by variable: $(x^2 - 6x) + (y^2 + 10y) = -9$.\nStep 2: Half of $-6$ is $-3$ with square $9$; half of $10$ is $5$ with square $25$. Adding both gives $(x - 3)^2 + (y + 5)^2 = -9 + 9 + 25 = 25$.\nStep 3: Since $r^2 = 25$, the area is $\\pi r^2 = 25\\pi$ square units.\n\nCheck: $r = 5$, and $\\pi(5)^2 = 25\\pi$ agrees.\n\n**Why the wrong answers are tempting:**\n* Choice A ($5\\pi$): uses $\\pi r$ instead of $\\pi r^2$, forgetting to square the radius.\n* Choice B ($10\\pi$): computes the circumference $2\\pi r$ rather than the area.\n* Choice D ($100\\pi$): squares the diameter $10$ instead of the radius.\n\n**Test Day Takeaway:** The completed square hands you $r^2$ directly, which is exactly what the area formula needs — no square root required."
+}

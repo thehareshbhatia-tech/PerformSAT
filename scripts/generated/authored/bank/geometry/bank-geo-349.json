@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-349",
+ "question": "In the $xy$-plane, the circle with equation $(x+7)^2+(y-6)^2=169$ passes through the point $(m,\\,n)$. Which of the following could be the value of $m$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-28$"
+  },
+  {
+   "id": "B",
+   "text": "$-15$"
+  },
+  {
+   "id": "C",
+   "text": "$12$"
+  },
+  {
+   "id": "D",
+   "text": "$18$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses the diameter as the reach from the center",
+  "C": "applies the radius to the y-coordinate",
+  "D": "flips the sign of the center's x-coordinate"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circle in Standard Form — $x$-range**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The center is $(-7,\\,6)$ and the radius is $\\sqrt{169}=13$, so $m$ must satisfy $-20\\le m\\le 6$. Only $-15$ does.\n\n**The Full Solution:**\nStep 1: Compare with $(x-h)^2+(y-k)^2=r^2$. Since $x+7=x-(-7)$ and $y-6=y-6$, the center is $(-7,\\,6)$, and $r^2=169$ gives $r=13$.\nStep 2: Every point of the circle lies within $13$ units of the center in any direction, so its $x$-coordinates run from $-7-13=-20$ to $-7+13=6$.\nStep 3: Among the options, $-28$, $12$, and $18$ all fall outside $[-20,\\,6]$, while $-15$ falls inside. So $m$ could be $-15$.\n\nCheck: with $m=-15$, $(-15+7)^2=64$, leaving $(n-6)^2=105$, which has real solutions. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-28$): used the diameter $26$ as the reach from the center, which would widen the range to $[-33,\\,19]$.\n* Choice C ($12$): applied the radius to the center's $y$-coordinate instead of its $x$-coordinate, producing the interval $[-7,\\,19]$.\n* Choice D ($18$): read the center as $(7,\\,6)$ by ignoring the sign change inside the parentheses, which would give the range $[-6,\\,20]$.\n\n**Test Day Takeaway:** The right side of a circle's equation is $r^2$, so take its square root first. The $x$-coordinates on the circle then span exactly $h-r$ to $h+r$."
+}

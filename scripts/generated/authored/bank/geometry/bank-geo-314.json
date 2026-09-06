@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-314",
+ "question": "The length of a rectangle is $3$ times its width, and the area of the rectangle is $108$ square centimeters. What is the width, in centimeters, of the rectangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$6$"
+  },
+  {
+   "id": "B",
+   "text": "$18$"
+  },
+  {
+   "id": "C",
+   "text": "$36$"
+  },
+  {
+   "id": "D",
+   "text": "$54$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "reports the length instead of the width",
+  "C": "stops at w squared",
+  "D": "halves the area"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** With $\\ell=3w$, the area is $3w^2=108$, so $w^2=36$ and $w=6$ centimeters.\n\n**The Full Solution:**\nStep 1: Let $w$ be the width. The length is $3w$, so the area is $A=(3w)(w)=3w^2$.\nStep 2: $3w^2=108$, so $w^2=36$.\nStep 3: $w=6$ centimeters, taking the positive root because a width must be positive.\n\nCheck: width $6$ and length $18$ give $(6)(18)=108$ square centimeters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($18$): solved correctly but reported the length $3w$ instead of the width.\n* Choice C ($36$): stopped at $w^2=36$ without taking the square root.\n* Choice D ($54$): halved the area, as though the rectangle were made of two equal squares.\n\n**Test Day Takeaway:** Name the smaller dimension as the variable, write the other in terms of it, and check at the end which of the two the question asked for."
+}

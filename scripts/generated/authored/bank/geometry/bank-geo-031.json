@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-031",
+ "question": "A scale model of a monument is built so that each length on the model is $\\frac{1}{12}$ of the corresponding length on the monument. The volume of the model is $30$ cubic inches. What is the volume, in cubic inches, of the monument?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$360$"
+  },
+  {
+   "id": "B",
+   "text": "$1{,}080$"
+  },
+  {
+   "id": "C",
+   "text": "$4{,}320$"
+  },
+  {
+   "id": "D",
+   "text": "$51{,}840$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "multiplies by the linear factor 12",
+  "B": "multiplies the linear factor by 3 instead of cubing it",
+  "C": "squares the linear factor, which scales areas"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Volume Scaling by Cube of Linear Factor**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Volume scales by the cube of the linear factor: $30 \\cdot 12^3 = 30 \\cdot 1{,}728 = 51{,}840$ cubic inches.\n\n**The Full Solution:**\nStep 1: For similar solids with linear ratio $k$, lengths scale by $k$, areas by $k^2$, and volumes by $k^3$.\nStep 2: Each length on the monument is $12$ times the model's, so $k = 12$ and $k^3 = 1{,}728$.\nStep 3: The monument's volume is $30(1{,}728) = 51{,}840$ cubic inches.\n\nVerification: $\\frac{51{,}840}{30} = 1{,}728 = 12^3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($360$): multiplies by the linear factor $12$; that scales a single length, not a volume.\n* Choice B ($1{,}080$): multiplies $12$ by $3$ to get $36$; cubing means $12 \\cdot 12 \\cdot 12$, not $12 \\cdot 3$.\n* Choice C ($4{,}320$): uses $12^2 = 144$, the factor that scales surface areas.\n\n**Test Day Takeaway:** Match the exponent to the dimension: lengths take $k$, areas take $k^2$, volumes take $k^3$."
+}

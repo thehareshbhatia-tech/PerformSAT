@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-312",
+ "question": "The perimeter of a rectangle is $44$ and its width is $7$. What is the area of the rectangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$15$"
+  },
+  {
+   "id": "B",
+   "text": "$105$"
+  },
+  {
+   "id": "C",
+   "text": "$154$"
+  },
+  {
+   "id": "D",
+   "text": "$259$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports the length instead of the area",
+  "C": "uses half the perimeter as the length",
+  "D": "subtracts the width from the full perimeter"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Half the perimeter is $22$, which is one length plus one width, so the length is $22-7=15$ and the area is $15\\cdot 7=105$.\n\n**The Full Solution:**\nStep 1: The perimeter of a rectangle is $P=2\\ell+2w$, so $2\\ell+2(7)=44$.\nStep 2: $2\\ell=44-14=30$, so $\\ell=15$.\nStep 3: The area is $A=\\ell w=(15)(7)=105$.\n\nCheck: $2(15)+2(7)=30+14=44$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): stopped at the length and never multiplied by the width.\n* Choice C ($154$): used $22$, half the perimeter, as the length and multiplied $22\\cdot 7$; half the perimeter is a length plus a width, not a length alone.\n* Choice D ($259$): subtracted the width from the whole perimeter, $44-7=37$, and multiplied $37\\cdot 7$.\n\n**Test Day Takeaway:** Halve the perimeter first. That single number equals one length plus one width, which turns most perimeter-to-area problems into one subtraction."
+}

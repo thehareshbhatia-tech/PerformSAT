@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-193",
+ "question": "The radius of a right circular cylinder is multiplied by $3$, and its height is multiplied by $\\frac{1}{2}$. The volume of the new cylinder is how many times the volume of the original cylinder?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$1.5$"
+  },
+  {
+   "id": "B",
+   "text": "$4.5$"
+  },
+  {
+   "id": "C",
+   "text": "$9$"
+  },
+  {
+   "id": "D",
+   "text": "$13.5$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "scales linearly without squaring the radius factor",
+  "C": "ignores the change in height",
+  "D": "cubes the radius factor"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $V = \\pi r^2 h$, so the factor is $3^2 \\cdot \\frac{1}{2} = 9 \\cdot \\frac{1}{2} = 4.5$.\n\n**The Full Solution:**\nStep 1: The original volume is $V = \\pi r^2 h$. The new cylinder has radius $3r$ and height $\\frac{h}{2}$.\nStep 2: New volume $= \\pi(3r)^2\\left(\\frac{h}{2}\\right) = \\pi(9r^2)\\left(\\frac{h}{2}\\right) = \\frac{9}{2}\\pi r^2 h$.\nStep 3: Compare: $\\frac{9}{2}\\pi r^2 h = 4.5V$, so the new volume is $4.5$ times the original.\n\nVerification: with $r = 2$ and $h = 4$, $V = 16\\pi$; the new cylinder has $r = 6$, $h = 2$, and $V = 72\\pi$, and $\\frac{72}{16} = 4.5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.5$): multiplies the two scale factors as $3 \\cdot \\frac{1}{2}$, treating the radius as if it were not squared.\n* Choice C ($9$): squares the radius factor correctly but ignores the halved height.\n* Choice D ($13.5$): cubes the radius factor, $27 \\cdot \\frac{1}{2}$; the radius appears to the second power in a cylinder, not the third.\n\n**Test Day Takeaway:** In $V = \\pi r^2 h$, a radius factor enters squared and a height factor enters to the first power. Multiply the adjusted factors — never the raw ones."
+}

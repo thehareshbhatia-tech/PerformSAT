@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-237",
+ "question": "The circumference of a circle is $34\\pi$ inches. What is the diameter, in inches, of the circle?",
+ "correctAnswer": "34",
+ "explanation": "**SAT Pattern: Circumference of a Circle**\n\n**The correct answer is $34$.**\n\n**The Fast Way (~10s):** $C = \\pi d$, so $34\\pi = \\pi d$ and $d = 34$ inches.\n\n**The Full Solution:**\nStep 1: Circumference relates to the diameter by $C = \\pi d$.\nStep 2: Substitute: $34\\pi = \\pi d$.\nStep 3: Divide both sides by $\\pi$: $d = 34$ inches.\n\nVerification: a diameter of $34$ gives a radius of $17$, and $2\\pi(17) = 34\\pi$. $\\checkmark$\n\n**Common Mistakes:** Gridding the radius $17$ after dividing by $2\\pi$ instead of by $\\pi$. Dividing by $2$ a second time and gridding $8.5$. Leaving $\\pi$ in the answer, which the grid cannot accept.\n\n**Test Day Takeaway:** When a circumference is written as a multiple of $\\pi$, the coefficient is the diameter. That single observation skips the algebra."
+}

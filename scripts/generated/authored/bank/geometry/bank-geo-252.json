@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-252",
+ "question": "An equilateral triangle has a perimeter of $36$ centimeters. What is the length, in centimeters, of an altitude of the triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$6$"
+  },
+  {
+   "id": "B",
+   "text": "$6\\sqrt{2}$"
+  },
+  {
+   "id": "C",
+   "text": "$6\\sqrt{3}$"
+  },
+  {
+   "id": "D",
+   "text": "$12\\sqrt{3}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "omits the square-root-3 factor",
+  "B": "uses the 45-45-90 ratio",
+  "D": "uses the full side as the short leg"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Each side is $12$. The altitude splits the triangle into $30$-$60$-$90$ halves with short leg $6$, so the altitude is $6\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: An equilateral triangle has three equal sides, so each side is $\\frac{36}{3} = 12$ centimeters.\nStep 2: An altitude bisects the base and creates two $30$-$60$-$90$ triangles whose short leg is $\\frac{12}{2} = 6$ and whose hypotenuse is $12$.\nStep 3: The altitude is the long leg, $6\\sqrt{3}$ centimeters. Check: $6^2 + (6\\sqrt{3})^2 = 36 + 108 = 144 = 12^2$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): reports half the side, the short leg, without the $\\sqrt{3}$ factor.\n* Choice B ($6\\sqrt{2}$): borrows the $45$-$45$-$90$ ratio, which does not apply to an equilateral triangle.\n* Choice D ($12\\sqrt{3}$): uses the full side length as the short leg instead of half of it.\n\n**Test Day Takeaway:** An altitude of an equilateral triangle of side $s$ is $\\frac{s\\sqrt{3}}{2}$ — the long leg of the $30$-$60$-$90$ triangle it creates."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-303",
+ "question": "In the $xy$-plane, a circle is centered at the origin and passes through the point $(-20,\\,21)$. What is the radius of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$20.5$"
+  },
+  {
+   "id": "B",
+   "text": "$29$"
+  },
+  {
+   "id": "C",
+   "text": "$41$"
+  },
+  {
+   "id": "D",
+   "text": "$58$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "averages the coordinates",
+  "C": "adds the coordinates",
+  "D": "reports the diameter"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** From the origin, $r=\\sqrt{(-20)^2+21^2}=\\sqrt{400+441}=\\sqrt{841}=29$.\n\n**The Full Solution:**\nStep 1: A circle centered at the origin has radius equal to the distance from $(0,\\,0)$ to any point on it.\nStep 2: $r=\\sqrt{(-20-0)^2+(21-0)^2}=\\sqrt{400+441}=\\sqrt{841}$.\nStep 3: $\\sqrt{841}=29$, since $29^2=841$.\n\nCheck: $20$, $21$, $29$ is a Pythagorean triple. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($20.5$): averaged the two coordinate magnitudes, $\\frac{20+21}{2}$, instead of using the distance formula.\n* Choice C ($41$): added the coordinate magnitudes, $20+21$, which overshoots because the legs of a right triangle are always longer together than the hypotenuse.\n* Choice D ($58$): found the radius correctly but then doubled it, reporting the diameter.\n\n**Test Day Takeaway:** For a circle centered at the origin, the radius to $(x,\\,y)$ is $\\sqrt{x^2+y^2}$. Memorizing $20$, $21$, $29$ turns this into a one-step read."
+}

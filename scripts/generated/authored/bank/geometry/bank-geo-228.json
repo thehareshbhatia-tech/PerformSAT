@@ -1,0 +1,40 @@
+{
+ "id": "bank-geo-228",
+ "question": "The circle shown has a radius of $15$ centimeters. An arc of this circle is intercepted by a central angle measuring $24°$. What is the length, in centimeters, of that arc?",
+ "diagram": {
+  "type": "circleWithSector",
+  "params": {
+   "centralAngle": 24,
+   "angleLabel": "24°",
+   "radius": 15,
+   "labelCenter": "O",
+   "showRadiusLabel": true,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$2\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$4\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$30\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses pi r instead of 2 pi r",
+  "C": "uses the diameter as the radius",
+  "D": "gives the full circumference"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $\\frac{24}{360} = \\frac{1}{15}$, and the circumference is $2\\pi(15) = 30\\pi$, so the arc is $\\frac{30\\pi}{15} = 2\\pi$ centimeters.\n\n**The Full Solution:**\nStep 1: Arc length $= \\frac{\\theta}{360°} \\cdot 2\\pi r$.\nStep 2: Reduce the fraction of the circle: $\\frac{24}{360} = \\frac{1}{15}$.\nStep 3: Multiply by the circumference $2\\pi(15) = 30\\pi$: arc $= \\frac{1}{15}(30\\pi) = 2\\pi$ centimeters.\n\nVerification: fifteen $24°$ angles make $360°$, and $15(2\\pi) = 30\\pi$, the full circumference. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\pi$): uses $\\pi r$ rather than $2\\pi r$, halving the circumference.\n* Choice C ($4\\pi$): substitutes the diameter $30$ for the radius, computing $\\frac{1}{15} \\cdot 2\\pi(30)$.\n* Choice D ($30\\pi$): gives the whole circumference, ignoring the central angle.\n\n**Test Day Takeaway:** Reduce $\\frac{\\theta}{360}$ before multiplying. Here $\\frac{1}{15}$ makes the arithmetic a single division."
+}

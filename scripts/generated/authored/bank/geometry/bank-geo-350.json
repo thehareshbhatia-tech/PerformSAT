@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-350",
+ "question": "The function $h$ is defined by $h(x)=(x-8)(k+x)$, where $k$ is a constant. One of the zeros of $h$ is $-15$. What is the value of $h(0)$?",
+ "correctAnswer": "-120",
+ "explanation": "**SAT Pattern: Recover Parameter from Known Root, then Evaluate**\n\n**The correct answer is $-120$.**\n\n**The Fast Way (~25s):** The factor $x-8$ is not zero at $x=-15$, so $k+(-15)=0$ and $k=15$. Then $h(0)=(0-8)(15+0)=-120$.\n\n**The Full Solution:**\nStep 1: A zero of $h$ makes the product zero, so at $x=-15$ one of the two factors must vanish.\nStep 2: The first factor gives $-15-8=-23$, which is not zero, so the second factor must be: $k+(-15)=0$, hence $k=15$ and $h(x)=(x-8)(15+x)$.\nStep 3: Evaluate at $x=0$: $h(0)=(0-8)(15+0)=(-8)(15)=-120$.\n\nCheck: $h(-15)=(-23)(0)=0$, confirming $-15$ is a zero. $\\checkmark$\n\n**Common Mistakes:** Reporting $120$ by setting $k=-15$, that is, copying the zero straight into the parameter slot instead of solving $k+x=0$; reporting $-8$ by evaluating only the first factor at $x=0$ and forgetting to multiply; reporting $0$ by evaluating $h$ at the zero $-15$ instead of at $0$.\n\n**Test Day Takeaway:** A zero tells you which factor vanishes, not what the parameter equals. Set that factor to zero, solve for the constant, and only then evaluate at the requested input."
+}

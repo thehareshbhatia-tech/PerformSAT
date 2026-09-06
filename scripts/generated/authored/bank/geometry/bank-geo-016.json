@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-016",
+ "question": "In the $xy$-plane, a circle has its center at $(-4, 7)$ and a radius of $6$. Which equation represents this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(x - 4)^2 + (y + 7)^2 = 36$"
+  },
+  {
+   "id": "B",
+   "text": "$(x + 4)^2 + (y - 7)^2 = 6$"
+  },
+  {
+   "id": "C",
+   "text": "$(x + 4)^2 + (y - 7)^2 = 12$"
+  },
+  {
+   "id": "D",
+   "text": "$(x + 4)^2 + (y - 7)^2 = 36$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "copies the signs of the center instead of subtracting them",
+  "B": "uses r instead of r squared",
+  "C": "doubles the radius instead of squaring it"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Circle Equation Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Standard form is $(x - h)^2 + (y - k)^2 = r^2$, so $h = -4$, $k = 7$, and $r^2 = 36$ give $(x + 4)^2 + (y - 7)^2 = 36$.\n\n**The Full Solution:**\nStep 1: A circle with center $(h, k)$ and radius $r$ has equation $(x - h)^2 + (y - k)^2 = r^2$.\nStep 2: Substitute $h = -4$: $x - (-4) = x + 4$. Substitute $k = 7$: $y - 7$.\nStep 3: Square the radius: $6^2 = 36$. The equation is $(x + 4)^2 + (y - 7)^2 = 36$.\n\nVerification: the point $(2, 7)$ is $6$ units right of the center, and $(2 + 4)^2 + (7 - 7)^2 = 36 + 0 = 36$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 4)^2 + (y + 7)^2 = 36$): copies the coordinates with their given signs; standard form subtracts them, so a center of $-4$ produces $x + 4$. This equation has center $(4, -7)$.\n* Choice B ($(x + 4)^2 + (y - 7)^2 = 6$): places the radius itself on the right side, describing a circle of radius $\\sqrt{6}$.\n* Choice C ($(x + 4)^2 + (y - 7)^2 = 12$): doubles the radius instead of squaring it.\n\n**Test Day Takeaway:** The signs inside the parentheses are the opposites of the center coordinates, and the number on the right is always $r^2$."
+}

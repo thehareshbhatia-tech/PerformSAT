@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-051",
+ "question": "A regular hexagon has a side length of $10$ centimeters. What is the area, in square centimeters, of the hexagon?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$25\\sqrt{3}$"
+  },
+  {
+   "id": "B",
+   "text": "$75\\sqrt{3}$"
+  },
+  {
+   "id": "C",
+   "text": "$150\\sqrt{3}$"
+  },
+  {
+   "id": "D",
+   "text": "$300\\sqrt{3}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports the area of a single equilateral triangle",
+  "B": "counts only three of the six triangles",
+  "D": "doubles the correct area"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Regular Hexagon Area via Equilateral Triangles**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Six equilateral triangles of side $10$ tile the hexagon, and each has area $\\frac{\\sqrt{3}}{4}(10)^2 = 25\\sqrt{3}$, so the total is $6(25\\sqrt{3}) = 150\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: Segments from the center to the six vertices cut a regular hexagon into six congruent equilateral triangles, each with side equal to the hexagon's side, $10$.\nStep 2: An equilateral triangle of side $s$ has height $\\frac{s\\sqrt{3}}{2}$, so its area is $\\frac{1}{2}(s)\\left(\\frac{s\\sqrt{3}}{2}\\right) = \\frac{s^2\\sqrt{3}}{4}$. With $s = 10$, that is $\\frac{100\\sqrt{3}}{4} = 25\\sqrt{3}$.\nStep 3: Multiply by six: $6(25\\sqrt{3}) = 150\\sqrt{3}$ square centimeters.\n\nVerification: $150\\sqrt{3} \\approx 259.8$, which sits between the inscribed circle area $\\pi(5\\sqrt{3})^2 \\approx 235.6$ and the circumscribed circle area $\\pi(10)^2 \\approx 314.2$, exactly where a hexagon belongs. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($25\\sqrt{3}$): reports the area of one of the six triangles.\n* Choice B ($75\\sqrt{3}$): counts three triangles, as if the center segments split the hexagon into halves rather than sixths.\n* Choice D ($300\\sqrt{3}$): uses $3\\sqrt{3}s^2$ in place of $\\frac{3\\sqrt{3}}{2}s^2$, doubling the area.\n\n**Test Day Takeaway:** A regular hexagon is six equilateral triangles on its own side length. Memorize $\\frac{s^2\\sqrt{3}}{4}$ for one triangle and multiply."
+}

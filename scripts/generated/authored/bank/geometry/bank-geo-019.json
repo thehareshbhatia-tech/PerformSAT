@@ -1,0 +1,41 @@
+{
+ "id": "bank-geo-019",
+ "question": "A straight support cable runs from the top of a vertical antenna to a point on level ground $20$ feet from the base of the antenna. The cable is $29$ feet long. What is the height, in feet, of the antenna?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "sideLabels": [
+    "20",
+    "",
+    "29"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$9$"
+  },
+  {
+   "id": "B",
+   "text": "$14.5$"
+  },
+  {
+   "id": "C",
+   "text": "$21$"
+  },
+  {
+   "id": "D",
+   "text": "$49$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts 20 from 29",
+  "B": "halves the cable length as if the triangle were 30-60-90",
+  "D": "adds the two given lengths"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Ladder Pythagorean**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The antenna is a leg: $h = \\sqrt{29^2 - 20^2} = \\sqrt{841 - 400} = \\sqrt{441} = 21$ feet.\n\n**The Full Solution:**\nStep 1: The antenna, the ground, and the cable form a right triangle with the right angle at the base of the antenna. The cable is the hypotenuse.\nStep 2: Apply $a^2 + b^2 = c^2$ with $a = 20$ and $c = 29$: $400 + h^2 = 841$.\nStep 3: $h^2 = 441$, so $h = 21$ feet.\n\nVerification: $20^2 + 21^2 = 400 + 441 = 841 = 29^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): subtracts the lengths, $29 - 20$, instead of subtracting their squares.\n* Choice B ($14.5$): halves the cable length, which would require a $30°$ angle that the problem never gives.\n* Choice D ($49$): adds the two given lengths; a leg must be shorter than the hypotenuse.\n\n**Test Day Takeaway:** Identify the hypotenuse before substituting. Solving for a leg subtracts squares, solving for the hypotenuse adds them."
+}

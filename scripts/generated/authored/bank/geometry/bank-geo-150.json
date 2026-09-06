@@ -1,0 +1,6 @@
+{
+  "id": "bank-geo-150",
+  "question": "The diameter of a circle is $26$ inches. The area of this circle can be written as $k\\pi$ square inches, where $k$ is a constant. What is the value of $k$?",
+  "correctAnswer": "169",
+  "explanation": "**SAT Pattern: Area of a Circle**\n\n**The correct answer is $169$.**\n\n**The Fast Way (~15s):** Halve the diameter to get $r = 13$, so the area is $169\\pi$ and $k = 169$.\n\n**The Full Solution:**\nStep 1: The radius is half the diameter: $r = \\frac{26}{2} = 13$ inches.\nStep 2: The area is $A = \\pi r^2 = \\pi(13)^2 = 169\\pi$ square inches.\nStep 3: Matching $169\\pi$ to $k\\pi$ gives $k = 169$. Check: $13^2 = 169$. $\\checkmark$\n\n**Common Mistakes:**\n* Squaring the diameter instead of the radius, giving $k = 676$.\n* Using the circumference $\\pi d = 26\\pi$, so $k = 26$.\n* Halving the finished area instead of halving the diameter first, giving $338$.\n\n**Test Day Takeaway:** Halve the diameter before any area work. Squaring $d$ instead of $r$ inflates the answer by a factor of $4$."
+}

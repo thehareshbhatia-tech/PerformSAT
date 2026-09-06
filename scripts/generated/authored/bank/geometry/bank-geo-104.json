@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-104",
+ "question": "In the $xy$-plane, a circle is centered at $(-2, 6)$, and the point $(10, 11)$ lies on the circle. What is the radius of the circle?",
+ "correctAnswer": "13",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~30s):** The radius is the distance from the center to any point on the circle: $\\sqrt{12^2 + 5^2} = \\sqrt{169} = 13$.\n\n**The Full Solution:**\nStep 1: The horizontal change from $(-2, 6)$ to $(10, 11)$ is $10 - (-2) = 12$, and the vertical change is $11 - 6 = 5$.\nStep 2: By the distance formula, $r = \\sqrt{12^2 + 5^2} = \\sqrt{144 + 25} = \\sqrt{169}$.\nStep 3: $r = 13$.\n\nCheck: $5$, $12$, $13$ is a Pythagorean triple, and the circle's equation is $(x + 2)^2 + (y - 6)^2 = 169$.\n\n**Common Mistakes:**\n* Answering $169$, which is $r^2$, without taking the square root.\n* Answering $17$ by adding the horizontal and vertical changes instead of using their squares.\n* Subtracting the coordinates in mismatched pairs, such as $10 - 6$ and $11 - (-2)$, which gives $\\sqrt{16 + 169} \\approx 13.6$.\n\n**Test Day Takeaway:** A radius is just a distance, so the distance formula — the Pythagorean theorem in disguise — finishes these in one step."
+}

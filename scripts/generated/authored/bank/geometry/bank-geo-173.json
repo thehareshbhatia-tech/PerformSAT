@@ -1,0 +1,29 @@
+{
+  "id": "bank-geo-173",
+  "question": "In a right triangle, the ratio of the longer leg to the hypotenuse is $4 : 5$, and the perimeter of the triangle is $96$. What is the value of $\\cos\\theta$, where $\\theta$ is the larger acute angle of the triangle?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\frac{3}{5}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\frac{3}{4}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\frac{4}{5}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\frac{4}{3}$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "gives tan of the smaller acute angle",
+    "C": "gives sin of theta rather than cos",
+    "D": "gives tan of theta rather than cos"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** A $4 : 5$ leg-to-hypotenuse ratio completes to the $3$-$4$-$5$ family, so $12k = 96$ gives sides $24$, $32$, $40$, and $\\cos\\theta = \\frac{24}{40} = \\frac{3}{5}$.\n\n**The Full Solution:**\nStep 1: Let the longer leg be $4k$ and the hypotenuse be $5k$. The other leg is $\\sqrt{(5k)^2 - (4k)^2} = \\sqrt{9k^2} = 3k$, so the three sides are $3k$, $4k$, and $5k$.\nStep 2: The perimeter gives $3k + 4k + 5k = 12k = 96$, so $k = 8$ and the sides are $24$, $32$, and $40$.\nStep 3: The larger acute angle lies opposite the longer leg, so $\\theta$ is opposite $32$; its adjacent leg is $24$ and the hypotenuse is $40$. Then $\\cos\\theta = \\frac{24}{40} = \\frac{3}{5}$. Check: $24^2 + 32^2 = 576 + 1{,}024 = 1{,}600 = 40^2$, and $24 + 32 + 40 = 96$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{3}{4}$): this is $\\frac{24}{32}$, the tangent of the smaller acute angle.\n* Choice C ($\\frac{4}{5}$): this is $\\frac{32}{40}$, which is $\\sin\\theta$ - it is the ratio handed to you in the question, not the one asked for.\n* Choice D ($\\frac{4}{3}$): this is $\\frac{32}{24}$, which is $\\tan\\theta$.\n\n**Test Day Takeaway:** One side ratio fixes the whole triangle, and the perimeter only fixes the scale. Complete the triple first, then decide which angle is larger before choosing numerator and denominator."
+}

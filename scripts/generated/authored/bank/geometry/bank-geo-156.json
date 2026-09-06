@@ -1,0 +1,6 @@
+{
+  "id": "bank-geo-156",
+  "question": "A square has an area of $121$ square inches. What is the perimeter, in inches, of the square?",
+  "correctAnswer": "44",
+  "explanation": "**SAT Pattern: Square Perimeter**\n\n**The correct answer is $44$.**\n\n**The Fast Way (~15s):** $s = \\sqrt{121} = 11$, so $P = 4(11) = 44$ inches.\n\n**The Full Solution:**\nStep 1: The area of a square is $s^2$, so $s^2 = 121$.\nStep 2: $s = \\sqrt{121} = 11$ inches.\nStep 3: $P = 4s = 4(11) = 44$ inches. Check: a square of side $11$ has area $121$. $\\checkmark$\n\n**Common Mistakes:**\n* Multiplying the area by $4$, giving $484$, instead of taking the square root first.\n* Gridding the side length $11$ rather than the perimeter.\n* Halving the area, giving $60.5$, which corresponds to no side of this square.\n\n**Test Day Takeaway:** Area to perimeter always passes through the side: square root first, multiply by $4$ second."
+}

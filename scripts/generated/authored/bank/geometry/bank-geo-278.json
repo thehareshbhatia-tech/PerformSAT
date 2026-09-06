@@ -1,0 +1,38 @@
+{
+ "id": "bank-geo-278",
+ "question": "A sector of the circle shown has an arc length of $14\\pi$ centimeters and a central angle of $105°$. What is the radius, in centimeters, of the circle?",
+ "diagram": {
+  "type": "circleWithSector",
+  "params": {
+   "centralAngle": 105,
+   "angleLabel": "105°",
+   "labelCenter": "O",
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$7$"
+  },
+  {
+   "id": "B",
+   "text": "$12$"
+  },
+  {
+   "id": "C",
+   "text": "$24$"
+  },
+  {
+   "id": "D",
+   "text": "$48$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "treats the arc length as the full circumference",
+  "B": "divides the angle by 180 instead of 360",
+  "D": "uses pi r for the circumference, which returns the diameter"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $\\frac{105}{360} = \\frac{7}{24}$, so $\\frac{7}{24}(2\\pi r) = 14\\pi$ gives $2r = 48$ and $r = 24$.\n\n**The Full Solution:**\nStep 1: Arc length is the fraction $\\frac{\\theta}{360^\\circ}$ of the circumference: $\\frac{105}{360}(2\\pi r) = 14\\pi$.\nStep 2: Reduce $\\frac{105}{360}$ by dividing both parts by $15$: $\\frac{7}{24}$. The equation becomes $\\frac{7}{24}(2\\pi r) = 14\\pi$.\nStep 3: Divide both sides by $\\pi$ and multiply by $\\frac{24}{7}$: $2r = 48$, so $r = 24$ centimeters. Check: the circumference is $48\\pi$, and $\\frac{7}{24}(48\\pi) = 14\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): treats the given arc as the entire circumference, solving $2\\pi r = 14\\pi$.\n* Choice B ($12$): divides the angle by $180$ instead of $360$, doubling the fraction of the circle.\n* Choice D ($48$): uses $C = \\pi r$ instead of $2\\pi r$, which returns the diameter rather than the radius.\n\n**Test Day Takeaway:** Running arc length backwards is one equation. Reduce the angle fraction first so the arithmetic stays in whole numbers."
+}

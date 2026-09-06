@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-313",
+ "question": "A rectangular parking space has an area of $96$ square feet and a width of $8$ feet. What is the length, in feet, of the parking space?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$12$"
+  },
+  {
+   "id": "B",
+   "text": "$40$"
+  },
+  {
+   "id": "C",
+   "text": "$88$"
+  },
+  {
+   "id": "D",
+   "text": "$768$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "gives the perimeter",
+  "C": "subtracts the width from the area",
+  "D": "multiplies instead of dividing"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Divide the area by the width: $96\\div 8=12$ feet.\n\n**The Full Solution:**\nStep 1: For a rectangle, $A=\\ell w$, so $96=\\ell(8)$.\nStep 2: Divide both sides by $8$: $\\ell=\\frac{96}{8}$.\nStep 3: $\\ell=12$ feet.\n\nCheck: $(12)(8)=96$ square feet. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($40$): found the length correctly but then reported the perimeter, $2(12+8)$.\n* Choice C ($88$): subtracted the width from the area, $96-8$, treating an area relationship as an additive one.\n* Choice D ($768$): multiplied the area by the width instead of dividing.\n\n**Test Day Takeaway:** Area divided by one dimension returns the other dimension. Confirm by multiplying back: the product has to reproduce the given area."
+}

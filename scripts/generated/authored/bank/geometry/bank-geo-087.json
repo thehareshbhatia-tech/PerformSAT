@@ -1,0 +1,24 @@
+{
+ "id": "bank-geo-087",
+ "question": "A right circular cylinder has a volume of $180\\pi$ cubic centimeters and a radius of $6$ centimeters. What is the height, in centimeters, of the cylinder?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$1.25$"
+  },
+  {
+   "id": "B",
+   "text": "$5$"
+  },
+  {
+   "id": "C",
+   "text": "$15$"
+  },
+  {
+   "id": "D",
+   "text": "$30$"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $180\\pi = \\pi(6)^2 h = 36\\pi h$, so $h = \\frac{180}{36} = 5$ centimeters.\n\n**The Full Solution:**\nStep 1: Start from $V = \\pi r^2 h$ and substitute the given values: $180\\pi = \\pi(6)^2 h$.\nStep 2: Divide both sides by $\\pi$: $180 = 36h$.\nStep 3: $h = \\frac{180}{36} = 5$ centimeters.\n\nCheck: $\\pi(36)(5) = 180\\pi$, matching the given volume.\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.25$): divides by the square of the diameter, $144$, instead of the square of the radius.\n* Choice C ($15$): divides by the diameter $12$ rather than by $r^2$.\n* Choice D ($30$): divides by the radius $6$ instead of by $r^2 = 36$.\n\n**Test Day Takeaway:** Solving $V = \\pi r^2 h$ for $h$ means dividing by $r^2$, not by $r$ — the squared radius is the base area."
+}

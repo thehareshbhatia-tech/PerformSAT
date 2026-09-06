@@ -1,0 +1,29 @@
+{
+  "id": "bank-geo-135",
+  "question": "In the $xy$-plane, the circle with equation $(x + 5)^2 + (y - 12)^2 = r^2$ passes through the origin. What is the value of $r$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7$"
+    },
+    {
+      "id": "B",
+      "text": "$13$"
+    },
+    {
+      "id": "C",
+      "text": "$17$"
+    },
+    {
+      "id": "D",
+      "text": "$169$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts the coordinates of the center",
+    "C": "adds the coordinates of the center instead of combining their squares",
+    "D": "reports r squared instead of r"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The center is $(-5, 12)$, so its distance to the origin is $\\sqrt{25 + 144} = 13$.\n\n**The Full Solution:**\nStep 1: In $(x - h)^2 + (y - k)^2 = r^2$, the center is $(h, k)$. Here $(x + 5)^2 = (x - (-5))^2$, so the center is $(-5, 12)$.\nStep 2: The circle passes through $(0, 0)$, so $r$ is the distance from $(-5, 12)$ to the origin: $r^2 = (-5)^2 + 12^2 = 25 + 144 = 169$.\nStep 3: $r = \\sqrt{169} = 13$. Check: substituting $(0, 0)$ gives $(0 + 5)^2 + (0 - 12)^2 = 25 + 144 = 169 = 13^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): subtracts $12 - 5$, treating the two gaps as collinear.\n* Choice C ($17$): adds $5 + 12$, the total travel along the axes rather than the direct distance.\n* Choice D ($169$): reports $r^2$; the equation's right side is the square of the radius.\n\n**Test Day Takeaway:** Read the center by flipping the signs inside the parentheses, then treat the given point as one end of a radius."
+}

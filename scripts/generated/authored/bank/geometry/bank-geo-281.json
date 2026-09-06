@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-281",
+ "question": "The equation $x^2 + y^2 + 12x - 2y - 8 = 0$ represents a circle in the $xy$-plane. What are the coordinates of the center of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(-12, 2)$"
+  },
+  {
+   "id": "B",
+   "text": "$(-6, 1)$"
+  },
+  {
+   "id": "C",
+   "text": "$(6, -1)$"
+  },
+  {
+   "id": "D",
+   "text": "$(12, -2)$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "negates the coefficients without halving",
+  "C": "halves but keeps the original signs",
+  "D": "copies the coefficients directly"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Halve each linear coefficient and flip its sign: $x$-coefficient $12 \\to -6$, $y$-coefficient $-2 \\to 1$. The center is $(-6, 1)$.\n\n**The Full Solution:**\nStep 1: Group and complete the square: $(x^2 + 12x) + (y^2 - 2y) = 8$.\nStep 2: Add $\\left(\\frac{12}{2}\\right)^2 = 36$ and $\\left(\\frac{-2}{2}\\right)^2 = 1$ to both sides: $(x + 6)^2 + (y - 1)^2 = 8 + 36 + 1 = 45$.\nStep 3: In the form $(x - h)^2 + (y - k)^2 = r^2$, the center is $(h, k) = (-6, 1)$. Check: substituting $(-6, 1)$ into the original expression gives $36 + 1 - 72 - 2 - 8 = -45$, exactly $-r^2$, as it must at the center.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-12, 2)$): negates the linear coefficients but forgets to halve them.\n* Choice C ($(6, -1)$): halves the coefficients but keeps their original signs.\n* Choice D ($(12, -2)$): reads the linear coefficients off as the center directly.\n\n**Test Day Takeaway:** For $x^2 + y^2 + Dx + Ey + F = 0$ the center is $\\left(-\\frac{D}{2}, -\\frac{E}{2}\\right)$: halve, then flip."
+}

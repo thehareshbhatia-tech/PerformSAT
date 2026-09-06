@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-004",
+ "question": "A circular clock face has a diameter of $22$ inches. What is the circumference, in inches, of the clock face?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$11\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$22\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$44\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$121\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses the radius in place of the diameter",
+  "C": "treats the diameter as the radius in 2*pi*r",
+  "D": "computes the area instead of the circumference"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circumference from Diameter**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $C = \\pi d = \\pi(22) = 22\\pi$ inches.\n\n**The Full Solution:**\nStep 1: The circumference of a circle is $C = \\pi d$, where $d$ is the diameter.\nStep 2: The diameter is given directly as $22$ inches, so no conversion to a radius is needed.\nStep 3: $C = 22\\pi$ inches.\n\nVerification: the radius is $11$, and $C = 2\\pi r = 2\\pi(11) = 22\\pi$, the same value. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($11\\pi$): uses the radius $11$ in the formula $C = \\pi d$, halving the circumference.\n* Choice C ($44\\pi$): substitutes the diameter into $C = 2\\pi r$, doubling the circumference.\n* Choice D ($121\\pi$): computes the area $\\pi r^2 = \\pi(11)^2$, which is a square-unit quantity.\n\n**Test Day Takeaway:** $C = \\pi d$ and $C = 2\\pi r$ are the same formula. Read whether the problem hands you a diameter or a radius before substituting."
+}

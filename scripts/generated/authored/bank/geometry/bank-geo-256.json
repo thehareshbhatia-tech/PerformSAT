@@ -1,0 +1,46 @@
+{
+ "id": "bank-geo-256",
+ "question": "In the right triangle shown, both legs have length $10$. What is the length of the hypotenuse?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "45°",
+    "",
+    "45°"
+   ],
+   "sideLabels": [
+    "10",
+    "10",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$5\\sqrt{2}$"
+  },
+  {
+   "id": "B",
+   "text": "$10\\sqrt{2}$"
+  },
+  {
+   "id": "C",
+   "text": "$20\\sqrt{2}$"
+  },
+  {
+   "id": "D",
+   "text": "$100\\sqrt{2}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "divides by root 2 instead of multiplying",
+  "C": "doubles the leg first",
+  "D": "squares the leg first"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** In a $45$-$45$-$90$ triangle the hypotenuse is a leg times $\\sqrt{2}$: $10\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: Two equal legs and a right angle force both acute angles to be $45^\\circ$, so the sides are in the ratio $1 : 1 : \\sqrt{2}$.\nStep 2: The scale factor is the leg length, $10$.\nStep 3: The hypotenuse is $10\\sqrt{2}$. Check with the Pythagorean theorem: $10^2 + 10^2 = 200$, and $(10\\sqrt{2})^2 = 200$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($5\\sqrt{2}$): divides the leg by $\\sqrt{2}$ instead of multiplying, reversing the leg-to-hypotenuse direction.\n* Choice C ($20\\sqrt{2}$): doubles the leg first, borrowing the $30$-$60$-$90$ rule that the hypotenuse is twice a side.\n* Choice D ($100\\sqrt{2}$): multiplies $\\sqrt{2}$ by the square of the leg instead of by the leg.\n\n**Test Day Takeaway:** Legs to hypotenuse, multiply by $\\sqrt{2}$; hypotenuse to legs, divide by $\\sqrt{2}$."
+}

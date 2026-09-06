@@ -1,0 +1,24 @@
+{
+ "id": "bank-geo-111",
+ "question": "In a right triangle, one of the acute angles is $\\theta$, and $\\cos\\theta = \\dfrac{4}{5}$. What is the value of $\\tan\\theta$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\dfrac{3}{5}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\dfrac{3}{4}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\dfrac{5}{4}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\dfrac{4}{3}$"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $\\cos\\theta = \\frac{4}{5}$ makes the adjacent leg $4$ and the hypotenuse $5$, so the opposite leg is $3$ and $\\tan\\theta = \\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: Read the cosine as side lengths: adjacent $= 4$ and hypotenuse $= 5$.\nStep 2: The opposite leg is $\\sqrt{5^2 - 4^2} = \\sqrt{9} = 3$, so the triangle is a $3$-$4$-$5$ right triangle.\nStep 3: $\\tan\\theta = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{3}{4}$.\n\n```seva-figure\n{\"type\": \"rightTriangle\", \"params\": {\"vertices\": [[0, 0], [4, 0], [4, 3]], \"sideLabels\": [\"4\", \"3\", \"5\"], \"rightAngleVertex\": 1}, \"caption\": \"Reading cos = 4/5 as sides gives the 3-4-5 right triangle.\"}\n```\n\nCheck: $\\sin\\theta = \\frac{3}{5}$, and $\\frac{\\sin\\theta}{\\cos\\theta} = \\frac{3/5}{4/5} = \\frac{3}{4}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{5}$): stops at $\\sin\\theta$, the opposite leg over the hypotenuse.\n* Choice C ($\\frac{5}{4}$): inverts the given cosine, giving $\\sec\\theta$.\n* Choice D ($\\frac{4}{3}$): inverts the tangent, giving adjacent over opposite.\n\n**Test Day Takeaway:** Turn a given ratio into two side lengths, recover the third with the Pythagorean theorem, and read off whichever ratio is asked."
+}

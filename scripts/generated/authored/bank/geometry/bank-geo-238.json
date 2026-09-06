@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-238",
+ "question": "A circle has a circumference of $48\\pi$ meters. What is the radius, in meters, of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$12$"
+  },
+  {
+   "id": "B",
+   "text": "$24$"
+  },
+  {
+   "id": "C",
+   "text": "$48$"
+  },
+  {
+   "id": "D",
+   "text": "$96$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "divides by 4 pi",
+  "C": "reports the diameter",
+  "D": "multiplies by 2 instead of dividing"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circumference of a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $2\\pi r = 48\\pi$, so $r = \\frac{48\\pi}{2\\pi} = 24$ meters.\n\n**The Full Solution:**\nStep 1: Write the circumference formula: $C = 2\\pi r$.\nStep 2: Substitute the given circumference: $48\\pi = 2\\pi r$.\nStep 3: Divide both sides by $2\\pi$: $r = 24$ meters.\n\nVerification: $2\\pi(24) = 48\\pi$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): divides by $4\\pi$, as if the formula were $C = 4\\pi r$.\n* Choice C ($48$): reports the diameter — the coefficient of $\\pi$ — instead of the radius.\n* Choice D ($96$): multiplies by $2$ rather than dividing by $2$.\n\n**Test Day Takeaway:** In $C = 2\\pi r$, the coefficient of $\\pi$ is the diameter. Halve it to get the radius, and the arithmetic is one step."
+}

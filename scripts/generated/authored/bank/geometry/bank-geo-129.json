@@ -1,0 +1,41 @@
+{
+  "id": "bank-geo-129",
+  "question": "In the right triangle shown, the legs have lengths $x$ and $x + 3$, and the hypotenuse has length $x + 6$, where $x > 0$. What is the value of $x$?",
+  "diagram": {
+    "type": "rightTriangle",
+    "params": {
+      "sideLabels": [
+        "x + 3",
+        "x",
+        "x + 6"
+      ],
+      "rightAngleVertex": 1,
+      "figureNote": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3$"
+    },
+    {
+      "id": "B",
+      "text": "$9$"
+    },
+    {
+      "id": "C",
+      "text": "$12$"
+    },
+    {
+      "id": "D",
+      "text": "$15$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sets the sum of the legs equal to the hypotenuse instead of squaring",
+    "C": "reports the longer leg x + 3 instead of x",
+    "D": "reports the hypotenuse x + 6 instead of x"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Pythagorean Theorem (3-4-5 Family)**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $x^2 + (x + 3)^2 = (x + 6)^2$ collapses to $x^2 - 6x - 27 = 0$, so $(x - 9)(x + 3) = 0$ and $x = 9$.\n\n**The Full Solution:**\nStep 1: Apply the Pythagorean theorem to the two legs and the hypotenuse: $x^2 + (x + 3)^2 = (x + 6)^2$.\nStep 2: Expand both sides: $x^2 + x^2 + 6x + 9 = x^2 + 12x + 36$, which simplifies to $x^2 - 6x - 27 = 0$.\nStep 3: Factor: $(x - 9)(x + 3) = 0$, so $x = 9$ or $x = -3$. A length must be positive, so $x = 9$. Check: the sides are $9$, $12$, $15$, and $81 + 144 = 225$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): comes from $x + (x + 3) = x + 6$, adding the legs instead of adding their squares.\n* Choice C ($12$): this is $x + 3$, the longer leg, not the value of $x$.\n* Choice D ($15$): this is $x + 6$, the hypotenuse, not the value of $x$.\n\n**Test Day Takeaway:** When all three sides are expressions in one variable, square them; the $x^2$ terms cancel and a linear or simple quadratic equation is left."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-geo-154",
+  "question": "A square with a side length of $10$ is inscribed in a circle. The area of the circle can be written as $k\\pi$, where $k$ is a constant. What is the value of $k$?",
+  "correctAnswer": "50",
+  "explanation": "**SAT Pattern: Area of a Circle**\n\n**The correct answer is $50$.**\n\n**The Fast Way (~40s):** The square's diagonal is a diameter: $d = 10\\sqrt{2}$, so $r^2 = \\left(5\\sqrt{2}\\right)^2 = 50$.\n\n**The Full Solution:**\nStep 1: All four vertices of the square lie on the circle, so a diagonal of the square passes through the center and is a diameter.\nStep 2: A square with side $10$ has diagonal $10\\sqrt{2}$, so the radius is $\\frac{10\\sqrt{2}}{2} = 5\\sqrt{2}$.\nStep 3: $r^2 = (5\\sqrt{2})^2 = 25(2) = 50$, so the area is $50\\pi$ and $k = 50$. Check: $50\\pi \\approx 157$, larger than the square's area of $100$, as it must be. $\\checkmark$\n\n**Common Mistakes:**\n* Treating the side as the diameter, which gives $r = 5$ and $k = 25$ - too small to contain the square.\n* Treating the side as the radius, which gives $k = 100$.\n* Using the whole diagonal as the radius, which gives $r^2 = 200$ and $k = 200$.\n\n**Test Day Takeaway:** Square inscribed in a circle means diagonal equals diameter. Circle inscribed in a square means side equals diameter. Decide which shape is inside before writing anything."
+}

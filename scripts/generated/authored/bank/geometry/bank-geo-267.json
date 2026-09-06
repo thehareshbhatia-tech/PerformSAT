@@ -1,0 +1,18 @@
+{
+ "id": "bank-geo-267",
+ "question": "In the figure shown, the angles marked $(5x - 4)°$ and $(3x + 26)°$ are vertical angles. What is the measure, in degrees, of each of these two angles?",
+ "diagram": {
+  "type": "intersectingLines",
+  "params": {
+   "angles": [
+    "(5x - 4)°",
+    "",
+    "(3x + 26)°",
+    ""
+   ],
+   "figureNote": true
+  }
+ },
+ "correctAnswer": "71",
+ "explanation": "**SAT Pattern: Vertical Angles**\n\n**The correct answer is $71$.**\n\n**The Fast Way (~25s):** $5x - 4 = 3x + 26$ gives $x = 15$, and $5(15) - 4 = 71$.\n\n**The Full Solution:**\nStep 1: Vertical angles are congruent, so $5x - 4 = 3x + 26$.\nStep 2: Subtract $3x$ and add $4$: $2x = 30$, so $x = 15$.\nStep 3: Substitute back: $5(15) - 4 = 71$. Check: $3(15) + 26 = 71$ as well, so both expressions agree.\n\n**Common Mistakes:** Gridding $15$, the value of $x$, when the question asks for the angle measure; or gridding $109$, which is $180 - 71$, the measure of an adjacent angle rather than a marked one.\n\n**Test Day Takeaway:** Solving for $x$ is the middle of the problem, not the end. Substitute back whenever the question asks for a measure."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-216",
+ "question": "In triangle $JKL$, the exterior angle at vertex $J$ measures $133°$ and the measure of angle $K$ is $58°$. What is the measure of angle $L$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$47°$"
+  },
+  {
+   "id": "B",
+   "text": "$75°$"
+  },
+  {
+   "id": "C",
+   "text": "$122°$"
+  },
+  {
+   "id": "D",
+   "text": "$133°$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports interior angle J",
+  "C": "gives the supplement of angle K",
+  "D": "copies the exterior angle"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The remote interior angles for vertex $J$ are $K$ and $L$, so $58 + L = 133$ and $L = 75$ degrees.\n\n**The Full Solution:**\nStep 1: The exterior angle at $J$ equals the sum of the two interior angles at the other vertices: angle $K$ plus angle $L$.\nStep 2: Substitute the known values: $58 + L = 133$.\nStep 3: Solve: $L = 133 - 58 = 75$ degrees.\n\nVerification: angle $J = 180 - 133 = 47$, and $47 + 58 + 75 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($47°$): reports the interior angle at $J$, the supplement of the exterior angle, rather than angle $L$.\n* Choice C ($122°$): computes $180 - 58$, supplementing angle $K$ instead of subtracting it from the exterior angle.\n* Choice D ($133°$): copies the exterior angle measure straight into the answer.\n\n**Test Day Takeaway:** The exterior angle at a vertex never involves the interior angle at that same vertex. Use only the other two."
+}

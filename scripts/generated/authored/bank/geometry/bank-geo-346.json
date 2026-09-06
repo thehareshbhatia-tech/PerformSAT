@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-346",
+ "question": "Two identical rectangular prisms each have a height of $60$ inches and a square base, and the surface area of each prism is $S$ square inches. The two prisms are glued together along a square base to form a single rectangular prism whose surface area is $\\dfrac{17}{9}S$ square inches. What is the side length, in inches, of each square base?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$9$"
+  },
+  {
+   "id": "B",
+   "text": "$15$"
+  },
+  {
+   "id": "C",
+   "text": "$17$"
+  },
+  {
+   "id": "D",
+   "text": "$60$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reads the denominator of the ratio as a length",
+  "C": "reads the numerator of the ratio as a length",
+  "D": "reports the height instead of the base side"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Surface Area of Glued Prisms**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Gluing hides two square faces, so the new surface area is $2S-2s^2$. Setting $2S-2s^2=\\frac{17}{9}S$ gives $s^2=\\frac{S}{18}$, and with $S=2s^2+240s$ this reduces to $s=15$ inches.\n\n**The Full Solution:**\nStep 1: Let $s$ be the side of the square base. Each prism has two square faces of area $s^2$ and four rectangular faces of area $60s$, so $S=2s^2+240s$.\nStep 2: Joining the prisms along a square base removes one square face from each, so the combined surface area is $2S-2s^2$. Set this equal to the given value: $2S-2s^2=\\frac{17}{9}S$, so $2s^2=2S-\\frac{17}{9}S=\\frac{1}{9}S$ and $S=18s^2$.\nStep 3: Substitute $S=2s^2+240s$: $18s^2=2s^2+240s$, so $16s^2=240s$ and $s=\\frac{240}{16}=15$ inches.\n\nCheck: with $s=15$, $S=2(225)+240(15)=4{,}050$, and the glued prism has surface area $2(225)+4(120)(15)=7{,}650=\\frac{17}{9}(4{,}050)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): lifted the denominator of $\\frac{17}{9}$ straight out of the ratio and reported it as a length.\n* Choice C ($17$): lifted the numerator of $\\frac{17}{9}$ and reported it as a length.\n* Choice D ($60$): reported the height of the prism instead of the side of the square base.\n\n**Test Day Takeaway:** Gluing two solids removes the two faces that meet, not one. Write the new surface area as twice the old minus twice the hidden face, then let the algebra find the dimension."
+}

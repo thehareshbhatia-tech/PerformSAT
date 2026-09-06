@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-343",
+ "question": "A cube has an edge length of $30$ centimeters. A solid sphere with a radius of $15$ centimeters sits inside the cube, touching the center of each face. To the nearest cubic centimeter, what is the volume of the space inside the cube but outside the sphere?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$12{,}863$"
+  },
+  {
+   "id": "B",
+   "text": "$14{,}137$"
+  },
+  {
+   "id": "C",
+   "text": "$16{,}397$"
+  },
+  {
+   "id": "D",
+   "text": "$27{,}000$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "gives the sphere volume",
+  "C": "drops the factor four thirds",
+  "D": "gives the cube volume"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Composite Solid — Cube Minus Inscribed Sphere**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Cube minus sphere: $30^3-\\frac{4}{3}\\pi(15)^3=27{,}000-4{,}500\\pi\\approx 12{,}862.83$, which rounds to $12{,}863$.\n\n**The Full Solution:**\nStep 1: The cube's volume is $s^3=30^3=27{,}000$ cubic centimeters.\nStep 2: The sphere's volume is $\\frac{4}{3}\\pi r^3=\\frac{4}{3}\\pi(15)^3=\\frac{4}{3}\\pi(3{,}375)=4{,}500\\pi\\approx 14{,}137.17$ cubic centimeters.\nStep 3: Subtract: $27{,}000-14{,}137.17=12{,}862.83$, so to the nearest cubic centimeter the space is $12{,}863$ cubic centimeters.\n\nCheck: the sphere occupies about $52\\%$ of the cube, leaving a bit under half, which matches $12{,}863$ out of $27{,}000$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($14{,}137$): reported the sphere's volume instead of the space around it.\n* Choice C ($16{,}397$): used $\\pi r^3$ for the sphere, dropping the factor $\\frac{4}{3}$; that gives $10{,}602.88$ and a difference of $16{,}397$.\n* Choice D ($27{,}000$): reported the cube's volume, forgetting to remove the sphere at all.\n\n**Test Day Takeaway:** A sphere inscribed in a cube has a diameter equal to the cube's edge, so its radius is half the edge. Subtract the inner solid last, and only after both volumes are computed."
+}

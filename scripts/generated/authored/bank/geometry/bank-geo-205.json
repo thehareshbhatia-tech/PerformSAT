@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-205",
+ "question": "In the $xy$-plane, triangle $ABC$ has vertices $A(-3, 2)$, $B(7, 2)$, and $C(1, 11)$. What is the area, in square units, of triangle $ABC$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$18$"
+  },
+  {
+   "id": "B",
+   "text": "$45$"
+  },
+  {
+   "id": "C",
+   "text": "$55$"
+  },
+  {
+   "id": "D",
+   "text": "$90$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds the x-coordinates instead of subtracting",
+  "C": "uses the apex y-coordinate as the height",
+  "D": "omits the one-half factor"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $A$ and $B$ share $y = 2$, so $AB = 7 - (-3) = 10$ is the base and the height is $11 - 2 = 9$: area $= \\frac{1}{2}(10)(9) = 45$.\n\n**The Full Solution:**\nStep 1: $A(-3, 2)$ and $B(7, 2)$ have the same $y$-coordinate, so $\\overline{AB}$ is horizontal and its length is $|7 - (-3)| = 10$.\nStep 2: The height is the vertical distance from $C(1, 11)$ to the line $y = 2$, which is $|11 - 2| = 9$.\nStep 3: Area $= \\frac{1}{2}(10)(9) = 45$ square units.\n\nVerification: the shoelace formula gives $\\frac{1}{2}|-3(2 - 11) + 7(11 - 2) + 1(2 - 2)| = \\frac{1}{2}|27 + 63| = 45$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($18$): adds the $x$-coordinates, $7 + (-3) = 4$, for the base instead of subtracting, giving $\\frac{1}{2}(4)(9)$.\n* Choice C ($55$): uses $C$'s $y$-coordinate $11$ as the height without subtracting the base's height of $2$.\n* Choice D ($90$): multiplies base by height but skips the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** When the base is not on an axis, the height is the difference of $y$-values, not the apex's $y$-value alone."
+}

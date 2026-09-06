@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-006",
+ "question": "An angle has a measure of $216°$. What is the measure of this angle, in radians?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{3\\pi}{5}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{5\\pi}{6}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{6\\pi}{5}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{12\\pi}{5}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "divides by 360 instead of 180",
+  "B": "inverts the reduced fraction",
+  "D": "multiplies by pi/90 instead of pi/180"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Degrees to Radians**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Multiply by $\\frac{\\pi}{180}$: $216 \\cdot \\frac{\\pi}{180} = \\frac{216\\pi}{180} = \\frac{6\\pi}{5}$.\n\n**The Full Solution:**\nStep 1: Since $180° = \\pi$ radians, converting from degrees to radians means multiplying by $\\frac{\\pi}{180}$.\nStep 2: $216 \\cdot \\frac{\\pi}{180} = \\frac{216\\pi}{180}$.\nStep 3: Divide numerator and denominator by $36$: $\\frac{216}{180} = \\frac{6}{5}$, so the measure is $\\frac{6\\pi}{5}$ radians.\n\nVerification: $216°$ is more than a straight angle, so the answer must exceed $\\pi$ radians, and $\\frac{6}{5} > 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3\\pi}{5}$): divides by $360$ instead of $180$, giving half the correct measure.\n* Choice B ($\\frac{5\\pi}{6}$): inverts the reduced fraction $\\frac{6}{5}$; this is $150°$, not $216°$.\n* Choice D ($\\frac{12\\pi}{5}$): multiplies by $\\frac{\\pi}{90}$, doubling the correct measure past a full rotation.\n\n**Test Day Takeaway:** Degrees to radians divides by $180$; radians to degrees multiplies by $180$. Sanity-check against $\\pi \\approx 180°$ before choosing."
+}

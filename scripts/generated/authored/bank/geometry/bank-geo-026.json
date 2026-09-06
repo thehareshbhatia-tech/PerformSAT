@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-026",
+ "question": "In triangle $QRS$, the measure of angle $R$ is twice the measure of angle $Q$, and the measure of angle $S$ is $20°$ more than the measure of angle $R$. What is the measure, in degrees, of angle $S$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$32$"
+  },
+  {
+   "id": "B",
+   "text": "$64$"
+  },
+  {
+   "id": "C",
+   "text": "$84$"
+  },
+  {
+   "id": "D",
+   "text": "$92$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports angle Q",
+  "B": "reports angle R",
+  "D": "drops the constant 20 from the equation before solving"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Translate to Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** With $m\\angle Q = x$, the angles are $x$, $2x$, and $2x + 20$. Then $5x + 20 = 180$, so $x = 32$ and $m\\angle S = 2(32) + 20 = 84$.\n\n**The Full Solution:**\nStep 1: Let $x$ be the measure of angle $Q$. Then $m\\angle R = 2x$ and $m\\angle S = 2x + 20$.\nStep 2: The interior angles sum to $180°$: $x + 2x + (2x + 20) = 180$, which simplifies to $5x + 20 = 180$.\nStep 3: $5x = 160$, so $x = 32$. The question asks for angle $S$: $m\\angle S = 2(32) + 20 = 84$.\n\nVerification: the three measures are $32$, $64$, and $84$, and $32 + 64 + 84 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($32$): reports $x$, the measure of angle $Q$, instead of angle $S$.\n* Choice B ($64$): reports angle $R$, stopping one substitution early.\n* Choice D ($92$): drops the constant, solving $5x = 180$ to get $x = 36$ and then $2(36) + 20 = 92$; those three angles total $200$, not $180$.\n\n**Test Day Takeaway:** Define one variable, express every angle in terms of it, and circle the angle actually requested before you solve."
+}

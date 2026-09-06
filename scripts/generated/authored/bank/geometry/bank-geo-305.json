@@ -1,0 +1,55 @@
+{
+ "id": "bank-geo-305",
+ "question": "In the right triangle shown, the two legs have lengths $8$ and $15$. What is the length of the hypotenuse?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     15,
+     0
+    ],
+    [
+     15,
+     8
+    ]
+   ],
+   "sideLabels": [
+    "15",
+    "8",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$7$"
+  },
+  {
+   "id": "B",
+   "text": "$17$"
+  },
+  {
+   "id": "C",
+   "text": "$23$"
+  },
+  {
+   "id": "D",
+   "text": "$289$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the legs",
+  "C": "adds the legs",
+  "D": "omits the square root"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $8$, $15$, $17$ is one of the standard Pythagorean triples, so the hypotenuse is $17$.\n\n**The Full Solution:**\nStep 1: For legs $a$ and $b$ and hypotenuse $c$, $a^2+b^2=c^2$.\nStep 2: $8^2+15^2=64+225=289$, so $c^2=289$.\nStep 3: $c=\\sqrt{289}=17$.\n\nCheck: $17^2=289$ and $289=64+225$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): subtracted the legs, $15-8$, which is the rule for finding a missing leg, not a hypotenuse.\n* Choice C ($23$): added the legs, $8+15$; the hypotenuse is always shorter than the sum of the two legs.\n* Choice D ($289$): stopped at $c^2$ without taking the square root.\n\n**Test Day Takeaway:** Learn the triples $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and $7$-$24$-$25$. Spotting one turns a Pythagorean computation into instant recall."
+}

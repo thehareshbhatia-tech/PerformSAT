@@ -1,0 +1,24 @@
+{
+ "id": "bank-geo-119",
+ "question": "A rectangular rug has an area of $126$ square feet and a width of $9$ feet. What is the perimeter, in feet, of the rug?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$23$"
+  },
+  {
+   "id": "B",
+   "text": "$46$"
+  },
+  {
+   "id": "C",
+   "text": "$92$"
+  },
+  {
+   "id": "D",
+   "text": "$252$"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The length is $\\frac{126}{9} = 14$ feet, so the perimeter is $2(14 + 9) = 46$ feet.\n\n**The Full Solution:**\nStep 1: From $A = \\ell w$, the length is $\\ell = \\frac{126}{9} = 14$ feet.\nStep 2: The perimeter of a rectangle is $P = 2(\\ell + w)$.\nStep 3: $P = 2(14 + 9) = 2(23) = 46$ feet.\n\nCheck: $14 \\cdot 9 = 126$ square feet, matching the given area.\n\n**Why the wrong answers are tempting:**\n* Choice A ($23$): stops at $\\ell + w$ and forgets that a rectangle has two of each side.\n* Choice C ($92$): doubles the perimeter a second time, using $4(\\ell + w)$.\n* Choice D ($252$): uses $126 - 9 = 117$ as the length instead of dividing, then doubles the sum.\n\n**Test Day Takeaway:** Recover the missing side by dividing the area, then apply the perimeter formula once — exactly one factor of $2$."
+}

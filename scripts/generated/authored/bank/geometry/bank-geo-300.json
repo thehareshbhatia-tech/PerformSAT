@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-300",
+ "question": "The endpoints of a radius of a circle in the $xy$-plane are $(-4, 2)$ and $(4, -13)$. What is the length of the radius?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$8$"
+  },
+  {
+   "id": "B",
+   "text": "$15$"
+  },
+  {
+   "id": "C",
+   "text": "$17$"
+  },
+  {
+   "id": "D",
+   "text": "$23$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses only the horizontal difference",
+  "B": "uses only the vertical difference",
+  "D": "adds the two differences"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The legs are $8$ and $15$, so the distance is $\\sqrt{64 + 225} = 17$.\n\n**The Full Solution:**\nStep 1: A radius runs from the center to a point on the circle, so its length is the distance between the two given endpoints.\nStep 2: The differences are $4 - (-4) = 8$ and $-13 - 2 = -15$, whose squares are $64$ and $225$.\nStep 3: $r = \\sqrt{64 + 225} = \\sqrt{289} = 17$. Check: $8$-$15$-$17$ is a Pythagorean triple, so the arithmetic is exact.\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): reports only the horizontal difference.\n* Choice B ($15$): reports only the vertical difference.\n* Choice D ($23$): adds $8$ and $15$ rather than combining them with the distance formula.\n\n**Test Day Takeaway:** Squaring erases the sign, so a negative difference is harmless. Recognize $8$-$15$-$17$ and skip the arithmetic."
+}

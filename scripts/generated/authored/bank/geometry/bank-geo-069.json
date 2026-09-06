@@ -1,0 +1,24 @@
+{
+ "id": "bank-geo-069",
+ "question": "In the $xy$-plane, the graph of $x^2 + y^2 + 10x - 14y + 25 = 0$ is a circle. What are the coordinates of the center of this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(-10, 14)$"
+  },
+  {
+   "id": "B",
+   "text": "$(-5, 7)$"
+  },
+  {
+   "id": "C",
+   "text": "$(5, -7)$"
+  },
+  {
+   "id": "D",
+   "text": "$(10, -14)$"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** For $x^2 + y^2 + Dx + Ey + F = 0$ the center is $\\left(-\\frac{D}{2}, -\\frac{E}{2}\\right)$. Here $D = 10$ and $E = -14$, so the center is $(-5, 7)$.\n\n**The Full Solution:**\nStep 1: Group the variables: $(x^2 + 10x) + (y^2 - 14y) = -25$.\nStep 2: Complete each square. Half of $10$ is $5$ and $5^2 = 25$; half of $-14$ is $-7$ and $(-7)^2 = 49$. Adding both to each side gives $(x + 5)^2 + (y - 7)^2 = -25 + 25 + 49 = 49$.\nStep 3: In the form $(x - h)^2 + (y - k)^2 = r^2$, $h = -5$ and $k = 7$, so the center is $(-5, 7)$.\n\nCheck: the radius is $\\sqrt{49} = 7$, and substituting the center's $y$-value with $x = 2$ gives $49 + 0 = 49$, a point on the circle.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-10, 14)$): negates the linear coefficients but forgets to halve them.\n* Choice C ($(5, -7)$): halves the coefficients but keeps their signs instead of negating them.\n* Choice D ($(10, -14)$): reads the linear coefficients straight off the equation with no halving and no sign change.\n\n**Test Day Takeaway:** Completing the square puts a minus sign in the binomial, so the center's coordinates are the negatives of half the linear coefficients."
+}

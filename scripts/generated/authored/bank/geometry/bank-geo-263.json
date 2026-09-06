@@ -1,0 +1,45 @@
+{
+ "id": "bank-geo-263",
+ "question": "In the figure shown, lines $\\ell$ and $m$ intersect, forming four angles. What is the value of $x$?",
+ "diagram": {
+  "type": "intersectingLines",
+  "params": {
+   "angles": [
+    "62°",
+    "",
+    "x°",
+    ""
+   ],
+   "lineLabels": [
+    "ℓ",
+    "m"
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$28$"
+  },
+  {
+   "id": "B",
+   "text": "$31$"
+  },
+  {
+   "id": "C",
+   "text": "$62$"
+  },
+  {
+   "id": "D",
+   "text": "$118$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "takes the complement",
+  "B": "halves the given angle",
+  "D": "takes the supplement"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Vertical Angles**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** The angle marked $x^\\circ$ is directly across the intersection from the $62^\\circ$ angle, so $x = 62$.\n\n**The Full Solution:**\nStep 1: Two lines crossing at a point create two pairs of vertical angles — the angles that sit opposite each other, sharing only the vertex.\nStep 2: The $62^\\circ$ angle and the angle marked $x^\\circ$ are such a pair.\nStep 3: Vertical angles are congruent, so $x = 62$. Check: each of the two angles adjacent to them measures $180 - 62 = 118^\\circ$, and $62 + 118 = 180$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($28$): computes $90 - 62$, treating the pair as complementary.\n* Choice B ($31$): halves the given measure.\n* Choice D ($118$): computes $180 - 62$, which is an angle adjacent to the given one, not the one across from it.\n\n**Test Day Takeaway:** Across the intersection means equal; next to it means the two add to $180^\\circ$."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-213",
+ "question": "An exterior angle of a triangle measures $128°$. One of the two remote interior angles measures $53°$. What is the measure of the other remote interior angle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$52°$"
+  },
+  {
+   "id": "B",
+   "text": "$75°$"
+  },
+  {
+   "id": "C",
+   "text": "$105°$"
+  },
+  {
+   "id": "D",
+   "text": "$127°$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "gives the interior angle adjacent to the exterior angle",
+  "C": "adds the adjacent interior angle to the given remote angle",
+  "D": "takes the supplement of the given remote angle"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The exterior angle is the sum of the two remote interior angles, so the missing one is $128 - 53 = 75$ degrees.\n\n**The Full Solution:**\nStep 1: Let the two remote interior angles be $53°$ and $y°$. The exterior angle theorem gives $53 + y = 128$.\nStep 2: Solve: $y = 128 - 53 = 75$.\nStep 3: The other remote interior angle measures $75°$.\n\nVerification: the interior angle adjacent to the exterior angle is $180 - 128 = 52°$, and $52 + 53 + 75 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($52°$): gives $180 - 128$, the interior angle at the same vertex as the exterior angle — the one angle that is not remote.\n* Choice C ($105°$): adds the adjacent interior angle to the given remote angle, $52 + 53$, mixing the two roles.\n* Choice D ($127°$): computes $180 - 53$, treating the remote angle as if it were the one supplementary to the exterior angle.\n\n**Test Day Takeaway:** Subtract, do not supplement. The exterior angle already equals the sum of the two remote angles, so the missing one is a single subtraction."
+}

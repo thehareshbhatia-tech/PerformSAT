@@ -1,0 +1,17 @@
+{
+ "id": "bank-geo-093",
+ "question": "Two of the interior angles of the triangle shown measure $27°$ and $118°$. What is the measure, in degrees, of the third interior angle?",
+ "diagram": {
+  "type": "triangleWithAngles",
+  "params": {
+   "angleLabels": [
+    "27°",
+    "118°",
+    ""
+   ],
+   "figureNote": true
+  }
+ },
+ "correctAnswer": "35",
+ "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**The correct answer is $35$.**\n\n**The Fast Way (~15s):** $180 - 27 - 118 = 35$ degrees.\n\n**The Full Solution:**\nStep 1: The interior angles of a triangle always total $180°$.\nStep 2: The two known angles account for $27 + 118 = 145$ degrees.\nStep 3: The third angle measures $180 - 145 = 35$ degrees.\n\nCheck: $27 + 118 + 35 = 180$.\n\n**Common Mistakes:**\n* Answering $145$, the sum of the two given angles, instead of the remainder.\n* Answering $62$ by subtracting only the obtuse angle, $180 - 118$.\n* Using $360$ in place of $180$, which gives $215$; that total belongs to a quadrilateral.\n\n**Test Day Takeaway:** An obtuse angle in the list is a signal to subtract carefully — the other two angles must together measure less than $90°$."
+}

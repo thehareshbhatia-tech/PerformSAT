@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-292",
+ "question": "In the $xy$-plane, a circle has a diameter with endpoints $(-3, 4)$ and $(5, -2)$. Which equation represents this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(x - 1)^2 + (y - 1)^2 = 25$"
+  },
+  {
+   "id": "B",
+   "text": "$(x - 1)^2 + (y - 1)^2 = 100$"
+  },
+  {
+   "id": "C",
+   "text": "$(x + 1)^2 + (y + 1)^2 = 25$"
+  },
+  {
+   "id": "D",
+   "text": "$(x + 3)^2 + (y - 4)^2 = 25$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "uses the diameter as the radius",
+  "C": "reverses the center signs",
+  "D": "uses an endpoint as the center"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** The midpoint $(1, 1)$ is the center; the diameter is $\\sqrt{8^2 + 6^2} = 10$, so $r^2 = 25$.\n\n**The Full Solution:**\nStep 1: The center of a circle is the midpoint of any diameter: $\\left(\\frac{-3 + 5}{2}, \\frac{4 + (-2)}{2}\\right) = (1, 1)$.\nStep 2: The diameter's length is $\\sqrt{(5 - (-3))^2 + (-2 - 4)^2} = \\sqrt{64 + 36} = 10$, so the radius is $5$ and $r^2 = 25$.\nStep 3: The equation is $(x - 1)^2 + (y - 1)^2 = 25$. Check: substituting $(-3, 4)$ gives $16 + 9 = 25$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($(x - 1)^2 + (y - 1)^2 = 100$): squares the diameter instead of the radius.\n* Choice C ($(x + 1)^2 + (y + 1)^2 = 25$): reverses the signs of the center coordinates.\n* Choice D ($(x + 3)^2 + (y - 4)^2 = 25$): uses the endpoint $(-3, 4)$ as the center rather than the midpoint.\n\n**Test Day Takeaway:** Diameter endpoints give the center by midpoint and the radius by halving the distance. Halve before squaring, never after."
+}

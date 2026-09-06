@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-208",
+ "question": "In the $xy$-plane, a triangle has vertices at $(0, 0)$, $(12, 0)$, and $(5, -4)$. What is the area, in square units, of the triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$24$"
+  },
+  {
+   "id": "B",
+   "text": "$30$"
+  },
+  {
+   "id": "C",
+   "text": "$48$"
+  },
+  {
+   "id": "D",
+   "text": "$60$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "uses the apex x-coordinate as the height",
+  "C": "omits the one-half factor",
+  "D": "uses the x-coordinate as the height and omits the one-half"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The base on the $x$-axis has length $12$, and the third vertex is $|-4| = 4$ units from that axis: area $= \\frac{1}{2}(12)(4) = 24$.\n\n**The Full Solution:**\nStep 1: Two vertices, $(0, 0)$ and $(12, 0)$, lie on the $x$-axis, so that side is the base with length $12$.\nStep 2: The height is the perpendicular distance from $(5, -4)$ to the $x$-axis. Distance is never negative, so the height is $|-4| = 4$.\nStep 3: Area $= \\frac{1}{2}(12)(4) = 24$ square units.\n\nVerification: the shoelace formula gives $\\frac{1}{2}|0(0 - (-4)) + 12(-4 - 0) + 5(0 - 0)| = \\frac{1}{2}|-48| = 24$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($30$): uses the apex's $x$-coordinate, $5$, as the height, computing $\\frac{1}{2}(12)(5)$.\n* Choice C ($48$): multiplies base by height without the $\\frac{1}{2}$.\n* Choice D ($60$): combines both errors, computing $12 \\cdot 5$.\n\n**Test Day Takeaway:** A negative coordinate still gives a positive height. Take the absolute value of the vertical gap and keep going."
+}

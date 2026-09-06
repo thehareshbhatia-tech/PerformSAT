@@ -1,0 +1,38 @@
+{
+ "id": "bank-geo-230",
+ "question": "The circle shown has a circumference of $30\\pi$. An arc of this circle is intercepted by a central angle of $\\frac{2\\pi}{5}$ radians. What is the length of that arc?",
+ "diagram": {
+  "type": "circleWithSector",
+  "params": {
+   "centralAngle": 72,
+   "angleLabel": "2π/5",
+   "labelCenter": "O",
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$6\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$12\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$30\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "halves the central angle",
+  "C": "reads the circumference coefficient as the radius",
+  "D": "gives the full circumference"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** From $2\\pi r = 30\\pi$, the radius is $15$. In radians the arc length is $r\\theta = 15 \\cdot \\frac{2\\pi}{5} = 6\\pi$.\n\n**The Full Solution:**\nStep 1: Back out the radius from the circumference: $2\\pi r = 30\\pi$, so $r = 15$.\nStep 2: When the central angle is measured in radians, arc length is simply $s = r\\theta$; no $\\frac{\\theta}{360}$ factor is needed.\nStep 3: Substitute: $s = 15 \\cdot \\frac{2\\pi}{5} = \\frac{30\\pi}{5} = 6\\pi$.\n\nVerification: $\\frac{2\\pi}{5}$ radians is $72°$, and $\\frac{72}{360}(30\\pi) = \\frac{1}{5}(30\\pi) = 6\\pi$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3\\pi$): halves the central angle, computing $15 \\cdot \\frac{\\pi}{5}$.\n* Choice C ($12\\pi$): reads the coefficient $30$ in $30\\pi$ as the radius, computing $30 \\cdot \\frac{2}{5}\\pi$; that number is the circumference, not the radius.\n* Choice D ($30\\pi$): reports the full circumference and never uses the angle.\n\n**Test Day Takeaway:** Radian angles use $s = r\\theta$ directly. Reserve the $\\frac{\\theta}{360}$ fraction for degrees, and always convert a given circumference to a radius first."
+}

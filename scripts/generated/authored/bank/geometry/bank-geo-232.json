@@ -1,0 +1,18 @@
+{
+ "id": "bank-geo-232",
+ "question": "The right triangle shown has legs of length $7$ and $10$. What is the area of the triangle?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "sideLabels": [
+    "7",
+    "10",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "correctAnswer": "35",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**The correct answer is $35$.**\n\n**The Fast Way (~10s):** In a right triangle the legs are perpendicular, so area $= \\frac{1}{2}(7)(10) = 35$.\n\n**The Full Solution:**\nStep 1: The two legs of a right triangle meet at $90°$, so one leg is the base and the other is the height.\nStep 2: Substitute into $\\frac{1}{2}bh$: area $= \\frac{1}{2}(7)(10)$.\nStep 3: Multiply: $7 \\cdot 10 = 70$, and half of $70$ is $35$.\n\nVerification: two copies of this triangle form a $7$ by $10$ rectangle of area $70$, and $\\frac{70}{2} = 35$. $\\checkmark$\n\n**Common Mistakes:** Gridding $70$ by omitting the $\\frac{1}{2}$. Computing the hypotenuse $\\sqrt{149}$ first and trying to use it as a side of the area formula; the hypotenuse is not perpendicular to either leg. Adding the legs to get $17$.\n\n**Test Day Takeaway:** In a right triangle the legs are the base and height already. No altitude needs to be constructed."
+}

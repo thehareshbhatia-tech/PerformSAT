@@ -1,0 +1,29 @@
+{
+  "id": "bank-geo-157",
+  "question": "A square has a perimeter of $60$ meters. What is the area, in square meters, of the square?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$15$"
+    },
+    {
+      "id": "B",
+      "text": "$225$"
+    },
+    {
+      "id": "C",
+      "text": "$900$"
+    },
+    {
+      "id": "D",
+      "text": "$3{,}600$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the side length instead of the area",
+    "C": "divides the perimeter by 2 instead of 4 before squaring",
+    "D": "squares the perimeter instead of the side length"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Square Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $s = \\frac{60}{4} = 15$, so the area is $15^2 = 225$ square meters.\n\n**The Full Solution:**\nStep 1: For a square, $P = 4s$, so $60 = 4s$.\nStep 2: $s = \\frac{60}{4} = 15$ meters.\nStep 3: The area is $s^2 = 15^2 = 225$ square meters. Check: a side of $15$ gives a perimeter of $4(15) = 60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): stops at the side length, which is a length rather than an area.\n* Choice C ($900$): divides the perimeter by $2$ instead of $4$, using $s = 30$.\n* Choice D ($3{,}600$): squares the perimeter itself instead of the side length.\n\n**Test Day Takeaway:** Perimeter to area also passes through the side: divide by $4$ first, then square."
+}

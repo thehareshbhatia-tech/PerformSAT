@@ -1,0 +1,41 @@
+{
+ "id": "bank-geo-266",
+ "question": "In the figure shown, two lines intersect, forming the four angles labeled $\\angle 1$, $\\angle 2$, $\\angle 3$, and $\\angle 4$. If the measure of $\\angle 2$ is $68°$, what is the measure of $\\angle 4$?",
+ "diagram": {
+  "type": "intersectingLines",
+  "params": {
+   "angles": [
+    "4",
+    "1",
+    "2",
+    "3"
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$22°$"
+  },
+  {
+   "id": "B",
+   "text": "$68°$"
+  },
+  {
+   "id": "C",
+   "text": "$112°$"
+  },
+  {
+   "id": "D",
+   "text": "$136°$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "takes the complement",
+  "C": "takes the supplement",
+  "D": "doubles the given angle"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Vertical Angles**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In the figure, $\\angle 2$ and $\\angle 4$ sit opposite each other at the intersection, so they are vertical angles and $\\angle 4 = 68^\\circ$.\n\n**The Full Solution:**\nStep 1: Reading around the intersection, $\\angle 1$ and $\\angle 3$ are one opposite pair and $\\angle 2$ and $\\angle 4$ are the other.\nStep 2: Vertical angles formed by two intersecting lines are congruent.\nStep 3: Therefore $\\angle 4$ measures $68^\\circ$. Check: $\\angle 1$ and $\\angle 3$ each measure $180 - 68 = 112^\\circ$, and the four angles sum to $360^\\circ$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($22^\\circ$): computes $90 - 68$, as if the two angles were complementary.\n* Choice C ($112^\\circ$): gives $180 - 68$, the measure of $\\angle 1$ or $\\angle 3$, which are adjacent to $\\angle 2$.\n* Choice D ($136^\\circ$): doubles the given measure.\n\n**Test Day Takeaway:** With numbered angles, count positions around the vertex: angles two apart in the cycle are vertical, angles one apart are supplementary."
+}

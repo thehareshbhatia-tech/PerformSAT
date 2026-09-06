@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-220",
+ "question": "Two similar triangles have corresponding side lengths in the ratio $3:7$. The perimeter of the smaller triangle is $18$ centimeters. What is the perimeter, in centimeters, of the larger triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$21$"
+  },
+  {
+   "id": "B",
+   "text": "$25$"
+  },
+  {
+   "id": "C",
+   "text": "$42$"
+  },
+  {
+   "id": "D",
+   "text": "$126$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds 3 to the perimeter",
+  "B": "adds 7 to the perimeter",
+  "D": "multiplies by 7 instead of by 7/3"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Perimeters share the side ratio, so $\\frac{18}{P} = \\frac{3}{7}$ and $P = 18 \\cdot \\frac{7}{3} = 42$ centimeters.\n\n**The Full Solution:**\nStep 1: In similar figures every corresponding length — sides, perimeters, medians, altitudes — is in the same ratio.\nStep 2: So $\\frac{\\text{smaller perimeter}}{\\text{larger perimeter}} = \\frac{3}{7}$, giving $\\frac{18}{P} = \\frac{3}{7}$.\nStep 3: Cross-multiply: $3P = 126$, so $P = 42$ centimeters.\n\nVerification: $\\frac{18}{42} = \\frac{3}{7}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($21$): adds $3$ to the given perimeter, treating the ratio as a difference.\n* Choice B ($25$): adds $7$ to the given perimeter for the same reason.\n* Choice D ($126$): multiplies by $7$ rather than by $\\frac{7}{3}$, using only the larger term of the ratio as the scale factor.\n\n**Test Day Takeaway:** A ratio of $3:7$ means multiply by $\\frac{7}{3}$ to go up, not by $7$. Check the result: $42$ should be a little more than double $18$, and it is."
+}

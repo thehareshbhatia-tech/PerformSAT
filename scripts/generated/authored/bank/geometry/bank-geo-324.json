@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-324",
+ "question": "The area of a triangle is $54$ square units and the length of its base is $12$ units. What is the height, in units, of the triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4.5$"
+  },
+  {
+   "id": "B",
+   "text": "$9$"
+  },
+  {
+   "id": "C",
+   "text": "$42$"
+  },
+  {
+   "id": "D",
+   "text": "$648$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "divides area by base without doubling",
+  "C": "subtracts base from area",
+  "D": "multiplies instead of dividing"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Double the area, then divide by the base: $h=\\frac{2(54)}{12}=\\frac{108}{12}=9$ units.\n\n**The Full Solution:**\nStep 1: Start from $A=\\frac{1}{2}bh$, so $54=\\frac{1}{2}(12)h$.\nStep 2: $\\frac{1}{2}(12)=6$, so $54=6h$.\nStep 3: $h=\\frac{54}{6}=9$ units.\n\nCheck: $\\frac{1}{2}(12)(9)=54$ square units. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.5$): divided the area by the base, $\\frac{54}{12}$, forgetting that the area already carries a factor of $\\frac{1}{2}$.\n* Choice C ($42$): subtracted the base from the area, $54-12$, treating a product relationship as a sum.\n* Choice D ($648$): multiplied the area by the base instead of dividing.\n\n**Test Day Takeaway:** Solving $A=\\frac{1}{2}bh$ for a missing dimension means doubling the area first. Substituting back into the formula catches the missing factor of $2$ immediately."
+}

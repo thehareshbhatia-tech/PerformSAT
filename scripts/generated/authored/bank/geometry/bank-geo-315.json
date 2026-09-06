@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-315",
+ "question": "Each diagonal of a square measures $14$ units. What is the area, in square units, of the square?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$49$"
+  },
+  {
+   "id": "B",
+   "text": "$98$"
+  },
+  {
+   "id": "C",
+   "text": "$196$"
+  },
+  {
+   "id": "D",
+   "text": "$392$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses half the diagonal as the side",
+  "C": "squares the diagonal without halving",
+  "D": "doubles d squared instead of halving it"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** For a square, the area is $\\frac{d^2}{2}$, so $\\frac{14^2}{2}=\\frac{196}{2}=98$ square units.\n\n**The Full Solution:**\nStep 1: A diagonal splits the square into two right triangles whose legs are sides of the square, so $s^2+s^2=14^2$.\nStep 2: $2s^2=196$, so $s^2=98$.\nStep 3: The area of a square is $s^2$, which is exactly $98$ square units.\n\nCheck: $s=\\sqrt{98}=7\\sqrt{2}$, and $(7\\sqrt{2})^2+(7\\sqrt{2})^2=98+98=196=14^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($49$): treated half the diagonal, $7$, as the side length and squared it.\n* Choice C ($196$): squared the diagonal and forgot the factor $\\frac{1}{2}$.\n* Choice D ($392$): doubled $d^2$ instead of halving it, inverting the relationship.\n\n**Test Day Takeaway:** In a square, the area is half the square of a diagonal. That shortcut skips finding the irrational side length entirely."
+}

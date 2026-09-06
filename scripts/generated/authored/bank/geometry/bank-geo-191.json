@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-191",
+ "question": "A shipping crate in the shape of a right rectangular prism has edge lengths $m$, $m + 3$, and $m + 4$ feet. Which expression gives the volume, in cubic feet, of the crate?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$m^3 + 7m + 12$"
+  },
+  {
+   "id": "B",
+   "text": "$m^3 + 7m^2 + 12$"
+  },
+  {
+   "id": "C",
+   "text": "$m^3 + 7m^2 + 12m$"
+  },
+  {
+   "id": "D",
+   "text": "$m^3 + 12m^2 + 7m$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "raises only the leading term when multiplying by m",
+  "B": "fails to distribute m to the constant term",
+  "D": "swaps the sum and product of 3 and 4"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $(m + 3)(m + 4) = m^2 + 7m + 12$, and multiplying by $m$ gives $m^3 + 7m^2 + 12m$.\n\n**The Full Solution:**\nStep 1: The volume of a right rectangular prism is the product of its three edge lengths: $V = m(m + 3)(m + 4)$.\nStep 2: Expand the two binomials first: $(m + 3)(m + 4) = m^2 + (3 + 4)m + 12 = m^2 + 7m + 12$.\nStep 3: Distribute the remaining factor of $m$ to every term: $m(m^2 + 7m + 12) = m^3 + 7m^2 + 12m$.\n\nVerification: at $m = 2$ the edges are $2$, $5$, $6$, so $V = 60$, and $2^3 + 7(2)^2 + 12(2) = 8 + 28 + 24 = 60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($m^3 + 7m + 12$): raises only the leading term to the third power and leaves the other two terms untouched by the factor of $m$.\n* Choice B ($m^3 + 7m^2 + 12$): distributes $m$ to the first two terms but forgets the constant, which must become $12m$.\n* Choice D ($m^3 + 12m^2 + 7m$): swaps $3 + 4 = 7$ and $3 \\cdot 4 = 12$, putting the product in the $m^2$ slot.\n\n**Test Day Takeaway:** Expand two factors, then distribute the third across every term. Every term of a volume expression must carry the right total degree — here, degree $3$, $2$, and $1$ in order."
+}

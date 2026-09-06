@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-025",
+ "question": "The base of a right prism is a right triangle with legs of length $6$ centimeters and $14$ centimeters. The height of the prism is $25$ centimeters. What is the volume, in cubic centimeters, of the prism?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$42$"
+  },
+  {
+   "id": "B",
+   "text": "$350$"
+  },
+  {
+   "id": "C",
+   "text": "$1{,}050$"
+  },
+  {
+   "id": "D",
+   "text": "$2{,}100$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports the base area only",
+  "B": "uses the pyramid formula with a factor of 1/3",
+  "D": "omits the factor 1/2 in the triangle area"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Triangular Prism Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The base area is $\\frac{1}{2}(6)(14) = 42$, so $V = 42(25) = 1{,}050$ cubic centimeters.\n\n**The Full Solution:**\nStep 1: The volume of any prism is $V = Bh$, where $B$ is the area of the base and $h$ is the prism's height.\nStep 2: The base is a right triangle, so its legs are its base and height: $B = \\frac{1}{2}(6)(14) = 42$ square centimeters.\nStep 3: Multiply by the prism height: $V = 42(25) = 1{,}050$ cubic centimeters.\n\nVerification: $1{,}050 \\div 25 = 42$, which is the base area. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($42$): stops at the area of the triangular base without multiplying by the prism's height.\n* Choice B ($350$): uses $\\frac{1}{3}Bh$, the pyramid formula; a prism has no factor of $\\frac{1}{3}$.\n* Choice D ($2{,}100$): omits the $\\frac{1}{2}$, treating the base as a $6$-by-$14$ rectangle.\n\n**Test Day Takeaway:** Every prism is base area times height. Compute the base area completely, including any $\\frac{1}{2}$, before the final multiplication."
+}

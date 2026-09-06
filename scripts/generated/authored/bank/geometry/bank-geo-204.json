@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-204",
+ "question": "In the $xy$-plane, a triangle has vertices at $(0, 0)$, $(11, 0)$, and $(4, 6)$. What is the area, in square units, of the triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$22$"
+  },
+  {
+   "id": "B",
+   "text": "$33$"
+  },
+  {
+   "id": "C",
+   "text": "$66$"
+  },
+  {
+   "id": "D",
+   "text": "$132$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses the apex x-coordinate as the height",
+  "C": "omits the one-half factor",
+  "D": "doubles instead of halving"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The side from $(0, 0)$ to $(11, 0)$ lies on the $x$-axis, so the base is $11$ and the height is the third vertex's $y$-coordinate, $6$: area $= \\frac{1}{2}(11)(6) = 33$.\n\n**The Full Solution:**\nStep 1: Choose the horizontal side as the base. From $(0, 0)$ to $(11, 0)$ the length is $11 - 0 = 11$.\nStep 2: The height is the perpendicular distance from $(4, 6)$ to the line $y = 0$, which is $6$. The $x$-coordinate $4$ is irrelevant — sliding the apex horizontally does not change the area.\nStep 3: Area $= \\frac{1}{2}(11)(6) = 33$ square units.\n\nVerification: the shoelace formula gives $\\frac{1}{2}|0(0 - 6) + 11(6 - 0) + 4(0 - 0)| = \\frac{1}{2}(66) = 33$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($22$): uses the apex's $x$-coordinate, $4$, as the height, computing $\\frac{1}{2}(11)(4)$.\n* Choice C ($66$): multiplies base by height without the $\\frac{1}{2}$.\n* Choice D ($132$): doubles the base-height product instead of halving it.\n\n**Test Day Takeaway:** With a horizontal base, the height is the vertical gap only. The apex's $x$-coordinate never enters the area."
+}

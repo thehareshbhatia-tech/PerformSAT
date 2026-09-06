@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-311",
+ "question": "A rectangle has a length of $14$ inches and a width of $9$ inches. What is the area, in square inches, of the rectangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$23$"
+  },
+  {
+   "id": "B",
+   "text": "$46$"
+  },
+  {
+   "id": "C",
+   "text": "$126$"
+  },
+  {
+   "id": "D",
+   "text": "$252$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds length and width",
+  "B": "gives the perimeter",
+  "D": "doubles the area"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Area is length times width: $14\\cdot 9=126$ square inches.\n\n**The Full Solution:**\nStep 1: The area of a rectangle is $A=\\ell w$, where $\\ell$ is the length and $w$ is the width.\nStep 2: Substitute $\\ell=14$ and $w=9$: $A=(14)(9)$.\nStep 3: $A=126$ square inches.\n\nCheck: $126\\div 9=14$, the given length. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($23$): added the length and the width, $14+9$, instead of multiplying them.\n* Choice B ($46$): computed the perimeter, $2(14+9)$, which answers a different question.\n* Choice D ($252$): multiplied correctly and then doubled, importing the factor of $2$ from the perimeter formula.\n\n**Test Day Takeaway:** Area multiplies the two dimensions and carries square units; perimeter adds them and carries linear units. Let the units in the question tell you which one is wanted."
+}

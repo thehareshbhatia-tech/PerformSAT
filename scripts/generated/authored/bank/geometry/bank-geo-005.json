@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-005",
+ "question": "A rectangular shipping crate has a length of $14$ inches, a width of $9$ inches, and a height of $6$ inches. What is the volume, in cubic inches, of the crate?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$29$"
+  },
+  {
+   "id": "B",
+   "text": "$126$"
+  },
+  {
+   "id": "C",
+   "text": "$528$"
+  },
+  {
+   "id": "D",
+   "text": "$756$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds the three dimensions",
+  "B": "multiplies only length and width",
+  "C": "computes the surface area"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Rectangular Prism Volume**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** $V = \\ell w h = 14 \\cdot 9 \\cdot 6 = 756$ cubic inches.\n\n**The Full Solution:**\nStep 1: The volume of a rectangular prism is $V = \\ell w h$.\nStep 2: Multiply the length and width first: $14 \\cdot 9 = 126$, the area of the base.\nStep 3: Multiply by the height: $126 \\cdot 6 = 756$ cubic inches.\n\nVerification: $756 \\div 6 = 126$ and $126 \\div 9 = 14$, returning the original dimensions. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($29$): adds $14 + 9 + 6$ instead of multiplying.\n* Choice B ($126$): stops at the area of the base and never multiplies by the height.\n* Choice C ($528$): computes the surface area $2(14 \\cdot 9 + 14 \\cdot 6 + 9 \\cdot 6)$, a square-unit quantity.\n\n**Test Day Takeaway:** Cubic units signal a product of three lengths. Square units would signal an area formula instead."
+}

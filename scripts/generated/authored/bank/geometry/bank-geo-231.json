@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-231",
+ "question": "A triangle has a base of length $18$ centimeters and a corresponding height of $5$ centimeters. What is the area, in square centimeters, of the triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$23$"
+  },
+  {
+   "id": "B",
+   "text": "$45$"
+  },
+  {
+   "id": "C",
+   "text": "$90$"
+  },
+  {
+   "id": "D",
+   "text": "$180$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds base and height",
+  "C": "omits the one-half factor",
+  "D": "doubles instead of halving"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Area $= \\frac{1}{2}bh = \\frac{1}{2}(18)(5) = 45$ square centimeters.\n\n**The Full Solution:**\nStep 1: The area of any triangle is $\\frac{1}{2}bh$, where $h$ is the height measured perpendicular to the base $b$.\nStep 2: Substitute $b = 18$ and $h = 5$: area $= \\frac{1}{2}(18)(5)$.\nStep 3: Multiply: $18 \\cdot 5 = 90$, and half of $90$ is $45$ square centimeters.\n\nVerification: the triangle is half of an $18$ by $5$ rectangle of area $90$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($23$): adds $18 + 5$ instead of multiplying, a perimeter-style move applied to an area question.\n* Choice C ($90$): multiplies base by height without halving; that is the rectangle, not the triangle.\n* Choice D ($180$): doubles the product instead of halving it.\n\n**Test Day Takeaway:** A triangle is always half its bounding rectangle. If your answer is not smaller than $bh$, you skipped the $\\frac{1}{2}$."
+}

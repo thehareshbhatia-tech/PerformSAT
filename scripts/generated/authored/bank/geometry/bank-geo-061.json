@@ -1,0 +1,41 @@
+{
+ "id": "bank-geo-061",
+ "question": "Right triangle $WXY$ has its right angle at vertex $X$. If $WY = 29$ and $XY = 20$, what is the value of $\\sin W$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "W",
+    "X",
+    "Y"
+   ],
+   "sideLabels": [
+    "",
+    "20",
+    "29"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\dfrac{20}{29}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\dfrac{21}{29}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\dfrac{20}{21}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\dfrac{29}{20}$"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The hypotenuse faces the right angle, so $WY = 29$ is the hypotenuse and $XY = 20$ is the leg opposite angle $W$. By SOH, $\\sin W = \\frac{20}{29}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $X$, so the side across from it, $\\overline{WY}$, is the hypotenuse: $WY = 29$.\nStep 2: The leg opposite angle $W$ is $\\overline{XY}$, with $XY = 20$.\nStep 3: $\\sin W = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{20}{29}$.\n\nCheck: the remaining leg is $WX = \\sqrt{29^2 - 20^2} = \\sqrt{441} = 21$, so the sides $20$, $21$, $29$ do form a right triangle.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{21}{29}$): uses the adjacent leg $WX = 21$ over the hypotenuse, which is $\\cos W$, not $\\sin W$.\n* Choice C ($\\frac{20}{21}$): uses opposite over adjacent, which is $\\tan W$.\n* Choice D ($\\frac{29}{20}$): flips the correct ratio, giving $\\csc W$ instead of $\\sin W$.\n\n**Test Day Takeaway:** Label the hypotenuse first (it is always opposite the right angle), then read $\\sin$ as opposite over that hypotenuse."
+}

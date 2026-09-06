@@ -1,0 +1,40 @@
+{
+ "id": "bank-geo-277",
+ "question": "The figure shows a circle of radius $20$ with a sector whose central angle measures $135°$. What is the length of the arc that bounds this sector?",
+ "diagram": {
+  "type": "circleWithSector",
+  "params": {
+   "centralAngle": 135,
+   "angleLabel": "135°",
+   "radius": 20,
+   "labelCenter": "O",
+   "showRadiusLabel": true,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$7.5\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$15\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$40\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$150\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses pi r for the circumference",
+  "C": "gives the full circumference",
+  "D": "gives the sector area"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\frac{135}{360} = \\frac{3}{8}$, and the circumference is $40\\pi$, so the arc is $\\frac{3}{8}(40\\pi) = 15\\pi$.\n\n**The Full Solution:**\nStep 1: The circumference is $C = 2\\pi(20) = 40\\pi$.\nStep 2: The sector spans $\\frac{135}{360}$ of the circle; dividing both parts by $45$ gives $\\frac{3}{8}$.\nStep 3: Arc length $= \\frac{3}{8}(40\\pi) = 15\\pi$. Check: $135^\\circ$ is more than a quarter turn, and $15\\pi$ is more than a quarter of $40\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($7.5\\pi$): uses $C = \\pi r$ instead of $2\\pi r$.\n* Choice C ($40\\pi$): reports the entire circumference rather than the portion cut by the sector.\n* Choice D ($150\\pi$): computes $\\frac{3}{8}\\pi(20)^2$, the sector's area.\n\n**Test Day Takeaway:** Reduce the degree fraction before multiplying; $\\frac{135}{360}$ collapses to $\\frac{3}{8}$ and the arithmetic stays exact."
+}

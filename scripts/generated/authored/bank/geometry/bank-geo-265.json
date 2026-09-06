@@ -1,0 +1,41 @@
+{
+ "id": "bank-geo-265",
+ "question": "In the figure shown, two lines intersect and the two marked angles are a pair of vertical angles. What is the value of $x$?",
+ "diagram": {
+  "type": "intersectingLines",
+  "params": {
+   "angles": [
+    "(3x + 8)°",
+    "",
+    "(5x - 12)°",
+    ""
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
+  },
+  {
+   "id": "B",
+   "text": "$10$"
+  },
+  {
+   "id": "C",
+   "text": "$23$"
+  },
+  {
+   "id": "D",
+   "text": "$38$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts 8 from 12 instead of adding",
+  "C": "treats the angles as supplementary",
+  "D": "reports the angle measure"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Vertical Angles**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Vertical angles are equal: $3x + 8 = 5x - 12 \\Rightarrow 20 = 2x \\Rightarrow x = 10$.\n\n**The Full Solution:**\nStep 1: The two marked angles sit opposite each other at the intersection, so their measures are equal: $3x + 8 = 5x - 12$.\nStep 2: Subtract $3x$ from both sides: $8 = 2x - 12$. Add $12$: $20 = 2x$.\nStep 3: $x = 10$. Check: $3(10) + 8 = 38$ and $5(10) - 12 = 38$, so both marked angles measure $38^\\circ$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): moves the constants as $12 - 8 = 4$ instead of $12 + 8 = 20$, giving $2x = 4$.\n* Choice C ($23$): sets the two expressions supplementary, solving $8x - 4 = 180$.\n* Choice D ($38$): finds $x = 10$ correctly but reports the angle measure instead of $x$.\n\n**Test Day Takeaway:** Set vertical angle expressions equal, not supplementary — and reread whether the question wants $x$ or the angle."
+}

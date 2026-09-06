@@ -1,0 +1,60 @@
+{
+ "id": "bank-geo-339",
+ "question": "In a right triangle, the legs measure $33$ and $56$ and the hypotenuse measures $65$. Angle $\\theta$ is opposite the leg of length $56$. What is the value of $\\tan\\theta$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     33,
+     0
+    ],
+    [
+     33,
+     56
+    ]
+   ],
+   "labels": [
+    "θ",
+    "",
+    ""
+   ],
+   "sideLabels": [
+    "33",
+    "56",
+    "65"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{33}{65}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{33}{56}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{56}{65}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{56}{33}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "gives cosine instead of tangent",
+  "B": "swaps opposite and adjacent",
+  "C": "gives sine instead of tangent"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Tangent uses only the legs: opposite $56$ over adjacent $33$, so $\\tan\\theta=\\frac{56}{33}$.\n\n**The Full Solution:**\nStep 1: The legs are $33$ and $56$; the hypotenuse $65$ plays no role in a tangent.\nStep 2: The leg opposite $\\theta$ is $56$, so the leg adjacent to $\\theta$ is $33$.\nStep 3: $\\tan\\theta=\\frac{\\text{opposite}}{\\text{adjacent}}=\\frac{56}{33}$.\n\nCheck: $33^2+56^2=1{,}089+3{,}136=4{,}225=65^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{33}{65}$): used adjacent over hypotenuse, which is $\\cos\\theta$.\n* Choice B ($\\frac{33}{56}$): swapped opposite and adjacent, giving the tangent of the other acute angle.\n* Choice C ($\\frac{56}{65}$): used opposite over hypotenuse, which is $\\sin\\theta$.\n\n**Test Day Takeaway:** A supplied hypotenuse is often a distractor. If the question asks for a tangent, cover the hypotenuse and work with the two legs only."
+}

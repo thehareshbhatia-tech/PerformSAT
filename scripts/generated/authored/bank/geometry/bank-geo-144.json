@@ -1,0 +1,6 @@
+{
+  "id": "bank-geo-144",
+  "question": "An aquarium in the shape of a rectangular prism has a volume of $2{,}700$ cubic inches. The base of the aquarium measures $20$ inches by $15$ inches. What is the height, in inches, of the aquarium?",
+  "correctAnswer": "9",
+  "explanation": "**SAT Pattern: Volume of a Rectangular Prism**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~15s):** The base area is $300$, so $h = \\frac{2{,}700}{300} = 9$ inches.\n\n**The Full Solution:**\nStep 1: $V = \\ell wh$, so $2{,}700 = (20)(15)h$.\nStep 2: $(20)(15) = 300$, so $300h = 2{,}700$.\nStep 3: $h = \\frac{2{,}700}{300} = 9$ inches. Check: $(20)(15)(9) = 2{,}700$. $\\checkmark$\n\n**Common Mistakes:**\n* Dividing by only one base dimension: $\\frac{2{,}700}{20} = 135$ or $\\frac{2{,}700}{15} = 180$.\n* Subtracting the base dimensions from the volume, which mixes cubic and square units.\n* Dividing by the base perimeter $70$ instead of the base area, giving about $38.6$.\n\n**Test Day Takeaway:** To recover a missing dimension, divide the volume by the product of the other two - the base area, not the base perimeter."
+}

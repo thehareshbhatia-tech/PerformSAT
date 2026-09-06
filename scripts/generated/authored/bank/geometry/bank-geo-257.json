@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-257",
+ "question": "A square window pane has a diagonal of length $13\\sqrt{2}$ inches. What is the length, in inches, of each side of the pane?",
+ "correctAnswer": "13",
+ "explanation": "**SAT Pattern: 45-45-90 Triangle**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~10s):** A square's diagonal is a side times $\\sqrt{2}$, so the side is $\\frac{13\\sqrt{2}}{\\sqrt{2}} = 13$ inches.\n\n**The Full Solution:**\nStep 1: A diagonal cuts the square into two $45$-$45$-$90$ triangles whose legs are sides of the square and whose hypotenuse is the diagonal.\nStep 2: For that triangle, hypotenuse $= $ leg $\\cdot \\sqrt{2}$, so $13\\sqrt{2} = s\\sqrt{2}$.\nStep 3: Dividing both sides by $\\sqrt{2}$ gives $s = 13$ inches. Check: $13^2 + 13^2 = 338$, and $(13\\sqrt{2})^2 = 169 \\cdot 2 = 338$.\n\n**Common Mistakes:** Reporting $6.5$ by dividing the diagonal by $2$ instead of by $\\sqrt{2}$; or reporting $26$ by multiplying by $\\sqrt{2}$ again, since $13\\sqrt{2} \\cdot \\sqrt{2} = 26$.\n\n**Test Day Takeaway:** A diagonal written as $k\\sqrt{2}$ is a gift: the side of the square is simply $k$."
+}

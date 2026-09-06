@@ -1,0 +1,55 @@
+{
+ "id": "bank-geo-041",
+ "question": "A triangle has side lengths of $11$, $24$, and $26$, as shown. Which of the following best describes this triangle?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     26,
+     0
+    ],
+    [
+     4.25,
+     10.15
+    ]
+   ],
+   "sideLabels": [
+    "26",
+    "24",
+    "11"
+   ],
+   "showRightAngle": false,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "Acute"
+  },
+  {
+   "id": "B",
+   "text": "Right"
+  },
+  {
+   "id": "C",
+   "text": "Obtuse"
+  },
+  {
+   "id": "D",
+   "text": "Isosceles"
+  }
+ ],
+ "distractorNotes": {
+  "B": "trusts the near-square corner in the figure instead of comparing the squares",
+  "C": "reverses the inequality; obtuse needs the leg squares to fall short",
+  "D": "isosceles would require two equal sides"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Classify Triangle by Pythagorean Test**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $11^2 + 24^2 = 121 + 576 = 697$ and $26^2 = 676$. The leg squares total more than the longest side squared, so the triangle is acute.\n\n**The Full Solution:**\nStep 1: Identify the longest side, $26$, and compare $a^2 + b^2$ with $c^2$, where $a$ and $b$ are the other two sides.\nStep 2: $a^2 + b^2 = 11^2 + 24^2 = 121 + 576 = 697$ and $c^2 = 26^2 = 676$.\nStep 3: Since $697 > 676$, the angle opposite the longest side measures less than $90°$, and the other two angles are smaller still, so every angle is acute.\n\nVerification: $\\sqrt{697} \\approx 26.4$, so a longest side of about $26.4$ would make this triangle exactly right; at $26$ the longest side falls short of that, and the angle across from it falls short of $90°$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Right): the corner in the figure looks square and $11$-$24$-$26$ sits close to a right triple, but $697 \\ne 676$, so the angle is about $88°$, not $90°$.\n* Choice C (Obtuse): would require $a^2 + b^2 < c^2$; here the leg squares total more than $c^2$, not less.\n* Choice D (Isosceles): would require two equal side lengths, but $11$, $24$, and $26$ are all different.\n\n**Test Day Takeaway:** Compare $a^2 + b^2$ to $c^2$ with the longest side as $c$: larger is acute, equal is right, smaller is obtuse. A corner that looks square proves nothing — run the two squares."
+}

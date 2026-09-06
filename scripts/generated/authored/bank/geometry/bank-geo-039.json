@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-039",
+ "question": "A rectangular tabletop measures $56$ centimeters by $90$ centimeters. What is the length, in centimeters, of a diagonal of the tabletop?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$34$"
+  },
+  {
+   "id": "B",
+   "text": "$73$"
+  },
+  {
+   "id": "C",
+   "text": "$106$"
+  },
+  {
+   "id": "D",
+   "text": "$146$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the side lengths",
+  "B": "averages the side lengths",
+  "D": "adds the side lengths"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Rectangle Diagonal**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The diagonal is the hypotenuse: $\\sqrt{56^2 + 90^2} = \\sqrt{3136 + 8100} = \\sqrt{11236} = 106$ centimeters.\n\n**The Full Solution:**\nStep 1: A diagonal splits the rectangle into two right triangles whose legs are the two side lengths.\nStep 2: Apply the Pythagorean theorem: $d^2 = 56^2 + 90^2 = 3{,}136 + 8{,}100 = 11{,}236$.\nStep 3: $d = \\sqrt{11{,}236} = 106$ centimeters.\n\nVerification: $56$, $90$, $106$ is twice the $28$-$45$-$53$ triple, and $106^2 = 11{,}236$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($34$): subtracts $90 - 56$; the diagonal must be longer than either side.\n* Choice B ($73$): averages the two sides, which lands between them instead of beyond the longer one.\n* Choice D ($146$): adds $56 + 90$, the distance along two edges rather than the straight-line diagonal.\n\n**Test Day Takeaway:** A diagonal is always longer than the longest side and shorter than the sum of the two sides. That bracket kills most distractors on sight."
+}

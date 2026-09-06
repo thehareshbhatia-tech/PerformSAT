@@ -1,0 +1,6 @@
+{
+  "id": "bank-geo-142",
+  "question": "A cube has a surface area of $294$ square centimeters. What is the volume, in cubic centimeters, of the cube?",
+  "correctAnswer": "343",
+  "explanation": "**SAT Pattern: Volume of a Rectangular Prism**\n\n**The correct answer is $343$.**\n\n**The Fast Way (~25s):** $6s^2 = 294$ gives $s^2 = 49$ and $s = 7$, so $V = 7^3 = 343$.\n\n**The Full Solution:**\nStep 1: A cube has $6$ congruent square faces, so its surface area is $6s^2$, where $s$ is the edge length.\nStep 2: $6s^2 = 294$ gives $s^2 = 49$, so $s = 7$ centimeters.\nStep 3: $V = s^3 = 7^3 = 343$ cubic centimeters. Check: $6(49) = 294$ matches the given surface area. $\\checkmark$\n\n**Common Mistakes:**\n* Treating $294$ as the area of one face: $s = \\sqrt{294} \\approx 17.15$, which is not a whole number and signals the missing $6$.\n* Stopping at the edge length $7$ instead of cubing it.\n* Cubing the face area, $49^3$, rather than the edge.\n\n**Test Day Takeaway:** For a cube, every question routes through the edge. Solve for $s$ first, then apply $s^2$ or $s^3$ as needed."
+}

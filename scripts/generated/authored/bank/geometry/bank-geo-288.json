@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-288",
+ "question": "A circle in the $xy$-plane has the equation $(x - 6)^2 + (y + 2)^2 = 49$. What is the center of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(-6, 2)$"
+  },
+  {
+   "id": "B",
+   "text": "$(-6, -2)$"
+  },
+  {
+   "id": "C",
+   "text": "$(6, -2)$"
+  },
+  {
+   "id": "D",
+   "text": "$(6, 2)$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reverses both signs",
+  "B": "reverses the x sign only",
+  "D": "reverses the y sign only"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Read the opposite of each number inside the parentheses: $(x - 6)$ gives $6$ and $(y + 2)$ gives $-2$, so the center is $(6, -2)$.\n\n**The Full Solution:**\nStep 1: Compare with $(x - h)^2 + (y - k)^2 = r^2$.\nStep 2: $(x - 6)^2$ matches $h = 6$, and $(y + 2)^2 = (y - (-2))^2$ matches $k = -2$.\nStep 3: The center is $(6, -2)$, with radius $\\sqrt{49} = 7$. Check: the point $(13, -2)$ lies $7$ units to the right and satisfies $49 + 0 = 49$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-6, 2)$): reverses both coordinates, reading the signs as they appear.\n* Choice B ($(-6, -2)$): reverses only the $x$-coordinate.\n* Choice D ($(6, 2)$): reverses only the $y$-coordinate, reading $(y + 2)$ as $k = 2$.\n\n**Test Day Takeaway:** Rewrite any plus sign as a minus of a negative: $(y + 2)^2 = (y - (-2))^2$. Then the center reads straight off."
+}

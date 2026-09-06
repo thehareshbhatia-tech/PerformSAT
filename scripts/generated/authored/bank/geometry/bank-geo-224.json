@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-224",
+ "question": "A vertical pole $4$ feet tall casts a shadow $3$ feet long on level ground. At the same moment, a nearby transmission tower casts a shadow $87$ feet long. What is the height, in feet, of the tower?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$65.25$"
+  },
+  {
+   "id": "B",
+   "text": "$88$"
+  },
+  {
+   "id": "C",
+   "text": "$116$"
+  },
+  {
+   "id": "D",
+   "text": "$261$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "inverts the ratio",
+  "B": "adds the difference of pole height and shadow",
+  "D": "multiplies by 3 instead of by 4/3"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The sun makes similar right triangles, so $\\frac{\\text{height}}{\\text{shadow}}$ is constant: $\\frac{4}{3} = \\frac{h}{87}$, giving $h = \\frac{4 \\cdot 87}{3} = 116$ feet.\n\n**The Full Solution:**\nStep 1: The pole with its shadow and the tower with its shadow form two right triangles with the same sun angle, so the triangles are similar by AA.\nStep 2: Corresponding sides are proportional: $\\frac{4}{3} = \\frac{h}{87}$.\nStep 3: Cross-multiply: $3h = 348$, so $h = 116$ feet.\n\nVerification: $\\frac{116}{87} = \\frac{4}{3}$, the same height-to-shadow ratio as the pole. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($65.25$): inverts the ratio, computing $87 \\cdot \\frac{3}{4}$, which makes the tower shorter than its shadow even though the pole is taller than its own shadow.\n* Choice B ($88$): adds the difference $4 - 3 = 1$ to $87$, treating a proportional relationship as additive.\n* Choice D ($261$): multiplies by $3$, the shadow length of the pole, instead of by $\\frac{4}{3}$.\n\n**Test Day Takeaway:** Set the ratio up in words first — height over shadow — and keep both triangles in the same order. The pole is taller than its shadow, so the tower must be too."
+}

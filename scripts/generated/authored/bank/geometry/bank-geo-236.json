@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-236",
+ "question": "A circle has a radius of $11$ inches. What is the circumference, in inches, of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$11\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$22\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$44\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$121\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses pi r instead of 2 pi r",
+  "C": "applies 2 pi d to the diameter 22, doubling twice",
+  "D": "computes the area"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circumference of a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $C = 2\\pi r = 2\\pi(11) = 22\\pi$ inches.\n\n**The Full Solution:**\nStep 1: The circumference of a circle is $C = 2\\pi r$, where $r$ is the radius.\nStep 2: Substitute $r = 11$: $C = 2\\pi(11)$.\nStep 3: $C = 22\\pi$ inches.\n\nVerification: the diameter is $22$, and $C = \\pi d = 22\\pi$ agrees. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($11\\pi$): uses $\\pi r$, which is half the circumference.\n* Choice C ($44\\pi$): doubles the radius to get the diameter $22$ and then applies $2\\pi d$ instead of $\\pi d$, doubling one time too many.\n* Choice D ($121\\pi$): computes $\\pi r^2$, the area, rather than the circumference.\n\n**Test Day Takeaway:** $C = 2\\pi r = \\pi d$. If the exponent on $r$ shows up, you have written the area formula by mistake."
+}

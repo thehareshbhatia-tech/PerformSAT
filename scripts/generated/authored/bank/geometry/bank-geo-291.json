@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-291",
+ "question": "The equation $2(x - 7)^2 + 2(y + 1)^2 = 72$ represents a circle in the $xy$-plane. What is the radius of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$6$"
+  },
+  {
+   "id": "B",
+   "text": "$12$"
+  },
+  {
+   "id": "C",
+   "text": "$36$"
+  },
+  {
+   "id": "D",
+   "text": "$72$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "reports the diameter",
+  "C": "reports r squared",
+  "D": "reports the right-side constant directly"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Divide the whole equation by $2$: $(x - 7)^2 + (y + 1)^2 = 36$, so $r = 6$.\n\n**The Full Solution:**\nStep 1: Standard form requires coefficients of $1$ on both squared terms, so divide every term by $2$.\nStep 2: The equation becomes $(x - 7)^2 + (y + 1)^2 = 36$.\nStep 3: $r^2 = 36$, so $r = 6$. Check: the center is $(7, -1)$, and $(13, -1)$ satisfies $2(36) + 2(0) = 72$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($12$): finds $r = 6$ but reports the diameter.\n* Choice C ($36$): stops at $r^2$ after dividing correctly.\n* Choice D ($72$): reports the constant on the right side directly, skipping both the division by $2$ and the square root.\n\n**Test Day Takeaway:** A circle equation is only in standard form when both squared terms have coefficient $1$. Normalize before reading anything off."
+}

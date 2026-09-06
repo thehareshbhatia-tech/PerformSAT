@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-027",
+ "question": "In the $xy$-plane, the graph of $x^2 + y^2 - 12x + 2y - 27 = 0$ is a circle. What are the coordinates of the center and the length of the radius of that circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "center $(6, -1)$, radius $8$"
+  },
+  {
+   "id": "B",
+   "text": "center $(6, -1)$, radius $\\sqrt{27}$"
+  },
+  {
+   "id": "C",
+   "text": "center $(6, -1)$, radius $64$"
+  },
+  {
+   "id": "D",
+   "text": "center $(-6, 1)$, radius $8$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "never adds the completing constants back to the right side",
+  "C": "reports r squared as the radius",
+  "D": "copies the signs from inside the parentheses"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Complete the Square for Circle**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Completing both squares gives $(x - 6)^2 + (y + 1)^2 = 27 + 36 + 1 = 64$, so the center is $(6, -1)$ and the radius is $8$.\n\n**The Full Solution:**\nStep 1: Group the like variables and move the constant across: $(x^2 - 12x) + (y^2 + 2y) = 27$.\nStep 2: Complete each square. Half of $-12$ is $-6$, so add $36$; half of $2$ is $1$, so add $1$. Both additions go on the right side as well: $(x - 6)^2 + (y + 1)^2 = 27 + 36 + 1 = 64$.\nStep 3: Read off standard form: the center is $(6, -1)$ and $r = \\sqrt{64} = 8$.\n\nVerification: expanding $(x - 6)^2 + (y + 1)^2 = 64$ gives $x^2 - 12x + 36 + y^2 + 2y + 1 = 64$, which rearranges to the original equation. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (center $(6, -1)$, radius $\\sqrt{27}$): completes the squares on the left but leaves the right side at $27$, forgetting to add $36$ and $1$ there too.\n* Choice C (center $(6, -1)$, radius $64$): reports $r^2$ instead of $r$.\n* Choice D (center $(-6, 1)$, radius $8$): reads the center straight off the signs inside the parentheses; $(x - 6)^2$ means $h = 6$, not $-6$.\n\n**Test Day Takeaway:** Whatever you add to complete a square must be added to the other side too. Then flip the signs inside the parentheses to read the center."
+}

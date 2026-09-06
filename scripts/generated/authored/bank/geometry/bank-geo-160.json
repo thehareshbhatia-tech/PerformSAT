@@ -1,0 +1,6 @@
+{
+  "id": "bank-geo-160",
+  "question": "A square has a side length of $2y$ centimeters. If the perimeter of the square is $48$ centimeters, what is the value of $y$?",
+  "correctAnswer": "6",
+  "explanation": "**SAT Pattern: Square Perimeter**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~15s):** $4(2y) = 8y = 48$, so $y = 6$.\n\n**The Full Solution:**\nStep 1: The perimeter of a square is $4$ times the side length, so $P = 4(2y) = 8y$.\nStep 2: Set the perimeter equal to $48$: $8y = 48$.\nStep 3: $y = \\frac{48}{8} = 6$. Check: the side is $2(6) = 12$ centimeters, and $4(12) = 48$. $\\checkmark$\n\n**Common Mistakes:**\n* Solving $4y = 48$ and gridding $12$, which is the side length, not $y$.\n* Dividing the perimeter by $2$ instead of by $8$, giving $24$.\n* Treating $48$ as the area, which gives $4y^2 = 48$ and $y = 2\\sqrt{3} \\approx 3.46$.\n\n**Test Day Takeaway:** Substitute the whole expression for the side into $P = 4s$, then solve for the variable the question names - not for the side."
+}

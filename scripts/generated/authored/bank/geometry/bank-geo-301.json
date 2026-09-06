@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-301",
+ "question": "A circle in the $xy$-plane has its center at $(6,\\,-2)$, and the point $(-2,\\,4)$ lies on the circle. What is the radius of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
+  },
+  {
+   "id": "B",
+   "text": "$10$"
+  },
+  {
+   "id": "C",
+   "text": "$14$"
+  },
+  {
+   "id": "D",
+   "text": "$100$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the coordinate differences",
+  "C": "adds the coordinate differences",
+  "D": "reports r squared"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The radius is the distance from the center to any point on the circle. The point sits $8$ units horizontally and $6$ units vertically from the center, and $6$, $8$, $10$ is a Pythagorean triple, so $r=10$.\n\n**The Full Solution:**\nStep 1: The radius equals the distance between the center $(6,\\,-2)$ and the point $(-2,\\,4)$.\nStep 2: The horizontal change is $-2-6=-8$ and the vertical change is $4-(-2)=6$, so $r=\\sqrt{(-8)^2+6^2}=\\sqrt{64+36}=\\sqrt{100}$.\nStep 3: $r=\\sqrt{100}=10$.\n\nCheck: $8^2+6^2=64+36=100=10^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): subtracted the two coordinate differences, $8-6$, instead of combining them with the distance formula.\n* Choice C ($14$): added the coordinate differences, $8+6$, instead of taking the square root of the sum of their squares.\n* Choice D ($100$): stopped at $r^2$, the number that would sit on the right side of the circle's equation, instead of reporting $r$.\n\n**Test Day Takeaway:** A radius is a distance. Turn the two coordinate differences into the legs of a right triangle and finish with the Pythagorean theorem."
+}

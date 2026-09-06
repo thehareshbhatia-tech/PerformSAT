@@ -1,0 +1,29 @@
+{
+  "id": "bank-geo-141",
+  "question": "A rectangular prism has a volume of $360$ cubic centimeters. The length of the prism is $10$ centimeters and the width is $6$ centimeters. What is the surface area, in square centimeters, of the prism?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$156$"
+    },
+    {
+      "id": "B",
+      "text": "$192$"
+    },
+    {
+      "id": "C",
+      "text": "$312$"
+    },
+    {
+      "id": "D",
+      "text": "$1{,}272$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds the three distinct face areas but forgets to double them",
+    "B": "counts only the four lateral faces and omits the top and bottom",
+    "D": "divides the volume by the length alone, giving a height of 36"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Volume → Missing Dimension → Surface Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The height is $\\frac{360}{10 \\times 6} = 6$, so the surface area is $2(60 + 60 + 36) = 312$ square centimeters.\n\n**The Full Solution:**\nStep 1: $V = \\ell wh$, so $360 = (10)(6)h$ and $h = \\frac{360}{60} = 6$ centimeters.\nStep 2: The surface area of a rectangular prism is $2(\\ell w + \\ell h + wh) = 2\\big((10)(6) + (10)(6) + (6)(6)\\big) = 2(60 + 60 + 36)$.\nStep 3: $2(156) = 312$ square centimeters. Check: the prism is $10 \\times 6 \\times 6$, and $(10)(6)(6) = 360$ matches the given volume. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($156$): adds the three distinct face areas but never doubles them; every face has a matching opposite face.\n* Choice B ($192$): counts only the four side faces, $2(60) + 2(36)$, and leaves out the top and the bottom.\n* Choice D ($1{,}272$): divides the volume by the length alone, $h = 36$, then computes $2(60 + 360 + 216)$.\n\n**Test Day Takeaway:** Surface area needs all three dimensions, so recover the missing one from the volume first, then double the sum of the three distinct face areas."
+}

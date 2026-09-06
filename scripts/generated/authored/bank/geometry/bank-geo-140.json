@@ -1,0 +1,6 @@
+{
+  "id": "bank-geo-140",
+  "question": "A planter box in the shape of a rectangular prism has a base that measures $7$ inches by $4$ inches and a height of $9$ inches. What is the volume, in cubic inches, of the planter box?",
+  "correctAnswer": "252",
+  "explanation": "**SAT Pattern: Volume of a Rectangular Prism**\n\n**The correct answer is $252$.**\n\n**The Fast Way (~10s):** $V = 7 \\times 4 \\times 9 = 252$ cubic inches.\n\n**The Full Solution:**\nStep 1: The volume of a rectangular prism is the area of the base times the height.\nStep 2: The base area is $7 \\times 4 = 28$ square inches.\nStep 3: $V = 28 \\times 9 = 252$ cubic inches. Check: $250$ is close to $28 \\times 9$, so the size is reasonable. $\\checkmark$\n\n**Common Mistakes:**\n* Adding the dimensions: $7 + 4 + 9 = 20$, which is a length rather than a volume.\n* Stopping at the base area, $28$.\n* Computing the surface area, $2(28 + 63 + 36) = 254$, which is measured in square inches.\n\n**Test Day Takeaway:** Base area times height gives the volume of every prism, whatever the shape of the base."
+}

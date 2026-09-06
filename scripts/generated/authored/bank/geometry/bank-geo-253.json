@@ -1,0 +1,23 @@
+{
+ "id": "bank-geo-253",
+ "question": "In right triangle $ABC$ shown, $\\angle B$ measures $90°$, $\\angle C$ measures $60°$, and $BC = 11$. What is the length of $AC$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "A",
+    "B",
+    "C"
+   ],
+   "sideLabels": [
+    "",
+    "11",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "correctAnswer": "22",
+ "explanation": "**SAT Pattern: 30-60-90 Triangle**\n\n**The correct answer is $22$.**\n\n**The Fast Way (~15s):** $BC$ faces the $30^\\circ$ angle at $A$, so it is the short leg; the hypotenuse $AC$ is twice it: $2(11) = 22$.\n\n**The Full Solution:**\nStep 1: The angles sum to $180^\\circ$, so $\\angle A = 180 - 90 - 60 = 30^\\circ$.\nStep 2: Side $BC$ is opposite $\\angle A$, so it is the shortest side, the $1$ in the ratio $1 : \\sqrt{3} : 2$. The scale factor is $11$.\nStep 3: Side $AC$ is opposite the right angle, so $AC = 2(11) = 22$. Check: $AB = 11\\sqrt{3} \\approx 19.1$, and $11^2 + (11\\sqrt{3})^2 = 121 + 363 = 484 = 22^2$.\n\n**Common Mistakes:** Reporting $5.5$ by halving the given side instead of doubling it; or matching $BC$ to the $60^\\circ$ angle and reporting the length of $AB$, which is $11\\sqrt{3}$ and not a gridable value here.\n\n**Test Day Takeaway:** In a lettered triangle, find the missing angle first. The side opposite the smallest angle is the shortest side."
+}

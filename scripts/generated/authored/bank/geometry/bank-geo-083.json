@@ -1,0 +1,36 @@
+{
+ "id": "bank-geo-083",
+ "question": "In the right triangle shown, the two legs have lengths $a$ and $a + 17$ and the hypotenuse has length $25$, where $a$ is a positive constant. What is the value of $a$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "sideLabels": [
+    "a",
+    "a + 17",
+    "25"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4$"
+  },
+  {
+   "id": "B",
+   "text": "$7$"
+  },
+  {
+   "id": "C",
+   "text": "$13$"
+  },
+  {
+   "id": "D",
+   "text": "$24$"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** $a^2 + (a + 17)^2 = 625$ simplifies to $a^2 + 17a - 168 = 0$, which factors as $(a - 7)(a + 24) = 0$, so $a = 7$.\n\n**The Full Solution:**\nStep 1: Apply the Pythagorean theorem: $a^2 + (a + 17)^2 = 25^2$.\nStep 2: Expand and collect: $a^2 + a^2 + 34a + 289 = 625$, so $2a^2 + 34a - 336 = 0$, and dividing by $2$ gives $a^2 + 17a - 168 = 0$.\nStep 3: Factor: $(a - 7)(a + 24) = 0$, so $a = 7$ or $a = -24$. A length must be positive, so $a = 7$.\n\nCheck: the legs are $7$ and $24$, and $7^2 + 24^2 = 49 + 576 = 625 = 25^2$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): solves $a + (a + 17) = 25$, adding the legs to the hypotenuse instead of using the Pythagorean theorem.\n* Choice C ($13$): expands $(a + 17)^2$ as $a^2 + 289$, dropping the $34a$ term; that leaves $2a^2 = 336$ and $a \\approx 12.96$.\n* Choice D ($24$): solves correctly but reports the longer leg $a + 17$ rather than $a$.\n\n**Test Day Takeaway:** When a leg is written as an expression, expect a quadratic — expand the binomial fully, then reject the negative root."
+}

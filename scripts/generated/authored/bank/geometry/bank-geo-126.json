@@ -1,0 +1,6 @@
+{
+  "id": "bank-geo-126",
+  "question": "A rectangular photograph measures $9$ centimeters by $12$ centimeters. What is the length, in centimeters, of a diagonal of this photograph?",
+  "correctAnswer": "15",
+  "explanation": "**SAT Pattern: Pythagorean Theorem (3-4-5 Family)**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~10s):** A diagonal splits the rectangle into right triangles with legs $9$ and $12$, a $3$-$4$-$5$ triple scaled by $3$, so the diagonal is $15$.\n\n**The Full Solution:**\nStep 1: A diagonal of a rectangle is the hypotenuse of a right triangle whose legs are the length and the width.\nStep 2: $9^2 + 12^2 = 81 + 144 = 225$.\nStep 3: The diagonal is $\\sqrt{225} = 15$ centimeters. Check: $15$ is longer than either side but shorter than $9 + 12 = 21$. $\\checkmark$\n\n**Common Mistakes:**\n* Adding the sides: $9 + 12 = 21$, which is the path along two edges, not the straight diagonal.\n* Computing the area, $9 \\times 12 = 108$, instead of a length.\n* Stopping at $225$ without taking the square root.\n\n**Test Day Takeaway:** Every rectangle hides two right triangles. The diagonal is always the hypotenuse of the length-width pair."
+}

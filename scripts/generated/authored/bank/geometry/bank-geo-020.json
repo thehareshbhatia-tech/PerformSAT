@@ -1,0 +1,59 @@
+{
+ "id": "bank-geo-020",
+ "question": "Triangles $RST$ and $UVW$ are similar, where $R$, $S$, and $T$ correspond to $U$, $V$, and $W$, respectively. In triangle $RST$, $RS = 8$ and $ST = 14$. If $UV = 20$, what is the length of $\\overline{VW}$?",
+ "diagram": {
+  "type": "similarTriangles",
+  "params": {
+   "triangle1": {
+    "labels": [
+     "R",
+     "S",
+     "T"
+    ],
+    "sideLabels": [
+     "8",
+     "14",
+     ""
+    ]
+   },
+   "triangle2": {
+    "labels": [
+     "U",
+     "V",
+     "W"
+    ],
+    "sideLabels": [
+     "20",
+     "",
+     ""
+    ]
+   },
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$5.6$"
+  },
+  {
+   "id": "B",
+   "text": "$26$"
+  },
+  {
+   "id": "C",
+   "text": "$35$"
+  },
+  {
+   "id": "D",
+   "text": "$50$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "inverts the scale factor",
+  "B": "adds the difference of the corresponding sides instead of multiplying",
+  "D": "scales UV instead of ST"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The scale factor from $RST$ to $UVW$ is $\\frac{20}{8} = 2.5$, so $VW = 14(2.5) = 35$.\n\n**The Full Solution:**\nStep 1: Corresponding sides of similar triangles are proportional: $\\frac{UV}{RS} = \\frac{VW}{ST}$.\nStep 2: Substitute the known lengths: $\\frac{20}{8} = \\frac{VW}{14}$.\nStep 3: Cross multiply: $8 \\cdot VW = 280$, so $VW = 35$.\n\nVerification: $\\frac{35}{14} = 2.5$ and $\\frac{20}{8} = 2.5$, so both pairs share the same ratio. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5.6$): inverts the scale factor, computing $14 \\cdot \\frac{8}{20}$; that shrinks the side when the second triangle is larger.\n* Choice B ($26$): adds the difference $20 - 8 = 12$ to $14$; similarity multiplies lengths, it does not add a constant.\n* Choice D ($50$): scales $UV$ by $2.5$ instead of scaling $ST$, answering for the wrong side.\n\n**Test Day Takeaway:** Write the proportion with both numerators from the same triangle. The correspondence in the naming, $R \\to U$ and $S \\to V$, tells you which sides pair up."
+}

@@ -1,0 +1,41 @@
+{
+  "id": "bank-geo-167",
+  "question": "In the figure, two lines intersect, forming angles with measures $(3x - 5)°$ and $(5x + 25)°$. What is the measure, in degrees, of the angle marked $(3x - 5)°$?",
+  "diagram": {
+    "type": "intersectingLines",
+    "params": {
+      "angles": [
+        "(3x - 5)°",
+        "(5x + 25)°",
+        "",
+        ""
+      ],
+      "figureNote": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$20$"
+    },
+    {
+      "id": "B",
+      "text": "$55$"
+    },
+    {
+      "id": "C",
+      "text": "$90$"
+    },
+    {
+      "id": "D",
+      "text": "$125$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the value of x rather than the angle measure",
+    "C": "assumes a linear pair splits evenly into two right angles",
+    "D": "gives the other marked angle"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Vertical and Linear-Pair Angles**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The two marked angles form a linear pair, so $(3x - 5) + (5x + 25) = 180$ gives $x = 20$ and $3(20) - 5 = 55$.\n\n**The Full Solution:**\nStep 1: The two marked angles sit side by side along one of the lines, so together they form a straight angle and their measures sum to $180$.\nStep 2: $(3x - 5) + (5x + 25) = 180$ simplifies to $8x + 20 = 180$, so $8x = 160$ and $x = 20$.\nStep 3: The requested measure is $3(20) - 5 = 55$ degrees. Check: the other angle is $5(20) + 25 = 125$, and $55 + 125 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): reports $x$ instead of substituting it back into $3x - 5$.\n* Choice C ($90$): assumes the straight angle splits evenly, which happens only when the lines are perpendicular.\n* Choice D ($125$): gives the measure of the other marked angle, $5x + 25$.\n\n**Test Day Takeaway:** Solving for $x$ is the middle of the problem, not the end. Substitute back into the expression the question names."
+}

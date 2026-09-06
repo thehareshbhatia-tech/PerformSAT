@@ -1,0 +1,29 @@
+{
+  "id": "bank-geo-163",
+  "question": "In the $xy$-plane, lines $\\ell$ and $m$ are parallel and are cut by a transversal $t$. One of the angles formed at line $\\ell$ has a measure of $37°$. What is the measure of the angle at line $m$ that corresponds to it?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$37°$"
+    },
+    {
+      "id": "B",
+      "text": "$53°$"
+    },
+    {
+      "id": "C",
+      "text": "$74°$"
+    },
+    {
+      "id": "D",
+      "text": "$143°$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "takes the complement of the given angle",
+    "C": "doubles the given angle",
+    "D": "takes the supplement, which applies to same-side interior angles, not corresponding ones"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Angles with Parallel Lines and Transversals**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Corresponding angles at parallel lines are congruent, so the measure is $37°$.\n\n**The Full Solution:**\nStep 1: When a transversal cuts two parallel lines, corresponding angles occupy matching positions at the two intersections.\nStep 2: Corresponding angles formed by parallel lines are congruent.\nStep 3: The corresponding angle therefore measures $37°$. Check: its linear-pair partner measures $143°$, and $37 + 143 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($53°$): takes the complement, $90 - 37$; complements belong to right triangles, not parallel lines.\n* Choice C ($74°$): doubles the angle, a relationship that appears in circles, not in transversal geometry.\n* Choice D ($143°$): takes the supplement, which is correct for same-side interior angles but not for corresponding ones.\n\n**Test Day Takeaway:** With parallel lines, every angle is either congruent to the given one or supplementary to it. Name the pair first, then decide which of those two applies."
+}

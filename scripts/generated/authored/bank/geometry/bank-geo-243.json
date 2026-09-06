@@ -1,0 +1,40 @@
+{
+ "id": "bank-geo-243",
+ "question": "The circle shown has center $O$ and radius $8$. What is the area of the sector with central angle $45°$?",
+ "diagram": {
+  "type": "circleWithSector",
+  "params": {
+   "centralAngle": 45,
+   "angleLabel": "45°",
+   "radius": 8,
+   "labelCenter": "O",
+   "showRadiusLabel": true,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$8\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$16\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$64\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "arc length instead of area",
+  "C": "uses one quarter of the circle",
+  "D": "area of the whole circle"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Sector Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $45^\\circ$ is $\\frac{1}{8}$ of a full turn, and the circle's area is $64\\pi$, so the sector is $\\frac{1}{8}(64\\pi) = 8\\pi$.\n\n**The Full Solution:**\nStep 1: The full circle has area $\\pi r^2 = \\pi(8)^2 = 64\\pi$.\nStep 2: The sector covers $\\frac{45}{360} = \\frac{1}{8}$ of the circle.\nStep 3: Sector area $= \\frac{1}{8}(64\\pi) = 8\\pi$. Check: eight such sectors would total $8 \\cdot 8\\pi = 64\\pi$, the whole circle.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2\\pi$): this is the arc length $\\frac{1}{8}(2\\pi \\cdot 8)$, a length rather than an area.\n* Choice C ($16\\pi$): uses $\\frac{1}{4}$ of the circle, the fraction that belongs to a $90^\\circ$ angle.\n* Choice D ($64\\pi$): the area of the entire circle, ignoring the $45^\\circ$ restriction.\n\n**Test Day Takeaway:** Sector area $= \\frac{\\theta}{360^\\circ} \\cdot \\pi r^2$. Convert the angle to a fraction of the circle before touching the radius."
+}

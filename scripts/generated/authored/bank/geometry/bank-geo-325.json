@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-325",
+ "question": "In triangle $RST$, the area is $72$ square centimeters and the height drawn to side $\\overline{RS}$ measures $9$ centimeters. What is the length, in centimeters, of $\\overline{RS}$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$8$"
+  },
+  {
+   "id": "B",
+   "text": "$16$"
+  },
+  {
+   "id": "C",
+   "text": "$32$"
+  },
+  {
+   "id": "D",
+   "text": "$63$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "omits the factor of 2",
+  "C": "doubles twice",
+  "D": "subtracts the height from the area"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $b=\\frac{2A}{h}=\\frac{2(72)}{9}=\\frac{144}{9}=16$ centimeters.\n\n**The Full Solution:**\nStep 1: The height drawn to $\\overline{RS}$ means $\\overline{RS}$ is the base, so $72=\\frac{1}{2}(RS)(9)$.\nStep 2: $\\frac{1}{2}(9)=4.5$, so $72=4.5(RS)$.\nStep 3: $RS=\\frac{72}{4.5}=16$ centimeters.\n\nCheck: $\\frac{1}{2}(16)(9)=72$ square centimeters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): divided the area by the height, $\\frac{72}{9}$, without first doubling the area.\n* Choice C ($32$): doubled the area twice before dividing, computing $\\frac{4(72)}{9}$.\n* Choice D ($63$): subtracted the height from the area, $72-9$.\n\n**Test Day Takeaway:** Whichever side the height is drawn to is the base that pairs with it. Match the base and height as a pair before substituting."
+}

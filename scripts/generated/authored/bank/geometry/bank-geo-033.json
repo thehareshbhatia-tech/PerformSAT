@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-033",
+ "question": "An angle has a measure of $240°$. The measure of this angle in radians is $k\\pi$. What is the value of $k$?",
+ "correctAnswer": "4/3",
+ "explanation": "**SAT Pattern: Degrees to Radians with Reduction**\n\n**The correct answer is $\\frac{4}{3}$.**\n\n**The Fast Way (~20s):** $240 \\cdot \\frac{\\pi}{180} = \\frac{240}{180}\\pi = \\frac{4}{3}\\pi$, so $k = \\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: Because $180° = \\pi$ radians, a degree measure converts to radians by multiplying by $\\frac{\\pi}{180}$.\nStep 2: $240 \\cdot \\frac{\\pi}{180} = \\frac{240\\pi}{180}$.\nStep 3: Divide numerator and denominator by $60$: $\\frac{240}{180} = \\frac{4}{3}$, so $k = \\frac{4}{3}$.\n\nVerification: $\\frac{4}{3}\\pi$ radians converts back as $\\frac{4}{3}\\pi \\cdot \\frac{180}{\\pi} = \\frac{720}{3} = 240$ degrees. $\\checkmark$\n\n**Common Mistakes:** Dividing by $360$ instead of $180$ gives $k = \\frac{2}{3}$, half the correct value. Multiplying by $\\frac{\\pi}{90}$ gives $k = \\frac{8}{3}$. Leaving the fraction unreduced as $\\frac{240}{180}$ is the right value but will not fit the answer grid, so reduce before entering.\n\n**Test Day Takeaway:** $240°$ is $\\frac{4}{3}$ of a straight angle, and a straight angle is $\\pi$. Reading the degree measure as a fraction of $180$ skips the arithmetic entirely."
+}

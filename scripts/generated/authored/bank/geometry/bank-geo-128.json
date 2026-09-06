@@ -1,0 +1,6 @@
+{
+  "id": "bank-geo-128",
+  "question": "In a right triangle, the lengths of the two legs are in the ratio $3$ to $4$, and the hypotenuse has a length of $45$. What is the length of the longer leg?",
+  "correctAnswer": "36",
+  "explanation": "**SAT Pattern: Pythagorean Theorem (3-4-5 Family)**\n\n**The correct answer is $36$.**\n\n**The Fast Way (~15s):** Legs in the ratio $3 : 4$ force a $3$-$4$-$5$ triangle, so $5k = 45$ gives $k = 9$ and the longer leg is $4(9) = 36$.\n\n**The Full Solution:**\nStep 1: Write the legs as $3k$ and $4k$. Then $(3k)^2 + (4k)^2 = 9k^2 + 16k^2 = 25k^2$, so the hypotenuse is $5k$.\nStep 2: $5k = 45$, so $k = 9$.\nStep 3: The longer leg is $4k = 36$. Check: $27^2 + 36^2 = 729 + 1{,}296 = 2{,}025 = 45^2$. $\\checkmark$\n\n**Common Mistakes:**\n* Reading the ratio as $3 : 4$ for a leg and the hypotenuse, giving $4k = 45$ and a non-integer $k = 11.25$.\n* Reporting the shorter leg $3k = 27$ instead of the longer one.\n* Splitting the hypotenuse in the ratio $3 : 4$, giving $\\frac{4}{7}(45) \\approx 25.7$, which ignores the Pythagorean relationship.\n\n**Test Day Takeaway:** Legs in the ratio $3 : 4$ always make the hypotenuse $5$ parts. Solve for one part, then scale to the side requested."
+}

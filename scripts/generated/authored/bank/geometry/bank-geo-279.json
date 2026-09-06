@@ -1,0 +1,40 @@
+{
+ "id": "bank-geo-279",
+ "question": "A sector cut from a circular sheet has a radius of $8$ centimeters and a central angle of $\\dfrac{3\\pi}{4}$ radians, as shown. What is the length, in centimeters, of the curved edge of the sector?",
+ "diagram": {
+  "type": "circleWithSector",
+  "params": {
+   "centralAngle": 135,
+   "angleLabel": "3π/4",
+   "radius": 8,
+   "labelCenter": "O",
+   "showRadiusLabel": true,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$6\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$16\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$48\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses half r theta",
+  "C": "gives the full circumference",
+  "D": "uses r squared times theta"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $s = r\\theta = 8 \\cdot \\frac{3\\pi}{4} = 6\\pi$ centimeters.\n\n**The Full Solution:**\nStep 1: The curved edge of the sector is the arc, and for a radian angle the arc length is $s = r\\theta$.\nStep 2: Substitute: $s = 8 \\cdot \\frac{3\\pi}{4} = \\frac{24\\pi}{4}$.\nStep 3: $s = 6\\pi$ centimeters. Check: $\\frac{3\\pi}{4}$ is $\\frac{3}{8}$ of a full turn, and $\\frac{3}{8}$ of the circumference $16\\pi$ is $6\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3\\pi$): uses $\\frac{1}{2}r\\theta$, borrowing the coefficient from the sector-area formula.\n* Choice C ($16\\pi$): reports the full circumference $2\\pi(8)$.\n* Choice D ($48\\pi$): uses $r^2\\theta$, which has the units of an area.\n\n**Test Day Takeaway:** Curved edge, arc, and arc length are the same thing. With radians it is always $r\\theta$."
+}

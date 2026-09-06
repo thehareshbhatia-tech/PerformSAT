@@ -1,0 +1,50 @@
+{
+  "id": "bank-geo-169",
+  "question": "Transversal $e$ crosses parallel lines $c$ and $d$ in the figure, forming the three marked angles. What is the value of $a$?",
+  "diagram": {
+    "type": "parallelLines",
+    "params": {
+      "angles": {
+        "top": [
+          "(a + 5b)°",
+          "(3a + b)°"
+        ],
+        "bottom": [
+          "(2a + 2b)°",
+          ""
+        ]
+      },
+      "lineLabels": [
+        "c",
+        "d",
+        "e"
+      ],
+      "figureNote": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$10$"
+    },
+    {
+      "id": "B",
+      "text": "$30$"
+    },
+    {
+      "id": "C",
+      "text": "$40$"
+    },
+    {
+      "id": "D",
+      "text": "$80$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the value of b instead of a",
+    "C": "reports the sum a + b",
+    "D": "reports the measure of an angle instead of the value of a"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Angles with Parallel Lines (System of Two Conditions)**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** The linear pair gives $2a + 3b = 90$ and the corresponding pair gives $a = 3b$, so $9b = 90$, $b = 10$, and $a = 30$.\n\n**The Full Solution:**\nStep 1: At line $c$ the angles $(3a + b)°$ and $(a + 5b)°$ form a linear pair, so $(3a + b) + (a + 5b) = 180$, which simplifies to $4a + 6b = 180$, or $2a + 3b = 90$.\nStep 2: The angle $(2a + 2b)°$ at line $d$ occupies the position corresponding to $(a + 5b)°$ at line $c$, so $2a + 2b = a + 5b$, which gives $a = 3b$.\nStep 3: Substitute $a = 3b$ into $2a + 3b = 90$: $6b + 3b = 90$, so $b = 10$ and $a = 30$. Check: the angles are $3(30) + 10 = 100$, $30 + 5(10) = 80$, and $2(30) + 2(10) = 80$, with $100 + 80 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): reports $b$, the other unknown in the system.\n* Choice C ($40$): reports $a + b$, which no marked angle or question calls for.\n* Choice D ($80$): reports the measure of the corresponding angles rather than the value of $a$.\n\n**Test Day Takeaway:** Two unknowns need two independent angle facts. Take one equation from a linear pair and one from a corresponding pair, then solve the system."
+}

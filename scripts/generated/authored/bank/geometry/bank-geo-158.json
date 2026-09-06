@@ -1,0 +1,6 @@
+{
+  "id": "bank-geo-158",
+  "question": "A square has a diagonal of length $12\\sqrt{2}$ centimeters. What is the perimeter, in centimeters, of the square?",
+  "correctAnswer": "48",
+  "explanation": "**SAT Pattern: Square Perimeter**\n\n**The correct answer is $48$.**\n\n**The Fast Way (~20s):** A square's diagonal is $s\\sqrt{2}$, so $s = 12$ and $P = 4(12) = 48$ centimeters.\n\n**The Full Solution:**\nStep 1: A diagonal splits the square into two right triangles with legs $s$ and $s$, so the diagonal is $\\sqrt{s^2 + s^2} = s\\sqrt{2}$.\nStep 2: $s\\sqrt{2} = 12\\sqrt{2}$, so $s = 12$ centimeters.\nStep 3: $P = 4s = 48$ centimeters. Check: $12^2 + 12^2 = 288$ and $\\sqrt{288} = 12\\sqrt{2}$. $\\checkmark$\n\n**Common Mistakes:**\n* Treating the diagonal as a side, which gives $P = 48\\sqrt{2} \\approx 67.9$.\n* Multiplying by $\\sqrt{2}$ instead of dividing, giving $s = 24$ and $P = 96$.\n* Gridding the side length $12$ instead of the perimeter.\n\n**Test Day Takeaway:** In every square, diagonal $= s\\sqrt{2}$. A diagonal already written with a $\\sqrt{2}$ hands you the side directly."
+}

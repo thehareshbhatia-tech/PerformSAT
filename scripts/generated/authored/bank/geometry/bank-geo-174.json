@@ -1,0 +1,23 @@
+{
+  "id": "bank-geo-174",
+  "question": "In the right triangle shown, the legs have lengths $a$ and $a + 1$, and the hypotenuse has length $29$. If the perimeter of the triangle is $70$, what is the value of $\\cos\\theta$? Express your answer as a fraction.",
+  "diagram": {
+    "type": "rightTriangle",
+    "params": {
+      "labels": [
+        "",
+        "",
+        "θ"
+      ],
+      "sideLabels": [
+        "a + 1",
+        "a",
+        "29"
+      ],
+      "rightAngleVertex": 1,
+      "figureNote": true
+    }
+  },
+  "correctAnswer": "20/29",
+  "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**The correct answer is $\\frac{20}{29}$.**\n\n**The Fast Way (~30s):** The perimeter gives $2a + 30 = 70$, so $a = 20$ and the legs are $20$ and $21$. Since $\\theta$ is opposite the $21$ leg, $\\cos\\theta = \\frac{20}{29}$.\n\n**The Full Solution:**\nStep 1: The perimeter is the sum of the three sides: $a + (a + 1) + 29 = 70$.\nStep 2: $2a + 30 = 70$, so $2a = 40$ and $a = 20$. The legs are $20$ and $21$.\nStep 3: In the figure, $\\theta$ is opposite the leg of length $a + 1 = 21$, so the adjacent leg is $20$ and $\\cos\\theta = \\frac{20}{29}$. Check: $20^2 + 21^2 = 400 + 441 = 841 = 29^2$. $\\checkmark$\n\n**Common Mistakes:**\n* Reporting $\\frac{21}{29}$, which is $\\sin\\theta$ - the leg opposite $\\theta$ over the hypotenuse.\n* Reporting $\\frac{21}{20}$, which is $\\tan\\theta$ and, being greater than $1$, cannot be a cosine.\n* Stopping at $a = 20$ and gridding a side length instead of a ratio.\n\n**Test Day Takeaway:** Solve the perimeter equation for the variable, label both legs, and only then decide which leg is adjacent to the marked angle."
+}

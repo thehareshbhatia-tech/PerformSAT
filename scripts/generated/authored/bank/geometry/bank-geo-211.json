@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-211",
+ "question": "The interior angles of a triangle measure $28°$, $57°$, and $x°$. What is the measure of an exterior angle at the vertex whose interior angle measures $x°$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$85°$"
+  },
+  {
+   "id": "B",
+   "text": "$95°$"
+  },
+  {
+   "id": "C",
+   "text": "$152°$"
+  },
+  {
+   "id": "D",
+   "text": "$275°$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "reports the third interior angle",
+  "C": "takes the supplement of one given angle",
+  "D": "subtracts from 360 instead of 180"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** An exterior angle equals the sum of the two remote interior angles: $28 + 57 = 85$, so the exterior angle measures $85°$.\n\n**The Full Solution:**\nStep 1: The exterior angle theorem states that an exterior angle of a triangle equals the sum of the two non-adjacent (remote) interior angles.\nStep 2: The two angles that are not at the $x°$ vertex measure $28°$ and $57°$.\nStep 3: The exterior angle at that vertex measures $28 + 57 = 85$ degrees.\n\nVerification: $x = 180 - 28 - 57 = 95$, and the exterior angle is its supplement, $180 - 95 = 85$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($95°$): reports $x$ itself, the interior angle, rather than the exterior angle beside it.\n* Choice C ($152°$): computes $180 - 28$, the supplement of one of the given angles instead of the supplement of $x°$.\n* Choice D ($275°$): subtracts $85$ from $360$; exterior angles of a triangle are supplements of interior angles, so $180$ is the right total.\n\n**Test Day Takeaway:** An exterior angle equals the sum of the two remote interior angles. That one line replaces two subtraction steps."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-geo-137",
+  "question": "In the $xy$-plane, a circle has its center at $(6, -2)$, and the point $(2, 1)$ lies on the circle. What is the length of the longest chord of this circle?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$5$"
+    },
+    {
+      "id": "B",
+      "text": "$10$"
+    },
+    {
+      "id": "C",
+      "text": "$25$"
+    },
+    {
+      "id": "D",
+      "text": "$50$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the radius instead of the longest chord",
+    "C": "reports r squared instead of a length",
+    "D": "doubles r squared instead of doubling the radius"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The longest chord is a diameter. The radius is $\\sqrt{16 + 9} = 5$, so the diameter is $10$.\n\n**The Full Solution:**\nStep 1: The longest chord of any circle is a diameter, so the answer is $2r$.\nStep 2: The radius is the distance from $(6, -2)$ to $(2, 1)$: $r = \\sqrt{(2 - 6)^2 + (1 - (-2))^2} = \\sqrt{16 + 9} = \\sqrt{25} = 5$.\nStep 3: The diameter is $2(5) = 10$. Check: $3$-$4$-$5$ confirms $r = 5$, and no chord can exceed the width of the circle. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): stops at the radius; a radius is only half of the longest chord.\n* Choice C ($25$): reports $r^2$, the value under the square root, as a length.\n* Choice D ($50$): doubles $r^2$ instead of doubling $r$.\n\n**Test Day Takeaway:** The longest chord of a circle is always the diameter. Find $r$ from the distance formula, then double it."
+}

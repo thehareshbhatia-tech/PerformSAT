@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-183",
+ "question": "In the $xy$-plane, the graph of $(x + 4)^2 + (y - 7)^2 = 25$ is a circle. The horizontal line $y = k$ is tangent to this circle at its lowest point. What is the value of $k$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-18$"
+  },
+  {
+   "id": "B",
+   "text": "$2$"
+  },
+  {
+   "id": "C",
+   "text": "$7$"
+  },
+  {
+   "id": "D",
+   "text": "$12$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts 25 instead of the radius 5",
+  "C": "gives the y-coordinate of the center",
+  "D": "adds the radius, giving the highest point"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Center $(-4, 7)$, radius $\\sqrt{25} = 5$. The lowest point sits $5$ units below the center, so $k = 7 - 5 = 2$.\n\n**The Full Solution:**\nStep 1: In $(x - h)^2 + (y - k)^2 = r^2$, the center is $(h, k)$ and the radius is $r$. Here the center is $(-4, 7)$ and $r = \\sqrt{25} = 5$.\nStep 2: A horizontal tangent touches the circle at the point directly above or directly below the center, one radius away.\nStep 3: The lowest point is $(-4, 7 - 5) = (-4, 2)$, so the tangent line is $y = 2$ and $k = 2$.\n\nVerification: substituting $y = 2$ into the circle gives $(x + 4)^2 + 25 = 25$, so $(x+4)^2 = 0$ — a single point of contact. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-18$): subtracts $25$, the right side of the equation, instead of the radius $5$.\n* Choice C ($7$): reports the $y$-coordinate of the center; that horizontal line cuts the circle in two points rather than touching it.\n* Choice D ($12$): adds the radius, which locates the tangent at the highest point, not the lowest.\n\n**Test Day Takeaway:** The right side of a circle equation is $r^2$, not $r$. Take the square root before you step off a radius from the center."
+}

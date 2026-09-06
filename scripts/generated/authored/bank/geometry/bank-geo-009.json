@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-009",
+ "question": "The side lengths of a triangle are $6$, $11$, and $11$. Which of the following best classifies this triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Equilateral"
+  },
+  {
+   "id": "B",
+   "text": "Isosceles"
+  },
+  {
+   "id": "C",
+   "text": "Scalene"
+  },
+  {
+   "id": "D",
+   "text": "Right"
+  }
+ ],
+ "distractorNotes": {
+  "A": "equilateral requires all three sides equal",
+  "C": "scalene requires all three sides different",
+  "D": "the Pythagorean relationship does not hold"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Triangle Classification by Sides**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Exactly two of the three sides are equal ($11$ and $11$), which is the definition of an isosceles triangle.\n\n**The Full Solution:**\nStep 1: Classification by sides depends only on how many side lengths are equal: three equal is equilateral, exactly two equal is isosceles, none equal is scalene.\nStep 2: Sort the lengths: $6$, $11$, $11$. Two of them match and the third does not.\nStep 3: The triangle is isosceles.\n\nVerification: $6 + 11 > 11$, so these lengths do form a triangle, and the two $11$s force the two base angles to be equal. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Equilateral): requires all three sides equal, but $6 \\ne 11$.\n* Choice C (Scalene): requires all three sides different, but two sides measure $11$.\n* Choice D (Right): would require $6^2 + 11^2 = 11^2$, that is $157 = 121$, which is false.\n\n**Test Day Takeaway:** Count equal sides first. Right, acute, and obtuse are angle classifications and need a Pythagorean comparison, not a side count."
+}

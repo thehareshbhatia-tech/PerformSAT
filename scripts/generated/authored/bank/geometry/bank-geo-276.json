@@ -1,0 +1,42 @@
+{
+ "id": "bank-geo-276",
+ "question": "In the figure, $O$ is the center of a circle of radius $9$, and $\\angle AOB$ measures $\\dfrac{\\pi}{4}$ radians. What is the length of minor arc $AB$?",
+ "diagram": {
+  "type": "circleWithSector",
+  "params": {
+   "centralAngle": 45,
+   "angleLabel": "π/4",
+   "radius": 9,
+   "labelCenter": "O",
+   "labelPoint1": "A",
+   "labelPoint2": "B",
+   "showRadiusLabel": true,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$9\\pi/8$"
+  },
+  {
+   "id": "B",
+   "text": "$9\\pi/4$"
+  },
+  {
+   "id": "C",
+   "text": "$9\\pi/2$"
+  },
+  {
+   "id": "D",
+   "text": "$81\\pi/4$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "halves the central angle",
+  "C": "uses 2 r theta",
+  "D": "uses r squared times theta"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** With the angle already in radians, arc length is $r\\theta = 9 \\cdot \\frac{\\pi}{4} = \\frac{9\\pi}{4}$.\n\n**The Full Solution:**\nStep 1: When a central angle is measured in radians, the arc it cuts has length $s = r\\theta$.\nStep 2: Substitute $r = 9$ and $\\theta = \\frac{\\pi}{4}$: $s = 9 \\cdot \\frac{\\pi}{4}$.\nStep 3: $s = \\frac{9\\pi}{4}$. Check: $\\frac{\\pi}{4}$ is one eighth of $2\\pi$, and one eighth of the circumference $18\\pi$ is indeed $\\frac{9\\pi}{4}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{9\\pi}{8}$): halves the central angle, using $\\frac{\\pi}{8}$.\n* Choice C ($\\frac{9\\pi}{2}$): uses $2r\\theta$, importing the $2$ from the circumference formula even though $r\\theta$ already accounts for it.\n* Choice D ($\\frac{81\\pi}{4}$): uses $r^2\\theta$, the shape of the sector-area formula, which produces an area rather than a length.\n\n**Test Day Takeaway:** Radians make arc length a one-line multiplication: $s = r\\theta$. No $360$, no $2\\pi$."
+}

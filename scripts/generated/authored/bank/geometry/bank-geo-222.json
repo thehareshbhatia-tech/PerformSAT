@@ -1,0 +1,36 @@
+{
+ "id": "bank-geo-222",
+ "question": "Triangles $WXY$ and $RST$ are similar, where $W$, $X$, and $Y$ correspond to $R$, $S$, and $T$, respectively. If $WX = 10$, $RS = 25$, and $XY = 6$, what is the length of $ST$?",
+ "diagram": {
+  "type": "similarTriangles",
+  "params": {
+   "triangle1": {
+    "labels": [
+     "W",
+     "X",
+     "Y"
+    ],
+    "sideLabels": [
+     "10",
+     "6",
+     ""
+    ]
+   },
+   "triangle2": {
+    "labels": [
+     "R",
+     "S",
+     "T"
+    ],
+    "sideLabels": [
+     "25",
+     "",
+     ""
+    ]
+   },
+   "figureNote": true
+  }
+ },
+ "correctAnswer": "15",
+ "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~15s):** The scale factor is $\\frac{25}{10} = \\frac{5}{2}$, so $ST = 6 \\cdot \\frac{5}{2} = 15$.\n\n**The Full Solution:**\nStep 1: The naming order gives the correspondence: $WX$ pairs with $RS$, and $XY$ pairs with $ST$.\nStep 2: Set up the proportion $\\frac{WX}{RS} = \\frac{XY}{ST}$, that is $\\frac{10}{25} = \\frac{6}{ST}$.\nStep 3: Cross-multiply: $10 \\cdot ST = 150$, so $ST = 15$.\n\nVerification: $\\frac{10}{25} = \\frac{2}{5}$ and $\\frac{6}{15} = \\frac{2}{5}$. $\\checkmark$\n\n**Common Mistakes:** Inverting the ratio and computing $6 \\cdot \\frac{10}{25} = 2.4$, which makes a side of the larger triangle shorter. Copying $XY = 6$ without scaling. Adding the difference $25 - 10 = 15$ to $6$ to get $21$, treating a multiplicative relationship as additive.\n\n**Test Day Takeaway:** Write the proportion with both smaller-triangle sides on top. Then a cross-multiplication cannot come out inverted."
+}

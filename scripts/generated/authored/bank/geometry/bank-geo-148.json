@@ -1,0 +1,6 @@
+{
+  "id": "bank-geo-148",
+  "question": "A circle has a radius of $11$. The area of the circle can be written as $k\\pi$, where $k$ is a constant. What is the value of $k$?",
+  "correctAnswer": "121",
+  "explanation": "**SAT Pattern: Area of a Circle**\n\n**The correct answer is $121$.**\n\n**The Fast Way (~10s):** $A = \\pi r^2 = 121\\pi$, so $k = 121$.\n\n**The Full Solution:**\nStep 1: The area of a circle is $A = \\pi r^2$.\nStep 2: With $r = 11$, $A = \\pi(11)^2 = 121\\pi$.\nStep 3: Matching $121\\pi$ to $k\\pi$ gives $k = 121$. Check: $11^2 = 121$. $\\checkmark$\n\n**Common Mistakes:**\n* Gridding $22$, which comes from the circumference $2\\pi r = 22\\pi$.\n* Using the diameter $22$ as the radius, giving $k = 484$.\n* Multiplying $121$ by $3.14$ and gridding a decimal; the answer is the coefficient of $\\pi$, not the numerical area.\n\n**Test Day Takeaway:** When an answer is written as $k\\pi$, $k$ is whatever multiplies $\\pi$ - leave $\\pi$ symbolic and grid the coefficient."
+}

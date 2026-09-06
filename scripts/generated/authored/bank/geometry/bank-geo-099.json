@@ -1,0 +1,24 @@
+{
+ "id": "bank-geo-099",
+ "question": "A circle in the $xy$-plane has the equation $(x + 7)^2 + (y - 1)^2 = 144$. What is the length of a radius of this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$12$"
+  },
+  {
+   "id": "B",
+   "text": "$24$"
+  },
+  {
+   "id": "C",
+   "text": "$72$"
+  },
+  {
+   "id": "D",
+   "text": "$144$"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** In $(x - h)^2 + (y - k)^2 = r^2$, the number on the right is $r^2$. Here $r^2 = 144$, so $r = 12$.\n\n**The Full Solution:**\nStep 1: The equation is already in standard form, so the right side equals the square of the radius.\nStep 2: $r^2 = 144$.\nStep 3: $r = \\sqrt{144} = 12$.\n\nCheck: the center is $(-7, 1)$, and the point $(5, 1)$ satisfies $12^2 + 0 = 144$, so it sits $12$ units from the center.\n\n**Why the wrong answers are tempting:**\n* Choice B ($24$): reports the diameter, which is twice the radius.\n* Choice C ($72$): halves $144$ instead of taking its square root.\n* Choice D ($144$): reports $r^2$ straight off the right side without taking the square root.\n\n**Test Day Takeaway:** The constant in standard form is always $r^2$, never $r$ — take the square root before answering."
+}

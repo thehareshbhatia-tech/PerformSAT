@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-192",
+ "question": "A right rectangular prism has length $5p$, width $2p$, and height $3p$. The surface area of the prism is $Kp^2$ square units. What is the value of $K$?",
+ "correctAnswer": "62",
+ "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**The correct answer is $62$.**\n\n**The Fast Way (~25s):** $SA = 2(lw + lh + wh) = 2(10 + 15 + 6)p^2 = 62p^2$, so $K = 62$.\n\n**The Full Solution:**\nStep 1: A rectangular prism has three pairs of congruent faces, so $SA = 2(lw + lh + wh)$.\nStep 2: With $l = 5p$, $w = 2p$, $h = 3p$: $lw = 10p^2$, $lh = 15p^2$, and $wh = 6p^2$.\nStep 3: Add and double: $2(10p^2 + 15p^2 + 6p^2) = 2(31p^2) = 62p^2$, so $K = 62$.\n\nVerification: at $p = 1$ the prism is $5$ by $2$ by $3$; its six faces measure $10, 10, 15, 15, 6, 6$, which sum to $62$. $\\checkmark$\n\n**Common Mistakes:** Adding the three distinct face areas and stopping at $31$, forgetting that each face appears twice. Computing the volume $5 \\cdot 2 \\cdot 3 = 30$ instead of the surface area. Doubling the sum of the edge lengths, $2(5 + 2 + 3) = 20$, which mixes a perimeter idea into an area formula.\n\n**Test Day Takeaway:** Surface area counts six faces in three matching pairs. Write the three distinct products first, then double the total once."
+}

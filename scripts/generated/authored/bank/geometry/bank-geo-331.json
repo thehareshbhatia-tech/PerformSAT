@@ -1,0 +1,46 @@
+{
+ "id": "bank-geo-331",
+ "question": "The perimeter of a right triangle is $40$ units and its hypotenuse measures $17$ units. Angle $\\theta$ lies opposite the longer leg. What is the value of $\\sin\\theta$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "",
+    "",
+    "θ"
+   ],
+   "sideLabels": [
+    "",
+    "",
+    "17"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{8}{17}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{8}{15}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{15}{17}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{15}{8}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses the shorter leg as the opposite side",
+  "B": "divides by the other leg",
+  "D": "gives tangent instead of sine"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The legs sum to $40-17=23$ with squares summing to $289$, so they are $8$ and $15$. The longer leg is $15$, so $\\sin\\theta=\\frac{15}{17}$.\n\n**The Full Solution:**\nStep 1: The legs together measure $40-17=23$ units.\nStep 2: They also satisfy $a^2+b^2=17^2=289$. The pair summing to $23$ with squares summing to $289$ is $8$ and $15$, since $64+225=289$.\nStep 3: $\\theta$ faces the longer leg, $15$, so $\\sin\\theta=\\frac{\\text{opposite}}{\\text{hypotenuse}}=\\frac{15}{17}$.\n\nCheck: $8+15+17=40$ units. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{17}$): used the shorter leg as the side opposite $\\theta$, which is the sine of the other acute angle.\n* Choice B ($\\frac{8}{15}$): divided one leg by the other, giving a tangent rather than a sine.\n* Choice D ($\\frac{15}{8}$): used opposite over adjacent, which is $\\tan\\theta$.\n\n**Test Day Takeaway:** A sine is never greater than $1$, because the opposite leg is always shorter than the hypotenuse. Any choice above $1$ can be eliminated on sight."
+}

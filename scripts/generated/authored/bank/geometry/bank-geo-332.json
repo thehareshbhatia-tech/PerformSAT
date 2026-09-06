@@ -1,0 +1,46 @@
+{
+ "id": "bank-geo-332",
+ "question": "The perimeter of a right triangle is $72$ and the hypotenuse measures $30$. If $\\theta$ is the acute angle whose opposite leg is the shorter of the two legs, what is $\\cos\\theta$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "θ",
+    "",
+    ""
+   ],
+   "sideLabels": [
+    "",
+    "",
+    "30"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{3}{5}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{3}{4}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{4}{5}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{5}{4}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "gives sine instead of cosine",
+  "B": "divides one leg by the other",
+  "D": "inverts the ratio"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The legs sum to $72-30=42$ with squares summing to $900$, so they are $18$ and $24$. The side adjacent to $\\theta$ is the longer leg $24$, giving $\\cos\\theta=\\frac{24}{30}=\\frac{4}{5}$.\n\n**The Full Solution:**\nStep 1: Subtracting the hypotenuse from the perimeter gives $a+b=72-30=42$, and the Pythagorean theorem gives $a^2+b^2=30^2=900$.\nStep 2: The pair is $18$ and $24$, since $18+24=42$ and $324+576=900$. This is the $3$, $4$, $5$ triple scaled by $6$.\nStep 3: $\\theta$ faces the shorter leg $18$, so the leg adjacent to $\\theta$ is $24$ and $\\cos\\theta=\\frac{24}{30}=\\frac{4}{5}$.\n\nCheck: $18^2+24^2=900=30^2$, and $18+24+30=72$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{5}$): used the opposite leg, $\\frac{18}{30}$, which is $\\sin\\theta$.\n* Choice B ($\\frac{3}{4}$): divided one leg by the other, $\\frac{18}{24}$, which is $\\tan\\theta$.\n* Choice D ($\\frac{5}{4}$): inverted the correct ratio, putting the hypotenuse on top.\n\n**Test Day Takeaway:** Label opposite, adjacent, and hypotenuse relative to the named angle before writing any ratio. Cosine always pairs the adjacent leg with the hypotenuse."
+}

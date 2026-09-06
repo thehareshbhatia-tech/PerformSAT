@@ -1,0 +1,46 @@
+{
+ "id": "bank-geo-333",
+ "question": "In triangle $XYZ$, the angle at $Y$ measures $90^\\circ$, the perimeter of the triangle is $90$, and $XZ=41$. Given that $XY<YZ$, what is the value of $\\sin Z$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "Z",
+    "Y",
+    "X"
+   ],
+   "sideLabels": [
+    "",
+    "",
+    "41"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{9}{41}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{9}{40}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{40}{41}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{41}{9}$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "divides by the other leg",
+  "C": "gives cosine instead of sine",
+  "D": "inverts the ratio"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The legs sum to $90-41=49$ with squares summing to $1{,}681$, so they are $9$ and $40$. Angle $Z$ faces $\\overline{XY}=9$, so $\\sin Z=\\frac{9}{41}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $Y$, so $\\overline{XZ}=41$ is the hypotenuse and $\\overline{XY}$ and $\\overline{YZ}$ are the legs.\nStep 2: The legs sum to $90-41=49$ and satisfy $XY^2+YZ^2=1{,}681$. The pair is $9$ and $40$, since $9+40=49$ and $81+1{,}600=1{,}681$. Because $XY<YZ$, $XY=9$ and $YZ=40$.\nStep 3: The side opposite angle $Z$ is $\\overline{XY}=9$, so $\\sin Z=\\frac{9}{41}$.\n\nCheck: $9+40+41=90$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{9}{40}$): divided by the other leg instead of the hypotenuse, giving $\\tan Z$.\n* Choice C ($\\frac{40}{41}$): used $\\overline{YZ}$ as the opposite side; that leg is adjacent to $Z$, so this ratio is $\\cos Z$.\n* Choice D ($\\frac{41}{9}$): inverted the correct ratio.\n\n**Test Day Takeaway:** The side opposite an angle is the one that does not touch it. Trace the two sides that meet at the vertex and take the third."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-013",
+ "question": "Which of the following sets of three lengths could be the side lengths of a triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$, $5$, and $9$"
+  },
+  {
+   "id": "B",
+   "text": "$3$, $8$, and $12$"
+  },
+  {
+   "id": "C",
+   "text": "$4$, $6$, and $11$"
+  },
+  {
+   "id": "D",
+   "text": "$7$, $9$, and $13$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "2 + 5 = 7 is less than 9",
+  "B": "3 + 8 = 11 is less than 12",
+  "C": "4 + 6 = 10 is less than 11"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Triangle Inequality**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Only in choice D do the two shorter lengths beat the longest: $7 + 9 = 16 > 13$.\n\n**The Full Solution:**\nStep 1: Three lengths form a triangle exactly when the sum of the two shorter ones is greater than the longest one.\nStep 2: Test each set: $2 + 5 = 7 < 9$; $3 + 8 = 11 < 12$; $4 + 6 = 10 < 11$; $7 + 9 = 16 > 13$.\nStep 3: Only $7$, $9$, and $13$ satisfy the inequality, so that set can form a triangle.\n\nVerification: with sides $7$ and $9$, the third side must satisfy $2 < x < 16$, and $13$ lies in that interval. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$, $5$, and $9$): the two shorter sides total $7$, which falls short of $9$, so they cannot meet.\n* Choice B ($3$, $8$, and $12$): the two shorter sides total $11 < 12$.\n* Choice C ($4$, $6$, and $11$): the two shorter sides total $10 < 11$; being close is not enough, the inequality must be strict.\n\n**Test Day Takeaway:** Only one comparison matters: add the two smallest and compare with the largest. Equality is a degenerate flat figure, not a triangle."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-geo-155",
+  "question": "A square has a side length of $13$ centimeters. What is the perimeter, in centimeters, of the square?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$26$"
+    },
+    {
+      "id": "B",
+      "text": "$39$"
+    },
+    {
+      "id": "C",
+      "text": "$52$"
+    },
+    {
+      "id": "D",
+      "text": "$169$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds only two of the four sides",
+    "B": "adds only three of the four sides",
+    "D": "computes the area instead of the perimeter"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Square Perimeter**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $P = 4s = 4(13) = 52$ centimeters.\n\n**The Full Solution:**\nStep 1: A square has four sides of equal length, so its perimeter is $P = 4s$.\nStep 2: Substitute $s = 13$: $P = 4(13)$.\nStep 3: $P = 52$ centimeters. Check: $13 + 13 + 13 + 13 = 52$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($26$): adds only two sides, $13 + 13$.\n* Choice B ($39$): adds only three sides, $3(13)$.\n* Choice D ($169$): computes the area $s^2$, which is in square centimeters rather than centimeters.\n\n**Test Day Takeaway:** Perimeter multiplies the side by $4$; area squares it. The units in the question tell you which one is wanted."
+}

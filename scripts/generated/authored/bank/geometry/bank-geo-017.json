@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-017",
+ "question": "Line $\\ell$ is tangent to circle $O$ at point $P$, and $\\overline{OP}$ is a radius of the circle. Which of the following must be true about $\\overline{OP}$ and line $\\ell$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "They are parallel."
+  },
+  {
+   "id": "B",
+   "text": "They are perpendicular."
+  },
+  {
+   "id": "C",
+   "text": "They intersect at exactly two points."
+  },
+  {
+   "id": "D",
+   "text": "They meet at an angle of $45°$."
+  }
+ ],
+ "distractorNotes": {
+  "A": "a radius drawn to the point of tangency meets the line, so they cannot be parallel",
+  "C": "a tangent meets the circle at exactly one point",
+  "D": "45 degrees has no basis; the angle is always a right angle"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Tangent-Radius Perpendicularity**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A radius drawn to the point of tangency is always perpendicular to the tangent line.\n\n**The Full Solution:**\nStep 1: A tangent line meets a circle at exactly one point, here $P$.\nStep 2: Among all segments from the center $O$ to line $\\ell$, the shortest is the one perpendicular to $\\ell$, and the shortest distance from $O$ to $\\ell$ is exactly the radius, since every other point of $\\ell$ lies outside the circle.\nStep 3: Therefore $\\overline{OP}$ is that perpendicular segment, so $\\overline{OP} \\perp \\ell$.\n\nVerification: if the angle were not $90°$, a point of $\\ell$ would lie closer to $O$ than $P$ does, putting that point inside the circle and giving a second intersection. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (They are parallel.): $\\overline{OP}$ ends on line $\\ell$ at $P$, so the two figures intersect and cannot be parallel.\n* Choice C (They intersect at exactly two points.): a tangent meets the circle once; $\\overline{OP}$ and $\\ell$ meet only at $P$.\n* Choice D (They meet at an angle of $45°$.): no configuration forces $45°$; the tangent-radius angle is always a right angle.\n\n**Test Day Takeaway:** Whenever a tangent appears, draw the radius to the point of tangency. That right angle turns most tangent problems into the Pythagorean theorem."
+}

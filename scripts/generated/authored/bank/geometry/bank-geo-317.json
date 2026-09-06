@@ -1,0 +1,55 @@
+{
+ "id": "bank-geo-317",
+ "question": "In the right triangle shown, one leg has length $16$ and the other leg has length $30$. What is the length of the hypotenuse?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     30,
+     0
+    ],
+    [
+     30,
+     16
+    ]
+   ],
+   "sideLabels": [
+    "30",
+    "16",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$14$"
+  },
+  {
+   "id": "B",
+   "text": "$34$"
+  },
+  {
+   "id": "C",
+   "text": "$46$"
+  },
+  {
+   "id": "D",
+   "text": "$1{,}156$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the legs",
+  "C": "adds the legs",
+  "D": "omits the square root"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Divide by $2$: the legs are $8$ and $15$, a triple whose hypotenuse is $17$. Scale back up to get $34$.\n\n**The Full Solution:**\nStep 1: The hypotenuse $c$ satisfies $c^2=16^2+30^2$.\nStep 2: $c^2=256+900=1{,}156$.\nStep 3: $c=\\sqrt{1{,}156}=34$.\n\nCheck: $16^2+30^2=256+900=1{,}156=34^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): subtracted the legs, $30-16$; a hypotenuse must be longer than either leg.\n* Choice C ($46$): added the legs, $16+30$, instead of adding their squares.\n* Choice D ($1{,}156$): reported $c^2$ instead of $c$.\n\n**Test Day Takeaway:** Before squaring large numbers, check for a common factor. Dividing both legs by it usually reveals a triple you already know."
+}

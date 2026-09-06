@@ -1,0 +1,36 @@
+{
+ "id": "bank-geo-079",
+ "question": "In the right triangle shown, the hypotenuse has length $61$ and one leg has length $11$. What is the length of the other leg?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "sideLabels": [
+    "11",
+    "",
+    "61"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$50$"
+  },
+  {
+   "id": "B",
+   "text": "$60$"
+  },
+  {
+   "id": "C",
+   "text": "$72$"
+  },
+  {
+   "id": "D",
+   "text": "$3{,}600$"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $61^2 - 11^2 = 3{,}721 - 121 = 3{,}600$, and $\\sqrt{3{,}600} = 60$.\n\n**The Full Solution:**\nStep 1: With legs $a$ and $b$ and hypotenuse $c$, $a^2 + b^2 = c^2$. Here $c = 61$ and one leg is $11$.\nStep 2: Solve for the missing leg: $b^2 = c^2 - a^2 = 61^2 - 11^2 = 3{,}721 - 121 = 3{,}600$.\nStep 3: $b = \\sqrt{3{,}600} = 60$.\n\nCheck: $11^2 + 60^2 = 121 + 3{,}600 = 3{,}721 = 61^2$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($50$): subtracts the side lengths, $61 - 11$, instead of subtracting their squares.\n* Choice C ($72$): adds the side lengths, $61 + 11$; a leg must be shorter than the hypotenuse.\n* Choice D ($3{,}600$): stops at $b^2$ without taking the square root.\n\n**Test Day Takeaway:** When the hypotenuse is known, subtract the squares — subtracting the lengths themselves is the most common slip on this item type."
+}

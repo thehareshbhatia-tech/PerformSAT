@@ -1,0 +1,18 @@
+{
+ "id": "bank-geo-084",
+ "question": "The figure shows a right triangle whose hypotenuse measures $a + 1$ and whose legs measure $a$ and $17$. What is the value of $a$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "sideLabels": [
+    "a",
+    "17",
+    "a + 1"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "correctAnswer": "144",
+ "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $144$.**\n\n**The Fast Way (~50s):** $a^2 + 289 = (a + 1)^2 = a^2 + 2a + 1$, so $289 = 2a + 1$ and $a = 144$.\n\n**The Full Solution:**\nStep 1: The hypotenuse is $a + 1$, so $a^2 + 17^2 = (a + 1)^2$.\nStep 2: Expand the right side: $a^2 + 289 = a^2 + 2a + 1$. The $a^2$ terms cancel, leaving $289 = 2a + 1$.\nStep 3: $2a = 288$, so $a = 144$.\n\nCheck: $144^2 + 17^2 = 20{,}736 + 289 = 21{,}025 = 145^2$, and $145 = a + 1$.\n\n**Common Mistakes:**\n* Answering $145$, which is the hypotenuse $a + 1$ rather than $a$.\n* Expanding $(a + 1)^2$ as $a^2 + 1$, which leaves $289 = 1$ and no solution at all.\n* Dropping the constant and solving $289 = 2a$, which gives the non-integer $144.5$.\n* Treating $17$ as the hypotenuse, which gives $2a^2 + 2a - 288 = 0$ and no integer solution.\n\n**Test Day Takeaway:** When the hypotenuse and a leg differ by a constant, the $a^2$ terms cancel and the quadratic collapses to a linear equation."
+}

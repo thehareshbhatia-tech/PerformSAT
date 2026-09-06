@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-322",
+ "question": "In rectangle $KLMN$, side $\\overline{KL}$ has length $20$ and diagonal $\\overline{KM}$ has length $29$. What is the area of rectangle $KLMN$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$210$"
+  },
+  {
+   "id": "B",
+   "text": "$420$"
+  },
+  {
+   "id": "C",
+   "text": "$580$"
+  },
+  {
+   "id": "D",
+   "text": "$609$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "gives the area of one of the two triangles",
+  "C": "multiplies the given side by the diagonal",
+  "D": "multiplies the missing side by the diagonal"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The diagonal is the hypotenuse of a right triangle with legs $20$ and $LM$. Since $20$, $21$, $29$ is a triple, $LM=21$ and the area is $20\\cdot 21=420$.\n\n**The Full Solution:**\nStep 1: In a rectangle the sides meet at right angles, so triangle $KLM$ is a right triangle with legs $\\overline{KL}$ and $\\overline{LM}$ and hypotenuse $\\overline{KM}$.\nStep 2: $20^2+LM^2=29^2$, so $LM^2=841-400=441$ and $LM=21$.\nStep 3: The area of the rectangle is $(KL)(LM)=(20)(21)=420$.\n\nCheck: $20^2+21^2=400+441=841=29^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($210$): computed $\\frac{1}{2}(20)(21)$, the area of triangle $KLM$, which is only half the rectangle.\n* Choice C ($580$): multiplied the given side by the diagonal, $20\\cdot 29$, treating the diagonal as the second side.\n* Choice D ($609$): found $LM=21$ but then multiplied it by the diagonal, $21\\cdot 29$, instead of by $KL$.\n\n**Test Day Takeaway:** A diagonal is never a side. Use it only as the hypotenuse to recover the missing side, then multiply the two actual sides."
+}

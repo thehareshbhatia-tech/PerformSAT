@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-259",
+ "question": "The diagonal of a square measures $6$ centimeters. What is the area, in square centimeters, of the square?",
+ "correctAnswer": "18",
+ "explanation": "**SAT Pattern: 45-45-90 Triangle**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~20s):** The side is $\\frac{6}{\\sqrt{2}} = 3\\sqrt{2}$, so the area is $(3\\sqrt{2})^2 = 18$ square centimeters.\n\n**The Full Solution:**\nStep 1: The diagonal of a square is a side times $\\sqrt{2}$, so $s\\sqrt{2} = 6$.\nStep 2: Solve for the side: $s = \\frac{6}{\\sqrt{2}} = \\frac{6\\sqrt{2}}{2} = 3\\sqrt{2}$ centimeters.\nStep 3: Area $= s^2 = (3\\sqrt{2})^2 = 9 \\cdot 2 = 18$ square centimeters. Check: $18 + 18 = 36 = 6^2$, matching the Pythagorean theorem for the two halves.\n\n**Common Mistakes:** Reporting $36$ by squaring the diagonal as though it were a side; or reporting $9$ by halving the diagonal to get a side of $3$ and squaring that.\n\n**Test Day Takeaway:** A square with diagonal $d$ has area $\\frac{d^2}{2}$ — half the square of the diagonal, because two of the squares stack to $d^2$."
+}

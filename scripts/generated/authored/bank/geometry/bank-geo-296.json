@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-296",
+ "question": "The volume of a right circular cylinder is $175\\pi$ cubic meters and its radius is $5$ meters. What is the height, in meters, of the cylinder?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$7$"
+  },
+  {
+   "id": "B",
+   "text": "$35$"
+  },
+  {
+   "id": "C",
+   "text": "$170$"
+  },
+  {
+   "id": "D",
+   "text": "$4{,}375$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "divides by r instead of r squared",
+  "C": "subtracts instead of dividing",
+  "D": "multiplies by r squared"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $\\pi(25)h = 175\\pi$ gives $h = \\frac{175}{25} = 7$ meters.\n\n**The Full Solution:**\nStep 1: The base area is $\\pi r^2 = \\pi(5)^2 = 25\\pi$ square meters.\nStep 2: Volume is base area times height: $25\\pi h = 175\\pi$.\nStep 3: $h = \\frac{175}{25} = 7$ meters. Check: $\\pi(25)(7) = 175\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($35$): divides by the radius instead of by the base area $r^2$.\n* Choice C ($170$): subtracts the radius from the volume coefficient.\n* Choice D ($4{,}375$): multiplies by $r^2$ instead of dividing by it.\n\n**Test Day Takeaway:** Height is volume divided by base area. Compute the base area as one number before dividing."
+}

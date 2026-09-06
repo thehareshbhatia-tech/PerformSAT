@@ -1,0 +1,46 @@
+{
+ "id": "bank-geo-028",
+ "question": "In the right triangle shown, one acute angle measures $60°$ and the side opposite that angle has length $12$. What is the length of the hypotenuse?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "60°",
+    "",
+    "30°"
+   ],
+   "sideLabels": [
+    "",
+    "12",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4\\sqrt{3}$"
+  },
+  {
+   "id": "B",
+   "text": "$8\\sqrt{3}$"
+  },
+  {
+   "id": "C",
+   "text": "$12\\sqrt{2}$"
+  },
+  {
+   "id": "D",
+   "text": "$12\\sqrt{3}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports the short leg instead of the hypotenuse",
+  "C": "applies the 45-45-90 ratio",
+  "D": "treats the given side as the short leg and multiplies by root 3"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** In a $30$-$60$-$90$ triangle the sides are $x : x\\sqrt{3} : 2x$. Here $x\\sqrt{3} = 12$, so $x = \\frac{12}{\\sqrt{3}} = 4\\sqrt{3}$ and the hypotenuse is $2x = 8\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: The side opposite $60°$ is the long leg, which equals $x\\sqrt{3}$ where $x$ is the short leg.\nStep 2: Solve $x\\sqrt{3} = 12$: $x = \\frac{12}{\\sqrt{3}} = \\frac{12\\sqrt{3}}{3} = 4\\sqrt{3}$.\nStep 3: The hypotenuse is twice the short leg: $2(4\\sqrt{3}) = 8\\sqrt{3}$.\n\nVerification: $(4\\sqrt{3})^2 + 12^2 = 48 + 144 = 192$, and $(8\\sqrt{3})^2 = 64 \\cdot 3 = 192$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\sqrt{3}$): reports the short leg, the value of $x$, instead of the hypotenuse $2x$.\n* Choice C ($12\\sqrt{2}$): applies the $45$-$45$-$90$ ratio $\\sqrt{2}$ to the given side.\n* Choice D ($12\\sqrt{3}$): treats $12$ as the short leg and multiplies by $\\sqrt{3}$, which produces the long leg of a larger triangle.\n\n**Test Day Takeaway:** Place the given side in the ratio $x : x\\sqrt{3} : 2x$ before doing anything else. Being handed the long leg means dividing by $\\sqrt{3}$, not multiplying."
+}

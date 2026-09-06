@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-285",
+ "question": "The equation $x^2 + y^2 - 8x = 9$ defines a circle in the $xy$-plane. What is the center of this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(-8, 0)$"
+  },
+  {
+   "id": "B",
+   "text": "$(-4, 0)$"
+  },
+  {
+   "id": "C",
+   "text": "$(4, 0)$"
+  },
+  {
+   "id": "D",
+   "text": "$(8, 0)$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "negates without halving",
+  "B": "halves but keeps the wrong sign",
+  "D": "copies the coefficient directly"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Only $x$ needs completing: $(x - 4)^2 + y^2 = 25$, so the center is $(4, 0)$.\n\n**The Full Solution:**\nStep 1: The $y$ terms are already a complete square, $y^2$, so the center's $y$-coordinate is $0$.\nStep 2: Complete the square in $x$ by adding $\\left(\\frac{-8}{2}\\right)^2 = 16$ to both sides: $(x - 4)^2 + y^2 = 9 + 16 = 25$.\nStep 3: The center is $(4, 0)$ and the radius is $5$. Check: the point $(9, 0)$ satisfies $81 - 72 = 9$ and lies $5$ units from $(4, 0)$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-8, 0)$): negates the coefficient of $x$ without halving it.\n* Choice B ($(-4, 0)$): halves the coefficient but keeps the negative sign.\n* Choice D ($(8, 0)$): reads $8$ straight off the equation as the center.\n\n**Test Day Takeaway:** A missing linear term means that coordinate of the center is $0$ — one less square to complete."
+}

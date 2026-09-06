@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-272",
+ "question": "A circular mirror has a circumference of $22\\pi$ inches. What is the area, in square inches, of the mirror?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$11\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$121\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$242\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$484\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses pi times r as the area",
+  "C": "uses 2 pi r squared",
+  "D": "treats 22 as the radius"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Area of a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $2\\pi r = 22\\pi$ gives $r = 11$, so $A = \\pi(11)^2 = 121\\pi$.\n\n**The Full Solution:**\nStep 1: Use the circumference formula: $C = 2\\pi r$, so $2\\pi r = 22\\pi$.\nStep 2: Divide both sides by $2\\pi$: $r = 11$ inches.\nStep 3: Apply the area formula: $A = \\pi(11)^2 = 121\\pi$ square inches. Check: the diameter is $22$ inches, which matches the coefficient of $\\pi$ in the circumference.\n\n**Why the wrong answers are tempting:**\n* Choice A ($11\\pi$): uses $A = \\pi r$, dropping the square.\n* Choice C ($242\\pi$): uses $A = 2\\pi r^2$, carrying the $2$ over from the circumference formula.\n* Choice D ($484\\pi$): treats $22$ as the radius instead of the diameter.\n\n**Test Day Takeaway:** The coefficient of $\\pi$ in a circumference is the diameter. Halve it before squaring."
+}

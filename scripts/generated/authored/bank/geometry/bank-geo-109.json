@@ -1,0 +1,41 @@
+{
+ "id": "bank-geo-109",
+ "question": "In right triangle $ABC$ shown, angle $C$ is the right angle, $AC = 24$, and $BC = 18$. What is the value of $\\sin B$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "A",
+    "C",
+    "B"
+   ],
+   "sideLabels": [
+    "24",
+    "18",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\dfrac{3}{5}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\dfrac{4}{5}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\dfrac{5}{4}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\dfrac{4}{3}$"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The hypotenuse is $AB = \\sqrt{24^2 + 18^2} = 30$, and the leg opposite $B$ is $AC = 24$, so $\\sin B = \\frac{24}{30} = \\frac{4}{5}$.\n\n**The Full Solution:**\nStep 1: With the right angle at $C$, the legs are $\\overline{AC}$ and $\\overline{BC}$ and the hypotenuse is $\\overline{AB}$.\nStep 2: $AB = \\sqrt{24^2 + 18^2} = \\sqrt{576 + 324} = \\sqrt{900} = 30$.\nStep 3: The leg opposite angle $B$ is $\\overline{AC}$, so $\\sin B = \\frac{24}{30} = \\frac{4}{5}$.\n\nCheck: $18$, $24$, $30$ is the $3$-$4$-$5$ triple scaled by $6$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{5}$): uses $\\frac{18}{30}$, the leg adjacent to $B$ over the hypotenuse, which is $\\cos B$.\n* Choice C ($\\frac{5}{4}$): inverts the correct ratio; a sine of an acute angle is always less than $1$.\n* Choice D ($\\frac{4}{3}$): divides the two legs, $\\frac{24}{18}$, which gives $\\tan B$.\n\n**Test Day Takeaway:** Find the hypotenuse before writing any sine or cosine — with a $3$-$4$-$5$ family it is one quick multiplication."
+}

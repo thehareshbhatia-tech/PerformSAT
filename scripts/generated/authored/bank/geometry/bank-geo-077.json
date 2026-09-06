@@ -1,0 +1,36 @@
+{
+ "id": "bank-geo-077",
+ "question": "The legs of the right triangle shown measure $12$ units and $16$ units. What is the length, in units, of the hypotenuse?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "sideLabels": [
+    "12",
+    "16",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4$"
+  },
+  {
+   "id": "B",
+   "text": "$14$"
+  },
+  {
+   "id": "C",
+   "text": "$20$"
+  },
+  {
+   "id": "D",
+   "text": "$28$"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $12^2 + 16^2 = 144 + 256 = 400$, and $\\sqrt{400} = 20$.\n\n**The Full Solution:**\nStep 1: In a right triangle with legs $a$ and $b$ and hypotenuse $c$, $a^2 + b^2 = c^2$.\nStep 2: Substitute the two legs: $12^2 + 16^2 = c^2$, so $400 = c^2$.\nStep 3: Take the positive square root: $c = 20$.\n\nCheck: $12$, $16$, $20$ is the $3$-$4$-$5$ triple scaled by $4$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): subtracts the legs, $16 - 12$, instead of combining their squares.\n* Choice B ($14$): averages the two legs.\n* Choice D ($28$): adds the legs, $12 + 16$; the hypotenuse is always shorter than that sum.\n\n**Test Day Takeaway:** Square, add, then take the root — and sanity-check that the hypotenuse lands between the longer leg and the sum of the legs."
+}

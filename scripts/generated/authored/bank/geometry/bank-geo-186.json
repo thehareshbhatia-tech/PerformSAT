@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-186",
+ "question": "In the $xy$-plane, a circle with center $(0, k)$ is tangent to both the line $y = \\frac{3}{4}x$ and the line $y = -\\frac{3}{4}x$. If the radius of the circle is $6$, what is the value of $|k|$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4.5$"
+  },
+  {
+   "id": "B",
+   "text": "$6$"
+  },
+  {
+   "id": "C",
+   "text": "$7.5$"
+  },
+  {
+   "id": "D",
+   "text": "$10$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "multiplies 6 by 3/4 instead of 5/4",
+  "B": "reports the radius itself",
+  "D": "divides by 3 instead of by 4"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Write $y = \\frac{3}{4}x$ as $3x - 4y = 0$. The distance from $(0, k)$ to it is $\\frac{|-4k|}{5} = \\frac{4|k|}{5}$. Setting $\\frac{4|k|}{5} = 6$ gives $|k| = 7.5$.\n\n**The Full Solution:**\nStep 1: Clear the fraction: $y = \\frac{3}{4}x$ becomes $3x - 4y = 0$, and $y = -\\frac{3}{4}x$ becomes $3x + 4y = 0$. Both have $\\sqrt{3^2 + 4^2} = 5$ in the denominator.\nStep 2: The distance from $(0, k)$ to $3x - 4y = 0$ is $\\frac{|3(0) - 4k|}{5} = \\frac{4|k|}{5}$. By symmetry the distance to the other line is the same, so one equation handles both tangencies.\nStep 3: Tangency means that distance equals the radius: $\\frac{4|k|}{5} = 6$, so $|k| = \\frac{30}{4} = 7.5$.\n\nVerification: with $k = 7.5$, the distance is $\\frac{4(7.5)}{5} = 6$, exactly the radius. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.5$): scales the radius by $\\frac{3}{4}$, using the slope instead of the $\\frac{5}{4}$ that the distance formula produces.\n* Choice B ($6$): reports the radius, as if the center were one radius from the origin rather than from each line.\n* Choice D ($10$): divides by the coefficient $3$ instead of $4$, computing $6 \\cdot \\frac{5}{3}$.\n\n**Test Day Takeaway:** Convert a slope-intercept line to $Ax + By = 0$ before using the distance formula. With a center on an axis, one of the two terms in the numerator vanishes and the algebra is one step."
+}

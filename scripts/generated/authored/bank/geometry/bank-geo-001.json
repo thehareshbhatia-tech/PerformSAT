@@ -1,0 +1,45 @@
+{
+ "id": "bank-geo-001",
+ "question": "In triangle $DEF$ shown, the measure of angle $D$ is $52°$ and the measure of angle $E$ is $61°$. What is the measure, in degrees, of angle $F$?",
+ "diagram": {
+  "type": "triangleWithAngles",
+  "params": {
+   "vertexLabels": [
+    "D",
+    "E",
+    "F"
+   ],
+   "angleLabels": [
+    "52°",
+    "61°",
+    ""
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$67$"
+  },
+  {
+   "id": "B",
+   "text": "$113$"
+  },
+  {
+   "id": "C",
+   "text": "$119$"
+  },
+  {
+   "id": "D",
+   "text": "$128$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "adds the two given angles",
+  "C": "subtracts only angle E from 180",
+  "D": "subtracts only angle D from 180"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The interior angles of a triangle sum to $180°$, so $m\\angle F = 180 - 52 - 61 = 67$.\n\n**The Full Solution:**\nStep 1: For any triangle, $m\\angle D + m\\angle E + m\\angle F = 180°$.\nStep 2: Substitute the given measures: $52 + 61 + m\\angle F = 180$, so $113 + m\\angle F = 180$.\nStep 3: Subtract $113$ from both sides: $m\\angle F = 67$.\n\nVerification: $52 + 61 + 67 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($113$): adds the two given measures instead of subtracting their sum from $180$.\n* Choice C ($119$): subtracts only angle $E$ from $180$, ignoring angle $D$.\n* Choice D ($128$): subtracts only angle $D$ from $180$, ignoring angle $E$.\n\n**Test Day Takeaway:** Two known angles in a triangle determine the third. Add the two you have, then subtract that sum from $180$ in one step."
+}

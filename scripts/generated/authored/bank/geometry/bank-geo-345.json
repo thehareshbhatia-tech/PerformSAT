@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-345",
+ "question": "In triangle $FGH$, angle $G$ is a right angle and $FG=GH$. The perimeter of the triangle is $56+28\\sqrt{2}$ centimeters. What is the length, in centimeters, of $\\overline{FG}$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$14$"
+  },
+  {
+   "id": "B",
+   "text": "$28$"
+  },
+  {
+   "id": "C",
+   "text": "$28\\sqrt{2}$"
+  },
+  {
+   "id": "D",
+   "text": "$56$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "halves the leg length again",
+  "C": "gives the hypotenuse",
+  "D": "reads the constant term as the leg"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: 45-45-90 Triangle — Perimeter to Leg**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** With leg $\\ell$, the perimeter is $\\ell(2+\\sqrt{2})$. Factor the given perimeter: $56+28\\sqrt{2}=28(2+\\sqrt{2})$, so $\\ell=28$ centimeters.\n\n**The Full Solution:**\nStep 1: The right angle is at $G$ and the two legs are equal, so this is a $45$-$45$-$90$ triangle and the hypotenuse is $\\ell\\sqrt{2}$ when each leg is $\\ell$.\nStep 2: The perimeter is $\\ell+\\ell+\\ell\\sqrt{2}=\\ell(2+\\sqrt{2})$, so $\\ell(2+\\sqrt{2})=56+28\\sqrt{2}$.\nStep 3: Factor $28$ from the right side: $56+28\\sqrt{2}=28(2+\\sqrt{2})$. Dividing both sides by $2+\\sqrt{2}$ gives $\\ell=28$ centimeters.\n\nCheck: legs $28$ and $28$ with hypotenuse $28\\sqrt{2}$ add to $56+28\\sqrt{2}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): treated $28$ as the combined length of the two legs and halved it.\n* Choice C ($28\\sqrt{2}$): reported the hypotenuse rather than a leg.\n* Choice D ($56$): read the constant term of the perimeter as the leg length, ignoring that the constant covers both legs.\n\n**Test Day Takeaway:** Write the perimeter of a $45$-$45$-$90$ triangle as $\\ell(2+\\sqrt{2})$, then factor the given expression into the same shape. The matching factor is the leg."
+}

@@ -1,0 +1,36 @@
+{
+ "id": "bank-geo-107",
+ "question": "The legs of the right triangle shown measure $21$ and $28$, and the hypotenuse measures $35$. What is the cosine of the angle opposite the leg of length $21$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "sideLabels": [
+    "28",
+    "21",
+    "35"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\dfrac{3}{5}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\dfrac{3}{4}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\dfrac{4}{5}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\dfrac{4}{3}$"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** For that angle the adjacent leg is $28$ and the hypotenuse is $35$, so the cosine is $\\frac{28}{35} = \\frac{4}{5}$.\n\n**The Full Solution:**\nStep 1: Call the angle $\\theta$. The leg of length $21$ is opposite $\\theta$, so the other leg, $28$, is adjacent to $\\theta$.\nStep 2: By CAH, $\\cos\\theta = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{28}{35}$.\nStep 3: Reduce: $\\frac{28}{35} = \\frac{4}{5}$.\n\nCheck: $21$, $28$, $35$ is the $3$-$4$-$5$ triple scaled by $7$, so every ratio reduces to a $3$-$4$-$5$ ratio.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{5}$): uses the opposite leg over the hypotenuse, $\\frac{21}{35}$, which is $\\sin\\theta$.\n* Choice B ($\\frac{3}{4}$): uses opposite over adjacent, $\\frac{21}{28}$, which is $\\tan\\theta$.\n* Choice D ($\\frac{4}{3}$): inverts the tangent, giving adjacent over opposite.\n\n**Test Day Takeaway:** Mark which leg is opposite the named angle first; the remaining leg is the adjacent one, and the hypotenuse never changes roles."
+}

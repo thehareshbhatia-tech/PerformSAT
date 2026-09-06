@@ -1,0 +1,55 @@
+{
+ "id": "bank-geo-321",
+ "question": "A right triangle has legs that measure $5$ and $11$. Which of the following is closest to the length of the hypotenuse?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     11,
+     0
+    ],
+    [
+     11,
+     5
+    ]
+   ],
+   "sideLabels": [
+    "11",
+    "5",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$6$"
+  },
+  {
+   "id": "B",
+   "text": "$9.8$"
+  },
+  {
+   "id": "C",
+   "text": "$12.1$"
+  },
+  {
+   "id": "D",
+   "text": "$16$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the legs",
+  "B": "subtracts the squares",
+  "D": "adds the legs"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $c=\\sqrt{5^2+11^2}=\\sqrt{146}$. Since $12^2=144$, $\\sqrt{146}$ sits just above $12$, so $12.1$ is closest.\n\n**The Full Solution:**\nStep 1: Both given sides are legs, so $c^2=5^2+11^2$.\nStep 2: $c^2=25+121=146$.\nStep 3: $146$ lies between $144=12^2$ and $169=13^2$, and it is only $2$ above $144$, so $c$ is a little more than $12$. Of the options, $12.1$ is closest.\n\nCheck: $12.1^2=146.41$, within $0.41$ of $146$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): subtracted the legs, $11-5$; the hypotenuse must exceed both legs.\n* Choice B ($9.8$): subtracted the squares, $\\sqrt{121-25}=\\sqrt{96}$, which is the rule for finding a missing leg.\n* Choice D ($16$): added the legs, $5+11$; the hypotenuse is always less than that sum.\n\n**Test Day Takeaway:** To estimate a square root without a calculator, trap it between the two perfect squares on either side and judge how close it sits to each."
+}

@@ -1,0 +1,23 @@
+{
+ "id": "bank-geo-059",
+ "question": "Triangle $KLM$ has a right angle at vertex $L$, with $KL = 9$ and $LM = 12$. An altitude of length $h$ is drawn from $L$ to the hypotenuse $\\overline{KM}$. What is the value of $h$?",
+ "diagram": {
+  "type": "rightTriangleWithAltitude",
+  "params": {
+   "vertexLabels": [
+    "K",
+    "L",
+    "M",
+    "N"
+   ],
+   "sideLengths": {
+    "LM": "9",
+    "MN": "12",
+    "PM": "h"
+   },
+   "figureNote": true
+  }
+ },
+ "correctAnswer": "7.2",
+ "explanation": "**SAT Pattern: Altitude to Hypotenuse**\n\n**The correct answer is $7.2$.**\n\n**The Fast Way (~40s):** The hypotenuse is $15$, and computing the area two ways gives $\\frac{1}{2}(9)(12) = \\frac{1}{2}(15)h$, so $h = \\frac{108}{15} = 7.2$.\n\n**The Full Solution:**\nStep 1: Find the hypotenuse: $KM = \\sqrt{9^2 + 12^2} = \\sqrt{81 + 144} = \\sqrt{225} = 15$.\nStep 2: Using the two legs as base and height, the area is $\\frac{1}{2}(9)(12) = 54$.\nStep 3: Using the hypotenuse as the base and $h$ as the height, that same area is $\\frac{1}{2}(15)h = 54$, so $h = \\frac{108}{15} = 7.2$.\n\nVerification: an altitude to the hypotenuse must be shorter than either leg, and $7.2 < 9 < 12$. $\\checkmark$\n\n**Common Mistakes:** Reporting $7.5$ takes half the hypotenuse, which is the median from $L$, not the altitude. Averaging the legs gives $10.5$, longer than one of the legs and therefore impossible. Taking the geometric mean of the legs gives $\\sqrt{108} \\approx 10.4$, another value that exceeds a leg.\n\n**Test Day Takeaway:** Compute the area of a right triangle twice: legs as base and height, then hypotenuse as base. Setting the two expressions equal isolates the altitude in one line."
+}

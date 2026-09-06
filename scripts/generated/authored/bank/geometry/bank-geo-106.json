@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-106",
+ "question": "A circle in the $xy$-plane has the equation $(x - 1)^2 + (y + 2)^2 = 169$. The point $(b, 10)$ lies on this circle, where $b < 0$. What is the value of $b$?",
+ "correctAnswer": "-4",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**The correct answer is $-4$.**\n\n**The Fast Way (~45s):** Substituting $y = 10$ gives $(b - 1)^2 + 144 = 169$, so $(b - 1)^2 = 25$ and $b = 6$ or $b = -4$; the condition $b < 0$ selects $-4$.\n\n**The Full Solution:**\nStep 1: A point on the circle satisfies the equation, so substitute $x = b$ and $y = 10$: $(b - 1)^2 + (10 + 2)^2 = 169$.\nStep 2: $(10 + 2)^2 = 144$, so $(b - 1)^2 = 169 - 144 = 25$.\nStep 3: Then $b - 1 = 5$ or $b - 1 = -5$, giving $b = 6$ or $b = -4$. Since $b < 0$, the answer is $b = -4$.\n\nCheck: $(-4 - 1)^2 + (10 + 2)^2 = 25 + 144 = 169$.\n\n**Common Mistakes:**\n* Answering $6$, the positive root, which the condition $b < 0$ rules out.\n* Taking only the positive square root of $25$ and never noticing there are two intersection points at $y = 10$.\n* Using $\\sqrt{169} - \\sqrt{144} = 1$ instead of subtracting before taking a root, which gives $b = 2$.\n\n**Test Day Takeaway:** A squared binomial equal to a positive number has two solutions; the inequality in the stem is there to tell you which one to grid."
+}

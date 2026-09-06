@@ -1,0 +1,35 @@
+{
+ "id": "bank-geo-094",
+ "question": "The measures of the three interior angles of the triangle shown are $2x°$, $3x°$, and $7x°$. What is the value of $x$?",
+ "diagram": {
+  "type": "triangleWithAngles",
+  "params": {
+   "angleLabels": [
+    "2x°",
+    "3x°",
+    "7x°"
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$15$"
+  },
+  {
+   "id": "B",
+   "text": "$20$"
+  },
+  {
+   "id": "C",
+   "text": "$30$"
+  },
+  {
+   "id": "D",
+   "text": "$105$"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $2x + 3x + 7x = 12x = 180$, so $x = 15$.\n\n**The Full Solution:**\nStep 1: The three interior angle measures sum to $180$, so $2x + 3x + 7x = 180$.\nStep 2: Combine like terms: $12x = 180$.\nStep 3: $x = \\frac{180}{12} = 15$.\n\nCheck: the angles measure $30°$, $45°$, and $105°$, and $30 + 45 + 105 = 180$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($20$): drops the $3x$ term when combining, solving $9x = 180$.\n* Choice C ($30$): finds $x = 15$ correctly but reports the smallest angle, $2x$.\n* Choice D ($105$): reports the largest angle, $7x$, instead of $x$ itself.\n\n**Test Day Takeaway:** After solving for the variable, reread the question — items like this often want $x$, not one of the angles it produces."
+}

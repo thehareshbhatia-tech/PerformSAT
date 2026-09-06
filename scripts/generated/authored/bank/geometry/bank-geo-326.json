@@ -1,0 +1,55 @@
+{
+ "id": "bank-geo-326",
+ "question": "In the right triangle shown, the legs have lengths $14$ and $48$. What is the area of the triangle?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     48,
+     0
+    ],
+    [
+     48,
+     14
+    ]
+   ],
+   "sideLabels": [
+    "48",
+    "14",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$50$"
+  },
+  {
+   "id": "B",
+   "text": "$112$"
+  },
+  {
+   "id": "C",
+   "text": "$336$"
+  },
+  {
+   "id": "D",
+   "text": "$672$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "gives the hypotenuse",
+  "B": "gives the perimeter",
+  "D": "omits the factor one half"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** In a right triangle the legs are a base and height pair, so $A=\\frac{1}{2}(14)(48)=336$.\n\n**The Full Solution:**\nStep 1: The two legs meet at the right angle, so each is perpendicular to the other and they serve as base and height.\nStep 2: $A=\\frac{1}{2}bh=\\frac{1}{2}(14)(48)$.\nStep 3: $\\frac{1}{2}(48)=24$, and $14\\cdot 24=336$.\n\nCheck: $2(336)=672=14\\cdot 48$, the rectangle the triangle halves. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($50$): computed the hypotenuse, $\\sqrt{14^2+48^2}=50$, instead of the area.\n* Choice B ($112$): added all three sides, $14+48+50$, giving the perimeter.\n* Choice D ($672$): multiplied the legs without the factor $\\frac{1}{2}$.\n\n**Test Day Takeaway:** In a right triangle no extra work is needed to find a height: the two legs are already perpendicular, so they are the base and height."
+}

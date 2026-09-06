@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-271",
+ "question": "A circle in the $xy$-plane has a diameter of $18$ units. What is the area, in square units, of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$18\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$81\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$162\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$324\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "computes the circumference",
+  "C": "uses 2 pi r squared",
+  "D": "uses the diameter as the radius"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Area of a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Halve the diameter to get $r = 9$, then $A = \\pi(9)^2 = 81\\pi$.\n\n**The Full Solution:**\nStep 1: The radius is half the diameter: $r = \\frac{18}{2} = 9$ units.\nStep 2: The area of a circle is $A = \\pi r^2$.\nStep 3: $A = \\pi(9)^2 = 81\\pi$ square units. Check: the circumference would be $2\\pi(9) = 18\\pi$, numerically equal to the diameter times $\\pi$, as expected.\n\n**Why the wrong answers are tempting:**\n* Choice A ($18\\pi$): this is the circumference $2\\pi r$, a length rather than an area.\n* Choice C ($162\\pi$): uses $2\\pi r^2$, mixing the $2$ from the circumference formula into the area formula.\n* Choice D ($324\\pi$): squares the diameter, treating $18$ as the radius.\n\n**Test Day Takeaway:** The first move on any circle problem stated with a diameter is to halve it. Everything else is the formula."
+}

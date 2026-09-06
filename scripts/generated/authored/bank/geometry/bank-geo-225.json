@@ -1,0 +1,59 @@
+{
+ "id": "bank-geo-225",
+ "question": "In the figure, triangle $ABC$ is similar to triangle $DEF$, where $A$, $B$, and $C$ correspond to $D$, $E$, and $F$, respectively. If $AB = x$, $BC = x + 9$, $DE = 8$, and $EF = 20$, what is the value of $x$?",
+ "diagram": {
+  "type": "similarTriangles",
+  "params": {
+   "triangle1": {
+    "labels": [
+     "A",
+     "B",
+     "C"
+    ],
+    "sideLabels": [
+     "x",
+     "x + 9",
+     ""
+    ]
+   },
+   "triangle2": {
+    "labels": [
+     "D",
+     "E",
+     "F"
+    ],
+    "sideLabels": [
+     "8",
+     "20",
+     ""
+    ]
+   },
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3$"
+  },
+  {
+   "id": "B",
+   "text": "$6$"
+  },
+  {
+   "id": "C",
+   "text": "$15$"
+  },
+  {
+   "id": "D",
+   "text": "$20$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "fails to distribute across x + 9",
+  "C": "reports BC instead of x",
+  "D": "copies EF"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $\\frac{x}{x + 9} = \\frac{8}{20} = \\frac{2}{5}$, so $5x = 2(x + 9) = 2x + 18$, giving $3x = 18$ and $x = 6$.\n\n**The Full Solution:**\nStep 1: Corresponding sides are proportional: $\\frac{AB}{DE} = \\frac{BC}{EF}$, which rearranges to $\\frac{AB}{BC} = \\frac{DE}{EF}$.\nStep 2: Substitute and reduce: $\\frac{x}{x + 9} = \\frac{8}{20} = \\frac{2}{5}$.\nStep 3: Cross-multiply and distribute carefully: $5x = 2(x + 9) = 2x + 18$, so $3x = 18$ and $x = 6$.\n\nVerification: $AB = 6$ and $BC = 15$, and $\\frac{6}{15} = \\frac{2}{5} = \\frac{8}{20}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): drops the distribution, solving $5x = 2x + 9$ instead of $5x = 2x + 18$.\n* Choice C ($15$): solves correctly but reports $BC = x + 9$ rather than $x$ itself.\n* Choice D ($20$): copies $EF$, the corresponding side in the larger triangle.\n\n**Test Day Takeaway:** When one side is an expression, distribute across the whole binomial after cross-multiplying, then check that both reported lengths still satisfy the original ratio."
+}

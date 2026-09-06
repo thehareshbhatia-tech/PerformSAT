@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-247",
+ "question": "A central angle in a circle measures $\\dfrac{11\\pi}{12}$ radians. What is the measure of this angle, in degrees?",
+ "correctAnswer": "165",
+ "explanation": "**SAT Pattern: Radians ↔ Degrees Conversion**\n\n**The correct answer is $165$.**\n\n**The Fast Way (~10s):** Multiply by $\\frac{180}{\\pi}$; the $\\pi$ cancels: $\\frac{11 \\cdot 180}{12} = 165$.\n\n**The Full Solution:**\nStep 1: Radians convert to degrees through the factor $\\frac{180}{\\pi}$.\nStep 2: $\\frac{11\\pi}{12} \\cdot \\frac{180}{\\pi} = \\frac{11 \\cdot 180}{12}$.\nStep 3: $\\frac{1980}{12} = 165$ degrees. Check: $\\frac{11\\pi}{12}$ is just under $\\pi$, and $165^\\circ$ is just under $180^\\circ$.\n\n**Common Mistakes:** Reporting $15$, which is $\\frac{180}{12}$ with the factor of $11$ forgotten; or multiplying by $\\frac{\\pi}{180}$ (the degrees-to-radians direction), which leaves $\\pi$ in the answer and cannot be gridded.\n\n**Test Day Takeaway:** Going from radians to degrees, the $\\pi$ must cancel. If $\\pi$ survives, the conversion factor was used upside down."
+}

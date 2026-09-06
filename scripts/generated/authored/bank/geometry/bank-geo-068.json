@@ -1,0 +1,24 @@
+{
+ "id": "bank-geo-068",
+ "question": "Triangle $PQR$ has a right angle at vertex $Q$. If $\\cos P = \\dfrac{9}{41}$, what is the value of $\\dfrac{\\sin R}{\\cos R}$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\dfrac{9}{41}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\dfrac{9}{40}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\dfrac{40}{41}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\dfrac{40}{9}$"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Angles $P$ and $R$ are complementary, so $\\sin R = \\cos P = \\frac{9}{41}$ and $\\cos R = \\sin P = \\frac{40}{41}$. The quotient is $\\frac{9}{41} \\div \\frac{40}{41} = \\frac{9}{40}$.\n\n**The Full Solution:**\nStep 1: $\\cos P = \\frac{9}{41}$ means the leg adjacent to $P$ is $PQ = 9k$ and the hypotenuse is $PR = 41k$; the third side is $QR = \\sqrt{41^2 - 9^2}\\,k = \\sqrt{1600}\\,k = 40k$.\nStep 2: Angle $R$ is the other acute angle, so $\\overline{PQ}$ is opposite $R$ and $\\overline{QR}$ is adjacent to $R$. Then $\\sin R = \\frac{9k}{41k} = \\frac{9}{41}$ and $\\cos R = \\frac{40k}{41k} = \\frac{40}{41}$.\nStep 3: $\\frac{\\sin R}{\\cos R} = \\frac{9/41}{40/41} = \\frac{9}{40}$.\n\nCheck: $\\frac{\\sin R}{\\cos R}$ is $\\tan R$, and reading the legs directly gives $\\tan R = \\frac{9k}{40k} = \\frac{9}{40}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{9}{41}$): reports $\\sin R$ alone and never divides by $\\cos R$.\n* Choice C ($\\frac{40}{41}$): reports $\\cos R$ alone, the denominator of the requested quotient.\n* Choice D ($\\frac{40}{9}$): uses angle $P$ instead of angle $R$, giving $\\tan P = \\frac{40}{9}$.\n\n**Test Day Takeaway:** $\\frac{\\sin}{\\cos}$ of the same angle is always its tangent, and the two acute angles of a right triangle swap the roles of sine and cosine."
+}

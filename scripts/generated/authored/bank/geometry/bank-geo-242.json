@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-242",
+ "question": "The area of a circle is $4$ times the circle's circumference. What is the area of the circle, in terms of $\\pi$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$16\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$64\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$128\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$256\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports the circumference instead of the area",
+  "C": "uses 2 pi r squared for the area",
+  "D": "squares the diameter instead of the radius"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circumference of a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $\\pi r^2 = 4(2\\pi r)$ cancels to $r = 8$, so the area is $\\pi(8)^2 = 64\\pi$.\n\n**The Full Solution:**\nStep 1: Write both quantities in terms of the radius: the area is $\\pi r^2$ and the circumference is $2\\pi r$. The given relationship is $\\pi r^2 = 4(2\\pi r) = 8\\pi r$.\nStep 2: Since $r > 0$, divide both sides by $\\pi r$ to get $r = 8$. That is the radius, not yet the answer.\nStep 3: The question asks for the area: $A = \\pi(8)^2 = 64\\pi$. Check: the circumference is $2\\pi(8) = 16\\pi$, and $4(16\\pi) = 64\\pi$, which is the area.\n\n**Why the wrong answers are tempting:**\n* Choice A ($16\\pi$): stops at the circumference $2\\pi(8)$ rather than the area.\n* Choice C ($128\\pi$): uses $2\\pi r^2$ for the area, carrying the $2$ over from the circumference formula.\n* Choice D ($256\\pi$): finds $r = 8$ but squares the diameter, computing $\\pi(16)^2$.\n\n**Test Day Takeaway:** When area and circumference are set proportional to each other, one factor of $r$ cancels and the radius falls out in a single step. Then reread which quantity the question actually wants."
+}

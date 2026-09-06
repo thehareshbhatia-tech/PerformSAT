@@ -1,0 +1,46 @@
+{
+  "id": "bank-geo-171",
+  "question": "In the right triangle shown, the legs have lengths $b$ and $b + 7$, and the hypotenuse has length $17$. If the perimeter of the triangle is $40$, what is the value of $\\sin\\theta$?",
+  "diagram": {
+    "type": "rightTriangle",
+    "params": {
+      "labels": [
+        "θ",
+        "",
+        ""
+      ],
+      "sideLabels": [
+        "b + 7",
+        "b",
+        "17"
+      ],
+      "rightAngleVertex": 1,
+      "figureNote": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\frac{8}{17}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\frac{8}{15}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\frac{15}{17}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\frac{17}{8}$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "gives tan of theta, opposite over adjacent",
+    "C": "gives cos of theta, adjacent over hypotenuse",
+    "D": "inverts the sine ratio, hypotenuse over opposite"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The perimeter gives $2b + 24 = 40$, so $b = 8$ and the sides are $8$, $15$, $17$. Then $\\sin\\theta = \\frac{8}{17}$.\n\n**The Full Solution:**\nStep 1: The perimeter is the sum of the three sides: $b + (b + 7) + 17 = 40$.\nStep 2: $2b + 24 = 40$, so $2b = 16$ and $b = 8$. The legs are $8$ and $15$, and the hypotenuse is $17$.\nStep 3: In the figure, $\\theta$ is opposite the leg of length $b = 8$, so $\\sin\\theta = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{8}{17}$. Check: $8^2 + 15^2 = 64 + 225 = 289 = 17^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{8}{15}$): this is $\\tan\\theta$, opposite over adjacent, not opposite over hypotenuse.\n* Choice C ($\\frac{15}{17}$): this is $\\cos\\theta$, the adjacent leg over the hypotenuse.\n* Choice D ($\\frac{17}{8}$): inverts the sine ratio. Sine of an acute angle is always less than $1$, so any value above $1$ is automatically wrong.\n\n**Test Day Takeaway:** Use the perimeter to turn algebraic side lengths into numbers first; only then read the ratio off the figure."
+}

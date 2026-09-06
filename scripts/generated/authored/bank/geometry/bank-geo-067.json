@@ -1,0 +1,18 @@
+{
+ "id": "bank-geo-067",
+ "question": "In right triangle $RST$, angle $S$ is a right angle and $\\tan R = \\dfrac{12}{5}$. The perimeter of triangle $RST$ is $210$. What is the length of $\\overline{RS}$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "R",
+    "S",
+    "T"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "correctAnswer": "35",
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**The correct answer is $35$.**\n\n**The Fast Way (~45s):** $\\tan R = \\frac{12}{5}$ makes the sides $12k$, $5k$, $13k$, whose perimeter is $30k$. From $30k = 210$, $k = 7$, so $RS = 5(7) = 35$.\n\n**The Full Solution:**\nStep 1: With the right angle at $S$, $\\tan R = \\frac{ST}{RS} = \\frac{12}{5}$, so write $ST = 12k$ and $RS = 5k$ for some positive $k$.\nStep 2: The hypotenuse is $RT = \\sqrt{(12k)^2 + (5k)^2} = \\sqrt{169k^2} = 13k$, the $5$-$12$-$13$ triple scaled by $k$.\nStep 3: The perimeter is $5k + 12k + 13k = 30k = 210$, so $k = 7$ and $RS = 5(7) = 35$.\n\nCheck: the three sides are $35$, $84$, and $91$, and $35 + 84 + 91 = 210$, with $35^2 + 84^2 = 8{,}281 = 91^2$.\n\n**Common Mistakes:**\n* Reading $12$ and $5$ as the actual side lengths and answering $5$; the perimeter would then be $30$, not $210$.\n* Answering $84$, which is $\\overline{ST}$, the leg opposite angle $R$, instead of $\\overline{RS}$.\n* Answering $91$, the hypotenuse $\\overline{RT}$.\n* Dividing the perimeter into three equal parts and answering $70$, which ignores the $5:12:13$ ratio.\n\n**Test Day Takeaway:** Turn a tangent value into $12k$ and $5k$, let the Pythagorean theorem supply $13k$, and use the perimeter to solve for the single unknown $k$."
+}

@@ -1,0 +1,41 @@
+{
+ "id": "bank-geo-064",
+ "question": "In right triangle $ABC$, angle $A$ is a right angle. If $\\tan B = \\dfrac{15}{8}$ and $AB = 24$, what is the length of $\\overline{BC}$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "B",
+    "A",
+    "C"
+   ],
+   "sideLabels": [
+    "24",
+    "",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$17$"
+  },
+  {
+   "id": "B",
+   "text": "$24$"
+  },
+  {
+   "id": "C",
+   "text": "$45$"
+  },
+  {
+   "id": "D",
+   "text": "$51$"
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** $\\tan B = \\frac{AC}{AB} = \\frac{15}{8}$, and $AB = 24 = 8 \\cdot 3$, so the triangle is the $8$-$15$-$17$ triple scaled by $3$. The hypotenuse is $BC = 17 \\cdot 3 = 51$.\n\n**The Full Solution:**\nStep 1: The right angle is at $A$, so relative to angle $B$ the opposite leg is $\\overline{AC}$ and the adjacent leg is $\\overline{AB}$. Then $\\tan B = \\frac{AC}{AB} = \\frac{15}{8}$.\nStep 2: Substituting $AB = 24$ gives $\\frac{AC}{24} = \\frac{15}{8}$, so $AC = 24 \\cdot \\frac{15}{8} = 45$.\nStep 3: $\\overline{BC}$ is the hypotenuse, so $BC = \\sqrt{24^2 + 45^2} = \\sqrt{576 + 2025} = \\sqrt{2601} = 51$.\n\nCheck: $\\frac{45}{24} = \\frac{15}{8}$, and $24$, $45$, $51$ is $3$ times $8$, $15$, $17$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): reads $15$ and $8$ as the actual leg lengths and reports the hypotenuse of that unscaled triangle, ignoring $AB = 24$.\n* Choice B ($24$): repeats the given leg $AB$ instead of finding the hypotenuse.\n* Choice C ($45$): stops at the second leg $AC$, which is opposite angle $B$, not the hypotenuse $\\overline{BC}$.\n\n**Test Day Takeaway:** A trig ratio names the shape of the triangle; one real side length sets the scale factor, and every other side follows from it."
+}

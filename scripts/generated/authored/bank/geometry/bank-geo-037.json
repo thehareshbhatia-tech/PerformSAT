@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-037",
+ "question": "Circle $C$ has center $Q$ and a radius of $15$. Point $R$ lies outside the circle so that $QR = 39$, and $\\overline{RT}$ is tangent to circle $C$ at point $T$. What is the length of $\\overline{RT}$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$24$"
+  },
+  {
+   "id": "B",
+   "text": "$36$"
+  },
+  {
+   "id": "C",
+   "text": "$54$"
+  },
+  {
+   "id": "D",
+   "text": "$1296$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the radius from QR",
+  "C": "adds the radius to QR",
+  "D": "reports RT squared"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Tangent from External Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The radius meets the tangent at a right angle, so $RT = \\sqrt{39^2 - 15^2} = \\sqrt{1521 - 225} = \\sqrt{1296} = 36$.\n\n**The Full Solution:**\nStep 1: A radius drawn to the point of tangency is perpendicular to the tangent line, so triangle $QTR$ has a right angle at $T$.\nStep 2: $\\overline{QR}$ is the hypotenuse and $\\overline{QT} = 15$ is a leg, so $15^2 + RT^2 = 39^2$, giving $RT^2 = 1521 - 225 = 1296$.\nStep 3: $RT = \\sqrt{1296} = 36$.\n\nVerification: $15$, $36$, $39$ is the $5$-$12$-$13$ triple tripled, and $225 + 1296 = 1521 = 39^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($24$): subtracts $39 - 15$, treating the three lengths as collinear rather than as a right triangle.\n* Choice C ($54$): adds $39 + 15$; the tangent segment is a leg and must be shorter than the hypotenuse $39$.\n* Choice D ($1296$): stops at $RT^2$ without taking the square root.\n\n**Test Day Takeaway:** Tangent plus radius always means a right angle at the point of tangency. Draw that radius and the problem becomes the Pythagorean theorem."
+}

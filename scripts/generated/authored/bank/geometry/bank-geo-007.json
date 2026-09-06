@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-007",
+ "question": "In a triangle, the length of the base is $26$ centimeters and the length of the corresponding height is $9$ centimeters. What is the area, in square centimeters, of the triangle?",
+ "correctAnswer": "117",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**The correct answer is $117$.**\n\n**The Fast Way (~15s):** $A = \\frac{1}{2}bh = \\frac{1}{2}(26)(9) = 13 \\cdot 9 = 117$.\n\n**The Full Solution:**\nStep 1: The area of a triangle is $A = \\frac{1}{2}bh$, where $b$ is a base and $h$ is the height drawn to that base.\nStep 2: Halve the base first to keep the arithmetic clean: $\\frac{1}{2}(26) = 13$.\nStep 3: Multiply by the height: $13 \\cdot 9 = 117$ square centimeters.\n\nVerification: a rectangle $26$ by $9$ has area $234$, and the triangle is exactly half of it: $\\frac{234}{2} = 117$. $\\checkmark$\n\n**Common Mistakes:** Omitting the factor $\\frac{1}{2}$ gives $26 \\cdot 9 = 234$, the area of the surrounding rectangle. Adding the two measurements gives $26 + 9 = 35$, which is a length, not an area.\n\n**Test Day Takeaway:** A triangle is half of the rectangle built on the same base and height. Halve the even factor first and the multiplication stays mental."
+}

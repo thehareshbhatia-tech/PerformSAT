@@ -1,0 +1,29 @@
+{
+  "id": "bank-geo-143",
+  "question": "A rectangular prism has a square base with a side length of $6$ inches and a height of $11$ inches. What is the volume, in cubic inches, of the prism?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$66$"
+    },
+    {
+      "id": "B",
+      "text": "$132$"
+    },
+    {
+      "id": "C",
+      "text": "$264$"
+    },
+    {
+      "id": "D",
+      "text": "$396$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies one base edge by the height instead of the base area",
+    "B": "doubles the base edge instead of squaring it",
+    "C": "multiplies the perimeter of the base by the height, giving the lateral area"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Volume of a Rectangular Prism**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The base area is $6^2 = 36$, so $V = 36 \\times 11 = 396$ cubic inches.\n\n**The Full Solution:**\nStep 1: The volume of a prism is the area of the base times the height.\nStep 2: The base is a square with side $6$, so its area is $6^2 = 36$ square inches.\nStep 3: $V = 36 \\times 11 = 396$ cubic inches. Check: $36 \\times 10 = 360$, and one more layer of $36$ gives $396$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($66$): multiplies a single base edge by the height, $6 \\times 11$, using a length where an area belongs.\n* Choice B ($132$): doubles the base edge instead of squaring it, $2(6)(11)$.\n* Choice C ($264$): multiplies the base perimeter $24$ by the height, which is the lateral surface area, not the volume.\n\n**Test Day Takeaway:** A square base contributes $s^2$, not $s$ and not $2s$. Square the edge before multiplying by the height."
+}

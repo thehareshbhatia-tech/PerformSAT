@@ -1,0 +1,24 @@
+{
+ "id": "bank-geo-103",
+ "question": "In the $xy$-plane, the graph of $(x - 6)^2 + y^2 = 81$ is a circle. What is the area of the region enclosed by this circle, in terms of $\\pi$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$9\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$18\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$81\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$324\\pi$"
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The right side is $r^2 = 81$, and the area of a circle is $\\pi r^2$, so the area is $81\\pi$.\n\n**The Full Solution:**\nStep 1: The equation is in standard form, so $r^2 = 81$ and $r = 9$.\nStep 2: The area of a circle is $A = \\pi r^2$.\nStep 3: $A = \\pi(81) = 81\\pi$ square units.\n\nCheck: the missing $(y - k)^2$ term just means $k = 0$; the center is $(6, 0)$, which does not affect the area.\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\pi$): uses $\\pi r$ with $r = 9$, forgetting the square in the area formula.\n* Choice B ($18\\pi$): computes the circumference $2\\pi r$ instead of the area.\n* Choice D ($324\\pi$): squares the diameter $18$ rather than the radius.\n\n**Test Day Takeaway:** Standard form already hands you $r^2$, so the area is the right-hand constant times $\\pi$ — no square root needed."
+}

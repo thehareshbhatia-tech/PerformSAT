@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-044",
+ "question": "Two sides of a triangle have lengths $9$ and $16$. Which of the following could NOT be the length of the third side?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$8$"
+  },
+  {
+   "id": "B",
+   "text": "$12$"
+  },
+  {
+   "id": "C",
+   "text": "$20$"
+  },
+  {
+   "id": "D",
+   "text": "$25$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "8 lies inside the interval from 7 to 25",
+  "B": "12 lies inside the interval",
+  "C": "20 lies inside the interval"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Triangle Inequality Range**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The third side must satisfy $16 - 9 < x < 16 + 9$, that is $7 < x < 25$. Only $25$ falls outside.\n\n**The Full Solution:**\nStep 1: For any triangle, each side must be less than the sum of the other two and greater than their positive difference.\nStep 2: With sides $9$ and $16$, the third side $x$ must satisfy $7 < x < 25$.\nStep 3: Test the choices: $8$, $12$, and $20$ all lie strictly inside that interval; $25$ does not, since $9 + 16 = 25$ is not greater than $25$.\n\nVerification: with $x = 25$ the sides $9$ and $16$ would lie flat along the third side, forming a segment rather than a triangle. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): just above the lower bound of $7$, so it works; the inequality is strict but $8 > 7$.\n* Choice B ($12$): sits comfortably inside the interval.\n* Choice C ($20$): below the upper bound of $25$, so the three lengths do close into a triangle.\n\n**Test Day Takeaway:** The third side lives strictly between the difference and the sum of the other two. Endpoints are excluded because equality collapses the triangle."
+}

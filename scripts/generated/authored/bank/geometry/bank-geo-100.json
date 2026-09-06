@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-100",
+ "question": "A circle in the $xy$-plane has the equation $(x - 8)^2 + (y + 5)^2 = 49$. What is the $y$-coordinate of the center of this circle?",
+ "correctAnswer": "-5",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**The correct answer is $-5$.**\n\n**The Fast Way (~15s):** Standard form is $(x - h)^2 + (y - k)^2 = r^2$. Since $(y + 5)^2 = (y - (-5))^2$, the value of $k$ is $-5$.\n\n**The Full Solution:**\nStep 1: Match the equation to $(x - h)^2 + (y - k)^2 = r^2$.\nStep 2: Rewrite the second binomial as a subtraction: $(y + 5)^2 = (y - (-5))^2$, so $k = -5$.\nStep 3: The center is $(8, -5)$, and its $y$-coordinate is $-5$.\n\nCheck: substituting $x = 8$ and $y = -5$ makes the left side $0$, which is the smallest it can be — exactly what happens at the center.\n\n**Common Mistakes:**\n* Answering $5$ by copying the number inside the parentheses without flipping its sign.\n* Answering $8$, the $x$-coordinate of the center, after solving for the wrong variable.\n* Answering $7$, the radius, instead of a coordinate.\n\n**Test Day Takeaway:** Standard form subtracts the center's coordinates, so a plus sign inside the parentheses means a negative coordinate."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "bank-geo-076",
+ "question": "A circle in the $xy$-plane is defined by $x^2 + y^2 + 12x - 16y + 36 = 0$. Point $P$ lies on this circle. What is the greatest possible distance from $P$ to the origin?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
+  },
+  {
+   "id": "B",
+   "text": "$8$"
+  },
+  {
+   "id": "C",
+   "text": "$10$"
+  },
+  {
+   "id": "D",
+   "text": "$18$"
+  }
+ ],
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~60s):** The circle is centered at $(-6, 8)$ with radius $8$. The origin is $10$ units from that center, so the farthest point of the circle is $10 + 8 = 18$ units away.\n\n**The Full Solution:**\nStep 1: Complete the squares: $(x^2 + 12x + 36) + (y^2 - 16y + 64) = -36 + 36 + 64$, so $(x + 6)^2 + (y - 8)^2 = 64$. The center is $(-6, 8)$ and the radius is $8$.\nStep 2: The distance from the origin to the center is $\\sqrt{(-6)^2 + 8^2} = \\sqrt{100} = 10$.\nStep 3: Distances from the origin to points of the circle range from $10 - 8 = 2$ to $10 + 8 = 18$, so the greatest is $18$.\n\nCheck: the origin is outside the circle because $10 > 8$, so both endpoints of that range are positive, as they must be.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): subtracts the radius instead of adding it, which gives the least distance, not the greatest.\n* Choice B ($8$): reports the radius of the circle.\n* Choice C ($10$): stops at the distance from the origin to the center and never accounts for the radius.\n\n**Test Day Takeaway:** For distances from an outside point to a circle, the extremes lie on the line through that point and the center: center distance minus radius, and center distance plus radius."
+}

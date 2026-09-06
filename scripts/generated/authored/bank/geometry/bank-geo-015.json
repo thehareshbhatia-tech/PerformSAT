@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-015",
+ "question": "A turntable completes $4$ full rotations. Through how many radians does the turntable rotate?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$4\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$8\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$16\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports one rotation and ignores the 4",
+  "B": "uses pi radians per rotation",
+  "D": "uses 4*pi radians per rotation"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Radian Measure of a Full Circle**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** One rotation is $2\\pi$ radians, so $4$ rotations are $4(2\\pi) = 8\\pi$ radians.\n\n**The Full Solution:**\nStep 1: A full rotation corresponds to a central angle of $360°$, which equals $2\\pi$ radians.\nStep 2: Four rotations multiply that measure by $4$: $4 \\cdot 2\\pi$.\nStep 3: The total is $8\\pi$ radians.\n\nVerification: $4$ rotations equal $4(360) = 1{,}440$ degrees, and $1{,}440 \\cdot \\frac{\\pi}{180} = 8\\pi$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2\\pi$): gives the measure of a single rotation and never uses the $4$.\n* Choice B ($4\\pi$): uses $\\pi$ radians per rotation; $\\pi$ radians is a half rotation.\n* Choice D ($16\\pi$): uses $4\\pi$ radians per rotation, doubling the correct total.\n\n**Test Day Takeaway:** Anchor on $2\\pi$ radians per revolution and $\\pi$ radians per half revolution. Every rotation question scales from those two facts."
+}

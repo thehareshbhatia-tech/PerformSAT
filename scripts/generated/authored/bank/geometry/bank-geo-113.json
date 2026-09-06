@@ -1,0 +1,24 @@
+{
+ "id": "bank-geo-113",
+ "question": "In right triangle $XYZ$, angle $Y$ is a right angle. If $\\tan X = \\dfrac{4}{3}$, what is the value of $(\\sin X)(\\cos X)$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\dfrac{12}{25}$"
+  },
+  {
+   "id": "B",
+   "text": "$1$"
+  },
+  {
+   "id": "C",
+   "text": "$\\dfrac{7}{5}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\dfrac{12}{5}$"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** $\\tan X = \\frac{4}{3}$ gives a $3$-$4$-$5$ triangle, so $\\sin X = \\frac{4}{5}$, $\\cos X = \\frac{3}{5}$, and their product is $\\frac{12}{25}$.\n\n**The Full Solution:**\nStep 1: $\\tan X = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{4}{3}$, so take the opposite leg as $4k$ and the adjacent leg as $3k$.\nStep 2: The hypotenuse is $\\sqrt{(4k)^2 + (3k)^2} = 5k$, so $\\sin X = \\frac{4k}{5k} = \\frac{4}{5}$ and $\\cos X = \\frac{3k}{5k} = \\frac{3}{5}$.\nStep 3: $(\\sin X)(\\cos X) = \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{12}{25}$.\n\nCheck: $\\frac{\\sin X}{\\cos X} = \\frac{4/5}{3/5} = \\frac{4}{3}$, which matches the given tangent.\n\n**Why the wrong answers are tempting:**\n* Choice B ($1$): applies $\\sin^2 X + \\cos^2 X = 1$, an identity about squares and a sum, not about a product.\n* Choice C ($\\frac{7}{5}$): adds the two ratios, $\\frac{4}{5} + \\frac{3}{5}$, instead of multiplying them.\n* Choice D ($\\frac{12}{5}$): multiplies the numerators but keeps a single denominator of $5$.\n\n**Test Day Takeaway:** Convert a tangent into all three side lengths first; then every requested combination of ratios is ordinary fraction arithmetic."
+}

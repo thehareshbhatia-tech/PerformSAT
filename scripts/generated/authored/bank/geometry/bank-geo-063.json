@@ -1,0 +1,41 @@
+{
+ "id": "bank-geo-063",
+ "question": "In right triangle $GHJ$, angle $H$ is a right angle. The length of $\\overline{GH}$ is $45$ and the length of $\\overline{HJ}$ is $28$. What is the value of $\\tan G$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "G",
+    "H",
+    "J"
+   ],
+   "sideLabels": [
+    "45",
+    "28",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\dfrac{28}{53}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\dfrac{28}{45}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\dfrac{45}{53}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\dfrac{45}{28}$"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Tangent uses only the two legs. From angle $G$, the opposite leg is $HJ = 28$ and the adjacent leg is $GH = 45$, so $\\tan G = \\frac{28}{45}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $H$, so $\\overline{GH}$ and $\\overline{HJ}$ are the legs and $\\overline{GJ}$ is the hypotenuse.\nStep 2: Relative to angle $G$, the opposite leg is $\\overline{HJ}$ ($28$) and the adjacent leg is $\\overline{GH}$ ($45$).\nStep 3: By TOA, $\\tan G = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{28}{45}$.\n\nCheck: $GJ = \\sqrt{45^2 + 28^2} = \\sqrt{2809} = 53$, so the hypotenuse is $53$ and every ratio below is built from $28$, $45$, and $53$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{28}{53}$): puts the hypotenuse $53$ in the denominator, which produces $\\sin G$.\n* Choice C ($\\frac{45}{53}$): adjacent over hypotenuse, which is $\\cos G$.\n* Choice D ($\\frac{45}{28}$): swaps opposite and adjacent, giving $\\cot G$.\n\n**Test Day Takeaway:** When a question asks for $\\tan$, the hypotenuse is a decoy — work with the two legs only."
+}

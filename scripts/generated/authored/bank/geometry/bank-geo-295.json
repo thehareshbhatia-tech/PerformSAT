@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-295",
+ "question": "A right circular cylinder has a volume of $126\\pi$ cubic inches and a height of $14$ inches. What is the radius, in inches, of the cylinder?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3$"
+  },
+  {
+   "id": "B",
+   "text": "$6$"
+  },
+  {
+   "id": "C",
+   "text": "$9$"
+  },
+  {
+   "id": "D",
+   "text": "$112$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "reports the diameter",
+  "C": "reports r squared",
+  "D": "subtracts instead of dividing"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $\\pi r^2(14) = 126\\pi$ gives $r^2 = 9$, so $r = 3$ inches.\n\n**The Full Solution:**\nStep 1: Start from $V = \\pi r^2 h$: $\\pi r^2 (14) = 126\\pi$.\nStep 2: Divide both sides by $\\pi$ and then by $14$: $r^2 = \\frac{126}{14} = 9$.\nStep 3: $r = 3$ inches. Check: $\\pi(3)^2(14) = 126\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): solves correctly but reports the diameter.\n* Choice C ($9$): stops at $r^2$ without taking the square root.\n* Choice D ($112$): subtracts the height from the volume coefficient instead of dividing.\n\n**Test Day Takeaway:** Divide out $\\pi$ and $h$ first; what remains is $r^2$, and the square root is the last step, not the first."
+}

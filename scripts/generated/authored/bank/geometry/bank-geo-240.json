@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-240",
+ "question": "A circular running track has a radius of $40$ meters. What is the circumference of the track, in meters? (Use $\\pi \\approx 3.14$.)",
+ "correctAnswer": "251.2",
+ "explanation": "**SAT Pattern: Circumference of a Circle**\n\n**The correct answer is $251.2$.**\n\n**The Fast Way (~15s):** $C = 2\\pi r \\approx 2(3.14)(40) = 251.2$ meters.\n\n**The Full Solution:**\nStep 1: Use $C = 2\\pi r$ with $r = 40$.\nStep 2: Substitute the approximation: $C \\approx 2(3.14)(40)$.\nStep 3: Multiply: $2(3.14) = 6.28$, and $6.28(40) = 251.2$ meters.\n\nVerification: the diameter is $80$, and $3.14(80) = 251.2$ as well. $\\checkmark$\n\n**Common Mistakes:** Computing $\\pi r = 3.14(40) = 125.6$ and forgetting to double. Computing the area $\\pi r^2 = 3.14(1600) = 5024$, which measures square meters rather than meters. Using the diameter in place of the radius, giving $2(3.14)(80) = 502.4$.\n\n**Test Day Takeaway:** Multiply $2\\pi$ into a single number first — $6.28$ — then scale by the radius. One multiplication instead of two removes the chance of dropping the factor of $2$."
+}

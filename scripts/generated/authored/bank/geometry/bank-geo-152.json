@@ -1,0 +1,6 @@
+{
+  "id": "bank-geo-152",
+  "question": "A circle has an area of $225\\pi$ square inches. The circumference of this circle can be written as $k\\pi$ inches, where $k$ is a constant. What is the value of $k$?",
+  "correctAnswer": "30",
+  "explanation": "**SAT Pattern: Area of a Circle**\n\n**The correct answer is $30$.**\n\n**The Fast Way (~20s):** $r^2 = 225$ gives $r = 15$, so the circumference is $2\\pi(15) = 30\\pi$ and $k = 30$.\n\n**The Full Solution:**\nStep 1: Set the area formula equal to the given area: $\\pi r^2 = 225\\pi$, so $r^2 = 225$.\nStep 2: $r = \\sqrt{225} = 15$ inches.\nStep 3: The circumference is $2\\pi r = 30\\pi$, so $k = 30$. Check: a radius of $15$ gives area $\\pi(225) = 225\\pi$. $\\checkmark$\n\n**Common Mistakes:**\n* Gridding $15$, the radius, instead of the circumference coefficient $2r$.\n* Skipping the square root and using $r = 225$, which gives $k = 450$.\n* Using $\\pi r$ instead of $2\\pi r$, which gives $k = 15$.\n\n**Test Day Takeaway:** Area to circumference is a two-step trip: divide out $\\pi$ and take a square root to reach $r$, then double it."
+}

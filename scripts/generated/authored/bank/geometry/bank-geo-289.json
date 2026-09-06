@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-289",
+ "question": "The equation $(x + 3)^2 + (y - 8)^2 = 121$ represents a circle in the $xy$-plane. What is the radius of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$11$"
+  },
+  {
+   "id": "B",
+   "text": "$60.5$"
+  },
+  {
+   "id": "C",
+   "text": "$121$"
+  },
+  {
+   "id": "D",
+   "text": "$242$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "halves r squared",
+  "C": "reports r squared",
+  "D": "doubles r squared"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** The right side is $r^2$, so $r = \\sqrt{121} = 11$.\n\n**The Full Solution:**\nStep 1: In $(x - h)^2 + (y - k)^2 = r^2$, the constant on the right is the square of the radius.\nStep 2: Here that constant is $121$, so $r^2 = 121$.\nStep 3: $r = 11$. Check: the center is $(-3, 8)$, and $(8, 8)$ lies $11$ units to its right, satisfying $121 + 0 = 121$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($60.5$): halves the right side, treating $r^2$ as a diameter-style quantity.\n* Choice C ($121$): reports $r^2$ without taking the square root.\n* Choice D ($242$): doubles $r^2$, as if the constant were a radius needing conversion to a diameter.\n\n**Test Day Takeaway:** The number on the right of a circle equation is never the radius. Take its square root first."
+}

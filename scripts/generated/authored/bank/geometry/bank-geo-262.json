@@ -1,0 +1,45 @@
+{
+ "id": "bank-geo-262",
+ "question": "In triangle $JKL$ shown, angle $K$ measures $90°$ and side $JK$ has length $12$. What is the area of triangle $JKL$?",
+ "diagram": {
+  "type": "triangleWithAngles",
+  "params": {
+   "angleLabels": [
+    "45°",
+    "90°",
+    "45°"
+   ],
+   "vertexLabels": [
+    "J",
+    "K",
+    "L"
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$24$"
+  },
+  {
+   "id": "B",
+   "text": "$72$"
+  },
+  {
+   "id": "C",
+   "text": "$144$"
+  },
+  {
+   "id": "D",
+   "text": "$288$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds the legs",
+  "C": "omits the one-half",
+  "D": "doubles instead of halving"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Both acute angles are $45^\\circ$, so $KL = JK = 12$ and the area is $\\frac{1}{2}(12)(12) = 72$.\n\n**The Full Solution:**\nStep 1: Angles $J$ and $L$ both measure $45^\\circ$, so triangle $JKL$ is isosceles with the two legs meeting at the right angle at $K$.\nStep 2: Sides opposite equal angles are equal, so $KL = JK = 12$.\nStep 3: The legs are the base and the height: area $= \\frac{1}{2}(12)(12) = 72$. Check: the hypotenuse $JL = 12\\sqrt{2} \\approx 17.0$, longer than either leg, as required.\n\n**Why the wrong answers are tempting:**\n* Choice A ($24$): adds the two legs instead of applying the area formula.\n* Choice C ($144$): multiplies the legs but omits the factor $\\frac{1}{2}$.\n* Choice D ($288$): multiplies the product of the legs by $2$ instead of by $\\frac{1}{2}$.\n\n**Test Day Takeaway:** Equal base angles mean equal opposite sides. In a right triangle, the two legs are already the base and the height."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-geo-147",
+  "question": "A circle in the $xy$-plane has a radius of $8$. What is the area of this circle, in terms of $\\pi$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$8\\pi$"
+    },
+    {
+      "id": "B",
+      "text": "$16\\pi$"
+    },
+    {
+      "id": "C",
+      "text": "$64\\pi$"
+    },
+    {
+      "id": "D",
+      "text": "$256\\pi$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies pi by the radius without squaring",
+    "B": "computes the circumference instead of the area",
+    "D": "squares the diameter instead of the radius"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Area of a Circle**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $A = \\pi r^2 = \\pi(8)^2 = 64\\pi$.\n\n**The Full Solution:**\nStep 1: The area of a circle is $A = \\pi r^2$.\nStep 2: Substitute $r = 8$: $A = \\pi(8)^2$.\nStep 3: $A = 64\\pi$. Check: doubling the radius of a unit circle to $8$ multiplies the area by $64$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8\\pi$): multiplies $\\pi$ by the radius without squaring it.\n* Choice B ($16\\pi$): computes the circumference $2\\pi r$, which is a length, not an area.\n* Choice D ($256\\pi$): squares the diameter $16$ instead of the radius.\n\n**Test Day Takeaway:** Area uses $r^2$; circumference uses $2r$. Confirm you have the radius, not the diameter, before squaring."
+}

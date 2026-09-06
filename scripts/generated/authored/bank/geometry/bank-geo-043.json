@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-043",
+ "question": "A circular fountain with a radius of $8$ feet is surrounded by a tiled ring that is $4$ feet wide. What is the area, in square feet, of the tiled ring alone?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$16\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$80\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$144\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$208\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "treats the width as a radius",
+  "C": "reports the outer circle area without subtracting",
+  "D": "adds the two circle areas instead of subtracting"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Annulus (Ring) Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The outer radius is $8 + 4 = 12$, so the ring is $\\pi(12)^2 - \\pi(8)^2 = 144\\pi - 64\\pi = 80\\pi$ square feet.\n\n**The Full Solution:**\nStep 1: The ring is the region between two concentric circles, so its area is the outer area minus the inner area.\nStep 2: The inner radius is $8$ and the outer radius is $8 + 4 = 12$, because the path adds its width to the radius.\nStep 3: Area $= \\pi(144) - \\pi(64) = 80\\pi$ square feet.\n\nVerification: factoring gives $\\pi(12 - 8)(12 + 8) = \\pi(4)(20) = 80\\pi$, the same value. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($16\\pi$): computes $\\pi(4)^2$, treating the ring's width as the radius of a circle.\n* Choice C ($144\\pi$): reports the area of the whole region out to radius $12$, fountain included.\n* Choice D ($208\\pi$): adds the two circle areas instead of subtracting them.\n\n**Test Day Takeaway:** A path or border adds its width to the radius, not to the diameter. Subtract areas, and use the difference of squares to keep the arithmetic quick."
+}

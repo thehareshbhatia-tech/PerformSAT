@@ -1,0 +1,46 @@
+{
+ "id": "bank-geo-334",
+ "question": "The three side lengths of a right triangle add to $132$, and the hypotenuse has length $61$. If $\\theta$ is the acute angle opposite the shorter leg, what is the value of $\\tan\\theta$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "θ",
+    "",
+    ""
+   ],
+   "sideLabels": [
+    "",
+    "",
+    "61"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{11}{61}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{11}{60}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{60}{61}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{60}{11}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "gives sine instead of tangent",
+  "C": "gives cosine instead of tangent",
+  "D": "swaps opposite and adjacent"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The legs sum to $132-61=71$ with squares summing to $3{,}721$, so they are $11$ and $60$. Then $\\tan\\theta=\\frac{11}{60}$.\n\n**The Full Solution:**\nStep 1: The two legs together measure $132-61=71$.\nStep 2: They also satisfy $a^2+b^2=61^2=3{,}721$. The pair summing to $71$ with squares summing to $3{,}721$ is $11$ and $60$, since $121+3{,}600=3{,}721$.\nStep 3: $\\theta$ faces the shorter leg $11$, and the leg adjacent to $\\theta$ is $60$, so $\\tan\\theta=\\frac{11}{60}$.\n\nCheck: $11+60+61=132$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{11}{61}$): divided by the hypotenuse, which gives $\\sin\\theta$.\n* Choice C ($\\frac{60}{61}$): used adjacent over hypotenuse, which is $\\cos\\theta$.\n* Choice D ($\\frac{60}{11}$): swapped opposite and adjacent, giving the tangent of the other acute angle.\n\n**Test Day Takeaway:** Recover the legs from the perimeter first, then read the ratio. Tangent never involves the hypotenuse, so any choice with $61$ in it can be ruled out."
+}

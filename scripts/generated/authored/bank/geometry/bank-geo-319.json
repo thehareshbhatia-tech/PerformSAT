@@ -1,0 +1,55 @@
+{
+ "id": "bank-geo-319",
+ "question": "A right triangle has one leg of length $6$ units and a second leg of length $10$ units. What is the length, in units, of the hypotenuse?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     10,
+     0
+    ],
+    [
+     10,
+     6
+    ]
+   ],
+   "sideLabels": [
+    "10",
+    "6",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4$"
+  },
+  {
+   "id": "B",
+   "text": "$8$"
+  },
+  {
+   "id": "C",
+   "text": "$2\\sqrt{34}$"
+  },
+  {
+   "id": "D",
+   "text": "$16$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the leg lengths",
+  "B": "subtracts the squares",
+  "D": "adds the leg lengths"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $c=\\sqrt{6^2+10^2}=\\sqrt{136}$, and $136=4\\cdot 34$, so $c=2\\sqrt{34}$.\n\n**The Full Solution:**\nStep 1: Both given sides are legs, so $c^2=6^2+10^2$.\nStep 2: $c^2=36+100=136$, so $c=\\sqrt{136}$.\nStep 3: Factor out the largest perfect square: $\\sqrt{136}=\\sqrt{4\\cdot 34}=2\\sqrt{34}$.\n\nCheck: $(2\\sqrt{34})^2=4\\cdot 34=136$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): subtracted the leg lengths, $10-6$.\n* Choice B ($8$): subtracted the squares, $\\sqrt{100-36}$, which is the procedure for a missing leg, not a hypotenuse.\n* Choice D ($16$): added the leg lengths instead of their squares.\n\n**Test Day Takeaway:** When the sum of the squares is not a perfect square, simplify the radical by pulling out the largest perfect-square factor rather than reaching for a decimal."
+}

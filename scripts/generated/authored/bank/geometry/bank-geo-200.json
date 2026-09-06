@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-200",
+ "question": "Two similar triangles have areas of $32$ square inches and $50$ square inches. What is the ratio of a side of the smaller triangle to the corresponding side of the larger triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4:5$"
+  },
+  {
+   "id": "B",
+   "text": "$5:4$"
+  },
+  {
+   "id": "C",
+   "text": "$16:25$"
+  },
+  {
+   "id": "D",
+   "text": "$64:125$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "inverts the order",
+  "C": "reports the area ratio instead of its square root",
+  "D": "uses the cube of the linear ratio"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $\\frac{32}{50} = \\frac{16}{25}$, and $\\sqrt{\\frac{16}{25}} = \\frac{4}{5}$.\n\n**The Full Solution:**\nStep 1: For similar figures, $\\frac{\\text{area}_1}{\\text{area}_2} = k^2$, where $k$ is the ratio of corresponding sides.\nStep 2: Reduce the area ratio: $\\frac{32}{50} = \\frac{16}{25}$.\nStep 3: Take the square root: $k = \\sqrt{\\frac{16}{25}} = \\frac{4}{5}$, so the sides are in the ratio $4:5$.\n\nVerification: $\\left(\\frac{4}{5}\\right)^2 = \\frac{16}{25} = \\frac{32}{50}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($5:4$): takes the square root correctly but reports larger to smaller.\n* Choice C ($16:25$): gives the reduced area ratio without taking the square root.\n* Choice D ($64:125$): cubes the linear ratio, the relationship that governs volumes of similar solids.\n\n**Test Day Takeaway:** Reduce first, then take the square root — $\\frac{32}{50}$ is not a perfect-square fraction, but $\\frac{16}{25}$ is."
+}

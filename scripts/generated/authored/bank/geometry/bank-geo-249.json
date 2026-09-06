@@ -1,0 +1,46 @@
+{
+ "id": "bank-geo-249",
+ "question": "In the right triangle shown, the side opposite the $30°$ angle has length $6$. What is the length of the hypotenuse?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "30°",
+    "",
+    "60°"
+   ],
+   "sideLabels": [
+    "",
+    "6",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3$"
+  },
+  {
+   "id": "B",
+   "text": "$6$"
+  },
+  {
+   "id": "C",
+   "text": "$12$"
+  },
+  {
+   "id": "D",
+   "text": "$18$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "treats 6 as the hypotenuse and halves it",
+  "B": "copies the given side",
+  "D": "uses a 1:2:3 ratio"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** In a $30$-$60$-$90$ triangle the hypotenuse is twice the side opposite $30^\\circ$: $2(6) = 12$.\n\n**The Full Solution:**\nStep 1: The sides of a $30$-$60$-$90$ triangle are in the ratio $1 : \\sqrt{3} : 2$, matched to the $30^\\circ$, $60^\\circ$, and $90^\\circ$ angles.\nStep 2: The side opposite $30^\\circ$ corresponds to the $1$, so the scale factor is $6$.\nStep 3: The hypotenuse corresponds to the $2$, so it measures $2(6) = 12$. Check: the third side is $6\\sqrt{3} \\approx 10.4$, which lies between $6$ and $12$ as a middle side must.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): treats the given $6$ as the hypotenuse and halves it, reversing the relationship.\n* Choice B ($6$): copies the given side instead of scaling to the hypotenuse.\n* Choice D ($18$): uses an invented $1 : 2 : 3$ side ratio.\n\n**Test Day Takeaway:** The hypotenuse of a $30$-$60$-$90$ triangle is always exactly twice the shortest side, the one facing the $30^\\circ$ angle."
+}

@@ -1,0 +1,41 @@
+{
+ "id": "bank-geo-062",
+ "question": "In right triangle $DEF$, angle $E$ is a right angle. The length of $\\overline{DF}$ is $37$ and the length of $\\overline{DE}$ is $12$. What is the value of $\\cos D$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "D",
+    "E",
+    "F"
+   ],
+   "sideLabels": [
+    "12",
+    "",
+    "37"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\dfrac{12}{37}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\dfrac{12}{35}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\dfrac{35}{37}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\dfrac{37}{12}$"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** With the right angle at $E$, the hypotenuse is $DF = 37$ and the leg touching angle $D$ is $DE = 12$. By CAH, $\\cos D = \\frac{12}{37}$.\n\n**The Full Solution:**\nStep 1: The right angle sits at $E$, so $\\overline{DF}$ is the hypotenuse: $DF = 37$.\nStep 2: The leg adjacent to angle $D$ is the leg that touches $D$ but is not the hypotenuse, namely $\\overline{DE}$, with $DE = 12$.\nStep 3: $\\cos D = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{12}{37}$.\n\nCheck: $EF = \\sqrt{37^2 - 12^2} = \\sqrt{1225} = 35$, so the triangle has sides $12$, $35$, $37$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{12}{35}$): divides one leg by the other in the wrong order; that ratio is $\\cot D$.\n* Choice C ($\\frac{35}{37}$): uses the opposite leg $EF = 35$ over the hypotenuse, which is $\\sin D$.\n* Choice D ($\\frac{37}{12}$): flips the correct ratio, giving $\\sec D$.\n\n**Test Day Takeaway:** For $\\cos$, take the leg that touches the named angle and divide by the hypotenuse; the other leg belongs to $\\sin$."
+}

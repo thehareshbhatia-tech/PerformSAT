@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-246",
+ "question": "An angle in standard position measures $210°$. What is the measure of the angle, in radians?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$7\\pi/12$"
+  },
+  {
+   "id": "B",
+   "text": "$5\\pi/6$"
+  },
+  {
+   "id": "C",
+   "text": "$7\\pi/6$"
+  },
+  {
+   "id": "D",
+   "text": "$7\\pi/3$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "multiplies by pi/360",
+  "B": "converts 150 degrees instead",
+  "D": "multiplies by pi/90"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Radians ↔ Degrees Conversion**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Multiply by $\\frac{\\pi}{180}$: $210 \\cdot \\frac{\\pi}{180} = \\frac{7\\pi}{6}$.\n\n**The Full Solution:**\nStep 1: Degrees convert to radians through the factor $\\frac{\\pi}{180}$, since $180^\\circ = \\pi$ radians.\nStep 2: $210 \\cdot \\frac{\\pi}{180} = \\frac{210\\pi}{180}$.\nStep 3: Divide numerator and denominator by $30$: $\\frac{7\\pi}{6}$. Check: $\\frac{7\\pi}{6}$ is slightly more than $\\pi$, and $210^\\circ$ is slightly more than $180^\\circ$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7\\pi}{12}$): multiplies by $\\frac{\\pi}{360}$, using a full turn instead of a half turn.\n* Choice B ($\\frac{5\\pi}{6}$): converts $150^\\circ$, the supplement of $210^\\circ$, rather than $210^\\circ$ itself.\n* Choice D ($\\frac{7\\pi}{3}$): multiplies by $\\frac{\\pi}{90}$, which would make a full turn $4\\pi$.\n\n**Test Day Takeaway:** Sanity-check the size: an angle between $180^\\circ$ and $360^\\circ$ must land between $\\pi$ and $2\\pi$ radians."
+}

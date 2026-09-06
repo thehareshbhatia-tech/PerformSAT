@@ -1,0 +1,60 @@
+{
+ "id": "bank-geo-335",
+ "question": "In a right triangle, the side lengths are $20$, $21$, and $29$. If $\\theta$ is the acute angle opposite the side of length $20$, what is the value of $\\sin\\theta$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     21,
+     0
+    ],
+    [
+     21,
+     20
+    ]
+   ],
+   "labels": [
+    "θ",
+    "",
+    ""
+   ],
+   "sideLabels": [
+    "21",
+    "20",
+    "29"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{20}{29}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{21}{29}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{20}{21}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{29}{20}$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "uses the other leg as the opposite side",
+  "C": "divides by the other leg",
+  "D": "inverts the ratio"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The hypotenuse is the longest side, $29$, and the side opposite $\\theta$ is $20$, so $\\sin\\theta=\\frac{20}{29}$.\n\n**The Full Solution:**\nStep 1: In a right triangle the hypotenuse is the longest side, so here it is $29$ and the legs are $20$ and $21$.\nStep 2: Sine is opposite over hypotenuse. The side opposite $\\theta$ is given as $20$.\nStep 3: $\\sin\\theta=\\frac{20}{29}$.\n\nCheck: $20^2+21^2=400+441=841=29^2$, confirming the triangle. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{21}{29}$): used the other leg as the opposite side, which is the sine of the other acute angle.\n* Choice C ($\\frac{20}{21}$): divided by the other leg instead of the hypotenuse, giving $\\tan\\theta$.\n* Choice D ($\\frac{29}{20}$): inverted the ratio; a sine can never exceed $1$.\n\n**Test Day Takeaway:** Identify the hypotenuse as the longest side before writing any ratio. Sine and cosine both put the hypotenuse in the denominator."
+}

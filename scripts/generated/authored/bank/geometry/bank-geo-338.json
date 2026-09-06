@@ -1,0 +1,60 @@
+{
+ "id": "bank-geo-338",
+ "question": "The side lengths of a right triangle are $28$, $45$, and $53$. If $\\theta$ is the acute angle opposite the side that measures $45$, what is the value of $\\sin\\theta$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     28,
+     0
+    ],
+    [
+     28,
+     45
+    ]
+   ],
+   "labels": [
+    "θ",
+    "",
+    ""
+   ],
+   "sideLabels": [
+    "28",
+    "45",
+    "53"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{28}{53}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{28}{45}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{45}{53}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{53}{45}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses the other leg as the opposite side",
+  "B": "divides one leg by the other",
+  "D": "inverts the ratio"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The hypotenuse is the largest side, $53$, and the side opposite $\\theta$ is $45$, so $\\sin\\theta=\\frac{45}{53}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse is the longest of the three sides, so it is $53$ and the legs are $28$ and $45$.\nStep 2: Sine is opposite over hypotenuse, and the side opposite $\\theta$ is $45$.\nStep 3: $\\sin\\theta=\\frac{45}{53}$.\n\nCheck: $28^2+45^2=784+2{,}025=2{,}809=53^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{28}{53}$): used the wrong leg as the opposite side; that ratio is the sine of the other acute angle.\n* Choice B ($\\frac{28}{45}$): divided one leg by the other, which is a tangent, not a sine.\n* Choice D ($\\frac{53}{45}$): inverted the correct ratio, producing a value greater than $1$, which no sine can equal.\n\n**Test Day Takeaway:** Unfamiliar triples such as $28$, $45$, $53$ behave exactly like the memorized ones. Sort the sides by size to find the hypotenuse and the ratio follows."
+}

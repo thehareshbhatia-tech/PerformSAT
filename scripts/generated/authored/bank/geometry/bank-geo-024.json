@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-024",
+ "question": "The equation $(x - 9)^2 + (y + 4)^2 = 121$ defines a circle in the $xy$-plane. What is the radius of this circle?",
+ "correctAnswer": "11",
+ "explanation": "**SAT Pattern: Read Radius from Circle Equation**\n\n**The correct answer is $11$.**\n\n**The Fast Way (~10s):** In standard form the right side is $r^2$, so $r = \\sqrt{121} = 11$.\n\n**The Full Solution:**\nStep 1: A circle written as $(x - h)^2 + (y - k)^2 = r^2$ has center $(h, k)$ and radius $r$.\nStep 2: Matching the given equation, $r^2 = 121$.\nStep 3: The radius is a length, so take the positive root: $r = 11$.\n\nVerification: the center is $(9, -4)$, and the point $(20, -4)$, which is $11$ units to the right, satisfies $(20 - 9)^2 + (-4 + 4)^2 = 121$. $\\checkmark$\n\n**Common Mistakes:** Reporting $121$ treats $r^2$ as the radius. Reporting $22$ gives the diameter rather than the radius. Reading the center as $(-9, 4)$ instead of $(9, -4)$ does not change the radius but costs points on any follow-up question.\n\n**Test Day Takeaway:** The number on the right of standard form is always $r^2$. Take a square root before answering any radius question."
+}

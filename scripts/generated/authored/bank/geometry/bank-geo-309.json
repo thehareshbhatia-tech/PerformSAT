@@ -1,0 +1,55 @@
+{
+ "id": "bank-geo-309",
+ "question": "A right triangle has a hypotenuse of length $26$ and one leg of length $10$. What is the length of the other leg?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     10,
+     0
+    ],
+    [
+     10,
+     24
+    ]
+   ],
+   "sideLabels": [
+    "10",
+    "",
+    "26"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$16$"
+  },
+  {
+   "id": "B",
+   "text": "$24$"
+  },
+  {
+   "id": "C",
+   "text": "$36$"
+  },
+  {
+   "id": "D",
+   "text": "$576$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the given lengths",
+  "C": "adds the given lengths",
+  "D": "omits the square root"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $10$ and $26$ are $2$ times $5$ and $13$, so the missing leg is $2$ times $12$, or $24$.\n\n**The Full Solution:**\nStep 1: Call the missing leg $b$. Then $10^2+b^2=26^2$.\nStep 2: $b^2=676-100=576$.\nStep 3: $b=\\sqrt{576}=24$.\n\nCheck: $10^2+24^2=100+576=676=26^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): subtracted the given lengths, $26-10$, instead of subtracting their squares first.\n* Choice C ($36$): added the given lengths, $26+10$, which is larger than the hypotenuse and so cannot be a leg.\n* Choice D ($576$): stopped at $b^2$ and never took the square root.\n\n**Test Day Takeaway:** A $5$-$12$-$13$ triangle scaled by $2$ gives $10$-$24$-$26$. Dividing the two known sides by their common factor is the fastest way to spot a scaled triple."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-284",
+ "question": "The graph of $x^2 + y^2 - 6x + 8y - 24 = 0$ in the $xy$-plane is a circle. What is the radius of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$5$"
+  },
+  {
+   "id": "B",
+   "text": "$7$"
+  },
+  {
+   "id": "C",
+   "text": "$25$"
+  },
+  {
+   "id": "D",
+   "text": "$49$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "leaves the constant on the left",
+  "C": "reports 9 plus 16 without the constant",
+  "D": "reports r squared"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $(x - 3)^2 + (y + 4)^2 = 24 + 9 + 16 = 49$, so $r = 7$.\n\n**The Full Solution:**\nStep 1: Move the constant and group: $(x^2 - 6x) + (y^2 + 8y) = 24$.\nStep 2: Complete both squares by adding $\\left(\\frac{-6}{2}\\right)^2 = 9$ and $\\left(\\frac{8}{2}\\right)^2 = 16$ to both sides: $(x - 3)^2 + (y + 4)^2 = 24 + 9 + 16 = 49$.\nStep 3: $r^2 = 49$, so $r = 7$. Check: the center is $(3, -4)$, and the point $(10, -4)$ satisfies $100 + 16 - 60 - 32 - 24 = 0$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): forgets to move the $-24$ across, computing $\\sqrt{9 + 16}$.\n* Choice C ($25$): squares the same oversight, reporting $9 + 16$ as $r^2$.\n* Choice D ($49$): reports $r^2$ rather than $r$.\n\n**Test Day Takeaway:** Three numbers land on the right side: the original constant plus both completing-the-square terms. Drop one and the radius is wrong."
+}

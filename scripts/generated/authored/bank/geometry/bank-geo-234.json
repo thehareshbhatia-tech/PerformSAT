@@ -1,0 +1,40 @@
+{
+ "id": "bank-geo-234",
+ "question": "An equilateral triangle has a side length of $8$ centimeters. What is the area, in square centimeters, of the triangle?",
+ "diagram": {
+  "type": "triangleWithAngles",
+  "params": {
+   "angleLabels": [
+    "60°",
+    "60°",
+    "60°"
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$8\\sqrt{3}$"
+  },
+  {
+   "id": "B",
+   "text": "$16\\sqrt{3}$"
+  },
+  {
+   "id": "C",
+   "text": "$32\\sqrt{3}$"
+  },
+  {
+   "id": "D",
+   "text": "$64\\sqrt{3}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses half the correct altitude",
+  "C": "omits the one-half factor",
+  "D": "drops the one-fourth from the standard formula"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The altitude of an equilateral triangle with side $s$ is $\\frac{s\\sqrt{3}}{2} = 4\\sqrt{3}$, so the area is $\\frac{1}{2}(8)(4\\sqrt{3}) = 16\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: Drop an altitude from one vertex. It bisects the opposite side, creating a $30$-$60$-$90$ triangle with short leg $4$ and hypotenuse $8$.\nStep 2: In a $30$-$60$-$90$ triangle the long leg is $\\sqrt{3}$ times the short leg, so the altitude is $4\\sqrt{3}$ centimeters.\nStep 3: Area $= \\frac{1}{2}bh = \\frac{1}{2}(8)(4\\sqrt{3}) = 16\\sqrt{3}$ square centimeters.\n\nVerification: the standard formula $\\frac{s^2\\sqrt{3}}{4}$ gives $\\frac{64\\sqrt{3}}{4} = 16\\sqrt{3}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8\\sqrt{3}$): uses $\\frac{s\\sqrt{3}}{4} = 2\\sqrt{3}$ as the altitude instead of $\\frac{s\\sqrt{3}}{2} = 4\\sqrt{3}$, halving the area.\n* Choice C ($32\\sqrt{3}$): multiplies base by altitude, $8 \\cdot 4\\sqrt{3}$, without the $\\frac{1}{2}$.\n* Choice D ($64\\sqrt{3}$): uses $s^2\\sqrt{3}$, dropping the $\\frac{1}{4}$ from the equilateral-area formula.\n\n**Test Day Takeaway:** An equilateral triangle splits into two $30$-$60$-$90$ triangles. The altitude is $\\frac{s\\sqrt{3}}{2}$, which is always less than the side itself."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-203",
+ "question": "In the $xy$-plane, a triangle has vertices at $(0, 0)$, $(0, 9)$, and $(14, 0)$. What is the area, in square units, of the triangle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$23$"
+  },
+  {
+   "id": "B",
+   "text": "$63$"
+  },
+  {
+   "id": "C",
+   "text": "$126$"
+  },
+  {
+   "id": "D",
+   "text": "$252$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds the two legs",
+  "C": "omits the one-half factor",
+  "D": "doubles instead of halving"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The legs lie on the axes, so the base is $14$ and the height is $9$: area $= \\frac{1}{2}(14)(9) = 63$.\n\n**The Full Solution:**\nStep 1: Two of the vertices share the $x$-axis and two share the $y$-axis, so the triangle has a right angle at the origin.\nStep 2: The horizontal leg runs from $(0, 0)$ to $(14, 0)$, length $14$; the vertical leg runs from $(0, 0)$ to $(0, 9)$, length $9$.\nStep 3: Area $= \\frac{1}{2}bh = \\frac{1}{2}(14)(9) = 63$ square units.\n\nVerification: the triangle is exactly half of the $14$ by $9$ rectangle, whose area is $126$; half of $126$ is $63$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($23$): adds the leg lengths, $14 + 9$, instead of multiplying them.\n* Choice C ($126$): multiplies the legs but never halves; that is the area of the surrounding rectangle.\n* Choice D ($252$): doubles the leg product instead of halving it.\n\n**Test Day Takeaway:** When two vertices sit on the axes and one is the origin, the legs are read straight off the coordinates. No distance formula is needed."
+}

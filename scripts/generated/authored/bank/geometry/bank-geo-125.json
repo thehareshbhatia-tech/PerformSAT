@@ -1,0 +1,41 @@
+{
+  "id": "bank-geo-125",
+  "question": "In the right triangle shown, the hypotenuse has a length of $50$ centimeters and one leg has a length of $40$ centimeters. What is the length, in centimeters, of the other leg?",
+  "diagram": {
+    "type": "rightTriangle",
+    "params": {
+      "sideLabels": [
+        "40",
+        "",
+        "50"
+      ],
+      "rightAngleVertex": 1,
+      "figureNote": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$10$"
+    },
+    {
+      "id": "B",
+      "text": "$30$"
+    },
+    {
+      "id": "C",
+      "text": "$45$"
+    },
+    {
+      "id": "D",
+      "text": "$900$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts the side lengths instead of the squares",
+    "C": "averages the hypotenuse and the known leg",
+    "D": "stops at the square of the missing leg"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Pythagorean Theorem (3-4-5 Family)**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $40$ and $50$ are $10$ times $4$ and $5$, so the missing leg is $10 \\times 3 = 30$ centimeters.\n\n**The Full Solution:**\nStep 1: With legs $a$ and $40$ and hypotenuse $50$, the Pythagorean theorem gives $a^2 + 40^2 = 50^2$.\nStep 2: $a^2 = 2{,}500 - 1{,}600 = 900$.\nStep 3: $a = \\sqrt{900} = 30$ centimeters. Check: $30^2 + 40^2 = 900 + 1{,}600 = 2{,}500 = 50^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): subtracts the sides directly, $50 - 40$, instead of subtracting their squares.\n* Choice C ($45$): averages $40$ and $50$, a guess that ignores the theorem.\n* Choice D ($900$): reports $a^2$ rather than $a$.\n\n**Test Day Takeaway:** When the hypotenuse is known, subtract the squares. Squaring first and subtracting last is what separates $30$ from the tempting $10$."
+}

@@ -1,0 +1,18 @@
+{
+ "id": "bank-geo-082",
+ "question": "In the right triangle shown, the hypotenuse measures $41$ and one leg measures $9$. What is the area of the triangle?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "sideLabels": [
+    "9",
+    "",
+    "41"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "correctAnswer": "180",
+ "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $180$.**\n\n**The Fast Way (~35s):** The other leg is $\\sqrt{41^2 - 9^2} = \\sqrt{1{,}600} = 40$, so the area is $\\frac{1}{2}(9)(40) = 180$.\n\n**The Full Solution:**\nStep 1: The area of a right triangle is half the product of its legs, so the missing leg is needed first.\nStep 2: $b^2 = 41^2 - 9^2 = 1{,}681 - 81 = 1{,}600$, so $b = 40$.\nStep 3: Area $= \\frac{1}{2}(9)(40) = 180$ square units.\n\nCheck: $9^2 + 40^2 = 81 + 1{,}600 = 1{,}681 = 41^2$.\n\n**Common Mistakes:**\n* Multiplying the legs without halving, which gives $360$.\n* Using the hypotenuse as a leg: $\\frac{1}{2}(9)(41) = 184.5$.\n* Answering $40$, the missing leg, instead of the area.\n\n**Test Day Takeaway:** In a right triangle the legs are the base and the height, so the hypotenuse never belongs in the area formula."
+}

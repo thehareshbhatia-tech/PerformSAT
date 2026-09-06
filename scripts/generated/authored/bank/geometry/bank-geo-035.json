@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-035",
+ "question": "A right pyramid has a square base with a side length of $9$ inches and a height of $14$ inches. What is the volume, in cubic inches, of the pyramid?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$42$"
+  },
+  {
+   "id": "B",
+   "text": "$378$"
+  },
+  {
+   "id": "C",
+   "text": "$567$"
+  },
+  {
+   "id": "D",
+   "text": "$1{,}134$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses the side length instead of the base area",
+  "C": "uses a factor of 1/2 instead of 1/3",
+  "D": "omits the factor 1/3"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Square Pyramid Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $V = \\frac{1}{3}Bh = \\frac{1}{3}(81)(14) = 27 \\cdot 14 = 378$ cubic inches.\n\n**The Full Solution:**\nStep 1: The volume of a pyramid is $V = \\frac{1}{3}Bh$, where $B$ is the area of the base.\nStep 2: The base is a square of side $9$, so $B = 9^2 = 81$ square inches.\nStep 3: $V = \\frac{1}{3}(81)(14) = 27(14) = 378$ cubic inches.\n\nVerification: a prism with the same base and height holds $81(14) = 1{,}134$, and $\\frac{1{,}134}{3} = 378$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($42$): uses the side length $9$ in place of the base area, computing $\\frac{1}{3}(9)(14)$.\n* Choice C ($567$): uses $\\frac{1}{2}$ instead of $\\frac{1}{3}$; the $\\frac{1}{2}$ belongs to triangle area, not pyramid volume.\n* Choice D ($1{,}134$): omits the $\\frac{1}{3}$ entirely, giving the volume of the surrounding prism.\n\n**Test Day Takeaway:** Pyramids and cones both carry a factor of $\\frac{1}{3}$ against the prism or cylinder on the same base. Square the base side before applying it."
+}

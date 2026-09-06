@@ -1,0 +1,24 @@
+{
+ "id": "bank-geo-065",
+ "question": "In right triangle $MNP$, angle $P$ is a right angle. If $\\sin M = \\dfrac{11}{61}$, what is the value of $\\cos M$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\dfrac{11}{60}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\dfrac{60}{61}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\dfrac{61}{60}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\dfrac{60}{11}$"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\sin M = \\frac{11}{61}$ makes the opposite leg $11$ and the hypotenuse $61$; the missing leg is $60$ because $11$, $60$, $61$ is a Pythagorean triple. So $\\cos M = \\frac{60}{61}$.\n\n**The Full Solution:**\nStep 1: With the right angle at $P$, $\\overline{MN}$ is the hypotenuse. Take $NP = 11$ (opposite angle $M$) and $MN = 61$.\nStep 2: The adjacent leg is $MP = \\sqrt{61^2 - 11^2} = \\sqrt{3721 - 121} = \\sqrt{3600} = 60$.\nStep 3: $\\cos M = \\frac{MP}{MN} = \\frac{60}{61}$.\n\nCheck: $\\left(\\frac{11}{61}\\right)^2 + \\left(\\frac{60}{61}\\right)^2 = \\frac{121 + 3600}{3721} = 1$, as the Pythagorean identity requires.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{11}{60}$): divides the two legs, which gives $\\tan M$ rather than $\\cos M$.\n* Choice C ($\\frac{61}{60}$): inverts the correct ratio, giving $\\sec M$; a cosine of an acute angle is always less than $1$.\n* Choice D ($\\frac{60}{11}$): inverts the tangent, giving $\\cot M$.\n\n**Test Day Takeaway:** Read a given sine as two side lengths, recover the third side with the Pythagorean theorem, and every other ratio is then a division."
+}

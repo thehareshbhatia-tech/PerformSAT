@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-215",
+ "question": "The three interior angles of a triangle measure $(2x)°$, $(3x)°$, and $(4x)°$. What is the measure of the exterior angle adjacent to the angle measuring $(4x)°$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$60°$"
+  },
+  {
+   "id": "B",
+   "text": "$80°$"
+  },
+  {
+   "id": "C",
+   "text": "$100°$"
+  },
+  {
+   "id": "D",
+   "text": "$140°$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports the (3x) angle",
+  "B": "reports the interior angle rather than the exterior one",
+  "D": "gives the exterior angle at the (2x) vertex"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $2x + 3x + 4x = 180$ gives $x = 20$. The exterior angle at the $(4x)°$ vertex equals the sum of the remote angles: $2x + 3x = 5(20) = 100$ degrees.\n\n**The Full Solution:**\nStep 1: The interior angles of a triangle sum to $180°$, so $9x = 180$ and $x = 20$.\nStep 2: The three angles measure $40°$, $60°$, and $80°$.\nStep 3: The exterior angle adjacent to the $80°$ angle is the sum of the two remote interior angles: $40 + 60 = 100$ degrees.\n\nVerification: $180 - 80 = 100$, matching the supplement of the interior angle. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($60°$): reports $3x$, one of the remote interior angles, rather than their sum.\n* Choice B ($80°$): reports the interior angle $4x$ itself instead of the exterior angle beside it.\n* Choice D ($140°$): computes $180 - 40$, the exterior angle at the $(2x)°$ vertex instead of the $(4x)°$ vertex.\n\n**Test Day Takeaway:** Solve for $x$ first, then decide which vertex the exterior angle belongs to. The remote pair is always the two angles you are not standing on."
+}

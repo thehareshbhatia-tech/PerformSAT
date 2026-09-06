@@ -1,0 +1,6 @@
+{
+  "id": "bank-geo-170",
+  "question": "Two parallel lines are cut by a transversal. A pair of same-side interior angles have measures $(7x + 4)°$ and $(3x - 14)°$. What is the measure, in degrees, of the larger of these two angles?",
+  "correctAnswer": "137",
+  "explanation": "**SAT Pattern: Angles with Parallel Lines and Transversals**\n\n**The correct answer is $137$.**\n\n**The Fast Way (~30s):** Same-side interior angles are supplementary: $10x - 10 = 180$ gives $x = 19$, and the larger angle is $7(19) + 4 = 137$.\n\n**The Full Solution:**\nStep 1: Same-side interior angles formed by a transversal cutting parallel lines are supplementary, so $(7x + 4) + (3x - 14) = 180$.\nStep 2: Combine like terms: $10x - 10 = 180$, so $10x = 190$ and $x = 19$.\nStep 3: The two measures are $7(19) + 4 = 137$ and $3(19) - 14 = 43$, so the larger is $137$ degrees. Check: $137 + 43 = 180$. $\\checkmark$\n\n**Common Mistakes:**\n* Setting the expressions equal, which gives $4x = -18$ and the negative value $x = -4.5$ - a signal that the wrong relationship was used.\n* Gridding $x = 19$ instead of an angle measure.\n* Reporting the smaller angle, $43$, when the question asks for the larger.\n\n**Test Day Takeaway:** Same-side interior angles sum to $180°$. After solving for $x$, evaluate both expressions so you can pick the one the question names."
+}

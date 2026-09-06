@@ -1,0 +1,59 @@
+{
+ "id": "bank-geo-048",
+ "question": "Triangle $ABC$ is similar to triangle $DEF$, where $AB$ corresponds to $DE$. The length of $\\overline{AB}$ is $15$ and the length of $\\overline{DE}$ is $6$. If the area of triangle $ABC$ is $75$ square units, what is the area, in square units, of triangle $DEF$?",
+ "diagram": {
+  "type": "similarTriangles",
+  "params": {
+   "triangle1": {
+    "labels": [
+     "A",
+     "B",
+     "C"
+    ],
+    "sideLabels": [
+     "15",
+     "",
+     ""
+    ]
+   },
+   "triangle2": {
+    "labels": [
+     "D",
+     "E",
+     "F"
+    ],
+    "sideLabels": [
+     "6",
+     "",
+     ""
+    ]
+   },
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4.8$"
+  },
+  {
+   "id": "B",
+   "text": "$12$"
+  },
+  {
+   "id": "C",
+   "text": "$30$"
+  },
+  {
+   "id": "D",
+   "text": "$187.5$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "cubes the ratio, which scales volumes",
+  "C": "uses the linear ratio instead of its square",
+  "D": "inverts the ratio and scales upward"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Area Scaling by Square of Linear Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The linear ratio is $\\frac{6}{15} = \\frac{2}{5}$, so areas scale by $\\left(\\frac{2}{5}\\right)^2 = \\frac{4}{25}$: $75 \\cdot \\frac{4}{25} = 12$ square units.\n\n**The Full Solution:**\nStep 1: For similar figures with linear scale factor $k$, corresponding areas are in the ratio $k^2$.\nStep 2: Going from $ABC$ to $DEF$, $k = \\frac{DE}{AB} = \\frac{6}{15} = \\frac{2}{5}$, so $k^2 = \\frac{4}{25}$.\nStep 3: Area of $DEF = 75 \\cdot \\frac{4}{25} = 3 \\cdot 4 = 12$ square units.\n\nVerification: $\\frac{12}{75} = \\frac{4}{25} = \\left(\\frac{2}{5}\\right)^2$, matching the square of the linear ratio. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.8$): cubes the ratio, $75 \\cdot \\frac{8}{125}$; the cube scales volumes, not areas.\n* Choice C ($30$): applies the linear ratio $\\frac{2}{5}$ directly to the area, forgetting to square it.\n* Choice D ($187.5$): inverts the ratio and scales up by $\\frac{5}{2}$, even though $DEF$ is the smaller triangle.\n\n**Test Day Takeaway:** Decide the direction of the ratio first by asking which figure is smaller, then raise it to the power that matches the dimension: $1$ for length, $2$ for area, $3$ for volume."
+}

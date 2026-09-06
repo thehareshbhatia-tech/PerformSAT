@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-273",
+ "question": "A square tile has a perimeter of $52$ centimeters. What is the length, in centimeters, of one side of the tile?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$13$"
+  },
+  {
+   "id": "B",
+   "text": "$26$"
+  },
+  {
+   "id": "C",
+   "text": "$169$"
+  },
+  {
+   "id": "D",
+   "text": "$208$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "divides by 2 instead of 4",
+  "C": "computes the area",
+  "D": "multiplies by 4 instead of dividing"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Square Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** A square has four equal sides, so each side is $\\frac{52}{4} = 13$ centimeters.\n\n**The Full Solution:**\nStep 1: For a square with side $s$, the perimeter is $P = 4s$.\nStep 2: Substitute the given perimeter: $4s = 52$.\nStep 3: $s = 13$ centimeters. Check: $4(13) = 52$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($26$): divides by $2$ instead of $4$, as if the square had only two sides.\n* Choice C ($169$): reports the area $13^2$ rather than a side length.\n* Choice D ($208$): multiplies the perimeter by $4$ instead of dividing by it.\n\n**Test Day Takeaway:** Read the direction of the formula. Perimeter to side divides by $4$; side to perimeter multiplies by $4$."
+}

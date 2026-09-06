@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-189",
+ "question": "A right circular cylinder has a radius of $2k$ inches and a height of $5k$ inches. Which expression gives the volume, in cubic inches, of the cylinder?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$10\\pi k^2$"
+  },
+  {
+   "id": "B",
+   "text": "$10\\pi k^3$"
+  },
+  {
+   "id": "C",
+   "text": "$20\\pi k^2$"
+  },
+  {
+   "id": "D",
+   "text": "$20\\pi k^3$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "never squares the radius",
+  "B": "squares the variable but not the coefficient",
+  "C": "adds the exponents incorrectly"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** $V = \\pi r^2 h = \\pi(2k)^2(5k) = \\pi(4k^2)(5k) = 20\\pi k^3$.\n\n**The Full Solution:**\nStep 1: The volume of a right circular cylinder is $V = \\pi r^2 h$.\nStep 2: Substitute $r = 2k$ and $h = 5k$: $V = \\pi(2k)^2(5k)$.\nStep 3: Square the radius first, $(2k)^2 = 4k^2$, then multiply: $\\pi \\cdot 4k^2 \\cdot 5k = 20\\pi k^3$.\n\nVerification: at $k = 1$ the cylinder has radius $2$ and height $5$, so $V = \\pi(4)(5) = 20\\pi$, matching $20\\pi(1)^3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($10\\pi k^2$): multiplies $r$ by $h$ without squaring the radius, computing $\\pi(2k)(5k)$.\n* Choice B ($10\\pi k^3$): squares only the variable, using $2k^2$ in place of $(2k)^2 = 4k^2$.\n* Choice C ($20\\pi k^2$): finds the right coefficient but treats $k^2 \\cdot k$ as $k^2$.\n\n**Test Day Takeaway:** Square the entire radius, coefficient included, before multiplying by the height. Doubling the radius quadruples the volume, which is why $2k$ contributes a factor of $4$."
+}

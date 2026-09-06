@@ -1,0 +1,29 @@
+{
+  "id": "bank-geo-145",
+  "question": "The length of a rectangular prism is multiplied by $1.5$, its width is multiplied by $0.8$, and its height is multiplied by a constant $k$. The volume of the resulting prism is $60\\%$ of the volume of the original prism. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$0.4$"
+    },
+    {
+      "id": "B",
+      "text": "$0.5$"
+    },
+    {
+      "id": "C",
+      "text": "$0.72$"
+    },
+    {
+      "id": "D",
+      "text": "$0.75$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "divides by the length factor only",
+    "C": "multiplies by the combined factor instead of dividing by it",
+    "D": "divides by the width factor only"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Inverse Multi-Percent Change (Volume)**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The volume multiplier is the product of the three factors: $1.5(0.8)k = 0.6$, so $1.2k = 0.6$ and $k = 0.5$.\n\n**The Full Solution:**\nStep 1: If the original prism has volume $\\ell wh$, the new prism has volume $(1.5\\ell)(0.8w)(kh) = 1.5(0.8)k \\cdot \\ell wh$.\nStep 2: The new volume is $60\\%$ of the original, so $1.5(0.8)k = 0.6$, which is $1.2k = 0.6$.\nStep 3: $k = \\frac{0.6}{1.2} = 0.5$. Check: $1.5 \\times 0.8 \\times 0.5 = 0.6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.4$): divides by the length factor only, $\\frac{0.6}{1.5}$, ignoring the width change.\n* Choice C ($0.72$): multiplies, $0.6 \\times 1.2$, instead of dividing by the combined factor.\n* Choice D ($0.75$): divides by the width factor only, $\\frac{0.6}{0.8}$, ignoring the length change.\n\n**Test Day Takeaway:** Volume scales by the product of the three dimension multipliers. Multiply the known factors first, then divide the target multiplier by that product."
+}

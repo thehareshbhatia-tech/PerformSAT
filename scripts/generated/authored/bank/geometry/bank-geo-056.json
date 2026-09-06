@@ -1,0 +1,41 @@
+{
+ "id": "bank-geo-056",
+ "question": "In right triangle $PQR$, angle $R$ is a right angle and $\\tan(P) = \\frac{20}{21}$. What is the value of $\\cos(Q)$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "labels": [
+    "P",
+    "R",
+    "Q"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{20}{29}$"
+  },
+  {
+   "id": "B",
+   "text": "$\\frac{21}{29}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{20}{21}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{29}{20}$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "gives cosine of P instead of cosine of Q",
+  "C": "copies the given tangent",
+  "D": "inverts the ratio"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Cofunction Identity**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Angles $P$ and $Q$ are complementary, so $\\cos(Q) = \\sin(P)$. From $\\tan(P) = \\frac{20}{21}$ the legs are $20$ and $21$ with hypotenuse $29$, so $\\sin(P) = \\frac{20}{29}$.\n\n**The Full Solution:**\nStep 1: With the right angle at $R$, angles $P$ and $Q$ sum to $90°$, so $\\cos(Q) = \\cos(90° - P) = \\sin(P)$.\nStep 2: $\\tan(P) = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{20}{21}$, so the legs are $QR = 20$ and $PR = 21$. The hypotenuse is $\\sqrt{20^2 + 21^2} = \\sqrt{400 + 441} = \\sqrt{841} = 29$.\nStep 3: $\\sin(P) = \\frac{20}{29}$, so $\\cos(Q) = \\frac{20}{29}$.\n\nVerification: read $\\cos(Q)$ directly. The leg adjacent to $Q$ is $QR = 20$ and the hypotenuse is $29$, giving $\\frac{20}{29}$ again. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{21}{29}$): computes $\\cos(P)$, which equals $\\sin(Q)$, not $\\cos(Q)$.\n* Choice C ($\\frac{20}{21}$): copies the given tangent; a cosine cannot use two legs.\n* Choice D ($\\frac{29}{20}$): inverts the ratio, producing a value greater than $1$, which no cosine of an acute angle can be.\n\n**Test Day Takeaway:** In a right triangle the two acute angles are complementary, so $\\sin(P) = \\cos(Q)$ and $\\cos(P) = \\sin(Q)$. Recover the third side from the given ratio, then read the one you need straight off the figure."
+}

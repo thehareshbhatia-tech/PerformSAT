@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-282",
+ "question": "A circle in the $xy$-plane is represented by $x^2 + y^2 - 6y - 16 = 0$. What is the radius of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3$"
+  },
+  {
+   "id": "B",
+   "text": "$4$"
+  },
+  {
+   "id": "C",
+   "text": "$5$"
+  },
+  {
+   "id": "D",
+   "text": "$25$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports the y-coordinate of the center",
+  "B": "uses only the constant 16",
+  "D": "reports r squared"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Completing the square in $y$ gives $x^2 + (y - 3)^2 = 16 + 9 = 25$, so $r = 5$.\n\n**The Full Solution:**\nStep 1: There is no $x$ term, so the $x$ group is already complete: $x^2 + (y^2 - 6y) = 16$.\nStep 2: Complete the square in $y$ by adding $\\left(\\frac{-6}{2}\\right)^2 = 9$ to both sides: $x^2 + (y - 3)^2 = 25$.\nStep 3: Since $r^2 = 25$, the radius is $r = 5$. Check: the center is $(0, 3)$, and the point $(0, 8)$ satisfies the original equation, sitting $5$ units above the center.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the $y$-coordinate of the center instead of the radius.\n* Choice B ($4$): takes $\\sqrt{16}$ from the constant alone, skipping the $+9$ that completing the square contributes.\n* Choice D ($25$): stops at $r^2$ without taking the square root.\n\n**Test Day Takeaway:** Whatever you add to complete a square on the left must be added on the right too — that addition is what makes $r^2$ correct."
+}

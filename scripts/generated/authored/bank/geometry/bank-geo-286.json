@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-286",
+ "question": "In the $xy$-plane, the circle given by $x^2 + y^2 + Dx + Ey + F = 0$ has center $(-2, 5)$ and radius $6$, where $D$, $E$, and $F$ are constants. What is the value of $D + E + F$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-13$"
+  },
+  {
+   "id": "B",
+   "text": "$-1$"
+  },
+  {
+   "id": "C",
+   "text": "$1$"
+  },
+  {
+   "id": "D",
+   "text": "$30$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "reverses the signs of D and E",
+  "C": "reverses the sign of F",
+  "D": "sets F equal to r squared"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** $D = -2(-2) = 4$, $E = -2(5) = -10$, and $F = h^2 + k^2 - r^2 = 4 + 25 - 36 = -7$, so the sum is $-13$.\n\n**The Full Solution:**\nStep 1: Expand the standard form for center $(-2, 5)$ and radius $6$: $(x + 2)^2 + (y - 5)^2 = 36$ becomes $x^2 + 4x + 4 + y^2 - 10y + 25 = 36$.\nStep 2: Move everything to one side: $x^2 + y^2 + 4x - 10y + 29 - 36 = 0$, that is, $x^2 + y^2 + 4x - 10y - 7 = 0$.\nStep 3: Matching coefficients gives $D = 4$, $E = -10$, $F = -7$, so $D + E + F = -13$. Check: $\\left(-\\frac{4}{2}, -\\frac{-10}{2}\\right) = (-2, 5)$ and $(-2)^2 + 5^2 - (-7) = 36 = 6^2$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($-1$): uses $D = -4$ and $E = 10$, reversing the sign relationship between the center and the linear coefficients.\n* Choice C ($1$): keeps $D$ and $E$ correct but takes $F = 7$, dropping the negative.\n* Choice D ($30$): sets $F = 36$, mistaking the constant term for $r^2$.\n\n**Test Day Takeaway:** Expanding the standard form is faster and safer than memorizing $F$. Every coefficient falls out of one expansion."
+}

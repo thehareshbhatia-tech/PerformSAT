@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-002",
+ "question": "A circular sensor plate has a radius of $9$ centimeters. What is the area, in square centimeters, of the sensor plate?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$9\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$18\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$81\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$324\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "multiplies the radius by pi instead of squaring it",
+  "B": "uses the circumference formula 2*pi*r",
+  "D": "squares the diameter instead of the radius"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Circle Area from Radius**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $A = \\pi r^2 = \\pi(9)^2 = 81\\pi$ square centimeters.\n\n**The Full Solution:**\nStep 1: The area of a circle with radius $r$ is $A = \\pi r^2$.\nStep 2: The radius is $9$, so $A = \\pi(9)^2$.\nStep 3: $9^2 = 81$, so $A = 81\\pi$ square centimeters.\n\nVerification: a radius of $9$ gives a circle that fits inside a $18$-by-$18$ square of area $324$, and $81\\pi \\approx 254$ is less than $324$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\pi$): multiplies the radius by $\\pi$ without squaring it.\n* Choice B ($18\\pi$): uses the circumference formula $2\\pi r$, which measures length, not area.\n* Choice D ($324\\pi$): squares the diameter $18$ instead of the radius $9$.\n\n**Test Day Takeaway:** Area squares the radius; circumference doubles it. Check which quantity the units call for: square centimeters means area."
+}

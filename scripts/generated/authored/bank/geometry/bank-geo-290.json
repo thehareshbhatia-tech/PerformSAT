@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-290",
+ "question": "In the $xy$-plane, a circle has center $(2, -5)$ and passes through the point $(2, 7)$. Which equation represents the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(x - 2)^2 + (y + 5)^2 = 12$"
+  },
+  {
+   "id": "B",
+   "text": "$(x - 2)^2 + (y + 5)^2 = 144$"
+  },
+  {
+   "id": "C",
+   "text": "$(x + 2)^2 + (y - 5)^2 = 144$"
+  },
+  {
+   "id": "D",
+   "text": "$(x - 2)^2 + (y - 7)^2 = 144$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses r instead of r squared",
+  "C": "reverses the center signs",
+  "D": "uses the given point as the center"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The two points share an $x$-value, so $r = |7 - (-5)| = 12$ and $r^2 = 144$, giving $(x - 2)^2 + (y + 5)^2 = 144$.\n\n**The Full Solution:**\nStep 1: The radius is the distance from the center to any point on the circle. Both points have $x = 2$, so the distance is purely vertical.\nStep 2: $r = |7 - (-5)| = 12$, so $r^2 = 144$.\nStep 3: With center $(2, -5)$, the equation is $(x - 2)^2 + (y + 5)^2 = 144$. Check: substituting $(2, 7)$ gives $0 + 144 = 144$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 2)^2 + (y + 5)^2 = 12$): puts the radius on the right side instead of the radius squared.\n* Choice C ($(x + 2)^2 + (y - 5)^2 = 144$): reverses the signs of the center coordinates.\n* Choice D ($(x - 2)^2 + (y - 7)^2 = 144$): builds the equation around the point on the circle rather than the center.\n\n**Test Day Takeaway:** Find $r^2$ directly — you never need $r$ itself. Then confirm by substituting the given point."
+}

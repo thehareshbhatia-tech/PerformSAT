@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-210",
+ "question": "In the $xy$-plane, a triangle has vertices at $(1, 4)$, $(9, 4)$, and $(5, k)$, where $k > 4$. The area of the triangle is $52$ square units. What is the value of $k$?",
+ "correctAnswer": "17",
+ "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**The correct answer is $17$.**\n\n**The Fast Way (~35s):** The base is $9 - 1 = 8$ and the height is $k - 4$, so $\\frac{1}{2}(8)(k - 4) = 52$, giving $k - 4 = 13$ and $k = 17$.\n\n**The Full Solution:**\nStep 1: The first two vertices share $y = 4$, so the base is horizontal with length $|9 - 1| = 8$.\nStep 2: The height is the vertical distance from $(5, k)$ to the line $y = 4$. Since $k > 4$, that distance is $k - 4$.\nStep 3: Set up and solve: $\\frac{1}{2}(8)(k - 4) = 52$, so $4(k - 4) = 52$, $k - 4 = 13$, and $k = 17$.\n\nVerification: with $k = 17$ the height is $13$ and the area is $\\frac{1}{2}(8)(13) = 52$. $\\checkmark$\n\n**Common Mistakes:** Solving for the height and gridding $13$ instead of adding the base's $y$-value back to get $k$. Dropping the $\\frac{1}{2}$ and solving $8(k - 4) = 52$, which gives $k = 10.5$. Using $5$, the apex's $x$-coordinate, somewhere in the area computation.\n\n**Test Day Takeaway:** The height is $k - 4$, not $k$. After you solve for the height, translate back to the coordinate the question actually asks for."
+}

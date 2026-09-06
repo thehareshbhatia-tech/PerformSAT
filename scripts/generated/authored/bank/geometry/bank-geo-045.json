@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-045",
+ "question": "A cylindrical water tank has a base with a diameter of $14$ meters and a height of $6$ meters. The volume of the tank is $k\\pi$ cubic meters. What is the value of $k$?",
+ "correctAnswer": "294",
+ "explanation": "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $294$.**\n\n**The Fast Way (~25s):** The radius is $7$, so $V = \\pi r^2 h = \\pi(49)(6) = 294\\pi$ and $k = 294$.\n\n**The Full Solution:**\nStep 1: The volume of a cylinder is $V = \\pi r^2 h$, which needs a radius, not a diameter.\nStep 2: Halve the diameter: $r = \\frac{14}{2} = 7$ meters, so $r^2 = 49$.\nStep 3: $V = \\pi(49)(6) = 294\\pi$ cubic meters, so $k = 294$.\n\nVerification: the base area is $49\\pi$ square meters, and stacking that base through $6$ meters of height gives $6(49\\pi) = 294\\pi$. $\\checkmark$\n\n**Common Mistakes:** Using the diameter $14$ as the radius gives $\\pi(196)(6) = 1{,}176\\pi$, four times too large. Computing the lateral surface area $2\\pi rh = 2\\pi(7)(6)$ gives $84$, a square-meter quantity rather than a volume.\n\n**Test Day Takeaway:** Whenever a problem hands you a diameter, halve it before it enters a squared term. Squaring doubles the damage of that slip."
+}

@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-206",
+ "question": "In the $xy$-plane, a triangle has vertices at $(-4, 1)$, $(6, 1)$, and $(2, 8)$. What is the area, in square units, of the triangle?",
+ "correctAnswer": "35",
+ "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**The correct answer is $35$.**\n\n**The Fast Way (~20s):** The base runs from $(-4, 1)$ to $(6, 1)$, so $b = 10$; the height is $8 - 1 = 7$. Area $= \\frac{1}{2}(10)(7) = 35$.\n\n**The Full Solution:**\nStep 1: The first two vertices share $y = 1$, so that side is horizontal with length $|6 - (-4)| = 10$.\nStep 2: The height is the perpendicular distance from $(2, 8)$ to the line $y = 1$: $|8 - 1| = 7$.\nStep 3: Area $= \\frac{1}{2}(10)(7) = 35$ square units.\n\nVerification: the shoelace formula gives $\\frac{1}{2}|-4(1 - 8) + 6(8 - 1) + 2(1 - 1)| = \\frac{1}{2}|28 + 42| = 35$. $\\checkmark$\n\n**Common Mistakes:** Using the apex's $y$-coordinate $8$ as the height, which yields $\\frac{1}{2}(10)(8) = 40$. Adding the base endpoints' $x$-coordinates, $-4 + 6 = 2$, instead of subtracting, which yields $\\frac{1}{2}(2)(7) = 7$. Forgetting the $\\frac{1}{2}$ and gridding $70$.\n\n**Test Day Takeaway:** Find the pair of vertices with a shared coordinate first — that side becomes the base, and the remaining vertex supplies the height as a difference."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-181",
+ "question": "In the $xy$-plane, the line $3x + 4y = 20$ is tangent to a circle whose center is the origin. What is the radius of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4$"
+  },
+  {
+   "id": "B",
+   "text": "$5$"
+  },
+  {
+   "id": "C",
+   "text": "$6.25$"
+  },
+  {
+   "id": "D",
+   "text": "$20$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "reports the denominator sqrt(9+16)=5",
+  "C": "inverts the quotient, 25/4",
+  "D": "reads the constant 20 as the distance"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** A tangent line sits exactly one radius from the center, so $r$ is the distance from $(0, 0)$ to $3x + 4y - 20 = 0$: $r = \\frac{|-20|}{\\sqrt{3^2 + 4^2}} = \\frac{20}{5} = 4$.\n\n**The Full Solution:**\nStep 1: The distance from a point $(x_0, y_0)$ to the line $Ax + By + C = 0$ is $\\frac{|Ax_0 + By_0 + C|}{\\sqrt{A^2 + B^2}}$. Tangency means that distance equals the radius.\nStep 2: With $A = 3$, $B = 4$, $C = -20$ and the center $(0, 0)$, the numerator is $|3(0) + 4(0) - 20| = 20$ and the denominator is $\\sqrt{9 + 16} = 5$.\nStep 3: $r = \\frac{20}{5} = 4$.\n\nVerification: substituting $y = \\frac{20 - 3x}{4}$ into $x^2 + y^2 = 16$ gives $25x^2 - 120x + 144 = 0$, whose discriminant is $120^2 - 4(25)(144) = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($5$): reports $\\sqrt{3^2 + 4^2} = 5$, the denominator of the distance formula, instead of finishing the division.\n* Choice C ($6.25$): inverts the quotient and computes $\\frac{25}{20}\\cdot 5 = \\frac{25}{4}$ rather than $\\frac{20}{5}$.\n* Choice D ($20$): treats the constant term $20$ as the distance, forgetting to divide by $\\sqrt{A^2 + B^2}$.\n\n**Test Day Takeaway:** Tangent to a circle means distance from center to line $=$ radius. The point-to-line distance formula turns that sentence into one computation."
+}

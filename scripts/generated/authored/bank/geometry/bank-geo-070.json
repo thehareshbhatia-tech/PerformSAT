@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-070",
+ "question": "In the $xy$-plane, the graph of $x^2 + y^2 - 2x + 10y = 55$ is a circle. What is the radius of the circle?",
+ "correctAnswer": "9",
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~30s):** Completing both squares adds $1$ and $25$ to the right side: $55 + 1 + 25 = 81$, so $r^2 = 81$ and $r = 9$.\n\n**The Full Solution:**\nStep 1: Group by variable: $(x^2 - 2x) + (y^2 + 10y) = 55$.\nStep 2: Half of $-2$ is $-1$ with square $1$; half of $10$ is $5$ with square $25$. Add both to each side: $(x - 1)^2 + (y + 5)^2 = 55 + 1 + 25 = 81$.\nStep 3: Since $r^2 = 81$, the radius is $r = \\sqrt{81} = 9$.\n\nCheck: the center is $(1, -5)$, and the point $(10, -5)$ satisfies the equation because $81 + 0 = 81$; its distance from the center is $9$.\n\n**Common Mistakes:**\n* Answering $81$, which is $r^2$ rather than $r$.\n* Forgetting to add the completing-square constants to the right side, which leaves $r^2 = 55$ and a radius of about $7.42$.\n* Subtracting the constants instead of adding them, which gives $55 - 26 = 29$ and a radius of about $5.39$.\n\n**Test Day Takeaway:** Whatever you add inside a completed square must also be added to the other side; the radius is the square root of what lands there."
+}

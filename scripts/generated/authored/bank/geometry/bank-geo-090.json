@@ -1,0 +1,24 @@
+{
+ "id": "bank-geo-090",
+ "question": "Cylinder $P$ and cylinder $Q$ are right circular cylinders. The radius of cylinder $P$ is $\\dfrac{2}{3}$ times the radius of cylinder $Q$, and the height of cylinder $P$ is $3$ times the height of cylinder $Q$. What is the ratio of the volume of cylinder $P$ to the volume of cylinder $Q$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4$ to $9$"
+  },
+  {
+   "id": "B",
+   "text": "$4$ to $3$"
+  },
+  {
+   "id": "C",
+   "text": "$2$ to $1$"
+  },
+  {
+   "id": "D",
+   "text": "$4$ to $1$"
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The radius factor enters squared and the height factor enters once: $\\left(\\frac{2}{3}\\right)^2 \\cdot 3 = \\frac{4}{9} \\cdot 3 = \\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: Let cylinder $Q$ have radius $r$ and height $h$, so $V_Q = \\pi r^2 h$.\nStep 2: Cylinder $P$ has radius $\\frac{2}{3}r$ and height $3h$, so $V_P = \\pi\\left(\\frac{2}{3}r\\right)^2(3h) = \\pi \\cdot \\frac{4}{9}r^2 \\cdot 3h = \\frac{4}{3}\\pi r^2 h$.\nStep 3: $\\frac{V_P}{V_Q} = \\frac{4}{3}$, a ratio of $4$ to $3$.\n\nCheck: with $r = 3$ and $h = 1$, $V_Q = 9\\pi$ and $V_P = \\pi(2)^2(3) = 12\\pi$, and $\\frac{12}{9} = \\frac{4}{3}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$ to $9$): squares the radius factor but ignores the tripled height.\n* Choice C ($2$ to $1$): multiplies $\\frac{2}{3}$ by $3$ without squaring the radius factor.\n* Choice D ($4$ to $1$): squares both the radius factor and the height factor, applying the exponent to the wrong dimension.\n\n**Test Day Takeaway:** Scale factors in a volume formula follow the exponents: squared for the radius, first power for the height."
+}

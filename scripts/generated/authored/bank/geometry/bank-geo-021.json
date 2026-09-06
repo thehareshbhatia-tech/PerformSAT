@@ -1,0 +1,41 @@
+{
+ "id": "bank-geo-021",
+ "question": "From a point at the top of a vertical cliff $85$ meters above sea level, the angle of depression to a buoy floating on the water is $28°$. What is the horizontal distance $d$, in meters, from the base of the cliff to the buoy? (Round to the nearest tenth.)",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "sideLabels": [
+    "d",
+    "85",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$45.2$"
+  },
+  {
+   "id": "B",
+   "text": "$75.1$"
+  },
+  {
+   "id": "C",
+   "text": "$159.9$"
+  },
+  {
+   "id": "D",
+   "text": "$181.1$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "multiplies by tangent instead of dividing",
+  "B": "multiplies by cosine",
+  "D": "divides by sine, which gives the line-of-sight distance"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Angle of Depression**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The height is opposite the $28°$ angle at the buoy and the horizontal distance is adjacent, so $d = \\frac{85}{\\tan(28°)} \\approx 159.9$ meters.\n\n**The Full Solution:**\nStep 1: The angle of depression from the top of the cliff equals the angle of elevation from the buoy, so the angle at the buoy in the right triangle measures $28°$.\nStep 2: Relative to that angle, the cliff height $85$ is the opposite side and the horizontal distance $d$ is the adjacent side, so $\\tan(28°) = \\frac{85}{d}$.\nStep 3: Solve: $d = \\frac{85}{\\tan(28°)} = \\frac{85}{0.5317} \\approx 159.9$ meters.\n\nVerification: $159.9 \\cdot \\tan(28°) \\approx 85.0$, returning the cliff height. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($45.2$): computes $85 \\cdot \\tan(28°)$; multiplying finds the side opposite a known adjacent side, the reverse of this setup.\n* Choice B ($75.1$): computes $85 \\cdot \\cos(28°)$, mixing the cosine ratio into a problem with no hypotenuse given.\n* Choice D ($181.1$): computes $\\frac{85}{\\sin(28°)}$, which is the slanted line-of-sight distance to the buoy, not the horizontal distance.\n\n**Test Day Takeaway:** The angle of depression from above equals the angle of elevation from below. Label opposite and adjacent relative to the angle you actually use, then pick the ratio that contains both known and unknown."
+}

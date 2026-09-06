@@ -1,0 +1,6 @@
+{
+ "id": "bank-geo-214",
+ "question": "In a triangle, an exterior angle measures $154°$. The two remote interior angles have measures in the ratio $4:3$. What is the measure, in degrees, of the smaller of those two remote interior angles?",
+ "correctAnswer": "66",
+ "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**The correct answer is $66$.**\n\n**The Fast Way (~30s):** The two remote angles sum to $154$, and $4x + 3x = 154$ gives $x = 22$. The smaller angle is $3(22) = 66$ degrees.\n\n**The Full Solution:**\nStep 1: By the exterior angle theorem the two remote interior angles sum to the exterior angle: their total is $154°$.\nStep 2: Write them as $4x$ and $3x$. Then $4x + 3x = 7x = 154$, so $x = 22$.\nStep 3: The smaller angle is $3x = 3(22) = 66$ degrees.\n\nVerification: $4(22) = 88$ and $88 + 66 = 154$; the third interior angle is $180 - 154 = 26$, and $88 + 66 + 26 = 180$. $\\checkmark$\n\n**Common Mistakes:** Gridding the larger angle, $88$. Splitting $180$ instead of $154$, which gives $x = \\frac{180}{7}$ and a smaller angle of about $77.1$ — not a whole number, a signal that the wrong total was used. Gridding the ratio unit $x = 22$ instead of an angle measure.\n\n**Test Day Takeaway:** A ratio problem needs the correct total. Here the exterior angle, not $180°$, is the sum the two remote angles must share."
+}

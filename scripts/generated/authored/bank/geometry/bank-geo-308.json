@@ -1,0 +1,55 @@
+{
+ "id": "bank-geo-308",
+ "question": "The legs of a right triangle measure $18$ centimeters and $24$ centimeters. What is the length, in centimeters, of the hypotenuse of this triangle?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     24,
+     0
+    ],
+    [
+     24,
+     18
+    ]
+   ],
+   "sideLabels": [
+    "24",
+    "18",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$6$"
+  },
+  {
+   "id": "B",
+   "text": "$30$"
+  },
+  {
+   "id": "C",
+   "text": "$42$"
+  },
+  {
+   "id": "D",
+   "text": "$900$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the legs",
+  "C": "adds the legs",
+  "D": "omits the square root"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $18$ and $24$ are $6$ times $3$ and $4$, so the hypotenuse is $6$ times $5$, or $30$ centimeters.\n\n**The Full Solution:**\nStep 1: With legs $a=18$ and $b=24$, the hypotenuse satisfies $c^2=a^2+b^2$.\nStep 2: $c^2=18^2+24^2=324+576=900$.\nStep 3: $c=\\sqrt{900}=30$ centimeters.\n\nCheck: $30^2=900=324+576$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): subtracted the legs, $24-18$, which is the scale factor of the triple rather than a side length.\n* Choice C ($42$): added the legs, $18+24$, instead of adding their squares.\n* Choice D ($900$): reported $c^2$ without taking the square root.\n\n**Test Day Takeaway:** Multiples of a known triple stay triples. Factor out the common divisor, use the small triple, then scale the answer back up."
+}

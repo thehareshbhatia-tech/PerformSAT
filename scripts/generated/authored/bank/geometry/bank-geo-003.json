@@ -1,0 +1,41 @@
+{
+ "id": "bank-geo-003",
+ "question": "In the right triangle shown, the two legs have lengths $20$ and $21$. What is the length of the hypotenuse?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "sideLabels": [
+    "20",
+    "21",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$1$"
+  },
+  {
+   "id": "B",
+   "text": "$29$"
+  },
+  {
+   "id": "C",
+   "text": "$41$"
+  },
+  {
+   "id": "D",
+   "text": "$841$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the legs",
+  "C": "adds the legs",
+  "D": "reports c squared instead of c"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Pythagorean Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $c^2 = 20^2 + 21^2 = 400 + 441 = 841$, and $\\sqrt{841} = 29$.\n\n**The Full Solution:**\nStep 1: In a right triangle with legs $a$ and $b$ and hypotenuse $c$, $a^2 + b^2 = c^2$.\nStep 2: Substitute the legs: $20^2 + 21^2 = c^2$, so $400 + 441 = c^2$ and $c^2 = 841$.\nStep 3: Take the positive square root: $c = 29$.\n\nVerification: $29^2 = 841 = 400 + 441$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): subtracts the legs, $21 - 20$, instead of combining their squares.\n* Choice C ($41$): adds the legs, $20 + 21$; the hypotenuse is always shorter than the sum of the legs.\n* Choice D ($841$): stops at $c^2$ and never takes the square root.\n\n**Test Day Takeaway:** The hypotenuse must be longer than either leg but shorter than their sum. That bracket, $21 < c < 41$, eliminates two choices before any arithmetic."
+}

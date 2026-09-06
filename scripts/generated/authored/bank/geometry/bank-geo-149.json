@@ -1,0 +1,29 @@
+{
+  "id": "bank-geo-149",
+  "question": "A circle in the $xy$-plane has an area of $81\\pi$ square units. What is the diameter of this circle?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$9$"
+    },
+    {
+      "id": "B",
+      "text": "$18$"
+    },
+    {
+      "id": "C",
+      "text": "$81$"
+    },
+    {
+      "id": "D",
+      "text": "$162$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the radius instead of the diameter",
+    "C": "reports r squared instead of a length",
+    "D": "doubles r squared instead of doubling the radius"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Area of a Circle (Reverse from Given Area)**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\pi r^2 = 81\\pi$ gives $r = 9$, so the diameter is $18$.\n\n**The Full Solution:**\nStep 1: Set the area formula equal to the given area: $\\pi r^2 = 81\\pi$.\nStep 2: Divide both sides by $\\pi$: $r^2 = 81$, so $r = 9$.\nStep 3: The diameter is $2r = 18$. Check: a circle of radius $9$ has area $\\pi(81) = 81\\pi$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): stops at the radius when the question asks for the diameter.\n* Choice C ($81$): reports $r^2$, which is an area coefficient, not a length.\n* Choice D ($162$): doubles $r^2$ instead of doubling $r$.\n\n**Test Day Takeaway:** Working backward from an area, divide out $\\pi$ first, then take the square root - and check whether the question wants $r$ or $2r$."
+}

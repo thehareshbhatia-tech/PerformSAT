@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-212",
+ "question": "In triangle $DEF$, the measure of angle $D$ is $46°$ and the measure of angle $E$ is $61°$. What is the measure of the exterior angle at vertex $F$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$73°$"
+  },
+  {
+   "id": "B",
+   "text": "$107°$"
+  },
+  {
+   "id": "C",
+   "text": "$119°$"
+  },
+  {
+   "id": "D",
+   "text": "$134°$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports interior angle F",
+  "C": "gives the supplement of angle E",
+  "D": "gives the supplement of angle D"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The remote interior angles for vertex $F$ are $D$ and $E$, so the exterior angle is $46 + 61 = 107$ degrees.\n\n**The Full Solution:**\nStep 1: An exterior angle at a vertex is formed by extending one side; its measure equals the sum of the two interior angles at the other two vertices.\nStep 2: For vertex $F$ the remote interior angles are $D = 46°$ and $E = 61°$.\nStep 3: The exterior angle at $F$ measures $46 + 61 = 107$ degrees.\n\nVerification: angle $F = 180 - 46 - 61 = 73$, and $180 - 73 = 107$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($73°$): reports the interior angle at $F$ instead of the exterior one.\n* Choice C ($119°$): computes $180 - 61$, the supplement of angle $E$ rather than of angle $F$.\n* Choice D ($134°$): computes $180 - 46$, the supplement of angle $D$.\n\n**Test Day Takeaway:** Name the two remote vertices first. The exterior angle belongs to the third vertex and equals the sum of the other two interior angles."
+}

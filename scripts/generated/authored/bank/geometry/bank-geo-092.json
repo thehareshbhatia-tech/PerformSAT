@@ -1,0 +1,40 @@
+{
+ "id": "bank-geo-092",
+ "question": "In triangle $RST$ shown, the measure of angle $R$ is $38°$ and the measure of angle $S$ is $96°$. What is the measure of angle $T$?",
+ "diagram": {
+  "type": "triangleWithAngles",
+  "params": {
+   "angleLabels": [
+    "38°",
+    "96°",
+    ""
+   ],
+   "vertexLabels": [
+    "R",
+    "S",
+    "T"
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$46°$"
+  },
+  {
+   "id": "B",
+   "text": "$84°$"
+  },
+  {
+   "id": "C",
+   "text": "$134°$"
+  },
+  {
+   "id": "D",
+   "text": "$142°$"
+  }
+ ],
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The three angles of a triangle sum to $180°$, so angle $T$ measures $180 - 38 - 96 = 46$ degrees.\n\n**The Full Solution:**\nStep 1: In any triangle, the measures of the three interior angles add to $180°$.\nStep 2: $38 + 96 = 134$, the combined measure of angles $R$ and $S$.\nStep 3: The remaining angle measures $180 - 134 = 46$ degrees.\n\nCheck: $38 + 96 + 46 = 180$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($84°$): subtracts only the larger given angle, $180 - 96$, and forgets angle $R$.\n* Choice C ($134°$): reports the sum of the two given angles rather than what is left over.\n* Choice D ($142°$): subtracts only the smaller given angle, $180 - 38$.\n\n**Test Day Takeaway:** Add the two known angles first, then subtract that single number from $180°$."
+}

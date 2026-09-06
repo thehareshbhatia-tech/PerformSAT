@@ -1,0 +1,29 @@
+{
+ "id": "bank-geo-046",
+ "question": "A circle in the $xy$-plane is defined by $x^2 + y^2 - 14x + 6y + 33 = 0$. What is the area of the region enclosed by this circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$5\\pi$"
+  },
+  {
+   "id": "B",
+   "text": "$10\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$25\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$625\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "multiplies the radius by pi without squaring",
+  "B": "reports the circumference",
+  "D": "squares r squared, using 25 as the radius"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Circle Equation to Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Completing both squares gives $(x - 7)^2 + (y + 3)^2 = 25$, so $r = 5$ and the area is $\\pi(5)^2 = 25\\pi$.\n\n**The Full Solution:**\nStep 1: Group and move the constant: $(x^2 - 14x) + (y^2 + 6y) = -33$.\nStep 2: Complete each square. Half of $-14$ is $-7$, so add $49$; half of $6$ is $3$, so add $9$. Adding both to the right side gives $(x - 7)^2 + (y + 3)^2 = -33 + 49 + 9 = 25$.\nStep 3: So $r^2 = 25$ and $r = 5$. The area is $\\pi r^2 = 25\\pi$.\n\nVerification: the right side of standard form already is $r^2$, so the area $\\pi r^2$ is just $\\pi$ times that number: $25\\pi$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5\\pi$): multiplies the radius by $\\pi$ without squaring it.\n* Choice B ($10\\pi$): computes the circumference $2\\pi r$, a length rather than an area.\n* Choice D ($625\\pi$): treats $25$ as the radius and squares it again; $25$ is already $r^2$.\n\n**Test Day Takeaway:** Once the equation is in standard form, the number on the right is $r^2$, so the area is that number times $\\pi$. Do not square it a second time."
+}

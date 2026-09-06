@@ -1,0 +1,29 @@
+{
+  "id": "bank-geo-139",
+  "question": "A storage bin in the shape of a rectangular prism has a length of $8$ inches, a width of $6$ inches, and a height of $5$ inches. What is the volume, in cubic inches, of the bin?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$19$"
+    },
+    {
+      "id": "B",
+      "text": "$48$"
+    },
+    {
+      "id": "C",
+      "text": "$236$"
+    },
+    {
+      "id": "D",
+      "text": "$240$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds the three dimensions instead of multiplying them",
+    "B": "gives the area of the base only",
+    "C": "computes the surface area instead of the volume"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Volume of a Rectangular Prism**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** $V = \\ell wh = 8 \\times 6 \\times 5 = 240$ cubic inches.\n\n**The Full Solution:**\nStep 1: The volume of a rectangular prism is $V = \\ell wh$.\nStep 2: Substitute: $V = (8)(6)(5)$.\nStep 3: $(8)(6) = 48$ and $(48)(5) = 240$ cubic inches. Check: the base holds $48$ square inches, and stacking $5$ one-inch layers gives $240$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($19$): adds $8 + 6 + 5$, which is a length, not a volume.\n* Choice B ($48$): stops at the base area $8 \\times 6$ without multiplying by the height.\n* Choice C ($236$): computes the surface area, $2(48 + 40 + 30)$, which is measured in square inches, not cubic inches.\n\n**Test Day Takeaway:** Match the units to the formula. Cubic units mean three lengths multiplied; square units mean a surface area."
+}
