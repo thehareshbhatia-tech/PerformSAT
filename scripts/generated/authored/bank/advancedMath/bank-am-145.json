@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-145",
+  "question": "The equation $x^2 - 2x - 35 = 0$ has two solutions. What is the greater of the two solutions?",
+  "correctAnswer": "7",
+  "explanation": "**SAT Pattern: Quadratic via Factoring**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~20s):** Two integers with product $-35$ and sum $-2$ are $-7$ and $5$, so $(x - 7)(x + 5) = 0$ and the greater solution is $7$.\n\n**The Full Solution:**\nStep 1: Look for integers whose product is $-35$ and whose sum is $-2$. The candidate pairs are $\\pm 1$ with $\\mp 35$ and $\\pm 5$ with $\\mp 7$.\nStep 2: The pair $-7$ and $5$ gives $(-7)(5) = -35$ and $-7 + 5 = -2$, so $x^2 - 2x - 35 = (x - 7)(x + 5)$.\nStep 3: The solutions are $x = 7$ and $x = -5$, and the greater is $7$. Check: $7^2 - 2(7) - 35 = 49 - 14 - 35 = 0$. $\\checkmark$\n\n**Common Mistakes:**\n* Reporting $-5$; it is a solution but it is the smaller one.\n* Attaching the signs to the wrong factors as $(x + 7)(x - 5)$, which expands to $x^2 + 2x - 35$ and has the wrong middle term.\n* Answering $35$ by treating the constant term as a solution.\n\n**Test Day Takeaway:** List the factor pairs of the constant, pick the pair whose signed sum matches the middle coefficient, then answer the exact question asked."
+}

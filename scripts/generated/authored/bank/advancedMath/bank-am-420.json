@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-420",
+  "question": "The function $f$ is defined by $f(x) = (1.44)^{x/4}$. The equation can be rewritten as $f(x) = \\left(1 + \\dfrac{r}{100}\\right)^x$, where $r$ is a constant. Which of the following is closest to the value of $r$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$9.5$"
+    },
+    {
+      "id": "B",
+      "text": "$11$"
+    },
+    {
+      "id": "C",
+      "text": "$36$"
+    },
+    {
+      "id": "D",
+      "text": "$44$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "divides the percent 44 by 4",
+    "C": "divides 144 by 4",
+    "D": "ignores the divisor in the exponent"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Rewriting Exponential Form — Equivalent Rate**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** $(1.44)^{x/4} = \\left((1.44)^{1/4}\\right)^x$ and $(1.44)^{1/4} \\approx 1.0954$, so $r \\approx 9.5$.\n\n**The Full Solution:**\nStep 1: Rewrite the exponent using $\\left(b^{1/n}\\right)^x = b^{x/n}$: $(1.44)^{x/4} = \\left((1.44)^{1/4}\\right)^x$.\nStep 2: Matching this to $\\left(1 + \\dfrac{r}{100}\\right)^x$ requires $1 + \\dfrac{r}{100} = (1.44)^{1/4}$.\nStep 3: $(1.44)^{1/2} = 1.2$ and $(1.2)^{1/2} \\approx 1.0954$, so $\\dfrac{r}{100} \\approx 0.0954$ and $r \\approx 9.54$, closest to $9.5$. Check: $(1.0954)^4 \\approx 1.44$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($11$): divides the percent increase $44$ by the $4$ in the exponent, which treats compounding as if it were linear.\n* Choice C ($36$): divides $144$ by $4$ rather than working with the growth factor $1.44$.\n* Choice D ($44$): reads the percent increase per $4$ units of $x$ as though it applied to each unit.\n\n**Test Day Takeaway:** To change the period of an exponential, take the ROOT of the growth factor — dividing the percent is only an approximation and is never the intended answer."
+}

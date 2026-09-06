@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-387",
+  "question": "The value of a piece of manufacturing equipment, in dollars, is modeled by $V(t) = 18{,}500(0.88)^t$, where $t$ is the number of years since the equipment was purchased. Which of the following is the best interpretation of $18{,}500$ in this model?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The value of the equipment, in dollars, decreases by $18{,}500$ each year."
+    },
+    {
+      "id": "B",
+      "text": "The value of the equipment, in dollars, at the time it was purchased."
+    },
+    {
+      "id": "C",
+      "text": "The value of the equipment, in dollars, one year after it was purchased."
+    },
+    {
+      "id": "D",
+      "text": "The number of years until the equipment has no value."
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads the initial value as a yearly change",
+    "C": "shifts the starting time by one year",
+    "D": "reads a dollar amount as a number of years"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Interpret Exponential Parameters**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** In $a(b)^t$ the coefficient $a$ is the value at $t = 0$, the moment of purchase.\n\n**The Full Solution:**\nStep 1: Substitute $t = 0$: $V(0) = 18{,}500(0.88)^0$.\nStep 2: Any nonzero number to the zero power is $1$, so $V(0) = 18{,}500$.\nStep 3: Since $t$ counts years since purchase, $t = 0$ is the purchase date, so $18{,}500$ dollars is the value then. Check: $V(1) = 16{,}280$, a smaller value one year later. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reads the initial value as a constant yearly drop; the actual first-year drop is $2{,}220$ dollars.\n* Choice C: shifts the starting point by a year; the value after one year is $18{,}500(0.88)$.\n* Choice D: interprets a dollar amount as a number of years, and an exponential model never reaches zero.\n\n**Test Day Takeaway:** Evaluate the model at $t = 0$ — the coefficient in front is always the starting value."
+}

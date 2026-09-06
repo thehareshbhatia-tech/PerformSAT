@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-362",
+  "question": "Which of the following expressions is equivalent to $x^3 + 4x^2 - 7x - 28$ for all values of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(x - 4)(x^2 - 7)$"
+    },
+    {
+      "id": "B",
+      "text": "$(x + 4)(x^2 - 7)$"
+    },
+    {
+      "id": "C",
+      "text": "$(x + 4)(x^2 + 7)$"
+    },
+    {
+      "id": "D",
+      "text": "$(x^2 + 4)(x - 7)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "flips the sign of the shared binomial",
+    "C": "factors $+7$ out of the second pair instead of $-7$",
+    "D": "pairs the first and third terms together"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $x^2(x + 4) - 7(x + 4) = (x + 4)(x^2 - 7)$.\n\n**The Full Solution:**\nStep 1: Pair the terms in order: $(x^3 + 4x^2) + (-7x - 28)$.\nStep 2: Factor $x^2$ from the first pair to get $x^2(x + 4)$. To make the second pair match, factor out $-7$: $-7(x + 4)$.\nStep 3: The common binomial $x + 4$ comes out front: $(x + 4)(x^2 - 7)$. Expanding gives $x^3 - 7x + 4x^2 - 28$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 4)(x^2 - 7)$): changes $x + 4$ to $x - 4$; expanding gives $x^3 - 4x^2 - 7x + 28$.\n* Choice C ($(x + 4)(x^2 + 7)$): factors $+7$ instead of $-7$ out of $-7x - 28$, which flips the sign of the constant.\n* Choice D ($(x^2 + 4)(x - 7)$): groups the $x^3$ with the $-7x$ and expands to $x^3 - 7x^2 + 4x - 28$.\n\n**Test Day Takeaway:** When the third term is negative, pull out a NEGATIVE factor so the leftover binomial matches the first pair exactly."
+}

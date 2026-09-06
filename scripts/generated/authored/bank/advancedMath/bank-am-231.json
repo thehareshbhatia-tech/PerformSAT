@@ -1,0 +1,39 @@
+{
+  "id": "bank-am-231",
+  "question": "The V-shaped graph of $y = f(x)$ in the $xy$-plane is shown. The graph of $y = f(x - 5) + 2$ has its vertex at which point?",
+  "diagram": {
+    "type": "absoluteValue",
+    "params": {
+      "vertex": [
+        -1,
+        4
+      ],
+      "slope": 1
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-6, 2)$"
+    },
+    {
+      "id": "B",
+      "text": "$(-6, 6)$"
+    },
+    {
+      "id": "C",
+      "text": "$(4, 2)$"
+    },
+    {
+      "id": "D",
+      "text": "$(4, 6)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "shifts left and replaces the $y$-coordinate with the shift",
+    "B": "shifts left instead of right",
+    "C": "replaces the $y$-coordinate with the shift instead of adding it"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Function from Shifted Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The graph shows the vertex of $f$ at $(-1, 4)$; moving right $5$ and up $2$ gives $(4, 6)$.\n\n**The Full Solution:**\nStep 1: Read the vertex of $y = f(x)$ from the graph: $(-1, 4)$.\nStep 2: Replacing $x$ with $x - 5$ shifts the graph RIGHT $5$ units: $-1 + 5 = 4$.\nStep 3: Adding $2$ outside the function shifts it UP $2$ units: $4 + 2 = 6$. The new vertex is $(4, 6)$. Check: at $x = 4$, $f(4 - 5) + 2 = f(-1) + 2 = 4 + 2 = 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-6, 2)$): moves left and uses $2$ itself as the new height.\n* Choice B ($(-6, 6)$): subtracts $5$ from the $x$-coordinate; $f(x - 5)$ moves the graph in the POSITIVE direction.\n* Choice C ($(4, 2)$): shifts horizontally correctly but reports the shift $2$ instead of $4 + 2$.\n\n**Test Day Takeaway:** Inside the parentheses, $x - c$ moves the graph $c$ units RIGHT; outside, $+d$ moves it $d$ units up — apply each to the matching coordinate of the vertex."
+}

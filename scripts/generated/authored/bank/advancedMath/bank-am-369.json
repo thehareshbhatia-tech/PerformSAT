@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-369",
+  "question": "The functions $f$ and $g$ are defined by $f(x) = x^2 - 4x$ and $g(x) = x + 3$. Which of the following expressions defines $f(g(x))$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x^2 - 4x - 3$"
+    },
+    {
+      "id": "B",
+      "text": "$x^2 + 2x - 3$"
+    },
+    {
+      "id": "C",
+      "text": "$x^2 + 2x + 9$"
+    },
+    {
+      "id": "D",
+      "text": "$x^2 - 4x + 3$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "expands $(x + 3)^2$ as $x^2 + 9$",
+    "C": "substitutes into the squared term only",
+    "D": "builds $g(f(x))$ instead"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f(g(x)) = (x + 3)^2 - 4(x + 3) = x^2 + 6x + 9 - 4x - 12 = x^2 + 2x - 3$.\n\n**The Full Solution:**\nStep 1: Replace every $x$ in $f$ with $x + 3$: $f(g(x)) = (x + 3)^2 - 4(x + 3)$.\nStep 2: Expand: $(x + 3)^2 = x^2 + 6x + 9$ and $-4(x + 3) = -4x - 12$.\nStep 3: Combine: $x^2 + 6x + 9 - 4x - 12 = x^2 + 2x - 3$. Check at $x = 0$: $g(0) = 3$ and $f(3) = 9 - 12 = -3$, matching the constant term. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^2 - 4x - 3$): expands $(x + 3)^2$ as $x^2 + 9$, dropping the $6x$ middle term.\n* Choice C ($x^2 + 2x + 9$): substitutes into the squared term but leaves the second term as $-4x$ instead of $-4(x + 3)$.\n* Choice D ($x^2 - 4x + 3$): builds $g(f(x)) = x^2 - 4x + 3$, the reverse composition.\n\n**Test Day Takeaway:** EVERY $x$ in the outer function gets replaced — including the one in the linear term."
+}

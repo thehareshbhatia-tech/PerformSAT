@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-146",
+  "question": "The equation $2x^2 + bx - 15 = 0$, where $b$ is a constant, has two solutions, and one of them is $x = -5$. What is the other solution?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\dfrac{3}{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{3}{2}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{5}{2}$"
+    },
+    {
+      "id": "D",
+      "text": "$3$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "solves $2x - 3 = 0$ as $x = -\\frac{3}{2}$, keeping the sign of the constant inside the factor",
+    "C": "misfactors as $(2x - 5)(x + 3)$, which expands to $2x^2 + x - 15$ rather than $2x^2 + 7x - 15$",
+    "D": "ignores the leading $2$ and factors $(x + 5)(x - 3)$, which expands to $x^2 + 2x - 15$"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Quadratic via Factoring**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Substituting $x = -5$ gives $50 - 5b - 15 = 0$, so $b = 7$. Then $2x^2 + 7x - 15 = (x + 5)(2x - 3)$, and the other solution is $\\dfrac{3}{2}$.\n\n**The Full Solution:**\nStep 1: Because $x = -5$ is a solution, it satisfies the equation: $2(-5)^2 + b(-5) - 15 = 0$, which is $50 - 5b - 15 = 0$.\nStep 2: That gives $5b = 35$, so $b = 7$ and the equation is $2x^2 + 7x - 15 = 0$. Since $x = -5$ is a solution, $(x + 5)$ is a factor: $2x^2 + 7x - 15 = (x + 5)(2x - 3)$.\nStep 3: Setting $2x - 3 = 0$ gives the other solution $x = \\dfrac{3}{2}$. Check: $2\\left(\\dfrac{9}{4}\\right) + 7\\left(\\dfrac{3}{2}\\right) - 15 = \\dfrac{9}{2} + \\dfrac{21}{2} - 15 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{3}{2}$): the factor is $2x - 3$, so its zero is $+\\frac{3}{2}$; carrying the minus sign forward flips it.\n* Choice C ($\\frac{5}{2}$): the misfactoring $(2x - 5)(x + 3)$ has the right constant term but expands to $2x^2 + x - 15$.\n* Choice D ($3$): dropping the leading $2$ and factoring $(x + 5)(x - 3)$ also gives $-15$, but its middle term is $2x$, not $7x$.\n\n**Test Day Takeaway:** Use the known solution to pin the missing coefficient first; then the known factor divides the quadratic and the second factor falls out."
+}

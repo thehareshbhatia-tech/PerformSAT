@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-325",
+  "question": "The equation $3^{2x} = 27^{x - 4}$ has exactly one solution. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-12$"
+    },
+    {
+      "id": "B",
+      "text": "$-4$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$12$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sign slip in the last step",
+    "B": "never rewrites 27 as a power of 3",
+    "C": "distributes the 3 to x only"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Exponential Equation with Common Base**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** $27 = 3^3$, so $3^{2x} = 3^{3(x - 4)}$. Then $2x = 3x - 12$, so $x = 12$.\n\n**The Full Solution:**\nStep 1: Rewrite the right side with base $3$: $27^{x - 4} = \\left(3^3\\right)^{x - 4} = 3^{3x - 12}$.\nStep 2: Equal powers of $3$ force $2x = 3x - 12$.\nStep 3: Subtracting $3x$ gives $-x = -12$, so $x = 12$. Check: $3^{24}$ on the left and $27^{8} = \\left(3^3\\right)^8 = 3^{24}$ on the right. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): reaches $-x = -12$ and then reports $x = -12$, dropping the final sign change.\n* Choice B ($-4$): sets the exponents equal without rewriting $27$, solving $2x = x - 4$.\n* Choice C ($4$): rewrites $27$ as $3^3$ but multiplies only the $x$ term, solving $2x = 3x - 4$.\n\n**Test Day Takeaway:** When you raise a power to a power, the outer exponent multiplies the ENTIRE inner exponent, parentheses included."
+}

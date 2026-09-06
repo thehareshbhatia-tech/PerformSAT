@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-416",
+  "question": "The result of increasing a quantity $x$ by $150\\%$ is $210$. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-105$"
+    },
+    {
+      "id": "B",
+      "text": "$84$"
+    },
+    {
+      "id": "C",
+      "text": "$140$"
+    },
+    {
+      "id": "D",
+      "text": "$525$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts 150% of 210 from 210",
+    "C": "divides by 1.5 instead of 2.5",
+    "D": "multiplies by 2.5 instead of dividing"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Reverse Percent Increase**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Increasing by $150\\%$ multiplies by $2.5$, so $2.5x = 210$ and $x = 84$.\n\n**The Full Solution:**\nStep 1: Increasing $x$ by $150\\%$ adds $1.5x$ to $x$, giving $x + 1.5x = 2.5x$.\nStep 2: Set that equal to the result: $2.5x = 210$.\nStep 3: $x = \\dfrac{210}{2.5} = 84$. Check: $150\\%$ of $84$ is $126$, and $84 + 126 = 210$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-105$): works forward instead of backward, computing $210 - 1.5(210)$.\n* Choice C ($140$): divides by $1.5$, treating \"increased by $150\\%$\" as \"is $150\\%$ of\".\n* Choice D ($525$): multiplies by $2.5$ instead of dividing, which finds the result of increasing $210$.\n\n**Test Day Takeaway:** \"Increased BY $p\\%$\" means multiplied by $1 + \\dfrac{p}{100}$; to go backward, divide by that factor."
+}

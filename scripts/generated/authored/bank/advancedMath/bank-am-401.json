@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-401",
+  "question": "The equation $x^2 - 11x + 24 = 0$ has two distinct real solutions. What is the sum of the two solutions?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-11$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$11$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses $b$ rather than $-b$",
+    "B": "reports only the smaller solution",
+    "D": "reports the product instead of the sum"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** For $x^2 + bx + c = 0$ the sum of the solutions is $-b$, so the sum is $-(-11) = 11$.\n\n**The Full Solution:**\nStep 1: The equation is already in the form $x^2 + bx + c = 0$ with $b = -11$ and $c = 24$.\nStep 2: If the solutions are $r$ and $s$, then $x^2 + bx + c = (x - r)(x - s) = x^2 - (r + s)x + rs$, so $r + s = -b$.\nStep 3: $r + s = -(-11) = 11$. Check by factoring: $x^2 - 11x + 24 = (x - 3)(x - 8)$, and $3 + 8 = 11$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-11$): copies the coefficient $b$ without the sign change built into $-b$.\n* Choice B ($3$): reports only the smaller of the two solutions.\n* Choice D ($24$): reports the PRODUCT of the solutions, which is the constant term.\n\n**Test Day Takeaway:** With a leading coefficient of $1$, the sum of the solutions is the OPPOSITE of the middle coefficient and the product is the constant."
+}

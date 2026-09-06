@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-230",
+  "question": "The function $q$ is defined by $q(x) = f(x + 6) - 5$. In the $xy$-plane, the graph of $y = q(x)$ has its vertex at $(-2, 3)$. The graph of $y = f(x)$ has its vertex at which point?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-8, -2)$"
+    },
+    {
+      "id": "B",
+      "text": "$(-8, 8)$"
+    },
+    {
+      "id": "C",
+      "text": "$(4, -2)$"
+    },
+    {
+      "id": "D",
+      "text": "$(4, 8)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "applies both shifts in the wrong direction",
+    "B": "subtracts $6$ from the $x$-coordinate instead of adding it",
+    "C": "subtracts $5$ from the $y$-coordinate instead of adding it"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Function from Shifted Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** At the vertex, $x + 6 = -2 + 6 = 4$ and $f(4) - 5 = 3$, so $f(4) = 8$: the vertex of $f$ is $(4, 8)$.\n\n**The Full Solution:**\nStep 1: The vertex of $q$ occurs at $x = -2$, where $q(-2) = 3$.\nStep 2: Substituting into $q(x) = f(x + 6) - 5$ gives $f(-2 + 6) - 5 = 3$, so $f(4) = 8$.\nStep 3: Because the transformation only slides the graph, that point is the vertex of $f$: $(4, 8)$. Check with $f(x) = (x - 4)^2 + 8$: then $q(x) = (x + 6 - 4)^2 + 8 - 5 = (x + 2)^2 + 3$, whose vertex is $(-2, 3)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-8, -2)$): moves both coordinates the wrong way, subtracting $6$ and subtracting $5$.\n* Choice B ($(-8, 8)$): handles the vertical shift correctly but subtracts the $6$; inside the parentheses, $x + 6$ means the graph moved LEFT, so $f$ sits to the right.\n* Choice C ($(4, -2)$): finds the input correctly but subtracts $5$ instead of adding it back.\n\n**Test Day Takeaway:** Substitute the vertex coordinates into the defining equation instead of memorizing shift directions — the algebra names the point for you."
+}

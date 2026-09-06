@@ -1,0 +1,52 @@
+{
+  "id": "bank-am-385",
+  "question": "The number of cells in a culture is modeled by $N(h) = 45 \\cdot 2^{h/6}$, where $h$ is the number of hours after the culture was prepared. The table lists $N(h)$ at three values of $h$. Which of the following is the best interpretation of the $6$ in the exponent?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "Hours, h",
+        "Number of cells"
+      ],
+      "rows": [
+        [
+          "0",
+          "45"
+        ],
+        [
+          "6",
+          "90"
+        ],
+        [
+          "12",
+          "180"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "The culture contained $6$ cells when it was prepared."
+    },
+    {
+      "id": "B",
+      "text": "The number of cells doubles every $6$ hours."
+    },
+    {
+      "id": "C",
+      "text": "The number of cells increases by $6$ cells each hour."
+    },
+    {
+      "id": "D",
+      "text": "The number of cells is $6$ times as great every $2$ hours."
+    }
+  ],
+  "distractorNotes": {
+    "A": "confuses the exponent divisor with the initial amount",
+    "C": "reads the divisor as a constant rate of change",
+    "D": "swaps the roles of the base and the divisor"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Interpret Exponential Parameters**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The exponent $\\frac{h}{6}$ reaches $1$ when $h = 6$, so one doubling takes $6$ hours.\n\n**The Full Solution:**\nStep 1: The base $2$ tells you the quantity doubles once the exponent increases by $1$.\nStep 2: The exponent is $\\frac{h}{6}$, which increases by $1$ each time $h$ increases by $6$.\nStep 3: So the count doubles every $6$ hours. The table confirms it: $45$ at $h = 0$, $90$ at $h = 6$, and $180$ at $h = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: confuses the divisor in the exponent with the initial amount, which the model gives as $45$.\n* Choice C: treats the $6$ as a constant increase per hour, which would require a linear model.\n* Choice D: swaps the roles of the base and the divisor, reading the $2$ as a time and the $6$ as a growth factor.\n\n**Test Day Takeaway:** In $a \\cdot b^{t/k}$ the constant $k$ is the TIME needed for one multiplication by $b$ — set the exponent equal to $1$ to read it off."
+}

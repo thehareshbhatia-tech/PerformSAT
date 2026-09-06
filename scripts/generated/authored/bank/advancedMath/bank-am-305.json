@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-305",
+  "question": "The polynomial function $h$ is defined by $h(x) = x^3 + ax^2 + bx + 20$, where $a$ and $b$ are constants. Both $x + 4$ and $x - 1$ are factors of $h(x)$. What is the value of $b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-21$"
+    },
+    {
+      "id": "B",
+      "text": "$-19$"
+    },
+    {
+      "id": "C",
+      "text": "$-2$"
+    },
+    {
+      "id": "D",
+      "text": "$5$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses only h(1) = 0 and assumes a = 0",
+    "C": "reports a instead of b",
+    "D": "reports the third zero"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Polynomial Remainder Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~60s):** Two factors give two equations: $h(1) = 0$ gives $a + b = -21$, and $h(-4) = 0$ gives $4a - b = 11$. Adding them gives $5a = -10$, so $a = -2$ and $b = -19$.\n\n**The Full Solution:**\nStep 1: $h(1) = 1 + a + b + 20 = 0$, so $a + b = -21$.\nStep 2: $h(-4) = -64 + 16a - 4b + 20 = 0$, so $16a - 4b = 44$, or $4a - b = 11$.\nStep 3: Adding the two equations eliminates $b$: $5a = -10$, so $a = -2$ and therefore $b = -21 - (-2) = -19$. Check: $h(x) = x^3 - 2x^2 - 19x + 20$ gives $h(1) = 1 - 2 - 19 + 20 = 0$ and $h(-4) = -64 - 32 + 76 + 20 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-21$): uses only $h(1) = 0$ and assumes $a = 0$, reading $b = -21$ straight off.\n* Choice C ($-2$): solves the system correctly but reports $a$ instead of $b$.\n* Choice D ($5$): reports the third zero, since $h(x) = (x + 4)(x - 1)(x - 5)$.\n\n**Test Day Takeaway:** Each stated factor is one equation in the unknown constants — build the system, solve it, then answer the constant the question names."
+}

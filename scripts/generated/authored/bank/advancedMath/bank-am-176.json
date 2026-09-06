@@ -1,0 +1,40 @@
+{
+  "id": "bank-am-176",
+  "question": "The graph of the function $g$ is shown in the $xy$-plane, and the function $f$ is defined by $f(x) = 2x + 5$. What is the value of $f(g(1))$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        2,
+        -3
+      ],
+      "a": 1,
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-2$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$5$"
+    },
+    {
+      "id": "D",
+      "text": "$17$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports $g(1) = -2$ and stops before applying $f$",
+    "C": "computes $f(1) + g(1) = 7 + (-2)$ instead of the composition",
+    "D": "reads $g(-1) = 6$ from the graph instead of $g(1) = -2$"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The graph gives $g(1) = -2$, and $f(-2) = -4 + 5 = 1$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function from the graph. At $x = 1$ the curve passes through $(1, -2)$, so $g(1) = -2$.\nStep 2: Use that output as the input to $f$: $f(g(1)) = f(-2) = 2(-2) + 5$.\nStep 3: That equals $-4 + 5 = 1$. Check: the vertex of the graph is $(2, -3)$, and $(1, -2)$ is one unit left and one unit up from it, consistent with reading $g(1) = -2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): this is $g(1)$, read correctly but never fed into $f$.\n* Choice C ($5$): adding $f(1) = 7$ and $g(1) = -2$ treats the composition as a sum.\n* Choice D ($17$): reading the graph at $x = -1$ gives $6$, and $f(6) = 17$.\n\n**Test Day Takeaway:** A graph is just another way to state the inner function; read the output at the given $x$, then substitute that number into the outer rule."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-140",
+  "question": "The left side of the equation $x^2 - 9x + 20 = 0$ is the product of two binomials with integer constants. What are the solutions to this equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x = 4$ and $x = 5$"
+    },
+    {
+      "id": "B",
+      "text": "$x = -5$ and $x = -4$"
+    },
+    {
+      "id": "C",
+      "text": "$x = -5$ and $x = 4$"
+    },
+    {
+      "id": "D",
+      "text": "$x = 9$ and $x = 20$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "factors as $(x+4)(x+5)$, which expands to $x^2 + 9x + 20$",
+    "C": "keeps one sign from the factoring and flips the other, giving $(x+5)(x-4)$",
+    "D": "reads the coefficient and the constant of the equation as the solutions"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Two numbers multiplying to $20$ and adding to $-9$ are $-4$ and $-5$, so $(x-4)(x-5) = 0$ and $x = 4$ or $x = 5$.\n\n**The Full Solution:**\nStep 1: To factor $x^2 - 9x + 20$, look for two integers whose product is $20$ and whose sum is $-9$. Since the product is positive and the sum is negative, both integers are negative.\nStep 2: The pairs multiplying to $20$ are $(-1, -20)$, $(-2, -10)$, and $(-4, -5)$; only $-4$ and $-5$ add to $-9$. So $x^2 - 9x + 20 = (x - 4)(x - 5)$.\nStep 3: Setting each factor to zero gives $x = 4$ and $x = 5$. Check: $4^2 - 9(4) + 20 = 0$ and $5^2 - 9(5) + 20 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: both signs are flipped, which factors $x^2 + 9x + 20$ instead of the given equation.\n* Choice C: mixed signs give a product of $-20$, not $+20$, so this pair cannot come from this equation.\n* Choice D: the numbers $9$ and $20$ are coefficients, not solutions; substituting $9$ gives $20$, not $0$.\n\n**Test Day Takeaway:** Read the signs off the quadratic first: a positive constant with a negative middle term means both factors are subtractions."
+}

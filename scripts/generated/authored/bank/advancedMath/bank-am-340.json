@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-340",
+  "question": "The expression $\\dfrac{\\left(3x^4\\right)^3}{9x^5}$ is defined for $x > 0$. Which of the following is equivalent to this expression?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3x^2$"
+    },
+    {
+      "id": "B",
+      "text": "$3x^{17}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{x^7}{3}$"
+    },
+    {
+      "id": "D",
+      "text": "$3x^7$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds 4 and 3 in the numerator",
+    "B": "adds the exponents when dividing",
+    "C": "does not cube the coefficient"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** $\\left(3x^4\\right)^3 = 27x^{12}$, and $\\dfrac{27x^{12}}{9x^5} = 3x^7$.\n\n**The Full Solution:**\nStep 1: Raise both factors inside the parentheses to the third power: $\\left(3x^4\\right)^3 = 3^3 \\cdot x^{4 \\cdot 3} = 27x^{12}$.\nStep 2: Divide the coefficients: $\\dfrac{27}{9} = 3$.\nStep 3: Subtract the exponents: $x^{12-5} = x^7$, so the expression is $3x^7$. Check: $3x^7 \\cdot 9x^5 = 27x^{12}$, which is $\\left(3x^4\\right)^3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x^2$): adds $4 + 3$ inside the parentheses, using $27x^7$ in the numerator.\n* Choice B ($3x^{17}$): adds the exponents when dividing instead of subtracting them.\n* Choice C ($\\dfrac{x^7}{3}$): raises only $x^4$ to the third power and leaves the $3$ alone, using $3x^{12}$ in the numerator.\n\n**Test Day Takeaway:** A power outside parentheses hits every factor inside — the coefficient gets raised to that power too."
+}

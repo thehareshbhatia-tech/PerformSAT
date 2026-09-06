@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-273",
+  "question": "A principal of $\\$1{,}800$ is invested in a bond fund that earns $7\\%$ interest, compounded annually. To the nearest dollar, what is the value of the investment, in dollars, after $4$ years?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2{,}205$"
+    },
+    {
+      "id": "B",
+      "text": "$2{,}304$"
+    },
+    {
+      "id": "C",
+      "text": "$2{,}359$"
+    },
+    {
+      "id": "D",
+      "text": "$7{,}704$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses an exponent of $3$ instead of $4$",
+    "B": "uses simple interest: $1{,}800(1 + 0.07 \\cdot 4)$",
+    "D": "multiplies by $1.07$ once and then by $4$"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $1{,}800(1.07)^4 \\approx 1{,}800(1.3108) \\approx 2{,}359$.\n\n**The Full Solution:**\nStep 1: Annual compounding at $7\\%$ multiplies the balance by $1.07$ each year, so after $4$ years the value is $1{,}800(1.07)^4$.\nStep 2: $(1.07)^4 \\approx 1.310796$.\nStep 3: $1{,}800(1.310796) \\approx 2{,}359.43$, which is $\\$2{,}359$ to the nearest dollar. Check: the interest earned, about $\\$559$, is more than $4$ years of simple interest ($\\$504$), as compounding requires. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2{,}205$): this is $1{,}800(1.07)^3 \\approx 2{,}205$ — one compounding period short.\n* Choice B ($2{,}304$): this is simple interest, $1{,}800(1.28)$, which ignores interest earned on interest.\n* Choice D ($7{,}704$): this computes $1{,}800(1.07)(4)$, multiplying by the number of years instead of raising to that power.\n\n**Test Day Takeaway:** The number of periods belongs in the EXPONENT. If your answer is several times the principal after a few years at a small rate, you multiplied when you should have raised a power."
+}

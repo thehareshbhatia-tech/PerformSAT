@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-297",
+  "question": "The expression $4x^2 + 40x + 9$ can be written in the form $a(x + b)^2 + c$, where $a$, $b$, and $c$ are constants. What is the value of $a + b + c$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-377$"
+    },
+    {
+      "id": "B",
+      "text": "$-82$"
+    },
+    {
+      "id": "C",
+      "text": "$-7$"
+    },
+    {
+      "id": "D",
+      "text": "$100$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "halves $40$ before factoring out the $4$, giving $b = 10$ and $c = 9 - 400$",
+    "C": "subtracts $25$ instead of $4(25) = 100$",
+    "D": "adds $91$ instead of subtracting it"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Completing the Square**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** $4(x^2 + 10x) + 9 = 4(x + 5)^2 - 100 + 9 = 4(x + 5)^2 - 91$, so $a + b + c = 4 + 5 - 91 = -82$.\n\n**The Full Solution:**\nStep 1: Factor $4$ out of the $x$-terms: $4x^2 + 40x + 9 = 4(x^2 + 10x) + 9$.\nStep 2: Complete the square inside: half of $10$ is $5$, so $x^2 + 10x = (x + 5)^2 - 25$, giving $4\\left[(x + 5)^2 - 25\\right] + 9$.\nStep 3: Distribute: $4(x + 5)^2 - 100 + 9 = 4(x + 5)^2 - 91$. So $a = 4$, $b = 5$, $c = -91$ and $a + b + c = -82$. Check by expanding: $4(x^2 + 10x + 25) - 91 = 4x^2 + 40x + 100 - 91 = 4x^2 + 40x + 9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-377$): halving $40$ before factoring out the $4$ gives $b = 10$ and $c = 9 - 400 = -391$, so $4 + 10 - 391 = -377$.\n* Choice C ($-7$): the correction $25$ was subtracted without being multiplied by $4$, giving $c = 9 - 25 = -16$ and $4 + 5 - 16 = -7$.\n* Choice D ($100$): the sign of $c$ was dropped, giving $4 + 5 + 91$.\n\n**Test Day Takeaway:** The number you subtract at the end is $a$ times the square you added inside the brackets — that factor of $a$ is the most commonly dropped step."
+}

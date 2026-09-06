@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-261",
+  "question": "The graph of $y = q(x)$ in the $xy$-plane passes through the point $(-3, 8)$. Which of the following points must lie on the graph of $y = -q(-x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-8, 3)$"
+    },
+    {
+      "id": "B",
+      "text": "$(-3, -8)$"
+    },
+    {
+      "id": "C",
+      "text": "$(3, -8)$"
+    },
+    {
+      "id": "D",
+      "text": "$(3, 8)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "negates both coordinates but then writes them in the wrong order",
+    "B": "applies only the outside negative, giving $-q(x)$",
+    "D": "applies only the inside negative, giving $q(-x)$"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Two reflections: the inside negative flips $-3$ to $3$, and the outside negative flips $8$ to $-8$, giving $(3, -8)$.\n\n**The Full Solution:**\nStep 1: The given point means $q(-3) = 8$.\nStep 2: Let $s(x) = -q(-x)$. To use the known value, feed in $x = 3$: $s(3) = -q(-3)$.\nStep 3: Since $q(-3) = 8$, $s(3) = -8$, so the point $(3, -8)$ is on the graph. Check: reflecting $(-3, 8)$ across the $y$-axis gives $(3, 8)$, and reflecting that across the $x$-axis gives $(3, -8)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-8, 3)$): this is the correct pair of numbers written in the wrong order; neither reflection exchanges the roles of $x$ and $y$.\n* Choice B ($(-3, -8)$): only the output was negated, so the inside $-x$ was ignored.\n* Choice D ($(3, 8)$): only the input was negated, so the leading minus sign was ignored.\n\n**Test Day Takeaway:** With a sign inside AND outside, apply them one at a time: inside changes the $x$-coordinate, outside changes the $y$-coordinate."
+}

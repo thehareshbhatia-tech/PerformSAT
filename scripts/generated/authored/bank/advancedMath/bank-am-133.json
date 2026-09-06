@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-133",
+  "question": "The equation $x^2 + kx + 49 = 0$, where $k$ is a constant, has exactly one real solution. If $k < 0$, what is the value of $k$?",
+  "correctAnswer": "-14",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**The correct answer is $-14$.**\n\n**The Fast Way (~25s):** Exactly one real solution means $k^2 - 4(1)(49) = 0$, so $k^2 = 196$ and $k = \\pm 14$; the condition $k < 0$ gives $k = -14$.\n\n**The Full Solution:**\nStep 1: A quadratic has exactly one real solution when its discriminant is zero, so $k^2 - 4(1)(49) = 0$.\nStep 2: That gives $k^2 = 196$, so $k = 14$ or $k = -14$.\nStep 3: The condition $k < 0$ selects $k = -14$. Check: $x^2 - 14x + 49 = (x - 7)^2$, whose only zero is $x = 7$. $\\checkmark$\n\n**Common Mistakes:**\n* Reporting $14$, the positive root, even though the question restricts $k$ to negative values.\n* Taking $k = -7$ by using $\\sqrt{49}$ instead of $\\sqrt{4 \\cdot 49}$.\n* Setting the discriminant less than zero, which is the condition for no real solutions.\n\n**Test Day Takeaway:** $b^2 = 4ac$ always yields a matched pair $\\pm b$; the stated inequality is there to pick one."
+}

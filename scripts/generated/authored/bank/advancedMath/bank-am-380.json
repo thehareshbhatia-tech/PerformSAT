@@ -1,0 +1,49 @@
+{
+  "id": "bank-am-380",
+  "question": "The graph of $y = f(x)$ is shown in the $xy$-plane. The graph of $y = -f(x) + 4$ can be obtained from the graph of $f$ by which sequence of transformations?",
+  "diagram": {
+    "type": "cubicGraph",
+    "params": {
+      "a": 0.2,
+      "roots": [
+        -4,
+        0,
+        3
+      ],
+      "xRange": [
+        -6,
+        6
+      ],
+      "yRange": [
+        -10,
+        10
+      ],
+      "label": "y = f(x)"
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "A reflection across the $x$-axis, then a translation up $4$ units"
+    },
+    {
+      "id": "B",
+      "text": "A reflection across the $x$-axis, then a translation right $4$ units"
+    },
+    {
+      "id": "C",
+      "text": "A reflection across the $y$-axis, then a translation up $4$ units"
+    },
+    {
+      "id": "D",
+      "text": "A translation up $4$ units, then a reflection across the $x$-axis"
+    }
+  ],
+  "distractorNotes": {
+    "B": "treats the outside $+4$ as a horizontal shift",
+    "C": "confuses $-f(x)$ with $f(-x)$",
+    "D": "applies the two steps in the wrong order"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The leading minus flips outputs across the $x$-axis; the $+4$ then lifts the whole picture $4$ units.\n\n**The Full Solution:**\nStep 1: In $-f(x)$ the negative multiplies the OUTPUT, so each point $(x, y)$ becomes $(x, -y)$ — a reflection across the $x$-axis.\nStep 2: Adding $4$ afterward sends $(x, -y)$ to $(x, -y + 4)$ — a translation up $4$ units.\nStep 3: The graph shown has a zero at $x = 3$, where $y = 0$; after both steps that point sits at $(3, 4)$, on the line $y = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: reflects correctly but reads the outside $+4$ as a horizontal shift, which would require $-f(x - 4)$.\n* Choice C: confuses $-f(x)$ with $f(-x)$; only $f(-x)$ reflects across the $y$-axis.\n* Choice D: reverses the order, producing $-(f(x) + 4) = -f(x) - 4$, which lands $8$ units below the correct graph.\n\n**Test Day Takeaway:** Read a composed transformation in the order the operations reach the output: reflect first when the negative sits outside, then translate."
+}

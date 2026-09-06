@@ -1,0 +1,56 @@
+{
+  "id": "bank-am-178",
+  "question": "The function $f$ is defined by $f(x) = x^2 + 3$, and the table lists the value of the function $g$ at four values of $x$. If $f(g(a)) = 28$ and $g(a) > 0$, what is the value of $a$?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "g(x)"
+      ],
+      "rows": [
+        [
+          "1",
+          "25"
+        ],
+        [
+          "2",
+          "-5"
+        ],
+        [
+          "3",
+          "5"
+        ],
+        [
+          "4",
+          "28"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$1$"
+    },
+    {
+      "id": "B",
+      "text": "$2$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$4$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "solves $g(a) + 3 = 28$, treating $f$ as adding $3$, and looks up $g(a) = 25$",
+    "B": "uses the negative square root $g(a) = -5$, which the condition $g(a) > 0$ rules out",
+    "D": "searches the $g$ column for the target value $28$ instead of feeding $g(a)$ into $f$"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** $f(g(a)) = 28$ gives $g(a)^2 = 25$, so $g(a) = 5$ since $g(a) > 0$. The table shows $g(3) = 5$, so $a = 3$.\n\n**The Full Solution:**\nStep 1: Let $u = g(a)$. Then $f(u) = u^2 + 3 = 28$, so $u^2 = 25$ and $u = 5$ or $u = -5$.\nStep 2: The condition $g(a) > 0$ selects $u = 5$, so $g(a) = 5$.\nStep 3: Scan the table for the input whose output is $5$: the row $x = 3$ gives $g(3) = 5$, so $a = 3$. Check: $f(g(3)) = f(5) = 25 + 3 = 28$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): treating $f$ as adding $3$ gives $g(a) = 25$, which the table matches at $x = 1$.\n* Choice B ($2$): $g(2) = -5$ also squares to $25$, but the condition $g(a) > 0$ excludes it.\n* Choice D ($4$): $g(4) = 28$ matches the target value, but $28$ is the output of $f$, not of $g$.\n\n**Test Day Takeaway:** Name the inner output, solve the outer equation for it, apply the stated sign condition, and only then read the table backwards."
+}

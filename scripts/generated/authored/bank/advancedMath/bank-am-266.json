@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-266",
+  "question": "In the $xy$-plane, the graph of $y = f(x)$ has a minimum value of $-6$ and a maximum value of $15$. The function $g$ is defined by $g(x) = 3f(x)$. What is the maximum value of $g$?",
+  "correctAnswer": "45",
+  "explanation": "**SAT Pattern: Vertical Stretch**\n\n**The correct answer is $45$.**\n\n**The Fast Way (~15s):** Multiplying every output by the positive number $3$ multiplies the largest output by $3$: $3(15) = 45$.\n\n**The Full Solution:**\nStep 1: For every $x$, $-6 \\le f(x) \\le 15$.\nStep 2: Multiplying an inequality by the positive constant $3$ preserves the direction: $-18 \\le 3f(x) \\le 45$.\nStep 3: So $g(x) \\le 45$, with equality at the input where $f$ reaches $15$. The maximum value of $g$ is $45$. $\\checkmark$\n\n**Common Mistakes:**\n* Answering $18$ adds $3$ to the maximum instead of multiplying by it.\n* Answering $-18$ stretches the MINIMUM, $3(-6)$, which is the smallest output of $g$, not the largest.\n* Answering $5$ divides by $3$ instead of multiplying.\n\n**Test Day Takeaway:** Multiplying by a positive constant scales the maximum and the minimum by that constant and keeps them in the same roles."
+}

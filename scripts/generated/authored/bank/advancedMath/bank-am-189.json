@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-189",
+  "question": "The equation $3x^2 - 21x + 24 = 0$ has two distinct real solutions. What is the product of the two solutions?",
+  "correctAnswer": "8",
+  "explanation": "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~15s):** The product of the solutions is $\\dfrac{c}{a} = \\dfrac{24}{3} = 8$.\n\n**The Full Solution:**\nStep 1: Match the equation to $ax^2 + bx + c = 0$: $a = 3$, $b = -21$, $c = 24$.\nStep 2: For any quadratic with two solutions, their product is $\\dfrac{c}{a}$.\nStep 3: $\\dfrac{24}{3} = 8$. Check by dividing through by $3$: $x^2 - 7x + 8 = 0$, whose solutions multiply to $8$ and add to $7$. $\\checkmark$\n\n**Common Mistakes:** Answering $7$, which is the SUM $-\\frac{b}{a}$. Answering $24$, which forgets to divide by the leading coefficient $a = 3$. Attaching a negative sign — only the sum formula carries the minus.\n\n**Test Day Takeaway:** You never have to solve the quadratic: the product of the roots is $\\frac{c}{a}$, even when the roots themselves are irrational."
+}

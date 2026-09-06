@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-353",
+  "question": "The equation $x^2 - 9x + k = 0$, where $k$ is a constant, has two distinct real solutions. What is the greatest possible integer value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$20$"
+    },
+    {
+      "id": "C",
+      "text": "$21$"
+    },
+    {
+      "id": "D",
+      "text": "$40$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "forgets to square b",
+    "C": "rounds 20.25 up",
+    "D": "divides 81 by 2"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Two distinct real solutions means $81 - 4k > 0$, so $k < 20.25$ and the greatest integer is $20$.\n\n**The Full Solution:**\nStep 1: With $a = 1$ and $b = -9$, the discriminant is $81 - 4k$.\nStep 2: Two DISTINCT real solutions requires a strictly positive discriminant: $81 - 4k > 0$, so $4k < 81$ and $k < 20.25$.\nStep 3: The greatest integer strictly below $20.25$ is $20$. Check: $k = 20$ gives $81 - 80 = 1 > 0$ (two solutions), while $k = 21$ gives $81 - 84 = -3 < 0$ (none). $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): forgets to square $b$, solving $9 - 4k > 0$ to get $k < 2.25$.\n* Choice C ($21$): rounds $20.25$ up instead of taking the greatest integer below it, which pushes the discriminant negative.\n* Choice D ($40$): divides $81$ by $2$ instead of by $4$.\n\n**Test Day Takeaway:** Solve for the bound, then test the integer on each side of it — rounding in the wrong direction is the whole trap."
+}

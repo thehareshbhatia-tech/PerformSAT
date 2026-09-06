@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-339",
+  "question": "The expression $\\dfrac{20a^7b^5}{4a^3b^2}$ is defined for $a > 0$ and $b > 0$. Which of the following is equivalent to this expression?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$5a^{10}b^{7}$"
+    },
+    {
+      "id": "B",
+      "text": "$5a^{21}b^{10}$"
+    },
+    {
+      "id": "C",
+      "text": "$5a^4b^3$"
+    },
+    {
+      "id": "D",
+      "text": "$16a^4b^3$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds the exponents",
+    "B": "multiplies the exponents",
+    "D": "subtracts the coefficients"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Divide the coefficients and subtract the exponents: $\\dfrac{20}{4} = 5$, $a^{7-3} = a^4$, $b^{5-2} = b^3$.\n\n**The Full Solution:**\nStep 1: Split the quotient into three factors: $\\dfrac{20}{4} \\cdot \\dfrac{a^7}{a^3} \\cdot \\dfrac{b^5}{b^2}$.\nStep 2: The coefficients divide to $5$, and the quotient rule $\\dfrac{x^m}{x^n} = x^{m-n}$ gives $a^4$ and $b^3$.\nStep 3: The expression equals $5a^4b^3$. Check: $5a^4b^3 \\cdot 4a^3b^2 = 20a^7b^5$, the original numerator. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5a^{10}b^{7}$): adds the exponents, which is the rule for multiplying, not dividing.\n* Choice B ($5a^{21}b^{10}$): multiplies the exponents, which is the rule for a power of a power.\n* Choice D ($16a^4b^3$): subtracts the coefficients, $20 - 4$, instead of dividing them.\n\n**Test Day Takeaway:** Coefficients divide; exponents on the same base subtract. The two operations are not the same."
+}

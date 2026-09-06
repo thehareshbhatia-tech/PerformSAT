@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-142",
+  "question": "The equation $x^2 - 6x - 27 = 0$ has one positive solution and one negative solution. What is the positive solution?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-9$"
+    },
+    {
+      "id": "B",
+      "text": "$-3$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$9$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "flips the sign of the correct solution, as if the factors were $(x+9)(x-3)$",
+    "B": "reports the negative solution instead of the positive one",
+    "C": "flips the sign of the negative solution and reports that"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Quadratic via Factoring**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Two numbers multiplying to $-27$ and adding to $-6$ are $-9$ and $3$, so $(x - 9)(x + 3) = 0$ and the positive solution is $9$.\n\n**The Full Solution:**\nStep 1: Factor $x^2 - 6x - 27$ by finding two integers with product $-27$ and sum $-6$. A negative product means the integers have opposite signs.\nStep 2: The pair $-9$ and $3$ works, since $(-9)(3) = -27$ and $-9 + 3 = -6$. So the equation is $(x - 9)(x + 3) = 0$.\nStep 3: The solutions are $x = 9$ and $x = -3$, so the positive solution is $9$. Check: $9^2 - 6(9) - 27 = 81 - 54 - 27 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): the sign inside the factor $(x - 9)$ is carried straight to the answer instead of being reversed.\n* Choice B ($-3$): this is the negative solution; the question asks for the positive one.\n* Choice C ($3$): the constant $3$ appears in the factor $(x + 3)$, whose solution is $-3$, not $3$.\n\n**Test Day Takeaway:** After factoring, each solution is the opposite of the constant in its factor; then reread which solution is requested."
+}

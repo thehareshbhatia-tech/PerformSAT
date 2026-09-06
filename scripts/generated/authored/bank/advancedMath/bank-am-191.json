@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-191",
+  "question": "In the equation $3x^2 + bx - 45 = 0$, where $b$ is a constant, one of the two solutions is $5$. What is the other solution?",
+  "correctAnswer": "-3",
+  "explanation": "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**The correct answer is $-3$.**\n\n**The Fast Way (~20s):** The solutions multiply to $\\dfrac{-45}{3} = -15$, so the other one is $\\dfrac{-15}{5} = -3$.\n\n**The Full Solution:**\nStep 1: Since $b$ is unknown, use the product: for $ax^2 + bx + c = 0$ the solutions multiply to $\\dfrac{c}{a} = \\dfrac{-45}{3} = -15$.\nStep 2: If one solution is $5$ and the other is $r$, then $5r = -15$.\nStep 3: $r = -3$. Check: the sum is $5 + (-3) = 2 = -\\frac{b}{3}$, so $b = -6$, and $3x^2 - 6x - 45 = 3(x - 5)(x + 3)$. $\\checkmark$\n\n**Common Mistakes:** Answering $3$, which drops the negative sign carried by $c = -45$. Answering $-9$, which divides $-45$ by $5$ without first dividing by the leading coefficient $3$.\n\n**Test Day Takeaway:** When the MIDDLE coefficient is the unknown, the product relationship is the one that still works — it uses only $a$ and $c$."
+}

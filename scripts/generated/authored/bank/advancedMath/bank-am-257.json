@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-257",
+  "question": "In the $xy$-plane, the graph of $y = m(x)$ contains the point $(-5, 12)$. Which of the following points must be on the graph of $y = -m(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-12, 5)$"
+    },
+    {
+      "id": "B",
+      "text": "$(-5, -12)$"
+    },
+    {
+      "id": "C",
+      "text": "$(5, 12)$"
+    },
+    {
+      "id": "D",
+      "text": "$(5, -12)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "negates both coordinates and then swaps them, a reflection across the line $y = -x$",
+    "C": "reflects across the $y$-axis, which is $m(-x)$",
+    "D": "negates both coordinates"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Keep the input, negate the output: $(-5,\\ -12)$.\n\n**The Full Solution:**\nStep 1: The given point means $m(-5) = 12$.\nStep 2: Let $n(x) = -m(x)$. Then $n(-5) = -m(-5) = -12$.\nStep 3: So $(-5, -12)$ is on the graph of $y = -m(x)$. Check: the two points are the same distance from the $x$-axis on opposite sides, which is what reflecting across the $x$-axis means. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-12, 5)$): both coordinates were negated and then swapped, which reflects the point across the line $y = -x$; the sign in front of $m$ never moves the $x$-coordinate.\n* Choice C ($(5, 12)$): only the $x$-coordinate was negated, which is the graph of $y = m(-x)$.\n* Choice D ($(5, -12)$): both coordinates were negated, which is a rotation about the origin, not a single reflection.\n\n**Test Day Takeaway:** The minus sign in front of the function touches the $y$-coordinate only; the $x$-coordinate stays put."
+}

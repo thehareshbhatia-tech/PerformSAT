@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-411",
+  "question": "For the function $q$, the value of $q(x)$ decreases by $20\\%$ for every increase in the value of $x$ by $1$. Given that $q(3) = 128$, which of the following equations defines $q$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$q(x) = 128(0.2)^x$"
+    },
+    {
+      "id": "B",
+      "text": "$q(x) = 128(0.8)^x$"
+    },
+    {
+      "id": "C",
+      "text": "$q(x) = 250(0.8)^x$"
+    },
+    {
+      "id": "D",
+      "text": "$q(x) = 250(1.2)^x$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses the percent lost as the base and keeps $128$ as the initial value",
+    "B": "has the right base but reads $q(3)$ as the value at $x = 0$",
+    "D": "treats the $20\\%$ decrease as a $20\\%$ increase"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Exponential Decay — Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Losing $20\\%$ leaves the base $0.8$, and the value given sits at $x = 3$, so $q(0) = \\dfrac{128}{0.8^3} = \\dfrac{128}{0.512} = 250$.\n\n**The Full Solution:**\nStep 1: A constant percent change per unit increase in $x$ is exponential: $q(x) = a(b)^x$, where $a = q(0)$. Decreasing by $20\\%$ leaves $100\\% - 20\\% = 80\\%$ of the previous value, so $b = 0.8$.\nStep 2: The value supplied is at $x = 3$, not at $x = 0$, so $a$ is not $128$. Substitute: $a(0.8)^3 = 128$, and $(0.8)^3 = \\dfrac{64}{125}$, so $\\dfrac{64a}{125} = 128$.\nStep 3: $a = 128 \\cdot \\dfrac{125}{64} = 250$, so $q(x) = 250(0.8)^x$. Check by stepping down from $x = 0$: $250 \\to 200 \\to 160 \\to 128$, each value $80\\%$ of the one before. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: uses the percent LOST as the base and keeps $128$ as the starting value; that model gives $q(3) = 128(0.008) = 1.024$, not $128$.\n* Choice B: has the correct base but reads $q(3) = 128$ as the value at $x = 0$; that model gives $q(3) = 128(0.512) = 65.536$.\n* Choice D: builds the base as $1 + 0.20$, which models a $20\\%$ increase, so the values would rise rather than fall.\n\n**Test Day Takeaway:** The coefficient in $a(b)^x$ is the value at $x = 0$ — when the problem hands you the value at a different input, divide by the base that many times before writing the model."
+}

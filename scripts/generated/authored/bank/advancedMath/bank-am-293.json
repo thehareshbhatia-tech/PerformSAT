@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-293",
+  "question": "When $f(x) = x^2 + 16x + 5$ is written in the form $(x + a)^2 + b$, where $a$ and $b$ are constants, what is the value of $b$?",
+  "correctAnswer": "-59",
+  "explanation": "**SAT Pattern: Completing the Square**\n\n**The correct answer is $-59$.**\n\n**The Fast Way (~25s):** $a = \\dfrac{16}{2} = 8$, and $b = 5 - 8^2 = 5 - 64 = -59$.\n\n**The Full Solution:**\nStep 1: Expanding the target form gives $(x + a)^2 + b = x^2 + 2ax + a^2 + b$.\nStep 2: Matching the $x$-coefficients: $2a = 16$, so $a = 8$.\nStep 3: Matching the constants: $a^2 + b = 5$, so $64 + b = 5$ and $b = -59$. Check: $(x + 8)^2 - 59 = x^2 + 16x + 64 - 59 = x^2 + 16x + 5$. $\\checkmark$\n\n**Common Mistakes:**\n* Answering $8$ reports $a$ rather than $b$.\n* Answering $-64$ subtracts the square but forgets to add the original constant $5$.\n* Answering $69$ adds instead of subtracts: $5 + 64$, which would make the expansion $x^2 + 16x + 133$.\n\n**Test Day Takeaway:** Match coefficients term by term. The constant equation is $a^2 + b = c$, so $b = c - a^2$ — never just $-a^2$."
+}

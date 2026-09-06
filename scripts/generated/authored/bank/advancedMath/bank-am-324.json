@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-324",
+  "question": "The expression $7^{2x}$ is equal to $7^{10}$ for exactly one value of $x$. What is that value?",
+  "correctAnswer": "5",
+  "explanation": "**SAT Pattern: Exponential Equation with Common Base**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** The bases already match, so $2x = 10$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: Both sides are powers of $7$, so the exponents must be equal: $2x = 10$.\nStep 2: Divide each side by $2$.\nStep 3: $x = 5$. Check: $7^{2(5)} = 7^{10}$. $\\checkmark$\n\n**Common Mistakes:** Answering $10$ sets $x$ equal to the exponent on the right without undoing the coefficient $2$. Answering $20$ multiplies by $2$ instead of dividing. Trying to compute $7^{10}$ as a number wastes time; the bases match, so only the exponents matter.\n\n**Test Day Takeaway:** Once the bases agree, the problem is the linear equation formed by the exponents."
+}

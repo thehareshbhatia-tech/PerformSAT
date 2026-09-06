@@ -1,0 +1,40 @@
+{
+  "id": "bank-am-166",
+  "question": "The graph of $g(x) = 3x^2 + bx + 7$, where $b$ is a constant, is shown in the $xy$-plane with its minimum at the marked point. What is the value of $b$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        -2,
+        -5
+      ],
+      "a": 3,
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-12$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$12$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "drops the minus sign in $x = -\\frac{b}{2a}$ and solves $\\frac{b}{6} = -2$",
+    "B": "forgets the leading coefficient and solves $-\\frac{b}{2} = -2$",
+    "C": "uses $x = -\\frac{b}{a}$ instead of $x = -\\frac{b}{2a}$"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** The minimum is at $x = -2$, and the vertex of $g$ sits at $x = -\\dfrac{b}{2(3)}$, so $-\\dfrac{b}{6} = -2$ and $b = 12$.\n\n**The Full Solution:**\nStep 1: For $g(x) = ax^2 + bx + c$ the vertex has $x$-coordinate $-\\dfrac{b}{2a}$. Here $a = 3$, so that $x$-coordinate is $-\\dfrac{b}{6}$.\nStep 2: The graph shows the minimum at $x = -2$, so $-\\dfrac{b}{6} = -2$, which gives $b = 12$.\nStep 3: Check with the marked point $(-2, -5)$: $g(-2) = 3(4) + 12(-2) + 7 = 12 - 24 + 7 = -5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): dropping the minus sign in $-\\frac{b}{2a}$ reverses the answer.\n* Choice B ($4$): using $-\\frac{b}{2}$ ignores the leading coefficient $3$.\n* Choice C ($6$): using $-\\frac{b}{a}$ leaves out the factor of $2$ in the denominator.\n\n**Test Day Takeaway:** The vertex formula is $x = -\\frac{b}{2a}$; both the minus sign and the $2a$ have to be there when you solve for $b$."
+}

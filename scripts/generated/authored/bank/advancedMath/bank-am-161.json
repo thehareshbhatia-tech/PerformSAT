@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-161",
+  "question": "In the equation $5x^2 + 20x + c = 0$, $c$ is a constant and the equation has no real solutions. What is the least integer value of $c$?",
+  "correctAnswer": "21",
+  "explanation": "**SAT Pattern: Discriminant with Integer Bound**\n\n**The correct answer is $21$.**\n\n**The Fast Way (~30s):** No real solutions means $400 - 20c < 0$, so $c > 20$ and the least integer is $21$.\n\n**The Full Solution:**\nStep 1: With $a = 5$ and $b = 20$, the discriminant is $20^2 - 4(5)(c) = 400 - 20c$.\nStep 2: No real solutions requires $400 - 20c < 0$, so $20c > 400$ and $c > 20$.\nStep 3: The least integer strictly greater than $20$ is $21$. Check: $c = 21$ gives $400 - 420 = -20 < 0$, while $c = 20$ gives $0$, exactly one real solution. $\\checkmark$\n\n**Common Mistakes:**\n* Answering $20$, the boundary, which produces a single repeated solution.\n* Forgetting the leading coefficient and solving $400 - 4c < 0$, which gives $c > 100$.\n* Failing to reverse the inequality after dividing by $-20$.\n\n**Test Day Takeaway:** Keep the leading coefficient inside $4ac$; then take the first integer past the boundary, never the boundary itself."
+}

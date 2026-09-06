@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-121",
+  "question": "The expression $\\dfrac{18a^7b^2}{6a^3b^5}$ is defined for $a \\neq 0$ and $b \\neq 0$. Which of the following is equivalent to this expression?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\dfrac{3a^4}{b^3}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{3b^3}{a^4}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{3a^{10}}{b^{7}}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{12a^4}{b^3}$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "subtracts each pair of exponents in the wrong direction, so the surviving powers land under the wrong variables",
+    "C": "adds the exponents ($7+3$ and $2+5$) instead of subtracting them",
+    "D": "subtracts the coefficients, $18-6=12$, instead of dividing them"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Divide the coefficients, $18 \\div 6 = 3$, and subtract exponents on matching bases: $a^{7-3} = a^4$ and $b^{2-5} = b^{-3}$, which gives $\\dfrac{3a^4}{b^3}$.\n\n**The Full Solution:**\nStep 1: Split the quotient into a coefficient part and one part per base: $\\dfrac{18}{6}\\cdot\\dfrac{a^7}{a^3}\\cdot\\dfrac{b^2}{b^5}$.\nStep 2: Apply $\\dfrac{x^m}{x^n} = x^{m-n}$ to each base. The coefficient is $3$, the $a$ part is $a^{7-3} = a^4$, and the $b$ part is $b^{2-5} = b^{-3}$.\nStep 3: A negative exponent means the factor belongs in the denominator, so $3a^4b^{-3} = \\dfrac{3a^4}{b^3}$. Check with $a = b = 2$: the original is $\\dfrac{18 \\cdot 128 \\cdot 4}{6 \\cdot 8 \\cdot 32} = 6$, and $\\dfrac{3 \\cdot 16}{8} = 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: the exponents are subtracted in the wrong direction, so $a$ and $b$ trade places; $a^{3-7}$ and $b^{5-2}$ describe the reciprocal of the answer.\n* Choice C: adding exponents is the rule for multiplying powers, not dividing them; it produces $a^{10}$ and $b^{7}$.\n* Choice D: the coefficients are divided, not subtracted, so $18 - 6 = 12$ is the wrong first move.\n\n**Test Day Takeaway:** Handle the number and each base separately. Divide coefficients, subtract exponents top minus bottom, then move any negative exponent across the fraction bar."
+}

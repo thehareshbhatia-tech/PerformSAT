@@ -1,0 +1,46 @@
+{
+  "id": "bank-am-267",
+  "question": "The graph of $y = f(x)$ is shown in the $xy$-plane, and the marked point is the $y$-intercept of the graph. The function $g$ is defined by $g(x) = \\dfrac{1}{3}f(x)$. What is the $y$-intercept of the graph of $y = g(x)$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        3,
+        0
+      ],
+      "a": 1,
+      "showVertex": false,
+      "showPoints": [
+        [
+          0,
+          9
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(0, 3)$"
+    },
+    {
+      "id": "B",
+      "text": "$(0, 6)$"
+    },
+    {
+      "id": "C",
+      "text": "$(0, 12)$"
+    },
+    {
+      "id": "D",
+      "text": "$(0, 27)$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "subtracts $3$ instead of dividing by $3$",
+    "C": "adds $3$ to the output",
+    "D": "multiplies by $3$ instead of by $\\dfrac{1}{3}$"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Vertical Stretch**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The marked point says $f(0) = 9$, so $g(0) = \\dfrac{1}{3}(9) = 3$.\n\n**The Full Solution:**\nStep 1: The $y$-intercept of a graph is the point where $x = 0$. From the figure, that point is $(0, 9)$, so $f(0) = 9$.\nStep 2: $g(0) = \\dfrac{1}{3}f(0) = \\dfrac{1}{3}(9) = 3$.\nStep 3: So the $y$-intercept of $y = g(x)$ is $(0, 3)$. Check: multiplying by $\\dfrac{1}{3}$ pulls every point one third of the way to the $x$-axis, and $3$ is one third of $9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($(0, 6)$): this computes $9 - 3$, treating the factor as a downward shift.\n* Choice C ($(0, 12)$): this computes $9 + 3$, an upward shift.\n* Choice D ($(0, 27)$): this multiplies by $3$; a factor of $\\dfrac{1}{3}$ compresses the graph toward the axis.\n\n**Test Day Takeaway:** A factor between $0$ and $1$ shrinks outputs toward the $x$-axis. Apply it to the intercept's $y$-coordinate and leave $x = 0$ alone."
+}

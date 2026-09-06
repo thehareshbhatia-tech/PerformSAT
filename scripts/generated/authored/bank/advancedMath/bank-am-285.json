@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-285",
+  "question": "For which value of $x$ are the two sides of the equation $\\dfrac{x^2}{x + 6} = \\dfrac{36}{x + 6} - 5$ equal?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-6$"
+    },
+    {
+      "id": "B",
+      "text": "$-1$"
+    },
+    {
+      "id": "C",
+      "text": "$1$"
+    },
+    {
+      "id": "D",
+      "text": "$6$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "the extraneous root, which makes both denominators zero",
+    "B": "factors $x^2 + 5x - 6$ as $(x + 1)(x - 6)$ and takes the negative root",
+    "D": "uses that same reversed factoring and takes the positive root"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Multiplying by $x + 6$ gives $x^2 = 6 - 5x$, so $(x + 6)(x - 1) = 0$. The root $x = -6$ is excluded, leaving $x = 1$.\n\n**The Full Solution:**\nStep 1: The denominators exclude $x = -6$. For every other $x$, multiply each term by $x + 6$: $x^2 = 36 - 5(x + 6)$.\nStep 2: Simplify: $x^2 = 36 - 5x - 30 = 6 - 5x$, so $x^2 + 5x - 6 = 0$, which factors as $(x + 6)(x - 1) = 0$.\nStep 3: The candidates are $x = -6$ and $x = 1$; the first is excluded, so only $x = 1$ works. Check: $\\dfrac{1}{7}$ on the left, and $\\dfrac{36}{7} - 5 = \\dfrac{36 - 35}{7} = \\dfrac{1}{7}$ on the right. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): this root comes out of the algebra but makes both denominators zero, so it is extraneous.\n* Choice B ($-1$): this comes from factoring $x^2 + 5x - 6$ as $(x + 1)(x - 6)$, which expands to $x^2 - 5x - 6$.\n* Choice D ($6$): this is the other root of that same incorrect factoring.\n\n**Test Day Takeaway:** Multiplying by a variable denominator can create a root that was never legal. Factor, then delete any candidate that zeroes a denominator."
+}

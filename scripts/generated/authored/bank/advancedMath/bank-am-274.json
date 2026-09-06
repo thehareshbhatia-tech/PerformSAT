@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-274",
+  "question": "A college fund earns $6\\%$ interest, compounded annually. What amount, in dollars, must be deposited today so that the fund is worth $\\$5{,}618$ after $2$ years?",
+  "correctAnswer": "5000",
+  "explanation": "**SAT Pattern: Compound Interest**\n\n**The correct answer is $5000$.**\n\n**The Fast Way (~25s):** Undo two years of growth by dividing: $\\dfrac{5{,}618}{(1.06)^2} = \\dfrac{5{,}618}{1.1236} = 5{,}000$.\n\n**The Full Solution:**\nStep 1: Let $P$ be the deposit. Two years of annual compounding at $6\\%$ gives $P(1.06)^2 = 5{,}618$.\nStep 2: $(1.06)^2 = 1.1236$, so $1.1236P = 5{,}618$.\nStep 3: $P = \\dfrac{5{,}618}{1.1236} = 5{,}000$. Check forward: $5{,}000(1.06) = 5{,}300$ and $5{,}300(1.06) = 5{,}618$. $\\checkmark$\n\n**Common Mistakes:**\n* Multiplying instead of dividing gives $5{,}618(1.1236) \\approx 6{,}312$, a future value rather than a present one.\n* Subtracting $12\\%$ of $\\$5{,}618$ gives about $\\$4{,}944$; percent decrease and percent increase do not undo each other.\n* Dividing by $1.12$ (two years of simple interest) gives about $\\$5{,}016$, missing the interest earned on interest.\n\n**Test Day Takeaway:** To move money backward in time, DIVIDE by the growth factor once per period; adding and subtracting the same percent never cancels."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-193",
+  "question": "The two solutions of $2x^2 + 9x + c = 0$, where $c$ is a constant, have a product of $-6$. What is the value of $c$?",
+  "correctAnswer": "-12",
+  "explanation": "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**The correct answer is $-12$.**\n\n**The Fast Way (~20s):** The product of the solutions is $\\dfrac{c}{a} = \\dfrac{c}{2}$, so $\\dfrac{c}{2} = -6$ and $c = -12$.\n\n**The Full Solution:**\nStep 1: For $ax^2 + bx + c = 0$, the product of the two solutions is $\\dfrac{c}{a}$; here $a = 2$.\nStep 2: Setting $\\dfrac{c}{2} = -6$ and multiplying both sides by $2$ gives $c = -12$.\nStep 3: Check with $2x^2 + 9x - 12 = 0$: dividing by $2$ gives $x^2 + 4.5x - 6 = 0$, whose solutions multiply to $-6$. $\\checkmark$\n\n**Common Mistakes:** Answering $-6$, reporting the product itself and forgetting that it equals $\\frac{c}{a}$, not $c$. Answering $-3$, which divides by $2$ instead of multiplying.\n\n**Test Day Takeaway:** $\\frac{c}{a} = \\text{product}$ rearranges to $c = a \\cdot \\text{product}$ — when $a \\neq 1$, the constant term is a multiple of the product, not equal to it."
+}

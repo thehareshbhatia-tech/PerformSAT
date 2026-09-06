@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-399",
+  "question": "In the $xy$-plane, the graph of $y = -3x^2 + 24x - 5$ is a parabola that opens downward. What is the maximum value of $y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-5$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$43$"
+    },
+    {
+      "id": "D",
+      "text": "$48$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the constant term",
+    "B": "reports the $x$-value of the vertex",
+    "D": "omits the constant term when evaluating"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The vertex is at $x = \\dfrac{-24}{2(-3)} = 4$, and $y = -3(16) + 96 - 5 = 43$.\n\n**The Full Solution:**\nStep 1: For $y = ax^2 + bx + c$ the vertex occurs at $x = -\\dfrac{b}{2a}$. Here $a = -3$ and $b = 24$, so $x = -\\dfrac{24}{-6} = 4$.\nStep 2: Substitute: $y = -3(4)^2 + 24(4) - 5 = -48 + 96 - 5$.\nStep 3: $y = 43$. Since $a < 0$ the parabola opens downward, so this is a maximum. Check by symmetry: $y = 40$ at both $x = 3$ and $x = 5$, on either side of $43$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): reports the constant term, which is the value at $x = 0$, not at the vertex.\n* Choice B ($4$): reports the $x$-value of the vertex instead of the maximum value.\n* Choice D ($48$): evaluates $-3(16) + 24(4)$ but forgets to subtract the constant $5$.\n\n**Test Day Takeaway:** $x = -\\dfrac{b}{2a}$ finds WHERE; you must substitute back — including the constant term — to get the maximum value."
+}

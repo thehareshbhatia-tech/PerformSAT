@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-271",
+  "question": "A certificate of deposit is opened with $\\$3{,}200$ and earns $2\\%$ interest, compounded annually. What is the value of the certificate, in dollars, at the end of $1$ year?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$64$"
+    },
+    {
+      "id": "B",
+      "text": "$3{,}136$"
+    },
+    {
+      "id": "C",
+      "text": "$3{,}264$"
+    },
+    {
+      "id": "D",
+      "text": "$3{,}328$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the interest earned instead of the new value",
+    "B": "subtracts the $2\\%$ instead of adding it",
+    "D": "uses $4\\%$, two years' worth of interest"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** One year of $2\\%$ growth multiplies by $1.02$: $3{,}200(1.02) = 3{,}264$.\n\n**The Full Solution:**\nStep 1: Compounding annually at $2\\%$ means the value after one year is the starting value plus $2\\%$ of it, which is $3{,}200 + 0.02(3{,}200)$.\nStep 2: $0.02(3{,}200) = 64$, so the value is $3{,}200 + 64$.\nStep 3: The value is $3{,}264$ dollars. Check: $3{,}200(1.02) = 3{,}264$, the same number by the multiplier method. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($64$): this is the interest earned in the year, not the value of the certificate.\n* Choice B ($3{,}136$): this subtracts $64$; interest is added to the balance.\n* Choice D ($3{,}328$): this applies $4\\%$, as if two years had passed.\n\n**Test Day Takeaway:** Turn a growth rate into a multiplier ($2\\% \\to 1.02$) and multiply once per compounding period."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-374",
+  "question": "The function $f$ is defined by $f(x) = 5x^2 - 3x - 8$. What is the value of $f(-3)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-44$"
+    },
+    {
+      "id": "B",
+      "text": "$28$"
+    },
+    {
+      "id": "C",
+      "text": "$46$"
+    },
+    {
+      "id": "D",
+      "text": "$226$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "treats $(-3)^2$ as $-9$",
+    "B": "computes $-3(-3)$ as $-9$",
+    "D": "squares $5x$ instead of $x$"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $5(9) - 3(-3) - 8 = 45 + 9 - 8 = 46$.\n\n**The Full Solution:**\nStep 1: Substitute: $f(-3) = 5(-3)^2 - 3(-3) - 8$.\nStep 2: $(-3)^2 = 9$, so the first term is $45$. The middle term is $-3(-3) = +9$.\nStep 3: $45 + 9 - 8 = 46$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-44$): treats $(-3)^2$ as $-9$, giving $-45 + 9 - 8$.\n* Choice B ($28$): computes $-3(-3)$ as $-9$, giving $45 - 9 - 8$.\n* Choice D ($226$): squares $5x$ instead of $x$: $(-15)^2 = 225$, then $225 + 9 - 8$.\n\n**Test Day Takeaway:** A negative input flips the sign of the linear term — expect the $-3x$ piece to ADD when $x$ is negative."
+}

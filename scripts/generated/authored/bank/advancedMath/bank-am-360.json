@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-360",
+  "question": "Which of the following is equivalent to the expression $3x^3 + 2x^2 - 12x - 8$, where $x$ is any real number?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(3x - 2)(x^2 + 4)$"
+    },
+    {
+      "id": "B",
+      "text": "$(3x + 2)(x^2 + 4)$"
+    },
+    {
+      "id": "C",
+      "text": "$(3x + 2)(x^2 - 4)$"
+    },
+    {
+      "id": "D",
+      "text": "$(3x - 2)(x^2 - 4)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "flips both signs",
+    "B": "factors +4 out of -12x - 8",
+    "D": "sign error in the binomial factor"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Group as $x^2(3x + 2) - 4(3x + 2)$; the common factor $3x + 2$ gives $(3x + 2)\\left(x^2 - 4\\right)$.\n\n**The Full Solution:**\nStep 1: Pair the terms: $\\left(3x^3 + 2x^2\\right) + (-12x - 8)$.\nStep 2: Factor each pair. The first gives $x^2(3x + 2)$; the second needs $-4$ pulled out to match, since $-4(3x + 2) = -12x - 8$.\nStep 3: Factoring out $3x + 2$ gives $(3x + 2)\\left(x^2 - 4\\right)$. Check: expanding gives $3x^3 - 12x + 2x^2 - 8 = 3x^3 + 2x^2 - 12x - 8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(3x - 2)(x^2 + 4)$): flips both signs and expands to $3x^3 - 2x^2 + 12x - 8$.\n* Choice B ($(3x + 2)(x^2 + 4)$): pulls $+4$ out of $-12x - 8$ instead of $-4$ and expands to $3x^3 + 2x^2 + 12x + 8$.\n* Choice D ($(3x - 2)(x^2 - 4)$): changes the sign inside the first binomial and expands to $3x^3 - 2x^2 - 12x + 8$.\n\n**Test Day Takeaway:** When the second pair starts with a minus, factor out a NEGATIVE so the binomial matches the first pair exactly."
+}

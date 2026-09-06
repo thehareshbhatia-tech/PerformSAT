@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-363",
+  "question": "The expression $6mn + 15m + 8n + 20$ can be written as the product of two binomials. Which of the following is that product?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(2n + 5)(3m + 4)$"
+    },
+    {
+      "id": "B",
+      "text": "$(2n + 4)(3m + 5)$"
+    },
+    {
+      "id": "C",
+      "text": "$(3n + 4)(2m + 5)$"
+    },
+    {
+      "id": "D",
+      "text": "$(2n + 5)(3m - 4)$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "swaps the constants 4 and 5",
+    "C": "attaches the coefficients to the wrong variables",
+    "D": "factors $-4$ out of the second pair"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $3m(2n + 5) + 4(2n + 5) = (2n + 5)(3m + 4)$.\n\n**The Full Solution:**\nStep 1: Group as $(6mn + 15m) + (8n + 20)$.\nStep 2: The first pair has common factor $3m$: $3m(2n + 5)$. The second pair has common factor $4$: $4(2n + 5)$.\nStep 3: Both share $2n + 5$, so the expression is $(2n + 5)(3m + 4)$. Expanding: $6mn + 8n + 15m + 20$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($(2n + 4)(3m + 5)$): swaps the constants $4$ and $5$; this expands to $6mn + 10n + 12m + 20$.\n* Choice C ($(3n + 4)(2m + 5)$): attaches the $3$ to $n$ and the $2$ to $m$, giving $6mn + 15n + 8m + 20$ — the $m$ and $n$ terms are interchanged.\n* Choice D ($(2n + 5)(3m - 4)$): factors $-4$ from $8n + 20$, which would require those terms to be negative.\n\n**Test Day Takeaway:** With two variables, check the expansion term by term — the $mn$ term matching is not enough, the single-variable terms must match too."
+}

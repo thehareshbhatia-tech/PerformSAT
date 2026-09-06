@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-272",
+  "question": "A deposit of $\\$4{,}500$ is made into an account that earns $3\\%$ interest, compounded annually, and no further deposits or withdrawals are made. Which of the following gives the account balance $B(t)$, in dollars, $t$ years after the deposit?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$B(t) = 4{,}500(0.03)^t$"
+    },
+    {
+      "id": "B",
+      "text": "$B(t) = 4{,}500(1.03)^t$"
+    },
+    {
+      "id": "C",
+      "text": "$B(t) = 4{,}500(1.3)^t$"
+    },
+    {
+      "id": "D",
+      "text": "$B(t) = 4{,}500 + 135t$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses the rate itself as the multiplier, which shrinks the balance",
+    "C": "misplaces the decimal point, modeling $30\\%$ growth",
+    "D": "models simple interest, adding the same $\\$135$ every year"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Compound growth is (starting amount)(multiplier)$^t$, and a $3\\%$ increase has multiplier $1 + 0.03 = 1.03$.\n\n**The Full Solution:**\nStep 1: Each year the balance is multiplied by $1 + r$, where $r = 0.03$ is the annual rate written as a decimal.\nStep 2: After $t$ years the starting amount has been multiplied by that factor $t$ times, giving $B(t) = 4{,}500(1.03)^t$.\nStep 3: Check with $t = 1$: $4{,}500(1.03) = 4{,}635$, which is $4{,}500$ plus $3\\%$ of $4{,}500$, or $\\$135$ of interest. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($B(t) = 4{,}500(0.03)^t$): a base of $0.03$ makes the balance shrink to $\\$135$ after one year.\n* Choice C ($B(t) = 4{,}500(1.3)^t$): a base of $1.3$ is $30\\%$ growth per year, ten times the stated rate.\n* Choice D ($B(t) = 4{,}500 + 135t$): this is simple interest — the same $\\$135$ each year — so it never earns interest on interest.\n\n**Test Day Takeaway:** Compound growth is multiplicative and lives in the exponent; simple interest is additive and lives in a linear term."
+}

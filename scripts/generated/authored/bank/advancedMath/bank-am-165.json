@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-165",
+  "question": "The function $f$ is defined by $f(x) = 9 - (x + 5)^2$. What is the maximum value of $f(x)$?",
+  "correctAnswer": "9",
+  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~20s):** The squared term is never negative, so subtracting it from $9$ makes $9$ the largest possible output.\n\n**The Full Solution:**\nStep 1: Rewrite the rule as $f(x) = -(x + 5)^2 + 9$, which is vertex form with $a = -1$, vertex $(-5, 9)$.\nStep 2: Since $(x + 5)^2 \\ge 0$ for every $x$, the term $-(x+5)^2$ is at most $0$, so $f(x) \\le 9$.\nStep 3: The value $9$ is reached when $x = -5$, so the maximum value is $9$. Check: $f(-5) = 9 - 0 = 9$ and $f(-4) = 9 - 1 = 8$. $\\checkmark$\n\n**Common Mistakes:**\n* Answering $-5$, the $x$-value where the maximum occurs, instead of the maximum value itself.\n* Answering $5$ by reading the constant inside the parentheses without flipping its sign.\n* Calling $9$ a minimum; the negative coefficient on the squared term opens the parabola downward.\n\n**Test Day Takeaway:** In vertex form the constant outside the square is the extreme value, and the sign in front of the square says whether it is a maximum or a minimum."
+}

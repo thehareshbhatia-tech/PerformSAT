@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-342",
+  "question": "A savings account is opened with a deposit of $\\$2{,}500$, and the balance increases by $4\\%$ each year. Which function $B$ gives the balance, in dollars, $t$ years after the account was opened?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$B(t) = 2{,}500(0.04)^t$"
+    },
+    {
+      "id": "B",
+      "text": "$B(t) = 2{,}500(4)^t$"
+    },
+    {
+      "id": "C",
+      "text": "$B(t) = 2{,}500(1.04)^t$"
+    },
+    {
+      "id": "D",
+      "text": "$B(t) = 2{,}500 + 100t$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses the rate as the growth factor",
+    "B": "uses the percent number as the factor",
+    "D": "adds simple interest each year"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Build Exponential Model**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Growing by $4\\%$ multiplies the balance by $1 + 0.04 = 1.04$ each year, so $B(t) = 2{,}500(1.04)^t$.\n\n**The Full Solution:**\nStep 1: The model is $B(t) = B_0(b)^t$ with $B_0 = 2{,}500$, the opening deposit.\nStep 2: An increase of $4\\%$ means the new balance is $100\\% + 4\\% = 104\\%$ of the old one, so $b = 1.04$.\nStep 3: $B(t) = 2{,}500(1.04)^t$. Check: after one year the balance is $2{,}500(1.04) = 2{,}600$, which is $\\$100$ more, exactly $4\\%$ of $\\$2{,}500$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($B(t) = 2{,}500(0.04)^t$): uses the rate itself as the factor, which would shrink the balance to $\\$100$ after one year.\n* Choice B ($B(t) = 2{,}500(4)^t$): uses the percent number $4$ as the factor, quadrupling the balance each year.\n* Choice D ($B(t) = 2{,}500 + 100t$): adds a flat $\\$100$ per year, which is simple interest rather than compounding.\n\n**Test Day Takeaway:** A percent increase becomes the factor $1 + r$, not $r$ — the original amount is still there after the growth."
+}

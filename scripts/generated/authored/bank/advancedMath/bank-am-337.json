@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-337",
+  "question": "In the $xy$-plane, a parabola has its vertex at $(-2, -18)$ and passes through the point $(1, 0)$. What is the distance between the parabola's two $x$-intercepts?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$9$"
+    },
+    {
+      "id": "D",
+      "text": "$18$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports half the distance",
+    "C": "stops at (x + 2)^2 = 9",
+    "D": "uses the depth of the vertex"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~55s):** The point $(1, 0)$ is an $x$-intercept $3$ units right of the axis $x = -2$, so the other intercept is $3$ units left, at $x = -5$. The distance is $6$.\n\n**The Full Solution:**\nStep 1: Vertex form gives $y = a(x + 2)^2 - 18$. Substituting $(1, 0)$ gives $0 = 9a - 18$, so $a = 2$.\nStep 2: Setting $y = 0$ gives $2(x + 2)^2 = 18$, so $(x + 2)^2 = 9$ and $x + 2 = \\pm 3$.\nStep 3: The intercepts are $x = 1$ and $x = -5$, a distance of $6$ apart. Check: their midpoint is $x = -2$, the axis of symmetry, as it must be. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the distance from the vertex to one intercept, which is half the answer.\n* Choice C ($9$): stops at $(x + 2)^2 = 9$ and reports $9$ instead of taking the square root.\n* Choice D ($18$): uses $18$, the vertex's distance below the $x$-axis, as a horizontal length.\n\n**Test Day Takeaway:** The vertex is the midpoint of the two $x$-intercepts, so one intercept plus the axis of symmetry already determines the other."
+}

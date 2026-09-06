@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-406",
+  "question": "The solutions of the equation $2x^2 + bx + c = 0$ are $-5$ and $\\dfrac{3}{2}$, where $b$ and $c$ are constants. What is the value of $b + c$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-22$"
+    },
+    {
+      "id": "B",
+      "text": "$-8$"
+    },
+    {
+      "id": "C",
+      "text": "$-4$"
+    },
+    {
+      "id": "D",
+      "text": "$22$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "flips the sign of $b$",
+    "C": "omits the leading coefficient 2 from both formulas",
+    "D": "flips the sign of both constants"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Sum $-\\dfrac{7}{2} = -\\dfrac{b}{2}$ gives $b = 7$; product $-\\dfrac{15}{2} = \\dfrac{c}{2}$ gives $c = -15$; the sum is $-8$.\n\n**The Full Solution:**\nStep 1: For $2x^2 + bx + c = 0$ the sum of the solutions is $-\\dfrac{b}{2}$ and the product is $\\dfrac{c}{2}$.\nStep 2: The sum of the given solutions is $-5 + \\dfrac{3}{2} = -\\dfrac{7}{2}$, so $-\\dfrac{b}{2} = -\\dfrac{7}{2}$ and $b = 7$.\nStep 3: The product is $(-5)\\left(\\dfrac{3}{2}\\right) = -\\dfrac{15}{2}$, so $\\dfrac{c}{2} = -\\dfrac{15}{2}$ and $c = -15$. Then $b + c = 7 - 15 = -8$. Check by expanding $(x + 5)(2x - 3) = 2x^2 + 7x - 15$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-22$): flips the sign of $b$, using $b = -7$ with $c = -15$.\n* Choice C ($-4$): ignores the leading coefficient, taking $b = \\dfrac{7}{2}$ and $c = -\\dfrac{15}{2}$.\n* Choice D ($22$): flips the signs of both constants, using $b = 7$ and $c = 15$.\n\n**Test Day Takeaway:** Building the factored form $(x + 5)(2x - 3)$ and expanding is a fast way to confirm both coefficients at once."
+}

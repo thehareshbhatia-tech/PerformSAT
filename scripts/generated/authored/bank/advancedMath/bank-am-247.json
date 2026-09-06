@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-247",
+  "question": "The function $g$ is defined by $g(x) = f(x - 9)$, where $f$ is a function. If $f(2) = 13$, what is the value of $g(11)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$13$"
+    },
+    {
+      "id": "D",
+      "text": "$22$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the input $2$ fed to $f$ rather than the output",
+    "B": "subtracts $9$ from the output",
+    "D": "adds $9$ to the output"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $g(11) = f(11 - 9) = f(2) = 13$. The shift moves the input, never the output.\n\n**The Full Solution:**\nStep 1: The rule $g(x) = f(x - 9)$ says: subtract $9$ from the input, then feed that number to $f$.\nStep 2: With $x = 11$, the input to $f$ is $11 - 9 = 2$.\nStep 3: So $g(11) = f(2) = 13$. Check: the point $(2, 13)$ on the graph of $f$ corresponds to $(11, 13)$ on the graph of $g$ — same height, moved $9$ units right. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): this is the input handed to $f$, not the value $f$ returns.\n* Choice B ($4$): this subtracts the $9$ from the output, $13 - 9$; the $9$ belongs inside the parentheses.\n* Choice D ($22$): this adds the $9$ to the output, $13 + 9$.\n\n**Test Day Takeaway:** For $g(x) = f(x - h)$, do the subtraction to the INPUT first, then read the corresponding output of $f$ unchanged."
+}

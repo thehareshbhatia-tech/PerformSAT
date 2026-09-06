@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-286",
+  "question": "What is the solution to the equation $\\dfrac{2x^2 + x}{x + 5} = \\dfrac{45}{x + 5}$, where $x$ is a real number?",
+  "correctAnswer": "4.5",
+  "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**The correct answer is $4.5$.**\n\n**The Fast Way (~45s):** Equal denominators give $2x^2 + x = 45$, so $(2x - 9)(x + 5) = 0$. The root $x = -5$ is excluded, leaving $x = 4.5$.\n\n**The Full Solution:**\nStep 1: The denominator $x + 5$ excludes $x = -5$. For every other $x$, the two fractions are equal exactly when their numerators are equal: $2x^2 + x = 45$.\nStep 2: Rearrange: $2x^2 + x - 45 = 0$. Factoring gives $(2x - 9)(x + 5) = 0$, so $x = \\dfrac{9}{2}$ or $x = -5$.\nStep 3: Discard $x = -5$ as extraneous. The solution is $x = 4.5$. Check: $2(4.5)^2 + 4.5 = 40.5 + 4.5 = 45$, and $4.5 + 5 = 9.5 \\ne 0$. $\\checkmark$\n\n**Common Mistakes:**\n* Answering $-5$ reports the extraneous root; substituting it gives $\\dfrac{45}{0}$, which is undefined.\n* Answering $9$ solves $2x - 9 = 0$ as $2x = 9$ and then forgets to divide by $2$.\n* Answering $-4.5$ flips the sign of the valid root; $2(-4.5)^2 + (-4.5) = 40.5 - 4.5 = 36 \\ne 45$.\n\n**Test Day Takeaway:** When both sides share a denominator, set the numerators equal — then check every root against the value that denominator forbids."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-294",
+  "question": "For all values of $x$, the expression $3x^2 + 24x + 5$ is equivalent to which of the following?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(3x + 4)^2 - 11$"
+    },
+    {
+      "id": "B",
+      "text": "$3(x + 4)^2 - 43$"
+    },
+    {
+      "id": "C",
+      "text": "$3(x + 4)^2 + 5$"
+    },
+    {
+      "id": "D",
+      "text": "$3(x + 8)^2 - 187$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "completes the square on $3x$ instead of factoring the $3$ out first",
+    "C": "forgets to subtract the $3(16) = 48$ that was introduced",
+    "D": "halves $24$ before factoring out the $3$"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Completing the Square**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Factor the $3$ out of the first two terms: $3(x^2 + 8x) + 5 = 3(x + 4)^2 - 48 + 5 = 3(x + 4)^2 - 43$.\n\n**The Full Solution:**\nStep 1: Factor the leading coefficient out of the $x$-terms only: $3x^2 + 24x + 5 = 3(x^2 + 8x) + 5$.\nStep 2: Complete the square inside: half of $8$ is $4$, and $x^2 + 8x = (x + 4)^2 - 16$. So the expression is $3\\left[(x + 4)^2 - 16\\right] + 5$.\nStep 3: Distribute the $3$: $3(x + 4)^2 - 48 + 5 = 3(x + 4)^2 - 43$. Check by expanding: $3(x^2 + 8x + 16) - 43 = 3x^2 + 24x + 48 - 43 = 3x^2 + 24x + 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(3x + 4)^2 - 11$): expanding gives $9x^2 + 24x + 5$; the leading coefficient became $9$.\n* Choice C ($3(x + 4)^2 + 5$): expanding gives $3x^2 + 24x + 53$; the $3(16) = 48$ was never subtracted.\n* Choice D ($3(x + 8)^2 - 187$): the $24$ was halved before the $3$ was factored out, giving $3x^2 + 48x + 5$.\n\n**Test Day Takeaway:** Factor the leading coefficient out FIRST, complete the square inside the brackets, then multiply the correction back through."
+}

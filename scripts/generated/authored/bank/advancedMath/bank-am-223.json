@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-223",
+  "question": "A tractor loses $20\\%$ of its value each year. The tractor is now worth $\\$25{,}600$. What was the tractor worth, in dollars, one year ago?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$20{,}480$"
+    },
+    {
+      "id": "B",
+      "text": "$30{,}720$"
+    },
+    {
+      "id": "C",
+      "text": "$32{,}000$"
+    },
+    {
+      "id": "D",
+      "text": "$51{,}200$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "applies the 20% loss again instead of undoing it",
+    "B": "adds 20% of the current value",
+    "D": "divides by $0.5$, treating the loss as a halving"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Reverse Exponential Back in Time**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Last year's value times $0.8$ is $25{,}600$, so it was $25{,}600 \\div 0.8 = 32{,}000$ dollars.\n\n**The Full Solution:**\nStep 1: Losing $20\\%$ multiplies the value by $1 - 0.20 = 0.8$, so if $V$ is last year's value, $0.8V = 25{,}600$.\nStep 2: Dividing both sides by $0.8$ gives $V = \\dfrac{25{,}600}{0.8} = 32{,}000$.\nStep 3: Check forward: $20\\%$ of $32{,}000$ is $6{,}400$, and $32{,}000 - 6{,}400 = 25{,}600$ dollars. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($20{,}480$): multiplies by $0.8$ again, giving next year's value.\n* Choice B ($30{,}720$): adds $20\\%$ of $25{,}600$; the $20\\%$ was taken from the LARGER earlier value, so adding it back is not enough.\n* Choice D ($51{,}200$): divides by $0.5$, as if the tractor had lost half its value.\n\n**Test Day Takeaway:** Reversing a percent decrease means dividing by $1 - r$ — and the answer must be bigger than the current value by MORE than the same percent."
+}

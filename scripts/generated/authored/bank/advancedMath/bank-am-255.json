@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-255",
+  "question": "In the $xy$-plane, the graph of $y = -f(x)$ is the reflection of the graph of $y = f(x)$ across which of the following?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The $x$-axis"
+    },
+    {
+      "id": "B",
+      "text": "The $y$-axis"
+    },
+    {
+      "id": "C",
+      "text": "The line $y = x$"
+    },
+    {
+      "id": "D",
+      "text": "The line $y = -x$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "is the reflection produced by $f(-x)$, where the sign is inside",
+    "C": "describes an inverse relationship, not a sign change",
+    "D": "combines both reflections"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The negative sign is outside the function, so it flips the sign of every output — a reflection across the $x$-axis.\n\n**The Full Solution:**\nStep 1: If $(a, b)$ is on the graph of $y = f(x)$, then $f(a) = b$.\nStep 2: For $y = -f(x)$, the same input gives $-f(a) = -b$, so $(a, -b)$ is on the new graph.\nStep 3: Replacing $(a, b)$ with $(a, -b)$ keeps the horizontal position and mirrors the vertical one, which is a reflection across the $x$-axis. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (the $y$-axis): that reflection sends $(a, b)$ to $(-a, b)$ and comes from $y = f(-x)$, where the sign sits inside.\n* Choice C (the line $y = x$): that swaps the coordinates to $(b, a)$, the graph of the inverse relation.\n* Choice D (the line $y = -x$): that sends $(a, b)$ to $(-b, -a)$, which is neither transformation alone.\n\n**Test Day Takeaway:** Outside negative flips $y$ (across the $x$-axis); inside negative flips $x$ (across the $y$-axis)."
+}

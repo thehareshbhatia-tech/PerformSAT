@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-212",
+  "question": "A wildlife refuge began the year with nesting boxes already installed, and crews added more boxes at a steady rate. The function $b$ defined by $b(w) = 6w + 84$ gives the number of nesting boxes at the refuge after $w$ weeks of the year. Which statement is the best interpretation of $84$ in this context?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The refuge had $84$ nesting boxes at the start of the year."
+    },
+    {
+      "id": "B",
+      "text": "The crews installed $84$ nesting boxes each week."
+    },
+    {
+      "id": "C",
+      "text": "The refuge had $84$ nesting boxes at the end of the year."
+    },
+    {
+      "id": "D",
+      "text": "The crews installed nesting boxes for $84$ weeks."
+    }
+  ],
+  "distractorNotes": {
+    "B": "reads the constant term as the weekly rate",
+    "C": "reads the starting count as an ending count",
+    "D": "reads a count of boxes as a number of weeks"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $b(0) = 6(0) + 84 = 84$, the count at week $0$ — the start of the year.\n\n**The Full Solution:**\nStep 1: The constant term of a linear function is its value when the input is $0$.\nStep 2: $w = 0$ means no weeks of the year have passed, so $b(0) = 84$ is the starting number of boxes.\nStep 3: The coefficient $6$ then adds $6$ boxes per week. Check: after $10$ weeks, $b(10) = 60 + 84 = 144$ boxes. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($84$ per week): that is the slope's job, and the slope here is $6$.\n* Choice C ($84$ at the end): the count grows, so the year ends with far more than $84$ boxes.\n* Choice D ($84$ weeks): $84$ counts boxes, and a year has about $52$ weeks.\n\n**Test Day Takeaway:** For $mx + b$ in context, $b$ is \"the amount already there\" and $m$ is \"the amount added per unit\" — name both before answering."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-375",
+  "question": "The function $f$ is defined by $f(x) = 7 - x^2$. What is the value of $f(-6)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-43$"
+    },
+    {
+      "id": "B",
+      "text": "$-29$"
+    },
+    {
+      "id": "C",
+      "text": "$19$"
+    },
+    {
+      "id": "D",
+      "text": "$43$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts from $-7$ instead of $7$",
+    "C": "uses $2x$ in place of $x^2$",
+    "D": "treats $(-6)^2$ as $-36$"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $7 - (-6)^2 = 7 - 36 = -29$.\n\n**The Full Solution:**\nStep 1: Substitute: $f(-6) = 7 - (-6)^2$.\nStep 2: Square first: $(-6)^2 = 36$. The subtraction sign in front stays where it is, so the expression is $7 - 36$.\nStep 3: $7 - 36 = -29$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-43$): applies the minus sign to both terms, computing $-7 - 36$.\n* Choice C ($19$): uses $2x = -12$ in place of $x^2$, giving $7 - (-12)$.\n* Choice D ($43$): treats $(-6)^2$ as $-36$, turning the subtraction into $7 + 36$.\n\n**Test Day Takeaway:** Order of operations puts the exponent before the subtraction — the leading $7$ is never inside the squaring."
+}

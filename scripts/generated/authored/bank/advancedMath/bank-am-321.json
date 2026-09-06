@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-321",
+  "question": "The equation $x - \\sqrt{x + 7} = 5$ is given. Which value or values of $x$ satisfy this equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x = 2$ only"
+    },
+    {
+      "id": "B",
+      "text": "$x = -9$ and $x = -2$"
+    },
+    {
+      "id": "C",
+      "text": "$x = 2$ and $x = 9$"
+    },
+    {
+      "id": "D",
+      "text": "$x = 9$ only"
+    }
+  ],
+  "distractorNotes": {
+    "A": "selects the extraneous root",
+    "B": "sign error when factoring",
+    "C": "skips the extraneous check"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~55s):** Isolate the radical: $\\sqrt{x + 7} = x - 5$. Squaring gives $(x - 2)(x - 9) = 0$, and only $x = 9$ satisfies the original equation.\n\n**The Full Solution:**\nStep 1: Move the radical: $x - 5 = \\sqrt{x + 7}$.\nStep 2: Square both sides: $x^2 - 10x + 25 = x + 7$, so $x^2 - 11x + 18 = 0$, which factors as $(x - 2)(x - 9) = 0$.\nStep 3: Test both candidates in the original equation. For $x = 9$: $9 - \\sqrt{16} = 9 - 4 = 5$, true. For $x = 2$: $2 - \\sqrt{9} = 2 - 3 = -1$, not $5$. Check: only $x = 9$ makes the right side of the isolated equation nonnegative, as a square root must be. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x = 2$ only): keeps the extraneous candidate and drops the valid one.\n* Choice B ($x = -9$ and $x = -2$): factors $x^2 - 11x + 18$ as $(x + 2)(x + 9)$, flipping both signs.\n* Choice C ($x = 2$ and $x = 9$): solves the quadratic correctly but skips the check in the original equation.\n\n**Test Day Takeaway:** Isolate, square, solve, then test — the isolated side that equals the radical must be nonnegative."
+}

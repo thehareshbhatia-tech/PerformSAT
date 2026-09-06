@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-229",
+  "question": "The function $h$ is defined for all real numbers. In the $xy$-plane, the graph of $y = h(x + 7)$ passes through the point $(2, 45)$. What is the value of $h(9)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$7$"
+    },
+    {
+      "id": "C",
+      "text": "$9$"
+    },
+    {
+      "id": "D",
+      "text": "$45$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the $x$-coordinate of the given point",
+    "B": "reports the size of the shift",
+    "C": "reports the input to $h$ rather than the output"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Function from Shifted Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** At $x = 2$, the expression $x + 7$ equals $9$, so $h(9) = 45$.\n\n**The Full Solution:**\nStep 1: Substituting $x = 2$, $y = 45$ into $y = h(x + 7)$ gives $45 = h(2 + 7)$.\nStep 2: Simplifying the input gives $45 = h(9)$.\nStep 3: So $h(9) = 45$. Check: the graph of $y = h(x + 7)$ is the graph of $y = h(x)$ shifted LEFT $7$ units, which sends $(9, 45)$ on $h$ to $(2, 45)$ — the given point. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): the $x$-coordinate of the plotted point, not a value of $h$.\n* Choice B ($7$): the size of the shift.\n* Choice C ($9$): the input to $h$; the question asks for the output at that input.\n\n**Test Day Takeaway:** Evaluate the inside expression at the given $x$; whatever it equals is the input where $h$ takes the given $y$-value."
+}

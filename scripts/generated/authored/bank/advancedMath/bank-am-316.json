@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-316",
+  "question": "The equation $\\sqrt{x - 4} = 8$ has one real solution. What is the value of $x$?",
+  "correctAnswer": "68",
+  "explanation": "**SAT Pattern: Radical Equation**\n\n**The correct answer is $68$.**\n\n**The Fast Way (~20s):** Square both sides: $x - 4 = 64$, so $x = 68$.\n\n**The Full Solution:**\nStep 1: The radical stands alone, so square each side: $\\left(\\sqrt{x - 4}\\right)^2 = 8^2$, giving $x - 4 = 64$.\nStep 2: Add $4$ to each side.\nStep 3: $x = 68$. Check: $\\sqrt{68 - 4} = \\sqrt{64} = 8$. $\\checkmark$\n\n**Common Mistakes:** Forgetting to square gives $x - 4 = 8$, or $x = 12$. Doubling the $8$ instead of squaring it gives $x - 4 = 16$, or $x = 20$. Squaring the radicand term by term gives $x - 16 = 64$, or $x = 80$ — squaring applies to the whole side, not to each term.\n\n**Test Day Takeaway:** Square once, across the entire equation, and then check the result in the original equation."
+}

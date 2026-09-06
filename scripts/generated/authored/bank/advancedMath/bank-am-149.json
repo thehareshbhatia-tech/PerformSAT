@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-149",
+  "question": "The function $g$ is defined by $g(x) = 7 - 2x$. What is the value of $g(-4)$?",
+  "correctAnswer": "15",
+  "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~15s):** $g(-4) = 7 - 2(-4) = 7 + 8 = 15$.\n\n**The Full Solution:**\nStep 1: Replace $x$ with $-4$: $g(-4) = 7 - 2(-4)$.\nStep 2: Evaluate the product: $-2(-4) = 8$.\nStep 3: Add: $7 + 8 = 15$. Check: $g(0) = 7$ and each step left along the $x$-axis raises the output by $2$, so four steps add $8$. $\\checkmark$\n\n**Common Mistakes:**\n* Writing $7 - 2 \\cdot 4 = -1$ by ignoring the negative sign on the input.\n* Multiplying $7$ and $-2$ first and computing $(7 - 2)(-4) = -20$, which ignores the order of operations.\n* Answering $8$, the value of $-2(-4)$, and forgetting the constant $7$.\n\n**Test Day Takeaway:** Substituting a negative value turns a subtraction into an addition; write the parentheses so the double negative is visible."
+}

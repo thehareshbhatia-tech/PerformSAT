@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-237",
+  "question": "In the $xy$-plane, the line $y = mx + 3$ is tangent to the parabola $y = x^2 - 4x + 12$, where $m$ is a positive constant. What is the $x$-coordinate of the point of tangency?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-3$"
+    },
+    {
+      "id": "B",
+      "text": "$2$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$6$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses the negative solution $m = -10$, which the stem rules out",
+    "B": "reports the vertex of the parabola",
+    "D": "forgets to divide $4 + m$ by $2$"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Equating gives $x^2 - (4 + m)x + 9 = 0$; setting the discriminant to $0$ gives $(4 + m)^2 = 36$, so $m = 2$ (positive), and the repeated root is $\\dfrac{4 + 2}{2} = 3$.\n\n**The Full Solution:**\nStep 1: Setting the expressions equal gives $x^2 - 4x + 12 = mx + 3$, or $x^2 - (4 + m)x + 9 = 0$.\nStep 2: Tangency forces the discriminant to be zero: $(4 + m)^2 - 4(1)(9) = 0$, so $(4 + m)^2 = 36$ and $4 + m = 6$ or $4 + m = -6$, giving $m = 2$ or $m = -10$. The stem says $m$ is positive, so $m = 2$.\nStep 3: The repeated root is $x = \\dfrac{4 + m}{2} = \\dfrac{6}{2} = 3$. Check: the parabola gives $y = 9 - 12 + 12 = 9$, and the line gives $y = 2(3) + 3 = 9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): comes from the rejected slope $m = -10$, giving $x = \\frac{4 - 10}{2}$; the stem restricts $m$ to positive values.\n* Choice B ($2$): the vertex of $y = x^2 - 4x + 12$, which is where a HORIZONTAL tangent line would touch.\n* Choice D ($6$): stops at $4 + m = 6$ and never divides by $2a = 2$.\n\n**Test Day Takeaway:** When the slope itself is unknown, the discriminant equation produces two candidate slopes — use the stem's restriction to pick one before finding the point."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-367",
+  "question": "The functions $f$ and $g$ are defined by $f(x) = x^2 + 2$ and $g(x) = 3x - 4$. What is the value of $g(f(-2))$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-10$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$14$"
+    },
+    {
+      "id": "D",
+      "text": "$102$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "treats $(-2)^2$ as $-4$",
+    "B": "stops after computing $f(-2)$",
+    "D": "computes $f(g(-2))$, reversing the order"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $f(-2) = 4 + 2 = 6$, then $g(6) = 18 - 4 = 14$.\n\n**The Full Solution:**\nStep 1: The inner function is $f$. Substitute: $f(-2) = (-2)^2 + 2 = 4 + 2 = 6$.\nStep 2: Feed $6$ into $g$: $g(6) = 3(6) - 4$.\nStep 3: $18 - 4 = 14$. Check: squaring a negative gives a positive, so the inner output really is $6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): treats $(-2)^2$ as $-4$, so $f(-2) = -2$ and $g(-2) = -10$.\n* Choice B ($6$): stops at $f(-2) = 6$ without applying $g$.\n* Choice D ($102$): applies the functions in the reverse order: $g(-2) = -10$ and $f(-10) = 102$.\n\n**Test Day Takeaway:** Square the negative FIRST, then apply the sign of the coefficient — $(-2)^2 = 4$, never $-4$."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-125",
+  "question": "In the $xy$-plane, the line $y = -8x + 5$ is tangent to the graph of $y = x^2 + c$, where $c$ is a constant. What is the value of $c$?",
+  "correctAnswer": "21",
+  "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**The correct answer is $21$.**\n\n**The Fast Way (~30s):** Setting the expressions equal gives $x^2 + 8x + (c - 5) = 0$. Tangency forces $64 - 4(c - 5) = 0$, so $c = 21$.\n\n**The Full Solution:**\nStep 1: A tangent line touches the parabola exactly once, so $x^2 + c = -8x + 5$ must have exactly one solution. Rearranged, that is $x^2 + 8x + (c - 5) = 0$.\nStep 2: Set the discriminant equal to zero: $8^2 - 4(1)(c - 5) = 0$, so $64 - 4c + 20 = 0$.\nStep 3: Then $4c = 84$ and $c = 21$. Check: with $c = 21$ the equation becomes $x^2 + 8x + 16 = 0$, or $(x + 4)^2 = 0$, whose only solution is $x = -4$. $\\checkmark$\n\n**Common Mistakes:**\n* Distributing $-4(c - 5)$ as $-4c - 20$, which gives $64 - 4c - 20 = 0$ and the incorrect value $c = 11$.\n* Leaving the $5$ on the right side and solving $64 - 4c = 0$, which gives $c = 16$.\n* Setting the discriminant greater than zero instead of equal to zero, which describes a line that cuts the parabola twice.\n\n**Test Day Takeaway:** One intersection point means one repeated root. Move every term to one side before computing $b^2 - 4ac$."
+}

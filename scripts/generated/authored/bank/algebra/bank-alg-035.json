@@ -53,7 +53,6 @@
     "B": "reports the slope of line t itself",
     "C": "changes the sign of the slope but does not take the reciprocal"
   },
-  "choiceOrderNote": "Choices ARE ascending by value; the checker's numeric parser reads \\frac{a}{b} as the digits ab, which is why it flags this set.",
   "correctAnswer": "D",
   "explanation": "**SAT Pattern: Perpendicular Slope from Two Points**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Slope of $t$: $\\frac{0 - 4}{4 - (-4)} = \\frac{-4}{8} = -\\frac{1}{2}$. The negative reciprocal of $-\\frac{1}{2}$ is $2$.\n\n**The Full Solution:**\nStep 1: Slope of $t$ from the two points: $\\frac{0 - 4}{4 - (-4)} = \\frac{-4}{8} = -\\frac{1}{2}$, consistent with the graph falling gently from left to right.\nStep 2: A perpendicular line has slope $m$ with $-\\frac{1}{2} \\cdot m = -1$, so $m = 2$.\nStep 3: Check: $-\\frac{1}{2} \\cdot 2 = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): flips the fraction but keeps the negative sign; the product with $-\\frac{1}{2}$ would be $1$.\n* Choice B ($-\\frac{1}{2}$): is the slope of $t$ itself, the parallel slope.\n* Choice C ($\\frac{1}{2}$): changes only the sign without taking the reciprocal.\n\n**Test Day Takeaway:** Two-step problems hide a sign trap at each step: compute the original slope with signs, then flip AND negate for the perpendicular."
 }

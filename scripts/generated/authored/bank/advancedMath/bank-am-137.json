@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-137",
+  "question": "The equation $x^2 + (k - 3)x + 16 = 0$, where $k$ is a constant, has exactly one real solution. If $k > 0$, what is the value of $k$?",
+  "correctAnswer": "11",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**The correct answer is $11$.**\n\n**The Fast Way (~35s):** One real solution means $(k-3)^2 = 4(1)(16) = 64$, so $k - 3 = \\pm 8$ and $k = 11$ or $k = -5$; the positive value is $11$.\n\n**The Full Solution:**\nStep 1: The middle coefficient is the whole quantity $k - 3$, so the discriminant is $(k - 3)^2 - 4(1)(16)$.\nStep 2: Exactly one real solution means that discriminant is zero: $(k - 3)^2 = 64$, so $k - 3 = 8$ or $k - 3 = -8$.\nStep 3: That gives $k = 11$ or $k = -5$, and the condition $k > 0$ selects $k = 11$. Check: with $k = 11$ the equation is $x^2 + 8x + 16 = (x + 4)^2 = 0$. $\\checkmark$\n\n**Common Mistakes:**\n* Squaring only $k$ and writing $k^2 - 3 = 64$, which gives the non-integer $k = \\sqrt{67}$.\n* Answering $8$, the value of $k - 3$, instead of solving for $k$ itself.\n* Reporting $-5$, the root ruled out by the condition $k > 0$.\n\n**Test Day Takeaway:** When the coefficient of $x$ is an expression, square the whole expression, then solve the resulting equation for the letter the question names."
+}

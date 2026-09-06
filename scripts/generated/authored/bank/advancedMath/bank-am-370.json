@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-370",
+  "question": "The function $f$ is defined by $f(x) = 4x + 9$. If $f(g(x)) = 12x - 7$ for all values of $x$, which of the following expressions defines $g(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3x - 34$"
+    },
+    {
+      "id": "B",
+      "text": "$3x - 16$"
+    },
+    {
+      "id": "C",
+      "text": "$3x - 4$"
+    },
+    {
+      "id": "D",
+      "text": "$12x - 16$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "solves $g(f(x)) = 12x - 7$ instead",
+    "B": "divides only the $x$-term by $4$",
+    "D": "subtracts $9$ but never divides by $4$"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $4g(x) + 9 = 12x - 7 \\Rightarrow 4g(x) = 12x - 16 \\Rightarrow g(x) = 3x - 4$.\n\n**The Full Solution:**\nStep 1: Applying $f$ to $g(x)$ gives $f(g(x)) = 4 \\cdot g(x) + 9$, so $4g(x) + 9 = 12x - 7$.\nStep 2: Subtract $9$ from both sides: $4g(x) = 12x - 16$.\nStep 3: Divide every term by $4$: $g(x) = 3x - 4$. Check: $f(3x - 4) = 4(3x - 4) + 9 = 12x - 16 + 9 = 12x - 7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x - 34$): solves the reversed equation $g(f(x)) = 12x - 7$, which gives $g(x) = 3x - 34$.\n* Choice B ($3x - 16$): divides the $x$-term by $4$ but leaves the constant $-16$ undivided.\n* Choice D ($12x - 16$): subtracts the $9$ correctly but never divides by the leading coefficient $4$.\n\n**Test Day Takeaway:** Treat $g(x)$ as a single unknown block, isolate it, and only then divide EVERY term by the coefficient."
+}

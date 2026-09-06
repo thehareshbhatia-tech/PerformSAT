@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-335",
+  "question": "In the $xy$-plane, the graph of $y = -2(x - 3)(x + 9)$ crosses the $x$-axis at two points. What is the distance between those two points?",
+  "correctAnswer": "12",
+  "explanation": "**SAT Pattern: Distance Between x-Intercepts**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~20s):** The factors give zeros at $x = 3$ and $x = -9$, so the distance is $3 - (-9) = 12$.\n\n**The Full Solution:**\nStep 1: The graph crosses the $x$-axis where $y = 0$: $-2(x - 3)(x + 9) = 0$.\nStep 2: The factor $-2$ is never zero, so the zeros come from $x - 3 = 0$ and $x + 9 = 0$, giving $x = 3$ and $x = -9$.\nStep 3: The distance is $|3 - (-9)| = 12$. Check: the axis of symmetry is $x = -3$, which is $6$ units from each intercept. $\\checkmark$\n\n**Common Mistakes:** Answering $6$ adds the zeros, $|3 + (-9)| = 6$, instead of subtracting them — and it happens to equal the half-distance, which makes it doubly tempting. Answering $9$ reports the size of the lesser zero. Answering $24$ multiplies the distance by the leading factor $2$, which affects the parabola's width but not its intercepts.\n\n**Test Day Takeaway:** A leading coefficient in factored form never moves the $x$-intercepts — read the zeros straight from the binomials."
+}

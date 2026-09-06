@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-260",
+  "question": "Which of the following describes how the graph of $y = f(-x)$ is obtained from the graph of $y = f(x)$ in the $xy$-plane?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Reflect the graph across the $x$-axis."
+    },
+    {
+      "id": "B",
+      "text": "Reflect the graph across the $y$-axis."
+    },
+    {
+      "id": "C",
+      "text": "Translate the graph $1$ unit to the left."
+    },
+    {
+      "id": "D",
+      "text": "Stretch the graph vertically by a factor of $2$."
+    }
+  ],
+  "distractorNotes": {
+    "A": "is the effect of $-f(x)$, with the sign outside",
+    "C": "treats the sign as a horizontal translation",
+    "D": "treats the sign as a scale factor"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The sign change is inside the function, so it acts on the inputs: every $x$-coordinate flips sign, mirroring the graph across the $y$-axis.\n\n**The Full Solution:**\nStep 1: Take any point $(a, b)$ on the graph of $y = f(x)$, so $f(a) = b$.\nStep 2: For the new function, the input $-a$ gives $f(-(-a)) = f(a) = b$, so $(-a, b)$ is on the graph of $y = f(-x)$.\nStep 3: Every point keeps its height and lands at the opposite horizontal position, which is a reflection across the $y$-axis. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (across the $x$-axis): that comes from $y = -f(x)$, where the sign multiplies the output.\n* Choice C (translate $1$ unit left): a translation requires a constant added to the input, such as $f(x + 1)$; a sign change is not a translation.\n* Choice D (stretch by a factor of $2$): stretches come from a constant multiplying the output, such as $2f(x)$.\n\n**Test Day Takeaway:** Read where the negative sign lives. Inside the parentheses it reflects across the $y$-axis; outside it reflects across the $x$-axis."
+}

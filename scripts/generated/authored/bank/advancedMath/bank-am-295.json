@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-295",
+  "question": "The function $f$ is defined by $f(x) = x^2 + 4x - 12$. What is the minimum value of $f$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-16$"
+    },
+    {
+      "id": "B",
+      "text": "$-12$"
+    },
+    {
+      "id": "C",
+      "text": "$-2$"
+    },
+    {
+      "id": "D",
+      "text": "$0$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "reports $f(0)$, the constant term",
+    "C": "reports the $x$-value where the minimum occurs",
+    "D": "evaluates $f(2)$ instead of $f(-2)$"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Completing the Square**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $f(x) = (x + 2)^2 - 16$, so the smallest output is $-16$.\n\n**The Full Solution:**\nStep 1: Complete the square: half of $4$ is $2$, and $x^2 + 4x = (x + 2)^2 - 4$.\nStep 2: So $f(x) = (x + 2)^2 - 4 - 12 = (x + 2)^2 - 16$.\nStep 3: Since $(x + 2)^2 \\ge 0$, $f(x) \\ge -16$, with equality at $x = -2$. The minimum value is $-16$. Check: $f(-2) = 4 - 8 - 12 = -16$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-12$): this is $f(0)$, the value where the graph crosses the $y$-axis, not the lowest point.\n* Choice C ($-2$): this is the $x$-coordinate of the vertex; the question asks for the minimum VALUE.\n* Choice D ($0$): this evaluates $f(2) = 4 + 8 - 12 = 0$, using the wrong sign for the vertex input.\n\n**Test Day Takeaway:** Vertex form separates the two answers a quadratic can offer: $h$ is where the extreme occurs, $k$ is the extreme value itself."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-222",
+  "question": "The mass of a mineral sample decays so that it is cut in half every $15$ days. The sample now has a mass of $7$ grams. What was the mass, in grams, of the sample $45$ days ago?",
+  "correctAnswer": "56",
+  "explanation": "**SAT Pattern: Reverse Exponential Back in Time**\n\n**The correct answer is $56$.**\n\n**The Fast Way (~20s):** $45$ days is three half-lives, so the mass then was $7 \\cdot 2^3 = 56$ grams.\n\n**The Full Solution:**\nStep 1: The mass halves every $15$ days, and $45 \\div 15 = 3$, so three halvings have occurred.\nStep 2: Going backward undoes each halving by doubling: $7 \\to 14 \\to 28 \\to 56$.\nStep 3: The mass $45$ days ago was $56$ grams. Check forward: $56 \\to 28 \\to 14 \\to 7$. $\\checkmark$\n\n**Common Mistakes:** Doubling only once and answering $14$, which is the mass $15$ days ago. Halving instead of doubling gives $0.875$ grams, which runs the decay the wrong way. Multiplying $7$ by $3$ gives $21$, treating three half-lives as a factor of $3$ rather than $2^3$.\n\n**Test Day Takeaway:** Count half-lives first ($45 \\div 15 = 3$), then double once per half-life to move backward — the factor is $2^3$, never $3$."
+}

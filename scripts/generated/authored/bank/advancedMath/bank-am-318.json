@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-318",
+  "question": "The equation $\\sqrt{2x + 7} - 4 = 5$ has exactly one solution. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-3$"
+    },
+    {
+      "id": "B",
+      "text": "$11$"
+    },
+    {
+      "id": "C",
+      "text": "$17$"
+    },
+    {
+      "id": "D",
+      "text": "$37$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts 4 instead of adding it",
+    "B": "squares before isolating the radical",
+    "C": "squares the radicand term by term"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** Isolate first: $\\sqrt{2x + 7} = 9$. Squaring gives $2x + 7 = 81$, so $x = 37$.\n\n**The Full Solution:**\nStep 1: Add $4$ to each side so the radical stands alone: $\\sqrt{2x + 7} = 9$.\nStep 2: Square both sides: $2x + 7 = 81$.\nStep 3: $2x = 74$, so $x = 37$. Check: $\\sqrt{2(37) + 7} - 4 = \\sqrt{81} - 4 = 9 - 4 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): subtracts $4$ from each side instead of adding, then squares $1$ to get $2x + 7 = 1$.\n* Choice B ($11$): squares before isolating, treating $\\left(\\sqrt{2x + 7} - 4\\right)^2$ as $2x + 7 - 4$ and solving $2x + 3 = 25$.\n* Choice C ($17$): squares term by term, solving $2x + 7 - 16 = 25$.\n\n**Test Day Takeaway:** Isolate the radical before squaring — a constant sitting outside the radical does not simply come along for the ride."
+}

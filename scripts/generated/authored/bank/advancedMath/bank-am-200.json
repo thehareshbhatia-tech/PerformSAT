@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-200",
+  "question": "The function $E$ defined by $E(t) = 12(1.5)^t$ models the number of electric buses in a city's fleet $t$ years after $2022$. Which statement is best supported by the model?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The fleet had $12$ buses in $2022$ and gains $1.5$ buses each year."
+    },
+    {
+      "id": "B",
+      "text": "The fleet had $12$ buses in $2022$ and grows by $15\\%$ each year."
+    },
+    {
+      "id": "C",
+      "text": "The fleet had $18$ buses in $2022$ and grows by $50\\%$ each year."
+    },
+    {
+      "id": "D",
+      "text": "The fleet had $12$ buses in $2022$ and grows by $50\\%$ each year."
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads the growth factor as buses added per year",
+    "B": "misreads the factor $1.5$ as $15\\%$",
+    "C": "reports $E(1) = 18$ as the value in 2022"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Exponential Growth Interpretation**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** $E(0) = 12$ gives the $2022$ fleet, and the base $1.5 = 1 + 0.5$ gives $50\\%$ growth per year.\n\n**The Full Solution:**\nStep 1: The year $2022$ corresponds to $t = 0$, and $E(0) = 12(1.5)^0 = 12$ buses.\nStep 2: Each year multiplies the fleet by $1.5$, and $1.5 - 1 = 0.5$, so the fleet grows by $50\\%$ per year.\nStep 3: Both parts of choice D match. Check: $E(1) = 18$, and $18$ is $50\\%$ more than $12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.5$ buses per year): adds the base instead of multiplying by it; that would be the linear model $12 + 1.5t$.\n* Choice B ($15\\%$): slides the decimal point; $15\\%$ growth would give the base $1.15$.\n* Choice C ($18$ buses in $2022$): uses $E(1)$, the $2023$ value, as the starting fleet.\n\n**Test Day Takeaway:** Read the two constants separately — the coefficient is the value at $t = 0$, and the base minus $1$ is the percent change."
+}

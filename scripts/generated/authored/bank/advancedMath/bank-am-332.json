@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-332",
+  "question": "The function $f$ is defined by $f(x) = 4x^2 - 25$. In the $xy$-plane, the graph of $y = f(x)$ crosses the $x$-axis at two points. What is the distance between those two points?",
+  "correctAnswer": "5",
+  "explanation": "**SAT Pattern: Distance Between x-Intercepts**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~25s):** $4x^2 = 25$ gives $x = \\pm\\dfrac{5}{2}$, so the intercepts are $\\dfrac{5}{2} - \\left(-\\dfrac{5}{2}\\right) = 5$ apart.\n\n**The Full Solution:**\nStep 1: Set $f(x) = 0$: $4x^2 - 25 = 0$, a difference of squares that factors as $(2x - 5)(2x + 5) = 0$.\nStep 2: The zeros are $x = \\dfrac{5}{2}$ and $x = -\\dfrac{5}{2}$.\nStep 3: The distance is $\\dfrac{5}{2} + \\dfrac{5}{2} = 5$. Check: the graph is symmetric about the $y$-axis, so each intercept is $2.5$ units from the origin. $\\checkmark$\n\n**Common Mistakes:** Answering $2.5$ reports one intercept instead of the gap between two. Answering $6.25$ solves $x^2 = \\dfrac{25}{4}$ and stops before taking the square root. Answering $10$ doubles the full distance rather than doubling one intercept.\n\n**Test Day Takeaway:** With a difference of squares the two zeros are opposites, so the distance is simply twice the positive zero."
+}

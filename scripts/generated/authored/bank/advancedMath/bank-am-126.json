@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-126",
+  "question": "In the $xy$-plane, the line $y = -x + 4$ is tangent to the graph of $y = kx^2 + 3x - 2$, where $k$ is a nonzero constant. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-2$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\dfrac{2}{3}$"
+    },
+    {
+      "id": "C",
+      "text": "$-\\dfrac{1}{6}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{2}{3}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "leaves the $4$ on the right side, solving $16 + 8k = 0$ from $kx^2 + 4x - 2 = 0$",
+    "C": "moves $-x$ across the equals sign as a subtraction, producing $kx^2 + 2x - 6 = 0$",
+    "D": "writes the discriminant as $16 - 24k$, dropping the sign of the negative constant term"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Combining gives $kx^2 + 4x - 6 = 0$. Tangency forces $16 - 4(k)(-6) = 16 + 24k = 0$, so $k = -\\dfrac{2}{3}$.\n\n**The Full Solution:**\nStep 1: Set the expressions equal: $kx^2 + 3x - 2 = -x + 4$. Adding $x$ and subtracting $4$ from both sides gives $kx^2 + 4x - 6 = 0$.\nStep 2: A tangent line produces exactly one intersection, so the discriminant is zero: $4^2 - 4(k)(-6) = 0$, which is $16 + 24k = 0$.\nStep 3: Then $24k = -16$ and $k = -\\dfrac{2}{3}$. Check: $-\\dfrac{2}{3}x^2 + 4x - 6 = -\\dfrac{2}{3}\\left(x^2 - 6x + 9\\right) = -\\dfrac{2}{3}(x-3)^2$, which is zero only at $x = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): the constant $4$ is never moved to the left, leaving $kx^2 + 4x - 2 = 0$ and the equation $16 + 8k = 0$.\n* Choice C ($-\\frac{1}{6}$): subtracting $x$ instead of adding it gives $kx^2 + 2x - 6 = 0$ and the equation $4 + 24k = 0$.\n* Choice D ($\\frac{2}{3}$): the product $-4(k)(-6)$ is written as $-24k$, so the sign of $k$ flips.\n\n**Test Day Takeaway:** With the unknown in the leading coefficient, still collect every term on one side first; the sign of the constant term decides the sign of your answer."
+}

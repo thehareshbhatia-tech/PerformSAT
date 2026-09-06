@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-264",
+  "question": "In the $xy$-plane, the graph of $y = 4f(x)$ is the graph of $y = f(x)$ stretched vertically by a factor of $c$, where $c$ is a positive constant. What is the value of $c$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\dfrac{1}{4}$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$16$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses the reciprocal, which would compress the graph",
+    "B": "assumes the coefficient leaves the graph unchanged",
+    "D": "squares the coefficient"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Vertical Stretch**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The coefficient in front of $f$ IS the vertical stretch factor, so $c = 4$.\n\n**The Full Solution:**\nStep 1: If $(a, b)$ is on the graph of $y = f(x)$, then $f(a) = b$.\nStep 2: The same input in the new function gives $4f(a) = 4b$, so $(a, 4b)$ is on the graph of $y = 4f(x)$.\nStep 3: Every point is $4$ times as far from the $x$-axis as before, at the same $x$-coordinate, so the stretch factor is $4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{1}{4}$): a factor less than $1$ pulls the graph toward the $x$-axis; that would be $y = \\dfrac{1}{4}f(x)$.\n* Choice B ($1$): a factor of $1$ leaves the graph exactly where it was.\n* Choice D ($16$): this squares the coefficient; the outputs are multiplied by $4$ once, not twice.\n\n**Test Day Takeaway:** In $y = cf(x)$ with $c > 0$, the number in front is the vertical stretch factor — no extra arithmetic."
+}

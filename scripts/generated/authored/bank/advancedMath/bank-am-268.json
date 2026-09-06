@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-268",
+  "question": "Which of the following describes the relationship between the graph of $y = 0.4f(x)$ and the graph of $y = f(x)$ in the $xy$-plane?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Each $y$-coordinate is multiplied by $0.4$, and each $x$-coordinate is unchanged."
+    },
+    {
+      "id": "B",
+      "text": "Each $x$-coordinate is multiplied by $0.4$, and each $y$-coordinate is unchanged."
+    },
+    {
+      "id": "C",
+      "text": "Each point is translated $0.4$ unit down."
+    },
+    {
+      "id": "D",
+      "text": "Each $y$-coordinate is divided by $0.4$, and each $x$-coordinate is unchanged."
+    }
+  ],
+  "distractorNotes": {
+    "B": "applies the factor to the input instead of the output",
+    "C": "treats the coefficient as a vertical translation",
+    "D": "divides by the factor instead of multiplying by it"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Vertical Stretch**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** A coefficient in front of $f$ scales outputs, so each $y$-coordinate is multiplied by $0.4$ while the $x$-coordinates stay put.\n\n**The Full Solution:**\nStep 1: Let $(a, b)$ be on the graph of $y = f(x)$, so $f(a) = b$.\nStep 2: The same input in the new function gives $0.4f(a) = 0.4b$, so $(a, 0.4b)$ is on the new graph.\nStep 3: Only the second coordinate changed, and it changed by a factor of $0.4$. Since $0 < 0.4 < 1$, every point moves closer to the $x$-axis. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: scaling $x$-coordinates comes from a coefficient INSIDE the function, as in $f(0.4x)$.\n* Choice C: a translation requires a constant added to the output, as in $f(x) - 0.4$; a coefficient multiplies instead.\n* Choice D: dividing by $0.4$ multiplies the outputs by $2.5$, stretching the graph away from the axis rather than toward it.\n\n**Test Day Takeaway:** Coefficient outside means multiply the $y$-values; coefficient inside means change the $x$-values."
+}

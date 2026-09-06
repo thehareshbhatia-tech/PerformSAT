@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-156",
+  "question": "In the equation $x^2 + bx + 36 = 0$, $b$ is a positive constant and the equation has no real solutions. Which of the following could be the value of $b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$5$"
+    },
+    {
+      "id": "B",
+      "text": "$12$"
+    },
+    {
+      "id": "C",
+      "text": "$15$"
+    },
+    {
+      "id": "D",
+      "text": "$20$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "picks the boundary $b = 12$, where the discriminant is $0$ and there is exactly one real solution",
+    "C": "looks for $b$ larger than $2\\sqrt{c}$ instead of smaller; $15^2 = 225 > 144$",
+    "D": "treats a large $b$ as making the parabola miss the $x$-axis; $20^2 = 400 > 144$"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** No real solutions requires $b^2 < 4(1)(36) = 144$, so $0 < b < 12$. Only $5$ fits.\n\n**The Full Solution:**\nStep 1: The discriminant is $b^2 - 4(1)(36) = b^2 - 144$. No real solutions means $b^2 - 144 < 0$.\nStep 2: So $b^2 < 144$, which for positive $b$ means $b < 12$.\nStep 3: Among the choices only $b = 5$ satisfies $0 < b < 12$. Check: $x^2 + 5x + 36$ has discriminant $25 - 144 = -119 < 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($12$): this is the boundary, where $144 - 144 = 0$ gives exactly one real solution, not none.\n* Choice C ($15$): $225 - 144 = 81 > 0$, so there are two real solutions.\n* Choice D ($20$): a bigger middle coefficient makes the discriminant larger, not smaller; $400 - 144 = 256 > 0$.\n\n**Test Day Takeaway:** No real solutions means the middle coefficient is small compared with $2\\sqrt{ac}$, and the endpoint itself is the one-solution case."
+}

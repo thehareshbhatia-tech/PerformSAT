@@ -1,0 +1,40 @@
+{
+  "id": "bank-am-228",
+  "question": "The graph of $y = g(x) - 6$ in the $xy$-plane is shown, and its lowest point is $(0, -6)$. Which of the following could define the function $g$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        0,
+        -6
+      ],
+      "a": 1,
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$g(x) = x^2$"
+    },
+    {
+      "id": "B",
+      "text": "$g(x) = x^2 - 6$"
+    },
+    {
+      "id": "C",
+      "text": "$g(x) = x^2 + 6$"
+    },
+    {
+      "id": "D",
+      "text": "$g(x) = (x - 6)^2$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "subtracts the $6$ a second time",
+    "C": "adds $6$ instead of undoing the subtraction of $6$",
+    "D": "shifts horizontally instead of vertically"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Function from Shifted Graph**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Undo the \"$-6$\": the lowest point of $y = g(x)$ is $(0, -6 + 6) = (0, 0)$, and $g(x) = x^2$ has its lowest point at the origin.\n\n**The Full Solution:**\nStep 1: The graph of $y = g(x) - 6$ is the graph of $y = g(x)$ shifted DOWN $6$ units.\nStep 2: To recover $g$, shift the given lowest point back UP $6$ units: $(0, -6) \\to (0, 0)$.\nStep 3: So $g$ must have its lowest point at $(0, 0)$, which $g(x) = x^2$ does. Check: $x^2 - 6$ has its lowest point at $(0, -6)$, exactly as shown. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^2 - 6$): then $y = g(x) - 6 = x^2 - 12$, whose lowest point is $(0, -12)$.\n* Choice C ($x^2 + 6$): then $y = g(x) - 6 = x^2$, whose lowest point is $(0, 0)$, not $(0, -6)$.\n* Choice D ($(x - 6)^2$): moves the lowest point sideways to $(6, -6)$; the $-6$ outside the function shifts vertically only.\n\n**Test Day Takeaway:** A constant added OUTSIDE the function moves the graph vertically — to recover the original function, move the given point the opposite way."
+}

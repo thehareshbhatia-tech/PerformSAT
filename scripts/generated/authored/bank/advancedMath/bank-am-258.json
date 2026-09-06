@@ -1,0 +1,40 @@
+{
+  "id": "bank-am-258",
+  "question": "The graph of $y = h(x)$ is shown in the $xy$-plane, where $h(x) = x^2 - 6x + 5$. The graph of which function is the reflection of the graph of $y = h(x)$ across the $x$-axis?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        3,
+        -4
+      ],
+      "a": 1,
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -x^2 - 6x + 5$"
+    },
+    {
+      "id": "B",
+      "text": "$y = -x^2 + 6x - 5$"
+    },
+    {
+      "id": "C",
+      "text": "$y = x^2 + 6x + 5$"
+    },
+    {
+      "id": "D",
+      "text": "$y = -x^2 + 6x + 5$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "negates only the leading term",
+    "C": "is $h(-x)$, a reflection across the $y$-axis",
+    "D": "forgets to negate the constant term"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Reflecting across the $x$-axis means negating the ENTIRE expression: $-(x^2 - 6x + 5) = -x^2 + 6x - 5$.\n\n**The Full Solution:**\nStep 1: A reflection across the $x$-axis sends $y = h(x)$ to $y = -h(x)$, so every term changes sign.\nStep 2: $-h(x) = -(x^2 - 6x + 5) = -x^2 + 6x - 5$.\nStep 3: Check with the low point. The graph shown has its lowest point at $(3, -4)$; the reflected graph should have its highest point at $(3, 4)$, and $-(3)^2 + 6(3) - 5 = -9 + 18 - 5 = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -x^2 - 6x + 5$): only the $x^2$ term was negated, so the graph is not a mirror image.\n* Choice C ($y = x^2 + 6x + 5$): this is $h(-x)$, the reflection across the $y$-axis, whose lowest point is $(-3, -4)$.\n* Choice D ($y = -x^2 + 6x + 5$): the constant was left positive, so the vertex lands at $(3, 14)$ instead of $(3, 4)$.\n\n**Test Day Takeaway:** Distribute the negative across every term, then verify with the vertex — one point catches a missed sign instantly."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-151",
+  "question": "The function $h$ is defined by $h(x) = 3x^2 + 4x - 5$. What is the value of $h(-3)$?",
+  "correctAnswer": "10",
+  "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~25s):** $h(-3) = 3(9) + 4(-3) - 5 = 27 - 12 - 5 = 10$.\n\n**The Full Solution:**\nStep 1: Substitute $-3$ for $x$: $h(-3) = 3(-3)^2 + 4(-3) - 5$.\nStep 2: Square before multiplying: $(-3)^2 = 9$, so the first term is $3(9) = 27$. The second term is $4(-3) = -12$.\nStep 3: Combine: $27 - 12 - 5 = 10$. Check: rewriting as $3x^2 + 4x - 5$ at $x = -3$ gives $27 + (-12) + (-5)$, and $27 - 17 = 10$. $\\checkmark$\n\n**Common Mistakes:**\n* Computing $3(-3)^2$ as $(3 \\cdot -3)^2 = 81$, which multiplies before squaring.\n* Treating $(-3)^2$ as $-9$, which gives $-27 - 12 - 5 = -44$.\n* Adding the last term and reporting $20$ instead of subtracting $5$.\n\n**Test Day Takeaway:** Exponents come before multiplication, so square the input first and only then apply the coefficient."
+}

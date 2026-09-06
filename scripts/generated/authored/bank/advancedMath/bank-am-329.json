@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-329",
+  "question": "Which of the following is a solution to the equation $5^{x^2 - 3x} = 5^{10}$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-5$"
+    },
+    {
+      "id": "B",
+      "text": "$-2$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$10$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sign error in the factoring",
+    "C": "sets the exponent equal to 0",
+    "D": "reports the exponent instead of x"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Exponential Equation with Common Base**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The bases match, so $x^2 - 3x = 10$. Then $(x - 5)(x + 2) = 0$, and of the two solutions, $x = -2$ is listed.\n\n**The Full Solution:**\nStep 1: Equal powers of $5$ force the exponents to be equal: $x^2 - 3x = 10$.\nStep 2: Rearranging gives $x^2 - 3x - 10 = 0$, which factors as $(x - 5)(x + 2) = 0$.\nStep 3: The solutions are $x = 5$ and $x = -2$; only $-2$ appears among the choices. Check: $(-2)^2 - 3(-2) = 4 + 6 = 10$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): factors as $(x + 5)(x - 2)$, flipping both signs; $(-5)^2 - 3(-5) = 40$, not $10$.\n* Choice C ($3$): solves $x^2 - 3x = 0$, ignoring the exponent on the right; $3^2 - 3(3) = 0$.\n* Choice D ($10$): reports the exponent $10$ as if it were $x$; $10^2 - 3(10) = 70$.\n\n**Test Day Takeaway:** Matching bases can leave a QUADRATIC in the exponents — solve it, then check which root the choices actually offer."
+}

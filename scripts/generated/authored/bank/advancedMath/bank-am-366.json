@@ -1,0 +1,52 @@
+{
+  "id": "bank-am-366",
+  "question": "Three input-output pairs for the function $g$ are listed in the table shown. The function $f$ is defined by $f(x) = x^2 - 3$. What is the value of $f(g(5))$?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "g(x)"
+      ],
+      "rows": [
+        [
+          "1",
+          "4"
+        ],
+        [
+          "3",
+          "7"
+        ],
+        [
+          "5",
+          "2"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$1$"
+    },
+    {
+      "id": "B",
+      "text": "$2$"
+    },
+    {
+      "id": "C",
+      "text": "$13$"
+    },
+    {
+      "id": "D",
+      "text": "$22$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "stops after finding $g(5)$",
+    "C": "uses the row $x = 1$ instead of $x = 5$",
+    "D": "computes $f(5)$ instead of $f(g(5))$"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The table gives $g(5) = 2$, so $f(g(5)) = f(2) = 2^2 - 3 = 1$.\n\n**The Full Solution:**\nStep 1: Read the inner value from the table. In the row where $x = 5$, the value of $g(x)$ is $2$, so $g(5) = 2$.\nStep 2: Substitute that output into $f$: $f(2) = 2^2 - 3$.\nStep 3: $4 - 3 = 1$. Check: the outer function is applied to $2$, not to $5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): reports $g(5)$ and never applies $f$.\n* Choice C ($13$): reads the wrong row, using $g(1) = 4$ and computing $f(4) = 16 - 3$.\n* Choice D ($22$): applies $f$ directly to $5$, giving $25 - 3$, instead of to the table output.\n\n**Test Day Takeaway:** With a table, the input listed in the first column feeds the INNER function; the number you carry to the outer function is the table's output."
+}

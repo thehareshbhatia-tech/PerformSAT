@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-425",
+  "question": "The function $f$ is defined by $f(x) = (x - c)(x - 4c)$, where $c$ is a nonzero constant. Which of the following statements about the graph of $y = f(x)$ in the $xy$-plane must be true?\n\nI. The graph has exactly two $x$-intercepts.\nII. The vertex of the graph lies to the right of the $y$-axis.",
+  "choices": [
+    {
+      "id": "A",
+      "text": "I only"
+    },
+    {
+      "id": "B",
+      "text": "II only"
+    },
+    {
+      "id": "C",
+      "text": "I and II"
+    },
+    {
+      "id": "D",
+      "text": "Neither I nor II"
+    }
+  ],
+  "distractorNotes": {
+    "B": "worries the two zeros could coincide while assuming $c$ is positive",
+    "C": "reads nonzero as positive, so the vertex at $x = \\dfrac{5c}{2}$ looks automatically positive",
+    "D": "rejects statement I on the grounds that $c$ and $4c$ might be equal"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Quadratic Must-Be-True Statements**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The zeros $c$ and $4c$ are different for every nonzero $c$, so I always holds; the vertex sits at $x = \\dfrac{5c}{2}$, which is negative whenever $c$ is negative, so II can fail.\n\n**The Full Solution:**\nStep 1: Statement I. The factored form makes $f(x) = 0$ exactly when $x = c$ or $x = 4c$. These coincide only if $c = 4c$, that is, only if $c = 0$, and $c = 0$ is excluded. So the graph meets the $x$-axis at exactly two points, and I must be true.\nStep 2: Statement II. A parabola is symmetric about the midpoint of its zeros, so the vertex has $x$-coordinate $\\dfrac{c + 4c}{2} = \\dfrac{5c}{2}$. That is positive when $c > 0$ but negative when $c < 0$, and nonzero permits both. A statement that fails for even one permitted value of $c$ is not a must.\nStep 3: Only statement I must be true, so the answer is I only. Check with $c = -2$: $f(x) = (x + 2)(x + 8) = x^2 + 10x + 16$, whose zeros $-8$ and $-2$ are distinct, and whose vertex $(-5, -9)$ lies to the left of the $y$-axis. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: this keeps the vertex claim, which depends on the sign of $c$, and discards the intercept claim, which does not. The two zeros $c$ and $4c$ differ by $3c$, and $3c \\ne 0$ for every value $c$ is allowed to take.\n* Choice C: correct on statement I, but it silently upgrades nonzero to positive. Testing a single negative value, such as $c = -2$, puts the vertex at $x = -5$.\n* Choice D: rejects statement I as well, presumably on the worry that $c$ and $4c$ could be equal; that happens only at $c = 0$, the one value the problem rules out.\n\n**Test Day Takeaway:** On must-be-true items, read the constraint on the constant exactly as written. Nonzero is not positive, so test one negative value before you accept any claim about position in the plane."
+}

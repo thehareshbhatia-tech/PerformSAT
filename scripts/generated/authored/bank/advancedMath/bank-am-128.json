@@ -1,0 +1,40 @@
+{
+  "id": "bank-am-128",
+  "question": "The graph of $y = 2x^2 - 4x + 5$ is shown in the $xy$-plane. The line $y = 8x + c$, where $c$ is a constant, is tangent to this parabola. What is the value of $c$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        1,
+        3
+      ],
+      "a": 2,
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-31$"
+    },
+    {
+      "id": "B",
+      "text": "$-13$"
+    },
+    {
+      "id": "C",
+      "text": "$-5$"
+    },
+    {
+      "id": "D",
+      "text": "$13$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses $a = 1$ in the discriminant instead of $a = 2$, solving $144 - 4(5 - c) = 0$",
+    "C": "assumes the tangent point is the vertex $(1, 3)$ and solves $3 = 8(1) + c$",
+    "D": "distributes $-8(5 - c)$ as $-40 - 8c$, flipping the sign of $c$"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Combining gives $2x^2 - 12x + (5 - c) = 0$. Tangency forces $144 - 8(5 - c) = 0$, so $c = -13$.\n\n**The Full Solution:**\nStep 1: Set the expressions equal: $2x^2 - 4x + 5 = 8x + c$. Subtracting $8x$ and $c$ gives $2x^2 - 12x + (5 - c) = 0$.\nStep 2: Exactly one intersection means the discriminant is zero: $(-12)^2 - 4(2)(5 - c) = 0$, so $144 - 40 + 8c = 0$.\nStep 3: Then $8c = -104$ and $c = -13$. Check: $2x^2 - 12x + 18 = 2(x - 3)^2$, which is zero only at $x = 3$, and the line gives $8(3) - 13 = 11 = 2(9) - 12 + 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-31$): the leading coefficient $2$ is ignored in $b^2 - 4ac$, so $4(1)(5-c)$ replaces $4(2)(5-c)$.\n* Choice C ($-5$): the vertex of the parabola is $(1, 3)$, but the tangent line with slope $8$ touches at $x = 3$, not at the vertex.\n* Choice D ($13$): distributing $-8(5 - c)$ as $-40 - 8c$ reverses the sign of the answer.\n\n**Test Day Takeaway:** Keep the leading coefficient in $b^2 - 4ac$. Tangency is about a repeated root, not about the vertex."
+}

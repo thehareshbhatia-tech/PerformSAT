@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-396",
+  "question": "The function $h$ is defined by $h(x) = 26 - 3(x + 5)^2$. What is the maximum value of $h(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-5$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$23$"
+    },
+    {
+      "id": "D",
+      "text": "$26$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the $x$-value where the maximum occurs",
+    "B": "reports the coefficient of the squared term",
+    "C": "subtracts the coefficient 3 from 26"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The squared term is subtracted, so $h$ is largest when $(x + 5)^2 = 0$, leaving $h = 26$.\n\n**The Full Solution:**\nStep 1: $(x + 5)^2$ is never negative, so $3(x + 5)^2$ is never negative either.\nStep 2: Subtracting a nonnegative quantity from $26$ can only lower the value, so the largest possible output happens when $3(x + 5)^2 = 0$.\nStep 3: That occurs at $x = -5$, and $h(-5) = 26 - 0 = 26$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): reports where the maximum occurs instead of the maximum value.\n* Choice B ($3$): reports the coefficient in front of the squared term.\n* Choice C ($23$): subtracts the coefficient $3$ from $26$, as if the squared factor contributed $3$ at the vertex.\n\n**Test Day Takeaway:** When a squared term is subtracted, set it to zero — the constant left behind is the maximum value."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-377",
+  "question": "The function $f$ is defined by $f(x) = x^3$. In the $xy$-plane, the graph of $y = f(x) + 6$ is the graph of $y = f(x)$ shifted in which direction?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Down $6$ units"
+    },
+    {
+      "id": "B",
+      "text": "Left $6$ units"
+    },
+    {
+      "id": "C",
+      "text": "Right $6$ units"
+    },
+    {
+      "id": "D",
+      "text": "Up $6$ units"
+    }
+  ],
+  "distractorNotes": {
+    "A": "flips the sign of an outside change",
+    "B": "treats an outside change as horizontal",
+    "C": "treats an outside change as horizontal and keeps the sign"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Adding $6$ outside the function raises every output by $6$, so the graph moves up $6$.\n\n**The Full Solution:**\nStep 1: The $+6$ is added AFTER $f$ acts on $x$, so it changes outputs ($y$-values), not inputs.\nStep 2: Every point $(x, y)$ on $y = f(x)$ becomes $(x, y + 6)$; the $x$-coordinate is untouched.\nStep 3: Raising every $y$-value by $6$ is a shift up $6$ units. Check with one point: $(2, 8)$ on $y = x^3$ becomes $(2, 14)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Down $6$ units): flips the sign; a shift down would come from $y = f(x) - 6$.\n* Choice B (Left $6$ units): treats the outside change as horizontal; a left shift comes from $y = f(x + 6)$.\n* Choice C (Right $6$ units): also treats the outside change as horizontal, this time from $y = f(x - 6)$.\n\n**Test Day Takeaway:** Changes OUTSIDE the function move the graph vertically in the direction of the sign; changes INSIDE move it horizontally, opposite the sign."
+}

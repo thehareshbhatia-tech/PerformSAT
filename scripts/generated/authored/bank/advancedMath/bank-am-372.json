@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-372",
+  "question": "The function $g$ is defined by $g(x) = 3x^2 + 4x - 1$. What is the value of $g(-3)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-40$"
+    },
+    {
+      "id": "B",
+      "text": "$14$"
+    },
+    {
+      "id": "C",
+      "text": "$38$"
+    },
+    {
+      "id": "D",
+      "text": "$68$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "treats $(-3)^2$ as $-9$",
+    "C": "computes $4(-3)$ as $+12$",
+    "D": "squares $3x$ instead of $x$"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $3(9) + 4(-3) - 1 = 27 - 12 - 1 = 14$.\n\n**The Full Solution:**\nStep 1: Substitute: $g(-3) = 3(-3)^2 + 4(-3) - 1$.\nStep 2: The exponent applies only to $x$, so square first: $(-3)^2 = 9$, and $3 \\cdot 9 = 27$. Then $4(-3) = -12$.\nStep 3: $27 - 12 - 1 = 14$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-40$): treats $(-3)^2$ as $-9$, giving $-27 - 12 - 1$.\n* Choice C ($38$): computes $4(-3)$ as $+12$, giving $27 + 12 - 1$.\n* Choice D ($68$): squares the whole product $3x$ instead of just $x$: $(-9)^2 = 81$, then $81 - 12 - 1$.\n\n**Test Day Takeaway:** In $3x^2$ the exponent belongs to $x$ alone — square the input, then multiply by the coefficient."
+}

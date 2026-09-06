@@ -1,0 +1,52 @@
+{
+  "id": "bank-am-275",
+  "question": "The function $V(t) = 6{,}000(1.05)^t$ gives the value, in dollars, of a retirement account $t$ years after it was opened, and the table shows three of its values. Which of the following is the best interpretation of $1.05$ in this context?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "t (years)",
+        "V(t) (dollars)"
+      ],
+      "rows": [
+        [
+          "0",
+          "6,000"
+        ],
+        [
+          "1",
+          "6,300"
+        ],
+        [
+          "2",
+          "6,615"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "The account's value increases by $\\$1.05$ each year."
+    },
+    {
+      "id": "B",
+      "text": "The account's value increases by $5\\%$ each year."
+    },
+    {
+      "id": "C",
+      "text": "The account's value increases by $105\\%$ each year."
+    },
+    {
+      "id": "D",
+      "text": "The account's value when it was opened was $\\$1.05$."
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads the multiplier as a dollar amount",
+    "C": "reads the whole multiplier as the percent increase instead of the part above $1$",
+    "D": "confuses the multiplier with the initial value"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** In $a(b)^t$, the base $b = 1.05$ means each year's value is $1.05$ times the previous one — a $5\\%$ increase per year.\n\n**The Full Solution:**\nStep 1: Increasing a quantity by $r$ (as a decimal) multiplies it by $1 + r$. Here $1 + r = 1.05$, so $r = 0.05$.\nStep 2: As a percent, $r = 5\\%$, and the exponent $t$ counts years, so the increase happens once per year.\nStep 3: The table confirms it: $\\dfrac{6{,}300}{6{,}000} = 1.05$ and $\\dfrac{6{,}615}{6{,}300} = 1.05$, a constant $5\\%$ rise each year. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$1.05$ each year): the base is a multiplier, not a dollar amount; the first year adds $\\$300$, not $\\$1.05$.\n* Choice C ($105\\%$ each year): that would multiply the value by $2.05$ each year, more than doubling it.\n* Choice D (opening value $\\$1.05$): the opening value is the coefficient $6{,}000$, the value at $t = 0$.\n\n**Test Day Takeaway:** In an exponential model, the coefficient is the starting amount and the base minus $1$ is the percent change per period."
+}

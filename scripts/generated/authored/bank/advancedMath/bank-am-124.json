@@ -1,0 +1,40 @@
+{
+  "id": "bank-am-124",
+  "question": "The graph of $y = x^2 - 6x + 11$ is shown in the $xy$-plane. The line $y = -2x + b$, where $b$ is a constant, is tangent to this parabola. What is the value of $b$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        3,
+        2
+      ],
+      "a": 1,
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-7$"
+    },
+    {
+      "id": "B",
+      "text": "$-5$"
+    },
+    {
+      "id": "C",
+      "text": "$7$"
+    },
+    {
+      "id": "D",
+      "text": "$8$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "distributes $-4(11 - b)$ as $-44 - 4b$, solving $16 - 44 - 4b = 0$",
+    "B": "subtracts $2x$ instead of adding it, producing $x^2 - 8x + 11 - b = 0$",
+    "D": "assumes the line must touch the parabola at its vertex $(3, 2)$ and solves $2 = -2(3) + b$"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Setting the two expressions equal gives $x^2 - 4x + (11 - b) = 0$. Tangency means one repeated solution, so $16 - 4(11 - b) = 0$ and $b = 7$.\n\n**The Full Solution:**\nStep 1: A tangent line meets the parabola exactly once, so the system has exactly one solution. Substituting gives $x^2 - 6x + 11 = -2x + b$, which rearranges to $x^2 - 4x + (11 - b) = 0$.\nStep 2: A quadratic has exactly one real solution when its discriminant is $0$: $(-4)^2 - 4(1)(11 - b) = 0$, so $16 - 44 + 4b = 0$.\nStep 3: Then $4b = 28$ and $b = 7$. Check: with $b = 7$ the equation is $x^2 - 4x + 4 = 0$, or $(x - 2)^2 = 0$, a single solution at $x = 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): the $-4(11 - b)$ term is distributed as $-44 - 4b$, flipping the sign on $b$.\n* Choice B ($-5$): moving $-2x$ across the equals sign as a subtraction gives $x^2 - 8x + 11 - b = 0$ and a discriminant of $64 - 4(11-b)$.\n* Choice D ($8$): the tangent point is assumed to be the vertex $(3, 2)$, but a tangent line with slope $-2$ touches this parabola at $x = 2$, not at the vertex.\n\n**Test Day Takeaway:** Tangent means one shared point. Set the two expressions equal, collect everything on one side, and force the discriminant to zero."
+}

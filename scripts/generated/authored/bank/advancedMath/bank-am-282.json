@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-282",
+  "question": "For what value of $x$ is $\\dfrac{x + 14}{x - 2} = 5$ true, where $x$ is a real number?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-6$"
+    },
+    {
+      "id": "B",
+      "text": "$2$"
+    },
+    {
+      "id": "C",
+      "text": "$3.5$"
+    },
+    {
+      "id": "D",
+      "text": "$6$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sign slip when collecting the $x$-terms",
+    "B": "reports the value excluded from the domain",
+    "C": "fails to distribute the $5$ over the $-2$"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Cross-multiply: $x + 14 = 5(x - 2) = 5x - 10$, so $24 = 4x$ and $x = 6$.\n\n**The Full Solution:**\nStep 1: The denominator forces $x \\ne 2$. For any other $x$, multiply both sides by $x - 2$: $x + 14 = 5(x - 2)$.\nStep 2: Distribute and collect: $x + 14 = 5x - 10$, so $14 + 10 = 5x - x$, giving $24 = 4x$.\nStep 3: Then $x = 6$, which is in the domain. Check: $\\dfrac{6 + 14}{6 - 2} = \\dfrac{20}{4} = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): the sign flipped while moving terms, turning $24 = 4x$ into $-24 = 4x$.\n* Choice B ($2$): this is the excluded value; substituting it makes the denominator zero.\n* Choice C ($3.5$): this comes from $x + 14 = 5x$, forgetting to multiply the $5$ by $-2$; then $14 = 4x$.\n\n**Test Day Takeaway:** Distribute across the whole binomial when you clear a denominator, and confirm the answer is not the excluded value."
+}

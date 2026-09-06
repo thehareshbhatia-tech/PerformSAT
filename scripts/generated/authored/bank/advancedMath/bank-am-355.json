@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-355",
+  "question": "The equation $ax^2 + 12x + 5 = 0$, where $a$ is a positive constant, has two distinct real solutions. What is the greatest possible integer value of $a$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7$"
+    },
+    {
+      "id": "B",
+      "text": "$8$"
+    },
+    {
+      "id": "C",
+      "text": "$28$"
+    },
+    {
+      "id": "D",
+      "text": "$35$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "rounds 7.2 up",
+    "C": "omits the factor of 4",
+    "D": "drops the constant term"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** Two distinct real solutions means $144 - 20a > 0$, so $a < 7.2$ and the greatest integer is $7$.\n\n**The Full Solution:**\nStep 1: With $b = 12$ and $c = 5$, the discriminant is $144 - 4a(5) = 144 - 20a$.\nStep 2: Two distinct real solutions requires $144 - 20a > 0$, so $20a < 144$ and $a < 7.2$.\nStep 3: The greatest integer below $7.2$ is $7$, and $a = 7$ is positive as required. Check: $a = 7$ gives $144 - 140 = 4 > 0$, while $a = 8$ gives $144 - 160 = -16 < 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($8$): rounds $7.2$ up instead of taking the greatest integer below it.\n* Choice C ($28$): omits the factor of $4$, solving $144 - 5a > 0$ to get $a < 28.8$.\n* Choice D ($35$): drops the constant term $5$, solving $144 - 4a > 0$ to get $a < 36$.\n\n**Test Day Takeaway:** When the unknown sits in the leading coefficient, it still enters the discriminant through $4ac$ — multiply by $c$, not by $1$."
+}

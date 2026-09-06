@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-196",
+  "question": "The function $c$ defined by $c(t) = 200(1.07)^t$ gives the number of members of a hiking club $t$ years after $2018$. Which of the following is the best interpretation of $1.07$ in this context?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The number of members increased by $107$ each year."
+    },
+    {
+      "id": "B",
+      "text": "The number of members increased by $7\\%$ each year."
+    },
+    {
+      "id": "C",
+      "text": "The number of members increased by $1.07$ each year."
+    },
+    {
+      "id": "D",
+      "text": "The number of members increased by $107\\%$ each year."
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads the multiplier as a count of new members",
+    "C": "reads the multiplier as the amount added each year",
+    "D": "converts the multiplier to a percent instead of the percent CHANGE"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Exponential Growth Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** In $a(b)^t$ the base is $1 + r$; here $1.07 = 1 + 0.07$, a $7\\%$ increase per year.\n\n**The Full Solution:**\nStep 1: The model has the form $c(t) = a(b)^t$, so each year the membership is multiplied by $b = 1.07$.\nStep 2: Multiplying by $1.07$ keeps the original $100\\%$ and adds $7\\%$ more, since $1.07 - 1 = 0.07$.\nStep 3: So the club's membership grew by $7\\%$ per year. Check: $c(0) = 200$ and $c(1) = 214$, and $\\dfrac{214 - 200}{200} = 0.07$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($107$ members per year): treats a multiplier as a count; the club would have to gain the same $107$ members every year, which is linear growth.\n* Choice C ($1.07$ members per year): also treats the multiplier as an amount added; the base multiplies the membership, it is never a number of members joining.\n* Choice D ($107\\%$): reports the whole base as the percent change; a $107\\%$ increase would multiply by $2.07$.\n\n**Test Day Takeaway:** Subtract $1$ from the base before converting to a percent: $1.07 \\to 7\\%$ growth, $0.93 \\to 7\\%$ decay."
+}

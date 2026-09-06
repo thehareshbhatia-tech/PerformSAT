@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-404",
+  "question": "The solutions of the equation $4x^2 + 20x - 96 = 0$ are $r$ and $s$. What is the value of $rs$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-96$"
+    },
+    {
+      "id": "B",
+      "text": "$-24$"
+    },
+    {
+      "id": "C",
+      "text": "$-5$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses $c$ without dividing by $a$",
+    "C": "reports the sum of the solutions",
+    "D": "drops the negative sign"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The product of the solutions is $\\dfrac{c}{a} = \\dfrac{-96}{4} = -24$.\n\n**The Full Solution:**\nStep 1: For $ax^2 + bx + c = 0$, dividing by $a$ gives $x^2 + \\dfrac{b}{a}x + \\dfrac{c}{a} = 0$, so the product of the solutions is $\\dfrac{c}{a}$.\nStep 2: Here $a = 4$ and $c = -96$, so $rs = \\dfrac{-96}{4}$.\nStep 3: $rs = -24$. Check by factoring: $4x^2 + 20x - 96 = 4(x + 8)(x - 3)$, so the solutions are $-8$ and $3$, and $(-8)(3) = -24$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-96$): uses the constant term directly, which is only correct when the leading coefficient is $1$.\n* Choice C ($-5$): reports the SUM of the solutions, $-\\dfrac{20}{4}$, instead of their product.\n* Choice D ($24$): divides correctly but drops the negative sign.\n\n**Test Day Takeaway:** When $a \\ne 1$, always divide: the product is $\\dfrac{c}{a}$, never $c$ alone."
+}

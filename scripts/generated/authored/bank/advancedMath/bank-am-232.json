@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-232",
+  "question": "The function $g$ is defined by $g(x) = 2f(x) + 5$. If $g(4) = 41$, what is the value of $f(4)$?",
+  "correctAnswer": "18",
+  "explanation": "**SAT Pattern: Function from Shifted Graph**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~20s):** $2f(4) + 5 = 41$ gives $2f(4) = 36$, so $f(4) = 18$.\n\n**The Full Solution:**\nStep 1: Substituting $x = 4$ into the definition gives $g(4) = 2f(4) + 5$, and $g(4) = 41$.\nStep 2: Subtracting $5$ from both sides gives $2f(4) = 36$.\nStep 3: Dividing by $2$ gives $f(4) = 18$. Check: $2(18) + 5 = 41$. $\\checkmark$\n\n**Common Mistakes:** Answering $36$, which subtracts the $5$ but forgets to undo the vertical stretch. Answering $15.5$, which divides by $2$ first and then subtracts $5$ — the operations must be undone in the reverse of the order they were applied.\n\n**Test Day Takeaway:** Treat $f(4)$ as a single unknown and solve the equation as usual: peel off the addition first, then the multiplication."
+}

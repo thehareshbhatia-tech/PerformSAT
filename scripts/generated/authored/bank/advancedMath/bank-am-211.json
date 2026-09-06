@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-211",
+  "question": "The function $M$ defined by $M(t) = 640(0.94)^t$ models the number of members of a vinyl record club $t$ years after $2019$. Which statement is the best interpretation of $640$ in this context?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The club lost $640$ members between $2019$ and $2020$."
+    },
+    {
+      "id": "B",
+      "text": "The club had $640$ members in $2019$."
+    },
+    {
+      "id": "C",
+      "text": "The club's membership decreased by $640$ members each year."
+    },
+    {
+      "id": "D",
+      "text": "The club had $640$ members in $2020$."
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads the coefficient as a loss rather than a count",
+    "C": "assigns the coefficient the role of a constant yearly decrease",
+    "D": "shifts the starting year by one"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $M(0) = 640(0.94)^0 = 640$, and $t = 0$ is $2019$.\n\n**The Full Solution:**\nStep 1: In $a(b)^t$, the coefficient $a$ is the value at $t = 0$.\nStep 2: Here $t$ counts years after $2019$, so $t = 0$ corresponds to $2019$ and $M(0) = 640$ members.\nStep 3: The base $0.94$ handles the change: membership falls by $6\\%$ per year. Check: $M(1) = 601.6 \\approx 602$ members in $2020$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (lost $640$ members): the club had only $640$ members to begin with; the actual one-year loss is about $38$.\n* Choice C (down $640$ each year): describes linear decay; this model loses a constant PERCENT, not a constant number.\n* Choice D ($640$ in $2020$): $2020$ is $t = 1$, where the model gives about $602$.\n\n**Test Day Takeaway:** In an exponential model, the coefficient is the output at $t = 0$ — check what real-world moment $t = 0$ names before writing the interpretation."
+}

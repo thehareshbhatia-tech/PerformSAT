@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-138",
+  "question": "In the equation $ax^2 - 8x + 8 = 0$, $a$ is a nonzero constant. For which of the following values of $a$ does the equation have no real solutions?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-1$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{1}{2}$"
+    },
+    {
+      "id": "C",
+      "text": "$2$"
+    },
+    {
+      "id": "D",
+      "text": "$3$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "assumes a negative leading coefficient prevents real solutions; here the discriminant is $64 + 32 = 96$",
+    "B": "treats any $a$ less than $1$ as too small; the discriminant is $64 - 16 = 48$",
+    "C": "stops at the boundary $a = 2$, where the discriminant is $0$ and there is exactly one real solution"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** No real solutions requires $64 - 32a < 0$, so $a > 2$. Among the choices only $3$ qualifies.\n\n**The Full Solution:**\nStep 1: With $b = -8$ and $c = 8$, the discriminant is $(-8)^2 - 4(a)(8) = 64 - 32a$.\nStep 2: There are no real solutions exactly when $64 - 32a < 0$, which gives $32a > 64$ and $a > 2$.\nStep 3: Of the four choices only $a = 3$ satisfies $a > 2$. Check: $3x^2 - 8x + 8 = 0$ has discriminant $64 - 96 = -32 < 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): a negative $a$ makes $-4ac$ positive, so the discriminant grows to $96$ and there are two real solutions.\n* Choice B ($\\frac{1}{2}$): the discriminant is $64 - 16 = 48 > 0$, again two real solutions.\n* Choice C ($2$): the discriminant is exactly $0$, which is one real solution, not none.\n\n**Test Day Takeaway:** Solve the discriminant inequality for the parameter before testing choices, and treat the boundary value as the one-solution case."
+}

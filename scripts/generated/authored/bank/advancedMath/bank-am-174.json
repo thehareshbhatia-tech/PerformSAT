@@ -1,0 +1,60 @@
+{
+  "id": "bank-am-174",
+  "question": "The table lists the value of the function $h$ at five values of $x$, and the function $p$ is defined by $p(x) = 2x - 1$. What is the value of $h(p(3))$?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "h(x)"
+      ],
+      "rows": [
+        [
+          "1",
+          "4"
+        ],
+        [
+          "3",
+          "-2"
+        ],
+        [
+          "5",
+          "6"
+        ],
+        [
+          "7",
+          "0"
+        ],
+        [
+          "9",
+          "-5"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-5$"
+    },
+    {
+      "id": "B",
+      "text": "$-2$"
+    },
+    {
+      "id": "C",
+      "text": "$0$"
+    },
+    {
+      "id": "D",
+      "text": "$6$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes $p(h(3)) = p(-2)$, reversing the order of the composition",
+    "B": "reads $h(3) = -2$ without first applying $p$",
+    "C": "uses the row $x = 7$ instead of the row $x = 5$"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** $p(3) = 5$, and the table gives $h(5) = 6$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function: $p(3) = 2(3) - 1 = 5$.\nStep 2: That output becomes the input to $h$, so $h(p(3)) = h(5)$.\nStep 3: The row with $x = 5$ gives $h(5) = 6$. Check: the reverse composition $p(h(3)) = p(-2) = -5$ is a different value, so order matters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): this is $p(h(3))$, the composition in the opposite order.\n* Choice B ($-2$): this is $h(3)$, using the original input instead of $p(3)$.\n* Choice C ($0$): this is $h(7)$, one row past the correct entry.\n\n**Test Day Takeaway:** Compute the inner value, then look up that number in the table — not the number that appeared in the original expression."
+}

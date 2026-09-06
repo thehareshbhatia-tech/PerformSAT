@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-352",
+  "question": "In the equation $x^2 + bx + c = 0$, $b$ and $c$ are positive constants and $b = 2c$. If the equation has exactly one real solution, what is the value of $b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$1$"
+    },
+    {
+      "id": "B",
+      "text": "$2$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$8$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports c instead of b",
+    "C": "squares 2c as 2c^2",
+    "D": "divides only one side by 4"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice B is correct.**\n\n**The Fast Way (~70s):** One real solution means $b^2 - 4c = 0$. Substituting $b = 2c$ gives $4c^2 = 4c$, so $c = 1$ (since $c > 0$) and $b = 2$.\n\n**The Full Solution:**\nStep 1: With $a = 1$, the discriminant is $b^2 - 4c$, and exactly one real solution requires $b^2 - 4c = 0$.\nStep 2: Substitute $b = 2c$: $(2c)^2 - 4c = 0$, so $4c^2 - 4c = 0$ and $4c(c - 1) = 0$.\nStep 3: The roots are $c = 0$ and $c = 1$; since $c$ is positive, $c = 1$ and $b = 2(1) = 2$. Check: $x^2 + 2x + 1 = (x + 1)^2$, which has the single solution $x = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): solves the system correctly but reports $c$ instead of $b$.\n* Choice C ($4$): squares $2c$ as $2c^2$, solving $2c^2 = 4c$ to get $c = 2$ and $b = 4$.\n* Choice D ($8$): divides only the left side of $4c^2 = 4c$ by $4$, solving $c^2 = 4c$ to get $c = 4$ and $b = 8$.\n\n**Test Day Takeaway:** Substitute the relationship between the constants INTO the discriminant condition, then discard any root the stated restrictions forbid."
+}

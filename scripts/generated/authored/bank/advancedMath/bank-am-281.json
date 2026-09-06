@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-281",
+  "question": "In the equation $\\dfrac{2}{x - 4} + \\dfrac{3}{x + 4} = \\dfrac{16}{x^2 - 16}$, $x$ is a real number. Which of the following gives all solutions of the equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-4$ only"
+    },
+    {
+      "id": "B",
+      "text": "$4$ only"
+    },
+    {
+      "id": "C",
+      "text": "$-4$ and $4$"
+    },
+    {
+      "id": "D",
+      "text": "The equation has no solution."
+    }
+  ],
+  "distractorNotes": {
+    "A": "names an excluded value that never arises from the algebra",
+    "B": "solves correctly but keeps $x = 4$, which makes two denominators zero",
+    "C": "keeps both excluded values"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** Clearing the denominators gives $5x - 4 = 16$, so $x = 4$ — a value that makes $x - 4$ and $x^2 - 16$ zero. It is extraneous, so nothing survives.\n\n**The Full Solution:**\nStep 1: Factor the right denominator: $x^2 - 16 = (x - 4)(x + 4)$. So $x \\ne 4$ and $x \\ne -4$.\nStep 2: Multiply every term by $(x - 4)(x + 4)$: $2(x + 4) + 3(x - 4) = 16$, which simplifies to $2x + 8 + 3x - 12 = 16$, or $5x - 4 = 16$.\nStep 3: Then $5x = 20$ and $x = 4$. Because $x = 4$ is excluded, it is extraneous and the equation has no solution. Check: substituting $4$ gives $\\dfrac{2}{0}$, which is undefined. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$ only): $-4$ is excluded from the domain, and it is not even produced by the algebra.\n* Choice B ($4$ only): this is the candidate the algebra produces, but it must be rejected because it makes denominators zero.\n* Choice C ($-4$ and $4$): both are excluded values, so neither can be a solution.\n\n**Test Day Takeaway:** Clearing denominators can manufacture a solution. Always test the candidate against the excluded values before answering."
+}

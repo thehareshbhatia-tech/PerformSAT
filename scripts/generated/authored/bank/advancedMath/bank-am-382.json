@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-382",
+  "question": "The function $f$ is defined by $f(x) = x^2 + 10x + 21$. In the $xy$-plane, the graph of $y = f(x)$ can be obtained from the graph of $y = x^2$ by which translation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Left $10$ units and down $4$ units"
+    },
+    {
+      "id": "B",
+      "text": "Left $5$ units and up $21$ units"
+    },
+    {
+      "id": "C",
+      "text": "Left $5$ units and down $4$ units"
+    },
+    {
+      "id": "D",
+      "text": "Right $5$ units and down $4$ units"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses $b$ instead of $\\frac{b}{2}$ for the horizontal shift",
+    "B": "uses the constant term as the vertical shift",
+    "D": "shifts right instead of left"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Complete the square: $x^2 + 10x + 21 = (x + 5)^2 - 4$, so the vertex moves from $(0, 0)$ to $(-5, -4)$.\n\n**The Full Solution:**\nStep 1: Take half of the coefficient of $x$: half of $10$ is $5$, and $(x + 5)^2 = x^2 + 10x + 25$.\nStep 2: That is $4$ more than the original constant, so $f(x) = (x + 5)^2 + 21 - 25 = (x + 5)^2 - 4$.\nStep 3: Vertex form $(x - h)^2 + k$ has vertex $(h, k) = (-5, -4)$, so the parabola $y = x^2$ moves left $5$ and down $4$. Check: $f(-5) = 25 - 50 + 21 = -4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: uses the full coefficient $10$ as the horizontal shift instead of half of it.\n* Choice B: keeps the original constant $21$ as the vertical shift, skipping the correction from completing the square.\n* Choice D: reads $(x + 5)^2$ as a shift right; the vertex sits where $x + 5 = 0$, which is $x = -5$.\n\n**Test Day Takeaway:** Completing the square converts standard form into a pair of shifts — half the $x$-coefficient sets the horizontal move, and the leftover constant sets the vertical one."
+}

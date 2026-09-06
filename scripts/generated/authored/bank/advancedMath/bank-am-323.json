@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-323",
+  "question": "The equation $2^x = 128$ is given, where $x$ is a positive integer. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$6$"
+    },
+    {
+      "id": "B",
+      "text": "$7$"
+    },
+    {
+      "id": "C",
+      "text": "$8$"
+    },
+    {
+      "id": "D",
+      "text": "$64$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "stops at 2^6 = 64",
+    "C": "overshoots to 2^8 = 256",
+    "D": "divides 128 by 2"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Exponential Equation with Common Base**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $128 = 2^7$, so $2^x = 2^7$ and $x = 7$.\n\n**The Full Solution:**\nStep 1: Write the right side as a power of the same base: $2, 4, 8, 16, 32, 64, 128$ is the list of powers of $2$, and $128$ is the seventh.\nStep 2: The equation becomes $2^x = 2^7$.\nStep 3: Equal powers of the same base force equal exponents, so $x = 7$. Check: $2^7 = 128$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): stops one doubling short, since $2^6 = 64$.\n* Choice C ($8$): goes one doubling too far, since $2^8 = 256$.\n* Choice D ($64$): divides $128$ by $2$ instead of solving for the exponent.\n\n**Test Day Takeaway:** Rewrite both sides as powers of one base, then set the exponents equal."
+}

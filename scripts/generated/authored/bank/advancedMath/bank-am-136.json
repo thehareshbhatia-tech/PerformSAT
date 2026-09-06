@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-136",
+  "question": "In the equation $x^2 + kx + 6 = 0$, $k$ is a constant. For which of the following values of $k$ does the equation have two distinct real solutions?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-4$"
+    },
+    {
+      "id": "B",
+      "text": "$0$"
+    },
+    {
+      "id": "C",
+      "text": "$2$"
+    },
+    {
+      "id": "D",
+      "text": "$5$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "treats any negative $k$ as producing two solutions; $(-4)^2 = 16 < 24$",
+    "B": "reads $x^2 = -6$ as having the two symmetric solutions $\\pm\\sqrt{6}$",
+    "C": "compares $k^2$ with $4$ rather than with $4ac = 24$"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Two distinct real solutions require $k^2 > 4(1)(6) = 24$. Only $5^2 = 25$ exceeds $24$.\n\n**The Full Solution:**\nStep 1: For $ax^2 + bx + c = 0$, two distinct real solutions occur exactly when $b^2 - 4ac > 0$. Here $a = 1$ and $c = 6$, so the condition is $k^2 - 24 > 0$, or $k^2 > 24$.\nStep 2: Test each choice: $(-4)^2 = 16$, $0^2 = 0$, $2^2 = 4$, and $5^2 = 25$.\nStep 3: Only $25 > 24$, so $k = 5$. Check: $x^2 + 5x + 6 = (x+2)(x+3)$, giving the two distinct solutions $x = -2$ and $x = -3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): the sign of $k$ is irrelevant because $k$ is squared, and $16$ is still less than $24$.\n* Choice B ($0$): with $k = 0$ the equation is $x^2 = -6$, which has no real solutions at all.\n* Choice C ($2$): comparing $k^2$ to $4$ instead of $4ac$ makes $2$ look like a boundary value.\n\n**Test Day Takeaway:** Convert the wording into an inequality on $b^2 - 4ac$ first, then test the choices; squaring erases the sign of $k$."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-279",
+  "question": "The equation $\\dfrac{x^2 - 49}{x + 7} = 4$ has exactly one solution. What is that solution?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-7$"
+    },
+    {
+      "id": "B",
+      "text": "$-3$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$11$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the value excluded from the domain",
+    "B": "cancels to $x + 7 = 4$ instead of $x - 7 = 4$",
+    "C": "copies the right-hand side"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** $\\dfrac{(x + 7)(x - 7)}{x + 7} = x - 7$ for $x \\ne -7$, so $x - 7 = 4$ and $x = 11$.\n\n**The Full Solution:**\nStep 1: Factor the numerator as a difference of squares: $x^2 - 49 = (x + 7)(x - 7)$. The denominator forces $x \\ne -7$.\nStep 2: Cancel the common factor $x + 7$, leaving $x - 7 = 4$.\nStep 3: So $x = 11$, and $11 \\ne -7$, so it is in the domain. Check: $\\dfrac{121 - 49}{18} = \\dfrac{72}{18} = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): this is the value that makes the denominator zero, so it can never be a solution.\n* Choice B ($-3$): this cancels the wrong factor and solves $x + 7 = 4$.\n* Choice C ($4$): this copies the number on the right side instead of solving for $x$.\n\n**Test Day Takeaway:** Factor and cancel first, but record the excluded value before you cancel — it is the classic trap answer."
+}

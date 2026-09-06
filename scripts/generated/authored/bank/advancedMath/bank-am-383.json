@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-383",
+  "question": "The area covered by a patch of invasive plants, in square meters, is modeled by $A(t) = 320(1.09)^t$, where $t$ is the number of weeks since monitoring began. Which of the following is the best interpretation of $1.09$ in this model?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The area covered increases by $1.09$ square meters each week."
+    },
+    {
+      "id": "B",
+      "text": "The area covered increases by $9\\%$ each week."
+    },
+    {
+      "id": "C",
+      "text": "The area covered increases by $109\\%$ each week."
+    },
+    {
+      "id": "D",
+      "text": "The area covered was $1.09$ square meters when monitoring began."
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads a growth factor as a constant amount",
+    "C": "reads the whole factor as the percent increase",
+    "D": "confuses the base with the initial value"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Interpret Exponential Parameters**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** In $a(b)^t$ the base $b = 1.09$ means multiply by $1.09$ each week, which is a $9\\%$ increase.\n\n**The Full Solution:**\nStep 1: The model has the exponential form $A(t) = a(b)^t$ with $a = 320$ and $b = 1.09$.\nStep 2: Each time $t$ increases by $1$, the area is multiplied by $1.09$, so the new area is $109\\%$ of the previous area.\nStep 3: Being $109\\%$ of the previous value means gaining $9\\%$, so the area grows by $9\\%$ per week. Check: $320(1.09) = 348.8$, which is $28.8$ more than $320$, and $\\frac{28.8}{320} = 0.09$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reads a multiplier as an added amount; a constant increase of $1.09$ square meters would need a linear model.\n* Choice C: reports the entire factor as the percent change instead of the part above $100\\%$.\n* Choice D: confuses the base with the initial value; the area at $t = 0$ is $320$ square meters.\n\n**Test Day Takeaway:** For a base $b > 1$, the percent increase is $(b - 1) \\times 100\\%$ — subtract the $1$ before converting."
+}

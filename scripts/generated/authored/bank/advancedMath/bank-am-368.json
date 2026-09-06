@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-368",
+  "question": "The functions $f$ and $g$ are defined by $f(x) = 3x - 5$ and $g(x) = x^2 + 1$. Which of the following expressions defines $g(f(x))$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3x^2 - 2$"
+    },
+    {
+      "id": "B",
+      "text": "$9x^2 + 1$"
+    },
+    {
+      "id": "C",
+      "text": "$9x^2 - 30x + 25$"
+    },
+    {
+      "id": "D",
+      "text": "$9x^2 - 30x + 26$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "builds $f(g(x))$ instead",
+    "B": "squares only the $3x$ term",
+    "C": "drops the $+1$ from $g$"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Substitute $3x - 5$ for $x$ in $g$: $(3x - 5)^2 + 1 = 9x^2 - 30x + 26$.\n\n**The Full Solution:**\nStep 1: $g(f(x))$ means the whole expression $3x - 5$ takes the place of $x$ inside $g$, so $g(f(x)) = (3x - 5)^2 + 1$.\nStep 2: Expand the square: $(3x - 5)^2 = 9x^2 - 15x - 15x + 25 = 9x^2 - 30x + 25$.\nStep 3: Add the $1$: $9x^2 - 30x + 26$. Check at $x = 0$: $f(0) = -5$ and $g(-5) = 26$, matching the constant term. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x^2 - 2$): builds $f(g(x)) = 3(x^2 + 1) - 5$, the composition in the reverse order.\n* Choice B ($9x^2 + 1$): squares only the $3x$ and forgets that $(3x - 5)^2$ has a middle term.\n* Choice C ($9x^2 - 30x + 25$): expands the square correctly but never adds the $+1$ that belongs to $g$.\n\n**Test Day Takeaway:** Substituting a binomial always produces a middle term — write $(3x-5)(3x-5)$ out rather than squaring term by term."
+}

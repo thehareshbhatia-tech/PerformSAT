@@ -1,0 +1,56 @@
+{
+  "id": "bank-am-241",
+  "question": "The table shows the value of the function $f$ at four values of $x$. The function $g$ is defined by $g(x) = f(x) - 11$. What is the value of $g(7)$?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "f(x)"
+      ],
+      "rows": [
+        [
+          "0",
+          "5"
+        ],
+        [
+          "3",
+          "-1"
+        ],
+        [
+          "5",
+          "8"
+        ],
+        [
+          "7",
+          "20"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-9$"
+    },
+    {
+      "id": "B",
+      "text": "$-3$"
+    },
+    {
+      "id": "C",
+      "text": "$9$"
+    },
+    {
+      "id": "D",
+      "text": "$31$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes $11 - f(7)$ instead of $f(7) - 11$",
+    "B": "uses the row $x = 5$ instead of the row $x = 7$",
+    "D": "adds $11$ instead of subtracting it"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Vertical Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Read $f(7) = 20$ from the table, then subtract $11$: $20 - 11 = 9$.\n\n**The Full Solution:**\nStep 1: The rule $g(x) = f(x) - 11$ says: evaluate $f$ at the same input, then move the output down $11$. The input is never changed.\nStep 2: The table gives $f(7) = 20$.\nStep 3: $g(7) = f(7) - 11 = 20 - 11 = 9$. Check: the point $(7, 20)$ on the graph of $f$ becomes $(7, 9)$ on the graph of $g$, which is $11$ units lower. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): this is $11 - 20$, the subtraction performed in the wrong order.\n* Choice B ($-3$): this uses $f(5) = 8$ and gives $8 - 11$, the right arithmetic on the wrong row.\n* Choice D ($31$): this adds $11$; the minus sign in $f(x) - 11$ shifts the graph down, not up.\n\n**Test Day Takeaway:** A constant added or subtracted OUTSIDE the function changes only the output. Find the matching row first, then apply the shift once."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-244",
+  "question": "In the $xy$-plane, the point $(-6, 15)$ lies on the graph of $y = w(x)$. Which of the following points must lie on the graph of $y = w(x) - 9$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-15, 15)$"
+    },
+    {
+      "id": "B",
+      "text": "$(-6, 6)$"
+    },
+    {
+      "id": "C",
+      "text": "$(-6, 24)$"
+    },
+    {
+      "id": "D",
+      "text": "$(3, 15)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts $9$ from the $x$-coordinate",
+    "C": "adds $9$ to the $y$-coordinate",
+    "D": "adds $9$ to the $x$-coordinate"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Vertical Shift**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Keep the input, drop the output by $9$: $(-6,\\ 15 - 9) = (-6, 6)$.\n\n**The Full Solution:**\nStep 1: The point $(-6, 15)$ on $y = w(x)$ means $w(-6) = 15$.\nStep 2: Let $u(x) = w(x) - 9$. Then $u(-6) = w(-6) - 9 = 15 - 9 = 6$.\nStep 3: So the point $(-6, 6)$ is on the graph of $y = w(x) - 9$. Check: the new point sits $9$ units directly below the old one, exactly what subtracting $9$ from every output does. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-15, 15)$): the $9$ was applied to the $x$-coordinate, which a vertical shift never touches.\n* Choice C ($(-6, 24)$): the shift was added rather than subtracted, moving the point up.\n* Choice D ($(3, 15)$): the $9$ was added to the input, which would be a horizontal shift.\n\n**Test Day Takeaway:** In $y = f(x) + k$ the $x$-coordinate is untouched; only the $y$-coordinate moves, and it moves by exactly $k$."
+}

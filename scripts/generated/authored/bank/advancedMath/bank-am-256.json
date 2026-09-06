@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-256",
+  "question": "The function $g$ is defined by $g(x) = f(-x)$, where $f$ is a function. If $f(-7) = 24$, what is the value of $g(7)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-24$"
+    },
+    {
+      "id": "B",
+      "text": "$7$"
+    },
+    {
+      "id": "C",
+      "text": "$17$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "negates the output, which is $-f(x)$ rather than $f(-x)$",
+    "B": "reports the input rather than the output",
+    "C": "subtracts $7$ from the output"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** $g(7) = f(-7) = 24$. The negative sign changes the input only.\n\n**The Full Solution:**\nStep 1: Substitute $x = 7$ into the definition: $g(7) = f(-7)$.\nStep 2: The problem gives $f(-7) = 24$.\nStep 3: So $g(7) = 24$. Check: the point $(-7, 24)$ on the graph of $f$ becomes $(7, 24)$ on the graph of $g$ — same height, mirrored across the $y$-axis. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-24$): this flips the sign of the OUTPUT, which is what $-f(x)$ does; here the sign is inside the parentheses.\n* Choice B ($7$): this reports the input to $g$ instead of the value it returns.\n* Choice C ($17$): this subtracts $7$ from $24$, treating the reflection as a vertical shift.\n\n**Test Day Takeaway:** In $f(-x)$, replace the input with its opposite and read the output off unchanged."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-284",
+  "question": "For which values of $x$ is the expression $\\dfrac{x + 8}{x^2 - 4x - 21}$ undefined?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-8$ only"
+    },
+    {
+      "id": "B",
+      "text": "$-7$ and $3$"
+    },
+    {
+      "id": "C",
+      "text": "$-3$ and $7$"
+    },
+    {
+      "id": "D",
+      "text": "$-8$, $-3$, and $7$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sets the numerator equal to zero",
+    "B": "factors with the signs reversed",
+    "D": "includes the numerator's zero along with the denominator's"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** A fraction is undefined only where its denominator is $0$: $x^2 - 4x - 21 = (x - 7)(x + 3) = 0$ at $x = 7$ and $x = -3$.\n\n**The Full Solution:**\nStep 1: The expression is undefined exactly when the denominator equals $0$; the numerator plays no role.\nStep 2: Factor: two numbers with product $-21$ and sum $-4$ are $-7$ and $3$, so $x^2 - 4x - 21 = (x - 7)(x + 3)$.\nStep 3: Setting each factor to zero gives $x = 7$ and $x = -3$. Check: $(7)^2 - 4(7) - 21 = 49 - 28 - 21 = 0$ and $(-3)^2 - 4(-3) - 21 = 9 + 12 - 21 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$ only): $x = -8$ makes the NUMERATOR zero, which makes the expression equal $0$, not undefined.\n* Choice B ($-7$ and $3$): the signs of the factors were reversed; $(x + 7)(x - 3) = x^2 + 4x - 21$, not the given denominator.\n* Choice D ($-8$, $-3$, and $7$): this adds the numerator's zero to the correct list.\n\n**Test Day Takeaway:** \"Undefined\" is a denominator question. Factor the denominator, set it to zero, and ignore the numerator entirely."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-303",
+  "question": "The polynomial function $g$ is defined by $g(x) = x^4 - 2x^3 - 5x + 7$. What is the remainder when $g(x)$ is divided by $x + 2$?",
+  "correctAnswer": "49",
+  "explanation": "**SAT Pattern: Polynomial Remainder Theorem**\n\n**The correct answer is $49$.**\n\n**The Fast Way (~30s):** Dividing by $x + 2$ leaves the remainder $g(-2) = 16 + 16 + 10 + 7 = 49$.\n\n**The Full Solution:**\nStep 1: The remainder theorem says division by $x - r$ leaves the remainder $g(r)$. Here $x + 2 = x - (-2)$, so $r = -2$.\nStep 2: $g(-2) = (-2)^4 - 2(-2)^3 - 5(-2) + 7 = 16 - 2(-8) + 10 + 7$.\nStep 3: $16 + 16 + 10 + 7 = 49$. Check: every term with an odd power changes sign at $x = -2$, so the two subtractions both become additions. $\\checkmark$\n\n**Common Mistakes:** Substituting $x = 2$ instead of $x = -2$ gives $16 - 16 - 10 + 7 = -3$. Mishandling one sign and treating $-2(-2)^3$ as $-16$ gives $16 - 16 + 10 + 7 = 17$. Long division reaches the same $49$, but it takes several times as long as one substitution.\n\n**Test Day Takeaway:** Rewrite $x + 2$ as $x - (-2)$ before substituting; the remainder is the function value at the divisor's root."
+}

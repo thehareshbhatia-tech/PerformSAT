@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-350",
+  "question": "The equation $2x^2 - 12x + k = 0$, where $k$ is a constant, has exactly one real solution. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-18$"
+    },
+    {
+      "id": "B",
+      "text": "$9$"
+    },
+    {
+      "id": "C",
+      "text": "$18$"
+    },
+    {
+      "id": "D",
+      "text": "$36$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "sign slip solving for k",
+    "B": "ignores the factor of 2 when completing the square",
+    "D": "uses a = 1"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Exactly one real solution means the discriminant is $0$: $(-12)^2 - 4(2)(k) = 0$, so $144 = 8k$ and $k = 18$.\n\n**The Full Solution:**\nStep 1: Here $a = 2$, $b = -12$, and $c = k$, so the discriminant is $144 - 8k$.\nStep 2: A single (repeated) real solution occurs exactly when the discriminant is $0$: $144 - 8k = 0$.\nStep 3: $8k = 144$, so $k = 18$. Check: $2x^2 - 12x + 18 = 2(x - 3)^2$, whose only zero is $x = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-18$): slips a sign and solves $8k = -144$.\n* Choice B ($9$): completes the square as $(x - 3)^2$ and reports $9$, ignoring the factor of $2$ multiplying the parentheses.\n* Choice D ($36$): uses $a = 1$ instead of $a = 2$, solving $144 - 4k = 0$.\n\n**Test Day Takeaway:** \"Exactly one real solution\" is the discriminant-equals-zero condition, and the leading coefficient belongs in $4ac$."
+}

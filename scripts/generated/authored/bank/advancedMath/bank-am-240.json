@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-240",
+  "question": "In the $xy$-plane, the graph of $y = f(x) + 7$ is the graph of $y = f(x)$ shifted in which direction?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Up $7$ units"
+    },
+    {
+      "id": "B",
+      "text": "Down $7$ units"
+    },
+    {
+      "id": "C",
+      "text": "Left $7$ units"
+    },
+    {
+      "id": "D",
+      "text": "Right $7$ units"
+    }
+  ],
+  "distractorNotes": {
+    "B": "reverses the direction of a positive vertical shift",
+    "C": "treats the outside constant as a horizontal shift",
+    "D": "treats the outside constant as a horizontal shift in the other direction"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Vertical Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Adding $7$ outside the function adds $7$ to every output, lifting the graph $7$ units up.\n\n**The Full Solution:**\nStep 1: If $(p, q)$ is on the graph of $y = f(x)$, then $f(p) = q$.\nStep 2: At the same input, the new function gives $f(p) + 7 = q + 7$, so the point $(p, q + 7)$ is on the new graph.\nStep 3: Every point keeps its $x$-coordinate and gains $7$ on its $y$-coordinate, so the graph shifts up $7$ units. Check: $y = x^2$ has its lowest point at $(0, 0)$, while $y = x^2 + 7$ has its lowest point at $(0, 7)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (down $7$): a shift DOWN comes from $f(x) - 7$.\n* Choice C (left $7$): a shift left comes from $f(x + 7)$, with the $7$ inside the function.\n* Choice D (right $7$): a shift right comes from $f(x - 7)$, again with the constant inside.\n\n**Test Day Takeaway:** Outside the function moves the graph vertically in the direction of the sign; inside the function moves it horizontally the OPPOSITE way."
+}

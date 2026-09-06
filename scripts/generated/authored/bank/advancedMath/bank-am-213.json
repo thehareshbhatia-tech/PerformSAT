@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-213",
+  "question": "A greenhouse heater is switched off. The temperature inside the greenhouse, in degrees Fahrenheit, $t$ hours after the heater is switched off is modeled by $H(t) = 46 + 32(0.7)^t$. Which statement is the best interpretation of $46$ in this context?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The temperature inside the greenhouse was $46^\\circ$F when the heater was switched off."
+    },
+    {
+      "id": "B",
+      "text": "The temperature inside the greenhouse falls by $46^\\circ$F each hour."
+    },
+    {
+      "id": "C",
+      "text": "The temperature inside the greenhouse approaches $46^\\circ$F as $t$ increases."
+    },
+    {
+      "id": "D",
+      "text": "The temperature inside the greenhouse reaches $46^\\circ$F after $32$ hours."
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads the constant as the value at $t = 0$, which is $78^\\circ$F",
+    "B": "reads the constant as an hourly rate of cooling",
+    "D": "invents a finishing time from the other constant"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** As $t$ grows, $32(0.7)^t$ shrinks toward $0$, so $H(t)$ settles toward the constant $46^\\circ$F.\n\n**The Full Solution:**\nStep 1: The model is a constant plus a decaying term: $H(t) = 46 + 32(0.7)^t$.\nStep 2: Because $0 < 0.7 < 1$, the term $32(0.7)^t$ decreases toward $0$ but never reaches it, so $H(t)$ decreases toward $46$.\nStep 3: In context, $46^\\circ$F is the temperature the greenhouse approaches — the surrounding temperature. Check values: $H(0) = 78$, $H(1) = 68.4$, $H(2) = 61.68$, $H(10) \\approx 46.9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($46^\\circ$F at switch-off): the starting temperature is $H(0) = 46 + 32 = 78^\\circ$F; $46$ is the floor, not the start.\n* Choice B (falls $46^\\circ$F per hour): the first hour's drop is only $9.6^\\circ$F, and later drops are smaller still.\n* Choice D (reaches $46^\\circ$F after $32$ hours): $32$ is the size of the temperature gap at $t = 0$, not a number of hours, and the model never quite reaches $46$.\n\n**Test Day Takeaway:** When an exponential model has a constant ADDED to it, that constant is the level the output approaches, while the coefficient of the exponential is the initial gap."
+}

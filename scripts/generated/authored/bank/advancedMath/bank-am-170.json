@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-170",
+  "question": "The function $f$ is defined by $f(x) = 4x^2 - 24x + 41$. The minimum value of $f$ is $m$, and it occurs at $x = a$. What is the value of $a + m$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$5$"
+    },
+    {
+      "id": "D",
+      "text": "$8$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes $m - a$ instead of $a + m$",
+    "B": "reports $a$ alone rather than the requested sum",
+    "C": "reports $m$ alone rather than the requested sum"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The vertex is at $a = \\dfrac{24}{8} = 3$, and $f(3) = 36 - 72 + 41 = 5$, so $a + m = 8$.\n\n**The Full Solution:**\nStep 1: The leading coefficient $4$ is positive, so the parabola opens upward and the minimum is at the vertex, $a = -\\dfrac{-24}{2(4)} = \\dfrac{24}{8} = 3$.\nStep 2: The minimum value is $f(3) = 4(9) - 24(3) + 41 = 36 - 72 + 41 = 5$, so $m = 5$.\nStep 3: Then $a + m = 3 + 5 = 8$. Check by completing the square: $4x^2 - 24x + 41 = 4(x - 3)^2 + 5$, confirming the vertex $(3, 5)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): this is $m - a$, the difference rather than the sum.\n* Choice B ($3$): this is $a$, the location of the minimum, not combined with $m$.\n* Choice C ($5$): this is $m$, the minimum value, not combined with $a$.\n\n**Test Day Takeaway:** Find where the minimum happens and what it equals, keep the two labeled, and combine exactly as the question defines them."
+}

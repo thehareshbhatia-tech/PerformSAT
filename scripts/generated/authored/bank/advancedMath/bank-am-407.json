@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-407",
+  "question": "In the $xy$-plane, the graph of $y = 2x^2 + 24x + 55$ intersects the line $y = d$ at exactly one point, where $d$ is a constant. What is the value of $d$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-17$"
+    },
+    {
+      "id": "B",
+      "text": "$-6$"
+    },
+    {
+      "id": "C",
+      "text": "$55$"
+    },
+    {
+      "id": "D",
+      "text": "$271$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "reports the $x$-coordinate of the vertex",
+    "C": "reports the $y$-intercept",
+    "D": "substitutes $x = 6$ instead of $x = -6$"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Horizontal Tangent to a Parabola (Max/Min)**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** One intersection means $y = d$ passes through the vertex; $x = \\dfrac{-24}{4} = -6$ and $y = 2(36) - 144 + 55 = -17$.\n\n**The Full Solution:**\nStep 1: A horizontal line meets an upward-opening parabola twice, once, or never. Exactly one point means the line touches the vertex, so $d$ is the minimum value of $y$.\nStep 2: The vertex is at $x = -\\dfrac{b}{2a} = -\\dfrac{24}{2(2)} = -6$.\nStep 3: $y = 2(-6)^2 + 24(-6) + 55 = 72 - 144 + 55 = -17$, so $d = -17$. Check algebraically: $2x^2 + 24x + 55 = d$ has one solution when its discriminant $24^2 - 4(2)(55 - d) = 0$, giving $576 = 440 - 8d$, so $d = -17$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-6$): reports the $x$-coordinate of the vertex rather than the height of the tangent line.\n* Choice C ($55$): reports the $y$-intercept, the value at $x = 0$ instead of at the vertex.\n* Choice D ($271$): substitutes $x = 6$ instead of $x = -6$, giving $72 + 144 + 55$.\n\n**Test Day Takeaway:** \"Exactly one intersection with a horizontal line\" is another way of saying \"the line sits at the vertex\" — find the extreme value, not the location."
+}

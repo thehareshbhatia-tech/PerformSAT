@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-317",
+  "question": "The equation $\\sqrt{x + 12} = x$ is given. Which value or values of $x$ satisfy this equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x = -3$ only"
+    },
+    {
+      "id": "B",
+      "text": "$x = -4$ and $x = 3$"
+    },
+    {
+      "id": "C",
+      "text": "$x = 4$ only"
+    },
+    {
+      "id": "D",
+      "text": "$x = -3$ and $x = 4$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "selects the extraneous root",
+    "B": "sign error when factoring",
+    "D": "skips the extraneous check"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Squaring gives $x + 12 = x^2$, so $(x - 4)(x + 3) = 0$ and $x = 4$ or $x = -3$. A square root is never negative, so $x = -3$ fails and only $x = 4$ works.\n\n**The Full Solution:**\nStep 1: Square both sides: $x + 12 = x^2$, so $x^2 - x - 12 = 0$.\nStep 2: Factoring gives $(x - 4)(x + 3) = 0$, so the candidates are $x = 4$ and $x = -3$.\nStep 3: Test both in the ORIGINAL equation. For $x = 4$: $\\sqrt{16} = 4$, true. For $x = -3$: $\\sqrt{9} = 3$, but the right side is $-3$, so it fails. Check: squaring can create solutions the original equation never had, which is why the test is required. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x = -3$ only): keeps the extraneous root and discards the valid one.\n* Choice B ($x = -4$ and $x = 3$): factors $x^2 - x - 12$ as $(x + 4)(x - 3)$, flipping both signs.\n* Choice D ($x = -3$ and $x = 4$): solves the quadratic correctly but never checks for extraneous solutions.\n\n**Test Day Takeaway:** After squaring a radical equation, substitute every candidate back — the principal square root cannot equal a negative number."
+}

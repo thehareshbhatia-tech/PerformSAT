@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-351",
+  "question": "The equation $3x^2 + cx + 12 = 0$, where $c$ is a constant, has no real solutions. Which of the following could be the value of $c$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-15$"
+    },
+    {
+      "id": "B",
+      "text": "$-12$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$13$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "discriminant 81, two real solutions",
+    "B": "discriminant 0, exactly one real solution",
+    "D": "discriminant 25, two real solutions"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** No real solutions means $c^2 - 4(3)(12) < 0$, so $c^2 < 144$ and $-12 < c < 12$. Of the choices, only $6$ lies in that interval.\n\n**The Full Solution:**\nStep 1: The equation has $a = 3$, middle coefficient $c$, and constant term $12$, so the discriminant is $c^2 - 4(3)(12) = c^2 - 144$.\nStep 2: No real solutions requires $c^2 - 144 < 0$, that is $c^2 < 144$, so $-12 < c < 12$.\nStep 3: Testing the choices, $6^2 = 36 < 144$, so $c = 6$ works. Check: $3x^2 + 6x + 12 = 0$ has discriminant $36 - 144 = -108 < 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-15$): gives $225 - 144 = 81 > 0$, so the equation has two distinct real solutions.\n* Choice B ($-12$): gives $144 - 144 = 0$, exactly one real solution, not none.\n* Choice D ($13$): gives $169 - 144 = 25 > 0$, again two real solutions.\n\n**Test Day Takeaway:** $c^2 < 144$ allows negative values too — test the size of $c$, not just its sign."
+}

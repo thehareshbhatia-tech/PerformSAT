@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-238",
+  "question": "In the $xy$-plane, the line $y = 9x + b$, where $b$ is a constant, is tangent to the parabola $y = 2x^2 - 3x + 17$. What is the value of $b$?",
+  "correctAnswer": "-1",
+  "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**The correct answer is $-1$.**\n\n**The Fast Way (~45s):** Equating gives $2x^2 - 12x + (17 - b) = 0$; the repeated root is $x = 3$, and substituting gives $18 - 36 + 17 - b = 0$, so $b = -1$.\n\n**The Full Solution:**\nStep 1: Setting the expressions equal gives $2x^2 - 3x + 17 = 9x + b$, or $2x^2 - 12x + (17 - b) = 0$.\nStep 2: Tangency means one repeated solution, so the discriminant is zero: $(-12)^2 - 4(2)(17 - b) = 0$, or $144 = 8(17 - b)$.\nStep 3: Then $17 - b = 18$, so $b = -1$. Check: the repeated root is $x = \\frac{12}{4} = 3$, where the parabola gives $y = 18 - 9 + 17 = 26$ and the line gives $y = 27 - 1 = 26$. $\\checkmark$\n\n**Common Mistakes:** Answering $1$, a sign slip in solving $17 - b = 18$. Answering $3$, the $x$-coordinate of the point of tangency, or $26$, its $y$-coordinate — the question asks for the constant in the line's equation.\n\n**Test Day Takeaway:** Set the discriminant of the combined quadratic to zero and solve for the unknown constant directly; the leading coefficient $2$ must stay in the $4ac$ term."
+}

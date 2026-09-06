@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-159",
+  "question": "In the equation $4x^2 - kx + 9 = 0$, $k$ is a positive integer and the equation has two distinct real solutions. What is the least possible value of $k$?",
+  "correctAnswer": "13",
+  "explanation": "**SAT Pattern: Discriminant with Integer Bound**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~35s):** Two distinct real solutions require $k^2 > 4(4)(9) = 144$, so $k > 12$ and the least integer is $13$.\n\n**The Full Solution:**\nStep 1: With $a = 4$ and $c = 9$, the discriminant is $(-k)^2 - 4(4)(9) = k^2 - 144$.\nStep 2: Two distinct real solutions means $k^2 - 144 > 0$, so for positive $k$, $k > 12$.\nStep 3: The least integer strictly greater than $12$ is $13$. Check: $13^2 - 144 = 25 > 0$, while $k = 12$ gives $0$, which is a single repeated solution. $\\checkmark$\n\n**Common Mistakes:**\n* Answering $12$, where the discriminant is zero and the two solutions collapse into one.\n* Using $\\sqrt{4 \\cdot 9} = 6$ instead of $\\sqrt{4 \\cdot 4 \\cdot 9} = 12$ and answering $7$.\n* Reversing the inequality and looking for the greatest $k$ below $12$.\n\n**Test Day Takeaway:** Two distinct solutions is the strict inequality $b^2 > 4ac$; the endpoint always belongs to the one-solution case."
+}

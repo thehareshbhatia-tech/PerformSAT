@@ -1,0 +1,50 @@
+{
+  "id": "bank-am-144",
+  "question": "In the $xy$-plane, the graph of $y = x^2 + bx + c$, where $b$ and $c$ are constants, crosses the $x$-axis at the two points shown. What is the value of $b + c$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        1.5,
+        -6.25
+      ],
+      "a": 1,
+      "showPoints": [
+        [
+          -1,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      "showVertex": false
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-7$"
+    },
+    {
+      "id": "B",
+      "text": "$-4$"
+    },
+    {
+      "id": "C",
+      "text": "$-3$"
+    },
+    {
+      "id": "D",
+      "text": "$-1$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "reports $c$ alone rather than the requested sum",
+    "C": "reports $b$ alone rather than the requested sum",
+    "D": "uses $b = 3$, the sum of the two $x$-intercepts, instead of $b = -3$"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The $x$-intercepts are $-1$ and $4$, so $y = (x + 1)(x - 4) = x^2 - 3x - 4$. Then $b + c = -3 + (-4) = -7$.\n\n**The Full Solution:**\nStep 1: The graph meets the $x$-axis at $(-1, 0)$ and $(4, 0)$, so $x = -1$ and $x = 4$ are the solutions of $x^2 + bx + c = 0$. That makes $(x + 1)$ and $(x - 4)$ the factors.\nStep 2: Because the leading coefficient is $1$, the equation is exactly $y = (x + 1)(x - 4)$. Expanding gives $x^2 - 4x + x - 4 = x^2 - 3x - 4$.\nStep 3: Matching coefficients gives $b = -3$ and $c = -4$, so $b + c = -7$. Check: at $x = -1$, $1 + 3 - 4 = 0$; at $x = 4$, $16 - 12 - 4 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-4$): this is $c$, the $y$-intercept value, reported without adding $b$.\n* Choice C ($-3$): this is $b$ alone.\n* Choice D ($-1$): using the sum of the intercepts, $-1 + 4 = 3$, as $b$ reverses its sign; the coefficient of $x$ is the negative of that sum.\n\n**Test Day Takeaway:** Read the roots off the graph, write the factored form, expand once, and only then combine the constants the question asks about."
+}

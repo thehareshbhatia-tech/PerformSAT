@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-371",
+  "question": "The function $f$ is defined by $f(x) = x^2 - 6x + 2$. What is the value of $f(-4)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-38$"
+    },
+    {
+      "id": "B",
+      "text": "$-6$"
+    },
+    {
+      "id": "C",
+      "text": "$10$"
+    },
+    {
+      "id": "D",
+      "text": "$42$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "makes both sign errors at once",
+    "B": "computes $-6(-4)$ as $-24$",
+    "C": "treats $(-4)^2$ as $-16$"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** $(-4)^2 - 6(-4) + 2 = 16 + 24 + 2 = 42$.\n\n**The Full Solution:**\nStep 1: Substitute $-4$ for every $x$: $f(-4) = (-4)^2 - 6(-4) + 2$.\nStep 2: Evaluate each term. $(-4)^2 = 16$ because a negative times a negative is positive, and $-6(-4) = +24$ for the same reason.\nStep 3: $16 + 24 + 2 = 42$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-38$): makes both sign errors at once, computing $-16 - 24 + 2$.\n* Choice B ($-6$): keeps $(-4)^2 = 16$ but writes $-6(-4)$ as $-24$, giving $16 - 24 + 2$.\n* Choice C ($10$): treats $(-4)^2$ as $-16$, giving $-16 + 24 + 2$.\n\n**Test Day Takeaway:** Write the substituted expression with parentheses around the negative input before you simplify — that is where the two sign errors get caught."
+}

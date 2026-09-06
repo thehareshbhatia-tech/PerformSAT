@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-379",
+  "question": "The function $h$ is defined by $h(x) = (x + 7)^2 - 9$. What is the vertex of the graph of $y = h(x)$ in the $xy$-plane?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-9, -7)$"
+    },
+    {
+      "id": "B",
+      "text": "$(-7, -9)$"
+    },
+    {
+      "id": "C",
+      "text": "$(7, -9)$"
+    },
+    {
+      "id": "D",
+      "text": "$(7, 9)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "swaps the two coordinates",
+    "C": "reads $h$ straight off the parentheses",
+    "D": "keeps both constants as written"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Vertex form $a(x - h)^2 + k$ has vertex $(h, k)$; here $x + 7 = x - (-7)$, so the vertex is $(-7, -9)$.\n\n**The Full Solution:**\nStep 1: Match $h(x) = (x + 7)^2 - 9$ to the template $(x - h)^2 + k$.\nStep 2: The template subtracts $h$, so $x + 7$ means $h = -7$. The constant added at the end is $k = -9$.\nStep 3: The vertex is $(-7, -9)$. Check: $h(-7) = 0 - 9 = -9$, the lowest possible value since the square cannot be negative. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-9, -7)$): swaps the coordinates, listing $k$ first.\n* Choice C ($(7, -9)$): reads the $7$ straight off the parentheses without flipping its sign.\n* Choice D ($(7, 9)$): keeps both constants exactly as written, flipping neither sign.\n\n**Test Day Takeaway:** The $x$-coordinate of the vertex is the value that makes the squared expression zero — solve $x + 7 = 0$."
+}

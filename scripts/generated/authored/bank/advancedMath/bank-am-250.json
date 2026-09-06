@@ -1,0 +1,17 @@
+{
+  "id": "bank-am-250",
+  "question": "The graph of the quadratic function $f$ is shown in the $xy$-plane. The function $g$ is defined by $g(x) = f(x + 6)$, and the lowest point on the graph of $y = g(x)$ is $(a, -8)$. What is the value of $a$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        3,
+        -8
+      ],
+      "a": 1,
+      "showVertex": true
+    }
+  },
+  "correctAnswer": "-3",
+  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**The correct answer is $-3$.**\n\n**The Fast Way (~20s):** The lowest point shown is at $x = 3$. Replacing $x$ with $x + 6$ slides the graph $6$ units left: $3 - 6 = -3$.\n\n**The Full Solution:**\nStep 1: From the graph, the lowest point of $y = f(x)$ is $(3, -8)$, so $f$ attains its minimum value $-8$ at $x = 3$.\nStep 2: $g(x) = f(x + 6)$ produces that same minimum when its input matches: $x + 6 = 3$, so $x = -3$.\nStep 3: Therefore the lowest point on the graph of $g$ is $(-3, -8)$ and $a = -3$. Check: $g(-3) = f(-3 + 6) = f(3) = -8$, matching the given $y$-coordinate. $\\checkmark$\n\n**Common Mistakes:**\n* Answering $9$ shifts right instead of left; $f(x + 6)$ moves the graph in the negative $x$-direction.\n* Answering $3$ forgets the shift entirely and copies the vertex of $f$.\n* Answering $-2$ comes from applying the $6$ to the $y$-coordinate ($-8 + 6$) rather than the $x$-coordinate.\n\n**Test Day Takeaway:** Set the inside expression equal to the old input ($x + 6 = 3$) and solve. That single equation gets the direction right every time."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-289",
+  "question": "Which of the following is a factor of the polynomial $x^3 - 6x^2 + 7x - 42$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x - 7$"
+    },
+    {
+      "id": "B",
+      "text": "$x - 6$"
+    },
+    {
+      "id": "C",
+      "text": "$x + 6$"
+    },
+    {
+      "id": "D",
+      "text": "$x + 7$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads the coefficient $7$ as a root",
+    "C": "reverses the sign of the common binomial",
+    "D": "combines both sign errors"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $x^2(x - 6) + 7(x - 6) = (x - 6)(x^2 + 7)$, so $x - 6$ is a factor.\n\n**The Full Solution:**\nStep 1: Pair the terms: $(x^3 - 6x^2) + (7x - 42)$.\nStep 2: Factor each pair: $x^2(x - 6) + 7(x - 6)$, so the shared binomial is $x - 6$.\nStep 3: The full factorization is $(x - 6)(x^2 + 7)$, so $x - 6$ is a factor. Check with the factor theorem: $6^3 - 6(6)^2 + 7(6) - 42 = 216 - 216 + 42 - 42 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x - 7$): substituting $x = 7$ gives $343 - 294 + 49 - 42 = 56 \\ne 0$; the $7$ ends up inside $x^2 + 7$, which has no real zeros.\n* Choice C ($x + 6$): substituting $x = -6$ gives $-216 - 216 - 42 - 42 = -516 \\ne 0$.\n* Choice D ($x + 7$): substituting $x = -7$ gives $-343 - 294 - 49 - 42 = -728 \\ne 0$.\n\n**Test Day Takeaway:** A linear factor $x - r$ means $r$ is a zero. Group to find the factor, then confirm by substituting $r$ — the arithmetic is fast and decisive."
+}

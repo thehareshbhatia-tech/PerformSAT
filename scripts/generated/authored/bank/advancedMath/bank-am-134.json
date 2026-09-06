@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-134",
+  "question": "The equation $9x^2 - bx + 4 = 0$, where $b$ is a positive constant, has exactly one real solution. What is the value of $b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$12$"
+    },
+    {
+      "id": "D",
+      "text": "$144$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "drops the leading coefficient, solving $b^2 = 4(4) = 16$",
+    "B": "drops the factor of $4$, solving $b^2 = (9)(4) = 36$",
+    "D": "stops at $b^2 = 4ac = 144$ and reports that value as $b$"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** One real solution means $b^2 = 4ac = 4(9)(4) = 144$, so $b = 12$ for positive $b$.\n\n**The Full Solution:**\nStep 1: The equation is quadratic with $a = 9$ and constant term $4$, and its middle coefficient is $-b$. Exactly one real solution means the discriminant is zero: $(-b)^2 - 4(9)(4) = 0$.\nStep 2: Since $(-b)^2 = b^2$, the condition becomes $b^2 = 144$, so $b = 12$ or $b = -12$.\nStep 3: The problem states $b$ is positive, so $b = 12$. Check: $9x^2 - 12x + 4 = (3x - 2)^2$, whose only zero is $x = \\dfrac{2}{3}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): the leading coefficient $9$ is left out, so $b^2 = 4(4) = 16$.\n* Choice B ($6$): the factor of $4$ is left out, so $b^2 = 9 \\cdot 4 = 36$.\n* Choice D ($144$): this is $4ac$, which equals $b^2$, not $b$; the square root is still owed.\n\n**Test Day Takeaway:** Write out $a$, $b$, and $c$ before touching the discriminant, and remember the final square root."
+}

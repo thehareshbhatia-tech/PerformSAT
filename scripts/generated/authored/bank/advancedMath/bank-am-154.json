@@ -1,0 +1,52 @@
+{
+  "id": "bank-am-154",
+  "question": "The function $f$ is defined by $f(x) = x^2 + bx + 1$, where $b$ is a constant, and the table gives three values of the function $g$. If $f(2) = g(2)$, what is the value of $f(-2) - g(-2)$?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "g(x)"
+      ],
+      "rows": [
+        [
+          "-2",
+          "7"
+        ],
+        [
+          "0",
+          "3"
+        ],
+        [
+          "2",
+          "-1"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-4$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$11$"
+    },
+    {
+      "id": "D",
+      "text": "$12$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes $g(-2) - f(-2)$, reversing the order of the subtraction",
+    "C": "reports $f(-2) = 11$ and stops before subtracting $g(-2)$",
+    "D": "subtracts $g(2) = -1$ from the wrong row instead of $g(-2) = 7$"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The table gives $g(2) = -1$, so $5 + 2b = -1$ and $b = -3$. Then $f(-2) = 4 + 6 + 1 = 11$ and $11 - 7 = 4$.\n\n**The Full Solution:**\nStep 1: The table gives $g(2) = -1$, so the condition $f(2) = g(2)$ reads $2^2 + 2b + 1 = -1$, which is $5 + 2b = -1$.\nStep 2: That gives $2b = -6$, so $b = -3$ and $f(x) = x^2 - 3x + 1$. At the negative input, $f(-2) = (-2)^2 - 3(-2) + 1 = 4 + 6 + 1 = 11$.\nStep 3: The row with $x = -2$ gives $g(-2) = 7$, so $f(-2) - g(-2) = 11 - 7 = 4$. Check: $f(2) = 4 - 6 + 1 = -1$, which matches $g(2)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): the two values are subtracted in the reverse order, $7 - 11$.\n* Choice C ($11$): this is $f(-2)$ alone, reported before $g(-2)$ is subtracted.\n* Choice D ($12$): the row $x = 2$ is used, so $g(2) = -1$ is subtracted instead of $g(-2) = 7$, giving $11 + 1$.\n\n**Test Day Takeaway:** Pin the unknown constant with the stated condition first, then evaluate at the negative input and keep the subtraction in the order written."
+}

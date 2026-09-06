@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-336",
+  "question": "In the $xy$-plane, the graph of $y = x^2 + 6x + c$, where $c$ is a constant, intersects the $x$-axis at two points that are $10$ units apart. What is the value of $c$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-25$"
+    },
+    {
+      "id": "B",
+      "text": "$-16$"
+    },
+    {
+      "id": "C",
+      "text": "$16$"
+    },
+    {
+      "id": "D",
+      "text": "$34$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the y-coordinate of the vertex",
+    "C": "sign error solving 36 + 4c = 100",
+    "D": "sign error solving 4c - 36 = 100"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~60s):** If the zeros are $r$ and $s$, then $r + s = -6$ and $rs = c$, so $(r - s)^2 = (r + s)^2 - 4rs = 36 - 4c = 100$, giving $c = -16$.\n\n**The Full Solution:**\nStep 1: For $x^2 + 6x + c$, the zeros satisfy $r + s = -6$ and $rs = c$.\nStep 2: The identity $(r - s)^2 = (r + s)^2 - 4rs$ turns the distance condition $|r - s| = 10$ into $36 - 4c = 100$.\nStep 3: $-4c = 64$, so $c = -16$. Check: $x^2 + 6x - 16 = (x + 8)(x - 2)$, whose zeros $-8$ and $2$ are exactly $10$ apart. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-25$): finds $c$ but then reports the vertex's $y$-coordinate, $(-3)^2 + 6(-3) - 16 = -25$.\n* Choice C ($16$): writes $(r - s)^2 = (r + s)^2 + 4rs$, solving $36 + 4c = 100$.\n* Choice D ($34$): moves the $36$ to the wrong side, solving $4c - 36 = 100$.\n\n**Test Day Takeaway:** The gap between the zeros is $\\sqrt{b^2 - 4ac}$ divided by $|a|$ — squaring the given distance turns a geometry fact into an equation for the missing constant."
+}

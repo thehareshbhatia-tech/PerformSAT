@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-135",
+  "question": "The equation $2x^2 - 8x + c = 0$, where $c$ is a constant, has no real solutions. What is the least integer value of $c$?",
+  "correctAnswer": "9",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~30s):** No real solutions means $64 - 8c < 0$, so $c > 8$ and the least integer is $9$.\n\n**The Full Solution:**\nStep 1: With $a = 2$ and $b = -8$, the discriminant is $(-8)^2 - 4(2)(c) = 64 - 8c$.\nStep 2: An equation has no real solutions exactly when the discriminant is negative: $64 - 8c < 0$, so $8c > 64$ and $c > 8$.\nStep 3: The smallest integer strictly greater than $8$ is $9$. Check: with $c = 9$ the discriminant is $64 - 72 = -8 < 0$, while $c = 8$ gives $0$, which is one real solution rather than none. $\\checkmark$\n\n**Common Mistakes:**\n* Answering $8$, the boundary value, which produces exactly one real solution instead of none.\n* Forgetting the leading coefficient and solving $64 - 4c < 0$, which gives $c > 16$ and the answer $17$.\n* Reversing the inequality when dividing by $-8$.\n\n**Test Day Takeaway:** Solve the discriminant inequality first, then check the boundary: a strict inequality never includes its endpoint."
+}

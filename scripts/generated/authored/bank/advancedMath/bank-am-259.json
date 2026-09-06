@@ -1,0 +1,17 @@
+{
+  "id": "bank-am-259",
+  "question": "The graph of $y = f(x)$ is shown in the $xy$-plane. The function $g$ is defined by $g(x) = -f(x)$. What is the minimum value of $g$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        2,
+        9
+      ],
+      "a": -0.5,
+      "showVertex": true
+    }
+  },
+  "correctAnswer": "-9",
+  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**The correct answer is $-9$.**\n\n**The Fast Way (~20s):** The highest point of the graph shown is $9$; flipping the graph across the $x$-axis turns that peak into the lowest point, $-9$.\n\n**The Full Solution:**\nStep 1: From the graph, the largest output of $f$ is $9$, attained at $x = 2$, and the graph opens downward, so $f(x) \\le 9$ for every $x$.\nStep 2: Multiplying by $-1$ reverses every inequality: $-f(x) \\ge -9$, so $g(x) \\ge -9$ for every $x$.\nStep 3: Equality happens at $x = 2$, where $g(2) = -f(2) = -9$. So the minimum value of $g$ is $-9$. $\\checkmark$\n\n**Common Mistakes:**\n* Answering $9$ keeps the sign; reflecting across the $x$-axis changes the sign of every output.\n* Answering $2$ reports the $x$-coordinate of the peak instead of the value.\n* Answering $-2$ negates that $x$-coordinate rather than the output.\n\n**Test Day Takeaway:** A reflection across the $x$-axis swaps maximums and minimums and negates their values, while the inputs where they occur stay the same."
+}

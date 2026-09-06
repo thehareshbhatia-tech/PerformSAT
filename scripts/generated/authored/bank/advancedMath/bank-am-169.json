@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-169",
+  "question": "In the $xy$-plane, the graph of $y = 2x^2 - 14x + 9$ is a parabola. What is the $x$-coordinate of the vertex of this parabola?",
+  "correctAnswer": "3.5",
+  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**The correct answer is $3.5$.**\n\n**The Fast Way (~20s):** The vertex is at $x = -\\dfrac{-14}{2(2)} = \\dfrac{14}{4} = 3.5$.\n\n**The Full Solution:**\nStep 1: For $y = ax^2 + bx + c$ the vertex has $x$-coordinate $-\\dfrac{b}{2a}$. Here $a = 2$ and $b = -14$.\nStep 2: Substituting gives $-\\dfrac{-14}{2(2)} = \\dfrac{14}{4}$.\nStep 3: That simplifies to $3.5$. Check: the parabola is symmetric, and $y$ at $x = 3$ is $18 - 42 + 9 = -15$, the same as at $x = 4$, $32 - 56 + 9 = -15$; the midpoint of $3$ and $4$ is $3.5$. $\\checkmark$\n\n**Common Mistakes:**\n* Forgetting the leading coefficient and computing $\\frac{14}{2} = 7$.\n* Dropping the minus sign in the formula and answering $-3.5$.\n* Reporting the $y$-coordinate of the vertex instead of the $x$-coordinate.\n\n**Test Day Takeaway:** The axis of symmetry is $x = -\\frac{b}{2a}$, and a non-integer result is perfectly normal when $2a$ does not divide $b$."
+}

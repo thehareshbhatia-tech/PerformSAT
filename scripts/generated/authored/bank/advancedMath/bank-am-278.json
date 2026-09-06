@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-278",
+  "question": "A deposit of $\\$4{,}000$ into a mutual fund grows to $\\$4{,}840$ after $2$ years, with interest compounded annually at a constant rate $r$. What is the value of $r$, expressed as a percent?",
+  "correctAnswer": "10",
+  "explanation": "**SAT Pattern: Compound Interest**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~30s):** $\\dfrac{4{,}840}{4{,}000} = 1.21$, and $\\sqrt{1.21} = 1.1$, so the annual rate is $10\\%$.\n\n**The Full Solution:**\nStep 1: Two years of annual compounding gives $4{,}000(1 + r)^2 = 4{,}840$.\nStep 2: Dividing both sides by $4{,}000$ gives $(1 + r)^2 = 1.21$, so $1 + r = 1.1$ (the rate is positive).\nStep 3: Then $r = 0.1$, or $10\\%$. Check: $4{,}000(1.1) = 4{,}400$ and $4{,}400(1.1) = 4{,}840$. $\\checkmark$\n\n**Common Mistakes:**\n* Answering $21$ uses the total two-year increase, $\\dfrac{840}{4{,}000} = 21\\%$, as if it were one year's rate.\n* Answering $10.5$ splits that $21\\%$ evenly across the two years; compounding is multiplicative, so you take a square root, not a half.\n* Forgetting to divide by the principal first and taking $\\sqrt{4{,}840}$ produces a meaningless number, not a rate.\n\n**Test Day Takeaway:** With two compounding periods, isolate $(1 + r)^2$ and take the square root — never divide the total percent change by the number of years."
+}

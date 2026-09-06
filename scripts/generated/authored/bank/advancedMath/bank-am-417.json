@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-417",
+  "question": "The function $V$ is defined by $V(t) = 24{,}000(1.08)^{(3/4)t}$ and models the value, in dollars, of an account $t$ years after it was opened. According to the model, the value of the account increases by $8\\%$ every how many months?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$9$"
+    },
+    {
+      "id": "B",
+      "text": "$12$"
+    },
+    {
+      "id": "C",
+      "text": "$16$"
+    },
+    {
+      "id": "D",
+      "text": "$48$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies 12 months by 3/4 instead of dividing",
+    "B": "ignores the coefficient in the exponent",
+    "D": "converts 4 years to months, using only the numerator"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Period of Exponential Growth — Months Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** One factor of $1.08$ needs $\\dfrac{3}{4}t = 1$, so $t = \\dfrac{4}{3}$ years, which is $16$ months.\n\n**The Full Solution:**\nStep 1: The base $1.08$ produces an $8\\%$ increase each time the exponent grows by $1$.\nStep 2: The exponent is $\\dfrac{3}{4}t$, so it increases by $1$ when $\\dfrac{3}{4}t = 1$, that is, $t = \\dfrac{4}{3}$ year.\nStep 3: $\\dfrac{4}{3}$ year $= \\dfrac{4}{3}(12) = 16$ months. Check: $V\\left(\\dfrac{4}{3}\\right) = 24{,}000(1.08)^1 = 25{,}920$, an $8\\%$ increase. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): multiplies $12$ by $\\dfrac{3}{4}$ instead of dividing, reversing the conversion.\n* Choice B ($12$): ignores the coefficient in the exponent and assumes the $8\\%$ applies once per year.\n* Choice D ($48$): uses the numerator $4$ as a number of years and converts that to months.\n\n**Test Day Takeaway:** Set the whole exponent equal to $1$ and solve for $t$ — that time span is the period of one percent change, then convert units last."
+}

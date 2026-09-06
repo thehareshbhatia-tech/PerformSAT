@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-249",
+  "question": "The function $r$ is defined by $r(x) = |x| + 4$. Which function's graph in the $xy$-plane is the graph of $y = r(x)$ translated $5$ units to the right?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = |x - 5| + 4$"
+    },
+    {
+      "id": "B",
+      "text": "$y = |x + 5| + 4$"
+    },
+    {
+      "id": "C",
+      "text": "$y = |x| + 9$"
+    },
+    {
+      "id": "D",
+      "text": "$y = |x| - 1$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "uses $x + 5$, which shifts the graph left",
+    "C": "adds $5$ outside, a shift up",
+    "D": "subtracts $5$ outside, a shift down"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Right $5$ means replace every $x$ inside the function with $x - 5$: $y = |x - 5| + 4$.\n\n**The Full Solution:**\nStep 1: A translation $h$ units to the right sends $y = r(x)$ to $y = r(x - h)$. Here $h = 5$.\nStep 2: $r(x - 5) = |x - 5| + 4$. The $+4$ is untouched, because it was already outside the absolute value.\nStep 3: Check the corner point. The graph of $r$ has its corner at $(0, 4)$; the shifted graph should have its corner at $(5, 4)$, and $|5 - 5| + 4 = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = |x + 5| + 4$): its corner is at $(-5, 4)$ — a shift $5$ units LEFT.\n* Choice C ($y = |x| + 9$): the $5$ was added outside, raising the graph instead of sliding it sideways.\n* Choice D ($y = |x| - 1$): the $5$ was subtracted outside, lowering the graph.\n\n**Test Day Takeaway:** Track one landmark point (a corner, a vertex, an intercept) through the transformation — it settles the direction faster than any rule."
+}

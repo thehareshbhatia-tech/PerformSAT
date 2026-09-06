@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-322",
+  "question": "The equation $\\sqrt{3x + 4} = 2\\sqrt{x - 2}$ has exactly one solution. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-4$"
+    },
+    {
+      "id": "B",
+      "text": "$-3$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$12$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "distributes 4(x-2) as 4x+8",
+    "B": "does not square the coefficient 2",
+    "C": "distributes 4(x-2) as 4x-2"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Squaring both sides gives $3x + 4 = 4(x - 2)$, so $3x + 4 = 4x - 8$ and $x = 12$.\n\n**The Full Solution:**\nStep 1: Square each side in full. The right side is $\\left(2\\sqrt{x - 2}\\right)^2 = 2^2(x - 2) = 4(x - 2)$, so $3x + 4 = 4(x - 2)$.\nStep 2: Distribute: $3x + 4 = 4x - 8$, so $12 = x$.\nStep 3: $x = 12$. Check: $\\sqrt{3(12) + 4} = \\sqrt{40}$ and $2\\sqrt{12 - 2} = 2\\sqrt{10} = \\sqrt{40}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): distributes $4(x - 2)$ as $4x + 8$, flipping the sign of the constant.\n* Choice B ($-3$): forgets to square the coefficient $2$, solving $3x + 4 = x - 2$.\n* Choice C ($6$): distributes $4(x - 2)$ as $4x - 2$, multiplying only the first term.\n\n**Test Day Takeaway:** Squaring $c\\sqrt{E}$ gives $c^2E$ — the coefficient gets squared too, and it multiplies the entire radicand."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-148",
+  "question": "The function $f$ is defined by $f(x) = 5 - 4x$. What is the value of $f(-3)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-17$"
+    },
+    {
+      "id": "B",
+      "text": "$-7$"
+    },
+    {
+      "id": "C",
+      "text": "$12$"
+    },
+    {
+      "id": "D",
+      "text": "$17$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes $17$ and then attaches the sign of the input",
+    "B": "substitutes $x = 3$ instead of $x = -3$",
+    "C": "evaluates $-4(-3) = 12$ but never adds the constant $5$"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** $f(-3) = 5 - 4(-3) = 5 + 12 = 17$.\n\n**The Full Solution:**\nStep 1: Substitute $-3$ for every $x$ in the rule: $f(-3) = 5 - 4(-3)$.\nStep 2: Multiply first: $-4(-3) = 12$, because a negative times a negative is positive.\nStep 3: Add: $5 + 12 = 17$. Check: the function decreases by $4$ for each increase of $1$ in $x$, so moving from $f(0) = 5$ down to $x = -3$ adds three steps of $4$, giving $17$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-17$): the arithmetic is right but the answer is given the sign of the input.\n* Choice B ($-7$): substituting $3$ rather than $-3$ gives $5 - 12$.\n* Choice C ($12$): this is only the second term, $-4(-3)$, with the constant $5$ dropped.\n\n**Test Day Takeaway:** Put the negative input in parentheses before multiplying; the sign rule then takes care of itself."
+}

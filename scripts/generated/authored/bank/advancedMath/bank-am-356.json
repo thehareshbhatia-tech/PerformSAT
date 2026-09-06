@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-356",
+  "question": "In the equation $2x^2 + nx + 5 = 0$, $n$ is an integer with $-8 \\le n \\le 8$. For how many of these values of $n$ does the equation have no real solutions?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$6$"
+    },
+    {
+      "id": "B",
+      "text": "$12$"
+    },
+    {
+      "id": "C",
+      "text": "$13$"
+    },
+    {
+      "id": "D",
+      "text": "$17$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "counts only positive n",
+    "B": "omits n = 0",
+    "D": "counts the whole range"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice C is correct.**\n\n**The Fast Way (~60s):** No real solutions means $n^2 - 40 < 0$, so $|n| \\le 6$ for integers. That is $n = -6$ through $n = 6$, which is $13$ values.\n\n**The Full Solution:**\nStep 1: With $a = 2$ and $c = 5$, the discriminant is $n^2 - 4(2)(5) = n^2 - 40$.\nStep 2: No real solutions requires $n^2 < 40$. Since $6^2 = 36 < 40$ and $7^2 = 49 > 40$, the integers that work are $-6 \\le n \\le 6$.\nStep 3: Counting from $-6$ to $6$ inclusive gives $6 + 1 + 6 = 13$ values. Check: $n = 6$ gives $36 - 40 = -4 < 0$, and $n = 7$ gives $49 - 40 = 9 > 0$, so the boundary is exactly where it should be. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): counts only the positive values $n = 1$ through $n = 6$.\n* Choice B ($12$): counts $-6$ through $6$ but forgets $n = 0$.\n* Choice D ($17$): counts every integer from $-8$ to $8$, ignoring the discriminant condition entirely.\n\n**Test Day Takeaway:** $n^2 < k$ is a symmetric condition — count both signs and do not lose $n = 0$ when you total them."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-398",
+  "question": "The function $f$ is defined by $f(x) = 14 - 5(x - 8)^2$. At what value of $x$ does $f$ attain its maximum value?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-8$"
+    },
+    {
+      "id": "B",
+      "text": "$5$"
+    },
+    {
+      "id": "C",
+      "text": "$8$"
+    },
+    {
+      "id": "D",
+      "text": "$14$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "flips the sign inside the parentheses",
+    "B": "reports the coefficient of the squared term",
+    "D": "reports the maximum value instead of where it occurs"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The subtracted square is smallest at $x = 8$, so the maximum occurs there.\n\n**The Full Solution:**\nStep 1: $5(x - 8)^2 \\ge 0$ for every $x$, and it is subtracted from $14$.\nStep 2: The output is therefore largest exactly when $5(x - 8)^2 = 0$.\nStep 3: $(x - 8)^2 = 0$ gives $x = 8$. Check: $f(8) = 14$, while $f(7) = 14 - 5 = 9$ and $f(9) = 9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): flips the sign inside the parentheses; the square is zero at $x = 8$, not $x = -8$.\n* Choice B ($5$): reports the coefficient of the squared term.\n* Choice D ($14$): reports the maximum VALUE rather than the input where it happens.\n\n**Test Day Takeaway:** Set the squared expression equal to zero to find WHERE the extreme value occurs; the leftover constant is the value itself."
+}

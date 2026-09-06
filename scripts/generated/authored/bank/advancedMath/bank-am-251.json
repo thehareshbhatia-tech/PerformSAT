@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-251",
+  "question": "The point $(8, -3)$ is on the graph of $y = v(x)$ in the $xy$-plane. The graph of $y = v(x - 4)$ must contain which of the following points?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(4, -3)$"
+    },
+    {
+      "id": "B",
+      "text": "$(8, -7)$"
+    },
+    {
+      "id": "C",
+      "text": "$(8, 1)$"
+    },
+    {
+      "id": "D",
+      "text": "$(12, -3)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "shifts left instead of right",
+    "B": "subtracts $4$ from the $y$-coordinate",
+    "C": "adds $4$ to the $y$-coordinate"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The height stays $-3$; the input must satisfy $x - 4 = 8$, so $x = 12$.\n\n**The Full Solution:**\nStep 1: The given point means $v(8) = -3$.\nStep 2: Let $u(x) = v(x - 4)$. To get the output $-3$ out of $u$, the number handed to $v$ must be $8$, so $x - 4 = 8$ and $x = 12$.\nStep 3: Then $u(12) = v(8) = -3$, so $(12, -3)$ lies on the new graph. Check: the point moved $4$ units right at the same height, which is what $v(x - 4)$ does. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(4, -3)$): this subtracts $4$ from the $x$-coordinate; the minus sign inside the function shifts the graph the other way.\n* Choice B ($(8, -7)$): this applies the $4$ to the output, which a horizontal shift never does.\n* Choice C ($(8, 1)$): this adds $4$ to the output for the same reason.\n\n**Test Day Takeaway:** Solve the inside equation ($x - 4 = 8$) instead of guessing the direction; the $y$-coordinate rides along unchanged."
+}

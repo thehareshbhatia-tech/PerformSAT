@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-373",
+  "question": "The function $h$ is defined by $h(x) = -2x^3 + 5x$. What is the value of $h(-2)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-26$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$26$"
+    },
+    {
+      "id": "D",
+      "text": "$54$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "treats $(-2)^3$ as $+8$",
+    "C": "computes $5(-2)$ as $+10$",
+    "D": "cubes $-2x$ instead of $x$"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $-2(-8) + 5(-2) = 16 - 10 = 6$.\n\n**The Full Solution:**\nStep 1: Substitute: $h(-2) = -2(-2)^3 + 5(-2)$.\nStep 2: An odd power keeps the sign, so $(-2)^3 = -8$. Then $-2(-8) = 16$, and $5(-2) = -10$.\nStep 3: $16 - 10 = 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-26$): treats $(-2)^3$ as $+8$, giving $-16 - 10$.\n* Choice C ($26$): computes $5(-2)$ as $+10$, giving $16 + 10$.\n* Choice D ($54$): cubes the product $-2x$ instead of $x$ alone: $(-2 \\cdot -2)^3 = 64$, then $64 - 10$.\n\n**Test Day Takeaway:** Odd powers of a negative stay negative; even powers turn positive — decide the sign before you multiply by the coefficient."
+}

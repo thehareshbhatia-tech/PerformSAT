@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-280",
+  "question": "The equation $\\dfrac{x - 3}{x + 4} = \\dfrac{-7}{x + 4}$ is given, where $x$ is a real number. How many solutions does the equation have?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Zero"
+    },
+    {
+      "id": "B",
+      "text": "Exactly one"
+    },
+    {
+      "id": "C",
+      "text": "Exactly two"
+    },
+    {
+      "id": "D",
+      "text": "Infinitely many"
+    }
+  ],
+  "distractorNotes": {
+    "B": "accepts $x = -4$ without testing it in the original equation",
+    "C": "expects a second solution from clearing the denominators",
+    "D": "treats the matching denominators as making the equation an identity"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Equal denominators force $x - 3 = -7$, so $x = -4$ — exactly the value the denominator forbids. No solutions remain.\n\n**The Full Solution:**\nStep 1: The expression $\\dfrac{1}{x + 4}$ is undefined at $x = -4$, so $x = -4$ is excluded from the domain of the equation.\nStep 2: For $x \\ne -4$, multiply both sides by $x + 4$: $x - 3 = -7$, so $x = -4$.\nStep 3: That candidate is excluded, so it is extraneous and the equation has no solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (exactly one): this reports $x = -4$ without checking it against the domain; substituting gives $\\dfrac{-7}{0}$, which is undefined.\n* Choice C (exactly two): clearing the denominators leaves a linear equation, which cannot have two solutions.\n* Choice D (infinitely many): the two sides have equal denominators but different numerators, so they are never equal.\n\n**Test Day Takeaway:** List the excluded values BEFORE solving. When the only candidate is on that list, the answer is zero solutions."
+}

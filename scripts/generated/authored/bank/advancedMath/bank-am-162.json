@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-162",
+  "question": "In the equation $x^2 + bx + 20 = 0$, $b$ is an integer. For how many values of $b$ does the equation have no real solutions?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$8$"
+    },
+    {
+      "id": "B",
+      "text": "$9$"
+    },
+    {
+      "id": "C",
+      "text": "$16$"
+    },
+    {
+      "id": "D",
+      "text": "$17$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "counts only the positive integers $1$ through $8$",
+    "B": "counts $0$ through $8$ and never includes the negative values of $b$",
+    "C": "counts $-8$ through $8$ but leaves out $b = 0$"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice D is correct.**\n\n**The Fast Way (~50s):** No real solutions means $b^2 < 80$, so $-8 \\le b \\le 8$ for integers, which is $17$ values.\n\n**The Full Solution:**\nStep 1: The discriminant is $b^2 - 4(1)(20) = b^2 - 80$, and no real solutions means $b^2 < 80$.\nStep 2: Since $8^2 = 64 < 80$ and $9^2 = 81 > 80$, the integers satisfying $b^2 < 80$ run from $-8$ to $8$.\nStep 3: Counting from $-8$ to $8$ inclusive gives $8 + 8 + 1 = 17$ values. Check: $b = 8$ gives $64 - 80 = -16 < 0$; $b = 9$ gives $81 - 80 = 1 > 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): only the positive values $1$ through $8$ are counted.\n* Choice B ($9$): the negative values are omitted even though squaring removes the sign.\n* Choice C ($16$): the count of $-8$ through $8$ is taken as $2 \\times 8$, forgetting $b = 0$.\n\n**Test Day Takeaway:** Squaring makes the solution set symmetric about $0$; count both signs and remember zero itself."
+}

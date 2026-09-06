@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-347",
+  "question": "For a quadratic equation written in the form $ax^2 + bx + c = 0$, the discriminant is $b^2 - 4ac$. What is the value of the discriminant of the equation $3x^2 - 7x + 2 = 0$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-73$"
+    },
+    {
+      "id": "B",
+      "text": "$25$"
+    },
+    {
+      "id": "C",
+      "text": "$43$"
+    },
+    {
+      "id": "D",
+      "text": "$73$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "squares -7 as -49",
+    "C": "omits the factor of 4",
+    "D": "adds 4ac instead of subtracting"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** With $a = 3$, $b = -7$, $c = 2$: $(-7)^2 - 4(3)(2) = 49 - 24 = 25$.\n\n**The Full Solution:**\nStep 1: Match the equation to $ax^2 + bx + c = 0$: $a = 3$, $b = -7$, and $c = 2$.\nStep 2: Square $b$ first: $(-7)^2 = 49$, since squaring a negative gives a positive.\nStep 3: $49 - 4(3)(2) = 49 - 24 = 25$. Check: $25$ is a perfect square, and indeed $3x^2 - 7x + 2 = (3x - 1)(x - 2)$ has two rational solutions. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-73$): treats $(-7)^2$ as $-49$ and then subtracts $24$.\n* Choice C ($43$): omits the factor of $4$, computing $49 - 3(2)$.\n* Choice D ($73$): adds $4ac$ instead of subtracting it.\n\n**Test Day Takeaway:** Square $b$ before doing anything else — a negative $b$ always produces a positive $b^2$."
+}

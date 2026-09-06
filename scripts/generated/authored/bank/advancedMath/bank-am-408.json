@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-408",
+  "question": "A model estimates that at the end of each year from $2014$ through $2020$, the number of nesting pairs at a wildlife preserve was $150\\%$ more than the number at the end of the previous year. The model estimates that there were $400$ nesting pairs at the end of $2016$. Which equation gives the estimated number of nesting pairs, $P$, $t$ years after $2014$, where $0 \\le t \\le 6$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$P = 64(1.5)^t$"
+    },
+    {
+      "id": "B",
+      "text": "$P = 64(2.5)^t$"
+    },
+    {
+      "id": "C",
+      "text": "$P = 160(2.5)^t$"
+    },
+    {
+      "id": "D",
+      "text": "$P = 400(2.5)^t$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads \"150% more\" as a factor of 1.5",
+    "C": "divides the 2016 count by the growth factor only once",
+    "D": "uses the 2016 count as the value at $t = 0$"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Build Exponential Growth Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** \"$150\\%$ more\" means multiply by $2.5$ each year; working back two years from $400$ gives $\\dfrac{400}{2.5^2} = 64$.\n\n**The Full Solution:**\nStep 1: Being $150\\%$ MORE than the previous year means the new value is $100\\% + 150\\% = 250\\%$ of the old one, a growth factor of $2.5$. So $P = P_0(2.5)^t$.\nStep 2: The end of $2016$ is $t = 2$, and the model gives $400$ there: $P_0(2.5)^2 = 400$, so $6.25P_0 = 400$.\nStep 3: $P_0 = 64$, and the equation is $P = 64(2.5)^t$. Check: $64 \\to 160 \\to 400$ for $t = 0, 1, 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reads \"$150\\%$ more\" as a factor of $1.5$, which is the factor for a $50\\%$ increase.\n* Choice C: divides $400$ by $2.5$ only once, landing on the $2015$ value instead of the $2014$ value.\n* Choice D: uses the $2016$ count as the starting value, ignoring that $t$ is measured from $2014$.\n\n**Test Day Takeaway:** \"$p\\%$ MORE than\" gives the factor $1 + \\dfrac{p}{100}$, and an anchor at $t = k$ must be divided back by the factor $k$ times to reach the initial value."
+}

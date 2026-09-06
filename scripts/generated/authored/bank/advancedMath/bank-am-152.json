@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-152",
+  "question": "The function $f$ is defined by $f(x) = -2x^2 + x + 9$. What is the value of $f(-4)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-36$"
+    },
+    {
+      "id": "B",
+      "text": "$-27$"
+    },
+    {
+      "id": "C",
+      "text": "$-19$"
+    },
+    {
+      "id": "D",
+      "text": "$37$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "drops the constant $9$, leaving $-32 - 4$",
+    "C": "substitutes $+4$ in the linear term only, giving $-32 + 4 + 9$",
+    "D": "treats $(-4)^2$ as $-16$, so $-2(-16) = 32$"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f(-4) = -2(16) + (-4) + 9 = -32 - 4 + 9 = -27$.\n\n**The Full Solution:**\nStep 1: Substitute: $f(-4) = -2(-4)^2 + (-4) + 9$.\nStep 2: Square first: $(-4)^2 = 16$, so $-2(16) = -32$. The linear term contributes $-4$.\nStep 3: Combine: $-32 - 4 + 9 = -27$. Check: $-32 + 5 = -27$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-36$): the constant $9$ is never added.\n* Choice C ($-19$): the linear term is entered as $+4$ instead of $-4$.\n* Choice D ($37$): reading $(-4)^2$ as $-16$ makes the leading term $+32$ instead of $-32$.\n\n**Test Day Takeaway:** The coefficient $-2$ applies after the square; a negative input squared is always positive."
+}

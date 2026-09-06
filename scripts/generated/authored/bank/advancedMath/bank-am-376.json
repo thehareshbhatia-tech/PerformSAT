@@ -1,0 +1,52 @@
+{
+  "id": "bank-am-376",
+  "question": "The function $f$ is defined by $f(x) = x^2 + bx - 6$, where $b$ is a constant. The table gives the value of $f$ at three values of $x$. What is the value of $b$?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "f(x)"
+      ],
+      "rows": [
+        [
+          "-5",
+          "9"
+        ],
+        [
+          "0",
+          "-6"
+        ],
+        [
+          "3",
+          "9"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-8$"
+    },
+    {
+      "id": "B",
+      "text": "$-6$"
+    },
+    {
+      "id": "C",
+      "text": "$-2$"
+    },
+    {
+      "id": "D",
+      "text": "$2$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "treats $(-5)^2$ as $-25$",
+    "B": "reports the constant term instead of $b$",
+    "C": "writes $b(-5)$ as $+5b$"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** $f(-5) = 25 - 5b - 6 = 9$, so $5b = 10$ and $b = 2$.\n\n**The Full Solution:**\nStep 1: Use the row $x = -5$, where $f(x) = 9$: $(-5)^2 + b(-5) - 6 = 9$.\nStep 2: Simplify the numbers: $25 - 5b - 6 = 9$, so $19 - 5b = 9$.\nStep 3: $-5b = -10$, so $b = 2$. Check with the row $x = 3$: $9 + 2(3) - 6 = 9$, which matches the table. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): treats $(-5)^2$ as $-25$, producing $-25 - 5b - 6 = 9$ and $b = -8$.\n* Choice B ($-6$): reports the constant term of $f$ (the value of $f(0)$) rather than the coefficient $b$.\n* Choice C ($-2$): writes $b(-5)$ as $+5b$, producing $25 + 5b - 6 = 9$ and $b = -2$.\n\n**Test Day Takeaway:** A negative input makes the $bx$ term $-5b$, not $5b$ — and the two outer table rows share the same output, which is a fast symmetry check."
+}

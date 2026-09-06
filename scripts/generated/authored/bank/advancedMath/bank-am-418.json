@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-418",
+  "question": "In the $xy$-plane, the graph of $y = 4x^2 + bx + c$ has its vertex at $(-3, -14)$, where $b$ and $c$ are constants. What is the value of $b + c$?",
+  "correctAnswer": "46",
+  "explanation": "**SAT Pattern: Vertex Form to Standard Form — Recover Coefficients**\n\n**The correct answer is $46$.**\n\n**The Fast Way (~45s):** $y = 4(x + 3)^2 - 14 = 4x^2 + 24x + 22$, so $b + c = 24 + 22 = 46$.\n\n**The Full Solution:**\nStep 1: With leading coefficient $4$ and vertex $(-3, -14)$, vertex form gives $y = 4(x + 3)^2 - 14$.\nStep 2: Expand: $4(x^2 + 6x + 9) = 4x^2 + 24x + 36$, so $y = 4x^2 + 24x + 36 - 14 = 4x^2 + 24x + 22$.\nStep 3: Matching coefficients, $b = 24$ and $c = 22$, so $b + c = 46$. Check with the axis formula: $-\\dfrac{b}{2a} = -\\dfrac{24}{8} = -3$, and $y$ at $x = -3$ is $36 - 72 + 22 = -14$. $\\checkmark$\n\n**Common Mistakes:**\n* Forgetting to multiply the $9$ by the leading coefficient: using $c = 9 - 14 = -5$ gives $b + c = 19$.\n* Getting the sign of $b$ backward: taking $b = -24$ from the vertex $x$-coordinate $-3$ gives $b + c = -2$.\n* Computing the product $bc = 528$ instead of the sum.\n\n**Test Day Takeaway:** Write vertex form with the SAME leading coefficient, expand fully, and distribute that coefficient to every term inside the square."
+}

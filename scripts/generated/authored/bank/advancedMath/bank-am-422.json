@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-422",
+  "question": "$$\\dfrac{x^2 - 9n^2}{\\sqrt{x - 3n}} = 8n\\sqrt{x - 3n}$$\n\nIn the given equation, $n$ is a positive constant. Which of the following is the solution to the given equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-11n$"
+    },
+    {
+      "id": "B",
+      "text": "$3n$"
+    },
+    {
+      "id": "C",
+      "text": "$5n$"
+    },
+    {
+      "id": "D",
+      "text": "$11n$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "extra root produced by squaring both sides; it makes the radicand negative",
+    "B": "root of the cleared equation that makes the radical in the denominator zero",
+    "D": "divides by the wrong factor, solving $x - 3n = 8n$ instead of $x + 3n = 8n$"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Radical Equation — Extraneous Filter**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Multiplying both sides by $\\sqrt{x - 3n}$ gives $(x - 3n)(x + 3n) = 8n(x - 3n)$. The radical forces $x - 3n \\ne 0$, so dividing by $x - 3n$ leaves $x + 3n = 8n$, or $x = 5n$.\n\n**The Full Solution:**\nStep 1: Fix the domain first. The expression $\\sqrt{x - 3n}$ sits in a denominator, so $x - 3n$ must be positive; any candidate with $x \\le 3n$ is disqualified before any algebra.\nStep 2: Multiply both sides by $\\sqrt{x - 3n}$: $x^2 - 9n^2 = 8n(x - 3n)$. Factor the left side as a difference of squares to expose the shared factor: $(x - 3n)(x + 3n) = 8n(x - 3n)$.\nStep 3: Because $x - 3n \\ne 0$, divide both sides by it: $x + 3n = 8n$, so $x = 5n$. Check: $x - 3n = 2n > 0$, the left side is $\\dfrac{25n^2 - 9n^2}{\\sqrt{2n}} = \\dfrac{16n^2}{\\sqrt{2n}}$, and the right side is $8n\\sqrt{2n} = \\dfrac{8n(2n)}{\\sqrt{2n}} = \\dfrac{16n^2}{\\sqrt{2n}}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-11n$): squaring both sides instead of clearing the radical gives $(x - 3n)^2(x + 3n)^2 = 64n^2(x - 3n)^2$, whose roots are $-11n$, $3n$, and $5n$. At $x = -11n$ the radicand is $-14n$, which is negative, so the original expression is undefined.\n* Choice B ($3n$): this is a root of the cleared equation $x^2 - 9n^2 = 8n(x - 3n)$, but it makes $\\sqrt{x - 3n} = 0$ in the denominator. Dividing by the factor $x - 3n$ is legal precisely because that value is already excluded.\n* Choice D ($11n$): cancels the difference of squares carelessly and solves $x - 3n = 8n$. Substituting $x = 11n$ gives $\\dfrac{112n^2}{\\sqrt{8n}}$ on the left but $8n\\sqrt{8n} = \\dfrac{64n^2}{\\sqrt{8n}}$ on the right.\n\n**Test Day Takeaway:** State the domain of a radical before you solve, then clear the radical by multiplying rather than squaring; a shared factor you are allowed to cancel is usually the value the domain has already ruled out."
+}

@@ -93,15 +93,22 @@ const patternTitleOf = expl => { const m = String(expl || '').match(/\*\*SAT Pat
 const wordCount = s => String(s || '').replace(/\\\$/g, 'S').replace(/\$[^$]*\$/g, 'M').split(/\s+/).filter(Boolean).length; // escaped \$ (money) is not a math delimiter
 const dollarBalanced = s => ((String(s || '').replace(/\\\$/g, '').match(/\$/g) || []).length % 2) === 0;
 const numericOf = t => {
-  let s = String(t ?? '').replace(/\$/g, '').replace(/\\,/g, '').replace(/\{,\}/g, '').replace(/,/g, '').trim();
-  // \frac{a}{b}, -\frac{a}{b}, \dfrac, and plain a/b
-  const fr = s.match(/^(-?)\\d?frac\{(-?\d*\.?\d+)\}\{(-?\d*\.?\d+)\}$/);
-  if (fr) return (fr[1] === '-' ? -1 : 1) * parseFloat(fr[2]) / parseFloat(fr[3]);
-  const sl = s.match(/^(-?\d*\.?\d+)\/(\d*\.?\d+)$/);
-  if (sl) return parseFloat(sl[1]) / parseFloat(sl[2]);
-  s = s.replace(/\\[a-zA-Z]+/g, '').replace(/[{}\s]/g, '');
-  if (!/^-?\d*\.?\d+$/.test(s)) return NaN;
-  return parseFloat(s);
+  // Parse a choice's true numeric value: integers, decimals, \frac / \dfrac / a/b, \sqrt{n}, \pi, degrees,
+  // and products of those (e.g. 14\sqrt{3}, \frac{4\pi}{3}, 2\sqrt{5}/5). Anything else → NaN (gate skipped).
+  let s = String(t ?? '').replace(/\$/g, '').replace(/\\,/g, '').replace(/\{,\}/g, '').replace(/,/g, '')
+    .replace(/\\left|\\right/g, '').replace(/\^\{?\\circ\}?/g, '').replace(/\\%/g, '').replace(/\\!/g, '').trim();
+  if (!s) return NaN;
+  if (/,/.test(String(t ?? '').replace(/\{,\}/g, '').replace(/\\,/g, '').replace(/\d,\d{3}(?!\d)/g, ''))) return NaN; // ordered pairs / lists
+  for (let i = 0; i < 4; i++) s = s.replace(/\\d?frac\{([^{}]*)\}\{([^{}]*)\}/g, '(($1)/($2))');
+  for (let i = 0; i < 4; i++) s = s.replace(/\\sqrt\{([^{}]*)\}/g, 'sqrt($1)');
+  s = s.replace(/\\pi/g, 'pi').replace(/[{}\s]/g, '');
+  if (/[^0-9.+\-*/()sqrtpi]/.test(s)) return NaN;                 // letters other than sqrt/pi → not numeric
+  if (/[a-z]/.test(s.replace(/sqrt|pi/g, ''))) return NaN;
+  s = s.replace(/(\d|\))(?=sqrt|pi|\()/g, '$1*').replace(/(pi)(?=\d|sqrt|pi|\()/g, '$1*').replace(/\)(?=\d)/g, ')*');
+  try {
+    const v = Function('"use strict"; const sqrt = Math.sqrt, pi = Math.PI; return (' + s + ');')();
+    return typeof v === 'number' && Number.isFinite(v) ? v : NaN;
+  } catch { return NaN; }
 };
 const median = a => { if (!a.length) return null; const b = [...a].sort((x, y) => x - y); return b[Math.floor(b.length / 2)]; };
 
@@ -269,9 +276,18 @@ function checkItem(row, authored, ctx) {
   const wc = wordCount(a.question);
   if (wc < 10 && row.type === 'multiple-choice' && !a.diagram) warns.push(`stem only ${wc} words`);
   if (wc > 90) warns.push(`stem ${wc} words (>90)`);
+  // rendered=true → KaTeX-rendered text (question/explanation/hint/formula/choices); false → distractorNotes, which ship as `// distractor:` comments (no math rendering, bare $ is fine)
+  const textGate = (k, v, rendered = true) => {
+    if (!v) return;
+    if (rendered && !dollarBalanced(v)) errs.push(`${k}: unbalanced $`);
+    if (/\\"/.test(v)) errs.push(`${k}: backslash-escaped quote (\\") renders as a literal backslash — use a plain "`);
+    if (/[\x00-\x08\x0b\x0c\x0e-\x1f]/.test(v)) errs.push(`${k}: control character in text (a bad JSON escape such as \\f for \\frac or \\t for \\theta?)`);
+    if (rendered) for (const m of String(v).matchAll(/\$([^$]*)\$/g)) { const b = m[1].match(/(^|[^\\a-zA-Z])(pi|sqrt|frac|dfrac|theta|cdot|circ)(?![a-zA-Z])/); if (b) { warns.push(`${k}: bare "${b[2]}" inside math — missing backslash (\\${b[2]})? (single-quoted JS strings eat backslashes; author with String.raw)`); break; } }
+  };
+  (Array.isArray(a.choices) ? a.choices : []).forEach(c => textGate(`choice ${c?.id}`, c?.text));
+  if (a.distractorNotes && typeof a.distractorNotes === 'object') for (const [L, v] of Object.entries(a.distractorNotes)) textGate(`distractorNotes.${L}`, v, false);
   for (const [k, v] of Object.entries({ question: a.question, explanation: a.explanation, hint: a.hint, questionFormula: a.questionFormula })) {
-    if (v && !dollarBalanced(v)) errs.push(`${k}: unbalanced $`);
-    if (v && /\\"/.test(v)) errs.push(`${k}: backslash-escaped quote (\\") renders as a literal backslash — use a plain "`);
+    textGate(k, v);
   }
   if (row.type === 'multiple-choice') {
     if (!Array.isArray(a.choices) || a.choices.length !== 4) errs.push('MC needs exactly 4 choices');

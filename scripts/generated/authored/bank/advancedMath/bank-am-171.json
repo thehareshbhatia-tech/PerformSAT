@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-171",
+  "question": "The function $f$ is defined by $f(x) = -3x^2 + 18x + k$, where $k$ is a constant. If the maximum value of $f$ is $20$, what is the value of $k$?",
+  "correctAnswer": "-7",
+  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**The correct answer is $-7$.**\n\n**The Fast Way (~45s):** The maximum is at $x = \\dfrac{18}{6} = 3$, where $f(3) = 27 + k$. Setting $27 + k = 20$ gives $k = -7$.\n\n**The Full Solution:**\nStep 1: Because the leading coefficient $-3$ is negative, the parabola opens downward and the maximum occurs at the vertex, $x = -\\dfrac{18}{2(-3)} = 3$.\nStep 2: Evaluate there: $f(3) = -3(9) + 18(3) + k = -27 + 54 + k = 27 + k$.\nStep 3: The maximum is given as $20$, so $27 + k = 20$ and $k = -7$. Check: $f(x) = -3x^2 + 18x - 7$ gives $f(3) = -27 + 54 - 7 = 20$. $\\checkmark$\n\n**Common Mistakes:**\n* Setting $k = 20$ directly, as if the constant term were the maximum; that is only true when the vertex is on the $y$-axis.\n* Computing the vertex as $x = -3$ by dropping a sign, which gives $f(-3) = -81 + k$ and $k = 101$.\n* Answering $7$ after solving $27 + k = 20$ without keeping the negative sign.\n\n**Test Day Takeaway:** Locate the vertex first, evaluate the function there in terms of the unknown constant, and only then set it equal to the stated extreme value."
+}

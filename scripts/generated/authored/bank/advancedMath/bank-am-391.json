@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-391",
+  "question": "In the $xy$-plane, the graph of $y = (x - h)^2 + k$ has its vertex at $(-6, -2)$, where $h$ and $k$ are constants. What is the value of $h + k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-8$"
+    },
+    {
+      "id": "B",
+      "text": "$-4$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$8$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "flips the sign of $k$",
+    "C": "flips the sign of $h$",
+    "D": "flips the sign of both constants"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Vertex $(h, k) = (-6, -2)$, so $h + k = -8$.\n\n**The Full Solution:**\nStep 1: For $y = (x - h)^2 + k$ the vertex is $(h, k)$, read directly from the form.\nStep 2: The given vertex is $(-6, -2)$, so $h = -6$ and $k = -2$.\nStep 3: $h + k = -6 + (-2) = -8$. Check: with $h = -6$ the equation is $y = (x + 6)^2 - 2$, whose lowest point is $(-6, -2)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-4$): flips the sign of $k$, computing $-6 + 2$.\n* Choice C ($4$): flips the sign of $h$, computing $6 - 2$.\n* Choice D ($8$): flips both signs, computing $6 + 2$.\n\n**Test Day Takeaway:** In vertex form, $h$ and $k$ ARE the coordinates of the vertex — no sign flip is needed once the vertex is given to you."
+}

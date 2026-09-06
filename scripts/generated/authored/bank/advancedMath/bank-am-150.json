@@ -1,0 +1,48 @@
+{
+  "id": "bank-am-150",
+  "question": "The function $f$ is defined by $f(x) = x^2 + kx + 6$, where $k$ is a constant. The table gives two values of $f$. What is the value of $f(-3)$?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "f(x)"
+      ],
+      "rows": [
+        [
+          "-1",
+          "10"
+        ],
+        [
+          "2",
+          "4"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$6$"
+    },
+    {
+      "id": "B",
+      "text": "$15$"
+    },
+    {
+      "id": "C",
+      "text": "$24$"
+    },
+    {
+      "id": "D",
+      "text": "$30$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "treats $(-3)^2$ as $-9$, giving $-9 + 9 + 6$",
+    "B": "drops the linear term when substituting, giving $9 + 6$",
+    "D": "solves $f(2) = 0$ instead of $f(2) = 4$, which produces $k = -5$"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** From $f(2) = 4$: $4 + 2k + 6 = 4$, so $k = -3$. Then $f(-3) = 9 + 9 + 6 = 24$.\n\n**The Full Solution:**\nStep 1: Use a table entry to find $k$. Substituting $x = 2$ gives $f(2) = 2^2 + 2k + 6 = 10 + 2k$, and the table says $f(2) = 4$, so $10 + 2k = 4$ and $k = -3$.\nStep 2: The rule is therefore $f(x) = x^2 - 3x + 6$. Verify with the other row: $f(-1) = 1 + 3 + 6 = 10$, which matches the table.\nStep 3: Substitute $-3$: $f(-3) = (-3)^2 - 3(-3) + 6 = 9 + 9 + 6 = 24$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): squaring $-3$ as $-9$ turns the sum into $-9 + 9 + 6$.\n* Choice B ($15$): the middle term $-3(-3) = 9$ is left out, leaving $9 + 6$.\n* Choice D ($30$): setting $f(2) = 0$ rather than $4$ gives $k = -5$ and $f(-3) = 9 + 15 + 6$.\n\n**Test Day Takeaway:** Pin the unknown constant with one table row, confirm it with a second, and only then evaluate at the requested input."
+}

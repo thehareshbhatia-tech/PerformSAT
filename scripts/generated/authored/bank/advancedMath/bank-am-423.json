@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-423",
+  "question": "In the expressions below, $k$ is a positive integer constant. Which expression has $x - 4k$ as a factor for every such value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2x^2 - 3kx - 20k^2$"
+    },
+    {
+      "id": "B",
+      "text": "$2x^2 - 3kx + 20k^2$"
+    },
+    {
+      "id": "C",
+      "text": "$2x^2 + 3kx - 20k^2$"
+    },
+    {
+      "id": "D",
+      "text": "$2x^2 + 13kx + 20k^2$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "flips the sign of the constant term; substituting $x = 4k$ leaves $40k^2$",
+    "C": "factors as $(x + 4k)(2x - 5k)$, so the linear factor is $x + 4k$",
+    "D": "factors as $(x + 4k)(2x + 5k)$, so $-4k$ is the root, not $4k$"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Factor with Parameter — Integer Constraint**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** By the factor theorem, $x - 4k$ divides an expression exactly when substituting $x = 4k$ returns $0$. Only choice A does: $2(4k)^2 - 3k(4k) - 20k^2 = 32k^2 - 12k^2 - 20k^2 = 0$.\n\n**The Full Solution:**\nStep 1: $x - 4k$ is a factor of a polynomial in $x$ if and only if $x = 4k$ is a zero of that polynomial, so evaluate each choice at $x = 4k$ and keep the one that returns $0$.\nStep 2: Choice A gives $32k^2 - 12k^2 - 20k^2 = 0$. Choice B gives $32k^2 - 12k^2 + 20k^2 = 40k^2$. Choice C gives $32k^2 + 12k^2 - 20k^2 = 24k^2$. Choice D gives $32k^2 + 52k^2 + 20k^2 = 104k^2$. Because $k$ is a positive integer, $40k^2$, $24k^2$, and $104k^2$ are all nonzero.\nStep 3: Confirm by factoring choice A directly: $2x^2 - 3kx - 20k^2 = (x - 4k)(2x + 5k)$. Expanding, $(x - 4k)(2x + 5k) = 2x^2 + 5kx - 8kx - 20k^2 = 2x^2 - 3kx - 20k^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($2x^2 - 3kx + 20k^2$): the middle term is copied from the correct answer, but with $+20k^2$ the discriminant is $9k^2 - 160k^2 = -151k^2$, so this expression has no real zeros and therefore no linear factor at all.\n* Choice C ($2x^2 + 3kx - 20k^2$): this factors as $(x + 4k)(2x - 5k)$. The number $4k$ appears, but as the root $x = -4k$; substituting $x = 4k$ leaves $24k^2$.\n* Choice D ($2x^2 + 13kx + 20k^2$): this factors as $(x + 4k)(2x + 5k)$, so both of its zeros, $-4k$ and $-\\dfrac{5k}{2}$, are negative when $k$ is positive.\n\n**Test Day Takeaway:** A parameter changes nothing about the factor theorem. Substitute the candidate root, in this case $x = 4k$, and let the $k^2$ coefficients decide; only the expression that evaluates to exactly $0$ carries the factor."
+}

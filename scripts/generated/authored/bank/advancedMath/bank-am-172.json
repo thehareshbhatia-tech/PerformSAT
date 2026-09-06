@@ -1,0 +1,61 @@
+{
+  "id": "bank-am-172",
+  "question": "For the functions $f$ and $g$, the table lists $f(x)$ and $g(x)$ at four values of $x$. What is the value of $f(g(1))$?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "f(x)",
+        "g(x)"
+      ],
+      "rows": [
+        [
+          "-1",
+          "3",
+          "1"
+        ],
+        [
+          "0",
+          "2",
+          "-1"
+        ],
+        [
+          "1",
+          "5",
+          "0"
+        ],
+        [
+          "2",
+          "-1",
+          "2"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$0$"
+    },
+    {
+      "id": "B",
+      "text": "$2$"
+    },
+    {
+      "id": "C",
+      "text": "$3$"
+    },
+    {
+      "id": "D",
+      "text": "$5$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports $g(1) = 0$ and stops before applying $f$",
+    "C": "evaluates $f(-1) = 3$, reading the wrong row of the table",
+    "D": "evaluates $f(1) = 5$, applying the two functions in the wrong order"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The table gives $g(1) = 0$, and then $f(0) = 2$.\n\n**The Full Solution:**\nStep 1: In $f(g(1))$ the inner function is evaluated first, so start with $g(1)$.\nStep 2: The row with $x = 1$ gives $g(1) = 0$, so $f(g(1)) = f(0)$.\nStep 3: The row with $x = 0$ gives $f(0) = 2$. Check: reversing the order would give $g(f(1)) = g(5)$, which the table does not even list, so the order matters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): this is $g(1)$, the intermediate value, not the final output.\n* Choice C ($3$): this is $f(-1)$, read from the $x = -1$ row instead of the $x = 0$ row.\n* Choice D ($5$): this is $f(1)$, which applies $f$ to the original input rather than to $g(1)$.\n\n**Test Day Takeaway:** Work a composition from the inside out, and use the inner output as the new input value when you return to the table."
+}

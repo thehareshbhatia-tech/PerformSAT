@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-242",
+  "question": "The graph of $y = f(x)$ in the $xy$-plane has a minimum value of $-14$. The function $h$ is defined by $h(x) = f(x) + 9$. What is the minimum value of $h$?",
+  "correctAnswer": "-5",
+  "explanation": "**SAT Pattern: Vertical Shift**\n\n**The correct answer is $-5$.**\n\n**The Fast Way (~10s):** Adding $9$ outside the function lifts every output by $9$, so the lowest output rises from $-14$ to $-5$.\n\n**The Full Solution:**\nStep 1: For every $x$, $h(x) = f(x) + 9$. Adding the same constant to every output slides the whole graph up $9$ units and preserves which input produces the smallest output.\nStep 2: The smallest output of $f$ is $-14$, produced at some input $x = c$.\nStep 3: The smallest output of $h$ is therefore $h(c) = -14 + 9 = -5$. Check: no output of $h$ can be below $-5$, since every output of $f$ is at least $-14$. $\\checkmark$\n\n**Common Mistakes:**\n* Subtracting instead of adding gives $-14 - 9 = -23$; the $+9$ raises the graph.\n* Reporting $9$ treats the size of the shift as the new minimum.\n* Reporting $-14$ assumes a vertical shift leaves extreme values unchanged, which is true only for the input, not the output.\n\n**Test Day Takeaway:** A vertical shift moves maximum and minimum VALUES by the shift amount, but leaves the $x$-values where they occur alone."
+}

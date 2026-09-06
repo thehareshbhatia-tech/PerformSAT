@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-400",
+  "question": "The function $f$ is defined by $f(x) = a(x - 6)^2 + k$, where $a$ and $k$ are constants. The maximum value of $f$ is $17$, and $f(2) = 1$. What is the value of $a$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-4$"
+    },
+    {
+      "id": "B",
+      "text": "$-1$"
+    },
+    {
+      "id": "C",
+      "text": "$1$"
+    },
+    {
+      "id": "D",
+      "text": "$4$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "squares only the input, using $2^2$ instead of $(2 - 6)^2$",
+    "C": "drops the negative sign required by a maximum",
+    "D": "divides by $2 - 6$ instead of its square"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** A maximum means $k = 17$; then $16a + 17 = 1$, so $a = -1$.\n\n**The Full Solution:**\nStep 1: For $f(x) = a(x - 6)^2 + k$ the extreme value is $k$. Because that extreme value is a MAXIMUM, $a$ must be negative and $k = 17$.\nStep 2: Substitute $f(2) = 1$: $a(2 - 6)^2 + 17 = 1$, and $(2 - 6)^2 = 16$, so $16a = -16$.\nStep 3: $a = -1$, which is indeed negative as required. Check: $f(x) = -(x - 6)^2 + 17$ gives $f(6) = 17$ and $f(2) = -16 + 17 = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): squares the input alone, solving $4a + 17 = 1$ instead of $16a + 17 = 1$.\n* Choice C ($1$): gets the size right but keeps $a$ positive, which would make $17$ a minimum, not a maximum.\n* Choice D ($4$): divides $-16$ by $2 - 6 = -4$ instead of by $(2 - 6)^2 = 16$.\n\n**Test Day Takeaway:** The word \"maximum\" fixes both facts at once: $k$ is that value and $a$ must be negative — use the sign as a final check."
+}

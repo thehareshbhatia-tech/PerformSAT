@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-195",
+  "question": "In the equation $x^2 - 24x + k = 0$, where $k$ is a constant, one of the two solutions is $3$ times the other solution. What is the value of $k$?",
+  "correctAnswer": "108",
+  "explanation": "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**The correct answer is $108$.**\n\n**The Fast Way (~35s):** If the roots are $r$ and $3r$, then $4r = 24$, so $r = 6$ and $k = (6)(18) = 108$.\n\n**The Full Solution:**\nStep 1: Let the solutions be $r$ and $3r$. Their sum is $-\\dfrac{-24}{1} = 24$, so $r + 3r = 24$.\nStep 2: $4r = 24$ gives $r = 6$, so the solutions are $6$ and $18$.\nStep 3: The product of the solutions is $\\dfrac{k}{1} = k$, so $k = (6)(18) = 108$. Check: $x^2 - 24x + 108 = (x - 6)(x - 18)$. $\\checkmark$\n\n**Common Mistakes:** Answering $18$, the larger solution, instead of the constant $k$. Using $24$ as the PRODUCT instead of the sum: $3r^2 = 24$ gives $r^2 = 8$ and the incorrect $k = 24$.\n\n**Test Day Takeaway:** When a problem states a relationship between the roots, name them with one variable ($r$ and $3r$), then let the sum equation solve for it and the product equation deliver the constant."
+}

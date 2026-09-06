@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-194",
+  "question": "The solutions of $x^2 - 10x + 18 = 0$ are $p$ and $q$. What is the value of $\\dfrac{1}{p} + \\dfrac{1}{q}$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\dfrac{5}{9}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{1}{10}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{5}{9}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{9}{5}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses $-10$ as the sum of the solutions",
+    "B": "computes $\\frac{1}{p+q}$ instead of $\\frac{1}{p} + \\frac{1}{q}$",
+    "D": "inverts the ratio, dividing the product by the sum"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\dfrac{1}{p} + \\dfrac{1}{q} = \\dfrac{p + q}{pq} = \\dfrac{10}{18} = \\dfrac{5}{9}$.\n\n**The Full Solution:**\nStep 1: Combine over a common denominator: $\\dfrac{1}{p} + \\dfrac{1}{q} = \\dfrac{q + p}{pq}$.\nStep 2: By Vieta's formulas, $p + q = -\\dfrac{-10}{1} = 10$ and $pq = \\dfrac{18}{1} = 18$.\nStep 3: $\\dfrac{10}{18} = \\dfrac{5}{9}$. Check: the discriminant is $100 - 72 = 28$, so the roots are the irrational numbers $5 \\pm \\sqrt{7}$ — and $\\frac{1}{5+\\sqrt7} + \\frac{1}{5-\\sqrt7} = \\frac{10}{25 - 7} = \\frac{10}{18}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{5}{9}$): uses $p + q = -10$; the sum is $-\\frac{b}{a}$, and $b$ is already negative.\n* Choice B ($\\frac{1}{10}$): adds the reciprocals as if $\\frac{1}{p} + \\frac{1}{q} = \\frac{1}{p+q}$, which is never true for nonzero $p$ and $q$.\n* Choice D ($\\frac{9}{5}$): computes $\\frac{pq}{p+q} = \\frac{18}{10}$, the reciprocal of the correct value.\n\n**Test Day Takeaway:** Rewrite any symmetric expression in the roots ($\\frac{1}{p}+\\frac{1}{q}$, $p^2+q^2$, $\\frac{p}{q}+\\frac{q}{p}$) in terms of $p+q$ and $pq$ — then Vieta's formulas finish it without solving."
+}

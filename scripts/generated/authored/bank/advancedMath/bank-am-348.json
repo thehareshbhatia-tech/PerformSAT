@@ -1,0 +1,51 @@
+{
+  "id": "bank-am-348",
+  "question": "In the $xy$-plane, the graph of $y = x^2 - 4x + 9$ is shown. How many distinct real solutions does the equation $x^2 - 4x + 9 = 0$ have?",
+  "diagram": {
+    "type": "parabola",
+    "params": {
+      "vertex": {
+        "h": 2,
+        "k": 5
+      },
+      "a": 1,
+      "xRange": [
+        -2,
+        6
+      ],
+      "yRange": [
+        0,
+        12
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 2,
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "Zero"
+    },
+    {
+      "id": "B",
+      "text": "Exactly one"
+    },
+    {
+      "id": "C",
+      "text": "Exactly two"
+    },
+    {
+      "id": "D",
+      "text": "Infinitely many"
+    }
+  ],
+  "distractorNotes": {
+    "B": "treats the vertex as a touching point",
+    "C": "assumes every quadratic has two real solutions",
+    "D": "treats the equation as an identity"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The discriminant is $(-4)^2 - 4(1)(9) = 16 - 36 = -20$. A negative discriminant means no real solutions, matching a graph that never reaches the $x$-axis.\n\n**The Full Solution:**\nStep 1: Real solutions of $x^2 - 4x + 9 = 0$ are exactly the $x$-intercepts of the graph of $y = x^2 - 4x + 9$.\nStep 2: The discriminant is $b^2 - 4ac = 16 - 36 = -20$, which is negative.\nStep 3: A negative discriminant gives zero real solutions. Check: the vertex is at $x = 2$, where $y = 4 - 8 + 9 = 5$, so the lowest point of the graph is $5$ units ABOVE the $x$-axis. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): reads the vertex as a point where the graph touches the $x$-axis, which happens only when the discriminant is $0$.\n* Choice C (Exactly two): assumes every quadratic crosses the $x$-axis twice.\n* Choice D (Infinitely many): would require every real number to satisfy the equation, which no quadratic does.\n\n**Test Day Takeaway:** The sign of the discriminant and the position of the vertex tell the same story — negative discriminant, no crossings."
+}

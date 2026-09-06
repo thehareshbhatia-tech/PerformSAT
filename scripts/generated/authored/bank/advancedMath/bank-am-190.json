@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-190",
+  "question": "In the equation $x^2 + 14x + k = 0$, where $k$ is a constant, one of the two solutions is $-3$. What is the other solution?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-17$"
+    },
+    {
+      "id": "B",
+      "text": "$-11$"
+    },
+    {
+      "id": "C",
+      "text": "$11$"
+    },
+    {
+      "id": "D",
+      "text": "$17$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts $3$ from $-14$ instead of subtracting $-3$",
+    "C": "uses $+14$ as the sum and $+3$ as the given solution",
+    "D": "uses $+14$ as the sum and then subtracts $-3$"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The two solutions add to $-\\dfrac{14}{1} = -14$, so the other one is $-14 - (-3) = -11$.\n\n**The Full Solution:**\nStep 1: Here $a = 1$ and $b = 14$, so the sum of the two solutions is $-\\dfrac{b}{a} = -14$.\nStep 2: If one solution is $-3$ and the other is $r$, then $-3 + r = -14$.\nStep 3: $r = -14 + 3 = -11$. Check: the product is $(-3)(-11) = 33 = k$, and $x^2 + 14x + 33 = (x + 3)(x + 11)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-17$): computes $-14 - 3$, forgetting that the known solution is already negative.\n* Choice C ($11$): uses $+14$ for the sum AND drops the minus on the given solution, computing $14 - 3 = 11$.\n* Choice D ($17$): combines both slips — sum taken as $+14$, then $14 - (-3)$.\n\n**Test Day Takeaway:** With one root given and $k$ unknown, use the SUM (which needs only $a$ and $b$); the product would require the missing constant."
+}

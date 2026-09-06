@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-359",
+  "question": "Which of the following is equivalent to the expression $x^3 - 5x^2 + 4x - 20$, where $x$ is any real number?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(x + 5)(x^2 - 4)$"
+    },
+    {
+      "id": "B",
+      "text": "$(x - 5)(x^2 + 4)$"
+    },
+    {
+      "id": "C",
+      "text": "$(x - 5)(x^2 - 4)$"
+    },
+    {
+      "id": "D",
+      "text": "$(x^2 - 5)(x + 4)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "flips both signs",
+    "C": "sign error on the second group",
+    "D": "pairs the wrong terms"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Group as $x^2(x - 5) + 4(x - 5)$; the common factor $x - 5$ gives $(x - 5)(x^2 + 4)$.\n\n**The Full Solution:**\nStep 1: Pair the first two terms and the last two: $\\left(x^3 - 5x^2\\right) + (4x - 20)$.\nStep 2: Factor each pair: $x^2(x - 5) + 4(x - 5)$. The identical binomial $x - 5$ confirms the grouping was chosen correctly.\nStep 3: Factor out $x - 5$: $(x - 5)\\left(x^2 + 4\\right)$. Check: expanding gives $x^3 + 4x - 5x^2 - 20 = x^3 - 5x^2 + 4x - 20$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x + 5)(x^2 - 4)$): flips both signs and expands to $x^3 + 5x^2 - 4x - 20$.\n* Choice C ($(x - 5)(x^2 - 4)$): factors $-4$ instead of $+4$ out of $4x - 20$ and expands to $x^3 - 5x^2 - 4x + 20$.\n* Choice D ($(x^2 - 5)(x + 4)$): moves the constants into the wrong factors and expands to $x^3 + 4x^2 - 5x - 20$.\n\n**Test Day Takeaway:** Grouping only works if BOTH pairs leave the same binomial — if they do not match, change the sign you factor out and try again."
+}

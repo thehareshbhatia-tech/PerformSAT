@@ -1,0 +1,52 @@
+{
+  "id": "bank-am-263",
+  "question": "The function $g$ is defined by $g(x) = 6f(x)$, where $f$ is the function given in the table. What is the value of $g(4)$?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "f(x)"
+      ],
+      "rows": [
+        [
+          "0",
+          "-3"
+        ],
+        [
+          "4",
+          "7"
+        ],
+        [
+          "9",
+          "2"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-18$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$13$"
+    },
+    {
+      "id": "D",
+      "text": "$42$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies $f(0)$ by $6$, using the wrong row",
+    "B": "subtracts $6$ from the output",
+    "C": "adds $6$ to the output"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Vertical Stretch**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** The table gives $f(4) = 7$, and $g(4) = 6(7) = 42$.\n\n**The Full Solution:**\nStep 1: The rule $g(x) = 6f(x)$ multiplies each output of $f$ by $6$ and leaves the input alone.\nStep 2: From the row $x = 4$, $f(4) = 7$.\nStep 3: $g(4) = 6 \\cdot 7 = 42$. Check: the point $(4, 7)$ on the graph of $f$ becomes $(4, 42)$ on the graph of $g$ — six times as far from the $x$-axis. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-18$): this is $6 \\cdot f(0) = 6(-3)$, the right operation on the wrong row.\n* Choice B ($1$): this computes $7 - 6$; a stretch multiplies, it does not subtract.\n* Choice C ($13$): this computes $7 + 6$, treating the factor as a vertical shift.\n\n**Test Day Takeaway:** A coefficient in front of $f$ multiplies outputs. Match the row to the input first, then multiply once."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-402",
+  "question": "The equation $x^2 + 9x - 36 = 0$ has solutions $m$ and $n$. What is the value of $mn$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-36$"
+    },
+    {
+      "id": "B",
+      "text": "$-12$"
+    },
+    {
+      "id": "C",
+      "text": "$-9$"
+    },
+    {
+      "id": "D",
+      "text": "$36$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "reports one solution instead of the product",
+    "C": "reports the sum of the solutions",
+    "D": "drops the sign of the constant term"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** For $x^2 + bx + c = 0$ the product of the solutions is $c$, so $mn = -36$.\n\n**The Full Solution:**\nStep 1: The equation is in the form $x^2 + bx + c = 0$ with $b = 9$ and $c = -36$.\nStep 2: If the solutions are $m$ and $n$, then $x^2 + bx + c = (x - m)(x - n) = x^2 - (m + n)x + mn$, so $mn = c$.\nStep 3: $mn = -36$. Check by factoring: $x^2 + 9x - 36 = (x + 12)(x - 3)$, so the solutions are $-12$ and $3$, and $(-12)(3) = -36$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-12$): reports one of the two solutions rather than their product.\n* Choice C ($-9$): reports the SUM of the solutions, which is $-b$, not the product.\n* Choice D ($36$): takes the constant term but drops its negative sign.\n\n**Test Day Takeaway:** With a leading coefficient of $1$, the product of the solutions is the constant term exactly as written — sign included."
+}

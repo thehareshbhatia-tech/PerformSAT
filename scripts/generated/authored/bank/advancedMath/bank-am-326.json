@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-326",
+  "question": "The equation $3^{x - 2} = 243$ has exactly one solution. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3$"
+    },
+    {
+      "id": "B",
+      "text": "$5$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$7$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts 2 instead of adding",
+    "B": "reports the exponent 5 without undoing the -2",
+    "C": "uses 243 = 3^4"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Exponential Equation with Common Base**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** $243 = 3^5$, so $x - 2 = 5$ and $x = 7$.\n\n**The Full Solution:**\nStep 1: List powers of $3$: $3, 9, 27, 81, 243$. So $243 = 3^5$.\nStep 2: The equation becomes $3^{x - 2} = 3^5$, so $x - 2 = 5$.\nStep 3: $x = 7$. Check: $3^{7 - 2} = 3^5 = 243$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): subtracts $2$ from $5$ instead of adding it.\n* Choice B ($5$): reports the exponent $5$ and forgets to undo the $-2$.\n* Choice C ($6$): miscounts and uses $243 = 3^4$, solving $x - 2 = 4$.\n\n**Test Day Takeaway:** Matching the bases turns the problem into a one-step linear equation — finish that step."
+}

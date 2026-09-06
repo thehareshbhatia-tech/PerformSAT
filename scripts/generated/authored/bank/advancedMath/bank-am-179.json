@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-179",
+  "question": "The functions $f$ and $g$ are defined by $f(x) = x^2 - 3$ and $g(x) = 2x + c$, where $c$ is a constant. If $f(g(1)) = 22$ and $g(1) > 0$, what is the value of $c$?",
+  "correctAnswer": "3",
+  "explanation": "**SAT Pattern: Function Composition**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~45s):** $f(g(1)) = 22$ gives $g(1)^2 = 25$, so $g(1) = 5$. Then $2 + c = 5$ and $c = 3$.\n\n**The Full Solution:**\nStep 1: Let $u = g(1)$. Then $f(u) = u^2 - 3 = 22$, so $u^2 = 25$ and $u = 5$ or $u = -5$.\nStep 2: The condition $g(1) > 0$ selects $u = 5$, so $g(1) = 5$.\nStep 3: Since $g(1) = 2(1) + c = 2 + c$, the equation $2 + c = 5$ gives $c = 3$. Check: $g(1) = 5$ and $f(5) = 25 - 3 = 22$. $\\checkmark$\n\n**Common Mistakes:**\n* Taking $u = -5$, which gives $c = -7$ but makes $g(1)$ negative, contrary to the stated condition.\n* Solving $u^2 - 3 = 22$ as $u^2 = 19$ by adding $3$ to the wrong side.\n* Setting $g(1) = 22$ directly and answering $20$, which skips the outer function entirely.\n\n**Test Day Takeaway:** Unwind a composition one layer at a time: solve for the inner output first, then use the inner rule to find the unknown constant."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-378",
+  "question": "The function $g$ is defined by $g(x) = |x|$. In the $xy$-plane, the graph of $y = g(x - 5)$ is the graph of $y = g(x)$ shifted in which direction?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Down $5$ units"
+    },
+    {
+      "id": "B",
+      "text": "Left $5$ units"
+    },
+    {
+      "id": "C",
+      "text": "Right $5$ units"
+    },
+    {
+      "id": "D",
+      "text": "Up $5$ units"
+    }
+  ],
+  "distractorNotes": {
+    "A": "treats an inside change as vertical",
+    "B": "shifts opposite to the correct direction",
+    "D": "treats an inside change as vertical and keeps the sign"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The $-5$ is inside the function, so the graph moves the opposite way: right $5$.\n\n**The Full Solution:**\nStep 1: The subtraction happens to the INPUT, before $g$ acts, so the shift is horizontal.\nStep 2: For $y = g(x - 5)$ to output the value $g$ used to give at $x = 0$, the new input must be $x = 5$. Every feature therefore lands $5$ units farther right.\nStep 3: The corner of $y = |x|$ at $(0, 0)$ moves to $(5, 0)$, so the shift is right $5$ units. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Down $5$ units): treats an inside change as vertical; $y = g(x) - 5$ would shift down.\n* Choice B (Left $5$ units): applies the sign literally; the inside shift always runs opposite the sign.\n* Choice D (Up $5$ units): treats an inside change as vertical and keeps the sign as positive.\n\n**Test Day Takeaway:** Set the inside expression equal to $0$ to locate the moved key point — $x - 5 = 0$ gives $x = 5$, a shift right."
+}

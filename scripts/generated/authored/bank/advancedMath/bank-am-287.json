@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-287",
+  "question": "Which of the following is equivalent to $x^3 + 5x^2 + 4x + 20$ for all values of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(x + 4)(x^2 + 5)$"
+    },
+    {
+      "id": "B",
+      "text": "$(x + 5)(x^2 - 4)$"
+    },
+    {
+      "id": "C",
+      "text": "$(x + 5)(x^2 + 4)$"
+    },
+    {
+      "id": "D",
+      "text": "$(x - 5)(x^2 + 4)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "swaps the two constants between the factors",
+    "B": "takes $-4$ out of the second pair instead of $+4$",
+    "D": "reverses the sign of the common binomial factor"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Group as $x^2(x + 5) + 4(x + 5)$, then pull out the common $(x + 5)$: $(x + 5)(x^2 + 4)$.\n\n**The Full Solution:**\nStep 1: Split the four terms into two pairs: $(x^3 + 5x^2) + (4x + 20)$.\nStep 2: Factor each pair: $x^2(x + 5) + 4(x + 5)$. Both pairs now share the factor $x + 5$.\nStep 3: Factor it out: $(x + 5)(x^2 + 4)$. Check by expanding: $x^3 + 4x + 5x^2 + 20$, which matches the original. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x + 4)(x^2 + 5)$): the constants were exchanged; expanding gives $x^3 + 4x^2 + 5x + 20$.\n* Choice B ($(x + 5)(x^2 - 4)$): the second pair was factored as $4(x + 5)$ but recorded with a minus sign; expanding gives $x^3 + 5x^2 - 4x - 20$.\n* Choice D ($(x - 5)(x^2 + 4)$): the shared factor is $x + 5$, not $x - 5$; expanding gives $x^3 - 5x^2 + 4x - 20$.\n\n**Test Day Takeaway:** After factoring each pair, the leftover binomials must be IDENTICAL. If they are not, regroup or change the sign you pulled out."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-319",
+  "question": "If $\\sqrt{x} - 2 = 9$, what is the value of $x$?",
+  "correctAnswer": "121",
+  "explanation": "**SAT Pattern: Radical Equation**\n\n**The correct answer is $121$.**\n\n**The Fast Way (~25s):** Isolate the radical: $\\sqrt{x} = 11$. Squaring gives $x = 121$.\n\n**The Full Solution:**\nStep 1: Add $2$ to each side so the radical stands alone: $\\sqrt{x} = 11$.\nStep 2: Square both sides: $x = 11^2$.\nStep 3: $x = 121$. Check: $\\sqrt{121} - 2 = 11 - 2 = 9$. $\\checkmark$\n\n**Common Mistakes:** Squaring before isolating gives $x - 4 = 81$, or $x = 85$. Squaring the $9$ first and then adding $2$ gives $x = 83$. Subtracting $2$ instead of adding gives $\\sqrt{x} = 7$ and $x = 49$.\n\n**Test Day Takeaway:** Get the radical alone on one side first; only then does squaring produce an equivalent equation."
+}

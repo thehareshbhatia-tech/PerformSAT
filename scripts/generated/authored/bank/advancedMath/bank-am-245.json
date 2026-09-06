@@ -1,0 +1,40 @@
+{
+  "id": "bank-am-245",
+  "question": "In the $xy$-plane, the graph of $y = f(x)$ is shown. The function $g$ is defined by $g(x) = f(x) + 9$. Which of the following must be true about the graph of $y = g(x)$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        2,
+        -9
+      ],
+      "a": 1,
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "It has exactly one $x$-intercept."
+    },
+    {
+      "id": "B",
+      "text": "It has exactly two $x$-intercepts."
+    },
+    {
+      "id": "C",
+      "text": "It has no $x$-intercept."
+    },
+    {
+      "id": "D",
+      "text": "Its lowest point is $(11, -9)$."
+    }
+  ],
+  "distractorNotes": {
+    "B": "assumes the number of $x$-intercepts is unchanged by the shift",
+    "C": "shifts the graph down $9$ instead of up",
+    "D": "applies the $+9$ to the $x$-coordinate of the lowest point"
+  },
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Vertical Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The lowest point of the graph shown is $(2, -9)$. Adding $9$ raises it to $(2, 0)$, so the shifted graph touches the $x$-axis exactly once.\n\n**The Full Solution:**\nStep 1: From the graph, the minimum value of $f$ is $-9$, attained at $x = 2$, and $f$ has two $x$-intercepts.\nStep 2: $g(x) = f(x) + 9$ raises every point $9$ units, so the minimum value of $g$ is $-9 + 9 = 0$, still at $x = 2$.\nStep 3: Because $0$ is the smallest value $g$ takes, $g(x) = 0$ only at $x = 2$, and $g(x) > 0$ everywhere else. The graph meets the $x$-axis exactly once. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (exactly two): true of $f$, but the shift moves the whole curve up so that the two crossings merge into a single touch point.\n* Choice C (none): this is what happens if the graph is pushed DOWN $9$ units, or up by more than $9$.\n* Choice D (lowest point $(11, -9)$): the $9$ was added to the $x$-coordinate; a vertical shift changes only the $y$-coordinate, giving $(2, 0)$.\n\n**Test Day Takeaway:** To count $x$-intercepts after a vertical shift, compare the shift to the extreme value: the intercept count changes exactly when the extreme value crosses $0$."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-327",
+  "question": "If $27^x = 9$, what is the value of $x$?",
+  "correctAnswer": "2/3",
+  "explanation": "**SAT Pattern: Exponential Equation with Common Base**\n\n**The correct answer is $\\dfrac{2}{3}$.**\n\n**The Fast Way (~30s):** Write both sides in base $3$: $3^{3x} = 3^2$, so $3x = 2$ and $x = \\dfrac{2}{3}$.\n\n**The Full Solution:**\nStep 1: $27 = 3^3$ and $9 = 3^2$, so the equation becomes $\\left(3^3\\right)^x = 3^2$.\nStep 2: The left side is $3^{3x}$, so $3x = 2$.\nStep 3: $x = \\dfrac{2}{3}$. Check: $27^{2/3} = \\left(\\sqrt[3]{27}\\right)^2 = 3^2 = 9$. $\\checkmark$\n\n**Common Mistakes:** Dividing $27$ by $9$ gives $3$, which answers a different question. Setting $2x = 3$ instead of $3x = 2$ inverts the fraction and gives $\\dfrac{3}{2}$. Answering $1.5$ is the same inversion written as a decimal.\n\n**Test Day Takeaway:** Choose the smallest base that generates both numbers, then read the exponents off carefully — the base's exponent multiplies $x$."
+}

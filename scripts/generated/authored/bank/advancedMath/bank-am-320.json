@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-320",
+  "question": "The equation $\\sqrt{5x + 4} = x - 4$ is given. How many distinct real solutions does this equation have?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Zero"
+    },
+    {
+      "id": "B",
+      "text": "Exactly one"
+    },
+    {
+      "id": "C",
+      "text": "Exactly two"
+    },
+    {
+      "id": "D",
+      "text": "Infinitely many"
+    }
+  ],
+  "distractorNotes": {
+    "A": "rejects both candidates",
+    "C": "skips the extraneous check",
+    "D": "treats the equation as an identity"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** Squaring gives $x^2 - 13x + 12 = 0$, so $x = 1$ or $x = 12$. Only $x = 12$ survives the check, so there is exactly one solution.\n\n**The Full Solution:**\nStep 1: Square both sides: $5x + 4 = x^2 - 8x + 16$, so $x^2 - 13x + 12 = 0$.\nStep 2: $(x - 1)(x - 12) = 0$, giving the candidates $x = 1$ and $x = 12$.\nStep 3: Test each in the original equation. For $x = 12$: $\\sqrt{64} = 8$ and $12 - 4 = 8$, true. For $x = 1$: $\\sqrt{9} = 3$ but $1 - 4 = -3$, false. Check: the surviving solution is unique, so the equation has exactly one real solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): rejects both candidates, as if squaring always manufactured extraneous roots.\n* Choice C (Exactly two): reports both roots of the squared equation without testing them.\n* Choice D (Infinitely many): would require the two sides to be the same expression for every $x$, which they are not.\n\n**Test Day Takeaway:** Squaring can add roots but never loses them — solve the squared equation, then keep only the candidates that satisfy the original."
+}

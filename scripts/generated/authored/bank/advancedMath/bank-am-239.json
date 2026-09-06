@@ -1,0 +1,52 @@
+{
+  "id": "bank-am-239",
+  "question": "The function $g$ is defined by $g(x) = f(x) + 3$. The table gives the value of $f(x)$ at three values of $x$. What is the value of $g(2)$?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "f(x)"
+      ],
+      "rows": [
+        [
+          "1",
+          "9"
+        ],
+        [
+          "2",
+          "5"
+        ],
+        [
+          "3",
+          "-1"
+        ]
+      ]
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$5$"
+    },
+    {
+      "id": "C",
+      "text": "$8$"
+    },
+    {
+      "id": "D",
+      "text": "$15$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts $3$ instead of adding it",
+    "B": "reports $f(2)$ without applying the shift",
+    "D": "multiplies by $3$ instead of adding $3$"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Vertical Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The table gives $f(2) = 5$, so $g(2) = 5 + 3 = 8$.\n\n**The Full Solution:**\nStep 1: Substituting $x = 2$ into the definition gives $g(2) = f(2) + 3$.\nStep 2: The row of the table with $x = 2$ gives $f(2) = 5$.\nStep 3: So $g(2) = 5 + 3 = 8$. Check: adding $3$ to every output raises each point of the graph by $3$, so $(2, 5)$ becomes $(2, 8)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): subtracts $3$; the $+3$ raises the output.\n* Choice B ($5$): reports $f(2)$ itself and never applies the shift.\n* Choice D ($15$): multiplies by $3$; a vertical stretch would be written $3f(x)$.\n\n**Test Day Takeaway:** A constant added outside the function changes the OUTPUT only — read $f$ at the same input, then adjust."
+}

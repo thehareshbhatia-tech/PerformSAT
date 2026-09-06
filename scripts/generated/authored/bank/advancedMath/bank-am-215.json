@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-215",
+  "question": "A bike-share operator's daily revenue from one station, in dollars, is modeled by $R(p) = -8(p - 6)^2 + 1{,}152$, where $p$ is the price per ride in dollars. Which of the following is the best interpretation of the vertex of the graph of $y = R(p)$ in the $xy$-plane?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The daily revenue is $\\$1{,}152$ when rides are free."
+    },
+    {
+      "id": "B",
+      "text": "The greatest daily revenue, $\\$1{,}152$, occurs at a price of $\\$6$ per ride."
+    },
+    {
+      "id": "C",
+      "text": "The greatest daily revenue, $\\$6$, occurs at a price of $\\$1{,}152$ per ride."
+    },
+    {
+      "id": "D",
+      "text": "The daily revenue drops by $\\$8$ for each $\\$1$ increase in the price."
+    }
+  ],
+  "distractorNotes": {
+    "A": "reads the maximum revenue as the revenue at $p = 0$",
+    "C": "swaps the two coordinates of the vertex",
+    "D": "reads the leading coefficient as a constant rate of change"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Interpret Vertex Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Vertex form gives the vertex $(6, 1{,}152)$, and the negative leading coefficient makes it the maximum: $\\$1{,}152$ at $\\$6$ per ride.\n\n**The Full Solution:**\nStep 1: $R(p) = -8(p - 6)^2 + 1{,}152$ is in vertex form, so the vertex is $(6, 1{,}152)$.\nStep 2: Since $-8 < 0$, the parabola opens downward and the vertex is the highest point of the graph.\nStep 3: The input is a price in dollars and the output is revenue in dollars, so revenue peaks at $\\$1{,}152$ when the price is $\\$6$ per ride. Check: $R(0) = -8(36) + 1{,}152 = 864$, less than $1{,}152$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (free rides): $R(0) = 864$, not $1{,}152$ — the squared term is zero only at $p = 6$.\n* Choice C ($\\$6$ of revenue at a $\\$1{,}152$ price): reverses the coordinates of the vertex.\n* Choice D (drops $\\$8$ per dollar): $-8$ is a stretch factor, not a slope; revenue RISES as the price moves from $\\$0$ toward $\\$6$.\n\n**Test Day Takeaway:** Vertex form hands you the optimum for free — the only work is deciding whether it is a maximum or a minimum and attaching the right units."
+}

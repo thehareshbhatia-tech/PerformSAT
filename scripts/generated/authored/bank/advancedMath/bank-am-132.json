@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-132",
+  "question": "In the equation $x^2 - 10x + c = 0$, $c$ is a constant. The equation has exactly one real solution. What is the value of $c$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-25$"
+    },
+    {
+      "id": "B",
+      "text": "$5$"
+    },
+    {
+      "id": "C",
+      "text": "$25$"
+    },
+    {
+      "id": "D",
+      "text": "$50$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "solves $100 = -4c$, moving the term to the wrong side of the equation",
+    "B": "stops at $\\frac{-b}{2} = 5$ without squaring it",
+    "D": "uses $b^2 - 2ac$ in place of $b^2 - 4ac$, solving $100 - 2c = 0$"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** One real solution means $b^2 - 4ac = 0$, so $(-10)^2 - 4(1)(c) = 0$ and $c = 25$.\n\n**The Full Solution:**\nStep 1: For $ax^2 + bx + c = 0$, the number of real solutions is decided by the discriminant $b^2 - 4ac$: positive gives two, zero gives exactly one, negative gives none.\nStep 2: Here $a = 1$, $b = -10$, and the constant term is $c$, so the condition is $(-10)^2 - 4(1)(c) = 0$, or $100 - 4c = 0$.\nStep 3: Then $4c = 100$ and $c = 25$. Check: $x^2 - 10x + 25 = (x - 5)^2$, whose only zero is $x = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-25$): moving $-4c$ to the wrong side turns $100 = 4c$ into $100 = -4c$.\n* Choice B ($5$): $5$ is the repeated solution of the equation, not the value of $c$.\n* Choice D ($50$): using $b^2 - 2ac$ gives $100 - 2c = 0$; the discriminant uses a factor of $4$.\n\n**Test Day Takeaway:** Exactly one real solution is the perfect-square case: set $b^2 - 4ac = 0$ and solve for the missing constant."
+}

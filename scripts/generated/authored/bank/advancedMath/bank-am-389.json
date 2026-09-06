@@ -1,0 +1,46 @@
+{
+  "id": "bank-am-389",
+  "question": "The parabola shown in the $xy$-plane has its vertex at $(-1, 9)$ and passes through the marked point $(5, -9)$. An equation of the parabola is $y = a(x + 1)^2 + 9$, where $a$ is a constant. What is the value of $a$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        -1,
+        9
+      ],
+      "a": -0.5,
+      "showPoints": [
+        [
+          5,
+          -9
+        ]
+      ],
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-3$"
+    },
+    {
+      "id": "B",
+      "text": "$-2$"
+    },
+    {
+      "id": "C",
+      "text": "$-\\dfrac{1}{2}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{1}{2}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "divides by $5 - (-1)$ instead of its square",
+    "B": "inverts the final division",
+    "D": "drops the negative sign"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $-9 = a(5 + 1)^2 + 9 \\Rightarrow 36a = -18 \\Rightarrow a = -\\dfrac{1}{2}$.\n\n**The Full Solution:**\nStep 1: Substitute the marked point $(5, -9)$ into $y = a(x + 1)^2 + 9$: $-9 = a(5 + 1)^2 + 9$.\nStep 2: $(5 + 1)^2 = 36$, so $-9 = 36a + 9$ and $36a = -18$.\nStep 3: $a = -\\dfrac{18}{36} = -\\dfrac{1}{2}$. The negative value fits the picture: the vertex is the highest point, so the parabola opens downward. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): divides $-18$ by $5 - (-1) = 6$ instead of by $6^2 = 36$.\n* Choice B ($-2$): inverts the final division, computing $\\dfrac{36}{-18}$ instead of $\\dfrac{-18}{36}$.\n* Choice D ($\\dfrac{1}{2}$): gets the size right but keeps the sign positive, which would open the parabola upward.\n\n**Test Day Takeaway:** Square the horizontal distance from the vertex BEFORE dividing, and let the opening direction confirm the sign of $a$."
+}

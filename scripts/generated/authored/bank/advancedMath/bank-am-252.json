@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-252",
+  "question": "The functions $f$ and $g$ satisfy $g(x) = f(x + 6)$ for every value of $x$. If $g(-4) = 21$, what is the value of $f(2)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-4$"
+    },
+    {
+      "id": "B",
+      "text": "$15$"
+    },
+    {
+      "id": "C",
+      "text": "$21$"
+    },
+    {
+      "id": "D",
+      "text": "$27$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the input $-4$ rather than an output",
+    "B": "subtracts $6$ from the output",
+    "D": "adds $6$ to the output"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $g(-4) = f(-4 + 6) = f(2)$, so $f(2) = 21$ directly.\n\n**The Full Solution:**\nStep 1: Substitute $x = -4$ into the relationship: $g(-4) = f(-4 + 6)$.\nStep 2: The inside simplifies to $f(2)$, so $f(2) = g(-4)$.\nStep 3: Since $g(-4) = 21$, it follows that $f(2) = 21$. Check: the point $(-4, 21)$ on the graph of $g$ sits $6$ units left of the point $(2, 21)$ on the graph of $f$, which is exactly the shift $f(x + 6)$ produces. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): this reports the input to $g$; the question asks for an output of $f$.\n* Choice B ($15$): this subtracts the $6$ from the output, $21 - 6$; the $6$ is already used inside the parentheses.\n* Choice D ($27$): this adds the $6$ to the output for the same reason.\n\n**Test Day Takeaway:** A horizontal shift relabels inputs only. Once the inside expressions match, the outputs are equal — no further arithmetic."
+}

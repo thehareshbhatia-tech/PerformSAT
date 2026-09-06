@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-365",
+  "question": "The functions $f$ and $g$ are defined by $f(x) = 4x - 7$ and $g(x) = x + 6$. What is the value of $f(g(1))$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-3$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$21$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports $f(1)$ instead of $f(g(1))$",
+    "B": "computes $g(f(1))$, reversing the order",
+    "C": "adds $f(1)$ and $g(1)$"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** $g(1) = 7$, then $f(7) = 4(7) - 7 = 21$.\n\n**The Full Solution:**\nStep 1: Work from the inside out. The inner function is $g$, so evaluate $g(1) = 1 + 6 = 7$.\nStep 2: Feed that output into $f$: $f(7) = 4(7) - 7$.\nStep 3: $28 - 7 = 21$. Check: $f(g(1)) = 4(1 + 6) - 7 = 4(7) - 7 = 21$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): evaluates $f(1) = 4(1) - 7 = -3$ and stops, ignoring $g$ entirely.\n* Choice B ($3$): computes $g(f(1)) = g(-3) = 3$ — the functions applied in the reverse order.\n* Choice C ($4$): adds the two separate outputs, $f(1) + g(1) = -3 + 7$, instead of composing them.\n\n**Test Day Takeaway:** In $f(g(1))$ the input $1$ goes into $g$ first; the parentheses tell you the order, and reversing it almost always changes the answer."
+}

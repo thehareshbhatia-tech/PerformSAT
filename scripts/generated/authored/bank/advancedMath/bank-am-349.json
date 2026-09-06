@@ -1,0 +1,51 @@
+{
+  "id": "bank-am-349",
+  "question": "The graph of the function $g$, where $g(x) = 2x^2 - 12x + 18$, is shown in the $xy$-plane. At how many points does the graph of $g$ intersect the $x$-axis?",
+  "diagram": {
+    "type": "parabola",
+    "params": {
+      "vertex": {
+        "h": 3,
+        "k": 0
+      },
+      "a": 2,
+      "xRange": [
+        0,
+        6
+      ],
+      "yRange": [
+        -2,
+        10
+      ],
+      "xTickInterval": 1,
+      "yTickInterval": 2,
+      "gridInterval": 1,
+      "showVertex": true
+    }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$0$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$2$"
+    },
+    {
+      "id": "D",
+      "text": "$3$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "treats a zero discriminant as no intersection",
+    "C": "counts the repeated zero twice",
+    "D": "counts the vertex plus both branches"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The discriminant is $(-12)^2 - 4(2)(18) = 144 - 144 = 0$, so the graph touches the $x$-axis at exactly one point.\n\n**The Full Solution:**\nStep 1: The graph meets the $x$-axis where $g(x) = 0$, so count the real solutions of $2x^2 - 12x + 18 = 0$.\nStep 2: The discriminant is $144 - 144 = 0$, which means one repeated real solution.\nStep 3: The graph therefore intersects the $x$-axis at exactly $1$ point. Check: $2x^2 - 12x + 18 = 2(x - 3)^2$, which is zero only at $x = 3$ — the vertex shown on the axis. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): treats a discriminant of $0$ as if it were negative; a zero discriminant still gives a real solution.\n* Choice C ($2$): counts the repeated factor $(x - 3)^2$ as two separate intersection points.\n* Choice D ($3$): counts the vertex plus both branches as separate crossings; a parabola meets a line at most twice.\n\n**Test Day Takeaway:** Discriminant $0$ means the parabola is tangent to the $x$-axis — one point of contact, not zero and not two."
+}

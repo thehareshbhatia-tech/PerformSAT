@@ -1,0 +1,6 @@
+{
+  "id": "bank-am-177",
+  "question": "The functions $f$ and $g$ are defined by $f(x) = 4x$ and $g(x) = x - 3$. What is the value of $g(f(3)) - f(g(3))$?",
+  "correctAnswer": "9",
+  "explanation": "**SAT Pattern: Function Composition**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~30s):** $g(f(3)) = g(12) = 9$ and $f(g(3)) = f(0) = 0$, so the difference is $9$.\n\n**The Full Solution:**\nStep 1: For $g(f(3))$, evaluate the inner function first: $f(3) = 12$, so $g(f(3)) = g(12) = 12 - 3 = 9$.\nStep 2: For $f(g(3))$, evaluate $g(3) = 3 - 3 = 0$, so $f(g(3)) = f(0) = 4(0) = 0$.\nStep 3: Subtract in the stated order: $9 - 0 = 9$. Check symbolically, $g(f(x)) = 4x - 3$ and $f(g(x)) = 4x - 12$, so the difference is always $9$. $\\checkmark$\n\n**Common Mistakes:**\n* Assuming the two compositions are equal and answering $0$.\n* Computing $f(g(3)) - g(f(3)) = -9$ by reversing the order of the subtraction.\n* Treating $g(f(3))$ as $g(3) \\cdot f(3)$, a product rather than a composition.\n\n**Test Day Takeaway:** Composition is not commutative; build each composition separately and keep the subtraction in the order written."
+}

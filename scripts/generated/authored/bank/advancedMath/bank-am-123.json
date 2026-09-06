@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-123",
+  "question": "For $x \\neq 0$ and $y \\neq 0$, which of the following is equivalent to $\\left(2x^3y^{-4}\\right)^{-2} \\cdot \\left(8x^{-1}y^{5}\\right)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\dfrac{2}{y}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\dfrac{2y^{13}}{x^{7}}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{8y^{13}}{x^{7}}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\dfrac{32x^{5}}{y^{3}}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds the outer exponent to each inner exponent instead of multiplying, giving $x^{1}y^{-6}$ before the second factor is applied",
+    "C": "applies the outer $-2$ to the variables but leaves the coefficient $2$ untouched",
+    "D": "applies $+2$ instead of $-2$ to every factor inside the first parentheses"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $\\left(2x^3y^{-4}\\right)^{-2} = 2^{-2}x^{-6}y^{8}$. Multiplying by $8x^{-1}y^{5}$ gives $\\dfrac{8}{4}x^{-7}y^{13} = \\dfrac{2y^{13}}{x^{7}}$.\n\n**The Full Solution:**\nStep 1: Raise every factor inside the parentheses to the $-2$ power, multiplying exponents: $2^{-2} = \\dfrac{1}{4}$, $\\left(x^{3}\\right)^{-2} = x^{-6}$, and $\\left(y^{-4}\\right)^{-2} = y^{8}$.\nStep 2: Multiply by the second factor, adding exponents on matching bases: $\\dfrac{1}{4}x^{-6}y^{8} \\cdot 8x^{-1}y^{5} = \\dfrac{8}{4}\\,x^{-6-1}\\,y^{8+5} = 2x^{-7}y^{13}$.\nStep 3: Move the negative exponent to the denominator: $2x^{-7}y^{13} = \\dfrac{2y^{13}}{x^{7}}$. Check with $x = y = 1$: the original is $2^{-2} \\cdot 8 = 2$, and the answer is $2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{y}$): the outer exponent is added to each inner exponent ($3 + (-2) = 1$, $-4 + (-2) = -6$) instead of multiplied, and the $x$ powers then cancel.\n* Choice C ($\\frac{8y^{13}}{x^{7}}$): the coefficient $2$ never gets raised to the $-2$ power, so the $\\frac{1}{4}$ that turns $8$ into $2$ is missing.\n* Choice D ($\\frac{32x^{5}}{y^{3}}$): the sign of the outer exponent is dropped, giving $4x^{6}y^{-8}$ before the second factor.\n\n**Test Day Takeaway:** A power outside parentheses hits every factor inside, coefficient included, and exponents multiply rather than add."
+}

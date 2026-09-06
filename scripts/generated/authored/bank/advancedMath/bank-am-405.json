@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-405",
+  "question": "The equation $x^2 + kx + 40 = 0$ has solutions $p$ and $q$, where $k$ is a constant and $p + q = 13$. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-40$"
+    },
+    {
+      "id": "B",
+      "text": "$-13$"
+    },
+    {
+      "id": "C",
+      "text": "$13$"
+    },
+    {
+      "id": "D",
+      "text": "$40$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the negative of the constant term",
+    "C": "sets $k$ equal to the sum instead of its opposite",
+    "D": "reports the constant term, which is the product"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $p + q = -k$, so $-k = 13$ and $k = -13$.\n\n**The Full Solution:**\nStep 1: With a leading coefficient of $1$, the sum of the solutions of $x^2 + kx + 40 = 0$ is $-k$.\nStep 2: The problem states that sum is $13$, so $-k = 13$.\nStep 3: $k = -13$. Check: $x^2 - 13x + 40 = (x - 5)(x - 8)$, whose solutions $5$ and $8$ add to $13$ and multiply to $40$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-40$): reports the negative of the constant term, mixing up the product rule with the sum rule.\n* Choice C ($13$): sets $k$ equal to the sum directly, skipping the sign change in $-k$.\n* Choice D ($40$): reports the constant term, which is the PRODUCT of the solutions, not $k$.\n\n**Test Day Takeaway:** The middle coefficient is the NEGATIVE of the sum of the solutions — write $-k = p + q$ before solving."
+}

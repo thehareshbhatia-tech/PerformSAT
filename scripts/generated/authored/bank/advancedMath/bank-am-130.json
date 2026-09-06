@@ -1,0 +1,29 @@
+{
+  "id": "bank-am-130",
+  "question": "In the $xy$-plane, the line $y = 6x + b$ is tangent to the graph of $y = ax^2 + 2x - 5$ at the point where $x = 2$, where $a$ and $b$ are constants. What is the value of $a + b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-9$"
+    },
+    {
+      "id": "B",
+      "text": "$-8$"
+    },
+    {
+      "id": "C",
+      "text": "$0$"
+    },
+    {
+      "id": "D",
+      "text": "$1$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports $b$ alone rather than the requested sum",
+    "C": "drops the minus sign and solves $5 + b = 4$, getting $b = -1$ and the sum $1 + (-1)$",
+    "D": "reports $a$ alone rather than the requested sum"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** Subtracting the line gives $ax^2 - 4x - (5 + b) = 0$ with a double root at $x = 2$. The two roots sum to $\\dfrac{4}{a} = 4$, so $a = 1$; their product is $\\dfrac{-(5+b)}{1} = 4$, so $b = -9$ and $a + b = -8$.\n\n**The Full Solution:**\nStep 1: Set the expressions equal and collect terms: $ax^2 + 2x - 5 = 6x + b$ becomes $ax^2 - 4x - (5 + b) = 0$. Tangency at $x = 2$ means this quadratic has the repeated root $x = 2$.\nStep 2: A repeated root at $2$ means the roots sum to $4$. For $ax^2 - 4x - (5+b) = 0$ the sum of the roots is $\\dfrac{4}{a}$, so $\\dfrac{4}{a} = 4$ and $a = 1$.\nStep 3: The roots also multiply to $2 \\cdot 2 = 4$, and that product equals $\\dfrac{-(5+b)}{a} = -(5+b)$. So $-(5+b) = 4$, giving $b = -9$ and $a + b = 1 + (-9) = -8$. Check: $x^2 + 2x - 5 = 6x - 9$ becomes $x^2 - 4x + 4 = (x-2)^2 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): this is $b$ by itself; the question asks for $a + b$.\n* Choice C ($0$): dropping the minus sign in $-(5 + b) = 4$ turns it into $5 + b = 4$, so $b = -1$ and the sum becomes $1 + (-1) = 0$.\n* Choice D ($1$): this is $a$ by itself, found correctly but reported instead of the sum.\n\n**Test Day Takeaway:** A stated point of tangency turns the difference into a perfect square. Match it with $(x - 2)^2$, then reread which combination of constants the question wants."
+}
