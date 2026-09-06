@@ -488,10 +488,15 @@ export const SimilarTriangles = ({
   };
 
   return (
+    // viewBox + width:100%/max-width keeps the pair pixel-identical at desktop
+    // (the card is wider than `width`) while letting this 400px-wide figure —
+    // the widest in the set — scale down inside a phone-width card.
     <svg
       width={width}
       height={height}
-      style={SAT_FIGURE_STYLE}
+      viewBox={`0 0 ${width} ${height}`}
+      preserveAspectRatio="xMidYMid meet"
+      style={{ ...SAT_FIGURE_STYLE, width: '100%', maxWidth: width, height: 'auto' }}
     >
       {renderTriangle(triangle1, 0)}
       {renderTriangle(triangle2, halfWidth + padding)}

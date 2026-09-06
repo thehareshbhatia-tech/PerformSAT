@@ -518,7 +518,11 @@
 
 /* ── Responsive ────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .pb-grid { grid-template-columns: 1fr; }
+  /* minmax(0, 1fr), not a bare 1fr: a bare `1fr` keeps the cards' automatic
+     minimum (min-width: auto), so the single column grew to the widest domain
+     card's min-content and pushed the page 17-27px past a 390px viewport. */
+  .pb-grid { grid-template-columns: minmax(0, 1fr); }
+  .pb-card { min-width: 0; }
   .pb-hero-side { width: 100%; justify-content: space-between; }
 }
 @media (max-width: 600px) {
