@@ -108,9 +108,17 @@ be genuine public-domain text, verbatim, with correct attribution.
    and M2Easy never co-occur with each other. No specific topic (e.g. "seed
    vaults", "urban birdsong") may repeat across co-occurring modules.
 3. **Uniqueness gate:** run `node scripts/verifyRecreation.mjs --test=N`.
-   Never hand-roll the corpus load: `indexCorpus` must receive the cache
-   `items` OBJECT (an array of cache values silently indexes nothing and
-   passes everything).
+   Never hand-roll the corpus load — TWO shapes silently pass everything:
+   (a) `indexCorpus` must receive the cache `items` OBJECT, never an array of
+   cache values (that indexes nothing); (b) for an OBJECT corpus `indexCorpus`
+   reads `stemPlain || stimulusPlain`, which is right for math (no math item
+   has a stimulus) but WRONG for R&W — an R&W `stemPlain` is the canonical CB
+   stock stem (median 14 words) and the passage lives in `stimulusPlain`
+   (median 64). The R&W corpus must be built explicitly as an `[{id, text}]`
+   list off HTML-entity-decoded `stimulusPlain` (see `verifyRecreation.mjs`
+   and `recreateRWFills.mjs`); until 2026-09-05 it was not, and a verbatim CB
+   stimulus scored jaccard 0.05 and passed. Both scripts now carry a control
+   probe that hard-exits if a verbatim official stimulus passes.
 4. **Math M2 hard-track Q1-5 warm-up rule:** 2+ steps or a trap — one-formula
    plug-ins are forbidden even on easy-band slots (e.g. hypotenuse-from-legs
    is out; missing-LEG with the add-squares trap is in).

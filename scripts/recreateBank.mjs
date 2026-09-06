@@ -205,7 +205,12 @@ function officialIndex() {
   if (_official) return _official;
   const cache = JSON.parse(fs.readFileSync(path.join(GEN, 'cbEducatorQBank.json'), 'utf8')).items;
   _official = indexCorpus(cache);
-  // control: a verbatim official stem must fail
+  // control: a verbatim official stem must fail.
+  // stemPlain is correct HERE ONLY because this is the MATH cache (no math item
+  // has a stimulusPlain). If this is ever pointed at cbEducatorQBankRW.json,
+  // switch to stimulusPlain: an R&W stemPlain is the canonical CB stock stem
+  // (median 14 words), so indexing/probing it makes the gate pass everything —
+  // see the corpora note in verifyRecreation.mjs and recreateRWFills.mjs.
   const probe = Object.values(cache).find(v => (v.stemPlain || '').split(' ').length > 20);
   if (checkUniquenessSliding(probe.stemPlain, _official).pass) throw new Error('uniqueness gate control failed — corpus shape bug');
   return _official;
