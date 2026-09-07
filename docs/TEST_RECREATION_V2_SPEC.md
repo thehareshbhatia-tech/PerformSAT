@@ -134,8 +134,8 @@ git commit   # one commit per test (or wave)
 | 3 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
 | 4 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
 | 5 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
-| 6 | | | | | |
-| 7 | | | | | |
+| 6 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
+| 7 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
 | 8 | | | | | |
 | 9 | | | | | |
 | 10 | | | | | |
@@ -162,3 +162,6 @@ git commit   # one commit per test (or wave)
    a 756 ft² sail), method/trap-revealing clauses, a hard slot that is a plug-in, a "check" that uses a
    non-solution, a decoy table row that reproduces the key, scenario collisions across a chunk,
    renderer proportions that contradict labels (→ `figureNote: true`).
+5. (Tests 6-7) `linearGraph` applies ONE `gridInterval` to both axes — a tall yRange draws dozens of
+   4px gridlines; `check` now caps each axis at 26 gridlines and warns when the line leaves the window.
+   `score` no longer reports an already-saved copy of the stem as its own nearest new neighbour.

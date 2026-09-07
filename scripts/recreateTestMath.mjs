@@ -385,6 +385,17 @@ function testChecks(row, a, chunk) {
     if (T === 'table') req((Array.isArray(P.headers) && Array.isArray(P.rows)) || (P.xHeader && P.yHeader), 'must have headers/rows or xHeader/yHeader');
     if (T === 'scatterplot') req(Array.isArray(P.points) && P.points.every(pt => (Array.isArray(pt) && pt.length === 2 && pt.every(Number.isFinite)) || (pt && Number.isFinite(pt.x) && Number.isFinite(pt.y))), 'every point must be [x, y] or {x, y} with finite numbers');
   }
+  // SATLinearGraph applies ONE gridInterval to both axes (SATGraphCore.renderGrid) — a tall yRange with a small
+  // interval draws dozens of ~4px gridlines; the line must also stay inside the window at both x ends.
+  if (a.diagram?.type === 'linearGraph' && a.diagram.params && typeof a.diagram.params === 'object') {
+    const P = a.diagram.params; const gi = P.gridInterval || 1;
+    const xr = Array.isArray(P.xRange) ? P.xRange : null, yr = Array.isArray(P.yRange) ? P.yRange : null;
+    if (yr && (yr[1] - yr[0]) / gi > 26) errs.push(`linearGraph: yRange spans ${(yr[1] - yr[0]) / gi} gridlines at gridInterval ${gi} (one interval serves BOTH axes) — unreadable; keep each axis ≤ 26 gridlines`);
+    if (xr && (xr[1] - xr[0]) / gi > 26) errs.push(`linearGraph: xRange spans ${(xr[1] - xr[0]) / gi} gridlines at gridInterval ${gi} — unreadable; keep each axis ≤ 26 gridlines`);
+    if (xr && yr && typeof P.slope === 'number' && typeof P.yIntercept === 'number') {
+      for (const x of xr) { const y = P.slope * x + P.yIntercept; if (y < yr[0] - 1e-9 || y > yr[1] + 1e-9) warns.push(`linearGraph: the line leaves the window at x=${x} (y=${y}) — the renderer does not clip; adjust xRange/yRange`); }
+    }
+  }
   // SATDotPlot scales to xMin..xMax with 12px dots — a wide window packs adjacent values into an unreadable blob
   if (a.diagram?.type === 'dotPlot' && a.diagram.params && typeof a.diagram.params.xMin === 'number' && typeof a.diagram.params.xMax === 'number') {
     const span = a.diagram.params.xMax - a.diagram.params.xMin;
@@ -601,7 +612,8 @@ async function status() {
 function score(texts) {
   const siblings = allAuthoredStems();
   for (const text of texts) {
-    const s = nearest(text, seenCorpus()); const b = nearest(text, siblings);
+    const s = nearest(text, seenCorpus());
+    const self = normStem(text); const b = nearest(text, siblings.filter(x => x.text !== self)); // an already-saved copy of this stem is not a neighbour
     const verdict = Math.max(s.dice, b.dice) >= FRESH_FAIL ? 'FAIL' : Math.max(s.dice, b.dice) >= FRESH_WARN ? 'warn' : 'ok';
     console.log(`${verdict}  seen ${s.dice.toFixed(2)} (${s.id})  ·  new ${b.dice.toFixed(2)} (${b.id || '-'})  ·  ${wordCount(text)} words`);
   }
