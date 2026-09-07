@@ -215,6 +215,30 @@ export function officialIndex() {
   if (checkUniquenessSliding(probe.stemPlain, _official).pass) throw new Error('uniqueness gate control failed — corpus shape bug');
   return _official;
 }
+let _norms = null;
+/** Official stem-length norms: median words (math masked to one token, like wordCount) by CB skill × difficulty, with an all-skills fallback. */
+export function officialStemNorms() {
+  if (_norms) return _norms;
+  const cache = JSON.parse(fs.readFileSync(path.join(GEN, 'cbEducatorQBank.json'), 'utf8')).items;
+  const w = s => String(s || '').replace(/\[[^\]]*\]/g, 'M').split(/\s+/).filter(Boolean).length;
+  const D = { E: 'easy', M: 'medium', H: 'hard' };
+  const by = new Map(), all = new Map();
+  for (const it of Object.values(cache)) {
+    if (it.program !== 'SAT' || !D[it.difficulty]) continue;
+    const d = D[it.difficulty], n = w(it.stemPlain), k = `${it.skill}|${d}`;
+    if (!by.has(k)) by.set(k, []); by.get(k).push(n);
+    if (!all.has(d)) all.set(d, []); all.get(d).push(n);
+  }
+  const med = a => { const v = a.slice().sort((x, y) => x - y); return v.length % 2 ? v[(v.length - 1) / 2] : (v[v.length / 2 - 1] + v[v.length / 2]) / 2; };
+  _norms = { skill: new Map([...by].filter(([, v]) => v.length >= 5).map(([k, v]) => [k, med(v)])), all: new Map([...all].map(([k, v]) => [k, med(v)])) };
+  return _norms;
+}
+/** { norm, scope } for an item: the official median for its CB skill at its difficulty, else the all-skills median at that difficulty. */
+export function stemNorm(skillLabel, difficulty) {
+  const n = officialStemNorms(); const k = `${skillLabel}|${difficulty}`;
+  return n.skill.has(k) ? { norm: n.skill.get(k), scope: skillLabel } : { norm: n.all.get(difficulty) ?? 33, scope: 'all-skills' };
+}
+export const THIN_RATIO = 0.6; // a fresh stem under 60% of its official norm (and no figure) is thin — the plan's own rewrite trigger
 let _tests = null;
 export function testStemIndex() {
   if (_tests) return _tests;
@@ -268,9 +292,10 @@ function freshSiblings(exceptKey = null) {
   }
   return out;
 }
-function freshNearest(text, corpus) {
+function freshNearest(text, corpus, skipId = null) {
   const t = freshNorm(text); const tri = freshTri(t); let worst = { over: -1, dice: 0, id: null, t: null };
   for (const s of corpus) {
+    if (skipId && s.id === skipId) continue; // an already-saved copy of this stem is not its own neighbour
     if (s.len < t.length * 0.35 || s.len > t.length / 0.35) continue;
     const d = freshDice(tri, s.tri); const over = d - s.t; if (over > worst.over) worst = { over, dice: d, id: s.id, t: s.t };
   }
@@ -279,7 +304,7 @@ function freshNearest(text, corpus) {
 /** errors/warns for a fresh row's stem: FAIL when it crosses an entry's threshold, warn within 0.10 of it. */
 function freshnessErrors(text, ownKey, siblings) {
   const errs = [], warns = [];
-  const s = freshNearest(text, freshSeen()); const b = freshNearest(text, siblings || freshSiblings(ownKey));
+  const s = freshNearest(text, freshSeen()); const b = freshNearest(text, siblings || freshSiblings(ownKey), ownKey ? `new:${ownKey}` : null);
   for (const [label, r] of [['seen', s], ['new drill', b]]) {
     if (r.id === null) continue;
     if (r.over >= 0) errs.push(`FRESHNESS: stem is a near-copy of ${label} ${r.id} (Dice ${r.dice.toFixed(2)} ≥ ${r.t}) — change the setup, not the numbers`);
@@ -453,7 +478,11 @@ async function check(selection) {
       errs.push(...fr.errs); warns.push(...fr.warns);
       if (row.figure && !got.data.diagram && !got.data.questionTable) errs.push('this is a FIGURE slot in the refresh plan — add a real diagram/questionTable whose params match the numbers');
       if (row.type === 'multiple-choice') { const notes = got.data.distractorNotes || {}; for (const L of ['A', 'B', 'C', 'D']) if (L !== got.data.correctAnswer && !(notes[L] && String(notes[L]).trim())) errs.push(`distractorNotes.${L} missing (every wrong letter needs a named error)`); }
-      const wc = wordCount(got.data.question); if (wc < 10 && !got.data.diagram && !got.data.questionTable) errs.push(`stem ${wc} words (<10) — give the setup in words; bare equations are what produced the twins`);
+      const wc = wordCount(got.data.question);
+      if (!got.data.diagram && !got.data.questionTable) {
+        const { norm, scope } = stemNorm(row.cbSkillLabel, row.difficulty); const floor = Math.max(10, Math.round(norm * THIN_RATIO));
+        if (wc < floor) errs.push(`stem ${wc} words — thin for a ${row.difficulty} "${scope}" item (official median ${norm}, floor ${floor}); add real setup (a named quantity, its units, the condition), never boilerplate`);
+      }
     }
     warns.forEach(w => console.warn(`warn ${row.fileId}: ${w}`));
     if (errs.length) { errors += errs.length; errs.forEach(e => console.error(`FAIL ${row.fileId}: ${e}`)); }

@@ -52,6 +52,16 @@ Same as docs/TEST_RECREATION_V2_SPEC.md "Authoring rules" with these bank specif
 5. Stems ≥ 10 words unless a figure carries the setup; aim E32/M40/H49 words; official voice; premises
    physically and mathematically sound; every distractor a named error with its exact number.
 6. Score drafts first (`recreateBank.mjs score --text="…"`); a FRESHNESS fail means change the setup.
+7. Abstract stems ("The function $f$ is defined by…", "In the $xy$-plane, the graph of…", "In triangle
+   $ABC$…") fail the gate outright — hundreds of seen items share that skeleton (fresh-06: 44/60 of a
+   first draft). Every item needs a one-clause palette context with a distinctive noun and a named
+   quantity with units. Lengthening with official-style boilerplate that restates the function pushes
+   Dice back UP; length comes from the setup, never from restating the givens.
+8. Thin stems FAIL `check`: a fresh item with no figure whose stem is under 60% of the official median
+   for its CB skill × difficulty (math masked to one token both sides; all-skills median when the skill
+   has < 5 official items). Symbolic skills have short norms (Equivalent expressions E7/M10/H22, Linear
+   equations in one variable E11/M12/H19); contextual skills long ones (Nonlinear functions E52/M42/H39,
+   Linear functions E32/M35/H45). Added 2026-09-07 after fresh-01/fresh-12 came in at H27 / M23 medians.
 
 ## Verification
 
