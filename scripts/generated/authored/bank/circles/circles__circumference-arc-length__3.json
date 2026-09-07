@@ -1,43 +1,42 @@
 {
- "id": 3,
- "question": "In the figure, $O$ is the center of the circle, $OA = 18$, and the measure of $\\angle AOB$ is $40^{\\circ}$. What is the length of minor arc $AB$?",
+ "question": "In the figure, a conveyor turn runs along minor arc $AB$; the wheel radius is $15$ and the turn subtends $72^\\circ$ at center $O$. How long is the turn?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
-   "centralAngle": 40,
-   "radius": 18,
-   "showRadiusLabel": true,
-   "showAngleLabel": true,
+   "centralAngle": 72,
+   "angleLabel": "72°",
+   "radius": 15,
    "labelCenter": "O",
    "labelPoint1": "A",
    "labelPoint2": "B",
+   "showRadiusLabel": true,
    "figureNote": true
   }
  },
+ "hint": "Compare the given angle with a full turn of $360^\\circ$.",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{2\\pi}{9}$"
+   "text": "$3\\pi$"
   },
   {
    "id": "B",
-   "text": "$2\\pi$"
+   "text": "$6\\pi$"
   },
   {
    "id": "C",
-   "text": "$4\\pi$"
+   "text": "$12\\pi$"
   },
   {
    "id": "D",
-   "text": "$36\\pi$"
+   "text": "$30\\pi$"
   }
  ],
- "correctAnswer": "C",
- "hint": "Compare the central angle with a full turn of $360^{\\circ}$ first.",
  "distractorNotes": {
-  "A": "leaves the radius out",
-  "B": "uses pi r for the circumference",
-  "D": "reports the whole circumference"
+  "A": "uses pi*r instead of 2*pi*r for the whole rim",
+  "C": "uses the diameter 30 in place of the radius",
+  "D": "reports the whole circumference 30pi"
  },
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** The arc is $\\frac{40}{360} = \\frac{1}{9}$ of the circumference $36\\pi$, so its length is $4\\pi$.\n\n**The Full Solution:**\nStep 1: The circumference is $C = 2\\pi(18) = 36\\pi$.\nStep 2: A central angle of $40^{\\circ}$ cuts off $\\frac{40}{360} = \\frac{1}{9}$ of the circle.\nStep 3: The arc length is $\\frac{1}{9}(36\\pi) = 4\\pi$. Check: nine such arcs would total $36\\pi$, the full circumference.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2\\pi}{9}$): multiplies $\\frac{40}{360}$ by $2\\pi$ but leaves the radius out of the circumference.\n* Choice B ($2\\pi$): uses $\\pi r = 18\\pi$ as the circumference, half of what it should be.\n* Choice D ($36\\pi$): reports the entire circumference instead of the piece the angle cuts off.\n\n**Test Day Takeaway:** Arc length is $\\frac{\\text{central angle}}{360} \\cdot 2\\pi r$. Write the fraction first, and the rest is one multiplication."
+ "correctAnswer": "B",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** $72^\\circ$ is one fifth of a full turn, and one fifth of $2\\pi(15) = 30\\pi$ is $6\\pi$.\n\n**The Full Solution:**\nStep 1: The whole rim measures $2\\pi r = 2\\pi(15) = 30\\pi$.\nStep 2: The turn covers $\\dfrac{72}{360} = \\dfrac{1}{5}$ of the rim.\nStep 3: Multiply: $\\dfrac{1}{5}(30\\pi) = 6\\pi$. Check: five such turns would total $30\\pi$, the whole rim ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3\\pi$): uses $\\pi r = 15\\pi$ as the circumference, half of the true value.\n* Choice C ($12\\pi$): uses the diameter $30$ where the radius belongs, doubling the answer.\n* Choice D ($30\\pi$): reports the entire circumference instead of the fifth of it that the turn covers.\n\n**Test Day Takeaway:** An arc is the same fraction of the circumference as its central angle is of $360^\\circ$."
 }

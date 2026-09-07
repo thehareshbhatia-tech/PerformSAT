@@ -1,30 +1,29 @@
 {
- "id": 3,
- "question": "The expressions $2^{12}$ and $8^k$ are equal, where $k$ is a constant. What is the value of $k$?",
+ "question": "A relay's transmitted pulse attenuates by the factor $\\left(\\dfrac{1}{8}\\right)^{x}$ after crossing $x$ shielding layers, and that factor equals $2^{k}$ for every $x$. Which expression gives $k$?",
+ "hint": "A reciprocal can be carried in the exponent.",
  "choices": [
   {
    "id": "A",
-   "text": "$3$"
+   "text": "$-3x$"
   },
   {
    "id": "B",
-   "text": "$4$"
+   "text": "$-\\dfrac{x}{3}$"
   },
   {
    "id": "C",
-   "text": "$9$"
+   "text": "$\\dfrac{x}{3}$"
   },
   {
    "id": "D",
-   "text": "$36$"
+   "text": "$3x$"
   }
  ],
- "correctAnswer": "B",
- "hint": "Rewrite both sides as powers of the same base.",
  "distractorNotes": {
-  "A": "reports the rewriting exponent",
-  "C": "subtracts 3 from 12",
-  "D": "multiplies 12 by 3"
+  "B": "writes 1/8 as 2 to the power -1/3",
+  "C": "writes 1/8 as 2 to the power 1/3, losing the negative sign",
+  "D": "ignores that the base is a reciprocal"
  },
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** $8 = 2^3$, so $8^k = 2^{3k}$; setting $3k = 12$ gives $k = 4$.\n\n**The Full Solution:**\nStep 1: Write $8$ as a power of $2$: $8 = 2^3$.\nStep 2: Then $8^k = \\left(2^3\\right)^k = 2^{3k}$, so $2^{3k} = 2^{12}$.\nStep 3: Equal powers of the same base have equal exponents, so $3k = 12$ and $k = 4$. Check: $8^4 = 4{,}096 = 2^{12}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the exponent used to rewrite $8$ as $2^3$ rather than solving for $k$.\n* Choice C ($9$): subtracts, computing $12 - 3$, as if the bases were being divided.\n* Choice D ($36$): multiplies $12$ by $3$ instead of dividing.\n\n**Test Day Takeaway:** Common base, then compare exponents. Rewriting one side is almost always faster than taking logarithms."
+ "correctAnswer": "A",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $\\dfrac{1}{8} = 2^{-3}$, so the factor is $\\left(2^{-3}\\right)^{x} = 2^{-3x}$ and $k = -3x$.\n\n**The Full Solution:**\nStep 1: Write the base as a power of $2$: $\\dfrac{1}{8} = \\dfrac{1}{2^3} = 2^{-3}$.\nStep 2: Raise it to the $x$: $\\left(2^{-3}\\right)^{x} = 2^{-3x}$.\nStep 3: Matching exponents gives $k = -3x$. Check at $x = 1$: $\\dfrac18 = 2^{-3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\dfrac{x}{3}$): writes $\\dfrac18$ as $2^{-1/3}$, confusing a cube root with a cube.\n* Choice C ($\\dfrac{x}{3}$): makes the same root error and also loses the negative sign.\n* Choice D ($3x$): treats the base as $8$ rather than $\\dfrac18$, dropping the reciprocal.\n\n**Test Day Takeaway:** A reciprocal base becomes a negative exponent, and the outer exponent then multiplies it."
 }

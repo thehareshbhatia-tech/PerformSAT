@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-066",
-  "question": "In the system of equations $\\frac{2}{3}x + hy = 5$ and $-8x + 18y = c$, $h$ and $c$ are constants. If the system has infinitely many solutions, what is the value of $c$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-60$"
-    },
-    {
-      "id": "B",
-      "text": "$-40$"
-    },
-    {
-      "id": "C",
-      "text": "$-12$"
-    },
-    {
-      "id": "D",
-      "text": "$60$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "multiplies 5 by the coefficient -8 instead of the scale factor",
-    "C": "reports the scale factor k",
-    "D": "drops the sign on the scale factor"
+ "id": "bank-alg-066",
+ "question": "A recharge study reports the same aquifer balance twice. The first report reads $\\frac{1}{2}x + 3y = 9$ and the second reads $2x + cy = 36$, where $c$ is a constant, and the two reports agree for every pair $(x, y)$. What is the value of $c$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Find c for Infinite Solutions**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The $x$-coefficients fix the scale factor: $-8 \\div \\frac{2}{3} = -12$. The second equation is $-12$ times the first, so $c = -12(5) = -60$.\n\n**The Full Solution:**\nStep 1: Infinitely many solutions means the second equation is $k$ times the first, term by term.\nStep 2: From the $x$-terms, $-8 = k \\cdot \\frac{2}{3}$, so $k = -8 \\cdot \\frac{3}{2} = -12$. (The $y$-terms then force $h = \\frac{18}{-12} = -\\frac{3}{2}$, which is consistent but not needed.)\nStep 3: Apply $k$ to the constant: $c = -12 \\cdot 5 = -60$. Check: $-12\\left(\\frac{2}{3}x - \\frac{3}{2}y\\right) = -8x + 18y$ and $-12(5) = -60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-40$): multiplies $5$ by the coefficient $-8$ instead of by the scale factor $-12$.\n* Choice C ($-12$): reports the scale factor $k$ itself rather than the constant $c$.\n* Choice D ($60$): drops the negative sign when dividing $-8$ by $\\frac{2}{3}$.\n\n**Test Day Takeaway:** With a fractional coefficient, get the multiplier by dividing (second coefficient over first), not multiplying, then push that same multiplier through to the constant."
+  {
+   "id": "B",
+   "text": "$6$"
+  },
+  {
+   "id": "C",
+   "text": "$12$"
+  },
+  {
+   "id": "D",
+   "text": "$36$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports the y-coefficient of the first report unchanged",
+  "B": "scales by 2 instead of by the factor 4 that the x-terms require",
+  "D": "reports the second report's constant term"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Find c for Infinite Solutions**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The $x$-terms scale by $2 \\div \\frac{1}{2} = 4$, so every term does: $c = 4(3) = 12$.\n\n**The Full Solution:**\nStep 1: Two equations agree for every pair $(x, y)$ only when one is a constant multiple of the other.\nStep 2: Compare the $x$-terms: $\\frac{2}{1/2} = 4$, so the second report is $4$ times the first.\nStep 3: Every term must scale by $4$, so $c = 4(3) = 12$. Check: $4\\left(\\frac{1}{2}x + 3y\\right) = 2x + 12y$ and $4(9) = 36$, which matches the second report exactly ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the $y$-coefficient of the first report without scaling it.\n* Choice B ($6$): scales by $2$ rather than by the factor $4$ that the $x$-terms require.\n* Choice D ($36$): reports the constant term of the second report instead of the coefficient.\n\n**Test Day Takeaway:** Find the scale factor from a pair of terms you can compute, then confirm it on the constants before applying it to the unknown."
 }

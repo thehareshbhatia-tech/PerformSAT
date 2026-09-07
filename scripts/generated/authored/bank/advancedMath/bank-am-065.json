@@ -1,29 +1,29 @@
 {
   "id": "bank-am-065",
-  "question": "Which of the following is the complete factorization of $81a^4 - b^4$ over the integers?",
+  "question": "In the expression $16x^4-k^4$, which appears in a manufacturer's pricing formula for stainless steel travel mugs, $k$ is a positive constant. Which of the following is equivalent to that expression?",
   "choices": [
     {
       "id": "A",
-      "text": "$(9a^2 - b^2)^2$"
+      "text": "$(4x-k^2)(4x+k^2)$"
     },
     {
       "id": "B",
-      "text": "$(9a^2 - b^2)(9a^2 + b^2)$"
+      "text": "$(2x-k)^2(2x+k)^2$"
     },
     {
       "id": "C",
-      "text": "$(3a - b)(3a + b)(9a^2 + b^2)$"
+      "text": "$(2x-k)(2x+k)(2x^2+k^2)$"
     },
     {
       "id": "D",
-      "text": "$(3a - b)(3a + b)(3a - b)(3a + b)$"
+      "text": "$(2x-k)(2x+k)(4x^2+k^2)$"
     }
   ],
   "distractorNotes": {
-    "A": "treats the binomial as a perfect square instead of a difference of squares",
-    "B": "stops after the first difference-of-squares step, leaving $9a^2 - b^2$ factorable",
-    "D": "factors the sum $9a^2 + b^2$ as if it were a difference of squares"
+    "A": "takes the square root of 16x^4 as 4x instead of 4x^2",
+    "B": "treats the expression as the perfect square (4x^2 - k^2)^2",
+    "C": "halves the leading coefficient of the sum-of-squares factor"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Two-Step Difference of Squares**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $81a^4 - b^4 = (9a^2 - b^2)(9a^2 + b^2)$, and $9a^2 - b^2$ is itself a difference of squares: $(3a - b)(3a + b)(9a^2 + b^2)$.\n\n**The Full Solution:**\nStep 1: Both terms are perfect squares: $81a^4 = (9a^2)^2$ and $b^4 = (b^2)^2$, so $81a^4 - b^4 = (9a^2 - b^2)(9a^2 + b^2)$.\nStep 2: The first factor is again a difference of squares, $(3a)^2 - b^2 = (3a - b)(3a + b)$. The second factor, $9a^2 + b^2$, is a sum of squares and does not factor over the integers.\nStep 3: The complete factorization is $(3a - b)(3a + b)(9a^2 + b^2)$. Check with $a = 1$, $b = 1$: the original is $81 - 1 = 80$, and $(2)(4)(10) = 80$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(9a^2 - b^2)^2$): reads the expression as a perfect square; expanding gives $81a^4 - 18a^2b^2 + b^4$, which has an extra middle term.\n* Choice B ($(9a^2 - b^2)(9a^2 + b^2)$): a correct first step, but $9a^2 - b^2$ still factors, so the factorization is not complete.\n* Choice D ($(3a - b)(3a + b)(3a - b)(3a + b)$): factors the sum of squares $9a^2 + b^2$ as $(3a - b)(3a + b)$, which equals $9a^2 - b^2$, not the sum.\n\n**Test Day Takeaway:** After every difference-of-squares split, look at each factor again. A sum of squares stops the process; a difference of squares keeps it going."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Two-Step Difference of Squares**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** $16x^4-k^4=(4x^2)^2-(k^2)^2=(4x^2-k^2)(4x^2+k^2)$, and $4x^2-k^2$ splits again into $(2x-k)(2x+k)$.\n\n**The Full Solution:**\nStep 1: Write the expression as a difference of two squares: $16x^4-k^4=(4x^2)^2-(k^2)^2$.\nStep 2: Factor once: $(4x^2-k^2)(4x^2+k^2)$. The second factor is a sum of squares and does not factor further over the real numbers.\nStep 3: Factor $4x^2-k^2=(2x)^2-k^2=(2x-k)(2x+k)$, giving $(2x-k)(2x+k)(4x^2+k^2)$. Check: $(2x-k)(2x+k)=4x^2-k^2$, and $(4x^2-k^2)(4x^2+k^2)=16x^4-k^4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(4x-k^2)(4x+k^2)$): reads $\\sqrt{16x^4}$ as $4x$ rather than $4x^2$, so the product is $16x^2-k^4$.\n* Choice B ($(2x-k)^2(2x+k)^2$): treats the expression as $(4x^2-k^2)^2$, which expands to $16x^4-8x^2k^2+k^4$.\n* Choice C ($(2x-k)(2x+k)(2x^2+k^2)$): halves the leading coefficient of the sum-of-squares factor, giving $8x^4+\\ldots$ instead of $16x^4$.\n\n**Test Day Takeaway:** Difference of squares can fire twice: check whether the first factor is itself a difference of squares before stopping."
 }

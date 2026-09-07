@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-477",
-  "question": "In the system of equations $4x + 3y = 30$ and $7x - 3y = 36$, what is the value of $x$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$2$"
-    },
-    {
-      "id": "B",
-      "text": "$6$"
-    },
-    {
-      "id": "C",
-      "text": "$22$"
-    },
-    {
-      "id": "D",
-      "text": "$66$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports y = 2 instead of x.",
-    "C": "divides 66 by 3, the y-coefficient, instead of by 11.",
-    "D": "stops at 11x = 66 without dividing by 11."
+ "id": "bank-alg-477",
+ "question": "A cessation program tracks counselors $u$ and coaches $v$ with $3u + 4v = 26$ and $9u + kv = 68$. Exactly one pair meets both conditions, and in that pair $u = 2$. What is the value of the constant $k$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: System of Equations (Elimination)**\n\n**Choice B is correct.**\n\n**The Fast Way (~8s):** Add to cancel the $y$-terms: $11x = 66$, so $x = 6$.\n\n**The Full Solution:**\nStep 1: The $y$-terms are $+3y$ and $-3y$, so adding the equations eliminates $y$.\nStep 2: $(4x + 3y) + (7x - 3y) = 30 + 36$ gives $11x = 66$, so $x = 6$.\nStep 3: Check: $4(6) + 3y = 30$ gives $y = 2$, and $7(6) - 3(2) = 36$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports $y = 2$ instead of $x$.\n* Choice C ($22$): divides $66$ by $3$, the $y$-coefficient, instead of by $11$.\n* Choice D ($66$): stops at $11x = 66$ without dividing by $11$.\n\n**Test Day Takeaway:** After adding, divide by the combined coefficient of the surviving variable ($4 + 7 = 11$), not by a coefficient of the eliminated one."
+  {
+   "id": "B",
+   "text": "$5$"
+  },
+  {
+   "id": "C",
+   "text": "$10$"
+  },
+  {
+   "id": "D",
+   "text": "$50$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports the given u = 2 instead of the constant k",
+  "B": "reports v = 5, the other coordinate of the solution",
+  "D": "stops at 5k = 50 without dividing by v = 5"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: System of Equations (Elimination)**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** With $u = 2$, the first condition gives $4v = 20$, so $v = 5$; then $18 + 5k = 68$ makes $k = 10$.\n\n**The Full Solution:**\nStep 1: Use the condition with no unknown constant. Substituting $u = 2$ into $3u + 4v = 26$ gives $6 + 4v = 26$.\nStep 2: Solve for the second coordinate: $4v = 20$, so $v = 5$.\nStep 3: Substitute both coordinates into the second condition: $9(2) + k(5) = 68$, so $18 + 5k = 68$, $5k = 50$, and $k = 10$. Check: $9(2) + 10(5) = 18 + 50 = 68$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports the given value $u = 2$ rather than the constant the question asks for.\n* Choice B ($5$): reports $v = 5$, the coordinate found along the way.\n* Choice D ($50$): stops at $5k = 50$ and reports the product without dividing by $v = 5$.\n\n**Test Day Takeaway:** Pin both coordinates using the equation without the unknown constant, then let the remaining equation solve for the constant in a single step."
 }

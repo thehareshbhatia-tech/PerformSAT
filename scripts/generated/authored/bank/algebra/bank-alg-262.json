@@ -1,29 +1,29 @@
 {
- "id": "bank-alg-262",
- "question": "$3x + 5y = 21$\n\n$7x + y = 17$\n\nIf $(x, y)$ is the solution to the given system of equations, what is the value of $9y - x$?",
+ "question": "In a study of stride mechanics, the constants $a$ and $b$ satisfy $2x - 3y = a$ and $4x + y = b$, where $x$ is a stride-length measure and $y$ is a ground-contact measure recorded for the same runner. Which expression is equal to $6x - 2y$?",
  "choices": [
   {
    "id": "A",
-   "text": "$4$"
+   "text": "$a - b$"
   },
   {
    "id": "B",
-   "text": "$25$"
+   "text": "$2a + b$"
   },
   {
    "id": "C",
-   "text": "$38$"
+   "text": "$a + b$"
   },
   {
    "id": "D",
-   "text": "$59$"
+   "text": "$b - a$"
   }
  ],
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "subtracts the equations without scaling (gives -4x + 4y = 4)",
-  "C": "adds the equations, which gives 10x + 6y",
-  "D": "adds twice the first equation instead of subtracting the second"
+  "A": "subtracts the equations, which produces $-2x - 4y$ rather than $6x - 2y$",
+  "B": "doubles the first equation before adding, producing $8x - 5y$",
+  "D": "subtracts in the other order, producing $2x + 4y$"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Twice the first equation minus the second: $(6x - 7x) + (10y - y) = 42 - 17$, so $-x + 9y = 25$.\n\n**The Full Solution:**\nStep 1: Look for a combination $m(3x + 5y) + n(7x + y)$ that equals $-x + 9y$. The $y$-coefficients need $5m + n = 9$ and the $x$-coefficients need $3m + 7n = -1$; $m = 2$, $n = -1$ works.\nStep 2: Apply it to the constants: $2(21) - 17 = 25$.\nStep 3: Check by solving: from the second equation $y = 17 - 7x$; then $3x + 5(17 - 7x) = 21$ gives $-32x = -64$, $x = 2$, $y = 3$, and $9(3) - 2 = 25$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): subtracts the equations as written, producing $-4x + 4y = 4$, which is not the target.\n* Choice C ($38$): adds the equations, producing $10x + 6y = 38$.\n* Choice D ($59$): adds twice the first equation to the second, $2(21) + 17$, flipping the sign of the needed combination.\n\n**Test Day Takeaway:** When the target is not a plain sum or difference, solve the small coefficient system for the multipliers, or just solve for $x$ and $y$ and evaluate."
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Adding the two equations gives $(2x + 4x) + (-3y + y) = 6x - 2y$, so $6x - 2y = a + b$.\n\n**The Full Solution:**\n\nStep 1: Compare coefficients. The target $6x - 2y$ has $x$-coefficient $6 = 2 + 4$ and $y$-coefficient $-2 = -3 + 1$.\n\nStep 2: Both match a plain sum of the two equations, each used once.\n\nStep 3: Adding the right sides gives $a + b$, so $6x - 2y = a + b$. Check with $x = 1$ and $y = 1$: $a = -1$, $b = 5$, and $6 - 2 = 4 = -1 + 5$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($a - b$): equals $(2x - 3y) - (4x + y) = -2x - 4y$, not the requested combination.\n\n* Choice B ($2a + b$): equals $8x - 5y$, since doubling the first equation overshoots the $x$-coefficient.\n\n* Choice D ($b - a$): equals $2x + 4y$, the negative of choice A.\n\n**Test Day Takeaway:** Read the target's coefficients as an addition problem on the two equations' coefficients; the multipliers you need are visible before any arithmetic.",
+ "id": "bank-alg-262"
 }

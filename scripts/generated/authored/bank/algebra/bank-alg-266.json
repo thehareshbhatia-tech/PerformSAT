@@ -1,18 +1,18 @@
 {
  "id": "bank-alg-266",
- "question": "The graph of a linear equation in the $xy$-plane is shown. A system of two linear equations consists of this equation and the equation $4x + ky = 24$, where $k$ is a constant. If the system has infinitely many solutions, what is the value of $k$?",
+ "question": "Line $n$ is graphed in the $xy$-plane. A printing plate's edge is described by $9x + 6y = d$, and its graph is line $n$ itself. What is the value of the constant $d$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
-   "slope": -0.5,
-   "yIntercept": 3,
+   "slope": -1.5,
+   "yIntercept": 4,
    "xRange": [
     -4,
-    8
+    6
    ],
    "yRange": [
     -4,
-    6
+    8
    ],
    "xTickInterval": 2,
    "yTickInterval": 2,
@@ -20,39 +20,39 @@
    "showPoints": [
     [
      0,
-     3
+     4
     ],
     [
-     6,
-     0
+     2,
+     1
     ]
    ],
-   "label": ""
+   "label": "n"
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$-8$"
+   "text": "$4$"
   },
   {
    "id": "B",
-   "text": "$2$"
+   "text": "$6$"
   },
   {
    "id": "C",
-   "text": "$8$"
+   "text": "$24$"
   },
   {
    "id": "D",
-   "text": "$12$"
+   "text": "$36$"
   }
  ],
- "distractorNotes": {
-  "A": "attaches the negative slope sign to k",
-  "B": "y-coefficient of x + 2y = 6, never scaled by 4",
-  "D": "divides 24 by 2 instead of scaling the y-coefficient"
- },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The line has intercepts $(0, 3)$ and $(6, 0)$, so it is $x + 2y = 6$. Multiplying by $4$ gives $4x + 8y = 24$, so $k = 8$.\n\n**The Full Solution:**\nStep 1: Slope $= \\frac{0 - 3}{6 - 0} = -\\frac{1}{2}$ and the $y$-intercept is $3$, so the line is $y = -\\frac{1}{2}x + 3$, or $x + 2y = 6$.\nStep 2: For infinitely many solutions, $4x + ky = 24$ must be a multiple of $x + 2y = 6$. The constants give the multiplier $\\frac{24}{6} = 4$, and $4 \\cdot 1 = 4$ matches the $x$-coefficient.\nStep 3: So $k = 4 \\cdot 2 = 8$. Check: $4x + 8y = 24$ divided by $4$ is $x + 2y = 6$, the graphed line. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): carries the negative sign of the slope into $k$; in standard form the $y$-coefficient here is positive.\n* Choice B ($2$): the $y$-coefficient of $x + 2y = 6$ before scaling by $4$.\n* Choice D ($12$): divides $24$ by the $y$-coefficient $2$, mixing the constant and the coefficient.\n\n**Test Day Takeaway:** Read a clean equation off the intercepts, convert to standard form, then scale every term by the same factor."
+ "distractorNotes": {
+  "A": "reports line $n$'s $y$-intercept without multiplying by the coefficient $6$",
+  "B": "copies the coefficient of $y$ in the equation",
+  "D": "multiplies the intercept by $9$, the coefficient of $x$, instead of by $6$"
+ },
+ "explanation": "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Line $n$ has slope $-\\frac{3}{2}$ and intercept $4$, and $9x + 6y = d$ gives intercept $\\frac{d}{6}$, so $d = 24$.\n\n**The Full Solution:**\nStep 1: Line $n$ passes through $(0, 4)$ and $(2, 1)$, so its slope is $-\\frac{3}{2}$ and its equation is $y = -\\frac{3}{2}x + 4$.\nStep 2: Rewrite $9x + 6y = d$ as $y = -\\frac{3}{2}x + \\frac{d}{6}$, so the slopes already agree.\nStep 3: Matching intercepts gives $\\frac{d}{6} = 4$, so $d = 24$. Check: $9(0) + 6(4) = 24$, and $9(2) + 6(1) = 24$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): reports line $n$'s $y$-intercept without multiplying by the coefficient $6$\n* Choice B ($6$): copies the coefficient of $y$ in the equation\n* Choice D ($36$): multiplies the intercept by $9$, the coefficient of $x$, instead of by $6$\n\n**Test Day Takeaway:** When two forms must describe the same line, substitute a point you can read from the graph directly into the standard form."
 }

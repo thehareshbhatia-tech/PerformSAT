@@ -1,29 +1,29 @@
 {
   "id": "bank-am-115",
-  "question": "The function $q$ is defined by $q(x) = 2(x + 1)^2 - 8$, and the function $r$ is defined by $r(x) = q(x - c) + d$, where $c$ and $d$ are constants. In the $xy$-plane, the vertex of the graph of $y = r(x)$ is $(3, 1)$. What is the value of $c + d$?",
+  "question": "The function $f$ gives a magnetometer's drift, in millivolts, at a coil current of $x$ milliamps, and $f(x)=0$ for exactly one current, $x=6$. A technician sets the current to $2c+8$ milliamps and records zero drift. What is the value of $c$?",
   "choices": [
     {
       "id": "A",
-      "text": "$-13$"
+      "text": "$-2$"
     },
     {
       "id": "B",
-      "text": "$-5$"
+      "text": "$-1$"
     },
     {
       "id": "C",
-      "text": "$5$"
+      "text": "$7$"
     },
     {
       "id": "D",
-      "text": "$13$"
+      "text": "$20$"
     }
   ],
+  "correctAnswer": "B",
   "distractorNotes": {
-    "A": "reverses both shifts, taking $c = -4$ and $d = -9$",
-    "B": "reads the $+ d$ as a downward shift, taking $d = -9$",
-    "C": "reads $x - c$ as a shift to the left, taking $c = -4$"
+    "A": "subtracts 8 but never divides by 2: 6 - 8 = -2",
+    "C": "adds 8 instead of subtracting before halving: (6 + 8)/2 = 7",
+    "D": "substitutes 6 into 2c + 8 instead of setting it equal to 6: 2(6) + 8 = 20"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** The vertex of $q$ is $(-1, -8)$, and $r$ moves it to $(-1 + c, -8 + d)$. Matching that to $(3, 1)$ gives $c = 4$ and $d = 9$, so $c + d = 13$.\n\n**The Full Solution:**\nStep 1: The equation $q(x) = 2(x + 1)^2 - 8$ is already in vertex form, so the vertex of $q$ is $(-1, -8)$.\nStep 2: Replacing $x$ with $x - c$ slides the graph $c$ units in the $+x$ direction, and adding $d$ raises it $d$ units, so the vertex of $r$ is $(-1 + c, -8 + d)$.\nStep 3: Match coordinates with the given vertex $(3, 1)$: $-1 + c = 3$ gives $c = 4$, and $-8 + d = 1$ gives $d = 9$, so $c + d = 13$. Check: $r(x) = 2(x - 4 + 1)^2 - 8 + 9 = 2(x - 3)^2 + 1$, whose vertex is $(3, 1)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): reverses both shifts, solving $-1 - c = 3$ and $-8 - d = 1$ to get $c = -4$ and $d = -9$.\n* Choice B ($-5$): finds $c = 4$ but reads the $+ d$ as a downward shift, solving $-8 - d = 1$ for $d = -9$.\n* Choice C ($5$): finds $d = 9$ but reads $x - c$ as a shift to the left, solving $-1 - c = 3$ for $c = -4$.\n\n**Test Day Takeaway:** Push the known vertex through the transformation first — $q(x - c) + d$ sends $(h, k)$ to $(h + c, k + d)$ — then match it to the new vertex. Each coordinate becomes one small equation for one constant."
+  "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The drift is zero only at a current of 6, so $2c+8=6$ and $c=-1$.\n\n**The Full Solution:**\nStep 1: The technician's reading is zero exactly when the current sent into $f$ equals the one current that makes $f$ zero.\nStep 2: Set $2c+8=6$, so $2c=-2$.\nStep 3: Divide by 2: $c=-1$. Check: $2(-1)+8=6$ milliamps, and $f(6)=0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): subtracts 8 from 6 but forgets to divide by the coefficient 2.\n* Choice C ($7$): adds 8 rather than subtracting it before halving.\n* Choice D ($20$): substitutes 6 into the expression $2c+8$ instead of setting that expression equal to 6.\n\n**Test Day Takeaway:** Inside a composition, set the whole inner expression equal to the known input and solve, coefficient included."
 }

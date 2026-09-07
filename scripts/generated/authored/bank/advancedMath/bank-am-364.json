@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-364",
-  "question": "Which of the following expressions is the complete factorization of $12x^3 - 8x^2 - 27x + 18$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$(3x - 2)(2x - 3)^2$"
-    },
-    {
-      "id": "B",
-      "text": "$(3x - 2)(2x - 3)(2x + 3)$"
-    },
-    {
-      "id": "C",
-      "text": "$(3x + 2)(2x - 3)(2x + 3)$"
-    },
-    {
-      "id": "D",
-      "text": "$(3x - 2)(4x^2 + 9)$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "treats $4x^2 - 9$ as a perfect square",
-    "C": "flips the sign of the shared binomial",
-    "D": "keeps $+9$ and never applies the difference of squares"
+ "id": "bank-am-364",
+ "question": "A dune-profile study uses the expression $x^3 + 3x^2 + nx + 3n$, where $x$ is a horizontal distance in meters and $n$ is a constant that changes from dune to dune along the coast. Which of the following must be true for every value of $n$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$x + 3$ is a factor for every value of $n$."
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $4x^2(3x - 2) - 9(3x - 2) = (3x - 2)(4x^2 - 9)$, and $4x^2 - 9 = (2x - 3)(2x + 3)$.\n\n**The Full Solution:**\nStep 1: Group: $(12x^3 - 8x^2) + (-27x + 18)$. Factor $4x^2$ from the first pair and $-9$ from the second: $4x^2(3x - 2) - 9(3x - 2)$.\nStep 2: Pull out the shared binomial: $(3x - 2)(4x^2 - 9)$.\nStep 3: The second factor is a difference of squares, $(2x)^2 - 3^2$, so it factors as $(2x - 3)(2x + 3)$. The complete factorization is $(3x - 2)(2x - 3)(2x + 3)$; expanding the last two factors gives $4x^2 - 9$, and $(3x-2)(4x^2-9) = 12x^3 - 27x - 8x^2 + 18$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(3x - 2)(2x - 3)^2$): treats $4x^2 - 9$ as the perfect square $(2x - 3)^2$, which is $4x^2 - 12x + 9$.\n* Choice C ($(3x + 2)(2x - 3)(2x + 3)$): factors $+9$ instead of $-9$ out of $-27x + 18$, flipping the sign inside the first binomial.\n* Choice D ($(3x - 2)(4x^2 + 9)$): keeps a $+9$, so it never reaches the difference of squares — and $4x^2 + 9$ does not factor over the real numbers anyway.\n\n**Test Day Takeaway:** Grouping is only step one; always ask whether the quadratic factor left behind is itself a difference of squares."
+  {
+   "id": "B",
+   "text": "$x + 3$ is a factor only when $n$ is a perfect square."
+  },
+  {
+   "id": "C",
+   "text": "$x + n$ is a factor for every value of $n$."
+  },
+  {
+   "id": "D",
+   "text": "$x^2 + 3$ is a factor for every value of $n$."
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "assumes the leftover factor $x^2 + n$ must itself factor, which the question never requires",
+  "C": "reads the pulled-out constant $n$ as part of the shared binomial",
+  "D": "pairs the $3$ with $x^2$; the quadratic factor is $x^2 + n$, not $x^2 + 3$"
+ },
+ "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** $x^2(x + 3) + n(x + 3) = (x^2 + n)(x + 3)$, and that grouping never used the value of $n$.\n\n**The Full Solution:**\nStep 1: Pair the terms: $(x^3 + 3x^2) + (nx + 3n)$.\nStep 2: Factor each pair: $x^2(x + 3)$ and $n(x + 3)$.\nStep 3: Both pairs carry $x + 3$, so the expression equals $(x^2 + n)(x + 3)$ for every $n$. Check: with $n = 7$, $(x^2 + 7)(x + 3) = x^3 + 3x^2 + 7x + 21$, matching the given form ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (only when $n$ is a perfect square): the grouping works regardless of $n$; whether $x^2 + n$ factors further is a separate question.\n* Choice C ($x + n$): $n$ is the constant left behind by the second pair, not part of the shared binomial.\n* Choice D ($x^2 + 3$): swaps the two constants; the quadratic factor is $x^2 + n$.\n\n**Test Day Takeaway:** When a parameter appears in exactly two terms, group those two together — the parameter then factors out and the shared binomial is parameter-free."
 }

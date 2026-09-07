@@ -1,6 +1,6 @@
 {
-  "id": "bank-am-085",
-  "question": "If $3^y = 81$, what is the value of $3^{y + 2}$?",
-  "correctAnswer": "729",
-  "explanation": "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $729$.**\n\n**The Fast Way (~10s):** $3^{y + 2} = 3^y \\cdot 3^2 = 81 \\cdot 9 = 729$.\n\n**The Full Solution:**\nStep 1: Split the exponent using the product rule: $3^{y + 2} = 3^y \\cdot 3^2$.\nStep 2: Substitute the given value $3^y = 81$ and evaluate $3^2 = 9$: the expression is $81 \\cdot 9$.\nStep 3: $81 \\cdot 9 = 729$. Check: $3^y = 81$ means $y = 4$, and $3^{4 + 2} = 3^6 = 729$. $\\checkmark$\n\n**Common Mistakes:** Adding $2$ to the value and answering $83$; multiplying the value by $2$ and answering $162$; or reporting $6$, the new exponent $y + 2$, instead of the power's value.\n\n**Test Day Takeaway:** An added constant in an exponent becomes a multiplied factor: $b^{m + n} = b^m \\cdot b^n$. You rarely need to solve for the variable itself."
+ "id": "bank-am-085",
+ "question": "Whenever a swimmer's speed $v$, in meters per second, is positive, a coaching drag table lists the quantity $\\sqrt{v^{5}}$ under the single heading $v^{n}$, where $n$ is the same constant in every row. What number is $n$?",
+ "correctAnswer": "2.5",
+ "explanation": "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $2.5$.**\n\n**The Fast Way (~10s):** A square root halves the exponent, so $\\sqrt{v^{5}} = v^{5/2} = v^{2.5}$.\n\n**The Full Solution:**\nStep 1: Rewrite the radical with a fractional exponent: $\\sqrt{v^{5}} = \\left(v^{5}\\right)^{1/2}$.\nStep 2: A power raised to a power multiplies exponents: $5 \\cdot \\frac{1}{2} = \\frac{5}{2}$.\nStep 3: So $v^{n} = v^{5/2}$ and $n = 2.5$. Check: at $v = 4$, $\\sqrt{4^{5}} = \\sqrt{1024} = 32 = 4^{2.5}$ ✓\n\n**Common Mistakes:**\n* $10$ — multiplying the exponent by $2$ instead of dividing by it.\n* $2$ — keeping only the whole-number part of $\\frac{5}{2}$ and discarding the leftover half power.\n\n**Test Day Takeaway:** An odd exponent under a square root always leaves a half in the answer; a fractional exponent is a legal final form."
 }

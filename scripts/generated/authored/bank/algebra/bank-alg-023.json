@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-023",
-  "question": "The function $g$ is defined by $g(x) = 6x - 11$. What is the value of $g(4)$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-42$"
-    },
-    {
-      "id": "B",
-      "text": "$-13$"
-    },
-    {
-      "id": "C",
-      "text": "$13$"
-    },
-    {
-      "id": "D",
-      "text": "$24$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "subtracts inside first, 6(4 - 11)",
-    "B": "subtracts in the wrong order, 11 - 24",
-    "D": "drops the constant, 6(4) alone"
+ "id": "bank-alg-023",
+ "question": "A speaker's power draw, in watts, at input level $x$ is given by the function $p$, where $p(x) = 12x^2 + 5$ for input levels between $0$ and $5$. How many watts does the speaker draw at an input level of $3$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$41$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Direct Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Replace $x$ with $4$: $g(4) = 6(4) - 11 = 24 - 11 = 13$.\n\n**The Full Solution:**\nStep 1: $g(4)$ means the output of $g$ when the input is $4$, so substitute $4$ for every $x$ in the rule.\nStep 2: $g(4) = 6(4) - 11$. Multiply first: $6(4) = 24$.\nStep 3: Subtract: $24 - 11 = 13$. Check by reversing: $13 + 11 = 24$ and $24 \\div 6 = 4$, the input. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-42$): subtracts $11$ from $4$ before multiplying, as if the rule were $6(x - 11)$.\n* Choice B ($-13$): computes $11 - 24$, reversing the order of the subtraction.\n* Choice D ($24$): multiplies $6(4)$ but forgets to subtract $11$.\n\n**Test Day Takeaway:** Function notation is substitution: replace the variable, then follow the order of operations (multiply before subtracting)."
+  {
+   "id": "B",
+   "text": "$108$"
+  },
+  {
+   "id": "C",
+   "text": "$113$"
+  },
+  {
+   "id": "D",
+   "text": "$1301$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "multiplies before squaring, computing 12 times 3 plus 5",
+  "B": "squares and multiplies correctly but forgets to add 5",
+  "D": "squares 12x instead of x, computing 36 squared plus 5"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Direct Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Square first: $3^2 = 9$, then $12(9) + 5 = 113$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 3$ into $p(x) = 12x^2 + 5$.\nStep 2: The exponent applies to $x$ only, so $12(3)^2 = 12(9) = 108$.\nStep 3: Add the constant: $108 + 5 = 113$ watts. Check: doubling the input to $6$ would give $12(36) + 5 = 437$, about four times the variable part, as squaring predicts ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($41$): multiplies before squaring, computing $12(3) + 5$.\n* Choice B ($108$): evaluates $12x^2$ correctly but drops the constant $5$.\n* Choice D ($1301$): squares $12x$ instead of $x$, computing $36^2 + 5$.\n\n**Test Day Takeaway:** In $ax^2 + b$ the exponent binds only to $x$ — square the input before touching the coefficient."
 }

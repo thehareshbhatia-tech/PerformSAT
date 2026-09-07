@@ -1,29 +1,56 @@
 {
-  "id": "bank-am-420",
-  "question": "The function $f$ is defined by $f(x) = (1.44)^{x/4}$. The equation can be rewritten as $f(x) = \\left(1 + \\dfrac{r}{100}\\right)^x$, where $r$ is a constant. Which of the following is closest to the value of $r$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$9.5$"
-    },
-    {
-      "id": "B",
-      "text": "$11$"
-    },
-    {
-      "id": "C",
-      "text": "$36$"
-    },
-    {
-      "id": "D",
-      "text": "$44$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "divides the percent 44 by 4",
-    "C": "divides 144 by 4",
-    "D": "ignores the divisor in the exponent"
+ "id": "bank-am-420",
+ "question": "The table gives the number of electric delivery vans $N$ in a courier fleet $t$ years after the fleet was introduced, and $N$ grows exponentially with $t$. Which of the following is closest to the percent increase in $N$ every $3$ months?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "Years t",
+    "Vans N"
+   ],
+   "rows": [
+    [
+     "0",
+     "500"
+    ],
+    [
+     "1",
+     "600"
+    ],
+    [
+     "2",
+     "720"
+    ],
+    [
+     "3",
+     "864"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4.7\\%$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Rewriting Exponential Form — Equivalent Rate**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** $(1.44)^{x/4} = \\left((1.44)^{1/4}\\right)^x$ and $(1.44)^{1/4} \\approx 1.0954$, so $r \\approx 9.5$.\n\n**The Full Solution:**\nStep 1: Rewrite the exponent using $\\left(b^{1/n}\\right)^x = b^{x/n}$: $(1.44)^{x/4} = \\left((1.44)^{1/4}\\right)^x$.\nStep 2: Matching this to $\\left(1 + \\dfrac{r}{100}\\right)^x$ requires $1 + \\dfrac{r}{100} = (1.44)^{1/4}$.\nStep 3: $(1.44)^{1/2} = 1.2$ and $(1.2)^{1/2} \\approx 1.0954$, so $\\dfrac{r}{100} \\approx 0.0954$ and $r \\approx 9.54$, closest to $9.5$. Check: $(1.0954)^4 \\approx 1.44$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($11$): divides the percent increase $44$ by the $4$ in the exponent, which treats compounding as if it were linear.\n* Choice C ($36$): divides $144$ by $4$ rather than working with the growth factor $1.44$.\n* Choice D ($44$): reads the percent increase per $4$ units of $x$ as though it applied to each unit.\n\n**Test Day Takeaway:** To change the period of an exponential, take the ROOT of the growth factor — dividing the percent is only an approximation and is never the intended answer."
+  {
+   "id": "B",
+   "text": "$5\\%$"
+  },
+  {
+   "id": "C",
+   "text": "$20\\%$"
+  },
+  {
+   "id": "D",
+   "text": "$60\\%$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "divides the annual 20% by the 4 quarters in a year instead of taking a fourth root",
+  "C": "reports the annual increase of 20% as though it were the quarterly increase",
+  "D": "multiplies the annual 20% by the 3 months in a quarter, giving 60%"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Rewriting Exponential Form — Equivalent Rate**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** The fleet grows by a factor of $1.2$ per year, and $3$ months is a quarter of a year, so the quarterly factor is $1.2^{1/4}\\approx1.047$, an increase of about $4.7\\%$.\n\n**The Full Solution:**\n\nStep 1: Divide consecutive entries: $\\frac{600}{500}=1.2$, $\\frac{720}{600}=1.2$, and $\\frac{864}{720}=1.2$, so $N=500(1.2)^{t}$ with $t$ in years.\n\nStep 2: Three months is $\\frac{1}{4}$ of a year, so rewrite the model as $N=500\\left(1.2^{1/4}\\right)^{4t}$, where the base $1.2^{1/4}$ is the quarterly factor.\n\nStep 3: Compute $1.2^{1/4}\\approx1.0466$, an increase of about $4.7\\%$ per quarter. Check: raising $1.0466$ to the fourth power returns about $1.200$, the annual factor.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($5\\%$): divides the annual $20\\%$ by $4$ instead of taking a fourth root.\n* Choice C ($20\\%$): reports the annual increase as if it were quarterly.\n* Choice D ($60\\%$): multiplies the annual $20\\%$ by the $3$ months in a quarter.\n\n**Test Day Takeaway:** Changing the time unit of an exponential model takes a root of the growth factor, never a division of the percent."
 }

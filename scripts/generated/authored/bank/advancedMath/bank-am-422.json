@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-422",
-  "question": "$$\\dfrac{x^2 - 9n^2}{\\sqrt{x - 3n}} = 8n\\sqrt{x - 3n}$$\n\nIn the given equation, $n$ is a positive constant. Which of the following is the solution to the given equation?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-11n$"
-    },
-    {
-      "id": "B",
-      "text": "$3n$"
-    },
-    {
-      "id": "C",
-      "text": "$5n$"
-    },
-    {
-      "id": "D",
-      "text": "$11n$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "extra root produced by squaring both sides; it makes the radicand negative",
-    "B": "root of the cleared equation that makes the radical in the denominator zero",
-    "D": "divides by the wrong factor, solving $x - 3n = 8n$ instead of $x + 3n = 8n$"
+ "id": "bank-am-422",
+ "question": "A reefer container's defrost model requires $\\sqrt{x+b}=x-6$, where $b$ is a constant and $x$ is the cabinet temperature in degrees Celsius. For which value of $b$ does the model have two distinct real solutions?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-8$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Radical Equation — Extraneous Filter**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Multiplying both sides by $\\sqrt{x - 3n}$ gives $(x - 3n)(x + 3n) = 8n(x - 3n)$. The radical forces $x - 3n \\ne 0$, so dividing by $x - 3n$ leaves $x + 3n = 8n$, or $x = 5n$.\n\n**The Full Solution:**\nStep 1: Fix the domain first. The expression $\\sqrt{x - 3n}$ sits in a denominator, so $x - 3n$ must be positive; any candidate with $x \\le 3n$ is disqualified before any algebra.\nStep 2: Multiply both sides by $\\sqrt{x - 3n}$: $x^2 - 9n^2 = 8n(x - 3n)$. Factor the left side as a difference of squares to expose the shared factor: $(x - 3n)(x + 3n) = 8n(x - 3n)$.\nStep 3: Because $x - 3n \\ne 0$, divide both sides by it: $x + 3n = 8n$, so $x = 5n$. Check: $x - 3n = 2n > 0$, the left side is $\\dfrac{25n^2 - 9n^2}{\\sqrt{2n}} = \\dfrac{16n^2}{\\sqrt{2n}}$, and the right side is $8n\\sqrt{2n} = \\dfrac{8n(2n)}{\\sqrt{2n}} = \\dfrac{16n^2}{\\sqrt{2n}}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-11n$): squaring both sides instead of clearing the radical gives $(x - 3n)^2(x + 3n)^2 = 64n^2(x - 3n)^2$, whose roots are $-11n$, $3n$, and $5n$. At $x = -11n$ the radicand is $-14n$, which is negative, so the original expression is undefined.\n* Choice B ($3n$): this is a root of the cleared equation $x^2 - 9n^2 = 8n(x - 3n)$, but it makes $\\sqrt{x - 3n} = 0$ in the denominator. Dividing by the factor $x - 3n$ is legal precisely because that value is already excluded.\n* Choice D ($11n$): cancels the difference of squares carelessly and solves $x - 3n = 8n$. Substituting $x = 11n$ gives $\\dfrac{112n^2}{\\sqrt{8n}}$ on the left but $8n\\sqrt{8n} = \\dfrac{64n^2}{\\sqrt{8n}}$ on the right.\n\n**Test Day Takeaway:** State the domain of a radical before you solve, then clear the radical by multiplying rather than squaring; a shared factor you are allowed to cancel is usually the value the domain has already ruled out."
+  {
+   "id": "B",
+   "text": "$-6$"
+  },
+  {
+   "id": "C",
+   "text": "$0$"
+  },
+  {
+   "id": "D",
+   "text": "$14$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "squaring gives x squared minus 13x plus 44 = 0, whose discriminant -7 is negative, so there are no real solutions at all",
+  "C": "squaring gives solutions 9 and 4, but 4 makes x - 6 negative and is extraneous, leaving one solution",
+  "D": "squaring gives solutions 11 and 2, and 2 is extraneous, leaving one solution"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Radical Equation — Extraneous Filter**\n\n**Choice B is correct.**\n\n**The Fast Way (~60s):** Squaring gives $x^{2}-13x+(36-b)=0$, and a solution counts only when $x\\ge6$; with $b=-6$ the roots are $7$ and $6$, and both pass.\n\n**The Full Solution:**\n\nStep 1: Squaring $\\sqrt{x+b}=x-6$ gives $x+b=x^{2}-12x+36$, so $x^{2}-13x+(36-b)=0$.\n\nStep 2: Because the left side of the original equation is never negative, a root counts only if $x-6\\ge0$, that is $x\\ge6$.\n\nStep 3: With $b=-6$ the quadratic is $x^{2}-13x+42=(x-6)(x-7)$, giving $x=6$ and $x=7$, both at least $6$. Check: $\\sqrt{6-6}=0=6-6$ and $\\sqrt{7-6}=1=7-6$, so both are genuine solutions.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-8$): the quadratic becomes $x^{2}-13x+44=0$, whose discriminant is $169-176=-7$, so there are no real solutions.\n* Choice C ($0$): the roots are $9$ and $4$, but $x=4$ makes $x-6=-2$ and is extraneous, leaving one solution.\n* Choice D ($14$): the roots are $11$ and $2$, and $x=2$ is extraneous for the same reason, leaving one solution.\n\n**Test Day Takeaway:** Squaring can only add solutions, never lose them, so every root has to be tested against the sign the original equation forces."
 }

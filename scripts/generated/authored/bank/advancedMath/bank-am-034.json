@@ -1,50 +1,50 @@
 {
-  "id": "bank-am-034",
-  "question": "The parabola shown is the graph of the function $g$ in the $xy$-plane. Its vertex is $(1, 8)$, and its $x$-intercepts are $(-1, 0)$ and $(3, 0)$. What is the value of $g(-3)$?",
-  "diagram": {
-    "type": "quadraticVertex",
-    "params": {
-      "vertex": [
-        1,
-        8
-      ],
-      "a": -2,
-      "showPoints": [
-        [
-          -1,
-          0
-        ],
-        [
-          3,
-          0
-        ]
-      ],
-      "showVertex": true
-    }
+ "id": "bank-am-034",
+ "question": "A cookware retailer's monthly cast-iron skillet sales relative to forecast are modeled by the quadratic function $f$ whose graph is shown with its vertex and both $x$-intercepts marked. If $f(x)=ax^2+bx+c$, what is the value of $b$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-6$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-24$"
-    },
-    {
-      "id": "B",
-      "text": "$0$"
-    },
-    {
-      "id": "C",
-      "text": "$16$"
-    },
-    {
-      "id": "D",
-      "text": "$40$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "evaluates at $x = 3$ instead of $x = -3$",
-    "C": "forgets to square the horizontal difference",
-    "D": "uses $a = 2$ instead of $a = -2$"
+  {
+   "id": "B",
+   "text": "$-2$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Vertex Form from Vertex + Intercepts**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** From the vertex, $g(x) = a(x - 1)^2 + 8$; the intercept $(3, 0)$ gives $4a + 8 = 0$, so $a = -2$. Then $g(-3) = -2(16) + 8 = -24$.\n\n**The Full Solution:**\nStep 1: Vertex $(1, 8)$ gives $g(x) = a(x - 1)^2 + 8$.\nStep 2: Substitute the intercept $(3, 0)$: $0 = a(3 - 1)^2 + 8 = 4a + 8$, so $a = -2$ and $g(x) = -2(x - 1)^2 + 8$.\nStep 3: Evaluate at $x = -3$: $g(-3) = -2(-3 - 1)^2 + 8 = -2(16) + 8 = -32 + 8 = -24$. Check the other intercept: $g(-1) = -2(4) + 8 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($0$): this is $g(3)$ — reading the intercept instead of evaluating at $x = -3$.\n* Choice C ($16$): computes $-2(-3 - 1) + 8$, skipping the square.\n* Choice D ($40$): uses $a = +2$, which contradicts a graph that opens downward.\n\n**Test Day Takeaway:** A vertex plus one more point determines a parabola completely. Solve for $a$ first, then substitute — and square the difference before multiplying."
+  {
+   "id": "C",
+   "text": "$0.5$"
+  },
+  {
+   "id": "D",
+   "text": "$2$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports the constant term c instead of b",
+  "C": "reports the leading coefficient a instead of b",
+  "D": "drops the negative sign when expanding -2ah"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Vertex Form from Vertex + Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The intercepts $-2$ and $6$ with vertex $(2,-8)$ give $a=\\frac{1}{2}$; expanding $\\frac{1}{2}(x-2)^2-8$ gives $b=-2$.\n\n**The Full Solution:**\nStep 1: The marked $x$-intercepts are $-2$ and $6$, so $f(x)=a(x+2)(x-6)$, and the vertex sits halfway between them at $x=2$.\nStep 2: The vertex output is $-8$: $a(2+2)(2-6)=-16a=-8$, so $a=\\frac{1}{2}$.\nStep 3: Expand $\\frac{1}{2}(x+2)(x-6)=\\frac{1}{2}(x^2-4x-12)=\\frac{1}{2}x^2-2x-6$, so $b=-2$. Check: $-\\frac{b}{2a}=-\\frac{-2}{1}=2$, matching the vertex's $x$-coordinate ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): reports the constant term $c$ instead of $b$.\n* Choice C ($0.5$): reports the leading coefficient $a$ instead of $b$.\n* Choice D ($2$): drops the negative sign when expanding, since $-4a=-2$, not $2$.\n\n**Test Day Takeaway:** Intercepts give the factored form and the vertex gives the stretch — expand once and read off whichever coefficient is asked for.",
+ "diagram": {
+  "type": "quadraticVertex",
+  "params": {
+   "vertex": [
+    2,
+    -8
+   ],
+   "a": 0.5,
+   "showVertex": true,
+   "showPoints": [
+    [
+     -2,
+     0
+    ],
+    [
+     6,
+     0
+    ]
+   ]
+  }
+ }
 }

@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-466",
-  "question": "The equations $4x + 3y - 2z = 21$ and $2x - 3y + 2z = 3$ are true for some values of $x$, $y$, and $z$. What is the value of $x$?",
+  "question": "During one nesting week a patrol tallies $x$ intact sea-turtle nests and $y$ predated nests along a beach, and those tallies satisfy $2x - 5y = 7$. A hatchery index built from the same tallies is $6x + ky = 44$ for a constant $k$. Twice the first equation added to the index equation yields $10x - 2y = 58$. What is the value of $k$?",
   "choices": [
     {
       "id": "A",
-      "text": "$3$"
+      "text": "$-2$"
     },
     {
       "id": "B",
-      "text": "$4$"
+      "text": "$3$"
     },
     {
       "id": "C",
-      "text": "$12$"
+      "text": "$8$"
     },
     {
       "id": "D",
-      "text": "$24$"
+      "text": "$12$"
     }
   ],
+  "correctAnswer": "C",
   "distractorNotes": {
-    "A": "subtracts the right-hand sides, 21 - 3 = 18, and divides by 6.",
-    "C": "divides 24 by 2, the x-coefficient of the second equation, instead of by 6.",
-    "D": "reports 6x = 24 without dividing by 6."
+    "A": "copies the $y$-coefficient of the combined equation, which still carries the doubled $-10y$",
+    "B": "doubles only the $x$-term of the first equation, solving $k - 5 = -2$",
+    "D": "reads the combined $y$-coefficient as $+2$, solving $k - 10 = 2$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The $y$- and $z$-terms are exact opposites, so adding the equations leaves $6x = 24$ and $x = 4$.\n\n**The Full Solution:**\nStep 1: Two equations cannot pin down three unknowns in general, so look for a combination that cancels both $y$ and $z$ at once: $3y$ with $-3y$ and $-2z$ with $2z$.\nStep 2: Add: $(4x + 3y - 2z) + (2x - 3y + 2z) = 21 + 3$, so $6x = 24$ and $x = 4$.\nStep 3: Check: substituting $x = 4$ gives $3y - 2z = 5$ and $-3y + 2z = -5$, which are consistent (the same condition), so $x = 4$ holds for every such solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): subtracts the right-hand sides, $21 - 3 = 18$, and divides by $6$.\n* Choice C ($12$): divides $24$ by $2$, the $x$-coefficient of the second equation, instead of by $6$.\n* Choice D ($24$): reports $6x = 24$ without dividing by $6$.\n\n**Test Day Takeaway:** Extra variables are not a problem when their terms are opposites; add the equations and the unwanted variables vanish together."
+  "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Doubling the first equation turns $-5y$ into $-10y$, so the combined $y$-coefficient is $k - 10$; setting $k - 10 = -2$ gives $k = 8$.\n\n**The Full Solution:**\n\nStep 1: Double the first equation: $2(2x - 5y) = 4x - 10y$, and $2(7) = 14$.\n\nStep 2: Add that to the index equation term by term: $(4 + 6)x + (-10 + k)y = 14 + 44$, or $10x + (k - 10)y = 58$. The stem gives the result as $10x - 2y = 58$, and $4 + 6 = 10$ and $14 + 44 = 58$ both check out.\n\nStep 3: Match the $y$-coefficients: $k - 10 = -2$, so $k = 8$. Check with $x = 6$ and $y = 1$: $2(6) - 5(1) = 7$ and $6(6) + 8(1) = 44$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-2$): copies the $y$-coefficient of the combined equation, which still carries the doubled $-10y$.\n\n* Choice B ($3$): doubles only the $x$-term of the first equation, so the match becomes $k - 5 = -2$.\n\n* Choice D ($12$): reads the combined $y$-coefficient as $+2$ and solves $k - 10 = 2$.\n\n**Test Day Takeaway:** Scale the equation before you match columns, and let the constants confirm that the scaling reached every term.",
+  "id": "bank-alg-466"
 }

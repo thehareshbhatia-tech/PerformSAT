@@ -1,60 +1,61 @@
 {
-  "id": "bank-am-174",
-  "question": "The table lists the value of the function $h$ at five values of $x$, and the function $p$ is defined by $p(x) = 2x - 1$. What is the value of $h(p(3))$?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "x",
-        "h(x)"
-      ],
-      "rows": [
-        [
-          "1",
-          "4"
-        ],
-        [
-          "3",
-          "-2"
-        ],
-        [
-          "5",
-          "6"
-        ],
-        [
-          "7",
-          "0"
-        ],
-        [
-          "9",
-          "-5"
-        ]
-      ]
-    }
+ "id": "bank-am-174",
+ "question": "In the table below, the functions $p$ and $q$ are each defined at the four inputs $0$, $1$, $2$, and $3$, and no other values of either function are known. Using only the tabulated values, compute $q(p(3)) + p(q(2))$.",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "x",
+    "p(x)",
+    "q(x)"
+   ],
+   "rows": [
+    [
+     "0",
+     "3",
+     "6"
+    ],
+    [
+     "1",
+     "0",
+     "2"
+    ],
+    [
+     "2",
+     "5",
+     "0"
+    ],
+    [
+     "3",
+     "1",
+     "5"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-5$"
-    },
-    {
-      "id": "B",
-      "text": "$-2$"
-    },
-    {
-      "id": "C",
-      "text": "$0$"
-    },
-    {
-      "id": "D",
-      "text": "$6$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "computes $p(h(3)) = p(-2)$, reversing the order of the composition",
-    "B": "reads $h(3) = -2$ without first applying $p$",
-    "C": "uses the row $x = 7$ instead of the row $x = 5$"
+  {
+   "id": "B",
+   "text": "$3$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** $p(3) = 5$, and the table gives $h(5) = 6$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function: $p(3) = 2(3) - 1 = 5$.\nStep 2: That output becomes the input to $h$, so $h(p(3)) = h(5)$.\nStep 3: The row with $x = 5$ gives $h(5) = 6$. Check: the reverse composition $p(h(3)) = p(-2) = -5$ is a different value, so order matters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): this is $p(h(3))$, the composition in the opposite order.\n* Choice B ($-2$): this is $h(3)$, using the original input instead of $p(3)$.\n* Choice C ($0$): this is $h(7)$, one row past the correct entry.\n\n**Test Day Takeaway:** Compute the inner value, then look up that number in the table — not the number that appeared in the original expression."
+  {
+   "id": "C",
+   "text": "$5$"
+  },
+  {
+   "id": "D",
+   "text": "$10$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "reports only the first term, $q(p(3)) = 2$",
+  "B": "reports only the second term, $p(q(2)) = 3$",
+  "D": "computes $q(3) + p(2) = 5 + 5$, applying each outer function to the original input"
+ },
+ "explanation": "**SAT Pattern: Function Composition**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $p(3) = 1$ so $q(1) = 2$; $q(2) = 0$ so $p(0) = 3$; the sum is $2 + 3 = 5$.\n\n**The Full Solution:**\nStep 1: For the first term, read $p(3) = 1$ from the row $x = 3$, then read $q(1) = 2$ from the row $x = 1$.\nStep 2: For the second term, read $q(2) = 0$ from the row $x = 2$, then read $p(0) = 3$ from the row $x = 0$.\nStep 3: Add the two results: $2 + 3 = 5$. Check: each term used two different rows, and neither used the row of the original input twice ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): the first composite alone, with the second term dropped.\n* Choice B ($3$): the second composite alone.\n* Choice D ($10$): skips the inner functions and adds $q(3)$ and $p(2)$ directly.\n\n**Test Day Takeaway:** In a sum of composites, finish one composite completely before starting the other — mixing the two is what produces the too-large answer."
 }

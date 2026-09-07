@@ -1,48 +1,57 @@
 {
-  "id": "bank-alg-320",
-  "question": "The graph of the linear function $f$ is shown in the $xy$-plane. For what value of $x$ does $f(x) = -2$?",
-  "diagram": {
-    "type": "linearGraph",
-    "params": {
-      "slope": 2,
-      "yIntercept": -6,
-      "xRange": [
-        -4,
-        6
-      ],
-      "yRange": [
-        -10,
-        6
-      ],
-      "xTickInterval": 2,
-      "yTickInterval": 2,
-      "gridInterval": 1,
-      "label": "y = f(x)"
-    }
+ "question": "The line shown in the $xy$-plane is the graph of $y = f(x)$, where $f(x)$ is the number of lightning strikes, in hundreds, recorded $x$ minutes after a storm cell forms. For what value of $x$ is $f(x) = 12$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-10$"
-    },
-    {
-      "id": "B",
-      "text": "$-6$"
-    },
-    {
-      "id": "C",
-      "text": "$-2$"
-    },
-    {
-      "id": "D",
-      "text": "$2$"
-    }
-  ],
-  "correctAnswer": "D",
-  "distractorNotes": {
-    "A": "used -2 as the input and read f(-2) = -10",
-    "B": "read the y-intercept f(0) = -6",
-    "C": "reported the given output -2 as the input"
+  {
+   "id": "B",
+   "text": "$5$"
   },
-  "explanation": "**SAT Pattern: Solve for Input from Output**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** $f(x) = -2$ means the $y$-value is $-2$. Find where the line crosses the horizontal line $y = -2$: that happens at $x = 2$.\n\n**The Full Solution:**\nStep 1: On the graph of $y = f(x)$, the output $f(x)$ is the $y$-coordinate and the input $x$ is the $x$-coordinate. The question gives the output and asks for the input.\nStep 2: Locate $y = -2$ on the vertical axis and move horizontally to the line. The line passes through $(2, -2)$.\nStep 3: The $x$-coordinate of that point is $2$, so $f(2) = -2$.\nCheck: the line crosses the $y$-axis at $(0, -6)$ and rises $2$ units for each $1$ unit to the right, so $f(x) = 2x - 6$ and $f(2) = 4 - 6 = -2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): treats $-2$ as the input and reads $f(-2) = -10$ off the graph, reversing input and output.\n* Choice B ($-6$): reads the $y$-intercept, the output when $x = 0$, instead of finding where the output is $-2$.\n* Choice C ($-2$): repeats the given output as if it were the input.\n\n**Test Day Takeaway:** \"For what $x$ does $f(x) = k$\" is a horizontal read: start at $y = k$, go to the line, then drop to the $x$-axis."
+  {
+   "id": "C",
+   "text": "$6$"
+  },
+  {
+   "id": "D",
+   "text": "$12$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "reports the value where the line meets the vertical axis",
+  "C": "solves $2x = 12$, ignoring the starting value of $2$",
+  "D": "repeats the output $12$ instead of giving the input"
+ },
+ "explanation": "**SAT Pattern: Solve for Input from Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The line reaches a height of $12$ directly above $x = 5$.\n\n**The Full Solution:**\n\nStep 1: Read the line: it passes through $(0, 2)$ and $(4, 10)$, so it rises $2$ hundred strikes per minute and $f(x) = 2x + 2$.\n\nStep 2: Set the output to $12$: $2x + 2 = 12$, so $2x = 10$.\n\nStep 3: Then $x = 5$. Check on the graph: at $x = 5$ the line sits at $12$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($2$): reports the $y$-intercept, the value at $x = 0$.\n\n* Choice C ($6$): solves $2x = 12$, forgetting the $2$ already on the board at minute $0$.\n\n* Choice D ($12$): repeats the given output instead of the input that produces it.\n\n**Test Day Takeaway:** When the graph gives the output, read across to the line and then down to the axis; the answer is an input, not the height.",
+ "diagram": {
+  "type": "linearGraph",
+  "params": {
+   "slope": 2,
+   "yIntercept": 2,
+   "xRange": [
+    0,
+    10
+   ],
+   "yRange": [
+    0,
+    24
+   ],
+   "xTickInterval": 2,
+   "yTickInterval": 4,
+   "gridInterval": 2,
+   "showPoints": [
+    [
+     0,
+     2
+    ],
+    [
+     4,
+     10
+    ]
+   ]
+  }
+ },
+ "id": "bank-alg-320"
 }

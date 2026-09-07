@@ -1,29 +1,58 @@
 {
  "id": "bank-alg-246",
- "question": "$y = \\dfrac{3}{4}x - 2$\n\n$ax - 8y = b$\n\nIn the given system of equations, $a$ and $b$ are constants. If the system has no solution, which of the following must be true?",
+ "question": "The figure shows line $\\ell$. A second linear equation is chosen so that the pair consisting of it and the equation of line $\\ell$ is satisfied by no ordered pair $(x, y)$. Which of the choices below could be that second equation?",
+ "diagram": {
+  "type": "linearGraph",
+  "params": {
+   "slope": 1.3333333,
+   "yIntercept": -2,
+   "xRange": [
+    -6,
+    6
+   ],
+   "yRange": [
+    -6,
+    6
+   ],
+   "xTickInterval": 2,
+   "yTickInterval": 2,
+   "gridInterval": 1,
+   "showPoints": [
+    [
+     0,
+     -2
+    ],
+    [
+     3,
+     2
+    ]
+   ],
+   "label": "ℓ"
+  }
+ },
  "choices": [
   {
    "id": "A",
-   "text": "$a = 6$ and $b = 16$"
+   "text": "$6x - 8y = 30$"
   },
   {
    "id": "B",
-   "text": "$a = 6$ and $b \\neq 16$"
+   "text": "$8x - 6y = 12$"
   },
   {
    "id": "C",
-   "text": "$a = -6$ and $b \\neq 16$"
+   "text": "$8x - 6y = 30$"
   },
   {
    "id": "D",
-   "text": "$a \\neq 6$ and $b = 16$"
+   "text": "$8x + 6y = 30$"
   }
  ],
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "those values make the lines identical (infinitely many solutions)",
-  "C": "sign error when solving -8y for y",
-  "D": "swaps the roles of the slope and intercept conditions"
+  "A": "swaps the coefficients, giving slope $\\frac{3}{4}$, so this line crosses line $\\ell$ once",
+  "B": "reproduces line $\\ell$ exactly, so the pair has infinitely many common solutions instead of none",
+  "D": "flips the sign of the $y$-coefficient, giving slope $-\\frac{4}{3}$, so this line crosses line $\\ell$ once"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Solve the second equation for $y$: $y = \\frac{a}{8}x - \\frac{b}{8}$. Parallel needs $\\frac{a}{8} = \\frac{3}{4}$, so $a = 6$; distinct needs $-\\frac{b}{8} \\neq -2$, so $b \\neq 16$.\n\n**The Full Solution:**\nStep 1: Rewrite $ax - 8y = b$ as $-8y = -ax + b$, then $y = \\frac{a}{8}x - \\frac{b}{8}$.\nStep 2: For no solution the slopes must be equal: $\\frac{a}{8} = \\frac{3}{4}$ gives $a = 6$.\nStep 3: The $y$-intercepts must differ: $-\\frac{b}{8} \\neq -2$ gives $b \\neq 16$. Check with $a = 6$, $b = 0$: $6x - 8y = 0$ is $y = \\frac{3}{4}x$, parallel to the first line and distinct. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($a = 6$ and $b = 16$): with $b = 16$ the second line becomes $y = \\frac{3}{4}x - 2$, the same line, which gives infinitely many solutions.\n* Choice C ($a = -6$ and $b \\neq 16$): loses a sign when dividing $-ax$ by $-8$; the slope is $+\\frac{a}{8}$.\n* Choice D ($a \\neq 6$ and $b = 16$): reverses the conditions; a different slope guarantees exactly one intersection.\n\n**Test Day Takeaway:** Two conditions define \"no solution\": equal slopes AND unequal intercepts. A choice that fixes only one of them is a trap."
+ "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Line $\\ell$ is $8x - 6y = 12$; only $8x - 6y = 30$ keeps the same slope with a different constant.\n\n**The Full Solution:**\nStep 1: Line $\\ell$ passes through $(0, -2)$ and $(3, 2)$, so its slope is $\\frac{4}{3}$ and its equation is $y = \\frac{4}{3}x - 2$, or $8x - 6y = 12$.\nStep 2: A pair satisfied by no ordered pair needs a second line with the same slope but a different intercept.\nStep 3: Choice C, $8x - 6y = 30$, gives $y = \\frac{4}{3}x - 5$, matching the slope while shifting the intercept from $-2$ to $-5$. Check: subtracting the two equations leaves $0 = -18$, which is never true.\n\n**Why the wrong answers are tempting:**\n* Choice A ($6x - 8y = 30$): swaps the coefficients, giving slope $\\frac{3}{4}$, so this line crosses line $\\ell$ once\n* Choice B ($8x - 6y = 12$): reproduces line $\\ell$ exactly, so the pair has infinitely many common solutions instead of none\n* Choice D ($8x + 6y = 30$): flips the sign of the $y$-coefficient, giving slope $-\\frac{4}{3}$, so this line crosses line $\\ell$ once\n\n**Test Day Takeaway:** For no common solution, match the coefficients and then make sure the constant does not match; matching all three gives infinitely many solutions."
 }

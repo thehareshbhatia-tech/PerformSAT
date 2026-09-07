@@ -1,6 +1,6 @@
 {
-  "id": "bank-am-058",
-  "question": "For all values of $x$, the equation $(x + 9)(x - 5) = x^2 + bx + c$ is true, where $b$ and $c$ are constants. What is the value of $c$?",
-  "correctAnswer": "-45",
-  "explanation": "**SAT Pattern: Constant Term from Factored Form**\n\n**The correct answer is $-45$.**\n\n**The Fast Way (~10s):** The constant term of the product is the product of the constants: $9 \\cdot (-5) = -45$.\n\n**The Full Solution:**\nStep 1: Expand: $(x + 9)(x - 5) = x^2 - 5x + 9x - 45$.\nStep 2: Combine like terms: $x^2 + 4x - 45$.\nStep 3: Matching to $x^2 + bx + c$ gives $b = 4$ and $c = -45$. Check at $x = 0$: the left side is $(9)(-5) = -45$, and the right side is $c$. $\\checkmark$\n\n**Common Mistakes:** Reporting $4$, which is $b$, not $c$. Reporting $45$ by dropping the negative from $9 \\cdot (-5)$.\n\n**Test Day Takeaway:** Substituting $x = 0$ isolates the constant term instantly — both sides reduce to the product of the two constants."
+  "question": "The polynomial $p$ is defined by $p(x)=(2x-5)(x+k)$, where $k$ is a constant. When $p(x)$ is expanded, its constant term is $-35$. What is the coefficient of $x$ in the expanded form of $p(x)$?",
+  "correctAnswer": "9",
+  "explanation": "**SAT Pattern: Constant Term from Factored Form**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~25s):** The constant term is $-5k=-35$, so $k=7$, and the $x$-coefficient is $2k-5=9$.\n\n**The Full Solution:**\nStep 1: Expand: $(2x-5)(x+k)=2x^{2}+2kx-5x-5k=2x^{2}+(2k-5)x-5k$.\nStep 2: Set the constant term equal to $-35$: $-5k=-35$, so $k=7$.\nStep 3: The coefficient of $x$ is $2k-5=14-5=9$. Check: $(2x-5)(x+7)=2x^{2}+9x-35$ ✓\n\n**Common Mistakes:**\n* $7$: reported $k$ instead of the coefficient of $x$.\n* $19$: used $2k+5$ instead of $2k-5$, dropping the sign of the $-5$.\n* $-35$: reported the constant term already given in the question.\n\n**Test Day Takeaway:** The constant term of a product of binomials is the product of their constants — solve for the parameter there first, then read off the middle coefficient.",
+  "id": "bank-am-058"
 }

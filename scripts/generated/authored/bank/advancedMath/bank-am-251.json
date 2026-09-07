@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-251",
-  "question": "The point $(8, -3)$ is on the graph of $y = v(x)$ in the $xy$-plane. The graph of $y = v(x - 4)$ must contain which of the following points?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$(4, -3)$"
-    },
-    {
-      "id": "B",
-      "text": "$(8, -7)$"
-    },
-    {
-      "id": "C",
-      "text": "$(8, 1)$"
-    },
-    {
-      "id": "D",
-      "text": "$(12, -3)$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "shifts left instead of right",
-    "B": "subtracts $4$ from the $y$-coordinate",
-    "C": "adds $4$ to the $y$-coordinate"
+ "id": "bank-am-251",
+ "question": "Every input that makes the function $f$ zero is equal to 12, and the function $h$ is defined by $h(x)=f(x+5)$. Which statement about the zeros of $h$ must be true?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "The only zero of $h$ is $7$."
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The height stays $-3$; the input must satisfy $x - 4 = 8$, so $x = 12$.\n\n**The Full Solution:**\nStep 1: The given point means $v(8) = -3$.\nStep 2: Let $u(x) = v(x - 4)$. To get the output $-3$ out of $u$, the number handed to $v$ must be $8$, so $x - 4 = 8$ and $x = 12$.\nStep 3: Then $u(12) = v(8) = -3$, so $(12, -3)$ lies on the new graph. Check: the point moved $4$ units right at the same height, which is what $v(x - 4)$ does. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(4, -3)$): this subtracts $4$ from the $x$-coordinate; the minus sign inside the function shifts the graph the other way.\n* Choice B ($(8, -7)$): this applies the $4$ to the output, which a horizontal shift never does.\n* Choice C ($(8, 1)$): this adds $4$ to the output for the same reason.\n\n**Test Day Takeaway:** Solve the inside equation ($x - 4 = 8$) instead of guessing the direction; the $y$-coordinate rides along unchanged."
+  {
+   "id": "B",
+   "text": "The only zero of $h$ is $17$."
+  },
+  {
+   "id": "C",
+   "text": "The only zero of $h$ is $12$."
+  },
+  {
+   "id": "D",
+   "text": "The only zero of $h$ is $-5$."
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "shifts the zero right by 5 instead of left",
+  "C": "leaves the zero unchanged, treating x + 5 as a vertical shift",
+  "D": "reports the opposite of the shift amount instead of solving x + 5 = 12"
+ },
+ "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $h(x)=0$ requires $x+5=12$, so $x=7$.\n\n**The Full Solution:**\nStep 1: The function $f$ is zero only when its input is 12.\nStep 2: $h(x)=f(x+5)$ is zero exactly when the inner input $x+5$ equals 12.\nStep 3: Solving $x+5=12$ gives $x=7$, and no other input works. Check: $h(7)=f(12)=0$, while $h(12)=f(17)\\ne 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($17$): adds 5 to the zero instead of subtracting, shifting the graph the wrong way.\n* Choice C ($12$): keeps the zero unchanged, as if the 5 acted on the output.\n* Choice D ($-5$): reports the shift amount's opposite rather than solving for the input.\n\n**Test Day Takeaway:** Adding inside the function moves every zero left by that amount."
 }

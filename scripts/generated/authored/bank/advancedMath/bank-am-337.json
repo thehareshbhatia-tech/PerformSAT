@@ -1,29 +1,51 @@
 {
-  "id": "bank-am-337",
-  "question": "In the $xy$-plane, a parabola has its vertex at $(-2, -18)$ and passes through the point $(1, 0)$. What is the distance between the parabola's two $x$-intercepts?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$3$"
-    },
-    {
-      "id": "B",
-      "text": "$6$"
-    },
-    {
-      "id": "C",
-      "text": "$9$"
-    },
-    {
-      "id": "D",
-      "text": "$18$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports half the distance",
-    "C": "stops at (x + 2)^2 = 9",
-    "D": "uses the depth of the vertex"
+ "id": "bank-am-337",
+ "question": "The labeled point is the minimum of the parabola $y = f(x)$ shown in the $xy$-plane, and the curve crosses the horizontal axis at two points visible on the grid. Each output of $h$ equals the output of $f$ at twice the input, so $h(x) = f(2x)$. How far apart are the $x$-intercepts of the graph of $h$?",
+ "diagram": {
+  "type": "parabola",
+  "params": {
+   "vertex": {
+    "h": 2,
+    "k": -18
+   },
+   "a": 2,
+   "xRange": [
+    -3,
+    7
+   ],
+   "yRange": [
+    -20,
+    5
+   ],
+   "xTickInterval": 2,
+   "yTickInterval": 4,
+   "gridInterval": 1,
+   "showVertex": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$1.5$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~55s):** The point $(1, 0)$ is an $x$-intercept $3$ units right of the axis $x = -2$, so the other intercept is $3$ units left, at $x = -5$. The distance is $6$.\n\n**The Full Solution:**\nStep 1: Vertex form gives $y = a(x + 2)^2 - 18$. Substituting $(1, 0)$ gives $0 = 9a - 18$, so $a = 2$.\nStep 2: Setting $y = 0$ gives $2(x + 2)^2 = 18$, so $(x + 2)^2 = 9$ and $x + 2 = \\pm 3$.\nStep 3: The intercepts are $x = 1$ and $x = -5$, a distance of $6$ apart. Check: their midpoint is $x = -2$, the axis of symmetry, as it must be. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the distance from the vertex to one intercept, which is half the answer.\n* Choice C ($9$): stops at $(x + 2)^2 = 9$ and reports $9$ instead of taking the square root.\n* Choice D ($18$): uses $18$, the vertex's distance below the $x$-axis, as a horizontal length.\n\n**Test Day Takeaway:** The vertex is the midpoint of the two $x$-intercepts, so one intercept plus the axis of symmetry already determines the other."
+  {
+   "id": "B",
+   "text": "$3$"
+  },
+  {
+   "id": "C",
+   "text": "$6$"
+  },
+  {
+   "id": "D",
+   "text": "$12$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "halves the separation twice, once for each intercept",
+  "C": "answers for $f$ itself, ignoring the substitution $2x$",
+  "D": "multiplies the separation by $2$ instead of dividing by $2$"
+ },
+ "explanation": "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $f$ crosses at $x = -1$ and $x = 5$, and $h(x) = f(2x)$ is zero when $2x$ is $-1$ or $5$, so $h$ crosses at $x = -0.5$ and $x = 2.5$: a distance of $3$.\n\n**The Full Solution:**\nStep 1: The minimum is $(2, -18)$ and the curve meets the horizontal axis at $x = -1$ and $x = 5$, so $f(x) = 2(x - 2)^2 - 18$.\nStep 2: Then $h(x) = f(2x) = 2(2x - 2)^2 - 18$, and $h(x) = 0$ requires $(2x - 2)^2 = 9$, so $2x - 2 = \\pm 3$.\nStep 3: That gives $x = -0.5$ and $x = 2.5$, so the intercepts are $3$ units apart. Check: replacing $x$ by $2x$ compresses the graph horizontally by a factor of $2$, halving the original separation of $6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.5$): applies the factor $\\frac{1}{2}$ to an already-halved distance.\n* Choice C ($6$): the separation for $f$, as if $h$ and $f$ had the same intercepts.\n* Choice D ($12$): treats $f(2x)$ as a horizontal stretch and doubles the separation.\n\n**Test Day Takeaway:** Replacing $x$ with $2x$ compresses every horizontal measurement by a factor of $2$, so widths are halved, not doubled."
 }

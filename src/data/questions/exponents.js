@@ -7,91 +7,91 @@ export const exponentsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "For all positive values of $a$, the expression $a^6 \\cdot a^5$ is equivalent to which of the following?",
+      question: "An oak cask's volume model, in liters, includes the expression $(5m^2)^3$, where $m$ is the stave width in centimeters. Which of the following is equivalent to $(5m^2)^3$?",
       choices: [
-        // distractor: subtracts the exponents
-        { id: "A", text: "$a$" },
-        { id: "B", text: "$a^{11}$" },
-        // distractor: adds the coefficients too
-        { id: "C", text: "$2a^{11}$" },
-        // distractor: multiplies the exponents
-        { id: "D", text: "$a^{30}$" }
+        // distractor: raises only the variable, leaving the coefficient 5 untouched
+        { id: "A", text: "$5m^{6}$" },
+        // distractor: multiplies 5 by 3 instead of cubing it
+        { id: "B", text: "$15m^{6}$" },
+        // distractor: adds the exponents 2 + 3 instead of multiplying them
+        { id: "C", text: "$125m^{5}$" },
+        { id: "D", text: "$125m^{6}$" }
       ],
-      correctAnswer: "B",
-      hint: "Identify which operation is being performed on the two powers before touching the exponents.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** Same base, multiplication, so add the exponents: $a^{6+5} = a^{11}$.\n\n**The Full Solution:**\nStep 1: The product rule for powers with the same base is $a^m \\cdot a^n = a^{m+n}$.\nStep 2: Apply it: $a^6 \\cdot a^5 = a^{6+5}$.\nStep 3: The result is $a^{11}$. Check by counting factors: six copies of $a$ times five copies of $a$ is eleven copies of $a$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($a$): subtracts the exponents, $6 - 5$, which is the rule for division, not multiplication.\n* Choice C ($2a^{11}$): adds the two understood coefficients of $1$; coefficients multiply, and $1 \\cdot 1 = 1$.\n* Choice D ($a^{30}$): multiplies the exponents, which is the rule for a power raised to a power.\n\n**Test Day Takeaway:** Match the operation to the rule first: multiply the powers and you add the exponents, divide them and you subtract.",
+      correctAnswer: "D",
+      hint: "Two things sit inside those parentheses.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~15s):** Cube the coefficient and multiply the exponents: $5^3 = 125$ and $m^{2 \\cdot 3} = m^6$.\n\n**The Full Solution:**\nStep 1: A power of a product raises each factor: $(5m^2)^3 = 5^3 \\cdot (m^2)^3$.\nStep 2: Cube the coefficient: $5^3 = 125$.\nStep 3: Multiply the exponents: $(m^2)^3 = m^6$, so the expression equals $125m^6$. Check at $m = 1$: $(5)^3 = 125$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5m^6$): raises only the variable and leaves the coefficient alone.\n* Choice B ($15m^6$): multiplies $5$ by the exponent $3$ instead of cubing it.\n* Choice C ($125m^5$): adds $2 + 3$, which is the rule for multiplying powers, not for a power of a power.\n\n**Test Day Takeaway:** An exponent outside parentheses hits every factor inside, coefficients included.",
       skills: ["exponent-laws"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "For all positive values of $x$, the expression $\\left(x^5\\right)^3$ is equivalent to which of the following?",
+      question: "A greenhouse's heat-loss model contains the product $x^{5} \\cdot x^{-2}$, where the pane thickness $x$ is measured in millimeters and is positive. Which expression is equivalent to that product?",
       choices: [
-        // distractor: adds the exponents
-        { id: "A", text: "$x^8$" },
-        { id: "B", text: "$x^{15}$" },
-        // distractor: pulls the outer exponent down as a coefficient
-        { id: "C", text: "$3x^5$" },
-        // distractor: cubes the inner exponent
-        { id: "D", text: "$x^{125}$" }
+        // distractor: multiplies the exponents and keeps the negative sign
+        { id: "A", text: "$x^{-10}$" },
+        { id: "B", text: "$x^{3}$" },
+        // distractor: subtracts the exponents, 5 - (-2), instead of adding them
+        { id: "C", text: "$x^{7}$" },
+        // distractor: multiplies the exponents and drops the negative sign
+        { id: "D", text: "$x^{10}$" }
       ],
       correctAnswer: "B",
-      hint: "Writing the expression out as three identical factors settles which rule applies.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** A power raised to a power multiplies the exponents: $\\left(x^5\\right)^3 = x^{5 \\cdot 3} = x^{15}$.\n\n**The Full Solution:**\nStep 1: The power-of-a-power rule is $\\left(x^m\\right)^n = x^{mn}$.\nStep 2: Apply it: $\\left(x^5\\right)^3 = x^{5 \\cdot 3}$.\nStep 3: The result is $x^{15}$. Check by expanding: $x^5 \\cdot x^5 \\cdot x^5 = x^{5+5+5} = x^{15}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^8$): adds the exponents, the rule for $x^5 \\cdot x^3$ rather than for $\\left(x^5\\right)^3$.\n* Choice C ($3x^5$): brings the outer exponent down as a coefficient instead of applying it as a power.\n* Choice D ($x^{125}$): computes $5^3 = 125$ and uses that as the exponent.\n\n**Test Day Takeaway:** Nested parentheses mean multiply the exponents. If you are unsure, expand the outer power once and the addition inside does the rest.",
+      hint: "Multiplying powers of one base keeps that base.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** Add the exponents: $5 + (-2) = 3$, so the product is $x^3$.\n\n**The Full Solution:**\nStep 1: Multiplying powers of the same base adds the exponents.\nStep 2: Add: $5 + (-2) = 3$.\nStep 3: The product is $x^3$. Check at $x = 2$: $32 \\cdot \\dfrac14 = 8 = 2^3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{-10}$): multiplies the exponents, which is the rule for a power of a power.\n* Choice C ($x^{7}$): subtracts the exponents, the rule for division rather than multiplication.\n* Choice D ($x^{10}$): multiplies the exponents and also loses the negative sign.\n\n**Test Day Takeaway:** Multiply powers, add exponents — a negative exponent just makes that sum smaller.",
       skills: ["exponent-laws"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "For all positive values of $x$ and $y$, the expression $\\dfrac{24x^7y^3}{6x^2y^3}$ is equivalent to which of the following?",
+      question: "A gearbox reduction is $\\dfrac{(2a^3)^4}{8a^7}$, where $a$ is the input shaft radius in centimeters and is therefore positive. Which expression is equivalent to that reduction?",
       choices: [
-        { id: "A", text: "$4x^5$" },
-        // distractor: adds the y exponents
-        { id: "B", text: "$4x^5y^6$" },
-        // distractor: adds the x exponents
-        { id: "C", text: "$4x^9$" },
-        // distractor: subtracts the coefficients
-        { id: "D", text: "$18x^5$" }
+        // distractor: treats 2^4 as 8, so the coefficients cancel to 1
+        { id: "A", text: "$a^{5}$" },
+        { id: "B", text: "$2a^{5}$" },
+        // distractor: never divides the coefficient 16 by 8
+        { id: "C", text: "$16a^{5}$" },
+        // distractor: forgets to subtract the denominator's exponent 7
+        { id: "D", text: "$2a^{12}$" }
       ],
-      correctAnswer: "A",
-      hint: "Handle the numbers and each variable as separate, independent divisions.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** $\\frac{24}{6} = 4$, $\\frac{x^7}{x^2} = x^5$, and $\\frac{y^3}{y^3} = 1$, so the quotient is $4x^5$.\n\n**The Full Solution:**\nStep 1: Divide the coefficients: $\\frac{24}{6} = 4$.\nStep 2: Divide the powers of $x$ by subtracting exponents: $x^{7-2} = x^5$.\nStep 3: The powers of $y$ are identical, so $y^{3-3} = y^0 = 1$, leaving $4x^5$. Check at $x = y = 1$: the original is $\\frac{24}{6} = 4$, and $4(1)^5 = 4$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($4x^5y^6$): adds the $y$-exponents instead of subtracting them, so a factor that should cancel survives.\n* Choice C ($4x^9$): adds the $x$-exponents, $7 + 2$, applying the product rule to a quotient.\n* Choice D ($18x^5$): subtracts the coefficients, $24 - 6$, instead of dividing them.\n\n**Test Day Takeaway:** In a quotient of monomials, coefficients divide and exponents subtract. Treat each base on its own line of work.",
+      correctAnswer: "B",
+      hint: "The numerator's coefficient is not $2$.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** The numerator is $16a^{12}$, and dividing by $8a^7$ leaves $2a^5$.\n\n**The Full Solution:**\nStep 1: Raise the numerator: $(2a^3)^4 = 2^4 \\cdot a^{12} = 16a^{12}$.\nStep 2: Divide the coefficients: $\\dfrac{16}{8} = 2$.\nStep 3: Subtract the exponents: $a^{12 - 7} = a^5$, so the reduction is $2a^5$. Check at $a = 1$: $\\dfrac{16}{8} = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($a^5$): reads $2^4$ as $8$, so the coefficients appear to cancel.\n* Choice C ($16a^5$): handles the variable correctly but never divides $16$ by $8$.\n* Choice D ($2a^{12}$): divides the coefficients but forgets to subtract the exponent $7$.\n\n**Test Day Takeaway:** Expand any parenthesised power first; only then divide coefficients and subtract exponents.",
       skills: ["exponent-laws"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "For every value of $x$ with $x \\ne 0$, the expression $\\dfrac{x^{-3}}{x^{-7}}$ is equivalent to which of the following?",
+      question: "A soil-moisture decay model multiplies its baseline reading by $\\left(\\dfrac{2}{5}\\right)^{-3}$ to estimate the moisture a test plot held three days earlier. What value does that multiplier have?",
       choices: [
-        // distractor: adds the exponents
-        { id: "A", text: "$x^{-10}$" },
-        // distractor: subtracts in the wrong order
-        { id: "B", text: "$x^{-4}$" },
-        { id: "C", text: "$x^4$" },
-        // distractor: ignores both negative signs
-        { id: "D", text: "$x^{10}$" }
+        // distractor: flips the fraction and then also negates the result
+        { id: "A", text: "$-\\dfrac{125}{8}$" },
+        // distractor: reads the negative exponent as making the value negative
+        { id: "B", text: "$-\\dfrac{8}{125}$" },
+        // distractor: cubes the fraction without flipping it
+        { id: "C", text: "$\\dfrac{8}{125}$" },
+        { id: "D", text: "$\\dfrac{125}{8}$" }
       ],
-      correctAnswer: "C",
-      hint: "If the negatives feel slippery, rewrite each power with a positive exponent before dividing.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~20s):** Subtract exponents: $x^{-3 - (-7)} = x^{4}$.\n\n**The Full Solution:**\nStep 1: The quotient rule is $\\frac{x^m}{x^n} = x^{m-n}$, with $m = -3$ and $n = -7$.\nStep 2: Compute the exponent: $-3 - (-7) = -3 + 7 = 4$.\nStep 3: The expression equals $x^4$. Check by clearing the negatives first: $\\frac{x^{-3}}{x^{-7}} = \\frac{x^7}{x^3} = x^4$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{-10}$): adds the exponents, $-3 + (-7)$, instead of subtracting.\n* Choice B ($x^{-4}$): subtracts in the wrong order, computing $-7 - (-3) = -4$.\n* Choice D ($x^{10}$): drops both negative signs and adds $3 + 7$.\n\n**Test Day Takeaway:** A negative exponent in the denominator becomes positive in the numerator. Flipping first turns the sign work into ordinary subtraction.",
+      correctAnswer: "D",
+      hint: "Decide what a negative exponent does to a fraction — and what it leaves alone.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~15s):** The negative exponent flips the fraction: $\\left(\\dfrac{5}{2}\\right)^{3} = \\dfrac{125}{8}$.\n\n**The Full Solution:**\nStep 1: A negative exponent means the reciprocal: $\\left(\\dfrac{2}{5}\\right)^{-3} = \\left(\\dfrac{5}{2}\\right)^{3}$.\nStep 2: Cube the numerator and the denominator: $\\dfrac{5^3}{2^3}$.\nStep 3: Evaluate: $\\dfrac{125}{8}$. Check: $\\dfrac{125}{8} \\cdot \\left(\\dfrac{2}{5}\\right)^{3} = \\dfrac{125}{8} \\cdot \\dfrac{8}{125} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\dfrac{125}{8}$): flips the fraction correctly but then also makes it negative.\n* Choice B ($-\\dfrac{8}{125}$): treats the exponent's sign as the value's sign and skips the reciprocal.\n* Choice C ($\\dfrac{8}{125}$): cubes $\\dfrac25$ directly, ignoring the negative exponent.\n\n**Test Day Takeaway:** A negative exponent moves a factor across the fraction bar; the sign of the value never changes.",
       skills: ["zero-negative-exponents"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "For all positive values of $x$ and $y$, the expression $\\left(\\dfrac{8x^6}{y^{-3}}\\right)^{\\frac{2}{3}}$ is equivalent to which of the following?",
+      question: "The gain of a star tracker's amplifier is $\\dfrac{\\sqrt{x^{9}}}{x^{-3/2}}$, where the aperture setting $x$ is a positive number of millimeters. Which expression is equivalent to that gain?",
       choices: [
-        // distractor: drops the negative sign on the y exponent
-        { id: "A", text: "$\\dfrac{4x^4}{y^2}$" },
-        { id: "B", text: "$4x^4y^2$" },
-        // distractor: multiplies 8 by two-thirds
-        { id: "C", text: "$\\dfrac{16x^4y^2}{3}$" },
-        // distractor: never raises the coefficient
-        { id: "D", text: "$8x^4y^2$" }
+        // distractor: subtracts 3/2 instead of adding it
+        { id: "A", text: "$x^{3}$" },
+        { id: "B", text: "$x^{6}$" },
+        // distractor: reads the denominator's exponent as -3 rather than -3/2
+        { id: "C", text: "$x^{15/2}$" },
+        // distractor: drops the square root and uses x^9 in the numerator
+        { id: "D", text: "$x^{21/2}$" }
       ],
       correctAnswer: "B",
-      hint: "Clear the negative exponent out of the denominator before the outer power is applied.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~50s):** The inside is $8x^6y^3$; raising each factor to the $\\frac{2}{3}$ power gives $4x^4y^2$.\n\n**The Full Solution:**\nStep 1: A negative exponent in the denominator moves to the numerator: $\\frac{8x^6}{y^{-3}} = 8x^6y^3$.\nStep 2: Distribute the outer exponent over every factor: $8^{\\frac{2}{3}}\\left(x^6\\right)^{\\frac{2}{3}}\\left(y^3\\right)^{\\frac{2}{3}}$.\nStep 3: $8^{\\frac{2}{3}} = \\left(\\sqrt[3]{8}\\right)^2 = 2^2 = 4$, $x^{6 \\cdot \\frac{2}{3}} = x^4$, and $y^{3 \\cdot \\frac{2}{3}} = y^2$, so the expression is $4x^4y^2$. Check at $x = y = 1$: the original is $8^{\\frac{2}{3}} = 4$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4x^4}{y^2}$): drops the negative sign and treats the denominator as $y^3$, so $\\left(y^3\\right)^{\\frac{2}{3}} = y^2$ stays underneath instead of moving up.\n* Choice C ($\\frac{16x^4y^2}{3}$): multiplies $8$ by $\\frac{2}{3}$ instead of raising $8$ to the $\\frac{2}{3}$ power.\n* Choice D ($8x^4y^2$): applies the outer exponent to the variables but leaves the coefficient $8$ untouched.\n\n**Test Day Takeaway:** A rational exponent is a root and a power: the denominator takes the root, the numerator raises it. The coefficient obeys the same rule as the variables.",
+      hint: "Both parts of the quotient can be written as powers of $x$.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~35s):** $\\sqrt{x^{9}} = x^{9/2}$, and dividing by $x^{-3/2}$ adds $\\dfrac32$, giving $x^{6}$.\n\n**The Full Solution:**\nStep 1: Rewrite the root as a fractional exponent: $\\sqrt{x^{9}} = x^{9/2}$.\nStep 2: Dividing by a power subtracts its exponent: $x^{9/2 - (-3/2)}$.\nStep 3: Simplify: $\\dfrac92 + \\dfrac32 = 6$, so the gain is $x^{6}$. Check at $x = 4$: $\\sqrt{4^{9}} = 2^{9} = 512$ and $4^{-3/2} = \\dfrac18$, so the quotient is $4096 = 4^{6}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{3}$): subtracts $\\dfrac32$ instead of adding it, ignoring the minus sign already in the denominator.\n* Choice C ($x^{15/2}$): reads the denominator's exponent as $-3$, giving $\\dfrac92 + 3$.\n* Choice D ($x^{21/2}$): leaves the numerator as $x^{9}$, forgetting the square root, and adds $\\dfrac32$.\n\n**Test Day Takeaway:** Turn every root into a fractional exponent first; then one subtraction finishes the problem.",
       skills: ["exponent-laws"]
     }
   ],
@@ -119,73 +119,73 @@ export const exponentsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "In the equation $3^n = 243$, $n$ is a positive integer. What is the value of $n$?",
+      question: "A star's brightness measures $2^{12}$ units at one wavelength and $8^{3}$ units at another. Which expression is equivalent to the quotient $\\dfrac{2^{12}}{8^{3}}$ of those two measurements?",
       choices: [
-        // distractor: reports the base
-        { id: "A", text: "$3$" },
-        // distractor: stops one factor short
-        { id: "B", text: "$4$" },
-        { id: "C", text: "$5$" },
-        // distractor: divides 243 by 3
-        { id: "D", text: "$81$" }
+        { id: "A", text: "$2^{3}$" },
+        // distractor: computes 12 - 8, using the base 8 as though it were an exponent
+        { id: "B", text: "$2^{4}$" },
+        // distractor: reports the rewritten denominator 2^9
+        { id: "C", text: "$2^{9}$" },
+        // distractor: multiplies 12 by 3 instead of subtracting the exponents
+        { id: "D", text: "$2^{36}$" }
       ],
-      correctAnswer: "C",
-      hint: "Multiply by $3$ and keep count until you reach $243$.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** $3^5 = 243$, so $n = 5$.\n\n**The Full Solution:**\nStep 1: List the powers of $3$: $3^1 = 3$, $3^2 = 9$, $3^3 = 27$.\nStep 2: Continue: $3^4 = 81$ and $3^5 = 243$.\nStep 3: The exponent that produces $243$ is $n = 5$. Check: $81 \\cdot 3 = 243$, so one more factor past $3^4$ is exactly right.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the base rather than the exponent.\n* Choice B ($4$): stops one factor short at $3^4 = 81$.\n* Choice D ($81$): divides $243$ by $3$ and reports the quotient instead of the exponent.\n\n**Test Day Takeaway:** For a small base, listing the powers is faster and safer than guessing. Answer the question asked: the exponent, not the value.",
+      correctAnswer: "A",
+      hint: "The two bases are not the same yet.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** $8^3 = 2^9$, so the quotient is $2^{12 - 9} = 2^3$.\n\n**The Full Solution:**\nStep 1: Write the denominator with base $2$: $8 = 2^3$, so $8^3 = (2^3)^3 = 2^9$.\nStep 2: The quotient is now $\\dfrac{2^{12}}{2^{9}}$.\nStep 3: Subtract the exponents: $2^{12 - 9} = 2^3$. Check: $\\dfrac{4096}{512} = 8 = 2^3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2^4$): subtracts $12 - 8$, treating the base $8$ as an exponent.\n* Choice C ($2^9$): reports the rewritten denominator instead of the quotient.\n* Choice D ($2^{36}$): multiplies $12$ by $3$, the rule for a power of a power, not for division.\n\n**Test Day Takeaway:** Matching bases comes before any exponent rule can be applied.",
       skills: ["comparing-exponentials", "exponent-laws"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "The expressions $2^{12}$ and $8^k$ are equal, where $k$ is a constant. What is the value of $k$?",
+      question: "A relay's transmitted pulse attenuates by the factor $\\left(\\dfrac{1}{8}\\right)^{x}$ after crossing $x$ shielding layers, and that factor equals $2^{k}$ for every $x$. Which expression gives $k$?",
       choices: [
-        // distractor: reports the rewriting exponent
-        { id: "A", text: "$3$" },
-        { id: "B", text: "$4$" },
-        // distractor: subtracts 3 from 12
-        { id: "C", text: "$9$" },
-        // distractor: multiplies 12 by 3
-        { id: "D", text: "$36$" }
+        { id: "A", text: "$-3x$" },
+        // distractor: writes 1/8 as 2 to the power -1/3
+        { id: "B", text: "$-\\dfrac{x}{3}$" },
+        // distractor: writes 1/8 as 2 to the power 1/3, losing the negative sign
+        { id: "C", text: "$\\dfrac{x}{3}$" },
+        // distractor: ignores that the base is a reciprocal
+        { id: "D", text: "$3x$" }
       ],
-      correctAnswer: "B",
-      hint: "Rewrite both sides as powers of the same base.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** $8 = 2^3$, so $8^k = 2^{3k}$; setting $3k = 12$ gives $k = 4$.\n\n**The Full Solution:**\nStep 1: Write $8$ as a power of $2$: $8 = 2^3$.\nStep 2: Then $8^k = \\left(2^3\\right)^k = 2^{3k}$, so $2^{3k} = 2^{12}$.\nStep 3: Equal powers of the same base have equal exponents, so $3k = 12$ and $k = 4$. Check: $8^4 = 4{,}096 = 2^{12}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the exponent used to rewrite $8$ as $2^3$ rather than solving for $k$.\n* Choice C ($9$): subtracts, computing $12 - 3$, as if the bases were being divided.\n* Choice D ($36$): multiplies $12$ by $3$ instead of dividing.\n\n**Test Day Takeaway:** Common base, then compare exponents. Rewriting one side is almost always faster than taking logarithms.",
+      correctAnswer: "A",
+      hint: "A reciprocal can be carried in the exponent.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** $\\dfrac{1}{8} = 2^{-3}$, so the factor is $\\left(2^{-3}\\right)^{x} = 2^{-3x}$ and $k = -3x$.\n\n**The Full Solution:**\nStep 1: Write the base as a power of $2$: $\\dfrac{1}{8} = \\dfrac{1}{2^3} = 2^{-3}$.\nStep 2: Raise it to the $x$: $\\left(2^{-3}\\right)^{x} = 2^{-3x}$.\nStep 3: Matching exponents gives $k = -3x$. Check at $x = 1$: $\\dfrac18 = 2^{-3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\dfrac{x}{3}$): writes $\\dfrac18$ as $2^{-1/3}$, confusing a cube root with a cube.\n* Choice C ($\\dfrac{x}{3}$): makes the same root error and also loses the negative sign.\n* Choice D ($3x$): treats the base as $8$ rather than $\\dfrac18$, dropping the reciprocal.\n\n**Test Day Takeaway:** A reciprocal base becomes a negative exponent, and the outer exponent then multiplies it.",
       skills: ["comparing-exponentials"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "If $x$ is a number such that $0 < x < 1$, which of the following expressions has the greatest value?",
+      question: "An observatory logs $2^{30}$ frames on one night and $4^{16}$ frames on another. Which statement correctly compares the two totals?",
       choices: [
-        // distractor: assumes a bigger exponent means a bigger value
-        { id: "A", text: "$x^4$" },
-        // distractor: same habit, one step less extreme
-        { id: "B", text: "$x^2$" },
-        // distractor: assumes no power can exceed the base
-        { id: "C", text: "$x$" },
-        { id: "D", text: "$\\sqrt{x}$" }
+        // distractor: compares the exponents 30 and 16 directly without matching bases
+        { id: "A", text: "$2^{30}$ is greater than $4^{16}$." },
+        // distractor: reads the exponent gap 32 - 30 = 2 as the ratio
+        { id: "B", text: "$4^{16}$ is twice as large as $2^{30}$." },
+        { id: "C", text: "$4^{16}$ is four times as large as $2^{30}$." },
+        // distractor: assumes doubling the base exactly offsets halving the exponent
+        { id: "D", text: "The two expressions are equal." }
       ],
-      correctAnswer: "D",
-      hint: "Test a convenient value such as $x = \\frac{1}{4}$ and compare.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** For a base between $0$ and $1$, larger exponents give smaller values, so the smallest exponent wins: $\\sqrt{x} = x^{\\frac{1}{2}}$.\n\n**The Full Solution:**\nStep 1: When $0 < x < 1$, multiplying by $x$ makes a number smaller, so $x^4 < x^2 < x$.\nStep 2: Since $\\sqrt{x} = x^{\\frac{1}{2}}$ and $\\frac{1}{2} < 1$, the square root is larger than $x$ itself.\nStep 3: The order is $x^4 < x^2 < x < \\sqrt{x}$, so $\\sqrt{x}$ is greatest. Check at $x = \\frac{1}{4}$: the values are $\\frac{1}{256}$, $\\frac{1}{16}$, $\\frac{1}{4}$, and $\\frac{1}{2}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^4$): applies the habit that a bigger exponent means a bigger value, which is true only for bases greater than $1$.\n* Choice B ($x^2$): the same habit, one step less extreme; at $x = \\frac{1}{4}$ it is only $\\frac{1}{16}$.\n* Choice C ($x$): assumes no power of $x$ can exceed $x$, overlooking that a fractional exponent enlarges a number between $0$ and $1$.\n\n**Test Day Takeaway:** Between $0$ and $1$ the size order of powers reverses. Testing $x = \\frac{1}{4}$ settles the comparison in seconds.",
+      correctAnswer: "C",
+      hint: "The bases $2$ and $4$ are not independent of each other.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $4^{16} = 2^{32}$, and $2^{32} = 2^2 \\cdot 2^{30} = 4 \\cdot 2^{30}$.\n\n**The Full Solution:**\nStep 1: Write both with base $2$: $4 = 2^2$, so $4^{16} = (2^2)^{16} = 2^{32}$.\nStep 2: Compare $2^{32}$ with $2^{30}$ by dividing: $\\dfrac{2^{32}}{2^{30}} = 2^{2} = 4$.\nStep 3: So $4^{16}$ is four times $2^{30}$. Check: $2^{30} = 1{,}073{,}741{,}824$ and $4 \\times$ that is $4^{16}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: compares $30$ with $16$ directly, which is only valid when the bases match.\n* Choice B: reports the exponent gap $32 - 30 = 2$ as if it were the ratio.\n* Choice D: assumes squaring the base cancels halving the exponent, which would require $4^{15}$.\n\n**Test Day Takeaway:** Rewrite to a common base, then the exponents alone decide the comparison.",
       skills: ["comparing-exponentials", "exponent-laws"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "The equation $9^{x + 1} = 27^{x - 1}$ is true for exactly one value of $x$, where $x$ is a real number. What is the value of $x$?",
+      question: "A photon counter shows $9^{9}$ counts at station $M$ and $3^{14}$ counts at station $N$. Station $M$'s count is how many times station $N$'s count?",
       choices: [
-        // distractor: sign slip isolating x
-        { id: "A", text: "$-5$" },
-        // distractor: reads the right exponent as x plus 1
-        { id: "B", text: "$-1$" },
-        // distractor: distributes to the variable only
-        { id: "C", text: "$2$" },
-        { id: "D", text: "$5$" }
+        // distractor: divides station N's count by station M's, inverting the ratio
+        { id: "A", text: "$\\dfrac{1}{81}$" },
+        // distractor: reports the exponent difference 18 - 14 = 4 rather than 3 to that power
+        { id: "B", text: "$4$" },
+        { id: "C", text: "$81$" },
+        // distractor: computes 9^4 instead of 3^4
+        { id: "D", text: "$6561$" }
       ],
-      correctAnswer: "D",
-      hint: "Both $9$ and $27$ are powers of the same base.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~50s):** Writing both sides base $3$ gives $3^{2(x+1)} = 3^{3(x-1)}$, so $2x + 2 = 3x - 3$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: Rewrite each side with base $3$: $9^{x+1} = \\left(3^2\\right)^{x+1} = 3^{2x+2}$ and $27^{x-1} = \\left(3^3\\right)^{x-1} = 3^{3x-3}$.\nStep 2: Equal powers of $3$ force equal exponents: $2x + 2 = 3x - 3$.\nStep 3: Subtract $2x$ from both sides to get $2 = x - 3$, so $x = 5$. Check: $9^6 = 3^{12}$ and $27^4 = 3^{12}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): reaches $2x + 2 = 3x - 3$ but drops a sign while isolating $x$.\n* Choice B ($-1$): reads the right side as $27^{x+1}$, producing $2x + 2 = 3x + 3$.\n* Choice C ($2$): distributes the new exponent to the variable only, producing $2x + 1 = 3x - 1$.\n\n**Test Day Takeaway:** Convert to a common base, then distribute the outer exponent across the entire binomial exponent — constant included.",
+      correctAnswer: "C",
+      hint: "Look for a base that both counts share.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** $9^{9} = 3^{18}$, so the ratio is $3^{18 - 14} = 3^{4} = 81$.\n\n**The Full Solution:**\nStep 1: Write station $M$'s count with base $3$: $9 = 3^2$, so $9^{9} = 3^{18}$.\nStep 2: Divide by station $N$'s count: $\\dfrac{3^{18}}{3^{14}} = 3^{18 - 14} = 3^{4}$.\nStep 3: Evaluate: $3^4 = 81$. Check: $81 \\cdot 3^{14} = 3^{18} = 9^{9}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{1}{81}$): divides $N$ by $M$, answering the reverse comparison.\n* Choice B ($4$): reports the exponent difference instead of $3$ raised to it.\n* Choice D ($6561$): raises $9$ to the fourth power, using the original base instead of the shared base $3$.\n\n**Test Day Takeaway:** Convert to one base before dividing; the exponent difference is a power, not the answer itself.",
       skills: ["comparing-exponentials", "exponent-laws"]
     }
   ],
@@ -195,20 +195,20 @@ export const exponentsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "For the function $f$, the table lists the value of $f(x)$ at four values of $x$. Which of the following best describes $f$?",
-      diagram: { type: "table", params: { xHeader: "x", yHeader: "f(x)", rows: [["0", "5"], ["1", "15"], ["2", "45"], ["3", "135"]] } },
+      question: "The table lists a yeast culture's mass $f(x)$, in grams, after $x$ hours. Which equation defines $f$?",
+      questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$0$", "$5$"], ["$1$", "$15$"], ["$2$", "$45$"], ["$3$", "$135$"]] },
       choices: [
-        // distractor: reads the table bottom to top
-        { id: "A", text: "Decreasing linear" },
-        // distractor: right pattern, wrong direction
-        { id: "B", text: "Decreasing exponential" },
-        // distractor: sees growth but not its shape
-        { id: "C", text: "Increasing linear" },
-        { id: "D", text: "Increasing exponential" }
+        { id: "A", text: "$f(x) = 5(3)^x$" },
+        // distractor: uses the difference 15 - 5 = 10 as the growth factor
+        { id: "B", text: "$f(x) = 5(10)^x$" },
+        // distractor: swaps the starting mass and the growth factor
+        { id: "C", text: "$f(x) = 3(5)^x$" },
+        // distractor: uses the mass at x = 1 as the starting mass
+        { id: "D", text: "$f(x) = 15(3)^x$" }
       ],
-      correctAnswer: "D",
-      hint: "Compare the differences between consecutive values with the ratios between them.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~25s):** Each value is $3$ times the one before it, and the values are rising, so $f$ is an increasing exponential function.\n\n**The Full Solution:**\nStep 1: The differences between consecutive values are $10$, $30$, and $90$, which are not constant, so $f$ is not linear.\nStep 2: The ratios are $\\frac{15}{5} = 3$, $\\frac{45}{15} = 3$, and $\\frac{135}{45} = 3$, a constant multiplier — the signature of an exponential function.\nStep 3: Because the multiplier is greater than $1$, the values increase, so $f$ is an increasing exponential function. Check: $f(x) = 5(3)^x$ reproduces every entry in the table.\n\n**Why the wrong answers are tempting:**\n* Choice A (Decreasing linear): reads the table from the bottom up, where the values appear to fall.\n* Choice B (Decreasing exponential): spots the constant ratio but reverses the direction of the change.\n* Choice C (Increasing linear): notices that the values grow and stops there, without checking whether they grow by a constant amount.\n\n**Test Day Takeaway:** Constant differences mean linear; constant ratios mean exponential. Compute one of each before you name the model.",
+      correctAnswer: "A",
+      hint: "Look at what each mass is multiplied by to reach the next one.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** The mass starts at $5$ and triples each hour, so $f(x) = 5(3)^x$.\n\n**The Full Solution:**\nStep 1: At $x = 0$ the mass is $5$ grams, so the coefficient in front is $5$.\nStep 2: Each hour the mass multiplies by the same factor: $\\dfrac{15}{5} = 3$, $\\dfrac{45}{15} = 3$, $\\dfrac{135}{45} = 3$.\nStep 3: An exponential with start $5$ and factor $3$ is $f(x) = 5(3)^x$. Check at $x = 3$: $5(27) = 135$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($5(10)^x$): uses the first difference $15 - 5 = 10$ as the factor, which would give $50$ at $x = 1$.\n* Choice C ($3(5)^x$): swaps the starting mass and the growth factor, giving $3$ grams at $x = 0$.\n* Choice D ($15(3)^x$): starts from the mass at $x = 1$, so every value is three times too large.\n\n**Test Day Takeaway:** In a table with equal time steps, divide consecutive outputs — a constant quotient means exponential.",
       skills: ["exponential-growth-decay"]
     },
     {

@@ -1,29 +1,29 @@
 {
   "id": "bank-am-067",
-  "question": "Which expression is the complete factorization of $3x^5 - 243x$ over the integers?",
+  "question": "An irrigation canal is $x^{2}-9$ meters deep and $x^{2}+9$ meters wide, and a straight reach of it runs $x^{4}+81$ meters, where $x>3$. Which expression gives the volume of water, in cubic meters, that the reach holds when full?",
   "choices": [
     {
       "id": "A",
-      "text": "$3x(x^4 - 81)$"
+      "text": "$x^{8}-6{,}561$"
     },
     {
       "id": "B",
-      "text": "$3x(x^2 - 9)(x^2 + 9)$"
+      "text": "$x^{8}-81$"
     },
     {
       "id": "C",
-      "text": "$3x(x - 3)(x + 3)(x^2 + 9)$"
+      "text": "$x^{8}+6{,}561$"
     },
     {
       "id": "D",
-      "text": "$3x(x - 3)^2(x + 3)^2$"
+      "text": "$x^{16}-6{,}561$"
     }
   ],
+  "correctAnswer": "A",
   "distractorNotes": {
-    "A": "removes the common factor $3x$ and stops",
-    "B": "stops after the first difference-of-squares split, leaving $x^2 - 9$ factorable",
-    "D": "factors the sum $x^2 + 9$ as $(x + 3)(x - 3)$"
+    "B": "squares x^4 but leaves 81 unsquared in the second step",
+    "C": "uses a plus sign, as if (a - b)(a + b) gave a^2 + b^2",
+    "D": "multiplies the exponents, treating x^4 times x^4 as x^16"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Nested Difference of Squares**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Pull out $3x$ first: $3x(x^4 - 81)$. Then $x^4 - 81 = (x^2 - 9)(x^2 + 9)$ and $x^2 - 9 = (x - 3)(x + 3)$, giving $3x(x - 3)(x + 3)(x^2 + 9)$.\n\n**The Full Solution:**\nStep 1: The greatest common factor of $3x^5$ and $243x$ is $3x$, so $3x^5 - 243x = 3x(x^4 - 81)$.\nStep 2: $x^4 - 81 = (x^2)^2 - 9^2 = (x^2 - 9)(x^2 + 9)$.\nStep 3: $x^2 - 9 = (x - 3)(x + 3)$, while $x^2 + 9$ is a sum of squares and is irreducible over the integers. The complete factorization is $3x(x - 3)(x + 3)(x^2 + 9)$. Check at $x = 2$: the original is $3(32) - 486 = -390$, and $3(2)(-1)(5)(13) = -390$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x(x^4 - 81)$): a correct first move, but $x^4 - 81$ is still a difference of squares.\n* Choice B ($3x(x^2 - 9)(x^2 + 9)$): stops one step early — $x^2 - 9$ factors further.\n* Choice D ($3x(x - 3)^2(x + 3)^2$): treats $x^2 + 9$ as $(x - 3)(x + 3)$, but that product is $x^2 - 9$.\n\n**Test Day Takeaway:** Always factor out the greatest common factor first; it often exposes a difference of squares that then splits twice."
+  "explanation": "**SAT Pattern: Nested Difference of Squares**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** $(x^{2}-9)(x^{2}+9)=x^{4}-81$, and $(x^{4}-81)(x^{4}+81)=x^{8}-6{,}561$.\n\n**The Full Solution:**\nStep 1: The depth and the width form a difference of squares: $(x^{2})^{2}-9^{2}=x^{4}-81$.\nStep 2: That result pairs with the length as a second difference of squares: $(x^{4})^{2}-81^{2}$.\nStep 3: Since $(x^{4})^{2}=x^{8}$ and $81^{2}=6{,}561$, the volume is $x^{8}-6{,}561$ cubic meters. Check: at $x=4$ the three measurements are 7, 25, and 337 meters, and $7(25)(337)=58{,}975$, while $4^{8}-6{,}561=65{,}536-6{,}561=58{,}975$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^{8}-81$): squares the variable part but not the 81 in the second step.\n* Choice C ($x^{8}+6{,}561$): reverses the sign; a difference of squares never produces a sum.\n* Choice D ($x^{16}-6{,}561$): multiplies the exponents instead of adding them.\n\n**Test Day Takeaway:** Each difference-of-squares step squares BOTH pieces — the variable power and the constant."
 }

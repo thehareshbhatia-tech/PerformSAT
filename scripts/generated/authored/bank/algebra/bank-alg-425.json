@@ -1,29 +1,49 @@
 {
-  "id": "bank-alg-425",
-  "question": "Which of the following is the solution to the equation $x + 26 = 9$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-35$"
-    },
-    {
-      "id": "B",
-      "text": "$-17$"
-    },
-    {
-      "id": "C",
-      "text": "$17$"
-    },
-    {
-      "id": "D",
-      "text": "$35$"
-    }
+ "id": "bank-alg-425",
+ "question": "The table gives the number of visitors a museum recorded before noon and after noon on one day, together with the total for that day. What is the value of $a$?",
+ "questionTable": {
+  "headers": [
+   "Part of day",
+   "Visitors"
   ],
-  "distractorNotes": {
-    "A": "subtracts 26 from -9 instead of from 9, mishandling the sign of the constant.",
-    "C": "computes 26 - 9, reversing the subtraction and losing the negative sign.",
-    "D": "adds 26 to 9 instead of subtracting, doing the same operation as the equation rather than the inverse."
+  "rows": [
+   [
+    "Before noon",
+    "$a$"
+   ],
+   [
+    "After noon",
+    "$258$"
+   ],
+   [
+    "Total",
+    "$741$"
+   ]
+  ]
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$258$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Subtract $26$ from both sides: $x = 9 - 26 = -17$.\n\n**The Full Solution:**\nStep 1: The variable has $26$ added to it, so undo the addition by subtracting $26$ from each side.\nStep 2: $x + 26 - 26 = 9 - 26$, which simplifies to $x = -17$.\nStep 3: Check: $-17 + 26 = 9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-35$): subtracts $26$ from $-9$ instead of from $9$, mishandling the sign of the constant.\n* Choice C ($17$): computes $26 - 9$, reversing the subtraction and losing the negative sign.\n* Choice D ($35$): adds $26$ to $9$ instead of subtracting, doing the same operation as the equation rather than the inverse.\n\n**Test Day Takeaway:** Undo whatever is done to the variable with the inverse operation on both sides, and keep the order of subtraction: $9 - 26$, not $26 - 9$."
+  {
+   "id": "B",
+   "text": "$483$"
+  },
+  {
+   "id": "C",
+   "text": "$741$"
+  },
+  {
+   "id": "D",
+   "text": "$999$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "reports the afternoon count that the table already gives",
+  "C": "reports the day's total rather than the morning count",
+  "D": "adds 258 to 741 instead of subtracting"
+ },
+ "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $a + 258 = 741$, so $a = 741 - 258 = 483$.\n\n**The Full Solution:**\n\nStep 1: The two parts of the day account for the whole day, so $a + 258 = 741$.\n\nStep 2: Subtract $258$ from both sides: $a = 741 - 258$.\n\nStep 3: $a = 483$. Check: $483 + 258 = 741$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($258$): reports the afternoon count, which the table already supplies.\n* Choice C ($741$): reports the day's total instead of the morning portion of it.\n* Choice D ($999$): adds $258$ to $741$, which would make the parts exceed the whole.\n\n**Test Day Takeaway:** When two parts make a total, the missing part is the total minus the known part, and it must be smaller than the total."
 }

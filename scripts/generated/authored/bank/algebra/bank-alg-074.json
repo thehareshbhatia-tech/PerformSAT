@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-074",
-  "question": "The function $h$ is defined by $h(x) = \\frac{3x + 1}{2x - 5}$. For what value of $x$ is $h(x)$ undefined?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-\\frac{5}{2}$"
-    },
-    {
-      "id": "B",
-      "text": "$-\\frac{1}{3}$"
-    },
-    {
-      "id": "C",
-      "text": "$\\frac{1}{3}$"
-    },
-    {
-      "id": "D",
-      "text": "$\\frac{5}{2}$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "sign slip solving 2x - 5 = 0",
-    "B": "sets the numerator to zero (that gives h = 0, which is defined)",
-    "C": "sets the numerator to zero and drops the sign"
+ "id": "bank-alg-074",
+ "question": "A tuning routine evaluates the function $v$, defined by $v(t) = \\frac{140}{3t - 24}$, at each fader position $t$ between $0$ and $20$. At which fader position does the routine fail to produce a value?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-8$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Find Undefined Point (Denominator Zero)**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** $h$ is undefined where the denominator is zero: $2x - 5 = 0 \\Rightarrow x = \\frac{5}{2}$.\n\n**The Full Solution:**\nStep 1: A rational expression is undefined exactly when its denominator equals $0$.\nStep 2: Solve $2x - 5 = 0$: $2x = 5$, so $x = \\frac{5}{2}$.\nStep 3: Confirm the numerator is not also $0$ there: $3\\left(\\frac{5}{2}\\right) + 1 = \\frac{17}{2} \\ne 0$, so $h\\left(\\frac{5}{2}\\right) = \\frac{17/2}{0}$ is undefined. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{5}{2}$): a sign slip when solving $2x - 5 = 0$; moving $-5$ across gives $2x = +5$.\n* Choice B ($-\\frac{1}{3}$): sets the numerator equal to zero instead of the denominator; $h\\left(-\\frac{1}{3}\\right) = 0$ is defined.\n* Choice C ($\\frac{1}{3}$): sets the numerator to zero and also drops the sign.\n\n**Test Day Takeaway:** \"Undefined\" points to the denominator. Solve denominator $= 0$ and ignore the numerator, which only decides where the output is zero."
+  {
+   "id": "B",
+   "text": "$3$"
+  },
+  {
+   "id": "C",
+   "text": "$8$"
+  },
+  {
+   "id": "D",
+   "text": "$24$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "solves 3t = -24 instead of 3t = 24",
+  "B": "reports the coefficient of t rather than the position",
+  "D": "stops at 3t = 24 and reports 24 without dividing"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Find Undefined Point (Denominator Zero)**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The routine fails when the denominator is zero: $3t - 24 = 0$, so $t = 8$.\n\n**The Full Solution:**\nStep 1: A quotient has no value when its denominator is zero, so set $3t - 24 = 0$.\nStep 2: Add $24$ to both sides: $3t = 24$.\nStep 3: Divide by $3$: $t = 8$. Check: at $t = 8$ the denominator is $3(8) - 24 = 0$, while at $t = 7$ it is $-3$ and the routine returns $-\\frac{140}{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): solves $3t = -24$, moving the constant the wrong way.\n* Choice B ($3$): reports the coefficient of $t$ instead of solving for $t$.\n* Choice D ($24$): stops at $3t = 24$ and never divides by $3$.\n\n**Test Day Takeaway:** Set only the denominator to zero — the numerator plays no part in where a quotient is undefined."
 }

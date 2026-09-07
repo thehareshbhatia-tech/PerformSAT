@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-356",
-  "question": "In the equation $2x^2 + nx + 5 = 0$, $n$ is an integer with $-8 \\le n \\le 8$. For how many of these values of $n$ does the equation have no real solutions?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$6$"
-    },
-    {
-      "id": "B",
-      "text": "$12$"
-    },
-    {
-      "id": "C",
-      "text": "$13$"
-    },
-    {
-      "id": "D",
-      "text": "$17$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "counts only positive n",
-    "B": "omits n = 0",
-    "D": "counts the whole range"
+ "id": "bank-am-356",
+ "question": "A forestry model gives $9m^2 + km + 16 = 0$, where $k$ is a negative constant and each solution $m$ is a sapling height, in meters, at which two canopy-cover estimates coincide. If exactly one such height exists, what is the value of $k$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-576$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice C is correct.**\n\n**The Fast Way (~60s):** No real solutions means $n^2 - 40 < 0$, so $|n| \\le 6$ for integers. That is $n = -6$ through $n = 6$, which is $13$ values.\n\n**The Full Solution:**\nStep 1: With $a = 2$ and $c = 5$, the discriminant is $n^2 - 4(2)(5) = n^2 - 40$.\nStep 2: No real solutions requires $n^2 < 40$. Since $6^2 = 36 < 40$ and $7^2 = 49 > 40$, the integers that work are $-6 \\le n \\le 6$.\nStep 3: Counting from $-6$ to $6$ inclusive gives $6 + 1 + 6 = 13$ values. Check: $n = 6$ gives $36 - 40 = -4 < 0$, and $n = 7$ gives $49 - 40 = 9 > 0$, so the boundary is exactly where it should be. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): counts only the positive values $n = 1$ through $n = 6$.\n* Choice B ($12$): counts $-6$ through $6$ but forgets $n = 0$.\n* Choice D ($17$): counts every integer from $-8$ to $8$, ignoring the discriminant condition entirely.\n\n**Test Day Takeaway:** $n^2 < k$ is a symmetric condition — count both signs and do not lose $n = 0$ when you total them."
+  {
+   "id": "B",
+   "text": "$-25$"
+  },
+  {
+   "id": "C",
+   "text": "$-24$"
+  },
+  {
+   "id": "D",
+   "text": "$-12$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "reports $-4ac = -576$ itself instead of taking its square root",
+  "B": "adds the outer coefficients, $-(9 + 16)$, instead of using the discriminant",
+  "D": "drops the factor of $4$ and computes $-\\sqrt{9 \\cdot 16} = -12$"
+ },
+ "explanation": "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Exactly one solution means $k^2 = 4ac = 4(9)(16) = 576$, so $k = \\pm 24$; the negative value is $-24$.\n\n**The Full Solution:**\nStep 1: Here $a = 9$, $b = k$, and $c = 16$.\nStep 2: A quadratic has exactly one real solution when its discriminant is zero: $k^2 - 4(9)(16) = 0$, so $k^2 = 576$.\nStep 3: Then $k = 24$ or $k = -24$, and the problem states $k$ is negative, so $k = -24$. Check: $9m^2 - 24m + 16 = (3m - 4)^2$, which is zero only at the single height $m = \\frac{4}{3}$ meters ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-576$): stops at $4ac$ and attaches the minus sign without taking a square root.\n* Choice B ($-25$): adds $9$ and $16$, a sum that has nothing to do with the discriminant.\n* Choice D ($-12$): uses $\\sqrt{ac}$ rather than $\\sqrt{4ac}$, halving the correct magnitude.\n\n**Test Day Takeaway:** A one-solution condition sets the discriminant to zero, and solving for a middle coefficient always leaves two signs — read the stem to choose between them."
 }

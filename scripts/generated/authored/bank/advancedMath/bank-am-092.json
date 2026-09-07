@@ -1,23 +1,23 @@
 {
-  "id": "bank-am-092",
-  "question": "In the $xy$-plane, the graph of $y = a(x - 1)^2 - 6$ is shown, where $a$ is a constant. The graph passes through the marked point $(3, 6)$. What is the value of $a$?",
-  "diagram": {
-    "type": "quadraticVertex",
-    "params": {
-      "vertex": [
-        1,
-        -6
-      ],
-      "a": 3,
-      "showPoints": [
-        [
-          3,
-          6
-        ]
-      ],
-      "showVertex": true
-    }
-  },
-  "correctAnswer": "3",
-  "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~20s):** Substitute $(3, 6)$: $a(2)^2 - 6 = 6$, so $4a = 12$ and $a = 3$.\n\n**The Full Solution:**\nStep 1: Every point on the graph satisfies the equation, so replace $x$ with $3$ and $y$ with $6$: $6 = a(3 - 1)^2 - 6$.\nStep 2: Simplify the square: $(3 - 1)^2 = 4$, so $6 = 4a - 6$.\nStep 3: Add $6$ to both sides and divide: $12 = 4a$, so $a = 3$. Check: $y = 3(3 - 1)^2 - 6 = 12 - 6 = 6$, and the vertex is at $(1, -6)$ as shown. $\\checkmark$\n\n**Common Mistakes:** Forgetting to undo the $-6$ and solving $4a = 6$ to get $\\frac{3}{2}$; dividing by $2$ instead of $(3 - 1)^2 = 4$ and answering $6$; or computing the slope between the vertex and the marked point, $\\frac{6 - (-6)}{3 - 1} = 6$, which is not what $a$ measures.\n\n**Test Day Takeaway:** In vertex form the vertex is already built in, so one extra point is all you need. Substitute, undo the constant, then divide by the squared factor."
+ "id": "bank-am-092",
+ "question": "An engineer models a fuel cell stack's heat loss with the quadratic function $f$ whose graph is shown, and the point $(3,10)$ lies on that graph. If $f(x)=a(x+1)^2+2$ for a constant $a$, what is the value of $a$?",
+ "correctAnswer": "0.5",
+ "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $0.5$.**\n\n**The Fast Way (~20s):** Substituting $(3,10)$ gives $10=a(4)^2+2$, so $16a=8$ and $a=0.5$.\n\n**The Full Solution:**\nStep 1: Put $x=3$ and $f(x)=10$ into $f(x)=a(x+1)^2+2$: $10=a(3+1)^2+2$.\nStep 2: Simplify the square and subtract: $16a=8$.\nStep 3: Divide: $a=0.5$. Check: $f(3)=0.5(16)+2=10$, and the vertex $(-1,2)$ matches the graph ✓\n\n**Common Mistakes:**\n* $2$: divides the wrong way, computing $\\frac{16}{8}$.\n* $8$: reports $10-2=8$ and never divides by $16$.\n* $0.625$: divides $10$ by $16$ without first subtracting the $2$.\n\n**Test Day Takeaway:** With the vertex already in the formula, one extra point is one equation in one unknown — subtract the vertex output before dividing.",
+ "diagram": {
+  "type": "quadraticVertex",
+  "params": {
+   "vertex": [
+    -1,
+    2
+   ],
+   "a": 0.5,
+   "showVertex": true,
+   "showPoints": [
+    [
+     3,
+     10
+    ]
+   ]
+  }
+ }
 }

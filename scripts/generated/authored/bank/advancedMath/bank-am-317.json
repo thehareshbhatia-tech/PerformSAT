@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-317",
-  "question": "The equation $\\sqrt{x + 12} = x$ is given. Which value or values of $x$ satisfy this equation?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$x = -3$ only"
-    },
-    {
-      "id": "B",
-      "text": "$x = -4$ and $x = 3$"
-    },
-    {
-      "id": "C",
-      "text": "$x = 4$ only"
-    },
-    {
-      "id": "D",
-      "text": "$x = -3$ and $x = 4$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "selects the extraneous root",
-    "B": "sign error when factoring",
-    "D": "skips the extraneous check"
+ "id": "bank-am-317",
+ "question": "For a photometer, the signal-to-noise ratio is modeled by $R(t)=\\sqrt{4t+12}$, where $t$ is the exposure time in seconds. For what exposure time is the ratio equal to $10$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$22$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Squaring gives $x + 12 = x^2$, so $(x - 4)(x + 3) = 0$ and $x = 4$ or $x = -3$. A square root is never negative, so $x = -3$ fails and only $x = 4$ works.\n\n**The Full Solution:**\nStep 1: Square both sides: $x + 12 = x^2$, so $x^2 - x - 12 = 0$.\nStep 2: Factoring gives $(x - 4)(x + 3) = 0$, so the candidates are $x = 4$ and $x = -3$.\nStep 3: Test both in the ORIGINAL equation. For $x = 4$: $\\sqrt{16} = 4$, true. For $x = -3$: $\\sqrt{9} = 3$, but the right side is $-3$, so it fails. Check: squaring can create solutions the original equation never had, which is why the test is required. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x = -3$ only): keeps the extraneous root and discards the valid one.\n* Choice B ($x = -4$ and $x = 3$): factors $x^2 - x - 12$ as $(x + 4)(x - 3)$, flipping both signs.\n* Choice D ($x = -3$ and $x = 4$): solves the quadratic correctly but never checks for extraneous solutions.\n\n**Test Day Takeaway:** After squaring a radical equation, substitute every candidate back — the principal square root cannot equal a negative number."
+  {
+   "id": "B",
+   "text": "$25$"
+  },
+  {
+   "id": "C",
+   "text": "$28$"
+  },
+  {
+   "id": "D",
+   "text": "$88$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "drops the constant 12 and solves 4t = 100, giving 25",
+  "C": "adds instead of subtracting, solving 4t = 100 + 12, giving 28",
+  "D": "forgets to divide by 4 and reports 100 - 12 = 88"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $\\sqrt{4t+12}=10$ squares to $4t+12=100$, so $4t=88$ and $t=22$.\n\n**The Full Solution:**\n\nStep 1: Set the model equal to the target ratio: $\\sqrt{4t+12}=10$.\n\nStep 2: Square both sides: $4t+12=100$.\n\nStep 3: Subtract, then divide: $4t=88$ and $t=22$. Check: $4(22)+12=100$ and $\\sqrt{100}=10$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($25$): ignores the $+12$ and solves $4t=100$.\n* Choice C ($28$): adds $12$ to $100$ instead of subtracting it.\n* Choice D ($88$): stops at $4t=88$ and reports $88$ without dividing by $4$.\n\n**Test Day Takeaway:** After squaring, undo the constant before the coefficient; skipping either step lands on a listed answer."
 }

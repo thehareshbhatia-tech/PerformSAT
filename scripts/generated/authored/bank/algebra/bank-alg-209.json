@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-209",
-  "question": "The function $f$ is defined by $f(x) = 15 - 4x$. What is the slope of the graph of $y = f(x)$ in the $xy$-plane?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-4$"
-    },
-    {
-      "id": "B",
-      "text": "$4$"
-    },
-    {
-      "id": "C",
-      "text": "$11$"
-    },
-    {
-      "id": "D",
-      "text": "$15$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "drops the sign because the x-term is written after the constant",
-    "C": "computes 15 - 4",
-    "D": "reports the y-intercept"
+ "id": "bank-alg-209",
+ "question": "A mold plus the resin poured into it has total mass $M = 7.5p + 210$ grams after $p$ pours. By how many grams does the total mass grow with each additional pour?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$7.5$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Rewrite $15 - 4x$ as $-4x + 15$. The coefficient of $x$ is $-4$, so the slope is $-4$.\n\n**The Full Solution:**\nStep 1: Slope-intercept form is $y = mx + b$, with $m$ the slope. The given rule has its terms in the opposite order: $f(x) = 15 - 4x = -4x + 15$.\nStep 2: The coefficient of $x$, including its sign, is $-4$. That is the slope. The constant $15$ is the $y$-intercept.\nStep 3: Check with two inputs: $f(0) = 15$ and $f(1) = 11$; the graph falls $4$ units per unit of $x$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): takes the coefficient without its sign because the $x$-term comes after the constant.\n* Choice C ($11$): computes $15 - 4$, treating the rule as arithmetic rather than reading its structure.\n* Choice D ($15$): reports the $y$-intercept instead of the slope.\n\n**Test Day Takeaway:** The slope is the coefficient attached to $x$, sign included, no matter where the $x$-term is written. Reorder into $mx + b$ if the form looks unfamiliar."
+  {
+   "id": "B",
+   "text": "$210$"
+  },
+  {
+   "id": "C",
+   "text": "$217.5$"
+  },
+  {
+   "id": "D",
+   "text": "$1575$"
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "names the mass of the empty mold, the value at $p = 0$, rather than the rate",
+  "C": "gives the total mass after one pour, $7.5 + 210$",
+  "D": "multiplies the rate by the starting mass, $7.5 \\times 210$"
+ },
+ "explanation": "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** In $M = 7.5p + 210$ the coefficient of $p$ is the change per pour, so the answer is $7.5$.\n\n**The Full Solution:**\nStep 1: The model is linear in $p$, with $7.5$ multiplying $p$ and $210$ standing alone.\nStep 2: Increasing $p$ by $1$ increases $M$ by $7.5$, since $7.5(p + 1) + 210 = (7.5p + 210) + 7.5$.\nStep 3: So each additional pour adds $7.5$ grams. Check: at $p = 2$ the mass is $225$ grams and at $p = 3$ it is $232.5$ grams, a difference of $7.5$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($210$): names the mass of the empty mold, the value at $p = 0$, rather than the rate\n* Choice C ($217.5$): gives the total mass after one pour, $7.5 + 210$\n* Choice D ($1575$): multiplies the rate by the starting mass, $7.5 \\times 210$\n\n**Test Day Takeaway:** In $y = mx + b$, $m$ answers rate questions and $b$ answers starting-value questions."
 }

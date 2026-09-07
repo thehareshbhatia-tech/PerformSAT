@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-399",
-  "question": "In the $xy$-plane, the graph of $y = -3x^2 + 24x - 5$ is a parabola that opens downward. What is the maximum value of $y$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-5$"
-    },
-    {
-      "id": "B",
-      "text": "$4$"
-    },
-    {
-      "id": "C",
-      "text": "$43$"
-    },
-    {
-      "id": "D",
-      "text": "$48$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports the constant term",
-    "B": "reports the $x$-value of the vertex",
-    "D": "omits the constant term when evaluating"
+ "id": "bank-am-399",
+ "question": "A mill's weekly output of wool blanket throws above its contract level is modeled by $f(x)=-3(x-b)^2+54$, where $b$ is a constant greater than $2$. If $f(2)=27$, what is the value of $b$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-1$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The vertex is at $x = \\dfrac{-24}{2(-3)} = 4$, and $y = -3(16) + 96 - 5 = 43$.\n\n**The Full Solution:**\nStep 1: For $y = ax^2 + bx + c$ the vertex occurs at $x = -\\dfrac{b}{2a}$. Here $a = -3$ and $b = 24$, so $x = -\\dfrac{24}{-6} = 4$.\nStep 2: Substitute: $y = -3(4)^2 + 24(4) - 5 = -48 + 96 - 5$.\nStep 3: $y = 43$. Since $a < 0$ the parabola opens downward, so this is a maximum. Check by symmetry: $y = 40$ at both $x = 3$ and $x = 5$, on either side of $43$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): reports the constant term, which is the value at $x = 0$, not at the vertex.\n* Choice B ($4$): reports the $x$-value of the vertex instead of the maximum value.\n* Choice D ($48$): evaluates $-3(16) + 24(4)$ but forgets to subtract the constant $5$.\n\n**Test Day Takeaway:** $x = -\\dfrac{b}{2a}$ finds WHERE; you must substitute back — including the constant term — to get the maximum value."
+  {
+   "id": "B",
+   "text": "$3$"
+  },
+  {
+   "id": "C",
+   "text": "$5$"
+  },
+  {
+   "id": "D",
+   "text": "$9$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "takes the root ruled out by the condition b > 2",
+  "B": "reports the absolute difference 2 - b = 3 instead of b",
+  "D": "reports (2 - b)^2 = 9 instead of b"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $f(2)=27$ gives $-3(2-b)^2=-27$, so $(2-b)^2=9$ and $b=-1$ or $5$; $b>2$ leaves $5$.\n\n**The Full Solution:**\nStep 1: Substitute $x=2$: $-3(2-b)^2+54=27$, so $-3(2-b)^2=-27$.\nStep 2: Divide by $-3$: $(2-b)^2=9$, so $2-b=3$ or $2-b=-3$, giving $b=-1$ or $b=5$.\nStep 3: The condition $b>2$ selects $b=5$. Check: $f(x)=-3(x-5)^2+54$ gives $f(2)=-27+54=27$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): takes the root the condition $b>2$ rules out.\n* Choice B ($3$): reports $|2-b|=3$ rather than $b$ itself.\n* Choice D ($9$): reports $(2-b)^2=9$ without taking the square root.\n\n**Test Day Takeaway:** Working backwards from an output leaves a squared binomial — solve for both roots, then let the stated restriction choose."
 }

@@ -1,29 +1,56 @@
 {
-  "id": "bank-alg-393",
-  "question": "For which of the following equations is there no value of $x$ that makes the equation true?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$5(x + 2) = 5x + 10$"
-    },
-    {
-      "id": "B",
-      "text": "$5(x + 2) = 5x + 7$"
-    },
-    {
-      "id": "C",
-      "text": "$5(x + 2) = 4x + 10$"
-    },
-    {
-      "id": "D",
-      "text": "$5(x + 2) = 3x + 4$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "is an identity, true for every x",
-    "C": "has exactly one solution, x = 0",
-    "D": "has exactly one solution, x = -3"
+ "question": "The table gives the number of fasteners installed by two crews after $p$ wall sections, where the first crew installs $4(p+3)$ fasteners and the second installs $4p+15$. For how many values of $p$ do the two totals agree?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "Wall sections",
+    "First crew",
+    "Second crew"
+   ],
+   "rows": [
+    [
+     "1",
+     "16",
+     "19"
+    ],
+    [
+     "4",
+     "28",
+     "31"
+    ],
+    [
+     "8",
+     "44",
+     "47"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "No values of $p$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Expand the left side: $5x + 10$. An equation has no solution when the $x$-terms match but the constants differ; $5x + 10 = 5x + 7$ reduces to $10 = 7$, which is false.\n\n**The Full Solution:**\nStep 1: Distribute on the left of each choice: $5(x + 2) = 5x + 10$. Compare with each right side.\nStep 2: Choice B becomes $5x + 10 = 5x + 7$. Subtracting $5x$ from both sides leaves $10 = 7$, a false statement with no $x$ remaining. No value of $x$ can make it true.\nStep 3: Confirm the others have solutions. Choice A: $5x + 10 = 5x + 10$ is true for every $x$. Choice C: $5x + 10 = 4x + 10$ gives $x = 0$. Choice D: $5x + 10 = 3x + 4$ gives $2x = -6$, so $x = -3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5(x + 2) = 5x + 10$): has the same coefficient on both sides, which can look like \"no solution,\" but the constants also match, so it is an identity with infinitely many solutions.\n* Choice C ($5(x + 2) = 4x + 10$): has different $x$-coefficients, so it has exactly one solution, $x = 0$.\n* Choice D ($5(x + 2) = 3x + 4$): also has different $x$-coefficients and one solution, $x = -3$.\n\n**Test Day Takeaway:** Same $x$-coefficient and same constant means infinitely many solutions; same $x$-coefficient and different constant means none; different $x$-coefficients means exactly one."
+  {
+   "id": "B",
+   "text": "Exactly one value of $p$"
+  },
+  {
+   "id": "C",
+   "text": "Exactly two values of $p$"
+  },
+  {
+   "id": "D",
+   "text": "Every value of $p$"
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "cancels the 4p terms and then solves the leftover 12 = 15 as if it were an equation in p",
+  "C": "expects two crossings, which two lines with equal slopes can never have",
+  "D": "reads 4(p+3) as 4p+15 and concludes the two expressions are identical"
+ },
+ "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice A is correct.** Distributing gives $4p+12$, so the second crew is always $3$ fasteners ahead and the totals never agree.\n\n**The Fast Way (~25s):** $4(p+3)=4p+12$, and $4p+12=4p+15$ reduces to $12=15$, which is false.\n\n**The Full Solution:**\n\nStep 1: Distribute the first crew's expression: $4(p+3)=4p+12$.\n\nStep 2: Set the totals equal: $4p+12=4p+15$. Subtracting $4p$ from both sides removes the variable and leaves $12=15$.\n\nStep 3: That statement is false, so no value of $p$ makes the totals agree. Check the table: the gap is $19-16=3$, $31-28=3$, and $47-44=3$, constant at $3$ for every row.\n\n**Why the wrong answers are tempting:**\n\n* Choice B (Exactly one value of $p$): treats the leftover $12=15$ as an equation still to be solved for $p$.\n* Choice C (Exactly two values of $p$): expects the totals to cross twice, impossible for two expressions with the same coefficient of $p$.\n* Choice D (Every value of $p$): assumes distributing must make the two sides identical, ignoring that $12$ and $15$ differ.\n\n**Test Day Takeaway:** Equal variable coefficients with unequal constants means the two sides run parallel forever: no solution.",
+ "id": "bank-alg-393"
 }

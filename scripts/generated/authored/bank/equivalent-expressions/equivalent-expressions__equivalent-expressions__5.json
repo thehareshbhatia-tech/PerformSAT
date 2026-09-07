@@ -1,25 +1,29 @@
 {
-  "id": 5,
-  "question": "Which of the following is equivalent to $(3c-5d)^{2}-(3c+5d)^{2}$, where $c$ and $d$ are constants?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-60cd$"
-    },
-    {
-      "id": "B",
-      "text": "$0$"
-    },
-    {
-      "id": "C",
-      "text": "$60cd$"
-    },
-    {
-      "id": "D",
-      "text": "$18c^{2}+50d^{2}$"
-    }
-  ],
-  "correctAnswer": "A",
-  "hint": "Expand both squares in full before subtracting, and keep the parentheses around the second square while you distribute the minus sign.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** Both squares carry $9c^{2}+25d^{2}$, so those cancel; only the middle terms survive: $-30cd-(+30cd)=-60cd$ — choice A.\n\n**The Full Solution:**\nStep 1: Expand the first square: $(3c-5d)^{2}=9c^{2}-30cd+25d^{2}$.\nStep 2: Expand the second square: $(3c+5d)^{2}=9c^{2}+30cd+25d^{2}$.\nStep 3: Subtract, distributing the minus sign across all three terms: $(9c^{2}-30cd+25d^{2})-9c^{2}-30cd-25d^{2}=-60cd$.\nStep 4: Check at $c=1$, $d=1$: $(-2)^{2}-(8)^{2}=4-64=-60$, and $-60(1)(1)=-60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($0$): assumes squaring distributes over the terms, so both squares would expand to $9c^{2}+25d^{2}$ and cancel completely.\n* Choice C ($60cd$): subtracts in the wrong order, computing $(3c+5d)^{2}-(3c-5d)^{2}$ instead.\n* Choice D ($18c^{2}+50d^{2}$): adds the two squares rather than subtracting them: the $\\pm 30cd$ terms cancel and the squares double to $18c^{2}+50d^{2}$.\n\n**Test Day Takeaway:** A difference of two squared binomials keeps only the cross terms. Distribute the subtraction across every term of the second expansion — that dropped minus sign is the whole trap."
+ "question": "A crate's cross-sectional area is $16x^2 + kx + 81$, and for two constants $k$ this area is the square of a binomial. What are those two values of $k$?",
+ "hint": "What binomial, when squared, could produce the first and last terms?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-72$ only"
+  },
+  {
+   "id": "B",
+   "text": "$-36$ and $36$"
+  },
+  {
+   "id": "C",
+   "text": "$-72$ and $72$"
+  },
+  {
+   "id": "D",
+   "text": "$72$ only"
+  }
+ ],
+ "distractorNotes": {
+  "A": "keeps only the negative value and discards the positive one",
+  "B": "uses the square root of 16(81) = 36 without doubling it",
+  "D": "keeps only the positive value"
+ },
+ "correctAnswer": "C",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~40s):** A square $(4x \\pm 9)^2$ has middle term $\\pm 2(4)(9)x = \\pm 72x$, so $k = \\pm 72$.\n\n**The Full Solution:**\nStep 1: For the trinomial to be a square, it must equal $(4x + c)^2$ with $c^2 = 81$, so $c = 9$ or $c = -9$.\nStep 2: Expanding $(4x + c)^2$ gives $16x^2 + 8cx + c^2$, so $k = 8c$.\nStep 3: With $c = 9$, $k = 72$; with $c = -9$, $k = -72$. Check: $(4x + 9)^2 = 16x^2 + 72x + 81$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-72$ only): finds the right size but discards the equally valid positive value.\n* Choice B ($-36$ and $36$): uses $\\sqrt{16 \\cdot 81} = 36$ and forgets the factor of $2$ in the middle term.\n* Choice D ($72$ only): discards the negative value, though $(4x - 9)^2$ is also a square.\n\n**Test Day Takeaway:** The middle term of a perfect square is twice the product of the two square roots — and its sign can go either way."
 }

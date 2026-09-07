@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-306",
-  "question": "$4(x + k) = 52$\nIn the given equation, $k$ is a constant. If $x = 6$ is the solution to the equation, what is the value of $k$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$7$"
-    },
-    {
-      "id": "B",
-      "text": "$13$"
-    },
-    {
-      "id": "C",
-      "text": "$19$"
-    },
-    {
-      "id": "D",
-      "text": "$46$"
-    }
-  ],
-  "correctAnswer": "A",
-  "distractorNotes": {
-    "B": "stopped at 6 + k = 13 and reported 13",
-    "C": "added 6 to 13 instead of subtracting",
-    "D": "subtracted 6 from 52, never dividing by 4"
+ "question": "In a scoring model for a decathlon event, $4(3x - c) + 2x = 46$, where $c$ is a constant and $x$ is a measured distance in meters. The solution to this equation is $x = 5$. What is the value of $c$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-6$"
   },
-  "explanation": "**SAT Pattern: Solve for a Parameter Given a Solution**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Substitute $x = 6$: $4(6 + k) = 52$, so $6 + k = 13$ and $k = 7$.\n\n**The Full Solution:**\nStep 1: A solution is a value of $x$ that makes the equation true, so replace $x$ with $6$: $4(6 + k) = 52$.\nStep 2: Divide both sides by $4$: $6 + k = 13$.\nStep 3: Subtract $6$: $k = 7$.\nCheck: with $k = 7$ the equation is $4(x + 7) = 52$, and $x = 6$ gives $4(13) = 52$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($13$): stops at $6 + k = 13$ and reports the value of the parenthetical, not $k$.\n* Choice C ($19$): computes $13 + 6$ instead of $13 - 6$ when isolating $k$.\n* Choice D ($46$): subtracts $6$ from $52$ without first dividing by $4$, treating $4(x + k)$ as $x + k$.\n\n**Test Day Takeaway:** \"$x = 6$ is the solution\" means substitute $6$ for $x$; the constant then becomes the only unknown in an ordinary one-step equation."
+  {
+   "id": "B",
+   "text": "$3.5$"
+  },
+  {
+   "id": "C",
+   "text": "$6$"
+  },
+  {
+   "id": "D",
+   "text": "$24$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "solves $4c = -24$ instead of $-4c = -24$",
+  "B": "drops the $+2x$ term, solving $60 - 4c = 46$",
+  "D": "fails to distribute the $4$ to $c$, solving $70 - c = 46$"
+ },
+ "explanation": "**SAT Pattern: Solve for a Parameter Given a Solution**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Substituting $x = 5$ gives $4(15 - c) + 10 = 46$, so $70 - 4c = 46$ and $c = 6$.\n\n**The Full Solution:**\n\nStep 1: Substitute $x = 5$: $4(3 \\cdot 5 - c) + 2 \\cdot 5 = 46$, that is, $4(15 - c) + 10 = 46$.\n\nStep 2: Distribute and combine: $60 - 4c + 10 = 46$, so $70 - 4c = 46$.\n\nStep 3: Then $-4c = -24$ and $c = 6$. Check: $4(15 - 6) + 10 = 36 + 10 = 46$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-6$): loses a sign and solves $4c = -24$.\n\n* Choice B ($3.5$): drops the $+2x$ term, so the equation becomes $60 - 4c = 46$.\n\n* Choice D ($24$): distributes the $4$ to $3x$ but not to $c$, giving $70 - c = 46$.\n\n**Test Day Takeaway:** Substitute the known solution first, then distribute across the entire parenthesis before isolating the constant.",
+ "id": "bank-alg-306"
 }

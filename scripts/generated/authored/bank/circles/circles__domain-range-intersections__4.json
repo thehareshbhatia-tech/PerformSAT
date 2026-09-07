@@ -1,30 +1,29 @@
 {
- "id": 4,
- "question": "In the $xy$-plane, the graph of $x^2 + y^2 = 64$ is a circle centered at the origin. At which points does this circle intersect the $y$-axis?",
+ "question": "A survey marker's range boundary is the circle $(x - 5)^2 + (y + 2)^2 = 25$, where each unit is one kilometer and the $y$-axis represents a straight highway. How many points does the boundary share with that highway?",
+ "hint": "How far does the center sit from the $y$-axis?",
  "choices": [
   {
    "id": "A",
-   "text": "$(0, -64)$ and $(0, 64)$"
+   "text": "None"
   },
   {
    "id": "B",
-   "text": "$(0, -8)$ and $(0, 8)$"
+   "text": "Exactly one"
   },
   {
    "id": "C",
-   "text": "$(-8, 0)$ and $(8, 0)$"
+   "text": "Exactly two"
   },
   {
    "id": "D",
-   "text": "$(0, -4)$ and $(0, 4)$"
+   "text": "Infinitely many"
   }
  ],
- "correctAnswer": "B",
- "hint": "Every point on the $y$-axis has $x = 0$.",
  "distractorNotes": {
-  "A": "uses 64 as the radius",
-  "C": "reports the x-intercepts",
-  "D": "halves the radius"
+  "A": "compares r^2 = 25 with the distance 5 and concludes the axis is out of reach",
+  "C": "compares the radius with the center's y-coordinate, 2, instead of its x-coordinate",
+  "D": "treats the equation as describing the axis itself rather than a circle"
  },
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** Setting $x = 0$ gives $y^2 = 64$, so $y = \\pm 8$ and the points are $(0, -8)$ and $(0, 8)$.\n\n**The Full Solution:**\nStep 1: A point on the $y$-axis has $x = 0$.\nStep 2: Substitute: $0^2 + y^2 = 64$, so $y^2 = 64$.\nStep 3: $y = 8$ or $y = -8$, giving $(0, 8)$ and $(0, -8)$. Check: the circle is centered at the origin with radius $8$, so it meets each axis exactly $8$ units out.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(0, -64)$ and $(0, 64)$): uses $64$ itself as the radius instead of taking the square root.\n* Choice C ($(-8, 0)$ and $(8, 0)$): solves for the $x$-intercepts and reports those points instead.\n* Choice D ($(0, -4)$ and $(0, 4)$): halves the radius, as if $8$ were a diameter.\n\n**Test Day Takeaway:** Substituting $x = 0$ turns any curve into its $y$-intercepts. For a circle centered at the origin, they are $\\pm r$."
+ "correctAnswer": "B",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** The center $(5, -2)$ sits $5$ units from the $y$-axis, exactly one radius, so the axis touches the boundary once.\n\n**The Full Solution:**\nStep 1: The equation gives center $(5, -2)$ and $r = \\sqrt{25} = 5$.\nStep 2: The distance from $(5, -2)$ to the $y$-axis is the $x$-coordinate, $5$.\nStep 3: Distance equals radius, so there is exactly one shared point. Check: setting $x = 0$ gives $25 + (y + 2)^2 = 25$, whose only solution is $y = -2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (None): compares the distance $5$ with $r^2 = 25$ and concludes the axis is out of reach.\n* Choice C (Exactly two): compares the radius with the center's $y$-coordinate, $2$, which measures the distance to the wrong axis.\n* Choice D (Infinitely many): would require the boundary to be the axis itself rather than a circle.\n\n**Test Day Takeaway:** Compare the distance from the center to a line with the radius: less gives two points, equal gives one, greater gives none."
 }

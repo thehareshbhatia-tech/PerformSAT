@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-098",
-  "question": "If $w$ is the solution to the equation $\\frac{4w - 3}{9} = \\frac{8}{3}$, what is the value of $8w + 1$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$28$"
-    },
-    {
-      "id": "B",
-      "text": "$49$"
-    },
-    {
-      "id": "C",
-      "text": "$55$"
-    },
-    {
-      "id": "D",
-      "text": "$151$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports 4w + 1",
-    "B": "drops the -3, getting 4w = 24",
-    "D": "cross-multiplies as 4w - 3 = 72, forgetting to divide by 3"
+ "question": "For a speed-skating lap, the index $\\frac{3s + 8}{4}$ equals $11$, where $s$ is the number of hundredths of a second the skater saves on the final turn. A second index for the same lap is $9s + 24$. What is the value of the second index?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$44$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiply by $9$: $4w - 3 = 24$, so $4w = 27$. Since $8w = 2(4w) = 54$, the value of $8w + 1$ is $55$.\n\n**The Full Solution:**\nStep 1: Multiply both sides by $9$: $4w - 3 = \\frac{8 \\cdot 9}{3} = 24$.\nStep 2: Add $3$: $4w = 27$. The target $8w + 1$ is built from $8w = 2 \\cdot 4w = 54$, so there is no need to find $w$.\nStep 3: $8w + 1 = 55$. Check with $w = 6.75$: $\\frac{4(6.75) - 3}{9} = \\frac{24}{9} = \\frac{8}{3}$ and $8(6.75) + 1 = 55$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($28$): reports $4w + 1$, forgetting to double $4w$.\n* Choice B ($49$): drops the $-3$, getting $4w = 24$ and $8w + 1 = 49$.\n* Choice D ($151$): cross-multiplies as $4w - 3 = 8 \\cdot 9 = 72$, forgetting to divide by $3$.\n\n**Test Day Takeaway:** Isolate the block ($4w$) that the target is built from, scale the block rather than solving for the variable, and keep every constant from the original equation."
+  {
+   "id": "B",
+   "text": "$108$"
+  },
+  {
+   "id": "C",
+   "text": "$132$"
+  },
+  {
+   "id": "D",
+   "text": "$176$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "reports the value of $3s + 8$ and stops",
+  "B": "computes $9s = 108$ but drops the $+24$",
+  "D": "multiplies $3s + 8 = 44$ by the denominator $4$ instead of by $3$"
+ },
+ "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $3s + 8 = 44$, and $9s + 24$ is exactly $3(3s + 8)$, so the value is $3(44) = 132$.\n\n**The Full Solution:**\n\nStep 1: Multiply both sides of $\\frac{3s + 8}{4} = 11$ by $4$: $3s + 8 = 44$.\n\nStep 2: Notice that $9s + 24 = 3(3s + 8)$, so no value of $s$ is needed.\n\nStep 3: Therefore $9s + 24 = 3(44) = 132$. Check with $s = 12$: $\\frac{3(12) + 8}{4} = 11$ and $9(12) + 24 = 132$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($44$): stops at $3s + 8$, the value cleared of the denominator.\n\n* Choice B ($108$): computes $9s = 108$ but never adds the $24$.\n\n* Choice D ($176$): multiplies $44$ by the denominator $4$ instead of by the factor $3$ that links the two expressions.\n\n**Test Day Takeaway:** Before solving for the variable, check whether the target expression is a constant multiple of the one you already have.",
+ "id": "bank-alg-098"
 }

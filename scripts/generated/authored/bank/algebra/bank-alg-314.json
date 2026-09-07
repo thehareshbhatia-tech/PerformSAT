@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-314",
-  "question": "Which of the following expressions is equivalent to $(5x - 7) - (2x - 3)$ for all values of $x$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$7x - 10$"
-    },
-    {
-      "id": "B",
-      "text": "$3x - 10$"
-    },
-    {
-      "id": "C",
-      "text": "$7x - 4$"
-    },
-    {
-      "id": "D",
-      "text": "$3x - 4$"
-    }
-  ],
-  "correctAnswer": "D",
-  "distractorNotes": {
-    "A": "added the x-terms and failed to distribute the minus to -3",
-    "B": "did not distribute the minus sign to -3 (kept -7 - 3)",
-    "C": "added the x-terms instead of subtracting"
+ "id": "bank-alg-314",
+ "question": "A courtyard's permeable area, in square meters, is $3(2x - 7) + k(x + 4)$ for a constant $k$, where $x$ is the courtyard's width in meters. That area also equals $10x - 5$ square meters for every width. What is the value of $k$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3$"
   },
-  "explanation": "**SAT Pattern: Combining Like Terms**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Distribute the minus sign: $5x - 7 - 2x + 3$. Combine: $3x - 4$.\n\n**The Full Solution:**\nStep 1: Subtracting a parenthetical negates every term inside it: $-(2x - 3) = -2x + 3$.\nStep 2: Rewrite without parentheses: $5x - 7 - 2x + 3$.\nStep 3: Combine like terms: $x$-terms $5x - 2x = 3x$; constants $-7 + 3 = -4$. The result is $3x - 4$.\nCheck: substitute $x = 2$: $(10 - 7) - (4 - 3) = 3 - 1 = 2$, and $3(2) - 4 = 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7x - 10$): makes both errors at once, adding the $x$-terms and leaving the $-3$ un-negated.\n* Choice B ($3x - 10$): subtracts the $x$-terms correctly but forgets that the minus sign also flips $-3$ to $+3$.\n* Choice C ($7x - 4$): negates the constant correctly but adds $5x + 2x$ instead of subtracting.\n\n**Test Day Takeaway:** A minus sign in front of parentheses changes the sign of EVERY term inside; rewrite the expression without parentheses before combining."
+  {
+   "id": "B",
+   "text": "$4$"
+  },
+  {
+   "id": "C",
+   "text": "$10$"
+  },
+  {
+   "id": "D",
+   "text": "$16$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports the multiplier 3 from the first product instead of k",
+  "C": "reports the coefficient of x in the target expression",
+  "D": "stops at 4k = 16 without dividing by 4"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Combining Like Terms**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Expanding gives $(6 + k)x + (4k - 21)$; matching the $x$-terms, $6 + k = 10$, so $k = 4$.\n\n**The Full Solution:**\nStep 1: Expand both products: $3(2x - 7) = 6x - 21$ and $k(x + 4) = kx + 4k$.\nStep 2: Combine like terms: the expression equals $(6 + k)x + (4k - 21)$.\nStep 3: Because this matches $10x - 5$ for every width, the $x$-coefficients agree: $6 + k = 10$, so $k = 4$. Check: the constants then give $4(4) - 21 = -5$, which matches ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the multiplier $3$ that was already in front of the first parentheses.\n* Choice C ($10$): reports the coefficient of $x$ in $10x - 5$ instead of solving for $k$.\n* Choice D ($16$): matches the constants correctly, $4k - 21 = -5$, but stops at $4k = 16$ without dividing.\n\n**Test Day Takeaway:** Two expressions equal for every input have matching coefficients term by term — set up one equation per power of $x$."
 }

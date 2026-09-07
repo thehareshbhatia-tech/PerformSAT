@@ -1,29 +1,51 @@
 {
-  "id": "bank-am-425",
-  "question": "The function $f$ is defined by $f(x) = (x - c)(x - 4c)$, where $c$ is a nonzero constant. Which of the following statements about the graph of $y = f(x)$ in the $xy$-plane must be true?\n\nI. The graph has exactly two $x$-intercepts.\nII. The vertex of the graph lies to the right of the $y$-axis.",
-  "choices": [
-    {
-      "id": "A",
-      "text": "I only"
-    },
-    {
-      "id": "B",
-      "text": "II only"
-    },
-    {
-      "id": "C",
-      "text": "I and II"
-    },
-    {
-      "id": "D",
-      "text": "Neither I nor II"
-    }
-  ],
-  "distractorNotes": {
-    "B": "worries the two zeros could coincide while assuming $c$ is positive",
-    "C": "reads nonzero as positive, so the vertex at $x = \\dfrac{5c}{2}$ looks automatically positive",
-    "D": "rejects statement I on the grounds that $c$ and $4c$ might be equal"
+ "id": "bank-am-425",
+ "question": "The graph shows $y=g(x)$, where the quadratic function $g$ models a docking radar's range error, in centimeters, at approach angle $x$ degrees. Which of the following must be true?\n\nI. $x+5$ is a factor of $g(x)$.\nII. $g(x)$ decreases as $x$ increases for $x<-2$.\nIII. The maximum value of $g$ is $-9$.",
+ "diagram": {
+  "type": "parabola",
+  "params": {
+   "vertex": {
+    "h": -2,
+    "k": -9
+   },
+   "a": 1,
+   "xRange": [
+    -6,
+    2
+   ],
+   "yRange": [
+    -10,
+    8
+   ],
+   "xTickInterval": 1,
+   "yTickInterval": 2,
+   "gridInterval": 1,
+   "showVertex": false
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "I only"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Quadratic Must-Be-True Statements**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The zeros $c$ and $4c$ are different for every nonzero $c$, so I always holds; the vertex sits at $x = \\dfrac{5c}{2}$, which is negative whenever $c$ is negative, so II can fail.\n\n**The Full Solution:**\nStep 1: Statement I. The factored form makes $f(x) = 0$ exactly when $x = c$ or $x = 4c$. These coincide only if $c = 4c$, that is, only if $c = 0$, and $c = 0$ is excluded. So the graph meets the $x$-axis at exactly two points, and I must be true.\nStep 2: Statement II. A parabola is symmetric about the midpoint of its zeros, so the vertex has $x$-coordinate $\\dfrac{c + 4c}{2} = \\dfrac{5c}{2}$. That is positive when $c > 0$ but negative when $c < 0$, and nonzero permits both. A statement that fails for even one permitted value of $c$ is not a must.\nStep 3: Only statement I must be true, so the answer is I only. Check with $c = -2$: $f(x) = (x + 2)(x + 8) = x^2 + 10x + 16$, whose zeros $-8$ and $-2$ are distinct, and whose vertex $(-5, -9)$ lies to the left of the $y$-axis. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: this keeps the vertex claim, which depends on the sign of $c$, and discards the intercept claim, which does not. The two zeros $c$ and $4c$ differ by $3c$, and $3c \\ne 0$ for every value $c$ is allowed to take.\n* Choice C: correct on statement I, but it silently upgrades nonzero to positive. Testing a single negative value, such as $c = -2$, puts the vertex at $x = -5$.\n* Choice D: rejects statement I as well, presumably on the worry that $c$ and $4c$ could be equal; that happens only at $c = 0$, the one value the problem rules out.\n\n**Test Day Takeaway:** On must-be-true items, read the constraint on the constant exactly as written. Nonzero is not positive, so test one negative value before you accept any claim about position in the plane."
+  {
+   "id": "B",
+   "text": "I and II only"
+  },
+  {
+   "id": "C",
+   "text": "II and III only"
+  },
+  {
+   "id": "D",
+   "text": "I, II, and III"
+  }
+ ],
+ "distractorNotes": {
+  "A": "accepts the factor from the intercept at x = -5 but reads the branch left of the vertex as rising, rejecting II",
+  "C": "accepts III by reading the lowest point -9 as a maximum, and drops I after missing the intercept at x = -5",
+  "D": "accepts all three, including the false claim that the upward-opening parabola has a maximum of -9"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Quadratic Must-Be-True Statements**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** The curve crosses the $x$-axis at $-5$ and $1$ and turns upward at $(-2,-9)$, so I and II hold while III names a minimum as a maximum.\n\n**The Full Solution:**\n\nStep 1: Statement I. The graph meets the $x$-axis at $x=-5$, so $g(-5)=0$ and $x-(-5)=x+5$ is a factor. I is true.\n\nStep 2: Statement II. The turning point sits at $x=-2$ and the parabola opens upward, so on the whole interval $x<-2$ the curve falls as $x$ increases. II is true.\n\nStep 3: Statement III. An upward-opening parabola has no maximum; $-9$ is the smallest value of $g$, not the largest. III is false, so exactly I and II must be true. Check: reading $x=-6$ and $x=2$ off the graph gives $g=7$ at both, values larger than $-9$, so $-9$ cannot be a maximum.\n\n**Why the wrong answers are tempting:**\n\n* Choice A: keeps I but rejects II by reading the left branch as rising instead of falling.\n* Choice C: keeps the false statement III by calling the lowest point a maximum, and overlooks the intercept at $x=-5$ that makes I true.\n* Choice D: accepts every statement, including the claim that an upward-opening parabola has a maximum.\n\n**Test Day Takeaway:** On a must-be-true graph item, test each statement against a specific feature \u2014 an intercept, the turning point, the direction of opening \u2014 rather than against the picture as a whole."
 }

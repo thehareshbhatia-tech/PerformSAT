@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-413",
-  "question": "In the $xy$-plane, a parabola with vertex $(-6, 4)$ intersects the $x$-axis at exactly two points. An equation of the parabola is $y = ax^2 + bx + c$, where $a$, $b$, and $c$ are constants. What is the value of $\\dfrac{b}{a}$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-12$"
-    },
-    {
-      "id": "B",
-      "text": "$-6$"
-    },
-    {
-      "id": "C",
-      "text": "$6$"
-    },
-    {
-      "id": "D",
-      "text": "$12$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "solves $\\frac{-b}{2a} = -6$ as $b = -12a$",
-    "B": "reports the $x$-coordinate of the vertex",
-    "C": "omits the factor of 2 in the axis formula"
+ "id": "bank-am-413",
+ "question": "The deviation of a lithium battery pack's temperature from its target, in degrees Celsius, is a quadratic function $T$ of $t$, the number of hours after 9 a.m. The deviation reaches its greatest value, $12$, at $t=3$, and $T(7)=-4$. What is the value of $T(-1)$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-12$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Vertex + Sign-of-Coefficient Reasoning**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The axis of symmetry is $x = -\\dfrac{b}{2a} = -6$, so $\\dfrac{b}{2a} = 6$ and $\\dfrac{b}{a} = 12$.\n\n**The Full Solution:**\nStep 1: For $y = ax^2 + bx + c$ the vertex lies on the vertical line $x = -\\dfrac{b}{2a}$. The vertex here has $x$-coordinate $-6$, so $-\\dfrac{b}{2a} = -6$.\nStep 2: Multiply both sides by $-1$: $\\dfrac{b}{2a} = 6$. Multiply by $2$: $\\dfrac{b}{a} = 12$.\nStep 3: Sign check. The vertex sits ABOVE the $x$-axis at height $4$, and the parabola still meets the axis twice, so it must open downward and $a < 0$. Then $b = 12a$ is also negative, and their ratio is positive — consistent with $12$. A concrete case: $y = -(x + 6)^2 + 4 = -x^2 - 12x - 32$, where $\\dfrac{-12}{-1} = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): drops a negative when clearing $-\\dfrac{b}{2a} = -6$, concluding $b = -12a$.\n* Choice B ($-6$): reports the $x$-coordinate of the vertex itself instead of the ratio.\n* Choice C ($6$): forgets the factor of $2$ in $-\\dfrac{b}{2a}$.\n\n**Test Day Takeaway:** The vertex $x$-coordinate always gives you $\\dfrac{b}{a}$ — and the position of the vertex relative to the $x$-axis tells you the sign of $a$ as a free check."
+  {
+   "id": "B",
+   "text": "$-4$"
+  },
+  {
+   "id": "C",
+   "text": "$4$"
+  },
+  {
+   "id": "D",
+   "text": "$12$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "negates the maximum value instead of using symmetry",
+  "C": "drops the negative sign from the given value T(7) = -4",
+  "D": "reports the maximum value, which occurs at t = 3 rather than t = -1"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Vertex + Sign-of-Coefficient Reasoning**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The maximum at $t=3$ puts the axis of symmetry there, and $-1$ and $7$ are both $4$ units from $3$, so $T(-1)=T(7)=-4$.\n\n**The Full Solution:**\nStep 1: A quadratic with a greatest value opens downward, and its axis of symmetry passes through the maximum, so the axis is $t=3$.\nStep 2: Inputs equally far from the axis give equal outputs: $7-3=4$ and $3-(-1)=4$.\nStep 3: Therefore $T(-1)=T(7)=-4$. Check: $T(t)=-(t-3)^2+12$ fits both facts, and $T(-1)=-16+12=-4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): negates the maximum value instead of using symmetry.\n* Choice C ($4$): drops the negative sign from the given output $T(7)=-4$.\n* Choice D ($12$): reports the maximum value, which occurs at $t=3$, not at $t=-1$.\n\n**Test Day Takeaway:** A stated maximum hands you the axis of symmetry for free — pair inputs across it instead of solving for the coefficients."
 }

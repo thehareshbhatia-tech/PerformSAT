@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-464",
-  "question": "If $2m + 5n = 31$ and $2m - 5n = -9$, what is the value of $n$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$4$"
-    },
-    {
-      "id": "B",
-      "text": "$5.5$"
-    },
-    {
-      "id": "C",
-      "text": "$11$"
-    },
-    {
-      "id": "D",
-      "text": "$40$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "reports m = 5.5 instead of n.",
-    "C": "reports 2m = 11 from adding the equations and halving.",
-    "D": "stops at 10n = 40 without dividing by 10."
+ "question": "A climate summary reports $4x + 3y = 97$ and $6x + 7y = 173$, where $x$ is the number of dry days and $y$ is the number of drizzle days in a season, weighted two different ways. What is the value of $x + 2y$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$19$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice A is correct.**\n\n**The Fast Way (~8s):** Subtract the second equation from the first: $10n = 40$, so $n = 4$.\n\n**The Full Solution:**\nStep 1: The $m$-terms are identical, so subtracting eliminates $m$: $(2m + 5n) - (2m - 5n) = 31 - (-9)$.\nStep 2: Simplify: $10n = 40$, so $n = 4$. Note $31 - (-9) = 40$, not $22$.\nStep 3: Check: adding the equations gives $4m = 22$, $m = 5.5$; then $2(5.5) + 5(4) = 31$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($5.5$): reports $m = 5.5$ instead of $n$.\n* Choice C ($11$): reports $2m = 11$ from adding the equations and halving.\n* Choice D ($40$): stops at $10n = 40$ without dividing by $10$.\n\n**Test Day Takeaway:** Subtracting a negative constant adds: $31 - (-9) = 40$. Then divide by the coefficient and confirm you reported the variable asked for."
+  {
+   "id": "B",
+   "text": "$38$"
+  },
+  {
+   "id": "C",
+   "text": "$76$"
+  },
+  {
+   "id": "D",
+   "text": "$270$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "divides $76$ by $4$ instead of by $2$",
+  "C": "reports $2x + 4y$ without halving it",
+  "D": "adds the two reports, producing $10x + 10y$"
+ },
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Subtracting gives $2x + 4y = 76$, so $x + 2y = 38$.\n\n**The Full Solution:**\n\nStep 1: Subtract the first report from the second: $(6x + 7y) - (4x + 3y) = 173 - 97$.\n\nStep 2: Combine like terms: $2x + 4y = 76$.\n\nStep 3: Divide by $2$: $x + 2y = 38$. Check with $x = 16$ and $y = 11$: $4(16) + 3(11) = 97$ and $6(16) + 7(11) = 173$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($19$): divides $76$ by $4$, the $y$-coefficient, instead of by the common factor $2$.\n\n* Choice C ($76$): stops at $2x + 4y$, which is twice what the question asks for.\n\n* Choice D ($270$): adds the reports, which gives $10x + 10y$ and no route to $x + 2y$.\n\n**Test Day Takeaway:** Decide whether to add or subtract by looking at the target's coefficients before touching the numbers.",
+ "id": "bank-alg-464"
 }

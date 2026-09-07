@@ -1,29 +1,29 @@
 {
   "id": "bank-am-377",
-  "question": "The function $f$ is defined by $f(x) = x^3$. In the $xy$-plane, the graph of $y = f(x) + 6$ is the graph of $y = f(x)$ shifted in which direction?",
+  "question": "A dance company replaces the fog-machine model $b$, which gives the fog output, in grams per minute, at a dial setting of $x$, with a model that returns half of $b$'s value at every setting. Which function models the new output?",
   "choices": [
     {
       "id": "A",
-      "text": "Down $6$ units"
+      "text": "$b(0.5x)$"
     },
     {
       "id": "B",
-      "text": "Left $6$ units"
+      "text": "$0.5b(x)$"
     },
     {
       "id": "C",
-      "text": "Right $6$ units"
+      "text": "$b(x)-0.5$"
     },
     {
       "id": "D",
-      "text": "Up $6$ units"
+      "text": "$b(x-0.5)$"
     }
   ],
+  "correctAnswer": "B",
   "distractorNotes": {
-    "A": "flips the sign of an outside change",
-    "B": "treats an outside change as horizontal",
-    "C": "treats an outside change as horizontal and keeps the sign"
+    "A": "halves the dial setting rather than the fog output",
+    "C": "subtracts 0.5 gram per minute from the output instead of halving it",
+    "D": "shifts the dial setting by 0.5 instead of scaling the output"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Adding $6$ outside the function raises every output by $6$, so the graph moves up $6$.\n\n**The Full Solution:**\nStep 1: The $+6$ is added AFTER $f$ acts on $x$, so it changes outputs ($y$-values), not inputs.\nStep 2: Every point $(x, y)$ on $y = f(x)$ becomes $(x, y + 6)$; the $x$-coordinate is untouched.\nStep 3: Raising every $y$-value by $6$ is a shift up $6$ units. Check with one point: $(2, 8)$ on $y = x^3$ becomes $(2, 14)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Down $6$ units): flips the sign; a shift down would come from $y = f(x) - 6$.\n* Choice B (Left $6$ units): treats the outside change as horizontal; a left shift comes from $y = f(x + 6)$.\n* Choice C (Right $6$ units): also treats the outside change as horizontal, this time from $y = f(x - 6)$.\n\n**Test Day Takeaway:** Changes OUTSIDE the function move the graph vertically in the direction of the sign; changes INSIDE move it horizontally, opposite the sign."
+  "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Half of the output means the whole function value is multiplied by $0.5$, giving $0.5b(x)$.\n\n**The Full Solution:**\nStep 1: The new model changes the fog output, which is the output, not the dial setting, which is the input.\nStep 2: A change to every output is written outside the function.\nStep 3: Multiplying the output by $0.5$ gives $0.5b(x)$. Check: if $b(4)=120$ grams per minute, the new model gives 60 grams per minute at the same setting ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($b(0.5x)$): halves the dial setting, which changes which output is read, not the output itself.\n* Choice C ($b(x)-0.5$): subtracts half a gram per minute instead of halving the value.\n* Choice D ($b(x-0.5)$): shifts the dial setting rather than scaling the output.\n\n**Test Day Takeaway:** Ask which quantity changed — outputs are altered outside the parentheses, inputs inside."
 }

@@ -1,52 +1,52 @@
 {
-  "id": "bank-alg-345",
-  "question": "A language-learning subscription has a one-time enrollment fee plus a constant monthly charge. The table shows the total amount paid, in dollars, after $2$, $4$, and $6$ months. Which function $f$ gives the total amount paid, in dollars, after $m$ months?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "Months",
-        "Total paid (dollars)"
-      ],
-      "rows": [
-        [
-          "2",
-          "39.00"
-        ],
-        [
-          "4",
-          "54.00"
-        ],
-        [
-          "6",
-          "69.00"
-        ]
-      ]
-    }
+ "question": "The table gives the total cost, in dollars, of an order of $n$ reagent kits placed with a single supplier. Which function models the total cost, in dollars, of an order of $n$ kits from that supplier?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "Reagent kits",
+    "Total cost (dollars)"
+   ],
+   "rows": [
+    [
+     "4",
+     "118"
+    ],
+    [
+     "7",
+     "178"
+    ],
+    [
+     "11",
+     "258"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$C(n)=20n$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$f(m) = 7.50m + 24$"
-    },
-    {
-      "id": "B",
-      "text": "$f(m) = 7.50m + 39$"
-    },
-    {
-      "id": "C",
-      "text": "$f(m) = 19.50m$"
-    },
-    {
-      "id": "D",
-      "text": "$f(m) = 24m + 7.50$"
-    }
-  ],
-  "correctAnswer": "A",
-  "distractorNotes": {
-    "B": "used the 2-month total as the enrollment fee",
-    "C": "assumed proportionality: 39/2 per month",
-    "D": "swapped the fee and the monthly charge"
+  {
+   "id": "B",
+   "text": "$C(n)=20n+38$"
   },
-  "explanation": "**SAT Pattern: Linear Cost Model**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Two months add $15$, so the monthly charge is $7.50$. Fee: $39 - 2(7.50) = 24$. So $f(m) = 7.50m + 24$.\n\n**The Full Solution:**\nStep 1: The rows are $2$ months apart and the totals rise by $15$ each time, so the monthly charge is $15 \\div 2 = 7.50$.\nStep 2: The enrollment fee is the total at $0$ months: $39 - 2(7.50) = 24$.\nStep 3: Assemble: $f(m) = 7.50m + 24$.\nCheck: $f(6) = 7.50(6) + 24 = 45 + 24 = 69$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(m) = 7.50m + 39$): treats the $2$-month total as the fee; the intercept is the value at zero months.\n* Choice C ($f(m) = 19.50m$): divides $39$ by $2$ and assumes no fee; $f(4)$ would be $78$, not $54$.\n* Choice D ($f(m) = 24m + 7.50$): swaps the fee and the monthly charge.\n\n**Test Day Takeaway:** When table rows are $2$ apart, divide the change by $2$ to get the per-unit rate before backing out the intercept."
+  {
+   "id": "C",
+   "text": "$C(n)=29.5n$"
+  },
+  {
+   "id": "D",
+   "text": "$C(n)=38n+20$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "uses the correct rate but drops the fixed 38 dollars, giving 80 instead of 118 at n = 4",
+  "C": "divides the first total by its count, assuming the cost is proportional to n",
+  "D": "swaps the rate and the fixed charge, giving 172 instead of 118 at n = 4"
+ },
+ "explanation": "**SAT Pattern: Linear Cost Model**\n\n**Choice B is correct.** The cost rises $\\$20$ per kit and every order carries a fixed $\\$38$, so $C(n)=20n+38$.\n\n**The Fast Way (~35s):** $\\frac{178-118}{7-4}=20$ per kit, and $118-20(4)=38$ fixed, giving $C(n)=20n+38$.\n\n**The Full Solution:**\n\nStep 1: Find the rate from two rows: $\\frac{178-118}{7-4}=\\frac{60}{3}=20$ dollars per kit.\n\nStep 2: Find the fixed part by substituting one row into $C(n)=20n+b$: $118=20(4)+b$, so $b=38$.\n\nStep 3: The model is $C(n)=20n+38$. Check the third row: $20(11)+38=220+38=258$, matching the table.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($C(n)=20n$): the rate is right, but at $n=4$ it gives $\\$80$ rather than the listed $\\$118$.\n* Choice C ($C(n)=29.5n$): divides $118$ by $4$ and assumes proportionality, which fails at $n=7$, where it gives $\\$206.50$.\n* Choice D ($C(n)=38n+20$): swaps the two constants and gives $\\$172$ at $n=4$.\n\n**Test Day Takeaway:** Test a candidate model against a row you did not use to build it; a proportional model must also reproduce the fixed part.",
+ "id": "bank-alg-345"
 }

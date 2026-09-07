@@ -1,29 +1,49 @@
 {
-  "id": "bank-am-272",
-  "question": "A deposit of $\\$4{,}500$ is made into an account that earns $3\\%$ interest, compounded annually, and no further deposits or withdrawals are made. Which of the following gives the account balance $B(t)$, in dollars, $t$ years after the deposit?",
+  "question": "The table gives the balance of a college fund at the end of each of the first three years after it was opened. The fund earns $4\\%$ interest compounded annually. What will the fund's balance be at the end of the fourth year?",
+  "questionTable": {
+    "headers": [
+      "Year",
+      "Balance (dollars)"
+    ],
+    "rows": [
+      [
+        "$1$",
+        "$5{,}200.00$"
+      ],
+      [
+        "$2$",
+        "$5{,}408.00$"
+      ],
+      [
+        "$3$",
+        "$5{,}624.32$"
+      ]
+    ]
+  },
   "choices": [
     {
       "id": "A",
-      "text": "$B(t) = 4{,}500(0.03)^t$"
+      "text": "$\\$5{,}832.32$"
     },
     {
       "id": "B",
-      "text": "$B(t) = 4{,}500(1.03)^t$"
+      "text": "$\\$5{,}840.64$"
     },
     {
       "id": "C",
-      "text": "$B(t) = 4{,}500(1.3)^t$"
+      "text": "$\\$5{,}849.29$"
     },
     {
       "id": "D",
-      "text": "$B(t) = 4{,}500 + 135t$"
+      "text": "$\\$6{,}083.26$"
     }
   ],
   "distractorNotes": {
-    "A": "uses the rate itself as the multiplier, which shrinks the balance",
-    "C": "misplaces the decimal point, modeling $30\\%$ growth",
-    "D": "models simple interest, adding the same $\\$135$ every year"
+    "A": "added 4 percent of the year-1 balance, 208 dollars, instead of 4 percent of the year-3 balance",
+    "B": "added the year-3 interest of 216.32 again instead of taking 4 percent of the new balance",
+    "D": "applied the 4 percent increase twice, giving the balance at the end of year 5"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Compound growth is (starting amount)(multiplier)$^t$, and a $3\\%$ increase has multiplier $1 + 0.03 = 1.03$.\n\n**The Full Solution:**\nStep 1: Each year the balance is multiplied by $1 + r$, where $r = 0.03$ is the annual rate written as a decimal.\nStep 2: After $t$ years the starting amount has been multiplied by that factor $t$ times, giving $B(t) = 4{,}500(1.03)^t$.\nStep 3: Check with $t = 1$: $4{,}500(1.03) = 4{,}635$, which is $4{,}500$ plus $3\\%$ of $4{,}500$, or $\\$135$ of interest. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($B(t) = 4{,}500(0.03)^t$): a base of $0.03$ makes the balance shrink to $\\$135$ after one year.\n* Choice C ($B(t) = 4{,}500(1.3)^t$): a base of $1.3$ is $30\\%$ growth per year, ten times the stated rate.\n* Choice D ($B(t) = 4{,}500 + 135t$): this is simple interest — the same $\\$135$ each year — so it never earns interest on interest.\n\n**Test Day Takeaway:** Compound growth is multiplicative and lives in the exponent; simple interest is additive and lives in a linear term."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiply the year-$3$ balance by $1.04$: $5624.32\\cdot 1.04=5{,}849.29$.\n\n**The Full Solution:**\nStep 1: Compounding annually at $4\\%$ multiplies each year's balance by $1.04$, which the table confirms: $5408.00\\cdot 1.04=5{,}624.32$.\nStep 2: Apply the same factor once more: $5624.32\\cdot 1.04$.\nStep 3: The year-$4$ balance is $\\$5{,}849.29$. Check: the interest earned is $\\$224.97$, which is $4\\%$ of $\\$5{,}624.32$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$5{,}832.32$): adds $4\\%$ of the year-$1$ balance, $\\$208$, instead of $4\\%$ of the year-$3$ balance.\n* Choice B ($\\$5{,}840.64$): adds the year-$3$ interest of $\\$216.32$ again.\n* Choice D ($\\$6{,}083.26$): applies the increase twice, giving the year-$5$ balance.\n\n**Test Day Takeaway:** Compound interest is a percent of the newest balance, so the yearly interest grows — never reuse an earlier year's dollar amount.",
+  "id": "bank-am-272"
 }

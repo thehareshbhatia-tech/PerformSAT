@@ -1,58 +1,57 @@
 {
-  "id": "bank-alg-002",
-  "question": "The graph of line $k$ in the $xy$-plane is shown. Line $k$ passes through the points $(-3, 0)$ and $(3, 4)$. What is the slope of line $k$?",
-  "diagram": {
-    "type": "linearGraph",
-    "params": {
-      "slope": 0.6666667,
-      "yIntercept": 2,
-      "xRange": [
-        -6,
-        6
-      ],
-      "yRange": [
-        -4,
-        8
-      ],
-      "xTickInterval": 2,
-      "yTickInterval": 2,
-      "gridInterval": 1,
-      "showPoints": [
-        [
-          -3,
-          0
-        ],
-        [
-          3,
-          4
-        ]
-      ],
-      "label": "k"
-    }
+ "question": "The line shown in the $xy$-plane models the number of pine seedlings per plot, $y$, counted $x$ weeks after a controlled burn. What is the slope of the line?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-\\frac{3}{2}$"
-    },
-    {
-      "id": "B",
-      "text": "$\\frac{2}{3}$"
-    },
-    {
-      "id": "C",
-      "text": "$\\frac{3}{2}$"
-    },
-    {
-      "id": "D",
-      "text": "$4$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "negative reciprocal of the slope (run over rise with a sign flip)",
-    "C": "run over rise instead of rise over run",
-    "D": "change in y only, never divided by the change in x"
+  {
+   "id": "B",
+   "text": "$3$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** From $(-3, 0)$ to $(3, 4)$ the line rises $4$ while running $6$, so the slope is $\\frac{4}{6} = \\frac{2}{3}$.\n\n**The Full Solution:**\nStep 1: Slope $= \\frac{y_2 - y_1}{x_2 - x_1}$ for any two points on the line. Use $(x_1, y_1) = (-3, 0)$ and $(x_2, y_2) = (3, 4)$.\nStep 2: Rise $= 4 - 0 = 4$; run $= 3 - (-3) = 6$.\nStep 3: Slope $= \\frac{4}{6} = \\frac{2}{3}$. Check against the graph: from $(-3, 0)$, moving right $3$ units should raise the line by $\\frac{2}{3}(3) = 2$, landing on the $y$-intercept $(0, 2)$, which the graph shows. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{3}{2}$): computes $\\frac{\\text{run}}{\\text{rise}}$ and mishandles the sign of $3 - (-3)$; this is the slope of a perpendicular line, not of $k$.\n* Choice C ($\\frac{3}{2}$): inverts the ratio, putting the run $6$ over the rise $4$.\n* Choice D ($4$): reports the change in $y$ alone and never divides by the change in $x$.\n\n**Test Day Takeaway:** Slope is rise over run; subtracting $x$-coordinates that include a negative is where sign errors hide, so write $3 - (-3) = 6$ explicitly."
+  {
+   "id": "C",
+   "text": "$4$"
+  },
+  {
+   "id": "D",
+   "text": "$12$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "reads the $y$-intercept of the line as its slope",
+  "C": "uses the run $6 - 2 = 4$ by itself as the slope",
+  "D": "uses the rise $20 - 8 = 12$ without dividing by the run"
+ },
+ "explanation": "**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The line passes through $(2, 8)$ and $(6, 20)$, so the slope is $\\frac{20 - 8}{6 - 2} = 3$.\n\n**The Full Solution:**\n\nStep 1: Read two grid points off the line: $(2, 8)$ and $(6, 20)$.\n\nStep 2: Slope is rise over run: $\\frac{20 - 8}{6 - 2} = \\frac{12}{4}$.\n\nStep 3: That is $3$ seedlings per week. Check the $y$-intercept: $8 - 3(2) = 2$, and the graph does cross the $y$-axis at $2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($2$): reports the $y$-intercept, the value where the line meets the vertical axis.\n\n* Choice C ($4$): reports the run $6 - 2$ instead of the ratio.\n\n* Choice D ($12$): reports the rise $20 - 8$ without dividing by the run.\n\n**Test Day Takeaway:** Pick two points that sit exactly on grid intersections, then divide the vertical change by the horizontal change.",
+ "diagram": {
+  "type": "linearGraph",
+  "params": {
+   "slope": 3,
+   "yIntercept": 2,
+   "xRange": [
+    0,
+    8
+   ],
+   "yRange": [
+    0,
+    24
+   ],
+   "xTickInterval": 2,
+   "yTickInterval": 4,
+   "gridInterval": 2,
+   "showPoints": [
+    [
+     2,
+     8
+    ],
+    [
+     6,
+     20
+    ]
+   ]
+  }
+ },
+ "id": "bank-alg-002"
 }

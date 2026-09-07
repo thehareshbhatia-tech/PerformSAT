@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-068",
-  "question": "The function $f$ is defined by $f(x) = 25 - 6x$. What is the value of $f(3)$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-7$"
-    },
-    {
-      "id": "B",
-      "text": "$7$"
-    },
-    {
-      "id": "C",
-      "text": "$19$"
-    },
-    {
-      "id": "D",
-      "text": "$43$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "computes 18 - 25, reversing the subtraction",
-    "C": "subtracts 6 once instead of 6 times 3",
-    "D": "adds 18 instead of subtracting"
+ "id": "bank-alg-068",
+ "question": "The function $r$ gives the number of light-rail riders, in thousands, using a downtown line $t$ years after 2015, and $r(t) = 18 + 2.5t$ for whole-number values of $t$ from $0$ through $10$. What is the value of $r(6)$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$15$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Basic Function Notation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Replace $x$ with $3$: $f(3) = 25 - 6(3) = 25 - 18 = 7$.\n\n**The Full Solution:**\nStep 1: $f(3)$ means the output of $f$ when the input is $3$, so substitute $3$ for every $x$ in the rule.\nStep 2: $f(3) = 25 - 6(3) = 25 - 18$.\nStep 3: $25 - 18 = 7$. Check: $6(3) = 18$ and $18 + 7 = 25$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): computes $18 - 25$, reversing the order of the subtraction.\n* Choice C ($19$): subtracts $6$ once, $25 - 6$, instead of subtracting $6 \\cdot 3 = 18$.\n* Choice D ($43$): adds $18$ to $25$ instead of subtracting it.\n\n**Test Day Takeaway:** Function notation $f(3)$ is a substitution instruction: put $3$ in for $x$, multiply before subtracting, and keep the sign in front of the $x$-term."
+  {
+   "id": "B",
+   "text": "$20.5$"
+  },
+  {
+   "id": "C",
+   "text": "$33$"
+  },
+  {
+   "id": "D",
+   "text": "$123$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "drops the constant term and reports 2.5 times 6",
+  "B": "substitutes t = 1 instead of t = 6",
+  "D": "adds 18 and 2.5 first and then multiplies the sum by 6"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Basic Function Notation**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Substitute $t = 6$: $18 + 2.5(6) = 18 + 15 = 33$.\n\n**The Full Solution:**\nStep 1: The notation $r(6)$ means replace $t$ with $6$ in the rule $r(t) = 18 + 2.5t$.\nStep 2: Multiply first: $2.5(6) = 15$.\nStep 3: Then add: $18 + 15 = 33$, so $r(6) = 33$ thousand riders. Check: ridership starts at $18$ thousand and grows $2.5$ thousand per year, so after $6$ years it has grown $15$ thousand ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): reports only the growth term $2.5(6)$ and drops the starting value $18$.\n* Choice B ($20.5$): substitutes $t = 1$ instead of $t = 6$.\n* Choice D ($123$): adds $18$ and $2.5$ first and then multiplies the sum by $6$, ignoring the order of operations.\n\n**Test Day Takeaway:** Function notation is pure substitution: replace the input everywhere it appears, then follow the order of operations."
 }

@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-302",
-  "question": "$\\dfrac{ax - 4}{6} + \\dfrac{x + b}{3} = \\dfrac{5x + 2}{6}$\nIn the given equation, $a$ and $b$ are constants, and the equation is true for all values of $x$. What is the value of $a + b$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$2$"
-    },
-    {
-      "id": "B",
-      "text": "$6$"
-    },
-    {
-      "id": "C",
-      "text": "$8$"
-    },
-    {
-      "id": "D",
-      "text": "$9$"
-    }
-  ],
-  "correctAnswer": "B",
-  "distractorNotes": {
-    "A": "sign slip on the constant term (2b + 4 = 2 gives b = -1)",
-    "C": "matched a to 5 without accounting for the 2x from the second fraction",
-    "D": "forgot to double b when clearing the denominator 3"
+ "id": "bank-alg-302",
+ "question": "For every value of $x$ other than $4$ and $-2$, the sum $\\frac{r}{x - 4} + \\frac{3}{x + 2}$ is equal to $\\frac{5x - 8}{(x - 4)(x + 2)}$, where $r$ is a constant. What is the value of $r$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-10$"
   },
-  "explanation": "**SAT Pattern: Polynomial Identity with Rational Expressions**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Multiply through by $6$: $ax - 4 + 2(x + b) = 5x + 2$, so $(a + 2)x + (2b - 4) = 5x + 2$. Match coefficients: $a = 3$, $b = 3$, and $a + b = 6$.\n\n**The Full Solution:**\nStep 1: Clear the denominators by multiplying every term by $6$, the least common denominator: $(ax - 4) + 2(x + b) = 5x + 2$.\nStep 2: Distribute and group: $ax - 4 + 2x + 2b = 5x + 2$, which is $(a + 2)x + (2b - 4) = 5x + 2$.\nStep 3: An identity holds for all $x$ only when the $x$-coefficients match and the constants match. $x$-terms: $a + 2 = 5$, so $a = 3$. Constants: $2b - 4 = 2$, so $b = 3$. Then $a + b = 6$.\nCheck: $\\dfrac{3x - 4}{6} + \\dfrac{x + 3}{3} = \\dfrac{3x - 4 + 2x + 6}{6} = \\dfrac{5x + 2}{6}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): writes the constant match as $2b + 4 = 2$, giving $b = -1$ and $a + b = 2$; the $-4$ keeps its sign.\n* Choice C ($8$): matches $a$ directly to $5$, forgetting that the second fraction contributes $2x$ once the denominator is cleared.\n* Choice D ($9$): multiplies the second fraction's constant by $1$ instead of $2$, giving $b - 4 = 2$ and $b = 6$.\n\n**Test Day Takeaway:** For an identity with fractions, clear denominators first, then match the $x$-coefficients and the constants separately; each match is its own small equation."
+  {
+   "id": "B",
+   "text": "$2$"
+  },
+  {
+   "id": "C",
+   "text": "$5$"
+  },
+  {
+   "id": "D",
+   "text": "$8$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "solves $2r - 12 = -8$ as $2r = -20$, moving the $-12$ with the wrong sign",
+  "C": "copies the coefficient of $x$ in the numerator without subtracting the $3$ contributed by the second fraction",
+  "D": "solves $r + 3 = 5$ as $r = 5 + 3$"
+ },
+ "explanation": "**SAT Pattern: Polynomial Identity with Rational Expressions**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Clearing denominators gives $(r + 3)x + (2r - 12) = 5x - 8$, so $r = 2$.\n\n**The Full Solution:**\nStep 1: Multiply both sides by $(x - 4)(x + 2)$: $r(x + 2) + 3(x - 4) = 5x - 8$.\nStep 2: Expanding the left side gives $rx + 2r + 3x - 12 = (r + 3)x + (2r - 12)$.\nStep 3: Matching coefficients of $x$ gives $r + 3 = 5$, so $r = 2$; the constants agree because $2(2) - 12 = -8$. Check: $\\frac{2}{x - 4} + \\frac{3}{x + 2} = \\frac{2(x + 2) + 3(x - 4)}{(x - 4)(x + 2)} = \\frac{5x - 8}{(x - 4)(x + 2)}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): solves $2r - 12 = -8$ as $2r = -20$, moving the $-12$ with the wrong sign\n* Choice C ($5$): copies the coefficient of $x$ in the numerator without subtracting the $3$ contributed by the second fraction\n* Choice D ($8$): solves $r + 3 = 5$ as $r = 5 + 3$\n\n**Test Day Takeaway:** Clear the denominators once, then match the coefficient of $x$ and the constant separately; both must agree."
 }

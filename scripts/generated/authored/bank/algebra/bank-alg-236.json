@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-236",
-  "question": "For all values of $x$, $(px + 4)(x + q) = 3x^2 + 10x + 8$, where $p$ and $q$ are constants. What is the value of $p + q$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$2$"
-    },
-    {
-      "id": "B",
-      "text": "$3$"
-    },
-    {
-      "id": "C",
-      "text": "$5$"
-    },
-    {
-      "id": "D",
-      "text": "$6$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports q alone",
-    "B": "reports p alone",
-    "D": "reports the product pq"
+ "id": "bank-alg-236",
+ "question": "At setting $r$, an infusion pump delivers $k(2r + 9)$ milliliters, and the same pump delivers $14r + c$ milliliters at every setting $r$, where $k$ and $c$ are constants. What is the value of $c$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$9$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The $x^2$-term gives $p = 3$; the constant term gives $4q = 8$, so $q = 2$. Then $p + q = 5$.\n\n**The Full Solution:**\nStep 1: Expand: $(px + 4)(x + q) = px^2 + pqx + 4x + 4q = px^2 + (pq + 4)x + 4q$.\nStep 2: Match the $x^2$-coefficients: $p = 3$. Match the constants: $4q = 8$, so $q = 2$.\nStep 3: Check the $x$-coefficient: $pq + 4 = 3 \\cdot 2 + 4 = 10$. $\\checkmark$ So $p + q = 3 + 2 = 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports $q$ alone.\n* Choice B ($3$): reports $p$ alone.\n* Choice D ($6$): reports the product $pq$ instead of the sum.\n\n**Test Day Takeaway:** The leading and constant terms each involve only one unknown; solve those first, then use the middle term to verify before combining as asked."
+  {
+   "id": "B",
+   "text": "$18$"
+  },
+  {
+   "id": "C",
+   "text": "$63$"
+  },
+  {
+   "id": "D",
+   "text": "$126$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "copies the 9 from inside the parentheses without multiplying by k",
+  "B": "multiplies the two numbers inside the parentheses (2 times 9)",
+  "D": "multiplies 9 by 14, the already-distributed coefficient, instead of by k"
+ },
+ "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $2k = 14$ gives $k = 7$, so $c = 9k = 63$.\n\n**The Full Solution:**\n\nStep 1: Distribute: $k(2r + 9) = 2kr + 9k$.\n\nStep 2: This equals $14r + c$ for every value of $r$, so the coefficients of $r$ match: $2k = 14$, giving $k = 7$.\n\nStep 3: The constants match as well: $c = 9k = 9(7) = 63$. Check with $r = 1$: $7(2 + 9) = 77$ and $14(1) + 63 = 77$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($9$): copies the $9$ from inside the parentheses, skipping the multiplication by $k$.\n* Choice B ($18$): multiplies the two numbers inside the parentheses, $2 \\times 9$, which never appears in the expansion.\n* Choice D ($126$): multiplies $9$ by $14$ instead of by $k = 7$; the $14$ already contains the factor $k$.\n\n**Test Day Takeaway:** With two unknown constants, solve for the multiplier from the variable terms first, then use it on the constant term."
 }

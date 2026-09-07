@@ -1,6 +1,6 @@
 {
-  "id": "bank-alg-069",
-  "question": "The function $p$ is defined by $p(x) = 9x - 63$. In the $xy$-plane, the graph of $y = p(x)$ has an $x$-intercept at $(a, 0)$. What is the value of $a$?",
-  "correctAnswer": "7",
-  "explanation": "**SAT Pattern: Find x-intercept (Zero of Function)**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~10s):** At the $x$-intercept, $y = 0$: $9x - 63 = 0 \\Rightarrow 9x = 63 \\Rightarrow x = 7$.\n\n**The Full Solution:**\nStep 1: The $x$-intercept is the point where the graph meets the $x$-axis, so $p(a) = 0$.\nStep 2: Set the rule equal to zero: $9a - 63 = 0$, so $9a = 63$.\nStep 3: Divide by $9$: $a = 7$. Check: $p(7) = 9(7) - 63 = 63 - 63 = 0$. $\\checkmark$\n\n**Common Mistakes:** Reporting $-63$, which is the $y$-intercept, not the $x$-intercept; computing $63 - 9 = 54$ instead of dividing; getting $-7$ by mishandling the sign when moving $-63$ across.\n\n**Test Day Takeaway:** \"$x$-intercept\" means output zero. Set the function equal to $0$ and solve; the $y$-intercept is the constant term, a different point."
+ "id": "bank-alg-069",
+ "question": "The function $c$ gives the remaining capacity, in cubic meters, of a stormwater basin $t$ hours after a storm begins, and $c(t) = 4{,}200 - 350t$. For what value of $t$ does $c(t) = 0$?",
+ "correctAnswer": "12",
+ "explanation": "**SAT Pattern: Find x-intercept (Zero of Function)**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~15s):** Set $4{,}200 - 350t = 0$, so $350t = 4{,}200$ and $t = 12$.\n\n**The Full Solution:**\nStep 1: The basin is full when the remaining capacity reaches $0$, so set $4{,}200 - 350t = 0$.\nStep 2: Add $350t$ to both sides: $350t = 4{,}200$.\nStep 3: Divide: $t = \\frac{4{,}200}{350} = 12$ hours. Check: $4{,}200 - 350(12) = 4{,}200 - 4{,}200 = 0$ ✓\n\n**Common Mistakes:** Answering $-12$ solves $350t = -4{,}200$ by moving the constant the wrong way; answering $4{,}200$ stops before dividing; answering $350$ reports the rate rather than the time.\n\n**Test Day Takeaway:** A function's zero is where its output is $0$ — set the rule equal to zero and solve, whatever the context calls the variable."
 }

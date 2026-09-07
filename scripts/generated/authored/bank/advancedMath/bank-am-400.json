@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-400",
-  "question": "The function $f$ is defined by $f(x) = a(x - 6)^2 + k$, where $a$ and $k$ are constants. The maximum value of $f$ is $17$, and $f(2) = 1$. What is the value of $a$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-4$"
-    },
-    {
-      "id": "B",
-      "text": "$-1$"
-    },
-    {
-      "id": "C",
-      "text": "$1$"
-    },
-    {
-      "id": "D",
-      "text": "$4$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "squares only the input, using $2^2$ instead of $(2 - 6)^2$",
-    "C": "drops the negative sign required by a maximum",
-    "D": "divides by $2 - 6$ instead of its square"
+ "id": "bank-am-400",
+ "question": "The energy stored in a compressed-air cavern, in megawatt-hours, is modeled by $E(t)=-4t^2+48t+20$, where $t$ is the number of hours after charging begins. For which interval of $t$ is the stored energy greater than its value at $t=2$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$0<t<6$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** A maximum means $k = 17$; then $16a + 17 = 1$, so $a = -1$.\n\n**The Full Solution:**\nStep 1: For $f(x) = a(x - 6)^2 + k$ the extreme value is $k$. Because that extreme value is a MAXIMUM, $a$ must be negative and $k = 17$.\nStep 2: Substitute $f(2) = 1$: $a(2 - 6)^2 + 17 = 1$, and $(2 - 6)^2 = 16$, so $16a = -16$.\nStep 3: $a = -1$, which is indeed negative as required. Check: $f(x) = -(x - 6)^2 + 17$ gives $f(6) = 17$ and $f(2) = -16 + 17 = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): squares the input alone, solving $4a + 17 = 1$ instead of $16a + 17 = 1$.\n* Choice C ($1$): gets the size right but keeps $a$ positive, which would make $17$ a minimum, not a maximum.\n* Choice D ($4$): divides $-16$ by $2 - 6 = -4$ instead of by $(2 - 6)^2 = 16$.\n\n**Test Day Takeaway:** The word \"maximum\" fixes both facts at once: $k$ is that value and $a$ must be negative — use the sign as a final check."
+  {
+   "id": "B",
+   "text": "$2<t<10$"
+  },
+  {
+   "id": "C",
+   "text": "$2<t<6$"
+  },
+  {
+   "id": "D",
+   "text": "$6<t<12$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses the interval from the start of charging to the peak at t = 6",
+  "C": "stops at the peak t = 6 instead of the second solution t = 10",
+  "D": "mirrors the peak to t = 12 instead of solving the inequality"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** $E(2)=100$, and $E(t)>100$ reduces to $t^2-12t+20<0$, that is $(t-2)(t-10)<0$, so $2<t<10$.\n\n**The Full Solution:**\nStep 1: Compute the reference value: $E(2)=-16+96+20=100$.\nStep 2: Solve $-4t^2+48t+20>100$. Subtracting $100$ and dividing by $-4$ (which reverses the inequality) gives $t^2-12t+20<0$.\nStep 3: Factor: $(t-2)(t-10)<0$, which holds exactly for $2<t<10$. Check: $E(6)=164>100$, while $E(1)=64$ and $E(11)=64$ are both below $100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0<t<6$): uses the stretch from the start of charging to the peak at $t=6$ instead of solving the inequality.\n* Choice C ($2<t<6$): stops at the peak $t=6$ rather than at the second solution $t=10$.\n* Choice D ($6<t<12$): mirrors the peak to $t=12$ instead of using the two values where $E$ equals $100$.\n\n**Test Day Takeaway:** A \"greater than the value at\" question is a quadratic inequality: the two boundary times are symmetric about the vertex."
 }

@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-081",
-  "question": "A machine's resale value is modeled by $R(t) = 42{,}000(0.85)^t$, where $R(t)$ is the resale value in dollars and $t$ is the number of years since the machine was purchased. Which statement best describes what $0.85$ represents in this model?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "The resale value decreases by $85\\%$ each year."
-    },
-    {
-      "id": "B",
-      "text": "The resale value decreases by $15\\%$ each year."
-    },
-    {
-      "id": "C",
-      "text": "The resale value decreases by $0.85$ dollar each year."
-    },
-    {
-      "id": "D",
-      "text": "The resale value is $15\\%$ of its value the previous year."
-    }
-  ],
-  "distractorNotes": {
-    "A": "reads the decay factor itself as the percent decrease",
-    "C": "treats the factor as a fixed dollar amount subtracted each year",
-    "D": "swaps the percent retained with the percent lost"
+ "id": "bank-am-081",
+ "question": "Ash concentration downwind of an eruption starts at $4{,}800$ micrograms per cubic meter and halves every $5$ days for as long as the plume lasts. Which equation gives the concentration $y$, in micrograms per cubic meter, after $t$ days?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$y = 4{,}800(0.5)^{5t}$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $0.85 = 1 - 0.15$, so each year the machine keeps $85\\%$ of its value and loses $15\\%$ of it.\n\n**The Full Solution:**\nStep 1: Each increase of $1$ in $t$ multiplies the resale value by $0.85$.\nStep 2: Write the factor as $1 - r$: $0.85 = 1 - 0.15$, so $r = 0.15$ is the fraction of the value lost each year.\nStep 3: That is a $15\\%$ decrease per year. Check: $R(0) = 42{,}000$ and $R(1) = 35{,}700$, and $\\frac{42{,}000 - 35{,}700}{42{,}000} = 0.15$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reports the factor as the loss; an $85\\%$ drop would leave a factor of $0.15$.\n* Choice C: describes subtracting a fixed amount each year, which is a linear model, not repeated multiplication.\n* Choice D: reverses the roles — the machine retains $85\\%$ of its previous value, not $15\\%$.\n\n**Test Day Takeaway:** For a decay factor $b$, the percent decrease is $1 - b$, not $b$. Always convert the base to $1 \\pm r$ before choosing an interpretation."
+  {
+   "id": "B",
+   "text": "$y = 4{,}800(0.2)^{t/5}$"
+  },
+  {
+   "id": "C",
+   "text": "$y = 4{,}800(0.5)^{t/5}$"
+  },
+  {
+   "id": "D",
+   "text": "$y = 4{,}800(2)^{t/5}$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "multiplies $t$ by $5$ instead of dividing, so the concentration halves every fifth of a day",
+  "B": "reads \"halves every $5$ days\" as a multiplier of $\\frac{1}{5}$",
+  "D": "uses the reciprocal multiplier, which doubles the concentration every $5$ days"
+ },
+ "explanation": "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** One halving per $5$ days means the exponent counts halvings, $\\frac{t}{5}$, so $y = 4{,}800(0.5)^{t/5}$.\n\n**The Full Solution:**\nStep 1: The concentration at $t = 0$ is $4{,}800$, so that is the coefficient.\nStep 2: Each complete $5$-day period multiplies the concentration by $0.5$, and $t$ days contain $\\frac{t}{5}$ such periods.\nStep 3: So $y = 4{,}800(0.5)^{t/5}$. Check: at $t = 5$ the exponent is $1$ and $y = 2{,}400$; at $t = 10$ it is $2$ and $y = 1{,}200$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.5^{5t}$): at $t = 5$ this gives $4{,}800(0.5)^{25}$, essentially zero.\n* Choice B ($0.2^{t/5}$): confuses the halving with a drop to one-fifth; at $t = 5$ it gives $960$.\n* Choice D ($2^{t/5}$): grows instead of decaying, giving $9{,}600$ after $5$ days.\n\n**Test Day Takeaway:** The exponent counts how many full periods have passed, so a period of length $p$ puts $\\frac{t}{p}$ upstairs."
 }

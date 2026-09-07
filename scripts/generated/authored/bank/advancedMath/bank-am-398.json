@@ -1,29 +1,29 @@
 {
   "id": "bank-am-398",
-  "question": "The function $f$ is defined by $f(x) = 14 - 5(x - 8)^2$. At what value of $x$ does $f$ attain its maximum value?",
+  "question": "A framing shop sells picture frame mats in widths from $2$ to $16$ centimeters. The shop's daily revenue from the mats, in dollars, is modeled by $A(w)=-(w-9)^{2}+150$, where $w$ is the mat width, in centimeters. At what mat width, in centimeters, is the daily revenue greatest?",
   "choices": [
     {
       "id": "A",
-      "text": "$-8$"
+      "text": "$9$"
     },
     {
       "id": "B",
-      "text": "$5$"
+      "text": "$81$"
     },
     {
       "id": "C",
-      "text": "$8$"
+      "text": "$141$"
     },
     {
       "id": "D",
-      "text": "$14$"
+      "text": "$150$"
     }
   ],
   "distractorNotes": {
-    "A": "flips the sign inside the parentheses",
-    "B": "reports the coefficient of the squared term",
-    "D": "reports the maximum value instead of where it occurs"
+    "B": "reports 9 squared instead of 9",
+    "C": "reports 150 - 9 instead of the width",
+    "D": "reports the greatest revenue instead of the width"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The subtracted square is smallest at $x = 8$, so the maximum occurs there.\n\n**The Full Solution:**\nStep 1: $5(x - 8)^2 \\ge 0$ for every $x$, and it is subtracted from $14$.\nStep 2: The output is therefore largest exactly when $5(x - 8)^2 = 0$.\nStep 3: $(x - 8)^2 = 0$ gives $x = 8$. Check: $f(8) = 14$, while $f(7) = 14 - 5 = 9$ and $f(9) = 9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): flips the sign inside the parentheses; the square is zero at $x = 8$, not $x = -8$.\n* Choice B ($5$): reports the coefficient of the squared term.\n* Choice D ($14$): reports the maximum VALUE rather than the input where it happens.\n\n**Test Day Takeaway:** Set the squared expression equal to zero to find WHERE the extreme value occurs; the leftover constant is the value itself."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $-(w-9)^2$ is largest when it is $0$, which happens at $w=9$.\n\n**The Full Solution:**\nStep 1: The squared term $-(w-9)^2$ is never positive.\nStep 2: It equals $0$ exactly when $w-9=0$, that is $w=9$.\nStep 3: So the revenue peaks at a width of $9$ centimeters. Check: $A(9)=150$, while $A(8)=149$ and $A(10)=149$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($81$): squares the $9$ from $(w-9)^2$ instead of reporting the width.\n* Choice C ($141$): computes $150-9$, mixing the two constants in vertex form.\n* Choice D ($150$): reports the greatest revenue instead of the width that produces it.\n\n**Test Day Takeaway:** Read the question's units: vertex form gives both the input $h$ and the output $k$, and only one of them answers a \"at what width\" prompt."
 }

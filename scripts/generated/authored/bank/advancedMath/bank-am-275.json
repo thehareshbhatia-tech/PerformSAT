@@ -1,52 +1,49 @@
 {
-  "id": "bank-am-275",
-  "question": "The function $V(t) = 6{,}000(1.05)^t$ gives the value, in dollars, of a retirement account $t$ years after it was opened, and the table shows three of its values. Which of the following is the best interpretation of $1.05$ in this context?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "t (years)",
-        "V(t) (dollars)"
+  "question": "Interest on a $\\$2{,}400$ store-card balance is charged at $6\\%$ per year, compounded monthly. The first three monthly balances appear in the table. To the nearest dollar, what will the balance be one year after the charge?",
+  "questionTable": {
+    "headers": [
+      "Months",
+      "Balance (dollars)"
+    ],
+    "rows": [
+      [
+        "$1$",
+        "$2{,}412.00$"
       ],
-      "rows": [
-        [
-          "0",
-          "6,000"
-        ],
-        [
-          "1",
-          "6,300"
-        ],
-        [
-          "2",
-          "6,615"
-        ]
+      [
+        "$2$",
+        "$2{,}424.06$"
+      ],
+      [
+        "$3$",
+        "$2{,}436.18$"
       ]
-    }
+    ]
   },
   "choices": [
     {
       "id": "A",
-      "text": "The account's value increases by $\\$1.05$ each year."
+      "text": "$\\$2{,}436$"
     },
     {
       "id": "B",
-      "text": "The account's value increases by $5\\%$ each year."
+      "text": "$\\$2{,}544$"
     },
     {
       "id": "C",
-      "text": "The account's value increases by $105\\%$ each year."
+      "text": "$\\$2{,}548$"
     },
     {
       "id": "D",
-      "text": "The account's value when it was opened was $\\$1.05$."
+      "text": "$\\$4{,}829$"
     }
   ],
   "distractorNotes": {
-    "A": "reads the multiplier as a dollar amount",
-    "C": "reads the whole multiplier as the percent increase instead of the part above $1$",
-    "D": "confuses the multiplier with the initial value"
+    "A": "reported the last value in the table, the balance after 3 months",
+    "B": "applied the annual rate once, computing 2400 times 1.06",
+    "D": "used 6 percent as the monthly rate, computing 2400 times 1.06 to the twelfth power"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** In $a(b)^t$, the base $b = 1.05$ means each year's value is $1.05$ times the previous one — a $5\\%$ increase per year.\n\n**The Full Solution:**\nStep 1: Increasing a quantity by $r$ (as a decimal) multiplies it by $1 + r$. Here $1 + r = 1.05$, so $r = 0.05$.\nStep 2: As a percent, $r = 5\\%$, and the exponent $t$ counts years, so the increase happens once per year.\nStep 3: The table confirms it: $\\dfrac{6{,}300}{6{,}000} = 1.05$ and $\\dfrac{6{,}615}{6{,}300} = 1.05$, a constant $5\\%$ rise each year. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$1.05$ each year): the base is a multiplier, not a dollar amount; the first year adds $\\$300$, not $\\$1.05$.\n* Choice C ($105\\%$ each year): that would multiply the value by $2.05$ each year, more than doubling it.\n* Choice D (opening value $\\$1.05$): the opening value is the coefficient $6{,}000$, the value at $t = 0$.\n\n**Test Day Takeaway:** In an exponential model, the coefficient is the starting amount and the base minus $1$ is the percent change per period."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The monthly factor is $1.005$, so after $12$ months the balance is $2400(1.005)^{12}\\approx \\$2{,}548$.\n\n**The Full Solution:**\nStep 1: The monthly rate is $\\dfrac{0.06}{12}=0.005$, matching the table: $2400\\cdot 1.005=2{,}412.00$.\nStep 2: After $12$ months the balance is $2400(1.005)^{12}$.\nStep 3: Since $(1.005)^{12}=1.06168$, the balance is $\\$2{,}548.03$, or $\\$2{,}548$ to the nearest dollar. Check: this is slightly more than $6\\%$ of $\\$2{,}400$ added on, as compounding requires ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$2{,}436$): reports the last value in the table, the balance after $3$ months.\n* Choice B ($\\$2{,}544$): applies the annual rate once, computing $2400(1.06)$.\n* Choice D ($\\$4{,}829$): uses $6\\%$ as the monthly rate, computing $2400(1.06)^{12}$.\n\n**Test Day Takeaway:** Monthly compounding divides the annual rate by $12$ and raises to the number of months — the two must change together.",
+  "id": "bank-am-275"
 }

@@ -1,29 +1,29 @@
 {
- "id": "bank-alg-256",
- "question": "$3x + 2y = 19$\n\n$x + 5y = 15$\n\nIf $(x, y)$ is the solution to the given system of equations, what is the value of $4x + 7y$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$4$"
+  "question": "For a prairie-dog colony survey, the number of occupied burrows $x$ and the number of abandoned burrows $y$ satisfy $5x + 2y = 26$ and $3x - 2y = 6$. Which equation results from adding the two given equations?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2x = 20$"
+    },
+    {
+      "id": "B",
+      "text": "$8x + 4y = 32$"
+    },
+    {
+      "id": "C",
+      "text": "$8x = 20$"
+    },
+    {
+      "id": "D",
+      "text": "$8x = 32$"
+    }
+  ],
+  "correctAnswer": "D",
+  "distractorNotes": {
+    "A": "subtracts the two equations but still treats the $y$-terms as cancelling, giving $2x = 20$",
+    "B": "adds the $y$-coefficients as $2 + 2$ instead of $2 + (-2)$",
+    "C": "adds the left sides but subtracts the right sides"
   },
-  {
-   "id": "B",
-   "text": "$17$"
-  },
-  {
-   "id": "C",
-   "text": "$34$"
-  },
-  {
-   "id": "D",
-   "text": "$68$"
-  }
- ],
- "distractorNotes": {
-  "A": "subtracts the equations instead of adding",
-  "B": "averages the two constants",
-  "D": "doubles the sum"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Add the two equations: $(3x + x) + (2y + 5y) = 19 + 15$, which is exactly $4x + 7y = 34$.\n\n**The Full Solution:**\nStep 1: Notice that $4x + 7y$ is the sum of the left sides: $3x + x = 4x$ and $2y + 5y = 7y$.\nStep 2: Adding the equations gives $4x + 7y = 34$ directly.\nStep 3: Check by solving: from the second equation $x = 15 - 5y$; substituting, $3(15 - 5y) + 2y = 19$ gives $y = 2$, $x = 5$, and $4(5) + 7(2) = 34$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): subtracts the constants, $19 - 15$, but subtracting the equations gives $2x - 3y$, not $4x + 7y$.\n* Choice B ($17$): the average of $19$ and $15$, which corresponds to no valid combination.\n* Choice D ($68$): doubles the correct sum, as if $4x + 7y$ were twice the sum of the left sides.\n\n**Test Day Takeaway:** Before solving for $x$ and $y$, compare the target expression to the sum or difference of the equations."
+  "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The $y$-terms are opposites, so adding gives $8x = 32$.\n\n**The Full Solution:**\n\nStep 1: Line up like terms: $5x + 2y = 26$ and $3x - 2y = 6$.\n\nStep 2: Add the left sides: $5x + 3x = 8x$ and $2y + (-2y) = 0$.\n\nStep 3: Add the right sides: $26 + 6 = 32$, so the sum is $8x = 32$. Check: $x = 4$ and $y = 3$ satisfy both original equations.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($2x = 20$): subtracts the two equations but still treats the $y$-terms as cancelling; subtracting actually leaves $2x + 4y = 20$.\n\n* Choice B ($8x + 4y = 32$): treats $-2y$ as $+2y$, so the $y$-terms are kept instead of cancelling.\n\n* Choice C ($8x = 20$): adds on the left but subtracts on the right, breaking the equality.\n\n**Test Day Takeaway:** Add or subtract whole equations, never one side only, and check which operation makes a variable disappear.",
+  "id": "bank-alg-256"
 }

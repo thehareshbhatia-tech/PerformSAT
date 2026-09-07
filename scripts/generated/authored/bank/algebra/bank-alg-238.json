@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-238",
-  "question": "In the equation $(3x + a)(2x + b) = 6x^2 + 19x + 10$, $a$ and $b$ are positive integers, and the equation is true for all values of $x$. What is the value of $b - a$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-3$"
-    },
-    {
-      "id": "B",
-      "text": "$3$"
-    },
-    {
-      "id": "C",
-      "text": "$7$"
-    },
-    {
-      "id": "D",
-      "text": "$10$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "computes a - b instead of b - a",
-    "C": "computes a + b",
-    "D": "reports the product ab"
+ "id": "bank-alg-238",
+ "question": "From $p$ fabric plies a cutting table yields $a(3p - 8) + b$ usable panels, where $a$ and $b$ are integers, and the same count is given by $21p - 19$ for every value of $p$. What is the value of $a + b$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-12$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Matching Coefficients with Integer Constraints**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $ab = 10$ and $3b + 2a = 19$. Test the positive factor pairs of $10$: $(a, b) = (2, 5)$ gives $15 + 4 = 19$. So $b - a = 3$.\n\n**The Full Solution:**\nStep 1: Expand: $(3x + a)(2x + b) = 6x^2 + 3bx + 2ax + ab = 6x^2 + (3b + 2a)x + ab$.\nStep 2: Match coefficients: $ab = 10$ and $3b + 2a = 19$. Since $a$ and $b$ are positive integers, $(a, b)$ is one of $(1, 10)$, $(2, 5)$, $(5, 2)$, $(10, 1)$.\nStep 3: Test each in $3b + 2a$: $32$, $19$, $16$, $23$. Only $(2, 5)$ works. Check: $(3x + 2)(2x + 5) = 6x^2 + 15x + 4x + 10 = 6x^2 + 19x + 10$. $\\checkmark$ So $b - a = 5 - 2 = 3$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): computes $a - b$ instead of $b - a$.\n* Choice C ($7$): computes $a + b$, a different combination than the one asked for.\n* Choice D ($10$): reports the product $ab$, which is the constant term.\n\n**Test Day Takeaway:** With two unknowns in the factors, the constant term limits the candidates to a few integer pairs; the middle coefficient picks the winner. Then read the question again to see which combination it wants."
+  {
+   "id": "B",
+   "text": "$-4$"
+  },
+  {
+   "id": "C",
+   "text": "$37$"
+  },
+  {
+   "id": "D",
+   "text": "$44$"
+  }
+ ],
+ "correctAnswer": "D",
+ "distractorNotes": {
+  "A": "takes b to be -19 and adds it to a, ignoring that a multiplies the -8",
+  "B": "solves -8 + b = -19 without the factor a = 7",
+  "C": "finds b correctly but reports b instead of a + b"
+ },
+ "explanation": "**SAT Pattern: Matching Coefficients with Integer Constraints**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** $3a = 21$ gives $a = 7$; then $-56 + b = -19$ gives $b = 37$, so $a + b = 44$.\n\n**The Full Solution:**\n\nStep 1: Expand: $a(3p - 8) + b = 3ap - 8a + b$.\n\nStep 2: Match the coefficients of $p$: $3a = 21$, so $a = 7$, an integer as required.\n\nStep 3: Match the constants: $-8(7) + b = -19$, so $-56 + b = -19$ and $b = 37$. Then $a + b = 7 + 37 = 44$. Check with $p = 2$: $7(6 - 8) + 37 = 23$ and $21(2) - 19 = 23$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-12$): sets $b = -19$ outright, forgetting that the constant on the left is $-8a + b$, not $b$ alone; then $7 + (-19) = -12$.\n* Choice B ($-4$): solves $-8 + b = -19$, dropping the factor $a = 7$ from the $-8$; then $7 + (-11) = -4$.\n* Choice C ($37$): finds $b = 37$ correctly but reports $b$ rather than the requested sum $a + b$.\n\n**Test Day Takeaway:** The constant term of a distributed expression collects everything the multiplier touches; isolate the coefficient first, then feed it into the constant equation."
 }

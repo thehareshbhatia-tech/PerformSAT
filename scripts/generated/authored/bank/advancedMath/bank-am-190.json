@@ -1,29 +1,29 @@
 {
   "id": "bank-am-190",
-  "question": "In the equation $x^2 + 14x + k = 0$, where $k$ is a constant, one of the two solutions is $-3$. What is the other solution?",
+  "question": "A microfilm scanner's cost per reel matches its budgeted rate at the two distinct settings that satisfy $7x^2+cx+63=0$, where $c$ is a nonzero constant. Which expression is equal to the sum of the two settings?",
   "choices": [
     {
       "id": "A",
-      "text": "$-17$"
+      "text": "$\\frac{7}{c}$"
     },
     {
       "id": "B",
-      "text": "$-11$"
+      "text": "$-\\frac{7}{c}$"
     },
     {
       "id": "C",
-      "text": "$11$"
+      "text": "$\\frac{c}{7}$"
     },
     {
       "id": "D",
-      "text": "$17$"
+      "text": "$-\\frac{c}{7}$"
     }
   ],
   "distractorNotes": {
-    "A": "subtracts $3$ from $-14$ instead of subtracting $-3$",
-    "C": "uses $+14$ as the sum and $+3$ as the given solution",
-    "D": "uses $+14$ as the sum and then subtracts $-3$"
+    "A": "inverts the ratio and drops the negative sign",
+    "B": "inverts -b/a into -a/b",
+    "C": "uses b/a and drops the negative sign"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The two solutions add to $-\\dfrac{14}{1} = -14$, so the other one is $-14 - (-3) = -11$.\n\n**The Full Solution:**\nStep 1: Here $a = 1$ and $b = 14$, so the sum of the two solutions is $-\\dfrac{b}{a} = -14$.\nStep 2: If one solution is $-3$ and the other is $r$, then $-3 + r = -14$.\nStep 3: $r = -14 + 3 = -11$. Check: the product is $(-3)(-11) = 33 = k$, and $x^2 + 14x + 33 = (x + 3)(x + 11)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-17$): computes $-14 - 3$, forgetting that the known solution is already negative.\n* Choice C ($11$): uses $+14$ for the sum AND drops the minus on the given solution, computing $14 - 3 = 11$.\n* Choice D ($17$): combines both slips — sum taken as $+14$, then $14 - (-3)$.\n\n**Test Day Takeaway:** With one root given and $k$ unknown, use the SUM (which needs only $a$ and $b$); the product would require the missing constant."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** With $a=7$ and $b=c$, the two solutions add to $-\\frac{b}{a}=-\\frac{c}{7}$.\n\n**The Full Solution:**\nStep 1: Match $7x^2+cx+63=0$ to $ax^2+bx+c_0=0$, so $a=7$ and the linear coefficient is $c$.\nStep 2: The sum of the solutions is $-\\frac{\\text{linear coefficient}}{a}$.\nStep 3: Substitute to get $-\\frac{c}{7}$. Check: with $c=-70$ the equation is $7x^2-70x+63=0$, which factors as $7(x-1)(x-9)=0$; its solutions $1$ and $9$ add to $10=-\\frac{-70}{7}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{c}$): inverts the ratio and also drops the negative sign.\n* Choice B ($-\\frac{7}{c}$): keeps the sign but inverts $-\\frac{b}{a}$ into $-\\frac{a}{b}$.\n* Choice C ($\\frac{c}{7}$): uses $\\frac{b}{a}$ and omits the negative sign.\n\n**Test Day Takeaway:** Vieta's sum works with letters exactly as with numbers: divide the linear coefficient by the leading one, then negate."
 }

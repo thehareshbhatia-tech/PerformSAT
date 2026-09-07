@@ -1,6 +1,6 @@
 {
-  "id": "bank-am-109",
-  "question": "The function $f$ is defined by $f(x) = 5x + 2$, and the function $g$ is defined by $g(x) = f(x) - 9$. What is the value of $g(4)$?",
-  "correctAnswer": "13",
-  "explanation": "**SAT Pattern: Function Transformation**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~15s):** $f(4) = 22$, and $g$ subtracts $9$ from the output: $22 - 9 = 13$.\n\n**The Full Solution:**\nStep 1: Evaluate $f$ at $4$: $f(4) = 5(4) + 2 = 22$.\nStep 2: The rule $g(x) = f(x) - 9$ subtracts $9$ after $f$ has been applied.\nStep 3: So $g(4) = 22 - 9 = 13$. Check with a formula for $g$: $g(x) = 5x + 2 - 9 = 5x - 7$, and $5(4) - 7 = 13$. $\\checkmark$\n\n**Common Mistakes:** Reporting $22$ and forgetting the shift; subtracting $9$ from the input instead of the output, computing $f(-5) = -23$; or subtracting $9$ from the slope and evaluating $-4x + 2$ at $4$, which gives $-14$.\n\n**Test Day Takeaway:** A constant added or subtracted *outside* the function changes every output by that amount. Evaluate first, then shift."
+ "id": "bank-am-109",
+ "question": "For a mural, the function $w$ gives the width, in centimeters, of a stencil at height $x$, where $w(x)=0.5x+14$. An enlarged stencil has width $W(x)=3w(x)$. What is the value of $W(20)$?",
+ "correctAnswer": "72",
+ "explanation": "**SAT Pattern: Function Transformation**\n\n**The correct answer is $72$.**\n\n**The Fast Way (~15s):** $w(20)=24$ centimeters, and tripling gives $3(24)=72$ centimeters.\n\n**The Full Solution:**\nStep 1: Evaluate the original width: $w(20)=0.5(20)+14=10+14=24$.\nStep 2: The enlargement multiplies every width by 3: $W(20)=3w(20)$.\nStep 3: $3(24)=72$ centimeters. Check: $W(x)=1.5x+42$, and $1.5(20)+42=72$ ✓\n\n**Common Mistakes:** Tripling only the variable term gives $1.5(20)+14=44$. Tripling the input instead of the output gives $w(60)=44$. Adding 3 rather than multiplying gives 27.\n\n**Test Day Takeaway:** A vertical stretch multiplies the entire output, constant term included."
 }

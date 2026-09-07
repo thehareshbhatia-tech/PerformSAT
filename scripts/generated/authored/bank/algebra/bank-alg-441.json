@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-441",
-  "question": "How many solutions does the system of equations $3x + 4y = 8$ and $\\frac{3}{2}x + 2y = 10$ have?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "Exactly one"
-    },
-    {
-      "id": "B",
-      "text": "Exactly two"
-    },
-    {
-      "id": "C",
-      "text": "Infinitely many"
-    },
-    {
-      "id": "D",
-      "text": "Zero"
-    }
-  ],
-  "distractorNotes": {
-    "A": "assumes the fractional coefficient makes the second line's slope different; scaling by 2 shows the slopes are identical.",
-    "B": "two straight lines can never meet at exactly two points.",
-    "C": "notices the proportional coefficients but not that the constants (8 and 20) break the proportion; the lines are parallel, not identical."
+ "id": "bank-alg-441",
+ "question": "A coatings plant combines $x$ liters of solvent $A$ and $y$ liters of solvent $B$ under the conditions $8x + 6y = 480$ and $20x + ky = 900$. No combination satisfies both conditions. What is the value of the constant $k$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2.4$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Parallel Lines No Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~8s):** Double the second equation: $3x + 4y = 20$. The left sides match but $8 \\neq 20$, so the lines are parallel and distinct: zero solutions.\n\n**The Full Solution:**\nStep 1: Clear the fraction by multiplying the second equation by $2$: $3x + 4y = 20$.\nStep 2: Now both equations have the same $x$- and $y$-coefficients ($3$ and $4$), so both lines have slope $-\\frac{3}{4}$. Their constants differ ($8$ versus $20$), so the intercepts differ: $2$ versus $5$.\nStep 3: Check: subtracting the equations gives $0 = -12$, which is false, so no $(x, y)$ satisfies both. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Exactly one): assumes the fractional coefficient makes the second line's slope different; scaling by $2$ shows the slopes are identical.\n* Choice B (Exactly two): two straight lines can never meet at exactly two points.\n* Choice C (Infinitely many): notices the proportional coefficients but not that the constants ($8$ and $20$) break the proportion; the lines are parallel, not identical.\n\n**Test Day Takeaway:** Scale one equation so the $x$- and $y$-coefficients match; then the constants decide: equal means the same line, unequal means parallel with no solution."
+  {
+   "id": "B",
+   "text": "$6$"
+  },
+  {
+   "id": "C",
+   "text": "$15$"
+  },
+  {
+   "id": "D",
+   "text": "$20$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "divides $6$ by the factor $\\frac{5}{2}$ instead of multiplying by it",
+  "B": "copies the first condition's $y$-coefficient without scaling it",
+  "D": "copies the second condition's $x$-coefficient"
+ },
+ "explanation": "**SAT Pattern: Parallel Lines No Solution**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The $x$-coefficient scales by $\\frac{20}{8} = \\frac{5}{2}$, so $k = \\frac{5}{2}(6) = 15$.\n\n**The Full Solution:**\nStep 1: No combination satisfies both conditions, so the two equations are proportional in their coefficients but not in their constants.\nStep 2: The factor from the first condition to the second is $\\frac{20}{8} = \\frac{5}{2}$.\nStep 3: Applying it to the $y$-coefficient gives $k = \\frac{5}{2}(6) = 15$; the constants disagree because $\\frac{5}{2}(480) = 1200 \\neq 900$. Check: $\\frac{20}{8} = \\frac{15}{6} = 2.5$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.4$): divides $6$ by the factor $\\frac{5}{2}$ instead of multiplying by it\n* Choice B ($6$): copies the first condition's $y$-coefficient without scaling it\n* Choice D ($20$): copies the second condition's $x$-coefficient\n\n**Test Day Takeaway:** Find the scale factor from the $x$-coefficients, apply it to the $y$-coefficient, then confirm the constants break the pattern."
 }

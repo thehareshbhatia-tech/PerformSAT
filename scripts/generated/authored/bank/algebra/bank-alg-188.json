@@ -1,6 +1,6 @@
 {
-  "id": "bank-alg-188",
-  "question": "What value of $m$ is the solution to the equation $6m + m = 91$?",
-  "correctAnswer": "13",
-  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~5s):** $6m + m = 7m$, so $7m = 91$ and $m = 13$.\n\n**The Full Solution:**\nStep 1: The term $m$ has an unwritten coefficient of $1$, so $6m + m = 7m$.\nStep 2: Divide both sides of $7m = 91$ by $7$: $m = 13$.\nStep 3: Check: $6(13) + 13 = 78 + 13 = 91$. $\\checkmark$\n\n**Common Mistakes:** Treating $m$ as $0m$ and solving $6m = 91$ (giving a non-integer); reading $6m + m$ as $6m^2$; subtracting $7$ from $91$ to get $84$.\n\n**Test Day Takeaway:** A bare variable carries a coefficient of $1$. Add it in before dividing."
+ "id": "bank-alg-188",
+ "question": "A gondola begins a run with $p$ passengers aboard. After 47 passengers step off at the midstation and no one boards, 168 passengers remain. What is the value of $p$?",
+ "correctAnswer": "215",
+ "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**The correct answer is $215$.**\n\n**The Fast Way (~10s):** $p - 47 = 168$, so $p = 168 + 47 = 215$.\n\n**The Full Solution:**\n\nStep 1: Starting with $p$ passengers and losing $47$ leaves $p - 47$ passengers, so $p - 47 = 168$.\n\nStep 2: Add $47$ to both sides to undo the subtraction: $p = 168 + 47$.\n\nStep 3: $p = 215$. Check: $215 - 47 = 168$.\n\n**Common Mistakes:**\n\n* $121$ — subtracting $47$ from $168$, repeating the operation instead of reversing it.\n* $47$ — reporting the number who stepped off rather than the starting number.\n* $168$ — reporting the number remaining, which the problem already states.\n\n**Test Day Takeaway:** To recover a starting amount after a decrease, add back what was removed."
 }

@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-423",
-  "question": "In the expressions below, $k$ is a positive integer constant. Which expression has $x - 4k$ as a factor for every such value of $k$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$2x^2 - 3kx - 20k^2$"
-    },
-    {
-      "id": "B",
-      "text": "$2x^2 - 3kx + 20k^2$"
-    },
-    {
-      "id": "C",
-      "text": "$2x^2 + 3kx - 20k^2$"
-    },
-    {
-      "id": "D",
-      "text": "$2x^2 + 13kx + 20k^2$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "flips the sign of the constant term; substituting $x = 4k$ leaves $40k^2$",
-    "C": "factors as $(x + 4k)(2x - 5k)$, so the linear factor is $x + 4k$",
-    "D": "factors as $(x + 4k)(2x + 5k)$, so $-4k$ is the root, not $4k$"
+ "id": "bank-am-423",
+ "question": "A javelin-flight study uses the expression $x^2 + bx - 24$, where $x$ is a release angle in degrees and the integer $b$ is chosen so that the expression is a product of two binomials with integer coefficients. What is the greatest possible value of $b$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Factor with Parameter — Integer Constraint**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** By the factor theorem, $x - 4k$ divides an expression exactly when substituting $x = 4k$ returns $0$. Only choice A does: $2(4k)^2 - 3k(4k) - 20k^2 = 32k^2 - 12k^2 - 20k^2 = 0$.\n\n**The Full Solution:**\nStep 1: $x - 4k$ is a factor of a polynomial in $x$ if and only if $x = 4k$ is a zero of that polynomial, so evaluate each choice at $x = 4k$ and keep the one that returns $0$.\nStep 2: Choice A gives $32k^2 - 12k^2 - 20k^2 = 0$. Choice B gives $32k^2 - 12k^2 + 20k^2 = 40k^2$. Choice C gives $32k^2 + 12k^2 - 20k^2 = 24k^2$. Choice D gives $32k^2 + 52k^2 + 20k^2 = 104k^2$. Because $k$ is a positive integer, $40k^2$, $24k^2$, and $104k^2$ are all nonzero.\nStep 3: Confirm by factoring choice A directly: $2x^2 - 3kx - 20k^2 = (x - 4k)(2x + 5k)$. Expanding, $(x - 4k)(2x + 5k) = 2x^2 + 5kx - 8kx - 20k^2 = 2x^2 - 3kx - 20k^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($2x^2 - 3kx + 20k^2$): the middle term is copied from the correct answer, but with $+20k^2$ the discriminant is $9k^2 - 160k^2 = -151k^2$, so this expression has no real zeros and therefore no linear factor at all.\n* Choice C ($2x^2 + 3kx - 20k^2$): this factors as $(x + 4k)(2x - 5k)$. The number $4k$ appears, but as the root $x = -4k$; substituting $x = 4k$ leaves $24k^2$.\n* Choice D ($2x^2 + 13kx + 20k^2$): this factors as $(x + 4k)(2x + 5k)$, so both of its zeros, $-4k$ and $-\\dfrac{5k}{2}$, are negative when $k$ is positive.\n\n**Test Day Takeaway:** A parameter changes nothing about the factor theorem. Substitute the candidate root, in this case $x = 4k$, and let the $k^2$ coefficients decide; only the expression that evaluates to exactly $0$ carries the factor."
+  {
+   "id": "B",
+   "text": "$5$"
+  },
+  {
+   "id": "C",
+   "text": "$10$"
+  },
+  {
+   "id": "D",
+   "text": "$23$"
+  }
+ ],
+ "correctAnswer": "D",
+ "distractorNotes": {
+  "A": "stops at the pair $6$ and $-4$, a legal factorization but far from the largest sum",
+  "B": "stops at the pair $8$ and $-3$, again legal but not maximal",
+  "C": "stops at the pair $12$ and $-2$, one step short of the extreme pair"
+ },
+ "explanation": "**SAT Pattern: Factor with Parameter — Integer Constraint**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** $b$ is the sum of a factor pair of $-24$, and the sum is largest when the pair is farthest apart: $24 + (-1) = 23$.\n\n**The Full Solution:**\nStep 1: If $x^2 + bx - 24 = (x + p)(x + q)$ with integers $p$ and $q$, then $pq = -24$ and $p + q = b$.\nStep 2: The integer pairs with product $-24$ are $(1, -24)$, $(2, -12)$, $(3, -8)$, $(4, -6)$ and their reverses, giving sums $-23$, $-10$, $-5$, $-2$, $2$, $5$, $10$, $23$.\nStep 3: The greatest of those sums is $23$. Check: $(x + 24)(x - 1) = x^2 + 23x - 24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): comes from $(x + 6)(x - 4)$, a real factorization but a small sum.\n* Choice B ($5$): comes from $(x + 8)(x - 3)$.\n* Choice C ($10$): comes from $(x + 12)(x - 2)$, the second-largest sum.\n\n**Test Day Takeaway:** For a negative constant term, the widest factor pair — the one using $1$ — produces the extreme values of the middle coefficient."
 }

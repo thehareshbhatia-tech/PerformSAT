@@ -1,55 +1,53 @@
 {
- "id": 1,
- "question": "For the function $f$, the table lists the value of $f(x)$ at four values of $x$. Which of the following best describes $f$?",
- "diagram": {
-  "type": "table",
-  "params": {
-   "xHeader": "x",
-   "yHeader": "f(x)",
-   "rows": [
-    [
-     "0",
-     "5"
-    ],
-    [
-     "1",
-     "15"
-    ],
-    [
-     "2",
-     "45"
-    ],
-    [
-     "3",
-     "135"
-    ]
+ "question": "The table lists a yeast culture's mass $f(x)$, in grams, after $x$ hours. Which equation defines $f$?",
+ "questionTable": {
+  "headers": [
+   "$x$",
+   "$f(x)$"
+  ],
+  "rows": [
+   [
+    "$0$",
+    "$5$"
+   ],
+   [
+    "$1$",
+    "$15$"
+   ],
+   [
+    "$2$",
+    "$45$"
+   ],
+   [
+    "$3$",
+    "$135$"
    ]
-  }
+  ]
  },
+ "hint": "Look at what each mass is multiplied by to reach the next one.",
  "choices": [
   {
    "id": "A",
-   "text": "Decreasing linear"
+   "text": "$f(x) = 5(3)^x$"
   },
   {
    "id": "B",
-   "text": "Decreasing exponential"
+   "text": "$f(x) = 5(10)^x$"
   },
   {
    "id": "C",
-   "text": "Increasing linear"
+   "text": "$f(x) = 3(5)^x$"
   },
   {
    "id": "D",
-   "text": "Increasing exponential"
+   "text": "$f(x) = 15(3)^x$"
   }
  ],
- "correctAnswer": "D",
- "hint": "Compare the differences between consecutive values with the ratios between them.",
  "distractorNotes": {
-  "A": "reads the table bottom to top",
-  "B": "right pattern, wrong direction",
-  "C": "sees growth but not its shape"
+  "B": "uses the difference 15 - 5 = 10 as the growth factor",
+  "C": "swaps the starting mass and the growth factor",
+  "D": "uses the mass at x = 1 as the starting mass"
  },
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** Each value is $3$ times the one before it, and the values are rising, so $f$ is an increasing exponential function.\n\n**The Full Solution:**\nStep 1: The differences between consecutive values are $10$, $30$, and $90$, which are not constant, so $f$ is not linear.\nStep 2: The ratios are $\\frac{15}{5} = 3$, $\\frac{45}{15} = 3$, and $\\frac{135}{45} = 3$, a constant multiplier — the signature of an exponential function.\nStep 3: Because the multiplier is greater than $1$, the values increase, so $f$ is an increasing exponential function. Check: $f(x) = 5(3)^x$ reproduces every entry in the table.\n\n**Why the wrong answers are tempting:**\n* Choice A (Decreasing linear): reads the table from the bottom up, where the values appear to fall.\n* Choice B (Decreasing exponential): spots the constant ratio but reverses the direction of the change.\n* Choice C (Increasing linear): notices that the values grow and stops there, without checking whether they grow by a constant amount.\n\n**Test Day Takeaway:** Constant differences mean linear; constant ratios mean exponential. Compute one of each before you name the model."
+ "correctAnswer": "A",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** The mass starts at $5$ and triples each hour, so $f(x) = 5(3)^x$.\n\n**The Full Solution:**\nStep 1: At $x = 0$ the mass is $5$ grams, so the coefficient in front is $5$.\nStep 2: Each hour the mass multiplies by the same factor: $\\dfrac{15}{5} = 3$, $\\dfrac{45}{15} = 3$, $\\dfrac{135}{45} = 3$.\nStep 3: An exponential with start $5$ and factor $3$ is $f(x) = 5(3)^x$. Check at $x = 3$: $5(27) = 135$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($5(10)^x$): uses the first difference $15 - 5 = 10$ as the factor, which would give $50$ at $x = 1$.\n* Choice C ($3(5)^x$): swaps the starting mass and the growth factor, giving $3$ grams at $x = 0$.\n* Choice D ($15(3)^x$): starts from the mass at $x = 1$, so every value is three times too large.\n\n**Test Day Takeaway:** In a table with equal time steps, divide consecutive outputs — a constant quotient means exponential."
 }

@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-426",
-  "question": "$\\frac{x}{6} = -7$ What value of $x$ is the solution to the given equation?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-42$"
-    },
-    {
-      "id": "B",
-      "text": "$-13$"
-    },
-    {
-      "id": "C",
-      "text": "$-\\frac{7}{6}$"
-    },
-    {
-      "id": "D",
-      "text": "$42$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "subtracts 6 from -7 instead of multiplying by 6.",
-    "C": "divides -7 by 6, applying division a second time instead of undoing it.",
-    "D": "multiplies correctly but drops the negative sign."
+ "id": "bank-alg-426",
+ "question": "A packing station places 24 folded scarves in each carton, and the equation $\\frac{c}{24} = 35$ gives the total number of scarves $c$ that were packed. What is the value of $c$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$11$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Multiply both sides by $6$: $x = -42$.\n\n**The Full Solution:**\nStep 1: The variable is divided by $6$, so multiply each side by $6$ to isolate $x$.\nStep 2: $6 \\cdot \\frac{x}{6} = 6 \\cdot (-7)$, so $x = -42$.\nStep 3: Check: $\\frac{-42}{6} = -7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-13$): subtracts $6$ from $-7$ instead of multiplying by $6$.\n* Choice C ($-\\frac{7}{6}$): divides $-7$ by $6$, applying division a second time instead of undoing it.\n* Choice D ($42$): multiplies correctly but drops the negative sign.\n\n**Test Day Takeaway:** Division is undone by multiplication; a negative times a positive stays negative, so carry the sign through."
+  {
+   "id": "B",
+   "text": "$24$"
+  },
+  {
+   "id": "C",
+   "text": "$59$"
+  },
+  {
+   "id": "D",
+   "text": "$840$"
+  }
+ ],
+ "correctAnswer": "D",
+ "distractorNotes": {
+  "A": "subtracts 24 from 35 instead of multiplying",
+  "B": "reports the number of scarves per carton that was already given",
+  "C": "adds 24 to 35 instead of multiplying"
+ },
+ "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Multiply both sides by $24$: $c = 24(35) = 840$.\n\n**The Full Solution:**\n\nStep 1: The equation $\\frac{c}{24} = 35$ says the total divided into groups of $24$ gives $35$ cartons.\n\nStep 2: Undo the division by multiplying both sides by $24$: $c = 24(35)$.\n\nStep 3: $c = 840$. Check: $\\frac{840}{24} = 35$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($11$): computes $35 - 24$, subtracting where the equation calls for multiplication.\n* Choice B ($24$): reports the number packed in each carton, which the equation already supplies.\n* Choice C ($59$): computes $35 + 24$, adding where the equation calls for multiplication.\n\n**Test Day Takeaway:** A variable divided by a number is freed by multiplying, and the answer must be larger than the quotient."
 }

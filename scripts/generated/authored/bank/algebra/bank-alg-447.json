@@ -1,58 +1,56 @@
 {
-  "id": "bank-alg-447",
-  "question": "Line $g$ is shown in the $xy$-plane. The system consisting of the equation of line $g$ and the equation $y = \\frac{a}{4}x + b$, where $a$ and $b$ are constants, has infinitely many solutions. What is the value of $a + b$?",
-  "diagram": {
-    "type": "linearGraph",
-    "params": {
-      "slope": 0.5,
-      "yIntercept": -3,
-      "xRange": [
-        -4,
-        6
-      ],
-      "yRange": [
-        -6,
-        4
-      ],
-      "xTickInterval": 2,
-      "yTickInterval": 2,
-      "gridInterval": 1,
-      "showPoints": [
-        [
-          0,
-          -3
-        ],
-        [
-          4,
-          -1
-        ]
-      ],
-      "label": "g"
-    }
+ "question": "The table gives the soil moisture, as a percent, at a test plot on four days after irrigation, and the four readings lie on a line. The equation $ax + 12y = 180$ has that same graph in the $xy$-plane, where $a$ is a constant. What is the value of $a$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$0.75$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-\\frac{5}{2}$"
-    },
-    {
-      "id": "B",
-      "text": "$-1$"
-    },
-    {
-      "id": "C",
-      "text": "$2$"
-    },
-    {
-      "id": "D",
-      "text": "$5$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "sets a = \\frac{1}{2}, reading the slope as a and ignoring the divisor 4: \\frac{1}{2} - 3 = -\\frac{5}{2}.",
-    "C": "reports a = 2 alone, forgetting to add b = -3.",
-    "D": "reads the slope as run over rise, 2, so \\frac{a}{4} = 2 gives a = 8; 8 - 3 = 5."
+  {
+   "id": "B",
+   "text": "$3$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Same Line Infinitely Many Solutions**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Line $g$ has slope $\\frac{1}{2}$ and $y$-intercept $-3$. Same line means $\\frac{a}{4} = \\frac{1}{2}$, so $a = 2$, and $b = -3$; $a + b = -1$.\n\n**The Full Solution:**\nStep 1: Read line $g$ from the graph: it passes through $(0, -3)$ and $(4, -1)$, so slope $= \\frac{-1 - (-3)}{4 - 0} = \\frac{2}{4} = \\frac{1}{2}$ and the equation is $y = \\frac{1}{2}x - 3$.\nStep 2: Infinitely many solutions means $y = \\frac{a}{4}x + b$ is the same line: $\\frac{a}{4} = \\frac{1}{2}$ gives $a = 2$, and $b = -3$.\nStep 3: So $a + b = 2 + (-3) = -1$. Check: $y = \\frac{2}{4}x - 3 = \\frac{1}{2}x - 3$ matches line $g$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{5}{2}$): sets $a = \\frac{1}{2}$, reading the slope as $a$ and ignoring the divisor $4$: $\\frac{1}{2} - 3 = -\\frac{5}{2}$.\n* Choice C ($2$): reports $a = 2$ alone, forgetting to add $b = -3$.\n* Choice D ($5$): reads the slope as run over rise, $2$, so $\\frac{a}{4} = 2$ gives $a = 8$; $8 - 3 = 5$.\n\n**Test Day Takeaway:** Same line = same slope and same intercept; when the slope is written as $\\frac{a}{4}$, solve $\\frac{a}{4} = m$ rather than setting $a = m$."
+  {
+   "id": "C",
+   "text": "$9$"
+  },
+  {
+   "id": "D",
+   "text": "$36$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "reports the magnitude of the slope $\\frac{3}{4}$ instead of a coefficient",
+  "B": "copies the $x$-coefficient of $3x + 4y = 60$ without scaling by $3$",
+  "D": "multiplies the $x$-coefficient $3$ by the target's $y$-coefficient $12$"
+ },
+ "explanation": "**SAT Pattern: Same Line Infinitely Many Solutions**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The readings drop $3$ percent every $4$ days from $15$, so $3x + 4y = 60$. Tripling gives $9x + 12y = 180$, and $a = 9$.\n\n**The Full Solution:**\n\nStep 1: From the table the moisture falls from $15$ to $6$ as the day count rises from $0$ to $12$, a slope of $-\\frac{9}{12} = -\\frac{3}{4}$, so $y = 15 - \\frac{3}{4}x$.\n\nStep 2: Clear the fraction by multiplying by $4$: $4y = 60 - 3x$, or $3x + 4y = 60$.\n\nStep 3: For $ax + 12y = 180$ to be the same line, scale by $\\frac{12}{4} = 3$: $9x + 12y = 180$, so $a = 9$. Check $(4, 12)$: $9(4) + 12(12) = 180$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($0.75$): reports the size of the slope $\\frac{3}{4}$, not the coefficient of $x$ in standard form.\n\n* Choice B ($3$): copies the $x$-coefficient of $3x + 4y = 60$ and skips the scaling.\n\n* Choice D ($36$): multiplies $3$ by $12$, the target's $y$-coefficient, instead of by the scale factor $3$.\n\n**Test Day Takeaway:** Turn table data into standard form first, then read the scale factor off the coefficient you can match.",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "Days after irrigation",
+    "Soil moisture (percent)"
+   ],
+   "rows": [
+    [
+     "0",
+     "15"
+    ],
+    [
+     "4",
+     "12"
+    ],
+    [
+     "8",
+     "9"
+    ],
+    [
+     "12",
+     "6"
+    ]
+   ]
+  }
+ },
+ "id": "bank-alg-447"
 }

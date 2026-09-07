@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-177",
-  "question": "In the $xy$-plane, line $k$ is defined by $y = 4x - 1$. What is the slope of a line that is perpendicular to line $k$?",
+  "question": "On a bridge drawing, a tie rod lies along $y = -4x + 9$, and a strut meets the tie rod at a right angle at $(8, 3)$. The strut's line has $y$-intercept $(0, b)$. What is the value of $b$?",
   "choices": [
     {
       "id": "A",
-      "text": "$-4$"
+      "text": "$-29$"
     },
     {
       "id": "B",
-      "text": "$-\\frac{1}{4}$"
+      "text": "$1$"
     },
     {
       "id": "C",
-      "text": "$\\frac{1}{4}$"
+      "text": "$5$"
     },
     {
       "id": "D",
-      "text": "$4$"
+      "text": "$35$"
     }
   ],
-  "distractorNotes": {
-    "A": "negates without taking the reciprocal",
-    "C": "takes the reciprocal without negating",
-    "D": "reports the slope of line k itself (parallel)"
-  },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Line $k$ has slope $4$. A perpendicular slope is the negative reciprocal: $-\\frac{1}{4}$.\n\n**The Full Solution:**\nStep 1: In $y = 4x - 1$, the coefficient of $x$ is the slope, so line $k$ has slope $4$.\nStep 2: Perpendicular lines have slopes whose product is $-1$. If $m$ is the perpendicular slope, $4m = -1$, so $m = -\\frac{1}{4}$.\nStep 3: Check: $4 \\cdot \\left(-\\frac{1}{4}\\right) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): flips the sign but forgets to take the reciprocal.\n* Choice C ($\\frac{1}{4}$): takes the reciprocal but forgets to flip the sign.\n* Choice D ($4$): reports the slope of line $k$ itself, which is a parallel line, not a perpendicular one.\n\n**Test Day Takeaway:** Perpendicular means \"flip and negate\": reciprocal and opposite sign. Both changes are required; the product of the two slopes must be $-1$."
+  "distractorNotes": {
+    "A": "negates the tie rod's slope to $4$ instead of inverting it, giving $3 = 32 + b$",
+    "C": "computes $b$ as $y + mx = 3 + \\frac{1}{4}(8)$",
+    "D": "keeps the tie rod's slope $-4$, giving $3 = -32 + b$"
+  },
+  "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The strut has slope $\\frac{1}{4}$, and $3 = \\frac{1}{4}(8) + b$ gives $b = 1$.\n\n**The Full Solution:**\nStep 1: The tie rod has slope $-4$, so the strut has slope $\\frac{1}{4}$.\nStep 2: Substituting $(8, 3)$ into $y = \\frac{1}{4}x + b$ gives $3 = 2 + b$.\nStep 3: Therefore $b = 1$. Check: $\\frac{1}{4}(8) + 1 = 3$, and $-4 \\cdot \\frac{1}{4} = -1$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-29$): negates the tie rod's slope to $4$ instead of inverting it, giving $3 = 32 + b$\n* Choice C ($5$): computes $b$ as $y + mx = 3 + \\frac{1}{4}(8)$\n* Choice D ($35$): keeps the tie rod's slope $-4$, giving $3 = -32 + b$\n\n**Test Day Takeaway:** Flip and negate the slope, then substitute the given point once; the intercept falls out in one step."
 }

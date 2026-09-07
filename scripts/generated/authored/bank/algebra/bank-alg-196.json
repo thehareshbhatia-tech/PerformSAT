@@ -1,6 +1,6 @@
 {
-  "id": "bank-alg-196",
-  "question": "The solution to the system of equations $3x + 2y = 32$ and $y = x - 4$ is $(x, y)$. What is the value of $y$?",
-  "correctAnswer": "4",
-  "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~15s):** Replace $y$ with $x - 4$: $3x + 2(x - 4) = 32$, so $5x - 8 = 32$, $x = 8$, and $y = 8 - 4 = 4$.\n\n**The Full Solution:**\nStep 1: The second equation isolates $y$, so substitute into the first: $3x + 2(x - 4) = 32$.\nStep 2: Distribute and combine: $3x + 2x - 8 = 32$, so $5x = 40$ and $x = 8$.\nStep 3: Back-substitute: $y = 8 - 4 = 4$. Check: $3(8) + 2(4) = 24 + 8 = 32$. $\\checkmark$\n\n**Common Mistakes:** Entering $8$ (the value of $x$); forgetting to distribute the $2$ to the $-4$ and solving $5x - 4 = 32$; substituting $x - 4$ for $x$ instead of for $y$.\n\n**Test Day Takeaway:** Distribute the coefficient across the entire substituted expression, including its constant, before combining like terms."
+ "question": "A storage cabinet holds $x$ four-terabyte drives and $y$ eight-terabyte drives, $86$ drives in all, and the number of eight-terabyte drives is $14$ more than the number of four-terabyte drives. How many four-terabyte drives are in the cabinet?",
+ "correctAnswer": "36",
+ "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**The correct answer is $36$.**\n\n**The Fast Way (~30s):** Replacing $y$ with $x+14$ gives $2x+14=86$, so $2x=72$ and $x=36$.\n\n**The Full Solution:**\n\nStep 1: Substitute $y=x+14$ into $x+y=86$: $x+(x+14)=86$.\n\nStep 2: Combine like terms: $2x+14=86$, so $2x=72$.\n\nStep 3: Divide by $2$: $x=36$ four-terabyte drives. Check: $y=36+14=50$, and $36+50=86$.\n\n**Common Mistakes:** Reporting $50$ gives the number of eight-terabyte drives, the other variable. Dividing $86$ by $2$ without first removing the $14$ gives $43$, which would require the two counts to be equal.\n\n**Test Day Takeaway:** Subtract the constant introduced by the substitution before dividing, and check which of the two counts the question asks for.",
+ "id": "bank-alg-196"
 }

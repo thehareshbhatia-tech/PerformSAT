@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-402",
-  "question": "$\\dfrac{2x - 5}{3} = \\dfrac{x + 7}{2}$\n\nWhat value of $x$ is the solution to the given equation?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$\\dfrac{29}{4}$"
-    },
-    {
-      "id": "B",
-      "text": "$11$"
-    },
-    {
-      "id": "C",
-      "text": "$12$"
-    },
-    {
-      "id": "D",
-      "text": "$31$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "multiplies each side by its own denominator: 3(2x - 5) = 2(x + 7)",
-    "B": "subtracts 10 from 21 instead of adding",
-    "C": "does not distribute after cross-multiplying: 4x - 5 = 3x + 7"
+ "id": "bank-alg-402",
+ "question": "A quilting line uses $3(4q + 5) - 2q$ square meters of batting to finish $q$ quilts, and one production run uses $105$ square meters in all. What is the value of $q$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$7.5$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Cross-multiply: $2(2x - 5) = 3(x + 7)$, so $4x - 10 = 3x + 21$ and $x = 31$.\n\n**The Full Solution:**\nStep 1: Clear both denominators by multiplying both sides by $6$, the least common denominator: $6 \\cdot \\dfrac{2x - 5}{3} = 6 \\cdot \\dfrac{x + 7}{2}$, which gives $2(2x - 5) = 3(x + 7)$.\nStep 2: Distribute on both sides: $4x - 10 = 3x + 21$.\nStep 3: Subtract $3x$ and add $10$: $x = 31$. Check: left side $\\dfrac{62 - 5}{3} = \\dfrac{57}{3} = 19$; right side $\\dfrac{31 + 7}{2} = \\dfrac{38}{2} = 19$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{29}{4}$): multiplies each numerator by its own denominator, writing $3(2x - 5) = 2(x + 7)$, which leads to $4x = 29$; cross-multiplication pairs each numerator with the other fraction's denominator.\n* Choice B ($11$): reaches $4x - 10 = 3x + 21$ but then computes $21 - 10$ instead of $21 + 10$.\n* Choice C ($12$): cross-multiplies the $x$-terms only, writing $4x - 5 = 3x + 7$ without distributing to the constants.\n\n**Test Day Takeaway:** Multiply every term by the same common denominator, distribute to each term in the numerator, and verify by evaluating both fractions at your answer."
+  {
+   "id": "B",
+   "text": "$9$"
+  },
+  {
+   "id": "C",
+   "text": "$10.5$"
+  },
+  {
+   "id": "D",
+   "text": "$90$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "drops the -2q and solves 12q + 15 = 105",
+  "C": "divides 105 by 10 without first subtracting the constant 15",
+  "D": "subtracts 15 from 105 but never divides by 10"
+ },
+ "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The expression simplifies to $10q + 15$, so $10q = 90$ and $q = 9$.\n\n**The Full Solution:**\n\nStep 1: Distribute: $3(4q + 5) = 12q + 15$.\n\nStep 2: Combine with the $-2q$: $12q + 15 - 2q = 10q + 15$, so $10q + 15 = 105$.\n\nStep 3: Subtract $15$ and divide by $10$: $10q = 90$, so $q = 9$. Check: $3(36 + 5) - 18 = 123 - 18 = 105$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($7.5$): drops the $-2q$ and solves $12q + 15 = 105$.\n* Choice C ($10.5$): divides $105$ by $10$ without first removing the constant $15$.\n* Choice D ($90$): subtracts $15$ correctly but reports $10q$ instead of $q$.\n\n**Test Day Takeaway:** Simplify the whole left side to the form $mx + b$ before solving; the constant must go before the coefficient does."
 }

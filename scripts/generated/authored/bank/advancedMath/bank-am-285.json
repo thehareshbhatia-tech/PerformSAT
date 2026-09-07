@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-285",
-  "question": "For which value of $x$ are the two sides of the equation $\\dfrac{x^2}{x + 6} = \\dfrac{36}{x + 6} - 5$ equal?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-6$"
-    },
-    {
-      "id": "B",
-      "text": "$-1$"
-    },
-    {
-      "id": "C",
-      "text": "$1$"
-    },
-    {
-      "id": "D",
-      "text": "$6$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "the extraneous root, which makes both denominators zero",
-    "B": "factors $x^2 + 5x - 6$ as $(x + 1)(x - 6)$ and takes the negative root",
-    "D": "uses that same reversed factoring and takes the positive root"
+ "id": "bank-am-285",
+ "question": "A magnetometer boom's balance condition is $\\dfrac{x+a}{x-3}=\\dfrac{6}{x-3}$, where $a$ is a constant and $x$ is the boom offset in centimeters. For which value of $a$ does the condition have no solution?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-3$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Multiplying by $x + 6$ gives $x^2 = 6 - 5x$, so $(x + 6)(x - 1) = 0$. The root $x = -6$ is excluded, leaving $x = 1$.\n\n**The Full Solution:**\nStep 1: The denominators exclude $x = -6$. For every other $x$, multiply each term by $x + 6$: $x^2 = 36 - 5(x + 6)$.\nStep 2: Simplify: $x^2 = 36 - 5x - 30 = 6 - 5x$, so $x^2 + 5x - 6 = 0$, which factors as $(x + 6)(x - 1) = 0$.\nStep 3: The candidates are $x = -6$ and $x = 1$; the first is excluded, so only $x = 1$ works. Check: $\\dfrac{1}{7}$ on the left, and $\\dfrac{36}{7} - 5 = \\dfrac{36 - 35}{7} = \\dfrac{1}{7}$ on the right. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): this root comes out of the algebra but makes both denominators zero, so it is extraneous.\n* Choice B ($-1$): this comes from factoring $x^2 + 5x - 6$ as $(x + 1)(x - 6)$, which expands to $x^2 - 5x - 6$.\n* Choice D ($6$): this is the other root of that same incorrect factoring.\n\n**Test Day Takeaway:** Multiplying by a variable denominator can create a root that was never legal. Factor, then delete any candidate that zeroes a denominator."
+  {
+   "id": "B",
+   "text": "$0$"
+  },
+  {
+   "id": "C",
+   "text": "$3$"
+  },
+  {
+   "id": "D",
+   "text": "$6$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "solves 6 + a = 3 instead of 6 - a = 3, giving -3",
+  "B": "assumes no solution requires the numerator x + a to equal x, so a = 0",
+  "D": "copies the constant 6 from the right-hand numerator"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Equal denominators force $x+a=6$, so $x=6-a$; the condition fails only when that candidate is the barred value $3$, which happens at $a=3$.\n\n**The Full Solution:**\n\nStep 1: Both sides have denominator $x-3$, so $x\\neq3$, and for every other $x$ the equation reduces to $x+a=6$.\n\nStep 2: The reduced equation always has exactly one candidate, $x=6-a$.\n\nStep 3: That candidate is unusable precisely when $6-a=3$, that is, when $a=3$. Check: with $a=3$ the condition is $\\frac{x+3}{x-3}=\\frac{6}{x-3}$, whose only candidate is $x=3$, an excluded input, so there is no solution.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-3$): solves $6+a=3$ rather than $6-a=3$.\n* Choice B ($0$): assumes no solution requires the two numerators to be identical.\n* Choice D ($6$): copies the constant from the right-hand numerator.\n\n**Test Day Takeaway:** A rational equation has no solution exactly when its only candidate is an input the denominators forbid."
 }

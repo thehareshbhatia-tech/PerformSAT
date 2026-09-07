@@ -23,31 +23,37 @@ export const equivalentExpressionsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "The expression $(4y+9)(4y-9)$ is equivalent to which of the following expressions?",
+      question: "A solar panel's uncovered area, in square centimeters, is $49t^2 - 25$, where $t$ is the number of minutes since a shade began retracting. Which expression is equivalent to that area?",
       choices: [
-        { id: "A", text: "$8y^{2}-81$" },
-        { id: "B", text: "$16y^{2}-81$" },
-        { id: "C", text: "$16y^{2}+81$" },
-        { id: "D", text: "$16y^{2}-72y-81$" }
+        { id: "A", text: "$(7t - 5)(7t + 5)$" },
+        // distractor: expands to 49t^2 - 70t + 25, which has an unwanted middle term
+        { id: "B", text: "$(7t - 5)^2$" },
+        // distractor: expands to 49t^2 + 70t + 25
+        { id: "C", text: "$(7t + 5)^2$" },
+        // distractor: splits the coefficients instead of the squares and expands to 49t^2 + 24t - 25
+        { id: "D", text: "$(49t - 25)(t + 1)$" }
       ],
-      correctAnswer: "B",
-      hint: "The two binomials differ only in the sign of the second term — look at what that does to the two middle products.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** A sum times a difference leaves $(4y)^{2}-9^{2}=16y^{2}-81$ — choice B.\n\n**The Full Solution:**\nStep 1: Expand: $(4y+9)(4y-9)=16y^{2}-36y+36y-81$.\nStep 2: The middle terms $-36y$ and $+36y$ are opposites, so they add to $0$.\nStep 3: What remains is $16y^{2}-81$. Check at $y=1$: $(13)(-5)=-65$, and $16-81=-65$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8y^{2}-81$): adds $4y$ to itself instead of squaring it; the correct first term is $4y\\cdot 4y = 16y^{2}$.\n* Choice C ($16y^{2}+81$): treats the product as a sum of squares, $(4y)^{2}+9^{2}$; the last pair of terms multiplies to $9(-9)=-81$, so the constant is negative.\n* Choice D ($16y^{2}-72y-81$): mis-signs both middle products as $-36y$ and $-36y$, so they add to $-72y$ instead of cancelling.\n\n**Test Day Takeaway:** $(A+B)(A-B)=A^{2}-B^{2}$: recognizing the pattern removes the middle terms before you write them down, and squaring $4y$ means squaring the coefficient too.",
+      correctAnswer: "A",
+      hint: "Notice what kind of number both $49t^2$ and $25$ are.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** $49t^2 = (7t)^2$ and $25 = 5^2$, so the difference factors as $(7t - 5)(7t + 5)$.\n\n**The Full Solution:**\nStep 1: Recognize both terms as squares: $49t^2 = (7t)^2$ and $25 = 5^2$.\nStep 2: A difference of squares $a^2 - b^2$ factors as $(a - b)(a + b)$ with $a = 7t$ and $b = 5$.\nStep 3: The factored form is $(7t - 5)(7t + 5)$. Check by expanding: $49t^2 + 35t - 35t - 25 = 49t^2 - 25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($(7t - 5)^2$): expands to $49t^2 - 70t + 25$, adding a middle term the original does not have.\n* Choice C ($(7t + 5)^2$): expands to $49t^2 + 70t + 25$, wrong in both the middle and constant terms.\n* Choice D: splits the coefficients rather than the squares and expands to $49t^2 + 24t - 25$.\n\n**Test Day Takeaway:** A binomial with a minus sign between two perfect squares always factors into conjugate pairs.",
       skills: ["difference-of-squares"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "Which of the following is equivalent to $\\frac{18a^{5}b^{2}}{6a^{2}b^{5}}$, where $a>0$ and $b>0$?",
+      question: "A harvester's grain-flow ratio is $\\dfrac{18x^5}{3x^{-2}}$, where $x$ is the drum speed in revolutions per second, and the ratio equals $ax^b$ for every $x > 0$. What is the value of $a + b$?",
       choices: [
-        { id: "A", text: "$3a^{3}b^{3}$" },
-        { id: "B", text: "$\\frac{3a^{3}}{b^{3}}$" },
-        { id: "C", text: "$\\frac{3a^{7}}{b^{7}}$" },
-        { id: "D", text: "$\\frac{12a^{3}}{b^{3}}$" }
+        // distractor: subtracts as 5 - 2 = 3, ignoring the negative exponent, then adds 6
+        { id: "A", text: "$9$" },
+        { id: "B", text: "$13$" },
+        // distractor: multiplies the exponents to get 10 and adds 6
+        { id: "C", text: "$16$" },
+        // distractor: subtracts the coefficients, 18 - 3 = 15, and adds 7
+        { id: "D", text: "$22$" }
       ],
       correctAnswer: "B",
-      hint: "Handle the coefficients and each variable separately, and watch which variable has the larger exponent on top.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** $18\\div 6=3$, $a^{5-2}=a^{3}$, and $b^{2-5}=b^{-3}$, so the $b^{3}$ lands in the denominator: $\\frac{3a^{3}}{b^{3}}$ — choice B.\n\n**The Full Solution:**\nStep 1: Divide the coefficients: $\\frac{18}{6}=3$.\nStep 2: Subtract exponents on $a$: $a^{5-2}=a^{3}$, which stays in the numerator.\nStep 3: Subtract exponents on $b$: $b^{2-5}=b^{-3}$, and a negative exponent means the factor belongs in the denominator, giving $\\frac{3a^{3}}{b^{3}}$.\nStep 4: Check at $a=b=2$: the original is $\\frac{18(32)(4)}{6(4)(32)}=3$, and $\\frac{3(8)}{8}=3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3a^{3}b^{3}$): subtracts the $b$ exponents but leaves the result in the numerator, ignoring that $b^{2-5}$ is negative.\n* Choice C ($\\frac{3a^{7}}{b^{7}}$): adds the exponents instead of subtracting them: $a^{5+2}$ and $b^{2+5}$.\n* Choice D ($\\frac{12a^{3}}{b^{3}}$): subtracts the coefficients, $18-6=12$, instead of dividing them.\n\n**Test Day Takeaway:** Division of like bases subtracts exponents; a negative result just moves that factor across the fraction bar. Coefficients divide — they never subtract.",
+      hint: "Watch the sign of the exponent in the denominator.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\dfrac{18}{3} = 6$ and $x^{5 - (-2)} = x^{7}$, so $a + b = 6 + 7 = 13$.\n\n**The Full Solution:**\nStep 1: Divide the coefficients: $\\dfrac{18}{3} = 6$, so $a = 6$.\nStep 2: Subtract the exponents: $5 - (-2) = 7$, so $b = 7$.\nStep 3: Add: $a + b = 6 + 7 = 13$. Check at $x = 1$: the ratio is $\\dfrac{18}{3} = 6$ and $6(1)^7 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): computes $5 - 2 = 3$, dropping the minus sign on the denominator's exponent, and adds $6 + 3$.\n* Choice C ($16$): multiplies the exponents instead of subtracting them, giving $6 + 10$.\n* Choice D ($22$): subtracts the coefficients, $18 - 3 = 15$, and adds the correct exponent $7$.\n\n**Test Day Takeaway:** Subtracting a negative exponent adds it, so the exponent grows rather than shrinks.",
       skills: ["simplifying-rational-expressions", "exponent-laws"]
     },
     {
@@ -68,16 +74,19 @@ export const equivalentExpressionsQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "Which of the following is equivalent to $(3c-5d)^{2}-(3c+5d)^{2}$, where $c$ and $d$ are constants?",
+      question: "A crate's cross-sectional area is $16x^2 + kx + 81$, and for two constants $k$ this area is the square of a binomial. What are those two values of $k$?",
       choices: [
-        { id: "A", text: "$-60cd$" },
-        { id: "B", text: "$0$" },
-        { id: "C", text: "$60cd$" },
-        { id: "D", text: "$18c^{2}+50d^{2}$" }
+        // distractor: keeps only the negative value and discards the positive one
+        { id: "A", text: "$-72$ only" },
+        // distractor: uses the square root of 16(81) = 36 without doubling it
+        { id: "B", text: "$-36$ and $36$" },
+        { id: "C", text: "$-72$ and $72$" },
+        // distractor: keeps only the positive value
+        { id: "D", text: "$72$ only" }
       ],
-      correctAnswer: "A",
-      hint: "Expand both squares in full before subtracting, and keep the parentheses around the second square while you distribute the minus sign.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** Both squares carry $9c^{2}+25d^{2}$, so those cancel; only the middle terms survive: $-30cd-(+30cd)=-60cd$ — choice A.\n\n**The Full Solution:**\nStep 1: Expand the first square: $(3c-5d)^{2}=9c^{2}-30cd+25d^{2}$.\nStep 2: Expand the second square: $(3c+5d)^{2}=9c^{2}+30cd+25d^{2}$.\nStep 3: Subtract, distributing the minus sign across all three terms: $(9c^{2}-30cd+25d^{2})-9c^{2}-30cd-25d^{2}=-60cd$.\nStep 4: Check at $c=1$, $d=1$: $(-2)^{2}-(8)^{2}=4-64=-60$, and $-60(1)(1)=-60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($0$): assumes squaring distributes over the terms, so both squares would expand to $9c^{2}+25d^{2}$ and cancel completely.\n* Choice C ($60cd$): subtracts in the wrong order, computing $(3c+5d)^{2}-(3c-5d)^{2}$ instead.\n* Choice D ($18c^{2}+50d^{2}$): adds the two squares rather than subtracting them: the $\\pm 30cd$ terms cancel and the squares double to $18c^{2}+50d^{2}$.\n\n**Test Day Takeaway:** A difference of two squared binomials keeps only the cross terms. Distribute the subtraction across every term of the second expansion — that dropped minus sign is the whole trap.",
+      correctAnswer: "C",
+      hint: "What binomial, when squared, could produce the first and last terms?",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~40s):** A square $(4x \\pm 9)^2$ has middle term $\\pm 2(4)(9)x = \\pm 72x$, so $k = \\pm 72$.\n\n**The Full Solution:**\nStep 1: For the trinomial to be a square, it must equal $(4x + c)^2$ with $c^2 = 81$, so $c = 9$ or $c = -9$.\nStep 2: Expanding $(4x + c)^2$ gives $16x^2 + 8cx + c^2$, so $k = 8c$.\nStep 3: With $c = 9$, $k = 72$; with $c = -9$, $k = -72$. Check: $(4x + 9)^2 = 16x^2 + 72x + 81$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-72$ only): finds the right size but discards the equally valid positive value.\n* Choice B ($-36$ and $36$): uses $\\sqrt{16 \\cdot 81} = 36$ and forgets the factor of $2$ in the middle term.\n* Choice D ($72$ only): discards the negative value, though $(4x - 9)^2$ is also a square.\n\n**Test Day Takeaway:** The middle term of a perfect square is twice the product of the two square roots — and its sign can go either way.",
       skills: ["perfect-square-trinomial"]
     }
   ]

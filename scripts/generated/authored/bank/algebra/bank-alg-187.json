@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-187",
-  "question": "What value of $k$ is the solution to the equation $\\dfrac{k}{8} = 12$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$1.5$"
-    },
-    {
-      "id": "B",
-      "text": "$4$"
-    },
-    {
-      "id": "C",
-      "text": "$20$"
-    },
-    {
-      "id": "D",
-      "text": "$96$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "divides 12 by 8 instead of multiplying",
-    "B": "subtracts 8 from 12",
-    "C": "adds 8 to 12"
+ "id": "bank-alg-187",
+ "question": "A bolt of linen contains $b$ meters of fabric before any is used. After 38 meters are cut from the bolt for a set of curtains, 145 meters remain. Which equation represents this situation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$b - 38 = 145$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** $k$ is divided by $8$, so multiply both sides by $8$: $k = 96$.\n\n**The Full Solution:**\nStep 1: The equation $\\dfrac{k}{8} = 12$ says $k$ divided by $8$ equals $12$.\nStep 2: Undo the division by multiplying both sides by $8$: $k = 12 \\cdot 8 = 96$.\nStep 3: Check: $\\dfrac{96}{8} = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.5$): divides $12$ by $8$, applying the operation a second time instead of undoing it.\n* Choice B ($4$): subtracts $8$ from $12$, treating the fraction bar like a minus sign.\n* Choice C ($20$): adds $8$ to $12$, treating the fraction bar like a plus sign.\n\n**Test Day Takeaway:** A fraction bar under the variable is a division. Undo it by multiplying, and expect the result to be larger than the right side."
+  {
+   "id": "B",
+   "text": "$b + 38 = 145$"
+  },
+  {
+   "id": "C",
+   "text": "$38 - b = 145$"
+  },
+  {
+   "id": "D",
+   "text": "$38b = 145$"
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "adds the length cut off instead of subtracting it",
+  "C": "reverses the order of subtraction, cutting the bolt from the piece",
+  "D": "multiplies the two given lengths instead of subtracting"
+ },
+ "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Starting length minus the length cut off equals the length left: $b - 38 = 145$.\n\n**The Full Solution:**\n\nStep 1: The bolt starts with $b$ meters.\n\nStep 2: Cutting off $38$ meters removes that much from the bolt, leaving $b - 38$ meters.\n\nStep 3: The remaining amount is $145$ meters, so $b - 38 = 145$. Check: this gives $b = 183$, and $183 - 38 = 145$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($b + 38 = 145$): adds the cut length to the bolt, which would describe fabric being added rather than removed.\n* Choice C ($38 - b = 145$): reverses the subtraction, treating the $38$ meters as the starting amount.\n* Choice D ($38b = 145$): multiplies, which would describe $38$ bolts rather than one bolt with a piece removed.\n\n**Test Day Takeaway:** Translate in the order the sentence runs: the starting amount comes first, and removal is subtraction from it."
 }

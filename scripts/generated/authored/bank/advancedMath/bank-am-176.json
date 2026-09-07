@@ -1,40 +1,50 @@
 {
-  "id": "bank-am-176",
-  "question": "The graph of the function $g$ is shown in the $xy$-plane, and the function $f$ is defined by $f(x) = 2x + 5$. What is the value of $f(g(1))$?",
-  "diagram": {
-    "type": "quadraticVertex",
-    "params": {
-      "vertex": [
-        2,
-        -3
-      ],
-      "a": 1,
-      "showVertex": true
-    }
+ "id": "bank-am-176",
+ "question": "In the figure, the parabola $y = f(x)$ carries marks at its vertex and at both of its $x$-intercepts, and no other point on the graph is labeled. Taking $g(x) = 2x - 6$ for every real $x$, what is the value of $f(g(5))$?",
+ "diagram": {
+  "type": "quadraticVertex",
+  "params": {
+   "vertex": [
+    1,
+    -4
+   ],
+   "a": 1,
+   "showPoints": [
+    [
+     -1,
+     0
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "showVertex": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-4$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-2$"
-    },
-    {
-      "id": "B",
-      "text": "$1$"
-    },
-    {
-      "id": "C",
-      "text": "$5$"
-    },
-    {
-      "id": "D",
-      "text": "$17$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports $g(1) = -2$ and stops before applying $f$",
-    "C": "computes $f(1) + g(1) = 7 + (-2)$ instead of the composition",
-    "D": "reads $g(-1) = 6$ from the graph instead of $g(1) = -2$"
+  {
+   "id": "B",
+   "text": "$1$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The graph gives $g(1) = -2$, and $f(-2) = -4 + 5 = 1$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function from the graph. At $x = 1$ the curve passes through $(1, -2)$, so $g(1) = -2$.\nStep 2: Use that output as the input to $f$: $f(g(1)) = f(-2) = 2(-2) + 5$.\nStep 3: That equals $-4 + 5 = 1$. Check: the vertex of the graph is $(2, -3)$, and $(1, -2)$ is one unit left and one unit up from it, consistent with reading $g(1) = -2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): this is $g(1)$, read correctly but never fed into $f$.\n* Choice C ($5$): adding $f(1) = 7$ and $g(1) = -2$ treats the composition as a sum.\n* Choice D ($17$): reading the graph at $x = -1$ gives $6$, and $f(6) = 17$.\n\n**Test Day Takeaway:** A graph is just another way to state the inner function; read the output at the given $x$, then substitute that number into the outer rule."
+  {
+   "id": "C",
+   "text": "$4$"
+  },
+  {
+   "id": "D",
+   "text": "$5$"
+  }
+ ],
+ "correctAnswer": "D",
+ "distractorNotes": {
+  "A": "reports the minimum value of $f$, read off the marked vertex, instead of $f(4)$",
+  "B": "reports the $x$-coordinate of the vertex rather than a value of $f$",
+  "C": "stops at the inner value $g(5) = 4$ without applying $f$"
+ },
+ "explanation": "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** $g(5) = 4$, and the graph gives $f(x) = (x - 1)^2 - 4$, so $f(4) = 9 - 4 = 5$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function: $g(5) = 2(5) - 6 = 4$.\nStep 2: The marked vertex is $(1, -4)$ and the marked intercepts are $(-1, 0)$ and $(3, 0)$, which fit $f(x) = (x - 1)^2 - 4$.\nStep 3: Then $f(4) = (4 - 1)^2 - 4 = 9 - 4 = 5$. Check: the intercepts confirm the rule, since $f(3) = 4 - 4 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): the lowest value the graph reaches, which is $f(1)$, not $f(4)$.\n* Choice B ($1$): the input at which the minimum occurs, a coordinate of the wrong axis.\n* Choice C ($4$): the output of $g$, the halfway result.\n\n**Test Day Takeaway:** Read a parabola's rule from its marked vertex and one other marked point, then substitute the inner function's output — not the original input."
 }

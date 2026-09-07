@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-442",
-  "question": "The system of equations $ax + by = c$ and $dx + ey = f$, where $a$, $b$, $c$, $d$, $e$, and $f$ are nonzero constants, has no solution. Which of the following must be true?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$a = d$"
-    },
-    {
-      "id": "B",
-      "text": "$ae = bd$"
-    },
-    {
-      "id": "C",
-      "text": "$af = cd$"
-    },
-    {
-      "id": "D",
-      "text": "$ae = -bd$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "requires equal x-coefficients, which parallel lines need not have; in the example, a = 2 and d = 1.",
-    "C": "says the constants are in the same proportion as the coefficients, which together with ae = bd would make the lines identical, giving infinitely many solutions, not zero.",
-    "D": "makes the slopes opposites rather than equal, so the lines would cross."
+ "id": "bank-alg-442",
+ "question": "A flow-control model pairs the equation $4x - ny = 10$ with the equation $nx - 25y = 6$, in which $n$ is a positive constant. For what value of $n$ do these two equations have no common solution?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-10$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Parallel Lines No Solution**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** No solution means equal slopes: $-\\frac{a}{b} = -\\frac{d}{e}$, so $\\frac{a}{b} = \\frac{d}{e}$, which cross-multiplies to $ae = bd$.\n\n**The Full Solution:**\nStep 1: Solve each equation for $y$: the first line has slope $-\\frac{a}{b}$, the second has slope $-\\frac{d}{e}$ (both defined since $b, e \\neq 0$).\nStep 2: A system of two lines has no solution exactly when the lines are parallel and distinct. Parallel means $-\\frac{a}{b} = -\\frac{d}{e}$, so $\\frac{a}{b} = \\frac{d}{e}$ and therefore $ae = bd$.\nStep 3: Check with an example: $2x + 4y = 1$ and $x + 2y = 5$ have no solution, and $ae = 2 \\cdot 2 = 4 = bd = 4 \\cdot 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($a = d$): requires equal $x$-coefficients, which parallel lines need not have; in the example, $a = 2$ and $d = 1$.\n* Choice C ($af = cd$): says the constants are in the same proportion as the coefficients, which together with $ae = bd$ would make the lines identical, giving infinitely many solutions, not zero.\n* Choice D ($ae = -bd$): makes the slopes opposites rather than equal, so the lines would cross.\n\n**Test Day Takeaway:** Translate \"no solution\" into \"equal slopes, different intercepts,\" then express the slope condition in the given constants: $\\frac{a}{b} = \\frac{d}{e}$ is $ae = bd$."
+  {
+   "id": "B",
+   "text": "$10$"
+  },
+  {
+   "id": "C",
+   "text": "$29$"
+  },
+  {
+   "id": "D",
+   "text": "$100$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "is the second root of $n^2 = 100$, ruled out because the problem states $n$ is positive",
+  "C": "adds $4$ and $25$ instead of using their product",
+  "D": "stops at $n^2 = 100$ and reports the square rather than $n$"
+ },
+ "explanation": "**SAT Pattern: Parallel Lines No Solution**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Proportional coefficients give $\\frac{n}{4} = \\frac{25}{n}$, so $n^2 = 100$ and the positive value is $10$.\n\n**The Full Solution:**\nStep 1: No common solution means the coefficients of the two equations are proportional, so $\\frac{n}{4} = \\frac{25}{n}$.\nStep 2: Cross multiplying gives $n^2 = 100$, so $n = 10$ or $n = -10$; only $n = 10$ is positive.\nStep 3: With $n = 10$ the equations become $y = 0.4x - 1$ and $y = 0.4x - 0.24$, which are parallel and distinct. Check: $\\frac{10}{4} = \\frac{25}{10} = 2.5$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): is the second root of $n^2 = 100$, ruled out because the problem states $n$ is positive\n* Choice C ($29$): adds $4$ and $25$ instead of using their product\n* Choice D ($100$): stops at $n^2 = 100$ and reports the square rather than $n$\n\n**Test Day Takeaway:** When the same letter sits in both coefficient slots, the proportion becomes a quadratic; check the sign condition before answering."
 }

@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-101",
-  "question": "What value of $y$ is the solution to the equation $6(2y - 3) = 4y + 30$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-6$"
-    },
-    {
-      "id": "B",
-      "text": "$1.5$"
-    },
-    {
-      "id": "C",
-      "text": "$3$"
-    },
-    {
-      "id": "D",
-      "text": "$6$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "-48 = -8y then divides by 8 instead of -8",
-    "B": "subtracts 18 instead of adding, 8y = 12",
-    "C": "adds 4y instead of subtracting, 16y = 48"
+ "id": "bank-alg-101",
+ "question": "A quality check on a spinning frame passes when $3(s + c) = 5s - 4$, where $s$ is the number of spools inspected and $c$ is a constant. The check passes when $s = 8$. What is the value of $c$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-4$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Distribute: $12y - 18 = 4y + 30$. Subtract $4y$ and add $18$: $8y = 48$, so $y = 6$.\n\n**The Full Solution:**\nStep 1: Distribute the $6$: $6(2y - 3) = 12y - 18$, so $12y - 18 = 4y + 30$.\nStep 2: Collect the $y$-terms on the left by subtracting $4y$: $8y - 18 = 30$. Add $18$: $8y = 48$.\nStep 3: Divide by $8$: $y = 6$. Check: $6(12 - 3) = 54$ and $4(6) + 30 = 54$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): collects the $y$-terms on the right, $-18 - 30 = 4y - 12y$, so $-48 = -8y$, then divides by $8$ instead of $-8$.\n* Choice B ($1.5$): subtracts $18$ instead of adding it, getting $8y = 12$.\n* Choice C ($3$): adds $4y$ to the left instead of subtracting, getting $16y = 48$.\n\n**Test Day Takeaway:** Distribute first, then move variable terms one way and constants the other, flipping each sign as it crosses the equals sign; verify by substituting into both sides."
+  {
+   "id": "B",
+   "text": "$4$"
+  },
+  {
+   "id": "C",
+   "text": "$12$"
+  },
+  {
+   "id": "D",
+   "text": "$28$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "solves 3(8 - c) = 36, subtracting c instead of adding it",
+  "C": "distributes the 3 to s only, solving 24 + c = 36",
+  "D": "forgets to divide by 3 and solves 8 + c = 36"
+ },
+ "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** At $s = 8$ the right side is $36$, so $3(8 + c) = 36$, $8 + c = 12$, and $c = 4$.\n\n**The Full Solution:**\n\nStep 1: Substitute $s = 8$ into both sides: $3(8 + c) = 5(8) - 4$.\n\nStep 2: Evaluate the right side: $5(8) - 4 = 40 - 4 = 36$, so $3(8 + c) = 36$.\n\nStep 3: Divide by $3$ to get $8 + c = 12$, so $c = 4$. Check: $3(8 + 4) = 36$ and $5(8) - 4 = 36$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-4$): solves $3(8 - c) = 36$, subtracting $c$ inside the parentheses instead of adding it.\n* Choice C ($12$): distributes the $3$ to $s$ only, solving $24 + c = 36$ and leaving $c$ undistributed.\n* Choice D ($28$): forgets to divide by $3$ and solves $8 + c = 36$.\n\n**Test Day Takeaway:** When a solution is handed to you, substitute it first; the equation then has only one unknown left."
 }

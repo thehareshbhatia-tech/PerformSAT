@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-476",
-  "question": "For the system of equations $6x - 5y = 3$ and $6x + 2y = 24$, what is the value of $y$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-3$"
-    },
-    {
-      "id": "B",
-      "text": "$3$"
-    },
-    {
-      "id": "C",
-      "text": "$7$"
-    },
-    {
-      "id": "D",
-      "text": "$21$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "subtracts in the other order, -7y = -21, and then forgets that dividing two negatives gives a positive.",
-    "C": "reports the coefficient 7 instead of solving 7y = 21.",
-    "D": "stops at 7y = 21 without dividing by 7."
+ "id": "bank-alg-476",
+ "question": "A transit agency logged $218$ crew-hours installing $7$ shelters and $4$ benches, then $184$ crew-hours installing $5$ shelters and $6$ benches. Every installation of a given type takes the same time. How many crew-hours does one shelter take?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$9$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: System of Equations (Elimination)**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Subtract the first equation from the second: $7y = 21$, so $y = 3$.\n\n**The Full Solution:**\nStep 1: Both equations have $6x$, so subtracting eliminates $x$. Subtract the first from the second: $(6x + 2y) - (6x - 5y) = 24 - 3$.\nStep 2: Simplify: $2y - (-5y) = 7y$ and $24 - 3 = 21$, so $7y = 21$ and $y = 3$.\nStep 3: Check: $6x + 2(3) = 24$ gives $x = 3$, and $6(3) - 5(3) = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): subtracts in the other order, $-7y = -21$, and then forgets that dividing two negatives gives a positive.\n* Choice C ($7$): reports the coefficient $7$ instead of solving $7y = 21$.\n* Choice D ($21$): stops at $7y = 21$ without dividing by $7$.\n\n**Test Day Takeaway:** Subtracting a negative term adds: $2y - (-5y) = 7y$. Either subtraction order works if the signs are tracked on both sides."
+  {
+   "id": "B",
+   "text": "$17$"
+  },
+  {
+   "id": "C",
+   "text": "$26$"
+  },
+  {
+   "id": "D",
+   "text": "$35$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports the bench time 9 instead of the shelter time",
+  "B": "subtracts the two equations without scaling first, getting 2s - 2b = 34 and reporting s - b = 17",
+  "D": "adds the two solved times, 26 + 9 = 35"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: System of Equations (Elimination)**\n\n**Choice C is correct.**\n\n**The Fast Way (~55s):** Tripling the first log and doubling the second gives $21s + 12b = 654$ and $10s + 12b = 368$; subtracting leaves $11s = 286$, so $s = 26$.\n\n**The Full Solution:**\nStep 1: Let $s$ be the crew-hours for one shelter and $b$ the crew-hours for one bench. The logs give $7s + 4b = 218$ and $5s + 6b = 184$.\nStep 2: Bring the $b$-coefficients to a common $12$: multiply the first by $3$ for $21s + 12b = 654$, and the second by $2$ for $10s + 12b = 368$.\nStep 3: Subtract: $11s = 286$, so $s = 26$. Check by finding $b$: $7(26) + 4b = 218$ gives $4b = 36$ and $b = 9$, and $5(26) + 6(9) = 130 + 54 = 184$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): solves the system correctly but reports the bench time instead of the shelter time.\n* Choice B ($17$): subtracts the two logs as they stand, producing $2s - 2b = 34$, and reports the difference $s - b = 17$ as if it were $s$.\n* Choice D ($35$): adds the two solved times, $26 + 9 = 35$.\n\n**Test Day Takeaway:** Subtracting unscaled equations removes nothing when neither coefficient matches — scale first, and check that only one variable survives."
 }

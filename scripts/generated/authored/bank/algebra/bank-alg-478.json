@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-478",
-  "question": "$3x + 2y = 32$ and $5x - 4y = 2$. If $(x, y)$ is the solution to the given system of equations, what is the value of $xy$?",
+  "question": "A set-carpentry crew's framing model doubles $4x + 7y = 31$ and adds the result to $ax - 14y = b$, where $x$ is the hours spent framing one flat and $y$ the hours spent sheathing it; the $y$-terms cancel and $19x = 100$ remains. What is the value of $a + b$?",
   "choices": [
     {
       "id": "A",
-      "text": "$13$"
+      "text": "$-49$"
     },
     {
       "id": "B",
-      "text": "$36$"
+      "text": "$11$"
     },
     {
       "id": "C",
-      "text": "$42$"
+      "text": "$38$"
     },
     {
       "id": "D",
-      "text": "$84$"
+      "text": "$49$"
     }
   ],
   "distractorNotes": {
-    "A": "computes x + y = 13 instead of the product.",
-    "B": "uses x twice, 6 \\cdot 6 = 36.",
-    "D": "forgets to divide 2y = 14 by 2, taking y = 14 and getting 6 \\cdot 14 = 84."
+    "A": "subtracts the doubled equation instead of adding it, giving a = -11 and b = -38",
+    "B": "reports only a = 11 and never solves for b",
+    "C": "reports only b = 38 and never solves for a"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: System of Equations (Elimination)**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Double the first equation ($6x + 4y = 64$) and add: $11x = 66$, $x = 6$; then $2y = 14$, $y = 7$; $xy = 42$.\n\n**The Full Solution:**\nStep 1: No coefficients match yet. Multiply the first equation by $2$ so the $y$-terms become opposites: $6x + 4y = 64$.\nStep 2: Add to $5x - 4y = 2$: $11x = 66$, so $x = 6$. Substitute: $3(6) + 2y = 32$, so $2y = 14$ and $y = 7$.\nStep 3: $xy = 6 \\cdot 7 = 42$. Check: $5(6) - 4(7) = 30 - 28 = 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$): computes $x + y = 13$ instead of the product.\n* Choice B ($36$): uses $x$ twice, $6 \\cdot 6 = 36$.\n* Choice D ($84$): forgets to divide $2y = 14$ by $2$, taking $y = 14$ and getting $6 \\cdot 14 = 84$.\n\n**Test Day Takeaway:** Scale one equation so a pair of terms becomes opposites, eliminate, back-substitute, and only then build the expression the question asks for."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: System of Equations (Elimination)**\n\n**Choice D is correct.**\n\n**The Fast Way (~50s):** Doubling gives $8x + 14y = 62$; adding $ax - 14y = b$ leaves $(8 + a)x = 62 + b$, so $8 + a = 19$ and $62 + b = 100$, making $a = 11$, $b = 38$, and $a + b = 49$.\n\n**The Full Solution:**\nStep 1: Double the first equation: $2(4x + 7y) = 2(31)$ gives $8x + 14y = 62$. Doubling must reach the constant as well as both variable terms.\nStep 2: Add the second equation term by term: the $y$-terms $14y$ and $-14y$ cancel, the $x$-terms give $(8 + a)x$, and the constants give $62 + b$. So $(8 + a)x = 62 + b$.\nStep 3: Match this against $19x = 100$: $8 + a = 19$ gives $a = 11$, and $62 + b = 100$ gives $b = 38$. Therefore $a + b = 49$. Check: $8x + 14y = 62$ plus $11x - 14y = 38$ is $19x = 100$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-49$): subtracts the doubled equation instead of adding it, producing $8 - a = 19$ and $62 - b = 100$, so $a = -11$ and $b = -38$.\n* Choice B ($11$): finds $a$ correctly but stops before solving for $b$.\n* Choice C ($38$): finds $b$ correctly but stops before solving for $a$.\n\n**Test Day Takeaway:** Reverse an elimination by matching the combined equation term by term — the surviving coefficient and the surviving constant each give one equation."
 }

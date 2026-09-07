@@ -1,29 +1,49 @@
 {
-  "id": "bank-alg-158",
-  "question": "$mx + 10y = 3$\n$4x - 5y = 12$\n\nIn the given system of equations, $m$ is a constant. The system has no solution. What is the value of $m$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-8$"
-    },
-    {
-      "id": "B",
-      "text": "$-2$"
-    },
-    {
-      "id": "C",
-      "text": "$2$"
-    },
-    {
-      "id": "D",
-      "text": "$8$"
-    }
+ "id": "bank-alg-158",
+ "question": "An embroidery shop records three points of line $h$ in the table below, where line $h$ models its stitching rate in the $xy$-plane. In the same plane, the graph of $kx - 3y = 8$ shares no point with line $h$. What is the value of the constant $k$?",
+ "questionTable": {
+  "headers": [
+   "$x$",
+   "$y$"
   ],
-  "distractorNotes": {
-    "B": "reports the scale factor -2 instead of m",
-    "C": "drops the sign of the scale factor and reports it",
-    "D": "uses scale factor +2 instead of -2"
+  "rows": [
+   [
+    "$-2$",
+    "$-5$"
+   ],
+   [
+    "$1$",
+    "$4$"
+   ],
+   [
+    "$4$",
+    "$13$"
+   ]
+  ]
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-9$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice A is correct.**\n\n**The Fast Way (~8s):** From the $y$-coefficients, the first equation is $\\frac{10}{-5} = -2$ times the second. So $m = -2(4) = -8$.\n\n**The Full Solution:**\nStep 1: Parallel lines need proportional coefficients: $\\frac{m}{4} = \\frac{10}{-5}$.\nStep 2: The right side is $-2$, so $m = -2(4) = -8$.\nStep 3: Confirm distinct lines: $-2(12) = -24 \\ne 3$, so the equations are not the same line. No solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-2$): reports the scale factor instead of applying it to $4$.\n* Choice C ($2$): drops the sign of the scale factor and reports it.\n* Choice D ($8$): uses $+2$ as the scale factor, losing the sign from $10 \\div (-5)$.\n\n**Test Day Takeaway:** Compute the ratio from the pair of coefficients you know, sign included, then multiply the remaining known coefficient by that ratio."
+  {
+   "id": "B",
+   "text": "$1$"
+  },
+  {
+   "id": "C",
+   "text": "$3$"
+  },
+  {
+   "id": "D",
+   "text": "$9$"
+  }
+ ],
+ "correctAnswer": "D",
+ "distractorNotes": {
+  "A": "solves -k/3 = 3, mishandling the sign when isolating y",
+  "B": "reports the y-intercept of line h",
+  "C": "reports the slope of line h itself instead of k"
+ },
+ "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The table gives slope $\\frac{4 - (-5)}{1 - (-2)} = 3$, and $kx - 3y = 8$ has slope $\\frac{k}{3}$, so $k = 9$.\n\n**The Full Solution:**\n\nStep 1: Use two rows of the table: $\\frac{4 - (-5)}{1 - (-2)} = \\frac{9}{3} = 3$, so line $h$ has slope $3$ and equation $y = 3x + 1$.\n\nStep 2: Solve $kx - 3y = 8$ for $y$: $-3y = -kx + 8$, so $y = \\frac{k}{3}x - \\frac{8}{3}$.\n\nStep 3: Two lines share no point exactly when they are parallel and distinct, so $\\frac{k}{3} = 3$ and $k = 9$. Check: $9x - 3y = 8$ against $h$ written as $9x - 3y = -3$; the constants differ, so the lines never meet.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-9$): solves $-\\frac{k}{3} = 3$, keeping the minus sign that was already used to divide.\n* Choice B ($1$): reports the $y$-intercept of line $h$ rather than the constant $k$.\n* Choice C ($3$): reports the slope of line $h$ itself, forgetting that $k$ is three times that slope.\n\n**Test Day Takeaway:** Convert the standard-form equation to $y = mx + b$ before matching slopes; the sign of the $y$-coefficient decides the sign of the answer."
 }

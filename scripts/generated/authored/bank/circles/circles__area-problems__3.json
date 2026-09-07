@@ -1,30 +1,43 @@
 {
- "id": 3,
- "question": "The area of a circular reflecting pool is $121\\pi$ square meters. What is the circumference, in meters, of the pool?",
+ "question": "A square baking tray with $6$-inch sides is inscribed in the circular oven plate shown, which is centered at $O$. What is the area, in square inches, of the oven plate?",
+ "diagram": {
+  "type": "circleWithSquare",
+  "params": {
+   "labels": {
+    "A": "A",
+    "B": "B",
+    "C": "C",
+    "D": "D",
+    "O": "O"
+   },
+   "showDiagonals": true,
+   "figureNote": true
+  }
+ },
+ "hint": "Which segment of the square stretches all the way across the plate?",
  "choices": [
   {
    "id": "A",
-   "text": "$11\\pi$"
+   "text": "$9\\pi$"
   },
   {
    "id": "B",
-   "text": "$22\\pi$"
+   "text": "$18\\pi$"
   },
   {
    "id": "C",
-   "text": "$121\\pi$"
+   "text": "$36\\pi$"
   },
   {
    "id": "D",
-   "text": "$242\\pi$"
+   "text": "$72\\pi$"
   }
  ],
- "correctAnswer": "B",
- "hint": "The radius is the bridge between the two formulas.",
  "distractorNotes": {
-  "A": "stops at the radius and attaches pi",
-  "C": "repeats the given area",
-  "D": "uses 121 as the radius"
+  "A": "takes the radius to be half the side, 3",
+  "C": "uses the side length 6 as the radius",
+  "D": "uses the full diagonal as the radius"
  },
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\pi r^2 = 121\\pi$ gives $r = 11$, so $C = 2\\pi(11) = 22\\pi$ meters.\n\n**The Full Solution:**\nStep 1: Set the area formula equal to the given area: $\\pi r^2 = 121\\pi$, so $r^2 = 121$.\nStep 2: Take the positive square root: $r = 11$ meters.\nStep 3: Substitute into $C = 2\\pi r$: $C = 2\\pi(11) = 22\\pi$ meters. Check: $\\pi(11)^2 = 121\\pi$, the given area.\n\n**Why the wrong answers are tempting:**\n* Choice A ($11\\pi$): stops at the radius $11$ and attaches a $\\pi$ instead of finishing the circumference formula.\n* Choice C ($121\\pi$): repeats the given area, which measures square meters, not meters.\n* Choice D ($242\\pi$): uses $r = 121$ in $C = 2\\pi r$, skipping the square root.\n\n**Test Day Takeaway:** Area and circumference never talk to each other directly. Solve for $r$ in the middle and both formulas open up."
+ "correctAnswer": "B",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** The tray's diagonal $6\\sqrt{2}$ is a diameter, so the radius is $3\\sqrt{2}$ and the area is $\\pi(3\\sqrt{2})^2 = 18\\pi$.\n\n**The Full Solution:**\nStep 1: The four corners of the tray touch the plate, so the tray's diagonal is a diameter of the plate.\nStep 2: For a square of side $6$, the diagonal is $6\\sqrt{2}$, making the radius $3\\sqrt{2}$.\nStep 3: The area is $\\pi r^2 = \\pi(3\\sqrt{2})^2 = 18\\pi$ square inches. Check: $(3\\sqrt{2})^2 = 9 \\cdot 2 = 18$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\pi$): uses half the side, $3$, as the radius, which is the distance to a side rather than to a corner.\n* Choice C ($36\\pi$): uses the side length $6$ as the radius.\n* Choice D ($72\\pi$): uses the diagonal $6\\sqrt{2}$ as the radius instead of as the diameter.\n\n**Test Day Takeaway:** When a square is inscribed in a circle, the square's diagonal — not its side — is the circle's diameter."
 }

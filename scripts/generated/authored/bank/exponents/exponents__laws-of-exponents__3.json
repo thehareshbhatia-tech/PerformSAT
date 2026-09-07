@@ -1,30 +1,29 @@
 {
- "id": 3,
- "question": "For all positive values of $x$ and $y$, the expression $\\dfrac{24x^7y^3}{6x^2y^3}$ is equivalent to which of the following?",
+ "question": "A gearbox reduction is $\\dfrac{(2a^3)^4}{8a^7}$, where $a$ is the input shaft radius in centimeters and is therefore positive. Which expression is equivalent to that reduction?",
+ "hint": "The numerator's coefficient is not $2$.",
  "choices": [
   {
    "id": "A",
-   "text": "$4x^5$"
+   "text": "$a^{5}$"
   },
   {
    "id": "B",
-   "text": "$4x^5y^6$"
+   "text": "$2a^{5}$"
   },
   {
    "id": "C",
-   "text": "$4x^9$"
+   "text": "$16a^{5}$"
   },
   {
    "id": "D",
-   "text": "$18x^5$"
+   "text": "$2a^{12}$"
   }
  ],
- "correctAnswer": "A",
- "hint": "Handle the numbers and each variable as separate, independent divisions.",
  "distractorNotes": {
-  "B": "adds the y exponents",
-  "C": "adds the x exponents",
-  "D": "subtracts the coefficients"
+  "A": "treats 2^4 as 8, so the coefficients cancel to 1",
+  "C": "never divides the coefficient 16 by 8",
+  "D": "forgets to subtract the denominator's exponent 7"
  },
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $\\frac{24}{6} = 4$, $\\frac{x^7}{x^2} = x^5$, and $\\frac{y^3}{y^3} = 1$, so the quotient is $4x^5$.\n\n**The Full Solution:**\nStep 1: Divide the coefficients: $\\frac{24}{6} = 4$.\nStep 2: Divide the powers of $x$ by subtracting exponents: $x^{7-2} = x^5$.\nStep 3: The powers of $y$ are identical, so $y^{3-3} = y^0 = 1$, leaving $4x^5$. Check at $x = y = 1$: the original is $\\frac{24}{6} = 4$, and $4(1)^5 = 4$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($4x^5y^6$): adds the $y$-exponents instead of subtracting them, so a factor that should cancel survives.\n* Choice C ($4x^9$): adds the $x$-exponents, $7 + 2$, applying the product rule to a quotient.\n* Choice D ($18x^5$): subtracts the coefficients, $24 - 6$, instead of dividing them.\n\n**Test Day Takeaway:** In a quotient of monomials, coefficients divide and exponents subtract. Treat each base on its own line of work."
+ "correctAnswer": "B",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** The numerator is $16a^{12}$, and dividing by $8a^7$ leaves $2a^5$.\n\n**The Full Solution:**\nStep 1: Raise the numerator: $(2a^3)^4 = 2^4 \\cdot a^{12} = 16a^{12}$.\nStep 2: Divide the coefficients: $\\dfrac{16}{8} = 2$.\nStep 3: Subtract the exponents: $a^{12 - 7} = a^5$, so the reduction is $2a^5$. Check at $a = 1$: $\\dfrac{16}{8} = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($a^5$): reads $2^4$ as $8$, so the coefficients appear to cancel.\n* Choice C ($16a^5$): handles the variable correctly but never divides $16$ by $8$.\n* Choice D ($2a^{12}$): divides the coefficients but forgets to subtract the exponent $7$.\n\n**Test Day Takeaway:** Expand any parenthesised power first; only then divide coefficients and subtract exponents."
 }

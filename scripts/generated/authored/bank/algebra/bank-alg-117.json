@@ -1,29 +1,51 @@
 {
   "id": "bank-alg-117",
-  "question": "The solution to the system of equations $2x + 5y = 1$ and $3x - 4y = 13$ is $(x, y)$. What is the value of $x$?",
+  "question": "The table shows two deliveries to a reservoir, each made up of truck loads and tanker loads that are uniform within their type. What is the volume, in kiloliters, of one truck load?",
+  "questionTable": {
+    "headers": [
+      "Delivery",
+      "Truck loads",
+      "Tanker loads",
+      "Total volume (kL)"
+    ],
+    "rows": [
+      [
+        "March",
+        "4",
+        "3",
+        "121"
+      ],
+      [
+        "April",
+        "6",
+        "5",
+        "191"
+      ]
+    ]
+  },
   "choices": [
     {
       "id": "A",
-      "text": "$-2$"
+      "text": "$16$"
     },
     {
       "id": "B",
-      "text": "$-1$"
+      "text": "$19$"
     },
     {
       "id": "C",
-      "text": "$3$"
+      "text": "$35$"
     },
     {
       "id": "D",
-      "text": "$6$"
+      "text": "$64$"
     }
   ],
   "distractorNotes": {
-    "A": "uses y = 1 from a sign slip, then 2x + 5 = 1",
-    "B": "reports y instead of x",
-    "D": "stops at 2x = 6"
+    "B": "reports the tanker-load volume 19 instead of the truck-load volume",
+    "C": "adds the two load volumes, 16 + 19 = 35",
+    "D": "stops at 4x = 64 without dividing by the 4 truck loads"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: System of Equations — Elimination**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Multiply the first equation by $3$ and the second by $2$: $6x + 15y = 3$ and $6x - 8y = 26$. Subtract: $23y = -23$, so $y = -1$; then $2x - 5 = 1$ gives $x = 3$.\n\n**The Full Solution:**\nStep 1: To eliminate $x$, match its coefficients: $3(2x + 5y = 1)$ gives $6x + 15y = 3$; $2(3x - 4y = 13)$ gives $6x - 8y = 26$.\nStep 2: Subtract the second from the first: $15y - (-8y) = 3 - 26$, so $23y = -23$ and $y = -1$.\nStep 3: Substitute into $2x + 5y = 1$: $2x - 5 = 1$, so $2x = 6$ and $x = 3$. Check: $3(3) - 4(-1) = 9 + 4 = 13$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): a sign slip gives $y = 1$, and then $2x + 5 = 1$ yields $x = -2$.\n* Choice B ($-1$): reports $y$ instead of $x$.\n* Choice D ($6$): stops at $2x = 6$ without dividing.\n\n**Test Day Takeaway:** Scale both equations so one variable's coefficients match, subtract carefully (a minus applied to a negative becomes a plus), then back-substitute and reread which variable is asked for."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: System of Equations — Elimination**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** With $4x + 3y = 121$ and $6x + 5y = 191$, tripling the first and doubling the second gives $12x + 9y = 363$ and $12x + 10y = 382$; subtracting leaves $y = 19$, so $4x = 121 - 57 = 64$ and $x = 16$.\n\n**The Full Solution:**\nStep 1: Let $x$ be the volume of one truck load and $y$ the volume of one tanker load. The table gives $4x + 3y = 121$ and $6x + 5y = 191$.\nStep 2: Make the $x$-coefficients match. Multiply the first equation by $3$: $12x + 9y = 363$. Multiply the second by $2$: $12x + 10y = 382$.\nStep 3: Subtract: $y = 382 - 363 = 19$. Substitute back: $4x + 3(19) = 121$, so $4x = 64$ and $x = 16$. Check the April row: $6(16) + 5(19) = 96 + 95 = 191$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($19$): solves the system correctly but reports $y$, the tanker-load volume, instead of the truck-load volume the question asks for.\n* Choice C ($35$): adds the two load volumes, $16 + 19 = 35$, as if the question asked for a combined size.\n* Choice D ($64$): stops at $4x = 64$ and reports that product without dividing by the $4$ truck loads.\n\n**Test Day Takeaway:** Scale both equations to a common coefficient before subtracting, and reread the question to see which of the two solved values it wants."
 }

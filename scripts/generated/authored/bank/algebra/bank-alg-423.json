@@ -1,29 +1,49 @@
 {
-  "id": "bank-alg-423",
-  "question": "In the system of equations $y = \\frac{5}{2}x - 1$ and $cy = 10x + 7$, $c$ is a constant. If the system has no solution, what is the value of $c$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-4$"
-    },
-    {
-      "id": "B",
-      "text": "$\\frac{2}{5}$"
-    },
-    {
-      "id": "C",
-      "text": "$\\frac{5}{2}$"
-    },
-    {
-      "id": "D",
-      "text": "$4$"
-    }
+ "id": "bank-alg-423",
+ "question": "Line $n$ contains the three points listed in the table. In the same plane, the equation $y - 5 = k(x - 2)$ describes a line that never meets line $n$. What is the value of the constant $k$?",
+ "questionTable": {
+  "headers": [
+   "$x$",
+   "$y$"
   ],
-  "distractorNotes": {
-    "A": "solves \\frac{10}{c} = -\\frac{5}{2} after a sign slip; c = -4 gives slope -\\frac{5}{2}, and the lines cross.",
-    "B": "uses the reciprocal of the slope, \\frac{2}{5}, as c; then \\frac{10}{c} = 25, not \\frac{5}{2}.",
-    "C": "reports the slope \\frac{5}{2} itself instead of solving \\frac{10}{c} = \\frac{5}{2} for c."
+  "rows": [
+   [
+    "$2$",
+    "$1$"
+   ],
+   [
+    "$5$",
+    "$7$"
+   ],
+   [
+    "$8$",
+    "$13$"
+   ]
+  ]
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Divide the second equation by $c$: slope $\\frac{10}{c}$. Set it equal to $\\frac{5}{2}$: $c = 4$.\n\n**The Full Solution:**\nStep 1: The first line has slope $\\frac{5}{2}$ and $y$-intercept $-1$. Dividing the second equation by $c$ gives $y = \\frac{10}{c}x + \\frac{7}{c}$, slope $\\frac{10}{c}$.\nStep 2: No solution requires equal slopes: $\\frac{10}{c} = \\frac{5}{2}$. Cross-multiplying, $5c = 20$, so $c = 4$.\nStep 3: Check that the lines are not the same line: with $c = 4$ the second line is $y = \\frac{5}{2}x + \\frac{7}{4}$, and $\\frac{7}{4} \\neq -1$. Parallel and distinct, so zero solutions. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): solves $\\frac{10}{c} = -\\frac{5}{2}$ after a sign slip; $c = -4$ gives slope $-\\frac{5}{2}$, and the lines cross.\n* Choice B ($\\frac{2}{5}$): uses the reciprocal of the slope, $\\frac{2}{5}$, as $c$; then $\\frac{10}{c} = 25$, not $\\frac{5}{2}$.\n* Choice C ($\\frac{5}{2}$): reports the slope $\\frac{5}{2}$ itself instead of solving $\\frac{10}{c} = \\frac{5}{2}$ for $c$.\n\n**Test Day Takeaway:** When a coefficient sits on $y$, divide through first; the slope is $\\frac{\\text{coefficient of } x}{\\text{coefficient of } y}$, and only then match slopes."
+  {
+   "id": "B",
+   "text": "$3$"
+  },
+  {
+   "id": "C",
+   "text": "$5$"
+  },
+  {
+   "id": "D",
+   "text": "$6$"
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "reports the change in x from one row to the next",
+  "C": "copies the constant 5 from the left side of the second equation",
+  "D": "reports the change in y between rows without dividing by the change in x"
+ },
+ "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The table gives slope $\\frac{7 - 1}{5 - 2} = 2$, and $k$ is the slope of the second line, so $k = 2$.\n\n**The Full Solution:**\n\nStep 1: From the table, line $n$ has slope $\\frac{7 - 1}{5 - 2} = \\frac{6}{3} = 2$, and using $(2, 1)$ its equation is $y = 2x - 3$.\n\nStep 2: The equation $y - 5 = k(x - 2)$ describes a line through $(2, 5)$ with slope $k$.\n\nStep 3: Lines that never meet are parallel, so $k = 2$. Check: with $k = 2$ the second line is $y = 2x + 1$, which differs from $y = 2x - 3$ only in the constant, so the two never meet.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($3$): reports $5 - 2$, the change in $x$ between rows, instead of the slope.\n* Choice C ($5$): copies the constant on the left side of the second equation, which is a $y$-value, not a slope.\n* Choice D ($6$): reports $7 - 1$, the change in $y$, without dividing by the change in $x$.\n\n**Test Day Takeaway:** In $y - y_1 = k(x - x_1)$ the multiplier $k$ is the slope; parallel lines make that the only quantity you need."
 }

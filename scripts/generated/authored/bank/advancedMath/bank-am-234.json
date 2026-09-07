@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-234",
-  "question": "In the $xy$-plane, the graph of $y = g(x)$ is the graph of $y = f(x)$ shifted $3$ units right and $6$ units up. The function $g$ is defined by $g(x) = (x - 1)^2 + 10$. Which of the following defines $f$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$f(x) = (x - 4)^2 + 4$"
-    },
-    {
-      "id": "B",
-      "text": "$f(x) = (x - 4)^2 + 16$"
-    },
-    {
-      "id": "C",
-      "text": "$f(x) = (x + 2)^2 + 4$"
-    },
-    {
-      "id": "D",
-      "text": "$f(x) = (x + 2)^2 + 16$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "shifts right again instead of undoing the shift",
-    "B": "applies both shifts forward instead of backward",
-    "D": "adds $6$ instead of subtracting it"
+ "id": "bank-am-234",
+ "question": "The functions $f$ and $g$ are defined for every real number $x$, and they are related by $g(x)=f(x+7)-4$. The greatest value taken by $f$ is $M$, and $f$ attains it when $x=a$. Which statement about $g$ must be true?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "The greatest value of $g$ is $M-4$, and it occurs when $x=a+7$."
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Function from Shifted Graph**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The vertex of $g$ is $(1, 10)$; undoing \"right $3$, up $6$\" moves it to $(-2, 4)$, so $f(x) = (x + 2)^2 + 4$.\n\n**The Full Solution:**\nStep 1: The described transformation means $g(x) = f(x - 3) + 6$, so $f(x - 3) = g(x) - 6$.\nStep 2: Replacing $x$ with $x + 3$ gives $f(x) = g(x + 3) - 6 = \\left((x + 3) - 1\\right)^2 + 10 - 6$.\nStep 3: Simplifying, $f(x) = (x + 2)^2 + 4$. Check by shifting forward: $f(x - 3) + 6 = (x - 3 + 2)^2 + 4 + 6 = (x - 1)^2 + 10 = g(x)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 4)^2 + 4$): vertex $(4, 4)$ — the vertical shift is undone but the horizontal shift is applied a second time.\n* Choice B ($(x - 4)^2 + 16$): vertex $(4, 16)$ — both shifts are applied forward instead of reversed.\n* Choice D ($(x + 2)^2 + 16$): vertex $(-2, 16)$ — the horizontal shift is undone but $6$ is added instead of subtracted.\n\n**Test Day Takeaway:** To recover the original function, reverse BOTH shifts: subtract what was added outside and move the input the opposite way."
+  {
+   "id": "B",
+   "text": "The greatest value of $g$ is $M$, and it occurs when $x=a-7$."
+  },
+  {
+   "id": "C",
+   "text": "The greatest value of $g$ is $M-4$, and it occurs when $x=a-7$."
+  },
+  {
+   "id": "D",
+   "text": "The greatest value of $g$ is $M-11$, and it occurs when $x=a-7$."
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "shifts the input right instead of left, reading x + 7 as a delay",
+  "B": "applies the horizontal shift but ignores the 4 subtracted from every output",
+  "D": "subtracts both 7 and 4 from the maximum value, treating the horizontal shift as vertical"
+ },
+ "explanation": "**SAT Pattern: Function from Shifted Graph**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $g$ is greatest when its inner input equals $a$, so $x+7=a$ and $x=a-7$; the output there is $M-4$.\n\n**The Full Solution:**\nStep 1: The outputs of $g$ are outputs of $f$ lowered by 4, so the greatest value of $g$ is $M-4$.\nStep 2: That greatest value occurs where $f$ is evaluated at $a$, that is, where $x+7=a$.\nStep 3: Solving gives $x=a-7$, so the maximum of $g$ is $M-4$ at $x=a-7$. Check: with $f(x)=-x^{2}$, $M=0$ at $a=0$, and $g(x)=-(x+7)^{2}-4$ peaks at $-4$ when $x=-7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: reads $x+7$ as a shift to the right; adding inside the function moves the graph left.\n* Choice B: tracks the horizontal shift but leaves the maximum value unchanged.\n* Choice D: subtracts the horizontal shift from the maximum value as well, giving $M-11$.\n\n**Test Day Takeaway:** Inside the function, changes move the graph horizontally and in the opposite direction; outside, they move it vertically in the direction written."
 }

@@ -1,58 +1,48 @@
 {
-  "id": "bank-alg-422",
-  "question": "Line $m$ is shown in the $xy$-plane. The equation of line $m$ and the equation $4x - ky = 6$, where $k$ is a constant, form a system of equations with no solution. What is the value of $k$?",
-  "diagram": {
-    "type": "linearGraph",
-    "params": {
-      "slope": 2,
-      "yIntercept": -2,
-      "xRange": [
-        -4,
-        4
-      ],
-      "yRange": [
-        -6,
-        8
-      ],
-      "xTickInterval": 1,
-      "yTickInterval": 2,
-      "gridInterval": 1,
-      "showPoints": [
-        [
-          0,
-          -2
-        ],
-        [
-          3,
-          4
-        ]
-      ],
-      "label": "m"
-    }
+ "id": "bank-alg-422",
+ "question": "A bike-share depot charts two rebalancing plans in the $xy$-plane, the first of which is line $g$, shown. The second plan is the graph of $ax - 6y = 30$, which runs alongside line $g$ and never touches it. What is the value of $a$?",
+ "diagram": {
+  "type": "linearGraph",
+  "params": {
+   "slope": 0.3333333333333333,
+   "yIntercept": -2,
+   "xRange": [
+    -6,
+    12
+   ],
+   "yRange": [
+    -6,
+    4
+   ],
+   "gridInterval": 1,
+   "xTickInterval": 3,
+   "yTickInterval": 2,
+   "label": "g"
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{1}{3}$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-2$"
-    },
-    {
-      "id": "B",
-      "text": "$\\frac{1}{2}$"
-    },
-    {
-      "id": "C",
-      "text": "$2$"
-    },
-    {
-      "id": "D",
-      "text": "$8$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "moves 4x across with the wrong sign and solves -\\frac{4}{k} = 2; with k = -2 the second line has slope -2 and crosses line m.",
-    "B": "reads the slope of line m as run over rise, \\frac{3}{6} = \\frac{1}{2}, and reports that number as k.",
-    "D": "multiplies 4 by the slope instead of dividing: 4 \\cdot 2 = 8, but \\frac{4}{8} = \\frac{1}{2} \\neq 2."
+  {
+   "id": "B",
+   "text": "$2$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Line $m$ rises $6$ over a run of $3$, so its slope is $2$; the second line has slope $\\frac{4}{k}$, and $\\frac{4}{k} = 2$ gives $k = 2$.\n\n**The Full Solution:**\nStep 1: From the graph, line $m$ passes through $(0, -2)$ and $(3, 4)$, so its slope is $\\frac{4 - (-2)}{3 - 0} = 2$ and its equation is $y = 2x - 2$.\nStep 2: Solve $4x - ky = 6$ for $y$: $-ky = -4x + 6$, so $y = \\frac{4}{k}x - \\frac{6}{k}$. No solution means parallel lines, so $\\frac{4}{k} = 2$ and $k = 2$.\nStep 3: Check distinctness: with $k = 2$ the second line is $y = 2x - 3$, whose $y$-intercept $-3$ differs from $-2$. Same slope, different intercept, no intersection. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): moves $4x$ across with the wrong sign and solves $-\\frac{4}{k} = 2$; with $k = -2$ the second line has slope $-2$ and crosses line $m$.\n* Choice B ($\\frac{1}{2}$): reads the slope of line $m$ as run over rise, $\\frac{3}{6} = \\frac{1}{2}$, and reports that number as $k$.\n* Choice D ($8$): multiplies $4$ by the slope instead of dividing: $4 \\cdot 2 = 8$, but $\\frac{4}{8} = \\frac{1}{2} \\neq 2$.\n\n**Test Day Takeaway:** Read the slope off two lattice points, put the second equation in $y = mx + b$ form, and match slopes; then confirm the intercepts differ."
+  {
+   "id": "C",
+   "text": "$6$"
+  },
+  {
+   "id": "D",
+   "text": "$18$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "reports the slope of line g instead of solving for a",
+  "C": "copies the coefficient of y from the second equation",
+  "D": "reads the slope as 3 by swapping rise and run, then solves a/6 = 3"
+ },
+ "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Line $g$ has slope $\\frac{1}{3}$, and $ax - 6y = 30$ has slope $\\frac{a}{6}$, so $\\frac{a}{6} = \\frac{1}{3}$ and $a = 2$.\n\n**The Full Solution:**\n\nStep 1: From the graph, line $g$ passes through $(0, -2)$ and $(6, 0)$, so its slope is $\\frac{0 - (-2)}{6 - 0} = \\frac{1}{3}$.\n\nStep 2: Solve the second equation for $y$: $-6y = -ax + 30$, so $y = \\frac{a}{6}x - 5$.\n\nStep 3: Plans that run alongside each other never meet, so the slopes are equal: $\\frac{a}{6} = \\frac{1}{3}$ and $a = 2$. Check: the two plans are $y = \\frac{1}{3}x - 2$ and $y = \\frac{1}{3}x - 5$, which differ only in the intercept.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($\\frac{1}{3}$): reports the slope of line $g$ itself instead of the constant $a$.\n* Choice C ($6$): copies the coefficient of $y$ from the second equation.\n* Choice D ($18$): reads the slope as $3$ by swapping rise and run, then solves $\\frac{a}{6} = 3$.\n\n**Test Day Takeaway:** In $Ax + By = C$ the slope is $-\\frac{A}{B}$, so a negative coefficient on $y$ cancels the minus sign and leaves a plain division."
 }

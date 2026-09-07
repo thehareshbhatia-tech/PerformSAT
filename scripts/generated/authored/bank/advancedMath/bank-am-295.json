@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-295",
-  "question": "The function $f$ is defined by $f(x) = x^2 + 4x - 12$. What is the minimum value of $f$?",
+  "question": "An alloy's shrinkage is modeled by $g(x)=(x-5)^{2}-31$. Written as $g(x)=x^{2}+bx+c$, with $b$ and $c$ constants, what is the value of $c-b$?",
   "choices": [
     {
       "id": "A",
-      "text": "$-16$"
+      "text": "$-21$"
     },
     {
       "id": "B",
-      "text": "$-12$"
+      "text": "$-16$"
     },
     {
       "id": "C",
-      "text": "$-2$"
+      "text": "$-4$"
     },
     {
       "id": "D",
-      "text": "$0$"
+      "text": "$4$"
     }
   ],
   "distractorNotes": {
-    "B": "reports $f(0)$, the constant term",
-    "C": "reports the $x$-value where the minimum occurs",
-    "D": "evaluates $f(2)$ instead of $f(-2)$"
+    "A": "forgot the +25 from expanding the square, using c = -31",
+    "B": "sign slip, using b = 10 instead of b = -10",
+    "C": "computed b - c instead of c - b"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Completing the Square**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $f(x) = (x + 2)^2 - 16$, so the smallest output is $-16$.\n\n**The Full Solution:**\nStep 1: Complete the square: half of $4$ is $2$, and $x^2 + 4x = (x + 2)^2 - 4$.\nStep 2: So $f(x) = (x + 2)^2 - 4 - 12 = (x + 2)^2 - 16$.\nStep 3: Since $(x + 2)^2 \\ge 0$, $f(x) \\ge -16$, with equality at $x = -2$. The minimum value is $-16$. Check: $f(-2) = 4 - 8 - 12 = -16$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-12$): this is $f(0)$, the value where the graph crosses the $y$-axis, not the lowest point.\n* Choice C ($-2$): this is the $x$-coordinate of the vertex; the question asks for the minimum VALUE.\n* Choice D ($0$): this evaluates $f(2) = 4 + 8 - 12 = 0$, using the wrong sign for the vertex input.\n\n**Test Day Takeaway:** Vertex form separates the two answers a quadratic can offer: $h$ is where the extreme occurs, $k$ is the extreme value itself."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Completing the Square**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Expanding gives $x^{2}-10x-6$, so $c-b=-6-(-10)=4$.\n\n**The Full Solution:**\nStep 1: Expand: $(x-5)^{2}-31=x^{2}-10x+25-31$.\nStep 2: Combine constants: $g(x)=x^{2}-10x-6$, so $b=-10$ and $c=-6$.\nStep 3: Then $c-b=-6+10=4$. Check at $x=0$: $g(0)=25-31=-6$, matching $c=-6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-21$): forgets the $+25$ from expanding the square, using $c=-31$.\n* Choice B ($-16$): sign slip, using $b=10$ instead of $-10$.\n* Choice C ($-4$): computes $b-c$ instead of $c-b$.\n\n**Test Day Takeaway:** Expanding vertex form always leaves a leftover square — that $+25$ is what makes $c$ different from the vertex's $y$-value.",
+  "id": "bank-am-295"
 }

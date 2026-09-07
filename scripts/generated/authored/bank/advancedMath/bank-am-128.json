@@ -1,40 +1,46 @@
 {
-  "id": "bank-am-128",
-  "question": "The graph of $y = 2x^2 - 4x + 5$ is shown in the $xy$-plane. The line $y = 8x + c$, where $c$ is a constant, is tangent to this parabola. What is the value of $c$?",
-  "diagram": {
-    "type": "quadraticVertex",
-    "params": {
-      "vertex": [
-        1,
-        3
-      ],
-      "a": 2,
-      "showVertex": true
-    }
+ "id": "bank-am-128",
+ "question": "A distributor's daily orders of wool sock bundles above its standing order follow the quadratic function $f$ graphed in the $xy$-plane. Which of the lines below meets the graph of $f$ at exactly one point?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$y=-2x-2$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-31$"
-    },
-    {
-      "id": "B",
-      "text": "$-13$"
-    },
-    {
-      "id": "C",
-      "text": "$-5$"
-    },
-    {
-      "id": "D",
-      "text": "$13$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "uses $a = 1$ in the discriminant instead of $a = 2$, solving $144 - 4(5 - c) = 0$",
-    "C": "assumes the tangent point is the vertex $(1, 3)$ and solves $3 = 8(1) + c$",
-    "D": "distributes $-8(5 - c)$ as $-40 - 8c$, flipping the sign of $c$"
+  {
+   "id": "B",
+   "text": "$y=2x+4$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Combining gives $2x^2 - 12x + (5 - c) = 0$. Tangency forces $144 - 8(5 - c) = 0$, so $c = -13$.\n\n**The Full Solution:**\nStep 1: Set the expressions equal: $2x^2 - 4x + 5 = 8x + c$. Subtracting $8x$ and $c$ gives $2x^2 - 12x + (5 - c) = 0$.\nStep 2: Exactly one intersection means the discriminant is zero: $(-12)^2 - 4(2)(5 - c) = 0$, so $144 - 40 + 8c = 0$.\nStep 3: Then $8c = -104$ and $c = -13$. Check: $2x^2 - 12x + 18 = 2(x - 3)^2$, which is zero only at $x = 3$, and the line gives $8(3) - 13 = 11 = 2(9) - 12 + 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-31$): the leading coefficient $2$ is ignored in $b^2 - 4ac$, so $4(1)(5-c)$ replaces $4(2)(5-c)$.\n* Choice C ($-5$): the vertex of the parabola is $(1, 3)$, but the tangent line with slope $8$ touches at $x = 3$, not at the vertex.\n* Choice D ($13$): distributing $-8(5 - c)$ as $-40 - 8c$ reverses the sign of the answer.\n\n**Test Day Takeaway:** Keep the leading coefficient in $b^2 - 4ac$. Tangency is about a repeated root, not about the vertex."
+  {
+   "id": "C",
+   "text": "$y=2x+6$"
+  },
+  {
+   "id": "D",
+   "text": "$y=4x+1$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "x^2+6x+7=0 has discriminant 8, so this line crosses the graph twice",
+  "C": "x^2+2x-1=0 has discriminant 8, so this line also crosses twice",
+  "D": "x^2+4=0 has discriminant -16, so this line misses the graph entirely"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The graph is $f(x)=(x+2)^2+1=x^2+4x+5$; only $y=2x+4$ gives $x^2+2x+1=0$, a perfect square with one root.\n\n**The Full Solution:**\nStep 1: Read the vertex $(-2,1)$ and the point $(0,5)$ from the figure, so $f(x)=(x+2)^2+1=x^2+4x+5$.\nStep 2: Setting $f(x)$ equal to a line $y=mx+b$ gives $x^2+(4-m)x+(5-b)=0$; exactly one shared point means $(4-m)^2-4(5-b)=0$.\nStep 3: For $y=2x+4$: $(4-2)^2-4(5-4)=4-4=0$, so this line is the tangent one. Check: $x^2+2x+1=(x+1)^2=0$ has the single solution $x=-1$, and $f(-1)=2=2(-1)+4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y=-2x-2$): gives $x^2+6x+7=0$, whose discriminant is $8$, so this line crosses the graph twice.\n* Choice C ($y=2x+6$): gives $x^2+2x-1=0$, whose discriminant is also $8$ — two crossings, not one.\n* Choice D ($y=4x+1$): gives $x^2+4=0$, whose discriminant is $-16$, so this line misses the graph entirely.\n\n**Test Day Takeaway:** Test candidate lines by the sign of the discriminant: negative misses, zero touches once, positive crosses twice.",
+ "diagram": {
+  "type": "quadraticVertex",
+  "params": {
+   "vertex": [
+    -2,
+    1
+   ],
+   "a": 1,
+   "showVertex": true,
+   "showPoints": [
+    [
+     0,
+     5
+    ]
+   ]
+  }
+ }
 }

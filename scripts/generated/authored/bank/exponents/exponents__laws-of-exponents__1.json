@@ -1,30 +1,29 @@
 {
- "id": 1,
- "question": "For all positive values of $a$, the expression $a^6 \\cdot a^5$ is equivalent to which of the following?",
+ "question": "An oak cask's volume model, in liters, includes the expression $(5m^2)^3$, where $m$ is the stave width in centimeters. Which of the following is equivalent to $(5m^2)^3$?",
+ "hint": "Two things sit inside those parentheses.",
  "choices": [
   {
    "id": "A",
-   "text": "$a$"
+   "text": "$5m^{6}$"
   },
   {
    "id": "B",
-   "text": "$a^{11}$"
+   "text": "$15m^{6}$"
   },
   {
    "id": "C",
-   "text": "$2a^{11}$"
+   "text": "$125m^{5}$"
   },
   {
    "id": "D",
-   "text": "$a^{30}$"
+   "text": "$125m^{6}$"
   }
  ],
- "correctAnswer": "B",
- "hint": "Identify which operation is being performed on the two powers before touching the exponents.",
  "distractorNotes": {
-  "A": "subtracts the exponents",
-  "C": "adds the coefficients too",
-  "D": "multiplies the exponents"
+  "A": "raises only the variable, leaving the coefficient 5 untouched",
+  "B": "multiplies 5 by 3 instead of cubing it",
+  "C": "adds the exponents 2 + 3 instead of multiplying them"
  },
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** Same base, multiplication, so add the exponents: $a^{6+5} = a^{11}$.\n\n**The Full Solution:**\nStep 1: The product rule for powers with the same base is $a^m \\cdot a^n = a^{m+n}$.\nStep 2: Apply it: $a^6 \\cdot a^5 = a^{6+5}$.\nStep 3: The result is $a^{11}$. Check by counting factors: six copies of $a$ times five copies of $a$ is eleven copies of $a$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($a$): subtracts the exponents, $6 - 5$, which is the rule for division, not multiplication.\n* Choice C ($2a^{11}$): adds the two understood coefficients of $1$; coefficients multiply, and $1 \\cdot 1 = 1$.\n* Choice D ($a^{30}$): multiplies the exponents, which is the rule for a power raised to a power.\n\n**Test Day Takeaway:** Match the operation to the rule first: multiply the powers and you add the exponents, divide them and you subtract."
+ "correctAnswer": "D",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~15s):** Cube the coefficient and multiply the exponents: $5^3 = 125$ and $m^{2 \\cdot 3} = m^6$.\n\n**The Full Solution:**\nStep 1: A power of a product raises each factor: $(5m^2)^3 = 5^3 \\cdot (m^2)^3$.\nStep 2: Cube the coefficient: $5^3 = 125$.\nStep 3: Multiply the exponents: $(m^2)^3 = m^6$, so the expression equals $125m^6$. Check at $m = 1$: $(5)^3 = 125$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5m^6$): raises only the variable and leaves the coefficient alone.\n* Choice B ($15m^6$): multiplies $5$ by the exponent $3$ instead of cubing it.\n* Choice C ($125m^5$): adds $2 + 3$, which is the rule for multiplying powers, not for a power of a power.\n\n**Test Day Takeaway:** An exponent outside parentheses hits every factor inside, coefficients included."
 }

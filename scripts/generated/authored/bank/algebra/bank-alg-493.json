@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-493",
-  "question": "For what value of $x$ is the expression $-4x + 10$ equal to $34$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-11$"
-    },
-    {
-      "id": "B",
-      "text": "$-6$"
-    },
-    {
-      "id": "C",
-      "text": "$6$"
-    },
-    {
-      "id": "D",
-      "text": "$24$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "adds 10 to 34 instead of subtracting, giving -4x = 44",
-    "C": "drops the negative sign on the coefficient and divides 24 by 4",
-    "D": "stops at -4x = 24 and reports 24"
+ "id": "bank-alg-493",
+ "question": "A bookbinding studio models the glue remaining as $G = 5{,}600 - 350v$ grams after $v$ volumes have been bound. Which is the best interpretation of the number $5{,}600$ in this model?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "The studio begins with $5{,}600$ grams of glue."
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Set $-4x + 10 = 34$. Then $-4x = 24$, so $x = -6$.\n\n**The Full Solution:**\nStep 1: Translate the sentence into the equation $-4x + 10 = 34$ and subtract $10$ from both sides: $-4x = 24$.\nStep 2: Divide both sides by $-4$, keeping the sign: $x = \\dfrac{24}{-4} = -6$.\nStep 3: Check: $-4(-6) + 10 = 24 + 10 = 34$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-11$): adds $10$ to $34$ instead of subtracting, producing $-4x = 44$.\n* Choice C ($6$): divides $24$ by $4$ instead of by $-4$, losing the sign of the coefficient.\n* Choice D ($24$): isolates $-4x = 24$ and stops, never dividing by the coefficient.\n\n**Test Day Takeaway:** A negative coefficient is part of the coefficient; when you divide, divide by the whole thing, sign included, and confirm with a substitution."
+  {
+   "id": "B",
+   "text": "Each volume uses $5{,}600$ grams of glue."
+  },
+  {
+   "id": "C",
+   "text": "The studio can bind $5{,}600$ volumes before the glue runs out."
+  },
+  {
+   "id": "D",
+   "text": "After every volume, $5{,}600$ grams of glue remain."
+  }
+ ],
+ "distractorNotes": {
+  "B": "reads the constant as the per-volume rate, which is the coefficient 350",
+  "C": "reads the constant as a volume count; the studio can bind 5600 / 350 = 16 volumes",
+  "D": "treats the constant as a value that never changes, ignoring the -350v term"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Setting $v = 0$ gives $G = 5{,}600$, the glue on hand before any volume is bound.\n\n**The Full Solution:**\nStep 1: Identify the roles in $G = 5{,}600 - 350v$. The constant is the value of $G$ when $v = 0$, and $-350$ is the change in $G$ for each volume bound.\nStep 2: Evaluate at $v = 0$: $G = 5{,}600 - 350(0) = 5{,}600$ grams, so $5{,}600$ is the starting supply.\nStep 3: Confirm the other number carries the rate: from $v = 0$ to $v = 1$ the glue falls to $5{,}250$ grams, a drop of $350$ grams per volume. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: assigns the constant to the per-volume usage, which is actually the coefficient $350$.\n* Choice C: reads the constant as a number of volumes; the studio can bind $5{,}600 \\div 350 = 16$ volumes before the glue runs out.\n* Choice D: treats $5{,}600$ as a value that never changes, which ignores the $-350v$ term entirely.\n\n**Test Day Takeaway:** Substitute $0$ for the input to expose the constant's meaning — it is always the starting value, never a rate and never a count of inputs."
 }

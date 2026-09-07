@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-396",
-  "question": "The function $h$ is defined by $h(x) = 26 - 3(x + 5)^2$. What is the maximum value of $h(x)$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-5$"
-    },
-    {
-      "id": "B",
-      "text": "$3$"
-    },
-    {
-      "id": "C",
-      "text": "$23$"
-    },
-    {
-      "id": "D",
-      "text": "$26$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports the $x$-value where the maximum occurs",
-    "B": "reports the coefficient of the squared term",
-    "C": "subtracts the coefficient 3 from 26"
+ "id": "bank-am-396",
+ "question": "The function $P$ defined by $P(x)=-5(x-12)^2+900$ gives a game shop's daily profit, in dollars, from selling $x$ jigsaw puzzle boxes. Which statement best interprets the ordered pair $(12,900)$ in this context?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "The daily profit is \\$900 when no jigsaw puzzle boxes are sold."
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The squared term is subtracted, so $h$ is largest when $(x + 5)^2 = 0$, leaving $h = 26$.\n\n**The Full Solution:**\nStep 1: $(x + 5)^2$ is never negative, so $3(x + 5)^2$ is never negative either.\nStep 2: Subtracting a nonnegative quantity from $26$ can only lower the value, so the largest possible output happens when $3(x + 5)^2 = 0$.\nStep 3: That occurs at $x = -5$, and $h(-5) = 26 - 0 = 26$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): reports where the maximum occurs instead of the maximum value.\n* Choice B ($3$): reports the coefficient in front of the squared term.\n* Choice C ($23$): subtracts the coefficient $3$ from $26$, as if the squared factor contributed $3$ at the vertex.\n\n**Test Day Takeaway:** When a squared term is subtracted, set it to zero — the constant left behind is the maximum value."
+  {
+   "id": "B",
+   "text": "The daily profit rises by \\$900 for each additional box sold."
+  },
+  {
+   "id": "C",
+   "text": "The greatest daily profit, \\$12, comes from selling $900$ boxes."
+  },
+  {
+   "id": "D",
+   "text": "The greatest daily profit, \\$900, comes from selling $12$ boxes."
+  }
+ ],
+ "distractorNotes": {
+  "A": "treats 900 as P(0), which is 180",
+  "B": "reads 900 as a rate of change rather than a value",
+  "C": "swaps the two coordinates of the vertex"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** With $a=-5<0$ the vertex $(12,900)$ is the highest point, so \\$900 is the greatest profit and it comes at $x=12$ boxes.\n\n**The Full Solution:**\nStep 1: The function is in vertex form $a(x-h)^2+k$ with $a=-5$, $h=12$, and $k=900$.\nStep 2: Because $a$ is negative, $-5(x-12)^2$ is never positive, so $P(x)$ is largest when $x=12$.\nStep 3: That largest value is $P(12)=900$ dollars. Check: $P(11)=895$ and $P(13)=895$, both under $900$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: treats $900$ as the profit at $x=0$, but $P(0)=-5(144)+900=180$.\n* Choice B: reads $900$ as a rate of change; a quadratic has no constant rate.\n* Choice C: swaps the coordinates, reporting the input as a dollar amount.\n\n**Test Day Takeaway:** In an ordered pair from vertex form the first number is the input that produces the extreme, and the second is the extreme itself."
 }

@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-102",
-  "question": "Which expression is equivalent to $\\dfrac{x^2 - 10x + 25}{x^2 - 25}$ for all values of $x$ where the expression is defined?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$\\dfrac{1}{x + 5}$"
-    },
-    {
-      "id": "B",
-      "text": "$\\dfrac{2x - 5}{5}$"
-    },
-    {
-      "id": "C",
-      "text": "$\\dfrac{x + 5}{x - 5}$"
-    },
-    {
-      "id": "D",
-      "text": "$\\dfrac{x - 5}{x + 5}$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "cancels the entire squared factor $(x - 5)^2$ against one $(x - 5)$",
-    "B": "cancels the $x^2$ terms as if they were factors",
-    "C": "factors the numerator as $(x + 5)^2$, a sign slip"
+ "id": "bank-am-102",
+ "question": "In a barge-draft model the expression $\\dfrac{P(x)}{x^{2}-25}$ is equivalent to $\\dfrac{x+5}{x-5}$ for every $x>5$, where $P$ is a polynomial. Which of the following could be $P(x)$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$x^{2}-10x+25$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** $\\frac{(x - 5)^2}{(x - 5)(x + 5)}$ — one $(x - 5)$ cancels, leaving $\\frac{x - 5}{x + 5}$.\n\n**The Full Solution:**\nStep 1: The numerator is a perfect-square trinomial: $x^2 - 10x + 25 = (x - 5)^2$, since $2(5) = 10$.\nStep 2: The denominator is a difference of squares: $x^2 - 25 = (x - 5)(x + 5)$.\nStep 3: Cancel one factor of $(x - 5)$ from each part: $\\frac{x - 5}{x + 5}$. Check at $x = 0$: $\\frac{25}{-25} = -1$, and $\\frac{-5}{5} = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{x + 5}$): cancels both copies of $(x - 5)$ from the numerator against the single one below, leaving $1$ on top.\n* Choice B ($\\frac{2x - 5}{5}$): cancels the $x^2$ terms, then reduces $\\frac{-10x + 25}{-25}$; terms of a sum are not factors.\n* Choice C ($\\frac{x + 5}{x - 5}$): factors the numerator as $(x + 5)^2$; that square has a $+10x$ middle term, not $-10x$.\n\n**Test Day Takeaway:** A squared factor cancels only once against a single copy. Count the factors on each side before you strike anything out."
+  {
+   "id": "B",
+   "text": "$x^{2}+10x+25$"
+  },
+  {
+   "id": "C",
+   "text": "$x^{2}+25$"
+  },
+  {
+   "id": "D",
+   "text": "$x^{2}+5x$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "expands (x + 5) squared with a sign error, producing x squared minus 10x plus 25",
+  "C": "squares x and 5 separately and drops the 10x cross term",
+  "D": "multiplies x by (x + 5) instead of multiplying (x + 5) by itself"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $P(x)=\\frac{x+5}{x-5}\\cdot(x^{2}-25)=(x+5)(x+5)=x^{2}+10x+25$.\n\n**The Full Solution:**\n\nStep 1: Factor the given denominator: $x^{2}-25=(x-5)(x+5)$.\n\nStep 2: Multiply the target by that denominator: $P(x)=\\frac{x+5}{x-5}\\cdot(x-5)(x+5)$, and the $x-5$ cancels.\n\nStep 3: What remains is $(x+5)^{2}=x^{2}+10x+25$. Check at $x=6$: $\\frac{36+60+25}{36-25}=\\frac{121}{11}=11$, and $\\frac{6+5}{6-5}=11$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($x^{2}-10x+25$): expands $(x+5)^{2}$ with the wrong sign on the middle term.\n* Choice C ($x^{2}+25$): squares each term separately and loses the cross term.\n* Choice D ($x^{2}+5x$): multiplies $x$ by $x+5$ instead of $x+5$ by itself.\n\n**Test Day Takeaway:** To recover a missing numerator, multiply the simplified form by the full factored denominator and cancel what matches."
 }

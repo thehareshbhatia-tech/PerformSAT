@@ -1,6 +1,22 @@
 {
-  "id": "bank-am-066",
-  "question": "If $p^2 - q^2 = 96$ and $p - q = 8$, what is the value of $p + q$?",
-  "correctAnswer": "12",
-  "explanation": "**SAT Pattern: Difference of Squares Application**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~15s):** Since $p^2 - q^2 = (p - q)(p + q)$, the equation reads $8(p + q) = 96$, so $p + q = 12$.\n\n**The Full Solution:**\nStep 1: Factor the left side of the first equation: $p^2 - q^2 = (p - q)(p + q)$.\nStep 2: Substitute the given value $p - q = 8$: $8(p + q) = 96$.\nStep 3: Divide both sides by $8$: $p + q = 12$. Check: $p - q = 8$ and $p + q = 12$ give $p = 10$ and $q = 2$, and $10^2 - 2^2 = 100 - 4 = 96$. $\\checkmark$\n\n**Common Mistakes:** Subtracting instead of dividing, $96 - 8 = 88$; multiplying, $96 \\times 8 = 768$; or assuming $p^2 - q^2 = (p - q)^2$, which would force $p - q = \\sqrt{96} \\approx 9.80$ and contradict the given $p - q = 8$.\n\n**Test Day Takeaway:** When a question hands you $a^2 - b^2$ together with $a - b$ or $a + b$, the difference-of-squares identity turns it into one division. You never need the individual values."
+  "question": "The table gives the side lengths of two square dies. How much greater, in square millimeters, is the face area of the larger die than the face area of the smaller die?",
+  "questionTable": {
+    "headers": [
+      "Die",
+      "Side length (millimeters)"
+    ],
+    "rows": [
+      [
+        "Larger",
+        "$53$"
+      ],
+      [
+        "Smaller",
+        "$47$"
+      ]
+    ]
+  },
+  "correctAnswer": "600",
+  "explanation": "**SAT Pattern: Difference of Squares Application**\n\n**The correct answer is $600$.**\n\n**The Fast Way (~15s):** $53^{2}-47^{2}=(53-47)(53+47)=6\\cdot 100=600$.\n\n**The Full Solution:**\nStep 1: Each face area is the square of a side, so the difference is $53^{2}-47^{2}$.\nStep 2: Factor as a difference of squares: $(53-47)(53+47)$.\nStep 3: Evaluate: $6\\cdot 100=600$ square millimeters. Check directly: $2809-2209=600$ ✓\n\n**Common Mistakes:**\n* $6$: subtracted the side lengths instead of the areas.\n* $36$: squared the difference of the sides, computing $(53-47)^{2}$.\n* $100$: reported the sum of the side lengths, stopping halfway through the factoring.\n\n**Test Day Takeaway:** A difference of two squares of nearby numbers is fastest as (difference)(sum) — no squaring required.",
+  "id": "bank-am-066"
 }

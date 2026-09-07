@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-191",
-  "question": "What value of $x$ is the solution to the equation $x - \\dfrac{5}{6} = \\dfrac{1}{3}$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-\\dfrac{1}{2}$"
-    },
-    {
-      "id": "B",
-      "text": "$\\dfrac{1}{2}$"
-    },
-    {
-      "id": "C",
-      "text": "$\\dfrac{2}{3}$"
-    },
-    {
-      "id": "D",
-      "text": "$\\dfrac{7}{6}$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "subtracts 5/6 from 1/3 instead of adding",
-    "B": "computes 5/6 - 1/3, reversing the sign",
-    "C": "adds numerators and denominators separately: (1+5)/(3+6)"
+ "id": "bank-alg-191",
+ "question": "A specimen fridge's log satisfies $w + 26 = c$, where $w$ is the recorded temperature in degrees Celsius and $c$ is a constant. The log is satisfied when $w = -9$. What is the value of $c$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-35$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Add $\\dfrac{5}{6}$ to both sides: $x = \\dfrac{1}{3} + \\dfrac{5}{6} = \\dfrac{2}{6} + \\dfrac{5}{6} = \\dfrac{7}{6}$.\n\n**The Full Solution:**\nStep 1: The variable has $\\dfrac{5}{6}$ subtracted from it, so undo that by adding $\\dfrac{5}{6}$ to both sides.\nStep 2: Use the common denominator $6$: $\\dfrac{1}{3} = \\dfrac{2}{6}$, so $x = \\dfrac{2}{6} + \\dfrac{5}{6} = \\dfrac{7}{6}$.\nStep 3: Check: $\\dfrac{7}{6} - \\dfrac{5}{6} = \\dfrac{2}{6} = \\dfrac{1}{3}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\dfrac{1}{2}$): subtracts $\\dfrac{5}{6}$ from $\\dfrac{1}{3}$, repeating the operation instead of undoing it.\n* Choice B ($\\dfrac{1}{2}$): computes $\\dfrac{5}{6} - \\dfrac{1}{3}$, reversing the sign of the result.\n* Choice C ($\\dfrac{2}{3}$): adds numerators and denominators separately, $\\dfrac{1 + 5}{3 + 6} = \\dfrac{6}{9}$.\n\n**Test Day Takeaway:** Undo a subtraction with an addition, and add fractions over a common denominator. A solution larger than $1$ is fine here because $x$ must exceed the $\\dfrac{5}{6}$ being taken from it."
+  {
+   "id": "B",
+   "text": "$17$"
+  },
+  {
+   "id": "C",
+   "text": "$35$"
+  },
+  {
+   "id": "D",
+   "text": "$234$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "computes -9 - 26, subtracting instead of adding",
+  "C": "adds the absolute values and ignores the negative sign on w",
+  "D": "multiplies -9 by -26 instead of adding 26"
+ },
+ "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Substitute $w = -9$: $c = -9 + 26 = 17$.\n\n**The Full Solution:**\n\nStep 1: The log is $w + 26 = c$, and the value $w = -9$ satisfies it.\n\nStep 2: Substitute: $-9 + 26 = c$.\n\nStep 3: Adding a positive number to $-9$ moves right on the number line, giving $c = 17$. Check: $-9 + 26 = 17$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-35$): computes $-9 - 26$, subtracting the $26$ instead of adding it.\n* Choice C ($35$): adds $9$ and $26$, dropping the negative sign on the recorded temperature.\n* Choice D ($234$): multiplies $-9$ by $-26$ instead of adding.\n\n**Test Day Takeaway:** Substituting a negative value is safest done on a number line: adding a positive number always moves toward zero and past it."
 }

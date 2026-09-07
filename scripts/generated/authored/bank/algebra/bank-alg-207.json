@@ -1,90 +1,94 @@
 {
-  "id": "bank-alg-207",
-  "question": "The scatterplot shows the number $y$ of bacterial colonies, in thousands, counted in a sample $x$ hours after an antibiotic was applied, along with the line of best fit $\\hat{y} = -2.4x + 30$. Which of the following is the best interpretation of the slope of the line of best fit in this context?",
+  "question": "The scatterplot shows the average April snowpack depth, in centimeters, at a mountain station for $11$ decades, where $x$ is the number of decades since $1900$. The line of best fit is given by $y = -2.4x + 78$. Which statement is the best interpretation of the slope of this line?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Each year, the estimated April snowpack depth decreases by $2.4$ centimeters."
+    },
+    {
+      "id": "B",
+      "text": "Each decade, the estimated April snowpack depth increases by $2.4$ centimeters."
+    },
+    {
+      "id": "C",
+      "text": "Each decade, the estimated April snowpack depth decreases by $24$ centimeters."
+    },
+    {
+      "id": "D",
+      "text": "Each decade, the estimated April snowpack depth decreases by $2.4$ centimeters."
+    }
+  ],
+  "correctAnswer": "D",
+  "distractorNotes": {
+    "A": "reads the rate as per year even though one unit of $x$ is a decade",
+    "B": "drops the negative sign, reversing the direction of the trend",
+    "C": "multiplies the slope by $10$ while still labeling the result per decade"
+  },
+  "explanation": "**SAT Pattern: Slope as Rate of Change in Context**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** One unit of $x$ is one decade, so the slope $-2.4$ means the estimated depth falls $2.4$ centimeters per decade.\n\n**The Full Solution:**\n\nStep 1: Read the units from the stem: $x$ counts decades since $1900$ and $y$ is April snowpack depth in centimeters.\n\nStep 2: The slope of $y = -2.4x + 78$ is the change in $y$ per one-unit change in $x$, that is, per decade.\n\nStep 3: The sign is negative, so the depth decreases. Check: at $x = 2$ the model gives $73.2$ and at $x = 3$ it gives $70.8$, a drop of $2.4$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A: attaches the rate to a year, but a one-unit step in $x$ spans ten years, so the yearly drop would be $0.24$ centimeter.\n\n* Choice B: keeps the size $2.4$ but reverses the direction, ignoring the negative slope.\n\n* Choice C: multiplies the slope by $10$, as if converting decades to years, but still reports the result as a per-decade change.\n\n**Test Day Takeaway:** Read what one unit of $x$ stands for before interpreting a slope; a rescaled input silently rescales the rate.",
   "diagram": {
     "type": "scatterplot",
     "params": {
       "points": [
         [
+          0,
+          80
+        ],
+        [
           1,
-          27.2
+          74
         ],
         [
           2,
-          25.6
+          74
         ],
         [
           3,
-          21.9
+          71
         ],
         [
           4,
-          21.1
+          69
         ],
         [
           5,
-          17.5
+          65
         ],
         [
           6,
-          16.2
+          64
         ],
         [
           7,
-          12.6
+          62
         ],
         [
           8,
-          11.4
+          58
         ],
         [
           9,
-          8
+          57
         ],
         [
           10,
-          6.7
+          55
         ]
       ],
       "xMin": 0,
-      "xMax": 10,
-      "yMin": 0,
-      "yMax": 32,
+      "xMax": 11,
+      "yMin": 40,
+      "yMax": 85,
       "xGridStep": 1,
-      "yGridStep": 4,
+      "yGridStep": 5,
       "xLabelStep": 2,
-      "yLabelStep": 8,
-      "xLabel": "Hours after application",
-      "yLabel": "Colonies (thousands)",
+      "yLabelStep": 10,
+      "xLabel": "Decades since 1900",
+      "yLabel": "April snowpack depth (cm)",
       "bestFitLine": {
         "slope": -2.4,
-        "intercept": 30
+        "intercept": 78
       }
     }
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "The predicted number of colonies decreases by $2{,}400$ each hour."
-    },
-    {
-      "id": "B",
-      "text": "The predicted number of colonies decreases by $2.4$ each hour."
-    },
-    {
-      "id": "C",
-      "text": "The predicted number of colonies decreases by $24$ each hour."
-    },
-    {
-      "id": "D",
-      "text": "The predicted number of colonies is $30{,}000$ at the time the antibiotic was applied."
-    }
-  ],
-  "distractorNotes": {
-    "B": "ignores that y is measured in thousands",
-    "C": "scales by 10 instead of 1,000",
-    "D": "interprets the y-intercept, not the slope"
-  },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Slope as Rate of Change in Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The slope $-2.4$ is in thousands of colonies per hour. $2.4$ thousand is $2{,}400$, so the predicted count drops by $2{,}400$ colonies each hour.\n\n**The Full Solution:**\nStep 1: In $\\hat{y} = -2.4x + 30$, the slope is $-2.4$: the predicted change in $y$ for each additional hour.\nStep 2: The vertical axis is measured in thousands, so a change of $-2.4$ in $y$ is a change of $-2.4 \\times 1{,}000 = -2{,}400$ colonies.\nStep 3: The negative sign means a decrease. Check: from $x = 0$ to $x = 1$ the prediction falls from $30$ thousand to $27.6$ thousand, a drop of $2{,}400$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: reads $2.4$ directly off the equation and forgets that the axis unit is thousands.\n* Choice C: applies the wrong scale factor, $10$ instead of $1{,}000$.\n* Choice D: correctly scales $30$ thousand but describes the $y$-intercept, not the slope.\n\n**Test Day Takeaway:** When an axis is labeled in thousands, the slope is in thousands too. Convert the rate to plain units before matching it to a choice, and make sure you are describing the slope rather than the intercept."
+  "id": "bank-alg-207"
 }

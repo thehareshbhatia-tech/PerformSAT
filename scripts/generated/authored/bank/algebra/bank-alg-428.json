@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-428",
-  "question": "The equation $15 = x - 8$ is true for what value of $x$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-7$"
-    },
-    {
-      "id": "B",
-      "text": "$\\frac{15}{8}$"
-    },
-    {
-      "id": "C",
-      "text": "$7$"
-    },
-    {
-      "id": "D",
-      "text": "$23$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "computes 8 - 15, subtracting in the wrong direction.",
-    "B": "divides 15 by 8, treating x - 8 as 8x.",
-    "C": "subtracts 8 from 15 instead of adding, repeating the equation's operation instead of undoing it."
+ "id": "bank-alg-428",
+ "question": "A clinic receives a delivery of $p$ packs of examination gloves and uses 34 of the packs during one week, leaving 158 packs in storage. Which of the following gives the value of $p$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$158 - 34$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Add $8$ to both sides: $x = 15 + 8 = 23$.\n\n**The Full Solution:**\nStep 1: The variable has $8$ subtracted from it, so add $8$ to each side.\nStep 2: $15 + 8 = x - 8 + 8$, so $23 = x$.\nStep 3: Check: $23 - 8 = 15$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): computes $8 - 15$, subtracting in the wrong direction.\n* Choice B ($\\frac{15}{8}$): divides $15$ by $8$, treating $x - 8$ as $8x$.\n* Choice C ($7$): subtracts $8$ from $15$ instead of adding, repeating the equation's operation instead of undoing it.\n\n**Test Day Takeaway:** The variable can sit on the right side; isolate it the same way by adding back what was subtracted."
+  {
+   "id": "B",
+   "text": "$158 + 34$"
+  },
+  {
+   "id": "C",
+   "text": "$158 \\times 34$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{158}{34}$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "subtracts again instead of undoing the subtraction",
+  "C": "multiplies the two counts instead of adding them",
+  "D": "divides the two counts instead of adding them"
+ },
+ "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $p - 34 = 158$, so $p = 158 + 34$.\n\n**The Full Solution:**\n\nStep 1: Using $34$ packs from a supply of $p$ leaves $p - 34$ packs, so $p - 34 = 158$.\n\nStep 2: To isolate $p$, add $34$ to both sides.\n\nStep 3: The value of $p$ is $158 + 34$, which is $192$. Check: $192 - 34 = 158$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($158 - 34$): subtracts a second time instead of reversing the subtraction.\n* Choice C ($158 \\times 34$): multiplies the two counts, which no part of the situation calls for.\n* Choice D ($\\frac{158}{34}$): divides the two counts, which would describe splitting the storage into groups.\n\n**Test Day Takeaway:** An amount removed is recovered by adding it back; the starting supply is always larger than what remains."
 }

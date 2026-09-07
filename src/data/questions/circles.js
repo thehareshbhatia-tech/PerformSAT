@@ -61,19 +61,20 @@ export const circlesQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "In a circle, $\\overline{PQ}$ is a chord that does not pass through the center. Which of the following must be true?",
+      question: "A pivot arm sweeps from $A$ to $B$ in the circle shown with center $O$, where angle $AOB$ measures $110^\\circ$. What is the measure, in degrees, of angle $OAB$?",
+      diagram: { type: "circleWithSector", params: { centralAngle: 110, angleLabel: "110°", labelCenter: "O", labelPoint1: "A", labelPoint2: "B", showAngleLabel: true, figureNote: true } },
       choices: [
-        // distractor: no chord exceeds the diameter
-        { id: "A", text: "$\\overline{PQ}$ is longer than a diameter of the circle." },
-        // distractor: true only for one special chord length
-        { id: "B", text: "$\\overline{PQ}$ has the same length as a radius of the circle." },
-        { id: "C", text: "Both endpoints of $\\overline{PQ}$ lie on the circle." },
-        // distractor: true for at most one diameter
-        { id: "D", text: "$\\overline{PQ}$ is perpendicular to every diameter of the circle." }
+        { id: "A", text: "$35$" },
+        // distractor: halves the central angle, treating OAB as an inscribed angle
+        { id: "B", text: "$55$" },
+        // distractor: computes 180 - 110 = 70 and never splits it between the two base angles
+        { id: "C", text: "$70$" },
+        // distractor: repeats the central angle 110
+        { id: "D", text: "$110$" }
       ],
-      correctAnswer: "C",
-      hint: "Argue from the definition of a chord, not from one particular picture of one.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** A chord is by definition a segment whose two endpoints are on the circle, so Choice C restates the definition.\n\n**The Full Solution:**\nStep 1: A chord joins two points of the circle; every other property depends on which chord you draw.\nStep 2: Test the other statements against a short chord and a long one. A chord near the edge is much shorter than a radius; a chord near the center is nearly as long as a diameter.\nStep 3: Only the endpoint condition survives both tests, so Choice C is the statement that must be true. Check: a chord drawn near the edge of the circle is far shorter than a radius, and one drawn near the center is nearly a diameter, yet both still have their endpoints on the circle.\n\n**Why the wrong answers are tempting:**\n* Choice A: no chord is longer than a diameter, since the diameter is the longest chord a circle has.\n* Choice B: a chord can equal a radius, but only for one specific length; most chords do not.\n* Choice D: exactly one diameter is perpendicular to a given chord (the one through its midpoint), not every diameter.\n\n**Test Day Takeaway:** On a *must be true* question, hunt for the statement that follows from the definition, then break the others with one extreme example.",
+      correctAnswer: "A",
+      hint: "What do the two segments drawn from $O$ have in common?",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** Triangle $AOB$ is isosceles, so the two base angles share $180 - 110 = 70$ degrees, giving $35$ each.\n\n**The Full Solution:**\nStep 1: $OA$ and $OB$ are both radii, so triangle $AOB$ is isosceles with $OA = OB$.\nStep 2: Angles $OAB$ and $OBA$ are the base angles opposite those equal sides, so they are equal.\nStep 3: The angles of the triangle total $180$, so $2(\\text{angle } OAB) = 180 - 110 = 70$ and angle $OAB = 35$. Check: $35 + 35 + 110 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($55$): halves the central angle, which is the rule for an inscribed angle, not a base angle.\n* Choice C ($70$): stops at $180 - 110 = 70$, the total of the two base angles.\n* Choice D ($110$): repeats the central angle instead of finding a base angle.\n\n**Test Day Takeaway:** Any triangle with two radii as sides is isosceles, so its base angles are equal.",
       skills: ["circle-parts"]
     },
     {
@@ -138,19 +139,20 @@ export const circlesQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "The area of a circular reflecting pool is $121\\pi$ square meters. What is the circumference, in meters, of the pool?",
+      question: "A square baking tray with $6$-inch sides is inscribed in the circular oven plate shown, which is centered at $O$. What is the area, in square inches, of the oven plate?",
+      diagram: { type: "circleWithSquare", params: { labels: { A: "A", B: "B", C: "C", D: "D", O: "O" }, showDiagonals: true, figureNote: true } },
       choices: [
-        // distractor: stops at the radius and attaches pi
-        { id: "A", text: "$11\\pi$" },
-        { id: "B", text: "$22\\pi$" },
-        // distractor: repeats the given area
-        { id: "C", text: "$121\\pi$" },
-        // distractor: uses 121 as the radius
-        { id: "D", text: "$242\\pi$" }
+        // distractor: takes the radius to be half the side, 3
+        { id: "A", text: "$9\\pi$" },
+        { id: "B", text: "$18\\pi$" },
+        // distractor: uses the side length 6 as the radius
+        { id: "C", text: "$36\\pi$" },
+        // distractor: uses the full diagonal as the radius
+        { id: "D", text: "$72\\pi$" }
       ],
       correctAnswer: "B",
-      hint: "The radius is the bridge between the two formulas.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\pi r^2 = 121\\pi$ gives $r = 11$, so $C = 2\\pi(11) = 22\\pi$ meters.\n\n**The Full Solution:**\nStep 1: Set the area formula equal to the given area: $\\pi r^2 = 121\\pi$, so $r^2 = 121$.\nStep 2: Take the positive square root: $r = 11$ meters.\nStep 3: Substitute into $C = 2\\pi r$: $C = 2\\pi(11) = 22\\pi$ meters. Check: $\\pi(11)^2 = 121\\pi$, the given area.\n\n**Why the wrong answers are tempting:**\n* Choice A ($11\\pi$): stops at the radius $11$ and attaches a $\\pi$ instead of finishing the circumference formula.\n* Choice C ($121\\pi$): repeats the given area, which measures square meters, not meters.\n* Choice D ($242\\pi$): uses $r = 121$ in $C = 2\\pi r$, skipping the square root.\n\n**Test Day Takeaway:** Area and circumference never talk to each other directly. Solve for $r$ in the middle and both formulas open up.",
+      hint: "Which segment of the square stretches all the way across the plate?",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** The tray's diagonal $6\\sqrt{2}$ is a diameter, so the radius is $3\\sqrt{2}$ and the area is $\\pi(3\\sqrt{2})^2 = 18\\pi$.\n\n**The Full Solution:**\nStep 1: The four corners of the tray touch the plate, so the tray's diagonal is a diameter of the plate.\nStep 2: For a square of side $6$, the diagonal is $6\\sqrt{2}$, making the radius $3\\sqrt{2}$.\nStep 3: The area is $\\pi r^2 = \\pi(3\\sqrt{2})^2 = 18\\pi$ square inches. Check: $(3\\sqrt{2})^2 = 9 \\cdot 2 = 18$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\pi$): uses half the side, $3$, as the radius, which is the distance to a side rather than to a corner.\n* Choice C ($36\\pi$): uses the side length $6$ as the radius.\n* Choice D ($72\\pi$): uses the diagonal $6\\sqrt{2}$ as the radius instead of as the diameter.\n\n**Test Day Takeaway:** When a square is inscribed in a circle, the square's diagonal — not its side — is the circle's diameter.",
       skills: ["circle-area"]
     },
     {
@@ -198,19 +200,19 @@ export const circlesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "A circular fountain has a radius of $13$ feet. What is the circumference, in feet, of the fountain?",
+      question: "A grain-bin lid has a rubber seal running around its rim, and the lid is a circle of diameter $2.8$ meters. What is the length, in meters, of the seal?",
       choices: [
-        // distractor: uses pi times r
-        { id: "A", text: "$13\\pi$" },
-        { id: "B", text: "$26\\pi$" },
-        // distractor: uses 2 pi d
-        { id: "C", text: "$52\\pi$" },
-        // distractor: computes the area
-        { id: "D", text: "$169\\pi$" }
+        // distractor: multiplies pi by the radius 1.4 instead of the diameter
+        { id: "A", text: "$1.4\\pi$" },
+        // distractor: computes the area pi(1.4)^2 = 1.96pi
+        { id: "B", text: "$1.96\\pi$" },
+        { id: "C", text: "$2.8\\pi$" },
+        // distractor: doubles the diameter before multiplying by pi
+        { id: "D", text: "$5.6\\pi$" }
       ],
-      correctAnswer: "B",
-      hint: "Circumference grows with the radius itself, not with its square.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** $C = 2\\pi r = 2\\pi(13) = 26\\pi$ feet.\n\n**The Full Solution:**\nStep 1: The circumference of a circle is $C = 2\\pi r$.\nStep 2: Substitute $r = 13$: $C = 2\\pi(13)$.\nStep 3: $C = 26\\pi$ feet. Check: the equivalent form $C = \\pi d$ with $d = 26$ gives the same $26\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($13\\pi$): uses $\\pi r$, dropping the factor of $2$ that turns a radius into a diameter.\n* Choice C ($52\\pi$): applies $2\\pi d$, doubling a length that was already doubled.\n* Choice D ($169\\pi$): computes the area $\\pi r^2$, which is measured in square feet.\n\n**Test Day Takeaway:** $C = 2\\pi r$ and $C = \\pi d$ are the same rule. Whichever you use, the radius appears to the first power.",
+      correctAnswer: "C",
+      hint: "The seal follows the rim, not the surface.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** Circumference is $\\pi d$, so the seal is $\\pi(2.8) = 2.8\\pi$ meters.\n\n**The Full Solution:**\nStep 1: The seal runs around the rim, so its length is the circumference of the lid.\nStep 2: With the diameter given, use $C = \\pi d$ rather than $C = 2\\pi r$.\nStep 3: Substitute: $C = \\pi(2.8) = 2.8\\pi$ meters. Check: the radius is $1.4$, and $2\\pi(1.4) = 2.8\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.4\\pi$): multiplies $\\pi$ by the radius $1.4$, which is only half the rim.\n* Choice B ($1.96\\pi$): computes the area $\\pi(1.4)^2 = 1.96\\pi$, which measures the lid's surface, not its rim.\n* Choice D ($5.6\\pi$): doubles the diameter as if the given number were the radius.\n\n**Test Day Takeaway:** Check whether the number given is a radius or a diameter before choosing between $2\\pi r$ and $\\pi d$.",
       skills: ["circumference"]
     },
     {
@@ -234,39 +236,39 @@ export const circlesQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "In the figure, $O$ is the center of the circle, $OA = 18$, and the measure of $\\angle AOB$ is $40^{\\circ}$. What is the length of minor arc $AB$?",
-      diagram: { type: "circleWithSector", params: { centralAngle: 40, radius: 18, showRadiusLabel: true, showAngleLabel: true, labelCenter: "O", labelPoint1: "A", labelPoint2: "B", figureNote: true } },
+      question: "In the figure, a conveyor turn runs along minor arc $AB$; the wheel radius is $15$ and the turn subtends $72^\\circ$ at center $O$. How long is the turn?",
+      diagram: { type: "circleWithSector", params: { centralAngle: 72, angleLabel: "72°", radius: 15, labelCenter: "O", labelPoint1: "A", labelPoint2: "B", showRadiusLabel: true, figureNote: true } },
       choices: [
-        // distractor: leaves the radius out
-        { id: "A", text: "$\\frac{2\\pi}{9}$" },
-        // distractor: uses pi r for the circumference
-        { id: "B", text: "$2\\pi$" },
-        { id: "C", text: "$4\\pi$" },
-        // distractor: reports the whole circumference
-        { id: "D", text: "$36\\pi$" }
+        // distractor: uses pi*r instead of 2*pi*r for the whole rim
+        { id: "A", text: "$3\\pi$" },
+        { id: "B", text: "$6\\pi$" },
+        // distractor: uses the diameter 30 in place of the radius
+        { id: "C", text: "$12\\pi$" },
+        // distractor: reports the whole circumference 30pi
+        { id: "D", text: "$30\\pi$" }
       ],
-      correctAnswer: "C",
-      hint: "Compare the central angle with a full turn of $360^{\\circ}$ first.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** The arc is $\\frac{40}{360} = \\frac{1}{9}$ of the circumference $36\\pi$, so its length is $4\\pi$.\n\n**The Full Solution:**\nStep 1: The circumference is $C = 2\\pi(18) = 36\\pi$.\nStep 2: A central angle of $40^{\\circ}$ cuts off $\\frac{40}{360} = \\frac{1}{9}$ of the circle.\nStep 3: The arc length is $\\frac{1}{9}(36\\pi) = 4\\pi$. Check: nine such arcs would total $36\\pi$, the full circumference.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2\\pi}{9}$): multiplies $\\frac{40}{360}$ by $2\\pi$ but leaves the radius out of the circumference.\n* Choice B ($2\\pi$): uses $\\pi r = 18\\pi$ as the circumference, half of what it should be.\n* Choice D ($36\\pi$): reports the entire circumference instead of the piece the angle cuts off.\n\n**Test Day Takeaway:** Arc length is $\\frac{\\text{central angle}}{360} \\cdot 2\\pi r$. Write the fraction first, and the rest is one multiplication.",
+      correctAnswer: "B",
+      hint: "Compare the given angle with a full turn of $360^\\circ$.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** $72^\\circ$ is one fifth of a full turn, and one fifth of $2\\pi(15) = 30\\pi$ is $6\\pi$.\n\n**The Full Solution:**\nStep 1: The whole rim measures $2\\pi r = 2\\pi(15) = 30\\pi$.\nStep 2: The turn covers $\\dfrac{72}{360} = \\dfrac{1}{5}$ of the rim.\nStep 3: Multiply: $\\dfrac{1}{5}(30\\pi) = 6\\pi$. Check: five such turns would total $30\\pi$, the whole rim ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3\\pi$): uses $\\pi r = 15\\pi$ as the circumference, half of the true value.\n* Choice C ($12\\pi$): uses the diameter $30$ where the radius belongs, doubling the answer.\n* Choice D ($30\\pi$): reports the entire circumference instead of the fifth of it that the turn covers.\n\n**Test Day Takeaway:** An arc is the same fraction of the circumference as its central angle is of $360^\\circ$.",
       skills: ["arc-length"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "In the figure, $O$ is the center of the circle and $OA = 15$. If minor arc $AB$ has length $10\\pi$, what is the measure, in degrees, of $\\angle AOB$?",
-      diagram: { type: "circleWithSector", params: { centralAngle: 120, radius: 15, showRadiusLabel: true, showAngleLabel: false, labelCenter: "O", labelPoint1: "A", labelPoint2: "B", figureNote: true } },
+      question: "The circle shown has center $O$ and radius $12$. A ferry sails along minor arc $AB$, a distance of $10\\pi$. Through how many degrees does angle $AOB$ turn?",
+      diagram: { type: "circleWithSector", params: { centralAngle: 150, showAngleLabel: false, radius: 12, labelCenter: "O", labelPoint1: "A", labelPoint2: "B", showRadiusLabel: true, figureNote: true } },
       choices: [
-        // distractor: reports the radian measure
-        { id: "A", text: "$\\frac{2\\pi}{3}$" },
-        // distractor: uses 180 degrees for a full turn
-        { id: "B", text: "$60$" },
-        { id: "C", text: "$120$" },
-        // distractor: uses pi r as the circumference
-        { id: "D", text: "$240$" }
+        // distractor: uses 4*pi*r = 48pi as the circumference, halving the fraction
+        { id: "A", text: "$75$" },
+        { id: "B", text: "$150$" },
+        // distractor: reports the major arc's angle, 360 - 150
+        { id: "C", text: "$210$" },
+        // distractor: uses pi*r = 12pi as the circumference
+        { id: "D", text: "$300$" }
       ],
-      correctAnswer: "C",
-      hint: "The whole circumference is the yardstick the arc has to be measured against.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** The circumference is $30\\pi$, so the arc is $\\frac{10\\pi}{30\\pi} = \\frac{1}{3}$ of the circle, and $\\frac{1}{3}(360^{\\circ}) = 120^{\\circ}$.\n\n**The Full Solution:**\nStep 1: The circumference is $C = 2\\pi(15) = 30\\pi$.\nStep 2: The arc is the fraction $\\frac{10\\pi}{30\\pi} = \\frac{1}{3}$ of the circle.\nStep 3: The central angle is that same fraction of a full turn: $\\frac{1}{3}(360^{\\circ}) = 120^{\\circ}$. Check: $\\frac{120}{360}(30\\pi) = 10\\pi$, the given arc length.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2\\pi}{3}$): solves $s = r\\theta$ and reports the radian measure where degrees were requested.\n* Choice B ($60$): uses $180^{\\circ}$ as a full turn, halving every angle.\n* Choice D ($240$): uses $\\pi r = 15\\pi$ as the circumference, which doubles the fraction to $\\frac{2}{3}$.\n\n**Test Day Takeaway:** Arc-to-circumference and angle-to-$360^{\\circ}$ are the same ratio. Set them equal and solve for whichever one is missing.",
+      correctAnswer: "B",
+      hint: "First ask what fraction of the whole rim the ferry covered.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** The rim is $24\\pi$, and $\\dfrac{10\\pi}{24\\pi} = \\dfrac{5}{12}$ of $360$ is $150$.\n\n**The Full Solution:**\nStep 1: The circumference is $2\\pi(12) = 24\\pi$.\nStep 2: The ferry covers $\\dfrac{10\\pi}{24\\pi} = \\dfrac{5}{12}$ of the rim.\nStep 3: The central angle is that same fraction of $360$: $\\dfrac{5}{12}(360) = 150$ degrees. Check: $\\dfrac{150}{360}(24\\pi) = 10\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($75$): uses $48\\pi$ as the circumference, doubling the true rim and halving the angle.\n* Choice C ($210$): gives the reflex angle $360 - 150$, which belongs to the major arc.\n* Choice D ($300$): uses $\\pi r = 12\\pi$ as the circumference, so the fraction doubles.\n\n**Test Day Takeaway:** Turn an arc length into a fraction of the circumference first; that fraction is also the fraction of $360^\\circ$.",
       skills: ["arc-length"]
     },
     {
@@ -295,20 +297,20 @@ export const circlesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "In the figure, $O$ is the center of the circle, $OA = 6$, and the measure of $\\angle AOB$ is $120^{\\circ}$. What is the area of sector $AOB$?",
-      diagram: { type: "circleWithSector", params: { centralAngle: 120, radius: 6, showRadiusLabel: true, showAngleLabel: true, labelCenter: "O", labelPoint1: "A", labelPoint2: "B", figureNote: true } },
+      question: "A pizza stone is cut into wedges like the one in the figure, with radius $6$ inches and a $60^\\circ$ tip angle at center $O$. What is the wedge's area, in square inches?",
+      diagram: { type: "circleWithSector", params: { centralAngle: 60, angleLabel: "60°", radius: 6, labelCenter: "O", labelPoint1: "A", labelPoint2: "B", showRadiusLabel: true, figureNote: true } },
       choices: [
-        // distractor: computes the arc length
-        { id: "A", text: "$4\\pi$" },
-        { id: "B", text: "$12\\pi$" },
-        // distractor: reports the whole circle
-        { id: "C", text: "$36\\pi$" },
-        // distractor: uses the diameter as the radius
-        { id: "D", text: "$48\\pi$" }
+        // distractor: computes the arc length (1/6)(12pi) = 2pi
+        { id: "A", text: "$2\\pi$" },
+        { id: "B", text: "$6\\pi$" },
+        // distractor: reports the whole circumference 12pi
+        { id: "C", text: "$12\\pi$" },
+        // distractor: reports the whole stone's area 36pi
+        { id: "D", text: "$36\\pi$" }
       ],
       correctAnswer: "B",
-      hint: "Decide first what fraction of the whole circle the sector covers.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** The sector is $\\frac{120}{360} = \\frac{1}{3}$ of the circle, whose area is $36\\pi$, so the sector's area is $12\\pi$.\n\n**The Full Solution:**\nStep 1: The circle's area is $\\pi r^2 = \\pi(6)^2 = 36\\pi$.\nStep 2: A central angle of $120^{\\circ}$ takes $\\frac{120}{360} = \\frac{1}{3}$ of that area.\nStep 3: The sector's area is $\\frac{1}{3}(36\\pi) = 12\\pi$. Check: three such sectors tile the circle, and $3(12\\pi) = 36\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\pi$): computes $\\frac{1}{3}$ of the circumference $12\\pi$, which is the arc length, not the area.\n* Choice C ($36\\pi$): reports the area of the entire circle and never applies the fraction.\n* Choice D ($48\\pi$): uses the diameter $12$ in place of the radius: $\\frac{1}{3}\\pi(12)^2$.\n\n**Test Day Takeaway:** Sector area is $\\frac{\\text{central angle}}{360} \\cdot \\pi r^2$. The same fraction with $2\\pi r$ gives the arc — pick the one whose units the question wants.",
+      hint: "How many identical wedges make up the whole stone?",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** One sixth of the stone's area $36\\pi$ is $6\\pi$.\n\n**The Full Solution:**\nStep 1: The whole stone has area $\\pi r^2 = \\pi(6)^2 = 36\\pi$.\nStep 2: A $60^\\circ$ tip covers $\\dfrac{60}{360} = \\dfrac{1}{6}$ of the stone.\nStep 3: Multiply: $\\dfrac{1}{6}(36\\pi) = 6\\pi$ square inches. Check: six identical wedges give $6(6\\pi) = 36\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2\\pi$): computes the arc along the crust, $\\dfrac{1}{6}(12\\pi)$, which is a length rather than an area.\n* Choice C ($12\\pi$): reports the whole circumference.\n* Choice D ($36\\pi$): reports the area of the entire stone rather than one wedge.\n\n**Test Day Takeaway:** A sector's area is the same fraction of $\\pi r^2$ as its angle is of $360^\\circ$.",
       skills: ["sector-area"]
     },
     {
@@ -332,20 +334,20 @@ export const circlesQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "In the figure, $O$ is the center of the circle and the measure of $\\angle POQ$ is $60^{\\circ}$. If the area of sector $POQ$ is $24\\pi$, what is the radius of the circle?",
-      diagram: { type: "circleWithSector", params: { centralAngle: 60, showAngleLabel: true, labelCenter: "O", labelPoint1: "P", labelPoint2: "Q", figureNote: true } },
+      question: "A radar sweep covers the quarter-circle sector shown, whose area is $16\\pi$ square kilometers. How long, in kilometers, is the radius?",
+      diagram: { type: "circleWithSector", params: { centralAngle: 90, angleLabel: "90°", showRadiusLabel: false, labelCenter: "O", labelPoint1: "A", labelPoint2: "B", figureNote: true } },
       choices: [
-        // distractor: ignores the sector fraction
-        { id: "A", text: "$2\\sqrt{6}$" },
-        { id: "B", text: "$12$" },
-        // distractor: uses the arc-length formula
-        { id: "C", text: "$72$" },
-        // distractor: stops at r squared
-        { id: "D", text: "$144$" }
+        // distractor: solves pi*r^2 = 16pi and forgets the quarter
+        { id: "A", text: "$4$" },
+        { id: "B", text: "$8$" },
+        // distractor: reports the coefficient 16 from the given area
+        { id: "C", text: "$16$" },
+        // distractor: reports r^2 = 64 instead of r
+        { id: "D", text: "$64$" }
       ],
       correctAnswer: "B",
-      hint: "The angle tells you what fraction of the circle's area you were handed.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~35s):** The sector is $\\frac{1}{6}$ of the circle, so the circle's area is $6(24\\pi) = 144\\pi$, giving $r^2 = 144$ and $r = 12$.\n\n**The Full Solution:**\nStep 1: A $60^{\\circ}$ central angle takes $\\frac{60}{360} = \\frac{1}{6}$ of the circle, so $\\frac{1}{6}\\pi r^2 = 24\\pi$.\nStep 2: Multiply both sides by $6$: $\\pi r^2 = 144\\pi$, so $r^2 = 144$.\nStep 3: $r = 12$. Check: $\\frac{1}{6}\\pi(12)^2 = \\frac{144\\pi}{6} = 24\\pi$, the given sector area.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2\\sqrt{6}$): solves $\\pi r^2 = 24\\pi$ and never undoes the $\\frac{1}{6}$.\n* Choice C ($72$): uses the arc-length formula $\\frac{1}{6}(2\\pi r) = 24\\pi$, which is a length equation.\n* Choice D ($144$): finds $r^2 = 144$ correctly and reports it without taking the square root.\n\n**Test Day Takeaway:** Working backwards from a sector, undo the angle fraction first and the square last.",
+      hint: "The area you are given belongs to only part of the circle.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** A quarter of $\\pi r^2$ equals $16\\pi$, so $\\pi r^2 = 64\\pi$ and $r = 8$.\n\n**The Full Solution:**\nStep 1: A $90^\\circ$ sector is $\\dfrac{1}{4}$ of the circle, so $\\dfrac{1}{4}\\pi r^2 = 16\\pi$.\nStep 2: Multiply both sides by $4$: $\\pi r^2 = 64\\pi$, so $r^2 = 64$.\nStep 3: Take the positive root: $r = 8$ kilometers. Check: $\\dfrac{1}{4}\\pi(8)^2 = 16\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): solves $\\pi r^2 = 16\\pi$, treating the sector's area as the whole circle's.\n* Choice C ($16$): reports the number multiplying $\\pi$ in the given area.\n* Choice D ($64$): reports $r^2$ and skips the square root.\n\n**Test Day Takeaway:** Undo the fraction of the circle first; only then take the square root.",
       skills: ["sector-area"]
     },
     {
@@ -392,91 +394,91 @@ export const circlesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "In the $xy$-plane, the equation $(x + 7)^2 + (y - 4)^2 = 81$ defines a circle. What are the coordinates of the center of this circle?",
+      question: "A harbor beacon at $(-6, 8)$ can be seen from every point within $10$ kilometers. Which equation describes the outer edge of the region where the beacon is visible?",
       choices: [
-        // distractor: copies the y-term sign as written
-        { id: "A", text: "$(-7, -4)$" },
-        { id: "B", text: "$(-7, 4)$" },
-        // distractor: swaps the coordinates
-        { id: "C", text: "$(4, -7)$" },
-        // distractor: reads both signs off the equation
-        { id: "D", text: "$(7, -4)$" }
+        // distractor: copies the center's coordinates with their own signs
+        { id: "A", text: "$(x - 6)^2 + (y + 8)^2 = 100$" },
+        // distractor: puts the radius 10 on the right instead of 100
+        { id: "B", text: "$(x + 6)^2 + (y - 8)^2 = 10$" },
+        { id: "C", text: "$(x + 6)^2 + (y - 8)^2 = 100$" },
+        // distractor: keeps the +8 sign for the y-coordinate of the center
+        { id: "D", text: "$(x + 6)^2 + (y + 8)^2 = 100$" }
       ],
-      correctAnswer: "B",
-      hint: "Line the equation up term by term against $(x - h)^2 + (y - k)^2 = r^2$.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** Standard form is $(x - h)^2 + (y - k)^2 = r^2$; matching gives $h = -7$ and $k = 4$, so the center is $(-7, 4)$.\n\n**The Full Solution:**\nStep 1: Rewrite each factor as a subtraction: $(x + 7)^2 = (x - (-7))^2$ and $(y - 4)^2$ is already in that form.\nStep 2: Read off $h = -7$ and $k = 4$.\nStep 3: The center is $(-7, 4)$. Check: substituting the center's coordinates makes both squares zero, as it should.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-7, -4)$): negates the $x$-value correctly but also negates the $4$, even though $(y - 4)^2$ is already in standard form.\n* Choice C ($(4, -7)$): swaps the two coordinates after negating them.\n* Choice D ($(7, -4)$): copies the signs straight out of the equation without negating either one.\n\n**Test Day Takeaway:** Standard form subtracts the center. A plus sign inside the parentheses means a negative coordinate.",
+      correctAnswer: "C",
+      hint: "Write the center first, then decide what number belongs on the right side.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** Center $(-6, 8)$ and radius $10$ give $(x + 6)^2 + (y - 8)^2 = 100$.\n\n**The Full Solution:**\nStep 1: The outer edge is the set of points exactly $10$ kilometers from $(-6, 8)$, which is a circle.\nStep 2: Standard form is $(x - h)^2 + (y - k)^2 = r^2$ with $h = -6$ and $k = 8$, so the binomials are $x + 6$ and $y - 8$.\nStep 3: Square the radius: $r^2 = 100$, giving $(x + 6)^2 + (y - 8)^2 = 100$. Check: the point $(4, 8)$ is $10$ units away and satisfies $100 + 0 = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: copies the coordinates $-6$ and $8$ directly into the binomials, describing a circle centered at $(6, -8)$.\n* Choice B: writes the radius $10$ on the right side instead of $r^2 = 100$.\n* Choice D: keeps the sign of the $y$-coordinate, placing the center at $(-6, -8)$.\n\n**Test Day Takeaway:** Each binomial holds the opposite of a center coordinate, and the right side is always the square of the radius.",
       skills: ["circle-equation"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "The graph of $(x - 5)^2 + (y + 9)^2 = 144$ in the $xy$-plane is a circle. What is the radius of the circle?",
+      question: "An orchard sprinkler wets the ground inside the circle $(x - 9)^2 + (y + 4)^2 = 144$, where one unit represents one meter. How many meters is the sprinkler's reach?",
       choices: [
         { id: "A", text: "$12$" },
-        // distractor: reports the diameter
+        // distractor: doubles 12 and reports the diameter
         { id: "B", text: "$24$" },
-        // distractor: halves the constant
+        // distractor: halves 144
         { id: "C", text: "$72$" },
-        // distractor: reports r squared
+        // distractor: reports 144, which is the square of the reach
         { id: "D", text: "$144$" }
       ],
       correctAnswer: "A",
-      hint: "The number on the right side of the equation is not the radius itself.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~10s):** The right side is $r^2$, so $r = \\sqrt{144} = 12$.\n\n**The Full Solution:**\nStep 1: In standard form $(x - h)^2 + (y - k)^2 = r^2$, the constant on the right is the square of the radius.\nStep 2: Set $r^2 = 144$.\nStep 3: $r = 12$, taking the positive root because a radius is a length. Check: $12^2 = 144$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($24$): doubles the radius and reports the diameter.\n* Choice C ($72$): halves the constant, treating $144$ as a diameter rather than as $r^2$.\n* Choice D ($144$): reports $r^2$ straight from the equation.\n\n**Test Day Takeaway:** Take the square root before you answer anything about a radius. The equation always stores $r^2$.",
+      hint: "The number on the right side is not the reach itself.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~10s):** The right side is $r^2 = 144$, so the reach is $\\sqrt{144} = 12$ meters.\n\n**The Full Solution:**\nStep 1: Compare with $(x - h)^2 + (y - k)^2 = r^2$; here $r^2 = 144$.\nStep 2: Take the positive square root: $r = 12$.\nStep 3: One unit is one meter, so the sprinkler reaches $12$ meters. Check: the point $(21, -4)$ is $12$ meters from the center $(9, -4)$ and satisfies $144 + 0 = 144$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($24$): doubles the radius and reports the diameter.\n* Choice C ($72$): halves $144$ instead of taking its square root.\n* Choice D ($144$): reports $r^2$ straight from the equation.\n\n**Test Day Takeaway:** The right side of the standard form is the square of the radius, so one square root is always owed.",
       skills: ["circle-equation"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "In the $xy$-plane, a circle has center $(0, -6)$ and radius $\\frac{5}{2}$. Which of the following equations defines this circle?",
+      question: "A weather balloon's circular path is $(x - 2)^2 + (y + 7)^2 = 64$, and the balloon reaches the point $(2, t)$ with $t$ positive. What is the value of $t$?",
       choices: [
-        { id: "A", text: "$x^2 + (y + 6)^2 = \\frac{25}{4}$" },
-        // distractor: flips the sign of the center
-        { id: "B", text: "$x^2 + (y - 6)^2 = \\frac{25}{4}$" },
-        // distractor: never squares the radius
-        { id: "C", text: "$x^2 + (y + 6)^2 = \\frac{5}{2}$" },
-        // distractor: squares only the numerator
-        { id: "D", text: "$x^2 + (y + 6)^2 = \\frac{25}{2}$" }
+        // distractor: takes the negative square root, which the condition t > 0 rules out
+        { id: "A", text: "$-15$" },
+        { id: "B", text: "$1$" },
+        // distractor: reports the radius 8
+        { id: "C", text: "$8$" },
+        // distractor: solves t + 7 = 64 without taking a square root
+        { id: "D", text: "$57$" }
       ],
-      correctAnswer: "A",
-      hint: "Two details decide this one: the sign inside the parentheses and whether the radius has been squared.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** With $h = 0$ and $k = -6$, the equation is $x^2 + (y + 6)^2 = \\left(\\frac{5}{2}\\right)^2 = \\frac{25}{4}$.\n\n**The Full Solution:**\nStep 1: Standard form is $(x - h)^2 + (y - k)^2 = r^2$.\nStep 2: Substitute $h = 0$ and $k = -6$: $(x - 0)^2 + (y - (-6))^2 = x^2 + (y + 6)^2$.\nStep 3: Square the radius: $\\left(\\frac{5}{2}\\right)^2 = \\frac{25}{4}$. Check: the point $\\left(0, -\\frac{7}{2}\\right)$ is $\\frac{5}{2}$ above the center, and $0 + \\left(\\frac{5}{2}\\right)^2 = \\frac{25}{4}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^2 + (y - 6)^2 = \\frac{25}{4}$): uses $(y - 6)^2$, which places the center at $(0, 6)$ instead of $(0, -6)$.\n* Choice C ($x^2 + (y + 6)^2 = \\frac{5}{2}$): leaves the radius unsquared on the right side.\n* Choice D ($x^2 + (y + 6)^2 = \\frac{25}{2}$): squares only the numerator of $\\frac{5}{2}$, forgetting that the denominator is squared too.\n\n**Test Day Takeaway:** Square the whole fraction, top and bottom, and let a negative center coordinate become a plus sign inside the parentheses.",
+      correctAnswer: "B",
+      hint: "What happens to the first square when $x$ equals $2$?",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** At $x = 2$ the first square vanishes, so $(t + 7)^2 = 64$ and the positive choice is $t = 1$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 2$: $(2 - 2)^2 + (t + 7)^2 = 64$, so $(t + 7)^2 = 64$.\nStep 2: Take both square roots: $t + 7 = 8$ or $t + 7 = -8$, giving $t = 1$ or $t = -15$.\nStep 3: The problem states $t$ is positive, so $t = 1$. Check: $(2 - 2)^2 + (1 + 7)^2 = 64$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-15$): the other square root, ruled out because $t$ must be positive.\n* Choice C ($8$): reports the radius instead of the coordinate.\n* Choice D ($57$): solves $t + 7 = 64$, skipping the square root entirely.\n\n**Test Day Takeaway:** Substituting a coordinate that matches the center kills one square and leaves a simple equation to solve.",
       skills: ["circle-equation"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "The graph of $x^2 + y^2 = 90$ in the $xy$-plane is a circle. What is the radius of the circle, in simplest radical form?",
+      question: "A telescope's field of view is bounded by $(x + 5)^2 + (y - 3)^2 = 49$ in the $xy$-plane. Which of the following statements about that boundary is true?",
       choices: [
-        { id: "A", text: "$3\\sqrt{10}$" },
-        // distractor: halves the constant
-        { id: "B", text: "$45$" },
-        // distractor: reports r squared
-        { id: "C", text: "$90$" },
-        // distractor: squares instead of taking a root
-        { id: "D", text: "$8{,}100$" }
+        // distractor: assumes the origin is one radius away, though its distance is the square root of 34
+        { id: "A", text: "The boundary passes through the origin." },
+        // distractor: compares the radius 7 with the center's height 3
+        { id: "B", text: "The boundary is tangent to the $x$-axis." },
+        { id: "C", text: "The point $(2, 3)$ lies on the boundary." },
+        // distractor: reads the center as (-5, -3)
+        { id: "D", text: "The center of the boundary lies in Quadrant III." }
       ],
-      correctAnswer: "A",
-      hint: "Look for a perfect-square factor hiding inside $90$.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** $r = \\sqrt{90} = \\sqrt{9 \\cdot 10} = 3\\sqrt{10}$.\n\n**The Full Solution:**\nStep 1: The circle is centered at the origin with $r^2 = 90$.\nStep 2: Factor out the largest perfect square: $90 = 9 \\cdot 10$.\nStep 3: $r = \\sqrt{9}\\sqrt{10} = 3\\sqrt{10}$. Check: $\\left(3\\sqrt{10}\\right)^2 = 9(10) = 90$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($45$): halves $90$, treating the constant as a diameter.\n* Choice C ($90$): reports $r^2$ without taking a square root.\n* Choice D ($8{,}100$): squares $90$ instead of taking its square root.\n\n**Test Day Takeaway:** When $r^2$ is not a perfect square, split off the largest square factor rather than reaching for a decimal.",
+      correctAnswer: "C",
+      hint: "Start by writing down the center and the radius.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** The center is $(-5, 3)$ with radius $7$, and $(2, 3)$ sits exactly $7$ units to its right.\n\n**The Full Solution:**\nStep 1: Standard form gives center $(-5, 3)$ and $r = \\sqrt{49} = 7$.\nStep 2: Test the point: $(2 + 5)^2 + (3 - 3)^2 = 49 + 0 = 49$, which matches the right side.\nStep 3: So $(2, 3)$ lies on the boundary. Check: the horizontal distance from $-5$ to $2$ is $7$, exactly the radius ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the origin is $\\sqrt{25 + 9} = \\sqrt{34} \\approx 5.83$ units from the center, not $7$.\n* Choice B: tangency to the $x$-axis would need the center's height $3$ to equal the radius $7$.\n* Choice D: reads the center as $(-5, -3)$; the actual center $(-5, 3)$ lies in Quadrant II.\n\n**Test Day Takeaway:** Extract the center and radius first, then every statement about a circle becomes a one-line check.",
       skills: ["circle-equation"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "The point $(2, 0)$ lies on a circle in the $xy$-plane whose center is $(6, -3)$. Which of the following equations defines this circle?",
+      question: "A circular runway apron is centered at $(6, k)$, has radius $10$, and passes through the origin, where $k$ is a constant. What are all possible values of $k$?",
       choices: [
-        // distractor: uses the given point as the center
-        { id: "A", text: "$(x - 2)^2 + y^2 = 25$" },
-        // distractor: copies the center without negating
-        { id: "B", text: "$(x + 6)^2 + (y - 3)^2 = 25$" },
-        // distractor: puts r where r squared belongs
-        { id: "C", text: "$(x - 6)^2 + (y + 3)^2 = 5$" },
-        { id: "D", text: "$(x - 6)^2 + (y + 3)^2 = 25$" }
+        // distractor: keeps only the negative square root
+        { id: "A", text: "$-8$ only" },
+        // distractor: subtracts 6 from 10 instead of using the distance formula
+        { id: "B", text: "$4$ only" },
+        // distractor: keeps only the positive square root
+        { id: "C", text: "$8$ only" },
+        { id: "D", text: "$-8$ and $8$" }
       ],
       correctAnswer: "D",
-      hint: "The two given points do different jobs: one locates the circle, the pair sets its size.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~40s):** The radius runs from $(6, -3)$ to $(2, 0)$, so $r^2 = 4^2 + 3^2 = 25$, and standard form about $(6, -3)$ is $(x - 6)^2 + (y + 3)^2 = 25$.\n\n**The Full Solution:**\nStep 1: From center to point, the horizontal change is $2 - 6 = -4$ and the vertical change is $0 - (-3) = 3$.\nStep 2: The distance formula gives $r^2 = (-4)^2 + 3^2 = 16 + 9 = 25$, so $r = 5$ — a $3$-$4$-$5$ triangle.\nStep 3: Standard form is $(x - h)^2 + (y - k)^2 = r^2$ with $h = 6$ and $k = -3$, so the circle is $(x - 6)^2 + (y + 3)^2 = 25$. Check: substituting $(2, 0)$ gives $16 + 9 = 25$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 2)^2 + y^2 = 25$): builds the equation around $(2, 0)$, the point on the circle, instead of around the center.\n* Choice B ($(x + 6)^2 + (y - 3)^2 = 25$): copies the center's coordinates into the parentheses without negating them, placing the center at $(-6, 3)$.\n* Choice C ($(x - 6)^2 + (y + 3)^2 = 5$): writes the radius $5$ on the right where $r^2 = 25$ belongs.\n\n**Test Day Takeaway:** The distance formula hands you $r^2$ directly — the very number standard form wants. Taking a square root here only creates a step you have to undo.",
+      hint: "How far is $(6, k)$ from the origin?",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~40s):** The origin is on the apron, so $6^2 + k^2 = 10^2$, giving $k^2 = 64$ and $k = \\pm 8$.\n\n**The Full Solution:**\nStep 1: The apron is $(x - 6)^2 + (y - k)^2 = 100$.\nStep 2: Substituting $(0, 0)$ gives $36 + k^2 = 100$, so $k^2 = 64$.\nStep 3: Both square roots satisfy every condition, so $k = -8$ or $k = 8$. Check: centers $(6, 8)$ and $(6, -8)$ are each $\\sqrt{36 + 64} = 10$ units from the origin ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$ only): keeps just the negative root, though nothing rules out the positive one.\n* Choice B ($4$ only): subtracts $6$ from $10$ as if the distances added along a line.\n* Choice C ($8$ only): keeps just the positive root.\n\n**Test Day Takeaway:** When a squared unknown is left, report both roots unless the problem rules one out.",
       skills: ["circle-equation"]
     }
   ],
@@ -540,19 +542,20 @@ export const circlesQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "In the $xy$-plane, the circle $(x + 4)^2 + (y - 1)^2 = 25$ is reflected across the $x$-axis. Which of the following equations defines the image of the circle?",
+      question: "The table gives the center and radius of circle $A$ in the $xy$-plane. Circle $B$ is the image of circle $A$ after a translation $5$ units right and $2$ units down. Which equation defines circle $B$?",
+      questionTable: { headers: ["Circle", "Center", "Radius"], rows: [["$A$", "$(-3, 6)$", "$4$"]] },
       choices: [
-        // distractor: reflects across the y-axis
-        { id: "A", text: "$(x - 4)^2 + (y - 1)^2 = 25$" },
-        { id: "B", text: "$(x + 4)^2 + (y + 1)^2 = 25$" },
-        // distractor: leaves the circle unchanged
-        { id: "C", text: "$(x + 4)^2 + (y - 1)^2 = 25$" },
-        // distractor: reflects through the origin
-        { id: "D", text: "$(x - 4)^2 + (y + 1)^2 = 25$" }
+        // distractor: writes the radius 4 on the right instead of its square
+        { id: "A", text: "$(x - 2)^2 + (y - 4)^2 = 4$" },
+        // distractor: reverses the signs of the new center, using (-2, -4)
+        { id: "B", text: "$(x + 2)^2 + (y + 4)^2 = 16$" },
+        { id: "C", text: "$(x - 2)^2 + (y - 4)^2 = 16$" },
+        // distractor: translates 5 left and 2 up, landing the center at (-8, 8)
+        { id: "D", text: "$(x + 8)^2 + (y - 8)^2 = 16$" }
       ],
-      correctAnswer: "B",
-      hint: "Track where the center $(-4, 1)$ lands.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** Reflecting across the $x$-axis sends the center $(-4, 1)$ to $(-4, -1)$, so the image is $(x + 4)^2 + (y + 1)^2 = 25$.\n\n**The Full Solution:**\nStep 1: The given circle has center $(-4, 1)$ and radius $5$.\nStep 2: A reflection across the $x$-axis keeps $x$ and negates $y$, so the center becomes $(-4, -1)$; the radius is unchanged.\nStep 3: The image is $(x + 4)^2 + (y + 1)^2 = 25$. Check: the original and its image are the same distance from the $x$-axis, one unit above and one unit below.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 4)^2 + (y - 1)^2 = 25$): negates the $x$-coordinate, which is a reflection across the $y$-axis.\n* Choice C ($(x + 4)^2 + (y - 1)^2 = 25$): repeats the original equation, as if the center were already on the axis of reflection.\n* Choice D ($(x - 4)^2 + (y + 1)^2 = 25$): negates both coordinates, which is a reflection through the origin.\n\n**Test Day Takeaway:** Reflecting across the $x$-axis changes the sign of $y$ only. Apply it to the center and copy the radius.",
+      correctAnswer: "C",
+      hint: "Ask what the translation changes and what it leaves alone.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** The center moves from $(-3, 6)$ to $(2, 4)$ and the radius stays $4$, so the equation is $(x - 2)^2 + (y - 4)^2 = 16$.\n\n**The Full Solution:**\nStep 1: Moving $5$ units right adds $5$ to the $x$-coordinate: $-3 + 5 = 2$.\nStep 2: Moving $2$ units down subtracts $2$ from the $y$-coordinate: $6 - 2 = 4$.\nStep 3: A translation does not resize a circle, so the radius is still $4$ and the equation is $(x - 2)^2 + (y - 4)^2 = 4^2 = 16$. Check: the center $(2, 4)$ satisfies $x - 2 = 0$ and $y - 4 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($= 4$): puts the radius on the right side instead of the radius squared, $16$.\n* Choice B: reverses the signs inside the squares, which describes a circle centered at $(-2, -4)$.\n* Choice D: translates the center the wrong way, to $(-8, 8)$.\n\n**Test Day Takeaway:** In standard form the numbers inside the parentheses are the opposite of the center's coordinates, and the right side is always the square of the radius.",
       skills: ["circle-equation", "function-transformations"]
     },
     {
@@ -598,55 +601,55 @@ export const circlesQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "The graph of $x^2 + (y - 7)^2 = 9$ in the $xy$-plane is a circle. Which of the following describes all possible values of $y$ for points on this circle?",
+      question: "As a rotating antenna turns, its tip traces the circle $(x - 4)^2 + (y + 1)^2 = 9$, where one unit represents one meter. Which inequality gives exactly the $x$-coordinates the tip reaches?",
       choices: [
-        // distractor: uses a center of -7
-        { id: "A", text: "$-10 \\le y \\le -4$" },
-        // distractor: ignores the vertical shift
-        { id: "B", text: "$-3 \\le y \\le 3$" },
-        // distractor: uses 9 as the radius
-        { id: "C", text: "$-2 \\le y \\le 16$" },
-        { id: "D", text: "$4 \\le y \\le 10$" }
+        // distractor: reads the center's x-coordinate as -4
+        { id: "A", text: "$-7 \\le x \\le -1$" },
+        // distractor: uses 9 as the radius instead of 3
+        { id: "B", text: "$-5 \\le x \\le 13$" },
+        // distractor: centers the interval at the origin instead of at x = 4
+        { id: "C", text: "$-3 \\le x \\le 3$" },
+        { id: "D", text: "$1 \\le x \\le 7$" }
       ],
       correctAnswer: "D",
-      hint: "The center's height sets the middle of the range; the radius sets how far the circle reaches from it.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~25s):** The center is $(0, 7)$ with radius $3$, so $y$ runs from $7 - 3 = 4$ to $7 + 3 = 10$.\n\n**The Full Solution:**\nStep 1: Matching standard form gives center $(0, 7)$ and $r^2 = 9$, so $r = 3$.\nStep 2: Vertically the circle reaches $3$ units above and below the center: from $7 - 3$ to $7 + 3$.\nStep 3: The values of $y$ satisfy $4 \\le y \\le 10$. Check: at $y = 4$ the equation gives $x^2 + 9 = 9$, so $x = 0$ and $(0, 4)$ is the lowest point.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10 \\le y \\le -4$): reads $(y - 7)^2$ as a downward shift and centers the range at $-7$.\n* Choice B ($-3 \\le y \\le 3$): ignores the shift entirely and centers the range at $0$.\n* Choice C ($-2 \\le y \\le 16$): uses $9$ as the radius rather than as $r^2$, stretching the range to $7 \\pm 9$.\n\n**Test Day Takeaway:** Range for a circle is $k - r$ to $k + r$. Both the center's coordinate and the square root have to be handled before you write the interval.",
+      hint: "How far left and right of the center can the tip reach?",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** The center is at $x = 4$ and the radius is $3$, so $x$ runs from $1$ to $7$.\n\n**The Full Solution:**\nStep 1: Compare with $(x - h)^2 + (y - k)^2 = r^2$: the center is $(4, -1)$ and $r^2 = 9$, so $r = 3$.\nStep 2: The tip never gets farther than $3$ units from the center in any direction, so its $x$-coordinates satisfy $4 - 3 \\le x \\le 4 + 3$.\nStep 3: That is $1 \\le x \\le 7$. Check: the points $(1, -1)$ and $(7, -1)$ both satisfy the equation ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7 \\le x \\le -1$): reads the center's $x$-coordinate as $-4$ instead of $4$.\n* Choice B ($-5 \\le x \\le 13$): uses $9$ as the radius rather than as $r^2$.\n* Choice C ($-3 \\le x \\le 3$): centers the interval at the origin and ignores the shift to $x = 4$.\n\n**Test Day Takeaway:** A circle's $x$-values span one radius on each side of the center's $x$-coordinate.",
       skills: ["circle-equation"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "In the $xy$-plane, the graph of $x^2 + (y - 3)^2 = 4$ and the line $y = -1$ have how many points of intersection?",
+      question: "For which constant $k$ does a drone's path $(x - 5)^2 + (y - k)^2 = 16$ sit entirely above the $x$-axis except for one point of contact?",
       choices: [
-        { id: "A", text: "Zero" },
-        // distractor: uses 4 as the radius instead of r squared
-        { id: "B", text: "Exactly one" },
-        // distractor: ignores the vertical shift
-        { id: "C", text: "Exactly two" },
-        // distractor: treats the line as part of the circle
-        { id: "D", text: "Infinitely many" }
+        // distractor: places the path below the axis, where its points have negative y
+        { id: "A", text: "$-4$" },
+        { id: "B", text: "$4$" },
+        // distractor: uses the diameter 8 as the distance from the center to the axis
+        { id: "C", text: "$8$" },
+        // distractor: uses r^2 = 16 as the radius
+        { id: "D", text: "$16$" }
       ],
-      correctAnswer: "A",
-      hint: "Compare the line's distance from the center with the radius.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** The circle has center $(0, 3)$ and radius $2$, so it reaches down only to $y = 1$; the line $y = -1$ passes below it and never meets it.\n\n**The Full Solution:**\nStep 1: In standard form the center is $(0, 3)$ and $r^2 = 4$, so $r = 2$.\nStep 2: Vertically the circle covers $1 \\le y \\le 5$, since it reaches $2$ units above and below the center, and $-1$ is outside that interval.\nStep 3: Substituting confirms it: $x^2 + (-1 - 3)^2 = 4$ gives $x^2 = -12$, which has no real solution, so there are zero points of intersection. Check: the distance from $(0, 3)$ to the line $y = -1$ is $4$, greater than the radius $2$.\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): uses $4$ as the radius instead of as $r^2$, which would stretch the circle down to $y = -1$ and make the line tangent.\n* Choice C (Exactly two): ignores the vertical shift and centers the circle at the origin, where a line $1$ unit below the center would cut a circle of radius $2$ twice.\n* Choice D (Infinitely many): treats the line as though it lay along the circle.\n\n**Test Day Takeaway:** Distance from center to line versus radius decides it: less than gives two points, equal gives one, greater gives none.",
+      correctAnswer: "B",
+      hint: "How far from the $x$-axis must the center sit for exactly one contact point?",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** The radius is $4$, so a path above and tangent to the $x$-axis has its center $4$ units up: $k = 4$.\n\n**The Full Solution:**\nStep 1: From $r^2 = 16$, the radius is $4$.\nStep 2: Touching a line at exactly one point means the distance from the center $(5, k)$ to the $x$-axis equals the radius, so $|k| = 4$.\nStep 3: The path lies above the axis, so $k = 4$. Check: the lowest point of the path is $(5, 0)$, and every other point has $y > 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): satisfies $|k| = 4$ but puts the path below the axis, contradicting the given condition.\n* Choice C ($8$): uses the diameter as the distance to the axis, which would leave a gap of $4$.\n* Choice D ($16$): uses $r^2$ as the radius.\n\n**Test Day Takeaway:** A circle is tangent to a line exactly when the distance from its center to that line equals its radius.",
       skills: ["circle-equation"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "In the $xy$-plane, the graph of $x^2 + y^2 = 64$ is a circle centered at the origin. At which points does this circle intersect the $y$-axis?",
+      question: "A survey marker's range boundary is the circle $(x - 5)^2 + (y + 2)^2 = 25$, where each unit is one kilometer and the $y$-axis represents a straight highway. How many points does the boundary share with that highway?",
       choices: [
-        // distractor: uses 64 as the radius
-        { id: "A", text: "$(0, -64)$ and $(0, 64)$" },
-        { id: "B", text: "$(0, -8)$ and $(0, 8)$" },
-        // distractor: reports the x-intercepts
-        { id: "C", text: "$(-8, 0)$ and $(8, 0)$" },
-        // distractor: halves the radius
-        { id: "D", text: "$(0, -4)$ and $(0, 4)$" }
+        // distractor: compares r^2 = 25 with the distance 5 and concludes the axis is out of reach
+        { id: "A", text: "None" },
+        { id: "B", text: "Exactly one" },
+        // distractor: compares the radius with the center's y-coordinate, 2, instead of its x-coordinate
+        { id: "C", text: "Exactly two" },
+        // distractor: treats the equation as describing the axis itself rather than a circle
+        { id: "D", text: "Infinitely many" }
       ],
       correctAnswer: "B",
-      hint: "Every point on the $y$-axis has $x = 0$.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** Setting $x = 0$ gives $y^2 = 64$, so $y = \\pm 8$ and the points are $(0, -8)$ and $(0, 8)$.\n\n**The Full Solution:**\nStep 1: A point on the $y$-axis has $x = 0$.\nStep 2: Substitute: $0^2 + y^2 = 64$, so $y^2 = 64$.\nStep 3: $y = 8$ or $y = -8$, giving $(0, 8)$ and $(0, -8)$. Check: the circle is centered at the origin with radius $8$, so it meets each axis exactly $8$ units out.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(0, -64)$ and $(0, 64)$): uses $64$ itself as the radius instead of taking the square root.\n* Choice C ($(-8, 0)$ and $(8, 0)$): solves for the $x$-intercepts and reports those points instead.\n* Choice D ($(0, -4)$ and $(0, 4)$): halves the radius, as if $8$ were a diameter.\n\n**Test Day Takeaway:** Substituting $x = 0$ turns any curve into its $y$-intercepts. For a circle centered at the origin, they are $\\pm r$.",
+      hint: "How far does the center sit from the $y$-axis?",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** The center $(5, -2)$ sits $5$ units from the $y$-axis, exactly one radius, so the axis touches the boundary once.\n\n**The Full Solution:**\nStep 1: The equation gives center $(5, -2)$ and $r = \\sqrt{25} = 5$.\nStep 2: The distance from $(5, -2)$ to the $y$-axis is the $x$-coordinate, $5$.\nStep 3: Distance equals radius, so there is exactly one shared point. Check: setting $x = 0$ gives $25 + (y + 2)^2 = 25$, whose only solution is $y = -2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (None): compares the distance $5$ with $r^2 = 25$ and concludes the axis is out of reach.\n* Choice C (Exactly two): compares the radius with the center's $y$-coordinate, $2$, which measures the distance to the wrong axis.\n* Choice D (Infinitely many): would require the boundary to be the axis itself rather than a circle.\n\n**Test Day Takeaway:** Compare the distance from the center to a line with the radius: less gives two points, equal gives one, greater gives none.",
       skills: ["circle-equation"]
     },
     {
@@ -692,73 +695,76 @@ export const circlesQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "In the $xy$-plane, the equation $x^2 + y^2 - 12x + 4y - 9 = 0$ defines a circle. What is the radius of this circle?",
+      question: "A tracking dish's boundary in the $xy$-plane satisfies $x^2 + y^2 + Dx + Ey + F = 0$, with the three constants listed in the table. What is the radius of that boundary?",
+      questionTable: { headers: ["Constant", "Value"], rows: [["$D$", "$-14$"], ["$E$", "$8$"], ["$F$", "$40$"]] },
       choices: [
-        // distractor: takes the root of the constant
-        { id: "A", text: "$3$" },
-        // distractor: never moves the constant
-        { id: "B", text: "$2\\sqrt{10}$" },
-        { id: "C", text: "$7$" },
-        // distractor: reports r squared
-        { id: "D", text: "$49$" }
+        { id: "A", text: "$5$" },
+        // distractor: reports 25, which is the square of the radius
+        { id: "B", text: "$25$" },
+        // distractor: reports the constant F = 40
+        { id: "C", text: "$40$" },
+        // distractor: computes 49 + 16 = 65 and never subtracts 40
+        { id: "D", text: "$65$" }
       ],
-      correctAnswer: "C",
-      hint: "The constant term has to move across the equal sign before the squares are completed.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~40s):** Completing both squares gives $(x - 6)^2 + (y + 2)^2 = 9 + 36 + 4 = 49$, so $r = 7$.\n\n**The Full Solution:**\nStep 1: Move the constant: $\\left(x^2 - 12x\\right) + \\left(y^2 + 4y\\right) = 9$.\nStep 2: Add $\\left(\\frac{-12}{2}\\right)^2 = 36$ and $\\left(\\frac{4}{2}\\right)^2 = 4$ to both sides: $(x - 6)^2 + (y + 2)^2 = 9 + 36 + 4$.\nStep 3: $r^2 = 49$, so $r = 7$. Check: expanding $(x - 6)^2 + (y + 2)^2 = 49$ gives $x^2 + y^2 - 12x + 4y - 9 = 0$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): takes the square root of the constant term $9$ and calls it the radius.\n* Choice B ($2\\sqrt{10}$): leaves the $-9$ on the left, using $r^2 = 36 + 4 = 40$.\n* Choice D ($49$): reports $r^2$ instead of the radius.\n\n**Test Day Takeaway:** Every constant you add on the left must also be added on the right, and the original constant moves over first.",
+      correctAnswer: "A",
+      hint: "The constants tell you the radius only after the $x$-terms and $y$-terms are grouped.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** Completing both squares gives $(x - 7)^2 + (y + 4)^2 = 49 + 16 - 40 = 25$, so the radius is $5$.\n\n**The Full Solution:**\nStep 1: Substitute the constants: $x^2 + y^2 - 14x + 8y + 40 = 0$, then group as $(x^2 - 14x) + (y^2 + 8y) = -40$.\nStep 2: Complete each square by adding $49$ and $16$ to both sides: $(x - 7)^2 + (y + 4)^2 = -40 + 49 + 16$.\nStep 3: The right side is $25$, so $r^2 = 25$ and $r = 5$. Check: the point $(12, -4)$ satisfies $25 + 0 = 25$ and sits $5$ units from $(7, -4)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($25$): reports $r^2$ rather than $r$.\n* Choice C ($40$): reports the constant $F$ straight from the table.\n* Choice D ($65$): adds $49 + 16$ and forgets to move the $40$ across.\n\n**Test Day Takeaway:** After completing both squares the right side is $r^2$, so one square root still remains.",
       skills: ["completing-square-circles", "circle-equation"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "The equation $x^2 + y^2 + 16y = 0$ defines a circle in the $xy$-plane whose center lies on the $y$-axis. What is the radius of this circle?",
+      question: "The table gives equations for two circular grazing plots in the $xy$-plane. How far apart are the centers of plot $P$ and plot $Q$?",
+      questionTable: { headers: ["Plot", "Equation"], rows: [["$P$", "$x^2 + y^2 - 12x + 4y + 15 = 0$"], ["$Q$", "$x^2 + y^2 + 4x - 8y + 11 = 0$"]] },
       choices: [
-        // distractor: halves the completed value
-        { id: "A", text: "$4$" },
+        // distractor: reports only the vertical separation, 6
+        { id: "A", text: "$6$" },
+        // distractor: reports only the horizontal separation, 8
         { id: "B", text: "$8$" },
-        // distractor: reports the coefficient
-        { id: "C", text: "$16$" },
-        // distractor: reports r squared
-        { id: "D", text: "$64$" }
+        { id: "C", text: "$10$" },
+        // distractor: adds 8 + 6 instead of using the Pythagorean theorem
+        { id: "D", text: "$14$" }
       ],
-      correctAnswer: "B",
-      hint: "There is no $x$-term to complete here — only the $y$-terms need work.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** $x^2 + (y + 8)^2 = 64$, so $r = 8$.\n\n**The Full Solution:**\nStep 1: The $x$-terms are already a perfect square, so only $y^2 + 16y$ needs completing.\nStep 2: Add $\\left(\\frac{16}{2}\\right)^2 = 64$ to both sides: $x^2 + (y + 8)^2 = 64$.\nStep 3: $r^2 = 64$, so $r = 8$. Check: the circle has center $(0, -8)$ and passes through the origin, whose distance from $(0, -8)$ is $8$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): halves the $8$ from the completed square, treating it as a diameter.\n* Choice C ($16$): reports the coefficient of $y$ from the original equation.\n* Choice D ($64$): reports $r^2$ without taking the square root.\n\n**Test Day Takeaway:** A missing linear term means that variable's square is already complete. Add to both sides only for the variable that needs it.",
+      correctAnswer: "C",
+      hint: "Only the centers matter here, not the sizes of the plots.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** The centers are $(6, -2)$ and $(-2, 4)$, and the $8$-$6$-$10$ right triangle gives a distance of $10$.\n\n**The Full Solution:**\nStep 1: For plot $P$, half of $-12$ is $-6$ and half of $4$ is $2$, so its center is $(6, -2)$.\nStep 2: For plot $Q$, half of $4$ is $2$ and half of $-8$ is $-4$, so its center is $(-2, 4)$.\nStep 3: The separations are $6 - (-2) = 8$ and $-2 - 4 = -6$, so the distance is $\\sqrt{8^2 + 6^2} = \\sqrt{100} = 10$. Check: $64 + 36 = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): reports only the vertical separation of the centers.\n* Choice B ($8$): reports only the horizontal separation.\n* Choice D ($14$): adds the two separations, $8 + 6$, instead of combining them with the Pythagorean theorem.\n\n**Test Day Takeaway:** The center of $x^2 + y^2 + Dx + Ey + F = 0$ is $\\left(-\\dfrac{D}{2}, -\\dfrac{E}{2}\\right)$ — no completing the square is needed just to locate it.",
       skills: ["completing-square-circles", "circle-equation"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "The equation $x^2 + y^2 + 6x - 8y + 21 = 0$ defines a circle in the $xy$-plane. What is the value of $r^2$ for this circle?",
+      question: "Two circular irrigation zones have the equations listed in the table. Among all points of zone $K$, what is the largest $y$-coordinate?",
+      questionTable: { headers: ["Zone", "Equation"], rows: [["$K$", "$x^2 + y^2 + 6x - 16y + 48 = 0$"], ["$L$", "$x^2 + y^2 - 10x + 2y + 10 = 0$"]] },
       choices: [
-        // distractor: reports the radius
-        { id: "A", text: "$2$" },
-        { id: "B", text: "$4$" },
-        // distractor: never moves the 21
-        { id: "C", text: "$25$" },
-        // distractor: adds 21 instead of subtracting
-        { id: "D", text: "$46$" }
+        // distractor: reports the radius 5
+        { id: "A", text: "$5$" },
+        // distractor: reports the y-coordinate of the center
+        { id: "B", text: "$8$" },
+        { id: "C", text: "$13$" },
+        // distractor: adds r^2 = 25 to the center height instead of r = 5
+        { id: "D", text: "$33$" }
       ],
-      correctAnswer: "B",
-      hint: "Whatever you add on the left has to show up on the right as well.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~40s):** Completing the squares gives $(x + 3)^2 + (y - 4)^2 = -21 + 9 + 16 = 4$, so $r^2 = 4$.\n\n**The Full Solution:**\nStep 1: Move the constant: $\\left(x^2 + 6x\\right) + \\left(y^2 - 8y\\right) = -21$.\nStep 2: Add $\\left(\\frac{6}{2}\\right)^2 = 9$ and $\\left(\\frac{-8}{2}\\right)^2 = 16$ to both sides: $(x + 3)^2 + (y - 4)^2 = -21 + 9 + 16$.\nStep 3: $r^2 = 4$. Check: expanding $(x + 3)^2 + (y - 4)^2 = 4$ gives $x^2 + 6x + 9 + y^2 - 8y + 16 = 4$, which rearranges to the original equation.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports the radius $r = 2$ rather than $r^2$, which is what the question asked for.\n* Choice C ($25$): adds $9 + 16$ but never moves the $+21$ to the right side.\n* Choice D ($46$): adds $21$ to $9 + 16$ instead of subtracting it.\n\n**Test Day Takeaway:** The right side after completing both squares is $r^2$, not $r$. Read the question to see which one it wants.",
+      correctAnswer: "C",
+      hint: "Where on a circle is the $y$-coordinate largest?",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** Zone $K$ is centered at $(-3, 8)$ with radius $5$, so its highest point is at $y = 8 + 5 = 13$.\n\n**The Full Solution:**\nStep 1: Group zone $K$'s equation: $(x^2 + 6x) + (y^2 - 16y) = -48$.\nStep 2: Complete both squares: $(x + 3)^2 + (y - 8)^2 = -48 + 9 + 64 = 25$, so the center is $(-3, 8)$ and the radius is $5$.\nStep 3: Every point lies within $5$ units of the center, so the greatest $y$-coordinate is $8 + 5 = 13$. Check: $(-3, 13)$ gives $0 + 25 = 25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): reports the radius rather than a coordinate on the zone.\n* Choice B ($8$): reports the center's height, which is the middle of the zone, not its top.\n* Choice D ($33$): adds $r^2 = 25$ to the center's height instead of the radius $5$.\n\n**Test Day Takeaway:** The extreme $y$-values on a circle are the center's $y$-coordinate plus and minus the radius.",
       skills: ["completing-square-circles", "circle-equation"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "A circle in the $xy$-plane has center $(4, -1)$ and radius $6$. Which of the following equations, written in general form, defines this circle?",
+      question: "A dockside crane's counterweight traces the graph of $x^2 + y^2 - 8x + 10y + c = 0$, where one unit is one meter and $c$ is a constant. For that trace to be a circle of positive radius, which condition must $c$ satisfy?",
       choices: [
-        { id: "A", text: "$x^2 + y^2 - 8x + 2y - 19 = 0$" },
-        // distractor: uses r instead of r squared
-        { id: "B", text: "$x^2 + y^2 - 8x + 2y + 11 = 0$" },
-        // distractor: adds 36 instead of subtracting
-        { id: "C", text: "$x^2 + y^2 - 8x + 2y + 53 = 0$" },
-        // distractor: flips the linear signs
-        { id: "D", text: "$x^2 + y^2 + 8x - 2y - 19 = 0$" }
+        { id: "A", text: "$c < 41$" },
+        // distractor: moves 41 to the wrong side, requiring c < -41
+        { id: "B", text: "$c < -41$" },
+        // distractor: solves 41 + c > 0 instead of 41 - c > 0
+        { id: "C", text: "$c > -41$" },
+        // distractor: reverses the inequality after finding 41
+        { id: "D", text: "$c > 41$" }
       ],
       correctAnswer: "A",
-      hint: "Write the standard form first, then expand and collect every constant.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~45s):** Standard form is $(x - 4)^2 + (y + 1)^2 = 36$; expanding gives $x^2 + y^2 - 8x + 2y + 17 = 36$, or $x^2 + y^2 - 8x + 2y - 19 = 0$.\n\n**The Full Solution:**\nStep 1: With center $(4, -1)$ and $r = 6$, standard form is $(x - 4)^2 + (y + 1)^2 = 36$.\nStep 2: Expand: $x^2 - 8x + 16 + y^2 + 2y + 1 = 36$.\nStep 3: Collect and move everything to one side: $x^2 + y^2 - 8x + 2y + 17 - 36 = 0$, so the constant is $-19$. Check: half of $-8$ is $-4$ and half of $2$ is $1$, returning the center $(4, -1)$, and $16 + 1 + 19 = 36 = r^2$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^2 + y^2 - 8x + 2y + 11 = 0$): uses the radius $6$ in place of $r^2 = 36$, leaving a constant of $17 - 6 = 11$.\n* Choice C ($x^2 + y^2 - 8x + 2y + 53 = 0$): adds $36$ instead of subtracting it, giving $17 + 36 = 53$.\n* Choice D ($x^2 + y^2 + 8x - 2y - 19 = 0$): flips the signs of both linear terms, which relocates the center to $(-4, 1)$.\n\n**Test Day Takeaway:** Going from standard to general form, the constant is $h^2 + k^2 - r^2$. Expanding carefully beats guessing the sign.",
+      hint: "After both squares are completed, what has to be true of the number left on the right?",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~40s):** Completing the squares gives $r^2 = 41 - c$, and $41 - c > 0$ means $c < 41$.\n\n**The Full Solution:**\nStep 1: Group the terms: $(x^2 - 8x) + (y^2 + 10y) = -c$.\nStep 2: Complete both squares by adding $16$ and $25$: $(x - 4)^2 + (y + 5)^2 = 16 + 25 - c = 41 - c$.\nStep 3: A circle with positive radius needs $41 - c > 0$, so $c < 41$. Check: $c = 40$ gives $r^2 = 1$, a genuine circle, while $c = 41$ collapses the graph to the single point $(4, -5)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($c < -41$): moves $41$ to the wrong side of the inequality.\n* Choice C ($c > -41$): treats the constant as $41 + c$ rather than $41 - c$.\n* Choice D ($c > 41$): finds $41$ correctly but reverses the direction, which makes the right side negative.\n\n**Test Day Takeaway:** A general-form equation is a real circle only while the completed-square right side stays strictly positive.",
       skills: ["completing-square-circles", "circle-equation"]
     }
   ],
@@ -786,19 +792,19 @@ export const circlesQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "In the $xy$-plane, a circle has center $(2, -1)$, and a line is tangent to the circle at the point $(5, 3)$. What is the slope of the radius drawn to the point of tangency?",
+      question: "A cyclist on a circular track centered at the origin releases at $(3, 4)$ and continues along the tangent line there. What is that line's slope?",
       choices: [
-        // distractor: negates the slope
-        { id: "A", text: "$-\\frac{4}{3}$" },
-        // distractor: gives the tangent line slope
-        { id: "B", text: "$-\\frac{3}{4}$" },
-        // distractor: divides run by rise
-        { id: "C", text: "$\\frac{3}{4}$" },
-        { id: "D", text: "$\\frac{4}{3}$" }
+        // distractor: negates the radius slope without inverting it
+        { id: "A", text: "$-\\dfrac{4}{3}$" },
+        { id: "B", text: "$-\\dfrac{3}{4}$" },
+        // distractor: inverts the radius slope but keeps it positive
+        { id: "C", text: "$\\dfrac{3}{4}$" },
+        // distractor: reports the radius slope itself
+        { id: "D", text: "$\\dfrac{4}{3}$" }
       ],
-      correctAnswer: "D",
-      hint: "The radius runs from the center to the point of tangency, so only those two points matter here.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** The radius joins $(2, -1)$ and $(5, 3)$, so its slope is $\\frac{3 - (-1)}{5 - 2} = \\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: The radius to the point of tangency has endpoints $(2, -1)$ and $(5, 3)$.\nStep 2: Slope is $\\frac{y_2 - y_1}{x_2 - x_1} = \\frac{3 - (-1)}{5 - 2}$.\nStep 3: The slope is $\\frac{4}{3}$. Check: moving $3$ right and $4$ up from $(2, -1)$ lands exactly on $(5, 3)$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{4}{3}$): negates the rise, as if the point of tangency were below the center.\n* Choice B ($-\\frac{3}{4}$): reports the slope of the tangent line, which is the negative reciprocal of what was asked.\n* Choice C ($\\frac{3}{4}$): divides the run by the rise instead of the rise by the run.\n\n**Test Day Takeaway:** Read which segment the question wants. The radius and the tangent line at the same point have negative reciprocal slopes, so mixing them up is a one-character error with a whole-answer cost.",
+      correctAnswer: "B",
+      hint: "Draw the radius from the center to the release point first.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** The radius to $(3, 4)$ has slope $\\dfrac{4}{3}$, so the tangent's slope is $-\\dfrac{3}{4}$.\n\n**The Full Solution:**\nStep 1: The radius runs from $(0, 0)$ to $(3, 4)$, so its slope is $\\dfrac{4 - 0}{3 - 0} = \\dfrac{4}{3}$.\nStep 2: A tangent line is perpendicular to the radius at the point of contact.\nStep 3: The perpendicular slope is the negative reciprocal, $-\\dfrac{3}{4}$. Check: $\\dfrac{4}{3} \\cdot \\left(-\\dfrac{3}{4}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\dfrac{4}{3}$): negates the radius slope without flipping it.\n* Choice C ($\\dfrac{3}{4}$): flips the radius slope but leaves it positive.\n* Choice D ($\\dfrac{4}{3}$): reports the slope of the radius itself.\n\n**Test Day Takeaway:** Tangent and radius meet at a right angle, so their slopes are negative reciprocals.",
       skills: ["tangent-lines", "perpendicular-negative-reciprocal"]
     },
     {

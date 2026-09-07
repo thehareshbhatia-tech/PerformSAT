@@ -1,6 +1,6 @@
 {
-  "id": "bank-am-175",
-  "question": "The functions $f$ and $g$ are defined by $f(x) = 3x^2 - x + 2$ and $g(x) = x - 4$. What is the value of $f(g(6))$?",
-  "correctAnswer": "12",
-  "explanation": "**SAT Pattern: Function Composition**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~25s):** $g(6) = 2$, and then $f(2) = 12 - 2 + 2 = 12$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function: $g(6) = 6 - 4 = 2$.\nStep 2: Substitute that output into $f$: $f(2) = 3(2)^2 - 2 + 2$.\nStep 3: Then $3(4) = 12$ and $-2 + 2 = 0$, so $f(2) = 12$. Check: $f(g(x)) = 3(x-4)^2 - (x-4) + 2$, and at $x = 6$ that is $12 - 2 + 2 = 12$. $\\checkmark$\n\n**Common Mistakes:**\n* Evaluating $f(6) = 108 - 6 + 2 = 104$ by skipping the inner function.\n* Computing $g(f(6))$, which gives $104 - 4 = 100$.\n* Squaring after multiplying and writing $3(2)^2$ as $36$.\n\n**Test Day Takeaway:** Reduce the inner function to a single number before touching the outer rule; that keeps the order of operations simple."
+ "id": "bank-am-175",
+ "question": "A two-stage conversion first adds a constant $k$ to its input, using $g(x) = x + k$, and then applies $f(x) = 4x - 7$ to that result. The conversion turns an input of $3$ into an output of $21$. What is the value of $k$?",
+ "correctAnswer": "4",
+ "explanation": "**SAT Pattern: Function Composition**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~25s):** $f(g(3)) = 4(3 + k) - 7 = 21$, so $4(3 + k) = 28$, $3 + k = 7$, and $k = 4$.\n\n**The Full Solution:**\nStep 1: The inner value is $g(3) = 3 + k$.\nStep 2: Applying $f$ gives $4(3 + k) - 7 = 21$, so $4(3 + k) = 28$.\nStep 3: Dividing by $4$ gives $3 + k = 7$, so $k = 4$. Check: $g(3) = 7$ and $f(7) = 28 - 7 = 21$ ✓\n\n**Common Mistakes:**\n* $18$ — setting $3 + k = 21$, which applies only $g$ and never undoes $f$.\n* $0.5$ — subtracting the $7$ instead of adding it, which gives $4(3 + k) = 14$.\n\n**Test Day Takeaway:** Undo the OUTER function first — add back its constant, then divide — before touching the inner expression."
 }

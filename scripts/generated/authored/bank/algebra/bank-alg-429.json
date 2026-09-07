@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-429",
-  "question": "Which value of $x$ is the solution to the equation $4x = -30$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-120$"
-    },
-    {
-      "id": "B",
-      "text": "$-34$"
-    },
-    {
-      "id": "C",
-      "text": "$-7.5$"
-    },
-    {
-      "id": "D",
-      "text": "$7.5$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "multiplies -30 by 4 instead of dividing.",
-    "B": "subtracts 4 from -30, treating 4x as x + 4.",
-    "D": "divides correctly but drops the negative sign."
+ "id": "bank-alg-429",
+ "question": "A campground has $s$ tent sites in all. On one night 46 of the sites are occupied and the remaining 129 sites are open. What is the value of $s$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$83$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Divide both sides by $4$: $x = -\\frac{30}{4} = -7.5$.\n\n**The Full Solution:**\nStep 1: The variable is multiplied by $4$, so divide each side by $4$.\nStep 2: $x = \\frac{-30}{4} = -\\frac{15}{2} = -7.5$.\nStep 3: Check: $4(-7.5) = -30$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-120$): multiplies $-30$ by $4$ instead of dividing.\n* Choice B ($-34$): subtracts $4$ from $-30$, treating $4x$ as $x + 4$.\n* Choice D ($7.5$): divides correctly but drops the negative sign.\n\n**Test Day Takeaway:** A non-integer answer is fine on the SAT; $-\\frac{30}{4}$ simplifies to $-7.5$, and the sign of the constant carries over."
+  {
+   "id": "B",
+   "text": "$129$"
+  },
+  {
+   "id": "C",
+   "text": "$175$"
+  },
+  {
+   "id": "D",
+   "text": "$5{,}934$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "subtracts 46 from 129 instead of adding the two counts",
+  "B": "reports the number of open sites rather than the total",
+  "D": "multiplies 46 by 129 instead of adding"
+ },
+ "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Every site is either occupied or open, so $s = 46 + 129 = 175$.\n\n**The Full Solution:**\n\nStep 1: The occupied sites and the open sites together account for all $s$ sites, so $46 + 129 = s$.\n\nStep 2: Add the two counts: $46 + 129 = 175$.\n\nStep 3: So $s = 175$. Check: $175 - 46 = 129$ open sites, as stated.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($83$): computes $129 - 46$, subtracting one part from the other instead of combining them.\n* Choice B ($129$): reports the open sites, which is only part of the campground.\n* Choice D ($5{,}934$): multiplies the two counts, which no part of the situation calls for.\n\n**Test Day Takeaway:** Two categories that cover everything add to the total, and the total must exceed each part."
 }

@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-189",
-  "question": "In the equation $3(x - 4) = 27$, what is the value of the expression $x - 4$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$5$"
-    },
-    {
-      "id": "B",
-      "text": "$9$"
-    },
-    {
-      "id": "C",
-      "text": "$13$"
-    },
-    {
-      "id": "D",
-      "text": "$23$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "divides to get 9, then subtracts 4 again",
-    "C": "solves for x instead of the requested expression x - 4",
-    "D": "subtracts 4 from 27 instead of dividing by 3"
+ "id": "bank-alg-189",
+ "question": "A dispensary's dilution rule uses the equation $\\frac{n}{k} = 24$, where $n$ is the total number of milligrams dispensed and $k$ is a constant. Substituting $n = 84$ makes the equation true. What is the value of $k$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3.5$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Treat $x - 4$ as a single unknown. Divide both sides by $3$: $x - 4 = 9$. Done; do not solve for $x$.\n\n**The Full Solution:**\nStep 1: The question asks for $x - 4$, which is exactly the quantity multiplied by $3$ on the left side.\nStep 2: Divide both sides by $3$: $x - 4 = \\dfrac{27}{3} = 9$.\nStep 3: Check: $3(9) = 27$. $\\checkmark$ (For the record, $x = 13$, but that is not what was asked.)\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): correctly gets $9$, then subtracts $4$ again, applying the $-4$ twice.\n* Choice C ($13$): solves all the way to $x$ and reports it, though the question asks for $x - 4$.\n* Choice D ($23$): subtracts $4$ from $27$ instead of dividing by $3$.\n\n**Test Day Takeaway:** When the question asks for an expression, look for that expression as a unit in the equation. One division may finish the problem; solving for $x$ is a wasted step and a common wrong answer."
+  {
+   "id": "B",
+   "text": "$24$"
+  },
+  {
+   "id": "C",
+   "text": "$60$"
+  },
+  {
+   "id": "D",
+   "text": "$2{,}016$"
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "reports the right-hand side of the equation instead of solving for k",
+  "C": "subtracts 24 from 84 instead of dividing",
+  "D": "multiplies 84 by 24 instead of dividing"
+ },
+ "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Substituting gives $\\frac{84}{k} = 24$, so $k = \\frac{84}{24} = 3.5$.\n\n**The Full Solution:**\n\nStep 1: Substitute $n = 84$ into the rule: $\\frac{84}{k} = 24$.\n\nStep 2: Multiply both sides by $k$: $84 = 24k$.\n\nStep 3: Divide both sides by $24$: $k = \\frac{84}{24} = 3.5$. Check: $\\frac{84}{3.5} = 24$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($24$): reports the right-hand side, as though the constant and the quotient were the same number.\n* Choice C ($60$): computes $84 - 24$, subtracting where division is required.\n* Choice D ($2{,}016$): computes $84 \\times 24$, multiplying instead of dividing.\n\n**Test Day Takeaway:** When the unknown sits in a denominator, multiply it up first; the equation then becomes a single division."
 }

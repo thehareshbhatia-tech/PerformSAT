@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-223",
-  "question": "In the $xy$-plane, line $\\ell$ passes through the points $(a, 0)$ and $(0, b)$, where $a$ and $b$ are positive constants. Which expression represents the slope of a line that is perpendicular to line $\\ell$?",
+  "question": "In a wind-tunnel test rig, a boom lies on a line of slope $\\frac{k - 3}{4}$ and a tether lies on a line of slope $\\frac{8}{k}$, where $k$ is a nonzero constant. The boom and the tether cross at a right angle. What is the value of $k$?",
   "choices": [
     {
       "id": "A",
-      "text": "$\\dfrac{a}{b}$"
+      "text": "$\\frac{1}{4}$"
     },
     {
       "id": "B",
-      "text": "$\\dfrac{b}{a}$"
+      "text": "$\\frac{1}{2}$"
     },
     {
       "id": "C",
-      "text": "$-\\dfrac{a}{b}$"
+      "text": "$2$"
     },
     {
       "id": "D",
-      "text": "$-\\dfrac{b}{a}$"
+      "text": "$6$"
     }
   ],
+  "correctAnswer": "C",
   "distractorNotes": {
-    "B": "negates the slope of l without taking the reciprocal",
-    "C": "takes the reciprocal without changing the sign",
-    "D": "reports the slope of l itself"
+    "A": "distributes only to $k$, solving $8k - 3 = -4k$ and then $12k = 3$",
+    "B": "divides in the wrong order at the last step, reporting $\\frac{12}{24}$ rather than $\\frac{24}{12}$",
+    "D": "sets the product of the slopes to $1$ instead of $-1$, giving $8k - 24 = 4k$ and $4k = 24$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Slope of $\\ell$: $\\dfrac{b - 0}{0 - a} = -\\dfrac{b}{a}$. Flip and negate: $\\dfrac{a}{b}$.\n\n**The Full Solution:**\nStep 1: Use the slope formula on $(a, 0)$ and $(0, b)$: $\\dfrac{b - 0}{0 - a} = \\dfrac{b}{-a} = -\\dfrac{b}{a}$. Since $a$ and $b$ are positive, $\\ell$ falls from left to right.\nStep 2: The perpendicular slope is the negative reciprocal of $-\\dfrac{b}{a}$: flipping gives $-\\dfrac{a}{b}$, and negating gives $\\dfrac{a}{b}$.\nStep 3: Check: $-\\dfrac{b}{a} \\cdot \\dfrac{a}{b} = -1$. $\\checkmark$ A positive perpendicular slope makes sense, since $\\ell$ has a negative one.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\dfrac{b}{a}$): negates the slope of $\\ell$ but forgets to flip the fraction.\n* Choice C ($-\\dfrac{a}{b}$): flips the fraction but keeps the negative sign.\n* Choice D ($-\\dfrac{b}{a}$): is the slope of $\\ell$ itself.\n\n**Test Day Takeaway:** With intercepts $(a, 0)$ and $(0, b)$, the slope is $-\\dfrac{b}{a}$. Treat the symbolic slope exactly like a numeric one: flip it, then change the sign."
+  "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Setting $\\frac{k - 3}{4} \\cdot \\frac{8}{k} = -1$ gives $8k - 24 = -4k$, so $k = 2$.\n\n**The Full Solution:**\nStep 1: Perpendicular lines have slopes whose product is $-1$, so $\\frac{k - 3}{4} \\cdot \\frac{8}{k} = -1$.\nStep 2: Multiplying both sides by $4k$ gives $8(k - 3) = -4k$, so $8k - 24 = -4k$.\nStep 3: Then $12k = 24$ and $k = 2$. Check: the slopes are $\\frac{2 - 3}{4} = -\\frac{1}{4}$ and $\\frac{8}{2} = 4$, whose product is $-1$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{4}$): distributes only to $k$, solving $8k - 3 = -4k$ and then $12k = 3$\n* Choice B ($\\frac{1}{2}$): divides in the wrong order at the last step, reporting $\\frac{12}{24}$ rather than $\\frac{24}{12}$\n* Choice D ($6$): sets the product of the slopes to $1$ instead of $-1$, giving $8k - 24 = 4k$ and $4k = 24$\n\n**Test Day Takeaway:** Multiply the two slope expressions, clear the denominator, and only then distribute."
 }

@@ -1,29 +1,45 @@
 {
-  "id": "bank-alg-385",
-  "question": "A line segment in the $xy$-plane has one endpoint at $(-4, 7)$ and its midpoint at $(1, 2)$. What are the coordinates of the other endpoint?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$(-9, 12)$"
-    },
-    {
-      "id": "B",
-      "text": "$\\left(-\\dfrac{3}{2}, \\dfrac{9}{2}\\right)$"
-    },
-    {
-      "id": "C",
-      "text": "$(5, -5)$"
-    },
-    {
-      "id": "D",
-      "text": "$(6, -3)$"
-    }
+ "id": "bank-alg-385",
+ "question": "The table gives the coordinates of pin $R$ and pin $M$ on a pattern board modeled by the $xy$-plane, where $M$ is the midpoint of $\\overline{RS}$. What are the coordinates of $S$?",
+ "questionTable": {
+  "headers": [
+   "Pin",
+   "Coordinates"
   ],
-  "distractorNotes": {
-    "A": "steps from the midpoint back toward the known endpoint instead of beyond it",
-    "B": "finds the midpoint of the two given points",
-    "C": "reports the displacement from the endpoint to the midpoint, not a location"
+  "rows": [
+   [
+    "$R$",
+    "$(-7, 3)$"
+   ],
+   [
+    "$M$",
+    "$(1, -1)$"
+   ]
+  ]
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(-15, 7)$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** From $(-4, 7)$ to the midpoint $(1, 2)$ is $5$ right and $5$ down; repeat that step from the midpoint to reach $(6, -3)$.\n\n**The Full Solution:**\nStep 1: Let the other endpoint be $(x, y)$. The midpoint conditions are $\\dfrac{-4 + x}{2} = 1$ and $\\dfrac{7 + y}{2} = 2$.\nStep 2: Solve each: $-4 + x = 2$ gives $x = 6$; $7 + y = 4$ gives $y = -3$.\nStep 3: The other endpoint is $(6, -3)$. Check: the midpoint of $(-4, 7)$ and $(6, -3)$ is $\\left(\\dfrac{2}{2}, \\dfrac{4}{2}\\right) = (1, 2)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-9, 12)$): moves $5$ left and $5$ up from the known endpoint, stepping away from the midpoint instead of through it.\n* Choice B ($\\left(-\\dfrac{3}{2}, \\dfrac{9}{2}\\right)$): averages the two given points, treating the midpoint as an endpoint.\n* Choice C ($(5, -5)$): reports the change from the endpoint to the midpoint rather than adding that change to the midpoint.\n\n**Test Day Takeaway:** The midpoint is the center of the segment, so the far endpoint is $2(\\text{midpoint}) - (\\text{known endpoint})$ in each coordinate; verify by recomputing the midpoint."
+  {
+   "id": "B",
+   "text": "$(-3, 1)$"
+  },
+  {
+   "id": "C",
+   "text": "$(9, -5)$"
+  },
+  {
+   "id": "D",
+   "text": "$(9, 5)$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "computes 2R - M, reversing the roles of the endpoint and the midpoint",
+  "B": "averages R and M instead of extending the segment past M",
+  "D": "doubles the x-coordinate correctly but drops the negative sign on the y-coordinate"
+ },
+ "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $S = (2(1) - (-7),\\ 2(-1) - 3) = (9, -5)$.\n\n**The Full Solution:**\n\nStep 1: If $M$ is the midpoint of $\\overline{RS}$, then $1 = \\frac{-7 + x_S}{2}$ and $-1 = \\frac{3 + y_S}{2}$.\n\nStep 2: Multiply each equation by $2$: $-7 + x_S = 2$ and $3 + y_S = -2$.\n\nStep 3: Solve: $x_S = 9$ and $y_S = -5$, so $S$ is $(9, -5)$. Check: the midpoint of $(-7, 3)$ and $(9, -5)$ is $(1, -1)$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($(-15, 7)$): computes $2R - M$, treating $R$ as the midpoint and $M$ as the endpoint.\n* Choice B ($(-3, 1)$): averages $R$ and $M$, landing halfway between them instead of continuing past $M$.\n* Choice D ($(9, 5)$): doubles and subtracts correctly for $x$ but reports $|-5|$ for $y$, dropping the negative sign.\n\n**Test Day Takeaway:** To find the far endpoint, double the midpoint and subtract the known endpoint, coordinate by coordinate."
 }

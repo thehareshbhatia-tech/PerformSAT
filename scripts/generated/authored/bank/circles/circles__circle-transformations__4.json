@@ -1,30 +1,43 @@
 {
- "id": 4,
- "question": "In the $xy$-plane, the circle $(x + 4)^2 + (y - 1)^2 = 25$ is reflected across the $x$-axis. Which of the following equations defines the image of the circle?",
+ "question": "The table gives the center and radius of circle $A$ in the $xy$-plane. Circle $B$ is the image of circle $A$ after a translation $5$ units right and $2$ units down. Which equation defines circle $B$?",
+ "questionTable": {
+  "headers": [
+   "Circle",
+   "Center",
+   "Radius"
+  ],
+  "rows": [
+   [
+    "$A$",
+    "$(-3, 6)$",
+    "$4$"
+   ]
+  ]
+ },
+ "hint": "Ask what the translation changes and what it leaves alone.",
  "choices": [
   {
    "id": "A",
-   "text": "$(x - 4)^2 + (y - 1)^2 = 25$"
+   "text": "$(x - 2)^2 + (y - 4)^2 = 4$"
   },
   {
    "id": "B",
-   "text": "$(x + 4)^2 + (y + 1)^2 = 25$"
+   "text": "$(x + 2)^2 + (y + 4)^2 = 16$"
   },
   {
    "id": "C",
-   "text": "$(x + 4)^2 + (y - 1)^2 = 25$"
+   "text": "$(x - 2)^2 + (y - 4)^2 = 16$"
   },
   {
    "id": "D",
-   "text": "$(x - 4)^2 + (y + 1)^2 = 25$"
+   "text": "$(x + 8)^2 + (y - 8)^2 = 16$"
   }
  ],
- "correctAnswer": "B",
- "hint": "Track where the center $(-4, 1)$ lands.",
  "distractorNotes": {
-  "A": "reflects across the y-axis",
-  "C": "leaves the circle unchanged",
-  "D": "reflects through the origin"
+  "A": "writes the radius 4 on the right instead of its square",
+  "B": "reverses the signs of the new center, using (-2, -4)",
+  "D": "translates 5 left and 2 up, landing the center at (-8, 8)"
  },
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** Reflecting across the $x$-axis sends the center $(-4, 1)$ to $(-4, -1)$, so the image is $(x + 4)^2 + (y + 1)^2 = 25$.\n\n**The Full Solution:**\nStep 1: The given circle has center $(-4, 1)$ and radius $5$.\nStep 2: A reflection across the $x$-axis keeps $x$ and negates $y$, so the center becomes $(-4, -1)$; the radius is unchanged.\nStep 3: The image is $(x + 4)^2 + (y + 1)^2 = 25$. Check: the original and its image are the same distance from the $x$-axis, one unit above and one unit below.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 4)^2 + (y - 1)^2 = 25$): negates the $x$-coordinate, which is a reflection across the $y$-axis.\n* Choice C ($(x + 4)^2 + (y - 1)^2 = 25$): repeats the original equation, as if the center were already on the axis of reflection.\n* Choice D ($(x - 4)^2 + (y + 1)^2 = 25$): negates both coordinates, which is a reflection through the origin.\n\n**Test Day Takeaway:** Reflecting across the $x$-axis changes the sign of $y$ only. Apply it to the center and copy the radius."
+ "correctAnswer": "C",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** The center moves from $(-3, 6)$ to $(2, 4)$ and the radius stays $4$, so the equation is $(x - 2)^2 + (y - 4)^2 = 16$.\n\n**The Full Solution:**\nStep 1: Moving $5$ units right adds $5$ to the $x$-coordinate: $-3 + 5 = 2$.\nStep 2: Moving $2$ units down subtracts $2$ from the $y$-coordinate: $6 - 2 = 4$.\nStep 3: A translation does not resize a circle, so the radius is still $4$ and the equation is $(x - 2)^2 + (y - 4)^2 = 4^2 = 16$. Check: the center $(2, 4)$ satisfies $x - 2 = 0$ and $y - 4 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($= 4$): puts the radius on the right side instead of the radius squared, $16$.\n* Choice B: reverses the signs inside the squares, which describes a circle centered at $(-2, -4)$.\n* Choice D: translates the center the wrong way, to $(-8, 8)$.\n\n**Test Day Takeaway:** In standard form the numbers inside the parentheses are the opposite of the center's coordinates, and the right side is always the square of the radius."
 }

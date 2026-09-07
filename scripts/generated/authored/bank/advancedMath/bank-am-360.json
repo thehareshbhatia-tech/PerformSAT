@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-360",
-  "question": "Which of the following is equivalent to the expression $3x^3 + 2x^2 - 12x - 8$, where $x$ is any real number?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$(3x - 2)(x^2 + 4)$"
-    },
-    {
-      "id": "B",
-      "text": "$(3x + 2)(x^2 + 4)$"
-    },
-    {
-      "id": "C",
-      "text": "$(3x + 2)(x^2 - 4)$"
-    },
-    {
-      "id": "D",
-      "text": "$(3x - 2)(x^2 - 4)$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "flips both signs",
-    "B": "factors +4 out of -12x - 8",
-    "D": "sign error in the binomial factor"
+ "id": "bank-am-360",
+ "question": "In a trail-run elevation model, the polynomial $21x^3 - 14x^2 + 3mx - 10$ describes the climb after $x$ kilometers, with the course profile setting the constant $m$. For which value of $m$ does $3x - 2$ divide that polynomial with no remainder?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Group as $x^2(3x + 2) - 4(3x + 2)$; the common factor $3x + 2$ gives $(3x + 2)\\left(x^2 - 4\\right)$.\n\n**The Full Solution:**\nStep 1: Pair the terms: $\\left(3x^3 + 2x^2\\right) + (-12x - 8)$.\nStep 2: Factor each pair. The first gives $x^2(3x + 2)$; the second needs $-4$ pulled out to match, since $-4(3x + 2) = -12x - 8$.\nStep 3: Factoring out $3x + 2$ gives $(3x + 2)\\left(x^2 - 4\\right)$. Check: expanding gives $3x^3 - 12x + 2x^2 - 8 = 3x^3 + 2x^2 - 12x - 8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(3x - 2)(x^2 + 4)$): flips both signs and expands to $3x^3 - 2x^2 + 12x - 8$.\n* Choice B ($(3x + 2)(x^2 + 4)$): pulls $+4$ out of $-12x - 8$ instead of $-4$ and expands to $3x^3 + 2x^2 + 12x + 8$.\n* Choice D ($(3x - 2)(x^2 - 4)$): changes the sign inside the first binomial and expands to $3x^3 - 2x^2 - 12x + 8$.\n\n**Test Day Takeaway:** When the second pair starts with a minus, factor out a NEGATIVE so the binomial matches the first pair exactly."
+  {
+   "id": "B",
+   "text": "$5$"
+  },
+  {
+   "id": "C",
+   "text": "$10$"
+  },
+  {
+   "id": "D",
+   "text": "$15$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "quotes the $2$ inside $3x - 2$ instead of solving for $m$",
+  "C": "uses the constant term $-10$ directly, skipping the division by $-2$",
+  "D": "reports $3m$, the coefficient of $x$, rather than $m$ itself"
+ },
+ "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $21x^3 - 14x^2 = 7x^2(3x - 2)$, so the second pair must be $5(3x - 2) = 15x - 10$; matching $3mx = 15x$ gives $m = 5$.\n\n**The Full Solution:**\nStep 1: Factor the first pair: $21x^3 - 14x^2 = 7x^2(3x - 2)$.\nStep 2: The second pair, $3mx - 10$, must be a multiple of $3x - 2$. Since the constant is $-10$, that multiple is $5(3x - 2)$.\nStep 3: Then $5(3x - 2) = 15x - 10$, so $3m = 15$ and $m = 5$. Check: $(7x^2 + 5)(3x - 2) = 21x^3 - 14x^2 + 15x - 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reads a number out of the given binomial instead of computing $m$.\n* Choice C ($10$): stops at the constant term, which is $-2$ times the multiplier.\n* Choice D ($15$): reports the whole coefficient $3m$, forgetting to divide by $3$.\n\n**Test Day Takeaway:** Match the constant first to find the multiplier, then use the $x$-term to solve for the parameter — the two must agree."
 }

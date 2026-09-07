@@ -1,29 +1,48 @@
 {
   "id": "bank-alg-377",
-  "question": "In the $xy$-plane, the distance between the points $(k, 3)$ and $(2, -5)$ is $10$ units, where $k$ is a positive constant. What is the value of $k$?",
+  "question": "A circular plaza's diameter has its endpoints at the two plotted points on the site grid, where each grid unit is one meter of ground distance. How many meters is the plaza's radius?",
+  "diagram": {
+    "type": "coordinatePoints",
+    "params": {
+      "points": [
+        [
+          -2,
+          3
+        ],
+        [
+          10,
+          -2
+        ]
+      ],
+      "xMin": -5,
+      "xMax": 12,
+      "yMin": -6,
+      "yMax": 11
+    }
+  },
   "choices": [
     {
       "id": "A",
-      "text": "$4$"
+      "text": "$6.5$"
     },
     {
       "id": "B",
-      "text": "$6$"
+      "text": "$8.5$"
     },
     {
       "id": "C",
-      "text": "$8$"
+      "text": "$13$"
     },
     {
       "id": "D",
-      "text": "$12$"
+      "text": "$26$"
     }
   ],
   "distractorNotes": {
-    "A": "solves k - 2 = 6 as k = 6 - 2",
-    "B": "reports the horizontal leg k - 2 instead of k",
-    "D": "sets k - 2 = 10, ignoring the vertical leg"
+    "B": "halves the sum of the two separations instead of the distance",
+    "C": "reports the diameter instead of the radius",
+    "D": "doubles the diameter instead of halving it"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The vertical leg is $3 - (-5) = 8$ and the hypotenuse is $10$, so the horizontal leg is $6$ (a $6$-$8$-$10$ triangle). Then $k - 2 = 6$, so $k = 8$.\n\n**The Full Solution:**\nStep 1: Set up the distance formula: $\\sqrt{(k - 2)^2 + (3 - (-5))^2} = 10$, so $(k - 2)^2 + 64 = 100$.\nStep 2: Subtract $64$: $(k - 2)^2 = 36$, so $k - 2 = 6$ or $k - 2 = -6$, giving $k = 8$ or $k = -4$.\nStep 3: The question states $k$ is positive, so $k = 8$. Check: the points $(8, 3)$ and $(2, -5)$ have changes $6$ and $8$, and $\\sqrt{36 + 64} = 10$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): solves $k - 2 = 6$ as $k = 6 - 2$, subtracting instead of adding.\n* Choice B ($6$): stops at the leg length $k - 2 = 6$ and reports it as $k$.\n* Choice D ($12$): sets $k - 2 = 10$, treating the whole distance as the horizontal leg and ignoring the $8$-unit vertical change.\n\n**Test Day Takeaway:** Square the distance equation to remove the root, solve for the squared quantity, and keep both signs until the question's condition ($k > 0$) tells you which one to keep."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The endpoints are $12$ and $5$ apart, so the diameter is $\\sqrt{12^2 + 5^2} = 13$ and the radius is $6.5$.\n\n**The Full Solution:**\nStep 1: Read the endpoints: $(-2, 3)$ and $(10, -2)$; the horizontal separation is $10 - (-2) = 12$ and the vertical separation is $3 - (-2) = 5$.\nStep 2: The diameter is $\\sqrt{12^2 + 5^2} = \\sqrt{144 + 25} = \\sqrt{169} = 13$ meters.\nStep 3: The radius is half the diameter: $\\frac{13}{2} = 6.5$ meters. Check: $12$-$5$-$13$ is a right triangle, since $144 + 25 = 169$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($8.5$): halves the sum $12 + 5$ instead of halving the actual distance.\n* Choice C ($13$): reports the diameter and never halves it.\n* Choice D ($26$): doubles the diameter instead of halving it.\n\n**Test Day Takeaway:** Compute the diameter with the distance formula first; halving is the last step, not something to fold into the separations."
 }

@@ -1,29 +1,49 @@
 {
-  "id": "bank-alg-154",
-  "question": "$y = 5x - 2$\n$y = (k - 3)x + 8$\n\nIn the given system of equations, $k$ is a constant. The system has no solution. What is the value of $k$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$2$"
-    },
-    {
-      "id": "B",
-      "text": "$5$"
-    },
-    {
-      "id": "C",
-      "text": "$8$"
-    },
-    {
-      "id": "D",
-      "text": "$11$"
-    }
+ "id": "bank-alg-154",
+ "question": "The table gives the total cost $C$, in dollars, of a city-pass card valid for $d$ days. A second card is priced by $C = kd + 7$, and no number of days makes the two cards cost the same. What is the value of $k$?",
+ "questionTable": {
+  "headers": [
+   "Days, $d$",
+   "Total cost, $C$"
   ],
-  "distractorNotes": {
-    "A": "computes 5 - 3 instead of solving k - 3 = 5",
-    "B": "reports the slope 5 itself",
-    "D": "matches k - 3 to the intercept 8"
+  "rows": [
+   [
+    "$1$",
+    "$9$"
+   ],
+   [
+    "$3$",
+    "$27$"
+   ],
+   [
+    "$5$",
+    "$45$"
+   ]
+  ]
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~8s):** No solution means parallel lines with different intercepts. The intercepts $-2$ and $8$ already differ, so match the slopes: $k - 3 = 5$, giving $k = 8$.\n\n**The Full Solution:**\nStep 1: Both equations are in slope-intercept form. The first line has slope $5$ and $y$-intercept $-2$; the second has slope $k - 3$ and $y$-intercept $8$.\nStep 2: Two lines never meet only if they are parallel and distinct. Distinct is guaranteed since $-2 \\ne 8$; parallel requires $k - 3 = 5$.\nStep 3: Solve: $k = 8$. Check: the second equation becomes $y = 5x + 8$, parallel to $y = 5x - 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): computes $5 - 3$ instead of solving $k - 3 = 5$.\n* Choice B ($5$): reports the required slope rather than the value of $k$ that produces it.\n* Choice D ($11$): sets $k - 3$ equal to the intercept $8$ instead of the slope.\n\n**Test Day Takeaway:** \"No solution\" for two lines means equal slopes and unequal intercepts. Set the slope expressions equal and solve for the constant; do not stop at the slope."
+  {
+   "id": "B",
+   "text": "$7$"
+  },
+  {
+   "id": "C",
+   "text": "$9$"
+  },
+  {
+   "id": "D",
+   "text": "$18$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "reports the change in d from one row to the next",
+  "B": "reports the constant 7 from the second card's price",
+  "D": "reports the change in C between rows without dividing by the change in d"
+ },
+ "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The table's rate is $\\frac{27 - 9}{3 - 1} = 9$ dollars per day, and two prices never agree only when the rates match, so $k = 9$.\n\n**The Full Solution:**\n\nStep 1: Find the first card's rate from the table: $\\frac{27 - 9}{3 - 1} = \\frac{18}{2} = 9$ dollars per day, so $C = 9d$.\n\nStep 2: The two prices are equal for some $d$ unless the equations $C = 9d$ and $C = kd + 7$ describe parallel lines, which requires $k = 9$.\n\nStep 3: Verify that no value of $d$ works when $k = 9$: setting $9d = 9d + 7$ gives $0 = 7$, which is never true. So $k = 9$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($2$): reports $3 - 1$, the change in $d$ between rows, rather than the rate.\n* Choice B ($7$): copies the constant from the second card's price.\n* Choice D ($18$): reports $27 - 9$, the change in cost between rows, without dividing by the $2$-day change.\n\n**Test Day Takeaway:** Two linear models never agree exactly when their rates match and their starting values do not."
 }

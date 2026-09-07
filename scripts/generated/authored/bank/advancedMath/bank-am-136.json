@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-136",
-  "question": "In the equation $x^2 + kx + 6 = 0$, $k$ is a constant. For which of the following values of $k$ does the equation have two distinct real solutions?",
+  "question": "A vibration study produces the equation $2x^{2}-12x+c=0$, and two different real values of $x$ satisfy it. Which of the following could be the value of the constant $c$?",
   "choices": [
     {
       "id": "A",
-      "text": "$-4$"
+      "text": "$12$"
     },
     {
       "id": "B",
-      "text": "$0$"
+      "text": "$18$"
     },
     {
       "id": "C",
-      "text": "$2$"
+      "text": "$36$"
     },
     {
       "id": "D",
-      "text": "$5$"
+      "text": "$72$"
     }
   ],
   "distractorNotes": {
-    "A": "treats any negative $k$ as producing two solutions; $(-4)^2 = 16 < 24$",
-    "B": "reads $x^2 = -6$ as having the two symmetric solutions $\\pm\\sqrt{6}$",
-    "C": "compares $k^2$ with $4$ rather than with $4ac = 24$"
+    "B": "the boundary value, which makes the discriminant 0 and gives exactly one solution",
+    "C": "used c < b squared over 4 = 36, omitting the leading coefficient 2",
+    "D": "used c < b squared over 2 = 72"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Two distinct real solutions require $k^2 > 4(1)(6) = 24$. Only $5^2 = 25$ exceeds $24$.\n\n**The Full Solution:**\nStep 1: For $ax^2 + bx + c = 0$, two distinct real solutions occur exactly when $b^2 - 4ac > 0$. Here $a = 1$ and $c = 6$, so the condition is $k^2 - 24 > 0$, or $k^2 > 24$.\nStep 2: Test each choice: $(-4)^2 = 16$, $0^2 = 0$, $2^2 = 4$, and $5^2 = 25$.\nStep 3: Only $25 > 24$, so $k = 5$. Check: $x^2 + 5x + 6 = (x+2)(x+3)$, giving the two distinct solutions $x = -2$ and $x = -3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): the sign of $k$ is irrelevant because $k$ is squared, and $16$ is still less than $24$.\n* Choice B ($0$): with $k = 0$ the equation is $x^2 = -6$, which has no real solutions at all.\n* Choice C ($2$): comparing $k^2$ to $4$ instead of $4ac$ makes $2$ look like a boundary value.\n\n**Test Day Takeaway:** Convert the wording into an inequality on $b^2 - 4ac$ first, then test the choices; squaring erases the sign of $k$."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Two distinct real solutions require $144-8c>0$, so $c<18$; only $12$ qualifies.\n\n**The Full Solution:**\nStep 1: With $a=2$, $b=-12$, and constant $c$, the discriminant is $144-8c$.\nStep 2: Two different real solutions require $144-8c>0$, so $8c<144$ and $c<18$.\nStep 3: Of the four values, only $12$ is less than $18$. Check: $2x^{2}-12x+12=0$ has discriminant $144-96=48>0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($18$): the boundary value, which makes the discriminant $0$ and gives exactly one solution.\n* Choice C ($36$): uses $c<\\dfrac{b^{2}}{4}$, omitting the leading coefficient.\n* Choice D ($72$): uses $c<\\dfrac{b^{2}}{2}$.\n\n**Test Day Takeaway:** Solve the discriminant inequality once, then test the choices — and remember the boundary value is excluded.",
+  "id": "bank-am-136"
 }

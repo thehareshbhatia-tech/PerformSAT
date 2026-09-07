@@ -1,58 +1,58 @@
 {
-  "id": "bank-alg-215",
-  "question": "In the $xy$-plane, the graph of line $\\ell$ is shown. Line $m$ is the reflection of line $\\ell$ across the $y$-axis. What is the slope of line $m$?",
-  "diagram": {
-    "type": "linearGraph",
-    "params": {
-      "slope": 1.5,
-      "yIntercept": -2,
-      "xRange": [
-        -4,
-        6
-      ],
-      "yRange": [
-        -6,
-        8
-      ],
-      "gridInterval": 1,
-      "xTickInterval": 2,
-      "yTickInterval": 2,
-      "highlightPoints": [
-        [
-          0,
-          -2
-        ],
-        [
-          4,
-          4
-        ]
-      ],
-      "label": "ℓ"
-    }
+ "question": "The graph in the $xy$-plane shows line $t$. A mirror image of line $t$ in the $x$-axis is labeled line $u$, and line $v$ meets line $u$ at a right angle. What is the slope of line $v$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-2.5$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-\\dfrac{3}{2}$"
-    },
-    {
-      "id": "B",
-      "text": "$-\\dfrac{2}{3}$"
-    },
-    {
-      "id": "C",
-      "text": "$\\dfrac{2}{3}$"
-    },
-    {
-      "id": "D",
-      "text": "$\\dfrac{3}{2}$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "takes the negative reciprocal, as if m were perpendicular to l",
-    "C": "takes the reciprocal, as if reflecting across y = x",
-    "D": "assumes a reflection leaves the slope unchanged"
+  {
+   "id": "B",
+   "text": "$-0.4$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Slope of a Reflected Line**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** From $(0, -2)$ to $(4, 4)$, line $\\ell$ has slope $\\dfrac{6}{4} = \\dfrac{3}{2}$. Reflecting across the $y$-axis sends each point $(x, y)$ to $(-x, y)$, which negates the slope: $-\\dfrac{3}{2}$.\n\n**The Full Solution:**\nStep 1: Read the slope of $\\ell$ from the two marked points: $\\dfrac{4 - (-2)}{4 - 0} = \\dfrac{6}{4} = \\dfrac{3}{2}$.\nStep 2: A reflection across the $y$-axis maps $(x, y)$ to $(-x, y)$. The marked points become $(0, -2)$ and $(-4, 4)$, which lie on line $m$.\nStep 3: Slope of $m$: $\\dfrac{4 - (-2)}{-4 - 0} = \\dfrac{6}{-4} = -\\dfrac{3}{2}$. Check: the run flipped sign and the rise did not, so the slope is negated. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\dfrac{2}{3}$): takes the negative reciprocal, which is the rule for a perpendicular line, not a reflection across an axis.\n* Choice C ($\\dfrac{2}{3}$): takes the reciprocal, which is what reflecting across the line $y = x$ would do.\n* Choice D ($\\dfrac{3}{2}$): assumes the reflection leaves the slope unchanged; only a translation does that.\n\n**Test Day Takeaway:** Reflecting a line across either axis negates its slope (the $y$-axis flips the run, the $x$-axis flips the rise). Reflect two points and recompute if you are unsure."
+  {
+   "id": "C",
+   "text": "$0.4$"
+  },
+  {
+   "id": "D",
+   "text": "$2.5$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "reports the slope of line $t$ itself, skipping both the reflection and the perpendicular step",
+  "C": "takes the negative reciprocal but drops the minus sign",
+  "D": "reports the slope of line $u$ without taking the perpendicular"
+ },
+ "explanation": "**SAT Pattern: Slope of a Reflected Line**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Line $t$ has slope $-2.5$; reflecting across the $x$-axis makes it $2.5$; the perpendicular slope is $-\\frac{1}{2.5} = -0.4$.\n\n**The Full Solution:**\n\nStep 1: Line $t$ passes through $(0, 5)$ and $(2, 0)$, so its slope is $\\frac{0 - 5}{2 - 0} = -\\frac{5}{2}$.\n\nStep 2: Reflecting across the $x$-axis replaces every $y$ with $-y$, which negates the slope, so line $u$ has slope $\\frac{5}{2}$.\n\nStep 3: Perpendicular slopes are negative reciprocals, so line $v$ has slope $-\\frac{2}{5} = -0.4$. Check: $\\frac{5}{2} \\cdot \\left(-\\frac{2}{5}\\right) = -1$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-2.5$): reports the slope read straight off the graph, as if neither transformation happened.\n\n* Choice C ($0.4$): takes the reciprocal of $\\frac{5}{2}$ but forgets that perpendicular means the negative reciprocal.\n\n* Choice D ($2.5$): stops after the reflection.\n\n**Test Day Takeaway:** Handle transformations one at a time, and confirm a perpendicular pair by checking that the two slopes multiply to $-1$.",
+ "diagram": {
+  "type": "linearGraph",
+  "params": {
+   "slope": -2.5,
+   "yIntercept": 5,
+   "xRange": [
+    -4,
+    6
+   ],
+   "yRange": [
+    -6,
+    10
+   ],
+   "xTickInterval": 2,
+   "yTickInterval": 2,
+   "gridInterval": 2,
+   "showPoints": [
+    [
+     0,
+     5
+    ],
+    [
+     2,
+     0
+    ]
+   ],
+   "label": "t"
+  }
+ },
+ "id": "bank-alg-215"
 }

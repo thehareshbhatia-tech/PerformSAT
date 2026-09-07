@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-294",
- "question": "$|2x - 7| = 3x - 2$\n\nWhich of the following values of $x$ is the solution to the given equation?",
+ "question": "A mastering limiter clips at every input level $x$ that satisfies the equation $|ax + b| = 20$, where $a$ and $b$ are constants and $a > 0$. Clipping occurs at an input level of $-7$ and at an input level of $3$. What is the value of $ab$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-5$"
+   "text": "$4$"
   },
   {
    "id": "B",
-   "text": "$1.8$"
+   "text": "$8$"
   },
   {
    "id": "C",
-   "text": "$5$"
+   "text": "$12$"
   },
   {
    "id": "D",
-   "text": "$9$"
+   "text": "$32$"
   }
  ],
  "distractorNotes": {
-  "A": "extraneous root from the positive case (right side becomes negative)",
-  "C": "sign slip in the positive case, and still fails the check",
-  "D": "forgets to divide by 5 in the negative case"
+  "A": "reports a rather than the product ab",
+  "B": "reports b rather than the product ab",
+  "C": "reports a + b instead of the product ab"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Case 1: $2x - 7 = 3x - 2$ gives $x = -5$, but then $3x - 2 = -17 < 0$, impossible for an absolute value. Case 2: $2x - 7 = -(3x - 2)$ gives $5x = 9$, $x = 1.8$, and $3(1.8) - 2 = 3.4 = |3.6 - 7|$. $\\checkmark$\n\n**The Full Solution:**\nStep 1: An absolute value is never negative, so any solution must satisfy $3x - 2 \\geq 0$, that is, $x \\geq \\frac{2}{3}$.\nStep 2: Case $2x - 7 = 3x - 2$: $x = -5$, which violates $x \\geq \\frac{2}{3}$; reject it.\nStep 3: Case $2x - 7 = -3x + 2$: $5x = 9$, $x = \\frac{9}{5} = 1.8$. Check: $|3.6 - 7| = 3.4$ and $3(1.8) - 2 = 3.4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): solves the positive case correctly but never checks; the right side is $-17$, so it is extraneous.\n* Choice C ($5$): a sign slip in the positive case; $|3| = 3$ but $3(5) - 2 = 13$, so it fails too.\n* Choice D ($9$): stops at $5x = 9$ without dividing.\n\n**Test Day Takeaway:** When the other side contains $x$, every candidate must be substituted back; a negative right side kills the root."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** With $a > 0$, the smaller level hits $-20$ and the larger hits $20$: $-7a + b = -20$ and $3a + b = 20$ give $a = 4$, $b = 8$, so $ab = 32$.\n\n**The Full Solution:**\nStep 1: Because $a > 0$, the expression $ax + b$ increases with $x$, so at $x = -7$ it equals $-20$ and at $x = 3$ it equals $20$.\nStep 2: Subtract the equations $-7a + b = -20$ and $3a + b = 20$: subtracting the first from the second gives $10a = 40$, so $a = 4$.\nStep 3: Then $3(4) + b = 20$ gives $b = 8$, so $ab = 4 \\times 8 = 32$. Check: $|4(-7) + 8| = |-20| = 20$ and $|4(3) + 8| = |20| = 20$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): reports $a$ instead of the product $ab$.\n* Choice B ($8$): reports $b$ instead of the product $ab$.\n* Choice C ($12$): reports $a + b = 12$ instead of the product.\n\n**Test Day Takeaway:** Two given solutions of $|ax + b| = d$ give two linear equations — one branch each — and the sign of $a$ tells you which solution goes with which branch."
 }

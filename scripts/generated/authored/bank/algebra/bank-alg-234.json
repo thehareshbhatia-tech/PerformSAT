@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-234",
-  "question": "If $(3x + 2)(x - 5) = 3x^2 + kx - 10$ for all values of $x$, what is the value of the constant $k$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-17$"
-    },
-    {
-      "id": "B",
-      "text": "$-13$"
-    },
-    {
-      "id": "C",
-      "text": "$-10$"
-    },
-    {
-      "id": "D",
-      "text": "$13$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "subtracts the outer and inner products (-15 - 2) instead of adding",
-    "C": "reports the constant term",
-    "D": "drops the sign on the combined x-terms"
+ "id": "bank-alg-234",
+ "question": "A weaving shed's daily output, in meters of canvas, is $n(9w + 4)$, where $w$ is the number of looms running. If $63w + 28$ gives the same output for every value of $w$, what is the value of $n$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Outer plus inner: $3x(-5) + 2(x) = -15x + 2x = -13x$. So $k = -13$.\n\n**The Full Solution:**\nStep 1: Expand with FOIL: $(3x + 2)(x - 5) = 3x^2 - 15x + 2x - 10$.\nStep 2: Combine the $x$-terms: $-15x + 2x = -13x$, so the left side is $3x^2 - 13x - 10$.\nStep 3: Match coefficients with $3x^2 + kx - 10$: $k = -13$. Check: the $x^2$ and constant terms agree ($3$ and $-10$). $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-17$): subtracts the inner product instead of adding it, $-15 - 2$.\n* Choice C ($-10$): reports the constant term rather than the $x$-coefficient.\n* Choice D ($13$): combines correctly but drops the negative sign.\n\n**Test Day Takeaway:** When the leading coefficient is not $1$, you cannot just add the constants. Compute outer and inner products separately, keep their signs, and add."
+  {
+   "id": "B",
+   "text": "$7$"
+  },
+  {
+   "id": "C",
+   "text": "$24$"
+  },
+  {
+   "id": "D",
+   "text": "$32$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "copies the constant 4 from inside the parentheses",
+  "C": "subtracts 4 from 28 instead of dividing",
+  "D": "adds 4 to 28 instead of dividing"
+ },
+ "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Distributing gives $9nw + 4n$, so $9n = 63$ and $n = 7$.\n\n**The Full Solution:**\n\nStep 1: Distribute: $n(9w + 4) = 9nw + 4n$.\n\nStep 2: This equals $63w + 28$ for every value of $w$, so the coefficients of $w$ match: $9n = 63$, giving $n = 7$.\n\nStep 3: The constants must match too: $4n = 4(7) = 28$, which agrees with the given constant. Check with $w = 2$: $7(18 + 4) = 154$ and $63(2) + 28 = 154$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($4$): copies the $4$ from inside the parentheses instead of solving $9n = 63$.\n* Choice C ($24$): computes $28 - 4$, subtracting when the relationship $4n = 28$ calls for division.\n* Choice D ($32$): computes $28 + 4$, adding when the relationship $4n = 28$ calls for division.\n\n**Test Day Takeaway:** Reading a factored form backward from its expanded form is one division, and the second pair of terms is a free check on the answer."
 }

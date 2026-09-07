@@ -1,23 +1,23 @@
 {
-  "id": "bank-am-094",
-  "question": "The parabola shown in the $xy$-plane has its vertex at $(-1, -8)$ and passes through the marked point $(1, 0)$. What is the $y$-coordinate of the point on this parabola whose $x$-coordinate is $3$?",
-  "diagram": {
-    "type": "quadraticVertex",
-    "params": {
-      "vertex": [
-        -1,
-        -8
-      ],
-      "a": 2,
-      "showPoints": [
-        [
-          1,
-          0
-        ]
-      ],
-      "showVertex": true
-    }
-  },
-  "correctAnswer": "24",
-  "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~40s):** Vertex form gives $y = a(x + 1)^2 - 8$; the point $(1, 0)$ forces $a = 2$, so at $x = 3$, $y = 2(16) - 8 = 24$.\n\n**The Full Solution:**\nStep 1: With vertex $(-1, -8)$, the equation is $y = a(x + 1)^2 - 8$.\nStep 2: Substitute $(1, 0)$: $0 = a(1 + 1)^2 - 8 = 4a - 8$, so $a = 2$ and $y = 2(x + 1)^2 - 8$.\nStep 3: Evaluate at $x = 3$: $y = 2(3 + 1)^2 - 8 = 2(16) - 8 = 24$. Check the symmetry: $x = 3$ is $4$ units right of the vertex and $x = -5$ is $4$ units left, and both give $y = 24$. $\\checkmark$\n\n**Common Mistakes:** Using $a = 1$ and answering $8$; writing the squared factor as $(x - 1)^2$ because the vertex's $x$-coordinate is negative, which gives $2(2)^2 - 8 = 0$; or trying to read the answer off the grid, where the curve has already left the visible window.\n\n**Test Day Takeaway:** A vertex plus one point pins down the whole parabola. Solve for $a$ first, then evaluate — the figure is a check, not a lookup table."
+ "id": "bank-am-094",
+ "question": "A garden center models weekly sales of bird feeders above its seasonal baseline with the quadratic function $g$ whose graph is shown, and the marked point lies on that graph. If $g(x)=ax^2+bx+c$, what is the value of $c$?",
+ "correctAnswer": "4",
+ "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~30s):** The vertex $(-2,6)$ and the marked point $(2,-2)$ give $g(x)=-\\frac{1}{2}(x+2)^2+6$, whose constant term is $g(0)=4$.\n\n**The Full Solution:**\nStep 1: Read the vertex $(-2,6)$, so $g(x)=a(x+2)^2+6$.\nStep 2: Use the marked point $(2,-2)$: $-2=a(4)^2+6$, so $16a=-8$ and $a=-\\frac{1}{2}$.\nStep 3: The constant term of $ax^2+bx+c$ is $g(0)=-\\frac{1}{2}(2)^2+6=-2+6=4$. Check: expanding gives $g(x)=-\\frac{1}{2}x^2-2x+4$, so $c=4$ ✓\n\n**Common Mistakes:**\n* $6$: reports the vertex's $y$-coordinate, which is $g(-2)$, not $g(0)$.\n* $8$: expands $-\\frac{1}{2}(x+2)^2$ but adds the $2$ instead of subtracting it.\n* $-2$: reports the marked point's $y$-coordinate.\n\n**Test Day Takeaway:** In $ax^2+bx+c$ the constant $c$ is always the output at $x=0$ — evaluate rather than expand when only $c$ is wanted.",
+ "diagram": {
+  "type": "quadraticVertex",
+  "params": {
+   "vertex": [
+    -2,
+    6
+   ],
+   "a": -0.5,
+   "showVertex": true,
+   "showPoints": [
+    [
+     2,
+     -2
+    ]
+   ]
+  }
+ }
 }

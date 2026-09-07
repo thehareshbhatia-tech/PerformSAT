@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-486",
-  "question": "The sum of two numbers is $53$, and their difference is $17$. What is the larger of the two numbers?",
+  "question": "A muralist paints $s$ small panels and $\\ell$ large panels, $18$ panels in all. Each small panel covers $12$ square feet and each large panel covers $30$ square feet, for $360$ square feet in all. How many large panels are painted?",
   "choices": [
     {
       "id": "A",
-      "text": "$18$"
+      "text": "$8$"
     },
     {
       "id": "B",
-      "text": "$35$"
+      "text": "$10$"
     },
     {
       "id": "C",
-      "text": "$36$"
+      "text": "$12$"
     },
     {
       "id": "D",
-      "text": "$70$"
+      "text": "$20$"
     }
   ],
   "distractorNotes": {
-    "A": "reports the smaller number",
-    "C": "computes 53 - 17 and forgets to divide by 2",
-    "D": "computes 53 + 17 and forgets to divide by 2"
+    "B": "reports the 10 small panels instead of the large ones",
+    "C": "divides 360 by 30, treating every panel as a large one",
+    "D": "divides 360 by the 18 panels, using an average area of 20 square feet"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Adding the sum and the difference doubles the larger number: $53 + 17 = 70$, so the larger number is $\\dfrac{70}{2} = 35$.\n\n**The Full Solution:**\nStep 1: Let $L$ be the larger number and $S$ the smaller. The conditions give $L + S = 53$ and $L - S = 17$.\nStep 2: Add the two equations: the $S$ terms cancel, leaving $2L = 70$, so $L = 35$.\nStep 3: Then $S = 53 - 35 = 18$. Check the difference: $35 - 18 = 17$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($18$): is the smaller number, found from $2S = 53 - 17 = 36$.\n* Choice C ($36$): stops at $53 - 17 = 36$, which is $2S$, without dividing by $2$.\n* Choice D ($70$): stops at $53 + 17 = 70$, which is $2L$, without dividing by $2$.\n\n**Test Day Takeaway:** Sum and difference of two numbers: add the equations to get twice the larger, subtract to get twice the smaller, and always finish with the division by $2$."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** If all $18$ panels were small they would cover $216$ square feet; each swap to a large panel adds $18$ square feet, and $\\frac{360 - 216}{18} = 8$.\n\n**The Full Solution:**\nStep 1: Write both equations. The panel count gives $s + \\ell = 18$, and the coverage gives $12s + 30\\ell = 360$.\nStep 2: Substitute $s = 18 - \\ell$ into the coverage equation: $12(18 - \\ell) + 30\\ell = 360$, which becomes $216 - 12\\ell + 30\\ell = 360$, or $216 + 18\\ell = 360$.\nStep 3: Solve: $18\\ell = 144$, so $\\ell = 8$, and $s = 18 - 8 = 10$. Check: $12(10) + 30(8) = 120 + 240 = 360$, and $10 + 8 = 18$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($10$): solves the system correctly but reports the small-panel count.\n* Choice C ($12$): divides $360$ by $30$, as if every panel painted were a large one.\n* Choice D ($20$): divides $360$ by the $18$ panels to get an average of $20$ square feet and reports that as a count.\n\n**Test Day Takeaway:** A \"how many of each\" setup needs BOTH a count equation and a value equation; substitute one into the other, then answer for the item the question names."
 }

@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-489",
-  "question": "A wire $60$ centimeters long is cut into two pieces. One piece is $14$ centimeters longer than the other. What is the length, in centimeters, of the shorter piece?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$23$"
-    },
-    {
-      "id": "B",
-      "text": "$30$"
-    },
-    {
-      "id": "C",
-      "text": "$37$"
-    },
-    {
-      "id": "D",
-      "text": "$46$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "halves the total length and ignores the 14-centimeter difference",
-    "C": "reports the longer piece",
-    "D": "subtracts 14 from 60 but never divides by 2"
+ "id": "bank-alg-489",
+ "question": "A lab tests $x$ infant samples and $y$ adult samples, $150$ samples in all. Each infant sample uses $2$ milliliters of reagent and each adult sample uses $5$ milliliters, for $510$ milliliters in all. Which system represents this situation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$x + y = 150$ and $5x + 2y = 510$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Remove the extra $14$ centimeters and the two pieces would be equal: $60 - 14 = 46$, so each would be $23$ centimeters. The shorter piece is $23$ centimeters.\n\n**The Full Solution:**\nStep 1: Let $s$ be the length of the shorter piece and $\\ell$ the length of the longer piece, in centimeters. The wire gives $s + \\ell = 60$, and the comparison gives $\\ell = s + 14$.\nStep 2: Substitute: $s + (s + 14) = 60$, so $2s + 14 = 60$, $2s = 46$, and $s = 23$.\nStep 3: Then $\\ell = 23 + 14 = 37$. Check the total: $23 + 37 = 60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($30$): splits the wire in half, ignoring that one piece is $14$ centimeters longer.\n* Choice C ($37$): is the longer piece, not the shorter one.\n* Choice D ($46$): subtracts $14$ from $60$ and stops, forgetting that $46$ is the combined length of two equal pieces.\n\n**Test Day Takeaway:** \"One is $k$ more than the other\" plus a total is a two-equation system in disguise: subtract $k$ from the total, halve it, and read off which piece was asked for."
+  {
+   "id": "B",
+   "text": "$x + y = 510$ and $2x + 5y = 150$"
+  },
+  {
+   "id": "C",
+   "text": "$x + y = 150$ and $7(x + y) = 510$"
+  },
+  {
+   "id": "D",
+   "text": "$x + y = 150$ and $2x + 5y = 510$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "attaches 5 milliliters to the infant samples and 2 to the adult samples, swapping the two rates",
+  "B": "swaps the two totals, using 510 as the sample count and 150 as the reagent volume",
+  "C": "charges every sample the combined 7 milliliters, as if the two types were always tested in pairs"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The sample count gives $x + y = 150$, and the reagent volume gives $2x + 5y = 510$ because each infant sample contributes $2$ milliliters and each adult sample $5$.\n\n**The Full Solution:**\nStep 1: Count equation. There are $x$ infant samples and $y$ adult samples, and the two together number $150$: $x + y = 150$.\nStep 2: Volume equation. Each infant sample uses $2$ milliliters, so those samples use $2x$; each adult sample uses $5$ milliliters, so those use $5y$. The total is $2x + 5y = 510$.\nStep 3: Verify the system has a sensible solution: substituting $x = 150 - y$ gives $300 + 3y = 510$, so $y = 70$ adult samples and $x = 80$ infant samples, and $2(80) + 5(70) = 160 + 350 = 510$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: attaches $5$ milliliters to infant samples and $2$ to adult samples, swapping the two rates.\n* Choice B: swaps the two totals, treating $510$ as a number of samples and $150$ as a volume.\n* Choice C: charges every sample the combined $7$ milliliters, as if the two types were always run in matched pairs.\n\n**Test Day Takeaway:** Build one equation per total in the problem, and keep each rate attached to the count it multiplies — a swapped rate still produces a solvable but wrong system."
 }

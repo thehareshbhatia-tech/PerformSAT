@@ -1,29 +1,29 @@
 {
- "id": "bank-alg-296",
- "question": "$7x - 4 = 3x + 20$\n\nWhich of the following is the solution to the given equation?",
+ "question": "One estimate for a parapet job is $7x+9$ labor hours and another is $4x+30$ labor hours, where $x$ is the number of crews. For what value of $x$ do the two estimates agree?",
  "choices": [
   {
    "id": "A",
-   "text": "$-6$"
+   "text": "$3$"
   },
   {
    "id": "B",
-   "text": "$4$"
+   "text": "$7$"
   },
   {
    "id": "C",
-   "text": "$6$"
+   "text": "$13$"
   },
   {
    "id": "D",
-   "text": "$8$"
+   "text": "$21$"
   }
  ],
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "sign error when moving terms (4x = -24)",
-  "B": "moves the constant the wrong way (4x = 16)",
-  "D": "divides 24 by 3 instead of 4"
+  "A": "divides 21 by 7, the coefficient on the left, instead of by the difference 3",
+  "C": "adds the constants and divides, computing (30 + 9)/3 = 13",
+  "D": "stops after subtracting, reporting the value of 3x rather than x"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Linear Equation with Variables on Both Sides**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Move $3x$ left and $-4$ right: $4x = 24$, so $x = 6$.\n\n**The Full Solution:**\nStep 1: Subtract $3x$ from both sides: $4x - 4 = 20$.\nStep 2: Add $4$ to both sides: $4x = 24$.\nStep 3: Divide by $4$: $x = 6$. Check: $7(6) - 4 = 38$ and $3(6) + 20 = 38$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): a sign error in collecting terms, such as $4x = -24$.\n* Choice B ($4$): subtracts $4$ from $20$ instead of adding, giving $4x = 16$.\n* Choice D ($8$): divides $24$ by the coefficient $3$ from the right side instead of the combined $4$.\n\n**Test Day Takeaway:** Collect variables on one side and constants on the other with opposite operations, then divide by the combined coefficient."
+ "explanation": "**SAT Pattern: Linear Equation with Variables on Both Sides**\n\n**Choice B is correct.** Setting $7x+9=4x+30$ gives $3x=21$, so $x=7$.\n\n**The Fast Way (~25s):** Move the $4x$ left and the $9$ right: $3x=21$, so $x=7$.\n\n**The Full Solution:**\n\nStep 1: Set the two estimates equal: $7x+9=4x+30$.\n\nStep 2: Subtract $4x$ from both sides: $3x+9=30$. Subtract $9$: $3x=21$.\n\nStep 3: Divide by $3$: $x=7$. Check: $7(7)+9=58$ and $4(7)+30=58$, so both estimates give $58$ labor hours.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($3$): divides $21$ by $7$, the original left-hand coefficient, rather than by the difference of the coefficients.\n* Choice C ($13$): adds the constants instead of subtracting, computing $\\frac{30+9}{3}$.\n* Choice D ($21$): reports $3x$ and never divides by $3$.\n\n**Test Day Takeaway:** After collecting variables on one side, the divisor is the difference of the two coefficients, not either one alone.",
+ "id": "bank-alg-296"
 }

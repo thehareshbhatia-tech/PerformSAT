@@ -1,29 +1,51 @@
 {
-  "id": "bank-alg-468",
-  "question": "The equations $2x + 5y = 6$ and $ax + by = 18$, where $a$ and $b$ are constants, represent the same line in the $xy$-plane. What is the value of $a + b$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$7$"
-    },
-    {
-      "id": "B",
-      "text": "$15$"
-    },
-    {
-      "id": "C",
-      "text": "$18$"
-    },
-    {
-      "id": "D",
-      "text": "$21$"
-    }
+ "id": "bank-alg-468",
+ "question": "A striping crew's two work orders are summarized in the table by the coefficients of $x$ and $y$ and the constant in each equation. How many solutions $(x, y)$ does the system consisting of these two equations have?",
+ "questionTable": {
+  "headers": [
+   "Work order",
+   "Coefficient of $x$",
+   "Coefficient of $y$",
+   "Constant"
   ],
-  "distractorNotes": {
-    "A": "adds the original coefficients 2 + 5 without scaling them.",
-    "B": "reports b = 15 alone.",
-    "C": "reports the constant 18."
+  "rows": [
+   [
+    "I",
+    "$4$",
+    "$-10$",
+    "$18$"
+   ],
+   [
+    "II",
+    "$-6$",
+    "$15$",
+    "$-24$"
+   ]
+  ]
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "Exactly one"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice D is correct.**\n\n**The Fast Way (~8s):** The constants go from $6$ to $18$, a factor of $3$, so $a = 6$ and $b = 15$; $a + b = 21$.\n\n**The Full Solution:**\nStep 1: Same line means the second equation is a multiple of the first. The constants fix the factor: $\\frac{18}{6} = 3$.\nStep 2: Apply the factor to each coefficient: $a = 3 \\cdot 2 = 6$ and $b = 3 \\cdot 5 = 15$.\nStep 3: $a + b = 6 + 15 = 21$. Check: $6x + 15y = 18$ divided by $3$ is $2x + 5y = 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): adds the original coefficients $2 + 5$ without scaling them.\n* Choice B ($15$): reports $b = 15$ alone.\n* Choice C ($18$): reports the constant $18$.\n\n**Test Day Takeaway:** When the constant is the known pair, use it to find the multiplier, then scale every coefficient by it before combining."
+  {
+   "id": "B",
+   "text": "Exactly two"
+  },
+  {
+   "id": "C",
+   "text": "Infinitely many"
+  },
+  {
+   "id": "D",
+   "text": "Zero"
+  }
+ ],
+ "distractorNotes": {
+  "A": "assumes any two equations with different numbers must cross once, without testing the coefficient ratios",
+  "B": "two lines meet at most once, so a linear system never has exactly two solutions",
+  "C": "checks only the x- and y-coefficients, which both scale by -1.5, and misses that 18 would have to become -27"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Both coefficients scale by $-1.5$ from order I to order II, but the constant would then have to be $-27$, not $-24$, so the lines are parallel and distinct.\n\n**The Full Solution:**\nStep 1: Write the two equations from the table: $4x - 10y = 18$ and $-6x + 15y = -24$.\nStep 2: Compare the coefficients. $\\frac{-6}{4} = -1.5$ and $\\frac{15}{-10} = -1.5$, so the left sides are proportional with factor $-1.5$; the two lines have the same slope.\nStep 3: Compare the constants with the same factor: $-1.5 \\cdot 18 = -27$, but the table gives $-24$. Same slope with different constants means parallel, distinct lines and no common point. Check: dividing order I by $2$ gives $2x - 5y = 9$, and dividing order II by $-3$ gives $2x - 5y = 8$; $9 \\neq 8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Exactly one): assumes two equations with different-looking numbers must cross once, skipping the coefficient-ratio test.\n* Choice B (Exactly two): two distinct lines meet at most once, so a two-equation linear system can never have exactly two solutions.\n* Choice C (Infinitely many): stops after seeing both coefficients scale by $-1.5$ and never checks that the constant fails to scale the same way.\n\n**Test Day Takeaway:** Reduce both equations to lowest terms; identical left sides with different constants means zero solutions, and identical everything means infinitely many."
 }

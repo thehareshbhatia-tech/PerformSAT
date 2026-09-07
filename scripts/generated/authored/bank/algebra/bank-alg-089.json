@@ -1,10 +1,29 @@
 {
   "id": "bank-alg-089",
-  "question": "The function $f$ is linear, $f(-4) = 19$, and $f(6) = -6$. In the $xy$-plane, the graph of $y = f(x)$ crosses the $y$-axis at the point $(0, b)$. What is the value of $b$?",
+  "question": "On a site grid in which each unit represents one meter, a straight fiber-optic run is laid so that it contains the two plotted points. At what $y$-value does the run cross the $y$-axis?",
+  "diagram": {
+    "type": "coordinatePoints",
+    "params": {
+      "points": [
+        [
+          -6,
+          13
+        ],
+        [
+          9,
+          3
+        ]
+      ],
+      "xMin": -8,
+      "xMax": 11,
+      "yMin": -4,
+      "yMax": 15
+    }
+  },
   "choices": [
     {
       "id": "A",
-      "text": "$-31$"
+      "text": "$3$"
     },
     {
       "id": "B",
@@ -12,18 +31,18 @@
     },
     {
       "id": "C",
-      "text": "$19$"
+      "text": "$13$"
     },
     {
       "id": "D",
-      "text": "$29$"
+      "text": "$17$"
     }
   ],
   "distractorNotes": {
-    "A": "uses run 6 - 4 = 2, slope -12.5",
-    "C": "reports f(-4) as the intercept",
-    "D": "uses slope +2.5"
+    "A": "reports the y-coordinate of the right-hand point",
+    "C": "reports the y-coordinate of the left-hand point",
+    "D": "uses a slope of +2/3, giving 13 + 4"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Find y-Intercept from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Slope $= \\frac{-6 - 19}{6 - (-4)} = \\frac{-25}{10} = -2.5$. From $x = -4$ to $x = 0$ is a run of $4$, so $b = 19 + (-2.5)(4) = 9$.\n\n**The Full Solution:**\nStep 1: Slope from the two points $(-4, 19)$ and $(6, -6)$: $m = \\frac{-6 - 19}{6 - (-4)} = \\frac{-25}{10} = -2.5$. Note the run is $10$, not $2$, because the inputs are $-4$ and $6$.\nStep 2: Write $f(x) = -2.5x + b$ and use $f(-4) = 19$: $19 = -2.5(-4) + b = 10 + b$, so $b = 9$.\nStep 3: Check with the other point: $f(6) = -2.5(6) + 9 = -15 + 9 = -6$. $\\checkmark$ The $y$-intercept is $(0, 9)$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-31$): computes the run as $6 - 4 = 2$, getting slope $-12.5$, then $19 - 12.5(4) = -31$.\n* Choice C ($19$): reports $f(-4)$ as the intercept, treating the input $-4$ as if it were $0$.\n* Choice D ($29$): uses slope $+2.5$ and adds $10$ instead of subtracting.\n\n**Test Day Takeaway:** With a negative input, the run is $x_2 - x_1$ with the sign kept; then substitute one point into $y = mx + b$ and confirm with the other."
+  "explanation": "**SAT Pattern: Find y-Intercept from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The slope is $\\frac{3 - 13}{9 + 6} = -\\frac{2}{3}$; walking $6$ meters right from $(-6, 13)$ drops the height by $4$, giving $9$.\n\n**The Full Solution:**\nStep 1: Read the two points: $(-6, 13)$ and $(9, 3)$. The slope is $\\frac{3 - 13}{9 - (-6)} = \\frac{-10}{15} = -\\frac{2}{3}$.\nStep 2: Use point-slope form from $(-6, 13)$: $y - 13 = -\\frac{2}{3}(x + 6)$.\nStep 3: Set $x = 0$: $y - 13 = -\\frac{2}{3}(6) = -4$, so $y = 9$. Check: from $(0, 9)$, moving $9$ to the right drops the height by $\\frac{2}{3}(9) = 6$, landing at $(9, 3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the $y$-coordinate of the right-hand point instead of the crossing height.\n* Choice C ($13$): reports the $y$-coordinate of the left-hand point, as if the run were level.\n* Choice D ($17$): uses a slope of $+\\frac{2}{3}$, adding $4$ to $13$ instead of subtracting it.\n\n**Test Day Takeaway:** Find the slope first, then travel from a known point to $x = 0$ — the sign of the slope decides whether the height rises or falls on the way."
 }

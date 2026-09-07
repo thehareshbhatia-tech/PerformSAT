@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-430",
-  "question": "For what value of $x$ is the equation $\\frac{3}{4}x = -12$ true?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-16$"
-    },
-    {
-      "id": "B",
-      "text": "$-9$"
-    },
-    {
-      "id": "C",
-      "text": "$9$"
-    },
-    {
-      "id": "D",
-      "text": "$16$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "multiplies -12 by \\frac{3}{4} instead of by the reciprocal \\frac{4}{3}.",
-    "C": "multiplies by \\frac{3}{4} and also drops the negative sign.",
-    "D": "uses the reciprocal correctly but loses the negative sign."
+ "id": "bank-alg-430",
+ "question": "A rinse-tank model uses $kx = -84$, where $x$ is the number of rinse cycles run and $k$ is the change in fabric mass, in grams, per cycle. The model is satisfied when $x = 12$. What is the value of $k$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-96$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~8s):** Multiply both sides by the reciprocal $\\frac{4}{3}$: $x = -12 \\cdot \\frac{4}{3} = -16$.\n\n**The Full Solution:**\nStep 1: The coefficient of $x$ is $\\frac{3}{4}$. Multiplying by its reciprocal $\\frac{4}{3}$ makes the coefficient $1$.\nStep 2: $\\frac{4}{3} \\cdot \\frac{3}{4}x = \\frac{4}{3}(-12)$, so $x = -\\frac{48}{3} = -16$.\nStep 3: Check: $\\frac{3}{4}(-16) = -12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-9$): multiplies $-12$ by $\\frac{3}{4}$ instead of by the reciprocal $\\frac{4}{3}$.\n* Choice C ($9$): multiplies by $\\frac{3}{4}$ and also drops the negative sign.\n* Choice D ($16$): uses the reciprocal correctly but loses the negative sign.\n\n**Test Day Takeaway:** To clear a fractional coefficient, multiply by its reciprocal, not by the fraction itself."
+  {
+   "id": "B",
+   "text": "$-72$"
+  },
+  {
+   "id": "C",
+   "text": "$-7$"
+  },
+  {
+   "id": "D",
+   "text": "$7$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "subtracts 12 from -84 instead of dividing",
+  "B": "adds 12 to -84 instead of dividing",
+  "D": "divides correctly but drops the negative sign"
+ },
+ "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Substituting gives $12k = -84$, so $k = \\frac{-84}{12} = -7$.\n\n**The Full Solution:**\n\nStep 1: Substitute $x = 12$ into the model: $k(12) = -84$.\n\nStep 2: Divide both sides by $12$: $k = \\frac{-84}{12}$.\n\nStep 3: A negative divided by a positive is negative, so $k = -7$ grams per cycle. Check: $(-7)(12) = -84$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-96$): computes $-84 - 12$, subtracting where division is required.\n* Choice B ($-72$): computes $-84 + 12$, adding where division is required.\n* Choice D ($7$): divides correctly but drops the negative sign, which would describe mass being gained rather than lost.\n\n**Test Day Takeaway:** Keep the sign with the number through the division; a negative total over a positive count stays negative."
 }

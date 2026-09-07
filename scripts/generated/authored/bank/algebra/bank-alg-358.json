@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-358",
-  "question": "Which of the following describes the solution set of the inequality $-3x + 8 \\leq 2$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$x \\leq -2$"
-    },
-    {
-      "id": "B",
-      "text": "$x \\leq 2$"
-    },
-    {
-      "id": "C",
-      "text": "$x \\geq 6$"
-    },
-    {
-      "id": "D",
-      "text": "$x \\geq 2$"
-    }
-  ],
-  "correctAnswer": "D",
-  "distractorNotes": {
-    "A": "divided -6 by 3 instead of -3 and kept the direction",
-    "B": "divided by -3 but did not flip the symbol",
-    "C": "flipped the symbol but never divided by 3"
+ "id": "bank-alg-358",
+ "question": "A cooling protocol requires that $-4t \\ge 52$, where $t$ is the hourly change in temperature, in degrees Celsius, of a reagent cabinet. Which inequality gives all possible values of $t$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$t \\le -13$"
   },
-  "explanation": "**SAT Pattern: One-Variable Linear Inequality**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Subtract $8$: $-3x \\leq -6$. Divide by $-3$ and FLIP: $x \\geq 2$.\n\n**The Full Solution:**\nStep 1: Subtract $8$ from both sides: $-3x \\leq -6$.\nStep 2: Divide both sides by $-3$. Dividing by a negative reverses the inequality: $x \\geq 2$.\nStep 3: The solution set is all numbers greater than or equal to $2$.\nCheck: $x = 3$ gives $-9 + 8 = -1 \\leq 2$ (true); $x = 0$ gives $8 \\leq 2$ (false), so values below $2$ are excluded. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x \\leq -2$): divides $-6$ by $3$ rather than $-3$, getting the wrong sign on $2$, and never flips.\n* Choice B ($x \\leq 2$): gets $2$ but keeps the original direction; $x = 0$ would then be a solution, and it is not.\n* Choice C ($x \\geq 6$): flips correctly but forgets to divide $-6$ by $-3$, reading $-3x \\leq -6$ as $x \\geq 6$.\n\n**Test Day Takeaway:** A negative coefficient on $x$ means one flip of the symbol at the division step; test a number afterward to confirm the direction."
+  {
+   "id": "B",
+   "text": "$t \\le 13$"
+  },
+  {
+   "id": "C",
+   "text": "$t \\ge -208$"
+  },
+  {
+   "id": "D",
+   "text": "$t \\ge -13$"
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "drops the negative sign of the -4 when dividing",
+  "C": "multiplies by -4 instead of dividing by it",
+  "D": "keeps the direction of the inequality after dividing by a negative number"
+ },
+ "explanation": "**SAT Pattern: One-Variable Linear Inequality**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Dividing by $-4$ reverses the inequality: $t \\le -13$.\n\n**The Full Solution:**\n\nStep 1: The inequality is $-4t \\ge 52$, and $t$ is multiplied by $-4$.\n\nStep 2: Divide both sides by $-4$. Dividing an inequality by a negative number reverses its direction.\n\nStep 3: $t \\le \\frac{52}{-4} = -13$. Check: $t = -13$ gives $-4(-13) = 52$, and $t = -20$ gives $80 \\ge 52$, while $t = 0$ gives $0 \\ge 52$, which is false.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($t \\le 13$): drops the negative sign of the $-4$ while still reversing the direction.\n* Choice C ($t \\ge -208$): multiplies $52$ by $-4$ instead of dividing by it.\n* Choice D ($t \\ge -13$): divides correctly but keeps the direction unchanged.\n\n**Test Day Takeaway:** Dividing or multiplying an inequality by a negative number flips the symbol; testing one value confirms the direction."
 }

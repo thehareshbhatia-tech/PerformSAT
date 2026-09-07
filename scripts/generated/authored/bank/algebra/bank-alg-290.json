@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-290",
- "question": "$|2x - 5| = 11$\n\nWhat is the sum of the solutions to the given equation?",
+ "question": "A zoning rule sets the permitted facade height $h$, in feet, for a new building so that twice the height differs from the block's average of $92$ feet by exactly $14$ feet. Which of the following equations represents this rule?",
  "choices": [
   {
    "id": "A",
-   "text": "$-5$"
+   "text": "$|2h - 92| = 14$"
   },
   {
    "id": "B",
-   "text": "$5$"
+   "text": "$|2h - 14| = 92$"
   },
   {
    "id": "C",
-   "text": "$8$"
+   "text": "$|h - 92| = 14$"
   },
   {
    "id": "D",
-   "text": "$16$"
+   "text": "$2h - 92 = 14$"
   }
  ],
  "distractorNotes": {
-  "A": "sign error on both solutions (adds -8 and 3)",
-  "C": "reports only the positive solution",
-  "D": "treats both cases as positive (8 + 8)"
+  "B": "swaps the 92 and the 14, subtracting the gap instead of the reference height",
+  "C": "leaves out the doubling of the height",
+  "D": "drops the absolute value and keeps only the branch above 92"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The two cases $2x - 5 = 11$ and $2x - 5 = -11$ give $x = 8$ and $x = -3$; the sum is $5$. (Shortcut: the solutions are symmetric about $x = \\frac{5}{2}$, so their sum is $2 \\cdot \\frac{5}{2} = 5$.)\n\n**The Full Solution:**\nStep 1: Case 1: $2x - 5 = 11$, so $2x = 16$ and $x = 8$.\nStep 2: Case 2: $2x - 5 = -11$, so $2x = -6$ and $x = -3$.\nStep 3: Sum: $8 + (-3) = 5$. Check: $|16 - 5| = 11$ and $|-6 - 5| = 11$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): flips the sign of each solution, adding $-8$ and $3$.\n* Choice C ($8$): reports the positive solution alone instead of the sum.\n* Choice D ($16$): treats both cases as $+11$ and doubles $8$.\n\n**Test Day Takeaway:** For $|ax - b| = c$ the two solutions are symmetric about $x = \\frac{b}{a}$, so their sum is $\\frac{2b}{a}$; a fast check."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Twice the height is $2h$; \"differs from $92$ by exactly $14$\" is $|2h - 92| = 14$.\n\n**The Full Solution:**\nStep 1: Translate the quantity being compared: twice the height is $2h$.\nStep 2: \"Differs from $92$ feet\" means subtract $92$, and \"by exactly $14$ feet\" means that difference has size $14$ in either direction.\nStep 3: That is $|2h - 92| = 14$. Check: the equation gives $2h = 106$ or $2h = 78$, so $h = 53$ or $h = 39$, and both are $14$ feet of doubled height away from $92$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($|2h - 14| = 92$): swaps the two numbers, subtracting the gap instead of the reference value.\n* Choice C ($|h - 92| = 14$): compares the height itself to $92$ and leaves out the doubling.\n* Choice D ($2h - 92 = 14$): drops the absolute value and keeps only the case in which $2h$ exceeds $92$.\n\n**Test Day Takeaway:** \"Differs from $c$ by exactly $d$\" is always $|\\text{quantity} - c| = d$ — the quantity, not the variable alone."
 }

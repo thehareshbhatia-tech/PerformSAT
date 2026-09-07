@@ -53,16 +53,19 @@ export const dimensionalAnalysisQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "A pump delivers water at a constant rate of $4$ liters every $5$ seconds. At this rate, how many liters of water does the pump deliver in $45$ minutes?",
+      question: "A soil-coring drill advances $k$ centimeters each second while sampling a field plot, and a technician must record the drill's rate in meters per hour. Which expression gives that recorded rate?",
       choices: [
-        { id: "A", text: "$36$" },
-        { id: "B", text: "$540$" },
-        { id: "C", text: "$2{,}160$" },
-        { id: "D", text: "$3{,}375$" }
+        // distractor: uses 1 meter = 10,000 centimeters
+        { id: "A", text: "$0.36k$" },
+        // distractor: uses 1 meter = 1,000 centimeters
+        { id: "B", text: "$3.6k$" },
+        { id: "C", text: "$36k$" },
+        // distractor: uses 1 meter = 10 centimeters
+        { id: "D", text: "$360k$" }
       ],
       correctAnswer: "C",
-      hint: "The rate is stated in seconds but the time is stated in minutes — reconcile the two units before dividing anything.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** $45$ minutes is $2{,}700$ seconds; that is $\\frac{2{,}700}{5}=540$ five-second intervals, each delivering $4$ liters: $540(4)=2{,}160$ liters — choice C.\n\n**The Full Solution:**\nStep 1: Convert the elapsed time to seconds: $45(60)=2{,}700$ seconds.\nStep 2: Count the five-second intervals: $\\frac{2{,}700}{5}=540$ intervals.\nStep 3: Each interval delivers $4$ liters, so the pump delivers $540(4)=2{,}160$ liters.\nStep 4: Check with a unit rate: $\\frac{4}{5}=0.8$ liter per second, and $0.8(2{,}700)=2{,}160$ liters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): treats the $45$ minutes as $45$ seconds: $\\frac{45}{5}(4)=36$.\n* Choice B ($540$): converts the time correctly but stops at the number of intervals, $\\frac{2{,}700}{5}=540$, without multiplying by the $4$ liters each one delivers.\n* Choice D ($3{,}375$): inverts the rate to $5$ liters every $4$ seconds: $\\frac{2{,}700}{4}(5)=3{,}375$.\n\n**Test Day Takeaway:** Turn a two-number rate into a unit rate when the arithmetic gets crowded: liters per second times seconds is a single multiplication with no intervals to miscount.",
+      hint: "Convert the seconds and the centimeters one at a time.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $k$ cm/s is $3600k$ cm/h, and dividing by $100$ gives $36k$ meters per hour.\n\n**The Full Solution:**\nStep 1: There are $3600$ seconds in an hour, so the drill advances $3600k$ centimeters per hour.\nStep 2: There are $100$ centimeters in a meter, so divide by $100$.\nStep 3: $\\dfrac{3600k}{100} = 36k$ meters per hour. Check with $k = 1$: $1$ cm/s is $36$ m/h, since $3600$ cm is $36$ m ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.36k$): divides by $10{,}000$, the number of square centimeters in a square meter.\n* Choice B ($3.6k$): divides by $1000$, treating centimeters as millimeters.\n* Choice D ($360k$): divides by $10$, as if a meter held only $10$ centimeters.\n\n**Test Day Takeaway:** Convert one unit at a time and write each conversion as a fraction so the unwanted units cancel.",
       skills: ["unit-conversion", "rate-conversion"]
     },
     {

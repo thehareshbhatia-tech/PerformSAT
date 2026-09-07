@@ -1,6 +1,6 @@
 {
- "id": "bank-alg-259",
- "question": "$5x + 2y = 23$\n\n$x + 4y = 13$\n\nIf $(x, y)$ is the solution to the given system of equations, what is the value of $x + y$?",
- "correctAnswer": "6",
- "explanation": "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~10s):** Add the equations: $6x + 6y = 36$, so $x + y = 6$.\n\n**The Full Solution:**\nStep 1: Adding the two equations gives $6x + 6y = 36$.\nStep 2: Divide by $6$: $x + y = 6$.\nStep 3: Check by solving: $x = 13 - 4y$, so $5(13 - 4y) + 2y = 23$ gives $65 - 18y = 23$, $y = \\frac{7}{3}$, $x = \\frac{11}{3}$, and $x + y = \\frac{18}{3} = 6$. $\\checkmark$\n\n**Common Mistakes:** Solving for $x$ and $y$ separately and making an arithmetic slip with the fractions, or reporting $36$ without dividing by $6$.\n\n**Test Day Takeaway:** If the two equations add to a multiple of the target, the answer is one addition and one division away, even when $x$ and $y$ themselves are fractions."
+  "question": "A visibility index is computed as $9m - 4n$ at one airport and as $7m - 5n$ at another, from the same counts $m$ of clear hours and $n$ of foggy hours. The two indices are $70$ and $45$. What is the value of $2m + n$?",
+  "correctAnswer": "25",
+  "explanation": "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~30s):** $(9m - 4n) - (7m - 5n) = 2m + n$, so the answer is $70 - 45 = 25$.\n\n**The Full Solution:**\n\nStep 1: Subtract the second index from the first: $(9m - 4n) - (7m - 5n)$.\n\nStep 2: Combine like terms: $9m - 7m = 2m$ and $-4n - (-5n) = n$, so the difference is $2m + n$.\n\nStep 3: The same subtraction on the values gives $70 - 45 = 25$. Check with $m = 10$ and $n = 5$: $9(10) - 4(5) = 70$ and $7(10) - 5(5) = 45$.\n\n**Common Mistakes:** Adding the indices and reporting $115$; subtracting in the other order and reporting $-25$; solving for $m$ and $n$ separately and reporting $10$.\n\n**Test Day Takeaway:** Subtracting a negative coefficient adds; write the subtraction out term by term before touching the numbers.",
+  "id": "bank-alg-259"
 }

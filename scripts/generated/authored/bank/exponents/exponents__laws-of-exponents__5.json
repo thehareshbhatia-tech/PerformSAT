@@ -1,30 +1,29 @@
 {
- "id": 5,
- "question": "For all positive values of $x$ and $y$, the expression $\\left(\\dfrac{8x^6}{y^{-3}}\\right)^{\\frac{2}{3}}$ is equivalent to which of the following?",
+ "question": "The gain of a star tracker's amplifier is $\\dfrac{\\sqrt{x^{9}}}{x^{-3/2}}$, where the aperture setting $x$ is a positive number of millimeters. Which expression is equivalent to that gain?",
+ "hint": "Both parts of the quotient can be written as powers of $x$.",
  "choices": [
   {
    "id": "A",
-   "text": "$\\dfrac{4x^4}{y^2}$"
+   "text": "$x^{3}$"
   },
   {
    "id": "B",
-   "text": "$4x^4y^2$"
+   "text": "$x^{6}$"
   },
   {
    "id": "C",
-   "text": "$\\dfrac{16x^4y^2}{3}$"
+   "text": "$x^{15/2}$"
   },
   {
    "id": "D",
-   "text": "$8x^4y^2$"
+   "text": "$x^{21/2}$"
   }
  ],
- "correctAnswer": "B",
- "hint": "Clear the negative exponent out of the denominator before the outer power is applied.",
  "distractorNotes": {
-  "A": "drops the negative sign on the y exponent",
-  "C": "multiplies 8 by two-thirds",
-  "D": "never raises the coefficient"
+  "A": "subtracts 3/2 instead of adding it",
+  "C": "reads the denominator's exponent as -3 rather than -3/2",
+  "D": "drops the square root and uses x^9 in the numerator"
  },
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~50s):** The inside is $8x^6y^3$; raising each factor to the $\\frac{2}{3}$ power gives $4x^4y^2$.\n\n**The Full Solution:**\nStep 1: A negative exponent in the denominator moves to the numerator: $\\frac{8x^6}{y^{-3}} = 8x^6y^3$.\nStep 2: Distribute the outer exponent over every factor: $8^{\\frac{2}{3}}\\left(x^6\\right)^{\\frac{2}{3}}\\left(y^3\\right)^{\\frac{2}{3}}$.\nStep 3: $8^{\\frac{2}{3}} = \\left(\\sqrt[3]{8}\\right)^2 = 2^2 = 4$, $x^{6 \\cdot \\frac{2}{3}} = x^4$, and $y^{3 \\cdot \\frac{2}{3}} = y^2$, so the expression is $4x^4y^2$. Check at $x = y = 1$: the original is $8^{\\frac{2}{3}} = 4$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4x^4}{y^2}$): drops the negative sign and treats the denominator as $y^3$, so $\\left(y^3\\right)^{\\frac{2}{3}} = y^2$ stays underneath instead of moving up.\n* Choice C ($\\frac{16x^4y^2}{3}$): multiplies $8$ by $\\frac{2}{3}$ instead of raising $8$ to the $\\frac{2}{3}$ power.\n* Choice D ($8x^4y^2$): applies the outer exponent to the variables but leaves the coefficient $8$ untouched.\n\n**Test Day Takeaway:** A rational exponent is a root and a power: the denominator takes the root, the numerator raises it. The coefficient obeys the same rule as the variables."
+ "correctAnswer": "B",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~35s):** $\\sqrt{x^{9}} = x^{9/2}$, and dividing by $x^{-3/2}$ adds $\\dfrac32$, giving $x^{6}$.\n\n**The Full Solution:**\nStep 1: Rewrite the root as a fractional exponent: $\\sqrt{x^{9}} = x^{9/2}$.\nStep 2: Dividing by a power subtracts its exponent: $x^{9/2 - (-3/2)}$.\nStep 3: Simplify: $\\dfrac92 + \\dfrac32 = 6$, so the gain is $x^{6}$. Check at $x = 4$: $\\sqrt{4^{9}} = 2^{9} = 512$ and $4^{-3/2} = \\dfrac18$, so the quotient is $4096 = 4^{6}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{3}$): subtracts $\\dfrac32$ instead of adding it, ignoring the minus sign already in the denominator.\n* Choice C ($x^{15/2}$): reads the denominator's exponent as $-3$, giving $\\dfrac92 + 3$.\n* Choice D ($x^{21/2}$): leaves the numerator as $x^{9}$, forgetting the square root, and adds $\\dfrac32$.\n\n**Test Day Takeaway:** Turn every root into a fractional exponent first; then one subtraction finishes the problem."
 }

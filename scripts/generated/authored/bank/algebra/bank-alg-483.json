@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-483",
-  "question": "In the $xy$-plane, the graphs of $y = -2x + 9$ and $3x - 2y = 10$ intersect at the point $(a, b)$. What is the value of $a$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-28$"
-    },
-    {
-      "id": "B",
-      "text": "$1$"
-    },
-    {
-      "id": "C",
-      "text": "$4$"
-    },
-    {
-      "id": "D",
-      "text": "$8$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "computes -2(-2x) as -4x instead of +4x, giving -x - 18 = 10",
-    "B": "reports b (the y-coordinate) instead of a",
-    "D": "treats -2y as +2y, giving 3x - 4x + 18 = 10 and x = 8"
+ "id": "bank-alg-483",
+ "question": "A crew lines manholes at $3$ hours each and grouts joints at $2$ hours each, lining twice as many manholes as the joints it grouts, for $48$ hours of work in all. Which equation gives $y$, the number of joints grouted?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3(2y) + 2y = 48$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: System of Equations (Substitution)**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The intersection point satisfies both equations, so substitute $-2x + 9$ for $y$: $3x - 2(-2x + 9) = 10$, which simplifies to $7x - 18 = 10$, so $x = 4$.\n\n**The Full Solution:**\nStep 1: At the intersection, the $y$-values agree, so replace $y$ in $3x - 2y = 10$ with $-2x + 9$: $3x - 2(-2x + 9) = 10$.\nStep 2: Distribute $-2$ carefully: $-2(-2x) = +4x$ and $-2(9) = -18$, so $3x + 4x - 18 = 10$, giving $7x = 28$ and $x = 4$.\nStep 3: The point is $(a, b) = (4, b)$ with $b = -2(4) + 9 = 1$. Check: $3(4) - 2(1) = 12 - 2 = 10$. $\\checkmark$ So $a = 4$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-28$): multiplies $-2$ by $-2x$ and gets $-4x$, leaving $-x - 18 = 10$ and $x = -28$.\n* Choice B ($1$): is $b$, the $y$-coordinate of the intersection point, not $a$.\n* Choice D ($8$): drops the negative on $-2y$, computing $3x + 2y = 10$, which gives $3x - 4x + 18 = 10$ and $x = 8$.\n\n**Test Day Takeaway:** A negative times a negative inside a substitution is the most common sign trap; write the two products separately ($+4x$ and $-18$) before combining."
+  {
+   "id": "B",
+   "text": "$3y + 2(2y) = 48$"
+  },
+  {
+   "id": "C",
+   "text": "$3(2y) + 2(2y) = 48$"
+  },
+  {
+   "id": "D",
+   "text": "$3(y + 2) + 2y = 48$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "makes the joints the doubled quantity instead of the manholes",
+  "C": "doubles both terms, charging the 2-hour joint work to twice as many joints",
+  "D": "reads twice as many as two more than, replacing the factor with an addition"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: System of Equations (Substitution)**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Manholes number $2y$, so their hours are $3(2y)$ and the joints add $2y$ hours: $3(2y) + 2y = 48$.\n\n**The Full Solution:**\nStep 1: Name the quantities. Let $y$ be the joints grouted and $m$ the manholes lined. \"Twice as many manholes as joints\" gives $m = 2y$.\nStep 2: Write the hours. Lining costs $3$ hours each, so $3m$; grouting costs $2$ hours each, so $2y$. The total is $3m + 2y = 48$.\nStep 3: Substitute $m = 2y$: $3(2y) + 2y = 48$. Check that it is solvable and sensible: $6y + 2y = 48$ gives $y = 6$ joints and $m = 12$ manholes, and $3(12) + 2(6) = 36 + 12 = 48$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: attaches the doubling to the joints instead of the manholes, reversing the stated relationship.\n* Choice C: doubles both terms, as if there were also twice as many joints as joints.\n* Choice D: reads \"twice as many\" as \"two more than,\" replacing the factor $2$ with an addition.\n\n**Test Day Takeaway:** Write the total in both variables first, then substitute the relationship — that order keeps the multiplier attached to the right quantity."
 }

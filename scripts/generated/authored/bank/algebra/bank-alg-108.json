@@ -1,29 +1,29 @@
 {
- "id": "bank-alg-108",
- "question": "Line $m$ is graphed in the $xy$-plane and passes through the points $(-4, 1)$ and $(4, 7)$. What is the slope of line $m$?",
+ "question": "The line drawn in the $xy$-plane joins the two plotted survey stakes of a boundary run, with both coordinates measured in meters. By how much does $y$ change for each increase of $1$ in $x$?",
  "diagram": {
   "type": "linearLine",
   "params": {
    "points": [
     [
-     -4,
-     1
+     -3,
+     -4
     ],
     [
-     4,
-     7
+     3,
+     8
     ]
    ],
    "xRange": [
     -6,
-    8
+    6
    ],
    "yRange": [
-    -6,
-    8
+    -8,
+    10
    ]
   }
  },
- "correctAnswer": "3/4",
- "explanation": "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $\\frac{3}{4}$.**\n\n**The Fast Way (~10s):** Slope $= \\frac{7 - 1}{4 - (-4)} = \\frac{6}{8} = \\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: Slope is rise over run between any two points: $m = \\frac{y_2 - y_1}{x_2 - x_1}$.\nStep 2: Using $(-4, 1)$ and $(4, 7)$: rise $= 7 - 1 = 6$, run $= 4 - (-4) = 8$.\nStep 3: $m = \\frac{6}{8} = \\frac{3}{4}$. Check on the graph: moving right $8$ and up $6$ from $(-4, 1)$ lands on $(4, 7)$. $\\checkmark$\n\n**Common Mistakes:** Computing the run as $4 - 4 = 0$ by dropping the sign of $-4$ (an undefined slope for a clearly non-vertical line is the tell); inverting to $\\frac{8}{6}$ (run over rise); subtracting in mixed order to get $-\\frac{3}{4}$.\n\n**Test Day Takeaway:** Subtract the coordinates in the same order for both rise and run, treating subtraction of a negative as addition, then reduce the fraction."
+ "correctAnswer": "2",
+ "explanation": "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~20s):** From $(-3,-4)$ to $(3,8)$ the graph rises $12$ over a run of $6$, so $y$ changes by $\\frac{12}{6}=2$.\n\n**The Full Solution:**\n\nStep 1: Read the two plotted points: $(-3,-4)$ and $(3,8)$.\n\nStep 2: The change in $y$ for each unit change in $x$ is the slope, $\\frac{8-(-4)}{3-(-3)}=\\frac{12}{6}$.\n\nStep 3: That is $2$. Check: moving from $x=-3$ to $x=0$ is $3$ units right, and the line rises from $-4$ to $2$, a rise of $6$, which is $3$ steps of $2$.\n\n**Common Mistakes:** Dividing the run by the rise gives $\\frac{6}{12}=0.5$, the reciprocal of the slope. Subtracting the coordinates in opposite orders, as in $\\frac{8-(-4)}{-3-3}$, gives $-2$ and reverses the direction of the line.\n\n**Test Day Takeaway:** Subtract the coordinates of the two points in the same order top and bottom, and remember that subtracting a negative adds.",
+ "id": "bank-alg-108"
 }

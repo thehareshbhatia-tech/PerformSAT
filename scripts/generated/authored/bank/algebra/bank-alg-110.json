@@ -1,23 +1,27 @@
 {
-  "id": "bank-alg-110",
-  "question": "The table gives two values of $x$ and the corresponding values of $g(x)$ for the linear function $g$. What is the value of $g(9)$?",
-  "diagram": {
-    "type": "table",
-    "params": {
-      "xHeader": "x",
-      "yHeader": "g(x)",
-      "rows": [
-        [
-          "0",
-          "-7"
-        ],
-        [
-          "4",
-          "5"
-        ]
-      ]
-    }
-  },
-  "correctAnswer": "20",
-  "explanation": "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $20$.**\n\n**The Fast Way (~15s):** The outputs rise $12$ over a run of $4$, so the slope is $3$. With $g(0) = -7$, $g(x) = 3x - 7$ and $g(9) = 27 - 7 = 20$.\n\n**The Full Solution:**\nStep 1: Slope from the table: $\\frac{5 - (-7)}{4 - 0} = \\frac{12}{4} = 3$.\nStep 2: The row $x = 0$ gives the $y$-intercept directly: $g(0) = -7$, so $g(x) = 3x - 7$.\nStep 3: $g(9) = 3(9) - 7 = 27 - 7 = 20$. Check: $g(4) = 12 - 7 = 5$ matches the table. $\\checkmark$\n\n**Common Mistakes:** Using slope $\\frac{5 - 7}{4} = -0.5$ by dropping the negative on $-7$; extending from $x = 4$ by $9$ steps instead of $5$, getting $5 + 27 = 32$; reporting $27$ and forgetting the intercept.\n\n**Test Day Takeaway:** From a table, compute the slope from two rows, read the intercept from the $x = 0$ row if present, write the rule, and evaluate at the requested input."
+ "question": "A flow controller's output, in liters per minute, is a linear function $f$ of the dial setting $x$, and the table lists three settings with their outputs. What is the value of $f(12)$?",
+ "diagram": {
+  "type": "table",
+  "params": {
+   "xHeader": "x",
+   "yHeader": "f(x)",
+   "rows": [
+    [
+     2,
+     11
+    ],
+    [
+     5,
+     20
+    ],
+    [
+     9,
+     32
+    ]
+   ]
+  }
+ },
+ "correctAnswer": "41",
+ "explanation": "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $41$.**\n\n**The Fast Way (~35s):** From $(2,11)$ to $(5,20)$ the output rises $9$ over $3$ settings, so the rate is $3$; from setting $9$ to setting $12$ is $3$ more settings, giving $32+3(3)=41$.\n\n**The Full Solution:**\n\nStep 1: Use two rows as points: $(2,11)$ and $(5,20)$. The rate of change is $\\frac{20-11}{5-2}=\\frac{9}{3}=3$ liters per minute per setting.\n\nStep 2: Find the constant: $f(x)=3x+b$ with $f(2)=11$ gives $6+b=11$, so $b=5$ and $f(x)=3x+5$.\n\nStep 3: Evaluate at $x=12$: $f(12)=3(12)+5=41$. Check: $f(9)=27+5=32$, matching the third row.\n\n**Common Mistakes:** Using $32-11=21$ as the rate ignores that the settings differ by $7$, not $1$. Adding a single step of $3$ to $f(9)$ gives $35$, which is $f(10)$, because $12$ is three settings past $9$, not one.\n\n**Test Day Takeaway:** Get the rate from any two rows, then use one row to pin the constant before evaluating anywhere else.",
+ "id": "bank-alg-110"
 }

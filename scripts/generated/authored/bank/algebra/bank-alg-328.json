@@ -1,6 +1,6 @@
 {
-  "id": "bank-alg-328",
-  "question": "A tailoring service charges a $\\$14$ fitting fee plus $\\$6$ for each alteration. The total cost of an order with $n$ alterations is $\\$56$. What is the value of $n$?",
-  "correctAnswer": "7",
-  "explanation": "**SAT Pattern: Linear Cost Equation Setup**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~10s):** Remove the fee first: $56 - 14 = 42$. Then $42 \\div 6 = 7$ alterations.\n\n**The Full Solution:**\nStep 1: Model the total: $14 + 6n = 56$.\nStep 2: Subtract the one-time fee from both sides: $6n = 42$.\nStep 3: Divide by the per-alteration rate: $n = 7$.\nCheck: $14 + 6(7) = 14 + 42 = 56$. $\\checkmark$\n\n**Common Mistakes:** Dividing the whole $\\$56$ by $6$ and getting $9.33$, which forgets the fitting fee; or subtracting $6$ and dividing by $14$, which swaps the roles of the fee and the rate.\n\n**Test Day Takeaway:** To find the count in a fee-plus-rate model, subtract the fee from the total FIRST, then divide by the rate."
+ "question": "A fabrication shop charges a $\\$180$ setup fee for each order plus $\\$24$ for every aluminum mullion it cuts. What is the total charge, in dollars, for an order of $15$ mullions?",
+ "correctAnswer": "540",
+ "explanation": "**SAT Pattern: Linear Cost Equation Setup**\n\n**The correct answer is $540$.**\n\n**The Fast Way (~20s):** $180+24(15)=180+360=540$ dollars.\n\n**The Full Solution:**\n\nStep 1: Build the model. The charge is a one-time $\\$180$ plus $\\$24$ for each mullion, so for $m$ mullions the total is $C(m)=24m+180$.\n\nStep 2: Substitute $m=15$: $C(15)=24(15)+180=360+180$.\n\nStep 3: The total charge is $\\$540$. Check: without the setup fee the cutting alone is $\\$360$, and adding the single $\\$180$ fee gives $\\$540$.\n\n**Common Mistakes:** Reporting $360$ leaves out the setup fee, which is charged once no matter how many mullions are cut. Multiplying the setup fee by the count as well, $(24+180)(15)$, gives $3{,}060$ and charges the fee fifteen times.\n\n**Test Day Takeaway:** In a fixed-fee-plus-rate model, the fee is added exactly once; only the rate is multiplied by the count.",
+ "id": "bank-alg-328"
 }

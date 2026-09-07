@@ -1,6 +1,6 @@
 {
- "id": "bank-alg-257",
- "question": "$p + q = 14$\n\n$p - q = 6$\n\nIf $(p, q)$ is the solution to the given system of equations, what is the value of $4p - q$?",
- "correctAnswer": "36",
- "explanation": "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is $36$.**\n\n**The Fast Way (~10s):** Adding the equations gives $2p = 20$, so $p = 10$ and $q = 4$; then $4p - q = 40 - 4 = 36$.\n\n**The Full Solution:**\nStep 1: Add the equations: $2p = 20$, so $p = 10$.\nStep 2: Substitute into $p + q = 14$: $q = 4$.\nStep 3: Evaluate $4p - q = 4(10) - 4 = 36$. Check: $10 - 4 = 6$. $\\checkmark$\n\n**Common Mistakes:** Computing $4p + q = 44$ by ignoring the minus sign, or stopping at $p = 10$ without evaluating the requested expression.\n\n**Test Day Takeaway:** Sum-and-difference systems solve in one addition; then evaluate the target expression carefully, sign included."
+ "question": "A trail-camera study estimates $x$, the number of deer, and $y$, the number of elk, using a valley. Two independent counts give $3x + 2y = 31$ and $2x + 3y = 24$. What is the value of $x + y$?",
+ "correctAnswer": "11",
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is $11$.**\n\n**The Fast Way (~20s):** Adding the two counts gives $5x + 5y = 55$, so $x + y = 11$.\n\n**The Full Solution:**\n\nStep 1: Add the equations: $(3x + 2y) + (2x + 3y) = 31 + 24$.\n\nStep 2: Combine like terms: $5x + 5y = 55$.\n\nStep 3: Divide by $5$: $x + y = 11$. Check with $x = 9$ and $y = 2$: $3(9) + 2(2) = 31$ and $2(9) + 3(2) = 24$.\n\n**Common Mistakes:** Reporting $55$ without dividing by $5$; subtracting instead and reporting $x - y = 7$; solving for $x$ alone and reporting $9$.\n\n**Test Day Takeaway:** When the coefficients of $x$ and $y$ swap between the two equations, adding produces a multiple of $x + y$ in one step.",
+ "id": "bank-alg-257"
 }

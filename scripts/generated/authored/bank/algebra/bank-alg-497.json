@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-497",
-  "question": "Which of the following expressions is equivalent to $(x + 4)^2 - 9$ for all values of $x$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$x^2 + 8x + 7$"
-    },
-    {
-      "id": "B",
-      "text": "$x^2 + 8x + 25$"
-    },
-    {
-      "id": "C",
-      "text": "$x^2 + 4x + 7$"
-    },
-    {
-      "id": "D",
-      "text": "$x^2 + 7$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "adds 9 to 16 instead of subtracting",
-    "C": "uses 4x for the middle term instead of 2(4)x = 8x",
-    "D": "squares term by term, (x + 4)^2 = x^2 + 16, dropping the middle term"
+ "id": "bank-alg-497",
+ "question": "A fermentation vat's cooling load, in kilowatts, is $L(h) = 2(h - 3)^2 + 40$, where $h$ is the number of hours after a batch starts. In the form $ah^2 + bh + c$, what is the coefficient $b$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-24$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $(x + 4)^2 = x^2 + 8x + 16$; subtract $9$ to get $x^2 + 8x + 7$.\n\n**The Full Solution:**\nStep 1: Expand the square as a product: $(x + 4)(x + 4) = x^2 + 4x + 4x + 16 = x^2 + 8x + 16$.\nStep 2: Apply the $-9$: $x^2 + 8x + 16 - 9 = x^2 + 8x + 7$.\nStep 3: Check with $x = 1$: the original gives $(5)^2 - 9 = 16$, and $1 + 8 + 7 = 16$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^2 + 8x + 25$): adds the $9$ to $16$ instead of subtracting it.\n* Choice C ($x^2 + 4x + 7$): keeps only one of the two $4x$ cross terms, so the middle coefficient is half of what it should be.\n* Choice D ($x^2 + 7$): squares $x$ and $4$ separately as $x^2 + 16$; a binomial squared always has a middle term.\n\n**Test Day Takeaway:** $(x + a)^2 = x^2 + 2ax + a^2$: double the cross term, square the constant, then apply the outside constant last."
+  {
+   "id": "B",
+   "text": "$-12$"
+  },
+  {
+   "id": "C",
+   "text": "$-6$"
+  },
+  {
+   "id": "D",
+   "text": "$12$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "multiplies the middle term by the leading 2 twice, giving -24",
+  "C": "reads the middle term of (h-3)^2 as -6h and never multiplies it by 2",
+  "D": "drops the negative sign from -12"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The middle term of $(h - 3)^2$ is $-6h$, and $2(-6h) = -12h$, so $b = -12$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(h - 3)^2 = h^2 - 6h + 9$.\nStep 2: Multiply every term by $2$: $2h^2 - 12h + 18$.\nStep 3: Add $40$, which changes only the constant: $L(h) = 2h^2 - 12h + 58$, so $b = -12$. Check at $h = 3$: $2(9) - 12(3) + 58 = 18 - 36 + 58 = 40$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-24$): applies the leading $2$ a second time, doubling $-12$ to $-24$.\n* Choice C ($-6$): reads $-6h$ off the expanded square and forgets that the $2$ multiplies it.\n* Choice D ($12$): drops the negative sign, even though $-3$ appears once in the middle term.\n\n**Test Day Takeaway:** In $a(h - p)^2 + k$, the middle coefficient is $-2ap$ — the outside constant never touches it."
 }

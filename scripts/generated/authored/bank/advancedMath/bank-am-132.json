@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-132",
-  "question": "In the equation $x^2 - 10x + c = 0$, $c$ is a constant. The equation has exactly one real solution. What is the value of $c$?",
+  "question": "The discriminant of the quadratic equation $ax^{2}+bx+c=0$ is negative. Which of the following must be true about the graph of $y=ax^{2}+bx+c$ in the $xy$-plane?",
   "choices": [
     {
       "id": "A",
-      "text": "$-25$"
+      "text": "The graph has exactly one $x$-intercept."
     },
     {
       "id": "B",
-      "text": "$5$"
+      "text": "The graph has exactly two $x$-intercepts."
     },
     {
       "id": "C",
-      "text": "$25$"
+      "text": "The graph has no $y$-intercept."
     },
     {
       "id": "D",
-      "text": "$50$"
+      "text": "The graph has no $x$-intercepts."
     }
   ],
   "distractorNotes": {
-    "A": "solves $100 = -4c$, moving the term to the wrong side of the equation",
-    "B": "stops at $\\frac{-b}{2} = 5$ without squaring it",
-    "D": "uses $b^2 - 2ac$ in place of $b^2 - 4ac$, solving $100 - 2c = 0$"
+    "A": "describes a discriminant equal to 0, not a negative one",
+    "B": "describes a positive discriminant",
+    "C": "confuses x-intercepts with the y-intercept, which every such graph has at (0, c)"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** One real solution means $b^2 - 4ac = 0$, so $(-10)^2 - 4(1)(c) = 0$ and $c = 25$.\n\n**The Full Solution:**\nStep 1: For $ax^2 + bx + c = 0$, the number of real solutions is decided by the discriminant $b^2 - 4ac$: positive gives two, zero gives exactly one, negative gives none.\nStep 2: Here $a = 1$, $b = -10$, and the constant term is $c$, so the condition is $(-10)^2 - 4(1)(c) = 0$, or $100 - 4c = 0$.\nStep 3: Then $4c = 100$ and $c = 25$. Check: $x^2 - 10x + 25 = (x - 5)^2$, whose only zero is $x = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-25$): moving $-4c$ to the wrong side turns $100 = 4c$ into $100 = -4c$.\n* Choice B ($5$): $5$ is the repeated solution of the equation, not the value of $c$.\n* Choice D ($50$): using $b^2 - 2ac$ gives $100 - 2c = 0$; the discriminant uses a factor of $4$.\n\n**Test Day Takeaway:** Exactly one real solution is the perfect-square case: set $b^2 - 4ac = 0$ and solve for the missing constant."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** A negative discriminant means no real solutions of $ax^{2}+bx+c=0$, so the graph never meets the $x$-axis.\n\n**The Full Solution:**\nStep 1: The $x$-intercepts of $y=ax^{2}+bx+c$ are the real solutions of $ax^{2}+bx+c=0$.\nStep 2: The number of real solutions is determined by the discriminant: positive gives two, zero gives one, negative gives none.\nStep 3: Since the discriminant is negative, the graph has no $x$-intercepts. Check with $y=x^{2}+x+1$, whose discriminant is $-3$ and whose graph stays above the $x$-axis ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: describes a discriminant equal to $0$.\n* Choice B: describes a positive discriminant.\n* Choice C: confuses the $x$-intercepts with the $y$-intercept, which is always at $(0,c)$.\n\n**Test Day Takeaway:** Discriminant sign and $x$-intercept count are the same fact told two ways.",
+  "id": "bank-am-132"
 }

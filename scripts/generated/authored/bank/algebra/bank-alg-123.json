@@ -1,29 +1,49 @@
 {
   "id": "bank-alg-123",
-  "question": "$5(2x + 3) - 4 = 10x + c$\n\nIn the given equation, $c$ is a constant. The equation has infinitely many solutions. What is the value of $c$?",
+  "question": "A dispensary's log lists three pairs of values, shown in the table, that all satisfy one linear equation relating sessions held, $x$, to unused doses, $y$. How many solutions does the system of that equation and $6x + 4y = 36$ have?",
+  "questionTable": {
+    "headers": [
+      "Sessions held, $x$",
+      "Unused doses, $y$"
+    ],
+    "rows": [
+      [
+        "0",
+        "9"
+      ],
+      [
+        "2",
+        "6"
+      ],
+      [
+        "4",
+        "3"
+      ]
+    ]
+  },
   "choices": [
     {
       "id": "A",
-      "text": "$-1$"
+      "text": "Exactly one"
     },
     {
       "id": "B",
-      "text": "$11$"
+      "text": "Exactly two"
     },
     {
       "id": "C",
-      "text": "$15$"
+      "text": "Infinitely many"
     },
     {
       "id": "D",
-      "text": "$19$"
+      "text": "Zero"
     }
   ],
   "distractorNotes": {
-    "A": "distributes the 5 to 2x only (10x + 3 - 4)",
-    "C": "distributes correctly but drops the -4",
-    "D": "adds 4 instead of subtracting it"
+    "A": "assumes two equations that look different must cross exactly once",
+    "B": "two lines can meet at most once, so a linear system never has exactly two solutions",
+    "D": "sees the larger coefficients and calls the lines parallel without checking that 18 also doubles to 36"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice B is correct.**\n\n**The Fast Way (~8s):** Simplify the left side: $10x + 15 - 4 = 10x + 11$. Infinitely many solutions means both sides are identical, so $c = 11$.\n\n**The Full Solution:**\nStep 1: Distribute on the left: $5(2x + 3) = 10x + 15$, so the left side is $10x + 15 - 4 = 10x + 11$.\nStep 2: The equation is now $10x + 11 = 10x + c$. Subtracting $10x$ from both sides leaves $11 = c$. Because the $x$ terms cancel, the equation is true for every $x$ exactly when the constants match.\nStep 3: Check with $c = 11$ and any $x$, say $x = 1$: left side $5(5) - 4 = 21$; right side $10 + 11 = 21$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): distributes the $5$ to $2x$ but not to $3$, getting $10x + 3 - 4$.\n* Choice C ($15$): distributes correctly but forgets the $-4$ on the left side.\n* Choice D ($19$): treats the $-4$ as $+4$, getting $15 + 4$.\n\n**Test Day Takeaway:** \"Infinitely many solutions\" means the two sides are the same expression. Simplify fully, match the $x$ coefficients (already equal here), then match the constants."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The table gives $3x + 2y = 18$, and $6x + 4y = 36$ is exactly $2$ times that equation, so the two equations describe the same line.\n\n**The Full Solution:**\nStep 1: Find the equation behind the table. As $x$ rises by $2$, $y$ falls by $3$, so the slope is $-\\frac{3}{2}$, and $y = 9$ when $x = 0$. That gives $y = -\\frac{3}{2}x + 9$, or $3x + 2y = 18$.\nStep 2: Compare the two equations term by term. Multiplying $3x + 2y = 18$ by $2$ gives $6x + 4y = 36$, which is the second equation exactly.\nStep 3: Because every coefficient AND the constant scale by the same factor of $2$, the two equations have identical graphs, so every point on the line solves both: infinitely many solutions. Check with a table row: $(2, 6)$ gives $6(2) + 4(6) = 36$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Exactly one): assumes two equations written with different numbers must be different lines that cross once.\n* Choice B (Exactly two): two distinct lines meet at most once, so a system of two linear equations can never have exactly two solutions.\n* Choice D (Zero): notices that the coefficients differ and calls the lines parallel and distinct, without checking that the constant $18$ also doubles to $36$.\n\n**Test Day Takeaway:** Scale one equation to match the other's $x$-coefficient; if the $y$-coefficient AND the constant match too, the system has infinitely many solutions, and if only the constant fails to match, it has none."
 }

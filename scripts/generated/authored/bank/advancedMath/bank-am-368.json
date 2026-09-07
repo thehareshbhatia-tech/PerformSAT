@@ -1,29 +1,29 @@
 {
   "id": "bank-am-368",
-  "question": "The functions $f$ and $g$ are defined by $f(x) = 3x - 5$ and $g(x) = x^2 + 1$. Which of the following expressions defines $g(f(x))$?",
+  "question": "For a gallery exhibition, the function $C$ gives the framing cost, in dollars, for $n$ prints, and the function $p$ gives the number of prints produced in $w$ weeks. Which expression gives the framing cost for the prints produced in $w$ weeks?",
   "choices": [
     {
       "id": "A",
-      "text": "$3x^2 - 2$"
+      "text": "$C(p(w))$"
     },
     {
       "id": "B",
-      "text": "$9x^2 + 1$"
+      "text": "$C(w)+p(w)$"
     },
     {
       "id": "C",
-      "text": "$9x^2 - 30x + 25$"
+      "text": "$C(w) \\cdot p(w)$"
     },
     {
       "id": "D",
-      "text": "$9x^2 - 30x + 26$"
+      "text": "$p(C(w))$"
     }
   ],
+  "correctAnswer": "A",
   "distractorNotes": {
-    "A": "builds $f(g(x))$ instead",
-    "B": "squares only the $3x$ term",
-    "C": "drops the $+1$ from $g$"
+    "B": "adds a cost to a count of prints, two quantities in different units",
+    "C": "multiplies a cost by a count, charging each print the full order cost",
+    "D": "reverses the roles, feeding a dollar amount into the print-count function"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Substitute $3x - 5$ for $x$ in $g$: $(3x - 5)^2 + 1 = 9x^2 - 30x + 26$.\n\n**The Full Solution:**\nStep 1: $g(f(x))$ means the whole expression $3x - 5$ takes the place of $x$ inside $g$, so $g(f(x)) = (3x - 5)^2 + 1$.\nStep 2: Expand the square: $(3x - 5)^2 = 9x^2 - 15x - 15x + 25 = 9x^2 - 30x + 25$.\nStep 3: Add the $1$: $9x^2 - 30x + 26$. Check at $x = 0$: $f(0) = -5$ and $g(-5) = 26$, matching the constant term. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x^2 - 2$): builds $f(g(x)) = 3(x^2 + 1) - 5$, the composition in the reverse order.\n* Choice B ($9x^2 + 1$): squares only the $3x$ and forgets that $(3x - 5)^2$ has a middle term.\n* Choice C ($9x^2 - 30x + 25$): expands the square correctly but never adds the $+1$ that belongs to $g$.\n\n**Test Day Takeaway:** Substituting a binomial always produces a middle term — write $(3x-5)(3x-5)$ out rather than squaring term by term."
+  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Weeks enter $p$, and $p$'s output (a number of prints) is exactly what $C$ takes, so the cost is $C(p(w))$.\n\n**The Full Solution:**\nStep 1: Identify the inputs and outputs: $p$ takes weeks and returns prints; $C$ takes prints and returns dollars.\nStep 2: To go from weeks to dollars, the output of $p$ must be the input of $C$.\nStep 3: That chain is written $C(p(w))$. Check: if $p(4)=90$ prints and $C(90)=1{,}260$ dollars, then $C(p(4))=1{,}260$ dollars ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($C(w)+p(w)$): adds dollars to a number of prints and also treats $w$ as a print count.\n* Choice C ($C(w) \\cdot p(w)$): multiplies a cost by a count, charging the full order cost once per print.\n* Choice D ($p(C(w))$): reverses the chain, feeding a dollar amount into the function that counts prints.\n\n**Test Day Takeaway:** Match units at the seam: the inner function's output units must be the outer function's input units."
 }

@@ -1,58 +1,58 @@
 {
-  "id": "bank-alg-219",
-  "question": "The graph of line $r$ is shown in the $xy$-plane. Line $s$ is perpendicular to line $r$ and passes through the point $(2, 5)$. Which equation defines line $s$?",
-  "diagram": {
-    "type": "linearGraph",
-    "params": {
-      "slope": -0.5,
-      "yIntercept": 1,
-      "xRange": [
-        -4,
-        8
-      ],
-      "yRange": [
-        -4,
-        6
-      ],
-      "gridInterval": 1,
-      "xTickInterval": 2,
-      "yTickInterval": 2,
-      "highlightPoints": [
-        [
-          0,
-          1
-        ],
-        [
-          4,
-          -1
-        ]
-      ],
-      "label": "r"
-    }
+ "id": "bank-alg-219",
+ "question": "A truss diagram graphs line $r$ in the $xy$-plane. One member of the truss lies on a line that meets line $r$ at a right angle and includes the point $(-1, -2)$. Which equation defines the member's line?",
+ "diagram": {
+  "type": "linearGraph",
+  "params": {
+   "slope": -0.3333333,
+   "yIntercept": 2,
+   "xRange": [
+    -6,
+    6
+   ],
+   "yRange": [
+    -4,
+    6
+   ],
+   "xTickInterval": 2,
+   "yTickInterval": 2,
+   "gridInterval": 1,
+   "showPoints": [
+    [
+     0,
+     2
+    ],
+    [
+     3,
+     1
+    ]
+   ],
+   "label": "r"
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$y = -\\frac{1}{3}x - \\frac{7}{3}$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$y = -2x + 9$"
-    },
-    {
-      "id": "B",
-      "text": "$y = -\\dfrac{1}{2}x + 6$"
-    },
-    {
-      "id": "C",
-      "text": "$y = 2x + 1$"
-    },
-    {
-      "id": "D",
-      "text": "$y = 2x + 5$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "uses slope -2 (reciprocal without the sign change) through the point",
-    "B": "keeps the slope of r, giving a parallel line through the point",
-    "D": "uses the point's y-coordinate as the intercept"
+  {
+   "id": "B",
+   "text": "$y = 3x - 5$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Perpendicular Line Through a Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** From $(0, 1)$ to $(4, -1)$, line $r$ has slope $-\\dfrac{1}{2}$, so line $s$ has slope $2$. Through $(2, 5)$: $5 = 2(2) + b$, so $b = 1$ and $y = 2x + 1$.\n\n**The Full Solution:**\nStep 1: Read the slope of $r$ from the marked points: $\\dfrac{-1 - 1}{4 - 0} = -\\dfrac{2}{4} = -\\dfrac{1}{2}$.\nStep 2: The perpendicular slope is the negative reciprocal, $2$. So $s$ has the form $y = 2x + b$.\nStep 3: Substitute $(2, 5)$: $5 = 4 + b$, so $b = 1$. The equation is $y = 2x + 1$. Check: $2(2) + 1 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x + 9$): flips the fraction but keeps the negative sign, then fits the point correctly with the wrong slope.\n* Choice B ($y = -\\dfrac{1}{2}x + 6$): keeps the slope of $r$, producing a parallel line through $(2, 5)$ rather than a perpendicular one.\n* Choice D ($y = 2x + 5$): has the right slope but uses the $y$-coordinate of the given point as the intercept without substituting.\n\n**Test Day Takeaway:** Slope from the graph, negative reciprocal for the perpendicular, then substitute the given point to find $b$. Three of the four choices pass through the point; only one has the perpendicular slope."
+  {
+   "id": "C",
+   "text": "$y = -3x - 5$"
+  },
+  {
+   "id": "D",
+   "text": "$y = 3x + 1$"
+  }
+ ],
+ "correctAnswer": "D",
+ "distractorNotes": {
+  "A": "copies line $r$'s slope, giving a parallel line rather than a perpendicular one",
+  "B": "computes $b$ as $y + mx = -2 + 3(-1) = -5$",
+  "C": "negates the perpendicular slope to $-3$, giving $-2 = 3 + b$ and $b = -5$"
+ },
+ "explanation": "**SAT Pattern: Perpendicular Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Line $r$ has slope $-\\frac{1}{3}$, so the member has slope $3$, and $-2 = 3(-1) + b$ gives $b = 1$.\n\n**The Full Solution:**\nStep 1: Line $r$ passes through $(0, 2)$ and $(3, 1)$, so its slope is $\\frac{1 - 2}{3 - 0} = -\\frac{1}{3}$.\nStep 2: A right angle requires the negative reciprocal, so the member's line has slope $3$.\nStep 3: Substituting $(-1, -2)$ into $y = 3x + b$ gives $-2 = -3 + b$, so $b = 1$ and the line is $y = 3x + 1$. Check: $3(-1) + 1 = -2$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{1}{3}x - \\frac{7}{3}$): copies line $r$'s slope, giving a parallel line rather than a perpendicular one\n* Choice B ($y = 3x - 5$): computes $b$ as $y + mx = -2 + 3(-1) = -5$\n* Choice C ($y = -3x - 5$): negates the perpendicular slope to $-3$, giving $-2 = 3 + b$ and $b = -5$\n\n**Test Day Takeaway:** Take the negative reciprocal of the graphed slope, then use the given point only to set $b$."
 }

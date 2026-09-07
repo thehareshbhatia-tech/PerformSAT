@@ -1,29 +1,51 @@
 {
-  "id": "bank-alg-056",
-  "question": "$7x + 2y = 41$\n$3x + 2y = 29$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $x$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$3$"
-    },
-    {
-      "id": "B",
-      "text": "$7$"
-    },
-    {
-      "id": "C",
-      "text": "$10$"
-    },
-    {
-      "id": "D",
-      "text": "$12$"
-    }
+ "id": "bank-alg-056",
+ "question": "The table gives the number of short cores and long cores in each of two shipments, along with the total mass of each shipment. Every short core has the same mass, and every long core has the same mass. What is the mass, in kilograms, of one long core?",
+ "questionTable": {
+  "headers": [
+   "Shipment",
+   "Short cores",
+   "Long cores",
+   "Total mass (kg)"
   ],
-  "distractorNotes": {
-    "B": "adds the equations (10x + 4y = 70) and then divides 70 by 10",
-    "C": "reports y instead of x",
-    "D": "stops at 4x = 12"
+  "rows": [
+   [
+    "1",
+    "4",
+    "2",
+    "44"
+   ],
+   [
+    "2",
+    "4",
+    "6",
+    "92"
+   ]
+  ]
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$5$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Elimination by Subtraction**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Both equations have $+2y$, so subtract: $(7x + 2y) - (3x + 2y) = 41 - 29$ gives $4x = 12$ and $x = 3$.\n\n**The Full Solution:**\nStep 1: The $y$-coefficients are identical ($2$ and $2$), so subtracting one equation from the other eliminates $y$.\nStep 2: Subtract the second from the first: $4x + 0y = 12$, so $x = 3$.\nStep 3: Find $y$ from the second equation: $3(3) + 2y = 29 \\Rightarrow 2y = 20 \\Rightarrow y = 10$. Check the first: $7(3) + 2(10) = 21 + 20 = 41$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($7$): adds the equations to get $10x + 4y = 70$, then drops the $y$-term and divides $70$ by $10$.\n* Choice C ($10$): is the value of $y$, not $x$.\n* Choice D ($12$): stops at $4x = 12$ without dividing by $4$.\n\n**Test Day Takeaway:** Same sign and same coefficient means subtract; opposite signs mean add. Choose the operation that makes a variable vanish."
+  {
+   "id": "B",
+   "text": "$8$"
+  },
+  {
+   "id": "C",
+   "text": "$12$"
+  },
+  {
+   "id": "D",
+   "text": "$48$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports the mass of one short core",
+  "B": "divides the 48-kilogram gap by the 6 long cores in shipment 2 rather than by the 4 extra ones",
+  "D": "reports the difference between the two shipment totals without dividing"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Elimination by Subtraction**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Both shipments hold $4$ short cores, so the $48$-kilogram gap comes from $4$ extra long cores: $48 \\div 4 = 12$.\n\n**The Full Solution:**\nStep 1: Let $s$ be the mass of a short core and $L$ the mass of a long core: $4s + 2L = 44$ and $4s + 6L = 92$.\nStep 2: The $4s$ terms match, so subtracting the first equation from the second gives $4L = 48$.\nStep 3: Then $L = 12$ kilograms. Check: $4s + 24 = 44$ gives $s = 5$, and $4(5) + 6(12) = 20 + 72 = 92$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): reports the mass of one short core.\n* Choice B ($8$): divides the $48$-kilogram gap by the $6$ long cores in shipment $2$ instead of by the $4$ extra ones.\n* Choice D ($48$): reports the difference between the two shipment totals without dividing.\n\n**Test Day Takeaway:** When one column of a table repeats, subtract those two rows — the repeated quantity disappears without any scaling."
 }

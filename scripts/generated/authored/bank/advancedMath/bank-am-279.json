@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-279",
-  "question": "The equation $\\dfrac{x^2 - 49}{x + 7} = 4$ has exactly one solution. What is that solution?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-7$"
-    },
-    {
-      "id": "B",
-      "text": "$-3$"
-    },
-    {
-      "id": "C",
-      "text": "$4$"
-    },
-    {
-      "id": "D",
-      "text": "$11$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports the value excluded from the domain",
-    "B": "cancels to $x + 7 = 4$ instead of $x - 7 = 4$",
-    "C": "copies the right-hand side"
+ "id": "bank-am-279",
+ "question": "A feed mixer's blend condition is $\\dfrac{3}{x-5}=\\dfrac{x}{x-5}$, where $x$ is the additive mass in kilograms. Which of the following describes the values of $x$ that satisfy this condition?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Only $x=3$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** $\\dfrac{(x + 7)(x - 7)}{x + 7} = x - 7$ for $x \\ne -7$, so $x - 7 = 4$ and $x = 11$.\n\n**The Full Solution:**\nStep 1: Factor the numerator as a difference of squares: $x^2 - 49 = (x + 7)(x - 7)$. The denominator forces $x \\ne -7$.\nStep 2: Cancel the common factor $x + 7$, leaving $x - 7 = 4$.\nStep 3: So $x = 11$, and $11 \\ne -7$, so it is in the domain. Check: $\\dfrac{121 - 49}{18} = \\dfrac{72}{18} = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): this is the value that makes the denominator zero, so it can never be a solution.\n* Choice B ($-3$): this cancels the wrong factor and solves $x + 7 = 4$.\n* Choice C ($4$): this copies the number on the right side instead of solving for $x$.\n\n**Test Day Takeaway:** Factor and cancel first, but record the excluded value before you cancel — it is the classic trap answer."
+  {
+   "id": "B",
+   "text": "Only $x=5$"
+  },
+  {
+   "id": "C",
+   "text": "Both $x=3$ and $x=5$"
+  },
+  {
+   "id": "D",
+   "text": "There is no such value of $x$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "takes x = 5, the value that makes both denominators zero, as a solution",
+  "C": "lists the excluded value 5 alongside the genuine solution 3",
+  "D": "assumes the shared denominator makes the equation unsolvable"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Equal denominators force equal numerators, so $x=3$; the value $x=5$ is barred because it makes the denominators $0$.\n\n**The Full Solution:**\n\nStep 1: Both sides share the denominator $x-5$, which cannot be $0$, so $x\\neq5$ from the start.\n\nStep 2: For $x\\neq5$, multiplying both sides by $x-5$ leaves $3=x$.\n\nStep 3: The single candidate $x=3$ is allowed, since $3-5=-2\\neq0$. Check: at $x=3$ both sides equal $\\frac{3}{-2}=-\\frac{3}{2}$, while at $x=5$ neither side is defined.\n\n**Why the wrong answers are tempting:**\n\n* Choice B: reports $x=5$, the value that makes both denominators $0$ and is therefore excluded.\n* Choice C: keeps the excluded value $5$ next to the genuine solution $3$.\n* Choice D: assumes the matching denominators make the equation impossible to satisfy.\n\n**Test Day Takeaway:** List the excluded inputs before solving; the value that kills a denominator can never be reported as a solution."
 }

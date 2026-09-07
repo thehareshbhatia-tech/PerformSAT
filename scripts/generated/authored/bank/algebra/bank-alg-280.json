@@ -1,29 +1,53 @@
 {
- "id": "bank-alg-280",
- "question": "Each of the following is a linear equation in $x$. Which of the equations has no solution?",
+ "question": "A student tests whether the equation $3(x+4)=3x+12$ has a solution by evaluating each side of it at three values of $x$, with the results shown. How many values of $x$ satisfy the equation?",
+ "questionTable": {
+  "headers": [
+   "$x$",
+   "$3(x+4)$",
+   "$3x+12$"
+  ],
+  "rows": [
+   [
+    "$-2$",
+    "$6$",
+    "$6$"
+   ],
+   [
+    "$0$",
+    "$12$",
+    "$12$"
+   ],
+   [
+    "$5$",
+    "$27$",
+    "$27$"
+   ]
+  ]
+ },
  "choices": [
   {
    "id": "A",
-   "text": "$3x + 5 = 5x + 3$"
+   "text": "No values"
   },
   {
    "id": "B",
-   "text": "$3x + 5 = -3x + 5$"
+   "text": "Exactly one value"
   },
   {
    "id": "C",
-   "text": "$3x + 5 = 3x + 5$"
+   "text": "Exactly three values"
   },
   {
    "id": "D",
-   "text": "$3x + 5 = 3x - 5$"
+   "text": "Infinitely many values"
   }
  ],
- "distractorNotes": {
-  "A": "different x-coefficients give exactly one solution (x = 1)",
-  "B": "looks contradictory but solves to x = 0",
-  "C": "an identity; infinitely many solutions, not zero"
- },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** No solution needs the same $x$-coefficient on both sides with different constants. Only $3x + 5 = 3x - 5$ fits: subtracting $3x$ leaves $5 = -5$, which is false.\n\n**The Full Solution:**\nStep 1: Subtract $3x$ from both sides of choice D: $5 = -5$. A false statement means no value of $x$ works.\nStep 2: Compare choice C: subtracting $3x$ gives $5 = 5$, always true, so infinitely many solutions.\nStep 3: Choices A and B have different $x$-coefficients on the two sides, so each has exactly one solution ($x = 1$ and $x = 0$). $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x + 5 = 5x + 3$): the coefficients differ, so $2x = 2$ and $x = 1$; one solution.\n* Choice B ($3x + 5 = -3x + 5$): the opposite coefficients suggest a contradiction, but $6x = 0$ gives $x = 0$.\n* Choice C ($3x + 5 = 3x + 5$): identical sides make an identity with infinitely many solutions, the opposite of none.\n\n**Test Day Takeaway:** Cancel the variable terms first: a false constant statement means zero solutions, a true one means infinitely many."
+ "distractorNotes": {
+  "A": "reads the variable cancelling as a contradiction rather than an identity",
+  "B": "assumes every linear equation in one variable has exactly one solution",
+  "C": "counts the three rows of the table as the complete solution set"
+ },
+ "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice D is correct.** Distributing the left side gives $3x+12$, the same expression as the right side, so every value of $x$ satisfies the equation.\n\n**The Fast Way (~20s):** $3(x+4)=3x+12$ is the distributive property written out, so the two sides are identical and every $x$ works.\n\n**The Full Solution:**\n\nStep 1: Distribute on the left: $3(x+4)=3x+12$.\n\nStep 2: The equation is now $3x+12=3x+12$. Subtracting $3x+12$ from both sides leaves $0=0$, a statement true for every $x$.\n\nStep 3: The table agrees: at $x=-2$, $x=0$, and $x=5$ the two columns match. Because the sides are the same expression, the match continues for every input, so there are infinitely many solutions.\n\n**Why the wrong answers are tempting:**\n\n* Choice A (No values): confuses an identity with a contradiction; the variable cancels here, but the leftover statement is true, not false.\n* Choice B (Exactly one value): applies the usual expectation that a linear equation has one solution, which fails when both sides simplify to the same expression.\n* Choice C (Exactly three values): counts the sampled rows of the table instead of recognizing that the table is only evidence.\n\n**Test Day Takeaway:** When both sides simplify to the same expression, the equation is an identity with infinitely many solutions; only a false leftover statement means no solution.",
+ "id": "bank-alg-280"
 }

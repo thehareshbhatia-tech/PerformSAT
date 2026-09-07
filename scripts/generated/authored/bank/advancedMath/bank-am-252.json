@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-252",
-  "question": "The functions $f$ and $g$ satisfy $g(x) = f(x + 6)$ for every value of $x$. If $g(-4) = 21$, what is the value of $f(2)$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-4$"
-    },
-    {
-      "id": "B",
-      "text": "$15$"
-    },
-    {
-      "id": "C",
-      "text": "$21$"
-    },
-    {
-      "id": "D",
-      "text": "$27$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports the input $-4$ rather than an output",
-    "B": "subtracts $6$ from the output",
-    "D": "adds $6$ to the output"
+ "id": "bank-am-252",
+ "question": "The function $f$ gives the number of vehicles queued at a toll plaza $t$ minutes after 6:00 a.m., and a second plaza's queue is $q(t)=f(t-25)$. Given that $f(40)=180$, for what value of $t$ does $q(t)=180$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$15$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $g(-4) = f(-4 + 6) = f(2)$, so $f(2) = 21$ directly.\n\n**The Full Solution:**\nStep 1: Substitute $x = -4$ into the relationship: $g(-4) = f(-4 + 6)$.\nStep 2: The inside simplifies to $f(2)$, so $f(2) = g(-4)$.\nStep 3: Since $g(-4) = 21$, it follows that $f(2) = 21$. Check: the point $(-4, 21)$ on the graph of $g$ sits $6$ units left of the point $(2, 21)$ on the graph of $f$, which is exactly the shift $f(x + 6)$ produces. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): this reports the input to $g$; the question asks for an output of $f$.\n* Choice B ($15$): this subtracts the $6$ from the output, $21 - 6$; the $6$ is already used inside the parentheses.\n* Choice D ($27$): this adds the $6$ to the output for the same reason.\n\n**Test Day Takeaway:** A horizontal shift relabels inputs only. Once the inside expressions match, the outputs are equal — no further arithmetic."
+  {
+   "id": "B",
+   "text": "$40$"
+  },
+  {
+   "id": "C",
+   "text": "$65$"
+  },
+  {
+   "id": "D",
+   "text": "$205$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "subtracts 25 from 40 instead of adding, shifting the model earlier",
+  "B": "ignores the shift and reports the input used for f",
+  "D": "adds 25 to the output 180 instead of to the input 40"
+ },
+ "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $q(t)=f(t-25)$ equals 180 when $t-25=40$, so $t=65$.\n\n**The Full Solution:**\nStep 1: The second plaza's queue at time $t$ equals the first plaza's queue 25 minutes earlier.\nStep 2: The first plaza has 180 vehicles at $t=40$, so set $t-25=40$.\nStep 3: Solving gives $t=65$ minutes after 6:00 a.m. Check: $q(65)=f(40)=180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): subtracts 25 from 40, moving the queue 25 minutes early.\n* Choice B ($40$): uses the input for $f$ without applying the delay.\n* Choice D ($205$): adds 25 to the number of vehicles instead of to the time.\n\n**Test Day Takeaway:** A delayed model reaches the same output later — set the inner expression equal to the known input."
 }

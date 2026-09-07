@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-391",
-  "question": "The function $h$ is defined by $h(x) = 7 - 3x$. What is the value of $h(-2)$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-13$"
-    },
-    {
-      "id": "B",
-      "text": "$-8$"
-    },
-    {
-      "id": "C",
-      "text": "$1$"
-    },
-    {
-      "id": "D",
-      "text": "$13$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "negates the entire result",
-    "B": "subtracts before multiplying: (7 - 3)(-2)",
-    "C": "substitutes 2 instead of -2"
+ "question": "The function $P$ gives the power, in watts, drawn by a server rack that has $n$ populated slots, and $P(n)=145n+380$. What is the power drawn by a rack that has $6$ populated slots?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$870$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Replace $x$ with $-2$: $7 - 3(-2) = 7 + 6 = 13$.\n\n**The Full Solution:**\nStep 1: $h(-2)$ means the output of $h$ when the input is $-2$. Substitute $-2$ for every $x$ in the rule, using parentheses to protect the sign: $h(-2) = 7 - 3(-2)$.\nStep 2: Multiply first: $3(-2) = -6$, so the expression is $7 - (-6)$.\nStep 3: Subtracting a negative adds: $7 + 6 = 13$. Check: the graph of $h$ has slope $-3$, so moving from $x = 0$ (where $h = 7$) to $x = -2$ raises the output by $3 \\times 2 = 6$, to $13$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): applies a negative to the whole result, as though $h(-2) = -h(2)$.\n* Choice B ($-8$): subtracts $7 - 3$ first and then multiplies by $-2$, ignoring the order of operations.\n* Choice C ($1$): substitutes $2$ instead of $-2$, giving $7 - 6$.\n\n**Test Day Takeaway:** Substitute with parentheses around a negative input, multiply before subtracting, and remember that subtracting a negative product raises the value."
+  {
+   "id": "B",
+   "text": "$1{,}250$"
+  },
+  {
+   "id": "C",
+   "text": "$2{,}425$"
+  },
+  {
+   "id": "D",
+   "text": "$3{,}150$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "drops the 380-watt constant and reports only 145(6) = 870",
+  "C": "swaps the rate and the constant, computing 380(6) + 145 = 2425",
+  "D": "adds before multiplying, computing (145 + 380)(6) = 3150"
+ },
+ "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.** Substituting $6$ for $n$ gives $P(6)=145(6)+380=1{,}250$ watts.\n\n**The Fast Way (~20s):** $145(6)=870$, and $870+380=1{,}250$.\n\n**The Full Solution:**\n\nStep 1: The number of populated slots is the input, so evaluate $P$ at $n=6$: $P(6)=145(6)+380$.\n\nStep 2: Multiply first, since the coefficient applies only to $n$: $145(6)=870$.\n\nStep 3: Add the constant term: $870+380=1{,}250$ watts. Check: an empty rack draws $P(0)=380$ watts, and six slots add $6(145)=870$ watts, for the same total.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($870$): drops the $380$-watt constant, which is the power the rack draws with no slots populated.\n* Choice C ($2{,}425$): swaps the roles of the two numbers, computing $380(6)+145$.\n* Choice D ($3{,}150$): adds before multiplying, computing $(145+380)(6)$ and distributing the input to the constant.\n\n**Test Day Takeaway:** In $an+b$ the coefficient multiplies only the input; the constant is added once, no matter how large the input is.",
+ "id": "bank-alg-391"
 }

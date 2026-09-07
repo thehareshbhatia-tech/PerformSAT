@@ -1,60 +1,60 @@
 {
   "id": "bank-am-019",
-  "question": "The table shows the value of the quadratic function $f$ at five values of $x$. In the $xy$-plane, what is the vertex of the graph of $y = f(x)$?",
+  "question": "A campus writing center's average wait, in minutes, during week $x$ is given by a quadratic function $f$, and the table lists $f(x)$ for five consecutive weeks. Which ordered pair gives the coordinates of the lowest point on the graph of $y=f(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(1,13)$"
+    },
+    {
+      "id": "B",
+      "text": "$(2,7)$"
+    },
+    {
+      "id": "C",
+      "text": "$(3,5)$"
+    },
+    {
+      "id": "D",
+      "text": "$(5,3)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the first row of the table rather than the smallest output",
+    "B": "reports the second-smallest output instead of the smallest",
+    "D": "swaps the coordinates of the vertex"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Vertex Coordinates**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The outputs fall to $5$ at $x=3$ and rise symmetrically on either side, so the lowest point is $(3,5)$.\n\n**The Full Solution:**\nStep 1: Scan the outputs: $13$, $7$, $5$, $7$, $13$. The smallest is $5$.\nStep 2: That value occurs at $x=3$, and the equal outputs at $x=2$ and $x=4$ confirm $x=3$ is the axis of symmetry.\nStep 3: The lowest point is therefore $(3,5)$. Check: $f(x)=2(x-3)^2+5$ reproduces every row of the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(1,13)$): reports the first row of the table rather than the smallest output.\n* Choice B ($(2,7)$): reports the second-smallest output instead of the smallest.\n* Choice D ($(5,3)$): swaps the two coordinates of the vertex.\n\n**Test Day Takeaway:** In a symmetric table the vertex sits at the input where the outputs turn around — read the pair in the order (input, output).",
   "diagram": {
     "type": "dataTable",
     "params": {
       "headers": [
-        "x",
-        "f(x)"
+        "Week (x)",
+        "Average wait, f(x)"
       ],
       "rows": [
         [
           "1",
-          "0"
+          "13"
         ],
         [
           "2",
-          "-3"
+          "7"
         ],
         [
           "3",
-          "-4"
+          "5"
         ],
         [
           "4",
-          "-3"
+          "7"
         ],
         [
           "5",
-          "0"
+          "13"
         ]
       ]
     }
-  },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$(1, 0)$"
-    },
-    {
-      "id": "B",
-      "text": "$(3, -4)$"
-    },
-    {
-      "id": "C",
-      "text": "$(-4, 3)$"
-    },
-    {
-      "id": "D",
-      "text": "$(5, 0)$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports the first $x$-intercept listed in the table",
-    "C": "reverses the coordinates of the vertex",
-    "D": "reports the other $x$-intercept, the largest $x$ in the table"
-  },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Vertex Coordinates**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The outputs fall to $-4$ at $x = 3$ and rise again symmetrically, so the vertex is $(3, -4)$.\n\n**The Full Solution:**\nStep 1: A quadratic function is symmetric about the vertical line through its vertex. In the table, $f(2) = f(4) = -3$ and $f(1) = f(5) = 0$, so the axis of symmetry is halfway between each pair: $x = 3$.\nStep 2: The vertex sits on that axis, so its $x$-coordinate is $3$ and its $y$-coordinate is $f(3) = -4$.\nStep 3: The vertex is $(3, -4)$, and because the outputs are larger on both sides of $x = 3$, it is a minimum. Check: the values $0, -3, -4, -3, 0$ mirror across the middle entry. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(1, 0)$): this is where the graph crosses the $x$-axis, not where it turns.\n* Choice C ($(-4, 3)$): the two vertex coordinates are swapped and one sign is carried along with them.\n* Choice D ($(5, 0)$): the other $x$-intercept — the last row of the table, not the middle one.\n\n**Test Day Takeaway:** In a table of a quadratic, the vertex is the row where the outputs stop falling and start rising; matched outputs on either side confirm the axis of symmetry."
+  }
 }

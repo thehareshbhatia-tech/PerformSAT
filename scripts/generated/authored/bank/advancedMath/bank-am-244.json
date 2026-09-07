@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-244",
-  "question": "In the $xy$-plane, the point $(-6, 15)$ lies on the graph of $y = w(x)$. Which of the following points must lie on the graph of $y = w(x) - 9$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$(-15, 15)$"
-    },
-    {
-      "id": "B",
-      "text": "$(-6, 6)$"
-    },
-    {
-      "id": "C",
-      "text": "$(-6, 24)$"
-    },
-    {
-      "id": "D",
-      "text": "$(3, 15)$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "subtracts $9$ from the $x$-coordinate",
-    "C": "adds $9$ to the $y$-coordinate",
-    "D": "adds $9$ to the $x$-coordinate"
+ "id": "bank-am-244",
+ "question": "The function $C$ gives the daily cost, in dollars, of running a district heating loop when the outdoor temperature is $x$ degrees Celsius, and the graph of $y=C(x)$ passes through $(12,95)$. The function $D$ is defined by $D(x)=C(x)-18$. Which point must lie on the graph of $y=D(x)$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(-6,95)$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Vertical Shift**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Keep the input, drop the output by $9$: $(-6,\\ 15 - 9) = (-6, 6)$.\n\n**The Full Solution:**\nStep 1: The point $(-6, 15)$ on $y = w(x)$ means $w(-6) = 15$.\nStep 2: Let $u(x) = w(x) - 9$. Then $u(-6) = w(-6) - 9 = 15 - 9 = 6$.\nStep 3: So the point $(-6, 6)$ is on the graph of $y = w(x) - 9$. Check: the new point sits $9$ units directly below the old one, exactly what subtracting $9$ from every output does. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-15, 15)$): the $9$ was applied to the $x$-coordinate, which a vertical shift never touches.\n* Choice C ($(-6, 24)$): the shift was added rather than subtracted, moving the point up.\n* Choice D ($(3, 15)$): the $9$ was added to the input, which would be a horizontal shift.\n\n**Test Day Takeaway:** In $y = f(x) + k$ the $x$-coordinate is untouched; only the $y$-coordinate moves, and it moves by exactly $k$."
+  {
+   "id": "B",
+   "text": "$(12,77)$"
+  },
+  {
+   "id": "C",
+   "text": "$(12,113)$"
+  },
+  {
+   "id": "D",
+   "text": "$(30,95)$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "shifts the x-coordinate left by 18 instead of shifting the output down",
+  "C": "adds 18 to the output instead of subtracting it",
+  "D": "shifts the x-coordinate right by 18 instead of shifting the output down"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Vertical Shift**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Subtracting $18$ outside the function lowers every output by $18$, so $(12,95)$ becomes $(12,77)$.\n\n**The Full Solution:**\nStep 1: $C(12)=95$ because $(12,95)$ is on the graph of $y=C(x)$.\nStep 2: The rule $D(x)=C(x)-18$ subtracts $18$ from each output while leaving the input unchanged.\nStep 3: So $D(12)=95-18=77$, and $(12,77)$ is on the graph of $y=D(x)$. Check: reversing the shift gives $D(12)+18=95=C(12)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-6,95)$): shifts the input left by $18$ instead of lowering the output.\n* Choice C ($(12,113)$): adds $18$ to the output instead of subtracting it.\n* Choice D ($(30,95)$): shifts the input right by $18$.\n\n**Test Day Takeaway:** A constant subtracted outside the function moves points straight down — the $x$-coordinate never changes."
 }

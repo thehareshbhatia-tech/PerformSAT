@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-126",
-  "question": "In the $xy$-plane, the line $y = -x + 4$ is tangent to the graph of $y = kx^2 + 3x - 2$, where $k$ is a nonzero constant. What is the value of $k$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-2$"
-    },
-    {
-      "id": "B",
-      "text": "$-\\dfrac{2}{3}$"
-    },
-    {
-      "id": "C",
-      "text": "$-\\dfrac{1}{6}$"
-    },
-    {
-      "id": "D",
-      "text": "$\\dfrac{2}{3}$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "leaves the $4$ on the right side, solving $16 + 8k = 0$ from $kx^2 + 4x - 2 = 0$",
-    "C": "moves $-x$ across the equals sign as a subtraction, producing $kx^2 + 2x - 6 = 0$",
-    "D": "writes the discriminant as $16 - 24k$, dropping the sign of the negative constant term"
+ "id": "bank-am-126",
+ "question": "A supplier's unit cost for fountain pen ink bottles is modeled by $y=x^2+3x+9$ and its shipping charge by $y=mx+5$, where $m$ is a positive constant. If the two graphs meet at exactly one point, what is the value of $m$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-1$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Combining gives $kx^2 + 4x - 6 = 0$. Tangency forces $16 - 4(k)(-6) = 16 + 24k = 0$, so $k = -\\dfrac{2}{3}$.\n\n**The Full Solution:**\nStep 1: Set the expressions equal: $kx^2 + 3x - 2 = -x + 4$. Adding $x$ and subtracting $4$ from both sides gives $kx^2 + 4x - 6 = 0$.\nStep 2: A tangent line produces exactly one intersection, so the discriminant is zero: $4^2 - 4(k)(-6) = 0$, which is $16 + 24k = 0$.\nStep 3: Then $24k = -16$ and $k = -\\dfrac{2}{3}$. Check: $-\\dfrac{2}{3}x^2 + 4x - 6 = -\\dfrac{2}{3}\\left(x^2 - 6x + 9\\right) = -\\dfrac{2}{3}(x-3)^2$, which is zero only at $x = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): the constant $4$ is never moved to the left, leaving $kx^2 + 4x - 2 = 0$ and the equation $16 + 8k = 0$.\n* Choice C ($-\\frac{1}{6}$): subtracting $x$ instead of adding it gives $kx^2 + 2x - 6 = 0$ and the equation $4 + 24k = 0$.\n* Choice D ($\\frac{2}{3}$): the product $-4(k)(-6)$ is written as $-24k$, so the sign of $k$ flips.\n\n**Test Day Takeaway:** With the unknown in the leading coefficient, still collect every term on one side first; the sign of the constant term decides the sign of your answer."
+  {
+   "id": "B",
+   "text": "$1$"
+  },
+  {
+   "id": "C",
+   "text": "$4$"
+  },
+  {
+   "id": "D",
+   "text": "$7$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "takes 3 - m = 4, the root ruled out by m > 0",
+  "B": "uses c = 4 instead of 4ac = 16, getting 3 - m = 2",
+  "C": "reports the square root 4 without solving 3 - m = -4"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Equating gives $x^2+(3-m)x+4=0$; one solution forces $(3-m)^2=16$, so $m=-1$ or $7$, and $m>0$ leaves $7$.\n\n**The Full Solution:**\nStep 1: Set $x^2+3x+9=mx+5$, which rearranges to $x^2+(3-m)x+4=0$.\nStep 2: Exactly one shared point means $(3-m)^2-4(1)(4)=0$, so $(3-m)^2=16$ and $3-m=\\pm4$.\nStep 3: That gives $m=-1$ or $m=7$; since $m$ is positive, $m=7$. Check: with $m=7$ the equation is $x^2-4x+4=(x-2)^2=0$, a single solution ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): takes $3-m=4$, the root the condition $m>0$ rules out.\n* Choice B ($1$): uses $c=4$ in place of $4ac=16$, getting $3-m=\\pm2$.\n* Choice C ($4$): reports $\\sqrt{16}=4$ without solving $3-m=-4$ for $m$.\n\n**Test Day Takeaway:** A squared quantity gives two values — read the stated restriction on the constant to pick the one the item wants."
 }
