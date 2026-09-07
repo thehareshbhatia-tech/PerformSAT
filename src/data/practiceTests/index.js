@@ -107,6 +107,9 @@ const rwEasyVariants = {
 // SAFETY: past attempts are unaffected — review renders from per-attempt
 // snapshots, the legacy fallback keys off the CURRENT correct letter, and
 // stored scores are never recomputed from current keys (verified 2026-08-13).
+// Seeds carry a `:v2` suffix since the 2026-09-07 freshness rebuild so that
+// returning students meet a new letter layout and a new M1/M2Easy order along
+// with the re-authored content (docs/TEST_RECREATION_V2_SPEC.md).
 const rebalanceModule = (m, seed) => ({
   ...m,
   questions: m.questions.map((q) => rebalanceAnswerKey(q, seed)),
@@ -121,7 +124,7 @@ const rebalanceModule = (m, seed) => ({
 // reference sheet) appropriately.
 const buildFullTest = (id, title, rw, math) => {
   const rwModules = rw.modules.map((m, idx) => ({
-    ...rebalanceModule(m, `${id}:rw:${idx}`),
+    ...rebalanceModule(m, `${id}:rw:${idx}:v2`),
     section: 'reading-writing',
     title: `Reading and Writing Module ${idx + 1}`,
   }));
@@ -132,8 +135,8 @@ const buildFullTest = (id, title, rw, math) => {
   // (official vocab-first flow is authentic and position-meaningful).
   const mathModules = math.modules.map((m, idx) => ({
     ...rebalanceModule(
-      idx === 0 ? varyDifficultyOrder(m, `${id}:math:${idx}:order`) : m,
-      `${id}:math:${idx}`,
+      idx === 0 ? varyDifficultyOrder(m, `${id}:math:${idx}:order:v2`) : m,
+      `${id}:math:${idx}:v2`,
     ),
     section: 'math',
     title: `Math Module ${idx + 1}`,
@@ -180,12 +183,12 @@ const withEasyVariant = (t) => {
     ...(math
       ? {
           module2Easy: rebalanceModule(
-            varyDifficultyOrder(math, `${t.id}:math-m2easy:order`),
-            `${t.id}:math-m2easy`,
+            varyDifficultyOrder(math, `${t.id}:math-m2easy:order:v2`),
+            `${t.id}:math-m2easy:v2`,
           ),
         }
       : {}),
-    ...(rw ? { rwModule2Easy: rebalanceModule(rw, `${t.id}:rw-m2easy`) } : {}),
+    ...(rw ? { rwModule2Easy: rebalanceModule(rw, `${t.id}:rw-m2easy:v2`) } : {}),
   };
 };
 

@@ -41,7 +41,7 @@ const AUTHORED = path.join(GEN, 'authored', 'bank');
 const WORK = path.join(GEN, 'bankRecreation');
 const CHUNK_SIZE = 60;
 
-const TOPIC_DOMAIN = {
+export const TOPIC_DOMAIN = {
   'linear-equations': 'algebra', systems: 'algebra', functions: 'algebra', 'equivalent-expressions': 'algebra',
   quadratics: 'advanced-math', exponents: 'advanced-math', transformations: 'advanced-math',
   percents: 'problem-solving', 'dimensional-analysis': 'problem-solving', statistics: 'problem-solving',
@@ -69,7 +69,7 @@ export const SOURCES = {
   volume:                   { kind: 'topic', file: 'src/data/questions/volume.js',                exportName: 'volumeQuestions' },
 };
 
-const SUPPORTED_DIAGRAM_TYPES = new Set([
+export const SUPPORTED_DIAGRAM_TYPES = new Set([
   'rationalFunction', 'quadraticVertex', 'quadratic', 'absoluteValue', 'coordinatePoints', 'quadraticIntercepts',
   'scatterplot', 'linearLine', 'simpleLine', 'table', 'linearFunctionGraph', 'wavyFunction', 'generalFunction',
   'dotPlot', 'boxPlot', 'dataTable', 'linearGraph', 'parabola', 'barChart', 'circleWithSector', 'circleWithSquare',
@@ -78,21 +78,21 @@ const SUPPORTED_DIAGRAM_TYPES = new Set([
 ]);
 
 // Mirrors scripts/auditMissingDiagrams.mjs CUES — a stem naming a visual must carry one.
-const VISUAL_CUE_RE = /\b(scatter[\s-]?plots?|line of best fit|residuals?|box[\s-]?plots?|dot[\s-]?plots?|line plots?|histograms?|bar (?:chart|graph)s?|frequency (?:distribution|table)|two[\s-]?way table|contingency table|table (?:above|below|shown|gives|shows)|(?:the|following) table|(?:the )?figure (?:above|below|shown)|the figure shows|in the figure|(?:the diagram|the picture|the drawing) (?:above|below|shown)|graph\b[^.\n]{0,40}\bis shown|a graph shows)\b/i;
+export const VISUAL_CUE_RE = /\b(scatter[\s-]?plots?|line of best fit|residuals?|box[\s-]?plots?|dot[\s-]?plots?|line plots?|histograms?|bar (?:chart|graph)s?|frequency (?:distribution|table)|two[\s-]?way table|contingency table|table (?:above|below|shown|gives|shows)|(?:the|following) table|(?:the )?figure (?:above|below|shown)|the figure shows|in the figure|(?:the diagram|the picture|the drawing) (?:above|below|shown)|graph\b[^.\n]{0,40}\bis shown|a graph shows)\b/i;
 
 // Content fields an authoring agent may set. Everything else is frozen from the source item.
-const CONTENT_FIELDS = ['question', 'diagram', 'questionTable', 'questionFormula', 'choices', 'correctAnswer', 'hint', 'explanation'];
-const AUTHORED_META_FIELDS = ['distractorNotes', 'choiceOrderNote', 'figureNote'];
+export const CONTENT_FIELDS = ['question', 'diagram', 'questionTable', 'questionFormula', 'choices', 'correctAnswer', 'hint', 'explanation'];
+export const AUTHORED_META_FIELDS = ['distractorNotes', 'choiceOrderNote', 'figureNote'];
 
 // ─── helpers ────────────────────────────────────────────────────────────────
 const args = Object.fromEntries(process.argv.slice(3).map(a => { const m = a.match(/^--([\w-]+)(?:=(.*))?$/); return m ? [m[1], m[2] === undefined ? true : m[2]] : [a, true]; }));
 const cmd = process.argv[2];
 const sectionSlug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const kebab = sectionSlug;
-const patternTitleOf = expl => { const m = String(expl || '').match(/\*\*SAT Pattern:\s*([^*]+?)\s*\*\*/); return m ? m[1] : null; };
-const wordCount = s => String(s || '').replace(/\\\$/g, 'S').replace(/\$[^$]*\$/g, 'M').split(/\s+/).filter(Boolean).length; // escaped \$ (money) is not a math delimiter
-const dollarBalanced = s => ((String(s || '').replace(/\\\$/g, '').match(/\$/g) || []).length % 2) === 0;
-const numericOf = t => {
+export const patternTitleOf = expl => { const m = String(expl || '').match(/\*\*SAT Pattern:\s*([^*]+?)\s*\*\*/); return m ? m[1] : null; };
+export const wordCount = s => String(s || '').replace(/\\\$/g, 'S').replace(/\$[^$]*\$/g, 'M').split(/\s+/).filter(Boolean).length; // escaped \$ (money) is not a math delimiter
+export const dollarBalanced = s => ((String(s || '').replace(/\\\$/g, '').match(/\$/g) || []).length % 2) === 0;
+export const numericOf = t => {
   // Parse a choice's true numeric value: integers, decimals, \frac / \dfrac / a/b, \sqrt{n}, \pi, degrees,
   // and products of those (e.g. 14\sqrt{3}, \frac{4\pi}{3}, 2\sqrt{5}/5). Anything else → NaN (gate skipped).
   let s = String(t ?? '').replace(/\$/g, '').replace(/\\,/g, '').replace(/\{,\}/g, '').replace(/,/g, '')
@@ -110,16 +110,16 @@ const numericOf = t => {
     return typeof v === 'number' && Number.isFinite(v) ? v : NaN;
   } catch { return NaN; }
 };
-const median = a => { if (!a.length) return null; const b = [...a].sort((x, y) => x - y); return b[Math.floor(b.length / 2)]; };
+export const median = a => { if (!a.length) return null; const b = [...a].sort((x, y) => x - y); return b[Math.floor(b.length / 2)]; };
 
-function fileIdOf(kind, meta) {
+export function fileIdOf(kind, meta) {
   return kind === 'shard' ? meta.id : `${meta.moduleId}__${sectionSlug(meta.sectionName)}__${meta.id}`;
 }
-function keyOf(kind, meta) {
+export function keyOf(kind, meta) {
   return kind === 'shard' ? meta.id : `${meta.moduleId}::${meta.sectionName}::${meta.id}`;
 }
 
-async function loadSource(name) {
+export async function loadSource(name) {
   const src = SOURCES[name];
   if (!src) throw new Error(`unknown source ${name}`);
   const mod = await import(pathToFileURL(path.join(ROOT, src.file)).href + `?t=${Date.now()}`);
@@ -135,7 +135,7 @@ async function loadSource(name) {
   return { src, data, items };
 }
 
-function frozenOf(kind, item, name) {
+export function frozenOf(kind, item, name) {
   const { q, meta } = item;
   if (kind === 'shard') {
     return {
@@ -192,7 +192,7 @@ async function manifest(names) {
 }
 
 // ─── authored JSON loading ─────────────────────────────────────────────────
-function readAuthored(name, fileId) {
+export function readAuthored(name, fileId) {
   const p = path.join(AUTHORED, name, `${fileId}.json`);
   if (!fs.existsSync(p)) return null;
   try { return { data: JSON.parse(fs.readFileSync(p, 'utf8')), path: p }; }
@@ -201,7 +201,7 @@ function readAuthored(name, fileId) {
 
 // ─── corpora for uniqueness ────────────────────────────────────────────────
 let _official = null;
-function officialIndex() {
+export function officialIndex() {
   if (_official) return _official;
   const cache = JSON.parse(fs.readFileSync(path.join(GEN, 'cbEducatorQBank.json'), 'utf8')).items;
   _official = indexCorpus(cache);
@@ -216,7 +216,7 @@ function officialIndex() {
   return _official;
 }
 let _tests = null;
-function testStemIndex() {
+export function testStemIndex() {
   if (_tests) return _tests;
   const list = [];
   const dir = path.join(ROOT, 'src', 'data', 'practiceTests');
@@ -230,7 +230,7 @@ function testStemIndex() {
 }
 
 // ─── check ─────────────────────────────────────────────────────────────────
-function scaffoldErrors(a, frozen, kind) {
+export function scaffoldErrors(a, frozen, kind) {
   const errs = [];
   const e = String(a.explanation || '');
   if (kind === 'shard') {
@@ -267,7 +267,7 @@ function scaffoldErrors(a, frozen, kind) {
   return errs;
 }
 
-function checkItem(row, authored, ctx) {
+export function checkItem(row, authored, ctx) {
   const errs = []; const warns = [];
   const a = authored;
   if (a.id !== undefined && String(a.id) !== String(row.id)) errs.push(`id mismatch ${a.id} vs ${row.id}`);
@@ -354,7 +354,7 @@ function checkItem(row, authored, ctx) {
   return { errs, warns };
 }
 
-function uniquenessErrors(stemsById, { skipTests = false } = {}) {
+export function uniquenessErrors(stemsById, { skipTests = false } = {}) {
   const errs = [];
   const off = officialIndex();
   const tests = skipTests ? null : testStemIndex();
@@ -416,7 +416,7 @@ async function selectRows(selection) {
 }
 
 // ─── source-file span parsing (string/comment-aware) ───────────────────────
-function findSpans(text, kind) {
+export function findSpans(text, kind) {
   // returns [{ start, end, sectionName|null }] for each item object literal in source order
   const spans = [];
   let i = 0, depth = 0, inStr = null, esc = false, inLine = false, inBlock = false;
@@ -454,14 +454,14 @@ function findSpans(text, kind) {
 // ─── serializer ────────────────────────────────────────────────────────────
 const IDENT = /^[A-Za-z_$][\w$]*$/;
 const keyStr = k => (IDENT.test(k) ? k : JSON.stringify(k));
-function serializeInline(v) {
+export function serializeInline(v) {
   if (v === null || v === undefined) return 'null';
   if (typeof v === 'string') return JSON.stringify(v);
   if (typeof v === 'number' || typeof v === 'boolean') return String(v);
   if (Array.isArray(v)) return `[${v.map(serializeInline).join(', ')}]`;
   return `{ ${Object.entries(v).filter(([, x]) => x !== undefined).map(([k, x]) => `${keyStr(k)}: ${serializeInline(x)}`).join(', ')} }`;
 }
-function serializeItem(item, indent, notes) {
+export function serializeItem(item, indent, notes) {
   const pad = ' '.repeat(indent), pad2 = ' '.repeat(indent + 2), pad3 = ' '.repeat(indent + 4);
   const lines = [`${pad}{`];
   for (const [k, v] of Object.entries(item)) {
@@ -483,10 +483,10 @@ function serializeItem(item, indent, notes) {
   return lines.join('\n');
 }
 
-const KEY_ORDER_SHARD = ['id', 'domain', 'skills', 'difficulty', 'band', 'type', 'question', 'questionFormula', 'questionTable', 'diagram', 'choices', 'correctAnswer', 'explanation', 'calculatorAllowed', 'tags', 'sourceStyleRef', 'sourceRef', 'authoredBy', 'createdAt'];
+export const KEY_ORDER_SHARD = ['id', 'domain', 'skills', 'difficulty', 'band', 'type', 'question', 'questionFormula', 'questionTable', 'diagram', 'choices', 'correctAnswer', 'explanation', 'calculatorAllowed', 'tags', 'sourceStyleRef', 'sourceRef', 'authoredBy', 'createdAt'];
 const KEY_ORDER_TOPIC = ['id', 'difficulty', 'type', 'question', 'questionFormula', 'questionTable', 'diagram', 'choices', 'correctAnswer', 'hint', 'explanation', 'skills'];
 
-function mergeItem(kind, oldQ, a) {
+export function mergeItem(kind, oldQ, a) {
   const merged = { ...oldQ };
   for (const k of CONTENT_FIELDS) {
     if (a[k] !== undefined && a[k] !== null) merged[k] = a[k];
@@ -502,7 +502,7 @@ function mergeItem(kind, oldQ, a) {
   return out;
 }
 
-const deepEq = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+export const deepEq = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
 function chunkAllowList(chunkArg) {
   if (!chunkArg) return null;
@@ -629,7 +629,10 @@ async function solvesheet(chunkId) {
 }
 
 // ─── main ──────────────────────────────────────────────────────────────────
-(async () => {
+// Helpers above are imported by scripts/recreateTestMath.mjs; only run the CLI
+// when this file is the entry point.
+const isEntry = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+if (isEntry) (async () => {
   const names = args.all ? Object.keys(SOURCES) : (args.source ? String(args.source).split(',') : null);
   switch (cmd) {
     case 'manifest': await manifest(names || Object.keys(SOURCES)); break;
@@ -646,3 +649,4 @@ async function solvesheet(chunkId) {
     default: console.error('usage: recreateBank.mjs manifest|check|assemble|verify|status|solvesheet'); process.exit(1);
   }
 })().catch(e => { console.error(e.stack || e.message); process.exit(1); });
+export const AUTHORED_BANK_DIR = AUTHORED;
