@@ -229,6 +229,65 @@ export function testStemIndex() {
   return _tests;
 }
 
+// ─── freshness (drill-bank refresh, docs/BANK_FRESHNESS_SPEC.md) ───────────
+// Rows flagged `fresh: true` (chunks fresh-NN from scripts/refreshBank.mjs) must
+// keep their stem away from everything a student has drilled or tested on:
+// entries in bankRecreation/fresh/seen.json carry their own threshold `t`
+// (0.55 for the item's old versions and current tests, 0.65 for kept drills),
+// and other fresh authored items are siblings at 0.65.
+const FRESH_DIR = path.join(WORK, 'fresh');
+const freshNorm = (s) => String(s || '').toLowerCase().replace(/\d+([.,]\d+)?/g, '#').replace(/\s+/g, ' ').trim();
+const freshTri = (s) => { const m = new Map(); for (let i = 0; i < s.length - 2; i++) { const t = s.slice(i, i + 3); m.set(t, (m.get(t) || 0) + 1); } return m; };
+const freshDice = (a, b) => { let inter = 0, sa = 0, sb = 0; for (const [k, v] of a) { sa += v; const w = b.get(k) || 0; inter += Math.min(v, w); } for (const v of b.values()) sb += v; return sa + sb ? (2 * inter) / (sa + sb) : 0; };
+let _freshSeen = null;
+function freshSeen() {
+  if (_freshSeen) return _freshSeen;
+  const p = path.join(FRESH_DIR, 'seen.json');
+  if (!fs.existsSync(p)) throw new Error('bankRecreation/fresh/seen.json missing — run `node scripts/refreshBank.mjs plan`');
+  _freshSeen = JSON.parse(fs.readFileSync(p, 'utf8')).map(e => ({ ...e, tri: freshTri(e.text), len: e.text.length }));
+  return _freshSeen;
+}
+let _freshBaseline = null;
+function freshBaseline() {
+  if (_freshBaseline) return _freshBaseline;
+  const p = path.join(FRESH_DIR, 'baseline.json');
+  _freshBaseline = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : {};
+  return _freshBaseline;
+}
+/** true when a fresh row's authored JSON still carries the pre-refresh stem (not rewritten yet) */
+function freshUntouched(key, authored) { return freshNorm(authored.question) === freshBaseline()[key]; }
+function freshSiblings(exceptKey = null) {
+  const out = [];
+  for (const f of fs.readdirSync(path.join(WORK, 'chunks'))) {
+    if (!/^fresh-\d+\.json$/.test(f)) continue;
+    for (const r of JSON.parse(fs.readFileSync(path.join(WORK, 'chunks', f), 'utf8')).items) {
+      const key = `${r.source}/${r.fileId}`; if (key === exceptKey) continue;
+      const got = readAuthored(r.source, r.fileId); if (!got || got.error || freshUntouched(key, got.data)) continue; // only REWRITTEN drills count as siblings
+      const t = freshNorm(got.data.question); if (t.length >= 20) out.push({ id: `new:${key}`, text: t, tri: freshTri(t), len: t.length, t: 0.65 });
+    }
+  }
+  return out;
+}
+function freshNearest(text, corpus) {
+  const t = freshNorm(text); const tri = freshTri(t); let worst = { over: -1, dice: 0, id: null, t: null };
+  for (const s of corpus) {
+    if (s.len < t.length * 0.35 || s.len > t.length / 0.35) continue;
+    const d = freshDice(tri, s.tri); const over = d - s.t; if (over > worst.over) worst = { over, dice: d, id: s.id, t: s.t };
+  }
+  return worst;
+}
+/** errors/warns for a fresh row's stem: FAIL when it crosses an entry's threshold, warn within 0.10 of it. */
+function freshnessErrors(text, ownKey, siblings) {
+  const errs = [], warns = [];
+  const s = freshNearest(text, freshSeen()); const b = freshNearest(text, siblings || freshSiblings(ownKey));
+  for (const [label, r] of [['seen', s], ['new drill', b]]) {
+    if (r.id === null) continue;
+    if (r.over >= 0) errs.push(`FRESHNESS: stem is a near-copy of ${label} ${r.id} (Dice ${r.dice.toFixed(2)} ≥ ${r.t}) — change the setup, not the numbers`);
+    else if (r.over >= -0.10) warns.push(`freshness: close to ${label} ${r.id} (Dice ${r.dice.toFixed(2)}, line ${r.t})`);
+  }
+  return { errs, warns };
+}
+
 // ─── check ─────────────────────────────────────────────────────────────────
 export function scaffoldErrors(a, frozen, kind) {
   const errs = [];
@@ -378,6 +437,7 @@ export function uniquenessErrors(stemsById, { skipTests = false } = {}) {
 
 async function check(selection) {
   const rows = await selectRows(selection);
+  const freshSibs = rows.some(r => r.fresh) ? freshSiblings(null) : null;
   const ctx = { numeric: 0, ascending: 0, figures: 0, stems: [] };
   let errors = 0, missing = 0, checked = 0;
   const lens = { easy: [], medium: [], hard: [] };
@@ -385,8 +445,16 @@ async function check(selection) {
     const got = readAuthored(row.source, row.fileId);
     if (!got) { missing++; continue; }
     if (got.error) { errors++; console.error(`FAIL ${row.fileId}: ${got.error}`); continue; }
+    if (row.fresh && freshUntouched(`${row.source}/${row.fileId}`, got.data)) { missing++; continue; } // still the pre-refresh item — not authored yet
     checked++;
     const { errs, warns } = checkItem(row, got.data, ctx);
+    if (row.fresh) {
+      const fr = freshnessErrors(got.data.question, `${row.source}/${row.fileId}`, freshSibs);
+      errs.push(...fr.errs); warns.push(...fr.warns);
+      if (row.figure && !got.data.diagram && !got.data.questionTable) errs.push('this is a FIGURE slot in the refresh plan — add a real diagram/questionTable whose params match the numbers');
+      if (row.type === 'multiple-choice') { const notes = got.data.distractorNotes || {}; for (const L of ['A', 'B', 'C', 'D']) if (L !== got.data.correctAnswer && !(notes[L] && String(notes[L]).trim())) errs.push(`distractorNotes.${L} missing (every wrong letter needs a named error)`); }
+      const wc = wordCount(got.data.question); if (wc < 10 && !got.data.diagram && !got.data.questionTable) errs.push(`stem ${wc} words (<10) — give the setup in words; bare equations are what produced the twins`);
+    }
     warns.forEach(w => console.warn(`warn ${row.fileId}: ${w}`));
     if (errs.length) { errors += errs.length; errs.forEach(e => console.error(`FAIL ${row.fileId}: ${e}`)); }
     if (lens[row.difficulty]) lens[row.difficulty].push(wordCount(got.data.question));
@@ -404,7 +472,7 @@ async function selectRows(selection) {
     const p = path.join(WORK, 'chunks', `${selection.chunk}.json`);
     if (!fs.existsSync(p)) throw new Error(`no chunk ${selection.chunk} — run manifest first`);
     const c = JSON.parse(fs.readFileSync(p, 'utf8'));
-    rows.push(...c.items.map(r => ({ ...r, kind: c.kind })));
+    rows.push(...c.items.map(r => ({ ...r, kind: r.kind || c.kind }))); // fresh chunks mix shard + topic rows; each row carries its own kind
   } else {
     const names = selection.all ? Object.keys(SOURCES) : [selection.source];
     for (const name of names) {
@@ -646,7 +714,18 @@ if (isEntry) (async () => {
     case 'verify': await verify(names || Object.keys(SOURCES)); break;
     case 'status': await status(); break;
     case 'solvesheet': await solvesheet(args.chunk); break;
-    default: console.error('usage: recreateBank.mjs manifest|check|assemble|verify|status|solvesheet'); process.exit(1);
+    case 'score': {
+      // author helper for the freshness pass: how close is a draft stem to anything a student has drilled/tested on?
+      const texts = args.file ? JSON.parse(fs.readFileSync(String(args.file), 'utf8')) : [String(args.text || '')];
+      const sibs = freshSiblings(args.self ? String(args.self) : null);
+      for (const text of (Array.isArray(texts) ? texts : [texts])) {
+        const s = freshNearest(text, freshSeen()); const b = freshNearest(text, sibs);
+        const over = Math.max(s.over, b.over); const verdict = over >= 0 ? 'FAIL' : over >= -0.10 ? 'warn' : 'ok';
+        console.log(`${verdict}  seen ${s.dice.toFixed(2)}/${s.t ?? '-'} (${s.id})  ·  new drill ${b.id ? `${b.dice.toFixed(2)}/${b.t}` : '-'} (${b.id || '-'})  ·  ${wordCount(text)} words`);
+      }
+      break;
+    }
+    default: console.error('usage: recreateBank.mjs manifest|check|assemble|verify|status|solvesheet|score'); process.exit(1);
   }
 })().catch(e => { console.error(e.stack || e.message); process.exit(1); });
 export const AUTHORED_BANK_DIR = AUTHORED;
