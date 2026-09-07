@@ -130,7 +130,7 @@ git commit   # one commit per test (or wave)
 | Test | m1 | m2 | m2easy | verified | committed |
 |---|---|---|---|---|---|
 | 1 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
-| 2 | | | | | |
+| 2 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
 | 3 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
 | 4 | | | | | |
 | 5 | | | | | |
