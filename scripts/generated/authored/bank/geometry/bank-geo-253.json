@@ -1,23 +1,37 @@
 {
- "id": "bank-geo-253",
- "question": "In right triangle $ABC$ shown, $\\angle B$ measures $90°$, $\\angle C$ measures $60°$, and $BC = 11$. What is the length of $AC$?",
- "diagram": {
-  "type": "rightTriangle",
-  "params": {
-   "labels": [
-    "A",
-    "B",
-    "C"
-   ],
-   "sideLabels": [
-    "",
-    "11",
-    ""
-   ],
-   "rightAngleVertex": 1,
-   "figureNote": true
-  }
- },
- "correctAnswer": "22",
- "explanation": "**SAT Pattern: 30-60-90 Triangle**\n\n**The correct answer is $22$.**\n\n**The Fast Way (~15s):** $BC$ faces the $30^\\circ$ angle at $A$, so it is the short leg; the hypotenuse $AC$ is twice it: $2(11) = 22$.\n\n**The Full Solution:**\nStep 1: The angles sum to $180^\\circ$, so $\\angle A = 180 - 90 - 60 = 30^\\circ$.\nStep 2: Side $BC$ is opposite $\\angle A$, so it is the shortest side, the $1$ in the ratio $1 : \\sqrt{3} : 2$. The scale factor is $11$.\nStep 3: Side $AC$ is opposite the right angle, so $AC = 2(11) = 22$. Check: $AB = 11\\sqrt{3} \\approx 19.1$, and $11^2 + (11\\sqrt{3})^2 = 121 + 363 = 484 = 22^2$.\n\n**Common Mistakes:** Reporting $5.5$ by halving the given side instead of doubling it; or matching $BC$ to the $60^\\circ$ angle and reporting the length of $AB$, which is $11\\sqrt{3}$ and not a gridable value here.\n\n**Test Day Takeaway:** In a lettered triangle, find the missing angle first. The side opposite the smallest angle is the shortest side."
+  "id": "bank-geo-253",
+  "question": "A guy brace for a utility pole appears in the figure below, with measurements in feet. What is the distance from the ground anchor up to the point where the brace meets the pole?",
+  "diagram": {
+    "type": "rightTriangle",
+    "params": {
+      "vertices": [
+        [
+          0,
+          0
+        ],
+        [
+          41.569,
+          0
+        ],
+        [
+          41.569,
+          24
+        ]
+      ],
+      "rightAngleVertex": 1,
+      "labels": [
+        "30°",
+        "",
+        ""
+      ],
+      "sideLabels": [
+        "24√3",
+        "",
+        ""
+      ],
+      "figureNote": true
+    }
+  },
+  "correctAnswer": "48",
+  "explanation": "**SAT Pattern: 30-60-90 Triangle**\n\n**The correct answer is $48$.**\n\n**The Fast Way (~35s):** The $24\\sqrt{3}$ feet side is the long leg, so the short leg is $24$ and the hypotenuse is $48$ feet.\n\n**The Full Solution:**\n\nStep 1: Identify the ratio. The sides are $x$, $x\\sqrt{3}$, and $2x$, with $x\\sqrt{3}$ adjacent to the $30°$ angle.\n\nStep 2: Solve for $x$. $x\\sqrt{3}=24\\sqrt{3}$ gives $x=24$ feet.\n\nStep 3: The sloped brace is the hypotenuse, $2x=48$ feet.\n\nCheck: $24^{2}+(24\\sqrt{3})^{2}=576+1728=2304=48^{2}$.\n\n**Common Mistakes:**\n\n* $24$: stops at the short leg $x$ instead of doubling it for the hypotenuse.\n* $72$: multiplies the given $24\\sqrt{3}$ by $\\sqrt{3}$, treating it as the short leg rather than the long leg.\n* $12$: halves $24$ after finding the short leg, reversing the $2x$ relationship.\n\n**Test Day Takeaway:** A length already carrying $\\sqrt{3}$ is almost always the long leg; divide by $\\sqrt{3}$ to reach the short leg first."
 }

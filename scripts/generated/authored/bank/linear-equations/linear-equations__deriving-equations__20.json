@@ -1,25 +1,30 @@
 {
-  "id": 20,
-  "question": "The linear function $f$ satisfies $f(-3) = 20$ and $f(5) = -4$. In the $xy$-plane, the graph of $y = f(x)$ has a $y$-intercept at $(0, b)$, where $b$ is a constant. What is the value of $b$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-3$"
-    },
-    {
-      "id": "B",
-      "text": "$11$"
-    },
-    {
-      "id": "C",
-      "text": "$20$"
-    },
-    {
-      "id": "D",
-      "text": "$29$"
-    }
-  ],
-  "correctAnswer": "B",
-  "hint": "Substituting a negative input into a negative rate of change produces a positive product — write the multiplication out.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** $m = \\frac{-4-20}{5-(-3)} = -3$, and $20 = -3(-3)+b$ gives $b = 11$ — choice B.\n\n**The Full Solution:**\nStep 1: Rate of change: $m = \\frac{-4-20}{5-(-3)} = \\frac{-24}{8} = -3$.\nStep 2: Substitute $(-3, 20)$ into $y = -3x + b$: $20 = -3(-3)+b = 9+b$, so $b = 11$.\nStep 3: The $y$-intercept is $(0, 11)$. Check the other value: $f(5) = -3(5)+11 = -4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): reports the rate of change, $-3$, instead of the $y$-coordinate of the $y$-intercept.\n* Choice C ($20$): reports $f(-3) = 20$, the output at $x = -3$ rather than at $x = 0$.\n* Choice D ($29$): evaluates $-3(-3)$ as $-9$, turning $20 = -9 + b$ into $b = 29$.\n\n**Test Day Takeaway:** The $y$-intercept is the output at $x = 0$, never an output listed in the stem. Get there by substituting a full ordered pair and watching the sign of the product."
+ "id": 20,
+ "question": "The function $F(m) = 1{,}860 - 124m$ models the balance, in dollars, of a tuition escrow account after $m$ monthly payments of equal size. According to the model, after how many monthly payments does the account balance equal one third of its starting balance?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$5$"
+  },
+  {
+   "id": "B",
+   "text": "$10$"
+  },
+  {
+   "id": "C",
+   "text": "$15$"
+  },
+  {
+   "id": "D",
+   "text": "$20$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reduces the balance BY one third, leaving 1240 dollars, and solves for that instead",
+  "C": "solves for the balance reaching zero, 1860/124 = 15",
+  "D": "halves the monthly payment to 62 dollars and solves 1240 = 62m"
+ },
+ "correctAnswer": "B",
+ "hint": "One third of the starting balance is what remains, not what is gone.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~45s):** One third of \\$1,860 is \\$620, and $1{,}860 - 124m = 620$ gives $m = 10$.\n\n**The Full Solution:**\nStep 1: At $m = 0$ the model gives $F(0) = 1{,}860$ dollars, so the starting balance is \\$1,860 and one third of it is $\\frac{1{,}860}{3} = 620$ dollars.\nStep 2: Set the model equal to that target: $1{,}860 - 124m = 620$, so $124m = 1{,}240$.\nStep 3: Dividing gives $m = 10$ monthly payments.\n\nCheck: $F(10) = 1{,}860 - 1{,}240 = 620$, which is exactly one third of $1{,}860$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): reduces the balance *by* one third instead of *to* one third, solving $1{,}860 - 124m = 1{,}240$.\n* Choice C ($15$): solves for the balance reaching zero, $\\frac{1{,}860}{124} = 15$.\n* Choice D ($20$): halves the monthly payment to \\$62 and then solves $1{,}240 = 62m$.\n\n**Test Day Takeaway:** Read whether a fraction describes what remains or what was removed before writing the equation."
 }

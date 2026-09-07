@@ -1,25 +1,30 @@
 {
-  "id": 1,
-  "question": "Line $c$ is represented by the equation $y = 5x - 8$ in the $xy$-plane. What is the slope of any line perpendicular to line $c$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-5$"
-    },
-    {
-      "id": "B",
-      "text": "$-\\frac{1}{5}$"
-    },
-    {
-      "id": "C",
-      "text": "$\\frac{1}{5}$"
-    },
-    {
-      "id": "D",
-      "text": "$5$"
-    }
-  ],
-  "correctAnswer": "B",
-  "hint": "Two moves are required, not one: the fraction turns over and the sign changes.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** Perpendicular slopes multiply to $-1$, so the slope is $-\\frac{1}{5}$ — choice B.\n\n**The Full Solution:**\nStep 1: In the form $y = 5x - 8$, line $c$ has slope $5$.\nStep 2: Perpendicular slopes are negative reciprocals: write $5$ as $\\frac{5}{1}$, flip it to $\\frac{1}{5}$, and change the sign to $-\\frac{1}{5}$.\nStep 3: Check the defining relationship: $5\\left(-\\frac{1}{5}\\right) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): changes the sign without flipping: $5(-5) = -25$, not $-1$.\n* Choice C ($\\frac{1}{5}$): flips without changing the sign: $5\\left(\\frac{1}{5}\\right) = 1$, not $-1$.\n* Choice D ($5$): repeats the slope of line $c$, which describes a parallel line.\n\n**Test Day Takeaway:** Verify a perpendicular slope by multiplying: the product with the original slope must be exactly $-1$, which catches a missed flip or a missed sign in one step."
+ "id": 1,
+ "question": "The retaining wall on a site plan runs at a right angle to a drain line graphed as $5x - 2y = 16$, with distances in meters. What slope does the retaining wall have?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-\\frac{5}{2}$"
+  },
+  {
+   "id": "B",
+   "text": "$-\\frac{2}{5}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{2}{5}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{5}{2}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "negates the drain line's slope without inverting it",
+  "C": "inverts the drain line's slope without negating it",
+  "D": "repeats the drain line's own slope instead of the perpendicular one"
+ },
+ "correctAnswer": "B",
+ "hint": "Put the drain line in slope-intercept form before comparing slopes.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** The drain line has slope $\\frac{5}{2}$, so a perpendicular line has slope $-\\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: Solve $5x - 2y = 16$ for $y$: $-2y = -5x + 16$, so $y = \\frac{5}{2}x - 8$ and the drain line has slope $\\frac{5}{2}$.\nStep 2: Perpendicular slopes are negative reciprocals: invert $\\frac{5}{2}$ to get $\\frac{2}{5}$, then change the sign.\nStep 3: The retaining wall has slope $-\\frac{2}{5}$.\n\nCheck: $\\frac{5}{2} \\times \\left(-\\frac{2}{5}\\right) = -1$, which is the test for perpendicular slopes. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{5}{2}$): negates the drain line's slope but never inverts it, so the product is $-\\frac{25}{4}$, not $-1$.\n* Choice C ($\\frac{2}{5}$): inverts the slope but leaves it positive, giving a product of $1$.\n* Choice D ($\\frac{5}{2}$): repeats the drain line's own slope, which describes a parallel wall.\n\n**Test Day Takeaway:** Perpendicular means flip the fraction and flip the sign; doing only one of the two is the classic miss."
 }

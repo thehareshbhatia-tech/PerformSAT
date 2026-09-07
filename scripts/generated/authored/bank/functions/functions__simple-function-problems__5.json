@@ -1,30 +1,30 @@
 {
-  "id": 5,
-  "question": "The function $f$ is defined by $f(x) = ax + 9$, where $a$ is a constant. If the graph of $y = f(x)$ passes through the point $(-3, 24)$, what is the value of $f(5)$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-25$"
-    },
-    {
-      "id": "B",
-      "text": "$-16$"
-    },
-    {
-      "id": "C",
-      "text": "$-5$"
-    },
-    {
-      "id": "D",
-      "text": "$34$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "forgets the constant 9",
-    "C": "reports a instead of f(5)",
-    "D": "sign error solving for a"
+ "id": 5,
+ "question": "The charge stored in a home battery, in kilowatt-hours, is modeled by $q(t)=at^{2}+bt+9$, where $t$ is the number of hours after midnight and $a$ and $b$ are constants. The battery holds $21$ kilowatt-hours at $t=2$ and $25$ kilowatt-hours at $t=4$. What is the value of $q(6)$?",
+ "hint": "Two supplied readings give two equations in $a$ and $b$.",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$12$"
   },
-  "correctAnswer": "B",
-  "hint": "Use the given output to pin down $a$ first, then evaluate at the new input.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $-3a + 9 = 24$ gives $a = -5$, so $f(5) = -25 + 9 = -16$.\n\n**The Full Solution:**\nStep 1: The point $(-3, 24)$ on the graph says $f(-3) = 24$, so $a(-3) + 9 = 24$, or $-3a + 9 = 24$.\nStep 2: Subtract $9$: $-3a = 15$, so $a = -5$ and $f(x) = -5x + 9$.\nStep 3: Evaluate at the requested input: $f(5) = -5(5) + 9 = -25 + 9 = -16$. Check the first condition again: $-5(-3) + 9 = 15 + 9 = 24$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-25$): finds $a = -5$ and computes $-5(5)$ but forgets to add the constant $9$.\n* Choice C ($-5$): reports the constant $a$ rather than the requested output $f(5)$.\n* Choice D ($34$): solves $-3a = 15$ as $a = 5$, dropping the negative sign, and gets $5(5) + 9$.\n\n**Test Day Takeaway:** When a rule contains an unknown constant, one input-output pair determines it; write the full rule before evaluating anywhere else."
+  {
+   "id": "B",
+   "text": "$21$"
+  },
+  {
+   "id": "C",
+   "text": "$24$"
+  },
+  {
+   "id": "D",
+   "text": "$29$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "drops the constant term 9, reporting -36 + 48 = 12",
+  "C": "evaluates at t = 5 instead of t = 6, giving 24",
+  "D": "continues the arithmetic pattern 21, 25, 29 instead of using the model"
+ },
+ "correctAnswer": "B",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~55s):** The two readings give $2a+b=6$ and $4a+b=4$, so $a=-1$ and $b=8$; then $q(6)=-36+48+9=21$.\n\n**The Full Solution:**\n\nStep 1: Substitute $t=2$. $4a+2b+9=21$, so $4a+2b=12$ and $2a+b=6$.\n\nStep 2: Substitute $t=4$. $16a+4b+9=25$, so $16a+4b=16$ and $4a+b=4$.\n\nStep 3: Subtract the first result from the second. $2a=-2$, so $a=-1$ and $b=6-2(-1)=8$. Then $q(6)=-1(36)+8(6)+9=-36+48+9=21$.\n\nCheck: $q(2)=-4+16+9=21$ and $q(4)=-16+32+9=25$, both as given.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($12$): finds $a=-1$ and $b=8$ but drops the constant term, reporting $-36+48=12$.\n* Choice C ($24$): evaluates the model at $t=5$ rather than $t=6$, giving $-25+40+9=24$.\n* Choice D ($29$): reads $21$ and $25$ as an arithmetic pattern and extends it to $29$, ignoring the quadratic model.\n\n**Test Day Takeaway:** Two input-output pairs pin down the two unknown coefficients; solve the system before evaluating anywhere else."
 }

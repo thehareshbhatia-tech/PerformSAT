@@ -1,29 +1,45 @@
 {
- "id": "bank-geo-284",
- "question": "The graph of $x^2 + y^2 - 6x + 8y - 24 = 0$ in the $xy$-plane is a circle. What is the radius of the circle?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$5$"
+  "question": "The rims of two adjacent calderas are modeled in the $xy$-plane by the equations in the table, where coordinates are in kilometers. How far apart, in kilometers, are the centers of the two rims?",
+  "questionTable": {
+    "headers": [
+      "Caldera",
+      "Equation of the rim"
+    ],
+    "rows": [
+      [
+        "$A$",
+        "$x^2 + y^2 - 8x + 6y + 16 = 0$"
+      ],
+      [
+        "$B$",
+        "$x^2 + y^2 + 8x - 6y + 21 = 0$"
+      ]
+    ]
   },
-  {
-   "id": "B",
-   "text": "$7$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$5$"
+    },
+    {
+      "id": "C",
+      "text": "$8$"
+    },
+    {
+      "id": "D",
+      "text": "$10$"
+    }
+  ],
+  "correctAnswer": "D",
+  "distractorNotes": {
+    "A": "reports caldera B's radius, 2, instead of the distance between centers",
+    "B": "adds the two radii, 3 + 2 = 5",
+    "C": "uses only the difference of the x-coordinates, 4 - (-4) = 8"
   },
-  {
-   "id": "C",
-   "text": "$25$"
-  },
-  {
-   "id": "D",
-   "text": "$49$"
-  }
- ],
- "distractorNotes": {
-  "A": "leaves the constant on the left",
-  "C": "reports 9 plus 16 without the constant",
-  "D": "reports r squared"
- },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $(x - 3)^2 + (y + 4)^2 = 24 + 9 + 16 = 49$, so $r = 7$.\n\n**The Full Solution:**\nStep 1: Move the constant and group: $(x^2 - 6x) + (y^2 + 8y) = 24$.\nStep 2: Complete both squares by adding $\\left(\\frac{-6}{2}\\right)^2 = 9$ and $\\left(\\frac{8}{2}\\right)^2 = 16$ to both sides: $(x - 3)^2 + (y + 4)^2 = 24 + 9 + 16 = 49$.\nStep 3: $r^2 = 49$, so $r = 7$. Check: the center is $(3, -4)$, and the point $(10, -4)$ satisfies $100 + 16 - 60 - 32 - 24 = 0$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): forgets to move the $-24$ across, computing $\\sqrt{9 + 16}$.\n* Choice C ($25$): squares the same oversight, reporting $9 + 16$ as $r^2$.\n* Choice D ($49$): reports $r^2$ rather than $r$.\n\n**Test Day Takeaway:** Three numbers land on the right side: the original constant plus both completing-the-square terms. Drop one and the radius is wrong."
+  "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** The centers are $\\left(-\\frac{D}{2}, -\\frac{E}{2}\\right)$: caldera $A$ is centered at $(4, -3)$ and caldera $B$ at $(-4, 3)$, so the separation is $\\sqrt{8^2 + 6^2} = 10$.\n\n**The Full Solution:**\nStep 1: Complete the square for caldera $A$: $(x - 4)^2 + (y + 3)^2 = 16 + 9 - 16 = 9$, so its center is $(4, -3)$.\nStep 2: Complete the square for caldera $B$: $(x + 4)^2 + (y - 3)^2 = 16 + 9 - 21 = 4$, so its center is $(-4, 3)$.\nStep 3: Apply the distance formula: $\\sqrt{(4 - (-4))^2 + (-3 - 3)^2} = \\sqrt{64 + 36} = \\sqrt{100} = 10$. The radii are $3$ and $2$, and $3 + 2 = 5 < 10$, so the rims do not overlap ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reads off caldera $B$'s radius, $\\sqrt{4} = 2$, rather than the distance between the centers.\n* Choice B ($5$): adds the two radii, $3 + 2$, instead of measuring from center to center.\n* Choice C ($8$): uses only the horizontal separation, $4 - (-4) = 8$, ignoring the $6$-kilometer vertical offset.\n\n**Test Day Takeaway:** Two general-form circles become comparable only after both are completed to standard form; get both centers first, then use the distance formula.",
+  "id": "bank-geo-284"
 }

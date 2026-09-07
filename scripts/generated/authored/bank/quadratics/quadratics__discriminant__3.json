@@ -1,30 +1,30 @@
 {
   "id": 3,
-  "question": "In the $xy$-plane, the graph of $y = 2x^2 - 8x + 11$ is a parabola. How many $x$-intercepts does this parabola have?",
+  "question": "The height, in feet, of the water in a plaza fountain jet is modeled by $h(x) = -0.5x^2 + 6x - 10$, where $x$ is the horizontal distance, in feet, from the plaza's pump housing and $2 \\le x \\le 10$. For how many distinct values of $x$ in this interval does $h(x) = 8$?",
   "choices": [
     {
       "id": "A",
-      "text": "No $x$-intercepts"
+      "text": "Zero"
     },
     {
       "id": "B",
-      "text": "One $x$-intercept"
+      "text": "Exactly one"
     },
     {
       "id": "C",
-      "text": "Two $x$-intercepts"
+      "text": "Exactly two"
     },
     {
       "id": "D",
-      "text": "Three $x$-intercepts"
+      "text": "More than two"
     }
   ],
   "distractorNotes": {
-    "B": "the zero-discriminant case",
-    "C": "assumes two crossings",
-    "D": "impossible for a parabola"
+    "A": "concludes the jet never reaches 8 feet, but the resulting discriminant is 0, not negative",
+    "C": "assumes any horizontal line meets a parabola twice, which fails at the turning point",
+    "D": "treats the model as though the jet oscillates, which a single parabola never does"
   },
-  "correctAnswer": "A",
-  "hint": "Count the real solutions of $y = 0$ without solving the equation itself.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $(-8)^2 - 4(2)(11) = 64 - 88 = -24 < 0$, so there are no real solutions and no $x$-intercepts.\n\n**The Full Solution:**\nStep 1: An $x$-intercept is a real solution of $2x^2 - 8x + 11 = 0$, so count those solutions.\nStep 2: Compute the discriminant: $b^2 - 4ac = (-8)^2 - 4(2)(11) = 64 - 88 = -24$.\nStep 3: A negative discriminant means no real solutions, so the parabola never meets the $x$-axis. Check by completing the square: $y = 2(x - 2)^2 + 3$, whose smallest value is $3$, always above zero. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: is the case of a discriminant equal to zero, where the vertex sits exactly on the axis.\n* Choice C: assumes every parabola crosses the $x$-axis twice, which is only true when the discriminant is positive.\n* Choice D: a parabola and a line meet at most twice, so three intercepts are impossible.\n\n**Test Day Takeaway:** Counting intercepts never requires solving — one discriminant computation answers the question."
+  "correctAnswer": "B",
+  "hint": "Move the 8 across and look at what kind of quadratic is left.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** Setting $-0.5x^2 + 6x - 10 = 8$ gives $x^2 - 12x + 36 = 0$, whose discriminant is $0$: one solution, $x = 6$.\n\n**The Full Solution:**\nStep 1: Set the model equal to $8$. $-0.5x^2 + 6x - 10 = 8$, so $-0.5x^2 + 6x - 18 = 0$.\nStep 2: Clear the fraction and test the discriminant. Multiplying by $-2$ gives $x^2 - 12x + 36 = 0$, so $b^2 - 4ac = 144 - 144 = 0$ — exactly one real solution.\nStep 3: Find it and confirm it is in range. $x^2 - 12x + 36 = (x - 6)^2$, so $x = 6$, which lies between $2$ and $10$. Height there: $-0.5(36) + 36 - 10 = 8$ feet. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): would need a negative discriminant. Here it is exactly $0$, so the jet does touch $8$ feet — at its peak.\n* Choice C (Exactly two): is the usual case for a horizontal line through a parabola, but $8$ feet is the maximum height, met at a single point.\n* Choice D (More than two): cannot happen: a quadratic equation has at most two real solutions.\n\n**Test Day Takeaway:** A discriminant of $0$ is the signal that the horizontal line is tangent — it touches the parabola at its turning point and nowhere else."
 }

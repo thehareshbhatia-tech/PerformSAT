@@ -1,29 +1,61 @@
 {
   "id": "bank-ps-431",
-  "question": "For a certain data set, a linear model is given by $\\hat{y}=-3x+22$. At $x=5$, the observed value of $y$ is $4$. What is the value of $y-\\hat{y}$ at $x=5$?",
+  "question": "For each of four weekdays, the table gives the number of prescriptions a hospital pharmacy actually refilled and the number its staffing model predicted it would refill. On which weekday does the number refilled exceed the predicted number by the greatest amount?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "Weekday",
+        "Prescriptions refilled",
+        "Prescriptions predicted"
+      ],
+      "rows": [
+        [
+          "Monday",
+          "312",
+          "298"
+        ],
+        [
+          "Tuesday",
+          "372",
+          "355"
+        ],
+        [
+          "Wednesday",
+          "289",
+          "312"
+        ],
+        [
+          "Thursday",
+          "366",
+          "348"
+        ]
+      ]
+    }
+  },
   "choices": [
     {
       "id": "A",
-      "text": "$-33$"
+      "text": "Monday"
     },
     {
       "id": "B",
-      "text": "$-3$"
+      "text": "Tuesday"
     },
     {
       "id": "C",
-      "text": "$3$"
+      "text": "Wednesday"
     },
     {
       "id": "D",
-      "text": "$19$"
+      "text": "Thursday"
     }
   ],
   "distractorNotes": {
-    "A": "drops the negative sign on the slope, using $\\hat{y}=37$.",
-    "C": "computes $\\hat{y}-y$ instead of $y-\\hat{y}$.",
-    "D": "drops the constant term, using $\\hat{y}=-15$."
+    "A": "picks the weekday with the smallest predicted count, 298, instead of the largest excess (14)",
+    "B": "picks the weekday with the largest refilled count, 372, instead of the largest excess (17)",
+    "C": "picks the weekday with the largest gap in size, 23, but there the model is greater, not smaller"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $\\hat{y}=-3(5)+22=7$, so $y-\\hat{y}=4-7=-3$.\n\n**The Full Solution:**\nStep 1: Substitute $x=5$: $\\hat{y}=-3(5)+22$.\nStep 2: $\\hat{y}=-15+22=7$.\nStep 3: $y-\\hat{y}=4-7=-3$. Check: $7+(-3)=4$, the observed value. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-33$): uses $\\hat{y}=3(5)+22=37$, losing the negative sign on the slope.\n* Choice C ($3$): computes $7-4$, subtracting the observed value from the predicted value.\n* Choice D ($19$): uses $\\hat{y}=-15$, dropping the constant $22$, giving $4-(-15)$.\n\n**Test Day Takeaway:** Evaluate the model completely before subtracting. A negative slope makes the sign errors on this item look like reasonable answers."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Residual**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Subtract predicted from refilled for each row: $14$, $17$, $-23$, $18$. The largest positive value is Thursday.\n\n**The Full Solution:**\nStep 1: Subtract in one direction for every row. Monday: $312 - 298 = 14$. Tuesday: $372 - 355 = 17$. Wednesday: $289 - 312 = -23$. Thursday: $366 - 348 = 18$.\nStep 2: Keep only the rows where the refilled count is the larger one, so the difference is positive: Monday, Tuesday, and Thursday.\nStep 3: Compare those three. $18 > 17 > 14$, so Thursday has the greatest excess. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Monday): has the smallest predicted count, $298$, but its excess is only $14$.\n* Choice B (Tuesday): has the largest number refilled, $372$, but its prediction is high too, so its excess is $17$.\n* Choice C (Wednesday): has the largest gap in size, $23$, but there the model predicts MORE than was refilled — a negative residual.\n\n**Test Day Takeaway:** A \"greatest excess\" question is about the signed difference actual $-$ predicted, not about the biggest number in either column."
 }

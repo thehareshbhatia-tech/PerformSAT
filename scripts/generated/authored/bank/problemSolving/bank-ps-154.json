@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-154",
-  "question": "Positive numbers $x$, $y$, and $z$ satisfy $x = 1.5(y + z)$, and $z$ is $25\\%$ of $y$. What percent of $y$ is $x$?",
+  "question": "During a drought the volume of water stored in a reservoir fell by $30\\%$, and during the following winter it rose by $30\\%$ of that reduced volume, reaching $27.3$ million cubic meters. The volume stored before the drought was $V$ million cubic meters. What is the value of $V$?",
   "choices": [
     {
       "id": "A",
-      "text": "$150\\%$"
+      "text": "$21$"
     },
     {
       "id": "B",
-      "text": "$187.5\\%$"
+      "text": "$27.3$"
     },
     {
       "id": "C",
-      "text": "$337.5\\%$"
+      "text": "$30$"
     },
     {
       "id": "D",
-      "text": "$750\\%$"
+      "text": "$39$"
     }
   ],
   "distractorNotes": {
-    "A": "drops z entirely and uses x = 1.5y",
-    "C": "misreads 'z is 25% of y' as z = 1.25y, giving x = 1.5(2.25y)",
-    "D": "expresses x as a percent of z instead of y (1.875 / 0.25)"
+    "A": "reverses only the increase: 27.3 / 1.3 = 21, leaving the drought untouched",
+    "B": "assumes a 30 percent fall and a 30 percent rise cancel, so the volume never changed",
+    "D": "reverses only the decrease: 27.3 / 0.7 = 39, leaving the winter recovery untouched"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $z = 0.25y$, so $y + z = 1.25y$ and $x = 1.5(1.25y) = 1.875y$, which is $187.5\\%$ of $y$.\n\n**The Full Solution:**\nStep 1: Translate the percent: $z = 0.25y$.\nStep 2: Substitute into the first equation: $x = 1.5(y + 0.25y) = 1.5(1.25y) = 1.875y$.\nStep 3: As a percent, $1.875 = 187.5\\%$. Check with $y = 100$: $z = 25$, $x = 1.5(125) = 187.5$, and $187.5$ is $187.5\\%$ of $100$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($150\\%$): Drops $z$ and uses $x = 1.5y$; the $25\\%$ contribution of $z$ is lost.\n* Choice C ($337.5\\%$): Misreads \"$z$ is $25\\%$ of $y$\" as \"$z$ is $25\\%$ more than $y$,\" using $z = 1.25y$ and $x = 1.5(2.25y)$.\n* Choice D ($750\\%$): Expresses $x$ as a percent of $z$ rather than of $y$: $\\frac{1.875y}{0.25y} = 7.5$.\n\n**Test Day Takeaway:** Write every relationship as a multiple of one variable, then read \"what percent of $y$\" as the coefficient of $y$ times $100$; plugging in $y = 100$ is a fast check."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The two changes leave $0.7 \\times 1.3 = 0.91$ of the original, so $V = \\frac{27.3}{0.91} = 30$.\n\n**The Full Solution:**\nStep 1: Write each change as a factor. Falling $30\\%$ multiplies by $0.7$; rising $30\\%$ of the REDUCED volume multiplies that result by $1.3$.\nStep 2: Combine and set up. $0.7 \\times 1.3 = 0.91$, so $0.91V = 27.3$.\nStep 3: Solve and check. $V = \\frac{27.3}{0.91} = 30$ million cubic meters. Forward: $30 \\times 0.7 = 21$, and $21 \\times 1.3 = 27.3$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($21$): divides by $1.3$ only, recovering the reduced volume rather than the volume before the drought.\n* Choice B ($27.3$): assumes the $30\\%$ fall and the $30\\%$ rise cancel. They do not: the rise is taken of a smaller base.\n* Choice D ($39$): divides by $0.7$ only, undoing the drought but not the winter recovery.\n\n**Test Day Takeaway:** A drop of $p\\%$ followed by a rise of $p\\%$ never returns to the start: the factors multiply to $1 - p^2$, which is always less than $1$."
 }

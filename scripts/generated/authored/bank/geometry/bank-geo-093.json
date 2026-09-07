@@ -1,17 +1,17 @@
 {
  "id": "bank-geo-093",
- "question": "Two of the interior angles of the triangle shown measure $27°$ and $118°$. What is the measure, in degrees, of the third interior angle?",
+ "question": "A tailor cuts the sleeve dart drawn in the figure, and the dart's three corners carry the degree measures shown. What is the value of $y$?",
  "diagram": {
   "type": "triangleWithAngles",
   "params": {
    "angleLabels": [
-    "27°",
-    "118°",
-    ""
+    "(3y)°",
+    "(y+12)°",
+    "(2y-30)°"
    ],
    "figureNote": true
   }
  },
- "correctAnswer": "35",
- "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**The correct answer is $35$.**\n\n**The Fast Way (~15s):** $180 - 27 - 118 = 35$ degrees.\n\n**The Full Solution:**\nStep 1: The interior angles of a triangle always total $180°$.\nStep 2: The two known angles account for $27 + 118 = 145$ degrees.\nStep 3: The third angle measures $180 - 145 = 35$ degrees.\n\nCheck: $27 + 118 + 35 = 180$.\n\n**Common Mistakes:**\n* Answering $145$, the sum of the two given angles, instead of the remainder.\n* Answering $62$ by subtracting only the obtuse angle, $180 - 118$.\n* Using $360$ in place of $180$, which gives $215$; that total belongs to a quadrilateral.\n\n**Test Day Takeaway:** An obtuse angle in the list is a signal to subtract carefully — the other two angles must together measure less than $90°$."
+ "correctAnswer": "33",
+ "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**The correct answer is $33$.**\n\n**The Fast Way (~25s):** $3y+(y+12)+(2y-30)=6y-18=180$, so $y=33$.\n\n**The Full Solution:**\n\nStep 1 — The three corner measures add to $180$ degrees: $3y+(y+12)+(2y-30)=180$.\n\nStep 2 — Combine like terms: $6y-18=180$.\n\nStep 3 — Add $18$ and divide by $6$: $6y=198$, so $y=33$. Check: the angles measure $99$, $45$, and $36$ degrees, and $99+45+36=180$.\n\n**Common Mistakes:** Solving $6y=180$ ignores the constants and gives $30$. Solving $6y+18=180$ flips the sign and gives $27$. Answering $99$ reports the largest angle rather than $y$.\n\n**Test Day Takeaway:** Combine the variable terms and the constants separately, then perform one addition and one division."
 }

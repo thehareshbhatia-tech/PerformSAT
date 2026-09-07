@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-009",
- "question": "The side lengths of a triangle are $6$, $11$, and $11$. Which of the following best classifies this triangle?",
+ "question": "A fabricator joins three titanium spars measuring $14$ centimeters, $14$ centimeters, and $22$ centimeters into a closed triangular frame. Which of the following best describes the triangle that the three spars form?",
  "choices": [
   {
    "id": "A",
@@ -8,7 +8,7 @@
   },
   {
    "id": "B",
-   "text": "Isosceles"
+   "text": "Isosceles but not equilateral"
   },
   {
    "id": "C",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "equilateral requires all three sides equal",
-  "C": "scalene requires all three sides different",
-  "D": "the Pythagorean relationship does not hold"
+  "A": "requires all three sides equal, but 22 differs from 14",
+  "C": "requires all three sides different, but two spars share the length 14",
+  "D": "assumes the longest side is a hypotenuse without testing 14^2 + 14^2 against 22^2"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Triangle Classification by Sides**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Exactly two of the three sides are equal ($11$ and $11$), which is the definition of an isosceles triangle.\n\n**The Full Solution:**\nStep 1: Classification by sides depends only on how many side lengths are equal: three equal is equilateral, exactly two equal is isosceles, none equal is scalene.\nStep 2: Sort the lengths: $6$, $11$, $11$. Two of them match and the third does not.\nStep 3: The triangle is isosceles.\n\nVerification: $6 + 11 > 11$, so these lengths do form a triangle, and the two $11$s force the two base angles to be equal. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Equilateral): requires all three sides equal, but $6 \\ne 11$.\n* Choice C (Scalene): requires all three sides different, but two sides measure $11$.\n* Choice D (Right): would require $6^2 + 11^2 = 11^2$, that is $157 = 121$, which is false.\n\n**Test Day Takeaway:** Count equal sides first. Right, acute, and obtuse are angle classifications and need a Pythagorean comparison, not a side count."
+ "explanation": "**SAT Pattern: Triangle Classification by Sides**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Exactly two of the three lengths are equal, so the frame is isosceles but not equilateral.\n\n**The Full Solution:**\nStep 1: The three spars measure $14$, $14$, and $22$ centimeters, and $14 + 14 = 28 > 22$, so they do close into a triangle.\nStep 2: A triangle with exactly two equal sides is isosceles; with all three equal it would be equilateral. Here two sides measure $14$ and the third measures $22$.\nStep 3: Therefore the frame is isosceles but not equilateral.\n\nCheck: $14^2 + 14^2 = 392$, while $22^2 = 484$, so the triangle is not right either. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (equilateral): would require all three spars to measure the same, but $22 \\ne 14$.\n* Choice C (scalene): would require all three lengths to differ, yet two spars both measure $14$ centimeters.\n* Choice D (right): assumes the longest side must be a hypotenuse; testing gives $392 \\ne 484$, so no right angle exists.\n\n**Test Day Takeaway:** Classify by sides first by counting equal lengths, then test $a^2 + b^2 = c^2$ only if the question asks about angles."
 }

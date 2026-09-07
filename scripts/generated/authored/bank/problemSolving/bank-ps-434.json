@@ -1,29 +1,61 @@
 {
   "id": "bank-ps-434",
-  "question": "A linear model is given by $\\hat{y}=5x+9$. For the data point at $x=8$, the value of $y-\\hat{y}$ is $-6$. What is the observed value of $y$ at $x=8$?",
+  "question": "A costume shop's model predicts $f = 3.5g + 12$ yards of fabric for a garment of size $g$, and the table gives the fabric actually used for four garments. For how many of these garments does the fabric used exceed the predicted amount by more than $4$ yards?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "Garment",
+        "Size (g)",
+        "Fabric used (yards)"
+      ],
+      "rows": [
+        [
+          "W",
+          "4",
+          "31"
+        ],
+        [
+          "X",
+          "6",
+          "40"
+        ],
+        [
+          "Y",
+          "8",
+          "46"
+        ],
+        [
+          "Z",
+          "10",
+          "50"
+        ]
+      ]
+    }
+  },
   "choices": [
     {
       "id": "A",
-      "text": "$34$"
+      "text": "$1$"
     },
     {
       "id": "B",
-      "text": "$43$"
+      "text": "$2$"
     },
     {
       "id": "C",
-      "text": "$49$"
+      "text": "$3$"
     },
     {
       "id": "D",
-      "text": "$55$"
+      "text": "$4$"
     }
   ],
   "distractorNotes": {
-    "A": "drops the constant term, using $\\hat{y}=40$.",
-    "C": "reports the predicted value and ignores the difference.",
-    "D": "adds $6$ to the predicted value instead of subtracting it."
+    "A": "counts only the single largest excess, garment X at 7 yards",
+    "B": "counts only the excesses above 5 yards, garments X and Y, using the wrong threshold",
+    "D": "counts every garment whose use exceeds the prediction at all, including garment Z at 3 yards"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\hat{y}=5(8)+9=49$, and $y=\\hat{y}+(y-\\hat{y})=49-6=43$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $x=8$: $\\hat{y}=5(8)+9=49$.\nStep 2: Rearrange $y-\\hat{y}=-6$ to $y=\\hat{y}-6$.\nStep 3: $y=49-6=43$. Check: $43-49=-6$, the given difference. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($34$): computes $5(8)-6$, dropping the constant $9$ from the model.\n* Choice C ($49$): reports $\\hat{y}$ and never applies the given difference.\n* Choice D ($55$): adds $6$ instead of subtracting, which would follow from $y-\\hat{y}=+6$.\n\n**Test Day Takeaway:** A negative difference means the observation lies below the model, so subtract from the prediction to recover $y$."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Predictions are $26$, $33$, $40$, $47$; the excesses are $5$, $7$, $6$, $3$, and three of them clear $4$ yards.\n\n**The Full Solution:**\nStep 1: Predict for each size. $f = 3.5(4) + 12 = 26$, $f = 3.5(6) + 12 = 33$, $f = 3.5(8) + 12 = 40$, $f = 3.5(10) + 12 = 47$ yards.\nStep 2: Subtract predicted from used. Garment W: $31 - 26 = 5$. Garment X: $40 - 33 = 7$. Garment Y: $46 - 40 = 6$. Garment Z: $50 - 47 = 3$.\nStep 3: Apply the threshold. The excesses greater than $4$ are $5$, $7$, and $6$ — three garments. Garment Z falls short at $3$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): counts only garment X, the single largest excess, instead of every garment that clears $4$ yards.\n* Choice B ($2$): uses a threshold of more than $5$ yards, which keeps only garments X and Y.\n* Choice D ($4$): counts every garment whose use exceeds its prediction, including garment Z, whose excess is only $3$ yards.\n\n**Test Day Takeaway:** A \"how many exceed by more than $k$\" item needs all four residuals computed, then one comparison each — do not stop at the largest."
 }

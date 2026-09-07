@@ -1,30 +1,30 @@
 {
  "id": 4,
- "question": "In right triangle $RST$, angle $T$ is a right angle, leg $\\overline{RT}$ has length $9$, and leg $\\overline{TS}$ has length $40$. What is the value of $\\cos R$?",
+ "question": "In a dockside crane, the jib $ST$, the mast $TU$, and the tie $SU$ meet so that the right angle falls at $U$. The tie is $42$ meters long and $\\tan S = \\frac{20}{21}$. How long, in meters, is the jib?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{9}{41}$"
+   "text": "$40$"
   },
   {
    "id": "B",
-   "text": "$\\frac{9}{40}$"
+   "text": "$58$"
   },
   {
    "id": "C",
-   "text": "$\\frac{40}{41}$"
+   "text": "$82$"
   },
   {
    "id": "D",
-   "text": "$\\frac{40}{9}$"
+   "text": "$84$"
   }
  ],
  "distractorNotes": {
-  "B": "the value of $\\tan R$, dividing by the opposite leg instead of the hypotenuse",
-  "C": "the value of $\\sin R$, putting the opposite leg in the numerator",
-  "D": "the reciprocal of $\\tan R$, swapping the two legs"
+  "A": "reports the mast TU instead of the jib",
+  "C": "adds the two legs, 42 + 40",
+  "D": "doubles the tie, as though the hypotenuse were twice the adjacent leg"
  },
- "correctAnswer": "A",
- "hint": "The denominator of a cosine is the hypotenuse, and that length is not given yet.",
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~35s):** $RS = \\sqrt{9^2 + 40^2} = 41$, so $\\cos R = \\frac{9}{41}$.\n\n**The Full Solution:**\nStep 1: Angle $T$ is the right angle, so $\\overline{RS}$ is the hypotenuse: $RS^2 = 9^2 + 40^2 = 81 + 1600 = 1681$.\nStep 2: $RS = \\sqrt{1681} = 41$.\nStep 3: $\\cos R$ is adjacent over hypotenuse: $\\frac{RT}{RS} = \\frac{9}{41}$.\n\nVerification: $9^2 + 40^2 = 81 + 1600 = 1681 = 41^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{9}{40}$): the value of $\\tan R$, dividing by the opposite leg instead of the hypotenuse.\n* Choice C ($\\frac{40}{41}$): the value of $\\sin R$, putting the opposite leg in the numerator.\n* Choice D ($\\frac{40}{9}$): the reciprocal of $\\tan R$, swapping the two legs.\n\n**Test Day Takeaway:** Cosine needs the hypotenuse, so compute the hypotenuse before writing the ratio down."
+ "correctAnswer": "B",
+ "hint": "The jib is the one side that the tangent of $S$ never touches.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~40s):** $\\tan S = \\frac{TU}{42} = \\frac{20}{21}$ gives $TU = 40$, and $\\sqrt{42^2 + 40^2} = 58$ meters.\n\n**The Full Solution:**\nStep 1: The right angle is at $U$, so from angle $S$ the mast $TU$ is opposite and the tie $SU$ is adjacent: $\\tan S = \\frac{TU}{42} = \\frac{20}{21}$.\nStep 2: Solving gives $TU = \\frac{20}{21}(42) = 40$ meters.\nStep 3: The jib $ST$ is the hypotenuse: $ST = \\sqrt{42^2 + 40^2} = \\sqrt{1764 + 1600} = \\sqrt{3364} = 58$ meters. Check: $\\frac{40}{42} = \\frac{20}{21}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($40$): reporting the mast $TU$, the leg the tangent produces, instead of the jib.\n* Choice C ($82$): adding the two legs, $42 + 40$, instead of using the Pythagorean theorem.\n* Choice D ($84$): doubling the tie, which assumes a $30$-$60$-$90$ relationship that does not hold here.\n\n**Test Day Takeaway:** Tangent hands you the second leg; the hypotenuse still needs the Pythagorean theorem."
 }

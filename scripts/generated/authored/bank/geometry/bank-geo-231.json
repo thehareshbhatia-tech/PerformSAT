@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-231",
- "question": "A triangle has a base of length $18$ centimeters and a corresponding height of $5$ centimeters. What is the area, in square centimeters, of the triangle?",
+ "question": "Each hangtag a mill prints is a triangle whose base measures $b$ centimeters and whose height is $4$ centimeters shorter than the base. Which expression represents the number of square centimeters of card stock in one hangtag?",
  "choices": [
   {
    "id": "A",
-   "text": "$23$"
+   "text": "$\\frac{b^2-4b}{2}$"
   },
   {
    "id": "B",
-   "text": "$45$"
+   "text": "$\\frac{b^2-4}{2}$"
   },
   {
    "id": "C",
-   "text": "$90$"
+   "text": "$\\frac{b-4}{2}$"
   },
   {
    "id": "D",
-   "text": "$180$"
+   "text": "$b^2-4b$"
   }
  ],
  "distractorNotes": {
-  "A": "adds base and height",
-  "C": "omits the one-half factor",
-  "D": "doubles instead of halving"
+  "B": "fails to distribute b across the -4, leaving a bare constant",
+  "C": "halves the height and never multiplies by the base",
+  "D": "omits the factor 1/2 and gives the area of a rectangle instead"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Area $= \\frac{1}{2}bh = \\frac{1}{2}(18)(5) = 45$ square centimeters.\n\n**The Full Solution:**\nStep 1: The area of any triangle is $\\frac{1}{2}bh$, where $h$ is the height measured perpendicular to the base $b$.\nStep 2: Substitute $b = 18$ and $h = 5$: area $= \\frac{1}{2}(18)(5)$.\nStep 3: Multiply: $18 \\cdot 5 = 90$, and half of $90$ is $45$ square centimeters.\n\nVerification: the triangle is half of an $18$ by $5$ rectangle of area $90$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($23$): adds $18 + 5$ instead of multiplying, a perimeter-style move applied to an area question.\n* Choice C ($90$): multiplies base by height without halving; that is the rectangle, not the triangle.\n* Choice D ($180$): doubles the product instead of halving it.\n\n**Test Day Takeaway:** A triangle is always half its bounding rectangle. If your answer is not smaller than $bh$, you skipped the $\\frac{1}{2}$."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The height is $b-4$, so $A=\\frac{1}{2}b(b-4)=\\frac{b^2-4b}{2}$.\n\n**The Full Solution:**\n\nStep 1 — Write the height in terms of the base: it is $4$ centimeters shorter, so the height is $b-4$ centimeters.\n\nStep 2 — Apply the area formula: $A=\\frac{1}{2}bh=\\frac{1}{2}b(b-4)$.\n\nStep 3 — Distribute: $\\frac{1}{2}(b^2-4b)=\\frac{b^2-4b}{2}$ square centimeters. Check with $b=10$: the triangle is $10$ by $6$, giving $30$, and $\\frac{100-40}{2}=30$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($\\frac{b^2-4}{2}$): this multiplies $b$ by $b$ but not by $4$; at $b=10$ it gives $48$, not $30$.\n* Choice C ($\\frac{b-4}{2}$): this halves the height and never multiplies by the base.\n* Choice D ($b^2-4b$): this omits the factor $\\frac{1}{2}$, giving the rectangle's area.\n\n**Test Day Takeaway:** Translate the comparison into an expression first, substitute into $\\frac{1}{2}bh$, and test one friendly value against every choice."
 }

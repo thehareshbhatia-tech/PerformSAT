@@ -1,17 +1,18 @@
 {
  "id": "bank-geo-244",
- "question": "In the circle shown, the radius is $6$ and the sector has a central angle of $120°$. The area of the sector is $k\\pi$. What is the value of $k$?",
+ "question": "A circular dye vat lid is shown with center $O$, and the removable inspection panel is sector $AOB$. The area of that panel is $k\\pi$ square inches. What is the value of $k$?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
-   "centralAngle": 120,
-   "angleLabel": "120°",
-   "radius": 6,
-   "labelCenter": "O",
+   "centralAngle": 150,
+   "angleLabel": "150°",
+   "radius": "12 in",
    "showRadiusLabel": true,
-   "figureNote": true
+   "labelCenter": "O",
+   "labelPoint1": "A",
+   "labelPoint2": "B"
   }
  },
- "correctAnswer": "12",
- "explanation": "**SAT Pattern: Sector Area**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~15s):** $120^\\circ$ is $\\frac{1}{3}$ of the circle, and the circle's area is $36\\pi$, so the sector is $12\\pi$ and $k = 12$.\n\n**The Full Solution:**\nStep 1: The circle's area is $\\pi r^2 = \\pi(6)^2 = 36\\pi$.\nStep 2: The sector covers $\\frac{120}{360} = \\frac{1}{3}$ of the circle.\nStep 3: Sector area $= \\frac{1}{3}(36\\pi) = 12\\pi$, so $k = 12$. Check: three $120^\\circ$ sectors tile the circle, and $3(12\\pi) = 36\\pi$.\n\n**Common Mistakes:** Reporting $36$, the coefficient for the whole circle, instead of taking the $\\frac{1}{3}$ share; reporting $4$, which is the coefficient of the arc length $\\frac{1}{3}(2\\pi \\cdot 6) = 4\\pi$ rather than an area; or using $\\frac{1}{2}$ instead of $\\frac{1}{3}$ and reporting $18$.\n\n**Test Day Takeaway:** When an answer is written as $k\\pi$, compute the sector area in terms of $\\pi$ and grid only the coefficient."
+ "correctAnswer": "60",
+ "explanation": "**SAT Pattern: Sector Area**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~25s):** The panel is $\\frac{150}{360}=\\frac{5}{12}$ of a circle of area $144\\pi$, and $\\frac{5}{12}(144\\pi)=60\\pi$, so $k=60$.\n\n**The Full Solution:**\n\nStep 1 — Read the figure: radius $12$ inches, central angle $150^\\circ$.\n\nStep 2 — Compute the full area: $A=\\pi(12)^2=144\\pi$ square inches.\n\nStep 3 — Scale by the angle's share: $\\frac{150}{360}(144\\pi)=\\frac{5}{12}(144\\pi)=60\\pi$. Matching $60\\pi=k\\pi$ gives $k=60$. Check: $\\frac{5}{12}$ of the lid is a little under half of it, and $60$ is a little under half of $144$.\n\n**Common Mistakes:** Using the arc length $\\frac{150}{360}(24\\pi)=10\\pi$ gives $k=10$, a length instead of an area. Forgetting to scale by the angle gives $k=144$. Squaring the diameter $24$ instead of the radius gives $\\frac{5}{12}(576\\pi)=240\\pi$, so $k=240$.\n\n**Test Day Takeaway:** When an answer is reported as $k\\pi$, carry $\\pi$ symbolically to the end and read $k$ off the coefficient."
 }

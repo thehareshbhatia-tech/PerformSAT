@@ -1,6 +1,5 @@
 {
- "id": "bank-geo-296",
- "question": "The volume of a right circular cylinder is $175\\pi$ cubic meters and its radius is $5$ meters. What is the height, in meters, of the cylinder?",
+ "question": "Water in a community garden's cylindrical rain barrel stands $24$ inches deep and takes up $1{,}176\\pi$ cubic inches. What is the barrel's inside radius, in inches?",
  "choices": [
   {
    "id": "A",
@@ -8,22 +7,23 @@
   },
   {
    "id": "B",
-   "text": "$35$"
+   "text": "$14$"
   },
   {
    "id": "C",
-   "text": "$170$"
+   "text": "$24.5$"
   },
   {
    "id": "D",
-   "text": "$4{,}375$"
+   "text": "$49$"
   }
  ],
- "distractorNotes": {
-  "B": "divides by r instead of r squared",
-  "C": "subtracts instead of dividing",
-  "D": "multiplies by r squared"
- },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $\\pi(25)h = 175\\pi$ gives $h = \\frac{175}{25} = 7$ meters.\n\n**The Full Solution:**\nStep 1: The base area is $\\pi r^2 = \\pi(5)^2 = 25\\pi$ square meters.\nStep 2: Volume is base area times height: $25\\pi h = 175\\pi$.\nStep 3: $h = \\frac{175}{25} = 7$ meters. Check: $\\pi(25)(7) = 175\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($35$): divides by the radius instead of by the base area $r^2$.\n* Choice C ($170$): subtracts the radius from the volume coefficient.\n* Choice D ($4{,}375$): multiplies by $r^2$ instead of dividing by it.\n\n**Test Day Takeaway:** Height is volume divided by base area. Compute the base area as one number before dividing."
+ "distractorNotes": {
+  "B": "reports the diameter, 2 times 7",
+  "C": "divides 1176 by 2 times 24 instead of by 24, using a surface-area setup",
+  "D": "stops at r squared = 49 without taking the square root"
+ },
+ "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** From $\\pi r^2(24) = 1{,}176\\pi$, $r^2 = \\frac{1{,}176}{24} = 49$, so $r = 7$ inches.\n\n**The Full Solution:**\nStep 1: The water forms a cylinder of height $24$ inches and volume $1{,}176\\pi$ cubic inches, so $\\pi r^2(24) = 1{,}176\\pi$.\nStep 2: Divide both sides by $24\\pi$: $r^2 = 49$.\nStep 3: Take the positive square root: $r = 7$ inches. Check: $\\pi(49)(24) = 1{,}176\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($14$): reports the diameter after correctly finding the radius.\n* Choice C ($24.5$): divides by $2h = 48$ instead of by $h = 24$, a surface-area style setup.\n* Choice D ($49$): stops at $r^2$ and never takes the square root.\n\n**Test Day Takeaway:** Running $\\pi r^2 h$ backwards means dividing by $\\pi h$ and then taking a square root — two undo steps, not one.",
+ "id": "bank-geo-296"
 }

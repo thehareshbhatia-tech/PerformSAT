@@ -314,6 +314,22 @@ function freshnessErrors(text, ownKey, siblings) {
 }
 
 // ─── check ─────────────────────────────────────────────────────────────────
+/** MathText treats `$NN.NN ` as currency on any line with balanced $ but no LaTeX command (no backslash), which
+ *  unpairs every later $ on that line and crashes KaTeX. Mirror that rule so authors hit it before the render test. */
+export function currencyTrapErrors(a) {
+  const errs = [];
+  const fields = [['question', a.question], ['explanation', a.explanation], ...(a.choices || []).map(c => [`choice ${c.id}`, c.text]), ['hint', a.hint]];
+  for (const [name, text] of fields) {
+    for (const line of String(text || '').split('\n')) {
+      const unescaped = line.replace(/\\\$/g, '');
+      const dollars = (unescaped.match(/\$/g) || []).length;
+      if (dollars < 2 || dollars % 2 || /\\[a-zA-Z%]/.test(line)) continue;
+      const m = unescaped.match(/\$(\d+(?:,\d{3})*\.\d{2})(?=[\s,;:.!?)}\]]|$)/);
+      if (m) errs.push(`${name}: "$${m[1]}" opens a math span on a line with no LaTeX command — MathText reads it as currency and the rest of the line unpairs; remove the spaces around the operator, add a command (\\, \\text{}), or write \\$ for money`);
+    }
+  }
+  return errs;
+}
 export function scaffoldErrors(a, frozen, kind) {
   const errs = [];
   const e = String(a.explanation || '');
@@ -362,6 +378,7 @@ export function checkItem(row, authored, ctx) {
     if (!CONTENT_FIELDS.includes(k) && !AUTHORED_META_FIELDS.includes(k) && !['id', 'domain', 'skills', 'difficulty', 'type', 'sourceStyleRef', 'patternTitle', 'moduleId', 'sectionName'].includes(k)) warns.push(`unknown field "${k}" ignored`);
   }
   if (!a.question || wordCount(a.question) < 4) errs.push('question missing/too short');
+  errs.push(...currencyTrapErrors(a));
   const wc = wordCount(a.question);
   if (wc < 10 && row.type === 'multiple-choice' && !a.diagram) warns.push(`stem only ${wc} words`);
   if (wc > 90) warns.push(`stem ${wc} words (>90)`);

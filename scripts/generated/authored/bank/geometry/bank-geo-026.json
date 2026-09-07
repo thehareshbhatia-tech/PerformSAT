@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-026",
- "question": "In triangle $QRS$, the measure of angle $R$ is twice the measure of angle $Q$, and the measure of angle $S$ is $20°$ more than the measure of angle $R$. What is the measure, in degrees, of angle $S$?",
+ "question": "A pattern maker drafts a triangular gore for a skirt panel, and its three angle measures, in degrees, are $x$, $3x$, and $x-20$. What is the value of $x$?",
  "choices": [
   {
    "id": "A",
-   "text": "$32$"
+   "text": "$22$"
   },
   {
    "id": "B",
-   "text": "$64$"
+   "text": "$32$"
   },
   {
    "id": "C",
-   "text": "$84$"
+   "text": "$36$"
   },
   {
    "id": "D",
-   "text": "$92$"
+   "text": "$40$"
   }
  ],
  "distractorNotes": {
-  "A": "reports angle Q",
-  "B": "reports angle R",
-  "D": "drops the constant 20 from the equation before solving"
+  "A": "uses 90 for the angle sum: 5x - 20 = 90 gives x = 22",
+  "B": "adds 20 instead of subtracting it: 5x + 20 = 180 gives x = 32",
+  "C": "drops the -20 entirely: 5x = 180 gives x = 36"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Translate to Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** With $m\\angle Q = x$, the angles are $x$, $2x$, and $2x + 20$. Then $5x + 20 = 180$, so $x = 32$ and $m\\angle S = 2(32) + 20 = 84$.\n\n**The Full Solution:**\nStep 1: Let $x$ be the measure of angle $Q$. Then $m\\angle R = 2x$ and $m\\angle S = 2x + 20$.\nStep 2: The interior angles sum to $180°$: $x + 2x + (2x + 20) = 180$, which simplifies to $5x + 20 = 180$.\nStep 3: $5x = 160$, so $x = 32$. The question asks for angle $S$: $m\\angle S = 2(32) + 20 = 84$.\n\nVerification: the three measures are $32$, $64$, and $84$, and $32 + 64 + 84 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($32$): reports $x$, the measure of angle $Q$, instead of angle $S$.\n* Choice B ($64$): reports angle $R$, stopping one substitution early.\n* Choice D ($92$): drops the constant, solving $5x = 180$ to get $x = 36$ and then $2(36) + 20 = 92$; those three angles total $200$, not $180$.\n\n**Test Day Takeaway:** Define one variable, express every angle in terms of it, and circle the angle actually requested before you solve."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Translate to Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The three angles sum to $180$, so $x+3x+(x-20)=180$, giving $5x=200$ and $x=40$.\n\n**The Full Solution:**\n\nStep 1 — The angle measures of any triangle add to $180$ degrees, so $x+3x+(x-20)=180$.\n\nStep 2 — Combine like terms: $5x-20=180$.\n\nStep 3 — Add $20$ and divide: $5x=200$, so $x=40$. Check: the angles are $40$, $120$, and $20$ degrees, and $40+120+20=180$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($22$): this sets the sum to $90$ instead of $180$.\n* Choice B ($32$): this moves the $-20$ to the left as $+20$, solving $5x+20=180$.\n* Choice C ($36$): this drops the $-20$ entirely and solves $5x=180$.\n\n**Test Day Takeaway:** Translate every phrase into one equation, combine like terms, and let the constant move once — the arithmetic is where these are lost."
 }

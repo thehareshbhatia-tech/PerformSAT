@@ -71,8 +71,44 @@ proportion; barChart values on gridlines; dotPlot window ≤ 50; linearGraph ≤
 "residual" needs a scatterplot), difficulty, register, scenario collisions — fixes in place — then
 `check` again.
 
-## Status board
+## Status board (2026-09-07)
 
 | Chunk | Sources | Items | Authored | Verified | Assembled |
 |---|---|---|---|---|---|
-| fresh-01..21 | see chunk files | 1,210 | | | |
+| fresh-01..05 | advancedMath | 300 | yes | yes | yes (wave A, 59b99ef4) |
+| fresh-06 | advancedMath 9 + algebra 51 | 60 | yes | yes | yes (wave A) |
+| fresh-07..11 | algebra | 300 | yes | yes | yes (wave A) |
+| fresh-12 | algebra 17 + circles 21 + exponents 10 + functions 8 + equivalent-expressions 3 + dimensional-analysis 1 | 60 | yes | yes | yes (wave A; functions in wave B) |
+| fresh-13 | geometry 57 + functions 3 | 60 | yes | yes | yes (wave B) |
+| fresh-14..16 | geometry | 180 | yes | yes | yes (wave B) |
+| fresh-17 | geometry 39 + linear-equations 21 | 60 | yes | yes | yes (wave B) |
+| fresh-18 | problemSolving 58 + linear-equations 1 + percents 1 | 60 | yes | yes | yes (wave B) |
+| fresh-19 | problemSolving 39 + quadratics 14 + radians-degrees 3 + statistics 3 + systems 1 | 60 | yes | yes | yes (wave B) |
+| fresh-20 | transformations 32 + triangles 19 + systems 7 + volume 2 | 60 | yes | yes | yes (wave B) |
+| fresh-21 | volume | 10 | yes | yes | yes (wave B) |
+
+**Final census (`refreshBank.mjs verify`, 2026-09-07):** 0 items near their pre-09-04 version, 0 near a current
+test question, 0 drill pairs at or above Dice 0.65 (was 38% of the bank); stem medians E32/M35/H39 (was
+E27/M31/H36; tests E33/M38/H43); figures/tables 665 of 2,121 (was ~500).
+
+## Learnings
+
+1. Authors trade length for freshness: abstract algebra archetypes only clear the gate with a one-clause
+   setup, and every lengthening pass that restated the givens raised Dice. The per-skill register gate
+   (rule 8) is what kept the symbolic skills honest without padding.
+2. The independent verifier pass earned its cost: no wrong keys in 1,210 items, but roughly one item in
+   six needed a fix — distractor rationales that did not produce their number, explanation "checks" that
+   used non-solutions, figures out of proportion or leaking the answer, unsound premises (negative tank
+   volumes, saturated brines, 0.47 L road-salt hoppers), hard slots that were one-formula plug-ins,
+   in-chunk twins, and topic hints that handed over the method (41 in fresh-20 alone).
+3. Renderer traps found by verifiers: `TriangleWithAngles` silently drops `sideLabels` (a length given
+   only there is invisible — put it in the stem); `SATIntersectingLines` draws angles[0] as the 60° wedge
+   and angles[1] as 120°, so the larger measure must sit at index 1; `coordinatePoints` draws on a fixed
+   square, so x- and y-spans must match when the stem says "each unit represents …"; `parabola` with
+   `gridInterval: 2` hides odd intercepts.
+5. MathText treats `$NN.NN ` (cents, then a space) as currency on any line with balanced `$` but no
+   LaTeX command, which unpairs the rest of the line: 13 spans across 12 items rendered as raw text
+   and one crashed KaTeX. `check` now mirrors that rule (`currencyTrapErrors`); the fix is to write
+   such spans without spaces (`$38.10-31.60=6.50$`) or include a command.
+4. `assemble` is chunk-scoped (`--chunk` allow-list) but `verify --source` compares every live item to
+   its authored JSON, so assemble a source only once all of its chunks are verified.

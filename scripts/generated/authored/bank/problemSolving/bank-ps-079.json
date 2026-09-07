@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-079",
-  "question": "The mean of a list of $10$ values is $36$. If the value $63$ is removed from the list, what is the mean of the remaining $9$ values?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$29.7$"
-    },
-    {
-      "id": "B",
-      "text": "$33$"
-    },
-    {
-      "id": "C",
-      "text": "$36$"
-    },
-    {
-      "id": "D",
-      "text": "$40$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "subtracts 63 but divides by the original 10 (297/10)",
-    "C": "assumes the mean is unchanged",
-    "D": "divides the original total by 9 without removing 63 (360/9)"
+ "id": "bank-ps-079",
+ "question": "Over a competition a long jumper's six measured jumps averaged $6.35$ meters. The first five measured $6.20$, $6.45$, $6.10$, $6.55$, and $6.30$ meters. What was the length, in meters, of the last jump?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$6.30$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Mean from List**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Total $= 10(36) = 360$; remove $63$ to get $297$; $\\frac{297}{9} = 33$.\n\n**The Full Solution:**\nStep 1: The $10$ values total $10 \\times 36 = 360$.\nStep 2: Removing $63$ leaves a total of $360 - 63 = 297$ for the $9$ remaining values.\nStep 3: New mean $= \\frac{297}{9} = 33$. Check: $9(33) + 63 = 297 + 63 = 360$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($29.7$): subtracts the $63$ but divides by the original $10$ values, $\\frac{297}{10}$.\n* Choice C ($36$): assumes the mean is unchanged; removing a value above the mean must lower it.\n* Choice D ($40$): divides the original total by $9$ without removing the $63$, $\\frac{360}{9}$.\n\n**Test Day Takeaway:** Adjust the total AND the count together; removing a value larger than the mean always pulls the mean down."
+  {
+   "id": "B",
+   "text": "$6.32$"
+  },
+  {
+   "id": "C",
+   "text": "$6.35$"
+  },
+  {
+   "id": "D",
+   "text": "$6.50$"
+  }
+ ],
+ "correctAnswer": "D",
+ "distractorNotes": {
+  "A": "reports the median of the five listed jumps, $6.30$, instead of the missing sixth",
+  "B": "averages only the five listed jumps, $\\frac{31.60}{5} = 6.32$",
+  "C": "repeats the six-jump average of $6.35$ as the value of the last jump"
+ },
+ "explanation": "**SAT Pattern: Mean from List**\n\n**Choice D is correct.** Six jumps averaging $6.35$ meters total $38.10$ meters, and the first five total $31.60$ meters, so the last jump was $6.50$ meters.\n\n**The Fast Way (~40s):** $6(6.35) = 38.10$ and $6.20+6.45+6.10+6.55+6.30=31.60$, so the last jump is $38.10-31.60=6.50$ meters.\n\n**The Full Solution:**\n\nStep 1: Convert the average into a total. Six jumps at a mean of $6.35$ meters give $6(6.35) = 38.10$ meters.\n\nStep 2: Add the five known jumps: $6.20+6.45+6.10+6.55+6.30=31.60$ meters.\n\nStep 3: Subtract: $38.10-31.60=6.50$ meters. Check: $\\frac{31.60 + 6.50}{6} = \\frac{38.10}{6} = 6.35$ meters.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($6.30$): is the median of the five listed jumps, a measure of center rather than the missing value.\n* Choice B ($6.32$): averages the five listed jumps. The stated mean covers all six.\n* Choice C ($6.35$): copies the overall mean. A single jump equals the mean only by coincidence.\n\n**Test Day Takeaway:** Multiply the mean by the full count first -- the missing entry is always the required total minus everything you can read."
 }

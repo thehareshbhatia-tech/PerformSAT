@@ -1,29 +1,57 @@
 {
  "id": "bank-geo-219",
- "question": "Triangle $GHJ$ is similar to triangle $KLM$, where $G$, $H$, and $J$ correspond to $K$, $L$, and $M$, respectively. If $GH = 5$, $KL = 15$, and $HJ = 7$, what is the length of $LM$?",
+ "question": "An embroidery kit pairs a small applique with a larger one cut to the same shape. The figure gives the measurements of both pieces in centimeters, with vertex $J$ matching $M$, vertex $K$ matching $N$, and vertex $L$ matching $P$. How long, in centimeters, is $\\overline{NP}$?",
  "diagram": {
   "type": "similarTriangles",
   "params": {
    "triangle1": {
+    "vertices": [
+     [
+      0.71,
+      4.95
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      7,
+      0
+     ]
+    ],
     "labels": [
-     "G",
-     "H",
-     "J"
+     "J",
+     "K",
+     "L"
     ],
     "sideLabels": [
      "5",
      "7",
-     ""
+     "8"
     ]
    },
    "triangle2": {
+    "vertices": [
+     [
+      1.43,
+      9.9
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      14,
+      0
+     ]
+    ],
     "labels": [
-     "K",
-     "L",
-     "M"
+     "M",
+     "N",
+     "P"
     ],
     "sideLabels": [
-     "15",
+     "10",
      "",
      ""
     ]
@@ -34,26 +62,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$7$"
+   "text": "$3.5$"
   },
   {
    "id": "B",
-   "text": "$15$"
+   "text": "$7$"
   },
   {
    "id": "C",
-   "text": "$21$"
+   "text": "$12$"
   },
   {
    "id": "D",
-   "text": "$35$"
+   "text": "$14$"
   }
  ],
  "distractorNotes": {
-  "A": "copies HJ without scaling",
-  "B": "copies KL",
-  "D": "multiplies 5 by 7 instead of using the proportion"
+  "A": "divides by the scale factor instead of multiplying: 7 / 2 = 3.5",
+  "B": "reports KL unchanged, treating the two pieces as congruent rather than similar",
+  "C": "adds the difference 10 - 5 = 5 to 7 instead of scaling by 2"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The scale factor from $GHJ$ to $KLM$ is $\\frac{15}{5} = 3$, so $LM = 3 \\cdot 7 = 21$.\n\n**The Full Solution:**\nStep 1: Corresponding sides of similar triangles are proportional, and the naming order tells you which sides correspond: $GH$ with $KL$, and $HJ$ with $LM$.\nStep 2: Set up the proportion $\\frac{GH}{KL} = \\frac{HJ}{LM}$, that is $\\frac{5}{15} = \\frac{7}{LM}$.\nStep 3: Cross-multiply: $5 \\cdot LM = 15 \\cdot 7 = 105$, so $LM = 21$.\n\nVerification: $\\frac{5}{15} = \\frac{1}{3}$ and $\\frac{7}{21} = \\frac{1}{3}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): copies $HJ$ without applying the scale factor.\n* Choice B ($15$): copies $KL$, the side already given in the larger triangle.\n* Choice D ($35$): multiplies $5 \\cdot 7$ instead of setting up a proportion.\n\n**Test Day Takeaway:** Read the correspondence out of the vertex order. $GH \\leftrightarrow KL$ and $HJ \\leftrightarrow LM$ because $G, H, J$ map to $K, L, M$ in that order."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** $\\overline{MN}$ matches $\\overline{JK}$, so the scale factor is $\\frac{10}{5}=2$, and $\\overline{NP}=2(7)=14$ centimeters.\n\n**The Full Solution:**\n\nStep 1 — Match the sides. The order $JKL \\to MNP$ pairs $\\overline{JK}$ with $\\overline{MN}$ and $\\overline{KL}$ with $\\overline{NP}$.\n\nStep 2 — Find the scale factor: $\\frac{MN}{JK}=\\frac{10}{5}=2$.\n\nStep 3 — Apply it: $NP=2(KL)=2(7)=14$ centimeters. Check: $\\frac{14}{7}=2$, the same factor that took $5$ to $10$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($3.5$): this divides by $2$ instead of multiplying, shrinking the larger piece.\n* Choice B ($7$): this copies $\\overline{KL}$ unchanged, which would make the pieces congruent rather than similar.\n* Choice C ($12$): this adds $10-5=5$ to $7$; similar figures scale by a factor, not by a fixed increase.\n\n**Test Day Takeaway:** Find the scale factor from the one pair of sides you know, then multiply — every side of the larger figure uses that same factor."
 }

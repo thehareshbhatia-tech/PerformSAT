@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-184",
- "question": "In the $xy$-plane, a line passes through the point $(0, 13)$ and is tangent to the circle $x^2 + y^2 = 25$. What is one possible slope of this line?",
+ "question": "A survey sightline from a lookout at the origin follows $y=kx$ and grazes a circular fog bank modeled by $(x-5)^2+y^2=9$, with units in kilometers. If $k>0$, what is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{5}{13}$"
+   "text": "$\\frac{9}{25}$"
   },
   {
    "id": "B",
-   "text": "$\\frac{5}{12}$"
+   "text": "$\\frac{9}{16}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{12}{13}$"
+   "text": "$\\frac{3}{5}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{12}{5}$"
+   "text": "$\\frac{3}{4}$"
   }
  ],
  "distractorNotes": {
-  "A": "radius over distance to center",
-  "B": "inverts: radius over tangent length",
-  "C": "tangent length over distance to center"
+  "A": "squares the ratio radius/center-distance, (3/5)^2 = 9/25",
+  "B": "stops at k^2 = 9/16 and never takes the square root",
+  "C": "uses radius over distance-to-center, 3/5, as the slope"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The line is $y = mx + 13$, so $\\frac{13}{\\sqrt{m^2 + 1}} = 5$. Then $m^2 + 1 = \\frac{169}{25}$, so $m^2 = \\frac{144}{25}$ and $m = \\frac{12}{5}$.\n\n**The Full Solution:**\nStep 1: Any non-vertical line through $(0, 13)$ has the form $y = mx + 13$, or $mx - y + 13 = 0$. The circle has center $(0, 0)$ and radius $5$.\nStep 2: Tangency forces the distance from the origin to the line to equal $5$: $\\frac{|13|}{\\sqrt{m^2 + 1}} = 5$.\nStep 3: So $\\sqrt{m^2 + 1} = \\frac{13}{5}$, giving $m^2 + 1 = \\frac{169}{25}$ and $m^2 = \\frac{144}{25}$. The two tangent lines have slopes $\\pm\\frac{12}{5}$, and $\\frac{12}{5}$ is listed.\n\nVerification: the radius, the tangent segment, and the segment from the center to $(0,13)$ form a right triangle with legs $5$ and $12$ and hypotenuse $13$; the slope magnitude is $\\frac{12}{5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{13}$): divides the radius by the distance from the center to the external point, a ratio that gives $\\sin$ of the half-angle, not the slope.\n* Choice B ($\\frac{5}{12}$): inverts the legs — uses radius over tangent length instead of tangent length over radius.\n* Choice C ($\\frac{12}{13}$): pairs the tangent length with the hypotenuse $13$ instead of with the radius $5$.\n\n**Test Day Takeaway:** Drop the perpendicular from the center to the tangent line: the radius, the tangent length, and the center-to-point distance form a right triangle. Here it is the $5$-$12$-$13$ triple."
+ "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice D is correct.**\n\n**The Fast Way (~50s):** The distance from $(5,0)$ to $kx-y=0$ must equal $3$, so $\\frac{5k}{\\sqrt{k^2+1}}=3$, giving $25k^2=9k^2+9$ and $k=\\frac{3}{4}$.\n\n**The Full Solution:**\n\nStep 1 — Write the line as $kx-y=0$. The fog bank has center $(5,0)$ and radius $3$.\n\nStep 2 — Grazing means the distance from the center to the line equals the radius: $\\frac{|5k-0|}{\\sqrt{k^2+1}}=3$. Squaring gives $25k^2=9(k^2+1)$.\n\nStep 3 — Solve: $16k^2=9$, so $k^2=\\frac{9}{16}$ and $k=\\frac{3}{4}$ since $k>0$. Check: substituting $y=\\frac{3}{4}x$ into the circle gives $\\frac{25}{16}x^2-10x+16=0$, whose discriminant is $100-4\\left(\\frac{25}{16}\\right)(16)=0$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($\\frac{9}{25}$): this squares $\\frac{3}{5}$, compounding two separate errors.\n* Choice B ($\\frac{9}{16}$): this stops at $k^2$ and never takes the square root.\n* Choice C ($\\frac{3}{5}$): this uses radius over distance-to-center, which is a sine, not a slope.\n\n**Test Day Takeaway:** Distance from a point to a line equals the radius is the fastest tangency test — and the final answer needs the square root."
 }

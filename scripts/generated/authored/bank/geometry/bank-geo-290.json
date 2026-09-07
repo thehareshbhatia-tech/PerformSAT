@@ -1,29 +1,51 @@
 {
- "id": "bank-geo-290",
- "question": "In the $xy$-plane, a circle has center $(2, -5)$ and passes through the point $(2, 7)$. Which equation represents the circle?",
+ "question": "The table gives the endpoints of a diameter of the circular catwalk around a water tower, where coordinates are in meters. Which equation models the catwalk in the $xy$-plane?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "Endpoint",
+    "x (meters)",
+    "y (meters)"
+   ],
+   "rows": [
+    [
+     "P",
+     "-5",
+     "4"
+    ],
+    [
+     "Q",
+     "7",
+     "-12"
+    ]
+   ]
+  }
+ },
  "choices": [
   {
    "id": "A",
-   "text": "$(x - 2)^2 + (y + 5)^2 = 12$"
+   "text": "$(x + 1)^2 + (y - 4)^2 = 100$"
   },
   {
    "id": "B",
-   "text": "$(x - 2)^2 + (y + 5)^2 = 144$"
+   "text": "$(x - 1)^2 + (y + 4)^2 = 400$"
   },
   {
    "id": "C",
-   "text": "$(x + 2)^2 + (y - 5)^2 = 144$"
+   "text": "$(x - 2)^2 + (y + 8)^2 = 100$"
   },
   {
    "id": "D",
-   "text": "$(x - 2)^2 + (y - 7)^2 = 144$"
+   "text": "$(x - 1)^2 + (y + 4)^2 = 100$"
   }
  ],
+ "correctAnswer": "D",
  "distractorNotes": {
-  "A": "uses r instead of r squared",
-  "C": "reverses the center signs",
-  "D": "uses the given point as the center"
+  "A": "flips the signs of the center's coordinates, centering the circle at (-1, 4)",
+  "B": "uses the diameter 20 as the radius, so the right side becomes 400",
+  "C": "adds the endpoint coordinates without halving, centering the circle at (2, -8)"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The two points share an $x$-value, so $r = |7 - (-5)| = 12$ and $r^2 = 144$, giving $(x - 2)^2 + (y + 5)^2 = 144$.\n\n**The Full Solution:**\nStep 1: The radius is the distance from the center to any point on the circle. Both points have $x = 2$, so the distance is purely vertical.\nStep 2: $r = |7 - (-5)| = 12$, so $r^2 = 144$.\nStep 3: With center $(2, -5)$, the equation is $(x - 2)^2 + (y + 5)^2 = 144$. Check: substituting $(2, 7)$ gives $0 + 144 = 144$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 2)^2 + (y + 5)^2 = 12$): puts the radius on the right side instead of the radius squared.\n* Choice C ($(x + 2)^2 + (y - 5)^2 = 144$): reverses the signs of the center coordinates.\n* Choice D ($(x - 2)^2 + (y - 7)^2 = 144$): builds the equation around the point on the circle rather than the center.\n\n**Test Day Takeaway:** Find $r^2$ directly — you never need $r$ itself. Then confirm by substituting the given point."
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** The center is the midpoint $\\left(\\frac{-5 + 7}{2}, \\frac{4 - 12}{2}\\right) = (1, -4)$, and the diameter is $\\sqrt{12^2 + 16^2} = 20$, so $r = 10$ and $r^2 = 100$.\n\n**The Full Solution:**\nStep 1: The center of a circle is the midpoint of any diameter: $(1, -4)$.\nStep 2: The diameter's length is $\\sqrt{(7 - (-5))^2 + (-12 - 4)^2} = \\sqrt{144 + 256} = \\sqrt{400} = 20$ meters, so $r = 10$ meters.\nStep 3: Standard form gives $(x - 1)^2 + (y + 4)^2 = 100$. Check: substituting $P(-5, 4)$ gives $36 + 64 = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: writes $(x + 1)^2 + (y - 4)^2$, which centers the catwalk at $(-1, 4)$ instead of $(1, -4)$.\n* Choice B: keeps the diameter $20$ as the radius, so the right side is $400$ rather than $100$.\n* Choice C: adds the endpoint coordinates without dividing by $2$, placing the center at $(2, -8)$.\n\n**Test Day Takeaway:** Endpoints of a diameter give the center by midpoint and the radius by half the distance — halve before squaring.",
+ "id": "bank-geo-290"
 }

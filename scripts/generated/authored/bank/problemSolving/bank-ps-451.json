@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-451",
-  "question": "Two contractors split a payment of $\\$7{,}020$ in the ratio $4 : 9$. How much, in dollars, does the contractor with the smaller share receive?",
+  "question": "During a morning count at a river crossing, the ratio of northbound vehicles to southbound vehicles was $3$ to $7$, and $84$ more southbound vehicles than northbound vehicles were counted. How many vehicles were counted in all during that morning?",
   "choices": [
     {
       "id": "A",
-      "text": "$540$"
+      "text": "$63$"
     },
     {
       "id": "B",
-      "text": "$2{,}160$"
+      "text": "$84$"
     },
     {
       "id": "C",
-      "text": "$3{,}510$"
+      "text": "$147$"
     },
     {
       "id": "D",
-      "text": "$4{,}860$"
+      "text": "$210$"
     }
   ],
   "distractorNotes": {
-    "A": "reports the size of one part instead of a contractor's share.",
-    "C": "splits the payment evenly instead of in the ratio $4 : 9$.",
-    "D": "gives the larger share, the $9$-part amount."
+    "A": "reports the northbound count alone, 3 parts x 21 = 63",
+    "B": "reports the given difference of 84 vehicles as though it were the total",
+    "C": "reports the southbound count alone, 7 parts x 21 = 147"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** There are $4+9=13$ parts, so one part is $\\frac{7{,}020}{13}=540$ dollars, and the smaller share is $4(540)=2{,}160$ dollars.\n\n**The Full Solution:**\nStep 1: Write the shares as $4k$ and $9k$ dollars, so $4k+9k=7{,}020$.\nStep 2: $13k=7{,}020$, so $k=540$.\nStep 3: The smaller share is $4k=4(540)=2{,}160$ dollars. Check: $9(540)=4{,}860$, and $2{,}160+4{,}860=7{,}020$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($540$): reports $k$, the value of one part.\n* Choice C ($3{,}510$): halves the payment, ignoring the $4 : 9$ split.\n* Choice D ($4{,}860$): gives the $9$-part share, the larger payment.\n\n**Test Day Takeaway:** Dividing the total by the sum of the ratio numbers must give a value that fits both shares. Multiply by the ratio number the question asks for."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The gap is $7 - 3 = 4$ parts, so one part is $\\frac{84}{4} = 21$ and the total is $10$ parts, or $210$ vehicles.\n\n**The Full Solution:**\nStep 1: Turn the ratio into parts. Northbound is $3$ parts, southbound is $7$ parts, so southbound exceeds northbound by $7 - 3 = 4$ parts.\nStep 2: Size one part. Those $4$ parts equal $84$ vehicles, so one part is $\\frac{84}{4} = 21$ vehicles.\nStep 3: Total the parts and check. All $3 + 7 = 10$ parts give $10 \\times 21 = 210$ vehicles. Northbound is $63$, southbound is $147$, and $147 - 63 = 84$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($63$): is the northbound count, $3$ parts, not the total.\n* Choice B ($84$): is the given difference itself, restated as if it were the count of all vehicles.\n* Choice C ($147$): is the southbound count, $7$ parts, not the total.\n\n**Test Day Takeaway:** When a ratio comes with a DIFFERENCE, divide by the difference of the ratio numbers to size one part, then multiply by whichever total the question wants."
 }

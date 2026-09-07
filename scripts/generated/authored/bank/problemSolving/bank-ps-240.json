@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-240",
-  "question": "A researcher analyzes county-level census data and finds that counties with a higher share of residents holding library cards have lower average commute times. Based on this analysis alone, which of the following is the most defensible conclusion?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "Issuing more library cards would reduce average commute times in these counties."
-    },
-    {
-      "id": "B",
-      "text": "A resident who holds a library card has a shorter commute than a resident who does not."
-    },
-    {
-      "id": "C",
-      "text": "Across the counties analyzed, there is an association between the share of residents holding library cards and average commute time."
-    },
-    {
-      "id": "D",
-      "text": "Average commute time in a county determines how many of its residents obtain library cards."
-    }
-  ],
-  "distractorNotes": {
-    "A": "treats an observed association as an intervention that would change outcomes",
-    "B": "applies a county-level pattern to individual residents",
-    "D": "asserts causation in the reverse direction, which the data also cannot show"
+ "id": "bank-ps-240",
+ "question": "Researchers selected $80$ nest boxes at random from the $1{,}400$ kestrel nest boxes maintained along utility corridors in one county and randomly assigned half of the selected boxes to receive a predator guard. Fledging success was higher in the boxes with guards. Which of the following is the most appropriate conclusion?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Predator guards caused higher fledging success in kestrel nest boxes along utility corridors in the county."
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Census data involve no assignment and no individual-level measurement, so only an association across counties can be claimed.\n\n**The Full Solution:**\nStep 1: Identify the design. The researcher analyzed existing records; nothing was assigned or manipulated.\nStep 2: The unit of analysis is the county, not the resident, so the pattern describes county averages rather than individuals.\nStep 3: Both restrictions leave one defensible statement: an association across the counties analyzed. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: predicts the effect of an intervention, which requires an experiment rather than existing records.\n* Choice B: applies a county-level relationship to individual residents, a comparison the county data never measured.\n* Choice D: reverses the causal direction, but the analysis supports no causal direction at all.\n\n**Test Day Takeaway:** Ask two questions of any records-based study: was anything assigned, and what was the unit measured? Both limit how far the conclusion may travel."
+  {
+   "id": "B",
+   "text": "Predator guards caused higher fledging success in every kestrel nest box in the county, wherever it is located."
+  },
+  {
+   "id": "C",
+   "text": "Predator guards are associated with higher fledging success, but no cause-and-effect conclusion is possible because the boxes were not assigned to groups at random."
+  },
+  {
+   "id": "D",
+   "text": "Predator guards caused higher fledging success in the $80$ nest boxes studied, and no conclusion can be drawn about any other boxes."
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "generalizes past the sampled population; the boxes were drawn only from those along utility corridors",
+  "C": "denies the random assignment the study actually used, which is what licenses a causal claim",
+  "D": "refuses to generalize even though the boxes were selected at random from a stated population"
+ },
+ "explanation": "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice A is correct.** Random assignment supports a cause-and-effect conclusion, and random selection from the county's utility-corridor boxes lets that conclusion extend to exactly that population.\n\n**The Fast Way (~55s):** Random assignment buys causation; random selection buys generalization to the population sampled, which is the utility-corridor boxes in the county.\n\n**The Full Solution:**\n\nStep 1: Check for random assignment. Half the selected boxes were randomly assigned a predator guard, so the two groups differ only by chance apart from the treatment. That permits a causal conclusion.\n\nStep 2: Identify the population sampled. The $80$ boxes were drawn at random from the $1{,}400$ boxes maintained along utility corridors in the county, so that is the largest group the results describe.\n\nStep 3: Combine the two findings. The appropriate conclusion is causal and limited to kestrel nest boxes along utility corridors in the county, which is Choice A. Check: nothing in the design observed boxes outside utility corridors, so no claim can reach them.\n\n**Why the wrong answers are tempting:**\n\n* Choice B: stretches the conclusion to every nest box in the county. The sample came only from boxes along utility corridors.\n* Choice C: claims there was no random assignment, contradicting the description of the study.\n* Choice D: limits the conclusion to the $80$ boxes studied. Random selection from a stated population is precisely what allows the result to generalize to that population.\n\n**Test Day Takeaway:** Two randomizations do two different jobs -- assignment earns the word \"caused,\" selection sets how far the sentence may reach."
 }

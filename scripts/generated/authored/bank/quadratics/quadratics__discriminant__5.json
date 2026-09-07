@@ -1,30 +1,30 @@
 {
   "id": 5,
-  "question": "The equation $3x^2 + 12x + c = 0$ has no real solutions, where $c$ is a constant. Which of the following could be the value of $c$?",
+  "question": "A bridge inspector sets a whole-number damping parameter $n$ between $1$ and $20$, and the deck response for that setting is graphed as $y = 2x^2 + 9x + n$. The inspector issues a warning for any setting whose graph crosses the horizontal axis at two points. For how many settings is a warning issued?",
   "choices": [
     {
       "id": "A",
-      "text": "$-12$"
+      "text": "$5$"
     },
     {
       "id": "B",
-      "text": "$0$"
+      "text": "$10$"
     },
     {
       "id": "C",
-      "text": "$12$"
+      "text": "$11$"
     },
     {
       "id": "D",
-      "text": "$15$"
+      "text": "$20$"
     }
   ],
   "distractorNotes": {
-    "A": "gives a positive discriminant",
-    "B": "gives two real solutions",
-    "C": "boundary value gives exactly one solution"
+    "A": "uses 81 - 16n > 0, squaring the leading coefficient inside 4ac, and stops at n = 5",
+    "C": "includes n = 11, where 81 - 88 = -7 and the graph misses the axis entirely",
+    "D": "counts all 20 settings, assuming every upward parabola crosses the axis twice"
   },
-  "correctAnswer": "D",
-  "hint": "No real solutions means the discriminant is strictly negative, so solve the resulting inequality.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~30s):** $144 - 12c < 0$ gives $c > 12$, and only $15$ clears that bar.\n\n**The Full Solution:**\nStep 1: Write the discriminant with $a = 3$, $b = 12$: $b^2 - 4ac = 12^2 - 4(3)c = 144 - 12c$.\nStep 2: No real solutions requires $144 - 12c < 0$, so $144 < 12c$ and $c > 12$.\nStep 3: Among the choices, only $15$ satisfies $c > 12$. Check: with $c = 15$ the discriminant is $144 - 180 = -36 < 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): gives a discriminant of $144 + 144 = 288$, which is positive, so there are two real solutions.\n* Choice B ($0$): gives a discriminant of $144$, and the equation $3x^2 + 12x = 0$ has the real solutions $0$ and $-4$.\n* Choice C ($12$): gives a discriminant of exactly $0$, which is one real solution, not none — the boundary value is excluded.\n\n**Test Day Takeaway:** Strict wording matters: no real solutions is a strict inequality, so the value that makes the discriminant zero is the trap, not the answer."
+  "correctAnswer": "B",
+  "hint": "A setting earns a warning only while the discriminant stays above zero.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** Two crossings need $81 - 8n > 0$, so $n < 10.125$ and the whole numbers $1$ through $10$ qualify — $10$ settings.\n\n**The Full Solution:**\nStep 1: Translate \"crosses the axis at two points.\" The graph of $y = 2x^2 + 9x + n$ meets $y = 0$ twice exactly when $9^2 - 4(2)(n) > 0$.\nStep 2: Solve the inequality. $81 - 8n > 0$ gives $8n < 81$, so $n < 10.125$.\nStep 3: Count the allowed whole numbers and check the boundary. From $1$ through $20$, the values $1, 2, \\ldots, 10$ satisfy $n < 10.125$ — that is $10$ settings. At $n = 10$ the discriminant is $81 - 80 = 1 > 0$; at $n = 11$ it is $-7$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): uses $81 - 16n > 0$, doubling the $2$ a second time inside $4ac$, and stops at $n = 5$.\n* Choice C ($11$): includes $n = 11$, where the discriminant is $-7$ and the parabola stays above the axis.\n* Choice D ($20$): counts every setting. An upward parabola can sit entirely above the axis.\n\n**Test Day Takeaway:** Turn \"two crossings\" into $b^2 - 4ac > 0$, solve for the parameter, then count the integers — and always test the boundary value."
 }

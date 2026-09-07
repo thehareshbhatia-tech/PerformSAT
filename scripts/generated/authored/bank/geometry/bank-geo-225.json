@@ -1,30 +1,48 @@
 {
  "id": "bank-geo-225",
- "question": "In the figure, triangle $ABC$ is similar to triangle $DEF$, where $A$, $B$, and $C$ correspond to $D$, $E$, and $F$, respectively. If $AB = x$, $BC = x + 9$, $DE = 8$, and $EF = 20$, what is the value of $x$?",
+ "question": "A hotel's wayfinding kit contains two similar triangular floor decals, shown with lengths in centimeters, and the side marked $15$ on the smaller decal corresponds to the side marked $20$ on the larger decal. What is the length, in centimeters, of the longest side of the smaller decal?",
  "diagram": {
   "type": "similarTriangles",
   "params": {
    "triangle1": {
-    "labels": [
-     "A",
-     "B",
-     "C"
+    "vertices": [
+     [
+      -1,
+      19.97
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      24,
+      0
+     ]
     ],
     "sideLabels": [
-     "x",
-     "x + 9",
-     ""
+     "20",
+     "24",
+     "32"
     ]
    },
    "triangle2": {
-    "labels": [
-     "D",
-     "E",
-     "F"
+    "vertices": [
+     [
+      -0.75,
+      14.98
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      18,
+      0
+     ]
     ],
     "sideLabels": [
-     "8",
-     "20",
+     "15",
+     "",
      ""
     ]
    },
@@ -34,26 +52,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$3$"
+   "text": "$11.25$"
   },
   {
    "id": "B",
-   "text": "$6$"
-  },
-  {
-   "id": "C",
    "text": "$15$"
   },
   {
+   "id": "C",
+   "text": "$18$"
+  },
+  {
    "id": "D",
-   "text": "$20$"
+   "text": "$24$"
   }
  ],
  "distractorNotes": {
-  "A": "fails to distribute across x + 9",
-  "C": "reports BC instead of x",
-  "D": "copies EF"
+  "A": "applies the factor 0.75 to the already-scaled side: 15 x 0.75 = 11.25",
+  "B": "reports the labeled side 15 itself rather than the longest side",
+  "C": "scales the middle side 24 instead of the longest side 32: 24 x 0.75 = 18"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $\\frac{x}{x + 9} = \\frac{8}{20} = \\frac{2}{5}$, so $5x = 2(x + 9) = 2x + 18$, giving $3x = 18$ and $x = 6$.\n\n**The Full Solution:**\nStep 1: Corresponding sides are proportional: $\\frac{AB}{DE} = \\frac{BC}{EF}$, which rearranges to $\\frac{AB}{BC} = \\frac{DE}{EF}$.\nStep 2: Substitute and reduce: $\\frac{x}{x + 9} = \\frac{8}{20} = \\frac{2}{5}$.\nStep 3: Cross-multiply and distribute carefully: $5x = 2(x + 9) = 2x + 18$, so $3x = 18$ and $x = 6$.\n\nVerification: $AB = 6$ and $BC = 15$, and $\\frac{6}{15} = \\frac{2}{5} = \\frac{8}{20}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): drops the distribution, solving $5x = 2x + 9$ instead of $5x = 2x + 18$.\n* Choice C ($15$): solves correctly but reports $BC = x + 9$ rather than $x$ itself.\n* Choice D ($20$): copies $EF$, the corresponding side in the larger triangle.\n\n**Test Day Takeaway:** When one side is an expression, distribute across the whole binomial after cross-multiplying, then check that both reported lengths still satisfy the original ratio."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The scale factor is $\\frac{15}{20}=0.75$, and the longest side of the larger decal is $32$, so the smaller decal's longest side is $32(0.75)=24$ centimeters.\n\n**The Full Solution:**\n\nStep 1 — Find the factor from the stated pair: $\\frac{15}{20}=\\frac{3}{4}=0.75$, so the smaller decal is a $0.75$ copy of the larger.\n\nStep 2 — Identify the target. Among $20$, $24$, and $32$, the longest side of the larger decal is $32$ centimeters.\n\nStep 3 — Scale it: $32(0.75)=24$ centimeters. Check: the smaller decal's three sides are $15$, $18$, and $24$, whose ratios to $20$, $24$, and $32$ are all $0.75$, and $15+18>24$, so the triangle is valid.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($11.25$): this multiplies the already-scaled $15$ by $0.75$ a second time.\n* Choice B ($15$): this reports the side the question used to build the factor, not the longest side.\n* Choice C ($18$): this scales the middle side $24$ instead of the longest side $32$.\n\n**Test Day Takeaway:** The number $24$ can belong to both figures — track which triangle a length lives in before you answer."
 }

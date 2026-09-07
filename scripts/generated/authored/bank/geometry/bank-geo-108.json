@@ -1,18 +1,36 @@
 {
  "id": "bank-geo-108",
- "question": "The side lengths of the right triangle shown are $6$, $8$, and $10$. What is the cosine of the larger acute angle? Express your answer as a fraction.",
+ "question": "A quilter's set square appears in the figure as right triangle $TUV$; the two legs are labeled in inches and the sloped edge is not. What is the value of $\\sin(\\angle T)$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
-   "sideLabels": [
-    "6",
-    "8",
-    "10"
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     20,
+     0
+    ],
+    [
+     20,
+     15
+    ]
    ],
-   "rightAngleVertex": 1,
-   "figureNote": true
+   "labels": [
+    "T",
+    "U",
+    "V"
+   ],
+   "sideLabels": [
+    "20",
+    "15",
+    ""
+   ],
+   "rightAngleVertex": 1
   }
  },
- "correctAnswer": "3/5",
- "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**The correct answer is $\\frac{3}{5}$.**\n\n**The Fast Way (~25s):** The larger acute angle faces the longer leg, $8$, so its adjacent leg is $6$ and its cosine is $\\frac{6}{10} = \\frac{3}{5}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse is the longest side, $10$, so the legs are $6$ and $8$.\nStep 2: In a triangle, a larger angle is opposite a longer side, so the larger acute angle is opposite the leg of length $8$; the leg adjacent to it is $6$.\nStep 3: $\\cos = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{6}{10} = \\frac{3}{5}$.\n\nCheck: $6$, $8$, $10$ is the $3$-$4$-$5$ triple doubled, and $\\left(\\frac{3}{5}\\right)^2 + \\left(\\frac{4}{5}\\right)^2 = 1$.\n\n**Common Mistakes:**\n* Answering $\\frac{4}{5}$ by taking the cosine of the smaller acute angle instead.\n* Answering $\\frac{3}{4}$ by dividing the two legs, which produces a tangent, not a cosine.\n* Answering $\\frac{6}{10}$ unreduced; the grid accepts $3/5$, so reduce before entering.\n\n**Test Day Takeaway:** Bigger side, bigger opposite angle — that single fact tells you which acute angle a question means by larger or smaller."
+ "correctAnswer": "0.6",
+ "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**The correct answer is $0.6$.**\n\n**The Fast Way (~20s):** Legs $15$ and $20$ are a $3$-$4$-$5$ triangle scaled by $5$, so the hypotenuse is $25$ and $\\sin(\\angle T)=\\frac{15}{25}=0.6$.\n\n**The Full Solution:**\n\nStep 1 — Find the hypotenuse. With the right angle at $U$, $TV=\\sqrt{20^2+15^2}=\\sqrt{400+225}=\\sqrt{625}=25$ inches.\n\nStep 2 — Identify the opposite leg. Across the triangle from $\\angle T$ lies $\\overline{UV}=15$ inches.\n\nStep 3 — Apply SOH: $\\sin(\\angle T)=\\frac{15}{25}=\\frac{3}{5}=0.6$. Check: $\\cos(\\angle T)=\\frac{20}{25}=0.8$, and $0.6^2+0.8^2=1$.\n\n**Common Mistakes:** Answering $0.8$ uses the adjacent leg and gives the cosine. Answering $0.75$ divides leg by leg and gives the tangent. Treating the labeled $20$ as the hypotenuse gives $\\frac{15}{20}=0.75$ as well, which is why finding the hypotenuse first matters.\n\n**Test Day Takeaway:** When two legs are given, compute the hypotenuse before choosing a ratio — a $15$-$20$-$25$ triangle is just $3$-$4$-$5$ in disguise."
 }

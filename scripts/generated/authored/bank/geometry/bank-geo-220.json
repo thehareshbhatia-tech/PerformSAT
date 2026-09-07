@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-220",
- "question": "Two similar triangles have corresponding side lengths in the ratio $3:7$. The perimeter of the smaller triangle is $18$ centimeters. What is the perimeter, in centimeters, of the larger triangle?",
+ "question": "A cable-car station displays a triangular safety placard similar to the smaller card handed to riders. The card has a base of $8$ centimeters and a height of $5$ centimeters, and the placard has a base of $40$ centimeters. What is the height, in centimeters, of the placard?",
  "choices": [
   {
    "id": "A",
-   "text": "$21$"
-  },
-  {
-   "id": "B",
    "text": "$25$"
   },
   {
+   "id": "B",
+   "text": "$37$"
+  },
+  {
    "id": "C",
-   "text": "$42$"
+   "text": "$40$"
   },
   {
    "id": "D",
-   "text": "$126$"
+   "text": "$200$"
   }
  ],
  "distractorNotes": {
-  "A": "adds 3 to the perimeter",
-  "B": "adds 7 to the perimeter",
-  "D": "multiplies by 7 instead of by 7/3"
+  "B": "adds the base difference 40 - 8 = 32 to the height instead of scaling: 5 + 32 = 37",
+  "C": "builds the factor from a base over a height, 40/5 = 8, then multiplies: 5 x 8 = 40",
+  "D": "multiplies the height by the placard's base: 5 x 40 = 200"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Perimeters share the side ratio, so $\\frac{18}{P} = \\frac{3}{7}$ and $P = 18 \\cdot \\frac{7}{3} = 42$ centimeters.\n\n**The Full Solution:**\nStep 1: In similar figures every corresponding length — sides, perimeters, medians, altitudes — is in the same ratio.\nStep 2: So $\\frac{\\text{smaller perimeter}}{\\text{larger perimeter}} = \\frac{3}{7}$, giving $\\frac{18}{P} = \\frac{3}{7}$.\nStep 3: Cross-multiply: $3P = 126$, so $P = 42$ centimeters.\n\nVerification: $\\frac{18}{42} = \\frac{3}{7}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($21$): adds $3$ to the given perimeter, treating the ratio as a difference.\n* Choice B ($25$): adds $7$ to the given perimeter for the same reason.\n* Choice D ($126$): multiplies by $7$ rather than by $\\frac{7}{3}$, using only the larger term of the ratio as the scale factor.\n\n**Test Day Takeaway:** A ratio of $3:7$ means multiply by $\\frac{7}{3}$ to go up, not by $7$. Check the result: $42$ should be a little more than double $18$, and it is."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The bases give a scale factor of $\\frac{40}{8}=5$, so the height is $5(5)=25$ centimeters.\n\n**The Full Solution:**\n\nStep 1 — Pair the matching parts. Base pairs with base and height pairs with height, so $\\frac{40}{8}=\\frac{h}{5}$.\n\nStep 2 — Find the scale factor: $\\frac{40}{8}=5$.\n\nStep 3 — Solve for the height: $h=5(5)=25$ centimeters. Check: $\\frac{25}{5}=5$, the same factor the bases show.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($37$): this adds the base difference $40-8=32$ to the height; similar figures scale by multiplication.\n* Choice C ($40$): this builds the factor from a base and a height, $\\frac{40}{5}=8$, mixing parts that do not correspond.\n* Choice D ($200$): this multiplies the height by the placard's base rather than by the scale factor.\n\n**Test Day Takeaway:** A scale factor must come from two corresponding parts — base with base, height with height."
 }

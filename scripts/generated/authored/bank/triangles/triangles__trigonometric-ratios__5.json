@@ -1,30 +1,30 @@
 {
  "id": 5,
- "question": "In right triangle $JKL$, angle $L$ is a right angle and $\\sin J = \\frac{3}{5}$. If the perimeter of triangle $JKL$ is $60$, what is the length of $\\overline{KL}$?",
+ "question": "A taxiway wind-fence panel is a right triangle whose two acute angles measure $x^\\circ$ and $y^\\circ$. If $\\sin(x^\\circ) = \\frac{20}{29}$, what is the value of $\\cos(y^\\circ)$?",
  "choices": [
   {
    "id": "A",
-   "text": "$15$"
+   "text": "$\\frac{20}{29}$"
   },
   {
    "id": "B",
-   "text": "$20$"
+   "text": "$\\frac{21}{29}$"
   },
   {
    "id": "C",
-   "text": "$25$"
+   "text": "$\\frac{20}{21}$"
   },
   {
    "id": "D",
-   "text": "$36$"
+   "text": "$\\frac{29}{20}$"
   }
  ],
  "distractorNotes": {
-  "B": "gives $JL$, the leg adjacent to angle $J$",
-  "C": "gives $JK$, the hypotenuse",
-  "D": "applies the ratio $\\frac{3}{5}$ directly to the perimeter"
+  "B": "computes the cosine of x using the third side 21",
+  "C": "computes the tangent of x",
+  "D": "inverts the ratio"
  },
  "correctAnswer": "A",
- "hint": "A ratio of $3$ to $5$ fixes the shape only, so introduce a multiplier for the actual lengths.",
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~60s):** The sides are $3k$, $4k$, and $5k$; $12k = 60$ gives $k = 5$, so $KL = 15$.\n\n**The Full Solution:**\nStep 1: $\\sin J = \\frac{KL}{JK} = \\frac{3}{5}$, so the opposite leg and the hypotenuse are $3k$ and $5k$ for some positive $k$.\nStep 2: The third side is $\\sqrt{(5k)^2 - (3k)^2} = 4k$, so the perimeter is $3k + 4k + 5k = 12k$.\nStep 3: $12k = 60$ gives $k = 5$, so $KL = 3(5) = 15$.\n\nVerification: $15 + 20 + 25 = 60$ and $\\frac{15}{25} = \\frac{3}{5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($20$): gives $JL$, the leg adjacent to angle $J$.\n* Choice C ($25$): gives $JK$, the hypotenuse.\n* Choice D ($36$): applies the ratio $\\frac{3}{5}$ directly to the perimeter.\n\n**Test Day Takeaway:** A given sine fixes the shape but not the size — introduce a scale factor and let the perimeter pin it down."
+ "hint": "No side length is needed to answer this.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** The two acute angles are complementary, and the cosine of an angle equals the sine of its complement, so $\\cos(y^\\circ) = \\frac{20}{29}$.\n\n**The Full Solution:**\nStep 1: In a right triangle the two acute angles satisfy $x + y = 90$, so they are complementary.\nStep 2: The side opposite $x^\\circ$ is the side adjacent to $y^\\circ$, and both ratios are taken over the same hypotenuse.\nStep 3: Therefore $\\cos(y^\\circ) = \\sin(x^\\circ) = \\frac{20}{29}$. Check: with legs $20$ and $21$ and hypotenuse $29$, $\\cos(y^\\circ) = \\frac{20}{29}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{21}{29}$): computing $\\cos(x^\\circ)$ with the third side $21$; the complement swaps which leg is adjacent.\n* Choice C ($\\frac{20}{21}$): computing $\\tan(x^\\circ)$, a ratio of the two legs rather than a leg over the hypotenuse.\n* Choice D ($\\frac{29}{20}$): inverting the ratio, which no sine or cosine of an acute angle can exceed $1$.\n\n**Test Day Takeaway:** Complementary angles trade sine for cosine — no side lengths are needed at all."
 }

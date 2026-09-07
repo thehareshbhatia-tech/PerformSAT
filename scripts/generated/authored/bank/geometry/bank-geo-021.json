@@ -1,41 +1,60 @@
 {
  "id": "bank-geo-021",
- "question": "From a point at the top of a vertical cliff $85$ meters above sea level, the angle of depression to a buoy floating on the water is $28°$. What is the horizontal distance $d$, in meters, from the base of the cliff to the buoy? (Round to the nearest tenth.)",
+ "question": "From a mezzanine rail in a university reading room, the angle of depression to a study carrel on the floor below is $28°$, as drawn, with distances in meters. To the nearest meter, how far is the carrel from the rail itself?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
-   "sideLabels": [
-    "d",
-    "85",
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     15.046,
+     0
+    ],
+    [
+     0,
+     8
+    ]
+   ],
+   "rightAngleVertex": 0,
+   "labels": [
+    "",
+    "28°",
     ""
    ],
-   "rightAngleVertex": 1,
+   "sideLabels": [
+    "",
+    "",
+    "8"
+   ],
    "figureNote": true
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$45.2$"
+   "text": "$4$"
   },
   {
    "id": "B",
-   "text": "$75.1$"
+   "text": "$8$"
   },
   {
    "id": "C",
-   "text": "$159.9$"
+   "text": "$15$"
   },
   {
    "id": "D",
-   "text": "$181.1$"
+   "text": "$17$"
   }
  ],
  "distractorNotes": {
-  "A": "multiplies by tangent instead of dividing",
-  "B": "multiplies by cosine",
-  "D": "divides by sine, which gives the line-of-sight distance"
+  "A": "multiplies by the tangent instead of dividing, giving 8 tan 28 about 4.3",
+  "B": "reports the 8-meter vertical drop",
+  "C": "gives the horizontal distance, 8 / tan 28 about 15.0"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Angle of Depression**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The height is opposite the $28°$ angle at the buoy and the horizontal distance is adjacent, so $d = \\frac{85}{\\tan(28°)} \\approx 159.9$ meters.\n\n**The Full Solution:**\nStep 1: The angle of depression from the top of the cliff equals the angle of elevation from the buoy, so the angle at the buoy in the right triangle measures $28°$.\nStep 2: Relative to that angle, the cliff height $85$ is the opposite side and the horizontal distance $d$ is the adjacent side, so $\\tan(28°) = \\frac{85}{d}$.\nStep 3: Solve: $d = \\frac{85}{\\tan(28°)} = \\frac{85}{0.5317} \\approx 159.9$ meters.\n\nVerification: $159.9 \\cdot \\tan(28°) \\approx 85.0$, returning the cliff height. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($45.2$): computes $85 \\cdot \\tan(28°)$; multiplying finds the side opposite a known adjacent side, the reverse of this setup.\n* Choice B ($75.1$): computes $85 \\cdot \\cos(28°)$, mixing the cosine ratio into a problem with no hypotenuse given.\n* Choice D ($181.1$): computes $\\frac{85}{\\sin(28°)}$, which is the slanted line-of-sight distance to the buoy, not the horizontal distance.\n\n**Test Day Takeaway:** The angle of depression from above equals the angle of elevation from below. Label opposite and adjacent relative to the angle you actually use, then pick the ratio that contains both known and unknown."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Angle of Depression**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The $8$ m drop is opposite the $28°$ angle, so the straight-line distance is $\\frac{8}{\\sin 28°}\\approx17$ meters.\n\n**The Full Solution:**\n\nStep 1: Transfer the angle. The angle of depression from the rail equals the angle of elevation at the carrel, so the marked $28°$ sits at the carrel.\n\nStep 2: Choose the ratio. The $8$ m vertical drop is opposite that angle and the requested distance is the hypotenuse, so $\\sin 28°=\\frac{8}{d}$.\n\nStep 3: Solve. $d=\\frac{8}{\\sin 28°}=\\frac{8}{0.4695}\\approx17.0$, so $d\\approx17$ meters.\n\nCheck: the horizontal leg is $\\frac{8}{\\tan 28°}\\approx15.0$, and $15.0^{2}+8^{2}\\approx289\\approx17^{2}$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($4$): multiplies by the tangent instead of dividing, giving $8\\tan 28°\\approx4.3$.\n* Choice B ($8$): reports the vertical drop already marked in the figure.\n* Choice C ($15$): gives the horizontal distance $\\frac{8}{\\tan 28°}\\approx15.0$ from the carrel to the point directly below the rail.\n\n**Test Day Takeaway:** An angle of depression from a high point equals the angle of elevation from the low point; then match the requested side to sine, cosine, or tangent."
 }

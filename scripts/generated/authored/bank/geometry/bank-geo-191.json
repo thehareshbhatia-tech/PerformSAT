@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-191",
- "question": "A shipping crate in the shape of a right rectangular prism has edge lengths $m$, $m + 3$, and $m + 4$ feet. Which expression gives the volume, in cubic feet, of the crate?",
+ "question": "A finishing rinse basin is a rectangular tank $8p$ centimeters long, $5p$ centimeters wide, and $q$ centimeters deep, and it is filled to within $2$ centimeters of its rim. Which expression represents the number of cubic centimeters of rinse water in the basin?",
  "choices": [
   {
    "id": "A",
-   "text": "$m^3 + 7m + 12$"
+   "text": "$40p^2q-80p^2$"
   },
   {
    "id": "B",
-   "text": "$m^3 + 7m^2 + 12$"
+   "text": "$40p^2q-2$"
   },
   {
    "id": "C",
-   "text": "$m^3 + 7m^2 + 12m$"
+   "text": "$40p^2q$"
   },
   {
    "id": "D",
-   "text": "$m^3 + 12m^2 + 7m$"
+   "text": "$13pq-26p$"
   }
  ],
  "distractorNotes": {
-  "A": "raises only the leading term when multiplying by m",
-  "B": "fails to distribute m to the constant term",
-  "D": "swaps the sum and product of 3 and 4"
+  "B": "subtracts 2 from the finished volume instead of 2 centimeters from the depth",
+  "C": "fills the basin to the rim, ignoring the 2-centimeter gap",
+  "D": "adds the length and width, 8p + 5p, instead of multiplying them"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $(m + 3)(m + 4) = m^2 + 7m + 12$, and multiplying by $m$ gives $m^3 + 7m^2 + 12m$.\n\n**The Full Solution:**\nStep 1: The volume of a right rectangular prism is the product of its three edge lengths: $V = m(m + 3)(m + 4)$.\nStep 2: Expand the two binomials first: $(m + 3)(m + 4) = m^2 + (3 + 4)m + 12 = m^2 + 7m + 12$.\nStep 3: Distribute the remaining factor of $m$ to every term: $m(m^2 + 7m + 12) = m^3 + 7m^2 + 12m$.\n\nVerification: at $m = 2$ the edges are $2$, $5$, $6$, so $V = 60$, and $2^3 + 7(2)^2 + 12(2) = 8 + 28 + 24 = 60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($m^3 + 7m + 12$): raises only the leading term to the third power and leaves the other two terms untouched by the factor of $m$.\n* Choice B ($m^3 + 7m^2 + 12$): distributes $m$ to the first two terms but forgets the constant, which must become $12m$.\n* Choice D ($m^3 + 12m^2 + 7m$): swaps $3 + 4 = 7$ and $3 \\cdot 4 = 12$, putting the product in the $m^2$ slot.\n\n**Test Day Takeaway:** Expand two factors, then distribute the third across every term. Every term of a volume expression must carry the right total degree — here, degree $3$, $2$, and $1$ in order."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The water is $q-2$ centimeters deep over a base of $8p(5p)=40p^2$, so the volume is $40p^2(q-2)=40p^2q-80p^2$.\n\n**The Full Solution:**\n\nStep 1 — Find the base area: $(8p)(5p)=40p^2$ square centimeters.\n\nStep 2 — Find the depth of the water. The basin is $q$ centimeters deep and the water stops $2$ centimeters short, so the water is $q-2$ centimeters deep.\n\nStep 3 — Multiply and distribute: $40p^2(q-2)=40p^2q-80p^2$ cubic centimeters. Check with $p=1$ and $q=5$: the base is $40$, the water is $3$ deep, giving $120$, and $40(5)-80=120$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($40p^2q-2$): this subtracts $2$ cubic centimeters rather than shortening the depth by $2$ centimeters.\n* Choice C ($40p^2q$): this fills the basin to the rim and ignores the gap.\n* Choice D ($13pq-26p$): this adds $8p$ and $5p$ instead of multiplying them.\n\n**Test Day Takeaway:** Adjust the dimension the sentence adjusts — a shorter depth changes a length before any multiplication happens."
 }

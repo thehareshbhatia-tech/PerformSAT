@@ -1,13 +1,27 @@
 {
  "id": "bank-geo-083",
- "question": "In the right triangle shown, the two legs have lengths $a$ and $a + 17$ and the hypotenuse has length $25$, where $a$ is a positive constant. What is the value of $a$?",
+ "question": "The two legs of the bridge truss diagonal shown differ in length by $17$ meters, and the member's longest edge is $25$ meters. What area, in square meters, does the member enclose?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     24,
+     0
+    ],
+    [
+     24,
+     7
+    ]
+   ],
    "sideLabels": [
-    "a",
-    "a + 17",
-    "25"
+    "x + 17",
+    "x",
+    "25 m"
    ],
    "rightAngleVertex": 1,
    "figureNote": true
@@ -16,21 +30,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$4$"
+   "text": "$24$"
   },
   {
    "id": "B",
-   "text": "$7$"
+   "text": "$84$"
   },
   {
    "id": "C",
-   "text": "$13$"
+   "text": "$87.5$"
   },
   {
    "id": "D",
-   "text": "$24$"
+   "text": "$168$"
   }
  ],
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** $a^2 + (a + 17)^2 = 625$ simplifies to $a^2 + 17a - 168 = 0$, which factors as $(a - 7)(a + 24) = 0$, so $a = 7$.\n\n**The Full Solution:**\nStep 1: Apply the Pythagorean theorem: $a^2 + (a + 17)^2 = 25^2$.\nStep 2: Expand and collect: $a^2 + a^2 + 34a + 289 = 625$, so $2a^2 + 34a - 336 = 0$, and dividing by $2$ gives $a^2 + 17a - 168 = 0$.\nStep 3: Factor: $(a - 7)(a + 24) = 0$, so $a = 7$ or $a = -24$. A length must be positive, so $a = 7$.\n\nCheck: the legs are $7$ and $24$, and $7^2 + 24^2 = 49 + 576 = 625 = 25^2$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): solves $a + (a + 17) = 25$, adding the legs to the hypotenuse instead of using the Pythagorean theorem.\n* Choice C ($13$): expands $(a + 17)^2$ as $a^2 + 289$, dropping the $34a$ term; that leaves $2a^2 = 336$ and $a \\approx 12.96$.\n* Choice D ($24$): solves correctly but reports the longer leg $a + 17$ rather than $a$.\n\n**Test Day Takeaway:** When a leg is written as an expression, expect a quadratic — expand the binomial fully, then reject the negative root."
+ "distractorNotes": {
+  "A": "stops at the longer leg, x + 17 = 24, instead of computing an area",
+  "C": "uses the 25-meter hypotenuse as a leg: one half times 7 times 25",
+  "D": "multiplies the two legs, 7 times 24, but omits the factor one half"
+ },
+ "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice B is correct.** Solving $x^2 + (x + 17)^2 = 25^2$ gives $x = 7$, so the legs are $7$ and $24$ and the area is $\\frac{1}{2}(7)(24) = 84$ square meters.\n\n**The Fast Way (~50s):** The only triple whose legs differ by $17$ with hypotenuse $25$ is $7$-$24$-$25$; the area is $\\frac{1}{2}(7)(24) = 84$.\n\n**The Full Solution:**\n\nStep 1: Let the shorter leg be $x$; the longer is $x + 17$, and the Pythagorean theorem gives $x^2 + (x + 17)^2 = 625$.\n\nStep 2: Expand: $2x^2 + 34x + 289 = 625$, so $2x^2 + 34x - 336 = 0$, or $x^2 + 17x - 168 = 0$, which factors as $(x + 24)(x - 7) = 0$.\n\nStep 3: A length must be positive, so $x = 7$ and the legs are $7$ and $24$ meters; the area is $\\frac{1}{2}(7)(24) = 84$ square meters. Check: $24 - 7 = 17$ and $7^2 + 24^2 = 625 = 25^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($24$): stops at the longer leg instead of computing an area.\n* Choice C ($87.5$): uses the $25$-meter hypotenuse as the second leg.\n* Choice D ($168$): multiplies the legs but forgets the factor $\\frac{1}{2}$.\n\n**Test Day Takeaway:** When a hypotenuse and a difference between legs are given, set up one quadratic in the shorter leg — the negative root is always the one to discard."
 }

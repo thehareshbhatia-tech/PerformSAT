@@ -1,29 +1,29 @@
 {
-  "id": "bank-geo-141",
-  "question": "A rectangular prism has a volume of $360$ cubic centimeters. The length of the prism is $10$ centimeters and the width is $6$ centimeters. What is the surface area, in square centimeters, of the prism?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$156$"
-    },
-    {
-      "id": "B",
-      "text": "$192$"
-    },
-    {
-      "id": "C",
-      "text": "$312$"
-    },
-    {
-      "id": "D",
-      "text": "$1{,}272$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "adds the three distinct face areas but forgets to double them",
-    "B": "counts only the four lateral faces and omits the top and bottom",
-    "D": "divides the volume by the length alone, giving a height of 36"
+ "id": "bank-geo-141",
+ "question": "The firing chamber of a ceramic kiln is a rectangular prism measuring $k$ meters by $k + 3$ meters by $8$ meters, and it encloses $320$ cubic meters. How many square meters of sheet steel line its six faces?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$144$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Volume → Missing Dimension → Surface Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The height is $\\frac{360}{10 \\times 6} = 6$, so the surface area is $2(60 + 60 + 36) = 312$ square centimeters.\n\n**The Full Solution:**\nStep 1: $V = \\ell wh$, so $360 = (10)(6)h$ and $h = \\frac{360}{60} = 6$ centimeters.\nStep 2: The surface area of a rectangular prism is $2(\\ell w + \\ell h + wh) = 2\\big((10)(6) + (10)(6) + (6)(6)\\big) = 2(60 + 60 + 36)$.\nStep 3: $2(156) = 312$ square centimeters. Check: the prism is $10 \\times 6 \\times 6$, and $(10)(6)(6) = 360$ matches the given volume. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($156$): adds the three distinct face areas but never doubles them; every face has a matching opposite face.\n* Choice B ($192$): counts only the four side faces, $2(60) + 2(36)$, and leaves out the top and the bottom.\n* Choice D ($1{,}272$): divides the volume by the length alone, $h = 36$, then computes $2(60 + 360 + 216)$.\n\n**Test Day Takeaway:** Surface area needs all three dimensions, so recover the missing one from the volume first, then double the sum of the three distinct face areas."
+  {
+   "id": "B",
+   "text": "$208$"
+  },
+  {
+   "id": "C",
+   "text": "$288$"
+  },
+  {
+   "id": "D",
+   "text": "$320$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds the three distinct face areas 40 + 40 + 64 without doubling them",
+  "B": "doubles only two of the three distinct face areas, 2(40 + 64)",
+  "D": "reports the volume, 320, as though cubic and square units were interchangeable"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Volume → Missing Dimension → Surface Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~60s):** From $8k(k+3) = 320$ we get $k = 5$, so the chamber is $5$ by $8$ by $8$ and its surface area is $2(40 + 40 + 64) = 288$.\n\n**The Full Solution:**\nStep 1: Volume is the product of the three dimensions: $k(k+3)(8) = 320$, so $k^2 + 3k = 40$ and $k^2 + 3k - 40 = 0$.\nStep 2: Factoring gives $(k+8)(k-5) = 0$, and a length must be positive, so $k = 5$ meters and the dimensions are $5$, $8$, and $8$ meters.\nStep 3: Surface area is $2(lw + lh + wh) = 2\\big(5 \\cdot 8 + 5 \\cdot 8 + 8 \\cdot 8\\big) = 2(40 + 40 + 64) = 288$ square meters.\n\nCheck: $5 \\times 8 \\times 8 = 320$ cubic meters, matching the given volume. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($144$): adds the three distinct face areas $40$, $40$, and $64$ but never doubles for the opposite faces.\n* Choice B ($208$): doubles only two of the three distinct face areas, computing $2(40 + 64)$.\n* Choice D ($320$): reports the volume, which is measured in cubic meters, not square meters.\n\n**Test Day Takeaway:** Solve for the missing dimension first; a prism has three distinct face areas and each one appears twice."
 }

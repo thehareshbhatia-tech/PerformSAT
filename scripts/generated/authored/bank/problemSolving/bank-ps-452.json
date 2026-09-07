@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-452",
-  "question": "A $91$-centimeter length of copper tubing is cut into two pieces whose lengths are in the ratio $2 : 5$. What is the length, in centimeters, of the longer piece?",
+  "question": "At a vaccination campaign, the ratio of first doses administered to booster doses administered is $5$ to $4$, and $n$ doses are administered in all. Which expression gives the number of booster doses administered at the campaign?",
   "choices": [
     {
       "id": "A",
-      "text": "$13$"
+      "text": "$\\frac{4n}{9}$"
     },
     {
       "id": "B",
-      "text": "$26$"
+      "text": "$\\frac{4n}{5}$"
     },
     {
       "id": "C",
-      "text": "$45.5$"
+      "text": "$\\frac{5n}{9}$"
     },
     {
       "id": "D",
-      "text": "$65$"
+      "text": "$\\frac{9n}{4}$"
     }
   ],
   "distractorNotes": {
-    "A": "reports the size of one part instead of the longer piece.",
-    "B": "gives the shorter piece, the $2$-part length.",
-    "C": "cuts the tubing in half instead of in the ratio $2 : 5$."
+    "B": "divides by the first-dose parts, 5, instead of the total parts, 9",
+    "C": "gives the first-dose share, 5 parts out of 9, rather than the booster share",
+    "D": "inverts the fraction, giving more doses than were administered in all"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The ratio has $2+5=7$ parts, so one part is $\\frac{91}{7}=13$ centimeters, and the longer piece is $5(13)=65$ centimeters.\n\n**The Full Solution:**\nStep 1: Write the pieces as $2k$ and $5k$ centimeters, so $2k+5k=91$.\nStep 2: $7k=91$, so $k=13$.\nStep 3: The longer piece is $5k=5(13)=65$ centimeters. Check: $2(13)=26$, and $26+65=91$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$): reports $k$, the length of a single part.\n* Choice B ($26$): gives the shorter piece, matching the ratio number $2$.\n* Choice C ($45.5$): halves the tubing, which fits a $1 : 1$ cut, not $2 : 5$.\n\n**Test Day Takeaway:** Two pieces in the ratio $2 : 5$ must add back to the whole. Check your two answers sum to the original length before choosing."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Boosters are $4$ of the $5 + 4 = 9$ parts, so they number $\\frac{4}{9}$ of $n$, which is $\\frac{4n}{9}$.\n\n**The Full Solution:**\nStep 1: Add the parts. First doses are $5$ parts and boosters are $4$ parts, so the campaign has $9$ parts in all.\nStep 2: Write the booster share. Boosters make up $\\frac{4}{9}$ of every dose given, so with $n$ doses that is $\\frac{4n}{9}$.\nStep 3: Check with a number. If $n = 900$, then $\\frac{4(900)}{9} = 400$ boosters and $\\frac{5(900)}{9} = 500$ first doses; $400 + 500 = 900$ and $500 : 400 = 5 : 4$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{4n}{5}$): divides by $5$, the first-dose parts, instead of by the $9$ total parts.\n* Choice C ($\\frac{5n}{9}$): is the FIRST-dose share. The question asks for boosters.\n* Choice D ($\\frac{9n}{4}$): flips the fraction and would exceed $n$, more boosters than total doses.\n\n**Test Day Takeaway:** A part of a total is (that part) over (the SUM of the parts). If the expression can exceed the total, the fraction is upside down."
 }

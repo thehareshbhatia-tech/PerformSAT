@@ -1,30 +1,30 @@
 {
-  "id": 5,
-  "question": "In the $xy$-plane, the graph of $y=f(x)$ has $x$-intercept $(3,0)$ and $y$-intercept $(0,-8)$. The function $g$ is defined by $g(x)=4f(x)$. Which of the following gives the intercepts of the graph of $y=g(x)$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$x$-intercept $(3,0)$ and $y$-intercept $(0,-32)$"
-    },
-    {
-      "id": "B",
-      "text": "$x$-intercept $(3,0)$ and $y$-intercept $(0,-4)$"
-    },
-    {
-      "id": "C",
-      "text": "$x$-intercept $(3,0)$ and $y$-intercept $(0,-2)$"
-    },
-    {
-      "id": "D",
-      "text": "$x$-intercept $(12,0)$ and $y$-intercept $(0,-32)$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "adds the factor to the output",
-    "C": "divides the output by the factor",
-    "D": "scales the x-intercept as well"
+ "id": 5,
+ "question": "A refrigerated container's interior temperature, in degrees Celsius, $t$ hours after the doors are sealed is $f(t)$, where $f(0) = 12$ and $f$ decreases over the first day. A container sealed five hours later has temperature $g(t) = f(t - 5)$. Which of the following must be true?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$g(0) = 12$"
   },
-  "correctAnswer": "A",
-  "hint": "Ask what multiplying an output by $4$ does to a height of $0$ and to a height of $-8$.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** Multiplying outputs by $4$ leaves a zero output at zero, so the $x$-intercept stays at $(3,0)$, while the $y$-intercept becomes $4(-8)=-32$.\n\n**The Full Solution:**\nStep 1: The given intercepts say $f(3)=0$ and $f(0)=-8$.\nStep 2: At $x=3$: $g(3)=4f(3)=4(0)=0$, so $(3,0)$ is still an $x$-intercept — a vertical stretch never moves a point that already lies on the $x$-axis.\nStep 3: At $x=0$: $g(0)=4f(0)=4(-8)=-32$, so the $y$-intercept is $(0,-32)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($y$-intercept $(0,-4)$): adds $4$ to the output instead of multiplying by it: $-8+4=-4$.\n* Choice C ($y$-intercept $(0,-2)$): divides by $4$ rather than multiplying: $-8\\div 4=-2$.\n* Choice D ($x$-intercept $(12,0)$): stretches the input as well; a factor outside the function scales heights only, so $x$-intercepts are fixed.\n\n**Test Day Takeaway:** A vertical stretch fixes every $x$-intercept and multiplies every other height, the $y$-intercept included."
+  {
+   "id": "B",
+   "text": "$g(-5) = 12$"
+  },
+  {
+   "id": "C",
+   "text": "$g(12) = 5$"
+  },
+  {
+   "id": "D",
+   "text": "$g(5) = 12$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "ignores the five-hour delay entirely",
+  "B": "applies the delay in the wrong direction",
+  "C": "swaps the input and the output"
+ },
+ "correctAnswer": "D",
+ "hint": "Only one reading of the first container is given; find the statement that uses it.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** $g(t) = f(t - 5)$ repeats each reading five hours later, so $g(5) = f(0) = 12$ degrees.\n\n**The Full Solution:**\nStep 1: Substituting $t = 5$ gives $g(5) = f(5 - 5) = f(0)$.\nStep 2: The first container's temperature at $t = 0$ is $12$ degrees, so $g(5) = 12$.\nStep 3: That statement follows from the rule alone. Check: the later container is sealed five hours after the first, so its temperature at hour $5$ matches the first container's at hour $0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(0) = 12$): ignoring the delay; at $t = 0$ the second container has not yet been sealed, so $g(0) = f(-5)$.\n* Choice B ($g(-5) = 12$): applying the delay in the wrong direction; $g(-5) = f(-10)$, which the given information does not fix.\n* Choice C ($g(12) = 5$): swapping the input and the output; $12$ is a temperature, not an hour.\n\n**Test Day Takeaway:** Substitute the input that makes the inside expression equal the one value you were handed."
 }

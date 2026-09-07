@@ -1,46 +1,60 @@
 {
  "id": "bank-geo-010",
- "question": "In the right triangle shown, the two acute angles each measure $45°$ and each leg has length $9$. What is the length of the hypotenuse?",
+ "question": "A tile showroom displays a square sample cut along its diagonal, forming the right triangle shown with lengths in centimeters. What is the length of each leg of the sample?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     11.314,
+     0
+    ],
+    [
+     11.314,
+     11.314
+    ]
+   ],
+   "rightAngleVertex": 1,
    "labels": [
     "45°",
     "",
-    "45°"
-   ],
-   "sideLabels": [
-    "9",
-    "9",
     ""
    ],
-   "rightAngleVertex": 1,
+   "sideLabels": [
+    "",
+    "",
+    "16"
+   ],
    "figureNote": true
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$9$"
+   "text": "$4\\sqrt{2}$"
   },
   {
    "id": "B",
-   "text": "$9\\sqrt{2}$"
+   "text": "$8$"
   },
   {
    "id": "C",
-   "text": "$9\\sqrt{3}$"
+   "text": "$8\\sqrt{2}$"
   },
   {
    "id": "D",
-   "text": "$18\\sqrt{2}$"
+   "text": "$16$"
   }
  ],
  "distractorNotes": {
-  "A": "copies a leg as the hypotenuse",
-  "C": "uses the 30-60-90 long-leg ratio",
-  "D": "doubles the leg before applying the ratio"
+  "A": "halves the hypotenuse and then divides by root 2, giving 4 root 2",
+  "B": "halves the hypotenuse as if the triangle were 30-60-90",
+  "D": "restates the given hypotenuse, 16"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** In a $45°$-$45°$-$90°$ triangle the hypotenuse is $\\sqrt{2}$ times a leg, so it is $9\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The two legs are equal because the two acute angles are equal, so both legs measure $9$.\nStep 2: Apply the Pythagorean theorem: $c^2 = 9^2 + 9^2 = 81 + 81 = 162$.\nStep 3: $c = \\sqrt{162} = \\sqrt{81 \\cdot 2} = 9\\sqrt{2}$.\n\nVerification: $(9\\sqrt{2})^2 = 81 \\cdot 2 = 162 = 81 + 81$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): copies a leg; the hypotenuse is the longest side and must exceed $9$.\n* Choice C ($9\\sqrt{3}$): uses the $\\sqrt{3}$ ratio from a $30°$-$60°$-$90°$ triangle.\n* Choice D ($18\\sqrt{2}$): doubles the leg before applying the $\\sqrt{2}$ ratio, scaling the triangle by $2$.\n\n**Test Day Takeaway:** Memorize the two ratios: $45$-$45$-$90$ is $x : x : x\\sqrt{2}$ and $30$-$60$-$90$ is $x : x\\sqrt{3} : 2x$. Matching the given side to its position in the ratio is the whole problem."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** In a $45$-$45$-$90$ triangle the hypotenuse is a leg times $\\sqrt{2}$, so each leg is $\\frac{16}{\\sqrt{2}}=8\\sqrt{2}$ cm.\n\n**The Full Solution:**\n\nStep 1: Name the ratio. The sides of a $45$-$45$-$90$ triangle are $x$, $x$, and $x\\sqrt{2}$.\n\nStep 2: Set the hypotenuse equal to the given value. $x\\sqrt{2}=16$, so $x=\\frac{16}{\\sqrt{2}}$.\n\nStep 3: Rationalize. $x=\\frac{16\\sqrt{2}}{2}=8\\sqrt{2}$ cm, about $11.3$ cm.\n\nCheck: $(8\\sqrt{2})^{2}+(8\\sqrt{2})^{2}=128+128=256=16^{2}$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($4\\sqrt{2}$): halves the hypotenuse first and then divides by $\\sqrt{2}$, applying two reductions.\n* Choice B ($8$): halves the hypotenuse, which is the $30$-$60$-$90$ relationship, not this one.\n* Choice D ($16$): restates the hypotenuse shown in the figure rather than a leg.\n\n**Test Day Takeaway:** Going from hypotenuse to leg in a $45$-$45$-$90$ triangle means dividing by $\\sqrt{2}$, never by $2$."
 }

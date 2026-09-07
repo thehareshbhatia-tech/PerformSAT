@@ -1,6 +1,6 @@
 {
- "id": "bank-geo-237",
- "question": "The circumference of a circle is $34\\pi$ inches. What is the diameter, in inches, of the circle?",
- "correctAnswer": "34",
- "explanation": "**SAT Pattern: Circumference of a Circle**\n\n**The correct answer is $34$.**\n\n**The Fast Way (~10s):** $C = \\pi d$, so $34\\pi = \\pi d$ and $d = 34$ inches.\n\n**The Full Solution:**\nStep 1: Circumference relates to the diameter by $C = \\pi d$.\nStep 2: Substitute: $34\\pi = \\pi d$.\nStep 3: Divide both sides by $\\pi$: $d = 34$ inches.\n\nVerification: a diameter of $34$ gives a radius of $17$, and $2\\pi(17) = 34\\pi$. $\\checkmark$\n\n**Common Mistakes:** Gridding the radius $17$ after dividing by $2\\pi$ instead of by $\\pi$. Dividing by $2$ a second time and gridding $8.5$. Leaving $\\pi$ in the answer, which the grid cannot accept.\n\n**Test Day Takeaway:** When a circumference is written as a multiple of $\\pi$, the coefficient is the diameter. That single observation skips the algebra."
+ "question": "A parks department measures the lip of a circular skate bowl and records a circumference of $44\\pi$ feet. What is the diameter, in feet, of the lip?",
+ "correctAnswer": "44",
+ "explanation": "**SAT Pattern: Circumference of a Circle**\n\n**The correct answer is $44$.**\n\n**The Fast Way (~10s):** Since $C = \\pi d$, dividing $44\\pi$ by $\\pi$ gives $d = 44$ feet.\n\n**The Full Solution:**\nStep 1: Circumference in terms of diameter is $C = \\pi d$.\nStep 2: Set $\\pi d = 44\\pi$.\nStep 3: Divide both sides by $\\pi$: $d = 44$ feet. Check: with $d = 44$ the radius is $22$, and $2\\pi(22) = 44\\pi$ ✓\n\n**Common Mistakes:**\n* $22$ — reports the radius, $\\frac{C}{2\\pi}$, instead of the diameter.\n* $88$ — doubles again, as if $44\\pi$ were already the radius.\n* $14$ — divides $44$ by $\\pi \\approx 3.14$ after the $\\pi$ has already cancelled.\n\n**Test Day Takeaway:** When the circumference is written as a multiple of $\\pi$, the $\\pi$ cancels once — $C = \\pi d$ makes the diameter the coefficient itself.",
+ "id": "bank-geo-237"
 }

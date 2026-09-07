@@ -1,41 +1,54 @@
 {
  "id": "bank-geo-003",
- "question": "In the right triangle shown, the two legs have lengths $20$ and $21$. What is the length of the hypotenuse?",
+ "question": "A gable-end tie rod $17$ feet long runs from the ridge to the eave of a wall $8$ feet high. What is the horizontal run, in feet, of the rod?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
-   "sideLabels": [
-    "20",
-    "21",
-    ""
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     15,
+     0
+    ],
+    [
+     15,
+     8
+    ]
    ],
-   "rightAngleVertex": 1,
-   "figureNote": true
+   "sideLabels": [
+    "",
+    "8 ft",
+    "17 ft"
+   ],
+   "rightAngleVertex": 1
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$1$"
+   "text": "$9$"
   },
   {
    "id": "B",
-   "text": "$29$"
+   "text": "$15$"
   },
   {
    "id": "C",
-   "text": "$41$"
+   "text": "$25$"
   },
   {
    "id": "D",
-   "text": "$841$"
+   "text": "$60$"
   }
  ],
- "distractorNotes": {
-  "A": "subtracts the legs",
-  "C": "adds the legs",
-  "D": "reports c squared instead of c"
- },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Pythagorean Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $c^2 = 20^2 + 21^2 = 400 + 441 = 841$, and $\\sqrt{841} = 29$.\n\n**The Full Solution:**\nStep 1: In a right triangle with legs $a$ and $b$ and hypotenuse $c$, $a^2 + b^2 = c^2$.\nStep 2: Substitute the legs: $20^2 + 21^2 = c^2$, so $400 + 441 = c^2$ and $c^2 = 841$.\nStep 3: Take the positive square root: $c = 29$.\n\nVerification: $29^2 = 841 = 400 + 441$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): subtracts the legs, $21 - 20$, instead of combining their squares.\n* Choice C ($41$): adds the legs, $20 + 21$; the hypotenuse is always shorter than the sum of the legs.\n* Choice D ($841$): stops at $c^2$ and never takes the square root.\n\n**Test Day Takeaway:** The hypotenuse must be longer than either leg but shorter than their sum. That bracket, $21 < c < 41$, eliminates two choices before any arithmetic."
+ "distractorNotes": {
+  "A": "subtracts the lengths instead of the squares: 17 - 8",
+  "C": "adds the two given lengths: 17 + 8",
+  "D": "computes the triangle's area, one half times 8 times 15, instead of a side length"
+ },
+ "explanation": "**SAT Pattern: Pythagorean Theorem**\n\n**Choice B is correct.** The horizontal run is $\\sqrt{17^2 - 8^2} = \\sqrt{225} = 15$ feet.\n\n**The Fast Way (~20s):** $8$-$15$-$17$ is a Pythagorean triple, so the missing leg is $15$.\n\n**The Full Solution:**\n\nStep 1: The rod is the hypotenuse of a right triangle whose vertical leg is the $8$-foot wall height.\n\nStep 2: Apply $a^2 + b^2 = c^2$ with $b = 8$ and $c = 17$: $a^2 = 289 - 64 = 225$.\n\nStep 3: Take the positive square root: $a = 15$ feet. Check: $8^2 + 15^2 = 64 + 225 = 289 = 17^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($9$): subtracts the lengths, $17 - 8$, instead of subtracting their squares.\n* Choice C ($25$): adds the two given lengths, which would make the hypotenuse the shortest side.\n* Choice D ($60$): computes the triangle's area, $\\frac{1}{2}(8)(15)$, instead of the requested length.\n\n**Test Day Takeaway:** Squares subtract, lengths do not — and a hypotenuse is always the longest side, which rules out any answer larger than it."
 }

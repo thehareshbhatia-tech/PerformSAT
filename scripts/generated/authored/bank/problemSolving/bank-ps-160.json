@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-160",
-  "question": "On a blueprint, a length of $2$ centimeters represents an actual length of $5$ meters. A wall is $11$ centimeters long on the blueprint. What is the actual length of the wall, in meters?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$4.4$"
-    },
-    {
-      "id": "B",
-      "text": "$22$"
-    },
-    {
-      "id": "C",
-      "text": "$27.5$"
-    },
-    {
-      "id": "D",
-      "text": "$55$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "inverts the scale, 11 x 2/5",
-    "B": "multiplies 11 by 2, the blueprint side of the scale",
-    "D": "multiplies 11 by 5 without dividing by 2"
+ "id": "bank-ps-160",
+ "question": "A wildlife biologist surveying an elk herd found the ratio of cows to bulls to be $7 : 3$, with $84$ more cows than bulls in the herd. How many bulls does the herd contain?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$25.2$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Proportion / Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Each centimeter represents $\\frac{5}{2} = 2.5$ meters, so $11$ centimeters represents $11 \\times 2.5 = 27.5$ meters.\n\n**The Full Solution:**\nStep 1: Set up the proportion $\\frac{2 \\text{ cm}}{5 \\text{ m}} = \\frac{11 \\text{ cm}}{L \\text{ m}}$.\nStep 2: Cross-multiply: $2L = 55$, so $L = 27.5$.\nStep 3: Check: $27.5 \\div 11 = 2.5$ meters per centimeter, matching $5 \\div 2 = 2.5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.4$): Inverts the scale, computing $11 \\times \\frac{2}{5}$; a blueprint shrinks reality, so the actual length must be the larger number.\n* Choice B ($22$): Multiplies $11$ by $2$, the blueprint side of the scale, instead of converting to meters.\n* Choice D ($55$): Multiplies by $5$ but never divides by $2$; the scale is $5$ meters per $2$ centimeters, not per $1$.\n\n**Test Day Takeaway:** Convert a scale to \"actual units per one drawing unit\" before multiplying, and confirm the direction (drawing to actual should enlarge)."
+  {
+   "id": "B",
+   "text": "$36$"
+  },
+  {
+   "id": "C",
+   "text": "$63$"
+  },
+  {
+   "id": "D",
+   "text": "$147$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "applies the whole-herd fraction to the difference, $\\frac{3}{10}(84) = 25.2$, which is not even a whole number of elk",
+  "B": "applies the ratio terms directly to the difference, $\\frac{3}{7}(84) = 36$",
+  "D": "reports the number of cows, $7(21) = 147$, instead of the number of bulls"
+ },
+ "explanation": "**SAT Pattern: Proportion / Ratio**\n\n**Choice C is correct.** The $7 : 3$ ratio makes the difference $7 - 3 = 4$ parts, so one part is $\\frac{84}{4} = 21$ elk and the bulls number $3(21) = 63$.\n\n**The Fast Way (~40s):** The excess of cows is $4$ parts, so a part is $21$ elk; bulls are $3$ parts, or $63$.\n\n**The Full Solution:**\n\nStep 1: Write the counts in parts. Let one part be $x$ elk, so there are $7x$ cows and $3x$ bulls.\n\nStep 2: Translate the difference: $7x - 3x = 84$, so $4x = 84$ and $x = 21$ elk per part.\n\nStep 3: Compute the bulls: $3x = 3(21) = 63$ elk. Check: cows number $7(21) = 147$, and $147 - 63 = 84$, with $\\frac{147}{63} = \\frac{7}{3}$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($25.2$): treats $84$ as the herd total and takes $\\frac{3}{10}$ of it. The $84$ is a difference, not a total, and elk come in whole numbers.\n* Choice B ($36$): uses $\\frac{3}{7}$ of the difference, matching the bulls' term against the cows' term rather than against the $4$-part gap.\n* Choice D ($147$): solves correctly but reports the cows.\n\n**Test Day Takeaway:** When a ratio problem hands you a difference, the difference is worth the DIFFERENCE of the ratio terms -- divide by that before you scale up."
 }

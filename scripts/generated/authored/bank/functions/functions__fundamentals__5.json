@@ -1,30 +1,29 @@
 {
-  "id": 5,
-  "question": "The function $f$ is defined by $f(x) = \\dfrac{x + 5}{x^2 - 7x + 10}$, where $x$ is a real number. Which of the following is the domain of $f$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "All real numbers $x$ such that $x \\neq -5$"
-    },
-    {
-      "id": "B",
-      "text": "All real numbers $x$ such that $x \\neq -5$ and $x \\neq -2$"
-    },
-    {
-      "id": "C",
-      "text": "All real numbers $x$ such that $x \\neq 2$ and $x \\neq 5$"
-    },
-    {
-      "id": "D",
-      "text": "All real numbers $x$ such that $x \\neq -5$, $x \\neq 2$, and $x \\neq 5$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "excludes the numerator's zero instead",
-    "B": "sign error when factoring the denominator",
-    "D": "also removes the numerator's zero"
+ "question": "A wind tunnel's pressure-difference model $P(t) = \\dfrac{600}{t^2 - 9t}$ gives the difference, in pascals, between two ports $t$ seconds after a fan step change. For which values of $t$ is $P$ undefined?",
+ "hint": "Where can a quotient fail to have a value at all?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$0$ only"
   },
-  "correctAnswer": "C",
-  "hint": "The rule only breaks where the denominator is zero, so factor the bottom first.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $x^2 - 7x + 10 = (x - 2)(x - 5)$, so the only excluded inputs are $2$ and $5$.\n\n**The Full Solution:**\nStep 1: A quotient is undefined exactly where its denominator equals $0$, so solve $x^2 - 7x + 10 = 0$.\nStep 2: Factor: two numbers with product $10$ and sum $-7$ are $-2$ and $-5$, so $x^2 - 7x + 10 = (x - 2)(x - 5)$ and the zeros are $x = 2$ and $x = 5$.\nStep 3: Every other real number gives a defined output, so the domain is all real numbers except $2$ and $5$. Check $x = -5$: $f(-5) = \\frac{0}{25 + 35 + 10} = 0$, a perfectly good output, so $-5$ stays in the domain. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: excludes $-5$, the value that makes the NUMERATOR zero; a zero numerator gives the output $0$, not an undefined value.\n* Choice B: factors the denominator as $(x + 2)(x + 5)$, which expands to $x^2 + 7x + 10$ — the wrong middle sign.\n* Choice D: removes $2$ and $5$ correctly but also removes $-5$, treating a zero numerator as undefined.\n\n**Test Day Takeaway:** For a rational function, the domain question is only about the denominator. A zero on top is an output of $0$; a zero on the bottom is an excluded input."
+  {
+   "id": "B",
+   "text": "$3$ and $-3$"
+  },
+  {
+   "id": "C",
+   "text": "$0$ and $9$"
+  },
+  {
+   "id": "D",
+   "text": "$9$ only"
+  }
+ ],
+ "distractorNotes": {
+  "A": "solves only the factor t = 0 and stops",
+  "B": "reads the denominator as t^2 - 9 instead of t^2 - 9t",
+  "D": "solves only the factor t - 9 = 0"
+ },
+ "correctAnswer": "C",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** $t^2 - 9t = t(t - 9)$, which is zero at $t = 0$ and $t = 9$.\n\n**The Full Solution:**\nStep 1: A quotient is undefined exactly where its denominator equals zero.\nStep 2: Factor the denominator: $t^2 - 9t = t(t - 9)$.\nStep 3: A product is zero when either factor is, so $t = 0$ or $t = 9$. Check: $0^2 - 9(0) = 0$ and $9^2 - 9(9) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$ only): stops after the first factor and misses $t - 9$.\n* Choice B ($3$ and $-3$): treats the denominator as the difference of squares $t^2 - 9$.\n* Choice D ($9$ only): solves the second factor and overlooks that $t$ itself can be zero.\n\n**Test Day Takeaway:** Factor the denominator completely — every factor that can vanish removes a value from the domain."
 }

@@ -1,30 +1,55 @@
 {
  "id": 5,
- "question": "An equilateral triangle has a perimeter of $36$ centimeters. What is the area, in square centimeters, of the triangle?",
+ "question": "A triangular hail-netting panel over a cherry block is shown, with two of its side lengths given in meters. What is the area, in square meters, of the panel?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     10.392,
+     0
+    ],
+    [
+     10.392,
+     6
+    ]
+   ],
+   "sideLabels": [
+    "",
+    "6",
+    "12"
+   ],
+   "rightAngleVertex": 1
+  }
+ },
  "choices": [
   {
    "id": "A",
-   "text": "$36\\sqrt{3}$"
+   "text": "$18$"
   },
   {
    "id": "B",
-   "text": "$72$"
+   "text": "$18\\sqrt{3}$"
   },
   {
    "id": "C",
-   "text": "$72\\sqrt{3}$"
+   "text": "$36$"
   },
   {
    "id": "D",
-   "text": "$324\\sqrt{3}$"
+   "text": "$36\\sqrt{3}$"
   }
  ],
  "distractorNotes": {
-  "B": "uses a full side as the height, computing $\\frac{1}{2}(12)(12)$",
-  "C": "finds the height correctly but omits the factor $\\frac{1}{2}$",
-  "D": "uses the perimeter $36$ as the side length in $\\frac{s^2\\sqrt{3}}{4}$"
+  "A": "uses the 6-meter side as both legs",
+  "C": "uses the 12-meter hypotenuse as the height",
+  "D": "finds the missing leg correctly but skips the one-half"
  },
- "correctAnswer": "A",
- "hint": "Find one side first, then drop the altitude and use the $30°$-$60°$-$90°$ ratios.",
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~45s):** Each side is $12$ and the height is $6\\sqrt{3}$, so the area is $\\frac{1}{2}(12)(6\\sqrt{3}) = 36\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: All three sides are equal, so each side measures $\\frac{36}{3} = 12$ centimeters.\nStep 2: The altitude splits the triangle into two $30°$-$60°$-$90°$ triangles with shorter leg $6$, so the height is $6\\sqrt{3}$.\nStep 3: Area $= \\frac{1}{2}(12)(6\\sqrt{3}) = 36\\sqrt{3}$ square centimeters.\n\nVerification: The direct formula agrees: $\\frac{s^2\\sqrt{3}}{4} = \\frac{144\\sqrt{3}}{4} = 36\\sqrt{3}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($72$): uses a full side as the height, computing $\\frac{1}{2}(12)(12)$.\n* Choice C ($72\\sqrt{3}$): finds the height correctly but omits the factor $\\frac{1}{2}$.\n* Choice D ($324\\sqrt{3}$): uses the perimeter $36$ as the side length in $\\frac{s^2\\sqrt{3}}{4}$.\n\n**Test Day Takeaway:** Split an equilateral triangle down the middle: its height is always $\\frac{\\sqrt{3}}{2}$ times a side."
+ "correctAnswer": "B",
+ "hint": "An area needs two legs, and the figure marks only one of them.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~35s):** A leg half the hypotenuse marks a $30$-$60$-$90$ triangle, so the other leg is $6\\sqrt{3}$ and the area is $18\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: The given leg, $6$ meters, is exactly half the $12$-meter hypotenuse, so the triangle is a $30$-$60$-$90$ triangle.\nStep 2: In such a triangle the longer leg is $\\sqrt{3}$ times the shorter leg, so it measures $6\\sqrt{3}$ meters.\nStep 3: The area is $\\frac{1}{2}(6)(6\\sqrt{3}) = 18\\sqrt{3}$ square meters. Check: $6^2 + (6\\sqrt{3})^2 = 36 + 108 = 144 = 12^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18$): using the $6$-meter side as both legs, computing $\\frac{1}{2}(6)(6)$.\n* Choice C ($36$): using the $12$-meter hypotenuse as the height, computing $\\frac{1}{2}(6)(12)$.\n* Choice D ($36\\sqrt{3}$): finding the missing leg correctly but leaving out the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** A leg that is half the hypotenuse identifies a $30$-$60$-$90$ triangle and hands you the third side."
 }

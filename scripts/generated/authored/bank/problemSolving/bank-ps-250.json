@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-250",
-  "question": "The value of $r$ is $45\\%$ less than $120$. What is the value of $r$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$54$"
-    },
-    {
-      "id": "B",
-      "text": "$66$"
-    },
-    {
-      "id": "C",
-      "text": "$75$"
-    },
-    {
-      "id": "D",
-      "text": "$174$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports 45% of 120, the decrease itself, instead of the decreased value",
-    "C": "subtracts 45 as a number of units instead of as a percent (120 - 45)",
-    "D": "adds the 45% instead of subtracting it (120 + 54)"
+ "id": "bank-ps-250",
+ "question": "A high-desert station recorded $f$ frost-free days this year, which is $12\\%$ fewer than the number that station recorded last year. Which of the following expressions gives the number of frost-free days recorded there last year?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$0.88f$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"$45\\%$ less than $120$\" keeps $55\\%$ of $120$: $0.55 \\times 120 = 66$.\n\n**The Full Solution:**\nStep 1: Translate the phrase. A quantity that is $45\\%$ less than $120$ equals $120 - 0.45(120) = (1 - 0.45)(120) = 0.55(120)$.\nStep 2: Compute: $0.45 \\times 120 = 54$, so $r = 120 - 54 = 66$.\nStep 3: Check: $120 - 66 = 54$, and $\\frac{54}{120} = 0.45 = 45\\%$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($54$): $0.45 \\times 120 = 54$ is the amount removed, not what remains.\n* Choice C ($75$): $120 - 45 = 75$ subtracts $45$ as a number of units rather than as $45\\%$ of $120$.\n* Choice D ($174$): $120 + 54 = 174$ is $45\\%$ greater than $120$; the direction of the change is reversed.\n\n**Test Day Takeaway:** \"$p\\%$ less than $N$\" is $N\\left(1 - \\frac{p}{100}\\right)$; find what percent remains before multiplying."
+  {
+   "id": "B",
+   "text": "$1.12f$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{f}{0.88}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{f}{1.12}$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "applies the decrease a second time instead of undoing it",
+  "B": "adds $12\\%$ to this year's count, which reverses a $12\\%$ increase, not a $12\\%$ decrease",
+  "D": "divides by $1.12$, treating \"$12\\%$ fewer\" as though last year's count were $12\\%$ smaller"
+ },
+ "explanation": "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice C is correct.** This year is $88\\%$ of last year, so $f = 0.88L$ and $L = \\frac{f}{0.88}$.\n\n**The Fast Way (~25s):** \"$12\\%$ fewer\" makes this year $0.88$ times last year, so divide by $0.88$ to go back.\n\n**The Full Solution:**\n\nStep 1: Name last year's count $L$. The comparison is made against $L$, so $L$ is the base.\n\nStep 2: Translate the phrase. \"$12\\%$ fewer than $L$\" means $L - 0.12L = 0.88L$, and that quantity equals $f$: $f = 0.88L$.\n\nStep 3: Solve for $L$: $L = \\frac{f}{0.88}$. Check: if $L = 200$, then $f = 176$, and $\\frac{176}{0.88} = 200$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($0.88f$): applies the $12\\%$ decrease to this year's count, moving further away from last year instead of back to it.\n* Choice B ($1.12f$): undoes a $12\\%$ increase. Reversing a decrease requires dividing by $0.88$, and $\\frac{1}{0.88} \\approx 1.136$, not $1.12$.\n* Choice D ($\\frac{f}{1.12}$): pairs the right operation with the wrong factor.\n\n**Test Day Takeaway:** Write the sentence as an equation with the base on the right, then solve -- \"fewer than\" always makes the base the divisor, never the multiplier."
 }

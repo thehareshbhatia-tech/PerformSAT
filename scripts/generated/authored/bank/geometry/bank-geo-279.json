@@ -1,40 +1,40 @@
 {
  "id": "bank-geo-279",
- "question": "A sector cut from a circular sheet has a radius of $8$ centimeters and a central angle of $\\dfrac{3\\pi}{4}$ radians, as shown. What is the length, in centimeters, of the curved edge of the sector?",
+ "question": "A garden center lays a curved paver border along arc $AB$ of the circle drawn below, and the border measures $14\\pi$ feet. What is the radius, in feet, of that circle?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
-   "centralAngle": 135,
-   "angleLabel": "3π/4",
-   "radius": 8,
+   "centralAngle": 40,
+   "angleLabel": "40°",
    "labelCenter": "O",
-   "showRadiusLabel": true,
+   "labelPoint1": "A",
+   "labelPoint2": "B",
    "figureNote": true
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$3\\pi$"
+   "text": "$7$"
   },
   {
    "id": "B",
-   "text": "$6\\pi$"
+   "text": "$31.5$"
   },
   {
    "id": "C",
-   "text": "$16\\pi$"
+   "text": "$63$"
   },
   {
    "id": "D",
-   "text": "$48\\pi$"
+   "text": "$126$"
   }
  ],
  "distractorNotes": {
-  "A": "uses half r theta",
-  "C": "gives the full circumference",
-  "D": "uses r squared times theta"
+  "A": "treats the arc as the whole circumference, solving 2 pi r = 14 pi",
+  "B": "divides the central angle by 180 instead of 360, giving r = 31.5",
+  "D": "uses pi r instead of 2 pi r, which produces the diameter 126"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $s = r\\theta = 8 \\cdot \\frac{3\\pi}{4} = 6\\pi$ centimeters.\n\n**The Full Solution:**\nStep 1: The curved edge of the sector is the arc, and for a radian angle the arc length is $s = r\\theta$.\nStep 2: Substitute: $s = 8 \\cdot \\frac{3\\pi}{4} = \\frac{24\\pi}{4}$.\nStep 3: $s = 6\\pi$ centimeters. Check: $\\frac{3\\pi}{4}$ is $\\frac{3}{8}$ of a full turn, and $\\frac{3}{8}$ of the circumference $16\\pi$ is $6\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3\\pi$): uses $\\frac{1}{2}r\\theta$, borrowing the coefficient from the sector-area formula.\n* Choice C ($16\\pi$): reports the full circumference $2\\pi(8)$.\n* Choice D ($48\\pi$): uses $r^2\\theta$, which has the units of an area.\n\n**Test Day Takeaway:** Curved edge, arc, and arc length are the same thing. With radians it is always $r\\theta$."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** A $40°$ arc is $\\frac{1}{9}$ of the circle, so the circumference is $9(14\\pi)=126\\pi$ and $r=63$ feet.\n\n**The Full Solution:**\n\nStep 1: Convert the angle. $\\frac{40}{360}=\\frac{1}{9}$ of the full circle.\n\nStep 2: Recover the circumference. If $\\frac{1}{9}C=14\\pi$, then $C=126\\pi$ feet.\n\nStep 3: Solve for the radius. $2\\pi r=126\\pi$ gives $r=63$ feet.\n\nCheck: $\\frac{40}{360}\\left(2\\pi\\cdot63\\right)=\\frac{1}{9}(126\\pi)=14\\pi$, the border length.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($7$): treats the arc as the entire circumference, solving $2\\pi r=14\\pi$.\n* Choice B ($31.5$): divides the central angle by $180$ instead of $360$, halving the radius.\n* Choice D ($126$): uses $\\pi r$ in place of $2\\pi r$, which produces the diameter rather than the radius.\n\n**Test Day Takeaway:** Running the arc-length proportion backwards recovers the circumference first; only then divide by $2\\pi$."
 }

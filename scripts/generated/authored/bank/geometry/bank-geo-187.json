@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-187",
- "question": "A right rectangular prism has a square base with side length $3n$ centimeters and a height of $7n$ centimeters. Which expression gives the volume, in cubic centimeters, of the prism?",
+ "question": "A sterilizer basket has a square bottom measuring $x$ centimeters on a side and walls $x-3$ centimeters high. How many cubic centimeters does the basket hold?",
  "choices": [
   {
    "id": "A",
-   "text": "$21n^2$"
+   "text": "$x^2-3x$"
   },
   {
    "id": "B",
-   "text": "$21n^3$"
+   "text": "$x^3-3$"
   },
   {
    "id": "C",
-   "text": "$63n^2$"
+   "text": "$x^3-3x^2$"
   },
   {
    "id": "D",
-   "text": "$63n^3$"
+   "text": "$x^3+3x^2$"
   }
  ],
  "distractorNotes": {
-  "A": "uses only two of the three dimensions",
-  "B": "squares the variable but not the coefficient",
-  "C": "adds the exponents incorrectly"
+  "A": "multiplies one side by the height and forgets the second base dimension",
+  "B": "fails to distribute x^2 across the -3, leaving a bare constant",
+  "D": "slips the sign, adding 3 to the height instead of subtracting"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Volume $=$ (base area)(height) $= (3n)^2(7n) = 9n^2 \\cdot 7n = 63n^3$.\n\n**The Full Solution:**\nStep 1: The base is a square with side $3n$, so its area is $(3n)^2 = 9n^2$ square centimeters.\nStep 2: Multiply by the height: $V = 9n^2 \\cdot 7n$.\nStep 3: Multiply coefficients and add exponents: $9 \\cdot 7 = 63$ and $n^2 \\cdot n = n^3$, so $V = 63n^3$.\n\nVerification: at $n = 1$ the prism is $3$ by $3$ by $7$, with volume $63$, and $63(1)^3 = 63$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($21n^2$): multiplies only two of the three dimensions, $(3n)(7n)$; that is the area of a side face, not a volume.\n* Choice B ($21n^3$): squares the variable but not the coefficient, using $3n^2$ in place of $(3n)^2 = 9n^2$.\n* Choice C ($63n^2$): gets the coefficient right but keeps the exponent at $2$, as if $n^2 \\cdot n = n^2$.\n\n**Test Day Takeaway:** When a dimension is $3n$, squaring it squares the $3$ as well. A quick $n = 1$ substitution catches every coefficient slip in these symbolic volume choices."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The capacity is (base area)(height) $=x^2(x-3)=x^3-3x^2$ cubic centimeters.\n\n**The Full Solution:**\n\nStep 1 — The bottom is a square of side $x$, so the base area is $x\\cdot x=x^2$ square centimeters.\n\nStep 2 — The height is $x-3$ centimeters, so the volume is $x^2(x-3)$.\n\nStep 3 — Distribute: $x^2(x)-x^2(3)=x^3-3x^2$ cubic centimeters. Check with $x=5$: the basket is $5$ by $5$ by $2$, holding $50$, and $5^3-3(5)^2=125-75=50$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($x^2-3x$): this multiplies only one side by the height, dropping a dimension.\n* Choice B ($x^3-3$): this multiplies $x^2$ by $x$ but not by $3$.\n* Choice D ($x^3+3x^2$): this adds $3$ to the height instead of subtracting it.\n\n**Test Day Takeaway:** Substituting a friendly number such as $x=5$ into the setup and into each choice settles symbolic volume questions fast."
 }

@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-129",
-  "question": "A data set of $25$ values has a mean of $18$ and a median of $24$. Based only on this information, which of the following statements must be true?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "More than half of the values in the data set are less than $18$."
-    },
-    {
-      "id": "B",
-      "text": "No value in the data set is greater than $24$."
-    },
-    {
-      "id": "C",
-      "text": "The greatest value in the data set is greater than $24$."
-    },
-    {
-      "id": "D",
-      "text": "At least one value in the data set is less than $18$."
-    }
-  ],
-  "distractorNotes": {
-    "A": "a median of 24 means at least 13 values are 24 or more, so at most 12 (fewer than half) can be below 18",
-    "B": "values above 24 are allowed as long as the 13th ordered value stays 24",
-    "C": "the median can equal the maximum when 24 is repeated many times"
+ "id": "bank-ps-129",
+ "question": "A reef survey recorded the diameters of $15$ coral colonies. The largest diameter is then replaced by a value $40$ centimeters greater than it, and every other diameter is left unchanged. Which of the following must be true of the revised data set?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "The mean increases and the median is unchanged."
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Outlier Effect**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** If no value were below $18$, the mean would be at least $18$, with equality only if every value were exactly $18$, which would force the median to be $18$, not $24$. So some value must be less than $18$.\n\n**The Full Solution:**\nStep 1: The sum of the values is $25 \\times 18 = 450$. Suppose every value were $18$ or more; then the sum would be at least $450$, with equality only if all $25$ values were $18$. That data set has median $18$, contradicting the given median of $24$. Therefore at least one value is less than $18$: choice D must be true.\nStep 2: Test the other choices with a concrete data set that fits the givens: thirteen values of $24$ (sum $312$) plus twelve values of $11.5$ (sum $138$). The sum is $450$, so the mean is $18$, and the 13th ordered value is $24$, so the median is $24$.\nStep 3: In that set only $12$ of $25$ values are below $18$ (not more than half), so A fails; the greatest value is $24$, so C fails. For B, change the largest $24$ to $30$ and lower one $11.5$ to $5.5$: the sum is still $450$ and thirteen values are still at least $24$, so the median is still $24$, but now a value exceeds $24$, so B fails. Check: only D survived every test. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: A median of $24$ means at least $13$ of the $25$ values are $24$ or more, so at most $12$ can be below $18$; that is never more than half.\n* Choice B: Nothing caps the largest value; the median only fixes the middle of the ordered list.\n* Choice C: The median can equal the maximum when $24$ is repeated many times, as in the example above.\n\n**Test Day Takeaway:** For \"must be true\" statistics questions, build one small data set that matches the givens and attack each choice with it; a single counterexample eliminates a choice."
+  {
+   "id": "B",
+   "text": "The mean is unchanged and the median increases."
+  },
+  {
+   "id": "C",
+   "text": "Both the mean and the median increase."
+  },
+  {
+   "id": "D",
+   "text": "Both the mean and the median are unchanged."
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "reverses the two measures; changing one value always changes the sum and therefore the mean",
+  "C": "assumes the median follows the largest value, but the median depends only on the eighth value in order",
+  "D": "assumes an extreme value affects neither measure, though it is part of the sum"
+ },
+ "explanation": "**SAT Pattern: Outlier Effect**\n\n**Choice A is correct.** Increasing the largest value raises the sum by $40$, so the mean rises by $\\frac{40}{15}$ centimeters, while the eighth value in order does not move, so the median is unchanged.\n\n**The Fast Way (~40s):** A bigger maximum is still the maximum: the sum grows, so the mean grows, and the middle value keeps its position.\n\n**The Full Solution:**\n\nStep 1: Track the mean. Exactly one value increases by $40$ centimeters, so the sum increases by $40$ and the mean increases by $\\frac{40}{15} \\approx 2.7$ centimeters.\n\nStep 2: Track the median. With $15$ values, the median is the eighth value in increasing order. The value that changed was already the largest and stays the largest, so the first fourteen positions are filled by the same colonies as before.\n\nStep 3: Combine. The mean increases and the median is unchanged. Check: with diameters $10$ through $24$ in steps of $1$, the median is $17$ and the mean is $17$; raising $24$ to $64$ leaves the median at $17$ and lifts the mean to about $19.7$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B: has the effects backwards. Any change to one value changes the sum, so the mean cannot stay put.\n* Choice C: assumes the median tracks the largest value. Only the eighth ordered value matters, and it did not change.\n* Choice D: treats the revision as irrelevant to both measures, but it is part of the total.\n\n**Test Day Takeaway:** Ask what each statistic depends on -- the mean depends on the sum, the median on one position, so stretching a value that is already at an end moves only the mean."
 }

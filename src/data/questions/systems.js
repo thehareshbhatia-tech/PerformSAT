@@ -81,19 +81,19 @@ export const systemsQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "The equations $4x + 6y = 14$ and $ax + 15y = 40$ form a system of two linear equations, where $a$ is a constant. In the $xy$-plane, the graphs of these two equations are lines, and the system has no solution. What is the value of $a$?",
+      question: "An air-cargo hub charges \\$0.42 per kilogram for standard freight and \\$0.75 per kilogram for refrigerated freight. On one shift the hub moved $8{,}400$ kilograms, and had it shifted $500$ kilograms from standard to refrigerated, the charges would have totaled \\$4{,}485. How many more kilograms of standard freight than refrigerated freight did the hub move?",
       choices: [
-        // distractor: inverts the proportion, solving $\frac{a}{4} = \frac{6}{15}$.
-        { id: "A", text: "$\\frac{8}{5}$" },
-        // distractor: reports the scale factor $\frac{15}{6}$ itself instead of multiplying it by $4$.
-        { id: "B", text: "$\\frac{5}{2}$" },
-        { id: "C", text: "$10$" },
-        // distractor: adds the difference of the $y$-coefficients, $15 - 6 = 9$, to $4$ rather than scaling $4$ by the factor.
-        { id: "D", text: "$13$" }
+        // distractor: reports the refrigerated mass 2400 alone instead of the difference
+        { id: "A", text: "$2{,}400$" },
+        // distractor: treats 4485 as the actual charge, giving 5500 - 2900 = 2600
+        { id: "B", text: "$2{,}600$" },
+        { id: "C", text: "$3{,}600$" },
+        // distractor: reports the standard mass 6000 alone instead of the difference
+        { id: "D", text: "$6{,}000$" }
       ],
       correctAnswer: "C",
-      hint: "No solution means the left sides are proportional even though the equations are not equivalent.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~55s):** The $y$-coefficients scale by $\\frac{15}{6} = \\frac{5}{2}$, so $a = \\frac{5}{2}(4) = 10$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has no solution when the two lines are parallel and distinct, which requires the $x$- and $y$-coefficients to be proportional.\nStep 2: The $y$-coefficients go from $6$ to $15$, a factor of $\\frac{15}{6} = \\frac{5}{2}$, so the $x$-coefficients must satisfy $\\frac{a}{4} = \\frac{5}{2}$, giving $a = 10$.\nStep 3: With $a = 10$ the second equation is $10x + 15y = 40$, or $2x + 3y = 8$, while the first is $2x + 3y = 7$. The constants differ, so the lines are parallel and distinct and there is no solution. Check: solving the first equation for $y$ and substituting into the second gives $0 = 1$, which is never true. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{5}$): inverts the proportion, solving $\\frac{a}{4} = \\frac{6}{15}$.\n* Choice B ($\\frac{5}{2}$): reports the scale factor $\\frac{15}{6}$ itself instead of multiplying it by $4$.\n* Choice D ($13$): adds the difference of the $y$-coefficients, $15 - 6 = 9$, to $4$ rather than scaling $4$ by the factor.\n\n**Test Day Takeaway:** Parallel lines come from a scale factor applied to both coefficients, never from a difference. Confirm the constants do not scale by the same factor, or the system has infinitely many solutions instead.",
+      hint: "The stated total prices a shipment the hub did not actually move.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~45s):** The hypothetical shift adds $500(0.75 - 0.42) = 165$ dollars, so the real charge was $\\$4{,}320$; solving with the $8{,}400$-kilogram total gives $6{,}000$ and $2{,}400$.\n\n**The Full Solution:**\nStep 1: Moving $500$ kilograms from standard to refrigerated raises the charge by $500(0.75 - 0.42) = 165$ dollars, so the actual charge was $4485 - 165 = 4320$ dollars.\nStep 2: Let $s$ and $r$ be the standard and refrigerated masses: $s + r = 8400$ and $0.42s + 0.75r = 4320$. Substituting $s = 8400 - r$ gives $3528 + 0.33r = 4320$, so $r = 2400$.\nStep 3: Then $s = 8400 - 2400 = 6000$, and $s - r = 3600$. Check: $0.42(6000) + 0.75(2400) = 2520 + 1800 = 4320$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2{,}400$): reporting the refrigerated mass alone; the question asks for the excess of standard over refrigerated.\n* Choice B ($2{,}600$): using $\\$4{,}485$ as the actual charge, which yields $r = 2{,}900$ and $s = 5{,}500$ and a difference of $2{,}600$.\n* Choice D ($6{,}000$): reporting the standard mass alone rather than the difference.\n\n**Test Day Takeaway:** When a stem prices a hypothetical rearrangement, convert it back to the real total before writing the system.",
       skills: ["system-solution-types", "substitution-method"]
     }
   ],
@@ -199,19 +199,19 @@ export const systemsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "In the system of equations $x = 4y$ and $x + 3y = 63$, the solution is $(x, y)$. What is the value of $y$?",
+      question: "A campus observatory schedules $x$ hours of visual observing and $y$ hours of spectroscopy each week, where $y = 24 - 3x$ and $5x + 2y = 44$. Substituting the first equation into the second gives which equation in $x$ alone?",
       choices: [
-        { id: "A", text: "$9$" },
-        // distractor: drops the variable from $3y$, solving $4y + 3 = 63$.
-        { id: "B", text: "$15$" },
-        // distractor: solves the system correctly but reports $x$ instead of $y$.
-        { id: "C", text: "$36$" },
-        // distractor: subtracts instead of adding when combining like terms, treating $4y + 3y$ as $y$.
-        { id: "D", text: "$63$" }
+        // distractor: drops the 5x term while distributing
+        { id: "A", text: "$-6x + 48 = 44$" },
+        // distractor: multiplies only the -3x by 2 and leaves the 24 unchanged
+        { id: "B", text: "$-x + 24 = 44$" },
+        { id: "C", text: "$-x + 48 = 44$" },
+        // distractor: adds 6x instead of subtracting it
+        { id: "D", text: "$11x + 48 = 44$" }
       ],
-      correctAnswer: "A",
-      hint: "The first equation already gives $x$ in terms of $y$, so put that expression into the second equation.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** Substituting $4y$ for $x$ gives $4y + 3y = 63$, so $7y = 63$ and $y = 9$.\n\n**The Full Solution:**\nStep 1: The first equation gives $x = 4y$, an expression for $x$ ready to substitute.\nStep 2: Replace $x$ in the second equation: $4y + 3y = 63$.\nStep 3: Combine like terms to get $7y = 63$, so $y = 9$. Check: $x = 4(9) = 36$, and $36 + 3(9) = 36 + 27 = 63$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($15$): drops the variable from $3y$, solving $4y + 3 = 63$.\n* Choice C ($36$): solves the system correctly but reports $x$ instead of $y$.\n* Choice D ($63$): subtracts instead of adding when combining like terms, treating $4y + 3y$ as $y$.\n\n**Test Day Takeaway:** After substituting, combine like terms carefully and reread which variable the question wants.",
+      correctAnswer: "C",
+      hint: "Every term inside the parentheses meets the $2$, and the $5x$ outside them does not go away.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** Replacing $y$ with $24 - 3x$ gives $5x + 48 - 6x$, which collapses to $-x + 48$.\n\n**The Full Solution:**\nStep 1: Substitute $24 - 3x$ for $y$ in the second equation: $5x + 2(24 - 3x) = 44$.\nStep 2: Distribute the $2$ across both terms: $5x + 48 - 6x = 44$.\nStep 3: Combine the $x$-terms: $-x + 48 = 44$. Check: this gives $x = 4$, so $y = 24 - 12 = 12$, and $5(4) + 2(12) = 44$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6x + 48 = 44$): dropping the $5x$ that was already in the equation before the substitution.\n* Choice B ($-x + 24 = 44$): multiplying only the $-3x$ by $2$ and leaving the $24$ unscaled.\n* Choice D ($11x + 48 = 44$): adding $6x$ instead of subtracting it, which ignores the minus sign inside the parentheses.\n\n**Test Day Takeaway:** Substitute the whole expression in parentheses, then distribute to every term inside before combining.",
       skills: ["substitution-method"]
     },
     {
@@ -235,37 +235,37 @@ export const systemsQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "If $(x, y)$ is the solution to the system of equations $3x + y = 17$ and $2x - 3y = 4$, what is the value of $x + y$?",
+      question: "A stone mill blends $x$ kilograms of rye flour with $y$ kilograms of barley flour in each batch, where $y = 3x - 3$. The ingredient cost of a batch, in dollars, is given by $4x + cy = 42$, where $c$ is a constant. If a batch uses $3$ kilograms of rye flour, what is the value of $c$?",
       choices: [
-        // distractor: reports $y$ alone instead of the requested sum.
-        { id: "A", text: "$2$" },
-        // distractor: computes $x - y$ instead of $x + y$.
-        { id: "B", text: "$3$" },
-        { id: "C", text: "$7$" },
-        // distractor: multiplies the coordinates, $5 \cdot 2$, instead of adding them.
+        { id: "A", text: "$5$" },
+        // distractor: divides 42 by the 6 kilograms of barley without removing the 12 dollars of rye
+        { id: "B", text: "$7$" },
+        // distractor: adds the rye cost instead of subtracting it: (42 + 12)/6 = 9
+        { id: "C", text: "$9$" },
+        // distractor: divides by the rye mass 3 instead of the barley mass 6: (42 - 12)/3 = 10
         { id: "D", text: "$10$" }
       ],
-      correctAnswer: "C",
-      hint: "Solve one equation for the variable with coefficient $1$, then substitute.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** From the first equation $y = 17 - 3x$; substituting gives $2x - 3(17 - 3x) = 4$, so $11x = 55$, $x = 5$, $y = 2$, and $x + y = 7$.\n\n**The Full Solution:**\nStep 1: Solve the first equation for $y$: $y = 17 - 3x$.\nStep 2: Substitute into the second equation: $2x - 3(17 - 3x) = 4$, which becomes $2x - 51 + 9x = 4$, or $11x = 55$.\nStep 3: So $x = 5$, and $y = 17 - 3(5) = 2$, giving $x + y = 5 + 2 = 7$. Check: $3(5) + 2 = 17$ and $2(5) - 3(2) = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports $y$ alone instead of the requested sum.\n* Choice B ($3$): computes $x - y$ instead of $x + y$.\n* Choice D ($10$): multiplies the coordinates, $5 \\cdot 2$, instead of adding them.\n\n**Test Day Takeaway:** Solve for the variable with coefficient $1$ to keep the substitution clean, then reread exactly which expression the question asks for.",
+      correctAnswer: "A",
+      hint: "One rule fixes both masses in the batch before any cost is computed.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** A $3$-kilogram rye batch carries $y = 3(3) - 3 = 6$ kilograms of barley, so $12 + 6c = 42$ and $c = 5$.\n\n**The Full Solution:**\nStep 1: Find the barley mass: $y = 3(3) - 3 = 6$ kilograms.\nStep 2: Substitute $x = 3$ and $y = 6$ into the cost equation: $4(3) + c(6) = 42$, or $12 + 6c = 42$.\nStep 3: Subtract $12$ and divide by $6$: $6c = 30$, so $c = 5$. Check: $4(3) + 5(6) = 12 + 30 = 42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($7$): dividing $42$ by the $6$ kilograms of barley without first removing the $\\$12$ spent on rye.\n* Choice C ($9$): adding the rye cost instead of subtracting it, computing $\\frac{42 + 12}{6}$.\n* Choice D ($10$): dividing by the rye mass rather than the barley mass, computing $\\frac{42 - 12}{3}$.\n\n**Test Day Takeaway:** Reduce to one unknown before touching the constant: compute the second quantity, then solve the linear equation that remains.",
       skills: ["substitution-method"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "A system of two linear equations consists of $y = 5x - 9$ and $y = 2x + 6$. Which ordered pair $(x, y)$ is the solution to this system?",
+      question: "A harbor ferry made $x$ weekday crossings and $y$ weekend crossings last month. Its logs give $y = 4x + 6$ and $3x + y = 48$. If the ferry made $30$ weekend crossings, how many weekday crossings did it make?",
       choices: [
-        // distractor: changes the sign of the $-9$ when substituting, solving $5x + 9 = 2x + 6$ to get $x = -1$.
-        { id: "A", text: "$(-1, 4)$" },
-        { id: "B", text: "$(5, 16)$" },
-        // distractor: finds $x = 5$ correctly but evaluates $2x + 9$, mixing the constants from the two equations.
-        { id: "C", text: "$(5, 19)$" },
-        // distractor: finds the solution but reports the coordinates in the wrong order.
-        { id: "D", text: "$(16, 5)$" }
+        { id: "A", text: "$6$" },
+        // distractor: solves 30 = 4x + 6 as 4x = 36, adding 6 instead of subtracting
+        { id: "B", text: "$9$" },
+        // distractor: divides 48 by 3 without removing the 30 weekend crossings
+        { id: "C", text: "$16$" },
+        // distractor: subtracts 30 from 48 but never divides by 3
+        { id: "D", text: "$18$" }
       ],
-      correctAnswer: "B",
-      hint: "Both equations already give $y$, so set the two expressions equal to each other.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~35s):** Setting $5x - 9 = 2x + 6$ gives $3x = 15$, so $x = 5$ and $y = 2(5) + 6 = 16$.\n\n**The Full Solution:**\nStep 1: Since both equations give $y$, substitute one expression for the other: $5x - 9 = 2x + 6$.\nStep 2: Subtract $2x$ from both sides and add $9$ to both sides: $3x = 15$, so $x = 5$.\nStep 3: Substitute into either equation: $y = 2(5) + 6 = 16$, so the solution is $(5, 16)$. Check: $5(5) - 9 = 16$ as well. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-1, 4)$): changes the sign of the $-9$ when substituting, solving $5x + 9 = 2x + 6$ to get $x = -1$.\n* Choice C ($(5, 19)$): finds $x = 5$ correctly but evaluates $2x + 9$, mixing the constants from the two equations.\n* Choice D ($(16, 5)$): finds the solution but reports the coordinates in the wrong order.\n\n**Test Day Takeaway:** When both equations are solved for the same variable, set the expressions equal. Then substitute back and write the ordered pair as $(x, y)$.",
+      correctAnswer: "A",
+      hint: "Not every equation the logs give is needed.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** Putting $y = 30$ into $3x + y = 48$ leaves $3x = 18$, so $x = 6$.\n\n**The Full Solution:**\nStep 1: Substitute the known weekend count into the equation that still contains both variables: $3x + 30 = 48$.\nStep 2: Subtract $30$ from both sides: $3x = 18$, so $x = 6$.\nStep 3: Confirm with the other log: $4(6) + 6 = 30$ weekend crossings ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($9$): solving $30 = 4x + 6$ as $4x = 36$, adding the $6$ instead of subtracting it.\n* Choice C ($16$): dividing $48$ by $3$ without first removing the $30$ weekend crossings.\n* Choice D ($18$): stopping at $3x = 18$ and reporting $18$ instead of dividing by $3$.\n\n**Test Day Takeaway:** When one value is handed to you, substitute it into whichever equation is left with a single unknown.",
       skills: ["substitution-method"]
     },
     {
@@ -311,19 +311,19 @@ export const systemsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "For the system of equations $5x + 2y = 34$ and $5x - 2y = 6$, subtracting the second equation from the first eliminates $x$. What is the value of $y$ in the solution to this system?",
+      question: "A distribution dock logs $x$ standard pallets and $y$ oversized pallets per shipment, where $x + y = 40$ counts the pallets and $2x + 3y = 96$ gives the weight in hundreds of kilograms. Which equation results from multiplying the first equation by $2$ and subtracting that result from the second?",
       choices: [
-        // distractor: reports the value of $x$ rather than $y$.
-        { id: "A", text: "$4$" },
-        { id: "B", text: "$7$" },
-        // distractor: adds the equations instead of subtracting, reaching $10x = 40$, and then divides $40$ by $4$.
-        { id: "C", text: "$10$" },
-        // distractor: subtracts correctly to $4y = 28$ but divides by $2$ instead of $4$.
-        { id: "D", text: "$14$" }
+        // distractor: subtracts in the reverse order, 80 - 96, giving -16
+        { id: "A", text: "$y = -16$" },
+        { id: "B", text: "$y = 16$" },
+        // distractor: adds the y-terms (3y + 2y) while subtracting the constants
+        { id: "C", text: "$5y = 16$" },
+        // distractor: adds the right-hand sides, 96 + 80, instead of subtracting
+        { id: "D", text: "$y = 176$" }
       ],
       correctAnswer: "B",
-      hint: "Subtracting removes the matching terms; watch the sign on the terms that remain.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** Subtracting gives $4y = 28$, so $y = 7$.\n\n**The Full Solution:**\nStep 1: Both equations contain $5x$, so subtracting the second from the first removes $x$.\nStep 2: On the left, $(5x + 2y) - (5x - 2y) = 4y$; on the right, $34 - 6 = 28$.\nStep 3: So $4y = 28$ and $y = 7$. Check: adding the equations gives $10x = 40$, so $x = 4$, and $5(4) + 2(7) = 34$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): reports the value of $x$ rather than $y$.\n* Choice C ($10$): adds the equations instead of subtracting, reaching $10x = 40$, and then divides $40$ by $4$.\n* Choice D ($14$): subtracts correctly to $4y = 28$ but divides by $2$ instead of $4$.\n\n**Test Day Takeaway:** Subtract the whole equation, both terms and constant, and keep track of the coefficient you must divide by at the end.",
+      hint: "Every term of the first equation is affected, the constant included.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** Doubling $x + y = 40$ gives $2x + 2y = 80$; the $x$-terms now match, so subtracting leaves $y = 16$.\n\n**The Full Solution:**\nStep 1: Multiply every term of $x + y = 40$ by $2$, which gives $2x + 2y = 80$.\nStep 2: Subtract that equation from $2x + 3y = 96$ term by term: $(2x - 2x) + (3y - 2y) = 96 - 80$.\nStep 3: The $x$-terms cancel and the $y$-terms leave $y = 16$. Check: $y = 16$ forces $x = 24$, and $2(24) + 3(16) = 48 + 48 = 96$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -16$): subtracting in the reverse order, $80 - 96$, flips the sign of the constant.\n* Choice C ($5y = 16$): adding the $y$-terms while subtracting the constants; the operation must be the same on every term.\n* Choice D ($y = 176$): adding the right-hand sides, $96 + 80$, when the instruction was to subtract.\n\n**Test Day Takeaway:** Scale first so one variable's coefficients match, then apply the same operation to every term on both sides.",
       skills: ["elimination-method"]
     },
     {
@@ -444,19 +444,19 @@ export const systemsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "In the $xy$-plane, the graph of $y = -2x + 11$ and the graph of $y = \\frac{1}{2}x + 1$ intersect at the point $(a, b)$. What is the value of $b$?",
+      question: "A water utility offers two billing plans. Plan A charges a $\\$20$ monthly fee plus $\\$3.50$ for each hundred cubic feet of water used, and Plan B charges a $\\$48$ monthly fee plus $\\$1.75$ for each hundred cubic feet used. For how many hundred cubic feet of water used do the two plans cost the same amount?",
       choices: [
-        // distractor: reports the $y$-intercept of the second line rather than the $y$-coordinate of the intersection.
-        { id: "A", text: "$1$" },
-        { id: "B", text: "$3$" },
-        // distractor: reports $a$, the $x$-coordinate of the intersection point.
-        { id: "C", text: "$4$" },
-        // distractor: reports the $y$-intercept of the first line.
-        { id: "D", text: "$11$" }
+        // distractor: divides the fee gap by Plan A rate alone: 28 / 3.50 = 8, ignoring that Plan B also charges per unit
+        { id: "A", text: "$8$" },
+        { id: "B", text: "$16$" },
+        // distractor: reports the difference in monthly fees, 48 - 20 = 28, as though it were a usage amount
+        { id: "C", text: "$28$" },
+        // distractor: reports the sum of the two monthly fees, 48 + 20 = 68
+        { id: "D", text: "$68$" }
       ],
       correctAnswer: "B",
-      hint: "Find where the two expressions for $y$ agree, then evaluate one of them.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~35s):** Setting $-2x + 11 = \\frac{1}{2}x + 1$ gives $10 = \\frac{5}{2}x$, so $a = 4$ and $b = \\frac{1}{2}(4) + 1 = 3$.\n\n**The Full Solution:**\nStep 1: At the intersection both equations give the same $y$, so $-2x + 11 = \\frac{1}{2}x + 1$.\nStep 2: Add $2x$ to both sides and subtract $1$: $10 = \\frac{5}{2}x$, so $x = 4$ and $a = 4$.\nStep 3: Substitute to find $b$: $b = \\frac{1}{2}(4) + 1 = 3$. Check: $-2(4) + 11 = 3$ as well. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): reports the $y$-intercept of the second line rather than the $y$-coordinate of the intersection.\n* Choice C ($4$): reports $a$, the $x$-coordinate of the intersection point.\n* Choice D ($11$): reports the $y$-intercept of the first line.\n\n**Test Day Takeaway:** An intersection point has two coordinates. Solve for the input first, then substitute back to get the output the question names.",
+      hint: "Graph the two cost equations and look for the crossing point.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** Setting $20 + 3.50u = 48 + 1.75u$ gives $1.75u = 28$, so $u = 16$ hundred cubic feet.\n\n**The Full Solution:**\nStep 1: Write one equation per plan. With $u$ hundred cubic feet used, Plan A costs $20 + 3.50u$ dollars and Plan B costs $48 + 1.75u$ dollars.\nStep 2: Graph both lines and find where they cross. Algebraically, the crossing is where $20 + 3.50u = 48 + 1.75u$, so $1.75u = 28$ and $u = 16$.\nStep 3: Check both plans at $u = 16$. Plan A: $20 + 3.50(16) = 20 + 56 = 76$ dollars. Plan B: $48 + 1.75(16) = 48 + 28 = 76$ dollars. The lines meet at $(16, 76)$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): divides the $28$-dollar fee gap by Plan A rate alone. Plan B charges per unit too, so the rate DIFFERENCE closes the gap.\n* Choice C ($28$): is the difference in monthly fees, in dollars, not an amount of water.\n* Choice D ($68$): adds the two monthly fees, which no crossing point uses.\n\n**Test Day Takeaway:** Two cost plans meet where the fee gap is closed by the rate difference: divide the difference in fixed fees by the difference in rates.",
       skills: ["graphing-systems"]
     },
     {
@@ -502,37 +502,37 @@ export const systemsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "Two linear equations in $x$ and $y$ are each written in the form $ax + by = c$. The system of these two equations has infinitely many solutions. Which statement must be true?",
+      question: "A greenhouse dosing unit delivers $x$ liters of concentrate A and $y$ liters of concentrate B per batch, and the two nutrient requirements are $3x + 12y = 45$ and $x + 4y = 15$. How many solutions $(x, y)$ does this system have?",
       choices: [
-        // distractor: matching only the constant term leaves the coefficients free, so the lines generally cross at a single point.
-        { id: "A", text: "The two equations have the same value of $c$ but different values of $a$." },
-        { id: "B", text: "Each equation can be obtained from the other by multiplying every term by the same nonzero constant." },
-        // distractor: matching one coefficient while the constants differ gives lines that either cross once or never meet at all.
-        { id: "C", text: "The two equations have the same value of $a$ and different values of $c$." },
-        // distractor: parallel and distinct lines share no points, so that system has no solution rather than infinitely many.
-        { id: "D", text: "The graphs of the two equations are parallel and distinct." }
+        // distractor: reads unequal coefficients as parallel distinct lines
+        { id: "A", text: "Zero" },
+        // distractor: assumes two written equations always cross exactly once
+        { id: "B", text: "Exactly one" },
+        // distractor: treats two lines as able to meet twice
+        { id: "C", text: "Exactly two" },
+        { id: "D", text: "Infinitely many" }
       ],
-      correctAnswer: "B",
-      hint: "Infinitely many solutions means the two equations carry exactly the same information.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** Infinitely many solutions occur only when the equations describe the same line, which means one is a nonzero multiple of the other.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has infinitely many solutions exactly when every solution of one equation solves the other, so the two graphs are the same line.\nStep 2: Two equations in the form $ax + by = c$ have the same graph exactly when all three of $a$, $b$, and $c$ are scaled by one nonzero constant.\nStep 3: So each equation must be a nonzero multiple of the other. Check: $2x + 3y = 8$ and $6x + 9y = 24$ describe one line, while $6x + 9y = 20$ describes a different, parallel one. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: matching only the constant term leaves the coefficients free, so the lines generally cross at a single point.\n* Choice C: matching one coefficient while the constants differ gives lines that either cross once or never meet at all.\n* Choice D: parallel and distinct lines share no points, so that system has no solution rather than infinitely many.\n\n**Test Day Takeaway:** Infinitely many solutions means one equation is a scaled copy of the other, coefficients and constant alike. Scaling only part of it gives no solution instead.",
+      correctAnswer: "D",
+      hint: "Two requirements can describe the same batches without being written the same way.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~10s):** Dividing $3x + 12y = 45$ by $3$ gives $x + 4y = 15$, the second requirement itself, so the two describe one line.\n\n**The Full Solution:**\nStep 1: Divide every term of $3x + 12y = 45$ by $3$: $x + 4y = 15$.\nStep 2: That is exactly the second requirement, so any batch meeting one requirement meets the other.\nStep 3: A line in the $xy$-plane holds infinitely many points, so the system has infinitely many solutions. Check: $(15, 0)$ and $(7, 2)$ each satisfy both equations ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): reading the different coefficients as two parallel lines; parallel and distinct requires the constants NOT to scale by the same factor, and here $45 = 3 \\cdot 15$ does.\n* Choice B (Exactly one): assuming two written equations always cross once; identical lines never cross at a single point.\n* Choice C (Exactly two): two straight lines meet at most once unless they coincide, in which case they share every point.\n\n**Test Day Takeaway:** Before solving, test whether one equation is a constant multiple of the other — coefficients and constant alike.",
       skills: ["infinite-solutions-condition", "system-solution-types"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "The system of equations $\\frac{1}{2}x + 3y = 9$ and $2x + ty = 36$, where $t$ is a constant, has infinitely many solutions. What is the value of $t$?",
+      question: "A dairy scale's calibration frame carries $x$ steel blocks and $y$ ballast plates. Two loading rules give $6x + ky = 30$ and $9x + 12y = 45$, where $k$ is a constant and each total is a mass in kilograms. For what value of $k$ do the two rules impose exactly the same restriction?",
       choices: [
-        // distractor: copies the $y$-coefficient of the first equation, as if the scale factor applied to the other terms only.
-        { id: "A", text: "$3$" },
-        // distractor: reports the scale factor $4$ itself instead of multiplying the $y$-coefficient $3$ by it.
-        { id: "B", text: "$4$" },
-        // distractor: reads the $x$-coefficients as $1$ and $2$ and scales by $2$, ignoring the $\frac{1}{2}$.
-        { id: "C", text: "$6$" },
-        { id: "D", text: "$12$" }
+        // distractor: copies the first rule's x-coefficient, 6, instead of scaling 12
+        { id: "A", text: "$6$" },
+        { id: "B", text: "$8$" },
+        // distractor: copies the second rule's y-coefficient, 12, ignoring the 2/3 scaling
+        { id: "C", text: "$12$" },
+        // distractor: inverts the ratio and computes 12 times 9/6 = 18
+        { id: "D", text: "$18$" }
       ],
-      correctAnswer: "D",
-      hint: "Compare the two $x$-terms to find the factor that turns the first equation into the second.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~35s):** Multiplying the first equation by $4$ gives $2x + 12y = 36$, which is the second equation, so $t = 12$.\n\n**The Full Solution:**\nStep 1: A system has infinitely many solutions only when the two equations describe the same line, so the second equation must be a nonzero multiple of the first.\nStep 2: The $x$-terms give the factor: $2 \\div \\frac{1}{2} = 4$. The constants agree with that factor, since $4(9) = 36$.\nStep 3: The same factor must apply to the $y$-term, so $t = 4(3) = 12$. Check: multiplying $\\frac{1}{2}x + 3y = 9$ by $4$ gives exactly $2x + 12y = 36$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): copies the $y$-coefficient of the first equation, as if the scale factor applied to the other terms only.\n* Choice B ($4$): reports the scale factor $4$ itself instead of multiplying the $y$-coefficient $3$ by it.\n* Choice C ($6$): reads the $x$-coefficients as $1$ and $2$ and scales by $2$, ignoring the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** A fractional coefficient does not change the rule: find the factor from one pair of terms, confirm it on the constants, then apply it to the term you need.",
+      correctAnswer: "B",
+      hint: "A restriction can be written more than one way and still allow exactly the same loads.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** Scaling $9x + 12y = 45$ by $\\frac{2}{3}$ turns $9x$ into $6x$ and $45$ into $30$, so $12y$ must become $8y$.\n\n**The Full Solution:**\nStep 1: Two rules restrict the same pairs only when every term of one is the same multiple of the matching term of the other. The $x$-terms give the factor $\\frac{6}{9} = \\frac{2}{3}$.\nStep 2: The constants agree with that factor: $\\frac{30}{45} = \\frac{2}{3}$.\nStep 3: So the $y$-terms must satisfy $\\frac{k}{12} = \\frac{2}{3}$, giving $k = 8$. Check: $\\frac{2}{3}$ of $9x + 12y = 45$ is $6x + 8y = 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): copying the first rule's $x$-coefficient instead of scaling the $12$.\n* Choice C ($12$): copying the second rule's $y$-coefficient and ignoring the $\\frac{2}{3}$ scaling.\n* Choice D ($18$): inverting the ratio and computing $12 \\cdot \\frac{9}{6} = 18$, which scales the wrong direction.\n\n**Test Day Takeaway:** One factor must carry every term — both coefficients and the constant — or the two equations are different lines.",
       skills: ["infinite-solutions-condition", "system-solution-types"]
     },
     {

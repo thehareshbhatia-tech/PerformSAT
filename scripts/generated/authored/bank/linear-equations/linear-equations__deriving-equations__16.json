@@ -1,25 +1,30 @@
 {
-  "id": 16,
-  "question": "For the linear function $f$, $f(0) = 5$ and $f(1) = 12$. Which equation defines $f$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$f(x) = 5x + 7$"
-    },
-    {
-      "id": "B",
-      "text": "$f(x) = 7x + 5$"
-    },
-    {
-      "id": "C",
-      "text": "$f(x) = 7x + 12$"
-    },
-    {
-      "id": "D",
-      "text": "$f(x) = 12x + 5$"
-    }
-  ],
-  "correctAnswer": "B",
-  "hint": "An input of $0$ tells you one of the two constants outright; the other comes from the single step to the next input.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** $f(0) = 5$ is the constant, and $12 - 5 = 7$ is the rate of change: $f(x) = 7x + 5$ — choice B.\n\n**The Full Solution:**\nStep 1: Because $f(0) = 5$, the constant term of the equation is $5$.\nStep 2: Increasing the input by $1$ raises the output from $5$ to $12$, so the rate of change is $12 - 5 = 7$.\nStep 3: The equation is $f(x) = 7x + 5$. Check: $f(1) = 7+5 = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x) = 5x + 7$): swaps the rate of change and the value at $0$.\n* Choice C ($f(x) = 7x + 12$): has the correct rate of change but uses $12$, the output at an input of $1$, as the constant term.\n* Choice D ($f(x) = 12x + 5$): treats the output $12$ as the rate of change rather than the difference $f(1)-f(0)$.\n\n**Test Day Takeaway:** With inputs one unit apart, the rate of change is just the difference of the outputs — no division needed, so the only real risk is mixing up which number is which."
+ "id": 16,
+ "question": "A cutting-fluid reservoir holds $40$ liters at the start of a shift and loses $2.5$ liters for each hour of machining. Which function gives the volume $V(h)$, in liters, remaining after $h$ hours?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$V(h) = 2.5h - 40$"
+  },
+  {
+   "id": "B",
+   "text": "$V(h) = 2.5h + 40$"
+  },
+  {
+   "id": "C",
+   "text": "$V(h) = 40 - 2.5h$"
+  },
+  {
+   "id": "D",
+   "text": "$V(h) = 40h - 2.5$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "swaps the roles, using 2.5 as the starting amount and 40 as the hourly change",
+  "B": "adds the hourly loss instead of subtracting it",
+  "D": "uses the starting volume 40 as the hourly rate"
+ },
+ "correctAnswer": "C",
+ "hint": "One of the two numbers is the amount present when $h = 0$.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** Start at $40$ liters and remove $2.5$ liters each hour: $V(h) = 40 - 2.5h$.\n\n**The Full Solution:**\nStep 1: At $h = 0$ the reservoir holds $40$ liters, so the constant term is $40$.\nStep 2: The fluid decreases at a steady $2.5$ liters per hour, so the rate of change is $-2.5$ liters per hour.\nStep 3: A linear model is (constant term) plus (rate)(input): $V(h) = 40 - 2.5h$.\n\nCheck: After $4$ hours the model gives $40 - 10 = 30$ liters, a loss of $10$ liters over $4$ hours. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5h - 40$): swaps the two numbers, and it reports a negative volume for every hour before hour $16$.\n* Choice B ($2.5h + 40$): adds the hourly amount, so the reservoir would gain fluid while machining.\n* Choice D ($40h - 2.5$): uses the starting volume as the hourly rate, predicting $37.5$ liters after one hour and $797.5$ liters after twenty.\n\n**Test Day Takeaway:** The number attached to the variable is a rate; the number standing alone is the value at input zero."
 }

@@ -44,37 +44,37 @@ export const statisticsQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "The mean of the $7$ values in a data set is $19$. Six of the values are $12$, $14$, $17$, $20$, $22$, and $23$. What is the seventh value?",
+      question: "An acoustician measures the reverberation time at six positions in a concert hall and records, in seconds, $1.2$, $1.5$, $1.1$, $1.8$, $1.4$, and $k$. These six recorded times have a mean of $1.45$ seconds. What is the value of $k$?",
       choices: [
-        // distractor: uses $6(19) = 114$ as the required total, leaving the missing value out of the count.
-        { id: "A", text: "$6$" },
-        // distractor: reports $\frac{108}{6}$, the mean of the six known values.
-        { id: "B", text: "$18$" },
-        // distractor: assumes the missing value must equal the target mean, which happens only when the known values already average $19$.
-        { id: "C", text: "$19$" },
-        { id: "D", text: "$25$" }
+        // distractor: reports the median of the five listed times, 1.4, instead of solving for the sixth
+        { id: "A", text: "$1.4$" },
+        // distractor: assumes the missing value equals the mean, 1.45
+        { id: "B", text: "$1.45$" },
+        { id: "C", text: "$1.7$" },
+        // distractor: reports the required total of all six times, 8.7, rather than the missing value
+        { id: "D", text: "$8.7$" }
       ],
-      correctAnswer: "D",
-      hint: "Turn the mean into a required total, then see how much of that total the six known values already supply.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** The seven values must total $7(19) = 133$. The six known values total $108$, so the seventh is $133 - 108 = 25$.\n\n**The Full Solution:**\nStep 1: Sum equals mean times count, so all seven values together must equal $7(19) = 133$.\nStep 2: Add the six known values: $12 + 14 + 17 + 20 + 22 + 23 = 108$.\nStep 3: The missing value is $133 - 108 = 25$. Check: $\\frac{108 + 25}{7} = \\frac{133}{7} = 19$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): uses $6(19) = 114$ as the required total, leaving the missing value out of the count.\n* Choice B ($18$): reports $\\frac{108}{6}$, the mean of the six known values.\n* Choice C ($19$): assumes the missing value must equal the target mean, which happens only when the known values already average $19$.\n\n**Test Day Takeaway:** For a missing-value mean question, convert to totals immediately: required total minus known total is the answer.",
+      correctAnswer: "C",
+      hint: "Six values with a known mean have a known total.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~20s):** Six times averaging $1.45$ total $8.7$ seconds; the five listed total $7.0$, so $k = 1.7$.\n\n**The Full Solution:**\nStep 1: Convert the mean to a total. Six values with mean $1.45$ sum to $6 \\times 1.45 = 8.7$ seconds.\nStep 2: Add the five known times. $1.2 + 1.5 + 1.1 + 1.8 + 1.4 = 7.0$ seconds.\nStep 3: Subtract and check. $k = 8.7 - 7.0 = 1.7$ seconds. Recomputing: $\\frac{7.0 + 1.7}{6} = \\frac{8.7}{6} = 1.45$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.4$): is the median of the five listed times, not the value that fixes the mean.\n* Choice B ($1.45$): assumes the missing time equals the mean. That is only true when the five known values already average $1.45$, and they average $1.4$.\n* Choice D ($8.7$): is the required total of all six times, one subtraction short of the answer.\n\n**Test Day Takeaway:** Turn a mean into a total the moment a value is missing: total $=$ mean $\\times$ count, then subtract what you know.",
       skills: ["calculate-mean"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "The mean of the $10$ values in a data set is $21$. The two values $33$ and $37$ are removed from the data set. What is the mean of the remaining $8$ values?",
+      question: "Twelve cold-chain shipping cartons have a mean mass of $34.5$ kilograms. After one carton is removed from the group, the remaining eleven cartons have a mean mass of $33.8$ kilograms. What is the mass, in kilograms, of the carton that was removed?",
       choices: [
-        // distractor: uses the reduced total but keeps the original count, $\frac{140}{10}$.
-        { id: "A", text: "$14$" },
-        { id: "B", text: "$17.5$" },
-        // distractor: assumes removing values leaves the mean unchanged.
-        { id: "C", text: "$21$" },
-        // distractor: reduces the count but not the total, $\frac{210}{8}$.
-        { id: "D", text: "$26.25$" }
+        // distractor: reports the drop in the mean, 34.5 - 33.8 = 0.7, instead of the mass removed
+        { id: "A", text: "$0.7$" },
+        // distractor: multiplies that drop by the eleven remaining cartons: 0.7 x 11 = 7.7
+        { id: "B", text: "$7.7$" },
+        { id: "C", text: "$42.2$" },
+        // distractor: reports the total mass of all twelve cartons, 414, rather than the one removed
+        { id: "D", text: "$414$" }
       ],
-      correctAnswer: "B",
-      hint: "Removing values changes both the total and the number of values you divide by.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** The original total is $10(21) = 210$. Removing $33 + 37 = 70$ leaves $140$ across $8$ values: $\\frac{140}{8} = 17.5$.\n\n**The Full Solution:**\nStep 1: Total of the original data set: $10(21) = 210$.\nStep 2: The two removed values contribute $33 + 37 = 70$, so the remaining total is $210 - 70 = 140$.\nStep 3: Eight values remain, so the new mean is $\\frac{140}{8} = 17.5$. Check: both removed values are above $21$, so the mean should fall, and $17.5 < 21$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): uses the reduced total but keeps the original count, $\\frac{140}{10}$.\n* Choice C ($21$): assumes removing values leaves the mean unchanged.\n* Choice D ($26.25$): reduces the count but not the total, $\\frac{210}{8}$.\n\n**Test Day Takeaway:** When values leave a data set, adjust the sum and the count together. Changing only one of them is the standard trap.",
+      correctAnswer: "C",
+      hint: "Compare the total mass before the removal with the total after.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** Twelve cartons total $414$ kilograms and eleven total $371.8$, so the removed carton is $414 - 371.8 = 42.2$.\n\n**The Full Solution:**\nStep 1: Total before. $12 \\times 34.5 = 414$ kilograms.\nStep 2: Total after. $11 \\times 33.8 = 371.8$ kilograms.\nStep 3: Subtract and check. $414 - 371.8 = 42.2$ kilograms. Adding it back: $\\frac{371.8 + 42.2}{12} = \\frac{414}{12} = 34.5$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.7$): is how far the mean fell, not the mass of the carton.\n* Choice B ($7.7$): multiplies the drop in the mean by the eleven remaining cartons. That product is how far the removed carton sits ABOVE the original mean, so the $34.5$ still has to be added back.\n* Choice D ($414$): is the total mass of all twelve cartons.\n\n**Test Day Takeaway:** Removing one value from a mean is a totals problem: total before minus total after IS the value removed.",
       skills: ["calculate-mean"]
     },
     {
@@ -461,19 +461,19 @@ export const statisticsQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "Data set V has a standard deviation of $6$. Data set W is formed by multiplying each value in data set V by $-4$. What is the standard deviation of data set W?",
+      question: "A quality report lists $50$ measured pipe diameters, in millimeters, with a mean of $60$ millimeters and a standard deviation of $\\sigma$ millimeters. Each diameter is converted to centimeters and then increased by $3$ centimeters to record an outer bound. In terms of $\\sigma$, what is the standard deviation, in centimeters, of the recorded outer bounds?",
       choices: [
-        // distractor: multiplies by $-4$ and keeps the sign, but a standard deviation is a distance and is never negative.
-        { id: "A", text: "$-24$" },
-        // distractor: adds $-4$ to the standard deviation, treating the multiplier as a shift.
-        { id: "B", text: "$2$" },
-        // distractor: assumes the standard deviation is unchanged, which is true for a shift but not for a multiplier.
-        { id: "C", text: "$6$" },
-        { id: "D", text: "$24$" }
+        { id: "A", text: "$\\frac{\\sigma}{10}$" },
+        // distractor: adds the 3-centimeter allowance to the spread, but a shift moves every value equally
+        { id: "B", text: "$\\frac{\\sigma}{10} + 3$" },
+        // distractor: adds 3 before dividing, which again lets the shift reach the spread
+        { id: "C", text: "$\\frac{\\sigma + 3}{10}$" },
+        // distractor: multiplies by 10 instead of dividing, converting centimeters to millimeters
+        { id: "D", text: "$10\\sigma$" }
       ],
-      correctAnswer: "D",
-      hint: "A negative multiplier reflects the values but does not shrink or reverse how spread out they are.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~45s):** Multiplying every value by $-4$ scales all distances by $|-4| = 4$, so the standard deviation becomes $4(6) = 24$.\n\n**The Full Solution:**\nStep 1: If the mean of V is $\\mu$, then the mean of W is $-4\\mu$, and each deviation becomes $-4x - (-4\\mu) = -4(x - \\mu)$.\nStep 2: Standard deviation is built from squared deviations, so each contributes $(-4)^2 = 16$ times as much as before, and the square root multiplies the standard deviation by $4$.\nStep 3: The standard deviation of W is $4(6) = 24$. Check: distances between values are multiplied by $4$ whether the multiplier is $4$ or $-4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-24$): multiplies by $-4$ and keeps the sign, but a standard deviation is a distance and is never negative.\n* Choice B ($2$): adds $-4$ to the standard deviation, treating the multiplier as a shift.\n* Choice C ($6$): assumes the standard deviation is unchanged, which is true for a shift but not for a multiplier.\n\n**Test Day Takeaway:** Scaling every value by $k$ multiplies the standard deviation by $|k|$. The sign of $k$ flips the data around the mean but never changes the spread.",
+      correctAnswer: "A",
+      hint: "Only one of the two operations changes how far the values sit from each other.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** Dividing every diameter by $10$ divides the standard deviation by $10$; adding $3$ centimeters changes nothing about the spread.\n\n**The Full Solution:**\nStep 1: Handle the unit change. One centimeter is $10$ millimeters, so each diameter in centimeters is the millimeter value divided by $10$, and the standard deviation becomes $\\frac{\\sigma}{10}$ centimeters.\nStep 2: Handle the shift. Adding $3$ centimeters to every value slides the whole data set without changing any distance between values, so the standard deviation is unchanged.\nStep 3: Test two diameters. If two pipes measure $60$ and $80$ millimeters, they become $6$ and $8$ centimeters, then $9$ and $11$ centimeters. The gap shrinks from $20$ to $2$ and then stays at $2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{\\sigma}{10} + 3$): adds the allowance to the spread. Every value moved up by the same $3$, so no distance between values changed.\n* Choice C ($\\frac{\\sigma + 3}{10}$): adds the $3$ before dividing, again letting a shift reach the spread.\n* Choice D ($10\\sigma$): multiplies by $10$, which would convert centimeters into millimeters — the wrong direction.\n\n**Test Day Takeaway:** Scaling multiplies the standard deviation; shifting leaves it alone. The mean of $60$ is a distractor: a spread question never needs the center.",
       skills: ["standard-deviation-concept"]
     }
   ],

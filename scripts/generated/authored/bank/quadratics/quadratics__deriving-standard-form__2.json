@@ -1,58 +1,52 @@
 {
   "id": 2,
-  "question": "The graph of the quadratic function $f$ is shown in the $xy$-plane. The vertex of the graph is $(-3, -4)$, and the graph passes through the marked point $(-1, 4)$. If $f(x) = a(x + 3)^2 - 4$, what is the value of $a$?",
+  "question": "The parabola drawn here models the bed elevation $y$, in meters relative to grade, of a drainage channel at a horizontal distance of $x$ meters from a survey stake. Which of the following equations relates $y$ to $x$ for this channel bed?",
   "diagram": {
     "type": "parabola",
     "params": {
       "vertex": {
-        "h": -3,
+        "h": 3,
         "k": -4
       },
-      "a": 2,
+      "a": 1,
       "xRange": [
-        -8,
-        2
+        0,
+        6
       ],
       "yRange": [
         -6,
-        14
+        6
       ],
-      "xTickInterval": 2,
-      "yTickInterval": 2,
-      "gridInterval": 2,
       "showVertex": false,
-      "highlightPoints": [
-        [
-          -1,
-          4
-        ]
-      ]
+      "xTickInterval": 1,
+      "yTickInterval": 2,
+      "gridInterval": 1
     }
   },
   "choices": [
     {
       "id": "A",
-      "text": "$1$"
+      "text": "$y = x^2 - 6x - 4$"
     },
     {
       "id": "B",
-      "text": "$2$"
+      "text": "$y = x^2 - 6x + 5$"
     },
     {
       "id": "C",
-      "text": "$4$"
+      "text": "$y = x^2 - 6x + 13$"
     },
     {
       "id": "D",
-      "text": "$8$"
+      "text": "$y = x^2 + 6x + 5$"
     }
   ],
   "distractorNotes": {
-    "A": "never adds k back",
-    "C": "forgets to square the horizontal difference",
-    "D": "reports 4a instead of a"
+    "A": "uses the vertex depth -4 as the constant term, which would put the crossing at x = 0 at y = -4 rather than y = 5",
+    "C": "expands (x - 3)^2 + 4 instead of (x - 3)^2 - 4, flipping the sign of the vertex depth",
+    "D": "expands (x + 3)^2 - 4, placing the vertex at x = -3 instead of x = 3"
   },
   "correctAnswer": "B",
-  "hint": "Substitute the second point into the vertex form and square the horizontal difference before dividing.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $4 = a(2)^2 - 4$ gives $4a = 8$, so $a = 2$.\n\n**The Full Solution:**\nStep 1: The point $(-1, 4)$ is on the graph, so substituting gives $4 = a(-1 + 3)^2 - 4$.\nStep 2: Simplify inside the parentheses and square: $(-1 + 3)^2 = 2^2 = 4$, so $4 = 4a - 4$.\nStep 3: Add $4$ to both sides and divide: $4a = 8$, so $a = 2$. Check: $f(-1) = 2(4) - 4 = 4$, matching the marked point. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): forgets to add the $4$ back, solving $4a = 4$.\n* Choice C ($4$): divides $8$ by $2$ instead of by $2^2$, skipping the squaring step.\n* Choice D ($8$): stops at $4a = 8$ and reports $4a$ rather than $a$.\n\n**Test Day Takeaway:** With the vertex known, one extra point determines $a$ — isolate the squared term first, then divide by the SQUARE of the horizontal difference."
+  "hint": "Read the two horizontal-axis crossings straight off the grid.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** The curve crosses at $x = 1$ and $x = 5$, so $y = (x - 1)(x - 5) = x^2 - 6x + 5$.\n\n**The Full Solution:**\nStep 1: Read the crossings. The bed reaches grade at $x = 1$ and $x = 5$ meters, so the factored form is $y = a(x - 1)(x - 5)$.\nStep 2: Pin the leading coefficient. The lowest point sits at $(3, -4)$, and $a(3 - 1)(3 - 5) = -4a$, so $-4a = -4$ and $a = 1$.\nStep 3: Expand and check. $y = (x - 1)(x - 5) = x^2 - 6x + 5$. At the stake, $x = 0$, the graph shows $y = 5$, and $0 - 0 + 5 = 5$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = x^2 - 6x - 4$): carries the vertex depth $-4$ into the constant term; at $x = 0$ it gives $-4$, but the graph shows $5$.\n* Choice C ($y = x^2 - 6x + 13$): comes from $(x - 3)^2 + 4$, a curve whose lowest point is $4$ meters ABOVE grade and never reaches it.\n* Choice D ($y = x^2 + 6x + 5$): comes from $(x + 3)^2 - 4$, putting the low point at $x = -3$, off the left of the graph.\n\n**Test Day Takeaway:** Crossings give the factors; one more point — the vertex or the intercept — fixes the leading coefficient. Then expand."
 }

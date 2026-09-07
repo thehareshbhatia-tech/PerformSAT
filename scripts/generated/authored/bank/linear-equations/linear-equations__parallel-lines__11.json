@@ -1,25 +1,30 @@
 {
-  "id": 11,
-  "question": "$5x + 2y = 8$\n$ry = 15 - 10x$\n\nIn the given system of two linear equations, $r$ is a constant. If the system has no solution, what is the value of $r$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-4$"
-    },
-    {
-      "id": "B",
-      "text": "$1$"
-    },
-    {
-      "id": "C",
-      "text": "$2$"
-    },
-    {
-      "id": "D",
-      "text": "$4$"
-    }
-  ],
-  "correctAnswer": "D",
-  "hint": "Put the second equation in the same arrangement as the first before you compare coefficients.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~40s):** Rewritten, the second equation is $10x + ry = 15$; its $x$-coefficient is twice the first equation's, so $r$ must be twice $2$ — choice D.\n\n**The Full Solution:**\nStep 1: Rearrange the second equation into standard form: $10x + ry = 15$.\nStep 2: Two linear equations have no solution when one equation's variable coefficients are a common multiple of the other's while the constants are not in that same ratio. Here $10 = 2(5)$, so the multiplier is $2$.\nStep 3: Matching the $y$-coefficients under that multiplier gives $r = 2(2) = 4$.\nStep 4: Check: with $r = 4$ the system is $5x + 2y = 8$ and $10x + 4y = 15$. Doubling the first gives $10x + 4y = 16$, and $16 \\neq 15$, so the lines are parallel and distinct. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): equates the slopes with a sign error, solving $-\\frac{10}{r} = \\frac{5}{2}$ instead of $-\\frac{10}{r} = -\\frac{5}{2}$.\n* Choice B ($1$): sets up the proportion upside down, $\\frac{2}{r} = \\frac{10}{5}$, rather than $\\frac{2}{r} = \\frac{5}{10}$.\n* Choice C ($2$): copies the first equation's $y$-coefficient, ignoring that the $x$-coefficients differ by a factor of $2$.\n\n**Test Day Takeaway:** Rearrange both equations into the same form, find the multiplier from a coefficient pair you can see, and apply that one multiplier to every coefficient."
+ "id": 11,
+ "question": "A guy-wire profile on a grid marked in meters runs parallel to $y = -\\frac{3}{8}x + 2$. The profile contains the points $(-16, r)$ and $(8, 1)$, and $r$ is a constant. What is the value of $r$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-10$"
+  },
+  {
+   "id": "B",
+   "text": "$-8$"
+  },
+  {
+   "id": "C",
+   "text": "$4$"
+  },
+  {
+   "id": "D",
+   "text": "$10$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds the y-values in the numerator, solving (1 + r)/24 = -3/8",
+  "B": "drops the negative sign of the slope, solving (1 - r)/24 = 3/8",
+  "C": "uses 8 as the horizontal change instead of the full 24 meters"
+ },
+ "correctAnswer": "D",
+ "hint": "The two given points must produce the stated slope.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~45s):** The run is $8 - (-16) = 24$, so $\\frac{1 - r}{24} = -\\frac{3}{8}$ gives $1 - r = -9$ and $r = 10$.\n\n**The Full Solution:**\nStep 1: Parallel lines have equal slopes, so the profile has slope $-\\frac{3}{8}$.\nStep 2: The slope through the two points is $\\frac{1 - r}{8 - (-16)} = \\frac{1 - r}{24}$, so $\\frac{1 - r}{24} = -\\frac{3}{8}$.\nStep 3: Multiplying both sides by $24$ gives $1 - r = -9$, so $r = 10$.\n\nCheck: From $(-16,\\ 10)$ to $(8,\\ 1)$ the drop is $9$ meters over a run of $24$ meters, and $-\\frac{9}{24} = -\\frac{3}{8}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): adds the $y$-values in the numerator, solving $\\frac{1 + r}{24} = -\\frac{3}{8}$.\n* Choice B ($-8$): drops the negative sign on the slope and solves $\\frac{1 - r}{24} = \\frac{3}{8}$.\n* Choice C ($4$): uses $8$ as the horizontal change instead of the full $24$ meters between the two $x$-values.\n\n**Test Day Takeaway:** Compute the run as a difference, including the sign of a negative coordinate, before setting up the slope equation."
 }

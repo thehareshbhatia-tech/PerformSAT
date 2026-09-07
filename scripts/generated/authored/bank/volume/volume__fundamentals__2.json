@@ -1,30 +1,30 @@
 {
- "id": 2,
- "question": "Each dimension of a right rectangular prism is multiplied by $4$. The volume of the resulting prism is $k$ times the volume of the original prism. What is the value of $k$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$4$"
+  "id": 2,
+  "question": "A produce distributor replaces each rectangular crate of canned tomatoes with a crate whose length, width, and height are each $3$ times those of the original crate. The volume of the new crate is how many times the volume of the original crate?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3$"
+    },
+    {
+      "id": "B",
+      "text": "$9$"
+    },
+    {
+      "id": "C",
+      "text": "$27$"
+    },
+    {
+      "id": "D",
+      "text": "$81$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "applies the scale factor once, as if volume were proportional to a single length",
+    "B": "squares the scale factor, which is how area scales, not volume",
+    "D": "multiplies by the scale factor a fourth time: 3 to the fourth power = 81"
   },
-  {
-   "id": "B",
-   "text": "$12$"
-  },
-  {
-   "id": "C",
-   "text": "$16$"
-  },
-  {
-   "id": "D",
-   "text": "$64$"
-  }
- ],
- "distractorNotes": {
-  "A": "uses the scale factor once rather than once for each dimension",
-  "B": "multiplies the scale factor by $3$ instead of raising it to the third power",
-  "C": "squares the scale factor, which is the rule for area"
- },
- "correctAnswer": "D",
- "hint": "Each of the three dimensions picks up the same factor.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** Three dimensions each scale by $4$, so the volume scales by $4^3 = 64$.\n\n**The Full Solution:**\nStep 1: Write the original volume as $V = \\ell wh$.\nStep 2: The new volume is $(4\\ell)(4w)(4h) = 64\\ell wh$.\nStep 3: So the new volume is $64V$, and $k = 64$.\n\nVerification: A $1$ by $1$ by $1$ cube has volume $1$, and a $4$ by $4$ by $4$ cube has volume $64$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): uses the scale factor once rather than once for each dimension.\n* Choice B ($12$): multiplies the scale factor by $3$ instead of raising it to the third power.\n* Choice C ($16$): squares the scale factor, which is the rule for area.\n\n**Test Day Takeaway:** Scaling every dimension by $r$ multiplies volume by $r^3$ and surface area by $r^2$."
+  "correctAnswer": "C",
+  "hint": "A crate measuring $1$ by $1$ by $1$ is the quickest case to test.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** Every one of the three dimensions is tripled, so the volume is multiplied by $3 \\cdot 3 \\cdot 3 = 27$.\n\n**The Full Solution:**\nStep 1: Let the original crate have length $\\ell$, width $w$, and height $h$, so its volume is $V = \\ell w h$.\nStep 2: The new crate has dimensions $3\\ell$, $3w$, and $3h$, so its volume is $(3\\ell)(3w)(3h) = 27\\ell w h$.\nStep 3: Dividing, $\\frac{27 \\ell w h}{\\ell w h} = 27$. Check: a $1 \\times 1 \\times 1$ crate has volume $1$ and its enlargement is $3 \\times 3 \\times 3$, with volume $27$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): applies the scale factor once, as if volume were proportional to a single length.\n* Choice B ($9$): squares the factor, giving $3^2 = 9$ — the way area scales, not volume.\n* Choice D ($81$): multiplies by the factor one time too many, giving $3^4 = 81$.\n\n**Test Day Takeaway:** Scaling every dimension by $k$ multiplies length by $k$, area by $k^2$, and volume by $k^3$ — count the dimensions, then match the exponent."
 }

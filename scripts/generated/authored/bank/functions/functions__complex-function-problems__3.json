@@ -1,30 +1,29 @@
 {
-  "id": 3,
-  "question": "The functions $f$ and $g$ are defined so that $f(x) = 5x - 2$ and $f(g(x)) = 15x + 8$ for all values of $x$. Which of the following defines $g(x)$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$3x + \\frac{6}{5}$"
-    },
-    {
-      "id": "B",
-      "text": "$3x + 2$"
-    },
-    {
-      "id": "C",
-      "text": "$3x + 8$"
-    },
-    {
-      "id": "D",
-      "text": "$15x + 10$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "subtracts 2 instead of adding it",
-    "C": "divides only the x-term by 5",
-    "D": "never divides by 5"
+ "question": "A control unit applies $f(x) = 2x + 5$ to the output of an unknown function $g$, and the combined result is $6x - 1$ for every $x$. Which expression defines $g$?",
+ "hint": "Undo what $f$ does, one step at a time.",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3x - 3$"
   },
-  "correctAnswer": "B",
-  "hint": "Replace the input of $f$ with $g(x)$, set the result equal to the given composite, and solve.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** $5g(x) - 2 = 15x + 8$ gives $5g(x) = 15x + 10$, so $g(x) = 3x + 2$.\n\n**The Full Solution:**\nStep 1: The rule for $f$ applies to whatever it receives, so $f(g(x)) = 5\\,g(x) - 2$.\nStep 2: Set this equal to the given composite: $5\\,g(x) - 2 = 15x + 8$. Add $2$ to both sides: $5\\,g(x) = 15x + 10$.\nStep 3: Divide every term by $5$: $g(x) = 3x + 2$. Check: $f(3x + 2) = 5(3x + 2) - 2 = 15x + 10 - 2 = 15x + 8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x + \\frac{6}{5}$): subtracts $2$ from both sides instead of adding it, giving $\\frac{15x + 6}{5}$.\n* Choice C ($3x + 8$): divides only the $x$-term by $5$ and leaves the constant untouched.\n* Choice D ($15x + 10$): isolates $5\\,g(x)$ correctly but never divides by $5$.\n\n**Test Day Takeaway:** Treat the inner function as a single unknown quantity, solve for it as you would for a variable, and divide EVERY term at the end."
+  {
+   "id": "B",
+   "text": "$3x + 2$"
+  },
+  {
+   "id": "C",
+   "text": "$6x - 6$"
+  },
+  {
+   "id": "D",
+   "text": "$6x - 3$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "adds 5 instead of subtracting it before halving, giving (6x + 4)/2",
+  "C": "subtracts the 5 but never divides by 2",
+  "D": "divides only the constant term by 2"
+ },
+ "correctAnswer": "A",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** $2g(x) + 5 = 6x - 1$ gives $2g(x) = 6x - 6$, so $g(x) = 3x - 3$.\n\n**The Full Solution:**\nStep 1: Applying $f$ to $g(x)$ means $2g(x) + 5$, and that equals $6x - 1$.\nStep 2: Subtract $5$ from both sides: $2g(x) = 6x - 6$.\nStep 3: Divide by $2$: $g(x) = 3x - 3$. Check at $x = 2$: $g(2) = 3$ and $f(3) = 11$, matching $6(2) - 1 = 11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3x + 2$): adds the $5$ instead of subtracting it, producing $\\dfrac{6x + 4}{2}$.\n* Choice C ($6x - 6$): removes the $5$ correctly but never divides by the coefficient $2$.\n* Choice D ($6x - 3$): divides only the constant by $2$ and leaves the $x$-term untouched.\n\n**Test Day Takeaway:** To recover the inner function, undo the outer function's operations in reverse order."
 }

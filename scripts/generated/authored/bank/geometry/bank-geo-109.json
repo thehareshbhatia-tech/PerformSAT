@@ -1,41 +1,59 @@
 {
  "id": "bank-geo-109",
- "question": "In right triangle $ABC$ shown, angle $C$ is the right angle, $AC = 24$, and $BC = 18$. What is the value of $\\sin B$?",
+ "question": "The figure gives two of the three sides, in centimeters, of right triangular window frame $ABC$ from a funicular car. What is the value of $\\tan(\\angle A)$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     32,
+     0
+    ],
+    [
+     32,
+     24
+    ]
+   ],
    "labels": [
     "A",
-    "C",
-    "B"
+    "B",
+    "C"
    ],
    "sideLabels": [
+    "",
     "24",
-    "18",
-    ""
+    "40"
    ],
-   "rightAngleVertex": 1,
-   "figureNote": true
+   "rightAngleVertex": 1
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$\\dfrac{3}{5}$"
+   "text": "$\\frac{3}{5}$"
   },
   {
    "id": "B",
-   "text": "$\\dfrac{4}{5}$"
+   "text": "$\\frac{3}{4}$"
   },
   {
    "id": "C",
-   "text": "$\\dfrac{5}{4}$"
+   "text": "$\\frac{4}{5}$"
   },
   {
    "id": "D",
-   "text": "$\\dfrac{4}{3}$"
+   "text": "$\\frac{4}{3}$"
   }
  ],
+ "distractorNotes": {
+  "A": "gives sin(A) = 24/40 = 3/5 instead of the tangent",
+  "C": "gives cos(A) = 32/40 = 4/5",
+  "D": "gives tan(C) = 32/24 = 4/3, the tangent of the other acute angle"
+ },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The hypotenuse is $AB = \\sqrt{24^2 + 18^2} = 30$, and the leg opposite $B$ is $AC = 24$, so $\\sin B = \\frac{24}{30} = \\frac{4}{5}$.\n\n**The Full Solution:**\nStep 1: With the right angle at $C$, the legs are $\\overline{AC}$ and $\\overline{BC}$ and the hypotenuse is $\\overline{AB}$.\nStep 2: $AB = \\sqrt{24^2 + 18^2} = \\sqrt{576 + 324} = \\sqrt{900} = 30$.\nStep 3: The leg opposite angle $B$ is $\\overline{AC}$, so $\\sin B = \\frac{24}{30} = \\frac{4}{5}$.\n\nCheck: $18$, $24$, $30$ is the $3$-$4$-$5$ triple scaled by $6$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{5}$): uses $\\frac{18}{30}$, the leg adjacent to $B$ over the hypotenuse, which is $\\cos B$.\n* Choice C ($\\frac{5}{4}$): inverts the correct ratio; a sine of an acute angle is always less than $1$.\n* Choice D ($\\frac{4}{3}$): divides the two legs, $\\frac{24}{18}$, which gives $\\tan B$.\n\n**Test Day Takeaway:** Find the hypotenuse before writing any sine or cosine — with a $3$-$4$-$5$ family it is one quick multiplication."
+ "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The missing leg is $\\sqrt{40^2-24^2}=32$, so $\\tan(\\angle A)=\\frac{24}{32}=\\frac{3}{4}$.\n\n**The Full Solution:**\n\nStep 1 — The right angle is at $B$, so $\\overline{CA}=40$ centimeters is the hypotenuse and $\\overline{AB}$ is the unlabeled leg.\n\nStep 2 — Find it: $AB=\\sqrt{40^2-24^2}=\\sqrt{1600-576}=\\sqrt{1024}=32$ centimeters. The sides $24$-$32$-$40$ are a $3$-$4$-$5$ triangle scaled by $8$.\n\nStep 3 — Apply TOA: $\\tan(\\angle A)=\\frac{\\text{opposite}}{\\text{adjacent}}=\\frac{24}{32}=\\frac{3}{4}$. Check: $24^2+32^2=576+1024=1600=40^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($\\frac{3}{5}$): this is $\\sin(\\angle A)=\\frac{24}{40}$, which uses the hypotenuse instead of the adjacent leg.\n* Choice C ($\\frac{4}{5}$): this is $\\cos(\\angle A)=\\frac{32}{40}$.\n* Choice D ($\\frac{4}{3}$): this is $\\tan(\\angle C)$, the tangent of the other acute angle.\n\n**Test Day Takeaway:** Tangent never touches the hypotenuse — if the hypotenuse appears in your fraction, you have picked the wrong ratio."
 }

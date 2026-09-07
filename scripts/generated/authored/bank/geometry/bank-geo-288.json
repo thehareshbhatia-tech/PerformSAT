@@ -1,29 +1,42 @@
 {
- "id": "bank-geo-288",
- "question": "A circle in the $xy$-plane has the equation $(x - 6)^2 + (y + 2)^2 = 49$. What is the center of the circle?",
+ "question": "The floor of a circular reverb chamber is modeled in the $xy$-plane by $(x - 2)^2 + (y - 11)^2 = 144$, where $x$ and $y$ are in meters, and the figure shows the floor with center $O$ and radius $r$. What is the value of $r$?",
+ "diagram": {
+  "type": "circleWithSector",
+  "params": {
+   "centralAngle": 70,
+   "showAngleLabel": false,
+   "showAngleArc": false,
+   "radius": "r",
+   "showRadiusLabel": true,
+   "labelCenter": "O",
+   "labelPoint1": "P",
+   "labelPoint2": "Q"
+  }
+ },
  "choices": [
   {
    "id": "A",
-   "text": "$(-6, 2)$"
+   "text": "$6$"
   },
   {
    "id": "B",
-   "text": "$(-6, -2)$"
+   "text": "$12$"
   },
   {
    "id": "C",
-   "text": "$(6, -2)$"
+   "text": "$24$"
   },
   {
    "id": "D",
-   "text": "$(6, 2)$"
+   "text": "$144$"
   }
  ],
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "reverses both signs",
-  "B": "reverses the x sign only",
-  "D": "reverses the y sign only"
+  "A": "halves the radius, treating 12 as a diameter",
+  "C": "reports the diameter, 2 times 12",
+  "D": "reports r squared without taking the square root"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Read the opposite of each number inside the parentheses: $(x - 6)$ gives $6$ and $(y + 2)$ gives $-2$, so the center is $(6, -2)$.\n\n**The Full Solution:**\nStep 1: Compare with $(x - h)^2 + (y - k)^2 = r^2$.\nStep 2: $(x - 6)^2$ matches $h = 6$, and $(y + 2)^2 = (y - (-2))^2$ matches $k = -2$.\nStep 3: The center is $(6, -2)$, with radius $\\sqrt{49} = 7$. Check: the point $(13, -2)$ lies $7$ units to the right and satisfies $49 + 0 = 49$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-6, 2)$): reverses both coordinates, reading the signs as they appear.\n* Choice B ($(-6, -2)$): reverses only the $x$-coordinate.\n* Choice D ($(6, 2)$): reverses only the $y$-coordinate, reading $(y + 2)$ as $k = 2$.\n\n**Test Day Takeaway:** Rewrite any plus sign as a minus of a negative: $(y + 2)^2 = (y - (-2))^2$. Then the center reads straight off."
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The right side of standard form is $r^2$, so $r = \\sqrt{144} = 12$ meters.\n\n**The Full Solution:**\nStep 1: Compare $(x - 2)^2 + (y - 11)^2 = 144$ with $(x - h)^2 + (y - k)^2 = r^2$.\nStep 2: The center is $O = (2, 11)$ and $r^2 = 144$.\nStep 3: Take the positive square root: $r = 12$ meters. Check: the point $(14, 11)$ satisfies $144 + 0 = 144$ and lies $12$ meters from $O$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): halves $12$, as if the equation had given a diameter.\n* Choice C ($24$): doubles the radius, reporting the diameter instead.\n* Choice D ($144$): copies $r^2$ off the right side without taking a square root.\n\n**Test Day Takeaway:** The lone number on the right of standard form is always $r^2$ — one square root separates it from the radius.",
+ "id": "bank-geo-288"
 }

@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-325",
- "question": "In triangle $RST$, the area is $72$ square centimeters and the height drawn to side $\\overline{RS}$ measures $9$ centimeters. What is the length, in centimeters, of $\\overline{RS}$?",
+ "question": "Two triangular countertop templates are cut to the same height, and the base of the second template is twice the base of the first. Which statement comparing the areas of the two templates is true?",
  "choices": [
   {
    "id": "A",
-   "text": "$8$"
+   "text": "The area of the second template is half the area of the first."
   },
   {
    "id": "B",
-   "text": "$16$"
+   "text": "The area of the second template is equal to the area of the first."
   },
   {
    "id": "C",
-   "text": "$32$"
+   "text": "The area of the second template is twice the area of the first."
   },
   {
    "id": "D",
-   "text": "$63$"
+   "text": "The area of the second template is four times the area of the first."
   }
  ],
  "distractorNotes": {
-  "A": "omits the factor of 2",
-  "C": "doubles twice",
-  "D": "subtracts the height from the area"
+  "A": "inverts the relationship, treating the doubled base as a halved area",
+  "B": "assumes only the height controls the area",
+  "D": "squares the scale factor, which applies when both dimensions are doubled"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $b=\\frac{2A}{h}=\\frac{2(72)}{9}=\\frac{144}{9}=16$ centimeters.\n\n**The Full Solution:**\nStep 1: The height drawn to $\\overline{RS}$ means $\\overline{RS}$ is the base, so $72=\\frac{1}{2}(RS)(9)$.\nStep 2: $\\frac{1}{2}(9)=4.5$, so $72=4.5(RS)$.\nStep 3: $RS=\\frac{72}{4.5}=16$ centimeters.\n\nCheck: $\\frac{1}{2}(16)(9)=72$ square centimeters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): divided the area by the height, $\\frac{72}{9}$, without first doubling the area.\n* Choice C ($32$): doubled the area twice before dividing, computing $\\frac{4(72)}{9}$.\n* Choice D ($63$): subtracted the height from the area, $72-9$.\n\n**Test Day Takeaway:** Whichever side the height is drawn to is the base that pairs with it. Match the base and height as a pair before substituting."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Area is $\\frac{1}{2}bh$, so with $h$ fixed and $b$ doubled the area doubles.\n\n**The Full Solution:**\nStep 1: Let the first template have base $b$ and height $h$, so its area is $\\frac{1}{2}bh$.\nStep 2: The second template has the same height $h$ and base $2b$, so its area is $\\frac{1}{2}(2b)(h) = bh$.\nStep 3: Comparing, $bh$ is exactly $2$ times $\\frac{1}{2}bh$, so the second area is twice the first.\n\nCheck: With $b = 10$ and $h = 6$ the areas are $30$ and $60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (half the area): inverts the relationship, as though a longer base produced a smaller triangle.\n* Choice B (equal areas): treats the height as the only factor and ignores the base entirely.\n* Choice D (four times the area): squares the scale factor, which is what happens only when both the base and the height double.\n\n**Test Day Takeaway:** Area scales by the product of the factors applied to base and height; one doubled dimension doubles the area."
 }

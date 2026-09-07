@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-321",
- "question": "A right triangle has legs that measure $5$ and $11$. Which of the following is closest to the length of the hypotenuse?",
+ "question": "The cross section of a gravel conveyor's support frame, shown, rises $2.5$ meters over a $6$-meter run. What is the total length, in meters, of the cross section's three sides?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -10,46 +10,45 @@
      0
     ],
     [
-     11,
+     6,
      0
     ],
     [
-     11,
-     5
+     6,
+     2.5
     ]
    ],
    "sideLabels": [
-    "11",
-    "5",
+    "6 m",
+    "2.5 m",
     ""
    ],
-   "rightAngleVertex": 1,
-   "figureNote": true
+   "rightAngleVertex": 1
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$6$"
+   "text": "$6.5$"
   },
   {
    "id": "B",
-   "text": "$9.8$"
+   "text": "$7.5$"
   },
   {
    "id": "C",
-   "text": "$12.1$"
+   "text": "$8.5$"
   },
   {
    "id": "D",
-   "text": "$16$"
+   "text": "$15$"
   }
  ],
+ "correctAnswer": "D",
  "distractorNotes": {
-  "A": "subtracts the legs",
-  "B": "subtracts the squares",
-  "D": "adds the legs"
+  "A": "reports the sloped side alone, 6.5, instead of the total of all three sides",
+  "B": "computes the area, one half times 2.5 times 6, instead of a length",
+  "C": "adds only the rise and the run, 2.5 + 6, and omits the sloped side"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $c=\\sqrt{5^2+11^2}=\\sqrt{146}$. Since $12^2=144$, $\\sqrt{146}$ sits just above $12$, so $12.1$ is closest.\n\n**The Full Solution:**\nStep 1: Both given sides are legs, so $c^2=5^2+11^2$.\nStep 2: $c^2=25+121=146$.\nStep 3: $146$ lies between $144=12^2$ and $169=13^2$, and it is only $2$ above $144$, so $c$ is a little more than $12$. Of the options, $12.1$ is closest.\n\nCheck: $12.1^2=146.41$, within $0.41$ of $146$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): subtracted the legs, $11-5$; the hypotenuse must exceed both legs.\n* Choice B ($9.8$): subtracted the squares, $\\sqrt{121-25}=\\sqrt{96}$, which is the rule for finding a missing leg.\n* Choice D ($16$): added the legs, $5+11$; the hypotenuse is always less than that sum.\n\n**Test Day Takeaway:** To estimate a square root without a calculator, trap it between the two perfect squares on either side and judge how close it sits to each."
+ "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice D is correct.** The sloped side is $\\sqrt{2.5^2 + 6^2} = 6.5$, so the three sides total $2.5 + 6 + 6.5 = 15$ meters.\n\n**The Fast Way (~25s):** $2.5$-$6$-$6.5$ is the $5$-$12$-$13$ triple halved; $2.5 + 6 + 6.5 = 15$.\n\n**The Full Solution:**\n\nStep 1: The rise and the run are perpendicular, so the sloping frame member is the hypotenuse of the cross section.\n\nStep 2: $2.5^2 + 6^2 = 6.25 + 36 = 42.25$, so the sloped side is $\\sqrt{42.25} = 6.5$ meters.\n\nStep 3: Adding all three sides gives $2.5 + 6 + 6.5 = 15$ meters. Check: $6.5^2 = 42.25$, matching Step 2.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($6.5$): reports the sloped side alone.\n* Choice B ($7.5$): computes the enclosed area $\\frac{1}{2}(2.5)(6)$ instead of a length.\n* Choice C ($8.5$): adds only the rise and the run.\n\n**Test Day Takeaway:** Scaled triples work with decimals too — halving $5$-$12$-$13$ gives $2.5$-$6$-$6.5$ and removes the calculator step entirely."
 }

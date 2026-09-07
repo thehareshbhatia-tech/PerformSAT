@@ -1,30 +1,29 @@
 {
-  "id": 3,
-  "question": "The function $f$ is defined by $f(x) = 4x - 12$. If $f(c) = 44$ for some constant $c$, what is the value of $c$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$8$"
-    },
-    {
-      "id": "B",
-      "text": "$11$"
-    },
-    {
-      "id": "C",
-      "text": "$14$"
-    },
-    {
-      "id": "D",
-      "text": "$56$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "subtracts 12 instead of adding it back",
-    "B": "ignores the constant term",
-    "D": "reports 4c instead of c"
+ "question": "A calibration line is $f(x) = kx - 7$ for a constant $k$, and the reading at $x = 4$ equals $13$. What is the reading at $x = 1$?",
+ "hint": "Find $k$ from the reading you are given before doing anything else.",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-7$"
   },
-  "correctAnswer": "C",
-  "hint": "Set the rule equal to $44$; undo the subtraction before you undo the multiplication.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $4c - 12 = 44$ gives $4c = 56$, so $c = 14$.\n\n**The Full Solution:**\nStep 1: $f(c)$ means substitute $c$ for $x$, so $f(c) = 4c - 12$.\nStep 2: Set that equal to the given output: $4c - 12 = 44$. Add $12$ to both sides: $4c = 56$.\nStep 3: Divide both sides by $4$: $c = 14$. Check: $f(14) = 4(14) - 12 = 56 - 12 = 44$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): subtracts the constant instead of adding it back, solving $4c = 44 - 12 = 32$.\n* Choice B ($11$): divides the output by the coefficient and ignores the $-12$ entirely.\n* Choice D ($56$): stops at $4c = 56$ and reports $4c$ rather than $c$.\n\n**Test Day Takeaway:** Working backward from an output means undoing the operations in reverse order: addition or subtraction first, then multiplication or division."
+  {
+   "id": "B",
+   "text": "$-2$"
+  },
+  {
+   "id": "C",
+   "text": "$5$"
+  },
+  {
+   "id": "D",
+   "text": "$13$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports f(0) = -7 instead of f(1)",
+  "C": "reports the constant k = 5 rather than a reading",
+  "D": "repeats the given reading 13"
+ },
+ "correctAnswer": "B",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** $4k - 7 = 13$ gives $k = 5$, so $f(1) = 5 - 7 = -2$.\n\n**The Full Solution:**\nStep 1: Substitute the known reading: $f(4) = 4k - 7 = 13$.\nStep 2: Solve for the constant: $4k = 20$, so $k = 5$.\nStep 3: Evaluate at the new input: $f(1) = 5(1) - 7 = -2$. Check: $f(4) = 5(4) - 7 = 13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): evaluates at $x = 0$, which returns the constant term instead of $f(1)$.\n* Choice C ($5$): reports $k$, the slope, rather than a reading.\n* Choice D ($13$): repeats the reading that was given at $x = 4$.\n\n**Test Day Takeaway:** One known input-output pair pins down an unknown coefficient; only then can another input be evaluated."
 }

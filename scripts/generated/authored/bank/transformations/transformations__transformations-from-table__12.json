@@ -1,57 +1,54 @@
 {
-  "id": 12,
-  "question": "The table shows the value of the function $f$ at four inputs. The function $g$ is defined by $g(x)=f(2x)$. What is the value of $x$ for which $g(x)=11$?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "x",
-        "f(x)"
-      ],
-      "rows": [
-        [
-          "1",
-          "5"
-        ],
-        [
-          "2",
-          "-3"
-        ],
-        [
-          "4",
-          "11"
-        ],
-        [
-          "8",
-          "6"
-        ]
-      ]
-    }
-  },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$2$"
-    },
-    {
-      "id": "B",
-      "text": "$4$"
-    },
-    {
-      "id": "C",
-      "text": "$8$"
-    },
-    {
-      "id": "D",
-      "text": "$11$"
-    }
+ "id": 12,
+ "question": "The table gives a radiometer's calibrated counts $f(x)$ at selected filter positions $x$. A second radiometer's counts follow $g(x) = 2f(x - 1) - 3$, and $g(c) = 21$. What is the value of $c$?",
+ "questionTable": {
+  "headers": [
+   "$x$",
+   "$f(x)$"
   ],
-  "distractorNotes": {
-    "B": "does not undo the doubling",
-    "C": "doubles instead of halving",
-    "D": "confuses the output with the input"
+  "rows": [
+   [
+    "$2$",
+    "$5$"
+   ],
+   [
+    "$4$",
+    "$12$"
+   ],
+   [
+    "$6$",
+    "$19$"
+   ],
+   [
+    "$8$",
+    "$30$"
+   ]
+  ]
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3$"
   },
-  "correctAnswer": "A",
-  "hint": "Find which input of $f$ returns $11$, then ask what $x$ makes $2x$ equal to it.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** The table gives $f(4)=11$, so $2x=4$ and $x=2$.\n\n**The Full Solution:**\nStep 1: Scanning the table, the output $11$ occurs in the row $x=4$, so $f(4)=11$.\nStep 2: For $g(x)=f(2x)$ to equal $11$, the input handed to $f$ must be $4$: $2x=4$.\nStep 3: Dividing gives $x=2$. Check: $g(2)=f(2\\cdot 2)=f(4)=11$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): reports the input of $f$ without undoing the doubling.\n* Choice C ($8$): doubles $4$ instead of halving it, which is the effect of $f\\!\\left(\\frac{x}{2}\\right)$.\n* Choice D ($11$): reports the output as if it were the input.\n\n**Test Day Takeaway:** With $f(2x)$, every feature of $f$ appears at half its original input — solve $2x=a$, do not double."
+  {
+   "id": "B",
+   "text": "$5$"
+  },
+  {
+   "id": "C",
+   "text": "$12$"
+  },
+  {
+   "id": "D",
+   "text": "$13$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "computes 4 - 1 instead of 4 + 1",
+  "C": "reports the count 12 rather than the filter position",
+  "D": "adds 1 to the count 12 instead of to the position 4"
+ },
+ "correctAnswer": "B",
+ "hint": "Work back to a value of $f$ before you look at the table.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~35s):** $21 = 2f(c - 1) - 3$ gives $f(c - 1) = 12$, and the table shows $f(4) = 12$, so $c = 5$.\n\n**The Full Solution:**\nStep 1: Undo the outside operations: $2f(c - 1) - 3 = 21$ gives $2f(c - 1) = 24$, so $f(c - 1) = 12$.\nStep 2: The table shows that $f$ equals $12$ at $x = 4$, so $c - 1 = 4$.\nStep 3: Therefore $c = 5$. Check: $g(5) = 2f(4) - 3 = 2(12) - 3 = 21$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): computing $4 - 1$; the inside expression is $c - 1$, so $c$ is one more than $4$.\n* Choice C ($12$): reporting the count $f(4) = 12$ rather than the filter position the question asks for.\n* Choice D ($13$): adding the $1$ to the count $12$ instead of to the position $4$.\n\n**Test Day Takeaway:** Peel off the outside operations first; what remains is a value of the original function you can look up."
 }

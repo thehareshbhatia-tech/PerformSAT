@@ -1,24 +1,40 @@
 {
  "id": "bank-geo-096",
- "question": "In triangle $ABC$, the measure of angle $B$ is $24°$ greater than the measure of angle $A$, and angle $C$ measures $96°$. What is the measure of angle $A$?",
+ "question": "A quilter drafts the triangular block shown, whose three angle measures in degrees form an arithmetic sequence with a positive common difference $d$. What is the measure, in degrees, of the block's middle angle?",
+ "diagram": {
+  "type": "triangleWithAngles",
+  "params": {
+   "angleLabels": [
+    "x°",
+    "(x+d)°",
+    "(x+2d)°"
+   ],
+   "figureNote": true
+  }
+ },
  "choices": [
   {
    "id": "A",
-   "text": "$30°$"
+   "text": "$45$"
   },
   {
    "id": "B",
-   "text": "$42°$"
+   "text": "$60$"
   },
   {
    "id": "C",
-   "text": "$54°$"
+   "text": "$90$"
   },
   {
    "id": "D",
-   "text": "$84°$"
+   "text": "$120$"
   }
  ],
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Angles $A$ and $B$ share $180 - 96 = 84$ degrees, and they differ by $24$, so $a + (a + 24) = 84$ gives $a = 30$.\n\n**The Full Solution:**\nStep 1: Let angle $A$ measure $a$ degrees. Then angle $B$ measures $a + 24$ degrees.\nStep 2: The three angles sum to $180$: $a + (a + 24) + 96 = 180$.\nStep 3: Simplify to $2a + 120 = 180$, so $2a = 60$ and $a = 30$.\n\nCheck: the angles measure $30°$, $54°$, and $96°$, which sum to $180°$, and $54 - 30 = 24$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($42°$): splits the remaining $84°$ evenly between angles $A$ and $B$, ignoring the $24°$ difference.\n* Choice C ($54°$): reports angle $B$, which is $24°$ larger than the requested angle.\n* Choice D ($84°$): reports the combined measure of angles $A$ and $B$ rather than angle $A$ alone.\n\n**Test Day Takeaway:** Name one angle with a variable, write every other angle in terms of it, and let the $180°$ sum finish the work."
+ "distractorNotes": {
+  "A": "divides 180 by 4 rather than by the three angles present",
+  "C": "assumes the middle angle of such a block must be a right angle",
+  "D": "divides 360 by 3, using the sum of a quadrilateral's angles"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The three measures sum to $3x+3d=180$, so $x+d=60$, and $x+d$ is the middle angle.\n\n**The Full Solution:**\n\nStep 1 — Write the sum: $x+(x+d)+(x+2d)=3x+3d=180$.\n\nStep 2 — Divide by $3$: $x+d=60$.\n\nStep 3 — Because the three terms increase by $d$ each time, the middle term is $x+d$, so the middle angle measures $60$ degrees regardless of $d$. Check with $d=10$: the angles are $50$, $60$, and $70$, summing to $180$; with $d=25$ they are $15$, $60$, and $105$, also summing to $180$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($45$): this divides $180$ by $4$, counting a fourth angle that does not exist.\n* Choice C ($90$): this assumes the middle angle must be a right angle, which the arithmetic sequence never requires.\n* Choice D ($120$): this divides $360$, the angle sum of a quadrilateral, by $3$.\n\n**Test Day Takeaway:** In any three-term arithmetic sequence the middle term equals the average — here the average of the three angles is always $60$ degrees."
 }

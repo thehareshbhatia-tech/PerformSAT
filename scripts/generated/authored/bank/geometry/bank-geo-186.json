@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-186",
- "question": "In the $xy$-plane, a circle with center $(0, k)$ is tangent to both the line $y = \\frac{3}{4}x$ and the line $y = -\\frac{3}{4}x$. If the radius of the circle is $6$, what is the value of $|k|$?",
+ "question": "A sedimentation tank's rim is modeled by $x^2+y^2=36$ with units in meters, and an overflow channel lies along the line $y=\\frac{3}{4}x+b$, meeting the rim at exactly one point. If $b>0$, what is the value of $b$?",
  "choices": [
   {
    "id": "A",
-   "text": "$4.5$"
+   "text": "$3.6$"
   },
   {
    "id": "B",
-   "text": "$6$"
+   "text": "$4.8$"
   },
   {
    "id": "C",
-   "text": "$7.5$"
+   "text": "$6$"
   },
   {
    "id": "D",
-   "text": "$10$"
+   "text": "$7.5$"
   }
  ],
  "distractorNotes": {
-  "A": "multiplies 6 by 3/4 instead of 5/4",
-  "B": "reports the radius itself",
-  "D": "divides by 3 instead of by 4"
+  "A": "multiplies the radius by 3/5 instead of 5/4",
+  "B": "multiplies the radius by 4/5, the reciprocal of the correct factor 5/4",
+  "C": "reports the radius 6 as the intercept"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Write $y = \\frac{3}{4}x$ as $3x - 4y = 0$. The distance from $(0, k)$ to it is $\\frac{|-4k|}{5} = \\frac{4|k|}{5}$. Setting $\\frac{4|k|}{5} = 6$ gives $|k| = 7.5$.\n\n**The Full Solution:**\nStep 1: Clear the fraction: $y = \\frac{3}{4}x$ becomes $3x - 4y = 0$, and $y = -\\frac{3}{4}x$ becomes $3x + 4y = 0$. Both have $\\sqrt{3^2 + 4^2} = 5$ in the denominator.\nStep 2: The distance from $(0, k)$ to $3x - 4y = 0$ is $\\frac{|3(0) - 4k|}{5} = \\frac{4|k|}{5}$. By symmetry the distance to the other line is the same, so one equation handles both tangencies.\nStep 3: Tangency means that distance equals the radius: $\\frac{4|k|}{5} = 6$, so $|k| = \\frac{30}{4} = 7.5$.\n\nVerification: with $k = 7.5$, the distance is $\\frac{4(7.5)}{5} = 6$, exactly the radius. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.5$): scales the radius by $\\frac{3}{4}$, using the slope instead of the $\\frac{5}{4}$ that the distance formula produces.\n* Choice B ($6$): reports the radius, as if the center were one radius from the origin rather than from each line.\n* Choice D ($10$): divides by the coefficient $3$ instead of $4$, computing $6 \\cdot \\frac{5}{3}$.\n\n**Test Day Takeaway:** Convert a slope-intercept line to $Ax + By = 0$ before using the distance formula. With a center on an axis, one of the two terms in the numerator vanishes and the algebra is one step."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Write the line as $3x-4y+4b=0$; the distance from the origin is $\\frac{|4b|}{5}$, and setting it equal to the radius $6$ gives $b=7.5$.\n\n**The Full Solution:**\n\nStep 1 — The rim has center $(0,0)$ and radius $\\sqrt{36}=6$ meters. Clearing fractions in $y=\\frac{3}{4}x+b$ gives $3x-4y+4b=0$.\n\nStep 2 — Meeting at exactly one point means the distance from the center to the line equals the radius: $\\frac{|3(0)-4(0)+4b|}{\\sqrt{3^2+(-4)^2}}=\\frac{4b}{5}=6$.\n\nStep 3 — Solve: $4b=30$, so $b=7.5$ meters since $b>0$. Check: substituting $y=\\frac{3}{4}x+7.5$ into $x^2+y^2=36$ gives $\\frac{25}{16}x^2+\\frac{45}{4}x+20.25=0$, whose discriminant is $\\left(\\frac{45}{4}\\right)^2-4\\left(\\frac{25}{16}\\right)(20.25)=0$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($3.6$): this scales the radius by $\\frac{3}{5}$, reading the slope's numerator against the hypotenuse.\n* Choice B ($4.8$): this scales by $\\frac{4}{5}$, the reciprocal of the factor $\\frac{5}{4}$ the algebra produces.\n* Choice C ($6$): this reports the radius itself as the intercept.\n\n**Test Day Takeaway:** Clear the fraction from the slope first; the $3$-$4$-$5$ pattern in $\\sqrt{3^2+4^2}$ then makes the distance formula arithmetic trivial."
 }

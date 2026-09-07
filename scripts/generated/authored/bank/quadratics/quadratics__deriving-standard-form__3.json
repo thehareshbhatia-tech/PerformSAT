@@ -1,30 +1,30 @@
 {
   "id": 3,
-  "question": "In the $xy$-plane, a parabola has $x$-intercepts at $(-4, 0)$ and $(2, 0)$ and passes through the point $(0, -16)$. Which equation represents this parabola?",
+  "question": "A print studio models the net revenue, in hundreds of dollars, from an edition priced $x$ dollars above its base price by $R(x) = -2(x + 7)(x - 3)$. Which of the following is an equivalent form of $R(x)$?",
   "choices": [
     {
       "id": "A",
-      "text": "$y = x^2 + 2x - 8$"
+      "text": "$-2x^2 - 8x - 42$"
     },
     {
       "id": "B",
-      "text": "$y = 2x^2 + 4x - 16$"
+      "text": "$-2x^2 - 8x + 42$"
     },
     {
       "id": "C",
-      "text": "$y = 2x^2 - 4x - 16$"
+      "text": "$-2x^2 + 8x + 42$"
     },
     {
       "id": "D",
-      "text": "$y = -2x^2 - 4x + 16$"
+      "text": "$-2x^2 - 8x + 21$"
     }
   ],
   "distractorNotes": {
-    "A": "assumes a = 1",
-    "C": "reverses the intercept signs",
-    "D": "sign error solving for a"
+    "A": "multiplies -2 by -21 as -42 instead of +42, dropping the sign of the product of the constants",
+    "C": "expands (x + 7)(x - 3) as x^2 - 4x - 21, reversing the sign of the middle term",
+    "D": "leaves the constant term at 21, never multiplying it by the -2 outside"
   },
   "correctAnswer": "B",
-  "hint": "Start from the factored form with an unknown leading coefficient, then use the third point to pin it down.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~35s):** $y = a(x + 4)(x - 2)$ and $-16 = a(4)(-2)$ give $a = 2$, so $y = 2x^2 + 4x - 16$.\n\n**The Full Solution:**\nStep 1: Intercepts at $x = -4$ and $x = 2$ give the factors $(x + 4)$ and $(x - 2)$, so $y = a(x + 4)(x - 2)$ for some constant $a$.\nStep 2: Substitute the third point: $-16 = a(0 + 4)(0 - 2) = -8a$, so $a = 2$.\nStep 3: Expand: $y = 2(x^2 + 2x - 8) = 2x^2 + 4x - 16$. Check the intercepts: at $x = -4$, $y = 32 - 16 - 16 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: uses $a = 1$ and never checks the third point; its $y$-intercept is $-8$, not $-16$.\n* Choice C: builds the factors as $(x - 4)(x + 2)$, reversing which intercept is negative.\n* Choice D: solves $-8a = -16$ as $a = -2$, dropping a negative sign.\n\n**Test Day Takeaway:** Two intercepts fix the factors but not the whole equation — a third point is what determines the leading coefficient."
+  "hint": "Multiply the two binomials first, then hand the -2 to every term.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** $(x + 7)(x - 3) = x^2 + 4x - 21$, and multiplying by $-2$ gives $-2x^2 - 8x + 42$.\n\n**The Full Solution:**\nStep 1: Multiply the binomials. $(x + 7)(x - 3) = x^2 - 3x + 7x - 21 = x^2 + 4x - 21$.\nStep 2: Distribute the $-2$ to all three terms. $-2(x^2) = -2x^2$, $-2(4x) = -8x$, and $-2(-21) = +42$.\nStep 3: Check one value. At $x = 0$ the original gives $-2(7)(-3) = 42$, and the expanded form gives $42$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2x^2 - 8x - 42$): signs the constant as $-42$; two negatives, $-2$ and $-21$, multiply to a positive.\n* Choice C ($-2x^2 + 8x + 42$): expands the binomials to $x^2 - 4x - 21$, reversing the middle term. The $+7$ outweighs the $-3$.\n* Choice D ($-2x^2 - 8x + 21$): leaves $21$ untouched. Every term inside the parentheses gets the $-2$.\n\n**Test Day Takeaway:** Multiply the binomials completely, then distribute the outside factor to all three terms — the constant included."
 }

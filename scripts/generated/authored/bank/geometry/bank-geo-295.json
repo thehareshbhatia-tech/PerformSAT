@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-295",
- "question": "A right circular cylinder has a volume of $126\\pi$ cubic inches and a height of $14$ inches. What is the radius, in inches, of the cylinder?",
+ "question": "The stilling well of a tide gauge is a cylinder with an inside diameter of $24$ centimeters. When the water inside rises $15$ centimeters, by how many cubic centimeters does the volume of water increase?",
  "choices": [
   {
    "id": "A",
-   "text": "$3$"
+   "text": "$180\\pi$"
   },
   {
    "id": "B",
-   "text": "$6$"
+   "text": "$720\\pi$"
   },
   {
    "id": "C",
-   "text": "$9$"
+   "text": "$2160\\pi$"
   },
   {
    "id": "D",
-   "text": "$112$"
+   "text": "$8640\\pi$"
   }
  ],
+ "correctAnswer": "C",
  "distractorNotes": {
-  "B": "reports the diameter",
-  "C": "reports r squared",
-  "D": "subtracts instead of dividing"
+  "A": "multiplies the radius by the rise without squaring, 12 times 15",
+  "B": "applies the cone factor of one third, giving 144 times 15 divided by 3",
+  "D": "uses the 24-centimeter diameter as the radius, 576 times 15"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $\\pi r^2(14) = 126\\pi$ gives $r^2 = 9$, so $r = 3$ inches.\n\n**The Full Solution:**\nStep 1: Start from $V = \\pi r^2 h$: $\\pi r^2 (14) = 126\\pi$.\nStep 2: Divide both sides by $\\pi$ and then by $14$: $r^2 = \\frac{126}{14} = 9$.\nStep 3: $r = 3$ inches. Check: $\\pi(3)^2(14) = 126\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): solves correctly but reports the diameter.\n* Choice C ($9$): stops at $r^2$ without taking the square root.\n* Choice D ($112$): subtracts the height from the volume coefficient instead of dividing.\n\n**Test Day Takeaway:** Divide out $\\pi$ and $h$ first; what remains is $r^2$, and the square root is the last step, not the first."
+ "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The radius is $12$ centimeters, so a $15$-centimeter rise adds $\\pi(144)(15) = 2160\\pi$ cubic centimeters.\n\n**The Full Solution:**\nStep 1: The inside diameter is $24$ centimeters, so the radius is $r = 12$ centimeters.\nStep 2: The added water is a cylinder of the same radius whose height is the $15$-centimeter rise.\nStep 3: Its volume is $\\pi(12)^2(15) = \\pi(144)(15) = 2160\\pi$ cubic centimeters. Check: the cross-section is $144\\pi$ square centimeters, and $144\\pi \\times 15 = 2160\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($180\\pi$): multiplies the radius by the rise without squaring the radius.\n* Choice B ($720\\pi$): divides by $3$, applying the cone formula to a cylinder of water.\n* Choice D ($8640\\pi$): uses the diameter as the radius, quadrupling the cross-section.\n\n**Test Day Takeaway:** A rise in a cylinder adds a cylinder — same radius, height equal to the rise.",
+ "id": "bank-geo-295"
 }

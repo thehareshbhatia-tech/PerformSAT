@@ -1,24 +1,42 @@
 {
- "id": "bank-geo-105",
- "question": "In the $xy$-plane, a circle has center $(5, -2)$ and passes through the point $(-1, 6)$. Which of the following is an equation of the circle?",
+ "question": "The rim of a plaza fountain is modeled in the $xy$-plane by $(x - 5)^2 + (y + 9)^2 = 128$, with units in feet, and square planter $ABCD$ is inscribed in the rim as shown. What is the area, in square feet, of the planter?",
+ "diagram": {
+  "type": "circleWithSquare",
+  "params": {
+   "labels": {
+    "A": "A",
+    "B": "B",
+    "C": "C",
+    "D": "D",
+    "O": "O"
+   },
+   "showDiagonals": true
+  }
+ },
  "choices": [
   {
    "id": "A",
-   "text": "$(x - 5)^2 + (y + 2)^2 = 10$"
+   "text": "$64$"
   },
   {
    "id": "B",
-   "text": "$(x - 5)^2 + (y + 2)^2 = 100$"
+   "text": "$128$"
   },
   {
    "id": "C",
-   "text": "$(x + 5)^2 + (y - 2)^2 = 10$"
+   "text": "$256$"
   },
   {
    "id": "D",
-   "text": "$(x + 5)^2 + (y - 2)^2 = 100$"
+   "text": "$512$"
   }
  ],
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The radius squared is $(-1 - 5)^2 + (6 + 2)^2 = 36 + 64 = 100$, so the circle is $(x - 5)^2 + (y + 2)^2 = 100$.\n\n**The Full Solution:**\nStep 1: With center $(5, -2)$, the left side must be $(x - 5)^2 + (y + 2)^2$, because $y - (-2) = y + 2$.\nStep 2: The right side is $r^2$, and $r^2$ is the squared distance from the center to the given point: $(-1 - 5)^2 + (6 - (-2))^2 = (-6)^2 + 8^2 = 36 + 64 = 100$.\nStep 3: The equation is $(x - 5)^2 + (y + 2)^2 = 100$.\n\nCheck: substituting $(-1, 6)$ gives $36 + 64 = 100$, so the point does lie on this circle.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 5)^2 + (y + 2)^2 = 10$): uses the radius $10$ on the right side instead of $r^2 = 100$.\n* Choice C ($(x + 5)^2 + (y - 2)^2 = 10$): reverses the center's signs and leaves the radius unsquared.\n* Choice D ($(x + 5)^2 + (y - 2)^2 = 100$): squares the radius correctly but describes a circle centered at $(-5, 2)$.\n\n**Test Day Takeaway:** When only a point on the circle is given, the squared distance to the center IS the right-hand constant — there is no need to take a square root at all."
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "reports the planter's perimeter, 4 times 16, instead of its area",
+  "B": "uses the radius as the side length, giving r squared = 128",
+  "D": "uses the diameter as the side length, giving (2r) squared = 512"
+ },
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** A square inscribed in a circle has diagonal $2r$, so its area is $\\frac{(2r)^2}{2} = 2r^2 = 2(128) = 256$ square feet.\n\n**The Full Solution:**\nStep 1: The right side of standard form is $r^2$, so $r^2 = 128$ and $r = 8\\sqrt{2}$ feet.\nStep 2: The planter's diagonal is a diameter, $2r = 16\\sqrt{2}$ feet, so its side is $\\frac{16\\sqrt{2}}{\\sqrt{2}} = 16$ feet.\nStep 3: The area is $16^2 = 256$ square feet. Check: a $16$-foot square has diagonal $16\\sqrt{2} \\approx 22.6$ feet, and $2r = 2\\sqrt{128} \\approx 22.6$ feet ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($64$): computes the perimeter $4(16)$ and reports it as an area.\n* Choice B ($128$): uses the radius as the side of the square, so the area comes out as $r^2$.\n* Choice D ($512$): uses the diameter as the side, giving $(2r)^2 = 4r^2$ — that square would not fit inside the rim.\n\n**Test Day Takeaway:** For a square inscribed in a circle the diameter is the DIAGONAL, not the side; divide by $\\sqrt{2}$ before squaring.",
+ "id": "bank-geo-105"
 }

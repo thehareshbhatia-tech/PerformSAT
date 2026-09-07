@@ -1,24 +1,59 @@
 {
- "id": "bank-geo-065",
- "question": "In right triangle $MNP$, angle $P$ is a right angle. If $\\sin M = \\dfrac{11}{61}$, what is the value of $\\cos M$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$\\dfrac{11}{60}$"
+  "id": "bank-geo-065",
+  "question": "A base strut runs from a microwave-link mast to the roof deck, meeting the deck at the angle $A$ shown, where $\\tan A = \\frac{7}{24}$. At what height, in centimeters, does the strut meet the mast?",
+  "diagram": {
+    "type": "rightTriangle",
+    "params": {
+      "vertices": [
+        [
+          0,
+          0
+        ],
+        [
+          96,
+          0
+        ],
+        [
+          96,
+          28
+        ]
+      ],
+      "labels": [
+        "A",
+        "",
+        ""
+      ],
+      "sideLabels": [
+        "",
+        "",
+        "100 cm"
+      ],
+      "rightAngleVertex": 1
+    }
   },
-  {
-   "id": "B",
-   "text": "$\\dfrac{60}{61}$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7$"
+    },
+    {
+      "id": "B",
+      "text": "$28$"
+    },
+    {
+      "id": "C",
+      "text": "$96$"
+    },
+    {
+      "id": "D",
+      "text": "$100$"
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "reads the tangent's numerator as a length rather than scaling the 7-24-25 triple",
+    "C": "reports the horizontal distance from the mast to the anchor instead of the height",
+    "D": "reports the strut's own length, which is the hypotenuse"
   },
-  {
-   "id": "C",
-   "text": "$\\dfrac{61}{60}$"
-  },
-  {
-   "id": "D",
-   "text": "$\\dfrac{60}{11}$"
-  }
- ],
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\sin M = \\frac{11}{61}$ makes the opposite leg $11$ and the hypotenuse $61$; the missing leg is $60$ because $11$, $60$, $61$ is a Pythagorean triple. So $\\cos M = \\frac{60}{61}$.\n\n**The Full Solution:**\nStep 1: With the right angle at $P$, $\\overline{MN}$ is the hypotenuse. Take $NP = 11$ (opposite angle $M$) and $MN = 61$.\nStep 2: The adjacent leg is $MP = \\sqrt{61^2 - 11^2} = \\sqrt{3721 - 121} = \\sqrt{3600} = 60$.\nStep 3: $\\cos M = \\frac{MP}{MN} = \\frac{60}{61}$.\n\nCheck: $\\left(\\frac{11}{61}\\right)^2 + \\left(\\frac{60}{61}\\right)^2 = \\frac{121 + 3600}{3721} = 1$, as the Pythagorean identity requires.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{11}{60}$): divides the two legs, which gives $\\tan M$ rather than $\\cos M$.\n* Choice C ($\\frac{61}{60}$): inverts the correct ratio, giving $\\sec M$; a cosine of an acute angle is always less than $1$.\n* Choice D ($\\frac{60}{11}$): inverts the tangent, giving $\\cot M$.\n\n**Test Day Takeaway:** Read a given sine as two side lengths, recover the third side with the Pythagorean theorem, and every other ratio is then a division."
+  "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice B is correct.** $\\tan A = \\frac{7}{24}$ makes the sides $7k$, $24k$, $25k$; with $25k = 100$, $k = 4$ and the height is $7(4) = 28$ centimeters.\n\n**The Fast Way (~30s):** $7$-$24$-$25$ scaled by $4$ gives $28$-$96$-$100$, so the height is $28$.\n\n**The Full Solution:**\n\nStep 1: $\\tan A = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{7}{24}$, so the legs can be written $7k$ and $24k$ for some positive $k$.\n\nStep 2: The hypotenuse is $\\sqrt{(7k)^2 + (24k)^2} = 25k$, and the strut is the hypotenuse, so $25k = 100$ and $k = 4$.\n\nStep 3: The vertical leg, which is the height on the mast, is $7(4) = 28$ centimeters. Check: $28^2 + 96^2 = 784 + 9216 = 10000 = 100^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($7$): reads the tangent's numerator as an actual length.\n* Choice C ($96$): gives the horizontal distance from the mast to the anchor.\n* Choice D ($100$): reports the strut itself, the hypotenuse.\n\n**Test Day Takeaway:** A tangent value hands you the leg RATIO; find the scale factor from the hypotenuse before reporting any single side."
 }

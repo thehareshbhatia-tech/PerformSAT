@@ -1,30 +1,30 @@
 {
-  "id": 2,
-  "question": "The function $f$ is defined by $f(x)=5x-8$. Which expression is equivalent to $-f(x)$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-5x-8$"
-    },
-    {
-      "id": "B",
-      "text": "$-5x+8$"
-    },
-    {
-      "id": "C",
-      "text": "$5x-8$"
-    },
-    {
-      "id": "D",
-      "text": "$5x+8$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "negates only the leading term",
-    "C": "omits the negation entirely",
-    "D": "negates only the constant term"
+ "id": 2,
+ "question": "An apiary's hive scale reports the day's nectar gain, in grams, as $R(t)$ at $t$ hours after sunrise. After a second super is added, the scale reports $R(t) + 180$ instead. If $R(4) = 520$, what does the scale report four hours after sunrise with the second super in place?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$340$"
   },
-  "correctAnswer": "B",
-  "hint": "The negative sign multiplies the entire output, so every term feels it.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** $-f(x)=-(5x-8)=-5x+8$.\n\n**The Full Solution:**\nStep 1: $-f(x)$ means multiply the whole expression $5x-8$ by $-1$.\nStep 2: Distributing gives $-1(5x)+(-1)(-8)=-5x+8$.\nStep 3: Check at $x=2$: $f(2)=2$, so $-f(2)=-2$, and $-5(2)+8=-2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5x-8$): negates only the first term; the $-8$ must change sign as well.\n* Choice C ($5x-8$): leaves the expression untouched, as though $-f(x)$ meant $f(x)$.\n* Choice D ($5x+8$): negates only the constant term and leaves the $x$-term alone.\n\n**Test Day Takeaway:** A leading negative distributes over every term of the output — check the sign of each one."
+  {
+   "id": "B",
+   "text": "$520$"
+  },
+  {
+   "id": "C",
+   "text": "$700$"
+  },
+  {
+   "id": "D",
+   "text": "$880$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts 180 instead of adding it",
+  "B": "reports R(4) unchanged, ignoring the added super",
+  "D": "adds 180 twice"
+ },
+ "correctAnswer": "C",
+ "hint": "The added super changes the reading, not the hour it is taken.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~10s):** The rule adds $180$ grams to every reading, so the scale reports $520 + 180 = 700$ grams.\n\n**The Full Solution:**\nStep 1: The new reading at hour $t$ is $R(t) + 180$.\nStep 2: At $t = 4$ this is $R(4) + 180$.\nStep 3: Since $R(4) = 520$, the scale reports $520 + 180 = 700$ grams. Check: $700 - 180 = 520$, the original reading ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($340$): subtracting $180$ instead of adding it; a super adds mass to the hive.\n* Choice B ($520$): reporting the original reading and ignoring the added super.\n* Choice D ($880$): adding $180$ twice, once to $R(4)$ and once again to the result.\n\n**Test Day Takeaway:** A constant added outside the function changes every output by that constant and leaves the input alone."
 }

@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-004",
- "question": "A circular clock face has a diameter of $22$ inches. What is the circumference, in inches, of the clock face?",
+ "question": "A drill core barrel has an outer diameter of $d$ centimeters. Which expression gives the distance, in centimeters, around the outside of the barrel?",
  "choices": [
   {
    "id": "A",
-   "text": "$11\\pi$"
+   "text": "$\\frac{\\pi d}{2}$"
   },
   {
    "id": "B",
-   "text": "$22\\pi$"
+   "text": "$\\pi d$"
   },
   {
    "id": "C",
-   "text": "$44\\pi$"
+   "text": "$2\\pi d$"
   },
   {
    "id": "D",
-   "text": "$121\\pi$"
+   "text": "$\\pi d^2$"
   }
  ],
- "distractorNotes": {
-  "A": "uses the radius in place of the diameter",
-  "C": "treats the diameter as the radius in 2*pi*r",
-  "D": "computes the area instead of the circumference"
- },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Circumference from Diameter**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $C = \\pi d = \\pi(22) = 22\\pi$ inches.\n\n**The Full Solution:**\nStep 1: The circumference of a circle is $C = \\pi d$, where $d$ is the diameter.\nStep 2: The diameter is given directly as $22$ inches, so no conversion to a radius is needed.\nStep 3: $C = 22\\pi$ inches.\n\nVerification: the radius is $11$, and $C = 2\\pi r = 2\\pi(11) = 22\\pi$, the same value. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($11\\pi$): uses the radius $11$ in the formula $C = \\pi d$, halving the circumference.\n* Choice C ($44\\pi$): substitutes the diameter into $C = 2\\pi r$, doubling the circumference.\n* Choice D ($121\\pi$): computes the area $\\pi r^2 = \\pi(11)^2$, which is a square-unit quantity.\n\n**Test Day Takeaway:** $C = \\pi d$ and $C = 2\\pi r$ are the same formula. Read whether the problem hands you a diameter or a radius before substituting."
+ "distractorNotes": {
+  "A": "uses pi times the radius d/2, which is half the circumference",
+  "C": "substitutes the diameter into 2 pi r, doubling the circumference",
+  "D": "uses an area-style formula, squaring the diameter"
+ },
+ "explanation": "**SAT Pattern: Circumference from Diameter**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Circumference is $2\\pi r$, and $r = \\frac{d}{2}$, so $C = 2\\pi\\left(\\frac{d}{2}\\right) = \\pi d$.\n\n**The Full Solution:**\nStep 1: The distance around a circle is its circumference, $C = 2\\pi r$.\nStep 2: The barrel's radius is half its diameter: $r = \\frac{d}{2}$ centimeters.\nStep 3: Substitute: $C = 2\\pi \\cdot \\frac{d}{2} = \\pi d$ centimeters. Check: a barrel with $d = 10$ has $r = 5$ and $C = 2\\pi(5) = 10\\pi = \\pi d$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{\\pi d}{2}$): computes $\\pi r$, which is only half the way around.\n* Choice C ($2\\pi d$): plugs the diameter in where the radius belongs, doubling the true distance.\n* Choice D ($\\pi d^2$): squares the diameter, which produces an area, not a length.\n\n**Test Day Takeaway:** $C = 2\\pi r = \\pi d$ — when a problem hands you a diameter, the factor of $2$ is already spent.",
+ "id": "bank-geo-004"
 }

@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-039",
- "question": "A rectangular tabletop measures $56$ centimeters by $90$ centimeters. What is the length, in centimeters, of a diagonal of the tabletop?",
+ "question": "The four edges of a wall-mount network enclosure's rectangular door total $206$ centimeters, and its longer edge is $55$ centimeters. How long, in centimeters, is the door's diagonal?",
  "choices": [
   {
    "id": "A",
-   "text": "$34$"
+   "text": "$7$"
   },
   {
    "id": "B",
-   "text": "$73$"
+   "text": "$48$"
   },
   {
    "id": "C",
-   "text": "$106$"
+   "text": "$73$"
   },
   {
    "id": "D",
-   "text": "$146$"
+   "text": "$103$"
   }
  ],
- "distractorNotes": {
-  "A": "subtracts the side lengths",
-  "B": "averages the side lengths",
-  "D": "adds the side lengths"
- },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Rectangle Diagonal**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The diagonal is the hypotenuse: $\\sqrt{56^2 + 90^2} = \\sqrt{3136 + 8100} = \\sqrt{11236} = 106$ centimeters.\n\n**The Full Solution:**\nStep 1: A diagonal splits the rectangle into two right triangles whose legs are the two side lengths.\nStep 2: Apply the Pythagorean theorem: $d^2 = 56^2 + 90^2 = 3{,}136 + 8{,}100 = 11{,}236$.\nStep 3: $d = \\sqrt{11{,}236} = 106$ centimeters.\n\nVerification: $56$, $90$, $106$ is twice the $28$-$45$-$53$ triple, and $106^2 = 11{,}236$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($34$): subtracts $90 - 56$; the diagonal must be longer than either side.\n* Choice B ($73$): averages the two sides, which lands between them instead of beyond the longer one.\n* Choice D ($146$): adds $56 + 90$, the distance along two edges rather than the straight-line diagonal.\n\n**Test Day Takeaway:** A diagonal is always longer than the longest side and shorter than the sum of the two sides. That bracket kills most distractors on sight."
+ "distractorNotes": {
+  "A": "subtracts the two side lengths, 55 - 48, instead of combining their squares",
+  "B": "reports the shorter edge and stops before the diagonal",
+  "D": "adds the two side lengths, 55 + 48, instead of using the Pythagorean theorem"
+ },
+ "explanation": "**SAT Pattern: Rectangle Diagonal**\n\n**Choice C is correct.** The shorter edge is $\\frac{206 - 2(55)}{2} = 48$, so the diagonal is $\\sqrt{55^2 + 48^2} = \\sqrt{5329} = 73$ centimeters.\n\n**The Fast Way (~35s):** Half the perimeter is $103$, so the shorter edge is $103 - 55 = 48$; then $48$-$55$-$73$ gives the diagonal.\n\n**The Full Solution:**\n\nStep 1: A rectangle's perimeter is $2(\\ell + w)$, so $\\ell + w = \\frac{206}{2} = 103$ centimeters.\n\nStep 2: With $\\ell = 55$, the shorter edge is $w = 103 - 55 = 48$ centimeters.\n\nStep 3: The diagonal splits the rectangle into right triangles, so it measures $\\sqrt{55^2 + 48^2} = \\sqrt{3025 + 2304} = \\sqrt{5329} = 73$ centimeters. Check: $73^2 = 5329$, and $2(55 + 48) = 206$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($7$): subtracts the side lengths rather than combining their squares.\n* Choice B ($48$): finds the missing edge and stops there.\n* Choice D ($103$): adds the two edges, which is half the perimeter, not the diagonal.\n\n**Test Day Takeaway:** Halve the perimeter first — $\\ell + w$ is one subtraction away from the missing side, and only then does the Pythagorean step apply."
 }

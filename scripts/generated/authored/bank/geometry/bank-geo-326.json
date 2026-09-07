@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-326",
- "question": "In the right triangle shown, the legs have lengths $14$ and $48$. What is the area of the triangle?",
+ "question": "A load-cell shim is machined in the right-triangular shape shown, with the hypotenuse and one leg labeled in millimeters and the right angle at the vertex between the two legs. What is the area, in square millimeters, of one shim?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -10,46 +10,45 @@
      0
     ],
     [
-     48,
+     24,
      0
     ],
     [
-     48,
-     14
+     24,
+     7
     ]
    ],
    "sideLabels": [
-    "48",
-    "14",
-    ""
+    "",
+    "7",
+    "25"
    ],
-   "rightAngleVertex": 1,
-   "figureNote": true
+   "rightAngleVertex": 1
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$50$"
+   "text": "$63$"
   },
   {
    "id": "B",
-   "text": "$112$"
+   "text": "$84$"
   },
   {
    "id": "C",
-   "text": "$336$"
+   "text": "$87.5$"
   },
   {
    "id": "D",
-   "text": "$672$"
+   "text": "$168$"
   }
  ],
  "distractorNotes": {
-  "A": "gives the hypotenuse",
-  "B": "gives the perimeter",
-  "D": "omits the factor one half"
+  "A": "subtracts 25-7 = 18 for the missing leg instead of using the Pythagorean theorem, giving (1/2)(18)(7) = 63",
+  "C": "uses the hypotenuse 25 as the second leg: (1/2)(7)(25) = 87.5",
+  "D": "multiplies the legs 7 and 24 without halving"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** In a right triangle the legs are a base and height pair, so $A=\\frac{1}{2}(14)(48)=336$.\n\n**The Full Solution:**\nStep 1: The two legs meet at the right angle, so each is perpendicular to the other and they serve as base and height.\nStep 2: $A=\\frac{1}{2}bh=\\frac{1}{2}(14)(48)$.\nStep 3: $\\frac{1}{2}(48)=24$, and $14\\cdot 24=336$.\n\nCheck: $2(336)=672=14\\cdot 48$, the rectangle the triangle halves. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($50$): computed the hypotenuse, $\\sqrt{14^2+48^2}=50$, instead of the area.\n* Choice B ($112$): added all three sides, $14+48+50$, giving the perimeter.\n* Choice D ($672$): multiplied the legs without the factor $\\frac{1}{2}$.\n\n**Test Day Takeaway:** In a right triangle no extra work is needed to find a height: the two legs are already perpendicular, so they are the base and height."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The missing leg completes the $7$-$24$-$25$ triple, so the area is $\\frac{1}{2}(7)(24) = 84$.\n\n**The Full Solution:**\nStep 1: The right angle sits between the two legs, one of which measures $7$ millimeters; the side labeled $25$ is the hypotenuse.\nStep 2: By the Pythagorean theorem the other leg is $\\sqrt{25^2 - 7^2} = \\sqrt{625 - 49} = \\sqrt{576} = 24$ millimeters.\nStep 3: The legs are perpendicular, so the area is $\\frac{1}{2}(7)(24) = 84$ square millimeters.\n\nCheck: $7$-$24$-$25$ is a Pythagorean triple, and $7^2 + 24^2 = 49 + 576 = 625 = 25^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($63$): subtracts $25 - 7 = 18$ for the missing leg, then computes $\\frac{1}{2}(18)(7) = 63$; side lengths do not subtract that way.\n* Choice C ($87.5$): uses the hypotenuse $25$ as if it were the second leg, giving $\\frac{1}{2}(7)(25)$.\n* Choice D ($168$): finds both legs correctly but multiplies them without the factor $\\frac{1}{2}$.\n\n**Test Day Takeaway:** Only the two legs form the base-height pair; the hypotenuse never plays that role."
 }

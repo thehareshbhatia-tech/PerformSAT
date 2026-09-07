@@ -1,13 +1,15 @@
 {
  "id": "bank-geo-228",
- "question": "The circle shown has a radius of $15$ centimeters. An arc of this circle is intercepted by a central angle measuring $24°$. What is the length, in centimeters, of that arc?",
+ "question": "Seats in a lecture hall's first row are set along arc $AB$ of the circle drawn below. Lengths are given in feet. How long is that row of seats?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
-   "centralAngle": 24,
-   "angleLabel": "24°",
-   "radius": 15,
+   "centralAngle": 45,
+   "angleLabel": "45°",
+   "radius": 24,
    "labelCenter": "O",
+   "labelPoint1": "A",
+   "labelPoint2": "B",
    "showRadiusLabel": true,
    "figureNote": true
   }
@@ -15,26 +17,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$\\pi$"
+   "text": "$6\\pi$"
   },
   {
    "id": "B",
-   "text": "$2\\pi$"
+   "text": "$12\\pi$"
   },
   {
    "id": "C",
-   "text": "$4\\pi$"
+   "text": "$48\\pi$"
   },
   {
    "id": "D",
-   "text": "$30\\pi$"
+   "text": "$72\\pi$"
   }
  ],
  "distractorNotes": {
-  "A": "uses pi r instead of 2 pi r",
-  "C": "uses the diameter as the radius",
-  "D": "gives the full circumference"
+  "B": "divides the central angle by 180 instead of 360, doubling the arc to 12 pi",
+  "C": "gives the full circumference 2 pi (24) = 48 pi",
+  "D": "computes the sector's area, (1/8) pi (24 squared) = 72 pi"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $\\frac{24}{360} = \\frac{1}{15}$, and the circumference is $2\\pi(15) = 30\\pi$, so the arc is $\\frac{30\\pi}{15} = 2\\pi$ centimeters.\n\n**The Full Solution:**\nStep 1: Arc length $= \\frac{\\theta}{360°} \\cdot 2\\pi r$.\nStep 2: Reduce the fraction of the circle: $\\frac{24}{360} = \\frac{1}{15}$.\nStep 3: Multiply by the circumference $2\\pi(15) = 30\\pi$: arc $= \\frac{1}{15}(30\\pi) = 2\\pi$ centimeters.\n\nVerification: fifteen $24°$ angles make $360°$, and $15(2\\pi) = 30\\pi$, the full circumference. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\pi$): uses $\\pi r$ rather than $2\\pi r$, halving the circumference.\n* Choice C ($4\\pi$): substitutes the diameter $30$ for the radius, computing $\\frac{1}{15} \\cdot 2\\pi(30)$.\n* Choice D ($30\\pi$): gives the whole circumference, ignoring the central angle.\n\n**Test Day Takeaway:** Reduce $\\frac{\\theta}{360}$ before multiplying. Here $\\frac{1}{15}$ makes the arithmetic a single division."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** A $45°$ arc is $\\frac{1}{8}$ of the circle, and $\\frac{1}{8}(48\\pi)=6\\pi$ feet.\n\n**The Full Solution:**\n\nStep 1: Compute the circumference. $C=2\\pi(24)=48\\pi$ feet.\n\nStep 2: Convert the angle to a fraction. $\\frac{45}{360}=\\frac{1}{8}$ of the full turn.\n\nStep 3: Multiply. Arc $AB=\\frac{1}{8}(48\\pi)=6\\pi$ feet, about $18.8$ feet.\n\nCheck: eight congruent $45°$ arcs would rebuild the whole circle, and $8(6\\pi)=48\\pi$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($12\\pi$): divides the central angle by $180$ instead of $360$, doubling the arc.\n* Choice C ($48\\pi$): reports the full circumference rather than the $45°$ piece of it.\n* Choice D ($72\\pi$): computes the sector's area, $\\frac{1}{8}\\pi(24)^{2}$, instead of the arc length.\n\n**Test Day Takeaway:** Always convert the central angle to a fraction of $360°$ — that fraction is what multiplies the circumference."
 }

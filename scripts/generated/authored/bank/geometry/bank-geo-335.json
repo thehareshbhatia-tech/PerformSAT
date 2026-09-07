@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-335",
- "question": "In a right triangle, the side lengths are $20$, $21$, and $29$. If $\\theta$ is the acute angle opposite the side of length $20$, what is the value of $\\sin\\theta$?",
+ "question": "A copper heat-sink fin is stamped in the profile drawn here, with all three edge lengths given in millimeters and the right angle at vertex $B$. What is the value of $\\cos A$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -19,17 +19,16 @@
     ]
    ],
    "labels": [
-    "θ",
-    "",
-    ""
+    "A",
+    "B",
+    "C"
    ],
    "sideLabels": [
     "21",
     "20",
     "29"
    ],
-   "rightAngleVertex": 1,
-   "figureNote": true
+   "rightAngleVertex": 1
   }
  },
  "choices": [
@@ -47,14 +46,14 @@
   },
   {
    "id": "D",
-   "text": "$\\frac{29}{20}$"
+   "text": "$\\frac{29}{21}$"
   }
  ],
  "distractorNotes": {
-  "B": "uses the other leg as the opposite side",
-  "C": "divides by the other leg",
-  "D": "inverts the ratio"
+  "A": "reports sin A = 20/29, opposite over hypotenuse",
+  "C": "reports tan A = 20/21, opposite over adjacent",
+  "D": "inverts cos A, giving hypotenuse over adjacent"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The hypotenuse is the longest side, $29$, and the side opposite $\\theta$ is $20$, so $\\sin\\theta=\\frac{20}{29}$.\n\n**The Full Solution:**\nStep 1: In a right triangle the hypotenuse is the longest side, so here it is $29$ and the legs are $20$ and $21$.\nStep 2: Sine is opposite over hypotenuse. The side opposite $\\theta$ is given as $20$.\nStep 3: $\\sin\\theta=\\frac{20}{29}$.\n\nCheck: $20^2+21^2=400+441=841=29^2$, confirming the triangle. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{21}{29}$): used the other leg as the opposite side, which is the sine of the other acute angle.\n* Choice C ($\\frac{20}{21}$): divided by the other leg instead of the hypotenuse, giving $\\tan\\theta$.\n* Choice D ($\\frac{29}{20}$): inverted the ratio; a sine can never exceed $1$.\n\n**Test Day Takeaway:** Identify the hypotenuse as the longest side before writing any ratio. Sine and cosine both put the hypotenuse in the denominator."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The leg beside angle $A$ is $21$ and the hypotenuse is $29$, so $\\cos A = \\frac{21}{29}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $B$, so the side opposite it, $\\overline{CA} = 29$, is the hypotenuse.\nStep 2: Angle $A$ lies between $\\overline{AB} = 21$ and the hypotenuse, so $21$ is the adjacent leg and $20$ is the opposite leg.\nStep 3: $\\cos A = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{21}{29}$.\n\nCheck: $20^2 + 21^2 = 400 + 441 = 841 = 29^2$, so $20$-$21$-$29$ is a Pythagorean triple. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{20}{29}$): uses the opposite leg over the hypotenuse, which is $\\sin A$.\n* Choice C ($\\frac{20}{21}$): divides the two legs, which is $\\tan A$.\n* Choice D ($\\frac{29}{21}$): inverts the ratio; a cosine is never greater than $1$.\n\n**Test Day Takeaway:** Find the hypotenuse first by locating the right angle, then read adjacent and opposite from the angle named."
 }

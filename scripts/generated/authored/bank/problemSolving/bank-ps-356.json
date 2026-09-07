@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-356",
-  "question": "The data set $\\{x_1,\\ x_2,\\ \\ldots,\\ x_n\\}$ has mean $\\bar{x}$ and standard deviation $s$, where $s > 0$. A new data set is created by $y_i = 3x_i + 2$ for each $i$ from $1$ to $n$. Which of the following expressions gives the variance of the new data set?",
+  "question": "A dance competition published $28$ adjusted scores, each obtained from a judge's raw score $v$ by computing $4v - 7$. The published scores have a mean of $61$ and a standard deviation of $12$. What is the standard deviation of the $28$ raw scores?",
   "choices": [
     {
       "id": "A",
-      "text": "$3s^{2}$"
+      "text": "$3$"
     },
     {
       "id": "B",
-      "text": "$9s$"
+      "text": "$4.75$"
     },
     {
       "id": "C",
-      "text": "$9s^{2}$"
+      "text": "$12$"
     },
     {
       "id": "D",
-      "text": "$9s^{2} + 2$"
+      "text": "$19$"
     }
   ],
   "distractorNotes": {
-    "A": "scales the variance by $3$ rather than by $3^2$, applying the standard-deviation factor to the variance.",
-    "B": "scales the standard deviation by $9$ but never squares it, so it reports a standard deviation, not a variance.",
-    "D": "adds the shift $2$ to the variance, though adding a constant to every value leaves all spread measures unchanged."
+    "B": "undoes the -7 on the spread as well: (12 + 7) / 4 = 4.75",
+    "C": "leaves the published standard deviation unchanged, ignoring the multiplier 4",
+    "D": "adds 7 back to the standard deviation: 12 + 7 = 19, treating the shift as affecting spread"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The multiplier $3$ scales the standard deviation to $3s$, and variance is the square of the standard deviation: $(3s)^2 = 9s^2$.\n\n**The Full Solution:**\nStep 1: Adding $2$ to every value shifts the data and the mean equally, so every distance from the mean is unchanged and the shift cannot affect the variance.\nStep 2: Multiplying every value by $3$ multiplies every distance from the mean by $3$, so the standard deviation of the new data set is $|3| \\cdot s = 3s$.\nStep 3: Variance is the square of the standard deviation, so the new variance is $(3s)^2 = 9s^2$. Check: the original variance is $s^2$, and the new one is $9$ times as large, matching the factor $3^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: scales the variance by $3$ rather than by $3^2$, applying the standard-deviation factor to the variance.\n* Choice B: scales the standard deviation by $9$ but never squares it, so it reports a standard deviation, not a variance.\n* Choice D: adds the shift $2$ to the variance, though adding a constant to every value leaves all spread measures unchanged.\n\n**Test Day Takeaway:** Standard deviation scales by $|a|$; variance, being the square, scales by $a^2$. The constant term $b$ never appears in either."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Only the factor $4$ changes the spread, so the raw standard deviation is $\\frac{12}{4} = 3$.\n\n**The Full Solution:**\nStep 1: Separate the two operations. Publishing computes $4v - 7$: the factor $4$ stretches the data, and subtracting $7$ slides it.\nStep 2: Apply the spread rule. Subtracting $7$ from every value leaves the standard deviation alone, so the published standard deviation is $4$ times the raw one: $4\\sigma = 12$.\nStep 3: Solve and check. $\\sigma = \\frac{12}{4} = 3$. Raw scores $3$ apart become published scores $12$ apart, matching the reported spread. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4.75$): computes $\\frac{12 + 7}{4}$, undoing the $-7$ on the spread as well. Shifts do not touch spread.\n* Choice C ($12$): reports the published standard deviation unchanged, ignoring the factor $4$.\n* Choice D ($19$): adds the $7$ back to the spread: $12 + 7 = 19$. That reverses a shift that never affected the spread.\n\n**Test Day Takeaway:** When reversing $y = av + b$ for a SPREAD, divide by $|a|$ and ignore $b$ entirely. The mean is the only statistic the $b$ touches."
 }

@@ -1,30 +1,30 @@
 {
-  "id": 4,
-  "question": "The function $w$ is defined by $w(x)=|x|$. Which of the following describes the graph of $y=5w(x)$ compared with the graph of $y=w(x)$ in the $xy$-plane?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "A horizontal compression by a factor of $5$"
-    },
-    {
-      "id": "B",
-      "text": "A horizontal stretch by a factor of $5$"
-    },
-    {
-      "id": "C",
-      "text": "A vertical compression by a factor of $\\frac{1}{5}$"
-    },
-    {
-      "id": "D",
-      "text": "A vertical stretch by a factor of $5$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "attaches the multiplier to the input",
-    "B": "attaches the multiplier to the input and inverts it",
-    "C": "reverses stretch and compression"
+ "id": 4,
+ "question": "A creamery logs the acidity, in degrees, of vat one as $v(t)$ at hour $t$ and of vat two, filled later, as $w(t) = v(t - 5) - 7$. Vat one reads $26$ degrees only at hour $12$, and $w(a) = 19$. What is the value of $a$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$7$"
   },
-  "correctAnswer": "D",
-  "hint": "Multiplying outside the function changes one coordinate of every point — decide which one.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** The factor $5$ multiplies the output, so every height is $5$ times as large: a vertical stretch by $5$.\n\n**The Full Solution:**\nStep 1: $5w(x)=5|x|$ takes the value of $w$ at an input and multiplies it by $5$; the input itself is untouched.\nStep 2: A point $(a,b)$ on $y=w(x)$ becomes $(a,5b)$, so the graph is pulled away from the $x$-axis.\nStep 3: Check: $w(3)=3$ while $5w(3)=15$, so $(3,3)$ becomes $(3,15)$ — five times as high at the same $x$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (horizontal compression by $5$): that comes from $w(5x)$, a factor attached to the input, not to the output.\n* Choice B (horizontal stretch by $5$): that would be $w\\!\\left(\\frac{x}{5}\\right)$; no horizontal change occurs when the multiplier is outside.\n* Choice C (vertical compression by $\\frac{1}{5}$): the direction of the scaling is reversed; a factor greater than $1$ outside stretches vertically.\n\n**Test Day Takeaway:** A multiplier outside the function scales $y$; a multiplier inside scales $x$ by the reciprocal."
+  {
+   "id": "B",
+   "text": "$12$"
+  },
+  {
+   "id": "C",
+   "text": "$17$"
+  },
+  {
+   "id": "D",
+   "text": "$26$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "shifts the wrong way, computing 12 - 5 = 7",
+  "B": "reports vat one's hour rather than vat two's",
+  "D": "reports vat one's acidity reading instead of an hour"
+ },
+ "correctAnswer": "C",
+ "hint": "The only acidity reading you are handed belongs to vat one.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $w(a) = 19$ forces $v(a - 5) = 26$, and $v$ reads $26$ at hour $12$, so $a - 5 = 12$ and $a = 17$.\n\n**The Full Solution:**\nStep 1: Undo the outside operation: $w(a) = v(a - 5) - 7 = 19$, so $v(a - 5) = 26$.\nStep 2: Vat one reads $26$ degrees only at hour $12$, so $a - 5 = 12$.\nStep 3: Therefore $a = 17$. Check: $w(17) = v(17 - 5) - 7 = v(12) - 7 = 26 - 7 = 19$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): computing $12 - 5$; the shift must be undone in the other direction, since the input to $v$ is $a - 5$.\n* Choice B ($12$): reporting the hour at which vat one reads $26$ degrees rather than the hour asked about for vat two.\n* Choice D ($26$): reporting an acidity reading where the question asks for an hour.\n\n**Test Day Takeaway:** Strip the outside operation first, then match the inside expression to the input you were given."
 }

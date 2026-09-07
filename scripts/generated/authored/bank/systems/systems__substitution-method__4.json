@@ -1,30 +1,30 @@
 {
-  "id": 4,
-  "question": "A system of two linear equations consists of $y = 5x - 9$ and $y = 2x + 6$. Which ordered pair $(x, y)$ is the solution to this system?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$(-1, 4)$"
-    },
-    {
-      "id": "B",
-      "text": "$(5, 16)$"
-    },
-    {
-      "id": "C",
-      "text": "$(5, 19)$"
-    },
-    {
-      "id": "D",
-      "text": "$(16, 5)$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "changes the sign of the $-9$ when substituting, solving $5x + 9 = 2x + 6$ to get $x = -1$.",
-    "C": "finds $x = 5$ correctly but evaluates $2x + 9$, mixing the constants from the two equations.",
-    "D": "finds the solution but reports the coordinates in the wrong order."
+ "id": 4,
+ "question": "A harbor ferry made $x$ weekday crossings and $y$ weekend crossings last month. Its logs give $y = 4x + 6$ and $3x + y = 48$. If the ferry made $30$ weekend crossings, how many weekday crossings did it make?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$6$"
   },
-  "correctAnswer": "B",
-  "hint": "Both equations already give $y$, so set the two expressions equal to each other.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~35s):** Setting $5x - 9 = 2x + 6$ gives $3x = 15$, so $x = 5$ and $y = 2(5) + 6 = 16$.\n\n**The Full Solution:**\nStep 1: Since both equations give $y$, substitute one expression for the other: $5x - 9 = 2x + 6$.\nStep 2: Subtract $2x$ from both sides and add $9$ to both sides: $3x = 15$, so $x = 5$.\nStep 3: Substitute into either equation: $y = 2(5) + 6 = 16$, so the solution is $(5, 16)$. Check: $5(5) - 9 = 16$ as well. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-1, 4)$): changes the sign of the $-9$ when substituting, solving $5x + 9 = 2x + 6$ to get $x = -1$.\n* Choice C ($(5, 19)$): finds $x = 5$ correctly but evaluates $2x + 9$, mixing the constants from the two equations.\n* Choice D ($(16, 5)$): finds the solution but reports the coordinates in the wrong order.\n\n**Test Day Takeaway:** When both equations are solved for the same variable, set the expressions equal. Then substitute back and write the ordered pair as $(x, y)$."
+  {
+   "id": "B",
+   "text": "$9$"
+  },
+  {
+   "id": "C",
+   "text": "$16$"
+  },
+  {
+   "id": "D",
+   "text": "$18$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "solves 30 = 4x + 6 as 4x = 36, adding 6 instead of subtracting",
+  "C": "divides 48 by 3 without removing the 30 weekend crossings",
+  "D": "subtracts 30 from 48 but never divides by 3"
+ },
+ "correctAnswer": "A",
+ "hint": "Not every equation the logs give is needed.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** Putting $y = 30$ into $3x + y = 48$ leaves $3x = 18$, so $x = 6$.\n\n**The Full Solution:**\nStep 1: Substitute the known weekend count into the equation that still contains both variables: $3x + 30 = 48$.\nStep 2: Subtract $30$ from both sides: $3x = 18$, so $x = 6$.\nStep 3: Confirm with the other log: $4(6) + 6 = 30$ weekend crossings ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($9$): solving $30 = 4x + 6$ as $4x = 36$, adding the $6$ instead of subtracting it.\n* Choice C ($16$): dividing $48$ by $3$ without first removing the $30$ weekend crossings.\n* Choice D ($18$): stopping at $3x = 18$ and reporting $18$ instead of dividing by $3$.\n\n**Test Day Takeaway:** When one value is handed to you, substitute it into whichever equation is left with a single unknown."
 }

@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-298",
- "question": "A right circular cylinder has radius $r$ and height $h$. A second right circular cylinder has radius $\\dfrac{r}{2}$ and height $3h$. What is the ratio of the volume of the second cylinder to the volume of the first cylinder?",
+ "question": "A subway ventilation shaft is a cylinder $40$ meters deep with a radius of $3$ meters, and a concrete lining $0.5$ meter thick is poured against the shaft wall for the full depth. What is the volume, in cubic meters, of the lining?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\dfrac{1}{4}$"
+   "text": "$10\\pi$"
   },
   {
    "id": "B",
-   "text": "$\\dfrac{3}{4}$"
+   "text": "$110\\pi$"
   },
   {
    "id": "C",
-   "text": "$\\dfrac{3}{2}$"
+   "text": "$120\\pi$"
   },
   {
    "id": "D",
-   "text": "$3$"
+   "text": "$360\\pi$"
   }
  ],
- "distractorNotes": {
-  "A": "ignores the tripled height",
-  "C": "scales the radius linearly",
-  "D": "ignores the halved radius"
- },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Halving the radius scales the volume by $\\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4}$; tripling the height scales it by $3$. Together: $\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: The first volume is $V_1 = \\pi r^2 h$.\nStep 2: The second is $V_2 = \\pi\\left(\\frac{r}{2}\\right)^2(3h) = \\pi \\cdot \\frac{r^2}{4} \\cdot 3h = \\frac{3\\pi r^2 h}{4}$.\nStep 3: The ratio is $\\frac{V_2}{V_1} = \\frac{3\\pi r^2 h / 4}{\\pi r^2 h} = \\frac{3}{4}$. Check with $r = 2$ and $h = 1$: $V_1 = 4\\pi$ and $V_2 = \\pi(1)^2(3) = 3\\pi$, a ratio of $\\frac{3}{4}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{4}$): applies the radius scaling but ignores the tripled height.\n* Choice C ($\\frac{3}{2}$): scales the radius linearly by $\\frac{1}{2}$ instead of squaring it.\n* Choice D ($3$): applies only the height change, leaving the radius untouched.\n\n**Test Day Takeaway:** In $V = \\pi r^2 h$, a radius change is squared and a height change is not. Track the two factors separately, then multiply."
+ "distractorNotes": {
+  "A": "squares the thickness, computing pi times 0.5 squared times 40",
+  "C": "multiplies the curved surface 2 pi r h by the thickness",
+  "D": "reports the volume of the entire shaft, pi times 9 times 40"
+ },
+ "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The lining is the difference of two cylinders: $\\pi(3^2 - 2.5^2)(40) = \\pi(2.75)(40) = 110\\pi$ cubic meters.\n\n**The Full Solution:**\nStep 1: The shaft wall has radius $3$ meters, and a $0.5$-meter lining poured against it leaves an open radius of $3 - 0.5 = 2.5$ meters.\nStep 2: The lining is the region between the two circles, with cross-sectional area $\\pi(3^2) - \\pi(2.5^2) = \\pi(9 - 6.25) = 2.75\\pi$ square meters.\nStep 3: Multiply by the $40$-meter depth: $2.75\\pi(40) = 110\\pi$ cubic meters. Check: the lining must be less than the whole shaft's $360\\pi$, and $110\\pi$ is ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10\\pi$): squares the thickness itself, as if the lining were a $0.5$-meter-radius cylinder.\n* Choice C ($120\\pi$): multiplies the shaft's curved surface by the thickness, which overstates the ring because the inner circle is smaller.\n* Choice D ($360\\pi$): gives the entire shaft's volume and ignores the open space inside the lining.\n\n**Test Day Takeaway:** A lining or pipe wall is a difference of squares of radii — subtract the areas first, then multiply by the length.",
+ "id": "bank-geo-298"
 }

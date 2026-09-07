@@ -1,24 +1,29 @@
 {
  "id": "bank-geo-076",
- "question": "A circle in the $xy$-plane is defined by $x^2 + y^2 + 12x - 16y + 36 = 0$. Point $P$ lies on this circle. What is the greatest possible distance from $P$ to the origin?",
+ "question": "A water utility's pressure zone is bounded by $x^{2}+y^{2}+12x-16y+75=0$, with coordinates in kilometers. What is the greatest distance, in kilometers, from the origin to a point on that boundary?",
  "choices": [
   {
    "id": "A",
-   "text": "$2$"
+   "text": "$5$"
   },
   {
    "id": "B",
-   "text": "$8$"
-  },
-  {
-   "id": "C",
    "text": "$10$"
   },
   {
+   "id": "C",
+   "text": "$15$"
+  },
+  {
    "id": "D",
-   "text": "$18$"
+   "text": "$20$"
   }
  ],
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~60s):** The circle is centered at $(-6, 8)$ with radius $8$. The origin is $10$ units from that center, so the farthest point of the circle is $10 + 8 = 18$ units away.\n\n**The Full Solution:**\nStep 1: Complete the squares: $(x^2 + 12x + 36) + (y^2 - 16y + 64) = -36 + 36 + 64$, so $(x + 6)^2 + (y - 8)^2 = 64$. The center is $(-6, 8)$ and the radius is $8$.\nStep 2: The distance from the origin to the center is $\\sqrt{(-6)^2 + 8^2} = \\sqrt{100} = 10$.\nStep 3: Distances from the origin to points of the circle range from $10 - 8 = 2$ to $10 + 8 = 18$, so the greatest is $18$.\n\nCheck: the origin is outside the circle because $10 > 8$, so both endpoints of that range are positive, as they must be.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): subtracts the radius instead of adding it, which gives the least distance, not the greatest.\n* Choice B ($8$): reports the radius of the circle.\n* Choice C ($10$): stops at the distance from the origin to the center and never accounts for the radius.\n\n**Test Day Takeaway:** For distances from an outside point to a circle, the extremes lie on the line through that point and the center: center distance minus radius, and center distance plus radius."
+ "distractorNotes": {
+  "A": "reports the radius, 5, instead of a distance from the origin",
+  "B": "reports the distance from the origin to the center, 10",
+  "D": "adds the diameter 10 to the center distance instead of the radius"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~65s):** The center is $(-6,8)$, which is $10$ from the origin, and the radius is $5$, so the farthest point is $10+5=15$ kilometers away.\n\n**The Full Solution:**\n\nStep 1: Complete the square. $(x+6)^{2}+(y-8)^{2}=36+64-75=25$, so the center is $(-6,8)$ and $r=5$ kilometers.\n\nStep 2: Measure the center from the origin. $\\sqrt{(-6)^{2}+8^{2}}=\\sqrt{100}=10$ kilometers.\n\nStep 3: Push out along that line. The farthest boundary point lies on the ray from the origin through the center, one radius beyond it: $10+5=15$ kilometers.\n\nCheck: the nearest boundary point is $10-5=5$ kilometers away, and the two distances average to $10$, the center's distance, as they must.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($5$): reports the radius instead of a distance measured from the origin.\n* Choice B ($10$): reports the distance from the origin to the center, stopping before the boundary.\n* Choice D ($20$): adds the diameter $10$ rather than the radius $5$ to the center distance.\n\n**Test Day Takeaway:** For an external point, the farthest point of a circle is center-distance plus radius and the nearest is center-distance minus radius."
 }

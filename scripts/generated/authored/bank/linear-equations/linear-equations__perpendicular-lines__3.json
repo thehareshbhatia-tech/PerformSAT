@@ -1,25 +1,30 @@
 {
   "id": 3,
-  "question": "In the $xy$-plane, line $w$ passes through the point $(10, 3)$ and is perpendicular to the graph of $y = -\\frac{5}{2}x + 1$. Which equation represents line $w$?",
+  "question": "Every line perpendicular to a conduit run has slope $-\\frac{3}{7}$, and the run itself contains the point $(21, 5)$ on a plan marked in feet. Which of the following is an equation of the conduit run?",
   "choices": [
     {
       "id": "A",
-      "text": "$y = -\\frac{5}{2}x + 28$"
+      "text": "$y = -\\frac{7}{3}x + 54$"
     },
     {
       "id": "B",
-      "text": "$y = -\\frac{2}{5}x + 7$"
+      "text": "$y = -\\frac{3}{7}x + 14$"
     },
     {
       "id": "C",
-      "text": "$y = \\frac{2}{5}x - 1$"
+      "text": "$y = \\frac{3}{7}x - 4$"
     },
     {
       "id": "D",
-      "text": "$y = \\frac{5}{2}x - 22$"
+      "text": "$y = \\frac{7}{3}x - 44$"
     }
   ],
-  "correctAnswer": "C",
-  "hint": "Settle the slope completely before the point comes into play — a wrong slope produces a wrong constant as well.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** The perpendicular slope is $\\frac{2}{5}$, and $3 = \\frac{2}{5}(10)+b$ gives $b = -1$ — choice C.\n\n**The Full Solution:**\nStep 1: The given line has slope $-\\frac{5}{2}$, so line $w$ has slope $\\frac{2}{5}$, its negative reciprocal.\nStep 2: Substitute $(10, 3)$ into $y = \\frac{2}{5}x + b$: $3 = 4 + b$, so $b = -1$.\nStep 3: The equation is $y = \\frac{2}{5}x - 1$. Check both conditions: $\\frac{2}{5}(10)-1 = 3$, and $-\\frac{5}{2}\\left(\\frac{2}{5}\\right) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{5}{2}x + 28$): keeps the slope of the given line, producing the parallel line through the point instead of the perpendicular one.\n* Choice B ($y = -\\frac{2}{5}x + 7$): flips the fraction but keeps the negative sign; anchoring $-\\frac{2}{5}$ at $(10, 3)$ then gives $b = 7$.\n* Choice D ($y = \\frac{5}{2}x - 22$): changes the sign without flipping; anchoring $\\frac{5}{2}$ at $(10, 3)$ then gives $b = -22$.\n\n**Test Day Takeaway:** Each wrong version of the slope carries its own constant, so all four choices look like real work. Check the finished line against both requirements: it contains the point and its slope times the original is $-1$."
+  "distractorNotes": {
+    "A": "inverts the given slope but negates it a second time, giving -7/3",
+    "B": "reuses the given perpendicular slope for the run itself",
+    "C": "negates the given slope without inverting it, giving 3/7"
+  },
+  "correctAnswer": "D",
+  "hint": "Work backward from the perpendicular slope to the run's own slope.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~45s):** The run's slope is the negative reciprocal of $-\\frac{3}{7}$, namely $\\frac{7}{3}$, and $5 = \\frac{7}{3}(21) + b$ gives $b = -44$.\n\n**The Full Solution:**\nStep 1: If a perpendicular line has slope $-\\frac{3}{7}$, the conduit run's slope is the negative reciprocal: flip to $-\\frac{7}{3}$ and change the sign, giving $\\frac{7}{3}$.\nStep 2: Write $y = \\frac{7}{3}x + b$ and substitute $(21,\\ 5)$: $5 = \\frac{7}{3}(21) + b = 49 + b$.\nStep 3: Solving gives $b = -44$, so the run is $y = \\frac{7}{3}x - 44$.\n\nCheck: $\\frac{7}{3} \\times \\left(-\\frac{3}{7}\\right) = -1$, and at $x = 21$ the equation gives $49 - 44 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (slope $-\\frac{7}{3}$): inverts the given slope but negates it a second time, so it is perpendicular to the wrong line.\n* Choice B (slope $-\\frac{3}{7}$): reuses the perpendicular slope for the run itself.\n* Choice C (slope $\\frac{3}{7}$): keeps the given fraction and only changes its sign, skipping the inversion.\n\n**Test Day Takeaway:** The negative-reciprocal relationship runs both directions, so you can invert from either line to the other."
 }

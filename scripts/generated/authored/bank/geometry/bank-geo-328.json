@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-328",
- "question": "In the $xy$-plane, triangle $ABC$ has vertices $A(-4,\\,1)$, $B(10,\\,1)$, and $C(c,\\,8)$, where $c$ is a constant and $-4<c<10$. What is the area of triangle $ABC$?",
+ "question": "A triangular damping vane has an area of $84$ square centimeters. In a revised design the base is increased by $25$ percent and the height is decreased by $25$ percent. Which of the following statements about the area of the revised vane is true?",
  "choices": [
   {
    "id": "A",
-   "text": "$24.5$"
+   "text": "It is $6.25\\%$ less than $84$ square centimeters."
   },
   {
    "id": "B",
-   "text": "$49$"
+   "text": "It is $6.25\\%$ greater than $84$ square centimeters."
   },
   {
    "id": "C",
-   "text": "$56$"
+   "text": "It is equal to $84$ square centimeters."
   },
   {
    "id": "D",
-   "text": "$98$"
+   "text": "It is $25\\%$ less than $84$ square centimeters."
   }
  ],
  "distractorNotes": {
-  "A": "halves twice",
-  "C": "uses 8 as the height instead of the vertical distance",
-  "D": "omits the factor one half"
+  "B": "gets the size of the change right but reverses its direction",
+  "C": "assumes the equal percent increase and decrease cancel",
+  "D": "applies only the 25 percent decrease and ignores the increase"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\overline{AB}$ is horizontal with length $14$, and $C$ sits $7$ units above that line, so $A=\\frac{1}{2}(14)(7)=49$ no matter what $c$ is.\n\n**The Full Solution:**\nStep 1: $A$ and $B$ share the $y$-coordinate $1$, so $\\overline{AB}$ is horizontal and its length is $10-(-4)=14$. Use it as the base.\nStep 2: The height is the perpendicular distance from $C$ to the line $y=1$, which is $8-1=7$. The value of $c$ only slides $C$ sideways along the line $y=8$, so it never changes that distance.\nStep 3: $A=\\frac{1}{2}(14)(7)=49$.\n\nCheck: with $c=0$ the vertices are $(-4,\\,1)$, $(10,\\,1)$, $(0,\\,8)$, and the same base and height give $49$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($24.5$): applied the factor $\\frac{1}{2}$ a second time, computing $\\frac{1}{4}(14)(7)$.\n* Choice C ($56$): used the $y$-coordinate $8$ as the height instead of the vertical distance $8-1=7$.\n* Choice D ($98$): multiplied base by height and skipped the factor $\\frac{1}{2}$.\n\n**Test Day Takeaway:** Sliding a vertex parallel to the opposite side leaves the height, and therefore the area, unchanged. A free parameter along that direction is a signal that the answer does not depend on it."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** The area is multiplied by $(1.25)(0.75) = 0.9375$, a decrease of $6.25\\%$.\n\n**The Full Solution:**\nStep 1: Write the original area as $84 = \\frac{1}{2}bh$.\nStep 2: The revised vane has base $1.25b$ and height $0.75h$, so its area is $\\frac{1}{2}(1.25b)(0.75h) = 0.9375 \\cdot \\frac{1}{2}bh$.\nStep 3: The factor $0.9375$ means the revised area is $93.75\\%$ of the original, a decrease of $6.25\\%$.\n\nCheck: $0.9375(84) = 78.75$, and $\\frac{84 - 78.75}{84} = 0.0625$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($6.25\\%$ greater): finds the right size of the change but flips its direction; the factor $0.9375$ is below $1$.\n* Choice C (equal areas): assumes a $25\\%$ rise and a $25\\%$ drop cancel, but $1.25 \\times 0.75 = 0.9375$, not $1$.\n* Choice D ($25\\%$ less): applies only the decrease and ignores the base increase, giving $63$ square centimeters.\n\n**Test Day Takeaway:** Percent changes compose by multiplying factors, not by adding or subtracting percents."
 }

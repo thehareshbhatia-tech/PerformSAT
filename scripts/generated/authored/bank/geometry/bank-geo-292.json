@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-292",
- "question": "In the $xy$-plane, a circle has a diameter with endpoints $(-3, 4)$ and $(5, -2)$. Which equation represents this circle?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$(x - 1)^2 + (y - 1)^2 = 25$"
+  "question": "Sound from a stage monitor reaches every point of the region $(x - 6)^2 + (y + 15)^2 \\le k$ in the $xy$-plane, for some positive constant $k$, with distances measured in meters. The region meets the balcony rail, which lies along the line $y = -7$, at exactly one point. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$8$"
+    },
+    {
+      "id": "B",
+      "text": "$16$"
+    },
+    {
+      "id": "C",
+      "text": "$64$"
+    },
+    {
+      "id": "D",
+      "text": "$225$"
+    }
+  ],
+  "correctAnswer": "C",
+  "distractorNotes": {
+    "A": "reports the coverage radius 8 instead of k, which equals r squared",
+    "B": "reports the diameter, 2 times 8, instead of squaring the radius",
+    "D": "measures from the center down to the x-axis and uses 15 as the radius instead of the 8-meter gap up to the rail"
   },
-  {
-   "id": "B",
-   "text": "$(x - 1)^2 + (y - 1)^2 = 100$"
-  },
-  {
-   "id": "C",
-   "text": "$(x + 1)^2 + (y + 1)^2 = 25$"
-  },
-  {
-   "id": "D",
-   "text": "$(x + 3)^2 + (y - 4)^2 = 25$"
-  }
- ],
- "distractorNotes": {
-  "B": "uses the diameter as the radius",
-  "C": "reverses the center signs",
-  "D": "uses an endpoint as the center"
- },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** The midpoint $(1, 1)$ is the center; the diameter is $\\sqrt{8^2 + 6^2} = 10$, so $r^2 = 25$.\n\n**The Full Solution:**\nStep 1: The center of a circle is the midpoint of any diameter: $\\left(\\frac{-3 + 5}{2}, \\frac{4 + (-2)}{2}\\right) = (1, 1)$.\nStep 2: The diameter's length is $\\sqrt{(5 - (-3))^2 + (-2 - 4)^2} = \\sqrt{64 + 36} = 10$, so the radius is $5$ and $r^2 = 25$.\nStep 3: The equation is $(x - 1)^2 + (y - 1)^2 = 25$. Check: substituting $(-3, 4)$ gives $16 + 9 = 25$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($(x - 1)^2 + (y - 1)^2 = 100$): squares the diameter instead of the radius.\n* Choice C ($(x + 1)^2 + (y + 1)^2 = 25$): reverses the signs of the center coordinates.\n* Choice D ($(x + 3)^2 + (y - 4)^2 = 25$): uses the endpoint $(-3, 4)$ as the center rather than the midpoint.\n\n**Test Day Takeaway:** Diameter endpoints give the center by midpoint and the radius by halving the distance. Halve before squaring, never after."
+  "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** One point of contact with the horizontal rail puts the rail at the top of the region, so the radius is $-7 - (-15) = 8$ and $k = 8^2 = 64$.\n\n**The Full Solution:**\nStep 1: The boundary of the region is the circle $(x - 6)^2 + (y + 15)^2 = k$, centered at $(6, -15)$ with radius $\\sqrt{k}$.\nStep 2: A horizontal line meets a circle exactly once only at the circle's top or bottom point, so the rail sits one radius above the center: $\\sqrt{k} = -7 - (-15) = 8$ meters.\nStep 3: Square both sides: $k = 64$. Check: with $k = 64$, setting $y = -7$ leaves $(x - 6)^2 = 0$, so $x = 6$ is the only solution — exactly one point of contact ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): reports the coverage radius; the constant $k$ sits where $r^2$ belongs.\n* Choice B ($16$): doubles the radius into a diameter instead of squaring it.\n* Choice D ($225$): measures from the center to the $x$-axis and treats $15$ as the radius, ignoring that the rail is only $8$ meters above the center.\n\n**Test Day Takeaway:** Touching a horizontal line at exactly one point means that line is one radius above or below the center — read the gap, then square it.",
+  "id": "bank-geo-292"
 }

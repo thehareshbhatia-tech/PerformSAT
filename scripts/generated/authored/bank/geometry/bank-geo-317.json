@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-317",
- "question": "In the right triangle shown, one leg has length $16$ and the other leg has length $30$. What is the length of the hypotenuse?",
+ "question": "A diagonal stiffener spans a spandrel panel from corner to corner, cutting off the right triangle shown with $33$-inch and $56$-inch legs. How long, in inches, is the stiffener?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -10,46 +10,45 @@
      0
     ],
     [
-     30,
+     56,
      0
     ],
     [
-     30,
-     16
+     56,
+     33
     ]
    ],
    "sideLabels": [
-    "30",
-    "16",
+    "56 in",
+    "33 in",
     ""
    ],
-   "rightAngleVertex": 1,
-   "figureNote": true
+   "rightAngleVertex": 1
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$14$"
+   "text": "$23$"
   },
   {
    "id": "B",
-   "text": "$34$"
+   "text": "$65$"
   },
   {
    "id": "C",
-   "text": "$46$"
+   "text": "$89$"
   },
   {
    "id": "D",
-   "text": "$1{,}156$"
+   "text": "$924$"
   }
  ],
- "distractorNotes": {
-  "A": "subtracts the legs",
-  "C": "adds the legs",
-  "D": "omits the square root"
- },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Divide by $2$: the legs are $8$ and $15$, a triple whose hypotenuse is $17$. Scale back up to get $34$.\n\n**The Full Solution:**\nStep 1: The hypotenuse $c$ satisfies $c^2=16^2+30^2$.\nStep 2: $c^2=256+900=1{,}156$.\nStep 3: $c=\\sqrt{1{,}156}=34$.\n\nCheck: $16^2+30^2=256+900=1{,}156=34^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): subtracted the legs, $30-16$; a hypotenuse must be longer than either leg.\n* Choice C ($46$): added the legs, $16+30$, instead of adding their squares.\n* Choice D ($1{,}156$): reported $c^2$ instead of $c$.\n\n**Test Day Takeaway:** Before squaring large numbers, check for a common factor. Dividing both legs by it usually reveals a triple you already know."
+ "distractorNotes": {
+  "A": "subtracts the legs, 56 - 33, instead of combining their squares",
+  "C": "adds the legs, 56 + 33, giving the path along two sides rather than the diagonal",
+  "D": "computes the area, one half times 33 times 56, instead of a length"
+ },
+ "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.** The stiffener is the hypotenuse: $\\sqrt{33^2 + 56^2} = \\sqrt{4225} = 65$ inches.\n\n**The Fast Way (~25s):** $33$-$56$-$65$ is a Pythagorean triple, so the stiffener is $65$ inches.\n\n**The Full Solution:**\n\nStep 1: The two legs meet at a right angle at a corner of the panel, and the stiffener joins their far ends, so it is the hypotenuse.\n\nStep 2: $33^2 + 56^2 = 1089 + 3136 = 4225$.\n\nStep 3: The stiffener measures $\\sqrt{4225} = 65$ inches. Check: $65 > 56$ and $65 < 89$, the band any hypotenuse must fall in.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($23$): subtracts the legs instead of combining their squares.\n* Choice C ($89$): adds the legs, which measures the path along two sides.\n* Choice D ($924$): computes the triangle's area rather than a length.\n\n**Test Day Takeaway:** Add the squares, then take one square root — subtracting or adding raw lengths is the single most common Pythagorean slip."
 }

@@ -1,75 +1,67 @@
 {
   "id": "bank-ps-138",
-  "question": "The scatterplot shows the age $x$, in years, and the trunk circumference $y$, in centimeters, of each of $12$ pine trees. The line of best fit passes through the points $(3, 21)$ and $(9, 45)$. According to the line of best fit, what is the predicted circumference, in centimeters, of a pine tree that is $15$ years old?",
+  "question": "Gallery staff plotted the number of radio spots aired against the attendance recorded for each of $10$ exhibitions and drew the line of best fit $y = 2.5x + 18$. What is the least integer number of radio spots for which this line predicts an attendance greater than $100$?",
   "diagram": {
     "type": "scatterplot",
     "params": {
       "points": [
         [
-          2,
-          18
-        ],
-        [
-          3,
-          20
-        ],
-        [
           4,
-          27
-        ],
-        [
-          5,
-          28
-        ],
-        [
-          6,
-          34
-        ],
-        [
-          7,
-          36
+          30
         ],
         [
           8,
-          43
-        ],
-        [
-          9,
-          44
-        ],
-        [
-          10,
-          50
-        ],
-        [
-          11,
-          52
+          35
         ],
         [
           12,
-          58
+          52
         ],
         [
-          14,
-          64
+          16,
+          55
+        ],
+        [
+          20,
+          70
+        ],
+        [
+          24,
+          74
+        ],
+        [
+          28,
+          92
+        ],
+        [
+          32,
+          95
+        ],
+        [
+          36,
+          112
+        ],
+        [
+          40,
+          115
         ]
       ],
       "xMin": 0,
-      "xMax": 16,
+      "xMax": 44,
       "yMin": 0,
-      "yMax": 80,
-      "xGridStep": 1,
+      "yMax": 130,
+      "xGridStep": 4,
+      "xLabelStep": 8,
       "yGridStep": 10,
-      "xLabelStep": 2,
       "yLabelStep": 20,
-      "xLabel": "Age (years)",
-      "yLabel": "Circumference (cm)",
+      "xLabel": "Radio spots aired",
+      "yLabel": "Exhibition attendance",
       "bestFitLine": {
-        "slope": 4,
-        "intercept": 9
+        "slope": 2.5,
+        "intercept": 18
       }
     }
   },
-  "correctAnswer": "69",
-  "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $69$.**\n\n**The Fast Way (~20s):** The slope is $\\frac{45 - 21}{9 - 3} = 4$ centimeters per year. From $(9, 45)$, six more years add $6(4) = 24$: $45 + 24 = 69$.\n\n**The Full Solution:**\nStep 1: Slope from the two given points: $\\frac{45 - 21}{9 - 3} = \\frac{24}{6} = 4$.\nStep 2: Find the intercept using $(3, 21)$: $21 = 4(3) + b$, so $b = 9$ and $\\hat{y} = 4x + 9$.\nStep 3: Substitute $x = 15$: $\\hat{y} = 4(15) + 9 = 69$. Check: from $(9, 45)$, moving $15 - 9 = 6$ years at $4$ per year gives $45 + 24 = 69$. $\\checkmark$\n\n**Common Mistakes:** Inverting the slope to $\\frac{6}{24} = 0.25$, which leads to $0.25(15) + 20.25 = 24$; using $\\hat{y} = 4x$ with no intercept, which gives $60$; estimating by eye beyond the last plotted point $(14, 64)$ instead of using the line.\n\n**Test Day Takeaway:** Two points on the line give the slope, then the intercept, then the prediction; never eyeball a value that lies past the plotted data."
+  "correctAnswer": "33",
+  "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $33$.**\n\n**The Fast Way (~25s):** Solve $2.5x + 18 > 100$ to get $x > 32.8$, so the least integer is $33$.\n\n**The Full Solution:**\nStep 1: Write the inequality. The predicted attendance exceeds $100$ when $2.5x + 18 > 100$.\nStep 2: Solve. Subtract $18$: $2.5x > 82$. Divide by $2.5$: $x > 32.8$.\nStep 3: Pick the least integer and verify. The least integer greater than $32.8$ is $33$, and $2.5(33) + 18 = 100.5 > 100$, while $2.5(32) + 18 = 98 < 100$. ✓\n\n**Common Mistakes:**\n* Rounding $32.8$ down to $32$ gives a prediction of $98$, which does not exceed $100$.\n* Dividing $100$ by $2.5$ gives $40$, which ignores the intercept $18$.\n* Using the plotted point nearest an attendance of $100$ reads the data instead of the model.\n\n**Test Day Takeaway:** For a \"least integer\" threshold, solve the inequality exactly, then test the integer you choose and the one below it."
 }

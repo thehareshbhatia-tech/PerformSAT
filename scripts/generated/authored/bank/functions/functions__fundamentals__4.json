@@ -1,30 +1,29 @@
 {
-  "id": 4,
-  "question": "Each of the following sets lists the ordered pairs $(x, y)$ of a relation. For which set is $y$ a function of $x$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$\\{(3, 1), (3, 4), (8, 6)\\}$"
-    },
-    {
-      "id": "B",
-      "text": "$\\{(0, 7), (2, 7), (5, 7)\\}$"
-    },
-    {
-      "id": "C",
-      "text": "$\\{(4, 2), (9, 5), (4, 5)\\}$"
-    },
-    {
-      "id": "D",
-      "text": "$\\{(6, 0), (6, 1), (6, 2)\\}$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "input 3 is paired with two outputs",
-    "C": "the repeated input 4 is not adjacent",
-    "D": "one input with three outputs"
+ "question": "The depth of brine in a curing tank, in centimeters, $t$ minutes after a drain valve opens is modeled by $h(t) = 40 - 8t$. Which statement is the best interpretation of $h(3) = 16$?",
+ "hint": "Which number is the minute count and which is the depth?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "The depth is $16$ centimeters $3$ minutes after the valve opens."
   },
-  "correctAnswer": "B",
-  "hint": "A set fails only when the same first coordinate is paired with two different second coordinates.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** Scan the first coordinates. Only in choice B are they all different: $0$, $2$, and $5$.\n\n**The Full Solution:**\nStep 1: $y$ is a function of $x$ when every input $x$ is paired with exactly one output $y$.\nStep 2: In choice B the inputs are $0$, $2$, and $5$, all distinct, so no input receives two outputs.\nStep 3: The repeated output $7$ is not a problem — a function may send several inputs to the same output. Check the vertical-line idea: the three points sit at three different $x$-values, so no vertical line meets the set twice. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the input $3$ appears with the outputs $1$ and $4$.\n* Choice C: the input $4$ appears with the outputs $2$ and $5$; the two pairs are not next to each other, so the repeat is easy to miss.\n* Choice D: every pair has the input $6$, so one input is matched with three different outputs.\n\n**Test Day Takeaway:** Check the inputs, not the outputs. Repeated outputs are allowed; a repeated input with different outputs is what breaks a function."
+  {
+   "id": "B",
+   "text": "The depth falls $16$ centimeters during the first $3$ minutes."
+  },
+  {
+   "id": "C",
+   "text": "The depth is $3$ centimeters $16$ minutes after the valve opens."
+  },
+  {
+   "id": "D",
+   "text": "The depth falls $3$ centimeters each minute."
+  }
+ ],
+ "distractorNotes": {
+  "B": "reads the output as the change in depth, which is actually 24 centimeters",
+  "C": "swaps the input and the output",
+  "D": "reads the input 3 as the rate, which is really 8 centimeters per minute"
+ },
+ "correctAnswer": "A",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** The input $3$ is a time and the output $16$ is a depth, so at $3$ minutes the depth is $16$ centimeters.\n\n**The Full Solution:**\nStep 1: In $h(t)$ the input $t$ is the number of minutes since the valve opened.\nStep 2: The output $h(t)$ is the depth in centimeters at that moment.\nStep 3: So $h(3) = 16$ says the depth is $16$ centimeters at $t = 3$. Check: $40 - 8(3) = 16$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: reads the output as a drop, but the depth has fallen $40 - 16 = 24$ centimeters by then.\n* Choice C: swaps the input and output, reading $3$ as a depth and $16$ as a time.\n* Choice D: treats the input as a rate; the rate is the coefficient $8$ centimeters per minute.\n\n**Test Day Takeaway:** Attach the units to the input and the output first, and the interpretation writes itself."
 }

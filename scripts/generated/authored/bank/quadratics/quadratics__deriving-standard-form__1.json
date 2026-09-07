@@ -1,30 +1,30 @@
 {
   "id": 1,
-  "question": "The function $g$ is defined by $g(x) = (x - 6)^2 + 5$. Which of the following is equivalent to $g(x)$?",
+  "question": "A booster pumping station holds a discharge pressure of $p$ bars, and its daily operating cost, in dollars, is $C(p) = 3(p - 8)^2 + 55$. An engineer needs this cost written as a polynomial in standard form. Which polynomial is equal to $C(p)$ for every value of $p$?",
   "choices": [
     {
       "id": "A",
-      "text": "$x^2 - 12x + 41$"
+      "text": "$3p^2 - 48p + 55$"
     },
     {
       "id": "B",
-      "text": "$x^2 - 12x + 31$"
+      "text": "$3p^2 - 48p + 119$"
     },
     {
       "id": "C",
-      "text": "$x^2 + 41$"
+      "text": "$3p^2 - 48p + 247$"
     },
     {
       "id": "D",
-      "text": "$x^2 - 6x + 41$"
+      "text": "$3p^2 + 48p + 247$"
     }
   ],
   "distractorNotes": {
-    "B": "subtracts the outside constant",
-    "C": "drops the cross term",
-    "D": "forgets to double the cross term"
+    "A": "drops the 3(64) = 192 term entirely, keeping only the 55",
+    "B": "adds 64 to 55 without tripling it: 55 + 64 = 119, so the 3 never reaches the constant",
+    "D": "expands (p - 8)^2 as p^2 + 16p + 64, losing the minus sign on the middle term"
   },
-  "correctAnswer": "A",
-  "hint": "Write the square as a product of two identical binomials before combining the constants.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $(x - 6)^2 = x^2 - 12x + 36$, and $36 + 5 = 41$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x - 6)^2 = (x - 6)(x - 6) = x^2 - 6x - 6x + 36 = x^2 - 12x + 36$.\nStep 2: Add the outside constant: $x^2 - 12x + 36 + 5$.\nStep 3: Combine like terms: $g(x) = x^2 - 12x + 41$. Check at $x = 6$: the original gives $0 + 5 = 5$, and $36 - 72 + 41 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^2 - 12x + 31$): subtracts the $5$ instead of adding it, giving $36 - 5$.\n* Choice C ($x^2 + 41$): squares each term separately and loses the cross term $-12x$.\n* Choice D ($x^2 - 6x + 41$): uses $-6x$ rather than $-12x$, forgetting that the cross term is $2(-6)x$.\n\n**Test Day Takeaway:** Expanding $(x - h)^2$ always produces three terms, and the middle one is twice $-h$ times $x$."
+  "correctAnswer": "C",
+  "hint": "Square the binomial completely before you distribute the 3.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** $(p - 8)^2 = p^2 - 16p + 64$, so $3(p^2 - 16p + 64) + 55 = 3p^2 - 48p + 192 + 55$.\n\n**The Full Solution:**\nStep 1: Square the binomial. $(p - 8)^2 = p^2 - 16p + 64$.\nStep 2: Distribute the $3$. $3(p^2 - 16p + 64) = 3p^2 - 48p + 192$.\nStep 3: Combine the constants and check. $192 + 55 = 247$, so $C(p) = 3p^2 - 48p + 247$. At $p = 8$ the original gives $55$, and $3(64) - 48(8) + 247 = 192 - 384 + 247 = 55$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3p^2 - 48p + 55$): never multiplies the $64$ by $3$, so the $192$ is missing from the constant term.\n* Choice B ($3p^2 - 48p + 119$): adds $64$ to $55$ without tripling it, giving $119$ instead of $247$.\n* Choice D ($3p^2 + 48p + 247$): expands $(p - 8)^2$ with a plus sign on the middle term. Squaring $p - 8$ gives $-16p$.\n\n**Test Day Takeaway:** Expand the square first, then distribute, then combine. The constant outside the square never reaches the middle term."
 }

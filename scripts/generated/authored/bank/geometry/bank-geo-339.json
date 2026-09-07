@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-339",
- "question": "In a right triangle, the legs measure $33$ and $56$ and the hypotenuse measures $65$. Angle $\\theta$ is opposite the leg of length $56$. What is the value of $\\tan\\theta$?",
+ "question": "The ground cross section of a rolled-steel chock appears here; both of its legs are labeled in centimeters, vertex $Y$ holds the right angle, and the hypotenuse carries no label. What is the value of $\\sin X$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -10,51 +10,50 @@
      0
     ],
     [
-     33,
+     48,
      0
     ],
     [
-     33,
-     56
+     48,
+     55
     ]
    ],
    "labels": [
-    "θ",
-    "",
-    ""
+    "X",
+    "Y",
+    "Z"
    ],
    "sideLabels": [
-    "33",
-    "56",
-    "65"
+    "48",
+    "55",
+    ""
    ],
-   "rightAngleVertex": 1,
-   "figureNote": true
+   "rightAngleVertex": 1
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{33}{65}$"
+   "text": "$\\frac{48}{73}$"
   },
   {
    "id": "B",
-   "text": "$\\frac{33}{56}$"
+   "text": "$\\frac{55}{73}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{56}{65}$"
+   "text": "$\\frac{48}{55}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{56}{33}$"
+   "text": "$\\frac{73}{55}$"
   }
  ],
  "distractorNotes": {
-  "A": "gives cosine instead of tangent",
-  "B": "swaps opposite and adjacent",
-  "C": "gives sine instead of tangent"
+  "A": "reports cos X = 48/73, adjacent over hypotenuse",
+  "C": "divides the adjacent leg by the opposite leg, the reciprocal of tan X",
+  "D": "inverts sin X, giving hypotenuse over opposite"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Tangent uses only the legs: opposite $56$ over adjacent $33$, so $\\tan\\theta=\\frac{56}{33}$.\n\n**The Full Solution:**\nStep 1: The legs are $33$ and $56$; the hypotenuse $65$ plays no role in a tangent.\nStep 2: The leg opposite $\\theta$ is $56$, so the leg adjacent to $\\theta$ is $33$.\nStep 3: $\\tan\\theta=\\frac{\\text{opposite}}{\\text{adjacent}}=\\frac{56}{33}$.\n\nCheck: $33^2+56^2=1{,}089+3{,}136=4{,}225=65^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{33}{65}$): used adjacent over hypotenuse, which is $\\cos\\theta$.\n* Choice B ($\\frac{33}{56}$): swapped opposite and adjacent, giving the tangent of the other acute angle.\n* Choice C ($\\frac{56}{65}$): used opposite over hypotenuse, which is $\\sin\\theta$.\n\n**Test Day Takeaway:** A supplied hypotenuse is often a distractor. If the question asks for a tangent, cover the hypotenuse and work with the two legs only."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The hypotenuse is $\\sqrt{48^2 + 55^2} = 73$, so $\\sin X = \\frac{55}{73}$.\n\n**The Full Solution:**\nStep 1: The legs $\\overline{XY} = 48$ and $\\overline{YZ} = 55$ meet at the right angle at $Y$.\nStep 2: The hypotenuse is $\\overline{ZX} = \\sqrt{48^2 + 55^2} = \\sqrt{2{,}304 + 3{,}025} = \\sqrt{5{,}329} = 73$ centimeters.\nStep 3: The leg opposite angle $X$ is $\\overline{YZ} = 55$, so $\\sin X = \\frac{55}{73}$.\n\nCheck: $\\frac{55}{73} \\approx 0.753$, and since angle $X$ faces the longer leg its sine should exceed $\\frac{\\sqrt{2}}{2} \\approx 0.707$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{48}{73}$): uses the adjacent leg over the hypotenuse, which is $\\cos X$.\n* Choice C ($\\frac{48}{55}$): divides the two legs, and in the wrong order at that.\n* Choice D ($\\frac{73}{55}$): inverts the ratio; a sine is never greater than $1$.\n\n**Test Day Takeaway:** When only the legs are given, build the hypotenuse first; sine and cosine both require it."
 }

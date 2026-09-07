@@ -1,18 +1,31 @@
 {
  "id": "bank-geo-078",
- "question": "In the right triangle shown, one leg measures $16$ centimeters and the other leg measures $30$ centimeters. What is the length, in centimeters, of the hypotenuse?",
+ "question": "A plenum return duct crosses $60$ centimeters horizontally while dropping $11$ centimeters. What is the length, in centimeters, of the duct's straight run?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
+   "vertices": [
+    [
+     0,
+     11
+    ],
+    [
+     60,
+     11
+    ],
+    [
+     60,
+     0
+    ]
+   ],
    "sideLabels": [
-    "16",
-    "30",
+    "60 cm",
+    "11 cm",
     ""
    ],
-   "rightAngleVertex": 1,
-   "figureNote": true
+   "rightAngleVertex": 1
   }
  },
- "correctAnswer": "34",
- "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $34$.**\n\n**The Fast Way (~20s):** $16^2 + 30^2 = 256 + 900 = 1{,}156$, and $\\sqrt{1{,}156} = 34$.\n\n**The Full Solution:**\nStep 1: The two given sides meet at the right angle, so they are the legs and the unknown side is the hypotenuse $c$.\nStep 2: $16^2 + 30^2 = c^2$ gives $256 + 900 = 1{,}156 = c^2$.\nStep 3: $c = \\sqrt{1{,}156} = 34$ centimeters.\n\nCheck: $16$, $30$, $34$ is the $8$-$15$-$17$ triple scaled by $2$.\n\n**Common Mistakes:**\n* Answering $1{,}156$, which is $c^2$, by stopping before the square root.\n* Answering $46$ by adding the two legs instead of adding their squares.\n* Squaring the sum instead of summing the squares: $(16 + 30)^2 = 2{,}116$ leads to $46$, not $34$.\n\n**Test Day Takeaway:** $(a + b)^2$ is not $a^2 + b^2$; square each leg separately before you add."
+ "correctAnswer": "61",
+ "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $61$.**\n\n**The Fast Way (~20s):** $11$-$60$-$61$ is a Pythagorean triple, so the straight run is $61$ centimeters.\n\n**The Full Solution:**\n\nStep 1: The horizontal crossing and the vertical drop meet at a right angle, so the duct's straight run is the hypotenuse.\n\nStep 2: $11^2 + 60^2 = 121 + 3600 = 3721$.\n\nStep 3: The run is $\\sqrt{3721} = 61$ centimeters. Check: $61^2 = 3721$, and $61$ lies between $60$ and $71$, as a hypotenuse must.\n\n**Common Mistakes:**\n\n* $71$ — adding the two legs, $60 + 11$, which measures the bent path rather than the straight one.\n* $49$ — subtracting the legs, $60 - 11$, instead of working with their squares.\n* $330$ — computing the area $\\frac{1}{2}(11)(60)$ rather than a length.\n\n**Test Day Takeaway:** A drop and a horizontal run form legs, never a hypotenuse — the direct distance is always the square-root combination."
 }

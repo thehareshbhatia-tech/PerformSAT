@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-352",
- "question": "In the $xy$-plane, a circle has center $(5,\\,-1)$, and line $t$ is tangent to the circle at $(9,\\,2)$. Which of the following points lies on line $t$?",
+ "question": "A drone's circular no-fly zone above a resort is modeled in the $xy$-plane by $(x-3)^2+(y+2)^2=25$, with coordinates in kilometers. A straight service road follows the line $x=k$ and meets the zone at exactly one point. If $k>0$, what is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$(12,\\,6)$"
+   "text": "$-2$"
   },
   {
    "id": "B",
-   "text": "$(13,\\,-1)$"
+   "text": "$3$"
   },
   {
    "id": "C",
-   "text": "$(12,\\,-2)$"
+   "text": "$5$"
   },
   {
    "id": "D",
-   "text": "$(13,\\,5)$"
+   "text": "$8$"
   }
  ],
  "distractorNotes": {
-  "A": "inverts the radius slope without negating it",
-  "B": "negates the radius slope without inverting it",
-  "D": "uses the radius slope itself"
+  "A": "gives the other vertical tangent, x = 3 - 5 = -2, ignoring the condition k > 0",
+  "B": "reports the center's x-coordinate rather than a tangent line",
+  "C": "reports the radius 5 instead of the tangent line's x-value"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Tangent Line to a Circle**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The radius to $(9,\\,2)$ has slope $\\frac{2-(-1)}{9-5}=\\frac{3}{4}$, so the tangent has slope $-\\frac{4}{3}$. From $(9,\\,2)$, moving $3$ right and $4$ down lands on $(12,\\,-2)$.\n\n**The Full Solution:**\nStep 1: A tangent line is perpendicular to the radius drawn to the point of tangency. The radius runs from $(5,\\,-1)$ to $(9,\\,2)$, so its slope is $\\frac{2-(-1)}{9-5}=\\frac{3}{4}$.\nStep 2: Perpendicular slopes are negative reciprocals, so line $t$ has slope $-\\frac{4}{3}$ and its equation is $y-2=-\\frac{4}{3}(x-9)$.\nStep 3: Test $(12,\\,-2)$: $-2-2=-4$ and $-\\frac{4}{3}(12-9)=-\\frac{4}{3}(3)=-4$. The point satisfies the equation.\n\nCheck: none of the other three points satisfies $y=2-\\frac{4}{3}(x-9)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(12,\\,6)$): used slope $\\frac{4}{3}$, inverting the radius slope but forgetting to negate it.\n* Choice B ($(13,\\,-1)$): used slope $-\\frac{3}{4}$, negating the radius slope without inverting it.\n* Choice D ($(13,\\,5)$): used the radius slope $\\frac{3}{4}$ itself, giving a line through the center rather than the tangent.\n\n**Test Day Takeaway:** Tangency is a perpendicularity condition. Compute the radius slope, take the negative reciprocal, and step off from the point of tangency using the run and rise of that slope."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Tangent Line to a Circle**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** The circle is centered at $(3,-2)$ with radius $5$, so the vertical tangents are $x=3\\pm 5$, and the positive one is $x=8$.\n\n**The Full Solution:**\n\nStep 1 — Read the circle: $(x-3)^2+(y+2)^2=25$ has center $(3,-2)$ and radius $\\sqrt{25}=5$.\n\nStep 2 — A vertical line $x=k$ touches the circle at exactly one point when its distance from the center equals the radius, so $|k-3|=5$.\n\nStep 3 — Solve: $k-3=5$ or $k-3=-5$, giving $k=8$ or $k=-2$. Since $k>0$, $k=8$. Check: substituting $x=8$ gives $25+(y+2)^2=25$, so $y=-2$ is the only solution — exactly one point.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-2$): this is the other vertical tangent and violates $k>0$.\n* Choice B ($3$): this is the center's $x$-coordinate, a line that cuts the circle in two points.\n* Choice C ($5$): this reports the radius rather than a location.\n\n**Test Day Takeaway:** A vertical tangent sits one radius left or right of the center — read the center and radius straight off the standard form."
 }

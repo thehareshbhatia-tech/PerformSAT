@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-319",
-  "question": "A data set has a mean of $47$ and a standard deviation of $8$. A new data set is created by subtracting $12$ from each value of the original data set. What are the mean and the standard deviation of the new data set?",
+  "question": "Orchestra P recorded rehearsal lengths, in minutes, of $88$, $90$, $92$, $94$, and $96$. Orchestra Q recorded rehearsal lengths, in minutes, of $80$, $86$, $92$, $98$, and $104$. Which statement correctly compares the standard deviations of the two lists of rehearsal lengths?",
   "choices": [
     {
       "id": "A",
-      "text": "Mean $35$ and standard deviation $8$"
+      "text": "The standard deviations are equal, because the two lists have the same mean."
     },
     {
       "id": "B",
-      "text": "Mean $35$ and standard deviation $-4$"
+      "text": "The standard deviations are equal, because the two lists have the same number of values."
     },
     {
       "id": "C",
-      "text": "Mean $47$ and standard deviation $8$"
+      "text": "The standard deviation of orchestra P is greater, because its values sit farther from their mean."
     },
     {
       "id": "D",
-      "text": "Mean $59$ and standard deviation $8$"
+      "text": "The standard deviation of orchestra Q is greater, because its values sit farther from their mean."
     }
   ],
   "distractorNotes": {
-    "B": "shifts the mean correctly but also subtracts $12$ from the standard deviation, producing an impossible negative spread.",
-    "C": "leaves the mean unshifted, applying the constant only to the spread rule instead of to the center.",
-    "D": "adds $12$ instead of subtracting it, shifting the center the wrong way."
+    "A": "concludes from the equal means of 92 minutes that the spreads must match as well",
+    "B": "concludes from the equal count of five values that the spreads must match as well",
+    "C": "reverses the comparison; orchestra P is the list clustered tightly around 92 minutes"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Subtracting $12$ from every value slides the whole data set left: the mean drops to $47 - 12 = 35$, and the spacing between values is unchanged, so the standard deviation stays $8$.\n\n**The Full Solution:**\nStep 1: Subtracting the same constant from every value moves each value the same distance in the same direction.\nStep 2: The mean moves with the data: $47 - 12 = 35$.\nStep 3: Every distance from the mean is unchanged, because both the value and the mean dropped by $12$, so the standard deviation remains $8$. Check: a shift relabels the number line without stretching it. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: shifts the mean correctly but also subtracts $12$ from the standard deviation, producing an impossible negative spread.\n* Choice C: leaves the mean unshifted, applying the constant only to the spread rule instead of to the center.\n* Choice D: adds $12$ instead of subtracting it, shifting the center the wrong way.\n\n**Test Day Takeaway:** Adding or subtracting a constant moves the center and leaves every spread measure — standard deviation, range, IQR — exactly the same."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Both lists center on $92$ minutes, but P spans $88$ to $96$ while Q spans $80$ to $104$, so Q is more spread out.\n\n**The Full Solution:**\nStep 1: Find the centers. Orchestra P: $\\frac{88 + 90 + 92 + 94 + 96}{5} = 92$. Orchestra Q: $\\frac{80 + 86 + 92 + 98 + 104}{5} = 92$. Same mean.\nStep 2: Compare the distances from that center. P deviates by $4$, $2$, $0$, $2$, $4$ minutes; Q deviates by $12$, $6$, $0$, $6$, $12$ minutes — each Q deviation is three times the matching P deviation.\nStep 3: Conclude. Larger deviations from the same mean mean a larger standard deviation, so orchestra Q has the greater standard deviation. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (equal, same mean): uses the mean, which measures center. Two lists can share a center and still differ wildly in spread.\n* Choice B (equal, same count): uses the number of values, which does not fix the spread either.\n* Choice C (P greater): reverses the comparison: P is the list packed tightly around $92$ minutes.\n\n**Test Day Takeaway:** Standard deviation answers \"how far from the mean,\" not \"where is the mean\" or \"how many values.\" Compare the distances, never the centers."
 }

@@ -1,30 +1,59 @@
 {
-  "id": 1,
-  "question": "For a function $f$, $f(4)=15$. The function $g$ is defined by $g(x)=f(x)+8$. What is the value of $g(4)$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$7$"
-    },
-    {
-      "id": "B",
-      "text": "$15$"
-    },
-    {
-      "id": "C",
-      "text": "$23$"
-    },
-    {
-      "id": "D",
-      "text": "$120$"
-    }
+ "id": 1,
+ "question": "The table gives the sap flow $f(d)$ from one tap and the flow $g(d)$ from a second tap, both in liters, on day $d$ of a maple run. Which equation relates $g$ to $f$ on the days listed?",
+ "questionTable": {
+  "headers": [
+   "$d$",
+   "$f(d)$",
+   "$g(d)$"
   ],
-  "distractorNotes": {
-    "A": "subtracts the constant",
-    "B": "omits the constant",
-    "D": "multiplies by the constant"
+  "rows": [
+   [
+    "$1$",
+    "$18$",
+    "$26$"
+   ],
+   [
+    "$2$",
+    "$23$",
+    "$31$"
+   ],
+   [
+    "$3$",
+    "$31$",
+    "$39$"
+   ],
+   [
+    "$4$",
+    "$40$",
+    "$48$"
+   ]
+  ]
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$g(d) = f(d) + 8$"
   },
-  "correctAnswer": "C",
-  "hint": "Substitute the input into the definition of $g$ and use the one output of $f$ you were given.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~10s):** $g(4)=f(4)+8=15+8=23$.\n\n**The Full Solution:**\nStep 1: The definition of $g$ says: evaluate $f$ at the same input, then add $8$.\nStep 2: At $x=4$, $f(4)=15$, so $g(4)=15+8$.\nStep 3: Therefore $g(4)=23$. Check: subtracting $8$ from $23$ returns $15$, the given value of $f(4)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): subtracts $8$ instead of adding it: $15-8=7$.\n* Choice B ($15$): reports $f(4)$ and never applies the $+8$.\n* Choice D ($120$): multiplies by $8$ rather than adding: $15\\cdot 8=120$.\n\n**Test Day Takeaway:** An outside $+k$ is a single addition applied to the output — never to the input, and never as a factor."
+  {
+   "id": "B",
+   "text": "$g(d) = f(d) - 8$"
+  },
+  {
+   "id": "C",
+   "text": "$g(d) = 8f(d)$"
+  },
+  {
+   "id": "D",
+   "text": "$g(d) = f(d + 8)$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "reverses the direction of the shift",
+  "C": "multiplies by 8 instead of adding it",
+  "D": "places the 8 inside the function, shifting the day rather than the flow"
+ },
+ "correctAnswer": "A",
+ "hint": "Read across each row before you read down any column.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** Every listed day shows $g$ exactly $8$ liters above $f$, so $g(d) = f(d) + 8$.\n\n**The Full Solution:**\nStep 1: Subtract the two flows day by day: $26 - 18 = 8$, $31 - 23 = 8$, $39 - 31 = 8$, and $48 - 40 = 8$.\nStep 2: The difference is the same constant every day, so the second tap's flow is the first tap's flow plus $8$ liters.\nStep 3: That relationship is $g(d) = f(d) + 8$. Check: on day $3$, $f(3) + 8 = 31 + 8 = 39 = g(3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(d) - 8$): reversing the direction; the second tap runs higher, not lower.\n* Choice C ($8f(d)$): multiplying by $8$, which would give $8(18) = 144$ liters on day $1$, not $26$.\n* Choice D ($f(d + 8)$): placing the $8$ inside the function, which shifts the day rather than the flow.\n\n**Test Day Takeaway:** A constant difference in every row means a vertical shift; a constant ratio would mean a stretch."
 }

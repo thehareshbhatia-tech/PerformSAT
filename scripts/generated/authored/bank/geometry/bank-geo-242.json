@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-242",
- "question": "The area of a circle is $4$ times the circle's circumference. What is the area of the circle, in terms of $\\pi$?",
+ "question": "The circular outcrop of a salt dome has a radius of $r$ meters. Increasing the radius by $k$ meters increases the circumference by $12\\pi$ meters and the area by $156\\pi$ square meters. What is the value of $r$?",
  "choices": [
   {
    "id": "A",
-   "text": "$16\\pi$"
+   "text": "$6$"
   },
   {
    "id": "B",
-   "text": "$64\\pi$"
+   "text": "$10$"
   },
   {
    "id": "C",
-   "text": "$128\\pi$"
+   "text": "$13$"
   },
   {
    "id": "D",
-   "text": "$256\\pi$"
+   "text": "$16$"
   }
  ],
- "distractorNotes": {
-  "A": "reports the circumference instead of the area",
-  "C": "uses 2 pi r squared for the area",
-  "D": "squares the diameter instead of the radius"
- },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Circumference of a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $\\pi r^2 = 4(2\\pi r)$ cancels to $r = 8$, so the area is $\\pi(8)^2 = 64\\pi$.\n\n**The Full Solution:**\nStep 1: Write both quantities in terms of the radius: the area is $\\pi r^2$ and the circumference is $2\\pi r$. The given relationship is $\\pi r^2 = 4(2\\pi r) = 8\\pi r$.\nStep 2: Since $r > 0$, divide both sides by $\\pi r$ to get $r = 8$. That is the radius, not yet the answer.\nStep 3: The question asks for the area: $A = \\pi(8)^2 = 64\\pi$. Check: the circumference is $2\\pi(8) = 16\\pi$, and $4(16\\pi) = 64\\pi$, which is the area.\n\n**Why the wrong answers are tempting:**\n* Choice A ($16\\pi$): stops at the circumference $2\\pi(8)$ rather than the area.\n* Choice C ($128\\pi$): uses $2\\pi r^2$ for the area, carrying the $2$ over from the circumference formula.\n* Choice D ($256\\pi$): finds $r = 8$ but squares the diameter, computing $\\pi(16)^2$.\n\n**Test Day Takeaway:** When area and circumference are set proportional to each other, one factor of $r$ cancels and the radius falls out in a single step. Then reread which quantity the question actually wants."
+ "distractorNotes": {
+  "A": "reports k, the increase in the radius, instead of r",
+  "C": "drops the k squared term and solves 12r = 156",
+  "D": "reports the enlarged radius r + k = 16"
+ },
+ "explanation": "**SAT Pattern: Circumference of a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The circumference change gives $2\\pi k = 12\\pi$, so $k = 6$; then $\\pi(12r + 36) = 156\\pi$ gives $r = 10$.\n\n**The Full Solution:**\nStep 1: The circumference grows by $2\\pi(r + k) - 2\\pi r = 2\\pi k$. Setting $2\\pi k = 12\\pi$ gives $k = 6$ meters.\nStep 2: The area grows by $\\pi(r + 6)^2 - \\pi r^2 = \\pi(12r + 36)$. Setting that equal to $156\\pi$ gives $12r + 36 = 156$.\nStep 3: Solve: $12r = 120$, so $r = 10$ meters. Check: the outcrop grows from radius $10$ to $16$, and $\\pi(256 - 100) = 156\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): reports $k$, the amount the radius grew, rather than the original radius.\n* Choice C ($13$): expands $(r + 6)^2$ as $r^2 + 12r$ and drops the $36$, solving $12r = 156$.\n* Choice D ($16$): reports the enlarged radius $r + k$ instead of the original.\n\n**Test Day Takeaway:** Circumference changes linearly with the radius, so it pins the increase first; the area equation then has only one unknown left.",
+ "id": "bank-geo-242"
 }

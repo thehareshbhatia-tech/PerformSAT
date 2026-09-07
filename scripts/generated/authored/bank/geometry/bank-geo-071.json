@@ -1,24 +1,29 @@
 {
  "id": "bank-geo-071",
- "question": "In the $xy$-plane, the graph of $2x^2 + 2y^2 - 16x + 20y - 26 = 0$ is a circle. What are the coordinates of the center of this circle?",
+ "question": "A gas-detection perimeter around a compressor station is the circle $x^{2}+y^{2}+ax-18y+45=0$, whose center is $(7,9)$, with coordinates in meters. What is the value of $a$?",
  "choices": [
   {
    "id": "A",
-   "text": "$(-8, 10)$"
+   "text": "$-14$"
   },
   {
    "id": "B",
-   "text": "$(-4, 5)$"
+   "text": "$-7$"
   },
   {
    "id": "C",
-   "text": "$(4, -5)$"
+   "text": "$7$"
   },
   {
    "id": "D",
-   "text": "$(8, -10)$"
+   "text": "$14$"
   }
  ],
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Divide every term by $2$ to reach $x^2 + y^2 - 8x + 10y - 13 = 0$. The center is then $\\left(-\\frac{-8}{2}, -\\frac{10}{2}\\right) = (4, -5)$.\n\n**The Full Solution:**\nStep 1: The center formula requires the coefficients of $x^2$ and $y^2$ to be $1$, so divide the whole equation by $2$: $x^2 + y^2 - 8x + 10y - 13 = 0$.\nStep 2: Group and complete the squares: $(x^2 - 8x + 16) + (y^2 + 10y + 25) = 13 + 16 + 25$, which is $(x - 4)^2 + (y + 5)^2 = 54$.\nStep 3: Matching $(x - h)^2 + (y - k)^2 = r^2$ gives $h = 4$ and $k = -5$, so the center is $(4, -5)$.\n\nCheck: $r^2 = 54 > 0$, so the equation really does describe a circle.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-8, 10)$): divides by $2$ correctly but then reads the linear coefficients $-8$ and $10$ straight off the equation, skipping both the halving and the sign change.\n* Choice B ($(-4, 5)$): does the arithmetic correctly but reverses both signs at the end.\n* Choice D ($(8, -10)$): halves and negates without first dividing the equation by $2$, doubling both coordinates.\n\n**Test Day Takeaway:** Normalize to a leading coefficient of $1$ on both squared terms before you touch the linear coefficients."
+ "distractorNotes": {
+  "B": "reverses the sign but forgets to double, reporting a = -7",
+  "C": "forgets both the sign reversal and the doubling",
+  "D": "forgets the sign reversal, solving a/2 = 7"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The $x$-coordinate of the center is $-\\frac{a}{2}$, so $-\\frac{a}{2}=7$ and $a=-14$.\n\n**The Full Solution:**\n\nStep 1: Relate the coefficient to the center. Completing the square on $x^{2}+ax$ gives $\\left(x+\\frac{a}{2}\\right)^{2}$, so the center's $x$-coordinate is $-\\frac{a}{2}$.\n\nStep 2: Set it equal to the given value. $-\\frac{a}{2}=7$.\n\nStep 3: Solve. Multiplying both sides by $-2$ gives $a=-14$.\n\nCheck: with $a=-14$ the equation becomes $(x-7)^{2}+(y-9)^{2}=49+81-45=85$, a real circle centered at $(7,9)$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($-7$): reverses the sign but forgets to double, reporting $-7$.\n* Choice C ($7$): copies the center's coordinate directly, skipping both the sign reversal and the doubling.\n* Choice D ($14$): doubles correctly but keeps the sign, solving $\\frac{a}{2}=7$.\n\n**Test Day Takeaway:** In general form the linear coefficient is $-2$ times the center coordinate; running that backwards requires both operations."
 }

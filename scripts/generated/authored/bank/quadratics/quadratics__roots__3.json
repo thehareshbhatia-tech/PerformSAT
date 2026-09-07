@@ -1,30 +1,30 @@
 {
   "id": 3,
-  "question": "In the $xy$-plane, the graph of $y = x^2 - 36$ crosses the $x$-axis at two points. What are the $x$-coordinates of those two points?",
+  "question": "A kiln operator's model gives the two times, in hours from a set point, at which the chamber temperature returns to its target as the solutions of $9x^2 - c = 0$, where $c$ is a positive constant. Those two times differ by $\\frac{8}{3}$ hours. What is the value of $c$?",
   "choices": [
     {
       "id": "A",
-      "text": "$-36$ and $36$"
+      "text": "$\\frac{16}{9}$"
     },
     {
       "id": "B",
-      "text": "$-18$ and $18$"
+      "text": "$4$"
     },
     {
       "id": "C",
-      "text": "$-6$ and $6$"
+      "text": "$16$"
     },
     {
       "id": "D",
-      "text": "$0$ and $36$"
+      "text": "$64$"
     }
   ],
   "distractorNotes": {
-    "A": "no square root taken",
-    "B": "divides by 2 instead of taking a root",
-    "D": "reads a linear term that is not there"
+    "A": "solves x^2 = c, ignoring the coefficient 9, which gives 2 sqrt(c) = 8/3 and c = 16/9",
+    "B": "stops at sqrt(c) = 4 and reports that instead of c",
+    "D": "sets one solution equal to the full gap 8/3 instead of half of it, giving c = 9(64/9) = 64"
   },
   "correctAnswer": "C",
-  "hint": "A difference of two squares factors into a sum times a difference.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $x^2 - 36 = (x - 6)(x + 6)$, so the graph crosses at $x = 6$ and $x = -6$.\n\n**The Full Solution:**\nStep 1: A graph crosses the $x$-axis where $y = 0$, so solve $x^2 - 36 = 0$.\nStep 2: Both terms are perfect squares, so factor as a difference of squares: $x^2 - 36 = (x - 6)(x + 6)$.\nStep 3: Setting each factor to zero gives $x = 6$ and $x = -6$. Check: $6^2 - 36 = 0$ and $(-6)^2 - 36 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: treats $x^2 = 36$ as $x = \\pm 36$, taking no square root at all.\n* Choice B: divides $36$ by $2$ instead of taking its square root.\n* Choice D: reads the equation as $x^2 - 36x = 0$ and factors out an $x$.\n\n**Test Day Takeaway:** $a^2 - b^2$ always factors as $(a - b)(a + b)$; solving $x^2 = c$ takes a square root, never a division by $2$."
+  "hint": "Write the two solutions in terms of c before you use the gap between them.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** The solutions are $\\pm\\frac{\\sqrt{c}}{3}$, so the gap is $\\frac{2\\sqrt{c}}{3} = \\frac{8}{3}$, giving $\\sqrt{c} = 4$ and $c = 16$.\n\n**The Full Solution:**\nStep 1: Solve for the two times. $9x^2 = c$ gives $x^2 = \\frac{c}{9}$, so $x = \\pm\\frac{\\sqrt{c}}{3}$.\nStep 2: Use the gap. The two solutions differ by $\\frac{\\sqrt{c}}{3} - \\left(-\\frac{\\sqrt{c}}{3}\\right) = \\frac{2\\sqrt{c}}{3}$, and that equals $\\frac{8}{3}$, so $\\sqrt{c} = 4$.\nStep 3: Square and check. $c = 16$, so $9x^2 = 16$ gives $x = \\pm\\frac{4}{3}$, and $\\frac{4}{3} - \\left(-\\frac{4}{3}\\right) = \\frac{8}{3}$ hours. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{16}{9}$): drops the coefficient $9$ and solves $x^2 = c$, so the gap becomes $2\\sqrt{c}$.\n* Choice B ($4$): is $\\sqrt{c}$, one step short of the requested $c$.\n* Choice D ($64$): sets one solution equal to the whole gap $\\frac{8}{3}$ rather than half of it.\n\n**Test Day Takeaway:** For $ax^2 = c$ the two solutions are symmetric about $0$, so their difference is TWICE the positive one — halve the gap before squaring."
 }

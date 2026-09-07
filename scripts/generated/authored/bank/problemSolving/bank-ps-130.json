@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-130",
-  "question": "A data set of $15$ values has a mean of $52$ and a median of $52$. The least value in the data set is decreased by $30$, the greatest value is increased by $45$, and no other values change. What are the mean and the median of the resulting data set?",
+  "question": "A masters swim squad recorded the $400$-meter freestyle times, in seconds, of the $16$ members entered in a meet. When one more member's time is added to the set, the mean of all the times is exactly $2$ seconds greater than before. Which of the following must be true of the added time?",
   "choices": [
     {
       "id": "A",
-      "text": "Mean $53$, median $52$"
+      "text": "It is $2$ seconds greater than the original mean."
     },
     {
       "id": "B",
-      "text": "Mean $53$, median $53$"
+      "text": "It is $17$ seconds greater than the original mean."
     },
     {
       "id": "C",
-      "text": "Mean $52$, median $52$"
+      "text": "It is $32$ seconds greater than the original mean."
     },
     {
       "id": "D",
-      "text": "Mean $67$, median $52$"
+      "text": "It is $34$ seconds greater than the original mean."
     }
   ],
+  "correctAnswer": "D",
   "distractorNotes": {
-    "B": "assumes the median moves with the mean, but only the two extremes changed",
-    "C": "assumes the two changes cancel; they net to +15, not 0",
-    "D": "adds the net change 15 to the mean without dividing by 15"
+    "A": "reports the shift in the mean itself rather than how far the new value must sit above it",
+    "B": "reads the new count of $17$ as a number of seconds instead of multiplying it by the $2$-second shift",
+    "C": "uses the original count, computing $16(2) = 32$ instead of $17(2) = 34$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Outlier Effect**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The sum changes by $-30 + 45 = +15$, spread over $15$ values, so the mean rises by $1$, to $53$. The least value is still the least and the greatest is still the greatest, so the middle value is untouched: the median stays $52$.\n\n**The Full Solution:**\nStep 1: Original sum $= 15 \\times 52 = 780$. New sum $= 780 - 30 + 45 = 795$. New mean $= \\frac{795}{15} = 53$.\nStep 2: With $15$ values, the median is the 8th value in order. Decreasing the least value keeps it the least, and increasing the greatest keeps it the greatest, so the order of the list and its 8th value are unchanged: the median is still $52$.\nStep 3: Check: the mean moved by $\\frac{+15}{15} = +1$, from $52$ to $53$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (mean $53$, median $53$): Assumes the median drifts with the mean; but only the two end values changed, and the 8th value never moved.\n* Choice C (mean $52$, median $52$): Assumes the decrease and increase cancel; they net to $+15$, not $0$.\n* Choice D (mean $67$, median $52$): Adds the net change of $15$ directly to the mean instead of dividing it by the $15$ values.\n\n**Test Day Takeaway:** Changing the extremes alters the mean by (net change) $\\div n$ and leaves the median alone as long as the extremes stay the extremes."
+  "explanation": "**SAT Pattern: Outlier Effect**\n\n**Choice D is correct.** Writing the original mean as $M$, the new total is $17(M + 2) = 17M + 34$, so the added time is $17M + 34 - 16M = M + 34$ seconds.\n\n**The Fast Way (~55s):** Every one of the $17$ times must gain $2$ seconds' worth of total, so the newcomer supplies $17(2) = 34$ seconds above the old mean.\n\n**The Full Solution:**\n\nStep 1: Write the original total. Sixteen times with mean $M$ sum to $16M$ seconds.\n\nStep 2: Write the new total. Seventeen times with mean $M + 2$ sum to $17(M + 2) = 17M + 34$ seconds.\n\nStep 3: Subtract to isolate the added time: $(17M + 34) - 16M = M + 34$ seconds, so the added time is $34$ seconds greater than the original mean. Check: with $M = 300$, the original total is $4{,}800$; adding $334$ gives $5{,}134$ over $17$ times, and $\\frac{5{,}134}{17} = 302 = M + 2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A: reports the $2$-second shift itself. A single value must carry the shift for all $17$ times, not just for itself.\n* Choice B: reads the new count of $17$ as a number of seconds rather than multiplying it by the $2$-second shift.\n* Choice C: multiplies the shift by the original count, $16(2) = 32$, but the new mean is spread over $17$ values.\n\n**Test Day Takeaway:** When one new value moves a mean, it must supply the shift for every value in the NEW set -- multiply the shift by the new count, not the old."
 }

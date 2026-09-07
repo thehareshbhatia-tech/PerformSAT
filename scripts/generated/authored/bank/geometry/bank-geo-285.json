@@ -1,29 +1,45 @@
 {
- "id": "bank-geo-285",
- "question": "The equation $x^2 + y^2 - 8x = 9$ defines a circle in the $xy$-plane. What is the center of this circle?",
+ "question": "The circular stage of a bandshell is modeled in the $xy$-plane by $x^2 + y^2 - 12x + 16y + 51 = 0$, with units in meters, and triangular riser $ABC$ has $\\overline{AB}$ as a diameter of the stage. What is the length, in meters, of $\\overline{AB}$?",
+ "diagram": {
+  "type": "circleWithInscribedTriangle",
+  "params": {
+   "labels": {
+    "A": "A",
+    "B": "B",
+    "C": "C",
+    "O": "O"
+   },
+   "angleAtA": "35°",
+   "angleAtAValue": 35,
+   "showDiameter": true,
+   "showCenter": true,
+   "showRightAngleAtC": true
+  }
+ },
  "choices": [
   {
    "id": "A",
-   "text": "$(-8, 0)$"
+   "text": "$7$"
   },
   {
    "id": "B",
-   "text": "$(-4, 0)$"
+   "text": "$14$"
   },
   {
    "id": "C",
-   "text": "$(4, 0)$"
+   "text": "$28$"
   },
   {
    "id": "D",
-   "text": "$(8, 0)$"
+   "text": "$49$"
   }
  ],
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "negates without halving",
-  "B": "halves but keeps the wrong sign",
-  "D": "copies the coefficient directly"
+  "A": "reports the radius 7 instead of the diameter",
+  "C": "doubles the diameter, reporting 28",
+  "D": "reports r squared, 49, instead of taking the square root"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Only $x$ needs completing: $(x - 4)^2 + y^2 = 25$, so the center is $(4, 0)$.\n\n**The Full Solution:**\nStep 1: The $y$ terms are already a complete square, $y^2$, so the center's $y$-coordinate is $0$.\nStep 2: Complete the square in $x$ by adding $\\left(\\frac{-8}{2}\\right)^2 = 16$ to both sides: $(x - 4)^2 + y^2 = 9 + 16 = 25$.\nStep 3: The center is $(4, 0)$ and the radius is $5$. Check: the point $(9, 0)$ satisfies $81 - 72 = 9$ and lies $5$ units from $(4, 0)$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-8, 0)$): negates the coefficient of $x$ without halving it.\n* Choice B ($(-4, 0)$): halves the coefficient but keeps the negative sign.\n* Choice D ($(8, 0)$): reads $8$ straight off the equation as the center.\n\n**Test Day Takeaway:** A missing linear term means that coordinate of the center is $0$ — one less square to complete."
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Completing the square gives $(x - 6)^2 + (y + 8)^2 = 36 + 64 - 51 = 49$, so $r = 7$ and the diameter $\\overline{AB}$ is $14$.\n\n**The Full Solution:**\nStep 1: Group and complete the square: $x^2 - 12x = (x - 6)^2 - 36$ and $y^2 + 16y = (y + 8)^2 - 64$.\nStep 2: The equation becomes $(x - 6)^2 + (y + 8)^2 = 36 + 64 - 51 = 49$, so the stage has center $(6, -8)$ and radius $\\sqrt{49} = 7$ meters.\nStep 3: $\\overline{AB}$ is a diameter, so its length is $2r = 14$ meters; the point $(13, -8)$ on the stage is exactly $7$ meters from the center ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): stops at the radius; the segment asked about spans the whole stage.\n* Choice C ($28$): doubles the diameter, applying the factor of $2$ twice.\n* Choice D ($49$): reports $r^2$ straight from the right side without taking the square root.\n\n**Test Day Takeaway:** After completing the square the right side is $r^2$, never $r$ — and a diameter is twice that square root.",
+ "id": "bank-geo-285"
 }

@@ -1,30 +1,41 @@
 {
  "id": 4,
- "question": "In triangle $ABC$, the measure of angle $A$ is $47°$ and the measure of angle $B$ is $43°$. Which of the following must be true?",
+ "question": "The spreader brace of a picking ladder forms the isosceles triangle shown, in which the two base angles each measure $z$ degrees. What is the value of $z$?",
+ "diagram": {
+  "type": "triangleWithAngles",
+  "params": {
+   "angleLabels": [
+    "z°",
+    "z°",
+    "48°"
+   ],
+   "figureNote": true
+  }
+ },
  "choices": [
   {
    "id": "A",
-   "text": "Triangle $ABC$ is a right triangle."
+   "text": "$42$"
   },
   {
    "id": "B",
-   "text": "Triangle $ABC$ is an acute triangle."
+   "text": "$66$"
   },
   {
    "id": "C",
-   "text": "Triangle $ABC$ is an obtuse triangle."
+   "text": "$96$"
   },
   {
    "id": "D",
-   "text": "Angle $C$ is the smallest angle of triangle $ABC$."
+   "text": "$132$"
   }
  ],
  "distractorNotes": {
-  "B": "classifies from the two given acute angles alone and never computes angle $C$",
-  "C": "follows from a slip such as $47 + 43 = 80$, which would leave $100°$ for angle $C$",
-  "D": "angle $C$ measures $90°$, making it the largest angle rather than the smallest"
+  "A": "computes 90 - 48, treating the base angles as complementary to the apex",
+  "C": "doubles the apex angle",
+  "D": "stops at 180 - 48 without halving"
  },
- "correctAnswer": "A",
- "hint": "Two angles are given; find the third before deciding what kind of triangle this is.",
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~25s):** $47 + 43 = 90$, so angle $C$ measures $180 - 90 = 90°$ and the triangle is right.\n\n**The Full Solution:**\nStep 1: The interior angles satisfy $47 + 43 + m\\angle C = 180$.\nStep 2: Combine the known measures: $90 + m\\angle C = 180$, so $m\\angle C = 90$.\nStep 3: A triangle containing a $90°$ angle is a right triangle.\n\nVerification: $47 + 43 + 90 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Triangle $ABC$ is an acute triangle.): classifies from the two given acute angles alone and never computes angle $C$.\n* Choice C (Triangle $ABC$ is an obtuse triangle.): follows from a slip such as $47 + 43 = 80$, which would leave $100°$ for angle $C$.\n* Choice D (Angle $C$ is the smallest angle of triangle $ABC$.): angle $C$ measures $90°$, making it the largest angle rather than the smallest.\n\n**Test Day Takeaway:** When the two given angles add to $90$, the third is a right angle — compute the third angle before classifying."
+ "correctAnswer": "B",
+ "hint": "The apex angle is the only one of the three that is not $z$.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** The two base angles share what is left of $180$ after the $48$-degree apex: $\\frac{132}{2} = 66$.\n\n**The Full Solution:**\nStep 1: The three interior angles sum to $180$ degrees, so $z + z + 48 = 180$.\nStep 2: Combine and subtract: $2z = 132$.\nStep 3: Divide by $2$: $z = 66$. Check: $66 + 66 + 48 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($42$): computing $90 - 48$, which would apply only if the base angles were complementary to the apex.\n* Choice C ($96$): doubling the apex angle instead of sharing the remaining $132$ degrees.\n* Choice D ($132$): stopping at $180 - 48$ without splitting that total between the two equal angles.\n\n**Test Day Takeaway:** In an isosceles triangle, subtract the odd angle from $180$ and split what remains in half."
 }

@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-322",
- "question": "In rectangle $KLMN$, side $\\overline{KL}$ has length $20$ and diagonal $\\overline{KM}$ has length $29$. What is the area of rectangle $KLMN$?",
+ "question": "An autoclave's inner cavity is a rectangular prism with edges of $12$, $16$, and $21$ centimeters. What is the greatest length, in centimeters, of a straight glass rod that can lie entirely inside the cavity?",
  "choices": [
   {
    "id": "A",
-   "text": "$210$"
+   "text": "$20$"
   },
   {
    "id": "B",
-   "text": "$420$"
+   "text": "$29$"
   },
   {
    "id": "C",
-   "text": "$580$"
+   "text": "$37$"
   },
   {
    "id": "D",
-   "text": "$609$"
+   "text": "$49$"
   }
  ],
- "distractorNotes": {
-  "A": "gives the area of one of the two triangles",
-  "C": "multiplies the given side by the diagonal",
-  "D": "multiplies the missing side by the diagonal"
- },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The diagonal is the hypotenuse of a right triangle with legs $20$ and $LM$. Since $20$, $21$, $29$ is a triple, $LM=21$ and the area is $20\\cdot 21=420$.\n\n**The Full Solution:**\nStep 1: In a rectangle the sides meet at right angles, so triangle $KLM$ is a right triangle with legs $\\overline{KL}$ and $\\overline{LM}$ and hypotenuse $\\overline{KM}$.\nStep 2: $20^2+LM^2=29^2$, so $LM^2=841-400=441$ and $LM=21$.\nStep 3: The area of the rectangle is $(KL)(LM)=(20)(21)=420$.\n\nCheck: $20^2+21^2=400+441=841=29^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($210$): computed $\\frac{1}{2}(20)(21)$, the area of triangle $KLM$, which is only half the rectangle.\n* Choice C ($580$): multiplied the given side by the diagonal, $20\\cdot 29$, treating the diagonal as the second side.\n* Choice D ($609$): found $LM=21$ but then multiplied it by the diagonal, $21\\cdot 29$, instead of by $KL$.\n\n**Test Day Takeaway:** A diagonal is never a side. Use it only as the hypotenuse to recover the missing side, then multiply the two actual sides."
+ "distractorNotes": {
+  "A": "uses only the 12 by 16 face diagonal and never accounts for the 21-centimeter edge",
+  "C": "adds the two largest edges, 16 + 21, instead of using the Pythagorean theorem",
+  "D": "adds all three edges, 12 + 16 + 21, which traces a bent path along three edges"
+ },
+ "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.** The longest rod lies along the space diagonal: $\\sqrt{12^2 + 16^2 + 21^2} = \\sqrt{841} = 29$ centimeters.\n\n**The Fast Way (~35s):** $144 + 256 + 441 = 841$, so the space diagonal is $29$.\n\n**The Full Solution:**\n\nStep 1: A face diagonal across the $12$-by-$16$ face measures $\\sqrt{144 + 256} = \\sqrt{400} = 20$ centimeters.\n\nStep 2: That face diagonal and the remaining $21$-centimeter edge meet at a right angle, so they are the legs of a right triangle whose hypotenuse is the space diagonal.\n\nStep 3: The space diagonal is $\\sqrt{20^2 + 21^2} = \\sqrt{400 + 441} = \\sqrt{841} = 29$ centimeters. Check: $29$ exceeds every edge and every face diagonal, as the longest interior segment must.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($20$): stops at the face diagonal and ignores the $21$-centimeter edge.\n* Choice C ($37$): adds the two largest edges instead of using the Pythagorean theorem.\n* Choice D ($49$): adds all three edges, tracing a bent path rather than a straight rod.\n\n**Test Day Takeaway:** A box's longest interior segment needs the Pythagorean theorem twice — face diagonal first, then the perpendicular edge."
 }

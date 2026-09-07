@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-346",
-  "question": "The data set $\\{6,\\ 11,\\ 11,\\ 14,\\ 14,\\ x\\}$ has exactly one mode, and that mode is $14$. What is the value of $x$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$6$"
-    },
-    {
-      "id": "B",
-      "text": "$11$"
-    },
-    {
-      "id": "C",
-      "text": "$12$"
-    },
-    {
-      "id": "D",
-      "text": "$14$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "makes $6$, $11$, and $14$ each occur twice, so the data set would have three modes rather than one.",
-    "B": "makes $11$ occur three times, so the single mode would be $11$, not $14$.",
-    "C": "adds a value that occurs once, leaving $11$ and $14$ tied at two occurrences each, so there would be two modes."
+ "id": "bank-ps-346",
+ "question": "Hole by hole, a golfer carded $4$, $5$, $3$, $5$, $4$, $6$, $k$, $4$, and $5$ over a nine-hole round. If $5$ is the only mode of these nine scores, what is the value of $k$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Mode from List**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Without $x$, both $11$ and $14$ occur twice. Only $x = 14$ breaks the tie in favor of $14$.\n\n**The Full Solution:**\nStep 1: Count the fixed values: $6$ occurs once, $11$ occurs twice, and $14$ occurs twice.\nStep 2: For $14$ to be the only mode, it must occur strictly more often than every other value, so $14$ must gain the extra occurrence.\nStep 3: Setting $x = 14$ gives three $14$s against two $11$s and one $6$, exactly one mode. Check: any other value of $x$ leaves $11$ tied with $14$ or creates a new tie. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): makes $6$, $11$, and $14$ each occur twice, so the data set would have three modes rather than one.\n* Choice B ($11$): makes $11$ occur three times, so the single mode would be $11$, not $14$.\n* Choice C ($12$): adds a value that occurs once, leaving $11$ and $14$ tied at two occurrences each, so there would be two modes.\n\n**Test Day Takeaway:** \"Exactly one mode\" is a tie-breaking condition. Count the existing occurrences first, then place the unknown where it makes one value strictly most frequent."
+  {
+   "id": "B",
+   "text": "$4$"
+  },
+  {
+   "id": "C",
+   "text": "$5$"
+  },
+  {
+   "id": "D",
+   "text": "$6$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "makes $3$ appear twice and leaves $4$ and $5$ tied at three each, so there is no single mode",
+  "B": "makes $4$ appear four times, which would make $4$ the mode instead of $5$",
+  "D": "makes $6$ appear twice and again leaves $4$ and $5$ tied at three each"
+ },
+ "explanation": "**SAT Pattern: Mode from List**\n\n**Choice C is correct.** Without $k$, the scores $4$ and $5$ each appear three times, so only $k = 5$ breaks the tie in favor of $5$.\n\n**The Fast Way (~35s):** The eight known scores give $4$ three times and $5$ three times. To make $5$ the only mode, $k$ must be $5$.\n\n**The Full Solution:**\n\nStep 1: Tally the eight known scores: $3$ appears once, $4$ appears three times, $5$ appears three times, and $6$ appears once.\n\nStep 2: State what the condition requires. A single mode of $5$ means $5$ must occur strictly more often than every other score, so $5$ must beat $4$'s three appearances.\n\nStep 3: Test $k = 5$. Then $5$ appears four times and $4$ appears three times, so $5$ is the only mode. Check: any other value of $k$ either leaves $4$ and $5$ tied at three or, if $k = 4$, makes $4$ the mode.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($3$): raises $3$ to two appearances while $4$ and $5$ stay tied at three, so the list has two modes.\n* Choice B ($4$): gives $4$ four appearances, making $4$ the mode rather than $5$.\n* Choice D ($6$): raises $6$ to two appearances and leaves the $4$-$5$ tie in place.\n\n**Test Day Takeaway:** Tally the known values before you place the unknown -- a unique mode means beating the runner-up, not just tying it."
 }

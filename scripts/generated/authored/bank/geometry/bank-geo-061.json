@@ -1,41 +1,59 @@
 {
  "id": "bank-geo-061",
- "question": "Right triangle $WXY$ has its right angle at vertex $X$. If $WY = 29$ and $XY = 20$, what is the value of $\\sin W$?",
+ "question": "A curtain-wall bracing plate has the shape of right triangle $FGH$ shown, with side lengths in centimeters. What is the value of $\\cos F$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     12,
+     0
+    ],
+    [
+     12,
+     9
+    ]
+   ],
    "labels": [
-    "W",
-    "X",
-    "Y"
+    "F",
+    "G",
+    "H"
    ],
    "sideLabels": [
-    "",
-    "20",
-    "29"
+    "12",
+    "9",
+    "15"
    ],
-   "rightAngleVertex": 1,
-   "figureNote": true
+   "rightAngleVertex": 1
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$\\dfrac{20}{29}$"
+   "text": "$\\frac{3}{5}$"
   },
   {
    "id": "B",
-   "text": "$\\dfrac{21}{29}$"
+   "text": "$\\frac{3}{4}$"
   },
   {
    "id": "C",
-   "text": "$\\dfrac{20}{21}$"
+   "text": "$\\frac{4}{5}$"
   },
   {
    "id": "D",
-   "text": "$\\dfrac{29}{20}$"
+   "text": "$\\frac{4}{3}$"
   }
  ],
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The hypotenuse faces the right angle, so $WY = 29$ is the hypotenuse and $XY = 20$ is the leg opposite angle $W$. By SOH, $\\sin W = \\frac{20}{29}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $X$, so the side across from it, $\\overline{WY}$, is the hypotenuse: $WY = 29$.\nStep 2: The leg opposite angle $W$ is $\\overline{XY}$, with $XY = 20$.\nStep 3: $\\sin W = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{20}{29}$.\n\nCheck: the remaining leg is $WX = \\sqrt{29^2 - 20^2} = \\sqrt{441} = 21$, so the sides $20$, $21$, $29$ do form a right triangle.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{21}{29}$): uses the adjacent leg $WX = 21$ over the hypotenuse, which is $\\cos W$, not $\\sin W$.\n* Choice C ($\\frac{20}{21}$): uses opposite over adjacent, which is $\\tan W$.\n* Choice D ($\\frac{29}{20}$): flips the correct ratio, giving $\\csc W$ instead of $\\sin W$.\n\n**Test Day Takeaway:** Label the hypotenuse first (it is always opposite the right angle), then read $\\sin$ as opposite over that hypotenuse."
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "gives sin F, the side opposite F over the hypotenuse, 9 over 15",
+  "B": "gives tan F, opposite over adjacent, 9 over 12",
+  "D": "inverts the tangent, adjacent over opposite, 12 over 9"
+ },
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice C is correct.** $\\cos F = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{FG}{FH} = \\frac{12}{15} = \\frac{4}{5}$.\n\n**The Fast Way (~15s):** The side adjacent to $F$ is $12$ and the hypotenuse is $15$, so $\\cos F = \\frac{12}{15} = \\frac{4}{5}$.\n\n**The Full Solution:**\n\nStep 1: The right angle is at $G$, so the hypotenuse is $\\overline{FH} = 15$.\n\nStep 2: The leg adjacent to angle $F$ is $\\overline{FG} = 12$; the leg opposite $F$ is $\\overline{GH} = 9$.\n\nStep 3: Cosine is adjacent over hypotenuse: $\\frac{12}{15} = \\frac{4}{5}$. Check: $\\left(\\frac{3}{5}\\right)^2 + \\left(\\frac{4}{5}\\right)^2 = 1$, so the sine and cosine are consistent.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($\\frac{3}{5}$): that is $\\sin F$, opposite over hypotenuse.\n* Choice B ($\\frac{3}{4}$): that is $\\tan F$, opposite over adjacent.\n* Choice D ($\\frac{4}{3}$): inverts the tangent, adjacent over opposite.\n\n**Test Day Takeaway:** Label the hypotenuse first — it is always opposite the right angle — and the adjacent and opposite legs sort themselves out from the named angle."
 }

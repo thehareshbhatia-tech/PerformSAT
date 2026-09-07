@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-008",
- "question": "An angle has a measure of $\\frac{7\\pi}{12}$ radians. What is the measure of this angle, in degrees?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$15$"
+  "id": "bank-geo-008",
+  "question": "A tape-library robot arm pivots about a post at the center of a circular carousel of cartridge slots. Starting from the slot directly in front of the post, the arm swings counterclockwise through $\\frac{5\\pi}{6}$ radians and stops in front of a second slot on the same carousel. Which of the following statements about the size of that swing is true?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The swing is less than $90^\\circ$."
+    },
+    {
+      "id": "B",
+      "text": "The swing is between $90^\\circ$ and $180^\\circ$."
+    },
+    {
+      "id": "C",
+      "text": "The swing is exactly $180^\\circ$."
+    },
+    {
+      "id": "D",
+      "text": "The swing is greater than $180^\\circ$."
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "converts with 90 degrees per pi radians, giving 75 degrees",
+    "C": "reads 5 pi over 6 as pi, the radian measure of a straight angle",
+    "D": "converts with 360 degrees per pi radians, giving 300 degrees"
   },
-  {
-   "id": "B",
-   "text": "$52.5$"
-  },
-  {
-   "id": "C",
-   "text": "$105$"
-  },
-  {
-   "id": "D",
-   "text": "$210$"
-  }
- ],
- "distractorNotes": {
-  "A": "divides 180 by 12 but never multiplies by 7",
-  "B": "uses 90 degrees per pi radians",
-  "D": "uses 360 degrees per pi radians"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Radians to Degrees**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Multiply by $\\frac{180}{\\pi}$: $\\frac{7\\pi}{12} \\cdot \\frac{180}{\\pi} = \\frac{7 \\cdot 180}{12} = 105$.\n\n**The Full Solution:**\nStep 1: Since $\\pi$ radians $= 180°$, converting from radians to degrees means multiplying by $\\frac{180}{\\pi}$.\nStep 2: The factors of $\\pi$ cancel: $\\frac{7\\pi}{12} \\cdot \\frac{180}{\\pi} = \\frac{7 \\cdot 180}{12}$.\nStep 3: $\\frac{180}{12} = 15$, so the measure is $7 \\cdot 15 = 105$ degrees.\n\nVerification: $\\frac{7}{12}$ of a straight angle is $\\frac{7}{12}(180) = 105$, and $105°$ lies between $90°$ and $180°$ as an obtuse angle should. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): computes $\\frac{180}{12}$ and stops, never multiplying by the numerator $7$.\n* Choice B ($52.5$): uses $90°$ per $\\pi$ radians, halving the correct measure.\n* Choice D ($210$): uses $360°$ per $\\pi$ radians; $360°$ corresponds to $2\\pi$, not $\\pi$.\n\n**Test Day Takeaway:** Read $\\frac{a\\pi}{b}$ radians as the fraction $\\frac{a}{b}$ of a straight angle, then take that fraction of $180$."
+  "explanation": "**SAT Pattern: Radians to Degrees**\n\n**Choice B is correct.** $\\frac{5\\pi}{6} \\cdot \\frac{180}{\\pi} = 150^\\circ$, which lies between $90^\\circ$ and $180^\\circ$.\n\n**The Fast Way (~15s):** $\\frac{5}{6}$ of a straight angle is $\\frac{5}{6}(180) = 150^\\circ$.\n\n**The Full Solution:**\n\nStep 1: Radians convert to degrees by multiplying by $\\frac{180}{\\pi}$.\n\nStep 2: $\\frac{5\\pi}{6} \\cdot \\frac{180}{\\pi} = \\frac{900}{6} = 150^\\circ$.\n\nStep 3: Since $90 < 150 < 180$, the swing is more than a quarter revolution but less than a half revolution. Check: $150^\\circ \\cdot \\frac{\\pi}{180} = \\frac{5\\pi}{6}$, the original measure.\n\n**Why the wrong answers are tempting:**\n\n* Choice A: uses $90^\\circ$ per $\\pi$ radians and lands on $75^\\circ$.\n* Choice C: reads $\\frac{5\\pi}{6}$ as $\\pi$, the measure of a straight angle.\n* Choice D: uses $360^\\circ$ per $\\pi$ radians and lands on $300^\\circ$.\n\n**Test Day Takeaway:** Any radian measure written as a fraction of $\\pi$ is that same fraction of $180^\\circ$ — no calculator needed to place it on the circle."
 }

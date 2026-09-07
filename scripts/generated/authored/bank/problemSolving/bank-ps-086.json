@@ -1,92 +1,90 @@
 {
   "id": "bank-ps-086",
-  "question": "The scatterplot shows the length $y$, in centimeters, of each of $10$ icicles and the number of hours $x$ since a storm ended, along with the line of best fit $\\hat{y} = 0.6x + 12.4$. What is the residual for the highlighted data point $(25, 30)$?",
+  "question": "Each point in the scatterplot pairs the age, in years, of one of $10$ water mains in a distribution district with the number of leaks recorded on that main last year, and the line of best fit is drawn. For how many of the $10$ mains is the residual negative?",
   "diagram": {
     "type": "scatterplot",
     "params": {
       "points": [
         [
-          4,
-          14
+          10,
+          2
         ],
         [
-          8,
-          16
-        ],
-        [
-          12,
-          21
-        ],
-        [
-          16,
-          21
-        ],
-        [
-          18,
-          24
+          15,
+          5
         ],
         [
           20,
-          23
+          5
         ],
         [
-          22,
-          27
-        ],
-        [
-          28,
-          28
+          25,
+          8
         ],
         [
           30,
-          29
+          5
+        ],
+        [
+          35,
+          9
+        ],
+        [
+          40,
+          8
+        ],
+        [
+          45,
+          13
+        ],
+        [
+          50,
+          8
+        ],
+        [
+          55,
+          13
         ]
       ],
       "xMin": 0,
-      "xMax": 32,
+      "xMax": 60,
       "yMin": 0,
-      "yMax": 36,
-      "xGridStep": 2,
-      "yGridStep": 4,
-      "xLabelStep": 4,
-      "yLabelStep": 8,
-      "xLabel": "Hours since storm",
-      "yLabel": "Length (cm)",
+      "yMax": 16,
+      "xGridStep": 5,
+      "xLabelStep": 10,
+      "yGridStep": 2,
+      "yLabelStep": 4,
+      "xLabel": "Age of water main (years)",
+      "yLabel": "Leaks recorded last year",
       "bestFitLine": {
-        "slope": 0.6,
-        "intercept": 12.4
-      },
-      "highlightPoint": [
-        25,
-        30
-      ],
-      "highlightLabel": "(25, 30)",
-      "showResidual": true
+        "slope": 0.2,
+        "intercept": 1
+      }
     }
   },
   "choices": [
     {
       "id": "A",
-      "text": "$-5.4$"
+      "text": "$3$"
     },
     {
       "id": "B",
-      "text": "$-2.6$"
+      "text": "$4$"
     },
     {
       "id": "C",
-      "text": "$2.6$"
+      "text": "$5$"
     },
     {
       "id": "D",
-      "text": "$27.4$"
+      "text": "$6$"
     }
   ],
   "distractorNotes": {
-    "A": "swaps the coordinates: uses x = 30, then 25 - 30.4",
-    "B": "computes predicted minus actual",
-    "D": "reports the predicted value"
+    "A": "misses the leftmost point at (10, 2), which lies 1 leak below the line",
+    "C": "counts the point at (20, 5) that lies ON the line, whose residual is 0, as negative",
+    "D": "counts the points at or above the line (5 above plus the 1 on it), which are the non-negative residuals"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\hat{y} = 0.6(25) + 12.4 = 27.4$, so the residual is $30 - 27.4 = 2.6$.\n\n**The Full Solution:**\nStep 1: Residual $= y - \\hat{y}$, with $\\hat{y}$ evaluated at the point's $x$-value.\nStep 2: At $x = 25$: $0.6(25) = 15$, and $15 + 12.4 = 27.4$ centimeters.\nStep 3: The actual length is $30$, so the residual is $30 - 27.4 = 2.6$ centimeters.\nCheck: $27.4 + 2.6 = 30$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5.4$): This swaps the coordinates, using $x = 30$ to get $\\hat{y} = 30.4$ and then $25 - 30.4 = -5.4$.\n* Choice B ($-2.6$): This computes predicted minus actual, $27.4 - 30$, reversing the definition.\n* Choice D ($27.4$): This is the predicted length itself, not the gap between the point and the line.\n\n**Test Day Takeaway:** Substitute the point's $x$ into the model first, then subtract in the order actual $-$ predicted."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** A negative residual means the point sits BELOW the line; four plotted points do — at $x = 10$, $30$, $40$, and $50$.\n\n**The Full Solution:**\nStep 1: Know the sign rule. Residual $=$ actual $-$ predicted, so a residual is negative exactly when the point lies below the line of best fit.\nStep 2: Sweep the plot. Below the line: $(10, 2)$, $(30, 5)$, $(40, 8)$, and $(50, 8)$ — four points. On the line: $(20, 5)$. Above the line: the remaining five.\nStep 3: Check the totals. $4$ below $+ 1$ on $+ 5$ above $= 10$ points, which matches the $10$ mains. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): drops the leftmost point $(10, 2)$, which sits one leak below the line.\n* Choice C ($5$): counts $(20, 5)$, which lies ON the line. Its residual is $0$, not negative.\n* Choice D ($6$): counts the points at or above the line instead — those are the residuals that are not negative.\n\n**Test Day Takeaway:** Below the line means a negative residual; a point sitting exactly on the line has a residual of $0$ and belongs to neither side."
 }

@@ -1,25 +1,30 @@
 {
-  "id": 5,
-  "question": "In the $xy$-plane, line $j$ passes through the points $(-4, 9)$ and $(8, 6)$. Line $k$ is perpendicular to line $j$ and passes through the point $(2, -3)$. What is the $y$-coordinate of the $y$-intercept of line $k$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-11$"
-    },
-    {
-      "id": "B",
-      "text": "$-3$"
-    },
-    {
-      "id": "C",
-      "text": "$-\\frac{5}{2}$"
-    },
-    {
-      "id": "D",
-      "text": "$5$"
-    }
-  ],
-  "correctAnswer": "A",
-  "hint": "Three moves in order: the slope of line $j$, the perpendicular slope, then the constant from the point on line $k$.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~40s):** Line $j$ has slope $-\\frac{1}{4}$, so line $k$ has slope $4$; then $-3 = 4(2)+b$ gives $b = -11$ — choice A.\n\n**The Full Solution:**\nStep 1: Slope of line $j$: $m = \\frac{6-9}{8-(-4)} = \\frac{-3}{12} = -\\frac{1}{4}$.\nStep 2: Line $k$ is perpendicular, so its slope is the negative reciprocal of $-\\frac{1}{4}$, which is $4$.\nStep 3: Substitute $(2, -3)$ into $y = 4x + b$: $-3 = 8 + b$, so $b = -11$.\nStep 4: Check: $y = 4x - 11$ passes through $(2, -3)$ because $8 - 11 = -3$, and $-\\frac{1}{4}(4) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-3$): reports the $y$-coordinate of the given point $(2, -3)$; that value occurs at $x = 2$, not at $x = 0$.\n* Choice C ($-\\frac{5}{2}$): uses the slope of line $j$ itself, $-\\frac{1}{4}$; anchoring that at $(2, -3)$ gives $-\\frac{5}{2}$, the intercept of the line parallel to $j$ rather than perpendicular to it.\n* Choice D ($5$): computes $-3 + 8$ instead of $-3 - 8$ when isolating $b$.\n\n**Test Day Takeaway:** A three-step chain gives three places to stop early, and each stopping point is one of the choices. Finish with a line that satisfies every condition in the stem."
+ "id": 5,
+ "question": "On a race committee's chart of a sailing course, distances are marked in hundreds of meters. The starting line has equation $5x - 2y = 14$, and the finish line, which is perpendicular to the starting line, contains the points $(11, k)$ and $(1, 11)$. What is the value of $k$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-14$"
+  },
+  {
+   "id": "B",
+   "text": "$7$"
+  },
+  {
+   "id": "C",
+   "text": "$15$"
+  },
+  {
+   "id": "D",
+   "text": "$36$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "negates the starting line's slope without inverting it, using $-\\frac{5}{2}$ and getting $k=-14$",
+  "C": "inverts the slope but keeps the sign, using $\\frac{2}{5}$ and getting $k=15$",
+  "D": "uses the starting line's own slope $\\frac{5}{2}$ for the finish line and gets $k=36$"
+ },
+ "hint": "Perpendicular lines have slopes whose product is $-1$.",
+ "explanation": "**Choice B is correct.** The finish line's slope must be $-\\frac{2}{5}$, and forcing the two given points to produce that slope gives $k = 7$.\n\n**The Fast Way (~45s):** Solving $5x - 2y = 14$ for $y$ gives slope $\\frac{5}{2}$, so the perpendicular slope is $-\\frac{2}{5}$. Then $\\frac{11 - k}{1 - 11} = -\\frac{2}{5}$ gives $11 - k = 4$, so $k = 7$.\n\n**The Full Solution:**\n\nStep 1: Put the starting line in slope-intercept form. From $5x - 2y = 14$, $-2y = -5x + 14$, so $y = \\frac{5}{2}x - 7$ and the starting line's slope is $\\frac{5}{2}$.\n\nStep 2: Take the negative reciprocal. A line perpendicular to a line of slope $\\frac{5}{2}$ has slope $-\\frac{2}{5}$.\n\nStep 3: Write the slope of the finish line from its two points and set it equal to $-\\frac{2}{5}$: $\\frac{11 - k}{1 - 11} = \\frac{11 - k}{-10} = -\\frac{2}{5}$. Multiplying both sides by $-10$ gives $11 - k = 4$, so $k = 7$. Check: the finish line then joins $(11, 7)$ and $(1, 11)$, whose slope is $\\frac{11 - 7}{1 - 11} = \\frac{4}{-10} = -\\frac{2}{5}$, and $\\frac{5}{2} \\cdot \\left(-\\frac{2}{5}\\right) = -1$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-14$): changes the sign of $\\frac{5}{2}$ without inverting it. Solving $\\frac{11 - k}{-10} = -\\frac{5}{2}$ gives $11 - k = 25$, so $k = -14$.\n* Choice C ($15$): inverts the slope but keeps it positive. Solving $\\frac{11 - k}{-10} = \\frac{2}{5}$ gives $11 - k = -4$, so $k = 15$.\n* Choice D ($36$): treats the finish line as parallel to the starting line. Solving $\\frac{11 - k}{-10} = \\frac{5}{2}$ gives $11 - k = -25$, so $k = 36$.\n\n**Test Day Takeaway:** Perpendicular means flip AND change the sign; do both steps out loud before you touch the second pair of points."
 }

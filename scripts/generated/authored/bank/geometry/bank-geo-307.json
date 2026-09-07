@@ -1,60 +1,54 @@
 {
- "id": "bank-geo-307",
- "question": "Triangle $GHJ$ has a right angle at $H$. If $GJ=15$ and $GH=9$, what is the length of $\\overline{HJ}$?",
- "diagram": {
-  "type": "rightTriangle",
-  "params": {
-   "vertices": [
-    [
-     0,
-     0
-    ],
-    [
-     9,
-     0
-    ],
-    [
-     9,
-     12
-    ]
-   ],
-   "labels": [
-    "G",
-    "H",
-    "J"
-   ],
-   "sideLabels": [
-    "9",
-    "",
-    "15"
-   ],
-   "rightAngleVertex": 1,
-   "figureNote": true
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$6$"
+  "id": "bank-geo-307",
+  "question": "A fiber-optic riser panel is stamped as the right triangle shown, whose longest edge is $53$ centimeters and whose vertical edge is $28$ centimeters. How many square centimeters of laminate cover one panel?",
+  "diagram": {
+    "type": "rightTriangle",
+    "params": {
+      "vertices": [
+        [
+          0,
+          0
+        ],
+        [
+          45,
+          0
+        ],
+        [
+          45,
+          28
+        ]
+      ],
+      "sideLabels": [
+        "",
+        "28 cm",
+        "53 cm"
+      ],
+      "rightAngleVertex": 1
+    }
   },
-  {
-   "id": "B",
-   "text": "$12$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$630$"
+    },
+    {
+      "id": "B",
+      "text": "$742$"
+    },
+    {
+      "id": "C",
+      "text": "$1{,}260$"
+    },
+    {
+      "id": "D",
+      "text": "$1{,}484$"
+    }
+  ],
+  "correctAnswer": "A",
+  "distractorNotes": {
+    "B": "uses the 53 cm hypotenuse as a leg: one half times 28 times 53",
+    "C": "finds both legs but omits the factor one half: 28 times 45",
+    "D": "multiplies the two given lengths, 28 times 53, with no halving and no missing leg"
   },
-  {
-   "id": "C",
-   "text": "$24$"
-  },
-  {
-   "id": "D",
-   "text": "$144$"
-  }
- ],
- "distractorNotes": {
-  "A": "subtracts the given lengths",
-  "C": "adds the given lengths",
-  "D": "omits the square root"
- },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $\\overline{GJ}$ is the hypotenuse, so $HJ=\\sqrt{15^2-9^2}$. Since $9$, $12$, $15$ is $3$-$4$-$5$ tripled, $HJ=12$.\n\n**The Full Solution:**\nStep 1: The right angle is at $H$, so the hypotenuse is $\\overline{GJ}=15$ and the legs are $\\overline{GH}=9$ and $\\overline{HJ}$.\nStep 2: $9^2+HJ^2=15^2$, so $HJ^2=225-81=144$.\nStep 3: $HJ=\\sqrt{144}=12$.\n\nCheck: $9^2+12^2=81+144=225=15^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): subtracted the two given lengths, $15-9$, instead of subtracting their squares before taking a root.\n* Choice C ($24$): added the two given lengths; a leg must be shorter than the hypotenuse, so $24$ is impossible.\n* Choice D ($144$): stopped at $HJ^2$ without taking the square root.\n\n**Test Day Takeaway:** To find a leg, subtract squares; to find a hypotenuse, add them. Check the answer against the hypotenuse: every leg must come out smaller."
+  "explanation": "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice A is correct.** The missing leg is $\\sqrt{53^2 - 28^2} = 45$, so the area is $\\frac{1}{2}(28)(45) = 630$ square centimeters.\n\n**The Fast Way (~25s):** $28$-$45$-$53$ is a triple, so the legs are $28$ and $45$ and the area is $\\frac{1}{2}(28)(45) = 630$.\n\n**The Full Solution:**\n\nStep 1: The $53$-centimeter edge is the hypotenuse, so the horizontal leg satisfies $b^2 = 2809 - 784 = 2025$.\n\nStep 2: Therefore $b = 45$ centimeters.\n\nStep 3: Area $= \\frac{1}{2}(28)(45) = 630$ square centimeters. Check: $28^2 + 45^2 = 784 + 2025 = 2809 = 53^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($742$): treats the $53$-centimeter hypotenuse as the second leg, giving $\\frac{1}{2}(28)(53)$.\n* Choice C ($1{,}260$): finds the legs correctly but forgets the factor $\\frac{1}{2}$.\n* Choice D ($1{,}484$): multiplies the two lengths printed on the figure with neither correction.\n\n**Test Day Takeaway:** When a figure gives a hypotenuse and one leg, the triple gives you the other leg faster than the calculator does."
 }

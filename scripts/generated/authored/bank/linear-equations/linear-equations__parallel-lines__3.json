@@ -1,25 +1,30 @@
 {
-  "id": 3,
-  "question": "In the $xy$-plane, line $m$ is parallel to the graph of $4x + 10y = 25$. What is the slope of line $m$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-\\frac{5}{2}$"
-    },
-    {
-      "id": "B",
-      "text": "$-\\frac{2}{5}$"
-    },
-    {
-      "id": "C",
-      "text": "$\\frac{2}{5}$"
-    },
-    {
-      "id": "D",
-      "text": "$\\frac{5}{2}$"
-    }
-  ],
-  "correctAnswer": "B",
-  "hint": "The equation is not in slope-intercept form yet; isolate $y$ before you read anything off.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** Solving for $y$ gives $y = -\\frac{2}{5}x + \\frac{5}{2}$, so the shared slope is $-\\frac{2}{5}$ — choice B.\n\n**The Full Solution:**\nStep 1: Isolate the $y$-term: $10y = -4x + 25$.\nStep 2: Divide every term by $10$: $y = -\\frac{4}{10}x + \\frac{25}{10} = -\\frac{2}{5}x + \\frac{5}{2}$, so the slope is $-\\frac{2}{5}$.\nStep 3: Parallel lines have equal slopes, so line $m$ has slope $-\\frac{2}{5}$. Check with a point: $\\left(5, \\frac{1}{2}\\right)$ satisfies $4(5)+10\\left(\\frac{1}{2}\\right)=25$ and $-\\frac{2}{5}(5)+\\frac{5}{2}=\\frac{1}{2}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{5}{2}$): flips the fraction, reporting the change in $x$ over the change in $y$.\n* Choice C ($\\frac{2}{5}$): loses the negative sign; moving $4x$ across the equals sign makes the coefficient negative.\n* Choice D ($\\frac{5}{2}$): reports the negative reciprocal, which belongs to a perpendicular line.\n\n**Test Day Takeaway:** From $Ax + By = C$ the slope is $-\\frac{A}{B}$ — the minus sign comes from moving $Ax$ across, and it is the step most often skipped."
+ "id": 3,
+ "question": "On a framing plan marked in meters, a roof rafter follows the line $3x + 5y = 45$, and a second rafter is drawn parallel to the first. Which of the following must be the slope of the second rafter?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-\\frac{5}{3}$"
+  },
+  {
+   "id": "B",
+   "text": "$-\\frac{3}{5}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{3}{5}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{5}{3}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "inverts the slope, reading the coefficients in the wrong order",
+  "C": "drops the negative sign that appears when 3x moves across the equal sign",
+  "D": "gives the negative reciprocal, the slope of a perpendicular rafter"
+ },
+ "correctAnswer": "B",
+ "hint": "Rewrite the equation so the coefficient of $y$ is $1$.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** Solving $3x + 5y = 45$ for $y$ gives $y = -\\frac{3}{5}x + 9$, and a parallel line shares that slope.\n\n**The Full Solution:**\nStep 1: Subtract $3x$ from both sides: $5y = -3x + 45$.\nStep 2: Divide by $5$: $y = -\\frac{3}{5}x + 9$, so the first rafter has slope $-\\frac{3}{5}$.\nStep 3: Parallel lines have equal slopes, so the second rafter must also have slope $-\\frac{3}{5}$.\n\nCheck: The points $(0,\\ 9)$ and $(5,\\ 6)$ both satisfy $3x + 5y = 45$, and $\\frac{6-9}{5-0} = -\\frac{3}{5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{5}{3}$): inverts the ratio, reading the coefficients in the wrong order.\n* Choice C ($\\frac{3}{5}$): drops the negative sign that appears when $3x$ crosses the equal sign.\n* Choice D ($\\frac{5}{3}$): gives the negative reciprocal, which belongs to a perpendicular rafter.\n\n**Test Day Takeaway:** From $Ax + By = C$ the slope is $-\\frac{A}{B}$; the sign is part of the answer."
 }

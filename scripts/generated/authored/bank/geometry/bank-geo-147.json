@@ -1,29 +1,29 @@
 {
-  "id": "bank-geo-147",
-  "question": "A circle in the $xy$-plane has a radius of $8$. What is the area of this circle, in terms of $\\pi$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$8\\pi$"
-    },
-    {
-      "id": "B",
-      "text": "$16\\pi$"
-    },
-    {
-      "id": "C",
-      "text": "$64\\pi$"
-    },
-    {
-      "id": "D",
-      "text": "$256\\pi$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "multiplies pi by the radius without squaring",
-    "B": "computes the circumference instead of the area",
-    "D": "squares the diameter instead of the radius"
+ "id": "bank-geo-147",
+ "question": "Story-time rugs for a children's library are circles $10$ feet across. In square feet, how much floor does one rug cover?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$5\\pi$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Area of a Circle**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $A = \\pi r^2 = \\pi(8)^2 = 64\\pi$.\n\n**The Full Solution:**\nStep 1: The area of a circle is $A = \\pi r^2$.\nStep 2: Substitute $r = 8$: $A = \\pi(8)^2$.\nStep 3: $A = 64\\pi$. Check: doubling the radius of a unit circle to $8$ multiplies the area by $64$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8\\pi$): multiplies $\\pi$ by the radius without squaring it.\n* Choice B ($16\\pi$): computes the circumference $2\\pi r$, which is a length, not an area.\n* Choice D ($256\\pi$): squares the diameter $16$ instead of the radius.\n\n**Test Day Takeaway:** Area uses $r^2$; circumference uses $2r$. Confirm you have the radius, not the diameter, before squaring."
+  {
+   "id": "B",
+   "text": "$10\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$25\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$100\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "multiplies pi by the radius instead of the radius squared",
+  "B": "gives the circumference pi d = 10 pi",
+  "D": "squares the diameter instead of the radius, giving 100 pi"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Area of a Circle**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The radius is $5$ feet, so the area is $\\pi(5)^{2}=25\\pi$ square feet.\n\n**The Full Solution:**\n\nStep 1: Convert across to radius. \"$10$ feet across\" is the diameter, so $r=\\frac{10}{2}=5$ feet.\n\nStep 2: Apply the area formula. $A=\\pi r^{2}$.\n\nStep 3: Substitute. $A=\\pi(5)^{2}=25\\pi$ square feet, about $78.5$ square feet.\n\nCheck: a $10$-by-$10$ square would cover $100$ square feet, and a circle inscribed in it covers about $78.5$ — consistent.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($5\\pi$): multiplies $\\pi$ by the radius instead of by the radius squared.\n* Choice B ($10\\pi$): gives the circumference $\\pi d$, a length rather than an area.\n* Choice D ($100\\pi$): squares the diameter instead of the radius.\n\n**Test Day Takeaway:** Halve any \"across\" measurement before squaring — the area formula takes the radius, never the diameter."
 }

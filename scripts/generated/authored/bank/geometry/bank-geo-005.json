@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-005",
- "question": "A rectangular shipping crate has a length of $14$ inches, a width of $9$ inches, and a height of $6$ inches. What is the volume, in cubic inches, of the crate?",
+ "question": "A rectangular solvent storage cabinet is $x$ centimeters wide, twice as deep as it is wide, and $40$ centimeters tall. Which expression gives its volume, in cubic centimeters?",
  "choices": [
   {
    "id": "A",
-   "text": "$29$"
+   "text": "$80x$"
   },
   {
    "id": "B",
-   "text": "$126$"
+   "text": "$40x^2$"
   },
   {
    "id": "C",
-   "text": "$528$"
+   "text": "$80x^2$"
   },
   {
    "id": "D",
-   "text": "$756$"
+   "text": "$80x^3$"
   }
  ],
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "adds the three dimensions",
-  "B": "multiplies only length and width",
-  "C": "computes the surface area"
+  "A": "multiplies 2 times 40 times x, using only one of the two horizontal dimensions",
+  "B": "forgets to double the depth, multiplying x times x times 40",
+  "D": "treats the 40-centimeter height as a third factor of x as well"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Rectangular Prism Volume**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** $V = \\ell w h = 14 \\cdot 9 \\cdot 6 = 756$ cubic inches.\n\n**The Full Solution:**\nStep 1: The volume of a rectangular prism is $V = \\ell w h$.\nStep 2: Multiply the length and width first: $14 \\cdot 9 = 126$, the area of the base.\nStep 3: Multiply by the height: $126 \\cdot 6 = 756$ cubic inches.\n\nVerification: $756 \\div 6 = 126$ and $126 \\div 9 = 14$, returning the original dimensions. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($29$): adds $14 + 9 + 6$ instead of multiplying.\n* Choice B ($126$): stops at the area of the base and never multiplies by the height.\n* Choice C ($528$): computes the surface area $2(14 \\cdot 9 + 14 \\cdot 6 + 9 \\cdot 6)$, a square-unit quantity.\n\n**Test Day Takeaway:** Cubic units signal a product of three lengths. Square units would signal an area formula instead."
+ "explanation": "**SAT Pattern: Rectangular Prism Volume**\n\n**Choice C is correct.** The three dimensions are $x$, $2x$, and $40$, so the volume is $x \\cdot 2x \\cdot 40 = 80x^2$.\n\n**The Fast Way (~15s):** $x \\cdot 2x \\cdot 40 = 80x^2$.\n\n**The Full Solution:**\n\nStep 1: The width is $x$, the depth is twice the width, or $2x$, and the height is $40$ centimeters.\n\nStep 2: Volume of a rectangular prism is the product of the three dimensions: $x(2x)(40)$.\n\nStep 3: Multiply: $2 \\cdot 40 = 80$ and $x \\cdot x = x^2$, giving $80x^2$. Check with $x = 3$: the cabinet is $3$ by $6$ by $40$, volume $720$, and $80(3)^2 = 720$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($80x$): uses only one of the two horizontal dimensions, giving $2 \\cdot 40 \\cdot x$.\n* Choice B ($40x^2$): forgets that the depth is doubled.\n* Choice D ($80x^3$): treats the fixed $40$-centimeter height as another factor of $x$.\n\n**Test Day Takeaway:** Write all three dimensions in terms of the same variable before multiplying; the degree of the answer tells you how many of them actually depended on $x$."
 }

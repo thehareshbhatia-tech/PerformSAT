@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-204",
- "question": "In the $xy$-plane, a triangle has vertices at $(0, 0)$, $(11, 0)$, and $(4, 6)$. What is the area, in square units, of the triangle?",
+ "question": "Stall 14 of a farmers market holds a triangular sample table whose corners fall at $(0,0)$, $(10,0)$, and $(4,k)$ on the site grid, where $k>0$ and one unit is a foot. Which expression gives its area in square feet?",
  "choices": [
   {
    "id": "A",
-   "text": "$22$"
+   "text": "$2k$"
   },
   {
    "id": "B",
-   "text": "$33$"
+   "text": "$5k$"
   },
   {
    "id": "C",
-   "text": "$66$"
+   "text": "$10k$"
   },
   {
    "id": "D",
-   "text": "$132$"
+   "text": "$20k$"
   }
  ],
  "distractorNotes": {
-  "A": "uses the apex x-coordinate as the height",
-  "C": "omits the one-half factor",
-  "D": "doubles instead of halving"
+  "A": "uses 4, the third vertex's x-coordinate, as the base, giving 2k",
+  "C": "omits the factor one half, giving the rectangle's area 10k",
+  "D": "doubles the base-height product instead of halving it"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The side from $(0, 0)$ to $(11, 0)$ lies on the $x$-axis, so the base is $11$ and the height is the third vertex's $y$-coordinate, $6$: area $= \\frac{1}{2}(11)(6) = 33$.\n\n**The Full Solution:**\nStep 1: Choose the horizontal side as the base. From $(0, 0)$ to $(11, 0)$ the length is $11 - 0 = 11$.\nStep 2: The height is the perpendicular distance from $(4, 6)$ to the line $y = 0$, which is $6$. The $x$-coordinate $4$ is irrelevant — sliding the apex horizontally does not change the area.\nStep 3: Area $= \\frac{1}{2}(11)(6) = 33$ square units.\n\nVerification: the shoelace formula gives $\\frac{1}{2}|0(0 - 6) + 11(6 - 0) + 4(0 - 0)| = \\frac{1}{2}(66) = 33$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($22$): uses the apex's $x$-coordinate, $4$, as the height, computing $\\frac{1}{2}(11)(4)$.\n* Choice C ($66$): multiplies base by height without the $\\frac{1}{2}$.\n* Choice D ($132$): doubles the base-height product instead of halving it.\n\n**Test Day Takeaway:** With a horizontal base, the height is the vertical gap only. The apex's $x$-coordinate never enters the area."
+ "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The base on the $x$-axis is $10$ and the height is $k$, so the area is $\\frac{1}{2}(10)(k)=5k$.\n\n**The Full Solution:**\n\nStep 1: Choose the base. The points $(0,0)$ and $(10,0)$ both lie on the $x$-axis, so that side has length $10$ feet.\n\nStep 2: Read the height. The height is the perpendicular distance from $(4,k)$ to the $x$-axis, which is $k$ feet.\n\nStep 3: Apply the formula. Area $=\\frac{1}{2}(10)(k)=5k$ square feet.\n\nCheck: with $k=6$ the area is $30$, and the triangle is half of a $10$-by-$6$ rectangle.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($2k$): uses $4$, the third vertex's $x$-coordinate, as the base.\n* Choice C ($10k$): omits the factor $\\frac{1}{2}$ and reports the rectangle's area.\n* Choice D ($20k$): doubles the base-height product instead of halving it.\n\n**Test Day Takeaway:** The apex's $x$-coordinate never affects the area — only its distance from the line containing the base does."
 }

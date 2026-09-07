@@ -1,30 +1,30 @@
 {
-  "id": 9,
-  "question": "The point $(36,6)$ lies on the graph of $y=h(x)$ in the $xy$-plane, where $h(x)=\\sqrt{x}$. Which point lies on the graph of $y=\\frac{1}{3}h(x)$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$(12,2)$"
-    },
-    {
-      "id": "B",
-      "text": "$(12,6)$"
-    },
-    {
-      "id": "C",
-      "text": "$(36,2)$"
-    },
-    {
-      "id": "D",
-      "text": "$(36,18)$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "scales both coordinates",
-    "B": "scales the input instead of the output",
-    "D": "multiplies by 3 instead of dividing"
+ "id": 9,
+ "question": "A parcel sorting line scans $n(t)$ cartons in the first $t$ minutes of a shift. After a second scanner is installed the count follows $u(t) = 2n(t - 10)$. If $u(35) = 176$, what is the value of $n(25)$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$78$"
   },
-  "correctAnswer": "C",
-  "hint": "The factor is applied after $h$ produces its output, so only one coordinate can change.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** The input stays $36$ and the output is divided by $3$: $\\frac{1}{3}(6)=2$, giving $(36,2)$.\n\n**The Full Solution:**\nStep 1: At $x=36$, $h(36)=\\sqrt{36}=6$, which is the height given in the problem.\nStep 2: The new function multiplies that output by $\\frac{1}{3}$: $\\frac{1}{3}h(36)=\\frac{1}{3}(6)=2$.\nStep 3: The input was never altered, so the point is $(36,2)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(12,2)$): divides both coordinates by $3$; the factor outside the function touches the output only.\n* Choice B ($(12,6)$): divides the input by $3$, which is the effect of $h\\!\\left(\\frac{x}{3}\\right)$, not of $\\frac{1}{3}h(x)$.\n* Choice D ($(36,18)$): multiplies the output by $3$ instead of dividing by $3$.\n\n**Test Day Takeaway:** A factor outside the function scales heights only: $(a,b)$ becomes $(a,cb)$."
+  {
+   "id": "B",
+   "text": "$88$"
+  },
+  {
+   "id": "C",
+   "text": "$176$"
+  },
+  {
+   "id": "D",
+   "text": "$352$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "halves 176 correctly but then subtracts the 10-minute shift from the count",
+  "C": "reports u(35) itself, skipping the factor of 2",
+  "D": "doubles 176 instead of halving it"
+ },
+ "correctAnswer": "B",
+ "hint": "Work out which value of $n$ the expression $u(35)$ actually contains.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** $u(35) = 2n(25)$, so $n(25) = \\frac{176}{2} = 88$.\n\n**The Full Solution:**\nStep 1: Match the inputs: $u(35) = 2n(35 - 10) = 2n(25)$.\nStep 2: So $2n(25) = 176$.\nStep 3: Divide by $2$: $n(25) = 88$. Check: $2n(25) = 2(88) = 176 = u(35)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($78$): halving correctly and then subtracting the $10$-minute shift from the count; the shift moves inputs, not outputs.\n* Choice C ($176$): reporting $u(35)$ itself and ignoring the factor of $2$ in front of $n$.\n* Choice D ($352$): doubling $176$ instead of halving it, applying the rule forward when it needs to be undone.\n\n**Test Day Takeaway:** Substitute the input into the rule first; the resulting equation tells you which operation to undo."
 }

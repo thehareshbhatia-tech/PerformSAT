@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-251",
-  "question": "The value of $a$ is $65\\%$ greater than the value of $b$, where $b > 0$. Which of the following expressions represents $a$ in terms of $b$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$0.35b$"
-    },
-    {
-      "id": "B",
-      "text": "$0.65b$"
-    },
-    {
-      "id": "C",
-      "text": "$1.65b$"
-    },
-    {
-      "id": "D",
-      "text": "$65b$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "uses 1 - 0.65, which is 65% less than b",
-    "B": "gives 65% of b, dropping the original 100%",
-    "D": "never converts the percent to a decimal"
+ "id": "bank-ps-251",
+ "question": "A restoration nursery holds $s$ mangrove seedlings in one plot, a count $35\\%$ greater than the number of seedlings in an adjacent plot from the same planting season. The adjacent plot's count is approximately what percent less than $s$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$25.9\\%$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** \"$65\\%$ greater than $b$\" is all of $b$ plus $65\\%$ more: $b + 0.65b = 1.65b$.\n\n**The Full Solution:**\nStep 1: Write $65\\%$ as the decimal $0.65$. Then $65\\%$ of $b$ is $0.65b$.\nStep 2: A value that is $65\\%$ greater than $b$ is $b$ increased by that amount: $a = b + 0.65b$.\nStep 3: Combine like terms: $a = (1 + 0.65)b = 1.65b$. Check with $b = 100$: $a$ should be $165$, and $1.65(100) = 165$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.35b$): $1 - 0.65 = 0.35$ describes a value $65\\%$ less than $b$, the opposite direction.\n* Choice B ($0.65b$): this is $65\\%$ of $b$, the increase alone, without the original $b$.\n* Choice D ($65b$): treats the percent $65$ as the multiplier without dividing by $100$; this would be $6{,}400\\%$ greater than $b$.\n\n**Test Day Takeaway:** \"Greater than\" adds to $1$; \"of\" does not. $p\\%$ greater than $b$ is $\\left(1 + \\frac{p}{100}\\right)b$."
+  {
+   "id": "B",
+   "text": "$35\\%$"
+  },
+  {
+   "id": "C",
+   "text": "$65\\%$"
+  },
+  {
+   "id": "D",
+   "text": "$74.1\\%$"
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "reuses the given percent, which is measured against the smaller plot, not against $s$",
+  "C": "takes the complement of $35\\%$, which describes neither plot",
+  "D": "reports the adjacent count as a percent of $s$ rather than how much less it is"
+ },
+ "explanation": "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice A is correct.** The adjacent plot holds $\\frac{s}{1.35} \\approx 0.741s$ seedlings, which is about $25.9\\%$ less than $s$.\n\n**The Fast Way (~45s):** $\\frac{1}{1.35} \\approx 0.741$, and $1 - 0.741 = 0.259$, so the adjacent plot is about $25.9\\%$ less than $s$.\n\n**The Full Solution:**\n\nStep 1: Name the adjacent plot's count $a$. Since $s$ is $35\\%$ greater than $a$, $s = 1.35a$.\n\nStep 2: Solve for $a$ in terms of $s$: $a = \\frac{s}{1.35} \\approx 0.7407s$.\n\nStep 3: Compute the percent decrease from $s$ to $a$: $\\frac{s - a}{s} = 1 - 0.7407 = 0.2593$, or about $25.9\\%$. Check: with $a = 100$, $s = 135$, and $\\frac{135 - 100}{135} \\approx 25.9\\%$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($35\\%$): reuses the given percent. That $35\\%$ is measured against the adjacent plot, while this question measures against $s$.\n* Choice C ($65\\%$): subtracts $35$ from $100$, which would describe a plot holding $65\\%$ of $s$.\n* Choice D ($74.1\\%$): reports what the adjacent count IS as a percent of $s$, not how much LESS it is.\n\n**Test Day Takeaway:** Percent comparisons are not symmetric -- when the base switches, recompute from the ratio instead of reusing the number in the stem."
 }

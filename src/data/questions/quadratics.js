@@ -102,19 +102,19 @@ export const quadraticsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "In the equation $x^2 + 4x - 21 = 0$, what are all values of $x$ that satisfy the equation?",
+      question: "A community clinic models its weekly surplus of test kits by $s(w) = w^2 - 11w + 24$, where $w$ is the number of weeks after a shipment arrives. For which values of $w$ is the modeled surplus equal to $0$?",
       choices: [
-        { id: "A", text: "$x = -7$ and $x = 3$" },
-        // distractor: reverses both signs
-        { id: "B", text: "$x = -3$ and $x = 7$" },
-        // distractor: uses the constant term as a solution
-        { id: "C", text: "$x = -21$ and $x = 1$" },
-        // distractor: product would be positive
-        { id: "D", text: "$x = 3$ and $x = 7$" }
+        // distractor: factors as (w + 3)(w + 8), which would give a middle term of +11w rather than -11w
+        { id: "A", text: "$w = -8$ and $w = -3$" },
+        // distractor: picks factors of 24 that add to 10, not 11
+        { id: "B", text: "$w = -6$ and $w = -4$" },
+        { id: "C", text: "$w = 3$ and $w = 8$" },
+        // distractor: picks factors of 24 that add to 10 with the correct signs but the wrong pair
+        { id: "D", text: "$w = 4$ and $w = 6$" }
       ],
-      correctAnswer: "A",
-      hint: "Look for two numbers whose product is $-21$ and whose sum is $4$.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** $7$ and $-3$ multiply to $-21$ and add to $4$, so $(x + 7)(x - 3) = 0$ and $x = -7$ or $x = 3$.\n\n**The Full Solution:**\nStep 1: To factor $x^2 + 4x - 21$, find two numbers whose product is $-21$ and whose sum is $4$. Those numbers are $7$ and $-3$.\nStep 2: So the equation becomes $(x + 7)(x - 3) = 0$.\nStep 3: A product is zero only when a factor is zero, so $x + 7 = 0$ or $x - 3 = 0$, giving $x = -7$ and $x = 3$. Check: $(-7)^2 + 4(-7) - 21 = 49 - 28 - 21 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: reverses both signs, which comes from factoring as $(x + 3)(x - 7)$ and getting a middle term of $-4x$.\n* Choice C: uses the constant term and $1$ as the solutions, since $-21 \\cdot 1 = -21$, but those numbers sum to $-20$, not $4$.\n* Choice D: takes both solutions positive, but then their product would be $+21$ rather than $-21$.\n\n**Test Day Takeaway:** A negative constant term forces the two solutions to have OPPOSITE signs — that single check eliminates two choices instantly.",
+      correctAnswer: "C",
+      hint: "Factor the expression and read the values that make each factor zero.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** $w^2 - 11w + 24 = (w - 3)(w - 8)$, so the surplus is $0$ in week $3$ and week $8$.\n\n**The Full Solution:**\nStep 1: Factor. Two numbers multiply to $24$ and add to $-11$: they are $-3$ and $-8$, so $s(w) = (w - 3)(w - 8)$.\nStep 2: Set each factor to zero. $w - 3 = 0$ gives $w = 3$, and $w - 8 = 0$ gives $w = 8$.\nStep 3: Check one. $s(3) = 9 - 33 + 24 = 0$, and $s(8) = 64 - 88 + 24 = 0$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($w = -8$ and $w = -3$): comes from $(w + 3)(w + 8)$, which expands with a middle term of $+11w$, not $-11w$.\n* Choice B ($w = -6$ and $w = -4$): uses $6$ and $4$, which multiply to $24$ but add to $10$, and with the wrong signs besides.\n* Choice D ($w = 4$ and $w = 6$): uses $4$ and $6$: their product is $24$ but their sum is $10$, not $11$.\n\n**Test Day Takeaway:** Factor pairs must match BOTH the product and the sum. Check the sum before committing to a pair.",
       skills: ["finding-roots-factoring"]
     },
     {
@@ -138,56 +138,56 @@ export const quadraticsQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "In the $xy$-plane, the graph of $y = x^2 - 36$ crosses the $x$-axis at two points. What are the $x$-coordinates of those two points?",
+      question: "A kiln operator's model gives the two times, in hours from a set point, at which the chamber temperature returns to its target as the solutions of $9x^2 - c = 0$, where $c$ is a positive constant. Those two times differ by $\\frac{8}{3}$ hours. What is the value of $c$?",
       choices: [
-        // distractor: no square root taken
-        { id: "A", text: "$-36$ and $36$" },
-        // distractor: divides by 2 instead of taking a root
-        { id: "B", text: "$-18$ and $18$" },
-        { id: "C", text: "$-6$ and $6$" },
-        // distractor: reads a linear term that is not there
-        { id: "D", text: "$0$ and $36$" }
+        // distractor: solves x^2 = c, ignoring the coefficient 9, which gives 2 sqrt(c) = 8/3 and c = 16/9
+        { id: "A", text: "$\\frac{16}{9}$" },
+        // distractor: stops at sqrt(c) = 4 and reports that instead of c
+        { id: "B", text: "$4$" },
+        { id: "C", text: "$16$" },
+        // distractor: sets one solution equal to the full gap 8/3 instead of half of it, giving c = 9(64/9) = 64
+        { id: "D", text: "$64$" }
       ],
       correctAnswer: "C",
-      hint: "A difference of two squares factors into a sum times a difference.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** $x^2 - 36 = (x - 6)(x + 6)$, so the graph crosses at $x = 6$ and $x = -6$.\n\n**The Full Solution:**\nStep 1: A graph crosses the $x$-axis where $y = 0$, so solve $x^2 - 36 = 0$.\nStep 2: Both terms are perfect squares, so factor as a difference of squares: $x^2 - 36 = (x - 6)(x + 6)$.\nStep 3: Setting each factor to zero gives $x = 6$ and $x = -6$. Check: $6^2 - 36 = 0$ and $(-6)^2 - 36 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: treats $x^2 = 36$ as $x = \\pm 36$, taking no square root at all.\n* Choice B: divides $36$ by $2$ instead of taking its square root.\n* Choice D: reads the equation as $x^2 - 36x = 0$ and factors out an $x$.\n\n**Test Day Takeaway:** $a^2 - b^2$ always factors as $(a - b)(a + b)$; solving $x^2 = c$ takes a square root, never a division by $2$.",
+      hint: "Write the two solutions in terms of c before you use the gap between them.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** The solutions are $\\pm\\frac{\\sqrt{c}}{3}$, so the gap is $\\frac{2\\sqrt{c}}{3} = \\frac{8}{3}$, giving $\\sqrt{c} = 4$ and $c = 16$.\n\n**The Full Solution:**\nStep 1: Solve for the two times. $9x^2 = c$ gives $x^2 = \\frac{c}{9}$, so $x = \\pm\\frac{\\sqrt{c}}{3}$.\nStep 2: Use the gap. The two solutions differ by $\\frac{\\sqrt{c}}{3} - \\left(-\\frac{\\sqrt{c}}{3}\\right) = \\frac{2\\sqrt{c}}{3}$, and that equals $\\frac{8}{3}$, so $\\sqrt{c} = 4$.\nStep 3: Square and check. $c = 16$, so $9x^2 = 16$ gives $x = \\pm\\frac{4}{3}$, and $\\frac{4}{3} - \\left(-\\frac{4}{3}\\right) = \\frac{8}{3}$ hours. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{16}{9}$): drops the coefficient $9$ and solves $x^2 = c$, so the gap becomes $2\\sqrt{c}$.\n* Choice B ($4$): is $\\sqrt{c}$, one step short of the requested $c$.\n* Choice D ($64$): sets one solution equal to the whole gap $\\frac{8}{3}$ rather than half of it.\n\n**Test Day Takeaway:** For $ax^2 = c$ the two solutions are symmetric about $0$, so their difference is TWICE the positive one — halve the gap before squaring.",
       skills: ["difference-of-squares", "finding-roots-factoring"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "In the $xy$-plane, the graph of the quadratic function $f$ is shown, and its two $x$-intercepts are marked. Which equation defines $f$?",
-      diagram: { type: "parabola", params: { vertex: { h: 2, k: -16 }, a: 1, xRange: [-6, 10], yRange: [-20, 12], xTickInterval: 2, yTickInterval: 4, gridInterval: 2, showVertex: false, highlightPoints: [[-2, 0], [6, 0]] } },
+      question: "The graph of $y = f(x)$ shown gives a county's weekly count of confirmed influenza cases minus its outbreak threshold, $x$ weeks after a school term begins. Which of the following could define $f$?",
+      diagram: { type: "parabola", params: { vertex: { h: 4, k: -9 }, a: 1, xRange: [0, 8], yRange: [-10, 8], showVertex: false, xTickInterval: 1, yTickInterval: 2, gridInterval: 1 } },
       choices: [
-        { id: "A", text: "$y = x^2 - 4x - 12$" },
-        // distractor: swaps the signs of the intercepts
-        { id: "B", text: "$y = x^2 + 4x - 12$" },
-        // distractor: flips the constant's sign, leaving no real x-intercepts
-        { id: "C", text: "$y = x^2 - 4x + 12$" },
-        // distractor: treats both intercepts as negative
-        { id: "D", text: "$y = x^2 + 8x + 12$" }
+        // distractor: places both zeros at negative weeks, x = -7 and x = -1, before the term begins
+        { id: "A", text: "$f(x) = (x + 1)(x + 7)$" },
+        // distractor: keeps the crossing at x = 1 but reflects the later one, putting a zero at x = -7
+        { id: "B", text: "$f(x) = (x - 1)(x + 7)$" },
+        // distractor: keeps the crossing at x = 7 but reflects the earlier one, putting a zero at x = -1
+        { id: "C", text: "$f(x) = (x - 7)(x + 1)$" },
+        { id: "D", text: "$f(x) = (x - 1)(x - 7)$" }
       ],
-      correctAnswer: "A",
-      hint: "Each $x$-intercept at $x = r$ contributes the factor $(x - r)$.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** Intercepts at $-2$ and $6$ give $(x + 2)(x - 6) = x^2 - 4x - 12$.\n\n**The Full Solution:**\nStep 1: The marked intercepts are $(-2, 0)$ and $(6, 0)$, so $x = -2$ and $x = 6$ make $f(x) = 0$.\nStep 2: An intercept at $x = r$ comes from the factor $(x - r)$, so the factors are $(x + 2)$ and $(x - 6)$, and the graph's shape shows a leading coefficient of $1$.\nStep 3: Expand: $(x + 2)(x - 6) = x^2 - 6x + 2x - 12 = x^2 - 4x - 12$. Check the $y$-intercept: the equation gives $-12$, and the graph passes below the origin. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: uses $(x - 2)(x + 6)$, swapping which intercept is negative.\n* Choice C: flips the sign of the constant term; $x^2 - 4x + 12$ has a negative discriminant, so its graph has no $x$-intercepts at all.\n* Choice D: uses $(x + 2)(x + 6)$, treating both intercepts as negative numbers.\n\n**Test Day Takeaway:** Read intercepts off the graph, flip each sign to build its factor, then expand — and confirm with the $y$-intercept.",
+      correctAnswer: "D",
+      hint: "Each factor vanishes at one of the weeks where the curve meets the threshold.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** The curve meets the threshold at $x = 1$ and $x = 7$, so $f(x) = (x - 1)(x - 7)$.\n\n**The Full Solution:**\nStep 1: Read the crossings. The weekly count equals the outbreak threshold at $x = 1$ week and $x = 7$ weeks, so $f(1) = 0$ and $f(7) = 0$.\nStep 2: Build the factors. A zero at $x = 1$ needs the factor $(x - 1)$; a zero at $x = 7$ needs $(x - 7)$.\nStep 3: Check the low point. The graph bottoms out at $(4, -9)$, and $(4 - 1)(4 - 7) = (3)(-3) = -9$ cases below the threshold. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x + 1)(x + 7)$): has zeros at $-1$ and $-7$, both before the term begins; the graph never meets the threshold at a negative week.\n* Choice B ($(x - 1)(x + 7)$): keeps the crossing at $x = 1$ but puts the second one at $x = -7$ instead of $x = 7$.\n* Choice C ($(x - 7)(x + 1)$): keeps the crossing at $x = 7$ but puts the first one at $x = -1$ instead of $x = 1$.\n\n**Test Day Takeaway:** A zero at $x = r$ comes from the factor $(x - r)$ — the sign inside the parenthesis is the OPPOSITE of the crossing value.",
       skills: ["roots-from-factors"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "In the equation $ax^2 = bx$, $a$ and $b$ are positive constants. Which of the following lists all values of $x$ that satisfy this equation?",
+      question: "A lighting technician finds that the two dimmer settings at which a fixture's measured illuminance equals its target are the two solutions of $x^2 + bx + 45 = 0$, where $b$ is a constant. Both solutions are positive and they differ by $4$. What is the value of $b$?",
       choices: [
-        // distractor: divides by x and loses a solution
-        { id: "A", text: "$x = \\frac{b}{a}$ only" },
-        { id: "B", text: "$x = 0$ and $x = \\frac{b}{a}$" },
-        // distractor: inverts the ratio
-        { id: "C", text: "$x = 0$ and $x = \\frac{a}{b}$" },
-        // distractor: subtracts instead of dividing
-        { id: "D", text: "$x = 0$ and $x = b - a$" }
+        { id: "A", text: "$-14$" },
+        // distractor: negates the larger solution, 9, instead of negating the sum of the two solutions
+        { id: "B", text: "$-9$" },
+        // distractor: reports the larger solution, 9, rather than a value of b
+        { id: "C", text: "$9$" },
+        // distractor: reports the sum of the solutions, 14, without the minus sign that b carries
+        { id: "D", text: "$14$" }
       ],
-      correctAnswer: "B",
-      hint: "Move everything to one side and factor; dividing both sides by the variable can throw a solution away.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** $ax^2 - bx = x(ax - b) = 0$, so $x = 0$ or $x = \\frac{b}{a}$.\n\n**The Full Solution:**\nStep 1: Bring every term to one side: $ax^2 - bx = 0$.\nStep 2: Factor out the common factor $x$: $x(ax - b) = 0$.\nStep 3: A product is zero when a factor is zero, so $x = 0$ or $ax - b = 0$, which gives $x = \\frac{b}{a}$ (defined because $a$ is positive). Check with $a = 2$ and $b = 6$: $2x^2 = 6x$ holds at $x = 0$ and at $x = 3 = \\frac{6}{2}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: divides both sides by $x$ at the start, which is only legal when $x \\neq 0$ and silently discards the solution $x = 0$.\n* Choice C: inverts the ratio, solving $bx = a$ instead of $ax = b$.\n* Choice D: subtracts the constants instead of dividing, as if $ax = b$ were $x = b - a$.\n\n**Test Day Takeaway:** Never divide an equation by the variable. Factor instead, so the solution $x = 0$ survives.",
+      correctAnswer: "A",
+      hint: "The two solutions multiply to 45 and their sum is tied to b.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** The two settings multiply to $45$ and differ by $4$, so they are $5$ and $9$; their sum is $14$, and $b = -14$.\n\n**The Full Solution:**\nStep 1: Use the product. For $x^2 + bx + 45 = 0$, the two solutions multiply to $45$. Positive pairs are $1$ and $45$, $3$ and $15$, $5$ and $9$.\nStep 2: Use the gap. Only $5$ and $9$ differ by $4$.\nStep 3: Convert the sum to $b$ and check. The solutions sum to $-b$, so $5 + 9 = 14$ gives $b = -14$. Then $x^2 - 14x + 45 = (x - 5)(x - 9)$, with solutions $5$ and $9$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-9$): negates the larger solution instead of the sum of the two.\n* Choice C ($9$): is the larger dimmer setting, not the coefficient $b$.\n* Choice D ($14$): is the sum of the two solutions. For $x^2 + bx + c$ the sum equals $-b$, so the sign flips.\n\n**Test Day Takeaway:** For $x^2 + bx + c = 0$: the solutions multiply to $c$ and sum to $-b$. Two positive solutions force $b$ to be negative.",
       skills: ["finding-roots-factoring"]
     }
   ],
@@ -216,19 +216,19 @@ export const quadraticsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "The function $h$ is defined by $h(x) = (x + 5)^2 - 8$. What is the vertex of the graph of $y = h(x)$ in the $xy$-plane?",
+      question: "A dialysis unit's water use per treatment, in liters, is modeled by $W(s) = 0.5(s - 40)^2 + 12$, where $s$ is the flow setting on the machine. Which statement correctly describes the water use predicted by this model?",
       choices: [
-        { id: "A", text: "$(-5, -8)$" },
-        // distractor: reads h with the wrong sign
-        { id: "B", text: "$(5, -8)$" },
-        // distractor: flips the sign of k
-        { id: "C", text: "$(-5, 8)$" },
-        // distractor: flips both signs
-        { id: "D", text: "$(5, 8)$" }
+        { id: "A", text: "The minimum water use is $12$ liters, at a flow setting of $40$." },
+        // distractor: swaps the roles of 40 and 12, reading the setting as the water use
+        { id: "B", text: "The minimum water use is $40$ liters, at a flow setting of $12$." },
+        // distractor: calls the turning point a maximum, but the positive coefficient 0.5 opens the curve upward
+        { id: "C", text: "The maximum water use is $12$ liters, at a flow setting of $40$." },
+        // distractor: reads the setting as -40; the expression (s - 40)^2 is zero at s = +40
+        { id: "D", text: "The minimum water use is $12$ liters, at a flow setting of $-40$." }
       ],
       correctAnswer: "A",
-      hint: "Vertex form reads $a(x - h)^2 + k$, so watch the minus sign already built into the formula.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** $(x + 5)^2$ is $(x - (-5))^2$, so $h = -5$ and $k = -8$.\n\n**The Full Solution:**\nStep 1: Vertex form is $y = a(x - h)^2 + k$, and the vertex is the point $(h, k)$.\nStep 2: Match the given rule to that form: $(x + 5)^2 = (x - (-5))^2$, so $h = -5$, and the constant added outside is $k = -8$.\nStep 3: The vertex is $(-5, -8)$. Check: $h(-5) = 0 - 8 = -8$, and every other input makes the square positive, so $-8$ is the smallest output. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: reads $h$ straight off the parentheses as $+5$, ignoring the subtraction built into the form.\n* Choice C: flips the sign of $k$, placing the vertex above the $x$-axis.\n* Choice D: flips both signs at once.\n\n**Test Day Takeaway:** The $x$-coordinate of the vertex is the value that makes the squared quantity zero — solve $x + 5 = 0$ if the sign is ever in doubt.",
+      hint: "A squared quantity is never negative, so ask when it is zero.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** $0.5(s - 40)^2$ is never negative and equals $0$ at $s = 40$, so the least water use is $12$ liters there.\n\n**The Full Solution:**\nStep 1: Look at the squared term. $(s - 40)^2 \\ge 0$ for every setting, and $0.5$ is positive, so $0.5(s - 40)^2 \\ge 0$.\nStep 2: Find where it vanishes. The squared term is $0$ only at $s = 40$, and there $W(40) = 0 + 12 = 12$ liters.\nStep 3: Confirm it is a minimum. Any other setting adds a positive amount to $12$; for example $W(42) = 0.5(4) + 12 = 14$ liters. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (minimum $40$ at setting $12$): swaps the two numbers. In $a(s - h)^2 + k$, $h$ is the setting and $k$ is the output.\n* Choice C (maximum $12$ at setting $40$): calls the turning point a maximum. A positive coefficient opens the curve upward, so the turning point is the lowest value.\n* Choice D (minimum $12$ at setting $-40$): reads the sign inside the parentheses literally. $(s - 40)^2$ is zero at $s = 40$.\n\n**Test Day Takeaway:** In $a(x - h)^2 + k$, the turning point is at $x = h$ with value $k$, and the sign of $a$ decides whether $k$ is a minimum or a maximum.",
       skills: ["vertex-form"]
     },
     {
@@ -253,37 +253,37 @@ export const quadraticsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "The function $f$ is defined by $f(x) = x^2 - 12x + 40$. What is the minimum value of $f(x)$ for all real values of $x$?",
+      question: "A laboratory models its daily assay throughput, in completed assays, by $Q(x) = -2x^2 + kx + 90$, where $x$ is the centrifuge speed setting and $k$ is a constant. The modeled throughput is greatest when $x = 9$. What is the value of $k$?",
       choices: [
-        // distractor: drops the negative in the vertex formula
-        { id: "A", text: "$-6$" },
-        { id: "B", text: "$4$" },
-        // distractor: reports the input, not the output
-        { id: "C", text: "$6$" },
-        // distractor: reports the constant term
-        { id: "D", text: "$40$" }
+        // distractor: uses x = k / (2a) with a = -2, giving 9 = k / -4 and k = -36, dropping the minus in the formula
+        { id: "A", text: "$-36$" },
+        // distractor: uses x = -k / 2, ignoring the leading coefficient, which gives k = -18
+        { id: "B", text: "$-18$" },
+        // distractor: uses x = -k / a instead of x = -k / (2a), which gives k = 18
+        { id: "C", text: "$18$" },
+        { id: "D", text: "$36$" }
       ],
-      correctAnswer: "B",
-      hint: "Find the input at the vertex first, then evaluate the function there.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** The vertex is at $x = 6$, and $f(6) = 36 - 72 + 40 = 4$.\n\n**The Full Solution:**\nStep 1: The leading coefficient is $1$, which is positive, so the parabola opens upward and the vertex gives the minimum value.\nStep 2: The vertex occurs at $x = -\\frac{b}{2a} = -\\frac{-12}{2} = 6$.\nStep 3: Evaluate: $f(6) = 6^2 - 12(6) + 40 = 36 - 72 + 40 = 4$. Check by completing the square: $f(x) = (x - 6)^2 + 4$, whose smallest value is $4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): computes $\\frac{b}{2a}$ without the leading negative sign and reports that instead of an output.\n* Choice C ($6$): reports the input at which the minimum occurs rather than the minimum value itself.\n* Choice D ($40$): reports $f(0)$, the constant term, which is a value of the function but not the smallest one.\n\n**Test Day Takeaway:** Minimum VALUE means a $y$-value. The vertex formula gives you the $x$-value, and you still have to substitute.",
+      correctAnswer: "D",
+      hint: "The peak of a parabola sits at the axis of symmetry.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** The peak is at $x = -\\frac{k}{2(-2)} = \\frac{k}{4}$, so $\\frac{k}{4} = 9$ and $k = 36$.\n\n**The Full Solution:**\nStep 1: Locate the peak. For $Q(x) = ax^2 + bx + c$ the turning point sits at $x = -\\frac{b}{2a}$; here $a = -2$ and $b = k$, so $x = -\\frac{k}{-4} = \\frac{k}{4}$.\nStep 2: Set that equal to the given setting. $\\frac{k}{4} = 9$, so $k = 36$.\nStep 3: Check. $Q(x) = -2x^2 + 36x + 90$ peaks at $x = -\\frac{36}{-4} = 9$, and $Q(9) = -162 + 324 + 90 = 252$, higher than $Q(8) = 250$ and $Q(10) = 250$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-36$): uses $x = \\frac{k}{2a}$ and drops the minus sign in front of $b$.\n* Choice B ($-18$): uses $x = -\\frac{k}{2}$, leaving the leading coefficient out of the denominator.\n* Choice C ($18$): uses $x = -\\frac{k}{a}$, missing the factor of $2$ in $2a$.\n\n**Test Day Takeaway:** The axis of symmetry is $x = -\\frac{b}{2a}$. Both the minus sign and the $2$ matter, and a negative $a$ makes sign slips especially easy.",
       skills: ["vertex-formula"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "In the $xy$-plane, the graph of $y = 3x^2 + kx + 7$ has an axis of symmetry given by the line $x = -4$, where $k$ is a constant. What is the value of $k$?",
+      question: "A projection technician models image brightness, in lumens per square meter above a baseline, by $h(x) = -2x^2 + 24x - 55$, where $x$ is the lens position, in centimeters. Which equivalent form of $h(x)$ displays the maximum brightness as a constant or coefficient?",
       choices: [
-        // distractor: drops the leading minus sign
-        { id: "A", text: "$-24$" },
-        // distractor: reports the axis value
-        { id: "B", text: "$-4$" },
-        // distractor: uses 2 instead of 2a
-        { id: "C", text: "$8$" },
-        { id: "D", text: "$24$" }
+        { id: "A", text: "$h(x) = -2(x - 6)^2 + 17$" },
+        // distractor: keeps the original constant -55 outside the square instead of adjusting it by +72
+        { id: "B", text: "$h(x) = -2(x - 6)^2 - 55$" },
+        // distractor: factors to (x + 6)^2, which puts the peak at x = -6 rather than x = 6
+        { id: "C", text: "$h(x) = -2(x + 6)^2 + 17$" },
+        // distractor: halves nothing and uses 12 inside the square, placing the peak at x = 12
+        { id: "D", text: "$h(x) = -2(x - 12)^2 + 17$" }
       ],
-      correctAnswer: "D",
-      hint: "Set the axis-of-symmetry formula equal to $-4$ and solve for the unknown coefficient.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** $-\\frac{k}{2(3)} = -4$ gives $k = 24$.\n\n**The Full Solution:**\nStep 1: For $y = ax^2 + bx + c$, the axis of symmetry is the vertical line $x = -\\frac{b}{2a}$. Here $a = 3$ and $b = k$.\nStep 2: Set the formula equal to the given line: $-\\frac{k}{6} = -4$.\nStep 3: Multiply both sides by $-6$: $k = 24$. Check: with $k = 24$ the vertex is at $x = -\\frac{24}{6} = -4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-24$): drops the leading minus sign and solves $\\frac{k}{6} = -4$.\n* Choice B ($-4$): reports the axis of symmetry itself as the value of $k$.\n* Choice C ($8$): uses $-\\frac{k}{2} = -4$, forgetting to multiply the $2$ by the leading coefficient $3$.\n\n**Test Day Takeaway:** In $-\\frac{b}{2a}$ the denominator is $2a$, not $2$ — a leading coefficient other than $1$ is exactly what this kind of item is testing.",
+      correctAnswer: "A",
+      hint: "Factor the -2 out of the first two terms before completing the square.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** $-2(x^2 - 12x) - 55 = -2(x - 6)^2 + 72 - 55 = -2(x - 6)^2 + 17$, so the maximum brightness is $17$.\n\n**The Full Solution:**\nStep 1: Factor $-2$ from the variable terms. $h(x) = -2(x^2 - 12x) - 55$.\nStep 2: Complete the square inside. $x^2 - 12x = (x - 6)^2 - 36$, so $h(x) = -2\\left[(x - 6)^2 - 36\\right] - 55 = -2(x - 6)^2 + 72 - 55$.\nStep 3: Combine and check. $h(x) = -2(x - 6)^2 + 17$. At $x = 6$ the original gives $-72 + 144 - 55 = 17$, and the squared term is never positive, so $17$ is the maximum. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-2(x - 6)^2 - 55$): keeps the original constant. Completing the square inside the bracket changes what must be added outside.\n* Choice C ($-2(x + 6)^2 + 17$): places the peak at $x = -6$; expanding it gives $-2x^2 - 24x - 55$, the wrong middle term.\n* Choice D ($-2(x - 12)^2 + 17$): uses $12$ instead of half of $12$ inside the square.\n\n**Test Day Takeaway:** When $a \\ne 1$, factor $a$ out of the first two terms FIRST; the number you add inside the bracket is multiplied by $a$ on its way out.",
       skills: ["vertex-formula"]
     }
   ],
@@ -329,55 +329,55 @@ export const quadraticsQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "In the $xy$-plane, the graph of $y = 2x^2 - 8x + 11$ is a parabola. How many $x$-intercepts does this parabola have?",
+      question: "The height, in feet, of the water in a plaza fountain jet is modeled by $h(x) = -0.5x^2 + 6x - 10$, where $x$ is the horizontal distance, in feet, from the plaza's pump housing and $2 \\le x \\le 10$. For how many distinct values of $x$ in this interval does $h(x) = 8$?",
       choices: [
-        { id: "A", text: "No $x$-intercepts" },
-        // distractor: the zero-discriminant case
-        { id: "B", text: "One $x$-intercept" },
-        // distractor: assumes two crossings
-        { id: "C", text: "Two $x$-intercepts" },
-        // distractor: impossible for a parabola
-        { id: "D", text: "Three $x$-intercepts" }
+        // distractor: concludes the jet never reaches 8 feet, but the resulting discriminant is 0, not negative
+        { id: "A", text: "Zero" },
+        { id: "B", text: "Exactly one" },
+        // distractor: assumes any horizontal line meets a parabola twice, which fails at the turning point
+        { id: "C", text: "Exactly two" },
+        // distractor: treats the model as though the jet oscillates, which a single parabola never does
+        { id: "D", text: "More than two" }
       ],
-      correctAnswer: "A",
-      hint: "Count the real solutions of $y = 0$ without solving the equation itself.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** $(-8)^2 - 4(2)(11) = 64 - 88 = -24 < 0$, so there are no real solutions and no $x$-intercepts.\n\n**The Full Solution:**\nStep 1: An $x$-intercept is a real solution of $2x^2 - 8x + 11 = 0$, so count those solutions.\nStep 2: Compute the discriminant: $b^2 - 4ac = (-8)^2 - 4(2)(11) = 64 - 88 = -24$.\nStep 3: A negative discriminant means no real solutions, so the parabola never meets the $x$-axis. Check by completing the square: $y = 2(x - 2)^2 + 3$, whose smallest value is $3$, always above zero. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: is the case of a discriminant equal to zero, where the vertex sits exactly on the axis.\n* Choice C: assumes every parabola crosses the $x$-axis twice, which is only true when the discriminant is positive.\n* Choice D: a parabola and a line meet at most twice, so three intercepts are impossible.\n\n**Test Day Takeaway:** Counting intercepts never requires solving — one discriminant computation answers the question.",
+      correctAnswer: "B",
+      hint: "Move the 8 across and look at what kind of quadratic is left.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** Setting $-0.5x^2 + 6x - 10 = 8$ gives $x^2 - 12x + 36 = 0$, whose discriminant is $0$: one solution, $x = 6$.\n\n**The Full Solution:**\nStep 1: Set the model equal to $8$. $-0.5x^2 + 6x - 10 = 8$, so $-0.5x^2 + 6x - 18 = 0$.\nStep 2: Clear the fraction and test the discriminant. Multiplying by $-2$ gives $x^2 - 12x + 36 = 0$, so $b^2 - 4ac = 144 - 144 = 0$ — exactly one real solution.\nStep 3: Find it and confirm it is in range. $x^2 - 12x + 36 = (x - 6)^2$, so $x = 6$, which lies between $2$ and $10$. Height there: $-0.5(36) + 36 - 10 = 8$ feet. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): would need a negative discriminant. Here it is exactly $0$, so the jet does touch $8$ feet — at its peak.\n* Choice C (Exactly two): is the usual case for a horizontal line through a parabola, but $8$ feet is the maximum height, met at a single point.\n* Choice D (More than two): cannot happen: a quadratic equation has at most two real solutions.\n\n**Test Day Takeaway:** A discriminant of $0$ is the signal that the horizontal line is tangent — it touches the parabola at its turning point and nowhere else.",
       skills: ["discriminant-analysis"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "In the $xy$-plane, the graph of $y = x^2 + 12x + n$ touches the $x$-axis at exactly one point, where $n$ is a constant. What is the value of $n$?",
+      question: "A signal-timing study finds that the clearance intervals, in seconds, meeting a design constraint are exactly the solutions of $2x^2 - kx + 18 = 0$ for a positive constant $k$. The study finds exactly one such interval. What is the value of $k$?",
       choices: [
-        // distractor: reports the touch point, not n
+        // distractor: takes the square root of ac = 36 instead of 4ac = 144
         { id: "A", text: "$6$" },
-        // distractor: reports the coefficient of x
-        { id: "B", text: "$12$" },
-        { id: "C", text: "$36$" },
-        // distractor: never divides by 4
+        // distractor: divides the constant by the leading coefficient, 18 / 2 = 9, which is not the discriminant condition
+        { id: "B", text: "$9$" },
+        { id: "C", text: "$12$" },
+        // distractor: reports k squared, 144, instead of k
         { id: "D", text: "$144$" }
       ],
       correctAnswer: "C",
-      hint: "A curve that meets the axis only once has a discriminant of zero.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $12^2 - 4(1)n = 0$ gives $144 = 4n$, so $n = 36$.\n\n**The Full Solution:**\nStep 1: The graph meets the $x$-axis where $x^2 + 12x + n = 0$, and exactly one such point means exactly one real solution.\nStep 2: One real solution requires a discriminant of zero: $12^2 - 4(1)(n) = 0$, so $144 - 4n = 0$.\nStep 3: Solve: $4n = 144$, so $n = 36$. Check: $x^2 + 12x + 36 = (x + 6)^2$, which is zero only at $x = -6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): reports the $x$-coordinate where the curve meets the axis, $x = -6$, without its sign, instead of the constant $n$.\n* Choice B ($12$): reports the coefficient of $x$ rather than solving for $n$.\n* Choice D ($144$): stops at $b^2 = 144$ and never divides by the $4$ in $4ac$.\n\n**Test Day Takeaway:** One point of contact with the $x$-axis is the geometric version of a zero discriminant, and the resulting trinomial is always a perfect square.",
+      hint: "One solution means the two square-root branches collapse into each other.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~20s):** Exactly one solution means $k^2 - 4(2)(18) = 0$, so $k^2 = 144$ and, since $k > 0$, $k = 12$.\n\n**The Full Solution:**\nStep 1: Write the discriminant. For $2x^2 - kx + 18 = 0$ the discriminant is $(-k)^2 - 4(2)(18) = k^2 - 144$.\nStep 2: Set it to zero. Exactly one solution requires $k^2 - 144 = 0$, so $k^2 = 144$ and $k = \\pm 12$. The problem states $k$ is positive, so $k = 12$.\nStep 3: Check. $2x^2 - 12x + 18 = 2(x - 3)^2$, which is zero only at $x = 3$ — one clearance interval. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): is $\\sqrt{2 \\times 18} = \\sqrt{36}$, using $ac$ instead of $4ac$ in the discriminant.\n* Choice B ($9$): is $\\frac{18}{2}$, dividing the constant by the leading coefficient. That is not what the discriminant tests.\n* Choice D ($144$): is $k^2$. The question asks for $k$ itself.\n\n**Test Day Takeaway:** Exactly one real solution means discriminant $= 0$. Solve $b^2 = 4ac$, then take the root the problem allows.",
       skills: ["discriminant-analysis"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "The equation $3x^2 + 12x + c = 0$ has no real solutions, where $c$ is a constant. Which of the following could be the value of $c$?",
+      question: "A bridge inspector sets a whole-number damping parameter $n$ between $1$ and $20$, and the deck response for that setting is graphed as $y = 2x^2 + 9x + n$. The inspector issues a warning for any setting whose graph crosses the horizontal axis at two points. For how many settings is a warning issued?",
       choices: [
-        // distractor: gives a positive discriminant
-        { id: "A", text: "$-12$" },
-        // distractor: gives two real solutions
-        { id: "B", text: "$0$" },
-        // distractor: boundary value gives exactly one solution
-        { id: "C", text: "$12$" },
-        { id: "D", text: "$15$" }
+        // distractor: uses 81 - 16n > 0, squaring the leading coefficient inside 4ac, and stops at n = 5
+        { id: "A", text: "$5$" },
+        { id: "B", text: "$10$" },
+        // distractor: includes n = 11, where 81 - 88 = -7 and the graph misses the axis entirely
+        { id: "C", text: "$11$" },
+        // distractor: counts all 20 settings, assuming every upward parabola crosses the axis twice
+        { id: "D", text: "$20$" }
       ],
-      correctAnswer: "D",
-      hint: "No real solutions means the discriminant is strictly negative, so solve the resulting inequality.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** $144 - 12c < 0$ gives $c > 12$, and only $15$ clears that bar.\n\n**The Full Solution:**\nStep 1: Write the discriminant with $a = 3$, $b = 12$: $b^2 - 4ac = 12^2 - 4(3)c = 144 - 12c$.\nStep 2: No real solutions requires $144 - 12c < 0$, so $144 < 12c$ and $c > 12$.\nStep 3: Among the choices, only $15$ satisfies $c > 12$. Check: with $c = 15$ the discriminant is $144 - 180 = -36 < 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): gives a discriminant of $144 + 144 = 288$, which is positive, so there are two real solutions.\n* Choice B ($0$): gives a discriminant of $144$, and the equation $3x^2 + 12x = 0$ has the real solutions $0$ and $-4$.\n* Choice C ($12$): gives a discriminant of exactly $0$, which is one real solution, not none — the boundary value is excluded.\n\n**Test Day Takeaway:** Strict wording matters: no real solutions is a strict inequality, so the value that makes the discriminant zero is the trap, not the answer.",
+      correctAnswer: "B",
+      hint: "A setting earns a warning only while the discriminant stays above zero.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** Two crossings need $81 - 8n > 0$, so $n < 10.125$ and the whole numbers $1$ through $10$ qualify — $10$ settings.\n\n**The Full Solution:**\nStep 1: Translate \"crosses the axis at two points.\" The graph of $y = 2x^2 + 9x + n$ meets $y = 0$ twice exactly when $9^2 - 4(2)(n) > 0$.\nStep 2: Solve the inequality. $81 - 8n > 0$ gives $8n < 81$, so $n < 10.125$.\nStep 3: Count the allowed whole numbers and check the boundary. From $1$ through $20$, the values $1, 2, \\ldots, 10$ satisfy $n < 10.125$ — that is $10$ settings. At $n = 10$ the discriminant is $81 - 80 = 1 > 0$; at $n = 11$ it is $-7$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): uses $81 - 16n > 0$, doubling the $2$ a second time inside $4ac$, and stops at $n = 5$.\n* Choice C ($11$): includes $n = 11$, where the discriminant is $-7$ and the parabola stays above the axis.\n* Choice D ($20$): counts every setting. An upward parabola can sit entirely above the axis.\n\n**Test Day Takeaway:** Turn \"two crossings\" into $b^2 - 4ac > 0$, solve for the parameter, then count the integers — and always test the boundary value.",
       skills: ["discriminant-analysis"]
     }
   ],
@@ -387,74 +387,74 @@ export const quadraticsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "The function $g$ is defined by $g(x) = (x - 6)^2 + 5$. Which of the following is equivalent to $g(x)$?",
+      question: "A booster pumping station holds a discharge pressure of $p$ bars, and its daily operating cost, in dollars, is $C(p) = 3(p - 8)^2 + 55$. An engineer needs this cost written as a polynomial in standard form. Which polynomial is equal to $C(p)$ for every value of $p$?",
       choices: [
-        { id: "A", text: "$x^2 - 12x + 41$" },
-        // distractor: subtracts the outside constant
-        { id: "B", text: "$x^2 - 12x + 31$" },
-        // distractor: drops the cross term
-        { id: "C", text: "$x^2 + 41$" },
-        // distractor: forgets to double the cross term
-        { id: "D", text: "$x^2 - 6x + 41$" }
+        // distractor: drops the 3(64) = 192 term entirely, keeping only the 55
+        { id: "A", text: "$3p^2 - 48p + 55$" },
+        // distractor: adds 64 to 55 without tripling it: 55 + 64 = 119, so the 3 never reaches the constant
+        { id: "B", text: "$3p^2 - 48p + 119$" },
+        { id: "C", text: "$3p^2 - 48p + 247$" },
+        // distractor: expands (p - 8)^2 as p^2 + 16p + 64, losing the minus sign on the middle term
+        { id: "D", text: "$3p^2 + 48p + 247$" }
       ],
-      correctAnswer: "A",
-      hint: "Write the square as a product of two identical binomials before combining the constants.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** $(x - 6)^2 = x^2 - 12x + 36$, and $36 + 5 = 41$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x - 6)^2 = (x - 6)(x - 6) = x^2 - 6x - 6x + 36 = x^2 - 12x + 36$.\nStep 2: Add the outside constant: $x^2 - 12x + 36 + 5$.\nStep 3: Combine like terms: $g(x) = x^2 - 12x + 41$. Check at $x = 6$: the original gives $0 + 5 = 5$, and $36 - 72 + 41 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^2 - 12x + 31$): subtracts the $5$ instead of adding it, giving $36 - 5$.\n* Choice C ($x^2 + 41$): squares each term separately and loses the cross term $-12x$.\n* Choice D ($x^2 - 6x + 41$): uses $-6x$ rather than $-12x$, forgetting that the cross term is $2(-6)x$.\n\n**Test Day Takeaway:** Expanding $(x - h)^2$ always produces three terms, and the middle one is twice $-h$ times $x$.",
+      correctAnswer: "C",
+      hint: "Square the binomial completely before you distribute the 3.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~20s):** $(p - 8)^2 = p^2 - 16p + 64$, so $3(p^2 - 16p + 64) + 55 = 3p^2 - 48p + 192 + 55$.\n\n**The Full Solution:**\nStep 1: Square the binomial. $(p - 8)^2 = p^2 - 16p + 64$.\nStep 2: Distribute the $3$. $3(p^2 - 16p + 64) = 3p^2 - 48p + 192$.\nStep 3: Combine the constants and check. $192 + 55 = 247$, so $C(p) = 3p^2 - 48p + 247$. At $p = 8$ the original gives $55$, and $3(64) - 48(8) + 247 = 192 - 384 + 247 = 55$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3p^2 - 48p + 55$): never multiplies the $64$ by $3$, so the $192$ is missing from the constant term.\n* Choice B ($3p^2 - 48p + 119$): adds $64$ to $55$ without tripling it, giving $119$ instead of $247$.\n* Choice D ($3p^2 + 48p + 247$): expands $(p - 8)^2$ with a plus sign on the middle term. Squaring $p - 8$ gives $-16p$.\n\n**Test Day Takeaway:** Expand the square first, then distribute, then combine. The constant outside the square never reaches the middle term.",
       skills: ["converting-quadratic-forms", "vertex-form"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "The graph of the quadratic function $f$ is shown in the $xy$-plane. The vertex of the graph is $(-3, -4)$, and the graph passes through the marked point $(-1, 4)$. If $f(x) = a(x + 3)^2 - 4$, what is the value of $a$?",
-      diagram: { type: "parabola", params: { vertex: { h: -3, k: -4 }, a: 2, xRange: [-8, 2], yRange: [-6, 14], xTickInterval: 2, yTickInterval: 2, gridInterval: 2, showVertex: false, highlightPoints: [[-1, 4]] } },
+      question: "The parabola drawn here models the bed elevation $y$, in meters relative to grade, of a drainage channel at a horizontal distance of $x$ meters from a survey stake. Which of the following equations relates $y$ to $x$ for this channel bed?",
+      diagram: { type: "parabola", params: { vertex: { h: 3, k: -4 }, a: 1, xRange: [0, 6], yRange: [-6, 6], showVertex: false, xTickInterval: 1, yTickInterval: 2, gridInterval: 1 } },
       choices: [
-        // distractor: never adds k back
-        { id: "A", text: "$1$" },
-        { id: "B", text: "$2$" },
-        // distractor: forgets to square the horizontal difference
-        { id: "C", text: "$4$" },
-        // distractor: reports 4a instead of a
-        { id: "D", text: "$8$" }
+        // distractor: uses the vertex depth -4 as the constant term, which would put the crossing at x = 0 at y = -4 rather than y = 5
+        { id: "A", text: "$y = x^2 - 6x - 4$" },
+        { id: "B", text: "$y = x^2 - 6x + 5$" },
+        // distractor: expands (x - 3)^2 + 4 instead of (x - 3)^2 - 4, flipping the sign of the vertex depth
+        { id: "C", text: "$y = x^2 - 6x + 13$" },
+        // distractor: expands (x + 3)^2 - 4, placing the vertex at x = -3 instead of x = 3
+        { id: "D", text: "$y = x^2 + 6x + 5$" }
       ],
       correctAnswer: "B",
-      hint: "Substitute the second point into the vertex form and square the horizontal difference before dividing.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** $4 = a(2)^2 - 4$ gives $4a = 8$, so $a = 2$.\n\n**The Full Solution:**\nStep 1: The point $(-1, 4)$ is on the graph, so substituting gives $4 = a(-1 + 3)^2 - 4$.\nStep 2: Simplify inside the parentheses and square: $(-1 + 3)^2 = 2^2 = 4$, so $4 = 4a - 4$.\nStep 3: Add $4$ to both sides and divide: $4a = 8$, so $a = 2$. Check: $f(-1) = 2(4) - 4 = 4$, matching the marked point. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): forgets to add the $4$ back, solving $4a = 4$.\n* Choice C ($4$): divides $8$ by $2$ instead of by $2^2$, skipping the squaring step.\n* Choice D ($8$): stops at $4a = 8$ and reports $4a$ rather than $a$.\n\n**Test Day Takeaway:** With the vertex known, one extra point determines $a$ — isolate the squared term first, then divide by the SQUARE of the horizontal difference.",
+      hint: "Read the two horizontal-axis crossings straight off the grid.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** The curve crosses at $x = 1$ and $x = 5$, so $y = (x - 1)(x - 5) = x^2 - 6x + 5$.\n\n**The Full Solution:**\nStep 1: Read the crossings. The bed reaches grade at $x = 1$ and $x = 5$ meters, so the factored form is $y = a(x - 1)(x - 5)$.\nStep 2: Pin the leading coefficient. The lowest point sits at $(3, -4)$, and $a(3 - 1)(3 - 5) = -4a$, so $-4a = -4$ and $a = 1$.\nStep 3: Expand and check. $y = (x - 1)(x - 5) = x^2 - 6x + 5$. At the stake, $x = 0$, the graph shows $y = 5$, and $0 - 0 + 5 = 5$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = x^2 - 6x - 4$): carries the vertex depth $-4$ into the constant term; at $x = 0$ it gives $-4$, but the graph shows $5$.\n* Choice C ($y = x^2 - 6x + 13$): comes from $(x - 3)^2 + 4$, a curve whose lowest point is $4$ meters ABOVE grade and never reaches it.\n* Choice D ($y = x^2 + 6x + 5$): comes from $(x + 3)^2 - 4$, putting the low point at $x = -3$, off the left of the graph.\n\n**Test Day Takeaway:** Crossings give the factors; one more point — the vertex or the intercept — fixes the leading coefficient. Then expand.",
       skills: ["vertex-form"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "In the $xy$-plane, a parabola has $x$-intercepts at $(-4, 0)$ and $(2, 0)$ and passes through the point $(0, -16)$. Which equation represents this parabola?",
+      question: "A print studio models the net revenue, in hundreds of dollars, from an edition priced $x$ dollars above its base price by $R(x) = -2(x + 7)(x - 3)$. Which of the following is an equivalent form of $R(x)$?",
       choices: [
-        // distractor: assumes a = 1
-        { id: "A", text: "$y = x^2 + 2x - 8$" },
-        { id: "B", text: "$y = 2x^2 + 4x - 16$" },
-        // distractor: reverses the intercept signs
-        { id: "C", text: "$y = 2x^2 - 4x - 16$" },
-        // distractor: sign error solving for a
-        { id: "D", text: "$y = -2x^2 - 4x + 16$" }
+        // distractor: multiplies -2 by -21 as -42 instead of +42, dropping the sign of the product of the constants
+        { id: "A", text: "$-2x^2 - 8x - 42$" },
+        { id: "B", text: "$-2x^2 - 8x + 42$" },
+        // distractor: expands (x + 7)(x - 3) as x^2 - 4x - 21, reversing the sign of the middle term
+        { id: "C", text: "$-2x^2 + 8x + 42$" },
+        // distractor: leaves the constant term at 21, never multiplying it by the -2 outside
+        { id: "D", text: "$-2x^2 - 8x + 21$" }
       ],
       correctAnswer: "B",
-      hint: "Start from the factored form with an unknown leading coefficient, then use the third point to pin it down.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~35s):** $y = a(x + 4)(x - 2)$ and $-16 = a(4)(-2)$ give $a = 2$, so $y = 2x^2 + 4x - 16$.\n\n**The Full Solution:**\nStep 1: Intercepts at $x = -4$ and $x = 2$ give the factors $(x + 4)$ and $(x - 2)$, so $y = a(x + 4)(x - 2)$ for some constant $a$.\nStep 2: Substitute the third point: $-16 = a(0 + 4)(0 - 2) = -8a$, so $a = 2$.\nStep 3: Expand: $y = 2(x^2 + 2x - 8) = 2x^2 + 4x - 16$. Check the intercepts: at $x = -4$, $y = 32 - 16 - 16 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: uses $a = 1$ and never checks the third point; its $y$-intercept is $-8$, not $-16$.\n* Choice C: builds the factors as $(x - 4)(x + 2)$, reversing which intercept is negative.\n* Choice D: solves $-8a = -16$ as $a = -2$, dropping a negative sign.\n\n**Test Day Takeaway:** Two intercepts fix the factors but not the whole equation — a third point is what determines the leading coefficient.",
+      hint: "Multiply the two binomials first, then hand the -2 to every term.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** $(x + 7)(x - 3) = x^2 + 4x - 21$, and multiplying by $-2$ gives $-2x^2 - 8x + 42$.\n\n**The Full Solution:**\nStep 1: Multiply the binomials. $(x + 7)(x - 3) = x^2 - 3x + 7x - 21 = x^2 + 4x - 21$.\nStep 2: Distribute the $-2$ to all three terms. $-2(x^2) = -2x^2$, $-2(4x) = -8x$, and $-2(-21) = +42$.\nStep 3: Check one value. At $x = 0$ the original gives $-2(7)(-3) = 42$, and the expanded form gives $42$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2x^2 - 8x - 42$): signs the constant as $-42$; two negatives, $-2$ and $-21$, multiply to a positive.\n* Choice C ($-2x^2 + 8x + 42$): expands the binomials to $x^2 - 4x - 21$, reversing the middle term. The $+7$ outweighs the $-3$.\n* Choice D ($-2x^2 - 8x + 21$): leaves $21$ untouched. Every term inside the parentheses gets the $-2$.\n\n**Test Day Takeaway:** Multiply the binomials completely, then distribute the outside factor to all three terms — the constant included.",
       skills: ["roots-from-factors", "converting-quadratic-forms"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "A quadratic function $f$ has zeros at $x = -1$ and $x = 6$, and $f(2) = -24$. Which of the following defines $f$?",
+      question: "A rectangular clinic waiting area is $x$ meters wide and $x + 6$ meters long, and a walkway $2$ meters wide runs inside all four edges of it. Which expression gives the area, in square meters, of the seating region enclosed by the walkway?",
       choices: [
-        // distractor: sign error solving for a
-        { id: "A", text: "$f(x) = -2x^2 + 10x + 12$" },
-        // distractor: assumes a = 1
-        { id: "B", text: "$f(x) = x^2 - 5x - 6$" },
-        { id: "C", text: "$f(x) = 2x^2 - 10x - 12$" },
-        // distractor: reverses the signs of the zeros
-        { id: "D", text: "$f(x) = 2x^2 + 10x - 12$" }
+        { id: "A", text: "$x^2 - 2x - 8$" },
+        // distractor: keeps the correct factors (x - 4)(x + 2) but records (-4)(+2) as +8, a sign slip on the constant term
+        { id: "B", text: "$x^2 - 2x + 8$" },
+        // distractor: expands (x + 4)(x - 2), adding the walkway to the width rather than removing it
+        { id: "C", text: "$x^2 + 2x - 8$" },
+        // distractor: subtracts 8 from the product x(x + 6) instead of shrinking each dimension first
+        { id: "D", text: "$x^2 + 6x - 8$" }
       ],
-      correctAnswer: "C",
-      hint: "The zeros give the factors; the extra ordered pair is what determines the leading coefficient.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** $f(x) = a(x + 1)(x - 6)$ and $-24 = a(3)(-4)$ give $a = 2$, so $f(x) = 2x^2 - 10x - 12$.\n\n**The Full Solution:**\nStep 1: Zeros at $-1$ and $6$ give the factors $(x + 1)$ and $(x - 6)$, so $f(x) = a(x + 1)(x - 6)$.\nStep 2: Use the given value: $f(2) = a(2 + 1)(2 - 6) = a(3)(-4) = -12a$. Setting $-12a = -24$ gives $a = 2$.\nStep 3: Expand: $f(x) = 2(x^2 - 5x - 6) = 2x^2 - 10x - 12$. Check: $f(6) = 72 - 60 - 12 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: solves $-12a = -24$ as $a = -2$, so its graph opens the wrong way and $f(2)$ comes out $+24$.\n* Choice B: keeps $a = 1$ and ignores the condition $f(2) = -24$; it gives $f(2) = -12$.\n* Choice D: builds the factors as $(x - 1)(x + 6)$, reversing the signs of the zeros.\n\n**Test Day Takeaway:** Always test a candidate equation against EVERY given condition; two of these choices have the right zeros but the wrong value at $x = 2$.",
+      correctAnswer: "A",
+      hint: "The walkway eats 2 meters at each end of both dimensions.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** The seating region is $(x - 4)$ by $(x + 2)$ meters, and that product is $x^2 - 2x - 8$.\n\n**The Full Solution:**\nStep 1: Shrink each dimension twice. The walkway is $2$ meters wide on both sides, so the width drops by $4$ to $x - 4$ and the length drops by $4$ to $(x + 6) - 4 = x + 2$.\nStep 2: Multiply. $(x - 4)(x + 2) = x^2 + 2x - 4x - 8 = x^2 - 2x - 8$ square meters.\nStep 3: Check with a number. If $x = 10$, the room is $10$ by $16$ and the seating region is $6$ by $12$, or $72$ square meters; the expression gives $100 - 20 - 8 = 72$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^2 - 2x + 8$): uses the right factors, $(x - 4)(x + 2)$, but signs the constant as $+8$. The product $(-4)(+2)$ is $-8$.\n* Choice C ($x^2 + 2x - 8$): comes from $(x + 4)(x - 2)$, adding the walkway to the width instead of removing it.\n* Choice D ($x^2 + 6x - 8$): subtracts $8$ from the whole room area $x(x + 6)$, but a border removes a frame, not a fixed $8$ square meters.\n\n**Test Day Takeaway:** A uniform border of width $w$ removes $2w$ from EACH dimension. Shrink both dimensions, then multiply.",
       skills: ["roots-from-factors", "converting-quadratic-forms"]
     },
     {

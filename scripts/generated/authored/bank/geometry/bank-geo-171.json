@@ -1,46 +1,59 @@
 {
-  "id": "bank-geo-171",
-  "question": "In the right triangle shown, the legs have lengths $b$ and $b + 7$, and the hypotenuse has length $17$. If the perimeter of the triangle is $40$, what is the value of $\\sin\\theta$?",
-  "diagram": {
-    "type": "rightTriangle",
-    "params": {
-      "labels": [
-        "θ",
-        "",
-        ""
-      ],
-      "sideLabels": [
-        "b + 7",
-        "b",
-        "17"
-      ],
-      "rightAngleVertex": 1,
-      "figureNote": true
-    }
+ "id": "bank-geo-171",
+ "question": "The skylight-well brace shown has a right angle at $B$, and $\\sin A = \\frac{12}{13}$. If $90$ centimeters of steel angle forms the brace's three edges, how long is $\\overline{BC}$, in centimeters?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     15,
+     0
+    ],
+    [
+     15,
+     36
+    ]
+   ],
+   "labels": [
+    "A",
+    "B",
+    "C"
+   ],
+   "sideLabels": [
+    "",
+    "",
+    ""
+   ],
+   "rightAngleVertex": 1
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$\\frac{8}{17}$"
-    },
-    {
-      "id": "B",
-      "text": "$\\frac{8}{15}$"
-    },
-    {
-      "id": "C",
-      "text": "$\\frac{15}{17}$"
-    },
-    {
-      "id": "D",
-      "text": "$\\frac{17}{8}$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "gives tan of theta, opposite over adjacent",
-    "C": "gives cos of theta, adjacent over hypotenuse",
-    "D": "inverts the sine ratio, hypotenuse over opposite"
+  {
+   "id": "B",
+   "text": "$15$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The perimeter gives $2b + 24 = 40$, so $b = 8$ and the sides are $8$, $15$, $17$. Then $\\sin\\theta = \\frac{8}{17}$.\n\n**The Full Solution:**\nStep 1: The perimeter is the sum of the three sides: $b + (b + 7) + 17 = 40$.\nStep 2: $2b + 24 = 40$, so $2b = 16$ and $b = 8$. The legs are $8$ and $15$, and the hypotenuse is $17$.\nStep 3: In the figure, $\\theta$ is opposite the leg of length $b = 8$, so $\\sin\\theta = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{8}{17}$. Check: $8^2 + 15^2 = 64 + 225 = 289 = 17^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{8}{15}$): this is $\\tan\\theta$, opposite over adjacent, not opposite over hypotenuse.\n* Choice C ($\\frac{15}{17}$): this is $\\cos\\theta$, the adjacent leg over the hypotenuse.\n* Choice D ($\\frac{17}{8}$): inverts the sine ratio. Sine of an acute angle is always less than $1$, so any value above $1$ is automatically wrong.\n\n**Test Day Takeaway:** Use the perimeter to turn algebraic side lengths into numbers first; only then read the ratio off the figure."
+  {
+   "id": "C",
+   "text": "$36$"
+  },
+  {
+   "id": "D",
+   "text": "$39$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "stops at the scale factor k = 3 instead of evaluating 12k",
+  "B": "reports the leg adjacent to A, 5k = 15",
+  "D": "reports the hypotenuse, 13k = 39"
+ },
+ "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice C is correct.** $\\sin A = \\frac{12}{13}$ makes the sides $5k$, $12k$, $13k$; the perimeter $30k = 90$ gives $k = 3$, so $BC = 12k = 36$ centimeters.\n\n**The Fast Way (~40s):** $5$-$12$-$13$ scaled to a perimeter of $90$ means $k = 3$, so $BC = 36$.\n\n**The Full Solution:**\n\nStep 1: The right angle is at $B$, so $\\overline{AC}$ is the hypotenuse and $\\sin A = \\frac{BC}{AC} = \\frac{12}{13}$.\n\nStep 2: Write $BC = 12k$ and $AC = 13k$; then $AB = \\sqrt{169k^2 - 144k^2} = 5k$, so the perimeter is $30k$.\n\nStep 3: From $30k = 90$, $k = 3$, so $BC = 12(3) = 36$ centimeters. Check: the sides are $15$, $36$, $39$; they sum to $90$ and $15^2 + 36^2 = 1521 = 39^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($3$): stops at the scale factor $k$.\n* Choice B ($15$): reports $\\overline{AB}$, the leg adjacent to $A$.\n* Choice D ($39$): reports the hypotenuse $\\overline{AC}$.\n\n**Test Day Takeaway:** A sine value fixes the RATIO of the sides; a perimeter fixes their SIZE — combine the two and every side falls out at once."
 }

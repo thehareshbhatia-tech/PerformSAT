@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-181",
- "question": "In the $xy$-plane, the line $3x + 4y = 20$ is tangent to a circle whose center is the origin. What is the radius of the circle?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$4$"
+  "id": "bank-geo-181",
+  "question": "A drainage channel at a campground follows a straight line that meets a circular retention pond at exactly one point. Substituting the line's equation into the pond's equation gives $5x^2-20x+k=0$. Which of the following must be true?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$k=20$"
+    },
+    {
+      "id": "B",
+      "text": "$k<20$"
+    },
+    {
+      "id": "C",
+      "text": "$k>20$"
+    },
+    {
+      "id": "D",
+      "text": "$k=0$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "describes a positive discriminant, which gives two intersection points, not one",
+    "C": "describes a negative discriminant, which gives no intersection points",
+    "D": "sets the constant term to zero instead of the discriminant"
   },
-  {
-   "id": "B",
-   "text": "$5$"
-  },
-  {
-   "id": "C",
-   "text": "$6.25$"
-  },
-  {
-   "id": "D",
-   "text": "$20$"
-  }
- ],
- "distractorNotes": {
-  "B": "reports the denominator sqrt(9+16)=5",
-  "C": "inverts the quotient, 25/4",
-  "D": "reads the constant 20 as the distance"
- },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** A tangent line sits exactly one radius from the center, so $r$ is the distance from $(0, 0)$ to $3x + 4y - 20 = 0$: $r = \\frac{|-20|}{\\sqrt{3^2 + 4^2}} = \\frac{20}{5} = 4$.\n\n**The Full Solution:**\nStep 1: The distance from a point $(x_0, y_0)$ to the line $Ax + By + C = 0$ is $\\frac{|Ax_0 + By_0 + C|}{\\sqrt{A^2 + B^2}}$. Tangency means that distance equals the radius.\nStep 2: With $A = 3$, $B = 4$, $C = -20$ and the center $(0, 0)$, the numerator is $|3(0) + 4(0) - 20| = 20$ and the denominator is $\\sqrt{9 + 16} = 5$.\nStep 3: $r = \\frac{20}{5} = 4$.\n\nVerification: substituting $y = \\frac{20 - 3x}{4}$ into $x^2 + y^2 = 16$ gives $25x^2 - 120x + 144 = 0$, whose discriminant is $120^2 - 4(25)(144) = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($5$): reports $\\sqrt{3^2 + 4^2} = 5$, the denominator of the distance formula, instead of finishing the division.\n* Choice C ($6.25$): inverts the quotient and computes $\\frac{25}{20}\\cdot 5 = \\frac{25}{4}$ rather than $\\frac{20}{5}$.\n* Choice D ($20$): treats the constant term $20$ as the distance, forgetting to divide by $\\sqrt{A^2 + B^2}$.\n\n**Test Day Takeaway:** Tangent to a circle means distance from center to line $=$ radius. The point-to-line distance formula turns that sentence into one computation."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Exactly one intersection means one root, so $(-20)^2-4(5)(k)=0$, giving $400=20k$ and $k=20$.\n\n**The Full Solution:**\n\nStep 1 — The substitution has produced a quadratic in $x$; each of its real roots is an intersection point of the line and the circle.\n\nStep 2 — Exactly one intersection point means exactly one real root, which happens when the discriminant equals zero: $b^2-4ac=(-20)^2-4(5)(k)=400-20k$.\n\nStep 3 — Set it to zero: $400-20k=0$, so $k=20$. Check: with $k=20$ the quadratic is $5x^2-20x+20=5(x-2)^2$, whose only root is $x=2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($k<20$): this makes the discriminant positive, giving two intersection points.\n* Choice C ($k>20$): this makes the discriminant negative, giving no intersection at all.\n* Choice D ($k=0$): this zeroes the constant term rather than the discriminant, and $5x^2-20x=0$ has two roots.\n\n**Test Day Takeaway:** Tangency is a statement about root count — translate it to \"discriminant equals zero\" before touching the algebra."
 }

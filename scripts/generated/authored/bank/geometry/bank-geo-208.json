@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-208",
- "question": "In the $xy$-plane, a triangle has vertices at $(0, 0)$, $(12, 0)$, and $(5, -4)$. What is the area, in square units, of the triangle?",
+ "question": "A wind-farm site plan shows a triangular buffer zone with corners $(0,0)$, $(14,0)$, and $(0,k)$, where $k>0$ and units are hundreds of feet. That zone covers $63$ square units. What is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$24$"
+   "text": "$4.5$"
   },
   {
    "id": "B",
-   "text": "$30$"
+   "text": "$7$"
   },
   {
    "id": "C",
-   "text": "$48$"
+   "text": "$9$"
   },
   {
    "id": "D",
-   "text": "$60$"
+   "text": "$31.5$"
   }
  ],
  "distractorNotes": {
-  "B": "uses the apex x-coordinate as the height",
-  "C": "omits the one-half factor",
-  "D": "uses the x-coordinate as the height and omits the one-half"
+  "A": "omits the factor one half, solving 14k = 63",
+  "B": "reports half the base, 7, instead of k",
+  "D": "divides the area by 2 rather than by half the base, giving 31.5"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The base on the $x$-axis has length $12$, and the third vertex is $|-4| = 4$ units from that axis: area $= \\frac{1}{2}(12)(4) = 24$.\n\n**The Full Solution:**\nStep 1: Two vertices, $(0, 0)$ and $(12, 0)$, lie on the $x$-axis, so that side is the base with length $12$.\nStep 2: The height is the perpendicular distance from $(5, -4)$ to the $x$-axis. Distance is never negative, so the height is $|-4| = 4$.\nStep 3: Area $= \\frac{1}{2}(12)(4) = 24$ square units.\n\nVerification: the shoelace formula gives $\\frac{1}{2}|0(0 - (-4)) + 12(-4 - 0) + 5(0 - 0)| = \\frac{1}{2}|-48| = 24$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($30$): uses the apex's $x$-coordinate, $5$, as the height, computing $\\frac{1}{2}(12)(5)$.\n* Choice C ($48$): multiplies base by height without the $\\frac{1}{2}$.\n* Choice D ($60$): combines both errors, computing $12 \\cdot 5$.\n\n**Test Day Takeaway:** A negative coordinate still gives a positive height. Take the absolute value of the vertical gap and keep going."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $\\frac{1}{2}(14)(k)=63$ gives $7k=63$, so $k=9$.\n\n**The Full Solution:**\n\nStep 1: Identify the legs. The side from $(0,0)$ to $(14,0)$ lies on the $x$-axis with length $14$; the side from $(0,0)$ to $(0,k)$ lies on the $y$-axis with length $k$.\n\nStep 2: Write the area. These legs meet at a right angle, so the area is $\\frac{1}{2}(14)(k)=7k$ square units.\n\nStep 3: Solve. $7k=63$ gives $k=9$.\n\nCheck: $\\frac{1}{2}(14)(9)=63$ square units, as given.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($4.5$): omits the factor $\\frac{1}{2}$ and solves $14k=63$.\n* Choice B ($7$): reports half the base rather than the unknown $k$.\n* Choice D ($31.5$): divides the area by $2$ instead of by half the base.\n\n**Test Day Takeaway:** When both legs sit on the axes, the area is half their product — solve for the missing leg, not for half the base."
 }

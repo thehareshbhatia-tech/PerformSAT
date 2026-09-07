@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-048",
- "question": "Triangle $ABC$ is similar to triangle $DEF$, where $AB$ corresponds to $DE$. The length of $\\overline{AB}$ is $15$ and the length of $\\overline{DE}$ is $6$. If the area of triangle $ABC$ is $75$ square units, what is the area, in square units, of triangle $DEF$?",
+ "question": "A fabric shop hangs the two similar triangular bunting flags drawn below, with corresponding edges marked in inches. The smaller flag covers $16$ square inches. How many square inches does the larger flag cover?",
  "diagram": {
   "type": "similarTriangles",
   "params": {
    "triangle1": {
     "labels": [
-     "A",
-     "B",
-     "C"
+     "P",
+     "Q",
+     "R"
     ],
     "sideLabels": [
-     "15",
+     "10",
      "",
      ""
     ]
    },
    "triangle2": {
     "labels": [
-     "D",
-     "E",
-     "F"
+     "S",
+     "T",
+     "U"
     ],
     "sideLabels": [
-     "6",
+     "25",
      "",
      ""
     ]
@@ -34,26 +34,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$4.8$"
+   "text": "$40$"
   },
   {
    "id": "B",
-   "text": "$12$"
+   "text": "$100$"
   },
   {
    "id": "C",
-   "text": "$30$"
+   "text": "$250$"
   },
   {
    "id": "D",
-   "text": "$187.5$"
+   "text": "$400$"
   }
  ],
  "distractorNotes": {
-  "A": "cubes the ratio, which scales volumes",
-  "C": "uses the linear ratio instead of its square",
-  "D": "inverts the ratio and scales upward"
+  "A": "scales the area by the side ratio 5/2 instead of its square",
+  "C": "cubes the side ratio, giving 16 times 125/8 = 250",
+  "D": "multiplies the small area by 25, the larger side length itself"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Area Scaling by Square of Linear Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The linear ratio is $\\frac{6}{15} = \\frac{2}{5}$, so areas scale by $\\left(\\frac{2}{5}\\right)^2 = \\frac{4}{25}$: $75 \\cdot \\frac{4}{25} = 12$ square units.\n\n**The Full Solution:**\nStep 1: For similar figures with linear scale factor $k$, corresponding areas are in the ratio $k^2$.\nStep 2: Going from $ABC$ to $DEF$, $k = \\frac{DE}{AB} = \\frac{6}{15} = \\frac{2}{5}$, so $k^2 = \\frac{4}{25}$.\nStep 3: Area of $DEF = 75 \\cdot \\frac{4}{25} = 3 \\cdot 4 = 12$ square units.\n\nVerification: $\\frac{12}{75} = \\frac{4}{25} = \\left(\\frac{2}{5}\\right)^2$, matching the square of the linear ratio. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.8$): cubes the ratio, $75 \\cdot \\frac{8}{125}$; the cube scales volumes, not areas.\n* Choice C ($30$): applies the linear ratio $\\frac{2}{5}$ directly to the area, forgetting to square it.\n* Choice D ($187.5$): inverts the ratio and scales up by $\\frac{5}{2}$, even though $DEF$ is the smaller triangle.\n\n**Test Day Takeaway:** Decide the direction of the ratio first by asking which figure is smaller, then raise it to the power that matches the dimension: $1$ for length, $2$ for area, $3$ for volume."
+ "explanation": "**SAT Pattern: Area Scaling by Square of Linear Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The side ratio is $\\frac{25}{10}=\\frac{5}{2}$, so areas scale by $\\left(\\frac{5}{2}\\right)^{2}=\\frac{25}{4}$, and $16\\cdot\\frac{25}{4}=100$.\n\n**The Full Solution:**\n\nStep 1: Find the linear ratio. Corresponding edges measure $10$ and $25$ inches, so the scale factor from small to large is $\\frac{25}{10}=\\frac{5}{2}$.\n\nStep 2: Square it for area. Similar figures have areas in the ratio of the square of the scale factor, $\\left(\\frac{5}{2}\\right)^{2}=\\frac{25}{4}$.\n\nStep 3: Scale the area. $16\\cdot\\frac{25}{4}=100$ square inches.\n\nCheck: $\\frac{100}{16}=6.25$, and $\\left(\\frac{5}{2}\\right)^{2}=6.25$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($40$): scales the area by the side ratio $\\frac{5}{2}$ instead of by its square.\n* Choice C ($250$): cubes the ratio, which is how volumes scale, not areas.\n* Choice D ($400$): multiplies the small area by $25$, the larger edge length itself.\n\n**Test Day Takeaway:** Lengths scale by $k$, areas by $k^{2}$, volumes by $k^{3}$ — pick the exponent from the units being asked for."
 }

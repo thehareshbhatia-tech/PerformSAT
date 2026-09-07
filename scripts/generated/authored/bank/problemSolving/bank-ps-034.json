@@ -1,57 +1,57 @@
 {
-  "id": "bank-ps-034",
-  "question": "The table shows the number of siblings reported by each of $40$ students in a survey. What is the median number of siblings for the $40$ students?",
-  "questionTable": {
-    "headers": [
-      "Number of siblings",
-      "Number of students"
-    ],
-    "rows": [
-      [
-        "0",
-        "7"
-      ],
-      [
-        "1",
-        "12"
-      ],
-      [
-        "2",
-        "11"
-      ],
-      [
-        "3",
-        "6"
-      ],
-      [
-        "4",
-        "4"
-      ]
-    ]
-  },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$1$"
-    },
-    {
-      "id": "B",
-      "text": "$1.5$"
-    },
-    {
-      "id": "C",
-      "text": "$2$"
-    },
-    {
-      "id": "D",
-      "text": "$12$"
-    }
+ "id": "bank-ps-034",
+ "question": "A statistician recorded the number of service aces a volleyball player produced in each of $24$ matches last season; the table gives the frequency of each ace count. What is the median number of aces per match?",
+ "questionTable": {
+  "headers": [
+   "Aces in a match",
+   "Number of matches"
   ],
-  "distractorNotes": {
-    "A": "reports the mode (the row with the largest frequency, $12$) or stops the cumulative count at $19$, one position short.",
-    "B": "averages $1$ and $2$ on the assumption that the $20$th and $21$st values straddle two rows; both actually sit in the $2$ row.",
-    "D": "reports the largest frequency instead of the value it corresponds to."
+  "rows": [
+   [
+    "0",
+    "3"
+   ],
+   [
+    "1",
+    "4"
+   ],
+   [
+    "2",
+    "5"
+   ],
+   [
+    "3",
+    "8"
+   ],
+   [
+    "4",
+    "4"
+   ]
+  ]
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Median from Frequency Table**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** With $40$ students, the median averages the $20$th and $21$st values, and the running totals are $7$, then $19$, then $30$. Both positions fall in the \"$2$ siblings\" row, so the median is $2$.\n\n**The Full Solution:**\nStep 1: Total $= 7 + 12 + 11 + 6 + 4 = 40$. For an even count, the median is the mean of the $20$th and $21$st values in order.\nStep 2: Build cumulative counts: $0$ siblings covers positions $1$ to $7$; $1$ sibling covers $8$ to $19$; $2$ siblings covers $20$ to $30$; $3$ siblings covers $31$ to $36$; $4$ siblings covers $37$ to $40$.\nStep 3: Positions $20$ and $21$ both lie in the \"$2$ siblings\" row, so the median is $\\frac{2 + 2}{2} = 2$. Check: $19$ students reported fewer than $2$ and $10$ reported more than $2$, so the middle lands on $2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): reports the mode (the row with the largest frequency, $12$) or stops the cumulative count at $19$, one position short.\n* Choice B ($1.5$): averages $1$ and $2$ on the assumption that the $20$th and $21$st values straddle two rows; both actually sit in the $2$ row.\n* Choice D ($12$): reports the largest frequency instead of the value it corresponds to.\n\n**Test Day Takeaway:** For a frequency table, find the median position(s) from the total count, then walk the cumulative frequencies to see which value covers those positions."
+  {
+   "id": "B",
+   "text": "$2.25$"
+  },
+  {
+   "id": "C",
+   "text": "$2.5$"
+  },
+  {
+   "id": "D",
+   "text": "$3$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "takes the middle row of the table, $2$, instead of the middle of the $24$ matches",
+  "B": "reports the mean number of aces, $\\frac{54}{24} = 2.25$",
+  "D": "reports the mode, the ace count with the greatest frequency"
+ },
+ "explanation": "**SAT Pattern: Median from Frequency Table**\n\n**Choice C is correct.** With $24$ matches, the median averages the $12$th and $13$th values in order, which are $2$ and $3$, giving $2.5$.\n\n**The Fast Way (~50s):** Running totals are $3$, $7$, $12$, $20$, $24$. The $12$th match has $2$ aces and the $13$th has $3$, so the median is $\\frac{2 + 3}{2} = 2.5$.\n\n**The Full Solution:**\n\nStep 1: Locate the middle. For $24$ ordered values, the median is the mean of the $12$th and $13$th values.\n\nStep 2: Build running totals from the frequency column: $3$ matches have $0$ aces (positions $1$ through $3$), $4$ have $1$ ace (positions $4$ through $7$), $5$ have $2$ aces (positions $8$ through $12$), and $8$ have $3$ aces (positions $13$ through $20$).\n\nStep 3: Read off the two middle positions. Position $12$ falls in the $2$-ace group and position $13$ falls in the $3$-ace group, so the median is $\\frac{2 + 3}{2} = 2.5$ aces. Check: $12$ matches recorded $2$ or fewer aces and $12$ recorded $3$ or more, so the median must lie between $2$ and $3$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($2$): picks the middle row of the table. A frequency table lists categories, not the data values in order, so the middle row is not the middle match.\n* Choice B ($2.25$): computes the mean, $\\frac{0(3) + 1(4) + 2(5) + 3(8) + 4(4)}{24} = 2.25$, a different measure of center.\n* Choice D ($3$): reports the mode, the ace count that occurs most often.\n\n**Test Day Takeaway:** In a frequency table, run the counts until you pass the middle position -- the median lives at a position, never at a row."
 }

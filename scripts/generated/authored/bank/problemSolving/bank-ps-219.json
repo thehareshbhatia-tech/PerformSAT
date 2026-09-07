@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-219",
-  "question": "A rowing machine is on sale for $\\$276$, which is $20\\%$ off its original price. What was the original price of the rowing machine, in dollars?",
+  "question": "A theater releases same-day rush seats at $\\$90$ each, a price that is $25\\%$ less than the regular price of $k$ dollars for the same seat. What is the value of $k$?",
   "choices": [
     {
       "id": "A",
-      "text": "$220.80$"
+      "text": "$72$"
     },
     {
       "id": "B",
-      "text": "$331.20$"
+      "text": "$112.50$"
     },
     {
       "id": "C",
-      "text": "$345$"
+      "text": "$120$"
     },
     {
       "id": "D",
-      "text": "$1{,}380$"
+      "text": "$360$"
     }
   ],
   "distractorNotes": {
-    "A": "takes another 20% off the sale price",
-    "B": "adds 20% of the sale price instead of dividing by 0.80",
-    "D": "divides by 0.20, the discount rate, instead of by 0.80"
+    "A": "divides by 1.25 instead of 0.75: 90 / 1.25 = 72, reversing an increase rather than a discount",
+    "B": "adds 25 percent of the rush price to the rush price: 90 x 1.25 = 112.50",
+    "D": "divides by the discount rate 0.25 instead of the retained fraction 0.75: 90 / 0.25 = 360"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Reverse Percent (Find Original from Sale)**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The sale price is $80\\%$ of the original, so the original is $\\frac{276}{0.80} = 345$.\n\n**The Full Solution:**\nStep 1: Let $p$ be the original price. A $20\\%$ discount leaves $100\\% - 20\\% = 80\\%$ of $p$, so $0.80p = 276$.\nStep 2: Divide both sides by $0.80$: $p = \\frac{276}{0.80} = 345$.\nStep 3: Check: $20\\%$ of $345$ is $69$, and $345 - 69 = 276$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($220.80$): computes $0.80 \\times 276$, discounting the already-discounted price.\n* Choice B ($331.20$): computes $1.20 \\times 276$; adding $20\\%$ of the smaller sale price does not undo taking $20\\%$ of the larger original price.\n* Choice D ($1{,}380$): divides by $0.20$, the part removed, instead of by $0.80$, the part paid.\n\n**Test Day Takeaway:** Reverse percent divides by the fraction that remains. Always verify by running the discount forward on your answer."
+  "explanation": "**SAT Pattern: Reverse Percent (Find Original from Sale)**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The rush price keeps $75\\%$ of the regular price, so $k = \\frac{90}{0.75} = 120$.\n\n**The Full Solution:**\nStep 1: Translate the discount. A price $25\\%$ less than $k$ is $k - 0.25k = 0.75k$, so $0.75k = 90$.\nStep 2: Solve. $k = \\frac{90}{0.75} = 120$ dollars.\nStep 3: Check forward. $25\\%$ of $120$ is $30$, and $120 - 30 = 90$, the rush price. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($72$): divides by $1.25$: $\\frac{90}{1.25} = 72$. That undoes a $25\\%$ increase, not a $25\\%$ discount.\n* Choice B ($112.50$): computes $90 \\times 1.25 = 112.50$, taking the $25\\%$ of the rush price. The discount is $25\\%$ of the REGULAR price.\n* Choice D ($360$): divides by $0.25$: $\\frac{90}{0.25} = 360$. That treats $90$ as the discount instead of the price paid.\n\n**Test Day Takeaway:** After a $p\\%$ discount the buyer pays $(1 - p)$ of the original, so recover the original by dividing by $(1 - p)$, never by $p$."
 }

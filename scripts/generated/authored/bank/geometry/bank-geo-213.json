@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-213",
- "question": "An exterior angle of a triangle measures $128°$. One of the two remote interior angles measures $53°$. What is the measure of the other remote interior angle?",
+ "question": "On a roof truss, a gusset plate joins three members at joint $B$. The exterior angle formed where the bottom chord is extended past $B$ measures $133^\\circ$, and the two interior angles at the other joints measure $40^\\circ$ and $(4x + 9)^\\circ$. What is the value of $x$?",
  "choices": [
   {
    "id": "A",
-   "text": "$52°$"
+   "text": "$21$"
   },
   {
    "id": "B",
-   "text": "$75°$"
+   "text": "$31$"
   },
   {
    "id": "C",
-   "text": "$105°$"
+   "text": "$41$"
   },
   {
    "id": "D",
-   "text": "$127°$"
+   "text": "$84$"
   }
  ],
+ "correctAnswer": "A",
  "distractorNotes": {
-  "A": "gives the interior angle adjacent to the exterior angle",
-  "C": "adds the adjacent interior angle to the given remote angle",
-  "D": "takes the supplement of the given remote angle"
+  "B": "sets 4x + 9 = 133, using the whole exterior angle for one remote angle and ignoring the 40 degree angle",
+  "C": "adds the known remote angle instead of subtracting it: 4x + 9 = 173",
+  "D": "stops at 4x = 84 and reports 4x instead of x"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The exterior angle is the sum of the two remote interior angles, so the missing one is $128 - 53 = 75$ degrees.\n\n**The Full Solution:**\nStep 1: Let the two remote interior angles be $53°$ and $y°$. The exterior angle theorem gives $53 + y = 128$.\nStep 2: Solve: $y = 128 - 53 = 75$.\nStep 3: The other remote interior angle measures $75°$.\n\nVerification: the interior angle adjacent to the exterior angle is $180 - 128 = 52°$, and $52 + 53 + 75 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($52°$): gives $180 - 128$, the interior angle at the same vertex as the exterior angle — the one angle that is not remote.\n* Choice C ($105°$): adds the adjacent interior angle to the given remote angle, $52 + 53$, mixing the two roles.\n* Choice D ($127°$): computes $180 - 53$, treating the remote angle as if it were the one supplementary to the exterior angle.\n\n**Test Day Takeaway:** Subtract, do not supplement. The exterior angle already equals the sum of the two remote angles, so the missing one is a single subtraction."
+ "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice A is correct.** The exterior angle equals the sum of the two remote interior angles, so $4x + 9 = 133 - 40 = 93$ and $x = 21$.\n\n**The Fast Way (~25s):** Strip the known remote angle off the exterior angle: $133 - 40 = 93$. Then $4x + 9 = 93$, so $x = 21$.\n\n**The Full Solution:**\n\nStep 1: At joint $B$, the exterior angle equals the sum of the two nonadjacent interior angles: $40 + (4x + 9) = 133$.\n\nStep 2: Combine like terms and solve: $4x + 49 = 133$, so $4x = 84$ and $x = 21$.\n\nStep 3: Check. With $x = 21$ the second remote angle is $4(21) + 9 = 93$, and $40^\\circ + 93^\\circ = 133^\\circ$. The interior angle at $B$ is $180^\\circ - 133^\\circ = 47^\\circ$, and $40 + 93 + 47 = 180$, so the triangle closes.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($31$): sets $4x + 9 = 133$, handing the whole exterior angle to one remote angle and ignoring the $40^\\circ$ angle.\n* Choice C ($41$): adds instead of subtracting, solving $4x + 9 = 133 + 40 = 173$.\n* Choice D ($84$): stops at $4x = 84$ and reports $4x$ rather than $x$.\n\n**Test Day Takeaway:** An exterior angle equals the SUM of the two nonadjacent interior angles, so subtract the known remote angle from it, never the supplement."
 }

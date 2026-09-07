@@ -1,46 +1,55 @@
 {
-  "id": 13,
-  "question": "The table lists three pairs of values that satisfy a linear relationship between $x$ and $y$. Which equation represents this relationship?",
-  "diagram": {
-    "type": "table",
-    "params": {
-      "rows": [
-        [
-          1,
-          34
-        ],
-        [
-          4,
-          22
-        ],
-        [
-          7,
-          10
-        ]
-      ],
-      "xHeader": "x",
-      "yHeader": "y"
-    }
+ "id": 13,
+ "question": "During calibration a pressure sensor produced the four output voltages listed in the table for the applied pressures shown. Which equation gives the output $V$, in volts, at an applied pressure of $p$ kilopascals?",
+ "diagram": {
+  "type": "table",
+  "params": {
+   "xHeader": "Applied pressure (kPa)",
+   "yHeader": "Output (V)",
+   "rows": [
+    [
+     "10",
+     "1.4"
+    ],
+    [
+     "20",
+     "2.0"
+    ],
+    [
+     "30",
+     "2.6"
+    ],
+    [
+     "40",
+     "3.2"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$V = 0.6p + 0.8$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$y = -12x + 46$"
-    },
-    {
-      "id": "B",
-      "text": "$y = -4x + 34$"
-    },
-    {
-      "id": "C",
-      "text": "$y = -4x + 38$"
-    },
-    {
-      "id": "D",
-      "text": "$y = 4x + 30$"
-    }
-  ],
-  "correctAnswer": "C",
-  "hint": "The $x$-values jump by more than $1$ between rows, so the drop in $y$ is not the rate of change on its own.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $y$ falls $12$ for every $3$ that $x$ rises, so $m = -4$; then $34 = -4(1)+b$ gives $b = 38$ — choice C.\n\n**The Full Solution:**\nStep 1: Rate of change from the first two rows: $m = \\frac{22-34}{4-1} = \\frac{-12}{3} = -4$.\nStep 2: Substitute $(1, 34)$ into $y = -4x + b$: $34 = -4 + b$, so $b = 38$.\nStep 3: The equation is $y = -4x + 38$. Check the last row: $-4(7)+38 = 10$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -12x + 46$): uses the $12$-unit drop between rows as the rate of change without dividing by the $3$-unit change in $x$; that then forces $b = 46$.\n* Choice B ($y = -4x + 34$): has the correct rate of change but takes $34$, the value of $y$ at $x = 1$, as the $y$-intercept.\n* Choice D ($y = 4x + 30$): makes the rate of change positive even though $y$ falls as $x$ rises; that then forces $b = 30$.\n\n**Test Day Takeaway:** Divide by the change in $x$ every time. When table inputs step by $3$, the raw drop in the output is three rate-of-change steps, not one."
+  {
+   "id": "B",
+   "text": "$V = 0.8p + 0.06$"
+  },
+  {
+   "id": "C",
+   "text": "$V = 0.06p + 1.4$"
+  },
+  {
+   "id": "D",
+   "text": "$V = 0.06p + 0.8$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses 0.6, the rise per table row, as the rise per kilopascal",
+  "B": "swaps the rate and the value at zero pressure",
+  "C": "uses the first listed output, 1.4, as the value at zero pressure"
+ },
+ "correctAnswer": "D",
+ "hint": "The pressure values step up by equal amounts, so watch what one step does to the output.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~40s):** Each $10$-kilopascal step raises the output by $0.6$ volt, so the rate is $0.06$ volt per kilopascal, and backing up from $(10,\\ 1.4)$ gives $0.8$ volt at $p = 0$.\n\n**The Full Solution:**\nStep 1: The outputs rise by $0.6$ volt for every $10$-kilopascal increase, so the relationship is linear with slope $\\frac{0.6}{10} = 0.06$ volt per kilopascal.\nStep 2: Write $V = 0.06p + b$ and substitute the first row: $1.4 = 0.06(10) + b = 0.6 + b$, so $b = 0.8$.\nStep 3: The equation is $V = 0.06p + 0.8$.\n\nCheck: At $p = 40$ the equation gives $0.06(40) + 0.8 = 2.4 + 0.8 = 3.2$ volts, matching the last row. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($V = 0.6p + 0.8$): treats the $0.6$-volt jump between rows as the change per kilopascal; at $p = 40$ it predicts $24.8$ volts.\n* Choice B ($V = 0.8p + 0.06$): swaps the rate and the value at zero pressure.\n* Choice C ($V = 0.06p + 1.4$): uses the first recorded output as the value at $p = 0$, ignoring that the first row is at $10$ kilopascals.\n\n**Test Day Takeaway:** Divide the change in output by the change in input, not by the number of rows."
 }

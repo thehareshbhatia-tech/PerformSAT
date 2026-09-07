@@ -7,31 +7,37 @@ export const radiansDegreesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "An angle has a measure of $210^{\\circ}$. What is the measure of this angle, in radians?",
+      question: "A canal lock's mitre gate swings through an angle of $135$ degrees as it opens, and the lock's control system logs every gate position in radians. What measure, in radians, does the control system log for this swing?",
       choices: [
-        { id: "A", text: "$\\frac{7\\pi}{12}$" },
-        { id: "B", text: "$\\frac{6\\pi}{7}$" },
-        { id: "C", text: "$\\frac{7\\pi}{6}$" },
-        { id: "D", text: "$\\frac{7\\pi}{3}$" }
+        // distractor: divides by 360 instead of 180: 135 pi / 360 = 3 pi / 8
+        { id: "A", text: "$\\frac{3\\pi}{8}$" },
+        { id: "B", text: "$\\frac{3\\pi}{4}$" },
+        // distractor: inverts the fraction, computing 180 pi / 135 = 4 pi / 3
+        { id: "C", text: "$\\frac{4\\pi}{3}$" },
+        // distractor: divides by 90 instead of 180: 135 pi / 90 = 3 pi / 2
+        { id: "D", text: "$\\frac{3\\pi}{2}$" }
       ],
-      correctAnswer: "C",
-      hint: "A straight angle is $180^{\\circ}$, and a straight angle is also $\\pi$ radians — that pairing is the conversion factor.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiply by $\\frac{\\pi}{180}$: $210\\cdot\\frac{\\pi}{180}=\\frac{7\\pi}{6}$ — choice C.\n\n**The Full Solution:**\nStep 1: To move from degrees to radians, multiply the degree measure by $\\frac{\\pi}{180}$: $210\\cdot\\frac{\\pi}{180}=\\frac{210\\pi}{180}$.\nStep 2: Reduce the fraction by $30$: $\\frac{210}{180}=\\frac{7}{6}$, so the measure is $\\frac{7\\pi}{6}$ radians.\nStep 3: Check the size: $\\frac{7\\pi}{6}$ is a little more than $\\pi$, and $\\pi$ radians is $180^{\\circ}$, so the angle should be a little more than $180^{\\circ}$. It is $210^{\\circ}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7\\pi}{12}$): divides by $360$ instead of $180$, using a full rotation where a straight angle belongs: $\\frac{210\\pi}{360}=\\frac{7\\pi}{12}$.\n* Choice B ($\\frac{6\\pi}{7}$): inverts the conversion factor and computes $\\frac{180\\pi}{210}=\\frac{6\\pi}{7}$ — that is degrees per radian, not radians per degree.\n* Choice D ($\\frac{7\\pi}{3}$): divides by $90$ instead of $180$: $\\frac{210\\pi}{90}=\\frac{7\\pi}{3}$, an angle larger than a full rotation.\n\n**Test Day Takeaway:** Degrees to radians multiplies by $\\frac{\\pi}{180}$; radians to degrees multiplies by $\\frac{180}{\\pi}$. Sanity-check the result against $\\pi \\leftrightarrow 180^{\\circ}$ before you commit.",
+      correctAnswer: "B",
+      hint: "A straight angle is 180 degrees and also pi radians.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** Multiply by $\\frac{\\pi}{180}$: $135 \\cdot \\frac{\\pi}{180} = \\frac{3\\pi}{4}$.\n\n**The Full Solution:**\nStep 1: Set the conversion factor. Since $180$ degrees $= \\pi$ radians, multiply a degree measure by $\\frac{\\pi}{180}$.\nStep 2: Multiply and reduce. $135 \\cdot \\frac{\\pi}{180} = \\frac{135\\pi}{180}$, and dividing top and bottom by $45$ gives $\\frac{3\\pi}{4}$.\nStep 3: Check the size. $\\frac{3\\pi}{4}$ is three quarters of $\\pi$, and $135$ degrees is three quarters of $180$ degrees. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3\\pi}{8}$): divides by $360$, the measure of a full turn, instead of by $180$.\n* Choice C ($\\frac{4\\pi}{3}$): flips the conversion factor to $\\frac{180}{\\pi}$, which converts the wrong way.\n* Choice D ($\\frac{3\\pi}{2}$): divides by $90$; that would make a right angle equal to $\\pi$ radians.\n\n**Test Day Takeaway:** Degrees to radians multiplies by $\\frac{\\pi}{180}$; radians to degrees multiplies by $\\frac{180}{\\pi}$. Check the size of the answer against a half turn.",
       skills: ["degrees-to-radians"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "An angle has a measure of $\\frac{5\\pi}{4}$ radians. What is the measure of this angle, in degrees?",
+      question: "A theater's revolving stage completes a scene change by turning through $\\frac{7\\pi}{6}$ radians, and the stage manager's cue sheet lists every rotation in degrees. What measure, in degrees, belongs on the cue sheet for this rotation?",
       choices: [
-        { id: "A", text: "$45^{\\circ}$" },
-        { id: "B", text: "$112.5^{\\circ}$" },
-        { id: "C", text: "$225^{\\circ}$" },
-        { id: "D", text: "$450^{\\circ}$" }
+        // distractor: uses 90 degrees in place of pi: 7(90)/6 = 105
+        { id: "A", text: "$105$" },
+        { id: "B", text: "$210$" },
+        // distractor: uses 360 degrees in place of pi: 7(360)/6 = 420
+        { id: "C", text: "$420$" },
+        // distractor: divides by 2 instead of 6: 7(180)/2 = 630
+        { id: "D", text: "$630$" }
       ],
-      correctAnswer: "C",
-      hint: "Multiplying a radian measure by $\\frac{180}{\\pi}$ cancels the $\\pi$ — the arithmetic that is left is easy.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiply by $\\frac{180}{\\pi}$: the $\\pi$ cancels and $\\frac{5(180)}{4}=225$ — choice C.\n\n**The Full Solution:**\nStep 1: To move from radians to degrees, multiply by $\\frac{180}{\\pi}$: $\\frac{5\\pi}{4}\\cdot\\frac{180}{\\pi}$.\nStep 2: The factor of $\\pi$ cancels, leaving $\\frac{5(180)}{4}=\\frac{900}{4}=225$ degrees.\nStep 3: Check the size: $\\frac{5\\pi}{4}$ sits between $\\pi$ and $\\frac{3\\pi}{2}$, so the degree measure must sit between $180^{\\circ}$ and $270^{\\circ}$. $225^{\\circ}$ does. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($45^{\\circ}$): converts only the $\\frac{\\pi}{4}$ and drops the factor of $5$ in the numerator.\n* Choice B ($112.5^{\\circ}$): multiplies by $\\frac{90}{\\pi}$, treating $\\pi$ radians as a right angle instead of a straight angle: $\\frac{5(90)}{4}=112.5$.\n* Choice D ($450^{\\circ}$): multiplies by $\\frac{360}{\\pi}$, pairing $\\pi$ with a full rotation: $\\frac{5(360)}{4}=450$, more than one full turn.\n\n**Test Day Takeaway:** Write the conversion as a fraction and let the units cancel: $\\pi$ in the numerator must cancel with $\\pi$ in the denominator, which tells you which way the factor goes.",
+      correctAnswer: "B",
+      hint: "Trade the pi for 180 degrees and simplify.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** Replace $\\pi$ with $180$ degrees: $\\frac{7(180)}{6} = 210$ degrees.\n\n**The Full Solution:**\nStep 1: Set the conversion factor. Multiply a radian measure by $\\frac{180}{\\pi}$ to get degrees.\nStep 2: Multiply and cancel. $\\frac{7\\pi}{6} \\cdot \\frac{180}{\\pi} = \\frac{7 \\cdot 180}{6} = 7 \\cdot 30 = 210$ degrees.\nStep 3: Check the size. $\\frac{7\\pi}{6}$ is a little more than $\\pi$, and $210$ degrees is a little more than $180$ degrees. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($105$): uses $90$ degrees in place of $\\pi$: $\\frac{7(90)}{6} = 105$. A half turn is $180$ degrees, not $90$.\n* Choice C ($420$): uses $360$ degrees in place of $\\pi$, doubling the conversion.\n* Choice D ($630$): divides by $2$ rather than by the denominator $6$.\n\n**Test Day Takeaway:** Substitute $180$ degrees for $\\pi$ and simplify. A radian measure just past $\\pi$ must land just past $180$ degrees.",
       skills: ["radians-to-degrees"]
     },
     {
@@ -53,16 +59,19 @@ export const radiansDegreesQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "The measure of angle $R$ is $18^{\\circ}$ greater than the measure of angle $S$, and the measure of angle $S$ is $54^{\\circ}$. What is the measure of angle $R$, in radians?",
+      question: "A turnstile at a transit station advances $\\frac{2\\pi}{9}$ radians each time a rider passes through it. A counter records that $n$ riders passed through and that the turnstile rotated a total of $320$ degrees. What is the value of $n$?",
       choices: [
-        { id: "A", text: "$\\frac{\\pi}{5}$" },
-        { id: "B", text: "$\\frac{3\\pi}{10}$" },
-        { id: "C", text: "$\\frac{2\\pi}{5}$" },
-        { id: "D", text: "$\\frac{4\\pi}{5}$" }
+        // distractor: converts one advance to 80 degrees by using 360 in place of pi, then divides 320 by 80
+        { id: "A", text: "$4$" },
+        { id: "B", text: "$8$" },
+        // distractor: converts one advance to 20 degrees by using 90 in place of pi, then divides 320 by 20
+        { id: "C", text: "$16$" },
+        // distractor: reports the degree measure of a single advance, 40, instead of the number of riders
+        { id: "D", text: "$40$" }
       ],
-      correctAnswer: "C",
-      hint: "Two moves, in order: find the degree measure the question actually asks about, then convert that measure.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $m\\angle R = 54 + 18 = 72$ degrees, and $72\\cdot\\frac{\\pi}{180}=\\frac{2\\pi}{5}$ — choice C.\n\n**The Full Solution:**\nStep 1: Angle $R$ exceeds angle $S$ by $18^{\\circ}$, so $m\\angle R = 54 + 18 = 72$ degrees.\nStep 2: Convert to radians: $72\\cdot\\frac{\\pi}{180}=\\frac{72\\pi}{180}$, which reduces by $36$ to $\\frac{2\\pi}{5}$.\nStep 3: Check: $\\frac{2\\pi}{5}=0.4\\pi$, and $0.4$ of a straight angle is $0.4(180)=72$ degrees. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{\\pi}{5}$): divides by $360$ rather than $180$: $\\frac{72\\pi}{360}=\\frac{\\pi}{5}$.\n* Choice B ($\\frac{3\\pi}{10}$): converts angle $S$, $54^{\\circ}$, instead of angle $R$: $\\frac{54\\pi}{180}=\\frac{3\\pi}{10}$.\n* Choice D ($\\frac{4\\pi}{5}$): divides by $90$ rather than $180$: $\\frac{72\\pi}{90}=\\frac{4\\pi}{5}$, twice the correct measure.\n\n**Test Day Takeaway:** When a question stacks a comparison on top of a conversion, finish the comparison first — converting the wrong angle produces a choice that is always on the list.",
+      correctAnswer: "B",
+      hint: "Find what one rider is worth in degrees before dividing.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** One advance is $\\frac{2\\pi}{9} \\cdot \\frac{180}{\\pi} = 40$ degrees, and $\\frac{320}{40} = 8$ riders.\n\n**The Full Solution:**\nStep 1: Convert one advance to degrees. $\\frac{2\\pi}{9} \\cdot \\frac{180}{\\pi} = \\frac{2 \\cdot 180}{9} = 40$ degrees.\nStep 2: Divide the total by the per-rider amount. $n = \\frac{320}{40} = 8$ riders.\nStep 3: Check. Eight advances of $40$ degrees total $320$ degrees, which is $8 \\cdot \\frac{2\\pi}{9} = \\frac{16\\pi}{9}$ radians. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): converts one advance to $80$ degrees by putting $360$ where $\\pi$ belongs, then divides $320$ by $80$.\n* Choice C ($16$): converts one advance to $20$ degrees by putting $90$ where $\\pi$ belongs.\n* Choice D ($40$): is the degree measure of ONE advance, not the number of riders.\n\n**Test Day Takeaway:** Put both quantities in the same unit before dividing, then check the units of what the question actually asks for.",
       skills: ["degrees-to-radians"]
     },
     {
