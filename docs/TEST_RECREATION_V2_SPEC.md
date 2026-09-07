@@ -136,8 +136,8 @@ git commit   # one commit per test (or wave)
 | 5 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
 | 6 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
 | 7 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
-| 8 | | | | | |
-| 9 | | | | | |
+| 8 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
+| 9 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
 | 10 | | | | | |
 | 11 | | | | | |
 | 12 | | | | | |
@@ -165,3 +165,6 @@ git commit   # one commit per test (or wave)
 5. (Tests 6-7) `linearGraph` applies ONE `gridInterval` to both axes — a tall yRange draws dozens of
    4px gridlines; `check` now caps each axis at 26 gridlines and warns when the line leaves the window.
    `score` no longer reports an already-saved copy of the stem as its own nearest new neighbour.
+6. (Test 8) `auditMissingDiagrams --strict` maps the word "residual" to a REQUIRED scatterplot — a
+   questionTable does not satisfy it. Table-based residual items must say "compares the recorded value
+   with the model's prediction" instead of "residual" in the stem.
