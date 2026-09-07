@@ -131,7 +131,7 @@ git commit   # one commit per test (or wave)
 |---|---|---|---|---|---|
 | 1 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
 | 2 | | | | | |
-| 3 | | | | | |
+| 3 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
 | 4 | | | | | |
 | 5 | | | | | |
 | 6 | | | | | |

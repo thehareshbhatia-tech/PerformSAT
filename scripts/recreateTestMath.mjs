@@ -537,6 +537,7 @@ async function verify(tests) {
         const fr = freshnessOf(row, got.data, siblings);
         if (fr.seen.dice >= FRESH_FAIL) errs.push(`freshness vs seen ${fr.seen.id} ${fr.seen.dice.toFixed(2)}`);
         if (fr.sibling.dice >= FRESH_FAIL) errs.push(`freshness vs sibling ${fr.sibling.id} ${fr.sibling.dice.toFixed(2)}`);
+        if (tokenize(got.data.question).length >= 12) { const r = checkUniquenessSliding(got.data.question, officialIndex()); if (!r.pass) errs.push(`too close to official item ${r.closestId} (jaccard ${r.jaccard}, ngram ${r.ngramOverlap})`); }
         errs.forEach(e => { errors++; console.error(`FAIL ${chunk.chunk}/${row.fileId}: ${e}`); });
         ok++;
       });
