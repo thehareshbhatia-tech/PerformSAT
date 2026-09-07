@@ -142,6 +142,16 @@ git commit   # one commit per test (or wave)
 | 11 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
 | 12 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
 
+## R&W seating variation (2026-09-07, `scripts/varyRWSeating.mjs`)
+
+All 36 R&W modules carried one identical 27-slot skill sequence. Items are now re-dealt INSIDE their
+official skill blocks with a per-test seed (vocab first, notes last, CI opens and INF closes the
+Information & Ideas block, per-skill counts unchanged, item text untouched, ids travel with items).
+Result: 36/36 distinct seating charts. Deterministic and idempotent (`--all` twice = no change);
+`--report` prints the census. `testBundleIntegrity` now pins block flow + counts instead of the exact
+order. Content-level R&W variation (different skill COUNTS within official ranges, which needs new
+items) remains a possible follow-up.
+
 ## Learnings (append as waves land)
 
 1. (from v1) Parallel content lanes collide on invented names and overshoot targets — keep the

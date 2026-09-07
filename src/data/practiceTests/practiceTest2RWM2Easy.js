@@ -1,4 +1,5 @@
 // Practice Test 2 — Reading & Writing Module 2 Easy variant (27 questions)
+// R&W seating varied 2026-09-07 (scripts/varyRWSeating.mjs): items re-dealt inside their official skill blocks with a per-test seed — block flow and per-skill counts unchanged.
 // For students routed to the easier path after Module 1 (~<60% correct).
 // Distribution: 8E / 16M / 3H. Q1-2 easy openers. Max-score ceiling: ~600.
 // Domain mix: 8 Craft and Structure / 8 Information and Ideas /
@@ -19,24 +20,6 @@ export const practiceTest2RWM2Easy = {
     // Q1-Q8: Craft and Structure
     // ============================================================
     {
-      "id": 255,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "craft-and-structure",
-      "skill": "words-in-context",
-      "passage": "Bananas ripen in response to ethylene, a gas the fruit itself releases. Grocers use this chemistry at both ends of the supply chain: shippers keep the gas away from green bananas so that the fruit stays firm in transit, while a customer at home can seal bananas in a paper bag, which traps the gas and ______ ripening.",
-      "question": "Which choice completes the text with the most logical and precise word or phrase?",
-      "choices": [
-        { "id": "A", "text": "measures" },
-        { "id": "B", "text": "accelerates" },
-        { "id": "C", "text": "interrupts" },
-        { "id": "D", "text": "flavors" }
-      ],
-      "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** Trapping the gas that causes ripening would make ripening happen faster, and \"accelerates\" means speeds up.\n\n**The Full Solution:**\n- The first sentence gives the rule: bananas ripen in response to ethylene.\n- The sentence sets up a contrast: shippers keep the gas AWAY to keep fruit firm, while the paper bag TRAPS the gas.\n- If keeping ethylene away slows ripening down, then trapping ethylene next to the fruit must speed ripening up. \"Accelerates\" says exactly that.\n\n**Why the other choices are wrong:**\n- A: \"Measures\" would make the bag an instrument for recording ripeness, but the bag causes a change rather than recording one.\n- C: \"Interrupts\" is the opposite of the logic — trapping more of the ripening gas cannot stop ripening.\n- D: \"Flavors\" names the wrong effect; the passage is about how fast the fruit ripens, not how it tastes."
-    },
-    {
       "id": 256,
       "type": "multiple-choice",
       "difficulty": "easy",
@@ -53,6 +36,24 @@ export const practiceTest2RWM2Easy = {
       ],
       "correctAnswer": "D",
       "explanation": "**Choice D is correct.** The curators are protecting fragile paintings from light, so the verb must mean to limit — \"restrict.\"\n\n**The Full Solution:**\n- The first sentence names the danger: bright light permanently fades watercolors.\n- The word \"therefore\" signals that the curators' action responds to that danger.\n- The rest of the sentence shows what the action looks like in practice: dim galleries, short display periods, years in dark storage. All three are ways of limiting light, so \"restrict\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Estimate\" means to make a rough calculation; guessing at the light level would not protect anything.\n- B: \"Increase\" would worsen the exact problem the first sentence describes.\n- C: \"Describe\" means to put into words, but the curators are controlling the light, not writing about it."
+    },
+    {
+      "id": 258,
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "band": 3,
+      "domain": "craft-and-structure",
+      "skill": "words-in-context",
+      "passage": "Miso, soy sauce, and many pickles owe their long shelf lives to salt. Salt draws water out of microbial cells, and most of the bacteria and molds that spoil food cannot function without that moisture. The salt in a fermenting crock therefore ______ the growth of unwanted microbes while allowing salt-tolerant ones — the microbes that develop the food's flavor — to thrive.",
+      "question": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": [
+        { "id": "A", "text": "conceals" },
+        { "id": "B", "text": "imitates" },
+        { "id": "C", "text": "suppresses" },
+        { "id": "D", "text": "records" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "**Choice C is correct.** Salt holds back the microbes that would spoil the food, and \"suppresses\" means to hold something down or keep it in check.\n\n**The Full Solution:**\n- The mechanism comes first: salt pulls water out of microbial cells, and spoilage microbes \"cannot function without that moisture.\"\n- \"Therefore\" tells you the blank states the consequence of that mechanism: unwanted microbes are prevented from growing.\n- The sentence also contains a built-in contrast — \"while allowing salt-tolerant ones ... to thrive.\" The blank must be the opposite of allowing to thrive, which is exactly what \"suppresses\" delivers.\n\n**Why the other choices are wrong:**\n- A: \"Conceals\" means to hide from view; the microbes are stopped, not hidden.\n- B: \"Imitates\" would mean the salt copies the microbes' growth, which is nonsense in this context.\n- D: \"Records\" would make the salt a measuring device, but the salt acts on the microbes rather than documenting them."
     },
     {
       "id": 257,
@@ -73,22 +74,22 @@ export const practiceTest2RWM2Easy = {
       "explanation": "**Choice A is correct.** The sentence is about memory tests, so the verb must describe finding the hidden seeds again — \"locate.\"\n\n**The Full Solution:**\n- Track what the passage has established: the bird hides seeds, leaves no visible markers, and \"remembers\" the spots.\n- The blank sits inside a claim about laboratory memory tests, and the comparison is with species \"that do not store food.\"\n- A memory test on hidden seeds measures whether the bird can find them again, and doing so \"far more accurately\" describes successful searching. \"Locate\" completes that idea precisely.\n\n**Why the other choices are wrong:**\n- B: \"Conceal\" describes the hiding step, which already happened in the fall; the tests measure the finding step.\n- C: \"Consume\" is about eating, and eating \"accurately\" makes no sense.\n- D: \"Observe\" means to watch — but the seeds are hidden, so there is nothing to watch until the bird finds them."
     },
     {
-      "id": 258,
+      "id": 255,
       "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
+      "difficulty": "easy",
+      "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Miso, soy sauce, and many pickles owe their long shelf lives to salt. Salt draws water out of microbial cells, and most of the bacteria and molds that spoil food cannot function without that moisture. The salt in a fermenting crock therefore ______ the growth of unwanted microbes while allowing salt-tolerant ones — the microbes that develop the food's flavor — to thrive.",
+      "passage": "Bananas ripen in response to ethylene, a gas the fruit itself releases. Grocers use this chemistry at both ends of the supply chain: shippers keep the gas away from green bananas so that the fruit stays firm in transit, while a customer at home can seal bananas in a paper bag, which traps the gas and ______ ripening.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
-        { "id": "A", "text": "conceals" },
-        { "id": "B", "text": "imitates" },
-        { "id": "C", "text": "suppresses" },
-        { "id": "D", "text": "records" }
+        { "id": "A", "text": "measures" },
+        { "id": "B", "text": "accelerates" },
+        { "id": "C", "text": "interrupts" },
+        { "id": "D", "text": "flavors" }
       ],
-      "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** Salt holds back the microbes that would spoil the food, and \"suppresses\" means to hold something down or keep it in check.\n\n**The Full Solution:**\n- The mechanism comes first: salt pulls water out of microbial cells, and spoilage microbes \"cannot function without that moisture.\"\n- \"Therefore\" tells you the blank states the consequence of that mechanism: unwanted microbes are prevented from growing.\n- The sentence also contains a built-in contrast — \"while allowing salt-tolerant ones ... to thrive.\" The blank must be the opposite of allowing to thrive, which is exactly what \"suppresses\" delivers.\n\n**Why the other choices are wrong:**\n- A: \"Conceals\" means to hide from view; the microbes are stopped, not hidden.\n- B: \"Imitates\" would mean the salt copies the microbes' growth, which is nonsense in this context.\n- D: \"Records\" would make the salt a measuring device, but the salt acts on the microbes rather than documenting them."
+      "correctAnswer": "B",
+      "explanation": "**Choice B is correct.** Trapping the gas that causes ripening would make ripening happen faster, and \"accelerates\" means speeds up.\n\n**The Full Solution:**\n- The first sentence gives the rule: bananas ripen in response to ethylene.\n- The sentence sets up a contrast: shippers keep the gas AWAY to keep fruit firm, while the paper bag TRAPS the gas.\n- If keeping ethylene away slows ripening down, then trapping ethylene next to the fruit must speed ripening up. \"Accelerates\" says exactly that.\n\n**Why the other choices are wrong:**\n- A: \"Measures\" would make the bag an instrument for recording ripeness, but the bag causes a change rather than recording one.\n- C: \"Interrupts\" is the opposite of the logic — trapping more of the ripening gas cannot stop ripening.\n- D: \"Flavors\" names the wrong effect; the passage is about how fast the fruit ripens, not how it tastes."
     },
     {
       "id": 259,
@@ -175,22 +176,22 @@ export const practiceTest2RWM2Easy = {
     // Q9-Q16: Information and Ideas
     // ============================================================
     {
-      "id": 263,
+      "id": 265,
       "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
+      "difficulty": "medium",
+      "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "Just before a loaf of bread goes into the oven, many bakers drag a razor across the top of the dough, leaving a shallow slash. The cut is not merely decoration. In the oven's heat, moisture inside the dough turns to steam and the loaf expands rapidly; an uncut crust hardens early and then tears wherever it happens to give way. The slash acts as a planned weak point, steering that expansion so the loaf opens along the line the baker chose instead of splitting at random.",
-      "question": "According to the text, why do many bakers cut a slash into a loaf of bread before baking it?",
+      "passage": "When an asteroid drifts in front of a distant star, the star winks out for a few seconds — but only along a narrow track on Earth's surface. Astronomers therefore recruit volunteer observers to spread out across the predicted track, each one timing precisely when the star disappears and reappears from their location. Every observer's timing yields a chord: one line segment across the asteroid's silhouette. Stacked together, the chords trace the body's outline, producing size and shape measurements for objects too small and too far away for most telescopes to resolve.",
+      "question": "Which choice best states the main idea of the text?",
       "choices": [
-        { "id": "A", "text": "To release steam from the dough before the loaf enters the oven" },
-        { "id": "B", "text": "To mark each loaf so that it can be told apart from the others in the oven" },
-        { "id": "C", "text": "To control where the crust opens as the loaf expands in the oven" },
-        { "id": "D", "text": "To keep the crust from hardening at any point during baking" }
+        { "id": "A", "text": "Asteroids can be studied only during the few seconds in which they pass in front of distant stars." },
+        { "id": "B", "text": "By combining timings from many observers stationed across an event's narrow track, astronomers can measure asteroids that most telescopes cannot resolve." },
+        { "id": "C", "text": "Volunteer observers frequently make timing errors that professional astronomers must correct before results can be used." },
+        { "id": "D", "text": "Predicting exactly where the narrow track of such an event will fall on Earth's surface remains the hardest step in the process." }
       ],
-      "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The text says the slash is \"a planned weak point\" that steers the loaf's expansion \"along the line the baker chose instead of splitting at random.\"\n\n**The Full Solution:**\n- This is a detail question, so the answer must restate something the text says directly.\n- Find the sentence that gives the slash's job: the final one. It names both the mechanism (a planned weak point) and the goal (the loaf opens where the baker chose).\n- Choice C compresses that into one line — controlling where the crust opens — and adds nothing the text doesn't say.\n\n**Why the other choices are wrong:**\n- A: The steam forms inside the oven's heat, after baking begins — the cut doesn't release anything beforehand.\n- B: Telling loaves apart is never mentioned; the text explicitly says the cut is \"not merely decoration\" and then gives a structural reason.\n- D: The text treats the crust's hardening as inevitable; the slash manages where the tear happens, it doesn't prevent hardening."
+      "correctAnswer": "B",
+      "explanation": "**Choice B is correct.** The text builds to its final sentence: stacked timings from spread-out observers yield size and shape measurements telescopes cannot make.\n\n**The Full Solution:**\n- Follow the chain the text constructs: the star blinks out along a narrow track; volunteers spread across the track and time the disappearance; each timing gives one chord; the chords together trace the outline.\n- The payoff sentence states why it matters — measurements \"for objects too small and too far away for most telescopes to resolve.\"\n- Choice B restates the whole chain in one sentence: many observers, combined timings, measurements beyond telescopes' reach.\n\n**Why the other choices are wrong:**\n- A: The text says this method uses those few seconds; it never claims they are the only way to study asteroids.\n- C: Timing errors are never mentioned — the text describes the method working, not being corrected.\n- D: The text notes the track is predicted but never ranks prediction as the hardest step; that difficulty is invented."
     },
     {
       "id": 264,
@@ -211,24 +212,6 @@ export const practiceTest2RWM2Easy = {
       "explanation": "**Choice A is correct.** The text's through-line is the trade visible storage makes: vastly more of the collection on view, with less curatorial interpretation around it.\n\n**The Full Solution:**\n- The first sentence sets up the problem (most of a collection sits unseen); the middle sentences describe the solution and its texture (glass cases, minimal labels, arrangement by type); the last sentence states the trade-off outright — \"curatorial storytelling for sheer access.\"\n- A main idea must span that whole arc. Choice A does: more access, less interpretation. Both halves come straight from the text.\n\n**Why the other choices are wrong:**\n- B: Ceramics and instruments are examples of what a visitor might see, not a claim about which holdings get priority.\n- C: The text is about a display strategy, not about space shortages — and it never says museums lack room.\n- D: Visitor preferences are never measured or mentioned; the text describes what the approach offers, not what people prefer."
     },
     {
-      "id": 265,
-      "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
-      "domain": "information-and-ideas",
-      "skill": "central-ideas-and-details",
-      "passage": "When an asteroid drifts in front of a distant star, the star winks out for a few seconds — but only along a narrow track on Earth's surface. Astronomers therefore recruit volunteer observers to spread out across the predicted track, each one timing precisely when the star disappears and reappears from their location. Every observer's timing yields a chord: one line segment across the asteroid's silhouette. Stacked together, the chords trace the body's outline, producing size and shape measurements for objects too small and too far away for most telescopes to resolve.",
-      "question": "Which choice best states the main idea of the text?",
-      "choices": [
-        { "id": "A", "text": "Asteroids can be studied only during the few seconds in which they pass in front of distant stars." },
-        { "id": "B", "text": "By combining timings from many observers stationed across an event's narrow track, astronomers can measure asteroids that most telescopes cannot resolve." },
-        { "id": "C", "text": "Volunteer observers frequently make timing errors that professional astronomers must correct before results can be used." },
-        { "id": "D", "text": "Predicting exactly where the narrow track of such an event will fall on Earth's surface remains the hardest step in the process." }
-      ],
-      "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The text builds to its final sentence: stacked timings from spread-out observers yield size and shape measurements telescopes cannot make.\n\n**The Full Solution:**\n- Follow the chain the text constructs: the star blinks out along a narrow track; volunteers spread across the track and time the disappearance; each timing gives one chord; the chords together trace the outline.\n- The payoff sentence states why it matters — measurements \"for objects too small and too far away for most telescopes to resolve.\"\n- Choice B restates the whole chain in one sentence: many observers, combined timings, measurements beyond telescopes' reach.\n\n**Why the other choices are wrong:**\n- A: The text says this method uses those few seconds; it never claims they are the only way to study asteroids.\n- C: Timing errors are never mentioned — the text describes the method working, not being corrected.\n- D: The text notes the track is predicted but never ranks prediction as the hardest step; that difficulty is invented."
-    },
-    {
       "id": 266,
       "type": "multiple-choice",
       "difficulty": "medium",
@@ -245,34 +228,6 @@ export const practiceTest2RWM2Easy = {
       ],
       "correctAnswer": "D",
       "explanation": "**Choice D is correct.** If the flour determines the community, then holding the flour constant should produce similar starters no matter the kitchen — and varying the flour within one kitchen should produce different ones. Choice D reports both patterns.\n\n**The Full Solution:**\n- Pin down the claim: the flour, not the kitchen or the baker, is the primary source of a starter's microbes.\n- The strongest support isolates the variable. Same flour across many kitchens giving similar communities shows the kitchen matters little; different flours in one kitchen giving different communities shows the flour matters a lot.\n- Choice D delivers both halves of that test at once, which ties the outcome to the flour more directly than any other option.\n\n**Why the other choices are wrong:**\n- A: How starters age says nothing about where their microbes originally came from.\n- B: This supports the rival view — the bakers'-hands explanation the microbiologists argue against.\n- C: Water absorption is a baking property, not evidence about the source of the microbial community."
-    },
-    {
-      "id": 267,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "information-and-ideas",
-      "skill": "command-of-evidence-quantitative",
-      "passage": "A middle school switched its cafeteria to an \"offer versus serve\" line, in which students take only the dishes they intend to eat instead of receiving a full standard tray. To gauge the change, staff weighed the food discarded at lunch for a month before the switch and for a month after. They concluded that the new line reduced waste in every grade and that the effect was largest in eighth grade because ______",
-      "questionTable": {
-        "type": "table",
-        "caption": "Average food discarded per student per lunch, before and after the switch to offer versus serve",
-        "headers": ["Grade", "Before (grams)", "After (grams)", "Change (grams)"],
-        "rows": [
-          ["Grade 6", "88", "71", "-17"],
-          ["Grade 7", "84", "73", "-11"],
-          ["Grade 8", "95", "66", "-29"]
-        ]
-      },
-      "question": "Which choice most effectively uses data from the table to complete the statement?",
-      "choices": [
-        { "id": "A", "text": "discarded food declined in all three grades, and eighth grade's drop of 29 grams per student was the largest in the table." },
-        { "id": "B", "text": "eighth graders discarded 66 grams of food per student after the switch, less than either of the other grades discarded." },
-        { "id": "C", "text": "discarded food declined in two of the three grades, with eighth grade showing the smaller of those two declines." },
-        { "id": "D", "text": "sixth grade's average fell from 88 grams per student before the switch to 71 grams per student after it." }
-      ],
-      "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The conclusion has two parts — waste fell in every grade, and eighth grade felt the effect most — and choice A supplies the table's numbers for both.\n\n**The Full Solution:**\n- Break the staff's conclusion into its claims: (1) the new line reduced waste in every grade, and (2) the effect was largest in eighth grade.\n- Check choice A against the Change column: all three entries are negative (-17, -11, -29), and eighth grade's -29 is the biggest drop.\n- Both claims covered, every figure checkable in the table — that is what \"most effectively uses data\" requires.\n\n**Why the other choices are wrong:**\n- B: Eighth grade's low \"after\" number is real, but the claim is about the size of the CHANGE — and this choice ignores the every-grade claim entirely.\n- C: The table contradicts this twice: all three grades declined, and eighth grade's decline was the largest, not the smaller.\n- D: Sixth grade's numbers are accurate but support neither claim about eighth grade — the very grade the sentence is explaining."
     },
     {
       "id": 268,
@@ -303,24 +258,6 @@ export const practiceTest2RWM2Easy = {
       "explanation": "**Choice C is correct.** To show the method — not extra care — explains the advantage, the evidence must pair the top yield with the LOWEST care number, and choice C does exactly that.\n\n**The Full Solution:**\n- The sentence answers a specific objection: maybe drip plots won because gardeners fussed over them more.\n- Gardener time is the table's measure of attention. Drip plots got 2.1 hours per week — less than sprinkler (2.3) and far less than hand watering (4.6) — yet still yielded the most (19.8 kg).\n- Most output from the least attention: the credit has to go to the method. Choice C is the only option that joins both columns into that argument.\n\n**Why the other choices are wrong:**\n- A: The hand-watering figure is accurate but one-sided — without drip's yield, it cannot explain drip's advantage.\n- B: Restating the yield alone leaves the extra-care objection untouched, which is the whole point of the sentence.\n- D: The table shows hand-watered plots, not sprinkler plots, received the most gardener time — the premise is false."
     },
     {
-      "id": 269,
-      "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
-      "domain": "information-and-ideas",
-      "skill": "inferences",
-      "passage": "On a cold night, a hummingbird can drop its body temperature by more than twenty degrees Celsius and let its heart slow to a small fraction of its daytime rate — a state called torpor that dramatically cuts the bird's overnight energy use. But torpor has drawbacks: a torpid bird cannot react quickly to predators, and rewarming at dawn takes time and burns precious fuel. Field studies find that hummingbirds do not enter torpor every night; they rely on it mainly when nights are unusually cold or when their fat reserves run low. This suggests that ______",
-      "question": "Which choice most logically completes the text?",
-      "choices": [
-        { "id": "A", "text": "hummingbirds that live in mild climates never need to enter torpor at any point during the year." },
-        { "id": "B", "text": "hummingbirds treat torpor as a costly option, using it when the energy savings outweigh its risks." },
-        { "id": "C", "text": "torpor saves hummingbirds less energy than researchers once believed it did." },
-        { "id": "D", "text": "the ability to enter torpor is what allows hummingbirds to migrate across long distances." }
-      ],
-      "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The passage lays out benefits, costs, and selective use — and the conclusion that ties those together is that the birds deploy torpor only when it is worth its price.\n\n**The Full Solution:**\n- Gather the given facts: (1) torpor saves large amounts of energy; (2) it carries real costs — vulnerability to predators and an expensive rewarming; (3) birds use it selectively, mainly on unusually cold nights or when reserves are low.\n- The pattern in fact 3 matches the logic of facts 1 and 2: the birds reach for torpor exactly when the energy stakes are highest. That is a cost-benefit trade, which is what choice B states — and nothing more.\n\n**Why the other choices are wrong:**\n- A: \"Never\" outruns the evidence; the studies describe when torpor is used most, not climates where it is never used.\n- C: The passage calls the savings dramatic and never questions their size.\n- D: Migration appears nowhere in the passage; this imports a new topic rather than completing the given one."
-    },
-    {
       "id": 270,
       "type": "multiple-choice",
       "difficulty": "hard",
@@ -338,45 +275,73 @@ export const practiceTest2RWM2Easy = {
       "correctAnswer": "D",
       "explanation": "**Choice D is correct.** The catalog's newest advertised title bounds the printing date in one direction only — the book cannot predate that title — while leftover catalogs mean the printing could be considerably later.\n\n**The Full Solution:**\n- The passage plants two premises and tells you they pull unevenly. First: a catalog \"cannot advertise a book that did not yet exist,\" so every advertised title already existed when the book was bound — the newest one sets a floor on the date.\n- Second: printers bound in \"leftover catalogs, sometimes years old,\" so a catalog's contents can lag far behind the actual printing — nothing about the catalog caps how late the book might be.\n- A floor without a ceiling is exactly the one-sided conclusion choice D draws: the newest advertised title fixes the earliest possible year, and the catalog says little beyond that.\n\n**Why the other choices are wrong:**\n- A: Averaging treats every advertised title as equally informative, but only the newest one constrains the date — the old titles were simply still for sale.\n- B: Backwards — the leftover-catalog premise exists precisely to show the printing can be years later than the catalog.\n- C: The passage describes bibliographers refining the method's logic, not abandoning it; \"ignore them\" contradicts the constructive final sentence."
     },
+    {
+      "id": 267,
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "band": 2,
+      "domain": "information-and-ideas",
+      "skill": "command-of-evidence-quantitative",
+      "passage": "A middle school switched its cafeteria to an \"offer versus serve\" line, in which students take only the dishes they intend to eat instead of receiving a full standard tray. To gauge the change, staff weighed the food discarded at lunch for a month before the switch and for a month after. They concluded that the new line reduced waste in every grade and that the effect was largest in eighth grade because ______",
+      "questionTable": {
+        "type": "table",
+        "caption": "Average food discarded per student per lunch, before and after the switch to offer versus serve",
+        "headers": ["Grade", "Before (grams)", "After (grams)", "Change (grams)"],
+        "rows": [
+          ["Grade 6", "88", "71", "-17"],
+          ["Grade 7", "84", "73", "-11"],
+          ["Grade 8", "95", "66", "-29"]
+        ]
+      },
+      "question": "Which choice most effectively uses data from the table to complete the statement?",
+      "choices": [
+        { "id": "A", "text": "discarded food declined in all three grades, and eighth grade's drop of 29 grams per student was the largest in the table." },
+        { "id": "B", "text": "eighth graders discarded 66 grams of food per student after the switch, less than either of the other grades discarded." },
+        { "id": "C", "text": "discarded food declined in two of the three grades, with eighth grade showing the smaller of those two declines." },
+        { "id": "D", "text": "sixth grade's average fell from 88 grams per student before the switch to 71 grams per student after it." }
+      ],
+      "correctAnswer": "A",
+      "explanation": "**Choice A is correct.** The conclusion has two parts — waste fell in every grade, and eighth grade felt the effect most — and choice A supplies the table's numbers for both.\n\n**The Full Solution:**\n- Break the staff's conclusion into its claims: (1) the new line reduced waste in every grade, and (2) the effect was largest in eighth grade.\n- Check choice A against the Change column: all three entries are negative (-17, -11, -29), and eighth grade's -29 is the biggest drop.\n- Both claims covered, every figure checkable in the table — that is what \"most effectively uses data\" requires.\n\n**Why the other choices are wrong:**\n- B: Eighth grade's low \"after\" number is real, but the claim is about the size of the CHANGE — and this choice ignores the every-grade claim entirely.\n- C: The table contradicts this twice: all three grades declined, and eighth grade's decline was the largest, not the smaller.\n- D: Sixth grade's numbers are accurate but support neither claim about eighth grade — the very grade the sentence is explaining."
+    },
+    {
+      "id": 263,
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "band": 2,
+      "domain": "information-and-ideas",
+      "skill": "central-ideas-and-details",
+      "passage": "Just before a loaf of bread goes into the oven, many bakers drag a razor across the top of the dough, leaving a shallow slash. The cut is not merely decoration. In the oven's heat, moisture inside the dough turns to steam and the loaf expands rapidly; an uncut crust hardens early and then tears wherever it happens to give way. The slash acts as a planned weak point, steering that expansion so the loaf opens along the line the baker chose instead of splitting at random.",
+      "question": "According to the text, why do many bakers cut a slash into a loaf of bread before baking it?",
+      "choices": [
+        { "id": "A", "text": "To release steam from the dough before the loaf enters the oven" },
+        { "id": "B", "text": "To mark each loaf so that it can be told apart from the others in the oven" },
+        { "id": "C", "text": "To control where the crust opens as the loaf expands in the oven" },
+        { "id": "D", "text": "To keep the crust from hardening at any point during baking" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "**Choice C is correct.** The text says the slash is \"a planned weak point\" that steers the loaf's expansion \"along the line the baker chose instead of splitting at random.\"\n\n**The Full Solution:**\n- This is a detail question, so the answer must restate something the text says directly.\n- Find the sentence that gives the slash's job: the final one. It names both the mechanism (a planned weak point) and the goal (the loaf opens where the baker chose).\n- Choice C compresses that into one line — controlling where the crust opens — and adds nothing the text doesn't say.\n\n**Why the other choices are wrong:**\n- A: The steam forms inside the oven's heat, after baking begins — the cut doesn't release anything beforehand.\n- B: Telling loaves apart is never mentioned; the text explicitly says the cut is \"not merely decoration\" and then gives a structural reason.\n- D: The text treats the crust's hardening as inevitable; the slash manages where the tear happens, it doesn't prevent hardening."
+    },
+    {
+      "id": 269,
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "band": 3,
+      "domain": "information-and-ideas",
+      "skill": "inferences",
+      "passage": "On a cold night, a hummingbird can drop its body temperature by more than twenty degrees Celsius and let its heart slow to a small fraction of its daytime rate — a state called torpor that dramatically cuts the bird's overnight energy use. But torpor has drawbacks: a torpid bird cannot react quickly to predators, and rewarming at dawn takes time and burns precious fuel. Field studies find that hummingbirds do not enter torpor every night; they rely on it mainly when nights are unusually cold or when their fat reserves run low. This suggests that ______",
+      "question": "Which choice most logically completes the text?",
+      "choices": [
+        { "id": "A", "text": "hummingbirds that live in mild climates never need to enter torpor at any point during the year." },
+        { "id": "B", "text": "hummingbirds treat torpor as a costly option, using it when the energy savings outweigh its risks." },
+        { "id": "C", "text": "torpor saves hummingbirds less energy than researchers once believed it did." },
+        { "id": "D", "text": "the ability to enter torpor is what allows hummingbirds to migrate across long distances." }
+      ],
+      "correctAnswer": "B",
+      "explanation": "**Choice B is correct.** The passage lays out benefits, costs, and selective use — and the conclusion that ties those together is that the birds deploy torpor only when it is worth its price.\n\n**The Full Solution:**\n- Gather the given facts: (1) torpor saves large amounts of energy; (2) it carries real costs — vulnerability to predators and an expensive rewarming; (3) birds use it selectively, mainly on unusually cold nights or when reserves are low.\n- The pattern in fact 3 matches the logic of facts 1 and 2: the birds reach for torpor exactly when the energy stakes are highest. That is a cost-benefit trade, which is what choice B states — and nothing more.\n\n**Why the other choices are wrong:**\n- A: \"Never\" outruns the evidence; the studies describe when torpor is used most, not climates where it is never used.\n- C: The passage calls the savings dramatic and never questions their size.\n- D: Migration appears nowhere in the passage; this imports a new topic rather than completing the given one."
+    },
     // ============================================================
     // Q17-Q22: Standard English Conventions
     // ============================================================
-    {
-      "id": 271,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "standard-english-conventions",
-      "skill": "boundaries",
-      "passage": "A sealed jar of honey can sit on a shelf for decades without spoiling. The bees that make honey fan the nectar with their wings until most of its water evaporates, leaving a syrup that is intensely sugary and slightly ______ microbes that land in it are quickly drawn dry and cannot multiply.",
-      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-      "choices": [
-        { "id": "A", "text": "acidic, the" },
-        { "id": "B", "text": "acidic the" },
-        { "id": "C", "text": "acidic. The" },
-        { "id": "D", "text": "acidic and, the" }
-      ],
-      "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** Two complete sentences meet at the blank, and a period is a correct way to separate them.\n\n**The Full Solution:**\n- Test what stands on each side of the blank. Before: \"The bees that make honey fan the nectar ... leaving a syrup that is intensely sugary and slightly acidic\" — a complete sentence. After: \"the microbes that land in it are quickly drawn dry and cannot multiply\" — also a complete sentence.\n- Two independent clauses need a real boundary: a period, a semicolon, or a comma plus a coordinating conjunction.\n- Choice C supplies the period; read the result aloud and you hear two clean sentences.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- B: With no punctuation at all, the two sentences run together.\n- D: \"And\" could join the clauses only with a comma BEFORE it (\"acidic, and the\"); putting the comma after \"and\" strands the conjunction from the clause it introduces."
-    },
-    {
-      "id": 272,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "standard-english-conventions",
-      "skill": "form-structure-and-sense",
-      "passage": "Leafcutter ants do not eat the leaves they carry home. Deep in the nest, a colony of millions ______ an underground garden of fungus, feeding it freshly cut leaf fragments and harvesting the nourishing threads the fungus produces in return.",
-      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-      "choices": [
-        { "id": "A", "text": "tends" },
-        { "id": "B", "text": "tend" },
-        { "id": "C", "text": "are tending" },
-        { "id": "D", "text": "were tending" }
-      ],
-      "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The subject is \"a colony,\" which is singular, so the verb must be \"tends.\"\n\n**The Full Solution:**\n- Find the true subject. It is \"a colony\" — the phrase \"of millions\" is a prepositional phrase describing the colony's size, and a noun inside a prepositional phrase never controls the verb.\n- \"Colony\" is grammatically singular: the colony tends.\n- The surrounding passage is in the present tense (\"do not eat,\" \"produces\"), so present-tense \"tends\" also matches the context.\n\n**Why the other choices are wrong:**\n- B: \"Tend\" agrees with the nearby plural \"millions,\" but that noun sits inside the prepositional phrase — the subject is still the singular \"colony.\"\n- C: \"Are tending\" repeats the agreement error and adds a progressive form where the sentence describes an ongoing habit, not an action in progress at one moment.\n- D: \"Were tending\" is both plural and past tense in a passage written entirely in the present."
-    },
     {
       "id": 273,
       "type": "multiple-choice",
@@ -396,22 +361,22 @@ export const practiceTest2RWM2Easy = {
       "explanation": "**Choice B is correct.** The description \"a behavioral ecologist\" is a nonessential appositive dropped into the middle of the sentence, so it needs a comma on BOTH sides.\n\n**The Full Solution:**\n- Strip the descriptive phrase out and the sentence still works: \"Henrik Mouritsen found part of the answer in an unlikely place.\" That test proves the phrase is nonessential.\n- A nonessential phrase in mid-sentence must be fenced off by a matching pair of commas — one after \"Mouritsen,\" one after \"ecologist.\"\n- Choice B supplies both commas, and the appositive lifts cleanly out of the sentence.\n\n**Why the other choices are wrong:**\n- A: Only the opening comma appears; without the closing comma, the appositive crashes into the verb \"found.\"\n- C: Only the closing comma appears; the appositive needs its opening boundary too.\n- D: With no commas at all, the description fuses with the name and the sentence loses the boundary the appositive requires."
     },
     {
-      "id": 274,
+      "id": 272,
       "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
+      "difficulty": "easy",
+      "band": 2,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "The first American bookmobile was a rural experiment. In 1905, a Maryland librarian ______ a horse-drawn wagon with shelves, packed it with books, and sent it rolling along back roads to farmhouses that lay miles from the nearest branch. Within a few decades, motorized descendants of that wagon were serving readers across the country.",
+      "passage": "Leafcutter ants do not eat the leaves they carry home. Deep in the nest, a colony of millions ______ an underground garden of fungus, feeding it freshly cut leaf fragments and harvesting the nourishing threads the fungus produces in return.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "outfits" },
-        { "id": "B", "text": "will outfit" },
-        { "id": "C", "text": "had been outfitting" },
-        { "id": "D", "text": "outfitted" }
+        { "id": "A", "text": "tends" },
+        { "id": "B", "text": "tend" },
+        { "id": "C", "text": "are tending" },
+        { "id": "D", "text": "were tending" }
       ],
-      "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The blank is the first verb in a series of past-tense actions — \"outfitted,\" \"packed,\" and \"sent\" — set in 1905.\n\n**The Full Solution:**\n- Map the sentence's skeleton: in 1905, the librarian did three things — ______ a wagon, packed it, and sent it rolling.\n- The other two verbs are simple past, and the time marker \"In 1905\" fixes the whole series in the past. Parallel structure requires the first verb to match: \"outfitted.\"\n- Read the three verbs in a row — outfitted, packed, sent — to hear the matched series.\n\n**Why the other choices are wrong:**\n- A: \"Outfits\" is present tense inside a sentence explicitly dated to 1905 and clashes with \"packed\" and \"sent.\"\n- B: \"Will outfit\" pushes the action into the future, contradicting both the date and the past-tense verbs that follow.\n- C: \"Had been outfitting\" casts a single completed act as a drawn-out ongoing one and breaks the parallel series."
+      "correctAnswer": "A",
+      "explanation": "**Choice A is correct.** The subject is \"a colony,\" which is singular, so the verb must be \"tends.\"\n\n**The Full Solution:**\n- Find the true subject. It is \"a colony\" — the phrase \"of millions\" is a prepositional phrase describing the colony's size, and a noun inside a prepositional phrase never controls the verb.\n- \"Colony\" is grammatically singular: the colony tends.\n- The surrounding passage is in the present tense (\"do not eat,\" \"produces\"), so present-tense \"tends\" also matches the context.\n\n**Why the other choices are wrong:**\n- B: \"Tend\" agrees with the nearby plural \"millions,\" but that noun sits inside the prepositional phrase — the subject is still the singular \"colony.\"\n- C: \"Are tending\" repeats the agreement error and adds a progressive form where the sentence describes an ongoing habit, not an action in progress at one moment.\n- D: \"Were tending\" is both plural and past tense in a passage written entirely in the present."
     },
     {
       "id": 275,
@@ -449,6 +414,42 @@ export const practiceTest2RWM2Easy = {
       "correctAnswer": "B",
       "explanation": "**Choice B is correct.** The sentence is inverted: its subject, the plural \"hundreds of thousands of pressed specimens,\" comes AFTER the verb, so the verb must be the plural \"are.\"\n\n**The Full Solution:**\n- Untangle the inversion by restoring normal order: \"Hundreds of thousands of pressed specimens ... are filed in the climate-controlled cabinets.\" The opening phrase \"Filed in the ... herbarium\" is a description moved to the front, not the subject.\n- The subject is what is doing the being-filed: the specimens — plural. Nearby singular nouns (\"herbarium,\" \"university\") sit inside prepositional phrases and cannot control the verb.\n- The passage runs in the present tense (\"is a library,\" \"consult\"), so present-tense plural \"are\" completes it.\n\n**Why the other choices are wrong:**\n- A: \"Is\" wrongly agrees with the singular \"herbarium\" at the end of the fronted phrase instead of with the true subject, \"specimens.\"\n- C: \"Was\" is both singular and past tense in a present-tense description.\n- D: \"Has been\" repeats the singular error and adds a perfect tense nothing in the sentence calls for."
     },
+    {
+      "id": 271,
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "band": 2,
+      "domain": "standard-english-conventions",
+      "skill": "boundaries",
+      "passage": "A sealed jar of honey can sit on a shelf for decades without spoiling. The bees that make honey fan the nectar with their wings until most of its water evaporates, leaving a syrup that is intensely sugary and slightly ______ microbes that land in it are quickly drawn dry and cannot multiply.",
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+        { "id": "A", "text": "acidic, the" },
+        { "id": "B", "text": "acidic the" },
+        { "id": "C", "text": "acidic. The" },
+        { "id": "D", "text": "acidic and, the" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "**Choice C is correct.** Two complete sentences meet at the blank, and a period is a correct way to separate them.\n\n**The Full Solution:**\n- Test what stands on each side of the blank. Before: \"The bees that make honey fan the nectar ... leaving a syrup that is intensely sugary and slightly acidic\" — a complete sentence. After: \"the microbes that land in it are quickly drawn dry and cannot multiply\" — also a complete sentence.\n- Two independent clauses need a real boundary: a period, a semicolon, or a comma plus a coordinating conjunction.\n- Choice C supplies the period; read the result aloud and you hear two clean sentences.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- B: With no punctuation at all, the two sentences run together.\n- D: \"And\" could join the clauses only with a comma BEFORE it (\"acidic, and the\"); putting the comma after \"and\" strands the conjunction from the clause it introduces."
+    },
+    {
+      "id": 274,
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "band": 3,
+      "domain": "standard-english-conventions",
+      "skill": "form-structure-and-sense",
+      "passage": "The first American bookmobile was a rural experiment. In 1905, a Maryland librarian ______ a horse-drawn wagon with shelves, packed it with books, and sent it rolling along back roads to farmhouses that lay miles from the nearest branch. Within a few decades, motorized descendants of that wagon were serving readers across the country.",
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+        { "id": "A", "text": "outfits" },
+        { "id": "B", "text": "will outfit" },
+        { "id": "C", "text": "had been outfitting" },
+        { "id": "D", "text": "outfitted" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "**Choice D is correct.** The blank is the first verb in a series of past-tense actions — \"outfitted,\" \"packed,\" and \"sent\" — set in 1905.\n\n**The Full Solution:**\n- Map the sentence's skeleton: in 1905, the librarian did three things — ______ a wagon, packed it, and sent it rolling.\n- The other two verbs are simple past, and the time marker \"In 1905\" fixes the whole series in the past. Parallel structure requires the first verb to match: \"outfitted.\"\n- Read the three verbs in a row — outfitted, packed, sent — to hear the matched series.\n\n**Why the other choices are wrong:**\n- A: \"Outfits\" is present tense inside a sentence explicitly dated to 1905 and clashes with \"packed\" and \"sent.\"\n- B: \"Will outfit\" pushes the action into the future, contradicting both the date and the past-tense verbs that follow.\n- C: \"Had been outfitting\" casts a single completed act as a drawn-out ongoing one and breaks the parallel series."
+    },
     // ============================================================
     // Q23-Q27: Expression of Ideas
     // ============================================================
@@ -471,24 +472,6 @@ export const practiceTest2RWM2Easy = {
       "explanation": "**Choice C is correct.** The first sentence makes a general claim — libraries lend more than books — and the second gives specific instances of that lending.\n\n**The Full Solution:**\n- Read the two sentences the transition must connect. First: libraries \"lend far more than books and movies.\" Second: branches check out cake pans, telescopes, and hand tools.\n- The second sentence is a set of concrete cases of the first sentence's general statement — the relationship is illustration.\n- \"For example\" is the transition that announces an illustration, so it fits exactly.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a reversal, but the cake pans and telescopes confirm the previous claim rather than pushing against it.\n- B: \"In contrast\" needs two things set against each other, and the sentences agree completely.\n- D: \"Meanwhile\" signals two things happening at the same time in different places, but the second sentence specifies the first, it doesn't run parallel to it."
     },
     {
-      "id": 278,
-      "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
-      "domain": "expression-of-ideas",
-      "skill": "transitions",
-      "passage": "For much of the twentieth century, art museums forbade photography in their galleries, posting guards to enforce the ban. ______ many of the same institutions now permit photography in most rooms, and some even mark the spots from which visitors are encouraged to take and share pictures.",
-      "question": "Which choice completes the text with the most logical transition?",
-      "choices": [
-        { "id": "A", "text": "However," },
-        { "id": "B", "text": "Similarly," },
-        { "id": "C", "text": "For instance," },
-        { "id": "D", "text": "As a result," }
-      ],
-      "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The two sentences describe opposite policies at the same institutions — a ban then, encouragement now — and \"However\" marks exactly that reversal.\n\n**The Full Solution:**\n- Identify what each sentence says. First: for decades, museums forbade photography and posted guards to enforce the ban. Second: the same museums now permit it and even invite picture-taking at marked spots.\n- Prohibition and encouragement are opposites, so the transition must signal contrast.\n- \"However\" is the standard contrast marker; it tells the reader the second sentence upends the first.\n\n**Why the other choices are wrong:**\n- B: \"Similarly\" requires the second sentence to resemble the first, but the new policy is the ban's reverse, not its echo.\n- C: \"For instance\" would make the open-photography policy an example of the ban — a contradiction.\n- D: \"As a result\" claims the ban caused today's permissiveness, but the text describes no such cause; the policies simply changed over time."
-    },
-    {
       "id": 279,
       "type": "multiple-choice",
       "difficulty": "hard",
@@ -505,6 +488,24 @@ export const practiceTest2RWM2Easy = {
       ],
       "correctAnswer": "B",
       "explanation": "**Choice B is correct.** The final sentence adds no new evidence — it restates the middle sentence's finding in a sharper form: evenness, not a finishing burst.\n\n**The Full Solution:**\n- Track what each sentence contributes. First: the popular assumption (records fall to a late sprint). Second: the data — even splits, no decisive move, a pace that never wavers. Third: \"won by relentless evenness rather than by a dramatic finish.\"\n- The third sentence introduces nothing the second has not already shown; it repackages the split-time evidence as a single crisp conclusion.\n- A sentence that recasts what came before takes a restatement transition: \"in other words.\"\n\n**Why the other choices are wrong:**\n- A: \"For example\" would make the final sentence one instance of the data, but it is a summary of all of it, not a case.\n- C: \"In addition\" promises a new point, and the sentence supplies a restatement instead — nothing new is stacked on.\n- D: \"As a result\" is tempting because the data do support the conclusion, but the final sentence states what the records ARE, not something that happened because of the split times; the relationship is interpretation, not consequence."
+    },
+    {
+      "id": 278,
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "band": 3,
+      "domain": "expression-of-ideas",
+      "skill": "transitions",
+      "passage": "For much of the twentieth century, art museums forbade photography in their galleries, posting guards to enforce the ban. ______ many of the same institutions now permit photography in most rooms, and some even mark the spots from which visitors are encouraged to take and share pictures.",
+      "question": "Which choice completes the text with the most logical transition?",
+      "choices": [
+        { "id": "A", "text": "However," },
+        { "id": "B", "text": "Similarly," },
+        { "id": "C", "text": "For instance," },
+        { "id": "D", "text": "As a result," }
+      ],
+      "correctAnswer": "A",
+      "explanation": "**Choice A is correct.** The two sentences describe opposite policies at the same institutions — a ban then, encouragement now — and \"However\" marks exactly that reversal.\n\n**The Full Solution:**\n- Identify what each sentence says. First: for decades, museums forbade photography and posted guards to enforce the ban. Second: the same museums now permit it and even invite picture-taking at marked spots.\n- Prohibition and encouragement are opposites, so the transition must signal contrast.\n- \"However\" is the standard contrast marker; it tells the reader the second sentence upends the first.\n\n**Why the other choices are wrong:**\n- B: \"Similarly\" requires the second sentence to resemble the first, but the new policy is the ban's reverse, not its echo.\n- C: \"For instance\" would make the open-photography policy an example of the ban — a contradiction.\n- D: \"As a result\" claims the ban caused today's permissiveness, but the text describes no such cause; the policies simply changed over time."
     },
     {
       "id": 280,

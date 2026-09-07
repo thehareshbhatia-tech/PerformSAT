@@ -1,4 +1,5 @@
 // Practice Test 8 — Reading & Writing Module 2 Easy variant (27 questions)
+// R&W seating varied 2026-09-07 (scripts/varyRWSeating.mjs): items re-dealt inside their official skill blocks with a per-test seed — block flow and per-skill counts unchanged.
 // For students routed to the easier path after Module 1 (~<60% correct).
 // Distribution: 8E / 16M / 3H. Max-score ceiling: ~600.
 // Domain mix: 8 Craft and Structure / 8 Information and Ideas /
@@ -20,24 +21,6 @@ export const practiceTest8RWM2Easy = {
     // Q1-Q8: Craft and Structure
     // ============================================================
     {
-      "id": 855,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "craft-and-structure",
-      "skill": "words-in-context",
-      "passage": "A window box hangs against a wall that soaks up sun all day, and the shallow soil inside it dries out far faster than a bed at ground level. Gardeners who keep one learn to ____ their watering to the spot itself, checking a box on a south-facing sill every morning while letting a box on a shaded wall wait an extra day.",
-      "question": "Which choice completes the text with the most logical and precise word or phrase?",
-      "choices": [
-        { "id": "A", "text": "delay" },
-        { "id": "B", "text": "adapt" },
-        { "id": "C", "text": "abandon" },
-        { "id": "D", "text": "announce" }
-      ],
-      "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The gardeners water a sunny box every morning and let a shaded box wait, fitting the routine to each spot, so the blank needs a word meaning to fit behavior to circumstances: \"adapt.\"\n\n**The Full Solution:**\n- How to spot it: read the examples after the blank, because they show the action the blank names.\n- The examples: a box on a south-facing sill is checked every morning, while a box on a shaded wall waits an extra day.\n- So the watering is being fitted to each spot rather than done the same way everywhere, and the opening explains why: shallow soil against a sun-warmed wall dries fast.\n- Read each word into the blank; only \"adapt\" means fitting the routine to the situation.\n\n**Why the other choices are wrong:**\n- A: \"Delay\" means putting the watering off, but the sunny box is checked every single morning.\n- C: \"Abandon\" means giving the watering up entirely, which would kill the plants the gardeners are tending.\n- D: \"Announce\" means telling others about the watering rather than fitting it to each box."
-    },
-    {
       "id": 856,
       "type": "multiple-choice",
       "difficulty": "easy",
@@ -56,22 +39,22 @@ export const practiceTest8RWM2Easy = {
       "explanation": "**Choice A is correct.** The words after the colon describe something that keeps working for centuries with almost no care, so the blank needs a word meaning long-lasting: \"durable.\"\n\n**The Full Solution:**\n- How to spot it: when a colon follows the blank, the words after the colon define the blank for you. Read them first.\n- After the colon: the dial \"can go on marking the hours for centuries with nothing more than an occasional cleaning.\"\n- The reason comes before: no spring to wind, no gears to wear out, no moving part but a shadow.\n- Read each word into the blank; only \"durable\" means lasting a very long time.\n\n**Why the other choices are wrong:**\n- B: \"Fragile\" means easily broken, the opposite of serving for centuries.\n- C: \"Portable\" means easy to carry, but a dial set correctly once is meant to stay put.\n- D: \"Expensive\" is about cost, which the passage never raises."
     },
     {
-      "id": 857,
+      "id": 855,
       "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
+      "difficulty": "easy",
+      "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "A shard of bottle glass that washes into the sea starts out sharp-edged and glossy. Years of tumbling against sand and stone gradually ____ its edges, and the same scouring frosts its surface, so that the fragment a beachcomber finally picks up is a smooth, clouded pebble.",
+      "passage": "A window box hangs against a wall that soaks up sun all day, and the shallow soil inside it dries out far faster than a bed at ground level. Gardeners who keep one learn to ____ their watering to the spot itself, checking a box on a south-facing sill every morning while letting a box on a shaded wall wait an extra day.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
-        { "id": "A", "text": "expose" },
-        { "id": "B", "text": "brighten" },
-        { "id": "C", "text": "soften" },
-        { "id": "D", "text": "duplicate" }
+        { "id": "A", "text": "delay" },
+        { "id": "B", "text": "adapt" },
+        { "id": "C", "text": "abandon" },
+        { "id": "D", "text": "announce" }
       ],
-      "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The fragment goes from \"sharp-edged and glossy\" to \"a smooth, clouded pebble,\" so the blank needs a verb for making edges less sharp: \"soften.\"\n\n**The Full Solution:**\n- How to spot it: find the before and the after, then pick the verb that names the change between them.\n- Before: a shard that is sharp-edged and glossy.\n- After: the smooth, clouded pebble a beachcomber picks up.\n- Years of tumbling against sand and stone wear the edges down bit by bit, and \"soften\" names exactly that change.\n\n**Why the other choices are wrong:**\n- A: \"Expose\" means uncovering something hidden, but the edges are being worn smooth, not revealed.\n- B: \"Brighten\" clashes with the rest of the sentence, which says the surface turns frosted and clouded.\n- D: \"Duplicate\" means copying the edges, which the sea is not doing."
+      "correctAnswer": "B",
+      "explanation": "**Choice B is correct.** The gardeners water a sunny box every morning and let a shaded box wait, fitting the routine to each spot, so the blank needs a word meaning to fit behavior to circumstances: \"adapt.\"\n\n**The Full Solution:**\n- How to spot it: read the examples after the blank, because they show the action the blank names.\n- The examples: a box on a south-facing sill is checked every morning, while a box on a shaded wall waits an extra day.\n- So the watering is being fitted to each spot rather than done the same way everywhere, and the opening explains why: shallow soil against a sun-warmed wall dries fast.\n- Read each word into the blank; only \"adapt\" means fitting the routine to the situation.\n\n**Why the other choices are wrong:**\n- A: \"Delay\" means putting the watering off, but the sunny box is checked every single morning.\n- C: \"Abandon\" means giving the watering up entirely, which would kill the plants the gardeners are tending.\n- D: \"Announce\" means telling others about the watering rather than fitting it to each box."
     },
     {
       "id": 858,
@@ -92,58 +75,22 @@ export const practiceTest8RWM2Easy = {
       "explanation": "**Choice D is correct.** The sentence compares the stone to a rolling coin that \"stays upright\" and says a fast-spinning stone \"resists tipping,\" so the blank needs a verb meaning keeps it stable: \"steadies.\"\n\n**The Full Solution:**\n- How to spot it: the sentence hands you a comparison, so use it. Whatever the coin does, the stone does.\n- The coin stays upright because it rolls; the fast-spinning stone likewise resists tipping.\n- The end of the sentence confirms it: the stone holds \"its flat face at the same shallow angle\" through every bounce.\n- Read each verb into the blank; only \"steadies\" means keeping the stone stable.\n\n**Why the other choices are wrong:**\n- A: \"Propels\" is about pushing the stone forward, but that is the flight's job, and this sentence is about not tipping over.\n- B: \"Shatters\" means breaking apart, which would end the skipping rather than carry it on.\n- C: \"Measures\" is something an observer does with instruments, not something spin does to a stone."
     },
     {
-      "id": 859,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "craft-and-structure",
-      "skill": "text-structure-and-purpose",
-      "passage": "In nineteenth-century mining camps high in the Sierra Nevada, winter closed the wagon roads for months at a time, yet the mail still had to move. Post offices in snowbound camps were served by carriers who crossed the passes on long wooden skis, the mailbag strapped high on their backs. The trips took days each way, and the carriers read the snow as they went, resting while the midday surface softened and pushing on once the crust froze hard enough to hold them.",
-      "question": "Which choice best states the main purpose of the text?",
-      "choices": [
-        { "id": "A", "text": "To explain the training that modern postal workers receive before they are assigned to mountain routes." },
-        { "id": "B", "text": "To describe how mail was carried to snowbound mountain settlements after winter closed the roads." },
-        { "id": "C", "text": "To argue that the government should have built winter roads to the mining camps sooner than it did." },
-        { "id": "D", "text": "To compare the speed of mail delivery in the mountains with the speed of delivery on flat ground." }
-      ],
-      "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The passage sets up a problem, roads closed by snow while the mail still had to move, and then describes the solution at work: carriers crossing the passes on skis.\n\n**The Full Solution:**\n- How to spot it: for a main-purpose question, ask what job the whole passage is doing, then check your answer against the beginning AND the end.\n- The opening states the problem: wagon roads closed for months, yet the mail still had to move.\n- The middle gives the answer: carriers on long wooden skis serving the snowbound camps.\n- The last sentence stays on the same subject, how the carriers actually made the trips, so the passage exists to describe the winter mail service, which is what B says.\n\n**Why the other choices are wrong:**\n- A: The passage is about the nineteenth century, and no modern training program is mentioned.\n- C: The passage never argues that roads should have been built sooner.\n- D: No comparison with delivery on flat ground appears anywhere in the text."
-    },
-    {
-      "id": 860,
+      "id": 857,
       "type": "multiple-choice",
       "difficulty": "medium",
       "band": 3,
       "domain": "craft-and-structure",
-      "skill": "text-structure-and-purpose",
-      "passage": "Snow shoveled straight into a wall slumps under its own weight, because freshly fallen crystals barely touch one another. Packing changes that: pressing the snow shatters the crystals' points, and the broken fragments refreeze into a network of tiny ice bridges that stiffens over several hours. Builders of snow forts learn to work around the delay. They pack snow into buckets or bins, tip the blocks out in rows, and leave the wall alone overnight; by morning the bridges have locked the blocks into a single mass hard enough to carve.",
-      "question": "Which choice best describes the overall structure of the text?",
+      "skill": "words-in-context",
+      "passage": "A shard of bottle glass that washes into the sea starts out sharp-edged and glossy. Years of tumbling against sand and stone gradually ____ its edges, and the same scouring frosts its surface, so that the fragment a beachcomber finally picks up is a smooth, clouded pebble.",
+      "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
-        { "id": "A", "text": "It recounts the building of one particular snow fort from the season's first heavy snowfall to the warm afternoon it finally melted." },
-        { "id": "B", "text": "It lists the tools a builder needs and then ranks them from the most useful to the least." },
-        { "id": "C", "text": "It explains why loose snow makes a weak wall, describes how packing hardens it, and then shows how builders time their work around that hardening." },
-        { "id": "D", "text": "It argues that walls of packed snow are so much stronger than walls of stacked ice that builders should give up cutting ice blocks for their forts entirely." }
+        { "id": "A", "text": "expose" },
+        { "id": "B", "text": "brighten" },
+        { "id": "C", "text": "soften" },
+        { "id": "D", "text": "duplicate" }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The passage explains why loose snow fails, describes how packing hardens it over hours, and ends with how builders arrange their work around that delay.\n\n**The Full Solution:**\n- How to spot it: label what each part of the passage DOES, then read the labels back in order.\n- Why loose snow fails: freshly fallen crystals barely touch, so a shoveled wall slumps.\n- How packing works: pressing shatters the crystal points, and the fragments refreeze into tiny ice bridges that stiffen for hours.\n- How builders use it: pack blocks, set them in rows, and let the wall lock up overnight. Reason, process, application, exactly what C says.\n\n**Why the other choices are wrong:**\n- A: No single fort's story is told from snowfall to melt.\n- B: The passage never lists tools, let alone ranks them.\n- D: Walls of stacked ice are never mentioned, so no comparison is being argued."
-    },
-    {
-      "id": 861,
-      "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
-      "domain": "craft-and-structure",
-      "skill": "text-structure-and-purpose",
-      "passage": "Through most of the nineteenth century, a pencil was pointed with whatever small blade happened to be at hand, slowly and one shaving at a time. __Late in the century, manufacturers began mounting crank-driven sharpeners on classroom walls: a pair of spiral cutters spun around the pencil's tip and produced a fresh point in seconds.__ Teachers no longer had to keep a drawer of pocketknives or repair the broken points of forty students at a stretch, and the wall-mounted machine soon became a standard classroom fixture.",
-      "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
-      "choices": [
-        { "id": "A", "text": "It introduces the mechanical development that the final sentence then connects to the device's adoption in classrooms." },
-        { "id": "B", "text": "It explains why teachers preferred that students bring pencils to school already pointed." },
-        { "id": "C", "text": "It describes the skill with which students of the period handled their pocketknives." },
-        { "id": "D", "text": "It offers evidence that cranked sharpeners wasted far more of each pencil than careful whittling with a pocketknife ever had." }
-      ],
-      "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The underlined sentence introduces the crank-driven wall sharpener, and the final sentence explains what followed from it: the machine became a standard classroom fixture.\n\n**The Full Solution:**\n- How to spot it: read the underlined sentence by itself, then read the sentence that follows it and ask what the two do together.\n- On its own, the underlined sentence reports a new machine: spiral cutters, turned by a crank, that point a pencil in seconds.\n- The final sentence draws the consequence: no more drawer of pocketknives, no more broken points to repair, and the device becomes standard.\n- So the underlined sentence supplies the development that the ending ties to the sharpener's spread, which is what A says.\n\n**Why the other choices are wrong:**\n- B: The passage never mentions pencils arriving at school already pointed.\n- C: The earlier sentence describes slow work with whatever blade was at hand; no one's skill is praised.\n- D: The passage never compares how much pencil each method wasted."
+      "explanation": "**Choice C is correct.** The fragment goes from \"sharp-edged and glossy\" to \"a smooth, clouded pebble,\" so the blank needs a verb for making edges less sharp: \"soften.\"\n\n**The Full Solution:**\n- How to spot it: find the before and the after, then pick the verb that names the change between them.\n- Before: a shard that is sharp-edged and glossy.\n- After: the smooth, clouded pebble a beachcomber picks up.\n- Years of tumbling against sand and stone wear the edges down bit by bit, and \"soften\" names exactly that change.\n\n**Why the other choices are wrong:**\n- A: \"Expose\" means uncovering something hidden, but the edges are being worn smooth, not revealed.\n- B: \"Brighten\" clashes with the rest of the sentence, which says the surface turns frosted and clouded.\n- D: \"Duplicate\" means copying the edges, which the sea is not doing."
     },
     {
       "id": 862,
@@ -172,45 +119,63 @@ export const practiceTest8RWM2Easy = {
       "correctAnswer": "D",
       "explanation": "**Choice D is correct.** Text 1's class drew its conclusion from a single stand at a busy community center, and Text 2 finds that on quiet streets sales stay low \"no matter what either charged,\" so the researchers would point out that limit.\n\n**The Full Solution:**\n- How to spot it: for a how-would-they-respond question, pin down each text's main claim first, then look for the detail in Text 1 that the other side would seize on.\n- Text 1's claim: price is the main lever, since sales climbed each week as the class charged less.\n- The detail: every one of those Saturdays was sold at the same busy community-center location.\n- Text 2's finding: location dominates, and on streets with few passersby, even cups offered for pennies went unsold.\n- So the researchers would accept the class's numbers but credit its location, which is what D says.\n\n**Why the other choices are wrong:**\n- A: Text 2 does not say operators are helpless; it says the choice of spot matters most, and a spot is something an operator picks.\n- B: Neither text suggests raising prices or says a higher price signals better lemonade.\n- C: This has the researchers agreeing that price rules, the opposite of their conclusion."
     },
-    // ============================================================
-    // Q9-Q16: Information and Ideas
-    // ============================================================
     {
-      "id": 863,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "information-and-ideas",
-      "skill": "central-ideas-and-details",
-      "passage": "Beach glass begins as trash: bottles and jars discarded near the shore, broken up by the surf, and tumbled smooth over decades. Collectors prize the frosted fragments, yet many report that good pieces grow harder to find each year. The reason lies onshore. Drinks now come mainly in plastic and aluminum, and the glass that is still used is far more likely to be recycled than thrown away. With less new glass entering the water, the supply of future beach glass is quietly running out.",
-      "question": "Which choice best states the main idea of the text?",
-      "choices": [
-        { "id": "A", "text": "Collectors disagree about which colors of beach glass are the most valuable to find." },
-        { "id": "B", "text": "The surf can tumble a broken bottle into a smooth fragment within a few seasons." },
-        { "id": "C", "text": "Beach glass is growing scarcer because less discarded glass now enters the sea." },
-        { "id": "D", "text": "Plastic and aluminum containers keep drinks fresher during shipping than glass bottles did." }
-      ],
-      "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The passage reports that collectors find fewer good pieces each year and traces the cause to shore: less glass is thrown away now, so less future beach glass is being made.\n\n**The Full Solution:**\n- How to spot it: for a main-idea question, look for the sentence that draws everything together. It is often the last one.\n- The last sentence says that \"with less new glass entering the water, the supply of future beach glass is quietly running out.\"\n- Every earlier detail feeds that point: beach glass begins as discarded bottles, collectors report scarcer finds, and drinks now come in plastic and aluminum.\n- So the main idea is the shrinking supply and its onshore cause, which is what C states.\n\n**Why the other choices are wrong:**\n- A: The passage never discusses colors or which ones collectors value.\n- B: The passage says the tumbling takes decades, not a few seasons.\n- D: How well each container keeps drinks fresh is never discussed."
-    },
-    {
-      "id": 864,
+      "id": 860,
       "type": "multiple-choice",
       "difficulty": "medium",
       "band": 3,
-      "domain": "information-and-ideas",
-      "skill": "central-ideas-and-details",
-      "passage": "When automobiles began crowding American streets in the 1920s, the walk to school turned newly dangerous, and cities looked for a guard they could post at every corner. The answer came from the schools themselves. Older students, wearing white belts that crossed the chest, were stationed at crossings to hold classmates back at the curb until the street was clear. The program cost districts almost nothing, gave the patrol members a visible responsibility, and spread within a decade from a handful of cities to schools across the country.",
-      "question": "Which choice best states the main idea of the text?",
+      "domain": "craft-and-structure",
+      "skill": "text-structure-and-purpose",
+      "passage": "Snow shoveled straight into a wall slumps under its own weight, because freshly fallen crystals barely touch one another. Packing changes that: pressing the snow shatters the crystals' points, and the broken fragments refreeze into a network of tiny ice bridges that stiffens over several hours. Builders of snow forts learn to work around the delay. They pack snow into buckets or bins, tip the blocks out in rows, and leave the wall alone overnight; by morning the bridges have locked the blocks into a single mass hard enough to carve.",
+      "question": "Which choice best describes the overall structure of the text?",
       "choices": [
-        { "id": "A", "text": "School safety patrols arose as a low-cost answer to growing automobile traffic and quickly spread nationwide." },
-        { "id": "B", "text": "Cities of the 1920s hired professional traffic officers to guard every crossing near a school." },
-        { "id": "C", "text": "The white belts worn by patrol members were designed to be visible to drivers at night." },
-        { "id": "D", "text": "Students of the 1920s usually walked to school in large groups so that passing drivers could see them more easily." }
+        { "id": "A", "text": "It recounts the building of one particular snow fort from the season's first heavy snowfall to the warm afternoon it finally melted." },
+        { "id": "B", "text": "It lists the tools a builder needs and then ranks them from the most useful to the least." },
+        { "id": "C", "text": "It explains why loose snow makes a weak wall, describes how packing hardens it, and then shows how builders time their work around that hardening." },
+        { "id": "D", "text": "It argues that walls of packed snow are so much stronger than walls of stacked ice that builders should give up cutting ice blocks for their forts entirely." }
+      ],
+      "correctAnswer": "C",
+      "explanation": "**Choice C is correct.** The passage explains why loose snow fails, describes how packing hardens it over hours, and ends with how builders arrange their work around that delay.\n\n**The Full Solution:**\n- How to spot it: label what each part of the passage DOES, then read the labels back in order.\n- Why loose snow fails: freshly fallen crystals barely touch, so a shoveled wall slumps.\n- How packing works: pressing shatters the crystal points, and the fragments refreeze into tiny ice bridges that stiffen for hours.\n- How builders use it: pack blocks, set them in rows, and let the wall lock up overnight. Reason, process, application, exactly what C says.\n\n**Why the other choices are wrong:**\n- A: No single fort's story is told from snowfall to melt.\n- B: The passage never lists tools, let alone ranks them.\n- D: Walls of stacked ice are never mentioned, so no comparison is being argued."
+    },
+    {
+      "id": 859,
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "band": 2,
+      "domain": "craft-and-structure",
+      "skill": "text-structure-and-purpose",
+      "passage": "In nineteenth-century mining camps high in the Sierra Nevada, winter closed the wagon roads for months at a time, yet the mail still had to move. Post offices in snowbound camps were served by carriers who crossed the passes on long wooden skis, the mailbag strapped high on their backs. The trips took days each way, and the carriers read the snow as they went, resting while the midday surface softened and pushing on once the crust froze hard enough to hold them.",
+      "question": "Which choice best states the main purpose of the text?",
+      "choices": [
+        { "id": "A", "text": "To explain the training that modern postal workers receive before they are assigned to mountain routes." },
+        { "id": "B", "text": "To describe how mail was carried to snowbound mountain settlements after winter closed the roads." },
+        { "id": "C", "text": "To argue that the government should have built winter roads to the mining camps sooner than it did." },
+        { "id": "D", "text": "To compare the speed of mail delivery in the mountains with the speed of delivery on flat ground." }
+      ],
+      "correctAnswer": "B",
+      "explanation": "**Choice B is correct.** The passage sets up a problem, roads closed by snow while the mail still had to move, and then describes the solution at work: carriers crossing the passes on skis.\n\n**The Full Solution:**\n- How to spot it: for a main-purpose question, ask what job the whole passage is doing, then check your answer against the beginning AND the end.\n- The opening states the problem: wagon roads closed for months, yet the mail still had to move.\n- The middle gives the answer: carriers on long wooden skis serving the snowbound camps.\n- The last sentence stays on the same subject, how the carriers actually made the trips, so the passage exists to describe the winter mail service, which is what B says.\n\n**Why the other choices are wrong:**\n- A: The passage is about the nineteenth century, and no modern training program is mentioned.\n- C: The passage never argues that roads should have been built sooner.\n- D: No comparison with delivery on flat ground appears anywhere in the text."
+    },
+    {
+      "id": 861,
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "band": 3,
+      "domain": "craft-and-structure",
+      "skill": "text-structure-and-purpose",
+      "passage": "Through most of the nineteenth century, a pencil was pointed with whatever small blade happened to be at hand, slowly and one shaving at a time. __Late in the century, manufacturers began mounting crank-driven sharpeners on classroom walls: a pair of spiral cutters spun around the pencil's tip and produced a fresh point in seconds.__ Teachers no longer had to keep a drawer of pocketknives or repair the broken points of forty students at a stretch, and the wall-mounted machine soon became a standard classroom fixture.",
+      "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+      "choices": [
+        { "id": "A", "text": "It introduces the mechanical development that the final sentence then connects to the device's adoption in classrooms." },
+        { "id": "B", "text": "It explains why teachers preferred that students bring pencils to school already pointed." },
+        { "id": "C", "text": "It describes the skill with which students of the period handled their pocketknives." },
+        { "id": "D", "text": "It offers evidence that cranked sharpeners wasted far more of each pencil than careful whittling with a pocketknife ever had." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The passage presents the patrols as the answer to a 1920s problem, dangerous automobile traffic near schools, and closes with why the idea traveled: it cost almost nothing and worked at every corner.\n\n**The Full Solution:**\n- How to spot it: for a main-idea question, ask what point the whole passage builds toward, and check the last sentence, which often names it.\n- The setup: cars crowd the streets, and cities need a guard at every crossing.\n- The solution: older students in white crossed belts hold classmates at the curb until the street is clear.\n- The last sentence names the outcome: nearly free to run, the program spread within a decade to schools across the country, which is what A states.\n\n**Why the other choices are wrong:**\n- B: The passage says the guards were the schools' own older students, not hired professionals.\n- C: The white belts are described, but nothing is said about nighttime visibility or their design.\n- D: Walking to school in groups is never mentioned in the passage."
+      "explanation": "**Choice A is correct.** The underlined sentence introduces the crank-driven wall sharpener, and the final sentence explains what followed from it: the machine became a standard classroom fixture.\n\n**The Full Solution:**\n- How to spot it: read the underlined sentence by itself, then read the sentence that follows it and ask what the two do together.\n- On its own, the underlined sentence reports a new machine: spiral cutters, turned by a crank, that point a pencil in seconds.\n- The final sentence draws the consequence: no more drawer of pocketknives, no more broken points to repair, and the device becomes standard.\n- So the underlined sentence supplies the development that the ending ties to the sharpener's spread, which is what A says.\n\n**Why the other choices are wrong:**\n- B: The passage never mentions pencils arriving at school already pointed.\n- C: The earlier sentence describes slow work with whatever blade was at hand; no one's skill is praised.\n- D: The passage never compares how much pencil each method wasted."
     },
+    // ============================================================
+    // Q9-Q16: Information and Ideas
+    // ============================================================
     {
       "id": 865,
       "type": "multiple-choice",
@@ -248,6 +213,42 @@ export const practiceTest8RWM2Easy = {
       "explanation": "**Choice D is correct.** The hypothesis separates spin from speed, so the strongest support holds speed constant and varies only the spin, which is exactly the test in D.\n\n**The Full Solution:**\n- How to spot it: restate the claim, then ask what comparison would test it. The claim says spin, not speed, keeps the stone from tipping.\n- The right test keeps speed the same for every stone and changes only how fast each one spins.\n- D reports that test: at identical speeds, rapidly spun stones skipped again and again while barely spun ones flipped and sank.\n- Since the only difference between the stones was spin, the finding ties the tipping directly to it, just as the hypothesis predicts.\n\n**Why the other choices are wrong:**\n- A: Faster throws by experienced skippers mix speed and spin together, so the finding cannot separate the two.\n- B: The shape of a stone's bottom is a different variable and says nothing about spin versus speed.\n- C: How a run winds down describes every skipped stone and compares nothing, so it cannot favor spin over speed."
     },
     {
+      "id": 870,
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "band": 4,
+      "domain": "information-and-ideas",
+      "skill": "inferences",
+      "passage": "At street-painting festivals, artists work in chalk pastels on the pavement itself, and organizers long assumed that the drawings' short lives are set by the material: soft pastel, the thinking went, simply cannot hold color outdoors. Festival records complicate that view. On plazas paved with smooth polished granite, drawings blur after a single night's dew, while drawings made with the same pastels, by the same artists, on rough broomed concrete stay legible through several rainstorms. Taken together, these records suggest that how long a street painting lasts is best understood as ____",
+      "question": "Which choice most logically completes the text?",
+      "choices": [
+        { "id": "A", "text": "proof that festival drawings can be preserved indefinitely if they are sheltered from rain." },
+        { "id": "B", "text": "a property of the surface that holds the pigment rather than of the pigment itself." },
+        { "id": "C", "text": "a sign that artists who work on granite are less careful than artists who work on concrete." },
+        { "id": "D", "text": "the result of festival rules that require every drawing to be washed away when the event closes." }
+      ],
+      "correctAnswer": "B",
+      "explanation": "**Choice B is correct.** The same pastels in the same hands last one night on polished granite and weeks on rough concrete, so what varies is the pavement, and the lasting must be the surface's doing.\n\n**The Full Solution:**\n- How to spot it: when a passage lays two cases side by side, find what DIFFERS between them and what CHANGES with it.\n- Case one: smooth polished granite, and the drawings blur after a single night's dew.\n- Case two: rough broomed concrete, and the drawings survive several rainstorms.\n- The pastels, the artists, and the weather are the same; only the surface differs, so how long a painting lasts is a property of the surface rather than of the pigment, which is what B says.\n\n**Why the other choices are wrong:**\n- A: Dew alone ruins the granite drawings, so shelter from rain would not preserve anything indefinitely.\n- C: The same artists appear in both cases, so carelessness cannot be the difference.\n- D: No festival rule about washing drawings away is mentioned in the passage."
+    },
+    {
+      "id": 864,
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "band": 3,
+      "domain": "information-and-ideas",
+      "skill": "central-ideas-and-details",
+      "passage": "When automobiles began crowding American streets in the 1920s, the walk to school turned newly dangerous, and cities looked for a guard they could post at every corner. The answer came from the schools themselves. Older students, wearing white belts that crossed the chest, were stationed at crossings to hold classmates back at the curb until the street was clear. The program cost districts almost nothing, gave the patrol members a visible responsibility, and spread within a decade from a handful of cities to schools across the country.",
+      "question": "Which choice best states the main idea of the text?",
+      "choices": [
+        { "id": "A", "text": "School safety patrols arose as a low-cost answer to growing automobile traffic and quickly spread nationwide." },
+        { "id": "B", "text": "Cities of the 1920s hired professional traffic officers to guard every crossing near a school." },
+        { "id": "C", "text": "The white belts worn by patrol members were designed to be visible to drivers at night." },
+        { "id": "D", "text": "Students of the 1920s usually walked to school in large groups so that passing drivers could see them more easily." }
+      ],
+      "correctAnswer": "A",
+      "explanation": "**Choice A is correct.** The passage presents the patrols as the answer to a 1920s problem, dangerous automobile traffic near schools, and closes with why the idea traveled: it cost almost nothing and worked at every corner.\n\n**The Full Solution:**\n- How to spot it: for a main-idea question, ask what point the whole passage builds toward, and check the last sentence, which often names it.\n- The setup: cars crowd the streets, and cities need a guard at every crossing.\n- The solution: older students in white crossed belts hold classmates at the curb until the street is clear.\n- The last sentence names the outcome: nearly free to run, the program spread within a decade to schools across the country, which is what A states.\n\n**Why the other choices are wrong:**\n- B: The passage says the guards were the schools' own older students, not hired professionals.\n- C: The white belts are described, but nothing is said about nighttime visibility or their design.\n- D: Walking to school in groups is never mentioned in the passage."
+    },
+    {
       "id": 867,
       "type": "multiple-choice",
       "difficulty": "easy",
@@ -279,6 +280,24 @@ export const practiceTest8RWM2Easy = {
           ["1942", "1", "950"]
         ]
       }
+    },
+    {
+      "id": 863,
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "band": 2,
+      "domain": "information-and-ideas",
+      "skill": "central-ideas-and-details",
+      "passage": "Beach glass begins as trash: bottles and jars discarded near the shore, broken up by the surf, and tumbled smooth over decades. Collectors prize the frosted fragments, yet many report that good pieces grow harder to find each year. The reason lies onshore. Drinks now come mainly in plastic and aluminum, and the glass that is still used is far more likely to be recycled than thrown away. With less new glass entering the water, the supply of future beach glass is quietly running out.",
+      "question": "Which choice best states the main idea of the text?",
+      "choices": [
+        { "id": "A", "text": "Collectors disagree about which colors of beach glass are the most valuable to find." },
+        { "id": "B", "text": "The surf can tumble a broken bottle into a smooth fragment within a few seasons." },
+        { "id": "C", "text": "Beach glass is growing scarcer because less discarded glass now enters the sea." },
+        { "id": "D", "text": "Plastic and aluminum containers keep drinks fresher during shipping than glass bottles did." }
+      ],
+      "correctAnswer": "C",
+      "explanation": "**Choice C is correct.** The passage reports that collectors find fewer good pieces each year and traces the cause to shore: less glass is thrown away now, so less future beach glass is being made.\n\n**The Full Solution:**\n- How to spot it: for a main-idea question, look for the sentence that draws everything together. It is often the last one.\n- The last sentence says that \"with less new glass entering the water, the supply of future beach glass is quietly running out.\"\n- Every earlier detail feeds that point: beach glass begins as discarded bottles, collectors report scarcer finds, and drinks now come in plastic and aluminum.\n- So the main idea is the shrinking supply and its onshore cause, which is what C states.\n\n**Why the other choices are wrong:**\n- A: The passage never discusses colors or which ones collectors value.\n- B: The passage says the tumbling takes decades, not a few seasons.\n- D: How well each container keeps drinks fresh is never discussed."
     },
     {
       "id": 868,
@@ -330,45 +349,9 @@ export const practiceTest8RWM2Easy = {
       "correctAnswer": "D",
       "explanation": "**Choice D is correct.** The passage says the doorway is what decides which birds can use a box, wrens at one width, sparrows a quarter inch wider, starlings beyond that, so success comes down to sizing the hole.\n\n**The Full Solution:**\n- How to spot it: to finish a \"should expect success as long as\" sentence, find the condition the passage says produces the result, and restate it.\n- The mechanism: the hole's width admits some species and turns others away.\n- The evidence: an inch and an eighth suits wrens, a quarter inch more lets sparrows move in, and starlings follow at anything much wider.\n- The passage adds that the rest of the box matters far less than the doorway, so the condition is a hole sized for the wanted bird and against the larger ones, which is what D says.\n\n**Why the other choices are wrong:**\n- A: Paint color is never mentioned, and the passage says the rest of the box matters little.\n- B: Feeders and seed never come up in the passage.\n- C: The kind of wood is exactly the sort of detail the passage says matters far less than the doorway."
     },
-    {
-      "id": 870,
-      "type": "multiple-choice",
-      "difficulty": "hard",
-      "band": 4,
-      "domain": "information-and-ideas",
-      "skill": "inferences",
-      "passage": "At street-painting festivals, artists work in chalk pastels on the pavement itself, and organizers long assumed that the drawings' short lives are set by the material: soft pastel, the thinking went, simply cannot hold color outdoors. Festival records complicate that view. On plazas paved with smooth polished granite, drawings blur after a single night's dew, while drawings made with the same pastels, by the same artists, on rough broomed concrete stay legible through several rainstorms. Taken together, these records suggest that how long a street painting lasts is best understood as ____",
-      "question": "Which choice most logically completes the text?",
-      "choices": [
-        { "id": "A", "text": "proof that festival drawings can be preserved indefinitely if they are sheltered from rain." },
-        { "id": "B", "text": "a property of the surface that holds the pigment rather than of the pigment itself." },
-        { "id": "C", "text": "a sign that artists who work on granite are less careful than artists who work on concrete." },
-        { "id": "D", "text": "the result of festival rules that require every drawing to be washed away when the event closes." }
-      ],
-      "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The same pastels in the same hands last one night on polished granite and weeks on rough concrete, so what varies is the pavement, and the lasting must be the surface's doing.\n\n**The Full Solution:**\n- How to spot it: when a passage lays two cases side by side, find what DIFFERS between them and what CHANGES with it.\n- Case one: smooth polished granite, and the drawings blur after a single night's dew.\n- Case two: rough broomed concrete, and the drawings survive several rainstorms.\n- The pastels, the artists, and the weather are the same; only the surface differs, so how long a painting lasts is a property of the surface rather than of the pigment, which is what B says.\n\n**Why the other choices are wrong:**\n- A: Dew alone ruins the granite drawings, so shelter from rain would not preserve anything indefinitely.\n- C: The same artists appear in both cases, so carelessness cannot be the difference.\n- D: No festival rule about washing drawings away is mentioned in the passage."
-    },
     // ============================================================
     // Q17-Q22: Standard English Conventions
     // ============================================================
-    {
-      "id": 871,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "standard-english-conventions",
-      "skill": "boundaries",
-      "passage": "The first popular wall-mounted pencil sharpeners held a disk of sandpaper rather than a set of ______ a student turned the crank and ground the pencil to a point against the spinning grit.",
-      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-      "choices": [
-        { "id": "A", "text": "blades. A" },
-        { "id": "B", "text": "blades, a" },
-        { "id": "C", "text": "blades a" },
-        { "id": "D", "text": "blades and a" }
-      ],
-      "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** Each side of the blank could stand alone as its own sentence, so the two need a full stop between them: \"...rather than a set of blades. A student turned the crank....\"\n\n**The Full Solution:**\n- How to spot it: cover the blank and test each side. If both sides are complete sentences, they cannot be glued together with only a comma or with nothing at all.\n- Side 1: \"The first popular wall-mounted pencil sharpeners held a disk of sandpaper rather than a set of blades\" is a complete sentence.\n- Side 2: \"a student turned the crank and ground the pencil to a point against the spinning grit\" is also a complete sentence.\n- A period ends the first and starts the second, so A is right.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two complete sentences is a comma splice.\n- C: With no punctuation at all, the two sentences run together.\n- D: When \"and\" joins two complete sentences, it needs a comma in front of it, and there is none here."
-    },
     {
       "id": 872,
       "type": "multiple-choice",
@@ -388,40 +371,40 @@ export const practiceTest8RWM2Easy = {
       "explanation": "**Choice C is correct.** The subject of the blank is the singular \"The length,\" not the plural \"ropes\" sitting next to the blank, so the singular verb \"decides\" is correct.\n\n**The Full Solution:**\n- How to spot it: find the true subject by crossing out the of-phrase. \"The length of the ropes\" becomes \"The length,\" which is singular.\n- A singular subject takes a singular verb, so you want \"decides.\"\n- Read it back: \"The length of the ropes...decides how long each pass through the air takes.\" That matches.\n\n**Why the other choices are wrong:**\n- A: \"decide\" is the plural form and would need a plural subject.\n- B: \"have decided\" is also plural and does not go with \"The length.\"\n- D: \"are deciding\" is plural as well, so it does not fit either."
     },
     {
-      "id": 873,
+      "id": 876,
       "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
-      "domain": "standard-english-conventions",
-      "skill": "boundaries",
-      "passage": "The load a winter mail carrier hauled over the passes—a canvas sack that often weighed more than sixty pounds at the start of a ______ rode high on the back, where it could not throw off a skier's balance on the long descents.",
-      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-      "choices": [
-        { "id": "A", "text": "trip," },
-        { "id": "B", "text": "trip;" },
-        { "id": "C", "text": "trip" },
-        { "id": "D", "text": "trip—" }
-      ],
-      "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The extra description is opened with a dash after \"passes,\" so it has to be closed with a matching dash before the sentence goes on to \"rode high on the back.\"\n\n**The Full Solution:**\n- How to spot it: when extra information is set off in the middle of a sentence, whatever mark opens it must also close it. Look back for the opening mark before you choose.\n- The opening mark here is the dash right after \"over the passes.\"\n- The extra information is \"a canvas sack that often weighed more than sixty pounds at the start of a trip.\"\n- So the matching dash closes it, and the main sentence continues: \"The load...rode high on the back.\"\n\n**Why the other choices are wrong:**\n- A: A comma cannot close a description that a dash opened; the marks have to match.\n- B: A semicolon separates complete sentences, and what comes before it here is not one.\n- C: With no closing mark at all, the extra description runs straight into the verb."
-    },
-    {
-      "id": 874,
-      "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
+      "difficulty": "hard",
+      "band": 4,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "Chosen for their patience, trained to read the pace of oncoming cars, and posted at the same corner every morning for years at a stretch, the crossing guards of a mid-century school district ______ a small ceremony out of the walk to school, greeting each child by name while holding back the traffic.",
+      "passage": "A nest box is a plain object, but its dimensions are anything but casual. The width of the entrance hole, along with the depth of the chamber beneath it, ______ which species will ever settle inside, so builders' plans give both figures to the eighth of an inch.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "to make" },
-        { "id": "B", "text": "made" },
-        { "id": "C", "text": "making" },
-        { "id": "D", "text": "having made" }
+        { "id": "A", "text": "govern" },
+        { "id": "B", "text": "governing" },
+        { "id": "C", "text": "governs" },
+        { "id": "D", "text": "have governed" }
       ],
-      "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** After the long opening description, the subject \"the crossing guards of a mid-century school district\" still has no real action word, and only the tensed \"made\" supplies one.\n\n**The Full Solution:**\n- How to spot it: every complete sentence needs a real, tensed action word. Forms like \"to make,\" \"making,\" and \"having made\" cannot do that job and leave you with a fragment.\n- The sentence opens with a long describing stretch: \"Chosen for their patience, trained to read the pace of oncoming cars, and posted at the same corner....\"\n- The subject is \"the crossing guards of a mid-century school district.\"\n- That subject needs a tensed action word, and \"made\" gives it one: \"the crossing guards...made a small ceremony out of the walk to school.\"\n\n**Why the other choices are wrong:**\n- A: \"to make\" is not tensed, so the sentence is left without a working action word.\n- C: \"making\" is an -ing word, which also cannot carry the sentence on its own.\n- D: \"having made\" is likewise untensed, so the fragment remains."
+      "correctAnswer": "C",
+      "explanation": "**Choice C is correct.** The subject is the singular \"The width,\" and an \"along with\" phrase does not make a singular subject plural, so the singular \"governs\" is correct.\n\n**The Full Solution:**\n- How to spot it: cross out everything between the subject and the blank, then check what is left. Phrases beginning with along with, as well as, or together with never change the subject's number.\n- Crossing out \"along with the depth of the chamber beneath it\" leaves \"The width of the entrance hole ______ which species will ever settle inside.\"\n- \"The width\" is singular, so it takes the singular \"governs.\"\n- Read it back: \"The width of the entrance hole...governs which species will ever settle inside.\"\n\n**Why the other choices are wrong:**\n- A: \"govern\" is plural; it treats the width and the depth as a joined pair, but an \"along with\" phrase is an aside, not part of the subject.\n- B: \"governing\" cannot act as the sentence's working verb, so nothing would carry the statement.\n- D: \"have governed\" is plural as well, so it does not fit the singular subject."
+    },
+    {
+      "id": 871,
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "band": 2,
+      "domain": "standard-english-conventions",
+      "skill": "boundaries",
+      "passage": "The first popular wall-mounted pencil sharpeners held a disk of sandpaper rather than a set of ______ a student turned the crank and ground the pencil to a point against the spinning grit.",
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+        { "id": "A", "text": "blades. A" },
+        { "id": "B", "text": "blades, a" },
+        { "id": "C", "text": "blades a" },
+        { "id": "D", "text": "blades and a" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "**Choice A is correct.** Each side of the blank could stand alone as its own sentence, so the two need a full stop between them: \"...rather than a set of blades. A student turned the crank....\"\n\n**The Full Solution:**\n- How to spot it: cover the blank and test each side. If both sides are complete sentences, they cannot be glued together with only a comma or with nothing at all.\n- Side 1: \"The first popular wall-mounted pencil sharpeners held a disk of sandpaper rather than a set of blades\" is a complete sentence.\n- Side 2: \"a student turned the crank and ground the pencil to a point against the spinning grit\" is also a complete sentence.\n- A period ends the first and starts the second, so A is right.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two complete sentences is a comma splice.\n- C: With no punctuation at all, the two sentences run together.\n- D: When \"and\" joins two complete sentences, it needs a comma in front of it, and there is none here."
     },
     {
       "id": 875,
@@ -442,22 +425,40 @@ export const practiceTest8RWM2Easy = {
       "explanation": "**Choice A is correct.** The sentence opens with a lead-in that starts with \"Because,\" which cannot stand on its own, so a comma sets it off before the main sentence begins.\n\n**The Full Solution:**\n- How to spot it: when a sentence starts with because, although, when, or since, that opening chunk is incomplete and gets a comma before the real sentence starts.\n- Test it: \"Because a window box holds only a few inches of soil and hangs where the sun strikes it from morning until evening\" cannot stand alone.\n- The main sentence follows: \"the plants inside it can wilt in a single hot afternoon.\"\n- A single comma joins the lead-in to that main sentence.\n\n**Why the other choices are wrong:**\n- B: With no mark at all, the lead-in runs straight into the main sentence.\n- C: A semicolon needs a complete sentence on both sides, and the \"Because\" chunk is not one.\n- D: A colon announces an explanation or a list, which is not the job being done here."
     },
     {
-      "id": 876,
+      "id": 874,
       "type": "multiple-choice",
-      "difficulty": "hard",
-      "band": 4,
+      "difficulty": "medium",
+      "band": 3,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "A nest box is a plain object, but its dimensions are anything but casual. The width of the entrance hole, along with the depth of the chamber beneath it, ______ which species will ever settle inside, so builders' plans give both figures to the eighth of an inch.",
+      "passage": "Chosen for their patience, trained to read the pace of oncoming cars, and posted at the same corner every morning for years at a stretch, the crossing guards of a mid-century school district ______ a small ceremony out of the walk to school, greeting each child by name while holding back the traffic.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "govern" },
-        { "id": "B", "text": "governing" },
-        { "id": "C", "text": "governs" },
-        { "id": "D", "text": "have governed" }
+        { "id": "A", "text": "to make" },
+        { "id": "B", "text": "made" },
+        { "id": "C", "text": "making" },
+        { "id": "D", "text": "having made" }
       ],
-      "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The subject is the singular \"The width,\" and an \"along with\" phrase does not make a singular subject plural, so the singular \"governs\" is correct.\n\n**The Full Solution:**\n- How to spot it: cross out everything between the subject and the blank, then check what is left. Phrases beginning with along with, as well as, or together with never change the subject's number.\n- Crossing out \"along with the depth of the chamber beneath it\" leaves \"The width of the entrance hole ______ which species will ever settle inside.\"\n- \"The width\" is singular, so it takes the singular \"governs.\"\n- Read it back: \"The width of the entrance hole...governs which species will ever settle inside.\"\n\n**Why the other choices are wrong:**\n- A: \"govern\" is plural; it treats the width and the depth as a joined pair, but an \"along with\" phrase is an aside, not part of the subject.\n- B: \"governing\" cannot act as the sentence's working verb, so nothing would carry the statement.\n- D: \"have governed\" is plural as well, so it does not fit the singular subject."
+      "correctAnswer": "B",
+      "explanation": "**Choice B is correct.** After the long opening description, the subject \"the crossing guards of a mid-century school district\" still has no real action word, and only the tensed \"made\" supplies one.\n\n**The Full Solution:**\n- How to spot it: every complete sentence needs a real, tensed action word. Forms like \"to make,\" \"making,\" and \"having made\" cannot do that job and leave you with a fragment.\n- The sentence opens with a long describing stretch: \"Chosen for their patience, trained to read the pace of oncoming cars, and posted at the same corner....\"\n- The subject is \"the crossing guards of a mid-century school district.\"\n- That subject needs a tensed action word, and \"made\" gives it one: \"the crossing guards...made a small ceremony out of the walk to school.\"\n\n**Why the other choices are wrong:**\n- A: \"to make\" is not tensed, so the sentence is left without a working action word.\n- C: \"making\" is an -ing word, which also cannot carry the sentence on its own.\n- D: \"having made\" is likewise untensed, so the fragment remains."
+    },
+    {
+      "id": 873,
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "band": 3,
+      "domain": "standard-english-conventions",
+      "skill": "boundaries",
+      "passage": "The load a winter mail carrier hauled over the passes—a canvas sack that often weighed more than sixty pounds at the start of a ______ rode high on the back, where it could not throw off a skier's balance on the long descents.",
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+        { "id": "A", "text": "trip," },
+        { "id": "B", "text": "trip;" },
+        { "id": "C", "text": "trip" },
+        { "id": "D", "text": "trip—" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "**Choice D is correct.** The extra description is opened with a dash after \"passes,\" so it has to be closed with a matching dash before the sentence goes on to \"rode high on the back.\"\n\n**The Full Solution:**\n- How to spot it: when extra information is set off in the middle of a sentence, whatever mark opens it must also close it. Look back for the opening mark before you choose.\n- The opening mark here is the dash right after \"over the passes.\"\n- The extra information is \"a canvas sack that often weighed more than sixty pounds at the start of a trip.\"\n- So the matching dash closes it, and the main sentence continues: \"The load...rode high on the back.\"\n\n**Why the other choices are wrong:**\n- A: A comma cannot close a description that a dash opened; the marks have to match.\n- B: A semicolon separates complete sentences, and what comes before it here is not one.\n- C: With no closing mark at all, the extra description runs straight into the verb."
     },
     // ============================================================
     // Q23-Q27: Expression of Ideas
@@ -481,24 +482,6 @@ export const practiceTest8RWM2Easy = {
       "explanation": "**Choice B is correct.** The last sentence reports what the siblings did because of the pattern they found, so the transition has to signal a conclusion drawn from evidence: \"Therefore.\"\n\n**The Full Solution:**\n- How to spot it: read the sentence before the blank and the sentence after it, then ask whether the second one FOLLOWS FROM the first, gives an example of it, or pushes against it.\n- Before the blank: a season of records shows the stand selling roughly twice as much on days the pool is open.\n- After the blank: the next summer, the siblings set up only on pool days.\n- The new schedule is what the pattern led them to do, so a conclusion word fits, and \"Therefore\" means \"for that reason.\"\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a contrast, but the schedule follows from the pattern rather than opposing it.\n- C: \"For example\" would make the new schedule an instance of the pattern, when it is a response to it.\n- D: \"Meanwhile\" sets two things side by side in time, but the sentence is drawing a conclusion, not marking time."
     },
     {
-      "id": 878,
-      "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
-      "domain": "expression-of-ideas",
-      "skill": "transitions",
-      "passage": "As a timekeeper, the sundial asks for almost nothing: it has no works to wind, no parts to oil, and nothing to break in the cold. ______ it demands one thing a clock never does—the sun itself—and so it stands silent through every overcast day and all of every night.",
-      "question": "Which choice completes the text with the most logical transition?",
-      "choices": [
-        { "id": "A", "text": "Similarly," },
-        { "id": "B", "text": "As a result," },
-        { "id": "C", "text": "In fact," },
-        { "id": "D", "text": "However," }
-      ],
-      "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The passage first praises the sundial for asking nothing, then turns to the one thing it cannot do without, so the transition has to mark that turn: \"However.\"\n\n**The Full Solution:**\n- How to spot it: line up what each side of the blank describes and check whether they match or clash.\n- Before the blank: no winding, no oiling, nothing to break, a list of demands the sundial does not make.\n- After the blank: one demand a clock never makes, the sun itself, and silence on cloudy days and at night.\n- Praise followed by a drawback is a clash, and \"However\" is the word that signals it.\n\n**Why the other choices are wrong:**\n- A: \"Similarly\" says the second half matches the first, but it reverses it.\n- B: \"As a result\" would mean the drawback is caused by the low upkeep, and the passage draws no such cause.\n- C: \"In fact\" strengthens the point that came before, but the second half undercuts it instead."
-    },
-    {
       "id": 879,
       "type": "multiple-choice",
       "difficulty": "hard",
@@ -515,6 +498,24 @@ export const practiceTest8RWM2Easy = {
       ],
       "correctAnswer": "A",
       "explanation": "**Choice A is correct.** The passage stacks up reasons the racks are an easy win, cheap to install and good for year-round ticket sales, then reports that many lines resisted anyway, so the transition has to concede that turn: \"Even so.\"\n\n**The Full Solution:**\n- How to spot it: name the tone of each side of the blank. If one side is favorable and the other names a catch, you need a contrast or concession word.\n- Before the blank: the racks cost almost nothing, and the riders they attract buy tickets in every season.\n- After the blank: many lines resisted for years, guarding deck space for the cars that paid more per crossing.\n- \"Even so\" grants the favorable case and then introduces the resistance, which is exactly the turn the passage makes.\n\n**Why the other choices are wrong:**\n- B: \"As a result\" would mean the low cost CAUSED the resistance, and the passage draws no such cause.\n- C: \"Likewise\" claims the two halves match, but the second one cuts against the first.\n- D: \"For instance\" would make the resistance an example of the racks' advantages, and it is not."
+    },
+    {
+      "id": 878,
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "band": 3,
+      "domain": "expression-of-ideas",
+      "skill": "transitions",
+      "passage": "As a timekeeper, the sundial asks for almost nothing: it has no works to wind, no parts to oil, and nothing to break in the cold. ______ it demands one thing a clock never does—the sun itself—and so it stands silent through every overcast day and all of every night.",
+      "question": "Which choice completes the text with the most logical transition?",
+      "choices": [
+        { "id": "A", "text": "Similarly," },
+        { "id": "B", "text": "As a result," },
+        { "id": "C", "text": "In fact," },
+        { "id": "D", "text": "However," }
+      ],
+      "correctAnswer": "D",
+      "explanation": "**Choice D is correct.** The passage first praises the sundial for asking nothing, then turns to the one thing it cannot do without, so the transition has to mark that turn: \"However.\"\n\n**The Full Solution:**\n- How to spot it: line up what each side of the blank describes and check whether they match or clash.\n- Before the blank: no winding, no oiling, nothing to break, a list of demands the sundial does not make.\n- After the blank: one demand a clock never makes, the sun itself, and silence on cloudy days and at night.\n- Praise followed by a drawback is a clash, and \"However\" is the word that signals it.\n\n**Why the other choices are wrong:**\n- A: \"Similarly\" says the second half matches the first, but it reverses it.\n- B: \"As a result\" would mean the drawback is caused by the low upkeep, and the passage draws no such cause.\n- C: \"In fact\" strengthens the point that came before, but the second half undercuts it instead."
     },
     {
       "id": 880,

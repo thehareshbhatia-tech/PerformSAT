@@ -1,4 +1,5 @@
 // Practice Test 9 — SAT Reading & Writing (R&W)
+// R&W seating varied 2026-09-07 (scripts/varyRWSeating.mjs): items re-dealt inside their official skill blocks with a per-test seed — block flow and per-skill counts unchanged.
 // Auto-assembled by scripts/assembleRWTest.mjs from the authored JSON in
 // scripts/generated/authored/test9/. Do not hand-edit this file —
 // re-run the assembler against the manifest to regenerate.
@@ -33,36 +34,6 @@ export const practiceTest9RW = {
       timeLimit: 32,
       questions: [
         {
-          "id": 901,
-          "type": "multiple-choice",
-          "difficulty": "easy",
-          "band": 2,
-          "domain": "craft-and-structure",
-          "skill": "words-in-context",
-          "passage": "In the desert city of Yazd, in central Iran, tall towers rise above the rooftops of many older houses. Travelers sometimes take the structures to be purely ______, but each tower is a working device: openings at its top catch passing breezes and channel them down into the rooms below, keeping the house livable through the hottest months.",
-          "question": "Which choice completes the text with the most logical and precise word or phrase?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "practical"
-            },
-            {
-              "id": "B",
-              "text": "traditional"
-            },
-            {
-              "id": "C",
-              "text": "fragile"
-            },
-            {
-              "id": "D",
-              "text": "decorative"
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The sentence sets up a contrast with \"but\": what travelers assume must be the opposite of \"a working device,\" and \"decorative\" — for show rather than for use — is that opposite.\n\n**The Full Solution:**\n- The clause after \"but\" corrects the travelers' assumption: the towers actually do a job, catching breezes and cooling the house.\n- The blank therefore needs a word meaning \"for appearance only,\" and \"purely decorative\" delivers exactly that mistaken impression.\n\n**Why the other choices are wrong:**\n- A: \"Practical\" is what the towers really are — it destroys the contrast the sentence builds with \"but.\"\n- B: The towers may well be traditional, but that quality sets up no contrast with \"a working device\" — the sentence opposes appearance to function, not old to new.\n- C: Nothing in the text concerns the towers' sturdiness, and \"fragile\" sets up no contrast with \"a working device.\""
-        },
-        {
           "id": 902,
           "type": "multiple-choice",
           "difficulty": "easy",
@@ -91,36 +62,6 @@ export const practiceTest9RW = {
           ],
           "correctAnswer": "B",
           "explanation": "**Choice B is correct.** The passage explains why decay stalls in a bog, so the moss's compounds must hold bacterial growth back — they \"suppress\" it.\n\n**The Full Solution:**\n- The opening states the effect to be explained: a bog is \"a difficult place for the microbes of decay.\"\n- Everything that follows is a cause of that difficulty — nutrients absorbed, cold oxygen-poor water — and the result is centuries of preservation.\n- The blank must continue the causal chain: compounds that hold bacteria down, which is what \"suppress\" means.\n\n**Why the other choices are wrong:**\n- A: \"Encourage\" reverses the logic — helped bacteria would mean faster decay, not preservation.\n- C: \"Conceal\" means to hide from view; bacteria are not being hidden, they are being stopped.\n- D: \"Imitate\" would have the compounds mimicking bacterial growth, an idea nothing in the passage supports."
-        },
-        {
-          "id": 903,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "craft-and-structure",
-          "skill": "words-in-context",
-          "passage": "The vicuña, a wild Andean relative of the alpaca, yields its prized fleece only ______: in the traditional roundups known as chaccu, herders gather the free-ranging animals no more than once every two to three years, shear a few ounces of fiber from each one, and release the herd unharmed.",
-          "question": "Which choice completes the text with the most logical and precise word or phrase?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "reluctantly"
-            },
-            {
-              "id": "B",
-              "text": "seasonally"
-            },
-            {
-              "id": "C",
-              "text": "sparingly"
-            },
-            {
-              "id": "D",
-              "text": "profitably"
-            }
-          ],
-          "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The clause after the colon restates the blank in concrete terms — shearing once every two to three years, a few ounces at a time — and \"sparingly\" is the word that sums up such small, infrequent yields.\n\n**The Full Solution:**\n- The colon signals that what follows spells out the blank's meaning.\n- The details are all about smallness and infrequency: gatherings years apart, mere ounces per animal.\n- \"Sparingly\" — in small amounts, with restraint — is the precise one-word restatement of that pattern.\n\n**Why the other choices are wrong:**\n- A: \"Reluctantly\" attributes unwillingness to an animal; the text describes quantity and frequency, not attitude.\n- B: \"Seasonally\" implies a yearly rhythm, but the roundups happen only once every two to three years.\n- D: \"Profitably\" concerns money, which the sentence never mentions; the colon's details describe scarcity, not earnings."
         },
         {
           "id": 904,
@@ -158,39 +99,64 @@ export const practiceTest9RW = {
           }
         },
         {
-          "id": 905,
+          "id": 901,
+          "type": "multiple-choice",
+          "difficulty": "easy",
+          "band": 2,
+          "domain": "craft-and-structure",
+          "skill": "words-in-context",
+          "passage": "In the desert city of Yazd, in central Iran, tall towers rise above the rooftops of many older houses. Travelers sometimes take the structures to be purely ______, but each tower is a working device: openings at its top catch passing breezes and channel them down into the rooms below, keeping the house livable through the hottest months.",
+          "question": "Which choice completes the text with the most logical and precise word or phrase?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "practical"
+            },
+            {
+              "id": "B",
+              "text": "traditional"
+            },
+            {
+              "id": "C",
+              "text": "fragile"
+            },
+            {
+              "id": "D",
+              "text": "decorative"
+            }
+          ],
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** The sentence sets up a contrast with \"but\": what travelers assume must be the opposite of \"a working device,\" and \"decorative\" — for show rather than for use — is that opposite.\n\n**The Full Solution:**\n- The clause after \"but\" corrects the travelers' assumption: the towers actually do a job, catching breezes and cooling the house.\n- The blank therefore needs a word meaning \"for appearance only,\" and \"purely decorative\" delivers exactly that mistaken impression.\n\n**Why the other choices are wrong:**\n- A: \"Practical\" is what the towers really are — it destroys the contrast the sentence builds with \"but.\"\n- B: The towers may well be traditional, but that quality sets up no contrast with \"a working device\" — the sentence opposes appearance to function, not old to new.\n- C: Nothing in the text concerns the towers' sturdiness, and \"fragile\" sets up no contrast with \"a working device.\""
+        },
+        {
+          "id": 903,
           "type": "multiple-choice",
           "difficulty": "medium",
           "band": 3,
           "domain": "craft-and-structure",
-          "skill": "text-structure-and-purpose",
-          "passage": "The following text is from Christina Rossetti's 1861 poem \"Up-Hill.\"\n\nDoes the road wind up-hill all the way? / Yes, to the very end. / Will the day's journey take the whole long day? / From morn to night, my friend. // But is there for the night a resting-place? / A roof for when the slow dark hours begin. / May not the darkness hide it from my face? / You cannot miss that inn.",
-          "question": "Which choice best describes the overall structure of the text?",
+          "skill": "words-in-context",
+          "passage": "The vicuña, a wild Andean relative of the alpaca, yields its prized fleece only ______: in the traditional roundups known as chaccu, herders gather the free-ranging animals no more than once every two to three years, shear a few ounces of fiber from each one, and release the herd unharmed.",
+          "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
               "id": "A",
-              "text": "One speaker describes a difficult journey in vivid detail, and a second speaker then argues that the journey is not worth undertaking."
+              "text": "reluctantly"
             },
             {
               "id": "B",
-              "text": "The text alternates between an account of a road by daylight and an account of the same road after nightfall."
+              "text": "seasonally"
             },
             {
               "id": "C",
-              "text": "A series of questions about a journey, each posed by one speaker, is answered in turn by a second speaker."
+              "text": "sparingly"
             },
             {
               "id": "D",
-              "text": "A traveler recalls the stages of a finished journey and reflects on the lessons each stage offered."
+              "text": "profitably"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Every line of the poem is either a question or its answer: one voice asks about the road, the day's length, a resting place, and finding it; a second voice answers each in turn.\n\n**The Full Solution:**\n- The alternation is strict — question, answer, question, answer — through both stanzas.\n- The answering voice is distinct from the asking voice (\"my friend,\" \"You cannot miss that inn\"), confirming a two-speaker exchange.\n- Choice C names exactly that structure: questions posed by one speaker, answered in turn by a second.\n\n**Why the other choices are wrong:**\n- A: No one argues against the journey — the answering voice reassures the questioner rather than discouraging the trip.\n- B: The day-night contrast belongs to the journey being asked about, not to the text's organization, which is dialogue rather than alternating description.\n- D: The journey has not happened yet — the questions look ahead to it — and no lessons are drawn from completed stages.",
-          "_meta": {
-            "anchor": "Christina Rossetti — \"Up-Hill\" (1861); genuine public-domain excerpt, stanzas 1-2 verbatim",
-            "quoteVerify": true,
-            "source": "Christina Rossetti, \"Up-Hill,\" first published in Macmillan's Magazine (1861), collected in Goblin Market and Other Poems (1862)"
-          }
+          "explanation": "**Choice C is correct.** The clause after the colon restates the blank in concrete terms — shearing once every two to three years, a few ounces at a time — and \"sparingly\" is the word that sums up such small, infrequent yields.\n\n**The Full Solution:**\n- The colon signals that what follows spells out the blank's meaning.\n- The details are all about smallness and infrequency: gatherings years apart, mere ounces per animal.\n- \"Sparingly\" — in small amounts, with restraint — is the precise one-word restatement of that pattern.\n\n**Why the other choices are wrong:**\n- A: \"Reluctantly\" attributes unwillingness to an animal; the text describes quantity and frequency, not attitude.\n- B: \"Seasonally\" implies a yearly rhythm, but the roundups happen only once every two to three years.\n- D: \"Profitably\" concerns money, which the sentence never mentions; the colon's details describe scarcity, not earnings."
         },
         {
           "id": 906,
@@ -225,6 +191,41 @@ export const practiceTest9RW = {
             "anchor": "Jerome K. Jerome — Three Men in a Boat (1889), opening; genuine public-domain excerpt",
             "quoteVerify": true,
             "source": "Jerome K. Jerome, Three Men in a Boat (To Say Nothing of the Dog), Chapter I (1889)"
+          }
+        },
+        {
+          "id": 905,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "craft-and-structure",
+          "skill": "text-structure-and-purpose",
+          "passage": "The following text is from Christina Rossetti's 1861 poem \"Up-Hill.\"\n\nDoes the road wind up-hill all the way? / Yes, to the very end. / Will the day's journey take the whole long day? / From morn to night, my friend. // But is there for the night a resting-place? / A roof for when the slow dark hours begin. / May not the darkness hide it from my face? / You cannot miss that inn.",
+          "question": "Which choice best describes the overall structure of the text?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "One speaker describes a difficult journey in vivid detail, and a second speaker then argues that the journey is not worth undertaking."
+            },
+            {
+              "id": "B",
+              "text": "The text alternates between an account of a road by daylight and an account of the same road after nightfall."
+            },
+            {
+              "id": "C",
+              "text": "A series of questions about a journey, each posed by one speaker, is answered in turn by a second speaker."
+            },
+            {
+              "id": "D",
+              "text": "A traveler recalls the stages of a finished journey and reflects on the lessons each stage offered."
+            }
+          ],
+          "correctAnswer": "C",
+          "explanation": "**Choice C is correct.** Every line of the poem is either a question or its answer: one voice asks about the road, the day's length, a resting place, and finding it; a second voice answers each in turn.\n\n**The Full Solution:**\n- The alternation is strict — question, answer, question, answer — through both stanzas.\n- The answering voice is distinct from the asking voice (\"my friend,\" \"You cannot miss that inn\"), confirming a two-speaker exchange.\n- Choice C names exactly that structure: questions posed by one speaker, answered in turn by a second.\n\n**Why the other choices are wrong:**\n- A: No one argues against the journey — the answering voice reassures the questioner rather than discouraging the trip.\n- B: The day-night contrast belongs to the journey being asked about, not to the text's organization, which is dialogue rather than alternating description.\n- D: The journey has not happened yet — the questions look ahead to it — and no lessons are drawn from completed stages.",
+          "_meta": {
+            "anchor": "Christina Rossetti — \"Up-Hill\" (1861); genuine public-domain excerpt, stanzas 1-2 verbatim",
+            "quoteVerify": true,
+            "source": "Christina Rossetti, \"Up-Hill,\" first published in Macmillan's Magazine (1861), collected in Goblin Market and Other Poems (1862)"
           }
         },
         {
@@ -300,6 +301,120 @@ export const practiceTest9RW = {
           }
         },
         {
+          "id": 911,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "information-and-ideas",
+          "skill": "central-ideas-and-details",
+          "passage": "Histories of the Pacific Coast salmon-canning industry long dwelt on fleets and machinery, treating the workforce as interchangeable hands. The canneries' own records tell another story. Labor contractors assembled experienced crews — largely Chinese, and later Japanese and Filipino, immigrants — whose members held distinct skilled positions, from butchers who could clean a fish in seconds to solderers whose seams determined whether a can spoiled. The quality of a season's pack varied with the crew, and cannery owners competed to engage the most practiced ones. The industry's output, in short, rested on expertise its own chroniclers rarely acknowledged.",
+          "question": "Which choice best states the main idea of the text?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Salmon canneries on the Pacific Coast succeeded largely because new machinery eliminated the industry's need for experienced and specialized workers at every station."
+            },
+            {
+              "id": "B",
+              "text": "Labor contractors weakened the canning industry by forcing owners to compete for a limited number of crews."
+            },
+            {
+              "id": "C",
+              "text": "The salmon-canning industry's records were kept too carelessly to reveal much about how its workforce was organized."
+            },
+            {
+              "id": "D",
+              "text": "Cannery records show that the salmon-packing workforce, far from being interchangeable, was organized around specialized skills on which the industry's output depended."
+            }
+          ],
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** The text corrects an old picture: histories treated cannery workers as \"interchangeable hands,\" but the records reveal skilled, differentiated crews whose expertise determined the pack. Choice D states that corrected view.\n\n**The Full Solution:**\n- The first sentence gives the received account; the second announces the correction (\"tell another story\").\n- The evidence follows: distinct skilled positions, pack quality varying with the crew, owners competing for the best ones.\n- The final sentence draws the conclusion D paraphrases — output rested on unacknowledged expertise.\n\n**Why the other choices are wrong:**\n- A: It repeats the machinery-centered account the text is written to correct, and the passage says skill, not automation, drove output.\n- B: Owners' competition for crews is presented as proof of the crews' value, not as a weakness of the industry.\n- C: The records are the text's best evidence — they are revealing, not careless."
+        },
+        {
+          "id": 916,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "information-and-ideas",
+          "skill": "inferences",
+          "passage": "A nocturnal is a small instrument, usually of brass or boxwood, that tells time at night from the rotation of the stars around the celestial pole. Surviving examples range from richly engraved presentation pieces to plain instruments worn smooth by years of handling, and household and shipboard inventories of the sixteenth and seventeenth centuries list nocturnals among the effects of pilots, surveyors, and estate stewards alike. The period's instruction manuals, meanwhile, explain the nocturnal's use in everyday vernacular languages rather than in scholarly Latin. Taken together, these details suggest that ______",
+          "question": "Which choice most logically completes the text?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "most nocturnals were commissioned as ornamental gifts and were rarely used to tell time at all."
+            },
+            {
+              "id": "B",
+              "text": "the nocturnal was a practical tool in reasonably wide working use, not merely a curiosity for wealthy collectors."
+            },
+            {
+              "id": "C",
+              "text": "reading a nocturnal demanded formal astronomical training that few laypeople of the period possessed."
+            },
+            {
+              "id": "D",
+              "text": "nocturnals had displaced sundials as the most common timekeeping instruments of the era."
+            }
+          ],
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** Each detail points the same way — toward ordinary, working use by a range of people — and B draws exactly that general conclusion, without going beyond it.\n\n**The Full Solution:**\n- Instruments \"worn smooth by years of handling\" were used, not displayed.\n- Inventories place them with pilots, surveyors, and stewards — working occupations, not just collectors.\n- Vernacular manuals imply an audience of ordinary readers rather than Latin-trained scholars.\n- The generalization these premises support is practical, fairly widespread use — precisely B.\n\n**Why the other choices are wrong:**\n- A: The worn, plain examples and the working owners contradict a picture of unused ornaments.\n- C: Vernacular instructions argue the opposite — the device was explained for readers without scholarly training.\n- D: The text never mentions sundials or compares the instruments' popularity; \"most common\" outruns the evidence entirely."
+        },
+        {
+          "id": 914,
+          "type": "multiple-choice",
+          "difficulty": "hard",
+          "band": 4,
+          "domain": "information-and-ideas",
+          "skill": "command-of-evidence-quantitative",
+          "passage": "When deep artesian wells were first bored into the confined aquifer beneath Paris in the nineteenth century, water rose to the surface under natural pressure alone. Hydrologists note that each new borehole drew on the same body of pressurized groundwater, and they conclude that the aquifer's pressure was falling steadily through the second half of the century because ______",
+          "questionTable": {
+            "type": "table",
+            "caption": "Flow of two artesian wells in Paris",
+            "headers": [
+              "Well",
+              "Year completed",
+              "Initial flow (cubic meters per day)",
+              "Flow in 1900 (cubic meters per day)"
+            ],
+            "rows": [
+              [
+                "Grenelle",
+                "1841",
+                "3,600",
+                "800"
+              ],
+              [
+                "Passy",
+                "1861",
+                "17,000",
+                "5,900"
+              ]
+            ]
+          },
+          "question": "Which choice most effectively uses data from the table to complete the statement?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "the Passy well's initial flow, at 17,000 cubic meters per day, was nearly five times the Grenelle well's initial flow."
+            },
+            {
+              "id": "B",
+              "text": "the Grenelle well was completed twenty years before drilling of the Passy well finished."
+            },
+            {
+              "id": "C",
+              "text": "by 1900 the Grenelle well's flow had fallen from 3,600 cubic meters per day to 800, and the Passy well's had fallen from 17,000 to 5,900 in barely four decades."
+            },
+            {
+              "id": "D",
+              "text": "the Passy well still delivered more water in 1900 than the Grenelle well had delivered when it was first completed."
+            }
+          ],
+          "correctAnswer": "C",
+          "explanation": "**Choice C is correct.** A claim about steadily falling pressure needs evidence of decline over time at the wells drawing on the aquifer, and C alone provides it: both wells' flows collapsed to a fraction of their initial rates by 1900.\n\n**The Full Solution:**\n- Flow from an artesian well is driven by aquifer pressure, so falling flow is the table's proxy for falling pressure.\n- C reads the decline out of both rows — Grenelle down almost 80 percent, Passy down two-thirds within four decades — matching the claim's scope (the aquifer, not one well).\n\n**Why the other choices are wrong:**\n- A: A comparison of the two wells' starting flows describes their size, not any change in pressure over time.\n- B: The completion dates alone contain no information about flow or pressure.\n- D: True in the table, but it invites the wrong inference — highlighting how much the Passy well still produced obscures the fact that both wells' flows were falling sharply."
+        },
+        {
           "id": 909,
           "type": "multiple-choice",
           "difficulty": "medium",
@@ -358,66 +473,6 @@ export const practiceTest9RW = {
           ],
           "correctAnswer": "B",
           "explanation": "**Choice B is correct.** The text states the reason directly: the pitch \"is set by the tongue's own length and stiffness rather than by anything the player does.\"\n\n**The Full Solution:**\n- The question asks for the text's stated cause, and the third sentence supplies it in so many words.\n- The consequence follows in the same sentence: harder blowing changes loudness, not pitch — confirming that the note is fixed by the tongue's physical properties.\n\n**Why the other choices are wrong:**\n- A: The text never says the slot changes size; it is described only as \"close-fitting.\"\n- C: The explanation given is mechanical, not a matter of player skill — the text says the pitch is set \"rather than by anything the player does.\"\n- D: The rivet appears only as the tongue's mounting; no force-absorbing role is mentioned anywhere."
-        },
-        {
-          "id": 911,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "information-and-ideas",
-          "skill": "central-ideas-and-details",
-          "passage": "Histories of the Pacific Coast salmon-canning industry long dwelt on fleets and machinery, treating the workforce as interchangeable hands. The canneries' own records tell another story. Labor contractors assembled experienced crews — largely Chinese, and later Japanese and Filipino, immigrants — whose members held distinct skilled positions, from butchers who could clean a fish in seconds to solderers whose seams determined whether a can spoiled. The quality of a season's pack varied with the crew, and cannery owners competed to engage the most practiced ones. The industry's output, in short, rested on expertise its own chroniclers rarely acknowledged.",
-          "question": "Which choice best states the main idea of the text?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "Salmon canneries on the Pacific Coast succeeded largely because new machinery eliminated the industry's need for experienced and specialized workers at every station."
-            },
-            {
-              "id": "B",
-              "text": "Labor contractors weakened the canning industry by forcing owners to compete for a limited number of crews."
-            },
-            {
-              "id": "C",
-              "text": "The salmon-canning industry's records were kept too carelessly to reveal much about how its workforce was organized."
-            },
-            {
-              "id": "D",
-              "text": "Cannery records show that the salmon-packing workforce, far from being interchangeable, was organized around specialized skills on which the industry's output depended."
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text corrects an old picture: histories treated cannery workers as \"interchangeable hands,\" but the records reveal skilled, differentiated crews whose expertise determined the pack. Choice D states that corrected view.\n\n**The Full Solution:**\n- The first sentence gives the received account; the second announces the correction (\"tell another story\").\n- The evidence follows: distinct skilled positions, pack quality varying with the crew, owners competing for the best ones.\n- The final sentence draws the conclusion D paraphrases — output rested on unacknowledged expertise.\n\n**Why the other choices are wrong:**\n- A: It repeats the machinery-centered account the text is written to correct, and the passage says skill, not automation, drove output.\n- B: Owners' competition for crews is presented as proof of the crews' value, not as a weakness of the industry.\n- C: The records are the text's best evidence — they are revealing, not careless."
-        },
-        {
-          "id": 912,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "information-and-ideas",
-          "skill": "command-of-evidence-textual",
-          "passage": "Seabird ecologists commonly estimate the size of cliff-nesting colonies from photographs taken during the breeding season, counting every bird visible on the ledges. A monitoring team argues that such counts systematically understate the number of breeding pairs, since at any given moment one member of a pair is typically away from the ledge, feeding at sea.",
-          "question": "Which finding, if true, would most directly support the team's claim?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "At colonies where breeding pairs were individually tracked at their nest sites, single-day ledge photographs captured only about two-thirds of the pairs known to be breeding there."
-            },
-            {
-              "id": "B",
-              "text": "Photographic counts of the same colony taken in successive years often differ from one another by more than ten percent."
-            },
-            {
-              "id": "C",
-              "text": "Birds visible on the ledges in photographs include some nonbreeding individuals that have not formed pairs."
-            },
-            {
-              "id": "D",
-              "text": "Photographic counts of cliff colonies are generally made by two independent observers, whose totals for the same photographed image can differ from each other by several percentage points."
-            }
-          ],
-          "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The claim is that photographs undercount breeding pairs. A finding that photographs captured only two-thirds of pairs independently verified at their nests is direct evidence of exactly that shortfall.\n\n**The Full Solution:**\n- To support an undercount claim, a finding must compare photographic counts against a more complete, independent measure of the same colonies.\n- Choice A supplies that comparison — tracked pairs as ground truth, photographs falling a third short — in the direction the team predicts.\n\n**Why the other choices are wrong:**\n- B: Year-to-year variation shows the counts are noisy, not that they are biased low; the differences could run in either direction.\n- C: Nonbreeders on the ledges would inflate the count of apparent breeders — evidence for an overcount, the opposite of the claim.\n- D: Disagreement between observers reading the same image is measurement noise; it says nothing about how photographic counts compare with the true number of pairs."
         },
         {
           "id": 913,
@@ -486,58 +541,34 @@ export const practiceTest9RW = {
           "explanation": "**Choice C is correct.** The economists' account rests on two factors together — fineness and scarcity — so the completing evidence must document both, and only C does: the finest fiber in the table and by far the smallest, least frequent yield.\n\n**The Full Solution:**\n- Fineness: the vicuña's 12.5 microns is the lowest diameter listed.\n- Scarcity: 0.2 kilograms per shearing, and only every two years — roughly a twenty-fifth of the alpaca's annual output.\n- C cites both columns in one comparison, matching the claim's two-factor structure.\n\n**Why the other choices are wrong:**\n- A: A fact about the alpaca's coarseness alone touches one factor for the wrong animal and says nothing about scarcity.\n- B: The merino's large yield is true in the table but irrelevant to why vicuña fiber commands a premium.\n- D: A comparison between cashmere and alpaca never engages the vicuña, the animal the claim is about."
         },
         {
-          "id": 914,
+          "id": 912,
           "type": "multiple-choice",
-          "difficulty": "hard",
-          "band": 4,
+          "difficulty": "medium",
+          "band": 3,
           "domain": "information-and-ideas",
-          "skill": "command-of-evidence-quantitative",
-          "passage": "When deep artesian wells were first bored into the confined aquifer beneath Paris in the nineteenth century, water rose to the surface under natural pressure alone. Hydrologists note that each new borehole drew on the same body of pressurized groundwater, and they conclude that the aquifer's pressure was falling steadily through the second half of the century because ______",
-          "questionTable": {
-            "type": "table",
-            "caption": "Flow of two artesian wells in Paris",
-            "headers": [
-              "Well",
-              "Year completed",
-              "Initial flow (cubic meters per day)",
-              "Flow in 1900 (cubic meters per day)"
-            ],
-            "rows": [
-              [
-                "Grenelle",
-                "1841",
-                "3,600",
-                "800"
-              ],
-              [
-                "Passy",
-                "1861",
-                "17,000",
-                "5,900"
-              ]
-            ]
-          },
-          "question": "Which choice most effectively uses data from the table to complete the statement?",
+          "skill": "command-of-evidence-textual",
+          "passage": "Seabird ecologists commonly estimate the size of cliff-nesting colonies from photographs taken during the breeding season, counting every bird visible on the ledges. A monitoring team argues that such counts systematically understate the number of breeding pairs, since at any given moment one member of a pair is typically away from the ledge, feeding at sea.",
+          "question": "Which finding, if true, would most directly support the team's claim?",
           "choices": [
             {
               "id": "A",
-              "text": "the Passy well's initial flow, at 17,000 cubic meters per day, was nearly five times the Grenelle well's initial flow."
+              "text": "At colonies where breeding pairs were individually tracked at their nest sites, single-day ledge photographs captured only about two-thirds of the pairs known to be breeding there."
             },
             {
               "id": "B",
-              "text": "the Grenelle well was completed twenty years before drilling of the Passy well finished."
+              "text": "Photographic counts of the same colony taken in successive years often differ from one another by more than ten percent."
             },
             {
               "id": "C",
-              "text": "by 1900 the Grenelle well's flow had fallen from 3,600 cubic meters per day to 800, and the Passy well's had fallen from 17,000 to 5,900 in barely four decades."
+              "text": "Birds visible on the ledges in photographs include some nonbreeding individuals that have not formed pairs."
             },
             {
               "id": "D",
-              "text": "the Passy well still delivered more water in 1900 than the Grenelle well had delivered when it was first completed."
+              "text": "Photographic counts of cliff colonies are generally made by two independent observers, whose totals for the same photographed image can differ from each other by several percentage points."
             }
           ],
-          "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** A claim about steadily falling pressure needs evidence of decline over time at the wells drawing on the aquifer, and C alone provides it: both wells' flows collapsed to a fraction of their initial rates by 1900.\n\n**The Full Solution:**\n- Flow from an artesian well is driven by aquifer pressure, so falling flow is the table's proxy for falling pressure.\n- C reads the decline out of both rows — Grenelle down almost 80 percent, Passy down two-thirds within four decades — matching the claim's scope (the aquifer, not one well).\n\n**Why the other choices are wrong:**\n- A: A comparison of the two wells' starting flows describes their size, not any change in pressure over time.\n- B: The completion dates alone contain no information about flow or pressure.\n- D: True in the table, but it invites the wrong inference — highlighting how much the Passy well still produced obscures the fact that both wells' flows were falling sharply."
+          "correctAnswer": "A",
+          "explanation": "**Choice A is correct.** The claim is that photographs undercount breeding pairs. A finding that photographs captured only two-thirds of pairs independently verified at their nests is direct evidence of exactly that shortfall.\n\n**The Full Solution:**\n- To support an undercount claim, a finding must compare photographic counts against a more complete, independent measure of the same colonies.\n- Choice A supplies that comparison — tracked pairs as ground truth, photographs falling a third short — in the direction the team predicts.\n\n**Why the other choices are wrong:**\n- B: Year-to-year variation shows the counts are noisy, not that they are biased low; the differences could run in either direction.\n- C: Nonbreeders on the ledges would inflate the count of apparent breeders — evidence for an overcount, the opposite of the claim.\n- D: Disagreement between observers reading the same image is measurement noise; it says nothing about how photographic counts compare with the true number of pairs."
         },
         {
           "id": 915,
@@ -571,36 +602,6 @@ export const practiceTest9RW = {
           "_meta": {
             "anchor": "Georg Wilhelm Steller — naturalist on the 1741 Bering expedition; registered in researchers.json"
           }
-        },
-        {
-          "id": 916,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "information-and-ideas",
-          "skill": "inferences",
-          "passage": "A nocturnal is a small instrument, usually of brass or boxwood, that tells time at night from the rotation of the stars around the celestial pole. Surviving examples range from richly engraved presentation pieces to plain instruments worn smooth by years of handling, and household and shipboard inventories of the sixteenth and seventeenth centuries list nocturnals among the effects of pilots, surveyors, and estate stewards alike. The period's instruction manuals, meanwhile, explain the nocturnal's use in everyday vernacular languages rather than in scholarly Latin. Taken together, these details suggest that ______",
-          "question": "Which choice most logically completes the text?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "most nocturnals were commissioned as ornamental gifts and were rarely used to tell time at all."
-            },
-            {
-              "id": "B",
-              "text": "the nocturnal was a practical tool in reasonably wide working use, not merely a curiosity for wealthy collectors."
-            },
-            {
-              "id": "C",
-              "text": "reading a nocturnal demanded formal astronomical training that few laypeople of the period possessed."
-            },
-            {
-              "id": "D",
-              "text": "nocturnals had displaced sundials as the most common timekeeping instruments of the era."
-            }
-          ],
-          "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Each detail points the same way — toward ordinary, working use by a range of people — and B draws exactly that general conclusion, without going beyond it.\n\n**The Full Solution:**\n- Instruments \"worn smooth by years of handling\" were used, not displayed.\n- Inventories place them with pilots, surveyors, and stewards — working occupations, not just collectors.\n- Vernacular manuals imply an audience of ordinary readers rather than Latin-trained scholars.\n- The generalization these premises support is practical, fairly widespread use — precisely B.\n\n**Why the other choices are wrong:**\n- A: The worn, plain examples and the working owners contradict a picture of unused ornaments.\n- C: Vernacular instructions argue the opposite — the device was explained for readers without scholarly training.\n- D: The text never mentions sundials or compares the instruments' popularity; \"most common\" outruns the evidence entirely."
         },
         {
           "id": 917,
@@ -663,36 +664,6 @@ export const practiceTest9RW = {
           "explanation": "**Choice D is correct.** The subject is the singular \"network,\" so the verb must be the singular \"provides.\"\n\n**The Full Solution:**\n- \"Of river gauges strung along the lower Mississippi\" is a prepositional phrase between subject and verb; it does not change the subject's number.\n- Strip the phrase and the agreement is plain: \"A network... provides forecasters with hourly readings.\"\n\n**Why the other choices are wrong:**\n- A: A plural verb agreeing with the nearby \"gauges\" rather than with the true subject — the classic nearest-noun trap.\n- B: Plural again, and the progressive adds nothing the sentence needs.\n- C: The plural \"have\" fails agreement, and the perfect tense clashes with the sentence's statement of an ongoing arrangement."
         },
         {
-          "id": 919,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "standard-english-conventions",
-          "skill": "boundaries",
-          "passage": "Because Chappe's optical telegraph depended on each operator reading the arms of the neighboring station through a ______ fog or nightfall could halt a message halfway down the line, leaving it stranded until morning.",
-          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "telescope,"
-            },
-            {
-              "id": "B",
-              "text": "telescope"
-            },
-            {
-              "id": "C",
-              "text": "telescope;"
-            },
-            {
-              "id": "D",
-              "text": "telescope:"
-            }
-          ],
-          "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The sentence opens with a dependent \"Because...\" clause, and the conventional boundary between an introductory dependent clause and the main clause is a comma.\n\n**The Full Solution:**\n- \"Because Chappe's optical telegraph depended on each operator reading the arms of the neighboring station through a telescope\" cannot stand alone — \"Because\" makes it subordinate.\n- The main clause follows: \"fog or nightfall could halt a message halfway down the line.\"\n- A comma is the mark that joins an introductory subordinate clause to the sentence it modifies.\n\n**Why the other choices are wrong:**\n- B: Omitting the comma runs the long introductory clause straight into the main clause, obscuring where one ends and the other begins.\n- C: A semicolon must separate two independent clauses, and the \"Because\" clause is not independent.\n- D: A colon must follow a complete statement that introduces what comes next; a dependent clause cannot support one."
-        },
-        {
           "id": 920,
           "type": "multiple-choice",
           "difficulty": "medium",
@@ -721,36 +692,6 @@ export const practiceTest9RW = {
           ],
           "correctAnswer": "B",
           "explanation": "**Choice B is correct.** The sentence describes one past event completed before another past event — the years of training came before the copies circulated — and that sequence takes the past perfect, \"had spent.\"\n\n**The Full Solution:**\n- The time frame is anchored in the past: \"By the time the first copies circulated...\"\n- The training preceded that past moment, so the verb must reach further back than simple past: \"he had spent more than thirty years.\"\n\n**Why the other choices are wrong:**\n- A: The present tense breaks the passage's past narrative frame.\n- C: The present perfect connects a past action to the present moment, but the reference point here (\"circulated\") is itself in the past.\n- D: The future perfect points forward from now, which contradicts events set in the thirteenth century."
-        },
-        {
-          "id": 921,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "standard-english-conventions",
-          "skill": "boundaries",
-          "passage": "Inside a nineteenth-century salmon cannery, the contract system divided the season's work into a fixed sequence of ______ butchering, cleaning, filling, cooking, and labeling. Each crew was paid by the finished case, not by the hour, so speed at every station mattered.",
-          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "operations,"
-            },
-            {
-              "id": "B",
-              "text": "operations;"
-            },
-            {
-              "id": "C",
-              "text": "operations"
-            },
-            {
-              "id": "D",
-              "text": "operations:"
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** A complete statement introduces a list of the operations, and the conventional mark before such a list is a colon.\n\n**The Full Solution:**\n- \"The contract system divided the season's work into a fixed sequence of operations\" is a full independent clause.\n- What follows — \"butchering, cleaning, filling, cooking, and labeling\" — itemizes the operations just announced.\n- A colon after a complete statement is the mark that formally introduces that itemization.\n\n**Why the other choices are wrong:**\n- A: A comma leaves the list dangling as if it were one more item in the sentence's own grammar, blurring where the announcement ends and the list begins.\n- B: A semicolon must join two independent clauses; the list of gerunds is not a clause.\n- C: With no mark at all, \"operations butchering\" collides — the list needs a boundary to introduce it."
         },
         {
           "id": 922,
@@ -783,34 +724,64 @@ export const practiceTest9RW = {
           "explanation": "**Choice C is correct.** The subject is the singular pronoun \"Neither,\" which takes a singular verb: \"retains.\"\n\n**The Full Solution:**\n- \"Of the two brass nocturnals recovered from the shipwreck\" is a prepositional phrase; the plural \"nocturnals\" inside it is not the subject.\n- \"Neither\" is grammatically singular — it means \"not one of the two\" — so the verb must be singular, as the singular pronoun \"its\" later in the clause confirms.\n\n**Why the other choices are wrong:**\n- A: A plural verb drawn to the nearby \"nocturnals\" rather than to the singular subject \"Neither.\"\n- B: Plural again, and the progressive misdescribes a settled state as an ongoing action.\n- D: \"Have retained\" is plural; the singular subject would require \"has retained.\""
         },
         {
-          "id": 923,
+          "id": 919,
           "type": "multiple-choice",
           "difficulty": "medium",
           "band": 3,
-          "domain": "expression-of-ideas",
-          "skill": "transitions",
-          "passage": "The ogham script, carved as short strokes along the edges of standing stones in early medieval Ireland, was once assumed to be a secret writing system legible only to a small learned elite. ______ the inscriptions themselves record little more than personal names and lines of descent — the sort of information a memorial or a boundary marker would be expected to announce to any passerby.",
-          "question": "Which choice completes the text with the most logical transition?",
+          "domain": "standard-english-conventions",
+          "skill": "boundaries",
+          "passage": "Because Chappe's optical telegraph depended on each operator reading the arms of the neighboring station through a ______ fog or nightfall could halt a message halfway down the line, leaving it stranded until morning.",
+          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "For example,"
+              "text": "telescope,"
             },
             {
               "id": "B",
-              "text": "However,"
+              "text": "telescope"
             },
             {
               "id": "C",
-              "text": "Meanwhile,"
+              "text": "telescope;"
             },
             {
               "id": "D",
-              "text": "Similarly,"
+              "text": "telescope:"
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The second sentence pushes against the first: a script assumed to be secret turns out to record ordinary, public information. That reversal calls for the contrast transition \"However.\"\n\n**The Full Solution:**\n- Sentence one reports an old assumption — ogham as an elite code.\n- Sentence two presents evidence that undercuts it: the inscriptions carry names and lineages meant \"to announce to any passerby.\"\n- A claim followed by evidence against it is joined by a contrast word.\n\n**Why the other choices are wrong:**\n- A: \"For example\" would make the plain inscriptions an illustration of secrecy, when they are evidence against it.\n- C: \"Meanwhile\" signals simultaneous events, but no second timeline exists here.\n- D: \"Similarly\" promises agreement between the sentences, and the second exists to disagree with the first."
+          "correctAnswer": "A",
+          "explanation": "**Choice A is correct.** The sentence opens with a dependent \"Because...\" clause, and the conventional boundary between an introductory dependent clause and the main clause is a comma.\n\n**The Full Solution:**\n- \"Because Chappe's optical telegraph depended on each operator reading the arms of the neighboring station through a telescope\" cannot stand alone — \"Because\" makes it subordinate.\n- The main clause follows: \"fog or nightfall could halt a message halfway down the line.\"\n- A comma is the mark that joins an introductory subordinate clause to the sentence it modifies.\n\n**Why the other choices are wrong:**\n- B: Omitting the comma runs the long introductory clause straight into the main clause, obscuring where one ends and the other begins.\n- C: A semicolon must separate two independent clauses, and the \"Because\" clause is not independent.\n- D: A colon must follow a complete statement that introduces what comes next; a dependent clause cannot support one."
+        },
+        {
+          "id": 921,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "standard-english-conventions",
+          "skill": "boundaries",
+          "passage": "Inside a nineteenth-century salmon cannery, the contract system divided the season's work into a fixed sequence of ______ butchering, cleaning, filling, cooking, and labeling. Each crew was paid by the finished case, not by the hour, so speed at every station mattered.",
+          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "operations,"
+            },
+            {
+              "id": "B",
+              "text": "operations;"
+            },
+            {
+              "id": "C",
+              "text": "operations"
+            },
+            {
+              "id": "D",
+              "text": "operations:"
+            }
+          ],
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** A complete statement introduces a list of the operations, and the conventional mark before such a list is a colon.\n\n**The Full Solution:**\n- \"The contract system divided the season's work into a fixed sequence of operations\" is a full independent clause.\n- What follows — \"butchering, cleaning, filling, cooking, and labeling\" — itemizes the operations just announced.\n- A colon after a complete statement is the mark that formally introduces that itemization.\n\n**Why the other choices are wrong:**\n- A: A comma leaves the list dangling as if it were one more item in the sentence's own grammar, blurring where the announcement ends and the list begins.\n- B: A semicolon must join two independent clauses; the list of gerunds is not a clause.\n- C: With no mark at all, \"operations butchering\" collides — the list needs a boundary to introduce it."
         },
         {
           "id": 924,
@@ -871,6 +842,36 @@ export const practiceTest9RW = {
           ],
           "correctAnswer": "A",
           "explanation": "**Choice A is correct.** The passage stacks a second advantage on top of a first — speed, and then security — so the blank needs an additive transition: \"Moreover.\"\n\n**The Full Solution:**\n- Sentence one establishes one benefit of the system: startling speed compared with a courier.\n- Sentence two introduces a different, independent benefit: operators relayed positions without reading content.\n- Two parallel advantages of the same system are joined by addition, not contrast, illustration, or sequence.\n\n**Why the other choices are wrong:**\n- B: \"Instead\" would replace the first advantage with the second, but both hold at once.\n- C: \"Specifically\" promises a narrower restatement of the speed claim, and the security point is a new idea, not a restatement.\n- D: \"Subsequently\" imposes a time order on two features that coexisted from the start."
+        },
+        {
+          "id": 923,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "expression-of-ideas",
+          "skill": "transitions",
+          "passage": "The ogham script, carved as short strokes along the edges of standing stones in early medieval Ireland, was once assumed to be a secret writing system legible only to a small learned elite. ______ the inscriptions themselves record little more than personal names and lines of descent — the sort of information a memorial or a boundary marker would be expected to announce to any passerby.",
+          "question": "Which choice completes the text with the most logical transition?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "For example,"
+            },
+            {
+              "id": "B",
+              "text": "However,"
+            },
+            {
+              "id": "C",
+              "text": "Meanwhile,"
+            },
+            {
+              "id": "D",
+              "text": "Similarly,"
+            }
+          ],
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** The second sentence pushes against the first: a script assumed to be secret turns out to record ordinary, public information. That reversal calls for the contrast transition \"However.\"\n\n**The Full Solution:**\n- Sentence one reports an old assumption — ogham as an elite code.\n- Sentence two presents evidence that undercuts it: the inscriptions carry names and lineages meant \"to announce to any passerby.\"\n- A claim followed by evidence against it is joined by a contrast word.\n\n**Why the other choices are wrong:**\n- A: \"For example\" would make the plain inscriptions an illustration of secrecy, when they are evidence against it.\n- C: \"Meanwhile\" signals simultaneous events, but no second timeline exists here.\n- D: \"Similarly\" promises agreement between the sentences, and the second exists to disagree with the first."
         },
         {
           "id": 926,
@@ -960,36 +961,6 @@ export const practiceTest9RW = {
       timeLimit: 32,
       questions: [
         {
-          "id": 928,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "craft-and-structure",
-          "skill": "words-in-context",
-          "passage": "Steller's sea cow grazed on kelp in the shallowest water along the shore, and its buoyant body could not fully submerge. Because the animals could neither dive out of reach nor swim quickly away, hunting parties found them easy to ______, and crews provisioning their ships in the Bering Sea took the slow-breeding animals faster than the small population could replace them.",
-          "question": "Which choice completes the text with the most logical and precise word or phrase?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "overlook"
-            },
-            {
-              "id": "B",
-              "text": "approach"
-            },
-            {
-              "id": "C",
-              "text": "domesticate"
-            },
-            {
-              "id": "D",
-              "text": "describe"
-            }
-          ],
-          "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The \"Because\" clause supplies the cause — the animals could not dive or flee — and the blank must name the effect that follows for hunters: the sea cows were easy to \"approach.\"\n\n**The Full Solution:**\n- The logic is causal: an animal that cannot escape is an animal a hunting party can get close to.\n- The rest of the sentence confirms the hunting context — crews \"took\" the animals for provisions — so the blank describes the step that made the killing easy.\n\n**Why the other choices are wrong:**\n- A: \"Overlook\" means to fail to notice, which would make the animals harder to hunt, not easier — the causal chain collapses.\n- C: Nothing in the passage involves taming; the crews wanted provisions, not livestock.\n- D: Ease of description has no connection to the inability to dive or flee, and the sentence's consequence is depletion, not documentation."
-        },
-        {
           "id": 929,
           "type": "multiple-choice",
           "difficulty": "medium",
@@ -1018,6 +989,66 @@ export const practiceTest9RW = {
           ],
           "correctAnswer": "A",
           "explanation": "**Choice A is correct.** The blank is restated on both sides: \"no specialized training\" before it, \"three motions and a glance\" after it. The word that sums up both is \"straightforward.\"\n\n**The Full Solution:**\n- The passage opens by declaring the procedure easy and closes by compressing it into three motions.\n- The appositive after the blank (\"a matter of three motions and a glance\") is a direct paraphrase of the missing word, so the blank must mean simple and easily done.\n\n**Why the other choices are wrong:**\n- B: \"Incomprehensible\" reverses the passage's whole point — a procedure needing \"no specialized training\" is the opposite of one that cannot be understood.\n- C: \"Tedious\" implies long, wearying effort — the opposite of three motions and a glance.\n- D: \"Ingenious\" would praise the instrument's cleverness, but the sentence characterizes how easy the procedure is for its user, not how inventive its design is."
+        },
+        {
+          "id": 931,
+          "type": "multiple-choice",
+          "difficulty": "hard",
+          "band": 4,
+          "domain": "craft-and-structure",
+          "skill": "words-in-context",
+          "passage": "When the Chinese sheng — a mouth organ of seventeen bamboo pipes bundled upright in a wind chest — first reached European courts in the eighteenth century, listeners who judged instruments by appearance expected the crowded pipes to sound ______; instead, the free reeds spoke together in a blend so even that observers compared the instrument to a small organ.",
+          "question": "Which choice completes the text with the most logical and precise word or phrase?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "resonant"
+            },
+            {
+              "id": "B",
+              "text": "cacophonous"
+            },
+            {
+              "id": "C",
+              "text": "muted"
+            },
+            {
+              "id": "D",
+              "text": "overwhelming"
+            }
+          ],
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** \"Instead\" reverses the expectation, and what actually happened was \"a blend so even\" it recalled an organ. The expectation must therefore have been the opposite of an even blend — a harsh jumble of sounds, which is what \"cacophonous\" means.\n\n**The Full Solution:**\n- The listeners reasoned from looks: seventeen pipes crowded together suggest seventeen competing voices.\n- \"Instead\" tells us the actual sound contradicted that expectation; the actual sound was smooth and unified.\n- The blank must name the contradicted expectation: discordant noise — \"cacophonous.\"\n\n**Why the other choices are wrong:**\n- A: \"Resonant\" is a virtue, not the opposite of an even, organ-like blend — no contradiction for \"instead\" to signal.\n- C: \"Muted\" concerns volume; the surprise in the text is about blend and evenness, not loudness or softness.\n- D: \"Overwhelming\" concerns force rather than order; the reversal in the text is from expected disorder to an even blend, not from loudness to restraint."
+        },
+        {
+          "id": 928,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "craft-and-structure",
+          "skill": "words-in-context",
+          "passage": "Steller's sea cow grazed on kelp in the shallowest water along the shore, and its buoyant body could not fully submerge. Because the animals could neither dive out of reach nor swim quickly away, hunting parties found them easy to ______, and crews provisioning their ships in the Bering Sea took the slow-breeding animals faster than the small population could replace them.",
+          "question": "Which choice completes the text with the most logical and precise word or phrase?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "overlook"
+            },
+            {
+              "id": "B",
+              "text": "approach"
+            },
+            {
+              "id": "C",
+              "text": "domesticate"
+            },
+            {
+              "id": "D",
+              "text": "describe"
+            }
+          ],
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** The \"Because\" clause supplies the cause — the animals could not dive or flee — and the blank must name the effect that follows for hunters: the sea cows were easy to \"approach.\"\n\n**The Full Solution:**\n- The logic is causal: an animal that cannot escape is an animal a hunting party can get close to.\n- The rest of the sentence confirms the hunting context — crews \"took\" the animals for provisions — so the blank describes the step that made the killing easy.\n\n**Why the other choices are wrong:**\n- A: \"Overlook\" means to fail to notice, which would make the animals harder to hunt, not easier — the causal chain collapses.\n- C: Nothing in the passage involves taming; the crews wanted provisions, not livestock.\n- D: Ease of description has no connection to the inability to dive or flee, and the sentence's consequence is depletion, not documentation."
         },
         {
           "id": 930,
@@ -1050,34 +1081,34 @@ export const practiceTest9RW = {
           "explanation": "**Choice D is correct.** The sentence pivots from the writers' extravagant descriptions to what \"actually\" survives — small, everyday objects — so the blank must run opposite to \"extravagant\": the surviving pieces are \"modest.\"\n\n**The Full Solution:**\n- The first sentence inflates: cloth for kings, finer than anything on land.\n- The second deflates: gloves, caps, small panels, prized for shimmer rather than splendor.\n- \"Considerably more ______\" must carry the deflation, and \"modest\" — unassuming in scale and pretension — does.\n\n**Why the other choices are wrong:**\n- A: \"Elaborate\" would extend the extravagance, erasing the contrast the word \"actually\" sets up.\n- B: Survival might suggest durability, but the list that follows describes the objects' smallness and plainness, not their toughness.\n- C: \"Valuable\" clashes with the concession that the objects are treasured for shimmer rather than \"size or splendor\" — their worth is not what the blank measures against the legends."
         },
         {
-          "id": 931,
+          "id": 934,
           "type": "multiple-choice",
           "difficulty": "hard",
           "band": 4,
           "domain": "craft-and-structure",
-          "skill": "words-in-context",
-          "passage": "When the Chinese sheng — a mouth organ of seventeen bamboo pipes bundled upright in a wind chest — first reached European courts in the eighteenth century, listeners who judged instruments by appearance expected the crowded pipes to sound ______; instead, the free reeds spoke together in a blend so even that observers compared the instrument to a small organ.",
-          "question": "Which choice completes the text with the most logical and precise word or phrase?",
+          "skill": "text-structure-and-purpose",
+          "passage": "For most of the nineteenth century, federal engineers held that confining the Mississippi between continuous levees would force the river to scour its own bed deeper, so that levees alone could contain any flood. The great flood of 1927 — when the river broke through in more than a hundred places and drove hundreds of thousands of people from their homes — ended the doctrine. Within a year, Congress had authorized a plan built on the opposite premise: the river would sometimes exceed any channel human beings could build for it, and engineered floodways would give the excess water somewhere safe to go.",
+          "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "resonant"
+              "text": "It describes a natural disaster and then evaluates several competing proposals for preventing its recurrence."
             },
             {
               "id": "B",
-              "text": "cacophonous"
+              "text": "It presents two schools of engineering thought and argues that the older of the two has been unfairly dismissed."
             },
             {
               "id": "C",
-              "text": "muted"
+              "text": "It explains how a river's behavior changed gradually over the nineteenth century and how engineers adjusted their methods, step by step, in response to each change."
             },
             {
               "id": "D",
-              "text": "overwhelming"
+              "text": "It states an engineering doctrine and its rationale, recounts the disaster that discredited the doctrine, and describes the opposing approach adopted in its place."
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** \"Instead\" reverses the expectation, and what actually happened was \"a blend so even\" it recalled an organ. The expectation must therefore have been the opposite of an even blend — a harsh jumble of sounds, which is what \"cacophonous\" means.\n\n**The Full Solution:**\n- The listeners reasoned from looks: seventeen pipes crowded together suggest seventeen competing voices.\n- \"Instead\" tells us the actual sound contradicted that expectation; the actual sound was smooth and unified.\n- The blank must name the contradicted expectation: discordant noise — \"cacophonous.\"\n\n**Why the other choices are wrong:**\n- A: \"Resonant\" is a virtue, not the opposite of an even, organ-like blend — no contradiction for \"instead\" to signal.\n- C: \"Muted\" concerns volume; the surprise in the text is about blend and evenness, not loudness or softness.\n- D: \"Overwhelming\" concerns force rather than order; the reversal in the text is from expected disorder to an even blend, not from loudness to restraint."
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** The three sentences perform exactly the three moves D names: the levees-only doctrine with its scouring rationale; the 1927 flood that \"ended the doctrine\"; and the replacement plan \"built on the opposite premise.\"\n\n**The Full Solution:**\n- Sentence one is doctrine plus rationale — confinement would deepen the bed, so levees alone would suffice.\n- Sentence two is the discrediting event, with its scale spelled out in the dash-set interruption.\n- Sentence three is the reversal: floodways that concede what the old doctrine denied.\n\n**Why the other choices are wrong:**\n- A: Only one plan follows the flood; no competing proposals are weighed against each other.\n- B: The text records the older doctrine's failure without defending it — no argument for rehabilitation appears.\n- C: The change described is abrupt, not gradual — a single flood reverses policy \"within a year\" — and it is the doctrine, not the river's behavior, that changes."
         },
         {
           "id": 932,
@@ -1113,66 +1144,6 @@ export const practiceTest9RW = {
             "quoteVerify": true,
             "source": "Walt Whitman, \"I Hear America Singing,\" Leaves of Grass (1860 edition)"
           }
-        },
-        {
-          "id": 933,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "craft-and-structure",
-          "skill": "text-structure-and-purpose",
-          "passage": "The camera lucida, patented by the chemist William Hyde Wollaston in 1806, is often imagined as a machine that draws by itself. It is nothing of the kind. The device is a small prism on an adjustable stem: an artist looking down through it sees the scene ahead apparently superimposed on the drawing paper below and must still trace every line by hand. What the prism supplies is not skill but correspondence — proportion and placement arrive already true, while the drawing itself remains the work of the person holding the pencil.",
-          "question": "Which choice best describes the overall structure of the text?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "It introduces a device and a common misconception about it, rejects the misconception, and then clarifies what the device actually contributes."
-            },
-            {
-              "id": "B",
-              "text": "It traces the development of a drawing device from its original patenting through the later refinements introduced by a series of other nineteenth-century inventors."
-            },
-            {
-              "id": "C",
-              "text": "It praises a device's ingenuity and then concedes several respects in which rival instruments outperformed it."
-            },
-            {
-              "id": "D",
-              "text": "It explains why a once-popular device was eventually abandoned by the artists who had relied on it."
-            }
-          ],
-          "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The text moves in three steps: the device plus the popular fantasy about it (\"a machine that draws by itself\"), the flat rejection (\"It is nothing of the kind\"), and the clarification of its real contribution — correspondence, not skill.\n\n**The Full Solution:**\n- Sentence one pairs the introduction with the misconception.\n- Sentence two rejects the misconception in five words.\n- Sentences three and four explain what the prism actually does and pointedly assign the drawing to the artist — the correction filled out.\n\n**Why the other choices are wrong:**\n- B: After the 1806 patent, no later development or other inventors appear.\n- C: The text corrects a misunderstanding rather than praising the device, and no rival instruments are mentioned.\n- D: Nothing describes abandonment; the text is about what the device does, not its fall from use."
-        },
-        {
-          "id": 934,
-          "type": "multiple-choice",
-          "difficulty": "hard",
-          "band": 4,
-          "domain": "craft-and-structure",
-          "skill": "text-structure-and-purpose",
-          "passage": "For most of the nineteenth century, federal engineers held that confining the Mississippi between continuous levees would force the river to scour its own bed deeper, so that levees alone could contain any flood. The great flood of 1927 — when the river broke through in more than a hundred places and drove hundreds of thousands of people from their homes — ended the doctrine. Within a year, Congress had authorized a plan built on the opposite premise: the river would sometimes exceed any channel human beings could build for it, and engineered floodways would give the excess water somewhere safe to go.",
-          "question": "Which choice best describes the overall structure of the text?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "It describes a natural disaster and then evaluates several competing proposals for preventing its recurrence."
-            },
-            {
-              "id": "B",
-              "text": "It presents two schools of engineering thought and argues that the older of the two has been unfairly dismissed."
-            },
-            {
-              "id": "C",
-              "text": "It explains how a river's behavior changed gradually over the nineteenth century and how engineers adjusted their methods, step by step, in response to each change."
-            },
-            {
-              "id": "D",
-              "text": "It states an engineering doctrine and its rationale, recounts the disaster that discredited the doctrine, and describes the opposing approach adopted in its place."
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The three sentences perform exactly the three moves D names: the levees-only doctrine with its scouring rationale; the 1927 flood that \"ended the doctrine\"; and the replacement plan \"built on the opposite premise.\"\n\n**The Full Solution:**\n- Sentence one is doctrine plus rationale — confinement would deepen the bed, so levees alone would suffice.\n- Sentence two is the discrediting event, with its scale spelled out in the dash-set interruption.\n- Sentence three is the reversal: floodways that concede what the old doctrine denied.\n\n**Why the other choices are wrong:**\n- A: Only one plan follows the flood; no competing proposals are weighed against each other.\n- B: The text records the older doctrine's failure without defending it — no argument for rehabilitation appears.\n- C: The change described is abrupt, not gradual — a single flood reverses policy \"within a year\" — and it is the doctrine, not the river's behavior, that changes."
         },
         {
           "id": 935,
@@ -1214,34 +1185,34 @@ export const practiceTest9RW = {
           "explanation": "**Choice C is correct.** Text 2 does not dispute that trade shifted; it disputes the sufficiency of that explanation. The League had adapted to shifts before, so what needs explaining is the lost capacity to adapt — a political story about princes and town autonomy that Text 1's geographic account omits.\n\n**The Full Solution:**\n- Text 1's argument culminates in \"requires no further explanation\" — geography suffices.\n- Text 2's opening line rejects exactly that sufficiency (\"Geography alone makes a poor executioner\").\n- Its evidence: past resilience under earlier trade shifts, and the political consolidation that dissolved the coordination the League ran on. C reproduces this objection precisely — the geographic account is incomplete, not wrong.\n\n**Why the other choices are wrong:**\n- A: Text 2 concedes foreign competition was real pressure; it denies only that competition is the whole story.\n- B: Text 2 redates nothing — it relocates the cause, not the century.\n- D: No deliberate dissolution appears in either text; Text 2 describes erosion from within, not a decision by the towns."
         },
         {
-          "id": 936,
+          "id": 933,
           "type": "multiple-choice",
           "difficulty": "medium",
           "band": 3,
-          "domain": "information-and-ideas",
-          "skill": "central-ideas-and-details",
-          "passage": "The windcatchers of Yazd do more than move air. In the courtyard houses of the city's historic quarter, each tall tower works as one part of an integrated cooling system: air drawn down the shaft passes over a pool or through a cellar, shedding heat by evaporation before it reaches the living quarters, while warmed air escapes through the courtyard, pulling a steady current through the house. Rooms at a tower's base stay usable through the hottest afternoons, and households traditionally reorganized daily life around those rooms each summer.",
-          "question": "Which choice best states the main idea of the text?",
+          "domain": "craft-and-structure",
+          "skill": "text-structure-and-purpose",
+          "passage": "The camera lucida, patented by the chemist William Hyde Wollaston in 1806, is often imagined as a machine that draws by itself. It is nothing of the kind. The device is a small prism on an adjustable stem: an artist looking down through it sees the scene ahead apparently superimposed on the drawing paper below and must still trace every line by hand. What the prism supplies is not skill but correspondence — proportion and placement arrive already true, while the drawing itself remains the work of the person holding the pencil.",
+          "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "Windcatchers cool the houses of Yazd primarily by chilling the water that is stored in the pools and cellars that sit beneath the bases of the towers."
+              "text": "It introduces a device and a common misconception about it, rejects the misconception, and then clarifies what the device actually contributes."
             },
             {
               "id": "B",
-              "text": "In Yazd's traditional houses, windcatchers operate as one element of a larger cooling system, and the comfort that system created shaped how the houses were used."
+              "text": "It traces the development of a drawing device from its original patenting through the later refinements introduced by a series of other nineteenth-century inventors."
             },
             {
               "id": "C",
-              "text": "The tallest windcatchers in Yazd's historic quarter belonged to the households wealthy enough to build them."
+              "text": "It praises a device's ingenuity and then concedes several respects in which rival instruments outperformed it."
             },
             {
               "id": "D",
-              "text": "Mechanical air-conditioning has now made the windcatchers of Yazd's historic quarter obsolete as cooling devices."
+              "text": "It explains why a once-popular device was eventually abandoned by the artists who had relied on it."
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text's two halves are the system and its consequences: the tower works with pools, cellars, and courtyard as \"an integrated cooling system,\" and the resulting cool rooms reorganized summer life. B joins both halves.\n\n**The Full Solution:**\n- The opening sentence announces the thesis — the towers \"do more than move air.\"\n- The middle sentence details the integration: shaft, evaporation, courtyard current.\n- The final sentence gives the human consequence, which B folds in: households arranged their days around the cooled rooms.\n\n**Why the other choices are wrong:**\n- A: It inverts the mechanism — the water cools the air by evaporation; the text never says the system exists to chill the water.\n- C: Tower height and household wealth are never discussed.\n- D: Modern air-conditioning appears nowhere in the text."
+          "correctAnswer": "A",
+          "explanation": "**Choice A is correct.** The text moves in three steps: the device plus the popular fantasy about it (\"a machine that draws by itself\"), the flat rejection (\"It is nothing of the kind\"), and the clarification of its real contribution — correspondence, not skill.\n\n**The Full Solution:**\n- Sentence one pairs the introduction with the misconception.\n- Sentence two rejects the misconception in five words.\n- Sentences three and four explain what the prism actually does and pointedly assign the drawing to the artist — the correction filled out.\n\n**Why the other choices are wrong:**\n- B: After the 1806 patent, no later development or other inventors appear.\n- C: The text corrects a misunderstanding rather than praising the device, and no rival instruments are mentioned.\n- D: Nothing describes abandonment; the text is about what the device does, not its fall from use."
         },
         {
           "id": 937,
@@ -1275,127 +1246,6 @@ export const practiceTest9RW = {
           "_meta": {
             "anchor": "Frederick II — De arte venandi cum avibus (c. 1245); work registered in literaryWorks.json; barnacle-goose and vulture tests are historically attested"
           }
-        },
-        {
-          "id": 938,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "information-and-ideas",
-          "skill": "central-ideas-and-details",
-          "passage": "The free reed is an ancient Asian idea with a comparatively brief European history. Mouth organs built on the principle — among them the Chinese sheng and the Lao khaen — have been played for well over two thousand years. European makers took up the free reed only around the turn of the nineteenth century, after traveling instruments and written descriptions reached Western workshops; within a few decades the borrowed principle powered a wave of new inventions, from the harmonica and the accordion to the parlor harmonium. A single acoustic idea, long established in one tradition, thus seeded an entire family of instruments in another.",
-          "question": "Which choice best states the main idea of the text?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "European instrument makers refined the free reed far beyond the designs found in the Asian instruments that inspired them."
-            },
-            {
-              "id": "B",
-              "text": "The harmonica and the accordion owe their popularity to the portability that free reeds made possible."
-            },
-            {
-              "id": "C",
-              "text": "The free reed, played in Asian instruments for millennia, was adopted in Europe only around 1800, where it rapidly generated a new family of instruments."
-            },
-            {
-              "id": "D",
-              "text": "The sheng and the khaen remained essentially unknown to European musicians until instrument makers in Europe had already developed free-reed instruments of their own, working independently."
-            }
-          ],
-          "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text's spine is a transfer story: millennia of Asian use, adoption in Europe around 1800, and a burst of new instruments there — the arc C compresses into one sentence.\n\n**The Full Solution:**\n- Sentence one announces the asymmetry: ancient in Asia, brief in Europe.\n- The middle sentences supply the dates and mechanism of transfer — traveling instruments and descriptions reaching Western workshops.\n- The final sentence generalizes exactly as C does: one established idea seeding a family of instruments in a new tradition.\n\n**Why the other choices are wrong:**\n- A: The text says Europeans built new instruments from the principle, not that they surpassed the Asian designs.\n- B: Portability is never mentioned; it imports a plausible-sounding cause the text does not give.\n- D: It reverses the stated direction of influence — European adoption followed the arrival of Asian instruments and descriptions."
-        },
-        {
-          "id": 939,
-          "type": "multiple-choice",
-          "difficulty": "hard",
-          "band": 4,
-          "domain": "information-and-ideas",
-          "skill": "command-of-evidence-textual",
-          "passage": "Bog bodies — human remains preserved for centuries in northern European peatlands — retain skin, hair, and even clothing in remarkable condition, and the acidity of bog water was long assumed to be the preservative. A research team instead hypothesizes that the crucial agent is sphagnan, a carbohydrate released as sphagnum moss decays, which binds the calcium that decay bacteria require and chemically tans skin much as oak bark tans leather.",
-          "question": "Which finding, if true, would most directly support the team's hypothesis?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "Tissue samples in neutral solutions containing extracted sphagnan resist bacterial decay nearly as well as samples in bog water, while samples in equally acidic solutions without sphagnan decay quickly."
-            },
-            {
-              "id": "B",
-              "text": "Bog bodies recovered from the most strongly acidic peatlands are on average no better preserved than bodies recovered from peatlands whose waters are only mildly acidic, according to surveys of dozens of recovered bodies."
-            },
-            {
-              "id": "C",
-              "text": "Sphagnum moss grows more slowly in peatlands from which well-preserved bodies have been recovered than in peatlands containing no bodies."
-            },
-            {
-              "id": "D",
-              "text": "Peatlands where sphagnum moss is absent tend to be more acidic, on average, than peatlands where the moss is abundant."
-            }
-          ],
-          "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The hypothesis makes sphagnan, not acidity, the crucial agent. A's experiment isolates exactly that variable — sphagnan without acidity preserves; acidity without sphagnan does not — which is the most direct support a finding could give.\n\n**The Full Solution:**\n- Supporting \"sphagnan is the crucial agent\" requires showing preservation tracks sphagnan when acidity is removed from the picture.\n- A's neutral-solution condition does that, and its acid-only condition simultaneously undermines the rival explanation the team is arguing against.\n\n**Why the other choices are wrong:**\n- B: It counts against the acidity hypothesis but says nothing about sphagnan — it removes a rival without supporting the team's own agent.\n- C: Slower moss growth near preserved bodies is a correlation running in an uninformative direction; it neither isolates sphagnan nor links it to preservation.\n- D: A relationship between moss and acidity levels describes the bogs themselves, not the preservation of tissue, and so tests neither hypothesis."
-        },
-        {
-          "id": 940,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "information-and-ideas",
-          "skill": "command-of-evidence-quantitative",
-          "passage": "Engineers assessing passive cooling monitored four traditional courtyard houses in Yazd, Iran, on summer afternoons, recording mean indoor temperatures with each house's windcatcher shaft open and, on comparable days, with the shaft sealed. Outdoor air on the study days averaged 39°C. The engineers conclude that the towers meaningfully cooled every house monitored because ______",
-          "questionTable": {
-            "type": "table",
-            "caption": "Mean afternoon indoor temperature in four courtyard houses, Yazd",
-            "headers": [
-              "House",
-              "Shaft open (°C)",
-              "Shaft sealed (°C)"
-            ],
-            "rows": [
-              [
-                "House 1",
-                "31",
-                "36"
-              ],
-              [
-                "House 2",
-                "30",
-                "34"
-              ],
-              [
-                "House 3",
-                "32",
-                "38"
-              ],
-              [
-                "House 4",
-                "29",
-                "33"
-              ]
-            ]
-          },
-          "question": "Which choice most effectively uses data from the table to complete the statement?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "House 3 recorded the warmest sealed-shaft temperature of the study, at 38°C."
-            },
-            {
-              "id": "B",
-              "text": "every house was at least 4°C cooler with its shaft open than with the shaft sealed, with differences ranging from 4°C to 6°C."
-            },
-            {
-              "id": "C",
-              "text": "indoor temperatures with the windcatcher shafts open stayed well below the 39°C outdoor average in all four of the monitored courtyard houses."
-            },
-            {
-              "id": "D",
-              "text": "House 4 was the coolest of the four houses whether its shaft was open or sealed."
-            }
-          ],
-          "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The conclusion is about the towers' effect in every monitored house, so the evidence must compare open against sealed for all four rows — and B does, reporting a 4-6°C advantage in each.\n\n**The Full Solution:**\n- The tower's contribution is isolated by the open-versus-sealed comparison, since the two conditions differ only in the shaft.\n- B covers all four houses, matching the claim's \"every house\" scope, and quantifies the range of the effect.\n\n**Why the other choices are wrong:**\n- A: A single sealed-shaft reading involves no comparison and no cooling effect.\n- C: Comparing open-shaft readings to the outdoor average ignores the sealed condition — sealed houses were also below 39°C, so the comparison cannot isolate what the tower added.\n- D: Ranking the houses against one another says nothing about what opening a shaft did within any house."
         },
         {
           "id": 941,
@@ -1482,6 +1332,157 @@ export const practiceTest9RW = {
           "explanation": "**Choice D is correct.** Both premises push the same comparative conclusion: the inscriptions assert possession (\"of Dalagnos\") rather than address mourners, and the stones stand at townland edges rather than in cemeteries. A possessive formula on a boundary is the language of claim, not of burial — which is just what D infers, at the properly cautious strength of \"may have served.\"\n\n**The Full Solution:**\n- The Latin stones supply the contrast case: graveside address, personal detail, cemetery setting — the equipment of memorial.\n- The ogham stones lack each element and add one the Latin stones lack: placement at recorded property boundaries.\n- The inference that fits is functional: identity plus kin plus boundary equals a claim to land, as D concludes.\n\n**Why the other choices are wrong:**\n- A: The script difference is the text's starting point, not evidence about who the carvers knew.\n- B: It runs backward — the ogham texts are the sparser ones, recording names alone.\n- C: Reading aloud at gravesides fits the Latin stones' addressed formulas; the ogham stones often stand nowhere near a grave."
         },
         {
+          "id": 939,
+          "type": "multiple-choice",
+          "difficulty": "hard",
+          "band": 4,
+          "domain": "information-and-ideas",
+          "skill": "command-of-evidence-textual",
+          "passage": "Bog bodies — human remains preserved for centuries in northern European peatlands — retain skin, hair, and even clothing in remarkable condition, and the acidity of bog water was long assumed to be the preservative. A research team instead hypothesizes that the crucial agent is sphagnan, a carbohydrate released as sphagnum moss decays, which binds the calcium that decay bacteria require and chemically tans skin much as oak bark tans leather.",
+          "question": "Which finding, if true, would most directly support the team's hypothesis?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Tissue samples in neutral solutions containing extracted sphagnan resist bacterial decay nearly as well as samples in bog water, while samples in equally acidic solutions without sphagnan decay quickly."
+            },
+            {
+              "id": "B",
+              "text": "Bog bodies recovered from the most strongly acidic peatlands are on average no better preserved than bodies recovered from peatlands whose waters are only mildly acidic, according to surveys of dozens of recovered bodies."
+            },
+            {
+              "id": "C",
+              "text": "Sphagnum moss grows more slowly in peatlands from which well-preserved bodies have been recovered than in peatlands containing no bodies."
+            },
+            {
+              "id": "D",
+              "text": "Peatlands where sphagnum moss is absent tend to be more acidic, on average, than peatlands where the moss is abundant."
+            }
+          ],
+          "correctAnswer": "A",
+          "explanation": "**Choice A is correct.** The hypothesis makes sphagnan, not acidity, the crucial agent. A's experiment isolates exactly that variable — sphagnan without acidity preserves; acidity without sphagnan does not — which is the most direct support a finding could give.\n\n**The Full Solution:**\n- Supporting \"sphagnan is the crucial agent\" requires showing preservation tracks sphagnan when acidity is removed from the picture.\n- A's neutral-solution condition does that, and its acid-only condition simultaneously undermines the rival explanation the team is arguing against.\n\n**Why the other choices are wrong:**\n- B: It counts against the acidity hypothesis but says nothing about sphagnan — it removes a rival without supporting the team's own agent.\n- C: Slower moss growth near preserved bodies is a correlation running in an uninformative direction; it neither isolates sphagnan nor links it to preservation.\n- D: A relationship between moss and acidity levels describes the bogs themselves, not the preservation of tissue, and so tests neither hypothesis."
+        },
+        {
+          "id": 938,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "information-and-ideas",
+          "skill": "central-ideas-and-details",
+          "passage": "The free reed is an ancient Asian idea with a comparatively brief European history. Mouth organs built on the principle — among them the Chinese sheng and the Lao khaen — have been played for well over two thousand years. European makers took up the free reed only around the turn of the nineteenth century, after traveling instruments and written descriptions reached Western workshops; within a few decades the borrowed principle powered a wave of new inventions, from the harmonica and the accordion to the parlor harmonium. A single acoustic idea, long established in one tradition, thus seeded an entire family of instruments in another.",
+          "question": "Which choice best states the main idea of the text?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "European instrument makers refined the free reed far beyond the designs found in the Asian instruments that inspired them."
+            },
+            {
+              "id": "B",
+              "text": "The harmonica and the accordion owe their popularity to the portability that free reeds made possible."
+            },
+            {
+              "id": "C",
+              "text": "The free reed, played in Asian instruments for millennia, was adopted in Europe only around 1800, where it rapidly generated a new family of instruments."
+            },
+            {
+              "id": "D",
+              "text": "The sheng and the khaen remained essentially unknown to European musicians until instrument makers in Europe had already developed free-reed instruments of their own, working independently."
+            }
+          ],
+          "correctAnswer": "C",
+          "explanation": "**Choice C is correct.** The text's spine is a transfer story: millennia of Asian use, adoption in Europe around 1800, and a burst of new instruments there — the arc C compresses into one sentence.\n\n**The Full Solution:**\n- Sentence one announces the asymmetry: ancient in Asia, brief in Europe.\n- The middle sentences supply the dates and mechanism of transfer — traveling instruments and descriptions reaching Western workshops.\n- The final sentence generalizes exactly as C does: one established idea seeding a family of instruments in a new tradition.\n\n**Why the other choices are wrong:**\n- A: The text says Europeans built new instruments from the principle, not that they surpassed the Asian designs.\n- B: Portability is never mentioned; it imports a plausible-sounding cause the text does not give.\n- D: It reverses the stated direction of influence — European adoption followed the arrival of Asian instruments and descriptions."
+        },
+        {
+          "id": 940,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "information-and-ideas",
+          "skill": "command-of-evidence-quantitative",
+          "passage": "Engineers assessing passive cooling monitored four traditional courtyard houses in Yazd, Iran, on summer afternoons, recording mean indoor temperatures with each house's windcatcher shaft open and, on comparable days, with the shaft sealed. Outdoor air on the study days averaged 39°C. The engineers conclude that the towers meaningfully cooled every house monitored because ______",
+          "questionTable": {
+            "type": "table",
+            "caption": "Mean afternoon indoor temperature in four courtyard houses, Yazd",
+            "headers": [
+              "House",
+              "Shaft open (°C)",
+              "Shaft sealed (°C)"
+            ],
+            "rows": [
+              [
+                "House 1",
+                "31",
+                "36"
+              ],
+              [
+                "House 2",
+                "30",
+                "34"
+              ],
+              [
+                "House 3",
+                "32",
+                "38"
+              ],
+              [
+                "House 4",
+                "29",
+                "33"
+              ]
+            ]
+          },
+          "question": "Which choice most effectively uses data from the table to complete the statement?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "House 3 recorded the warmest sealed-shaft temperature of the study, at 38°C."
+            },
+            {
+              "id": "B",
+              "text": "every house was at least 4°C cooler with its shaft open than with the shaft sealed, with differences ranging from 4°C to 6°C."
+            },
+            {
+              "id": "C",
+              "text": "indoor temperatures with the windcatcher shafts open stayed well below the 39°C outdoor average in all four of the monitored courtyard houses."
+            },
+            {
+              "id": "D",
+              "text": "House 4 was the coolest of the four houses whether its shaft was open or sealed."
+            }
+          ],
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** The conclusion is about the towers' effect in every monitored house, so the evidence must compare open against sealed for all four rows — and B does, reporting a 4-6°C advantage in each.\n\n**The Full Solution:**\n- The tower's contribution is isolated by the open-versus-sealed comparison, since the two conditions differ only in the shaft.\n- B covers all four houses, matching the claim's \"every house\" scope, and quantifies the range of the effect.\n\n**Why the other choices are wrong:**\n- A: A single sealed-shaft reading involves no comparison and no cooling effect.\n- C: Comparing open-shaft readings to the outdoor average ignores the sealed condition — sealed houses were also below 39°C, so the comparison cannot isolate what the tower added.\n- D: Ranking the houses against one another says nothing about what opening a shaft did within any house."
+        },
+        {
+          "id": 936,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "information-and-ideas",
+          "skill": "central-ideas-and-details",
+          "passage": "The windcatchers of Yazd do more than move air. In the courtyard houses of the city's historic quarter, each tall tower works as one part of an integrated cooling system: air drawn down the shaft passes over a pool or through a cellar, shedding heat by evaporation before it reaches the living quarters, while warmed air escapes through the courtyard, pulling a steady current through the house. Rooms at a tower's base stay usable through the hottest afternoons, and households traditionally reorganized daily life around those rooms each summer.",
+          "question": "Which choice best states the main idea of the text?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Windcatchers cool the houses of Yazd primarily by chilling the water that is stored in the pools and cellars that sit beneath the bases of the towers."
+            },
+            {
+              "id": "B",
+              "text": "In Yazd's traditional houses, windcatchers operate as one element of a larger cooling system, and the comfort that system created shaped how the houses were used."
+            },
+            {
+              "id": "C",
+              "text": "The tallest windcatchers in Yazd's historic quarter belonged to the households wealthy enough to build them."
+            },
+            {
+              "id": "D",
+              "text": "Mechanical air-conditioning has now made the windcatchers of Yazd's historic quarter obsolete as cooling devices."
+            }
+          ],
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** The text's two halves are the system and its consequences: the tower works with pools, cellars, and courtyard as \"an integrated cooling system,\" and the resulting cool rooms reorganized summer life. B joins both halves.\n\n**The Full Solution:**\n- The opening sentence announces the thesis — the towers \"do more than move air.\"\n- The middle sentence details the integration: shaft, evaporation, courtyard current.\n- The final sentence gives the human consequence, which B folds in: households arranged their days around the cooled rooms.\n\n**Why the other choices are wrong:**\n- A: It inverts the mechanism — the water cools the air by evaporation; the text never says the system exists to chill the water.\n- C: Tower height and household wealth are never discussed.\n- D: Modern air-conditioning appears nowhere in the text."
+        },
+        {
           "id": 943,
           "type": "multiple-choice",
           "difficulty": "hard",
@@ -1512,36 +1513,6 @@ export const practiceTest9RW = {
           "explanation": "**Choice B is correct.** The premises hand over both links of the causal chain: confinement narrows the flood's path, and equivalent volumes now crest higher. The conclusion that completes \"appear to\" is the ironic one B states — the structures raise the heights they exist to guard against.\n\n**The Full Solution:**\n- Premise one is mechanism: the same water squeezed through a channel \"a fraction as wide.\"\n- Premise two is measurement: equal volumes, greater crest heights, after levee construction.\n- Mechanism plus measurement yields B's cause-and-effect conclusion, and the sentence's \"then\" demands exactly that drawn consequence.\n\n**Why the other choices are wrong:**\n- A: The comparison holds volume constant — the records concern floods of equivalent volume, so nothing supports a change in volume.\n- C: It contradicts the stated finding of \"measurably greater heights.\"\n- D: Same contradiction — the record shows detectable alteration, whatever protection the levees also provide."
         },
         {
-          "id": 944,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "standard-english-conventions",
-          "skill": "boundaries",
-          "passage": "Steller watched living sea cows almost daily during the months his shipwrecked crew spent on Bering ______ no trained naturalist ever saw the animals alive after 1768, so every later account of the species rests on his notes, a few skeletons, and fragments of hide.",
-          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "Island,"
-            },
-            {
-              "id": "B",
-              "text": "Island"
-            },
-            {
-              "id": "C",
-              "text": "Island;"
-            },
-            {
-              "id": "D",
-              "text": "Island, however"
-            }
-          ],
-          "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Two independent clauses meet at the blank — the months of observation, and the fact that no naturalist ever saw the animals again — and a semicolon is the conventional boundary between them.\n\n**The Full Solution:**\n- Left of the blank stands a complete sentence: \"Steller watched living sea cows almost daily during the months his shipwrecked crew spent on Bering Island.\"\n- Right of the blank stands another: \"no trained naturalist ever saw the animals alive after 1768...\"\n- With no conjunction supplied, only a semicolon can hold the two sentences together.\n\n**Why the other choices are wrong:**\n- A: A comma alone between independent clauses is a comma splice.\n- B: No punctuation at all fuses the two sentences into a run-on.\n- D: \"Island, however no trained naturalist...\" mispunctuates the conjunctive adverb — \"however\" would need a semicolon before it and a comma after it to do this job."
-        },
-        {
           "id": 945,
           "type": "multiple-choice",
           "difficulty": "medium",
@@ -1570,6 +1541,66 @@ export const practiceTest9RW = {
           ],
           "correctAnswer": "B",
           "explanation": "**Choice B is correct.** The sentence is inverted: the subject follows the verb. That subject is the plural \"records,\" so the verb must be the plural \"are.\"\n\n**The Full Solution:**\n- \"Stored in the herders' cooperative archive\" is an opening participial phrase, not a subject.\n- Restore normal order and the agreement is plain: \"The shearing records... are stored in the archive.\"\n- The plural is confirmed by \"each one listing,\" which distributes over multiple records.\n\n**Why the other choices are wrong:**\n- A: A singular verb drawn to the singular \"archive\" beside the blank — but \"archive\" sits inside the opening phrase and cannot be the subject.\n- C: Singular again, and the perfect adds an unneeded time frame to a simple statement of where the records are.\n- D: Singular, and the past tense contradicts \"since 1994,\" which carries the records up to the present."
+        },
+        {
+          "id": 949,
+          "type": "multiple-choice",
+          "difficulty": "hard",
+          "band": 4,
+          "domain": "standard-english-conventions",
+          "skill": "form-structure-and-sense",
+          "passage": "The surviving corpus of ogham inscriptions, distributed across several hundred stones that stand in fields, churchyards, and museum collections from southern Ireland to Wales, ______ almost entirely of personal names and statements of descent.",
+          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "consist"
+            },
+            {
+              "id": "B",
+              "text": "have consisted"
+            },
+            {
+              "id": "C",
+              "text": "consists"
+            },
+            {
+              "id": "D",
+              "text": "are consisting"
+            }
+          ],
+          "correctAnswer": "C",
+          "explanation": "**Choice C is correct.** The subject is the singular \"corpus,\" so the verb must be the singular \"consists\" — no matter how much plural material intervenes.\n\n**The Full Solution:**\n- The long interrupting phrase — \"distributed across several hundred stones that stand in fields, churchyards, and museum collections from southern Ireland to Wales\" — modifies \"corpus\" and contributes nothing to agreement.\n- Strip it away and the frame is simple: \"The corpus... consists almost entirely of personal names.\"\n\n**Why the other choices are wrong:**\n- A: A plural verb pulled toward the nearby plurals (\"stones,\" \"collections\") rather than the true subject.\n- B: Plural again, and the perfect implies a state that has ended or changed, which nothing in the sentence supports.\n- D: Plural, and \"consist\" is a stative verb that resists the progressive — a corpus is not in the process of consisting."
+        },
+        {
+          "id": 948,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "standard-english-conventions",
+          "skill": "boundaries",
+          "passage": "Because the pen shells that yield the raw filaments were gathered one by one by free divers, and because each shell furnished only a wisp of usable ______ a single finished glove of sea silk could represent weeks of gathering, cleaning, and spinning.",
+          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "fiber,"
+            },
+            {
+              "id": "B",
+              "text": "fiber"
+            },
+            {
+              "id": "C",
+              "text": "fiber;"
+            },
+            {
+              "id": "D",
+              "text": "fiber:"
+            }
+          ],
+          "correctAnswer": "A",
+          "explanation": "**Choice A is correct.** The sentence opens with a pair of dependent \"Because\" clauses, and the boundary between an introductory dependent structure and the main clause is a comma.\n\n**The Full Solution:**\n- Everything before the blank hangs on \"Because... and because...\" — neither clause can stand alone.\n- The main clause follows: \"a single finished glove of sea silk could represent weeks of gathering, cleaning, and spinning.\"\n- A comma is the conventional mark that closes the introductory subordination and opens the main assertion.\n\n**Why the other choices are wrong:**\n- B: Without the comma, the long double introduction collides with the main clause, leaving the sentence's turning point unmarked.\n- C: A semicolon requires an independent clause on each side; the \"Because\" clauses are not independent.\n- D: A colon must follow a complete introducing statement, and the subordinate clauses do not form one."
         },
         {
           "id": 946,
@@ -1632,94 +1663,34 @@ export const practiceTest9RW = {
           "explanation": "**Choice D is correct.** A \"Since\" phrase marking the start of a period that runs to the present takes the present perfect: makers \"have adapted\" the mechanism from the 1820s onward.\n\n**The Full Solution:**\n- \"Since the first mouth-blown prototypes appeared in the 1820s\" defines a span beginning in the past and continuing now.\n- Action distributed across such a span, still open at the present end, is expressed by the present perfect.\n\n**Why the other choices are wrong:**\n- A: The simple present states a general habit and cannot pair with a \"Since\" phrase anchored to a past starting point.\n- B: The simple past seals the action inside a finished period, contradicting the open span that \"Since\" establishes.\n- C: \"Would adapt\" casts the action as habitual within a closed past frame or as conditional — either reading breaks the from-then-until-now sense."
         },
         {
-          "id": 948,
+          "id": 944,
           "type": "multiple-choice",
           "difficulty": "medium",
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "Because the pen shells that yield the raw filaments were gathered one by one by free divers, and because each shell furnished only a wisp of usable ______ a single finished glove of sea silk could represent weeks of gathering, cleaning, and spinning.",
+          "passage": "Steller watched living sea cows almost daily during the months his shipwrecked crew spent on Bering ______ no trained naturalist ever saw the animals alive after 1768, so every later account of the species rests on his notes, a few skeletons, and fragments of hide.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "fiber,"
+              "text": "Island,"
             },
             {
               "id": "B",
-              "text": "fiber"
+              "text": "Island"
             },
             {
               "id": "C",
-              "text": "fiber;"
+              "text": "Island;"
             },
             {
               "id": "D",
-              "text": "fiber:"
-            }
-          ],
-          "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The sentence opens with a pair of dependent \"Because\" clauses, and the boundary between an introductory dependent structure and the main clause is a comma.\n\n**The Full Solution:**\n- Everything before the blank hangs on \"Because... and because...\" — neither clause can stand alone.\n- The main clause follows: \"a single finished glove of sea silk could represent weeks of gathering, cleaning, and spinning.\"\n- A comma is the conventional mark that closes the introductory subordination and opens the main assertion.\n\n**Why the other choices are wrong:**\n- B: Without the comma, the long double introduction collides with the main clause, leaving the sentence's turning point unmarked.\n- C: A semicolon requires an independent clause on each side; the \"Because\" clauses are not independent.\n- D: A colon must follow a complete introducing statement, and the subordinate clauses do not form one."
-        },
-        {
-          "id": 949,
-          "type": "multiple-choice",
-          "difficulty": "hard",
-          "band": 4,
-          "domain": "standard-english-conventions",
-          "skill": "form-structure-and-sense",
-          "passage": "The surviving corpus of ogham inscriptions, distributed across several hundred stones that stand in fields, churchyards, and museum collections from southern Ireland to Wales, ______ almost entirely of personal names and statements of descent.",
-          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "consist"
-            },
-            {
-              "id": "B",
-              "text": "have consisted"
-            },
-            {
-              "id": "C",
-              "text": "consists"
-            },
-            {
-              "id": "D",
-              "text": "are consisting"
+              "text": "Island, however"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The subject is the singular \"corpus,\" so the verb must be the singular \"consists\" — no matter how much plural material intervenes.\n\n**The Full Solution:**\n- The long interrupting phrase — \"distributed across several hundred stones that stand in fields, churchyards, and museum collections from southern Ireland to Wales\" — modifies \"corpus\" and contributes nothing to agreement.\n- Strip it away and the frame is simple: \"The corpus... consists almost entirely of personal names.\"\n\n**Why the other choices are wrong:**\n- A: A plural verb pulled toward the nearby plurals (\"stones,\" \"collections\") rather than the true subject.\n- B: Plural again, and the perfect implies a state that has ended or changed, which nothing in the sentence supports.\n- D: Plural, and \"consist\" is a stative verb that resists the progressive — a corpus is not in the process of consisting."
-        },
-        {
-          "id": 950,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "expression-of-ideas",
-          "skill": "transitions",
-          "passage": "Visitors to Chavín de Huántar in the first millennium BCE did not merely look at the temple; ceremonies there were engineered for the ear as much as for the eye, archaeologists argue, with sound at the center of the experience. ______ a single gallery within the temple has yielded twenty conch-shell trumpets, their mouthpieces polished smooth by generations of players.",
-          "question": "Which choice completes the text with the most logical transition?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "Nonetheless,"
-            },
-            {
-              "id": "B",
-              "text": "Meanwhile,"
-            },
-            {
-              "id": "C",
-              "text": "By contrast,"
-            },
-            {
-              "id": "D",
-              "text": "In fact,"
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The second sentence delivers striking confirmation of the first — twenty trumpets from one gallery, worn by long use — and \"In fact\" is the transition that presents evidence as emphatic support for a claim just made.\n\n**The Full Solution:**\n- Sentence one advances the archaeologists' claim: sound was central to the temple's ceremonies.\n- Sentence two does not merely continue the thought; it intensifies it with hard evidence — instruments in quantity, polished by generations.\n- A claim followed by its most arresting piece of support takes an emphasizing transition.\n\n**Why the other choices are wrong:**\n- A: \"Nonetheless\" concedes an obstacle, but the trumpet find supports rather than resists the claim.\n- B: \"Meanwhile\" implies a second, parallel scene; both sentences concern the same site and argument.\n- C: \"By contrast\" needs two things set against each other, and the discovery agrees with the claim instead of opposing it."
+          "explanation": "**Choice C is correct.** Two independent clauses meet at the blank — the months of observation, and the fact that no naturalist ever saw the animals again — and a semicolon is the conventional boundary between them.\n\n**The Full Solution:**\n- Left of the blank stands a complete sentence: \"Steller watched living sea cows almost daily during the months his shipwrecked crew spent on Bering Island.\"\n- Right of the blank stands another: \"no trained naturalist ever saw the animals alive after 1768...\"\n- With no conjunction supplied, only a semicolon can hold the two sentences together.\n\n**Why the other choices are wrong:**\n- A: A comma alone between independent clauses is a comma splice.\n- B: No punctuation at all fuses the two sentences into a run-on.\n- D: \"Island, however no trained naturalist...\" mispunctuates the conjunctive adverb — \"however\" would need a semicolon before it and a comma after it to do this job."
         },
         {
           "id": 951,
@@ -1750,6 +1721,36 @@ export const practiceTest9RW = {
           ],
           "correctAnswer": "B",
           "explanation": "**Choice B is correct.** The final sentence is the downstream result of the chain the first two build — levees stop the flooding, so the sediment bypasses the delta, so the delta sinks. \"Consequently\" marks that cause-and-effect relation.\n\n**The Full Solution:**\n- Sentence one states the intervention; sentence two states its side effect (sediment carried past the delta).\n- Sentence three reports what follows from that side effect: land \"cut off from the deposits\" subsides.\n- The sentence even restates the cause inside itself (\"cut off from the deposits\"), confirming that the blank must signal consequence.\n\n**Why the other choices are wrong:**\n- A: The sinking delta is not an example of sediment riding the current; it is the outcome of it.\n- C: \"Still\" would concede a countercurrent, but the third sentence extends the chain rather than resisting it.\n- D: \"Likewise\" announces a parallel case, and no second, similar situation has been introduced."
+        },
+        {
+          "id": 950,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "expression-of-ideas",
+          "skill": "transitions",
+          "passage": "Visitors to Chavín de Huántar in the first millennium BCE did not merely look at the temple; ceremonies there were engineered for the ear as much as for the eye, archaeologists argue, with sound at the center of the experience. ______ a single gallery within the temple has yielded twenty conch-shell trumpets, their mouthpieces polished smooth by generations of players.",
+          "question": "Which choice completes the text with the most logical transition?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Nonetheless,"
+            },
+            {
+              "id": "B",
+              "text": "Meanwhile,"
+            },
+            {
+              "id": "C",
+              "text": "By contrast,"
+            },
+            {
+              "id": "D",
+              "text": "In fact,"
+            }
+          ],
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** The second sentence delivers striking confirmation of the first — twenty trumpets from one gallery, worn by long use — and \"In fact\" is the transition that presents evidence as emphatic support for a claim just made.\n\n**The Full Solution:**\n- Sentence one advances the archaeologists' claim: sound was central to the temple's ceremonies.\n- Sentence two does not merely continue the thought; it intensifies it with hard evidence — instruments in quantity, polished by generations.\n- A claim followed by its most arresting piece of support takes an emphasizing transition.\n\n**Why the other choices are wrong:**\n- A: \"Nonetheless\" concedes an obstacle, but the trumpet find supports rather than resists the claim.\n- B: \"Meanwhile\" implies a second, parallel scene; both sentences concern the same site and argument.\n- C: \"By contrast\" needs two things set against each other, and the discovery agrees with the claim instead of opposing it."
         },
         {
           "id": 952,

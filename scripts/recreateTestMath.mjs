@@ -493,7 +493,7 @@ function questionSpans(text, mod) {
     if (c === '"' || c === "'" || c === '`') { inStr = c; continue; }
     if (c === '{' || c === '[') {
       depth++; stack.push({ kind: c === '{' ? 'obj' : 'arr', start: i });
-      if (c === '[' && depth === itemDepth - 1 && /questions\s*:\s*$/.test(text.slice(Math.max(0, i - 40), i))) qArrays++;
+      if (c === '[' && depth === itemDepth - 1 && /questions["']?\s*:\s*$/.test(text.slice(Math.max(0, i - 40), i))) qArrays++;
       continue;
     }
     if (c === '}' || c === ']') {

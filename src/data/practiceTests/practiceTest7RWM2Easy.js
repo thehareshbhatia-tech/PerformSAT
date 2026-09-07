@@ -1,4 +1,5 @@
 // Practice Test 7 — Reading & Writing Module 2 Easy variant (27 questions)
+// R&W seating varied 2026-09-07 (scripts/varyRWSeating.mjs): items re-dealt inside their official skill blocks with a per-test seed — block flow and per-skill counts unchanged.
 // For students routed to the easier path after Module 1 (~<60% correct).
 // Distribution: 8E / 16M / 3H. Q1-2 easy openers. Max-score ceiling: ~600.
 // Domain mix: 8 Craft and Structure / 8 Information and Ideas /
@@ -19,24 +20,6 @@ export const practiceTest7RWM2Easy = {
     // Q1-Q8: Craft and Structure
     // ============================================================
     {
-      "id": 755,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "craft-and-structure",
-      "skill": "words-in-context",
-      "passage": "Ice cream is mostly water, and water freezes into crystals. Left to freeze undisturbed, a batch develops large crystals that feel gritty on the tongue. Makers therefore churn the mixture the whole time it is freezing, breaking each crystal before it can grow and keeping all of them too small for the tongue to detect. Thanks to those tiny crystals, a well-churned batch stays ______ on the tongue even after weeks in the freezer.",
-      "question": "Which choice completes the text with the most logical and precise word or phrase?",
-      "choices": [
-        { "id": "A", "text": "sweet" },
-        { "id": "B", "text": "cold" },
-        { "id": "C", "text": "smooth" },
-        { "id": "D", "text": "solid" }
-      ],
-      "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** Large crystals feel gritty, so crystals too small to detect must produce the opposite feel — the batch stays \"smooth.\"\n\n**The Full Solution:**\n- How to spot it: cover the choices and predict your own word from the clues. The passage sets up a contrast: undisturbed freezing makes crystals that feel \"gritty on the tongue,\" while churning keeps crystals \"too small for the tongue to detect.\"\n- The blank describes how a well-churned batch feels on the tongue, so it must name the opposite of gritty.\n- \"Smooth\" is exactly that opposite, and it follows directly from crystals too small to feel.\n\n**Why the other choices are wrong:**\n- A: \"Sweet\" is about flavor, which comes from sugar — crystal size has nothing to do with it.\n- B: \"Cold\" is true of any ice cream straight from the freezer and does not follow from the crystals being tiny.\n- D: \"Solid\" describes whether the batch is frozen at all, not how its texture feels on the tongue."
-    },
-    {
       "id": 756,
       "type": "multiple-choice",
       "difficulty": "easy",
@@ -55,22 +38,22 @@ export const practiceTest7RWM2Easy = {
       "explanation": "**Choice A is correct.** The fountains ran all day and were free, so clean water became \"available\" — easy to get — for anyone passing by.\n\n**The Full Solution:**\n- How to spot it: predict your own word first. Before the fountains, a walker had to buy a drink or go without; after, water ran all day at no cost.\n- The missing word must describe what water became once anyone could get it freely.\n- \"Available\" means within reach or obtainable, which is exactly the change the passage describes.\n\n**Why the other choices are wrong:**\n- B: \"Valuable\" points the wrong way — the fountains made water free, not precious.\n- C: \"Familiar\" would mean people simply recognized water, but the passage is about being able to get it.\n- D: \"Invisible\" makes no sense — the fountains put water in plain view on busy streets."
     },
     {
-      "id": 757,
+      "id": 755,
       "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
+      "difficulty": "easy",
+      "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Many small songbirds weave strands of spider silk into the walls of their nests. The silk works like an elastic binder: it holds moss and plant down together while still allowing the cup to change shape. A nest bound this way can ______ as the chicks inside it grow, where a cup stiffened with dried mud would simply crack.",
+      "passage": "Ice cream is mostly water, and water freezes into crystals. Left to freeze undisturbed, a batch develops large crystals that feel gritty on the tongue. Makers therefore churn the mixture the whole time it is freezing, breaking each crystal before it can grow and keeping all of them too small for the tongue to detect. Thanks to those tiny crystals, a well-churned batch stays ______ on the tongue even after weeks in the freezer.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
-        { "id": "A", "text": "collapse" },
-        { "id": "B", "text": "stretch" },
-        { "id": "C", "text": "brighten" },
-        { "id": "D", "text": "sway" }
+        { "id": "A", "text": "sweet" },
+        { "id": "B", "text": "cold" },
+        { "id": "C", "text": "smooth" },
+        { "id": "D", "text": "solid" }
       ],
-      "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The silk is elastic and lets the cup change shape as the chicks grow larger, so the nest can \"stretch.\"\n\n**The Full Solution:**\n- How to spot it: use the clues on both sides of the blank. Before it, the silk is called an \"elastic binder\" that allows the cup \"to change shape\"; after it, a stiff mud cup \"would simply crack.\"\n- Growing chicks push outward on the nest, so the change in shape is an expansion.\n- \"Stretch\" names exactly what an elastic material does under that outward push — it gives without breaking.\n\n**Why the other choices are wrong:**\n- A: \"Collapse\" would mean the nest fails, but the silk is what keeps the nest working.\n- C: \"Brighten\" is about appearance, and nothing in the passage concerns how the nest looks.\n- D: \"Sway\" describes rocking in the wind, not changing size to fit growing chicks."
+      "correctAnswer": "C",
+      "explanation": "**Choice C is correct.** Large crystals feel gritty, so crystals too small to detect must produce the opposite feel — the batch stays \"smooth.\"\n\n**The Full Solution:**\n- How to spot it: cover the choices and predict your own word from the clues. The passage sets up a contrast: undisturbed freezing makes crystals that feel \"gritty on the tongue,\" while churning keeps crystals \"too small for the tongue to detect.\"\n- The blank describes how a well-churned batch feels on the tongue, so it must name the opposite of gritty.\n- \"Smooth\" is exactly that opposite, and it follows directly from crystals too small to feel.\n\n**Why the other choices are wrong:**\n- A: \"Sweet\" is about flavor, which comes from sugar — crystal size has nothing to do with it.\n- B: \"Cold\" is true of any ice cream straight from the freezer and does not follow from the crystals being tiny.\n- D: \"Solid\" describes whether the batch is frozen at all, not how its texture feels on the tongue."
     },
     {
       "id": 758,
@@ -91,40 +74,22 @@ export const practiceTest7RWM2Easy = {
       "explanation": "**Choice D is correct.** The closed panes keep warmed air from escaping, and the structure holds heat an open garden would lose — it \"retains\" the sun's warmth.\n\n**The Full Solution:**\n- How to spot it: read the whole sentence and the one after the blank. The phrase \"holding on to heat\" restates the missing word, so the blank must mean keeping something.\n- The passage traces where the heat comes from (sunlight) and what the glass does (stops warmed air from drifting away).\n- \"Retains\" means keeps or holds on to, matching both the mechanism and the restatement.\n\n**Why the other choices are wrong:**\n- A: \"Produces\" contradicts the very first sentence, which says a greenhouse \"adds no heat of its own.\"\n- B: \"Measures\" would make the greenhouse a thermometer; nothing in the passage is about tracking temperature.\n- C: \"Deflects\" means turns away — the opposite of glass that lets sunlight in and keeps warmth inside."
     },
     {
-      "id": 759,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "craft-and-structure",
-      "skill": "text-structure-and-purpose",
-      "passage": "The clock in a town hall tower runs without electricity. Its power comes from a heavy weight hung on a long cable inside the tower. As the weight sinks a little at a time, it turns a drum, and gears carry that motion up to the hands on the dial. A device called an escapement lets the gears advance only in small, regular steps, which is what keeps the hands moving at a steady pace. Once or twice a week, someone cranks the weight back to the top, and the clock is ready to run again.",
-      "question": "Which choice best states the main purpose of the text?",
-      "choices": [
-        { "id": "A", "text": "To argue that mechanical tower clocks keep better time than modern electric ones." },
-        { "id": "B", "text": "To explain how a falling weight and a set of gears keep a tower clock running." },
-        { "id": "C", "text": "To describe the career of a clockmaker famous for building tower clocks." },
-        { "id": "D", "text": "To trace the steps by which one town raised the money to repair its aging clock tower." }
-      ],
-      "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** Every sentence describes one part of the mechanism — the weight, the drum and gears, the escapement, the weekly winding — so the purpose is to explain how the clock runs.\n\n**The Full Solution:**\n- How to spot it: for a main-purpose question, ask what the WHOLE passage is doing. Here each sentence adds a step in a single process.\n- The passage opens with the surprising fact that the clock needs no electricity, then names its real power source: a sinking weight.\n- It follows the motion from weight to drum to gears to hands, explains how the escapement keeps the pace steady, and ends with the winding that restarts the cycle.\n\n**Why the other choices are wrong:**\n- A: Electric clocks are never compared with mechanical ones; electricity is mentioned only to say the clock does without it.\n- C: No clockmaker — famous or otherwise — appears in the text.\n- D: The passage describes how the clock works, not a repair project or fundraising."
-    },
-    {
-      "id": 760,
+      "id": 757,
       "type": "multiple-choice",
       "difficulty": "medium",
       "band": 3,
       "domain": "craft-and-structure",
-      "skill": "text-structure-and-purpose",
-      "passage": "Maple syrup makers face an unfavorable ratio: the sap they collect is roughly two percent sugar, so about forty gallons of it must be boiled away to yield a single gallon of syrup, at a heavy cost in fuel and time. Many producers now pump sap through reverse-osmosis membranes before it ever reaches the evaporator. The membranes pass water molecules while holding back sugar, removing much of the water without any heat at all. Sap that enters the pan already concentrated boils down in a fraction of the time.",
-      "question": "Which choice best describes the overall structure of the text?",
+      "skill": "words-in-context",
+      "passage": "Many small songbirds weave strands of spider silk into the walls of their nests. The silk works like an elastic binder: it holds moss and plant down together while still allowing the cup to change shape. A nest bound this way can ______ as the chicks inside it grow, where a cup stiffened with dried mud would simply crack.",
+      "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
-        { "id": "A", "text": "It describes a costly problem in syrup production, introduces a technology that reduces the cost, and explains how that technology works." },
-        { "id": "B", "text": "It traces the full history of maple sugaring from the earliest springtime harvests through the large commercial operations of the present day." },
-        { "id": "C", "text": "It presents two competing recipes for syrup and argues that one produces a better flavor." },
-        { "id": "D", "text": "It questions whether a widely adopted technology performs as well as its manufacturers claim." }
+        { "id": "A", "text": "collapse" },
+        { "id": "B", "text": "stretch" },
+        { "id": "C", "text": "brighten" },
+        { "id": "D", "text": "sway" }
       ],
-      "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The text moves from a costly problem (boiling away forty gallons of water) to a technology (reverse osmosis) to an explanation of how it works and what it saves.\n\n**The Full Solution:**\n- How to spot it: label what each sentence DOES, not what it says. Sentence 1 = a problem and its cost; sentence 2 = a technology producers adopted; sentences 3-4 = how it works and the payoff.\n- The problem: sap is only about two percent sugar, so boiling it down burns heavy amounts of fuel and time.\n- The technology: membranes that pass water and hold back sugar, removing water with no heat, so the sap boils down far faster.\n\n**Why the other choices are wrong:**\n- B: No history is traced — the passage jumps straight from the problem to a present-day method.\n- C: Recipes and flavor are never discussed; the passage is about removing water, not seasoning syrup.\n- D: The passage reports that the membranes work as described and never casts doubt on them."
+      "correctAnswer": "B",
+      "explanation": "**Choice B is correct.** The silk is elastic and lets the cup change shape as the chicks grow larger, so the nest can \"stretch.\"\n\n**The Full Solution:**\n- How to spot it: use the clues on both sides of the blank. Before it, the silk is called an \"elastic binder\" that allows the cup \"to change shape\"; after it, a stiff mud cup \"would simply crack.\"\n- Growing chicks push outward on the nest, so the change in shape is an expansion.\n- \"Stretch\" names exactly what an elastic material does under that outward push — it gives without breaking.\n\n**Why the other choices are wrong:**\n- A: \"Collapse\" would mean the nest fails, but the silk is what keeps the nest working.\n- C: \"Brighten\" is about appearance, and nothing in the passage concerns how the nest looks.\n- D: \"Sway\" describes rocking in the wind, not changing size to fit growing chicks."
     },
     {
       "id": 761,
@@ -171,6 +136,42 @@ export const practiceTest7RWM2Easy = {
       "correctAnswer": "D",
       "explanation": "**Choice D is correct.** Text 1 praises the scorecard for teaching exhibitors what to practice; Text 2 answers that the same teaching narrows what exhibitors make, until entries grow \"more polished and more alike.\"\n\n**The Full Solution:**\n- How to spot it: name the one claim each text rests on, then ask how the second author would treat the first. Text 1 rests on the marked card being a lesson worth having; Text 2 is about what that lesson quietly costs.\n- Text 1: point-by-point cards show exhibitors exactly where points were lost, so judging doubles as teaching.\n- Text 2: exhibitors chase the listed qualities and drop unusual patterns, old techniques, and recipes with character — so the teaching works, and that is precisely the problem.\n- Choice D captures this: the lessons are real, but they steer everyone toward sameness.\n\n**Why the other choices are wrong:**\n- A: Text 2 criticizes what the cards teach rather than endorsing them, and printed guides are never mentioned.\n- B: Text 2 objects to scorecard judging, not to holding competitions at all.\n- C: Text 2 assumes exhibitors DO respond to the cards — that responsiveness is what drives the drift toward sameness."
     },
+    {
+      "id": 760,
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "band": 3,
+      "domain": "craft-and-structure",
+      "skill": "text-structure-and-purpose",
+      "passage": "Maple syrup makers face an unfavorable ratio: the sap they collect is roughly two percent sugar, so about forty gallons of it must be boiled away to yield a single gallon of syrup, at a heavy cost in fuel and time. Many producers now pump sap through reverse-osmosis membranes before it ever reaches the evaporator. The membranes pass water molecules while holding back sugar, removing much of the water without any heat at all. Sap that enters the pan already concentrated boils down in a fraction of the time.",
+      "question": "Which choice best describes the overall structure of the text?",
+      "choices": [
+        { "id": "A", "text": "It describes a costly problem in syrup production, introduces a technology that reduces the cost, and explains how that technology works." },
+        { "id": "B", "text": "It traces the full history of maple sugaring from the earliest springtime harvests through the large commercial operations of the present day." },
+        { "id": "C", "text": "It presents two competing recipes for syrup and argues that one produces a better flavor." },
+        { "id": "D", "text": "It questions whether a widely adopted technology performs as well as its manufacturers claim." }
+      ],
+      "correctAnswer": "A",
+      "explanation": "**Choice A is correct.** The text moves from a costly problem (boiling away forty gallons of water) to a technology (reverse osmosis) to an explanation of how it works and what it saves.\n\n**The Full Solution:**\n- How to spot it: label what each sentence DOES, not what it says. Sentence 1 = a problem and its cost; sentence 2 = a technology producers adopted; sentences 3-4 = how it works and the payoff.\n- The problem: sap is only about two percent sugar, so boiling it down burns heavy amounts of fuel and time.\n- The technology: membranes that pass water and hold back sugar, removing water with no heat, so the sap boils down far faster.\n\n**Why the other choices are wrong:**\n- B: No history is traced — the passage jumps straight from the problem to a present-day method.\n- C: Recipes and flavor are never discussed; the passage is about removing water, not seasoning syrup.\n- D: The passage reports that the membranes work as described and never casts doubt on them."
+    },
+    {
+      "id": 759,
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "band": 2,
+      "domain": "craft-and-structure",
+      "skill": "text-structure-and-purpose",
+      "passage": "The clock in a town hall tower runs without electricity. Its power comes from a heavy weight hung on a long cable inside the tower. As the weight sinks a little at a time, it turns a drum, and gears carry that motion up to the hands on the dial. A device called an escapement lets the gears advance only in small, regular steps, which is what keeps the hands moving at a steady pace. Once or twice a week, someone cranks the weight back to the top, and the clock is ready to run again.",
+      "question": "Which choice best states the main purpose of the text?",
+      "choices": [
+        { "id": "A", "text": "To argue that mechanical tower clocks keep better time than modern electric ones." },
+        { "id": "B", "text": "To explain how a falling weight and a set of gears keep a tower clock running." },
+        { "id": "C", "text": "To describe the career of a clockmaker famous for building tower clocks." },
+        { "id": "D", "text": "To trace the steps by which one town raised the money to repair its aging clock tower." }
+      ],
+      "correctAnswer": "B",
+      "explanation": "**Choice B is correct.** Every sentence describes one part of the mechanism — the weight, the drum and gears, the escapement, the weekly winding — so the purpose is to explain how the clock runs.\n\n**The Full Solution:**\n- How to spot it: for a main-purpose question, ask what the WHOLE passage is doing. Here each sentence adds a step in a single process.\n- The passage opens with the surprising fact that the clock needs no electricity, then names its real power source: a sinking weight.\n- It follows the motion from weight to drum to gears to hands, explains how the escapement keeps the pace steady, and ends with the winding that restarts the cycle.\n\n**Why the other choices are wrong:**\n- A: Electric clocks are never compared with mechanical ones; electricity is mentioned only to say the clock does without it.\n- C: No clockmaker — famous or otherwise — appears in the text.\n- D: The passage describes how the clock works, not a repair project or fundraising."
+    },
     // ============================================================
     // Q9-Q16: Information and Ideas
     // ============================================================
@@ -191,60 +192,6 @@ export const practiceTest7RWM2Easy = {
       ],
       "correctAnswer": "A",
       "explanation": "**Choice A is correct.** The passage says harbor seal pups \"can swim within a few hours of birth,\" while the pups of many other species spend weeks ashore.\n\n**The Full Solution:**\n- How to spot it: this is a find-the-detail question, so the answer is stated in the passage almost word for word. Locate the sentence that compares harbor seals with other seals.\n- The first sentence explains why the difference exists: harbor seals are born on ground the tide covers twice a day, so a pup cannot wait weeks to enter the water.\n- The second sentence states the difference itself: pups swim within hours, following their mothers when the water rises.\n\n**Why the other choices are wrong:**\n- B: Coats and warmth are never mentioned anywhere in the passage.\n- C: The passage says the opposite — the pup paddles after its mother when the tide floods the sandbar.\n- D: Growth rates and hunting are not discussed; the pup is described as riding on its mother's back, not hunting."
-    },
-    {
-      "id": 764,
-      "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
-      "domain": "information-and-ideas",
-      "skill": "central-ideas-and-details",
-      "passage": "The handle of a well-made scythe bends in two places, and neither curve is decorative. Together they put the blade at the right height and angle for a mower standing upright, so the tool can be swung all day without stooping. Shapes like these were not worked out on paper; they were refined over generations, as makers copied the handles that workers favored and quietly dropped the ones that tired them out. When laboratory studies of hand tools began in the twentieth century, researchers measuring grip, reach, and strain repeatedly arrived at forms the old pattern books already contained.",
-      "question": "Which choice best states the main idea of the text?",
-      "choices": [
-        { "id": "A", "text": "Scythes are more difficult to use correctly than most other traditional farm tools." },
-        { "id": "B", "text": "Traditional tool handles embody refinements accumulated through long use, refinements that modern research has now largely confirmed." },
-        { "id": "C", "text": "Twentieth-century researchers studying hand tools relied on old pattern books instead of conducting laboratory measurements of grip, reach, and strain." },
-        { "id": "D", "text": "Tool makers of earlier generations deliberately kept their most successful handle designs secret from competing workshops." }
-      ],
-      "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The passage's arc runs from handles shaped by generations of use to modern measurements that landed on the same forms — old refinement, newly confirmed.\n\n**The Full Solution:**\n- How to spot it: the main idea has to cover the whole passage. Test each choice: does it include both the old process AND the modern confirmation? Only B does.\n- The old process: makers copied the handles workers favored and dropped the tiring ones, refining shapes over generations rather than on paper.\n- The confirmation: researchers measuring grip, reach, and strain \"repeatedly arrived at forms the old pattern books already contained.\"\n\n**Why the other choices are wrong:**\n- A: The scythe is one example of a refined handle; the passage never ranks tools by difficulty.\n- C: This reverses the final sentence — the researchers ran their own measurements and only then matched the old forms.\n- D: Secrecy is never mentioned; makers are described as copying one another's best handles, the opposite of guarding them."
-    },
-    {
-      "id": 765,
-      "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
-      "domain": "information-and-ideas",
-      "skill": "central-ideas-and-details",
-      "passage": "A sled's runners do not slide on snow itself. As the runners rub across the surface, friction warms the top layer of snow just enough to melt it, and the sled rides on a film of water thinner than a hair. The film is what makes the ride fast, because water clings to the runners far less than snow crystals do. The effect has a limit, though. In severe cold, the rubbing cannot raise the snow to its melting point, no film forms, and a hill that was fast on a mild afternoon turns slow and squeaky.",
-      "question": "Which choice best states the main idea of the text?",
-      "choices": [
-        { "id": "A", "text": "Sledding is fastest on hills that have been packed down by many earlier riders." },
-        { "id": "B", "text": "A sled glides on a film of meltwater created by friction, so snow too cold to melt makes a slow ride." },
-        { "id": "C", "text": "Snow crystals cling to a sled's runners more strongly when the temperature rises above freezing." },
-        { "id": "D", "text": "The design and material of a sled's runners matter more to its speed than the condition of the snow on the hill it crosses." }
-      ],
-      "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The passage explains both halves: friction melts a hair-thin water film that the sled glides on, and when snow is too cold to melt, the film never forms and the sled drags.\n\n**The Full Solution:**\n- How to spot it: the main idea has to include the mechanism AND its limit, because the passage spends time on both.\n- The mechanism: rubbing runners warm the top layer of snow, the melt becomes a thin film, and water clings to the runners far less than snow crystals do.\n- The limit: the passage flags it with \"The effect has a limit, though\" — in severe cold no film forms, and the same hill turns slow.\n- B states the mechanism and the cold-weather limit in one sentence.\n\n**Why the other choices are wrong:**\n- A: Packed snow and earlier riders are never mentioned in the text.\n- C: The passage compares water and snow crystals, but it never says crystals grip harder above freezing.\n- D: Runner design is never weighed against snow conditions — the passage is entirely about the snow and the film."
-    },
-    {
-      "id": 766,
-      "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
-      "domain": "information-and-ideas",
-      "skill": "command-of-evidence-textual",
-      "passage": "The chirping of tree crickets speeds up on warm evenings and slows on cool ones — so reliably that listeners can estimate the temperature by counting chirps. Researchers have proposed that the rate is set by the temperature of the cricket's own body, which governs how quickly its chirping muscles can contract: on this account, the surrounding air matters only insofar as it warms or cools the insect itself. A team is testing the proposal by gently warming individual crickets while keeping the air around them cool.",
-      "question": "Which finding from the study, if true, would most strongly support the researchers' proposal?",
-      "choices": [
-        { "id": "A", "text": "Crickets chirped at their usual evening rate whether or not other crickets were audible nearby." },
-        { "id": "B", "text": "Crickets warmed before the test chirped no faster in cool air than crickets never warmed at all." },
-        { "id": "C", "text": "Larger cricket species tended to chirp more loudly than smaller species at every temperature tested." },
-        { "id": "D", "text": "Warmed crickets chirped rapidly despite the cool air, while unwarmed crickets nearby chirped slowly." }
-      ],
-      "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The proposal says body temperature — not the air itself — sets the chirp rate, so warm crickets chirping fast in cool air is exactly the result that would support it.\n\n**The Full Solution:**\n- How to spot it: put the proposal into your own words first, then look for the choice that matches it. The claim is \"warm body, fast chirps, no matter the air.\"\n- The team's design separates the two variables: the cricket is warmed directly while the air stays cool, so body and air temperatures pull in opposite directions.\n- D reports fast chirping from the warmed crickets and slow chirping from unwarmed crickets in the same cool air — the body wins, just as the proposal predicts.\n\n**Why the other choices are wrong:**\n- A: Whether crickets respond to each other's calls says nothing about what sets the chirp rate.\n- B: This is the opposite result — if warming a cricket did not speed its chirps, the proposal would be weakened.\n- C: Loudness across species is a different variable entirely; the proposal is about rate, not volume."
     },
     {
       "id": 767,
@@ -274,6 +221,78 @@ export const practiceTest7RWM2Easy = {
       ],
       "correctAnswer": "C",
       "explanation": "**Choice C is correct.** The claim is that design has a large effect, and C compares the best design with the worst to show how big that effect is.\n\n**The Full Solution:**\n- How to spot it: read the claim, then ask what numbers would prove it. A claim about a large effect needs two readings compared — ideally the biggest and the smallest.\n- The table's longest average is 26 feet for the narrow dart; the shortest is 11 feet for the ring wing.\n- C reports both and states the size of the gap — the best design flew more than twice as far — which is exactly what \"a large effect\" means.\n\n**Why the other choices are wrong:**\n- A: One design's distance on its own shows nothing about how much design changes the outcome.\n- B: This misreads the table — the ring wing averaged 11 feet, not 17.\n- D: This describes how the test was run instead of using the distance data at all."
+    },
+    {
+      "id": 764,
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "band": 3,
+      "domain": "information-and-ideas",
+      "skill": "central-ideas-and-details",
+      "passage": "The handle of a well-made scythe bends in two places, and neither curve is decorative. Together they put the blade at the right height and angle for a mower standing upright, so the tool can be swung all day without stooping. Shapes like these were not worked out on paper; they were refined over generations, as makers copied the handles that workers favored and quietly dropped the ones that tired them out. When laboratory studies of hand tools began in the twentieth century, researchers measuring grip, reach, and strain repeatedly arrived at forms the old pattern books already contained.",
+      "question": "Which choice best states the main idea of the text?",
+      "choices": [
+        { "id": "A", "text": "Scythes are more difficult to use correctly than most other traditional farm tools." },
+        { "id": "B", "text": "Traditional tool handles embody refinements accumulated through long use, refinements that modern research has now largely confirmed." },
+        { "id": "C", "text": "Twentieth-century researchers studying hand tools relied on old pattern books instead of conducting laboratory measurements of grip, reach, and strain." },
+        { "id": "D", "text": "Tool makers of earlier generations deliberately kept their most successful handle designs secret from competing workshops." }
+      ],
+      "correctAnswer": "B",
+      "explanation": "**Choice B is correct.** The passage's arc runs from handles shaped by generations of use to modern measurements that landed on the same forms — old refinement, newly confirmed.\n\n**The Full Solution:**\n- How to spot it: the main idea has to cover the whole passage. Test each choice: does it include both the old process AND the modern confirmation? Only B does.\n- The old process: makers copied the handles workers favored and dropped the tiring ones, refining shapes over generations rather than on paper.\n- The confirmation: researchers measuring grip, reach, and strain \"repeatedly arrived at forms the old pattern books already contained.\"\n\n**Why the other choices are wrong:**\n- A: The scythe is one example of a refined handle; the passage never ranks tools by difficulty.\n- C: This reverses the final sentence — the researchers ran their own measurements and only then matched the old forms.\n- D: Secrecy is never mentioned; makers are described as copying one another's best handles, the opposite of guarding them."
+    },
+    {
+      "id": 770,
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "band": 4,
+      "domain": "information-and-ideas",
+      "skill": "inferences",
+      "passage": "In old buildings, stone staircases keep a record of their own use. Each footstep removes an invisibly small amount of stone, and the loss adds up only where feet actually land, so after a few centuries the treads are hollowed deepest along the route people really took — which is not always the route the builder's tidy symmetry assumed they would take. The record has gaps, however: badly worn treads were often flipped over or replaced, and every such repair erased the wear at that spot. Taken together, these observations suggest that the wear on an old staircase is best understood as ______",
+      "question": "Which choice most logically completes the text?",
+      "choices": [
+        { "id": "A", "text": "proof that the building's architect failed to anticipate how the staircase would be used." },
+        { "id": "B", "text": "a reliable measure of the staircase's exact age, since stone wears at a known rate." },
+        { "id": "C", "text": "a sign that older construction methods produced softer and less durable stone." },
+        { "id": "D", "text": "an incomplete record of where generations of occupants actually walked, rather than of where the design assumed they would." }
+      ],
+      "correctAnswer": "D",
+      "explanation": "**Choice D is correct.** The passage establishes that wear maps actual footsteps rather than the builder's assumptions, and that repairs erased parts of the map — so the wear is a record of real use, with gaps.\n\n**The Full Solution:**\n- How to spot it: an inference blank rewards the claim that follows from the passage and nothing more. Gather the given facts, then ask what they add up to without adding a judgment of your own.\n- Fact one: stone is lost only where feet land, so deep hollows trace the route people really took.\n- Fact two: that route is \"not always\" the one the builder's symmetry assumed — use can diverge from design.\n- Fact three: flipped and replaced treads erased wear at those spots, so the record is incomplete.\n- D contains all three: a record of actual walking, distinct from the design's assumptions, and incomplete — nothing more.\n\n**Why the other choices are wrong:**\n- A: The passage says use did not ALWAYS match the design, not that the architect failed — \"proof\" of failure overshoots the evidence.\n- B: Exact age would require knowing traffic as well as wear rate, and the erased patches make the record even less complete; the passage never offers dating.\n- C: No comparison between old and new stone appears anywhere in the text."
+    },
+    {
+      "id": 766,
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "band": 3,
+      "domain": "information-and-ideas",
+      "skill": "command-of-evidence-textual",
+      "passage": "The chirping of tree crickets speeds up on warm evenings and slows on cool ones — so reliably that listeners can estimate the temperature by counting chirps. Researchers have proposed that the rate is set by the temperature of the cricket's own body, which governs how quickly its chirping muscles can contract: on this account, the surrounding air matters only insofar as it warms or cools the insect itself. A team is testing the proposal by gently warming individual crickets while keeping the air around them cool.",
+      "question": "Which finding from the study, if true, would most strongly support the researchers' proposal?",
+      "choices": [
+        { "id": "A", "text": "Crickets chirped at their usual evening rate whether or not other crickets were audible nearby." },
+        { "id": "B", "text": "Crickets warmed before the test chirped no faster in cool air than crickets never warmed at all." },
+        { "id": "C", "text": "Larger cricket species tended to chirp more loudly than smaller species at every temperature tested." },
+        { "id": "D", "text": "Warmed crickets chirped rapidly despite the cool air, while unwarmed crickets nearby chirped slowly." }
+      ],
+      "correctAnswer": "D",
+      "explanation": "**Choice D is correct.** The proposal says body temperature — not the air itself — sets the chirp rate, so warm crickets chirping fast in cool air is exactly the result that would support it.\n\n**The Full Solution:**\n- How to spot it: put the proposal into your own words first, then look for the choice that matches it. The claim is \"warm body, fast chirps, no matter the air.\"\n- The team's design separates the two variables: the cricket is warmed directly while the air stays cool, so body and air temperatures pull in opposite directions.\n- D reports fast chirping from the warmed crickets and slow chirping from unwarmed crickets in the same cool air — the body wins, just as the proposal predicts.\n\n**Why the other choices are wrong:**\n- A: Whether crickets respond to each other's calls says nothing about what sets the chirp rate.\n- B: This is the opposite result — if warming a cricket did not speed its chirps, the proposal would be weakened.\n- C: Loudness across species is a different variable entirely; the proposal is about rate, not volume."
+    },
+    {
+      "id": 765,
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "band": 3,
+      "domain": "information-and-ideas",
+      "skill": "central-ideas-and-details",
+      "passage": "A sled's runners do not slide on snow itself. As the runners rub across the surface, friction warms the top layer of snow just enough to melt it, and the sled rides on a film of water thinner than a hair. The film is what makes the ride fast, because water clings to the runners far less than snow crystals do. The effect has a limit, though. In severe cold, the rubbing cannot raise the snow to its melting point, no film forms, and a hill that was fast on a mild afternoon turns slow and squeaky.",
+      "question": "Which choice best states the main idea of the text?",
+      "choices": [
+        { "id": "A", "text": "Sledding is fastest on hills that have been packed down by many earlier riders." },
+        { "id": "B", "text": "A sled glides on a film of meltwater created by friction, so snow too cold to melt makes a slow ride." },
+        { "id": "C", "text": "Snow crystals cling to a sled's runners more strongly when the temperature rises above freezing." },
+        { "id": "D", "text": "The design and material of a sled's runners matter more to its speed than the condition of the snow on the hill it crosses." }
+      ],
+      "correctAnswer": "B",
+      "explanation": "**Choice B is correct.** The passage explains both halves: friction melts a hair-thin water film that the sled glides on, and when snow is too cold to melt, the film never forms and the sled drags.\n\n**The Full Solution:**\n- How to spot it: the main idea has to include the mechanism AND its limit, because the passage spends time on both.\n- The mechanism: rubbing runners warm the top layer of snow, the melt becomes a thin film, and water clings to the runners far less than snow crystals do.\n- The limit: the passage flags it with \"The effect has a limit, though\" — in severe cold no film forms, and the same hill turns slow.\n- B states the mechanism and the cold-weather limit in one sentence.\n\n**Why the other choices are wrong:**\n- A: Packed snow and earlier riders are never mentioned in the text.\n- C: The passage compares water and snow crystals, but it never says crystals grip harder above freezing.\n- D: Runner design is never weighed against snow conditions — the passage is entirely about the snow and the film."
     },
     {
       "id": 768,
@@ -322,27 +341,27 @@ export const practiceTest7RWM2Easy = {
       "correctAnswer": "B",
       "explanation": "**Choice B is correct.** The oil is what keeps water out of the down; detergent removes the oil; so water reaches the down that was being protected.\n\n**The Full Solution:**\n- How to spot it: on an inference blank, follow the passage's own logic to the next step and stop there. The chain here is: oil blocks water, detergent dissolves oil, therefore water gets through.\n- The passage says the oiled surface \"keeps water from soaking through to the layer of down beneath.\"\n- It then says detergents dissolve \"exactly this kind of oily coating.\"\n- Remove the coating and the down loses its shield — the duck takes on water, which is all choice B claims.\n\n**Why the other choices are wrong:**\n- A: The passage never says the gland responds to demand; extra oil production is invented, not inferred.\n- C: This contradicts the text — the down stays dry only because the oiled feathers above it block the water.\n- D: Nothing in the passage suggests ducks can detect detergent, so avoidance has no support."
     },
-    {
-      "id": 770,
-      "type": "multiple-choice",
-      "difficulty": "hard",
-      "band": 4,
-      "domain": "information-and-ideas",
-      "skill": "inferences",
-      "passage": "In old buildings, stone staircases keep a record of their own use. Each footstep removes an invisibly small amount of stone, and the loss adds up only where feet actually land, so after a few centuries the treads are hollowed deepest along the route people really took — which is not always the route the builder's tidy symmetry assumed they would take. The record has gaps, however: badly worn treads were often flipped over or replaced, and every such repair erased the wear at that spot. Taken together, these observations suggest that the wear on an old staircase is best understood as ______",
-      "question": "Which choice most logically completes the text?",
-      "choices": [
-        { "id": "A", "text": "proof that the building's architect failed to anticipate how the staircase would be used." },
-        { "id": "B", "text": "a reliable measure of the staircase's exact age, since stone wears at a known rate." },
-        { "id": "C", "text": "a sign that older construction methods produced softer and less durable stone." },
-        { "id": "D", "text": "an incomplete record of where generations of occupants actually walked, rather than of where the design assumed they would." }
-      ],
-      "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The passage establishes that wear maps actual footsteps rather than the builder's assumptions, and that repairs erased parts of the map — so the wear is a record of real use, with gaps.\n\n**The Full Solution:**\n- How to spot it: an inference blank rewards the claim that follows from the passage and nothing more. Gather the given facts, then ask what they add up to without adding a judgment of your own.\n- Fact one: stone is lost only where feet land, so deep hollows trace the route people really took.\n- Fact two: that route is \"not always\" the one the builder's symmetry assumed — use can diverge from design.\n- Fact three: flipped and replaced treads erased wear at those spots, so the record is incomplete.\n- D contains all three: a record of actual walking, distinct from the design's assumptions, and incomplete — nothing more.\n\n**Why the other choices are wrong:**\n- A: The passage says use did not ALWAYS match the design, not that the architect failed — \"proof\" of failure overshoots the evidence.\n- B: Exact age would require knowing traffic as well as wear rate, and the erased patches make the record even less complete; the passage never offers dating.\n- C: No comparison between old and new stone appears anywhere in the text."
-    },
     // ============================================================
     // Q17-Q22: Standard English Conventions
     // ============================================================
+    {
+      "id": 775,
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "band": 3,
+      "domain": "standard-english-conventions",
+      "skill": "boundaries",
+      "passage": "The star-nosed mole ______ hunts by touch alone. As the mole tunnels, the fleshy rays around its snout tap the soil dozens of times each second, and the moment they brush against a worm or grub, the mole strikes.",
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+        { "id": "A", "text": "a nearly sightless burrower of damp meadows and streambanks" },
+        { "id": "B", "text": ", a nearly sightless burrower of damp meadows and streambanks" },
+        { "id": "C", "text": "a nearly sightless burrower of damp meadows and streambanks," },
+        { "id": "D", "text": ", a nearly sightless burrower of damp meadows and streambanks," }
+      ],
+      "correctAnswer": "D",
+      "explanation": "**Choice D is correct.** The description of the mole is extra information you could lift out and still have a complete sentence, so it needs a comma before it and a comma after it.\n\n**The Full Solution:**\n- How to spot it: try removing the inserted phrase. If the sentence still works — \"The star-nosed mole...hunts by touch alone\" — the phrase is extra and must be fenced off on BOTH sides.\n- The phrase \"a nearly sightless burrower of damp meadows and streambanks\" adds background but is not needed to know which animal is meant.\n- Only a comma before it and a comma after it close the aside at both ends.\n\n**Why the other choices are wrong:**\n- A: This gives no commas at all, jamming the aside into the sentence.\n- B: This opens the aside with a comma but never closes it.\n- C: This closes the aside with a comma but never opens it."
+    },
     {
       "id": 771,
       "type": "multiple-choice",
@@ -360,24 +379,6 @@ export const practiceTest7RWM2Easy = {
       ],
       "correctAnswer": "A",
       "explanation": "**Choice A is correct.** There are two complete sentences here, and a period is what separates them.\n\n**The Full Solution:**\n- How to spot it: check each side of the blank. If both sides can stand alone as sentences, you need a full stop between them — a period, a semicolon, or a comma plus a joining word.\n- Side 1: the crew drains the water and stows the lane lines. Side 2: the pumps and filters are then cleaned and stored until spring. Both are complete.\n- \"lines. The\" ends the first sentence and starts the second, which is exactly what two complete sentences need.\n\n**Why the other choices are wrong:**\n- B: A comma alone is too weak to hold two complete sentences apart.\n- C: With no punctuation at all, the two sentences run together.\n- D: A semicolon already joins two sentences, so adding \"and\" is one mark too many."
-    },
-    {
-      "id": 772,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "standard-english-conventions",
-      "skill": "form-structure-and-sense",
-      "passage": "A typist who works too quickly can jam a manual typewriter: two type bars swinging toward the paper at the same moment lock against each other. The keys on the keyboard ______ arranged not in alphabetical order but in a layout that separates letters often typed in sequence, so that neighboring type bars rarely swing at the same time.",
-      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-      "choices": [
-        { "id": "A", "text": "is" },
-        { "id": "B", "text": "was" },
-        { "id": "C", "text": "are" },
-        { "id": "D", "text": "has been" }
-      ],
-      "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The word the verb belongs to is \"keys,\" which is plural, so it takes the plural verb \"are.\"\n\n**The Full Solution:**\n- How to spot it: find the real subject and ignore any phrase sitting between it and the verb. Ask \"one or many?\" Many means a plural verb.\n- The subject is \"The keys\" — more than one — so the verb must be plural.\n- The phrase \"on the keyboard\" comes between the subject and the verb and can pull you toward a singular verb, but stripping it out leaves \"The keys...are arranged.\"\n\n**Why the other choices are wrong:**\n- A: \"Is\" is singular and does not match the plural \"keys.\"\n- B: \"Was\" is singular as well, and it also shifts the sentence into the past while the rest of the passage stays in the present.\n- D: \"Has been\" is singular, so it cannot match the plural subject."
     },
     {
       "id": 773,
@@ -398,6 +399,24 @@ export const practiceTest7RWM2Easy = {
       "explanation": "**Choice B is correct.** What follows the blank spells out the rule just announced, and a colon is the mark that introduces an explanation like that.\n\n**The Full Solution:**\n- How to spot it: a colon works when the part before it is a complete sentence and the part after it explains or unpacks something in it. Check both sides.\n- \"Builders therefore follow one strict rule\" stands on its own as a sentence.\n- What follows — \"a bond in which every stone rests on two stones below...\" — is a phrase naming that rule, not a second sentence.\n- The colon introduces it cleanly.\n\n**Why the other choices are wrong:**\n- A: A comma is too weak to introduce an explanation of this kind.\n- C: A semicolon must join two complete sentences, and what follows the blank is only a phrase.\n- D: With no punctuation at all, the phrase collides with the sentence in front of it."
     },
     {
+      "id": 772,
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "band": 2,
+      "domain": "standard-english-conventions",
+      "skill": "form-structure-and-sense",
+      "passage": "A typist who works too quickly can jam a manual typewriter: two type bars swinging toward the paper at the same moment lock against each other. The keys on the keyboard ______ arranged not in alphabetical order but in a layout that separates letters often typed in sequence, so that neighboring type bars rarely swing at the same time.",
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+        { "id": "A", "text": "is" },
+        { "id": "B", "text": "was" },
+        { "id": "C", "text": "are" },
+        { "id": "D", "text": "has been" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "**Choice C is correct.** The word the verb belongs to is \"keys,\" which is plural, so it takes the plural verb \"are.\"\n\n**The Full Solution:**\n- How to spot it: find the real subject and ignore any phrase sitting between it and the verb. Ask \"one or many?\" Many means a plural verb.\n- The subject is \"The keys\" — more than one — so the verb must be plural.\n- The phrase \"on the keyboard\" comes between the subject and the verb and can pull you toward a singular verb, but stripping it out leaves \"The keys...are arranged.\"\n\n**Why the other choices are wrong:**\n- A: \"Is\" is singular and does not match the plural \"keys.\"\n- B: \"Was\" is singular as well, and it also shifts the sentence into the past while the rest of the passage stays in the present.\n- D: \"Has been\" is singular, so it cannot match the plural subject."
+    },
+    {
       "id": 774,
       "type": "multiple-choice",
       "difficulty": "medium",
@@ -414,24 +433,6 @@ export const practiceTest7RWM2Easy = {
       ],
       "correctAnswer": "C",
       "explanation": "**Choice C is correct.** The phrase \"By the time\" signals two past events, one finishing before the other begins, and \"had been carrying\" is the form for the earlier, longer-running one.\n\n**The Full Solution:**\n- How to spot it: a signal phrase like \"by the time\" means two things happened in the past, one before the other. For the earlier action, use \"had\" plus the verb.\n- Two past events: the ferry carrying traffic across the river, and the bridge opening in 1938.\n- The ferry's service ran for more than eighty years before the bridge arrived, so it needs the earlier-past form \"had been carrying.\"\n\n**Why the other choices are wrong:**\n- A: \"Is carrying\" is happening-now wording and clashes with the 1938 time frame.\n- B: \"Has carried\" reaches up to the present, which does not fit a stretch of service that ended when the bridge opened.\n- D: \"Carries\" is plain present tense and cannot describe eighty years of past work."
-    },
-    {
-      "id": 775,
-      "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
-      "domain": "standard-english-conventions",
-      "skill": "boundaries",
-      "passage": "The star-nosed mole ______ hunts by touch alone. As the mole tunnels, the fleshy rays around its snout tap the soil dozens of times each second, and the moment they brush against a worm or grub, the mole strikes.",
-      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-      "choices": [
-        { "id": "A", "text": "a nearly sightless burrower of damp meadows and streambanks" },
-        { "id": "B", "text": ", a nearly sightless burrower of damp meadows and streambanks" },
-        { "id": "C", "text": "a nearly sightless burrower of damp meadows and streambanks," },
-        { "id": "D", "text": ", a nearly sightless burrower of damp meadows and streambanks," }
-      ],
-      "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The description of the mole is extra information you could lift out and still have a complete sentence, so it needs a comma before it and a comma after it.\n\n**The Full Solution:**\n- How to spot it: try removing the inserted phrase. If the sentence still works — \"The star-nosed mole...hunts by touch alone\" — the phrase is extra and must be fenced off on BOTH sides.\n- The phrase \"a nearly sightless burrower of damp meadows and streambanks\" adds background but is not needed to know which animal is meant.\n- Only a comma before it and a comma after it close the aside at both ends.\n\n**Why the other choices are wrong:**\n- A: This gives no commas at all, jamming the aside into the sentence.\n- B: This opens the aside with a comma but never closes it.\n- C: This closes the aside with a comma but never opens it."
     },
     {
       "id": 776,
@@ -455,24 +456,6 @@ export const practiceTest7RWM2Easy = {
     // Q23-Q27: Expression of Ideas
     // ============================================================
     {
-      "id": 777,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "expression-of-ideas",
-      "skill": "transitions",
-      "passage": "In the 1890s, most farm families collected their mail in town, and a household busy with planting or harvest might not see a letter until weeks after it arrived. ______ once rural free delivery reached an area, a carrier brought the mail to a box at the end of the farm lane six days a week.",
-      "question": "Which choice completes the text with the most logical transition?",
-      "choices": [
-        { "id": "A", "text": "However," },
-        { "id": "B", "text": "Therefore," },
-        { "id": "C", "text": "For example," },
-        { "id": "D", "text": "Meanwhile," }
-      ],
-      "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The two sentences describe opposite situations — letters waiting in town for weeks, against mail delivered to the farm lane six days a week — so a contrast word is needed.\n\n**The Full Solution:**\n- How to spot it: read both sides and name the link in plain words. Slow, infrequent access versus fast, regular delivery is a clash, which calls for a contrast word.\n- Before the blank: families had to travel to town, and busy households went weeks without seeing their letters.\n- After the blank: a carrier brought the mail to a box at the end of the lane six days a week.\n- \"However\" marks that reversal.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would make daily delivery a result of families going without mail, which reverses the logic.\n- C: \"For example\" would introduce an illustration of the old town-pickup system, not a change from it.\n- D: \"Meanwhile\" signals two things happening at the same time, but these sentences describe an earlier situation and a later one."
-    },
-    {
       "id": 778,
       "type": "multiple-choice",
       "difficulty": "medium",
@@ -489,6 +472,24 @@ export const practiceTest7RWM2Easy = {
       ],
       "correctAnswer": "D",
       "explanation": "**Choice D is correct.** Keeping needles pays off in spring, but the last sentence turns to what the habit costs in summer, so the sentences pull against each other.\n\n**The Full Solution:**\n- How to spot it: name the link in plain words. The passage first lists the advantages of keeping needles, then states a disadvantage — a good news, bad news turn that needs a contrast word.\n- Before the blank: no spring rebuilding cost, plus a head start on making food while neighbors are still budding.\n- After the blank: in high summer, a needle's small surface gathers far less light than a broad leaf does.\n- \"However\" marks that turn from benefit to cost.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make the summer cost a consequence of the spring advantages, but the passage sets the two against each other.\n- B: \"In other words\" signals a restatement, and the last sentence adds new information rather than repeating.\n- C: \"For instance\" would introduce an example of the advantages, but the sentence gives a drawback instead."
+    },
+    {
+      "id": 777,
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "band": 2,
+      "domain": "expression-of-ideas",
+      "skill": "transitions",
+      "passage": "In the 1890s, most farm families collected their mail in town, and a household busy with planting or harvest might not see a letter until weeks after it arrived. ______ once rural free delivery reached an area, a carrier brought the mail to a box at the end of the farm lane six days a week.",
+      "question": "Which choice completes the text with the most logical transition?",
+      "choices": [
+        { "id": "A", "text": "However," },
+        { "id": "B", "text": "Therefore," },
+        { "id": "C", "text": "For example," },
+        { "id": "D", "text": "Meanwhile," }
+      ],
+      "correctAnswer": "A",
+      "explanation": "**Choice A is correct.** The two sentences describe opposite situations — letters waiting in town for weeks, against mail delivered to the farm lane six days a week — so a contrast word is needed.\n\n**The Full Solution:**\n- How to spot it: read both sides and name the link in plain words. Slow, infrequent access versus fast, regular delivery is a clash, which calls for a contrast word.\n- Before the blank: families had to travel to town, and busy households went weeks without seeing their letters.\n- After the blank: a carrier brought the mail to a box at the end of the lane six days a week.\n- \"However\" marks that reversal.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would make daily delivery a result of families going without mail, which reverses the logic.\n- C: \"For example\" would introduce an illustration of the old town-pickup system, not a change from it.\n- D: \"Meanwhile\" signals two things happening at the same time, but these sentences describe an earlier situation and a later one."
     },
     {
       "id": 779,

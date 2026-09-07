@@ -1,4 +1,5 @@
 // Practice Test 5 — Reading & Writing Module 2 Easy variant (27 questions)
+// R&W seating varied 2026-09-07 (scripts/varyRWSeating.mjs): items re-dealt inside their official skill blocks with a per-test seed — block flow and per-skill counts unchanged.
 // For students routed to the easier path after Module 1 (~<60% correct).
 // Distribution: 8E / 16M / 3H. Q1-2 easy openers. Max-score ceiling: ~600.
 // Domain mix: 8 Craft and Structure / 8 Information and Ideas /
@@ -18,42 +19,6 @@ export const practiceTest5RWM2Easy = {
     // ============================================================
     // Q1-Q8: Craft and Structure
     // ============================================================
-    {
-      "id": 555,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "craft-and-structure",
-      "skill": "words-in-context",
-      "passage": "At many farmers markets, the stalls nearest the entrance draw the heaviest foot traffic, and every vendor wants one. Market managers therefore rotate those spaces from month to month, assigning them by lottery or by turn so that no single farm can ______ the most visible spots season after season.",
-      "question": "Which choice completes the text with the most logical and precise word or phrase?",
-      "choices": [
-        { "id": "A", "text": "decorate" },
-        { "id": "B", "text": "monopolize" },
-        { "id": "C", "text": "avoid" },
-        { "id": "D", "text": "measure" }
-      ],
-      "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The blank needs a verb for one farm keeping the best spots all to itself, and \"monopolize\" means to take exclusive control of something.\n\n**The Full Solution:**\n- How to spot it: the phrase \"so that no single farm can ______\" tells you the rotation exists to PREVENT something one farm might otherwise do.\n- The passage says every vendor wants the high-traffic stalls and that managers rotate them by lottery or by turn — a system built to keep any one vendor from locking the spots up.\n- \"Monopolize\" names exactly that locked-up control, so the sentence explains what the rotation prevents.\n\n**Why the other choices are wrong:**\n- A: \"Decorate\" is about appearance; rotating stalls by lottery has nothing to do with stopping decoration.\n- C: \"Avoid\" reverses the logic — vendors want these spots, and no rotation is needed to stop a farm from staying away.\n- D: \"Measure\" means to determine size, which no part of the passage discusses."
-    },
-    {
-      "id": 556,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "craft-and-structure",
-      "skill": "words-in-context",
-      "passage": "Backyard birds take their food in different ways: finches perch at tubes and crack small seeds, woodpeckers cling to hanging blocks of suet, and doves prefer to pick fallen grain off the ground. Because each style of feeder suits some birds and not others, people hoping to see a wider range of species often ______ several feeder types in one yard rather than relying on a single design.",
-      "question": "Which choice completes the text with the most logical and precise word or phrase?",
-      "choices": [
-        { "id": "A", "text": "repair" },
-        { "id": "B", "text": "describe" },
-        { "id": "C", "text": "combine" },
-        { "id": "D", "text": "conceal" }
-      ],
-      "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The blank must describe using several feeder types together, and \"combine\" means to bring different things together.\n\n**The Full Solution:**\n- How to spot it: the contrast at the end of the sentence — \"several feeder types in one yard rather than relying on a single design\" — tells you the blank is the opposite of using just one.\n- The passage has set up why: each feeder style serves some birds and not others, so one design alone limits which species show up.\n- Putting several designs together covers more feeding styles, and \"combine\" is the verb for doing exactly that.\n\n**Why the other choices are wrong:**\n- A: \"Repair\" means to fix something broken, but nothing in the passage is broken.\n- B: \"Describe\" means to put into words, which would not bring any additional birds to a yard.\n- D: \"Conceal\" means to hide, and hiding feeders would defeat the goal of attracting more species."
-    },
     {
       "id": 557,
       "type": "multiple-choice",
@@ -91,6 +56,42 @@ export const practiceTest5RWM2Easy = {
       "explanation": "**Choice D is correct.** The tight glide lets the swimmer travel farther on the same push, which can only happen if the posture cuts down the water's resistance — that is, if it can \"reduce\" drag.\n\n**The Full Solution:**\n- How to spot it: read the payoff after the blank — the posture carries the swimmer \"several extra meters.\" Ask what would have to happen to drag for that to be true.\n- The passage opens by naming drag as the enemy: swimmers lose most of their speed to the water's resistance.\n- Less resistance means the push off the wall lasts longer, so the verb must mean lessening. \"Reduce\" says it directly.\n\n**Why the other choices are wrong:**\n- A: \"Record\" is what the force sensors do, not what a body position does to drag.\n- B: \"Resemble\" means to look like; a posture looking like drag makes no sense.\n- C: \"Produce\" reverses the physics — creating more drag would shorten the glide, not extend it."
     },
     {
+      "id": 556,
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "band": 2,
+      "domain": "craft-and-structure",
+      "skill": "words-in-context",
+      "passage": "Backyard birds take their food in different ways: finches perch at tubes and crack small seeds, woodpeckers cling to hanging blocks of suet, and doves prefer to pick fallen grain off the ground. Because each style of feeder suits some birds and not others, people hoping to see a wider range of species often ______ several feeder types in one yard rather than relying on a single design.",
+      "question": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": [
+        { "id": "A", "text": "repair" },
+        { "id": "B", "text": "describe" },
+        { "id": "C", "text": "combine" },
+        { "id": "D", "text": "conceal" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "**Choice C is correct.** The blank must describe using several feeder types together, and \"combine\" means to bring different things together.\n\n**The Full Solution:**\n- How to spot it: the contrast at the end of the sentence — \"several feeder types in one yard rather than relying on a single design\" — tells you the blank is the opposite of using just one.\n- The passage has set up why: each feeder style serves some birds and not others, so one design alone limits which species show up.\n- Putting several designs together covers more feeding styles, and \"combine\" is the verb for doing exactly that.\n\n**Why the other choices are wrong:**\n- A: \"Repair\" means to fix something broken, but nothing in the passage is broken.\n- B: \"Describe\" means to put into words, which would not bring any additional birds to a yard.\n- D: \"Conceal\" means to hide, and hiding feeders would defeat the goal of attracting more species."
+    },
+    {
+      "id": 555,
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "band": 2,
+      "domain": "craft-and-structure",
+      "skill": "words-in-context",
+      "passage": "At many farmers markets, the stalls nearest the entrance draw the heaviest foot traffic, and every vendor wants one. Market managers therefore rotate those spaces from month to month, assigning them by lottery or by turn so that no single farm can ______ the most visible spots season after season.",
+      "question": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": [
+        { "id": "A", "text": "decorate" },
+        { "id": "B", "text": "monopolize" },
+        { "id": "C", "text": "avoid" },
+        { "id": "D", "text": "measure" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "**Choice B is correct.** The blank needs a verb for one farm keeping the best spots all to itself, and \"monopolize\" means to take exclusive control of something.\n\n**The Full Solution:**\n- How to spot it: the phrase \"so that no single farm can ______\" tells you the rotation exists to PREVENT something one farm might otherwise do.\n- The passage says every vendor wants the high-traffic stalls and that managers rotate them by lottery or by turn — a system built to keep any one vendor from locking the spots up.\n- \"Monopolize\" names exactly that locked-up control, so the sentence explains what the rotation prevents.\n\n**Why the other choices are wrong:**\n- A: \"Decorate\" is about appearance; rotating stalls by lottery has nothing to do with stopping decoration.\n- C: \"Avoid\" reverses the logic — vendors want these spots, and no rotation is needed to stop a farm from staying away.\n- D: \"Measure\" means to determine size, which no part of the passage discusses."
+    },
+    {
       "id": 559,
       "type": "multiple-choice",
       "difficulty": "easy",
@@ -107,6 +108,33 @@ export const practiceTest5RWM2Easy = {
       ],
       "correctAnswer": "B",
       "explanation": "**Choice B is correct.** The text exists to explain why the quiet-looking step of centering is the foundation of all wheel work.\n\n**The Full Solution:**\n- How to spot it: for a main-purpose question, ask what job every sentence is doing. Here each one serves the same point.\n- Sentence one defines centering; sentence two admits it \"looks like nothing\" but says everything depends on it; sentence three gives the mechanism (off-center clay thickens, thins, and tears); the last shows the consequence — teachers keep students at this stage for weeks.\n- Definition, claim, mechanism, consequence: all four sentences explain why centering matters despite its dull appearance, which is what choice B states.\n\n**Why the other choices are wrong:**\n- A: Hand-built coil pottery never appears in the text, so no comparison can be the purpose.\n- C: Glazing is never mentioned; the text stops before a wall is even pulled.\n- D: The text says teachers slow students down at one stage — it never argues beginners should stay away from the craft."
+    },
+    {
+      "id": 562,
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "band": 3,
+      "domain": "craft-and-structure",
+      "skill": "cross-text-connections",
+      "passages": [
+        {
+          "label": "Text 1",
+          "text": "Winter is the season that limits many backyard bird populations, and feeders can loosen that limit. In studies spanning several winters, small songbirds with access to well-stocked feeders came through severe cold snaps at higher rates than birds without such access. On this view, a yard with feeders is a modest but genuine conservation gesture: whoever keeps seed out through February is carrying some birds through the hardest weeks of their year."
+        },
+        {
+          "label": "Text 2",
+          "text": "Feeding helps the birds that use feeders, but the help is uneven: feeders draw mainly a handful of bold, seed-eating species that are already among a region's most common, while the shyer birds of deep woods rarely visit them. Feeders also concentrate birds in repeated close contact at a shared surface, and outbreaks of eye disease in some feeder-visiting species have been traced to that crowding. A clean, well-tended feeder is a boon to its visitors; a neglected one can be the opposite."
+        }
+      ],
+      "question": "Based on the texts, how would the author of Text 2 most likely respond to the view of backyard feeding presented in Text 1?",
+      "choices": [
+        { "id": "A", "text": "Feeders do benefit the birds that visit them, but the benefit reaches only certain species and can be undone when feeders are not kept clean." },
+        { "id": "B", "text": "Feeders make no real difference to the winter survival of the birds that visit them." },
+        { "id": "C", "text": "The songbirds that visit feeders most often are the shy species of deep woods rather than a region's common seed-eaters." },
+        { "id": "D", "text": "People should stop feeding backyard birds entirely until outbreaks of eye disease have ended." }
+      ],
+      "correctAnswer": "A",
+      "explanation": "**Choice A is correct.** Text 2 opens by granting the benefit — \"Feeding helps the birds that use feeders\" — and then adds two limits: the help goes mostly to common species, and crowded, neglected feeders can spread disease. Choice A is precisely that response: agreement plus limits.\n\n**The Full Solution:**\n- How to spot it: pin down each author's position first. Text 1: feeders improve winter survival, so feeding is a small conservation gesture. Text 2: feeding helps its visitors, but unevenly, and with a disease risk tied to upkeep.\n- Notice that Text 2 never denies Text 1's survival evidence — its complaint is about reach (which species benefit) and about maintenance (clean versus neglected feeders).\n- Applied to Text 1's view, that yields choice A: yes, feeders help, but only some species, and only when kept clean.\n\n**Why the other choices are wrong:**\n- B: Text 2 says the opposite — feeding \"helps the birds that use feeders.\"\n- C: This reverses Text 2, which says feeders draw common seed-eaters while deep-woods birds rarely visit.\n- D: Text 2 distinguishes well-tended feeders from neglected ones; it never calls for stopping feeding altogether."
     },
     {
       "id": 560,
@@ -144,72 +172,9 @@ export const practiceTest5RWM2Easy = {
       "correctAnswer": "C",
       "explanation": "**Choice C is correct.** The text walks through the keeper's routine and then narrows to the night watch — the duty the text presents as the job's real weight.\n\n**The Full Solution:**\n- How to spot it: for a structure question, label what each part does rather than what it is about.\n- First part: the daytime routine — wicks, lens, oil, logbook. Second part, flagged by \"the harder discipline began\": the all-night watch and why it mattered (a failed light could wreck a ship).\n- The closing sentence confirms the emphasis — what keepers themselves remember is the watching. Describe the work, then single out the demanding duty: that is choice C.\n\n**Why the other choices are wrong:**\n- A: No change in lighthouse design or lamp technology is traced; the text sits inside one routine.\n- B: Two-keeper and one-keeper stations are mentioned only to explain shifts, not compared for workload.\n- D: The text reports what retired keepers remember; it never suggests their accounts overstate anything."
     },
-    {
-      "id": 562,
-      "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
-      "domain": "craft-and-structure",
-      "skill": "cross-text-connections",
-      "passages": [
-        {
-          "label": "Text 1",
-          "text": "Winter is the season that limits many backyard bird populations, and feeders can loosen that limit. In studies spanning several winters, small songbirds with access to well-stocked feeders came through severe cold snaps at higher rates than birds without such access. On this view, a yard with feeders is a modest but genuine conservation gesture: whoever keeps seed out through February is carrying some birds through the hardest weeks of their year."
-        },
-        {
-          "label": "Text 2",
-          "text": "Feeding helps the birds that use feeders, but the help is uneven: feeders draw mainly a handful of bold, seed-eating species that are already among a region's most common, while the shyer birds of deep woods rarely visit them. Feeders also concentrate birds in repeated close contact at a shared surface, and outbreaks of eye disease in some feeder-visiting species have been traced to that crowding. A clean, well-tended feeder is a boon to its visitors; a neglected one can be the opposite."
-        }
-      ],
-      "question": "Based on the texts, how would the author of Text 2 most likely respond to the view of backyard feeding presented in Text 1?",
-      "choices": [
-        { "id": "A", "text": "Feeders do benefit the birds that visit them, but the benefit reaches only certain species and can be undone when feeders are not kept clean." },
-        { "id": "B", "text": "Feeders make no real difference to the winter survival of the birds that visit them." },
-        { "id": "C", "text": "The songbirds that visit feeders most often are the shy species of deep woods rather than a region's common seed-eaters." },
-        { "id": "D", "text": "People should stop feeding backyard birds entirely until outbreaks of eye disease have ended." }
-      ],
-      "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** Text 2 opens by granting the benefit — \"Feeding helps the birds that use feeders\" — and then adds two limits: the help goes mostly to common species, and crowded, neglected feeders can spread disease. Choice A is precisely that response: agreement plus limits.\n\n**The Full Solution:**\n- How to spot it: pin down each author's position first. Text 1: feeders improve winter survival, so feeding is a small conservation gesture. Text 2: feeding helps its visitors, but unevenly, and with a disease risk tied to upkeep.\n- Notice that Text 2 never denies Text 1's survival evidence — its complaint is about reach (which species benefit) and about maintenance (clean versus neglected feeders).\n- Applied to Text 1's view, that yields choice A: yes, feeders help, but only some species, and only when kept clean.\n\n**Why the other choices are wrong:**\n- B: Text 2 says the opposite — feeding \"helps the birds that use feeders.\"\n- C: This reverses Text 2, which says feeders draw common seed-eaters while deep-woods birds rarely visit.\n- D: Text 2 distinguishes well-tended feeders from neglected ones; it never calls for stopping feeding altogether."
-    },
     // ============================================================
     // Q9-Q16: Information and Ideas
     // ============================================================
-    {
-      "id": 563,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "information-and-ideas",
-      "skill": "central-ideas-and-details",
-      "passage": "The first scientific balloon ascents, in the decades around 1800, were made by people who went up themselves, carrying barometers and thermometers in open baskets. Their readings, taken at intervals as the balloon climbed, settled a question that mountaintop measurements never could: the air grows steadily colder and thinner with height not just near peaks — where slopes and snowfields might be blamed — but over open, level country as well. Balloon flights, in short, turned the upper air itself into a place where measurements could be made.",
-      "question": "Which choice best states the main idea of the text?",
-      "choices": [
-        { "id": "A", "text": "The instruments carried aloft on early balloon flights were too fragile to produce trustworthy readings." },
-        { "id": "B", "text": "Mountaintop measurements had already established everything that early balloonists later confirmed." },
-        { "id": "C", "text": "Early balloon ascents produced measurements showing that air grows colder and thinner with height over open country, not only near mountains." },
-        { "id": "D", "text": "The first scientific balloon ascents were undertaken primarily to test whether balloons of the era could stay aloft long enough to cross open, level country." }
-      ],
-      "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The text's through-line is what the balloon measurements established: cooling and thinning with height happen everywhere, not just near mountains.\n\n**The Full Solution:**\n- How to spot it: a main idea must cover the whole passage without adding anything. Track what each sentence contributes.\n- Sentence one sets the scene (people aloft with instruments); sentence two delivers the finding, including the key contrast — not just near peaks, but over level country; the last sentence states the larger significance.\n- Choice C carries the finding and the contrast, and it claims nothing the passage does not say.\n\n**Why the other choices are wrong:**\n- A: The passage treats the readings as settling a question — the opposite of untrustworthy — and never discusses instrument fragility.\n- B: The text says mountaintop measurements could NOT settle the question, because slopes and snowfields might be blamed for the cold.\n- D: The ascents are described as scientific measuring trips; crossing country as a test of endurance is never mentioned."
-    },
-    {
-      "id": 564,
-      "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
-      "domain": "information-and-ideas",
-      "skill": "central-ideas-and-details",
-      "passage": "Many village dance traditions have never been written down, and their carriers see no gap in that. The dances are learned at the events where they are danced: a child stands at the edge of the circle, watches through a season of weddings and harvest festivals, and is pulled in by an older relative long before mastering the steps. Mistakes are corrected on the spot, by a hand on the shoulder rather than by explanation. What keeps such a dance alive, dancers often say, is not any record of its steps but an unbroken chain of occasions on which to dance it.",
-      "question": "According to the text, how are the dances of such village traditions typically learned?",
-      "choices": [
-        { "id": "A", "text": "By studying written records of the steps that older dancers have set down." },
-        { "id": "B", "text": "By watching and then joining the dancing at community events, where errors are corrected as they happen." },
-        { "id": "C", "text": "By rehearsing the steps alone at home until they are fully mastered and only then joining the dancing at a wedding or harvest festival." },
-        { "id": "D", "text": "By taking formal lessons from teachers hired to travel between villages." }
-      ],
-      "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The text says the dances are learned \"at the events where they are danced\" — a child watches, is pulled into the circle, and has mistakes corrected on the spot.\n\n**The Full Solution:**\n- How to spot it: this is a detail question, so the right answer must restate what the text says without stretching it.\n- Find the sentence that answers the question directly: learning happens at weddings and festivals, first by watching from the edge, then by being drawn in by an older relative.\n- The next sentence adds the correction method — on the spot, by hand rather than explanation. Choice B combines exactly these pieces: watching, joining at community events, errors corrected as they happen.\n\n**Why the other choices are wrong:**\n- A: The passage opens by saying these traditions \"have never been written down.\"\n- C: The text says a child is pulled in \"long before mastering the steps\" — the reverse of practicing alone until mastery.\n- D: No teachers, lessons, or travel between villages appear anywhere in the text."
-    },
     {
       "id": 565,
       "type": "multiple-choice",
@@ -229,6 +194,24 @@ export const practiceTest5RWM2Easy = {
       "explanation": "**Choice D is correct.** The passage's point is the gap between what visitors see (the board) and what judges score (the interview and the student's understanding), and choice D states that gap.\n\n**The Full Solution:**\n- How to spot it: when a passage is built on a contrast, the main idea usually IS the contrast. Here it is displays versus interviews.\n- The evidence: judging sheets give the largest share of points to the interview, and many reward an honest account of a failed experiment over a tidy board describing a safe one.\n- The last sentence seals it — \"The polish that visitors notice... is not what wins.\" Choice D restates that whole arc.\n\n**Why the other choices are wrong:**\n- A: It swaps the players — the passage says visitors notice the boards; it is judges who focus on the interviews.\n- B: No fair in the passage eliminates display boards; boards are still there for visitors to see.\n- C: The passage says honest failed experiments can score BETTER, not that failure gets students eliminated."
     },
     {
+      "id": 570,
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "band": 4,
+      "domain": "information-and-ideas",
+      "skill": "inferences",
+      "passage": "Nineteenth-century gas balloons controlled altitude with two consumable stores. To rise, the aeronaut poured sand ballast overboard, lightening the craft; to descend, the aeronaut opened a valve and released some of the lifting gas. Neither store could be replenished aloft, and every correction spent one of them: each unwanted climb answered with the valve, each sag answered with sand, left the balloon poorer than before. Since a flight had to end, at the latest, when either store ran out, it follows that ______",
+      "question": "Which choice most logically completes the text?",
+      "choices": [
+        { "id": "A", "text": "a balloon carrying more sand ballast at launch could stay aloft indefinitely if its aeronaut simply avoided opening the valve." },
+        { "id": "B", "text": "the valve was the more important of the two controls, since gas, unlike sand, kept the balloon in the air." },
+        { "id": "C", "text": "the length of a flight was set less by the balloon itself than by how sparingly the aeronaut spent gas and sand along the way." },
+        { "id": "D", "text": "aeronauts of the period generally preferred flying in turbulent weather, since its updrafts could carry the balloon higher without costing a single scoop of sand ballast." }
+      ],
+      "correctAnswer": "C",
+      "explanation": "**Choice C is correct.** If every correction spends an unreplenishable store and the flight ends when a store runs out, then how long a flight lasts depends on how thriftily the aeronaut spends — which is choice C's conclusion.\n\n**The Full Solution:**\n- Line up the premises. One: altitude control consumes gas or sand. Two: neither can be replaced in the air. Three: the flight must end when either store is gone.\n- Ask what those premises jointly force. Two aeronauts in identical balloons could fly for very different times, because each correction is a withdrawal from a fixed account. The pilot who corrects sparingly keeps the account open longer.\n- That is choice C: duration is governed by spending habits along the way, more than by the craft itself.\n\n**Why the other choices are wrong:**\n- A: \"Indefinitely\" overreaches — the passage says descents required the valve, and a flight has to end; more sand delays the limit but cannot remove it.\n- B: The passage treats the two stores symmetrically — running out of EITHER ends the flight — so nothing supports ranking one control above the other.\n- D: It contradicts the setup: an updraft's unwanted climb was \"answered with the valve,\" so turbulence cost gas rather than sparing the stores."
+    },
+    {
       "id": 566,
       "type": "multiple-choice",
       "difficulty": "medium",
@@ -245,35 +228,6 @@ export const practiceTest5RWM2Easy = {
       ],
       "correctAnswer": "A",
       "explanation": "**Choice A is correct.** The claim is that wave-making resistance is a major part of drag at racing speed. If towing a swimmer at that speed takes measurably less force underwater — where no surface wave can form — the missing force is the wave's cost, directly confirming that the wave accounts for a real share of total drag.\n\n**The Full Solution:**\n- Pin the claim down precisely: at racing speeds, the bow wave contributes a MAJOR part of total drag. Support must connect the wave to a measured share of drag at those speeds.\n- Choice A is a controlled comparison: same swimmer, same speed, with and without a surface wave. The force difference isolates exactly the quantity the claim is about.\n- The submerged condition even matches the behavior the researcher cites — sprinters staying underwater after starts and turns.\n\n**Why the other choices are wrong:**\n- B: Training hours say nothing about what makes up drag.\n- C: The passage already assumes such rules exist (\"as long as the rules allow\"); restating them measures nothing.\n- D: Slow swimmers making no wave is consistent with the claim but never measures the wave's share of drag at racing speed, which is what the claim asserts."
-    },
-    {
-      "id": 567,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "information-and-ideas",
-      "skill": "command-of-evidence-quantitative",
-      "passage": "A summer farmers market runs for four hours each Saturday morning. The market's manager counted the shoppers entering during each hour across the season and argues that attendance is heavily front-loaded: the crowd is largest in the opening hour and shrinks in every hour that follows. The manager supports the claim with data from the table.",
-      "questionTable": {
-        "type": "table",
-        "caption": "Average number of shoppers entering a farmers market, by hour of operation",
-        "headers": ["Hour of operation", "Average shoppers entering"],
-        "rows": [
-          ["First", "640"],
-          ["Second", "510"],
-          ["Third", "380"],
-          ["Fourth", "220"]
-        ]
-      },
-      "question": "Which choice most effectively uses data from the table to support the claim?",
-      "choices": [
-        { "id": "A", "text": "In the market's first hour of operation, an average of 640 shoppers came through the entrance." },
-        { "id": "B", "text": "The number of shoppers entering was highest in the first hour, at 640, and fell in each hour after that, down to 220 in the fourth." },
-        { "id": "C", "text": "An average of more than 200 shoppers entered the market during each of its four hours of operation." },
-        { "id": "D", "text": "The market operated for the same four morning hours on every Saturday of the season." }
-      ],
-      "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The claim has two parts — the first hour is the biggest, and every later hour shrinks — and choice B reads both straight out of the table.\n\n**The Full Solution:**\n- How to spot it: when a claim describes a pattern across rows (\"largest, then shrinks every hour\"), the supporting choice must walk the rows, not quote one of them.\n- Check B against the table: 640 in the first hour is the largest value, and the column falls at every step — 640, 510, 380, 220.\n- One choice, both halves of the claim, every number checkable: that is what \"most effectively uses data\" means.\n\n**Why the other choices are wrong:**\n- A: One hour's count shows the opening crowd but says nothing about shrinking afterward.\n- C: A floor of 200 per hour is true but describes steadiness, not decline — it works against the claim if anything.\n- D: The market's schedule is background; it contains no attendance data at all."
     },
     {
       "id": 568,
@@ -305,6 +259,71 @@ export const practiceTest5RWM2Easy = {
       "explanation": "**Choice D is correct.** The report's claim has two halves — every mentored school rose, and the unmentored school fell — and only choice D reports both, with the numbers for each.\n\n**The Full Solution:**\n- Break the claim into its parts: (1) completion rose at each school with mentors, and (2) it fell at the school without them. The second part is what rules out a district-wide trend.\n- Choice D covers part one with all three gains (to 81, 70, and 79 percent) and part two with South's drop from 66 to 59 percent, naming South as the school without mentors.\n- That contrast — rises where the program ran, a fall where it did not — is exactly the comparison the claim rests on.\n\n**Why the other choices are wrong:**\n- A: One school's gain, however large, says nothing about the school without mentors.\n- B: An average across all four schools smooths away South's decline — the very data point the claim depends on.\n- C: It reports only the mentored schools' 2023 rates, omitting both the 2021 baselines and the comparison school."
     },
     {
+      "id": 567,
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "band": 2,
+      "domain": "information-and-ideas",
+      "skill": "command-of-evidence-quantitative",
+      "passage": "A summer farmers market runs for four hours each Saturday morning. The market's manager counted the shoppers entering during each hour across the season and argues that attendance is heavily front-loaded: the crowd is largest in the opening hour and shrinks in every hour that follows. The manager supports the claim with data from the table.",
+      "questionTable": {
+        "type": "table",
+        "caption": "Average number of shoppers entering a farmers market, by hour of operation",
+        "headers": ["Hour of operation", "Average shoppers entering"],
+        "rows": [
+          ["First", "640"],
+          ["Second", "510"],
+          ["Third", "380"],
+          ["Fourth", "220"]
+        ]
+      },
+      "question": "Which choice most effectively uses data from the table to support the claim?",
+      "choices": [
+        { "id": "A", "text": "In the market's first hour of operation, an average of 640 shoppers came through the entrance." },
+        { "id": "B", "text": "The number of shoppers entering was highest in the first hour, at 640, and fell in each hour after that, down to 220 in the fourth." },
+        { "id": "C", "text": "An average of more than 200 shoppers entered the market during each of its four hours of operation." },
+        { "id": "D", "text": "The market operated for the same four morning hours on every Saturday of the season." }
+      ],
+      "correctAnswer": "B",
+      "explanation": "**Choice B is correct.** The claim has two parts — the first hour is the biggest, and every later hour shrinks — and choice B reads both straight out of the table.\n\n**The Full Solution:**\n- How to spot it: when a claim describes a pattern across rows (\"largest, then shrinks every hour\"), the supporting choice must walk the rows, not quote one of them.\n- Check B against the table: 640 in the first hour is the largest value, and the column falls at every step — 640, 510, 380, 220.\n- One choice, both halves of the claim, every number checkable: that is what \"most effectively uses data\" means.\n\n**Why the other choices are wrong:**\n- A: One hour's count shows the opening crowd but says nothing about shrinking afterward.\n- C: A floor of 200 per hour is true but describes steadiness, not decline — it works against the claim if anything.\n- D: The market's schedule is background; it contains no attendance data at all."
+    },
+    {
+      "id": 564,
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "band": 3,
+      "domain": "information-and-ideas",
+      "skill": "central-ideas-and-details",
+      "passage": "Many village dance traditions have never been written down, and their carriers see no gap in that. The dances are learned at the events where they are danced: a child stands at the edge of the circle, watches through a season of weddings and harvest festivals, and is pulled in by an older relative long before mastering the steps. Mistakes are corrected on the spot, by a hand on the shoulder rather than by explanation. What keeps such a dance alive, dancers often say, is not any record of its steps but an unbroken chain of occasions on which to dance it.",
+      "question": "According to the text, how are the dances of such village traditions typically learned?",
+      "choices": [
+        { "id": "A", "text": "By studying written records of the steps that older dancers have set down." },
+        { "id": "B", "text": "By watching and then joining the dancing at community events, where errors are corrected as they happen." },
+        { "id": "C", "text": "By rehearsing the steps alone at home until they are fully mastered and only then joining the dancing at a wedding or harvest festival." },
+        { "id": "D", "text": "By taking formal lessons from teachers hired to travel between villages." }
+      ],
+      "correctAnswer": "B",
+      "explanation": "**Choice B is correct.** The text says the dances are learned \"at the events where they are danced\" — a child watches, is pulled into the circle, and has mistakes corrected on the spot.\n\n**The Full Solution:**\n- How to spot it: this is a detail question, so the right answer must restate what the text says without stretching it.\n- Find the sentence that answers the question directly: learning happens at weddings and festivals, first by watching from the edge, then by being drawn in by an older relative.\n- The next sentence adds the correction method — on the spot, by hand rather than explanation. Choice B combines exactly these pieces: watching, joining at community events, errors corrected as they happen.\n\n**Why the other choices are wrong:**\n- A: The passage opens by saying these traditions \"have never been written down.\"\n- C: The text says a child is pulled in \"long before mastering the steps\" — the reverse of practicing alone until mastery.\n- D: No teachers, lessons, or travel between villages appear anywhere in the text."
+    },
+    {
+      "id": 563,
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "band": 2,
+      "domain": "information-and-ideas",
+      "skill": "central-ideas-and-details",
+      "passage": "The first scientific balloon ascents, in the decades around 1800, were made by people who went up themselves, carrying barometers and thermometers in open baskets. Their readings, taken at intervals as the balloon climbed, settled a question that mountaintop measurements never could: the air grows steadily colder and thinner with height not just near peaks — where slopes and snowfields might be blamed — but over open, level country as well. Balloon flights, in short, turned the upper air itself into a place where measurements could be made.",
+      "question": "Which choice best states the main idea of the text?",
+      "choices": [
+        { "id": "A", "text": "The instruments carried aloft on early balloon flights were too fragile to produce trustworthy readings." },
+        { "id": "B", "text": "Mountaintop measurements had already established everything that early balloonists later confirmed." },
+        { "id": "C", "text": "Early balloon ascents produced measurements showing that air grows colder and thinner with height over open country, not only near mountains." },
+        { "id": "D", "text": "The first scientific balloon ascents were undertaken primarily to test whether balloons of the era could stay aloft long enough to cross open, level country." }
+      ],
+      "correctAnswer": "C",
+      "explanation": "**Choice C is correct.** The text's through-line is what the balloon measurements established: cooling and thinning with height happen everywhere, not just near mountains.\n\n**The Full Solution:**\n- How to spot it: a main idea must cover the whole passage without adding anything. Track what each sentence contributes.\n- Sentence one sets the scene (people aloft with instruments); sentence two delivers the finding, including the key contrast — not just near peaks, but over level country; the last sentence states the larger significance.\n- Choice C carries the finding and the contrast, and it claims nothing the passage does not say.\n\n**Why the other choices are wrong:**\n- A: The passage treats the readings as settling a question — the opposite of untrustworthy — and never discusses instrument fragility.\n- B: The text says mountaintop measurements could NOT settle the question, because slopes and snowfields might be blamed for the cold.\n- D: The ascents are described as scientific measuring trips; crossing country as a test of endurance is never mentioned."
+    },
+    {
       "id": 569,
       "type": "multiple-choice",
       "difficulty": "medium",
@@ -322,44 +341,44 @@ export const practiceTest5RWM2Easy = {
       "correctAnswer": "A",
       "explanation": "**Choice A is correct.** The passage ties weight to two things at once — harder starting, steadier spinning — so less weight must mean the reverse of both: an easier start and a less steady spin.\n\n**The Full Solution:**\n- How to spot it: the key sentence is a paired rule. \"The heavier the flywheel, the more kicks it takes... and the more evenly it holds its speed.\"\n- Run the rule backward for a lighter wheel: fewer kicks to start (a gain), less even speed between kicks (a loss).\n- Choice A states both directions of that trade and nothing more, which is exactly what \"It follows that\" demands.\n\n**Why the other choices are wrong:**\n- B: The flywheel stores effort; it does not create it. Every wheel slows between kicks, and a lighter one slows faster, so kicking remains necessary.\n- C: This keeps only the good half — the passage says evenness comes FROM weight, so a lighter disk turns less evenly, not more.\n- D: The passage supports a loss of steadiness, not impossibility; nothing says a lighter wheel cannot shape clay at all."
     },
-    {
-      "id": 570,
-      "type": "multiple-choice",
-      "difficulty": "hard",
-      "band": 4,
-      "domain": "information-and-ideas",
-      "skill": "inferences",
-      "passage": "Nineteenth-century gas balloons controlled altitude with two consumable stores. To rise, the aeronaut poured sand ballast overboard, lightening the craft; to descend, the aeronaut opened a valve and released some of the lifting gas. Neither store could be replenished aloft, and every correction spent one of them: each unwanted climb answered with the valve, each sag answered with sand, left the balloon poorer than before. Since a flight had to end, at the latest, when either store ran out, it follows that ______",
-      "question": "Which choice most logically completes the text?",
-      "choices": [
-        { "id": "A", "text": "a balloon carrying more sand ballast at launch could stay aloft indefinitely if its aeronaut simply avoided opening the valve." },
-        { "id": "B", "text": "the valve was the more important of the two controls, since gas, unlike sand, kept the balloon in the air." },
-        { "id": "C", "text": "the length of a flight was set less by the balloon itself than by how sparingly the aeronaut spent gas and sand along the way." },
-        { "id": "D", "text": "aeronauts of the period generally preferred flying in turbulent weather, since its updrafts could carry the balloon higher without costing a single scoop of sand ballast." }
-      ],
-      "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** If every correction spends an unreplenishable store and the flight ends when a store runs out, then how long a flight lasts depends on how thriftily the aeronaut spends — which is choice C's conclusion.\n\n**The Full Solution:**\n- Line up the premises. One: altitude control consumes gas or sand. Two: neither can be replaced in the air. Three: the flight must end when either store is gone.\n- Ask what those premises jointly force. Two aeronauts in identical balloons could fly for very different times, because each correction is a withdrawal from a fixed account. The pilot who corrects sparingly keeps the account open longer.\n- That is choice C: duration is governed by spending habits along the way, more than by the craft itself.\n\n**Why the other choices are wrong:**\n- A: \"Indefinitely\" overreaches — the passage says descents required the valve, and a flight has to end; more sand delays the limit but cannot remove it.\n- B: The passage treats the two stores symmetrically — running out of EITHER ends the flight — so nothing supports ranking one control above the other.\n- D: It contradicts the setup: an updraft's unwanted climb was \"answered with the valve,\" so turbulence cost gas rather than sparing the stores."
-    },
     // ============================================================
     // Q17-Q22: Standard English Conventions
     // ============================================================
     {
-      "id": 571,
+      "id": 574,
       "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
+      "difficulty": "medium",
+      "band": 3,
       "domain": "standard-english-conventions",
-      "skill": "boundaries",
-      "passage": "The newest pedestrian signs downtown are posted at decision points rather than at regular ______ stands wherever a walker must choose between two plausible streets, which is exactly where people report losing their way.",
+      "skill": "form-structure-and-sense",
+      "passage": "By the time the last staffed light on the coast was automated in 1998, keepers at the station ______ the same evening routine — lighting the lamp at dusk, logging the weather, standing watch in shifts — for more than a century.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "intervals, a sign" },
-        { "id": "B", "text": "intervals. A sign" },
-        { "id": "C", "text": "intervals a sign" },
-        { "id": "D", "text": "intervals, which a sign" }
+        { "id": "A", "text": "has been repeating" },
+        { "id": "B", "text": "had been repeating" },
+        { "id": "C", "text": "is repeating" },
+        { "id": "D", "text": "repeats" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** Each side of the blank is a complete sentence, and no joining word links them, so a period is needed to end the first and begin the second.\n\n**The Full Solution:**\n- How to spot it: cover the blank and test each side on its own. Left: \"The newest pedestrian signs downtown are posted at decision points rather than at regular intervals\" — complete. Right: \"A sign stands wherever a walker must choose between two plausible streets...\" — also complete.\n- Two complete sentences with no conjunction between them need a strong boundary: a period or a semicolon.\n- Choice B supplies the period; read the result aloud and both sentences stand cleanly.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two complete sentences is a comma splice.\n- C: With no punctuation at all, the two sentences run together.\n- D: Inserting \"which\" produces \"at regular intervals, which a sign stands wherever...\" — a clause that never becomes grammatical."
+      "explanation": "**Choice B is correct.** The sentence orders two past events — the automation in 1998 and the century of routine before it — and the earlier of two past events takes the \"had\" form: \"had been repeating.\"\n\n**The Full Solution:**\n- How to spot it: a sentence that opens with \"By the time...\" is stacking one past event on top of an earlier one, and the earlier one usually needs \"had\" plus the verb.\n- The later event: the light was automated in 1998 — simple past.\n- The blank covers the earlier stretch, the routine that ran \"for more than a century\" up to that moment. \"Had been repeating\" places that stretch before the 1998 automation, exactly where it belongs.\n\n**Why the other choices are wrong:**\n- A: \"Has been repeating\" connects the routine to the present, but the routine ended with automation in 1998 — both events sit in the past.\n- C: \"Is repeating\" is present tense and cannot sit before a past event.\n- D: \"Repeats\" is plain present as well, and it loses the century-long duration the sentence describes."
+    },
+    {
+      "id": 576,
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "band": 4,
+      "domain": "standard-english-conventions",
+      "skill": "form-structure-and-sense",
+      "passage": "A dance that lives only in its dancers changes as they do. Passed from body to body as the elders who first carried them stop dancing, ______",
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+        { "id": "A", "text": "the tradition as a whole shifts a little with each new generation of dancers." },
+        { "id": "B", "text": "there are figures in such a dance that shift with each generation and steps that eventually drop out." },
+        { "id": "C", "text": "the figures of such a dance shift a little with each generation, and steps that no occasion calls for eventually drop out of the tradition altogether." },
+        { "id": "D", "text": "shifting of the figures follows with each generation as no occasion calls for certain steps." }
+      ],
+      "correctAnswer": "C",
+      "explanation": "**Choice C is correct.** The opening phrase — \"Passed from body to body as the elders who first carried them stop dancing\" — describes the plural things the elders carried, so the words right after the comma must name them: the figures of the dance.\n\n**The Full Solution:**\n- How to spot it: when a sentence opens with a describing phrase and a comma, the very next words must be the thing described. Ask: what is passed from body to body and was carried by the elders? The figures.\n- The pronoun \"them\" inside the phrase is a second clue — it is plural, so the subject that follows must be plural too.\n- Choice C begins the main clause with \"the figures of such a dance,\" so the description lands on its true subject, and the second clause about disappearing steps follows grammatically with \"and.\"\n\n**Why the other choices are wrong:**\n- A: \"The tradition as a whole\" is singular and cannot be the plural \"them\" the elders carried.\n- B: The \"there are\" opening pushes \"figures\" out of the subject position, leaving the opening phrase with nothing to attach to.\n- D: Starting with \"shifting\" absurdly says the SHIFTING was what got passed from body to body."
     },
     {
       "id": 572,
@@ -380,6 +399,24 @@ export const practiceTest5RWM2Easy = {
       "explanation": "**Choice C is correct.** The subject of the verb is the plural \"figures,\" and the sentence describes what happens in the present, so the plural present-tense \"are\" is the match.\n\n**The Full Solution:**\n- How to spot it: find the true subject. It is \"the figures\" — the phrase \"of the dance\" is a prepositional phrase describing which figures, and the noun inside a prepositional phrase never controls the verb.\n- \"Figures\" is plural, so the verb must be plural.\n- Check the time: the rest of the sentence is present tense (\"can step into the line and follow along\"), so the blank should be present too. Plural plus present gives \"are.\"\n\n**Why the other choices are wrong:**\n- A: \"Is\" is singular; it wrongly agrees with the nearby singular \"dance\" instead of the plural subject \"figures.\"\n- B: \"Was\" is both singular and past tense, so it misses twice.\n- D: \"Has been\" is singular, and its perfect tense clashes with the plain present of the rest of the sentence."
     },
     {
+      "id": 571,
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "band": 2,
+      "domain": "standard-english-conventions",
+      "skill": "boundaries",
+      "passage": "The newest pedestrian signs downtown are posted at decision points rather than at regular ______ stands wherever a walker must choose between two plausible streets, which is exactly where people report losing their way.",
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+        { "id": "A", "text": "intervals, a sign" },
+        { "id": "B", "text": "intervals. A sign" },
+        { "id": "C", "text": "intervals a sign" },
+        { "id": "D", "text": "intervals, which a sign" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "**Choice B is correct.** Each side of the blank is a complete sentence, and no joining word links them, so a period is needed to end the first and begin the second.\n\n**The Full Solution:**\n- How to spot it: cover the blank and test each side on its own. Left: \"The newest pedestrian signs downtown are posted at decision points rather than at regular intervals\" — complete. Right: \"A sign stands wherever a walker must choose between two plausible streets...\" — also complete.\n- Two complete sentences with no conjunction between them need a strong boundary: a period or a semicolon.\n- Choice B supplies the period; read the result aloud and both sentences stand cleanly.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two complete sentences is a comma splice.\n- C: With no punctuation at all, the two sentences run together.\n- D: Inserting \"which\" produces \"at regular intervals, which a sign stands wherever...\" — a clause that never becomes grammatical."
+    },
+    {
       "id": 573,
       "type": "multiple-choice",
       "difficulty": "medium",
@@ -396,24 +433,6 @@ export const practiceTest5RWM2Easy = {
       ],
       "correctAnswer": "A",
       "explanation": "**Choice A is correct.** Both sides of the blank are complete sentences, and the second opens with \"however,\" which cannot glue sentences together the way \"and\" or \"but\" can — so a semicolon is required.\n\n**The Full Solution:**\n- How to spot it: words like however, therefore, and moreover are not conjunctions. When one of them starts the second of two complete sentences, the boundary before it must be a semicolon or a period.\n- Left side stands alone: the flume pumps a current past a stationary swimmer, letting researchers film from inches away. Right side stands alone too: water flowing past a stationary body is not quite the same, so coaches are cautious.\n- The semicolon in choice A makes the required break while keeping the two thoughts in one sentence.\n\n**Why the other choices are wrong:**\n- B: A comma before \"however\" leaves two complete sentences joined only by a comma — a comma splice.\n- C: With no punctuation, the sentences run together.\n- D: A colon promises an explanation or a list of what came before it, but \"however\" introduces a reversal, so the colon sends the wrong signal."
-    },
-    {
-      "id": 574,
-      "type": "multiple-choice",
-      "difficulty": "medium",
-      "band": 3,
-      "domain": "standard-english-conventions",
-      "skill": "form-structure-and-sense",
-      "passage": "By the time the last staffed light on the coast was automated in 1998, keepers at the station ______ the same evening routine — lighting the lamp at dusk, logging the weather, standing watch in shifts — for more than a century.",
-      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-      "choices": [
-        { "id": "A", "text": "has been repeating" },
-        { "id": "B", "text": "had been repeating" },
-        { "id": "C", "text": "is repeating" },
-        { "id": "D", "text": "repeats" }
-      ],
-      "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The sentence orders two past events — the automation in 1998 and the century of routine before it — and the earlier of two past events takes the \"had\" form: \"had been repeating.\"\n\n**The Full Solution:**\n- How to spot it: a sentence that opens with \"By the time...\" is stacking one past event on top of an earlier one, and the earlier one usually needs \"had\" plus the verb.\n- The later event: the light was automated in 1998 — simple past.\n- The blank covers the earlier stretch, the routine that ran \"for more than a century\" up to that moment. \"Had been repeating\" places that stretch before the 1998 automation, exactly where it belongs.\n\n**Why the other choices are wrong:**\n- A: \"Has been repeating\" connects the routine to the present, but the routine ended with automation in 1998 — both events sit in the past.\n- C: \"Is repeating\" is present tense and cannot sit before a past event.\n- D: \"Repeats\" is plain present as well, and it loses the century-long duration the sentence describes."
     },
     {
       "id": 575,
@@ -433,45 +452,9 @@ export const practiceTest5RWM2Easy = {
       "correctAnswer": "D",
       "explanation": "**Choice D is correct.** The phrase \"unlike a photograph\" is an aside dropped into the middle of the sentence; it opens with the comma after \"plate,\" so it must close with a comma as well.\n\n**The Full Solution:**\n- How to spot it: lift the middle phrase out. \"A botanical plate can leave out the chewed leaf and the wilted petal...\" is still a complete sentence, which proves the phrase is nonessential.\n- A nonessential phrase set into the middle of a sentence takes a comma on each side, like a pair of bookends.\n- The opening comma is already printed after \"plate,\" so the blank must supply the closing one, letting the sentence rejoin its verb \"can leave out.\"\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the aside crashes into the verb and the pair of commas is left half finished.\n- B: A semicolon joins two complete sentences, and \"can leave out the chewed leaf...\" is not one.\n- C: A colon introduces a list or an explanation, not the main verb of the sentence's own clause."
     },
-    {
-      "id": 576,
-      "type": "multiple-choice",
-      "difficulty": "hard",
-      "band": 4,
-      "domain": "standard-english-conventions",
-      "skill": "form-structure-and-sense",
-      "passage": "A dance that lives only in its dancers changes as they do. Passed from body to body as the elders who first carried them stop dancing, ______",
-      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-      "choices": [
-        { "id": "A", "text": "the tradition as a whole shifts a little with each new generation of dancers." },
-        { "id": "B", "text": "there are figures in such a dance that shift with each generation and steps that eventually drop out." },
-        { "id": "C", "text": "the figures of such a dance shift a little with each generation, and steps that no occasion calls for eventually drop out of the tradition altogether." },
-        { "id": "D", "text": "shifting of the figures follows with each generation as no occasion calls for certain steps." }
-      ],
-      "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The opening phrase — \"Passed from body to body as the elders who first carried them stop dancing\" — describes the plural things the elders carried, so the words right after the comma must name them: the figures of the dance.\n\n**The Full Solution:**\n- How to spot it: when a sentence opens with a describing phrase and a comma, the very next words must be the thing described. Ask: what is passed from body to body and was carried by the elders? The figures.\n- The pronoun \"them\" inside the phrase is a second clue — it is plural, so the subject that follows must be plural too.\n- Choice C begins the main clause with \"the figures of such a dance,\" so the description lands on its true subject, and the second clause about disappearing steps follows grammatically with \"and.\"\n\n**Why the other choices are wrong:**\n- A: \"The tradition as a whole\" is singular and cannot be the plural \"them\" the elders carried.\n- B: The \"there are\" opening pushes \"figures\" out of the subject position, leaving the opening phrase with nothing to attach to.\n- D: Starting with \"shifting\" absurdly says the SHIFTING was what got passed from body to body."
-    },
     // ============================================================
     // Q23-Q27: Expression of Ideas
     // ============================================================
-    {
-      "id": 577,
-      "type": "multiple-choice",
-      "difficulty": "easy",
-      "band": 2,
-      "domain": "expression-of-ideas",
-      "skill": "transitions",
-      "passage": "The walking times printed on the new pedestrian signs are their most popular feature: a corner sign that calls a destination a seven-minute walk turns a vague distance into a decision a person can make on the spot. ______ the printed times assume a steady adult pace, and several community groups have asked the city to add a slower estimate alongside the standard one.",
-      "question": "Which choice completes the text with the most logical transition?",
-      "choices": [
-        { "id": "A", "text": "For example," },
-        { "id": "B", "text": "As a result," },
-        { "id": "C", "text": "Similarly," },
-        { "id": "D", "text": "However," }
-      ],
-      "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The first sentence praises the walking times; the second raises a shortcoming of those same times — they fit only a steady adult pace. Moving from praise to a drawback calls for a contrast word, and \"However,\" supplies it.\n\n**The Full Solution:**\n- How to spot it: read the two sides and ask whether the second continues the first or pushes back on it. Here it pushes back.\n- Upside: the printed times make walking decisions easy, right at the corner.\n- Downside: the times suit only one pace, and community groups want a slower estimate added. That turn from strength to limitation is precisely the job of \"However.\"\n\n**Why the other choices are wrong:**\n- A: \"For example,\" would make the pace problem an illustration of the signs' popularity, but it undercuts the praise instead.\n- B: \"As a result,\" would make the pace assumption a consequence of the signs being popular, and no such cause-and-effect exists.\n- C: \"Similarly,\" needs two parallel points heading the same way, but these two sentences pull in opposite directions."
-    },
     {
       "id": 578,
       "type": "multiple-choice",
@@ -489,6 +472,24 @@ export const practiceTest5RWM2Easy = {
       ],
       "correctAnswer": "A",
       "explanation": "**Choice A is correct.** The sound signals exist BECAUSE fog blinds the light — the second sentence is the direct consequence of the problem in the first, and \"As a result,\" marks exactly that relationship.\n\n**The Full Solution:**\n- How to spot it: identify what each sentence does. Sentence one states a problem — fog can erase even the strongest beam within a mile. Sentence two describes the response — stations added bells and horns, and keepers tended the signal on foggy nights.\n- A response that exists because of a problem is an effect of that problem.\n- \"As a result,\" tells the reader the equipment follows from the fog, which is the passage's logic.\n\n**Why the other choices are wrong:**\n- B: \"For instance,\" would make the sound signal an example of fog defeating a light, but it is the answer to that defeat, not a case of it.\n- C: \"In other words,\" promises a restatement of the fog problem, yet the second sentence adds something new rather than rewording.\n- D: \"Nevertheless,\" signals defiance of what came before, but nothing in the second sentence resists the first — it responds to it."
+    },
+    {
+      "id": 577,
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "band": 2,
+      "domain": "expression-of-ideas",
+      "skill": "transitions",
+      "passage": "The walking times printed on the new pedestrian signs are their most popular feature: a corner sign that calls a destination a seven-minute walk turns a vague distance into a decision a person can make on the spot. ______ the printed times assume a steady adult pace, and several community groups have asked the city to add a slower estimate alongside the standard one.",
+      "question": "Which choice completes the text with the most logical transition?",
+      "choices": [
+        { "id": "A", "text": "For example," },
+        { "id": "B", "text": "As a result," },
+        { "id": "C", "text": "Similarly," },
+        { "id": "D", "text": "However," }
+      ],
+      "correctAnswer": "D",
+      "explanation": "**Choice D is correct.** The first sentence praises the walking times; the second raises a shortcoming of those same times — they fit only a steady adult pace. Moving from praise to a drawback calls for a contrast word, and \"However,\" supplies it.\n\n**The Full Solution:**\n- How to spot it: read the two sides and ask whether the second continues the first or pushes back on it. Here it pushes back.\n- Upside: the printed times make walking decisions easy, right at the corner.\n- Downside: the times suit only one pace, and community groups want a slower estimate added. That turn from strength to limitation is precisely the job of \"However.\"\n\n**Why the other choices are wrong:**\n- A: \"For example,\" would make the pace problem an illustration of the signs' popularity, but it undercuts the praise instead.\n- B: \"As a result,\" would make the pace assumption a consequence of the signs being popular, and no such cause-and-effect exists.\n- C: \"Similarly,\" needs two parallel points heading the same way, but these two sentences pull in opposite directions."
     },
     {
       "id": 579,

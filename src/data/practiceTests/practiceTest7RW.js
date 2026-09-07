@@ -1,4 +1,5 @@
 // Practice Test 7 — SAT Reading & Writing (R&W)
+// R&W seating varied 2026-09-07 (scripts/varyRWSeating.mjs): items re-dealt inside their official skill blocks with a per-test seed — block flow and per-skill counts unchanged.
 // Auto-assembled by scripts/assembleRWTest.mjs from the authored JSON in
 // scripts/generated/authored/test7/. Do not hand-edit this file —
 // re-run the assembler against the manifest to regenerate.
@@ -33,36 +34,6 @@ export const practiceTest7RW = {
       timeLimit: 32,
       questions: [
         {
-          "id": 701,
-          "type": "multiple-choice",
-          "difficulty": "easy",
-          "band": 2,
-          "domain": "craft-and-structure",
-          "skill": "words-in-context",
-          "passage": "Tardigrades, nearly microscopic animals that live in moss and soil, can survive being dried out completely. As the water around it disappears, a tardigrade draws in its legs, contracts into a compact form, and ______ nearly all activity: its metabolism slows until it is barely measurable, and the animal simply waits, sometimes for years, until moisture returns.",
-          "question": "Which choice completes the text with the most logical and precise word or phrase?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "resumes"
-            },
-            {
-              "id": "B",
-              "text": "conceals"
-            },
-            {
-              "id": "C",
-              "text": "observes"
-            },
-            {
-              "id": "D",
-              "text": "suspends"
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The colon spells out what the blank means: metabolism slows until it is barely measurable and the animal waits for water. Activity is put on hold, and \"suspends\" means exactly that.\n\n**The Full Solution:**\n- The clue sits right after the blank: the tardigrade's metabolism \"slows until it is barely measurable,\" and the animal \"waits...until moisture returns.\"\n- The blank therefore needs a word meaning to pause or halt temporarily, and \"suspends\" carries that meaning.\n- The opening sentence — the animal survives drying out — confirms that its life processes stop for a time rather than continue or end for good.\n\n**Why the other choices are wrong:**\n- A: \"Resumes\" means starts up again, the reverse of what happens as the water disappears.\n- B: \"Conceals\" would mean the tardigrade hides its activity, but the text describes activity stopping, not being kept out of sight.\n- C: \"Observes\" would have the animal watching its own activity, which does not fit a description of shutting down."
-        },
-        {
           "id": 702,
           "type": "multiple-choice",
           "difficulty": "easy",
@@ -93,36 +64,6 @@ export const practiceTest7RW = {
           "explanation": "**Choice A is correct.** One flash is easily lost among the leaves, but a whole tree pulsing on one beat can be seen far across the water — flashing together makes the signal stronger, which is what \"amplifies\" means.\n\n**The Full Solution:**\n- The passage sets up a problem: a lone male's flash is \"easily lost among the leaves.\"\n- The colon after the blank gives the payoff of synchrony: the combined display reaches females \"far across the water,\" farther than one insect's light could.\n- A word meaning to strengthen or boost fits that cause-and-effect, and \"amplifies\" means exactly that.\n\n**Why the other choices are wrong:**\n- B: \"Delays\" is about timing, not strength — nothing suggests the signal is postponed.\n- C: \"Records\" would mean the flashing stores the signal, but the fireflies are producing it, not preserving it.\n- D: \"Interrupts\" would mean the synchrony breaks the signal, the opposite of making it visible farther away."
         },
         {
-          "id": 703,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "craft-and-structure",
-          "skill": "words-in-context",
-          "passage": "In the Japanese repair practice of kintsugi, a broken ceramic bowl is mended with lacquer that is then dusted with powdered gold, so that bright seams trace every line of breakage. Rather than ______ the damage, the repair announces it: the cracks become part of the vessel's recorded history, and a mended bowl may be prized above one that has never broken.",
-          "question": "Which choice completes the text with the most logical and precise word or phrase?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "evaluating"
-            },
-            {
-              "id": "B",
-              "text": "causing"
-            },
-            {
-              "id": "C",
-              "text": "repeating"
-            },
-            {
-              "id": "D",
-              "text": "disguising"
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The frame \"Rather than ______ the damage, the repair announces it\" demands the opposite of announcing — hiding. Gold seams that \"trace every line of breakage\" conceal nothing, so the repair avoids \"disguising\" the damage.\n\n**The Full Solution:**\n- \"Rather than\" signals a contrast: the blank must be the opposite of what the repair actually does.\n- What it actually does is announce the damage — bright gold seams run along every crack.\n- The opposite of announcing damage is hiding it, and \"disguising\" means making something unrecognizable or hidden.\n\n**Why the other choices are wrong:**\n- A: \"Evaluating\" means judging the damage's extent, which is not the opposite of announcing it.\n- B: \"Causing\" fails the timeline — the bowl is already broken before the repair begins.\n- C: \"Repeating\" would mean breaking the bowl again, which nothing in the passage suggests."
-        },
-        {
           "id": 704,
           "type": "multiple-choice",
           "difficulty": "medium",
@@ -151,6 +92,66 @@ export const practiceTest7RW = {
           ],
           "correctAnswer": "C",
           "explanation": "**Choice C is correct.** The opening sentence states the feat — the octopus can \"match the seafloor beneath it\" — and the final sentence restates it through the blank: the pigment sacs let the animal \"reproduce,\" or copy, the look of its background.\n\n**The Full Solution:**\n- The first sentence supplies the meaning the blank must restate: the octopus matches its surroundings.\n- The mechanism explains how: thousands of pigment sacs widen or narrow to rebuild the background's pattern and brightness on the skin.\n- \"Reproduce\" — to make a copy of — is the precise word for re-creating a pattern on another surface.\n\n**Why the other choices are wrong:**\n- A: \"Memorize\" is about storing information in memory, but the skin displays the pattern rather than remembering it.\n- B: \"Illuminate\" means to light something up, and pigment sacs change color rather than emit light.\n- D: \"Simplify\" would mean the octopus renders a cruder version of the background, which would undercut the matching the passage describes."
+        },
+        {
+          "id": 701,
+          "type": "multiple-choice",
+          "difficulty": "easy",
+          "band": 2,
+          "domain": "craft-and-structure",
+          "skill": "words-in-context",
+          "passage": "Tardigrades, nearly microscopic animals that live in moss and soil, can survive being dried out completely. As the water around it disappears, a tardigrade draws in its legs, contracts into a compact form, and ______ nearly all activity: its metabolism slows until it is barely measurable, and the animal simply waits, sometimes for years, until moisture returns.",
+          "question": "Which choice completes the text with the most logical and precise word or phrase?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "resumes"
+            },
+            {
+              "id": "B",
+              "text": "conceals"
+            },
+            {
+              "id": "C",
+              "text": "observes"
+            },
+            {
+              "id": "D",
+              "text": "suspends"
+            }
+          ],
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** The colon spells out what the blank means: metabolism slows until it is barely measurable and the animal waits for water. Activity is put on hold, and \"suspends\" means exactly that.\n\n**The Full Solution:**\n- The clue sits right after the blank: the tardigrade's metabolism \"slows until it is barely measurable,\" and the animal \"waits...until moisture returns.\"\n- The blank therefore needs a word meaning to pause or halt temporarily, and \"suspends\" carries that meaning.\n- The opening sentence — the animal survives drying out — confirms that its life processes stop for a time rather than continue or end for good.\n\n**Why the other choices are wrong:**\n- A: \"Resumes\" means starts up again, the reverse of what happens as the water disappears.\n- B: \"Conceals\" would mean the tardigrade hides its activity, but the text describes activity stopping, not being kept out of sight.\n- C: \"Observes\" would have the animal watching its own activity, which does not fit a description of shutting down."
+        },
+        {
+          "id": 703,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "craft-and-structure",
+          "skill": "words-in-context",
+          "passage": "In the Japanese repair practice of kintsugi, a broken ceramic bowl is mended with lacquer that is then dusted with powdered gold, so that bright seams trace every line of breakage. Rather than ______ the damage, the repair announces it: the cracks become part of the vessel's recorded history, and a mended bowl may be prized above one that has never broken.",
+          "question": "Which choice completes the text with the most logical and precise word or phrase?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "evaluating"
+            },
+            {
+              "id": "B",
+              "text": "causing"
+            },
+            {
+              "id": "C",
+              "text": "repeating"
+            },
+            {
+              "id": "D",
+              "text": "disguising"
+            }
+          ],
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** The frame \"Rather than ______ the damage, the repair announces it\" demands the opposite of announcing — hiding. Gold seams that \"trace every line of breakage\" conceal nothing, so the repair avoids \"disguising\" the damage.\n\n**The Full Solution:**\n- \"Rather than\" signals a contrast: the blank must be the opposite of what the repair actually does.\n- What it actually does is announce the damage — bright gold seams run along every crack.\n- The opposite of announcing damage is hiding it, and \"disguising\" means making something unrecognizable or hidden.\n\n**Why the other choices are wrong:**\n- A: \"Evaluating\" means judging the damage's extent, which is not the opposite of announcing it.\n- B: \"Causing\" fails the timeline — the bowl is already broken before the repair begins.\n- C: \"Repeating\" would mean breaking the bowl again, which nothing in the passage suggests."
         },
         {
           "id": 705,
@@ -282,6 +283,122 @@ export const practiceTest7RW = {
           "explanation": "**Choice A is correct.** Von Frisch's conclusion rests on recruits arriving at the advertised site; Wenner's whole case is that odor could produce those arrivals without any decoding, so the symbolic-dance conclusion \"would remain undemonstrated\" until the two cues are separated.\n\n**The Full Solution:**\n- Text 1's evidence is arrival: bees that attended the dance reached the site more often than chance, so von Frisch inferred a decoded symbolic message.\n- Text 2 supplies a rival route to the same arrivals — recruits carry the food's scent from the dancer and are superb odor learners, and in Wenner's experiments they turned up at scented sites the dance had not indicated.\n- Wenner's demand that experiments separate dance information from smell is precisely the charge that Text 1's conclusion goes beyond what its evidence shows.\n\n**Why the other choices are wrong:**\n- B: It concedes the very point Wenner disputes — that recruits decode the dance's spatial information at all.\n- C: It overshoots — Wenner questions what the dance accomplishes, not whether the movement occurs.\n- D: It attributes a claim about insects in general that Text 2 never makes, and it accepts the symbolic reading Wenner calls undemonstrated."
         },
         {
+          "id": 711,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "information-and-ideas",
+          "skill": "central-ideas-and-details",
+          "passage": "In the years after the Mexican Revolution, the national government commissioned painters to cover the walls of public buildings — schools, ministries, markets — with scenes from Mexican history and daily labor. Artists including Diego Rivera and José Clemente Orozco worked at architectural scale, wrapping staircases and courtyards in compositions meant to be read by anyone passing through. A canvas locked in a private collection, the muralists argued, reached only its owner, while a wall belonged to everyone. The movement made public space itself the gallery, and it carried Mexican painting to international prominence.",
+          "question": "Which choice best states the main idea of the text?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Diego Rivera earned wider international recognition than any other painter associated with the Mexican mural movement."
+            },
+            {
+              "id": "B",
+              "text": "The Mexican government commissioned murals for its schools, ministries, and markets chiefly to make those public buildings more attractive to the growing numbers of foreign visitors of the period."
+            },
+            {
+              "id": "C",
+              "text": "Mexican muralists preferred painting on canvas but accepted wall commissions because the government paid for them."
+            },
+            {
+              "id": "D",
+              "text": "Supported by government commissions after the revolution, Mexican muralists turned public walls into large-scale paintings addressed to everyone rather than to private collectors."
+            }
+          ],
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** Every element of the passage feeds D's summary: the postrevolutionary commissions, the architectural scale, the argument that a wall \"belonged to everyone,\" and the movement's turn of public space into the gallery.\n\n**The Full Solution:**\n- The passage establishes the support: the national government commissioned murals for schools, ministries, and markets.\n- It establishes the audience: compositions \"meant to be read by anyone passing through,\" backed by the muralists' own contrast between a privately owned canvas and a public wall.\n- D joins those threads — government-backed painters making public, large-scale art for a broad audience — which is the passage's through-line.\n\n**Why the other choices are wrong:**\n- A: The text names Rivera as one example and never ranks the muralists' reputations.\n- B: It invents a motive — attracting foreign visitors — that appears nowhere in the passage.\n- C: It reverses the muralists' stated argument, which favored walls over privately held canvases."
+        },
+        {
+          "id": 715,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "information-and-ideas",
+          "skill": "inferences",
+          "passage": "Male bowerbirds build display structures — avenues of woven sticks opening onto courts decorated with sorted pebbles, bones, and bits of glass — that females inspect before choosing mates. Field studies report two consistent observations. First, males spend hours each day maintaining their bowers, and when researchers deliberately disarrange the decorations, the builders restore the layout within hours. Second, females visit many bowers repeatedly, and they mate most often with the males whose displays remain the most consistently ordered across those visits. Taken together, the observations suggest that ______",
+          "question": "Which choice most logically completes the text?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "females select mates according to bower arrangement alone, ignoring every other male trait."
+            },
+            {
+              "id": "B",
+              "text": "the arrangement of a bower, and not merely its existence, carries information that females weigh when choosing among males."
+            },
+            {
+              "id": "C",
+              "text": "males restore disarranged decorations chiefly to recover scarce building materials."
+            },
+            {
+              "id": "D",
+              "text": "bowerbird species that build no bowers at all are unable to attract mates."
+            }
+          ],
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** Both observations point at arrangement specifically — males labor to restore a disturbed layout, and females favor the most consistently ordered displays — so the modest conclusion is that arrangement itself carries information females use.\n\n**The Full Solution:**\n- Observation one shows males treating the layout, not just the structure, as worth hours of daily upkeep and prompt repair.\n- Observation two ties female choice to how consistently ordered a display remains across repeated visits.\n- The safe inference joins them: arrangement is a signal females weigh — note B's careful wording, which claims no more than the evidence shows.\n\n**Why the other choices are wrong:**\n- A: \"Alone\" and \"ignoring every other trait\" overreach — the observations show arrangement matters, not that nothing else does.\n- C: It substitutes a motive the evidence undercuts — males restore the layout of the same materials, which is effort spent on order, not on recovering supplies.\n- D: It leaps to species that build no bowers, about which the passage offers no evidence at all."
+        },
+        {
+          "id": 713,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "information-and-ideas",
+          "skill": "command-of-evidence-quantitative",
+          "passage": "Slow-growing boulder corals may take decades to reach the size at which they reproduce, a serious obstacle for reef restoration. In a technique called microfragmentation, restoration teams cut a colony into fragments of a few square centimeters, which heal and then add tissue far faster than an intact colony would. A yearlong trial raised microfragments and conventionally propagated fragments of the same coral species side by side at three nurseries. The team concludes that microfragmentation accelerated growth at every nursery in the trial because ______",
+          "questionTable": {
+            "type": "table",
+            "caption": "Mean tissue area added per fragment over one year at three coral nurseries (square centimeters)",
+            "headers": [
+              "Nursery",
+              "Microfragments",
+              "Conventional fragments"
+            ],
+            "rows": [
+              [
+                "North Key",
+                "41",
+                "12"
+              ],
+              [
+                "Turtle Bank",
+                "33",
+                "9"
+              ],
+              [
+                "Lagoon Station",
+                "37",
+                "14"
+              ]
+            ]
+          },
+          "question": "Which choice most effectively uses data from the table to complete the statement?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "at North Key, microfragments added 41 square centimeters of tissue, the largest gain recorded for any fragment type at any nursery."
+            },
+            {
+              "id": "B",
+              "text": "microfragments at the three nurseries added a combined 111 square centimeters of tissue over the year of the trial."
+            },
+            {
+              "id": "C",
+              "text": "microfragments outgrew conventional fragments at all three nurseries, adding 33 to 41 square centimeters compared with 9 to 14."
+            },
+            {
+              "id": "D",
+              "text": "conventional fragments at Lagoon Station added more tissue than conventional fragments at either of the other two nurseries."
+            }
+          ],
+          "correctAnswer": "C",
+          "explanation": "**Choice C is correct.** The claim covers \"every nursery in the trial,\" so the supporting data must compare the two methods at all three sites — and C does, showing microfragments ahead everywhere, 33 to 41 square centimeters against 9 to 14.\n\n**The Full Solution:**\n- The conclusion has two requirements: a comparison between methods, and coverage of all three nurseries.\n- C meets both, pairing the microfragment range (33-41) against the conventional range (9-14) so that even the weakest microfragment result beats the strongest conventional one.\n- That is precisely the all-sites pattern an \"every nursery\" claim needs.\n\n**Why the other choices are wrong:**\n- A: It cites one site's best number with no comparison to conventional fragments at that site or any other.\n- B: It totals only the microfragments, so nothing in it shows the conventional method being outgrown.\n- D: It compares conventional fragments across sites — a comparison within one method, irrelevant to whether microfragmentation accelerated growth."
+        },
+        {
           "id": 709,
           "type": "multiple-choice",
           "difficulty": "easy",
@@ -340,122 +457,6 @@ export const practiceTest7RW = {
           ],
           "correctAnswer": "C",
           "explanation": "**Choice C is correct.** The passage's arc runs from a crisis (hand tabulation too slow), through the fix (Hollerith's punched-card machines speeding the 1890 count), to the larger legacy (punched cards organizing data for half a century) — and only C spans all of it.\n\n**The Full Solution:**\n- The opening establishes the problem the system was adopted to solve: the 1880 count took most of a decade.\n- The middle describes the solution working — the 1890 returns were processed several times faster despite a larger population.\n- The final sentence widens the frame: the punched card \"outlived its first job,\" which C captures as a technology used far beyond the census.\n\n**Why the other choices are wrong:**\n- A: It stops at the opening problem and never reaches the solution or its legacy.\n- B: It contradicts the text, which says clerks processed the returns faster, not that clerks were eliminated.\n- D: It inflates the closing list into a ranking the text never makes — nothing says payrolls mattered more than the census."
-        },
-        {
-          "id": 711,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "information-and-ideas",
-          "skill": "central-ideas-and-details",
-          "passage": "In the years after the Mexican Revolution, the national government commissioned painters to cover the walls of public buildings — schools, ministries, markets — with scenes from Mexican history and daily labor. Artists including Diego Rivera and José Clemente Orozco worked at architectural scale, wrapping staircases and courtyards in compositions meant to be read by anyone passing through. A canvas locked in a private collection, the muralists argued, reached only its owner, while a wall belonged to everyone. The movement made public space itself the gallery, and it carried Mexican painting to international prominence.",
-          "question": "Which choice best states the main idea of the text?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "Diego Rivera earned wider international recognition than any other painter associated with the Mexican mural movement."
-            },
-            {
-              "id": "B",
-              "text": "The Mexican government commissioned murals for its schools, ministries, and markets chiefly to make those public buildings more attractive to the growing numbers of foreign visitors of the period."
-            },
-            {
-              "id": "C",
-              "text": "Mexican muralists preferred painting on canvas but accepted wall commissions because the government paid for them."
-            },
-            {
-              "id": "D",
-              "text": "Supported by government commissions after the revolution, Mexican muralists turned public walls into large-scale paintings addressed to everyone rather than to private collectors."
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** Every element of the passage feeds D's summary: the postrevolutionary commissions, the architectural scale, the argument that a wall \"belonged to everyone,\" and the movement's turn of public space into the gallery.\n\n**The Full Solution:**\n- The passage establishes the support: the national government commissioned murals for schools, ministries, and markets.\n- It establishes the audience: compositions \"meant to be read by anyone passing through,\" backed by the muralists' own contrast between a privately owned canvas and a public wall.\n- D joins those threads — government-backed painters making public, large-scale art for a broad audience — which is the passage's through-line.\n\n**Why the other choices are wrong:**\n- A: The text names Rivera as one example and never ranks the muralists' reputations.\n- B: It invents a motive — attracting foreign visitors — that appears nowhere in the passage.\n- C: It reverses the muralists' stated argument, which favored walls over privately held canvases."
-        },
-        {
-          "id": 712,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "information-and-ideas",
-          "skill": "command-of-evidence-textual",
-          "passage": "Before magma reaches the surface, the gases dissolved in it begin to escape, and different gases leave at different depths: carbon dioxide comes out of solution while magma is still deep, sulfur dioxide only much nearer the surface. Volcanologists have proposed that a rising ratio of carbon dioxide to sulfur dioxide in a volcano's emissions can therefore serve as an early warning, since it signals fresh magma beginning to move up from depth. A monitoring team plans to evaluate the proposal using continuous gas-sensor records from several frequently active volcanoes.",
-          "question": "Which finding from the team's evaluation, if true, would most directly support the proposal?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "At volcanoes that erupted during the study, the carbon dioxide-to-sulfur dioxide ratio climbed in the weeks before each eruption, while at volcanoes that stayed quiet it held roughly steady."
-            },
-            {
-              "id": "B",
-              "text": "The ratio rose sharply at several volcanoes during the study, but such rises occurred about as often in ordinary quiet months as they did in the weeks immediately leading up to an eruption."
-            },
-            {
-              "id": "C",
-              "text": "The gas sensors recorded sulfur dioxide reliably in all weather but often failed to register carbon dioxide during periods of heavy rain."
-            },
-            {
-              "id": "D",
-              "text": "Most eruptions during the study were preceded by swarms of small earthquakes beneath the volcano."
-            }
-          ],
-          "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The proposal predicts a specific pairing — ratio climbs, then eruption follows — and A reports exactly that pattern, complete with the control the claim needs: quiet volcanoes whose ratio stayed flat.\n\n**The Full Solution:**\n- The proposal is that a rising carbon dioxide-to-sulfur dioxide ratio warns of an eruption because it marks fresh magma rising from depth.\n- Direct support requires the warning to fire before eruptions and not to fire when no eruption comes.\n- A supplies both halves: climbs preceded every eruption, and volcanoes that stayed quiet showed no climb.\n\n**Why the other choices are wrong:**\n- B: It breaks the warning's reliability — rises that occur just as often without an eruption would undercut the proposal, not support it.\n- C: It reports a measurement problem with the sensors, which bears on data quality rather than on whether the ratio predicts eruptions.\n- D: It supports a different early-warning signal entirely — earthquakes — and says nothing about gas ratios."
-        },
-        {
-          "id": 713,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "information-and-ideas",
-          "skill": "command-of-evidence-quantitative",
-          "passage": "Slow-growing boulder corals may take decades to reach the size at which they reproduce, a serious obstacle for reef restoration. In a technique called microfragmentation, restoration teams cut a colony into fragments of a few square centimeters, which heal and then add tissue far faster than an intact colony would. A yearlong trial raised microfragments and conventionally propagated fragments of the same coral species side by side at three nurseries. The team concludes that microfragmentation accelerated growth at every nursery in the trial because ______",
-          "questionTable": {
-            "type": "table",
-            "caption": "Mean tissue area added per fragment over one year at three coral nurseries (square centimeters)",
-            "headers": [
-              "Nursery",
-              "Microfragments",
-              "Conventional fragments"
-            ],
-            "rows": [
-              [
-                "North Key",
-                "41",
-                "12"
-              ],
-              [
-                "Turtle Bank",
-                "33",
-                "9"
-              ],
-              [
-                "Lagoon Station",
-                "37",
-                "14"
-              ]
-            ]
-          },
-          "question": "Which choice most effectively uses data from the table to complete the statement?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "at North Key, microfragments added 41 square centimeters of tissue, the largest gain recorded for any fragment type at any nursery."
-            },
-            {
-              "id": "B",
-              "text": "microfragments at the three nurseries added a combined 111 square centimeters of tissue over the year of the trial."
-            },
-            {
-              "id": "C",
-              "text": "microfragments outgrew conventional fragments at all three nurseries, adding 33 to 41 square centimeters compared with 9 to 14."
-            },
-            {
-              "id": "D",
-              "text": "conventional fragments at Lagoon Station added more tissue than conventional fragments at either of the other two nurseries."
-            }
-          ],
-          "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The claim covers \"every nursery in the trial,\" so the supporting data must compare the two methods at all three sites — and C does, showing microfragments ahead everywhere, 33 to 41 square centimeters against 9 to 14.\n\n**The Full Solution:**\n- The conclusion has two requirements: a comparison between methods, and coverage of all three nurseries.\n- C meets both, pairing the microfragment range (33-41) against the conventional range (9-14) so that even the weakest microfragment result beats the strongest conventional one.\n- That is precisely the all-sites pattern an \"every nursery\" claim needs.\n\n**Why the other choices are wrong:**\n- A: It cites one site's best number with no comparison to conventional fragments at that site or any other.\n- B: It totals only the microfragments, so nothing in it shows the conventional method being outgrown.\n- D: It compares conventional fragments across sites — a comparison within one method, irrelevant to whether microfragmentation accelerated growth."
         },
         {
           "id": 714,
@@ -518,34 +519,34 @@ export const practiceTest7RW = {
           "explanation": "**Choice A is correct.** The engineer's claim is about the size of each successive step, so the evidence must compare consecutive decades — and A does: one 10-unit leap at the start, then steps of 2, 2, and 1.\n\n**The Full Solution:**\n- The claim has two parts: the steepest gain came first, and each later generation improved by a smaller margin.\n- A establishes the first part with the 1970s-to-1980s drop of 10, and the second by capping every later step at 2 or less.\n- Reading the table's consecutive differences — 10, 2, 2, 1 — confirms the progressively shrinking pattern A describes.\n\n**Why the other choices are wrong:**\n- B: The cumulative 80 percent decline shows that energy use fell overall but says nothing about how the fall was distributed among generations.\n- C: A single mid-series comparison cannot show that early gains dwarfed later ones.\n- D: It reverses the series — the 10-unit change belongs to the earliest step, not to a late-blooming acceleration."
         },
         {
-          "id": 715,
+          "id": 712,
           "type": "multiple-choice",
           "difficulty": "medium",
           "band": 3,
           "domain": "information-and-ideas",
-          "skill": "inferences",
-          "passage": "Male bowerbirds build display structures — avenues of woven sticks opening onto courts decorated with sorted pebbles, bones, and bits of glass — that females inspect before choosing mates. Field studies report two consistent observations. First, males spend hours each day maintaining their bowers, and when researchers deliberately disarrange the decorations, the builders restore the layout within hours. Second, females visit many bowers repeatedly, and they mate most often with the males whose displays remain the most consistently ordered across those visits. Taken together, the observations suggest that ______",
-          "question": "Which choice most logically completes the text?",
+          "skill": "command-of-evidence-textual",
+          "passage": "Before magma reaches the surface, the gases dissolved in it begin to escape, and different gases leave at different depths: carbon dioxide comes out of solution while magma is still deep, sulfur dioxide only much nearer the surface. Volcanologists have proposed that a rising ratio of carbon dioxide to sulfur dioxide in a volcano's emissions can therefore serve as an early warning, since it signals fresh magma beginning to move up from depth. A monitoring team plans to evaluate the proposal using continuous gas-sensor records from several frequently active volcanoes.",
+          "question": "Which finding from the team's evaluation, if true, would most directly support the proposal?",
           "choices": [
             {
               "id": "A",
-              "text": "females select mates according to bower arrangement alone, ignoring every other male trait."
+              "text": "At volcanoes that erupted during the study, the carbon dioxide-to-sulfur dioxide ratio climbed in the weeks before each eruption, while at volcanoes that stayed quiet it held roughly steady."
             },
             {
               "id": "B",
-              "text": "the arrangement of a bower, and not merely its existence, carries information that females weigh when choosing among males."
+              "text": "The ratio rose sharply at several volcanoes during the study, but such rises occurred about as often in ordinary quiet months as they did in the weeks immediately leading up to an eruption."
             },
             {
               "id": "C",
-              "text": "males restore disarranged decorations chiefly to recover scarce building materials."
+              "text": "The gas sensors recorded sulfur dioxide reliably in all weather but often failed to register carbon dioxide during periods of heavy rain."
             },
             {
               "id": "D",
-              "text": "bowerbird species that build no bowers at all are unable to attract mates."
+              "text": "Most eruptions during the study were preceded by swarms of small earthquakes beneath the volcano."
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Both observations point at arrangement specifically — males labor to restore a disturbed layout, and females favor the most consistently ordered displays — so the modest conclusion is that arrangement itself carries information females use.\n\n**The Full Solution:**\n- Observation one shows males treating the layout, not just the structure, as worth hours of daily upkeep and prompt repair.\n- Observation two ties female choice to how consistently ordered a display remains across repeated visits.\n- The safe inference joins them: arrangement is a signal females weigh — note B's careful wording, which claims no more than the evidence shows.\n\n**Why the other choices are wrong:**\n- A: \"Alone\" and \"ignoring every other trait\" overreach — the observations show arrangement matters, not that nothing else does.\n- C: It substitutes a motive the evidence undercuts — males restore the layout of the same materials, which is effort spent on order, not on recovering supplies.\n- D: It leaps to species that build no bowers, about which the passage offers no evidence at all."
+          "correctAnswer": "A",
+          "explanation": "**Choice A is correct.** The proposal predicts a specific pairing — ratio climbs, then eruption follows — and A reports exactly that pattern, complete with the control the claim needs: quiet volcanoes whose ratio stayed flat.\n\n**The Full Solution:**\n- The proposal is that a rising carbon dioxide-to-sulfur dioxide ratio warns of an eruption because it marks fresh magma rising from depth.\n- Direct support requires the warning to fire before eruptions and not to fire when no eruption comes.\n- A supplies both halves: climbs preceded every eruption, and volcanoes that stayed quiet showed no climb.\n\n**Why the other choices are wrong:**\n- B: It breaks the warning's reliability — rises that occur just as often without an eruption would undercut the proposal, not support it.\n- C: It reports a measurement problem with the sensors, which bears on data quality rather than on whether the ratio predicts eruptions.\n- D: It supports a different early-warning signal entirely — earthquakes — and says nothing about gas ratios."
         },
         {
           "id": 716,
@@ -578,6 +579,36 @@ export const practiceTest7RW = {
           "explanation": "**Choice A is correct.** The surveys document species thriving inside the closed grounds that the surrounding countryside \"has lost,\" and the closing sentence stresses the closures were accidental to conservation — so the modest conclusion is that the grounds function, in effect, as accidental reserves.\n\n**The Full Solution:**\n- The evidence: butterflies, ground-nesting birds, and wildflowers persist inside areas closed to farming, construction, and visitors.\n- The comparison built into the surveys — these species are exactly what neighboring farmland lost — makes the grounds refuges for the displaced species.\n- A carries the passage's own irony (\"imposed for safety, not for conservation\") in the phrase \"in effect, as accidental nature reserves,\" and its hedged wording matches the passage's \"may.\"\n\n**Why the other choices are wrong:**\n- B: No count compares the grounds with managed nature reserves — the comparison in the passage is with farmland.\n- C: \"Entirely\" and the visitors-only attribution contradict the passage, which lists farming and construction among the exclusions doing the work.\n- D: It contradicts the mechanism — the species persist because farming is excluded, so reopening the land to intensive farming could hardly leave the value undiminished."
         },
         {
+          "id": 722,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "standard-english-conventions",
+          "skill": "form-structure-and-sense",
+          "passage": "Saffron commands a high price partly because the crop is so exacting. Mapping soil drainage and autumn temperatures across a hillside lets growers match ______ notoriously narrow requirements — fast-draining soil, dry summers, a cool but not freezing flowering season — to the ground most likely to satisfy them.",
+          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "they're"
+            },
+            {
+              "id": "B",
+              "text": "its"
+            },
+            {
+              "id": "C",
+              "text": "their"
+            },
+            {
+              "id": "D",
+              "text": "it's"
+            }
+          ],
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** The blank needs a possessive pointing back to \"the crop\" — one thing — so the singular possessive \"its\" is the form that fits: the crop's notoriously narrow requirements.\n\n**The Full Solution:**\n- Identify the antecedent: the requirements belong to saffron, called \"the crop\" in the first sentence — a singular noun.\n- The slot is possessive: the word must show that the requirements belong to it, so a possessive form is required, not a contraction.\n- Apply the its/it's test: \"it is notoriously narrow requirements\" fails, confirming the possessive \"its.\"\n\n**Why the other choices are wrong:**\n- A: \"They're\" is the contraction of \"they are\" — plural and not a possessive.\n- C: \"Their\" is possessive but plural, and the antecedent \"the crop\" is singular.\n- D: \"It's\" is the contraction of \"it is,\" which the substitution test rules out."
+        },
+        {
           "id": 717,
           "type": "multiple-choice",
           "difficulty": "easy",
@@ -606,66 +637,6 @@ export const practiceTest7RW = {
           ],
           "correctAnswer": "D",
           "explanation": "**Choice D is correct.** The sentence lists three kinds of records, and each item carries its own internal comma (\"fixed monitors, which log...\"); when list items contain commas, the items themselves are separated with semicolons, so a semicolon must precede \"and resident questionnaires.\"\n\n**The Full Solution:**\n- The list's items are complex: each pairs a noun with a comma-set \"which\" clause describing it.\n- The first boundary already uses a semicolon (\"...around the clock; walking surveys...\"), so the second boundary must match.\n- \"loudness; and\" closes the second item and opens the third with the same mark, keeping the three items cleanly fenced.\n\n**Why the other choices are wrong:**\n- A: A comma before \"and\" would blend into the commas already inside each item, blurring where one record ends and the next begins.\n- B: No punctuation at all runs the second and third items together.\n- C: A colon introduces an explanation or a list; it cannot separate items within one."
-        },
-        {
-          "id": 718,
-          "type": "multiple-choice",
-          "difficulty": "easy",
-          "band": 2,
-          "domain": "standard-english-conventions",
-          "skill": "form-structure-and-sense",
-          "passage": "The capsaicinoids that give chile peppers their heat ______ concentrated not in the seeds, as cooks often assume, but in the pale ribs of tissue that anchor the seeds to the fruit's wall. Removing the ribs, rather than the seeds alone, is what genuinely tames a hot pepper.",
-          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "is"
-            },
-            {
-              "id": "B",
-              "text": "was"
-            },
-            {
-              "id": "C",
-              "text": "has been"
-            },
-            {
-              "id": "D",
-              "text": "are"
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The verb's subject is the plural noun \"capsaicinoids,\" so subject-verb agreement requires the plural verb \"are.\"\n\n**The Full Solution:**\n- Find the subject: \"The capsaicinoids...are concentrated.\" The clause \"that give chile peppers their heat\" merely describes the capsaicinoids.\n- Strip the intervening clause and the frame is plain: \"The capsaicinoids ______ concentrated not in the seeds...but in the ribs.\"\n- A plural subject takes a plural verb, so \"are\" is the only form that agrees.\n\n**Why the other choices are wrong:**\n- A: \"Is\" is singular and cannot agree with the plural \"capsaicinoids.\"\n- B: \"Was\" is singular as well, and its past tense clashes with the passage's present-tense description.\n- C: \"Has been\" is also singular — the plural form of that construction would be \"have been.\""
-        },
-        {
-          "id": 719,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "standard-english-conventions",
-          "skill": "boundaries",
-          "passage": "Coastal channels concentrate the tide into fast, predictable currents twice each ______ engineers have begun mooring underwater turbines in the narrowest passages, where the moving water carries the most energy. Unlike the wind, the tides can be forecast years in advance.",
-          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "day,"
-            },
-            {
-              "id": "B",
-              "text": "day; and"
-            },
-            {
-              "id": "C",
-              "text": "day"
-            },
-            {
-              "id": "D",
-              "text": "day, and"
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** Two complete sentences meet at the blank — one about the channels, one about the engineers — and a comma plus the coordinating conjunction \"and\" is a standard way to join them.\n\n**The Full Solution:**\n- Test each side for independence: \"Coastal channels concentrate the tide into fast, predictable currents twice each day\" stands alone, and so does \"engineers have begun mooring underwater turbines in the narrowest passages...\"\n- Independent clauses may be joined by a comma plus a coordinating conjunction (and, but, so...), by a semicolon, or split with a period.\n- \"day, and\" supplies exactly the comma-plus-conjunction option.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- B: A semicolon already joins independent clauses by itself; pairing it with \"and\" doubles the connector.\n- C: No punctuation at all fuses the two sentences into a run-on."
         },
         {
           "id": 720,
@@ -728,34 +699,94 @@ export const practiceTest7RW = {
           "explanation": "**Choice B is correct.** The inserted phrase naming the two partners is an aside the sentence survives without, so it must be fenced by a matched pair of marks — and because the aside contains commas of its own, dashes on both ends are the pair that keeps it readable.\n\n**The Full Solution:**\n- Remove the insertion and the sentence still stands: \"...a partnership of two woven together so tightly that...\" — so the naming phrase is supplementary.\n- A supplementary insertion must open and close with the same mark: dash-dash, comma-comma, or parentheses.\n- This insertion already holds four commas, so bounding it with commas would bury its edges; the dash pair in B marks them cleanly.\n\n**Why the other choices are wrong:**\n- A: It opens with a dash but closes with a comma — mismatched marks around one aside.\n- C: With no punctuation at all, the aside collides with the sentence around it.\n- D: Comma fences disappear among the commas inside the aside, leaving its boundaries unreadable."
         },
         {
-          "id": 722,
+          "id": 718,
           "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
+          "difficulty": "easy",
+          "band": 2,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "Saffron commands a high price partly because the crop is so exacting. Mapping soil drainage and autumn temperatures across a hillside lets growers match ______ notoriously narrow requirements — fast-draining soil, dry summers, a cool but not freezing flowering season — to the ground most likely to satisfy them.",
+          "passage": "The capsaicinoids that give chile peppers their heat ______ concentrated not in the seeds, as cooks often assume, but in the pale ribs of tissue that anchor the seeds to the fruit's wall. Removing the ribs, rather than the seeds alone, is what genuinely tames a hot pepper.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "they're"
+              "text": "is"
             },
             {
               "id": "B",
-              "text": "its"
+              "text": "was"
             },
             {
               "id": "C",
-              "text": "their"
+              "text": "has been"
             },
             {
               "id": "D",
-              "text": "it's"
+              "text": "are"
+            }
+          ],
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** The verb's subject is the plural noun \"capsaicinoids,\" so subject-verb agreement requires the plural verb \"are.\"\n\n**The Full Solution:**\n- Find the subject: \"The capsaicinoids...are concentrated.\" The clause \"that give chile peppers their heat\" merely describes the capsaicinoids.\n- Strip the intervening clause and the frame is plain: \"The capsaicinoids ______ concentrated not in the seeds...but in the ribs.\"\n- A plural subject takes a plural verb, so \"are\" is the only form that agrees.\n\n**Why the other choices are wrong:**\n- A: \"Is\" is singular and cannot agree with the plural \"capsaicinoids.\"\n- B: \"Was\" is singular as well, and its past tense clashes with the passage's present-tense description.\n- C: \"Has been\" is also singular — the plural form of that construction would be \"have been.\""
+        },
+        {
+          "id": 719,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "standard-english-conventions",
+          "skill": "boundaries",
+          "passage": "Coastal channels concentrate the tide into fast, predictable currents twice each ______ engineers have begun mooring underwater turbines in the narrowest passages, where the moving water carries the most energy. Unlike the wind, the tides can be forecast years in advance.",
+          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "day,"
+            },
+            {
+              "id": "B",
+              "text": "day; and"
+            },
+            {
+              "id": "C",
+              "text": "day"
+            },
+            {
+              "id": "D",
+              "text": "day, and"
+            }
+          ],
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** Two complete sentences meet at the blank — one about the channels, one about the engineers — and a comma plus the coordinating conjunction \"and\" is a standard way to join them.\n\n**The Full Solution:**\n- Test each side for independence: \"Coastal channels concentrate the tide into fast, predictable currents twice each day\" stands alone, and so does \"engineers have begun mooring underwater turbines in the narrowest passages...\"\n- Independent clauses may be joined by a comma plus a coordinating conjunction (and, but, so...), by a semicolon, or split with a period.\n- \"day, and\" supplies exactly the comma-plus-conjunction option.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- B: A semicolon already joins independent clauses by itself; pairing it with \"and\" doubles the connector.\n- C: No punctuation at all fuses the two sentences into a run-on."
+        },
+        {
+          "id": 725,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "expression-of-ideas",
+          "skill": "transitions",
+          "passage": "Stacked hydroponic farms can raise leafy greens in the middle of a city in any season, but the economics remain difficult: sunlight must be replaced with electric light, climate control runs around the clock, and only a few fast-growing, high-value crops repay the expense. ______ the farms have proved valuable as testing grounds, letting growers trial soilless nutrient mixes and new cultivars under conditions no open field can hold steady.",
+          "question": "Which choice completes the text with the most logical transition?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Therefore,"
+            },
+            {
+              "id": "B",
+              "text": "Even so,"
+            },
+            {
+              "id": "C",
+              "text": "For instance,"
+            },
+            {
+              "id": "D",
+              "text": "In other words,"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The blank needs a possessive pointing back to \"the crop\" — one thing — so the singular possessive \"its\" is the form that fits: the crop's notoriously narrow requirements.\n\n**The Full Solution:**\n- Identify the antecedent: the requirements belong to saffron, called \"the crop\" in the first sentence — a singular noun.\n- The slot is possessive: the word must show that the requirements belong to it, so a possessive form is required, not a contraction.\n- Apply the its/it's test: \"it is notoriously narrow requirements\" fails, confirming the possessive \"its.\"\n\n**Why the other choices are wrong:**\n- A: \"They're\" is the contraction of \"they are\" — plural and not a possessive.\n- C: \"Their\" is possessive but plural, and the antecedent \"the crop\" is singular.\n- D: \"It's\" is the contraction of \"it is,\" which the substitution test rules out."
+          "explanation": "**Choice B is correct.** The passage concedes a drawback — the economics remain difficult — and then reports a benefit that stands despite it, the \"yes, but still\" relationship that \"Even so\" marks.\n\n**The Full Solution:**\n- Before the blank: costs are high and only a few crops repay them — a genuine limitation.\n- After the blank: the farms nonetheless deliver value as controlled testing grounds.\n- A positive point surviving an acknowledged negative calls for a concessive turn, and \"Even so\" supplies it.\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" would derive the farms' usefulness from their poor economics, but the difficulty causes no such benefit.\n- C: \"For instance\" would make the testing-ground role an example of the economic difficulty, which it is not.\n- D: \"In other words\" would restate the prior sentence, yet the sentence after the blank introduces new information rather than rephrasing."
         },
         {
           "id": 723,
@@ -818,34 +849,45 @@ export const practiceTest7RW = {
           "explanation": "**Choice C is correct.** The second sentence delivers a striking confirmation of the first — the predicted properties \"matched...almost exactly\" — and \"Indeed\" is the transition that introduces a statement reinforcing what came before.\n\n**The Full Solution:**\n- The first sentence sets up a bold claim: Mendeleev predicted the properties of an element nobody had found.\n- The second sentence verifies it — gallium's measured density and melting point matched the predictions.\n- Verification strengthens rather than opposes the setup, so the emphasizing \"Indeed\" fits the join.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals a result in spite of what preceded, but the discovery fulfilled the prediction rather than defying it.\n- B: \"By contrast\" would set the two sentences against each other, and there is no opposition between a prediction and its confirmation.\n- D: \"Otherwise\" introduces what would happen if the preceding statement were untrue — a hypothetical the passage never entertains."
         },
         {
-          "id": 725,
+          "id": 727,
           "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
+          "difficulty": "hard",
+          "band": 4,
           "domain": "expression-of-ideas",
-          "skill": "transitions",
-          "passage": "Stacked hydroponic farms can raise leafy greens in the middle of a city in any season, but the economics remain difficult: sunlight must be replaced with electric light, climate control runs around the clock, and only a few fast-growing, high-value crops repay the expense. ______ the farms have proved valuable as testing grounds, letting growers trial soilless nutrient mixes and new cultivars under conditions no open field can hold steady.",
-          "question": "Which choice completes the text with the most logical transition?",
+          "skill": "rhetorical-synthesis",
+          "studentNotes": {
+            "intro": "While researching a topic, a student has taken the following notes:",
+            "bullets": [
+              "Ancient Egyptians produced animal mummies by the million as religious offerings, and museums around the world hold large collections of them.",
+              "Because unwrapping destroys a mummy, most bundles have remained sealed, their contents unknown.",
+              "For decades, scholars could only infer from a bundle's outer shape what animal it might contain.",
+              "Researchers have begun examining wrapped bundles with micro-CT scanning, which reconstructs the interior in three dimensions without opening the wrappings.",
+              "Scans show that some bundles hold complete animals, others partial remains, and some only mud, feathers, or scraps of bone.",
+              "Researchers now conclude that offerings were produced on a scale that outran the supply of animals."
+            ],
+            "goal": "The student wants to emphasize how imaging technology changed researchers' understanding of the mummies."
+          },
+          "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
           "choices": [
             {
               "id": "A",
-              "text": "Therefore,"
+              "text": "Ancient Egyptians produced animal mummies by the million as religious offerings, and museums around the world still hold large collections of them."
             },
             {
               "id": "B",
-              "text": "Even so,"
+              "text": "Because unwrapping destroys a mummy, scholars long had to infer from a sealed bundle's outer shape what animal it might contain."
             },
             {
               "id": "C",
-              "text": "For instance,"
+              "text": "Micro-CT scans of sealed bundles — some of which proved to hold only mud, feathers, or scraps of bone — led researchers to conclude that offerings were produced on a scale that outran the supply of animals."
             },
             {
               "id": "D",
-              "text": "In other words,"
+              "text": "Micro-CT scanning reconstructs the interior of a wrapped bundle in three dimensions, so researchers can examine a mummy without opening its wrappings."
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The passage concedes a drawback — the economics remain difficult — and then reports a benefit that stands despite it, the \"yes, but still\" relationship that \"Even so\" marks.\n\n**The Full Solution:**\n- Before the blank: costs are high and only a few crops repay them — a genuine limitation.\n- After the blank: the farms nonetheless deliver value as controlled testing grounds.\n- A positive point surviving an acknowledged negative calls for a concessive turn, and \"Even so\" supplies it.\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" would derive the farms' usefulness from their poor economics, but the difficulty causes no such benefit.\n- C: \"For instance\" would make the testing-ground role an example of the economic difficulty, which it is not.\n- D: \"In other words\" would restate the prior sentence, yet the sentence after the blank introduces new information rather than rephrasing."
+          "correctAnswer": "C",
+          "explanation": "**Choice C is correct.** The goal demands a link from the technology to a changed understanding, and C forges it: scans revealed bundles holding only mud or feathers, and that evidence drove a new conclusion about production outrunning the supply of animals.\n\n**The Full Solution:**\n- The goal's two required parts: name the imaging technology, and show the understanding it changed.\n- C names micro-CT scanning of sealed bundles and reports what the scans revealed inside.\n- It then completes the arc with the revised conclusion researchers drew — exactly the change in understanding the goal asks the sentence to emphasize.\n\n**Why the other choices are wrong:**\n- A: It gives background on the offerings and collections, with no imaging and no new understanding.\n- B: It describes the old predicament the technology solved but stops before the technology appears.\n- D: It explains how the scanning works without stating anything researchers came to understand differently."
         },
         {
           "id": 726,
@@ -886,47 +928,6 @@ export const practiceTest7RW = {
           ],
           "correctAnswer": "B",
           "explanation": "**Choice B is correct.** The goal asks why the 1966 finding mattered, and B answers with both the discovery (a virus matching no known family) and its lasting consequence (coronaviruses established as a distinct family) — the significance itself.\n\n**The Full Solution:**\n- Treat the goal as a checklist: state what Almeida found in 1966 AND why it was important.\n- B covers the finding — cold-sample particles matching no known family — and the importance: the first recognized human coronavirus, and a newly established viral family.\n- No other choice connects the observation to what it changed.\n\n**Why the other choices are wrong:**\n- A: It offers biography and expertise, never reaching the 1966 finding at all.\n- C: It explains her imaging method — how she saw viruses, not what the 1966 result meant.\n- D: It relates only the naming anecdote; how the group got its name is not why the finding was significant."
-        },
-        {
-          "id": 727,
-          "type": "multiple-choice",
-          "difficulty": "hard",
-          "band": 4,
-          "domain": "expression-of-ideas",
-          "skill": "rhetorical-synthesis",
-          "studentNotes": {
-            "intro": "While researching a topic, a student has taken the following notes:",
-            "bullets": [
-              "Ancient Egyptians produced animal mummies by the million as religious offerings, and museums around the world hold large collections of them.",
-              "Because unwrapping destroys a mummy, most bundles have remained sealed, their contents unknown.",
-              "For decades, scholars could only infer from a bundle's outer shape what animal it might contain.",
-              "Researchers have begun examining wrapped bundles with micro-CT scanning, which reconstructs the interior in three dimensions without opening the wrappings.",
-              "Scans show that some bundles hold complete animals, others partial remains, and some only mud, feathers, or scraps of bone.",
-              "Researchers now conclude that offerings were produced on a scale that outran the supply of animals."
-            ],
-            "goal": "The student wants to emphasize how imaging technology changed researchers' understanding of the mummies."
-          },
-          "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "Ancient Egyptians produced animal mummies by the million as religious offerings, and museums around the world still hold large collections of them."
-            },
-            {
-              "id": "B",
-              "text": "Because unwrapping destroys a mummy, scholars long had to infer from a sealed bundle's outer shape what animal it might contain."
-            },
-            {
-              "id": "C",
-              "text": "Micro-CT scans of sealed bundles — some of which proved to hold only mud, feathers, or scraps of bone — led researchers to conclude that offerings were produced on a scale that outran the supply of animals."
-            },
-            {
-              "id": "D",
-              "text": "Micro-CT scanning reconstructs the interior of a wrapped bundle in three dimensions, so researchers can examine a mummy without opening its wrappings."
-            }
-          ],
-          "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The goal demands a link from the technology to a changed understanding, and C forges it: scans revealed bundles holding only mud or feathers, and that evidence drove a new conclusion about production outrunning the supply of animals.\n\n**The Full Solution:**\n- The goal's two required parts: name the imaging technology, and show the understanding it changed.\n- C names micro-CT scanning of sealed bundles and reports what the scans revealed inside.\n- It then completes the arc with the revised conclusion researchers drew — exactly the change in understanding the goal asks the sentence to emphasize.\n\n**Why the other choices are wrong:**\n- A: It gives background on the offerings and collections, with no imaging and no new understanding.\n- B: It describes the old predicament the technology solved but stops before the technology appears.\n- D: It explains how the scanning works without stating anything researchers came to understand differently."
         }
       ]
     },
@@ -935,6 +936,66 @@ export const practiceTest7RW = {
       title: "Module 2",
       timeLimit: 32,
       questions: [
+        {
+          "id": 731,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "craft-and-structure",
+          "skill": "words-in-context",
+          "passage": "Cork is harvested by stripping the cork oak's thick outer bark in sheets, a layer the living tree regrows over the following decade. Because the harvest removes no living wood beneath the bark, a skilled crew ______ the tree itself, and a single oak may yield a dozen harvests across a productive life of nearly two centuries.",
+          "question": "Which choice completes the text with the most logical and precise word or phrase?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "prunes"
+            },
+            {
+              "id": "B",
+              "text": "examines"
+            },
+            {
+              "id": "C",
+              "text": "cultivates"
+            },
+            {
+              "id": "D",
+              "text": "spares"
+            }
+          ],
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** \"Because the harvest removes no living wood\" sets up the consequence: the crew leaves the tree unharmed — \"spares\" it — which is why one oak can be harvested a dozen times over two centuries.\n\n**The Full Solution:**\n- The causal clue: nothing living is removed, so the tree survives the harvest intact.\n- The follow-on clause depends on that survival — repeated harvests across a productive life of nearly two centuries.\n- \"Spares\" means to refrain from harming, exactly the relationship between crew and tree.\n\n**Why the other choices are wrong:**\n- B: \"Examines\" would have the crew inspecting the tree, but the sentence is about the harvest's effect on it, not an inspection.\n- A: \"Prunes\" means cutting living branches away — precisely the kind of removal the sentence rules out.\n- C: \"Cultivates\" means to tend and raise a plant over time, a broader activity than the harvesting the clause describes."
+        },
+        {
+          "id": 730,
+          "type": "multiple-choice",
+          "difficulty": "hard",
+          "band": 4,
+          "domain": "craft-and-structure",
+          "skill": "words-in-context",
+          "passage": "When chemists first synthesized musk compounds in the late nineteenth century, perfume houses hesitated to adopt them, since the trade had long equated quality with rare and costly natural extracts. The equation did not survive testing. In blind evaluations, trained perfumers repeatedly judged compositions built on the synthetic musks to be ______ those built around the natural material — and the new compounds soon anchored several of the era's celebrated perfumes.",
+          "question": "Which choice completes the text with the most logical and precise word or phrase?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "derivative of"
+            },
+            {
+              "id": "B",
+              "text": "indistinguishable from"
+            },
+            {
+              "id": "C",
+              "text": "incompatible with"
+            },
+            {
+              "id": "D",
+              "text": "subordinate to"
+            }
+          ],
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** The old assumption tied quality to natural extracts, but \"the equation did not survive testing\": in blind evaluations even trained noses could not tell the difference, so the synthetic-based compositions were judged \"indistinguishable from\" the natural ones.\n\n**The Full Solution:**\n- The pivot sentence announces that the quality-equals-natural assumption failed under testing, so the blank must report a result that defeats it.\n- A blind evaluation is precisely a test of telling things apart; the assumption fails if the evaluators cannot.\n- The sequel confirms the reading: compounds that passed as equals went on to anchor celebrated perfumes.\n\n**Why the other choices are wrong:**\n- A: \"Derivative of\" would call the synthetic compositions imitative and lesser, preserving the very hierarchy the tests dissolved.\n- C: \"Incompatible with\" describes things that cannot coexist or combine, not a comparison of quality between two compositions.\n- D: \"Subordinate to\" would rank the synthetics below the natural material, contradicting the failed equation and the compounds' later success."
+        },
         {
           "id": 728,
           "type": "multiple-choice",
@@ -996,96 +1057,6 @@ export const practiceTest7RW = {
           "explanation": "**Choice C is correct.** The cause-and-effect chain — wave energy spent on the fronds, calmer water reaching land — leads to shorelines experiencing less erosion, and \"undergo\" means to experience or be subjected to.\n\n**The Full Solution:**\n- \"Because\" marks the logic: calmed water is the cause, and the blank must state its effect on the shoreline.\n- The effect is that less erosion happens to sheltered shorelines than to unsheltered ones.\n- \"Undergo\" is the verb for what a thing is subjected to, fitting a shoreline that erosion acts upon.\n\n**Why the other choices are wrong:**\n- A: \"Predict\" would make shorelines forecasters of their own erosion, which makes no sense.\n- B: \"Conceal\" would mean the erosion occurs but is hidden, while the passage says calmer water genuinely reduces it.\n- D: \"Require\" would make erosion something the shorelines need — the reverse of the benefit being described."
         },
         {
-          "id": 730,
-          "type": "multiple-choice",
-          "difficulty": "hard",
-          "band": 4,
-          "domain": "craft-and-structure",
-          "skill": "words-in-context",
-          "passage": "When chemists first synthesized musk compounds in the late nineteenth century, perfume houses hesitated to adopt them, since the trade had long equated quality with rare and costly natural extracts. The equation did not survive testing. In blind evaluations, trained perfumers repeatedly judged compositions built on the synthetic musks to be ______ those built around the natural material — and the new compounds soon anchored several of the era's celebrated perfumes.",
-          "question": "Which choice completes the text with the most logical and precise word or phrase?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "derivative of"
-            },
-            {
-              "id": "B",
-              "text": "indistinguishable from"
-            },
-            {
-              "id": "C",
-              "text": "incompatible with"
-            },
-            {
-              "id": "D",
-              "text": "subordinate to"
-            }
-          ],
-          "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The old assumption tied quality to natural extracts, but \"the equation did not survive testing\": in blind evaluations even trained noses could not tell the difference, so the synthetic-based compositions were judged \"indistinguishable from\" the natural ones.\n\n**The Full Solution:**\n- The pivot sentence announces that the quality-equals-natural assumption failed under testing, so the blank must report a result that defeats it.\n- A blind evaluation is precisely a test of telling things apart; the assumption fails if the evaluators cannot.\n- The sequel confirms the reading: compounds that passed as equals went on to anchor celebrated perfumes.\n\n**Why the other choices are wrong:**\n- A: \"Derivative of\" would call the synthetic compositions imitative and lesser, preserving the very hierarchy the tests dissolved.\n- C: \"Incompatible with\" describes things that cannot coexist or combine, not a comparison of quality between two compositions.\n- D: \"Subordinate to\" would rank the synthetics below the natural material, contradicting the failed equation and the compounds' later success."
-        },
-        {
-          "id": 731,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "craft-and-structure",
-          "skill": "words-in-context",
-          "passage": "Cork is harvested by stripping the cork oak's thick outer bark in sheets, a layer the living tree regrows over the following decade. Because the harvest removes no living wood beneath the bark, a skilled crew ______ the tree itself, and a single oak may yield a dozen harvests across a productive life of nearly two centuries.",
-          "question": "Which choice completes the text with the most logical and precise word or phrase?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "prunes"
-            },
-            {
-              "id": "B",
-              "text": "examines"
-            },
-            {
-              "id": "C",
-              "text": "cultivates"
-            },
-            {
-              "id": "D",
-              "text": "spares"
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** \"Because the harvest removes no living wood\" sets up the consequence: the crew leaves the tree unharmed — \"spares\" it — which is why one oak can be harvested a dozen times over two centuries.\n\n**The Full Solution:**\n- The causal clue: nothing living is removed, so the tree survives the harvest intact.\n- The follow-on clause depends on that survival — repeated harvests across a productive life of nearly two centuries.\n- \"Spares\" means to refrain from harming, exactly the relationship between crew and tree.\n\n**Why the other choices are wrong:**\n- B: \"Examines\" would have the crew inspecting the tree, but the sentence is about the harvest's effect on it, not an inspection.\n- A: \"Prunes\" means cutting living branches away — precisely the kind of removal the sentence rules out.\n- C: \"Cultivates\" means to tend and raise a plant over time, a broader activity than the harvesting the clause describes."
-        },
-        {
-          "id": 732,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "craft-and-structure",
-          "skill": "text-structure-and-purpose",
-          "passage": "Deep limestone caves were long assumed to be nearly lifeless: without sunlight, the reasoning went, they could support little beyond what washed in from the surface. Surveys of deep passages cut off from surface water complicated that view, finding thick microbial mats coating walls far beyond the reach of light. Chemical analyses then showed the microbes drawing energy from the rock itself, oxidizing the iron, sulfur, and ammonia that seep through the stone. Some cave ecosystems, it now appears, run on chemistry rather than sunlight, and researchers study them as models for how life might persist in other dark environments.",
-          "question": "Which choice best describes the overall structure of the text?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "It describes a sampling technique in detail and then lists the cave systems to which the technique has been applied so far."
-            },
-            {
-              "id": "B",
-              "text": "It states a long-held assumption, presents observations that conflicted with it, and offers a revised account supported by further analysis."
-            },
-            {
-              "id": "C",
-              "text": "It poses a question about underground life and explains why current methods cannot yet answer that question with confidence."
-            },
-            {
-              "id": "D",
-              "text": "It summarizes a disagreement between two research teams and explains why one team's interpretation of the evidence eventually prevailed over the other's."
-            }
-          ],
-          "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The passage runs assumption, conflict, revision: caves were assumed nearly lifeless, surveys found flourishing microbial mats beyond light's reach, and chemical analyses grounded the new account — ecosystems running on rock chemistry.\n\n**The Full Solution:**\n- Beat one: the long-held view that lightless caves support little beyond surface wash-in.\n- Beat two: the complicating observations — thick microbial mats in passages cut off from surface water.\n- Beat three: the revised account, supported by analysis showing the microbes oxidize iron, sulfur, and ammonia from the stone, plus the wider implication for life in dark places.\n\n**Why the other choices are wrong:**\n- A: No sampling technique is detailed, and no list of cave systems appears.\n- C: The passage answers its implicit question — the analyses succeed rather than fall short.\n- D: Only one line of research is described; no second team or rival interpretation ever enters."
-        },
-        {
           "id": 733,
           "type": "multiple-choice",
           "difficulty": "medium",
@@ -1118,6 +1089,36 @@ export const practiceTest7RW = {
             "quoteVerify": true,
             "source": "Claude McKay, \"The Tropics in New York,\" Harlem Shadows (1922)"
           }
+        },
+        {
+          "id": 732,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "craft-and-structure",
+          "skill": "text-structure-and-purpose",
+          "passage": "Deep limestone caves were long assumed to be nearly lifeless: without sunlight, the reasoning went, they could support little beyond what washed in from the surface. Surveys of deep passages cut off from surface water complicated that view, finding thick microbial mats coating walls far beyond the reach of light. Chemical analyses then showed the microbes drawing energy from the rock itself, oxidizing the iron, sulfur, and ammonia that seep through the stone. Some cave ecosystems, it now appears, run on chemistry rather than sunlight, and researchers study them as models for how life might persist in other dark environments.",
+          "question": "Which choice best describes the overall structure of the text?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "It describes a sampling technique in detail and then lists the cave systems to which the technique has been applied so far."
+            },
+            {
+              "id": "B",
+              "text": "It states a long-held assumption, presents observations that conflicted with it, and offers a revised account supported by further analysis."
+            },
+            {
+              "id": "C",
+              "text": "It poses a question about underground life and explains why current methods cannot yet answer that question with confidence."
+            },
+            {
+              "id": "D",
+              "text": "It summarizes a disagreement between two research teams and explains why one team's interpretation of the evidence eventually prevailed over the other's."
+            }
+          ],
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** The passage runs assumption, conflict, revision: caves were assumed nearly lifeless, surveys found flourishing microbial mats beyond light's reach, and chemical analyses grounded the new account — ecosystems running on rock chemistry.\n\n**The Full Solution:**\n- Beat one: the long-held view that lightless caves support little beyond surface wash-in.\n- Beat two: the complicating observations — thick microbial mats in passages cut off from surface water.\n- Beat three: the revised account, supported by analysis showing the microbes oxidize iron, sulfur, and ammonia from the stone, plus the wider implication for life in dark places.\n\n**Why the other choices are wrong:**\n- A: No sampling technique is detailed, and no list of cave systems appears.\n- C: The passage answers its implicit question — the analyses succeed rather than fall short.\n- D: Only one line of research is described; no second team or rival interpretation ever enters."
         },
         {
           "id": 734,
@@ -1219,36 +1220,6 @@ export const practiceTest7RW = {
           "explanation": "**Choice A is correct.** The passage's hinge is \"the nuisance became the signal\": wartime aircraft-detection radar, passed to weather services, gave forecasters their first real-time, wide-area view of storms — which is A, with the tornado hook as a closing illustration.\n\n**The Full Solution:**\n- The opening supplies the origin: radar built for war, with rain as unwanted clutter.\n- The middle delivers the transformation — surplus sets reached weather services, and forecasters could watch precipitation form, strengthen, and move \"as it happened.\"\n- The closing detail (the hook echo as a tornado clue) extends the same point: the repurposed displays became forecasting tools in their own right.\n\n**Why the other choices are wrong:**\n- B: It inverts the passage — radar freed forecasters from piecing storms together out of ground reports, rather than serving to confirm them.\n- C: The text credits weather services, not wartime operators, with giving echoes meteorological meaning.\n- D: It stretches a scene-setting detail about clutter into the main idea and stops before the transformation the passage exists to describe."
         },
         {
-          "id": 737,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "information-and-ideas",
-          "skill": "central-ideas-and-details",
-          "passage": "In the wet uplands of Meghalaya, in northeastern India, Khasi villagers train the aerial roots of rubber fig trees across streams, threading young roots through hollowed canes until they take hold on the far bank. Over decades the roots thicken, fuse, and stiffen into a bridge that carries foot traffic through monsoon floods capable of sweeping away timber spans. Unlike built structures, a root bridge grows stronger with age — and because a crossing can take thirty years to become usable, the guiding of new roots is work that one generation begins largely for the benefit of the next.",
-          "question": "Which choice best states the main idea of the text?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "Khasi villagers construct root bridges in a single season by weaving mature fig roots into load-bearing cables."
-            },
-            {
-              "id": "B",
-              "text": "Timber bridges generally outlast root bridges in Meghalaya but are considerably more expensive for villages to build."
-            },
-            {
-              "id": "C",
-              "text": "Khasi communities grow bridges from living fig roots — structures that strengthen with age and depend on work sustained across generations."
-            },
-            {
-              "id": "D",
-              "text": "The hollowed canes through which young fig roots are threaded remain part of a root bridge's structure permanently, bearing much of its weight."
-            }
-          ],
-          "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The passage's three movements — how the bridges are grown, how they outperform timber in floods and strengthen with age, and how the work spans generations — are exactly the three elements C compresses.\n\n**The Full Solution:**\n- The technique: aerial roots trained across streams through hollowed canes until they root on the far bank.\n- The structures' character: living bridges that thicken, fuse, and grow stronger with age, unlike built spans.\n- The social dimension: a thirty-year path to usability makes the work an intergenerational undertaking — the point the passage closes on.\n\n**Why the other choices are wrong:**\n- A: It contradicts the timeline — a crossing takes decades, not a single season, and young roots are trained, not mature ones woven.\n- B: The passage says monsoon floods can sweep timber spans away, not that timber outlasts the root bridges.\n- D: The canes are a training aid in the passage; nothing says they permanently bear the bridge's weight."
-        },
-        {
           "id": 738,
           "type": "multiple-choice",
           "difficulty": "hard",
@@ -1279,34 +1250,34 @@ export const practiceTest7RW = {
           "explanation": "**Choice D is correct.** The proposal is stated in the final sentence: the critical quantity is \"summer sunlight at high northern latitudes,\" and when the cycles align to weaken it, winter snow survives the melt season and ice sheets begin to grow — which D restates faithfully.\n\n**The Full Solution:**\n- Locate the proposal: the sentence beginning \"The critical quantity, he proposed...\" carries Milanković's actual claim.\n- Its mechanism has three links: aligned cycles, weakened summer sunlight in the high north, and snow persisting through the melt season.\n- D preserves all three links without adding or reversing any.\n\n**Why the other choices are wrong:**\n- A: It substitutes planet-wide cold winters for the proposal's actual driver — weak northern summers that fail to melt the snow.\n- B: It mistakes the opening puzzle for the proposal; Milanković offered a cause, not a call for more data.\n- C: It reverses the text — his computations showed the slow cycles do redistribute sunlight, slowness notwithstanding."
         },
         {
-          "id": 739,
+          "id": 743,
           "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
+          "difficulty": "hard",
+          "band": 4,
           "domain": "information-and-ideas",
-          "skill": "command-of-evidence-textual",
-          "passage": "Artificial light at night is a serious hazard for moths, which exhaust themselves circling lamps instead of feeding and mating. Ecologists have hypothesized that moth populations in brightly lit city centers, exposed to street lighting for many generations, may be evolving a weaker flight-to-light response. To test the idea, a research team has been collecting moth larvae from city centers and from dark rural sites, rearing all of them under identical indoor conditions, and then recording how the emerging adults respond to a standard lamp.",
-          "question": "Which finding from the study, if true, would most strongly support the ecologists' hypothesis?",
+          "skill": "inferences",
+          "passage": "Publicity photographs from ENIAC's 1946 debut show the machine flanked by men in suits, and early histories of computing mention the six women who programmed it barely or not at all. Historians revisiting the project have worked from a different record: operations logbooks, surviving wiring diagrams, and interviews with the programmers themselves. Those sources document the women designing the machine's first instruction sequences, tracing hardware faults, and inventing techniques that became standard practice. The women appear peripheral only when publicity materials serve as the principal evidence, so the fuller record supports the conclusion that their early invisibility chiefly reflected ______",
+          "question": "Which choice most logically completes the text?",
           "choices": [
             {
               "id": "A",
-              "text": "Adult moths reared from city larvae and adult moths reared from rural larvae flew toward the test lamp at essentially the same rate."
+              "text": "the destruction of the operations logbooks shortly after the machine was retired from service."
             },
             {
               "id": "B",
-              "text": "Adult moths reared from city larvae flew toward the test lamp markedly less often than adult moths reared from rural larvae did."
+              "text": "a preference among the six programmers for keeping their contributions out of public view."
             },
             {
               "id": "C",
-              "text": "Moths reared from rural larvae emerged as adults slightly earlier in the season than moths reared from city larvae."
+              "text": "a flaw so fundamental that historians must now set aside every account of early computing written before the reassessment."
             },
             {
               "id": "D",
-              "text": "Adult moths of both origins were more strongly attracted to the lamp on warm nights than on cold ones."
+              "text": "the narrow range of sources on which the early histories relied rather than the actual scope of the work the programmers performed."
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The hypothesis predicts an evolved, population-level difference — city moths less drawn to light — and B reports that difference under the study's controlled conditions, where identical rearing leaves inheritance as the live explanation.\n\n**The Full Solution:**\n- Restate the prediction: generations under street lighting should have weakened city moths' flight-to-light response relative to rural moths.\n- The design matters: larvae from both origins are reared identically, so a behavioral gap in the adults points to inherited change rather than to individual experience of lights.\n- B is that gap, in the predicted direction — city-descended adults approaching the lamp markedly less often.\n\n**Why the other choices are wrong:**\n- A: Equal attraction across origins is the null result — it would count against the hypothesis, not for it.\n- C: Emergence timing is a different trait; the hypothesis concerns response to light, not the calendar.\n- D: A warm-night effect shared by both groups says nothing about a difference between the populations."
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** The passage's hinge is conditional: the women look peripheral \"only when publicity materials serve as the principal evidence,\" while logbooks, diagrams, and interviews document central work. What varies is the sources consulted, not the work performed — so the invisibility reflected the histories' narrow evidence base.\n\n**The Full Solution:**\n- Two portraits diverge: publicity photographs minus the programmers, versus operational records documenting them designing instruction sequences and inventing standard techniques.\n- The \"only when\" clause ties each portrait to its evidence, making source selection the variable that produced the early invisibility.\n- D draws that inference and adds its proper contrast — the invisibility did not reflect the actual scope of the programmers' work, which the fuller record establishes.\n\n**Why the other choices are wrong:**\n- A: The logbooks survive — historians are using them, so their destruction cannot be the explanation.\n- B: No preference for privacy appears anywhere; the interviews suggest the programmers were willing to speak.\n- C: Discarding every earlier account overshoots a passage about correcting emphasis with fuller evidence."
         },
         {
           "id": 740,
@@ -1441,6 +1412,66 @@ export const practiceTest7RW = {
           "explanation": "**Choice D is correct.** The claim is that one coating stands out over long exposures, which requires comparing all four at the longest test point — and D does exactly that: 93 percent for the elastomeric spray at 8,000 hours against 41 to 71 for the rest.\n\n**The Full Solution:**\n- Unpack the claim: \"stands out\" demands a comparison across coatings, and \"long exposures\" points to the 8,000-hour column.\n- D pairs the standout's figure with the full range of the other three, establishing both the gap and its direction.\n- The 22-point margin over the next-best coating at the longest exposure is the evidence the argument needs.\n\n**Why the other choices are wrong:**\n- A: At 500 hours the coatings are nearly indistinguishable — early data cannot show a long-run standout.\n- B: The worst performer's collapse identifies a loser, not the standout the claim is about.\n- C: Tracking one middling coating's decline compares it with nothing, so no coating can stand out from it."
         },
         {
+          "id": 737,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "information-and-ideas",
+          "skill": "central-ideas-and-details",
+          "passage": "In the wet uplands of Meghalaya, in northeastern India, Khasi villagers train the aerial roots of rubber fig trees across streams, threading young roots through hollowed canes until they take hold on the far bank. Over decades the roots thicken, fuse, and stiffen into a bridge that carries foot traffic through monsoon floods capable of sweeping away timber spans. Unlike built structures, a root bridge grows stronger with age — and because a crossing can take thirty years to become usable, the guiding of new roots is work that one generation begins largely for the benefit of the next.",
+          "question": "Which choice best states the main idea of the text?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Khasi villagers construct root bridges in a single season by weaving mature fig roots into load-bearing cables."
+            },
+            {
+              "id": "B",
+              "text": "Timber bridges generally outlast root bridges in Meghalaya but are considerably more expensive for villages to build."
+            },
+            {
+              "id": "C",
+              "text": "Khasi communities grow bridges from living fig roots — structures that strengthen with age and depend on work sustained across generations."
+            },
+            {
+              "id": "D",
+              "text": "The hollowed canes through which young fig roots are threaded remain part of a root bridge's structure permanently, bearing much of its weight."
+            }
+          ],
+          "correctAnswer": "C",
+          "explanation": "**Choice C is correct.** The passage's three movements — how the bridges are grown, how they outperform timber in floods and strengthen with age, and how the work spans generations — are exactly the three elements C compresses.\n\n**The Full Solution:**\n- The technique: aerial roots trained across streams through hollowed canes until they root on the far bank.\n- The structures' character: living bridges that thicken, fuse, and grow stronger with age, unlike built spans.\n- The social dimension: a thirty-year path to usability makes the work an intergenerational undertaking — the point the passage closes on.\n\n**Why the other choices are wrong:**\n- A: It contradicts the timeline — a crossing takes decades, not a single season, and young roots are trained, not mature ones woven.\n- B: The passage says monsoon floods can sweep timber spans away, not that timber outlasts the root bridges.\n- D: The canes are a training aid in the passage; nothing says they permanently bear the bridge's weight."
+        },
+        {
+          "id": 739,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "information-and-ideas",
+          "skill": "command-of-evidence-textual",
+          "passage": "Artificial light at night is a serious hazard for moths, which exhaust themselves circling lamps instead of feeding and mating. Ecologists have hypothesized that moth populations in brightly lit city centers, exposed to street lighting for many generations, may be evolving a weaker flight-to-light response. To test the idea, a research team has been collecting moth larvae from city centers and from dark rural sites, rearing all of them under identical indoor conditions, and then recording how the emerging adults respond to a standard lamp.",
+          "question": "Which finding from the study, if true, would most strongly support the ecologists' hypothesis?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Adult moths reared from city larvae and adult moths reared from rural larvae flew toward the test lamp at essentially the same rate."
+            },
+            {
+              "id": "B",
+              "text": "Adult moths reared from city larvae flew toward the test lamp markedly less often than adult moths reared from rural larvae did."
+            },
+            {
+              "id": "C",
+              "text": "Moths reared from rural larvae emerged as adults slightly earlier in the season than moths reared from city larvae."
+            },
+            {
+              "id": "D",
+              "text": "Adult moths of both origins were more strongly attracted to the lamp on warm nights than on cold ones."
+            }
+          ],
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** The hypothesis predicts an evolved, population-level difference — city moths less drawn to light — and B reports that difference under the study's controlled conditions, where identical rearing leaves inheritance as the live explanation.\n\n**The Full Solution:**\n- Restate the prediction: generations under street lighting should have weakened city moths' flight-to-light response relative to rural moths.\n- The design matters: larvae from both origins are reared identically, so a behavioral gap in the adults points to inherited change rather than to individual experience of lights.\n- B is that gap, in the predicted direction — city-descended adults approaching the lamp markedly less often.\n\n**Why the other choices are wrong:**\n- A: Equal attraction across origins is the null result — it would count against the hypothesis, not for it.\n- C: Emergence timing is a different trait; the hypothesis concerns response to light, not the calendar.\n- D: A warm-night effect shared by both groups says nothing about a difference between the populations."
+        },
+        {
           "id": 742,
           "type": "multiple-choice",
           "difficulty": "medium",
@@ -1469,66 +1500,6 @@ export const practiceTest7RW = {
           ],
           "correctAnswer": "C",
           "explanation": "**Choice C is correct.** Each finding eliminates part of the alternative: centuries of persistence and large quantities rule out stray finds, and distances beyond any household's range rule out users fetching the stone themselves — leaving sustained exchange between communities, which is all C claims.\n\n**The Full Solution:**\n- The premises: distant tools traceable to one source; presence across many centuries in quantity; distances exceeding a household's territory.\n- What survives those premises is regular, repeated movement of material through other hands — exchange.\n- C is fitted to the evidence's limits: \"sustained,\" and \"rather than solely,\" claiming persistence without specifying any particular trade arrangement.\n\n**Why the other choices are wrong:**\n- A: \"Every settlement\" and \"single preferred source\" generalize far beyond findings about tools from one source at some settlements.\n- B: Where tools were made or maintained is a different question; the findings concern how the material traveled.\n- D: It inflates one method's success on one question into a sweeping promise about nearly all questions."
-        },
-        {
-          "id": 743,
-          "type": "multiple-choice",
-          "difficulty": "hard",
-          "band": 4,
-          "domain": "information-and-ideas",
-          "skill": "inferences",
-          "passage": "Publicity photographs from ENIAC's 1946 debut show the machine flanked by men in suits, and early histories of computing mention the six women who programmed it barely or not at all. Historians revisiting the project have worked from a different record: operations logbooks, surviving wiring diagrams, and interviews with the programmers themselves. Those sources document the women designing the machine's first instruction sequences, tracing hardware faults, and inventing techniques that became standard practice. The women appear peripheral only when publicity materials serve as the principal evidence, so the fuller record supports the conclusion that their early invisibility chiefly reflected ______",
-          "question": "Which choice most logically completes the text?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "the destruction of the operations logbooks shortly after the machine was retired from service."
-            },
-            {
-              "id": "B",
-              "text": "a preference among the six programmers for keeping their contributions out of public view."
-            },
-            {
-              "id": "C",
-              "text": "a flaw so fundamental that historians must now set aside every account of early computing written before the reassessment."
-            },
-            {
-              "id": "D",
-              "text": "the narrow range of sources on which the early histories relied rather than the actual scope of the work the programmers performed."
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The passage's hinge is conditional: the women look peripheral \"only when publicity materials serve as the principal evidence,\" while logbooks, diagrams, and interviews document central work. What varies is the sources consulted, not the work performed — so the invisibility reflected the histories' narrow evidence base.\n\n**The Full Solution:**\n- Two portraits diverge: publicity photographs minus the programmers, versus operational records documenting them designing instruction sequences and inventing standard techniques.\n- The \"only when\" clause ties each portrait to its evidence, making source selection the variable that produced the early invisibility.\n- D draws that inference and adds its proper contrast — the invisibility did not reflect the actual scope of the programmers' work, which the fuller record establishes.\n\n**Why the other choices are wrong:**\n- A: The logbooks survive — historians are using them, so their destruction cannot be the explanation.\n- B: No preference for privacy appears anywhere; the interviews suggest the programmers were willing to speak.\n- C: Discarding every earlier account overshoots a passage about correcting emphasis with fuller evidence."
-        },
-        {
-          "id": 744,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "standard-english-conventions",
-          "skill": "boundaries",
-          "passage": "For decades, most geologists assumed that the rock of Earth's deep mantle was essentially dry. A battered diamond carried up from more than 500 kilometers below the surface suggested something quite ______ sealed inside it was a fleck of ringwoodite, a deep-mantle mineral, holding about one percent water by weight — a hint that the mantle may store oceans' worth of water bound inside rock.",
-          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "unexpected,"
-            },
-            {
-              "id": "B",
-              "text": "unexpected"
-            },
-            {
-              "id": "C",
-              "text": "unexpected:"
-            },
-            {
-              "id": "D",
-              "text": "unexpected;"
-            }
-          ],
-          "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The clause before the blank is complete — the diamond \"suggested something quite unexpected\" — and what follows spells out what that something was; a colon is the mark that introduces such an explanation.\n\n**The Full Solution:**\n- Check the left side: \"A battered diamond...suggested something quite unexpected\" can stand alone as a sentence, which a colon requires.\n- Check the relationship: \"sealed inside it was a fleck of ringwoodite...\" delivers the promised surprise, unpacking \"something quite unexpected.\"\n- A complete statement followed by its elaboration is the colon's defining use.\n\n**Why the other choices are wrong:**\n- A: A comma is too weak to hold two independent statements apart — it produces a comma splice here.\n- B: With no punctuation, the two statements run together ungrammatically.\n- D: A semicolon signals two coordinate statements, but the second exists to explain the first — the colon's introducing function, not the semicolon's balancing one."
         },
         {
           "id": 745,
@@ -1621,6 +1592,66 @@ export const practiceTest7RW = {
           "explanation": "**Choice B is correct.** The pronoun points back to \"starling flocks,\" a plural noun, so the plural pronoun \"their\" is required: the flocks' sudden collective turns.\n\n**The Full Solution:**\n- Trace the antecedent: the turns belong to the flocks in \"video of starling flocks.\"\n- \"Flocks\" is plural, so the pronoun standing in for it must be plural as well.\n- \"Their sudden collective turns\" makes the agreement correct in number.\n\n**Why the other choices are wrong:**\n- A: \"His\" is singular and refers to a male person, not to flocks of birds.\n- C: \"His or her\" likewise refers to individual people and is singular.\n- D: \"Its\" is the right kind of pronoun for a nonhuman antecedent but the wrong number — the antecedent \"flocks\" is plural."
         },
         {
+          "id": 749,
+          "type": "multiple-choice",
+          "difficulty": "hard",
+          "band": 4,
+          "domain": "standard-english-conventions",
+          "skill": "form-structure-and-sense",
+          "passage": "______ that Andean sky-watching traditions treat the dark dust lanes crossing our galaxy's bright band — figures such as the llama and the fox — as constellations in their own right, some historians of astronomy argue that inventories of bright stars capture only one of the ways human cultures have organized the night sky.",
+          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Observing"
+            },
+            {
+              "id": "B",
+              "text": "Observed"
+            },
+            {
+              "id": "C",
+              "text": "Having been observed"
+            },
+            {
+              "id": "D",
+              "text": "Observes"
+            }
+          ],
+          "correctAnswer": "A",
+          "explanation": "**Choice A is correct.** The opening participial modifier must describe the subject that follows the comma — \"some historians of astronomy\" — and the historians are the ones doing the observing, so the active participle \"Observing\" is the form that attaches correctly.\n\n**The Full Solution:**\n- An introductory participial phrase attaches to the main clause's subject, so ask who performs the action in the phrase.\n- The historians observe the Andean traditions and then argue their point; observer and arguer are the same people.\n- The active \"-ing\" participle expresses that relationship: Observing that..., the historians argue...\n\n**Why the other choices are wrong:**\n- B: The passive participle \"Observed\" would make the historians the thing being observed — a dangling modifier.\n- C: \"Having been observed\" is passive as well, again turning the observers into the observed.\n- D: \"Observes\" is a finite verb, which cannot head an introductory modifier phrase — it would need its own subject."
+        },
+        {
+          "id": 744,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "standard-english-conventions",
+          "skill": "boundaries",
+          "passage": "For decades, most geologists assumed that the rock of Earth's deep mantle was essentially dry. A battered diamond carried up from more than 500 kilometers below the surface suggested something quite ______ sealed inside it was a fleck of ringwoodite, a deep-mantle mineral, holding about one percent water by weight — a hint that the mantle may store oceans' worth of water bound inside rock.",
+          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "unexpected,"
+            },
+            {
+              "id": "B",
+              "text": "unexpected"
+            },
+            {
+              "id": "C",
+              "text": "unexpected:"
+            },
+            {
+              "id": "D",
+              "text": "unexpected;"
+            }
+          ],
+          "correctAnswer": "C",
+          "explanation": "**Choice C is correct.** The clause before the blank is complete — the diamond \"suggested something quite unexpected\" — and what follows spells out what that something was; a colon is the mark that introduces such an explanation.\n\n**The Full Solution:**\n- Check the left side: \"A battered diamond...suggested something quite unexpected\" can stand alone as a sentence, which a colon requires.\n- Check the relationship: \"sealed inside it was a fleck of ringwoodite...\" delivers the promised surprise, unpacking \"something quite unexpected.\"\n- A complete statement followed by its elaboration is the colon's defining use.\n\n**Why the other choices are wrong:**\n- A: A comma is too weak to hold two independent statements apart — it produces a comma splice here.\n- B: With no punctuation, the two statements run together ungrammatically.\n- D: A semicolon signals two coordinate statements, but the second exists to explain the first — the colon's introducing function, not the semicolon's balancing one."
+        },
+        {
           "id": 748,
           "type": "multiple-choice",
           "difficulty": "hard",
@@ -1651,34 +1682,34 @@ export const practiceTest7RW = {
           "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and the second opens with the conjunctive adverb \"instead\"; the required pattern is a semicolon before the adverb and a comma after it — \"fully; instead,\".\n\n**The Full Solution:**\n- Verify the clauses: \"...metallurgists eventually concluded that copying the smiths' hammer work and quenching would never reproduce it fully\" is complete, and \"the pattern...depends on trace elements...\" is complete as well.\n- A conjunctive adverb like \"instead,\" \"however,\" or \"therefore\" cannot join clauses by itself; the join needs a semicolon.\n- B places the semicolon at the clause boundary and the comma after \"instead,\" the conventional frame for a clause-opening adverb.\n\n**Why the other choices are wrong:**\n- A: It reverses the marks, attaching \"instead\" to the first clause and leaving a bare semicolon to open the second.\n- C: Commas on both sides of \"instead\" leave the two independent clauses spliced by a comma.\n- D: With no mark before \"instead,\" the two sentences fuse into a run-on."
         },
         {
-          "id": 749,
+          "id": 752,
           "type": "multiple-choice",
-          "difficulty": "hard",
-          "band": 4,
-          "domain": "standard-english-conventions",
-          "skill": "form-structure-and-sense",
-          "passage": "______ that Andean sky-watching traditions treat the dark dust lanes crossing our galaxy's bright band — figures such as the llama and the fox — as constellations in their own right, some historians of astronomy argue that inventories of bright stars capture only one of the ways human cultures have organized the night sky.",
-          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "expression-of-ideas",
+          "skill": "transitions",
+          "passage": "The trailing edge of a humpback whale's tail flukes carries nicks, scars, and pigment patches distinctive enough to identify an individual whale for life. Image-matching software can now compare a new fluke photograph against catalogs holding hundreds of thousands of identified individuals in seconds. ______ nearly any clear photograph — including the thousands taken from whale-watching boats each season — can serve as a scientific sighting record, extending researchers' view of individual whales far beyond what survey cruises alone could provide.",
+          "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
               "id": "A",
-              "text": "Observing"
+              "text": "Nevertheless,"
             },
             {
               "id": "B",
-              "text": "Observed"
+              "text": "Specifically,"
             },
             {
               "id": "C",
-              "text": "Having been observed"
+              "text": "Similarly,"
             },
             {
               "id": "D",
-              "text": "Observes"
+              "text": "Therefore,"
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The opening participial modifier must describe the subject that follows the comma — \"some historians of astronomy\" — and the historians are the ones doing the observing, so the active participle \"Observing\" is the form that attaches correctly.\n\n**The Full Solution:**\n- An introductory participial phrase attaches to the main clause's subject, so ask who performs the action in the phrase.\n- The historians observe the Andean traditions and then argue their point; observer and arguer are the same people.\n- The active \"-ing\" participle expresses that relationship: Observing that..., the historians argue...\n\n**Why the other choices are wrong:**\n- B: The passive participle \"Observed\" would make the historians the thing being observed — a dangling modifier.\n- C: \"Having been observed\" is passive as well, again turning the observers into the observed.\n- D: \"Observes\" is a finite verb, which cannot head an introductory modifier phrase — it would need its own subject."
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** Because flukes identify individuals for life and software can match any photograph against vast catalogs in seconds, it follows that nearly any clear photograph can serve as a sighting record — a conclusion drawn from the two facts before it, which \"Therefore\" signals.\n\n**The Full Solution:**\n- Premise one: fluke markings are unique and permanent identifiers.\n- Premise two: matching software makes any new photograph checkable against hundreds of thousands of known individuals.\n- The final sentence is what those premises jointly entail — tourist photographs become usable scientific records — so a conclusion-drawing transition fits.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" would concede an obstacle, but nothing in the preceding sentences works against the conclusion.\n- B: \"Specifically\" would narrow the prior claim to a finer detail, whereas the final sentence broadens to a general consequence.\n- C: \"Similarly\" would introduce a parallel case, and the final sentence extends the same case rather than matching it with another."
         },
         {
           "id": 750,
@@ -1739,36 +1770,6 @@ export const practiceTest7RW = {
           ],
           "correctAnswer": "B",
           "explanation": "**Choice B is correct.** The final sentence states what the cable-sensing technique makes possible — monitoring seafloor no instrument has ever covered — a direct consequence of the capability described just before it, so the causal \"As a result\" is the fitting join.\n\n**The Full Solution:**\n- The setup: offshore seismometers are scarce because they are costly, leaving the seafloor unmonitored.\n- The development: existing telecommunications cables can now be read as seismic sensors.\n- The final sentence is the payoff that follows from that development — coverage without new instruments — which is a cause-to-effect step.\n\n**Why the other choices are wrong:**\n- A: \"However\" would pit the final sentence against the technique, but the sentence delivers the technique's benefit.\n- C: \"For example\" would make the sentence one instance of the technique, yet it states the technique's general consequence, not a particular case.\n- D: \"Meanwhile\" would set the monitoring alongside the technique as a separate, simultaneous happening rather than its outcome."
-        },
-        {
-          "id": 752,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "expression-of-ideas",
-          "skill": "transitions",
-          "passage": "The trailing edge of a humpback whale's tail flukes carries nicks, scars, and pigment patches distinctive enough to identify an individual whale for life. Image-matching software can now compare a new fluke photograph against catalogs holding hundreds of thousands of identified individuals in seconds. ______ nearly any clear photograph — including the thousands taken from whale-watching boats each season — can serve as a scientific sighting record, extending researchers' view of individual whales far beyond what survey cruises alone could provide.",
-          "question": "Which choice completes the text with the most logical transition?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "Nevertheless,"
-            },
-            {
-              "id": "B",
-              "text": "Specifically,"
-            },
-            {
-              "id": "C",
-              "text": "Similarly,"
-            },
-            {
-              "id": "D",
-              "text": "Therefore,"
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** Because flukes identify individuals for life and software can match any photograph against vast catalogs in seconds, it follows that nearly any clear photograph can serve as a sighting record — a conclusion drawn from the two facts before it, which \"Therefore\" signals.\n\n**The Full Solution:**\n- Premise one: fluke markings are unique and permanent identifiers.\n- Premise two: matching software makes any new photograph checkable against hundreds of thousands of known individuals.\n- The final sentence is what those premises jointly entail — tourist photographs become usable scientific records — so a conclusion-drawing transition fits.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" would concede an obstacle, but nothing in the preceding sentences works against the conclusion.\n- B: \"Specifically\" would narrow the prior claim to a finer detail, whereas the final sentence broadens to a general consequence.\n- C: \"Similarly\" would introduce a parallel case, and the final sentence extends the same case rather than matching it with another."
         },
         {
           "id": 753,

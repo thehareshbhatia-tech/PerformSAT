@@ -1,4 +1,5 @@
 // Practice Test 4 — SAT Reading & Writing (R&W)
+// R&W seating varied 2026-09-07 (scripts/varyRWSeating.mjs): items re-dealt inside their official skill blocks with a per-test seed — block flow and per-skill counts unchanged.
 // Auto-assembled by scripts/assembleRWTest.mjs from the authored JSON in
 // scripts/generated/authored/test4/. Do not hand-edit this file —
 // re-run the assembler against the manifest to regenerate.
@@ -32,39 +33,6 @@ export const practiceTest4RW = {
       title: "Module 1",
       timeLimit: 32,
       questions: [
-        {
-          "id": 401,
-          "type": "multiple-choice",
-          "difficulty": "easy",
-          "band": 2,
-          "domain": "craft-and-structure",
-          "skill": "words-in-context",
-          "passage": "Many ant species guide nestmates to food by laying down trails of chemical signals. The signals are short-lived, fading within minutes unless returning foragers add fresh marks of their own. When a food source runs out, workers simply stop marking the route, and the trail soon vanishes. To keep a productive route open, then, a colony must continually ______ its trail.",
-          "question": "Which choice completes the text with the most logical and precise word or phrase?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "conceal"
-            },
-            {
-              "id": "B",
-              "text": "imitate"
-            },
-            {
-              "id": "C",
-              "text": "renew"
-            },
-            {
-              "id": "D",
-              "text": "shorten"
-            }
-          ],
-          "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The trail persists only while foragers keep adding fresh marks, so keeping a route open requires continually renewing it.\n\n**The Full Solution:**\n- The text establishes that trail signals fade within minutes unless returning foragers \"add fresh marks of their own.\"\n- The blank must name what a colony does to \"keep a productive route open\" — the opposite of letting the trail vanish.\n- \"Renew\" means to restore or refresh, exactly the continual re-marking the text describes.\n\n**Why the other choices are wrong:**\n- A: \"Conceal\" means to hide the trail, the opposite of keeping it available to guide nestmates.\n- B: \"Imitate\" means to copy something else; the colony is maintaining its own trail, not copying one.\n- D: \"Shorten\" changes the route's length, but the text is about the trail's persistence, not its distance.",
-          "_meta": {
-            "anchor": "ant trail pheromones — decay and reinforcement"
-          }
-        },
         {
           "id": 402,
           "type": "multiple-choice",
@@ -165,69 +133,36 @@ export const practiceTest4RW = {
           }
         },
         {
-          "id": 405,
+          "id": 401,
           "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
+          "difficulty": "easy",
+          "band": 2,
           "domain": "craft-and-structure",
-          "skill": "text-structure-and-purpose",
-          "passage": "In 1856 the eighteen-year-old chemist William Perkin set out to synthesize quinine, then the only effective malaria treatment, from coal-tar compounds. The attempt failed. __One flask, instead of yielding the colorless drug, produced a deep purple residue that dyed silk a brilliant, wash-fast mauve.__ Perkin patented the substance, left his studies, and opened a factory; within two decades, chemists across Europe were coaxing a whole spectrum of synthetic colors from coal tar, and the firms they founded were branching into pharmaceuticals and photographic chemicals. A failed medicine had become the founding accident of industrial organic chemistry.",
-          "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+          "skill": "words-in-context",
+          "passage": "Many ant species guide nestmates to food by laying down trails of chemical signals. The signals are short-lived, fading within minutes unless returning foragers add fresh marks of their own. When a food source runs out, workers simply stop marking the route, and the trail soon vanishes. To keep a productive route open, then, a colony must continually ______ its trail.",
+          "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
               "id": "A",
-              "text": "It reports the unexpected result of the failed synthesis just described, the accidental discovery on which the industry discussed in the rest of the text was built."
+              "text": "conceal"
             },
             {
               "id": "B",
-              "text": "It explains why Perkin's method could never have produced quinine from the starting materials he had chosen."
+              "text": "imitate"
             },
             {
               "id": "C",
-              "text": "It signals that Perkin's commercial ambitions ultimately mattered more to him than the scientific problem he had set out to solve."
+              "text": "renew"
             },
             {
               "id": "D",
-              "text": "It defines a technical term that readers must understand before the passage's account of the dye industry can proceed."
+              "text": "shorten"
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The underlined sentence is the hinge of the passage: the failed experiment's surprise product, from which everything after — patent, factory, industry — follows.\n\n**The Full Solution:**\n- Before the underline: Perkin attempts quinine and fails.\n- The underlined sentence reports what the failure actually produced — a brilliant, wash-fast purple dye.\n- After the underline: Perkin commercializes that dye, and the passage closes by calling it \"the founding accident\" of an industry. The sentence supplies the accident.\n\n**Why the other choices are wrong:**\n- B: The sentence describes what the flask produced, not why the synthesis was chemically doomed.\n- C: Nothing in the sentence weighs Perkin's ambitions against his scientific aims; his commercial turn comes later.\n- D: The sentence narrates an event; it defines no term.",
+          "correctAnswer": "C",
+          "explanation": "**Choice C is correct.** The trail persists only while foragers keep adding fresh marks, so keeping a route open requires continually renewing it.\n\n**The Full Solution:**\n- The text establishes that trail signals fade within minutes unless returning foragers \"add fresh marks of their own.\"\n- The blank must name what a colony does to \"keep a productive route open\" — the opposite of letting the trail vanish.\n- \"Renew\" means to restore or refresh, exactly the continual re-marking the text describes.\n\n**Why the other choices are wrong:**\n- A: \"Conceal\" means to hide the trail, the opposite of keeping it available to guide nestmates.\n- B: \"Imitate\" means to copy something else; the colony is maintaining its own trail, not copying one.\n- D: \"Shorten\" changes the route's length, but the text is about the trail's persistence, not its distance.",
           "_meta": {
-            "anchor": "William Perkin — mauveine, the accidental founding of synthetic dye chemistry"
-          }
-        },
-        {
-          "id": 406,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "craft-and-structure",
-          "skill": "text-structure-and-purpose",
-          "passage": "In the early 1890s, most geographers held that a rigid ship caught in Arctic pack ice was doomed. The Norwegian explorer Fridtjof Nansen noted that wreckage from a vessel crushed near Siberia had later surfaced off Greenland, and reasoned that a slow current must carry sea ice across the polar basin. He had a ship, the Fram, built with a rounded hull that ice pressure would lift rather than crush, sailed it into the pack, and let it freeze in deliberately. Three years later the Fram emerged, intact, on the far side of the Arctic — very nearly where Nansen's proposed current, and no other explanation, said it should be.",
-          "question": "Which choice best states the main purpose of the text?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "To argue that the geographers who warned against entering the polar pack ice were relying on dramatic accounts whose details returning crews had greatly embellished over the years."
-            },
-            {
-              "id": "B",
-              "text": "To explain why the wooden ships of the nineteenth century could not survive prolonged contact with pack ice."
-            },
-            {
-              "id": "C",
-              "text": "To recount the accidents that forced a polar expedition to abandon the scientific goals it had originally set."
-            },
-            {
-              "id": "D",
-              "text": "To describe how an explorer turned a conjecture about a polar current into a test by letting a purpose-built ship freeze into the ice and drift."
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text moves from Nansen's inference (drifting wreckage implies a current) to his experimental design (a hull the ice would lift) to the result (the ship crossed the Arctic as predicted) — a conjecture turned into a test.\n\n**The Full Solution:**\n- The inference: wreckage crushed near Siberia surfacing off Greenland points to a trans-polar current.\n- The test: the Fram is built to survive freezing in, then deliberately frozen in.\n- The verdict: three years later it emerges where the proposed current — and nothing else — predicted. Choice D captures this arc.\n\n**Why the other choices are wrong:**\n- A: The geographers' caution is background; the text never questions their sources.\n- B: The text explains how one ship was designed to survive the ice, not why others could not.\n- C: The freezing-in was the goal, not an accident, and no aims were abandoned.",
-          "_meta": {
-            "anchor": "Fridtjof Nansen — the Fram drift as a test of the trans-polar current"
+            "anchor": "ant trail pheromones — decay and reinforcement"
           }
         },
         {
@@ -261,6 +196,39 @@ export const practiceTest4RW = {
           "explanation": "**Choice B is correct.** The preceding sentence proposes the lung picture; the underlined sentence delivers the tracer-gas evidence — air sloshing back and forth, not streaming upward — that backs it.\n\n**The Full Solution:**\n- Sentence 2 introduces the revision: mound as lung, not chimney.\n- The underlined sentence reports the experiment behind it: tracer gas moving in slow oscillations driven by daily temperature swings.\n- The final sentence draws the conclusion the measurements license. The underline is the evidentiary middle step.\n\n**Why the other choices are wrong:**\n- A: The chimney model appears in the first sentence, and the passage undermines it rather than defending it.\n- C: The sentence strengthens the lung comparison; it concedes nothing.\n- D: Breach detection and repair are never mentioned; the porous walls figure only as the route the air takes.",
           "_meta": {
             "anchor": "termite mound ventilation — lung model supported by tracer-gas measurements"
+          }
+        },
+        {
+          "id": 405,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "craft-and-structure",
+          "skill": "text-structure-and-purpose",
+          "passage": "In 1856 the eighteen-year-old chemist William Perkin set out to synthesize quinine, then the only effective malaria treatment, from coal-tar compounds. The attempt failed. __One flask, instead of yielding the colorless drug, produced a deep purple residue that dyed silk a brilliant, wash-fast mauve.__ Perkin patented the substance, left his studies, and opened a factory; within two decades, chemists across Europe were coaxing a whole spectrum of synthetic colors from coal tar, and the firms they founded were branching into pharmaceuticals and photographic chemicals. A failed medicine had become the founding accident of industrial organic chemistry.",
+          "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "It reports the unexpected result of the failed synthesis just described, the accidental discovery on which the industry discussed in the rest of the text was built."
+            },
+            {
+              "id": "B",
+              "text": "It explains why Perkin's method could never have produced quinine from the starting materials he had chosen."
+            },
+            {
+              "id": "C",
+              "text": "It signals that Perkin's commercial ambitions ultimately mattered more to him than the scientific problem he had set out to solve."
+            },
+            {
+              "id": "D",
+              "text": "It defines a technical term that readers must understand before the passage's account of the dye industry can proceed."
+            }
+          ],
+          "correctAnswer": "A",
+          "explanation": "**Choice A is correct.** The underlined sentence is the hinge of the passage: the failed experiment's surprise product, from which everything after — patent, factory, industry — follows.\n\n**The Full Solution:**\n- Before the underline: Perkin attempts quinine and fails.\n- The underlined sentence reports what the failure actually produced — a brilliant, wash-fast purple dye.\n- After the underline: Perkin commercializes that dye, and the passage closes by calling it \"the founding accident\" of an industry. The sentence supplies the accident.\n\n**Why the other choices are wrong:**\n- B: The sentence describes what the flask produced, not why the synthesis was chemically doomed.\n- C: Nothing in the sentence weighs Perkin's ambitions against his scientific aims; his commercial turn comes later.\n- D: The sentence narrates an event; it defines no term.",
+          "_meta": {
+            "anchor": "William Perkin — mauveine, the accidental founding of synthetic dye chemistry"
           }
         },
         {
@@ -306,6 +274,39 @@ export const practiceTest4RW = {
           }
         },
         {
+          "id": 406,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "craft-and-structure",
+          "skill": "text-structure-and-purpose",
+          "passage": "In the early 1890s, most geographers held that a rigid ship caught in Arctic pack ice was doomed. The Norwegian explorer Fridtjof Nansen noted that wreckage from a vessel crushed near Siberia had later surfaced off Greenland, and reasoned that a slow current must carry sea ice across the polar basin. He had a ship, the Fram, built with a rounded hull that ice pressure would lift rather than crush, sailed it into the pack, and let it freeze in deliberately. Three years later the Fram emerged, intact, on the far side of the Arctic — very nearly where Nansen's proposed current, and no other explanation, said it should be.",
+          "question": "Which choice best states the main purpose of the text?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "To argue that the geographers who warned against entering the polar pack ice were relying on dramatic accounts whose details returning crews had greatly embellished over the years."
+            },
+            {
+              "id": "B",
+              "text": "To explain why the wooden ships of the nineteenth century could not survive prolonged contact with pack ice."
+            },
+            {
+              "id": "C",
+              "text": "To recount the accidents that forced a polar expedition to abandon the scientific goals it had originally set."
+            },
+            {
+              "id": "D",
+              "text": "To describe how an explorer turned a conjecture about a polar current into a test by letting a purpose-built ship freeze into the ice and drift."
+            }
+          ],
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** The text moves from Nansen's inference (drifting wreckage implies a current) to his experimental design (a hull the ice would lift) to the result (the ship crossed the Arctic as predicted) — a conjecture turned into a test.\n\n**The Full Solution:**\n- The inference: wreckage crushed near Siberia surfacing off Greenland points to a trans-polar current.\n- The test: the Fram is built to survive freezing in, then deliberately frozen in.\n- The verdict: three years later it emerges where the proposed current — and nothing else — predicted. Choice D captures this arc.\n\n**Why the other choices are wrong:**\n- A: The geographers' caution is background; the text never questions their sources.\n- B: The text explains how one ship was designed to survive the ice, not why others could not.\n- C: The freezing-in was the goal, not an accident, and no aims were abandoned.",
+          "_meta": {
+            "anchor": "Fridtjof Nansen — the Fram drift as a test of the trans-polar current"
+          }
+        },
+        {
           "id": 409,
           "type": "multiple-choice",
           "difficulty": "easy",
@@ -336,6 +337,39 @@ export const practiceTest4RW = {
           "explanation": "**Choice B is correct.** The text's contrast runs from start to finish: crews that ignored Arctic practice suffered; crews that adopted it thrived; and the closing sentence generalizes the pattern.\n\n**The Full Solution:**\n- The first half catalogs the failures of European methods: hand-hauling, freezing woolens, tinned rations.\n- The second half catalogs the successes of adopted techniques: dog teams, fur clothing, fresh meat.\n- The final sentence states the lesson — success turned on willingness to adopt local techniques — which choice B restates.\n\n**Why the other choices are wrong:**\n- A: The text attributes failure to methods, not to the crews' endurance.\n- C: Machines are never discussed; the dog teams are compared to walkers hauling sledges.\n- D: Copying by European manufacturers appears nowhere in the text.",
           "_meta": {
             "anchor": "polar expeditions — adoption of Inuit equipment and techniques"
+          }
+        },
+        {
+          "id": 415,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "information-and-ideas",
+          "skill": "inferences",
+          "passage": "A medieval book was copied not into a bound volume but onto separate gatherings of folded leaves called quires, which were sewn together only after the writing was finished. At the foot of each quire's final page, the scribe added a catchword: the first word of the quire that was meant to follow. A binder assembling the finished book could thus put the gatherings in order by simple matching, joining each quire to the one whose opening word answered its catchword, with no need to follow the text itself. The custom suggests that ______",
+          "question": "Which choice most logically completes the text?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "the makers of such books did not assume that the person assembling them would be reading the text along the way."
+            },
+            {
+              "id": "B",
+              "text": "binders often placed quires in the wrong order even when the catchwords were clearly written."
+            },
+            {
+              "id": "C",
+              "text": "catchwords were added only to books whose quires had been copied by several different scribes."
+            },
+            {
+              "id": "D",
+              "text": "binders were expected to trim every catchword away so that a finished book would show no visible trace of how it had been assembled."
+            }
+          ],
+          "correctAnswer": "A",
+          "explanation": "**Choice A is correct.** A device that reduces ordering to word-matching is valuable precisely when the assembler cannot be relied on to follow the text — which is what the custom implies about the people doing the assembling.\n\n**The Full Solution:**\n- The catchword lets a binder order quires \"by simple matching,\" the text says, \"with no need to follow the text itself.\"\n- Building such a device into every quire is a precaution; precautions imply an expected need.\n- The expected need is an assembler who is not reading the text — exactly choice A, and nothing stronger.\n\n**Why the other choices are wrong:**\n- B: The text describes the system working, not failing; frequent misbinding is unsupported.\n- C: Nothing links catchwords to the number of scribes; the motive given concerns binding order.\n- D: Trimming is never mentioned, and a custom meant to guide assembly says nothing about hiding it afterward.",
+          "_meta": {
+            "anchor": "medieval quires and catchwords — assembly by matching"
           }
         },
         {
@@ -372,39 +406,6 @@ export const practiceTest4RW = {
           }
         },
         {
-          "id": 411,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "information-and-ideas",
-          "skill": "central-ideas-and-details",
-          "passage": "Working in Heidelberg in the late 1850s, the chemist Robert Bunsen and the physicist Gustav Kirchhoff directed the light of colored flames through a prism instrument of their own design. They found that each chemical element, heated until it glows, emits light at its own fixed set of wavelengths, which their spectroscope displayed as a pattern of bright lines. The pattern proved to be a signature: it did not change with the compound in which an element arrived or the mineral from which it came. Within a year of publishing the method, the two had used unfamiliar line patterns to announce two previously unknown elements, cesium and rubidium.",
-          "question": "According to the text, why could a glowing element be identified with the spectroscope?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "Each element produces a flame whose distinctive overall color can be recognized without any special instrument."
-            },
-            {
-              "id": "B",
-              "text": "Each element emits its own fixed pattern of bright lines whatever compound or mineral it arrives in."
-            },
-            {
-              "id": "C",
-              "text": "The brightness of a flame's light increases in proportion to the amount of the element present."
-            },
-            {
-              "id": "D",
-              "text": "Only two elements, cesium and rubidium, produce bright lines when heated in a flame."
-            }
-          ],
-          "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text states that each element's line pattern is fixed and \"did not change with the compound in which an element arrived or the mineral from which it came\" — a signature, and therefore an identifier.\n\n**The Full Solution:**\n- The instrument displays a glowing element's light as a pattern of bright lines.\n- The pattern belongs to the element itself: it is unaffected by compound or mineral of origin.\n- A property unique to each element and stable across sources is exactly what permits identification.\n\n**Why the other choices are wrong:**\n- A: The spectroscope was needed precisely because it resolves flame light into lines; the text never says overall color sufficed.\n- C: The text ties identity to the pattern's position, not to brightness or quantity.\n- D: Cesium and rubidium were discovered by the method; the text says every element emits its own pattern.",
-          "_meta": {
-            "anchor": "Bunsen and Kirchhoff — flame spectroscopy; element line signatures; detail stem"
-          }
-        },
-        {
           "id": 412,
           "type": "multiple-choice",
           "difficulty": "medium",
@@ -435,6 +436,39 @@ export const practiceTest4RW = {
           "explanation": "**Choice B is correct.** The hypothesis says the patches let rivals assess fighting ability and avoid combat; rivals retreating from strong-fighter markings without a fight is that mechanism observed in action.\n\n**The Full Solution:**\n- The hypothesis has two parts: patches advertise fighting ability, and the advertisement lets contests end without fighting.\n- Choice B supplies both: wasps read the strong-fighter pattern on a rival's face and yield before combat begins.\n- That is a direct behavioral confirmation of the signaling function.\n\n**Why the other choices are wrong:**\n- A: It explains where patches come from, not whether rivals use them to settle contests.\n- C: Foraging time has no bearing on whether patches function as signals in contests.\n- D: It pairs two facts about aging without showing that any wasp responds to another's markings.",
           "_meta": {
             "anchor": "Elizabeth Tibbetts — paper wasp facial badges as status signals; finding-if-true form"
+          }
+        },
+        {
+          "id": 411,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "information-and-ideas",
+          "skill": "central-ideas-and-details",
+          "passage": "Working in Heidelberg in the late 1850s, the chemist Robert Bunsen and the physicist Gustav Kirchhoff directed the light of colored flames through a prism instrument of their own design. They found that each chemical element, heated until it glows, emits light at its own fixed set of wavelengths, which their spectroscope displayed as a pattern of bright lines. The pattern proved to be a signature: it did not change with the compound in which an element arrived or the mineral from which it came. Within a year of publishing the method, the two had used unfamiliar line patterns to announce two previously unknown elements, cesium and rubidium.",
+          "question": "According to the text, why could a glowing element be identified with the spectroscope?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Each element produces a flame whose distinctive overall color can be recognized without any special instrument."
+            },
+            {
+              "id": "B",
+              "text": "Each element emits its own fixed pattern of bright lines whatever compound or mineral it arrives in."
+            },
+            {
+              "id": "C",
+              "text": "The brightness of a flame's light increases in proportion to the amount of the element present."
+            },
+            {
+              "id": "D",
+              "text": "Only two elements, cesium and rubidium, produce bright lines when heated in a flame."
+            }
+          ],
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** The text states that each element's line pattern is fixed and \"did not change with the compound in which an element arrived or the mineral from which it came\" — a signature, and therefore an identifier.\n\n**The Full Solution:**\n- The instrument displays a glowing element's light as a pattern of bright lines.\n- The pattern belongs to the element itself: it is unaffected by compound or mineral of origin.\n- A property unique to each element and stable across sources is exactly what permits identification.\n\n**Why the other choices are wrong:**\n- A: The spectroscope was needed precisely because it resolves flame light into lines; the text never says overall color sufficed.\n- C: The text ties identity to the pattern's position, not to brightness or quantity.\n- D: Cesium and rubidium were discovered by the method; the text says every element emits its own pattern.",
+          "_meta": {
+            "anchor": "Bunsen and Kirchhoff — flame spectroscopy; element line signatures; detail stem"
           }
         },
         {
@@ -571,39 +605,6 @@ export const practiceTest4RW = {
           }
         },
         {
-          "id": 415,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "information-and-ideas",
-          "skill": "inferences",
-          "passage": "A medieval book was copied not into a bound volume but onto separate gatherings of folded leaves called quires, which were sewn together only after the writing was finished. At the foot of each quire's final page, the scribe added a catchword: the first word of the quire that was meant to follow. A binder assembling the finished book could thus put the gatherings in order by simple matching, joining each quire to the one whose opening word answered its catchword, with no need to follow the text itself. The custom suggests that ______",
-          "question": "Which choice most logically completes the text?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "the makers of such books did not assume that the person assembling them would be reading the text along the way."
-            },
-            {
-              "id": "B",
-              "text": "binders often placed quires in the wrong order even when the catchwords were clearly written."
-            },
-            {
-              "id": "C",
-              "text": "catchwords were added only to books whose quires had been copied by several different scribes."
-            },
-            {
-              "id": "D",
-              "text": "binders were expected to trim every catchword away so that a finished book would show no visible trace of how it had been assembled."
-            }
-          ],
-          "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** A device that reduces ordering to word-matching is valuable precisely when the assembler cannot be relied on to follow the text — which is what the custom implies about the people doing the assembling.\n\n**The Full Solution:**\n- The catchword lets a binder order quires \"by simple matching,\" the text says, \"with no need to follow the text itself.\"\n- Building such a device into every quire is a precaution; precautions imply an expected need.\n- The expected need is an assembler who is not reading the text — exactly choice A, and nothing stronger.\n\n**Why the other choices are wrong:**\n- B: The text describes the system working, not failing; frequent misbinding is unsupported.\n- C: Nothing links catchwords to the number of scribes; the motive given concerns binding order.\n- D: Trimming is never mentioned, and a custom meant to guide assembly says nothing about hiding it afterward.",
-          "_meta": {
-            "anchor": "medieval quires and catchwords — assembly by matching"
-          }
-        },
-        {
           "id": 416,
           "type": "multiple-choice",
           "difficulty": "hard",
@@ -637,36 +638,36 @@ export const practiceTest4RW = {
           }
         },
         {
-          "id": 417,
+          "id": 420,
           "type": "multiple-choice",
-          "difficulty": "easy",
-          "band": 2,
+          "difficulty": "medium",
+          "band": 3,
           "domain": "standard-english-conventions",
-          "skill": "boundaries",
-          "passage": "Sled dogs made long-distance polar travel possible in the era before machines. Teams hauled heavily loaded sledges across ice that no vehicle of the time could ______ their thick double coats let them sleep in the open at temperatures that confined their drivers to shelter.",
+          "skill": "form-structure-and-sense",
+          "passage": "By the time an electrolytic process made aluminum abundant in the late 1880s, the metal ______ already served for decades as a showpiece more precious than silver, reserved for jewelry, medals, and banquet cutlery.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "cross, their"
+              "text": "had"
             },
             {
               "id": "B",
-              "text": "cross. Their"
+              "text": "has"
             },
             {
               "id": "C",
-              "text": "cross their"
+              "text": "is"
             },
             {
               "id": "D",
-              "text": "cross and, their"
+              "text": "have"
             }
           ],
-          "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** \"Teams hauled ... could cross\" and \"their thick double coats let them sleep ...\" are both independent clauses, and a period is a standard way to separate them.\n\n**The Full Solution:**\n- Clause one: \"Teams hauled heavily loaded sledges across ice that no vehicle of the time could cross.\"\n- Clause two: \"Their thick double coats let them sleep in the open ...\" — a complete sentence with its own subject and verb.\n- Two independent clauses need a period, a semicolon, or a comma plus a coordinating conjunction. Only choice B provides one of these.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses creates a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on.\n- D: \"And\" could join the clauses, but only with a comma before it; a comma after it is not a conventional joining.",
+          "correctAnswer": "A",
+          "explanation": "**Choice A is correct.** The sentence describes service that was already complete before a past reference point (\"by the time ... in the late 1880s\"), which calls for the past perfect: \"had already served.\"\n\n**The Full Solution:**\n- The reference point is in the past: the arrival of the electrolytic process in the late 1880s.\n- The metal's career as a showpiece happened before that point — \"already served for decades.\"\n- Past-before-past takes the past perfect, formed with \"had\": \"the metal had already served.\"\n\n**Why the other choices are wrong:**\n- B: \"Has served\" is present perfect, which connects to the present rather than to a completed past reference point.\n- C: \"Is\" cannot combine with the past participle \"served\" to express this time relationship.\n- D: \"Have\" is plural and would not agree with the singular subject \"the metal,\" besides failing to mark past-before-past.",
           "_meta": {
-            "anchor": "sled dogs in polar travel; period between independent clauses"
+            "anchor": "aluminum before cheap electrolysis; past perfect"
           }
         },
         {
@@ -703,69 +704,36 @@ export const practiceTest4RW = {
           }
         },
         {
-          "id": 419,
+          "id": 417,
           "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
+          "difficulty": "easy",
+          "band": 2,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "From its stations along the northern plains of India, the Great Trigonometrical Survey sighted and computed the heights of some of the world's highest ______ Kangchenjunga, for a time believed the tallest of all; Dhaulagiri, whose height had been argued over for decades; and the distant summit the survey's computers listed simply as Peak XV.",
+          "passage": "Sled dogs made long-distance polar travel possible in the era before machines. Teams hauled heavily loaded sledges across ice that no vehicle of the time could ______ their thick double coats let them sleep in the open at temperatures that confined their drivers to shelter.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "peaks, including"
+              "text": "cross, their"
             },
             {
               "id": "B",
-              "text": "peaks. Including"
+              "text": "cross. Their"
             },
             {
               "id": "C",
-              "text": "peaks; including"
+              "text": "cross their"
             },
             {
               "id": "D",
-              "text": "peaks: including"
+              "text": "cross and, their"
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** \"Including Kangchenjunga ... Dhaulagiri ... and ... Peak XV\" is a modifying phrase attached to \"peaks,\" and a comma is the conventional way to attach it.\n\n**The Full Solution:**\n- The main clause ends at \"some of the world's highest peaks.\"\n- What follows is not a new clause but an including-phrase that lists examples of those peaks (the items separated by semicolons because they carry internal commas).\n- A phrase of this kind is joined to its noun with a comma: \"peaks, including ...\"\n\n**Why the other choices are wrong:**\n- B: A period strands the including-phrase as a fragment with no subject or verb.\n- C: A semicolon must join two independent clauses; \"including ...\" is not a clause.\n- D: A colon could introduce the list directly (\"peaks: Kangchenjunga ...\"), but placing one before \"including\" makes the word redundant and is not conventional.",
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** \"Teams hauled ... could cross\" and \"their thick double coats let them sleep ...\" are both independent clauses, and a period is a standard way to separate them.\n\n**The Full Solution:**\n- Clause one: \"Teams hauled heavily loaded sledges across ice that no vehicle of the time could cross.\"\n- Clause two: \"Their thick double coats let them sleep in the open ...\" — a complete sentence with its own subject and verb.\n- Two independent clauses need a period, a semicolon, or a comma plus a coordinating conjunction. Only choice B provides one of these.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses creates a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on.\n- D: \"And\" could join the clauses, but only with a comma before it; a comma after it is not a conventional joining.",
           "_meta": {
-            "anchor": "Great Trigonometrical Survey of India; comma before an including-phrase"
-          }
-        },
-        {
-          "id": 420,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "standard-english-conventions",
-          "skill": "form-structure-and-sense",
-          "passage": "By the time an electrolytic process made aluminum abundant in the late 1880s, the metal ______ already served for decades as a showpiece more precious than silver, reserved for jewelry, medals, and banquet cutlery.",
-          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "had"
-            },
-            {
-              "id": "B",
-              "text": "has"
-            },
-            {
-              "id": "C",
-              "text": "is"
-            },
-            {
-              "id": "D",
-              "text": "have"
-            }
-          ],
-          "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The sentence describes service that was already complete before a past reference point (\"by the time ... in the late 1880s\"), which calls for the past perfect: \"had already served.\"\n\n**The Full Solution:**\n- The reference point is in the past: the arrival of the electrolytic process in the late 1880s.\n- The metal's career as a showpiece happened before that point — \"already served for decades.\"\n- Past-before-past takes the past perfect, formed with \"had\": \"the metal had already served.\"\n\n**Why the other choices are wrong:**\n- B: \"Has served\" is present perfect, which connects to the present rather than to a completed past reference point.\n- C: \"Is\" cannot combine with the past participle \"served\" to express this time relationship.\n- D: \"Have\" is plural and would not agree with the singular subject \"the metal,\" besides failing to mark past-before-past.",
-          "_meta": {
-            "anchor": "aluminum before cheap electrolysis; past perfect"
+            "anchor": "sled dogs in polar travel; period between independent clauses"
           }
         },
         {
@@ -832,6 +800,39 @@ export const practiceTest4RW = {
           "explanation": "**Choice D is correct.** The subject is the singular pronoun \"each,\" so the verb must be the singular \"records.\"\n\n**The Full Solution:**\n- Strip the prepositional phrase: \"Each ... records the positions ...\"\n- \"Of the cameras ringing the upper deck of a modern arena\" modifies \"each\" but does not change its number.\n- \"Each\" is grammatically singular even when it points at many cameras, so it takes \"records.\"\n\n**Why the other choices are wrong:**\n- A: \"Record\" is plural, agreeing with the nearby \"cameras\" rather than with the subject \"each.\"\n- B: \"Are recording\" is likewise plural and mismatches the singular subject.\n- C: \"Have recorded\" is plural, and its completed aspect also clashes with the ongoing \"dozens of times every second.\"",
           "_meta": {
             "anchor": "player-tracking cameras; 'each' + singular verb"
+          }
+        },
+        {
+          "id": 419,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "standard-english-conventions",
+          "skill": "boundaries",
+          "passage": "From its stations along the northern plains of India, the Great Trigonometrical Survey sighted and computed the heights of some of the world's highest ______ Kangchenjunga, for a time believed the tallest of all; Dhaulagiri, whose height had been argued over for decades; and the distant summit the survey's computers listed simply as Peak XV.",
+          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "peaks, including"
+            },
+            {
+              "id": "B",
+              "text": "peaks. Including"
+            },
+            {
+              "id": "C",
+              "text": "peaks; including"
+            },
+            {
+              "id": "D",
+              "text": "peaks: including"
+            }
+          ],
+          "correctAnswer": "A",
+          "explanation": "**Choice A is correct.** \"Including Kangchenjunga ... Dhaulagiri ... and ... Peak XV\" is a modifying phrase attached to \"peaks,\" and a comma is the conventional way to attach it.\n\n**The Full Solution:**\n- The main clause ends at \"some of the world's highest peaks.\"\n- What follows is not a new clause but an including-phrase that lists examples of those peaks (the items separated by semicolons because they carry internal commas).\n- A phrase of this kind is joined to its noun with a comma: \"peaks, including ...\"\n\n**Why the other choices are wrong:**\n- B: A period strands the including-phrase as a fragment with no subject or verb.\n- C: A semicolon must join two independent clauses; \"including ...\" is not a clause.\n- D: A colon could introduce the list directly (\"peaks: Kangchenjunga ...\"), but placing one before \"including\" makes the word redundant and is not conventional.",
+          "_meta": {
+            "anchor": "Great Trigonometrical Survey of India; comma before an including-phrase"
           }
         },
         {
@@ -1060,39 +1061,6 @@ export const practiceTest4RW = {
           }
         },
         {
-          "id": 429,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "craft-and-structure",
-          "skill": "words-in-context",
-          "passage": "When opera companies in the 1980s began projecting translations of the libretto onto a screen above the stage, several prominent directors objected. A strip of glowing text, they argued, would ______ the audience's attention, pulling eyes upward at exactly the moments when a singer's face and body carried the drama.",
-          "question": "Which choice completes the text with the most logical and precise word or phrase?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "reward"
-            },
-            {
-              "id": "B",
-              "text": "divert"
-            },
-            {
-              "id": "C",
-              "text": "sharpen"
-            },
-            {
-              "id": "D",
-              "text": "sustain"
-            }
-          ],
-          "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The directors' fear is attention pulled away from the stage — \"pulling eyes upward\" — and \"divert\" means precisely to draw something off its intended course.\n\n**The Full Solution:**\n- The screen sits above the stage; the drama lives in the singer's face and body below.\n- The objection is that the glowing text competes for the audience's gaze at the crucial moments.\n- \"Divert the audience's attention\" names that redirection exactly.\n\n**Why the other choices are wrong:**\n- A: \"Reward\" would make the text a benefit to attention, not a threat to it.\n- C: \"Sharpen\" means to focus attention more keenly — the opposite of the directors' worry.\n- D: \"Sustain\" means to keep attention going, but the objection is about where attention goes, not whether it lasts.",
-          "_meta": {
-            "anchor": "opera supertitles controversy — attention drawn from the stage"
-          }
-        },
-        {
           "id": 430,
           "type": "multiple-choice",
           "difficulty": "hard",
@@ -1123,6 +1091,39 @@ export const practiceTest4RW = {
           "explanation": "**Choice D is correct.** The gap between gauges looks like a contradiction in the accounts, and the hydrologists' move — tracing the missing flow to aquifer recharge — brings the figures into agreement. \"Reconcile\" is the word for squaring an apparent discrepancy with the rest of an account.\n\n**The Full Solution:**\n- The setup is bookkeeping language: a \"water budget,\" a \"ledger,\" an unexplained shortfall.\n- The resolution keeps the missing water in the accounts by entering it as recharge below the streambed.\n- Making the shortfall consistent with the budget is reconciliation, not rejection.\n\n**Why the other choices are wrong:**\n- A: \"Equate\" would assert the gap equals the budget itself, a claim that makes no sense here.\n- B: \"Discard\" is precisely what the hydrologists refuse to do with the discrepancy.\n- C: \"Inflate\" means to exaggerate the quantity, not to account for it.",
           "_meta": {
             "anchor": "losing streams and aquifer recharge; hard words-in-context"
+          }
+        },
+        {
+          "id": 429,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "craft-and-structure",
+          "skill": "words-in-context",
+          "passage": "When opera companies in the 1980s began projecting translations of the libretto onto a screen above the stage, several prominent directors objected. A strip of glowing text, they argued, would ______ the audience's attention, pulling eyes upward at exactly the moments when a singer's face and body carried the drama.",
+          "question": "Which choice completes the text with the most logical and precise word or phrase?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "reward"
+            },
+            {
+              "id": "B",
+              "text": "divert"
+            },
+            {
+              "id": "C",
+              "text": "sharpen"
+            },
+            {
+              "id": "D",
+              "text": "sustain"
+            }
+          ],
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** The directors' fear is attention pulled away from the stage — \"pulling eyes upward\" — and \"divert\" means precisely to draw something off its intended course.\n\n**The Full Solution:**\n- The screen sits above the stage; the drama lives in the singer's face and body below.\n- The objection is that the glowing text competes for the audience's gaze at the crucial moments.\n- \"Divert the audience's attention\" names that redirection exactly.\n\n**Why the other choices are wrong:**\n- A: \"Reward\" would make the text a benefit to attention, not a threat to it.\n- C: \"Sharpen\" means to focus attention more keenly — the opposite of the directors' worry.\n- D: \"Sustain\" means to keep attention going, but the objection is about where attention goes, not whether it lasts.",
+          "_meta": {
+            "anchor": "opera supertitles controversy — attention drawn from the stage"
           }
         },
         {
@@ -1335,6 +1336,39 @@ export const practiceTest4RW = {
           }
         },
         {
+          "id": 443,
+          "type": "multiple-choice",
+          "difficulty": "hard",
+          "band": 4,
+          "domain": "information-and-ideas",
+          "skill": "inferences",
+          "passage": "In the 1920s the Russian botanist Nikolai Vavilov led collecting expeditions on five continents, gathering seeds of wheat, barley, and dozens of other crops. He found their variation strikingly uneven: for each crop, a few regions held an extravagant profusion of distinct local forms, while whole continents elsewhere grew only a handful. Two principles, Vavilov reasoned, lay behind the pattern. Varieties accumulate where a crop is grown longest, as centuries of cultivation, mutation, and selection add form after form; and when farmers carry a crop into new territory, they take only a narrow sample of what exists. If both principles hold, then for any crop, the region showing the greatest concentration of distinct varieties is likely to be ______",
+          "question": "Which choice most logically completes the text?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "the region where the crop has been cultivated longest, and so the strongest candidate for the place where it was first domesticated."
+            },
+            {
+              "id": "B",
+              "text": "the region whose farmers imported the most varieties from the surrounding territories over the centuries."
+            },
+            {
+              "id": "C",
+              "text": "the region with the climate best suited to the crop's wild ancestors, wherever domestication itself took place."
+            },
+            {
+              "id": "D",
+              "text": "the region where the crop's yield per acre is highest under traditional farming methods."
+            }
+          ],
+          "correctAnswer": "A",
+          "explanation": "**Choice A is correct.** The two principles jointly point one way: diversity accumulates with time in place, and migration carries diversity away in narrow samples. Peak diversity therefore marks the longest cultivation — and the longest cultivation is where domestication most plausibly began.\n\n**The Full Solution:**\n- Principle one makes diversity a clock: the longer a crop grows in a region, the more forms accumulate there.\n- Principle two rules out the rival reading: newly arrived populations are impoverished samples, so a diversity peak cannot mark a recent import.\n- The region of greatest diversity is thus the oldest home of the crop, and the best candidate for its origin — choice A, and nothing more.\n\n**Why the other choices are wrong:**\n- B: It inverts principle two — importation brings narrow samples, not profusion.\n- C: The principles concern time under cultivation, not climatic suitability; the conclusion cannot suddenly be about climate.\n- D: Yield appears nowhere in the premises and has no logical link to varietal counts.",
+          "_meta": {
+            "anchor": "Nikolai Vavilov — centers of crop diversity as centers of origin; hard inference"
+          }
+        },
+        {
           "id": 437,
           "type": "multiple-choice",
           "difficulty": "medium",
@@ -1365,39 +1399,6 @@ export const practiceTest4RW = {
           "explanation": "**Choice C is correct.** The text says that when the capstan turns, \"every carriage moves at once,\" each visible flat slides away as a fresh one replaces it, and \"the whole scene is transformed in a few seconds.\"\n\n**The Full Solution:**\n- The capstan drives all the carriages simultaneously.\n- Each flat in view is exchanged for a replacement.\n- The transformation takes seconds — exactly what choice C reports.\n\n**Why the other choices are wrong:**\n- A: The machinery stays beneath the stage; nothing in the text has the floor rise or the works become visible.\n- B: The text says the change happens \"in full sight of the audience,\" with no curtain and no carrying.\n- D: \"Every carriage moves at once\" rules out one-at-a-time replacement.",
           "_meta": {
             "anchor": "Drottningholm court theater — simultaneous scene change by capstan; detail stem"
-          }
-        },
-        {
-          "id": 438,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "information-and-ideas",
-          "skill": "central-ideas-and-details",
-          "passage": "Smallpox inoculation reached England not through its medical colleges but through an ambassador's household. In Constantinople in 1717, Lady Mary Wortley Montagu, who had survived smallpox herself, watched Ottoman practitioners protect children by engrafting: introducing a trace of matter from a mild case into a scratch on the arm, producing a brief illness that left lasting protection. She had the procedure performed on her own son, and after returning to London she promoted it among physicians and at court, arranging for her young daughter to be inoculated before witnesses during the epidemic of 1721. The practice took hold in England decades before vaccination was introduced.",
-          "question": "Which choice best states the main idea of the text?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "Ottoman practitioners kept the technique of engrafting secret from European visitors until the eighteenth century."
-            },
-            {
-              "id": "B",
-              "text": "Montagu's advocacy of inoculation was resisted by English physicians because she lacked formal medical training."
-            },
-            {
-              "id": "C",
-              "text": "Inoculation as practiced in Constantinople produced a brief illness followed by lasting protection, whereas the vaccination introduced decades later carried no risk of any illness at all."
-            },
-            {
-              "id": "D",
-              "text": "Montagu encountered inoculation in Constantinople and, by personal example and public advocacy, helped establish the practice in England long before vaccination existed."
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text's through-line is transmission: Montagu sees engrafting in Constantinople, applies it in her own family, promotes it in London, and the practice takes hold in England decades before vaccination. D traces exactly that arc.\n\n**The Full Solution:**\n- The opening sentence frames the point: inoculation reached England through an ambassador's household, not the medical colleges.\n- The middle supplies the means: her son's inoculation, then her daughter's before witnesses — personal example turned public advocacy.\n- The final sentence gives the outcome D restates: the practice established well before vaccination.\n\n**Why the other choices are wrong:**\n- A: The practitioners let Montagu watch; no secrecy is described.\n- B: The text never says physicians resisted her or mentions her training.\n- C: It elevates a detail into a comparison the text never makes — nothing is said about vaccination's risks.",
-          "_meta": {
-            "anchor": "Lady Mary Wortley Montagu — inoculation's route from Constantinople to England"
           }
         },
         {
@@ -1434,72 +1435,36 @@ export const practiceTest4RW = {
           }
         },
         {
-          "id": 440,
+          "id": 438,
           "type": "multiple-choice",
           "difficulty": "medium",
           "band": 3,
           "domain": "information-and-ideas",
-          "skill": "command-of-evidence-quantitative",
-          "passage": "In mountain basins of the American West, winter snowpack acts as a natural reservoir, holding water that is released as meltwater through the warm months. Hydrologists summarize the reservoir each spring as the snowpack's water content measured on April 1, expressed against the long-term average. A basin manager claims that summer streamflow in one such basin tracks the April snowpack closely: thin snowpacks are followed by meager summer flows, and deep snowpacks by abundant ones.",
-          "questionTable": {
-            "type": "table",
-            "caption": "April 1 snow water content and summer streamflow in one mountain basin (percent of long-term average)",
-            "headers": [
-              "Year",
-              "April 1 snow water content (% of average)",
-              "June-August streamflow (% of average)"
-            ],
-            "rows": [
-              [
-                "2018",
-                "142",
-                "128"
-              ],
-              [
-                "2019",
-                "96",
-                "91"
-              ],
-              [
-                "2020",
-                "71",
-                "63"
-              ],
-              [
-                "2021",
-                "118",
-                "109"
-              ],
-              [
-                "2022",
-                "55",
-                "48"
-              ]
-            ]
-          },
-          "question": "Which choice most effectively uses data from the table to support the claim?",
+          "skill": "central-ideas-and-details",
+          "passage": "Smallpox inoculation reached England not through its medical colleges but through an ambassador's household. In Constantinople in 1717, Lady Mary Wortley Montagu, who had survived smallpox herself, watched Ottoman practitioners protect children by engrafting: introducing a trace of matter from a mild case into a scratch on the arm, producing a brief illness that left lasting protection. She had the procedure performed on her own son, and after returning to London she promoted it among physicians and at court, arranging for her young daughter to be inoculated before witnesses during the epidemic of 1721. The practice took hold in England decades before vaccination was introduced.",
+          "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "Snow water content on April 1 ranged from a low of 55% of average in 2022 to a high of 142% of average in 2018."
+              "text": "Ottoman practitioners kept the technique of engrafting secret from European visitors until the eighteenth century."
             },
             {
               "id": "B",
-              "text": "Summer streamflow fell below its long-term average in three of the five years shown in the table and exceeded it in the other two."
+              "text": "Montagu's advocacy of inoculation was resisted by English physicians because she lacked formal medical training."
             },
             {
               "id": "C",
-              "text": "The two thinnest snowpacks, 55% and 71% of average in 2022 and 2020, were followed by the two lowest summer flows, 48% and 63%, while the deepest snowpack, 142% in 2018, was followed by the highest flow, 128%."
+              "text": "Inoculation as practiced in Constantinople produced a brief illness followed by lasting protection, whereas the vaccination introduced decades later carried no risk of any illness at all."
             },
             {
               "id": "D",
-              "text": "In 2019, snow water content stood at 96% of average and summer streamflow at 91% of average, the closest pairing of values in the table."
+              "text": "Montagu encountered inoculation in Constantinople and, by personal example and public advocacy, helped establish the practice in England long before vaccination existed."
             }
           ],
-          "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** A tracking claim needs both variables moving together across years, and C shows the correspondence at both ends of the range: thinnest snowpacks with lowest flows, deepest snowpack with highest flow.\n\n**The Full Solution:**\n- The claim pairs conditions: thin snowpack with meager flow, deep snowpack with abundant flow.\n- C matches the two low years (2022, 2020) to the two lowest flows and the high year (2018) to the highest flow.\n- Correspondence across the extremes is what demonstrates tracking.\n\n**Why the other choices are wrong:**\n- A: It reports only the snowpack's range and never mentions streamflow.\n- B: It reports only streamflow and never connects it to the snowpack.\n- D: One close pairing in a single year cannot show that the two quantities move together across years.",
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** The text's through-line is transmission: Montagu sees engrafting in Constantinople, applies it in her own family, promotes it in London, and the practice takes hold in England decades before vaccination. D traces exactly that arc.\n\n**The Full Solution:**\n- The opening sentence frames the point: inoculation reached England through an ambassador's household, not the medical colleges.\n- The middle supplies the means: her son's inoculation, then her daughter's before witnesses — personal example turned public advocacy.\n- The final sentence gives the outcome D restates: the practice established well before vaccination.\n\n**Why the other choices are wrong:**\n- A: The practitioners let Montagu watch; no secrecy is described.\n- B: The text never says physicians resisted her or mentions her training.\n- C: It elevates a detail into a comparison the text never makes — nothing is said about vaccination's risks.",
           "_meta": {
-            "anchor": "snowpack as natural reservoir — April snow water content and summer flow; original basin table"
+            "anchor": "Lady Mary Wortley Montagu — inoculation's route from Constantinople to England"
           }
         },
         {
@@ -1572,6 +1537,75 @@ export const practiceTest4RW = {
           }
         },
         {
+          "id": 440,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "information-and-ideas",
+          "skill": "command-of-evidence-quantitative",
+          "passage": "In mountain basins of the American West, winter snowpack acts as a natural reservoir, holding water that is released as meltwater through the warm months. Hydrologists summarize the reservoir each spring as the snowpack's water content measured on April 1, expressed against the long-term average. A basin manager claims that summer streamflow in one such basin tracks the April snowpack closely: thin snowpacks are followed by meager summer flows, and deep snowpacks by abundant ones.",
+          "questionTable": {
+            "type": "table",
+            "caption": "April 1 snow water content and summer streamflow in one mountain basin (percent of long-term average)",
+            "headers": [
+              "Year",
+              "April 1 snow water content (% of average)",
+              "June-August streamflow (% of average)"
+            ],
+            "rows": [
+              [
+                "2018",
+                "142",
+                "128"
+              ],
+              [
+                "2019",
+                "96",
+                "91"
+              ],
+              [
+                "2020",
+                "71",
+                "63"
+              ],
+              [
+                "2021",
+                "118",
+                "109"
+              ],
+              [
+                "2022",
+                "55",
+                "48"
+              ]
+            ]
+          },
+          "question": "Which choice most effectively uses data from the table to support the claim?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Snow water content on April 1 ranged from a low of 55% of average in 2022 to a high of 142% of average in 2018."
+            },
+            {
+              "id": "B",
+              "text": "Summer streamflow fell below its long-term average in three of the five years shown in the table and exceeded it in the other two."
+            },
+            {
+              "id": "C",
+              "text": "The two thinnest snowpacks, 55% and 71% of average in 2022 and 2020, were followed by the two lowest summer flows, 48% and 63%, while the deepest snowpack, 142% in 2018, was followed by the highest flow, 128%."
+            },
+            {
+              "id": "D",
+              "text": "In 2019, snow water content stood at 96% of average and summer streamflow at 91% of average, the closest pairing of values in the table."
+            }
+          ],
+          "correctAnswer": "C",
+          "explanation": "**Choice C is correct.** A tracking claim needs both variables moving together across years, and C shows the correspondence at both ends of the range: thinnest snowpacks with lowest flows, deepest snowpack with highest flow.\n\n**The Full Solution:**\n- The claim pairs conditions: thin snowpack with meager flow, deep snowpack with abundant flow.\n- C matches the two low years (2022, 2020) to the two lowest flows and the high year (2018) to the highest flow.\n- Correspondence across the extremes is what demonstrates tracking.\n\n**Why the other choices are wrong:**\n- A: It reports only the snowpack's range and never mentions streamflow.\n- B: It reports only streamflow and never connects it to the snowpack.\n- D: One close pairing in a single year cannot show that the two quantities move together across years.",
+          "_meta": {
+            "anchor": "snowpack as natural reservoir — April snow water content and summer flow; original basin table"
+          }
+        },
+        {
           "id": 442,
           "type": "multiple-choice",
           "difficulty": "medium",
@@ -1602,138 +1636,6 @@ export const practiceTest4RW = {
           "explanation": "**Choice A is correct.** If every patch is at most one day's work, then counting the patches gives a floor on the days worked — no more, and no less, than the premises allow.\n\n**The Full Solution:**\n- Premise one: a giornata is the plaster laid for a single day's painting.\n- Premise two: the joints between giornate survive and can be mapped.\n- Mapping the joints therefore counts the patches, and the count bounds the working days from below — an estimate of the minimum, exactly choice A.\n\n**Why the other choices are wrong:**\n- B: Nothing in the text connects joints to who painted a passage; hands are never discussed.\n- C: Preparatory drawings are never mentioned, and joints record scheduling, not design.\n- D: The joints reveal that a day ended, not the clock time at which its plaster went down.",
           "_meta": {
             "anchor": "fresco giornate — day patches as a record of working days"
-          }
-        },
-        {
-          "id": 443,
-          "type": "multiple-choice",
-          "difficulty": "hard",
-          "band": 4,
-          "domain": "information-and-ideas",
-          "skill": "inferences",
-          "passage": "In the 1920s the Russian botanist Nikolai Vavilov led collecting expeditions on five continents, gathering seeds of wheat, barley, and dozens of other crops. He found their variation strikingly uneven: for each crop, a few regions held an extravagant profusion of distinct local forms, while whole continents elsewhere grew only a handful. Two principles, Vavilov reasoned, lay behind the pattern. Varieties accumulate where a crop is grown longest, as centuries of cultivation, mutation, and selection add form after form; and when farmers carry a crop into new territory, they take only a narrow sample of what exists. If both principles hold, then for any crop, the region showing the greatest concentration of distinct varieties is likely to be ______",
-          "question": "Which choice most logically completes the text?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "the region where the crop has been cultivated longest, and so the strongest candidate for the place where it was first domesticated."
-            },
-            {
-              "id": "B",
-              "text": "the region whose farmers imported the most varieties from the surrounding territories over the centuries."
-            },
-            {
-              "id": "C",
-              "text": "the region with the climate best suited to the crop's wild ancestors, wherever domestication itself took place."
-            },
-            {
-              "id": "D",
-              "text": "the region where the crop's yield per acre is highest under traditional farming methods."
-            }
-          ],
-          "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The two principles jointly point one way: diversity accumulates with time in place, and migration carries diversity away in narrow samples. Peak diversity therefore marks the longest cultivation — and the longest cultivation is where domestication most plausibly began.\n\n**The Full Solution:**\n- Principle one makes diversity a clock: the longer a crop grows in a region, the more forms accumulate there.\n- Principle two rules out the rival reading: newly arrived populations are impoverished samples, so a diversity peak cannot mark a recent import.\n- The region of greatest diversity is thus the oldest home of the crop, and the best candidate for its origin — choice A, and nothing more.\n\n**Why the other choices are wrong:**\n- B: It inverts principle two — importation brings narrow samples, not profusion.\n- C: The principles concern time under cultivation, not climatic suitability; the conclusion cannot suddenly be about climate.\n- D: Yield appears nowhere in the premises and has no logical link to varietal counts.",
-          "_meta": {
-            "anchor": "Nikolai Vavilov — centers of crop diversity as centers of origin; hard inference"
-          }
-        },
-        {
-          "id": 444,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "standard-english-conventions",
-          "skill": "boundaries",
-          "passage": "In a Renaissance workshop, a picture began long before any paint was mixed. Turning rough planks into a painting surface meant three stages in a fixed ______ joining and smoothing the seasoned poplar, sealing the wood with coats of glue size, and building up thin layers of gesso to be scraped and polished smooth.",
-          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "order, joining"
-            },
-            {
-              "id": "B",
-              "text": "order joining"
-            },
-            {
-              "id": "C",
-              "text": "order; joining"
-            },
-            {
-              "id": "D",
-              "text": "order: joining"
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** An independent clause ends at \"a fixed order,\" and what follows is the list of the three stages — the construction a colon exists to introduce.\n\n**The Full Solution:**\n- The clause before the blank is complete: \"Turning rough planks into a painting surface meant three stages in a fixed order.\"\n- The material after the blank itemizes the promised stages: joining, sealing, building up gesso.\n- A colon after an independent clause formally introduces the list it announces.\n\n**Why the other choices are wrong:**\n- A: A comma is too weak to introduce a formal list after a complete clause and blurs where the clause ends.\n- B: With no punctuation, \"order joining\" runs the clause into the list unreadably.\n- C: A semicolon must have an independent clause on each side, and the list of stages is not a clause.",
-          "_meta": {
-            "anchor": "Renaissance panel preparation; colon before a list"
-          }
-        },
-        {
-          "id": 445,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "standard-english-conventions",
-          "skill": "form-structure-and-sense",
-          "passage": "The mixture of winter rye, crimson clover, and hairy vetch that many growers sow after the autumn harvest ______ several jobs at once: the rye's dense roots hold the soil against winter rains, the clover and vetch draw nitrogen from the air, and the whole stand smothers early weeds.",
-          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "perform"
-            },
-            {
-              "id": "B",
-              "text": "are performing"
-            },
-            {
-              "id": "C",
-              "text": "performs"
-            },
-            {
-              "id": "D",
-              "text": "have performed"
-            }
-          ],
-          "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The subject is the singular noun \"mixture,\" so the verb must be the singular \"performs.\"\n\n**The Full Solution:**\n- Strip the modifiers: \"The mixture ... performs several jobs at once.\"\n- \"Of winter rye, crimson clover, and hairy vetch\" and the that-clause modify \"mixture\" without changing its number.\n- The plural nouns inside those modifiers (rye, clover, vetch, growers) are bait; the head noun is \"mixture,\" and it is singular.\n\n**Why the other choices are wrong:**\n- A: \"Perform\" is plural, agreeing with the nearby crop names instead of the subject.\n- B: \"Are performing\" is likewise plural and mismatches the singular head noun.\n- D: \"Have performed\" is plural, and its completed aspect also clashes with the ongoing jobs the colon then lists.",
-          "_meta": {
-            "anchor": "cover-crop mixture; subject-verb agreement (singular collective subject)"
-          }
-        },
-        {
-          "id": 446,
-          "type": "multiple-choice",
-          "difficulty": "medium",
-          "band": 3,
-          "domain": "standard-english-conventions",
-          "skill": "boundaries",
-          "passage": "Rain that falls on the limestone plateau does not linger at the ______ it slips into sinkholes, threads through caverns dissolved out of the rock, and emerges days later, filtered and cold, at springs in the valleys below.",
-          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "surface, it"
-            },
-            {
-              "id": "B",
-              "text": "surface; it"
-            },
-            {
-              "id": "C",
-              "text": "surface it"
-            },
-            {
-              "id": "D",
-              "text": "surface and, it"
-            }
-          ],
-          "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** \"Rain ... does not linger at the surface\" and \"it slips into sinkholes ...\" are both independent clauses, and a semicolon is a standard way to join two closely related independent clauses.\n\n**The Full Solution:**\n- Clause one is complete: \"Rain that falls on the limestone plateau does not linger at the surface.\"\n- Clause two is complete: \"it slips into sinkholes, threads through caverns ..., and emerges ... at springs.\"\n- The second clause elaborates the first, so a semicolon joins them correctly.\n\n**Why the other choices are wrong:**\n- A: A comma alone between the two independent clauses creates a comma splice.\n- C: No punctuation fuses the clauses into a run-on.\n- D: \"And\" would need a comma before it to join the clauses; a comma after it is not a conventional joining.",
-          "_meta": {
-            "anchor": "karst drainage; semicolon between independent clauses"
           }
         },
         {
@@ -1770,36 +1672,36 @@ export const practiceTest4RW = {
           }
         },
         {
-          "id": 448,
+          "id": 446,
           "type": "multiple-choice",
           "difficulty": "medium",
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "At many nineteenth-century opera houses, the waves of applause that greeted a favored singer were rarely ______ instead, they were organized in advance by the chef de claque, who seated his hired clappers throughout the hall and cued their bravos on schedule.",
+          "passage": "Rain that falls on the limestone plateau does not linger at the ______ it slips into sinkholes, threads through caverns dissolved out of the rock, and emerges days later, filtered and cold, at springs in the valleys below.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "spontaneous, instead"
+              "text": "surface, it"
             },
             {
               "id": "B",
-              "text": "spontaneous; instead,"
+              "text": "surface; it"
             },
             {
               "id": "C",
-              "text": "spontaneous, instead,"
+              "text": "surface it"
             },
             {
               "id": "D",
-              "text": "spontaneous instead"
+              "text": "surface and, it"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and the second begins with the conjunctive adverb \"instead\" — a joining that requires a semicolon before the adverb and a comma after it.\n\n**The Full Solution:**\n- Clause one: \"the waves of applause ... were rarely spontaneous.\"\n- Clause two: \"they were organized in advance by the chef de claque ...\"\n- A conjunctive adverb like \"instead\" cannot join clauses by itself; the pattern is \"; instead,\" — semicolon, adverb, comma.\n\n**Why the other choices are wrong:**\n- A: A comma before \"instead\" splices the clauses, and the missing comma after the adverb compounds the error.\n- C: Even with the comma after \"instead,\" the comma before it still splices two independent clauses.\n- D: No punctuation at all fuses the clauses into a run-on.",
+          "explanation": "**Choice B is correct.** \"Rain ... does not linger at the surface\" and \"it slips into sinkholes ...\" are both independent clauses, and a semicolon is a standard way to join two closely related independent clauses.\n\n**The Full Solution:**\n- Clause one is complete: \"Rain that falls on the limestone plateau does not linger at the surface.\"\n- Clause two is complete: \"it slips into sinkholes, threads through caverns ..., and emerges ... at springs.\"\n- The second clause elaborates the first, so a semicolon joins them correctly.\n\n**Why the other choices are wrong:**\n- A: A comma alone between the two independent clauses creates a comma splice.\n- C: No punctuation fuses the clauses into a run-on.\n- D: \"And\" would need a comma before it to join the clauses; a comma after it is not a conventional joining.",
           "_meta": {
-            "anchor": "the opera claque; semicolon with conjunctive adverb"
+            "anchor": "karst drainage; semicolon between independent clauses"
           }
         },
         {
@@ -1836,69 +1738,102 @@ export const practiceTest4RW = {
           }
         },
         {
-          "id": 450,
-          "type": "multiple-choice",
-          "difficulty": "hard",
-          "band": 4,
-          "domain": "expression-of-ideas",
-          "skill": "transitions",
-          "passage": "Connoisseurs long treated a Renaissance master's name on an altarpiece as an assurance that every figure came from his own brush. The surviving commissioning contracts read differently. ______ many stipulate only that the master design the composition and paint the principal heads, expressly leaving draperies, backgrounds, and minor figures to the assistants of his shop.",
-          "question": "Which choice completes the text with the most logical transition?",
-          "choices": [
-            {
-              "id": "A",
-              "text": "Similarly,"
-            },
-            {
-              "id": "B",
-              "text": "Meanwhile,"
-            },
-            {
-              "id": "C",
-              "text": "Consequently,"
-            },
-            {
-              "id": "D",
-              "text": "In fact,"
-            }
-          ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The passage announces that the contracts \"read differently\" from the connoisseurs' assumption, and the final sentence delivers the correcting detail. \"In fact\" is the transition that introduces the reality behind a mistaken belief.\n\n**The Full Solution:**\n- Sentence one: the belief — a master's name means every figure is his.\n- Sentence two: the pivot — the documents say otherwise.\n- Sentence three: the substance of the correction — contracts assign only the design and the principal heads to the master. \"In fact\" signals precisely this corrective specification.\n\n**Why the other choices are wrong:**\n- A: \"Similarly\" would liken the contracts' contents to the belief they overturn.\n- B: \"Meanwhile\" sets two developments side by side in time; there is only one thread here.\n- C: \"Consequently\" would make the contracts' stipulations a result of their reading differently, but the sentence is explaining what they say, not what followed from it.",
-          "_meta": {
-            "anchor": "Renaissance workshop contracts — divided authorship; corrective transition"
-          }
-        },
-        {
-          "id": 451,
+          "id": 444,
           "type": "multiple-choice",
           "difficulty": "medium",
           "band": 3,
-          "domain": "expression-of-ideas",
-          "skill": "transitions",
-          "passage": "Rows of trees planted along the edges of fields blunt the wind almost as soon as they are in the ground, and fields in their shelter hold measurably more moisture through a rainless spell. ______ the maturing rows thicken into corridors dense enough to harbor the birds and predatory insects that keep crop pests in check, so a shelterbelt's protection widens as it ages.",
-          "question": "Which choice completes the text with the most logical transition?",
+          "domain": "standard-english-conventions",
+          "skill": "boundaries",
+          "passage": "In a Renaissance workshop, a picture began long before any paint was mixed. Turning rough planks into a painting surface meant three stages in a fixed ______ joining and smoothing the seasoned poplar, sealing the wood with coats of glue size, and building up thin layers of gesso to be scraped and polished smooth.",
+          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "Nevertheless,"
+              "text": "order, joining"
             },
             {
               "id": "B",
-              "text": "By contrast,"
+              "text": "order joining"
             },
             {
               "id": "C",
-              "text": "Eventually,"
+              "text": "order; joining"
             },
             {
               "id": "D",
-              "text": "For instance,"
+              "text": "order: joining"
+            }
+          ],
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** An independent clause ends at \"a fixed order,\" and what follows is the list of the three stages — the construction a colon exists to introduce.\n\n**The Full Solution:**\n- The clause before the blank is complete: \"Turning rough planks into a painting surface meant three stages in a fixed order.\"\n- The material after the blank itemizes the promised stages: joining, sealing, building up gesso.\n- A colon after an independent clause formally introduces the list it announces.\n\n**Why the other choices are wrong:**\n- A: A comma is too weak to introduce a formal list after a complete clause and blurs where the clause ends.\n- B: With no punctuation, \"order joining\" runs the clause into the list unreadably.\n- C: A semicolon must have an independent clause on each side, and the list of stages is not a clause.",
+          "_meta": {
+            "anchor": "Renaissance panel preparation; colon before a list"
+          }
+        },
+        {
+          "id": 448,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "standard-english-conventions",
+          "skill": "boundaries",
+          "passage": "At many nineteenth-century opera houses, the waves of applause that greeted a favored singer were rarely ______ instead, they were organized in advance by the chef de claque, who seated his hired clappers throughout the hall and cued their bravos on schedule.",
+          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "spontaneous, instead"
+            },
+            {
+              "id": "B",
+              "text": "spontaneous; instead,"
+            },
+            {
+              "id": "C",
+              "text": "spontaneous, instead,"
+            },
+            {
+              "id": "D",
+              "text": "spontaneous instead"
+            }
+          ],
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and the second begins with the conjunctive adverb \"instead\" — a joining that requires a semicolon before the adverb and a comma after it.\n\n**The Full Solution:**\n- Clause one: \"the waves of applause ... were rarely spontaneous.\"\n- Clause two: \"they were organized in advance by the chef de claque ...\"\n- A conjunctive adverb like \"instead\" cannot join clauses by itself; the pattern is \"; instead,\" — semicolon, adverb, comma.\n\n**Why the other choices are wrong:**\n- A: A comma before \"instead\" splices the clauses, and the missing comma after the adverb compounds the error.\n- C: Even with the comma after \"instead,\" the comma before it still splices two independent clauses.\n- D: No punctuation at all fuses the clauses into a run-on.",
+          "_meta": {
+            "anchor": "the opera claque; semicolon with conjunctive adverb"
+          }
+        },
+        {
+          "id": 445,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "standard-english-conventions",
+          "skill": "form-structure-and-sense",
+          "passage": "The mixture of winter rye, crimson clover, and hairy vetch that many growers sow after the autumn harvest ______ several jobs at once: the rye's dense roots hold the soil against winter rains, the clover and vetch draw nitrogen from the air, and the whole stand smothers early weeds.",
+          "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "perform"
+            },
+            {
+              "id": "B",
+              "text": "are performing"
+            },
+            {
+              "id": "C",
+              "text": "performs"
+            },
+            {
+              "id": "D",
+              "text": "have performed"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The first sentence describes benefits a shelterbelt delivers from the start (blunted wind \"almost as soon as they are in the ground,\" retained moisture); the second describes a benefit that emerges only later, as the rows mature. A development that arrives after time has passed calls for a sequence transition.\n\n**The Full Solution:**\n- At planting, the tree rows already blunt wind and conserve soil moisture.\n- Only as they mature do the rows thicken into corridors that harbor birds and predatory insects.\n- The closing clause — \"protection widens as it ages\" — confirms that the relationship is temporal: the habitat benefit follows the wind benefit over time. \"Eventually\" marks that later development.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" would set the habitat benefit against the wind benefit, but the sentences agree.\n- B: \"By contrast\" likewise demands an opposition that is not there.\n- D: \"For instance\" would make pest control an example of the wind protection, yet it is a distinct benefit that arrives later.",
+          "explanation": "**Choice C is correct.** The subject is the singular noun \"mixture,\" so the verb must be the singular \"performs.\"\n\n**The Full Solution:**\n- Strip the modifiers: \"The mixture ... performs several jobs at once.\"\n- \"Of winter rye, crimson clover, and hairy vetch\" and the that-clause modify \"mixture\" without changing its number.\n- The plural nouns inside those modifiers (rye, clover, vetch, growers) are bait; the head noun is \"mixture,\" and it is singular.\n\n**Why the other choices are wrong:**\n- A: \"Perform\" is plural, agreeing with the nearby crop names instead of the subject.\n- B: \"Are performing\" is likewise plural and mismatches the singular head noun.\n- D: \"Have performed\" is plural, and its completed aspect also clashes with the ongoing jobs the colon then lists.",
           "_meta": {
-            "anchor": "shelterbelts — immediate wind protection, then maturing rows harbor pest predators; sequence transition"
+            "anchor": "cover-crop mixture; subject-verb agreement (singular collective subject)"
           }
         },
         {
@@ -1935,46 +1870,69 @@ export const practiceTest4RW = {
           }
         },
         {
-          "id": 453,
+          "id": 451,
+          "type": "multiple-choice",
+          "difficulty": "medium",
+          "band": 3,
+          "domain": "expression-of-ideas",
+          "skill": "transitions",
+          "passage": "Rows of trees planted along the edges of fields blunt the wind almost as soon as they are in the ground, and fields in their shelter hold measurably more moisture through a rainless spell. ______ the maturing rows thicken into corridors dense enough to harbor the birds and predatory insects that keep crop pests in check, so a shelterbelt's protection widens as it ages.",
+          "question": "Which choice completes the text with the most logical transition?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Nevertheless,"
+            },
+            {
+              "id": "B",
+              "text": "By contrast,"
+            },
+            {
+              "id": "C",
+              "text": "Eventually,"
+            },
+            {
+              "id": "D",
+              "text": "For instance,"
+            }
+          ],
+          "correctAnswer": "C",
+          "explanation": "**Choice C is correct.** The first sentence describes benefits a shelterbelt delivers from the start (blunted wind \"almost as soon as they are in the ground,\" retained moisture); the second describes a benefit that emerges only later, as the rows mature. A development that arrives after time has passed calls for a sequence transition.\n\n**The Full Solution:**\n- At planting, the tree rows already blunt wind and conserve soil moisture.\n- Only as they mature do the rows thicken into corridors that harbor birds and predatory insects.\n- The closing clause — \"protection widens as it ages\" — confirms that the relationship is temporal: the habitat benefit follows the wind benefit over time. \"Eventually\" marks that later development.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" would set the habitat benefit against the wind benefit, but the sentences agree.\n- B: \"By contrast\" likewise demands an opposition that is not there.\n- D: \"For instance\" would make pest control an example of the wind protection, yet it is a distinct benefit that arrives later.",
+          "_meta": {
+            "anchor": "shelterbelts — immediate wind protection, then maturing rows harbor pest predators; sequence transition"
+          }
+        },
+        {
+          "id": 450,
           "type": "multiple-choice",
           "difficulty": "hard",
           "band": 4,
           "domain": "expression-of-ideas",
-          "skill": "rhetorical-synthesis",
-          "studentNotes": {
-            "intro": "While researching a topic, a student has taken the following notes:",
-            "bullets": [
-              "Claudio Monteverdi (1567-1643) was an Italian composer employed at the court of Mantua.",
-              "His opera L'Orfeo, first performed in 1607, retold the Greek myth of Orpheus in music and staged drama.",
-              "L'Orfeo combined sung recitation, arias, choruses, and a large, varied instrumental ensemble.",
-              "A handful of earlier sung dramas existed, but none holds a place in today's repertoire.",
-              "Many historians consider L'Orfeo the earliest opera still regularly staged."
-            ],
-            "goal": "The student wants to emphasize the historical significance of L'Orfeo."
-          },
-          "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+          "skill": "transitions",
+          "passage": "Connoisseurs long treated a Renaissance master's name on an altarpiece as an assurance that every figure came from his own brush. The surviving commissioning contracts read differently. ______ many stipulate only that the master design the composition and paint the principal heads, expressly leaving draperies, backgrounds, and minor figures to the assistants of his shop.",
+          "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
               "id": "A",
-              "text": "Monteverdi's L'Orfeo, first performed before the court of Mantua in 1607, retold the ancient Greek myth of Orpheus through music and staged drama."
+              "text": "Similarly,"
             },
             {
               "id": "B",
-              "text": "L'Orfeo combined sung recitation, arias, choruses, and a large and notably varied ensemble of instruments."
+              "text": "Meanwhile,"
             },
             {
               "id": "C",
-              "text": "First performed in 1607, Monteverdi's L'Orfeo is considered the earliest opera still regularly staged; where its predecessors vanished from the repertoire, it endured."
+              "text": "Consequently,"
             },
             {
               "id": "D",
-              "text": "Claudio Monteverdi, an Italian composer who lived from 1567 to 1643, spent much of his long and productive musical career employed as a court musician by the ruling family of Mantua in northern Italy."
+              "text": "In fact,"
             }
           ],
-          "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Historical significance is a claim about a work's place in history, and C makes it: the earliest opera still regularly staged, surviving where its predecessors vanished.\n\n**The Full Solution:**\n- The notes locate the significance in two facts: earlier sung dramas left the repertoire (bullet 4), and L'Orfeo is the earliest opera still staged (bullet 5).\n- C joins them into a single claim of endurance and priority, anchored by the 1607 date.\n- That is emphasis on significance, not mere description.\n\n**Why the other choices are wrong:**\n- A: Date, place, and plot describe the premiere without asserting the work's importance to history.\n- B: A list of musical ingredients carries no claim of significance at all.\n- D: A biography of Monteverdi never mentions L'Orfeo, the subject the goal names.",
+          "correctAnswer": "D",
+          "explanation": "**Choice D is correct.** The passage announces that the contracts \"read differently\" from the connoisseurs' assumption, and the final sentence delivers the correcting detail. \"In fact\" is the transition that introduces the reality behind a mistaken belief.\n\n**The Full Solution:**\n- Sentence one: the belief — a master's name means every figure is his.\n- Sentence two: the pivot — the documents say otherwise.\n- Sentence three: the substance of the correction — contracts assign only the design and the principal heads to the master. \"In fact\" signals precisely this corrective specification.\n\n**Why the other choices are wrong:**\n- A: \"Similarly\" would liken the contracts' contents to the belief they overturn.\n- B: \"Meanwhile\" sets two developments side by side in time; there is only one thread here.\n- C: \"Consequently\" would make the contracts' stipulations a result of their reading differently, but the sentence is explaining what they say, not what followed from it.",
           "_meta": {
-            "anchor": "Claudio Monteverdi — L'Orfeo; historical-significance goal"
+            "anchor": "Renaissance workshop contracts — divided authorship; corrective transition"
           }
         },
         {
@@ -2018,6 +1976,49 @@ export const practiceTest4RW = {
           "explanation": "**Choice B is correct.** An emphasize-a-difference goal wants the two cables set against each other, and B does it in one contrastive frame: quick failure under high voltages versus years of reliable service under a gentler design.\n\n**The Full Solution:**\n- The notes supply the contrast's two sides: the 1858 cable's month-long life and voltage-driven death (bullet 2); the 1866 cable's heavier build, sensitive receiver, and years of service (bullets 3-5).\n- B binds them with \"Whereas,\" naming both cables and the fate of each.\n- Explicit contrast of both terms is what the goal demands.\n\n**Why the other choices are wrong:**\n- A: It describes the 1858 cable alone; one cable cannot exhibit a difference.\n- C: It describes the 1866 cable alone, leaving the 1858 side of the contrast unstated.\n- D: It emphasizes what the cables jointly proved — a similarity, the opposite of the goal.",
           "_meta": {
             "anchor": "1858 versus 1866 Atlantic telegraph cables; difference goal"
+          }
+        },
+        {
+          "id": 453,
+          "type": "multiple-choice",
+          "difficulty": "hard",
+          "band": 4,
+          "domain": "expression-of-ideas",
+          "skill": "rhetorical-synthesis",
+          "studentNotes": {
+            "intro": "While researching a topic, a student has taken the following notes:",
+            "bullets": [
+              "Claudio Monteverdi (1567-1643) was an Italian composer employed at the court of Mantua.",
+              "His opera L'Orfeo, first performed in 1607, retold the Greek myth of Orpheus in music and staged drama.",
+              "L'Orfeo combined sung recitation, arias, choruses, and a large, varied instrumental ensemble.",
+              "A handful of earlier sung dramas existed, but none holds a place in today's repertoire.",
+              "Many historians consider L'Orfeo the earliest opera still regularly staged."
+            ],
+            "goal": "The student wants to emphasize the historical significance of L'Orfeo."
+          },
+          "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Monteverdi's L'Orfeo, first performed before the court of Mantua in 1607, retold the ancient Greek myth of Orpheus through music and staged drama."
+            },
+            {
+              "id": "B",
+              "text": "L'Orfeo combined sung recitation, arias, choruses, and a large and notably varied ensemble of instruments."
+            },
+            {
+              "id": "C",
+              "text": "First performed in 1607, Monteverdi's L'Orfeo is considered the earliest opera still regularly staged; where its predecessors vanished from the repertoire, it endured."
+            },
+            {
+              "id": "D",
+              "text": "Claudio Monteverdi, an Italian composer who lived from 1567 to 1643, spent much of his long and productive musical career employed as a court musician by the ruling family of Mantua in northern Italy."
+            }
+          ],
+          "correctAnswer": "C",
+          "explanation": "**Choice C is correct.** Historical significance is a claim about a work's place in history, and C makes it: the earliest opera still regularly staged, surviving where its predecessors vanished.\n\n**The Full Solution:**\n- The notes locate the significance in two facts: earlier sung dramas left the repertoire (bullet 4), and L'Orfeo is the earliest opera still staged (bullet 5).\n- C joins them into a single claim of endurance and priority, anchored by the 1607 date.\n- That is emphasis on significance, not mere description.\n\n**Why the other choices are wrong:**\n- A: Date, place, and plot describe the premiere without asserting the work's importance to history.\n- B: A list of musical ingredients carries no claim of significance at all.\n- D: A biography of Monteverdi never mentions L'Orfeo, the subject the goal names.",
+          "_meta": {
+            "anchor": "Claudio Monteverdi — L'Orfeo; historical-significance goal"
           }
         }
       ]
