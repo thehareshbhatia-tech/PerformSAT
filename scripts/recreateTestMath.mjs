@@ -373,6 +373,25 @@ function testChecks(row, a, chunk) {
   if (wc < MIN_STEM_WORDS && !a.diagram && !a.questionTable) errs.push(`stem ${wc} words (<${MIN_STEM_WORDS}) — give the setup in words; bare equations invite twins`);
   if (row.figure && !a.diagram && !a.questionTable) errs.push('this slot is a FIGURE slot in the plan — add a real diagram/questionTable (params must match the numbers)');
   if (a.skills !== undefined && JSON.stringify(a.skills) !== JSON.stringify(row.skills)) warns.push(`skills in JSON ignored (plan assigns ${JSON.stringify(row.skills)})`);
+  // Mirror of the app's DiagramValidator required-param rules (src/components/graphs/DiagramValidator.js —
+  // not importable here: it pulls a .jsx). Keep in sync when that file gains a rule.
+  if (a.diagram && a.diagram.params && typeof a.diagram.params === 'object') {
+    const P = a.diagram.params, T = a.diagram.type;
+    const req = (cond, msg) => { if (!cond) errs.push(`diagram ${T}: ${msg}`); };
+    if (T === 'rightTriangle') req(Array.isArray(P.vertices) && P.vertices.length === 3, 'must have exactly 3 vertices (the renderer draws the legs from them — without them the drawn proportions contradict the labels)');
+    if (T === 'triangleWithAngles') req(Array.isArray(P.angleLabels) && P.angleLabels.length === 3, 'must have exactly 3 angleLabels');
+    if (T === 'parabola') req(P.vertex && typeof P.vertex === 'object', 'missing required vertex');
+    if (T === 'twoLineGraph') { req(P.intersection && typeof P.intersection.x === 'number' && typeof P.intersection.y === 'number', 'missing required intersection {x,y}'); req(typeof P.slope1 === 'number' && typeof P.slope2 === 'number', 'missing required slope1/slope2'); }
+    if (T === 'table') req((Array.isArray(P.headers) && Array.isArray(P.rows)) || (P.xHeader && P.yHeader), 'must have headers/rows or xHeader/yHeader');
+    if (T === 'scatterplot') req(Array.isArray(P.points) && P.points.every(pt => (Array.isArray(pt) && pt.length === 2 && pt.every(Number.isFinite)) || (pt && Number.isFinite(pt.x) && Number.isFinite(pt.y))), 'every point must be [x, y] or {x, y} with finite numbers');
+  }
+  // SATDotPlot scales to xMin..xMax with 12px dots — a wide window packs adjacent values into an unreadable blob
+  if (a.diagram?.type === 'dotPlot' && a.diagram.params && typeof a.diagram.params.xMin === 'number' && typeof a.diagram.params.xMax === 'number') {
+    const span = a.diagram.params.xMax - a.diagram.params.xMin;
+    // SATDotPlot plots ~780px wide: 36 units ≈ 22px per unit (readable); 54 units ≈ 14px (12px dots touch); beyond that they overlap
+    if (span > 50) errs.push(`dotPlot window spans ${span} units — adjacent values render ≤ 14px apart and overlap; keep xMax - xMin ≤ 50 (rescale the data or drop the far outlier)`);
+    else if (span > 36) warns.push(`dotPlot window spans ${span} units — check adjacent dots/labels do not overlap`);
+  }
   // SATBarChart draws no value labels — a bar between gridlines cannot be read to the precision an answer needs
   if (a.diagram?.type === 'barChart' && a.diagram.params && Array.isArray(a.diagram.params.data)) {
     const P = a.diagram.params; const step = P.yStep || Math.ceil((P.yMax || 0) / 5);

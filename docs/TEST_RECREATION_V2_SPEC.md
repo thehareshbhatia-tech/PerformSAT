@@ -132,8 +132,8 @@ git commit   # one commit per test (or wave)
 | 1 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
 | 2 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
 | 3 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
-| 4 | | | | | |
-| 5 | | | | | |
+| 4 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
+| 5 | done | done | done | done (lint 0, audit 0, jest 106/106, freshness 0/66) | 2026-09-07 |
 | 6 | | | | | |
 | 7 | | | | | |
 | 8 | | | | | |
@@ -155,3 +155,10 @@ git commit   # one commit per test (or wave)
    and the tallest bar must sit below `yMax` (`check` now enforces both). Verifiers' other catches:
    a hard slot that was a one-move plug-in with a structurally guessable key (all four choices must
    share one shape), and a distractor whose stated error did not produce its number.
+4. (Tests 2-5 verify) Recurring catches now mirrored in `check` where mechanical: DiagramValidator's
+   required params (rightTriangle `vertices`, triangleWithAngles `angleLabels`, parabola `vertex`,
+   twoLineGraph `intersection`+slopes), dotPlot window ≤ 50 units (12px dots overlap beyond that).
+   Still human-only: physically wrong premises (an upward "arch", a 34 g apricot half, a "dinghy" with
+   a 756 ft² sail), method/trap-revealing clauses, a hard slot that is a plug-in, a "check" that uses a
+   non-solution, a decoy table row that reproduces the key, scenario collisions across a chunk,
+   renderer proportions that contradict labels (→ `figureNote: true`).
