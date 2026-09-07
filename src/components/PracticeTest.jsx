@@ -712,11 +712,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
   const [rwM2VariantManuallySet, setRwM2VariantManuallySet] = useState(
     savedProgress?.rwM2VariantManuallySet ?? false,
   );
-  // When the user requests an M2 variant swap while they already have
-  // answers in M2, defer the swap to a confirmation modal. Null when no
-  // swap is pending; `{ section, newVariant, answerCount }` when one is
-  // queued (section: 'math' | 'rw').
-  const [pendingM2Switch, setPendingM2Switch] = useState(null);
 
   // Responsive: track window width for mobile layout
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
@@ -839,6 +834,21 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     if (!test.rwModule2Easy || !rwM1Score) return null;
     return rwM1Score.pct < M2_ROUTING_THRESHOLD ? 'easy' : 'hard';
   }, [test.rwModule2Easy, rwM1Score]);
+
+  // Module 2 is chosen ONCE, on the module-complete screen that follows a
+  // section's Module 1 (2026-09-07). When that screen shows and the student
+  // has not picked yet, pre-select the recommendation so the chooser, the
+  // Continue label, and handleNextModule's fallback all agree. The choice
+  // locks when the module begins: there is no in-module switch any more.
+  useEffect(() => {
+    if (!moduleCompleted || testCompleted || test?.isDiagnostic) return;
+    if (currentModule === mathM1Index && recommendedM2Variant && !m2VariantManuallySet && module2Variant !== recommendedM2Variant) {
+      setModule2Variant(recommendedM2Variant);
+    }
+    if (currentModule === rwM1Index && recommendedRwM2Variant && !rwM2VariantManuallySet && rwModule2Variant !== recommendedRwM2Variant) {
+      setRwModule2Variant(recommendedRwM2Variant);
+    }
+  }, [moduleCompleted, testCompleted, test, currentModule, mathM1Index, rwM1Index, recommendedM2Variant, recommendedRwM2Variant, m2VariantManuallySet, rwM2VariantManuallySet, module2Variant, rwModule2Variant]);
 
   // Effective modules: swap in each section's Module 2 Easy variant when that
   // section's routing decision is 'easy'. Falls back to standard test.modules
@@ -2034,9 +2044,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       && cur?.section === 'reading-writing'
       && ((nxt?.section || 'math') !== 'reading-writing');
     if (isSectionBreak) return undefined;
+    // A Module 2 choice is pending on this screen — the student picks, then
+    // continues; auto-advancing would decide for them.
+    const hasM2Choice = !test?.isDiagnostic && (
+      (currentModule === mathM1Index && !!test?.module2Easy)
+      || (currentModule === rwM1Index && !!test?.rwModule2Easy)
+    );
+    if (hasM2Choice) return undefined;
     const t = setTimeout(() => handleNextModule(), 5000);
     return () => clearTimeout(t);
-  }, [moduleCompleted, testCompleted, timeExpired, currentModule, effectiveModules, isTimed, handleNextModule, test]);
+  }, [moduleCompleted, testCompleted, timeExpired, currentModule, effectiveModules, isTimed, handleNextModule, test, mathM1Index, rwM1Index]);
 
   // Bluebook: at 5:00 remaining a hidden timer force-reveals and the student
   // gets a one-time warning. Timer remounts per module, so this fires once
@@ -2053,68 +2070,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
     });
   };
 
-  // Switch the active Module 2 variant from the inline switcher rendered
-  // above the M2 question grid. The variant determines which question set
-  // `effectiveModules` swaps in, so switching mid-module makes the existing
-  // M2 answers point at a different question (the same `${modIdx}-${qIdx}`
-  // key now refers to a Hard-variant question instead of Easy, or vice
-  // versa). Clearing the M2 keys is the safe move; we confirm first when
-  // any are present so the student doesn't lose work by accident.
-  const applyM2VariantSwitch = useCallback((section, newVariant) => {
-    const slotIndex = section === 'rw' ? rwM2Index : mathM2Index;
-    if (section === 'rw') {
-      setRwModule2Variant(newVariant);
-      setRwM2VariantManuallySet(true);
-    } else {
-      setModule2Variant(newVariant);
-      setM2VariantManuallySet(true);
-    }
-    if (slotIndex !== undefined) {
-      const prefix = `${slotIndex}-`;
-      setAnswers(prev => {
-        const out = { ...prev };
-        Object.keys(out).forEach(k => { if (k.startsWith(prefix)) delete out[k]; });
-        return out;
-      });
-      setEliminatedChoices(prev => {
-        const out = { ...prev };
-        Object.keys(out).forEach(k => { if (k.startsWith(prefix)) delete out[k]; });
-        return out;
-      });
-      // Drop the abandoned variant's telemetry too — the `${slotIndex}-*`
-      // keys now point at the OTHER variant's questions, so leaving them would
-      // attribute the discarded variant's dwell time / marks / flags to the
-      // freshly-served questions.
-      Object.keys(questionTelemetry.current).forEach(k => {
-        if (k.startsWith(prefix)) delete questionTelemetry.current[k];
-      });
-      setMarkedForReview([]);  // M2-only list at this point in the section
-    }
-    setCurrentQuestion(0);
-  }, [mathM2Index, rwM2Index]);
-
-  const handleRequestM2Switch = useCallback((section, newVariant) => {
-    const easyModule = section === 'rw' ? test.rwModule2Easy : test.module2Easy;
-    const slotIndex = section === 'rw' ? rwM2Index : mathM2Index;
-    const activeVariant = section === 'rw' ? rwModule2Variant : module2Variant;
-    if (!easyModule || slotIndex === undefined) return;
-    if (newVariant === activeVariant) return;
-    const prefix = `${slotIndex}-`;
-    const answerCount = Object.keys(answers).filter(k => k.startsWith(prefix)).length;
-    if (answerCount === 0) {
-      applyM2VariantSwitch(section, newVariant);
-    } else {
-      setPendingM2Switch({ section, newVariant, answerCount });
-    }
-  }, [test.module2Easy, test.rwModule2Easy, mathM2Index, rwM2Index, module2Variant, rwModule2Variant, answers, applyM2VariantSwitch]);
-
-  const handleConfirmM2Switch = useCallback(() => {
-    if (!pendingM2Switch) return;
-    applyM2VariantSwitch(pendingM2Switch.section || 'math', pendingM2Switch.newVariant);
-    setPendingM2Switch(null);
-  }, [pendingM2Switch, applyM2VariantSwitch]);
-
-  const handleCancelM2Switch = useCallback(() => setPendingM2Switch(null), []);
 
   const isDevMode = typeof window !== 'undefined' && window.location.hostname === 'localhost';
 
@@ -2284,13 +2239,38 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
       return <BreakScreen nextModuleTitle={nextModuleTitle} onResume={handleNextModule} />;
     }
 
+    // Module 2 chooser: shown once, here, when the module just finished is a
+    // section's Module 1 and the test ships an Easy variant for that section.
+    // The recommendation follows the official routing rule; the other module
+    // is one click away for practice. Never on the diagnostic (its route is
+    // the measurement).
+    const chooserSection = (!test?.isDiagnostic && !isLastModule)
+      ? (currentModule === mathM1Index && test.module2Easy && recommendedM2Variant ? 'math'
+        : currentModule === rwM1Index && test.rwModule2Easy && recommendedRwM2Variant ? 'rw'
+          : null)
+      : null;
+    const chooser = chooserSection ? {
+      section: chooserSection,
+      sectionLabel: chooserSection === 'rw' ? 'Reading and Writing' : 'Math',
+      recommended: chooserSection === 'rw' ? recommendedRwM2Variant : recommendedM2Variant,
+      selected: chooserSection === 'rw' ? rwModule2Variant : module2Variant,
+      score: chooserSection === 'rw' ? rwM1Score : m1Score,
+      choose: (variant) => {
+        if (chooserSection === 'rw') { setRwModule2Variant(variant); setRwM2VariantManuallySet(true); }
+        else { setModule2Variant(variant); setM2VariantManuallySet(true); }
+      },
+    } : null;
+    const chooserCta = chooser
+      ? `Continue to ${chooser.sectionLabel} Module 2 (${chooser.selected === 'easy' ? 'Easy' : 'Hard'})`
+      : null;
+
     return (
       <div className="test-module-complete">
-        <div className="test-module-complete-card">
+        <div className={`test-module-complete-card${chooser ? ' has-choice' : ''}`}>
           <div className="test-module-complete-eyebrow">{timeExpired ? "Time's up" : 'Module complete'}</div>
           <h2 className="test-module-complete-title">{module.title}</h2>
 
-          {!isLastModule && (
+          {!isLastModule && !chooser && (
             <p className="test-module-complete-note">
               {timeExpired
                 ? `Moving to ${nextModuleTitle} automatically — just like test day, unused time doesn't carry over.`
@@ -2305,8 +2285,42 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             </p>
           )}
 
+          {chooser && (
+            <div className="test-module-complete-choice">
+              <div className="test-module-complete-choice-title">Choose your Module 2</div>
+              <p className="test-module-complete-choice-intro">
+                {chooser.score
+                  ? `You answered ${chooser.score.correct} of ${chooser.score.total} in Module 1, so the test routes you to Module 2 (${chooser.recommended === 'easy' ? 'Easy' : 'Hard'}) — the same rule the digital SAT uses.`
+                  : 'The test routes you off your Module 1 score, the same rule the digital SAT uses.'}
+                {' '}Practicing the other one is fine. Pick before you start: the choice locks once the module begins, and your score uses the module you take.
+              </p>
+              <div className="test-module-complete-choice-options" role="group" aria-label="Module 2 difficulty">
+                {[
+                  { variant: 'easy', label: 'Module 2 (Easy)', sub: 'Eases up after Module 1. Section scores top out near 600.' },
+                  { variant: 'hard', label: 'Module 2 (Hard)', sub: 'Full College Board Module 2 Hard calibration.' },
+                ].map(({ variant, label, sub }) => {
+                  const selected = chooser.selected === variant;
+                  const recommended = chooser.recommended === variant;
+                  return (
+                    <button
+                      key={variant}
+                      type="button"
+                      className="test-module-complete-choice-option"
+                      aria-pressed={selected}
+                      onClick={() => chooser.choose(variant)}
+                    >
+                      <span className="test-module-complete-choice-label">{label}</span>
+                      {recommended && <span className="test-module-complete-choice-tag">Recommended</span>}
+                      <span className="test-module-complete-choice-sub">{sub}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           <button className="test-module-complete-cta" onClick={handleNextModule} type="button">
-            {isLastModule ? 'See Final Results' : `Continue to ${nextModuleTitle}`}
+            {isLastModule ? 'See Final Results' : (chooserCta || `Continue to ${nextModuleTitle}`)}
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
         </div>
@@ -2773,83 +2787,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
           <div className="test-session-progress-fill" style={{ width: `${moduleProgressPct}%` }} />
         </div>
       </div>
-
-      {/* Module 2 variant switcher — surfaces on a section's Module 2 when the
-          test ships an Easy variant for that section (math and R&W each route
-          independently, like the official adaptive SAT). Active variant tile
-          is highlighted; the other is clickable. Click triggers
-          handleRequestM2Switch, which confirms first if there are answers to
-          discard. */}
-      {/* Diagnostics NEVER show the switcher: the whole point is measuring
-          the route the engine picks — a manual override corrupts the score
-          band, the record's routing provenance, and the starter plan. */}
-      {!test?.isDiagnostic && ((currentModule === mathM2Index && !!test.module2Easy) || (currentModule === rwM2Index && !!test.rwModule2Easy)) && !testCompleted && !moduleCompleted && !onReviewPage && (
-        <div style={{
-          maxWidth: '1100px',
-          margin: '12px auto 0',
-          padding: '0 16px',
-          display: 'flex',
-          gap: '10px',
-          alignItems: 'stretch',
-        }}>
-          {[
-            {
-              variant: 'easy',
-              label: 'Module 2 (Easy)',
-              blurb: 'Eases up after Module 1. Confidence-builders, fewer traps.',
-            },
-            {
-              variant: 'hard',
-              label: 'Module 2 (Hard)',
-              blurb: 'Full College Board Module 2 Hard calibration.',
-            },
-          ].map(({ variant, label, blurb }) => {
-            const switcherSection = currentModule === rwM2Index ? 'rw' : 'math';
-            const active = (switcherSection === 'rw' ? rwModule2Variant : module2Variant) === variant;
-            const isRecommended = (switcherSection === 'rw' ? recommendedRwM2Variant : recommendedM2Variant) === variant;
-            return (
-              <button
-                key={variant}
-                type="button"
-                onClick={active ? undefined : () => handleRequestM2Switch(switcherSection, variant)}
-                aria-pressed={active}
-                disabled={active}
-                style={{
-                  flex: 1,
-                  padding: '10px 14px',
-                  textAlign: 'left',
-                  background: active ? 'rgba(234, 88, 12, 0.06)' : 'var(--color-white)',
-                  border: `2px solid ${active ? colors.focus : 'var(--color-slate-200)'}`,
-                  borderRadius: radius.md,
-                  cursor: active ? 'default' : 'pointer',
-                  transition: 'border-color 0.15s, background 0.15s',
-                  position: 'relative',
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
-                  <span style={{ fontWeight: 600, fontSize: '14px', color: colors.text.primary }}>
-                    {label}
-                  </span>
-                  <span style={{
-                    fontSize: '11px',
-                    fontWeight: 600,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.04em',
-                    color: active ? colors.focus : 'var(--color-slate-500)',
-                  }}>
-                    {active
-                      ? (isRecommended ? 'Active · Recommended' : 'Active')
-                      : `Switch to ${variant === 'easy' ? 'Easy' : 'Hard'} →`}
-                  </span>
-                </div>
-                <div style={{ fontSize: '12px', color: colors.text.secondary, marginTop: '2px', lineHeight: 1.4 }}>
-                  {blurb}
-                </div>
-              </button>
-            );
-          })}
-        </div>
-      )}
 
       {/* Desktop Nav Strip — chip grid + answered ring (both Math and R&W). */}
       {!isMobile && !onReviewPage && (
@@ -3562,46 +3499,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSessionComplet
             </p>
           </div>
         )}
-      </Modal>
-
-      {/* Module 2 variant switch confirmation — surfaces only when the user
-          has already answered something in M2 and clicks the other variant
-          tile above the Q grid. Confirming discards those answers and resets
-          M2 to question 1 (because the same key on the other variant points
-          at a different question). */}
-      <Modal
-        isOpen={!!pendingM2Switch}
-        onClose={handleCancelM2Switch}
-        title={pendingM2Switch
-          ? `Switch to Module 2 (${pendingM2Switch.newVariant === 'hard' ? 'Hard' : 'Easy'})?`
-          : ''}
-        footer={
-          <div style={{ display: 'flex', width: '100%', gap: '0.75rem' }}>
-            <Button onClick={handleCancelM2Switch} variant="secondary" style={{ flex: 1 }}>
-              Keep current
-            </Button>
-            <Button onClick={handleConfirmM2Switch} variant="destructive" style={{ flex: 1 }}>
-              Switch and restart
-            </Button>
-          </div>
-        }
-      >
-        <div style={{
-          width: '48px', height: '48px', borderRadius: '50%',
-          background: 'var(--color-warning-100)', color: 'var(--color-warning-600)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          margin: '0 auto 1.25rem',
-        }}><WarningIcon size={24} /></div>
-        <p className="modal-text" style={{ textAlign: 'center' }}>
-          {pendingM2Switch && (
-            <>
-              Switching restarts Module 2 from question 1. Your{' '}
-              {pendingM2Switch.answerCount}{' '}
-              current {pendingM2Switch.answerCount === 1 ? 'answer' : 'answers'} on
-              {' '}Module 2 will be cleared.
-            </>
-          )}
-        </p>
       </Modal>
 
       {/* Confirmation Modal */}

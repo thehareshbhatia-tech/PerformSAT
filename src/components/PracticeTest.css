@@ -855,6 +855,71 @@
 }
 .test-module-complete-cta:hover { box-shadow: 0 6px 16px var(--pt-orange-ring); }
 
+/* Module 2 chooser — shown once on the module-complete screen after a
+   section's Module 1 (2026-09-07). Two option cards; the recommendation
+   carries a tag; the selected card wears the orange ring. */
+.test-module-complete-card.has-choice { max-width: 620px; }
+.test-module-complete-choice {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--pt-line);
+  text-align: left;
+}
+.test-module-complete-choice-title {
+  font-family: var(--pt-font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--pt-text);
+}
+.test-module-complete-choice-intro {
+  color: var(--pt-text-2);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 6px 0 14px;
+}
+.test-module-complete-choice-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.test-module-complete-choice-option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 0;
+  padding: 12px 14px;
+  text-align: left;
+  background: var(--pt-surface);
+  border: 2px solid var(--pt-line-strong);
+  border-radius: 12px;
+  font-family: var(--pt-font-body);
+  color: var(--pt-text);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+.test-module-complete-choice-option:hover { border-color: var(--pt-orange-2); }
+.test-module-complete-choice-option[aria-pressed="true"] {
+  border-color: var(--pt-orange);
+  background: var(--pt-orange-tint);
+  box-shadow: 0 0 0 3px var(--pt-orange-ring);
+}
+.test-module-complete-choice-label { font-size: 14px; font-weight: 700; }
+.test-module-complete-choice-tag {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pt-lime-deep);
+  background: var(--pt-lime-tint);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+.test-module-complete-choice-sub { font-size: 12.5px; line-height: 1.4; color: var(--pt-text-2); }
+@media (max-width: 520px) {
+  .test-module-complete-choice-options { grid-template-columns: minmax(0, 1fr); }
+}
+
 /* ── Modals & overlays ──────────────────────────────────────────────── */
 .btn-icon-subtle {
   display: inline-flex;
