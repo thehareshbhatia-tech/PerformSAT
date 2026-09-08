@@ -196,6 +196,7 @@
 .pb-search:focus-within { border-color: var(--pb-line-strong); }
 .pb-search-icon { display: inline-flex; color: var(--pb-text-3); flex: none; }
 .pb-search-input {
+  align-self: stretch; /* the input, not the wrapper, is the tap target: fill the 36/44px box */
   flex: 1; min-width: 0;
   border: none; background: transparent; outline: none;
   font-family: var(--pb-font-body); font-size: 14px; color: var(--pb-text);
