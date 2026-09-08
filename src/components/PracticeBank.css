@@ -526,9 +526,11 @@
   /* 44px targets below 1024 */
   .pb-toggle-btn, .pb-search, .pb-drow, .pb-lrow, .pb-fchip, .pb-type,
   .pb-trow-link, .pb-pbtn, .pb-resume-continue, .pb-resume-discard,
-  .pb-chip, .pb-seg-btn, .pb-builder-start, .pb-builder-reset, .pb-empty-clear {
+  .pb-chip, .pb-seg-btn, .pb-builder-start, .pb-builder-reset, .pb-empty-clear,
+  .pb-builder-close, .pb-resume-bar-discard, .pb-resume-bar-go {
     min-height: 44px;
   }
+  .pb-builder-close { min-width: 44px; }
 
   /* Domain strip — horizontal, scroll-snapped, tallies inside */
   .pb-dlist {
