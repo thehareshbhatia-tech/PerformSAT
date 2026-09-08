@@ -95,6 +95,13 @@ small, most are one-liners applying `isBlankAttempt` from `selectors/latestTestS
 
 ## Practice-tab navigator — deferred by /plan-design-review (2026-09-07)
 
+- **[P3/S] Practice Bank: builder-modal chip rows as radiogroups.** The custom-drill builder's
+  Difficulty / Questions rows are single-select but use `aria-pressed` buttons; the section toggle
+  and topic multi-select are fine as pressed buttons. Reuse `onChipKeyDown` from the pane filters.
+  Found by /design-review 2026-09-07 (subagent), modal internals were out of the navigator's scope.
+- **[P3/S] Practice Bank spacing to tokens.** PracticeBank.css uses ~24 raw px values and no
+  `--space-*` (nothing in `src/` does — see the 2026-06-08 "Spacing scale 0% adopted" note). Snap to
+  4/8/12/16/24/32 when the file is next touched; not a mass refactor.
 - **[P2/M] Brand-level contrast pass for filled orange buttons.** White text on `#EA580C` is 3.6:1
   (below the 4.5:1 floor at 13-14px bold) on every filled CTA app-wide. The Practice-tab rebuild darkened
   only orange TEXT (`--pb-orange-text: #C2410C`) and kept filled buttons at the brand orange for
