@@ -2681,6 +2681,7 @@ const PerformSAT = () => {
             onResumeDrill={resumeActiveDrill}
             onDiscardDrill={clearActiveDrill}
             focusRequest={practiceFocus}
+            progressHydrated={progressHydrated}
           />
         )}
 

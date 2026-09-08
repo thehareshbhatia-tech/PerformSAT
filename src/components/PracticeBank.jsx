@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, useRef } from 'react';
+import React, { useMemo, useState, useEffect, useRef, useCallback } from 'react';
 import {
   questionBank as mathQuestionBank,
   getQuestionsByCBSkill,
@@ -23,31 +23,8 @@ import { progressForIds } from '../services/selectors/bankProgress';
 import { masteryForIds, masterySummary, MASTERY_BANDS } from '../services/selectors/bankMastery';
 import { buildBankRecommendations, assembleSmartMix } from '../services/selectors/bankRecommendations';
 import { composeCustomPool } from '../services/selectors/customDrillPool';
+import { getWeaknessSection } from '../services/selectors/weaknesses';
 import './PracticeBank.css';
-
-// Per-domain tagline shown on each domain card (matched to the design file).
-const DOMAIN_BLURBS = {
-  'algebra':                       'Equations, inequalities, and the lines they live on.',
-  'advanced-math':                 'Where the curves bend and the exponents climb.',
-  'problem-solving':               'Ratios, rates, and the stories data tells.',
-  'geometry':                      'Angles, arcs, and the space between them.',
-  'information-and-ideas':         'Find the evidence. Draw the inference. Trust the text.',
-  'craft-and-structure':           'Word by word, how meaning gets built.',
-  'standard-english-conventions':  'Punctuation, agreement, and clean sentences.',
-  'expression-of-ideas':           'Say it sharper, link it smoother.',
-};
-
-// Domain badges rotate orange → purple → navy for IDENTITY only (the 01-04
-// number chips). Every ACTION on this page is orange — one button language
-// per the tri-color rule (orange = actions; purple/green stay reserved for
-// focus/strength states on chips and type tiles). The old rotation painted
-// the same "Practice" buttons three different colors and read as clutter.
-const ACCENT_ROTATION = ['orange', 'purple', 'navy'];
-const ACCENTS = {
-  orange: { badge: 'var(--pb-orange)', num: '#fff' },
-  purple: { badge: 'var(--pb-purple)', num: 'var(--pb-lime)' },
-  navy:   { badge: 'var(--pb-navy)',   num: 'var(--pb-lime)' },
-};
 
 // "For you" recommendation kinds → eyebrow copy + tri-color tone. Orange = the
 // action to take now (revisit misses), purple = focus from the last test, navy =
@@ -57,10 +34,14 @@ const FORYOU_KINDS = {
   'test-weakness': { eyebrow: 'From your last test', tone: 'purple' },
   'new-territory': { eyebrow: 'New territory', tone: 'navy' },
 };
+// A "For you" row navigates: it selects the rec's domain and applies the filter
+// that matches its kind (test-weakness marks the weak topic rows instead).
+const FORYOU_POOL = { 'fix-misses': 'missed', 'new-territory': 'unseen' };
+const FORYOU_MAX = 2;
 
 const MIN_PATTERN_POOL = 4;
 // Custom drill builder — count options + filter-chip definitions.
-const CUSTOM_COUNTS = [10, 15, 20];
+const CUSTOM_COUNTS = [10, 15, 20, 25];
 const CUSTOM_COUNT_DEFAULT = 15;
 const DIFFICULTY_CHIPS = [
   { key: 'all', label: 'All' },
@@ -68,15 +49,24 @@ const DIFFICULTY_CHIPS = [
   { key: 'medium', label: 'Medium' },
   { key: 'hard', label: 'Hard' },
 ];
+// The builder modal keeps its explicit "only" wording; the pane filter bar is
+// tighter ("All · Unseen · Missed") because it sits under a SHOW label.
 const POOL_CHIPS = [
   { key: 'all', label: 'All' },
   { key: 'unseen', label: 'Unseen only' },
   { key: 'missed', label: 'Missed only' },
 ];
+const PANE_POOL_CHIPS = [
+  { key: 'all', label: 'All' },
+  { key: 'unseen', label: 'Unseen' },
+  { key: 'missed', label: 'Missed' },
+];
 const allTopicSlugs = (cat) => new Set((cat?.cbSkills || []).map(s => s.slug));
 const DRILL_COUNT_PER_DOMAIN = 20;
-const DRILL_COUNT_HERO = 25;
 const DRILL_COUNT_SPRINT = 10;
+const FILTERED_DRILL_COUNT = 20;
+const NAV_STORAGE_KEY = 'pb:nav';
+const SEARCH_MIN_CHARS = 2;
 
 const isDrillable = (q) => Array.isArray(q.choices) && q.choices.length >= 2;
 
@@ -236,46 +226,73 @@ const RW_CATEGORIES = buildRWCategories();
 // Safe fallback when a mastery-map lookup misses (should not happen in practice).
 const EMPTY_MASTERY = { total: 0, practiced: 0, correct: 0, accuracy: null, coveragePct: 0, band: MASTERY_BANDS.UNSEEN };
 
-const num2 = (n) => String(n).padStart(2, '0');
 const fmt = (n) => Number(n).toLocaleString('en-US');
+
+/** Session-scoped "remember my place" state. Reads are guarded — private mode throws. */
+function readNavState() {
+  try {
+    const raw = window.sessionStorage.getItem(NAV_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : null;
+  } catch (err) {
+    return null;
+  }
+}
 
 // ── Inline icons (inherit currentColor unless a fixed stroke is given) ──────
 const Arrow = ({ size = 15 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
 );
-const Bolt = () => (<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z" /></svg>);
-const Book = () => (<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg>);
-const Sliders = () => (<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" /></svg>);
-const Close = () => (<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18M6 6l12 12" /></svg>);
+const Bolt = () => (<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z" /></svg>);
+const Search = () => (<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>);
+const Close = () => (<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>);
 
-// A single mastery-band chip. Green only when genuinely strong, purple only for
-// focus/needs-work; learning + unseen stay quiet neutral. Shared by domain cards
-// and topic rows so the accuracy language reads the same everywhere.
-const BandChip = ({ m }) => {
-  const band = m?.band || MASTERY_BANDS.UNSEEN;
-  if (band === MASTERY_BANDS.STRONG) return <span className="pb-pill is-strong">Strong · {m.accuracy}%</span>;
-  if (band === MASTERY_BANDS.FOCUS) return <span className="pb-pill is-focus">Focus · {m.accuracy}%</span>;
-  if (band === MASTERY_BANDS.LEARNING) {
-    return <span className="pb-pill is-learning">{m.accuracy != null ? `${m.accuracy}%` : `${m.practiced} practiced`}</span>;
-  }
-  return <span className="pb-pill is-unseen">Not started</span>;
-};
+/**
+ * Mastery label for a topic row / rail row: green when genuinely strong, purple
+ * for focus, quiet neutral while learning, nothing at all when unseen ("Not
+ * started" is never rendered).
+ */
+function masteryLabel(m) {
+  if (!m || m.practiced === 0) return null;
+  if (m.band === MASTERY_BANDS.STRONG) return { tone: 'strong', text: `Strong · ${m.accuracy}% · ${m.practiced} practiced` };
+  if (m.band === MASTERY_BANDS.FOCUS) return { tone: 'focus', text: `Focus · ${m.accuracy}% · ${m.practiced} practiced` };
+  return { tone: 'learning', text: `${m.practiced} practiced` };
+}
 
 // ────────────────────────────────────────────────────────────────────────────
-// PracticeBank — progressive-disclosure entry: hero launcher + "For you" strip +
-// a calm grid of domain cards (topic list inline, question types one click away).
-// The drill builder lives behind a single "Build a custom drill" modal.
+// PracticeBank — a question-bank NAVIGATOR: a sticky rail (section toggle,
+// search, For-you, domains, launchers) beside a pane that lists the selected
+// domain's topics with live difficulty / seen-status filters. Search replaces
+// the pane body with grouped matches. The custom-drill builder stays behind a
+// single "Build a custom drill" modal.
 // ────────────────────────────────────────────────────────────────────────────
-const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, weaknesses = null, activeDrill = null, onResumeDrill, onDiscardDrill, focusRequest = null }) => {
-  const [section, setSection] = useState('math');
+const PracticeBank = ({
+  onStartPractice,
+  onStartAdaptive,
+  bankPractice = {},
+  weaknesses = null,
+  activeDrill = null,
+  onResumeDrill,
+  onDiscardDrill,
+  focusRequest = null,
+  progressHydrated = true,
+}) => {
+  // Restore the student's place inside the session (section / domain / filters).
+  const [restored] = useState(readNavState);
+  const [section, setSection] = useState(() => (restored?.section === 'rw' ? 'rw' : 'math'));
+  const [domain, setDomain] = useState(() => (typeof restored?.domain === 'string' ? restored.domain : null));
+  const [query, setQuery] = useState('');
+  const [difficulty, setDifficulty] = useState(() => (DIFFICULTY_CHIPS.some(c => c.key === restored?.difficulty) ? restored.difficulty : 'all'));
+  const [pool, setPool] = useState(() => (PANE_POOL_CHIPS.some(c => c.key === restored?.pool) ? restored.pool : 'all'));
+  // Rows flagged by a chapter hand-off / a test-weakness recommendation:
+  // { slugs: string[], label: string }. Cleared on a launch or a domain change.
+  const [marker, setMarker] = useState(null);
 
-  // Chapter-hand-off focus: when the Learn reader sends {section, domain,
-  // skillSlugs, token}, jump to the right section, scroll the matching domain
-  // card into view, and pulse it (+ its target topic rows) purple = focus.
-  // Fires once per token so re-clicking "Practice these skills" re-triggers.
-  const browseRef = useRef(null);
+  const paneRef = useRef(null);
+  const railListRef = useRef(null);
   const lastFocusToken = useRef(null);
-  const [focusPulse, setFocusPulse] = useState(null); // { domain, skillSlugs }
+  const didMount = useRef(false);
 
   // ── Custom drill builder (modal) ───────────────────────────────────────────
   const [builderOpen, setBuilderOpen] = useState(false);
@@ -288,9 +305,7 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
   const categories = section === 'math' ? MATH_CATEGORIES : RW_CATEGORIES;
   const allItems = section === 'math' ? mathQuestionBank : rwQuestionBank;
   const sectionLabel = section === 'math' ? 'Math' : 'Reading & Writing';
-  const fullLabel = section === 'math' ? 'Full Math' : 'Full R&W';
 
-  const bankTotal = useMemo(() => categories.reduce((a, c) => a + c.total, 0), [categories]);
   const sectionProgress = useMemo(
     () => progressForIds(allItems.filter(isDrillable).map(q => q.id), bankPractice),
     [allItems, bankPractice],
@@ -312,10 +327,12 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
     return map;
   }, [categories, bankPractice]);
 
-  const heroSummary = useMemo(
-    () => masterySummary(categories.flatMap(c => c.cbSkills), bankPractice),
-    [categories, bankPractice],
-  );
+  // Per-domain "2 strong · 1 focus" tallies for the rail.
+  const domainTallies = useMemo(() => {
+    const map = new Map();
+    for (const cat of categories) map.set(cat.domain, masterySummary(cat.cbSkills, bankPractice));
+    return map;
+  }, [categories, bankPractice]);
 
   // Performance-driven "For you" recommendations (fix-misses / test-weakness /
   // new-territory). `now` is captured once per render — fine here since the
@@ -326,15 +343,17 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
   );
   // Suppress new-territory for a student who has practiced nothing in this
   // section — everything is "new" then, so it reads as noise on first visit.
+  // Recommendations only make sense once the student's history has hydrated.
   const foryouRecs = useMemo(
-    () => (sectionProgress.practiced === 0
-      ? recommendations.filter(r => r.kind !== 'new-territory')
-      : recommendations),
-    [recommendations, sectionProgress.practiced],
+    () => {
+      if (!progressHydrated) return [];
+      const list = sectionProgress.practiced === 0
+        ? recommendations.filter(r => r.kind !== 'new-territory')
+        : recommendations;
+      return list.slice(0, FORYOU_MAX);
+    },
+    [recommendations, sectionProgress.practiced, progressHydrated],
   );
-
-  // ── Custom drill builder derivations ───────────────────────────────────────
-  const builderDomain = categories[Math.min(builderDomainIdx, Math.max(0, categories.length - 1))];
 
   // id → difficulty for the current section (missing tag → medium, matching the
   // selector's default). Rebuilt only when the section's item array changes.
@@ -343,6 +362,120 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
     for (const q of allItems) map.set(q.id, q.difficulty || 'medium');
     return map;
   }, [allItems]);
+
+  // qid → domain, so a recommendation (which carries only question ids) can
+  // resolve the domain its pool mostly lives in.
+  const domainByQid = useMemo(() => {
+    const map = new Map();
+    for (const cat of categories) for (const id of cat.qids || []) map.set(String(id), cat.domain);
+    return map;
+  }, [categories]);
+
+  // ── Which domain is selected ───────────────────────────────────────────────
+  // First visit: the first weakness that maps into this section's taxonomy.
+  const weaknessDomain = useMemo(() => {
+    const list = Array.isArray(weaknesses) ? weaknesses : [];
+    for (const w of list) {
+      if (!w || getWeaknessSection(w) !== section) continue;
+      if (w.domain && categories.some(c => c.domain === w.domain)) return w.domain;
+      const cat = categories.find(c => (c.cbSkills || []).some(s => s.slug === w.skillId));
+      if (cat) return cat.domain;
+    }
+    return null;
+  }, [weaknesses, section, categories]);
+
+  const fallbackDomain = weaknessDomain || categories[0]?.domain || null;
+  const selectedDomain = categories.some(c => c.domain === domain) ? domain : fallbackDomain;
+  const selectedCat = categories.find(c => c.domain === selectedDomain) || categories[0] || null;
+
+  // Remember the place for the rest of the session.
+  useEffect(() => {
+    try {
+      window.sessionStorage.setItem(NAV_STORAGE_KEY, JSON.stringify({ section, domain: selectedDomain, difficulty, pool }));
+    } catch (err) {
+      /* sessionStorage unavailable (private mode) — the nav just doesn't persist */
+    }
+  }, [section, selectedDomain, difficulty, pool]);
+
+  // The pane is the tabpanel for the rail's tablist: a domain change moves
+  // focus there so keyboard users land on the content they just chose.
+  useEffect(() => {
+    if (!didMount.current) { didMount.current = true; return; }
+    const el = paneRef.current;
+    if (el && typeof el.focus === 'function') el.focus();
+  }, [selectedDomain, section]);
+
+  // ── Search ─────────────────────────────────────────────────────────────────
+  const trimmedQuery = query.trim();
+  const searching = trimmedQuery.length >= SEARCH_MIN_CHARS;
+  const searchGroups = useMemo(() => {
+    if (!searching) return [];
+    const needle = trimmedQuery.toLowerCase();
+    const hit = (skill) => String(skill.label || '').toLowerCase().includes(needle)
+      || (skill.patterns || []).some(p => String(p.label || '').toLowerCase().includes(needle));
+    return categories
+      .map(cat => ({ cat, skills: (cat.cbSkills || []).filter(hit) }))
+      .filter(g => g.skills.length > 0);
+  }, [categories, searching, trimmedQuery]);
+  const searchMatchCount = searchGroups.reduce((a, g) => a + g.skills.length, 0);
+
+  // ── Filter counts ──────────────────────────────────────────────────────────
+  const filtersActive = difficulty !== 'all' || pool !== 'all';
+  const activeChipLabels = [
+    difficulty === 'all' ? null : DIFFICULTY_CHIPS.find(c => c.key === difficulty)?.label,
+    pool === 'all' ? null : PANE_POOL_CHIPS.find(c => c.key === pool)?.label,
+  ].filter(Boolean);
+
+  // Static E / M / H composition per topic (independent of the student).
+  const topicBreakdown = useMemo(() => {
+    const map = new Map();
+    for (const cat of categories) {
+      for (const skill of cat.cbSkills) {
+        const { counts } = composeCustomPool({ qids: skill.qids || [], difficultyById, bankPractice: null });
+        map.set(skill.slug, counts.byDifficulty);
+      }
+    }
+    return map;
+  }, [categories, difficultyById]);
+
+  // How many of each topic survive the active filters ("34 of 91").
+  const topicFiltered = useMemo(() => {
+    const map = new Map();
+    for (const cat of categories) {
+      for (const skill of cat.cbSkills) {
+        const { ids } = composeCustomPool({ qids: skill.qids || [], difficultyById, bankPractice, difficulty, poolFilter: pool });
+        map.set(skill.slug, ids.length);
+      }
+    }
+    return map;
+  }, [categories, difficultyById, bankPractice, difficulty, pool]);
+
+  // Chip availability is scoped to what the pane is showing: the selected
+  // domain, or the union of the search matches while a query is active.
+  const chipScopeQids = useMemo(() => {
+    if (searching) {
+      const seen = new Set();
+      const out = [];
+      for (const g of searchGroups) {
+        for (const skill of g.skills) {
+          for (const id of skill.qids || []) {
+            const k = String(id);
+            if (!seen.has(k)) { seen.add(k); out.push(id); }
+          }
+        }
+      }
+      return out;
+    }
+    return selectedCat?.qids || [];
+  }, [searching, searchGroups, selectedCat]);
+
+  const chipCounts = useMemo(
+    () => composeCustomPool({ qids: chipScopeQids, difficultyById, bankPractice, difficulty, poolFilter: pool }).counts,
+    [chipScopeQids, difficultyById, bankPractice, difficulty, pool],
+  );
+
+  // ── Custom drill builder derivations ───────────────────────────────────────
+  const builderDomain = categories[Math.min(builderDomainIdx, Math.max(0, categories.length - 1))];
 
   // Candidate ids = de-duped union of the selected builder domain's picked topics.
   const builderCandidateIds = useMemo(() => {
@@ -371,6 +504,13 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
   const builderAvailable = composedPool.ids.length;
   const allTopicsSelected = !!builderDomain && builderTopics.size === builderDomain.cbSkills.length;
 
+  // ── Selection handlers ─────────────────────────────────────────────────────
+  const selectDomain = useCallback((next) => {
+    setDomain(next);
+    setMarker(null);
+    setQuery('');
+  }, []);
+
   // Apply an incoming chapter focus request. Guarded by token so a stale
   // focusRequest (still held in App while the student navigates back via the
   // nav bar) never re-fires — only a fresh token from a chapter CTA does.
@@ -378,21 +518,28 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
     const token = focusRequest?.token;
     if (!token || lastFocusToken.current === token) return undefined;
     lastFocusToken.current = token;
-    if (focusRequest.section) setSection(focusRequest.section);
-    setFocusPulse({ domain: focusRequest.domain || null, skillSlugs: focusRequest.skillSlugs || [] });
-    // Delay the scroll so the section switch commits first, then land on the
-    // target domain card (falls back to the whole browse section).
+    const nextSection = focusRequest.section === 'rw' || focusRequest.section === 'math' ? focusRequest.section : section;
+    const cats = nextSection === 'math' ? MATH_CATEGORIES : RW_CATEGORIES;
+    const slugs = (focusRequest.skillSlugs || []).filter(Boolean);
+    const cat = cats.find(c => c.domain === focusRequest.domain)
+      || cats.find(c => (c.cbSkills || []).some(s => slugs.includes(s.slug)))
+      || cats[0];
+    const matching = cat ? (cat.cbSkills || []).filter(s => slugs.includes(s.slug)).map(s => s.slug) : [];
+    setSection(nextSection);
+    setQuery('');
+    setDomain(cat ? cat.domain : null);
+    setMarker(matching.length ? { slugs: matching, label: 'From your chapter' } : null);
+    // Delay the scroll so the section + domain switch commits first.
     const scrollTimer = setTimeout(() => {
-      const root = browseRef.current;
-      if (!root) return;
-      const target = (focusRequest.domain && root.querySelector(`[data-pb-domain="${focusRequest.domain}"]`)) || root;
+      const root = paneRef.current;
+      if (!root || !matching.length) return;
+      const target = root.querySelector(`[data-pb-skill="${matching[0]}"]`);
       if (target && typeof target.scrollIntoView === 'function') {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }, 120);
-    const clearTimer = setTimeout(() => setFocusPulse(null), 2600);
-    return () => { clearTimeout(scrollTimer); clearTimeout(clearTimer); };
-  }, [focusRequest]);
+    return () => clearTimeout(scrollTimer);
+  }, [focusRequest, section]);
 
   // Escape closes the builder modal (listener mounted only while open).
   useEffect(() => {
@@ -403,13 +550,13 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
   }, [builderOpen]);
 
   // ── Drill launchers (sources all keep the `practice-bank` prefix) ──────────
-  const launchFromPool = (pool, count, label, source) => {
-    const drillable = pool.filter(isDrillable);
+  const launchFromPool = (poolItems, count, label, source) => {
+    const drillable = poolItems.filter(isDrillable);
     if (drillable.length === 0) return;
+    setMarker(null);
     onStartPractice(shuffle(drillable).slice(0, count).map(q => q.id), { label, source, section });
   };
   const launchQuickDrill = () => launchFromPool(allItems, DRILL_COUNT_SPRINT, `Quick ${sectionLabel} drill`, 'practice-bank-quick');
-  const launchFullSection = () => launchFromPool(allItems, DRILL_COUNT_HERO, `${sectionLabel} full set`, 'practice-bank-full');
 
   // Smart "Today's mix": weighted blend of the student's weak-skill pool, their
   // bank misses, and untouched types — degrades to random when there's no
@@ -428,20 +575,14 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
       allQids: shuffle(drillableIds),
     });
     if (ids.length === 0) return;
+    setMarker(null);
     onStartPractice(ids, { label: "Today's mix", source: 'practice-bank-mix', section });
   };
 
-  // Launch a "For you" recommendation. fix-misses keeps its most-recent-first
-  // order (spaced re-test); the other kinds shuffle for variety.
-  const launchForYou = (rec) => {
-    const pool = rec.kind === 'fix-misses' ? rec.qids : shuffle(rec.qids);
-    const ids = pool.slice(0, rec.count);
-    if (ids.length === 0) return;
-    onStartPractice(ids, { label: rec.title, source: `practice-bank-foryou-${rec.kind}`, section });
-  };
   // Domain "Practice" → an adaptive round over the whole domain, rendered in
   // the SEVA Round shell (difficulty ladders to the student's performance).
   const launchDomainMixed = (cat) => {
+    setMarker(null);
     onStartAdaptive({
       enforcedDomain: cat.domain,
       label: `${cat.label} practice`,
@@ -454,9 +595,10 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
   // this topic (types folded in). The round adapts difficulty per answer; it
   // renders in the SEVA Round design with a target-based, growing progress rail.
   const launchSkillDrill = (skill) => {
-    const pool = section === 'math' ? getQuestionsByCBSkill(skill.slug) : getRWQuestionsBySkillIds([skill.slug]);
-    const poolIds = pool.filter(isDrillable).map(q => q.id);
+    const skillPool = section === 'math' ? getQuestionsByCBSkill(skill.slug) : getRWQuestionsBySkillIds([skill.slug]);
+    const poolIds = skillPool.filter(isDrillable).map(q => q.id);
     if (poolIds.length === 0) return;
+    setMarker(null);
     onStartAdaptive({
       poolIds,
       label: skill.label,
@@ -472,6 +614,7 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
   // the pattern qids were collected at category-build time.
   const launchTypeDrill = (skill, pattern) => {
     if (!pattern?.qids?.length) return;
+    setMarker(null);
     onStartAdaptive({
       poolIds: pattern.qids,
       label: pattern.label,
@@ -480,6 +623,53 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
       ephemeral: true,
       source: 'practice-bank-type',
     });
+  };
+
+  // A filter is set → the adaptive engine can't honour it, so serve a FIXED
+  // drill composed from exactly the filtered pool instead.
+  const launchFiltered = (qids, name) => {
+    const { ids } = composeCustomPool({ qids: qids || [], difficultyById, bankPractice, difficulty, poolFilter: pool });
+    if (ids.length === 0) return;
+    setMarker(null);
+    onStartPractice(shuffle(ids).slice(0, FILTERED_DRILL_COUNT), {
+      label: `${name} · ${activeChipLabels.join(' · ')}`,
+      source: 'practice-bank-filtered',
+      section,
+    });
+  };
+
+  const practiceDomain = (cat) => (filtersActive ? launchFiltered(cat.qids, cat.label) : launchDomainMixed(cat));
+  const practiceTopic = (skill) => (filtersActive ? launchFiltered(skill.qids, skill.label) : launchSkillDrill(skill));
+  const practiceType = (skill, pattern) => (filtersActive ? launchFiltered(pattern.qids, pattern.label) : launchTypeDrill(skill, pattern));
+
+  // A "For you" row NAVIGATES (it no longer launches): it selects the domain the
+  // rec's pool lives in and applies the filter that matches its kind.
+  const openRecommendation = (rec) => {
+    const tally = new Map();
+    for (const id of rec.qids || []) {
+      const d = domainByQid.get(String(id));
+      if (d) tally.set(d, (tally.get(d) || 0) + 1);
+    }
+    let best = null;
+    for (const [d, n] of tally) if (!best || n > best.n) best = { d, n };
+    const targetDomain = best ? best.d : selectedDomain;
+    setQuery('');
+    setDomain(targetDomain);
+    const nextPool = FORYOU_POOL[rec.kind];
+    if (nextPool) {
+      setPool(nextPool);
+      setMarker(null);
+      return;
+    }
+    // test-weakness: leave the filters alone and mark the weak topic rows.
+    setPool('all');
+    setDifficulty('all');
+    const cat = categories.find(c => c.domain === targetDomain);
+    const recIds = new Set((rec.qids || []).map(String));
+    const slugs = (cat?.cbSkills || [])
+      .filter(s => (s.qids || []).some(id => recIds.has(String(id))))
+      .map(s => s.slug);
+    setMarker(slugs.length ? { slugs, label: FORYOU_KINDS['test-weakness'].eyebrow } : null);
   };
 
   // Custom builder: multi-select topics (at least one must stay on), then launch
@@ -504,7 +694,11 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
 
   // ── Handlers ──────────────────────────────────────────────────────────────
   const pickSection = (next) => {
+    if (next === section) return;
     setSection(next);
+    setDomain(null);
+    setQuery('');
+    setMarker(null);
     setBuilderOpen(false);
     setBuilderDomainIdx(0);
     const cats = next === 'math' ? MATH_CATEGORIES : RW_CATEGORIES;
@@ -514,7 +708,9 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
     setBuilderPool('all');
   };
   const openBuilder = () => {
-    setBuilderTopics(allTopicSlugs(builderDomain));
+    const idx = Math.max(0, categories.findIndex(c => c.domain === selectedDomain));
+    setBuilderDomainIdx(idx);
+    setBuilderTopics(allTopicSlugs(categories[idx]));
     setBuilderCount(CUSTOM_COUNT_DEFAULT);
     setBuilderDifficulty('all');
     setBuilderPool('all');
@@ -532,34 +728,152 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
     setBuilderDifficulty('all');
     setBuilderPool('all');
   };
+  const clearFilters = () => { setDifficulty('all'); setPool('all'); };
 
-  const accentFor = (i) => ACCENTS[ACCENT_ROTATION[i % ACCENT_ROTATION.length]];
+  // Roving tabindex over the rail's vertical tablist: Up/Down (and Left/Right,
+  // for the horizontal phone strip) move + select, Home/End jump to the ends.
+  const onDomainKeyDown = (e) => {
+    const nav = ['ArrowDown', 'ArrowUp', 'ArrowRight', 'ArrowLeft', 'Home', 'End'];
+    if (!nav.includes(e.key)) return;
+    const tabs = Array.from(railListRef.current?.querySelectorAll('[role="tab"]') || []);
+    if (tabs.length === 0) return;
+    e.preventDefault();
+    const active = tabs.indexOf(document.activeElement);
+    const current = active === -1 ? Math.max(0, tabs.findIndex(t => t.getAttribute('aria-selected') === 'true')) : active;
+    let next = current;
+    if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = tabs.length - 1;
+    else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = (current + 1) % tabs.length;
+    else next = (current - 1 + tabs.length) % tabs.length;
+    const el = tabs[next];
+    if (!el) return;
+    if (typeof el.focus === 'function') el.focus();
+    selectDomain(el.getAttribute('data-pb-domain'));
+  };
+
+  // Arrow keys inside a filter radiogroup move to the next ENABLED chip.
+  const onChipKeyDown = (e, chips, currentKey, setter) => {
+    const nav = ['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp', 'Home', 'End'];
+    if (!nav.includes(e.key)) return;
+    e.preventDefault();
+    const enabled = chips.filter(c => c.enabled);
+    if (enabled.length === 0) return;
+    const idx = Math.max(0, enabled.findIndex(c => c.key === currentKey));
+    let next = idx;
+    if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = enabled.length - 1;
+    else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (idx + 1) % enabled.length;
+    else next = (idx - 1 + enabled.length) % enabled.length;
+    setter(enabled[next].key);
+  };
 
   const resumeTotal = Array.isArray(activeDrill?.questionIds) ? activeDrill.questionIds.length : 0;
   const resumeAnswered = activeDrill?.answers ? Object.keys(activeDrill.answers).length : 0;
   const resumePos = Math.min((activeDrill?.currentQuestionIndex || 0) + 1, resumeTotal || 1);
+  const resumeLabel = activeDrill?.assignmentMeta?.label || 'Practice Bank drill';
+  const resumeMeta = resumeTotal > 0 ? `Question ${resumePos} of ${resumeTotal} · ${resumeAnswered} answered` : `${resumeAnswered} answered`;
+  const showResume = !!activeDrill && typeof onResumeDrill === 'function';
+
+  const markedSlugs = marker?.slugs || [];
+
+  // The "no questions match" copy is assembled from the ACTIVE chips so it
+  // always names the filter the student actually set.
+  const emptyCopy = (() => {
+    const diffWord = difficulty === 'all' ? '' : `${DIFFICULTY_CHIPS.find(c => c.key === difficulty)?.label} `;
+    const poolWord = pool === 'unseen' ? " you haven't seen" : pool === 'missed' ? " you've missed" : '';
+    return `No ${diffWord}questions${poolWord} in ${selectedCat?.label || sectionLabel} yet.`;
+  })();
+
+  // ── Row renderers ─────────────────────────────────────────────────────────
+  const renderTopicRow = (skill) => {
+    const breakdown = topicBreakdown.get(skill.slug) || { all: 0, easy: 0, medium: 0, hard: 0 };
+    const shown = topicFiltered.get(skill.slug) ?? breakdown.all;
+    const dim = shown === 0;
+    const marked = markedSlugs.includes(skill.slug);
+    const m = masteryByKey.get(`topic:${skill.slug}`) || EMPTY_MASTERY;
+    const label = progressHydrated ? masteryLabel(m) : null;
+    const countText = filtersActive ? `${fmt(shown)} of ${fmt(breakdown.all)}` : `${fmt(breakdown.all)} questions`;
+    // Question-type chips are a GRAMMAR-only affordance (user, 2026-07-16):
+    // conventions topics list their types FLAT below the row — always visible,
+    // no accordion. skill.patterns stays populated for ALL topics (the For-you
+    // engine reads it), so gate the chips here, never in the category data.
+    const typeChips = skill.domain === 'standard-english-conventions' ? (skill.patterns || []) : [];
+
+    return (
+      <div
+        className={`pb-trow${dim ? ' is-dim' : ''}${marked ? ' is-from-chapter' : ''}`}
+        data-pb-skill={skill.slug}
+        key={skill.slug}
+      >
+        <div className="pb-trow-text">
+          {marked && <span className="pb-trow-mark">{marker.label}</span>}
+          <div className="pb-trow-name">{skill.label}</div>
+          <div className="pb-trow-meta">
+            {countText} · E {breakdown.easy} · M {breakdown.medium} · H {breakdown.hard}
+          </div>
+        </div>
+        <div className="pb-trow-mastery">
+          {label && (
+            <>
+              <span className="pb-bar" aria-hidden="true">
+                <i className={`is-${label.tone}`} style={{ width: `${Math.max(3, Math.min(100, m.coveragePct))}%` }} />
+              </span>
+              <span className={`pb-trow-band is-${label.tone}`}>{label.text}</span>
+            </>
+          )}
+        </div>
+        {!dim && (
+          <button
+            type="button"
+            className="pb-trow-link"
+            aria-label={`Practice ${skill.label}, ${shown} questions`}
+            onClick={() => practiceTopic(skill)}
+          >
+            Practice <Arrow size={13} />
+          </button>
+        )}
+        {typeChips.length > 0 && (
+          <div className="pb-trow-types">
+            {typeChips.map((p) => {
+              const pm = masteryByKey.get(`type:${p.slug}`) || EMPTY_MASTERY;
+              const seen = progressHydrated && pm.band !== MASTERY_BANDS.UNSEEN && pm.accuracy != null;
+              const typeShown = filtersActive
+                ? composeCustomPool({ qids: p.qids || [], difficultyById, bankPractice, difficulty, poolFilter: pool }).ids.length
+                : p.count;
+              return (
+                <button
+                  type="button"
+                  className="pb-type"
+                  key={p.slug}
+                  disabled={typeShown === 0}
+                  onClick={() => practiceType(skill, p)}
+                >
+                  <span className="pb-type-name">{p.label}</span>
+                  <span className="pb-type-count">{p.count}</span>
+                  {seen && <span className={`pb-type-acc is-${pm.band}`}> · {pm.accuracy}%</span>}
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const paneRows = selectedCat ? (selectedCat.cbSkills || []) : [];
+  const allZero = !searching && filtersActive && paneRows.length > 0
+    && paneRows.every(s => (topicFiltered.get(s.slug) ?? 0) === 0);
 
   return (
     <div className="pb-screen" data-theme="light">
-      <div className="pb-topbar">
-        <span className="pb-topbar-eyebrow">Practice Bank</span>
-        <div className="pb-toggle" role="tablist" aria-label="Practice section">
-          <button type="button" role="tab" aria-selected={section === 'math'} className={`pb-toggle-btn${section === 'math' ? ' is-active' : ''}`} onClick={() => pickSection('math')}>Math</button>
-          <button type="button" role="tab" aria-selected={section === 'rw'} className={`pb-toggle-btn${section === 'rw' ? ' is-active' : ''}`} onClick={() => pickSection('rw')}>Reading &amp; Writing</button>
-        </div>
-      </div>
-
       <div className="pb-inner">
 
-        {activeDrill && typeof onResumeDrill === 'function' && (
+        {showResume && (
           <section className="pb-resume" aria-label="Continue your last drill">
-            <span className="pb-resume-icon"><Arrow size={20} /></span>
             <div className="pb-resume-text">
               <div className="pb-resume-eyebrow">Continue your last drill</div>
-              <div className="pb-resume-title">{activeDrill?.assignmentMeta?.label || 'Practice Bank drill'}</div>
-              <div className="pb-resume-meta">
-                {resumeTotal > 0 ? `Question ${resumePos} of ${resumeTotal} · ${resumeAnswered} answered` : `${resumeAnswered} answered`}
-              </div>
+              <div className="pb-resume-title">{resumeLabel}</div>
+              <div className="pb-resume-meta">{resumeMeta}</div>
             </div>
             {typeof onDiscardDrill === 'function' && (
               <button type="button" className="pb-resume-discard" onClick={onDiscardDrill}>Discard</button>
@@ -568,203 +882,247 @@ const PracticeBank = ({ onStartPractice, onStartAdaptive, bankPractice = {}, wea
           </section>
         )}
 
-        {/* Hero row — section launcher + mastery summary */}
-        <section className="pb-hero">
-          <div className="pb-hero-lead">
-            <h1 className="pb-hero-title">Practice the {sectionLabel} section.</h1>
-            <p className="pb-hero-desc">
-              {fmt(bankTotal)} hand-authored questions. Start with a set picked for you, or browse every topic below.
-            </p>
-          </div>
-          <div className="pb-hero-side">
-            <div className="pb-hero-stats">
-              <div className="pb-hero-stat-cell">
-                <div className="pb-hero-stat-num">{fmt(sectionProgress.practiced)}</div>
-                <div className="pb-hero-stat-sub">Practiced</div>
-              </div>
-              <div className="pb-hero-stat-cell">
-                <div className="pb-hero-stat-num">{sectionProgress.accuracy != null ? `${sectionProgress.accuracy}%` : '—'}</div>
-                <div className="pb-hero-stat-sub">Accuracy</div>
-              </div>
-              <div className="pb-hero-stat-cell">
-                <div className="pb-hero-stat-num is-green">{heroSummary.strongCount}</div>
-                <div className="pb-hero-stat-sub">Strong</div>
-                {heroSummary.focusCount > 0 && (
-                  <div className="pb-hero-stat-focus">{heroSummary.focusCount} to focus</div>
-                )}
-              </div>
+        <div className="pb-nav">
+          {/* ── Rail: toggle, search, For you, domains, launchers ───────────── */}
+          <aside className="pb-rail">
+            <p className="pb-eyebrow pb-rail-eyebrow">Practice Bank</p>
+
+            <div className="pb-toggle" role="group" aria-label="Practice section">
+              <button type="button" aria-pressed={section === 'math'} className={`pb-toggle-btn${section === 'math' ? ' is-active' : ''}`} onClick={() => pickSection('math')}>Math</button>
+              <button type="button" aria-pressed={section === 'rw'} className={`pb-toggle-btn${section === 'rw' ? ' is-active' : ''}`} onClick={() => pickSection('rw')}>Reading &amp; Writing</button>
             </div>
-          </div>
-        </section>
 
-        {/* Guided primary action — the calm default path (Today's mix). Full-width
-            so it reads as THE thing to do; the taxonomy is opt-in below. */}
-        <button type="button" className="pb-startnow" onClick={launchTodaysMix}>
-          <span className="pb-startnow-icon"><Bolt /></span>
-          <span className="pb-startnow-text">
-            <span className="pb-startnow-title">Start practice</span>
-            <span className="pb-startnow-sub">{DRILL_COUNT_PER_DOMAIN} questions picked for you · ~25 min</span>
-          </span>
-          <span className="pb-startnow-go">Start <Arrow size={16} /></span>
-        </button>
-
-        {/* For you — compact one-line recommendation rows */}
-        {foryouRecs.length > 0 && (
-          <section className="pb-foryou" aria-label="Recommended for you">
-            <div className="pb-section-label">For you</div>
-            <div className="pb-foryou-list">
-              {foryouRecs.map((rec) => {
-                const meta = FORYOU_KINDS[rec.kind];
-                const mins = Math.round(rec.count * 1.2);
-                return (
-                  <button type="button" className={`pb-rec is-${meta.tone}`} key={rec.kind} onClick={() => launchForYou(rec)}>
-                    <span className="pb-rec-eyebrow">{meta.eyebrow}</span>
-                    <span className="pb-rec-body">
-                      <span className="pb-rec-title">{rec.title}</span>
-                      <span className="pb-rec-reason">{rec.reason}</span>
-                    </span>
-                    <span className="pb-rec-count">{rec.count} q · ~{mins} min</span>
-                    <span className="pb-rec-go">Start <Arrow size={14} /></span>
-                  </button>
-                );
-              })}
+            <div className="pb-search">
+              <label className="pb-sr-only" htmlFor="pb-search-input">{`Search ${sectionLabel} topics`}</label>
+              <span className="pb-search-icon" aria-hidden="true"><Search /></span>
+              <input
+                id="pb-search-input"
+                className="pb-search-input"
+                type="search"
+                value={query}
+                placeholder={`Search ${sectionLabel} topics`}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={(e) => { if (e.key === 'Escape') { e.preventDefault(); setQuery(''); } }}
+              />
             </div>
-          </section>
-        )}
 
-        {/* More ways to practice — quick / full / custom builder */}
-        <section className="pb-more" aria-label="More ways to practice">
-          <div className="pb-section-label">More ways to practice</div>
-          <div className="pb-more-row">
-            <button type="button" className="pb-more-btn" onClick={launchQuickDrill}>
-              <span className="pb-more-icon"><Bolt /></span>
-              <span className="pb-more-text">
-                <span className="pb-more-title">Quick drill</span>
-                <span className="pb-more-sub">{DRILL_COUNT_SPRINT} questions · ~12 min</span>
-              </span>
-            </button>
-            <button type="button" className="pb-more-btn" onClick={launchFullSection}>
-              <span className="pb-more-icon is-purple"><Book /></span>
-              <span className="pb-more-text">
-                <span className="pb-more-title">{fullLabel}</span>
-                <span className="pb-more-sub">{DRILL_COUNT_HERO} questions · ~30 min</span>
-              </span>
-            </button>
-            <button type="button" className="pb-more-btn" onClick={openBuilder}>
-              <span className="pb-more-icon"><Sliders /></span>
-              <span className="pb-more-text">
-                <span className="pb-more-title">Build a custom drill</span>
-                <span className="pb-more-sub">Pick topics, difficulty &amp; count</span>
-              </span>
-            </button>
-          </div>
-        </section>
-
-        {/* Practice by topic — the categorization: 4 domains, each listing its
-            topics. Picking a topic launches an adaptive round over every
-            question type inside it (difficulty ladders to performance). */}
-        <section className="pb-browse" aria-label={`${sectionLabel} topics`} ref={browseRef}>
-          <div className="pb-section-label">Practice by topic</div>
-          <div className="pb-grid" aria-label={`${sectionLabel} domains`}>
-          {categories.map((cat, i) => {
-            const a = accentFor(i);
-            const dm = masteryByKey.get(`domain:${cat.domain}`) || EMPTY_MASTERY;
-            const domainPulse = !!focusPulse && focusPulse.domain === cat.domain;
-            return (
-              <div className={`pb-card${domainPulse ? ' pb-focus-pulse' : ''}`} data-pb-domain={cat.domain} key={cat.domain}>
-                <div className="pb-card-head">
-                  <span className="pb-card-badge" style={{ background: a.badge, color: a.num }}>{num2(i + 1)}</span>
-                  <div className="pb-card-headmain">
-                    <div className="pb-card-title">{cat.label}</div>
-                    <div className="pb-card-share">{fmt(cat.total)} questions · {cat.cbSkills.length} topics</div>
-                  </div>
-                  <BandChip m={dm} />
-                </div>
-                <div className="pb-card-tagline">{DOMAIN_BLURBS[cat.domain] || ''}</div>
-
-                <div className="pb-card-topics">
-                  {cat.cbSkills.map((skill) => {
-                    const total = section === 'math' ? skill.total : skill.count;
-                    const tm = masteryByKey.get(`topic:${skill.slug}`) || EMPTY_MASTERY;
-                    const skillPulse = !!focusPulse && focusPulse.skillSlugs.includes(skill.slug);
-                    // Question-type tiles are a GRAMMAR-only affordance
-                    // (user, 2026-07-16): conventions topics list their types
-                    // FLAT below the row — always visible, no accordion (the
-                    // dropdown was explicitly rejected) — so a student can
-                    // drill exactly Subject-verb agreement. Every other topic
-                    // (math + R&W reading) is a plain row that launches the
-                    // whole-topic round. skill.patterns stays populated for
-                    // ALL topics — the For-you recommendation engine reads it
-                    // (exact-pattern weakness pools, new-territory) — so gate
-                    // the tiles here, never in the category data.
-                    const typeTiles = skill.domain === 'standard-english-conventions' ? (skill.patterns || []) : [];
+            {foryouRecs.length > 0 && (
+              <div className="pb-foryou">
+                <div className="pb-eyebrow">For you</div>
+                <div className="pb-foryou-list">
+                  {foryouRecs.map((rec) => {
+                    const meta = FORYOU_KINDS[rec.kind];
                     return (
-                      <React.Fragment key={skill.slug}>
-                        <div
-                          className={`pb-trow-head${skillPulse ? ' pb-focus-pulse-row' : ''}`}
-                          role="button"
-                          tabIndex={0}
-                          onClick={() => launchSkillDrill(skill)}
-                          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); launchSkillDrill(skill); } }}
-                        >
-                          <span className="pb-trow-chev is-empty" aria-hidden="true" />
-                          <span className="pb-trow-main">
-                            <span className="pb-trow-name">{skill.label}</span>
-                            <span className="pb-trow-meta">{fmt(total)} questions</span>
-                          </span>
-                          <BandChip m={tm} />
-                          <button
-                            type="button"
-                            className="pb-trow-drill"
-                            onClick={(e) => { e.stopPropagation(); launchSkillDrill(skill); }}
-                          >
-                            Practice <Arrow size={13} />
-                          </button>
-                        </div>
-                        {typeTiles.length > 0 && (
-                          <div className="pb-trow-types">
-                            {typeTiles.map((p) => {
-                              const pm = masteryByKey.get(`type:${p.slug}`) || EMPTY_MASTERY;
-                              const band = pm.band;
-                              const seen = band !== MASTERY_BANDS.UNSEEN && pm.accuracy != null;
-                              const tileClass = band === MASTERY_BANDS.STRONG ? ' is-strong' : band === MASTERY_BANDS.FOCUS ? ' is-focus' : '';
-                              return (
-                                <button
-                                  type="button"
-                                  className={`pb-type${tileClass}`}
-                                  key={p.slug}
-                                  title={seen ? `${p.count} questions · ${pm.practiced} practiced` : undefined}
-                                  onClick={() => launchTypeDrill(skill, p)}
-                                >
-                                  <span className="pb-type-name">{p.label}</span>
-                                  {seen ? (
-                                    <span className="pb-type-count"><span className={`pb-type-acc is-${band}`}>{pm.accuracy}%</span> · {p.count}</span>
-                                  ) : (
-                                    <span className="pb-type-count">{p.count}</span>
-                                  )}
-                                </button>
-                              );
-                            })}
-                          </div>
-                        )}
-                      </React.Fragment>
+                      <button type="button" className={`pb-rec is-${meta.tone}`} key={rec.kind} onClick={() => openRecommendation(rec)}>
+                        <span className="pb-rec-eyebrow">{meta.eyebrow}</span>
+                        <span className="pb-rec-title">{rec.title}</span>
+                        <span className="pb-rec-count">{rec.count} q</span>
+                      </button>
                     );
                   })}
                 </div>
-
-                <button
-                  type="button"
-                  className="pb-card-practice"
-                  onClick={() => launchDomainMixed(cat)}
-                >
-                  Practice this domain <Arrow size={15} />
-                </button>
               </div>
-            );
-          })}
-          </div>
-        </section>
+            )}
+
+            <div className="pb-domains">
+              <div className="pb-eyebrow">Domains</div>
+              <div
+                className="pb-dlist"
+                role="tablist"
+                aria-orientation="vertical"
+                aria-label={`${sectionLabel} domains`}
+                ref={railListRef}
+                onKeyDown={onDomainKeyDown}
+              >
+                {categories.map((cat) => {
+                  const on = cat.domain === selectedDomain;
+                  const tally = domainTallies.get(cat.domain) || { strongCount: 0, focusCount: 0 };
+                  const dm = masteryByKey.get(`domain:${cat.domain}`) || EMPTY_MASTERY;
+                  const matches = searching ? (searchGroups.find(g => g.cat.domain === cat.domain)?.skills.length || 0) : null;
+                  const parts = [];
+                  if (progressHydrated && dm.practiced > 0) {
+                    if (tally.strongCount > 0) parts.push({ id: 'strong', tone: 'strong', text: `${tally.strongCount} strong` });
+                    if (tally.focusCount > 0) parts.push({ id: 'focus', tone: 'focus', text: `${tally.focusCount} focus` });
+                    if (parts.length === 0) parts.push({ id: 'learning', tone: 'learning', text: `${dm.practiced} practiced` });
+                  }
+                  return (
+                    <button
+                      type="button"
+                      role="tab"
+                      key={cat.domain}
+                      id={`pb-dtab-${cat.domain}`}
+                      data-pb-domain={cat.domain}
+                      aria-selected={on}
+                      aria-controls="pb-pane"
+                      tabIndex={on ? 0 : -1}
+                      className={`pb-drow${on ? ' is-on' : ''}`}
+                      onClick={() => selectDomain(cat.domain)}
+                    >
+                      <span className="pb-drow-top">
+                        <span className="pb-drow-name">{cat.label}</span>
+                        <span className="pb-drow-count">{matches != null ? `· ${matches}` : fmt(cat.total)}</span>
+                      </span>
+                      {parts.length > 0 && (
+                        <span className="pb-drow-tally">
+                          {parts.map((p, i) => (
+                            <React.Fragment key={p.id}>
+                              {i > 0 ? ' · ' : null}
+                              <span className={`is-${p.tone}`}>{p.text}</span>
+                            </React.Fragment>
+                          ))}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="pb-launch">
+              <button type="button" className="pb-lrow is-primary" onClick={launchTodaysMix}>
+                <span className="pb-lrow-icon"><Bolt /></span>
+                <span className="pb-lrow-k">Start practice</span>
+                <span className="pb-lrow-m">{DRILL_COUNT_PER_DOMAIN} q · 25 min</span>
+              </button>
+              <button type="button" className="pb-lrow" onClick={launchQuickDrill}>
+                <span className="pb-lrow-k">Quick drill</span>
+                <span className="pb-lrow-m">{DRILL_COUNT_SPRINT} q · 12 min</span>
+              </button>
+              <button type="button" className="pb-lrow" onClick={openBuilder}>
+                <span className="pb-lrow-k">Build a custom drill</span>
+              </button>
+            </div>
+          </aside>
+
+          {/* ── Pane: the selected domain's topics, or the search results ───── */}
+          <section
+            className="pb-pane"
+            id="pb-pane"
+            ref={paneRef}
+            role="tabpanel"
+            tabIndex={-1}
+            aria-labelledby={searching ? 'pb-search-heading' : `pb-dtab-${selectedDomain}`}
+          >
+            <div className="pb-eyebrow">Topics</div>
+
+            {searching ? (
+              // Zero matches: the message below IS the heading (it carries the
+              // aria-live announcement), so the copy is never said twice.
+              searchMatchCount > 0 && (
+                <div className="pb-phead">
+                  <h2 className="pb-ptitle" id="pb-search-heading" aria-live="polite">
+                    {`${searchMatchCount} topic${searchMatchCount === 1 ? '' : 's'} matching “${trimmedQuery}”`}
+                  </h2>
+                </div>
+              )
+            ) : (
+              <div className="pb-phead">
+                <div className="pb-phead-main">
+                  <h2 className="pb-ptitle">{selectedCat?.label || sectionLabel}</h2>
+                  <div className="pb-pmeta">{fmt(selectedCat?.total || 0)} questions · {paneRows.length} topics</div>
+                </div>
+                {selectedCat && (
+                  <button type="button" className="pb-pbtn" onClick={() => practiceDomain(selectedCat)}>
+                    Practice this domain <Arrow />
+                  </button>
+                )}
+              </div>
+            )}
+
+            <div className="pb-filters">
+              <div className="pb-fgroup" role="radiogroup" aria-label="Difficulty">
+                <span className="pb-fgroup-label" aria-hidden="true">Difficulty</span>
+                {DIFFICULTY_CHIPS.map(({ key, label }) => {
+                  const on = difficulty === key;
+                  const n = chipCounts.byDifficulty[key];
+                  const enabled = on || n > 0;
+                  const chips = DIFFICULTY_CHIPS.map(c => ({ key: c.key, enabled: c.key === difficulty || chipCounts.byDifficulty[c.key] > 0 }));
+                  return (
+                    <button
+                      type="button"
+                      key={key}
+                      role="radio"
+                      aria-checked={on}
+                      tabIndex={on ? 0 : -1}
+                      disabled={!enabled}
+                      className={`pb-fchip${on ? ' is-on' : ''}`}
+                      onClick={() => setDifficulty(key)}
+                      onKeyDown={(e) => onChipKeyDown(e, chips, difficulty, setDifficulty)}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
+              <div className="pb-fgroup" role="radiogroup" aria-label="Show">
+                <span className="pb-fgroup-label" aria-hidden="true">Show</span>
+                {PANE_POOL_CHIPS.map(({ key, label }) => {
+                  const on = pool === key;
+                  const n = chipCounts.byPool[key];
+                  const enabled = on || n > 0;
+                  const chips = PANE_POOL_CHIPS.map(c => ({ key: c.key, enabled: c.key === pool || chipCounts.byPool[c.key] > 0 }));
+                  return (
+                    <button
+                      type="button"
+                      key={key}
+                      role="radio"
+                      aria-checked={on}
+                      tabIndex={on ? 0 : -1}
+                      disabled={!enabled}
+                      className={`pb-fchip${on ? ' is-on' : ''}`}
+                      onClick={() => setPool(key)}
+                      onKeyDown={(e) => onChipKeyDown(e, chips, pool, setPool)}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {progressHydrated && sectionProgress.practiced === 0 && !searching && (
+              <p className="pb-firstvisit">No history yet. Start practice picks {DRILL_COUNT_PER_DOMAIN} questions for you.</p>
+            )}
+
+            {searching ? (
+              searchMatchCount === 0 ? (
+                <p className="pb-nomatch" id="pb-search-heading" aria-live="polite">
+                  No topic matches “{trimmedQuery}”. Try “linear”, “circles”, or “evidence”.
+                </p>
+              ) : (
+                <div className="pb-rows">
+                  {searchGroups.map(({ cat, skills }) => (
+                    <div className="pb-sgroup" key={cat.domain}>
+                      <div className="pb-sgroup-head">{cat.label}</div>
+                      {skills.map(renderTopicRow)}
+                    </div>
+                  ))}
+                </div>
+              )
+            ) : allZero ? (
+              <div className="pb-empty">
+                <p className="pb-empty-copy">{emptyCopy}</p>
+                <button type="button" className="pb-empty-clear" onClick={clearFilters}>Clear filters</button>
+              </div>
+            ) : (
+              <div className="pb-rows">
+                {paneRows.map(renderTopicRow)}
+              </div>
+            )}
+          </section>
+        </div>
       </div>
+
+      {/* Phone-only resume bar — sits above the bottom tab bar */}
+      {showResume && (
+        <div className="pb-resume-bar">
+          <span className="pb-resume-bar-text">{resumeLabel}</span>
+          {typeof onDiscardDrill === 'function' && (
+            <button type="button" className="pb-resume-bar-discard" onClick={onDiscardDrill}>Discard</button>
+          )}
+          <button type="button" className="pb-resume-bar-go" onClick={onResumeDrill}>Continue</button>
+        </div>
+      )}
 
       {/* Custom drill builder — one-click-away modal (reuses the existing builder) */}
       {builderOpen && builderDomain && (

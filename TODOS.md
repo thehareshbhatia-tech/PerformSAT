@@ -93,6 +93,15 @@ small, most are one-liners applying `isBlankAttempt` from `selectors/latestTestS
   on a cross-text item in the daily-review session; verify whether the badge is static
   shell chrome or per-item metadata).
 
+## Practice-tab navigator — deferred by /plan-design-review (2026-09-07)
+
+- **[P2/M] Brand-level contrast pass for filled orange buttons.** White text on `#EA580C` is 3.6:1
+  (below the 4.5:1 floor at 13-14px bold) on every filled CTA app-wide. The Practice-tab rebuild darkened
+  only orange TEXT (`--pb-orange-text: #C2410C`) and kept filled buttons at the brand orange for
+  consistency. Fix options: darken the filled-button orange to `#C2410C` (5.2:1) via the shared token, or
+  raise CTA text to 18.66px bold. Why: readability on phones outdoors; a11y audit item. Cons: touches every
+  page; needs a visual pass on the home tiles (protected UI) and landing. Depends on: nothing.
+
 ## Landing-page design review — deferred findings (2026-06-08)
 
 From the /design-review fix loop on both surfaces (6 commits `d2199cc`..`a4a75e3`,
