@@ -443,8 +443,7 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
       {/* Mobile Bottom Tab Bar */}
       {isMobile && (
         <nav
-          role="tablist"
-          aria-label="Main navigation"
+          aria-label="Mobile navigation"
           style={{
             position: 'fixed',
             bottom: 0,
@@ -476,8 +475,6 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
             return (
               <button
                 key={item.id}
-                role="tab"
-                aria-selected={isActive}
                 aria-current={isActive ? 'page' : undefined}
                 aria-label={item.label}
                 onClick={() => handleNavClick(item)}

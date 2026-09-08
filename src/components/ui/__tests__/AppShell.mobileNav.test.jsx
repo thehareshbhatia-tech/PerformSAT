@@ -41,7 +41,7 @@ const DESKTOP = 1400;
 describe('AppShell mobile bottom nav fits a 390px phone', () => {
   it('lays 7 tabs out as equal, shrinkable grid tracks (never a 392px flex row)', () => {
     const { container, unmount } = mount(shell(), PHONE);
-    const nav = container.querySelector('nav[role="tablist"]');
+    const nav = container.querySelector('nav[aria-label="Mobile navigation"]');
     expect(nav).not.toBeNull();
     expect(nav.style.display).toBe('grid');
     // minmax(0, 1fr): tracks may shrink below their content, so 7 columns
@@ -50,14 +50,14 @@ describe('AppShell mobile bottom nav fits a 390px phone', () => {
     expect(nav.style.boxSizing).toBe('border-box');
     expect(nav.style.overflow).toBe('hidden');
 
-    const tabs = nav.querySelectorAll('button[role="tab"]');
+    const tabs = nav.querySelectorAll('button');
     expect(tabs).toHaveLength(7);
     unmount();
   });
 
   it('gives every tab min-width:0, a >=44px touch target, and no fixed 56px floor', () => {
     const { container, unmount } = mount(shell(), PHONE);
-    const tabs = [...container.querySelectorAll('nav[role="tablist"] button[role="tab"]')];
+    const tabs = [...container.querySelectorAll('nav[aria-label="Mobile navigation"] button')];
     tabs.forEach(tab => {
       // A grid item's automatic minimum is its content width; 0 hands control
       // back to the track and is what stops the bar re-widening.
@@ -73,7 +73,7 @@ describe('AppShell mobile bottom nav fits a 390px phone', () => {
 
   it('keeps every label on ONE 10px line, ellipsised rather than wrapped', () => {
     const { container, unmount } = mount(shell(), PHONE);
-    const labels = [...container.querySelectorAll('nav[role="tablist"] button[role="tab"] span')];
+    const labels = [...container.querySelectorAll('nav[aria-label="Mobile navigation"] button span')];
     expect(labels).toHaveLength(7);
     labels.forEach(span => {
       expect(span.style.fontSize).toBe('10px');
@@ -88,20 +88,20 @@ describe('AppShell mobile bottom nav fits a 390px phone', () => {
 
   it('shows "Plan" on the phone but keeps "Study Plan" as the accessible name', () => {
     const { container, unmount } = mount(shell(), PHONE);
-    const tab = container.querySelector('nav[role="tablist"] button[aria-label="Study Plan"]');
+    const tab = container.querySelector('nav[aria-label="Mobile navigation"] button[aria-label="Study Plan"]');
     expect(tab).not.toBeNull();
     expect(tab.querySelector('span').textContent).toBe('Plan');
     // WCAG "Label in Name": the accessible name still contains the visible text.
     expect(tab.getAttribute('aria-label')).toContain('Plan');
     // The other six are unabbreviated.
-    const visible = [...container.querySelectorAll('nav[role="tablist"] button[role="tab"] span')].map(s => s.textContent);
+    const visible = [...container.querySelectorAll('nav[aria-label="Mobile navigation"] button span')].map(s => s.textContent);
     expect(visible).toEqual(['Home', 'Learn', 'Videos', 'Tests', 'Practice', 'Plan', 'Profile']);
     unmount();
   });
 
   it('leaves the desktop sidebar alone: full "Study Plan" label, no grid', () => {
     const { container, unmount } = mount(shell(), DESKTOP);
-    expect(container.querySelector('nav[role="tablist"]')).toBeNull();
+    expect(container.querySelector('nav[aria-label="Mobile navigation"]')).toBeNull();
     const aside = container.querySelector('aside[aria-label="Desktop navigation"]');
     expect(aside).not.toBeNull();
     const labels = [...aside.querySelectorAll('nav button span')].map(s => s.textContent);
@@ -111,8 +111,8 @@ describe('AppShell mobile bottom nav fits a 390px phone', () => {
 
   it('keeps the tri-color active states (Practice = green) on phone and desktop', () => {
     const phone = mount(shell({ currentView: 'practiceBank' }), PHONE);
-    const phoneTab = phone.container.querySelector('nav[role="tablist"] button[aria-label="Practice"]');
-    expect(phoneTab.getAttribute('aria-selected')).toBe('true');
+    const phoneTab = phone.container.querySelector('nav[aria-label="Mobile navigation"] button[aria-label="Practice"]');
+    expect(phoneTab.getAttribute('aria-current')).toBe('page');
     expect(phoneTab.querySelector('svg').getAttribute('stroke')).toBe('var(--color-brand-green-text)');
     expect(phone.container.querySelector('button[aria-label="Study Plan"] svg').getAttribute('stroke'))
       .toBe('var(--color-slate-400)'); // inactive
