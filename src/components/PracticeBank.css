@@ -37,6 +37,8 @@
   --pb-orange-text: #C2410C;
   --pb-orange-tint: rgba(234, 88, 12, 0.10);
   --pb-orange-line: rgba(234, 88, 12, 0.55);
+  --pb-on-orange: #FFFFFF;
+  --pb-scrim: rgba(10, 12, 20, 0.5);
   --pb-lime: #C2E83A;
   --pb-purple: #7C5CC7;
   --pb-navy: #0C1026;
@@ -71,6 +73,9 @@
   --pb-orange: #F2733F;
   --pb-orange-text: #F2733F;
   --pb-orange-tint: rgba(242, 115, 63, 0.16);
+  --pb-orange-line: rgba(242, 115, 63, 0.6);
+  --pb-on-orange: #0B0E1A;
+  --pb-scrim: rgba(0, 0, 0, 0.62);
   --pb-lime: #C2E83A;
   --pb-purple: #A98BE5;
   --pb-navy: #060818;
@@ -134,7 +139,7 @@
 .pb-resume-discard:hover { color: var(--pb-text); text-decoration: underline; }
 .pb-resume-continue {
   display: inline-flex; align-items: center; gap: 7px;
-  background: var(--pb-orange); color: #fff; border: none; border-radius: 10px;
+  background: var(--pb-orange); color: var(--pb-on-orange); border: none; border-radius: 10px;
   padding: 9px 18px; font-family: var(--pb-font-body); font-weight: 700; font-size: 13.5px;
   cursor: pointer; flex: none; min-height: 36px;
 }
@@ -307,7 +312,7 @@
 .pb-pmeta { font-size: 13px; color: var(--pb-meta); margin-top: 6px; font-variant-numeric: tabular-nums; }
 .pb-pbtn {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--pb-orange); color: #fff; border: none; border-radius: 10px;
+  background: var(--pb-orange); color: var(--pb-on-orange); border: none; border-radius: 10px;
   padding: 10px 16px; min-height: 36px; white-space: nowrap;
   font-family: var(--pb-font-body); font-weight: 700; font-size: 14px; cursor: pointer;
   transition: filter 120ms ease;
@@ -418,7 +423,7 @@
  * ────────────────────────────────────────────────────────────────────────── */
 .pb-modal-backdrop {
   position: fixed; inset: 0; z-index: 1000;
-  background: rgba(10, 12, 20, 0.5);
+  background: var(--pb-scrim);
   display: grid; place-items: center; padding: 24px; overflow-y: auto;
   animation: pb-fade-in 140ms ease;
 }
@@ -491,7 +496,7 @@
 .pb-builder-reset:hover { color: var(--pb-text); text-decoration: underline; }
 .pb-builder-start {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--pb-orange); color: #fff;
+  background: var(--pb-orange); color: var(--pb-on-orange);
   border: none; border-radius: 10px; padding: 11px 20px; min-height: 36px;
   font-family: var(--pb-font-body); font-weight: 700; font-size: 14px;
   cursor: pointer; white-space: nowrap;
