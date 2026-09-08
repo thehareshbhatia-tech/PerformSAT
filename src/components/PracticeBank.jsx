@@ -929,7 +929,6 @@ const PracticeBank = ({
               <div
                 className="pb-dlist"
                 role="tablist"
-                aria-orientation="vertical"
                 aria-label={`${sectionLabel} domains`}
                 ref={railListRef}
                 onKeyDown={onDomainKeyDown}
