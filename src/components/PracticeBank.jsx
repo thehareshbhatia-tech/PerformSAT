@@ -892,8 +892,8 @@ const PracticeBank = ({
               <button type="button" aria-pressed={section === 'rw'} className={`pb-toggle-btn${section === 'rw' ? ' is-active' : ''}`} onClick={() => pickSection('rw')}>Reading &amp; Writing</button>
             </div>
 
-            <div className="pb-search">
-              <label className="pb-sr-only" htmlFor="pb-search-input">{`Search ${sectionLabel} topics`}</label>
+            <label className="pb-search" htmlFor="pb-search-input">
+              <span className="pb-sr-only">{`Search ${sectionLabel} topics`}</span>
               <span className="pb-search-icon" aria-hidden="true"><Search /></span>
               <input
                 id="pb-search-input"
@@ -904,7 +904,7 @@ const PracticeBank = ({
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={(e) => { if (e.key === 'Escape') { e.preventDefault(); setQuery(''); } }}
               />
-            </div>
+            </label>
 
             {foryouRecs.length > 0 && (
               <div className="pb-foryou">
