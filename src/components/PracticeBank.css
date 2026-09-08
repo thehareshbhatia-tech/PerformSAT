@@ -36,6 +36,7 @@
   --pb-orange: #EA580C;
   --pb-orange-text: #C2410C;
   --pb-orange-tint: rgba(234, 88, 12, 0.10);
+  --pb-orange-line: rgba(234, 88, 12, 0.55);
   --pb-lime: #C2E83A;
   --pb-purple: #7C5CC7;
   --pb-navy: #0C1026;
@@ -105,7 +106,7 @@
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--pb-text-3);
+  color: var(--pb-meta);
   margin: 0 0 10px 2px;
 }
 
@@ -323,7 +324,7 @@
 .pb-fgroup { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .pb-fgroup-label {
   font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--pb-text-3); margin-right: 4px;
+  color: var(--pb-meta); margin-right: 4px;
 }
 .pb-fchip {
   border: 1px solid var(--pb-line); background: var(--pb-surface); border-radius: 999px;
@@ -333,7 +334,7 @@
 }
 .pb-fchip:hover:not(:disabled) { border-color: var(--pb-line-strong); }
 .pb-fchip.is-on {
-  background: var(--pb-orange-tint); border-color: rgba(234, 88, 12, 0.55);
+  background: var(--pb-orange-tint); border-color: var(--pb-orange-line);
   color: var(--pb-text); font-weight: 700;
 }
 .pb-fchip:disabled { opacity: 0.4; cursor: not-allowed; }
@@ -461,7 +462,7 @@
 .pb-chip:hover:not(.is-disabled) { border-color: var(--pb-line-strong); }
 .pb-chip.is-on {
   font-weight: 700; color: var(--pb-text);
-  background: var(--pb-orange-tint); border-color: rgba(234, 88, 12, 0.55);
+  background: var(--pb-orange-tint); border-color: var(--pb-orange-line);
 }
 .pb-chip.is-disabled { opacity: 0.4; cursor: not-allowed; }
 .pb-chip-n { font-family: var(--pb-font-display); font-weight: 700; font-size: 13px; color: var(--pb-meta); font-variant-numeric: tabular-nums; }
