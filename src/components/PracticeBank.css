@@ -560,7 +560,7 @@
 
   .pb-pane { padding: 18px 14px 10px; }
   .pb-ptitle { font-size: 24px; }
-  .pb-phead .pb-pbtn { width: 100%; justify-content: center; }
+  .pb-phead .pb-pbtn { width: auto; align-self: flex-start; } /* a full-width slab was the loudest thing on a phone; keep it a button */
   .pb-filters { gap: 12px; }
   .pb-fgroup { width: 100%; }
 
