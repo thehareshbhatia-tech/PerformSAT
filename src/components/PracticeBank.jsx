@@ -804,6 +804,9 @@ const PracticeBank = ({
         className={`pb-trow${dim ? ' is-dim' : ''}${marked ? ' is-from-chapter' : ''}`}
         data-pb-skill={skill.slug}
         key={skill.slug}
+        // The whole row is the hit area (design review 15A); the link stays the
+        // only focusable control, so keyboard and screen-reader users see one.
+        onClick={dim ? undefined : (e) => { if (e.target.closest && e.target.closest('.pb-trow-types, .pb-trow-link')) return; practiceTopic(skill); }}
       >
         <div className="pb-trow-text">
           {marked && <span className="pb-trow-mark">{marker.label}</span>}

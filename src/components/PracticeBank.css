@@ -362,7 +362,8 @@
   transition: background 120ms ease;
 }
 .pb-trow:last-child { border-bottom: none; }
-.pb-trow:hover { background: var(--pb-inset); }
+.pb-trow:not(.is-dim) { cursor: pointer; }
+.pb-trow:not(.is-dim):hover { background: var(--pb-inset); }
 .pb-trow.is-dim { opacity: 0.5; }
 .pb-trow.is-from-chapter { border-left: 2px solid var(--pb-purple); padding-left: 10px; }
 .pb-trow-text { min-width: 0; }
