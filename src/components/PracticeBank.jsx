@@ -541,12 +541,32 @@ const PracticeBank = ({
     return () => clearTimeout(scrollTimer);
   }, [focusRequest, section]);
 
-  // Escape closes the builder modal (listener mounted only while open).
+  // Builder dialog focus contract: focus lands on Close when it opens, Tab
+  // cycles inside the dialog, Escape closes it, and focus returns to whatever
+  // opened it (the "Build a custom drill" row) when it closes.
+  const builderModalRef = useRef(null);
+  const builderOpenerRef = useRef(null);
   useEffect(() => {
     if (!builderOpen) return undefined;
-    const onKey = (e) => { if (e.key === 'Escape') setBuilderOpen(false); };
+    builderOpenerRef.current = document.activeElement;
+    const modal = builderModalRef.current;
+    const closeBtn = modal && modal.querySelector('.pb-builder-close');
+    if (closeBtn) closeBtn.focus();
+    const onKey = (e) => {
+      if (e.key === 'Escape') { setBuilderOpen(false); return; }
+      if (e.key !== 'Tab' || !modal) return;
+      const list = [...modal.querySelectorAll('button:not([disabled]), input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])')];
+      if (!list.length) return;
+      const idx = list.indexOf(document.activeElement);
+      if (e.shiftKey && idx <= 0) { e.preventDefault(); list[list.length - 1].focus(); }
+      else if (!e.shiftKey && (idx === -1 || idx === list.length - 1)) { e.preventDefault(); list[0].focus(); }
+    };
     document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      const opener = builderOpenerRef.current;
+      if (opener && typeof opener.focus === 'function' && document.contains(opener)) opener.focus();
+    };
   }, [builderOpen]);
 
   // ── Drill launchers (sources all keep the `practice-bank` prefix) ──────────
@@ -1129,7 +1149,7 @@ const PracticeBank = ({
       {/* Custom drill builder — one-click-away modal (reuses the existing builder) */}
       {builderOpen && builderDomain && (
         <div className="pb-modal-backdrop" role="presentation" onClick={() => setBuilderOpen(false)}>
-          <div className="pb-modal" role="dialog" aria-modal="true" aria-label="Custom drill builder" onClick={(e) => e.stopPropagation()}>
+          <div className="pb-modal" role="dialog" aria-modal="true" aria-label="Custom drill builder" ref={builderModalRef} onClick={(e) => e.stopPropagation()}>
             <div className="pb-builder">
               <div className="pb-builder-head">
                 <div className="pb-builder-title">Build a custom drill</div>
