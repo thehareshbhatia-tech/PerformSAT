@@ -610,6 +610,11 @@
   }
 }
 
+/* Tablet: the three launchers share one row instead of two cards plus an orphan */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .pb-launch { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 @media (max-width: 480px) {
   .pb-builder-row { flex-direction: column; gap: 9px; }
   .pb-builder-label { width: auto; padding-top: 0; }
