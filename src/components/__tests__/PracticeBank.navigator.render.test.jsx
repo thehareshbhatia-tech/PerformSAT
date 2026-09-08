@@ -1,12 +1,15 @@
 /**
- * Practice Bank = question-bank navigator (2026-09-07 restructure). Mounts the
- * live component and pins the navigation contract: rail selection drives the
- * pane, the domain tablist has a roving tabindex, search replaces the pane body
- * with grouped matches, the filter chips rewrite row counts and produce an
- * honest empty state, a filtered launch serves a FIXED pool (never the adaptive
- * path) while All/All keeps the adaptive round, grammar chips stay a Standard
- * English Conventions affordance, a chapter hand-off marks its rows, band
- * labels wait for hydration, and the session remembers the student's place.
+ * Practice Bank = question-bank navigator wearing the Study Plan's clothes
+ * (2026-09-07 reskin). Mounts the live component and pins the navigation
+ * contract: the domain cards drive the day card, the domain tablist has a
+ * roving tabindex, search replaces the day-card body with grouped matches, the
+ * filter chips rewrite the card chips and produce an honest empty state, a
+ * filtered launch serves a FIXED pool (never the adaptive path) while All/All
+ * keeps the adaptive round, grammar rounds stay a Standard English Conventions
+ * affordance, a chapter hand-off marks its cards, band signals wait for
+ * hydration, and the session remembers the student's place. Plus the reskin's
+ * own contract: the personal title bar, the topic sentences, Start vs Continue,
+ * the rail stat tiles, and the "For you" Go button.
  */
 /* eslint-disable testing-library/no-unnecessary-act */
 global.IS_REACT_ACT_ENVIRONMENT = true;
@@ -37,12 +40,19 @@ const mountBank = (props = {}) => {
 };
 
 const qa = (c, sel) => [...c.querySelectorAll(sel)];
-const paneTitle = (c) => c.querySelector('.pb-ptitle').textContent;
+const dayTitle = (c) => c.querySelector('h2').textContent;
 const railTab = (c, domain) => c.querySelector(`[data-pb-domain="${domain}"]`);
 const click = (el) => act(() => { el.click(); });
 const key = (el, k) => act(() => { el.dispatchEvent(new KeyboardEvent('keydown', { key: k, bubbles: true })); });
 const chip = (c, groupLabel, label) => qa(c, `[role="radiogroup"][aria-label="${groupLabel}"] [role="radio"]`)
   .find(b => b.textContent === label);
+const byName = (c, sel, text) => qa(c, sel).find(b => b.textContent.includes(text));
+// The topic cards, in DOM order (the rail's tiles are not cards).
+const cards = (c) => qa(c, '.pb-card');
+const cardChip = (card) => card.querySelector('.pb-c-chip').textContent;
+const startBtn = (card) => card.querySelector('.pb-c-btn');
+const domainBtn = (c) => byName(c, 'button', 'Practice this domain');
+const tile = (c, eyebrow) => qa(c, '.pb-tile').find(t => t.querySelector('.pb-tile-eyebrow')?.textContent === eyebrow);
 
 function typeSearch(container, value) {
   const input = container.querySelector('#pb-search-input');
@@ -56,21 +66,41 @@ function typeSearch(container, value) {
 
 const isDrillable = (q) => Array.isArray(q.choices) && q.choices.length >= 2;
 const practiced = (ids, correct) => ids.reduce((acc, id) => {
-  acc[String(id)] = { c: correct, n: 1, t: new Date('2026-09-01T10:00:00Z').toISOString() };
+  acc[String(id)] = { c: correct, n: 1, t: new Date().toISOString() };
   return acc;
 }, {});
 
 beforeEach(() => { window.sessionStorage.clear(); });
 
-describe('rail → pane navigation', () => {
-  it('selects the first domain by default and swaps the pane when a rail row is picked', () => {
+describe('title bar', () => {
+  it('greets the student by name and counts the section', () => {
+    const { container, unmount } = mountBank({ user: { firstName: 'Haresh' } });
+    try {
+      const h1 = container.querySelector('h1');
+      expect(h1.textContent).toBe("Haresh's Practice Bank");
+      expect(container.querySelector('.pb-title-meta').textContent).toMatch(/^[\d,]+ Math questions/);
+      // The builder is one ghost button away, not a rail row.
+      expect(byName(container, '.pb-ghost-btn', 'Build a custom drill')).toBeTruthy();
+    } finally { unmount(); }
+  });
+
+  it('falls back to "Your Practice Bank" with no user', () => {
     const { container, unmount } = mountBank();
     try {
-      expect(paneTitle(container)).toBe('Algebra');
+      expect(container.querySelector('h1').textContent).toBe('Your Practice Bank');
+    } finally { unmount(); }
+  });
+});
+
+describe('domain cards → day card', () => {
+  it('selects the first domain by default and swaps the day card when a card is picked', () => {
+    const { container, unmount } = mountBank();
+    try {
+      expect(dayTitle(container)).toBe('Algebra');
       expect(railTab(container, 'algebra').getAttribute('aria-selected')).toBe('true');
 
       click(railTab(container, 'advanced-math'));
-      expect(paneTitle(container)).toBe('Advanced Math');
+      expect(dayTitle(container)).toBe('Advanced Math');
       expect(railTab(container, 'advanced-math').getAttribute('aria-selected')).toBe('true');
       expect(railTab(container, 'algebra').getAttribute('aria-selected')).toBe('false');
     } finally { unmount(); }
@@ -87,22 +117,22 @@ describe('rail → pane navigation', () => {
       key(algebra, 'ArrowDown');
       expect(railTab(container, 'advanced-math').tabIndex).toBe(0);
       expect(railTab(container, 'algebra').tabIndex).toBe(-1);
-      expect(paneTitle(container)).toBe('Advanced Math');
+      expect(dayTitle(container)).toBe('Advanced Math');
 
       key(railTab(container, 'advanced-math'), 'ArrowUp');
       expect(railTab(container, 'algebra').tabIndex).toBe(0);
-      expect(paneTitle(container)).toBe('Algebra');
+      expect(dayTitle(container)).toBe('Algebra');
 
       key(railTab(container, 'algebra'), 'End');
-      expect(paneTitle(container)).toBe('Geometry and Trigonometry');
+      expect(dayTitle(container)).toBe('Geometry and Trigonometry');
       key(railTab(container, 'geometry'), 'Home');
-      expect(paneTitle(container)).toBe('Algebra');
+      expect(dayTitle(container)).toBe('Algebra');
     } finally { unmount(); }
   });
 });
 
 describe('search', () => {
-  it('≥2 characters replaces the pane body with matches grouped under domain subheads', () => {
+  it('≥2 characters replaces the day-card body with matches grouped under domain subheads', () => {
     const { container, unmount } = mountBank();
     try {
       typeSearch(container, 'linear');
@@ -110,10 +140,12 @@ describe('search', () => {
       expect(heading.textContent).toMatch(/^\d+ topics? matching “linear”$/);
       expect(heading.getAttribute('aria-live')).toBe('polite');
       expect(qa(container, '.pb-sgroup-head').length).toBeGreaterThan(0);
-      // The rail shows per-domain match counts while a query is active.
-      expect(railTab(container, 'algebra').textContent).toMatch(/· \d+/);
-      // Every rendered row actually matches.
-      qa(container, '.pb-trow-name').forEach(n => expect(n.textContent.toLowerCase()).toContain('linear'));
+      // The domain cards show per-domain match counts while a query is active.
+      expect(railTab(container, 'algebra').textContent).toMatch(/\d+ matching/);
+      // Every rendered card actually matches.
+      qa(container, '.pb-c-title').forEach(n => expect(n.textContent.toLowerCase()).toContain('linear'));
+      // The whole-domain launcher is hidden while searching (it would lie).
+      expect(domainBtn(container)).toBeFalsy();
     } finally { unmount(); }
   });
 
@@ -122,25 +154,31 @@ describe('search', () => {
     try {
       typeSearch(container, 'zzzz');
       expect(container.textContent).toContain('No topic matches “zzzz”. Try “linear”, “circles”, or “evidence”.');
-      expect(qa(container, '.pb-trow').length).toBe(0);
+      expect(cards(container).length).toBe(0);
 
       typeSearch(container, '');
-      expect(paneTitle(container)).toBe('Algebra');
-      expect(qa(container, '.pb-trow').length).toBeGreaterThan(0);
+      expect(dayTitle(container)).toBe('Algebra');
+      expect(cards(container).length).toBeGreaterThan(0);
     } finally { unmount(); }
   });
 });
 
 describe('filters', () => {
-  it('Difficulty = Hard rewrites the row counts to "N of M"', () => {
+  it('Difficulty = Hard rewrites the card chips to "N of M · Hard"', () => {
     const { container, unmount } = mountBank();
     try {
-      expect(container.querySelector('.pb-trow-meta').textContent).toMatch(/^\d+ questions · E \d+ · M \d+ · H \d+$/);
+      expect(cardChip(cards(container)[0])).toMatch(/^[\d,]+ questions · E \d+ · M \d+ · H \d+$/);
       click(chip(container, 'Difficulty', 'Hard'));
       expect(chip(container, 'Difficulty', 'Hard').getAttribute('aria-checked')).toBe('true');
-      const metas = qa(container, '.pb-trow-meta').map(n => n.textContent);
-      expect(metas.length).toBeGreaterThan(0);
-      metas.forEach(m => expect(m).toMatch(/^\d+ of \d+ · E \d+ · M \d+ · H \d+$/));
+      const all = cards(container);
+      expect(all.length).toBeGreaterThan(0);
+      const dimmed = all.filter(c => c.classList.contains('is-dim'));
+      const live = all.filter(c => !c.classList.contains('is-dim'));
+      live.forEach(card => expect(cardChip(card)).toMatch(/^[\d,]+ of [\d,]+ · Hard$/));
+      // A topic with nothing left under the filter: no sentence, no button.
+      dimmed.forEach(card => expect(cardChip(card)).toMatch(/^0 of [\d,]+$/));
+      dimmed.forEach(card => expect(card.querySelector('.pb-c-sub').textContent).toBe('Nothing here under these filters.'));
+      dimmed.forEach(card => expect(startBtn(card)).toBeNull());
     } finally { unmount(); }
   });
 
@@ -157,10 +195,10 @@ describe('filters', () => {
     const { container, unmount } = mountBank({ bankPractice: practiced([orphan.id], false) });
     try {
       click(chip(container, 'Show', 'Missed'));
-      expect(qa(container, '.pb-trow').length).toBe(0);
+      expect(cards(container).length).toBe(0);
       expect(container.querySelector('.pb-empty-copy').textContent).toBe("No questions you've missed in Algebra yet.");
       click(container.querySelector('.pb-empty-clear'));
-      expect(qa(container, '.pb-trow').length).toBeGreaterThan(0);
+      expect(cards(container).length).toBeGreaterThan(0);
       expect(chip(container, 'Show', 'All').getAttribute('aria-checked')).toBe('true');
     } finally { unmount(); }
   });
@@ -170,7 +208,7 @@ describe('launch semantics', () => {
   it('All + All launches the adaptive round for the domain', () => {
     const { container, unmount, onStartAdaptive, onStartPractice } = mountBank();
     try {
-      click(container.querySelector('.pb-pbtn'));
+      click(domainBtn(container));
       expect(onStartPractice).not.toHaveBeenCalled();
       expect(onStartAdaptive).toHaveBeenCalledTimes(1);
       expect(onStartAdaptive.mock.calls[0][0]).toMatchObject({
@@ -185,9 +223,9 @@ describe('launch semantics', () => {
     const { container, unmount, onStartAdaptive, onStartPractice } = mountBank();
     try {
       click(chip(container, 'Difficulty', 'Hard'));
-      const row = qa(container, '.pb-trow').find(r => r.querySelector('.pb-trow-link'));
-      expect(row).toBeTruthy();
-      const link = row.querySelector('.pb-trow-link');
+      const card = cards(container).find(r => startBtn(r));
+      expect(card).toBeTruthy();
+      const link = startBtn(card);
       const label = link.getAttribute('aria-label');
       expect(label).toMatch(/^Practice .+, \d+ questions$/);
       const skillLabel = label.replace(/^Practice /, '').replace(/, \d+ questions$/, '');
@@ -212,76 +250,191 @@ describe('launch semantics', () => {
   it('an unfiltered topic launch stays on the adaptive path', () => {
     const { container, unmount, onStartAdaptive, onStartPractice } = mountBank();
     try {
-      click(container.querySelector('.pb-trow-link'));
+      click(startBtn(cards(container)[0]));
       expect(onStartPractice).not.toHaveBeenCalled();
       expect(onStartAdaptive.mock.calls[0][0]).toMatchObject({ source: 'practice-bank-topic', section: 'math' });
+    } finally { unmount(); }
+  });
+
+  it('the rail Start tile launches the mix and the quick drill', () => {
+    const { container, unmount, onStartPractice } = mountBank();
+    try {
+      const start = tile(container, 'Picked for you');
+      expect(start.textContent).toContain('Start practice');
+      click(byName(start, '.pb-c-btn', 'Start'));
+      expect(onStartPractice.mock.calls[0][1]).toMatchObject({ source: 'practice-bank-mix', section: 'math' });
+
+      click(byName(start, '.pb-c-btn', 'Quick drill'));
+      expect(onStartPractice.mock.calls[1][1]).toMatchObject({ source: 'practice-bank-quick', section: 'math' });
+    } finally { unmount(); }
+  });
+});
+
+describe('topic cards', () => {
+  it('an unseen topic reads "Fresh ground" and offers Start', () => {
+    const { container, unmount } = mountBank();
+    try {
+      const card = cards(container)[0];
+      expect(card.querySelector('.pb-c-sub').textContent).toMatch(/^Fresh ground — [\d,]+ questions/);
+      expect(startBtn(card).textContent).toContain('Start');
+      expect(startBtn(card).textContent).not.toContain('Continue');
+      // Unseen = the dashed static circle, no ring.
+      expect(card.querySelector('.pb-c-ring').classList.contains('is-static')).toBe(true);
+    } finally { unmount(); }
+  });
+
+  it('a practiced topic reads its band sentence and offers Continue', () => {
+    const ids = getQuestionsByCBSkill('linear-systems').filter(isDrillable).slice(0, 5).map(q => q.id);
+    expect(ids.length).toBe(5);
+    const { container, unmount } = mountBank({ bankPractice: practiced(ids, true) });
+    try {
+      const card = cards(container).find(c => c.getAttribute('data-pb-skill') === 'linear-systems');
+      expect(card).toBeTruthy();
+      expect(card.querySelector('.pb-c-sub').textContent)
+        .toBe("You're strong here at 100% — one short set keeps it that way.");
+      expect(startBtn(card).textContent).toContain('Continue');
+      expect(card.textContent).toContain('5 practiced · 100%');
+      // Strong = the filled green check, not a dashed circle.
+      expect(card.querySelector('.pb-c-ring').classList.contains('is-strong')).toBe(true);
     } finally { unmount(); }
   });
 });
 
 describe('Reading & Writing', () => {
-  it('renders question-type chips for Standard English Conventions only', () => {
+  it('renders the grammar "rounds" list for Standard English Conventions only', () => {
     const { container, unmount } = mountBank();
     try {
-      click(qa(container, '.pb-toggle-btn').find(b => b.textContent.includes('Reading')));
+      click(byName(container, '.pb-tab', 'Reading'));
       expect(railTab(container, 'standard-english-conventions')).toBeTruthy();
 
       click(railTab(container, 'standard-english-conventions'));
-      expect(paneTitle(container)).toBe('Standard English Conventions');
-      const chips = qa(container, '.pb-type');
-      expect(chips.length).toBeGreaterThan(0);
-      chips.forEach(c => expect(c.querySelector('.pb-type-name').textContent.length).toBeGreaterThan(0));
+      expect(dayTitle(container)).toBe('Standard English Conventions');
+      const rounds = qa(container, '.pb-c-round');
+      expect(rounds.length).toBeGreaterThan(0);
+      rounds.forEach(r => expect(r.querySelector('.pb-c-round-label').textContent.length).toBeGreaterThan(0));
 
       click(railTab(container, 'information-and-ideas'));
-      expect(qa(container, '.pb-type').length).toBe(0);
+      expect(qa(container, '.pb-c-round').length).toBe(0);
+    } finally { unmount(); }
+  });
+
+  it('the section tabs carry the question counts and toggle the section', () => {
+    const { container, unmount } = mountBank();
+    try {
+      const [math, rw] = qa(container, '.pb-tab');
+      expect(math.getAttribute('aria-pressed')).toBe('true');
+      expect(math.querySelector('.pb-tab-count').textContent).toMatch(/^[\d,]+$/);
+      expect(rw.querySelector('.pb-tab-count').textContent).toMatch(/^[\d,]+$/);
+      click(rw);
+      expect(qa(container, '.pb-tab')[1].getAttribute('aria-pressed')).toBe('true');
+      expect(qa(container, '.pb-tab')[0].getAttribute('aria-pressed')).toBe('false');
+    } finally { unmount(); }
+  });
+});
+
+describe('right rail', () => {
+  it('hides the stat tiles with no history and shows them once there is', () => {
+    const cold = mountBank();
+    try {
+      expect(tile(cold.container, 'Practiced this week')).toBeFalsy();
+      expect(tile(cold.container, 'Strong topics')).toBeFalsy();
+      expect(tile(cold.container, 'Focus topics')).toBeFalsy();
+      // The Start tile is always there — a new student sees exactly one action.
+      expect(tile(cold.container, 'Picked for you')).toBeTruthy();
+    } finally { cold.unmount(); }
+
+    const ids = getQuestionsByCBSkill('linear-systems').filter(isDrillable).slice(0, 5).map(q => q.id);
+    const warm = mountBank({ bankPractice: practiced(ids, true) });
+    try {
+      const week = tile(warm.container, 'Practiced this week');
+      expect(week).toBeTruthy();
+      expect(week.querySelector('.pb-tile-num').textContent).toBe('5');
+      expect(week.textContent).toContain('100% accuracy');
+
+      const strong = tile(warm.container, 'Strong topics');
+      expect(strong.querySelector('.pb-tile-num').textContent).toBe('1');
+      expect(strong.textContent).toMatch(/of \d+ in Math/);
+      expect(tile(warm.container, 'Focus topics')).toBeTruthy();
+    } finally { warm.unmount(); }
+  });
+
+  it('a "For you" Go button still selects the rec\'s domain and applies its filter', () => {
+    // Five misses in a geometry topic → the fix-misses rec, which navigates to
+    // that domain and switches Show to Missed.
+    const ids = getQuestionsByCBSkill('circles').filter(isDrillable).slice(0, 5).map(q => q.id);
+    expect(ids.length).toBe(5);
+    const { container, unmount, onStartPractice, onStartAdaptive } = mountBank({
+      bankPractice: practiced(ids, false),
+    });
+    try {
+      expect(dayTitle(container)).toBe('Algebra');
+      const foryou = tile(container, 'For you');
+      expect(foryou).toBeTruthy();
+      expect(foryou.textContent).toContain('Revisit');
+
+      click(foryou.querySelector('.pb-rec-go'));
+      expect(dayTitle(container)).toBe('Geometry and Trigonometry');
+      expect(chip(container, 'Show', 'Missed').getAttribute('aria-checked')).toBe('true');
+      // It navigates — it never launches.
+      expect(onStartPractice).not.toHaveBeenCalled();
+      expect(onStartAdaptive).not.toHaveBeenCalled();
     } finally { unmount(); }
   });
 });
 
 describe('states', () => {
-  it('a chapter hand-off selects the domain and marks the matching rows', () => {
+  it('a chapter hand-off selects the domain and marks the matching cards', () => {
     const { container, unmount } = mountBank({
       focusRequest: { section: 'math', domain: 'algebra', skillSlugs: ['linear-functions'], token: 42 },
     });
     try {
-      expect(paneTitle(container)).toBe('Algebra');
-      const marked = qa(container, '.pb-trow.is-from-chapter');
+      expect(dayTitle(container)).toBe('Algebra');
+      const marked = qa(container, '.pb-card.is-from-chapter');
       expect(marked.length).toBe(1);
       expect(marked[0].getAttribute('data-pb-skill')).toBe('linear-functions');
       expect(marked[0].textContent).toContain('From your chapter');
 
       // A domain change drops the marker.
       click(railTab(container, 'geometry'));
-      expect(qa(container, '.pb-trow.is-from-chapter').length).toBe(0);
+      expect(qa(container, '.pb-card.is-from-chapter').length).toBe(0);
     } finally { unmount(); }
   });
 
-  it('band labels and tallies wait for progressHydrated', () => {
+  it('band signals and tallies wait for progressHydrated', () => {
     const ids = getQuestionsByCBSkill('linear-systems').filter(isDrillable).slice(0, 5).map(q => q.id);
     expect(ids.length).toBe(5);
     const bankPractice = practiced(ids, true);
 
     const hydrated = mountBank({ bankPractice, progressHydrated: true });
     try {
-      expect(hydrated.container.textContent).toContain('Strong · 100% · 5 practiced');
-      expect(hydrated.container.querySelector('.pb-drow-tally')).toBeTruthy();
+      expect(hydrated.container.textContent).toContain('5 practiced · 100%');
+      expect(hydrated.container.querySelector('.pb-dcard-tally')).toBeTruthy();
     } finally { hydrated.unmount(); }
 
     const cold = mountBank({ bankPractice, progressHydrated: false });
     try {
       expect(cold.container.textContent).not.toContain('practiced');
-      expect(cold.container.querySelector('.pb-drow-tally')).toBeNull();
-      expect(cold.container.querySelector('.pb-foryou')).toBeNull();
-      // Names and counts are on screen immediately — no spinner, no blank pane.
-      expect(qa(cold.container, '.pb-trow').length).toBeGreaterThan(0);
+      expect(cold.container.querySelector('.pb-dcard-tally')).toBeNull();
+      expect(tile(cold.container, 'For you')).toBeFalsy();
+      // Names and counts are on screen immediately — no spinner, no blank card.
+      expect(cards(cold.container).length).toBeGreaterThan(0);
     } finally { cold.unmount(); }
   });
 
-  it('shows the first-visit line when the section has no history', () => {
+  it('the coach line carries the first-visit copy when the domain has no history', () => {
     const { container, unmount } = mountBank();
     try {
-      expect(container.querySelector('.pb-firstvisit').textContent)
-        .toBe('No history yet. Start practice picks 20 questions for you.');
+      expect(container.querySelector('.pb-coach').textContent)
+        .toBe('No history in Algebra yet. Start easy, then climb — or let Start practice pick for you.');
+    } finally { unmount(); }
+  });
+
+  it('the coach line reports the domain once there is history', () => {
+    const ids = getQuestionsByCBSkill('linear-systems').filter(isDrillable).slice(0, 5).map(q => q.id);
+    const { container, unmount } = mountBank({ bankPractice: practiced(ids, true) });
+    try {
+      expect(container.querySelector('.pb-coach').textContent)
+        .toMatch(/^You're at 100% across 5 practiced in Algebra — /);
     } finally { unmount(); }
   });
 
@@ -291,7 +444,7 @@ describe('states', () => {
     }));
     const { container, unmount } = mountBank();
     try {
-      expect(paneTitle(container)).toBe('Geometry and Trigonometry');
+      expect(dayTitle(container)).toBe('Geometry and Trigonometry');
       expect(chip(container, 'Difficulty', 'Hard').getAttribute('aria-checked')).toBe('true');
     } finally { unmount(); }
 
@@ -305,7 +458,28 @@ describe('states', () => {
       weaknesses: [{ skillId: 'circles', skill: 'Circles', domain: 'geometry', section: 'math' }],
     });
     try {
-      expect(paneTitle(container)).toBe('Geometry and Trigonometry');
+      expect(dayTitle(container)).toBe('Geometry and Trigonometry');
+    } finally { unmount(); }
+  });
+
+  it('the resume drill becomes an orange rail tile, and the phone bar stays', () => {
+    const onResumeDrill = jest.fn();
+    const onDiscardDrill = jest.fn();
+    const { container, unmount } = mountBank({
+      activeDrill: { questionIds: [1, 2, 3, 4], currentQuestionIndex: 1, answers: { 1: 'A' }, assignmentMeta: { label: 'Circles drill' } },
+      onResumeDrill,
+      onDiscardDrill,
+    });
+    try {
+      const resume = tile(container, 'Continue your drill');
+      expect(resume).toBeTruthy();
+      expect(resume.textContent).toContain('Circles drill');
+      expect(resume.textContent).toContain('Question 2 of 4');
+      click(byName(resume, '.pb-c-btn', 'Continue'));
+      expect(onResumeDrill).toHaveBeenCalledTimes(1);
+      click(byName(resume, '.pb-c-btn', 'Discard'));
+      expect(onDiscardDrill).toHaveBeenCalledTimes(1);
+      expect(container.querySelector('.pb-resume-bar')).toBeTruthy();
     } finally { unmount(); }
   });
 });
