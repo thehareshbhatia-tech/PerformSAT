@@ -585,19 +585,9 @@
   .pb-trow-link { grid-area: link; align-self: center; }
   .pb-trow-types { grid-area: types; }
 
-  /* Sticky resume bar above the bottom tab bar */
-  .pb-resume { display: none; }
-  .pb-resume-bar {
-    position: fixed;
-    left: 0; right: 0; bottom: 64px;
-    z-index: 40;
-    height: 56px;
-    display: flex; align-items: center; gap: 10px;
-    padding: 0 14px;
-    background: var(--pb-surface);
-    border-top: 1px solid var(--pb-line);
-    border-bottom: 1px solid var(--pb-line);
-  }
+  /* Sticky resume bar above the bottom tab bar (the shell renders that bar
+     only below 768px, 56px tall, z-index 200) */
+  .pb-resume-bar { display: none; }
   .pb-resume-bar-text {
     flex: 1; min-width: 0;
     font-weight: 600; font-size: 13.5px; color: var(--pb-text);
@@ -618,6 +608,24 @@
 /* Tablet: the three launchers share one row instead of two cards plus an orphan */
 @media (min-width: 600px) and (max-width: 1023px) {
   .pb-launch { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+
+@media (max-width: 767px) {
+  .pb-resume { display: none; }
+  .pb-resume-bar {
+    display: flex;
+    position: fixed;
+    left: 0; right: 0; bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+    z-index: 201;
+    height: 56px;
+    display: flex; align-items: center; gap: 10px;
+    padding: 0 14px;
+    background: var(--pb-surface);
+    border-top: 1px solid var(--pb-line);
+    border-bottom: 1px solid var(--pb-line);
+  }
+  .pb-resume-bar-text, .pb-resume-bar-discard, .pb-resume-bar-go { display: flex; }
 }
 
 @media (max-width: 480px) {
