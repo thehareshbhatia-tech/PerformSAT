@@ -24,7 +24,6 @@ import { masteryForIds, masterySummary, MASTERY_BANDS } from '../services/select
 import { buildBankRecommendations, assembleSmartMix } from '../services/selectors/bankRecommendations';
 import { composeCustomPool } from '../services/selectors/customDrillPool';
 import { getWeaknessSection } from '../services/selectors/weaknesses';
-import Avatar, { AVATAR_SIZES } from './ui/Avatar';
 import './PracticeBank.css';
 
 // "For you" recommendation kinds → eyebrow copy + tri-color tone. Orange = the
@@ -321,7 +320,6 @@ function topicSentence(breakdown, m, seen) {
 // navigator — this is a design pass over the same flows and launch semantics.
 // ────────────────────────────────────────────────────────────────────────────
 const PracticeBank = ({
-  user = null,
   onStartPractice,
   onStartAdaptive,
   bankPractice = {},
@@ -422,20 +420,6 @@ const PracticeBank = ({
     }
     return { strongCount, focusCount, topics };
   }, [categories, domainTallies]);
-
-  // "strongest in X" for the title meta — the best-accuracy domain with enough
-  // evidence behind it to be worth naming.
-  const strongestDomain = useMemo(() => {
-    let best = null;
-    for (const cat of categories) {
-      const dm = masteryByKey.get(`domain:${cat.domain}`);
-      if (!dm || dm.practiced < 3 || dm.accuracy == null) continue;
-      if (!best || dm.accuracy > best.accuracy || (dm.accuracy === best.accuracy && dm.practiced > best.practiced)) {
-        best = { label: cat.label, accuracy: dm.accuracy, practiced: dm.practiced };
-      }
-    }
-    return best;
-  }, [categories, masteryByKey]);
 
   // Performance-driven "For you" recommendations (fix-misses / test-weakness /
   // new-territory). `now` is captured once per render — fine here since the
@@ -1029,32 +1013,22 @@ const PracticeBank = ({
   const statNumber = stampedWeek ? sectionRecency.week : sectionProgress.practiced;
   const showStats = progressHydrated && sectionProgress.practiced > 0;
 
-  const sectionTotal = section === 'math' ? MATH_TOTAL : RW_TOTAL;
-
   return (
     <div className="pb-screen" data-theme="light">
       <div className="pb-inner">
         <div className="pb-grid">
           <div className="pb-main">
 
-            {/* ── Title bar ─────────────────────────────────────────────── */}
+            {/* ── Page head — a library title like Videos / Learn, not the Study
+                   Plan's avatar bar: the bank is a shared catalog, not the
+                   student's own page (founder, 2026-09-08). The personal
+                   numbers live in the rail tiles. ─────────────────────────── */}
             <header className="pb-titlebar">
               <div className="pb-titlebar-id">
-                <Avatar user={user} size={AVATAR_SIZES.md} />
-                <div style={{ minWidth: 0 }}>
-                  <h1 className="pb-title">
-                    {user?.firstName ? `${user.firstName}'s Practice Bank` : 'Your Practice Bank'}
-                  </h1>
-                  <div className="pb-title-meta">
-                    <span><strong>{fmt(sectionTotal)}</strong> {sectionLabel} questions</span>
-                    {progressHydrated && sectionRecency.week > 0 && (
-                      <span><strong>{fmt(sectionRecency.week)}</strong> practiced this week</span>
-                    )}
-                    {progressHydrated && strongestDomain && (
-                      <span>strongest in <strong>{strongestDomain.label}</strong></span>
-                    )}
-                  </div>
-                </div>
+                <h1 className="pb-title">Practice Bank</h1>
+                <p className="pb-title-sub">
+                  Every practice question, sorted by section, domain, and topic. Pick a topic and start a set.
+                </p>
               </div>
               <button type="button" className="pb-ghost-btn" onClick={openBuilder}>
                 Build a custom drill

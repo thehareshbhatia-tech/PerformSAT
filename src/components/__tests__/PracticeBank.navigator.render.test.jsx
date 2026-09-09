@@ -72,22 +72,20 @@ const practiced = (ids, correct) => ids.reduce((acc, id) => {
 
 beforeEach(() => { window.sessionStorage.clear(); });
 
-describe('title bar', () => {
-  it('greets the student by name and counts the section', () => {
+describe('page head', () => {
+  // The bank is a shared catalog, not the student's page: a library title
+  // like Videos / Learn, never the Study Plan's avatar + "{name}'s …" bar
+  // (founder, 2026-09-08).
+  it('titles the page impersonally, with no avatar and no name', () => {
     const { container, unmount } = mountBank({ user: { firstName: 'Haresh' } });
     try {
       const h1 = container.querySelector('h1');
-      expect(h1.textContent).toBe("Haresh's Practice Bank");
-      expect(container.querySelector('.pb-title-meta').textContent).toMatch(/^[\d,]+ Math questions/);
+      expect(h1.textContent).toBe('Practice Bank');
+      expect(container.textContent).not.toMatch(/Haresh/);
+      expect(container.querySelector('.pb-titlebar img, .pb-titlebar [class*="avatar" i]')).toBeNull();
+      expect(container.querySelector('.pb-title-sub').textContent).toMatch(/Pick a topic/);
       // The builder is one ghost button away, not a rail row.
       expect(byName(container, '.pb-ghost-btn', 'Build a custom drill')).toBeTruthy();
-    } finally { unmount(); }
-  });
-
-  it('falls back to "Your Practice Bank" with no user', () => {
-    const { container, unmount } = mountBank();
-    try {
-      expect(container.querySelector('h1').textContent).toBe('Your Practice Bank');
     } finally { unmount(); }
   });
 });

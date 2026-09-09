@@ -163,44 +163,33 @@
   .pb-rail { position: static; }
 }
 
-/* ── Title bar ─────────────────────────────────────────────────────────── */
+/* ── Page head — the library-tab title (Videos 42 / Learn 38 / here 38),
+      not the Study Plan's avatar bar. ───────────────────────────────────── */
 .pb-titlebar {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 20px;
+  gap: 24px;
   flex-wrap: wrap;
 }
 .pb-titlebar-id {
-  display: flex;
-  align-items: center;
-  gap: 13px;
   min-width: 0;
 }
 .pb-title {
   margin: 0;
   font-family: var(--pb-font-display);
-  font-weight: 700;
-  font-size: 29px;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
+  font-weight: 800;
+  font-size: 38px;
+  letter-spacing: -0.025em;
+  line-height: 1;
   color: var(--pb-text);
 }
-.pb-title-meta {
-  font-size: 13.5px;
+.pb-title-sub {
+  margin: 12px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
   color: var(--pb-text-2);
-  margin-top: 3px;
-  line-height: 1.4;
-}
-.pb-title-meta strong {
-  color: var(--pb-text);
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-}
-.pb-title-meta span + span::before {
-  content: '·';
-  margin: 0 7px;
-  color: var(--pb-text-3);
+  max-width: 540px;
 }
 
 .pb-ghost-btn {
@@ -757,7 +746,8 @@
 }
 
 @media (max-width: 720px) {
-  .pb-title { font-size: 25px; }
+  .pb-title { font-size: 30px; }
+  .pb-title-sub { font-size: 14.5px; margin-top: 10px; }
   .pb-day { padding: 20px 18px 6px; border-radius: 18px; }
   .pb-dayhead { gap: 10px; }
   .pb-search { margin-left: 0; width: 100%; }

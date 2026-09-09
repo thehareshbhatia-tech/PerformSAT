@@ -2673,7 +2673,6 @@ const PerformSAT = () => {
         {/* Practice Bank — browse question types and drill at will */}
         {view === 'practiceBank' && (
           <PracticeBank
-            user={user}
             onStartPractice={startAssignedPractice}
             onStartAdaptive={startAdaptivePractice}
             bankPractice={bankPractice}
