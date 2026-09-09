@@ -16,6 +16,7 @@ import {
   CB_MATH_DOMAIN_LABELS,
   CB_RW_DOMAIN_LABELS,
   CB_RW_SKILLS,
+  CB_DOMAIN_DESCRIPTIONS,
   PATTERN_TO_CB_SKILL,
 } from '../data/questions/cbSkillTaxonomy';
 import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
@@ -26,7 +27,7 @@ import { composeCustomPool } from '../services/selectors/customDrillPool';
 import { getWeaknessSection } from '../services/selectors/weaknesses';
 import './PracticeBank.css';
 
-// "For you" recommendation kinds → eyebrow copy + tri-color tone. Orange = the
+// "Suggested" recommendation kinds → row eyebrow copy + tri-color tone. Orange = the
 // action to take now (revisit misses), purple = focus from the last test, navy =
 // neutral new ground. Green stays reserved for strength/done.
 const FORYOU_KINDS = {
@@ -34,7 +35,7 @@ const FORYOU_KINDS = {
   'test-weakness': { eyebrow: 'From your last test', tone: 'purple' },
   'new-territory': { eyebrow: 'New territory', tone: 'navy' },
 };
-// A "For you" row navigates: it selects the rec's domain and applies the filter
+// A "Suggested" row navigates: it selects the rec's domain and applies the filter
 // that matches its kind (test-weakness marks the weak topic rows instead).
 const FORYOU_POOL = { 'fix-misses': 'missed', 'new-territory': 'unseen' };
 const FORYOU_MAX = 2;
@@ -286,37 +287,20 @@ const TopicRing = ({ seen, strong, pct, band }) => {
   );
 };
 
-/**
- * One human sentence per topic, in the study plan's because-line voice: name
- * the number, then name what one set would do about it. Every figure comes
- * from `masteryForIds` / the static E-M-H breakdown — nothing is invented.
- */
-function topicSentence(breakdown, m, seen) {
-  if (!seen) {
-    const warm = breakdown.easy > 0 ? `, ${breakdown.easy} of them easy to warm up on` : ' to open up';
-    return `Fresh ground — ${fmt(breakdown.all)} questions${warm}.`;
-  }
-  if (m.band === MASTERY_BANDS.STRONG) {
-    return `You're strong here at ${m.accuracy}% — one short set keeps it that way.`;
-  }
-  if (m.band === MASTERY_BANDS.FOCUS) {
-    return m.accuracy < 50
-      ? `You're at ${m.accuracy}% here — this is where points are hiding. Start easy, then climb.`
-      : `You're at ${m.accuracy}% here — real footing, not yet reliable. One focused set moves it from coin-flip to counted-on.`;
-  }
-  return (m.accuracy != null ? `You've tried ${m.practiced} here at ${m.accuracy}% — a few more make it a real read.` : `You've tried ${m.practiced} here. Too early to call — one set gives it a shape.`);
-}
-
 // ────────────────────────────────────────────────────────────────────────────
 // PracticeBank — a question-bank NAVIGATOR wearing the Study Plan's clothes
-// (2026-09-07 reskin). Main column: personal title bar, section tabs with count
-// badges, four domain cards, then one white "day card" holding the domain's
-// coach line, filters and topics — each topic a session card (progress ring ·
-// title · one sentence · chips · orange Start/Continue). Grammar question types
-// hang under a card as the "rounds" list. Right rail (340px, sticky): resume,
-// Start practice, For you, pastel stat tiles. Search replaces the day card's
-// body with grouped matches; the custom-drill builder stays behind the title
-// bar's "Build a custom drill" ghost button. Behaviour is unchanged from the
+// (2026-09-07 reskin) in the library's voice (2026-09-09). Main column: the
+// library head (title · one subtitle · Build a custom drill), section tabs
+// with count badges, four domain cards, then one white "day card" holding the
+// domain's neutral description, filters and topics — each topic a session card
+// (progress ring · title · one neutral description · chips · orange
+// Start/Continue). Grammar question types hang under a card as the "rounds"
+// list. Right rail (340px, sticky): resume, Start practice, Suggested, pastel
+// stat tiles. The student's own numbers appear only as chips, rings and rail
+// tiles, never as sentences addressed to them: the bank is a shared catalog,
+// not a personal page (founder, 2026-09-08/09). Search replaces the day card's
+// body with grouped matches; the custom-drill builder stays behind the head's
+// "Build a custom drill" ghost button. Behaviour is unchanged from the
 // navigator — this is a design pass over the same flows and launch semantics.
 // ────────────────────────────────────────────────────────────────────────────
 const PracticeBank = ({
@@ -931,7 +915,7 @@ const PracticeBank = ({
           <h3 className="pb-c-title">{skill.label}</h3>
         </div>
         <p className="pb-c-sub">
-          {dim ? 'Nothing here under these filters.' : topicSentence(breakdown, m, seen)}
+          {dim ? 'Nothing here under these filters.' : skill.description}
         </p>
         <div className="pb-c-row">
           <div className="pb-c-chips">
@@ -987,25 +971,11 @@ const PracticeBank = ({
   const allZero = !searching && filtersActive && paneRows.length > 0
     && paneRows.every(s => (topicFiltered.get(s.slug) ?? 0) === 0);
 
-  // The domain's coach line — the study plan's "here's where you actually are"
-  // paragraph. Also carries the first-visit copy, so there is one voice above
-  // the topics instead of a stack of notices.
-  const domainMastery = masteryByKey.get(`domain:${selectedDomain}`) || EMPTY_MASTERY;
-  const domainTally = domainTallies.get(selectedDomain) || { strongCount: 0, focusCount: 0 };
+  // The domain's one-line description: what the domain covers and its share
+  // of the section, from the taxonomy. It never changes with the student's
+  // history; their numbers live in the chips, rings and rail tiles.
   const domainName = selectedCat?.label || sectionLabel;
-  const coachLine = (() => {
-    if (!progressHydrated || domainMastery.practiced === 0 || domainMastery.accuracy == null) {
-      return `No history in ${domainName} yet. Start easy, then climb — or let Start practice pick for you.`;
-    }
-    const head = `You're at ${domainMastery.accuracy}% across ${domainMastery.practiced} practiced in ${domainName}`;
-    if (domainTally.focusCount > 0) {
-      return `${head} — ${domainTally.focusCount} topic${domainTally.focusCount === 1 ? ' is' : 's are'} one set away from solid.`;
-    }
-    if (domainTally.strongCount > 0) {
-      return `${head} — ${domainTally.strongCount} strong; keep it warm.`;
-    }
-    return `${head} — early yet; one set at a time.`;
-  })();
+  const domainDescription = CB_DOMAIN_DESCRIPTIONS[selectedDomain] || '';
 
   // Rail stat tile: the week count when the records carry timestamps, the
   // lifetime count (relabelled) when they don't.
@@ -1150,7 +1120,7 @@ const PracticeBank = ({
                 )}
               </div>
 
-              {!searching && <p className="pb-coach">{coachLine}</p>}
+              {!searching && domainDescription && <p className="pb-desc">{domainDescription}</p>}
 
               <div className="pb-filters">
                 <div className="pb-fgroup" role="radiogroup" aria-label="Difficulty">
@@ -1231,7 +1201,7 @@ const PracticeBank = ({
             </section>
           </div>
 
-          {/* ── Right rail — launchers, For you, pastel stat tiles ───────── */}
+          {/* ── Right rail — launchers, Suggested, pastel stat tiles ─────── */}
           <aside className="pb-rail" aria-label="Practice bank summary">
 
             {showResume && (
@@ -1251,7 +1221,7 @@ const PracticeBank = ({
             )}
 
             <div className="pb-tile is-plain">
-              <div className="pb-tile-eyebrow">Picked for you</div>
+              <div className="pb-tile-eyebrow">Adaptive set</div>
               <div className="pb-tile-title">Start practice</div>
               <div className="pb-tile-sub">{DRILL_COUNT_PER_DOMAIN} questions · about 25 min</div>
               <div className="pb-tile-acts">
@@ -1266,7 +1236,7 @@ const PracticeBank = ({
 
             {foryouRecs.length > 0 && (
               <div className="pb-tile is-foryou">
-                <div className="pb-tile-eyebrow">For you</div>
+                <div className="pb-tile-eyebrow">Suggested</div>
                 <div className="pb-rec-list">
                   {foryouRecs.map((rec) => {
                     const meta = FORYOU_KINDS[rec.kind];
@@ -1308,7 +1278,7 @@ const PracticeBank = ({
                   <div className="pb-tile is-exam">
                     <div className="pb-tile-eyebrow">Focus topics</div>
                     <div className="pb-tile-num">{sectionTally.focusCount}</div>
-                    <div className="pb-tile-sub">one set away each</div>
+                    <div className="pb-tile-sub">under 60% accuracy</div>
                   </div>
                 </div>
               </>

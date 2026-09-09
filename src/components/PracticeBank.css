@@ -364,7 +364,7 @@
   font-variant-numeric: tabular-nums;
   flex: none;
 }
-.pb-coach {
+.pb-desc {
   color: var(--pb-text-2);
   font-size: 14.5px;
   line-height: 1.55;
