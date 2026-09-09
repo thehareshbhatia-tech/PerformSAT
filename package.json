@@ -5,7 +5,7 @@
   "dependencies": {
     "@dataconnect/generated": "file:src/dataconnect-generated",
     "@sentry/react": "^10.57.0",
-    "firebase": "^10.7.1",
+    "firebase": "^12.0.0",
     "katex": "^0.16.28",
     "posthog-js": "^1.399.0",
     "react": "^18.2.0",
@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.95.0",
-    "@firebase/rules-unit-testing": "^3.0.4",
+    "@firebase/rules-unit-testing": "^5.0.1",
     "@playwright/test": "^1.59.1",
     "firebase-admin": "^14.0.0"
   },
