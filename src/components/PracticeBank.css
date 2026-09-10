@@ -1,15 +1,23 @@
 /* src/components/PracticeBank.css
  * ============================================================================
- * Practice Bank — Study-Plan reskin (2026-09-07).
+ * Practice Bank — Study-Plan clothes, library voice, domain tiles.
  *
- * The founder's read: the Study Plan is "nice, easy, and fun to use"; the
- * question bank was "still not playful enough". So this screen now speaks the
- * Study Plan's language exactly — a personal title bar (avatar + "Haresh's
- * Practice Bank"), simple underline tabs with count badges, one white "day
- * card" holding the domain's topics as session cards (progress ring · 18px
- * Bricolage title · one human sentence · uppercase chips · big orange Start
- * button), grammar types as the "rounds" list under a card, and a 340px sticky
- * right rail of pastel tiles.
+ * 2026-09-07: the founder's read was that the Study Plan is "nice, easy, and
+ * fun to use" and the question bank "still not playful enough", so this screen
+ * borrowed the Study Plan's language: underline tabs with count badges, one
+ * white "day card" holding the domain's topics as session cards (progress
+ * ring · 18px Bricolage title · one sentence · uppercase chips · big orange
+ * Start button), grammar types as the "rounds" list, a 340px sticky rail of
+ * pastel tiles.
+ * 2026-09-08/09: but "the question bank does not need this level of
+ * personalization" — so the head is the library title (no avatar, no name),
+ * and every sentence is catalog copy from the taxonomy, never addressed to
+ * the student.
+ * 2026-09-09: "this MUST be more engaging" — the four domain cards became
+ * tiles (tinted icon badge, the count as the display number, one pip per
+ * topic in the tri-color bands, focus/strong chips; selected = orange border
+ * on a warm surface) and the filter chips became two segmented controls (beige
+ * track, chosen segment in ink, signal bars for Easy/Medium/Hard).
  *
  * Structure: .pb-grid = .pb-main + .pb-rail (two columns ≥1180px, one below).
  * Fonts + palette are scoped to .pb-screen; --pb-* mirrors the Study Plan's
@@ -20,7 +28,9 @@
  *     action language (this supersedes the older "no shadows here" rule).
  *   - Meta text never below 13px (uppercase 700 eyebrows/chips are 11-12px, as
  *     on the Study Plan); --pb-meta is the AA ink for gray copy.
- *   - Radii: 13px buttons, 22px day card / 20px tiles, 999px pills.
+ *   - Radii: 13px buttons, 22px day card / 20px tiles, 18px domain tiles, 999px pills.
+ *   - Tints on the domain tiles are identity (by position); chips and pips keep
+ *     the tri-color semantics: green = strong, purple = focus, orange = in progress.
  *   - No emojis anywhere — SVG icons only.
  * ========================================================================== */
 
@@ -39,6 +49,9 @@
   --pb-orange-text: #C2410C;
   --pb-orange-tint: rgba(234, 88, 12, 0.10);
   --pb-orange-line: rgba(234, 88, 12, 0.55);
+  --pb-orange-surface: #FFF6F0;
+  --pb-tile-peach: #FDE8DC;
+  --pb-tile-peach-ink: #9A3412;
   --pb-on-orange: #FFFFFF;
   --pb-scrim: rgba(10, 12, 20, 0.5);
   --pb-purple: #6B4E9E;
@@ -86,6 +99,9 @@
   --pb-orange-text: #F2733F;
   --pb-orange-tint: rgba(242, 115, 63, 0.16);
   --pb-orange-line: rgba(242, 115, 63, 0.6);
+  --pb-orange-surface: rgba(242, 115, 63, 0.12);
+  --pb-tile-peach: #3A1F14;
+  --pb-tile-peach-ink: #F5B08C;
   --pb-on-orange: #0B0E1A;
   --pb-scrim: rgba(0, 0, 0, 0.62);
   --pb-purple: #A98BE5;
@@ -235,7 +251,7 @@
   font-family: var(--pb-font-body);
   color: var(--pb-text-3);
   font-weight: 700;
-  font-size: 14.5px;
+  font-size: 15.5px;
   cursor: pointer;
 }
 .pb-tab:hover { color: var(--pb-text-2); }
@@ -244,6 +260,7 @@
   border-bottom: 2px solid var(--pb-orange);
   margin-bottom: -1px;
 }
+.pb-tab.is-active .pb-tab-count { background: var(--pb-orange-tint); color: var(--pb-orange-text); }
 .pb-tab-count {
   background: var(--pb-surface-2);
   color: var(--pb-text-2);
@@ -254,7 +271,11 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* ── Domain chooser — four white cards ─────────────────────────────────────
+/* ── Domain chooser — four tiles ───────────────────────────────────────────
+ * Each domain is a tile: a tinted icon badge (identity: blue / lavender /
+ * lime / peach by position), the name, the question count as the display
+ * number, one pip per topic coloured by its band (tri-color semantics), and
+ * the focus/strong chips. Selected = orange border on a warm surface.
  * Wrapped in a single minmax(0,1fr) grid track: a horizontal scroll container
  * still reports its content's min-content width upward, which used to widen the
  * whole page to ~696px on a phone. The track (plus contain: inline-size below)
@@ -275,26 +296,42 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: 5px;
   min-width: 0;
   text-align: left;
   background: var(--pb-surface);
   border: 1px solid var(--pb-line);
-  border-radius: 16px;
-  padding: 15px 16px;
+  border-radius: 18px;
+  padding: 15px 16px 14px;
   cursor: pointer;
   font-family: var(--pb-font-body);
-  transition: border-color 120ms ease, background 120ms ease;
+  transition: border-color 120ms ease, background 120ms ease, transform 120ms ease;
 }
-.pb-dcard:hover { border-color: var(--pb-line-strong); }
+.pb-dcard:hover { border-color: var(--pb-line-strong); transform: translateY(-1px); }
 .pb-dcard.is-on {
   border: 2px solid var(--pb-orange);
-  padding: 14px 15px;
+  background: var(--pb-orange-surface);
+  padding: 14px 15px 13px;
 }
+.pb-dcard.t-blue     { --pb-dtint: var(--pb-tile-score); --pb-dink: var(--pb-tile-score-ink); }
+.pb-dcard.t-lavender { --pb-dtint: var(--pb-tile-exam);  --pb-dink: var(--pb-tile-exam-ink); }
+.pb-dcard.t-lime     { --pb-dtint: var(--pb-tile-goal);  --pb-dink: var(--pb-tile-goal-ink); }
+.pb-dcard.t-peach    { --pb-dtint: var(--pb-tile-peach); --pb-dink: var(--pb-tile-peach-ink); }
+.pb-dcard-top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  width: 100%; gap: 10px; margin-bottom: 6px;
+}
+.pb-dcard-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 13px; flex: none;
+  background: var(--pb-dtint); color: var(--pb-dink);
+}
+.pb-dcard-pips { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 3px; max-width: 62%; padding-top: 4px; }
+.pb-pip { display: block; width: 14px; height: 5px; border-radius: 999px; background: var(--pb-neutral-bar); opacity: 0.5; }
+.pb-pip.is-learning { background: var(--pb-orange); opacity: 1; }
+.pb-pip.is-focus    { background: var(--pb-purple); opacity: 1; }
+.pb-pip.is-strong   { background: var(--pb-done);   opacity: 1; }
 .pb-dcard-name {
-  display: flex;
-  align-items: center;
-  gap: 7px;
   font-family: var(--pb-font-display);
   font-weight: 700;
   font-size: 16px;
@@ -302,18 +339,21 @@
   letter-spacing: -0.01em;
   color: var(--pb-text);
 }
-.pb-dcard.is-on .pb-dcard-name::before {
-  content: '';
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--pb-orange);
-  flex: none;
-}
 .pb-dcard-count {
-  font-size: 13px;
+  display: flex; align-items: baseline; gap: 5px;
+  font-size: 12.5px;
   color: var(--pb-meta);
   font-variant-numeric: tabular-nums;
 }
-.pb-dcard-tally { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.pb-dcard-count b {
+  font-family: var(--pb-font-display);
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--pb-text);
+}
+.pb-dcard-tally { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 3px; }
 .pb-dchip {
   display: inline-flex;
   align-items: center;
@@ -413,26 +453,36 @@
 
 /* ── Filter chips (Study Plan chip look) ───────────────────────────────── */
 .pb-filters {
-  display: flex; gap: 18px; flex-wrap: wrap;
-  margin: 0 0 6px; padding: 0 0 16px;
+  display: flex; gap: 12px 22px; flex-wrap: wrap; align-items: center;
+  margin: 0 0 4px; padding: 0 0 14px;
   border-bottom: 1px solid var(--pb-line);
 }
-.pb-fgroup { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; min-width: 0; }
+.pb-fgroup { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-width: 0; }
 .pb-fgroup-label {
   font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--pb-text-3); margin-right: 4px;
+  color: var(--pb-text-3); margin-right: 2px;
+}
+/* Segmented control: a beige track, the chosen segment in ink */
+.pb-ftrack {
+  display: inline-flex; align-items: center; gap: 2px;
+  background: var(--pb-surface-2); border-radius: 12px; padding: 3px;
+  max-width: 100%;
 }
 .pb-fchip {
-  display: inline-flex; align-items: center;
-  background: var(--pb-surface-2); border: none; border-radius: 8px;
-  padding: 7px 12px; min-height: 36px;
+  display: inline-flex; align-items: center; gap: 6px;
+  background: transparent; border: none; border-radius: 9px;
+  padding: 0 12px; min-height: 32px;
   font-family: var(--pb-font-body); font-weight: 700; font-size: 12px;
   letter-spacing: 0.04em; text-transform: uppercase; color: var(--pb-text-2);
   cursor: pointer; transition: background 120ms ease, color 120ms ease;
 }
-.pb-fchip:hover:not(:disabled) { background: #EAE6DC; }
-.pb-fchip.is-on { background: var(--pb-orange-tint); color: var(--pb-orange-text); }
+.pb-fchip:hover:not(:disabled):not(.is-on) { background: rgba(19, 22, 28, 0.06); color: var(--pb-text); }
+.pb-fchip.is-on { background: var(--pb-navy); color: #FFFFFF; }
 .pb-fchip:disabled { opacity: 0.4; cursor: not-allowed; }
+.pb-bars { flex: none; }
+.pb-bars rect { fill: currentColor; opacity: 0.3; }
+.pb-bars rect.is-lit { opacity: 1; }
+.pb-fico { width: 12px; height: 12px; flex: none; }
 
 /* ── Topic cards (the Study Plan session card, 1:1) ────────────────────── */
 .pb-list { display: flex; flex-direction: column; }
@@ -642,7 +692,7 @@
 @media (prefers-reduced-motion: reduce) {
   .pb-modal-backdrop, .pb-modal { animation: none; }
   .pb-screen, .pb-screen * { transition: none !important; }
-  .pb-c-btn:hover { transform: none; }
+  .pb-c-btn:hover, .pb-dcard:hover { transform: none; }
 }
 
 .pb-builder {
@@ -743,6 +793,9 @@
   }
   .pb-dcard { flex: none; width: 170px; scroll-snap-align: start; border-radius: 14px; }
   .pb-dcard-name { font-size: 14.5px; }
+  .pb-dcard-badge { width: 34px; height: 34px; border-radius: 11px; }
+  .pb-dcard-count b { font-size: 21px; }
+  .pb-pip { width: 11px; height: 4px; }
 }
 
 @media (max-width: 720px) {
@@ -757,6 +810,9 @@
   .pb-c-btn { width: 100%; justify-content: center; }
   .pb-tabs { gap: 18px; }
   .pb-tile-pair { gap: 12px; }
+  .pb-filters { gap: 12px 16px; }
+  /* Both labels sit above their track on a phone, so the two rows match. */
+  .pb-fgroup { flex-direction: column; align-items: flex-start; gap: 6px; }
 }
 
 /* Sticky resume bar above the bottom tab bar (the shell renders that bar only

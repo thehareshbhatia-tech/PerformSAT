@@ -254,6 +254,58 @@ const Arrow = ({ size = 15 }) => (
 const Search = () => (<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>);
 const Close = () => (<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>);
 
+// ── Domain tiles ─────────────────────────────────────────────────────────────
+// One line icon per College Board domain, drawn in the app's 24-grid stroke
+// style (SVG only — never emojis). The tint rotates blue / lavender / lime /
+// peach by position, so each section's four cards read as four tiles; the
+// tints are identity, while the chips and pips keep the tri-color semantics
+// (green = strong, purple = focus, orange = in progress).
+const DOMAIN_TINT = {
+  algebra: 't-blue', 'advanced-math': 't-lavender', 'problem-solving': 't-lime', geometry: 't-peach',
+  'information-and-ideas': 't-blue', 'craft-and-structure': 't-lavender',
+  'standard-english-conventions': 't-lime', 'expression-of-ideas': 't-peach',
+};
+const ICON_PROPS = {
+  width: 22, height: 22, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor',
+  strokeWidth: 1.9, strokeLinecap: 'round', strokeLinejoin: 'round', 'aria-hidden': true,
+};
+const DOMAIN_ICONS = {
+  // axes + a rising line
+  algebra: () => (<svg {...ICON_PROPS}><path d="M4 4v16h16" /><path d="m7 16 9-8" /><circle cx="17" cy="7.5" r="1.5" fill="currentColor" stroke="none" /></svg>),
+  // axes + a parabola
+  'advanced-math': () => (<svg {...ICON_PROPS}><path d="M4 4v16h16" /><path d="M7 7c1.2 9 8.8 9 10 0" /></svg>),
+  // bar chart
+  'problem-solving': () => (<svg {...ICON_PROPS}><rect x="4" y="12" width="4" height="8" rx="1" /><rect x="10" y="5" width="4" height="15" rx="1" /><rect x="16" y="9" width="4" height="11" rx="1" /></svg>),
+  // right triangle with its right-angle mark
+  geometry: () => (<svg {...ICON_PROPS}><path d="M4 20h16L4 6z" /><path d="M4 15h5v5" /></svg>),
+  // lightbulb
+  'information-and-ideas': () => (<svg {...ICON_PROPS}><path d="M9 18h6" /><path d="M10 21h4" /><path d="M12 3a6 6 0 0 0-4 10.5c.6.6 1 1.4 1 2.3V16h6v-.2c0-.9.4-1.7 1-2.3A6 6 0 0 0 12 3z" /></svg>),
+  // layers
+  'craft-and-structure': () => (<svg {...ICON_PROPS}><path d="m12 3 8.5 4.5L12 12 3.5 7.5 12 3z" /><path d="m3.5 12 8.5 4.5 8.5-4.5" /><path d="m3.5 16.5 8.5 4.5 8.5-4.5" /></svg>),
+  // pen over a line
+  'standard-english-conventions': () => (<svg {...ICON_PROPS}><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" /></svg>),
+  // speech bubble
+  'expression-of-ideas': () => (<svg {...ICON_PROPS}><path d="M21 12a8 8 0 0 1-8 8H8l-5 3V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z" /></svg>),
+};
+const DomainIcon = ({ domain }) => { const Icon = DOMAIN_ICONS[domain]; return Icon ? <Icon /> : null; };
+
+// Filter segment glyphs: one to three signal bars for Easy / Medium / Hard, a
+// dashed circle for Unseen (the topic ring's "not started"), a crossed circle
+// for Missed. Decorative — the segment's text carries the meaning.
+const DIFF_BARS = { easy: 1, medium: 2, hard: 3 };
+const Bars = ({ n }) => (
+  <svg className="pb-bars" width="12" height="10" viewBox="0 0 12 10" aria-hidden="true">
+    {[0, 1, 2].map(i => (
+      <rect key={i} x={i * 4.5} y={7 - i * 3} width="3" height={3 + i * 3} rx="0.8" className={i < n ? 'is-lit' : undefined} />
+    ))}
+  </svg>
+);
+const POOL_GLYPH = {
+  unseen: () => (<svg className="pb-fico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8" strokeDasharray="4.2 3.4" /></svg>),
+  missed: () => (<svg className="pb-fico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8" /><path d="m9 9 6 6M15 9l-6 6" /></svg>),
+};
+const PoolGlyph = ({ pool }) => { const G = POOL_GLYPH[pool]; return G ? <G /> : null; };
+
 /**
  * TopicRing — the session card's left circle. Unseen topics get the Study
  * Plan's dashed static circle; a practiced topic gets a 20px coverage ring
@@ -1054,12 +1106,24 @@ const PracticeBank = ({
                       aria-selected={on}
                       aria-controls="pb-pane"
                       tabIndex={on ? 0 : -1}
-                      className={`pb-dcard${on ? ' is-on' : ''}`}
+                      className={`pb-dcard ${DOMAIN_TINT[cat.domain] || 't-blue'}${on ? ' is-on' : ''}`}
                       onClick={() => selectDomain(cat.domain)}
                     >
+                      <span className="pb-dcard-top">
+                        <span className="pb-dcard-badge"><DomainIcon domain={cat.domain} /></span>
+                        {/* One pip per topic, coloured by its band once history has loaded. */}
+                        <span className="pb-dcard-pips" aria-hidden="true">
+                          {(cat.cbSkills || []).map((s) => {
+                            const band = progressHydrated ? (masteryByKey.get(`topic:${s.slug}`) || EMPTY_MASTERY).band : MASTERY_BANDS.UNSEEN;
+                            return <i key={s.slug} className={`pb-pip is-${band}`} />;
+                          })}
+                        </span>
+                      </span>
                       <span className="pb-dcard-name">{cat.label}</span>
                       <span className="pb-dcard-count">
-                        {matches != null ? `${matches} matching` : `${fmt(cat.total)} questions`}
+                        {matches != null
+                          ? <><b>{matches}</b> matching</>
+                          : <><b>{fmt(cat.total)}</b> questions</>}
                       </span>
                       {showTally && (
                         <span className="pb-dcard-tally">
@@ -1125,6 +1189,7 @@ const PracticeBank = ({
               <div className="pb-filters">
                 <div className="pb-fgroup" role="radiogroup" aria-label="Difficulty">
                   <span className="pb-fgroup-label" aria-hidden="true">Difficulty</span>
+                  <span className="pb-ftrack">
                   {DIFFICULTY_CHIPS.map(({ key, label }) => {
                     const on = difficulty === key;
                     const n = chipCounts.byDifficulty[key];
@@ -1142,13 +1207,16 @@ const PracticeBank = ({
                         onClick={() => setDifficulty(key)}
                         onKeyDown={(e) => onChipKeyDown(e, chips, difficulty, setDifficulty)}
                       >
+                        {DIFF_BARS[key] && <Bars n={DIFF_BARS[key]} />}
                         {label}
                       </button>
                     );
                   })}
+                  </span>
                 </div>
                 <div className="pb-fgroup" role="radiogroup" aria-label="Show">
                   <span className="pb-fgroup-label" aria-hidden="true">Show</span>
+                  <span className="pb-ftrack">
                   {PANE_POOL_CHIPS.map(({ key, label }) => {
                     const on = pool === key;
                     const n = chipCounts.byPool[key];
@@ -1166,10 +1234,12 @@ const PracticeBank = ({
                         onClick={() => setPool(key)}
                         onKeyDown={(e) => onChipKeyDown(e, chips, pool, setPool)}
                       >
+                        <PoolGlyph pool={key} />
                         {label}
                       </button>
                     );
                   })}
+                  </span>
                 </div>
               </div>
 

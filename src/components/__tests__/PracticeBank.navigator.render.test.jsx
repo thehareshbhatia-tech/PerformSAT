@@ -351,6 +351,57 @@ describe('Reading & Writing', () => {
   });
 });
 
+describe('domain tiles', () => {
+  it('each domain card carries an icon badge, the count as the display number, and one pip per topic', () => {
+    const { container, unmount } = mountBank();
+    try {
+      const tiles = qa(container, '.pb-dcard');
+      expect(tiles.length).toBe(4);
+      for (const t of tiles) {
+        expect(t.querySelector('.pb-dcard-badge svg')).toBeTruthy();
+        expect(t.querySelector('.pb-dcard-count b').textContent).toMatch(/^[\d,]+$/);
+        expect(t.querySelector('.pb-dcard-count').textContent).toMatch(/^[\d,]+ questions$/);
+        expect(t.className).toMatch(/\bt-(blue|lavender|lime|peach)\b/);
+      }
+      // Pips = topics: Algebra lists five, all unseen with no history.
+      const algebra = railTab(container, 'algebra');
+      const pips = qa(algebra, '.pb-pip');
+      expect(pips.length).toBe(qa(container, '.pb-card').length);
+      pips.forEach(p => expect(p.classList.contains('is-unseen')).toBe(true));
+    } finally { unmount(); }
+  });
+
+  it('pips take the topic band once history has loaded, and stay neutral before it', () => {
+    const ids = getQuestionsByCBSkill('linear-systems').filter(isDrillable).slice(0, 5).map(q => q.id);
+    const bankPractice = practiced(ids, true);
+    const warm = mountBank({ bankPractice });
+    try {
+      const pips = qa(railTab(warm.container, 'algebra'), '.pb-pip');
+      expect(pips.filter(p => p.classList.contains('is-strong')).length).toBe(1);
+      expect(pips.filter(p => p.classList.contains('is-unseen')).length).toBe(pips.length - 1);
+    } finally { warm.unmount(); }
+    const cold = mountBank({ bankPractice, progressHydrated: false });
+    try {
+      qa(railTab(cold.container, 'algebra'), '.pb-pip').forEach(p => expect(p.classList.contains('is-unseen')).toBe(true));
+    } finally { cold.unmount(); }
+  });
+
+  it('the filter segments keep their radio semantics inside the track', () => {
+    const { container, unmount } = mountBank();
+    try {
+      const track = container.querySelector('[role="radiogroup"][aria-label="Difficulty"] .pb-ftrack');
+      expect(qa(track, '[role="radio"]').length).toBe(4);
+      expect(chip(container, 'Difficulty', 'Hard').querySelectorAll('.pb-bars rect.is-lit').length).toBe(3);
+      expect(chip(container, 'Difficulty', 'Easy').querySelectorAll('.pb-bars rect.is-lit').length).toBe(1);
+      expect(chip(container, 'Difficulty', 'All').querySelector('.pb-bars')).toBeNull();
+      expect(chip(container, 'Show', 'Missed').querySelector('.pb-fico')).toBeTruthy();
+      click(chip(container, 'Difficulty', 'Hard'));
+      expect(chip(container, 'Difficulty', 'Hard').classList.contains('is-on')).toBe(true);
+      expect(chip(container, 'Difficulty', 'Hard').getAttribute('aria-checked')).toBe('true');
+    } finally { unmount(); }
+  });
+});
+
 describe('right rail', () => {
   it('hides the stat tiles with no history and shows them once there is', () => {
     const cold = mountBank();
