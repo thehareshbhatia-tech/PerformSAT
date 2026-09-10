@@ -1,19 +1,5 @@
 # TODOS
 
-## Landing v2 capture pass — product gaps noticed on the emulator (2026-09-09)
-
-- **[P2/S] Diagnostic sentence never renders on drills launched from the simplified Study Plan.**
-  `AssignedPracticeShell` renders `.aps-diagnostic-sentence` only when `assignmentMeta.weakness` is
-  set; the Today's-tasks Start button does not pass it, and the one launcher that did
-  (`.sp-module-btn`, `StudyPlanDashboard.jsx` ~1457) no longer exists on the simplified plan. So the
-  italic "why you missed it" sentence is effectively dead on the production drill path. Fix: thread the
-  session's weakness into `assignmentMeta` from the Today/This-week card launch. Found while capturing
-  `public/showcase/drill` (2026-09-09).
-- **[P3/S] Drill mount logs a repeating 401 on the emulator.** Every AssignedPracticeShell mount fires a
-  callable that the auth/firestore-only emulator suite rejects (no functions emulator). Harmless locally,
-  but confirm prod is quiet and gate the call behind the functions flag, or start the functions emulator
-  in `dev:emulator`.
-
 ## QA sweep — deferred low-severity findings (2026-08-04)
 
 From the /qa sweep of the onboarding/billing batch (9 med/high bugs fixed in

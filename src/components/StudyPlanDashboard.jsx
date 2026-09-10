@@ -11,7 +11,7 @@ import { getWeaknessSection, getMathWeaknesses, getRWWeaknesses } from '../servi
 import { activitySection, matchesSectionFilter, SECTION_FILTERS } from '../services/selectors/planSection';
 import { DOMAIN_DISPLAY_NAMES } from '../services/scoring/domainInference';
 import { CB_RW_DOMAIN_LABELS } from '../data/questions/cbSkillTaxonomy';
-import { resolveActivityDrill } from '../services/activityDrillRouter';
+import { resolveActivityDrill, pickModuleWeakness } from '../services/activityDrillRouter';
 import { applyPredictionBoost } from '../services/selectors/predictionBoost';
 import { annotateFocusAreas } from '../services/selectors/focusAreaProgress';
 import { getDrillChipForWeakness } from '../services/selectors/drillChip';
@@ -676,7 +676,11 @@ const StudyPlanLoaded = ({
         weakness: route.weakness,
       });
     } else if (route?.kind === 'module') {
-      onStartPractice(route.moduleId, route.sectionName);
+      // Legacy module/section cards: hand the launcher the matching weakness
+      // (if any) so the drill's diagnostic sentence has something to say.
+      onStartPractice(route.moduleId, route.sectionName, {
+        weakness: pickModuleWeakness(activity, weaknesses),
+      });
     } else {
       // Unroutable (no drill pool, no module) — say so instead of a dead click.
       showToast({ type: 'info', message: 'No drill set is available for this activity yet.' });

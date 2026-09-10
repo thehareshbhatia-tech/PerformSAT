@@ -9,7 +9,7 @@ import PredictedVsActualCard from './PredictedVsActualCard';
 import CalendarMonth from './CalendarMonth';
 import { countRemainingTodayTasks } from '../services/selectors/todaySlice';
 import { buildLivingDaySlice } from '../services/livingPlan';
-import { resolveActivityDrill } from '../services/activityDrillRouter';
+import { resolveActivityDrill, pickModuleWeakness } from '../services/activityDrillRouter';
 import { getSessionAdherence } from '../services/selectors/sessionAdherence';
 import { summarizePredictions } from '../services/selectors/predictionSummary';
 import { getPracticedDayKeys } from '../services/selectors/practicedDays';
@@ -516,8 +516,11 @@ const StudentDashboard = ({
         return;
       }
       if (route?.kind === 'module') {
-        // Legacy prescriptive shell — reachable as a FALLBACK only.
-        onStartPractice(route.moduleId, route.sectionName);
+        // Legacy prescriptive shell — reachable as a FALLBACK only. Hand it the
+        // matching weakness (if any) so the drill's diagnostic sentence renders.
+        onStartPractice(route.moduleId, route.sectionName, {
+          weakness: pickModuleWeakness(activity, Array.isArray(studyPlan?.weaknesses) ? studyPlan.weaknesses : []),
+        });
         return;
       }
       // Unroutable activity (no drill pool, no module) — never leave a dead

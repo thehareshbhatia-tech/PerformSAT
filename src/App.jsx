@@ -1278,7 +1278,7 @@ const PerformSAT = () => {
   };
 
   // Prescriptive practice - auto-selects difficulty based on performance
-  const startPrescriptivePractice = async (moduleId, sectionName) => {
+  const startPrescriptivePractice = async (moduleId, sectionName, opts = {}) => {
     if (!ensurePracticeAccess()) return;
     let getRandomQuestions;
     try {
@@ -1336,7 +1336,9 @@ const PerformSAT = () => {
         label: `${sectionName} Practice`,
         source: 'module-section',
         recommendedDifficulty: difficulty,
-        weakness: null,
+        // Legacy module/section plan cards pass the matching weakness so the
+        // feedback panel's diagnostic sentence renders (it was always null).
+        weakness: opts.weakness || null,
       },
     });
     setActiveModule(null);
@@ -2858,7 +2860,7 @@ const PerformSAT = () => {
                 });
                 return;
               }
-              startPrescriptivePractice(moduleId, sectionName);
+              startPrescriptivePractice(moduleId, sectionName, { weakness: opts?.weakness || null });
             }}
             onStartReview={startDailyReview}
             onStartPracticeTest={() => setView('practiceTests')}
@@ -3087,7 +3089,7 @@ const PerformSAT = () => {
               // startPrescriptivePractice (async) sets module/section/view
               // itself once questions load — no bare setView('practice')
               // here, or the view would flash empty before state populates.
-              startPrescriptivePractice(moduleId, sectionName);
+              startPrescriptivePractice(moduleId, sectionName, { weakness: opts?.weakness || null });
               setSelectedPracticeTest(null);
             }}
             onBack={() => {
@@ -3193,7 +3195,7 @@ const PerformSAT = () => {
               }
               // startPrescriptivePractice (async) sets module/section/view
               // itself once questions load.
-              startPrescriptivePractice(moduleId, sectionName);
+              startPrescriptivePractice(moduleId, sectionName, { weakness: opts?.weakness || null });
             }}
             onStartPracticeTest={() => setView('practiceTests')}
             onCompleteActivity={markStudyActivityComplete}
