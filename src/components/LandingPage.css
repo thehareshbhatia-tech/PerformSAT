@@ -659,3 +659,112 @@
   .lp-steps-line { transform: scaleX(1); transition: none; }
   .lp-featcard { animation: none; }
 }
+
+/* ============================================================================
+   landingV2 — "show, don't tell" (2026-09-09). Founder: "our website has a
+   bunch of bold statements but it does not SHOW what our website does."
+   The hero hands the visitor a real question (LandingTryIt) and the product
+   tour walks the real screens at readable size. Flag: ff:landingV2.
+   ========================================================================== */
+
+/* ── HERO v2: copy, then the try-it card on the cream ground ──────────── */
+.lp-hero.is-v2 { padding-bottom: 64px; }
+.lp-hero.is-v2 .lp-hero-inner.is-centered { padding-bottom: 6px; }
+.lp-hero-try { position: relative; padding: 0 32px; }
+
+/* ── TRY IT ───────────────────────────────────────────────────────────── */
+.lp-try {
+  max-width: 1100px; margin: 36px auto 0; text-align: left;
+  background: var(--lp-surface); border: 1px solid var(--lp-line-strong); border-radius: 20px;
+  box-shadow: var(--lp-shadow-lg); overflow: hidden;
+}
+.lp-try-bar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 12px 18px; background: var(--lp-navy); color: #fff; }
+.lp-try-bar-label { font-weight: 700; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: #F2865C; }
+.lp-try-tabs { display: flex; gap: 3px; background: rgba(255, 255, 255, .08); border-radius: 10px; padding: 3px; }
+.lp-try-tab {
+  display: inline-flex; align-items: center; gap: 7px; background: transparent; border: none; border-radius: 8px;
+  padding: 6px 11px; color: rgba(255, 255, 255, .72); font-family: var(--lp-body); font-weight: 600; font-size: 13px; cursor: pointer;
+}
+.lp-try-tab:hover { color: #fff; }
+.lp-try-tab.is-on { background: #fff; color: var(--lp-navy); }
+.lp-try-tab-short { display: none; }
+.lp-try-tab-n { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: rgba(255, 255, 255, .14); font-size: 11px; font-weight: 700; }
+.lp-try-tab.is-on .lp-try-tab-n { background: var(--lp-orange); color: #fff; }
+.lp-try-bar-meta { margin-left: auto; font-size: 13px; color: rgba(255, 255, 255, .7); }
+.lp-try-body { display: grid; grid-template-columns: 1fr; }
+.lp-try-body.has-passage { grid-template-columns: 1fr 1fr; }
+.lp-try-passage {
+  padding: 28px 30px; border-right: 1px solid var(--lp-line);
+  font-family: Georgia, 'Times New Roman', serif; font-size: 16.5px; line-height: 1.7; color: var(--lp-text);
+}
+.lp-try-q { padding: 28px 30px 22px; min-width: 0; }
+.lp-try-stem { font-size: 16.5px; line-height: 1.6; color: var(--lp-text); margin-bottom: 18px; }
+.lp-try-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 18px; }
+.lp-try-check:disabled { opacity: .45; cursor: not-allowed; filter: none; }
+.lp-try-verdict { display: inline-flex; align-items: center; border-radius: 999px; padding: 6px 12px; font-weight: 800; font-size: 12.5px; letter-spacing: .05em; text-transform: uppercase; }
+.lp-try-verdict.is-right { background: rgba(46, 158, 99, .12); color: #1B6E44; }
+.lp-try-verdict.is-wrong { background: var(--lp-orange-tint); color: #C2410C; }
+.lp-try-filed { font-size: 14px; color: var(--lp-text-2); }
+.lp-try-filed strong { color: var(--lp-text); }
+.lp-try-next {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 6px; background: none;
+  border: 1px solid var(--lp-line-strong); border-radius: 999px; padding: 8px 14px;
+  font-family: var(--lp-body); font-weight: 700; font-size: 13.5px; color: var(--lp-text); cursor: pointer;
+}
+.lp-try-next:hover { background: var(--lp-surface-2); }
+.lp-try-after { border-top: 1px solid var(--lp-line); background: var(--lp-inset); padding: 22px 30px 26px; display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 28px; }
+.lp-try-learn { background: var(--lp-purple-tint); border-radius: 14px; padding: 18px 18px 20px; align-self: start; }
+.lp-try-learn-eyebrow { display: block; font-weight: 700; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--lp-purple); margin-bottom: 8px; }
+.lp-try-learn p { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--lp-text); }
+.lp-try-expl { min-width: 0; }
+.lp-try-cta { grid-column: 1 / -1; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding-top: 4px; }
+.lp-try-cta-note { font-size: 13.5px; color: var(--lp-text-3); font-weight: 600; }
+@media (max-width: 900px) {
+  .lp-try-body.has-passage { grid-template-columns: 1fr; }
+  .lp-try-passage { border-right: none; border-bottom: 1px solid var(--lp-line); }
+  .lp-try-after { grid-template-columns: 1fr; }
+  .lp-try-bar-meta { display: none; }
+}
+@media (max-width: 560px) {
+  .lp-try-tab-long { display: none; }
+  .lp-try-tab-short { display: inline; }
+  .lp-try-tab { padding: 6px 9px; }
+  .lp-try-tabs { gap: 2px; }
+}
+@media (max-width: 620px) {
+  .lp-hero-try { padding: 0 20px; }
+  .lp-try { margin-top: 26px; border-radius: 14px; }
+  .lp-try-passage, .lp-try-q, .lp-try-after { padding-left: 18px; padding-right: 18px; }
+  .lp-try-next { margin-left: 0; }
+}
+
+/* ── PRODUCT TOUR ─────────────────────────────────────────────────────── */
+.lp-tour { max-width: 1200px; margin: 0 auto; padding: 88px 32px 40px; }
+.lp-tour-steps { display: flex; flex-direction: column; gap: 84px; margin-top: 60px; }
+/* Copy row (lead left, bullets right) above a full-width frame, so the real
+   screen is ~1136px wide at 1440 and its text can actually be read. */
+.lp-tour-step { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.lp-tour-copy { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 48px; align-items: end; }
+.lp-tour-copy .lp-shot-list { margin-top: 0; padding-bottom: 4px; }
+.lp-tour-n {
+  display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px;
+  background: var(--lp-orange); color: #fff; font-family: var(--lp-display); font-weight: 800; font-size: 17px; letter-spacing: -.02em;
+}
+.lp-tour-step:nth-child(3n+2) .lp-tour-n { background: var(--lp-purple); }
+.lp-tour-step:nth-child(3n) .lp-tour-n { background: var(--lp-lime-deep); }
+.lp-tour-eyebrow { display: block; margin-top: 18px; font-weight: 700; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--lp-text-3); }
+.lp-tour-title { font-family: var(--lp-display); font-weight: 700; font-size: 30px; line-height: 1.12; letter-spacing: -.02em; margin-top: 8px; max-width: 560px; }
+.lp-tour-desc { font-size: 16px; line-height: 1.6; color: var(--lp-text-2); margin-top: 12px; max-width: 600px; }
+.lp-tour-frame { min-width: 0; }
+.lp-tour-finding { margin-top: 20px; max-width: 760px; }
+@media (max-width: 960px) {
+  .lp-tour { padding: 64px 24px 24px; }
+  .lp-tour-copy { grid-template-columns: 1fr; gap: 18px; }
+  .lp-tour-step { gap: 20px; }
+  .lp-tour-steps { gap: 60px; }
+}
+@media (max-width: 620px) {
+  .lp-tour { padding-left: 20px; padding-right: 20px; }
+  .lp-tour .lp-section-title { font-size: 30px; }
+  .lp-tour-title { font-size: 24px; }
+}

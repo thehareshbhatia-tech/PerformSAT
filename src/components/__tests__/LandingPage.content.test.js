@@ -159,3 +159,50 @@ describe('LandingPage creator-link ribbon', () => {
     expect(render(<LandingPage />)).not.toContain('Creator discount');
   });
 });
+
+// ── landingV2 ("show, don't tell", 2026-09-09) ────────────────────────────
+// The flag-on page hands the visitor a real question and walks the real
+// screens. Pin what it shows and what it stopped claiming.
+describe('LandingPage v2 (ff:landingV2)', () => {
+  let html;
+  beforeAll(() => {
+    setFeatureFlagForTest('landingV2', true);
+    html = render(<LandingPage />);
+  });
+  afterAll(() => { setFeatureFlagForTest('landingV2', undefined); });
+
+  test('opens with a real question to try, rendered with the app\'s own choice list', () => {
+    expect(html).toContain('Try a real question');
+    expect(html).toContain('Adobe buildings are made of earthen bricks'); // rw-1201, verbatim from the bank
+    expect(html).toContain('answer-choice-card'); // shared/AnswerChoiceList, the drill's rows
+    expect(html).toContain('Check answer');
+  });
+
+  test('walks the real screens in order, each with a real capture', () => {
+    for (const t of ['Take a real adaptive test.', 'See why you missed what you missed.', 'Get a plan built from those findings.', 'Drill the exact question type, with the why on every miss.', 'Every question, sorted by domain and topic.', 'Watch the line move.']) {
+      expect(html).toContain(t);
+    }
+    for (const shot of ['test-runner', 'diagnosis', 'study-plan', 'drill', 'practice-bank', 'dashboard']) {
+      expect(html).toContain(`/showcase/${shot}@2x.webp 2880w`);
+      expect(html).toContain(`/showcase/${shot}@2x.png`);
+    }
+  });
+
+  test('drops the slogan-only sections and the unsupported crowd claim', () => {
+    expect(html).not.toContain('Knows you like');
+    expect(html).not.toContain('A prep course tells you');
+    expect(html).not.toContain('Three steps to a smarter prep');
+    expect(html).not.toContain('Thousands of students');
+    expect(html).toContain('Real students.');
+  });
+
+  test('keeps the honest inventory, the results, the pricing and the final CTA', () => {
+    expect(html).toContain('2,200+');
+    expect(html).toContain('Hand-authored questions');
+    expect(html).toContain('Jake C.');
+    expect(html).toMatch(/free during early access/i);
+    expect(html).toContain('Ready to find your next 200 points?');
+    expect(html).not.toMatch(EMOJI_RE);
+    expect(html).not.toContain('href="#"');
+  });
+});
