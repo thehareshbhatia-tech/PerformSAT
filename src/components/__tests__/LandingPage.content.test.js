@@ -183,9 +183,15 @@ describe('LandingPage v2 (ff:landingV2)', () => {
       expect(html).toContain(t);
     }
     for (const shot of ['test-runner', 'diagnosis', 'study-plan', 'drill', 'practice-bank', 'dashboard']) {
+      // The recording, muted and inline so phones autoplay it…
+      expect(html).toContain(`/showcase/video/${shot}.mp4`);
+      expect(html).toContain(`/showcase/video/${shot}-poster@2x.webp`);
+      // …with the lossless still inside as its fallback.
       expect(html).toContain(`/showcase/${shot}@2x.webp 2880w`);
       expect(html).toContain(`/showcase/${shot}@2x.png`);
     }
+    expect(html.match(/<video /g)).toHaveLength(6);
+    expect(html).toMatch(/<video [^>]*muted[^>]*playsinline/i);
   });
 
   test('drops the slogan-only sections and the unsupported crowd claim', () => {

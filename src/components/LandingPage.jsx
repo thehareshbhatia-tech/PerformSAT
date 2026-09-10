@@ -221,8 +221,10 @@ const PHILOSOPHY_WORDS = [
 
 // landingV2 product tour — the real screens, in the order a student meets
 // them. Every bullet names something visible in that frame. Shots live in
-// public/showcase/<shot>{,@2x}.{webp,png} (lossless WebP, 1440/2880 wide).
-const TOUR_SIZES = '(max-width: 960px) calc(100vw - 48px), 780px';
+// public/showcase/<shot>{,@2x}.{webp,png} (lossless WebP, 1440/2880 wide), and
+// the recordings in public/showcase/video/<shot>.{mp4,webm} + <shot>-poster@2x.webp
+// (1920×1200 H.264 / VP9, 8–14s, muted). The still is the video's fallback.
+const TOUR_SIZES = '(max-width: 1264px) calc(100vw - 64px), 1136px';
 const TOUR = [
   { shot: 'test-runner', eyebrow: 'The diagnostic', title: 'Take a real adaptive test.',
     desc: 'Forty questions in the Bluebook layout you will see on test day, about half the length of a real SAT. Module 2 adapts to how you did on Module 1, exactly like the official digital SAT.',
@@ -311,6 +313,34 @@ const LandingPage = () => {
     const fallback = setTimeout(() => els.forEach((e) => e.classList.add('in')), 2800);
     return () => { io.disconnect(); clearTimeout(fallback); };
   }, [showFunnel]);
+
+  // Tour recordings: play while in view, pause when not, never autoplay for a
+  // reduced-motion reader (they get controls instead). preload="none" means a
+  // video only downloads once it is about to play.
+  useEffect(() => {
+    if (!v2) return undefined;
+    const root = rootRef.current;
+    if (!root) return undefined;
+    const videos = Array.from(root.querySelectorAll('video.lp-tour-video'));
+    if (videos.length === 0) return undefined;
+    if (prefersReducedMotion() || typeof IntersectionObserver === 'undefined') {
+      videos.forEach((v) => { v.controls = true; v.preload = 'metadata'; });
+      return undefined;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        const v = en.target;
+        if (en.isIntersecting && en.intersectionRatio >= 0.35) {
+          const p = v.play();
+          if (p && typeof p.catch === 'function') p.catch(() => { v.controls = true; });
+        } else if (!v.paused) {
+          v.pause();
+        }
+      });
+    }, { threshold: [0, 0.35, 0.6] });
+    videos.forEach((v) => io.observe(v));
+    return () => io.disconnect();
+  }, [v2]);
 
   // One scroll pass drives everything scroll-linked: the tri-color progress
   // bar, the nav elevation, and the parallax glow blobs. rAF-throttled,
@@ -657,18 +687,37 @@ const LandingPage = () => {
                   <div className="lp-tour-frame">
                     <figure className="lp-shot-frame">
                       <div className="lp-shot-bar" aria-hidden="true"><span /><span /><span /></div>
-                      <picture>
-                        <source type="image/webp" srcSet={`${process.env.PUBLIC_URL}/showcase/${t.shot}.webp 1440w, ${process.env.PUBLIC_URL}/showcase/${t.shot}@2x.webp 2880w`} sizes={TOUR_SIZES} />
-                        <img
-                          src={`${process.env.PUBLIC_URL}/showcase/${t.shot}@2x.png`}
-                          srcSet={`${process.env.PUBLIC_URL}/showcase/${t.shot}.png 1440w, ${process.env.PUBLIC_URL}/showcase/${t.shot}@2x.png 2880w`}
-                          sizes={TOUR_SIZES}
-                          alt={t.alt}
-                          width="2880"
-                          height="1800"
-                          loading="lazy" decoding="async"
-                        />
-                      </picture>
+                      {/* The recording plays (muted, looping) once it scrolls into
+                          view — see the tour effect. Its poster is the still, and
+                          the <picture> inside is what a browser without video
+                          support, or a failed load, shows. */}
+                      <video
+                        className="lp-tour-video"
+                        muted
+                        playsInline
+                        loop
+                        preload="none"
+                        poster={`${process.env.PUBLIC_URL}/showcase/video/${t.shot}-poster@2x.webp`}
+                        width="1920"
+                        height="1200"
+                        aria-label={t.alt}
+                      >
+                        {/* VP9 first (smaller); Safari falls through to H.264. */}
+                        <source src={`${process.env.PUBLIC_URL}/showcase/video/${t.shot}.webm`} type="video/webm" />
+                        <source src={`${process.env.PUBLIC_URL}/showcase/video/${t.shot}.mp4`} type="video/mp4" />
+                        <picture>
+                          <source type="image/webp" srcSet={`${process.env.PUBLIC_URL}/showcase/${t.shot}.webp 1440w, ${process.env.PUBLIC_URL}/showcase/${t.shot}@2x.webp 2880w`} sizes={TOUR_SIZES} />
+                          <img
+                            src={`${process.env.PUBLIC_URL}/showcase/${t.shot}@2x.png`}
+                            srcSet={`${process.env.PUBLIC_URL}/showcase/${t.shot}.png 1440w, ${process.env.PUBLIC_URL}/showcase/${t.shot}@2x.png 2880w`}
+                            sizes={TOUR_SIZES}
+                            alt={t.alt}
+                            width="2880"
+                            height="1800"
+                            loading="lazy" decoding="async"
+                          />
+                        </picture>
+                      </video>
                     </figure>
                     {t.finding && <div className="lp-tour-finding">{findingCard}</div>}
                   </div>
