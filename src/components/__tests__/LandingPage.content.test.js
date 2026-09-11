@@ -160,9 +160,10 @@ describe('LandingPage creator-link ribbon', () => {
   });
 });
 
-// ── landingV2 ("show, don't tell", 2026-09-09) ────────────────────────────
-// The flag-on page hands the visitor a real question and walks the real
-// screens. Pin what it shows and what it stopped claiming.
+// ── landingV2 (Acely-style rebuild, 2026-09-10) ───────────────────────────
+// The flag-on page is LandingPageV2: a restrained, sectioned page that leads
+// with the diagnosis recording, walks three steps, and hands the visitor one
+// real question. Pin what it shows and what it stopped claiming.
 describe('LandingPage v2 (ff:landingV2)', () => {
   let html;
   beforeAll(() => {
@@ -171,27 +172,48 @@ describe('LandingPage v2 (ff:landingV2)', () => {
   });
   afterAll(() => { setFeatureFlagForTest('landingV2', undefined); });
 
-  test('opens with a real question to try, rendered with the app\'s own choice list', () => {
+  test('leads with the diagnosis promise and the three steps', () => {
+    expect(html).toContain('Find out why you miss SAT questions. Then fix exactly that.');
+    expect(html).toContain('Three steps to a higher score.');
+    expect(html).toContain('Take the diagnostic.');
+    expect(html).toContain('Get your plan.');
+    expect(html).toContain('Drill what costs you points.');
+  });
+
+  test('names the four ways the product raises a score', () => {
+    for (const t of ['A plan that adapts.', 'The why behind every miss.', 'True-to-test practice.', 'A score you can watch move.']) {
+      expect(html).toContain(t);
+    }
+  });
+
+  test('hands the visitor a real question, rendered with the app\'s own choice list', () => {
     expect(html).toContain('Try a real question');
     expect(html).toContain('Adobe buildings are made of earthen bricks'); // rw-1201, verbatim from the bank
     expect(html).toContain('answer-choice-card'); // shared/AnswerChoiceList, the drill's rows
     expect(html).toContain('Check answer');
   });
 
-  test('walks the real screens in order, each with a real capture', () => {
-    for (const t of ['Take a real adaptive test.', 'See why you missed what you missed.', 'Get a plan built from those findings.', 'Drill the exact question type, with the why on every miss.', 'Every question, sorted by domain and topic.', 'Watch the line move.']) {
-      expect(html).toContain(t);
-    }
-    for (const shot of ['test-runner', 'diagnosis', 'study-plan', 'drill', 'practice-bank', 'dashboard']) {
-      // The recording, muted and inline so phones autoplay it…
-      expect(html).toContain(`/showcase/video/${shot}.mp4`);
-      expect(html).toContain(`/showcase/video/${shot}-poster@2x.webp`);
-      // …with the lossless still inside as its fallback.
-      expect(html).toContain(`/showcase/${shot}@2x.webp 2880w`);
-      expect(html).toContain(`/showcase/${shot}@2x.png`);
-    }
-    expect(html.match(/<video /g)).toHaveLength(6);
+  test('shows exactly one recording: the diagnosis, muted and inline', () => {
+    expect(html.match(/<video /g)).toHaveLength(1);
     expect(html).toMatch(/<video [^>]*muted[^>]*playsinline/i);
+    expect(html).toContain('/showcase/video/diagnosis.webm');
+    expect(html).toContain('/showcase/video/diagnosis.mp4');
+    expect(html).toContain('/showcase/video/diagnosis-poster@2x.webp');
+    // The lossless still lives inside the <video> as its fallback.
+    expect(html).toContain('/showcase/diagnosis@2x.webp 2880w');
+    expect(html).toContain('/showcase/diagnosis@2x.png');
+    // The five recordings the rebuild dropped are gone from the page.
+    for (const shot of ['test-runner', 'study-plan', 'drill', 'practice-bank', 'dashboard']) {
+      expect(html).not.toContain(`/showcase/video/${shot}.mp4`);
+    }
+  });
+
+  test('answers the six questions a visitor actually asks', () => {
+    expect(html).toContain('Frequently asked questions.');
+    expect(html.match(/<details/g)).toHaveLength(6);
+    expect(html).toContain('What is SEVA?');
+    expect(html).toContain('How long is the diagnostic?');
+    expect(html).toContain('What does it cost?');
   });
 
   test('drops the slogan-only sections and the unsupported crowd claim', () => {
@@ -199,6 +221,8 @@ describe('LandingPage v2 (ff:landingV2)', () => {
     expect(html).not.toContain('A prep course tells you');
     expect(html).not.toContain('Three steps to a smarter prep');
     expect(html).not.toContain('Thousands of students');
+    expect(html).not.toContain('Ready to find your next 200 points?');
+    expect(html).not.toContain("A Tutor's Heart");
     expect(html).toContain('Real students.');
   });
 
@@ -207,7 +231,8 @@ describe('LandingPage v2 (ff:landingV2)', () => {
     expect(html).toContain('Hand-authored questions');
     expect(html).toContain('Jake C.');
     expect(html).toMatch(/free during early access/i);
-    expect(html).toContain('Ready to find your next 200 points?');
+    expect(html).toContain('Get your diagnosis today.');
+    expect(html).toContain('SAT is a registered trademark of the College Board');
     expect(html).not.toMatch(EMOJI_RE);
     expect(html).not.toContain('href="#"');
   });
