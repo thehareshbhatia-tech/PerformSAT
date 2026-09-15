@@ -7,10 +7,10 @@
   },
   "dependencies": {
     "@dataconnect/generated": "file:src/dataconnect-generated",
-    "@sentry/react": "^10.57.0",
+    "@sentry/react": "^10.74.0",
     "firebase": "^10.7.1",
-    "katex": "^0.16.28",
-    "posthog-js": "^1.399.0",
+    "katex": "^0.18.7",
+    "posthog-js": "^1.430.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-katex": "^3.1.0",
@@ -59,10 +59,10 @@
     ]
   },
   "devDependencies": {
-    "@anthropic-ai/sdk": "^0.95.0",
+    "@anthropic-ai/sdk": "^0.125.0",
     "@firebase/rules-unit-testing": "^3.0.4",
-    "@playwright/test": "^1.59.1",
-    "firebase-admin": "^14.0.0"
+    "@playwright/test": "^1.63.0",
+    "firebase-admin": "^14.4.0"
   },
   "eslintConfig": {
     "extends": [
