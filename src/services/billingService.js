@@ -91,10 +91,20 @@ export async function startCheckout(plan) {
 /**
  * Open the Stripe Customer Portal (manage plan, payment method, cancel).
  *
+ * `intent: 'cancel'` deep-links to the hosted cancel flow, where Stripe shows
+ * the account's one-time retention offer (if any) before the cancellation is
+ * confirmed. The server falls back to the plain portal whenever that flow is
+ * unavailable, so this call never strands a student who wants to cancel. Use
+ * it from the "Cancel plan" path only; every other caller omits `intent`.
+ *
+ * @param {{intent?: 'cancel'}} [options]
  * @returns {Promise<string>} the portal URL (already navigated to)
  */
-export async function openBillingPortal() {
-  const res = await authFetch(CREATE_PORTAL_URL, { method: 'POST', body: '{}' });
+export async function openBillingPortal({ intent } = {}) {
+  const res = await authFetch(CREATE_PORTAL_URL, {
+    method: 'POST',
+    body: JSON.stringify(intent === 'cancel' ? { intent: 'cancel' } : {}),
+  });
   if (res.status === 400) {
     throw new Error('No billing account yet — subscribe first.');
   }

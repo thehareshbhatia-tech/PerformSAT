@@ -6,7 +6,9 @@
  *                           NO-ACCESS state ("none") until Checkout completes
  *   createCheckoutSession — hosted Stripe Checkout (subscription mode) that
  *                           collects a card up front and starts a 3-day trial
- *   createPortalSession   — Stripe Customer Portal (manage/cancel/card)
+ *   createPortalSession   — Stripe Customer Portal (manage/cancel/card);
+ *                           {intent:"cancel"} deep-links to the cancel flow
+ *                           with a one-time retention coupon offer
  *   stripeWebhook         — signature-verified event sink -> entitlements/{uid}
  *   hasEntitlementAccess  — server-side gate used by aiTutor (402)
  *
@@ -18,6 +20,7 @@
  * Deploy-time params (functions/.env or `firebase functions:secrets:set`):
  *   secrets: STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET
  *   strings: STRIPE_PRICE_MONTHLY, STRIPE_PRICE_ANNUAL, BILLING_APP_BASE_URL,
+ *            RETENTION_COUPON_MONTHLY, RETENTION_COUPON_ANNUAL (optional),
  *            BILLING_LAUNCH_EPOCH (grandfather cutoff — accounts created before
  *            it get permanent comped access; accounts created at/after it must
  *            start a paid trial. Set this to the moment you flip the flag.)
@@ -49,6 +52,8 @@ import {
   trialDaysForCheckout,
   subscriptionsShowTrialUsed,
   CANCELABLE_STATUSES,
+  decideCancelFlow,
+  discountCouponIds,
   EntitlementPatch,
 } from "./stripePolicy";
 
@@ -72,6 +77,16 @@ const billingLaunchEpoch = defineString("BILLING_LAUNCH_EPOCH", {default: ""});
 // gets the paid tutor for free). Kept as a distinct param — the launch epoch
 // governs grandfathering, NOT whether enforcement is live.
 const billingEnforced = defineString("BILLING_ENFORCED", {default: "false"});
+// Retention offer shown ONCE in the hosted cancel flow, per plan (a Stripe
+// coupon id each). Separate ids because one "50% off for 2 months" coupon is a
+// very different amount of money on the annual price. Empty = no offer: the
+// cancel flow still works, it just skips the offer screen.
+const retentionCouponMonthly = defineString("RETENTION_COUPON_MONTHLY", {
+  default: "",
+});
+const retentionCouponAnnual = defineString("RETENTION_COUPON_ANNUAL", {
+  default: "",
+});
 // PostHog project API key (public ingestion key). Empty = server analytics off.
 const posthogKey = defineString("POSTHOG_KEY", {default: ""});
 
@@ -745,12 +760,76 @@ export const createPortalSession = onRequest(
 
     try {
       const entSnap = await entitlementRef(user.uid).get();
-      const customer = entSnap.exists ? entSnap.data()?.stripeCustomerId : null;
+      const ent = entSnap.exists ? entSnap.data() : null;
+      const customer = ent?.stripeCustomerId || null;
       if (!customer) {
         response.status(400).json({error: "no_billing_account"});
         return;
       }
       const base = appBaseUrl.value().replace(/\/$/, "");
+
+      // intent:"cancel" deep-links to the hosted cancel flow, which shows ONE
+      // retention offer before the student confirms (decideCancelFlow). Every
+      // failure in here falls through to the plain portal below: a bad coupon
+      // id or a Stripe hiccup must never leave a student unable to cancel.
+      if (request.body?.intent === "cancel" && ent?.subscriptionId) {
+        try {
+          const sub = await getStripe().subscriptions.retrieve(
+            ent.subscriptionId,
+            {expand: ["discounts"]},
+          );
+          const retentionCoupons = {
+            monthly: retentionCouponMonthly.value(),
+            annual: retentionCouponAnnual.value(),
+          };
+          // Durable one-offer-per-account marker (same merge-set, never-unset
+          // shape as trialUsed): stamped the first time we observe a retention
+          // coupon on the subscription, so it outlives the discount itself.
+          const redeemedNow = discountCouponIds(sub.discounts).some((id) =>
+            id === retentionCoupons.monthly || id === retentionCoupons.annual);
+          if (redeemedNow && ent.retentionOfferRedeemed !== true) {
+            await entitlementRef(user.uid)
+              .set({retentionOfferRedeemed: true}, {merge: true});
+          }
+          const decision = decideCancelFlow(
+            sub,
+            ent.plan,
+            ent.retentionOfferRedeemed === true || redeemedNow,
+            retentionCoupons,
+          );
+          if (decision.kind === "cancel") {
+            const flow = await getStripe().billingPortal.sessions.create({
+              customer,
+              return_url: `${base}/course?billing=kept`,
+              flow_data: {
+                type: "subscription_cancel",
+                subscription_cancel: {
+                  subscription: decision.subscriptionId,
+                  ...(decision.coupon ? {
+                    retention: {
+                      type: "coupon_offer",
+                      coupon_offer: {coupon: decision.coupon},
+                    },
+                  } : {}),
+                },
+                after_completion: {
+                  type: "redirect",
+                  redirect: {return_url: `${base}/course?billing=canceled`},
+                },
+              },
+            });
+            response.json({url: flow.url, offer: !!decision.coupon});
+            return;
+          }
+        } catch (flowErr) {
+          logger.warn(
+            `createPortalSession: cancel flow failed for ${user.uid} — ` +
+            "falling back to the plain portal",
+            flowErr,
+          );
+        }
+      }
+
       const portal = await getStripe().billingPortal.sessions.create({
         customer,
         return_url: `${base}/course`,

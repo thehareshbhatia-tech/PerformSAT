@@ -22,6 +22,8 @@ const {
   trialDaysForCheckout,
   subscriptionsShowTrialUsed,
   CANCELABLE_STATUSES,
+  decideCancelFlow,
+  discountCouponIds,
 } = require("../lib/stripePolicy");
 
 const NOW = Date.parse("2026-07-15T12:00:00Z");
@@ -500,4 +502,90 @@ test("garbage input never throws and never grants a free trial loop", () => {
   assert.strictEqual(subscriptionsShowTrialUsed([null, undefined]), false);
   assert.strictEqual(
     subscriptionsShowTrialUsed([{trial_end: "not-a-number"}]), false);
+});
+
+// ── decideCancelFlow (retention offer in the hosted cancel flow) ─────────
+// The invariant under all of these: the offer is an extra screen, never a
+// wall — every branch ends at either the cancel flow or the plain portal.
+
+const COUPONS = {monthly: "ret_monthly", annual: "ret_annual"};
+const liveSub = (over = {}) => ({
+  id: "sub_1", status: "active", cancel_at_period_end: false, discounts: [],
+  ...over,
+});
+
+test("cancel flow offers the coupon configured for the account's plan", () => {
+  assert.deepStrictEqual(
+    decideCancelFlow(liveSub(), "monthly", false, COUPONS),
+    {kind: "cancel", subscriptionId: "sub_1", coupon: "ret_monthly"},
+  );
+  assert.deepStrictEqual(
+    decideCancelFlow(liveSub(), "annual", false, COUPONS),
+    {kind: "cancel", subscriptionId: "sub_1", coupon: "ret_annual"},
+  );
+});
+
+test("trialing and past_due plans get the cancel flow too", () => {
+  for (const status of ["trialing", "past_due"]) {
+    assert.strictEqual(
+      decideCancelFlow(liveSub({status}), "monthly", false, COUPONS).kind,
+      "cancel",
+    );
+  }
+});
+
+test("no coupon configured = cancel flow with no offer (feature dark)", () => {
+  assert.deepStrictEqual(
+    decideCancelFlow(liveSub(), "monthly", false, {monthly: "", annual: ""}),
+    {kind: "cancel", subscriptionId: "sub_1", coupon: null},
+  );
+  // Only the OTHER plan's coupon is configured -> still no offer.
+  assert.strictEqual(
+    decideCancelFlow(liveSub(), "annual", false, {monthly: "x", annual: ""})
+      .coupon,
+    null,
+  );
+});
+
+test("one offer per account: redeemed or already-discounted = no coupon", () => {
+  assert.strictEqual(
+    decideCancelFlow(liveSub(), "monthly", true, COUPONS).coupon, null);
+  assert.strictEqual(
+    decideCancelFlow(liveSub({discounts: ["di_1"]}), "monthly", false, COUPONS)
+      .coupon,
+    null,
+  );
+  // ...but they can still cancel.
+  assert.strictEqual(
+    decideCancelFlow(liveSub(), "monthly", true, COUPONS).kind, "cancel");
+});
+
+test("nothing to cancel -> plain portal", () => {
+  assert.deepStrictEqual(
+    decideCancelFlow(null, "monthly", false, COUPONS), {kind: "portal"});
+  assert.deepStrictEqual(
+    decideCancelFlow(liveSub({cancel_at_period_end: true}), "monthly", false,
+      COUPONS),
+    {kind: "portal"},
+  );
+  for (const status of ["canceled", "incomplete_expired", "unpaid", "paused"]) {
+    assert.deepStrictEqual(
+      decideCancelFlow(liveSub({status}), "monthly", false, COUPONS),
+      {kind: "portal"},
+    );
+  }
+});
+
+test("discountCouponIds reads expanded discounts and skips bare ids", () => {
+  assert.deepStrictEqual(discountCouponIds(null), []);
+  assert.deepStrictEqual(discountCouponIds(["di_unexpanded"]), []);
+  assert.deepStrictEqual(
+    discountCouponIds([
+      {source: {coupon: "ret_monthly"}},
+      {source: {coupon: {id: "creator_20"}}},
+      {source: {coupon: null}},
+      {},
+    ]),
+    ["ret_monthly", "creator_20"],
+  );
 });

@@ -52,7 +52,7 @@ import {
 } from './services/reviewQueueResolve';
 import { selectPacingQuestions } from './services/pacingService';
 import { trackPacingDrillDone, trackReengagementOpened, trackEvent } from './services/analyticsService';
-import { phScreenView } from './services/posthogClient';
+import { phScreenView, phCapture } from './services/posthogClient';
 import { consumeTutorExchange, makeQuestionKey } from './services/tutorExchangeTracker';
 import { buildDailySession } from './services/dailyReviewEngine';
 import { getReadyAiDiagnostic, loadAttemptSnapshot } from './services/practiceTestService';
@@ -709,6 +709,34 @@ const PerformSAT = () => {
         });
       } else if (checkout === 'canceled') {
         showToast({ type: 'info', message: 'Checkout canceled — you were not charged.' });
+      }
+    } catch { /* noop */ }
+  }, []);
+
+  // ── Stripe cancel-flow return (?billing=kept|canceled) ──────────────────
+  // Same strip-then-acknowledge contract as the Checkout return above. 'kept'
+  // covers both "changed my mind" and "took the retention offer" — either way
+  // the plan is still active, which is all the toast claims. The entitlement
+  // onSnapshot carries the real state (the 'ending' phase) once the webhook
+  // lands.
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const billing = params.get('billing');
+      if (!billing) return;
+      params.delete('billing');
+      const qs = params.toString();
+      window.history.replaceState({}, '', window.location.pathname + (qs ? `?${qs}` : ''));
+      if (billing === 'canceled') {
+        phCapture('cancel_flow_completed');
+        showToast({
+          type: 'info',
+          message: 'Your plan is cancelled and will not renew. Access continues until the end of the current period.',
+          duration: 7000,
+        });
+      } else if (billing === 'kept') {
+        phCapture('cancel_flow_returned_active');
+        showToast({ type: 'success', message: 'Your SEVA Premium plan is still active.' });
       }
     } catch { /* noop */ }
   }, []);
@@ -2663,6 +2691,9 @@ const PerformSAT = () => {
                 showToast({ type: 'error', message: err.message || 'Could not open billing.' });
               });
             }}
+            onCancelPlan={() => openBillingPortal({ intent: 'cancel' }).catch((err) => {
+              showToast({ type: 'error', message: err.message || 'Could not open billing.' });
+            })}
           />
         )}
 

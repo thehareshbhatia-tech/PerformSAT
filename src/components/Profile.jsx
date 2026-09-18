@@ -7,6 +7,8 @@ import Avatar from './ui/Avatar';
 import { parseLocalDate } from '../utils/localDate';
 import { fileToAvatarDataUrl } from '../utils/avatarImage';
 import { deleteAccount } from '../services/accountService';
+import { phCapture } from '../services/posthogClient';
+import CancelPlanModal from './billing/CancelPlanModal';
 
 const StatCard = ({ label, value, total }) => (
   <div
@@ -142,11 +144,15 @@ const Profile = ({
   entitlement = null,
   onSubscribe = null,
   onManageBilling = null,
+  // Opens Stripe's hosted cancel flow (retention offer, then confirm). The
+  // "Cancel plan" link only renders when this is provided.
+  onCancelPlan = null,
   // 'goals' scrolls the SAT Goals card into view on mount — the landing for
   // "Raise your target" / "Update your test date" from the score surfaces.
   initialFocus = null,
 }) => {
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+  const [showCancelPlan, setShowCancelPlan] = useState(false);
   useEffect(() => {
     if (initialFocus !== 'goals') return;
     const el = document.getElementById('profile-sat-goals');
@@ -448,6 +454,43 @@ const Profile = ({
               return null;
             })()}
           </div>
+          {/* Cancel stays one visible click from Membership. 'ending' is
+              already cancelled, so it gets no link (Manage billing renews). */}
+          {!entitlement.loading && entitlement.hasBillingAccount && onCancelPlan
+            && ['trial', 'premium', 'grace'].includes(entitlement.phase) && (
+            <button
+              type="button"
+              onClick={() => {
+                phCapture('cancel_flow_opened', { phase: entitlement.phase, plan: entitlement.plan || null });
+                setShowCancelPlan(true);
+              }}
+              style={{
+                marginTop: spacing.sm,
+                padding: `${spacing.sm} 0`,
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                fontSize: typography.sizes.sm,
+                color: colors.text.muted,
+                textDecoration: 'underline',
+              }}
+            >
+              Cancel plan
+            </button>
+          )}
+          <CancelPlanModal
+            isOpen={showCancelPlan}
+            entitlement={entitlement}
+            testDate={user?.testDate}
+            onClose={() => {
+              phCapture('cancel_flow_kept_plan', { phase: entitlement.phase, plan: entitlement.plan || null });
+              setShowCancelPlan(false);
+            }}
+            onContinue={() => {
+              phCapture('cancel_flow_continued', { phase: entitlement.phase, plan: entitlement.plan || null });
+              return onCancelPlan();
+            }}
+          />
         </div>
       )}
 

@@ -206,6 +206,94 @@ export const CANCELABLE_STATUSES: ReadonlySet<string> = new Set([
 ]);
 
 /**
+ * Subscription statuses the hosted CANCEL flow is offered for. Narrower than
+ * CANCELABLE_STATUSES on purpose: the portal's subscription_cancel deep link
+ * is a student-facing "stop my plan" screen, so it only makes sense for a plan
+ * the student is actually on (trial, paid, or paid-with-a-failing-card).
+ */
+const CANCEL_FLOW_STATUSES: ReadonlySet<string> = new Set([
+  "trialing",
+  "active",
+  "past_due",
+]);
+
+/** Minimal shape of an (optionally expanded) Stripe discount. */
+export interface StripeDiscountLike {
+  source?: {coupon?: string | {id?: string} | null} | null;
+}
+
+/** What decideCancelFlow reads off the live Stripe subscription. */
+export interface CancelFlowSubscription {
+  id: string;
+  status: string;
+  cancel_at_period_end?: boolean;
+  discounts?: Array<string | StripeDiscountLike> | null;
+}
+
+export type CancelFlowDecision =
+  | {kind: "portal"}
+  | {kind: "cancel"; subscriptionId: string; coupon: string | null};
+
+/**
+ * Coupon ids carried by a subscription's discounts. Unexpanded discounts
+ * (plain id strings) carry no coupon information and are skipped.
+ * @param {Array} discounts subscription.discounts (expanded or not)
+ * @return {string[]} the coupon ids found
+ */
+export function discountCouponIds(
+  discounts: Array<string | StripeDiscountLike> | null | undefined,
+): string[] {
+  const ids: string[] = [];
+  for (const d of discounts || []) {
+    if (!d || typeof d === "string") continue;
+    const c = d.source?.coupon;
+    const id = typeof c === "string" ? c : c?.id;
+    if (id) ids.push(id);
+  }
+  return ids;
+}
+
+/**
+ * Decide what "I want to cancel" opens: the hosted cancel flow (optionally
+ * with ONE retention coupon offered before the student confirms) or the plain
+ * portal homepage.
+ *
+ * The rule that matters: the offer is an extra screen, never a wall. Whatever
+ * this returns, the student always reaches a working cancel button.
+ *
+ *   - no live plan / already set to cancel -> portal (nothing to cancel; the
+ *     homepage is where they can renew)
+ *   - subscription already discounted, or the account already redeemed a
+ *     retention offer -> cancel flow with NO coupon (one offer per account;
+ *     "cancel" must not become a renewable discount lever)
+ *   - otherwise -> cancel flow offering the coupon configured for their plan
+ *     (empty config = no offer; the feature is dark until a coupon id is set)
+ * @param {object|null} sub the live Stripe subscription, or null if none
+ * @param {string|null} plan the account's plan ("monthly" | "annual")
+ * @param {boolean} alreadyRedeemed entitlement.retentionOfferRedeemed
+ * @param {object} coupons configured retention coupon ids per plan
+ * @return {CancelFlowDecision} which portal session to create
+ */
+export function decideCancelFlow(
+  sub: CancelFlowSubscription | null,
+  plan: PlanId | string | null | undefined,
+  alreadyRedeemed: boolean,
+  coupons: {monthly: string; annual: string},
+): CancelFlowDecision {
+  if (!sub || !sub.id) return {kind: "portal"};
+  if (!CANCEL_FLOW_STATUSES.has(sub.status)) return {kind: "portal"};
+  if (sub.cancel_at_period_end) return {kind: "portal"};
+
+  const configured = (plan === "annual" ? coupons.annual : coupons.monthly) ||
+    "";
+  const discounted = (sub.discounts || []).length > 0;
+  const coupon = !configured || discounted || alreadyRedeemed ?
+    null :
+    configured;
+  return {kind: "cancel", subscriptionId: sub.id, coupon};
+}
+
+/**
  * Has this Stripe customer ever consumed a free trial? Reads the customer's
  * FULL subscription history (any status) and returns true when any of them
  * started a trial — Stripe keeps trial_start/trial_end on the subscription
