@@ -798,27 +798,45 @@ export const createPortalSession = onRequest(
             retentionCoupons,
           );
           if (decision.kind === "cancel") {
-            const flow = await getStripe().billingPortal.sessions.create({
-              customer,
-              return_url: `${base}/course?billing=kept`,
-              flow_data: {
-                type: "subscription_cancel",
-                subscription_cancel: {
-                  subscription: decision.subscriptionId,
-                  ...(decision.coupon ? {
-                    retention: {
-                      type: "coupon_offer",
-                      coupon_offer: {coupon: decision.coupon},
-                    },
-                  } : {}),
+            const createFlow = (coupon: string | null) =>
+              getStripe().billingPortal.sessions.create({
+                customer,
+                return_url: `${base}/course?billing=kept`,
+                flow_data: {
+                  type: "subscription_cancel",
+                  subscription_cancel: {
+                    subscription: decision.subscriptionId,
+                    ...(coupon ? {
+                      retention: {
+                        type: "coupon_offer",
+                        coupon_offer: {coupon},
+                      },
+                    } : {}),
+                  },
+                  after_completion: {
+                    type: "redirect",
+                    redirect: {return_url: `${base}/course?billing=canceled`},
+                  },
                 },
-                after_completion: {
-                  type: "redirect",
-                  redirect: {return_url: `${base}/course?billing=canceled`},
-                },
-              },
-            });
-            response.json({url: flow.url, offer: !!decision.coupon});
+              });
+            // A coupon Stripe rejects (deleted, expired, not created yet) costs
+            // the student the OFFER, not the direct cancel page: retry without
+            // it before giving up on the flow.
+            let offered = decision.coupon;
+            let flow;
+            try {
+              flow = await createFlow(offered);
+            } catch (couponErr) {
+              if (!offered) throw couponErr;
+              logger.warn(
+                `createPortalSession: retention coupon "${offered}" rejected ` +
+                "— opening the cancel flow without an offer",
+                couponErr,
+              );
+              offered = null;
+              flow = await createFlow(null);
+            }
+            response.json({url: flow.url, offer: !!offered});
             return;
           }
         } catch (flowErr) {
