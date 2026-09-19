@@ -27,10 +27,39 @@ const mkDiag = (over = {}) => ({
   ...over,
 });
 
-const farTestDate = new Date(Date.now() + 63 * 24 * 60 * 60 * 1000).toISOString();
+// The generator anchors week 1 to TODAY: a plan created on a weekend with no
+// study days left that week deliberately starts on the weekend (pinned in
+// studyPlanGenerator.planV3.test.js). So "only on the student's study days,
+// every week" holds from a fixed weekday, not from whatever day CI happens to
+// run. On the real clock this suite failed every Saturday and Sunday (UTC).
+const PINNED_MONDAY = new Date(2026, 8, 14, 10, 0, 0);
+const DAY_MS = 24 * 60 * 60 * 1000;
+const farTestDate = new Date(PINNED_MONDAY.getTime() + 63 * DAY_MS).toISOString();
 const allActivities = (plan) => plan.weeks.flatMap((w) => w.activities || []);
 
 describe('generateStudyPlan — schedule truth', () => {
+  beforeEach(() => {
+    jest.useFakeTimers({ doNotFake: ['performance'] });
+    jest.setSystemTime(PINNED_MONDAY);
+  });
+  afterEach(() => { jest.useRealTimers(); });
+
+  test('a plan born on a Saturday starts that weekend, then keeps to the 3 study days', () => {
+    jest.setSystemTime(new Date(2026, 8, 19, 10, 0, 0)); // Saturday
+    const plan = generateStudyPlan(mkDiag(), {
+      targetScore: 1200, testDate: farTestDate, studyDaysPerWeek: 3,
+    });
+    const week1Days = new Set((plan.weeks[0].activities || []).map((a) => a.day));
+    expect(week1Days.size).toBeGreaterThan(0);
+    week1Days.forEach((d) => expect(['Saturday', 'Sunday']).toContain(d));
+    const enabled = new Set(['Monday', 'Wednesday', 'Friday']);
+    plan.weeks.slice(1).forEach((w) => {
+      (w.activities || []).forEach((a) => {
+        expect(enabled.has(a.day)).toBe(true);
+      });
+    });
+  });
+
   test('a 3-days-a-week student gets work on exactly those 3 days, every week', () => {
     const plan = generateStudyPlan(mkDiag(), {
       targetScore: 1200, testDate: farTestDate, studyDaysPerWeek: 3,
