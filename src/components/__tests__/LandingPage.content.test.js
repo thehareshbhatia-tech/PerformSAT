@@ -160,10 +160,11 @@ describe('LandingPage creator-link ribbon', () => {
   });
 });
 
-// ── landingV2 (Acely-style rebuild, 2026-09-10) ───────────────────────────
-// The flag-on page is LandingPageV2: a restrained, sectioned page that leads
-// with the diagnosis recording, walks three steps, and hands the visitor one
-// real question. Pin what it shows and what it stopped claiming.
+// ── landingV2 (Acely-style rebuild, 2026-09-10; story re-cut 2026-09-20) ──
+// The flag-on page is LandingPageV2: a restrained, sectioned page that tells
+// the product's story in four numbered chapters, each beside a readable crop
+// of the real screen, then hands the visitor one real question. Pin what it
+// shows and what it stopped claiming.
 describe('LandingPage v2 (ff:landingV2)', () => {
   let html;
   beforeAll(() => {
@@ -172,18 +173,37 @@ describe('LandingPage v2 (ff:landingV2)', () => {
   });
   afterAll(() => { setFeatureFlagForTest('landingV2', undefined); });
 
-  test('leads with the diagnosis promise and the three steps', () => {
-    expect(html).toContain('Find out why you miss SAT questions. Then fix exactly that.');
-    expect(html).toContain('Three steps to a higher score.');
-    expect(html).toContain('Take the diagnostic.');
-    expect(html).toContain('Get your plan.');
-    expect(html).toContain('Drill what costs you points.');
+  test('leads with the diagnosis promise', () => {
+    expect(html).toContain('Find out why you miss SAT questions.');
+    expect(html).toContain('Then fix exactly that.');
   });
 
-  test('names the four ways the product raises a score', () => {
-    for (const t of ['A plan that adapts.', 'The why behind every miss.', 'True-to-test practice.', 'A score you can watch move.']) {
-      expect(html).toContain(t);
+  test('tells the product story in four chapters, in the order a student lives it', () => {
+    expect(html).toContain('How SEVA raises your score.');
+    const titles = [
+      'You take a 40-question diagnostic.',
+      'SEVA tells you why you missed.',
+      'You get a plan sized to your test date.',
+      'You drill the exact question type, with a tutor beside you.',
+    ];
+    const at = titles.map((t) => html.indexOf(t));
+    at.forEach((i) => expect(i).toBeGreaterThan(-1));
+    expect([...at].sort((x, y) => x - y)).toEqual(at);
+    expect(html.match(/class="lpv2-chapter[ "]/g)).toHaveLength(4);
+  });
+
+  test('every chapter shows a crop of the real screen it describes', () => {
+    for (const shot of ['dashboard', 'test-runner', 'diagnosis', 'study-plan', 'drill']) {
+      expect(html).toContain(`/showcase/${shot}@2x.webp 2880w`);
+      expect(html).toContain(`/showcase/${shot}@2x.png`);
     }
+    // A crop is a window with a scale and an origin; an <img> without them
+    // would render the whole capture at full size.
+    const crops = html.match(/class="lpv2-crop[^"]*" style="[^"]*"/g) || [];
+    expect(crops.length).toBeGreaterThanOrEqual(5);
+    crops.forEach((c) => { expect(c).toMatch(/--x:/); expect(c).toMatch(/--s:/); });
+    // The page carries no recording any more.
+    expect(html).not.toContain('<video');
   });
 
   test('hands the visitor a real question, rendered with the app\'s own choice list', () => {
@@ -191,21 +211,6 @@ describe('LandingPage v2 (ff:landingV2)', () => {
     expect(html).toContain('Adobe buildings are made of earthen bricks'); // rw-1201, verbatim from the bank
     expect(html).toContain('answer-choice-card'); // shared/AnswerChoiceList, the drill's rows
     expect(html).toContain('Check answer');
-  });
-
-  test('shows exactly one recording: the diagnosis, muted and inline', () => {
-    expect(html.match(/<video /g)).toHaveLength(1);
-    expect(html).toMatch(/<video [^>]*muted[^>]*playsinline/i);
-    expect(html).toContain('/showcase/video/diagnosis.webm');
-    expect(html).toContain('/showcase/video/diagnosis.mp4');
-    expect(html).toContain('/showcase/video/diagnosis-poster@2x.webp');
-    // The lossless still lives inside the <video> as its fallback.
-    expect(html).toContain('/showcase/diagnosis@2x.webp 2880w');
-    expect(html).toContain('/showcase/diagnosis@2x.png');
-    // The five recordings the rebuild dropped are gone from the page.
-    for (const shot of ['test-runner', 'study-plan', 'drill', 'practice-bank', 'dashboard']) {
-      expect(html).not.toContain(`/showcase/video/${shot}.mp4`);
-    }
   });
 
   test('answers the six questions a visitor actually asks', () => {

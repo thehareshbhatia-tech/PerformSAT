@@ -2,26 +2,29 @@
  * LandingPageV2 — the public landing page behind `ff:landingV2` (`?lp=v2`).
  *
  * Rebuilt 2026-09-10 in the restrained, editorial register the founder asked
- * for ("simple yet powerful"): a green announcement strip, a white nav, one
- * navy hero holding the real diagnosis recording, then white sections that
- * each make ONE point. Brand tokens stay SEVA's (navy, orange for actions,
- * green for gains, pastel tiles); there are no gradients, glows, parallax or
- * scroll reveals, and the only motion on the page is the hero recording and
- * the score-gain marquee.
+ * for ("simple yet powerful"), then re-cut 2026-09-20 against a measured
+ * capture of acely.com: the page now TELLS THE STORY of the product. A navy
+ * hero holds a readable crop of the real Home screen, and four numbered
+ * chapters (diagnostic, diagnosis, plan, drill) each pair a short paragraph
+ * with a large crop of the real screen it describes. Every product image is
+ * a `Crop`: a window onto a full 1440x900 capture at a fixed scale, so the
+ * UI text inside it is legible instead of a shrunken whole-screen thumbnail.
+ * Brand tokens stay SEVA's (navy, orange for actions, green for gains); no
+ * gradients, glows, parallax or scroll reveals. The only motion is the
+ * score-gain marquee.
  *
  * Purely presentational: every behaviour (auth, the signup funnel, the login
  * modal, the billing flag) stays in LandingPage.jsx and arrives as props.
  */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Wordmark from './ui/Wordmark';
+import Mark from './ui/Mark';
 import LandingTryIt from './LandingTryIt';
 import { Avatar, svgBase } from './landingShared';
 import { ROSTER, PRICING_INCLUDES } from '../data/landingRoster';
 import './LandingPageV2.css';
 
 const PU = process.env.PUBLIC_URL;
-const prefersReducedMotion = () =>
-  typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
 /* ── Line icons (1.75px stroke, no fills, no emoji) ─────────────────────── */
 const ArrowRight = ({ size = 16 }) => (
@@ -30,15 +33,12 @@ const ArrowRight = ({ size = 16 }) => (
 const Check = ({ size = 16 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.75" aria-hidden="true" {...svgBase}><path d="M20 6 9 17l-5-5" /></svg>
 );
-const CheckCircle = ({ size = 20 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.75" aria-hidden="true" {...svgBase}><circle cx="12" cy="12" r="9" /><path d="m8.5 12.2 2.4 2.4 4.6-5" /></svg>
+// Filled disc check for the chapter lists (Acely's checklist mark, in SEVA navy).
+const CheckDisc = ({ size = 22 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" /><path d="m7.5 12.3 3 3 6-6.4" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
 );
 const Chevron = ({ size = 18 }) => (
   <svg className="lpv2-faq-chev" width={size} height={size} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.75" aria-hidden="true" {...svgBase}><path d="m6 9 6 6 6-6" /></svg>
-);
-// Gain arrow for the "7 PTS" chip — an SVG triangle, never the ▲ character.
-const GainTriangle = ({ size = 9 }) => (
-  <svg width={size} height={size} viewBox="0 0 10 10" aria-hidden="true"><path d="M5 1.5 9 8.5H1z" fill="currentColor" /></svg>
 );
 
 /* ── Section content ────────────────────────────────────────────────────── */
@@ -49,22 +49,80 @@ const INVENTORY = [
   { n: '161', label: 'Question types covered' },
 ];
 
-const STEPS = [
-  { n: '01', title: 'Take the diagnostic.', line: 'Forty questions, adaptive like the real test, about half the length of an SAT.' },
-  { n: '02', title: 'Get your plan.', line: 'Built from your misses and sized to your test date.' },
-  { n: '03', title: 'Drill what costs you points.', line: 'The exact question types, with the reason behind every miss.' },
+/**
+ * The story of the product, in the order a student lives it. Each chapter's
+ * `crop` is a window onto a real 1440x900 capture in public/showcase/: `x`/`y`
+ * is the top-left corner of the window in capture pixels and `s` the scale it
+ * is shown at (`sm` = the phone override). The window bleeds off the tile's
+ * right and bottom edges, so a crop never needs to "fit".
+ */
+const CHAPTERS = [
+  { n: '01', tone: 'blue',
+    title: 'You take a 40-question diagnostic.',
+    body: 'It works like the real Digital SAT. The second module adapts to how you did on the first, and everything runs in the Bluebook layout with the same timer and tools. It takes about an hour.',
+    points: ['Adaptive, like the official test', 'Bluebook layout, timer and tools', 'About half the length of a full SAT'],
+    crop: { shot: 'test-runner', x: 740, y: 146, s: 0.9, sm: { x: 742, y: 146, s: 0.7 },
+      alt: 'A SEVA test question in the Bluebook layout: the question, four answer choices with one selected, and Mark for Review' } },
+  { n: '02', tone: 'peach',
+    title: 'SEVA tells you why you missed.',
+    body: 'A score tells you how many you got wrong. SEVA reads every miss and names what is behind it: the skill, the type of error, and how many points it is costing you.',
+    points: ['Six error types, named in plain language', 'The points at stake in every weak area', 'Your easiest points listed first'],
+    crop: { shot: 'diagnosis', x: 296, y: 150, s: 0.64, sm: { x: 300, y: 420, s: 0.7 },
+      alt: 'A SEVA diagnosis: the diagnostic score against the target, points to target, easy wins, the biggest lever, and the biggest challenge named' } },
+  { n: '03', tone: 'lime',
+    title: 'You get a plan sized to your test date.',
+    body: 'Your diagnosis becomes a day-by-day plan. Each session is about 20 minutes, names the skill it works on and tells you why it is there. After every session the plan re-sorts itself.',
+    points: ['Built from your own misses', 'About 20 minutes a day', 'Updates after every session'],
+    crop: { shot: 'study-plan', x: 266, y: 104, s: 0.72, sm: { x: 280, y: 268, s: 0.62 },
+      alt: 'A SEVA study plan: the score now, the days to the test, and today’s session card with the skill it works on and a Start button' } },
+  { n: '04', tone: 'lavender',
+    title: 'You drill the exact question type, with a tutor beside you.',
+    body: 'Drills pull the question types you miss, not the whole section. Get one wrong and you see the fast method, why each wrong choice is wrong, and a tutor that already knows which trap you fell for.',
+    points: ['2,200+ hand-authored questions', 'The fast method on every explanation', 'A tutor that sees the answer you picked'],
+    crop: { shot: 'drill', x: 300, y: 100, s: 0.8, sm: { x: 306, y: 100, s: 0.62 },
+      alt: 'A SEVA drill after a wrong answer: the correct and chosen choices marked, and the fast method explained' },
+    inset: { shot: 'drill', x: 1004, y: 118, w: 414, h: 124, s: 0.7,
+      alt: 'The tutor panel: Let’s fix that one. You picked B, and I know the exact trap behind it.' } },
 ];
 
-const DIAGNOSIS_POINTS = [
-  'Every miss is filed under the SAT skill and the error type behind it.',
-  'The explanation shows the fast method, not just the answer.',
-  'Drills target the exact question type, not the whole section.',
-  'Your plan re-sorts itself after every session.',
-];
+const HERO_CROP = { shot: 'dashboard', x: 284, y: 100, s: 0.74, sm: { x: 288, y: 100, s: 0.47 },
+  alt: 'The SEVA home screen: overall accuracy, consistency and pacing tiles above an estimated score with Math and Reading & Writing ranges' };
 
-const HERO_ALT = 'The diagnosis screen: your biggest challenge named, the points it costs, and the skills behind it';
-const PLAN_ALT = 'SEVA Study Plan: the score now, the days to the test, and one card per session with the skill it works on and a Start button';
-const PLAN_SIZES = '(max-width: 960px) calc(100vw - 88px), 520px';
+/**
+ * A window onto a full-screen product capture. The <img> is the whole
+ * 1440x900 capture, absolutely positioned and scaled by CSS custom properties
+ * so only the chosen region shows; the 2x WebP is picked on retina screens.
+ *
+ * @param {{ crop: { shot: string, x: number, y: number, s: number, w?: number, h?: number,
+ *           sm?: { x?: number, y?: number, s?: number }, alt: string },
+ *           className?: string, eager?: boolean }} props
+ */
+const Crop = ({ crop, className = '', eager = false }) => {
+  const { shot, x, y, s, w, h, sm = {}, alt } = crop;
+  const vars = {
+    '--x': x, '--y': y, '--s': s,
+    '--x-sm': sm.x ?? x, '--y-sm': sm.y ?? y, '--s-sm': sm.s ?? s,
+    ...(w ? { '--w': w, '--h': h } : null),
+  };
+  const sizes = `${Math.round(1440 * s)}px`;
+  return (
+    <div className={`lpv2-crop ${className}`.trim()} style={vars}>
+      <picture>
+        <source type="image/webp" srcSet={`${PU}/showcase/${shot}.webp 1440w, ${PU}/showcase/${shot}@2x.webp 2880w`} sizes={sizes} />
+        <img
+          src={`${PU}/showcase/${shot}@2x.png`}
+          srcSet={`${PU}/showcase/${shot}.png 1440w, ${PU}/showcase/${shot}@2x.png 2880w`}
+          sizes={sizes}
+          alt={alt}
+          width="1440"
+          height="900"
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+        />
+      </picture>
+    </div>
+  );
+};
 
 /** The six questions a visitor actually asks. Facts only: no guarantees, no crowd numbers. */
 const faqItems = (billingLive, p) => [
@@ -95,37 +153,11 @@ const faqItems = (billingLive, p) => [
  */
 const LandingPageV2 = ({ openAuth, billingLive, creatorRibbon = false, pricing }) => {
   const { TRIAL_DAYS, PRICE_MONTHLY, PRICE_ANNUAL_MONTHLY, PRICE_ANNUAL_TOTAL, ANNUAL_SAVINGS } = pricing;
-  const videoRef = useRef(null);
   const [navLine, setNavLine] = useState(false);
 
   const freeLine = billingLive
     ? `Free for ${TRIAL_DAYS} days. Cancel anytime before day ${TRIAL_DAYS} and you won't be charged.`
     : 'Free during early access. No credit card required.';
-
-  // The hero recording plays (muted, looping) only while it is on screen. A
-  // reduced-motion reader gets controls and no autoplay; preload="none" means
-  // nothing downloads until it is about to play.
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return undefined;
-    if (prefersReducedMotion() || typeof IntersectionObserver === 'undefined') {
-      v.controls = true;
-      v.preload = 'metadata';
-      return undefined;
-    }
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => {
-        if (en.isIntersecting && en.intersectionRatio >= 0.35) {
-          const play = en.target.play();
-          if (play && typeof play.catch === 'function') play.catch(() => { en.target.controls = true; });
-        } else if (!en.target.paused) {
-          en.target.pause();
-        }
-      });
-    }, { threshold: [0, 0.35, 0.6] });
-    io.observe(v);
-    return () => io.disconnect();
-  }, []);
 
   // A 1px rule appears under the nav once the page has scrolled. No elevation
   // animation, no transform: one class toggle.
@@ -160,7 +192,8 @@ const LandingPageV2 = ({ openAuth, billingLive, creatorRibbon = false, pricing }
           <a href="/" className="lpv2-brand" aria-label="SEVA"><Wordmark size="lg" tone="dark" /></a>
           <div className="lpv2-nav-links">
             <a href="#how" onClick={scrollTo('how')}>How it works</a>
-            <a href="#why" onClick={scrollTo('why')}>The diagnosis</a>
+            <a href="#why" onClick={scrollTo('why')}>Try a question</a>
+            <a href="#results" onClick={scrollTo('results')}>Results</a>
             <a href="#pricing" onClick={scrollTo('pricing')}>Pricing</a>
             <a href="#faq" onClick={scrollTo('faq')}>FAQ</a>
           </div>
@@ -175,55 +208,20 @@ const LandingPageV2 = ({ openAuth, billingLive, creatorRibbon = false, pricing }
       <header className="lpv2-hero">
         <div className="lpv2-wrap lpv2-hero-grid">
           <div className="lpv2-hero-copy">
-            <h1 className="lpv2-h1">Find out why you miss SAT questions. Then fix exactly that.</h1>
+            <h1 className="lpv2-h1">Find out why you miss SAT questions. <span className="lpv2-h1-line">Then fix exactly that.</span></h1>
             <p className="lpv2-hero-sub">
               An adaptive diagnostic finds the skills costing you points. A plan and drills fix them, with the reason behind every miss.
             </p>
             <div className="lpv2-hero-cta">
-              <button type="button" className="lpv2-btn lpv2-btn-primary" onClick={() => openAuth(false)}>
-                Start free<ArrowRight />
+              <button type="button" className="lpv2-btn lpv2-btn-primary lpv2-btn-lg" onClick={() => openAuth(false)}>
+                Start free<ArrowRight size={20} />
               </button>
             </div>
             <p className="lpv2-hero-note"><Check size={15} />{freeLine}</p>
           </div>
 
           <div className="lpv2-hero-media">
-            {/* The still inside the <video> is what a browser without video
-                support, or a failed load, shows. */}
-            <video
-              ref={videoRef}
-              className="lpv2-hero-video"
-              muted
-              playsInline
-              loop
-              preload="none"
-              poster={`${PU}/showcase/video/diagnosis-poster@2x.webp`}
-              width="1920"
-              height="1200"
-              aria-label={HERO_ALT}
-            >
-              <source src={`${PU}/showcase/video/diagnosis.webm`} type="video/webm" />
-              <source src={`${PU}/showcase/video/diagnosis.mp4`} type="video/mp4" />
-              <picture>
-                <source type="image/webp" srcSet={`${PU}/showcase/diagnosis.webp 1440w, ${PU}/showcase/diagnosis@2x.webp 2880w`} sizes="(max-width: 960px) calc(100vw - 48px), 560px" />
-                <img
-                  src={`${PU}/showcase/diagnosis@2x.png`}
-                  srcSet={`${PU}/showcase/diagnosis.png 1440w, ${PU}/showcase/diagnosis@2x.png 2880w`}
-                  sizes="(max-width: 960px) calc(100vw - 48px), 560px"
-                  alt={HERO_ALT}
-                  width="2880"
-                  height="1800"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </picture>
-            </video>
-            {/* A real finding from this recording, set beside the frame rather
-                than over it so the product stays uncovered. */}
-            <p className="lpv2-hero-caption">
-              <span className="lpv2-hero-caption-num">−40 pts</span>
-              <span className="lpv2-hero-caption-text">Word problems break at the translation step</span>
-            </p>
+            <Crop crop={HERO_CROP} className="lpv2-hero-crop" eager />
           </div>
         </div>
       </header>
@@ -243,38 +241,30 @@ const LandingPageV2 = ({ openAuth, billingLive, creatorRibbon = false, pricing }
         </div>
       </section>
 
-      {/* ── 4. How it works ───────────────────────────────────────────── */}
+      {/* ── 4. The story: what the product does, in order ─────────────── */}
       <section id="how" className="lpv2-section">
         <div className="lpv2-wrap">
-          <h2 className="lpv2-h2">Three steps to a higher score.</h2>
-          <div className="lpv2-how-grid">
-            <div className="lpv2-how-tile">
-              <picture>
-                <source type="image/webp" srcSet={`${PU}/showcase/study-plan.webp 1440w, ${PU}/showcase/study-plan@2x.webp 2880w`} sizes={PLAN_SIZES} />
-                <img
-                  className="lpv2-how-shot"
-                  src={`${PU}/showcase/study-plan@2x.png`}
-                  srcSet={`${PU}/showcase/study-plan.png 1440w, ${PU}/showcase/study-plan@2x.png 2880w`}
-                  sizes={PLAN_SIZES}
-                  alt={PLAN_ALT}
-                  width="2880"
-                  height="1800"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </picture>
-            </div>
-            <ol className="lpv2-steps">
-              {STEPS.map((s) => (
-                <li className="lpv2-step" key={s.n}>
-                  <span className="lpv2-step-n" aria-hidden="true">{s.n}</span>
-                  <div>
-                    <h3 className="lpv2-step-title">{s.title}</h3>
-                    <p className="lpv2-step-line">{s.line}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
+          <h2 className="lpv2-h2">How SEVA raises your score.</h2>
+          <p className="lpv2-sub">Four steps, in the order you will go through them.</p>
+          <div className="lpv2-chapters">
+            {CHAPTERS.map((c, i) => (
+              <article className={`lpv2-chapter${i % 2 ? ' is-flip' : ''}`} key={c.n}>
+                <div className="lpv2-chapter-copy">
+                  <span className="lpv2-step-n" aria-hidden="true">{c.n}</span>
+                  <h3 className="lpv2-chapter-title">{c.title}</h3>
+                  <p className="lpv2-chapter-body">{c.body}</p>
+                  <ul className="lpv2-checks">
+                    {c.points.map((t) => (
+                      <li key={t}><span className="lpv2-check-icon"><CheckDisc /></span>{t}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className={`lpv2-shot lpv2-shot-${c.tone}`}>
+                  <Crop crop={c.crop} />
+                  {c.inset && <Crop crop={c.inset} className="lpv2-crop-inset" />}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -291,56 +281,7 @@ const LandingPageV2 = ({ openAuth, billingLive, creatorRibbon = false, pricing }
         </div>
       </div>
 
-      {/* ── 6. Features ───────────────────────────────────────────────── */}
-      <section className="lpv2-section">
-        <div className="lpv2-wrap">
-          <h2 className="lpv2-h2">How you&rsquo;ll raise your score.</h2>
-          <div className="lpv2-feat-grid">
-            <article className="lpv2-feat">
-              <div className="lpv2-tile lpv2-tile-peach">
-                <div className="lpv2-mini">
-                  <span className="lpv2-mini-meta">Thursday · 20 min</span>
-                  <span className="lpv2-mini-title">Slope-intercept form</span>
-                  <span className="lpv2-mini-pill">Start</span>
-                </div>
-              </div>
-              <h3 className="lpv2-feat-title">A plan that adapts.</h3>
-              <p className="lpv2-feat-line">Each session is built from your latest misses and your test date.</p>
-            </article>
-
-            <article className="lpv2-feat">
-              <div className="lpv2-tile lpv2-tile-navy">
-                <span className="lpv2-tile-figure lpv2-tile-figure-lime">−40 pts</span>
-                <span className="lpv2-tile-caption">Word problems break at the translation step</span>
-              </div>
-              <h3 className="lpv2-feat-title">The why behind every miss.</h3>
-              <p className="lpv2-feat-line">Six error classes, named in plain language after every test.</p>
-            </article>
-
-            <article className="lpv2-feat">
-              <div className="lpv2-tile lpv2-tile-lime">
-                <span className="lpv2-tile-eyebrow lpv2-ink-green">Focus area</span>
-                <span className="lpv2-tile-figure lpv2-tile-figure-sm">Linear equations</span>
-                <span className="lpv2-chip lpv2-chip-white">Hard</span>
-              </div>
-              <h3 className="lpv2-feat-title">True-to-test practice.</h3>
-              <p className="lpv2-feat-line">2,200+ hand-authored questions and 12 adaptive full-length tests in the Bluebook layout.</p>
-            </article>
-
-            <article className="lpv2-feat">
-              <div className="lpv2-tile lpv2-tile-lavender">
-                <span className="lpv2-tile-eyebrow">Math accuracy</span>
-                <span className="lpv2-tile-figure">64%</span>
-                <span className="lpv2-chip lpv2-chip-green"><GainTriangle />7 PTS</span>
-              </div>
-              <h3 className="lpv2-feat-title">A score you can watch move.</h3>
-              <p className="lpv2-feat-line">Projected score, accuracy and pacing after every session.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 7. Results ────────────────────────────────────────────────── */}
+      {/* ── 6. Results ────────────────────────────────────────────────── */}
       <section id="results" className="lpv2-section">
         <div className="lpv2-wrap">
           <h2 className="lpv2-h2">Real students. Real score gains.</h2>
@@ -362,23 +303,18 @@ const LandingPageV2 = ({ openAuth, billingLive, creatorRibbon = false, pricing }
         </div>
       </section>
 
-      {/* ── 8. The diagnosis ──────────────────────────────────────────── */}
-      <section id="why" className="lpv2-section">
+      {/* ── 7. Try it ─────────────────────────────────────────────────── */}
+      <section id="why" className="lpv2-section lpv2-section-tint">
         <div className="lpv2-wrap">
           <h2 className="lpv2-h2">See exactly why you missed it.</h2>
           <p className="lpv2-sub">Answer one real question. SEVA marks it, explains it, and tells you what it just learned about you.</p>
           <div className="lpv2-try-tile">
             <LandingTryIt onStart={() => openAuth(false)} />
           </div>
-          <ul className="lpv2-points">
-            {DIAGNOSIS_POINTS.map((t) => (
-              <li key={t}><span className="lpv2-point-icon"><CheckCircle /></span>{t}</li>
-            ))}
-          </ul>
         </div>
       </section>
 
-      {/* ── 9. Pricing ────────────────────────────────────────────────── */}
+      {/* ── 8. Pricing ────────────────────────────────────────────────── */}
       <section id="pricing" className="lpv2-section">
         <div className="lpv2-wrap">
           <h2 className="lpv2-h2">{billingLive ? 'Simple pricing. Everything included.' : 'Free during early access.'}</h2>
@@ -432,7 +368,7 @@ const LandingPageV2 = ({ openAuth, billingLive, creatorRibbon = false, pricing }
         </div>
       </section>
 
-      {/* ── 10. FAQ ───────────────────────────────────────────────────── */}
+      {/* ── 9. FAQ ───────────────────────────────────────────────────── */}
       <section id="faq" className="lpv2-section">
         <div className="lpv2-wrap">
           <h2 className="lpv2-h2">Frequently asked questions.</h2>
@@ -447,9 +383,14 @@ const LandingPageV2 = ({ openAuth, billingLive, creatorRibbon = false, pricing }
         </div>
       </section>
 
-      {/* ── 11. Final CTA ─────────────────────────────────────────────── */}
+      {/* ── 10. Final CTA ─────────────────────────────────────────────── */}
       <section className="lpv2-final">
         <div className="lpv2-wrap">
+          <div className="lpv2-final-art" aria-hidden="true">
+            <span className="lpv2-final-chip is-left">SAT {ROSTER[1].from} → {ROSTER[1].to}</span>
+            <span className="lpv2-final-mark"><Mark size={84} decorative /></span>
+            <span className="lpv2-final-chip is-right">SAT {ROSTER[0].from} → {ROSTER[0].to}</span>
+          </div>
           <h2 className="lpv2-h2">Get your diagnosis today.</h2>
           <p className="lpv2-sub">In about an hour you&rsquo;ll know exactly which skills to fix.</p>
           <button type="button" className="lpv2-btn lpv2-btn-primary" onClick={() => openAuth(false)}>
@@ -458,7 +399,7 @@ const LandingPageV2 = ({ openAuth, billingLive, creatorRibbon = false, pricing }
         </div>
       </section>
 
-      {/* ── 12. Footer ────────────────────────────────────────────────── */}
+      {/* ── 11. Footer ────────────────────────────────────────────────── */}
       <footer className="lpv2-footer">
         <div className="lpv2-wrap">
           <div className="lpv2-foot-grid">
@@ -469,7 +410,7 @@ const LandingPageV2 = ({ openAuth, billingLive, creatorRibbon = false, pricing }
             <div className="lpv2-foot-col">
               <p className="lpv2-foot-title">Product</p>
               <a href="#how" onClick={scrollTo('how')}>How it works</a>
-              <a href="#why" onClick={scrollTo('why')}>The diagnosis</a>
+              <a href="#why" onClick={scrollTo('why')}>Try a question</a>
               <a href="#pricing" onClick={scrollTo('pricing')}>Pricing</a>
               <a href="#faq" onClick={scrollTo('faq')}>FAQ</a>
             </div>
