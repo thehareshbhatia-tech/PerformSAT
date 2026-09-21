@@ -187,9 +187,9 @@ const LandingPage = () => {
   // paywall so the landing page never promises "free forever" once the
   // 3-day-trial model is live (and never promises a trial before it exists).
   const billingLive = useFeatureFlag('billing');
-  // landingV2: the "show, don't tell" page (try-it hero + product tour).
-  // `?lp=v2` previews it without touching the flag, so a reviewer can open the
-  // new page by link on any deploy; `?lp=v1` forces the old page the same way.
+  // landingV2: the Acely-style story page, default ON since 2026-09-21 (see
+  // FLAG_DEFAULTS). `?lp=v1` still opens the old page by link on any deploy,
+  // and `?lp=v2` forces the new one even if the kill-switch env var is set.
   const v2Flag = useFeatureFlag('landingV2');
   const lpParam = typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('lp') : null;
   const v2 = lpParam === 'v2' ? true : lpParam === 'v1' ? false : v2Flag;

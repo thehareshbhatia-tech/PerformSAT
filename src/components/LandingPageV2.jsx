@@ -1,5 +1,6 @@
 /**
- * LandingPageV2 — the public landing page behind `ff:landingV2` (`?lp=v2`).
+ * LandingPageV2 — THE public landing page (flag `landingV2`, default ON since
+ * 2026-09-21; `?lp=v1` or REACT_APP_FF_LANDING_V2=false brings the old one back).
  *
  * Rebuilt 2026-09-10 in the restrained, editorial register the founder asked
  * for ("simple yet powerful"), then re-cut 2026-09-20 against a measured

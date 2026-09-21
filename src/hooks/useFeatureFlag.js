@@ -36,6 +36,7 @@ const FLAG_DEFAULTS = {
   tutorPrewarm: true, // panel-open cache prewarm (measured: tutor TTFB 6.5s → 3.9s). Safe since the prewarm-aware aiTutor deployed 2026-07-21; kill-switch via REACT_APP_FF_TUTOR_PREWARM=false
   planV3: true, // TRUE-plan generator + mission-control timeline (built 2026-08-13, live-verified on prod bundle 2026-08-14); kill-switch via REACT_APP_FF_PLAN_V3=false
   diagnosticV2: true, // 40Q adaptive diagnostic in the real test runner (built 2026-08-13, full 40Q E2E live-verified same day); kill-switch via REACT_APP_FF_DIAGNOSTIC_V2=false
+  landingV2: true, // the Acely-style story landing page (LandingPageV2; founder said go live 2026-09-21 after viewing it on prod via ?lp=v2); kill-switch via REACT_APP_FF_LANDING_V2=false, and ?lp=v1 still shows the old page
 };
 
 function camelToScreamingSnake(key) {

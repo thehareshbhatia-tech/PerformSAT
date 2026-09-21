@@ -50,11 +50,16 @@ const EMOJI_RE = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u;
 // strip them so substring assertions read like the rendered page.
 const render = (el) => ReactDOMServer.renderToString(el).replace(/<!-- -->/g, '');
 
+// landingV2 graduated to default-ON on 2026-09-21, so the v1 page these
+// tests pin now has to be asked for explicitly. It stays reachable in the
+// product via ?lp=v1 and the REACT_APP_FF_LANDING_V2=false kill-switch.
 describe('LandingPage content', () => {
   let html;
   beforeAll(() => {
+    setFeatureFlagForTest('landingV2', false);
     html = render(<LandingPage />);
   });
+  afterAll(() => { setFeatureFlagForTest('landingV2', undefined); });
 
   test('claims the derived (rounded-down) content inventory', () => {
     expect(html).toContain('2,200+'); // honest question-bank floor (actual ~2,280)
@@ -134,12 +139,16 @@ describe('LandingPage content', () => {
 // billing is live — the page must never promise a checkout discount that
 // checkout can't apply.
 describe('LandingPage creator-link ribbon', () => {
-  const RIBBON =
+  // The default page is v2 since 2026-09-21; v1 (?lp=v1) words the same promise
+  // with a dash. Both must carry it: creator links are live marketing.
+  const RIBBON = 'Creator discount active: 20% off your first 3 months, applied automatically at checkout.';
+  const RIBBON_V1 =
     'Creator discount active — 20% off your first 3 months, applied automatically at checkout.';
 
   afterEach(() => {
     window.localStorage.removeItem('seva:ref');
     setFeatureFlagForTest('billing', undefined);
+    setFeatureFlagForTest('landingV2', undefined);
   });
 
   test('hidden for direct (non-referred) visitors', () => {
@@ -151,6 +160,8 @@ describe('LandingPage creator-link ribbon', () => {
     setFeatureFlagForTest('billing', true);
     window.localStorage.setItem('seva:ref', JSON.stringify({ slug: 'iksha', at: Date.now() }));
     expect(render(<LandingPage />)).toContain(RIBBON);
+    setFeatureFlagForTest('landingV2', false);
+    expect(render(<LandingPage />)).toContain(RIBBON_V1);
   });
 
   test('never promises the discount while billing is dark', () => {
@@ -172,6 +183,14 @@ describe('LandingPage v2 (ff:landingV2)', () => {
     html = render(<LandingPage />);
   });
   afterAll(() => { setFeatureFlagForTest('landingV2', undefined); });
+
+  test('is the page a visitor gets with no flag set at all', () => {
+    setFeatureFlagForTest('landingV2', undefined);
+    const byDefault = render(<LandingPage />);
+    setFeatureFlagForTest('landingV2', true);
+    expect(byDefault).toContain('class="lpv2"');
+    expect(byDefault).toContain('How SEVA raises your score.');
+  });
 
   test('leads with the diagnosis promise', () => {
     expect(html).toContain('Find out why you miss SAT questions.');
