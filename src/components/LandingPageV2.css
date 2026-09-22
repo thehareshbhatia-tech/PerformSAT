@@ -356,10 +356,15 @@
 }
 
 /* ── Shared Avatar, reskinned flat for this page (no gradient) ──────────── */
+/* The base circle + photo rules are restated here so this page does not
+   depend on LandingPage.css (v1) being in the bundle to clip the portrait. */
 .lpv2 .lp-avatar {
+  position: relative; display: grid; place-items: center; flex: none;
+  border-radius: 50%; overflow: hidden;
   border: none; background: var(--v2-navy); color: #FFFFFF;
   font-family: var(--v2-sans); font-weight: 600; font-size: 13px;
 }
+.lpv2 .lp-avatar-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .lpv2 .lpv2-quote-person .lp-avatar { font-size: 15px; }
 .lpv2 .lpv2-marquee-item .lp-avatar { background: rgba(12, 16, 38, .82); }
 

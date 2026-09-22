@@ -88,3 +88,7 @@ knowledge/reference/
 
 # Claude Code agent worktrees (local only)
 .claude/worktrees/
+
+# Student photos not yet matched to a testimonial (local only, never commit;
+# kept OUT of public/ so a local build never serves them)
+testimonials-pending/

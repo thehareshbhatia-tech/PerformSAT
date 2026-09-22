@@ -14,17 +14,18 @@ export const svgBase = { fill: 'none', strokeLinecap: 'round', strokeLinejoin: '
 
 /**
  * Testimonial avatar: renders the student's initials, then overlays their
- * photo from public/testimonials/ when it exists. onError hides a missing
- * photo so we never flash a broken-image icon before the real photos land.
+ * photo from public/testimonials/ when the roster names one. A roster entry
+ * with no photo yet (`img: null`) renders initials only, with no <img> at all;
+ * onError hides a photo that 404s so we never flash a broken-image icon.
  *
- * @param {{ src: string, name: string, size?: number }} props
+ * @param {{ src?: string | null, name: string, size?: number }} props
  */
 export const Avatar = ({ src, name, size = 46 }) => {
   const initials = name.split(/\s+/).map((w) => w[0]).join('').slice(0, 2).toUpperCase();
   return (
     <span className="lp-avatar" style={{ width: size, height: size }} aria-hidden="true">
       {initials}
-      <img className="lp-avatar-img" src={src} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+      {src && <img className="lp-avatar-img" src={src} alt="" loading="lazy" onError={(e) => { e.currentTarget.style.display = 'none'; }} />}
     </span>
   );
 };
