@@ -19,9 +19,9 @@ export const ROSTER = [
     quote: 'It taught me to see the SAT as patterns, not random questions. My score jumped 270 points and I earned over $350K in scholarships.' },
   { img: null, name: 'Sansai H.', meta: 'Villanova University', from: '1250', to: '1430',
     quote: 'I stopped chasing volume and started following a real system. The improvement felt structural — it just clicked into place.' },
-  { img: null, name: 'Rocco D.', meta: 'Fordham University', from: '1180', to: '1420',
+  { img: '/testimonials/rocco-d.webp', name: 'Rocco D.', meta: 'Fordham University', from: '1180', to: '1420',
     quote: "I couldn't have gotten these results without SEVA. By test day I wasn't guessing anymore — I was executing." },
-  { img: null, name: 'Luca S.', meta: 'Tufts University', from: '1280', to: '1410',
+  { img: '/testimonials/luca-s.webp', name: 'Luca S.', meta: 'Tufts University', from: '1280', to: '1410',
     quote: 'It matched the intensity I bring to the field. Once I saw the structure beneath each question, my accuracy and timing transformed.' },
 ];
 
