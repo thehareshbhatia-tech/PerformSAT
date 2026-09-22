@@ -233,7 +233,7 @@
 }
 .lpv2-marquee-track {
   display: flex; align-items: center; gap: 56px; flex: none;
-  padding-left: 56px; animation: lpv2-scroll 60s linear infinite;
+  padding-left: 56px; animation: lpv2-scroll 84s linear infinite; /* 12s per student */
 }
 .lpv2-marquee:hover .lpv2-marquee-track { animation-play-state: paused; }
 .lpv2-marquee-item { display: inline-flex; align-items: center; gap: 12px; flex: none; }

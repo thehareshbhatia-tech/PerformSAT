@@ -10,6 +10,9 @@ import { Avatar, svgBase } from './landingShared';
 import { ROSTER, PRICING_INCLUDES } from '../data/landingRoster';
 import './LandingPage.css';
 
+/** Results carousel cards: only students with an approved first-person quote. */
+const QUOTED = ROSTER.filter((r) => r.quote);
+
 // The pre-signup quiz funnel is its own chunk: the landing page must stay
 // light (it's an eager import in App.jsx), and most visitors bounce before
 // clicking a CTA.
@@ -326,11 +329,11 @@ const LandingPage = () => {
   // Results carousel: `active` is unbounded; wrap on read so prev/next always
   // resolve to a real roster entry.
   const cycle = (d) => setActive((a) => a + d);
-  const rn = ROSTER.length;
+  const rn = QUOTED.length;
   const ri = ((active % rn) + rn) % rn;
-  const cur = ROSTER[ri];
-  const prevCard = ROSTER[(ri - 1 + rn) % rn];
-  const nextCard = ROSTER[(ri + 1) % rn];
+  const cur = QUOTED[ri];
+  const prevCard = QUOTED[(ri - 1 + rn) % rn];
+  const nextCard = QUOTED[(ri + 1) % rn];
 
   if (showFunnel && !user) {
     return (

@@ -287,7 +287,7 @@ const LandingPageV2 = ({ openAuth, billingLive, creatorRibbon = false, pricing }
         <div className="lpv2-wrap">
           <h2 className="lpv2-h2">Real students. Real score gains.</h2>
           <div className="lpv2-results">
-            {ROSTER.slice(0, 3).map((r) => (
+            {ROSTER.filter((r) => r.quote).slice(0, 3).map((r) => (
               <figure className="lpv2-quote" key={r.name}>
                 <span className="lpv2-quote-badge">SAT {r.from} → {r.to}</span>
                 <blockquote className="lpv2-quote-text">&ldquo;{r.quote}&rdquo;</blockquote>

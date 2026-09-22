@@ -3,10 +3,14 @@
  * and the Acely-style `LandingPageV2.jsx`), kept in one place so a claim can
  * never drift between the two.
  *
- * ROSTER: real, product-owner-cleared student results (approved to publish by
- * name + college on 2026-07-07). Photos live in public/testimonials/ (320px
- * square WebP, face-centred; see the README there). A null `img` means no
- * photo has been matched to that student yet; the Avatar renders initials.
+ * ROSTER: real, product-owner-cleared student results (the first five approved
+ * to publish by name + college on 2026-07-07; Miley and Christian added from
+ * the founder's own figures on 2026-09-21). Photos live in public/testimonials/
+ * (320px square WebP, face-centred; see the README there). A null `img` means
+ * no photo yet (the Avatar renders initials); a null `quote` means the student
+ * has not supplied an approved first-person quote yet, so the entry appears in
+ * the score marquee but NOT in any quote card or carousel. Never write a quote
+ * on a student's behalf.
  *
  * PRICING_INCLUDES: the six lines the pricing section promises. Every one of
  * them is a shipped capability; do not add a line the product does not have.
@@ -17,12 +21,15 @@ export const ROSTER = [
     quote: 'The best decision I made in my whole SAT journey. It found the exact grammar slips costing me points and drilled them until they were gone.' },
   { img: '/testimonials/gino-s.webp', name: 'Gino S.', meta: 'University of Florida · Honors', from: '1220', to: '1490',
     quote: 'It taught me to see the SAT as patterns, not random questions. My score jumped 270 points and I earned over $350K in scholarships.' },
-  { img: null, name: 'Sansai H.', meta: 'Villanova University', from: '1250', to: '1430',
+  { img: '/testimonials/sansai-h.webp', name: 'Sansai H.', meta: 'Villanova University', from: '1250', to: '1430',
     quote: 'I stopped chasing volume and started following a real system. The improvement felt structural — it just clicked into place.' },
   { img: '/testimonials/rocco-d.webp', name: 'Rocco D.', meta: 'Fordham University', from: '1180', to: '1420',
     quote: "I couldn't have gotten these results without SEVA. By test day I wasn't guessing anymore — I was executing." },
   { img: '/testimonials/luca-s.webp', name: 'Luca S.', meta: 'Tufts University', from: '1280', to: '1410',
     quote: 'It matched the intensity I bring to the field. Once I saw the structure beneath each question, my accuracy and timing transformed.' },
+  // Score-only entries (no approved quote yet): marquee only.
+  { img: '/testimonials/miley-m.webp', name: 'Miley M.', meta: 'NYU Stern School of Business', from: '1310', to: '1540', quote: null },
+  { img: '/testimonials/christian.webp', name: 'Christian', meta: 'Boston University', from: '1200', to: '1420', quote: null },
 ];
 
 export const PRICING_INCLUDES = [
