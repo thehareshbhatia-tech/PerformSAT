@@ -307,18 +307,18 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "One spreadsheet column computes $9^{2x - 1}$ for each input $x$ while a second column computes $27^{x + 4}$ for the same input. The two columns return equal numbers at exactly one input. What is the value of that input?",
+  question: "$\\left(\\frac{1}{9}\\right)^{x} = 27^{x - 5}$\nWhat value of $x$ is the solution to the given equation?",
   choices: [
-    // distractor: rewrites only 27 as a power of 3, solving 2x - 1 = 3(x + 4) to get -13
-    { id: "A", text: "$-13$" },
-    // distractor: rewrites only 9 as a power of 3, solving 2(2x - 1) = x + 4 to get 2
-    { id: "B", text: "$2$" },
-    // distractor: sets the exponents equal without rewriting either side with base 3, solving 2x - 1 = x + 4
-    { id: "C", text: "$5$" },
-    { id: "D", text: "$14$" }
+    // distractor: distributes the exponent as 3x + 15 rather than 3x - 15, solving -2x = 3x + 15
+    { id: "A", text: "$-3$" },
+    // distractor: rewrites 1/9 as 9 to the -x but never converts to base 3, equating -x = x - 5
+    { id: "B", text: "$\\frac{5}{2}$" },
+    { id: "C", text: "$3$" },
+    // distractor: drops the reciprocal, reading the left side as 9 to the x, and solves 2x = 3(x - 5)
+    { id: "D", text: "$15$" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Exponential Equation with Common Base**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Writing both sides with base $3$ gives $3^{2(2x-1)} = 3^{3(x+4)}$, so $4x - 2 = 3x + 12$ and $x = 14$.\n\n**The Full Solution:**\nStep 1: Set the two column values equal, which gives $9^{2x - 1} = 27^{x + 4}$, then express both bases as powers of $3$: $9 = 3^{2}$ and $27 = 3^{3}$. The equation becomes $\\left(3^{2}\\right)^{2x-1} = \\left(3^{3}\\right)^{x+4}$.\nStep 2: Multiply the exponents on each side: $3^{4x - 2} = 3^{3x + 12}$. Equal powers of the same base force equal exponents, so $4x - 2 = 3x + 12$.\nStep 3: Solve: $x = 14$. Check: the left exponent is $4(14) - 2 = 54$ and the right exponent is $3(14) + 12 = 54$, so both columns equal $3^{54}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): rewrites only the right side, using $2x - 1 = 3(x + 4)$. The exponent on the left still needs its factor of $2$.\n* Choice B ($2$): rewrites only the left side, using $2(2x - 1) = x + 4$.\n* Choice C ($5$): sets $2x - 1 = x + 4$ directly. Exponents may be equated only after both sides share the same base, and $9 \\ne 27$.\n\n**Test Day Takeaway:** Rewrite both sides over the same base before equating exponents, and distribute the outer exponent across the whole inner expression on each side — skipping one side is the error all three distractors encode.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponential Equation with Common Base**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Both sides become powers of $3$: $3^{-2x} = 3^{3x - 15}$. Equating exponents gives $-2x = 3x - 15$, so $x = 3$.\n\n**The Full Solution:**\nStep 1: Write each base as a power of $3$. Since $\\frac{1}{9} = 3^{-2}$ and $27 = 3^{3}$, the equation becomes $\\left(3^{-2}\\right)^{x} = \\left(3^{3}\\right)^{x - 5}$.\nStep 2: Multiply the exponents on each side: $3^{-2x} = 3^{3x - 15}$. Powers of the same base are equal only when the exponents are equal, so $-2x = 3x - 15$.\nStep 3: Solve: $15 = 5x$, so $x = 3$. Check: $\\left(\\frac{1}{9}\\right)^{3} = \\frac{1}{729}$ and $27^{-2} = \\frac{1}{729}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): uses $3(x - 5) = 3x + 15$, distributing the $3$ but flipping the sign of the $-5$.\n* Choice B ($\\frac{5}{2}$): handles the reciprocal, writing $9^{-x} = 27^{x - 5}$, then equates exponents while the bases are still $9$ and $27$. Exponents may be compared only once both sides carry the same base.\n* Choice D ($15$): reads $\\frac{1}{9}$ as $9$, so the left exponent comes out $2x$ instead of $-2x$.\n\n**Test Day Takeaway:** A fraction base carries a negative exponent: $\\frac{1}{9} = 3^{-2}$, not $3^{2}$. Convert every base to the same prime first, then set the exponents equal.",
   skills: ["exponential-functions"]
 },
 {
@@ -375,18 +375,18 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A machinist cuts a wedge whose cross section is a right triangle. The longest side of that cross section measures $12$ millimeters, and the shortest side measures $6$ millimeters. What is the area, in square millimeters, of the cross section?",
+  question: "In a right triangle, the length of the hypotenuse is $16$ centimeters and the length of one leg is half the length of the hypotenuse. What is the area, in square centimeters, of the triangle?",
   choices: [
-    { id: "A", text: "$18\\sqrt{3}$" },
-    // distractor: uses the hypotenuse 12 as the second leg, computing (1/2)(6)(12) = 36
-    { id: "B", text: "$36$" },
-    // distractor: finds the second leg 6*sqrt(3) correctly but omits the factor of 1/2, giving 36*sqrt(3)
-    { id: "C", text: "$36\\sqrt{3}$" },
-    // distractor: makes both errors at once, multiplying the two given sides without halving: (6)(12) = 72
-    { id: "D", text: "$72$" }
+    // distractor: treats the second leg as 8 as well, computing (1/2)(8)(8) = 32
+    { id: "A", text: "$32$" },
+    { id: "B", text: "$32\\sqrt{3}$" },
+    // distractor: uses the hypotenuse 16 as the base and the known leg 8 as the height: (1/2)(16)(8) = 64
+    { id: "C", text: "$64$" },
+    // distractor: finds the second leg 8*sqrt(3) correctly but omits the factor of 1/2, giving (8)(8*sqrt(3)) = 64*sqrt(3)
+    { id: "D", text: "$64\\sqrt{3}$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Right Triangle Area with Surds**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** The missing leg is $\\sqrt{12^{2} - 6^{2}} = \\sqrt{108} = 6\\sqrt{3}$, so the area is $\\frac{1}{2}(6)\\left(6\\sqrt{3}\\right) = 18\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: In a right triangle the longest side is the hypotenuse, so the hypotenuse is $12$ and one leg is $6$.\nStep 2: Find the other leg with the Pythagorean theorem: $6^{2} + b^{2} = 12^{2}$, so $b^{2} = 144 - 36 = 108$ and $b = \\sqrt{108} = \\sqrt{36 \\cdot 3} = 6\\sqrt{3}$.\nStep 3: The two legs form the right angle, so the area is $\\frac{1}{2}\\left(6\\right)\\left(6\\sqrt{3}\\right) = 18\\sqrt{3}$ square millimeters. Check numerically: $18\\sqrt{3} \\approx 31.2$, which is less than the $36$ that a $6$ by $12$ right triangle would give, as it must be since $6\\sqrt{3} < 12$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($36$): multiplies the two given lengths and halves them, $\\frac{1}{2}(6)(12) = 36$, but $12$ is the hypotenuse, not a leg, so it is not one of the sides forming the right angle.\n* Choice C ($36\\sqrt{3}$): finds the missing leg correctly but leaves out the factor $\\frac{1}{2}$, reporting the product of the legs instead of half of it.\n* Choice D ($72$): makes both errors, using the hypotenuse as a leg and skipping the $\\frac{1}{2}$: $(6)(12) = 72$.\n\n**Test Day Takeaway:** The area formula uses the two legs, never the hypotenuse; find the missing leg first, simplify the radical, and sanity-check that the area is smaller than half the product of the two given lengths.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Right Triangle Area with Surds**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The known leg is $\\frac{16}{2} = 8$, so the other leg is $\\sqrt{16^{2} - 8^{2}} = \\sqrt{192} = 8\\sqrt{3}$ and the area is $\\frac{1}{2}(8)\\left(8\\sqrt{3}\\right) = 32\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse has length $16$, so the leg that is half the hypotenuse has length $\\frac{1}{2}(16) = 8$ centimeters.\nStep 2: Call the other leg $b$ and apply the Pythagorean theorem: $8^{2} + b^{2} = 16^{2}$, so $b^{2} = 256 - 64 = 192$ and $b = \\sqrt{192} = \\sqrt{64 \\cdot 3} = 8\\sqrt{3}$.\nStep 3: The two legs meet at the right angle, so they serve as base and height: the area is $\\frac{1}{2}\\left(8\\right)\\left(8\\sqrt{3}\\right) = 32\\sqrt{3}$ square centimeters. Check: $32\\sqrt{3} \\approx 55.4$, which is less than $64$, the area of a right triangle with legs $8$ and $16$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($32$): assumes the two legs are equal, using $\\frac{1}{2}(8)(8)$. A leg equal to half the hypotenuse forces a $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangle, not an isosceles one.\n* Choice C ($64$): pairs the hypotenuse with a leg, $\\frac{1}{2}(16)(8)$. The hypotenuse is never a base-height pair with a leg, because they do not meet at a right angle.\n* Choice D ($64\\sqrt{3}$): finds both legs correctly but reports their product instead of half of it.\n\n**Test Day Takeaway:** Area uses the two legs, so any item that hands you the hypotenuse is hiding one Pythagorean step. Simplify the radical by pulling out the largest perfect square, then halve.",
   skills: ["triangle-area"]
 }
       ]
@@ -534,18 +534,18 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "After a single dose of a medication is given, the amount remaining in a patient's bloodstream is cut in half every $4$ hours. Exactly $6$ hours after the dose, $320$ micrograms remain. How many micrograms remain exactly $18$ hours after the dose?",
+  question: "The function $f$ is defined by $f(x) = a(b)^{x}$, where $a$ and $b$ are positive constants. If $f(0) = 96$ and $f(3) = 12$, what is the value of $f(5)$?",
   choices: [
-    // distractor: counts four halvings instead of three by counting the times 6, 10, 14, and 18 hours rather than the three gaps between them, so it divides 320 by 2 to the fourth power
-    { id: "A", text: "$20$" },
-    { id: "B", text: "$40$" },
-    // distractor: divides 320 by 4, the number of hours in one halving interval, instead of by 2 cubed
-    { id: "C", text: "$80$" },
-    // distractor: halves only once, treating the entire 12-hour gap as a single halving interval
-    { id: "D", text: "$160$" }
+    // distractor: treats the ratio 12/96 = 1/8 as the factor for a single increase of 1 in x and multiplies f(3) by it
+    { id: "A", text: "$1.5$" },
+    { id: "B", text: "$3$" },
+    // distractor: applies one halving between x = 3 and x = 5 instead of two
+    { id: "C", text: "$6$" },
+    // distractor: applies the two remaining halvings to f(0) rather than to f(3), computing 96 divided by 4
+    { id: "D", text: "$24$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** From $6$ hours to $18$ hours is $12$ hours, which is three halving intervals, so divide by $2^3 = 8$: $\\frac{320}{8} = 40$.\n\n**The Full Solution:**\nStep 1: The gap between the two times given is $18 - 6 = 12$ hours. Since the amount halves every $4$ hours, this gap contains $\\frac{12}{4} = 3$ halving intervals.\nStep 2: Three halvings multiply the amount by $\\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8}$, so the amount at $18$ hours is $320 \\cdot \\frac{1}{8}$.\nStep 3: $\\frac{320}{8} = 40$ micrograms. Check by stepping forward: $320$ at $6$ hours, $160$ at $10$ hours, $80$ at $14$ hours, $40$ at $18$ hours ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): counts four halvings instead of three. The times $6$, $10$, $14$, and $18$ hours are four labels but only three gaps apart, and $\\frac{320}{2^4} = 20$. The exponent counts intervals, not time stamps.\n* Choice C ($80$): divides $320$ by $4$, using the number of hours per halving as the divisor. The $4$ sets how often the halving happens; the divisor is $2$ raised to the number of halvings.\n* Choice D ($160$): halves once, treating the whole $12$-hour gap as a single interval. That is the answer for $10$ hours after the dose.\n\n**Test Day Takeaway:** For a half-life problem, count intervals first, then raise $\\frac{1}{2}$ to that count. Stepping the values forward one interval at a time takes ten seconds and catches every miscount.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $\\frac{f(3)}{f(0)} = \\frac{12}{96} = \\frac{1}{8}$, so $b^{3} = \\frac{1}{8}$ and $b = \\frac{1}{2}$. Then $f(5) = 96\\left(\\frac{1}{2}\\right)^{5} = 3$.\n\n**The Full Solution:**\nStep 1: Substituting $0$ for $x$ gives $f(0) = a(b)^{0} = a$, so $a = 96$.\nStep 2: Substituting $3$ for $x$ gives $96b^{3} = 12$, so $b^{3} = \\frac{12}{96} = \\frac{1}{8}$ and $b = \\frac{1}{2}$. The function is $f(x) = 96\\left(\\frac{1}{2}\\right)^{x}$.\nStep 3: Substituting $5$ for $x$ gives $f(5) = 96\\left(\\frac{1}{2}\\right)^{5} = \\frac{96}{32} = 3$. Check by stepping from $f(3) = 12$: $f(4) = 6$ and $f(5) = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.5$): uses $\\frac{1}{8}$ as the factor for each increase of $1$ in $x$, so it multiplies $12$ by $\\frac{1}{8}$. The value $\\frac{1}{8}$ covers three steps, not one, so it is $b^{3}$.\n* Choice C ($6$): moves one step from $f(3)$ instead of two. From $x = 3$ to $x = 5$ the factor is $b^{2}$.\n* Choice D ($24$): multiplies $f(0)$ by $\\left(\\frac{1}{2}\\right)^{2}$, applying the leftover exponent $5 - 3$ to the wrong starting value.\n\n**Test Day Takeaway:** In $f(x) = a(b)^{x}$ the value at $x = 0$ is $a$, and a ratio of two outputs is $b$ raised to the gap between their inputs. Take that root before using $b$ anywhere else.",
   skills: ["exponential-growth-decay"]
 },
 {
@@ -553,18 +553,18 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "A pair of values $x$ and $y$ satisfies both $y = 2x + 3$ and $4x - y = 9$, and no other pair of values satisfies both. What is the value of $x + y$ for that pair?",
+  question: "$2x + 3y = 35$\n$y = 4x - 7$\nThe given system of equations has exactly one solution $(x, y)$. What is the value of $y$?",
   choices: [
-    // distractor: drops the minus sign and solves 4x + y = 9, giving (1, 5) and a sum of 6
-    { id: "A", text: "$6$" },
-    // distractor: subtracts only the 2x when substituting, using 4x - 2x + 3 = 9, which gives (3, 9) and a sum of 12
-    { id: "B", text: "$12$" },
-    // distractor: solves the system correctly but reports y alone instead of x + y
-    { id: "C", text: "$15$" },
-    { id: "D", text: "$21$" }
+    // distractor: flips the sign of the constant when distributing, solving 2x + 12x + 21 = 35 to get x = 1 and then y = -3
+    { id: "A", text: "$-3$" },
+    // distractor: solves the system correctly but reports x instead of the requested y
+    { id: "B", text: "$4$" },
+    // distractor: multiplies only the 4x by 3, using 2x + 12x - 7 = 35 to get x = 3 and then y = 5
+    { id: "C", text: "$5$" },
+    { id: "D", text: "$9$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Substitute $2x + 3$ for $y$ in the second equation: $4x - (2x + 3) = 9$ gives $2x = 12$, so $x = 6$, $y = 15$, and $x + y = 21$.\n\n**The Full Solution:**\nStep 1: The first equation already gives $y$ in terms of $x$, so replace $y$ in the second equation: $4x - (2x + 3) = 9$.\nStep 2: Distribute the subtraction across both terms in the parentheses: $4x - 2x - 3 = 9$, so $2x - 3 = 9$, $2x = 12$, and $x = 6$.\nStep 3: Substitute back: $y = 2(6) + 3 = 15$, so $x + y = 6 + 15 = 21$. Check: $4(6) - 15 = 24 - 15 = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): comes from reading the second equation as $4x + y = 9$. That system solves to $(1, 5)$, whose coordinates sum to $6$ — and $6$ is also the correct value of $x$, which makes it doubly attractive.\n* Choice B ($12$): comes from writing $4x - 2x + 3 = 9$, distributing the minus sign to only the first term inside the parentheses. That gives $(3, 9)$ and a sum of $12$.\n* Choice C ($15$): this is $y$. The system is solved correctly, but only half of the requested sum is reported.\n\n**Test Day Takeaway:** When you substitute a two-term expression into a subtraction, wrap it in parentheses first. Then reread the question — these items usually ask for a combination, not for one variable.",
+  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Substituting $4x - 7$ for $y$ gives $2x + 3(4x - 7) = 35$, so $14x = 56$ and $x = 4$. Then $y = 4(4) - 7 = 9$.\n\n**The Full Solution:**\nStep 1: The second equation already gives $y$ in terms of $x$, so replace $y$ in the first equation: $2x + 3(4x - 7) = 35$.\nStep 2: Distribute the $3$ across both terms: $2x + 12x - 21 = 35$, so $14x - 21 = 35$, $14x = 56$, and $x = 4$.\nStep 3: Substitute back into $y = 4x - 7$: $y = 4(4) - 7 = 9$. Check in the first equation: $2(4) + 3(9) = 8 + 27 = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): comes from $2x + 12x + 21 = 35$, which keeps the $3$ but loses the minus sign on the $-7$. That gives $x = 1$ and $y = -3$.\n* Choice B ($4$): this is $x$. The work is right, but the question asks for the other coordinate.\n* Choice C ($5$): comes from $2x + 12x - 7 = 35$, multiplying only the first term inside the parentheses by $3$. That gives $x = 3$ and $y = 5$.\n\n**Test Day Takeaway:** Multiply the whole substituted expression, sign included, by the coefficient in front of it. Then reread the last line: the variable you solve for first is often not the one being asked about.",
   skills: ["substitution-method"]
 },
 {
@@ -621,18 +621,18 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "At a training facility, $5$ sprint sessions and $3$ recovery sessions take a total of $44$ minutes, and $3$ sprint sessions and $5$ recovery sessions take a total of $52$ minutes. How many minutes do one sprint session and one recovery session take together?",
+  question: "$7x + 2y = 35$\n$2x + 7y = 55$\nThe values of $x$ and $y$ satisfy the given system of equations. What is the value of $x + y$?",
   choices: [
-    // distractor: adds the equations to 8x + 8y = 96 but divides by 16 instead of by 8
-    { id: "A", text: "$6$" },
-    // distractor: solves the system fully and reports the recovery session length alone
-    { id: "B", text: "$8$" },
-    { id: "C", text: "$12$" },
-    // distractor: adds the two given totals and stops, reporting 44 + 52 without dividing by 8
-    { id: "D", text: "$96$" }
+    // distractor: subtracts the equations instead of adding them, reaching -5x + 5y = 20 and reporting y - x = 4
+    { id: "A", text: "$4$" },
+    // distractor: adds the equations to 9x + 9y = 90 but divides by 18, the sum of all four coefficients, instead of by 9
+    { id: "B", text: "$5$" },
+    { id: "C", text: "$10$" },
+    // distractor: adds the two right sides and stops, reporting 90 without dividing by the common factor of 9
+    { id: "D", text: "$90$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Let $x$ and $y$ be the two session lengths. Adding $5x + 3y = 44$ and $3x + 5y = 52$ gives $8x + 8y = 96$, so $x + y = 12$.\n\n**The Full Solution:**\nStep 1: Let $x$ be the number of minutes for one sprint session and $y$ the number for one recovery session. The two statements give $5x + 3y = 44$ and $3x + 5y = 52$.\nStep 2: The coefficients are mirror images, so adding the equations collapses them: $(5x + 3x) + (3y + 5y) = 44 + 52$, which is $8x + 8y = 96$.\nStep 3: Factor and divide: $8(x + y) = 96$, so $x + y = 12$ minutes. Check by solving fully: $x = 4$ and $y = 8$, and $5(4) + 3(8) = 44$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): divides $96$ by $16$ instead of by $8$, doubling the count of terms on the left side.\n* Choice B ($8$): this is $y$, the length of one recovery session. Solving the system all the way is more work than needed, and it invites reporting a single variable.\n* Choice D ($96$): reports $44 + 52$, the sum of the two equations' right sides, without dividing by the common factor of $8$.\n\n**Test Day Takeaway:** When the two equations have mirrored coefficients, add or subtract them and read the combination directly. Solving for each variable separately costs time and creates a chance to hand in the wrong one.",
+  explanation: "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Adding the two equations gives $9x + 9y = 90$, so $x + y = 10$.\n\n**The Full Solution:**\nStep 1: The coefficients are mirror images of each other, $7$ and $2$ on top, $2$ and $7$ below, so adding the equations lines up the variables: $(7x + 2x) + (2y + 7y) = 35 + 55$.\nStep 2: Combine: $9x + 9y = 90$, which factors as $9(x + y) = 90$.\nStep 3: Divide both sides by $9$: $x + y = 10$. Check by solving fully: $x = 3$ and $y = 7$, and $7(3) + 2(7) = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): subtracts the equations rather than adding them, giving $-5x + 5y = 20$, or $y - x = 4$. That is the difference of the two values, not their sum.\n* Choice B ($5$): divides $90$ by $18$, treating the left side as $18$ copies of $x + y$. There are $9$: the coefficients add to $9$ for each variable, not across both.\n* Choice D ($90$): stops at $35 + 55$. That is $9$ times the requested value.\n\n**Test Day Takeaway:** When a question asks for $x + y$ rather than for $x$ or $y$, add or subtract the equations first and look for the combination. Mirrored coefficients are the signal that one step finishes the item.",
   skills: ["elimination-method"]
 },
 {
@@ -669,19 +669,19 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The table gives the value of a quadratic function $f$ at three inputs. Exactly two values of $x$, not necessarily shown in the table, make the output of $f$ equal to zero. What is the positive difference between those two values?",
-  questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$0$", "$-7$"], ["$2$", "$-15$"], ["$6$", "$-7$"]] },
+  question: "For the quadratic function $f$, the table shows three values of $x$ and their corresponding values of $f(x)$. The graph of $y = f(x)$ in the xy-plane has two x-intercepts. What is the distance between the two x-intercepts?",
+  questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$0$", "$-21$"], ["$1$", "$-24$"], ["$4$", "$-21$"]] },
   choices: [
-    // distractor: adds the two zeros, -1 and 7, instead of subtracting them
-    { id: "A", text: "$6$" },
-    // distractor: reports the larger zero, 7, rather than the difference between the two zeros
-    { id: "B", text: "$7$" },
-    { id: "C", text: "$8$" },
-    // distractor: reports the discriminant b squared minus 4ac = 64 instead of its square root
-    { id: "D", text: "$64$" }
+    // distractor: adds the two x-intercepts, -3 and 7, instead of measuring the distance between them
+    { id: "A", text: "$4$" },
+    // distractor: reports 5, the distance from the axis of symmetry x = 2 to one intercept, which is half the distance asked for
+    { id: "B", text: "$5$" },
+    // distractor: reports the larger x-intercept, 7, rather than the distance between the two
+    { id: "C", text: "$7$" },
+    { id: "D", text: "$10$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** $f(0) = f(6) = -7$, so the axis of symmetry is $x = 3$. Using $f(2) = -15$ gives $f(x) = (x - 3)^2 - 16$, whose zeros are $3 \\pm 4$, a difference of $8$.\n\n**The Full Solution:**\nStep 1: Write $f(x) = a(x - h)^2 + k$. Since $f(0)$ and $f(6)$ are equal, the inputs $0$ and $6$ are the same distance from the axis of symmetry, so $h = 3$.\nStep 2: Substitute the two remaining points. From $f(2) = -15$: $a(2 - 3)^2 + k = a + k = -15$. From $f(0) = -7$: $a(0 - 3)^2 + k = 9a + k = -7$. Subtracting gives $8a = 8$, so $a = 1$ and $k = -16$. Thus $f(x) = (x - 3)^2 - 16$.\nStep 3: Set $f(x) = 0$: $(x - 3)^2 = 16$, so $x - 3 = \\pm 4$ and $x = -1$ or $x = 7$. The positive difference is $7 - (-1) = 8$. Check in standard form, $f(x) = x^2 - 6x - 7 = (x - 7)(x + 1)$, which has the same two zeros ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): adds the zeros, $-1 + 7$. The sum of the zeros is $-\\frac{b}{a} = 6$, a real feature of this quadratic, but distance is a difference.\n* Choice B ($7$): reports the larger zero itself. It is the last number written down before the subtraction step.\n* Choice D ($64$): reports $b^2 - 4ac = 36 + 28 = 64$. The distance between the zeros is $\\frac{\\sqrt{b^2 - 4ac}}{|a|}$, so the square root is still owed.\n\n**Test Day Takeaway:** Two equal outputs pin the axis of symmetry halfway between their inputs. Once you have the vertex form, the zeros sit symmetrically on either side and their distance is twice the horizontal shift.",
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice D is correct.**\n\n**The Fast Way (~50s):** $f(0) = f(4)$, so the axis of symmetry is $x = 2$. With $f(1) = -24$ the function is $f(x) = (x - 2)^{2} - 25$, whose zeros are $2 \\pm 5$, a distance of $10$ apart.\n\n**The Full Solution:**\nStep 1: Write $f(x) = a(x - h)^{2} + k$. The table shows $f(0)$ and $f(4)$ are both $-21$, so $x = 0$ and $x = 4$ sit the same distance from the axis of symmetry, which puts $h$ halfway between them at $h = 2$.\nStep 2: Use the other two rows. From $f(1) = -24$: $a(1 - 2)^{2} + k = a + k = -24$. From $f(0) = -21$: $a(0 - 2)^{2} + k = 4a + k = -21$. Subtracting gives $3a = 3$, so $a = 1$ and $k = -25$, and $f(x) = (x - 2)^{2} - 25$.\nStep 3: Set $f(x) = 0$: $(x - 2)^{2} = 25$, so $x - 2 = \\pm 5$ and the intercepts are $x = -3$ and $x = 7$. The distance between them is $7 - (-3) = 10$. Check in standard form: $f(x) = x^{2} - 4x - 21 = (x - 7)(x + 3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): adds the intercepts, $-3 + 7$. The sum of the zeros is a real feature of the quadratic, but a distance is a difference.\n* Choice B ($5$): stops at the horizontal shift from the vertex to one intercept. The two intercepts sit on opposite sides of the axis, so the gap is twice that.\n* Choice C ($7$): reports the larger intercept itself, the last number written down before subtracting.\n\n**Test Day Takeaway:** Two equal outputs pin the axis of symmetry halfway between their inputs. From there one more table row fixes the vertex form, and the intercepts fall symmetrically on either side.",
   skills: ["quadratics"]
 },
 {

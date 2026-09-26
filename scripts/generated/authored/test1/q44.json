@@ -6,35 +6,35 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 2,
- "passage": "Architect Zaha Hadid ______ designed buildings whose sweeping, fluid geometries seemed to defy conventional construction, from the Heydar Aliyev Center in Baku to the London Aquatics Centre built for the 2012 Olympic Games.",
+ "passage": "Before 1933, maps of the London Underground placed every station where it actually stood, so the crowded center of the city was nearly unreadable. Harry Beck's diagram drew every line horizontally, vertically, or at forty-five ______ the result was so much easier to read that transit systems worldwide soon copied it.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": " the first woman to receive the Pritzker Architecture Prize,"
+   "text": "degrees,"
   },
   {
    "id": "B",
-   "text": ", the first woman to receive the Pritzker Architecture Prize"
+   "text": "degrees and"
   },
   {
    "id": "C",
-   "text": " the first woman to receive the Pritzker Architecture Prize"
+   "text": "degrees"
   },
   {
    "id": "D",
-   "text": ", the first woman to receive the Pritzker Architecture Prize,"
+   "text": "degrees, and"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The blank holds a nonrestrictive appositive, which Standard English sets off with a matched pair of commas: \", the first woman to receive the Pritzker Architecture Prize,\".\n\n**The Full Solution:**\n- The phrase is supplementary — \"Architect Zaha Hadid\" already identifies her uniquely, so the appositive could be removed without changing who is meant.\n- A nonrestrictive appositive takes paired bracketing marks; with no internal commas in the phrase, paired commas are the conventional choice, letting the main clause read through unbroken.\n\n**Why the other choices are wrong:**\n- A: It supplies only the closing comma, leaving the appositive fused to the name on its left.\n- B: It supplies only the opening comma, so the appositive crashes into the verb \"designed\" with no closing boundary.\n- C: It omits both commas, treating the supplementary phrase as if it restricted which Zaha Hadid is meant.",
+ "explanation": "**Choice D is correct.** \"Harry Beck's diagram drew every line horizontally, vertically, or at forty-five degrees\" and \"the result was so much easier to read that transit systems worldwide soon copied it\" are both independent clauses. A comma followed by the coordinating conjunction \"and\" is one of the correct ways to join two independent clauses.\n\n**The Full Solution:**\n- Each side of the blank has its own subject and verb (\"diagram drew\" and \"result was\"), so each could stand alone as a sentence.\n- Two independent clauses can be joined by a comma plus a coordinating conjunction (and, but, so, or), by a semicolon, or separated with a period.\n- Only choice D supplies a comma and a coordinating conjunction.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- B: A coordinating conjunction joining two independent clauses needs a comma before it.\n- C: With no punctuation and no conjunction, the two clauses run together as a fused sentence.",
  "_meta": {
-  "rule": "paired commas around a nonrestrictive appositive (no internal commas)",
-  "anchor": "Zaha Hadid — first woman to receive the Pritzker Architecture Prize (2004); Heydar Aliyev Center; London Aquatics Centre",
+  "rule": "sentence boundary between two independent clauses (period vs. comma splice vs. fused sentence vs. uncommaed coordination)",
+  "anchor": "Harry Beck's 1933 diagram of the London Underground",
   "distractors": {
-   "A": "closing comma only (appositive fused to the name on the left)",
-   "B": "opening comma only (surface-match to the start of the paired pattern, missing close)",
-   "C": "no commas (treats the appositive as restrictive)"
+   "A": "comma splice",
+   "B": "fused sentence (no punctuation)",
+   "C": "coordinating conjunction without the required comma"
   }
  }
 }

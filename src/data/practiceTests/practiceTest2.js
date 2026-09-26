@@ -27,19 +27,19 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "An observatory logged the number of meteors captured by its all-sky camera during each of eight consecutive nights, and the results appear in the dot plot. What is the mean nightly count for these eight nights?",
-  diagram: { type: "dotPlot", params: { data: [{ value: 39, count: 1 }, { value: 44, count: 1 }, { value: 46, count: 1 }, { value: 47, count: 1 }, { value: 48, count: 2 }, { value: 49, count: 1 }, { value: 51, count: 1 }], xMin: 38, xMax: 52, xLabel: "Meteors recorded" } },
+  question: "The dot plot shows the distribution of the number of packages delivered by each of $10$ drivers during one hour. What is the mean of the data set?",
+  diagram: { type: "dotPlot", params: { data: [{ value: 2, count: 3 }, { value: 4, count: 1 }, { value: 5, count: 1 }, { value: 6, count: 1 }, { value: 8, count: 2 }, { value: 12, count: 2 }], xMin: 1, xMax: 13, xLabel: "Packages delivered" } },
   choices: [
-    // distractor: reports the range of the eight counts, 51-39=12, instead of their mean
-    { id: "A", text: "$12$" },
-    { id: "B", text: "$46.5$" },
-    // distractor: reports the median, the average of the fourth and fifth counts (47+48)/2=47.5
-    { id: "C", text: "$47.5$" },
-    // distractor: reports the mode, the only count that appears twice (48)
-    { id: "D", text: "$48$" }
+    // distractor: reports the mode, the value plotted most often (2), instead of the mean
+    { id: "A", text: "$2$" },
+    // distractor: reports the median, the average of the fifth and sixth values (5+6)/2=5.5
+    { id: "B", text: "$5.5$" },
+    { id: "C", text: "$6.1$" },
+    // distractor: reports the range, 12-2=10, which measures spread rather than center
+    { id: "D", text: "$10$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Mean from List**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** One dot is one night: $39, 44, 46, 47, 48, 48, 49, 51$. The eight counts total $372$, so the mean is $\\frac{372}{8} = 46.5$.\n\n**The Full Solution:**\nStep 1: Read one value per dot, including the repeat. The stack of two dots above $48$ means two of the nights had $48$ meteors, so the eight counts are $39, 44, 46, 47, 48, 48, 49, 51$.\nStep 2: Add them: $39 + 44 + 46 + 47 + 48 + 48 + 49 + 51 = 372$.\nStep 3: The mean is the total divided by the number of nights: $\\frac{372}{8} = 46.5$ meteors per night. Check: $8 \\times 46.5 = 372$, the total read from the plot ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): reports the range, $51 - 39 = 12$. The range measures spread, not center, so it answers a different question entirely.\n* Choice C ($47.5$): reports the median. With eight values the median is the average of the fourth and fifth, $\\frac{47 + 48}{2} = 47.5$, which is close to the mean here but is not it.\n* Choice D ($48$): reports the mode, the one value that appears twice. A repeated value pulls the mean toward itself but does not become the mean.\n\n**Test Day Takeaway:** On a dot plot, count dots, not tick marks: every dot in a stack is a separate data value that must appear in the sum and in the divisor.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Mean from List**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Each dot is one driver: $2, 2, 2, 4, 5, 6, 8, 8, 12, 12$. The ten values total $61$, so the mean is $\\frac{61}{10} = 6.1$.\n\n**The Full Solution:**\nStep 1: Read one value for every dot, including the repeats. Three dots above $2$, one each above $4$, $5$, and $6$, two above $8$, and two above $12$ give the ten values $2, 2, 2, 4, 5, 6, 8, 8, 12, 12$.\nStep 2: Add them: $2 + 2 + 2 + 4 + 5 + 6 + 8 + 8 + 12 + 12 = 61$.\nStep 3: The mean is the sum divided by the number of values: $\\frac{61}{10} = 6.1$. Check: $10 \\times 6.1 = 61$, the total read from the plot ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports the mode, the value with the tallest stack. The most common value is not the average, and here it sits at the bottom of the data.\n* Choice B ($5.5$): reports the median, the average of the fifth and sixth values, $\\frac{5 + 6}{2}$. The two large values of $12$ pull the mean above the median, so the two differ.\n* Choice D ($10$): reports the range, $12 - 2$. Range describes how spread out the values are, not where their center is.\n\n**Test Day Takeaway:** On a dot plot, count dots rather than tick marks: a stack of $k$ dots contributes that value $k$ times to the sum and adds $k$ to the divisor.",
   skills: ["calculate-mean"]
 },
 {
@@ -104,18 +104,18 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "Translating the graph of $6x - 5y = 40$ downward by $7$ units in the xy-plane produces the graph of a second equation written in the same form. Which equation is it?",
+  question: "Line $k$ is defined by $4x + 3y = 21$. Line $j$ is parallel to line $k$ in the xy-plane and passes through the point $(0, -5)$. Which equation defines line $j$?",
   choices: [
-    // distractor: translates upward instead of downward, replacing y with y-7 and getting 6x-5y=5
-    { id: "A", text: "$6x - 5y = 5$" },
-    // distractor: subtracts 7 from the constant on the right side, giving 40-7=33
-    { id: "B", text: "$6x - 5y = 33$" },
-    // distractor: adds 7 to the constant on the right side, giving 40+7=47
-    { id: "C", text: "$6x - 5y = 47$" },
-    { id: "D", text: "$6x - 5y = 75$" }
+    // distractor: swaps the coefficients of x and y, using slope -3/4 instead of -4/3, then fits the point (0,-5)
+    { id: "A", text: "$3x + 4y = -20$" },
+    { id: "B", text: "$4x + 3y = -15$" },
+    // distractor: uses the correct slope but substitutes y = 5 instead of y = -5, giving the constant 15
+    { id: "C", text: "$4x + 3y = 15$" },
+    // distractor: reads the slope of line k as 4/3 instead of -4/3, flipping the sign of the y term
+    { id: "D", text: "$4x - 3y = 15$" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** A vertical shift keeps the slope, so the left side stays $6x - 5y$. The point $(0, -8)$ on the original line moves to $(0, -15)$, and $6(0) - 5(-15) = 75$.\n\n**The Full Solution:**\nStep 1: Translating a graph down $7$ units sends each point $(x, y)$ to $(x, y - 7)$, so the image is the set of points satisfying $6x - 5(y + 7) = 40$.\nStep 2: Expand and simplify: $6x - 5y - 35 = 40$, so $6x - 5y = 75$. The coefficients of $x$ and $y$ are unchanged, which is exactly what makes the image parallel to the original.\nStep 3: Check with a point. On the original line, $x = 0$ gives $-5y = 40$, so $y = -8$; shifting down $7$ gives $(0, -15)$, and $6(0) - 5(-15) = 75$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6x - 5y = 5$): substitutes $y - 7$ for $y$, which shifts the line up rather than down, and produces $6x - 5y = 5$. Shifting down requires $y + 7$.\n* Choice B ($6x - 5y = 33$): treats the shift as a change to the constant on the right, computing $40 - 7 = 33$. The $-5$ multiplying $y$ scales the shift, so the constant cannot move by only $7$.\n* Choice C ($6x - 5y = 47$): makes the same mistake with the other sign, computing $40 + 7 = 47$ instead of $40 + 5(7) = 75$.\n\n**Test Day Takeaway:** To translate a line written in standard form, substitute for the variable rather than nudging the constant: down $k$ units means replacing $y$ with $y + k$, then simplify.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Parallel lines share a slope, so in standard form line $j$ keeps the left side $4x + 3y$. Substituting $(0, -5)$ gives $4(0) + 3(-5) = -15$.\n\n**The Full Solution:**\nStep 1: Solve $4x + 3y = 21$ for $y$: $3y = -4x + 21$, so $y = -\\frac{4}{3}x + 7$. Line $k$ has slope $-\\frac{4}{3}$.\nStep 2: Line $j$ is parallel, so it also has slope $-\\frac{4}{3}$. It passes through $(0, -5)$, which is its y-intercept, so $y = -\\frac{4}{3}x - 5$.\nStep 3: Multiply both sides by $3$ to clear the fraction: $3y = -4x - 15$. Adding $4x$ to both sides gives $4x + 3y = -15$. Check: $4(0) + 3(-5) = -15$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x + 4y = -20$): swaps the coefficients of $x$ and $y$, which changes the slope to $-\\frac{3}{4}$. Parallel means the slope is unchanged, so both coefficients must stay where they are.\n* Choice C ($4x + 3y = 15$): keeps the correct slope but substitutes $y = 5$ rather than $y = -5$. The point is below the x-axis, so the constant is negative.\n* Choice D ($4x - 3y = 15$): has the right y-intercept but slope $\\frac{4}{3}$, because the sign of the $y$ term was flipped. A line with slope $\\frac{4}{3}$ crosses line $k$ rather than running parallel to it.\n\n**Test Day Takeaway:** In standard form, two lines are parallel exactly when the $x$ and $y$ coefficients match; keep that side untouched and let the given point set the constant.",
   skills: ["writing-parallel-equation"]
 },
 {
@@ -162,9 +162,9 @@ export const practiceTest2 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "The function $g$, defined by $g(x) = \\dfrac{3x + 17}{4}$, converts a spectrometer's raw signal $x$ into a calibrated reading. For what raw signal is the calibrated reading equal to $14$?",
-  correctAnswer: "13",
-  explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~20s):** Set $\\frac{3x + 17}{4} = 14$, so $3x + 17 = 56$, $3x = 39$, and $x = 13$.\n\n**The Full Solution:**\nStep 1: A calibrated reading of $14$ means $g(x) = 14$, so write $\\frac{3x + 17}{4} = 14$.\nStep 2: Clear the denominator by multiplying both sides by $4$: $3x + 17 = 56$. Subtract $17$ from both sides: $3x = 39$.\nStep 3: Divide by $3$: $x = 13$. Check: $g(13) = \\frac{3(13) + 17}{4} = \\frac{39 + 17}{4} = \\frac{56}{4} = 14$ ✓\n\n**Common Mistakes:** Entering $-1$ (solving $3x + 17 = 14$, forgetting to multiply both sides by the denominator $4$ first); entering $14.75$ (evaluating $g(14) = \\frac{59}{4}$ instead of solving $g(x) = 14$, which answers the reverse question); entering $-4.5$ (dividing $14$ by $4$ instead of multiplying, then solving $3x + 17 = 3.5$).\n\n**Test Day Takeaway:** When a function's output is given, work the operations backward in reverse order: undo the division first, then the addition, then the multiplication.",
+  question: "$f(x) = \\frac{2}{5}x - 9$\nThe function $f$ is defined by the given equation. For what value of $x$ is $f(x) = 13$?",
+  correctAnswer: "55",
+  explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $55$.**\n\n**The Fast Way (~20s):** $\\frac{2}{5}x - 9 = 13$ gives $\\frac{2}{5}x = 22$, and multiplying by $\\frac{5}{2}$ gives $x = 55$.\n\n**The Full Solution:**\nStep 1: The output is given, so set the rule equal to it: $\\frac{2}{5}x - 9 = 13$.\nStep 2: Add $9$ to both sides: $\\frac{2}{5}x = 22$.\nStep 3: Divide both sides by $\\frac{2}{5}$, which is the same as multiplying by $\\frac{5}{2}$: $x = 22 \\cdot \\frac{5}{2} = 55$. Check: $f(55) = \\frac{2}{5}(55) - 9 = 22 - 9 = 13$ ✓\n\n**Common Mistakes:**\n* $10$: subtracts $9$ from $13$ instead of adding, solving $\\frac{2}{5}x = 4$.\n* $8.8$: multiplies $22$ by $\\frac{2}{5}$ instead of dividing by it, undoing the coefficient in the wrong direction.\n* $-3.8$: evaluates $f(13)$ rather than solving $f(x) = 13$, answering the reverse question.\n\n**Test Day Takeaway:** When the output of a function is given and the input is unknown, undo the operations in reverse order: clear the constant first, then the coefficient.",
   skills: ["function-evaluation"]
 },
 {
@@ -240,9 +240,9 @@ export const practiceTest2 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "A crate holds $15$ mangoes, $9$ of which are ripe. A grader removes one mango at random, sets it aside, and then removes a second mango at random. What is the probability that both removed mangoes are ripe?",
-  correctAnswer: "12/35",
-  explanation: "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{12}{35}$.**\n\n**The Fast Way (~30s):** $\\frac{9}{15} \\cdot \\frac{8}{14} = \\frac{72}{210} = \\frac{12}{35}$.\n\n**The Full Solution:**\nStep 1: The first removal is from all $15$ mangoes, $9$ of which are ripe, so the probability the first is ripe is $\\frac{9}{15} = \\frac{3}{5}$.\nStep 2: Because the first mango is set aside, the second removal is from $14$ mangoes, of which $8$ are now ripe, so the probability the second is ripe is $\\frac{8}{14} = \\frac{4}{7}$.\nStep 3: Multiply the two: $\\frac{3}{5} \\cdot \\frac{4}{7} = \\frac{12}{35}$. Check by counting pairs instead: $\\frac{9 \\cdot 8}{15 \\cdot 14} = \\frac{72}{210} = \\frac{12}{35}$ ✓\n\n**Common Mistakes:** Entering $\\frac{9}{25}$ (using $\\frac{9}{15}$ twice, as if the first mango were returned to the crate); entering $\\frac{8}{25}$ (reducing the ripe count to $8$ but leaving the total at $15$, so only one of the two numbers is updated); entering $\\frac{3}{5}$ (stopping after the first removal and reporting the probability for one mango only).\n\n**Test Day Takeaway:** Without replacement, both the favorable count and the total count drop by one before the second draw; update numerator and denominator together, then multiply.",
+  question: "A jar contains $6$ green marbles and $4$ purple marbles. If two of these marbles are selected at random without replacement, what is the probability that both are green? (Express your answer as a decimal or fraction, not as a percent.)",
+  correctAnswer: "1/3",
+  explanation: "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{1}{3}$.**\n\n**The Fast Way (~25s):** $\\frac{6}{10} \\cdot \\frac{5}{9} = \\frac{30}{90} = \\frac{1}{3}$.\n\n**The Full Solution:**\nStep 1: The jar holds $6 + 4 = 10$ marbles, $6$ of them green, so the probability that the first marble selected is green is $\\frac{6}{10}$.\nStep 2: The first marble is not replaced. If it was green, $5$ green marbles remain among $9$ marbles, so the probability that the second is also green is $\\frac{5}{9}$.\nStep 3: Multiply the two probabilities: $\\frac{6}{10} \\cdot \\frac{5}{9} = \\frac{30}{90} = \\frac{1}{3}$. Counting pairs gives the same value: $\\frac{6 \\cdot 5}{10 \\cdot 9} = \\frac{1}{3}$ ✓\n\n**Common Mistakes:**\n* $\\frac{9}{25}$: multiplies $\\frac{6}{10}$ by itself, treating the selection as if the first marble were returned to the jar.\n* $\\frac{3}{10}$: lowers the green count to $5$ but leaves the total at $10$, updating the numerator without the denominator.\n* $\\frac{3}{5}$: stops after the first selection and reports the probability for one marble instead of two.\n\n**Test Day Takeaway:** Without replacement, both counts drop by one before the second selection; update the numerator and the denominator together, then multiply.",
   skills: ["probability-basics"]
 },
 {
@@ -250,18 +250,18 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "In the xy-plane, segment $AB$ has endpoints $(-2, 9)$ and $(5, 5)$, and segment $BC$ meets segment $AB$ at a right angle at $B$. What is the slope of segment $BC$?",
+  question: "In the xy-plane, line $m$ passes through the points $(-3, 8)$ and $(5, 2)$. Line $n$ is perpendicular to line $m$. What is the slope of line $n$?",
   choices: [
-    // distractor: takes the reciprocal of -4/7 but keeps the negative sign instead of changing it, giving -7/4
-    { id: "A", text: "$-\\frac{7}{4}$" },
-    // distractor: reports the slope of segment AB itself, -4/7, without any perpendicular adjustment
-    { id: "B", text: "$-\\frac{4}{7}$" },
-    // distractor: changes the sign of AB's slope without taking the reciprocal, giving 4/7
-    { id: "C", text: "$\\frac{4}{7}$" },
-    { id: "D", text: "$\\frac{7}{4}$" }
+    // distractor: flips -3/4 to -4/3 but keeps the negative sign instead of changing it
+    { id: "A", text: "$-\\frac{4}{3}$" },
+    // distractor: reports the slope of line m itself, -3/4, which would make the lines parallel
+    { id: "B", text: "$-\\frac{3}{4}$" },
+    // distractor: changes the sign of -3/4 without taking the reciprocal, giving 3/4
+    { id: "C", text: "$\\frac{3}{4}$" },
+    { id: "D", text: "$\\frac{4}{3}$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The slope of $AB$ is $\\frac{5 - 9}{5 - (-2)} = -\\frac{4}{7}$, and the negative reciprocal of $-\\frac{4}{7}$ is $\\frac{7}{4}$.\n\n**The Full Solution:**\nStep 1: Find the slope of segment $AB$ from its endpoints: $\\frac{5 - 9}{5 - (-2)} = \\frac{-4}{7} = -\\frac{4}{7}$.\nStep 2: Perpendicular slopes multiply to $-1$, so the slope $m$ of segment $BC$ satisfies $-\\frac{4}{7}m = -1$.\nStep 3: Solve: $m = \\frac{7}{4}$. Check: $-\\frac{4}{7} \\cdot \\frac{7}{4} = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{7}{4}$): flips $-\\frac{4}{7}$ but leaves it negative. The product $-\\frac{4}{7} \\cdot \\left(-\\frac{7}{4}\\right) = 1$, not $-1$, so those two lines are not perpendicular.\n* Choice B ($-\\frac{4}{7}$): reports the slope of $AB$ itself. A segment perpendicular to $AB$ cannot share its slope; equal slopes mean parallel.\n* Choice C ($\\frac{4}{7}$): changes the sign but skips the reciprocal. Here $-\\frac{4}{7} \\cdot \\frac{4}{7} = -\\frac{16}{49}$, which is not $-1$.\n\n**Test Day Takeaway:** Perpendicular means both moves at once, flip the fraction and change the sign, then verify by multiplying the two slopes to confirm you get exactly $-1$.",
+  explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Line $m$ has slope $\\frac{2 - 8}{5 - (-3)} = -\\frac{3}{4}$, and the negative reciprocal of $-\\frac{3}{4}$ is $\\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: Use the two given points to find the slope of line $m$: $\\frac{2 - 8}{5 - (-3)} = \\frac{-6}{8} = -\\frac{3}{4}$.\nStep 2: Perpendicular lines have slopes whose product is $-1$, so the slope $s$ of line $n$ satisfies $-\\frac{3}{4}s = -1$.\nStep 3: Multiply both sides by $-\\frac{4}{3}$: $s = \\frac{4}{3}$. Check: $-\\frac{3}{4} \\cdot \\frac{4}{3} = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{4}{3}$): flips the fraction but leaves the sign negative. The product $-\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = 1$, not $-1$, so those lines are not perpendicular.\n* Choice B ($-\\frac{3}{4}$): repeats the slope of line $m$. Two lines with equal slopes are parallel, never perpendicular.\n* Choice C ($\\frac{3}{4}$): changes the sign but skips the reciprocal. Here $-\\frac{3}{4} \\cdot \\frac{3}{4} = -\\frac{9}{16}$, which is not $-1$.\n\n**Test Day Takeaway:** Perpendicular slopes require both moves at once, flip the fraction and switch the sign, and the check is quick: their product must be exactly $-1$.",
   skills: ["perpendicular-negative-reciprocal"]
 },
 {
@@ -471,9 +471,9 @@ export const practiceTest2 = {
   type: "fill-in",
   difficulty: "easy",
   band: 2,
-  question: "A maintenance path runs $28$ meters east from a pump house and then $45$ meters north to a valve. How much shorter, in meters, is the straight-line route from the pump house to the valve than the maintenance path?",
-  correctAnswer: "20",
-  explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is 20.**\n\n**The Fast Way (~25s):** The two legs $28$ and $45$ give a hypotenuse of $\\sqrt{28^2 + 45^2} = 53$, and the path itself is $28 + 45 = 73$, so the straight route saves $73 - 53 = 20$ meters.\n\n**The Full Solution:**\nStep 1: The eastward leg and the northward leg meet at a right angle, so the straight-line route is the hypotenuse of a right triangle with legs $28$ and $45$ meters.\nStep 2: Apply the Pythagorean theorem: $28^2 + 45^2 = 784 + 2025 = 2809$, and $\\sqrt{2809} = 53$ meters.\nStep 3: The path along the two legs is $28 + 45 = 73$ meters, so the straight route is $73 - 53 = 20$ meters shorter. Check: $53 + 20 = 73$, the full path length ✓\n\n**Common Mistakes:**\n* $53$: stops at the hypotenuse. That is the length of the straight-line route, not the amount by which it is shorter than the path.\n* $73$: reports the length of the maintenance path itself, $28 + 45$, without comparing it to the direct route.\n* $17$: subtracts the two legs, $45 - 28 = 17$, instead of subtracting the hypotenuse from the sum of the legs.\n\n**Test Day Takeaway:** A \"how much shorter\" question needs two lengths, so compute the hypotenuse and the traveled path separately and subtract; the hypotenuse alone never answers a comparison question.",
+  question: "A rectangle has a diagonal of length $37$ centimeters. One side of the rectangle has a length of $12$ centimeters. What is the length, in centimeters, of the longer side?",
+  correctAnswer: "35",
+  explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is 35.**\n\n**The Fast Way (~20s):** The diagonal is the hypotenuse of a right triangle whose legs are two sides of the rectangle, so $37^{2} - 12^{2} = 1369 - 144 = 1225$, and $\\sqrt{1225} = 35$ centimeters.\n\n**The Full Solution:**\nStep 1: A diagonal divides a rectangle into two right triangles. In each one the diagonal is the hypotenuse and two sides of the rectangle are the legs.\nStep 2: Apply the Pythagorean theorem with legs $12$ and $b$ and hypotenuse $37$: $12^{2} + b^{2} = 37^{2}$, so $144 + b^{2} = 1369$ and $b^{2} = 1225$.\nStep 3: Take the positive square root: $b = 35$ centimeters, which is greater than $12$, so it is the longer side. Check: $12^{2} + 35^{2} = 144 + 1225 = 1369 = 37^{2}$ ✓\n\n**Common Mistakes:**\n* $25$: subtracts the given lengths, $37 - 12$, as though the sides combined directly rather than through their squares.\n* $39$: adds the squares, $\\sqrt{37^{2} + 12^{2}} \\approx 38.9$, which treats the diagonal as a leg. The diagonal is the longest segment in the rectangle, so every side must come out shorter than $37$.\n* $49$: adds the two given lengths, $37 + 12$.\n\n**Test Day Takeaway:** A rectangle's diagonal is the hypotenuse of the right triangle it forms with two sides, so it stands alone in $a^{2} + b^{2} = c^{2}$; a missing side comes from subtracting squares, never from subtracting the lengths.",
   skills: ["pythagorean-theorem"]
 },
 {
@@ -522,7 +522,7 @@ export const practiceTest2 = {
   band: 7,
   question: "A print shop's first order of $4$ reams of paper and $9$ toner cartridges cost $\\$674.50$, and a second order of $9$ reams and $4$ toner cartridges cost $\\$339.50$. Each ream costs the same amount in both orders, and so does each toner cartridge. What is the total cost, in dollars, of one ream and one toner cartridge?",
   correctAnswer: "78",
-  explanation: "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is 78.**\n\n**The Fast Way (~30s):** Adding the two orders gives $13$ reams and $13$ toner cartridges for $674.50 + 339.50 = 1{,}014$ dollars, so one of each costs $\\frac{1014}{13} = 78$ dollars.\n\n**The Full Solution:**\nStep 1: Let $r$ be the cost of one ream and $t$ the cost of one toner cartridge. The two orders give $4r + 9t = 674.50$ and $9r + 4t = 339.50$.\nStep 2: Add the equations. The left side becomes $13r + 13t = 13(r + t)$ and the right side becomes $1{,}014$.\nStep 3: Divide by $13$: $r + t = 78$ dollars. Check: $r = 5.50$ and $t = 72.50$ satisfy both orders, since $4(5.50) + 9(72.50) = 674.50$ and $9(5.50) + 4(72.50) = 339.50$, and $5.50 + 72.50 = 78$ ✓\n\n**Common Mistakes:**\n* $1014$: adds the two order totals and stops. That is the cost of $13$ reams and $13$ cartridges, so it still has to be divided by $13$.\n* $39$: divides the combined total by $26$, the number of individual items in the two orders, instead of by the $13$ ream-and-cartridge pairs.\n* $67$: subtracts the orders instead of adding them, giving $5(t - r) = 335$ and $t - r = 67$. That is the difference between the two unit prices, not their sum.\n\n**Test Day Takeaway:** When a system's two equations have their coefficients swapped, adding them produces a multiple of the sum of the variables — the question's target — so neither variable ever has to be found alone.",
+  explanation: "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is 78.**\n\n**The Fast Way (~30s):** Adding the two orders gives $13$ reams and $13$ toner cartridges for $674.50 + 339.50 = 1{,}014$ dollars, so one of each costs $\\frac{1014}{13} = 78$ dollars.\n\n**The Full Solution:**\nStep 1: Let $r$ be the cost of one ream and $t$ the cost of one toner cartridge. The two orders give $4r + 9t = 674.50$ and $9r + 4t = 339.50$.\nStep 2: Add the equations. The left side becomes $13r + 13t = 13(r + t)$ and the right side becomes $1{,}014$.\nStep 3: Divide by $13$: $r + t = 78$ dollars. Check: $r = 5.50$ and $t = 72.50$ satisfy both orders, since $4(5.50) + 9(72.50) = 674.50$ and $9(5.50) + 4(72.50) = 339.50$, and $5.50+72.50=78$ ✓\n\n**Common Mistakes:**\n* $1014$: adds the two order totals and stops. That is the cost of $13$ reams and $13$ cartridges, so it still has to be divided by $13$.\n* $39$: divides the combined total by $26$, the number of individual items in the two orders, instead of by the $13$ ream-and-cartridge pairs.\n* $67$: subtracts the orders instead of adding them, giving $5(t - r) = 335$ and $t - r = 67$. That is the difference between the two unit prices, not their sum.\n\n**Test Day Takeaway:** When a system's two equations have their coefficients swapped, adding them produces a multiple of the sum of the variables — the question's target — so neither variable ever has to be found alone.",
   skills: ["elimination-method"]
 },
 {
@@ -530,18 +530,18 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "For a constant $k$, the product of $\\sqrt[3]{8^{2x}}$ and $4^{x-3}$ equals $2^{kx-6}$ at every value of $x$. What is the value of $k$?",
+  question: "$\\frac{\\sqrt[3]{27^{2x}}\\left(9^{x+1}\\right)}{3^{5x}}$\nFor all real values of $x$, which expression is equivalent to the given expression?",
   choices: [
-    // distractor: divides the two powers instead of multiplying them, getting 2x - (2x - 6) = 6, an exponent with no x-term, so k = 0
-    { id: "A", text: "$0$" },
-    // distractor: rewrites 4 as 2 to the first power, getting 2x + (x - 3) = 3x - 3 and reading k = 3
-    { id: "B", text: "$3$" },
-    { id: "C", text: "$4$" },
-    // distractor: drops the cube root, getting 6x + (2x - 6) = 8x - 6 and reading k = 8
-    { id: "D", text: "$8$" }
+    // distractor: rewrites 9 to the (x+1) as 3 to the (2x+1), doubling the x in the exponent but not the 1
+    { id: "A", text: "$3^{1-x}$" },
+    { id: "B", text: "$3^{2-x}$" },
+    // distractor: converts 27 to 3 cubed but never applies the cube root, leaving 3 to the 6x in the numerator
+    { id: "C", text: "$3^{3x+2}$" },
+    // distractor: adds the denominator's exponent instead of subtracting it, giving 2x + (2x+2) + 5x
+    { id: "D", text: "$3^{9x+2}$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $\\sqrt[3]{8^{2x}} = \\sqrt[3]{2^{6x}} = 2^{2x}$ and $4^{x-3} = 2^{2x-6}$, so the product is $2^{4x-6}$ and $k = 4$.\n\n**The Full Solution:**\nStep 1: Put the first factor in base $2$: $8^{2x} = (2^3)^{2x} = 2^{6x}$, and a cube root divides the exponent by $3$, so $\\sqrt[3]{2^{6x}} = 2^{2x}$.\nStep 2: Put the second factor in base $2$: $4^{x-3} = (2^2)^{x-3} = 2^{2x-6}$.\nStep 3: Multiplying powers of the same base adds exponents: $2^{2x} \\cdot 2^{2x-6} = 2^{4x-6}$. Matching this with $2^{kx-6}$ gives $k = 4$. Check at $x = 3$: $\\sqrt[3]{8^6} \\cdot 4^0 = 8^2 = 64 = 2^6$, and $4(3) - 6 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): subtracts the second exponent instead of adding it, giving $2x - (2x - 6) = 6$. The two factors are multiplied, so their exponents add.\n* Choice B ($3$): treats $4$ as $2^1$, giving $2x + (x - 3) = 3x - 3$. Since $4 = 2^2$, the exponent $x - 3$ doubles to $2x - 6$ — which is exactly the constant $-6$ the target form shows.\n* Choice D ($8$): converts $8$ to $2^3$ but never applies the cube root, leaving $6x + (2x - 6) = 8x - 6$. A cube root is the exponent $\\frac{1}{3}$, so it divides $6x$ by $3$.\n\n**Test Day Takeaway:** Convert radicals to fractional exponents and every base to a single common base before combining; when the target form already shows the constant term, use it to confirm the conversion was done right.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** In base $3$ the numerator is $3^{2x} \\cdot 3^{2x+2} = 3^{4x+2}$, and dividing by $3^{5x}$ subtracts $5x$, leaving $3^{2-x}$.\n\n**The Full Solution:**\nStep 1: Rewrite the radical in base $3$: $27^{2x} = (3^{3})^{2x} = 3^{6x}$, and a cube root divides the exponent by $3$, so $\\sqrt[3]{3^{6x}} = 3^{2x}$.\nStep 2: Rewrite the other factor: $9^{x+1} = (3^{2})^{x+1} = 3^{2x+2}$. Multiplying powers of the same base adds exponents, so the numerator is $3^{2x} \\cdot 3^{2x+2} = 3^{4x+2}$.\nStep 3: Dividing powers of the same base subtracts exponents: $\\frac{3^{4x+2}}{3^{5x}} = 3^{4x+2-5x} = 3^{2-x}$. Check at $x = 1$: the expression is $\\frac{3^{2}(9^{2})}{3^{5}} = \\frac{9 \\cdot 81}{243} = 3$, and $3^{2-1} = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3^{1-x}$): rewrites $9^{x+1}$ as $3^{2x+1}$. Raising $3^{2}$ to the power $x+1$ doubles the entire exponent, giving $2x+2$, so the constant term is $2$.\n* Choice C ($3^{3x+2}$): converts $27$ to $3^{3}$ but never applies the cube root, leaving $6x + (2x+2) - 5x = 3x+2$. A cube root is the exponent $\\frac{1}{3}$, so it divides $6x$ by $3$.\n* Choice D ($3^{9x+2}$): adds the denominator's exponent instead of subtracting it: $2x + (2x+2) + 5x = 9x+2$. Division of powers with the same base subtracts.\n\n**Test Day Takeaway:** Put every base and every radical into one common base before combining anything; after that a product adds exponents and a quotient subtracts them, and the answer can be read straight off.",
   skills: ["exponent-laws"]
 },
 {
@@ -587,19 +587,19 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The triangular support shown holds a photovoltaic module. Its right angle is at $Q$, its perimeter measures $80$ centimeters, and $\\tan P = \\frac{8}{15}$. How long, in centimeters, is $\\overline{QR}$?",
-  diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [15, 0], [15, 8]], labels: ["P", "Q", "R"], sideLabels: ["", "", ""], rightAngleVertex: 1 } },
+  question: "The perimeter of the right triangle shown is $90$ centimeters, and $\\cos J = \\frac{12}{13}$. What is the length, in centimeters, of $\\overline{JK}$?",
+  diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [12, 0], [12, 5]], labels: ["J", "K", "L"], sideLabels: ["", "", ""], rightAngleVertex: 1, figureNote: true } },
   choices: [
-    // distractor: reads 8 straight off the ratio, using the 8-15-17 triangle without scaling it to a perimeter of 80
-    { id: "A", text: "$8$" },
-    { id: "B", text: "$16$" },
-    // distractor: reports PQ, the leg adjacent to angle P, which is 30 centimeters
-    { id: "C", text: "$30$" },
-    // distractor: reports PR, the hypotenuse, which is 34 centimeters
-    { id: "D", text: "$34$" }
+    // distractor: reads 12 off the cosine ratio as a length, never scaling the 5-12-13 triangle up to a perimeter of 90
+    { id: "A", text: "$12$" },
+    // distractor: reports KL, the leg opposite angle J, which is 15 centimeters
+    { id: "B", text: "$15$" },
+    { id: "C", text: "$36$" },
+    // distractor: reports JL, the hypotenuse, which is 39 centimeters
+    { id: "D", text: "$39$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $\\tan P = \\frac{8}{15}$ makes the sides $8k$, $15k$, $17k$, so the perimeter is $40k = 80$ and $k = 2$. Then $QR = 8(2) = 16$ centimeters.\n\n**The Full Solution:**\nStep 1: With the right angle at $Q$, the tangent of $P$ is the leg opposite $P$ over the leg adjacent to $P$, so $\\frac{QR}{PQ} = \\frac{8}{15}$. Write $QR = 8k$ and $PQ = 15k$.\nStep 2: The hypotenuse follows from the Pythagorean theorem: $PR = \\sqrt{(8k)^2 + (15k)^2} = \\sqrt{289k^2} = 17k$, the familiar $8$-$15$-$17$ triple.\nStep 3: The perimeter gives $8k + 15k + 17k = 40k = 80$, so $k = 2$ and $QR = 16$ centimeters. Check: $16 + 30 + 34 = 80$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): treats the tangent ratio as the actual side lengths. The ratio only fixes the shape; the perimeter fixes the size, and here every side doubles.\n* Choice C ($30$): the length of $\\overline{PQ}$, the leg adjacent to $P$. Tangent puts the opposite leg on top, so $\\overline{QR}$ is the $8k$ side.\n* Choice D ($34$): the hypotenuse $\\overline{PR}$. It is the longest side and never sits opposite an acute angle.\n\n**Test Day Takeaway:** Turn a trig ratio into side expressions with a single scale factor $k$, then let the perimeter solve for $k$; the triangle's shape and its size are two separate pieces of information.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $\\cos J = \\frac{12}{13}$ makes the sides $12k$, $5k$, and $13k$, so the perimeter is $30k = 90$ and $k = 3$. Then $JK = 12(3) = 36$ centimeters.\n\n**The Full Solution:**\nStep 1: The right angle is at $K$, so $\\overline{JL}$ is the hypotenuse and $\\overline{JK}$ is the leg adjacent to angle $J$. Cosine is adjacent over hypotenuse, so $\\frac{JK}{JL} = \\frac{12}{13}$; write $JK = 12k$ and $JL = 13k$.\nStep 2: The third side follows from the Pythagorean theorem: $KL = \\sqrt{(13k)^{2} - (12k)^{2}} = \\sqrt{25k^{2}} = 5k$, the $5$-$12$-$13$ triple.\nStep 3: The perimeter gives $12k + 5k + 13k = 30k = 90$, so $k = 3$ and $JK = 12(3) = 36$ centimeters. Check: $36 + 15 + 39 = 90$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): takes the numerator of the ratio as an actual length. A trig ratio fixes only the shape of the triangle; the perimeter fixes its size, and here every side triples.\n* Choice B ($15$): the length of $\\overline{KL}$, the leg opposite angle $J$. Cosine uses the adjacent leg, so $\\overline{JK}$ is the $12k$ side.\n* Choice D ($39$): the hypotenuse $\\overline{JL}$, the $13k$ side. The question asks for a leg, and the hypotenuse is the denominator of the cosine ratio, not the numerator.\n\n**Test Day Takeaway:** Turn a trig ratio into side lengths with one scale factor $k$, then let the perimeter solve for $k$ — the ratio gives the shape and the perimeter gives the size.",
   skills: ["soh-cah-toa"]
 },
 {
@@ -683,19 +683,19 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "Last month a library branch checked out items in four categories, and the counts appear in the table. What percent of last month's checkouts were graphic novels?",
-  questionTable: { headers: ["Category", "Items checked out"], rows: [["Fiction", "$480$"], ["Nonfiction", "$360$"], ["Audiobooks", "$216$"], ["Graphic novels", "$144$"]] },
+  question: "The table shows the number of students in a music program who play each instrument. What percent of these students play the cello?",
+  questionTable: { headers: ["Instrument", "Number of students"], rows: [["Violin", "$160$"], ["Flute", "$120$"], ["Cello", "$80$"], ["Oboe", "$40$"]] },
   choices: [
-    { id: "A", text: "$12\\%$" },
-    // distractor: reads the audiobooks row instead, computing 216/1200 = 18 percent
-    { id: "B", text: "$18\\%$" },
-    // distractor: divides the graphic-novel count by the fiction count, 144/480 = 30 percent, instead of by the month's total
-    { id: "C", text: "$30\\%$" },
-    // distractor: reports the percent of checkouts that were not graphic novels, (1200 - 144)/1200 = 88 percent
-    { id: "D", text: "$88\\%$" }
+    // distractor: reads the oboe row instead, computing 40/400 = 10 percent
+    { id: "A", text: "$10\\%$" },
+    { id: "B", text: "$20\\%$" },
+    // distractor: divides the cello count by the violin count, 80/160 = 50 percent, instead of by the total number of students
+    { id: "C", text: "$50\\%$" },
+    // distractor: reports the percent of students who play an instrument other than the cello, 320/400 = 80 percent
+    { id: "D", text: "$80\\%$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Percent of a Whole**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The four categories total $1{,}200$ items, and $\\frac{144}{1200} = 0.12$, or $12\\%$.\n\n**The Full Solution:**\nStep 1: The table lists no total, so build one: $480 + 360 + 216 + 144 = 1{,}200$ items checked out.\nStep 2: Form the part-over-whole ratio with the graphic-novel count on top: $\\frac{144}{1200}$.\nStep 3: Convert to a percent: $\\frac{144}{1200} = 0.12 = 12\\%$. Check: $12\\%$ of $1{,}200$ is $144$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($18\\%$): uses the audiobooks count, $\\frac{216}{1200} = 18\\%$. The two smaller categories sit next to each other in the table, so the row has to be read carefully.\n* Choice C ($30\\%$): divides by the fiction count, $\\frac{144}{480} = 30\\%$. The whole is every item checked out, not the largest single category.\n* Choice D ($88\\%$): reports the complement, $\\frac{1056}{1200} = 88\\%$, the percent of checkouts that were something other than graphic novels.\n\n**Test Day Takeaway:** When a table gives categories but no total, the first move is always to add the categories — the denominator of a percent-of-a-whole question is that sum.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Percent of a Whole**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The four rows total $400$ students, and $\\frac{80}{400} = 0.2$, or $20\\%$.\n\n**The Full Solution:**\nStep 1: The table gives no total, so build one: $160 + 120 + 80 + 40 = 400$ students.\nStep 2: Write the part over the whole, with the cello count on top: $\\frac{80}{400}$.\nStep 3: Convert to a percent: $\\frac{80}{400} = 0.2 = 20\\%$. Check: $20\\%$ of $400$ is $80$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10\\%$): uses the oboe row, $\\frac{40}{400} = 10\\%$. The two smallest counts sit next to each other, so the row has to be read carefully.\n* Choice C ($50\\%$): divides by the violin count, $\\frac{80}{160} = 50\\%$. The whole is every student in the program, not the largest single group.\n* Choice D ($80\\%$): reports the complement, $\\frac{320}{400} = 80\\%$, the percent of students who play some other instrument.\n\n**Test Day Takeaway:** When a table lists categories but no total, build the total first — that sum is the denominator of every percent-of-a-whole question.",
   skills: ["percent-of-value"]
 },
 {

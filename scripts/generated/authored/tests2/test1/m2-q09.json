@@ -1,29 +1,17 @@
 {
   "id": 9,
-  "question": "A pair of values $x$ and $y$ satisfies both $y = 2x + 3$ and $4x - y = 9$, and no other pair of values satisfies both. What is the value of $x + y$ for that pair?",
+  "question": "$2x + 3y = 35$\n$y = 4x - 7$\nThe given system of equations has exactly one solution $(x, y)$. What is the value of $y$?",
   "choices": [
-    {
-      "id": "A",
-      "text": "$6$"
-    },
-    {
-      "id": "B",
-      "text": "$12$"
-    },
-    {
-      "id": "C",
-      "text": "$15$"
-    },
-    {
-      "id": "D",
-      "text": "$21$"
-    }
+    { "id": "A", "text": "$-3$" },
+    { "id": "B", "text": "$4$" },
+    { "id": "C", "text": "$5$" },
+    { "id": "D", "text": "$9$" }
   ],
   "distractorNotes": {
-    "A": "drops the minus sign and solves 4x + y = 9, giving (1, 5) and a sum of 6",
-    "B": "subtracts only the 2x when substituting, using 4x - 2x + 3 = 9, which gives (3, 9) and a sum of 12",
-    "C": "solves the system correctly but reports y alone instead of x + y"
+    "A": "flips the sign of the constant when distributing, solving 2x + 12x + 21 = 35 to get x = 1 and then y = -3",
+    "B": "solves the system correctly but reports x instead of the requested y",
+    "C": "multiplies only the 4x by 3, using 2x + 12x - 7 = 35 to get x = 3 and then y = 5"
   },
   "correctAnswer": "D",
-  "explanation": "**SAT Pattern: System of Equations — Substitution**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Substitute $2x + 3$ for $y$ in the second equation: $4x - (2x + 3) = 9$ gives $2x = 12$, so $x = 6$, $y = 15$, and $x + y = 21$.\n\n**The Full Solution:**\nStep 1: The first equation already gives $y$ in terms of $x$, so replace $y$ in the second equation: $4x - (2x + 3) = 9$.\nStep 2: Distribute the subtraction across both terms in the parentheses: $4x - 2x - 3 = 9$, so $2x - 3 = 9$, $2x = 12$, and $x = 6$.\nStep 3: Substitute back: $y = 2(6) + 3 = 15$, so $x + y = 6 + 15 = 21$. Check: $4(6) - 15 = 24 - 15 = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): comes from reading the second equation as $4x + y = 9$. That system solves to $(1, 5)$, whose coordinates sum to $6$ — and $6$ is also the correct value of $x$, which makes it doubly attractive.\n* Choice B ($12$): comes from writing $4x - 2x + 3 = 9$, distributing the minus sign to only the first term inside the parentheses. That gives $(3, 9)$ and a sum of $12$.\n* Choice C ($15$): this is $y$. The system is solved correctly, but only half of the requested sum is reported.\n\n**Test Day Takeaway:** When you substitute a two-term expression into a subtraction, wrap it in parentheses first. Then reread the question — these items usually ask for a combination, not for one variable."
+  "explanation": "**SAT Pattern: System of Equations — Substitution**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Substituting $4x - 7$ for $y$ gives $2x + 3(4x - 7) = 35$, so $14x = 56$ and $x = 4$. Then $y = 4(4) - 7 = 9$.\n\n**The Full Solution:**\nStep 1: The second equation already gives $y$ in terms of $x$, so replace $y$ in the first equation: $2x + 3(4x - 7) = 35$.\nStep 2: Distribute the $3$ across both terms: $2x + 12x - 21 = 35$, so $14x - 21 = 35$, $14x = 56$, and $x = 4$.\nStep 3: Substitute back into $y = 4x - 7$: $y = 4(4) - 7 = 9$. Check in the first equation: $2(4) + 3(9) = 8 + 27 = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): comes from $2x + 12x + 21 = 35$, which keeps the $3$ but loses the minus sign on the $-7$. That gives $x = 1$ and $y = -3$.\n* Choice B ($4$): this is $x$. The work is right, but the question asks for the other coordinate.\n* Choice C ($5$): comes from $2x + 12x - 7 = 35$, multiplying only the first term inside the parentheses by $3$. That gives $x = 3$ and $y = 5$.\n\n**Test Day Takeaway:** Multiply the whole substituted expression, sign included, by the coefficient in front of it. Then reread the last line: the variable you solve for first is often not the one being asked about."
 }

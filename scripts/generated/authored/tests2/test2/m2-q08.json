@@ -1,29 +1,29 @@
 {
  "id": 8,
- "question": "For a constant $k$, the product of $\\sqrt[3]{8^{2x}}$ and $4^{x-3}$ equals $2^{kx-6}$ at every value of $x$. What is the value of $k$?",
+ "question": "$\\frac{\\sqrt[3]{27^{2x}}\\left(9^{x+1}\\right)}{3^{5x}}$\nFor all real values of $x$, which expression is equivalent to the given expression?",
  "choices": [
   {
    "id": "A",
-   "text": "$0$"
+   "text": "$3^{1-x}$"
   },
   {
    "id": "B",
-   "text": "$3$"
+   "text": "$3^{2-x}$"
   },
   {
    "id": "C",
-   "text": "$4$"
+   "text": "$3^{3x+2}$"
   },
   {
    "id": "D",
-   "text": "$8$"
+   "text": "$3^{9x+2}$"
   }
  ],
  "distractorNotes": {
-  "A": "divides the two powers instead of multiplying them, getting 2x - (2x - 6) = 6, an exponent with no x-term, so k = 0",
-  "B": "rewrites 4 as 2 to the first power, getting 2x + (x - 3) = 3x - 3 and reading k = 3",
-  "D": "drops the cube root, getting 6x + (2x - 6) = 8x - 6 and reading k = 8"
+  "A": "rewrites 9 to the (x+1) as 3 to the (2x+1), doubling the x in the exponent but not the 1",
+  "C": "converts 27 to 3 cubed but never applies the cube root, leaving 3 to the 6x in the numerator",
+  "D": "adds the denominator's exponent instead of subtracting it, giving 2x + (2x+2) + 5x"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $\\sqrt[3]{8^{2x}} = \\sqrt[3]{2^{6x}} = 2^{2x}$ and $4^{x-3} = 2^{2x-6}$, so the product is $2^{4x-6}$ and $k = 4$.\n\n**The Full Solution:**\nStep 1: Put the first factor in base $2$: $8^{2x} = (2^3)^{2x} = 2^{6x}$, and a cube root divides the exponent by $3$, so $\\sqrt[3]{2^{6x}} = 2^{2x}$.\nStep 2: Put the second factor in base $2$: $4^{x-3} = (2^2)^{x-3} = 2^{2x-6}$.\nStep 3: Multiplying powers of the same base adds exponents: $2^{2x} \\cdot 2^{2x-6} = 2^{4x-6}$. Matching this with $2^{kx-6}$ gives $k = 4$. Check at $x = 3$: $\\sqrt[3]{8^6} \\cdot 4^0 = 8^2 = 64 = 2^6$, and $4(3) - 6 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): subtracts the second exponent instead of adding it, giving $2x - (2x - 6) = 6$. The two factors are multiplied, so their exponents add.\n* Choice B ($3$): treats $4$ as $2^1$, giving $2x + (x - 3) = 3x - 3$. Since $4 = 2^2$, the exponent $x - 3$ doubles to $2x - 6$ — which is exactly the constant $-6$ the target form shows.\n* Choice D ($8$): converts $8$ to $2^3$ but never applies the cube root, leaving $6x + (2x - 6) = 8x - 6$. A cube root is the exponent $\\frac{1}{3}$, so it divides $6x$ by $3$.\n\n**Test Day Takeaway:** Convert radicals to fractional exponents and every base to a single common base before combining; when the target form already shows the constant term, use it to confirm the conversion was done right."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** In base $3$ the numerator is $3^{2x} \\cdot 3^{2x+2} = 3^{4x+2}$, and dividing by $3^{5x}$ subtracts $5x$, leaving $3^{2-x}$.\n\n**The Full Solution:**\nStep 1: Rewrite the radical in base $3$: $27^{2x} = (3^{3})^{2x} = 3^{6x}$, and a cube root divides the exponent by $3$, so $\\sqrt[3]{3^{6x}} = 3^{2x}$.\nStep 2: Rewrite the other factor: $9^{x+1} = (3^{2})^{x+1} = 3^{2x+2}$. Multiplying powers of the same base adds exponents, so the numerator is $3^{2x} \\cdot 3^{2x+2} = 3^{4x+2}$.\nStep 3: Dividing powers of the same base subtracts exponents: $\\frac{3^{4x+2}}{3^{5x}} = 3^{4x+2-5x} = 3^{2-x}$. Check at $x = 1$: the expression is $\\frac{3^{2}(9^{2})}{3^{5}} = \\frac{9 \\cdot 81}{243} = 3$, and $3^{2-1} = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3^{1-x}$): rewrites $9^{x+1}$ as $3^{2x+1}$. Raising $3^{2}$ to the power $x+1$ doubles the entire exponent, giving $2x+2$, so the constant term is $2$.\n* Choice C ($3^{3x+2}$): converts $27$ to $3^{3}$ but never applies the cube root, leaving $6x + (2x+2) - 5x = 3x+2$. A cube root is the exponent $\\frac{1}{3}$, so it divides $6x$ by $3$.\n* Choice D ($3^{9x+2}$): adds the denominator's exponent instead of subtracting it: $2x + (2x+2) + 5x = 9x+2$. Division of powers with the same base subtracts.\n\n**Test Day Takeaway:** Put every base and every radical into one common base before combining anything; after that a product adds exponents and a quotient subtracts them, and the answer can be read straight off."
 }

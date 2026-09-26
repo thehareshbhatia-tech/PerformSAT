@@ -9,32 +9,35 @@
  "passages": [
   {
    "label": "Text 1",
-   "text": "In 1980, physicist Luis Alvarez, geologist Walter Alvarez, and colleagues reported that a thin clay layer marking the end of the Cretaceous period is unusually rich in iridium, an element rare in Earth's crust but abundant in asteroids. They proposed that a massive asteroid impact threw sun-blocking debris into the atmosphere, collapsing food chains and driving the extinction of the non-avian dinosaurs. The later identification of the enormous Chicxulub crater, of the right age, off Mexico's Yucatán Peninsula convinced many scientists that the impact hypothesis explained the extinction."
+   "text": "A high-fiber diet can change which bacteria dominate the human gut. In a controlled trial, microbiologist Liping Zhao and colleagues gave patients with type 2 diabetes a diet rich in fermentable fiber and tracked the bacteria in their stool. A small group of fiber-fermenting species increased sharply, and the patients' blood sugar control improved more than that of patients on a standard diet. Zhao concludes that those bacteria produced the improvement."
   },
   {
    "label": "Text 2",
-   "text": "Paleontologist Gerta Keller has long questioned whether the Chicxulub impact alone can account for the end-Cretaceous extinction. She points to the Deccan Traps, a vast volcanic province in India where eruptions released climate-altering gases over hundreds of thousands of years spanning the extinction. In Keller's reading of the fossil record, many species were already declining well before the impact, a pattern she argues fits prolonged volcanic stress better than a single instantaneous catastrophe. The impact, on her account, may have been one contributor among several rather than the sole cause."
+   "text": "Epidemiologist William Hanage has urged caution in interpreting the growing literature that links gut bacteria to human disease. Diet, medication, and illness all shift the gut community at once, he notes, so a change in bacteria that accompanies a clinical improvement may be a consequence of the intervention rather than its cause. Demonstrating causation, Hanage argues, requires showing that the bacteria by themselves reproduce the effect."
   }
  ],
- "question": "Based on the texts, how would Keller (Text 2) most likely respond to the conclusion presented in Text 1?",
+ "question": "Based on the texts, how would Hanage (Text 2) most likely respond to the claim presented in Text 1?",
  "choices": [
   {
    "id": "A",
-   "text": "She would deny that the iridium-rich clay layer provides any evidence that an asteroid struck Earth at the end of the Cretaceous period."
+   "text": "He would maintain that dietary fiber has no measurable effect on the bacteria living in the human gut."
   },
   {
    "id": "B",
-   "text": "She would argue that the Chicxulub crater formed too recently to be connected to the extinction of the non-avian dinosaurs."
+   "text": "He would agree that the trial settles the question of whether gut bacteria can improve blood sugar control."
   },
   {
    "id": "C",
-   "text": "She would contend that patterns of decline in the fossil record indicate that the impact was not the sole cause of the extinction, whatever role it may have played."
+   "text": "He would grant that the diet changed both the bacteria and the patients' blood sugar but question whether the trial shows that one caused the other."
   },
   {
    "id": "D",
-   "text": "She would agree that the impact played the decisive role in the extinction but insist that the Deccan Traps eruptions deserve equal credit for shaping the slow recovery of ecosystems in the aftermath."
+   "text": "He would object that the patients in the trial were too few and too much alike for its results to apply to people with other forms of the disease."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** Keller challenges the impact hypothesis's sufficiency, not the impact itself — she reads the fossil record's pattern of earlier declines as evidence the impact was \"one contributor among several rather than the sole cause,\" whatever role it played.\n\n**The Full Solution:**\n- Text 1's conclusion is that the impact hypothesis \"explained the extinction.\"\n- Text 2 builds Keller's position on the fossil record: many species were declining before the impact, a pattern she reads as evidence of prolonged volcanic stress.\n- Her measured conclusion — the impact may have contributed but was not the sole cause — is exactly what choice C attributes to her.\n\n**Why the other choices are wrong:**\n- A: It overshoots — Keller questions the impact's sufficiency as a cause, not the evidence that an impact occurred.\n- B: It attributes a timing claim she never makes.\n- D: It miscasts her view twice: she does not grant the impact sole causal credit, and Text 2 says nothing about recovery."
+ "explanation": "**Choice C is correct.** Hanage's objection is about causal inference, not about the observations themselves: a bacterial change that accompanies a clinical improvement may be a consequence of the diet rather than its cause.\n\n**The Full Solution:**\n- Text 1 reports two changes in the same patients — a rise in fiber-fermenting bacteria and better blood sugar control — and treats the first as the cause of the second.\n- Text 2 says that diet shifts the whole gut community at once, so changes that accompany an improvement need not have produced it.\n- Hanage would therefore accept the measurements and challenge the causal step, which is what C describes.\n\n**Why the other choices are wrong:**\n- A: Text 2 never disputes that diet changes gut bacteria; it disputes what such changes prove.\n- B: It reverses his position — he holds that this kind of study does not settle causation.\n- D: Sample size and patient similarity are objections Text 2 never raises.",
+ "_meta": {
+  "source": "crossTextPairs.json ctp-016 — Liping Zhao (Text 1) vs. William Hanage (Text 2), causal claims about the gut microbiome"
+ }
 }

@@ -1,29 +1,17 @@
 {
- "id": 22,
- "question": "A machinist cuts a wedge whose cross section is a right triangle. The longest side of that cross section measures $12$ millimeters, and the shortest side measures $6$ millimeters. What is the area, in square millimeters, of the cross section?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$18\\sqrt{3}$"
+  "id": 22,
+  "question": "In a right triangle, the length of the hypotenuse is $16$ centimeters and the length of one leg is half the length of the hypotenuse. What is the area, in square centimeters, of the triangle?",
+  "choices": [
+    { "id": "A", "text": "$32$" },
+    { "id": "B", "text": "$32\\sqrt{3}$" },
+    { "id": "C", "text": "$64$" },
+    { "id": "D", "text": "$64\\sqrt{3}$" }
+  ],
+  "distractorNotes": {
+    "A": "treats the second leg as 8 as well, computing (1/2)(8)(8) = 32",
+    "C": "uses the hypotenuse 16 as the base and the known leg 8 as the height: (1/2)(16)(8) = 64",
+    "D": "finds the second leg 8*sqrt(3) correctly but omits the factor of 1/2, giving (8)(8*sqrt(3)) = 64*sqrt(3)"
   },
-  {
-   "id": "B",
-   "text": "$36$"
-  },
-  {
-   "id": "C",
-   "text": "$36\\sqrt{3}$"
-  },
-  {
-   "id": "D",
-   "text": "$72$"
-  }
- ],
- "correctAnswer": "A",
- "distractorNotes": {
-  "B": "uses the hypotenuse 12 as the second leg, computing (1/2)(6)(12) = 36",
-  "C": "finds the second leg 6*sqrt(3) correctly but omits the factor of 1/2, giving 36*sqrt(3)",
-  "D": "makes both errors at once, multiplying the two given sides without halving: (6)(12) = 72"
- },
- "explanation": "**SAT Pattern: Right Triangle Area with Surds**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** The missing leg is $\\sqrt{12^{2} - 6^{2}} = \\sqrt{108} = 6\\sqrt{3}$, so the area is $\\frac{1}{2}(6)\\left(6\\sqrt{3}\\right) = 18\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: In a right triangle the longest side is the hypotenuse, so the hypotenuse is $12$ and one leg is $6$.\nStep 2: Find the other leg with the Pythagorean theorem: $6^{2} + b^{2} = 12^{2}$, so $b^{2} = 144 - 36 = 108$ and $b = \\sqrt{108} = \\sqrt{36 \\cdot 3} = 6\\sqrt{3}$.\nStep 3: The two legs form the right angle, so the area is $\\frac{1}{2}\\left(6\\right)\\left(6\\sqrt{3}\\right) = 18\\sqrt{3}$ square millimeters. Check numerically: $18\\sqrt{3} \\approx 31.2$, which is less than the $36$ that a $6$ by $12$ right triangle would give, as it must be since $6\\sqrt{3} < 12$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($36$): multiplies the two given lengths and halves them, $\\frac{1}{2}(6)(12) = 36$, but $12$ is the hypotenuse, not a leg, so it is not one of the sides forming the right angle.\n* Choice C ($36\\sqrt{3}$): finds the missing leg correctly but leaves out the factor $\\frac{1}{2}$, reporting the product of the legs instead of half of it.\n* Choice D ($72$): makes both errors, using the hypotenuse as a leg and skipping the $\\frac{1}{2}$: $(6)(12) = 72$.\n\n**Test Day Takeaway:** The area formula uses the two legs, never the hypotenuse; find the missing leg first, simplify the radical, and sanity-check that the area is smaller than half the product of the two given lengths."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Right Triangle Area with Surds**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The known leg is $\\frac{16}{2} = 8$, so the other leg is $\\sqrt{16^{2} - 8^{2}} = \\sqrt{192} = 8\\sqrt{3}$ and the area is $\\frac{1}{2}(8)\\left(8\\sqrt{3}\\right) = 32\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse has length $16$, so the leg that is half the hypotenuse has length $\\frac{1}{2}(16) = 8$ centimeters.\nStep 2: Call the other leg $b$ and apply the Pythagorean theorem: $8^{2} + b^{2} = 16^{2}$, so $b^{2} = 256 - 64 = 192$ and $b = \\sqrt{192} = \\sqrt{64 \\cdot 3} = 8\\sqrt{3}$.\nStep 3: The two legs meet at the right angle, so they serve as base and height: the area is $\\frac{1}{2}\\left(8\\right)\\left(8\\sqrt{3}\\right) = 32\\sqrt{3}$ square centimeters. Check: $32\\sqrt{3} \\approx 55.4$, which is less than $64$, the area of a right triangle with legs $8$ and $16$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($32$): assumes the two legs are equal, using $\\frac{1}{2}(8)(8)$. A leg equal to half the hypotenuse forces a $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangle, not an isosceles one.\n* Choice C ($64$): pairs the hypotenuse with a leg, $\\frac{1}{2}(16)(8)$. The hypotenuse is never a base-height pair with a leg, because they do not meet at a right angle.\n* Choice D ($64\\sqrt{3}$): finds both legs correctly but reports their product instead of half of it.\n\n**Test Day Takeaway:** Area uses the two legs, so any item that hands you the hypotenuse is hiding one Pythagorean step. Simplify the radical by pulling out the largest perfect square, then halve."
 }

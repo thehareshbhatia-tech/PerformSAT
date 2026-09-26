@@ -6,26 +6,26 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 1,
- "passage": "Textile artist Anni Albers entered the Bauhaus, the influential German design school, in 1922. The weaving workshop—the only course of study the school then offered its women ______ became the site of her most radical experiments, and her 1965 book On Weaving is still a standard reference for textile artists.",
+ "passage": "Type designer Matthew Carter drew Bell Centennial, a typeface for American telephone directories, in 1978. Small notches cut into the joints of its ______ notches that trapped the ink spreading on cheap paper—kept the numbers legible even at a tiny size.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "students"
+   "text": "letters—"
   },
   {
    "id": "B",
-   "text": "students,"
+   "text": "letters,"
   },
   {
    "id": "C",
-   "text": "students;"
+   "text": "letters;"
   },
   {
    "id": "D",
-   "text": "students—"
+   "text": "letters"
   }
  ],
- "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The sentence interrupts itself with a supplement that opens with a dash (“the only course of study the school then offered its women students”), and an interruption opened with a dash must be closed with a matching dash.\n\n**The Full Solution:**\n- Strip the supplement out and the frame reads cleanly: “The weaving workshop … became the site of her most radical experiments.”\n- Because the supplement was opened with a dash after “workshop,” the boundary at the blank must be the paired closing dash — punctuation marks that set off an interruption must match.\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the supplement crashes into the main verb (“students became”), handing the sentence a second subject and leaving the opening dash unclosed.\n- B: A comma cannot close an interruption that a dash opened — mismatched pairs (dash–comma) are nonstandard.\n- C: A semicolon joins two independent clauses; what follows the blank is the original sentence’s predicate, not a new clause."
+ "correctAnswer": "A",
+ "explanation": "**Choice A is correct.** The convention being tested is the punctuation of a supplementary element within a sentence. The phrase \"notches that trapped the ink spreading on cheap paper\" interrupts the main clause (\"Small notches cut into the joints of its letters kept the numbers legible\"), and the dash after \"paper\" closes that interruption, so a dash after \"letters\" is needed to open it.\n\n**The Full Solution:**\n- Find the main clause: \"Small notches cut into the joints of its letters … kept the numbers legible even at a tiny size.\"\n- The words between \"letters\" and \"kept\" add information about the notches; they are a supplementary element that must be set off on both sides.\n- The closing mark is already a dash, and the two marks that set off a supplementary element must match, so the opening mark must be a dash as well.\n\n**Why the other choices are wrong:**\n- B: A comma cannot pair with the dash that closes the supplementary element; the marks on either side must match.\n- C: A semicolon must join two independent clauses, but \"notches that trapped the ink … kept the numbers legible\" does not stand on its own here.\n- D: With no punctuation, the supplementary element runs into the main clause and the closing dash has nothing to pair with."
 }

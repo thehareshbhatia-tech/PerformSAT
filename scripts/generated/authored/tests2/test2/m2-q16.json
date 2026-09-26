@@ -1,53 +1,53 @@
 {
  "id": 16,
- "question": "Last month a library branch checked out items in four categories, and the counts appear in the table. What percent of last month's checkouts were graphic novels?",
+ "question": "The table shows the number of students in a music program who play each instrument. What percent of these students play the cello?",
  "questionTable": {
   "headers": [
-   "Category",
-   "Items checked out"
+   "Instrument",
+   "Number of students"
   ],
   "rows": [
    [
-    "Fiction",
-    "$480$"
+    "Violin",
+    "$160$"
    ],
    [
-    "Nonfiction",
-    "$360$"
+    "Flute",
+    "$120$"
    ],
    [
-    "Audiobooks",
-    "$216$"
+    "Cello",
+    "$80$"
    ],
    [
-    "Graphic novels",
-    "$144$"
+    "Oboe",
+    "$40$"
    ]
   ]
  },
  "choices": [
   {
    "id": "A",
-   "text": "$12\\%$"
+   "text": "$10\\%$"
   },
   {
    "id": "B",
-   "text": "$18\\%$"
+   "text": "$20\\%$"
   },
   {
    "id": "C",
-   "text": "$30\\%$"
+   "text": "$50\\%$"
   },
   {
    "id": "D",
-   "text": "$88\\%$"
+   "text": "$80\\%$"
   }
  ],
  "distractorNotes": {
-  "B": "reads the audiobooks row instead, computing 216/1200 = 18 percent",
-  "C": "divides the graphic-novel count by the fiction count, 144/480 = 30 percent, instead of by the month's total",
-  "D": "reports the percent of checkouts that were not graphic novels, (1200 - 144)/1200 = 88 percent"
+  "A": "reads the oboe row instead, computing 40/400 = 10 percent",
+  "C": "divides the cello count by the violin count, 80/160 = 50 percent, instead of by the total number of students",
+  "D": "reports the percent of students who play an instrument other than the cello, 320/400 = 80 percent"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Percent of a Whole**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The four categories total $1{,}200$ items, and $\\frac{144}{1200} = 0.12$, or $12\\%$.\n\n**The Full Solution:**\nStep 1: The table lists no total, so build one: $480 + 360 + 216 + 144 = 1{,}200$ items checked out.\nStep 2: Form the part-over-whole ratio with the graphic-novel count on top: $\\frac{144}{1200}$.\nStep 3: Convert to a percent: $\\frac{144}{1200} = 0.12 = 12\\%$. Check: $12\\%$ of $1{,}200$ is $144$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($18\\%$): uses the audiobooks count, $\\frac{216}{1200} = 18\\%$. The two smaller categories sit next to each other in the table, so the row has to be read carefully.\n* Choice C ($30\\%$): divides by the fiction count, $\\frac{144}{480} = 30\\%$. The whole is every item checked out, not the largest single category.\n* Choice D ($88\\%$): reports the complement, $\\frac{1056}{1200} = 88\\%$, the percent of checkouts that were something other than graphic novels.\n\n**Test Day Takeaway:** When a table gives categories but no total, the first move is always to add the categories — the denominator of a percent-of-a-whole question is that sum."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Percent of a Whole**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The four rows total $400$ students, and $\\frac{80}{400} = 0.2$, or $20\\%$.\n\n**The Full Solution:**\nStep 1: The table gives no total, so build one: $160 + 120 + 80 + 40 = 400$ students.\nStep 2: Write the part over the whole, with the cello count on top: $\\frac{80}{400}$.\nStep 3: Convert to a percent: $\\frac{80}{400} = 0.2 = 20\\%$. Check: $20\\%$ of $400$ is $80$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10\\%$): uses the oboe row, $\\frac{40}{400} = 10\\%$. The two smallest counts sit next to each other, so the row has to be read carefully.\n* Choice C ($50\\%$): divides by the violin count, $\\frac{80}{160} = 50\\%$. The whole is every student in the program, not the largest single group.\n* Choice D ($80\\%$): reports the complement, $\\frac{320}{400} = 80\\%$, the percent of students who play some other instrument.\n\n**Test Day Takeaway:** When a table lists categories but no total, build the total first — that sum is the denominator of every percent-of-a-whole question."
 }

@@ -6,30 +6,30 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 2,
- "passage": "The following text is Emily Dickinson's poem \"Hope is the thing with feathers,\" published in 1891.\n\nHope is the thing with feathers\nThat perches in the soul,\nAnd sings the tune without the words,\nAnd never stops at all,\n\nAnd sweetest in the gale is heard;\nAnd sore must be the storm\nThat could abash the little bird\nThat kept so many warm.\n\nI've heard it in the chillest land,\nAnd on the strangest sea;\nYet, never, in extremity,\nIt asked a crumb of me.",
+ "passage": "The following text is poem 35 from Rabindranath Tagore's 1912 collection *Gitanjali*, which the poet translated from Bengali into English.\n\nWhere the mind is without fear and the head is held high;\nWhere knowledge is free;\nWhere the world has not been broken up into fragments by narrow domestic walls;\nWhere words come out from the depth of truth;\nWhere tireless striving stretches its arms towards perfection;\nWhere the clear stream of reason has not lost its way into the dreary desert sand of dead habit;\nWhere the mind is led forward by thee into ever-widening thought and action—\nInto that heaven of freedom, my Father, let my country awake.",
  "question": "Which choice best describes the overall structure of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "The speaker describes hope's song in times of comfort, contrasts it with hope's silence in times of crisis, and closes by questioning whether hope can be relied upon when circumstances become truly desperate."
+   "text": "The speaker recalls a time when these conditions prevailed in his country and then mourns that they have since been lost."
   },
   {
    "id": "B",
-   "text": "The speaker recalls encountering a bird in a storm, expresses regret at having failed to shelter it, and closes by resolving to be more generous in the future."
+   "text": "The speaker poses a series of questions about a country's future and then supplies an answer to each one."
   },
   {
    "id": "C",
-   "text": "The speaker proposes a metaphor for hope, tests it against several competing metaphors, and closes by conceding that no comparison can fully capture the feeling."
+   "text": "The speaker describes the obstacles that stand in a country's way and then proposes a specific plan for removing each of them."
   },
   {
    "id": "D",
-   "text": "The speaker introduces a metaphor that likens hope to a singing bird, describes the bird's persistence through hardship, and closes by observing that it has never asked anything of her in return."
+   "text": "The speaker names one condition after another and then asks that his country be awakened into the state those conditions define."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The poem establishes its governing metaphor, develops the bird's persistence under duress, and closes by observing that the bird has never asked anything of the speaker — the movement D describes.\n\n**The Full Solution:**\n- The first stanza establishes the metaphor — hope is a feathered thing that \"perches in the soul\" and sings \"without the words\" — and its defining trait: the song \"never stops at all.\"\n- The middle stanza develops persistence under duress: the song is \"sweetest in the gale,\" and only the sorest storm \"could abash the little bird.\"\n- The final stanza extends that persistence to the speaker's own extremes (\"the chillest land,\" \"the strangest sea\") and pivots on \"Yet\" to the closing observation: the bird has \"never, in extremity,\" asked \"a crumb\" of her.\n\n**Why the other choices are wrong:**\n- A: It inverts the poem's central claim — the song is sweetest in the gale; hope is loudest, not silent, in crisis.\n- B: It misreads the metaphorical bird as a literal one and invents regret the poem never expresses.\n- C: No competing metaphors are entertained.",
+ "explanation": "**Choice D is correct.** Seven parallel clauses beginning \"Where\" set out the conditions of a place, and the final line turns them into a request: \"let my country awake\" into that place.\n\n**The Full Solution:**\n- Each of the first seven lines opens with \"Where\" and adds one more condition — fearlessness, free knowledge, an unbroken world, truthful words, tireless striving, unobstructed reason, and widening thought.\n- Nothing in those lines is located in the past or in the speaker's own country; they describe a state of things, not a history.\n- The last line gathers all of them into \"that heaven of freedom\" and makes the poem's single request: \"let my country awake.\"\n\n**Why the other choices are wrong:**\n- A: The conditions are never presented as something the country once had.\n- B: The lines are clauses, not questions, and no answers are supplied.\n- C: The poem names conditions to be reached, not obstacles, and offers no plan.",
  "_meta": {
   "quoteVerify": true,
-  "source": "Emily Dickinson, \"Hope is the thing with feathers\" — Poems, Second Series (1891); punctuation follows the 1891 printing"
+  "source": "Rabindranath Tagore, poem 35 of Gitanjali (Song Offerings), 1912 English edition; text verified against the Wikisource transcription of the scanned edition (https://en.wikisource.org/wiki/Gitanjali/35)"
  }
 }

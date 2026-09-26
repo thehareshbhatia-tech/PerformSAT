@@ -6,26 +6,30 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 1,
- "passage": "At a solar thermal power station in the desert, an array of thousands of computer-guided mirrors ______ sunlight onto a receiver at the top of a central tower, heating molten salt that can drive turbines long after sunset.",
+ "passage": "Between 1935 and 1942, artists employed by the Index of American Design made more than eighteen thousand watercolor renderings of quilts, weather vanes, carousel horses, and other handmade objects. When the project ended, the renderings passed to the National Gallery of Art, which has since digitized ______ and published the images online.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "concentrate"
+   "text": "it"
   },
   {
    "id": "B",
-   "text": "have concentrated"
+   "text": "this"
   },
   {
    "id": "C",
-   "text": "concentrates"
+   "text": "them"
   },
   {
    "id": "D",
-   "text": "are concentrating"
+   "text": "that"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The true subject is the singular \"array,\" so the verb must be the singular \"concentrates.\"\n\n**The Full Solution:**\n- \"Of thousands of computer-guided mirrors\" is a prepositional phrase sitting between subject and verb; it does not change the subject's number.\n- Strip the phrase and the agreement is plain: \"an array ... concentrates.\"\n\n**Why the other choices are wrong:**\n- A: A plural form matching the nearby \"mirrors\" rather than the true subject — the classic nearest-noun agreement trap.\n- B: Same trap in a different tense; the subject is still singular.\n- D: Also plural; proximity to \"mirrors\" is what makes it tempting, but \"array\" governs the verb."
+ "explanation": "**Choice C is correct.** The convention being tested is pronoun-antecedent agreement. The plural pronoun \"them\" agrees in number with the plural antecedent \"renderings.\"\n\n**The Full Solution:**\n- The first sentence names the antecedent: more than eighteen thousand watercolor renderings.\n- The second sentence says the renderings passed to the National Gallery of Art, and the pronoun stands for those same renderings.\n- A plural antecedent requires a plural pronoun.\n\n**Why the other choices are wrong:**\n- A: The singular \"it\" doesn't agree in number with the plural \"renderings.\"\n- B: The singular \"this\" doesn't agree in number with the plural \"renderings.\"\n- D: The singular \"that\" doesn't agree in number with the plural \"renderings.\"",
+ "_meta": {
+  "rule": "pronoun-antecedent agreement (plural antecedent)",
+  "anchor": "Index of American Design (1935-1942); renderings held by the National Gallery of Art"
+ }
 }

@@ -6,26 +6,26 @@
   "domain": "expression-of-ideas",
   "skill": "transitions",
   "module": 2,
-  "passage": "By the early 2000s, the mills weaving Harris Tweed faced a tempting path: shift production to mainland factories, cut costs, and compete with mass-market wool cloth on price. The industry's governing body refused that bargain. ______ it tightened its grip on the strictest possible definition — under a 1993 act of Parliament, cloth may carry the Harris Tweed mark only if it is dyed, spun, and handwoven at weavers' homes in the Outer Hebrides — wagering that scarcity and provenance, not price, were the fabric's real assets.",
+  "passage": "The Taj Mahal is usually pictured as a domed tomb at the end of a garden. The architectural historian Ebba Koch surveyed the complex and found one module repeated throughout its plan: in the tomb, the garden beds, and the river terrace. ______ the tomb is not an object placed in a garden but one figure in a pattern that orders the whole site.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
     {
       "id": "A",
-      "text": "Specifically,"
+      "text": "For instance,"
     },
     {
       "id": "B",
-      "text": "Meanwhile,"
+      "text": "Nevertheless,"
     },
     {
       "id": "C",
-      "text": "In addition,"
+      "text": "Meanwhile,"
     },
     {
       "id": "D",
-      "text": "Instead,"
+      "text": "In other words,"
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The governing body rejected one course — cheap mainland production — and took its opposite, doubling down on restrictive, place-bound craft. \"Instead\" is the transition that introduces the alternative chosen in place of a rejected option.\n\n**The Full Solution:**\n- The first sentence lays out the rejected path: mainland factories, lower costs, price competition.\n- The second sentence records the rejection: \"The industry's governing body refused that bargain.\"\n- The blank sentence describes what the body did in place of the rejected path — tightening the legal definition and betting on scarcity. Substitution after refusal is exactly what \"Instead\" signals.\n\n**Why the other choices are wrong:**\n- A: \"Specifically\" would make the tightening a detailed elaboration of the refusal, but the sentence presents a positive countermove, not a closer description of the refusing.\n- B: \"Meanwhile\" implies separate events unfolding in parallel; the tightening is the direct sequel to the refusal, not a simultaneous side development.\n- C: \"In addition\" stacks the tightening on top of the mainland strategy as if both were pursued, but the passage presents them as mutually exclusive alternatives."
+  "explanation": "**Choice D is correct.** The last sentence adds no new information; it restates what Koch's survey found in more general terms, and \"In other words\" is the transition that marks a restatement.\n\n**The Full Solution:**\n- The first sentence gives the familiar picture of the building: a domed tomb at the end of a garden.\n- The second reports the finding: one module repeated in the tomb, the garden beds, and the river terrace.\n- The third says the same thing differently — the tomb is one figure in a pattern that governs the site — so the transition must signal restatement.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would introduce an example, but the examples were already given in the preceding sentence.\n- B: \"Nevertheless\" signals a concession, and the final sentence concedes nothing; it agrees with the sentence before it.\n- C: \"Meanwhile\" marks two things happening at the same time, and the text describes a single finding rather than simultaneous events."
 }

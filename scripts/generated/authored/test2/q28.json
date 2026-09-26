@@ -6,26 +6,26 @@
   "domain": "craft-and-structure",
   "skill": "words-in-context",
   "module": 2,
-  "passage": "A mixture of cornstarch and water behaves like an ordinary liquid when stirred gently but stiffens dramatically under sudden stress: slap the surface and it momentarily resists like a solid. Materials scientists are studying such shear-thickening fluids for use in protective equipment, reasoning that a flexible fabric infused with one would stay supple during everyday movement yet become ______ at the instant of an impact.",
+  "passage": "Before anyone had made one, the physicist Mildred Dresselhaus and her colleagues calculated how electrons would move through a carbon nanotube, predicting that a tube would conduct electricity like a metal or like a semiconductor depending only on the angle at which its sheet of carbon was rolled. Measurements on the first tubes synthesized in the 1990s ______ the prediction.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
     {
       "id": "A",
-      "text": "brittle"
+      "text": "anticipated"
     },
     {
       "id": "B",
-      "text": "porous"
+      "text": "complicated"
     },
     {
       "id": "C",
-      "text": "elastic"
+      "text": "confirmed"
     },
     {
       "id": "D",
-      "text": "rigid"
+      "text": "revised"
     }
   ],
-  "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The fluid's defining trick is stiffening under sudden stress — resisting \"like a solid\" — so fabric infused with it must become \"rigid\" at the moment of impact.\n\n**The Full Solution:**\n- The first sentence defines the behavior the blank must echo: gentle handling leaves the mixture liquid, but sudden stress makes it stiffen and resist like a solid.\n- The second sentence maps that behavior onto protective gear through an explicit contrast: \"supple during everyday movement yet ______ at the instant of an impact.\"\n- The word opposing \"supple\" and matching \"stiffens... like a solid\" is \"rigid.\"\n\n**Why the other choices are wrong:**\n- A: \"brittle\" means hard but liable to shatter — a failure mode, not a protective one, and nothing in the text suggests the stiffened fluid breaks.\n- B: \"porous\" describes permeability to liquids or air, a property the passage never discusses and one irrelevant to stopping an impact.\n- C: \"elastic\" names the fabric's everyday stretchiness — the \"supple\" side of the contrast — when the blank needs its opposite, the state the impact triggers."
+  "correctAnswer": "C",
+  "explanation": "**Choice C is correct.** The calculations came first and the measurements came later, so the blank names what measurement does to a prediction it agrees with: it confirms it.\n\n**The Full Solution:**\n- The first sentence makes the order of events explicit — the calculations were done \"before anyone had made one.\"\n- The second sentence reports what happened when tubes finally existed and could be measured.\n- A measurement that arrives after a prediction and bears it out confirms it.\n\n**Why the other choices are wrong:**\n- A: To \"anticipate\" a prediction is to come before it, and the measurements came years after.\n- B: \"Complicated\" would mean the results made the prediction harder to maintain, which reverses the relationship the passage sets up.\n- D: \"Revised\" would mean the prediction had to be changed, again the opposite of agreement."
 }

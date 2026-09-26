@@ -6,26 +6,29 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 1,
- "passage": "Deep inside a mountain on the Arctic island of Spitsbergen, the Svalbard Global Seed Vault holds duplicate samples of seeds from gene banks around the world. Because the vault is carved into permafrost and sealed behind airlocked doors, its collections can survive power failures, equipment breakdowns, and even regional disasters. For the crop varieties stored there, the facility serves as a ______ against permanent loss.",
+ "passage": "Archaeologist Sarah Parcak studies satellite images of Egypt, looking for the faint discolorations that buried mudbrick walls leave in the soil above them. Because the pits that looters dig show up in the same images, her surveys have a second use: they allow officials to ______ damage at sites that no inspector has visited.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
    "id": "A",
-   "text": "burden"
+   "text": "repair"
   },
   {
    "id": "B",
-   "text": "safeguard"
+   "text": "detect"
   },
   {
    "id": "C",
-   "text": "novelty"
+   "text": "reverse"
   },
   {
    "id": "D",
-   "text": "substitute"
+   "text": "predict"
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The blank needs a noun meaning a protection against harm, and \"safeguard against permanent loss\" states exactly the function the passage has been describing.\n\n**The Full Solution:**\n- The passage builds a single idea: the vault's location in permafrost and its airlocked construction let its seed collections survive failures and disasters.\n- The previous sentence describes that protective function directly, so the blank must name a thing that protects — a \"safeguard.\"\n\n**Why the other choices are wrong:**\n- A: \"Burden\" reverses the vault's value — the passage presents it as protective, not costly.\n- C: \"Novelty\" reduces the vault to a curiosity, ignoring the protective function every sentence describes.\n- D: \"Substitute\" mistakes the vault's role — it stores duplicates so the original collections are protected, not replaced."
+ "explanation": "**Choice B is correct.** The blank names what the satellite images let officials do about damage at sites no one has visited, and only \"detect\" describes something an image alone can accomplish.\n\n**The Full Solution:**\n- The passage establishes that looters' pits appear in the same images that reveal buried walls.\n- The final clause limits officials to what the images show, since no inspector has been to the sites.\n- Noticing that damage is there is the only action the images support, so \"detect\" is the precise word.\n\n**Why the other choices are wrong:**\n- A: An image cannot repair anything; repair would require work at the site itself.\n- C: Reversing the damage, like repairing it, cannot be done from a satellite image.\n- D: The pits have already been dug, so there is nothing left to predict.",
+ "_meta": {
+  "source": "Sarah Parcak (researchers.json res-018), satellite archaeology; documented use of satellite imagery to map looting pits at Egyptian sites"
+ }
 }

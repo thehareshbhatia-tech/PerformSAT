@@ -6,46 +6,40 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "Lithium-ion batteries lose storage capacity as they age, but engineers disagree about what drives the loss in electric vehicles: accumulated driving or exposure to heat. A team analyzed capacity data from thousands of vehicles of a single model, grouping them by the city where they were registered. The team claims that sustained high temperature, more than accumulated driving, erodes battery capacity, noting that ______",
+ "passage": "A warmer atmosphere holds more water vapor, and climate models have long predicted that this will change where rain and snow fall rather than simply increasing precipitation everywhere. Four decades of observations now allow that prediction to be checked. Drawing on the Sixth Assessment Report of the Intergovernmental Panel on Climate Change, a student claims that the observed changes have differed sharply from one latitudinal band to the next and that scientists' confidence in them differs as well. In support of this claim, the student notes that ______",
  "questionTable": {
   "type": "table",
-  "caption": "Median battery capacity retained after five years for one vehicle model, by city",
+  "caption": "Observed annual precipitation change by latitudinal band, 1981-2020 (percent relative to the 1961-1990 average)",
   "headers": [
-   "City",
-   "Average annual temperature (°F)",
-   "Median odometer (thousand miles)",
-   "Median capacity retained (%)"
+   "Latitudinal band",
+   "Change (%)",
+   "Confidence"
   ],
   "rows": [
    [
-    "Phoenix",
-    "75",
-    "38",
-    "84"
+    "60-90°N (high northern)",
+    "+8.2",
+    "high"
    ],
    [
-    "Houston",
-    "70",
-    "41",
-    "86"
+    "30-60°N (mid northern)",
+    "+1.7",
+    "medium"
    ],
    [
-    "Denver",
-    "50",
-    "43",
-    "92"
+    "0-30°N (tropical northern)",
+    "-0.4",
+    "low"
    ],
    [
-    "Seattle",
-    "53",
-    "58",
-    "91"
+    "0-30°S (tropical southern)",
+    "+1.1",
+    "medium"
    ],
    [
-    "Minneapolis",
-    "46",
-    "36",
-    "93"
+    "30-60°S (mid southern)",
+    "+2.6",
+    "medium"
    ]
   ]
  },
@@ -53,21 +47,24 @@
  "choices": [
   {
    "id": "A",
-   "text": "vehicles in Seattle retained 91% of capacity despite a median odometer of 58,000 miles, while vehicles in Phoenix retained only 84% at a much lower 38,000 miles."
+   "text": "precipitation in the 60-90°N band rose by 8.2 percent with high confidence, while the 0-30°N band showed a decrease of 0.4 percent assigned low confidence."
   },
   {
    "id": "B",
-   "text": "vehicles in Minneapolis, the coolest city listed, retained 93% of capacity, the highest value in the table."
+   "text": "every latitudinal band in the table showed an increase in precipitation, although the increases ranged from 1.1 percent to 8.2 percent."
   },
   {
    "id": "C",
-   "text": "median capacity retained after five years was below 90% for vehicles registered in Phoenix and Houston but above 90% for vehicles registered in Denver, Seattle, and in Minneapolis."
+   "text": "the two bands nearest the equator changed by less than 2 percent, and neither change was assigned high confidence."
   },
   {
    "id": "D",
-   "text": "the median odometer reading varied by more than 20,000 miles across the five cities in the table."
+   "text": "the changes assigned medium confidence ranged from 1.1 percent to 2.6 percent, a narrower range than the table's full set of changes."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The claim ranks heat above driving as the cause, and A is the only option that pulls the two factors apart — more driving but less capacity loss in the cooler city.\n\n**The Full Solution:**\n- The claim is comparative: heat matters more than mileage. Support must disentangle the two candidate causes.\n- Choice A does exactly that: Seattle's vehicles drove far more (58,000 versus 38,000 miles) yet kept more capacity (91% versus 84%) than Phoenix's — so the factor tracking the loss is the hot climate, not the mileage.\n\n**Why the other choices are wrong:**\n- B: It is consistent with the heat claim but never engages the mileage alternative, so it cannot show heat matters *more*.\n- C: It sorts cities by outcome without addressing driving at all.\n- D: It reports variation in mileage but connects it to nothing — on its own it supports neither cause."
+ "explanation": "**Choice A is correct.** The claim has two parts — the changes differ sharply by latitude, and confidence in them differs — and A is the only choice that supplies data for both.\n\n**The Full Solution:**\n- The table's largest change is the 8.2 percent increase in the 60-90°N band, assigned high confidence.\n- Its smallest is the 0.4 percent decrease in the 0-30°N band, assigned low confidence.\n- Setting those two rows side by side shows both a sharp difference between latitudes and a difference in confidence, which is exactly what the student claims.\n\n**Why the other choices are wrong:**\n- B: The table contradicts it. The 0-30°N band decreased by 0.4 percent.\n- C: The two bands nearest the equator are the ones most alike in size of change, so this shows similarity rather than the sharp difference claimed.\n- D: It reports only the bands assigned medium confidence, so it cannot show that confidence differs across bands.",
+ "_meta": {
+  "source": "quantitativeData.json qd-011 — IPCC AR6 WG1, Chapter 8 (Water Cycle Changes); observed annual precipitation change by latitudinal band"
+ }
 }

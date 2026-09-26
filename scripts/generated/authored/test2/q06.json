@@ -6,26 +6,26 @@
   "domain": "craft-and-structure",
   "skill": "text-structure-and-purpose",
   "module": 1,
-  "passage": "Active noise-canceling headphones do not so much muffle sound as fight it. A tiny microphone on each earcup samples incoming noise, and a processor instantly generates a second sound wave that is the mirror image of the first, its peaks aligned with the noise's troughs. When the two waves meet at the ear, they largely cancel each other out. The trick works best on steady, predictable sounds — which is why the drone of a jet engine fades to a whisper while the sudden bursts of a nearby conversation often slip through.",
+  "passage": "In the early 1970s, malaria parasites were becoming resistant to the drugs then in use. The pharmacologist Tu Youyou and her team screened hundreds of remedies described in classical Chinese medical texts, looking for plants with antimalarial activity. Extracts of sweet wormwood killed the parasites in some trials and failed in others. A fourth-century Chinese manual advised soaking the plant in cold water rather than boiling it; when the team switched to a low-temperature extraction, the results became consistent. The compound they isolated, artemisinin, is now a standard treatment for malaria.",
   "question": "Which choice best states the main purpose of the text?",
   "choices": [
     {
       "id": "A",
-      "text": "To trace the development of a popular consumer technology from an early laboratory prototype to the polished device that travelers now carry onto airplanes"
+      "text": "To describe how researchers identified an effective antimalarial compound"
     },
     {
       "id": "B",
-      "text": "To recommend a particular type of headphones to listeners who are frequently bothered by loud environments"
+      "text": "To explain why malaria parasites had become resistant to existing drugs"
     },
     {
       "id": "C",
-      "text": "To compare the loudness of jet engines with the loudness of nearby conversations"
+      "text": "To compare traditional and modern methods of preparing plant extracts"
     },
     {
       "id": "D",
-      "text": "To explain the principle by which a technology cancels some sounds more effectively than others"
+      "text": "To argue that classical medical texts deserve more attention from drug researchers"
     }
   ],
-  "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The text lays out how active noise canceling works — a mirror-image wave meets the noise and cancels it — and then uses that principle to explain why steady sounds fade while sudden ones get through.\n\n**The Full Solution:**\n- The first three sentences describe the mechanism step by step: microphone samples the noise, processor generates an inverted wave, the two waves cancel at the ear.\n- The final sentence draws the consequence of that mechanism — it \"works best on steady, predictable sounds\" — and illustrates it with the jet engine and the conversation.\n- Explaining a mechanism and its characteristic limitation is precisely the purpose choice D states.\n\n**Why the other choices are wrong:**\n- A: The text contains no history — no prototype, no development, no account of how the device reached consumers.\n- B: Nothing in the text recommends anything; it describes how the technology works without urging anyone to buy it.\n- C: The jet engine and the conversation appear only as an illustration of the mechanism's limits, not as the subjects of a loudness comparison."
+  "correctAnswer": "A",
+  "explanation": "**Choice A is correct.** The text follows one line of work from the problem that prompted it to the compound it produced.\n\n**The Full Solution:**\n- The opening sentence states the problem: the drugs in use were losing their effect against malaria.\n- The middle sentences describe the search — hundreds of remedies screened, sweet wormwood working only sometimes, and a fourth-century instruction pointing toward a cooler extraction.\n- The final sentence names the result, artemisinin, and its present use. Recounting that search and its outcome is the text's purpose.\n\n**Why the other choices are wrong:**\n- B: Resistance is mentioned once, as the reason the search began; the text never explains how resistance developed.\n- C: The two ways of extracting the plant appear as a step in the team's work, and no modern method is described alongside them.\n- D: The text reports what one team did and makes no recommendation about how drug research should be conducted."
 }

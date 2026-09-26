@@ -1,29 +1,17 @@
 {
   "id": 13,
-  "question": "At a training facility, $5$ sprint sessions and $3$ recovery sessions take a total of $44$ minutes, and $3$ sprint sessions and $5$ recovery sessions take a total of $52$ minutes. How many minutes do one sprint session and one recovery session take together?",
+  "question": "$7x + 2y = 35$\n$2x + 7y = 55$\nThe values of $x$ and $y$ satisfy the given system of equations. What is the value of $x + y$?",
   "choices": [
-    {
-      "id": "A",
-      "text": "$6$"
-    },
-    {
-      "id": "B",
-      "text": "$8$"
-    },
-    {
-      "id": "C",
-      "text": "$12$"
-    },
-    {
-      "id": "D",
-      "text": "$96$"
-    }
+    { "id": "A", "text": "$4$" },
+    { "id": "B", "text": "$5$" },
+    { "id": "C", "text": "$10$" },
+    { "id": "D", "text": "$90$" }
   ],
   "distractorNotes": {
-    "A": "adds the equations to 8x + 8y = 96 but divides by 16 instead of by 8",
-    "B": "solves the system fully and reports the recovery session length alone",
-    "D": "adds the two given totals and stops, reporting 44 + 52 without dividing by 8"
+    "A": "subtracts the equations instead of adding them, reaching -5x + 5y = 20 and reporting y - x = 4",
+    "B": "adds the equations to 9x + 9y = 90 but divides by 18, the sum of all four coefficients, instead of by 9",
+    "D": "adds the two right sides and stops, reporting 90 without dividing by the common factor of 9"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Let $x$ and $y$ be the two session lengths. Adding $5x + 3y = 44$ and $3x + 5y = 52$ gives $8x + 8y = 96$, so $x + y = 12$.\n\n**The Full Solution:**\nStep 1: Let $x$ be the number of minutes for one sprint session and $y$ the number for one recovery session. The two statements give $5x + 3y = 44$ and $3x + 5y = 52$.\nStep 2: The coefficients are mirror images, so adding the equations collapses them: $(5x + 3x) + (3y + 5y) = 44 + 52$, which is $8x + 8y = 96$.\nStep 3: Factor and divide: $8(x + y) = 96$, so $x + y = 12$ minutes. Check by solving fully: $x = 4$ and $y = 8$, and $5(4) + 3(8) = 44$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): divides $96$ by $16$ instead of by $8$, doubling the count of terms on the left side.\n* Choice B ($8$): this is $y$, the length of one recovery session. Solving the system all the way is more work than needed, and it invites reporting a single variable.\n* Choice D ($96$): reports $44 + 52$, the sum of the two equations' right sides, without dividing by the common factor of $8$.\n\n**Test Day Takeaway:** When the two equations have mirrored coefficients, add or subtract them and read the combination directly. Solving for each variable separately costs time and creates a chance to hand in the wrong one."
+  "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Adding the two equations gives $9x + 9y = 90$, so $x + y = 10$.\n\n**The Full Solution:**\nStep 1: The coefficients are mirror images of each other, $7$ and $2$ on top, $2$ and $7$ below, so adding the equations lines up the variables: $(7x + 2x) + (2y + 7y) = 35 + 55$.\nStep 2: Combine: $9x + 9y = 90$, which factors as $9(x + y) = 90$.\nStep 3: Divide both sides by $9$: $x + y = 10$. Check by solving fully: $x = 3$ and $y = 7$, and $7(3) + 2(7) = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): subtracts the equations rather than adding them, giving $-5x + 5y = 20$, or $y - x = 4$. That is the difference of the two values, not their sum.\n* Choice B ($5$): divides $90$ by $18$, treating the left side as $18$ copies of $x + y$. There are $9$: the coefficients add to $9$ for each variable, not across both.\n* Choice D ($90$): stops at $35 + 55$. That is $9$ times the requested value.\n\n**Test Day Takeaway:** When a question asks for $x + y$ rather than for $x$ or $y$, add or subtract the equations first and look for the combination. Mirrored coefficients are the signal that one step finishes the item."
 }

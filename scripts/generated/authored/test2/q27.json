@@ -1,41 +1,42 @@
 {
-  "id": 227,
-  "type": "multiple-choice",
-  "difficulty": "hard",
-  "band": 4,
-  "domain": "expression-of-ideas",
-  "skill": "rhetorical-synthesis",
-  "module": 1,
-  "studentNotes": {
-    "intro": "While researching a topic, a student has taken the following notes:",
-    "bullets": [
-      "Between 1405 and 1433, the Ming dynasty admiral Zheng He led seven state-sponsored voyages from China across the Indian Ocean.",
-      "The fleets visited ports in Southeast Asia, India, Arabia, and East Africa.",
-      "The largest expeditions included more than 200 vessels and over 27,000 crew members.",
-      "Zheng He's biggest \"treasure ships\" were several times the size of the ships Columbus would sail six decades later.",
-      "After 1433, the Ming court ended the expeditions and redirected resources to defending its northern land frontier."
-    ],
-    "goal": "The student wants to emphasize the scale of Zheng He's expeditions by contrasting them with later European voyages."
-  },
-  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "The scale of Zheng He's fleets — more than 200 vessels and over 27,000 crew at their height — dwarfed later European efforts: his biggest treasure ships were several times the size of the ships Columbus would sail six decades later."
-    },
-    {
-      "id": "B",
-      "text": "Between 1405 and 1433, Zheng He led seven state-sponsored voyages that visited ports in Southeast Asia, India, Arabia, and East Africa."
-    },
-    {
-      "id": "C",
-      "text": "After 1433, the Ming court ended Zheng He's expeditions and redirected its resources toward defending the northern land frontier, closing out nearly three decades of state-sponsored voyaging across the whole breadth of the Indian Ocean."
-    },
-    {
-      "id": "D",
-      "text": "Zheng He's treasure ships, though impressively large for their era, completed their final voyage six decades before Columbus first set sail."
-    }
+ "id": 227,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "expression-of-ideas",
+ "skill": "rhetorical-synthesis",
+ "module": 1,
+ "studentNotes": {
+  "intro": "While researching a topic, a student has taken the following notes:",
+  "bullets": [
+   "Faith Ringgold is an American artist who began making story quilts in the 1980s.",
+   "A story quilt combines a painted central image, a border of pieced fabric, and handwritten text.",
+   "Ringgold learned to sew from her mother, a fashion designer in Harlem.",
+   "Her 1988 story quilt Tar Beach shows a girl imagining that she can fly over her Harlem neighborhood.",
+   "In her 1995 memoir We Flew Over the Bridge, Ringgold wrote that quilting let her tell stories in a form museums had long dismissed as craft.",
+   "Tar Beach was adapted into a children's picture book in 1991."
   ],
-  "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The goal demands two things at once — convey scale and draw the European contrast — and A does both: the fleet figures establish the scale, and the Columbus comparison supplies the contrast.\n\n**The Full Solution:**\n- Scale: A cites the notes' most forceful numbers, more than 200 vessels and over 27,000 crew.\n- Contrast: A sets Zheng He's treasure ships directly against Columbus's ships — \"several times the size,\" six decades earlier — which is precisely the later-European-voyages comparison the goal requires.\n\n**Why the other choices are wrong:**\n- B: It gives dates and destinations but no measure of scale and no European comparison — both halves of the goal go unmet.\n- C: It emphasizes the expeditions' ending and the court's priorities; the goal is about how big the voyages were, not how they concluded.\n- D: It reduces the comparison to timing alone — which voyage came first — and its concessive \"though impressively large\" mutes the very scale the student wants to stress."
+  "goal": "The student wants to explain why Ringgold chose the story-quilt form."
+ },
+ "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Ringgold's story quilts combine a painted central image, a border of pieced fabric, and handwritten text."
+  },
+  {
+   "id": "B",
+   "text": "Ringgold chose the story quilt, a form museums had long dismissed as craft, because quilting let her tell stories."
+  },
+  {
+   "id": "C",
+   "text": "Tar Beach, a 1988 story quilt by Faith Ringgold, shows a girl imagining that she can fly over her Harlem neighborhood."
+  },
+  {
+   "id": "D",
+   "text": "Faith Ringgold began making story quilts in the 1980s, and her quilt Tar Beach was adapted into a children's picture book in 1991."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "**Choice B is correct.** The goal is to explain why Ringgold chose the form, and only choice B gives a reason: quilting let her tell stories, even though museums had dismissed the form as craft. That reason comes directly from the note about her memoir.\n\n**The Full Solution:**\n- The goal word is \"why,\" so the sentence must state a motive, not describe the quilts or list events.\n- The memoir note is the only note that gives Ringgold's own reason for working in quilts.\n- Choice B builds its sentence around that reason and names the form it explains.\n\n**Why the other choices are wrong:**\n- A: It describes what a story quilt is made of, not why Ringgold chose the form.\n- C: It describes one quilt's subject, which does not explain the choice of form.\n- D: It gives a timeline of events without stating any reason."
 }

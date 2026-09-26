@@ -100,28 +100,31 @@ export const practiceTest1RW = {
           "band": 2,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Deep inside a mountain on the Arctic island of Spitsbergen, the Svalbard Global Seed Vault holds duplicate samples of seeds from gene banks around the world. Because the vault is carved into permafrost and sealed behind airlocked doors, its collections can survive power failures, equipment breakdowns, and even regional disasters. For the crop varieties stored there, the facility serves as a ______ against permanent loss.",
+          "passage": "Archaeologist Sarah Parcak studies satellite images of Egypt, looking for the faint discolorations that buried mudbrick walls leave in the soil above them. Because the pits that looters dig show up in the same images, her surveys have a second use: they allow officials to ______ damage at sites that no inspector has visited.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
               "id": "A",
-              "text": "burden"
+              "text": "repair"
             },
             {
               "id": "B",
-              "text": "safeguard"
+              "text": "detect"
             },
             {
               "id": "C",
-              "text": "novelty"
+              "text": "reverse"
             },
             {
               "id": "D",
-              "text": "substitute"
+              "text": "predict"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The blank needs a noun meaning a protection against harm, and \"safeguard against permanent loss\" states exactly the function the passage has been describing.\n\n**The Full Solution:**\n- The passage builds a single idea: the vault's location in permafrost and its airlocked construction let its seed collections survive failures and disasters.\n- The previous sentence describes that protective function directly, so the blank must name a thing that protects — a \"safeguard.\"\n\n**Why the other choices are wrong:**\n- A: \"Burden\" reverses the vault's value — the passage presents it as protective, not costly.\n- C: \"Novelty\" reduces the vault to a curiosity, ignoring the protective function every sentence describes.\n- D: \"Substitute\" mistakes the vault's role — it stores duplicates so the original collections are protected, not replaced."
+          "explanation": "**Choice B is correct.** The blank names what the satellite images let officials do about damage at sites no one has visited, and only \"detect\" describes something an image alone can accomplish.\n\n**The Full Solution:**\n- The passage establishes that looters' pits appear in the same images that reveal buried walls.\n- The final clause limits officials to what the images show, since no inspector has been to the sites.\n- Noticing that damage is there is the only action the images support, so \"detect\" is the precise word.\n\n**Why the other choices are wrong:**\n- A: An image cannot repair anything; repair would require work at the site itself.\n- C: Reversing the damage, like repairing it, cannot be done from a satellite image.\n- D: The pits have already been dug, so there is nothing left to predict.",
+          "_meta": {
+            "source": "Sarah Parcak (researchers.json res-018), satellite archaeology; documented use of satellite imagery to map looting pits at Egyptian sites"
+          }
         },
         {
           "id": 102,
@@ -193,34 +196,37 @@ export const practiceTest1RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "In 1980, physicist Luis Alvarez, geologist Walter Alvarez, and colleagues reported that a thin clay layer marking the end of the Cretaceous period is unusually rich in iridium, an element rare in Earth's crust but abundant in asteroids. They proposed that a massive asteroid impact threw sun-blocking debris into the atmosphere, collapsing food chains and driving the extinction of the non-avian dinosaurs. The later identification of the enormous Chicxulub crater, of the right age, off Mexico's Yucatán Peninsula convinced many scientists that the impact hypothesis explained the extinction."
+              "text": "A high-fiber diet can change which bacteria dominate the human gut. In a controlled trial, microbiologist Liping Zhao and colleagues gave patients with type 2 diabetes a diet rich in fermentable fiber and tracked the bacteria in their stool. A small group of fiber-fermenting species increased sharply, and the patients' blood sugar control improved more than that of patients on a standard diet. Zhao concludes that those bacteria produced the improvement."
             },
             {
               "label": "Text 2",
-              "text": "Paleontologist Gerta Keller has long questioned whether the Chicxulub impact alone can account for the end-Cretaceous extinction. She points to the Deccan Traps, a vast volcanic province in India where eruptions released climate-altering gases over hundreds of thousands of years spanning the extinction. In Keller's reading of the fossil record, many species were already declining well before the impact, a pattern she argues fits prolonged volcanic stress better than a single instantaneous catastrophe. The impact, on her account, may have been one contributor among several rather than the sole cause."
+              "text": "Epidemiologist William Hanage has urged caution in interpreting the growing literature that links gut bacteria to human disease. Diet, medication, and illness all shift the gut community at once, he notes, so a change in bacteria that accompanies a clinical improvement may be a consequence of the intervention rather than its cause. Demonstrating causation, Hanage argues, requires showing that the bacteria by themselves reproduce the effect."
             }
           ],
-          "question": "Based on the texts, how would Keller (Text 2) most likely respond to the conclusion presented in Text 1?",
+          "question": "Based on the texts, how would Hanage (Text 2) most likely respond to the claim presented in Text 1?",
           "choices": [
             {
               "id": "A",
-              "text": "She would deny that the iridium-rich clay layer provides any evidence that an asteroid struck Earth at the end of the Cretaceous period."
+              "text": "He would maintain that dietary fiber has no measurable effect on the bacteria living in the human gut."
             },
             {
               "id": "B",
-              "text": "She would argue that the Chicxulub crater formed too recently to be connected to the extinction of the non-avian dinosaurs."
+              "text": "He would agree that the trial settles the question of whether gut bacteria can improve blood sugar control."
             },
             {
               "id": "C",
-              "text": "She would contend that patterns of decline in the fossil record indicate that the impact was not the sole cause of the extinction, whatever role it may have played."
+              "text": "He would grant that the diet changed both the bacteria and the patients' blood sugar but question whether the trial shows that one caused the other."
             },
             {
               "id": "D",
-              "text": "She would agree that the impact played the decisive role in the extinction but insist that the Deccan Traps eruptions deserve equal credit for shaping the slow recovery of ecosystems in the aftermath."
+              "text": "He would object that the patients in the trial were too few and too much alike for its results to apply to people with other forms of the disease."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Keller challenges the impact hypothesis's sufficiency, not the impact itself — she reads the fossil record's pattern of earlier declines as evidence the impact was \"one contributor among several rather than the sole cause,\" whatever role it played.\n\n**The Full Solution:**\n- Text 1's conclusion is that the impact hypothesis \"explained the extinction.\"\n- Text 2 builds Keller's position on the fossil record: many species were declining before the impact, a pattern she reads as evidence of prolonged volcanic stress.\n- Her measured conclusion — the impact may have contributed but was not the sole cause — is exactly what choice C attributes to her.\n\n**Why the other choices are wrong:**\n- A: It overshoots — Keller questions the impact's sufficiency as a cause, not the evidence that an impact occurred.\n- B: It attributes a timing claim she never makes.\n- D: It miscasts her view twice: she does not grant the impact sole causal credit, and Text 2 says nothing about recovery."
+          "explanation": "**Choice C is correct.** Hanage's objection is about causal inference, not about the observations themselves: a bacterial change that accompanies a clinical improvement may be a consequence of the diet rather than its cause.\n\n**The Full Solution:**\n- Text 1 reports two changes in the same patients — a rise in fiber-fermenting bacteria and better blood sugar control — and treats the first as the cause of the second.\n- Text 2 says that diet shifts the whole gut community at once, so changes that accompany an improvement need not have produced it.\n- Hanage would therefore accept the measurements and challenge the causal step, which is what C describes.\n\n**Why the other choices are wrong:**\n- A: Text 2 never disputes that diet changes gut bacteria; it disputes what such changes prove.\n- B: It reverses his position — he holds that this kind of study does not settle causation.\n- D: Sample size and patient similarity are objections Text 2 never raises.",
+          "_meta": {
+            "source": "crossTextPairs.json ctp-016 — Liping Zhao (Text 1) vs. William Hanage (Text 2), causal claims about the gut microbiome"
+          }
         },
         {
           "id": 107,
@@ -349,46 +355,40 @@ export const practiceTest1RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "Lithium-ion batteries lose storage capacity as they age, but engineers disagree about what drives the loss in electric vehicles: accumulated driving or exposure to heat. A team analyzed capacity data from thousands of vehicles of a single model, grouping them by the city where they were registered. The team claims that sustained high temperature, more than accumulated driving, erodes battery capacity, noting that ______",
+          "passage": "A warmer atmosphere holds more water vapor, and climate models have long predicted that this will change where rain and snow fall rather than simply increasing precipitation everywhere. Four decades of observations now allow that prediction to be checked. Drawing on the Sixth Assessment Report of the Intergovernmental Panel on Climate Change, a student claims that the observed changes have differed sharply from one latitudinal band to the next and that scientists' confidence in them differs as well. In support of this claim, the student notes that ______",
           "questionTable": {
             "type": "table",
-            "caption": "Median battery capacity retained after five years for one vehicle model, by city",
+            "caption": "Observed annual precipitation change by latitudinal band, 1981-2020 (percent relative to the 1961-1990 average)",
             "headers": [
-              "City",
-              "Average annual temperature (°F)",
-              "Median odometer (thousand miles)",
-              "Median capacity retained (%)"
+              "Latitudinal band",
+              "Change (%)",
+              "Confidence"
             ],
             "rows": [
               [
-                "Phoenix",
-                "75",
-                "38",
-                "84"
+                "60-90°N (high northern)",
+                "+8.2",
+                "high"
               ],
               [
-                "Houston",
-                "70",
-                "41",
-                "86"
+                "30-60°N (mid northern)",
+                "+1.7",
+                "medium"
               ],
               [
-                "Denver",
-                "50",
-                "43",
-                "92"
+                "0-30°N (tropical northern)",
+                "-0.4",
+                "low"
               ],
               [
-                "Seattle",
-                "53",
-                "58",
-                "91"
+                "0-30°S (tropical southern)",
+                "+1.1",
+                "medium"
               ],
               [
-                "Minneapolis",
-                "46",
-                "36",
-                "93"
+                "30-60°S (mid southern)",
+                "+2.6",
+                "medium"
               ]
             ]
           },
@@ -396,23 +396,26 @@ export const practiceTest1RW = {
           "choices": [
             {
               "id": "A",
-              "text": "vehicles in Seattle retained 91% of capacity despite a median odometer of 58,000 miles, while vehicles in Phoenix retained only 84% at a much lower 38,000 miles."
+              "text": "precipitation in the 60-90°N band rose by 8.2 percent with high confidence, while the 0-30°N band showed a decrease of 0.4 percent assigned low confidence."
             },
             {
               "id": "B",
-              "text": "vehicles in Minneapolis, the coolest city listed, retained 93% of capacity, the highest value in the table."
+              "text": "every latitudinal band in the table showed an increase in precipitation, although the increases ranged from 1.1 percent to 8.2 percent."
             },
             {
               "id": "C",
-              "text": "median capacity retained after five years was below 90% for vehicles registered in Phoenix and Houston but above 90% for vehicles registered in Denver, Seattle, and in Minneapolis."
+              "text": "the two bands nearest the equator changed by less than 2 percent, and neither change was assigned high confidence."
             },
             {
               "id": "D",
-              "text": "the median odometer reading varied by more than 20,000 miles across the five cities in the table."
+              "text": "the changes assigned medium confidence ranged from 1.1 percent to 2.6 percent, a narrower range than the table's full set of changes."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The claim ranks heat above driving as the cause, and A is the only option that pulls the two factors apart — more driving but less capacity loss in the cooler city.\n\n**The Full Solution:**\n- The claim is comparative: heat matters more than mileage. Support must disentangle the two candidate causes.\n- Choice A does exactly that: Seattle's vehicles drove far more (58,000 versus 38,000 miles) yet kept more capacity (91% versus 84%) than Phoenix's — so the factor tracking the loss is the hot climate, not the mileage.\n\n**Why the other choices are wrong:**\n- B: It is consistent with the heat claim but never engages the mileage alternative, so it cannot show heat matters *more*.\n- C: It sorts cities by outcome without addressing driving at all.\n- D: It reports variation in mileage but connects it to nothing — on its own it supports neither cause."
+          "explanation": "**Choice A is correct.** The claim has two parts — the changes differ sharply by latitude, and confidence in them differs — and A is the only choice that supplies data for both.\n\n**The Full Solution:**\n- The table's largest change is the 8.2 percent increase in the 60-90°N band, assigned high confidence.\n- Its smallest is the 0.4 percent decrease in the 0-30°N band, assigned low confidence.\n- Setting those two rows side by side shows both a sharp difference between latitudes and a difference in confidence, which is exactly what the student claims.\n\n**Why the other choices are wrong:**\n- B: The table contradicts it. The 0-30°N band decreased by 0.4 percent.\n- C: The two bands nearest the equator are the ones most alike in size of change, so this shows similarity rather than the sharp difference claimed.\n- D: It reports only the bands assigned medium confidence, so it cannot show that confidence differs across bands.",
+          "_meta": {
+            "source": "quantitativeData.json qd-011 — IPCC AR6 WG1, Chapter 8 (Water Cycle Changes); observed annual precipitation change by latitudinal band"
+          }
         },
         {
           "id": 112,
@@ -613,28 +616,32 @@ export const practiceTest1RW = {
           "band": 2,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "At a solar thermal power station in the desert, an array of thousands of computer-guided mirrors ______ sunlight onto a receiver at the top of a central tower, heating molten salt that can drive turbines long after sunset.",
+          "passage": "Between 1935 and 1942, artists employed by the Index of American Design made more than eighteen thousand watercolor renderings of quilts, weather vanes, carousel horses, and other handmade objects. When the project ended, the renderings passed to the National Gallery of Art, which has since digitized ______ and published the images online.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "concentrate"
+              "text": "it"
             },
             {
               "id": "B",
-              "text": "have concentrated"
+              "text": "this"
             },
             {
               "id": "C",
-              "text": "concentrates"
+              "text": "them"
             },
             {
               "id": "D",
-              "text": "are concentrating"
+              "text": "that"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The true subject is the singular \"array,\" so the verb must be the singular \"concentrates.\"\n\n**The Full Solution:**\n- \"Of thousands of computer-guided mirrors\" is a prepositional phrase sitting between subject and verb; it does not change the subject's number.\n- Strip the phrase and the agreement is plain: \"an array ... concentrates.\"\n\n**Why the other choices are wrong:**\n- A: A plural form matching the nearby \"mirrors\" rather than the true subject — the classic nearest-noun agreement trap.\n- B: Same trap in a different tense; the subject is still singular.\n- D: Also plural; proximity to \"mirrors\" is what makes it tempting, but \"array\" governs the verb."
+          "explanation": "**Choice C is correct.** The convention being tested is pronoun-antecedent agreement. The plural pronoun \"them\" agrees in number with the plural antecedent \"renderings.\"\n\n**The Full Solution:**\n- The first sentence names the antecedent: more than eighteen thousand watercolor renderings.\n- The second sentence says the renderings passed to the National Gallery of Art, and the pronoun stands for those same renderings.\n- A plural antecedent requires a plural pronoun.\n\n**Why the other choices are wrong:**\n- A: The singular \"it\" doesn't agree in number with the plural \"renderings.\"\n- B: The singular \"this\" doesn't agree in number with the plural \"renderings.\"\n- D: The singular \"that\" doesn't agree in number with the plural \"renderings.\"",
+          "_meta": {
+            "rule": "pronoun-antecedent agreement (plural antecedent)",
+            "anchor": "Index of American Design (1935-1942); renderings held by the National Gallery of Art"
+          }
         },
         {
           "id": 121,
@@ -1168,31 +1175,31 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "The following text is Emily Dickinson's poem \"Hope is the thing with feathers,\" published in 1891.\n\nHope is the thing with feathers\nThat perches in the soul,\nAnd sings the tune without the words,\nAnd never stops at all,\n\nAnd sweetest in the gale is heard;\nAnd sore must be the storm\nThat could abash the little bird\nThat kept so many warm.\n\nI've heard it in the chillest land,\nAnd on the strangest sea;\nYet, never, in extremity,\nIt asked a crumb of me.",
+          "passage": "The following text is poem 35 from Rabindranath Tagore's 1912 collection *Gitanjali*, which the poet translated from Bengali into English.\n\nWhere the mind is without fear and the head is held high;\nWhere knowledge is free;\nWhere the world has not been broken up into fragments by narrow domestic walls;\nWhere words come out from the depth of truth;\nWhere tireless striving stretches its arms towards perfection;\nWhere the clear stream of reason has not lost its way into the dreary desert sand of dead habit;\nWhere the mind is led forward by thee into ever-widening thought and action—\nInto that heaven of freedom, my Father, let my country awake.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "The speaker describes hope's song in times of comfort, contrasts it with hope's silence in times of crisis, and closes by questioning whether hope can be relied upon when circumstances become truly desperate."
+              "text": "The speaker recalls a time when these conditions prevailed in his country and then mourns that they have since been lost."
             },
             {
               "id": "B",
-              "text": "The speaker recalls encountering a bird in a storm, expresses regret at having failed to shelter it, and closes by resolving to be more generous in the future."
+              "text": "The speaker poses a series of questions about a country's future and then supplies an answer to each one."
             },
             {
               "id": "C",
-              "text": "The speaker proposes a metaphor for hope, tests it against several competing metaphors, and closes by conceding that no comparison can fully capture the feeling."
+              "text": "The speaker describes the obstacles that stand in a country's way and then proposes a specific plan for removing each of them."
             },
             {
               "id": "D",
-              "text": "The speaker introduces a metaphor that likens hope to a singing bird, describes the bird's persistence through hardship, and closes by observing that it has never asked anything of her in return."
+              "text": "The speaker names one condition after another and then asks that his country be awakened into the state those conditions define."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The poem establishes its governing metaphor, develops the bird's persistence under duress, and closes by observing that the bird has never asked anything of the speaker — the movement D describes.\n\n**The Full Solution:**\n- The first stanza establishes the metaphor — hope is a feathered thing that \"perches in the soul\" and sings \"without the words\" — and its defining trait: the song \"never stops at all.\"\n- The middle stanza develops persistence under duress: the song is \"sweetest in the gale,\" and only the sorest storm \"could abash the little bird.\"\n- The final stanza extends that persistence to the speaker's own extremes (\"the chillest land,\" \"the strangest sea\") and pivots on \"Yet\" to the closing observation: the bird has \"never, in extremity,\" asked \"a crumb\" of her.\n\n**Why the other choices are wrong:**\n- A: It inverts the poem's central claim — the song is sweetest in the gale; hope is loudest, not silent, in crisis.\n- B: It misreads the metaphorical bird as a literal one and invents regret the poem never expresses.\n- C: No competing metaphors are entertained.",
+          "explanation": "**Choice D is correct.** Seven parallel clauses beginning \"Where\" set out the conditions of a place, and the final line turns them into a request: \"let my country awake\" into that place.\n\n**The Full Solution:**\n- Each of the first seven lines opens with \"Where\" and adds one more condition — fearlessness, free knowledge, an unbroken world, truthful words, tireless striving, unobstructed reason, and widening thought.\n- Nothing in those lines is located in the past or in the speaker's own country; they describe a state of things, not a history.\n- The last line gathers all of them into \"that heaven of freedom\" and makes the poem's single request: \"let my country awake.\"\n\n**Why the other choices are wrong:**\n- A: The conditions are never presented as something the country once had.\n- B: The lines are clauses, not questions, and no answers are supplied.\n- C: The poem names conditions to be reached, not obstacles, and offers no plan.",
           "_meta": {
             "quoteVerify": true,
-            "source": "Emily Dickinson, \"Hope is the thing with feathers\" — Poems, Second Series (1891); punctuation follows the 1891 printing"
+            "source": "Rabindranath Tagore, poem 35 of Gitanjali (Song Offerings), 1912 English edition; text verified against the Wikisource transcription of the scanned edition (https://en.wikisource.org/wiki/Gitanjali/35)"
           }
         },
         {
@@ -1489,28 +1496,31 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
-          "passage": "Some forest trees are linked underground by shared mycorrhizal fungi, whose filaments connect the roots of neighboring individuals. A team of forest ecologists has proposed that these fungal networks do more than trade nutrients for sugar with each tree separately: the team contends that carbon actually passes from well-lit \"donor\" trees through the fungal filaments into the tissues of deeply shaded seedlings nearby, subsidizing the seedlings' growth where photosynthesis alone would fall short.",
-          "question": "Which finding, if true, would most directly support the team's proposal?",
+          "passage": "Electric washing machines, vacuum cleaners, and gas ranges spread through American homes between 1900 and 1950, and manufacturers advertised them as a way to free women from hours of labor. Historian Ruth Schwartz Cowan has argued that the new machines did not in fact reduce the time women spent on household work. As each task became easier, she contends, standards of cleanliness rose, and work that families had once sent out, such as laundry and baking, moved back into the home, so hours saved on one chore were spent on another.",
+          "question": "Which finding, if true, would most directly support the historian's claim?",
           "choices": [
             {
               "id": "A",
-              "text": "Mycorrhizal fungi receive a substantial share of the sugars produced by the mature, well-lit trees with which they are associated."
+              "text": "Households that bought a washing machine during the 1930s were more likely than other households to have electric service already installed."
             },
             {
               "id": "B",
-              "text": "Shaded seedlings growing in forests with abundant mycorrhizal fungi tend to be larger, on average, than shaded seedlings growing in forests where such fungi are scarce, even when the two groups are matched for tree species, stand age, and the quality of the underlying soil."
+              "text": "Women who held paying jobs outside the home spent fewer weekly hours on housework than women who worked only in their own households did."
             },
             {
               "id": "C",
-              "text": "Carbon isotopes supplied to a sunlit tree later appear in the tissues of shaded seedlings connected to it by fungal filaments, but not in equally shaded seedlings whose fungal connections to that tree have been severed."
+              "text": "Time-use diaries kept by American homemakers in the 1960s record about as many weekly hours of housework as diaries kept in the 1920s."
             },
             {
               "id": "D",
-              "text": "Seedlings of some tree species can survive for several years in deep shade by drawing on carbohydrate reserves stored in their seeds and roots."
+              "text": "Advertisements for vacuum cleaners in national magazines promised buyers more free time more often than they promised cleaner homes."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The proposal claims carbon moves tree-to-tree through fungal connections, and C supplies the isotope-tracing evidence that isolates exactly that route.\n\n**The Full Solution:**\n- The causal claim is specific: carbon moves from lit donor trees through fungal connections into shaded seedlings.\n- Choice C traces labeled carbon from a donor tree into connected shaded seedlings — and the severed-connection comparison isolates the fungal route, ruling out transfer through soil or air.\n\n**Why the other choices are wrong:**\n- A: It establishes only the ordinary exchange between each tree and its own fungi (\"trade nutrients for sugar with each tree separately\"), which the proposal explicitly goes beyond.\n- B: Larger seedlings in fungus-rich forests could reflect better nutrient uptake by each seedling's own fungal partners, with no tree-to-tree carbon movement at all.\n- D: Stored reserves describe an alternative way shaded seedlings persist — which if anything reduces the need for the proposed subsidy, and shows no carbon crossing between trees."
+          "explanation": "**Choice C is correct.** Cowan's claim is about hours, not about machines, so the finding that supports it most directly is one comparing time spent on housework before and after the appliances spread.\n\n**The Full Solution:**\n- The passage sets up a contrast between what the appliances promised and what Cowan says they delivered.\n- Her claim is specific: the time women spent on household work did not fall.\n- Diaries showing roughly equal weekly hours in the 1920s and the 1960s, a span over which appliance ownership rose sharply, test that claim head-on and confirm it.\n\n**Why the other choices are wrong:**\n- A: Which households bought machines first says nothing about how long anyone spent on housework.\n- B: It compares two groups of women at one time rather than the same kind of work before and after the machines arrived.\n- D: What the advertisements promised is already established in the passage; the claim concerns whether the promise held.",
+          "_meta": {
+            "source": "researchers.json res-b-001 — Ruth Schwartz Cowan, More Work for Mother (1983) and \"The Industrial Revolution in the Home\" (1976)"
+          }
         },
         {
           "id": 143,
@@ -1627,35 +1637,35 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "Architect Zaha Hadid ______ designed buildings whose sweeping, fluid geometries seemed to defy conventional construction, from the Heydar Aliyev Center in Baku to the London Aquatics Centre built for the 2012 Olympic Games.",
+          "passage": "Before 1933, maps of the London Underground placed every station where it actually stood, so the crowded center of the city was nearly unreadable. Harry Beck's diagram drew every line horizontally, vertically, or at forty-five ______ the result was so much easier to read that transit systems worldwide soon copied it.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": " the first woman to receive the Pritzker Architecture Prize,"
+              "text": "degrees,"
             },
             {
               "id": "B",
-              "text": ", the first woman to receive the Pritzker Architecture Prize"
+              "text": "degrees and"
             },
             {
               "id": "C",
-              "text": " the first woman to receive the Pritzker Architecture Prize"
+              "text": "degrees"
             },
             {
               "id": "D",
-              "text": ", the first woman to receive the Pritzker Architecture Prize,"
+              "text": "degrees, and"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The blank holds a nonrestrictive appositive, which Standard English sets off with a matched pair of commas: \", the first woman to receive the Pritzker Architecture Prize,\".\n\n**The Full Solution:**\n- The phrase is supplementary — \"Architect Zaha Hadid\" already identifies her uniquely, so the appositive could be removed without changing who is meant.\n- A nonrestrictive appositive takes paired bracketing marks; with no internal commas in the phrase, paired commas are the conventional choice, letting the main clause read through unbroken.\n\n**Why the other choices are wrong:**\n- A: It supplies only the closing comma, leaving the appositive fused to the name on its left.\n- B: It supplies only the opening comma, so the appositive crashes into the verb \"designed\" with no closing boundary.\n- C: It omits both commas, treating the supplementary phrase as if it restricted which Zaha Hadid is meant.",
+          "explanation": "**Choice D is correct.** \"Harry Beck's diagram drew every line horizontally, vertically, or at forty-five degrees\" and \"the result was so much easier to read that transit systems worldwide soon copied it\" are both independent clauses. A comma followed by the coordinating conjunction \"and\" is one of the correct ways to join two independent clauses.\n\n**The Full Solution:**\n- Each side of the blank has its own subject and verb (\"diagram drew\" and \"result was\"), so each could stand alone as a sentence.\n- Two independent clauses can be joined by a comma plus a coordinating conjunction (and, but, so, or), by a semicolon, or separated with a period.\n- Only choice D supplies a comma and a coordinating conjunction.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- B: A coordinating conjunction joining two independent clauses needs a comma before it.\n- C: With no punctuation and no conjunction, the two clauses run together as a fused sentence.",
           "_meta": {
-            "rule": "paired commas around a nonrestrictive appositive (no internal commas)",
-            "anchor": "Zaha Hadid — first woman to receive the Pritzker Architecture Prize (2004); Heydar Aliyev Center; London Aquatics Centre",
+            "rule": "sentence boundary between two independent clauses (period vs. comma splice vs. fused sentence vs. uncommaed coordination)",
+            "anchor": "Harry Beck's 1933 diagram of the London Underground",
             "distractors": {
-              "A": "closing comma only (appositive fused to the name on the left)",
-              "B": "opening comma only (surface-match to the start of the paired pattern, missing close)",
-              "C": "no commas (treats the appositive as restrictive)"
+              "A": "comma splice",
+              "B": "fused sentence (no punctuation)",
+              "C": "coordinating conjunction without the required comma"
             }
           }
         },

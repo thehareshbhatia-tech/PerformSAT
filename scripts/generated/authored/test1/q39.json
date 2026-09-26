@@ -6,26 +6,29 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-textual",
  "module": 2,
- "passage": "Some forest trees are linked underground by shared mycorrhizal fungi, whose filaments connect the roots of neighboring individuals. A team of forest ecologists has proposed that these fungal networks do more than trade nutrients for sugar with each tree separately: the team contends that carbon actually passes from well-lit \"donor\" trees through the fungal filaments into the tissues of deeply shaded seedlings nearby, subsidizing the seedlings' growth where photosynthesis alone would fall short.",
- "question": "Which finding, if true, would most directly support the team's proposal?",
+ "passage": "Electric washing machines, vacuum cleaners, and gas ranges spread through American homes between 1900 and 1950, and manufacturers advertised them as a way to free women from hours of labor. Historian Ruth Schwartz Cowan has argued that the new machines did not in fact reduce the time women spent on household work. As each task became easier, she contends, standards of cleanliness rose, and work that families had once sent out, such as laundry and baking, moved back into the home, so hours saved on one chore were spent on another.",
+ "question": "Which finding, if true, would most directly support the historian's claim?",
  "choices": [
   {
    "id": "A",
-   "text": "Mycorrhizal fungi receive a substantial share of the sugars produced by the mature, well-lit trees with which they are associated."
+   "text": "Households that bought a washing machine during the 1930s were more likely than other households to have electric service already installed."
   },
   {
    "id": "B",
-   "text": "Shaded seedlings growing in forests with abundant mycorrhizal fungi tend to be larger, on average, than shaded seedlings growing in forests where such fungi are scarce, even when the two groups are matched for tree species, stand age, and the quality of the underlying soil."
+   "text": "Women who held paying jobs outside the home spent fewer weekly hours on housework than women who worked only in their own households did."
   },
   {
    "id": "C",
-   "text": "Carbon isotopes supplied to a sunlit tree later appear in the tissues of shaded seedlings connected to it by fungal filaments, but not in equally shaded seedlings whose fungal connections to that tree have been severed."
+   "text": "Time-use diaries kept by American homemakers in the 1960s record about as many weekly hours of housework as diaries kept in the 1920s."
   },
   {
    "id": "D",
-   "text": "Seedlings of some tree species can survive for several years in deep shade by drawing on carbohydrate reserves stored in their seeds and roots."
+   "text": "Advertisements for vacuum cleaners in national magazines promised buyers more free time more often than they promised cleaner homes."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The proposal claims carbon moves tree-to-tree through fungal connections, and C supplies the isotope-tracing evidence that isolates exactly that route.\n\n**The Full Solution:**\n- The causal claim is specific: carbon moves from lit donor trees through fungal connections into shaded seedlings.\n- Choice C traces labeled carbon from a donor tree into connected shaded seedlings — and the severed-connection comparison isolates the fungal route, ruling out transfer through soil or air.\n\n**Why the other choices are wrong:**\n- A: It establishes only the ordinary exchange between each tree and its own fungi (\"trade nutrients for sugar with each tree separately\"), which the proposal explicitly goes beyond.\n- B: Larger seedlings in fungus-rich forests could reflect better nutrient uptake by each seedling's own fungal partners, with no tree-to-tree carbon movement at all.\n- D: Stored reserves describe an alternative way shaded seedlings persist — which if anything reduces the need for the proposed subsidy, and shows no carbon crossing between trees."
+ "explanation": "**Choice C is correct.** Cowan's claim is about hours, not about machines, so the finding that supports it most directly is one comparing time spent on housework before and after the appliances spread.\n\n**The Full Solution:**\n- The passage sets up a contrast between what the appliances promised and what Cowan says they delivered.\n- Her claim is specific: the time women spent on household work did not fall.\n- Diaries showing roughly equal weekly hours in the 1920s and the 1960s, a span over which appliance ownership rose sharply, test that claim head-on and confirm it.\n\n**Why the other choices are wrong:**\n- A: Which households bought machines first says nothing about how long anyone spent on housework.\n- B: It compares two groups of women at one time rather than the same kind of work before and after the machines arrived.\n- D: What the advertisements promised is already established in the passage; the claim concerns whether the promise held.",
+ "_meta": {
+  "source": "researchers.json res-b-001 — Ruth Schwartz Cowan, More Work for Mother (1983) and \"The Industrial Revolution in the Home\" (1976)"
+ }
 }

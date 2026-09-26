@@ -1,29 +1,29 @@
 {
  "id": 14,
- "question": "In the xy-plane, segment $AB$ has endpoints $(-2, 9)$ and $(5, 5)$, and segment $BC$ meets segment $AB$ at a right angle at $B$. What is the slope of segment $BC$?",
+ "question": "In the xy-plane, line $m$ passes through the points $(-3, 8)$ and $(5, 2)$. Line $n$ is perpendicular to line $m$. What is the slope of line $n$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-\\frac{7}{4}$"
+   "text": "$-\\frac{4}{3}$"
   },
   {
    "id": "B",
-   "text": "$-\\frac{4}{7}$"
+   "text": "$-\\frac{3}{4}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{4}{7}$"
+   "text": "$\\frac{3}{4}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{7}{4}$"
+   "text": "$\\frac{4}{3}$"
   }
  ],
  "correctAnswer": "D",
  "distractorNotes": {
-  "A": "takes the reciprocal of -4/7 but keeps the negative sign instead of changing it, giving -7/4",
-  "B": "reports the slope of segment AB itself, -4/7, without any perpendicular adjustment",
-  "C": "changes the sign of AB's slope without taking the reciprocal, giving 4/7"
+  "A": "flips -3/4 to -4/3 but keeps the negative sign instead of changing it",
+  "B": "reports the slope of line m itself, -3/4, which would make the lines parallel",
+  "C": "changes the sign of -3/4 without taking the reciprocal, giving 3/4"
  },
- "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The slope of $AB$ is $\\frac{5 - 9}{5 - (-2)} = -\\frac{4}{7}$, and the negative reciprocal of $-\\frac{4}{7}$ is $\\frac{7}{4}$.\n\n**The Full Solution:**\nStep 1: Find the slope of segment $AB$ from its endpoints: $\\frac{5 - 9}{5 - (-2)} = \\frac{-4}{7} = -\\frac{4}{7}$.\nStep 2: Perpendicular slopes multiply to $-1$, so the slope $m$ of segment $BC$ satisfies $-\\frac{4}{7}m = -1$.\nStep 3: Solve: $m = \\frac{7}{4}$. Check: $-\\frac{4}{7} \\cdot \\frac{7}{4} = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{7}{4}$): flips $-\\frac{4}{7}$ but leaves it negative. The product $-\\frac{4}{7} \\cdot \\left(-\\frac{7}{4}\\right) = 1$, not $-1$, so those two lines are not perpendicular.\n* Choice B ($-\\frac{4}{7}$): reports the slope of $AB$ itself. A segment perpendicular to $AB$ cannot share its slope; equal slopes mean parallel.\n* Choice C ($\\frac{4}{7}$): changes the sign but skips the reciprocal. Here $-\\frac{4}{7} \\cdot \\frac{4}{7} = -\\frac{16}{49}$, which is not $-1$.\n\n**Test Day Takeaway:** Perpendicular means both moves at once, flip the fraction and change the sign, then verify by multiplying the two slopes to confirm you get exactly $-1$."
+ "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Line $m$ has slope $\\frac{2 - 8}{5 - (-3)} = -\\frac{3}{4}$, and the negative reciprocal of $-\\frac{3}{4}$ is $\\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: Use the two given points to find the slope of line $m$: $\\frac{2 - 8}{5 - (-3)} = \\frac{-6}{8} = -\\frac{3}{4}$.\nStep 2: Perpendicular lines have slopes whose product is $-1$, so the slope $s$ of line $n$ satisfies $-\\frac{3}{4}s = -1$.\nStep 3: Multiply both sides by $-\\frac{4}{3}$: $s = \\frac{4}{3}$. Check: $-\\frac{3}{4} \\cdot \\frac{4}{3} = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{4}{3}$): flips the fraction but leaves the sign negative. The product $-\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = 1$, not $-1$, so those lines are not perpendicular.\n* Choice B ($-\\frac{3}{4}$): repeats the slope of line $m$. Two lines with equal slopes are parallel, never perpendicular.\n* Choice C ($\\frac{3}{4}$): changes the sign but skips the reciprocal. Here $-\\frac{3}{4} \\cdot \\frac{3}{4} = -\\frac{9}{16}$, which is not $-1$.\n\n**Test Day Takeaway:** Perpendicular slopes require both moves at once, flip the fraction and switch the sign, and the check is quick: their product must be exactly $-1$."
 }

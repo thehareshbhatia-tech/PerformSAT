@@ -1,29 +1,29 @@
 {
  "id": 5,
- "question": "Translating the graph of $6x - 5y = 40$ downward by $7$ units in the xy-plane produces the graph of a second equation written in the same form. Which equation is it?",
+ "question": "Line $k$ is defined by $4x + 3y = 21$. Line $j$ is parallel to line $k$ in the xy-plane and passes through the point $(0, -5)$. Which equation defines line $j$?",
  "choices": [
   {
    "id": "A",
-   "text": "$6x - 5y = 5$"
+   "text": "$3x + 4y = -20$"
   },
   {
    "id": "B",
-   "text": "$6x - 5y = 33$"
+   "text": "$4x + 3y = -15$"
   },
   {
    "id": "C",
-   "text": "$6x - 5y = 47$"
+   "text": "$4x + 3y = 15$"
   },
   {
    "id": "D",
-   "text": "$6x - 5y = 75$"
+   "text": "$4x - 3y = 15$"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "translates upward instead of downward, replacing y with y-7 and getting 6x-5y=5",
-  "B": "subtracts 7 from the constant on the right side, giving 40-7=33",
-  "C": "adds 7 to the constant on the right side, giving 40+7=47"
+  "A": "swaps the coefficients of x and y, using slope -3/4 instead of -4/3, then fits the point (0,-5)",
+  "C": "uses the correct slope but substitutes y = 5 instead of y = -5, giving the constant 15",
+  "D": "reads the slope of line k as 4/3 instead of -4/3, flipping the sign of the y term"
  },
- "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** A vertical shift keeps the slope, so the left side stays $6x - 5y$. The point $(0, -8)$ on the original line moves to $(0, -15)$, and $6(0) - 5(-15) = 75$.\n\n**The Full Solution:**\nStep 1: Translating a graph down $7$ units sends each point $(x, y)$ to $(x, y - 7)$, so the image is the set of points satisfying $6x - 5(y + 7) = 40$.\nStep 2: Expand and simplify: $6x - 5y - 35 = 40$, so $6x - 5y = 75$. The coefficients of $x$ and $y$ are unchanged, which is exactly what makes the image parallel to the original.\nStep 3: Check with a point. On the original line, $x = 0$ gives $-5y = 40$, so $y = -8$; shifting down $7$ gives $(0, -15)$, and $6(0) - 5(-15) = 75$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6x - 5y = 5$): substitutes $y - 7$ for $y$, which shifts the line up rather than down, and produces $6x - 5y = 5$. Shifting down requires $y + 7$.\n* Choice B ($6x - 5y = 33$): treats the shift as a change to the constant on the right, computing $40 - 7 = 33$. The $-5$ multiplying $y$ scales the shift, so the constant cannot move by only $7$.\n* Choice C ($6x - 5y = 47$): makes the same mistake with the other sign, computing $40 + 7 = 47$ instead of $40 + 5(7) = 75$.\n\n**Test Day Takeaway:** To translate a line written in standard form, substitute for the variable rather than nudging the constant: down $k$ units means replacing $y$ with $y + k$, then simplify."
+ "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Parallel lines share a slope, so in standard form line $j$ keeps the left side $4x + 3y$. Substituting $(0, -5)$ gives $4(0) + 3(-5) = -15$.\n\n**The Full Solution:**\nStep 1: Solve $4x + 3y = 21$ for $y$: $3y = -4x + 21$, so $y = -\\frac{4}{3}x + 7$. Line $k$ has slope $-\\frac{4}{3}$.\nStep 2: Line $j$ is parallel, so it also has slope $-\\frac{4}{3}$. It passes through $(0, -5)$, which is its y-intercept, so $y = -\\frac{4}{3}x - 5$.\nStep 3: Multiply both sides by $3$ to clear the fraction: $3y = -4x - 15$. Adding $4x$ to both sides gives $4x + 3y = -15$. Check: $4(0) + 3(-5) = -15$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x + 4y = -20$): swaps the coefficients of $x$ and $y$, which changes the slope to $-\\frac{3}{4}$. Parallel means the slope is unchanged, so both coefficients must stay where they are.\n* Choice C ($4x + 3y = 15$): keeps the correct slope but substitutes $y = 5$ rather than $y = -5$. The point is below the x-axis, so the constant is negative.\n* Choice D ($4x - 3y = 15$): has the right y-intercept but slope $\\frac{4}{3}$, because the sign of the $y$ term was flipped. A line with slope $\\frac{4}{3}$ crosses line $k$ rather than running parallel to it.\n\n**Test Day Takeaway:** In standard form, two lines are parallel exactly when the $x$ and $y$ coefficients match; keep that side untouched and let the given point set the constant."
 }

@@ -6,26 +6,26 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 2,
-  "passage": "For 250 years beginning in 1565, Spanish galleons crossed the Pacific on a nearly annual schedule between Manila, in the Philippines, and Acapulco, on the coast of New Spain. Westbound ships carried silver mined in the Americas; eastbound ships returned loaded with silk and porcelain from China, where American silver became the lifeblood of commerce and taxation. The route did more than enrich Spain. Before it opened, the world's great trading zones — East Asia, the Indian Ocean, Europe, the Atlantic — touched only through long chains of intermediaries; the galleons joined the last two directly, closing the final gap in a network that, for the first time, bound every inhabited continent's economy to the others.",
+  "passage": "Teotihuacan, the largest city in the Americas in the first centuries CE, housed most of its residents in walled apartment compounds. The archaeologist Linda Manzanilla has analyzed human remains and household goods from several of these compounds. Oxygen and strontium isotope ratios in the teeth of the people buried there indicate that many had grown up far from the valley, and a single compound often holds pottery and burial customs belonging to more than one region. Manzanilla concludes that the compounds housed migrants from across Mesoamerica rather than single local lineages.",
   "question": "Which choice best states the main idea of the text?",
   "choices": [
     {
       "id": "A",
-      "text": "Spanish galleons carried more silver across the Pacific during their 250 years of operation than all other trade routes of the period combined."
+      "text": "Teotihuacan's apartment compounds were built on a plan that was later copied throughout Mesoamerica."
     },
     {
       "id": "B",
-      "text": "By connecting Asia and the Americas directly, the Manila galleon route completed the linking of the world's major trading zones into a single network."
+      "text": "Evidence from Teotihuacan's apartment compounds indicates that they housed people drawn from several regions rather than from one local group."
     },
     {
       "id": "C",
-      "text": "Demand for silver in China forced Spain to expand its mining operations in the Americas throughout the seventeenth century."
+      "text": "Manzanilla's analysis shows that the residents of Teotihuacan ate a more varied diet than the residents of nearby settlements did."
     },
     {
       "id": "D",
-      "text": "The Manila galleon route endured for 250 years chiefly because Spanish shipbuilders steadily improved their vessels' ability to survive the long and dangerous Pacific crossing."
+      "text": "The pottery recovered from Teotihuacan's apartment compounds was produced for trade rather than for use in the households that kept it."
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The text's climax is the final sentence: the galleons \"joined the last two directly, closing the final gap\" in a network binding every inhabited continent's economy — the world-linking role that choice B states.\n\n**The Full Solution:**\n- The opening sentences establish the route and its cargo: American silver west, Chinese silk and porcelain east.\n- The pivot sentence — \"The route did more than enrich Spain\" — signals that the main idea lies beyond the trade itself.\n- The closing sentence delivers it: trading zones once linked only through intermediaries were joined directly, completing a global network for the first time. Choice B compresses exactly that claim.\n\n**Why the other choices are wrong:**\n- A: The text never compares the galleons' silver tonnage with other routes; the superlative is invented.\n- C: Chinese demand for silver is mentioned, but nothing about Spain being forced to expand mining — that causal story appears nowhere.\n- D: Shipbuilding is never discussed; the text offers no explanation of the route's longevity, only of its significance."
+  "explanation": "**Choice B is correct.** Two kinds of evidence — the isotope ratios in the teeth and the mixed regional styles inside one compound — support the conclusion the text ends on: the compounds held people from many places.\n\n**The Full Solution:**\n- The text establishes where most residents of Teotihuacan lived: in walled apartment compounds.\n- It then reports what Manzanilla found in them — isotope ratios pointing to childhoods outside the valley, and pottery and burial customs from more than one region in a single compound.\n- The closing sentence draws those findings together: the compounds housed migrants rather than single local lineages. Choice B states that.\n\n**Why the other choices are wrong:**\n- A: The text says nothing about the compounds' plan being copied anywhere else.\n- C: The isotope ratios are used here to indicate where people grew up, and diet is never mentioned.\n- D: The pottery is evidence of the residents' regional origins; the text makes no claim about what it was produced for."
 }

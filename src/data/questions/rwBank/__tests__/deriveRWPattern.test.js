@@ -20,8 +20,11 @@ describe('deriveRWPattern (routing signal — grammar/punctuation/structure only
     // transitions re-frozen 2026-09-01: recreated test 4 q51 converted from an
     // addition winner (Tier-3) to "Eventually," (sequence-time), restoring the
     // sequence-time bucket to the Tier-1 threshold of 8.
-    'transitions-contrast': 26,
-    'transitions-example-emphasis': 12,
+    // transitions re-frozen 2026-09-26: the official-register re-author of
+    // test 2 q50 moved its winner from "Instead," (contrast) to "In other
+    // words," (example-emphasis); both buckets stay above the Tier-1 floor.
+    'transitions-contrast': 25,
+    'transitions-example-emphasis': 13,
     'transitions-cause-effect': 20,
     'transitions-sequence-time': 8,
     'tsp-main-purpose': 25,
@@ -136,8 +139,11 @@ describe('deriveRWQuestionType (browse type — grammar patterns PLUS reading su
     'boundaries-comma': 25,
     'boundaries-dash': 8,
     'boundaries-colon': 9,
-    'transitions-contrast': 26,
-    'transitions-example-emphasis': 12,
+    // transitions re-frozen 2026-09-26: the official-register re-author of
+    // test 2 q50 moved its winner from "Instead," (contrast) to "In other
+    // words," (example-emphasis); both buckets stay above the Tier-1 floor.
+    'transitions-contrast': 25,
+    'transitions-example-emphasis': 13,
     'transitions-cause-effect': 20,
     'transitions-sequence-time': 8,
     'tsp-main-purpose': 25,

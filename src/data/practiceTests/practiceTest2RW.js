@@ -160,28 +160,28 @@ export const practiceTest2RW = {
           "band": 2,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Active noise-canceling headphones do not so much muffle sound as fight it. A tiny microphone on each earcup samples incoming noise, and a processor instantly generates a second sound wave that is the mirror image of the first, its peaks aligned with the noise's troughs. When the two waves meet at the ear, they largely cancel each other out. The trick works best on steady, predictable sounds — which is why the drone of a jet engine fades to a whisper while the sudden bursts of a nearby conversation often slip through.",
+          "passage": "In the early 1970s, malaria parasites were becoming resistant to the drugs then in use. The pharmacologist Tu Youyou and her team screened hundreds of remedies described in classical Chinese medical texts, looking for plants with antimalarial activity. Extracts of sweet wormwood killed the parasites in some trials and failed in others. A fourth-century Chinese manual advised soaking the plant in cold water rather than boiling it; when the team switched to a low-temperature extraction, the results became consistent. The compound they isolated, artemisinin, is now a standard treatment for malaria.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "To trace the development of a popular consumer technology from an early laboratory prototype to the polished device that travelers now carry onto airplanes"
+              "text": "To describe how researchers identified an effective antimalarial compound"
             },
             {
               "id": "B",
-              "text": "To recommend a particular type of headphones to listeners who are frequently bothered by loud environments"
+              "text": "To explain why malaria parasites had become resistant to existing drugs"
             },
             {
               "id": "C",
-              "text": "To compare the loudness of jet engines with the loudness of nearby conversations"
+              "text": "To compare traditional and modern methods of preparing plant extracts"
             },
             {
               "id": "D",
-              "text": "To explain the principle by which a technology cancels some sounds more effectively than others"
+              "text": "To argue that classical medical texts deserve more attention from drug researchers"
             }
           ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text lays out how active noise canceling works — a mirror-image wave meets the noise and cancels it — and then uses that principle to explain why steady sounds fade while sudden ones get through.\n\n**The Full Solution:**\n- The first three sentences describe the mechanism step by step: microphone samples the noise, processor generates an inverted wave, the two waves cancel at the ear.\n- The final sentence draws the consequence of that mechanism — it \"works best on steady, predictable sounds\" — and illustrates it with the jet engine and the conversation.\n- Explaining a mechanism and its characteristic limitation is precisely the purpose choice D states.\n\n**Why the other choices are wrong:**\n- A: The text contains no history — no prototype, no development, no account of how the device reached consumers.\n- B: Nothing in the text recommends anything; it describes how the technology works without urging anyone to buy it.\n- C: The jet engine and the conversation appear only as an illustration of the mechanism's limits, not as the subjects of a loudness comparison."
+          "correctAnswer": "A",
+          "explanation": "**Choice A is correct.** The text follows one line of work from the problem that prompted it to the compound it produced.\n\n**The Full Solution:**\n- The opening sentence states the problem: the drugs in use were losing their effect against malaria.\n- The middle sentences describe the search — hundreds of remedies screened, sweet wormwood working only sometimes, and a fourth-century instruction pointing toward a cooler extraction.\n- The final sentence names the result, artemisinin, and its present use. Recounting that search and its outcome is the text's purpose.\n\n**Why the other choices are wrong:**\n- B: Resistance is mentioned once, as the reason the search began; the text never explains how resistance developed.\n- C: The two ways of extracting the plant appear as a step in the team's work, and no modern method is described alongside them.\n- D: The text reports what one team did and makes no recommendation about how drug research should be conducted."
         },
         {
           "id": 207,
@@ -505,28 +505,28 @@ export const practiceTest2RW = {
           "band": 2,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Sashiko, a form of stitching that developed in rural Japan during the Edo period, began as a matter of thrift. Cloth was scarce and precious, so farming and fishing families reinforced worn garments with rows of small running stitches, often layering old fabric to make it warmer and more durable. Over generations, the practical stitches took on decorative patterns — waves, arrows, interlocking circles — typically worked in white thread on deep blue cloth. Today sashiko is practiced around the world as an art form in its own right, but its geometric beauty remains rooted in the everyday needs it once served.",
+          "passage": "Until the 1980s, most studies of tropical forests were made from the ground, where the leaves of the canopy can be seen only from far below. Biologist Margaret Lowman began climbing into the canopy on ropes and later built walkways among the treetops. By marking individual leaves and measuring them over several years, she found that insects consume a much larger share of canopy leaves than ground-based estimates had indicated. Her work established the canopy as a distinct ecological zone, one that can be studied only from within it.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "A stitching technique that originated as a practical way to extend the life of scarce cloth gradually developed into a decorative art."
+              "text": "Lowman's direct measurements in the treetops revealed that ground-based studies had underestimated how much of the canopy insects consume."
             },
             {
               "id": "B",
-              "text": "Sashiko patterns such as waves and arrows were originally reserved for garments worn on ceremonial occasions in rural Japan."
+              "text": "Tropical forests hold more insect species in their canopies than in the layers of vegetation closer to the ground."
             },
             {
               "id": "C",
-              "text": "Because cloth is no longer scarce, practitioners of sashiko today value the technique mainly as a way of preserving historical garments rather than as a living art."
+              "text": "Rope and walkway systems for reaching the canopy are more dangerous than the ground-based methods most biologists used before the 1980s."
             },
             {
               "id": "D",
-              "text": "Sashiko is more difficult to master than other forms of decorative stitching because its patterns must follow strict geometric rules."
+              "text": "Lowman's measurements showed that insect damage to canopy leaves has increased steadily since the 1980s."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The text's arc runs from necessity to art: stitches that began as reinforcement for scarce cloth acquired decorative patterns and are now practiced as an art form — exactly the trajectory choice A summarizes.\n\n**The Full Solution:**\n- The opening sentences establish the origin: cloth was \"scarce and precious,\" so families stitched to reinforce and extend garments.\n- The middle sentence marks the transformation: \"over generations, the practical stitches took on decorative patterns.\"\n- The final sentence completes the arc — sashiko is now \"an art form in its own right\" — while tying its beauty back to its practical roots. Choice A captures that whole movement.\n\n**Why the other choices are wrong:**\n- B: The text says the opposite of ceremonial exclusivity — the stitching served everyday garments of farming and fishing families.\n- C: The text calls sashiko an art form practiced \"around the world\" today; nothing limits it to preserving historical garments.\n- D: No comparison with other stitching techniques appears anywhere in the text, and nothing is said about difficulty."
+          "explanation": "**Choice A is correct.** The text builds to a single finding: once Lowman could measure canopy leaves directly, she found that insects consume \"a much larger share\" of them than ground-based estimates had indicated. Choice A states that finding and the contrast with earlier methods that gives it its point.\n\n**The Full Solution:**\n- The first sentence sets up the limitation: canopy leaves had been studied only from far below.\n- The middle sentences describe Lowman's method (ropes, walkways, marked leaves measured over years) and her result (insects eat far more of the canopy than ground estimates suggested).\n- The last sentence generalizes the result, so the main idea is the finding and what it corrected, which is choice A.\n\n**Why the other choices are wrong:**\n- B: The text compares how much of the canopy insects eat with earlier estimates, not the number of insect species at different heights.\n- C: The text never discusses the safety of either method.\n- D: The text describes damage measured over several years to compare with ground-based estimates, not a steady increase over decades."
         },
         {
           "id": 210,
@@ -685,28 +685,28 @@ export const practiceTest2RW = {
           "band": 2,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "Textile artist Anni Albers entered the Bauhaus, the influential German design school, in 1922. The weaving workshop—the only course of study the school then offered its women ______ became the site of her most radical experiments, and her 1965 book On Weaving is still a standard reference for textile artists.",
+          "passage": "Type designer Matthew Carter drew Bell Centennial, a typeface for American telephone directories, in 1978. Small notches cut into the joints of its ______ notches that trapped the ink spreading on cheap paper—kept the numbers legible even at a tiny size.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "students"
+              "text": "letters—"
             },
             {
               "id": "B",
-              "text": "students,"
+              "text": "letters,"
             },
             {
               "id": "C",
-              "text": "students;"
+              "text": "letters;"
             },
             {
               "id": "D",
-              "text": "students—"
+              "text": "letters"
             }
           ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The sentence interrupts itself with a supplement that opens with a dash (“the only course of study the school then offered its women students”), and an interruption opened with a dash must be closed with a matching dash.\n\n**The Full Solution:**\n- Strip the supplement out and the frame reads cleanly: “The weaving workshop … became the site of her most radical experiments.”\n- Because the supplement was opened with a dash after “workshop,” the boundary at the blank must be the paired closing dash — punctuation marks that set off an interruption must match.\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the supplement crashes into the main verb (“students became”), handing the sentence a second subject and leaving the opening dash unclosed.\n- B: A comma cannot close an interruption that a dash opened — mismatched pairs (dash–comma) are nonstandard.\n- C: A semicolon joins two independent clauses; what follows the blank is the original sentence’s predicate, not a new clause."
+          "correctAnswer": "A",
+          "explanation": "**Choice A is correct.** The convention being tested is the punctuation of a supplementary element within a sentence. The phrase \"notches that trapped the ink spreading on cheap paper\" interrupts the main clause (\"Small notches cut into the joints of its letters kept the numbers legible\"), and the dash after \"paper\" closes that interruption, so a dash after \"letters\" is needed to open it.\n\n**The Full Solution:**\n- Find the main clause: \"Small notches cut into the joints of its letters … kept the numbers legible even at a tiny size.\"\n- The words between \"letters\" and \"kept\" add information about the notches; they are a supplementary element that must be set off on both sides.\n- The closing mark is already a dash, and the two marks that set off a supplementary element must match, so the opening mark must be a dash as well.\n\n**Why the other choices are wrong:**\n- B: A comma cannot pair with the dash that closes the supplementary element; the marks on either side must match.\n- C: A semicolon must join two independent clauses, but \"notches that trapped the ink … kept the numbers legible\" does not stand on its own here.\n- D: With no punctuation, the supplementary element runs into the main clause and the closing dash has nothing to pair with."
         },
         {
           "id": 218,
@@ -868,35 +868,36 @@ export const practiceTest2RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Between 1405 and 1433, the Ming dynasty admiral Zheng He led seven state-sponsored voyages from China across the Indian Ocean.",
-              "The fleets visited ports in Southeast Asia, India, Arabia, and East Africa.",
-              "The largest expeditions included more than 200 vessels and over 27,000 crew members.",
-              "Zheng He's biggest \"treasure ships\" were several times the size of the ships Columbus would sail six decades later.",
-              "After 1433, the Ming court ended the expeditions and redirected resources to defending its northern land frontier."
+              "Faith Ringgold is an American artist who began making story quilts in the 1980s.",
+              "A story quilt combines a painted central image, a border of pieced fabric, and handwritten text.",
+              "Ringgold learned to sew from her mother, a fashion designer in Harlem.",
+              "Her 1988 story quilt Tar Beach shows a girl imagining that she can fly over her Harlem neighborhood.",
+              "In her 1995 memoir We Flew Over the Bridge, Ringgold wrote that quilting let her tell stories in a form museums had long dismissed as craft.",
+              "Tar Beach was adapted into a children's picture book in 1991."
             ],
-            "goal": "The student wants to emphasize the scale of Zheng He's expeditions by contrasting them with later European voyages."
+            "goal": "The student wants to explain why Ringgold chose the story-quilt form."
           },
           "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
           "choices": [
             {
               "id": "A",
-              "text": "The scale of Zheng He's fleets — more than 200 vessels and over 27,000 crew at their height — dwarfed later European efforts: his biggest treasure ships were several times the size of the ships Columbus would sail six decades later."
+              "text": "Ringgold's story quilts combine a painted central image, a border of pieced fabric, and handwritten text."
             },
             {
               "id": "B",
-              "text": "Between 1405 and 1433, Zheng He led seven state-sponsored voyages that visited ports in Southeast Asia, India, Arabia, and East Africa."
+              "text": "Ringgold chose the story quilt, a form museums had long dismissed as craft, because quilting let her tell stories."
             },
             {
               "id": "C",
-              "text": "After 1433, the Ming court ended Zheng He's expeditions and redirected its resources toward defending the northern land frontier, closing out nearly three decades of state-sponsored voyaging across the whole breadth of the Indian Ocean."
+              "text": "Tar Beach, a 1988 story quilt by Faith Ringgold, shows a girl imagining that she can fly over her Harlem neighborhood."
             },
             {
               "id": "D",
-              "text": "Zheng He's treasure ships, though impressively large for their era, completed their final voyage six decades before Columbus first set sail."
+              "text": "Faith Ringgold began making story quilts in the 1980s, and her quilt Tar Beach was adapted into a children's picture book in 1991."
             }
           ],
-          "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The goal demands two things at once — convey scale and draw the European contrast — and A does both: the fleet figures establish the scale, and the Columbus comparison supplies the contrast.\n\n**The Full Solution:**\n- Scale: A cites the notes' most forceful numbers, more than 200 vessels and over 27,000 crew.\n- Contrast: A sets Zheng He's treasure ships directly against Columbus's ships — \"several times the size,\" six decades earlier — which is precisely the later-European-voyages comparison the goal requires.\n\n**Why the other choices are wrong:**\n- B: It gives dates and destinations but no measure of scale and no European comparison — both halves of the goal go unmet.\n- C: It emphasizes the expeditions' ending and the court's priorities; the goal is about how big the voyages were, not how they concluded.\n- D: It reduces the comparison to timing alone — which voyage came first — and its concessive \"though impressively large\" mutes the very scale the student wants to stress."
+          "correctAnswer": "B",
+          "explanation": "**Choice B is correct.** The goal is to explain why Ringgold chose the form, and only choice B gives a reason: quilting let her tell stories, even though museums had dismissed the form as craft. That reason comes directly from the note about her memoir.\n\n**The Full Solution:**\n- The goal word is \"why,\" so the sentence must state a motive, not describe the quilts or list events.\n- The memoir note is the only note that gives Ringgold's own reason for working in quilts.\n- Choice B builds its sentence around that reason and names the form it explains.\n\n**Why the other choices are wrong:**\n- A: It describes what a story quilt is made of, not why Ringgold chose the form.\n- C: It describes one quilt's subject, which does not explain the choice of form.\n- D: It gives a timeline of events without stating any reason."
         },
         {
           "id": 226,
@@ -952,28 +953,28 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "A mixture of cornstarch and water behaves like an ordinary liquid when stirred gently but stiffens dramatically under sudden stress: slap the surface and it momentarily resists like a solid. Materials scientists are studying such shear-thickening fluids for use in protective equipment, reasoning that a flexible fabric infused with one would stay supple during everyday movement yet become ______ at the instant of an impact.",
+          "passage": "Before anyone had made one, the physicist Mildred Dresselhaus and her colleagues calculated how electrons would move through a carbon nanotube, predicting that a tube would conduct electricity like a metal or like a semiconductor depending only on the angle at which its sheet of carbon was rolled. Measurements on the first tubes synthesized in the 1990s ______ the prediction.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
               "id": "A",
-              "text": "brittle"
+              "text": "anticipated"
             },
             {
               "id": "B",
-              "text": "porous"
+              "text": "complicated"
             },
             {
               "id": "C",
-              "text": "elastic"
+              "text": "confirmed"
             },
             {
               "id": "D",
-              "text": "rigid"
+              "text": "revised"
             }
           ],
-          "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The fluid's defining trick is stiffening under sudden stress — resisting \"like a solid\" — so fabric infused with it must become \"rigid\" at the moment of impact.\n\n**The Full Solution:**\n- The first sentence defines the behavior the blank must echo: gentle handling leaves the mixture liquid, but sudden stress makes it stiffen and resist like a solid.\n- The second sentence maps that behavior onto protective gear through an explicit contrast: \"supple during everyday movement yet ______ at the instant of an impact.\"\n- The word opposing \"supple\" and matching \"stiffens... like a solid\" is \"rigid.\"\n\n**Why the other choices are wrong:**\n- A: \"brittle\" means hard but liable to shatter — a failure mode, not a protective one, and nothing in the text suggests the stiffened fluid breaks.\n- B: \"porous\" describes permeability to liquids or air, a property the passage never discusses and one irrelevant to stopping an impact.\n- C: \"elastic\" names the fabric's everyday stretchiness — the \"supple\" side of the contrast — when the blank needs its opposite, the state the impact triggers."
+          "correctAnswer": "C",
+          "explanation": "**Choice C is correct.** The calculations came first and the measurements came later, so the blank names what measurement does to a prediction it agrees with: it confirms it.\n\n**The Full Solution:**\n- The first sentence makes the order of events explicit — the calculations were done \"before anyone had made one.\"\n- The second sentence reports what happened when tubes finally existed and could be measured.\n- A measurement that arrives after a prediction and bears it out confirms it.\n\n**Why the other choices are wrong:**\n- A: To \"anticipate\" a prediction is to come before it, and the measurements came years after.\n- B: \"Complicated\" would mean the results made the prediction harder to maintain, which reverses the relationship the passage sets up.\n- D: \"Revised\" would mean the prediction had to be changed, again the opposite of agreement."
         },
         {
           "id": 230,
@@ -1205,28 +1206,28 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "For 250 years beginning in 1565, Spanish galleons crossed the Pacific on a nearly annual schedule between Manila, in the Philippines, and Acapulco, on the coast of New Spain. Westbound ships carried silver mined in the Americas; eastbound ships returned loaded with silk and porcelain from China, where American silver became the lifeblood of commerce and taxation. The route did more than enrich Spain. Before it opened, the world's great trading zones — East Asia, the Indian Ocean, Europe, the Atlantic — touched only through long chains of intermediaries; the galleons joined the last two directly, closing the final gap in a network that, for the first time, bound every inhabited continent's economy to the others.",
+          "passage": "Teotihuacan, the largest city in the Americas in the first centuries CE, housed most of its residents in walled apartment compounds. The archaeologist Linda Manzanilla has analyzed human remains and household goods from several of these compounds. Oxygen and strontium isotope ratios in the teeth of the people buried there indicate that many had grown up far from the valley, and a single compound often holds pottery and burial customs belonging to more than one region. Manzanilla concludes that the compounds housed migrants from across Mesoamerica rather than single local lineages.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "Spanish galleons carried more silver across the Pacific during their 250 years of operation than all other trade routes of the period combined."
+              "text": "Teotihuacan's apartment compounds were built on a plan that was later copied throughout Mesoamerica."
             },
             {
               "id": "B",
-              "text": "By connecting Asia and the Americas directly, the Manila galleon route completed the linking of the world's major trading zones into a single network."
+              "text": "Evidence from Teotihuacan's apartment compounds indicates that they housed people drawn from several regions rather than from one local group."
             },
             {
               "id": "C",
-              "text": "Demand for silver in China forced Spain to expand its mining operations in the Americas throughout the seventeenth century."
+              "text": "Manzanilla's analysis shows that the residents of Teotihuacan ate a more varied diet than the residents of nearby settlements did."
             },
             {
               "id": "D",
-              "text": "The Manila galleon route endured for 250 years chiefly because Spanish shipbuilders steadily improved their vessels' ability to survive the long and dangerous Pacific crossing."
+              "text": "The pottery recovered from Teotihuacan's apartment compounds was produced for trade rather than for use in the households that kept it."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text's climax is the final sentence: the galleons \"joined the last two directly, closing the final gap\" in a network binding every inhabited continent's economy — the world-linking role that choice B states.\n\n**The Full Solution:**\n- The opening sentences establish the route and its cargo: American silver west, Chinese silk and porcelain east.\n- The pivot sentence — \"The route did more than enrich Spain\" — signals that the main idea lies beyond the trade itself.\n- The closing sentence delivers it: trading zones once linked only through intermediaries were joined directly, completing a global network for the first time. Choice B compresses exactly that claim.\n\n**Why the other choices are wrong:**\n- A: The text never compares the galleons' silver tonnage with other routes; the superlative is invented.\n- C: Chinese demand for silver is mentioned, but nothing about Spain being forced to expand mining — that causal story appears nowhere.\n- D: Shipbuilding is never discussed; the text offers no explanation of the route's longevity, only of its significance."
+          "explanation": "**Choice B is correct.** Two kinds of evidence — the isotope ratios in the teeth and the mixed regional styles inside one compound — support the conclusion the text ends on: the compounds held people from many places.\n\n**The Full Solution:**\n- The text establishes where most residents of Teotihuacan lived: in walled apartment compounds.\n- It then reports what Manzanilla found in them — isotope ratios pointing to childhoods outside the valley, and pottery and burial customs from more than one region in a single compound.\n- The closing sentence draws those findings together: the compounds housed migrants rather than single local lineages. Choice B states that.\n\n**Why the other choices are wrong:**\n- A: The text says nothing about the compounds' plan being copied anywhere else.\n- C: The isotope ratios are used here to indicate where people grew up, and diet is never mentioned.\n- D: The pottery is evidence of the residents' regional origins; the text makes no claim about what it was produced for."
         },
         {
           "id": 239,
@@ -1385,28 +1386,28 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "Condensation trails — the thin ice clouds that form behind aircraft — trap outgoing heat, and their total contribution to aviation's warming effect rivals that of the fuel the planes burn. The effect is strikingly uneven, however. Contrails persist only when a plane crosses a pocket of cold, humid air, so a small fraction of flights — by some estimates roughly one in twenty — produces the large majority of contrail warming. And because those atmospheric pockets tend to be shallow, a modest change in cruising altitude is often enough to miss them entirely. Taken together, these facts suggest that ______",
+          "passage": "The giant tube worms that grow in clusters around deep-sea vents have no mouth and no gut. Biologists had long assumed that animals at such depths live on scraps of food drifting down from sunlit water near the surface. The fluid venting around the worms carries hydrogen sulfide, a compound poisonous to most animals, and the worms' tissues are packed with bacteria that draw energy from it. Examining the worms' internal anatomy in 1981, the biologist Colleen Cavanaugh found that this bacteria-filled tissue accounts for much of an adult worm's body mass. Cavanaugh therefore proposed that ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
               "id": "A",
-              "text": "rerouting a small share of flights could eliminate a disproportionately large share of contrail warming."
+              "text": "the worms are nourished by the bacteria in their tissues rather than by food they take in from the water."
             },
             {
               "id": "B",
-              "text": "aviation's total warming effect could be cut in half if every flight simply burned less fuel."
+              "text": "the bacteria in the worms' tissues consume hydrogen sulfide faster than the venting fluid can supply it."
             },
             {
               "id": "C",
-              "text": "airlines cannot meaningfully reduce contrail warming without grounding the flights that cross cold, humid air, because altitude changes on those routes would consume prohibitive amounts of extra fuel."
+              "text": "the worms lost their mouths and guts after bacteria first colonized their tissues."
             },
             {
               "id": "D",
-              "text": "contrail warming will decline on its own as a warming atmosphere makes pockets of cold, humid air steadily rarer."
+              "text": "the worms' tissues protect the bacteria from the hydrogen sulfide in the surrounding water."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** Two premises do all the work: a small minority of flights causes most contrail warming, and a modest altitude change avoids the responsible air pockets. Together they imply that targeting just those flights would remove an outsized share of the warming.\n\n**The Full Solution:**\n- Concentration: roughly one flight in twenty \"produces the large majority of contrail warming.\"\n- Avoidability: the guilty pockets are shallow, so \"a modest change in cruising altitude is often enough to miss them entirely.\"\n- Combine them: intervene on the small guilty fraction, and the large majority of the warming goes away — a disproportionate return on a small effort, exactly as choice A concludes.\n\n**Why the other choices are wrong:**\n- B: Fuel burn is the passage's comparison point for contrail warming, not its subject; nothing in the premises quantifies what less fuel would achieve.\n- C: It contradicts the avoidability premise — the passage says a modest altitude change suffices, while this choice insists only grounding flights would work and invents a fuel cost the text never mentions.\n- D: The premises describe the present distribution of cold, humid pockets; no premise addresses how climate change will alter them, so the prediction has no support."
+          "explanation": "**Choice A is correct.** An animal with no mouth and no gut cannot take food in, yet much of its body is tissue full of bacteria that make energy from the vent fluid — so the bacteria are the likely source of its nourishment.\n\n**The Full Solution:**\n- The worms lack the anatomy for feeding, which rules out the drifting food that biologists had assumed sustains deep-sea animals.\n- The surrounding fluid supplies hydrogen sulfide, and the bacteria inside the worms draw energy from it.\n- The bacteria-filled tissue makes up much of the animal's mass, which is what one would expect if that tissue were feeding the worm.\n\n**Why the other choices are wrong:**\n- B: The text gives no rate of consumption and no measure of supply, so no comparison between them follows.\n- C: The order in which the worms lost their guts and acquired the bacteria is never addressed.\n- D: The text says the bacteria draw energy from the hydrogen sulfide, not that they need protection from it."
         },
         {
           "id": 241,
@@ -1716,28 +1717,28 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "By the early 2000s, the mills weaving Harris Tweed faced a tempting path: shift production to mainland factories, cut costs, and compete with mass-market wool cloth on price. The industry's governing body refused that bargain. ______ it tightened its grip on the strictest possible definition — under a 1993 act of Parliament, cloth may carry the Harris Tweed mark only if it is dyed, spun, and handwoven at weavers' homes in the Outer Hebrides — wagering that scarcity and provenance, not price, were the fabric's real assets.",
+          "passage": "The Taj Mahal is usually pictured as a domed tomb at the end of a garden. The architectural historian Ebba Koch surveyed the complex and found one module repeated throughout its plan: in the tomb, the garden beds, and the river terrace. ______ the tomb is not an object placed in a garden but one figure in a pattern that orders the whole site.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
               "id": "A",
-              "text": "Specifically,"
+              "text": "For instance,"
             },
             {
               "id": "B",
-              "text": "Meanwhile,"
+              "text": "Nevertheless,"
             },
             {
               "id": "C",
-              "text": "In addition,"
+              "text": "Meanwhile,"
             },
             {
               "id": "D",
-              "text": "Instead,"
+              "text": "In other words,"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The governing body rejected one course — cheap mainland production — and took its opposite, doubling down on restrictive, place-bound craft. \"Instead\" is the transition that introduces the alternative chosen in place of a rejected option.\n\n**The Full Solution:**\n- The first sentence lays out the rejected path: mainland factories, lower costs, price competition.\n- The second sentence records the rejection: \"The industry's governing body refused that bargain.\"\n- The blank sentence describes what the body did in place of the rejected path — tightening the legal definition and betting on scarcity. Substitution after refusal is exactly what \"Instead\" signals.\n\n**Why the other choices are wrong:**\n- A: \"Specifically\" would make the tightening a detailed elaboration of the refusal, but the sentence presents a positive countermove, not a closer description of the refusing.\n- B: \"Meanwhile\" implies separate events unfolding in parallel; the tightening is the direct sequel to the refusal, not a simultaneous side development.\n- C: \"In addition\" stacks the tightening on top of the mainland strategy as if both were pursued, but the passage presents them as mutually exclusive alternatives."
+          "explanation": "**Choice D is correct.** The last sentence adds no new information; it restates what Koch's survey found in more general terms, and \"In other words\" is the transition that marks a restatement.\n\n**The Full Solution:**\n- The first sentence gives the familiar picture of the building: a domed tomb at the end of a garden.\n- The second reports the finding: one module repeated in the tomb, the garden beds, and the river terrace.\n- The third says the same thing differently — the tomb is one figure in a pattern that governs the site — so the transition must signal restatement.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would introduce an example, but the examples were already given in the preceding sentence.\n- B: \"Nevertheless\" signals a concession, and the final sentence concedes nothing; it agrees with the sentence before it.\n- C: \"Meanwhile\" marks two things happening at the same time, and the text describes a single finding rather than simultaneous events."
         },
         {
           "id": 251,
