@@ -1,56 +1,49 @@
 {
  "id": 16,
- "question": "The bar graph gives a rower's fatigue index on four days of a seven-day training block. The index on day $x$ is modeled by $y = 6x^2 - 48x + 102$. What is the minimum index value this model predicts during the block?",
- "diagram": {
-  "type": "barChart",
-  "params": {
-   "data": [
-    {
-     "label": "Day 1",
-     "value": 60
-    },
-    {
-     "label": "Day 2",
-     "value": 30
-    },
-    {
-     "label": "Day 6",
-     "value": 30
-    },
-    {
-     "label": "Day 7",
-     "value": 60
-    }
+ "question": "For the function $f$, the table shows three values of $x$ and their corresponding values of $f(x)$. The function is defined by $f(x) = 6x^{2} + bx + c$, where $b$ and $c$ are constants. Which expression is equivalent to $f(x)$?",
+ "questionTable": {
+  "headers": [
+   "$x$",
+   "$f(x)$"
+  ],
+  "rows": [
+   [
+    "$0$",
+    "$102$"
    ],
-   "xAxisLabel": "Training day",
-   "yAxisLabel": "Fatigue index",
-   "yMax": 70,
-   "yStep": 10
-  }
+   [
+    "$1$",
+    "$60$"
+   ],
+   [
+    "$2$",
+    "$30$"
+   ]
+  ]
  },
  "choices": [
   {
    "id": "A",
-   "text": "$4$"
+   "text": "$6(x + 4)^{2} + 6$"
   },
   {
    "id": "B",
-   "text": "$6$"
+   "text": "$6(x - 4)^{2} + 6$"
   },
   {
    "id": "C",
-   "text": "$30$"
+   "text": "$6(x - 4)^{2} + 30$"
   },
   {
    "id": "D",
-   "text": "$102$"
+   "text": "$6(x - 4)^{2} + 86$"
   }
  ],
  "distractorNotes": {
-  "A": "reports the day the minimum occurs, x = 4, instead of the index value there",
-  "C": "reads the shortest bar in the graph, 30, instead of the model's minimum",
-  "D": "reads the constant term 102 of the standard form as the minimum"
+  "A": "uses the wrong sign inside the square, writing x + 4 for a vertex at x = 4",
+  "C": "takes the least value in the table, f(2) = 30, as the constant k instead of completing the square",
+  "D": "subtracts 16 rather than 6(16) = 96 when completing the square, getting 102 - 16 = 86"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Quadratic — Completing the Square**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $6x^2 - 48x + 102 = 6(x - 4)^2 + 6$, so the least value the model takes is $6$.\n\n**The Full Solution:**\nStep 1: Factor $6$ out of the variable terms: $6(x^2 - 8x) + 102$.\nStep 2: Complete the square inside: $x^2 - 8x = (x - 4)^2 - 16$, so the model is $6[(x - 4)^2 - 16] + 102 = 6(x - 4)^2 - 96 + 102$.\nStep 3: That simplifies to $6(x - 4)^2 + 6$. Since $6(x - 4)^2$ is never negative, the smallest value of $y$ is $6$, reached on day $4$.\nCheck: substituting $x = 4$ into the original gives $6(16) - 48(4) + 102 = 96 - 192 + 102 = 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): this is the day on which the minimum occurs, the $x$-coordinate of the vertex, not the index value.\n* Choice C ($30$): the lowest bar shown, but days $3$ through $5$ are not charted, and the model dips well below $30$ there.\n* Choice D ($102$): the constant term is the value at day $0$, before the block began, not the minimum.\n\n**Test Day Takeaway:** Factor the leading coefficient out of the $x$ terms only — the number left outside the square is the minimum, and the number inside is where it happens."
+ "explanation": "**SAT Pattern: Quadratic — Completing the Square**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** $f(0) = 102$ gives $c = 102$, and $f(1) = 6 + b + 102 = 60$ gives $b = -48$; then $6x^{2} - 48x + 102 = 6(x - 4)^{2} - 96 + 102 = 6(x - 4)^{2} + 6$.\n\n**The Full Solution:**\nStep 1: Use the table to find the constants. $f(0) = c = 102$. Then $f(1) = 6 + b + 102 = 60$, so $b = -48$ and $f(x) = 6x^{2} - 48x + 102$.\nStep 2: Factor $6$ from the variable terms and complete the square: $6(x^{2} - 8x) + 102 = 6\\left[(x - 4)^{2} - 16\\right] + 102$.\nStep 3: Simplify: $6(x - 4)^{2} - 96 + 102 = 6(x - 4)^{2} + 6$. Check with the table: at $x = 2$, $6(2 - 4)^{2} + 6 = 24 + 6 = 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6(x + 4)^{2} + 6$): has the wrong sign inside the square; at $x = 0$ it gives $102$, but at $x = 1$ it gives $156$, not $60$.\n* Choice C ($6(x - 4)^{2} + 30$): uses the least value in the table, $30$, as the minimum, but the table stops at $x = 2$ and the minimum occurs at $x = 4$.\n* Choice D ($6(x - 4)^{2} + 86$): subtracts $16$ instead of $6(16) = 96$; the $16$ inside the brackets is multiplied by $6$ on the way out.\n\n**Test Day Takeaway:** Find the constants from the table first ($f(0)$ is always $c$), then complete the square; test the finished form against a table row you did not use."
 }

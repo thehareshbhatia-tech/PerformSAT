@@ -6,33 +6,33 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 2,
- "passage": "In the early 1950s, cartographer Marie Tharp plotted thousands of ocean-depth soundings gathered by research vessels crossing the Atlantic — measurements taken with echo sounders, which were then still ______ the seafloor profiles she drew from those soundings revealed a continuous rift valley running down the center of the Mid-Atlantic Ridge, evidence that the ocean floor was splitting apart.",
+ "passage": "In the early 1950s, cartographer Marie Tharp plotted ocean-depth soundings gathered by research ships crossing the Atlantic — ships that she, as a woman, was not permitted to ______ the profiles she drew revealed a rift valley running down the center of the Mid-Atlantic Ridge, a sign, she argued, that the ocean floor was splitting apart.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "novel, and"
+   "text": "board, and"
   },
   {
    "id": "B",
-   "text": "a novel technology;"
+   "text": "board;"
   },
   {
    "id": "C",
-   "text": "a novel technology,"
+   "text": "board,"
   },
   {
    "id": "D",
-   "text": "a novel technology; however,"
+   "text": "board; however,"
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** What follows the blank is a new independent clause, and the semicolon in \"a novel technology;\" closes the first statement — supplement included — and joins the second to it.\n\n**The Full Solution:**\n- The sentence's first part ends inside a supplementary element (\"measurements taken with echo sounders, which were then still a novel technology\").\n- \"The seafloor profiles she drew ... revealed a continuous rift valley ...\" is a complete independent clause, so the boundary between the statements must be sentence-strength.\n\n**Why the other choices are wrong:**\n- A: \"Novel, and\" ties the new clause into the relative clause \"which were then still novel...\" as though the profiles were something the echo sounders \"were,\" garbling the sense.\n- C: A comma produces a comma splice between the two independent statements.\n- D: Punctuationally legal but logically wrong — \"however\" asserts a contrast, yet the rift valley's revelation is the payoff of Tharp's plotting, not a turn against it.",
+ "explanation": "**Choice B is correct.** What follows the blank is a new independent clause, and the semicolon in \"board;\" closes the first statement — supplement included — and joins the second to it.\n\n**The Full Solution:**\n- The sentence's first part ends inside a supplementary element set off by a dash (\"ships that she, as a woman, was not permitted to board\").\n- \"The profiles she drew revealed a rift valley ...\" is a complete independent clause, so the boundary between the statements must be sentence-strength.\n\n**Why the other choices are wrong:**\n- A: \"Board, and\" ties the new clause into the dash-opened supplement about the ships, as though the profiles were part of the description of ships Tharp could not board, garbling the sense.\n- C: A comma produces a comma splice between the two independent statements.\n- D: Punctuationally legal but logically wrong — \"however\" asserts a contrast, yet the rift valley's revelation is the payoff of Tharp's plotting, not a turn against it.",
  "_meta": {
   "rule": "semicolon closing a dash-opened supplement before a second independent clause; splice, faulty coordination, and illogical conjunctive-adverb distractors",
-  "anchor": "Marie Tharp — Mid-Atlantic Ridge rift valley, seafloor spreading (with Bruce Heezen, 1950s)",
+  "anchor": "Marie Tharp — Lamont; barred from research ships as a woman until 1968; identified the Mid-Atlantic Ridge rift valley from sounding profiles in 1952, interpreting it as seafloor spreading",
   "distractors": {
-   "A": "coordination grafted onto the relative clause (sense failure)",
+   "A": "coordination grafted onto the dash-opened supplement (sense failure)",
    "C": "comma splice",
    "D": "grammatical but illogical contrast ('however')"
   }

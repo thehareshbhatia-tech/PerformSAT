@@ -1,6 +1,6 @@
 {
  "id": 21,
- "question": "The table lists four inputs and the corresponding outputs of a quadratic function $f$. For some constants $a$, $h$, and $k$, the equation $f(x) = a(x - h)^{2} + k$ holds for every real number $x$. What is the value of $f(9)$?",
+ "question": "The table shows four values of $x$ and their corresponding values of $f(x)$, where $f(x) = a(x - h)^{2} + k$ and $a$, $h$, and $k$ are constants. What is the value of $f(9)$?",
  "questionTable": {
   "headers": [
    "$x$",

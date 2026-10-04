@@ -1,12 +1,12 @@
 {
  "id": 1,
- "question": "A gauge at a weather station collected rainfall at a constant rate during a storm, as shown in the table. At that rate, what was the total accumulation, in millimeters, after $12$ hours?",
+ "question": "The table shows the total rainfall, in centimeters, at a weather station during a storm in which rain fell at a constant rate. At this rate, what was the total rainfall, in millimeters, after $12$ hours? ($1$ centimeter $= 10$ millimeters)",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
     "Time (hours)",
-    "Accumulation (centimeters)"
+    "Total rainfall (centimeters)"
    ],
    "rows": [
     [
@@ -43,10 +43,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "stops at 8.4 centimeters and never converts to millimeters",
-  "B": "converts the 8-hour reading of 5.6 cm to 56 mm and ignores the 12-hour requirement",
-  "D": "converts centimeters to millimeters with a factor of 100 instead of 10"
+  "A": "finds the 12-hour total in centimeters, 0.7(12) = 8.4, and never converts to millimeters",
+  "B": "converts the last table entry, 5.6 centimeters after 8 hours, to 56 millimeters instead of extending to 12 hours",
+  "D": "multiplies 8.4 centimeters by 100 instead of 10 when converting to millimeters"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Proportion Solving**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Every row gives $0.7$ cm per hour, so $12$ hours yields $8.4$ cm, and $8.4 \\times 10 = 84$ mm.\n\n**The Full Solution:**\nStep 1: The accumulation is proportional to time, so the constant rate is $\\dfrac{1.4}{2} = 0.7$ centimeter per hour. The other rows agree: $\\dfrac{3.5}{5} = 0.7$ and $\\dfrac{5.6}{8} = 0.7$.\nStep 2: After $12$ hours the gauge holds $0.7 \\times 12 = 8.4$ centimeters.\nStep 3: One centimeter is $10$ millimeters, so $8.4$ cm $= 8.4 \\times 10 = 84$ millimeters.\nCheck: $\\dfrac{84 \\text{ mm}}{12 \\text{ h}} = 7$ mm per hour, and $7$ mm is $0.7$ cm. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8.4$): the correct accumulation, but left in centimeters — the question asks for millimeters.\n* Choice B ($56$): converts the last row of the table, $5.6$ cm, to $56$ mm and never extends the rate to $12$ hours.\n* Choice D ($840$): multiplies $8.4$ by $100$, the centimeter-to-millimeter factor confused with the meter-to-centimeter factor.\n\n**Test Day Takeaway:** Finish the proportion first, then convert once — and check the unit named in the last five words of the question."
+ "explanation": "**SAT Pattern: Proportion Solving**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The rain fell at $\\frac{1.4}{2} = 0.7$ centimeter per hour, so after $12$ hours the total was $0.7(12) = 8.4$ centimeters, or $8.4(10) = 84$ millimeters.\n\n**The Full Solution:**\nStep 1: Find the rate from any row of the table: $\\frac{1.4}{2} = 0.7$ centimeter per hour. The other rows agree: $\\frac{3.5}{5} = 0.7$ and $\\frac{5.6}{8} = 0.7$.\nStep 2: Extend to $12$ hours: $0.7(12) = 8.4$ centimeters.\nStep 3: Convert to millimeters: $8.4(10) = 84$ millimeters. Check: $12$ hours is $1.5$ times $8$ hours, and $1.5(5.6) = 8.4$ centimeters, which is $84$ millimeters ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8.4$): this is the 12-hour total in centimeters; the question asks for millimeters.\n* Choice B ($56$): converts the 8-hour entry, $5.6$ centimeters, to millimeters but never extends the rate to $12$ hours.\n* Choice D ($840$): multiplies by $100$ instead of $10$; there are $10$ millimeters in a centimeter, not $100$.\n\n**Test Day Takeaway:** Find the unit rate first, scale it to the requested time, and convert units as the last step; check which unit the question asks for before choosing."
 }

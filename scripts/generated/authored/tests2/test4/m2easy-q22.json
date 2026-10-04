@@ -1,27 +1,27 @@
 {
  "id": 22,
- "question": "The table shows the number of clear and overcast nights recorded at an observatory in winter and in summer, where $n$ is the number of clear summer nights. The probability that a night chosen at random from the summer nights was clear is $0.75$. What is the probability that a night chosen at random from the clear nights was in summer?",
+ "question": "The table shows the number of clear nights and cloudy nights recorded at a weather station during winter and during summer, where $n$ is a positive integer. If one of the summer nights is selected at random, the probability of selecting a clear night is $0.75$. If one of the clear nights is selected at random, what is the probability of selecting a summer night?",
  "diagram": {
   "type": "twoWayTable",
   "params": {
    "headers": [
     "",
     "Clear",
-    "Overcast",
+    "Cloudy",
     "Total"
    ],
    "rows": [
     [
      "Winter",
-     "72",
-     "108",
-     "180"
+     "24",
+     "36",
+     "60"
     ],
     [
      "Summer",
      "n",
-     "60",
-     "n + 60"
+     "20",
+     "n + 20"
     ]
    ]
   }
@@ -45,10 +45,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "reports the winter share of the clear nights, 72/252, instead of the summer share",
-  "B": "divides the 180 clear summer nights by the grand total of 420 nights rather than by the 252 clear nights",
+  "A": "finds the probability that a clear night was in winter, 24/84, instead of in summer",
+  "B": "divides the 60 clear summer nights by all 140 nights instead of by the 84 clear nights",
   "D": "reuses the given 0.75, treating the probability of clear given summer as the probability of summer given clear"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** If $75\\%$ of summer nights are clear, the $60$ overcast nights are the other $25\\%$, so summer has $240$ nights and $n = 180$. Clear nights total $72 + 180 = 252$, and $\\frac{180}{252} = \\frac{5}{7}$.\n\n**The Full Solution:**\nStep 1: The given probability conditions on summer: $\\frac{n}{n + 60} = 0.75$.\nStep 2: Solve: $n = 0.75n + 45$, so $0.25n = 45$ and $n = 180$ clear summer nights, with $240$ summer nights in all.\nStep 3: Now condition on clear instead. Clear nights number $72 + 180 = 252$, of which $180$ are summer, so the probability is $\\frac{180}{252} = \\frac{5}{7}$. Check the first condition: $\\frac{180}{240} = 0.75$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{7}$): this is $\\frac{72}{252}$, the probability that a clear night was in winter. It is the complement of the answer, not the answer.\n* Choice B ($\\frac{3}{7}$): this is $\\frac{180}{420}$, dividing by every night on record. Conditioning on clear means the denominator is the $252$ clear nights.\n* Choice D ($\\frac{3}{4}$): this recycles the given $0.75$. Conditional probability is not symmetric: $0.75$ of summer nights are clear, but only $\\frac{5}{7}$ of clear nights are in summer.\n\n**Test Day Takeaway:** The condition sets the denominator. Rebuild the missing cell from the first condition, then re-total along the other direction before dividing."
+ "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** If $75\\%$ of summer nights are clear, the $20$ cloudy summer nights are the other $25\\%$, so there are $80$ summer nights and $n = 60$. There are $24 + 60 = 84$ clear nights, so the probability is $\\frac{60}{84} = \\frac{5}{7}$.\n\n**The Full Solution:**\nStep 1: The given probability is out of the summer nights: $\\frac{n}{n + 20} = 0.75$.\nStep 2: Solve: $n = 0.75n + 15$, so $0.25n = 15$ and $n = 60$.\nStep 3: Now the selection is from the clear nights: there are $24 + 60 = 84$, and $60$ of them are summer nights, so the probability is $\\frac{60}{84} = \\frac{5}{7}$. Check the given condition: $\\frac{60}{60 + 20} = \\frac{60}{80} = 0.75$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{7}$): this is $\\frac{24}{84}$, the probability that a clear night is a winter night.\n* Choice B ($\\frac{3}{7}$): this is $\\frac{60}{140}$, which divides by all the nights. Selecting from the clear nights means the denominator is $84$.\n* Choice D ($\\frac{3}{4}$): this reuses the given $0.75$. The probability that a summer night is clear is not the same as the probability that a clear night is in summer.\n\n**Test Day Takeaway:** In a conditional probability, the group you select from is the denominator. Find any missing value first, then total the group named in the question."
 }

@@ -1,6 +1,6 @@
 {
  "id": 4,
- "question": "A hydrogel sample soaked for $8$ hours had a measured mass of $53$ grams. Using the line of best fit $y = 3.5x + 18$ drawn with the plotted data, by how many grams does that measured mass exceed the mass the line predicts at $8$ hours?",
+ "question": "The scatterplot shows the relationship between two variables, $x$ and $y$. A line of best fit for the data, $y = 3.5x + 18$, is also shown. For the data point with $x = 8$, how much greater is the actual $y$-value than the $y$-value predicted by the line of best fit?",
  "diagram": {
   "type": "scatterplot",
   "params": {
@@ -58,8 +58,8 @@
    "yGridStep": 10,
    "xLabelStep": 4,
    "yLabelStep": 20,
-   "xLabel": "Soaking time (hours)",
-   "yLabel": "Mass (grams)",
+   "xLabel": "x",
+   "yLabel": "y",
    "bestFitLine": {
     "slope": 3.5,
     "intercept": 18
@@ -92,9 +92,9 @@
  ],
  "distractorNotes": {
   "B": "drops the intercept, predicting 3.5(8) = 28 and reporting 53 - 28",
-  "C": "reports the predicted mass instead of the difference",
-  "D": "reports the measured mass instead of the difference"
+  "C": "reports the predicted y-value instead of the difference",
+  "D": "reports the actual y-value instead of the difference"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Predict, then subtract. At $x = 8$ the line gives $3.5(8) + 18 = 46$ grams, and $53 - 46 = 7$ grams.\n\n**The Full Solution:**\nStep 1: Evaluate the line of best fit at the stated time. Substituting $x = 8$ into $y = 3.5x + 18$ gives $y = 28 + 18 = 46$ grams.\nStep 2: Identify the measured value. The plotted point at $8$ hours sits at $(8, 53)$, so the measured mass is $53$ grams.\nStep 3: Subtract in the order the question asks. The measured mass exceeds the predicted mass by $53 - 46 = 7$ grams. Check: adding $7$ back to the prediction returns $46 + 7 = 53$, the measured value ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($25$): uses $3.5(8) = 28$ as the prediction and computes $53 - 28 = 25$, dropping the $18$-gram intercept.\n* Choice C ($46$): stops at the predicted mass. That is the middle of the calculation, not the gap the question asks for.\n* Choice D ($53$): reports the measured mass straight off the plot without comparing it to the line.\n\n**Test Day Takeaway:** The vertical gap between a plotted point and the line of best fit is measured value minus predicted value. Always run the x-value through the whole equation, intercept included, before subtracting."
+ "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** At $x = 8$ the line predicts $3.5(8) + 18 = 46$, and the data point is at $(8, 53)$, so the difference is $53 - 46 = 7$.\n\n**The Full Solution:**\nStep 1: Evaluate the line of best fit at $x = 8$. Substituting into $y = 3.5x + 18$ gives $y = 28 + 18 = 46$.\nStep 2: Read the actual value. The data point with $x = 8$ is $(8, 53)$, so the actual $y$-value is $53$.\nStep 3: Subtract in the order the question asks. The actual value exceeds the predicted value by $53 - 46 = 7$. Check: $46 + 7 = 53$, the actual value ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($25$): uses $3.5(8) = 28$ as the prediction and computes $53 - 28 = 25$, dropping the intercept $18$.\n* Choice C ($46$): stops at the predicted $y$-value, which is only the middle of the calculation.\n* Choice D ($53$): reports the actual $y$-value without comparing it to the line.\n\n**Test Day Takeaway:** The vertical gap between a data point and the line of best fit is the actual value minus the predicted value. Substitute $x$ into the whole equation, intercept included, before subtracting."
 }

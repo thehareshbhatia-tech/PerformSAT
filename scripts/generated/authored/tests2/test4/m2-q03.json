@@ -1,29 +1,29 @@
 {
  "id": 3,
- "question": "The length $L$, in millimeters, that a steel bridge span expands is modeled by $L = 0.5T - 4$, where $T$ is the deck temperature in degrees Celsius. For what value of $T$ is $L$ equal to $21$ millimeters more than its value when $T = 18$?",
+ "question": "A taxi ride of $m$ miles costs $C$ dollars, where $C = 2m + 5$. A certain ride costs \\$18 more than a $10$-mile ride. How many miles long is this ride?",
  "choices": [
   {
    "id": "A",
-   "text": "$26$"
+   "text": "$6.5$"
   },
   {
    "id": "B",
-   "text": "$39$"
+   "text": "$19$"
   },
   {
    "id": "C",
-   "text": "$50$"
+   "text": "$28$"
   },
   {
    "id": "D",
-   "text": "$60$"
+   "text": "$43$"
   }
  ],
  "distractorNotes": {
-  "A": "reports the target length 26 mm instead of the temperature that produces it",
-  "B": "adds 21 to the temperature 18 instead of to the length",
-  "C": "solves 0.5T - 4 = 21, treating 21 as the length itself rather than the increase"
+  "A": "solves 2m + 5 = 18, treating the extra 18 dollars as the whole cost of the ride",
+  "C": "adds 18 to the 10 miles instead of to the cost of the 10-mile ride",
+  "D": "reports the cost of the ride, 43 dollars, instead of its length in miles"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** $L(18) = 5$, so the target is $L = 26$. Then $0.5T = 30$ and $T = 60$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at the reference temperature: $L = 0.5(18) - 4 = 9 - 4 = 5$ millimeters.\nStep 2: \"$21$ millimeters more\" shifts the output, not the input: the target is $L = 5 + 21 = 26$.\nStep 3: Solve $0.5T - 4 = 26$: $0.5T = 30$, so $T = 60$. Check: $0.5(60) - 4 = 26$, and $26 - 5 = 21$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($26$): this is the target length in millimeters, not the temperature. The question asks for $T$, and $26$ is the value of $L$.\n* Choice B ($39$): this adds $21$ to $18$, shifting the input. The phrase \"more than its value\" describes the output $L$.\n* Choice C ($50$): this solves $0.5T - 4 = 21$, using $21$ as the length rather than the increase in length. The reference value of $5$ is dropped.\n\n**Test Day Takeaway:** \"More than its value at ...\" always shifts the output. Evaluate the model at the reference input first, then add the shift, then solve."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** A $10$-mile ride costs $2(10) + 5 = 25$ dollars, so this ride costs $43$ dollars. Then $2m + 5 = 43$ gives $m = 19$.\n\n**The Full Solution:**\nStep 1: Find the cost of a $10$-mile ride: $C = 2(10) + 5 = 25$ dollars.\nStep 2: The ride in question costs \\$18 more, so its cost is $25 + 18 = 43$ dollars.\nStep 3: Solve $2m + 5 = 43$: $2m = 38$, so $m = 19$. Check: $2(19) + 5 = 43$, and $43 - 25 = 18$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6.5$): this solves $2m + 5 = 18$, using \\$18 as the cost of the ride instead of the amount more than the $10$-mile ride costs.\n* Choice C ($28$): this adds $18$ to the $10$ miles. The \\$18 is an increase in cost, not in distance.\n* Choice D ($43$): this is the cost of the ride in dollars, not the number of miles.\n\n**Test Day Takeaway:** \"More than\" a value of the output shifts the output. Evaluate the reference input first, add the shift, then solve for the input."
 }

@@ -1,29 +1,29 @@
 {
  "id": 15,
- "question": "A city ordinance sets a circular quiet zone centered 5 kilometers east and 7 kilometers south of a transit hub, reaching 4 kilometers from that center in every direction. With the hub at the origin and east and north positive, which equation describes the boundary of the zone?",
+ "question": "In the $xy$-plane, a circle has center $(5, -7)$ and passes through the point $(9, -4)$. Which equation represents this circle?",
  "choices": [
   {
    "id": "A",
-   "text": "$(x - 5)^2 + (y + 7)^2 = 16$"
+   "text": "$(x - 5)^{2} + (y + 7)^{2} = 5$"
   },
   {
    "id": "B",
-   "text": "$(x - 5)^2 + (y + 7)^2 = 4$"
+   "text": "$(x - 5)^{2} + (y + 7)^{2} = 25$"
   },
   {
    "id": "C",
-   "text": "$(x - 5)^2 + (y + 7)^2 = 64$"
+   "text": "$(x + 5)^{2} + (y - 7)^{2} = 25$"
   },
   {
    "id": "D",
-   "text": "$(x + 5)^2 + (y - 7)^2 = 16$"
+   "text": "$(x - 9)^{2} + (y + 4)^{2} = 25$"
   }
  ],
+ "correctAnswer": "B",
  "distractorNotes": {
-  "B": "puts the radius 4 on the right side instead of the radius squared, 16",
-  "C": "squares the diameter 8 instead of the radius 4, giving 64",
-  "D": "flips both center signs, placing the center at (-5, 7) instead of (5, -7)"
+  "A": "puts the radius 5 on the right side instead of the radius squared, 25",
+  "C": "flips both center signs, placing the center at (-5, 7) instead of (5, -7)",
+  "D": "uses the given point on the circle, (9, -4), as the center"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Center $(5, -7)$ and radius $4$ give $(x - 5)^2 + (y + 7)^2 = 4^2 = 16$.\n\n**The Full Solution:**\nStep 1: Translate the description into coordinates. East is positive $x$, so the center is $5$ km east; south is negative $y$, so the center is at $(5, -7)$. The zone reaches $4$ km in every direction, so $r = 4$.\nStep 2: Standard form is $(x - h)^2 + (y - k)^2 = r^2$. With $h = 5$ and $k = -7$, the binomials are $(x - 5)$ and $(y - (-7)) = (y + 7)$.\nStep 3: The right side is $r^2 = 4^2 = 16$, giving $(x - 5)^2 + (y + 7)^2 = 16$. Check: the point $(9, -7)$, exactly $4$ km east of the center, satisfies $16 + 0 = 16$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($= 4$): writes the radius on the right side. Standard form stores $r^2$, so this circle would have radius $2$.\n* Choice C ($= 64$): squares the diameter $8$ instead of the radius, describing a zone twice as wide.\n* Choice D (center $(-5, 7)$): flips both signs. Inside the binomials the sign is opposite the coordinate, so a center at $(5, -7)$ produces $(x - 5)$ and $(y + 7)$.\n\n**Test Day Takeaway:** In $(x - h)^2 + (y - k)^2 = r^2$, the signs inside flip and the right side is squared. Test one obvious boundary point before committing."
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The radius is the distance from the center to the point, $\\sqrt{(9 - 5)^{2} + (-4 + 7)^{2}} = \\sqrt{16 + 9} = 5$. So the equation is $(x - 5)^{2} + (y + 7)^{2} = 25$.\n\n**The Full Solution:**\nStep 1: The radius is the distance from the center $(5, -7)$ to the point $(9, -4)$ on the circle. The differences are $9 - 5 = 4$ and $-4 - (-7) = 3$, so $r^{2} = 4^{2} + 3^{2} = 25$ and $r = 5$.\nStep 2: A circle with center $(h, k)$ and radius $r$ has equation $(x - h)^{2} + (y - k)^{2} = r^{2}$. Substituting $h = 5$ and $k = -7$ gives $(x - 5)^{2} + (y - (-7))^{2} = (x - 5)^{2} + (y + 7)^{2}$ on the left side.\nStep 3: The right side is $r^{2} = 25$, so the equation is $(x - 5)^{2} + (y + 7)^{2} = 25$. Check: the point $(9, -4)$ gives $(9 - 5)^{2} + (-4 + 7)^{2} = 16 + 9 = 25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 5)^{2} + (y + 7)^{2} = 5$): puts the radius on the right side. The standard form needs the radius squared, $25$.\n* Choice C ($(x + 5)^{2} + (y - 7)^{2} = 25$): reverses both signs, which describes a circle centered at $(-5, 7)$.\n* Choice D ($(x - 9)^{2} + (y + 4)^{2} = 25$): uses the point on the circle as the center. The center is $(5, -7)$; the point $(9, -4)$ only fixes the radius.\n\n**Test Day Takeaway:** The right side of a circle's equation is the radius squared, and a point on the circle supplies it directly: $r^{2}$ is the squared distance from the center to that point."
 }

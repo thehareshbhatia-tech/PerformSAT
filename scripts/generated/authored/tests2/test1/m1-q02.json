@@ -1,29 +1,29 @@
 {
  "id": 2,
- "question": "The quantity $q$ is a measurement given in kilowatt-hours. One kilowatt-hour is equal to $3.6$ megajoules, and one megajoule is equal to $1{,}000$ kilojoules. Which of the following expressions gives the value of this measurement in kilojoules?",
+ "question": "A rope is $y$ yards long. Which expression represents the length of the rope, in inches? ($1$ yard $= 3$ feet and $1$ foot $= 12$ inches)",
  "choices": [
   {
    "id": "A",
-   "text": "$3.6q$"
+   "text": "$\\frac{y}{36}$"
   },
   {
    "id": "B",
-   "text": "$360q$"
+   "text": "$3y$"
   },
   {
    "id": "C",
-   "text": "$3{,}600q$"
+   "text": "$15y$"
   },
   {
    "id": "D",
-   "text": "$3{,}600{,}000q$"
+   "text": "$36y$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "D",
  "distractorNotes": {
-  "A": "stops after the first conversion and reports megajoules (3.6q) rather than kilojoules",
-  "B": "uses 100 kilojoules per megajoule instead of 1,000, giving 3.6(100)=360",
-  "D": "applies the factor 1,000 twice, as if kilowatt-hours converted to megajoules by multiplying by 1,000"
+  "A": "divides by the conversion factors instead of multiplying, giving y/36 (yards per inch rather than inches)",
+  "B": "stops after the first conversion and gives the length in feet, 3y, not in inches",
+  "C": "adds the two conversion factors, 3 + 12 = 15, instead of multiplying them"
  },
- "explanation": "**SAT Pattern: Unit Conversion**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Chain the two factors: one kilowatt-hour is $3.6$ megajoules, which is $3.6(1{,}000) = 3{,}600$ kilojoules, so $q$ kilowatt-hours is $3{,}600q$ kilojoules.\n\n**The Full Solution:**\nStep 1: Convert kilowatt-hours to megajoules. One kilowatt-hour is $3.6$ megajoules, so $q$ kilowatt-hours is $3.6q$ megajoules.\nStep 2: Convert megajoules to kilojoules. One megajoule is $1{,}000$ kilojoules, so $3.6q$ megajoules is $(3.6q)(1{,}000)$ kilojoules.\nStep 3: Multiply the two factors: $3.6(1{,}000) = 3{,}600$, so the measurement is $3{,}600q$ kilojoules. Check with $q = 2$: two kilowatt-hours is $7.2$ megajoules, or $7{,}200$ kilojoules, and $3{,}600(2) = 7{,}200$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.6q$): stops after the first conversion. This is the measurement in megajoules, not in kilojoules.\n* Choice B ($360q$): uses $100$ kilojoules per megajoule instead of $1{,}000$, giving $3.6(100) = 360$.\n* Choice D ($3{,}600{,}000q$): multiplies by $1{,}000$ twice, treating the kilowatt-hour to megajoule step as a factor of $1{,}000$ as well: $3.6(1{,}000)(1{,}000)$.\n\n**Test Day Takeaway:** Convert one unit at a time and write each conversion as a fraction whose unwanted unit cancels; the answer is the product of the factors, so a stray power of $10$ cannot slip in unnoticed."
+ "explanation": "**SAT Pattern: Unit Conversion**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** One yard is $3$ feet and each foot is $12$ inches, so one yard is $3(12) = 36$ inches and $y$ yards is $36y$ inches.\n\n**The Full Solution:**\nStep 1: Convert yards to feet. Each yard is $3$ feet, so $y$ yards is $3y$ feet.\nStep 2: Convert feet to inches. Each foot is $12$ inches, so $3y$ feet is $12(3y)$ inches.\nStep 3: Multiply: $12(3y) = 36y$ inches. Check with $y = 2$: two yards is $6$ feet, or $6(12) = 72$ inches, and $36(2) = 72$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{y}{36}$): divides instead of multiplying. Inches are smaller than yards, so the number of inches must be larger than $y$, not smaller.\n* Choice B ($3y$): stops after the first conversion. This is the length in feet, not in inches.\n* Choice C ($15y$): adds the factors, $3 + 12 = 15$. Conversion factors in a chain are multiplied, not added.\n\n**Test Day Takeaway:** In a chain of unit conversions, multiply the factors; a quick check is that converting to a smaller unit always gives a bigger number."
 }

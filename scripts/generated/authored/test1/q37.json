@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "The Book of Fixed Stars, completed around 964 CE by the Persian astronomer 'Abd al-Rahman al-Sufi, is often described as a translation of Ptolemy's star catalog into Arabic, but that description understates the work. Al-Sufi re-observed the catalog's stars himself, correcting many of the brightness values Ptolemy had assigned eight centuries earlier and adjusting positions for the slow drift of the heavens in the intervening time. He also recorded objects Ptolemy never mentioned, including a \"little cloud\" in the constellation Andromeda — the earliest surviving written notice of the galaxy that now bears that name. The book thus preserved Greek astronomy for later readers while quietly demonstrating that observation could improve upon even the most authoritative inherited text.",
+ "passage": "The Book of Fixed Stars, completed around 964 CE by the Persian astronomer 'Abd al-Rahman al-Sufi, is often described as an Arabic translation of Ptolemy's star catalog, but that description understates the work. Al-Sufi re-observed the catalog's stars himself, correcting many of the brightness values Ptolemy had assigned eight centuries earlier. He also recorded objects Ptolemy never mentioned, including a \"little cloud\" in the constellation Andromeda — the earliest surviving written notice of the galaxy that now bears that name. The book thus preserved Greek astronomy while demonstrating that observation could improve upon even the most authoritative inherited text.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
@@ -19,13 +19,13 @@
   },
   {
    "id": "C",
-   "text": "Ptolemy's star catalog contained so many errors in brightness and position that astronomers working in the centuries after al-Sufi found it necessary to discard the Greek catalog entirely and compile replacements from fresh observations."
+   "text": "Ptolemy's catalog contained so many errors that later astronomers discarded it entirely and compiled replacements from fresh observations."
   },
   {
    "id": "D",
-   "text": "Al-Sufi's Book of Fixed Stars was less a translation of Ptolemy's catalog than a revision of it, combining preservation of Greek astronomy with corrections and additions drawn from al-Sufi's own observations."
+   "text": "Al-Sufi's book was less a translation of Ptolemy's catalog than a revision of it, preserving Greek astronomy while adding corrections and new observations."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The text corrects the label \"a translation\": al-Sufi's book both preserved Greek astronomy and showed that observation could improve on an authoritative text.\n\n**The Full Solution:**\n- The organizing move is a correction: calling the book \"a translation\" of Ptolemy \"understates the work.\"\n- Every detail supports the fuller characterization — al-Sufi re-observed the stars, corrected brightness values, adjusted positions, and added objects Ptolemy never recorded.\n- The final sentence draws the two-sided conclusion that choice D restates: preservation and improvement at once.\n\n**Why the other choices are wrong:**\n- A: It offers an explanation of the book's influence the text never gives — the passage credits al-Sufi's observations, not the reach of the Arabic language.\n- B: It elevates one example (the Andromeda \"little cloud\") into the main idea and adds an unsupported superlative.\n- C: It contradicts the text, which presents the catalog as authoritative and worth preserving — al-Sufi corrected it while transmitting it."
+ "explanation": "**Choice D is correct.** The text corrects the label \"a translation\": al-Sufi's book both preserved Greek astronomy and showed that observation could improve on an authoritative text.\n\n**The Full Solution:**\n- The organizing move is a correction: calling the book a translation of Ptolemy \"understates the work.\"\n- Every detail supports the fuller characterization — al-Sufi re-observed the stars, corrected brightness values, and added objects Ptolemy never recorded.\n- The final sentence draws the two-sided conclusion that choice D restates: preservation and improvement at once.\n\n**Why the other choices are wrong:**\n- A: It offers an explanation of the book's influence the text never gives — the passage credits al-Sufi's observations, not the reach of the Arabic language.\n- B: It elevates one example (the Andromeda \"little cloud\") into the main idea and adds an unsupported superlative.\n- C: It contradicts the text, which presents the catalog as authoritative and worth preserving — al-Sufi corrected it while transmitting it."
 }

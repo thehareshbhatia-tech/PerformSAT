@@ -1,29 +1,29 @@
 {
  "id": 9,
- "question": "A service road at a solar farm follows the line $3x + 2y = 19$ in the $xy$-plane. A cable trench meets that road at a right angle and contains the point $(12, 5)$. At what $y$-value does the trench cross the $y$-axis?",
+ "question": "In the $xy$-plane, line $j$ is perpendicular to the line with equation $3x + 2y = 19$ and passes through the point $(12, 5)$. Which equation defines line $j$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-13$"
+   "text": "$y = -\\frac{3}{2}x + 23$"
   },
   {
    "id": "B",
-   "text": "$-3$"
+   "text": "$y = -\\frac{2}{3}x + 13$"
   },
   {
    "id": "C",
-   "text": "$13$"
+   "text": "$y = \\frac{2}{3}x - 3$"
   },
   {
    "id": "D",
-   "text": "$23$"
+   "text": "$y = \\frac{3}{2}x - 13$"
   }
  ],
  "distractorNotes": {
-  "A": "uses the negative of the road's slope, 3/2, instead of the negative reciprocal, giving 5 - (3/2)(12) = -13",
-  "C": "uses the reciprocal -2/3 without flipping the sign, giving 5 - (-2/3)(12) = 13",
-  "D": "uses the road's own slope -3/2, drawing a parallel line instead of a perpendicular one, giving 5 + 18 = 23"
+  "A": "uses the given line's own slope, -3/2, which gives a line parallel to it through (12, 5): 5 + 18 = 23",
+  "B": "takes the reciprocal of the slope without changing its sign, using -2/3: 5 + 8 = 13",
+  "D": "changes the sign of the slope without taking the reciprocal, using 3/2: 5 - 18 = -13"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The road has slope $-\\frac{3}{2}$, so the trench has slope $\\frac{2}{3}$. Its $y$-intercept is $5 - \\frac{2}{3}(12) = 5 - 8 = -3$.\n\n**The Full Solution:**\nStep 1: Put the road in slope-intercept form: $3x + 2y = 19$ gives $y = -\\frac{3}{2}x + \\frac{19}{2}$, so the road's slope is $-\\frac{3}{2}$.\nStep 2: Perpendicular slopes are negative reciprocals, so the trench has slope $\\frac{2}{3}$ — flip the fraction and change the sign.\nStep 3: Use the point $(12, 5)$ in $y = \\frac{2}{3}x + b$: $5 = \\frac{2}{3}(12) + b = 8 + b$, so $b = -3$. Check: $\\left(-\\frac{3}{2}\\right)\\left(\\frac{2}{3}\\right) = -1$, the test for perpendicular slopes ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): changes the sign of the road's slope but never flips the fraction, using $\\frac{3}{2}$ and getting $5 - \\frac{3}{2}(12) = -13$. A negative reciprocal requires both moves.\n* Choice C ($13$): flips the fraction but keeps the negative sign, using $-\\frac{2}{3}$ and getting $5 + 8 = 13$.\n* Choice D ($23$): reuses the road's slope $-\\frac{3}{2}$, which produces a line parallel to the road rather than perpendicular to it, giving $5 + 18 = 23$.\n\n**Test Day Takeaway:** Read the slope out of standard form as $-\\frac{A}{B}$, then flip and negate it in one deliberate step; substituting the given point last keeps the sign work isolated."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The given line has slope $-\\frac{3}{2}$, so line $j$ has slope $\\frac{2}{3}$. Its $y$-intercept is $5 - \\frac{2}{3}(12) = 5 - 8 = -3$, so line $j$ is $y = \\frac{2}{3}x - 3$.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $3x + 2y = 19$ gives $y = -\\frac{3}{2}x + \\frac{19}{2}$, so its slope is $-\\frac{3}{2}$.\nStep 2: Slopes of perpendicular lines are negative reciprocals, so the slope of line $j$ is $\\frac{2}{3}$.\nStep 3: Substitute $(12, 5)$ into $y = \\frac{2}{3}x + b$: $5 = 8 + b$, so $b = -3$ and line $j$ is $y = \\frac{2}{3}x - 3$. Check: $\\left(-\\frac{3}{2}\\right)\\left(\\frac{2}{3}\\right) = -1$, and $\\frac{2}{3}(12) - 3 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{3}{2}x + 23$): uses the given line's slope, which makes line $j$ parallel to the given line instead of perpendicular.\n* Choice B ($y = -\\frac{2}{3}x + 13$): takes the reciprocal but keeps the negative sign.\n* Choice D ($y = \\frac{3}{2}x - 13$): changes the sign but does not take the reciprocal.\n\n**Test Day Takeaway:** Every choice passes through $(12, 5)$, so the point cannot decide the answer; the slope does. Read the slope from $Ax + By = C$ as $-\\frac{A}{B}$, then flip it and change its sign."
 }

@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 1,
- "passage": "Studies that plant deliberate errors in manuscripts have found that peer reviewers catch only a fraction of them, and even careful reviewers frequently overlook statistical mistakes in work outside their specialty. ______ manuscripts that pass through peer review go on to be retracted at far lower rates than papers posted without any review, and surveys of working scientists consistently find that they regard refereed journals as more trustworthy than unrefereed outlets.",
+ "passage": "Studies that plant deliberate errors in manuscripts have found that peer reviewers catch only a fraction of them; in one such study, reviewers spotted, on average, only about three of nine major errors. ______ in a 2009 survey of about four thousand researchers, 91 percent said that peer review had improved their most recent published paper.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,8 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The move is concessive — granting peer review's documented weaknesses while asserting its countervailing value — and \"Even so,\" does precisely that.\n\n**The Full Solution:**\n- The first sentence documents weaknesses: planted errors slip through; specialists miss out-of-field statistics.\n- The second pulls the opposite way: reviewed papers are retracted less often and scientists trust them more.\n- The needed transition concedes the first point while asserting the second.\n\n**Why the other choices are wrong:**\n- A: \"Accordingly\" claims the second sentence follows from the first, but low retraction rates cut against missed errors, not from them.\n- C: \"In other words\" promises a restatement, yet the second sentence introduces new, opposing evidence.\n- D: \"For example\" would make the retraction data an instance of reviewers missing errors, which it is not."
+ "explanation": "**Choice B is correct.** The move is concessive — granting peer review's documented weaknesses while asserting its countervailing value — and \"Even so,\" does precisely that.\n\n**The Full Solution:**\n- The first sentence documents a weakness: reviewers miss most of the errors planted in manuscripts.\n- The second pulls the opposite way: most researchers say peer review improved their own work.\n- The needed transition concedes the first point while asserting the second.\n\n**Why the other choices are wrong:**\n- A: \"Accordingly\" claims the second sentence follows from the first, but researchers' approval of peer review does not follow from reviewers missing errors; it cuts against that weakness.\n- C: \"In other words\" promises a restatement, yet the second sentence introduces new, opposing evidence.\n- D: \"For example\" would make the survey result an instance of reviewers missing errors, which it is not.",
+ "_meta": {
+  "source": "Schroter et al., J. R. Soc. Med. 101 (2008): BMJ reviewers detected on average 2.6-3.1 of 9 major errors; Sense About Science Peer Review Survey 2009 (~4,000 respondents): 91% said peer review improved their last paper"
+ }
 }

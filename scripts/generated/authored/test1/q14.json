@@ -6,40 +6,35 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "A warmer atmosphere holds more water vapor, and climate models have long predicted that this will change where rain and snow fall rather than simply increasing precipitation everywhere. Four decades of observations now allow that prediction to be checked. Drawing on the Sixth Assessment Report of the Intergovernmental Panel on Climate Change, a student claims that the observed changes have differed sharply from one latitudinal band to the next and that scientists' confidence in them differs as well. In support of this claim, the student notes that ______",
+ "passage": "Jupiter and Saturn are made mostly of hydrogen and helium, the lightest elements, while Uranus and Neptune contain larger proportions of heavier substances such as water, ammonia, and methane. A student claims that this difference in composition, not size alone, shapes the planets' densities: the two ice giants are far less massive than the gas giants but are not correspondingly less dense. In support of this claim, the student notes that ______",
  "questionTable": {
   "type": "table",
-  "caption": "Observed annual precipitation change by latitudinal band, 1981-2020 (percent relative to the 1961-1990 average)",
+  "caption": "Mass and mean density of the four giant planets",
   "headers": [
-   "Latitudinal band",
-   "Change (%)",
-   "Confidence"
+   "Planet",
+   "Mass (Earth = 1)",
+   "Mean density (g/cm³)"
   ],
   "rows": [
    [
-    "60-90°N (high northern)",
-    "+8.2",
-    "high"
+    "Jupiter",
+    "318",
+    "1.33"
    ],
    [
-    "30-60°N (mid northern)",
-    "+1.7",
-    "medium"
+    "Saturn",
+    "95.1",
+    "0.69"
    ],
    [
-    "0-30°N (tropical northern)",
-    "-0.4",
-    "low"
+    "Uranus",
+    "14.5",
+    "1.27"
    ],
    [
-    "0-30°S (tropical southern)",
-    "+1.1",
-    "medium"
-   ],
-   [
-    "30-60°S (mid southern)",
-    "+2.6",
-    "medium"
+    "Neptune",
+    "17.1",
+    "1.64"
    ]
   ]
  },
@@ -47,24 +42,24 @@
  "choices": [
   {
    "id": "A",
-   "text": "precipitation in the 60-90°N band rose by 8.2 percent with high confidence, while the 0-30°N band showed a decrease of 0.4 percent assigned low confidence."
+   "text": "Neptune has less than one-fifth the mass of Saturn, yet its density of 1.64 g/cm³ is more than twice Saturn's density of 0.69 g/cm³."
   },
   {
    "id": "B",
-   "text": "every latitudinal band in the table showed an increase in precipitation, although the increases ranged from 1.1 percent to 8.2 percent."
+   "text": "Jupiter has the greatest mass of the four planets, about 318 times the mass of Earth, and a mean density of 1.33 grams per cubic centimeter."
   },
   {
    "id": "C",
-   "text": "the two bands nearest the equator changed by less than 2 percent, and neither change was assigned high confidence."
+   "text": "Uranus and Neptune differ in mass by less than 3 Earth masses, the smallest difference between any two of the four planets."
   },
   {
    "id": "D",
-   "text": "the changes assigned medium confidence ranged from 1.1 percent to 2.6 percent, a narrower range than the table's full set of changes."
+   "text": "Uranus, the least massive of the four planets, is also the least dense, with a density of 1.27 g/cm³."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The claim has two parts — the changes differ sharply by latitude, and confidence in them differs — and A is the only choice that supplies data for both.\n\n**The Full Solution:**\n- The table's largest change is the 8.2 percent increase in the 60-90°N band, assigned high confidence.\n- Its smallest is the 0.4 percent decrease in the 0-30°N band, assigned low confidence.\n- Setting those two rows side by side shows both a sharp difference between latitudes and a difference in confidence, which is exactly what the student claims.\n\n**Why the other choices are wrong:**\n- B: The table contradicts it. The 0-30°N band decreased by 0.4 percent.\n- C: The two bands nearest the equator are the ones most alike in size of change, so this shows similarity rather than the sharp difference claimed.\n- D: It reports only the bands assigned medium confidence, so it cannot show that confidence differs across bands.",
+ "explanation": "**Choice A is correct.** The claim has two parts — the ice giants are far less massive than the gas giants, and they are not correspondingly less dense — and A is the only choice that uses the table to show both.\n\n**The Full Solution:**\n- Neptune's mass is 17.1 Earth masses, compared with Saturn's 95.1, so Neptune has less than one-fifth of Saturn's mass.\n- Neptune's density, 1.64 g/cm³, is more than twice Saturn's 0.69 g/cm³.\n- A planet with far less mass but much greater density shows that size alone does not set density, which is exactly what the student claims.\n\n**Why the other choices are wrong:**\n- B: It describes Jupiter alone, so it makes no comparison between the gas giants and the ice giants.\n- C: It compares the masses of the two ice giants with each other and says nothing about density.\n- D: The table contradicts it. Saturn, not Uranus, is the least dense planet, at 0.69 g/cm³.",
  "_meta": {
-  "source": "quantitativeData.json qd-011 — IPCC AR6 WG1, Chapter 8 (Water Cycle Changes); observed annual precipitation change by latitudinal band"
+  "source": "NASA NSSDC Planetary Fact Sheet (mass 10^24 kg: Earth 5.97, Jupiter 1898, Saturn 568, Uranus 86.8, Neptune 102; density kg/m3: 1326, 687, 1270, 1638); ice-giant composition per NASA. Replaces a table wrongly attributed to IPCC AR6."
  }
 }

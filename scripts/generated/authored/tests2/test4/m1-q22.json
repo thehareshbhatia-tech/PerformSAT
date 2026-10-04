@@ -1,6 +1,6 @@
 {
  "id": 22,
- "question": "A swimmer's pace over an entire open-water race was $1$ minute $15$ seconds for every $100$ meters swum. At that pace, what was the swimmer's speed, in kilometers per hour?",
+ "question": "A swimmer swam a race at a constant pace of $1$ minute $15$ seconds per $100$ meters. What was the swimmer's speed, in kilometers per hour?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "B": "reads the 75-second split as the time for a whole kilometer: 3,600/75 = 48",
-  "C": "computes meters per minute, 100/1.25 = 80, and never converts to kilometers per hour",
-  "D": "computes meters per hour, (100/75)(3,600) = 4,800, and stops before converting meters to kilometers"
+  "B": "treats 100 meters as 1 kilometer when converting, which makes the answer 10 times too large",
+  "C": "gives the speed in meters per minute, 100/1.25 = 80, without converting to kilometers per hour",
+  "D": "gives the speed in meters per hour, 80(60) = 4,800, without converting meters to kilometers"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Unit Conversion**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** $100$ meters every $75$ seconds is $1$ kilometer every $750$ seconds, and $\\dfrac{3{,}600}{750} = 4.8$.\n\n**The Full Solution:**\nStep 1: Write the pace in a single unit of time: $1$ minute $15$ seconds is $75$ seconds per $100$ meters.\nStep 2: A kilometer is $1{,}000$ meters, which is ten of those $100$-meter lengths, so a kilometer takes $10 \\times 75 = 750$ seconds.\nStep 3: An hour is $3{,}600$ seconds, so the swimmer covers $\\dfrac{3{,}600}{750} = 4.8$ kilometers in an hour.\nCheck: $4.8$ kilometers is $4{,}800$ meters in $3{,}600$ seconds, which is $100$ meters every $75$ seconds. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($48$): reads the $75$-second split as the time for a whole kilometer, giving $\\dfrac{3{,}600}{75} = 48$ — ten times too fast.\n* Choice C ($80$): computes $\\dfrac{100}{1.25} = 80$, the right arithmetic in the wrong units; that is meters per minute.\n* Choice D ($4{,}800$): computes $\\dfrac{100}{75} \\cdot 3{,}600 = 4{,}800$ meters per hour and stops one conversion short.\n\n**Test Day Takeaway:** Convert a pace to the time for one whole unit of distance before inverting it — a rate quoted per $100$ meters hides a factor of ten from every step that follows."
+ "explanation": "**SAT Pattern: Unit Conversion**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** $1$ minute $15$ seconds is $1.25$ minutes, so the swimmer covers $\\frac{100}{1.25} = 80$ meters per minute, or $80(60) = 4{,}800$ meters per hour, which is $4.8$ kilometers per hour.\n\n**The Full Solution:**\nStep 1: Write the time in minutes: $1$ minute $15$ seconds is $1.25$ minutes, so the speed is $\\frac{100}{1.25} = 80$ meters per minute.\nStep 2: Convert to meters per hour: $80(60) = 4{,}800$ meters per hour.\nStep 3: Convert to kilometers: $\\frac{4{,}800}{1{,}000} = 4.8$ kilometers per hour. Check: $1$ kilometer is ten $100$-meter lengths, which take $10(1.25) = 12.5$ minutes, and $\\frac{60}{12.5} = 4.8$ kilometers per hour ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($48$): treats $100$ meters as one kilometer instead of one-tenth of a kilometer, so the result is $10$ times too large.\n* Choice C ($80$): this is the speed in meters per minute; it still has to be converted to kilometers per hour.\n* Choice D ($4{,}800$): this is the speed in meters per hour; dividing by $1{,}000$ gives kilometers.\n\n**Test Day Takeaway:** Turn a pace (time per distance) into a speed (distance per time), then convert one unit at a time; a swimmer's speed of a few kilometers per hour is a good sense check."
 }

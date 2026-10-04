@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 1,
- "passage": "Coyotes were once animals of open prairie, active mostly at dawn and dusk. Yet coyotes now live in nearly every large city in the United States, and researchers who fit urban coyotes with tracking collars have documented a striking shift: city coyotes do most of their moving and hunting late at night, when streets are quiet, and spend the busy daylight hours resting in patches of cover such as cemeteries, rail corridors, and golf courses. The animals have not simply moved into cities; they have reorganized their daily routines around human activity.",
+ "passage": "Coyotes were once animals of open prairie, active mostly at dawn and dusk. Today, however, coyotes live in cities across the United States, and researchers who have fitted coyotes in the Chicago area with tracking collars have documented a striking shift: city coyotes do most of their moving and hunting late at night, when streets are quiet, and spend the busy daylight hours resting in patches of cover such as cemeteries and golf courses. The animals have not simply moved into cities; they have reorganized their daily routines around human activity.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
@@ -23,7 +23,7 @@
   },
   {
    "id": "D",
-   "text": "Coyotes strongly prefer sheltered urban habitats such as cemeteries, rail corridors, and golf courses to the open prairie landscapes where the species formerly lived."
+   "text": "Coyotes strongly prefer sheltered urban habitats such as cemeteries and golf courses to the open prairie landscapes where the species formerly lived."
   }
  ],
  "correctAnswer": "B",

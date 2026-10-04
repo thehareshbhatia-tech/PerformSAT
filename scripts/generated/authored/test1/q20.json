@@ -6,26 +6,30 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 1,
- "passage": "A seismologist at a coastal observatory ______ decades-old paper seismograms when she noticed a slow, repeating flutter in the traces — the signature, later analysis showed, of episodes in which two tectonic plates creep past each other for weeks without producing a felt earthquake.",
+ "passage": "In September 1928, bacteriologist Alexander Fleming ______ culture plates that had sat on his laboratory bench during a vacation when he noticed that a mold growing on one plate had killed the bacteria around it — the observation that led to penicillin.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "reexamines"
+   "text": "sorts"
   },
   {
    "id": "B",
-   "text": "has reexamined"
+   "text": "has sorted"
   },
   {
    "id": "C",
-   "text": "will reexamine"
+   "text": "will sort"
   },
   {
    "id": "D",
-   "text": "was reexamining"
+   "text": "was sorting"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** An interrupted past action takes the past progressive: \"was reexamining ... when she noticed.\"\n\n**The Full Solution:**\n- The sentence narrates an interruption: the noticing (\"when she noticed\") happened at a point during an ongoing activity.\n- English marks that ongoing past frame with the past progressive, so the blank must be \"was reexamining.\"\n\n**Why the other choices are wrong:**\n- A: Present tense clashes with the past-tense \"noticed.\"\n- B: The present perfect describes a completed action with present relevance — it cannot serve as the backdrop for a past interruption.\n- C: Future tense is incompatible with the past narrative altogether."
+ "explanation": "**Choice D is correct.** An interrupted past action takes the past progressive: \"was sorting ... when he noticed.\"\n\n**The Full Solution:**\n- The sentence narrates an interruption: the noticing (\"when he noticed\") happened at a point during an ongoing activity.\n- English marks that ongoing past frame with the past progressive, so the blank must be \"was sorting.\"\n\n**Why the other choices are wrong:**\n- A: Present tense clashes with the past-tense \"noticed\" and the date \"In September 1928.\"\n- B: The present perfect describes a completed action with present relevance — it cannot serve as the backdrop for a past interruption.\n- C: Future tense is incompatible with the past narrative altogether.",
+ "_meta": {
+  "rule": "past progressive for an interrupted past action",
+  "anchor": "Alexander Fleming, September 1928: mold on a culture plate killed surrounding staphylococci after his return from holiday — discovery of penicillin"
+ }
 }

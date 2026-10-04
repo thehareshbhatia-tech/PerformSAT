@@ -36,6 +36,8 @@ import {
 import { SKILL_TO_CB, CB_SKILL_TO_DOMAIN, M2_FLOW, checkUniquenessSliding, tokenize } from './calibrateModule.mjs';
 import { CB_MATH_SKILLS, PATTERN_TO_CB_SKILL } from '../src/data/questions/cbSkillTaxonomy.js';
 import { extractSatPattern } from '../src/data/questions/extractSatPattern.js';
+import { registerItem, registerModule } from './registerGate.mjs';
+import { checkMath, latexToTokens } from './copyrightGate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -56,8 +58,12 @@ const FRESH_WARN = 0.45;
 // --allow-seen (or ALLOW_SEEN=1): the official-register pass (2026-09-26) authors bare/terse stems on purpose, which the
 // digit-masked freshness gate reads as twins of earlier items. With this flag freshness is reported as a warning, never a FAIL.
 // The official-corpus uniqueness gate (copyright) is NOT affected.
-const ALLOW_SEEN = process.env.ALLOW_SEEN === '1' || process.argv.includes('--allow-seen');
-const MIN_STEM_WORDS = 10;
+// Register v3 (2026-10-04, docs/TEST_REGISTER_V3_SPEC.md): wording freshness is OFF by default. College Board
+// repeats its question sentences on purpose, and punishing that repetition is what pushed stems to 30-50 words.
+// Identity now lives in the MATH: copyrightGate.checkMath (vs the official corpus) + mathTwinErrors (vs our own items).
+// --strict-fresh restores the v2 wording gate.
+const ALLOW_SEEN = !process.argv.includes('--strict-fresh');
+const MIN_STEM_WORDS = 4; // v3: bare official-form stems ("$5x + 8 = 43$ What value of x…") are allowed
 // Scenario palettes: each chunk gets three themes so parallel authors never collide on a scenario
 // and the same theme does not recur module after module. Rotates by (test, module).
 const PALETTES = [
@@ -366,6 +372,21 @@ function nearest(text, corpus, skipId = null) {
   return best;
 }
 
+// ─── math twins (our own items) ────────────────────────────────────────────
+/** canonical key of a stem's math: all $…$ spans tokenized; '' when the stem has under 5 math tokens or < 2 numbers */
+function mathKey(question) {
+  const toks = [...String(question || '').replace(/\\\$/g, ' ').matchAll(/\$([^$]+)\$/g)].flatMap(m => latexToTokens(m[1]));
+  return toks.length >= 5 && toks.filter(t => /^-?\d*\.?\d+$/.test(t)).length >= 2 ? toks.join(' ') : '';
+}
+function mathTwinIndex() {
+  const m = new Map(); if (!fs.existsSync(AUTHORED)) return m;
+  for (const dir of fs.readdirSync(AUTHORED)) for (const f of fs.readdirSync(path.join(AUTHORED, dir))) {
+    if (!f.endsWith('.json')) continue;
+    try { const a = JSON.parse(fs.readFileSync(path.join(AUTHORED, dir, f), 'utf8')); const k = mathKey(a.question); if (!k) continue; if (!m.has(k)) m.set(k, []); m.get(k).push(`${dir}/${f.replace('.json', '')}`); } catch { /* reported by check */ }
+  }
+  return m;
+}
+
 // ─── check ─────────────────────────────────────────────────────────────────
 function testChecks(row, a, chunk) {
   const errs = [], warns = [];
@@ -374,7 +395,9 @@ function testChecks(row, a, chunk) {
     for (const L of ['A', 'B', 'C', 'D']) if (L !== a.correctAnswer && !(notes[L] && String(notes[L]).trim())) errs.push(`distractorNotes.${L} missing (every wrong letter needs a named error — the lint requires the // distractor: comment)`);
   }
   const wc = wordCount(a.question);
-  if (wc < MIN_STEM_WORDS && !a.diagram && !a.questionTable) errs.push(`stem ${wc} words (<${MIN_STEM_WORDS}) — give the setup in words; bare equations invite twins`);
+  if (wc < MIN_STEM_WORDS && !a.diagram && !a.questionTable) errs.push(`stem ${wc} words (<${MIN_STEM_WORDS})`);
+  const reg = registerItem(a, { difficulty: row.difficulty, cbSkillLabel: row.cbSkillLabel }); errs.push(...reg.errs); warns.push(...reg.warns);
+  const cr = checkMath(a); errs.push(...cr.fails.map(f => `COPYRIGHT ${f}`)); warns.push(...cr.warns.map(w => `copyright ${w}`));
   if (row.figure && !a.diagram && !a.questionTable) errs.push('this slot is a FIGURE slot in the plan — add a real diagram/questionTable (params must match the numbers)');
   if (a.skills !== undefined && JSON.stringify(a.skills) !== JSON.stringify(row.skills)) warns.push(`skills in JSON ignored (plan assigns ${JSON.stringify(row.skills)})`);
   // Mirror of the app's DiagramValidator required-param rules (src/components/graphs/DiagramValidator.js —
@@ -389,6 +412,8 @@ function testChecks(row, a, chunk) {
     if (T === 'table') req((Array.isArray(P.headers) && Array.isArray(P.rows)) || (P.xHeader && P.yHeader), 'must have headers/rows or xHeader/yHeader');
     if (T === 'scatterplot') req(Array.isArray(P.points) && P.points.every(pt => (Array.isArray(pt) && pt.length === 2 && pt.every(Number.isFinite)) || (pt && Number.isFinite(pt.x) && Number.isFinite(pt.y))), 'every point must be [x, y] or {x, y} with finite numbers');
   }
+  // SATIntersectingLines draws the lines 60° apart unless told otherwise — the figure must agree with its labels
+  if (a.diagram?.type === 'intersectingLines' && !(a.diagram.params && Number.isFinite(a.diagram.params.angle0Measure))) errs.push('intersectingLines: set params.angle0Measure to the true measure (degrees) of angles[0] so the drawn angles match the labels');
   // SATLinearGraph applies ONE gridInterval to both axes (SATGraphCore.renderGrid) — a tall yRange with a small
   // interval draws dozens of ~4px gridlines; the line must also stay inside the window at both x ends.
   if (a.diagram?.type === 'linearGraph' && a.diagram.params && typeof a.diagram.params === 'object') {
@@ -424,6 +449,7 @@ function freshnessOf(row, a, siblings) {
 async function check(chunks) {
   let errors = 0, missing = 0, checked = 0; const lens = { easy: [], medium: [], hard: [] };
   const siblings = allAuthoredStems();
+  const twins = mathTwinIndex();
   for (const chunk of chunks) {
     const ctx = { numeric: 0, ascending: 0, figures: 0, stems: [] }; let keyTally = { A: 0, B: 0, C: 0, D: 0 }; let present = 0;
     for (const row of chunk.items) {
@@ -434,6 +460,7 @@ async function check(chunks) {
       const a = got.data;
       const { errs, warns } = checkItem({ ...row, kind: 'shard', source: chunk.chunk }, a, ctx);
       const t = testChecks(row, a, chunk); errs.push(...t.errs); warns.push(...t.warns);
+      const tw = twins.get(mathKey(a.question)); if (tw && tw.length > 1) errs.push(`math twin: the same expression with the same numbers is in ${tw.filter(x => x !== `test${row.test}/${row.fileId}`).join(', ')} — change the numbers`);
       const fr = freshnessOf(row, a, siblings);
       if (fr.seen.dice >= FRESH_FAIL) (ALLOW_SEEN ? warns : errs).push(`FRESHNESS: stem is a near-copy of a question students have seen (${fr.seen.id}, Dice ${fr.seen.dice.toFixed(2)} ≥ ${FRESH_FAIL}) — change the setup, not just the numbers`);
       else if (fr.seen.dice >= FRESH_WARN) warns.push(`freshness: close to seen ${fr.seen.id} (Dice ${fr.seen.dice.toFixed(2)})`);
@@ -447,6 +474,12 @@ async function check(chunks) {
     // official-corpus uniqueness (existing gate, Jaccard/3-gram)
     const off = officialIndex();
     for (const s of ctx.stems) { if (tokenize(s.text).length < 12) continue; const r = checkUniquenessSliding(s.text, off); if (!r.pass) { errors++; console.error(`FAIL ${chunk.chunk}/${s.id}: too close to official item ${r.closestId} (jaccard ${r.jaccard}, ngram ${r.ngramOverlap})`); } }
+    if (present === chunk.count) {
+      const rows = chunk.items.map(row => { const g = readAuthored(row.test, row.fileId); return g && !g.error ? { q: g.data, difficulty: row.difficulty } : null; }).filter(Boolean);
+      const rm = registerModule(rows, { label: chunk.chunk });
+      rm.errs.forEach(e => { errors++; console.error(`FAIL ${e}`); });
+      console.log(`${chunk.chunk}: register short ${Math.round(rm.info.short * 100)}% · eqFirst ${Math.round(rm.info.eqFirst * 100)}% · stock ${Math.round(rm.info.stock * 100)}% · medians E${rm.info.median.easy}/M${rm.info.median.medium}/H${rm.info.median.hard}`);
+    }
     if (present) {
       const maxKey = Math.max(...Object.values(keyTally)); const mc = Object.values(keyTally).reduce((x, y) => x + y, 0);
       if (present === chunk.count && ctx.figures < chunk.figureTarget) { errors++; console.error(`FAIL ${chunk.chunk}: ${ctx.figures} figures < target ${chunk.figureTarget}`); }

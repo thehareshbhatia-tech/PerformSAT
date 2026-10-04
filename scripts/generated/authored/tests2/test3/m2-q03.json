@@ -1,29 +1,29 @@
 {
  "id": 3,
- "question": "A pharmacist starts with $900$ milliliters of a stock solution, prepares $n$ identical $15$-milliliter doses from it, and discards $45$ milliliters of residue, leaving $180$ milliliters of the stock solution. What is the value of $n$?",
+ "question": "$\\frac{3}{4}(8x - 20) = 2x + 21$\nWhat value of $x$ is the solution to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "$45$"
+   "text": "$\\frac{3}{2}$"
   },
   {
    "id": "B",
-   "text": "$48$"
+   "text": "$\\frac{9}{2}$"
   },
   {
    "id": "C",
-   "text": "$51$"
+   "text": "$9$"
   },
   {
    "id": "D",
-   "text": "$57$"
+   "text": "$\\frac{41}{4}$"
   }
  ],
+ "correctAnswer": "C",
  "distractorNotes": {
-  "B": "ignores the 45 mL of discarded residue: (900 - 180)/15 = 48",
-  "C": "adds the discarded residue instead of subtracting it: (900 + 45 - 180)/15 = 51",
-  "D": "forgets the 180 mL still left in the container: (900 - 45)/15 = 57"
+  "A": "subtracts 15 from 21 instead of adding it when isolating the x-term: 4x = 6, so x = 3/2",
+  "B": "adds 2x to both sides instead of subtracting it: 8x = 36, so x = 9/2",
+  "D": "multiplies only 8x by 3/4 and leaves -20 unchanged: 6x - 20 = 2x + 21, so x = 41/4"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The doses account for $900 - 45 - 180 = 675$ milliliters, and $\\frac{675}{15} = 45$.\n\n**The Full Solution:**\nStep 1: Every milliliter of the original $900$ ends up in one of three places: the doses ($15n$), the residue ($45$), or what is left ($180$). That gives $15n + 45 + 180 = 900$.\nStep 2: Combine the constants and isolate the variable term: $15n + 225 = 900$, so $15n = 675$.\nStep 3: Divide: $n = \\frac{675}{15} = 45$. Check: $15(45) + 45 + 180 = 675 + 225 = 900$ milliliters. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($48$): drops the $45$ milliliters of residue from the accounting, solving $15n + 180 = 900$.\n* Choice C ($51$): treats the residue as something added to the supply rather than taken from it, solving $15n + 180 = 945$.\n* Choice D ($57$): forgets that $180$ milliliters is still in the container, solving $15n + 45 = 900$.\n\n**Test Day Takeaway:** In a multi-step linear setup, write one equation that accounts for the whole starting amount before you solve. Every number in the stem should appear once in that equation — if one is missing, the answer is one of the traps."
+ "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Distributing gives $6x - 15 = 2x + 21$, so $4x = 36$ and $x = 9$.\n\n**The Full Solution:**\nStep 1: Distribute $\\frac{3}{4}$ to both terms in the parentheses: $\\frac{3}{4}(8x) = 6x$ and $\\frac{3}{4}(-20) = -15$, so the equation becomes $6x - 15 = 2x + 21$.\nStep 2: Subtract $2x$ from both sides and add $15$ to both sides: $4x = 36$.\nStep 3: Divide both sides by $4$: $x = 9$. Check: the left side is $\\frac{3}{4}(72 - 20) = \\frac{3}{4}(52) = 39$, and the right side is $2(9) + 21 = 39$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{2}$): subtracts $15$ instead of adding it, getting $4x = 21 - 15 = 6$.\n* Choice B ($\\frac{9}{2}$): adds $2x$ to both sides instead of subtracting it, getting $8x = 36$.\n* Choice D ($\\frac{41}{4}$): multiplies only $8x$ by $\\frac{3}{4}$, leaving $6x - 20 = 2x + 21$ and $4x = 41$.\n\n**Test Day Takeaway:** A fraction in front of parentheses multiplies every term inside; distribute fully, then collect the variable terms on one side with opposite operations."
 }

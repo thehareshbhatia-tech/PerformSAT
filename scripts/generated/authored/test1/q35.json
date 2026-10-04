@@ -9,32 +9,35 @@
  "passages": [
   {
    "label": "Text 1",
-   "text": "Thin sections cut from the limb bones of many non-avian dinosaurs show lines of arrested growth — concentric rings, like a tree's, that record annual pauses in bone deposition. Because today's reptiles lay down such rings when cool seasons slow their metabolism, while mammals and birds typically grow bone continuously, some paleontologists have read these rings as evidence that dinosaurs' body temperatures, and hence their metabolic rates, tracked the seasons the way a crocodile's do — that dinosaurs were, in this respect, fundamentally reptilian."
+   "text": "Thin sections cut from the limb bones of many dinosaurs show lines of arrested growth: rings, like a tree's, that record annual pauses in bone growth. Because today's reptiles form such rings when cool seasons slow their metabolism, while mammals and birds were long thought to grow bone continuously, some paleontologists have read the rings as evidence that dinosaurs' metabolic rates tracked the seasons the way a crocodile's do — that dinosaurs were, in this respect, fundamentally reptilian."
   },
   {
    "label": "Text 2",
-   "text": "Growth rings register interruptions in growth, not their cause: bears, deer, and other unambiguously warm-blooded animals arrest bone growth during hibernation or seasonal food shortage, and rings have been documented in mammals living at high latitudes. Seeking a proxy tied to temperature itself, a team led by geochemist Robert Eagle examined the clustering of heavy isotopes in fossil eggshell minerals, which varies with the temperature of the body in which the shell formed. The team's analyses of eggshells from multiple dinosaur lineages yielded body temperatures markedly warmer than the animals' surroundings."
+   "text": "Rings record pauses in growth, not their cause. Paleontologist Meike Köhler found such rings in the leg bones of more than 100 modern ruminants, including deer and antelope — warm-blooded animals that stop growing during harsh seasons. A team led by geochemist Robin Dawson, meanwhile, measured the ordering of heavy isotopes in fossil eggshells, which reflects the temperature of the body in which a shell formed. Eggshells from three major dinosaur groups indicated body temperatures above those of the animals' surroundings."
   }
  ],
  "question": "Based on the texts, how would the author of Text 2 most likely respond to the conclusion presented in Text 1?",
  "choices": [
   {
    "id": "A",
-   "text": "It concedes that growth rings provide the most reliable available record of dinosaur metabolism, even though eggshell isotopes suggest a different conclusion."
+   "text": "It concedes that growth rings are the most reliable record of dinosaur metabolism, even though eggshell isotopes suggest a different conclusion."
   },
   {
    "id": "B",
-   "text": "It objects that growth rings cannot bear the interpretive weight placed on them, since warm-blooded animals also produce such rings, and it cites independent evidence that dinosaur body temperatures were elevated."
+   "text": "It objects that growth rings cannot support that conclusion, since warm-blooded animals also form them, and cites independent evidence of elevated dinosaur body temperatures."
   },
   {
    "id": "C",
-   "text": "Lines of arrested growth, it argues, are artifacts of fossilization rather than records of any interruption in the animals' growth."
+   "text": "It argues that lines of arrested growth are artifacts of fossilization rather than records of pauses in the animals' growth."
   },
   {
    "id": "D",
-   "text": "While agreeing that dinosaurs' metabolic rates tracked the seasons in the way Text 1 describes, it attributes that seasonal pattern to recurring, region-wide shortages of food rather than to changes in the animals' body temperature."
+   "text": "It agrees that dinosaurs' metabolic rates tracked the seasons but attributes that pattern to seasonal food shortages rather than to changes in body temperature."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** Text 2 attacks Text 1's inferential step — rings register growth interruptions, not their cause — and then supplies independent isotope evidence pointing to warm bodies.\n\n**The Full Solution:**\n- Text 1 infers reptile-like metabolism from growth rings, because rings appear in seasonal, cool-metabolism reptiles.\n- Text 2 rejects exactly that step: rings \"register interruptions in growth, not their cause,\" and demonstrably warm-blooded animals such as hibernating bears produce them too — so rings cannot discriminate between the hypotheses.\n- Text 2 then adds evidence on the question rings cannot settle: eggshell isotope clustering, a proxy for the body temperature that formed the shell, indicates temperatures \"markedly warmer than the animals' surroundings.\"\n\n**Why the other choices are wrong:**\n- A: Text 2 treats rings as uninformative about metabolism, not as the most reliable record.\n- C: It overstates the objection — Text 2 accepts that rings record real growth interruptions, disputing only what causes them.\n- D: It attributes an agreement Text 2 rejects: the isotope data point away from seasonal, environment-tracking body temperatures."
+ "explanation": "**Choice B is correct.** Text 2 attacks Text 1's inferential step — rings record pauses in growth, not their cause — and then supplies independent isotope evidence pointing to warm bodies.\n\n**The Full Solution:**\n- Text 1 infers reptile-like metabolism from growth rings, because rings appear in reptiles whose metabolism slows in cool seasons.\n- Text 2 rejects exactly that step: rings \"record pauses in growth, not their cause,\" and Köhler found them in warm-blooded ruminants such as deer and antelope — so rings cannot tell the two hypotheses apart.\n- Text 2 then adds evidence on the question rings cannot settle: eggshell isotope ordering, which reflects the body temperature that formed the shell, indicates dinosaur body temperatures \"above those of the animals' surroundings.\"\n\n**Why the other choices are wrong:**\n- A: Text 2 treats rings as uninformative about metabolism, not as the most reliable record.\n- C: It overstates the objection — Text 2 accepts that rings record real pauses in growth, disputing only what causes them.\n- D: It attributes an agreement Text 2 rejects: the isotope data point away from body temperatures that simply track the environment.",
+ "_meta": {
+  "source": "Text 2: Köhler et al., Nature 487 (2012) — lines of arrested growth in >100 ruminant specimens; Dawson et al., Science Advances 6 (2020) — clumped-isotope eggshell temperatures for Ornithischia, Sauropodomorpha, Theropoda above environmental temperatures"
+ }
 }

@@ -1,6 +1,6 @@
 {
  "id": 2,
- "question": "A national park's visitor center recorded $6{,}000$ shuttle boardings in June and $4{,}800$ in July. If the percent decrease from July to August equals the percent decrease from June to July, how many shuttle boardings are projected for August?",
+ "question": "The number of visitors to a museum decreased from $6{,}000$ in June to $4{,}800$ in July. If the number decreased by the same percentage from July to August, how many visitors did the museum have in August?",
  "choices": [
   {
    "id": "A",
@@ -19,11 +19,11 @@
    "text": "$5{,}760$"
   }
  ],
+ "correctAnswer": "C",
  "distractorNotes": {
   "A": "reports the size of the July-to-August decrease, 0.20 x 4800 = 960, not the August total",
-  "B": "subtracts the same number of boardings (1,200) instead of the same percent: 4800 - 1200 = 3600",
-  "D": "increases July by 20% instead of decreasing it: 4800 x 1.20 = 5760"
+  "B": "subtracts the same number of visitors (1,200) instead of the same percentage: 4800 - 1200 = 3600",
+  "D": "increases the July total by 20% instead of decreasing it: 1.20 x 4800 = 5760"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Percent Decrease**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** July is $\\frac{4800}{6000} = 0.8$ of June, so August is $0.8$ of July: $4800(0.8) = 3840$.\n\n**The Full Solution:**\nStep 1: The June-to-July decrease is $6000 - 4800 = 1200$ boardings, so the percent decrease is $\\frac{1200}{6000} = 0.20$, or $20\\%$.\nStep 2: A $20\\%$ decrease multiplies a value by $1 - 0.20 = 0.80$. Applying that same percent to July gives $4800(0.80)$.\nStep 3: $4800(0.80) = 3840$ boardings. Check: $4800 - 3840 = 960$, and $\\frac{960}{4800} = 0.20$, the required $20\\%$ decrease. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($960$): this is the decrease itself, $0.20(4800) = 960$, not the number of boardings left in August.\n* Choice B ($3{,}600$): repeats the drop of $1{,}200$ boardings rather than the drop of $20\\%$, giving $4800 - 1200 = 3600$. Equal percents are not equal amounts once the base shrinks.\n* Choice D ($5{,}760$): multiplies by $1.20$ instead of $0.80$, turning the decrease into an increase.\n\n**Test Day Takeaway:** Convert a percent change into a single multiplier ($0.80$ here) before you use it twice. Repeating an amount and repeating a percent give different answers, and the SAT always builds a choice from the wrong one."
+ "explanation": "**SAT Pattern: Percent Decrease**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** July is $\\frac{4{,}800}{6{,}000} = 0.80$ of June, a $20\\%$ decrease, so August is $0.80(4{,}800) = 3{,}840$.\n\n**The Full Solution:**\nStep 1: From June to July the number fell by $6{,}000 - 4{,}800 = 1{,}200$ visitors, which is $\\frac{1{,}200}{6{,}000} = 0.20$, or $20\\%$, of the June number.\nStep 2: A $20\\%$ decrease leaves $100\\% - 20\\% = 80\\%$ of the starting number, so the multiplier for each month is $0.80$.\nStep 3: Apply the same multiplier to July: $0.80(4{,}800) = 3{,}840$. Check: the drop from July to August is $4{,}800 - 3{,}840 = 960$, and $\\frac{960}{4{,}800} = 0.20$, the same $20\\%$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($960$): this is the number of visitors lost from July to August, not the number of visitors in August.\n* Choice B ($3{,}600$): subtracts the same $1{,}200$ visitors again. A $1{,}200$-visitor drop from $4{,}800$ is a $25\\%$ decrease, not $20\\%$.\n* Choice D ($5{,}760$): multiplies by $1.20$, which is a $20\\%$ increase rather than a decrease.\n\n**Test Day Takeaway:** \"The same percentage\" means the same multiplier, not the same amount; find the multiplier from the first change and apply it to the most recent value."
 }

@@ -1,6 +1,6 @@
 {
  "id": 2,
- "question": "A bicycle shop sold $58$ helmets and tire tubes combined in one week and took in $\\$1{,}040$ from these sales. Each helmet sold for $\\$32$ and each tire tube sold for $\\$8$. How many helmets did the shop sell that week?",
+ "question": "A theater sold $58$ tickets for a total of $\\$1{,}040$. Adult tickets cost $\\$32$ each, and child tickets cost $\\$8$ each. How many adult tickets did the theater sell?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "divides the leftover money by the helmet price instead of by the price difference: (1040 - 464)/32 = 18",
-  "C": "treats every sale as one helmet paired with one tube, computing 1040/(32 + 8) = 26",
-  "D": "solves the system correctly but reports 34, the number of tire tubes, instead of the number of helmets"
+  "A": "prices every ticket as a child ticket, then divides the leftover money by the adult price instead of by the price difference: (1040 - 464)/32 = 18",
+  "C": "treats every sale as one adult ticket paired with one child ticket, computing 1040/(32 + 8) = 26",
+  "D": "solves the system correctly but reports 34, the number of child tickets"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** If all $58$ items were tubes the shop would have taken in $8(58) = 464$ dollars. Each helmet adds $32 - 8 = 24$ dollars, so there are $\\frac{1040 - 464}{24} = 24$ helmets.\n\n**The Full Solution:**\nStep 1: Let $h$ be the number of helmets and $t$ the number of tire tubes. The count gives $h + t = 58$ and the revenue gives $32h + 8t = 1040$.\nStep 2: Substitute $t = 58 - h$ into the revenue equation: $32h + 8(58 - h) = 1040$, so $32h + 464 - 8h = 1040$ and $24h = 576$.\nStep 3: Divide: $h = 24$. Check: $t = 58 - 24 = 34$, and $32(24) + 8(34) = 768 + 272 = 1040$ dollars ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18$): subtracts the all-tubes revenue correctly but then divides by the helmet price, $\\frac{1040 - 464}{32} = 18$. The leftover money is the *extra* each helmet brings in, so it must be divided by the $\\$24$ difference in price.\n* Choice C ($26$): assumes each sale was a helmet-and-tube pair costing $\\$40$, giving $\\frac{1040}{40} = 26$. Nothing in the problem pairs the two items.\n* Choice D ($34$): the correct value of the *other* variable. Substituting for $h$ instead of $t$ lands on the tube count, so the answer must be checked against the question's wording.\n\n**Test Day Takeaway:** In a count-plus-value system, price every item at the cheaper rate first; the money left over, divided by the difference in price, counts the expensive items directly."
+ "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** If all $58$ tickets were child tickets, the total would be $8(58) = 464$ dollars. Each adult ticket adds $32 - 8 = 24$ dollars, so there are $\\frac{1040 - 464}{24} = 24$ adult tickets.\n\n**The Full Solution:**\nStep 1: Let $a$ be the number of adult tickets and $c$ the number of child tickets. The number of tickets gives $a + c = 58$, and the money gives $32a + 8c = 1040$.\nStep 2: Substitute $c = 58 - a$ into the second equation: $32a + 8(58 - a) = 1040$, so $32a + 464 - 8a = 1040$ and $24a = 576$.\nStep 3: Divide: $a = 24$. Check: $c = 58 - 24 = 34$, and $32(24) + 8(34) = 768 + 272 = 1040$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18$): finds the leftover $1040 - 464 = 576$ dollars but divides by $32$. Each adult ticket adds only $\\$24$ beyond the $\\$8$ already counted, so the leftover must be divided by $24$.\n* Choice C ($26$): assumes the tickets were sold in adult-and-child pairs costing $\\$40$, giving $\\frac{1040}{40} = 26$. Nothing in the problem pairs the tickets.\n* Choice D ($34$): the number of child tickets, the value of the other variable.\n\n**Test Day Takeaway:** In a count-and-value system, price every item at the cheaper rate first; the money left over, divided by the difference in price, counts the more expensive items."
 }

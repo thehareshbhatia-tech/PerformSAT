@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 2,
- "passage": "Before 1933, maps of the London Underground placed every station where it actually stood, so the crowded center of the city was nearly unreadable. Harry Beck's diagram drew every line horizontally, vertically, or at forty-five ______ the result was so much easier to read that transit systems worldwide soon copied it.",
+ "passage": "Before 1933, maps of the London Underground placed every station where it actually stood, so the crowded center of the city was nearly unreadable. Harry Beck's diagram drew every line horizontally, vertically, or at forty-five ______ the result was so much easier to read that transit maps around the world now follow its approach.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** \"Harry Beck's diagram drew every line horizontally, vertically, or at forty-five degrees\" and \"the result was so much easier to read that transit systems worldwide soon copied it\" are both independent clauses. A comma followed by the coordinating conjunction \"and\" is one of the correct ways to join two independent clauses.\n\n**The Full Solution:**\n- Each side of the blank has its own subject and verb (\"diagram drew\" and \"result was\"), so each could stand alone as a sentence.\n- Two independent clauses can be joined by a comma plus a coordinating conjunction (and, but, so, or), by a semicolon, or separated with a period.\n- Only choice D supplies a comma and a coordinating conjunction.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- B: A coordinating conjunction joining two independent clauses needs a comma before it.\n- C: With no punctuation and no conjunction, the two clauses run together as a fused sentence.",
+ "explanation": "**Choice D is correct.** \"Harry Beck's diagram drew every line horizontally, vertically, or at forty-five degrees\" and \"the result was so much easier to read that transit maps around the world now follow its approach\" are both independent clauses. A comma followed by the coordinating conjunction \"and\" is one of the correct ways to join two independent clauses.\n\n**The Full Solution:**\n- Each side of the blank has its own subject and verb (\"diagram drew\" and \"result was\"), so each could stand alone as a sentence.\n- Two independent clauses can be joined by a comma plus a coordinating conjunction (and, but, so, or), by a semicolon, or separated with a period.\n- Only choice D supplies a comma and a coordinating conjunction.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- B: A coordinating conjunction joining two independent clauses needs a comma before it.\n- C: With no punctuation and no conjunction, the two clauses run together as a fused sentence.",
  "_meta": {
   "rule": "sentence boundary between two independent clauses (period vs. comma splice vs. fused sentence vs. uncommaed coordination)",
   "anchor": "Harry Beck's 1933 diagram of the London Underground",

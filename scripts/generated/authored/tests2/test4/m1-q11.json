@@ -1,18 +1,18 @@
 {
  "id": 11,
- "question": "At a track meet an athlete earned points for each scoring finish according to the table. The athlete recorded $24$ scoring finishes worth a total of $100$ points. How many of those finishes were in track events?",
+ "question": "In a trivia game, a player earns the number of points shown in the table for each question answered correctly. A player answered $24$ questions correctly and earned a total of $100$ points. How many hard questions did the player answer correctly?",
  "questionTable": {
   "headers": [
-   "Event type",
-   "Points per scoring finish"
+   "Question type",
+   "Points per correct answer"
   ],
   "rows": [
    [
-    "Field",
+    "Easy",
     "$3$"
    ],
    [
-    "Track",
+    "Hard",
     "$5$"
    ]
   ]
@@ -36,10 +36,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "solves the system correctly but reports the 10 field-event finishes instead of the track finishes",
-  "C": "divides all 100 points by 5, ignoring the points earned in field events",
+  "A": "solves the system correctly but reports the 10 easy questions instead of the hard questions",
+  "C": "divides all 100 points by 5, as if every correct answer were a hard question",
   "D": "subtracts 3(24) = 72 from 100 and reports the remainder 28 without dividing by the 2-point difference"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** If all $24$ finishes were field events they would be worth $72$ points; each track finish adds $2$ more, and $\\dfrac{100 - 72}{2} = 14$.\n\n**The Full Solution:**\nStep 1: Let $f$ be the field-event finishes and $t$ the track-event finishes. Then $f + t = 24$ and $3f + 5t = 100$.\nStep 2: Substitute $f = 24 - t$ into the points equation: $3(24 - t) + 5t = 100$, or $72 + 2t = 100$.\nStep 3: Solve: $2t = 28$, so $t = 14$ track finishes (and $f = 10$).\nCheck: $3(10) + 5(14) = 30 + 70 = 100$ points from $10 + 14 = 24$ finishes. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): the system is solved correctly, but $10$ is $f$, the field-event count; the question asks for track events.\n* Choice C ($20$): divides all $100$ points by $5$, as if every point came from a track finish, which contradicts the $24$-finish total.\n* Choice D ($28$): stops at $100 - 72 = 28$, the extra points, without dividing by the $2$-point gap between the two event types.\n\n**Test Day Takeaway:** Substitute the count equation into the value equation, then reread which variable the question actually wants."
+ "explanation": "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** If all $24$ answers were easy, the player would have $3(24) = 72$ points; each hard answer adds $2$ more, so there were $\\frac{100 - 72}{2} = 14$ hard answers.\n\n**The Full Solution:**\nStep 1: Let $e$ be the number of easy questions and $h$ the number of hard questions answered correctly. Then $e + h = 24$ and $3e + 5h = 100$.\nStep 2: Substitute $e = 24 - h$ into the second equation: $3(24 - h) + 5h = 100$, so $72 + 2h = 100$.\nStep 3: Solve: $2h = 28$, so $h = 14$ (and $e = 10$). Check: $14 + 10 = 24$ and $5(14) + 3(10) = 70 + 30 = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): this is the number of easy questions, the other variable in the system.\n* Choice C ($20$): divides all $100$ points by $5$, as if every correct answer were worth $5$ points.\n* Choice D ($28$): finds the $28$ extra points but does not divide by the $2$ extra points each hard question is worth.\n\n**Test Day Takeaway:** For a count-and-total problem, write one equation for the count and one for the total, substitute, and answer for the variable the question names."
 }

@@ -1,6 +1,6 @@
 {
  "id": 13,
- "question": "A sorting line moves $c$ crates per minute, and a second line moves $9$ fewer than twice that number of crates per minute. Which expression represents the total number of crates the two lines move in $m$ minutes?",
+ "question": "A machine fills $c$ bottles per minute. A second machine fills $9$ fewer than $2$ times as many bottles per minute as the first machine. Which expression represents the total number of bottles the two machines fill in $m$ minutes?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "counts only the second line's rate, 2c - 9, and forgets the first line's c crates per minute",
-  "B": "reads nine fewer than twice as nine more than twice, adding 9 instead of subtracting it",
-  "C": "subtracts 9 from each line's rate instead of from the second line only"
+  "A": "counts only the second machine's rate, 2c - 9, and leaves out the first machine",
+  "B": "reads 9 fewer than 2 times as 9 more than 2 times, adding 9 instead of subtracting it",
+  "C": "subtracts 9 from each machine's rate instead of from the second machine's rate only"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Word-to-Expression Translation**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Together the lines move $c + (2c - 9) = 3c - 9$ crates per minute, and $m$ minutes multiplies that rate: $m(3c - 9)$.\n\n**The Full Solution:**\nStep 1: The first line moves $c$ crates per minute. Nine fewer than twice that number is $2c - 9$, the second line's rate.\nStep 2: Add the two rates: $c + 2c - 9 = 3c - 9$ crates per minute for the pair.\nStep 3: Multiply the combined rate by the number of minutes: $m(3c - 9)$. Test with $c = 10$: the lines move $10$ and $11$ crates per minute, $21$ together, and $m(3 \\cdot 10 - 9) = 21m$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($m(2c - 9)$): this is the second line alone. At $c = 10$ it gives $11m$ crates, missing the $10m$ the first line contributes.\n* Choice B ($m(3c + 9)$): this reverses the direction of the comparison. At $c = 10$ it gives $39m$, which exceeds the $21m$ the two lines actually move.\n* Choice C ($m(3c - 18)$): this takes $9$ off both rates. At $c = 10$ it gives $12m$, treating the first line as if it also lost $9$ crates per minute.\n\n**Test Day Takeaway:** Translate one phrase at a time into its own expression, add the pieces, and only then multiply by the time — subtracting a constant from the combined rate is not the same as subtracting it from each part."
+ "explanation": "**SAT Pattern: Word-to-Expression Translation**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Together the machines fill $c + (2c - 9) = 3c - 9$ bottles per minute, so in $m$ minutes they fill $m(3c - 9)$ bottles.\n\n**The Full Solution:**\nStep 1: The first machine fills $c$ bottles per minute. Nine fewer than $2$ times that is $2c - 9$, the second machine's rate.\nStep 2: Add the two rates: $c + 2c - 9 = 3c - 9$ bottles per minute.\nStep 3: Multiply the combined rate by the number of minutes: $m(3c - 9)$. Check with $c = 10$: the machines fill $10$ and $11$ bottles per minute, $21$ together, and $m(3 \\cdot 10 - 9) = 21m$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($m(2c - 9)$): this is the second machine alone. With $c = 10$ it gives $11m$, leaving out the first machine's $10m$.\n* Choice B ($m(3c + 9)$): this adds the $9$ instead of subtracting it. With $c = 10$ it gives $39m$, not $21m$.\n* Choice C ($m(3c - 18)$): this subtracts $9$ from both rates. With $c = 10$ it gives $12m$.\n\n**Test Day Takeaway:** Translate each phrase into its own expression, combine the pieces, and then multiply by the time."
 }

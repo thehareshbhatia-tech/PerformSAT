@@ -1,6 +1,6 @@
 {
  "id": 1,
- "question": "The graph shows the charge $c$, in ampere-hours, remaining in a CubeSat battery $h$ hours into a communications pass, where $h$ is measured along the horizontal axis. Which equation represents this relationship?",
+ "question": "The graph of $y = f(x)$ is shown in the $xy$-plane. Which equation defines $f$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -27,32 +27,32 @@
      6
     ]
    ],
-   "label": "c"
+   "label": "y = f(x)"
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$c = -2h + 14$"
+   "text": "$f(x) = -2x + 14$"
   },
   {
    "id": "B",
-   "text": "$c = -2h + 18$"
+   "text": "$f(x) = -2x + 18$"
   },
   {
    "id": "C",
-   "text": "$c = -\\frac{1}{2}h + 18$"
+   "text": "$f(x) = -\\frac{1}{2}x + 18$"
   },
   {
    "id": "D",
-   "text": "$c = 2h + 18$"
+   "text": "$f(x) = 2x + 18$"
   }
  ],
  "distractorNotes": {
-  "A": "correct slope but copies the charge at h = 2 as the intercept instead of extending the line back to h = 0",
-  "C": "inverts the slope fraction, dividing run by rise (4 / -8) instead of rise by run",
-  "D": "drops the negative sign, so the model has the battery gaining charge"
+  "A": "correct slope but uses the y-value at x = 2 as the y-intercept instead of the value at x = 0",
+  "C": "inverts the slope fraction, dividing the change in x by the change in y (4 / -8)",
+  "D": "drops the negative sign on the slope, so the line rises instead of falls"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Line from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** From $(2, 14)$ to $(6, 6)$ the charge falls $8$ ampere-hours over $4$ hours, so the slope is $-2$; backing up two more hours to $h = 0$ adds $4$ to $14$, giving an intercept of $18$.\n\n**The Full Solution:**\nStep 1: Read the two marked lattice points off the graph: at $h = 2$ the charge is $14$, and at $h = 6$ the charge is $6$.\nStep 2: Compute the slope: $\\frac{6 - 14}{6 - 2} = \\frac{-8}{4} = -2$ ampere-hours per hour.\nStep 3: Substitute $(2, 14)$ into $c = -2h + b$: $14 = -2(2) + b$, so $b = 18$ and $c = -2h + 18$. Test the other point: $-2(6) + 18 = 6$, which matches the graph ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($c = -2h + 14$): the slope is right, but $14$ is the charge at $h = 2$, not at $h = 0$. This line passes through $(0, 14)$ and misses both marked points.\n* Choice C ($c = -\\frac{1}{2}h + 18$): this flips the slope fraction to $\\frac{4}{-8}$. At $h = 6$ it predicts $15$ ampere-hours, not the $6$ shown.\n* Choice D ($c = 2h + 18$): dropping the minus sign gives a rising line; at $h = 6$ it predicts $30$ ampere-hours, above every value on the graph.\n\n**Test Day Takeaway:** Slope is rise over run with the signs kept, and the intercept is the value at $h = 0$ — never the first coordinate you happen to read off the figure."
+ "explanation": "**SAT Pattern: Line from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** From $(2, 14)$ to $(6, 6)$ the line falls $8$ units over $4$ units, so the slope is $-2$. Moving back $2$ units to $x = 0$ raises $y$ by $4$, so the $y$-intercept is $14 + 4 = 18$.\n\n**The Full Solution:**\nStep 1: Read the two marked points on the graph: $(2, 14)$ and $(6, 6)$.\nStep 2: Compute the slope: $\\frac{6 - 14}{6 - 2} = \\frac{-8}{4} = -2$.\nStep 3: Substitute $(2, 14)$ into $f(x) = -2x + b$: $14 = -2(2) + b$, so $b = 18$ and $f(x) = -2x + 18$. Check the other point: $-2(6) + 18 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x) = -2x + 14$): the slope is right, but $14$ is the $y$-value at $x = 2$, not at $x = 0$. This line passes through $(0, 14)$ and misses both marked points.\n* Choice C ($f(x) = -\\frac{1}{2}x + 18$): this flips the slope fraction to $\\frac{4}{-8}$. At $x = 6$ it gives $15$, not the $6$ shown.\n* Choice D ($f(x) = 2x + 18$): dropping the minus sign gives a rising line; at $x = 6$ it gives $30$, but the graph falls from left to right.\n\n**Test Day Takeaway:** Slope is the change in $y$ over the change in $x$, signs kept, and the $y$-intercept is the value at $x = 0$, not the first coordinate you read off the graph."
 }

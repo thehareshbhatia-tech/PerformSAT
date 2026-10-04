@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 2,
- "passage": "People infected with many pathogens shed viral genetic material into wastewater days before they feel ill enough to seek testing — and regardless of whether they are ever tested at all. ______ epidemiologists who sample sewage at treatment plants can register a coming surge of infections nearly a week before clinical case counts begin to climb, giving hospitals time to prepare.",
+ "passage": "People infected with many pathogens shed viral genetic material into wastewater days before they feel ill enough to seek testing — and regardless of whether they are ever tested at all. ______ epidemiologists who sample sewage at treatment plants can register a coming surge of infections nearly a week before reported case counts begin to climb, giving hospitals time to prepare.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The early-warning capability follows directly from early, test-independent shedding — a cause-and-effect relation that \"As a result\" expresses.\n\n**The Full Solution:**\n- First sentence: the mechanism — infected people shed viral material into wastewater days before seeking testing, and even when they never test.\n- Second sentence: what the mechanism makes possible — sewage sampling registers surges \"nearly a week before clinical case counts begin to climb.\"\n\n**Why the other choices are wrong:**\n- A: \"By contrast\" requires an opposition, but the second sentence realizes the promise of the first rather than diverging from it.\n- C: \"Nonetheless\" concedes an obstacle the passage never raises — nothing in the first sentence makes the second surprising.\n- D: \"For instance\" would make the surveillance capability an example of people shedding virus, but it is a consequence of that fact, not an instance of it."
+ "explanation": "**Choice B is correct.** The early-warning capability follows directly from early, test-independent shedding — a cause-and-effect relation that \"As a result\" expresses.\n\n**The Full Solution:**\n- First sentence: the mechanism — infected people shed viral material into wastewater days before seeking testing, and even when they never test.\n- Second sentence: what the mechanism makes possible — sewage sampling registers surges \"nearly a week before reported case counts begin to climb.\"\n\n**Why the other choices are wrong:**\n- A: \"By contrast\" requires an opposition, but the second sentence realizes the promise of the first rather than diverging from it.\n- C: \"Nonetheless\" concedes an obstacle the passage never raises — nothing in the first sentence makes the second surprising.\n- D: \"For instance\" would make the surveillance capability an example of people shedding virus, but it is a consequence of that fact, not an instance of it."
 }

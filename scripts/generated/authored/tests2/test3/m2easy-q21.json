@@ -1,12 +1,12 @@
 {
  "id": 21,
- "question": "The table gives the coverage rate, in square feet per gallon, of three concrete sealants. A crew will apply two coats of sealant Y to a surface with an area of $1{,}530$ square feet. Sealant Y is sold only in quart containers, and $1$ gallon equals $4$ quarts. What is the least number of containers the crew needs?",
+ "question": "The table shows the number of square feet that $1$ gallon of each of three types of paint covers. Ana will apply two coats of paint Y to walls with a total area of $1{,}600$ square feet. Paint Y is sold only in $1$-quart cans, and $1$ gallon is equal to $4$ quarts. What is the least number of cans of paint Y Ana needs?",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
-    "Sealant",
-    "Coverage rate (square feet per gallon)"
+    "Paint",
+    "Area covered per gallon (square feet)"
    ],
    "rows": [
     [
@@ -24,6 +24,6 @@
    ]
   }
  },
- "correctAnswer": "36",
- "explanation": "**SAT Pattern: Proportion Solving**\n\n**The correct answer is $36$.**\n\n**The Fast Way (~45s):** Two coats cover $2(1{,}530) = 3{,}060$ square feet of surface. At $340$ square feet per gallon that is $9$ gallons, and $9(4) = 36$ quarts.\n\n**The Full Solution:**\nStep 1: Find the total area to be coated. Each coat covers the full $1{,}530$ square feet, so two coats require sealant for $2 \\times 1{,}530 = 3{,}060$ square feet.\nStep 2: Convert area to gallons using sealant Y's rate from the table. Setting up the proportion $\\frac{340 \\text{ square feet}}{1 \\text{ gallon}} = \\frac{3{,}060 \\text{ square feet}}{g \\text{ gallons}}$ gives $340g = 3{,}060$, so $g = 9$ gallons.\nStep 3: Convert gallons to containers. Since $1$ gallon is $4$ quarts, $9$ gallons is $9 \\times 4 = 36$ quart containers. Check: $36$ quarts is $9$ gallons, which covers $9 \\times 340 = 3{,}060$ square feet, exactly two coats ✓\n\n**Common Mistakes:**\n* $9$: stops at gallons. The sealant is sold in quarts, so the count of containers is four times the number of gallons.\n* $18$: applies a single coat, computing $\\frac{1{,}530}{340} = 4.5$ gallons and converting to $18$ quarts.\n* $24$: reads the rate from sealant Z's row, $510$ square feet per gallon, giving $6$ gallons and $24$ quarts.\n\n**Test Day Takeaway:** Track the units at every step of a rate chain: area to gallons through the coverage rate, gallons to containers through the conversion. Multiply for repeated coats before dividing, and reread which row of the table the problem names."
+ "correctAnswer": "38",
+ "explanation": "**SAT Pattern: Proportion Solving**\n\n**The correct answer is $38$.**\n\n**The Fast Way (~45s):** Two coats cover $2(1{,}600) = 3{,}200$ square feet, and one quart of paint Y covers $\\frac{340}{4} = 85$ square feet, so Ana needs $\\frac{3{,}200}{85} \\approx 37.6$ quarts. She can buy only whole cans, so she needs $38$ cans.\n\n**The Full Solution:**\nStep 1: Find the total area to be painted. Each coat covers the whole $1{,}600$ square feet, so two coats require paint for $2 \\times 1{,}600 = 3{,}200$ square feet.\nStep 2: Convert the coverage rate to quarts. Paint Y covers $340$ square feet per gallon, and $1$ gallon is $4$ quarts, so one quart covers $\\frac{340}{4} = 85$ square feet. Ana needs $\\frac{3{,}200}{85} \\approx 37.6$ quarts.\nStep 3: Paint is sold only in whole $1$-quart cans, so round up: $37$ cans are not enough and $38$ cans are. Check: $37$ cans cover $37 \\times 85 = 3{,}145$ square feet, which is less than $3{,}200$, while $38$ cans cover $38 \\times 85 = 3{,}230$ square feet ✓\n\n**Common Mistakes:**\n* $37$: rounds $37.6$ down. Thirty-seven cans cover only $3{,}145$ square feet, so the second coat would not be finished.\n* $40$: rounds $9.41$ gallons up to $10$ gallons before converting to quarts. Forty cans are enough, but fewer cans also work.\n* $19$: applies a single coat, computing $\\frac{1{,}600}{85} \\approx 18.8$ quarts.\n\n**Test Day Takeaway:** Track the units at every step of a rate chain, account for repeated coats before dividing, and round only at the end: when an item comes in whole units, the least number that is enough is the next whole number up."
 }

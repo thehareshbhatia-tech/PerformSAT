@@ -1,6 +1,6 @@
 {
  "id": 17,
- "question": "At a substation, Panel A has $3t$ switches with $4$ positions each, giving $4^{3t}$ possible settings, and Panel B has $t + 10$ switches with $8$ positions each, giving $8^{t+10}$ possible settings. For what value of $t$ do the two panels have the same number of possible settings?",
+ "question": "$4^{3t} = 8^{t + 10}$\nWhat value of $t$ is the solution to the given equation?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "sets 3t = t + 10 without converting to a common base, giving t = 5",
-  "C": "rewrites 8 as 2 to the fourth power, solving 6t = 4t + 40 to get t = 20",
-  "D": "stops at 3t = 30 and reports 30, the number of switches on Panel A, instead of t"
+  "A": "sets 3t = t + 10 without rewriting the bases as powers of 2, giving t = 5",
+  "C": "rewrites 8 as 2 to the fourth power instead of the third, solving 6t = 4t + 40 to get t = 20",
+  "D": "stops at 3t = 30 and reports 30 instead of dividing by 3"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Exponential Equation with Common Base**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** In base $2$ the two counts are $2^{6t}$ and $2^{3t+30}$, so $6t = 3t + 30$ and $t = 10$.\n\n**The Full Solution:**\nStep 1: Write both bases as powers of $2$: $4^{3t} = (2^2)^{3t} = 2^{6t}$ and $8^{t+10} = (2^3)^{t+10} = 2^{3t+30}$.\nStep 2: Equal powers of the same base have equal exponents, so $6t = 3t + 30$.\nStep 3: Solve: $3t = 30$, so $t = 10$. Check: Panel A then has $30$ switches and $4^{30} = 2^{60}$ settings, while Panel B has $20$ switches and $8^{20} = 2^{60}$ settings ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): equates the exponents while the bases are still $4$ and $8$, solving $3t = t + 10$. Exponents may be equated only after both sides share a base.\n* Choice C ($20$): converts $8$ to $2^4$ rather than $2^3$, producing $6t = 4t + 40$. Only $16$ is $2^4$.\n* Choice D ($30$): solves the equation down to $3t = 30$ and reports the $30$, which counts Panel A's switches rather than the value of $t$.\n\n**Test Day Takeaway:** Rewrite both sides over the smallest shared base before comparing exponents, then finish the one-variable equation — the number that appears just before the last division is a favorite wrong answer."
+ "explanation": "**SAT Pattern: Exponential Equation with Common Base**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** In base $2$ the equation is $2^{6t} = 2^{3t + 30}$, so $6t = 3t + 30$ and $t = 10$.\n\n**The Full Solution:**\nStep 1: Write both bases as powers of $2$: $4^{3t} = \\left(2^{2}\\right)^{3t} = 2^{6t}$ and $8^{t + 10} = \\left(2^{3}\\right)^{t + 10} = 2^{3t + 30}$.\nStep 2: Powers of the same base are equal only when the exponents are equal, so $6t = 3t + 30$.\nStep 3: Solve: $3t = 30$, so $t = 10$. Check: $4^{30} = 2^{60}$ and $8^{20} = 2^{60}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): sets the exponents equal while the bases are still $4$ and $8$. Exponents can be compared only when the bases match.\n* Choice C ($20$): writes $8$ as $2^{4}$, giving $6t = 4t + 40$. In fact $8 = 2^{3}$; $2^{4} = 16$.\n* Choice D ($30$): stops at $3t = 30$ without dividing by $3$.\n\n**Test Day Takeaway:** Rewrite both sides with the same base before setting exponents equal, and finish the linear equation all the way to the variable."
 }

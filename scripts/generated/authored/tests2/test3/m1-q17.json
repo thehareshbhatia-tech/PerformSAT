@@ -1,6 +1,6 @@
 {
  "id": 17,
- "question": "A fabricator cuts a gusset plate in the shape of a right triangle whose acute angle $P$ satisfies $\\tan P = \\frac{12}{5}$. The perimeter of the finished plate is $k$ inches. Which expression gives the length, in inches, of the longer leg of the plate?",
+ "question": "In right triangle $PQR$, angle $R$ is the right angle and $\\tan P = \\frac{12}{5}$. The perimeter of triangle $PQR$ is $k$. Which expression represents the length of $\\overline{QR}$?",
  "choices": [
   {
    "id": "A",
@@ -21,9 +21,9 @@
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "gives the shorter leg, 5m out of a perimeter of 30m, instead of the longer leg",
-  "C": "gives the hypotenuse, 13m out of a perimeter of 30m",
+  "A": "gives the length of PR, the shorter leg (5 parts of 30), instead of QR",
+  "C": "gives the length of the hypotenuse PQ, 13 parts of 30",
   "D": "treats k as the hypotenuse and takes 12/13 of it, ignoring that k is the perimeter"
  },
- "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $\\tan P = \\frac{12}{5}$ makes the legs $12m$ and $5m$ and the hypotenuse $13m$, so the perimeter is $30m = k$. The longer leg is $12m = \\frac{12k}{30} = \\frac{2k}{5}$.\n\n**The Full Solution:**\nStep 1: Tangent is the opposite leg over the adjacent leg, so for some positive $m$ the leg opposite $P$ is $12m$ and the leg adjacent to $P$ is $5m$.\nStep 2: The Pythagorean theorem gives the hypotenuse: $\\sqrt{(12m)^2 + (5m)^2} = \\sqrt{169m^2} = 13m$. The three sides are therefore $5m$, $12m$, and $13m$, and the perimeter is $5m + 12m + 13m = 30m$.\nStep 3: Since the perimeter is $k$, $30m = k$ and $m = \\frac{k}{30}$. The longer leg is $12m = \\frac{12k}{30} = \\frac{2k}{5}$. Check with $k = 60$: the sides are $10$, $24$, and $26$, which sum to $60$, and $\\frac{2(60)}{5} = 24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{k}{6}$): this is $5m = \\frac{5k}{30}$, the shorter leg. With $\\tan P = \\frac{12}{5}$, the leg opposite $P$ is the longer one.\n* Choice C ($\\frac{13k}{30}$): this is the hypotenuse $13m$. The hypotenuse is not a leg.\n* Choice D ($\\frac{12k}{13}$): applies the ratio $\\frac{12}{13}$ to $k$ as though $k$ were the hypotenuse. Here $k$ is the whole perimeter, so it must be split into $30$ parts, not $13$.\n\n**Test Day Takeaway:** Turn a trigonometric ratio into a scaled side triple, add the sides to get the perimeter in terms of the scale factor, then solve for that factor before answering."
+ "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $\\tan P = \\frac{12}{5}$ makes $QR = 12a$ and $PR = 5a$, so $PQ = 13a$ and the perimeter is $30a = k$. Then $QR = 12a = \\frac{12k}{30} = \\frac{2k}{5}$.\n\n**The Full Solution:**\nStep 1: Tangent of $P$ is the length of the leg opposite $P$ divided by the length of the leg adjacent to $P$. The leg opposite $P$ is $\\overline{QR}$ and the adjacent leg is $\\overline{PR}$, so for some positive number $a$, $QR = 12a$ and $PR = 5a$.\nStep 2: By the Pythagorean theorem, $PQ = \\sqrt{(12a)^{2} + (5a)^{2}} = \\sqrt{169a^{2}} = 13a$. The perimeter is $5a + 12a + 13a = 30a$.\nStep 3: Since the perimeter is $k$, $30a = k$ and $a = \\frac{k}{30}$. So $QR = 12a = \\frac{12k}{30} = \\frac{2k}{5}$. Check with $k = 60$: the sides are $10$, $24$, and $26$, which have a sum of $60$, and $\\frac{2(60)}{5} = 24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{k}{6}$): this is $5a = \\frac{5k}{30}$, the length of $\\overline{PR}$, the leg adjacent to $P$.\n* Choice C ($\\frac{13k}{30}$): this is $13a$, the length of the hypotenuse $\\overline{PQ}$.\n* Choice D ($\\frac{12k}{13}$): applies the ratio $\\frac{12}{13}$ to $k$ as though $k$ were the length of the hypotenuse. Here $k$ is the perimeter, which is $30a$, not $13a$.\n\n**Test Day Takeaway:** Turn a trigonometric ratio into side lengths with a common factor, add them to express the perimeter, and solve for that factor before answering."
 }

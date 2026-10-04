@@ -1,10 +1,10 @@
 {
  "id": 16,
- "question": "For four consecutive days, the table gives the estimated mass, in grams, of a yeast culture growing in a fermentation vessel on day $t$. The mass is modeled by $m(t) = a(b)^t$, where $a$ and $b$ are positive constants. What is the value of $a$?",
+ "question": "The function $m$ is defined by $m(t) = a(b)^{t}$, where $a$ and $b$ are positive constants. The table shows four values of $t$ and their corresponding values of $m(t)$. What is the value of $a$?",
  "questionTable": {
   "headers": [
    "$t$",
-   "Mass (grams)"
+   "$m(t)$"
   ],
   "rows": [
    [
@@ -26,5 +26,5 @@
   ]
  },
  "correctAnswer": "64",
- "explanation": "**SAT Pattern: Exponential Growth Model**\n\n**The correct answer is $64$.**\n\n**The Fast Way (~30s):** Consecutive masses multiply by $\\frac{144}{96} = 1.5$, so $b = 1.5$. Since $m(1) = ab = 96$, $a = \\frac{96}{1.5} = 64$.\n\n**The Full Solution:**\nStep 1: Find the growth factor. Dividing each mass by the one before it gives $\\frac{144}{96} = 1.5$, $\\frac{216}{144} = 1.5$, and $\\frac{324}{216} = 1.5$, so $b = 1.5$.\nStep 2: Use one table row. At $t = 1$, the model gives $m(1) = a(1.5)^1 = 1.5a$, and the table says this equals $96$.\nStep 3: Solve: $a = \\frac{96}{1.5} = 64$. Check another row: $m(3) = 64(1.5)^3 = 64(3.375) = 216$ grams, matching the table ✓\n\n**Common Mistakes:**\n* $96$ — reading $a$ as the first mass in the table. The constant $a$ is the value of $m$ at $t = 0$, one step before the first row, so the day-$1$ mass has already been multiplied by $b$.\n* $1.5$ — reporting the growth factor $b$ instead of the constant $a$ the question asks for.\n* $48$ — dividing $96$ by $2$ rather than by the actual growth factor $1.5$.\n\n**Test Day Takeaway:** In $m(t) = ab^t$, the constant $a$ is the value at $t = 0$. When the table starts at $t = 1$, find $b$ from consecutive ratios and divide back one step to reach $a$."
+ "explanation": "**SAT Pattern: Exponential Growth Model**\n\n**The correct answer is $64$.**\n\n**The Fast Way (~30s):** Each value of $m(t)$ is $1.5$ times the one before it, so $b = 1.5$. Then $a = m(0) = \\frac{96}{1.5} = 64$.\n\n**The Full Solution:**\nStep 1: Find $b$ from consecutive values: $\\frac{144}{96} = 1.5$, $\\frac{216}{144} = 1.5$, and $\\frac{324}{216} = 1.5$, so $b = 1.5$.\nStep 2: Substitute $t = 1$: $m(1) = a(1.5)^{1} = 96$.\nStep 3: Solve: $a = \\frac{96}{1.5} = 64$. Check: $64(1.5)^{2} = 64(2.25) = 144$, which matches $m(2)$ ✓\n\n**Common Mistakes:**\n* $96$: reports $m(1)$ as $a$. The constant $a$ is the value at $t = 0$, one step before the first row of the table.\n* $1.5$: reports $b$, the growth factor, instead of $a$.\n* $48$: subtracts the difference $144 - 96 = 48$ from $96$, treating the function as linear.\n\n**Test Day Takeaway:** In $a(b)^{t}$, $b$ is the ratio of consecutive outputs and $a$ is the output at $t = 0$; if the table starts at $t = 1$, divide by $b$ once to step back."
 }

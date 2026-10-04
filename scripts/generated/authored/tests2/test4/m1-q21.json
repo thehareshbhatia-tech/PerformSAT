@@ -1,12 +1,12 @@
 {
  "id": 21,
- "question": "The table gives measured snow depths at a station, and the model $S(d) = -2d^2 + 44d - 150$ fits them, where $S$ is the depth in centimeters on day $d$ of the season. On how many days does the model give a depth of at least $90$ centimeters?",
+ "question": "The function $S$ is defined by $S(d) = -2d^{2} + 44d - 150$ and models the depth of snow, in centimeters, at a ski area on day $d$ of the season. The table shows the depth measured on four days. According to the model, on how many days is the depth at least $90$ centimeters?",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
-    "Day d",
-    "Measured depth (cm)"
+    "Day",
+    "Measured depth (centimeters)"
    ],
    "rows": [
     [
@@ -39,7 +39,7 @@
   },
   {
    "id": "C",
-   "text": "$12$"
+   "text": "$11$"
   },
   {
    "id": "D",
@@ -47,10 +47,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "solves S(d) = 90 and counts its two solutions, d = 10 and d = 12, instead of the days between them",
-  "C": "divides by -2 without reversing the inequality, gets d at most 10 or d at least 12, and counts the 12 whole days there with positive depth",
-  "D": "drops the 90 and solves S(d) at least 0, counting days 5 through 17"
+  "A": "solves S(d) = 90 and counts its two solutions, d = 10 and d = 12, instead of every day from 10 to 12",
+  "C": "reports the day on which the model's depth is greatest, d = 11, instead of a number of days",
+  "D": "counts the days on which the model gives any snow, S(d) at least 0, which are days 5 through 17"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** $S(d) \\ge 90$ reduces to $(d - 10)(d - 12) \\le 0$, so $10 \\le d \\le 12$ — three days.\n\n**The Full Solution:**\nStep 1: Write the condition: $-2d^2 + 44d - 150 \\ge 90$, so $-2d^2 + 44d - 240 \\ge 0$.\nStep 2: Divide by $-2$ and reverse the inequality: $d^2 - 22d + 120 \\le 0$, which factors as $(d - 10)(d - 12) \\le 0$.\nStep 3: A product of two factors is at most zero between the roots, so $10 \\le d \\le 12$. The whole days are $10$, $11$, and $12$ — three of them.\nCheck: $S(10) = -200 + 440 - 150 = 90$, $S(11) = -242 + 484 - 150 = 92$, and $S(13) = -338 + 572 - 150 = 84$, which is below $90$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): solves the equation $S(d) = 90$ and counts its two roots, $d = 10$ and $d = 12$; the question asks for every day in between as well.\n* Choice C ($12$): divides by $-2$ without flipping the inequality sign, which reverses the solution set to $d \\le 10$ or $d \\ge 12$ and counts the $12$ days from $5$ to $17$ outside the true window.\n* Choice D ($13$): ignores the $90$-centimeter threshold and counts every day the model keeps the depth positive, days $5$ through $17$.\n\n**Test Day Takeaway:** Move everything to one side, then divide by the negative leading coefficient and flip the sign — the flip is the whole question."
+ "explanation": "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** $-2d^{2} + 44d - 150 \\ge 90$ simplifies to $d^{2} - 22d + 120 \\le 0$, or $(d - 10)(d - 12) \\le 0$, so $d = 10$, $11$, or $12$: three days.\n\n**The Full Solution:**\nStep 1: Set up the inequality: $-2d^{2} + 44d - 150 \\ge 90$, so $-2d^{2} + 44d - 240 \\ge 0$.\nStep 2: Divide by $-2$ and reverse the inequality: $d^{2} - 22d + 120 \\le 0$, which factors as $(d - 10)(d - 12) \\le 0$. This holds for $10 \\le d \\le 12$.\nStep 3: The days in that interval are $10$, $11$, and $12$, so there are $3$ days. Check: $S(10) = 90$, $S(11) = 92$, $S(12) = 90$, and $S(9) = S(13) = 84$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): counts only the two days on which the depth equals $90$, leaving out day $11$ between them.\n* Choice C ($11$): this is the day on which the model's depth is greatest, the axis of symmetry the table suggests, not a number of days.\n* Choice D ($13$): counts the days with any snow at all, $S(d) \\ge 0$, which are days $5$ through $17$.\n\n**Test Day Takeaway:** For a quadratic inequality, solve the related equation, then decide whether the answer lies between or outside the roots; count whole days inclusively."
 }

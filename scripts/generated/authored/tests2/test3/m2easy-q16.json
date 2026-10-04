@@ -1,24 +1,24 @@
 {
  "id": 16,
- "question": "A tray holds $25$ capacitors sorted by grade, as the table shows. Two of the capacitors are drawn from the tray at random, one after the other, and the first is not returned. What is the probability that both are grade A?",
+ "question": "The table shows the number of marbles of each color in a bag. Two marbles will be selected from the bag at random, one at a time, without replacement. What is the probability that both marbles selected are red?",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
-    "Grade",
-    "Number of capacitors"
+    "Color",
+    "Number of marbles"
    ],
    "rows": [
     [
-     "A",
+     "Red",
      "10"
     ],
     [
-     "B",
+     "Blue",
      "9"
     ],
     [
-     "C",
+     "Green",
      "6"
     ],
     [
@@ -29,5 +29,5 @@
   }
  },
  "correctAnswer": "3/20",
- "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{3}{20}$.**\n\n**The Fast Way (~25s):** The first draw is $\\frac{10}{25}$; with that capacitor gone the second is $\\frac{9}{24}$. Their product is $\\frac{90}{600} = \\frac{3}{20}$.\n\n**The Full Solution:**\nStep 1: Find the probability of the first draw. The tray holds $10$ grade A capacitors out of $25$, so the first draw is grade A with probability $\\frac{10}{25} = \\frac{2}{5}$.\nStep 2: Update both counts for the second draw. One grade A capacitor has been removed and not returned, leaving $9$ grade A among $24$ capacitors, so the second draw is grade A with probability $\\frac{9}{24} = \\frac{3}{8}$.\nStep 3: Multiply the two probabilities. $\\frac{2}{5} \\times \\frac{3}{8} = \\frac{6}{40} = \\frac{3}{20}$. Check: $\\frac{10}{25} \\times \\frac{9}{24} = \\frac{90}{600} = \\frac{3}{20}$ ✓\n\n**Common Mistakes:**\n* $\\frac{4}{25}$: uses $\\frac{10}{25} \\times \\frac{10}{25}$, treating the draws as if the first capacitor were returned. Without replacement both the favorable count and the total shrink.\n* $\\frac{1}{6}$: uses $\\frac{10}{25} \\times \\frac{10}{24}$, reducing the total to $24$ but forgetting that only $9$ grade A capacitors remain.\n* $\\frac{2}{5}$: reports the probability of a single grade A draw and never accounts for the second capacitor.\n\n**Test Day Takeaway:** Without replacement, both numerator and denominator drop by one for the second draw of the same category. Multiply the two updated fractions; \"and\" between draws always means multiply."
+ "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{3}{20}$.**\n\n**The Fast Way (~25s):** The first marble is red with probability $\\frac{10}{25}$; with that marble removed, the second is red with probability $\\frac{9}{24}$. The product is $\\frac{90}{600} = \\frac{3}{20}$.\n\n**The Full Solution:**\nStep 1: The bag has $10$ red marbles out of $25$, so the first marble is red with probability $\\frac{10}{25} = \\frac{2}{5}$.\nStep 2: After one red marble is removed, $9$ red marbles remain among $24$, so the second marble is red with probability $\\frac{9}{24} = \\frac{3}{8}$.\nStep 3: Multiply: $\\frac{2}{5} \\times \\frac{3}{8} = \\frac{6}{40} = \\frac{3}{20}$. Check: $\\frac{10}{25} \\times \\frac{9}{24} = \\frac{90}{600} = \\frac{3}{20}$ ✓\n\n**Common Mistakes:**\n* $\\frac{4}{25}$: uses $\\frac{10}{25} \\times \\frac{10}{25}$, as if the first marble were put back.\n* $\\frac{1}{6}$: uses $\\frac{10}{25} \\times \\frac{10}{24}$, reducing the total to $24$ but forgetting that only $9$ red marbles remain.\n* $\\frac{2}{5}$: finds the probability for one marble only.\n\n**Test Day Takeaway:** Without replacement, both the number of favorable outcomes and the total drop by one before the second selection. Multiply the two fractions."
 }

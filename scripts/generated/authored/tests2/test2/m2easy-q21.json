@@ -1,6 +1,6 @@
 {
  "id": 21,
- "question": "A stage monitor's measured sound level, in decibels above a reference, at a distance of $x$ meters from the monitor is given by the linear function $f$. The table gives $f(x)$ at four selected distances. For what value of $a$ is $f(2a) = 3$?",
+ "question": "For the linear function $f$, the table shows four values of $x$ and their corresponding values of $f(x)$. If $f(2a) = 3$, what is the value of $a$?",
  "questionTable": {
   "headers": [
    "$x$",
@@ -26,5 +26,5 @@
   ]
  },
  "correctAnswer": "6",
- "explanation": "**SAT Pattern: Solve $f(a) = c$**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~45s):** The table drops $12$ over every $3$ meters, so $f(x) = 51 - 4x$; $f(12) = 3$ means $2a = 12$ and $a = 6$.\n\n**The Full Solution:**\nStep 1: Find the rate. From $x = 2$ to $x = 5$, $f$ falls from $43$ to $31$, a change of $-12$ over $3$ meters, so the slope is $-4$ per meter.\nStep 2: Build the rule using the point $(2, 43)$: $f(x) = 43 - 4(x - 2) = 51 - 4x$. Setting $f(x) = 3$ gives $51 - 4x = 3$, so $4x = 48$ and $x = 12$.\nStep 3: The question sets the input to $2a$, so $2a = 12$ and $a = 6$. Check: $f(2 \\cdot 6) = f(12) = 51 - 48 = 3$. $\\checkmark$\n\n**Common Mistakes:**\n* Gridding $12$, the input that makes $f$ equal $3$. That value is $2a$, so it still has to be halved.\n* Reading the slope as $-12$, the drop between table rows, instead of $-4$ per meter; that gives $67 - 12x = 3$ and a non-integer input.\n* Doubling instead of halving at the last step, gridding $24$.\n\n**Test Day Takeaway:** Solve for the whole input first, then unwrap it. When the argument is $2a$ rather than $a$, the final step is one more division."
+ "explanation": "**SAT Pattern: Solve $f(a) = c$**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~40s):** The slope is $\\frac{31 - 43}{5 - 2} = -4$, so $f(x) = -4x + 51$. Then $f(x) = 3$ when $x = 12$, so $2a = 12$ and $a = 6$.\n\n**The Full Solution:**\nStep 1: Find the slope from two rows: $\\frac{31 - 43}{5 - 2} = \\frac{-12}{3} = -4$. Using $(2, 43)$: $43 = -4(2) + b$, so $b = 51$ and $f(x) = -4x + 51$.\nStep 2: Set $f(2a) = 3$: $-4(2a) + 51 = 3$, so $-8a = -48$.\nStep 3: Divide: $a = 6$. Check: $f(12) = -4(12) + 51 = 3$, and continuing the table, $f(11) = 7$ drops by $4$ to $f(12) = 3$ ✓\n\n**Common Mistakes:**\n* $12$: solves $f(x) = 3$ for $x$ and reports $x = 12$, forgetting that the input is $2a$, not $a$.\n* $24$: multiplies by $2$ instead of dividing, writing $a = 2(12)$.\n* $-4$: uses a slope of $+4$, giving $f(x) = 4x + 35$ and $8a + 35 = 3$.\n\n**Test Day Takeaway:** When the input is an expression like $2a$, first find which input gives the target output, then solve the expression for the variable."
 }

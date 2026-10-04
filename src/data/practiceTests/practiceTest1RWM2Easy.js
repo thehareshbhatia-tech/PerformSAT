@@ -26,7 +26,7 @@ export const practiceTest1RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Merriam's kangaroo rats live in deserts where standing water is scarce, and adults have been observed going months without drinking. The seeds they eat look completely dry, but digesting the starches in those seeds produces water inside the animal's body. Together with kidneys that lose remarkably little moisture, this chemistry lets the rats ______ nearly all the water they need from their food.",
+      "passage": "Merriam's kangaroo rats live in North American deserts and can survive without ever drinking water. The seeds they eat look completely dry, but digesting those seeds produces water inside the animal's body. Together with kidneys that produce extremely concentrated urine, this chemistry lets the rats ______ the water they need from their food.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "conserve" },
@@ -35,7 +35,7 @@ export const practiceTest1RWM2Easy = {
         { "id": "D", "text": "detect" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The blank needs a verb for getting water out of food, and \"derive\" means to obtain something from a source.\n\n**The Full Solution:**\n- How to spot it: the words \"from their food\" right after the blank tell you the verb must describe taking something from a source.\n- The passage has already explained the mechanism — digesting starches \"produces water inside the animal's body.\"\n- \"Derive\" means to obtain from, so the rats derive the water they need from seeds. The sentence now matches the chemistry the passage described.\n\n**Why the other choices are wrong:**\n- A: \"Conserve\" describes what the kidneys do with water the animal already has — it does not describe getting water \"from their food.\"\n- C: \"Release\" would mean giving the water up, the opposite of what a desert animal needs to do.\n- D: \"Detect\" means to notice something, but the rats are not searching for water — their bodies are producing it."
+      "explanation": "**Choice B is correct.** The blank needs a verb for getting water out of food, and \"derive\" means to obtain something from a source.\n\n**The Full Solution:**\n- How to spot it: the words \"from their food\" right after the blank tell you the verb must describe taking something from a source.\n- The passage has already explained the mechanism — digesting seeds \"produces water inside the animal's body.\"\n- \"Derive\" means to obtain from, so the rats derive the water they need from seeds. The sentence now matches the chemistry the passage described.\n\n**Why the other choices are wrong:**\n- A: \"Conserve\" describes what the kidneys do with water the animal already has — it does not describe getting water \"from their food.\"\n- C: \"Release\" would mean giving the water up, the opposite of what a desert animal needs to do.\n- D: \"Detect\" means to notice something, but the rats are not searching for water — their bodies are producing it."
     },
     {
       "id": 158,
@@ -44,7 +44,7 @@ export const practiceTest1RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "A Cepheid variable star brightens and dims on a fixed cycle, and the length of that cycle is tied directly to the star's true brightness. By comparing a Cepheid's true brightness with how bright it appears from Earth, astronomers can calculate how far away it is. Because the link between cycle and brightness holds so firmly from one Cepheid to the next, astronomers treat these stars as ______ markers of cosmic distance.",
+      "passage": "A Cepheid variable star brightens and dims on a regular cycle, and the length of that cycle is tied to the star's true brightness. By comparing that true brightness with how bright the star appears from Earth, astronomers can calculate its distance. Because the link holds so firmly from one Cepheid to the next, astronomers treat these stars as ______ markers of cosmic distance.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "luminous" },
@@ -62,7 +62,7 @@ export const practiceTest1RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Every five years, hundreds of volunteers fan out to count and measure every street tree in the city. Organizers give each counter the same training, the same measuring tools, and the same forms, so that a maple recorded in one neighborhood is documented exactly like a maple recorded in another. Because the counting method is so ______, planners can compare results across neighborhoods — and across decades — with confidence.",
+      "passage": "Every five years, volunteers count and measure every street tree in the city. Each counter receives the same training, the same tools, and the same forms, so that a maple recorded in one neighborhood is documented exactly like a maple recorded in another. Because the counting method is so ______, planners can compare results across neighborhoods — and across decades — with confidence.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "consistent" },
@@ -80,7 +80,7 @@ export const practiceTest1RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "In the Andes, Inka administrators tracked census figures and storehouse inventories without writing as Europeans understood it. They used khipus: long cords from which hung rows of knotted strings, with the type and position of each knot standing for particular quantities. Trained officials could ______ these arrangements of knots into precise numerical records, reading a cord's contents much as a clerk elsewhere might read a ledger.",
+      "passage": "Inka administrators in the Andes tracked census figures and storehouse inventories without writing as Europeans understood it. They used khipus: cords from which hung rows of knotted strings, with the type and position of each knot standing for particular quantities. Trained officials could ______ these arrangements of knots into precise numerical records, reading a cord's contents much as a clerk elsewhere might read a ledger.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "conceal" },
@@ -141,7 +141,7 @@ export const practiceTest1RWM2Easy = {
         },
         {
           "label": "Text 2",
-          "text": "Analyses of monarch populations point to the winter, not the summer, as the season that sets the species' fate. Nearly the entire eastern population crowds each winter into a few mountain forests in central Mexico, where thinning tree canopies — degraded by logging and storms — expose the butterflies to lethal cold and wet. In years when winter mortality is high, abundant summer habitat goes unused; the population that returns north is simply too small to fill it."
+          "text": "Other researchers argue that the winter, not the summer, sets the species' fate. Nearly the entire eastern population crowds each winter into a few mountain forests in central Mexico, where thinning tree canopies — degraded by logging and storms — expose the butterflies to lethal cold and wet. In years when winter mortality is high, abundant summer habitat goes unused; the population that returns north is simply too small to fill it."
         }
       ],
       "question": "Based on the texts, how would the author of Text 2 most likely respond to the recommendation presented in Text 1?",
@@ -275,7 +275,7 @@ export const practiceTest1RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "In 1843, the mathematician Ada Lovelace published an English translation of a French paper describing Charles Babbage's proposed Analytical Engine. What made the publication remarkable was not the translation but the notes Lovelace appended to it, which ran nearly three times the length of the original. In them she worked out, step by step, how the machine could be instructed to compute a series of numbers — and then went further, observing that a device that manipulated symbols according to rules need not confine itself to arithmetic. Such an engine, she suggested, might one day compose music.",
+      "passage": "In 1843, the mathematician Ada Lovelace published an English translation of a paper, written in French, describing Charles Babbage's proposed Analytical Engine. What made the publication remarkable was not the translation but the notes Lovelace appended to it, which ran nearly three times the length of the original. In them she worked out, step by step, how the machine could be instructed to compute a series of numbers — and then went further, observing that a device that manipulated symbols according to rules need not confine itself to arithmetic. Such an engine, she suggested, might one day compose music.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
         { "id": "A", "text": "Lovelace's notes on the Analytical Engine went beyond translation to offer original insight into what such a machine might do" },
@@ -293,7 +293,7 @@ export const practiceTest1RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "Along the coast of South Carolina and Georgia, Gullah Geechee artisans have coiled baskets from local grasses for more than three centuries, winding bundles of soft sweetgrass into spirals bound with strips of palmetto leaf. The technique has been handed down within families largely unchanged. The materials, however, have had to shift: as coastal development fenced off the marshes and dunes where sweetgrass grows, many makers began working stiffer bulrush into their coils. The baskets' forms have adapted with the materials, but the coiling method itself remains the tradition's unbroken thread.",
+      "passage": "Gullah Geechee artisans on the coast of South Carolina and Georgia have coiled baskets for more than three centuries. The earliest were sewn from tough bulrush and used to winnow rice; in the twentieth century, softer sweetgrass, bound with strips of palmetto leaf, became the favored material. Sweetgrass, however, has grown harder to gather: as coastal development fenced off the marshes and dunes where it grows, many makers began working bulrush back into their coils. The materials have shifted, but the coiling method remains the tradition's unbroken thread.",
       "question": "According to the text, why have some basket makers incorporated bulrush into their work?",
       "choices": [
         { "id": "A", "text": "Bulrush is softer than sweetgrass and therefore easier to wind into coils" },
@@ -302,7 +302,7 @@ export const practiceTest1RWM2Easy = {
         { "id": "D", "text": "The palmetto strips traditionally used to bind sweetgrass coils became difficult to find" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The text ties the shift to bulrush directly to development: it \"fenced off the marshes and dunes where sweetgrass grows.\"\n\n**The Full Solution:**\n- Locate the sentence about the material change — it begins \"The materials, however, have had to shift.\"\n- The colon construction gives the cause first (development closing off sweetgrass habitat) and the response second (makers \"began working stiffer bulrush into their coils\").\n- Choice B restates that cause without adding anything, which is exactly what a detail answer must do.\n\n**Why the other choices are wrong:**\n- A: The text calls bulrush \"stiffer\" than sweetgrass, not softer, and says nothing about either grass being easier to work.\n- C: Buyers' preferences never appear in the text.\n- D: Palmetto is mentioned as the binding material, but the text never says it grew scarce."
+      "explanation": "**Choice B is correct.** The text ties the return of bulrush directly to development: it \"fenced off the marshes and dunes where [sweetgrass] grows.\"\n\n**The Full Solution:**\n- Locate the sentence about the material change — it begins \"Sweetgrass, however, has grown harder to gather.\"\n- The colon construction gives the cause first (development closing off sweetgrass habitat) and the response second (makers \"began working bulrush back into their coils\").\n- Choice B restates that cause without adding anything, which is exactly what a detail answer must do.\n\n**Why the other choices are wrong:**\n- A: The text calls bulrush \"tough\" and sweetgrass \"softer,\" so bulrush is not the softer grass, and nothing is said about either being easier to wind.\n- C: Buyers' preferences never appear in the text.\n- D: Palmetto is mentioned as the binding material, but the text never says it grew scarce."
     },
     {
       "id": 166,
@@ -368,7 +368,7 @@ export const practiceTest1RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "Comets are sometimes described as dirty snowballs: loose masses of ice and dust left over from the solar system's formation. Each time a comet swings near the sun, heat boils some of its ice away, and gas and dust stream off the ______ the released dust does not vanish but spreads slowly along the comet's entire orbit.",
+      "passage": "Comets are often described as dirty snowballs: loose masses of ice and dust. Each time a comet swings near the sun, heat boils some of its ice away, and gas and dust stream off the ______ the released dust does not vanish but spreads slowly along the comet's entire orbit.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "nucleus, the" },
@@ -461,7 +461,7 @@ export const practiceTest1RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Bioluminescent dinoflagellates flash only when the water around them is abruptly disturbed — by a breaking wave, a darting fish, or a passing paddle. Laboratory studies indicate that the sudden burst startles the small grazers that feed on the plankton and can attract the larger predators that eat those grazers. The light, ______, is not a beacon the organism shines but an alarm it sounds when touched.",
+      "passage": "Bioluminescent dinoflagellates flash only when the water around them is abruptly disturbed, as by a breaking wave or a passing paddle. Laboratory studies indicate that the sudden burst startles the small grazers that feed on the plankton and can attract the larger predators that eat those grazers. The light, ______, is not a beacon the organism shines but an alarm it sounds when touched.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "by contrast" },
@@ -518,23 +518,23 @@ export const practiceTest1RWM2Easy = {
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
-          "Mária Telkes (1900-1995) was a Hungarian American engineer who specialized in capturing and storing the sun's heat.",
-          "In 1948 she designed the heating system for the Dover Sun House in Massachusetts, one of the first inhabited houses warmed almost entirely by solar energy.",
-          "The system stored heat in tanks of Glauber's salt, a compound that absorbs heat as it melts and releases heat as it resolidifies.",
-          "The house stayed warm through two New England winters without a conventional furnace.",
-          "Telkes also patented solar stills that turn seawater into drinkable water."
+          "Mária Telkes (1900-1995) was a Hungarian American engineer who specialized in solar heat storage.",
+          "In 1948 she designed the heating system for the Dover Sun House in Massachusetts, one of the first homes heated almost entirely by the sun.",
+          "The system stored heat in Glauber's salt, a compound that absorbs heat as it melts and releases it as it solidifies.",
+          "The system heated the house for about two and a half winters.",
+          "Telkes also patented solar stills that turn seawater into drinking water."
         ],
         "goal": "The student wants to introduce Telkes and one of her achievements to an audience unfamiliar with her work."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "Telkes's best-known project, the Dover Sun House in Massachusetts, stayed warm through two full New England winters without ever lighting a conventional furnace." },
-        { "id": "B", "text": "Mária Telkes, a Hungarian American engineer specializing in solar heat storage, designed the heating system of the 1948 Dover Sun House, one of the first houses warmed almost entirely by sunlight." },
-        { "id": "C", "text": "The Dover Sun House's heating system stored the sun's heat in large tanks of Glauber's salt, a compound that soaks up heat as it melts and gives that heat back as it slowly resolidifies." },
-        { "id": "D", "text": "Some twentieth-century houses were warmed almost entirely by solar energy, and some engineers of the era patented solar stills that turn seawater into drinkable water." }
+        { "id": "A", "text": "Telkes's best-known project, the Dover Sun House in Massachusetts, was heated by its solar system for about two and a half winters." },
+        { "id": "B", "text": "Hungarian American engineer Mária Telkes designed the heating system of the 1948 Dover Sun House, one of the first homes heated almost entirely by the sun." },
+        { "id": "C", "text": "The Dover Sun House stored the sun's heat in Glauber's salt, a compound that absorbs heat as it melts and releases it as it solidifies." },
+        { "id": "D", "text": "Some twentieth-century homes were heated almost entirely by the sun, and some engineers of that era also patented solar stills that turn seawater into drinking water." }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** For readers who have never heard of Telkes, it says who she was (a Hungarian American engineer specializing in solar heat storage) and pairs that with one concrete achievement (the Dover Sun House system).\n\n**The Full Solution:**\n- The goal has two requirements: INTRODUCE Telkes — so the sentence must identify her — and present ONE of her achievements.\n- Choice B delivers both in one sentence: name, nationality, specialty, then the 1948 achievement with enough context (\"one of the first houses warmed almost entirely by sunlight\") for the achievement to register as significant.\n- Every fact in the sentence comes straight from the notes — nothing is invented, and nothing assumes prior knowledge.\n\n**Why the other choices are wrong:**\n- A: \"Telkes's best-known project\" assumes the reader already knows Telkes, which is exactly what the goal says the audience does not.\n- C: It describes the salt chemistry without ever saying who Telkes was — the person the goal says to introduce never appears.\n- D: It strips out Telkes entirely, reducing the notes to anonymous generalities about \"some engineers.\""
+      "explanation": "**Choice B is correct.** For readers who have never heard of Telkes, it says who she was (a Hungarian American engineer) and pairs that with one concrete achievement (the Dover Sun House heating system).\n\n**The Full Solution:**\n- The goal has two requirements: INTRODUCE Telkes — so the sentence must identify her — and present ONE of her achievements.\n- Choice B delivers both in one sentence: name, nationality, profession, then the 1948 achievement with enough context (\"one of the first homes heated almost entirely by the sun\") for the achievement to register as significant.\n- Every fact in the sentence comes straight from the notes — nothing is invented, and nothing assumes prior knowledge.\n\n**Why the other choices are wrong:**\n- A: \"Telkes's best-known project\" assumes the reader already knows Telkes, which is exactly what the goal says the audience does not.\n- C: It describes the salt chemistry without ever saying who Telkes was — the person the goal says to introduce never appears.\n- D: It strips out Telkes entirely, reducing the notes to anonymous generalities about \"some engineers.\""
     },
     {
       "id": 181,
@@ -546,23 +546,23 @@ export const practiceTest1RWM2Easy = {
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
-          "Egyptian blue, first produced about 4,500 years ago, is considered the world's oldest synthetic pigment.",
-          "Artisans made it by heating sand, a copper mineral, and a calcium compound together at high temperatures.",
-          "When lit with ordinary visible light, Egyptian blue emits infrared light that specialized cameras can detect.",
-          "The infrared glow remains detectable even where so little pigment survives that a surface looks unpainted to the eye.",
-          "Conservators now photograph ancient statues and paintings in infrared to map traces of Egyptian blue invisible to visitors."
+          "Egyptian blue, first made in Egypt more than 5,000 years ago, is considered the oldest synthetic pigment.",
+          "Artisans made it by heating sand, a copper mineral, and a calcium compound together.",
+          "Under visible light, Egyptian blue gives off infrared light that special cameras can detect.",
+          "The infrared glow can be detected even where too little pigment survives for the eye to see.",
+          "Conservators now photograph ancient artworks in infrared to map traces of Egyptian blue invisible to visitors."
         ],
         "goal": "The student wants to emphasize a modern scientific use of Egyptian blue."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "Artisans produced Egyptian blue by heating sand, a copper mineral, and a calcium compound together at high temperatures." },
-        { "id": "B", "text": "First produced about 4,500 years ago, Egyptian blue is considered by many scholars to be the world's oldest synthetic pigment." },
-        { "id": "C", "text": "Conservators now photograph ancient statues and paintings in infrared to map traces of Egyptian blue too faint for the eye to see." },
-        { "id": "D", "text": "Egyptian blue's infrared glow, which specialized cameras are able to detect, is one of several optical properties that scientists have found worth studying." }
+        { "id": "A", "text": "Artisans produced Egyptian blue by heating sand, a copper mineral, and a calcium compound together." },
+        { "id": "B", "text": "First made more than 5,000 years ago, Egyptian blue is considered the world's oldest synthetic pigment." },
+        { "id": "C", "text": "Conservators now photograph ancient artworks in infrared to map traces of Egyptian blue too faint for the eye to see." },
+        { "id": "D", "text": "Egyptian blue's infrared glow, which special cameras are able to detect, is one of several optical properties that scientists have studied." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** It centers the modern use — conservators mapping invisible pigment traces with infrared photography — which is exactly what the goal asks the sentence to emphasize.\n\n**The Full Solution:**\n- The goal word is \"emphasize\": the modern scientific use must be the sentence's main event, not a side remark.\n- Choice C is built around that use: conservators (the modern practitioners), infrared photography (the scientific technique), and mapping invisible traces on ancient objects (the payoff).\n- It draws directly on the last two notes and stays entirely within them.\n\n**Why the other choices are wrong:**\n- A: The ancient recipe is the opposite of a modern application.\n- B: The pigment's age and priority are historical facts; no modern use appears.\n- D: It names the glow but buries the application — \"worth studying\" mentions no actual use, so nothing is emphasized."
+      "explanation": "**Choice C is correct.** It centers the modern use — conservators mapping invisible pigment traces with infrared photography — which is exactly what the goal asks the sentence to emphasize.\n\n**The Full Solution:**\n- The goal word is \"emphasize\": the modern scientific use must be the sentence's main event, not a side remark.\n- Choice C is built around that use: conservators (the modern practitioners), infrared photography (the scientific technique), and mapping invisible traces on ancient artworks (the payoff).\n- It draws directly on the last two notes and stays entirely within them.\n\n**Why the other choices are wrong:**\n- A: The ancient recipe is the opposite of a modern application.\n- B: The pigment's age and priority are historical facts; no modern use appears.\n- D: It names the glow but buries the application — \"optical properties that scientists have studied\" mentions no actual use, so nothing is emphasized."
     }
   ]
 };

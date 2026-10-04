@@ -13,7 +13,7 @@
   },
   {
    "label": "Text 2",
-   "text": "Epidemiologist William Hanage has urged caution in interpreting the growing literature that links gut bacteria to human disease. Diet, medication, and illness all shift the gut community at once, he notes, so a change in bacteria that accompanies a clinical improvement may be a consequence of the intervention rather than its cause. Demonstrating causation, Hanage argues, requires showing that the bacteria by themselves reproduce the effect."
+   "text": "Epidemiologist William Hanage has urged caution in interpreting studies that link gut bacteria to human disease. Correlation, he notes, does not reveal which way causation runs: an illness, or the treatment for it, can itself reshape the community of bacteria in the gut. A change in bacteria that accompanies a clinical improvement may therefore be a consequence of the intervention rather than its cause."
   }
  ],
  "question": "Based on the texts, how would Hanage (Text 2) most likely respond to the claim presented in Text 1?",
@@ -36,8 +36,8 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** Hanage's objection is about causal inference, not about the observations themselves: a bacterial change that accompanies a clinical improvement may be a consequence of the diet rather than its cause.\n\n**The Full Solution:**\n- Text 1 reports two changes in the same patients — a rise in fiber-fermenting bacteria and better blood sugar control — and treats the first as the cause of the second.\n- Text 2 says that diet shifts the whole gut community at once, so changes that accompany an improvement need not have produced it.\n- Hanage would therefore accept the measurements and challenge the causal step, which is what C describes.\n\n**Why the other choices are wrong:**\n- A: Text 2 never disputes that diet changes gut bacteria; it disputes what such changes prove.\n- B: It reverses his position — he holds that this kind of study does not settle causation.\n- D: Sample size and patient similarity are objections Text 2 never raises.",
+ "explanation": "**Choice C is correct.** Hanage's objection is about causal inference, not about the observations themselves: a bacterial change that accompanies a clinical improvement may be a consequence of the intervention rather than its cause.\n\n**The Full Solution:**\n- Text 1 reports two changes in the same patients — a rise in fiber-fermenting bacteria and better blood sugar control — and treats the first as the cause of the second.\n- Text 2 says that an illness or its treatment can itself reshape the gut's bacteria, so a bacterial change that accompanies an improvement need not have produced it.\n- Hanage would therefore accept the measurements and challenge the causal step, which is what C describes.\n\n**Why the other choices are wrong:**\n- A: Text 2 never disputes that diet changes gut bacteria; it disputes what such changes prove.\n- B: It reverses his position — he holds that a correlation of this kind does not settle causation.\n- D: Sample size and patient similarity are objections Text 2 never raises.",
  "_meta": {
-  "source": "crossTextPairs.json ctp-016 — Liping Zhao (Text 1) vs. William Hanage (Text 2), causal claims about the gut microbiome"
+  "source": "Text 1: Zhao et al., Science 359 (2018), 'Gut bacteria selectively promoted by dietary fibers alleviate type 2 diabetes' (randomized high-fiber vs. control diet). Text 2: W. P. Hanage, Nature 512 (2014), 'Microbiome science needs a healthy dose of scepticism' (correlation vs. causation; reverse causality)"
  }
 }

@@ -1,29 +1,29 @@
 {
- "id": 5,
- "question": "Line $k$ is defined by $4x + 3y = 21$. Line $j$ is parallel to line $k$ in the xy-plane and passes through the point $(0, -5)$. Which equation defines line $j$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$3x + 4y = -20$"
+  "id": 5,
+  "question": "In the $xy$-plane, line $j$ passes through the point $(6, -3)$ and is parallel to the line with equation $4x + 3y = 21$. Which equation defines line $j$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3x + 4y = 6$"
+    },
+    {
+      "id": "B",
+      "text": "$4x + 3y = 15$"
+    },
+    {
+      "id": "C",
+      "text": "$4x + 3y = 21$"
+    },
+    {
+      "id": "D",
+      "text": "$4x - 3y = 33$"
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "swaps the coefficients of x and y, which changes the slope to -3/4, then fits the point (6, -3)",
+    "C": "repeats the given line itself and never uses the point (6, -3)",
+    "D": "flips the sign of the y term, giving slope 4/3, then fits the point: 4(6) - 3(-3) = 33"
   },
-  {
-   "id": "B",
-   "text": "$4x + 3y = -15$"
-  },
-  {
-   "id": "C",
-   "text": "$4x + 3y = 15$"
-  },
-  {
-   "id": "D",
-   "text": "$4x - 3y = 15$"
-  }
- ],
- "correctAnswer": "B",
- "distractorNotes": {
-  "A": "swaps the coefficients of x and y, using slope -3/4 instead of -4/3, then fits the point (0,-5)",
-  "C": "uses the correct slope but substitutes y = 5 instead of y = -5, giving the constant 15",
-  "D": "reads the slope of line k as 4/3 instead of -4/3, flipping the sign of the y term"
- },
- "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Parallel lines share a slope, so in standard form line $j$ keeps the left side $4x + 3y$. Substituting $(0, -5)$ gives $4(0) + 3(-5) = -15$.\n\n**The Full Solution:**\nStep 1: Solve $4x + 3y = 21$ for $y$: $3y = -4x + 21$, so $y = -\\frac{4}{3}x + 7$. Line $k$ has slope $-\\frac{4}{3}$.\nStep 2: Line $j$ is parallel, so it also has slope $-\\frac{4}{3}$. It passes through $(0, -5)$, which is its y-intercept, so $y = -\\frac{4}{3}x - 5$.\nStep 3: Multiply both sides by $3$ to clear the fraction: $3y = -4x - 15$. Adding $4x$ to both sides gives $4x + 3y = -15$. Check: $4(0) + 3(-5) = -15$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x + 4y = -20$): swaps the coefficients of $x$ and $y$, which changes the slope to $-\\frac{3}{4}$. Parallel means the slope is unchanged, so both coefficients must stay where they are.\n* Choice C ($4x + 3y = 15$): keeps the correct slope but substitutes $y = 5$ rather than $y = -5$. The point is below the x-axis, so the constant is negative.\n* Choice D ($4x - 3y = 15$): has the right y-intercept but slope $\\frac{4}{3}$, because the sign of the $y$ term was flipped. A line with slope $\\frac{4}{3}$ crosses line $k$ rather than running parallel to it.\n\n**Test Day Takeaway:** In standard form, two lines are parallel exactly when the $x$ and $y$ coefficients match; keep that side untouched and let the given point set the constant."
+  "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** A line parallel to $4x + 3y = 21$ keeps the left side $4x + 3y$, so only the constant changes. Substituting $(6, -3)$ gives $4(6) + 3(-3) = 15$.\n\n**The Full Solution:**\nStep 1: Solve $4x + 3y = 21$ for $y$: $3y = -4x + 21$, so $y = -\\frac{4}{3}x + 7$. The given line has slope $-\\frac{4}{3}$.\nStep 2: Line $j$ is parallel, so it also has slope $-\\frac{4}{3}$, and any line with that slope can be written $4x + 3y = c$ for some constant $c$.\nStep 3: Line $j$ passes through $(6, -3)$, so $c = 4(6) + 3(-3) = 24 - 9 = 15$, and line $j$ is $4x + 3y = 15$. Check: $4(6) + 3(-3) = 15$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x + 4y = 6$): swaps the coefficients of $x$ and $y$, which changes the slope to $-\\frac{3}{4}$. Parallel means the slope is unchanged, so both coefficients must stay where they are.\n* Choice C ($4x + 3y = 21$): is the given line itself. It has the right slope, but $4(6) + 3(-3) = 15$, not $21$, so it does not pass through $(6, -3)$.\n* Choice D ($4x - 3y = 33$): passes through $(6, -3)$ but has slope $\\frac{4}{3}$, because the sign of the $y$ term was flipped. That line crosses the given line rather than running parallel to it.\n\n**Test Day Takeaway:** In standard form, two lines are parallel exactly when the $x$ and $y$ coefficients match; keep that side untouched and let the given point set the constant."
 }

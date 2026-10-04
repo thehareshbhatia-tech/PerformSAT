@@ -1,6 +1,6 @@
 {
  "id": 1,
- "question": "Two book-drop kiosks on a college campus are located at the plotted points on the coordinate grid shown, where each grid unit represents $20$ meters. What is the straight-line distance, in meters, between the two kiosks?",
+ "question": "What is the distance between the two points shown in the $xy$-plane?",
  "diagram": {
   "type": "coordinatePoints",
   "params": {
@@ -11,7 +11,7 @@
     ],
     [
      5,
-     4
+     3
     ]
    ],
    "xMin": -6,
@@ -23,26 +23,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$10$"
+   "text": "$\\sqrt{29}$"
   },
   {
    "id": "B",
-   "text": "$160$"
+   "text": "$\\sqrt{39}$"
   },
   {
    "id": "C",
-   "text": "$200$"
+   "text": "$\\sqrt{89}$"
   },
   {
    "id": "D",
-   "text": "$280$"
+   "text": "$13$"
   }
  ],
  "distractorNotes": {
-  "A": "leaves the answer in grid units, reporting the distance 10 without multiplying by the 20 meters each unit represents",
-  "B": "uses only the horizontal separation of 8 units, giving 8(20) = 160 meters",
-  "D": "adds the horizontal and vertical separations, 8 + 6 = 14 units, instead of using the Pythagorean relationship, giving 14(20) = 280 meters"
+  "A": "makes a sign slip on the x-coordinates, using 5 + (-3) = 2 instead of 5 - (-3) = 8 as the horizontal distance: sqrt(2^2 + 5^2) = sqrt(29)",
+  "B": "subtracts the squared distances instead of adding them: sqrt(8^2 - 5^2) = sqrt(39)",
+  "D": "adds the horizontal and vertical distances, 8 + 5 = 13, instead of using the Pythagorean relationship"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The kiosks sit $8$ units apart horizontally and $6$ units apart vertically, a $6$-$8$-$10$ right triangle, so they are $10$ units apart. Each unit is $20$ meters, so the distance is $10(20) = 200$ meters.\n\n**The Full Solution:**\nStep 1: Read the two plotted points from the grid: $(-3, -2)$ and $(5, 4)$. The horizontal separation is $5 - (-3) = 8$ units and the vertical separation is $4 - (-2) = 6$ units.\nStep 2: Apply the distance formula: $d = \\sqrt{8^2 + 6^2} = \\sqrt{64 + 36} = \\sqrt{100} = 10$ units.\nStep 3: Convert to meters using the scale: $10(20) = 200$ meters. Check: a right triangle with legs $8(20) = 160$ and $6(20) = 120$ meters has hypotenuse $\\sqrt{160^2 + 120^2} = \\sqrt{40000} = 200$ meters ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): stops at the distance in grid units. The grid legend says each unit stands for $20$ meters, so $10$ units is $200$ meters, not $10$.\n* Choice B ($160$): uses only the horizontal separation, $8$ units, and converts it to $8(20) = 160$ meters. That is one leg of the right triangle, not the straight-line distance.\n* Choice D ($280$): adds the two separations, $8 + 6 = 14$ units, and converts to $280$ meters. Adding the legs measures the path along the grid lines, which is always longer than the direct route.\n\n**Test Day Takeaway:** When a coordinate figure carries a scale, find the distance in grid units first and convert once at the end; converting each coordinate difference separately invites arithmetic slips."
+ "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The points are $(-3, -2)$ and $(5, 3)$, which are $8$ units apart horizontally and $5$ units apart vertically, so the distance is $\\sqrt{8^2 + 5^2} = \\sqrt{89}$.\n\n**The Full Solution:**\nStep 1: Read the coordinates of the two points from the grid: $(-3, -2)$ and $(5, 3)$.\nStep 2: Find the horizontal and vertical distances: $5 - (-3) = 8$ and $3 - (-2) = 5$.\nStep 3: Apply the distance formula: $d = \\sqrt{8^2 + 5^2} = \\sqrt{64 + 25} = \\sqrt{89}$. Check: $\\sqrt{89} \\approx 9.4$, which is longer than the longer leg, $8$, and shorter than the sum of the legs, $13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\sqrt{29}$): computes the horizontal distance as $5 + (-3) = 2$. Subtracting a negative coordinate means adding its absolute value: $5 - (-3) = 8$.\n* Choice B ($\\sqrt{39}$): subtracts the squares, $64 - 25 = 39$. The distance formula adds the squared legs.\n* Choice D ($13$): adds the two legs, $8 + 5 = 13$. That is the length of a path along the grid lines, which is always longer than the straight segment.\n\n**Test Day Takeaway:** Read both coordinates from the grid, subtract carefully when a coordinate is negative, and then add the squares of the two differences under a single square root."
 }

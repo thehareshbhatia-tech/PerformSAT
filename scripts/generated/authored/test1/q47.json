@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 2,
- "passage": "Developed by choreographer Rudolf Laban in the 1920s, Labanotation records human movement on a vertical staff read from bottom to top. Each of the system's symbols specifies the direction, level, and timing of a single action, allowing a trained reader to reconstruct an entire dance from ______ score alone — much as a musician revives a symphony from printed notation.",
+ "passage": "Developed by dance theorist Rudolf Laban in the 1920s, Labanotation records human movement on a vertical staff read from bottom to top. Each of the system's symbols specifies the direction, level, and timing of a single action, allowing a trained reader to reconstruct an entire dance from ______ score alone.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The blank needs a possessive determiner with the singular antecedent \"an entire dance\" — \"its.\"\n\n**The Full Solution:**\n- The score belongs to the dance being reconstructed, so the blank must be possessive and singular.\n- \"Its\" is the possessive form of \"it\" and matches the antecedent exactly.\n\n**Why the other choices are wrong:**\n- B: \"It's\" contracts \"it is\"/\"it has,\" producing nonsense (\"from it is score alone\") — in this pair the apostrophe marks contraction, not possession.\n- C: \"Their\" is possessive but plural, and no plural antecedent is available — \"symbols\" cannot own the score of \"an entire dance.\"\n- D: \"They're\" compounds both errors: a contraction rather than a possessive, and plural rather than singular."
+ "explanation": "**Choice A is correct.** The blank needs a possessive determiner with the singular antecedent \"an entire dance\" — \"its.\"\n\n**The Full Solution:**\n- The score belongs to the dance being reconstructed, so the blank must be possessive and singular.\n- \"Its\" is the possessive form of \"it\" and matches the antecedent exactly.\n\n**Why the other choices are wrong:**\n- B: \"It's\" contracts \"it is\"/\"it has,\" producing nonsense (\"from it is score alone\") — in this pair the apostrophe marks contraction, not possession.\n- C: \"Their\" is possessive but plural, and the score belongs to the singular \"an entire dance\" — the \"symbols\" do not own a score.\n- D: \"They're\" compounds both errors: a contraction rather than a possessive, and plural rather than singular."
 }

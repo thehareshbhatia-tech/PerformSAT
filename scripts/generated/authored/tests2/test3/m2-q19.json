@@ -1,29 +1,29 @@
 {
-  "id": 19,
-  "question": "A textile lab logged six tensile-strength readings, in newtons, for yarn drawn from one spool. Four of the readings were $34$, $41$, $52$, and $47$; the remaining two were $x$ and $2x$. The mean of the six readings is $45$ newtons. What is the greatest of the six readings, in newtons?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$32$"
-    },
-    {
-      "id": "B",
-      "text": "$52$"
-    },
-    {
-      "id": "C",
-      "text": "$64$"
-    },
-    {
-      "id": "D",
-      "text": "$96$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "solves for x correctly but reports x rather than the larger reading 2x",
-    "B": "names the largest of the four numbered readings without solving for x at all",
-    "D": "reports 3x = 96, the combined value of the two unknown readings, not a single reading"
+ "id": 19,
+ "question": "A data set consists of the six values $34$, $41$, $47$, $52$, $x$, and $2x$. The mean of the data set is $45$. What is the greatest value in the data set?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$32$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Mean from List**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The six readings must total $6(45) = 270$. The four numbered ones total $174$, so $3x = 96$, $x = 32$, and the largest reading is $2x = 64$.\n\n**The Full Solution:**\nStep 1: Turn the mean into a total. Six readings with a mean of $45$ newtons sum to $6(45) = 270$ newtons.\nStep 2: Add the four known readings: $34 + 41 + 52 + 47 = 174$. The two unknown readings, $x$ and $2x$, must make up the rest: $174 + x + 2x = 270$, so $3x = 96$ and $x = 32$.\nStep 3: The six readings are $34$, $41$, $52$, $47$, $32$, and $64$, so the greatest is $64$ newtons. Check: their sum is $270$, and $\\frac{270}{6} = 45$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($32$): solves for $x$ and stops. The list contains $2x$ as well, and $64$ is larger than every numbered reading.\n* Choice B ($52$): picks the largest value printed in the stem without using the mean at all, assuming the unknown readings are smaller.\n* Choice D ($96$): reports $3x$, the combined value of the two unknown readings, rather than the single largest reading.\n\n**Test Day Takeaway:** Convert a mean into a total before anything else — mean times count is the one line that makes a list with unknowns solvable. Then reread what the question wants: the variable, an expression in it, or the largest value."
+  {
+   "id": "B",
+   "text": "$52$"
+  },
+  {
+   "id": "C",
+   "text": "$64$"
+  },
+  {
+   "id": "D",
+   "text": "$96$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "solves for x correctly but reports x rather than the larger value 2x",
+  "B": "names the greatest of the four given numbers without solving for x",
+  "D": "reports 3x = 96, the sum of the two unknown values, not a single value"
+ },
+ "explanation": "**SAT Pattern: Mean from List**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The six values sum to $6(45) = 270$, so $174 + 3x = 270$, $x = 32$, and the values $x$ and $2x$ are $32$ and $64$. The greatest value is $64$.\n\n**The Full Solution:**\nStep 1: A mean of $45$ for six values means the values sum to $6 \\cdot 45 = 270$.\nStep 2: The four known values sum to $34 + 41 + 47 + 52 = 174$, so $174 + x + 2x = 270$, which gives $3x = 96$ and $x = 32$.\nStep 3: The unknown values are $x = 32$ and $2x = 64$. Since $64$ is greater than $52$, the greatest value in the data set is $64$. Check: $34 + 41 + 47 + 52 + 32 + 64 = 270$, and $\\frac{270}{6} = 45$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($32$): this is $x$, the smaller of the two unknown values.\n* Choice B ($52$): this is the greatest of the four given values, but $2x = 64$ is greater.\n* Choice D ($96$): this is $3x$, the combined value of $x$ and $2x$, not a single value in the data set.\n\n**Test Day Takeaway:** Turn a mean into a total (mean times count) first; after solving, reread the question, because the unknown you solved for is often not the value being asked for."
 }

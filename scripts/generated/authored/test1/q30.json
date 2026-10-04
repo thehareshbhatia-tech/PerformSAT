@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "In field studies of commonly held resources — Swiss alpine pastures, Japanese village forests, Spanish irrigation networks — political economist Elinor Ostrom challenged the assumption that such commons must either be privatized or placed under state control. What struck Ostrom was the sheer ______ of the governance arrangements she documented: communities had devised monitoring schemes, sanction ladders, and boundary rules so finely adjusted to local conditions that no single institutional template could describe them all.",
+ "passage": "In field studies of commonly held resources — Swiss alpine pastures, Japanese village forests, Spanish irrigation networks — political economist Elinor Ostrom challenged the assumption that such commons must be privatized or placed under state control. What struck Ostrom was the sheer ______ of the arrangements she documented: communities had devised rules so finely adjusted to local conditions that no single template could describe them all.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The colon's elaboration defines the blank: arrangements \"so finely adjusted to local conditions that no single institutional template could describe them all\" — that variety is their heterogeneity.\n\n**The Full Solution:**\n- The sentence explains itself: what struck Ostrom was that communities devised arrangements too varied for any one template.\n- The blank must name that quality of variedness, and \"heterogeneity\" does.\n\n**Why the other choices are wrong:**\n- A: \"Uniformity\" asserts the opposite of the colon's elaboration, which insists that no one template fits.\n- C: \"Scarcity\" fails because the passage catalogs an abundance of arrangements across pastures, forests, and irrigation networks, not a shortage.\n- D: \"Obsolescence\" — falling out of use — conflicts with the passage's portrayal of these arrangements as functioning solutions."
+ "explanation": "**Choice B is correct.** The colon's elaboration defines the blank: rules \"so finely adjusted to local conditions that no single template could describe them all\" — that variety is their heterogeneity.\n\n**The Full Solution:**\n- The sentence explains itself: what struck Ostrom was that communities devised arrangements too varied for any one template.\n- The blank must name that quality of variedness, and \"heterogeneity\" does.\n\n**Why the other choices are wrong:**\n- A: \"Uniformity\" asserts the opposite of the colon's elaboration, which insists that no one template fits.\n- C: \"Scarcity\" fails because the passage catalogs an abundance of arrangements across pastures, forests, and irrigation networks, not a shortage.\n- D: \"Obsolescence\" — falling out of use — conflicts with the passage's portrayal of these arrangements as functioning solutions."
 }

@@ -1,6 +1,6 @@
 {
  "id": 19,
- "question": "A cargo aircraft is loaded with $x$ standard pallets of mass $340$ kilograms each and $y$ oversize pallets of mass $560$ kilograms each. The aircraft carries $48$ pallets with a combined mass of $18.3$ metric tons, where $1$ metric ton equals $1{,}000$ kilograms. Which system of equations represents this situation?",
+ "question": "A truck is carrying $x$ small crates and $y$ large crates, for a total of $48$ crates. Each small crate has a mass of $340$ kilograms, each large crate has a mass of $560$ kilograms, and the total mass of the crates is $18.3$ metric tons. Which of the following systems of equations represents this situation? ($1$ metric ton $= 1{,}000$ kilograms)",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "swaps the two totals, counting pallets with the mass and weighing them with the count",
-  "B": "leaves the total in metric tons while the per-pallet masses are in kilograms",
-  "C": "converts the per-pallet masses to tons but leaves the total in kilograms, mixing the units the other way"
+  "A": "swaps the two totals, setting the number of crates equal to the mass and the mass equal to the number of crates",
+  "B": "leaves the total mass in metric tons while the mass of each crate is in kilograms",
+  "C": "converts the mass of each crate to metric tons but writes the total mass in kilograms"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** One equation counts pallets, $x + y = 48$; the other weighs them, and $18.3$ metric tons is $18{,}300$ kilograms, so $340x + 560y = 18{,}300$.\n\n**The Full Solution:**\nStep 1: The count equation adds pallets to pallets: $x + y = 48$.\nStep 2: The mass equation adds kilograms to kilograms. The per-pallet masses are given in kilograms, so the total must be too: $18.3 \\times 1{,}000 = 18{,}300$ kilograms, giving $340x + 560y = 18{,}300$.\nStep 3: Confirm the system has a sensible solution: substituting $y = 48 - x$ gives $340x + 26{,}880 - 560x = 18{,}300$, so $220x = 8{,}580$ and $x = 39$, $y = 9$. Check: $340(39) + 560(9) = 13{,}260 + 5{,}040 = 18{,}300$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: this reverses the two totals, so it claims the aircraft carries $18.3$ pallets weighing $48$ kilograms altogether — lighter than a single pallet.\n* Choice B: the units clash. With masses in kilograms, $340x + 560y = 18.3$ would need fewer than one pallet in total.\n* Choice C: this converts the wrong side, measuring each pallet in tons while the total stays in kilograms; reaching a total of $18{,}300$ that way would take more than $30{,}000$ pallets, not $48$.\n\n**Test Day Takeaway:** Write one equation per quantity being totaled, and make both sides of each equation carry the same unit before you commit to it — unit mismatch is the usual trap in system-setup questions."
+ "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** One equation counts crates, $x + y = 48$. The other adds masses in kilograms, and $18.3$ metric tons is $18{,}300$ kilograms, so $340x + 560y = 18{,}300$.\n\n**The Full Solution:**\nStep 1: The number of small crates plus the number of large crates is $48$: $x + y = 48$.\nStep 2: The small crates have a mass of $340x$ kilograms and the large crates $560y$ kilograms. The total must also be in kilograms: $18.3 \\times 1{,}000 = 18{,}300$, so $340x + 560y = 18{,}300$.\nStep 3: Confirm the system has a sensible solution: substituting $y = 48 - x$ gives $340x + 26{,}880 - 560x = 18{,}300$, so $220x = 8{,}580$, $x = 39$, and $y = 9$. Check: $340(39) + 560(9) = 13{,}260 + 5{,}040 = 18{,}300$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: this swaps the totals, saying there are $18.3$ crates with a total mass of $48$ kilograms, which is less than the mass of one crate.\n* Choice B: the units do not match. With each crate's mass in kilograms, a total of $18.3$ kilograms is less than the mass of one crate.\n* Choice C: this converts the mass of each crate to metric tons but leaves the total in kilograms; reaching $18{,}300$ that way would take more than $30{,}000$ crates, not $48$.\n\n**Test Day Takeaway:** Write one equation for each total, and make sure every term in an equation is in the same unit before you choose it."
 }

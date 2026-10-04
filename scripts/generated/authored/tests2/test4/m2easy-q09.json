@@ -1,6 +1,6 @@
 {
  "id": 9,
- "question": "For $12$ plots, the scatterplot relates yield to soil moisture, and the line of best fit is $y = 2.5x + 9$, where $x$ is the soil moisture in percent and $y$ is the predicted yield in kilograms per plot. What soil moisture corresponds to a predicted yield of $41.5$ kilograms?",
+ "question": "The scatterplot shows the relationship between soil moisture $x$, in percent, and crop yield $y$, in kilograms, for $12$ plots of land. The line of best fit shown has the equation $y = 2.5x + 9$. According to the line of best fit, what is the soil moisture, in percent, of a plot with a predicted yield of $41.5$ kilograms?",
  "diagram": {
   "type": "scatterplot",
   "params": {
@@ -71,5 +71,5 @@
   }
  },
  "correctAnswer": "13",
- "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~20s):** Set $2.5x + 9 = 41.5$; the yield above the intercept is $32.5$, and $\\frac{32.5}{2.5} = 13$ percent.\n\n**The Full Solution:**\nStep 1: The line of best fit predicts $y$ from $x$, so substitute the predicted yield: $2.5x + 9 = 41.5$.\nStep 2: Subtract the intercept: $2.5x = 32.5$.\nStep 3: Divide by the slope: $x = \\frac{32.5}{2.5} = 13$ percent. Check forward: $2.5(13) + 9 = 32.5 + 9 = 41.5$ kilograms ✓\n\n**Common Mistakes:**\n* $16.6$: dividing $41.5$ by $2.5$ without first removing the intercept of $9$.\n* $81.25$: multiplying by the slope instead of dividing, $(41.5 - 9)(2.5)$, which reverses the last step.\n* $20.2$: adding the intercept instead of subtracting it, $\\frac{41.5 + 9}{2.5}$, a sign slip on the constant term.\n\n**Test Day Takeaway:** A line of best fit runs both directions: substitute $x$ to predict $y$, or substitute $y$ and solve back for $x$ — undoing the intercept before the slope."
+ "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~20s):** Set $2.5x + 9 = 41.5$; then $2.5x = 32.5$, so $x = 13$.\n\n**The Full Solution:**\nStep 1: The line of best fit gives the predicted yield $y$ for a soil moisture $x$, so substitute $41.5$ for $y$: $2.5x + 9 = 41.5$.\nStep 2: Subtract $9$ from both sides: $2.5x = 32.5$.\nStep 3: Divide both sides by $2.5$: $x = 13$. Check: $2.5(13) + 9 = 32.5 + 9 = 41.5$ ✓\n\n**Common Mistakes:**\n* $16.6$: dividing $41.5$ by $2.5$ without first subtracting the $9$.\n* $81.25$: multiplying by $2.5$ instead of dividing, computing $(41.5 - 9)(2.5)$.\n* $20.2$: adding $9$ instead of subtracting it, computing $\\frac{41.5 + 9}{2.5}$.\n\n**Test Day Takeaway:** A line of best fit works in both directions: substitute $x$ to predict $y$, or substitute $y$ and solve for $x$, undoing the constant before the slope."
 }

@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 1,
- "passage": "Between 1935 and 1942, artists employed by the Index of American Design made more than eighteen thousand watercolor renderings of quilts, weather vanes, carousel horses, and other handmade objects. When the project ended, the renderings passed to the National Gallery of Art, which has since digitized ______ and published the images online.",
+ "passage": "Between 1935 and 1942, artists employed by the Index of American Design made about eighteen thousand watercolor renderings of quilts, weather vanes, carousel horses, and other handmade objects. When the project ended, the renderings passed to the National Gallery of Art, which has since digitized ______ and published the images online.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The convention being tested is pronoun-antecedent agreement. The plural pronoun \"them\" agrees in number with the plural antecedent \"renderings.\"\n\n**The Full Solution:**\n- The first sentence names the antecedent: more than eighteen thousand watercolor renderings.\n- The second sentence says the renderings passed to the National Gallery of Art, and the pronoun stands for those same renderings.\n- A plural antecedent requires a plural pronoun.\n\n**Why the other choices are wrong:**\n- A: The singular \"it\" doesn't agree in number with the plural \"renderings.\"\n- B: The singular \"this\" doesn't agree in number with the plural \"renderings.\"\n- D: The singular \"that\" doesn't agree in number with the plural \"renderings.\"",
+ "explanation": "**Choice C is correct.** The convention being tested is pronoun-antecedent agreement. The plural pronoun \"them\" agrees in number with the plural antecedent \"renderings.\"\n\n**The Full Solution:**\n- The first sentence names the antecedent: about eighteen thousand watercolor renderings.\n- The second sentence says the renderings passed to the National Gallery of Art, and the pronoun stands for those same renderings.\n- A plural antecedent requires a plural pronoun.\n\n**Why the other choices are wrong:**\n- A: The singular \"it\" doesn't agree in number with the plural \"renderings.\"\n- B: The singular \"this\" doesn't agree in number with the plural \"renderings.\"\n- D: The singular \"that\" doesn't agree in number with the plural \"renderings.\"",
  "_meta": {
   "rule": "pronoun-antecedent agreement (plural antecedent)",
   "anchor": "Index of American Design (1935-1942); renderings held by the National Gallery of Art"

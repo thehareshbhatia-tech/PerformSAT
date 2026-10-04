@@ -13,6 +13,7 @@ const styles = SAT_GRAPH_STYLES;
 const SATIntersectingLines = ({
   angles = [],          // ['18°', 't°', '68°', '27°'] - four angles clockwise from right
   lineLabels = [],      // ['l', 'm'] for the two lines
+  angle0Measure = 60,      // drawn measure (degrees) of angles[0]/angles[2]; set it to the true measure so the figure agrees with its labels
   width = 280,
   height = 220,
 }) => {
@@ -22,7 +23,7 @@ const SATIntersectingLines = ({
 
   // Line angles (one horizontal-ish, one at an angle)
   const line1Angle = 15;  // degrees from horizontal
-  const line2Angle = 75;  // degrees from horizontal
+  const line2Angle = line1Angle + Math.min(Math.max(Number(angle0Measure) || 60, 20), 160);  // angles[0] spans line1 → line2
 
   // Calculate line endpoints
   const line1 = {

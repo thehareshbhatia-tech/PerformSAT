@@ -1,11 +1,11 @@
 {
  "id": 1,
- "question": "Sediment depth at two coring sites is modeled by a linear function of the number of years since monitoring began. The table gives the modeled depth, in millimeters, at each site for four selected years. How many solutions does the system consisting of the two models have?",
+ "question": "The table shows four values of $x$ and their corresponding values of $y$ for line $p$ and line $q$ in the $xy$-plane. How many solutions does the system of equations of these two lines have?",
  "questionTable": {
   "headers": [
-   "Years since monitoring began",
-   "Site $P$ depth (mm)",
-   "Site $Q$ depth (mm)"
+   "$x$",
+   "$y$ for line $p$",
+   "$y$ for line $q$"
   ],
   "rows": [
    [
@@ -33,26 +33,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "No solution"
+   "text": "Zero"
   },
   {
    "id": "B",
-   "text": "Exactly one solution"
+   "text": "Exactly one"
   },
   {
    "id": "C",
-   "text": "Exactly two solutions"
+   "text": "Exactly two"
   },
   {
    "id": "D",
-   "text": "Infinitely many solutions"
+   "text": "Infinitely many"
   }
  ],
- "distractorNotes": {
-  "B": "assumes any two distinct lines must cross, ignoring that both models rise 4 mm per year",
-  "C": "treats a pair of linear models like a quadratic, which can meet twice",
-  "D": "sees the equal rate of 4 mm per year and concludes the two models are the same line, ignoring the different starting depths of 5 and 12"
- },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Both columns climb by $4$ each year but start at $5$ and $12$, so the models are parallel lines and never meet.\n\n**The Full Solution:**\nStep 1: Read the rate for each site. Site $P$ goes $5, 9, 13, 17$, a gain of $4$ mm per year; site $Q$ goes $12, 16, 20, 24$, also a gain of $4$ mm per year.\nStep 2: Read the starting depths at $0$ years: site $P$ begins at $5$ mm and site $Q$ at $12$ mm. The models are $d = 4t + 5$ and $d = 4t + 12$.\nStep 3: Equal slopes with unequal intercepts means the lines are parallel and distinct, so the system has no solution. Check: setting $4t + 5 = 4t + 12$ gives $5 = 12$, which is never true. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one solution): assumes two different lines always cross, but equal slopes rule that out.\n* Choice C (Exactly two solutions): a system of two lines can never have exactly two solutions; two intersections require a curve.\n* Choice D (Infinitely many solutions): the equal rate of $4$ mm per year is only half the test. The gap of $12 - 5 = 7$ mm never closes, so the lines are not identical.\n\n**Test Day Takeaway:** In a table, equal step sizes mean equal slopes. Then look at the starting values: same start means one line, different start means no solution."
+ "distractorNotes": {
+  "B": "assumes any two different lines must cross at one point, ignoring that both slopes are 4",
+  "C": "treats the pair of lines like a line and a parabola, which can meet twice",
+  "D": "sees the equal slopes of 4 and concludes the lines are the same line, ignoring the different y-intercepts 5 and 12"
+ },
+ "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Both columns rise by $4$ each time $x$ rises by $1$, but at $x = 0$ line $p$ is at $5$ and line $q$ is at $12$. Same slope, different $y$-intercepts: the lines are parallel, so the system has zero solutions.\n\n**The Full Solution:**\nStep 1: Find the slope of each line. For line $p$, $y$ goes $5, 9, 13, 17$, a change of $4$ per unit of $x$. For line $q$, $y$ goes $12, 16, 20, 24$, also a change of $4$.\nStep 2: Read the $y$-intercepts from the row $x = 0$: line $p$ is $y = 4x + 5$ and line $q$ is $y = 4x + 12$.\nStep 3: Setting $4x + 5 = 4x + 12$ gives $5 = 12$, which is false for every $x$, so the lines never meet. Check: in every row of the table, line $q$'s value is exactly $7$ more than line $p$'s, so the gap never closes ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): assumes two different lines must cross somewhere. That is true only when their slopes differ; here both slopes are $4$.\n* Choice C (Exactly two): treats the system like a line and a parabola. Two distinct lines can meet at most once.\n* Choice D (Infinitely many): notices the equal slopes and stops. Equal slopes give the same line only when the $y$-intercepts also match, and $5 \\ne 12$.\n\n**Test Day Takeaway:** For two linear equations, compare slopes first. Different slopes give one solution; equal slopes with different intercepts give zero; equal slopes and equal intercepts give infinitely many."
 }

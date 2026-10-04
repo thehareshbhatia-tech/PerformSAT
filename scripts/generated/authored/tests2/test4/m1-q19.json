@@ -1,6 +1,6 @@
 {
  "id": 19,
- "question": "The right-triangular mainsail of a racing yacht encloses $756$ square feet of cloth, and the tangent of the angle at its head equals $\\frac{7}{24}$. How long, in feet, is the longest edge of the sail?",
+ "question": "Triangle $PQR$ has a right angle at $R$, and $\\tan P = \\frac{7}{24}$. The area of the triangle is $756$ square units. What is the length of $\\overline{PQ}$?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "reports the shorter leg, 7k = 21, the side opposite the head angle",
-  "B": "reports the hypotenuse of the basic 7-24-25 triangle without applying the scale factor k = 3",
-  "C": "reports the longer leg, 24k = 72, instead of the hypotenuse"
+  "A": "finds the scale factor 3 but reports the shorter leg, QR = 7(3) = 21",
+  "B": "uses the 7-24-25 ratio without scaling, reporting the hypotenuse 25 for a triangle of area 84",
+  "C": "finds the scale factor 3 but reports the longer leg, PR = 24(3) = 72"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Legs $7k$ and $24k$ give area $84k^2 = 756$, so $k = 3$ and the hypotenuse is $25(3) = 75$.\n\n**The Full Solution:**\nStep 1: Tangent is opposite over adjacent, so the two legs are $7k$ and $24k$ for some positive $k$.\nStep 2: The legs of a right triangle are its base and height, so the area is $\\dfrac{1}{2}(7k)(24k) = 84k^2$. Setting $84k^2 = 756$ gives $k^2 = 9$ and $k = 3$.\nStep 3: The legs are $21$ and $72$ feet, and $7$-$24$-$25$ is a Pythagorean triple, so the hypotenuse — the longest edge — is $25(3) = 75$ feet.\nCheck: $21^2 + 72^2 = 441 + 5{,}184 = 5{,}625 = 75^2$, and $\\dfrac{1}{2}(21)(72) = 756$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($21$): the leg opposite the head angle, $7k$; it is the shortest edge, not the longest.\n* Choice B ($25$): the hypotenuse of the unscaled $7$-$24$-$25$ triangle, which has area $84$, not $756$.\n* Choice C ($72$): the longer leg, $24k$; the hypotenuse of a right triangle is always longer than either leg.\n\n**Test Day Takeaway:** A tangent value fixes the legs up to one scale factor — use the area to pin that factor down, then read off whichever side is asked for."
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The legs are $7k$ and $24k$, so the area is $\\frac{1}{2}(7k)(24k) = 84k^{2} = 756$; then $k = 3$ and $PQ = 25(3) = 75$.\n\n**The Full Solution:**\nStep 1: Since $\\tan P = \\frac{QR}{PR} = \\frac{7}{24}$, let $QR = 7k$ and $PR = 24k$. The hypotenuse is $PQ = \\sqrt{(7k)^{2} + (24k)^{2}} = 25k$.\nStep 2: The legs meet at the right angle, so the area is $\\frac{1}{2}(7k)(24k) = 84k^{2}$. Setting $84k^{2} = 756$ gives $k^{2} = 9$, so $k = 3$.\nStep 3: $PQ = 25(3) = 75$. Check: the legs are $21$ and $72$, $\\frac{1}{2}(21)(72) = 756$, and $\\frac{21}{72} = \\frac{7}{24}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($21$): this is $QR$, the leg opposite angle $P$.\n* Choice B ($25$): uses the ratio's hypotenuse without scaling; a $7$-$24$-$25$ triangle has area $84$, not $756$.\n* Choice C ($72$): this is $PR$, the leg adjacent to angle $P$; $\\overline{PQ}$ is opposite the right angle.\n\n**Test Day Takeaway:** From a tangent ratio, write the legs as $ak$ and $bk$; the area $\\frac{1}{2}abk^{2}$ gives $k$, and the side opposite the right angle is the hypotenuse."
 }

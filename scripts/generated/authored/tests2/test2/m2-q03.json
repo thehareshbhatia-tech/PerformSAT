@@ -1,68 +1,68 @@
 {
  "id": 3,
- "question": "A total of $250$ items are classified in the table by group and by type. If one of the items is chosen at random, what is the probability that its type is II, given that its group is not A?",
+ "question": "The table shows the number of students in three grades at a school who chose each of three after-school activities. One of these students will be selected at random. What is the probability of selecting a student who chose music, given that the student is not in grade $9$?",
  "questionTable": {
   "headers": [
-   "Group",
-   "Type I",
-   "Type II",
-   "Type III",
+   "Grade",
+   "Art",
+   "Music",
+   "Sports",
    "Total"
   ],
   "rows": [
    [
-    "A",
-    "$18$",
-    "$24$",
-    "$33$",
-    "$75$"
-   ],
-   [
-    "B",
-    "$25$",
+    "$9$",
+    "$26$",
     "$40$",
-    "$43$",
-    "$108$"
+    "$34$",
+    "$100$"
    ],
    [
-    "C",
-    "$15$",
-    "$30$",
+    "$10$",
+    "$31$",
+    "$38$",
+    "$35$",
+    "$104$"
+   ],
+   [
+    "$11$",
+    "$17$",
     "$22$",
-    "$67$"
+    "$17$",
+    "$56$"
    ],
    [
     "Total",
-    "$58$",
-    "$94$",
-    "$98$",
-    "$250$"
+    "$74$",
+    "$100$",
+    "$86$",
+    "$260$"
    ]
   ]
  },
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{8}{35}$"
+   "text": "$\\frac{3}{13}$"
   },
   {
    "id": "B",
-   "text": "$\\frac{7}{25}$"
+   "text": "$\\frac{19}{80}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{47}{125}$"
+   "text": "$\\frac{3}{8}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{2}{5}$"
+   "text": "$\\frac{3}{5}$"
   }
  ],
  "distractorNotes": {
-  "A": "counts only group B in the numerator, using 40/175 = 8/35 and leaving out group C's 30 type-II items",
-  "B": "uses the correct numerator 70 but divides by the grand total 250 instead of the 175 items outside group A, giving 7/25",
-  "C": "ignores the condition entirely and computes 94/250 = 47/125, the probability of type II among all 250 items"
+  "A": "uses the correct numerator 60 but divides by the grand total 260 instead of the 160 students not in grade 9, giving 3/13",
+  "B": "counts only grade 10 in the numerator, using 38/160 = 19/80 and leaving out grade 11's 22 music students",
+  "D": "reverses the condition, computing the probability that a student is not in grade 9 given that the student chose music: 60/100 = 3/5"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** The condition restricts the pool to groups B and C, which hold $108 + 67 = 175$ items, and $40 + 30 = 70$ of those are type II. So the probability is $\\frac{70}{175} = \\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: The phrase \"given that its group is not A\" replaces the sample space: only groups B and C count, so the denominator is $108 + 67 = 175$, not $250$.\nStep 2: Inside that restricted pool, count the type-II items: $40$ from group B and $30$ from group C, for $70$ items.\nStep 3: Divide: $\\frac{70}{175} = \\frac{2}{5}$. Check: the type-II items outside group A are $94 - 24 = 70$, matching Step 2 ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{35}$): uses the right denominator, $175$, but counts only group B's $40$ type-II items. \"Not group A\" covers both remaining groups, so group C's $30$ belong in the numerator too.\n* Choice B ($\\frac{7}{25}$): counts the numerator correctly as $70$ but divides by the grand total $250$. A conditional probability shrinks the denominator to the items that satisfy the condition.\n* Choice C ($\\frac{47}{125}$): computes $\\frac{94}{250}$, the unconditional probability of type II. This answer ignores the condition on both the top and the bottom of the fraction.\n\n**Test Day Takeaway:** In a conditional probability, write the denominator first — it is the total of the row, column, or union named after \"given that\" — and only then count the part of that pool the question asks about."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Students not in grade $9$ are in grades $10$ and $11$: $104 + 56 = 160$ students, and $38 + 22 = 60$ of them chose music. The probability is $\\frac{60}{160} = \\frac{3}{8}$.\n\n**The Full Solution:**\nStep 1: The condition \"not in grade $9$\" restricts the group to grades $10$ and $11$, so the denominator is $104 + 56 = 160$, not $260$.\nStep 2: Within that group, count the students who chose music: $38$ in grade $10$ and $22$ in grade $11$, for $60$ students.\nStep 3: Divide: $\\frac{60}{160} = \\frac{3}{8}$. Check: the music students outside grade $9$ are $100 - 40 = 60$, matching Step 2 ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{13}$): counts the numerator correctly as $60$ but divides by the grand total, $260$. A conditional probability uses only the students who meet the condition.\n* Choice B ($\\frac{19}{80}$): uses the right denominator, $160$, but counts only grade $10$'s $38$ music students. \"Not in grade $9$\" includes grade $11$ as well.\n* Choice D ($\\frac{3}{5}$): computes $\\frac{60}{100}$, the probability that a student is not in grade $9$ given that the student chose music. That reverses the condition.\n\n**Test Day Takeaway:** In a conditional probability, write the denominator first: it is the total of the group named after \"given that.\" Then count the part of that group the question asks about."
 }

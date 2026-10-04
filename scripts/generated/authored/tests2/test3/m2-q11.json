@@ -1,6 +1,6 @@
 {
  "id": 11,
- "question": "The graph shows the length $y$, in meters, of fabric remaining on a bolt after $x$ garment panels have been cut from it. A second bolt starts with $60$ meters and loses fabric at the same rate per panel. Which equation gives the length $y$ remaining on the second bolt after $x$ panels?",
+ "question": "The graph of $y = f(x)$ is shown, where $f$ is a linear function. The graph of the linear function $g$ is parallel to the graph of $y = f(x)$ and has a $y$-intercept of $(0, 60)$. Which equation defines $g$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -32,26 +32,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$y = -6x + 60$"
+   "text": "$g(x) = -6x + 60$"
   },
   {
    "id": "B",
-   "text": "$y = -4x + 24$"
+   "text": "$g(x) = -4x + 24$"
   },
   {
    "id": "C",
-   "text": "$y = -4x + 60$"
+   "text": "$g(x) = -4x + 60$"
   },
   {
    "id": "D",
-   "text": "$y = 4x + 60$"
+   "text": "$g(x) = 4x + 60$"
   }
  ],
- "distractorNotes": {
-  "A": "uses the graph's x-intercept, 6 panels, as the rate instead of the 4 meters lost per panel",
-  "B": "keeps the graphed bolt's starting length of 24 meters instead of the second bolt's 60",
-  "D": "drops the negative sign, describing fabric that grows as panels are cut"
- },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Slope-Intercept Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The graph falls from $24$ meters at $x = 0$ to $0$ at $x = 6$, a rate of $-4$ meters per panel; keep that slope and swap the intercept to $60$.\n\n**The Full Solution:**\nStep 1: Read the slope from the graph. The line passes through $(0, 24)$ and $(6, 0)$, so the slope is $\\frac{0 - 24}{6 - 0} = -4$ meters of fabric per panel cut.\nStep 2: In $y = mx + b$, the slope $m$ is the rate per panel and the intercept $b$ is the length the bolt starts with. The second bolt is cut at the same rate, so $m = -4$ again, but it starts with $60$ meters, so $b = 60$.\nStep 3: The equation is $y = -4x + 60$. Check: at $x = 0$ the bolt holds $60$ meters, and after $15$ panels $y = -4(15) + 60 = 0$, which is $2.5$ times the $6$ panels the shorter bolt supplied — exactly what $2.5$ times the length should give. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -6x + 60$): takes $6$, the number of panels the graphed bolt supplied, as the rate. That $6$ is an $x$-intercept, not a slope.\n* Choice B ($y = -4x + 24$): reads the correct slope but copies the graphed bolt's starting length of $24$ meters instead of the $60$ meters the question specifies.\n* Choice D ($y = 4x + 60$): drops the negative sign, giving a bolt that gains fabric as panels are cut.\n\n**Test Day Takeaway:** A rate read from a graph travels to a new scenario; the intercept usually does not. Change only the quantity the new sentence changes, and check the sign against whether the quantity is growing or shrinking."
+ "distractorNotes": {
+  "A": "uses the x-intercept of the graph, 6, as the slope instead of the slope -4",
+  "B": "keeps the y-intercept of the graph shown, 24, instead of the given y-intercept 60",
+  "D": "drops the negative sign on the slope"
+ },
+ "explanation": "**SAT Pattern: Slope-Intercept Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The graph passes through $(0, 24)$ and $(6, 0)$, so its slope is $\\frac{0 - 24}{6 - 0} = -4$; a parallel line with $y$-intercept $(0, 60)$ is $g(x) = -4x + 60$.\n\n**The Full Solution:**\nStep 1: Read two points from the graph: $(0, 24)$ and $(6, 0)$. The slope is $\\frac{0 - 24}{6 - 0} = -4$.\nStep 2: Parallel lines have the same slope, so the graph of $g$ also has slope $-4$.\nStep 3: With slope $-4$ and $y$-intercept $(0, 60)$, $g(x) = -4x + 60$. Check: $g(0) = 60$, and $g(6) - g(0) = -24$, the same change the graph shown has from $x = 0$ to $x = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = -6x + 60$): uses the $x$-intercept, $6$, as the size of the slope. The slope is the change in $y$ divided by the change in $x$, $\\frac{-24}{6} = -4$.\n* Choice B ($g(x) = -4x + 24$): this is the equation of the graph shown; it does not have a $y$-intercept of $(0, 60)$.\n* Choice D ($g(x) = 4x + 60$): drops the negative sign. The graph shown falls from left to right, so its slope is negative.\n\n**Test Day Takeaway:** Parallel means equal slopes; read the slope from two clear points on the graph, then pair it with the new $y$-intercept."
 }

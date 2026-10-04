@@ -1,6 +1,6 @@
 {
  "id": 6,
- "question": "The bar graph shows the number of hours of sunshine recorded at a climate station during each of five consecutive months. June and July together account for what percent of the total number of sunshine hours recorded during these five months?",
+ "question": "The bar graph shows the number of hours of sunshine in a city during each of five months. What percent of the total hours of sunshine for the five months occurred in June and July combined?",
  "diagram": {
   "type": "barChart",
   "params": {

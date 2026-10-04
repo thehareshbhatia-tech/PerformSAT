@@ -1,29 +1,29 @@
 {
  "id": 7,
- "question": "A linear model predicts the number of hotel room-nights booked in a resort town during a week, $\\hat{y}$, from the number of inbound flights that week, $x$, by $\\hat{y} = 30x + 210$. In one week the observed number of room-nights was $2{,}460$, which was $150$ greater than the number the model predicts. How many inbound flights were there that week?",
+ "question": "The equation $y = 18x + 270$ models the number of hotel rooms booked in a town during a week, $y$, where $x$ is the number of flights that arrived that week. In one week, $1{,}350$ rooms were booked, which was $90$ more than the model predicts. How many flights arrived that week?",
  "choices": [
   {
    "id": "A",
-   "text": "$70$"
+   "text": "$55$"
   },
   {
    "id": "B",
-   "text": "$75$"
+   "text": "$60$"
   },
   {
    "id": "C",
-   "text": "$77$"
+   "text": "$65$"
   },
   {
    "id": "D",
-   "text": "$80$"
+   "text": "$70$"
   }
  ],
- "distractorNotes": {
-  "B": "ignores the 150-room-night gap and solves 30x + 210 = 2460",
-  "C": "subtracts the gap but drops the constant 210, solving 30x = 2310",
-  "D": "adds the gap to the observed value instead of subtracting it, solving 30x + 210 = 2610"
- },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The model predicted $2460 - 150 = 2310$ room-nights, so $30x + 210 = 2310$ and $x = 70$.\n\n**The Full Solution:**\nStep 1: The difference between an observed value and the value the model predicts is the residual. Here that difference is $+150$, so observed $=$ predicted $+ \\, 150$.\nStep 2: Solve for the predicted value: $2460 = \\hat{y} + 150$, so $\\hat{y} = 2310$ room-nights.\nStep 3: Put the predicted value into the model: $30x + 210 = 2310$, so $30x = 2100$ and $x = 70$ inbound flights. Check: $30(70) + 210 = 2310$, and $2460 - 2310 = 150$ as stated. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($75$): substitutes the OBSERVED value into the model, solving $30x + 210 = 2460$, which ignores the $150$-room-night gap the stem gives you.\n* Choice C ($77$): subtracts the gap correctly but then drops the constant $210$, solving $30x = 2310$.\n* Choice D ($80$): adds the $150$ to the observed value instead of subtracting it, solving $30x + 210 = 2610$ and moving in the wrong direction.\n\n**Test Day Takeaway:** Residual $=$ observed $-$ predicted. When the stem tells you the observed value is a stated amount ABOVE the prediction, subtract that amount first, then feed the prediction into the model — the model equation never takes the observed value directly."
+ "distractorNotes": {
+  "B": "ignores the 90-room difference and solves 18x + 270 = 1350",
+  "C": "adds the 90-room difference to the actual value instead of subtracting it, solving 18x + 270 = 1440",
+  "D": "subtracts the 90-room difference but drops the constant 270, solving 18x = 1260"
+ },
+ "explanation": "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The model predicted $1{,}350 - 90 = 1{,}260$ rooms, so $18x + 270 = 1{,}260$, which gives $18x = 990$ and $x = 55$.\n\n**The Full Solution:**\nStep 1: The actual number of rooms was $90$ more than the predicted number, so the model's prediction for that week was $1{,}350 - 90 = 1{,}260$.\nStep 2: The model's prediction is $18x + 270$, so $18x + 270 = 1{,}260$.\nStep 3: Subtract $270$ and divide by $18$: $18x = 990$, so $x = 55$. Check: $18(55) + 270 = 990 + 270 = 1{,}260$, and $1{,}350 - 1{,}260 = 90$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($60$): sets the model equal to the actual $1{,}350$ rooms. The model's value is the prediction, which was $90$ less than the actual number.\n* Choice C ($65$): adds $90$ to the actual number, using $1{,}440$ as the prediction. The prediction is below the actual value, not above it.\n* Choice D ($70$): finds the predicted $1{,}260$ correctly but solves $18x = 1{,}260$, leaving out the constant $270$.\n\n**Test Day Takeaway:** Actual minus predicted is the residual; when the actual value is above the model, subtract the difference to get the prediction, then solve the model's equation."
 }

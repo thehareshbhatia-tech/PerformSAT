@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "Grid cells in the mammalian entorhinal cortex fire whenever an animal occupies any vertex of a hexagonal lattice tiling the space it moves through, a regularity that suggested the cells compute location from self-motion — counting steps and turns — rather than from what the animal sees. Neuroscientist Edvard Moser's group tested the visual alternative directly: they recorded from grid cells while rats foraged first in a lighted arena and then in total darkness. If the firing lattice were anchored to visual landmarks, extinguishing them should have dissolved or displaced it. Instead the hexagonal pattern persisted in the dark with its spacing and orientation largely intact, and Moser concluded that the grid is generated internally from the animal's own movement signals, with vision serving mainly to correct the map's slow drift rather than to construct it.",
+ "passage": "Grid cells in the mammalian brain fire whenever an animal occupies any vertex of a hexagonal lattice tiling the space it moves through. Neuroscientist Edvard Moser's group asked whether that lattice is anchored to what the animal sees: they recorded from grid cells while rats foraged first in a lighted arena and then in total darkness. If the pattern depended on visual landmarks, darkness should have dissolved or displaced it. Instead, the hexagonal pattern persisted in the dark, and Moser concluded that the grid is generated internally from the animal's own movement signals, with landmarks serving mainly to anchor the map and correct its drift rather than to construct it.",
  "question": "According to the text, what did Moser conclude about the firing pattern of grid cells?",
  "choices": [
   {
@@ -15,7 +15,7 @@
   },
   {
    "id": "B",
-   "text": "It dissolves completely when an arena is plunged into total darkness, which demonstrates that the hexagonal pattern is anchored to the visual landmarks available to the animal in a lighted arena."
+   "text": "It dissolves completely in total darkness, which shows that the hexagonal pattern is anchored entirely to visual landmarks."
   },
   {
    "id": "C",
@@ -23,9 +23,12 @@
   },
   {
    "id": "D",
-   "text": "It is produced internally from self-motion signals, with visual input serving chiefly to correct gradual drift rather than to build the pattern."
+   "text": "It is produced internally from self-motion signals, with visual landmarks serving chiefly to anchor and correct the pattern rather than to build it."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** Moser's stated conclusion has two parts — the grid is generated internally from movement signals, and vision mainly corrects the map's slow drift — and D reproduces both.\n\n**The Full Solution:**\n- The final sentence gives the conclusion: the grid \"is generated internally from the animal's own movement signals,\" with vision serving \"mainly to correct the map's slow drift rather than to construct it.\"\n- A correct answer must keep both the internal-generation claim and vision's limited, corrective role.\n\n**Why the other choices are wrong:**\n- A: It confuses the experimental sequence (light first, then darkness) with a claimed requirement; the text nowhere says prior lighted exploration is necessary for the lattice to form.\n- B: It states the outcome the experiment ruled out — if the lattice were visually anchored, darkness \"should have dissolved or displaced it,\" but the pattern \"persisted.\"\n- C: It invents an equal-dependence conclusion the text contradicts: the two inputs play asymmetric roles (construction versus correction)."
+ "explanation": "**Choice D is correct.** Moser's stated conclusion has two parts — the grid is generated internally from movement signals, and landmarks mainly anchor and correct the map — and D reproduces both.\n\n**The Full Solution:**\n- The final sentence gives the conclusion: the grid \"is generated internally from the animal's own movement signals,\" with landmarks serving \"mainly to anchor the map and correct its drift rather than to construct it.\"\n- A correct answer must keep both the internal-generation claim and the landmarks' limited, corrective role.\n\n**Why the other choices are wrong:**\n- A: It confuses the experimental sequence (light first, then darkness) with a claimed requirement; the text nowhere says prior lighted exploration is necessary for the lattice to form.\n- B: It states the outcome the experiment ruled out — if the lattice depended on visual landmarks, darkness \"should have dissolved or displaced it,\" but the pattern \"persisted.\"\n- C: It invents an equal-dependence conclusion the text contradicts: the two inputs play asymmetric roles (construction versus correction).",
+ "_meta": {
+  "source": "Hafting, Fyhn, Molden, Moser & Moser, Nature 436 (2005), 'Microstructure of a spatial map in the entorhinal cortex' — grids anchored to external landmarks but persisted in darkness, suggesting a path-integration-based map"
+ }
 }

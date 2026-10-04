@@ -1,6 +1,6 @@
 {
  "id": 4,
- "question": "A loaded pallet holds $n$ identical crates. The equation $12n + 6n + 45 = 315$ relates $n$ to the total mass of the loaded pallet, in kilograms. What is the value of $n$?",
+ "question": "$12n + 6n + 45 = 315$\nWhat value of $n$ is the solution to the given equation?",
  "choices": [
   {
    "id": "A",

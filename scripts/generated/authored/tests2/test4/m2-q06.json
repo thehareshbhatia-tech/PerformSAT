@@ -1,6 +1,6 @@
 {
  "id": 6,
- "question": "A city recorded the number of water-main breaks per $100$ miles of pipe for each of $10$ years, and the graph shows those readings with the model $\\hat{y} = 46 - 1.8x$, where $x$ is years since the last network survey. At the marked point, the recorded number of breaks exceeds the number the model predicts by how much?",
+ "question": "The scatterplot shows the relationship between two variables, $x$ and $y$, and the line of best fit, $y = -1.8x + 46$. For the data point with $x = 15$, what is the actual $y$-value minus the $y$-value predicted by the line of best fit?",
  "diagram": {
   "type": "scatterplot",
   "params": {
@@ -54,8 +54,8 @@
    "yGridStep": 5,
    "xLabelStep": 4,
    "yLabelStep": 10,
-   "xLabel": "Years since survey",
-   "yLabel": "Breaks per 100 miles",
+   "xLabel": "x",
+   "yLabel": "y",
    "bestFitLine": {
     "slope": -1.8,
     "intercept": 46
@@ -87,10 +87,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "subtracts in the wrong order, computing predicted minus recorded, 19 - 26 = -7",
-  "C": "reports 19, the value the model predicts at x = 15, instead of the gap",
-  "D": "reports 26, the recorded value at x = 15, instead of the gap"
+  "A": "subtracts in the wrong order, computing the predicted value minus the actual value, 19 - 26 = -7",
+  "C": "reports 19, the y-value the line of best fit predicts at x = 15, instead of the difference",
+  "D": "reports 26, the actual y-value at x = 15, instead of the difference"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The model predicts $46 - 1.8(15) = 19$; the marked point sits at $26$. The gap is $26 - 19 = 7$.\n\n**The Full Solution:**\nStep 1: Read the marked point from the graph: at $x = 15$ years, the recorded rate is $26$ breaks per $100$ miles.\nStep 2: Evaluate the model at the same $x$: $\\hat{y} = 46 - 1.8(15) = 46 - 27 = 19$.\nStep 3: \"Exceeds by\" means recorded minus predicted: $26 - 19 = 7$. Check: adding $7$ to the predicted $19$ returns the recorded $26$, and the marked point lies above the model line, so the gap must be positive. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): this subtracts in the wrong order, $19 - 26$. A point above the line has a positive gap; a negative answer contradicts the picture.\n* Choice C ($19$): this is the value the model predicts. It is one of the two numbers you need, not the difference between them.\n* Choice D ($26$): this is the recorded value read straight off the graph, with the model never evaluated.\n\n**Test Day Takeaway:** Observed minus predicted, always in that order. Then sanity-check the sign against the picture: above the line is positive, below is negative."
+ "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The line predicts $-1.8(15) + 46 = 19$, and the data point is at $y = 26$, so the difference is $26 - 19 = 7$.\n\n**The Full Solution:**\nStep 1: Read the data point with $x = 15$ from the scatterplot: its actual $y$-value is $26$.\nStep 2: Evaluate the line of best fit at $x = 15$: $y = -1.8(15) + 46 = -27 + 46 = 19$.\nStep 3: Actual minus predicted is $26 - 19 = 7$. Check: the point lies above the line of best fit, so the difference must be positive ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): this subtracts in the wrong order, $19 - 26$. A point above the line has a positive difference.\n* Choice C ($19$): this is the predicted $y$-value, one of the two numbers needed, not their difference.\n* Choice D ($26$): this is the actual $y$-value read from the graph, with the line never evaluated.\n\n**Test Day Takeaway:** Actual minus predicted, in that order; a point above the line of best fit always gives a positive result."
 }

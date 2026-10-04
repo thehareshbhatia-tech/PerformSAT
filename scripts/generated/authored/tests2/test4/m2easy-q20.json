@@ -1,29 +1,29 @@
 {
  "id": 20,
- "question": "On a rail survey grid marked in kilometers, station $P$ is at $(-9, 4)$ and station $Q$ is at $(5, -12)$, and a signal repeater is installed at $(-2, -3)$. Which statement about the repeater and segment $PQ$ is true?",
+ "question": "In the $xy$-plane, line $\\ell$ passes through the midpoint of the segment with endpoints $(-9, 4)$ and $(5, -12)$. Line $\\ell$ is parallel to the line $y = 3x + 7$. Which equation defines line $\\ell$?",
  "choices": [
   {
    "id": "A",
-   "text": "The repeater is the midpoint of $PQ$."
+   "text": "$y = 3x - 10$"
   },
   {
    "id": "B",
-   "text": "The repeater lies on $PQ$ but is not its midpoint."
+   "text": "$y = 3x - 4$"
   },
   {
    "id": "C",
-   "text": "The repeater lies on the line through $P$ and $Q$ but outside $PQ$."
+   "text": "$y = 3x + 2$"
   },
   {
    "id": "D",
-   "text": "The repeater does not lie on the line through $P$ and $Q$."
+   "text": "$y = 3x + 4$"
   }
  ],
  "distractorNotes": {
-  "A": "assumes the repeater is the midpoint because its x-coordinate matches; the midpoint is (-2, -4), not (-2, -3)",
-  "B": "accepts the repeater as on the segment because it sits between the stations, without testing it against the line",
-  "C": "treats the repeater as a point on the extension of PQ, even though its x-coordinate lies between -9 and 5"
+  "A": "finds the midpoint (-2, -4) but makes a sign error solving for b, computing -4 + 3(-2) = -10",
+  "B": "uses the midpoint's y-coordinate, -4, as the y-intercept",
+  "D": "adds the endpoint coordinates without dividing by 2, using (-4, -8) as the midpoint"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The midpoint of $PQ$ is $\\left(\\frac{-9 + 5}{2}, \\frac{4 - 12}{2}\\right) = (-2, -4)$. The repeater sits at $(-2, -3)$, one kilometer above the only point of the line with $x = -2$, so it is off the line entirely.\n\n**The Full Solution:**\nStep 1: Apply the midpoint formula to $P(-9, 4)$ and $Q(5, -12)$: the midpoint is $(-2, -4)$.\nStep 2: A vertical line $x = -2$ meets the line through $P$ and $Q$ exactly once, and that single point is the midpoint $(-2, -4)$.\nStep 3: The repeater is at $(-2, -3)$, so it is not that point and cannot be anywhere else on the line. Check with the slope: $PQ$ has slope $\\frac{-12 - 4}{5 + 9} = -\\frac{8}{7}$, while $P$ to the repeater has slope $\\frac{-3 - 4}{-2 + 9} = -1$; unequal slopes mean the three points are not collinear ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the $x$-coordinates match, which makes $(-2, -3)$ look like the midpoint. But the midpoint's $y$-coordinate is $-4$, so the repeater misses it by one kilometer.\n* Choice B: sitting between the two stations is not the same as sitting on the segment. The point of $PQ$ directly below the repeater is $(-2, -4)$.\n* Choice C: points outside $PQ$ on that line have $x$ below $-9$ or above $5$. The repeater's $x = -2$ is between the stations, so this describes a location it cannot occupy.\n\n**Test Day Takeaway:** Matching one coordinate is not membership: compute the midpoint, then confirm collinearity with a slope comparison before deciding where a point sits relative to a segment."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The midpoint is $\\left(\\frac{-9 + 5}{2}, \\frac{4 + (-12)}{2}\\right) = (-2, -4)$, and line $\\ell$ has slope $3$. Then $-4 = 3(-2) + b$ gives $b = 2$, so $y = 3x + 2$.\n\n**The Full Solution:**\nStep 1: Find the midpoint by averaging the coordinates: $\\frac{-9 + 5}{2} = -2$ and $\\frac{4 + (-12)}{2} = -4$, so the midpoint is $(-2, -4)$.\nStep 2: Parallel lines have equal slopes, so line $\\ell$ has slope $3$ and an equation of the form $y = 3x + b$.\nStep 3: Substitute $(-2, -4)$: $-4 = 3(-2) + b$, so $b = -4 + 6 = 2$, and line $\\ell$ is $y = 3x + 2$. Check: $3(-2) + 2 = -4$, so the line passes through the midpoint ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 3x - 10$): this solves $-4 = -6 + b$ incorrectly as $b = -4 - 6$. At $x = -2$ this line gives $y = -16$, not $-4$.\n* Choice B ($y = 3x - 4$): this uses the midpoint's $y$-coordinate as the $y$-intercept. The $y$-intercept is the value of $y$ at $x = 0$, and the midpoint has $x = -2$.\n* Choice D ($y = 3x + 4$): this adds the coordinates without dividing by $2$, using $(-4, -8)$. That point is not the midpoint, so the line misses $(-2, -4)$: $3(-2) + 4 = -2$.\n\n**Test Day Takeaway:** For a line through a midpoint, find the midpoint first by averaging the coordinates, then substitute it into $y = mx + b$ with the given slope."
 }

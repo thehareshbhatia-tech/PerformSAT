@@ -6,12 +6,12 @@
  "domain": "information-and-ideas",
  "skill": "inferences",
  "module": 2,
- "passage": "When Nicaragua opened its first schools for deaf children in the late 1970s, students arrived with only the improvised home signs each had developed with hearing family members, and their teachers' attempts to instruct them in lipreading and fingerspelled Spanish largely failed. Within a decade, however, the students had developed a shared sign language among themselves — and linguists studying it noticed a striking generational pattern. The children who entered the community youngest, learning from older students' still-irregular signing, produced language that was more fluent and more grammatically systematic than the input they received, introducing consistent verb agreement and spatial devices their older peers' signing lacked. Since the youngest signers could not have copied these regularities from teachers, older students, or Spanish, the linguists reasoned that ______",
+ "passage": "When Nicaragua opened its first schools for deaf children in the late 1970s, students arrived with only the improvised home signs each had developed with hearing family members, and lessons in lipreading and spoken Spanish largely failed. Within a few years, however, the students had developed a shared sign language — and linguists noticed a generational pattern. Children who entered the community youngest, learning from older students' still-irregular signing, produced language that was more grammatically systematic than the input they received, using spatial devices far more consistently than their older peers did. Since the youngest signers could not have copied these regularities from teachers, older students, or Spanish, the linguists reasoned that ______",
  "question": "Which choice most logically completes the text?",
  "choices": [
   {
    "id": "A",
-   "text": "the youngest children's signing, though more systematic, must be considered a separate language in its own right rather than a further development of the sign language the older students had already created together."
+   "text": "the youngest children's signing must be considered a separate language rather than a further development of the older students' sign language."
   },
   {
    "id": "B",
@@ -23,9 +23,9 @@
   },
   {
    "id": "D",
-   "text": "the grammatical structure of the emerging language must have originated at least partly in the young learners themselves, whose acquisition process imposed systematicity their input did not contain."
+   "text": "the language's grammatical structure must have originated at least partly in the young learners themselves, who imposed regularities their input lacked."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** With every external source of the grammar eliminated, the only remaining origin for the added systematicity is the young learners' own acquisition process — and D concludes exactly that, no more.\n\n**The Full Solution:**\n- The passage eliminates external sources one by one: teachers' instruction failed; the older students' signing was \"still-irregular\" and lacked the devices in question; Spanish was inaccessible.\n- The youngest cohort's consistent verb agreement and spatial grammar exceeded all available input — so the systematicity must have come from the learners themselves.\n\n**Why the other choices are wrong:**\n- A: It turns a difference of degree into a difference of identity; the passage presents the youngest cohort's signing as a more systematic stage of the same shared language, not a new one.\n- B: It rescues an external source by inventing a hidden grammar the passage rules out — the older students' signing is described as genuinely irregular, not strategically simplified.\n- C: It generalizes far beyond the evidence — one community's history cannot establish what \"only\" school settings can do."
+ "explanation": "**Choice D is correct.** With every external source of the grammar eliminated, the only remaining origin for the added systematicity is the young learners' own acquisition process — and D concludes exactly that, no more.\n\n**The Full Solution:**\n- The passage eliminates external sources one by one: lessons in lipreading and spoken Spanish failed; the older students' signing was \"still-irregular\" and used the spatial devices less consistently; Spanish was not the source.\n- The youngest cohort's consistent spatial grammar exceeded all available input — so the systematicity must have come from the learners themselves.\n\n**Why the other choices are wrong:**\n- A: It turns a difference of degree into a difference of identity; the passage presents the youngest cohort's signing as a more systematic stage of the same shared language, not a new one.\n- B: It rescues an external source by inventing a hidden grammar the passage rules out — the older students' signing is described as genuinely irregular, not strategically simplified.\n- C: It generalizes far beyond the evidence — one community's history cannot establish what \"only\" school settings can do."
 }

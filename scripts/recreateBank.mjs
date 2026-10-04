@@ -26,6 +26,8 @@ import { fileURLToPath, pathToFileURL } from 'url';
 import { indexCorpus, checkUniquenessSliding, tokenize } from './calibrateModule.mjs';
 import { CB_MATH_SKILLS, PATTERN_TO_CB_SKILL } from '../src/data/questions/cbSkillTaxonomy.js';
 import { extractSatPattern } from '../src/data/questions/extractSatPattern.js';
+import { registerItem, registerModule } from './registerGate.mjs';
+import { checkMath } from './copyrightGate.mjs';
 
 const CB_LABEL = new Map(CB_MATH_SKILLS.map(s => [s.slug, s.label]));
 function cbSkillOf(q) {
@@ -40,6 +42,8 @@ const GEN = path.join(ROOT, 'scripts', 'generated');
 const AUTHORED = path.join(GEN, 'authored', 'bank');
 const WORK = path.join(GEN, 'bankRecreation');
 const CHUNK_SIZE = 60;
+// register v3 is the default; --v2-gates restores the v2 thin-stem floor + wording-freshness FAILs
+const V2_GATES = process.argv.includes('--v2-gates');
 
 export const TOPIC_DOMAIN = {
   'linear-equations': 'algebra', systems: 'algebra', functions: 'algebra', 'equivalent-expressions': 'algebra',
@@ -481,7 +485,7 @@ async function check(selection) {
   const rows = await selectRows(selection);
   const freshSibs = rows.some(r => r.fresh) ? freshSiblings(null) : null;
   const ctx = { numeric: 0, ascending: 0, figures: 0, stems: [] };
-  let errors = 0, missing = 0, checked = 0;
+  let errors = 0, missing = 0, checked = 0; const regRows = [];
   const lens = { easy: [], medium: [], hard: [] };
   for (const row of rows) {
     const got = readAuthored(row.source, row.fileId);
@@ -490,13 +494,19 @@ async function check(selection) {
     if (row.fresh && freshUntouched(`${row.source}/${row.fileId}`, got.data)) { missing++; continue; } // still the pre-refresh item — not authored yet
     checked++;
     const { errs, warns } = checkItem(row, got.data, ctx);
+    // register v3 (docs/TEST_REGISTER_V3_SPEC.md): CB register per item + math-aware copyright gate
+    if (!V2_GATES) {
+      const reg = registerItem(got.data, { difficulty: row.difficulty, cbSkillLabel: row.cbSkillLabel }); errs.push(...reg.errs); warns.push(...reg.warns);
+      const cr = checkMath(got.data); errs.push(...cr.fails.map(f => `COPYRIGHT ${f}`)); warns.push(...cr.warns.map(w => `copyright ${w}`));
+      regRows.push({ q: got.data, difficulty: row.difficulty });
+    }
     if (row.fresh) {
       const fr = freshnessErrors(got.data.question, `${row.source}/${row.fileId}`, freshSibs);
-      errs.push(...fr.errs); warns.push(...fr.warns);
+      if (V2_GATES) errs.push(...fr.errs); else warns.push(...fr.errs.map(e => e.replace('FRESHNESS', 'freshness (v3: info)'))); warns.push(...fr.warns);
       if (row.figure && !got.data.diagram && !got.data.questionTable) errs.push('this is a FIGURE slot in the refresh plan — add a real diagram/questionTable whose params match the numbers');
       if (row.type === 'multiple-choice') { const notes = got.data.distractorNotes || {}; for (const L of ['A', 'B', 'C', 'D']) if (L !== got.data.correctAnswer && !(notes[L] && String(notes[L]).trim())) errs.push(`distractorNotes.${L} missing (every wrong letter needs a named error)`); }
       const wc = wordCount(got.data.question);
-      if (!got.data.diagram && !got.data.questionTable) {
+      if (V2_GATES && !got.data.diagram && !got.data.questionTable) {
         const { norm, scope } = stemNorm(row.cbSkillLabel, row.difficulty); const floor = Math.max(10, Math.round(norm * THIN_RATIO));
         if (wc < floor) errs.push(`stem ${wc} words — thin for a ${row.difficulty} "${scope}" item (official median ${norm}, floor ${floor}); add real setup (a named quantity, its units, the condition), never boilerplate`);
       }
@@ -504,6 +514,10 @@ async function check(selection) {
     warns.forEach(w => console.warn(`warn ${row.fileId}: ${w}`));
     if (errs.length) { errors += errs.length; errs.forEach(e => console.error(`FAIL ${row.fileId}: ${e}`)); }
     if (lens[row.difficulty]) lens[row.difficulty].push(wordCount(got.data.question));
+  }
+  if (!V2_GATES && selection.chunk && regRows.length === rows.length) {
+    const rm = registerModule(regRows, { label: selection.chunk }); rm.errs.forEach(e => { errors++; console.error(`FAIL ${e}`); });
+    console.log(`${selection.chunk}: register short ${Math.round(rm.info.short * 100)}% · eqFirst ${Math.round(rm.info.eqFirst * 100)}% · stock ${Math.round(rm.info.stock * 100)}% · medians E${rm.info.median.easy}/M${rm.info.median.medium}/H${rm.info.median.hard}`);
   }
   const uerrs = args['no-uniq'] ? [] : uniquenessErrors(ctx.stems);
   uerrs.forEach(e => console.error(`FAIL ${e}`)); errors += uerrs.length;

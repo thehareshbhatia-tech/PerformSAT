@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 1,
- "passage": "Historians of the medieval Norse settlements in Greenland have long depended on a patchy written record: sagas composed centuries after the events they describe and a handful of administrative documents. Tree-ring analysis of driftwood and imported timbers recovered from settlement sites now offers an independent line of evidence. When the felling dates derived from the rings ______ the chronology implied by the texts, scholars can treat that chronology with far greater confidence.",
+ "passage": "The Icelandic sagas that describe Norse voyages west of Greenland were written down some two centuries after the events, so historians have treated their details with caution. In 2021, however, researchers used tree rings to show that wood at the Norse site of L'Anse aux Meadows in Newfoundland was cut in the year 1021, a finding that helps ______ the sagas' account of Norse travel to North America.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,5 +27,8 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The payoff — \"far greater confidence\" in the textual chronology — follows only if the ring dates confirm what the texts imply, which is what \"corroborate\" means.\n\n**The Full Solution:**\n- The passage frames tree-ring dating as an \"independent line of evidence\" set against an unreliable written record.\n- The result of the blank is that scholars gain \"far greater confidence\" in the chronology; independent evidence produces that confidence by confirming — corroborating — the texts.\n\n**Why the other choices are wrong:**\n- B: \"Embellish\" adds decorative detail, not confirmation.\n- C: \"Anticipate\" gets the time relationship backward — the rings date the events; they don't foresee the texts.\n- D: \"Supersede\" would replace the textual chronology, which would undermine confidence in it rather than strengthen it."
+ "explanation": "**Choice A is correct.** Independent physical evidence that agrees with a doubted written account confirms it, and \"corroborate\" means to confirm or support with evidence.\n\n**The Full Solution:**\n- The first sentence explains why the sagas need support: they were written down long after the voyages, so historians treat them with caution.\n- The word \"however\" introduces evidence that answers that doubt: tree rings show that Norse people were cutting wood in Newfoundland in 1021.\n- A date from the wood itself that matches the sagas' story of voyages to North America confirms that story, which is what \"corroborate\" means.\n\n**Why the other choices are wrong:**\n- B: \"Embellish\" means to add decorative or invented detail, but a tree-ring date confirms the account rather than decorating it.\n- C: \"Anticipate\" means to foresee, but the 2021 finding came centuries after the sagas, so it cannot foresee them.\n- D: \"Supersede\" means to replace, but evidence that agrees with the sagas supports their account instead of replacing it.",
+ "_meta": {
+  "source": "Kuitems et al., Nature 600 (2021): wood from L'Anse aux Meadows cut in 1021 CE, dated with the 993 CE cosmic-ray tree-ring signal; Vinland sagas written down in the 13th century"
+ }
 }

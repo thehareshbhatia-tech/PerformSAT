@@ -1,6 +1,6 @@
 {
  "id": 4,
- "question": "Triangle $PQR$ has vertices $P(1, 2)$, $Q(1, 9)$, and $R(25, 2)$ in the $xy$-plane. Because $P$ and $Q$ have the same $x$-coordinate and $P$ and $R$ have the same $y$-coordinate, the angle at $P$ is a right angle. What is the length of $\\overline{QR}$?",
+ "question": "Points $Q(1, 9)$ and $R(25, 2)$ lie in the $xy$-plane. What is the length of $\\overline{QR}$?",
  "choices": [
   {
    "id": "A",
@@ -8,22 +8,22 @@
   },
   {
    "id": "B",
-   "text": "$17$"
-  },
-  {
-   "id": "C",
    "text": "$24$"
   },
   {
-   "id": "D",
+   "id": "C",
    "text": "$25$"
+  },
+  {
+   "id": "D",
+   "text": "$31$"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "gives the vertical leg PQ, 9 - 2 = 7, instead of the segment joining Q and R",
-  "B": "subtracts the two leg lengths, 24 - 7 = 17, instead of using the Pythagorean relationship",
-  "C": "gives the horizontal leg PR, 25 - 1 = 24, instead of the segment joining Q and R"
+  "A": "gives the vertical change between the points, 9 - 2 = 7, instead of the distance",
+  "B": "gives the horizontal change between the points, 25 - 1 = 24, instead of the distance",
+  "D": "adds the horizontal and vertical changes, 24 + 7 = 31, instead of using the distance formula"
  },
- "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The legs measure $9 - 2 = 7$ and $25 - 1 = 24$, a $7$-$24$-$25$ right triangle, so $QR = 25$.\n\n**The Full Solution:**\nStep 1: Find the vertical change from $Q(1, 9)$ to $R(25, 2)$: $9 - 2 = 7$.\nStep 2: Find the horizontal change: $25 - 1 = 24$.\nStep 3: Apply the distance formula: $\\sqrt{24^{2} + 7^{2}} = \\sqrt{576 + 49} = \\sqrt{625} = 25$. Check: $7^{2} + 24^{2} = 625 = 25^{2}$, so the three lengths do satisfy the Pythagorean theorem ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): reports the vertical leg $PQ$. That is one side of the right angle, not the side opposite it.\n* Choice B ($17$): subtracts the changes, $24 - 7 = 17$. A distance is never the difference of the horizontal and vertical changes.\n* Choice C ($24$): reports the horizontal leg $PR$, the longer leg, instead of the hypotenuse.\n\n**Test Day Takeaway:** The distance between two points is the hypotenuse of the right triangle built from the horizontal and vertical changes, so it must exceed both of them — an instant check against answering with a leg."
+ "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The horizontal change is $25 - 1 = 24$ and the vertical change is $9 - 2 = 7$, a $7$-$24$-$25$ right triangle, so $QR = 25$.\n\n**The Full Solution:**\nStep 1: Find the horizontal change from $Q(1, 9)$ to $R(25, 2)$: $25 - 1 = 24$.\nStep 2: Find the vertical change: $9 - 2 = 7$.\nStep 3: Apply the distance formula: $\\sqrt{24^{2} + 7^{2}} = \\sqrt{576 + 49} = \\sqrt{625} = 25$. Check: $25$ is greater than both $24$ and $7$ and less than their sum, $31$, as the long side of a right triangle must be ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): reports the vertical change alone. That is one leg of the right triangle formed by the two changes, not the distance.\n* Choice B ($24$): reports the horizontal change alone, the longer leg, instead of the hypotenuse.\n* Choice D ($31$): adds the two changes, $24 + 7 = 31$. That is the length of the path that goes across and then down, which is longer than the straight segment.\n\n**Test Day Takeaway:** The distance between two points is the hypotenuse of the right triangle built from the horizontal and vertical changes, so it must exceed each change but be less than their sum."
 }

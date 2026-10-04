@@ -1,29 +1,29 @@
 {
  "id": 9,
- "question": "Two weaving schedules are described by $4x - ky = 18$ and $6x - 15y = 30$, where $x$ is the number of hours on loom A, $y$ is the number of hours on loom B, and $k$ is a constant. No pair $(x, y)$ satisfies both equations. What is the value of $k$?",
+ "question": "$4x - ky = 18$\n$6x - 15y = 30$\nIn the given system of equations, $k$ is a constant. If the system has no solution, what is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$10$"
+   "text": "$9$"
   },
   {
    "id": "B",
-   "text": "$15$"
+   "text": "$10$"
   },
   {
    "id": "C",
-   "text": "$22.5$"
+   "text": "$15$"
   },
   {
    "id": "D",
-   "text": "$25$"
+   "text": "$22.5$"
   }
  ],
+ "correctAnswer": "B",
  "distractorNotes": {
-  "B": "copies the coefficient of y from the second equation without scaling it by 4/6",
-  "C": "inverts the scale factor, computing 15 x 6/4 = 22.5",
-  "D": "scales by the ratio of the constant terms, 15 x 30/18 = 25"
+  "A": "uses the ratio of the constant terms, 18/30 = 3/5, instead of the ratio of the x-coefficients, computing 15 x 3/5 = 9",
+  "C": "copies the coefficient of y from the second equation without scaling it by 4/6",
+  "D": "inverts the scale factor, computing 15 x 6/4 = 22.5"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** No solution means the lines are parallel, so the $x$- and $y$-coefficients must scale together: $\\frac{4}{6} = \\frac{k}{15}$, giving $k = 10$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has no solution when the two lines are parallel and distinct — the coefficients of $x$ and of $y$ are in the same ratio, but the constants are not.\nStep 2: Match the coefficients: $\\frac{4}{6} = \\frac{k}{15}$. Cross-multiplying gives $6k = 60$, so $k = 10$.\nStep 3: Confirm the lines are distinct rather than identical. With $k = 10$ the first equation halves to $2x - 5y = 9$ and the second thirds to $2x - 5y = 10$. Same left side, different right side, so no pair $(x, y)$ works. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($15$): copies the $-15$ from the second equation, as if parallel lines needed identical coefficients rather than proportional ones.\n* Choice C ($22.5$): uses the scale factor upside down, $15 \\cdot \\frac{6}{4}$, instead of $15 \\cdot \\frac{4}{6}$.\n* Choice D ($25$): scales by the ratio of the constants, $15 \\cdot \\frac{30}{18}$. Matching the constants is what produces infinitely many solutions, which is the opposite of what the stem describes.\n\n**Test Day Takeaway:** Parallel means the coefficient ratios agree and the constant ratio does not. Set up the coefficient proportion first, then verify the constants break it — the value that makes the constants match too is always one of the choices."
+ "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** No solution means the $x$- and $y$-coefficients are proportional, so $\\frac{4}{6} = \\frac{k}{15}$ and $k = 10$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has no solution when the lines are parallel and distinct, so the coefficients of $x$ and $y$ must be in the same ratio while the constants are not.\nStep 2: The ratio of the $x$-coefficients is $\\frac{4}{6} = \\frac{2}{3}$, so $\\frac{k}{15} = \\frac{2}{3}$ and $k = 10$.\nStep 3: Confirm the lines are distinct. Multiplying the second equation by $\\frac{2}{3}$ gives $4x - 10y = 20$, while the first equation is $4x - 10y = 18$. The same left side cannot equal both $18$ and $20$, so the system has no solution ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): uses the ratio of the constants, $\\frac{18}{30} = \\frac{3}{5}$, computing $15 \\cdot \\frac{3}{5} = 9$. The constants are the terms that must break the ratio; with $k = 9$, the ratios $\\frac{4}{6}$ and $\\frac{9}{15}$ differ, so the system has exactly one solution.\n* Choice C ($15$): matches the $y$-coefficient of the second equation without scaling it, but the $x$-coefficients $4$ and $6$ are not equal.\n* Choice D ($22.5$): uses the ratio upside down, computing $15 \\cdot \\frac{6}{4}$.\n\n**Test Day Takeaway:** For no solution, match the ratio of the $x$- and $y$-coefficients and check that the constants break the ratio; matching the constants too would give infinitely many solutions."
 }

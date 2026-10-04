@@ -9,11 +9,11 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Artificial light at night obscures the stars and disrupts nocturnal wildlife, including migrating birds and sea turtle hatchlings.",
-   "DarkSky International certifies dark-sky preserves — parks and reserves that commit to strict outdoor-lighting standards and public astronomy programming.",
-   "Certification is voluntary: a park applies for recognition and demonstrates that its lighting meets the organization's standards.",
-   "Some municipalities instead adopt lighting ordinances — local laws regulating the brightness, shielding, and color of outdoor fixtures.",
-   "Ordinances are binding on residents and businesses within the municipality and are enforced like other local codes."
+   "Artificial light at night hides the stars and disrupts nocturnal wildlife such as migrating birds.",
+   "DarkSky International certifies International Dark Sky Parks, which commit to strict outdoor-lighting standards.",
+   "Certification is voluntary: a park applies and shows that its lighting meets the organization's standards.",
+   "Some municipalities instead adopt lighting ordinances, local laws regulating the brightness, shielding, and color of outdoor fixtures.",
+   "Ordinances are binding on residents and businesses and are enforced like other local codes."
   ],
   "goal": "The student wants to emphasize a difference between dark-sky certification and municipal lighting ordinances."
  },
@@ -21,21 +21,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "Dark-sky certification and lighting ordinances both respond to the problems caused by artificial light at night, which obscures the stars and disrupts nocturnal wildlife."
+   "text": "Dark-sky certification and lighting ordinances both respond to the problems caused by artificial light at night."
   },
   {
    "id": "B",
-   "text": "Whereas dark-sky certification is a voluntary recognition that a park seeks out, a municipal lighting ordinance is a binding local law, enforced like any other code on the residents and businesses it covers."
+   "text": "Whereas dark-sky certification is a voluntary recognition that a park applies for, a lighting ordinance is a binding local law."
   },
   {
    "id": "C",
-   "text": "DarkSky International certifies parks and reserves that commit to strict outdoor-lighting standards and offer public astronomy programming."
+   "text": "DarkSky International certifies parks that commit to strict outdoor-lighting standards."
   },
   {
    "id": "D",
-   "text": "Municipalities that adopt lighting ordinances regulate the brightness, shielding, and color of outdoor fixtures, and parks pursuing dark-sky certification must likewise demonstrate that their outdoor lighting meets DarkSky International's standards."
+   "text": "Lighting ordinances regulate outdoor fixtures, and parks seeking dark-sky certification must likewise show that their lighting meets DarkSky International's standards."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The goal asks for a difference, and B is built on the notes' sharpest contrast: voluntary certification versus a binding ordinance, held against each other in a single \"Whereas...\" sentence.\n\n**The Full Solution:**\n- The notes' clearest distinction: certification is \"voluntary\" and sought by the park, while an ordinance is \"binding\" law \"enforced like other local codes.\"\n- Emphasizing a difference requires setting the two approaches against each other, which B's construction does directly.\n\n**Why the other choices are wrong:**\n- A: It does the opposite of the goal, foregrounding what the approaches share — a common motivation.\n- C: It describes certification alone; with only one approach on the page, no difference can be emphasized.\n- D: It mentions both approaches but its \"likewise\" welds them together on a similarity (both involve lighting standards), suppressing precisely the voluntary-versus-binding distinction the notes make available."
+ "explanation": "**Choice B is correct.** The goal asks for a difference, and B is built on the notes' sharpest contrast: voluntary certification versus a binding ordinance, held against each other in a single \"Whereas...\" sentence.\n\n**The Full Solution:**\n- The notes' clearest distinction: certification is \"voluntary\" and sought by the park, while an ordinance is \"binding\" and \"enforced like other local codes.\"\n- Emphasizing a difference requires setting the two approaches against each other, which B's construction does directly.\n\n**Why the other choices are wrong:**\n- A: It does the opposite of the goal, foregrounding what the approaches share — a common motivation.\n- C: It describes certification alone; with only one approach on the page, no difference can be emphasized.\n- D: It mentions both approaches but its \"likewise\" welds them together on a similarity (both involve lighting standards), suppressing precisely the voluntary-versus-binding distinction the notes make available."
 }

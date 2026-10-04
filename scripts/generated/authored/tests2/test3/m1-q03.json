@@ -1,6 +1,6 @@
 {
  "id": 3,
- "question": "Of the $240$ support tickets a campus network team closed in March, $96$ concerned wireless access points. One of those $240$ tickets will be chosen at random for an audit. What is the probability that the chosen ticket concerned a wireless access point?",
+ "question": "Of the $240$ students at a school, $96$ walk to school. One of these students will be selected at random. What is the probability of selecting a student who walks to school?",
  "choices": [
   {
    "id": "A",
@@ -21,9 +21,9 @@
  ],
  "correctAnswer": "A",
  "distractorNotes": {
-  "B": "divides the 96 wireless tickets by the 144 other tickets instead of by the 240 total",
-  "C": "forms the ratio of the 144 other tickets to the 96 wireless tickets",
-  "D": "inverts the probability, dividing the 240 total by the 96 wireless tickets"
+  "B": "divides the 96 students who walk by the 144 students who do not, instead of by the 240 total",
+  "C": "forms the ratio of the 144 students who do not walk to the 96 who do",
+  "D": "inverts the probability, dividing the 240 total by the 96 students who walk"
  },
- "explanation": "**SAT Pattern: Marginal Probability**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Probability is the favorable count over the total count: $\\frac{96}{240} = \\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: Every one of the $240$ closed tickets is equally likely to be audited, so the total number of outcomes is $240$.\nStep 2: The outcomes that count as favorable are the $96$ tickets about wireless access points.\nStep 3: The probability is $\\frac{96}{240}$, and dividing numerator and denominator by $48$ gives $\\frac{2}{5}$. Check: $\\frac{2}{5}$ of $240$ is $96$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{2}{3}$): this is $\\frac{96}{144}$, wireless tickets compared with the $240 - 96 = 144$ other tickets. That is a part-to-part ratio, not a probability.\n* Choice C ($\\frac{3}{2}$): this is $\\frac{144}{96}$, the other tickets compared with the wireless ones. A probability can never exceed $1$.\n* Choice D ($\\frac{5}{2}$): this is $\\frac{240}{96}$, the total divided by the favorable count. The total belongs in the denominator.\n\n**Test Day Takeaway:** A probability is always part over whole, so the total goes underneath — any answer greater than $1$ is a signal that the fraction was flipped."
+ "explanation": "**SAT Pattern: Marginal Probability**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Probability is the favorable count over the total count: $\\frac{96}{240} = \\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: Each of the $240$ students is equally likely to be selected, so there are $240$ possible outcomes.\nStep 2: The favorable outcomes are the $96$ students who walk to school.\nStep 3: The probability is $\\frac{96}{240}$, and dividing the numerator and denominator by $48$ gives $\\frac{2}{5}$. Check: $\\frac{2}{5}$ of $240$ is $96$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{2}{3}$): this is $\\frac{96}{144}$, the students who walk compared with the $240 - 96 = 144$ students who do not. That is a part-to-part ratio, not a probability.\n* Choice C ($\\frac{3}{2}$): this is $\\frac{144}{96}$, the students who do not walk compared with those who do. A probability can never be greater than $1$.\n* Choice D ($\\frac{5}{2}$): this is $\\frac{240}{96}$, the total divided by the favorable count. The total belongs in the denominator.\n\n**Test Day Takeaway:** A probability is part over whole, so the total goes in the denominator; any answer greater than $1$ means the fraction was flipped."
 }

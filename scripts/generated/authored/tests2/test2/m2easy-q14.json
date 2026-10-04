@@ -1,6 +1,6 @@
 {
  "id": 14,
- "question": "A quarry map shows a mineral seam with slope $\\frac{2}{5}$ passing through the point $(0, 3)$, and a haul road along the graph of $8x - ky = 12$ for some constant $k$. The road and the seam have no point in common. What is the value of $k$?",
+ "question": "$y = \\frac{2}{5}x + 3$\n$8x - ky = 12$\nIn the given system of equations, $k$ is a constant. If the system has no solution, what is the value of $k$?",
  "choices": [
   {
    "id": "A",
@@ -19,11 +19,11 @@
    "text": "$40$"
   }
  ],
+ "correctAnswer": "C",
  "distractorNotes": {
   "A": "multiplies instead of dividing, computing 8 times 2/5 = 3.2",
-  "B": "copies the denominator of the slope 2/5 as k, without using the coefficient 8",
+  "B": "copies the denominator of the slope 2/5 as k without using the coefficient 8",
   "D": "reaches 2k = 40 and reports 40 without dividing by 2"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** No point in common means equal slopes: $\\frac{8}{k} = \\frac{2}{5}$, so $2k = 40$ and $k = 20$.\n\n**The Full Solution:**\nStep 1: The seam is the line $y = \\frac{2}{5}x + 3$. Put the road's equation in the same form: from $8x - ky = 12$, $ky = 8x - 12$, so $y = \\frac{8}{k}x - \\frac{12}{k}$.\nStep 2: Two lines have no point in common when their slopes are equal and their $y$-intercepts differ. Set $\\frac{8}{k} = \\frac{2}{5}$ and cross multiply: $2k = 40$, so $k = 20$.\nStep 3: Confirm the intercepts differ: with $k = 20$ the second line is $y = \\frac{2}{5}x - 0.6$, and $-0.6 \\ne 3$, so the lines are parallel and distinct. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.2$): computes $8 \\cdot \\frac{2}{5}$. The slope is $\\frac{8}{k}$, so $k$ sits in the denominator and the proportion must be solved, not evaluated.\n* Choice B ($5$): borrows the $5$ from the slope $\\frac{2}{5}$, which would make the second slope $\\frac{8}{5}$, not $\\frac{2}{5}$.\n* Choice D ($40$): stops at $2k = 40$ without the final division by $2$.\n\n**Test Day Takeaway:** No solution means same slope, different intercept. Solve the second equation for $y$ so the slope is visible before matching."
+ "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The second line has slope $\\frac{8}{k}$. No solution means equal slopes with different intercepts, so $\\frac{8}{k} = \\frac{2}{5}$ and $k = 20$.\n\n**The Full Solution:**\nStep 1: Solve the second equation for $y$: $-ky = -8x + 12$, so $y = \\frac{8}{k}x - \\frac{12}{k}$.\nStep 2: A system of two linear equations has no solution when the lines are parallel: same slope, different $y$-intercepts. Setting the slopes equal gives $\\frac{8}{k} = \\frac{2}{5}$, so $2k = 40$ and $k = 20$.\nStep 3: Confirm the intercepts differ. With $k = 20$, the second line is $y = \\frac{2}{5}x - \\frac{3}{5}$, whose $y$-intercept is $-\\frac{3}{5}$, not $3$. Check: setting $\\frac{2}{5}x + 3 = \\frac{2}{5}x - \\frac{3}{5}$ gives $3 = -\\frac{3}{5}$, which is false, so there is no solution ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.2$): multiplies $8$ by $\\frac{2}{5}$ instead of solving $\\frac{8}{k} = \\frac{2}{5}$.\n* Choice B ($5$): matches only the denominator of $\\frac{2}{5}$, ignoring the coefficient $8$.\n* Choice D ($40$): cross-multiplies to $2k = 40$ and stops before dividing by $2$.\n\n**Test Day Takeaway:** For \"no solution,\" write both lines in slope-intercept form and set the slopes equal, then confirm the intercepts differ."
 }

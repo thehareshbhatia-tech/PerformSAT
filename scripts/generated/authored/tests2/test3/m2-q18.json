@@ -1,6 +1,6 @@
 {
  "id": 18,
- "question": "A resort's site plan places its north gate at $(-6, 11)$ and its south gate at $(14, -3)$. An information kiosk is planned for the point halfway between the two gates. Which ordered pair locates the kiosk?",
+ "question": "The endpoints of line segment $PQ$ in the $xy$-plane are $P(-6, 11)$ and $Q(14, -3)$. Which of the following is the midpoint of line segment $PQ$?",
  "choices": [
   {
    "id": "A",
@@ -19,11 +19,11 @@
    "text": "$(20, -14)$"
   }
  ],
- "distractorNotes": {
-  "A": "halves the differences of the coordinates instead of their sums: ((-6-14)/2, (11+3)/2)",
-  "C": "adds the coordinates but forgets to divide each sum by 2",
-  "D": "subtracts the coordinates, giving the change from one gate to the other rather than a location"
- },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Average each coordinate: $\\frac{-6 + 14}{2} = 4$ and $\\frac{11 + (-3)}{2} = 4$, so the kiosk is at $(4, 4)$.\n\n**The Full Solution:**\nStep 1: The midpoint of the segment joining $(x_{1}, y_{1})$ and $(x_{2}, y_{2})$ is $\\left(\\frac{x_{1} + x_{2}}{2}, \\frac{y_{1} + y_{2}}{2}\\right)$ — the average of the $x$-coordinates paired with the average of the $y$-coordinates.\nStep 2: Average the $x$-coordinates: $\\frac{-6 + 14}{2} = \\frac{8}{2} = 4$.\nStep 3: Average the $y$-coordinates: $\\frac{11 + (-3)}{2} = \\frac{8}{2} = 4$, so the kiosk sits at $(4, 4)$. Check: from $(-6, 11)$ to $(4, 4)$ is a move of $10$ right and $7$ down, and from $(4, 4)$ to $(14, -3)$ is the same move. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-10, 7)$): halves the DIFFERENCES rather than the sums. Half a difference measures how far apart the gates are, not where the point between them is.\n* Choice C ($(8, 8)$): adds the coordinates correctly but never divides by $2$, landing outside the segment entirely.\n* Choice D ($(20, -14)$): subtracts one point from the other, which describes the trip from one gate to the other rather than a location on the map.\n\n**Test Day Takeaway:** A midpoint is an average, so the answer must land BETWEEN the two given points in both coordinates. Glance at your answer against the endpoints before you bubble — three of the four choices here fail that check instantly."
+ "distractorNotes": {
+  "A": "halves the differences of the coordinates instead of their sums: ((-6 - 14)/2, (11 + 3)/2)",
+  "C": "adds the coordinates but forgets to divide each sum by 2",
+  "D": "subtracts the coordinates of P from those of Q, giving the change from P to Q rather than a point"
+ },
+ "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Average the coordinates: $\\left(\\frac{-6 + 14}{2}, \\frac{11 + (-3)}{2}\\right) = (4, 4)$.\n\n**The Full Solution:**\nStep 1: The midpoint of a segment has coordinates equal to the averages of the endpoints' coordinates.\nStep 2: The $x$-coordinate is $\\frac{-6 + 14}{2} = \\frac{8}{2} = 4$, and the $y$-coordinate is $\\frac{11 + (-3)}{2} = \\frac{8}{2} = 4$.\nStep 3: The midpoint is $(4, 4)$. Check: from $P$ to $(4, 4)$ the coordinates change by $(10, -7)$, and from $(4, 4)$ to $Q$ they also change by $(10, -7)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-10, 7)$): halves the differences of the coordinates instead of the sums, computing $\\frac{-6 - 14}{2}$ and $\\frac{11 + 3}{2}$.\n* Choice C ($(8, 8)$): adds the coordinates but does not divide by $2$.\n* Choice D ($(20, -14)$): subtracts the coordinates of $P$ from those of $Q$, which gives the change from $P$ to $Q$, not a point on the segment.\n\n**Test Day Takeaway:** A midpoint is an average: add the two $x$-coordinates and divide by $2$, then do the same for the $y$-coordinates."
 }

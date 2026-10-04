@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 1,
- "passage": "In 1967, while reviewing data from a radio telescope she had helped assemble at Cambridge, the astrophysicist Jocelyn Bell Burnell noticed a faint signal pulsing with remarkable regularity. Although the repeating pulse initially struck the team as too orderly to be ______ Bell Burnell's careful records showed it returning night after night from the same patch of sky, and the source was eventually identified as a rapidly spinning neutron star.",
+ "passage": "In 1967, reviewing data from a radio telescope she had helped build at Cambridge, astrophysicist Jocelyn Bell Burnell noticed a strikingly regular pulse. Although the signal at first seemed too orderly to be ______ her records showed it returning night after night from the same patch of sky, and its source proved to be a spinning neutron star.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** An opening \"Although...\" clause is dependent — it must be joined to the main clause with a comma.\n\n**The Full Solution:**\n- The sentence opens with a dependent clause: \"Although the repeating pulse initially struck the team as too orderly to be natural.\"\n- A dependent clause cannot stand alone; the conventional boundary between it and the main clause (\"Bell Burnell's careful records showed...\") is a comma.\n\n**Why the other choices are wrong:**\n- B: It omits the required boundary, running the subordinate clause straight into the main clause.\n- C: A semicolon demands a complete, independent clause before it; the \"Although...\" clause is not one, so it would strand a fragment.\n- D: A colon likewise requires an independent clause before the mark — same fragment problem.",
+ "explanation": "**Choice A is correct.** An opening \"Although...\" clause is dependent — it must be joined to the main clause with a comma.\n\n**The Full Solution:**\n- The sentence opens with a dependent clause: \"Although the signal at first seemed too orderly to be natural.\"\n- A dependent clause cannot stand alone; the conventional boundary between it and the main clause (\"her records showed it returning night after night...\") is a comma.\n\n**Why the other choices are wrong:**\n- B: It omits the required boundary, running the subordinate clause straight into the main clause.\n- C: A semicolon demands a complete, independent clause before it; the \"Although...\" clause is not one, so it would strand a fragment.\n- D: A colon likewise requires an independent clause before the mark — same fragment problem.",
  "_meta": {
   "rule": "comma after introductory dependent clause",
   "anchor": "Jocelyn Bell Burnell — pulsar discovery 1967, Cambridge radio telescope",

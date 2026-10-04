@@ -1,6 +1,6 @@
 {
   "id": 16,
-  "question": "For the quadratic function $f$, the table shows three values of $x$ and their corresponding values of $f(x)$. The graph of $y = f(x)$ in the xy-plane has two x-intercepts. What is the distance between the two x-intercepts?",
+  "question": "For the quadratic function $f$, the table shows three values of $x$ and their corresponding values of $f(x)$. The graph of $y = f(x)$ in the $xy$-plane has two x-intercepts. What is the distance between the two x-intercepts?",
   "questionTable": {
     "headers": ["$x$", "$f(x)$"],
     "rows": [

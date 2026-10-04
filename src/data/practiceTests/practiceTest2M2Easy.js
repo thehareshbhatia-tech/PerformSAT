@@ -21,19 +21,19 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 2,
-      question: "Sediment depth at two coring sites is modeled by a linear function of the number of years since monitoring began. The table gives the modeled depth, in millimeters, at each site for four selected years. How many solutions does the system consisting of the two models have?",
-      questionTable: { headers: ["Years since monitoring began", "Site $P$ depth (mm)", "Site $Q$ depth (mm)"], rows: [["$0$", "$5$", "$12$"], ["$1$", "$9$", "$16$"], ["$2$", "$13$", "$20$"], ["$3$", "$17$", "$24$"]] },
+      question: "The table shows four values of $x$ and their corresponding values of $y$ for line $p$ and line $q$ in the $xy$-plane. How many solutions does the system of equations of these two lines have?",
+      questionTable: { headers: ["$x$", "$y$ for line $p$", "$y$ for line $q$"], rows: [["$0$", "$5$", "$12$"], ["$1$", "$9$", "$16$"], ["$2$", "$13$", "$20$"], ["$3$", "$17$", "$24$"]] },
       choices: [
-        { id: "A", text: "No solution" },
-        // distractor: assumes any two distinct lines must cross, ignoring that both models rise 4 mm per year
-        { id: "B", text: "Exactly one solution" },
-        // distractor: treats a pair of linear models like a quadratic, which can meet twice
-        { id: "C", text: "Exactly two solutions" },
-        // distractor: sees the equal rate of 4 mm per year and concludes the two models are the same line, ignoring the different starting depths of 5 and 12
-        { id: "D", text: "Infinitely many solutions" }
+        { id: "A", text: "Zero" },
+        // distractor: assumes any two different lines must cross at one point, ignoring that both slopes are 4
+        { id: "B", text: "Exactly one" },
+        // distractor: treats the pair of lines like a line and a parabola, which can meet twice
+        { id: "C", text: "Exactly two" },
+        // distractor: sees the equal slopes of 4 and concludes the lines are the same line, ignoring the different y-intercepts 5 and 12
+        { id: "D", text: "Infinitely many" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Both columns climb by $4$ each year but start at $5$ and $12$, so the models are parallel lines and never meet.\n\n**The Full Solution:**\nStep 1: Read the rate for each site. Site $P$ goes $5, 9, 13, 17$, a gain of $4$ mm per year; site $Q$ goes $12, 16, 20, 24$, also a gain of $4$ mm per year.\nStep 2: Read the starting depths at $0$ years: site $P$ begins at $5$ mm and site $Q$ at $12$ mm. The models are $d = 4t + 5$ and $d = 4t + 12$.\nStep 3: Equal slopes with unequal intercepts means the lines are parallel and distinct, so the system has no solution. Check: setting $4t + 5 = 4t + 12$ gives $5 = 12$, which is never true. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one solution): assumes two different lines always cross, but equal slopes rule that out.\n* Choice C (Exactly two solutions): a system of two lines can never have exactly two solutions; two intersections require a curve.\n* Choice D (Infinitely many solutions): the equal rate of $4$ mm per year is only half the test. The gap of $12 - 5 = 7$ mm never closes, so the lines are not identical.\n\n**Test Day Takeaway:** In a table, equal step sizes mean equal slopes. Then look at the starting values: same start means one line, different start means no solution.",
+      explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Both columns rise by $4$ each time $x$ rises by $1$, but at $x = 0$ line $p$ is at $5$ and line $q$ is at $12$. Same slope, different $y$-intercepts: the lines are parallel, so the system has zero solutions.\n\n**The Full Solution:**\nStep 1: Find the slope of each line. For line $p$, $y$ goes $5, 9, 13, 17$, a change of $4$ per unit of $x$. For line $q$, $y$ goes $12, 16, 20, 24$, also a change of $4$.\nStep 2: Read the $y$-intercepts from the row $x = 0$: line $p$ is $y = 4x + 5$ and line $q$ is $y = 4x + 12$.\nStep 3: Setting $4x + 5 = 4x + 12$ gives $5 = 12$, which is false for every $x$, so the lines never meet. Check: in every row of the table, line $q$'s value is exactly $7$ more than line $p$'s, so the gap never closes ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): assumes two different lines must cross somewhere. That is true only when their slopes differ; here both slopes are $4$.\n* Choice C (Exactly two): treats the system like a line and a parabola. Two distinct lines can meet at most once.\n* Choice D (Infinitely many): notices the equal slopes and stops. Equal slopes give the same line only when the $y$-intercepts also match, and $5 \\ne 12$.\n\n**Test Day Takeaway:** For two linear equations, compare slopes first. Different slopes give one solution; equal slopes with different intercepts give zero; equal slopes and equal intercepts give infinitely many.",
       skills: ["system-solution-types"]
     },
     {
@@ -41,9 +41,9 @@ export const practiceTest2M2Easy = {
       type: "fill-in",
       difficulty: "easy",
       band: 2,
-      question: "The total cost $y$, in dollars, to rent a microphone for $x$ days satisfies $y - 8x = 35$. A second equation, $3y - 24x = m$, describes the same relationship for every value of $x$, where $m$ is a constant. What is the value of $m$?",
+      question: "$y - 8x = 35$\n$3y - 24x = m$\nThe given system of equations has infinitely many solutions, and $m$ is a constant. What is the value of $m$?",
       correctAnswer: "105",
-      explanation: "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**The correct answer is $105$.**\n\n**The Fast Way (~20s):** The second equation is the first multiplied by $3$, so $m = 3(35) = 105$.\n\n**The Full Solution:**\nStep 1: Two equations describe the same relationship exactly when one is a nonzero multiple of the other, which is the infinitely-many-solutions condition.\nStep 2: Compare the variable terms. Going from $y - 8x$ to $3y - 24x$ multiplies both terms by $3$, since $3(1) = 3$ and $3(-8) = -24$.\nStep 3: The same factor must hit the constant, so $m = 3(35) = 105$. Check: dividing $3y - 24x = 105$ by $3$ returns $y - 8x = 35$, the original equation. $\\checkmark$\n\n**Common Mistakes:**\n* Gridding $35$ by scaling only the variable terms and leaving the constant alone; that system would have no solution, not infinitely many.\n* Dividing instead of multiplying, giving $35 \\div 3 \\approx 11.67$.\n* Adding the multiplier rather than applying it, giving $35 + 3 = 38$.\n\n**Test Day Takeaway:** Infinitely many solutions means every coefficient scales by the same factor. Find the factor from the variable terms, then apply it to the constant.",
+      explanation: "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**The correct answer is $105$.**\n\n**The Fast Way (~20s):** The left side of the second equation is $3$ times the left side of the first, so the constant must be $3$ times as large too: $m = 3(35) = 105$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has infinitely many solutions when one equation is a nonzero multiple of the other, so both equations describe the same line.\nStep 2: Compare the variable terms. Going from $y - 8x$ to $3y - 24x$ multiplies each term by $3$, since $3(1) = 3$ and $3(-8) = -24$.\nStep 3: The constant must be multiplied by the same factor, so $m = 3(35) = 105$. Check: dividing $3y - 24x = 105$ by $3$ gives $y - 8x = 35$, the first equation ✓\n\n**Common Mistakes:**\n* $35$: scales the variable terms but leaves the constant alone. With $m = 35$ the lines are parallel and the system has no solution.\n* $38$: adds the factor $3$ to the constant instead of multiplying, $35 + 3 = 38$.\n* $11.67$: divides by $3$ instead of multiplying, $35 \\div 3 \\approx 11.67$.\n\n**Test Day Takeaway:** Infinitely many solutions means every coefficient and the constant scale by the same factor. Find the factor from the variable terms, then apply it to the constant.",
       skills: ["system-solution-types", "infinite-solutions-condition"]
     },
     {
@@ -51,18 +51,18 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 3,
-      question: "A land-use plan sets aside $x$ acres of parkland and $y$ acres of wetland, and the plan's stormwater credit requirement is $6x + 10y = 84$. Which equation, paired with the given equation, forms a system with infinitely many solutions?",
+      question: "$6x + 10y = 84$\nThe given equation and a second linear equation form a system with infinitely many solutions. Which of the following could be the second equation?",
       choices: [
         { id: "A", text: "$3x + 5y = 42$" },
-        // distractor: halves the coefficients but leaves the constant at 84, so the lines are parallel and the system has no solution
+        // distractor: halves the coefficients but leaves the constant at 84, which gives a parallel line and no solution
         { id: "B", text: "$3x + 5y = 84$" },
-        // distractor: halves the constant to 42 but leaves the coefficients unchanged, again giving parallel lines
+        // distractor: halves the constant to 42 but leaves the coefficients unchanged, again a parallel line
         { id: "C", text: "$6x + 10y = 42$" },
         // distractor: doubles the coefficients but leaves the constant at 84 instead of doubling it to 168
         { id: "D", text: "$12x + 20y = 84$" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Divide every term of $6x + 10y = 84$ by $2$: $3x + 5y = 42$.\n\n**The Full Solution:**\nStep 1: A system has infinitely many solutions only when the two equations are multiples of each other, term for term, including the constant.\nStep 2: Scale the given equation by $\\frac{1}{2}$. Then $6x$ becomes $3x$, $10y$ becomes $5y$, and $84$ becomes $42$.\nStep 3: The equivalent equation is $3x + 5y = 42$. Check: multiplying it back by $2$ gives $6x + 10y = 84$, so the two equations describe the same line. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($3x + 5y = 84$): scales the left side only. Since $3x + 5y$ cannot equal both $42$ and $84$, this system has no solution.\n* Choice C ($6x + 10y = 42$): scales the right side only, leaving two parallel lines with no point in common.\n* Choice D ($12x + 20y = 84$): doubles the coefficients but not the constant, which should have become $168$.\n\n**Test Day Takeaway:** Equivalent means every term scales by the same factor. Check the constant last, because that is the term the eye skips.",
+      explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Dividing every term of $6x + 10y = 84$ by $2$ gives $3x + 5y = 42$, the same line, so the system would have infinitely many solutions.\n\n**The Full Solution:**\nStep 1: A system has infinitely many solutions when the second equation is the first multiplied by a nonzero constant, with the constant term included.\nStep 2: Test each choice for a single factor. In choice A, $\\frac{3}{6} = \\frac{5}{10} = \\frac{42}{84} = \\frac{1}{2}$, so every term is multiplied by $\\frac{1}{2}$.\nStep 3: The other choices fail: in B the constant ratio is $\\frac{84}{84} = 1$, in C the coefficient ratio is $1$ but the constant ratio is $\\frac{1}{2}$, and in D the coefficient ratio is $2$ but the constant ratio is $1$. Check: the point $(14, 0)$ satisfies $6(14) + 10(0) = 84$ and $3(14) + 5(0) = 42$, and so does $(4, 6)$: $24 + 60 = 84$ and $12 + 30 = 42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3x + 5y = 84$): halves the coefficients but not the constant. The lines have the same slope and different intercepts, so the system has no solution.\n* Choice C ($6x + 10y = 42$): changes only the constant. Again the lines are parallel and the system has no solution.\n* Choice D ($12x + 20y = 84$): doubles the coefficients but leaves the constant at $84$; the matching equation would be $12x + 20y = 168$.\n\n**Test Day Takeaway:** For infinitely many solutions, the coefficient of $x$, the coefficient of $y$, and the constant must all change by the same factor. Check all three ratios, not just two.",
       skills: ["system-solution-types", "infinite-solutions-condition"]
     },
     // ============================================================
@@ -73,18 +73,18 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "An engineer logs the duration, in seconds, of each of the eight tracks on an album as 205, 142, 236, 191, 310, 168, 219, and 177. What is the median of these durations?",
+      question: "The list gives the length, in seconds, of each of the $8$ songs on an album.\n$205$, $142$, $236$, $191$, $310$, $168$, $219$, $177$\nWhat is the median length, in seconds, of these songs?",
       choices: [
-        // distractor: takes the lower of the two middle values, 191, instead of averaging the two middle values
+        // distractor: takes the lower of the two middle values, 191, instead of the mean of the two middle values
         { id: "A", text: "$191$" },
         { id: "B", text: "$198$" },
-        // distractor: computes the mean, 1648 divided by 8, instead of the median
+        // distractor: computes the mean, 1,648 divided by 8, instead of the median
         { id: "C", text: "$206$" },
-        // distractor: averages the two middle entries of the unsorted list, 191 and 310, without ordering the values first
+        // distractor: averages the 4th and 5th entries of the unsorted list, 191 and 310, without ordering the values first
         { id: "D", text: "$250.5$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Median Calculation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Sorted, the eight values put $191$ and $205$ in the middle, and their average is $198$.\n\n**The Full Solution:**\nStep 1: Order the durations: $142, 168, 177, 191, 205, 219, 236, 310$.\nStep 2: With an even count of $8$, the median is the average of the 4th and 5th values, which are $191$ and $205$.\nStep 3: $\\frac{191 + 205}{2} = \\frac{396}{2} = 198$. Check: four values ($142, 168, 177, 191$) fall below $198$ and four ($205, 219, 236, 310$) fall above it. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($191$): stops at the 4th sorted value. With an even count there is no single middle entry, so the two middle values must be averaged.\n* Choice C ($206$): the mean, $\\frac{1648}{8}$. The large outlier $310$ pulls the mean above the median.\n* Choice D ($250.5$): averages the 4th and 5th entries of the list as printed, $191$ and $310$, skipping the sort.\n\n**Test Day Takeaway:** Sort first, always. Then count: an even number of values means average the two in the middle.",
+      explanation: "**SAT Pattern: Median Calculation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** In order, the lengths are $142, 168, 177, 191, 205, 219, 236, 310$. With $8$ values the median is the mean of the 4th and 5th: $\\frac{191 + 205}{2} = 198$.\n\n**The Full Solution:**\nStep 1: Put the values in increasing order: $142, 168, 177, 191, 205, 219, 236, 310$.\nStep 2: There is an even number of values, so the median is the mean of the two middle values, the 4th and 5th: $191$ and $205$.\nStep 3: The median is $\\frac{191 + 205}{2} = \\frac{396}{2} = 198$ seconds. Check: four values ($142, 168, 177, 191$) are below $198$ and four ($205, 219, 236, 310$) are above it ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($191$): picks the lower middle value. With an even count, the median is the mean of both middle values.\n* Choice C ($206$): computes the mean, $\\frac{1{,}648}{8} = 206$. The long song of $310$ seconds pulls the mean above the median.\n* Choice D ($250.5$): averages the 4th and 5th numbers as listed, $191$ and $310$, without sorting first.\n\n**Test Day Takeaway:** Always sort before finding a median. With an even number of values, average the two middle ones.",
       skills: ["find-median"]
     },
     {
@@ -92,18 +92,18 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "A concert hall's reflector panel follows the curve $h(x) = -3(x - 4)^2 + 61$, where $h$ is the height in feet above the stage at a horizontal distance of $x$ feet from the stage's left edge. Which expression is equivalent to $-3(x - 4)^2 + 61$?",
+      question: "Which expression is equivalent to $-3(x - 4)^{2} + 61$?",
       choices: [
-        { id: "A", text: "$-3x^2 + 24x + 13$" },
-        // distractor: expands the square correctly but never multiplies the 16 by -3, adding 16 + 61 = 77 instead of -48 + 61 = 13
-        { id: "B", text: "$-3x^2 + 24x + 77$" },
+        { id: "A", text: "$-3x^{2} + 24x + 13$" },
+        // distractor: expands the square but does not multiply the 16 by -3, adding 16 + 61 = 77 instead of -48 + 61 = 13
+        { id: "B", text: "$-3x^{2} + 24x + 77$" },
         // distractor: loses a sign on the middle term, using -3 times -8x = -24x instead of +24x
-        { id: "C", text: "$-3x^2 - 24x + 13$" },
-        // distractor: squares term by term, treating (x - 4)^2 as x^2 + 16, which drops the middle term entirely
-        { id: "D", text: "$-3x^2 + 13$" }
+        { id: "C", text: "$-3x^{2} - 24x + 13$" },
+        // distractor: squares term by term, treating (x - 4)^2 as x^2 + 16, which drops the middle term
+        { id: "D", text: "$-3x^{2} + 13$" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $(x-4)^2 = x^2 - 8x + 16$; multiplying by $-3$ gives $-3x^2 + 24x - 48$, and $-48 + 61 = 13$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x - 4)^2 = x^2 - 8x + 16$.\nStep 2: Distribute the $-3$ across all three terms: $-3x^2 + 24x - 48$.\nStep 3: Add the outside constant: $-48 + 61 = 13$, so the expression is $-3x^2 + 24x + 13$. Check: at $x = 4$ the original gives $61$, and $-3(16) + 24(4) + 13 = -48 + 96 + 13 = 61$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-3x^2 + 24x + 77$): forgets to multiply the $16$ by $-3$, so the constant comes out as $16 + 61 = 77$ instead of $-48 + 61 = 13$.\n* Choice C ($-3x^2 - 24x + 13$): mishandles the sign on the middle term; $-3$ times $-8x$ is $+24x$, not $-24x$.\n* Choice D ($-3x^2 + 13$): squares term by term as if $(x - 4)^2 = x^2 + 16$, which erases the $-8x$ cross term.\n\n**Test Day Takeaway:** Expand the binomial square fully before distributing, and let the outside multiplier reach all three terms, the constant included.",
+      explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $(x - 4)^{2} = x^{2} - 8x + 16$, so $-3(x - 4)^{2} = -3x^{2} + 24x - 48$, and adding $61$ gives $-3x^{2} + 24x + 13$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x - 4)^{2} = x^{2} - 8x + 16$.\nStep 2: Distribute $-3$ to every term: $-3x^{2} + 24x - 48$.\nStep 3: Add $61$: $-3x^{2} + 24x - 48 + 61 = -3x^{2} + 24x + 13$. Check at $x = 0$: the original expression is $-3(16) + 61 = 13$ and choice A gives $13$; at $x = 1$: $-3(9) + 61 = 34$ and $-3 + 24 + 13 = 34$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-3x^{2} + 24x + 77$): multiplies only the first two terms by $-3$ and adds $16 + 61 = 77$; the constant should be $-48 + 61 = 13$.\n* Choice C ($-3x^{2} - 24x + 13$): drops a negative sign, computing $-3(-8x)$ as $-24x$.\n* Choice D ($-3x^{2} + 13$): treats $(x - 4)^{2}$ as $x^{2} + 16$, which loses the middle term $-8x$.\n\n**Test Day Takeaway:** Expand the square completely before distributing, then multiply every term, including the constant, by the leading coefficient. Plugging in $x = 0$ is a fast check on the constant.",
       skills: ["distributive-property", "converting-quadratic-forms"]
     },
     {
@@ -111,10 +111,10 @@ export const practiceTest2M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 4,
-      question: "A survey crew mapped a sea cliff as right triangle $ABC$, with the right angle at $B$, where $AB$ is the distance along the beach and $BC$ is the height of the cliff face. Lengths are in meters. What is the value of $\\cos A$?",
+      question: "In the right triangle shown, what is the value of $\\cos A$?",
       diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [24, 0], [24, 45]], labels: ["A", "B", "C"], sideLabels: ["24", "45", ""], rightAngleVertex: 1, figureNote: true } },
       correctAnswer: "8/17",
-      explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**The correct answer is $\\frac{8}{17}$.**\n\n**The Fast Way (~30s):** The legs $24$ and $45$ give hypotenuse $51$, so $\\cos A = \\frac{24}{51} = \\frac{8}{17}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse $AC$ is unknown, so use the Pythagorean theorem: $AC^2 = 24^2 + 45^2 = 576 + 2025 = 2601$, and $AC = 51$.\nStep 2: Cosine is adjacent over hypotenuse. The side adjacent to angle $A$ is $AB = 24$, and the hypotenuse is $AC = 51$.\nStep 3: $\\cos A = \\frac{24}{51} = \\frac{8}{17}$. Check: $\\sin A = \\frac{45}{51} = \\frac{15}{17}$, and $\\left(\\frac{8}{17}\\right)^2 + \\left(\\frac{15}{17}\\right)^2 = \\frac{64 + 225}{289} = 1$. $\\checkmark$\n\n**Common Mistakes:**\n* Gridding $\\frac{8}{15}$, which is $\\frac{24}{45}$, the leg adjacent to $A$ over the opposite leg instead of over the hypotenuse.\n* Gridding $\\frac{15}{17}$, which is $\\frac{45}{51}$, the sine of $A$ rather than the cosine.\n* Adding the legs for the hypotenuse, $24 + 45 = 69$, and gridding $\\frac{24}{69} = \\frac{8}{23}$.\n\n**Test Day Takeaway:** When a trig ratio needs the hypotenuse and the figure gives only the legs, run the Pythagorean theorem first, then name adjacent and opposite from the labeled angle.",
+      explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**The correct answer is $\\frac{8}{17}$.** Equivalent answers such as $.4705$ and $.4706$ are also accepted.\n\n**The Fast Way (~30s):** The legs $24$ and $45$ give a hypotenuse of $\\sqrt{24^{2} + 45^{2}} = 51$, so $\\cos A = \\frac{24}{51} = \\frac{8}{17}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse $AC$ is not labeled, so use the Pythagorean theorem: $AC^{2} = 24^{2} + 45^{2} = 576 + 2{,}025 = 2{,}601$, and $AC = 51$.\nStep 2: Cosine is adjacent over hypotenuse. The side adjacent to angle $A$ is $AB = 24$, and the hypotenuse is $AC = 51$.\nStep 3: $\\cos A = \\frac{24}{51} = \\frac{8}{17}$. Check: $\\sin A = \\frac{45}{51} = \\frac{15}{17}$, and $\\left(\\frac{8}{17}\\right)^{2} + \\left(\\frac{15}{17}\\right)^{2} = \\frac{64 + 225}{289} = 1$ ✓\n\n**Common Mistakes:**\n* $\\frac{15}{17}$: computes $\\sin A$, using the opposite side $45$ instead of the adjacent side $24$.\n* $\\frac{8}{15}$: divides adjacent by opposite, $\\frac{24}{45}$, which uses the other leg in place of the hypotenuse.\n* $\\frac{8}{23}$: adds the legs, $24 + 45 = 69$, and uses $69$ as the hypotenuse, giving $\\frac{24}{69} = \\frac{8}{23}$.\n\n**Test Day Takeaway:** Before writing a trig ratio, label opposite, adjacent, and hypotenuse from the named angle. If the hypotenuse is missing, find it first with the Pythagorean theorem.",
       skills: ["soh-cah-toa", "pythagorean-theorem"]
     },
     {
@@ -122,18 +122,18 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A transit agency counted 2,760 bicycles parked at station racks this year, which is 15% more than the count last year. Last year, 35% of the parked bicycles were at downtown stations. How many bicycles were parked at downtown stations last year?",
+      question: "A shop sold $2{,}760$ bicycles this year, which is $15\\%$ more than it sold last year. Of the bicycles the shop sold last year, $35\\%$ were mountain bikes. How many mountain bikes did the shop sell last year?",
       choices: [
-        // distractor: takes 15% of last year's total instead of 35%, computing 0.15 times 2400 = 360
+        // distractor: takes 15% of last year's total instead of 35%, computing 0.15 times 2,400 = 360
         { id: "A", text: "$360$" },
         { id: "B", text: "$840$" },
-        // distractor: applies the 35% to this year's 2760 instead of last year's total, giving 966
+        // distractor: applies the 35% to this year's 2,760 instead of last year's total, giving 966
         { id: "C", text: "$966$" },
-        // distractor: reverses the percent increase correctly to 2400 but stops there, never taking 35%
+        // distractor: finds last year's total correctly, 2,400, but stops before taking 35%
         { id: "D", text: "$2{,}400$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $2760 \\div 1.15 = 2400$ bicycles last year, and $0.35(2400) = 840$.\n\n**The Full Solution:**\nStep 1: This year is $15\\%$ more than last year, so this year equals $1.15$ times last year. Let $L$ be last year's count: $1.15L = 2760$.\nStep 2: Divide to reverse the increase: $L = \\frac{2760}{1.15} = 2400$.\nStep 3: Take $35\\%$ of last year's total: $0.35(2400) = 840$. Check: $1.15(2400) = 2760$, matching the reported count. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($360$): uses the $15\\%$ from the first sentence instead of the $35\\%$ the question asks about, giving $0.15(2400)$.\n* Choice C ($966$): applies $35\\%$ to this year's $2{,}760$. The question asks about last year, so the percent belongs to $2{,}400$.\n* Choice D ($2{,}400$): correctly reverses the increase but answers the wrong question; this is the whole of last year's count, not the downtown share.\n\n**Test Day Takeaway:** Reverse a percent increase by dividing by $1 + r$, never by subtracting the percent. Then re-read which year the second percent applies to.",
+      explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Last year's total is $\\frac{2{,}760}{1.15} = 2{,}400$ bicycles, and $35\\%$ of that is $0.35(2{,}400) = 840$.\n\n**The Full Solution:**\nStep 1: Let $n$ be the number of bicycles sold last year. This year's total is $15\\%$ more, so $1.15n = 2{,}760$.\nStep 2: Divide: $n = \\frac{2{,}760}{1.15} = 2{,}400$.\nStep 3: The mountain bikes were $35\\%$ of last year's total: $0.35(2{,}400) = 840$. Check: $2{,}400 + 0.15(2{,}400) = 2{,}400 + 360 = 2{,}760$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($360$): takes $15\\%$ of $2{,}400$, which is the increase from last year to this year, not the number of mountain bikes.\n* Choice C ($966$): applies $35\\%$ to this year's total, $0.35(2{,}760) = 966$, but the $35\\%$ describes last year's bicycles.\n* Choice D ($2{,}400$): correctly finds last year's total but stops one step short.\n\n**Test Day Takeaway:** When a number is \"$p\\%$ more than\" an unknown, divide by $1 + \\frac{p}{100}$ to recover the original. Then apply any second percent to the total it describes.",
       skills: ["percent-of-value", "percent-word-problems"]
     },
     {
@@ -141,9 +141,9 @@ export const practiceTest2M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "A harbor's 15 daily tide-range readings have a mean of 2.6 feet and a standard deviation of 0.8 feet. Every reading is rescaled by multiplying it by 5 and then adding 3. What is the mean of the rescaled readings?",
+      question: "The $15$ values in a data set have a mean of $2.6$ and a standard deviation of $0.8$. Each value is multiplied by $5$, and then $3$ is added to each result. What is the mean of the new values?",
       correctAnswer: "16",
-      explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~20s):** The mean follows the same rule each value follows: $5(2.6) + 3 = 16$.\n\n**The Full Solution:**\nStep 1: Multiplying every value by $5$ multiplies the mean by $5$, so the mean becomes $5(2.6) = 13$.\nStep 2: Adding $3$ to every value shifts the mean up by $3$, so the mean becomes $13 + 3 = 16$.\nStep 3: The rescaled mean is $16$. Check: the sum of the original readings is $15(2.6) = 39$; the rescaled sum is $5(39) + 15(3) = 195 + 45 = 240$, and $\\frac{240}{15} = 16$. $\\checkmark$\n\n**Common Mistakes:**\n* Adding before multiplying, giving $(2.6 + 3)(5) = 28$; the readings are multiplied first, so the order matters.\n* Gridding $13$ by applying the multiplier and forgetting the $+3$ shift.\n* Transforming the standard deviation instead of the mean, giving $5(0.8) + 3 = 7$. A shift does not change spread at all.\n\n**Test Day Takeaway:** The mean obeys the exact transformation applied to each value. Spread measures obey only the multiplier, since adding a constant slides the whole data set.",
+      explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~20s):** Whatever is done to every value is done to the mean, so the new mean is $5(2.6) + 3 = 16$.\n\n**The Full Solution:**\nStep 1: Write the rule. A value $v$ in the original data set becomes $5v + 3$.\nStep 2: Multiplying every value by $5$ multiplies the sum, and therefore the mean, by $5$: $5(2.6) = 13$.\nStep 3: Adding $3$ to every value adds $3$ to the mean: $13 + 3 = 16$. Check: the original sum is $15(2.6) = 39$; the new sum is $5(39) + 15(3) = 195 + 45 = 240$, and $\\frac{240}{15} = 16$ ✓\n\n**Common Mistakes:**\n* $13$: multiplies the mean by $5$ but forgets to add the $3$.\n* $28$: adds $3$ before multiplying, computing $5(2.6 + 3) = 28$, which reverses the order of the operations.\n* $4$: transforms the standard deviation, $5(0.8) = 4$, instead of the mean.\n\n**Test Day Takeaway:** A rule of the form $av + b$ applied to every value sends the mean to $a(\\text{mean}) + b$. The standard deviation is only multiplied by $|a|$; the added constant does not affect it.",
       skills: ["data-analysis"]
     },
     {
@@ -151,7 +151,7 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The floor of a pedestrian underpass has elevation $y = 0.5x^2 - 7x + 20$, in feet relative to the street, at a horizontal distance of $x$ feet from one entrance. What is the distance between the two values of $x$ at which the floor is at street level?",
+      question: "$y = 0.5x^{2} - 7x + 20$\nThe graph of the given equation intersects the $x$-axis at two points. What is the distance between the two points?",
       choices: [
         // distractor: reports the smaller x-intercept, 4, instead of the distance between the two intercepts
         { id: "A", text: "$4$" },
@@ -162,7 +162,7 @@ export const practiceTest2M2Easy = {
         { id: "D", text: "$14$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Street level means $y = 0$; doubling gives $x^2 - 14x + 40 = 0$, so $x = 4$ or $x = 10$, a gap of $6$.\n\n**The Full Solution:**\nStep 1: Street level is $y = 0$, so solve $0.5x^2 - 7x + 20 = 0$. Multiply through by $2$ to clear the decimal: $x^2 - 14x + 40 = 0$.\nStep 2: Factor: $(x - 4)(x - 10) = 0$, so the floor meets street level at $x = 4$ and $x = 10$.\nStep 3: The distance between those inputs is $10 - 4 = 6$ feet. Check: $0.5(16) - 7(4) + 20 = 8 - 28 + 20 = 0$ and $0.5(100) - 7(10) + 20 = 50 - 70 + 20 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): the smaller $x$-intercept. It answers where the floor first reaches street level, not how far apart the two crossings are.\n* Choice C ($10$): the larger $x$-intercept, the same misread from the other end.\n* Choice D ($14$): adds the roots instead of subtracting. Note that $14$ is also the sum of the roots, which equals $-\\frac{b}{a}$ after clearing the decimal, a tempting but wrong quantity.\n\n**Test Day Takeaway:** Distance between intercepts is always the larger root minus the smaller one. Solve for both, then subtract; do not stop at one root.",
+      explanation: "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Multiply by $2$ to get $x^{2} - 14x + 40 = 0$, which factors as $(x - 4)(x - 10) = 0$. The intercepts are at $x = 4$ and $x = 10$, which are $10 - 4 = 6$ apart.\n\n**The Full Solution:**\nStep 1: The graph meets the $x$-axis where $y = 0$: $0.5x^{2} - 7x + 20 = 0$. Multiplying both sides by $2$ gives $x^{2} - 14x + 40 = 0$.\nStep 2: Factor: $(x - 4)(x - 10) = 0$, so $x = 4$ or $x = 10$. The points are $(4, 0)$ and $(10, 0)$.\nStep 3: Both points are on the $x$-axis, so the distance between them is $10 - 4 = 6$. Check: $0.5(4)^{2} - 7(4) + 20 = 8 - 28 + 20 = 0$ and $0.5(10)^{2} - 7(10) + 20 = 50 - 70 + 20 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): is the smaller $x$-intercept, not the distance between the intercepts.\n* Choice C ($10$): is the larger $x$-intercept, not the distance between the intercepts.\n* Choice D ($14$): adds the intercepts, $4 + 10$, which gives the sum of the solutions rather than the distance.\n\n**Test Day Takeaway:** For the distance between $x$-intercepts, find both zeros and subtract the smaller from the larger. Clearing a decimal coefficient first makes factoring easier.",
       skills: ["quadratics"]
     },
     {
@@ -170,18 +170,18 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "For a speaker array, the total length of cable used, in meters, is given by both $4(px + 5) - 3x$ and $17x + 20$ for every number of speakers $x$, where $p$ is a constant. What is the value of $p$?",
+      question: "$4(px + 5) - 3x = 17x + 20$\nIn the given equation, $p$ is a constant. The equation has infinitely many solutions. What is the value of $p$?",
       choices: [
         // distractor: subtracts the 3 instead of adding it back, solving 4p = 17 - 3 to get 3.5
         { id: "A", text: "$3.5$" },
-        // distractor: ignores the -3x term entirely, solving 4p = 17 to get 4.25
+        // distractor: ignores the -3x term, solving 4p = 17 to get 4.25
         { id: "B", text: "$4.25$" },
         { id: "C", text: "$5$" },
         // distractor: reaches 4p = 20 but reports 20 without dividing by 4
         { id: "D", text: "$20$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Matching Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Expanding gives $(4p - 3)x + 20$, so $4p - 3 = 17$ and $p = 5$.\n\n**The Full Solution:**\nStep 1: Expand the first expression: $4(px + 5) - 3x = 4px + 20 - 3x$.\nStep 2: Collect the $x$ terms: $(4p - 3)x + 20$. Because the two expressions agree for every $x$, their $x$-coefficients must match and their constants must match. The constants already agree at $20$.\nStep 3: Set $4p - 3 = 17$, so $4p = 20$ and $p = 5$. Check: $4(5x + 5) - 3x = 20x + 20 - 3x = 17x + 20$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.5$): moves the $-3$ the wrong way, solving $4p = 17 - 3 = 14$.\n* Choice B ($4.25$): drops the $-3x$ term before comparing, solving $4p = 17$.\n* Choice D ($20$): correct through $4p = 20$, then reports that value instead of dividing by $4$.\n\n**Test Day Takeaway:** Two expressions equal for every value of the variable means coefficient equals coefficient. Combine all like terms first, or a stray term outside the parentheses gets lost.",
+      explanation: "**SAT Pattern: Matching Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The left side simplifies to $(4p - 3)x + 20$. For infinitely many solutions it must match $17x + 20$, so $4p - 3 = 17$ and $p = 5$.\n\n**The Full Solution:**\nStep 1: Distribute on the left: $4(px + 5) - 3x = 4px + 20 - 3x = (4p - 3)x + 20$.\nStep 2: The constants already match ($20 = 20$). The equation is true for every $x$ only if the $x$-coefficients also match: $4p - 3 = 17$.\nStep 3: Solve: $4p = 20$, so $p = 5$. Check: with $p = 5$ the left side is $4(5x + 5) - 3x = 20x + 20 - 3x = 17x + 20$, identical to the right side ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.5$): moves the $-3$ the wrong way, solving $4p = 17 - 3 = 14$.\n* Choice B ($4.25$): forgets the $-3x$ term and sets $4p = 17$.\n* Choice D ($20$): correctly reaches $4p = 20$ but does not divide by $4$.\n\n**Test Day Takeaway:** An equation has infinitely many solutions when both sides simplify to the same expression. Collect the $x$-terms on each side, then set the coefficients equal.",
       skills: ["distributive-property"]
     },
     {
@@ -189,10 +189,10 @@ export const practiceTest2M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "A drainage channel's bed lies $f(x) = x^2 - 18x + 88$ centimeters above a benchmark at the point $x$ meters along the channel. The table gives $f(x)$ at four selected values of $x$. What is the least height, in centimeters, of the bed above the benchmark?",
+      question: "$f(x) = x^{2} - 18x + 88$\nFour values of the given function $f$ are shown in the table. What is the minimum value of $f$?",
       questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$2$", "$56$"], ["$5$", "$23$"], ["$8$", "$8$"], ["$11$", "$11$"]] },
       correctAnswer: "7",
-      explanation: "**SAT Pattern: Quadratic — Completing the Square**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~35s):** Half of $-18$ is $-9$, so $f(x) = (x - 9)^2 + 7$ and the minimum is $7$.\n\n**The Full Solution:**\nStep 1: Take half the coefficient of $x$ and square it: $\\left(\\frac{-18}{2}\\right)^2 = (-9)^2 = 81$.\nStep 2: Write $x^2 - 18x + 88 = (x^2 - 18x + 81) + 88 - 81 = (x - 9)^2 + 7$.\nStep 3: Since $(x - 9)^2$ is never negative, the least value of $f$ is $7$, reached at $x = 9$. Check: the table straddles $x = 9$, with $f(8) = 8$ and $f(11) = 11$, both above $7$. $\\checkmark$\n\n**Common Mistakes:**\n* Gridding $9$, the value of $x$ where the minimum occurs, rather than the least height itself.\n* Gridding $8$, the least value printed in the table. The table skips $x = 9$, so the true minimum never appears in it.\n* Squaring the whole coefficient instead of half of it, writing $(x - 18)^2$ and getting $88 - 324 = -236$.\n\n**Test Day Takeaway:** Completing the square turns a quadratic into vertex form, where the constant is the minimum (or maximum) value. Halve the middle coefficient before you square it.",
+      explanation: "**SAT Pattern: Quadratic — Completing the Square**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~30s):** Half of $-18$ is $-9$, and $(-9)^{2} = 81$, so $f(x) = (x - 9)^{2} + 7$. A square is never negative, so the minimum value is $7$, at $x = 9$.\n\n**The Full Solution:**\nStep 1: Complete the square. Take half of the $x$-coefficient, $\\frac{-18}{2} = -9$, and square it: $81$. Then $x^{2} - 18x + 88 = (x^{2} - 18x + 81) + 7$.\nStep 2: Rewrite: $f(x) = (x - 9)^{2} + 7$.\nStep 3: Since $(x - 9)^{2} \\ge 0$ for every $x$, the least value of $f(x)$ is $0 + 7 = 7$, reached when $x = 9$. Check: $f(9) = 81 - 162 + 88 = 7$, and $f(8) = 8$ and $f(10) = 8$ are both larger ✓\n\n**Common Mistakes:**\n* $8$: takes the smallest value in the table. The table skips $x = 9$, where the minimum occurs.\n* $9$: reports the $x$-value of the vertex instead of the minimum value of the function.\n* $169$: adds $81$ instead of subtracting it when completing the square, $88 + 81 = 169$.\n\n**Test Day Takeaway:** A table shows only selected points, and the vertex may fall between them. Complete the square, $(x - h)^{2} + k$, and read the minimum value $k$ directly.",
       skills: ["quadratics"]
     },
     {
@@ -200,7 +200,7 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The depth of the seafloor below the surface, in meters, along a survey line is modeled by $d(x) = a(x - 6)^2 + 11$, where $x$ is the distance in kilometers from shore and $a$ is a constant. The model gives a depth of 2 meters at $x = 0$. What is the depth, in meters, at $x = 2$?",
+      question: "$f(x) = a(x - 6)^{2} + 11$\nIn the given function, $a$ is a constant. If $f(0) = 2$, what is the value of $f(2)$?",
       choices: [
         // distractor: evaluates with (x + 6)^2 = 64 instead of (x - 6)^2 = 16, giving -0.25 times 64 plus 11 = -5
         { id: "A", text: "$-5$" },
@@ -211,7 +211,7 @@ export const practiceTest2M2Easy = {
         { id: "D", text: "$15$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $36a + 11 = 2$ gives $a = -0.25$, and $-0.25(2 - 6)^2 + 11 = -4 + 11 = 7$.\n\n**The Full Solution:**\nStep 1: Use the given point. At $x = 0$, $d(0) = a(0 - 6)^2 + 11 = 36a + 11$, and that equals $2$.\nStep 2: Solve $36a + 11 = 2$, so $36a = -9$ and $a = -\\frac{1}{4} = -0.25$. The model is $d(x) = -0.25(x - 6)^2 + 11$.\nStep 3: Evaluate at $x = 2$: $(2 - 6)^2 = 16$, so $d(2) = -0.25(16) + 11 = -4 + 11 = 7$ meters. Check: $d(0) = -0.25(36) + 11 = -9 + 11 = 2$, matching the given condition. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): uses $(2 + 6)^2 = 64$ instead of $(2 - 6)^2 = 16$, flipping the sign inside the parentheses.\n* Choice C ($12$): multiplies $a$ by $-4$ without squaring, so the squared factor never gets applied.\n* Choice D ($15$): reads $36a = -9$ as $a = 0.25$, losing the negative sign that makes the basin deepen toward $x = 6$.\n\n**Test Day Takeaway:** Vertex form hands you the vertex; one extra point pins down $a$. Solve for $a$ first, then substitute, and keep the sign inside the parentheses intact.",
+      explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $f(0) = 36a + 11 = 2$ gives $a = -\\frac{1}{4}$. Then $f(2) = -\\frac{1}{4}(2 - 6)^{2} + 11 = -4 + 11 = 7$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 0$: $f(0) = a(0 - 6)^{2} + 11 = 36a + 11$.\nStep 2: Set this equal to $2$: $36a + 11 = 2$, so $36a = -9$ and $a = -\\frac{1}{4}$.\nStep 3: Evaluate at $x = 2$: $f(2) = -\\frac{1}{4}(2 - 6)^{2} + 11 = -\\frac{1}{4}(16) + 11 = 7$. Check: $f(0) = -\\frac{1}{4}(36) + 11 = -9 + 11 = 2$, matching the given condition ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): uses $(2 + 6)^{2} = 64$ instead of $(2 - 6)^{2} = 16$, giving $-\\frac{1}{4}(64) + 11 = -5$.\n* Choice C ($12$): forgets to square, computing $-\\frac{1}{4}(-4) + 11 = 12$.\n* Choice D ($15$): drops the negative sign on $a$, using $a = \\frac{1}{4}$ to get $\\frac{1}{4}(16) + 11 = 15$.\n\n**Test Day Takeaway:** When a function has one unknown constant, use the given point to find it first, then evaluate. In vertex form, square $(x - h)$ before multiplying by $a$.",
       skills: ["vertex-form", "function-evaluation"]
     },
     {
@@ -219,18 +219,18 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A pressing plant produced 450 records, each either a 7-inch or a 12-inch disc. A 7-inch disc uses 90 grams of vinyl and a 12-inch disc uses 180 grams, and the plant used 63,000 grams in all. How many 12-inch discs were produced?",
+      question: "$x + y = 450$\n$90x + 180y = 63{,}000$\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
       choices: [
-        // distractor: solves the system correctly but reports the number of 7-inch discs, 200, instead of the 12-inch discs
+        // distractor: solves the system correctly but reports x = 200 instead of y
         { id: "A", text: "$200$" },
-        // distractor: splits the 450 discs evenly, 450 divided by 2, ignoring the vinyl totals entirely
+        // distractor: splits 450 evenly between x and y, ignoring the second equation
         { id: "B", text: "$225$" },
         { id: "C", text: "$250$" },
-        // distractor: divides all 63,000 grams by 180, as if every disc were a 12-inch disc
+        // distractor: divides 63,000 by 180 as if x were 0, ignoring the first equation
         { id: "D", text: "$350$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** If all $450$ were 7-inch, the vinyl would be $40{,}500$ g. Each swap to 12-inch adds $90$ g, and $\\frac{63{,}000 - 40{,}500}{90} = 250$.\n\n**The Full Solution:**\nStep 1: Let $s$ be the number of 7-inch discs and $t$ the number of 12-inch discs. Then $s + t = 450$ and $90s + 180t = 63{,}000$.\nStep 2: Multiply the first equation by $90$ to line up the $s$ terms: $90s + 90t = 40{,}500$. Subtract it from the second equation: $90t = 22{,}500$.\nStep 3: $t = \\frac{22{,}500}{90} = 250$ twelve-inch discs. Check: $s = 450 - 250 = 200$, and $90(200) + 180(250) = 18{,}000 + 45{,}000 = 63{,}000$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($200$): the number of 7-inch discs. The elimination is right, but the wrong variable gets reported.\n* Choice B ($225$): assumes an even split of the $450$ discs, which ignores the vinyl equation.\n* Choice D ($350$): computes $\\frac{63{,}000}{180}$, treating every disc as a 12-inch disc, which contradicts the count of $450$.\n\n**Test Day Takeaway:** Scale one equation so a variable's coefficients match, subtract, then circle back to which quantity the question actually names.",
+      explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Dividing the second equation by $90$ gives $x + 2y = 700$. Subtracting $x + y = 450$ leaves $y = 250$.\n\n**The Full Solution:**\nStep 1: Simplify the second equation by dividing every term by $90$: $x + 2y = 700$.\nStep 2: Subtract the first equation from this one to eliminate $x$: $(x + 2y) - (x + y) = 700 - 450$, so $y = 250$.\nStep 3: Substitute back to find $x$: $x = 450 - 250 = 200$. Check: $200 + 250 = 450$ and $90(200) + 180(250) = 18{,}000 + 45{,}000 = 63{,}000$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($200$): is the value of $x$, not $y$. Both values come out of the same work, so reread what is asked.\n* Choice B ($225$): splits $450$ in half, which would be right only if $x$ and $y$ had equal coefficients in the second equation.\n* Choice D ($350$): computes $\\frac{63{,}000}{180}$, which assumes $x = 0$ and ignores the first equation.\n\n**Test Day Takeaway:** Divide out a common factor before eliminating; it keeps the numbers small. Then answer for the variable the question names.",
       skills: ["elimination-method", "setting-up-systems"]
     },
     {
@@ -238,18 +238,18 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A quarry map shows a mineral seam with slope $\\frac{2}{5}$ passing through the point $(0, 3)$, and a haul road along the graph of $8x - ky = 12$ for some constant $k$. The road and the seam have no point in common. What is the value of $k$?",
+      question: "$y = \\frac{2}{5}x + 3$\n$8x - ky = 12$\nIn the given system of equations, $k$ is a constant. If the system has no solution, what is the value of $k$?",
       choices: [
         // distractor: multiplies instead of dividing, computing 8 times 2/5 = 3.2
         { id: "A", text: "$3.2$" },
-        // distractor: copies the denominator of the slope 2/5 as k, without using the coefficient 8
+        // distractor: copies the denominator of the slope 2/5 as k without using the coefficient 8
         { id: "B", text: "$5$" },
         { id: "C", text: "$20$" },
         // distractor: reaches 2k = 40 and reports 40 without dividing by 2
         { id: "D", text: "$40$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** No point in common means equal slopes: $\\frac{8}{k} = \\frac{2}{5}$, so $2k = 40$ and $k = 20$.\n\n**The Full Solution:**\nStep 1: The seam is the line $y = \\frac{2}{5}x + 3$. Put the road's equation in the same form: from $8x - ky = 12$, $ky = 8x - 12$, so $y = \\frac{8}{k}x - \\frac{12}{k}$.\nStep 2: Two lines have no point in common when their slopes are equal and their $y$-intercepts differ. Set $\\frac{8}{k} = \\frac{2}{5}$ and cross multiply: $2k = 40$, so $k = 20$.\nStep 3: Confirm the intercepts differ: with $k = 20$ the second line is $y = \\frac{2}{5}x - 0.6$, and $-0.6 \\ne 3$, so the lines are parallel and distinct. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.2$): computes $8 \\cdot \\frac{2}{5}$. The slope is $\\frac{8}{k}$, so $k$ sits in the denominator and the proportion must be solved, not evaluated.\n* Choice B ($5$): borrows the $5$ from the slope $\\frac{2}{5}$, which would make the second slope $\\frac{8}{5}$, not $\\frac{2}{5}$.\n* Choice D ($40$): stops at $2k = 40$ without the final division by $2$.\n\n**Test Day Takeaway:** No solution means same slope, different intercept. Solve the second equation for $y$ so the slope is visible before matching.",
+      explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The second line has slope $\\frac{8}{k}$. No solution means equal slopes with different intercepts, so $\\frac{8}{k} = \\frac{2}{5}$ and $k = 20$.\n\n**The Full Solution:**\nStep 1: Solve the second equation for $y$: $-ky = -8x + 12$, so $y = \\frac{8}{k}x - \\frac{12}{k}$.\nStep 2: A system of two linear equations has no solution when the lines are parallel: same slope, different $y$-intercepts. Setting the slopes equal gives $\\frac{8}{k} = \\frac{2}{5}$, so $2k = 40$ and $k = 20$.\nStep 3: Confirm the intercepts differ. With $k = 20$, the second line is $y = \\frac{2}{5}x - \\frac{3}{5}$, whose $y$-intercept is $-\\frac{3}{5}$, not $3$. Check: setting $\\frac{2}{5}x + 3 = \\frac{2}{5}x - \\frac{3}{5}$ gives $3 = -\\frac{3}{5}$, which is false, so there is no solution ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.2$): multiplies $8$ by $\\frac{2}{5}$ instead of solving $\\frac{8}{k} = \\frac{2}{5}$.\n* Choice B ($5$): matches only the denominator of $\\frac{2}{5}$, ignoring the coefficient $8$.\n* Choice D ($40$): cross-multiplies to $2k = 40$ and stops before dividing by $2$.\n\n**Test Day Takeaway:** For \"no solution,\" write both lines in slope-intercept form and set the slopes equal, then confirm the intercepts differ.",
       skills: ["system-solution-types"]
     },
     {
@@ -257,18 +257,18 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A city ordinance sets a circular quiet zone centered 5 kilometers east and 7 kilometers south of a transit hub, reaching 4 kilometers from that center in every direction. With the hub at the origin and east and north positive, which equation describes the boundary of the zone?",
+      question: "In the $xy$-plane, a circle has center $(5, -7)$ and passes through the point $(9, -4)$. Which equation represents this circle?",
       choices: [
-        { id: "A", text: "$(x - 5)^2 + (y + 7)^2 = 16$" },
-        // distractor: puts the radius 4 on the right side instead of the radius squared, 16
-        { id: "B", text: "$(x - 5)^2 + (y + 7)^2 = 4$" },
-        // distractor: squares the diameter 8 instead of the radius 4, giving 64
-        { id: "C", text: "$(x - 5)^2 + (y + 7)^2 = 64$" },
+        // distractor: puts the radius 5 on the right side instead of the radius squared, 25
+        { id: "A", text: "$(x - 5)^{2} + (y + 7)^{2} = 5$" },
+        { id: "B", text: "$(x - 5)^{2} + (y + 7)^{2} = 25$" },
         // distractor: flips both center signs, placing the center at (-5, 7) instead of (5, -7)
-        { id: "D", text: "$(x + 5)^2 + (y - 7)^2 = 16$" }
+        { id: "C", text: "$(x + 5)^{2} + (y - 7)^{2} = 25$" },
+        // distractor: uses the given point on the circle, (9, -4), as the center
+        { id: "D", text: "$(x - 9)^{2} + (y + 4)^{2} = 25$" }
       ],
-      correctAnswer: "A",
-      explanation: "**SAT Pattern: Circle in Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Center $(5, -7)$ and radius $4$ give $(x - 5)^2 + (y + 7)^2 = 4^2 = 16$.\n\n**The Full Solution:**\nStep 1: Translate the description into coordinates. East is positive $x$, so the center is $5$ km east; south is negative $y$, so the center is at $(5, -7)$. The zone reaches $4$ km in every direction, so $r = 4$.\nStep 2: Standard form is $(x - h)^2 + (y - k)^2 = r^2$. With $h = 5$ and $k = -7$, the binomials are $(x - 5)$ and $(y - (-7)) = (y + 7)$.\nStep 3: The right side is $r^2 = 4^2 = 16$, giving $(x - 5)^2 + (y + 7)^2 = 16$. Check: the point $(9, -7)$, exactly $4$ km east of the center, satisfies $16 + 0 = 16$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($= 4$): writes the radius on the right side. Standard form stores $r^2$, so this circle would have radius $2$.\n* Choice C ($= 64$): squares the diameter $8$ instead of the radius, describing a zone twice as wide.\n* Choice D (center $(-5, 7)$): flips both signs. Inside the binomials the sign is opposite the coordinate, so a center at $(5, -7)$ produces $(x - 5)$ and $(y + 7)$.\n\n**Test Day Takeaway:** In $(x - h)^2 + (y - k)^2 = r^2$, the signs inside flip and the right side is squared. Test one obvious boundary point before committing.",
+      correctAnswer: "B",
+      explanation: "**SAT Pattern: Circle in Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The radius is the distance from the center to the point, $\\sqrt{(9 - 5)^{2} + (-4 + 7)^{2}} = \\sqrt{16 + 9} = 5$. So the equation is $(x - 5)^{2} + (y + 7)^{2} = 25$.\n\n**The Full Solution:**\nStep 1: The radius is the distance from the center $(5, -7)$ to the point $(9, -4)$ on the circle. The differences are $9 - 5 = 4$ and $-4 - (-7) = 3$, so $r^{2} = 4^{2} + 3^{2} = 25$ and $r = 5$.\nStep 2: A circle with center $(h, k)$ and radius $r$ has equation $(x - h)^{2} + (y - k)^{2} = r^{2}$. Substituting $h = 5$ and $k = -7$ gives $(x - 5)^{2} + (y - (-7))^{2} = (x - 5)^{2} + (y + 7)^{2}$ on the left side.\nStep 3: The right side is $r^{2} = 25$, so the equation is $(x - 5)^{2} + (y + 7)^{2} = 25$. Check: the point $(9, -4)$ gives $(9 - 5)^{2} + (-4 + 7)^{2} = 16 + 9 = 25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 5)^{2} + (y + 7)^{2} = 5$): puts the radius on the right side. The standard form needs the radius squared, $25$.\n* Choice C ($(x + 5)^{2} + (y - 7)^{2} = 25$): reverses both signs, which describes a circle centered at $(-5, 7)$.\n* Choice D ($(x - 9)^{2} + (y + 4)^{2} = 25$): uses the point on the circle as the center. The center is $(5, -7)$; the point $(9, -4)$ only fixes the radius.\n\n**Test Day Takeaway:** The right side of a circle's equation is the radius squared, and a point on the circle supplies it directly: $r^{2}$ is the squared distance from the center to that point.",
       skills: ["circle-equation"]
     },
     {
@@ -276,10 +276,10 @@ export const practiceTest2M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "A track's weekly stream count, in thousands, grows by a constant factor from one week to the next. The table gives the count for weeks 0 through 3 after release. What count, in thousands, does the model give for week 4?",
-      questionTable: { headers: ["Week", "Streams (thousands)"], rows: [["$0$", "$16$"], ["$1$", "$24$"], ["$2$", "$36$"], ["$3$", "$54$"]] },
+      question: "For the exponential function $f$, the table shows four values of $x$ and their corresponding values of $f(x)$. What is the value of $f(4)$?",
+      questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$0$", "$16$"], ["$1$", "$24$"], ["$2$", "$36$"], ["$3$", "$54$"]] },
       correctAnswer: "81",
-      explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $81$.**\n\n**The Fast Way (~25s):** Each week multiplies by $1.5$, so week 4 is $54(1.5) = 81$.\n\n**The Full Solution:**\nStep 1: Find the constant factor from consecutive entries: $\\frac{24}{16} = 1.5$.\nStep 2: Confirm the factor holds across the table: $\\frac{36}{24} = 1.5$ and $\\frac{54}{36} = 1.5$, so the model is $S(t) = 16(1.5)^t$.\nStep 3: Week 4 gives $S(4) = 54(1.5) = 81$ thousand streams. Check: $16(1.5)^4 = 16(5.0625) = 81$. $\\checkmark$\n\n**Common Mistakes:**\n* Gridding $72$ by adding the last difference, $54 + 18$, which treats constant growth as linear.\n* Gridding $62$ by adding the first difference, $54 + 8$, the same linear error with the earliest gap.\n* Gridding $121.5$ by multiplying by the factor twice, $54(1.5)^2$, which lands on week 5 instead of week 4.\n\n**Test Day Takeaway:** Divide consecutive values to test for a constant factor. A constant ratio means multiply forward; a constant difference would mean add.",
+      explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $81$.**\n\n**The Fast Way (~20s):** Each value is $\\frac{3}{2}$ times the one before ($\\frac{24}{16} = 1.5$), so $f(4) = 54(1.5) = 81$.\n\n**The Full Solution:**\nStep 1: An exponential function multiplies by the same factor each time $x$ increases by $1$. Find it: $\\frac{24}{16} = \\frac{36}{24} = \\frac{54}{36} = 1.5$.\nStep 2: So $f(x) = 16(1.5)^{x}$.\nStep 3: Then $f(4) = 16(1.5)^{4} = 16(5.0625) = 81$, which is also $54(1.5) = 81$. Check: $\\frac{81}{54} = 1.5$, the same factor as every other step ✓\n\n**Common Mistakes:**\n* $72$: adds the last difference, $54 + 18$, treating the function as linear.\n* $121.5$: multiplies $54$ by $1.5^{2} = 2.25$, taking two steps instead of one.\n* $54$: reports $f(3)$ instead of $f(4)$.\n\n**Test Day Takeaway:** For an exponential table, divide consecutive outputs to find the growth factor; for a linear table, subtract. Then take exactly as many steps as the question asks.",
       skills: ["exponential-growth-decay"]
     },
     // ============================================================
@@ -290,18 +290,18 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "Seismic stations $A$ and $B$ sit at $(-6, 3)$ and $(2a, a + 4)$ on a map grid marked in kilometers, where $a$ is a constant. A recording buoy is placed at the midpoint of the segment joining the two stations, and its $x$-coordinate is 5. What is the $y$-coordinate of the buoy?",
+      question: "In the $xy$-plane, point $P$ has coordinates $(-6, 3)$ and point $Q$ has coordinates $(2a, a + 4)$, where $a$ is a constant. The midpoint of $\\overline{PQ}$ has an $x$-coordinate of $5$. What is the $y$-coordinate of the midpoint of $\\overline{PQ}$?",
       choices: [
         // distractor: averages the constant a = 8 with the y-coordinate 3, giving 5.5, instead of averaging the two y-coordinates
         { id: "A", text: "$5.5$" },
-        // distractor: drops the division by 2 in the x-equation, solving -6 + 2a = 5 to get a = 5.5, so station B has y-coordinate 9.5 and the midpoint y becomes 6.25
+        // distractor: drops the division by 2 in the x-equation, solving -6 + 2a = 5 to get a = 5.5, so Q has y-coordinate 9.5 and the midpoint y-coordinate becomes 6.25
         { id: "B", text: "$6.25$" },
         { id: "C", text: "$7.5$" },
-        // distractor: reports station B's y-coordinate, 12, instead of the midpoint's
+        // distractor: reports Q's y-coordinate, 12, instead of the midpoint's
         { id: "D", text: "$12$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Midpoint Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** $\\frac{-6 + 2a}{2} = 5$ gives $a = 8$, so $B = (16, 12)$ and the midpoint's $y$ is $\\frac{3 + 12}{2} = 7.5$.\n\n**The Full Solution:**\nStep 1: The midpoint's $x$-coordinate is the average of the two $x$-coordinates: $\\frac{-6 + 2a}{2} = 5$.\nStep 2: Multiply both sides by $2$: $-6 + 2a = 10$, so $2a = 16$ and $a = 8$. Station $B$ is therefore at $(2(8), 8 + 4) = (16, 12)$.\nStep 3: The midpoint's $y$-coordinate is $\\frac{3 + 12}{2} = \\frac{15}{2} = 7.5$. Check: the midpoint is $(5, 7.5)$, and $\\frac{-6 + 16}{2} = 5$ confirms the $x$-coordinate. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5.5$): averages $a = 8$ with $3$. The constant $a$ is not a coordinate; station $B$'s $y$-coordinate is $a + 4 = 12$.\n* Choice B ($6.25$): solves $-6 + 2a = 5$, skipping the multiplication by $2$, which gives $a = 5.5$ and a midpoint $y$ of $\\frac{3 + 9.5}{2}$.\n* Choice D ($12$): station $B$'s own $y$-coordinate. The question asks for the buoy at the midpoint, not the endpoint.\n\n**Test Day Takeaway:** With a parameter in one endpoint, use the coordinate you are given to solve for it first, then rebuild the full point before averaging the other coordinate.",
+      explanation: "**SAT Pattern: Midpoint Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** From $\\frac{-6 + 2a}{2} = 5$, $a = 8$, so $Q = (16, 12)$. The midpoint's $y$-coordinate is $\\frac{3 + 12}{2} = 7.5$.\n\n**The Full Solution:**\nStep 1: The midpoint's $x$-coordinate is the mean of the endpoints' $x$-coordinates: $\\frac{-6 + 2a}{2} = 5$.\nStep 2: Solve: $-6 + 2a = 10$, so $2a = 16$ and $a = 8$. Then $Q = (2(8), 8 + 4) = (16, 12)$.\nStep 3: The midpoint's $y$-coordinate is $\\frac{3 + 12}{2} = 7.5$. Check: the midpoint is $(5, 7.5)$, and moving from $P(-6, 3)$ to $(5, 7.5)$ is a change of $(11, 4.5)$, which lands exactly on $(16, 12)$ when repeated ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5.5$): averages $a = 8$ with $3$, using the constant in place of $Q$'s $y$-coordinate, $a + 4 = 12$.\n* Choice B ($6.25$): forgets to multiply by $2$, solving $-6 + 2a = 5$ to get $a = 5.5$; then $Q$'s $y$-coordinate is $9.5$ and $\\frac{3 + 9.5}{2} = 6.25$.\n* Choice D ($12$): is the $y$-coordinate of $Q$, an endpoint, not of the midpoint.\n\n**Test Day Takeaway:** Use the coordinate you know to find the constant, then substitute it into the other coordinate and average again. Keep the endpoint and the midpoint separate.",
       skills: ["coordinate-geometry"]
     },
     {
@@ -309,9 +309,9 @@ export const practiceTest2M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 6,
-      question: "A triangular field tapers to a single corner at its north end. A hedgerow crosses the field parallel to the 63-meter south boundary and measures 36 meters. The north corner is 24 meters from the hedgerow along the west boundary. How many meters of the west boundary lie between the hedgerow and the south boundary?",
+      question: "In triangle $ABC$, point $D$ lies on $\\overline{AB}$ and point $E$ lies on $\\overline{AC}$, and $\\overline{DE}$ is parallel to $\\overline{BC}$. If $DE = 36$, $BC = 63$, and $AD = 24$, what is the length of $\\overline{DB}$?",
       correctAnswer: "18",
-      explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~45s):** $\\frac{36}{63} = \\frac{4}{7}$, so the $24$-meter piece is $\\frac{4}{7}$ of the whole west boundary; the whole is $42$ and the remaining piece is $18$.\n\n**The Full Solution:**\nStep 1: The hedgerow is parallel to the south boundary, so it cuts off a small triangle at the north corner that is similar to the whole field. The hedgerow corresponds to the south boundary, and the $24$-meter piece of the west boundary corresponds to the entire west boundary.\nStep 2: Set up the proportion with the whole west boundary as $w$: $\\frac{24}{w} = \\frac{36}{63} = \\frac{4}{7}$, so $4w = 168$ and $w = 42$ meters.\nStep 3: The stretch below the hedgerow is the whole minus the top piece: $42 - 24 = 18$ meters. Check: $\\frac{24}{42} = \\frac{4}{7}$, matching $\\frac{36}{63}$. $\\checkmark$\n\n**Common Mistakes:**\n* Gridding $42$, the full length of the west boundary. That is what the proportion returns, but the question asks only for the stretch below the hedgerow.\n* Gridding $27$ from $63 - 36$, the difference of the two parallel lengths. That difference is not a piece of the west boundary.\n* Gridding $39$ from $63 - 24$, subtracting two lengths that are not corresponding parts of the two similar triangles.\n\n**Test Day Takeaway:** A cut parallel to one side creates similar triangles, but the sides that correspond are the whole sides, not the pieces. Solve for the whole first, then subtract to get the part.",
+      explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~40s):** Triangle $ADE$ is similar to triangle $ABC$ with ratio $\\frac{36}{63} = \\frac{4}{7}$, so $AB = \\frac{7}{4}(24) = 42$ and $DB = 42 - 24 = 18$.\n\n**The Full Solution:**\nStep 1: Since $\\overline{DE} \\parallel \\overline{BC}$, angle $ADE$ equals angle $ABC$ and angle $AED$ equals angle $ACB$ (corresponding angles), and the triangles share angle $A$. So triangle $ADE$ is similar to triangle $ABC$.\nStep 2: Corresponding sides are proportional: $\\frac{AD}{AB} = \\frac{DE}{BC}$, so $\\frac{24}{AB} = \\frac{36}{63}$, which gives $AB = \\frac{24 \\cdot 63}{36} = 42$.\nStep 3: $D$ lies on $\\overline{AB}$, so $DB = AB - AD = 42 - 24 = 18$. Check: $\\frac{24}{42} = \\frac{4}{7}$ and $\\frac{36}{63} = \\frac{4}{7}$ ✓\n\n**Common Mistakes:**\n* $42$: reports the whole side $AB$ instead of the piece $DB$.\n* $13.71$: sets up the proportion upside down, $\\frac{24}{x} = \\frac{63}{36}$, giving $x = \\frac{24 \\cdot 36}{63} \\approx 13.71$.\n* $27$: subtracts the parallel sides, $63 - 36$, as if $DB$ were the difference between them.\n\n**Test Day Takeaway:** A segment parallel to one side of a triangle cuts off a smaller similar triangle. Match small to large in every ratio, then subtract to get the leftover piece.",
       skills: ["similar-triangles"]
     },
     {
@@ -319,18 +319,18 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "Along a straight utility corridor, a shutoff valve is set at mile marker $x$ and a pump station stands at mile marker $9$. The maintenance log records the valve's distance from the pump station as $2x - 6$ miles. What is the value of $x$?",
+      question: "$|x - 9| = 2x - 6$\nWhat value of $x$ is the solution to the given equation?",
       choices: [
         // distractor: solves x - 9 = 2x - 6 and keeps x = -3 without checking it; there the left side is 12 but the right side is -12
         { id: "A", text: "$-3$" },
-        // distractor: negates only the 2x when writing the second case, solving 9 - x = 2x + 6 to get x = 1
+        // distractor: writes the second case as 9 - x = 2x + 6, changing the sign of the -6 as well, to get x = 1
         { id: "B", text: "$1$" },
         // distractor: drops the -6 from the right side, solving 9 - x = 2x to get x = 3
         { id: "C", text: "$3$" },
         { id: "D", text: "$5$" }
       ],
       correctAnswer: "D",
-      explanation: "**SAT Pattern: Absolute Value Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** $|x - 9| = 2x - 6$ has cases $x = -3$ and $x = 5$; only $x = 5$ keeps the recorded distance positive.\n\n**The Full Solution:**\nStep 1: Distance along a line is the absolute value of the difference in positions, so the log's reading gives $|x - 9| = 2x - 6$.\nStep 2: Split into two cases. Case 1: $x - 9 = 2x - 6$, which gives $x = -3$. Case 2: $-(x - 9) = 2x - 6$, that is $9 - x = 2x - 6$, so $15 = 3x$ and $x = 5$.\nStep 3: Test both candidates, because a distance is never negative. At $x = -3$ the left side is $|-3 - 9| = 12$ while the right side is $2(-3) - 6 = -12$, so that root is extraneous. At $x = 5$, $|5 - 9| = 4$ and $2(5) - 6 = 4$, so $x = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): the case-1 root, kept without checking. It would make the recorded distance $-12$ miles.\n* Choice B ($1$): comes from $9 - x = 2x + 6$, negating only the $2x$ when the whole right side was never the thing being negated.\n* Choice C ($3$): comes from $9 - x = 2x$, dropping the $-6$ on the right.\n\n**Test Day Takeaway:** A distance between two positions is an absolute value. Split it into two cases, then substitute both roots back, because a variable on the other side makes one root extraneous.",
+      explanation: "**SAT Pattern: Absolute Value Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The two cases give $x = -3$ and $x = 5$, but the right side must be nonnegative. At $x = -3$, $2x - 6 = -12 < 0$, so only $x = 5$ works.\n\n**The Full Solution:**\nStep 1: Case 1, $x - 9 = 2x - 6$: subtracting $x$ and adding $6$ gives $-3 = x$.\nStep 2: Case 2, $x - 9 = -(2x - 6)$: this is $x - 9 = -2x + 6$, so $3x = 15$ and $x = 5$.\nStep 3: An absolute value can't be negative, so test each candidate. At $x = -3$: $|-3 - 9| = 12$ but $2(-3) - 6 = -12$, so it is extraneous. Check: at $x = 5$, $|5 - 9| = 4$ and $2(5) - 6 = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): comes from the first case but is extraneous; it makes the right side negative.\n* Choice B ($1$): mishandles the second case, writing $9 - x = 2x + 6$; flipping the left side already accounts for the negative, so the $-6$ should not change sign too.\n* Choice C ($3$): loses the $-6$, solving $9 - x = 2x$.\n\n**Test Day Takeaway:** When a variable appears outside the absolute value, solve both cases and then check every candidate in the original equation; any value that makes the non-absolute side negative is extraneous.",
       skills: ["combining-like-terms"]
     },
     {
@@ -338,18 +338,18 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "A parking structure's concrete pillar is a right circular cylinder of height 3 meters and base radius 0.6 meter. Running along its axis for the full height is a cylindrical duct of radius 0.2 meter. How many cubic meters of concrete does the pillar contain?",
+      question: "A solid right circular cylinder has a radius of $0.6$ meter and a height of $3$ meters. A cylindrical hole with a radius of $0.2$ meter is drilled through its center from top to bottom. What is the volume, in cubic meters, of the remaining solid?",
       choices: [
-        // distractor: computes the volume of the duct alone, pi times 0.2 squared times 3
+        // distractor: computes the volume of the hole alone, pi times 0.2 squared times 3
         { id: "A", text: "$0.12\\pi$" },
-        // distractor: subtracts the radii before squaring, using (0.6 - 0.2) squared times 3 = 0.48 pi
+        // distractor: subtracts the radii before squaring, using pi times (0.6 - 0.2) squared times 3 = 0.48 pi
         { id: "B", text: "$0.48\\pi$" },
         { id: "C", text: "$0.96\\pi$" },
-        // distractor: ignores the duct and reports the volume of the solid cylinder, pi times 0.6 squared times 3
+        // distractor: ignores the hole and reports the volume of the solid cylinder, pi times 0.6 squared times 3
         { id: "D", text: "$1.08\\pi$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Cylinder Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Concrete equals the outer cylinder minus the duct: $\\pi(0.6^2 - 0.2^2)(3) = \\pi(0.32)(3) = 0.96\\pi$.\n\n**The Full Solution:**\nStep 1: The full pillar is a cylinder of radius $0.6$ and height $3$, so its volume is $\\pi(0.6)^2(3) = 1.08\\pi$ cubic meters.\nStep 2: The duct is a cylinder of radius $0.2$ running the same height, with volume $\\pi(0.2)^2(3) = 0.12\\pi$ cubic meters.\nStep 3: Concrete fills the difference: $1.08\\pi - 0.12\\pi = 0.96\\pi$ cubic meters. Check: factoring gives $3\\pi(0.36 - 0.04) = 3\\pi(0.32) = 0.96\\pi$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.12\\pi$): the duct's volume, the hole rather than the concrete around it.\n* Choice B ($0.48\\pi$): subtracts the radii first and squares afterward, using $(0.6 - 0.2)^2 = 0.16$. Squaring must happen before the subtraction, since $0.36 - 0.04 = 0.32$, not $0.16$.\n* Choice D ($1.08\\pi$): the solid cylinder, with the duct never removed.\n\n**Test Day Takeaway:** For a pipe or a drilled column, subtract volumes, not radii. Square each radius first, then take the difference.",
+      explanation: "**SAT Pattern: Cylinder Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Subtract the hole from the cylinder: $\\pi(0.6)^{2}(3) - \\pi(0.2)^{2}(3) = 1.08\\pi - 0.12\\pi = 0.96\\pi$.\n\n**The Full Solution:**\nStep 1: The volume of a cylinder is $\\pi r^{2}h$. The full cylinder has volume $\\pi(0.6)^{2}(3) = \\pi(0.36)(3) = 1.08\\pi$ cubic meters.\nStep 2: The hole is a cylinder with the same height: $\\pi(0.2)^{2}(3) = \\pi(0.04)(3) = 0.12\\pi$ cubic meters.\nStep 3: The remaining solid has volume $1.08\\pi - 0.12\\pi = 0.96\\pi$ cubic meters. Check: factoring gives $3\\pi(0.6^{2} - 0.2^{2}) = 3\\pi(0.36 - 0.04) = 3\\pi(0.32) = 0.96\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.12\\pi$): is the volume of the hole, the part that was removed.\n* Choice B ($0.48\\pi$): subtracts the radii first, $\\pi(0.6 - 0.2)^{2}(3) = 0.48\\pi$. Areas must be subtracted, not radii.\n* Choice D ($1.08\\pi$): is the volume of the cylinder before the hole is drilled.\n\n**Test Day Takeaway:** For a solid with a hole, compute the outer volume and the hole's volume separately and subtract. Never subtract radii before squaring.",
       skills: ["volume-prism"]
     },
     {
@@ -357,10 +357,10 @@ export const practiceTest2M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 7,
-      question: "A stage monitor's measured sound level, in decibels above a reference, at a distance of $x$ meters from the monitor is given by the linear function $f$. The table gives $f(x)$ at four selected distances. For what value of $a$ is $f(2a) = 3$?",
+      question: "For the linear function $f$, the table shows four values of $x$ and their corresponding values of $f(x)$. If $f(2a) = 3$, what is the value of $a$?",
       questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$2$", "$43$"], ["$5$", "$31$"], ["$8$", "$19$"], ["$11$", "$7$"]] },
       correctAnswer: "6",
-      explanation: "**SAT Pattern: Solve $f(a) = c$**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~45s):** The table drops $12$ over every $3$ meters, so $f(x) = 51 - 4x$; $f(12) = 3$ means $2a = 12$ and $a = 6$.\n\n**The Full Solution:**\nStep 1: Find the rate. From $x = 2$ to $x = 5$, $f$ falls from $43$ to $31$, a change of $-12$ over $3$ meters, so the slope is $-4$ per meter.\nStep 2: Build the rule using the point $(2, 43)$: $f(x) = 43 - 4(x - 2) = 51 - 4x$. Setting $f(x) = 3$ gives $51 - 4x = 3$, so $4x = 48$ and $x = 12$.\nStep 3: The question sets the input to $2a$, so $2a = 12$ and $a = 6$. Check: $f(2 \\cdot 6) = f(12) = 51 - 48 = 3$. $\\checkmark$\n\n**Common Mistakes:**\n* Gridding $12$, the input that makes $f$ equal $3$. That value is $2a$, so it still has to be halved.\n* Reading the slope as $-12$, the drop between table rows, instead of $-4$ per meter; that gives $67 - 12x = 3$ and a non-integer input.\n* Doubling instead of halving at the last step, gridding $24$.\n\n**Test Day Takeaway:** Solve for the whole input first, then unwrap it. When the argument is $2a$ rather than $a$, the final step is one more division.",
+      explanation: "**SAT Pattern: Solve $f(a) = c$**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~40s):** The slope is $\\frac{31 - 43}{5 - 2} = -4$, so $f(x) = -4x + 51$. Then $f(x) = 3$ when $x = 12$, so $2a = 12$ and $a = 6$.\n\n**The Full Solution:**\nStep 1: Find the slope from two rows: $\\frac{31 - 43}{5 - 2} = \\frac{-12}{3} = -4$. Using $(2, 43)$: $43 = -4(2) + b$, so $b = 51$ and $f(x) = -4x + 51$.\nStep 2: Set $f(2a) = 3$: $-4(2a) + 51 = 3$, so $-8a = -48$.\nStep 3: Divide: $a = 6$. Check: $f(12) = -4(12) + 51 = 3$, and continuing the table, $f(11) = 7$ drops by $4$ to $f(12) = 3$ ✓\n\n**Common Mistakes:**\n* $12$: solves $f(x) = 3$ for $x$ and reports $x = 12$, forgetting that the input is $2a$, not $a$.\n* $24$: multiplies by $2$ instead of dividing, writing $a = 2(12)$.\n* $-4$: uses a slope of $+4$, giving $f(x) = 4x + 35$ and $8a + 35 = 3$.\n\n**Test Day Takeaway:** When the input is an expression like $2a$, first find which input gives the target output, then solve the expression for the variable.",
       skills: ["function-notation"]
     },
     {
@@ -368,18 +368,18 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "In a list of three positive numbers, the second number is $\\frac{9}{4}$ times the first and the third number is $\\frac{11}{9}$ times the second. The three numbers have a sum of $480$. By how much does the third number exceed the first?",
+      question: "Three numbers, $a$, $b$, and $c$, have a sum of $480$. The value of $b$ is $\\frac{9}{4}$ times the value of $a$, and the value of $c$ is $\\frac{11}{9}$ times the value of $b$. What is the value of $c - a$?",
       choices: [
-        // distractor: reports the common part 480 divided by 24 = 20 instead of the difference it produces
+        // distractor: reports one part, 480 divided by 24 = 20, instead of the difference it produces
         { id: "A", text: "$20$" },
-        // distractor: reports the first number, 80, rather than the gap between the third and the first
+        // distractor: reports the value of a, 80, rather than c - a
         { id: "B", text: "$80$" },
-        // distractor: computes the gap between the second and the first, 180 - 80, instead of the third and the first
+        // distractor: computes b - a, 180 - 80, instead of c - a
         { id: "C", text: "$100$" },
         { id: "D", text: "$140$" }
       ],
       correctAnswer: "D",
-      explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** The three numbers are in the ratio $4 : 9 : 11$, so $24$ parts equal $480$, one part is $20$, and the gap is $(11 - 4)(20) = 140$.\n\n**The Full Solution:**\nStep 1: Write the numbers in parts. Let the first be $4u$. The second is $\\frac{9}{4}(4u) = 9u$, and the third is $\\frac{11}{9}(9u) = 11u$, so the ratio is $4 : 9 : 11$.\nStep 2: The parts sum to $4u + 9u + 11u = 24u$, and that equals $480$, so $u = 20$. The numbers are $80$, $180$, and $220$.\nStep 3: The third exceeds the first by $220 - 80 = 140$. Check: $80 + 180 + 220 = 480$, and $\\frac{180}{80} = \\frac{9}{4}$, $\\frac{220}{180} = \\frac{11}{9}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): the value of one part. It has to be multiplied by the $7$-part gap between $11u$ and $4u$.\n* Choice B ($80$): the first number itself, not a difference.\n* Choice C ($100$): the gap between the second and the first, $180 - 80$. The question compares the third with the first.\n\n**Test Day Takeaway:** Chain two ratios by rewriting both against a shared quantity, then let one variable carry all three parts so the sum becomes a single equation.",
+      explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** If $a = 4u$, then $b = 9u$ and $c = 11u$. The sum is $24u = 480$, so $u = 20$, and $c - a = 7u = 140$.\n\n**The Full Solution:**\nStep 1: Write $b$ and $c$ in terms of $a$: $b = \\frac{9}{4}a$ and $c = \\frac{11}{9}\\left(\\frac{9}{4}a\\right) = \\frac{11}{4}a$.\nStep 2: Use the sum: $a + \\frac{9}{4}a + \\frac{11}{4}a = \\frac{24}{4}a = 6a = 480$, so $a = 80$.\nStep 3: Then $c = \\frac{11}{4}(80) = 220$, and $c - a = 220 - 80 = 140$. Check: $b = \\frac{9}{4}(80) = 180$, $\\frac{11}{9}(180) = 220$, and $80 + 180 + 220 = 480$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): is the size of one part in the ratio $4 : 9 : 11$, not the difference between $c$ and $a$.\n* Choice B ($80$): is the value of $a$; the question asks how much greater $c$ is.\n* Choice C ($100$): computes $b - a = 180 - 80$ instead of $c - a$.\n\n**Test Day Takeaway:** Chain the multipliers into one ratio ($4 : 9 : 11$), divide the total by the sum of the parts, and then answer exactly the combination the question asks for.",
       skills: ["word-problem-to-equation"]
     }
   ]

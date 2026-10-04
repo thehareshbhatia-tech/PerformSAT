@@ -1,6 +1,6 @@
 {
  "id": 1,
- "question": "The dot plot shows the distribution of the number of packages delivered by each of $10$ drivers during one hour. What is the mean of the data set?",
+ "question": "The dot plot shows the number of packages delivered by each of $10$ drivers during one hour. What is the mean of the data set?",
  "diagram": {
   "type": "dotPlot",
   "params": {

@@ -1,29 +1,29 @@
 {
  "id": 9,
- "question": "The number of turbine blades a plant assembled in June was $25\\%$ greater than the number it assembled in May. If the plant assembled $300$ turbine blades in June, how many turbine blades did it assemble in May?",
+ "question": "A library lent $420$ books in June, which was $20\\%$ more than the number of books it lent in May. How many books did the library lend in May?",
  "choices": [
   {
    "id": "A",
-   "text": "$225$"
+   "text": "$336$"
   },
   {
    "id": "B",
-   "text": "$240$"
+   "text": "$350$"
   },
   {
    "id": "C",
-   "text": "$275$"
+   "text": "$400$"
   },
   {
    "id": "D",
-   "text": "$375$"
+   "text": "$504$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "takes 25% off the June figure, computing 0.75(300) = 225, instead of dividing by 1.25",
-  "C": "subtracts 25 units from 300 rather than 25 percent of the May figure",
-  "D": "increases the June figure by 25% instead of reversing the increase, computing 1.25(300) = 375"
+  "A": "takes 20% off the June figure, computing 0.80(420) = 336, instead of dividing by 1.20",
+  "C": "subtracts 20 books from 420 rather than reversing a 20 percent increase",
+  "D": "increases the June figure by 20% instead of reversing the increase, computing 1.20(420) = 504"
  },
- "explanation": "**SAT Pattern: Percent Increase**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** June is $1.25$ times May, so May is $\\frac{300}{1.25} = 240$.\n\n**The Full Solution:**\nStep 1: Let $m$ be the number assembled in May. A $25\\%$ increase means June equals $m + 0.25m = 1.25m$.\nStep 2: Substitute the known June total: $1.25m = 300$.\nStep 3: Divide: $m = \\frac{300}{1.25} = 240$. Check: $25\\%$ of $240$ is $60$, and $240 + 60 = 300$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($225$): removes $25\\%$ of the June total, computing $0.75(300) = 225$. The $25\\%$ was taken of the smaller May figure, so it cannot be undone by subtracting $25\\%$ of June.\n* Choice C ($275$): subtracts $25$ units instead of a percent, computing $300 - 25 = 275$.\n* Choice D ($375$): applies the increase again, computing $1.25(300) = 375$, which moves in the wrong direction.\n\n**Test Day Takeaway:** To undo a percent increase, divide by the growth multiplier; subtracting the same percent from the larger number always overshoots, because the percent was based on the smaller one."
+ "explanation": "**SAT Pattern: Percent Increase**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** June is $1.20$ times May, so May is $\\frac{420}{1.20} = 350$.\n\n**The Full Solution:**\nStep 1: Let $m$ be the number of books lent in May. Being $20\\%$ more than May means June equals $m + 0.20m = 1.20m$.\nStep 2: Substitute the known June total: $1.20m = 420$.\nStep 3: Divide: $m = \\frac{420}{1.20} = 350$. Check: $20\\%$ of $350$ is $70$, and $350 + 70 = 420$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($336$): removes $20\\%$ of the June total, computing $0.80(420) = 336$. The $20\\%$ was taken of the smaller May figure, so it cannot be undone by subtracting $20\\%$ of June.\n* Choice C ($400$): subtracts $20$ books instead of a percent, computing $420 - 20 = 400$.\n* Choice D ($504$): applies the increase again, computing $1.20(420) = 504$, which moves in the wrong direction.\n\n**Test Day Takeaway:** To undo a percent increase, divide by the growth multiplier; subtracting the same percent from the larger number always overshoots, because the percent was based on the smaller one."
 }

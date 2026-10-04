@@ -1,6 +1,6 @@
 {
  "id": 19,
- "question": "Along a straight utility corridor, a shutoff valve is set at mile marker $x$ and a pump station stands at mile marker $9$. The maintenance log records the valve's distance from the pump station as $2x - 6$ miles. What is the value of $x$?",
+ "question": "$|x - 9| = 2x - 6$\nWhat value of $x$ is the solution to the given equation?",
  "choices": [
   {
    "id": "A",
@@ -19,11 +19,11 @@
    "text": "$5$"
   }
  ],
+ "correctAnswer": "D",
  "distractorNotes": {
   "A": "solves x - 9 = 2x - 6 and keeps x = -3 without checking it; there the left side is 12 but the right side is -12",
-  "B": "negates only the 2x when writing the second case, solving 9 - x = 2x + 6 to get x = 1",
+  "B": "writes the second case as 9 - x = 2x + 6, changing the sign of the -6 as well, to get x = 1",
   "C": "drops the -6 from the right side, solving 9 - x = 2x to get x = 3"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** $|x - 9| = 2x - 6$ has cases $x = -3$ and $x = 5$; only $x = 5$ keeps the recorded distance positive.\n\n**The Full Solution:**\nStep 1: Distance along a line is the absolute value of the difference in positions, so the log's reading gives $|x - 9| = 2x - 6$.\nStep 2: Split into two cases. Case 1: $x - 9 = 2x - 6$, which gives $x = -3$. Case 2: $-(x - 9) = 2x - 6$, that is $9 - x = 2x - 6$, so $15 = 3x$ and $x = 5$.\nStep 3: Test both candidates, because a distance is never negative. At $x = -3$ the left side is $|-3 - 9| = 12$ while the right side is $2(-3) - 6 = -12$, so that root is extraneous. At $x = 5$, $|5 - 9| = 4$ and $2(5) - 6 = 4$, so $x = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): the case-1 root, kept without checking. It would make the recorded distance $-12$ miles.\n* Choice B ($1$): comes from $9 - x = 2x + 6$, negating only the $2x$ when the whole right side was never the thing being negated.\n* Choice C ($3$): comes from $9 - x = 2x$, dropping the $-6$ on the right.\n\n**Test Day Takeaway:** A distance between two positions is an absolute value. Split it into two cases, then substitute both roots back, because a variable on the other side makes one root extraneous."
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The two cases give $x = -3$ and $x = 5$, but the right side must be nonnegative. At $x = -3$, $2x - 6 = -12 < 0$, so only $x = 5$ works.\n\n**The Full Solution:**\nStep 1: Case 1, $x - 9 = 2x - 6$: subtracting $x$ and adding $6$ gives $-3 = x$.\nStep 2: Case 2, $x - 9 = -(2x - 6)$: this is $x - 9 = -2x + 6$, so $3x = 15$ and $x = 5$.\nStep 3: An absolute value can't be negative, so test each candidate. At $x = -3$: $|-3 - 9| = 12$ but $2(-3) - 6 = -12$, so it is extraneous. Check: at $x = 5$, $|5 - 9| = 4$ and $2(5) - 6 = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): comes from the first case but is extraneous; it makes the right side negative.\n* Choice B ($1$): mishandles the second case, writing $9 - x = 2x + 6$; flipping the left side already accounts for the negative, so the $-6$ should not change sign too.\n* Choice C ($3$): loses the $-6$, solving $9 - x = 2x$.\n\n**Test Day Takeaway:** When a variable appears outside the absolute value, solve both cases and then check every candidate in the original equation; any value that makes the non-absolute side negative is extraneous."
 }

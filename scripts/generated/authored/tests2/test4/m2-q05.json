@@ -1,6 +1,6 @@
 {
  "id": 5,
- "question": "A rehearsal-scheduling model yields $ax^2 + bx + 24 = 0$ for constants $a$ and $b$. The two solutions add to $5$ and multiply to $4$. What is $b$?",
+ "question": "$ax^{2} + bx + 24 = 0$\nIn the given equation, $a$ and $b$ are constants. The sum of the solutions to the equation is $5$, and the product of the solutions is $4$. What is the value of $b$?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "B": "uses r + s = -b, ignoring the leading coefficient a, and reports -5",
-  "C": "reports the value of a, which is 6, rather than b",
-  "D": "drops the negative sign in r + s = -b/a and reports 30"
+  "B": "uses sum = -b, ignoring the leading coefficient a, and reports -5",
+  "C": "reports a = 6, found from the product, instead of b",
+  "D": "drops the negative sign in sum = -b/a, giving b/6 = 5 and b = 30"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The product $\\frac{24}{a} = 4$ gives $a = 6$; then the sum $-\\frac{b}{6} = 5$ gives $b = -30$.\n\n**The Full Solution:**\nStep 1: For $ax^2 + bx + c = 0$ with solutions $r$ and $s$, $r + s = -\\frac{b}{a}$ and $rs = \\frac{c}{a}$. Here $c = 24$.\nStep 2: The product comes first because it involves only one unknown: $\\frac{24}{a} = 4$, so $a = 6$.\nStep 3: Now the sum: $-\\frac{b}{6} = 5$, so $b = -30$. Check: $6x^2 - 30x + 24 = 6(x - 1)(x - 4)$, whose solutions $1$ and $4$ add to $5$ and multiply to $4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-5$): this uses $r + s = -b$, which is only true when $a = 1$. The leading coefficient is $6$ here, and it divides the sum.\n* Choice C ($6$): this is the value of $a$, found correctly in the first step and then reported in place of $b$.\n* Choice D ($30$): this drops the minus sign, using $r + s = \\frac{b}{a}$. Vieta's sum carries a negative; the product does not.\n\n**Test Day Takeaway:** When both the sum and the product are given but the leading coefficient is not, start with the product. It carries no sign change and often pins $a$ in one step."
+ "explanation": "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The product of the solutions is $\\frac{24}{a} = 4$, so $a = 6$. The sum is $-\\frac{b}{6} = 5$, so $b = -30$.\n\n**The Full Solution:**\nStep 1: For $ax^{2} + bx + c = 0$, the sum of the solutions is $-\\frac{b}{a}$ and the product is $\\frac{c}{a}$. Here $c = 24$.\nStep 2: The product involves only $a$: $\\frac{24}{a} = 4$, so $a = 6$.\nStep 3: The sum gives $-\\frac{b}{6} = 5$, so $b = -30$. Check: $6x^{2} - 30x + 24 = 6(x - 1)(x - 4)$, whose solutions $1$ and $4$ have sum $5$ and product $4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-5$): this uses $-b$ as the sum, which is true only when $a = 1$. Here $a = 6$.\n* Choice C ($6$): this is the value of $a$, found in the second step, reported in place of $b$.\n* Choice D ($30$): this drops the negative sign, solving $\\frac{b}{6} = 5$.\n\n**Test Day Takeaway:** When the leading coefficient is unknown, use the product $\\frac{c}{a}$ first to find $a$, then use the sum $-\\frac{b}{a}$."
 }

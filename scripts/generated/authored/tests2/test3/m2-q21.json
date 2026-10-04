@@ -1,11 +1,11 @@
 {
  "id": 21,
- "question": "A cave tour operator sells adult and child tickets at fixed prices. The table gives the number of tickets of each type and the total cost for two group bookings. What is the total cost, in dollars, of $5$ adult tickets and $4$ child tickets?",
+ "question": "A museum charges a fixed price for each adult ticket and a fixed price for each child ticket. The table shows the number of each type of ticket and the total cost for two groups. What is the total cost, in dollars, of $5$ adult tickets and $4$ child tickets?",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
-    "Booking",
+    "Group",
     "Adult tickets",
     "Child tickets",
     "Total cost (dollars)"
@@ -44,11 +44,11 @@
    "text": "$675$"
   }
  ],
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "prices only the 5 adult tickets, 5 x 48, and never adds the 4 child tickets",
+  "A": "prices only the 5 adult tickets, 5 x 48 = 240, and never adds the 4 child tickets",
   "B": "swaps the two prices, computing 5 x 27 + 4 x 48 = 327",
   "D": "multiplies all 9 tickets by the combined price 48 + 27 = 75"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** The bookings give $14a + 9c = 915$ and $8a + 15c = 789$; solving gives $a = 48$ and $c = 27$, so $5(48) + 4(27) = 348$.\n\n**The Full Solution:**\nStep 1: Let $a$ be the price of an adult ticket and $c$ the price of a child ticket, both in dollars. Each row of the table is one equation: $14a + 9c = 915$ and $8a + 15c = 789$.\nStep 2: Eliminate $c$. Multiply the first equation by $5$ and the second by $3$: $70a + 45c = 4575$ and $24a + 45c = 2367$. Subtracting gives $46a = 2208$, so $a = 48$. Substituting into $14(48) + 9c = 915$ gives $9c = 243$, so $c = 27$.\nStep 3: Price the requested combination: $5(48) + 4(27) = 240 + 108 = 348$ dollars. Check the prices against the second booking: $8(48) + 15(27) = 384 + 405 = 789$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($240$): stops after pricing the $5$ adult tickets and never adds the $4$ child tickets.\n* Choice B ($327$): swaps the two prices, computing $5(27) + 4(48)$. Check which variable each column of the table belongs to before substituting.\n* Choice D ($675$): treats all $9$ tickets as costing the same $48 + 27 = 75$ dollars, which double-counts every ticket.\n\n**Test Day Takeaway:** Define both variables in writing, turn each row of the table into one equation, then reread the final sentence. The system is rarely the last step — the question usually asks you to price a NEW combination."
+ "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice C is correct.**\n\n**The Fast Way (~60s):** The table gives $14a + 9c = 915$ and $8a + 15c = 789$; solving gives $a = 48$ and $c = 27$, so $5(48) + 4(27) = 348$.\n\n**The Full Solution:**\nStep 1: Let $a$ be the price of an adult ticket and $c$ the price of a child ticket, in dollars. The two rows of the table give $14a + 9c = 915$ and $8a + 15c = 789$.\nStep 2: Eliminate $a$: multiply the first equation by $4$ and the second by $7$ to get $56a + 36c = 3{,}660$ and $56a + 105c = 5{,}523$. Subtracting gives $69c = 1{,}863$, so $c = 27$. Then $14a + 9(27) = 915$ gives $14a = 672$ and $a = 48$.\nStep 3: The cost of $5$ adult tickets and $4$ child tickets is $5(48) + 4(27) = 240 + 108 = 348$ dollars. Check: $8(48) + 15(27) = 384 + 405 = 789$, which matches the second group ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($240$): finds the cost of the $5$ adult tickets and stops before adding the child tickets.\n* Choice B ($327$): swaps the prices, charging $27$ dollars per adult ticket and $48$ dollars per child ticket.\n* Choice D ($675$): charges every ticket the combined price $48 + 27 = 75$ dollars, which counts each ticket as one adult ticket plus one child ticket.\n\n**Test Day Takeaway:** Each row of the table is one equation; solve for both prices, then build the requested total from the right counts."
 }

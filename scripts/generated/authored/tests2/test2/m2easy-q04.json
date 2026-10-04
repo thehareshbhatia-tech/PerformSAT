@@ -1,6 +1,6 @@
 {
  "id": 4,
- "question": "An engineer logs the duration, in seconds, of each of the eight tracks on an album as 205, 142, 236, 191, 310, 168, 219, and 177. What is the median of these durations?",
+ "question": "The list gives the length, in seconds, of each of the $8$ songs on an album.\n$205$, $142$, $236$, $191$, $310$, $168$, $219$, $177$\nWhat is the median length, in seconds, of these songs?",
  "choices": [
   {
    "id": "A",
@@ -19,11 +19,11 @@
    "text": "$250.5$"
   }
  ],
- "distractorNotes": {
-  "A": "takes the lower of the two middle values, 191, instead of averaging the two middle values",
-  "C": "computes the mean, 1648 divided by 8, instead of the median",
-  "D": "averages the two middle entries of the unsorted list, 191 and 310, without ordering the values first"
- },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Median Calculation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Sorted, the eight values put $191$ and $205$ in the middle, and their average is $198$.\n\n**The Full Solution:**\nStep 1: Order the durations: $142, 168, 177, 191, 205, 219, 236, 310$.\nStep 2: With an even count of $8$, the median is the average of the 4th and 5th values, which are $191$ and $205$.\nStep 3: $\\frac{191 + 205}{2} = \\frac{396}{2} = 198$. Check: four values ($142, 168, 177, 191$) fall below $198$ and four ($205, 219, 236, 310$) fall above it. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($191$): stops at the 4th sorted value. With an even count there is no single middle entry, so the two middle values must be averaged.\n* Choice C ($206$): the mean, $\\frac{1648}{8}$. The large outlier $310$ pulls the mean above the median.\n* Choice D ($250.5$): averages the 4th and 5th entries of the list as printed, $191$ and $310$, skipping the sort.\n\n**Test Day Takeaway:** Sort first, always. Then count: an even number of values means average the two in the middle."
+ "distractorNotes": {
+  "A": "takes the lower of the two middle values, 191, instead of the mean of the two middle values",
+  "C": "computes the mean, 1,648 divided by 8, instead of the median",
+  "D": "averages the 4th and 5th entries of the unsorted list, 191 and 310, without ordering the values first"
+ },
+ "explanation": "**SAT Pattern: Median Calculation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** In order, the lengths are $142, 168, 177, 191, 205, 219, 236, 310$. With $8$ values the median is the mean of the 4th and 5th: $\\frac{191 + 205}{2} = 198$.\n\n**The Full Solution:**\nStep 1: Put the values in increasing order: $142, 168, 177, 191, 205, 219, 236, 310$.\nStep 2: There is an even number of values, so the median is the mean of the two middle values, the 4th and 5th: $191$ and $205$.\nStep 3: The median is $\\frac{191 + 205}{2} = \\frac{396}{2} = 198$ seconds. Check: four values ($142, 168, 177, 191$) are below $198$ and four ($205, 219, 236, 310$) are above it ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($191$): picks the lower middle value. With an even count, the median is the mean of both middle values.\n* Choice C ($206$): computes the mean, $\\frac{1{,}648}{8} = 206$. The long song of $310$ seconds pulls the mean above the median.\n* Choice D ($250.5$): averages the 4th and 5th numbers as listed, $191$ and $310$, without sorting first.\n\n**Test Day Takeaway:** Always sort before finding a median. With an even number of values, average the two middle ones."
 }

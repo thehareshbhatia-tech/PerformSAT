@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 1,
- "passage": "In parts of northern Mozambique, people who gather wild honey work alongside a bird known as the greater honeyguide. The bird flies ahead, calling and pausing, until it has led a honey-hunter to a bees' nest; the honey-hunter then opens the nest with tools and smoke, taking the honey and leaving the wax the bird eats. Ornithologist Claire Spottiswoode has shown that the birds respond to the hunters' distinctive calls, evidence that the two species genuinely ______ rather than merely tolerating each other.",
+ "passage": "In northern Mozambique, honey-hunters work with a bird called the greater honeyguide. The bird leads a hunter to a bees' nest; the hunter opens the nest, takes the honey, and leaves the wax, which the bird eats. Biologist Claire Spottiswoode has shown that the birds respond to the hunters' distinctive calls, evidence that the two species genuinely ______ rather than merely tolerating each other.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The contrast with \"rather than merely tolerating each other\" demands active partnership, and \"collaborate\" names that relationship precisely.\n\n**The Full Solution:**\n- The passage describes a two-way exchange: the bird leads the way to the nest, the honey-hunter opens it, and each partner takes a different reward.\n- The sentence's contrast frame (\"rather than merely tolerating\") requires a word stronger than passive coexistence — a word for working together, which is exactly \"collaborate.\"\n\n**Why the other choices are wrong:**\n- A: \"Quarrel\" describes conflict the passage never mentions.\n- B: \"Retreat\" contradicts the birds' behavior of flying ahead and waiting to be followed.\n- C: \"Interfere\" also imports conflict; the exchange described benefits both partners."
+ "explanation": "**Choice D is correct.** The contrast with \"rather than merely tolerating each other\" demands active partnership, and \"collaborate\" names that relationship precisely.\n\n**The Full Solution:**\n- The passage describes a two-way exchange: the bird leads the hunter to the nest, the hunter opens it, and each partner takes a different reward.\n- The birds also respond to the hunters' calls, so each species acts on signals from the other.\n- The sentence's contrast frame (\"rather than merely tolerating\") requires a word stronger than passive coexistence — a word for working together, which is exactly \"collaborate.\"\n\n**Why the other choices are wrong:**\n- A: \"Quarrel\" describes conflict the passage never mentions.\n- B: \"Retreat\" contradicts the birds' behavior of leading hunters to nests and responding to their calls.\n- C: \"Interfere\" also imports conflict; the exchange described benefits both partners."
 }

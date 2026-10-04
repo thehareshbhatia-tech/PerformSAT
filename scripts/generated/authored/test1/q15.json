@@ -6,12 +6,12 @@
  "domain": "information-and-ideas",
  "skill": "inferences",
  "module": 1,
- "passage": "Seagrass meadows draw carbon dioxide from seawater and lock carbon into their leaves, roots, and the sediments beneath them. Marine ecologists studying a chain of tropical meadows found that where large predatory fish were abundant, grazing by sea turtles and herbivorous fish was modest and the meadows accumulated carbon-rich sediment steadily. In areas where fishing had removed most large predators, grazing pressure rose sharply and the meadows' carbon accumulation slowed or reversed. The ecologists therefore reasoned that ______",
+ "passage": "Seagrass meadows store large amounts of carbon in their leaves, roots, and the sediments beneath them. In a 2015 review, ecologist Trisha Atwood and colleagues noted that where sharks and other large predators have declined, sea turtles and other grazers can strip meadows bare; in parts of Bermuda and Indonesia, grazing has removed nearly all of the seagrass growing above the seafloor. The researchers therefore reasoned that ______",
  "question": "Which choice most logically completes the text?",
  "choices": [
   {
    "id": "A",
-   "text": "sea turtles and herbivorous fish contribute more to carbon storage in seagrass meadows than the seagrasses themselves do."
+   "text": "sea turtles and other grazers contribute more to carbon storage in seagrass meadows than the seagrasses themselves do."
   },
   {
    "id": "B",
@@ -19,13 +19,16 @@
   },
   {
    "id": "C",
-   "text": "removing herbivores from seagrass meadows would have little effect on how much carbon the meadows store."
+   "text": "removing grazers from seagrass meadows would have little effect on how much carbon the meadows store."
   },
   {
    "id": "D",
-   "text": "protecting populations of large predatory fish may indirectly help maintain the carbon stored in seagrass meadows."
+   "text": "protecting sharks and other large predators may indirectly help maintain the carbon stored in seagrass meadows."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The premises license one inference: sustaining predators should, indirectly, sustain carbon storage — and D states it with appropriately hedged force (\"may indirectly help\").\n\n**The Full Solution:**\n- The passage sets up a causal chain: abundant predators keep grazing modest, and modest grazing lets meadows accumulate carbon.\n- Where predators are fished out, grazing rises and carbon accumulation falters — so the chain runs from predators, through grazing pressure, to carbon.\n- The completion must follow that chain and keep its hedged, indirect character, which choice D does.\n\n**Why the other choices are wrong:**\n- A: It inverts the ecology — heavy grazing is associated with less carbon accumulation, not more.\n- B: It introduces a tropical-temperate comparison no premise touches.\n- C: It contradicts the observed link between rising grazing pressure and slowed accumulation."
+ "explanation": "**Choice D is correct.** The premises license one inference: sustaining predators should, indirectly, sustain carbon storage — and D states it with appropriately hedged force (\"may indirectly help\").\n\n**The Full Solution:**\n- The passage first establishes that seagrass meadows store carbon in their plants and sediments.\n- It then reports that where large predators have declined, grazers can strip meadows bare, removing nearly all of the seagrass above the seafloor.\n- The chain runs from predators, through grazing pressure, to the seagrass that holds the carbon, so keeping predators in place should help keep that carbon stored, which is what choice D says.\n\n**Why the other choices are wrong:**\n- A: It inverts the ecology — heavy grazing destroys the seagrass that stores carbon; it does not add to storage.\n- B: It introduces a tropical-temperate comparison no premise touches.\n- C: It contradicts the passage, which shows grazers removing the very plants that store carbon.",
+ "_meta": {
+  "source": "Atwood et al., Nature Climate Change 5 (2015), 'Predators help protect carbon stocks in blue carbon ecosystems' — reduced predation on herbivores in seagrass meadows of Bermuda and Indonesia led to removal of 90-100% of above-ground vegetation"
+ }
 }

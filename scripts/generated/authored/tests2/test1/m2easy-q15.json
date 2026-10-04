@@ -1,6 +1,6 @@
 {
  "id": 15,
- "question": "A space telescope carries two similar triangular sunshields whose areas are in the ratio $1$ to $9$. The edges of the smaller sunshield total $24$ meters in length. What is the total length, in meters, of the edges of the larger sunshield?",
+ "question": "Triangles $ABC$ and $DEF$ are similar. The area of triangle $DEF$ is $9$ times the area of triangle $ABC$. If the perimeter of triangle $ABC$ is $24$ centimeters, what is the perimeter, in centimeters, of triangle $DEF$?",
  "choices": [
   {
    "id": "A",
@@ -22,8 +22,8 @@
  "distractorNotes": {
   "A": "divides by the scale factor 3 instead of multiplying by it",
   "C": "uses the area ratio 9 as the ratio of lengths, computing 24 times 9",
-  "D": "multiplies by 27, cubing the scale factor as though the ratio were a volume ratio"
+  "D": "multiplies by 27, cubing the scale factor as though 9 were a ratio of volumes"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Similar Triangles and Area Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Areas of similar figures scale by the square of the length ratio, so a $1$ to $9$ area ratio means a $1$ to $3$ length ratio. Perimeter: $24 \\times 3 = 72$ meters.\n\n**The Full Solution:**\nStep 1: Let $k$ be the ratio of a length on the larger sunshield to the corresponding length on the smaller one. For similar figures, the ratio of areas is $k^2$.\nStep 2: The areas are in the ratio $1$ to $9$, so $k^2 = 9$ and $k = 3$. Every length on the larger sunshield is $3$ times the corresponding length on the smaller one.\nStep 3: The sum of the edges is a length, so it also scales by $k$: $24 \\times 3 = 72$ meters. Check: tripling each edge triples the perimeter and multiplies the area by $3^2 = 9$, exactly the given ratio ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): dividing by $3$ instead of multiplying. The larger sunshield must have the longer edges, so the perimeter has to grow.\n* Choice C ($216$): applying the area ratio $9$ directly to a length, $24 \\times 9$. That would make the areas differ by a factor of $81$, not $9$.\n* Choice D ($648$): using $3^3 = 27$, the scale factor for volumes. Sunshields are flat regions, so lengths scale by $k$ and areas by $k^2$ only.\n\n**Test Day Takeaway:** For similar figures, lengths scale by $k$, areas by $k^2$, and volumes by $k^3$. Given an area ratio, take the square root before touching any length."
+ "explanation": "**SAT Pattern: Similar Triangles and Area Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Areas of similar figures scale by the square of the length scale factor, so lengths scale by $\\sqrt{9} = 3$. The perimeter of triangle $DEF$ is $3(24) = 72$.\n\n**The Full Solution:**\nStep 1: For similar triangles with length scale factor $k$, the areas are in the ratio $k^{2}$. Here $k^{2} = 9$.\nStep 2: So $k = 3$: every length in triangle $DEF$ is $3$ times the corresponding length in triangle $ABC$, and so is the perimeter.\nStep 3: The perimeter of triangle $DEF$ is $3(24) = 72$ centimeters. Check: the scale factor $\\frac{72}{24} = 3$ squares to $9$, the area ratio ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): divides $24$ by $3$, as if triangle $DEF$ were the smaller triangle.\n* Choice C ($216$): multiplies by $9$, using the area ratio as the ratio of lengths.\n* Choice D ($648$): multiplies by $27 = 3^{3}$, a ratio that applies to volumes, not perimeters.\n\n**Test Day Takeaway:** For similar figures, lengths scale by $k$ and areas by $k^{2}$; take the square root of an area ratio before applying it to a perimeter."
 }

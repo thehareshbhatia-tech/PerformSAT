@@ -11,19 +11,19 @@
  "choices": [
   {
    "id": "A",
-   "text": "It presents a longstanding debate among materials chemists, summarizes the experimental evidence on each side, and then indicates which position has come to prevail."
+   "text": "It presents a debate among materials chemists, summarizes the evidence on each side, and indicates which position has prevailed."
   },
   {
    "id": "B",
-   "text": "It describes a widely used class of materials, traces the manufacturing process by which those materials are produced, and then predicts how that process is likely to change."
+   "text": "It describes a widely used class of materials, traces how those materials are manufactured, and predicts how that process will change."
   },
   {
    "id": "C",
-   "text": "It identifies a limitation of conventional plastics, describes an engineered mechanism that overcomes that limitation, and then explains why the resulting materials have nonetheless seen little commercial adoption."
+   "text": "It identifies a limitation of conventional plastics, describes a mechanism that overcomes it, and explains why the resulting materials remain commercially rare."
   },
   {
    "id": "D",
-   "text": "It introduces a newly developed class of polymers, catalogs the range of commercial products in which those polymers currently appear, and then acknowledges lingering doubts about whether the products perform as their manufacturers advertise."
+   "text": "It introduces a new class of polymers, lists the products that contain them, and questions whether those products perform as advertised."
   }
  ],
  "correctAnswer": "C",

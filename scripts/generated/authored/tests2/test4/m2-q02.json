@@ -1,29 +1,29 @@
 {
  "id": 2,
- "question": "A county reported $x$ cases of pertussis in 2022. Reported cases fell by $20\\%$ in 2023 and by another $25\\%$ in 2024, ending at $2{,}100$ cases. What is the value of $x$?",
+ "question": "A town's population decreased by $20\\%$ from 2022 to 2023 and by $25\\%$ from 2023 to 2024. The population in 2024 was $21{,}000$. What was the population in 2022?",
  "choices": [
   {
    "id": "A",
-   "text": "$2{,}625$"
+   "text": "$26{,}250$"
   },
   {
    "id": "B",
-   "text": "$2{,}800$"
+   "text": "$28{,}000$"
   },
   {
    "id": "C",
-   "text": "$3{,}045$"
+   "text": "$30{,}450$"
   },
   {
    "id": "D",
-   "text": "$3{,}500$"
+   "text": "$35{,}000$"
   }
  ],
  "distractorNotes": {
-  "A": "divides 2,100 by 0.8 only, reversing the first decrease and ignoring the second",
-  "B": "divides 2,100 by 0.75 only, reversing the second decrease and ignoring the first",
-  "C": "adds the two percents to 45% and raises 2,100 by that instead of reversing two separate decreases"
+  "A": "divides 21,000 by 0.80 only, reversing the 20% decrease and ignoring the 25% decrease",
+  "B": "divides 21,000 by 0.75 only, which gives the 2023 population rather than the 2022 population",
+  "C": "adds the two percents to get 45% and increases 21,000 by 45%, computing 1.45(21,000) = 30,450"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Percent Decrease**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Two decreases multiply: $0.8 \\times 0.75 = 0.6$. Working backward, $x = \\frac{2100}{0.6} = 3500$.\n\n**The Full Solution:**\nStep 1: A $20\\%$ decrease multiplies by $1 - 0.20 = 0.8$; a $25\\%$ decrease multiplies by $1 - 0.25 = 0.75$.\nStep 2: The two years compose, so $0.75(0.8x) = 2100$, which is $0.6x = 2100$.\nStep 3: $x = \\frac{2100}{0.6} = 3500$. Check: $3500 \\times 0.8 = 2800$ in 2023, and $2800 \\times 0.75 = 2100$ in 2024. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2{,}625$): this is $\\frac{2100}{0.8}$, undoing only the $20\\%$ drop. The $25\\%$ drop is never reversed.\n* Choice B ($2{,}800$): this is $\\frac{2100}{0.75}$, the 2023 count, not the 2022 count. It is a real quantity in the problem, which is exactly why it is tempting.\n* Choice C ($3{,}045$): this adds the percents to $45\\%$ and computes $2100 \\times 1.45$. Percent changes multiply, and raising a number by $45\\%$ does not undo a $45\\%$ cut.\n\n**Test Day Takeaway:** Successive percent changes multiply their factors. To run them backward, divide by the product of the factors, never by their sum."
+ "explanation": "**SAT Pattern: Percent Decrease**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The two decreases multiply: $0.80(0.75) = 0.60$. So the 2022 population is $\\frac{21{,}000}{0.60} = 35{,}000$.\n\n**The Full Solution:**\nStep 1: A $20\\%$ decrease multiplies by $0.80$, and a $25\\%$ decrease multiplies by $0.75$.\nStep 2: If $p$ is the 2022 population, then $0.75(0.80p) = 21{,}000$, which is $0.60p = 21{,}000$.\nStep 3: $p = \\frac{21{,}000}{0.60} = 35{,}000$. Check: $0.80(35{,}000) = 28{,}000$ in 2023, and $0.75(28{,}000) = 21{,}000$ in 2024 ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($26{,}250$): this is $\\frac{21{,}000}{0.80}$, which reverses only the $20\\%$ decrease.\n* Choice B ($28{,}000$): this is $\\frac{21{,}000}{0.75}$, the 2023 population. It reverses the second decrease but not the first.\n* Choice C ($30{,}450$): this adds the percents to $45\\%$ and computes $1.45(21{,}000)$. Percent changes multiply, and increasing by $45\\%$ does not undo a $45\\%$ decrease anyway.\n\n**Test Day Takeaway:** Successive percent changes multiply their factors; to work backward, divide by the product of the factors."
 }

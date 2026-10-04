@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 2,
- "passage": "Neural machine translation systems, trained on hundreds of millions of paired sentences, now render routine prose between major languages with striking fluency, and evaluators sometimes rate their output as indistinguishable from professional work. ______ idiomatic expressions continue to expose the systems' limits: because a phrase like \"spill the beans\" means something unrelated to beans, and because such phrases are rare and unevenly represented in training data, systems still occasionally translate them word by word into fluent nonsense.",
+ "passage": "Neural machine translation systems, trained on vast collections of paired sentences, now render routine prose between major languages with striking fluency. ______ idioms still expose the systems' limits: because a phrase like \"spill the beans\" means something unrelated to beans, and because such phrases are rare in training data, the systems sometimes translate them word for word into fluent nonsense.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The second sentence undercuts the record of success the first sentence builds, and \"Nevertheless\" concedes the success while introducing the persistent failure.\n\n**The Full Solution:**\n- First sentence: striking fluency, ratings comparable to professional translation.\n- Second sentence: idioms \"continue to expose the systems' limits,\" down to word-by-word renderings of \"fluent nonsense.\"\n- A sentence that qualifies preceding praise needs a concessive contrast transition.\n\n**Why the other choices are wrong:**\n- B: \"Accordingly\" would present the idiom failures as a consequence of the fluency, inverting the logic.\n- C: \"Likewise\" would promise a second, parallel success, but the sentence delivers a shortcoming.\n- D: \"In other words\" would offer the idiom problem as a restatement of the fluency claim, though the sentences make opposing points."
+ "explanation": "**Choice A is correct.** The second sentence undercuts the record of success the first sentence builds, and \"Nevertheless\" concedes the success while introducing the persistent failure.\n\n**The Full Solution:**\n- First sentence: the systems render routine prose \"with striking fluency.\"\n- Second sentence: idioms \"still expose the systems' limits,\" down to word-for-word renderings that produce \"fluent nonsense.\"\n- A sentence that qualifies preceding praise needs a concessive contrast transition.\n\n**Why the other choices are wrong:**\n- B: \"Accordingly\" would present the idiom failures as a consequence of the fluency, inverting the logic.\n- C: \"Likewise\" would promise a second, parallel success, but the sentence delivers a shortcoming.\n- D: \"In other words\" would offer the idiom problem as a restatement of the fluency claim, though the sentences make opposing points."
 }

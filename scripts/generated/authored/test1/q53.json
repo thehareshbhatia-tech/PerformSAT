@@ -9,11 +9,11 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Art conservators repair and stabilize artworks that have been damaged by time, light, moisture, or handling.",
-   "A guiding principle of the field is reversibility: any material a conservator adds to an artwork should be removable later without harming the original.",
-   "Reversibility protects artworks from today's methods, since treatments once considered safe have sometimes proved damaging as knowledge advanced.",
-   "Conservators following the principle use adhesives that future specialists can dissolve and inpaint losses with paints that can be removed.",
-   "Varnishes chosen for reversibility can be lifted from a painting's surface decades later without disturbing the artist's own paint beneath."
+   "Art conservators repair and stabilize damaged artworks.",
+   "A guiding principle of the field is reversibility: anything a conservator adds to an artwork should be removable later without harming the original.",
+   "The principle guards against error, since treatments once considered safe have sometimes proved damaging.",
+   "Conservators use adhesives that can be dissolved and fill losses with paints that can be removed.",
+   "Varnishes chosen for reversibility can be lifted decades later without disturbing the artist's paint beneath."
   ],
   "goal": "The student wants to explain the principle of reversibility to an audience unfamiliar with art conservation."
  },
@@ -21,21 +21,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "In art conservation, the principle of reversibility holds that anything a conservator adds to a damaged artwork — an adhesive, a retouched patch, a varnish — should be removable later without harming the original, in case today's methods prove damaging."
+   "text": "In art conservation, reversibility means that anything added to an artwork, such as an adhesive or a varnish, should be removable later without harming the original."
   },
   {
    "id": "B",
-   "text": "Conservators use adhesives that future specialists can dissolve when needed, and they inpaint losses in a damaged artwork with paints that later generations can safely remove."
+   "text": "Conservators use adhesives that can be dissolved and fill losses in damaged artworks with paints that can be removed."
   },
   {
    "id": "C",
-   "text": "Because treatments once considered safe have sometimes proved damaging, art conservators — who repair artworks damaged by time, light, moisture, or handling — face difficult decisions in their work."
+   "text": "Because treatments once considered safe have sometimes proved damaging, art conservators face difficult decisions when they repair damaged artworks."
   },
   {
    "id": "D",
-   "text": "Reversibility, a guiding principle of art conservation, explains why varnishes can be lifted from a painting's surface decades after they are applied."
+   "text": "Reversibility, a guiding principle of art conservation, explains why varnishes can be lifted from a painting decades after they are applied."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The goal demands the principle itself, explained for readers new to conservation — and A names the field, states the principle in full, grounds it in the notes' examples, and gives its rationale.\n\n**The Full Solution:**\n- Two demands: explain the reversibility principle, and pitch it to readers who know nothing about art conservation.\n- Choice A does both: it names the field, states the principle (\"anything a conservator adds ... should be removable later without harming the original\"), makes it concrete with the notes' examples, and supplies the why (protection against methods that later prove damaging).\n\n**Why the other choices are wrong:**\n- B: It lists practices that follow from the principle without ever stating or naming it — an unfamiliar reader learns what conservators do but not the idea.\n- C: It introduces the field and a motivation but swerves to \"difficult decisions,\" a claim the notes do not contain, and never presents reversibility at all.\n- D: It names the principle but treats it as already understood, using it only to account for one fact about varnish — backwards for an audience that needs the principle explained, not applied."
+ "explanation": "**Choice A is correct.** The goal demands the principle itself, explained for readers new to conservation — and A names the field, states the principle in full, and grounds it in the notes' examples.\n\n**The Full Solution:**\n- Two demands: explain the reversibility principle, and pitch it to readers who know nothing about art conservation.\n- Choice A does both: it names the field, states the principle (\"anything added to an artwork ... should be removable later without harming the original\"), and makes it concrete with the notes' examples of an adhesive and a varnish.\n\n**Why the other choices are wrong:**\n- B: It lists practices that follow from the principle without ever stating or naming it — an unfamiliar reader learns what conservators do but not the idea.\n- C: It introduces the field and a motivation but swerves to \"difficult decisions,\" a claim the notes do not contain, and never presents reversibility at all.\n- D: It names the principle but treats it as already understood, using it only to account for one fact about varnish — backwards for an audience that needs the principle explained, not applied."
 }

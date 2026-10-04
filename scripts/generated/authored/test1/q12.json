@@ -6,12 +6,12 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-textual",
  "module": 1,
- "passage": "Many songbirds establish territory and attract mates with songs that carry low-frequency notes. City environments, however, are saturated with low-frequency noise from traffic and machinery. A research team studying great tits in a European capital hypothesized that the birds adjust their songs to avoid this acoustic interference, singing at higher minimum frequencies in noisier locations so that their songs remain audible to other great tits.",
+ "passage": "Many songbirds establish territory and attract mates with songs that carry low-frequency notes. City environments, however, are saturated with low-frequency noise from traffic and machinery. A research team studying great tits in the Dutch city of Leiden hypothesized that the birds adjust their songs to avoid this acoustic interference, singing at higher minimum frequencies in noisier locations so that their songs remain audible to other great tits.",
  "question": "Which finding, if true, would most directly support the team's hypothesis?",
  "choices": [
   {
    "id": "A",
-   "text": "Great tits living in the city begin singing earlier in the morning and sing more often throughout the day than great tits in nearby undisturbed forests do, especially on weekday mornings when traffic is heaviest."
+   "text": "Great tits living in the city begin singing earlier in the morning and sing more often than great tits in nearby forests do."
   },
   {
    "id": "B",

@@ -6712,5 +6712,34 @@
   "reviewer": "seva-rw-fill-recreation",
   "verifiedAt": "2026-09-05",
   "passagePromptHint": "Cowan treats the twentieth-century home as a site of industrialization, arguing that new appliances changed the character of housework rather than shortening it."
+ },
+ {
+  "id": "res-b-002",
+  "name": "Trisha Atwood",
+  "field": "ecology",
+  "affiliation": "Utah State University (Department of Watershed Sciences and Ecology Center)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "blue carbon",
+   "predator effects on carbon cycling",
+   "seagrass and coastal ecosystems"
+  ],
+  "publications": [
+   {
+    "title": "Predators help protect carbon stocks in blue carbon ecosystems",
+    "year": 2015,
+    "claim": "Declines in marine predators can release herbivores whose grazing strips seagrass, salt marsh, and mangrove vegetation, threatening the carbon these ecosystems store; in seagrass meadows of Bermuda and Indonesia, reduced predation on herbivores led to removal of 90-100% of above-ground vegetation."
+   }
+  ],
+  "suitableForSkills": [
+   "inferences",
+   "central-ideas-and-details",
+   "command-of-evidence-textual"
+  ],
+  "notes": "Verification: https://www.nature.com/articles/nclimate2763 (Atwood et al., Nature Climate Change 5, 1038-1045, 2015)",
+  "reviewer": "seva-rw-review-v3",
+  "verifiedAt": "2026-10-04",
+  "passagePromptHint": "Atwood and colleagues link the loss of large marine predators to overgrazing that destroys carbon-storing coastal vegetation."
  }
 ]

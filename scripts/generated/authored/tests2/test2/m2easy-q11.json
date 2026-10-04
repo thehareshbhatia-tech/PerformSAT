@@ -1,6 +1,6 @@
 {
  "id": 11,
- "question": "A drainage channel's bed lies $f(x) = x^2 - 18x + 88$ centimeters above a benchmark at the point $x$ meters along the channel. The table gives $f(x)$ at four selected values of $x$. What is the least height, in centimeters, of the bed above the benchmark?",
+ "question": "$f(x) = x^{2} - 18x + 88$\nFour values of the given function $f$ are shown in the table. What is the minimum value of $f$?",
  "questionTable": {
   "headers": [
    "$x$",
@@ -26,5 +26,5 @@
   ]
  },
  "correctAnswer": "7",
- "explanation": "**SAT Pattern: Quadratic — Completing the Square**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~35s):** Half of $-18$ is $-9$, so $f(x) = (x - 9)^2 + 7$ and the minimum is $7$.\n\n**The Full Solution:**\nStep 1: Take half the coefficient of $x$ and square it: $\\left(\\frac{-18}{2}\\right)^2 = (-9)^2 = 81$.\nStep 2: Write $x^2 - 18x + 88 = (x^2 - 18x + 81) + 88 - 81 = (x - 9)^2 + 7$.\nStep 3: Since $(x - 9)^2$ is never negative, the least value of $f$ is $7$, reached at $x = 9$. Check: the table straddles $x = 9$, with $f(8) = 8$ and $f(11) = 11$, both above $7$. $\\checkmark$\n\n**Common Mistakes:**\n* Gridding $9$, the value of $x$ where the minimum occurs, rather than the least height itself.\n* Gridding $8$, the least value printed in the table. The table skips $x = 9$, so the true minimum never appears in it.\n* Squaring the whole coefficient instead of half of it, writing $(x - 18)^2$ and getting $88 - 324 = -236$.\n\n**Test Day Takeaway:** Completing the square turns a quadratic into vertex form, where the constant is the minimum (or maximum) value. Halve the middle coefficient before you square it."
+ "explanation": "**SAT Pattern: Quadratic — Completing the Square**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~30s):** Half of $-18$ is $-9$, and $(-9)^{2} = 81$, so $f(x) = (x - 9)^{2} + 7$. A square is never negative, so the minimum value is $7$, at $x = 9$.\n\n**The Full Solution:**\nStep 1: Complete the square. Take half of the $x$-coefficient, $\\frac{-18}{2} = -9$, and square it: $81$. Then $x^{2} - 18x + 88 = (x^{2} - 18x + 81) + 7$.\nStep 2: Rewrite: $f(x) = (x - 9)^{2} + 7$.\nStep 3: Since $(x - 9)^{2} \\ge 0$ for every $x$, the least value of $f(x)$ is $0 + 7 = 7$, reached when $x = 9$. Check: $f(9) = 81 - 162 + 88 = 7$, and $f(8) = 8$ and $f(10) = 8$ are both larger ✓\n\n**Common Mistakes:**\n* $8$: takes the smallest value in the table. The table skips $x = 9$, where the minimum occurs.\n* $9$: reports the $x$-value of the vertex instead of the minimum value of the function.\n* $169$: adds $81$ instead of subtracting it when completing the square, $88 + 81 = 169$.\n\n**Test Day Takeaway:** A table shows only selected points, and the vertex may fall between them. Complete the square, $(x - h)^{2} + k$, and read the minimum value $k$ directly."
 }
