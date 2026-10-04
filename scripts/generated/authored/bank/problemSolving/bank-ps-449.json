@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-449",
-  "question": "A shipment of $306$ kilograms of gravel is split between two work sites so that the amounts are in the ratio $5 : 13$. How many kilograms of gravel go to the site that receives the smaller amount?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$17$"
-    },
-    {
-      "id": "B",
-      "text": "$85$"
-    },
-    {
-      "id": "C",
-      "text": "$153$"
-    },
-    {
-      "id": "D",
-      "text": "$221$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports the size of one share instead of the smaller amount.",
-    "C": "splits the shipment evenly instead of in the ratio $5 : 13$.",
-    "D": "gives the larger amount, the $13$-part share."
+ "id": "bank-ps-449",
+ "question": "Jordan and Kim share $306$ stickers in the ratio $5 : 13$, respectively. How many stickers does Jordan get?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$17$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** There are $5+13=18$ parts, so one part is $\\frac{306}{18}=17$ kilograms, and the smaller site gets $5(17)=85$ kilograms.\n\n**The Full Solution:**\nStep 1: Write the two amounts as $5k$ and $13k$ kilograms, so $5k+13k=306$.\nStep 2: $18k=306$, so $k=17$.\nStep 3: The smaller amount is $5k=5(17)=85$ kilograms. Check: $13(17)=221$, and $85+221=306$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): reports $k$, one part of the ratio, not a site's share.\n* Choice C ($153$): divides the shipment in half, ignoring the ratio.\n* Choice D ($221$): gives the $13$-part share, the larger amount.\n\n**Test Day Takeaway:** The smaller ratio number always names the smaller share. Compute one part, then multiply by the number the question points to."
+  {
+   "id": "B",
+   "text": "$85$"
+  },
+  {
+   "id": "C",
+   "text": "$153$"
+  },
+  {
+   "id": "D",
+   "text": "$221$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "finds one part, 306/18 = 17, and stops",
+  "C": "splits the stickers in half, 306/2 = 153, ignoring the ratio",
+  "D": "finds Kim's share, 13(17) = 221"
+ },
+ "explanation": "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** There are $5 + 13 = 18$ parts of $\\frac{306}{18} = 17$ stickers each, so Jordan gets $5(17) = 85$.\n\n**The Full Solution:**\nStep 1: Add the parts: $5 + 13 = 18$.\nStep 2: Find one part: $\\frac{306}{18} = 17$ stickers.\nStep 3: Jordan gets $5$ parts: $5(17) = 85$ stickers. Check: Kim gets $13(17) = 221$, and $85 + 221 = 306$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): is one part of the ratio, not Jordan's share.\n* Choice C ($153$): is half of $306$, which ignores the $5 : 13$ ratio.\n* Choice D ($221$): is Kim's share, the $13$ parts.\n\n**Test Day Takeaway:** \"Respectively\" matches the ratio to the names in order: the first number belongs to the first person."
 }

@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-426",
-  "question": "A copy machine uses $3$ toner cartridges to print $1{,}200$ pages. At this rate, how many toner cartridges are needed to print $4{,}000$ pages?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$0.9$"
-    },
-    {
-      "id": "B",
-      "text": "$3.3$"
-    },
-    {
-      "id": "C",
-      "text": "$10$"
-    },
-    {
-      "id": "D",
-      "text": "$400$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "inverts the proportion, computing $\\frac{1{,}200\\times 3}{4{,}000}$.",
-    "B": "finds the scale factor $\\frac{4{,}000}{1{,}200}$ and stops there.",
-    "D": "reports pages per cartridge instead of cartridges."
+ "id": "bank-ps-426",
+ "question": "A printer uses $3$ ink cartridges to print $1{,}500$ pages. At this rate, how many ink cartridges are needed to print $6{,}000$ pages?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$0.75$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Proportion Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** One cartridge prints $\\frac{1{,}200}{3}=400$ pages, so $4{,}000$ pages need $\\frac{4{,}000}{400}=10$ cartridges.\n\n**The Full Solution:**\nStep 1: Write the proportion $\\frac{3\\text{ cartridges}}{1{,}200\\text{ pages}}=\\frac{c}{4{,}000\\text{ pages}}$.\nStep 2: Cross multiply: $1{,}200c=3(4{,}000)=12{,}000$.\nStep 3: $c=\\frac{12{,}000}{1{,}200}=10$ cartridges. Check: $10$ cartridges at $400$ pages each print $4{,}000$ pages. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.9$): flips the proportion, computing $\\frac{1{,}200\\times 3}{4{,}000}$, which shrinks the answer instead of growing it.\n* Choice B ($3.3$): computes $\\frac{4{,}000}{1{,}200}$, the number of $1{,}200$-page batches, and never multiplies by $3$.\n* Choice D ($400$): reports the pages printed per cartridge, answering a different question.\n\n**Test Day Takeaway:** Check the direction before you divide. More pages must require more cartridges, so the answer has to exceed $3$."
+  {
+   "id": "B",
+   "text": "$4$"
+  },
+  {
+   "id": "C",
+   "text": "$12$"
+  },
+  {
+   "id": "D",
+   "text": "$500$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "inverts the rate, computing 1,500(3)/6,000 = 0.75",
+  "B": "finds 6,000/1,500 = 4, the number of times the page count grows, and stops",
+  "D": "reports the pages per cartridge, 1,500/3 = 500"
+ },
+ "explanation": "**SAT Pattern: Proportion Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Each cartridge prints $\\frac{1{,}500}{3} = 500$ pages, so $6{,}000$ pages need $\\frac{6{,}000}{500} = 12$ cartridges.\n\n**The Full Solution:**\nStep 1: Find the pages per cartridge: $\\frac{1{,}500}{3} = 500$ pages.\nStep 2: Divide the new page count by that rate: $\\frac{6{,}000}{500} = 12$.\nStep 3: So $12$ cartridges are needed. Check: $\\frac{3}{1{,}500} = \\frac{12}{6{,}000}$, since both equal $\\frac{1}{500}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.75$): multiplies by the wrong ratio, so more pages would need fewer cartridges.\n* Choice B ($4$): is the scale factor $\\frac{6{,}000}{1{,}500}$; it still has to be multiplied by $3$ cartridges.\n* Choice D ($500$): is the number of pages one cartridge prints, not a number of cartridges.\n\n**Test Day Takeaway:** Find the unit rate first, then check that the answer moves in the same direction as the quantity that changed."
 }

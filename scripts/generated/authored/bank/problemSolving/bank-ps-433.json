@@ -1,56 +1,56 @@
 {
-  "id": "bank-ps-433",
-  "question": "The table gives the number of vehicles, in thousands, recorded at a toll plaza on day $d$ of a study, and a traffic model predicts $p = 0.5d + 21$ thousand vehicles on day $d$. On day $6$, by how many thousand vehicles does the recorded number exceed the number the model predicts?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "Day (d)",
-        "Vehicles recorded (thousands)"
-      ],
-      "rows": [
-        [
-          "2",
-          "22.9"
-        ],
-        [
-          "4",
-          "22.6"
-        ],
-        [
-          "6",
-          "24.5"
-        ],
-        [
-          "8",
-          "26.2"
-        ]
-      ]
-    }
+ "id": "bank-ps-433",
+ "question": "The table shows the number of vehicles $v$, in thousands, that crossed a bridge on day $d$ of a study. A model predicts $\\hat{v} = 0.5d + 21$. What is the value of $v - \\hat{v}$ for day $6$?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "Day (d)",
+    "Vehicles (thousands)"
+   ],
+   "rows": [
+    [
+     "2",
+     "22.9"
+    ],
+    [
+     "4",
+     "22.6"
+    ],
+    [
+     "6",
+     "24.5"
+    ],
+    [
+     "8",
+     "26.2"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$0.5$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$0.5$"
-    },
-    {
-      "id": "B",
-      "text": "$3.5$"
-    },
-    {
-      "id": "C",
-      "text": "$24$"
-    },
-    {
-      "id": "D",
-      "text": "$24.5$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "compares the recorded 24.5 with the constant term 21 instead of the full model value: 24.5 - 21 = 3.5",
-    "C": "reports the model value 0.5(6) + 21 = 24 rather than the difference",
-    "D": "reports the recorded value 24.5 rather than the difference"
+  {
+   "id": "B",
+   "text": "$3.5$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The model gives $0.5(6) + 21 = 24$ and the table records $24.5$, so the excess is $24.5 - 24 = 0.5$ thousand vehicles.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $d = 6$. $p = 0.5(6) + 21 = 3 + 21 = 24$ thousand vehicles.\nStep 2: Read the table at $d = 6$. The recorded count is $24.5$ thousand vehicles.\nStep 3: Subtract actual minus predicted. $24.5 - 24 = 0.5$, and because the result is positive the recorded count really does exceed the prediction. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3.5$): subtracts the constant term alone: $24.5 - 21 = 3.5$. The model value at $d = 6$ is $24$, not $21$.\n* Choice C ($24$): is the model's prediction for day $6$, not the amount by which the record exceeds it.\n* Choice D ($24.5$): is the recorded count itself, with no comparison to the model.\n\n**Test Day Takeaway:** Evaluate the model at the stated input first; the answer to \"by how much does it exceed\" is always the subtraction, never one of the two values."
+  {
+   "id": "C",
+   "text": "$24$"
+  },
+  {
+   "id": "D",
+   "text": "$24.5$"
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "subtracts only the constant 21 from 24.5 and leaves out the 0.5d term",
+  "C": "reports the predicted value for day 6 instead of the difference",
+  "D": "reports the actual value for day 6 instead of the difference"
+ },
+ "explanation": "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The model predicts $0.5(6) + 21 = 24$ for day $6$, the table shows $24.5$, and $24.5 - 24 = 0.5$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $d = 6$: $\\hat{v} = 0.5(6) + 21 = 24$.\nStep 2: Read the actual value for day $6$ from the table: $v = 24.5$.\nStep 3: Subtract: $v - \\hat{v} = 24.5 - 24 = 0.5$. Check: $24 + 0.5 = 24.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3.5$): subtracts $21$ but forgets the $0.5d$ term, which adds $3$ for day $6$.\n* Choice C ($24$): is the model's prediction, the first step of the calculation.\n* Choice D ($24.5$): is the number from the table, the second ingredient of the difference.\n\n**Test Day Takeaway:** A residual needs two numbers, the actual value and the model's value at the same input; subtract only after you have both."
 }

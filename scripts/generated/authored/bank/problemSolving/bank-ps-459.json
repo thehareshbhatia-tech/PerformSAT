@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-459",
-  "question": "In $2021$, a laboratory spent $16\\%$ more on reagents than it spent in $2020$, and in $2022$ it spent $5\\%$ more on reagents than it spent in $2021$. If the laboratory's $2022$ spending on reagents was $k$ times its $2020$ spending, what is the value of $k$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$0.2180$"
-    },
-    {
-      "id": "B",
-      "text": "$1.2100$"
-    },
-    {
-      "id": "C",
-      "text": "$1.2180$"
-    },
-    {
-      "id": "D",
-      "text": "$2.2100$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports the total percent change as a decimal instead of the multiplier.",
-    "B": "adds the two percents rather than multiplying the factors.",
-    "D": "adds the two growth factors instead of multiplying them."
+ "id": "bank-ps-459",
+ "question": "A bakery's sales rose $16\\%$ from $2020$ to $2021$ and $5\\%$ from $2021$ to $2022$. The $2022$ sales were $k$ times the $2020$ sales. What is the value of $k$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$0.218$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Successive Percent Change**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Each increase becomes a factor: $1.16$ then $1.05$. Their product is $1.16\\times 1.05=1.2180$.\n\n**The Full Solution:**\nStep 1: Let $S$ be the $2020$ spending. A $16\\%$ increase makes the $2021$ spending $1.16S$.\nStep 2: A further $5\\%$ increase makes the $2022$ spending $1.05(1.16S)=1.2180S$.\nStep 3: Since the $2022$ spending is $k$ times the $2020$ spending, $k=1.2180$. Check: starting from $100$, the values are $116$ and then $121.80$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.2180$): reports the $21.8\\%$ total change as a decimal; a multiplier for growth must exceed $1$.\n* Choice B ($1.2100$): adds $16\\%$ and $5\\%$ to get $21\\%$, ignoring that the second increase applies to the already larger $2021$ amount.\n* Choice D ($2.2100$): adds the factors $1.16$ and $1.05$ instead of multiplying them.\n\n**Test Day Takeaway:** Successive percent changes multiply their factors. The compounded result always beats the sum of the percents, but only slightly."
+  {
+   "id": "B",
+   "text": "$1.21$"
+  },
+  {
+   "id": "C",
+   "text": "$1.218$"
+  },
+  {
+   "id": "D",
+   "text": "$2.21$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "finds the percent increase as a decimal, 0.218, instead of the multiplier",
+  "B": "adds the percents, 16% + 5% = 21%, giving 1.21",
+  "D": "adds the two multipliers, 1.16 + 1.05 = 2.21, instead of multiplying them"
+ },
+ "explanation": "**SAT Pattern: Successive Percent Change**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The multipliers are $1.16$ and $1.05$, and $k = 1.16(1.05) = 1.218$.\n\n**The Full Solution:**\nStep 1: An increase of $16\\%$ multiplies sales by $1.16$, so the $2021$ sales are $1.16S$, where $S$ is the $2020$ sales.\nStep 2: An increase of $5\\%$ multiplies the $2021$ sales by $1.05$: the $2022$ sales are $1.05(1.16S) = 1.218S$.\nStep 3: So $k = 1.218$. Check with $S = 100$: $116$ in $2021$ and $1.05(116) = 121.80$ in $2022$, which is $1.218$ times $100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.218$): is the overall increase as a decimal. The question asks for the multiplier, which includes the original $100\\%$.\n* Choice B ($1.21$): adds the percents. The $5\\%$ increase is applied to the already increased $2021$ sales, so it adds a little more than $5\\%$ of the $2020$ sales.\n* Choice D ($2.21$): adds the multipliers. Successive changes multiply.\n\n**Test Day Takeaway:** \"$k$ times\" asks for a multiplier: multiply the yearly multipliers, and do not subtract $1$."
 }

@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-429",
-  "question": "A storage tank loses $6$ liters of water every $15$ minutes through a leak. At this rate, how many liters of water does the tank lose in $2$ hours?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$0.8$"
-    },
-    {
-      "id": "B",
-      "text": "$12$"
-    },
-    {
-      "id": "C",
-      "text": "$48$"
-    },
-    {
-      "id": "D",
-      "text": "$180$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "uses the per-minute rate $0.4$ but multiplies by $2$ instead of by $120$ minutes.",
-    "B": "doubles the $6$ liters, treating $2$ hours as $2$ of the $15$-minute intervals.",
-    "D": "multiplies $6\\times 15=90$ as if that were the hourly loss, then doubles it for the $2$ hours."
+ "id": "bank-ps-429",
+ "question": "Water leaks from a tank at a constant rate of $6$ liters every $15$ minutes. At this rate, how many liters of water leak from the tank in $2$ hours?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$0.8$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Proportion Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Two hours is $120$ minutes, which is $\\frac{120}{15}=8$ intervals of $15$ minutes, so the loss is $8\\times 6=48$ liters.\n\n**The Full Solution:**\nStep 1: Convert the time to minutes: $2$ hours $=2(60)=120$ minutes.\nStep 2: Write the proportion $\\frac{6\\text{ L}}{15\\text{ min}}=\\frac{L}{120\\text{ min}}$, so $15L=6(120)=720$.\nStep 3: $L=\\frac{720}{15}=48$ liters. Check: $0.4$ liter per minute for $120$ minutes is $48$ liters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.8$): finds the per-minute rate $\\frac{6}{15}=0.4$ but multiplies by $2$ instead of by $120$ minutes.\n* Choice B ($12$): doubles $6$, as if $2$ hours were $2$ of the $15$-minute intervals.\n* Choice D ($180$): multiplies $6\\times 15=90$ as if that were the hourly loss, then doubles it for the $2$ hours, using the interval length as a factor instead of dividing by it.\n\n**Test Day Takeaway:** Convert to a single time unit before setting up the proportion. Mixing hours with a per-$15$-minute rate is where these items are lost."
+  {
+   "id": "B",
+   "text": "$12$"
+  },
+  {
+   "id": "C",
+   "text": "$48$"
+  },
+  {
+   "id": "D",
+   "text": "$720$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "uses 2 for the time without converting hours to minutes: 6(2)/15 = 0.8",
+  "B": "multiplies 6 liters by 2 without converting hours to 15-minute periods",
+  "D": "treats the rate as 6 liters per minute, 6(120) = 720"
+ },
+ "explanation": "**SAT Pattern: Proportion Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $2$ hours is $120$ minutes, which is $\\frac{120}{15} = 8$ periods of $15$ minutes, so $8(6) = 48$ liters leak.\n\n**The Full Solution:**\nStep 1: Convert the time: $2$ hours $= 120$ minutes.\nStep 2: Count the $15$-minute periods: $\\frac{120}{15} = 8$.\nStep 3: Multiply by $6$ liters per period: $8(6) = 48$ liters. Check: $\\frac{6}{15} = 0.4$ liter per minute, and $0.4(120) = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.8$): plugs in $2$ for the time without converting hours to minutes.\n* Choice B ($12$): doubles $6$ liters as if the rate were $6$ liters per hour.\n* Choice D ($720$): ignores the $15$ minutes and treats the rate as $6$ liters every minute.\n\n**Test Day Takeaway:** Put both times in the same unit before scaling; a rate given per $15$ minutes is not a rate per minute or per hour."
 }

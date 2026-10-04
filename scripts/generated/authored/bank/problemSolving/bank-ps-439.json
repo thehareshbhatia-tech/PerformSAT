@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-439",
-  "question": "After a $45\\%$ increase, the monthly water use at a bottling facility is $319$ kiloliters. What was the monthly water use, in kiloliters, before the increase?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$175.45$"
-    },
-    {
-      "id": "B",
-      "text": "$220$"
-    },
-    {
-      "id": "C",
-      "text": "$462.55$"
-    },
-    {
-      "id": "D",
-      "text": "$708.89$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "subtracts $45\\%$ of the new amount instead of dividing by $1.45$.",
-    "C": "increases the new amount by another $45\\%$.",
-    "D": "divides by $0.45$ instead of by $1.45$."
+ "id": "bank-ps-439",
+ "question": "A gym had $480$ members in June, which was $60\\%$ more than the number of members it had in January. How many members did the gym have in January?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$192$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Reverse Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The new use is $145\\%$ of the old use, so the old use is $\\frac{319}{1.45}=220$ kiloliters.\n\n**The Full Solution:**\nStep 1: Let $w$ be the monthly water use before the increase.\nStep 2: A $45\\%$ increase multiplies by $1.45$, so $1.45w=319$.\nStep 3: $w=\\frac{319}{1.45}=220$ kiloliters. Check: $45\\%$ of $220$ is $99$, and $220+99=319$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($175.45$): computes $0.55\\times 319$, removing $45\\%$ of the new figure rather than of the old one.\n* Choice C ($462.55$): computes $1.45\\times 319$, applying the increase a second time.\n* Choice D ($708.89$): divides by the rate of change $0.45$ instead of the growth factor $1.45$.\n\n**Test Day Takeaway:** \"After a $p\\%$ increase\" means the given number is already the product. Divide by $1+\\frac{p}{100}$, never by $\\frac{p}{100}$."
+  {
+   "id": "B",
+   "text": "$300$"
+  },
+  {
+   "id": "C",
+   "text": "$420$"
+  },
+  {
+   "id": "D",
+   "text": "$768$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "takes 60% off June's count, 0.40(480) = 192, using June as the base",
+  "C": "subtracts 60 members instead of 60%",
+  "D": "applies the 60% increase to June's count, 1.6(480) = 768"
+ },
+ "explanation": "**SAT Pattern: Reverse Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** June's count is $160\\%$ of January's, so January's is $\\frac{480}{1.6} = 300$.\n\n**The Full Solution:**\nStep 1: Let $j$ be the number of members in January. Sixty percent more means $1.6j = 480$.\nStep 2: Divide by $1.6$: $j = \\frac{480}{1.6}$.\nStep 3: So $j = 300$. Check: $60\\%$ of $300$ is $180$, and $300 + 180 = 480$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($192$): removes $60\\%$ of $480$. The increase was $60\\%$ of January's smaller count, so this removes too much.\n* Choice C ($420$): treats $60\\%$ as $60$ members.\n* Choice D ($768$): increases June's count instead of undoing the increase.\n\n**Test Day Takeaway:** \"$60\\%$ more than January\" makes January the base: divide by $1.6$ to get back to it."
 }

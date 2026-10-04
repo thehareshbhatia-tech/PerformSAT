@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-423",
-  "question": "A reservoir has a capacity of $4{,}500$ acre-feet and currently holds $2{,}970$ acre-feet of water. The current volume of water is what percent of the capacity of the reservoir?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$6.6\\%$"
-    },
-    {
-      "id": "B",
-      "text": "$34\\%$"
-    },
-    {
-      "id": "C",
-      "text": "$66\\%$"
-    },
-    {
-      "id": "D",
-      "text": "$151.5\\%$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "multiplies the quotient by $10$ instead of $100$.",
-    "B": "gives the percent of the capacity that is still empty.",
-    "D": "inverts the ratio, dividing the capacity by the current volume."
+ "id": "bank-ps-423",
+ "question": "A tank with a capacity of $4{,}500$ liters contains $2{,}970$ liters of water. This amount is $p\\%$ of the tank's capacity. What is the value of $p$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$6.6$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Percent of a Whole**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $\\frac{2{,}970}{4{,}500}=0.66$, and $0.66\\times 100=66$, so the reservoir is at $66\\%$ of capacity.\n\n**The Full Solution:**\nStep 1: The current volume is the part and the capacity is the whole, so the percent is $\\frac{2{,}970}{4{,}500}\\times 100$.\nStep 2: $\\frac{2{,}970}{4{,}500}=\\frac{33}{50}=0.66$.\nStep 3: $0.66\\times 100=66$, so $66\\%$. Check: $0.66\\times 4{,}500=2{,}970$ acre-feet. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6.6\\%$): shifts the decimal point only one place, multiplying by $10$ rather than $100$.\n* Choice B ($34\\%$): uses the $1{,}530$ acre-feet of unused capacity, the percent still empty.\n* Choice D ($151.5\\%$): computes $\\frac{4{,}500}{2{,}970}$, dividing the whole by the part.\n\n**Test Day Takeaway:** Identify the whole from the phrase \"percent of.\" Whatever follows \"of\" is the denominator."
+  {
+   "id": "B",
+   "text": "$34$"
+  },
+  {
+   "id": "C",
+   "text": "$66$"
+  },
+  {
+   "id": "D",
+   "text": "$151.5$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "divides correctly, 2,970/4,500 = 0.66, then moves the decimal point only one place",
+  "B": "finds the percent of the tank that is empty, 100 - 66 = 34",
+  "D": "divides the capacity by the amount of water, 4,500/2,970 = 1.515, inverting part and whole"
+ },
+ "explanation": "**SAT Pattern: Percent of a Whole**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $\\frac{2{,}970}{4{,}500} = 0.66$, so the water fills $66\\%$ of the tank and $p = 66$.\n\n**The Full Solution:**\nStep 1: The part is the $2{,}970$ liters of water, and the whole is the $4{,}500$-liter capacity.\nStep 2: Divide: $\\frac{2{,}970}{4{,}500} = 0.66$.\nStep 3: Write the decimal as a percent: $0.66 = 66\\%$, so $p = 66$. Check: $0.66(4{,}500) = 2{,}970$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6.6$): moves the decimal point one place instead of two when converting $0.66$ to a percent.\n* Choice B ($34$): is the percent of the capacity that is still empty, not the percent that is filled.\n* Choice D ($151.5$): divides $4{,}500$ by $2{,}970$. The amount of water cannot be more than $100\\%$ of the capacity.\n\n**Test Day Takeaway:** Set up part over whole before dividing, and convert the decimal by multiplying by $100$."
 }

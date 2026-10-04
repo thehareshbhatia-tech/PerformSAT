@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-430",
-  "question": "A linear model predicts the value of $y$ for a given value of $x$ using $\\hat{y}=6x+11$. For one data point, $x=4$ and the observed value is $y=41$. What is the value of $y-\\hat{y}$ for this data point?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-6$"
-    },
-    {
-      "id": "B",
-      "text": "$6$"
-    },
-    {
-      "id": "C",
-      "text": "$17$"
-    },
-    {
-      "id": "D",
-      "text": "$35$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "subtracts in the wrong order, computing $\\hat{y}-y$.",
-    "C": "drops the constant term, using $\\hat{y}=24$.",
-    "D": "reports the predicted value instead of the difference."
+ "id": "bank-ps-430",
+ "question": "$\\hat{y} = 6x + 11$\nThe given equation is a linear model for a set of data. What is the value of $y - \\hat{y}$ for the data point $(4, 41)$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-6$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $\\hat{y}=6(4)+11=35$, so $y-\\hat{y}=41-35=6$.\n\n**The Full Solution:**\nStep 1: Substitute $x=4$ into the model: $\\hat{y}=6(4)+11$.\nStep 2: $\\hat{y}=24+11=35$.\nStep 3: The difference is observed minus predicted: $41-35=6$. Check: $35+6=41$, the observed value. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): computes $\\hat{y}-y=35-41$, reversing the order of subtraction.\n* Choice C ($17$): uses $\\hat{y}=24$, dropping the constant $11$ from the model.\n* Choice D ($35$): reports the predicted value $\\hat{y}$ rather than the difference asked for.\n\n**Test Day Takeaway:** The difference $y-\\hat{y}$ is always observed minus predicted. A positive value means the observation sits above the model."
+  {
+   "id": "B",
+   "text": "$6$"
+  },
+  {
+   "id": "C",
+   "text": "$17$"
+  },
+  {
+   "id": "D",
+   "text": "$35$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "subtracts in the wrong order, predicted minus actual: 35 - 41 = -6",
+  "C": "leaves out the constant 11 when evaluating the model: 41 - 24 = 17",
+  "D": "reports the predicted value 35 instead of the difference"
+ },
+ "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The line predicts $6(4) + 11 = 35$, and $41 - 35 = 6$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $x = 4$: $\\hat{y} = 6(4) + 11 = 35$.\nStep 2: The data point gives the actual value $y = 41$.\nStep 3: Subtract: $y - \\hat{y} = 41 - 35 = 6$. Check: $35 + 6 = 41$, so the point lies $6$ units above the line ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): computes $\\hat{y} - y$. The question asks for the actual value minus the predicted value.\n* Choice C ($17$): uses $6x$ alone as the prediction and forgets the $+11$.\n* Choice D ($35$): is the value of $\\hat{y}$, the first step of the calculation.\n\n**Test Day Takeaway:** Actual minus predicted: positive when the point is above the line, negative when it is below."
 }

@@ -9482,18 +9482,18 @@ export const problemSolvingBank = [
     skills: ["percent-of-value"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A weather station logged a daily maximum UV index reading on each of the $365$ days last year, and $146$ of those readings were at least $8$. What percent of the year's readings were below $8$?",
+    question: "Of the $425$ students at a school, $153$ walk to school. What percent of the students do not walk to school?",
     choices: [
-      // distractor: reports the percent of readings that were at least $8$, $\frac{146}{365} = 40\%$, the complement of what is asked
-      { id: "A", text: "$40\\%$" },
-      { id: "B", text: "$60\\%$" },
-      // distractor: compares the $219$ lower readings with the $146$ higher ones, $\frac{219}{146} = 150\%$, instead of with all $365$
-      { id: "C", text: "$150\\%$" },
-      // distractor: divides the total by the lower group, $\frac{365}{219} \approx 166.7\%$, inverting part and whole
-      { id: "D", text: "$166.7\\%$" }
+      // distractor: reports the percent who walk, 153/425 = 36%, the complement of what is asked
+      { id: "A", text: "$36\\%$" },
+      // distractor: compares the walkers with the non-walkers, 153/272 = 56.25%, instead of with all 425 students
+      { id: "B", text: "$56.25\\%$" },
+      { id: "C", text: "$64\\%$" },
+      // distractor: divides the whole by the part, 425/272 = 156.25%, inverting the fraction
+      { id: "D", text: "$156.25\\%$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Percent of a Whole**\n\n**Choice B is correct.** Readings below $8$ number $365 - 146 = 219$, and $\\frac{219}{365} = 0.60$, or $60\\%$.\n\n**The Fast Way (~30s):** $\\frac{146}{365} = 40\\%$ were at least $8$, so $100 - 40 = 60\\%$ were below $8$.\n\n**The Full Solution:**\n\nStep 1: Count the readings below $8$: $365 - 146 = 219$ readings.\n\nStep 2: Divide by the whole year of readings: $\\frac{219}{365} = 0.60$.\n\nStep 3: Convert to a percent: $0.60(100) = 60\\%$. Check: $40\\% + 60\\% = 100\\%$, and $0.60(365) = 219$ readings.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($40\\%$): is the percent of readings that were at least $8$, the group the question does not ask about.\n* Choice C ($150\\%$): compares the two groups with each other. A part of a whole can never exceed $100\\%$.\n* Choice D ($166.7\\%$): divides the total by the part, reversing the fraction.\n\n**Test Day Takeaway:** A percent of a whole must land between $0$ and $100$ -- an answer above $100$ means the whole ended up in the numerator.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Percent of a Whole**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\frac{153}{425} = 0.36$, so $36\\%$ walk and $100\\% - 36\\% = 64\\%$ do not.\n\n**The Full Solution:**\nStep 1: Count the students who do not walk: $425 - 153 = 272$.\nStep 2: Divide by the whole: $\\frac{272}{425} = 0.64$.\nStep 3: Convert to a percent: $0.64 = 64\\%$. Check: $0.64(425) = 272$ and $272 + 153 = 425$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($36\\%$): is the percent of students who walk, the group the question does not ask about.\n* Choice B ($56.25\\%$): divides $153$ by $272$, comparing the two groups with each other rather than with the whole school.\n* Choice D ($156.25\\%$): divides $425$ by $272$. A part of a whole can never be more than $100\\%$ of it.\n\n**Test Day Takeaway:** Percent of a whole is part over whole. Find the part the question names first; an answer above $100\\%$ means the whole ended up in the numerator.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "percent-of-a-whole",
@@ -9507,18 +9507,18 @@ export const problemSolvingBank = [
     skills: ["percent-of-value"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A quality inspector tested $320$ concrete cylinders from a bridge project, and $272$ of these cylinders met the compressive strength standard. What percent of the cylinders tested did NOT meet the standard?",
+    question: "$54$ is $p\\%$ of $360$. What is the value of $p$?",
     choices: [
-      { id: "A", text: "$15\\%$" },
-      // distractor: divides the $48$ failing cylinders by the $272$ passing ones instead of by all $320$.
-      { id: "B", text: "$17.6\\%$" },
-      // distractor: reports the count of failing cylinders as if it were a percent.
-      { id: "C", text: "$48\\%$" },
-      // distractor: gives the percent of cylinders that DID meet the standard.
-      { id: "D", text: "$85\\%$" }
+      // distractor: finds 54/360 = 0.15 but never converts the decimal to a percent
+      { id: "A", text: "$0.15$" },
+      { id: "B", text: "$15$" },
+      // distractor: subtracts 15 from 100, giving the percent of 360 that is NOT 54
+      { id: "C", text: "$85$" },
+      // distractor: subtracts 360 - 54 = 306 instead of dividing
+      { id: "D", text: "$306$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Percent of a Whole**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $320-272=48$ cylinders failed, and $\\frac{48}{320}=0.15$, so $15\\%$ did not meet the standard.\n\n**The Full Solution:**\nStep 1: The question asks about the cylinders that did NOT meet the standard, so first find that count: $320-272=48$.\nStep 2: Divide by the total number tested: $\\frac{48}{320}=0.15$.\nStep 3: $0.15\\times 100=15$, so $15\\%$. Check: $15\\%+85\\%=100\\%$, and $85\\%$ of $320$ is $272$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($17.6\\%$): computes $\\frac{48}{272}$, using the passing cylinders as the whole instead of all $320$.\n* Choice C ($48\\%$): reports the raw count of failing cylinders as a percent.\n* Choice D ($85\\%$): finds $\\frac{272}{320}$, the percent that DID meet the standard.\n\n**Test Day Takeaway:** When a stem capitalizes NOT, compute the complement count first, then divide by the original total, never by the other part.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Percent of a Whole**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\frac{54}{360} = 0.15$, which is $15\\%$, so $p = 15$.\n\n**The Full Solution:**\nStep 1: Translate the sentence: $54 = \\frac{p}{100}(360)$.\nStep 2: Divide both sides by $360$: $\\frac{p}{100} = \\frac{54}{360} = 0.15$.\nStep 3: Multiply by $100$: $p = 15$. Check: $15\\%$ of $360$ is $0.15(360) = 54$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.15$): stops at the decimal $0.15$. The question asks for $p$ in $p\\%$, so the decimal must be multiplied by $100$.\n* Choice C ($85$): is $100 - 15$, the percent of $360$ that is left over after $54$ is removed.\n* Choice D ($306$): subtracts the two numbers. A percent of a number comes from division, not subtraction.\n\n**Test Day Takeaway:** \"$a$ is $p\\%$ of $b$\" means $a = \\frac{p}{100}b$; divide, then multiply by $100$ to get $p$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "percent-of-a-whole",
@@ -9532,18 +9532,18 @@ export const problemSolvingBank = [
     skills: ["percent-of-value"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A reservoir has a capacity of $4{,}500$ acre-feet and currently holds $2{,}970$ acre-feet of water. The current volume of water is what percent of the capacity of the reservoir?",
+    question: "A tank with a capacity of $4{,}500$ liters contains $2{,}970$ liters of water. This amount is $p\\%$ of the tank's capacity. What is the value of $p$?",
     choices: [
-      // distractor: multiplies the quotient by $10$ instead of $100$.
-      { id: "A", text: "$6.6\\%$" },
-      // distractor: gives the percent of the capacity that is still empty.
-      { id: "B", text: "$34\\%$" },
-      { id: "C", text: "$66\\%$" },
-      // distractor: inverts the ratio, dividing the capacity by the current volume.
-      { id: "D", text: "$151.5\\%$" }
+      // distractor: divides correctly, 2,970/4,500 = 0.66, then moves the decimal point only one place
+      { id: "A", text: "$6.6$" },
+      // distractor: finds the percent of the tank that is empty, 100 - 66 = 34
+      { id: "B", text: "$34$" },
+      { id: "C", text: "$66$" },
+      // distractor: divides the capacity by the amount of water, 4,500/2,970 = 1.515, inverting part and whole
+      { id: "D", text: "$151.5$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Percent of a Whole**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $\\frac{2{,}970}{4{,}500}=0.66$, and $0.66\\times 100=66$, so the reservoir is at $66\\%$ of capacity.\n\n**The Full Solution:**\nStep 1: The current volume is the part and the capacity is the whole, so the percent is $\\frac{2{,}970}{4{,}500}\\times 100$.\nStep 2: $\\frac{2{,}970}{4{,}500}=\\frac{33}{50}=0.66$.\nStep 3: $0.66\\times 100=66$, so $66\\%$. Check: $0.66\\times 4{,}500=2{,}970$ acre-feet. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6.6\\%$): shifts the decimal point only one place, multiplying by $10$ rather than $100$.\n* Choice B ($34\\%$): uses the $1{,}530$ acre-feet of unused capacity, the percent still empty.\n* Choice D ($151.5\\%$): computes $\\frac{4{,}500}{2{,}970}$, dividing the whole by the part.\n\n**Test Day Takeaway:** Identify the whole from the phrase \"percent of.\" Whatever follows \"of\" is the denominator.",
+    explanation: "**SAT Pattern: Percent of a Whole**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $\\frac{2{,}970}{4{,}500} = 0.66$, so the water fills $66\\%$ of the tank and $p = 66$.\n\n**The Full Solution:**\nStep 1: The part is the $2{,}970$ liters of water, and the whole is the $4{,}500$-liter capacity.\nStep 2: Divide: $\\frac{2{,}970}{4{,}500} = 0.66$.\nStep 3: Write the decimal as a percent: $0.66 = 66\\%$, so $p = 66$. Check: $0.66(4{,}500) = 2{,}970$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6.6$): moves the decimal point one place instead of two when converting $0.66$ to a percent.\n* Choice B ($34$): is the percent of the capacity that is still empty, not the percent that is filled.\n* Choice D ($151.5$): divides $4{,}500$ by $2{,}970$. The amount of water cannot be more than $100\\%$ of the capacity.\n\n**Test Day Takeaway:** Set up part over whole before dividing, and convert the decimal by multiplying by $100$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "percent-of-a-whole",
@@ -9558,18 +9558,18 @@ export const problemSolvingBank = [
     skills: ["unit-conversion"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "On a scale drawing of a pedestrian bridge, a length of $3$ centimeters represents an actual length of $8$ meters. What actual length, in meters, is represented by a length of $12$ centimeters on the drawing?",
+    question: "On a scale drawing, $3$ centimeters represents $8$ meters. What length, in meters, does $12$ centimeters on the drawing represent?",
     choices: [
-      // distractor: sets up the proportion with the corresponding quantities crossed, solving $\frac{12}{8}=\frac{3}{x}$.
-      { id: "A", text: "$2$" },
-      // distractor: multiplies by $\frac{3}{8}$ instead of $\frac{8}{3}$, inverting the scale.
+      // distractor: finds the scale factor 12/3 = 4 but never multiplies it by 8 meters
+      { id: "A", text: "$4$" },
+      // distractor: inverts the ratio, computing 12(3/8) = 4.5
       { id: "B", text: "$4.5$" },
       { id: "C", text: "$32$" },
-      // distractor: multiplies $12\times 8$, as if $1$ centimeter represented $8$ meters.
+      // distractor: multiplies 12 by 8, treating 1 centimeter as 8 meters
       { id: "D", text: "$96$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Proportion Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $12$ centimeters is $4$ times $3$ centimeters, so the actual length is $4\\times 8=32$ meters.\n\n**The Full Solution:**\nStep 1: Write the proportion with matching units in matching positions: $\\frac{3\\text{ cm}}{8\\text{ m}}=\\frac{12\\text{ cm}}{x\\text{ m}}$.\nStep 2: Cross multiply: $3x=8(12)=96$.\nStep 3: $x=\\frac{96}{3}=32$ meters. Check: $\\frac{12}{32}=\\frac{3}{8}$, the same ratio. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): crosses the quantities, solving $\\frac{12}{8}=\\frac{3}{x}$.\n* Choice B ($4.5$): multiplies $12$ by $\\frac{3}{8}$, using the scale upside down and shrinking instead of enlarging.\n* Choice D ($96$): multiplies $12\\times 8$, treating $8$ meters as the length represented by $1$ centimeter.\n\n**Test Day Takeaway:** Set the proportion up with like units stacked on like units. A drawing length longer than the given one must produce an actual length longer than the given one.",
+    explanation: "**SAT Pattern: Proportion Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $12$ centimeters is $4$ times $3$ centimeters, so it represents $4(8) = 32$ meters.\n\n**The Full Solution:**\nStep 1: Set up the proportion $\\frac{3}{8} = \\frac{12}{x}$, where $x$ is the actual length in meters.\nStep 2: Cross multiply: $3x = 96$.\nStep 3: Divide by $3$: $x = 32$. Check: $\\frac{12}{32} = \\frac{3}{8}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): is the number of times $3$ centimeters fits into $12$ centimeters, not a length in meters.\n* Choice B ($4.5$): flips one ratio, multiplying $12$ by $\\frac{3}{8}$ instead of by $\\frac{8}{3}$.\n* Choice D ($96$): multiplies $12$ by $8$ as if each centimeter represented $8$ meters.\n\n**Test Day Takeaway:** Keep the same units in the same position in both ratios: centimeters over meters on each side.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "proportion-ratio",
@@ -9583,18 +9583,18 @@ export const problemSolvingBank = [
     skills: ["unit-conversion"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A pump moves water at a constant rate of $18$ liters per minute. What is this rate, in milliliters per second? (Use $1$ liter $=1{,}000$ milliliters and $1$ minute $=60$ seconds.)",
+    question: "A pump moves $18$ liters of water per minute. What is this rate, in milliliters per second? ($1$ liter $= 1{,}000$ milliliters)",
     choices: [
-      // distractor: converts minutes to seconds but never converts liters to milliliters.
+      // distractor: converts minutes to seconds (18/60 = 0.3) but never converts liters to milliliters
       { id: "A", text: "$0.3$" },
       { id: "B", text: "$300$" },
-      // distractor: multiplies by $60$ instead of dividing, and skips the liters-to-milliliters step.
-      { id: "C", text: "$1{,}080$" },
-      // distractor: converts liters to milliliters but leaves the rate per minute.
-      { id: "D", text: "$18{,}000$" }
+      // distractor: converts liters to milliliters but never converts minutes to seconds
+      { id: "C", text: "$18{,}000$" },
+      // distractor: multiplies by 60 instead of dividing, giving milliliters per hour
+      { id: "D", text: "$1{,}080{,}000$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Proportion Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $18$ liters is $18{,}000$ milliliters, and one minute is $60$ seconds, so the rate is $\\frac{18{,}000}{60}=300$ milliliters per second.\n\n**The Full Solution:**\nStep 1: Write the rate as a fraction and multiply by conversion factors that cancel: $\\frac{18\\text{ L}}{1\\text{ min}}\\cdot\\frac{1{,}000\\text{ mL}}{1\\text{ L}}\\cdot\\frac{1\\text{ min}}{60\\text{ s}}$.\nStep 2: Liters cancel and minutes cancel, leaving $\\frac{18\\times 1{,}000}{60}$ milliliters per second.\nStep 3: $\\frac{18{,}000}{60}=300$. Check: $300$ mL/s for $60$ s is $18{,}000$ mL, which is $18$ liters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.3$): divides by $60$ but forgets that each liter is $1{,}000$ milliliters.\n* Choice C ($1{,}080$): multiplies by $60$ rather than dividing, and also skips the volume conversion.\n* Choice D ($18{,}000$): converts to milliliters but reports the amount per minute, not per second.\n\n**Test Day Takeaway:** Build a chain of fractions so the unwanted units cancel. A rate per second must be smaller than the same rate per minute.",
+    explanation: "**SAT Pattern: Proportion Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $18$ liters per minute is $18{,}000$ milliliters per minute, and dividing by $60$ seconds gives $300$ milliliters per second.\n\n**The Full Solution:**\nStep 1: Convert liters to milliliters: $18$ liters $= 18(1{,}000) = 18{,}000$ milliliters, so the rate is $18{,}000$ milliliters per minute.\nStep 2: One minute is $60$ seconds, so divide by $60$ to get the amount for one second: $\\frac{18{,}000}{60} = 300$.\nStep 3: The rate is $300$ milliliters per second. Check: $300(60) = 18{,}000$ milliliters in a minute, which is $18$ liters ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.3$): handles the time conversion but leaves the volume in liters.\n* Choice C ($18{,}000$): handles the volume conversion but leaves the time in minutes.\n* Choice D ($1{,}080{,}000$): multiplies by $60$. A second is shorter than a minute, so less water moves in a second, and the rate must be divided by $60$.\n\n**Test Day Takeaway:** Convert one unit at a time and ask whether each step should make the number larger or smaller.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "proportion-ratio",
@@ -9608,18 +9608,18 @@ export const problemSolvingBank = [
     skills: ["unit-conversion"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A copy machine uses $3$ toner cartridges to print $1{,}200$ pages. At this rate, how many toner cartridges are needed to print $4{,}000$ pages?",
+    question: "A printer uses $3$ ink cartridges to print $1{,}500$ pages. At this rate, how many ink cartridges are needed to print $6{,}000$ pages?",
     choices: [
-      // distractor: inverts the proportion, computing $\frac{1{,}200\times 3}{4{,}000}$.
-      { id: "A", text: "$0.9$" },
-      // distractor: finds the scale factor $\frac{4{,}000}{1{,}200}$ and stops there.
-      { id: "B", text: "$3.3$" },
-      { id: "C", text: "$10$" },
-      // distractor: reports pages per cartridge instead of cartridges.
-      { id: "D", text: "$400$" }
+      // distractor: inverts the rate, computing 1,500(3)/6,000 = 0.75
+      { id: "A", text: "$0.75$" },
+      // distractor: finds 6,000/1,500 = 4, the number of times the page count grows, and stops
+      { id: "B", text: "$4$" },
+      { id: "C", text: "$12$" },
+      // distractor: reports the pages per cartridge, 1,500/3 = 500
+      { id: "D", text: "$500$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Proportion Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** One cartridge prints $\\frac{1{,}200}{3}=400$ pages, so $4{,}000$ pages need $\\frac{4{,}000}{400}=10$ cartridges.\n\n**The Full Solution:**\nStep 1: Write the proportion $\\frac{3\\text{ cartridges}}{1{,}200\\text{ pages}}=\\frac{c}{4{,}000\\text{ pages}}$.\nStep 2: Cross multiply: $1{,}200c=3(4{,}000)=12{,}000$.\nStep 3: $c=\\frac{12{,}000}{1{,}200}=10$ cartridges. Check: $10$ cartridges at $400$ pages each print $4{,}000$ pages. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.9$): flips the proportion, computing $\\frac{1{,}200\\times 3}{4{,}000}$, which shrinks the answer instead of growing it.\n* Choice B ($3.3$): computes $\\frac{4{,}000}{1{,}200}$, the number of $1{,}200$-page batches, and never multiplies by $3$.\n* Choice D ($400$): reports the pages printed per cartridge, answering a different question.\n\n**Test Day Takeaway:** Check the direction before you divide. More pages must require more cartridges, so the answer has to exceed $3$.",
+    explanation: "**SAT Pattern: Proportion Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Each cartridge prints $\\frac{1{,}500}{3} = 500$ pages, so $6{,}000$ pages need $\\frac{6{,}000}{500} = 12$ cartridges.\n\n**The Full Solution:**\nStep 1: Find the pages per cartridge: $\\frac{1{,}500}{3} = 500$ pages.\nStep 2: Divide the new page count by that rate: $\\frac{6{,}000}{500} = 12$.\nStep 3: So $12$ cartridges are needed. Check: $\\frac{3}{1{,}500} = \\frac{12}{6{,}000}$, since both equal $\\frac{1}{500}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.75$): multiplies by the wrong ratio, so more pages would need fewer cartridges.\n* Choice B ($4$): is the scale factor $\\frac{6{,}000}{1{,}500}$; it still has to be multiplied by $3$ cartridges.\n* Choice D ($500$): is the number of pages one cartridge prints, not a number of cartridges.\n\n**Test Day Takeaway:** Find the unit rate first, then check that the answer moves in the same direction as the quantity that changed.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "proportion-ratio",
@@ -9633,18 +9633,18 @@ export const problemSolvingBank = [
     skills: ["unit-conversion"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A loom produces $12$ meters of fabric every $8$ minutes at a constant rate. At this rate, how many minutes are needed for the loom to produce $30$ meters of fabric?",
+    question: "A machine makes $12$ meters of fabric every $8$ minutes. At this rate, how many minutes does it take the machine to make $30$ meters of fabric?",
     choices: [
-      // distractor: reports the scale factor $\frac{30}{12}$ rather than a number of minutes.
+      // distractor: finds the scale factor 30/12 = 2.5 and stops
       { id: "A", text: "$2.5$" },
-      // distractor: times only the extra $18$ meters and forgets the first $8$ minutes.
-      { id: "B", text: "$12$" },
-      { id: "C", text: "$20$" },
-      // distractor: inverts the rate, computing $30\times\frac{12}{8}$.
+      { id: "B", text: "$20$" },
+      // distractor: adds instead of scaling: 18 more meters is treated as 18 more minutes, 8 + 18 = 26
+      { id: "C", text: "$26$" },
+      // distractor: inverts the rate, computing 30(12/8) = 45
       { id: "D", text: "$45$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Proportion Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The loom makes $\\frac{12}{8}=1.5$ meters per minute, so $30$ meters take $\\frac{30}{1.5}=20$ minutes.\n\n**The Full Solution:**\nStep 1: Write the proportion $\\frac{12\\text{ m}}{8\\text{ min}}=\\frac{30\\text{ m}}{t\\text{ min}}$.\nStep 2: Cross multiply: $12t=8(30)=240$.\nStep 3: $t=\\frac{240}{12}=20$ minutes. Check: in $20$ minutes at $1.5$ meters per minute the loom makes $30$ meters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5$): computes $\\frac{30}{12}$, the number of $12$-meter runs, and reports it as minutes.\n* Choice B ($12$): times only the additional $30-12=18$ meters, at $\\frac{8}{12}$ minute per meter, and drops the first $8$ minutes.\n* Choice D ($45$): uses $\\frac{12}{8}$ as minutes per meter instead of meters per minute.\n\n**Test Day Takeaway:** Name the rate in words before computing. \"Meters per minute\" and \"minutes per meter\" are reciprocals, and only one of them fits the question asked.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Proportion Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $30$ meters is $\\frac{30}{12} = 2.5$ times $12$ meters, so it takes $2.5(8) = 20$ minutes.\n\n**The Full Solution:**\nStep 1: Write the time per meter: $\\frac{8}{12} = \\frac{2}{3}$ minute per meter.\nStep 2: Multiply by $30$ meters: $30\\left(\\frac{2}{3}\\right) = 20$ minutes.\nStep 3: So the machine needs $20$ minutes. Check: $\\frac{12}{8} = \\frac{30}{20} = 1.5$ meters per minute ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5$): is how many times larger $30$ meters is than $12$ meters; it still has to be multiplied by $8$ minutes.\n* Choice C ($26$): treats the relationship as additive. In a proportion, quantities are scaled by multiplying, not by adding the same amount.\n* Choice D ($45$): multiplies by meters per minute instead of minutes per meter, which gives a number with the wrong units.\n\n**Test Day Takeaway:** Write the rate with the unit you want on top (minutes per meter), then multiply.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "proportion-ratio",
@@ -9658,19 +9658,19 @@ export const problemSolvingBank = [
     skills: ["unit-conversion"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table gives the mass, in grams, of three samples of the same alloy, along with the volume of each sample. All samples of this alloy have the same density. What is the mass, in grams, of a sample of this alloy with a volume of $25$ cubic centimeters?",
+    question: "The table shows the volume and the mass of three samples of a metal. The mass of a sample is proportional to its volume. What is the mass, in grams, of a sample of this metal with a volume of $25$ cubic centimeters?",
     diagram: { type: "dataTable", params: { headers: ["Volume (cubic centimeters)", "4", "10", "16"], rows: [["Mass (grams)", "33.6", "84.0", "134.4"]] } },
     choices: [
-      // distractor: divides the volume by the density instead of multiplying.
-      { id: "A", text: "$2.98$" },
-      // distractor: adds the masses of the $16$ and $4$ cubic centimeter samples, reaching only $20$ cubic centimeters.
-      { id: "B", text: "$168$" },
+      // distractor: adds 9 grams for the 9 extra cubic centimeters, 134.4 + 9 = 143.4, as if each cubic centimeter had a mass of 1 gram
+      { id: "A", text: "$143.4$" },
+      // distractor: continues the table by adding the last mass increase again, 134.4 + 50.4 = 184.8, without scaling it to 9 more cubic centimeters
+      { id: "B", text: "$184.8$" },
       { id: "C", text: "$210$" },
-      // distractor: treats the mass of the $4$ cubic centimeter sample as the mass of $1$ cubic centimeter.
+      // distractor: multiplies 25 by the first mass, 33.6, instead of by the mass per cubic centimeter
       { id: "D", text: "$840$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Proportion Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Every row gives the same ratio: $\\frac{33.6}{4}=8.4$ grams per cubic centimeter. So $25$ cubic centimeters has mass $25\\times 8.4=210$ grams.\n\n**The Full Solution:**\nStep 1: Confirm the relationship is proportional: $\\frac{33.6}{4}=8.4$, $\\frac{84.0}{10}=8.4$, and $\\frac{134.4}{16}=8.4$ grams per cubic centimeter.\nStep 2: Mass is that constant times volume: $m=8.4V$.\nStep 3: $m=8.4(25)=210$ grams. Check: $\\frac{210}{25}=8.4$, matching every row of the table. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.98$): computes $\\frac{25}{8.4}$, dividing by the density instead of multiplying by it.\n* Choice B ($168$): adds the $16$ and $4$ cubic centimeter masses, $134.4+33.6$, which accounts for only $20$ cubic centimeters.\n* Choice D ($840$): multiplies $25\\times 33.6$, treating the first sample's mass as the mass of a single cubic centimeter.\n\n**Test Day Takeaway:** In a proportional table, divide one row pair to get the unit rate, verify it on a second pair, then scale to whatever value the question names.",
+    explanation: "**SAT Pattern: Proportion Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Each sample has $\\frac{33.6}{4} = 8.4$ grams per cubic centimeter, so $25$ cubic centimeters has a mass of $25(8.4) = 210$ grams.\n\n**The Full Solution:**\nStep 1: Find the constant of proportionality from any column: $\\frac{33.6}{4} = 8.4$, $\\frac{84.0}{10} = 8.4$, and $\\frac{134.4}{16} = 8.4$ grams per cubic centimeter.\nStep 2: Multiply the new volume by this constant: $25(8.4) = 210$.\nStep 3: The mass is $210$ grams. Check: $\\frac{210}{25} = 8.4$, the same ratio as every column of the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($143.4$): extends the last column by adding, treating each extra cubic centimeter as $1$ gram instead of $8.4$ grams.\n* Choice B ($184.8$): adds the last mass increase, $134.4 - 84.0 = 50.4$, once more. That increase belongs to $6$ cubic centimeters, but the step from $16$ to $25$ is $9$ cubic centimeters.\n* Choice D ($840$): multiplies by the mass of the $4$-cubic-centimeter sample instead of the mass of $1$ cubic centimeter.\n\n**Test Day Takeaway:** For a proportional table, divide one row by the other to get the constant, then multiply the new input by it.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "proportion-ratio",
@@ -9684,18 +9684,18 @@ export const problemSolvingBank = [
     skills: ["unit-conversion"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A storage tank loses $6$ liters of water every $15$ minutes through a leak. At this rate, how many liters of water does the tank lose in $2$ hours?",
+    question: "Water leaks from a tank at a constant rate of $6$ liters every $15$ minutes. At this rate, how many liters of water leak from the tank in $2$ hours?",
     choices: [
-      // distractor: uses the per-minute rate $0.4$ but multiplies by $2$ instead of by $120$ minutes.
+      // distractor: uses 2 for the time without converting hours to minutes: 6(2)/15 = 0.8
       { id: "A", text: "$0.8$" },
-      // distractor: doubles the $6$ liters, treating $2$ hours as $2$ of the $15$-minute intervals.
+      // distractor: multiplies 6 liters by 2 without converting hours to 15-minute periods
       { id: "B", text: "$12$" },
       { id: "C", text: "$48$" },
-      // distractor: multiplies $6\times 15=90$ as if that were the hourly loss, then doubles it for the $2$ hours.
-      { id: "D", text: "$180$" }
+      // distractor: treats the rate as 6 liters per minute, 6(120) = 720
+      { id: "D", text: "$720$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Proportion Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Two hours is $120$ minutes, which is $\\frac{120}{15}=8$ intervals of $15$ minutes, so the loss is $8\\times 6=48$ liters.\n\n**The Full Solution:**\nStep 1: Convert the time to minutes: $2$ hours $=2(60)=120$ minutes.\nStep 2: Write the proportion $\\frac{6\\text{ L}}{15\\text{ min}}=\\frac{L}{120\\text{ min}}$, so $15L=6(120)=720$.\nStep 3: $L=\\frac{720}{15}=48$ liters. Check: $0.4$ liter per minute for $120$ minutes is $48$ liters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.8$): finds the per-minute rate $\\frac{6}{15}=0.4$ but multiplies by $2$ instead of by $120$ minutes.\n* Choice B ($12$): doubles $6$, as if $2$ hours were $2$ of the $15$-minute intervals.\n* Choice D ($180$): multiplies $6\\times 15=90$ as if that were the hourly loss, then doubles it for the $2$ hours, using the interval length as a factor instead of dividing by it.\n\n**Test Day Takeaway:** Convert to a single time unit before setting up the proportion. Mixing hours with a per-$15$-minute rate is where these items are lost.",
+    explanation: "**SAT Pattern: Proportion Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $2$ hours is $120$ minutes, which is $\\frac{120}{15} = 8$ periods of $15$ minutes, so $8(6) = 48$ liters leak.\n\n**The Full Solution:**\nStep 1: Convert the time: $2$ hours $= 120$ minutes.\nStep 2: Count the $15$-minute periods: $\\frac{120}{15} = 8$.\nStep 3: Multiply by $6$ liters per period: $8(6) = 48$ liters. Check: $\\frac{6}{15} = 0.4$ liter per minute, and $0.4(120) = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.8$): plugs in $2$ for the time without converting hours to minutes.\n* Choice B ($12$): doubles $6$ liters as if the rate were $6$ liters per hour.\n* Choice D ($720$): ignores the $15$ minutes and treats the rate as $6$ liters every minute.\n\n**Test Day Takeaway:** Put both times in the same unit before scaling; a rate given per $15$ minutes is not a rate per minute or per hour.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "proportion-ratio",
@@ -9710,18 +9710,18 @@ export const problemSolvingBank = [
     skills: ["calculate-mean", "slope-intercept-form"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A linear model predicts the value of $y$ for a given value of $x$ using $\\hat{y}=6x+11$. For one data point, $x=4$ and the observed value is $y=41$. What is the value of $y-\\hat{y}$ for this data point?",
+    question: "$\\hat{y} = 6x + 11$\nThe given equation is a linear model for a set of data. What is the value of $y - \\hat{y}$ for the data point $(4, 41)$?",
     choices: [
-      // distractor: subtracts in the wrong order, computing $\hat{y}-y$.
+      // distractor: subtracts in the wrong order, predicted minus actual: 35 - 41 = -6
       { id: "A", text: "$-6$" },
       { id: "B", text: "$6$" },
-      // distractor: drops the constant term, using $\hat{y}=24$.
+      // distractor: leaves out the constant 11 when evaluating the model: 41 - 24 = 17
       { id: "C", text: "$17$" },
-      // distractor: reports the predicted value instead of the difference.
+      // distractor: reports the predicted value 35 instead of the difference
       { id: "D", text: "$35$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $\\hat{y}=6(4)+11=35$, so $y-\\hat{y}=41-35=6$.\n\n**The Full Solution:**\nStep 1: Substitute $x=4$ into the model: $\\hat{y}=6(4)+11$.\nStep 2: $\\hat{y}=24+11=35$.\nStep 3: The difference is observed minus predicted: $41-35=6$. Check: $35+6=41$, the observed value. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): computes $\\hat{y}-y=35-41$, reversing the order of subtraction.\n* Choice C ($17$): uses $\\hat{y}=24$, dropping the constant $11$ from the model.\n* Choice D ($35$): reports the predicted value $\\hat{y}$ rather than the difference asked for.\n\n**Test Day Takeaway:** The difference $y-\\hat{y}$ is always observed minus predicted. A positive value means the observation sits above the model.",
+    explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The line predicts $6(4) + 11 = 35$, and $41 - 35 = 6$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $x = 4$: $\\hat{y} = 6(4) + 11 = 35$.\nStep 2: The data point gives the actual value $y = 41$.\nStep 3: Subtract: $y - \\hat{y} = 41 - 35 = 6$. Check: $35 + 6 = 41$, so the point lies $6$ units above the line ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): computes $\\hat{y} - y$. The question asks for the actual value minus the predicted value.\n* Choice C ($17$): uses $6x$ alone as the prediction and forgets the $+11$.\n* Choice D ($35$): is the value of $\\hat{y}$, the first step of the calculation.\n\n**Test Day Takeaway:** Actual minus predicted: positive when the point is above the line, negative when it is below.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "residual",
@@ -9735,19 +9735,19 @@ export const problemSolvingBank = [
     skills: ["calculate-mean", "slope-intercept-form"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "For each of four weekdays, the table gives the number of prescriptions a hospital pharmacy actually refilled and the number its staffing model predicted it would refill. On which weekday does the number refilled exceed the predicted number by the greatest amount?",
-    diagram: { type: "dataTable", params: { headers: ["Weekday", "Prescriptions refilled", "Prescriptions predicted"], rows: [["Monday", "312", "298"], ["Tuesday", "372", "355"], ["Wednesday", "289", "312"], ["Thursday", "366", "348"]] } },
+    question: "The table shows the number of customers a café served on four days and the number of customers a model predicted for each day. On which day did the number of customers served exceed the predicted number by the greatest amount?",
+    diagram: { type: "dataTable", params: { headers: ["Day", "Customers served", "Customers predicted"], rows: [["Monday", "312", "298"], ["Tuesday", "372", "355"], ["Wednesday", "289", "312"], ["Thursday", "366", "348"]] } },
     choices: [
-      // distractor: picks the weekday with the smallest predicted count, 298, instead of the largest excess (14)
+      // distractor: Monday's excess is only 312 - 298 = 14
       { id: "A", text: "Monday" },
-      // distractor: picks the weekday with the largest refilled count, 372, instead of the largest excess (17)
+      // distractor: Tuesday's excess is 372 - 355 = 17, one less than Thursday's
       { id: "B", text: "Tuesday" },
-      // distractor: picks the weekday with the largest gap in size, 23, but there the model is greater, not smaller
+      // distractor: Wednesday has the largest gap, 23, but the café served fewer customers than predicted that day
       { id: "C", text: "Wednesday" },
       { id: "D", text: "Thursday" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Residual**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Subtract predicted from refilled for each row: $14$, $17$, $-23$, $18$. The largest positive value is Thursday.\n\n**The Full Solution:**\nStep 1: Subtract in one direction for every row. Monday: $312 - 298 = 14$. Tuesday: $372 - 355 = 17$. Wednesday: $289 - 312 = -23$. Thursday: $366 - 348 = 18$.\nStep 2: Keep only the rows where the refilled count is the larger one, so the difference is positive: Monday, Tuesday, and Thursday.\nStep 3: Compare those three. $18 > 17 > 14$, so Thursday has the greatest excess. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Monday): has the smallest predicted count, $298$, but its excess is only $14$.\n* Choice B (Tuesday): has the largest number refilled, $372$, but its prediction is high too, so its excess is $17$.\n* Choice C (Wednesday): has the largest gap in size, $23$, but there the model predicts MORE than was refilled — a negative residual.\n\n**Test Day Takeaway:** A \"greatest excess\" question is about the signed difference actual $-$ predicted, not about the biggest number in either column.",
+    explanation: "**SAT Pattern: Residual**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Served minus predicted is $14$, $17$, $-23$, and $18$; the greatest is $18$, on Thursday.\n\n**The Full Solution:**\nStep 1: Subtract predicted from served for each day: Monday $312 - 298 = 14$, Tuesday $372 - 355 = 17$, Wednesday $289 - 312 = -23$, Thursday $366 - 348 = 18$.\nStep 2: Only positive differences mean the café served more customers than predicted.\nStep 3: The greatest of $14$, $17$, and $18$ is $18$, on Thursday. Check: $348 + 18 = 366$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: has an excess of $14$, smaller than Tuesday's or Thursday's.\n* Choice B: has an excess of $17$, just short of Thursday's $18$.\n* Choice C: has the largest difference in size, but the café served $23$ fewer customers than predicted, so the number served did not exceed the prediction.\n\n**Test Day Takeaway:** \"Exceed\" fixes the direction: compute actual minus predicted and compare only the positive results.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "residual",
@@ -9761,19 +9761,19 @@ export const problemSolvingBank = [
     skills: ["calculate-mean", "slope-intercept-form"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The scatterplot shows the concentration $y$, in micrograms per liter, of a dissolved mineral in each of $9$ water samples taken at depth $x$, in meters, along with the line of best fit $\\hat{y}=2x+5$. For the sample taken at a depth of $6$ meters, what is the value of $y-\\hat{y}$?",
-    diagram: { type: "scatterplot", params: { points: [[1, 8], [2, 8], [3, 12], [4, 12], [5, 16], [6, 22], [7, 18], [8, 22], [9, 22]], xMin: 0, xMax: 10, yMin: 0, yMax: 28, xGridStep: 1, yGridStep: 2, xLabelStep: 2, yLabelStep: 4, xLabel: "Depth (meters)", yLabel: "Concentration (mcg/L)", bestFitLine: { slope: 2, intercept: 5 } } },
+    question: "The scatterplot shows the relationship between two variables, $x$ and $y$. The line of best fit for the data, $\\hat{y} = 2x + 5$, is also shown. What is the value of $y - \\hat{y}$ for the data point with $x = 6$?",
+    diagram: { type: "scatterplot", params: { points: [[1, 8], [2, 8], [3, 12], [4, 12], [5, 16], [6, 22], [7, 18], [8, 22], [9, 22]], xMin: 0, xMax: 10, yMin: 0, yMax: 28, xGridStep: 1, yGridStep: 2, xLabelStep: 2, yLabelStep: 4, xLabel: "x", yLabel: "y", bestFitLine: { slope: 2, intercept: 5 } } },
     choices: [
-      // distractor: computes $\hat{y}-y$, reversing the order of subtraction.
+      // distractor: subtracts in the wrong order, predicted minus actual: 17 - 22 = -5
       { id: "A", text: "$-5$" },
       { id: "B", text: "$5$" },
-      // distractor: drops the constant term, using $\hat{y}=12$.
-      { id: "C", text: "$10$" },
-      // distractor: reports the predicted concentration instead of the residual.
-      { id: "D", text: "$17$" }
+      // distractor: reports the predicted value at x = 6 instead of the difference
+      { id: "C", text: "$17$" },
+      // distractor: reports the actual y-value of the data point instead of the difference
+      { id: "D", text: "$22$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** At $x=6$ the plotted point has $y=22$ and the line gives $\\hat{y}=2(6)+5=17$, so the residual is $22-17=5$.\n\n**The Full Solution:**\nStep 1: Read the observed value from the scatterplot at $x=6$: $y=22$ micrograms per liter.\nStep 2: Evaluate the line of best fit at $x=6$: $\\hat{y}=2(6)+5=17$.\nStep 3: The residual is $y-\\hat{y}=22-17=5$. Check: the point sits above the line, so a positive residual is expected. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): computes $17-22$, which would describe a point below the line.\n* Choice C ($10$): uses $\\hat{y}=2(6)=12$, forgetting the $+5$ in the model.\n* Choice D ($17$): reports the predicted value read off the line rather than the gap between the point and the line.\n\n**Test Day Takeaway:** A residual is a vertical gap: point minus line. Its sign tells you which side of the line the observation falls on.",
+    explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The point at $x = 6$ has $y = 22$, the line predicts $2(6) + 5 = 17$, and $22 - 17 = 5$.\n\n**The Full Solution:**\nStep 1: Read the data point at $x = 6$ from the scatterplot: $y = 22$.\nStep 2: Evaluate the line of best fit at $x = 6$: $\\hat{y} = 2(6) + 5 = 17$.\nStep 3: Subtract: $y - \\hat{y} = 22 - 17 = 5$. Check: the point $(6, 22)$ lies above the line, so the difference must be positive ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): computes $\\hat{y} - y$, which flips the sign.\n* Choice C ($17$): is $\\hat{y}$, the value predicted by the line, not the difference.\n* Choice D ($22$): is the actual $y$-value read from the graph, not the difference.\n\n**Test Day Takeaway:** Read the actual value from the graph, compute the predicted value from the equation, and subtract in the order the question gives.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "residual",
@@ -9787,19 +9787,19 @@ export const problemSolvingBank = [
     skills: ["calculate-mean", "slope-intercept-form"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The table gives the number of vehicles, in thousands, recorded at a toll plaza on day $d$ of a study, and a traffic model predicts $p = 0.5d + 21$ thousand vehicles on day $d$. On day $6$, by how many thousand vehicles does the recorded number exceed the number the model predicts?",
-    diagram: { type: "dataTable", params: { headers: ["Day (d)", "Vehicles recorded (thousands)"], rows: [["2", "22.9"], ["4", "22.6"], ["6", "24.5"], ["8", "26.2"]] } },
+    question: "The table shows the number of vehicles $v$, in thousands, that crossed a bridge on day $d$ of a study. A model predicts $\\hat{v} = 0.5d + 21$. What is the value of $v - \\hat{v}$ for day $6$?",
+    diagram: { type: "dataTable", params: { headers: ["Day (d)", "Vehicles (thousands)"], rows: [["2", "22.9"], ["4", "22.6"], ["6", "24.5"], ["8", "26.2"]] } },
     choices: [
       { id: "A", text: "$0.5$" },
-      // distractor: compares the recorded 24.5 with the constant term 21 instead of the full model value: 24.5 - 21 = 3.5
+      // distractor: subtracts only the constant 21 from 24.5 and leaves out the 0.5d term
       { id: "B", text: "$3.5$" },
-      // distractor: reports the model value 0.5(6) + 21 = 24 rather than the difference
+      // distractor: reports the predicted value for day 6 instead of the difference
       { id: "C", text: "$24$" },
-      // distractor: reports the recorded value 24.5 rather than the difference
+      // distractor: reports the actual value for day 6 instead of the difference
       { id: "D", text: "$24.5$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The model gives $0.5(6) + 21 = 24$ and the table records $24.5$, so the excess is $24.5 - 24 = 0.5$ thousand vehicles.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $d = 6$. $p = 0.5(6) + 21 = 3 + 21 = 24$ thousand vehicles.\nStep 2: Read the table at $d = 6$. The recorded count is $24.5$ thousand vehicles.\nStep 3: Subtract actual minus predicted. $24.5 - 24 = 0.5$, and because the result is positive the recorded count really does exceed the prediction. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3.5$): subtracts the constant term alone: $24.5 - 21 = 3.5$. The model value at $d = 6$ is $24$, not $21$.\n* Choice C ($24$): is the model's prediction for day $6$, not the amount by which the record exceeds it.\n* Choice D ($24.5$): is the recorded count itself, with no comparison to the model.\n\n**Test Day Takeaway:** Evaluate the model at the stated input first; the answer to \"by how much does it exceed\" is always the subtraction, never one of the two values.",
+    explanation: "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The model predicts $0.5(6) + 21 = 24$ for day $6$, the table shows $24.5$, and $24.5 - 24 = 0.5$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $d = 6$: $\\hat{v} = 0.5(6) + 21 = 24$.\nStep 2: Read the actual value for day $6$ from the table: $v = 24.5$.\nStep 3: Subtract: $v - \\hat{v} = 24.5 - 24 = 0.5$. Check: $24 + 0.5 = 24.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3.5$): subtracts $21$ but forgets the $0.5d$ term, which adds $3$ for day $6$.\n* Choice C ($24$): is the model's prediction, the first step of the calculation.\n* Choice D ($24.5$): is the number from the table, the second ingredient of the difference.\n\n**Test Day Takeaway:** A residual needs two numbers, the actual value and the model's value at the same input; subtract only after you have both.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "residual",
@@ -9813,19 +9813,19 @@ export const problemSolvingBank = [
     skills: ["calculate-mean", "slope-intercept-form"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A costume shop's model predicts $f = 3.5g + 12$ yards of fabric for a garment of size $g$, and the table gives the fabric actually used for four garments. For how many of these garments does the fabric used exceed the predicted amount by more than $4$ yards?",
-    diagram: { type: "dataTable", params: { headers: ["Garment", "Size (g)", "Fabric used (yards)"], rows: [["W", "4", "31"], ["X", "6", "40"], ["Y", "8", "46"], ["Z", "10", "50"]] } },
+    question: "The table shows the delivery times for four orders from a restaurant and the distance $g$, in miles, of each delivery. A model predicts a delivery time of $3.5g + 12$ minutes. For how many of these orders did the delivery time exceed the predicted time by more than $4$ minutes?",
+    diagram: { type: "dataTable", params: { headers: ["Order", "Distance g (miles)", "Delivery time (minutes)"], rows: [["W", "4", "31"], ["X", "6", "40"], ["Y", "8", "46"], ["Z", "10", "50"]] } },
     choices: [
-      // distractor: counts only the single largest excess, garment X at 7 yards
+      // distractor: counts only order X, whose excess of 7 minutes is the largest
       { id: "A", text: "$1$" },
-      // distractor: counts only the excesses above 5 yards, garments X and Y, using the wrong threshold
+      // distractor: counts only the excesses of 6 minutes or more, leaving out order W's 5 minutes
       { id: "B", text: "$2$" },
       { id: "C", text: "$3$" },
-      // distractor: counts every garment whose use exceeds the prediction at all, including garment Z at 3 yards
+      // distractor: counts every order, including order Z, whose excess is only 3 minutes
       { id: "D", text: "$4$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Predictions are $26$, $33$, $40$, $47$; the excesses are $5$, $7$, $6$, $3$, and three of them clear $4$ yards.\n\n**The Full Solution:**\nStep 1: Predict for each size. $f = 3.5(4) + 12 = 26$, $f = 3.5(6) + 12 = 33$, $f = 3.5(8) + 12 = 40$, $f = 3.5(10) + 12 = 47$ yards.\nStep 2: Subtract predicted from used. Garment W: $31 - 26 = 5$. Garment X: $40 - 33 = 7$. Garment Y: $46 - 40 = 6$. Garment Z: $50 - 47 = 3$.\nStep 3: Apply the threshold. The excesses greater than $4$ are $5$, $7$, and $6$ — three garments. Garment Z falls short at $3$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): counts only garment X, the single largest excess, instead of every garment that clears $4$ yards.\n* Choice B ($2$): uses a threshold of more than $5$ yards, which keeps only garments X and Y.\n* Choice D ($4$): counts every garment whose use exceeds its prediction, including garment Z, whose excess is only $3$ yards.\n\n**Test Day Takeaway:** A \"how many exceed by more than $k$\" item needs all four residuals computed, then one comparison each — do not stop at the largest.",
+    explanation: "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The model predicts $26$, $33$, $40$, and $47$ minutes; the excesses are $5$, $7$, $6$, and $3$, and three of them are more than $4$.\n\n**The Full Solution:**\nStep 1: Evaluate the model for each distance: $3.5(4) + 12 = 26$, $3.5(6) + 12 = 33$, $3.5(8) + 12 = 40$, and $3.5(10) + 12 = 47$ minutes.\nStep 2: Subtract each prediction from the actual time: $31 - 26 = 5$, $40 - 33 = 7$, $46 - 40 = 6$, and $50 - 47 = 3$.\nStep 3: Three of the differences, $5$, $7$, and $6$, are greater than $4$. Check: order Z's difference, $3$, is the only one that is not ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): counts only the order with the largest excess.\n* Choice B ($2$): drops order W, whose excess of $5$ minutes is still more than $4$.\n* Choice D ($4$): includes order Z, which arrived only $3$ minutes later than predicted.\n\n**Test Day Takeaway:** When a question asks \"for how many,\" compute every difference before counting; one skipped row changes the answer.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "residual",
@@ -9839,19 +9839,19 @@ export const problemSolvingBank = [
     skills: ["calculate-mean", "slope-intercept-form"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The table gives four data points $(x,y)$. For these data, a linear model predicts $\\hat{y}=4x-3$. What is the sum of the four values of $y-\\hat{y}$?",
+    question: "The table shows four data points. For these data, a linear model predicts $\\hat{y} = 4x - 3$. What is the sum of the four values of $y - \\hat{y}$?",
     diagram: { type: "dataTable", params: { headers: ["x", "1", "3", "6", "9"], rows: [["y", "5", "12", "21", "36"]] } },
     choices: [
-      // distractor: computes $\hat{y}-y$ at each point, reversing every subtraction.
+      // distractor: subtracts in the wrong order, predicted minus actual for every point
       { id: "A", text: "$-10$" },
-      // distractor: reports the mean of the four differences instead of their sum.
+      // distractor: divides the sum by 4, giving the mean of the differences
       { id: "B", text: "$2.5$" },
       { id: "C", text: "$10$" },
-      // distractor: adds the four predicted values instead of the four differences.
+      // distractor: reports the sum of the predicted values, 1 + 9 + 21 + 33 = 64
       { id: "D", text: "$64$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The sum of the differences equals the sum of the observed values minus the sum of the predicted values: $(5+12+21+36)-(1+9+21+33)=74-64=10$.\n\n**The Full Solution:**\nStep 1: Evaluate $\\hat{y}=4x-3$ at each $x$: at $x=1$, $\\hat{y}=1$; at $x=3$, $\\hat{y}=9$; at $x=6$, $\\hat{y}=21$; at $x=9$, $\\hat{y}=33$.\nStep 2: Subtract point by point: $5-1=4$, $12-9=3$, $21-21=0$, and $36-33=3$.\nStep 3: Add the four differences: $4+3+0+3=10$. Check: $74-64=10$, the same total. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): computes $\\hat{y}-y$ at every point, negating each difference.\n* Choice B ($2.5$): divides the correct total by $4$, reporting the average difference.\n* Choice D ($64$): adds the four predicted values and stops.\n\n**Test Day Takeaway:** Summing $y-\\hat{y}$ across points is the same as subtracting the total predicted from the total observed, which saves four separate subtractions.",
+    explanation: "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The sum of the differences is the sum of the $y$-values minus the sum of the predictions: $(5 + 12 + 21 + 36) - (1 + 9 + 21 + 33) = 74 - 64 = 10$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at each $x$: $4(1) - 3 = 1$, $4(3) - 3 = 9$, $4(6) - 3 = 21$, and $4(9) - 3 = 33$.\nStep 2: Subtract each prediction from the actual value: $5 - 1 = 4$, $12 - 9 = 3$, $21 - 21 = 0$, and $36 - 33 = 3$.\nStep 3: Add: $4 + 3 + 0 + 3 = 10$. Check: $74 - 64 = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): computes $\\hat{y} - y$ at every point, which flips the sign of the sum.\n* Choice B ($2.5$): is the mean of the four differences, not their sum.\n* Choice D ($64$): is the total of the predicted values before any subtraction.\n\n**Test Day Takeaway:** A sum of differences equals the difference of the sums, which is a quick check on four separate subtractions.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "residual",
@@ -9866,18 +9866,18 @@ export const problemSolvingBank = [
     skills: ["percent-word-problems", "percent-of-value"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The price of a jacket after a $35\\%$ discount is $\\$91$. What was the price of the jacket, in dollars, before the discount was applied?",
+    question: "After a $35\\%$ discount, a jacket costs \\$91. What was the price of the jacket, in dollars, before the discount?",
     choices: [
-      // distractor: takes $35\%$ of the discounted price, applying the percent to the wrong base.
+      // distractor: finds 35% of the sale price, 0.35(91) = 31.85
       { id: "A", text: "$31.85$" },
-      // distractor: multiplies by $0.65$ instead of dividing by it.
+      // distractor: takes 35% off the sale price again, 0.65(91) = 59.15
       { id: "B", text: "$59.15$" },
-      // distractor: adds $35\%$ to the discounted price instead of undoing the discount.
+      // distractor: adds 35% of the sale price back, 1.35(91) = 122.85, using the wrong base
       { id: "C", text: "$122.85$" },
       { id: "D", text: "$140$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Reverse Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** A $35\\%$ discount leaves $65\\%$ of the original, so the original is $\\frac{91}{0.65}=140$ dollars.\n\n**The Full Solution:**\nStep 1: Let $p$ be the price before the discount. Taking $35\\%$ off leaves $65\\%$, so $0.65p=91$.\nStep 2: Divide both sides by $0.65$: $p=\\frac{91}{0.65}$.\nStep 3: $p=140$ dollars. Check: $35\\%$ of $140$ is $49$, and $140-49=91$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($31.85$): computes $0.35\\times 91$, taking the discount off the already-discounted price.\n* Choice B ($59.15$): computes $0.65\\times 91$, multiplying by the retained fraction instead of dividing.\n* Choice C ($122.85$): computes $1.35\\times 91$, adding $35\\%$ of the sale price back on. Adding a percent of the smaller number cannot undo a percent of the larger one.\n\n**Test Day Takeaway:** Percent problems that hand you the ending amount are division problems. Write $(\\text{factor})(\\text{original})=\\text{ending}$ and divide.",
+    explanation: "**SAT Pattern: Reverse Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The sale price is $65\\%$ of the original, so the original is $\\frac{91}{0.65} = 140$ dollars.\n\n**The Full Solution:**\nStep 1: A $35\\%$ discount leaves $100\\% - 35\\% = 65\\%$ of the original price, so $0.65p = 91$.\nStep 2: Divide by $0.65$: $p = \\frac{91}{0.65}$.\nStep 3: So $p = 140$. Check: $35\\%$ of $140$ is $49$, and $140 - 49 = 91$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($31.85$): is $35\\%$ of the sale price, not a price.\n* Choice B ($59.15$): applies the discount a second time, to the sale price.\n* Choice C ($122.85$): adds $35\\%$ of $91$ back on. The discount was $35\\%$ of the original price, not of the sale price, so this adds back too little.\n\n**Test Day Takeaway:** Undo a percent change by dividing by the multiplier ($0.65$ here), never by adding the same percent back.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "reverse-percent",
@@ -9891,18 +9891,18 @@ export const problemSolvingBank = [
     skills: ["percent-word-problems", "percent-of-value"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A total charge of $\\$280$ includes a $12\\%$ service fee applied to the base charge. What was the base charge, in dollars, before the service fee was added?",
+    question: "A meal costs $m$ dollars before a $12\\%$ service charge is added. The total cost, including the service charge, is \\$280. What is the value of $m$?",
     choices: [
-      // distractor: computes $12\%$ of the total, which is the fee on the wrong base.
+      // distractor: finds 12% of the total, 0.12(280) = 33.60
       { id: "A", text: "$33.60$" },
-      // distractor: subtracts $12\%$ of the total instead of dividing by $1.12$.
+      // distractor: takes 12% off the total, 0.88(280) = 246.40, using the total as the base
       { id: "B", text: "$246.40$" },
       { id: "C", text: "$250$" },
-      // distractor: adds another $12\%$ to the total.
+      // distractor: adds another 12% to the total, 1.12(280) = 313.60
       { id: "D", text: "$313.60$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Reverse Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The total is $112\\%$ of the base charge, so the base charge is $\\frac{280}{1.12}=250$ dollars.\n\n**The Full Solution:**\nStep 1: Let $b$ be the base charge. Adding a $12\\%$ fee gives $b+0.12b=1.12b$.\nStep 2: Set that equal to the total: $1.12b=280$.\nStep 3: $b=\\frac{280}{1.12}=250$ dollars. Check: $12\\%$ of $250$ is $30$, and $250+30=280$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($33.60$): computes $0.12\\times 280$, the fee measured against the total rather than the base.\n* Choice B ($246.40$): computes $0.88\\times 280$, subtracting $12\\%$ of the larger number.\n* Choice D ($313.60$): computes $1.12\\times 280$, adding the fee a second time instead of removing it.\n\n**Test Day Takeaway:** The fee is a percent of the base, not of the total, so $12\\%$ of $280$ is never the right piece. Divide by $1.12$.",
+    explanation: "**SAT Pattern: Reverse Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The total is $112\\%$ of the meal, so $m = \\frac{280}{1.12} = 250$.\n\n**The Full Solution:**\nStep 1: Adding $12\\%$ makes the total $112\\%$ of the meal's cost: $1.12m = 280$.\nStep 2: Divide by $1.12$: $m = \\frac{280}{1.12}$.\nStep 3: So $m = 250$. Check: $12\\%$ of $250$ is $30$, and $250 + 30 = 280$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($33.60$): is $12\\%$ of the total, which is neither the meal's cost nor the service charge.\n* Choice B ($246.40$): subtracts $12\\%$ of the total. The charge was $12\\%$ of the meal, not of the total, so this removes too much.\n* Choice D ($313.60$): adds the service charge a second time.\n\n**Test Day Takeaway:** When a percent was added to an unknown amount, divide the total by $1 + $ the rate.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "reverse-percent",
@@ -9916,19 +9916,19 @@ export const problemSolvingBank = [
     skills: ["percent-word-problems", "percent-of-value"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table gives the number of students enrolled at each of three campuses of a college this year. Enrollment at the Riverside campus this year is $16\\%$ greater than it was last year. How many students were enrolled at the Riverside campus last year?",
+    question: "The table shows the number of students enrolled this year at each of three campuses of a college. Enrollment at the Riverside campus this year is $16\\%$ greater than it was last year. How many students were enrolled at the Riverside campus last year?",
     diagram: { type: "dataTable", params: { headers: ["Campus", "Enrollment this year"], rows: [["Riverside", "2,900"], ["Lakeside", "1,750"], ["Hillcrest", "2,430"]] } },
     choices: [
-      // distractor: subtracts $16\%$ of this year's enrollment instead of dividing by $1.16$.
+      // distractor: takes 16% off this year's enrollment, 0.84(2,900) = 2,436
       { id: "A", text: "$2{,}436$" },
       { id: "B", text: "$2{,}500$" },
-      // distractor: increases this year's enrollment by $16\%$ instead of undoing the increase.
+      // distractor: applies the increase again, 1.16(2,900) = 3,364
       { id: "C", text: "$3{,}364$" },
-      // distractor: divides by $0.16$ rather than by $1.16$.
+      // distractor: divides by 0.16 instead of 1.16, 2,900/0.16 = 18,125
       { id: "D", text: "$18{,}125$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Reverse Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Riverside shows $2{,}900$ students this year, which is $116\\%$ of last year's count, so last year had $\\frac{2{,}900}{1.16}=2{,}500$ students.\n\n**The Full Solution:**\nStep 1: Read the Riverside row of the table: $2{,}900$ students this year. The other two campuses are not involved.\nStep 2: Let $L$ be last year's enrollment. A $16\\%$ increase gives $1.16L=2{,}900$.\nStep 3: $L=\\frac{2{,}900}{1.16}=2{,}500$. Check: $16\\%$ of $2{,}500$ is $400$, and $2{,}500+400=2{,}900$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2{,}436$): computes $0.84\\times 2{,}900$, taking $16\\%$ off the larger number.\n* Choice C ($3{,}364$): computes $1.16\\times 2{,}900$, growing this year's figure instead of reversing the growth.\n* Choice D ($18{,}125$): divides by $0.16$, the percent of change, rather than by the growth factor $1.16$.\n\n**Test Day Takeaway:** In a multi-row table, first isolate the one row the percent statement refers to, then divide by $1+r$ to walk the percent change backward.",
+    explanation: "**SAT Pattern: Reverse Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Riverside's $2{,}900$ is $116\\%$ of last year's enrollment, so last year's was $\\frac{2{,}900}{1.16} = 2{,}500$.\n\n**The Full Solution:**\nStep 1: Read Riverside's enrollment from the table: $2{,}900$ students.\nStep 2: A $16\\%$ increase means $1.16L = 2{,}900$, where $L$ is last year's enrollment.\nStep 3: Divide: $L = \\frac{2{,}900}{1.16} = 2{,}500$. Check: $16\\%$ of $2{,}500$ is $400$, and $2{,}500 + 400 = 2{,}900$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2{,}436$): subtracts $16\\%$ of this year's enrollment. The increase was $16\\%$ of last year's smaller number.\n* Choice C ($3{,}364$): applies the increase to this year's enrollment instead of undoing it.\n* Choice D ($18{,}125$): divides by the rate alone, forgetting that the new total includes the original $100\\%$.\n\n**Test Day Takeaway:** A percent increase is undone by dividing by $1 + r$, not by subtracting $r$ of the new amount.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "reverse-percent",
@@ -9942,18 +9942,18 @@ export const problemSolvingBank = [
     skills: ["percent-word-problems", "percent-of-value"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "After a $45\\%$ increase, the monthly water use at a bottling facility is $319$ kiloliters. What was the monthly water use, in kiloliters, before the increase?",
+    question: "A gym had $480$ members in June, which was $60\\%$ more than the number of members it had in January. How many members did the gym have in January?",
     choices: [
-      // distractor: subtracts $45\%$ of the new amount instead of dividing by $1.45$.
-      { id: "A", text: "$175.45$" },
-      { id: "B", text: "$220$" },
-      // distractor: increases the new amount by another $45\%$.
-      { id: "C", text: "$462.55$" },
-      // distractor: divides by $0.45$ instead of by $1.45$.
-      { id: "D", text: "$708.89$" }
+      // distractor: takes 60% off June's count, 0.40(480) = 192, using June as the base
+      { id: "A", text: "$192$" },
+      { id: "B", text: "$300$" },
+      // distractor: subtracts 60 members instead of 60%
+      { id: "C", text: "$420$" },
+      // distractor: applies the 60% increase to June's count, 1.6(480) = 768
+      { id: "D", text: "$768$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Reverse Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The new use is $145\\%$ of the old use, so the old use is $\\frac{319}{1.45}=220$ kiloliters.\n\n**The Full Solution:**\nStep 1: Let $w$ be the monthly water use before the increase.\nStep 2: A $45\\%$ increase multiplies by $1.45$, so $1.45w=319$.\nStep 3: $w=\\frac{319}{1.45}=220$ kiloliters. Check: $45\\%$ of $220$ is $99$, and $220+99=319$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($175.45$): computes $0.55\\times 319$, removing $45\\%$ of the new figure rather than of the old one.\n* Choice C ($462.55$): computes $1.45\\times 319$, applying the increase a second time.\n* Choice D ($708.89$): divides by the rate of change $0.45$ instead of the growth factor $1.45$.\n\n**Test Day Takeaway:** \"After a $p\\%$ increase\" means the given number is already the product. Divide by $1+\\frac{p}{100}$, never by $\\frac{p}{100}$.",
+    explanation: "**SAT Pattern: Reverse Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** June's count is $160\\%$ of January's, so January's is $\\frac{480}{1.6} = 300$.\n\n**The Full Solution:**\nStep 1: Let $j$ be the number of members in January. Sixty percent more means $1.6j = 480$.\nStep 2: Divide by $1.6$: $j = \\frac{480}{1.6}$.\nStep 3: So $j = 300$. Check: $60\\%$ of $300$ is $180$, and $300 + 180 = 480$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($192$): removes $60\\%$ of $480$. The increase was $60\\%$ of January's smaller count, so this removes too much.\n* Choice C ($420$): treats $60\\%$ as $60$ members.\n* Choice D ($768$): increases June's count instead of undoing the increase.\n\n**Test Day Takeaway:** \"$60\\%$ more than January\" makes January the base: divide by $1.6$ to get back to it.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "reverse-percent",
@@ -9967,18 +9967,18 @@ export const problemSolvingBank = [
     skills: ["percent-word-problems", "percent-of-value"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A county tuberculosis clinic screened $n$ patients in June, where $n$ is a constant. In July the same clinic screened $1{,}200$ patients, which was $20\\%$ fewer patients than it screened in June. What is the value of $n$?",
+    question: "In June, a library lent $n$ books. In July, the library lent $1{,}200$ books, which was $20\\%$ fewer than in June. What is the value of $n$?",
     choices: [
-      // distractor: takes 20 percent off July instead of reversing it: 1,200 x 0.8 = 960
+      // distractor: decreases July's count by 20%, 0.8(1,200) = 960
       { id: "A", text: "$960$" },
-      // distractor: divides by 1.2 instead of 0.8: 1,200 / 1.2 = 1,000
+      // distractor: divides by 1.2, as if July's count were 20% more than June's
       { id: "B", text: "$1{,}000$" },
-      // distractor: adds 20 percent of July to July: 1,200 x 1.2 = 1,440, applying the percent to the wrong base
+      // distractor: adds 20% of July's count, 1.2(1,200) = 1,440, using July as the base
       { id: "C", text: "$1{,}440$" },
       { id: "D", text: "$1{,}500$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Reverse Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** July is $80\\%$ of June, so $n = \\frac{1{,}200}{0.8} = 1{,}500$.\n\n**The Full Solution:**\nStep 1: Translate the percent. \"$20\\%$ fewer than June\" means July equals $100\\% - 20\\% = 80\\%$ of June, so $0.8n = 1{,}200$.\nStep 2: Solve for $n$. Divide both sides by $0.8$: $n = \\frac{1{,}200}{0.8} = 1{,}500$.\nStep 3: Check forward. $20\\%$ of $1{,}500$ is $300$, and $1{,}500 - 300 = 1{,}200$, the July count. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($960$): takes another $20\\%$ off July: $1{,}200 \\times 0.8 = 960$. That moves in the wrong direction.\n* Choice B ($1{,}000$): divides by $1.2$ instead of $0.8$, which reverses an increase rather than a decrease.\n* Choice C ($1{,}440$): computes $1{,}200 \\times 1.2 = 1{,}440$, applying the $20\\%$ to July. The percent is always taken of the ORIGINAL, June.\n\n**Test Day Takeaway:** A percent change is always measured against the original amount. If the new value is given, divide by $1 \\pm r$; never multiply the new value by it.",
+    explanation: "**SAT Pattern: Reverse Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** July's count is $80\\%$ of June's, so $n = \\frac{1{,}200}{0.8} = 1{,}500$.\n\n**The Full Solution:**\nStep 1: Twenty percent fewer than $n$ is $0.8n$, so $0.8n = 1{,}200$.\nStep 2: Divide by $0.8$: $n = \\frac{1{,}200}{0.8}$.\nStep 3: So $n = 1{,}500$. Check: $20\\%$ of $1{,}500$ is $300$, and $1{,}500 - 300 = 1{,}200$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($960$): applies the decrease to July's count instead of undoing it.\n* Choice B ($1{,}000$): reverses the direction of the change, making June the smaller month.\n* Choice C ($1{,}440$): adds back $20\\%$ of $1{,}200$. The decrease was $20\\%$ of June's larger count, so this adds too little.\n\n**Test Day Takeaway:** Write the given relationship as one multiplication ($0.8n = 1{,}200$) and solve; the base of the percent is the month after \"than.\"",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "reverse-percent",
@@ -9992,18 +9992,18 @@ export const problemSolvingBank = [
     skills: ["percent-word-problems", "percent-of-value"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A bicycle sells for $\\$286$ after a $12\\%$ discount is applied to its list price. A second bicycle has a list price that is $\\$40$ greater than the list price of the first bicycle. What is the price, in dollars, of the second bicycle after the same $12\\%$ discount is applied?",
+    question: "After a $12\\%$ discount, the price of a bicycle is \\$286. The original price of a second bicycle is \\$40 more than the original price of the first bicycle. What is the price, in dollars, of the second bicycle after a $12\\%$ discount?",
     choices: [
       { id: "A", text: "$321.20$" },
-      // distractor: reports the list price of the first bicycle.
+      // distractor: stops at the first bicycle's original price, 286/0.88 = 325
       { id: "B", text: "$325$" },
-      // distractor: adds the full $\$40$ to the discounted price, leaving the extra $\$40$ undiscounted.
+      // distractor: adds the full $40 to the discounted price, leaving the extra $40 undiscounted
       { id: "C", text: "$326$" },
-      // distractor: reports the list price of the second bicycle without applying the discount.
+      // distractor: finds the second bicycle's original price, 365, and never applies the discount
       { id: "D", text: "$365$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Reverse Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The first list price is $\\frac{286}{0.88}=325$, so the second is $365$, and $0.88(365)=321.20$ dollars.\n\n**The Full Solution:**\nStep 1: A $12\\%$ discount leaves $88\\%$ of the list price, so $0.88L=286$ and $L=\\frac{286}{0.88}=325$ dollars.\nStep 2: The second bicycle lists for $325+40=365$ dollars.\nStep 3: Apply the same discount: $0.88(365)=321.20$ dollars. Check: the extra $\\$40$ is also discounted, contributing $0.88(40)=35.20$, and $286+35.20=321.20$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($325$): stops at the first bicycle's list price.\n* Choice C ($326$): adds $\\$40$ straight onto $\\$286$, forgetting that the additional $\\$40$ of list price is discounted too.\n* Choice D ($365$): reports the second list price and never applies the discount.\n\n**Test Day Takeaway:** A difference stated in list prices shrinks by the same factor once the discount is applied. Undo the percent first, adjust, then reapply.",
+    explanation: "**SAT Pattern: Reverse Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The first original price is $\\frac{286}{0.88} = 325$, so the second is $365$, and $0.88(365) = 321.20$ dollars.\n\n**The Full Solution:**\nStep 1: A $12\\%$ discount leaves $88\\%$, so the first bicycle's original price $p$ satisfies $0.88p = 286$, and $p = \\frac{286}{0.88} = 325$.\nStep 2: The second bicycle's original price is $325 + 40 = 365$ dollars.\nStep 3: Apply the discount: $0.88(365) = 321.20$ dollars. Check: the extra \\$40 is discounted too, to $0.88(40) = 35.20$, and $286 + 35.20 = 321.20$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($325$): is the first bicycle's original price, an intermediate step.\n* Choice C ($326$): adds \\$40 to \\$286, forgetting that the extra \\$40 of original price is also discounted.\n* Choice D ($365$): is the second bicycle's original price, before the discount.\n\n**Test Day Takeaway:** A difference in original prices shrinks by the same multiplier as the prices do; undo the percent, adjust, then reapply it.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "reverse-percent",
@@ -10018,18 +10018,18 @@ export const problemSolvingBank = [
     skills: ["percent-of-value", "percent-word-problems"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The price of a used camera lens is reduced by $30\\%$, and that reduced price is then reduced by $20\\%$. The final price is $\\$196$. What was the price of the lens, in dollars, before the two reductions?",
+    question: "The price of a camera was $p$ dollars. The price was decreased by $30\\%$, and then the decreased price was decreased by $20\\%$. The final price was \\$196. What is the value of $p$?",
     choices: [
-      // distractor: multiplies by the combined factor $0.56$ instead of dividing by it.
-      { id: "A", text: "$109.76$" },
-      // distractor: multiplies the final price by $0.70$, reducing it a third time.
-      { id: "B", text: "$137.20$" },
-      // distractor: undoes only the $30\%$ reduction.
-      { id: "C", text: "$280$" },
-      { id: "D", text: "$350$" }
+      // distractor: applies the 30% decrease to the final price, 0.7(196) = 137.20, instead of undoing it
+      { id: "A", text: "$137.20$" },
+      // distractor: undoes only the 20% decrease, 196/0.8 = 245
+      { id: "B", text: "$245$" },
+      { id: "C", text: "$350$" },
+      // distractor: adds the two percents into a single 50% decrease, 196/0.5 = 392
+      { id: "D", text: "$392$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Reverse Percent Multi-Step**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The two reductions multiply to $0.70\\times 0.80=0.56$, so the original price is $\\frac{196}{0.56}=350$ dollars.\n\n**The Full Solution:**\nStep 1: Let $p$ be the original price. A $30\\%$ reduction leaves $0.70p$.\nStep 2: A further $20\\%$ reduction of that leaves $0.80(0.70p)=0.56p$, so $0.56p=196$.\nStep 3: $p=\\frac{196}{0.56}=350$ dollars. Check: $0.70(350)=245$, and $0.80(245)=196$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($109.76$): computes $0.56\\times 196$, multiplying by the combined factor instead of dividing.\n* Choice B ($137.20$): computes $0.70\\times 196$, applying a reduction to the already-final price.\n* Choice C ($280$): computes $\\frac{196}{0.70}$, undoing only the first reduction.\n\n**Test Day Takeaway:** Chained percent changes multiply. Combine the factors into one number, then divide the ending amount by it.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Reverse Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The two decreases multiply to $0.7(0.8) = 0.56$, so $p = \\frac{196}{0.56} = 350$.\n\n**The Full Solution:**\nStep 1: The first decrease leaves $0.7p$, and the second leaves $0.8(0.7p) = 0.56p$.\nStep 2: Set this equal to the final price: $0.56p = 196$.\nStep 3: Divide: $p = \\frac{196}{0.56} = 350$. Check: $0.7(350) = 245$ and $0.8(245) = 196$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($137.20$): multiplies the final price by $0.7$, moving further away from the original price.\n* Choice B ($245$): undoes the second decrease and stops. The value $245$ is the price after the first decrease.\n* Choice D ($392$): treats $30\\%$ then $20\\%$ as one $50\\%$ decrease. Successive percents multiply; they do not add.\n\n**Test Day Takeaway:** Successive percent changes combine by multiplying their factors; divide by that single product to recover the original.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "reverse-percent-multi-step",
@@ -10043,18 +10043,18 @@ export const problemSolvingBank = [
     skills: ["percent-of-value", "percent-word-problems"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A distributor increases a wholesale price by $40\\%$, and a retailer then reduces that increased price by $15\\%$. After both changes, a retailer charges $\\$238$ for the item. What was the wholesale price, in dollars?",
+    question: "The original price of a lamp was $p$ dollars. A store increased this price by $40\\%$ and then decreased the increased price by $15\\%$, for a final price of \\$238. What is the value of $p$?",
     choices: [
-      // distractor: nets the percents to a single $25\%$ increase instead of multiplying the factors.
+      // distractor: combines +40% and -15% into one 25% increase, 238/1.25 = 190.40
       { id: "A", text: "$190.40$" },
       { id: "B", text: "$200$" },
-      // distractor: multiplies by the combined factor $1.19$ instead of dividing by it.
+      // distractor: applies both changes to the final price, 238(1.4)(0.85) = 283.22, instead of undoing them
       { id: "C", text: "$283.22$" },
-      // distractor: multiplies the final price by $1.40$, applying the markup a second time.
+      // distractor: applies the 40% increase to the final price and ignores the decrease, 238(1.4) = 333.20
       { id: "D", text: "$333.20$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Reverse Percent Multi-Step**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The combined factor is $1.40\\times 0.85=1.19$, so the wholesale price is $\\frac{238}{1.19}=200$ dollars.\n\n**The Full Solution:**\nStep 1: Let $w$ be the wholesale price. A $40\\%$ increase gives $1.40w$.\nStep 2: A $15\\%$ reduction of that gives $0.85(1.40w)=1.19w$, so $1.19w=238$.\nStep 3: $w=\\frac{238}{1.19}=200$ dollars. Check: $1.40(200)=280$, and $280-0.15(280)=238$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($190.40$): treats the changes as $+40\\%-15\\%=+25\\%$ and divides by $1.25$; percents of different bases cannot be added.\n* Choice C ($283.22$): computes $1.19\\times 238$, multiplying by the combined factor instead of dividing.\n* Choice D ($333.20$): computes $1.40\\times 238$, marking up the final price again.\n\n**Test Day Takeaway:** A markup followed by a discount is never the difference of the percents. Multiply $1+r_1$ by $1-r_2$, then divide.",
+    explanation: "**SAT Pattern: Reverse Percent Multi-Step**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The two changes multiply to $1.4(0.85) = 1.19$, so $p = \\frac{238}{1.19} = 200$.\n\n**The Full Solution:**\nStep 1: The increase gives $1.4p$, and the decrease leaves $0.85(1.4p) = 1.19p$.\nStep 2: Set this equal to the final price: $1.19p = 238$.\nStep 3: Divide: $p = \\frac{238}{1.19} = 200$. Check: $1.4(200) = 280$ and $0.85(280) = 238$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($190.40$): adds and subtracts the percents to get a $25\\%$ increase. Successive changes multiply, giving a $19\\%$ increase.\n* Choice C ($283.22$): moves forward from the final price instead of working back to the original.\n* Choice D ($333.20$): multiplies by $1.4$ and leaves out the $15\\%$ decrease altogether.\n\n**Test Day Takeaway:** Turn each percent change into a multiplier, multiply the multipliers, and divide the final amount by the product.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "reverse-percent-multi-step",
@@ -10068,18 +10068,18 @@ export const problemSolvingBank = [
     skills: ["percent-of-value", "percent-word-problems"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The price of a share of a stock rose $25\\%$ during one quarter and then fell $16\\%$ during the next quarter. At the end of the two quarters, the share is worth $\\$210$. What was the share worth, in dollars, at the start of the two quarters?",
+    question: "A stock's price rose $25\\%$ and then fell $16\\%$, ending at \\$210. What was the stock's price, in dollars, before these changes?",
     choices: [
-      // distractor: undoes only the $25\%$ rise.
+      // distractor: undoes only the 25% increase, 210/1.25 = 168
       { id: "A", text: "$168$" },
-      // distractor: nets the percents to a single $9\%$ increase instead of multiplying the factors.
-      { id: "B", text: "$192.66$" },
-      { id: "C", text: "$200$" },
-      // distractor: multiplies by the combined factor $1.05$ instead of dividing by it.
-      { id: "D", text: "$220.50$" }
+      { id: "B", text: "$200$" },
+      // distractor: applies the net change to the final price, 210(1.05) = 220.50, instead of undoing it
+      { id: "C", text: "$220.50$" },
+      // distractor: undoes only the 16% decrease, 210/0.84 = 250, and ignores the increase before it
+      { id: "D", text: "$250$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Reverse Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The two quarters multiply to $1.25\\times 0.84=1.05$, so the starting value is $\\frac{210}{1.05}=200$ dollars.\n\n**The Full Solution:**\nStep 1: Let $s$ be the starting value. A $25\\%$ rise gives $1.25s$.\nStep 2: A $16\\%$ fall from there gives $0.84(1.25s)=1.05s$, so $1.05s=210$.\nStep 3: $s=\\frac{210}{1.05}=200$ dollars. Check: $1.25(200)=250$, and $250-0.16(250)=210$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($168$): computes $\\frac{210}{1.25}$, reversing only the first quarter.\n* Choice B ($192.66$): divides by $1.09$, treating $+25\\%$ then $-16\\%$ as a net $+9\\%$.\n* Choice D ($220.50$): computes $1.05\\times 210$, multiplying by the combined factor instead of dividing.\n\n**Test Day Takeaway:** A rise and a fall do not cancel to the difference of the percents, because the fall is taken from a larger base. Multiply the factors first.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Reverse Percent Multi-Step**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The changes multiply to $1.25(0.84) = 1.05$, so the starting price was $\\frac{210}{1.05} = 200$ dollars.\n\n**The Full Solution:**\nStep 1: Write the changes as multipliers: an increase of $25\\%$ is $1.25$, and a decrease of $16\\%$ is $0.84$.\nStep 2: If the starting price is $s$ dollars, then $1.25(0.84)s = 1.05s = 210$.\nStep 3: Divide: $s = \\frac{210}{1.05} = 200$. Check: $1.25(200) = 250$ and $0.84(250) = 210$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($168$): undoes the increase but ignores the decrease that followed it.\n* Choice C ($220.50$): multiplies by $1.05$ instead of dividing, which moves away from the starting price.\n* Choice D ($250$): undoes the decrease, giving the price after the rise, and stops before undoing the $25\\%$ increase.\n\n**Test Day Takeaway:** A rise followed by a fall is never the difference of the two percents; multiply $1.25 \\times 0.84$ to find the real net change.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "reverse-percent-multi-step",
@@ -10093,18 +10093,18 @@ export const problemSolvingBank = [
     skills: ["percent-of-value", "percent-word-problems"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A stage-lighting rental house cut its fixture inventory by $20\\%$ during one season and by another $25\\%$ during the next season, finishing with $660$ fixtures. The inventory before the first cut was $m$ fixtures. What is the value of $m$?",
+    question: "A pond had $m$ fish at the start of a two-year study. The number of fish decreased by $20\\%$ in the first year and by $25\\%$ in the second year, leaving $660$ fish. What is the value of $m$?",
     choices: [
-      // distractor: adds the two percents to the final count: 660 x 1.45 = 957
-      { id: "A", text: "$957$" },
-      // distractor: multiplies by 1.6 instead of dividing by 0.6: 660 x 1.6 = 1,056
-      { id: "B", text: "$1{,}056$" },
+      // distractor: undoes only the 25% decrease, 660/0.75 = 880
+      { id: "A", text: "$880$" },
+      // distractor: adds both percents back to the final count, 660(1.45) = 957
+      { id: "B", text: "$957$" },
       { id: "C", text: "$1{,}100$" },
-      // distractor: treats the two cuts as one 45 percent cut: 660 / 0.55 = 1,200
+      // distractor: adds the percents into one 45% decrease, 660/0.55 = 1,200
       { id: "D", text: "$1{,}200$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Reverse Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The two cuts leave $0.8 \\times 0.75 = 0.6$ of the start, so $m = \\frac{660}{0.6} = 1{,}100$.\n\n**The Full Solution:**\nStep 1: Turn each cut into a retained fraction. A $20\\%$ cut leaves $0.8$ of the inventory; a $25\\%$ cut leaves $0.75$ of what remains.\nStep 2: Multiply the fractions and set up. $0.8 \\times 0.75 = 0.6$, so $0.6m = 660$.\nStep 3: Solve and check. $m = \\frac{660}{0.6} = 1{,}100$. Forward: $1{,}100 \\times 0.8 = 880$, and $880 \\times 0.75 = 660$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($957$): uses $660 \\times 1.45$, adding both percents to the FINAL count instead of reversing them.\n* Choice B ($1{,}056$): uses $660 \\times 1.6$. Multiplying by $1.6$ is not the same as dividing by $0.6$.\n* Choice D ($1{,}200$): treats the cuts as one $45\\%$ cut: $\\frac{660}{0.55} = 1{,}200$. Successive percent changes multiply, they do not add.\n\n**Test Day Takeaway:** Successive percent changes multiply their retained fractions. Two cuts of $20\\%$ and $25\\%$ leave $0.6$, not $0.55$.",
+    explanation: "**SAT Pattern: Reverse Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The decreases multiply to $0.8(0.75) = 0.6$, so $m = \\frac{660}{0.6} = 1{,}100$.\n\n**The Full Solution:**\nStep 1: After the first year, $0.8m$ fish remain; after the second year, $0.75(0.8m) = 0.6m$ fish remain.\nStep 2: Set this equal to the final count: $0.6m = 660$.\nStep 3: Divide: $m = \\frac{660}{0.6} = 1{,}100$. Check: $0.8(1{,}100) = 880$ and $0.75(880) = 660$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($880$): is the number of fish after the first year, found by undoing only the second decrease.\n* Choice B ($957$): adds $20\\%$ and $25\\%$ of $660$ back, but each percent was taken from a larger count than $660$.\n* Choice D ($1{,}200$): treats the two decreases as a single $45\\%$ decrease. The second decrease applies to the smaller count left after the first.\n\n**Test Day Takeaway:** Two decreases of $20\\%$ and $25\\%$ leave $0.8 \\times 0.75 = 60\\%$, not $55\\%$; multiply the factors before dividing.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "reverse-percent-multi-step",
@@ -10118,19 +10118,19 @@ export const problemSolvingBank = [
     skills: ["percent-of-value", "percent-word-problems"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table gives the percent increase in the number of active subscriptions to a service for each of two consecutive years. At the end of the two years there were $10{,}800$ active subscriptions. How many active subscriptions were there at the start of the two years?",
+    question: "The table shows the percent increase in the number of members of a club for each of two consecutive years. At the end of the two years, the club had $10{,}800$ members. How many members did the club have at the start of the two years?",
     diagram: { type: "dataTable", params: { headers: ["Year", "Percent increase"], rows: [["Year 1", "25%"], ["Year 2", "8%"]] } },
     choices: [
-      { id: "A", text: "$8{,}000$" },
-      // distractor: adds the two percents to a single $32\%$ increase instead of multiplying the factors.
-      { id: "B", text: "$8{,}181.82$" },
-      // distractor: undoes only the Year 1 increase.
+      // distractor: removes the combined 35% from the final count, 10,800(0.65) = 7,020
+      { id: "A", text: "$7{,}020$" },
+      { id: "B", text: "$8{,}000$" },
+      // distractor: undoes only the year 1 increase, 10,800/1.25 = 8,640
       { id: "C", text: "$8{,}640$" },
-      // distractor: multiplies by the combined factor $1.35$ instead of dividing by it.
+      // distractor: applies both increases to the final count, 10,800(1.35) = 14,580
       { id: "D", text: "$14{,}580$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Reverse Percent Multi-Step**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The table gives increases of $25\\%$ then $8\\%$, a combined factor of $1.25\\times 1.08=1.35$, so the starting count is $\\frac{10{,}800}{1.35}=8{,}000$.\n\n**The Full Solution:**\nStep 1: Let $s$ be the number of subscriptions at the start. Year 1 multiplies it by $1.25$.\nStep 2: Year 2 multiplies that result by $1.08$, giving $1.08(1.25s)=1.35s=10{,}800$.\nStep 3: $s=\\frac{10{,}800}{1.35}=8{,}000$. Check: $1.25(8{,}000)=10{,}000$, and $1.08(10{,}000)=10{,}800$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($8{,}181.82$): divides by $1.32$, adding $25\\%$ and $8\\%$ rather than compounding them.\n* Choice C ($8{,}640$): divides by $1.25$ only, ignoring the second year.\n* Choice D ($14{,}580$): computes $1.35\\times 10{,}800$, applying both increases again.\n\n**Test Day Takeaway:** Read each row of the table as a multiplier, take their product, and divide the ending amount by it.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Reverse Percent Multi-Step**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The increases multiply to $1.25(1.08) = 1.35$, so the starting count was $\\frac{10{,}800}{1.35} = 8{,}000$.\n\n**The Full Solution:**\nStep 1: Read the table: the count grew by $25\\%$ in year 1 and by $8\\%$ in year 2, so the multipliers are $1.25$ and $1.08$.\nStep 2: If the starting count is $s$, then $1.25(1.08)s = 1.35s = 10{,}800$.\nStep 3: Divide: $s = \\frac{10{,}800}{1.35} = 8{,}000$. Check: $1.25(8{,}000) = 10{,}000$ and $1.08(10{,}000) = 10{,}800$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7{,}020$): subtracts $35\\%$ of the final count. The $35\\%$ growth was measured from the smaller starting count, so this removes too much.\n* Choice C ($8{,}640$): undoes the year 1 increase but not the year 2 increase.\n* Choice D ($14{,}580$): applies the growth again instead of undoing it.\n\n**Test Day Takeaway:** Read each row of the table as a multiplier, multiply them, and divide the final count by the product.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "reverse-percent-multi-step",
@@ -10144,18 +10144,18 @@ export const problemSolvingBank = [
     skills: ["percent-of-value", "percent-word-problems"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A table's list price is reduced by $15\\%$, and an $8\\%$ sales tax is then applied to the reduced price. The total amount paid is $\\$183.60$. How much less than the list price, in dollars, is the total amount paid?",
+    question: "A desk is discounted $15\\%$ from its list price, and then an $8\\%$ sales tax is added to the discounted price. The total cost is \\$183.60. How many dollars less than the list price is the total cost?",
     choices: [
-      // distractor: reports the sales tax, the difference between the total and the reduced price.
+      // distractor: finds the sales tax, 183.60 - 170 = 13.60, instead of the gap between the list price and the total
       { id: "A", text: "$13.60$" },
       { id: "B", text: "$16.40$" },
-      // distractor: reports the discount alone and ignores the tax added back.
+      // distractor: finds the discount, 0.15(200) = 30, and forgets that the tax adds part of it back
       { id: "C", text: "$30$" },
-      // distractor: reports the list price rather than the difference asked for.
+      // distractor: reports the list price instead of the difference
       { id: "D", text: "$200$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Reverse Percent Multi-Step**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The combined factor is $0.85\\times 1.08=0.918$, so the list price is $\\frac{183.60}{0.918}=200$, and $200-183.60=16.40$ dollars.\n\n**The Full Solution:**\nStep 1: Let $L$ be the list price. The discount leaves $0.85L$, and the tax multiplies that by $1.08$, giving $0.918L=183.60$.\nStep 2: $L=\\frac{183.60}{0.918}=200$ dollars.\nStep 3: The question asks how much less the total is than the list price: $200-183.60=16.40$ dollars. Check: $0.85(200)=170$, and $1.08(170)=183.60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($13.60$): computes $183.60-170$, the tax paid, not the gap from the list price.\n* Choice C ($30$): computes $0.15(200)$, the discount by itself, ignoring that the tax gives $\\$13.60$ of it back.\n* Choice D ($200$): reports the list price, stopping before the subtraction.\n\n**Test Day Takeaway:** Combine the factors to recover the starting amount, then reread the question. A discount followed by tax leaves a net gap smaller than the discount itself.",
+    explanation: "**SAT Pattern: Reverse Percent Multi-Step**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The total is $0.85(1.08) = 0.918$ of the list price, so the list price is $\\frac{183.60}{0.918} = 200$ and the total is $200 - 183.60 = 16.40$ dollars less.\n\n**The Full Solution:**\nStep 1: If the list price is $L$ dollars, the discounted price is $0.85L$ and the total with tax is $1.08(0.85L) = 0.918L$.\nStep 2: Solve $0.918L = 183.60$: $L = \\frac{183.60}{0.918} = 200$.\nStep 3: Subtract: $200 - 183.60 = 16.40$ dollars. Check: $0.85(200) = 170$, $1.08(170) = 183.60$, and $200 - 183.60 = 16.40$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($13.60$): is the sales tax, $0.08(170) = 13.60$, not the difference between the list price and the total cost.\n* Choice C ($30$): is the discount alone. The tax adds \\$13.60 back, so the total is only $30 - 13.60 = 16.40$ dollars below the list price.\n* Choice D ($200$): is the list price, the intermediate value the question uses to set up the difference.\n\n**Test Day Takeaway:** Recover the original with one combined multiplier, then reread the question to see which quantity it asks for.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "reverse-percent-multi-step",
@@ -10170,18 +10170,18 @@ export const problemSolvingBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A lecture hall has $460$ seats, divided between the front section and the rear section in the ratio $3 : 7$. How many of the seats are in the rear section?",
+    question: "A theater has $460$ seats. The ratio of main-floor seats to balcony seats is $7 : 3$. How many balcony seats are there?",
     choices: [
-      // distractor: reports the size of one share instead of the rear section.
+      // distractor: finds one part, 460/10 = 46, and stops
       { id: "A", text: "$46$" },
-      // distractor: gives the front section, the $3$-part share.
       { id: "B", text: "$138$" },
-      // distractor: splits the total evenly instead of in the ratio $3 : 7$.
+      // distractor: splits the seats in half, 460/2 = 230, ignoring the ratio
       { id: "C", text: "$230$" },
+      // distractor: finds the number of main-floor seats, 7(46) = 322
       { id: "D", text: "$322$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The ratio has $3+7=10$ parts, so each part is $\\frac{460}{10}=46$ seats, and the rear section holds $7(46)=322$ seats.\n\n**The Full Solution:**\nStep 1: Write the sections as $3k$ and $7k$ seats, so $3k+7k=460$.\nStep 2: $10k=460$, so $k=46$.\nStep 3: The rear section is $7k=7(46)=322$ seats. Check: the front section is $3(46)=138$, and $138+322=460$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($46$): reports $k$, the value of a single part.\n* Choice B ($138$): gives the front section, the smaller of the two shares.\n* Choice C ($230$): halves the total, which would be right only for a $1 : 1$ ratio.\n\n**Test Day Takeaway:** Add the ratio numbers first. Dividing the total by that sum gives one part, and every share is a multiple of it.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** There are $7 + 3 = 10$ parts, each worth $\\frac{460}{10} = 46$ seats, so the balcony has $3(46) = 138$ seats.\n\n**The Full Solution:**\nStep 1: Add the parts of the ratio: $7 + 3 = 10$.\nStep 2: Find one part: $\\frac{460}{10} = 46$ seats.\nStep 3: The balcony has $3$ parts: $3(46) = 138$ seats. Check: $7(46) = 322$, and $322 + 138 = 460$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($46$): is the size of one part of the ratio, not the size of the balcony.\n* Choice C ($230$): divides the seats equally, which would be a $1 : 1$ ratio.\n* Choice D ($322$): is the number of main-floor seats, the $7$ parts of the ratio.\n\n**Test Day Takeaway:** Divide the total by the sum of the ratio's parts, then multiply by the part the question names.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "sum-of-parts-ratio",
@@ -10195,18 +10195,18 @@ export const problemSolvingBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A shipment of $306$ kilograms of gravel is split between two work sites so that the amounts are in the ratio $5 : 13$. How many kilograms of gravel go to the site that receives the smaller amount?",
+    question: "Jordan and Kim share $306$ stickers in the ratio $5 : 13$, respectively. How many stickers does Jordan get?",
     choices: [
-      // distractor: reports the size of one share instead of the smaller amount.
+      // distractor: finds one part, 306/18 = 17, and stops
       { id: "A", text: "$17$" },
       { id: "B", text: "$85$" },
-      // distractor: splits the shipment evenly instead of in the ratio $5 : 13$.
+      // distractor: splits the stickers in half, 306/2 = 153, ignoring the ratio
       { id: "C", text: "$153$" },
-      // distractor: gives the larger amount, the $13$-part share.
+      // distractor: finds Kim's share, 13(17) = 221
       { id: "D", text: "$221$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** There are $5+13=18$ parts, so one part is $\\frac{306}{18}=17$ kilograms, and the smaller site gets $5(17)=85$ kilograms.\n\n**The Full Solution:**\nStep 1: Write the two amounts as $5k$ and $13k$ kilograms, so $5k+13k=306$.\nStep 2: $18k=306$, so $k=17$.\nStep 3: The smaller amount is $5k=5(17)=85$ kilograms. Check: $13(17)=221$, and $85+221=306$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): reports $k$, one part of the ratio, not a site's share.\n* Choice C ($153$): divides the shipment in half, ignoring the ratio.\n* Choice D ($221$): gives the $13$-part share, the larger amount.\n\n**Test Day Takeaway:** The smaller ratio number always names the smaller share. Compute one part, then multiply by the number the question points to.",
+    explanation: "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** There are $5 + 13 = 18$ parts of $\\frac{306}{18} = 17$ stickers each, so Jordan gets $5(17) = 85$.\n\n**The Full Solution:**\nStep 1: Add the parts: $5 + 13 = 18$.\nStep 2: Find one part: $\\frac{306}{18} = 17$ stickers.\nStep 3: Jordan gets $5$ parts: $5(17) = 85$ stickers. Check: Kim gets $13(17) = 221$, and $85 + 221 = 306$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): is one part of the ratio, not Jordan's share.\n* Choice C ($153$): is half of $306$, which ignores the $5 : 13$ ratio.\n* Choice D ($221$): is Kim's share, the $13$ parts.\n\n**Test Day Takeaway:** \"Respectively\" matches the ratio to the names in order: the first number belongs to the first person.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "sum-of-parts-ratio",
@@ -10220,18 +10220,18 @@ export const problemSolvingBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A restoration project planted $840$ trees that are oak, maple, and birch in the ratio $2 : 3 : 7$, respectively. How many of the trees planted are birch?",
+    question: "A park's $840$ trees are oak, maple, and birch in the ratio $2 : 3 : 7$, respectively. How many of the trees are birch?",
     choices: [
-      // distractor: reports the size of one part instead of the birch count.
+      // distractor: finds one part, 840/12 = 70, and stops
       { id: "A", text: "$70$" },
-      // distractor: gives the number of oak trees, the $2$-part share.
+      // distractor: finds the number of oak trees, 2(70) = 140
       { id: "B", text: "$140$" },
-      // distractor: gives the number of maple trees, the $3$-part share.
+      // distractor: finds the number of maple trees, 3(70) = 210
       { id: "C", text: "$210$" },
       { id: "D", text: "$490$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The ratio has $2+3+7=12$ parts, so one part is $\\frac{840}{12}=70$ trees, and the birch count is $7(70)=490$.\n\n**The Full Solution:**\nStep 1: Write the three counts as $2k$, $3k$, and $7k$, so $2k+3k+7k=840$.\nStep 2: $12k=840$, so $k=70$.\nStep 3: Birch trees are the $7$-part share: $7(70)=490$. Check: $140+210+490=840$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($70$): reports $k$ alone.\n* Choice B ($140$): gives the oak count, matching the ratio number $2$.\n* Choice C ($210$): gives the maple count, matching the ratio number $3$.\n\n**Test Day Takeaway:** With three-part ratios the trap is answering for the wrong category. Note which ratio number the question names before you multiply.",
+    explanation: "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** There are $2 + 3 + 7 = 12$ parts of $\\frac{840}{12} = 70$ trees, so $7(70) = 490$ trees are birch.\n\n**The Full Solution:**\nStep 1: Add all three parts: $2 + 3 + 7 = 12$.\nStep 2: Find one part: $\\frac{840}{12} = 70$ trees.\nStep 3: Birch is $7$ parts: $7(70) = 490$ trees. Check: $140 + 210 + 490 = 840$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($70$): is the size of one part, before multiplying by $7$.\n* Choice B ($140$): is the number of oak trees, the first term of the ratio.\n* Choice C ($210$): is the number of maple trees, the second term of the ratio.\n\n**Test Day Takeaway:** With a three-part ratio, the divisor is the sum of all three numbers, not just the two you see first.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "sum-of-parts-ratio",
@@ -10245,18 +10245,18 @@ export const problemSolvingBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "During a morning count at a river crossing, the ratio of northbound vehicles to southbound vehicles was $3$ to $7$, and $84$ more southbound vehicles than northbound vehicles were counted. How many vehicles were counted in all during that morning?",
+    question: "A bag contains only red and blue marbles in the ratio $3 : 7$, respectively. There are $84$ more blue marbles than red marbles. How many marbles are in the bag?",
     choices: [
-      // distractor: reports the northbound count alone, 3 parts x 21 = 63
+      // distractor: finds the number of red marbles, 3(21) = 63
       { id: "A", text: "$63$" },
-      // distractor: reports the given difference of 84 vehicles as though it were the total
+      // distractor: reports the difference of 84 as the total
       { id: "B", text: "$84$" },
-      // distractor: reports the southbound count alone, 7 parts x 21 = 147
+      // distractor: finds the number of blue marbles, 7(21) = 147
       { id: "C", text: "$147$" },
       { id: "D", text: "$210$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The gap is $7 - 3 = 4$ parts, so one part is $\\frac{84}{4} = 21$ and the total is $10$ parts, or $210$ vehicles.\n\n**The Full Solution:**\nStep 1: Turn the ratio into parts. Northbound is $3$ parts, southbound is $7$ parts, so southbound exceeds northbound by $7 - 3 = 4$ parts.\nStep 2: Size one part. Those $4$ parts equal $84$ vehicles, so one part is $\\frac{84}{4} = 21$ vehicles.\nStep 3: Total the parts and check. All $3 + 7 = 10$ parts give $10 \\times 21 = 210$ vehicles. Northbound is $63$, southbound is $147$, and $147 - 63 = 84$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($63$): is the northbound count, $3$ parts, not the total.\n* Choice B ($84$): is the given difference itself, restated as if it were the count of all vehicles.\n* Choice C ($147$): is the southbound count, $7$ parts, not the total.\n\n**Test Day Takeaway:** When a ratio comes with a DIFFERENCE, divide by the difference of the ratio numbers to size one part, then multiply by whichever total the question wants.",
+    explanation: "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The difference of $7 - 3 = 4$ parts is $84$ marbles, so one part is $21$ and the bag holds $10(21) = 210$ marbles.\n\n**The Full Solution:**\nStep 1: The blue marbles exceed the red marbles by $7 - 3 = 4$ parts, and that difference is $84$ marbles.\nStep 2: One part is $\\frac{84}{4} = 21$ marbles.\nStep 3: The bag holds $3 + 7 = 10$ parts: $10(21) = 210$ marbles. Check: $63$ red and $147$ blue, and $147 - 63 = 84$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($63$): is the number of red marbles only.\n* Choice B ($84$): is the difference between the colors, not the total.\n* Choice C ($147$): is the number of blue marbles only.\n\n**Test Day Takeaway:** Match each given quantity to its parts: a difference matches the difference of the parts, and a total matches their sum.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "sum-of-parts-ratio",
@@ -10270,18 +10270,18 @@ export const problemSolvingBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "At a vaccination campaign, the ratio of first doses administered to booster doses administered is $5$ to $4$, and $n$ doses are administered in all. Which expression gives the number of booster doses administered at the campaign?",
+    question: "A bake sale sold $n$ items, all cookies or muffins. The ratio of cookies sold to muffins sold was $5 : 4$. Which expression represents the number of muffins sold?",
     choices: [
       { id: "A", text: "$\\frac{4n}{9}$" },
-      // distractor: divides by the first-dose parts, 5, instead of the total parts, 9
+      // distractor: divides by the cookies' part, 5, instead of by the total number of parts, 9
       { id: "B", text: "$\\frac{4n}{5}$" },
-      // distractor: gives the first-dose share, 5 parts out of 9, rather than the booster share
+      // distractor: finds the number of cookies sold, 5n/9
       { id: "C", text: "$\\frac{5n}{9}$" },
-      // distractor: inverts the fraction, giving more doses than were administered in all
+      // distractor: inverts the fraction of the total, 9n/4
       { id: "D", text: "$\\frac{9n}{4}$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Boosters are $4$ of the $5 + 4 = 9$ parts, so they number $\\frac{4}{9}$ of $n$, which is $\\frac{4n}{9}$.\n\n**The Full Solution:**\nStep 1: Add the parts. First doses are $5$ parts and boosters are $4$ parts, so the campaign has $9$ parts in all.\nStep 2: Write the booster share. Boosters make up $\\frac{4}{9}$ of every dose given, so with $n$ doses that is $\\frac{4n}{9}$.\nStep 3: Check with a number. If $n = 900$, then $\\frac{4(900)}{9} = 400$ boosters and $\\frac{5(900)}{9} = 500$ first doses; $400 + 500 = 900$ and $500 : 400 = 5 : 4$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{4n}{5}$): divides by $5$, the first-dose parts, instead of by the $9$ total parts.\n* Choice C ($\\frac{5n}{9}$): is the FIRST-dose share. The question asks for boosters.\n* Choice D ($\\frac{9n}{4}$): flips the fraction and would exceed $n$, more boosters than total doses.\n\n**Test Day Takeaway:** A part of a total is (that part) over (the SUM of the parts). If the expression can exceed the total, the fraction is upside down.",
+    explanation: "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Muffins are $4$ of the $5 + 4 = 9$ parts, so the number of muffins is $\\frac{4}{9}n = \\frac{4n}{9}$.\n\n**The Full Solution:**\nStep 1: Add the parts of the ratio: $5 + 4 = 9$.\nStep 2: Muffins make up $4$ of the $9$ parts, so they are $\\frac{4}{9}$ of all items sold.\nStep 3: The number of muffins is $\\frac{4}{9}n = \\frac{4n}{9}$. Check with $n = 90$: $40$ muffins and $50$ cookies, and $50 : 40 = 5 : 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{4n}{5}$): compares muffins with cookies instead of with all $n$ items.\n* Choice C ($\\frac{5n}{9}$): is the number of cookies sold, the $5$ parts.\n* Choice D ($\\frac{9n}{4}$): is greater than $n$, so it cannot be part of the $n$ items.\n\n**Test Day Takeaway:** A part of a total is (its share of the ratio) over (the sum of the ratio); test the expression with an easy $n$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "sum-of-parts-ratio",
@@ -10295,18 +10295,18 @@ export const problemSolvingBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A research grant is divided among three teams in the ratio $4 : 7 : 9$. The team with the smallest share receives $\\$26{,}800$ less than the team with the largest share. What is the total amount, in dollars, of the grant?",
+    question: "A prize is shared by three people in the ratio $4 : 7 : 9$. The largest share is \\$26,800 more than the smallest share. What is the total amount of the prize, in dollars?",
     choices: [
-      // distractor: reports the largest team's share rather than the whole grant.
+      // distractor: finds the largest share, 9(5,360) = 48,240
       { id: "A", text: "$48{,}240$" },
       { id: "B", text: "$107{,}200$" },
-      // distractor: divides the difference by $4$ instead of by the $5$-part gap.
+      // distractor: divides 26,800 by 4, the smallest share's parts, instead of by 9 - 4 = 5
       { id: "C", text: "$134{,}000$" },
-      // distractor: treats the $\$26{,}800$ difference as the value of a single part.
+      // distractor: treats 26,800 as one part and multiplies by 20
       { id: "D", text: "$536{,}000$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The gap between the largest and smallest shares is $9-4=5$ parts, so one part is $\\frac{26{,}800}{5}=5{,}360$, and the grant is $20(5{,}360)=107{,}200$ dollars.\n\n**The Full Solution:**\nStep 1: Write the shares as $4k$, $7k$, and $9k$ dollars.\nStep 2: The stated difference is between the largest and smallest: $9k-4k=5k=26{,}800$, so $k=5{,}360$.\nStep 3: The grant is $4k+7k+9k=20k=20(5{,}360)=107{,}200$ dollars. Check: the shares are $21{,}440$, $37{,}520$, and $48{,}240$, whose sum is $107{,}200$ and whose extremes differ by $26{,}800$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($48{,}240$): computes $9k$, the largest team's share, instead of the total.\n* Choice C ($134{,}000$): divides $26{,}800$ by $4$, using the smallest ratio number rather than the $5$-part difference.\n* Choice D ($536{,}000$): multiplies $26{,}800$ by $20$, treating the difference as one part.\n\n**Test Day Takeaway:** When a ratio problem gives a difference instead of a total, convert it to parts first. The difference of two shares is the difference of their ratio numbers times one part.",
+    explanation: "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The gap between the largest and smallest shares is $9 - 4 = 5$ parts, so one part is $\\frac{26{,}800}{5} = 5{,}360$, and the prize is $20(5{,}360) = 107{,}200$ dollars.\n\n**The Full Solution:**\nStep 1: The largest share exceeds the smallest by $9 - 4 = 5$ parts, and that difference is \\$26,800.\nStep 2: One part is $\\frac{26{,}800}{5} = 5{,}360$ dollars.\nStep 3: The prize has $4 + 7 + 9 = 20$ parts: $20(5{,}360) = 107{,}200$ dollars. Check: the shares are $21{,}440$, $37{,}520$, and $48{,}240$; they add to $107{,}200$, and $48{,}240 - 21{,}440 = 26{,}800$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($48{,}240$): is the largest share, not the whole prize.\n* Choice C ($134{,}000$): divides the difference by $4$ instead of by the $5$ parts that separate the largest and smallest shares.\n* Choice D ($536{,}000$): uses the difference as if it were a single part of the ratio.\n\n**Test Day Takeaway:** Turn a stated difference into a number of parts first; once one part is known, every share and the total follow.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "sum-of-parts-ratio",
@@ -10322,19 +10322,19 @@ export const problemSolvingBank = [
     skills: ["percent-change", "successive-percent-change"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The bar chart groups the finishing times, in seconds, of the $20$ skiers in heat 1 of a slalom race. The $20$ skiers in heat 2 had a mean finishing time of $53.0$ seconds. Based only on the chart, what is the smallest possible value of the difference between the heat 2 mean and the heat 1 mean?",
+    question: "The bar graph shows the finishing times, in whole seconds, of the $20$ skiers in heat 1 of a race. The $20$ skiers in heat 2 had a mean finishing time of $53.0$ seconds. What is the least possible difference between the mean finishing time for heat 2 and the mean finishing time for heat 1?",
     diagram: { type: "barChart", params: { data: [{ label: "40-44", value: 3 }, { label: "45-49", value: 6 }, { label: "50-54", value: 8 }, { label: "55-59", value: 3 }], xAxisLabel: "Finishing time (seconds)", yAxisLabel: "Number of skiers", yMax: 10, yStep: 1 } },
     choices: [
       { id: "A", text: "$1.25$" },
-      // distractor: uses interval midpoints for heat 1, giving a mean of $49.75$ and a difference of $3.25$
+      // distractor: uses the interval midpoints for heat 1, a mean of 49.75, which gives a difference of 3.25
       { id: "B", text: "$3.25$" },
-      // distractor: reports the spread of possible heat 1 means, $51.75 - 47.75 = 4.00$, rather than a difference from heat 2
-      { id: "C", text: "$4.00$" },
-      // distractor: uses the smallest possible heat 1 mean, $47.75$, which makes the difference as large as possible
+      // distractor: reports the spread of the possible heat 1 means, 51.75 - 47.75 = 4
+      { id: "C", text: "$4$" },
+      // distractor: uses the least possible heat 1 mean, 47.75, which makes the difference as large as possible
       { id: "D", text: "$5.25$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Grouped Data — Smallest Possible Mean Difference**\n\n**Choice A is correct.** Heat 1's mean is largest when every skier finishes at the top of its interval, giving $51.75$ seconds, so the smallest possible difference is $53.00-51.75=1.25$ seconds.\n\n**The Fast Way (~70s):** To shrink the gap below $53.00$, push heat 1's mean as high as the chart allows: $\\frac{3(44) + 6(49) + 8(54) + 3(59)}{20} = 51.75$, and $53.00 - 51.75 = 1.25$.\n\n**The Full Solution:**\n\nStep 1: Read the chart. Heat 1 has $3$ skiers in $40$-$44$, $6$ in $45$-$49$, $8$ in $50$-$54$, and $3$ in $55$-$59$, a total of $20$ skiers.\n\nStep 2: Decide which extreme makes the difference small. The heat 2 mean of $53.00$ seconds exceeds every possible heat 1 mean, so the difference shrinks as heat 1's mean grows. Assign each skier the greatest time its interval allows: $\\frac{3(44) + 6(49) + 8(54) + 3(59)}{20} = \\frac{1{,}035}{20} = 51.75$ seconds.\n\nStep 3: Subtract: $53.00 - 51.75 = 1.25$ seconds. Check: the least possible heat 1 mean is $\\frac{3(40) + 6(45) + 8(50) + 3(55)}{20} = 47.75$ seconds, so every possible heat 1 mean lies between $47.75$ and $51.75$, and $53.00$ is above all of them.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($3.25$): uses midpoints, $\\frac{3(42) + 6(47) + 8(52) + 3(57)}{20} = 49.75$. Midpoints give a typical mean, not the extreme the question asks for.\n* Choice C ($4.00$): reports $51.75-47.75$, the width of the range of possible heat 1 means, rather than a comparison with heat 2.\n* Choice D ($5.25$): uses the smallest possible heat 1 mean, $47.75$, which produces the largest difference, not the smallest.\n\n**Test Day Takeaway:** With grouped data, a smallest-possible question is answered at an endpoint -- decide which end of each interval pushes the answer the direction you need before averaging.",
+    explanation: "**SAT Pattern: Grouped Data — Smallest Possible Mean Difference**\n\n**Choice A is correct.**\n\n**The Fast Way (~70s):** Heat 1's mean is greatest when every time is at the top of its interval: $\\frac{3(44) + 6(49) + 8(54) + 3(59)}{20} = 51.75$, and $53.0 - 51.75 = 1.25$.\n\n**The Full Solution:**\nStep 1: Read the bar graph: $3$ skiers in $40$-$44$, $6$ in $45$-$49$, $8$ in $50$-$54$, and $3$ in $55$-$59$, for a total of $20$.\nStep 2: Every possible heat 1 mean is below $53.0$, so the difference is least when heat 1's mean is greatest. Give each skier the greatest whole-second time in its interval: $\\frac{3(44) + 6(49) + 8(54) + 3(59)}{20} = \\frac{1{,}035}{20} = 51.75$ seconds.\nStep 3: Subtract: $53.0 - 51.75 = 1.25$ seconds. Check: the least possible heat 1 mean is $\\frac{3(40) + 6(45) + 8(50) + 3(55)}{20} = 47.75$, so every heat 1 mean lies from $47.75$ to $51.75$, all below $53.0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3.25$): uses midpoints, which give a typical mean of $49.75$, not the extreme the question asks for.\n* Choice C ($4$): is the width of the range of possible heat 1 means, from $47.75$ to $51.75$, not a comparison with heat 2.\n* Choice D ($5.25$): uses the least possible heat 1 mean, which gives the greatest difference instead of the least.\n\n**Test Day Takeaway:** For a least or greatest possible value from grouped data, decide which end of each interval pushes the answer the way you need before averaging.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "mean-from-list",
@@ -10348,9 +10348,9 @@ export const problemSolvingBank = [
     skills: ["percent-change", "percent-word-problems"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A trail-running series set next season's race entry fee $30\\%$ above this season's fee, then applied a $15\\%$ early-registration discount to that new fee. A runner who registers early pays \\$110.50. What was this season's entry fee, in dollars?",
+    question: "A gym raised its monthly fee by $30\\%$. The gym then gave Ana a $15\\%$ discount on the new fee, so she pays \\$110.50 per month. What was the monthly fee, in dollars, before the increase?",
     correctAnswer: "100",
-    explanation: "**SAT Pattern: Markup–Discount Chain**\n\n**The correct answer is $100$.** The two steps multiply to $1.30(0.85) = 1.105$, so the original fee $f$ satisfies $1.105f = 110.50$ and $f = 100$.\n\n**The Fast Way (~45s):** Combine the factors: $1.30(0.85) = 1.105$, then $f = \\frac{110.50}{1.105} = 100$ dollars.\n\n**The Full Solution:**\n\nStep 1: Write the markup. Raising this season's fee $f$ by $30\\%$ gives a new fee of $1.30f$ dollars.\n\nStep 2: Apply the discount to that new fee. Taking $15\\%$ off leaves $85\\%$, so the early-registration price is $0.85(1.30f) = 1.105f$ dollars.\n\nStep 3: Solve $1.105f = 110.50$, so $f = 100$ dollars. Check: $30\\%$ above $\\$100$ is $\\$130$, and $15\\%$ off $\\$130$ is $\\$130 - \\$19.50 = \\$110.50$.\n\n**Common Mistakes:**\n\n* Treating the two changes as a net $15\\%$ increase gives $\\frac{110.50}{1.15} = 96.09$ dollars. Percent changes applied in sequence multiply; they do not add and subtract.\n* Reversing the operations on the paid amount, computing $110.50(0.70)(1.15) = 88.95$, applies each percent to the wrong base.\n* Answering $130$ reports the marked-up fee rather than this season's fee.\n\n**Test Day Takeaway:** A markup followed by a discount is one multiplication by the product of the two factors -- build that single factor before you solve for anything.",
+    explanation: "**SAT Pattern: Markup–Discount Chain**\n\n**The correct answer is $100$.**\n\n**The Fast Way (~40s):** The two changes multiply to $1.30(0.85) = 1.105$, so the original fee is $\\frac{110.50}{1.105} = 100$ dollars.\n\n**The Full Solution:**\nStep 1: Let the original fee be $f$ dollars. The increase makes it $1.30f$.\nStep 2: The discount leaves $85\\%$ of the new fee: $0.85(1.30f) = 1.105f$.\nStep 3: Solve $1.105f = 110.50$: $f = 100$. Check: $1.30(100) = 130$, and $0.85(130) = 110.50$ ✓\n\n**Common Mistakes:**\n* $96.09$: treats the changes as a net $15\\%$ increase, $\\frac{110.50}{1.15}$. Successive percent changes multiply; they do not add.\n* $130$: reports the raised fee, before the discount, instead of the original fee.\n* $88.95$: applies the changes backward to the amount paid, $110.50(0.70)(1.15)$, using the wrong base for each percent.\n\n**Test Day Takeaway:** A markup followed by a discount is one multiplication by the product of the two factors; build that factor before solving.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "markup-discount-chain",
@@ -10364,18 +10364,18 @@ export const problemSolvingBank = [
     skills: ["proportion-setup"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "In a random sample of $640$ likely voters in a school board election, $377$ said they would vote for Alvarez and the other $263$ said they would vote for Whitfield. If $14{,}080$ people vote in the election and the sample is representative, by how many votes would Alvarez be expected to win?",
+    question: "In a random sample of $640$ voters in an election for mayor, $377$ said they would vote for Alvarez and the other $263$ said they would vote for Chen. If $14{,}080$ people vote, how many more votes would Alvarez be expected to receive than Chen?",
     choices: [
-      // distractor: reports the margin in the sample without scaling it to the electorate.
+      // distractor: reports the margin in the sample, 377 - 263 = 114, without scaling it
       { id: "A", text: "$114$" },
       { id: "B", text: "$2{,}508$" },
-      // distractor: scales Whitfield's count instead of the margin.
+      // distractor: scales Chen's count, 263(22) = 5,786, and reports it
       { id: "C", text: "$5{,}786$" },
-      // distractor: scales Alvarez's count instead of the margin.
+      // distractor: scales Alvarez's count, 377(22) = 8,294, and reports it
       { id: "D", text: "$8{,}294$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Poll Scaling — Margin of Victory**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The election is $\\frac{14{,}080}{640}=22$ times the sample, and Alvarez leads by $377-263=114$ in the sample, so the expected margin is $22(114)=2{,}508$ votes.\n\n**The Full Solution:**\nStep 1: Find the scaling factor from sample to electorate: $\\frac{14{,}080}{640}=22$.\nStep 2: Find Alvarez's margin in the sample: $377-263=114$ votes.\nStep 3: A representative sample scales proportionally, so the expected margin is $22(114)=2{,}508$ votes. Check: $22(377)=8{,}294$ and $22(263)=5{,}786$, and $8{,}294-5{,}786=2{,}508$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($114$): gives the sample margin with no scaling applied.\n* Choice C ($5{,}786$): scales Whitfield's $263$ supporters and reports that count.\n* Choice D ($8{,}294$): scales Alvarez's $377$ supporters and reports that count.\n\n**Test Day Takeaway:** Scaling the difference gives the same answer as scaling each count and subtracting, in one step instead of three.",
+    explanation: "**SAT Pattern: Poll Scaling — Margin of Victory**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The election is $\\frac{14{,}080}{640} = 22$ times the sample, and the sample margin is $377 - 263 = 114$, so the expected margin is $22(114) = 2{,}508$ votes.\n\n**The Full Solution:**\nStep 1: Find the scale factor from the sample to the election: $\\frac{14{,}080}{640} = 22$.\nStep 2: Find the margin in the sample: $377 - 263 = 114$ voters.\nStep 3: Scale the margin: $22(114) = 2{,}508$ votes. Check: $22(377) = 8{,}294$ and $22(263) = 5{,}786$, and $8{,}294 - 5{,}786 = 2{,}508$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($114$): is the margin among the $640$ voters in the sample, not among all $14{,}080$ voters.\n* Choice C ($5{,}786$): is the expected number of votes for Chen, not the margin.\n* Choice D ($8{,}294$): is the expected number of votes for Alvarez, not the margin.\n\n**Test Day Takeaway:** Scale the difference, not the separate counts; one multiplication by the scale factor gives the expected margin.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "proportion-setup",
@@ -10389,19 +10389,19 @@ export const problemSolvingBank = [
     skills: ["calculate-mean"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The table gives the daily peak water level, in centimeters, recorded at each of six monitoring stations along a canal. A seventh station recorded a daily peak water level of $231$ centimeters, and that reading is added to form a new data set of seven levels. Which of the following correctly compares the mean of the original data set with the mean of the new data set?",
-    diagram: { type: "dataTable", params: { headers: ["Station", "1", "2", "3", "4", "5", "6"], rows: [["Peak water level (cm)", "212", "205", "198", "221", "209", "215"]] } },
+    question: "The table shows the water levels, in centimeters, recorded at six stations along a canal. A seventh water level of $210$ centimeters is added to these data to form a new data set. Which of the following correctly compares the mean of the original data set with the mean of the new data set?",
+    diagram: { type: "dataTable", params: { headers: ["Station", "1", "2", "3", "4", "5", "6"], rows: [["Water level (cm)", "212", "205", "198", "221", "209", "215"]] } },
     choices: [
-      // distractor: reverses the direction; a value above the mean cannot pull the mean down.
+      // distractor: assumes the added value is below the mean because 210 is less than several of the readings
       { id: "A", text: "The mean of the new data set is less than the mean of the original data set." },
+      // distractor: assumes adding a value always raises the mean because the sum gets larger
       { id: "B", text: "The mean of the new data set is greater than the mean of the original data set." },
-      // distractor: assumes any added reading leaves the mean unchanged, which happens only when the reading equals the mean.
       { id: "C", text: "The mean of the new data set is equal to the mean of the original data set." },
-      // distractor: treats the comparison as undetermined, though the six listed readings fix the original mean.
+      // distractor: assumes the means cannot be compared without recomputing both, though the table gives every original value
       { id: "D", text: "There is not enough information to compare the two means." }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Mean Comparison after Adding a Value**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The six original readings average $210$ centimeters, and the added reading of $231$ is above that, so the new mean is greater.\n\n**The Full Solution:**\nStep 1: Add the six original readings: $212+205+198+221+209+215=1{,}260$, so the original mean is $\\frac{1{,}260}{6}=210$ centimeters.\nStep 2: Compare the added reading with that mean: $231>210$.\nStep 3: A value above the current mean raises the mean, so the new mean exceeds $210$. Check: $\\frac{1{,}260+231}{7}=\\frac{1{,}491}{7}=213$ centimeters, which is greater than $210$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reverses the direction, which would be correct only if the added reading were below $210$.\n* Choice C: would require the added reading to equal the mean exactly, but $231\\neq 210$.\n* Choice D: the six readings determine the original mean, so the comparison is fully decided.\n\n**Test Day Takeaway:** Compare the new value with the existing mean instead of recomputing. Above the mean raises it, below the mean lowers it, equal to it leaves it alone.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Mean Comparison after Adding a Value**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The six levels add to $1{,}260$, so their mean is $210$. Adding a value equal to the mean leaves the mean unchanged.\n\n**The Full Solution:**\nStep 1: Add the six original levels: $212 + 205 + 198 + 221 + 209 + 215 = 1{,}260$, so the original mean is $\\frac{1{,}260}{6} = 210$ centimeters.\nStep 2: The added level, $210$, equals the original mean exactly.\nStep 3: The new mean is $\\frac{1{,}260 + 210}{7} = \\frac{1{,}470}{7} = 210$ centimeters. Check: both means are $210$, so they are equal ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: would be true only if the added level were below $210$. Being less than some readings does not make it less than the mean.\n* Choice B: focuses on the sum. The sum grows, but so does the number of values, and here they grow in the same proportion.\n* Choice D: overlooks that the table gives all six values, so both means can be computed.\n\n**Test Day Takeaway:** Compare the added value with the current mean: above raises it, below lowers it, and equal leaves it unchanged.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "combined-group-mean",
@@ -10415,9 +10415,9 @@ export const problemSolvingBank = [
     skills: ["proportion-setup", "rate-conversion"],
     difficulty: "hard",
     type: "fill-in",
-    question: "The radiant power a flat panel receives from a perpendicular beam is the product of the beam's intensity and the panel's area. A flat panel consists of two adjacent squares, where the side length of the larger square is $3$ times the side length of the smaller square. A beam of intensity $17.00$ watts per square meter strikes the panel perpendicularly, and the panel receives a total radiant power of $1{,}530$ watts. How much radiant power, in watts, does the larger square receive?",
+    question: "A patio is made of two squares. The larger square's side length is $3$ times the smaller square's side length. Tiling the patio costs \\$17 per square foot, for a total of \\$1,530. What is the cost, in dollars, of tiling the larger square?",
     correctAnswer: "1377",
-    explanation: "**SAT Pattern: Proportional Area — Recover Side, Then Apply**\n\n**The correct answer is $1377$.**\n\n**The Fast Way (~40s):** With smaller side $s$, the panel's area is $(3s)^2+s^2=10s^2$, so $17(10s^2)=1{,}530$ gives $s^2=9$. The larger square has area $9s^2=81$, and $17(81)=1{,}377$ watts.\n\n**The Full Solution:**\nStep 1: Let the smaller square have side $s$ meters. The larger square has side $3s$, so its area is $(3s)^2=9s^2$ and the smaller area is $s^2$.\nStep 2: The total area is $9s^2+s^2=10s^2$, so the total power is $17(10s^2)=170s^2$.\nStep 3: Set that equal to the given total: $170s^2=1{,}530$, so $s^2=9$.\nStep 4: The larger square's area is $9s^2=9(9)=81$ square meters.\nStep 5: Its power is $17(81)=1{,}377$ watts. Check: the smaller square receives $17(9)=153$ watts, and $1{,}377+153=1{,}530$. $\\checkmark$\n\n**Common Mistakes:** Reporting the total $1530$ instead of the larger square's share; treating the $3$ to $1$ side ratio as the area ratio and taking three-fourths of the total, which gives $1147.5$; reporting the smaller square's $153$ watts.\n\n**Test Day Takeaway:** Squaring the side ratio gives the area ratio, so a side ratio of $3$ to $1$ splits the area $9$ to $1$. Recover the side first, then apply the intensity to the piece the question names.",
+    explanation: "**SAT Pattern: Proportional Area — Recover Side, Then Apply**\n\n**The correct answer is $1377$.**\n\n**The Fast Way (~45s):** The areas are in the ratio $3^{2} : 1^{2} = 9 : 1$, so the larger square is $\\frac{9}{10}$ of the patio and costs $\\frac{9}{10}(1{,}530) = 1{,}377$ dollars.\n\n**The Full Solution:**\nStep 1: Let the smaller square have side length $s$ feet. The larger square has side length $3s$, so its area is $(3s)^{2} = 9s^{2}$, and the patio's area is $9s^{2} + s^{2} = 10s^{2}$ square feet.\nStep 2: The total cost is $17(10s^{2}) = 170s^{2} = 1{,}530$, so $s^{2} = 9$.\nStep 3: The larger square has area $9s^{2} = 81$ square feet and costs $17(81) = 1{,}377$ dollars. Check: the smaller square costs $17(9) = 153$ dollars, and $1{,}377 + 153 = 1{,}530$ ✓\n\n**Common Mistakes:**\n* $1147.5$: uses the side ratio $3 : 1$ as the area ratio and takes $\\frac{3}{4}$ of $1{,}530$.\n* $153$: reports the cost of tiling the smaller square.\n* $1530$: reports the cost of the whole patio instead of the larger square.\n\n**Test Day Takeaway:** Squaring a side ratio gives the area ratio, so sides in the ratio $3 : 1$ split the area, and the cost, $9 : 1$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "rate-conversion",
@@ -10431,18 +10431,18 @@ export const problemSolvingBank = [
     skills: ["successive-percent-change"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "In $2021$, a laboratory spent $16\\%$ more on reagents than it spent in $2020$, and in $2022$ it spent $5\\%$ more on reagents than it spent in $2021$. If the laboratory's $2022$ spending on reagents was $k$ times its $2020$ spending, what is the value of $k$?",
+    question: "A bakery's sales rose $16\\%$ from $2020$ to $2021$ and $5\\%$ from $2021$ to $2022$. The $2022$ sales were $k$ times the $2020$ sales. What is the value of $k$?",
     choices: [
-      // distractor: reports the total percent change as a decimal instead of the multiplier.
-      { id: "A", text: "$0.2180$" },
-      // distractor: adds the two percents rather than multiplying the factors.
-      { id: "B", text: "$1.2100$" },
-      { id: "C", text: "$1.2180$" },
-      // distractor: adds the two growth factors instead of multiplying them.
-      { id: "D", text: "$2.2100$" }
+      // distractor: finds the percent increase as a decimal, 0.218, instead of the multiplier
+      { id: "A", text: "$0.218$" },
+      // distractor: adds the percents, 16% + 5% = 21%, giving 1.21
+      { id: "B", text: "$1.21$" },
+      { id: "C", text: "$1.218$" },
+      // distractor: adds the two multipliers, 1.16 + 1.05 = 2.21, instead of multiplying them
+      { id: "D", text: "$2.21$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Successive Percent Change**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Each increase becomes a factor: $1.16$ then $1.05$. Their product is $1.16\\times 1.05=1.2180$.\n\n**The Full Solution:**\nStep 1: Let $S$ be the $2020$ spending. A $16\\%$ increase makes the $2021$ spending $1.16S$.\nStep 2: A further $5\\%$ increase makes the $2022$ spending $1.05(1.16S)=1.2180S$.\nStep 3: Since the $2022$ spending is $k$ times the $2020$ spending, $k=1.2180$. Check: starting from $100$, the values are $116$ and then $121.80$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.2180$): reports the $21.8\\%$ total change as a decimal; a multiplier for growth must exceed $1$.\n* Choice B ($1.2100$): adds $16\\%$ and $5\\%$ to get $21\\%$, ignoring that the second increase applies to the already larger $2021$ amount.\n* Choice D ($2.2100$): adds the factors $1.16$ and $1.05$ instead of multiplying them.\n\n**Test Day Takeaway:** Successive percent changes multiply their factors. The compounded result always beats the sum of the percents, but only slightly.",
+    explanation: "**SAT Pattern: Successive Percent Change**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The multipliers are $1.16$ and $1.05$, and $k = 1.16(1.05) = 1.218$.\n\n**The Full Solution:**\nStep 1: An increase of $16\\%$ multiplies sales by $1.16$, so the $2021$ sales are $1.16S$, where $S$ is the $2020$ sales.\nStep 2: An increase of $5\\%$ multiplies the $2021$ sales by $1.05$: the $2022$ sales are $1.05(1.16S) = 1.218S$.\nStep 3: So $k = 1.218$. Check with $S = 100$: $116$ in $2021$ and $1.05(116) = 121.80$ in $2022$, which is $1.218$ times $100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.218$): is the overall increase as a decimal. The question asks for the multiplier, which includes the original $100\\%$.\n* Choice B ($1.21$): adds the percents. The $5\\%$ increase is applied to the already increased $2021$ sales, so it adds a little more than $5\\%$ of the $2020$ sales.\n* Choice D ($2.21$): adds the multipliers. Successive changes multiply.\n\n**Test Day Takeaway:** \"$k$ times\" asks for a multiplier: multiply the yearly multipliers, and do not subtract $1$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "successive-percent-application",
@@ -10456,18 +10456,18 @@ export const problemSolvingBank = [
     skills: ["squared-cubed-units", "unit-conversion"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A strength coach times a weighted sled push and finds the athlete gaining $2.5$ meters per second of speed during each second of the push. That acceleration equals $k$ kilometers per hour squared. What is the value of $k$?",
+    question: "A cyclist's acceleration is $2.5$ meters per second squared. This rate is equivalent to $k$ kilometers per hour squared. What is the value of $k$? ($1$ kilometer $= 1{,}000$ meters)",
     choices: [
-      // distractor: applies the seconds-to-hours factor once instead of squaring it, $2.5 \cdot 3{,}600 \div 1{,}000 = 9$
+      // distractor: converts seconds to hours only once, 2.5(3,600)/1,000 = 9, though seconds are squared
       { id: "A", text: "$9$" },
-      // distractor: divides by $1{,}000$ twice, squaring the length conversion along with the time conversion, $2.5 \cdot 12.96 = 32.4$
+      // distractor: divides by 1,000 twice, treating meters as squared too
       { id: "B", text: "$32.4$" },
-      // distractor: squares nothing and leaves the length in meters, $2.5 \cdot 3{,}600 = 9{,}000$
+      // distractor: converts seconds to hours once and never converts meters to kilometers
       { id: "C", text: "$9{,}000$" },
       { id: "D", text: "$32{,}400$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Chained Unit Conversion — Squared Time**\n\n**Choice D is correct.** Converting $2.5$ meters per second squared multiplies by $3{,}600^2$ for the time and divides by $1{,}000$ for the length: $2.5 \\cdot \\frac{3{,}600^2}{1{,}000} = 32{,}400$.\n\n**The Fast Way (~60s):** One meter per second squared is $\\frac{3{,}600^2}{1{,}000} = 12{,}960$ kilometers per hour squared, so $2.5(12{,}960) = 32{,}400$.\n\n**The Full Solution:**\n\nStep 1: Write the rate with its units: $2.5 \\dfrac{\\text{m}}{\\text{s}^2}$.\n\nStep 2: Convert the length. Since $1$ kilometer is $1{,}000$ meters, multiply by $\\dfrac{1 \\text{ km}}{1{,}000 \\text{ m}}$, giving $0.0025 \\dfrac{\\text{km}}{\\text{s}^2}$.\n\nStep 3: Convert the time. Seconds appear squared, so the factor $\\dfrac{3{,}600 \\text{ s}}{1 \\text{ h}}$ is applied twice: $0.0025(3{,}600)(3{,}600) = 32{,}400$ kilometers per hour squared. Check: $32{,}400 \\div 12{,}960 = 2.5$, the original rate.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($9$): uses $3{,}600$ once instead of twice, $2.5(3{,}600) \\div 1{,}000 = 9$. The seconds unit is squared, so its conversion factor must be squared too.\n* Choice B ($32.4$): squares the length conversion as well, dividing by $1{,}000^2$ and computing $2.5(12.96) = 32.4$. Only the time unit carries an exponent.\n* Choice C ($9{,}000$): converts seconds to hours once and never converts meters to kilometers, $2.5(3{,}600) = 9{,}000$.\n\n**Test Day Takeaway:** Write the unit with its exponent before you convert -- every factor that touches a squared unit gets applied twice.",
+    explanation: "**SAT Pattern: Chained Unit Conversion — Squared Time**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Seconds are squared, so multiply by $3{,}600^{2}$ and then divide by $1{,}000$: $k = \\frac{2.5(3{,}600)^{2}}{1{,}000} = 32{,}400$.\n\n**The Full Solution:**\nStep 1: One hour is $3{,}600$ seconds, so $1$ second squared is $\\left(\\frac{1}{3{,}600}\\right)^{2}$ hour squared. Dividing by that factor multiplies the rate by $3{,}600^{2} = 12{,}960{,}000$.\nStep 2: Convert the time: $2.5(12{,}960{,}000) = 32{,}400{,}000$ meters per hour squared.\nStep 3: Convert the distance: $\\frac{32{,}400{,}000}{1{,}000} = 32{,}400$ kilometers per hour squared, so $k = 32{,}400$. Check: $\\frac{32{,}400(1{,}000)}{3{,}600^{2}} = 2.5$ meters per second squared ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): uses the factor $3{,}600$ only once. The time unit is squared, so the factor must be applied twice.\n* Choice B ($32.4$): divides by $1{,}000$ twice. Only the time unit is squared; meters appear once.\n* Choice C ($9{,}000$): applies $3{,}600$ once and leaves the distance in meters.\n\n**Test Day Takeaway:** Count how many times each unit appears: a squared unit needs its conversion factor applied twice.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "chained-unit-conversion",
@@ -10481,9 +10481,9 @@ export const problemSolvingBank = [
     skills: ["percent-decimal-conversion", "percent-change"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A cycling coach records that an athlete's training load in week 2 is $k\\%$ of the load in week 1 and that the load in week 3 is $k\\%$ of the load in week 2. The week 3 load is $56.25\\%$ of the week 1 load. What is the value of $k$?",
+    question: "$a$ is $k\\%$ of $b$, and $b$ is $k\\%$ of $c$, where $k$ is a positive constant. If $a = 0.5625c$, what is the value of $k$?",
     correctAnswer: "75",
-    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $75$.** Two equal links compose to $\\left(\\frac{k}{100}\\right)^2 = 0.5625$, so $\\frac{k}{100} = 0.75$ and $k = 75$.\n\n**The Fast Way (~50s):** The same factor is applied twice, so it is $\\sqrt{0.5625} = 0.75$, which is $75\\%$.\n\n**The Full Solution:**\n\nStep 1: Name the week 1 load $L$. The week 2 load is $\\frac{k}{100}L$.\n\nStep 2: Apply the same link again. The week 3 load is $\\frac{k}{100}\\left(\\frac{k}{100}L\\right) = \\left(\\frac{k}{100}\\right)^2 L$.\n\nStep 3: Set that equal to the given comparison and solve: $\\left(\\frac{k}{100}\\right)^2 L = 0.5625L$, so $\\left(\\frac{k}{100}\\right)^2 = 0.5625$ and $\\frac{k}{100} = 0.75$, giving $k = 75$. Check: starting from a load of $100$, week 2 is $75$ and week 3 is $0.75(75) = 56.25$, which is $56.25\\%$ of $100$.\n\n**Common Mistakes:**\n\n* Halving the given percent gives $\\frac{56.25}{2} = 28.125$, which treats two multiplications as if they added.\n* Reading $56.25\\%$ as a single drop and answering $100 - 56.25 = 43.75$ describes the total decrease, not the repeated factor.\n* Averaging $100$ and $56.25$ gives $78.125$, close enough to look right but not a value that squares to $0.5625$.\n\n**Test Day Takeaway:** When the same percent link is applied twice, the overall factor is that decimal squared -- take a square root, never half the percent.",
+    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $75$.**\n\n**The Fast Way (~40s):** The same factor $\\frac{k}{100}$ is applied twice, so $\\left(\\frac{k}{100}\\right)^{2} = 0.5625$, $\\frac{k}{100} = 0.75$, and $k = 75$.\n\n**The Full Solution:**\nStep 1: Translate each statement: $a = \\frac{k}{100}b$ and $b = \\frac{k}{100}c$.\nStep 2: Substitute the second into the first: $a = \\frac{k}{100}\\left(\\frac{k}{100}c\\right) = \\left(\\frac{k}{100}\\right)^{2}c$.\nStep 3: Set this equal to $0.5625c$: $\\left(\\frac{k}{100}\\right)^{2} = 0.5625$, so $\\frac{k}{100} = 0.75$ (since $k > 0$) and $k = 75$. Check: if $c = 100$, then $b = 75$ and $a = 0.75(75) = 56.25$ ✓\n\n**Common Mistakes:**\n* $28.125$: halves $56.25$, treating two multiplications as if they added.\n* $43.75$: computes $100 - 56.25$, the total decrease from $c$ to $a$, not the repeated factor.\n* $0.75$: finds the decimal factor but does not convert it to the percent $k$.\n\n**Test Day Takeaway:** When the same percent is applied twice, the overall factor is that decimal squared; take a square root, never half the percent.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "chained-percent-relationship",
@@ -10497,19 +10497,19 @@ export const problemSolvingBank = [
     skills: ["percent-change", "system-solution-types"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The table gives the results of a survey of $450$ residents of a county, selected at random, about a proposed transit levy. If $12{,}600$ residents vote on the levy, how many more residents would be expected to vote in favor of the levy than to vote against it?",
+    question: "The table shows the results of a survey of $450$ randomly selected residents of a town about a proposal to build a new park. If $12{,}600$ residents vote on the proposal, how many more residents would be expected to vote in favor of the proposal than against it?",
     diagram: { type: "dataTable", params: { headers: ["Response", "Number of residents"], rows: [["In favor", "261"], ["Opposed", "189"]] } },
     choices: [
-      // distractor: reports the survey margin without scaling it to the full vote.
+      // distractor: reports the margin in the survey, 261 - 189 = 72, without scaling it
       { id: "A", text: "$72$" },
       { id: "B", text: "$2{,}016$" },
-      // distractor: scales the number opposed instead of the margin.
+      // distractor: scales the number opposed, 28(189) = 5,292, and reports it
       { id: "C", text: "$5{,}292$" },
-      // distractor: scales the number in favor instead of the margin.
+      // distractor: scales the number in favor, 28(261) = 7,308, and reports it
       { id: "D", text: "$7{,}308$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Poll Scaling — Margin of Victory (Variant)**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The full vote is $\\frac{12{,}600}{450}=28$ times the survey, and the survey margin is $261-189=72$, so the expected margin is $28(72)=2{,}016$.\n\n**The Full Solution:**\nStep 1: Find the scaling factor from the survey to the full vote: $\\frac{12{,}600}{450}=28$.\nStep 2: Read the margin from the table: $261-189=72$ residents.\nStep 3: Because the sample is random and representative, scale the margin by the same factor: $28(72)=2{,}016$. Check: $28(261)=7{,}308$ and $28(189)=5{,}292$, and $7{,}308-5{,}292=2{,}016$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($72$): reports the survey margin, forgetting that $12{,}600$ is far larger than $450$.\n* Choice C ($5{,}292$): scales the $189$ opposed and reports that projected count.\n* Choice D ($7{,}308$): scales the $261$ in favor and reports that projected count.\n\n**Test Day Takeaway:** Scale the difference, not the individual counts. The two approaches agree, but scaling the margin takes one multiplication.",
+    explanation: "**SAT Pattern: Poll Scaling — Margin of Victory (Variant)**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The vote is $\\frac{12{,}600}{450} = 28$ times the survey, and the survey margin is $261 - 189 = 72$, so the expected margin is $28(72) = 2{,}016$.\n\n**The Full Solution:**\nStep 1: Find the scale factor from the survey to the vote: $\\frac{12{,}600}{450} = 28$.\nStep 2: Read the margin from the table: $261 - 189 = 72$ residents.\nStep 3: Scale the margin: $28(72) = 2{,}016$. Check: $28(261) = 7{,}308$ and $28(189) = 5{,}292$, and $7{,}308 - 5{,}292 = 2{,}016$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($72$): is the margin among the $450$ residents surveyed, not among the $12{,}600$ voters.\n* Choice C ($5{,}292$): is the expected number of votes against the proposal, not the margin.\n* Choice D ($7{,}308$): is the expected number of votes in favor, not the margin.\n\n**Test Day Takeaway:** Scale the difference, not the individual counts; the two approaches agree, but scaling the margin takes one step.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "proportion-setup",
@@ -10523,19 +10523,19 @@ export const problemSolvingBank = [
     skills: ["conditional-probability", "two-way-table"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A public health department screened $600$ samples for a virus at three collection sites. The table summarizes the results by site and by whether the sample tested positive or negative. One of these $600$ samples will be selected at random. What is the probability of selecting a sample that tested positive, given that the sample was not collected at Site 3?",
+    question: "A town tested $600$ water samples from three sites for bacteria. The table shows the results. One of these samples will be selected at random. What is the probability of selecting a sample that tested positive, given that the sample was not collected at Site 3?",
     diagram: { type: "twoWayTable", params: { headers: ["Site", "Positive", "Negative", "Total"], rows: [["Site 1", "12", "108", "120"], ["Site 2", "27", "153", "180"], ["Site 3", "21", "279", "300"], ["Total", "60", "540", "600"]] } },
     choices: [
-      // distractor: divides the 39 positives from Sites 1 and 2 by the grand total 600 instead of the 300 samples not from Site 3
+      // distractor: divides the 39 positives from Sites 1 and 2 by all 600 samples
       { id: "A", text: "$\\frac{13}{200}$" },
-      // distractor: reports the overall positive rate 60/600, ignoring the condition entirely
+      // distractor: finds the overall positive rate, 60/600, ignoring the condition
       { id: "B", text: "$\\frac{1}{10}$" },
       { id: "C", text: "$\\frac{13}{100}$" },
-      // distractor: divides 39 by Site 1s total of 120 instead of the combined 300 from Sites 1 and 2
+      // distractor: divides 39 by the 120 samples from Site 1 only
       { id: "D", text: "$\\frac{13}{40}$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Two-Way Table Conditional Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Restrict to Sites $1$ and $2$: $120 + 180 = 300$ samples, of which $12 + 27 = 39$ are positive, so the probability is $\\frac{39}{300} = \\frac{13}{100}$.\n\n**The Full Solution:**\nStep 1: Build the restricted group. \"Not collected at Site 3\" keeps Sites $1$ and $2$: $120 + 180 = 300$ samples. That count is the new denominator.\nStep 2: Count the favorable outcomes inside it. Positives from Sites $1$ and $2$ are $12 + 27 = 39$.\nStep 3: Divide and simplify. $\\frac{39}{300} = \\frac{13}{100}$. Check: $13\\%$ of $300$ is $39$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{13}{200}$): divides $39$ by the grand total $600$. Conditioning replaces the denominator with the size of the given group.\n* Choice B ($\\frac{1}{10}$): is $\\frac{60}{600}$, the overall positive rate, which ignores the Site 3 condition.\n* Choice D ($\\frac{13}{40}$): is $\\frac{39}{120}$, using only Site 1 in the denominator instead of Sites 1 and 2 together.\n\n**Test Day Takeaway:** A conditional probability replaces the denominator with the size of the given group. Build that group first, then count inside it.",
+    explanation: "**SAT Pattern: Two-Way Table Conditional Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Sites 1 and 2 have $120 + 180 = 300$ samples, of which $12 + 27 = 39$ are positive, so the probability is $\\frac{39}{300} = \\frac{13}{100}$.\n\n**The Full Solution:**\nStep 1: The condition \"not collected at Site 3\" keeps Sites 1 and 2: $120 + 180 = 300$ samples. This is the new denominator.\nStep 2: Count the positive samples in that group: $12 + 27 = 39$.\nStep 3: Divide and simplify: $\\frac{39}{300} = \\frac{13}{100}$. Check: $\\frac{13}{100}(300) = 39$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{13}{200}$): uses the grand total, $600$, as the denominator. The condition limits the samples to the $300$ from Sites 1 and 2.\n* Choice B ($\\frac{1}{10}$): is $\\frac{60}{600}$, the positive rate for all three sites, which ignores the condition.\n* Choice D ($\\frac{13}{40}$): uses only Site 1's $120$ samples in the denominator instead of Sites 1 and 2 together.\n\n**Test Day Takeaway:** In a conditional probability, the given condition sets the denominator; build that group first, then count inside it.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "two-way-table-conditional",

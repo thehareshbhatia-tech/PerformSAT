@@ -1,61 +1,61 @@
 {
-  "id": "bank-ps-434",
-  "question": "A costume shop's model predicts $f = 3.5g + 12$ yards of fabric for a garment of size $g$, and the table gives the fabric actually used for four garments. For how many of these garments does the fabric used exceed the predicted amount by more than $4$ yards?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "Garment",
-        "Size (g)",
-        "Fabric used (yards)"
-      ],
-      "rows": [
-        [
-          "W",
-          "4",
-          "31"
-        ],
-        [
-          "X",
-          "6",
-          "40"
-        ],
-        [
-          "Y",
-          "8",
-          "46"
-        ],
-        [
-          "Z",
-          "10",
-          "50"
-        ]
-      ]
-    }
+ "id": "bank-ps-434",
+ "question": "The table shows the delivery times for four orders from a restaurant and the distance $g$, in miles, of each delivery. A model predicts a delivery time of $3.5g + 12$ minutes. For how many of these orders did the delivery time exceed the predicted time by more than $4$ minutes?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "Order",
+    "Distance g (miles)",
+    "Delivery time (minutes)"
+   ],
+   "rows": [
+    [
+     "W",
+     "4",
+     "31"
+    ],
+    [
+     "X",
+     "6",
+     "40"
+    ],
+    [
+     "Y",
+     "8",
+     "46"
+    ],
+    [
+     "Z",
+     "10",
+     "50"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$1$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$1$"
-    },
-    {
-      "id": "B",
-      "text": "$2$"
-    },
-    {
-      "id": "C",
-      "text": "$3$"
-    },
-    {
-      "id": "D",
-      "text": "$4$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "counts only the single largest excess, garment X at 7 yards",
-    "B": "counts only the excesses above 5 yards, garments X and Y, using the wrong threshold",
-    "D": "counts every garment whose use exceeds the prediction at all, including garment Z at 3 yards"
+  {
+   "id": "B",
+   "text": "$2$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Predictions are $26$, $33$, $40$, $47$; the excesses are $5$, $7$, $6$, $3$, and three of them clear $4$ yards.\n\n**The Full Solution:**\nStep 1: Predict for each size. $f = 3.5(4) + 12 = 26$, $f = 3.5(6) + 12 = 33$, $f = 3.5(8) + 12 = 40$, $f = 3.5(10) + 12 = 47$ yards.\nStep 2: Subtract predicted from used. Garment W: $31 - 26 = 5$. Garment X: $40 - 33 = 7$. Garment Y: $46 - 40 = 6$. Garment Z: $50 - 47 = 3$.\nStep 3: Apply the threshold. The excesses greater than $4$ are $5$, $7$, and $6$ — three garments. Garment Z falls short at $3$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): counts only garment X, the single largest excess, instead of every garment that clears $4$ yards.\n* Choice B ($2$): uses a threshold of more than $5$ yards, which keeps only garments X and Y.\n* Choice D ($4$): counts every garment whose use exceeds its prediction, including garment Z, whose excess is only $3$ yards.\n\n**Test Day Takeaway:** A \"how many exceed by more than $k$\" item needs all four residuals computed, then one comparison each — do not stop at the largest."
+  {
+   "id": "C",
+   "text": "$3$"
+  },
+  {
+   "id": "D",
+   "text": "$4$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "counts only order X, whose excess of 7 minutes is the largest",
+  "B": "counts only the excesses of 6 minutes or more, leaving out order W's 5 minutes",
+  "D": "counts every order, including order Z, whose excess is only 3 minutes"
+ },
+ "explanation": "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The model predicts $26$, $33$, $40$, and $47$ minutes; the excesses are $5$, $7$, $6$, and $3$, and three of them are more than $4$.\n\n**The Full Solution:**\nStep 1: Evaluate the model for each distance: $3.5(4) + 12 = 26$, $3.5(6) + 12 = 33$, $3.5(8) + 12 = 40$, and $3.5(10) + 12 = 47$ minutes.\nStep 2: Subtract each prediction from the actual time: $31 - 26 = 5$, $40 - 33 = 7$, $46 - 40 = 6$, and $50 - 47 = 3$.\nStep 3: Three of the differences, $5$, $7$, and $6$, are greater than $4$. Check: order Z's difference, $3$, is the only one that is not ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): counts only the order with the largest excess.\n* Choice B ($2$): drops order W, whose excess of $5$ minutes is still more than $4$.\n* Choice D ($4$): includes order Z, which arrived only $3$ minutes later than predicted.\n\n**Test Day Takeaway:** When a question asks \"for how many,\" compute every difference before counting; one skipped row changes the answer."
 }

@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-444",
-  "question": "The price of a share of a stock rose $25\\%$ during one quarter and then fell $16\\%$ during the next quarter. At the end of the two quarters, the share is worth $\\$210$. What was the share worth, in dollars, at the start of the two quarters?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$168$"
-    },
-    {
-      "id": "B",
-      "text": "$192.66$"
-    },
-    {
-      "id": "C",
-      "text": "$200$"
-    },
-    {
-      "id": "D",
-      "text": "$220.50$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "undoes only the $25\\%$ rise.",
-    "B": "nets the percents to a single $9\\%$ increase instead of multiplying the factors.",
-    "D": "multiplies by the combined factor $1.05$ instead of dividing by it."
+ "id": "bank-ps-444",
+ "question": "A stock's price rose $25\\%$ and then fell $16\\%$, ending at \\$210. What was the stock's price, in dollars, before these changes?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$168$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Reverse Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The two quarters multiply to $1.25\\times 0.84=1.05$, so the starting value is $\\frac{210}{1.05}=200$ dollars.\n\n**The Full Solution:**\nStep 1: Let $s$ be the starting value. A $25\\%$ rise gives $1.25s$.\nStep 2: A $16\\%$ fall from there gives $0.84(1.25s)=1.05s$, so $1.05s=210$.\nStep 3: $s=\\frac{210}{1.05}=200$ dollars. Check: $1.25(200)=250$, and $250-0.16(250)=210$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($168$): computes $\\frac{210}{1.25}$, reversing only the first quarter.\n* Choice B ($192.66$): divides by $1.09$, treating $+25\\%$ then $-16\\%$ as a net $+9\\%$.\n* Choice D ($220.50$): computes $1.05\\times 210$, multiplying by the combined factor instead of dividing.\n\n**Test Day Takeaway:** A rise and a fall do not cancel to the difference of the percents, because the fall is taken from a larger base. Multiply the factors first."
+  {
+   "id": "B",
+   "text": "$200$"
+  },
+  {
+   "id": "C",
+   "text": "$220.50$"
+  },
+  {
+   "id": "D",
+   "text": "$250$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "undoes only the 25% increase, 210/1.25 = 168",
+  "C": "applies the net change to the final price, 210(1.05) = 220.50, instead of undoing it",
+  "D": "undoes only the 16% decrease, 210/0.84 = 250, and ignores the increase before it"
+ },
+ "explanation": "**SAT Pattern: Reverse Percent Multi-Step**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The changes multiply to $1.25(0.84) = 1.05$, so the starting price was $\\frac{210}{1.05} = 200$ dollars.\n\n**The Full Solution:**\nStep 1: Write the changes as multipliers: an increase of $25\\%$ is $1.25$, and a decrease of $16\\%$ is $0.84$.\nStep 2: If the starting price is $s$ dollars, then $1.25(0.84)s = 1.05s = 210$.\nStep 3: Divide: $s = \\frac{210}{1.05} = 200$. Check: $1.25(200) = 250$ and $0.84(250) = 210$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($168$): undoes the increase but ignores the decrease that followed it.\n* Choice C ($220.50$): multiplies by $1.05$ instead of dividing, which moves away from the starting price.\n* Choice D ($250$): undoes the decrease, giving the price after the rise, and stops before undoing the $25\\%$ increase.\n\n**Test Day Takeaway:** A rise followed by a fall is never the difference of the two percents; multiply $1.25 \\times 0.84$ to find the real net change."
 }

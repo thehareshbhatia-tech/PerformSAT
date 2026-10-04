@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-424",
-  "question": "On a scale drawing of a pedestrian bridge, a length of $3$ centimeters represents an actual length of $8$ meters. What actual length, in meters, is represented by a length of $12$ centimeters on the drawing?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$2$"
-    },
-    {
-      "id": "B",
-      "text": "$4.5$"
-    },
-    {
-      "id": "C",
-      "text": "$32$"
-    },
-    {
-      "id": "D",
-      "text": "$96$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "sets up the proportion with the corresponding quantities crossed, solving $\\frac{12}{8}=\\frac{3}{x}$.",
-    "B": "multiplies by $\\frac{3}{8}$ instead of $\\frac{8}{3}$, inverting the scale.",
-    "D": "multiplies $12\\times 8$, as if $1$ centimeter represented $8$ meters."
+ "id": "bank-ps-424",
+ "question": "On a scale drawing, $3$ centimeters represents $8$ meters. What length, in meters, does $12$ centimeters on the drawing represent?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Proportion Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $12$ centimeters is $4$ times $3$ centimeters, so the actual length is $4\\times 8=32$ meters.\n\n**The Full Solution:**\nStep 1: Write the proportion with matching units in matching positions: $\\frac{3\\text{ cm}}{8\\text{ m}}=\\frac{12\\text{ cm}}{x\\text{ m}}$.\nStep 2: Cross multiply: $3x=8(12)=96$.\nStep 3: $x=\\frac{96}{3}=32$ meters. Check: $\\frac{12}{32}=\\frac{3}{8}$, the same ratio. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): crosses the quantities, solving $\\frac{12}{8}=\\frac{3}{x}$.\n* Choice B ($4.5$): multiplies $12$ by $\\frac{3}{8}$, using the scale upside down and shrinking instead of enlarging.\n* Choice D ($96$): multiplies $12\\times 8$, treating $8$ meters as the length represented by $1$ centimeter.\n\n**Test Day Takeaway:** Set the proportion up with like units stacked on like units. A drawing length longer than the given one must produce an actual length longer than the given one."
+  {
+   "id": "B",
+   "text": "$4.5$"
+  },
+  {
+   "id": "C",
+   "text": "$32$"
+  },
+  {
+   "id": "D",
+   "text": "$96$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "finds the scale factor 12/3 = 4 but never multiplies it by 8 meters",
+  "B": "inverts the ratio, computing 12(3/8) = 4.5",
+  "D": "multiplies 12 by 8, treating 1 centimeter as 8 meters"
+ },
+ "explanation": "**SAT Pattern: Proportion Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $12$ centimeters is $4$ times $3$ centimeters, so it represents $4(8) = 32$ meters.\n\n**The Full Solution:**\nStep 1: Set up the proportion $\\frac{3}{8} = \\frac{12}{x}$, where $x$ is the actual length in meters.\nStep 2: Cross multiply: $3x = 96$.\nStep 3: Divide by $3$: $x = 32$. Check: $\\frac{12}{32} = \\frac{3}{8}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): is the number of times $3$ centimeters fits into $12$ centimeters, not a length in meters.\n* Choice B ($4.5$): flips one ratio, multiplying $12$ by $\\frac{3}{8}$ instead of by $\\frac{8}{3}$.\n* Choice D ($96$): multiplies $12$ by $8$ as if each centimeter represented $8$ meters.\n\n**Test Day Takeaway:** Keep the same units in the same position in both ratios: centimeters over meters on each side."
 }

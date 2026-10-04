@@ -1,29 +1,29 @@
 {
-  "id": "bank-ps-452",
-  "question": "At a vaccination campaign, the ratio of first doses administered to booster doses administered is $5$ to $4$, and $n$ doses are administered in all. Which expression gives the number of booster doses administered at the campaign?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$\\frac{4n}{9}$"
-    },
-    {
-      "id": "B",
-      "text": "$\\frac{4n}{5}$"
-    },
-    {
-      "id": "C",
-      "text": "$\\frac{5n}{9}$"
-    },
-    {
-      "id": "D",
-      "text": "$\\frac{9n}{4}$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "divides by the first-dose parts, 5, instead of the total parts, 9",
-    "C": "gives the first-dose share, 5 parts out of 9, rather than the booster share",
-    "D": "inverts the fraction, giving more doses than were administered in all"
+ "id": "bank-ps-452",
+ "question": "A bake sale sold $n$ items, all cookies or muffins. The ratio of cookies sold to muffins sold was $5 : 4$. Which expression represents the number of muffins sold?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{4n}{9}$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Boosters are $4$ of the $5 + 4 = 9$ parts, so they number $\\frac{4}{9}$ of $n$, which is $\\frac{4n}{9}$.\n\n**The Full Solution:**\nStep 1: Add the parts. First doses are $5$ parts and boosters are $4$ parts, so the campaign has $9$ parts in all.\nStep 2: Write the booster share. Boosters make up $\\frac{4}{9}$ of every dose given, so with $n$ doses that is $\\frac{4n}{9}$.\nStep 3: Check with a number. If $n = 900$, then $\\frac{4(900)}{9} = 400$ boosters and $\\frac{5(900)}{9} = 500$ first doses; $400 + 500 = 900$ and $500 : 400 = 5 : 4$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{4n}{5}$): divides by $5$, the first-dose parts, instead of by the $9$ total parts.\n* Choice C ($\\frac{5n}{9}$): is the FIRST-dose share. The question asks for boosters.\n* Choice D ($\\frac{9n}{4}$): flips the fraction and would exceed $n$, more boosters than total doses.\n\n**Test Day Takeaway:** A part of a total is (that part) over (the SUM of the parts). If the expression can exceed the total, the fraction is upside down."
+  {
+   "id": "B",
+   "text": "$\\frac{4n}{5}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{5n}{9}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{9n}{4}$"
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "divides by the cookies' part, 5, instead of by the total number of parts, 9",
+  "C": "finds the number of cookies sold, 5n/9",
+  "D": "inverts the fraction of the total, 9n/4"
+ },
+ "explanation": "**SAT Pattern: Sum-of-Parts Ratio**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Muffins are $4$ of the $5 + 4 = 9$ parts, so the number of muffins is $\\frac{4}{9}n = \\frac{4n}{9}$.\n\n**The Full Solution:**\nStep 1: Add the parts of the ratio: $5 + 4 = 9$.\nStep 2: Muffins make up $4$ of the $9$ parts, so they are $\\frac{4}{9}$ of all items sold.\nStep 3: The number of muffins is $\\frac{4}{9}n = \\frac{4n}{9}$. Check with $n = 90$: $40$ muffins and $50$ cookies, and $50 : 40 = 5 : 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{4n}{5}$): compares muffins with cookies instead of with all $n$ items.\n* Choice C ($\\frac{5n}{9}$): is the number of cookies sold, the $5$ parts.\n* Choice D ($\\frac{9n}{4}$): is greater than $n$, so it cannot be part of the $n$ items.\n\n**Test Day Takeaway:** A part of a total is (its share of the ratio) over (the sum of the ratio); test the expression with an easy $n$."
 }

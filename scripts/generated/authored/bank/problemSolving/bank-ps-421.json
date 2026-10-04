@@ -1,29 +1,29 @@
 {
  "id": "bank-ps-421",
- "question": "A weather station logged a daily maximum UV index reading on each of the $365$ days last year, and $146$ of those readings were at least $8$. What percent of the year's readings were below $8$?",
+ "question": "Of the $425$ students at a school, $153$ walk to school. What percent of the students do not walk to school?",
  "choices": [
   {
    "id": "A",
-   "text": "$40\\%$"
+   "text": "$36\\%$"
   },
   {
    "id": "B",
-   "text": "$60\\%$"
+   "text": "$56.25\\%$"
   },
   {
    "id": "C",
-   "text": "$150\\%$"
+   "text": "$64\\%$"
   },
   {
    "id": "D",
-   "text": "$166.7\\%$"
+   "text": "$156.25\\%$"
   }
  ],
- "correctAnswer": "B",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports the percent of readings that were at least $8$, $\\frac{146}{365} = 40\\%$, the complement of what is asked",
-  "C": "compares the $219$ lower readings with the $146$ higher ones, $\\frac{219}{146} = 150\\%$, instead of with all $365$",
-  "D": "divides the total by the lower group, $\\frac{365}{219} \\approx 166.7\\%$, inverting part and whole"
+  "A": "reports the percent who walk, 153/425 = 36%, the complement of what is asked",
+  "B": "compares the walkers with the non-walkers, 153/272 = 56.25%, instead of with all 425 students",
+  "D": "divides the whole by the part, 425/272 = 156.25%, inverting the fraction"
  },
- "explanation": "**SAT Pattern: Percent of a Whole**\n\n**Choice B is correct.** Readings below $8$ number $365 - 146 = 219$, and $\\frac{219}{365} = 0.60$, or $60\\%$.\n\n**The Fast Way (~30s):** $\\frac{146}{365} = 40\\%$ were at least $8$, so $100 - 40 = 60\\%$ were below $8$.\n\n**The Full Solution:**\n\nStep 1: Count the readings below $8$: $365 - 146 = 219$ readings.\n\nStep 2: Divide by the whole year of readings: $\\frac{219}{365} = 0.60$.\n\nStep 3: Convert to a percent: $0.60(100) = 60\\%$. Check: $40\\% + 60\\% = 100\\%$, and $0.60(365) = 219$ readings.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($40\\%$): is the percent of readings that were at least $8$, the group the question does not ask about.\n* Choice C ($150\\%$): compares the two groups with each other. A part of a whole can never exceed $100\\%$.\n* Choice D ($166.7\\%$): divides the total by the part, reversing the fraction.\n\n**Test Day Takeaway:** A percent of a whole must land between $0$ and $100$ -- an answer above $100$ means the whole ended up in the numerator."
+ "explanation": "**SAT Pattern: Percent of a Whole**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\frac{153}{425} = 0.36$, so $36\\%$ walk and $100\\% - 36\\% = 64\\%$ do not.\n\n**The Full Solution:**\nStep 1: Count the students who do not walk: $425 - 153 = 272$.\nStep 2: Divide by the whole: $\\frac{272}{425} = 0.64$.\nStep 3: Convert to a percent: $0.64 = 64\\%$. Check: $0.64(425) = 272$ and $272 + 153 = 425$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($36\\%$): is the percent of students who walk, the group the question does not ask about.\n* Choice B ($56.25\\%$): divides $153$ by $272$, comparing the two groups with each other rather than with the whole school.\n* Choice D ($156.25\\%$): divides $425$ by $272$. A part of a whole can never be more than $100\\%$ of it.\n\n**Test Day Takeaway:** Percent of a whole is part over whole. Find the part the question names first; an answer above $100\\%$ means the whole ended up in the numerator."
 }
