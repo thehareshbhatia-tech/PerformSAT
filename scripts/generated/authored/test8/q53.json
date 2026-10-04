@@ -21,7 +21,7 @@
  "choices": [
   {
    "id": "A",
-   "text": "Whereas Muybridge photographed motion with a row of cameras that produced a sequence of separate pictures, Marey used a single camera that layered successive instants on one plate."
+   "text": "Whereas Muybridge used a row of cameras to produce a series of separate pictures, Marey used a single camera that layered successive instants on one plate."
   },
   {
    "id": "B",
@@ -29,7 +29,7 @@
   },
   {
    "id": "C",
-   "text": "Muybridge's sequences of separate pictures proved well suited to public display and lecture tours, while Marey's overlapping single-plate records served the precise measurements that his physiological studies of moving bodies required."
+   "text": "Muybridge's sequences of separate pictures suited public lectures, while Marey's overlapping single-plate records served the precise measurements his physiological studies required."
   },
   {
    "id": "D",
@@ -37,5 +37,5 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The goal demands the two methods set against each other, and A does it in one frame: Muybridge's row of cameras yielding a sequence of separate pictures, Marey's single camera layering successive instants on one plate.\n\n**The Full Solution:**\n- Emphasizing a difference requires both photographers' methods in the same sentence, framed as a contrast.\n- Choice A's \"Whereas\" construction pairs the defining features — many cameras, separate images versus one camera, one overlaid plate — exactly as the notes describe them.\n\n**Why the other choices are wrong:**\n- B: It describes only Muybridge's arrangement and never mentions Marey.\n- C: It reports what each man's method suited without stating how the methods themselves differed.\n- D: It emphasizes what the two shared — an interest in motion too fast for the eye — rather than a difference."
+ "explanation": "**Choice A is correct.** The goal demands the two methods set against each other, and A does it in one frame: Muybridge's row of cameras producing a series of separate pictures, Marey's single camera layering successive instants on one plate.\n\n**The Full Solution:**\n- Emphasizing a difference requires both photographers' methods in the same sentence, framed as a contrast.\n- Choice A's \"Whereas\" construction pairs the defining features — many cameras, separate images versus one camera, one overlaid plate — exactly as the notes describe them.\n\n**Why the other choices are wrong:**\n- B: It describes only Muybridge's arrangement and never mentions Marey.\n- C: It reports what each man's method suited without stating how the methods themselves differed.\n- D: It emphasizes what the two shared — an interest in motion too fast for the eye — rather than a difference."
 }

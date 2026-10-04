@@ -24,11 +24,11 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and with no coordinating conjunction between them, a semicolon is the conventional joint.\n\n**The Full Solution:**\n- Clause 1: \"The biologist Arthur DeVries first isolated antifreeze glycoproteins ... in the late 1960s\" — complete.\n- Clause 2: \"the proteins proved so effective that a tiny quantity could measurably lower the freezing point of a flask of water\" — also complete.\n- Related independent clauses joined without \"and,\" \"but,\" or another coordinator take a semicolon.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- C: No punctuation at all fuses the clauses into a run-on.\n- D: A colon signals that what follows explains or specifies what precedes; the second clause reports a further development, not an elaboration of the isolation date.",
- "passage": "The biologist Arthur DeVries first isolated antifreeze glycoproteins from the blood of Antarctic notothenioid fish in the late ______ the proteins proved so effective that a tiny quantity could measurably lower the freezing point of a flask of water.",
+ "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and with no coordinating conjunction between them, a semicolon is the conventional joint.\n\n**The Full Solution:**\n- Clause 1: \"The biologist Arthur DeVries first isolated antifreeze glycoproteins ... in the late 1960s\" — complete.\n- Clause 2: \"nearly identical proteins were later found in Arctic cod, which had evolved them independently\" — also complete.\n- Related independent clauses joined without \"and,\" \"but,\" or another coordinator take a semicolon.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- C: No punctuation at all fuses the clauses into a run-on.\n- D: A colon signals that what follows explains or specifies what precedes; the second clause reports a later, separate discovery, not an explanation of DeVries's isolation of the proteins.",
+ "passage": "The biologist Arthur DeVries first isolated antifreeze glycoproteins from the blood of Antarctic notothenioid fish in the late ______ nearly identical proteins were later found in Arctic cod, which had evolved them independently.",
  "_meta": {
   "rule": "semicolon between independent clauses without a coordinator",
-  "anchor": "Antarctic fish antifreeze proteins — DeVries isolation",
+  "anchor": "Antarctic fish antifreeze proteins — DeVries isolation (late 1960s); convergent AFGPs in Arctic cod (Chen, DeVries & Cheng, PNAS 1997, PMID 9108061)",
   "distractors": {
    "A": "comma splice",
    "C": "fused run-on",

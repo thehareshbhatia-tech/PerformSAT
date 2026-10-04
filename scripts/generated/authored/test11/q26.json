@@ -8,7 +8,7 @@
  "choices": [
   {
    "id": "A",
-   "text": "The weave of a Montecristi superfino can be so tight that the hat holds water and can be rolled up to pass through a wedding ring."
+   "text": "A Montecristi superfino can be woven with as many as 3,000 weaves per square inch."
   },
   {
    "id": "B",
@@ -24,20 +24,20 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The goal is to emphasize the fineness that sets a Montecristi superfino apart, and A delivers the notes' two most vivid measures of that fineness: a weave tight enough to hold water and supple enough to pass through a wedding ring.\n\n**The Full Solution:**\n- The goal word is \"fineness\" — the sentence must make the quality of the weave itself the star.\n- The fourth note supplies exactly the demonstration: water-tightness and the wedding-ring roll are consequences only an extraordinarily tight weave could produce.\n- Choice A converts that note into a single claim about the superfino, accomplishing the emphasis directly.\n\n**Why the other choices are wrong:**\n- B: The UNESCO listing honors the craft tradition but conveys nothing about how fine a superfino's weave is.\n- C: The Ecuador-not-Panama correction is geography, not fineness.\n- D: It defines the measurement and locates the town but never says what makes a superfino's weave remarkable.",
+ "explanation": "**Choice A is correct.** The goal is to emphasize the fineness that sets a Montecristi superfino apart, and A delivers the notes' most striking measure of that fineness: as many as 3,000 weaves in a single square inch.\n\n**The Full Solution:**\n- The goal word is \"fineness\" — the sentence must make the quality of the weave itself the star.\n- The third note defines fineness as weave count; the fourth supplies the superfino's extraordinary count.\n- Choice A converts that note into a single claim about the superfino, accomplishing the emphasis directly.\n\n**Why the other choices are wrong:**\n- B: The UNESCO listing honors the craft tradition but conveys nothing about how fine a superfino's weave is.\n- C: The Ecuador-not-Panama correction is geography, not fineness.\n- D: It defines the measurement and locates the town but never says what makes a superfino's weave remarkable.",
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
    "So-called panama hats are woven in Ecuador from straw of the toquilla palm.",
    "The town of Montecristi is known for the finest examples, called superfinos.",
-   "A hat's fineness is measured by its weave count — the number of rows of weave per inch.",
-   "A superfino's weave can be so tight that the hat holds water and can be rolled up to pass through a wedding ring.",
-   "In 2012, UNESCO added toquilla-straw weaving to its list of Intangible Cultural Heritage."
+   "A hat's fineness is measured by its weave count, the number of weaves per square inch.",
+   "The rarest superfinos are woven with as many as 3,000 weaves per square inch.",
+   "In 2012, UNESCO added the weaving of the traditional toquilla straw hat to its Intangible Cultural Heritage lists."
   ],
   "goal": "The student wants to emphasize the fineness that distinguishes a Montecristi superfino."
  },
  "_meta": {
-  "anchor": "panama-hat weaving — Montecristi superfino fineness",
+  "anchor": "panama-hat weaving — Montecristi superfino fineness (up to 3,000 weaves per square inch — Wikipedia, Panama hat; UNESCO inscription 5 Dec 2012)",
   "distractors": {
    "B": "honor, not fineness",
    "C": "geography, not fineness",

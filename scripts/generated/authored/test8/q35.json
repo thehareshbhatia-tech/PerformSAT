@@ -9,32 +9,32 @@
  "passages": [
   {
    "label": "Text 1",
-   "text": "For centuries painters showed galloping horses in the \"flying gallop,\" forelegs and hind legs stretched out together like a rocking horse. In 1878, Eadweard Muybridge's sequential photographs caught what no eye could: a galloping horse gathers its hooves beneath its body when airborne. Many accounts hold that these images settled the question at once — the camera was an impartial witness, and painters and scientists alike accepted its verdict."
+   "text": "For centuries painters showed galloping horses in the \"flying gallop,\" forelegs stretched forward and hind legs back. In 1878, Eadweard Muybridge's sequential photographs caught what no eye could: a galloping horse is airborne when its legs are gathered beneath its body. Many accounts hold that these images settled the matter at once: the camera was an impartial witness, and artists were bound to accept its verdict."
   },
   {
    "label": "Text 2",
-   "text": "The art historian Marta Braun has traced how Muybridge's pictures were actually received. Many painters went on depicting the flying gallop for decades, and prominent critics argued that a pose invisible to the human eye, however real, was false to the experience a painting should convey. The photographs' authority, Braun argues, was not self-evident; it had to be argued for, and the argument took a generation."
+   "text": "The sculptor Auguste Rodin, in conversations published in 1911, defended Théodore Géricault's painting of horses racing at Epsom in the flying gallop. A photograph, Rodin argued, freezes a single instant, while a painting must convey a movement unfolding over several moments. By that standard, he said, \"it is the artist who is truthful and it is photography which lies.\""
   }
  ],
- "question": "Based on the texts, how would Braun (Text 2) most likely respond to the account presented in Text 1?",
+ "question": "Based on the texts, how would Rodin (Text 2) most likely respond to the account presented in Text 1?",
  "choices": [
   {
    "id": "A",
-   "text": "She would object that the photographs' evidence did not compel acceptance by itself, noting that many artists long continued to paint poses the camera had contradicted."
+   "text": "He would deny that the photographs' accuracy obliged artists to give up the flying gallop, since art must convey motion over time."
   },
   {
    "id": "B",
-   "text": "She would argue that the photographs were technically flawed and therefore misrepresented the positions of the horse's legs."
+   "text": "He would argue that the photographs were technically flawed and therefore misrepresented the positions of the horse's legs."
   },
   {
    "id": "C",
-   "text": "She would contend that the shutters of early cameras were too unreliable for the sequences to count as evidence."
+   "text": "He would contend that painters had understood the true positions of a galloping horse's legs long before photography."
   },
   {
    "id": "D",
-   "text": "She would insist that credit for the photographic sequences belongs to the track owners who financed them."
+   "text": "He would insist that credit for the photographic sequences belongs to the wealthy patron who financed them rather than to Muybridge himself."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** Braun's central point is that the photographs' authority had to be argued for, not merely displayed — so she would object to Text 1's claim that the camera's impartial evidence settled matters by itself, citing the artists who went on painting the old poses.\n\n**The Full Solution:**\n- Text 1's account: instantaneous photographs resolved the gallop debate because the camera was an impartial witness whose verdict was accepted.\n- Text 2 assembles counterevidence: painters kept the flying gallop for decades, and critics argued that poses no eye could see were false to art.\n- Choice A is precisely that response — the evidence did not compel assent on its own.\n\n**Why the other choices are wrong:**\n- B: Braun never questions the photographs' technical accuracy, only the assumption that accuracy commanded acceptance.\n- C: Text 2 says nothing about the cameras or their shutters being unreliable.\n- D: Braun discusses the reception of the photographs, not who deserves credit for making them."
+ "explanation": "**Choice A is correct.** Rodin holds that a painting must convey movement unfolding over time, which a photograph's frozen instant cannot, so he would reject Text 1's claim that the camera's verdict bound artists to abandon the flying gallop.\n\n**The Full Solution:**\n- Text 1's account: Muybridge's photographs settled the matter because the camera was an impartial witness that artists had to accept.\n- Text 2: Rodin defends Géricault's flying gallop, arguing that \"it is the artist who is truthful and it is photography which lies,\" because art must show motion over several moments.\n- Choice A states that response: accurate photographs did not oblige artists to give up the old pose.\n\n**Why the other choices are wrong:**\n- B: Rodin does not question the photographs' accuracy; his objection is that a frozen instant is the wrong standard for art.\n- C: Text 2 makes no claim that painters knew the true leg positions before photography.\n- D: Rodin discusses what art should show, not who deserves credit for the photographs."
 }

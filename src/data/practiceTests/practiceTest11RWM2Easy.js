@@ -27,7 +27,7 @@ export const practiceTest11RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "In a crayon factory, color is checked before anything else happens. A sample from each fresh batch of heated wax is set beside a master chip of the intended shade, and the two are compared under standard light. Because pigment is costly and a mismatched batch would waste hundreds of pounds of wax, workers do not discard a batch that misses the mark; they ______ it, stirring in small amounts of pigment until the sample and the chip agree.",
+      "passage": "In a crayon factory, a sample from each fresh batch of colored wax is checked against a master chip of the intended shade. Because a mismatched batch would waste hundreds of pounds of wax, workers do not discard a batch that misses the mark; they ______ it, stirring in small amounts of pigment until the sample and the chip agree.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "abandon" },
@@ -45,7 +45,7 @@ export const practiceTest11RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Curb cuts were added to sidewalks so that wheelchair users could cross streets without confronting a sharp drop at every corner. Once the ramps were in place, however, their usefulness refused to stay confined to one group: parents pushing strollers, workers wheeling loaded dollies, and travelers dragging suitcases all sought them out. Planners now cite the curb cut as proof that a design aimed at a few can ______ many.",
+      "passage": "Curb cuts were added to sidewalks so that wheelchair users could cross streets without facing a sharp drop at every corner. Once in place, however, the ramps proved useful far beyond one group: parents pushing strollers, children on bicycles, and shoppers with carts all used them. Planners now cite the curb cut as proof that a design aimed at a few can ______ many.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "burden" },
@@ -54,7 +54,7 @@ export const practiceTest11RWM2Easy = {
         { "id": "D", "text": "serve" }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The passage lists group after group that benefits from the ramps, so a design aimed at a few turned out to \"serve\" many.\n\n**The Full Solution:**\n- How to spot it: the sentence before the blank is a list of unexpected beneficiaries — stroller parents, dolly-pushing workers, travelers with suitcases.\n- The final sentence turns that list into a general lesson, so the blank must name what the design does for all those people.\n- The ramps help them; \"serve\" states that plainly, completing the contrast between \"a few\" and \"many.\"\n\n**Why the other choices are wrong:**\n- A: \"Burden\" is the opposite of what the passage describes — everyone named is helped, not weighed down.\n- B: \"Divide\" would mean the ramps split people apart, but the passage shows them being useful to everyone alike.\n- C: \"Imitate\" means to copy, and nothing in the passage is copying anything."
+      "explanation": "**Choice D is correct.** The passage lists group after group that benefits from the ramps, so a design aimed at a few turned out to \"serve\" many.\n\n**The Full Solution:**\n- How to spot it: the sentence before the blank is a list of unexpected beneficiaries — parents with strollers, children on bicycles, shoppers with carts.\n- The final sentence turns that list into a general lesson, so the blank must name what the design does for all those people.\n- The ramps help them; \"serve\" states that plainly, completing the contrast between \"a few\" and \"many.\"\n\n**Why the other choices are wrong:**\n- A: \"Burden\" is the opposite of what the passage describes — everyone named is helped, not weighed down.\n- B: \"Divide\" would mean the ramps split people apart, but the passage shows them being useful to everyone alike.\n- C: \"Imitate\" means to copy, and nothing in the passage is copying anything."
     },
     {
       "id": 1155,
@@ -331,7 +331,7 @@ export const practiceTest11RWM2Easy = {
       "band": 4,
       "domain": "information-and-ideas",
       "skill": "inferences",
-      "passage": "In schoolyards where sticker collecting takes hold, an informal market springs up at recess, and traders price stickers with surprising consistency: common designs swap one for one, while a scarce design can command ten or more in exchange. The scarcity is usually manufactured. Publishers print certain designs in deliberately small numbers, knowing that hunting for the rare ones keeps children buying packets. Yet every sticker in a packet costs the publisher the same fraction of a cent to print. Observers of these markets note that two stickers of identical quality and printing cost ______",
+      "passage": "In schoolyards where sticker collecting takes hold, an informal market springs up at recess, and traders price stickers with surprising consistency: common designs swap one for one, while a scarce design can command ten or more in exchange. The scarcity is often manufactured. Some publishers print certain designs in deliberately small numbers, knowing that hunting for the rare ones keeps children buying packets. Yet every sticker in a packet costs the publisher the same fraction of a cent to print. Observers of these markets note that two stickers of identical quality and printing cost ______",
       "question": "Which choice most logically completes the text?",
       "choices": [
         { "id": "A", "text": "will trade at the same rate, since traders at recess have no way of knowing how many copies of each design exist." },
@@ -424,7 +424,7 @@ export const practiceTest11RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "Curb cuts ______ first appeared in large numbers in the 1970s, after years of advocacy by wheelchair users. The ramps must slope gently enough for a chair to climb, which is why rebuilding a single corner can cost a city thousands of dollars.",
+      "passage": "Curb cuts ______ spread to sidewalks across the United States after the Americans with Disabilities Act of 1990 required them. The ramps must slope gently enough for a wheelchair user to climb them without help.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": ", the short ramps that carry a sidewalk down to street level" },
@@ -433,7 +433,7 @@ export const practiceTest11RWM2Easy = {
         { "id": "D", "text": " the short ramps that carry a sidewalk down to street level," }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The phrase \"the short ramps that carry a sidewalk down to street level\" is extra information about something already named, so it needs a comma both before and after it.\n\n**The Full Solution:**\n- How to spot it: ask whether you could lift the phrase out and still know exactly what the sentence is about. \"Curb cuts first appeared in large numbers in the 1970s\" works on its own, so the phrase is added detail, not identification.\n- Extra detail dropped into the middle of a sentence gets fenced off with the same mark on each side.\n- Choice C puts a comma before the phrase and a comma after it, closing the fence properly.\n\n**Why the other choices are wrong:**\n- A: A comma before but none after leaves the added phrase open at one end.\n- B: No commas at all treat the phrase as needed to identify the curb cuts, which it is not.\n- D: A comma after but none before likewise leaves one end unfenced."
+      "explanation": "**Choice C is correct.** The phrase \"the short ramps that carry a sidewalk down to street level\" is extra information about something already named, so it needs a comma both before and after it.\n\n**The Full Solution:**\n- How to spot it: ask whether you could lift the phrase out and still know exactly what the sentence is about. \"Curb cuts spread to sidewalks across the United States\" works on its own, so the phrase is added detail, not identification.\n- Extra detail dropped into the middle of a sentence gets fenced off with the same mark on each side.\n- Choice C puts a comma before the phrase and a comma after it, closing the fence properly.\n\n**Why the other choices are wrong:**\n- A: A comma before but none after leaves the added phrase open at one end.\n- B: No commas at all treat the phrase as needed to identify the curb cuts, which it is not.\n- D: A comma after but none before likewise leaves one end unfenced."
     },
     {
       "id": 1174,
@@ -481,7 +481,7 @@ export const practiceTest11RWM2Easy = {
       "band": 3,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "A bare steel slide in full afternoon sun can reach temperatures hot enough to burn the backs of a child's legs. Plastic surfaces absorb far less heat, and a slide angled to face north sits in its own shade through the hottest hours of the day. ______ many newer playgrounds combine plastic slides with north-facing placement, and midsummer visitors can use them straight through the afternoon.",
+      "passage": "A bare steel slide in full afternoon sun can grow hot enough to burn a child's skin. Plastic passes heat into skin more slowly than steel does, and a slide that faces north keeps its surface out of the strongest afternoon sun. ______ many newer playgrounds combine plastic slides with north-facing placement, so children can keep using them through summer afternoons.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Consequently," },
@@ -490,7 +490,7 @@ export const practiceTest11RWM2Easy = {
         { "id": "D", "text": "Granted," }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The sentences before the blank give the reasons — steel burns, plastic stays cooler, north-facing slides shade themselves — and the sentence with the blank reports what playgrounds have done about it, so a result transition fits.\n\n**The Full Solution:**\n- How to spot it: check whether the final sentence names an EFFECT of what came before. Here the earlier sentences supply a problem and two cooling facts, and the last sentence shows builders acting on exactly those facts.\n- The problem: a sun-soaked steel slide gets dangerously hot. The facts: plastic absorbs less heat, and a north-facing slide sits in its own shade.\n- The response: newer playgrounds \"combine plastic slides with north-facing placement\" — the design follows from the facts, so \"Consequently\" is the right link.\n\n**Why the other choices are wrong:**\n- B: \"Meanwhile\" signals a second scene unfolding at the same time, and there is no second timeline here.\n- C: \"For example\" would make the playground design an example of the heat facts, but it is a response to them.\n- D: \"Granted\" concedes a point against an argument, and this sentence supports the reasoning rather than working against it."
+      "explanation": "**Choice A is correct.** The sentences before the blank give the reasons — steel burns, plastic passes heat more slowly, north-facing slides avoid the strongest sun — and the sentence with the blank reports what playgrounds have done about it, so a result transition fits.\n\n**The Full Solution:**\n- How to spot it: check whether the final sentence names an EFFECT of what came before. Here the earlier sentences supply a problem and two cooling facts, and the last sentence shows builders acting on exactly those facts.\n- The problem: a sun-soaked steel slide gets dangerously hot. The facts: plastic passes heat into skin more slowly, and a north-facing slide stays out of the strongest afternoon sun.\n- The response: newer playgrounds \"combine plastic slides with north-facing placement\" — the design follows from the facts, so \"Consequently\" is the right link.\n\n**Why the other choices are wrong:**\n- B: \"Meanwhile\" signals a second scene unfolding at the same time, and there is no second timeline here.\n- C: \"For example\" would make the playground design an example of the heat facts, but it is a response to them.\n- D: \"Granted\" concedes a point against an argument, and this sentence supports the reasoning rather than working against it."
     },
     {
       "id": 1179,
@@ -499,7 +499,7 @@ export const practiceTest11RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Burying a class time capsule has an undeniable ceremony to it: the shovels, the marked spot, the promise that the ground will keep the secret for twenty-five years. Damp soil, though, is a poor guardian of paper, and even a container sold as watertight usually admits enough moisture over the decades to spot photographs and fuse newsprint into a single gray brick. ______ preservation experts who advise schools rarely argue against the ritual itself; they suggest sealing the capsule indoors, in a dry closet or display case, where the ceremony survives and the contents do too.",
+      "passage": "Burying a class time capsule is a satisfying ceremony, but damp soil is a poor guardian of paper: even a container sold as watertight usually admits enough moisture over the decades to ruin photographs and newsprint. ______ preservation experts rarely argue against the ritual itself; they suggest sealing the capsule indoors, in a dry closet, where the ceremony and the contents both survive.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Similarly," },
@@ -508,7 +508,7 @@ export const practiceTest11RWM2Easy = {
         { "id": "D", "text": "Indeed," }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The middle sentence builds a strong case against burial — moisture ruins photographs and newsprint — yet the sentence with the blank reports that the experts do NOT attack the ritual; they relocate it. A concession transition marks that turn.\n\n**The Full Solution:**\n- How to spot it: ask whether the final sentence goes where the previous one was pointing. The damp-soil sentence points toward abandoning burial altogether.\n- The final sentence swerves: \"rarely argue against the ritual itself\" — despite the damage case just made, the experts keep the ceremony and merely move it indoors.\n- A sentence that holds its ground in spite of what preceded it takes \"Even so.\"\n\n**Why the other choices are wrong:**\n- A: \"Similarly\" needs a parallel case, but the experts' advice answers the moisture problem rather than resembling it.\n- C: \"In other words\" promises a restatement, but the final sentence adds new advice instead of rephrasing the damage report.\n- D: \"Indeed\" would intensify the point about moisture damage, yet the sentence pivots away from that point rather than pressing it further."
+      "explanation": "**Choice B is correct.** The first sentence builds a strong case against burial — moisture ruins photographs and newsprint — yet the sentence with the blank reports that the experts do NOT attack the ritual; they relocate it. A concession transition marks that turn.\n\n**The Full Solution:**\n- How to spot it: ask whether the final sentence goes where the previous one was pointing. The damp-soil sentence points toward abandoning burial altogether.\n- The final sentence swerves: \"rarely argue against the ritual itself\" — despite the damage case just made, the experts keep the ceremony and merely move it indoors.\n- A sentence that holds its ground in spite of what preceded it takes \"Even so.\"\n\n**Why the other choices are wrong:**\n- A: \"Similarly\" needs a parallel case, but the experts' advice answers the moisture problem rather than resembling it.\n- C: \"In other words\" promises a restatement, but the final sentence adds new advice instead of rephrasing the damage report.\n- D: \"Indeed\" would intensify the point about moisture damage, yet the sentence pivots away from that point rather than pressing it further."
     },
     {
       "id": 1180,

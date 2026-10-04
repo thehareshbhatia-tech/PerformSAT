@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 2,
- "passage": "Even at a walking pace, the canal boat held one advantage the railway companies were slow to erase: on still water, a single horse could move a load that would have crowded a highway. ______ a boat drawn by one horse and worked by a crew of two could carry some thirty tons of coal, a cargo that would have required a dozen wagons and their teams on the turnpike.",
+ "passage": "Even at a walking pace, the canal boat held a great advantage over the road: on still water, one horse could move a load that would have needed many teams on land. ______ a horse that could draw only about five-eighths of a ton in a cart on a soft road could pull up to thirty tons in a boat on a canal.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The second sentence descends from the general claim — the canal's advantage lay in what one horse could move — to the precise figures behind it, and \"Specifically,\" is the transition that introduces exactly that sharpening.\n\n**The Full Solution:**\n- Sentence one makes a general economic point: the canals' case against the railways rested on the extraordinary load a single horse could draw on water.\n- Sentence two supplies the particulars: one horse, two crew, thirty tons — against the dozen wagons the same load would demand on the road.\n- Moving from claim to exact detail calls for \"Specifically.\"\n\n**Why the other choices are wrong:**\n- B: \"Likewise,\" promises a parallel new point, but the second sentence details the first rather than adding another.\n- C: \"As a result,\" would make the figures a consequence of the claim, though they are its content.\n- D: \"By contrast,\" signals opposition, and no opposing idea appears between the two sentences."
+ "explanation": "**Choice A is correct.** The second sentence moves from the general claim (one horse could move far more on water) to the precise figures behind it, and \"Specifically,\" is the transition that introduces exactly that sharpening.\n\n**The Full Solution:**\n- Sentence one makes a general point: on still water, one horse could move a load that would need many teams on land.\n- Sentence two supplies the particulars: about five-eighths of a ton in a cart on a soft road against up to thirty tons in a canal boat.\n- Moving from a claim to the exact detail behind it calls for \"Specifically.\"\n\n**Why the other choices are wrong:**\n- B: \"Alternatively,\" offers a different option, but the second sentence details the first rather than offering a substitute for it.\n- C: \"As a result,\" would make the figures a consequence of the claim, though they are its content.\n- D: \"By contrast,\" signals opposition, and no opposing idea appears between the two sentences."
 }

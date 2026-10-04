@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "Many mangroves do not shed dormant seeds; a seed sprouts while still attached to the parent tree and drops into the water as a green, pencil-shaped seedling already capable of growth. Buoyant and stocked with food reserves, these seedlings can float for weeks, allowing coastal currents to ____ them along the shore, sometimes lodging them on mudflats far from the forest where they grew.",
+ "passage": "Many mangroves do not shed dormant seeds; a seed sprouts while still attached to the parent tree and drops into the water as a pencil-shaped seedling already capable of growth. Buoyant and stocked with food reserves, these seedlings can float for weeks, allowing currents to ____ them along the shore, sometimes far from the forest where they grew.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The blank needs a verb naming what coastal currents do to the buoyant seedlings, and \"disperse\" — carry them away and spread them along the shore — is exactly the role the passage assigns the currents.\n\n**The Full Solution:**\n- The passage explains that mangrove seedlings drop from the parent already sprouted and able to float for weeks.\n- Because they float, the currents can carry them to distant shorelines, where they lodge and root.\n- Spreading offspring away from the parent is dispersal, so \"disperse\" completes the logic.\n\n**Why the other choices are wrong:**\n- A: \"Conceal\" would mean the currents hide the seedlings, a function the passage never suggests.\n- C: \"Nourish\" misstates the currents' role — the seedlings carry their own reserves; the water transports rather than feeds them.\n- D: \"Assemble\" would have the currents gathering seedlings together, the opposite of spreading them along a coast."
+ "explanation": "**Choice B is correct.** The blank needs a verb naming what currents do to the buoyant seedlings, and \"disperse\" — carry them away and spread them along the shore — is exactly the role the passage assigns the currents.\n\n**The Full Solution:**\n- The passage explains that mangrove seedlings drop from the parent already sprouted and able to float for weeks.\n- Because they float, the currents can carry them to distant shorelines, where they lodge and root.\n- Spreading offspring away from the parent is dispersal, so \"disperse\" completes the logic.\n\n**Why the other choices are wrong:**\n- A: \"Conceal\" would mean the currents hide the seedlings, a function the passage never suggests.\n- C: \"Nourish\" misstates the currents' role — the seedlings carry their own reserves; the water transports rather than feeds them.\n- D: \"Assemble\" would have the currents gathering seedlings together, the opposite of spreading them along a coast."
 }

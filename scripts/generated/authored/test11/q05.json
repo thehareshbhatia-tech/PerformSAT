@@ -12,7 +12,7 @@
   },
   {
    "id": "B",
-   "text": "The speaker describes the street below her window, sets the moon against the city's glare, and closes by siding with the moon."
+   "text": "The speaker describes the city and its street at night, sets the moon against the city's glare, and closes by siding with the moon."
   },
   {
    "id": "C",
@@ -24,12 +24,12 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The poem moves in three steps: the watered, lamp-lit street below (\"Like a slow-moving river\"), then the moon opposite the window, outshone by the city's white lamps, and finally the speaker's declaration — \"She is thin and lustreless, / But I love her. / I know the moon, / And this is an alien city.\"\n\n**The Full Solution:**\n- Stanza 1 is street-level observation: lamps, cabs, tramps, a \"squalid and sinister\" city.\n- Stanza 2 raises the eyes to the moon and stages the contest — \"She cannot light the city; / It is too bright.\"\n- Stanza 3 resolves it in the moon's favor on grounds of familiarity, not brightness. Description, contrast, allegiance: that is choice B's sequence.\n\n**Why the other choices are wrong:**\n- A: The speaker never walks — she watches from a window — and no countryside appears anywhere in the poem.\n- C: The poem contains no daytime scene to compare against; everything happens at 2 a.m.\n- D: It reverses the speaker's attitude — the city is \"squalid and sinister,\" not celebrated, and the moon is loved despite being outshone.",
- "passage": "The following text is from Amy Lowell's 1914 poem \"A London Thoroughfare. 2 A.M.\"\n\nThey have watered the street,\nIt shines in the glare of lamps,\nCold, white lamps,\nAnd lies\nLike a slow-moving river,\nBarred with silver and black.\nCabs go down it,\nOne,\nAnd then another.\nBetween them I hear the shuffling of feet.\nTramps doze on the window-ledges,\nNight-walkers pass along the sidewalks.\nThe city is squalid and sinister,\nWith the silver-barred street in the midst,\nSlow-moving,\nA river leading nowhere.\n\nOpposite my window,\nThe moon cuts,\nClear and round,\nThrough the plum-coloured night.\nShe cannot light the city;\nIt is too bright.\nIt has white lamps,\nAnd glitters coldly.\n\nI stand in the window and watch the moon.\nShe is thin and lustreless,\nBut I love her.\nI know the moon,\nAnd this is an alien city.",
+ "explanation": "**Choice B is correct.** The excerpt moves in three steps: the \"squalid and sinister\" city with its silver-barred street, then the moon opposite the window, outshone by the city's white lamps, and finally the speaker's declaration — \"She is thin and lustreless, / But I love her. / I know the moon, / And this is an alien city.\"\n\n**The Full Solution:**\n- The first stanza is description: the city and the street that runs through it \"Like\" a river \"leading nowhere.\"\n- The second stanza raises the eyes to the moon and stages the contest — \"She cannot light the city; / It is too bright.\"\n- The third stanza resolves it in the moon's favor on grounds of familiarity, not brightness. Description, contrast, allegiance: that is choice B's sequence.\n\n**Why the other choices are wrong:**\n- A: The speaker never walks — she watches from a window — and no countryside appears anywhere in the excerpt.\n- C: The excerpt contains no daytime scene to compare against; everything happens at night.\n- D: It reverses the speaker's attitude — the city is \"squalid and sinister,\" not celebrated, and the moon is loved despite being outshone.",
+ "passage": "The following text is from Amy Lowell's 1914 poem \"A London Thoroughfare. 2 A.M.\"\n\nThe city is squalid and sinister,\nWith the silver-barred street in the midst,\nSlow-moving,\nA river leading nowhere.\n\nOpposite my window,\nThe moon cuts,\nClear and round,\nThrough the plum-coloured night.\nShe cannot light the city;\nIt is too bright.\nIt has white lamps,\nAnd glitters coldly.\n\nI stand in the window and watch the moon.\nShe is thin and lustreless,\nBut I love her.\nI know the moon,\nAnd this is an alien city.",
  "_meta": {
-  "anchor": "Amy Lowell, \"A London Thoroughfare. 2 A.M.\" (1914) — genuine public-domain text, complete poem verbatim",
+  "anchor": "Amy Lowell, \"A London Thoroughfare. 2 A.M.\" (1914) — genuine public-domain text, final 19 lines verbatim",
   "quoteVerify": true,
-  "source": "Amy Lowell, \"A London Thoroughfare. 2 A.M.,\" Sword Blades and Poppy Seed (1914) — Project Gutenberg ebook 1020, text verified verbatim",
+  "source": "Amy Lowell, \"A London Thoroughfare. 2 A.M.,\" Sword Blades and Poppy Seed (1914) — Project Gutenberg ebook 1020, excerpt checked verbatim 2026-10-04 (contiguous final lines)",
   "distractors": {
    "A": "imports a walk and a countryside the poem lacks",
    "C": "imports a daytime scene",

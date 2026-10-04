@@ -8,7 +8,7 @@
  "choices": [
   {
    "id": "A",
-   "text": "Medieval guilds usually preferred to enroll their apprentices from distant regions rather than from the cities and villages closest to them."
+   "text": "Early modern guilds usually preferred to enroll apprentices from distant regions rather than from the cities and villages nearby."
   },
   {
    "id": "B",
@@ -20,14 +20,14 @@
   },
   {
    "id": "D",
-   "text": "Linked apprenticeship registers suggest that medieval young people traveled farther than the familiar image of a rooted population allows."
+   "text": "Apprenticeship registers suggest that early modern young people traveled farther than is commonly assumed."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The text's pivot sentence announces it: the linked entries \"complicate the familiar image of a medieval population rooted in place,\" and the examples that follow — village boys crossing England, German towns weeks apart — all document long-distance movement.\n\n**The Full Solution:**\n- The registers are introduced as a source; the linking of registers across cities is what makes the new picture possible.\n- The evidence sentences give the substance: apprentices drawn from \"villages across the length of England,\" boys enrolled from \"towns weeks of travel away.\"\n- The closing sentence generalizes to the apprentice's own experience — \"the longest journey of their lives\" — sealing mobility as the idea every part serves. That is choice D.\n\n**Why the other choices are wrong:**\n- A: The text says apprentices came from far away, not that guilds preferred distant recruits over local ones.\n- B: Completion rates are never mentioned.\n- C: It reverses the text's stance — the registers are presented as revealing patterns \"no other source preserved,\" not as too broken to use.",
- "passage": "Medieval guilds kept careful rolls of the apprentices their masters enrolled, recording each boy's name, origin, and term of service. Historians have begun linking these registers across cities, and the entries complicate the familiar image of a medieval population rooted in place. London's companies drew apprentices from villages across the length of England; German guilds enrolled boys from towns weeks of travel away. For many, an apprenticeship was not only training for a trade but the occasion for the longest journey of their lives, undertaken on the strength of a contract with a master they had never met.",
+ "explanation": "**Choice D is correct.** The text's pivot sentence announces it: the registers \"complicate the familiar image of a population rooted in place,\" and the evidence that follows — London's companies drawing apprentices from across England, apprenticeship as the longest journey of a young life — documents long-distance movement.\n\n**The Full Solution:**\n- The registers are introduced as a source that records where each apprentice came from.\n- The evidence sentence gives the substance: apprentices drawn from \"villages across the length of England.\"\n- The closing sentence generalizes to the apprentice's own experience — \"the longest journey of their lives\" — sealing mobility as the idea every part serves. That is choice D.\n\n**Why the other choices are wrong:**\n- A: The text says apprentices came from far away, not that guilds preferred distant recruits over local ones.\n- B: Completion rates are never mentioned.\n- C: It reverses the text's stance — the registers are presented as revealing information that overturns a familiar image, not as too broken to use.",
+ "passage": "In early modern Europe, guilds kept careful rolls of the apprentices their masters enrolled, often recording each boy's name, birthplace, and term of service. Historians who have studied these registers find that they complicate the familiar image of a population rooted in place. In the 1500s and 1600s, London's companies drew apprentices from villages across the length of England. For many young people, an apprenticeship was not only training for a trade but the occasion for the longest journey of their lives.",
  "_meta": {
-  "anchor": "medieval guild apprenticeships — registers as evidence of long-distance youth migration",
+  "anchor": "early modern guild apprenticeships — registers as evidence of long-distance youth migration (London companies' recruitment across England, 1500s-1600s)",
   "distractors": {
    "A": "distorts distance evidence into a preference claim",
    "B": "fabricated completion statistic",

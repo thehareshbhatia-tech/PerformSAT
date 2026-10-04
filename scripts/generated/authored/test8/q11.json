@@ -6,12 +6,12 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 1,
- "passage": "On stable rock surfaces in arid country, a dark coating called desert varnish builds up: a skin of clay particles bound with manganese and iron oxides, accumulating at a rate of only a few micrometers per thousand years. People across the world's deserts have turned this coating into a canvas, chipping designs through the dark varnish to expose the paler rock beneath. The contrast is what keeps the images legible: because the coating re-forms so slowly, the exposed pale surface darkens again only on a timescale of millennia, and figures pecked into stone thousands of years ago can still be read today.",
+ "passage": "On stable rock surfaces in arid country, a dark coating called desert varnish builds up: a skin of clay bound with manganese and iron oxides, accumulating only a few micrometers per thousand years. People in many deserts have made petroglyphs by chipping designs through the dark varnish to expose the paler rock beneath. Because the coating re-forms so slowly, the exposed surface darkens again only over millennia, so figures pecked into stone thousands of years ago can still be read today.",
  "question": "According to the text, why do petroglyphs cut into varnished rock remain visible for thousands of years?",
  "choices": [
   {
    "id": "A",
-   "text": "The varnish coating is hard enough to shield the carved designs from weathering."
+   "text": "The varnish coating is hard enough to shield the carved designs from wind and weathering."
   },
   {
    "id": "B",
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The text states that varnish accumulates at only a few micrometers per thousand years, so the pale rock exposed by carving \"darkens again only on a timescale of millennia\" — which is why the designs stay visible so long.\n\n**The Full Solution:**\n- The question asks for the text's stated reason that petroglyphs remain legible.\n- The text explains that carving breaks through the dark coating to lighter rock beneath.\n- It then ties visibility directly to the varnish's pace: because the coating re-forms at a few micrometers per thousand years, the contrast persists.\n\n**Why the other choices are wrong:**\n- A: Hardness is not offered as the reason; the text discusses the varnish's slow regrowth, not its durability under weathering.\n- B: The text never says desert air preserves the carvings.\n- C: The text describes the coating as darker than the rock beneath, not the reverse."
+ "explanation": "**Choice D is correct.** The text states that varnish accumulates at only a few micrometers per thousand years, so the pale rock exposed by carving \"darkens again only over millennia\" — which is why the designs stay visible so long.\n\n**The Full Solution:**\n- The question asks for the text's stated reason that petroglyphs remain legible.\n- The text explains that carving breaks through the dark coating to lighter rock beneath.\n- It then ties visibility directly to the varnish's pace: because the coating re-forms at a few micrometers per thousand years, the contrast persists.\n\n**Why the other choices are wrong:**\n- A: Hardness is not offered as the reason; the text discusses the varnish's slow regrowth, not its durability under weathering.\n- B: The text never says desert air preserves the carvings.\n- C: The text describes the coating as darker than the rock beneath, not the reverse."
 }

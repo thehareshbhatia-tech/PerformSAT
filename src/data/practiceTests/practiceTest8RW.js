@@ -61,7 +61,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The blank needs a verb meaning to tell two things apart, and \"distinguish\" names exactly what the pigment's telltale aging lets conservators do with original paint and later retouches.\n\n**The Full Solution:**\n- The passage explains that verdigris reacts with oil and darkens in a characteristic way over centuries.\n- Retouches added later have not aged the same way, so the difference in the paint's condition lets a conservator separate one from the other — that is, \"distinguish\" them.\n\n**Why the other choices are wrong:**\n- A: \"Conceal\" reverses the point — the aging makes the difference visible, not hidden.\n- C: \"Imitate\" describes copying, but the conservator is identifying paint, not reproducing it.\n- D: \"Postpone\" concerns delaying an event and cannot apply to telling two kinds of paint apart."
+          "explanation": "**Choice B is correct.** The blank needs a verb meaning to tell two things apart, and \"distinguish\" names exactly what the pigment's telltale aging lets conservators do with original paint and later retouches.\n\n**The Full Solution:**\n- The passage explains that verdigris reacts with oil and darkens in a characteristic way over centuries.\n- Retouches added later have not aged the same way, so the difference in the paint's condition lets a conservator separate one from the other — that is, \"distinguish\" them.\n\n**Why the other choices are wrong:**\n- A: \"Conceal\" reverses the point — the aging makes the difference visible, not hidden.\n- C: \"Imitate\" describes copying, but the conservator is identifying paint, not reproducing it.\n- D: \"Reconstruct\" means rebuilding something lost, but the conservator is telling two kinds of paint apart, not restoring anything."
         },
         {
           "id": 804,
@@ -70,7 +70,7 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Historical seismologists work not from instruments but from documents: monastic chronicles, tax remissions granted to shaken towns, contracts for repairing cracked towers. Because a scribe might mention an earthquake only when it damaged his own abbey, researchers must ____ the size of a medieval shock from scattered and uneven testimony — weighing how many towns reported damage and how far apart they lay — rather than reading it off a seismogram.",
+          "passage": "Historical seismologists work not from instruments but from documents: monastic chronicles, tax relief granted to damaged towns, contracts for repairing cracked towers. Because a scribe might mention an earthquake only when it damaged his own abbey, researchers must ____ the size of a medieval shock from scattered testimony, weighing how many towns reported damage and how far apart they lay.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -91,7 +91,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The blank must name what researchers do to a medieval earthquake's size when working from scattered testimony instead of instruments, and \"gauge\" — to estimate a measurement from indirect evidence — fits exactly.\n\n**The Full Solution:**\n- The contrast is between reading a shock's size \"off a seismogram\" and working from chronicles, tax remissions, and repair contracts.\n- Weighing how many towns reported damage and how far apart they lay is a way of estimating magnitude indirectly — of gauging it.\n\n**Why the other choices are wrong:**\n- B: \"Provoke\" would mean causing the earthquake, an absurdity in context.\n- C: \"Overlook\" reverses the researchers' aim, which is to recover the shock's size, not to miss it.\n- D: \"Standardize\" describes imposing uniform conventions on records, not extracting a measurement from them."
+          "explanation": "**Choice A is correct.** The blank must name what researchers do to a medieval earthquake's size when working from scattered testimony instead of instruments, and \"gauge\" — to estimate a measurement from indirect evidence — fits exactly.\n\n**The Full Solution:**\n- The passage contrasts instruments with documents: chronicles, tax relief, and repair contracts.\n- Weighing how many towns reported damage and how far apart they lay is a way of estimating magnitude indirectly — of gauging it.\n\n**Why the other choices are wrong:**\n- B: \"Provoke\" would mean causing the earthquake, an absurdity in context.\n- C: \"Overlook\" reverses the researchers' aim, which is to recover the shock's size, not to miss it.\n- D: \"Standardize\" describes imposing uniform conventions on records, not extracting a measurement from them."
         },
         {
           "id": 803,
@@ -100,7 +100,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "The flash lock — a single gate that loosed a rush of water to sweep boats over a shallow weir — is often described as a crude forerunner of the pound lock. Yet toll registers show flash locks operating beside pound locks on the same rivers for three centuries, evidence that millers and boatmen regarded the older device not as an obsolete relic but as a ____ solution wherever water was scarce and traffic light.",
+          "passage": "The flash lock, a removable section of weir that released a rush of water to carry boats downstream, is often called a crude forerunner of the pound lock. Yet flash locks remained in use beside pound locks on the River Thames for three centuries, until 1937, suggesting that boatmen saw the older device not as an obsolete relic but as a ____ one.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -113,7 +113,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "C",
-              "text": "provisional"
+              "text": "complicated"
             },
             {
               "id": "D",
@@ -121,7 +121,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The sentence contrasts \"an obsolete relic\" with what the toll registers actually suggest, so the blank must credit the flash lock as a workable device — \"serviceable\" does precisely that.\n\n**The Full Solution:**\n- The passage sets up an expectation: the flash lock is \"often described as a crude forerunner\" of the pound lock.\n- The evidence cuts against that expectation — flash locks operated beside pound locks on the same rivers for three centuries.\n- The blank therefore needs a word affirming the older device's continued usefulness where water was scarce and traffic light: \"serviceable.\"\n\n**Why the other choices are wrong:**\n- A: \"Flawless\" overshoots — the passage rehabilitates the flash lock as workable, not perfect.\n- B: \"Temporary\" contradicts the three centuries of side-by-side use the registers document.\n- C: \"Baffling\" imports confusion the passage never expresses about how the device worked."
+          "explanation": "**Choice D is correct.** The sentence contrasts \"an obsolete relic\" with what the flash lock's long survival suggests, so the blank must credit the older device as workable, and \"serviceable\" does precisely that.\n\n**The Full Solution:**\n- The passage sets up an expectation: the flash lock is \"often called a crude forerunner\" of the pound lock.\n- The evidence cuts against that expectation: flash locks stayed in use beside pound locks on the Thames for three centuries.\n- The blank therefore needs a word affirming the older device's continued usefulness: \"serviceable.\"\n\n**Why the other choices are wrong:**\n- A: \"Flawless\" overshoots; the passage presents the flash lock as workable, not perfect.\n- B: \"Temporary\" contradicts three centuries of side-by-side use.\n- C: \"Complicated\" clashes with the passage's picture of a simple device, and the sentence is crediting its usefulness, not its complexity."
         },
         {
           "id": 802,
@@ -160,7 +160,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "The following text is adapted from William Wordsworth's 1807 poem \"I Wandered Lonely as a Cloud.\"\n\n__I wandered lonely as a cloud / That floats on high o'er vales and hills,__ / When all at once I saw a crowd, / A host, of golden daffodils; / Beside the lake, beneath the trees, / Fluttering and dancing in the breeze. // Continuous as the stars that shine / And twinkle on the milky way, / They stretched in never-ending line / Along the margin of a bay: / Ten thousand saw I at a glance, / Tossing their heads in sprightly dance.",
+          "passage": "The following text is adapted from the 1815 version of William Wordsworth's poem \"I Wandered Lonely as a Cloud.\"\n\n__I wandered lonely as a cloud / That floats on high o'er vales and hills,__ / When all at once I saw a crowd, / A host, of golden daffodils; / Beside the lake, beneath the trees, / Fluttering and dancing in the breeze. // Continuous as the stars that shine / And twinkle on the Milky Way, / They stretched in never-ending line / Along the margin of a bay: / Ten thousand saw I at a glance, / Tossing their heads in sprightly dance.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
@@ -190,12 +190,12 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "A cast bell seems the product of a single dramatic pour, but the pour is only one stage among many. First the founder builds the mold: an inner core of brick and loam and an outer cope, each swept to a precise curve by a wooden template pivoting on a central spindle. The finished mold must dry slowly for weeks, since trapped moisture can turn to steam and ruin the casting. Only then is the bronze melted and poured, and even a flawless pour leaves work to do — the rough casting is cleaned, and the bell is mounted on a lathe so that metal can be shaved from its inner wall to bring its tones into tune.",
+          "passage": "A cast bell seems the product of a single pour, but the pour is only one stage among many. First the founder builds the mold: an inner core of brick and loam and an outer cope, each shaped by a wooden template pivoting on a central spindle. The mold must then be thoroughly dried, since moisture left in it can ruin the casting. Only then is the bronze poured, and even a flawless pour leaves work to do: the bell is mounted on a lathe, and metal is shaved from its inner wall to bring its tones into tune.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "To compare the tone of bells cast at rival foundries and to argue that the older workshops generally produced the finer-sounding instruments."
+              "text": "To compare bells cast at rival foundries and argue that the older workshops produced the finer-sounding instruments."
             },
             {
               "id": "B",
@@ -211,7 +211,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Every sentence of the text advances one point: casting a bell proceeds through a sequence of specialized stages — mold building, drying, pouring, fettling, and tuning — rather than a single act of pouring.\n\n**The Full Solution:**\n- The text opens by rejecting the assumption that founding is \"a single dramatic pour.\"\n- It then walks through the stages in order: the loam mold swept up on a strickle board, weeks of drying, the pour itself, and the lathe-tuning afterward.\n- The purpose is to explain that sequence, which is what choice B states.\n\n**Why the other choices are wrong:**\n- A: The text never compares one foundry's bells with another's.\n- C: Only one sentence concerns tuning; the text does not argue tuning matters more than casting.\n- D: The cost of bell metal is never mentioned."
+          "explanation": "**Choice B is correct.** Every sentence of the text advances one point: casting a bell proceeds through a sequence of specialized stages — mold building, drying, pouring, and tuning — rather than a single act of pouring.\n\n**The Full Solution:**\n- The text opens by rejecting the assumption that a bell is \"the product of a single pour.\"\n- It then walks through the stages in order: the loam mold shaped by a pivoting template, thorough drying, the pour itself, and the lathe-tuning afterward.\n- The purpose is to explain that sequence, which is what choice B states.\n\n**Why the other choices are wrong:**\n- A: The text never compares one foundry's bells with another's.\n- C: Only one sentence concerns tuning; the text does not argue tuning matters more than casting.\n- D: The cost of bell metal is never mentioned."
         },
         {
           "id": 808,
@@ -227,7 +227,7 @@ export const practiceTest8RW = {
             },
             {
               "label": "Text 2",
-              "text": "The biologist Skúli Skúlason has tested how fixed such differences are. In rearing experiments, offspring of one char morph were raised on the diet of another; as they grew, their jaws and bodies developed measurably toward the form typical of the diet they ate, not the form of their parents. Development, he argues, responds to what a young fish encounters, so a lake's food landscape can itself mold part of the difference between morphs."
+              "text": "The biologist Skúli Skúlason and colleagues have tested how fixed such differences are. In rearing experiments, young char from Icelandic lakes were raised on diets mimicking either bottom-dwelling or open-water prey, and their head shapes developed differently depending on what they ate. Development, the researchers argue, responds to what a young fish encounters, so a lake's food landscape can itself mold part of the difference between morphs."
             }
           ],
           "question": "Based on the texts, how would Skúli Skúlason (Text 2) most likely respond to the explanation presented in Text 1?",
@@ -238,7 +238,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "B",
-              "text": "He would argue that the field measurements described in Text 1 were taken from too few fish to be trusted."
+              "text": "He would argue that the field measurements described in Text 1 were taken from too few fish in too small a part of the lake to be trusted."
             },
             {
               "id": "C",
@@ -246,11 +246,11 @@ export const practiceTest8RW = {
             },
             {
               "id": "D",
-              "text": "He would caution that differences of the kind Text 1 cites can arise partly within a single generation, since diet alone shifted the form of the fish he reared."
+              "text": "He would caution that such differences can arise partly within one generation, since diet alone altered the head shapes of reared fish."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** Skúlason's rearing experiments show that diet alone can shift young char toward another morph's form, so he would grant the anatomical differences Text 1 describes while denying that they must reflect separate gene pools.\n\n**The Full Solution:**\n- Text 1 reads the morphs' distinct jaws and bodies as evidence of lineages that have genetically diverged within the lake.\n- Text 2 reports that offspring of one morph, reared on another morph's diet, developed toward that other form.\n- The natural response is the qualified one in choice D: the differences are real, but part of what Text 1 attributes to divergent inheritance can arise within a single generation.\n\n**Why the other choices are wrong:**\n- A: Skúlason never denies that the morphs differ — his experiments begin from those differences.\n- B: Nothing in Text 2 questions how the field measurements were taken.\n- C: Text 2 concerns development, not the age of the lake or its colonization history."
+          "explanation": "**Choice D is correct.** Skúlason's rearing experiments show that diet alone can change the head shape of young char, so he would grant the differences Text 1 describes while cautioning that they need not all reflect separate gene pools.\n\n**The Full Solution:**\n- Text 1 reads the morphs' distinct jaws and bodies as evidence of lineages that have genetically diverged within the lake.\n- Text 2 reports that young char raised on different diets developed different head shapes.\n- The natural response is the qualified one in choice D: the differences are real, but part of what Text 1 attributes to divergent inheritance can arise within a single generation.\n\n**Why the other choices are wrong:**\n- A: Skúlason never denies that the morphs differ; his experiments begin from those differences.\n- B: Nothing in Text 2 questions how the field measurements were taken.\n- C: Text 2 concerns development, not the age of the lake or its colonization history."
         },
         {
           "id": 807,
@@ -259,7 +259,7 @@ export const practiceTest8RW = {
           "band": 2,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "In 1795 the French government offered a substantial prize for a dependable way to preserve food for its army and navy. The confectioner Nicolas Appert spent years on the problem and claimed the award in 1810: he packed foods into stout glass bottles, corked them tightly, and held the sealed bottles for hours in boiling water. Meats, vegetables, and even milk treated this way stayed wholesome for months. Appert could not say why the process worked — the microbes that spoil food would not be understood until Louis Pasteur's experiments half a century later — yet his procedure was sound enough that it spread across Europe within a decade.",
+          "passage": "In 1795 the French government offered a prize for a dependable way to preserve food for its army and navy. The confectioner Nicolas Appert claimed the award in 1810: he packed foods into stout glass bottles, corked them tightly, and held the sealed bottles in boiling water. Meats, vegetables, and even milk treated this way stayed wholesome for months. Appert could not say why the process worked, since the microbes that spoil food would not be understood until Louis Pasteur's experiments half a century later, yet his procedure was sound enough to be taken up in Britain within a few years.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
@@ -276,11 +276,11 @@ export const practiceTest8RW = {
             },
             {
               "id": "D",
-              "text": "To trace how Appert's glass-bottling technique was gradually transformed into the tin-can machinery that equips modern preserving factories around the world."
+              "text": "To trace how Appert's glass-bottling technique was gradually transformed into the tin-can machinery of modern preserving factories."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text explains what Appert did — sealing food in bottles and boiling them — and stresses that his method preserved food reliably half a century before science could explain why.\n\n**The Full Solution:**\n- The first sentences report the prize and Appert's technique.\n- The closing sentence delivers the point the text is built around: the method worked long before the role of microbes was understood.\n- Choice C captures both the method and that gap between practice and explanation.\n\n**Why the other choices are wrong:**\n- A: The text mentions the navy's need only as background for the prize, not as its focus.\n- B: No rival preservation methods are compared.\n- D: The text does not discuss modern canning factories or their equipment."
+          "explanation": "**Choice C is correct.** The text explains what Appert did — sealing food in bottles and boiling them — and stresses that his method preserved food reliably half a century before science could explain why.\n\n**The Full Solution:**\n- The first sentences report the prize and Appert's technique.\n- The closing sentence delivers the point the text is built around: the method worked long before the role of microbes was understood.\n- Choice C captures both the method and that gap between practice and explanation.\n\n**Why the other choices are wrong:**\n- A: The text mentions the navy's need only as background for the prize, not as its focus.\n- B: No rival preservation methods are compared.\n- D: The text does not discuss tin cans or modern preserving machinery."
         },
         {
           "id": 811,
@@ -289,12 +289,12 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "On stable rock surfaces in arid country, a dark coating called desert varnish builds up: a skin of clay particles bound with manganese and iron oxides, accumulating at a rate of only a few micrometers per thousand years. People across the world's deserts have turned this coating into a canvas, chipping designs through the dark varnish to expose the paler rock beneath. The contrast is what keeps the images legible: because the coating re-forms so slowly, the exposed pale surface darkens again only on a timescale of millennia, and figures pecked into stone thousands of years ago can still be read today.",
+          "passage": "On stable rock surfaces in arid country, a dark coating called desert varnish builds up: a skin of clay bound with manganese and iron oxides, accumulating only a few micrometers per thousand years. People in many deserts have made petroglyphs by chipping designs through the dark varnish to expose the paler rock beneath. Because the coating re-forms so slowly, the exposed surface darkens again only over millennia, so figures pecked into stone thousands of years ago can still be read today.",
           "question": "According to the text, why do petroglyphs cut into varnished rock remain visible for thousands of years?",
           "choices": [
             {
               "id": "A",
-              "text": "The varnish coating is hard enough to shield the carved designs from weathering."
+              "text": "The varnish coating is hard enough to shield the carved designs from wind and weathering."
             },
             {
               "id": "B",
@@ -310,7 +310,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text states that varnish accumulates at only a few micrometers per thousand years, so the pale rock exposed by carving \"darkens again only on a timescale of millennia\" — which is why the designs stay visible so long.\n\n**The Full Solution:**\n- The question asks for the text's stated reason that petroglyphs remain legible.\n- The text explains that carving breaks through the dark coating to lighter rock beneath.\n- It then ties visibility directly to the varnish's pace: because the coating re-forms at a few micrometers per thousand years, the contrast persists.\n\n**Why the other choices are wrong:**\n- A: Hardness is not offered as the reason; the text discusses the varnish's slow regrowth, not its durability under weathering.\n- B: The text never says desert air preserves the carvings.\n- C: The text describes the coating as darker than the rock beneath, not the reverse."
+          "explanation": "**Choice D is correct.** The text states that varnish accumulates at only a few micrometers per thousand years, so the pale rock exposed by carving \"darkens again only over millennia\" — which is why the designs stay visible so long.\n\n**The Full Solution:**\n- The question asks for the text's stated reason that petroglyphs remain legible.\n- The text explains that carving breaks through the dark coating to lighter rock beneath.\n- It then ties visibility directly to the varnish's pace: because the coating re-forms at a few micrometers per thousand years, the contrast persists.\n\n**Why the other choices are wrong:**\n- A: Hardness is not offered as the reason; the text discusses the varnish's slow regrowth, not its durability under weathering.\n- B: The text never says desert air preserves the carvings.\n- C: The text describes the coating as darker than the rock beneath, not the reverse."
         },
         {
           "id": 814,
@@ -409,10 +409,10 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "Arctic char occur both as anadromous populations, which migrate to the sea each summer to feed before returning to fresh water, and as landlocked populations confined year-round to lakes. Biologists measuring four char populations at comparable latitudes recorded the median length of mature adults in each. They concluded that the anadromous populations grow considerably larger than the landlocked ones, because _______",
+          "passage": "Sockeye salmon occur both as anadromous populations, which migrate to the sea to feed before returning to fresh water to spawn, and as landlocked populations, called kokanee, that spend their entire lives in lakes. Biologists recorded the median length of mature adults in four populations. They concluded that the sea-run fish grow considerably larger than the landlocked ones, because _______",
           "questionTable": {
             "type": "table",
-            "caption": "Median length of mature Arctic char in four populations",
+            "caption": "Median length of mature sockeye salmon in four populations",
             "headers": [
               "Population",
               "Life history",
@@ -422,22 +422,22 @@ export const practiceTest8RW = {
               [
                 "Population A",
                 "Anadromous (sea-run)",
-                "58"
+                "66"
               ],
               [
                 "Population B",
                 "Anadromous (sea-run)",
-                "52"
+                "61"
               ],
               [
                 "Population C",
-                "Landlocked",
-                "24"
+                "Landlocked (kokanee)",
+                "28"
               ],
               [
                 "Population D",
-                "Landlocked",
-                "19"
+                "Landlocked (kokanee)",
+                "24"
               ]
             ]
           },
@@ -445,23 +445,23 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the char of Population A, which feed in the sea each summer, reached a median length of 58 cm."
+              "text": "the fish of Population A, which feed in the sea, reached a median length of 66 cm."
             },
             {
               "id": "B",
-              "text": "Population C's median length of 24 cm exceeded Population D's median of 19 cm, though both fed only in fresh water."
+              "text": "Population C's median length of 28 cm exceeded Population D's median length of 24 cm, even though both populations spend their entire lives in lakes."
             },
             {
               "id": "C",
-              "text": "Population A's median length of 58 cm was more than twice Population C's median length of 24 cm, even though the two populations live at comparable latitudes."
+              "text": "Population A's median length of 66 cm was more than twice Population C's median length of 28 cm."
             },
             {
               "id": "D",
-              "text": "the two sea-run populations reached median lengths of 58 and 52 cm, while the two landlocked populations reached only 24 and 19 cm."
+              "text": "the two sea-run populations reached median lengths of 66 and 61 cm, while the two landlocked populations reached only 28 and 24 cm."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** A claim comparing the two classes of population needs figures from both, and D alone pairs them: median lengths of 58 and 52 cm for the sea-run populations against 24 and 19 cm for the landlocked ones.\n\n**The Full Solution:**\n- The conclusion is class-wide: sea-run char grow considerably larger than landlocked char.\n- Supporting it requires the values for both anadromous populations and both landlocked populations.\n- Choice D supplies all four medians and displays the gap between the classes directly.\n\n**Why the other choices are wrong:**\n- A: It cites a single sea-run population, which cannot establish a comparison between classes.\n- B: It compares the two landlocked populations with each other and never mentions the sea-run fish.\n- C: It pairs the largest sea-run value with the larger landlocked value only, understating the class contrast and omitting half the table."
+          "explanation": "**Choice D is correct.** A claim comparing the two kinds of population needs figures from both, and D alone gives them all: median lengths of 66 and 61 cm for the sea-run populations against 28 and 24 cm for the landlocked ones.\n\n**The Full Solution:**\n- The conclusion is general: sea-run sockeye grow considerably larger than landlocked kokanee.\n- Supporting it requires the values for both anadromous populations and both landlocked populations.\n- Choice D supplies all four medians and shows the gap between the two kinds directly.\n\n**Why the other choices are wrong:**\n- A: It cites a single sea-run population, which cannot establish a comparison between the two kinds.\n- B: It compares the two landlocked populations with each other and never mentions the sea-run fish.\n- C: It compares only one population of each kind, leaving out half the table."
         },
         {
           "id": 810,
@@ -470,16 +470,16 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Nurseries can now supply oak and hazel seedlings whose roots already carry the truffle fungus, and a grower who plants them has, in one sense, started a truffle orchard. What follows is the harder part. The fungus fruits only when its partnership with the tree stays in balance, so growers prune to meter the light reaching the soil, water in high summer on a schedule tuned to the site, and keep the ground loose and alkaline for the fungus's fine threads. Even well-run orchards wait eight or ten years for a first harvest. Growers like to say they tend a partnership, not a crop.",
+          "passage": "Nurseries now sell oak and hazel seedlings whose roots already carry the truffle fungus, and a grower who plants them has started a truffle orchard. What follows is the harder part. The fungus fruits only when its partnership with the tree stays in balance, so growers prune to control the light reaching the soil, water in summer on a schedule suited to the site, and keep the ground loose and alkaline. Even well-run orchards often wait seven to ten years for a first harvest.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "The chief obstacle to truffle farming remains the difficulty of producing nursery seedlings whose roots reliably carry the truffle fungus from the greenhouse into the orchard soil."
+              "text": "The chief obstacle to truffle farming remains producing nursery seedlings whose roots reliably carry the truffle fungus."
             },
             {
               "id": "B",
-              "text": "Establishing a truffle orchard is only a beginning, since harvests depend on sustained management of the partnership between tree, fungus, and soil."
+              "text": "Planting inoculated seedlings only begins a truffle orchard; harvests depend on years of careful management."
             },
             {
               "id": "C",
@@ -491,7 +491,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text's sentences all serve one claim: planting inoculated seedlings begins a truffle orchard, but harvests depend on decades of managing the living partnership between tree, fungus, and soil.\n\n**The Full Solution:**\n- The text concedes what nurseries can now do — supply oak and hazel seedlings whose roots already carry the fungus.\n- It then lists what still determines success: pruning to meter light, timed summer watering, soil kept loose and alkaline.\n- The conclusion that growers \"tend a partnership, not a crop\" is the main idea, restated in choice B.\n\n**Why the other choices are wrong:**\n- A: The text says inoculated seedlings are widely available; producing them is not presented as the difficulty.\n- C: The text does not compare cultivated truffles' quality with wild ones'.\n- D: Weather is one factor mentioned, but the text never claims harvests are entirely a matter of chance."
+          "explanation": "**Choice B is correct.** The text's sentences all serve one claim: planting inoculated seedlings begins a truffle orchard, but harvests depend on years of managing the partnership between tree, fungus, and soil.\n\n**The Full Solution:**\n- The text concedes what nurseries can now do: sell oak and hazel seedlings whose roots already carry the fungus.\n- It then calls what follows \"the harder part\" and lists what still determines success: pruning to control light, summer watering suited to the site, soil kept loose and alkaline.\n- The wait of seven to ten years for a first harvest underlines that planting is only the beginning, the main idea stated in choice B.\n\n**Why the other choices are wrong:**\n- A: The text says inoculated seedlings are already sold; producing them is not presented as the difficulty.\n- C: The text does not compare cultivated truffles' quality with wild ones'.\n- D: The text stresses what growers do to influence harvests, not that weather leaves them powerless."
         },
         {
           "id": 809,
@@ -500,7 +500,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Surveying canal routes in the 1790s, William Smith spent his days inside freshly cut cross-sections of the English countryside, and he noticed that the rock layers exposed in one cutting reappeared in the next, always stacked in the same order. Color and texture, though, shifted from district to district; what stayed constant were the fossils. Each stratum, Smith realized, carried its own characteristic assemblage, so a layer could be recognized by its fossils wherever it surfaced. Following that principle across the country, he produced in 1815 the first geological map of England and Wales, its bands of hand-applied color tracing each formation for hundreds of miles.",
+          "passage": "Surveying canal routes in the 1790s, William Smith noticed that the rock layers exposed in one cutting reappeared in the next, always stacked in the same order. Color and texture shifted from district to district; what stayed constant were the fossils. Each stratum, Smith realized, carried its own characteristic assemblage, so a layer could be recognized by its fossils wherever it surfaced. Following that principle across the country, he produced in 1815 the first geological map of England and Wales, its hand-colored bands tracing each formation for hundreds of miles.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -577,7 +577,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "D",
-              "text": "correct for the uneven distribution of record keeping before treating any region's apparent calm as real, while still drawing on what the documents preserve."
+              "text": "adjust for where records were kept before treating any region's apparent calm as real."
             }
           ],
           "correctAnswer": "D",
@@ -620,7 +620,7 @@ export const practiceTest8RW = {
           "band": 2,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "In 1815 the surveyor William Smith published the first geological map of England and Wales ______ the hand-colored sheet traced every major rock formation across the country, from the coal measures of the north to the chalk of the southern downs.",
+          "passage": "In 1815 the surveyor William Smith published the first geological map of England and Wales ______ its colors traced every major rock formation across the country, from the coal measures of the north to the chalk of the southern downs.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -641,7 +641,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** Two independent clauses meet at the blank, and a semicolon is a conventional boundary between them.\n\n**The Full Solution:**\n- The first clause is complete: \"In 1815 the surveyor William Smith published the first geological map of England and Wales.\"\n- The second is also complete: \"the hand-colored sheet traced every major rock formation across the country.\"\n- A semicolon joins two related independent clauses correctly.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses is a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on.\n- D: \"Wales, therefore\" still splices the clauses with only a comma; the conjunctive adverb does not repair the boundary."
+          "explanation": "**Choice A is correct.** Two independent clauses meet at the blank, and a semicolon is a conventional boundary between them.\n\n**The Full Solution:**\n- The first clause is complete: \"In 1815 the surveyor William Smith published the first geological map of England and Wales.\"\n- The second is also complete: \"its colors traced every major rock formation across the country.\"\n- A semicolon joins two related independent clauses correctly.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses is a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on.\n- D: \"Wales, therefore\" still splices the clauses with only a comma; the conjunctive adverb does not repair the boundary."
         },
         {
           "id": 818,
@@ -680,28 +680,28 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "By the eighteenth century, verdigris made in the workshops around Montpellier reached painters through three great ports: Marseille, on the ______ Bordeaux, on the Atlantic coast; and Rouen, far to the north.",
+          "passage": "In eighteenth-century Montpellier, making verdigris was a patient process. Copper plates were stacked in clay pots filled with ______ over time, acid from the wine crusted the plates with green crystals, which workers scraped off once they had matured.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "Mediterranean"
+              "text": "wine"
             },
             {
               "id": "B",
-              "text": "Mediterranean, and"
+              "text": "wine,"
             },
             {
               "id": "C",
-              "text": "Mediterranean;"
+              "text": "wine;"
             },
             {
               "id": "D",
-              "text": "Mediterranean,"
+              "text": "wine, which"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The sentence lists items that contain internal commas, so semicolons must separate the items — including one after \"Mediterranean.\"\n\n**The Full Solution:**\n- Each list item pairs a port with a descriptive phrase set off by a comma: \"Marseille, on the Mediterranean\"; \"Bordeaux, on the Atlantic coast\"; \"Rouen, far to the north.\"\n- Because commas already work inside the items, the boundaries between items are promoted to semicolons.\n- The later items in the sentence confirm the pattern: the blank must match their semicolon boundary.\n\n**Why the other choices are wrong:**\n- A: With no mark, the first two items run together and the list's structure collapses.\n- B: \"Mediterranean, and\" inserts a premature conjunction one item too early in a three-item list.\n- D: A comma cannot mark the item boundary here, since commas are already in use within the items."
+          "explanation": "**Choice C is correct.** The blank falls between two independent clauses, and a semicolon is the conventional mark for joining them without a conjunction.\n\n**The Full Solution:**\n- \"Copper plates were stacked in clay pots filled with wine\" is a complete clause.\n- \"Over time, acid from the wine crusted the plates with green crystals...\" is also a complete clause, with its own subject (\"acid\") and verb (\"crusted\").\n- Two independent clauses with no coordinating conjunction between them must be joined by a semicolon.\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the two clauses run together in a run-on sentence.\n- B: A comma alone between two independent clauses creates a comma splice.\n- D: \"Which\" would begin a relative clause, but the words that follow already have their own subject, \"acid,\" so the sentence becomes ungrammatical."
         },
         {
           "id": 822,
@@ -740,7 +740,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "The mold for a great bell—two nested shells of clay and loam built up by hand around a brick ______ had to dry for weeks before the founders dared to pour, since any moisture left in the loam could flash into steam and burst the casting.",
+          "passage": "The mold for a great bell—two nested shells of clay and loam built up by hand around a brick ______ had to be dried thoroughly before the founders dared to pour, since moisture left in the loam could turn to steam and spoil the casting.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -761,7 +761,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The interrupting description opens with a dash, so it must close with a matching dash before the main clause resumes.\n\n**The Full Solution:**\n- The core sentence is \"The mold for a great bell ... had to dry for weeks before the founders dared to pour.\"\n- The description \"two nested shells of clay and loam built up by hand around a brick core\" is an interruption introduced by a dash.\n- A paired punctuation mark must close as it opened: dash with dash.\n\n**Why the other choices are wrong:**\n- A: A comma cannot close an interruption that a dash opened; the marks must match.\n- B: With no closing mark, the interruption runs into the main verb and the sentence loses its boundary.\n- C: A semicolon would demand an independent clause before it, and the interrupting phrase is not one."
+          "explanation": "**Choice D is correct.** The interrupting description opens with a dash, so it must close with a matching dash before the main clause resumes.\n\n**The Full Solution:**\n- The core sentence is \"The mold for a great bell ... had to be dried thoroughly before the founders dared to pour.\"\n- The description \"two nested shells of clay and loam built up by hand around a brick core\" is an interruption introduced by a dash.\n- A paired punctuation mark must close as it opened: dash with dash.\n\n**Why the other choices are wrong:**\n- A: A comma cannot close an interruption that a dash opened; the marks must match.\n- B: With no closing mark, the interruption runs into the main verb and the sentence loses its boundary.\n- C: A semicolon would demand an independent clause before it, and the interrupting phrase is not one."
         },
         {
           "id": 825,
@@ -770,7 +770,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Painters who loved verdigris for its brilliance also learned to fear its chemistry. The pigment is restless in oil: passages that went on a vivid blue-green can drift toward a dull brown as the copper compound reacts with the medium around it. ______ verdigris can attack its neighbors, and manuals of the period warn against letting it touch lead white or vermilion on the palette.",
+          "passage": "Painters prized verdigris for its brilliant green but learned to handle it warily. In oil, the pigment tends to brown or darken as a painting ages. ______ its color can begin to change within the first month of exposure to air, which is why painters often sealed verdigris passages under varnish soon after applying them.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -791,7 +791,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage is stacking up a second, additional drawback of verdigris on top of the first, and \"Moreover,\" signals exactly that piling-on of parallel points.\n\n**The Full Solution:**\n- The first drawback: verdigris is chemically restless and can darken toward brown as it reacts with the oil around it.\n- The blank introduces a second, distinct drawback: it can also attack neighboring pigments on the palette.\n- The two points run in the same direction — both are costs of using the pigment — so an additive transition fits.\n\n**Why the other choices are wrong:**\n- B: \"In contrast,\" would promise a point running against the first, but the second drawback reinforces it.\n- C: \"Therefore,\" would make the second drawback a consequence of the first, though the two are independent problems.\n- D: \"For instance,\" would offer the second point as an example of the first, but attacking other pigments is not a case of self-darkening."
+          "explanation": "**Choice A is correct.** The passage adds a second, separate drawback of verdigris to the first, and \"Moreover,\" signals exactly that addition of a parallel point.\n\n**The Full Solution:**\n- The first drawback: in oil, verdigris tends to brown or darken as a painting ages.\n- The blank introduces a second, distinct drawback: its color can start changing within a month of exposure to air.\n- Both points run in the same direction, as reasons painters handled the pigment warily, so an additive transition fits.\n\n**Why the other choices are wrong:**\n- B: \"In contrast,\" would promise a point running against the first, but the second drawback reinforces it.\n- C: \"Therefore,\" would make the early color change a consequence of the slow browning, though the two are separate problems.\n- D: \"For instance,\" would offer the second point as an example of the first, but a change within the first month is not an example of darkening over a painting's lifetime."
         },
         {
           "id": 824,
@@ -800,7 +800,7 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "William Smith was a canal surveyor with no university training, and the gentlemen who founded London's first geological society at first refused him membership. A rival publisher undersold his great map with a plagiarized copy, and in 1819 Smith was imprisoned for debt. ______ his method of identifying strata by their fossils became standard geological practice, and in 1831 the society that had once excluded him awarded him its first medal for achievement in the science.",
+          "passage": "William Smith had no university training, and in 1819, after a stone-quarrying venture failed, he was imprisoned for debt and then spent years working as an itinerant surveyor. ______ his method of identifying strata by their fossils became standard geological practice, and in 1831 the Geological Society of London awarded him its first Wollaston Medal.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -821,7 +821,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage pivots from Smith's years of rejection and misfortune to the eventual triumph of his method, a reversal that the concessive \"Even so,\" marks precisely.\n\n**The Full Solution:**\n- The first sentences pile up setbacks: the gentlemen of science dismissed the surveyor, his map was undersold by a plagiarism, and he was imprisoned for debt.\n- The final sentence runs the other way: his fossil-based method became standard practice and the same society later honored him.\n- A contrast transition is needed to turn from misfortune to vindication: \"Even so.\"\n\n**Why the other choices are wrong:**\n- B: \"Accordingly,\" would present the honors as the logical outcome of the rejection, inverting the passage's logic.\n- C: \"Likewise,\" promises another item in the same direction, but the final sentence reverses direction.\n- D: \"Previously,\" is a time cue pointing backward, and the vindication came after the setbacks, not before."
+          "explanation": "**Choice A is correct.** The passage turns from Smith's setbacks to the eventual triumph of his method, a reversal that the concessive \"Even so,\" marks precisely.\n\n**The Full Solution:**\n- The first sentence piles up setbacks: no university training, a failed business venture, prison for debt, and years of itinerant work.\n- The final sentence runs the other way: his fossil-based method became standard practice, and the Geological Society honored him.\n- A contrast transition is needed to turn from misfortune to recognition: \"Even so.\"\n\n**Why the other choices are wrong:**\n- B: \"Accordingly,\" would present the honors as the logical outcome of the setbacks, inverting the passage's logic.\n- C: \"Likewise,\" promises another point in the same direction, but the final sentence reverses direction.\n- D: \"Previously,\" points backward in time, but the recognition came after the setbacks, not before."
         },
         {
           "id": 823,
@@ -863,11 +863,10 @@ export const practiceTest8RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Emanuela Guidoboni is a historical seismologist who studies the earthquakes of medieval Italy.",
-              "Earlier earthquake catalogs were compiled by tallying reports found in old chronicles at face value.",
-              "Copied chronicles could turn one earthquake into several, each with a different date.",
-              "Guidoboni traced every report back to its earliest surviving source.",
-              "Her revised catalogs discarded duplicated or misdated entries, removing some destructive earthquakes that never actually happened."
+              "Emanuela Guidoboni is an Italian historical seismologist who studies earthquakes recorded in historical documents.",
+              "Earlier Italian catalogs listed medieval Sicilian earthquakes based largely on local sources.",
+              "Guidoboni and a colleague re-examined those earthquakes using Byzantine, Latin, and Arab sources as well.",
+              "Their 1996 revision deleted six spurious earthquakes from the record and identified five previously unknown ones."
             ],
             "goal": "The student wants to emphasize a difference between Guidoboni's method and the practice of earlier catalog compilers."
           },
@@ -875,23 +874,23 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Earlier compilers of earthquake catalogs accepted the reports they found in old chronicles at face value, tallying each mention as a separate event."
+              "text": "Earlier Italian earthquake catalogs listed the earthquakes of medieval Sicily based largely on local sources."
             },
             {
               "id": "B",
-              "text": "Guidoboni's re-examination of the sources removed from the catalogs several destructive earthquakes that turned out never to have happened."
+              "text": "Guidoboni's 1996 revision of the catalogs deleted six spurious earthquakes from the record of medieval Sicily and identified five earthquakes that had previously been unknown."
             },
             {
               "id": "C",
-              "text": "Emanuela Guidoboni is a historical seismologist who has devoted her career to the earthquakes of medieval Italy."
+              "text": "Emanuela Guidoboni is an Italian historical seismologist who studies earthquakes recorded in historical documents."
             },
             {
               "id": "D",
-              "text": "Whereas earlier compilers tallied old earthquake reports at face value, Guidoboni traced each report to its earliest source, discarding entries that proved to be duplicated or misdated."
+              "text": "Whereas earlier catalogs relied largely on local sources, Guidoboni also drew on Byzantine, Latin, and Arab sources to revise the record of medieval Sicily's earthquakes."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The goal is to set Guidoboni's method against the earlier compilers' practice, and D holds the two side by side: they counted reports at face value; she traced each report to its earliest source and struck the entries that dissolved.\n\n**The Full Solution:**\n- A difference is only emphasized when both approaches appear in one frame.\n- Choice D's \"Whereas\" construction does exactly that, pairing the old practice (tallying at face value) with hers (tracing sources, discarding duplicated or misdated entries).\n\n**Why the other choices are wrong:**\n- A: It describes only the earlier compilers and never presents Guidoboni's alternative.\n- B: It reports one striking result of her work, not how her method differed from anyone's.\n- C: It identifies her field and subject without contrasting her procedure with earlier practice."
+          "explanation": "**Choice D is correct.** The goal is to set Guidoboni's method against the earlier compilers' practice, and D holds the two side by side: they relied largely on local sources; she also drew on Byzantine, Latin, and Arab sources.\n\n**The Full Solution:**\n- A difference is only emphasized when both approaches appear in one frame.\n- Choice D's \"Whereas\" construction does exactly that, pairing the old practice (local sources) with hers (a wider range of sources).\n\n**Why the other choices are wrong:**\n- A: It describes only the earlier catalogs and never presents Guidoboni's alternative.\n- B: It reports the results of her revision, not how her method differed from anyone's.\n- C: It identifies her field without contrasting her method with earlier practice."
         },
         {
           "id": 826,
@@ -903,11 +902,11 @@ export const practiceTest8RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Joseph Talon was a farmer in Provence in the early 1800s.",
-              "In his day, truffles could only be gathered where they happened to appear in the wild.",
-              "Talon noticed that truffles were found near the roots of certain oaks.",
-              "He sowed acorns gathered beneath truffle-bearing oaks on his own stony land.",
-              "Years later, the young oaks that grew from those acorns had truffles among their roots, showing that truffles could be deliberately farmed."
+              "Joseph Talon was a farmer near Apt, in Provence, in the early 1800s.",
+              "In his day, truffles could be gathered only where they happened to appear in the wild.",
+              "Talon noticed that truffles were found among the roots of certain oaks.",
+              "He collected young oak seedlings from beneath truffle-bearing oaks and planted them on his own land.",
+              "Years later, truffles appeared among the roots of the transplanted oaks, showing that truffles could be deliberately farmed."
             ],
             "goal": "The student wants to explain Talon's discovery to an audience unfamiliar with truffle growing."
           },
@@ -915,23 +914,23 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Joseph Talon was a farmer who worked a stretch of stony ground in Provence in the early years of the nineteenth century."
+              "text": "Joseph Talon was a farmer who lived near the town of Apt, in Provence, during the early years of the nineteenth century."
             },
             {
               "id": "B",
-              "text": "Joseph Talon, a Provençal farmer, discovered that truffles could be farmed: by sowing acorns gathered beneath truffle-bearing oaks, he raised trees whose roots in time yielded truffles of their own."
+              "text": "Joseph Talon, a Provençal farmer, showed that truffles could be farmed: oak seedlings he moved from beneath truffle-bearing oaks later bore truffles."
             },
             {
               "id": "C",
-              "text": "Talon's acorn-sowing method spread through southeastern France, and plantations founded on it were producing most of the region's truffles by century's end."
+              "text": "Talon noticed that truffles were found among the roots of certain oaks, an observation he made while farming in Provence."
             },
             {
               "id": "D",
-              "text": "Before Talon's time, truffles could be gathered only where they happened to appear in the wild, and even the most experienced gatherers and dealers knew of no way to make new ground begin producing truffles of its own."
+              "text": "Before Talon's time, truffles could be gathered only where they appeared in the wild, and even skilled gatherers knew no way to make new ground yield them."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The goal asks for Talon's discovery explained to readers who know nothing of truffle growing, and B does the whole job: who he was, what he did, and what it showed — that truffles could be deliberately farmed.\n\n**The Full Solution:**\n- The audience is unfamiliar, so the sentence must identify Talon and make the discovery itself plain.\n- Choice B compresses the method (sowing acorns from oaks where truffles grew) and the payoff (trees whose roots bore truffles of their own), presenting the finding as a finding: truffles could be farmed.\n\n**Why the other choices are wrong:**\n- A: It gives biographical placement but never says what Talon discovered.\n- C: It reports the method's later spread while leaving the discovery itself unexplained.\n- D: It states only the historical puzzle Talon faced, not his answer to it."
+          "explanation": "**Choice B is correct.** The goal asks for Talon's discovery explained to readers who know nothing of truffle growing, and B does the whole job: who he was, what he did, and what it showed, namely that truffles could be deliberately farmed.\n\n**The Full Solution:**\n- The audience is unfamiliar, so the sentence must identify Talon and make the discovery itself plain.\n- Choice B compresses the method (moving seedlings from beneath truffle-bearing oaks) and the result (the young oaks later bore truffles), presenting the finding as a finding: truffles could be farmed.\n\n**Why the other choices are wrong:**\n- A: It gives biographical placement but never says what Talon discovered.\n- C: It reports only the observation that led to his experiment, not the experiment or its result.\n- D: It states only the problem Talon faced, not his answer to it."
         }
       ]
     },
@@ -947,7 +946,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "A player piano reads music from a paper roll punched with a pattern of slots. As the roll winds past a hollow brass rail called the tracker bar, each passing slot uncovers an opening, air rushes through, and a pneumatic bellows drives the corresponding hammer against its string. In this way the instrument ____ a performance with no pianist on the bench, turning a strip of punched paper back into sound.",
+          "passage": "A player piano reads music from a paper roll punched with slots. As the roll winds past a brass tracker bar, each slot uncovers an opening, air rushes through, and a pneumatic mechanism drives the corresponding hammer against its string. In this way the instrument ____ a performance with no pianist on the bench.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -968,7 +967,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage describes a machine that turns a punched paper roll back into audible music, and \"reproduces\" names precisely that — rendering the performance again in the pianist's absence.\n\n**The Full Solution:**\n- The mechanism is laid out: perforations pass over a tracker bar, air rushes through, and pneumatic bellows drive the hammers.\n- The final clause states the outcome: a strip of punched paper is turned back into sound.\n- Producing the performance anew from its stored record is to \"reproduce\" it.\n\n**Why the other choices are wrong:**\n- B: \"Interrupts\" reverses the machine's function, which is to deliver the performance, not to stop it.\n- C: \"Composes\" would credit the machine with creating the music, but the notes were fixed when the roll was cut.\n- D: \"Accompanies\" implies playing alongside a live performer, yet the passage stresses that no pianist is present."
+          "explanation": "**Choice A is correct.** The passage describes a machine that turns a punched paper roll back into audible music, and \"reproduces\" names precisely that — rendering the performance again in the pianist's absence.\n\n**The Full Solution:**\n- The mechanism is laid out: perforations pass over a tracker bar, air rushes through, and a pneumatic mechanism drives the hammers.\n- The final sentence states the outcome: a performance with no pianist present.\n- Producing the performance anew from its stored record is to \"reproduce\" it.\n\n**Why the other choices are wrong:**\n- B: \"Interrupts\" reverses the machine's function, which is to deliver the performance, not to stop it.\n- C: \"Composes\" would credit the machine with creating the music, but the notes were fixed when the roll was cut.\n- D: \"Accompanies\" implies playing alongside a live performer, yet the passage stresses that no pianist is present."
         },
         {
           "id": 831,
@@ -1007,7 +1006,7 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "An acrobat leaving a teeterboard obeys a strict piece of physics: whatever turning motion the launch imparts is all the turning motion the somersault will ever have, for nothing pushed against in midair can add more. What the acrobat can do aloft is change shape. By pulling arms and knees into a tight tuck, a performer can ____ the spin the takeoff supplied, exchanging a slow, open turn for a rapid, compact one — and then open out again to slow the rotation for landing.",
+          "passage": "An acrobat leaving a teeterboard gets all of a somersault's turning motion at launch, since nothing in midair can add more. By pulling arms and knees into a tight tuck, however, a performer can ____ the spin the takeoff supplied, trading a slow, open turn for a rapid, compact one, and can then open out again to slow the rotation for landing.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1028,7 +1027,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The passage states that no new rotation can be created in the air; tucking only trades a slow, open turn for a faster, tighter one — that is, the acrobat can \"quicken\" the spin already under way.\n\n**The Full Solution:**\n- The physics is set out first: whatever turning motion the acrobat leaves the board with is all the turning motion there will be.\n- Drawing in arms and legs shrinks the body's spread, and the existing rotation speeds up in compensation.\n- The blank must name that speeding of an existing spin: \"quicken.\"\n\n**Why the other choices are wrong:**\n- A: \"Initiate\" is the trap the passage explicitly closes — a somersault cannot be started in midair.\n- B: \"Suspend\" would mean pausing the rotation, which tucking does not and cannot do.\n- C: \"Measure\" belongs to the observers; the acrobat is changing the spin, not quantifying it."
+          "explanation": "**Choice D is correct.** The passage states that no new rotation can be created in the air; tucking only trades a slow, open turn for a faster, tighter one — that is, the acrobat can \"quicken\" the spin already under way.\n\n**The Full Solution:**\n- The physics is set out first: the acrobat gets all of the turning motion at launch.\n- Drawing in arms and legs shrinks the body's spread, and the existing rotation speeds up in compensation.\n- The blank must name that speeding of an existing spin: \"quicken.\"\n\n**Why the other choices are wrong:**\n- A: \"Initiate\" is the trap the passage explicitly closes — a somersault cannot be started in midair.\n- B: \"Suspend\" would mean pausing the rotation, which tucking does not and cannot do.\n- C: \"Measure\" belongs to the observers; the acrobat is changing the spin, not quantifying it."
         },
         {
           "id": 828,
@@ -1037,7 +1036,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Many mangroves do not shed dormant seeds; a seed sprouts while still attached to the parent tree and drops into the water as a green, pencil-shaped seedling already capable of growth. Buoyant and stocked with food reserves, these seedlings can float for weeks, allowing coastal currents to ____ them along the shore, sometimes lodging them on mudflats far from the forest where they grew.",
+          "passage": "Many mangroves do not shed dormant seeds; a seed sprouts while still attached to the parent tree and drops into the water as a pencil-shaped seedling already capable of growth. Buoyant and stocked with food reserves, these seedlings can float for weeks, allowing currents to ____ them along the shore, sometimes far from the forest where they grew.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1058,7 +1057,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The blank needs a verb naming what coastal currents do to the buoyant seedlings, and \"disperse\" — carry them away and spread them along the shore — is exactly the role the passage assigns the currents.\n\n**The Full Solution:**\n- The passage explains that mangrove seedlings drop from the parent already sprouted and able to float for weeks.\n- Because they float, the currents can carry them to distant shorelines, where they lodge and root.\n- Spreading offspring away from the parent is dispersal, so \"disperse\" completes the logic.\n\n**Why the other choices are wrong:**\n- A: \"Conceal\" would mean the currents hide the seedlings, a function the passage never suggests.\n- C: \"Nourish\" misstates the currents' role — the seedlings carry their own reserves; the water transports rather than feeds them.\n- D: \"Assemble\" would have the currents gathering seedlings together, the opposite of spreading them along a coast."
+          "explanation": "**Choice B is correct.** The blank needs a verb naming what currents do to the buoyant seedlings, and \"disperse\" — carry them away and spread them along the shore — is exactly the role the passage assigns the currents.\n\n**The Full Solution:**\n- The passage explains that mangrove seedlings drop from the parent already sprouted and able to float for weeks.\n- Because they float, the currents can carry them to distant shorelines, where they lodge and root.\n- Spreading offspring away from the parent is dispersal, so \"disperse\" completes the logic.\n\n**Why the other choices are wrong:**\n- A: \"Conceal\" would mean the currents hide the seedlings, a function the passage never suggests.\n- C: \"Nourish\" misstates the currents' role — the seedlings carry their own reserves; the water transports rather than feeds them.\n- D: \"Assemble\" would have the currents gathering seedlings together, the opposite of spreading them along a coast."
         },
         {
           "id": 835,
@@ -1070,34 +1069,34 @@ export const practiceTest8RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "For centuries painters showed galloping horses in the \"flying gallop,\" forelegs and hind legs stretched out together like a rocking horse. In 1878, Eadweard Muybridge's sequential photographs caught what no eye could: a galloping horse gathers its hooves beneath its body when airborne. Many accounts hold that these images settled the question at once — the camera was an impartial witness, and painters and scientists alike accepted its verdict."
+              "text": "For centuries painters showed galloping horses in the \"flying gallop,\" forelegs stretched forward and hind legs back. In 1878, Eadweard Muybridge's sequential photographs caught what no eye could: a galloping horse is airborne when its legs are gathered beneath its body. Many accounts hold that these images settled the matter at once: the camera was an impartial witness, and artists were bound to accept its verdict."
             },
             {
               "label": "Text 2",
-              "text": "The art historian Marta Braun has traced how Muybridge's pictures were actually received. Many painters went on depicting the flying gallop for decades, and prominent critics argued that a pose invisible to the human eye, however real, was false to the experience a painting should convey. The photographs' authority, Braun argues, was not self-evident; it had to be argued for, and the argument took a generation."
+              "text": "The sculptor Auguste Rodin, in conversations published in 1911, defended Théodore Géricault's painting of horses racing at Epsom in the flying gallop. A photograph, Rodin argued, freezes a single instant, while a painting must convey a movement unfolding over several moments. By that standard, he said, \"it is the artist who is truthful and it is photography which lies.\""
             }
           ],
-          "question": "Based on the texts, how would Braun (Text 2) most likely respond to the account presented in Text 1?",
+          "question": "Based on the texts, how would Rodin (Text 2) most likely respond to the account presented in Text 1?",
           "choices": [
             {
               "id": "A",
-              "text": "She would object that the photographs' evidence did not compel acceptance by itself, noting that many artists long continued to paint poses the camera had contradicted."
+              "text": "He would deny that the photographs' accuracy obliged artists to give up the flying gallop, since art must convey motion over time."
             },
             {
               "id": "B",
-              "text": "She would argue that the photographs were technically flawed and therefore misrepresented the positions of the horse's legs."
+              "text": "He would argue that the photographs were technically flawed and therefore misrepresented the positions of the horse's legs."
             },
             {
               "id": "C",
-              "text": "She would contend that the shutters of early cameras were too unreliable for the sequences to count as evidence."
+              "text": "He would contend that painters had understood the true positions of a galloping horse's legs long before photography."
             },
             {
               "id": "D",
-              "text": "She would insist that credit for the photographic sequences belongs to the track owners who financed them."
+              "text": "He would insist that credit for the photographic sequences belongs to the wealthy patron who financed them rather than to Muybridge himself."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** Braun's central point is that the photographs' authority had to be argued for, not merely displayed — so she would object to Text 1's claim that the camera's impartial evidence settled matters by itself, citing the artists who went on painting the old poses.\n\n**The Full Solution:**\n- Text 1's account: instantaneous photographs resolved the gallop debate because the camera was an impartial witness whose verdict was accepted.\n- Text 2 assembles counterevidence: painters kept the flying gallop for decades, and critics argued that poses no eye could see were false to art.\n- Choice A is precisely that response — the evidence did not compel assent on its own.\n\n**Why the other choices are wrong:**\n- B: Braun never questions the photographs' technical accuracy, only the assumption that accuracy commanded acceptance.\n- C: Text 2 says nothing about the cameras or their shutters being unreliable.\n- D: Braun discusses the reception of the photographs, not who deserves credit for making them."
+          "explanation": "**Choice A is correct.** Rodin holds that a painting must convey movement unfolding over time, which a photograph's frozen instant cannot, so he would reject Text 1's claim that the camera's verdict bound artists to abandon the flying gallop.\n\n**The Full Solution:**\n- Text 1's account: Muybridge's photographs settled the matter because the camera was an impartial witness that artists had to accept.\n- Text 2: Rodin defends Géricault's flying gallop, arguing that \"it is the artist who is truthful and it is photography which lies,\" because art must show motion over several moments.\n- Choice A states that response: accurate photographs did not oblige artists to give up the old pose.\n\n**Why the other choices are wrong:**\n- B: Rodin does not question the photographs' accuracy; his objection is that a frozen instant is the wrong standard for art.\n- C: Text 2 makes no claim that painters knew the true leg positions before photography.\n- D: Rodin discusses what art should show, not who deserves credit for the photographs."
         },
         {
           "id": 834,
@@ -1111,11 +1110,11 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "It explains how the railway companies set their freight rates deliberately low on the routes where canal boats still carried traffic the railways considered worth capturing."
+              "text": "It explains how railway companies set freight rates deliberately low on routes where canal boats still carried traffic."
             },
             {
               "id": "B",
-              "text": "It reports how boat operators adapted to railway competition and the persistence of canal freight that followed, countering the expectation the passage has set up."
+              "text": "It reports how boat operators adapted to railway competition, countering the expectation the passage has set up."
             },
             {
               "id": "C",
@@ -1136,28 +1135,28 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "The following text is adapted from William Butler Yeats's 1890 poem \"The Lake Isle of Innisfree.\"\n\nI will arise and go now, and go to Innisfree, / And a small cabin build there, of clay and wattles made: / Nine bean-rows will I have there, a hive for the honey-bee; / And live alone in the bee-loud glade. // And I shall have some peace there, for peace comes dropping slow, / Dropping from the veils of the morning to where the cricket sings; / There midnight's all a glimmer, and noon a purple glow, / And evening full of the linnet's wings. // I will arise and go now, for always night and day / I hear lake water lapping with low sounds by the shore; / While I stand on the roadway, or on the pavements grey, / I hear it in the deep heart's core.",
+          "passage": "The following text is from William Butler Yeats's 1890 poem \"The Lake Isle of Innisfree.\" The speaker is imagining life on Innisfree, a small island in a lake.\n\nAnd I shall have some peace there, for peace comes dropping slow, / Dropping from the veils of the morning to where the cricket sings; / There midnight's all a glimmer, and noon a purple glow, / And evening full of the linnet's wings. // I will arise and go now, for always night and day / I hear lake water lapping with low sounds by the shore; / While I stand on the roadway, or on the pavements gray, / I hear it in the deep heart's core.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "The speaker declares a resolve to leave for an island, elaborates the solitary life imagined there, and finally reveals that the island's sounds haunt him where he presently stands, amid the city."
+              "text": "The speaker describes the peace he imagines on the island, then reveals that its sounds reach him even as he stands on distant pavements."
             },
             {
               "id": "B",
-              "text": "The speaker remembers an island he visited long ago in childhood and mourns that both the place and the person he was when he first saw it have since changed beyond all recognition."
+              "text": "The speaker remembers an island he visited long ago in childhood and mourns that both the place and he himself have since changed beyond recognition."
             },
             {
               "id": "C",
-              "text": "The speaker weighs the arguments for and against leaving the city and ultimately decides to remain."
+              "text": "The speaker weighs the arguments for and against leaving the city and ultimately decides to remain where he is."
             },
             {
               "id": "D",
-              "text": "The speaker describes an island's landscape and then urges a companion to make the journey there."
+              "text": "The speaker describes how an island looks at midnight, noon, and evening and then urges a companion to travel there with him."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The poem opens with a resolve to depart, spends its middle lines furnishing the imagined island life, and ends by disclosing that the island's sounds reach the speaker where he actually stands — on gray city pavements.\n\n**The Full Solution:**\n- Stanza one announces the decision (\"I will arise and go now\") and the cabin, beans, and hive the speaker plans.\n- Stanza two deepens the imagined life into peace, cricket song, and evening light.\n- Stanza three turns: the speaker has not gone at all; standing \"on the roadway, or on the pavements grey,\" he hears the lake water \"in the deep heart's core\" — the longing persists amid the city, exactly the arc choice A traces.\n\n**Why the other choices are wrong:**\n- B: The poem recalls no past visit; the island life is imagined in the future tense throughout.\n- C: The speaker never weighs arguments against going or abandons the plan — the resolve is restated in the final stanza.\n- D: No listener is addressed or urged to travel; the closing lines report the speaker's own inner state."
+          "explanation": "**Choice A is correct.** The excerpt first furnishes the peace the speaker imagines on the island, then discloses that the island's sounds reach him where he actually stands: on a roadway or \"the pavements gray.\"\n\n**The Full Solution:**\n- The first stanza imagines the island's peace: cricket song, midnight's glimmer, noon's purple glow, evening full of linnets.\n- The second stanza restates the resolve (\"I will arise and go now\") and gives its reason: he hears the lake water \"always night and day.\"\n- The final lines turn: he hears it while standing \"on the roadway, or on the pavements gray,\" far from the island, exactly the movement choice A traces.\n\n**Why the other choices are wrong:**\n- B: The speaker recalls no past visit; the island life is imagined in the future tense (\"I shall have some peace there\").\n- C: The speaker never weighs arguments against going or abandons the plan; the resolve is restated in the final stanza.\n- D: No companion is addressed or urged to travel; the closing lines report the speaker's own inner state."
         },
         {
           "id": 833,
@@ -1166,28 +1165,28 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "In the huerta of medieval Valencia, irrigation water moved by strict rotation: each farm took its turn at the canal in a fixed order, hour by hour. How such discipline held, with no police and hardly any written enforcement, long puzzled historians. An early explanation credited fear — the water tribunal could fine offenders, and dread of the penalty kept the turns honest. The tribunal's own records tell a different story: fines were infrequent and strikingly small. But sessions were held in public, in the open air before the cathedral doors, and any farmer's neighbors could testify. What disciplined the rotation, recent scholars conclude, was less the price of a fine than the certainty of being seen.",
+          "passage": "Visitors to Rapa Nui have long wondered how the island's people moved the moai, multi-ton stone statues, from the quarry where they were carved to platforms kilometers away. An early answer held that the statues were laid on wooden sledges or rollers and dragged. Archaeologists Terry Hunt and Carl Lipo pointed instead to statues abandoned along ancient roads: their bases are wide and curved along the front edge, and they lean forward, features suited to rocking an upright statue forward with ropes. The moai, Hunt and Lipo concluded, were \"walked\" upright rather than dragged.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "It surveys several medieval irrigation systems and ranks them by how effectively each allocated water."
+              "text": "It surveys several ancient monuments and ranks them by how difficult each one was to build and transport."
             },
             {
               "id": "B",
-              "text": "It contrasts a medieval method of sharing water with the practices of modern irrigation districts."
+              "text": "It contrasts the methods used to carve the moai with the methods used to raise them onto their platforms."
             },
             {
               "id": "C",
-              "text": "It poses a question about how a system kept order, presents an early answer, then reports evidence pointing toward a different mechanism."
+              "text": "It poses a question about how the statues were moved, presents an early answer, then reports evidence pointing toward a different method."
             },
             {
               "id": "D",
-              "text": "It argues that the irrigation rotations of medieval farming communities broke down far more often than admiring later historians have generally been willing to acknowledge."
+              "text": "It argues that the statues of Rapa Nui were moved far shorter distances than later historians and archaeologists have generally been willing to acknowledge."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text moves from a puzzle (how irrigation turns held without enforcement machinery) to one early answer (fear of fines) to archival evidence that redirects the explanation toward public scrutiny among neighbors.\n\n**The Full Solution:**\n- First movement: the puzzle — rotations ran for centuries with no police and few written rules.\n- Second movement: an early explanation credited the deterrent force of heavy fines.\n- Third movement: tribunal records show fines rare and small, while sessions were public and neighbors testified — so the text ends by relocating the system's force in being seen, exactly the progression choice C describes.\n\n**Why the other choices are wrong:**\n- A: The text studies one kind of institution; it does not catalog several systems and rank them.\n- B: No modern irrigation practice is described or compared with the medieval one.\n- D: The text does not argue the rotations failed; it asks why they worked."
+          "explanation": "**Choice C is correct.** The text moves from a long-standing question (how the moai were moved) to an early answer (dragging on sledges or rollers) to physical evidence that points toward a different method (walking the statues upright).\n\n**The Full Solution:**\n- First movement: the question of how multi-ton statues traveled kilometers from the quarry.\n- Second movement: the early answer that they were dragged on sledges or rollers.\n- Third movement: features of statues abandoned along ancient roads (wide, curved bases and a forward lean) that suit \"walking\" an upright statue, exactly the progression choice C describes.\n\n**Why the other choices are wrong:**\n- A: The text discusses only the moai; it does not survey or rank several monuments.\n- B: The text is about moving the statues, not about carving them or raising them onto platforms.\n- D: The text never questions how far the statues traveled; it concerns how they were moved."
         },
         {
           "id": 837,
@@ -1196,24 +1195,24 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "When phonographic shorthand entered the nineteenth-century courtroom, admirers marveled at its speed: a trained reporter could keep pace with the swiftest witness. One historian of the courtroom argues that the marveling misses what mattered. Before shorthand, the official memory of a trial was a clerk's summary — testimony compressed, reworded, inevitably judged in the compression. Once a reporter could take down every word, the exact words became available in a way they had never been: counsel could demand them read back, appellate courts could weigh them, and a summary was no longer good enough. The lasting change, on this view, was not how fast the pen moved but what a court came to expect a record to be.",
+          "passage": "When phonographic shorthand entered the nineteenth-century courtroom, admirers marveled at its speed: a trained reporter could keep pace with the swiftest witness. One historian argues that the marveling misses what mattered. Before shorthand, the official memory of a trial was a clerk's summary, with testimony compressed and reworded. Once a reporter could take down every word, counsel could demand exact words read back and appellate courts could weigh them; a summary was no longer good enough. The lasting change, on this view, was not how fast the pen moved but what a court came to expect a record to be.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "According to the text, courtroom shorthand's most important effect was not rapid writing itself but the new expectation that proceedings would be preserved word for word."
+              "text": "Courtroom shorthand's most important effect was not rapid writing itself but the new expectation that proceedings be preserved word for word."
             },
             {
               "id": "B",
-              "text": "According to the text, shorthand's chief contribution to the courtroom was allowing reporters to write as quickly as people speak."
+              "text": "Shorthand's chief contribution to the courtroom was allowing reporters to write as quickly as people speak."
             },
             {
               "id": "C",
-              "text": "According to the text, the summaries clerks once made of testimony were often more faithful than the verbatim transcripts that replaced them."
+              "text": "The summaries clerks once made of testimony were often more faithful to what witnesses meant than the verbatim transcripts that replaced them."
             },
             {
               "id": "D",
-              "text": "According to the text, courtroom shorthand declined once machines could record testimony more quickly than reporters could write it."
+              "text": "Courtroom shorthand declined once machines could record testimony more quickly than reporters could write it."
             }
           ],
           "correctAnswer": "A",
@@ -1372,7 +1371,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "An ordinary player-piano roll stored only the notes; loudness and shading were left to the person at the instrument, who pumped the pedals and worked small levers to make the performance swell or hush. The reproducing piano, introduced in the early twentieth century, went further. Its rolls were cut from a particular pianist's playing, and alongside the note slots ran additional perforations encoding that pianist's dynamics and pedaling. Played back on a suitably equipped instrument, such a roll restored not just the notes of a performance but its individual voice — which is why collectors still study reproducing rolls cut by pianists who died before electrical recording matured.",
+          "passage": "An ordinary player-piano roll stored only the notes; loudness and shading were left to the person pumping the pedals. The reproducing piano, introduced in the early twentieth century, went further. Its rolls were made from a particular pianist's playing, and alongside the note slots ran additional perforations encoding that pianist's dynamics and pedaling. Played on a suitably equipped instrument, such a roll restored not just the notes of a performance but its individual character.",
           "question": "According to the text, what allowed a reproducing roll to preserve an individual pianist's performance?",
           "choices": [
             {
@@ -1393,7 +1392,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text states it directly: alongside the note slots, reproducing rolls carried additional perforations that encoded the pianist's dynamics and pedaling, and that is what let a roll preserve an individual performance.\n\n**The Full Solution:**\n- The question asks what the text says allowed reproducing rolls to capture a particular pianist's playing.\n- The text contrasts ordinary rolls (notes only, expression left to the owner's levers) with reproducing rolls.\n- The stated difference: extra perforations recording loudness and pedaling — choice B.\n\n**Why the other choices are wrong:**\n- A: Roll speed is mentioned only as something ordinary owners adjusted by hand, not as what captured a performance.\n- C: The text does not attribute the capture to larger bellows or stronger suction.\n- D: The text says the rolls were cut from a pianist's actual playing, not corrected afterward by editors."
+          "explanation": "**Choice B is correct.** The text states it directly: alongside the note slots, reproducing rolls carried additional perforations that encoded the pianist's dynamics and pedaling, and that is what let a roll preserve an individual performance.\n\n**The Full Solution:**\n- The question asks what the text says allowed reproducing rolls to capture a particular pianist's playing.\n- The text contrasts ordinary rolls (notes only, expression left to the person pumping the pedals) with reproducing rolls.\n- The stated difference: extra perforations recording loudness and pedaling — choice B.\n\n**Why the other choices are wrong:**\n- A: The text never mentions adjusting a roll's speed.\n- C: The text does not attribute the capture to larger bellows or stronger suction.\n- D: The text says the rolls were made from a pianist's actual playing, not corrected afterward by editors."
         },
         {
           "id": 843,
@@ -1432,7 +1431,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "A team of biomechanics researchers filmed circus acrobats through hundreds of practice somersaults, tracking each performer's launch velocity and rotation from takeoff to landing. The measurements taken at launch — speed, angle, initial spin — overlapped almost completely between somersaults that landed cleanly and those that failed. Where the two groups separated was in the air: successful attempts showed the tuck drawn in within a consistent fraction of a second and, just as regularly, the body opened out again at a repeatable point in the descent. The difference between landing and falling, the researchers concluded, is made less at the moment of takeoff than in the precision of what follows it.",
+          "passage": "A team of biomechanics researchers filmed circus acrobats through hundreds of practice somersaults, tracking each performer from takeoff to landing. The measurements taken at launch, including speed, angle, and initial spin, overlapped almost completely between somersaults that landed cleanly and those that failed. The two groups separated in the air: successful attempts showed the tuck drawn in within a consistent fraction of a second and the body opened out again at a repeatable point in the descent. Landing or falling, the researchers concluded, depends less on takeoff than on the precision of what follows it.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -1453,7 +1452,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Every observation in the text converges on one conclusion, stated at the end: what separates successful somersaults is control of body shape in the air more than the raw power of the jump.\n\n**The Full Solution:**\n- The researchers filmed hundreds of practice somersaults and measured launch speed and rotation.\n- The key finding: launch measurements of successful and failed attempts overlapped almost completely, while the timing of the tuck and the opening-out did not.\n- The text's main idea is that airborne control, not launch power, distinguishes the successful attempts — choice C.\n\n**Why the other choices are wrong:**\n- A: The text reports that launch measurements barely differed between successful and failed attempts.\n- B: Training methods are never discussed, only measurements of performance.\n- D: The comparison with divers appears nowhere in the text."
+          "explanation": "**Choice C is correct.** Every observation in the text converges on one conclusion, stated at the end: what separates successful somersaults is control of body shape in the air more than the raw power of the jump.\n\n**The Full Solution:**\n- The researchers filmed hundreds of practice somersaults and measured speed, angle, and spin at launch.\n- The key finding: launch measurements of successful and failed attempts overlapped almost completely, while the timing of the tuck and the opening-out did not.\n- The text's main idea is that airborne control, not launch power, distinguishes the successful attempts — choice C.\n\n**Why the other choices are wrong:**\n- A: The text reports that launch measurements barely differed between successful and failed attempts.\n- B: Training methods are never discussed, only measurements of performance.\n- D: The comparison with divers appears nowhere in the text."
         },
         {
           "id": 842,
@@ -1582,7 +1581,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "However high the flyer soars, the trick is caught at one point in space and one moment in time. The flyer's timing must answer to one constraint above ______ the catcher's hands sweep through the lowest point of their arc only once in each swing, and a release calculated for any other instant finds them out of reach.",
+          "passage": "However high the flyer soars, the trick is caught at one point in space and one moment in time. The flyer's timing must answer to one constraint above ______ the catcher's hands reach the meeting point only once in each swing, and a release timed for any other instant finds them out of reach.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1603,7 +1602,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The first clause is independent and announces something to be specified — a single constraint — and a colon is the conventional mark that introduces the specification.\n\n**The Full Solution:**\n- \"The flyer's timing must answer to one constraint above all\" is a complete clause that points forward: the reader now expects the constraint itself.\n- What follows names it — the catcher's hands reach the bottom of their arc only once in each swing.\n- A colon after an independent clause introduces exactly this kind of elaboration.\n\n**Why the other choices are wrong:**\n- A: A comma cannot join two independent clauses; the result is a comma splice.\n- B: With no mark, the two clauses fuse into a run-on.\n- C: \"all, but\" inserts a contrast conjunction, yet the second clause specifies the constraint rather than opposing it."
+          "explanation": "**Choice D is correct.** The first clause is independent and announces something to be specified — a single constraint — and a colon is the conventional mark that introduces the specification.\n\n**The Full Solution:**\n- \"The flyer's timing must answer to one constraint above all\" is a complete clause that points forward: the reader now expects the constraint itself.\n- What follows names it — the catcher's hands reach the meeting point only once in each swing.\n- A colon after an independent clause introduces exactly this kind of elaboration.\n\n**Why the other choices are wrong:**\n- A: A comma cannot join two independent clauses; the result is a comma splice.\n- B: With no mark, the two clauses fuse into a run-on.\n- C: \"all, but\" inserts a contrast conjunction, yet the second clause specifies the constraint rather than opposing it."
         },
         {
           "id": 847,
@@ -1633,7 +1632,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The opening modifier — \"Compiled stroke by stroke from years of courtroom practice\" — must attach to the thing that was compiled, and only choice C makes that thing, the stenographer's dictionary of brief forms, the subject.\n\n**The Full Solution:**\n- An introductory participial phrase modifies the subject of the clause that follows.\n- What was compiled stroke by stroke? The dictionary of brief forms — so \"the stenographer's dictionary\" must stand immediately after the comma.\n- Choice C supplies it: \"the stenographer's dictionary of brief forms preserved the accumulated speed of a working lifetime.\"\n\n**Why the other choices are wrong:**\n- A: It makes \"the reporters of the next generation\" the subject, absurdly casting them as what was compiled.\n- B: It hangs the modifier on the gerund phrase \"collecting the forms,\" leaving the compiled thing itself displaced from subject position.\n- D: The expletive \"there were\" gives the modifier no subject at all to attach to, leaving it dangling."
+          "explanation": "**Choice C is correct.** The opening modifier — \"Compiled stroke by stroke from years of courtroom practice\" — must attach to the thing that was compiled, and only choice C makes that thing, the stenographer's dictionary of brief forms, the subject.\n\n**The Full Solution:**\n- An introductory participial phrase modifies the subject of the clause that follows.\n- What was compiled stroke by stroke? The dictionary of brief forms — so \"the stenographer's dictionary\" must stand immediately after the comma.\n- Choice C supplies it: \"the stenographer's dictionary of brief forms preserved the accumulated speed of a working lifetime.\"\n\n**Why the other choices are wrong:**\n- A: It makes \"the last reporters trained in the old pen systems\" the subject, absurdly casting them as what was compiled.\n- B: It hangs the modifier on the gerund phrase \"collecting the forms,\" leaving the compiled thing itself displaced from subject position.\n- D: The expletive \"there were\" gives the modifier no subject at all to attach to, leaving it dangling."
         },
         {
           "id": 844,
@@ -1672,7 +1671,7 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "The physiologist Étienne-Jules Marey photographed flying birds at rates no eye could follow, and his plates overturned a comfortable simplification: a wing did not flap like a rigid oar but twisted along its length, meeting the air at angles that changed throughout the stroke. Among the closest readers of these images were the builders of experimental flying machines. ______ several of them gave up the flat, board-like test wings they had been building and adopted cambered, flexible surfaces closer to what the photographs showed.",
+          "passage": "The physiologist Étienne-Jules Marey wanted to analyze the flight of birds, but a single wingbeat passes far too quickly for the eye to follow. ______ in 1882 he built a \"chronophotographic gun,\" a camera shaped like a rifle that could take twelve photographs in one second as he tracked a bird across the sky.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1689,11 +1688,11 @@ export const practiceTest8RW = {
             },
             {
               "id": "D",
-              "text": "Later,"
+              "text": "Similarly,"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The final sentence reports what the aeronautical pioneers did because of what the photographs revealed — they redesigned their test wings on the birds' example — so a cause-and-effect transition is required.\n\n**The Full Solution:**\n- The passage establishes the finding: Marey's plates showed a wing meeting the air as a twisting, flexing surface, not a rigid flapping plane.\n- It then notes who was studying those plates: builders of experimental flying machines.\n- The last sentence gives their response — abandoning rigid flat wings for cambered, flexible ones — a consequence of the finding, marked by \"Consequently.\"\n\n**Why the other choices are wrong:**\n- A: \"In fact,\" introduces an intensification or correction of the previous claim, not an outcome of it.\n- C: \"Nevertheless,\" would signal the builders acting against the photographs' lesson, when they acted on it.\n- D: \"Later,\" records mere sequence in time, discarding the causal link the passage constructs."
+          "explanation": "**Choice B is correct.** Marey built his camera because the wingbeat was too fast for the eye, so the final sentence reports a response to the problem just described, and a cause-and-effect transition is required.\n\n**The Full Solution:**\n- The first sentence sets out a problem: Marey wanted to study bird flight, but a wingbeat is too fast to see.\n- The final sentence gives his response: a rifle-shaped camera that took twelve photographs a second.\n- The camera is a consequence of the problem, marked by \"Consequently.\"\n\n**Why the other choices are wrong:**\n- A: \"In fact,\" introduces an intensification or correction of the previous claim, not a response to it.\n- C: \"Nevertheless,\" would signal an action taken despite the problem, but the camera was built because of it.\n- D: \"Similarly,\" promises a parallel point, but building the camera is not like the problem; it answers it."
         },
         {
           "id": 851,
@@ -1702,7 +1701,7 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Even at a walking pace, the canal boat held one advantage the railway companies were slow to erase: on still water, a single horse could move a load that would have crowded a highway. ______ a boat drawn by one horse and worked by a crew of two could carry some thirty tons of coal, a cargo that would have required a dozen wagons and their teams on the turnpike.",
+          "passage": "Even at a walking pace, the canal boat held a great advantage over the road: on still water, one horse could move a load that would have needed many teams on land. ______ a horse that could draw only about five-eighths of a ton in a cart on a soft road could pull up to thirty tons in a boat on a canal.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1723,7 +1722,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The second sentence descends from the general claim — the canal's advantage lay in what one horse could move — to the precise figures behind it, and \"Specifically,\" is the transition that introduces exactly that sharpening.\n\n**The Full Solution:**\n- Sentence one makes a general economic point: the canals' case against the railways rested on the extraordinary load a single horse could draw on water.\n- Sentence two supplies the particulars: one horse, two crew, thirty tons — against the dozen wagons the same load would demand on the road.\n- Moving from claim to exact detail calls for \"Specifically.\"\n\n**Why the other choices are wrong:**\n- B: \"Likewise,\" promises a parallel new point, but the second sentence details the first rather than adding another.\n- C: \"As a result,\" would make the figures a consequence of the claim, though they are its content.\n- D: \"By contrast,\" signals opposition, and no opposing idea appears between the two sentences."
+          "explanation": "**Choice A is correct.** The second sentence moves from the general claim (one horse could move far more on water) to the precise figures behind it, and \"Specifically,\" is the transition that introduces exactly that sharpening.\n\n**The Full Solution:**\n- Sentence one makes a general point: on still water, one horse could move a load that would need many teams on land.\n- Sentence two supplies the particulars: about five-eighths of a ton in a cart on a soft road against up to thirty tons in a canal boat.\n- Moving from a claim to the exact detail behind it calls for \"Specifically.\"\n\n**Why the other choices are wrong:**\n- B: \"Alternatively,\" offers a different option, but the second sentence details the first rather than offering a substitute for it.\n- C: \"As a result,\" would make the figures a consequence of the claim, though they are its content.\n- D: \"By contrast,\" signals opposition, and no opposing idea appears between the two sentences."
         },
         {
           "id": 852,
@@ -1732,7 +1731,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "In the first decades of the twentieth century the player piano was not a curiosity but the center of the parlor: by the mid-1920s, more than half the pianos built in America left the factory with player mechanisms inside, and publishers issued popular songs on perforated rolls as routinely as on sheet music. ______ the radio and the electrically recorded disc offered music that asked still less of its listeners, and the pumping parlor piano gave way to the loudspeaker.",
+          "passage": "In the early 1920s the player piano was a fixture of American parlors, and sales of the instrument peaked in 1924. ______ improved phonograph records and the radio offered music that asked still less of listeners, and after the stock market crash of 1929, player-piano production all but ceased.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1753,7 +1752,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The passage moves from the player piano's peak to its later displacement by radio and electrical recording — a development unfolding over subsequent years — and \"Eventually,\" marks that passage of time.\n\n**The Full Solution:**\n- The first sentences establish the height of the boom: by the mid-1920s, more than half the pianos built in America left the factory with player mechanisms inside.\n- The final sentence reports what came afterward: radio and electrical recording offered music with less effort and expense, and the player piano faded.\n- The relation is temporal succession — a later stage following an earlier one — so a time transition fits.\n\n**Why the other choices are wrong:**\n- A: \"Instead,\" would require the fading to replace some expected alternative just mentioned, but no alternative has been set up.\n- B: \"For example,\" would make the piano's decline an illustration of its boom, which is incoherent.\n- D: \"In other words,\" promises a restatement of the boom, not the reversal that actually follows."
+          "explanation": "**Choice C is correct.** The passage moves from the player piano's peak to its later decline, a development unfolding over the following years, and \"Eventually,\" marks that passage of time.\n\n**The Full Solution:**\n- The first sentence establishes the height of the boom: sales peaked in 1924.\n- The final sentence reports what came afterward: phonograph records and radio offered easier music, and production all but ceased after 1929.\n- The relation is a later stage following an earlier one, so a time transition fits.\n\n**Why the other choices are wrong:**\n- A: \"Instead,\" would require the decline to replace some alternative just mentioned, but no alternative has been set up.\n- B: \"For example,\" would make the decline an illustration of the boom, which is incoherent.\n- D: \"In other words,\" promises a restatement of the boom, not the reversal that actually follows."
         },
         {
           "id": 853,
@@ -1777,7 +1776,7 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Whereas Muybridge photographed motion with a row of cameras that produced a sequence of separate pictures, Marey used a single camera that layered successive instants on one plate."
+              "text": "Whereas Muybridge used a row of cameras to produce a series of separate pictures, Marey used a single camera that layered successive instants on one plate."
             },
             {
               "id": "B",
@@ -1785,7 +1784,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "C",
-              "text": "Muybridge's sequences of separate pictures proved well suited to public display and lecture tours, while Marey's overlapping single-plate records served the precise measurements that his physiological studies of moving bodies required."
+              "text": "Muybridge's sequences of separate pictures suited public lectures, while Marey's overlapping single-plate records served the precise measurements his physiological studies required."
             },
             {
               "id": "D",
@@ -1793,7 +1792,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The goal demands the two methods set against each other, and A does it in one frame: Muybridge's row of cameras yielding a sequence of separate pictures, Marey's single camera layering successive instants on one plate.\n\n**The Full Solution:**\n- Emphasizing a difference requires both photographers' methods in the same sentence, framed as a contrast.\n- Choice A's \"Whereas\" construction pairs the defining features — many cameras, separate images versus one camera, one overlaid plate — exactly as the notes describe them.\n\n**Why the other choices are wrong:**\n- B: It describes only Muybridge's arrangement and never mentions Marey.\n- C: It reports what each man's method suited without stating how the methods themselves differed.\n- D: It emphasizes what the two shared — an interest in motion too fast for the eye — rather than a difference."
+          "explanation": "**Choice A is correct.** The goal demands the two methods set against each other, and A does it in one frame: Muybridge's row of cameras producing a series of separate pictures, Marey's single camera layering successive instants on one plate.\n\n**The Full Solution:**\n- Emphasizing a difference requires both photographers' methods in the same sentence, framed as a contrast.\n- Choice A's \"Whereas\" construction pairs the defining features — many cameras, separate images versus one camera, one overlaid plate — exactly as the notes describe them.\n\n**Why the other choices are wrong:**\n- B: It describes only Muybridge's arrangement and never mentions Marey.\n- C: It reports what each man's method suited without stating how the methods themselves differed.\n- D: It emphasizes what the two shared — an interest in motion too fast for the eye — rather than a difference."
         },
         {
           "id": 854,
@@ -1829,11 +1828,11 @@ export const practiceTest8RW = {
             },
             {
               "id": "D",
-              "text": "A lo'i is a flooded hillside terrace used by Hawaiian farmers to grow taro, a starchy root crop, with stream water flowing through it continuously to keep the plants cool and healthy."
+              "text": "A lo'i is a flooded hillside terrace where Hawaiian farmers grow taro, a starchy root crop, in stream water that flows through continuously."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** For a reader meeting the term for the first time, D does the essential work in one sentence: it defines the lo'i, names the crop, and explains the flowing water that makes the system function.\n\n**The Full Solution:**\n- An introduction for an unfamiliar audience must define the concept, not assume it.\n- Choice D states what a lo'i is (a flooded hillside terrace in Hawai'i), what it grows (taro), and the mechanism that sustains it (stream water flowing through continuously, keeping the crop cool and healthy).\n\n**Why the other choices are wrong:**\n- A: It presumes the reader already knows what a lo'i is and reports only its longevity.\n- B: It describes the water's path without ever saying what a lo'i is or what it grows.\n- C: It states the cool-water benefit but leaves the term itself undefined for a newcomer."
+          "explanation": "**Choice D is correct.** For a reader meeting the term for the first time, D does the essential work in one sentence: it defines the lo'i, names the crop, and explains the flowing water that makes the system function.\n\n**The Full Solution:**\n- An introduction for an unfamiliar audience must define the concept, not assume it.\n- Choice D states what a lo'i is (a flooded hillside terrace in Hawai'i), what it grows (taro), and the mechanism that sustains it (stream water flowing through continuously).\n\n**Why the other choices are wrong:**\n- A: It presumes the reader already knows what a lo'i is and reports only its longevity.\n- B: It describes the water's path without ever saying what a lo'i is or what it grows.\n- C: It states the cool-water benefit but leaves the term itself undefined for a newcomer."
         }
       ]
     }

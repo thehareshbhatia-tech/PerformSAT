@@ -13,7 +13,7 @@
   },
   {
    "label": "Text 2",
-   "text": "The biologist Skúli Skúlason has tested how fixed such differences are. In rearing experiments, offspring of one char morph were raised on the diet of another; as they grew, their jaws and bodies developed measurably toward the form typical of the diet they ate, not the form of their parents. Development, he argues, responds to what a young fish encounters, so a lake's food landscape can itself mold part of the difference between morphs."
+   "text": "The biologist Skúli Skúlason and colleagues have tested how fixed such differences are. In rearing experiments, young char from Icelandic lakes were raised on diets mimicking either bottom-dwelling or open-water prey, and their head shapes developed differently depending on what they ate. Development, the researchers argue, responds to what a young fish encounters, so a lake's food landscape can itself mold part of the difference between morphs."
   }
  ],
  "question": "Based on the texts, how would Skúli Skúlason (Text 2) most likely respond to the explanation presented in Text 1?",
@@ -24,7 +24,7 @@
   },
   {
    "id": "B",
-   "text": "He would argue that the field measurements described in Text 1 were taken from too few fish to be trusted."
+   "text": "He would argue that the field measurements described in Text 1 were taken from too few fish in too small a part of the lake to be trusted."
   },
   {
    "id": "C",
@@ -32,9 +32,9 @@
   },
   {
    "id": "D",
-   "text": "He would caution that differences of the kind Text 1 cites can arise partly within a single generation, since diet alone shifted the form of the fish he reared."
+   "text": "He would caution that such differences can arise partly within one generation, since diet alone altered the head shapes of reared fish."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** Skúlason's rearing experiments show that diet alone can shift young char toward another morph's form, so he would grant the anatomical differences Text 1 describes while denying that they must reflect separate gene pools.\n\n**The Full Solution:**\n- Text 1 reads the morphs' distinct jaws and bodies as evidence of lineages that have genetically diverged within the lake.\n- Text 2 reports that offspring of one morph, reared on another morph's diet, developed toward that other form.\n- The natural response is the qualified one in choice D: the differences are real, but part of what Text 1 attributes to divergent inheritance can arise within a single generation.\n\n**Why the other choices are wrong:**\n- A: Skúlason never denies that the morphs differ — his experiments begin from those differences.\n- B: Nothing in Text 2 questions how the field measurements were taken.\n- C: Text 2 concerns development, not the age of the lake or its colonization history."
+ "explanation": "**Choice D is correct.** Skúlason's rearing experiments show that diet alone can change the head shape of young char, so he would grant the differences Text 1 describes while cautioning that they need not all reflect separate gene pools.\n\n**The Full Solution:**\n- Text 1 reads the morphs' distinct jaws and bodies as evidence of lineages that have genetically diverged within the lake.\n- Text 2 reports that young char raised on different diets developed different head shapes.\n- The natural response is the qualified one in choice D: the differences are real, but part of what Text 1 attributes to divergent inheritance can arise within a single generation.\n\n**Why the other choices are wrong:**\n- A: Skúlason never denies that the morphs differ; his experiments begin from those differences.\n- B: Nothing in Text 2 questions how the field measurements were taken.\n- C: Text 2 concerns development, not the age of the lake or its colonization history."
 }

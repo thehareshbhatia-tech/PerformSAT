@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 1,
- "passage": "Painters who loved verdigris for its brilliance also learned to fear its chemistry. The pigment is restless in oil: passages that went on a vivid blue-green can drift toward a dull brown as the copper compound reacts with the medium around it. ______ verdigris can attack its neighbors, and manuals of the period warn against letting it touch lead white or vermilion on the palette.",
+ "passage": "Painters prized verdigris for its brilliant green but learned to handle it warily. In oil, the pigment tends to brown or darken as a painting ages. ______ its color can begin to change within the first month of exposure to air, which is why painters often sealed verdigris passages under varnish soon after applying them.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The passage is stacking up a second, additional drawback of verdigris on top of the first, and \"Moreover,\" signals exactly that piling-on of parallel points.\n\n**The Full Solution:**\n- The first drawback: verdigris is chemically restless and can darken toward brown as it reacts with the oil around it.\n- The blank introduces a second, distinct drawback: it can also attack neighboring pigments on the palette.\n- The two points run in the same direction — both are costs of using the pigment — so an additive transition fits.\n\n**Why the other choices are wrong:**\n- B: \"In contrast,\" would promise a point running against the first, but the second drawback reinforces it.\n- C: \"Therefore,\" would make the second drawback a consequence of the first, though the two are independent problems.\n- D: \"For instance,\" would offer the second point as an example of the first, but attacking other pigments is not a case of self-darkening."
+ "explanation": "**Choice A is correct.** The passage adds a second, separate drawback of verdigris to the first, and \"Moreover,\" signals exactly that addition of a parallel point.\n\n**The Full Solution:**\n- The first drawback: in oil, verdigris tends to brown or darken as a painting ages.\n- The blank introduces a second, distinct drawback: its color can start changing within a month of exposure to air.\n- Both points run in the same direction, as reasons painters handled the pigment warily, so an additive transition fits.\n\n**Why the other choices are wrong:**\n- B: \"In contrast,\" would promise a point running against the first, but the second drawback reinforces it.\n- C: \"Therefore,\" would make the early color change a consequence of the slow browning, though the two are separate problems.\n- D: \"For instance,\" would offer the second point as an example of the first, but a change within the first month is not an example of darkening over a painting's lifetime."
 }

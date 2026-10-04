@@ -6,12 +6,12 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 1,
- "passage": "A cast bell seems the product of a single dramatic pour, but the pour is only one stage among many. First the founder builds the mold: an inner core of brick and loam and an outer cope, each swept to a precise curve by a wooden template pivoting on a central spindle. The finished mold must dry slowly for weeks, since trapped moisture can turn to steam and ruin the casting. Only then is the bronze melted and poured, and even a flawless pour leaves work to do — the rough casting is cleaned, and the bell is mounted on a lathe so that metal can be shaved from its inner wall to bring its tones into tune.",
+ "passage": "A cast bell seems the product of a single pour, but the pour is only one stage among many. First the founder builds the mold: an inner core of brick and loam and an outer cope, each shaped by a wooden template pivoting on a central spindle. The mold must then be thoroughly dried, since moisture left in it can ruin the casting. Only then is the bronze poured, and even a flawless pour leaves work to do: the bell is mounted on a lathe, and metal is shaved from its inner wall to bring its tones into tune.",
  "question": "Which choice best states the main purpose of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "To compare the tone of bells cast at rival foundries and to argue that the older workshops generally produced the finer-sounding instruments."
+   "text": "To compare bells cast at rival foundries and argue that the older workshops produced the finer-sounding instruments."
   },
   {
    "id": "B",
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** Every sentence of the text advances one point: casting a bell proceeds through a sequence of specialized stages — mold building, drying, pouring, fettling, and tuning — rather than a single act of pouring.\n\n**The Full Solution:**\n- The text opens by rejecting the assumption that founding is \"a single dramatic pour.\"\n- It then walks through the stages in order: the loam mold swept up on a strickle board, weeks of drying, the pour itself, and the lathe-tuning afterward.\n- The purpose is to explain that sequence, which is what choice B states.\n\n**Why the other choices are wrong:**\n- A: The text never compares one foundry's bells with another's.\n- C: Only one sentence concerns tuning; the text does not argue tuning matters more than casting.\n- D: The cost of bell metal is never mentioned."
+ "explanation": "**Choice B is correct.** Every sentence of the text advances one point: casting a bell proceeds through a sequence of specialized stages — mold building, drying, pouring, and tuning — rather than a single act of pouring.\n\n**The Full Solution:**\n- The text opens by rejecting the assumption that a bell is \"the product of a single pour.\"\n- It then walks through the stages in order: the loam mold shaped by a pivoting template, thorough drying, the pour itself, and the lathe-tuning afterward.\n- The purpose is to explain that sequence, which is what choice B states.\n\n**Why the other choices are wrong:**\n- A: The text never compares one foundry's bells with another's.\n- C: Only one sentence concerns tuning; the text does not argue tuning matters more than casting.\n- D: The cost of bell metal is never mentioned."
 }

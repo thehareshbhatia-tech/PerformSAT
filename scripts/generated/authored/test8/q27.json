@@ -9,11 +9,10 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Emanuela Guidoboni is a historical seismologist who studies the earthquakes of medieval Italy.",
-   "Earlier earthquake catalogs were compiled by tallying reports found in old chronicles at face value.",
-   "Copied chronicles could turn one earthquake into several, each with a different date.",
-   "Guidoboni traced every report back to its earliest surviving source.",
-   "Her revised catalogs discarded duplicated or misdated entries, removing some destructive earthquakes that never actually happened."
+   "Emanuela Guidoboni is an Italian historical seismologist who studies earthquakes recorded in historical documents.",
+   "Earlier Italian catalogs listed medieval Sicilian earthquakes based largely on local sources.",
+   "Guidoboni and a colleague re-examined those earthquakes using Byzantine, Latin, and Arab sources as well.",
+   "Their 1996 revision deleted six spurious earthquakes from the record and identified five previously unknown ones."
   ],
   "goal": "The student wants to emphasize a difference between Guidoboni's method and the practice of earlier catalog compilers."
  },
@@ -21,21 +20,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "Earlier compilers of earthquake catalogs accepted the reports they found in old chronicles at face value, tallying each mention as a separate event."
+   "text": "Earlier Italian earthquake catalogs listed the earthquakes of medieval Sicily based largely on local sources."
   },
   {
    "id": "B",
-   "text": "Guidoboni's re-examination of the sources removed from the catalogs several destructive earthquakes that turned out never to have happened."
+   "text": "Guidoboni's 1996 revision of the catalogs deleted six spurious earthquakes from the record of medieval Sicily and identified five earthquakes that had previously been unknown."
   },
   {
    "id": "C",
-   "text": "Emanuela Guidoboni is a historical seismologist who has devoted her career to the earthquakes of medieval Italy."
+   "text": "Emanuela Guidoboni is an Italian historical seismologist who studies earthquakes recorded in historical documents."
   },
   {
    "id": "D",
-   "text": "Whereas earlier compilers tallied old earthquake reports at face value, Guidoboni traced each report to its earliest source, discarding entries that proved to be duplicated or misdated."
+   "text": "Whereas earlier catalogs relied largely on local sources, Guidoboni also drew on Byzantine, Latin, and Arab sources to revise the record of medieval Sicily's earthquakes."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The goal is to set Guidoboni's method against the earlier compilers' practice, and D holds the two side by side: they counted reports at face value; she traced each report to its earliest source and struck the entries that dissolved.\n\n**The Full Solution:**\n- A difference is only emphasized when both approaches appear in one frame.\n- Choice D's \"Whereas\" construction does exactly that, pairing the old practice (tallying at face value) with hers (tracing sources, discarding duplicated or misdated entries).\n\n**Why the other choices are wrong:**\n- A: It describes only the earlier compilers and never presents Guidoboni's alternative.\n- B: It reports one striking result of her work, not how her method differed from anyone's.\n- C: It identifies her field and subject without contrasting her procedure with earlier practice."
+ "explanation": "**Choice D is correct.** The goal is to set Guidoboni's method against the earlier compilers' practice, and D holds the two side by side: they relied largely on local sources; she also drew on Byzantine, Latin, and Arab sources.\n\n**The Full Solution:**\n- A difference is only emphasized when both approaches appear in one frame.\n- Choice D's \"Whereas\" construction does exactly that, pairing the old practice (local sources) with hers (a wider range of sources).\n\n**Why the other choices are wrong:**\n- A: It describes only the earlier catalogs and never presents Guidoboni's alternative.\n- B: It reports the results of her revision, not how her method differed from anyone's.\n- C: It identifies her field without contrasting her method with earlier practice."
 }

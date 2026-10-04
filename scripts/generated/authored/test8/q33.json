@@ -6,26 +6,26 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 2,
- "passage": "In the huerta of medieval Valencia, irrigation water moved by strict rotation: each farm took its turn at the canal in a fixed order, hour by hour. How such discipline held, with no police and hardly any written enforcement, long puzzled historians. An early explanation credited fear — the water tribunal could fine offenders, and dread of the penalty kept the turns honest. The tribunal's own records tell a different story: fines were infrequent and strikingly small. But sessions were held in public, in the open air before the cathedral doors, and any farmer's neighbors could testify. What disciplined the rotation, recent scholars conclude, was less the price of a fine than the certainty of being seen.",
+ "passage": "Visitors to Rapa Nui have long wondered how the island's people moved the moai, multi-ton stone statues, from the quarry where they were carved to platforms kilometers away. An early answer held that the statues were laid on wooden sledges or rollers and dragged. Archaeologists Terry Hunt and Carl Lipo pointed instead to statues abandoned along ancient roads: their bases are wide and curved along the front edge, and they lean forward, features suited to rocking an upright statue forward with ropes. The moai, Hunt and Lipo concluded, were \"walked\" upright rather than dragged.",
  "question": "Which choice best describes the overall structure of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "It surveys several medieval irrigation systems and ranks them by how effectively each allocated water."
+   "text": "It surveys several ancient monuments and ranks them by how difficult each one was to build and transport."
   },
   {
    "id": "B",
-   "text": "It contrasts a medieval method of sharing water with the practices of modern irrigation districts."
+   "text": "It contrasts the methods used to carve the moai with the methods used to raise them onto their platforms."
   },
   {
    "id": "C",
-   "text": "It poses a question about how a system kept order, presents an early answer, then reports evidence pointing toward a different mechanism."
+   "text": "It poses a question about how the statues were moved, presents an early answer, then reports evidence pointing toward a different method."
   },
   {
    "id": "D",
-   "text": "It argues that the irrigation rotations of medieval farming communities broke down far more often than admiring later historians have generally been willing to acknowledge."
+   "text": "It argues that the statues of Rapa Nui were moved far shorter distances than later historians and archaeologists have generally been willing to acknowledge."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The text moves from a puzzle (how irrigation turns held without enforcement machinery) to one early answer (fear of fines) to archival evidence that redirects the explanation toward public scrutiny among neighbors.\n\n**The Full Solution:**\n- First movement: the puzzle — rotations ran for centuries with no police and few written rules.\n- Second movement: an early explanation credited the deterrent force of heavy fines.\n- Third movement: tribunal records show fines rare and small, while sessions were public and neighbors testified — so the text ends by relocating the system's force in being seen, exactly the progression choice C describes.\n\n**Why the other choices are wrong:**\n- A: The text studies one kind of institution; it does not catalog several systems and rank them.\n- B: No modern irrigation practice is described or compared with the medieval one.\n- D: The text does not argue the rotations failed; it asks why they worked."
+ "explanation": "**Choice C is correct.** The text moves from a long-standing question (how the moai were moved) to an early answer (dragging on sledges or rollers) to physical evidence that points toward a different method (walking the statues upright).\n\n**The Full Solution:**\n- First movement: the question of how multi-ton statues traveled kilometers from the quarry.\n- Second movement: the early answer that they were dragged on sledges or rollers.\n- Third movement: features of statues abandoned along ancient roads (wide, curved bases and a forward lean) that suit \"walking\" an upright statue, exactly the progression choice C describes.\n\n**Why the other choices are wrong:**\n- A: The text discusses only the moai; it does not survey or rank several monuments.\n- B: The text is about moving the statues, not about carving them or raising them onto platforms.\n- D: The text never questions how far the statues traveled; it concerns how they were moved."
 }

@@ -8,39 +8,39 @@
  "choices": [
   {
    "id": "A",
-   "text": "Campbell, a homesteader in South Dakota, eventually became the era's best-known and most widely read promoter of dry farming."
+   "text": "Campbell, who homesteaded in Dakota Territory in 1879, became the best-known promoter of dry farming on the Great Plains."
   },
   {
    "id": "B",
-   "text": "Agronomists at government experiment stations ran multiyear trials of dry-farming methods at sites across the Great Plains."
+   "text": "The Dry Farming Congress, founded in Denver in 1907 to promote Campbell's methods, was soon joined by agricultural scientists."
   },
   {
    "id": "C",
-   "text": "Campbell's manuals taught that deep plowing and a packed subsurface, maintained with special tools, would store rainfall in the soil."
+   "text": "Campbell's Soil Culture Manual (1902) taught deep fall plowing, subsurface packing, and summer fallowing."
   },
   {
    "id": "D",
-   "text": "Campbell claimed his methods could store rainfall indefinitely and make crops reliable in nearly any dry region, but the experiment stations reported that no tillage method stored more than a fraction of a season's rain."
+   "text": "Campbell saw his methods as the key to family farming on the Plains, but agricultural scientists questioned them."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** A point of disagreement requires both parties on the page, saying incompatible things — and D delivers the collision: Campbell's indefinite-storage promise set directly against the stations' fraction-of-a-season finding.\n\n**The Full Solution:**\n- The goal names two sides: Campbell and the experiment stations.\n- The notes give each side a claim about the same question — how much rainfall tillage can store — and the claims cannot both be true.\n- D pairs those claims in one sentence with an adversative \"but,\" which is precisely how a disagreement is emphasized.\n\n**Why the other choices are wrong:**\n- A: It introduces Campbell's fame and says nothing of what anyone disputed.\n- B: It describes the stations' method — trials — without their findings or Campbell's opposing claim.\n- C: It presents Campbell's teaching alone; with no answering position, no disagreement appears.",
+ "explanation": "**Choice D is correct.** A point of disagreement requires both parties on the page, taking opposed positions on the same thing — and D delivers the collision: Campbell's confidence in his methods set directly against the scientists' doubts about those same methods.\n\n**The Full Solution:**\n- The goal names two sides: Campbell and the agricultural scientists.\n- The notes give each side a stance on the same subject — Campbell's tillage methods: he believed they would make family farming possible on the Plains; the scientists questioned them.\n- D pairs those stances in one sentence with an adversative \"but,\" which is precisely how a disagreement is emphasized.\n\n**Why the other choices are wrong:**\n- A: It introduces Campbell's background and fame and says nothing of what anyone disputed.\n- B: It reports that scientists joined the Congress but not that they questioned anything, so no disagreement appears.\n- C: It presents Campbell's teaching alone; with no answering position, no disagreement appears.",
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Hardy Webster Campbell was a South Dakota homesteader who became the era's best-known promoter of dry farming.",
-   "His manuals taught that deep plowing and a packed subsurface, maintained with special tools, would store rainfall in the soil indefinitely.",
-   "He claimed his methods could make crops reliable in nearly any dry region.",
-   "Agronomists at government experiment stations ran multiyear trials of dry-farming methods across the Great Plains.",
-   "The stations reported that no tillage method stored more than a fraction of a season's rainfall and that Campbell's system failed in the driest years."
+   "Hardy Webster Campbell homesteaded in Dakota Territory in 1879 and became the best-known promoter of dry farming on the Great Plains.",
+   "His Soil Culture Manual (1902) taught deep fall plowing, subsurface packing, and summer fallowing.",
+   "Campbell believed his system would make family farming possible on the Plains.",
+   "In 1907, the Dry Farming Congress was founded in Denver to promote his methods.",
+   "Agricultural scientists who joined the Congress began questioning those methods."
   ],
-  "goal": "The student wants to emphasize a point of disagreement between Campbell and the experiment stations."
+  "goal": "The student wants to emphasize a point of disagreement between Campbell and agricultural scientists."
  },
  "_meta": {
-  "anchor": "dry farming techniques — Hardy Webster Campbell's promises vs. experiment-station trials",
+  "anchor": "dry farming — Hardy Webster Campbell (Encyclopedia of the Great Plains: homesteaded Dakota Territory 1879; Soil Culture Manual 1902; Dry Farming Congress, Denver 1907, where agricultural scientists questioned his methods)",
   "distractors": {
-   "A": "fame without dispute",
-   "B": "method without findings",
+   "A": "background without dispute",
+   "B": "scientists present, dispute absent",
    "C": "one side only"
   }
  },

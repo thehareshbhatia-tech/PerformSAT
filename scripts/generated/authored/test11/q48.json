@@ -8,27 +8,27 @@
  "choices": [
   {
    "id": "A",
-   "text": "rainfall, agronomists at the state experiment stations, however,"
+   "text": "rainfall, agricultural scientists, however,"
   },
   {
    "id": "B",
-   "text": "rainfall; agronomists at the state experiment stations, however"
+   "text": "rainfall; agricultural scientists, however"
   },
   {
    "id": "C",
-   "text": "rainfall, agronomists at the state experiment stations however"
+   "text": "rainfall, agricultural scientists however"
   },
   {
    "id": "D",
-   "text": "rainfall. Agronomists at the state experiment stations, however,"
+   "text": "rainfall. Agricultural scientists, however,"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** Two independent statements meet here — the promoters' promise, and the agronomists' contrary finding — and D separates them with a period while setting off the interrupting \"however\" with the required pair of commas.\n\n**The Full Solution:**\n- Statement 1: \"Promoters of dry farming toured the Great Plains promising ... on almost any rainfall.\"\n- Statement 2: \"Agronomists at the state experiment stations, however, found that ...\" — a full clause with \"however\" as a parenthetical interrupter.\n- A period is a legitimate boundary between independent clauses, and an interrupting \"however\" takes a comma on each side. D satisfies both conventions at once.\n\n**Why the other choices are wrong:**\n- A: The comma after \"rainfall\" splices the two independent statements together.\n- B: The semicolon boundary is sound, but \"however\" is fenced on only one side — the comma completing the pair is missing.\n- C: It both splices the clauses with a comma and leaves \"however\" entirely unfenced.",
- "passage": "Promoters of dry farming toured the Great Plains promising that deep plowing and a packed dust mulch would let wheat thrive on almost any ______ found that the technique's celebrated successes owed more to runs of unusually wet years than to the methods themselves.",
+ "explanation": "**Choice D is correct.** Two independent statements meet here — the promoters' promise, and the scientists' skeptical response — and D separates them with a period while setting off the interrupting \"however\" with the required pair of commas.\n\n**The Full Solution:**\n- Statement 1: \"Promoters of dry farming toured the Great Plains promising ... on almost any rainfall.\"\n- Statement 2: \"Agricultural scientists, however, questioned those promises ...\" — a full clause with \"however\" as a parenthetical interrupter.\n- A period is a legitimate boundary between independent clauses, and an interrupting \"however\" takes a comma on each side. D satisfies both conventions at once.\n\n**Why the other choices are wrong:**\n- A: The comma after \"rainfall\" splices the two independent statements together.\n- B: The semicolon boundary is sound, but \"however\" is fenced on only one side — the comma completing the pair is missing.\n- C: It both splices the clauses with a comma and leaves \"however\" entirely unfenced.",
+ "passage": "Promoters of dry farming toured the Great Plains promising that deep plowing and careful tillage would let wheat thrive on almost any ______ questioned those promises and began testing the methods in controlled trials.",
  "_meta": {
   "rule": "period between independent clauses + paired commas around interrupting 'however'",
-  "anchor": "dry farming techniques — promoters' promises vs. experiment-station findings",
+  "anchor": "dry farming — promoters' promises vs. agricultural scientists' skepticism (Encyclopedia of the Great Plains: scientists in the Dry Farming Congress questioned Campbell's methods)",
   "distractors": {
    "A": "comma splice",
    "B": "half-fenced 'however'",

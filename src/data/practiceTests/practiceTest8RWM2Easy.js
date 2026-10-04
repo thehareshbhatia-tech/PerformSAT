@@ -144,7 +144,7 @@ export const practiceTest8RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "text-structure-and-purpose",
-      "passage": "In nineteenth-century mining camps high in the Sierra Nevada, winter closed the wagon roads for months at a time, yet the mail still had to move. Post offices in snowbound camps were served by carriers who crossed the passes on long wooden skis, the mailbag strapped high on their backs. The trips took days each way, and the carriers read the snow as they went, resting while the midday surface softened and pushing on once the crust froze hard enough to hold them.",
+      "passage": "In nineteenth-century mining camps high in the Sierra Nevada, winter closed the wagon roads for months at a time, yet the mail still had to move. Post offices in snowbound camps were served by carriers who crossed the passes on long wooden skis, the mailbag strapped high on their backs. The trips took days each way, over snow that buried the roads until spring.",
       "question": "Which choice best states the main purpose of the text?",
       "choices": [
         { "id": "A", "text": "To explain the training that modern postal workers receive before they are assigned to mountain routes." },
@@ -162,7 +162,7 @@ export const practiceTest8RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "text-structure-and-purpose",
-      "passage": "Through most of the nineteenth century, a pencil was pointed with whatever small blade happened to be at hand, slowly and one shaving at a time. __Late in the century, manufacturers began mounting crank-driven sharpeners on classroom walls: a pair of spiral cutters spun around the pencil's tip and produced a fresh point in seconds.__ Teachers no longer had to keep a drawer of pocketknives or repair the broken points of forty students at a stretch, and the wall-mounted machine soon became a standard classroom fixture.",
+      "passage": "Through most of the nineteenth century, a pencil was pointed with whatever small blade happened to be at hand, slowly and one shaving at a time. __In the early twentieth century, manufacturers began mounting crank-driven sharpeners on classroom walls: a pair of spiral cutters spun around the pencil's tip and produced a fresh point in seconds.__ Teachers no longer had to keep a drawer of pocketknives or repair the broken points of forty students at a stretch, and the wall-mounted machine soon became a standard classroom fixture.",
       "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
       "choices": [
         { "id": "A", "text": "It introduces the mechanical development that the final sentence then connects to the device's adoption in classrooms." },
@@ -237,16 +237,16 @@ export const practiceTest8RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "When automobiles began crowding American streets in the 1920s, the walk to school turned newly dangerous, and cities looked for a guard they could post at every corner. The answer came from the schools themselves. Older students, wearing white belts that crossed the chest, were stationed at crossings to hold classmates back at the curb until the street was clear. The program cost districts almost nothing, gave the patrol members a visible responsibility, and spread within a decade from a handful of cities to schools across the country.",
+      "passage": "When automobiles began crowding American streets in the 1920s, the walk to school turned newly dangerous, and cities looked for a guard they could post at every corner. The answer came from the schools themselves. Older students, wearing white belts that crossed the chest, were stationed at crossings to hold classmates back at the curb until the street was clear. The first patrols appeared in 1920, and with sponsorship from automobile clubs they spread to schools across the country over the next two decades.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
-        { "id": "A", "text": "School safety patrols arose as a low-cost answer to growing automobile traffic and quickly spread nationwide." },
+        { "id": "A", "text": "School safety patrols arose in response to growing automobile traffic and spread to schools nationwide." },
         { "id": "B", "text": "Cities of the 1920s hired professional traffic officers to guard every crossing near a school." },
         { "id": "C", "text": "The white belts worn by patrol members were designed to be visible to drivers at night." },
         { "id": "D", "text": "Students of the 1920s usually walked to school in large groups so that passing drivers could see them more easily." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The passage presents the patrols as the answer to a 1920s problem, dangerous automobile traffic near schools, and closes with why the idea traveled: it cost almost nothing and worked at every corner.\n\n**The Full Solution:**\n- How to spot it: for a main-idea question, ask what point the whole passage builds toward, and check the last sentence, which often names it.\n- The setup: cars crowd the streets, and cities need a guard at every crossing.\n- The solution: older students in white crossed belts hold classmates at the curb until the street is clear.\n- The last sentence names the outcome: nearly free to run, the program spread within a decade to schools across the country, which is what A states.\n\n**Why the other choices are wrong:**\n- B: The passage says the guards were the schools' own older students, not hired professionals.\n- C: The white belts are described, but nothing is said about nighttime visibility or their design.\n- D: Walking to school in groups is never mentioned in the passage."
+      "explanation": "**Choice A is correct.** The passage presents the patrols as the answer to a 1920s problem, dangerous automobile traffic near schools, and closes with how far the idea traveled.\n\n**The Full Solution:**\n- How to spot it: for a main-idea question, ask what point the whole passage builds toward, and check the last sentence, which often names it.\n- The setup: cars crowd the streets, and cities need a guard at every crossing.\n- The solution: older students in white crossed belts hold classmates at the curb until the street is clear.\n- The last sentence names the outcome: beginning in 1920, the patrols spread to schools across the country, which is what A states.\n\n**Why the other choices are wrong:**\n- B: The passage says the guards were the schools' own older students, not hired professionals.\n- C: The white belts are described, but nothing is said about nighttime visibility or their design.\n- D: Walking to school in groups is never mentioned in the passage."
     },
     {
       "id": 867,
@@ -395,16 +395,16 @@ export const practiceTest8RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "The first popular wall-mounted pencil sharpeners held a disk of sandpaper rather than a set of ______ a student turned the crank and ground the pencil to a point against the spinning grit.",
+      "passage": "Before mechanical sharpeners became common, a pencil was usually pointed with a ______ the user shaved the wood away one sliver at a time until enough lead was exposed.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "blades. A" },
-        { "id": "B", "text": "blades, a" },
-        { "id": "C", "text": "blades a" },
-        { "id": "D", "text": "blades and a" }
+        { "id": "A", "text": "knife. The" },
+        { "id": "B", "text": "knife, the" },
+        { "id": "C", "text": "knife the" },
+        { "id": "D", "text": "knife and the" }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** Each side of the blank could stand alone as its own sentence, so the two need a full stop between them: \"...rather than a set of blades. A student turned the crank....\"\n\n**The Full Solution:**\n- How to spot it: cover the blank and test each side. If both sides are complete sentences, they cannot be glued together with only a comma or with nothing at all.\n- Side 1: \"The first popular wall-mounted pencil sharpeners held a disk of sandpaper rather than a set of blades\" is a complete sentence.\n- Side 2: \"a student turned the crank and ground the pencil to a point against the spinning grit\" is also a complete sentence.\n- A period ends the first and starts the second, so A is right.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two complete sentences is a comma splice.\n- C: With no punctuation at all, the two sentences run together.\n- D: When \"and\" joins two complete sentences, it needs a comma in front of it, and there is none here."
+      "explanation": "**Choice A is correct.** Each side of the blank could stand alone as its own sentence, so the two need a full stop between them: \"...pointed with a knife. The user shaved the wood away....\"\n\n**The Full Solution:**\n- How to spot it: cover the blank and test each side. If both sides are complete sentences, they cannot be glued together with only a comma or with nothing at all.\n- Side 1: \"Before mechanical sharpeners became common, a pencil was usually pointed with a knife\" is a complete sentence.\n- Side 2: \"the user shaved the wood away one sliver at a time until enough lead was exposed\" is also a complete sentence.\n- A period ends the first and starts the second, so A is right.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two complete sentences is a comma splice.\n- C: With no punctuation at all, the two sentences run together.\n- D: When \"and\" joins two complete sentences, it needs a comma in front of it, and there is none here."
     },
     {
       "id": 875,
@@ -449,7 +449,7 @@ export const practiceTest8RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "The load a winter mail carrier hauled over the passes—a canvas sack that often weighed more than sixty pounds at the start of a ______ rode high on the back, where it could not throw off a skier's balance on the long descents.",
+      "passage": "The load a winter mail carrier hauled over the passes—a canvas sack stuffed with letters and newspapers at the start of each ______ rode high on the back, where it could not throw off a skier's balance on the long descents.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "trip," },
@@ -458,7 +458,7 @@ export const practiceTest8RWM2Easy = {
         { "id": "D", "text": "trip—" }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The extra description is opened with a dash after \"passes,\" so it has to be closed with a matching dash before the sentence goes on to \"rode high on the back.\"\n\n**The Full Solution:**\n- How to spot it: when extra information is set off in the middle of a sentence, whatever mark opens it must also close it. Look back for the opening mark before you choose.\n- The opening mark here is the dash right after \"over the passes.\"\n- The extra information is \"a canvas sack that often weighed more than sixty pounds at the start of a trip.\"\n- So the matching dash closes it, and the main sentence continues: \"The load...rode high on the back.\"\n\n**Why the other choices are wrong:**\n- A: A comma cannot close a description that a dash opened; the marks have to match.\n- B: A semicolon separates complete sentences, and what comes before it here is not one.\n- C: With no closing mark at all, the extra description runs straight into the verb."
+      "explanation": "**Choice D is correct.** The extra description is opened with a dash after \"passes,\" so it has to be closed with a matching dash before the sentence goes on to \"rode high on the back.\"\n\n**The Full Solution:**\n- How to spot it: when extra information is set off in the middle of a sentence, whatever mark opens it must also close it. Look back for the opening mark before you choose.\n- The opening mark here is the dash right after \"over the passes.\"\n- The extra information is \"a canvas sack stuffed with letters and newspapers at the start of each trip.\"\n- So the matching dash closes it, and the main sentence continues: \"The load...rode high on the back.\"\n\n**Why the other choices are wrong:**\n- A: A comma cannot close a description that a dash opened; the marks have to match.\n- B: A semicolon separates complete sentences, and what comes before it here is not one.\n- C: With no closing mark at all, the extra description runs straight into the verb."
     },
     // ============================================================
     // Q23-Q27: Expression of Ideas
@@ -470,7 +470,7 @@ export const practiceTest8RWM2Easy = {
       "band": 2,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Two siblings who ran a lemonade stand on summer weekends kept a notebook of every day's sales. Looking back over a whole season, they noticed a pattern: the stand sold roughly twice as many cups on days when the town pool across the street was open as on days when it was closed. ______ the following summer, the siblings set up their stand only on days when the pool was open.",
+      "passage": "Two siblings who ran a lemonade stand on summer weekends kept a notebook of each day's sales. Over the season, they noticed that the stand sold about twice as many cups when the town pool across the street was open as when it was closed. ______ the next summer, they set up the stand only on days when the pool was open.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "However," },
@@ -479,7 +479,7 @@ export const practiceTest8RWM2Easy = {
         { "id": "D", "text": "Meanwhile," }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The last sentence reports what the siblings did because of the pattern they found, so the transition has to signal a conclusion drawn from evidence: \"Therefore.\"\n\n**The Full Solution:**\n- How to spot it: read the sentence before the blank and the sentence after it, then ask whether the second one FOLLOWS FROM the first, gives an example of it, or pushes against it.\n- Before the blank: a season of records shows the stand selling roughly twice as much on days the pool is open.\n- After the blank: the next summer, the siblings set up only on pool days.\n- The new schedule is what the pattern led them to do, so a conclusion word fits, and \"Therefore\" means \"for that reason.\"\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a contrast, but the schedule follows from the pattern rather than opposing it.\n- C: \"For example\" would make the new schedule an instance of the pattern, when it is a response to it.\n- D: \"Meanwhile\" sets two things side by side in time, but the sentence is drawing a conclusion, not marking time."
+      "explanation": "**Choice B is correct.** The last sentence reports what the siblings did because of the pattern they found, so the transition has to signal a conclusion drawn from evidence: \"Therefore.\"\n\n**The Full Solution:**\n- How to spot it: read the sentence before the blank and the sentence after it, then ask whether the second one FOLLOWS FROM the first, gives an example of it, or pushes against it.\n- Before the blank: a season of records shows the stand selling about twice as much on days the pool is open.\n- After the blank: the next summer, the siblings set up only on pool days.\n- The new schedule is what the pattern led them to do, so a conclusion word fits, and \"Therefore\" means \"for that reason.\"\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a contrast, but the schedule follows from the pattern rather than opposing it.\n- C: \"For example\" would make the new schedule an instance of the pattern, when it is a response to it.\n- D: \"Meanwhile\" sets two things side by side in time, but the sentence is drawing a conclusion, not marking time."
     },
     {
       "id": 879,
@@ -488,7 +488,7 @@ export const practiceTest8RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Putting bicycle racks on a commuter ferry costs an operator very little: a few lengths of pipe bolted to the bulkhead, a painted lane on the boarding ramp, and one more line in the crew's loading routine. Riders who pair a bicycle with the ferry also buy tickets year-round, in fair weather and foul. ______ many ferry lines resisted the racks for years, arguing that every foot of deck given over to bicycles was a foot taken from the cars that paid far more per crossing.",
+      "passage": "Bicycle racks cost a ferry operator very little: a few lengths of pipe bolted to a bulkhead and a painted lane on the boarding ramp. Riders who pair a bicycle with the ferry also buy tickets year-round. ______ many ferry lines resisted the racks for years, arguing that every foot of deck given to bicycles was taken from cars that paid far more per crossing.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Even so," },
@@ -540,8 +540,7 @@ export const practiceTest8RWM2Easy = {
           "A sundial reads correctly only when its gnomon is tilted to match the latitude of the place where it sits and aimed due north.",
           "Many garden sundials are sold as ornaments, with a gnomon angle chosen for no place in particular.",
           "Hobbyists who build their own dials begin by looking up the latitude of their town.",
-          "Dials of bronze or stone can last outdoors for centuries.",
-          "Public gardens sometimes display large dials whose hour lines were drawn for that exact spot."
+          "Dials of bronze or stone can last outdoors for centuries."
         ],
         "goal": "The student wants to explain to an audience unfamiliar with sundials why a store-bought garden sundial often shows the wrong time."
       }

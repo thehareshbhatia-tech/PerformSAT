@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "A player piano reads music from a paper roll punched with a pattern of slots. As the roll winds past a hollow brass rail called the tracker bar, each passing slot uncovers an opening, air rushes through, and a pneumatic bellows drives the corresponding hammer against its string. In this way the instrument ____ a performance with no pianist on the bench, turning a strip of punched paper back into sound.",
+ "passage": "A player piano reads music from a paper roll punched with slots. As the roll winds past a brass tracker bar, each slot uncovers an opening, air rushes through, and a pneumatic mechanism drives the corresponding hammer against its string. In this way the instrument ____ a performance with no pianist on the bench.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The passage describes a machine that turns a punched paper roll back into audible music, and \"reproduces\" names precisely that — rendering the performance again in the pianist's absence.\n\n**The Full Solution:**\n- The mechanism is laid out: perforations pass over a tracker bar, air rushes through, and pneumatic bellows drive the hammers.\n- The final clause states the outcome: a strip of punched paper is turned back into sound.\n- Producing the performance anew from its stored record is to \"reproduce\" it.\n\n**Why the other choices are wrong:**\n- B: \"Interrupts\" reverses the machine's function, which is to deliver the performance, not to stop it.\n- C: \"Composes\" would credit the machine with creating the music, but the notes were fixed when the roll was cut.\n- D: \"Accompanies\" implies playing alongside a live performer, yet the passage stresses that no pianist is present."
+ "explanation": "**Choice A is correct.** The passage describes a machine that turns a punched paper roll back into audible music, and \"reproduces\" names precisely that — rendering the performance again in the pianist's absence.\n\n**The Full Solution:**\n- The mechanism is laid out: perforations pass over a tracker bar, air rushes through, and a pneumatic mechanism drives the hammers.\n- The final sentence states the outcome: a performance with no pianist present.\n- Producing the performance anew from its stored record is to \"reproduce\" it.\n\n**Why the other choices are wrong:**\n- B: \"Interrupts\" reverses the machine's function, which is to deliver the performance, not to stop it.\n- C: \"Composes\" would credit the machine with creating the music, but the notes were fixed when the roll was cut.\n- D: \"Accompanies\" implies playing alongside a live performer, yet the passage stresses that no pianist is present."
 }

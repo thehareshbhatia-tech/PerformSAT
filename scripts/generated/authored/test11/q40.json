@@ -8,61 +8,52 @@
  "choices": [
   {
    "id": "A",
-   "text": "the Bell System operated 5,800 manual exchanges in 1925, more than six times the number of dial exchanges it operated that year."
+   "text": "32 percent of Bell System telephones were on dial service by 1930."
   },
   {
    "id": "B",
-   "text": "the number of dial exchanges grew in every ten-year interval shown in the table."
+   "text": "the share of Bell System telephones on dial service rose from 32 percent in 1930 to 60 percent in 1940, nearly doubling in a single decade."
   },
   {
    "id": "C",
-   "text": "by 1955 the Bell System still operated 2,100 manual exchanges, three decades after the figures in the table begin."
+   "text": "by 1978, every telephone in the Bell System was on dial service."
   },
   {
    "id": "D",
-   "text": "dial exchanges did not outnumber manual ones until between 1935 and 1945, and thousands of manual exchanges remained in 1955."
+   "text": "only 60 percent of Bell System telephones were on dial service by 1940, and the conversion was not complete until 1978."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** \"Gradual rather than abrupt\" is a claim about the whole timeline, and D reads the whole table: the crossover took until the 1935-1945 interval, and manual switching survived in the thousands a decade after that.\n\n**The Full Solution:**\n- The conclusion needs two supports: the changeover took a long time to tip, and the old system persisted alongside the new.\n- The table's crossover sits between 1935 (4,900 manual vs. 2,300 dial) and 1945 (3,900 vs. 4,100) — decades into the conversion; and 1955 still shows 2,100 manual exchanges.\n- D cites both facts, tracking the conclusion exactly.\n\n**Why the other choices are wrong:**\n- A: A snapshot of 1925 shows where the conversion began, not how gradually it proceeded.\n- B: Steady dial growth is compatible with an abrupt conversion; without the manual-side figures it cannot establish gradualness.\n- C: Manual persistence in 1955 is half the story — it omits how late the systems reached parity.",
- "passage": "The switch from manual to dial telephone service did not happen at a stroke. Historians studying the Bell System's conversion emphasize that the two switching technologies ran side by side for decades: dial exchanges spread steadily, but subscriber numbers grew so quickly that manually operated exchanges remained part of daily service long after the first dial offices opened. The historians conclude that the conversion was gradual rather than abrupt because ______",
+ "explanation": "**Choice D is correct.** \"Gradual rather than abrupt\" is a claim about the whole timeline, and D reads the whole table: two decades after dial adoption began, only 60 percent of telephones had been converted, and the last were not converted until 1978.\n\n**The Full Solution:**\n- The conclusion needs evidence that the changeover stretched over a long span, with manual service persisting alongside dial.\n- The table shows 60 percent on dial in 1940 — so 40 percent still manual — and 100 percent only in 1978, nearly six decades after the late-1910s start the passage mentions.\n- D cites both facts, tracking the conclusion exactly.\n\n**Why the other choices are wrong:**\n- A: A snapshot of 1930 shows where the conversion stood at one moment, not how long it took.\n- B: A near-doubling in a single decade stresses the speed of the change, which cuts against the claim that it was gradual.\n- C: The completion date alone says nothing about how much of the network remained manual along the way.",
+ "passage": "The switch from manual to dial telephone service did not happen at a stroke. Economists studying the Bell System, which began adopting dial switching in the late 1910s, emphasize that each exchange required years of preparation and that manual service remained part of daily life long after the first dial offices opened. They conclude that the conversion was gradual rather than abrupt because ______",
  "questionTable": {
   "type": "table",
-  "caption": "Bell System local exchanges by switching type, selected years",
+  "caption": "Share of Bell System telephones on dial service, selected years",
   "headers": [
    "Year",
-   "Manual exchanges",
-   "Dial exchanges"
+   "Share of telephones on dial service"
   ],
   "rows": [
    [
-    "1925",
-    "5,800",
-    "900"
+    "1930",
+    "32%"
    ],
    [
-    "1935",
-    "4,900",
-    "2,300"
+    "1940",
+    "60%"
    ],
    [
-    "1945",
-    "3,900",
-    "4,100"
-   ],
-   [
-    "1955",
-    "2,100",
-    "6,600"
+    "1978",
+    "100%"
    ]
   ]
  },
  "_meta": {
-  "anchor": "telephone switchboard operators — manual-to-dial conversion timeline",
+  "anchor": "telephone switchboard operators — Bell System dial conversion timeline (Feigenbaum & Gross, NBER w28061: 32% of Bell telephones on dial by 1930, 60% by 1940, entire network by 1978)",
   "distractors": {
    "A": "single-year snapshot",
-   "B": "one-sided trend, gradualness unestablished",
-   "C": "persistence without the crossover"
+   "B": "speed of change, not gradualness",
+   "C": "endpoint without the span"
   }
  },
  "id": 1140,

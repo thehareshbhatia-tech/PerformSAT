@@ -25,10 +25,10 @@
  ],
  "correctAnswer": "C",
  "explanation": "**Choice C is correct.** The historian's claim pits two variables against each other — distance versus station spacing — and C cites the pair of routes that separates them: the longest route (Boston, stations every 260 miles) succeeded, while a shorter route (Atlanta, stations every 610 miles) failed.\n\n**The Full Solution:**\n- If distance set the limits of the trade, the 3,200-mile Boston route should fare worst. It did not: 89% arrived in good condition.\n- If station spacing set the limits, Atlanta — 800 miles shorter but with intervals more than twice as wide — should fare worst. It did: 64%.\n- Only that cross-comparison isolates the icing network as the operative constraint, which is exactly what the conclusion asserts.\n\n**Why the other choices are wrong:**\n- A: A single route's success rate, with no reference to spacing or distance, cannot arbitrate between the two variables.\n- B: It reports distances alone and never touches the outcome the claim is about.\n- D: The Atlanta-New Orleans contrast never mentions station spacing, so it leaves open the possibility that some other difference explains the gap.",
- "passage": "Before mechanical refrigeration, a refrigerated rail car was an insulated box cooled by blocks of ice loaded through roof hatches, and the ice had to be replenished at icing stations along the route. A historian of the produce trade argues that in the early twentieth century, the system's reach was limited less by how much ice a car could carry than by where the icing stations stood: shipments moved reliably only along corridors with stations at close intervals. The historian concludes that the icing network, rather than car design, set the geography of the trade because ______",
+ "passage": "Before mechanical refrigeration, a refrigerated rail car was an insulated box cooled by blocks of ice, which had to be replenished at icing stations along the route. A historian of the produce trade argues that the system's reach was limited less by how much ice a car could carry than by where the icing stations stood. The historian concludes that the icing network, rather than car design, set the geography of the trade because ______",
  "questionTable": {
   "type": "table",
-  "caption": "California lettuce shipments arriving in good condition, by route, 1915 (industry survey)",
+  "caption": "Lettuce shipments from California arriving in good condition, by route",
   "headers": [
    "Route",
    "Distance (miles)",

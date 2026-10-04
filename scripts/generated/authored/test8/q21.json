@@ -6,26 +6,26 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 1,
- "passage": "By the eighteenth century, verdigris made in the workshops around Montpellier reached painters through three great ports: Marseille, on the ______ Bordeaux, on the Atlantic coast; and Rouen, far to the north.",
+ "passage": "In eighteenth-century Montpellier, making verdigris was a patient process. Copper plates were stacked in clay pots filled with ______ over time, acid from the wine crusted the plates with green crystals, which workers scraped off once they had matured.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "Mediterranean"
+   "text": "wine"
   },
   {
    "id": "B",
-   "text": "Mediterranean, and"
+   "text": "wine,"
   },
   {
    "id": "C",
-   "text": "Mediterranean;"
+   "text": "wine;"
   },
   {
    "id": "D",
-   "text": "Mediterranean,"
+   "text": "wine, which"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The sentence lists items that contain internal commas, so semicolons must separate the items — including one after \"Mediterranean.\"\n\n**The Full Solution:**\n- Each list item pairs a port with a descriptive phrase set off by a comma: \"Marseille, on the Mediterranean\"; \"Bordeaux, on the Atlantic coast\"; \"Rouen, far to the north.\"\n- Because commas already work inside the items, the boundaries between items are promoted to semicolons.\n- The later items in the sentence confirm the pattern: the blank must match their semicolon boundary.\n\n**Why the other choices are wrong:**\n- A: With no mark, the first two items run together and the list's structure collapses.\n- B: \"Mediterranean, and\" inserts a premature conjunction one item too early in a three-item list.\n- D: A comma cannot mark the item boundary here, since commas are already in use within the items."
+ "explanation": "**Choice C is correct.** The blank falls between two independent clauses, and a semicolon is the conventional mark for joining them without a conjunction.\n\n**The Full Solution:**\n- \"Copper plates were stacked in clay pots filled with wine\" is a complete clause.\n- \"Over time, acid from the wine crusted the plates with green crystals...\" is also a complete clause, with its own subject (\"acid\") and verb (\"crusted\").\n- Two independent clauses with no coordinating conjunction between them must be joined by a semicolon.\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the two clauses run together in a run-on sentence.\n- B: A comma alone between two independent clauses creates a comma splice.\n- D: \"Which\" would begin a relative clause, but the words that follow already have their own subject, \"acid,\" so the sentence becomes ungrammatical."
 }

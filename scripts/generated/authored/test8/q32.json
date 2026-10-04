@@ -6,26 +6,26 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 2,
- "passage": "The following text is adapted from William Butler Yeats's 1890 poem \"The Lake Isle of Innisfree.\"\n\nI will arise and go now, and go to Innisfree, / And a small cabin build there, of clay and wattles made: / Nine bean-rows will I have there, a hive for the honey-bee; / And live alone in the bee-loud glade. // And I shall have some peace there, for peace comes dropping slow, / Dropping from the veils of the morning to where the cricket sings; / There midnight's all a glimmer, and noon a purple glow, / And evening full of the linnet's wings. // I will arise and go now, for always night and day / I hear lake water lapping with low sounds by the shore; / While I stand on the roadway, or on the pavements grey, / I hear it in the deep heart's core.",
+ "passage": "The following text is from William Butler Yeats's 1890 poem \"The Lake Isle of Innisfree.\" The speaker is imagining life on Innisfree, a small island in a lake.\n\nAnd I shall have some peace there, for peace comes dropping slow, / Dropping from the veils of the morning to where the cricket sings; / There midnight's all a glimmer, and noon a purple glow, / And evening full of the linnet's wings. // I will arise and go now, for always night and day / I hear lake water lapping with low sounds by the shore; / While I stand on the roadway, or on the pavements gray, / I hear it in the deep heart's core.",
  "question": "Which choice best describes the overall structure of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "The speaker declares a resolve to leave for an island, elaborates the solitary life imagined there, and finally reveals that the island's sounds haunt him where he presently stands, amid the city."
+   "text": "The speaker describes the peace he imagines on the island, then reveals that its sounds reach him even as he stands on distant pavements."
   },
   {
    "id": "B",
-   "text": "The speaker remembers an island he visited long ago in childhood and mourns that both the place and the person he was when he first saw it have since changed beyond all recognition."
+   "text": "The speaker remembers an island he visited long ago in childhood and mourns that both the place and he himself have since changed beyond recognition."
   },
   {
    "id": "C",
-   "text": "The speaker weighs the arguments for and against leaving the city and ultimately decides to remain."
+   "text": "The speaker weighs the arguments for and against leaving the city and ultimately decides to remain where he is."
   },
   {
    "id": "D",
-   "text": "The speaker describes an island's landscape and then urges a companion to make the journey there."
+   "text": "The speaker describes how an island looks at midnight, noon, and evening and then urges a companion to travel there with him."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The poem opens with a resolve to depart, spends its middle lines furnishing the imagined island life, and ends by disclosing that the island's sounds reach the speaker where he actually stands — on gray city pavements.\n\n**The Full Solution:**\n- Stanza one announces the decision (\"I will arise and go now\") and the cabin, beans, and hive the speaker plans.\n- Stanza two deepens the imagined life into peace, cricket song, and evening light.\n- Stanza three turns: the speaker has not gone at all; standing \"on the roadway, or on the pavements grey,\" he hears the lake water \"in the deep heart's core\" — the longing persists amid the city, exactly the arc choice A traces.\n\n**Why the other choices are wrong:**\n- B: The poem recalls no past visit; the island life is imagined in the future tense throughout.\n- C: The speaker never weighs arguments against going or abandons the plan — the resolve is restated in the final stanza.\n- D: No listener is addressed or urged to travel; the closing lines report the speaker's own inner state."
+ "explanation": "**Choice A is correct.** The excerpt first furnishes the peace the speaker imagines on the island, then discloses that the island's sounds reach him where he actually stands: on a roadway or \"the pavements gray.\"\n\n**The Full Solution:**\n- The first stanza imagines the island's peace: cricket song, midnight's glimmer, noon's purple glow, evening full of linnets.\n- The second stanza restates the resolve (\"I will arise and go now\") and gives its reason: he hears the lake water \"always night and day.\"\n- The final lines turn: he hears it while standing \"on the roadway, or on the pavements gray,\" far from the island, exactly the movement choice A traces.\n\n**Why the other choices are wrong:**\n- B: The speaker recalls no past visit; the island life is imagined in the future tense (\"I shall have some peace there\").\n- C: The speaker never weighs arguments against going or abandons the plan; the resolve is restated in the final stanza.\n- D: No companion is addressed or urged to travel; the closing lines report the speaker's own inner state."
 }

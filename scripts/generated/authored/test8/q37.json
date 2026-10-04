@@ -6,24 +6,24 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "When phonographic shorthand entered the nineteenth-century courtroom, admirers marveled at its speed: a trained reporter could keep pace with the swiftest witness. One historian of the courtroom argues that the marveling misses what mattered. Before shorthand, the official memory of a trial was a clerk's summary — testimony compressed, reworded, inevitably judged in the compression. Once a reporter could take down every word, the exact words became available in a way they had never been: counsel could demand them read back, appellate courts could weigh them, and a summary was no longer good enough. The lasting change, on this view, was not how fast the pen moved but what a court came to expect a record to be.",
+ "passage": "When phonographic shorthand entered the nineteenth-century courtroom, admirers marveled at its speed: a trained reporter could keep pace with the swiftest witness. One historian argues that the marveling misses what mattered. Before shorthand, the official memory of a trial was a clerk's summary, with testimony compressed and reworded. Once a reporter could take down every word, counsel could demand exact words read back and appellate courts could weigh them; a summary was no longer good enough. The lasting change, on this view, was not how fast the pen moved but what a court came to expect a record to be.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "According to the text, courtroom shorthand's most important effect was not rapid writing itself but the new expectation that proceedings would be preserved word for word."
+   "text": "Courtroom shorthand's most important effect was not rapid writing itself but the new expectation that proceedings be preserved word for word."
   },
   {
    "id": "B",
-   "text": "According to the text, shorthand's chief contribution to the courtroom was allowing reporters to write as quickly as people speak."
+   "text": "Shorthand's chief contribution to the courtroom was allowing reporters to write as quickly as people speak."
   },
   {
    "id": "C",
-   "text": "According to the text, the summaries clerks once made of testimony were often more faithful than the verbatim transcripts that replaced them."
+   "text": "The summaries clerks once made of testimony were often more faithful to what witnesses meant than the verbatim transcripts that replaced them."
   },
   {
    "id": "D",
-   "text": "According to the text, courtroom shorthand declined once machines could record testimony more quickly than reporters could write it."
+   "text": "Courtroom shorthand declined once machines could record testimony more quickly than reporters could write it."
   }
  ],
  "correctAnswer": "A",

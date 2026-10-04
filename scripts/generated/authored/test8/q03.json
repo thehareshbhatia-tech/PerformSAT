@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 1,
- "passage": "The flash lock — a single gate that loosed a rush of water to sweep boats over a shallow weir — is often described as a crude forerunner of the pound lock. Yet toll registers show flash locks operating beside pound locks on the same rivers for three centuries, evidence that millers and boatmen regarded the older device not as an obsolete relic but as a ____ solution wherever water was scarce and traffic light.",
+ "passage": "The flash lock, a removable section of weir that released a rush of water to carry boats downstream, is often called a crude forerunner of the pound lock. Yet flash locks remained in use beside pound locks on the River Thames for three centuries, until 1937, suggesting that boatmen saw the older device not as an obsolete relic but as a ____ one.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -19,7 +19,7 @@
   },
   {
    "id": "C",
-   "text": "provisional"
+   "text": "complicated"
   },
   {
    "id": "D",
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The sentence contrasts \"an obsolete relic\" with what the toll registers actually suggest, so the blank must credit the flash lock as a workable device — \"serviceable\" does precisely that.\n\n**The Full Solution:**\n- The passage sets up an expectation: the flash lock is \"often described as a crude forerunner\" of the pound lock.\n- The evidence cuts against that expectation — flash locks operated beside pound locks on the same rivers for three centuries.\n- The blank therefore needs a word affirming the older device's continued usefulness where water was scarce and traffic light: \"serviceable.\"\n\n**Why the other choices are wrong:**\n- A: \"Flawless\" overshoots — the passage rehabilitates the flash lock as workable, not perfect.\n- B: \"Temporary\" contradicts the three centuries of side-by-side use the registers document.\n- C: \"Baffling\" imports confusion the passage never expresses about how the device worked."
+ "explanation": "**Choice D is correct.** The sentence contrasts \"an obsolete relic\" with what the flash lock's long survival suggests, so the blank must credit the older device as workable, and \"serviceable\" does precisely that.\n\n**The Full Solution:**\n- The passage sets up an expectation: the flash lock is \"often called a crude forerunner\" of the pound lock.\n- The evidence cuts against that expectation: flash locks stayed in use beside pound locks on the Thames for three centuries.\n- The blank therefore needs a word affirming the older device's continued usefulness: \"serviceable.\"\n\n**Why the other choices are wrong:**\n- A: \"Flawless\" overshoots; the passage presents the flash lock as workable, not perfect.\n- B: \"Temporary\" contradicts three centuries of side-by-side use.\n- C: \"Complicated\" clashes with the passage's picture of a simple device, and the sentence is crediting its usefulness, not its complexity."
 }

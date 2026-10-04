@@ -6,16 +6,16 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 1,
- "passage": "Nurseries can now supply oak and hazel seedlings whose roots already carry the truffle fungus, and a grower who plants them has, in one sense, started a truffle orchard. What follows is the harder part. The fungus fruits only when its partnership with the tree stays in balance, so growers prune to meter the light reaching the soil, water in high summer on a schedule tuned to the site, and keep the ground loose and alkaline for the fungus's fine threads. Even well-run orchards wait eight or ten years for a first harvest. Growers like to say they tend a partnership, not a crop.",
+ "passage": "Nurseries now sell oak and hazel seedlings whose roots already carry the truffle fungus, and a grower who plants them has started a truffle orchard. What follows is the harder part. The fungus fruits only when its partnership with the tree stays in balance, so growers prune to control the light reaching the soil, water in summer on a schedule suited to the site, and keep the ground loose and alkaline. Even well-run orchards often wait seven to ten years for a first harvest.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "The chief obstacle to truffle farming remains the difficulty of producing nursery seedlings whose roots reliably carry the truffle fungus from the greenhouse into the orchard soil."
+   "text": "The chief obstacle to truffle farming remains producing nursery seedlings whose roots reliably carry the truffle fungus."
   },
   {
    "id": "B",
-   "text": "Establishing a truffle orchard is only a beginning, since harvests depend on sustained management of the partnership between tree, fungus, and soil."
+   "text": "Planting inoculated seedlings only begins a truffle orchard; harvests depend on years of careful management."
   },
   {
    "id": "C",
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The text's sentences all serve one claim: planting inoculated seedlings begins a truffle orchard, but harvests depend on decades of managing the living partnership between tree, fungus, and soil.\n\n**The Full Solution:**\n- The text concedes what nurseries can now do — supply oak and hazel seedlings whose roots already carry the fungus.\n- It then lists what still determines success: pruning to meter light, timed summer watering, soil kept loose and alkaline.\n- The conclusion that growers \"tend a partnership, not a crop\" is the main idea, restated in choice B.\n\n**Why the other choices are wrong:**\n- A: The text says inoculated seedlings are widely available; producing them is not presented as the difficulty.\n- C: The text does not compare cultivated truffles' quality with wild ones'.\n- D: Weather is one factor mentioned, but the text never claims harvests are entirely a matter of chance."
+ "explanation": "**Choice B is correct.** The text's sentences all serve one claim: planting inoculated seedlings begins a truffle orchard, but harvests depend on years of managing the partnership between tree, fungus, and soil.\n\n**The Full Solution:**\n- The text concedes what nurseries can now do: sell oak and hazel seedlings whose roots already carry the fungus.\n- It then calls what follows \"the harder part\" and lists what still determines success: pruning to control light, summer watering suited to the site, soil kept loose and alkaline.\n- The wait of seven to ten years for a first harvest underlines that planting is only the beginning, the main idea stated in choice B.\n\n**Why the other choices are wrong:**\n- A: The text says inoculated seedlings are already sold; producing them is not presented as the difficulty.\n- C: The text does not compare cultivated truffles' quality with wild ones'.\n- D: The text stresses what growers do to influence harvests, not that weather leaves them powerless."
 }

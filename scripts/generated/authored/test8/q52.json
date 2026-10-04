@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 2,
- "passage": "In the first decades of the twentieth century the player piano was not a curiosity but the center of the parlor: by the mid-1920s, more than half the pianos built in America left the factory with player mechanisms inside, and publishers issued popular songs on perforated rolls as routinely as on sheet music. ______ the radio and the electrically recorded disc offered music that asked still less of its listeners, and the pumping parlor piano gave way to the loudspeaker.",
+ "passage": "In the early 1920s the player piano was a fixture of American parlors, and sales of the instrument peaked in 1924. ______ improved phonograph records and the radio offered music that asked still less of listeners, and after the stock market crash of 1929, player-piano production all but ceased.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The passage moves from the player piano's peak to its later displacement by radio and electrical recording — a development unfolding over subsequent years — and \"Eventually,\" marks that passage of time.\n\n**The Full Solution:**\n- The first sentences establish the height of the boom: by the mid-1920s, more than half the pianos built in America left the factory with player mechanisms inside.\n- The final sentence reports what came afterward: radio and electrical recording offered music with less effort and expense, and the player piano faded.\n- The relation is temporal succession — a later stage following an earlier one — so a time transition fits.\n\n**Why the other choices are wrong:**\n- A: \"Instead,\" would require the fading to replace some expected alternative just mentioned, but no alternative has been set up.\n- B: \"For example,\" would make the piano's decline an illustration of its boom, which is incoherent.\n- D: \"In other words,\" promises a restatement of the boom, not the reversal that actually follows."
+ "explanation": "**Choice C is correct.** The passage moves from the player piano's peak to its later decline, a development unfolding over the following years, and \"Eventually,\" marks that passage of time.\n\n**The Full Solution:**\n- The first sentence establishes the height of the boom: sales peaked in 1924.\n- The final sentence reports what came afterward: phonograph records and radio offered easier music, and production all but ceased after 1929.\n- The relation is a later stage following an earlier one, so a time transition fits.\n\n**Why the other choices are wrong:**\n- A: \"Instead,\" would require the decline to replace some alternative just mentioned, but no alternative has been set up.\n- B: \"For example,\" would make the decline an illustration of the boom, which is incoherent.\n- D: \"In other words,\" promises a restatement of the boom, not the reversal that actually follows."
 }

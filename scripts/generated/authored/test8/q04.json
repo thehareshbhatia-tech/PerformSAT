@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 1,
- "passage": "Historical seismologists work not from instruments but from documents: monastic chronicles, tax remissions granted to shaken towns, contracts for repairing cracked towers. Because a scribe might mention an earthquake only when it damaged his own abbey, researchers must ____ the size of a medieval shock from scattered and uneven testimony — weighing how many towns reported damage and how far apart they lay — rather than reading it off a seismogram.",
+ "passage": "Historical seismologists work not from instruments but from documents: monastic chronicles, tax relief granted to damaged towns, contracts for repairing cracked towers. Because a scribe might mention an earthquake only when it damaged his own abbey, researchers must ____ the size of a medieval shock from scattered testimony, weighing how many towns reported damage and how far apart they lay.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The blank must name what researchers do to a medieval earthquake's size when working from scattered testimony instead of instruments, and \"gauge\" — to estimate a measurement from indirect evidence — fits exactly.\n\n**The Full Solution:**\n- The contrast is between reading a shock's size \"off a seismogram\" and working from chronicles, tax remissions, and repair contracts.\n- Weighing how many towns reported damage and how far apart they lay is a way of estimating magnitude indirectly — of gauging it.\n\n**Why the other choices are wrong:**\n- B: \"Provoke\" would mean causing the earthquake, an absurdity in context.\n- C: \"Overlook\" reverses the researchers' aim, which is to recover the shock's size, not to miss it.\n- D: \"Standardize\" describes imposing uniform conventions on records, not extracting a measurement from them."
+ "explanation": "**Choice A is correct.** The blank must name what researchers do to a medieval earthquake's size when working from scattered testimony instead of instruments, and \"gauge\" — to estimate a measurement from indirect evidence — fits exactly.\n\n**The Full Solution:**\n- The passage contrasts instruments with documents: chronicles, tax relief, and repair contracts.\n- Weighing how many towns reported damage and how far apart they lay is a way of estimating magnitude indirectly — of gauging it.\n\n**Why the other choices are wrong:**\n- B: \"Provoke\" would mean causing the earthquake, an absurdity in context.\n- C: \"Overlook\" reverses the researchers' aim, which is to recover the shock's size, not to miss it.\n- D: \"Standardize\" describes imposing uniform conventions on records, not extracting a measurement from them."
 }

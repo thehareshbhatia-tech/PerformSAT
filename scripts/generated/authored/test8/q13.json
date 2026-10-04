@@ -6,10 +6,10 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "Arctic char occur both as anadromous populations, which migrate to the sea each summer to feed before returning to fresh water, and as landlocked populations confined year-round to lakes. Biologists measuring four char populations at comparable latitudes recorded the median length of mature adults in each. They concluded that the anadromous populations grow considerably larger than the landlocked ones, because _______",
+ "passage": "Sockeye salmon occur both as anadromous populations, which migrate to the sea to feed before returning to fresh water to spawn, and as landlocked populations, called kokanee, that spend their entire lives in lakes. Biologists recorded the median length of mature adults in four populations. They concluded that the sea-run fish grow considerably larger than the landlocked ones, because _______",
  "questionTable": {
   "type": "table",
-  "caption": "Median length of mature Arctic char in four populations",
+  "caption": "Median length of mature sockeye salmon in four populations",
   "headers": [
    "Population",
    "Life history",
@@ -19,22 +19,22 @@
    [
     "Population A",
     "Anadromous (sea-run)",
-    "58"
+    "66"
    ],
    [
     "Population B",
     "Anadromous (sea-run)",
-    "52"
+    "61"
    ],
    [
     "Population C",
-    "Landlocked",
-    "24"
+    "Landlocked (kokanee)",
+    "28"
    ],
    [
     "Population D",
-    "Landlocked",
-    "19"
+    "Landlocked (kokanee)",
+    "24"
    ]
   ]
  },
@@ -42,21 +42,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "the char of Population A, which feed in the sea each summer, reached a median length of 58 cm."
+   "text": "the fish of Population A, which feed in the sea, reached a median length of 66 cm."
   },
   {
    "id": "B",
-   "text": "Population C's median length of 24 cm exceeded Population D's median of 19 cm, though both fed only in fresh water."
+   "text": "Population C's median length of 28 cm exceeded Population D's median length of 24 cm, even though both populations spend their entire lives in lakes."
   },
   {
    "id": "C",
-   "text": "Population A's median length of 58 cm was more than twice Population C's median length of 24 cm, even though the two populations live at comparable latitudes."
+   "text": "Population A's median length of 66 cm was more than twice Population C's median length of 28 cm."
   },
   {
    "id": "D",
-   "text": "the two sea-run populations reached median lengths of 58 and 52 cm, while the two landlocked populations reached only 24 and 19 cm."
+   "text": "the two sea-run populations reached median lengths of 66 and 61 cm, while the two landlocked populations reached only 28 and 24 cm."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** A claim comparing the two classes of population needs figures from both, and D alone pairs them: median lengths of 58 and 52 cm for the sea-run populations against 24 and 19 cm for the landlocked ones.\n\n**The Full Solution:**\n- The conclusion is class-wide: sea-run char grow considerably larger than landlocked char.\n- Supporting it requires the values for both anadromous populations and both landlocked populations.\n- Choice D supplies all four medians and displays the gap between the classes directly.\n\n**Why the other choices are wrong:**\n- A: It cites a single sea-run population, which cannot establish a comparison between classes.\n- B: It compares the two landlocked populations with each other and never mentions the sea-run fish.\n- C: It pairs the largest sea-run value with the larger landlocked value only, understating the class contrast and omitting half the table."
+ "explanation": "**Choice D is correct.** A claim comparing the two kinds of population needs figures from both, and D alone gives them all: median lengths of 66 and 61 cm for the sea-run populations against 28 and 24 cm for the landlocked ones.\n\n**The Full Solution:**\n- The conclusion is general: sea-run sockeye grow considerably larger than landlocked kokanee.\n- Supporting it requires the values for both anadromous populations and both landlocked populations.\n- Choice D supplies all four medians and shows the gap between the two kinds directly.\n\n**Why the other choices are wrong:**\n- A: It cites a single sea-run population, which cannot establish a comparison between the two kinds.\n- B: It compares the two landlocked populations with each other and never mentions the sea-run fish.\n- C: It compares only one population of each kind, leaving out half the table."
 }

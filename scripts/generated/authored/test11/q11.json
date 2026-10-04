@@ -8,7 +8,7 @@
  "choices": [
   {
    "id": "A",
-   "text": "The total number of months that the weaver spends working on the hat"
+   "text": "The total number of hours that the weaver spends working on the hat"
   },
   {
    "id": "B",
@@ -16,7 +16,7 @@
   },
   {
    "id": "C",
-   "text": "The size of the button at the center of the crown"
+   "text": "The shape of the wooden block on which the hat is formed"
   },
   {
    "id": "D",
@@ -24,13 +24,13 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The text states it directly: \"the count is set by how thinly the weaver splits each straw at the outset.\"\n\n**The Full Solution:**\n- The question asks for a stated detail, so the answer must be located in the text, not inferred beyond it.\n- The sentence defining weave count — rows of weave per inch — continues immediately with its determinant: the thinness of the split straws.\n- Choice B restates that sentence and nothing more.\n\n**Why the other choices are wrong:**\n- A: It reverses cause and effect — fine splitting is why a hat takes months, not the other way around.\n- C: The center button is where weaving begins, but the text never connects it to fineness.\n- D: The palm's age is never mentioned in the text.",
- "passage": "The finest so-called panama hats are woven not in Panama but in Ecuador, from straw prepared from the leaves of the toquilla palm. In the town of Montecristi, a weaver begins at a small button at the crown's center and works outward in a spiral, adding one pair of straws at a time. The fineness of a hat is judged by its weave count — the number of rows of weave per inch — and the count is set by how thinly the weaver splits each straw at the outset. Splitting straw finely enough for the best hats can double or triple the weaving time, which is why a superfine hat may occupy its maker for months.",
+ "explanation": "**Choice B is correct.** The text states it directly: the weave count \"is set by how thinly the weaver splits the straw before weaving begins.\"\n\n**The Full Solution:**\n- The question asks for a stated detail, so the answer must be located in the text, not inferred beyond it.\n- The sentence defining weave count — the number of weaves per square inch — continues immediately with its determinant: the thinness of the split straw (\"the thinner the strands, the more weaves fit into each inch\").\n- Choice B restates that sentence and nothing more.\n\n**Why the other choices are wrong:**\n- A: It reverses cause and effect — weaving at a high count is why a hat can take months, not the other way around.\n- C: The text never mentions a wooden block or connects any form to fineness.\n- D: The palm's age is never mentioned in the text.",
+ "passage": "The finest so-called panama hats are woven not in Panama but in Ecuador, in villages around the town of Montecristi, from fibers of the toquilla palm. A hat's fineness is judged by its weave count, the number of weaves per square inch, and that count is set by how thinly the weaver splits the straw before weaving begins: the thinner the strands, the more weaves fit into each inch. Weaving at the highest counts is so slow that a master weaver can spend as long as eight months on a single hat.",
  "_meta": {
-  "anchor": "panama-hat weaving — Montecristi weave count set by straw splitting",
+  "anchor": "panama-hat weaving — Montecristi weave count (weaves per square inch) set by straw fineness; up to eight months per hat (Wikipedia, Panama hat; NPR 2015 on Montecristi weaving)",
   "distractors": {
    "A": "cause-effect reversal",
-   "C": "detail present but unconnected to fineness",
+   "C": "never mentioned",
    "D": "never mentioned"
   }
  },

@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 1,
- "passage": "In 1815 the surveyor William Smith published the first geological map of England and Wales ______ the hand-colored sheet traced every major rock formation across the country, from the coal measures of the north to the chalk of the southern downs.",
+ "passage": "In 1815 the surveyor William Smith published the first geological map of England and Wales ______ its colors traced every major rock formation across the country, from the coal measures of the north to the chalk of the southern downs.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** Two independent clauses meet at the blank, and a semicolon is a conventional boundary between them.\n\n**The Full Solution:**\n- The first clause is complete: \"In 1815 the surveyor William Smith published the first geological map of England and Wales.\"\n- The second is also complete: \"the hand-colored sheet traced every major rock formation across the country.\"\n- A semicolon joins two related independent clauses correctly.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses is a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on.\n- D: \"Wales, therefore\" still splices the clauses with only a comma; the conjunctive adverb does not repair the boundary."
+ "explanation": "**Choice A is correct.** Two independent clauses meet at the blank, and a semicolon is a conventional boundary between them.\n\n**The Full Solution:**\n- The first clause is complete: \"In 1815 the surveyor William Smith published the first geological map of England and Wales.\"\n- The second is also complete: \"its colors traced every major rock formation across the country.\"\n- A semicolon joins two related independent clauses correctly.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses is a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on.\n- D: \"Wales, therefore\" still splices the clauses with only a comma; the conjunctive adverb does not repair the boundary."
 }
