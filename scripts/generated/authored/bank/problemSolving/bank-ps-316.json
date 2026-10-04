@@ -1,10 +1,44 @@
 {
   "id": "bank-ps-316",
-  "question": "Data set F and data set G each consist of $30$ values. The range of data set F is $12$, and the range of data set G is $36$. Neither data set contains an extreme value, and the two distributions have similar shapes. Which statement is best supported?",
+  "question": "The table shows the frequencies of the values in data set F and data set G. Which of the following correctly compares the standard deviations of the two data sets?",
+  "questionTable": {
+    "headers": [
+      "Value",
+      "Frequency in data set F",
+      "Frequency in data set G"
+    ],
+    "rows": [
+      [
+        "$10$",
+        "$1$",
+        "$5$"
+      ],
+      [
+        "$20$",
+        "$3$",
+        "$2$"
+      ],
+      [
+        "$30$",
+        "$8$",
+        "$2$"
+      ],
+      [
+        "$40$",
+        "$3$",
+        "$2$"
+      ],
+      [
+        "$50$",
+        "$1$",
+        "$5$"
+      ]
+    ]
+  },
   "choices": [
     {
       "id": "A",
-      "text": "The standard deviation of data set F is $3$ times the standard deviation of data set G."
+      "text": "The standard deviation of data set F is greater than the standard deviation of data set G."
     },
     {
       "id": "B",
@@ -12,18 +46,18 @@
     },
     {
       "id": "C",
-      "text": "The mean of data set G is greater than the mean of data set F."
+      "text": "The standard deviations of data sets F and G are equal."
     },
     {
       "id": "D",
-      "text": "The two data sets have the same standard deviation."
+      "text": "There is not enough information to compare the standard deviations."
     }
   ],
   "distractorNotes": {
-    "A": "reverses the ratio and treats the range as an exact multiplier of the standard deviation; the wider set is G, not F.",
-    "C": "reads a spread statistic as a center statistic; the ranges say nothing about where either data set is centered.",
-    "D": "ignores the ranges entirely; equal sample size does not force equal spread."
+    "A": "reads the large frequency of 8 at the value 30 as more spread, when it means more values sit at the center",
+    "C": "notices the equal means, ranges and sizes and assumes the spreads must match",
+    "D": "assumes the standard deviations must be computed, but the frequencies show where the values lie"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Same shape, same count, but G's values are spread across three times the interval. Wider spread about the mean means the larger standard deviation.\n\n**The Full Solution:**\nStep 1: Both data sets have $30$ values and similar shapes, so the only difference described is how far apart the values sit.\nStep 2: G's values occupy an interval three times as wide as F's, so typical distances from the mean are larger in G.\nStep 3: A larger typical distance from the mean is exactly a larger standard deviation, so G's standard deviation is greater. Check: nothing given locates either mean, so only the spread comparison is supported. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reverses the ratio and treats the range as an exact multiplier of the standard deviation; the wider set is G, not F.\n* Choice C: reads a spread statistic as a center statistic; the ranges say nothing about where either data set is centered.\n* Choice D: ignores the ranges entirely; equal sample size does not force equal spread.\n\n**Test Day Takeaway:** The range orders standard deviations when the shapes match, but it does not fix the exact ratio, and it never tells you anything about the mean."
+  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Both data sets are centered at $30$, but F has $8$ of its $16$ values at $30$, while G has $10$ of its $16$ values at the extremes $10$ and $50$. G is more spread out.\n\n**The Full Solution:**\nStep 1: Both data sets have $16$ values and are symmetric about $30$, so each has a mean of $30$.\nStep 2: In data set F, $8$ values equal the mean and only $2$ values are at $10$ or $50$. In data set G, only $2$ values equal the mean and $10$ values are at $10$ or $50$, the farthest values from $30$.\nStep 3: Data set G's values lie farther from the mean overall, so G has the greater standard deviation. Check: the standard deviations are about $9.4$ for F and $16.6$ for G ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the tall frequency of $8$ at $30$ means more of F's values sit at the center, which makes F's spread smaller, not larger.\n* Choice C: equal means and equal ranges do not force equal standard deviations; the values between the extremes matter.\n* Choice D: a frequency table gives every value, so there is enough information.\n\n**Test Day Takeaway:** In a frequency table, look at where the large frequencies are. Values piled at the center mean a small standard deviation; values piled at the ends mean a large one."
 }

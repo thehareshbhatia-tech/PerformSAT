@@ -1,86 +1,86 @@
 {
- "id": "bank-ps-322",
- "question": "Nine sampling sites below a reservoir outlet were scored for mayfly nymphs per sample, and the line drawn through the plotted points models nymph count against distance downstream, in kilometers. Which statement best describes what that line's slope represents?",
- "diagram": {
-  "type": "scatterplot",
-  "params": {
-   "points": [
-    [
-     1,
-     12
-    ],
-    [
-     2,
-     13
-    ],
-    [
-     3,
-     20
-    ],
-    [
-     5,
-     24
-    ],
-    [
-     6,
-     32
-    ],
-    [
-     7,
-     36
-    ],
-    [
-     8,
-     36
-    ],
-    [
-     10,
-     44
-    ],
-    [
-     11,
-     52
-    ]
-   ],
-   "xMin": 0,
-   "xMax": 12,
-   "yMin": 0,
-   "yMax": 60,
-   "xGridStep": 1,
-   "yGridStep": 5,
-   "xLabelStep": 2,
-   "yLabelStep": 10,
-   "xLabel": "Distance downstream (km)",
-   "yLabel": "Mayfly nymphs per sample",
-   "bestFitLine": {
-    "slope": 4,
-    "intercept": 6
-   }
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "The number of nymphs per sample the model predicts at the outlet."
+  "id": "bank-ps-322",
+  "question": "The scatterplot shows the number of insects in a water sample from each of $9$ sites on a river and each site's distance, in kilometers, downstream from a dam. A line of best fit is also shown. Which of the following is the best interpretation of the slope of the line of best fit?",
+  "diagram": {
+    "type": "scatterplot",
+    "params": {
+      "points": [
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          3,
+          20
+        ],
+        [
+          5,
+          24
+        ],
+        [
+          6,
+          32
+        ],
+        [
+          7,
+          36
+        ],
+        [
+          8,
+          36
+        ],
+        [
+          10,
+          44
+        ],
+        [
+          11,
+          52
+        ]
+      ],
+      "xMin": 0,
+      "xMax": 12,
+      "yMin": 0,
+      "yMax": 60,
+      "xGridStep": 1,
+      "yGridStep": 5,
+      "xLabelStep": 2,
+      "yLabelStep": 10,
+      "xLabel": "Distance from dam (kilometers)",
+      "yLabel": "Insects per sample",
+      "bestFitLine": {
+        "slope": 4,
+        "intercept": 6
+      }
+    }
   },
-  {
-   "id": "B",
-   "text": "The total number of nymphs counted across the nine sampling sites."
+  "choices": [
+    {
+      "id": "A",
+      "text": "The predicted number of insects in a sample taken at the dam"
+    },
+    {
+      "id": "B",
+      "text": "The total number of insects in the samples from the $9$ sites"
+    },
+    {
+      "id": "C",
+      "text": "The distance, in kilometers, from the dam at which the predicted number of insects in a sample is $0$"
+    },
+    {
+      "id": "D",
+      "text": "The predicted increase in the number of insects in a sample for each additional kilometer from the dam"
+    }
+  ],
+  "distractorNotes": {
+    "A": "describes the value of the line at 0 kilometers, the y-intercept, not the slope",
+    "B": "describes a total from the data, but the slope is a rate of change in the model",
+    "C": "describes where the line meets the x-axis, which is a distance rather than a change per kilometer"
   },
-  {
-   "id": "C",
-   "text": "The distance downstream, in kilometers, at which the model predicts no nymphs."
-  },
-  {
-   "id": "D",
-   "text": "The increase in predicted nymphs per sample for each additional kilometer downstream."
-  }
- ],
- "correctAnswer": "D",
- "distractorNotes": {
-  "A": "describes the line's value at zero kilometers, the constant term, not its slope",
-  "B": "describes a total count from the data; the slope describes a rate of change in the model",
-  "C": "reads the slope as a distance rather than as a change in nymphs per kilometer"
- },
- "explanation": "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice D is correct.** The slope of a modeling line is the change in the vertical quantity for a one-unit increase in the horizontal quantity, here nymphs per sample per kilometer downstream.\n\n**The Fast Way (~30s):** Slope equals rise over run, so it reports how many more nymphs per sample the model predicts for each extra kilometer.\n\n**The Full Solution:**\n\nStep 1: Name the axes. The horizontal axis is distance downstream in kilometers and the vertical axis is nymphs per sample.\n\nStep 2: Recall what a slope measures. It is the change in the vertical variable divided by the change in the horizontal variable, so its units here are nymphs per sample per kilometer.\n\nStep 3: Match that to the choices. Only Choice D reports a change in nymphs per sample for each additional kilometer. Check: the line rises from about $6$ nymphs at the outlet to about $54$ nymphs at $12$ kilometers, a gain of about $4$ nymphs per sample per kilometer.\n\n**Why the wrong answers are tempting:**\n\n* Choice A: describes the line's height at zero kilometers, which is the constant term, not the slope.\n* Choice B: reports a total from the data set. A slope describes a rate, not a sum.\n* Choice C: gives a distance in kilometers, which cannot be a slope whose units are nymphs per kilometer.\n\n**Test Day Takeaway:** Say the slope's units out loud -- \"vertical unit per horizontal unit\" eliminates every choice phrased in the wrong quantity."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The slope of a line of best fit is the predicted change in the $y$-variable for each increase of $1$ in the $x$-variable: here, the change in insects per sample for each additional kilometer.\n\n**The Full Solution:**\nStep 1: The $x$-axis shows the distance from the dam, in kilometers, and the $y$-axis shows the number of insects in a sample.\nStep 2: The slope of a line is the change in $y$ divided by the change in $x$, so it gives the change in the predicted number of insects for each increase of $1$ kilometer.\nStep 3: The line rises from left to right, so the slope is the predicted increase in insects per sample for each additional kilometer from the dam. Check: the line goes from about $6$ at $0$ kilometers to about $46$ at $10$ kilometers, a slope of $\\frac{40}{10} = 4$ insects per kilometer ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: this is the $y$-intercept, the value of the line when the distance is $0$.\n* Choice B: a slope is a rate of change in the model, not a total from the data.\n* Choice C: this is the $x$-intercept, a distance, not a change in insects per kilometer.\n\n**Test Day Takeaway:** Slope = change in $y$ for each $1$-unit increase in $x$. Read the axis labels and put the units into that sentence: \"per sample, per kilometer.\""
 }

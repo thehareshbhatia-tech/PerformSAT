@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-319",
-  "question": "Orchestra P recorded rehearsal lengths, in minutes, of $88$, $90$, $92$, $94$, and $96$. Orchestra Q recorded rehearsal lengths, in minutes, of $80$, $86$, $92$, $98$, and $104$. Which statement correctly compares the standard deviations of the two lists of rehearsal lengths?",
+  "question": "$41, 45, 49, 53, 57$\nIf $6$ is added to each value in the data set shown, how does the standard deviation change?",
   "choices": [
     {
       "id": "A",
-      "text": "The standard deviations are equal, because the two lists have the same mean."
+      "text": "It decreases by $6$."
     },
     {
       "id": "B",
-      "text": "The standard deviations are equal, because the two lists have the same number of values."
+      "text": "It does not change."
     },
     {
       "id": "C",
-      "text": "The standard deviation of orchestra P is greater, because its values sit farther from their mean."
+      "text": "It increases by $6$."
     },
     {
       "id": "D",
-      "text": "The standard deviation of orchestra Q is greater, because its values sit farther from their mean."
+      "text": "It is multiplied by $6$."
     }
   ],
   "distractorNotes": {
-    "A": "concludes from the equal means of 92 minutes that the spreads must match as well",
-    "B": "concludes from the equal count of five values that the spreads must match as well",
-    "C": "reverses the comparison; orchestra P is the list clustered tightly around 92 minutes"
+    "A": "reverses the direction of the shift and applies it to the spread",
+    "C": "applies the shift to the standard deviation the way it applies to the mean",
+    "D": "treats adding 6 as multiplying by 6"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Both lists center on $92$ minutes, but P spans $88$ to $96$ while Q spans $80$ to $104$, so Q is more spread out.\n\n**The Full Solution:**\nStep 1: Find the centers. Orchestra P: $\\frac{88 + 90 + 92 + 94 + 96}{5} = 92$. Orchestra Q: $\\frac{80 + 86 + 92 + 98 + 104}{5} = 92$. Same mean.\nStep 2: Compare the distances from that center. P deviates by $4$, $2$, $0$, $2$, $4$ minutes; Q deviates by $12$, $6$, $0$, $6$, $12$ minutes — each Q deviation is three times the matching P deviation.\nStep 3: Conclude. Larger deviations from the same mean mean a larger standard deviation, so orchestra Q has the greater standard deviation. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (equal, same mean): uses the mean, which measures center. Two lists can share a center and still differ wildly in spread.\n* Choice B (equal, same count): uses the number of values, which does not fix the spread either.\n* Choice C (P greater): reverses the comparison: P is the list packed tightly around $92$ minutes.\n\n**Test Day Takeaway:** Standard deviation answers \"how far from the mean,\" not \"where is the mean\" or \"how many values.\" Compare the distances, never the centers."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Adding $6$ to every value moves the whole data set up by $6$; the distances between values, and from the mean, stay the same, so the standard deviation does not change.\n\n**The Full Solution:**\nStep 1: The mean of the original data is $49$. After $6$ is added to each value, the new data set is $47, 51, 55, 59, 63$ with mean $55$.\nStep 2: The distances from the mean are $-8, -4, 0, 4, 8$ in both data sets.\nStep 3: Since the standard deviation depends only on those distances, it does not change. Check: the range is $57 - 41 = 16$ before and $63 - 47 = 16$ after ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: adding a number cannot decrease the spread.\n* Choice C: the mean increases by $6$, but the spread does not.\n* Choice D: multiplying each value by $6$ would multiply the standard deviation by $6$; adding $6$ does not.\n\n**Test Day Takeaway:** Adding the same number to every value shifts the center but not the spread. Only multiplying every value changes the standard deviation."
 }

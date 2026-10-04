@@ -1,90 +1,90 @@
 {
- "id": "bank-ps-336",
- "question": "Each point pairs a research plot's soil moisture, in percent by volume, with the number of days since the last measurable rain, and the line drawn through the points is the model the field team uses. Which statement best describes what the line's value at zero days represents?",
- "diagram": {
-  "type": "scatterplot",
-  "params": {
-   "points": [
-    [
-     0,
-     33
-    ],
-    [
-     1,
-     33
-    ],
-    [
-     2,
-     29
-    ],
-    [
-     4,
-     27
-    ],
-    [
-     5,
-     23
-    ],
-    [
-     7,
-     21
-    ],
-    [
-     8,
-     17
-    ],
-    [
-     10,
-     15
-    ],
-    [
-     11,
-     11
-    ],
-    [
-     13,
-     9
-    ]
-   ],
-   "xMin": 0,
-   "xMax": 14,
-   "yMin": 0,
-   "yMax": 40,
-   "xGridStep": 1,
-   "yGridStep": 5,
-   "xLabelStep": 2,
-   "yLabelStep": 10,
-   "xLabel": "Days since last measurable rain",
-   "yLabel": "Soil moisture (percent by volume)",
-   "bestFitLine": {
-    "slope": -2,
-    "intercept": 34
-   }
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "The soil moisture, in percent by volume, recorded at the plot on the day of the last measurable rain."
+  "id": "bank-ps-336",
+  "question": "The scatterplot shows the soil moisture, in percent, of a garden and the number of days since it last rained, on each of $10$ days. A line of best fit is also shown. Which statement is the best interpretation of the $y$-intercept of the line of best fit?",
+  "diagram": {
+    "type": "scatterplot",
+    "params": {
+      "points": [
+        [
+          0,
+          33
+        ],
+        [
+          1,
+          33
+        ],
+        [
+          2,
+          29
+        ],
+        [
+          4,
+          27
+        ],
+        [
+          5,
+          23
+        ],
+        [
+          7,
+          21
+        ],
+        [
+          8,
+          17
+        ],
+        [
+          10,
+          15
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          13,
+          9
+        ]
+      ],
+      "xMin": 0,
+      "xMax": 14,
+      "yMin": 0,
+      "yMax": 40,
+      "xGridStep": 1,
+      "yGridStep": 5,
+      "xLabelStep": 2,
+      "yLabelStep": 10,
+      "xLabel": "Days since last rain",
+      "yLabel": "Soil moisture (percent)",
+      "bestFitLine": {
+        "slope": -2,
+        "intercept": 34
+      }
+    }
   },
-  {
-   "id": "B",
-   "text": "The soil moisture, in percent by volume, the model predicts for the day of the last measurable rain."
+  "choices": [
+    {
+      "id": "A",
+      "text": "The soil moisture, in percent, recorded in the garden on the day it last rained"
+    },
+    {
+      "id": "B",
+      "text": "The soil moisture, in percent, the line predicts for the day it last rained"
+    },
+    {
+      "id": "C",
+      "text": "The predicted change in soil moisture, in percent, for each additional day without rain"
+    },
+    {
+      "id": "D",
+      "text": "The number of days without rain after which the predicted soil moisture is $0$ percent"
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "confuses the line's value with a recorded value; the point plotted at $0$ days is at $33$ percent, while the line crosses the $y$-axis at $34$ percent",
+    "C": "describes the slope of the line, about $-2$ percent per day, not its $y$-intercept",
+    "D": "describes the $x$-intercept, a number of days, rather than the $y$-intercept, a soil moisture"
   },
-  {
-   "id": "C",
-   "text": "The change in predicted soil moisture, in percent by volume, for each additional day without rain."
-  },
-  {
-   "id": "D",
-   "text": "The number of days without rain after which the model predicts no soil moisture at the plot."
-  }
- ],
- "correctAnswer": "B",
- "distractorNotes": {
-  "A": "confuses the model's output with the recorded value; the plotted point at zero days is $33$, not the line's value of $34$",
-  "C": "describes the line's slope, the per-day change, rather than its value at zero days",
-  "D": "reads the value as a number of days rather than as a soil moisture"
- },
- "explanation": "**SAT Pattern: Interpret Intercept of Best Fit**\n\n**Choice B is correct.** The line's value at zero days is what the model predicts for the day of the last measurable rain, not what any plot actually recorded.\n\n**The Fast Way (~45s):** Zero days corresponds to the day of the last rain, and a value read off the line is always a prediction.\n\n**The Full Solution:**\n\nStep 1: Translate the input. On the horizontal axis, zero days since the last measurable rain means the day the rain fell.\n\nStep 2: Translate the output. The vertical axis is soil moisture in percent by volume, so any value on the line carries those units. That rules out reading the value as a count of days.\n\nStep 3: Separate the model from the data. The line summarizes the trend; the point plotted at zero days sits at $33$ percent, while the line passes above it at $34$ percent. The line's value is therefore a prediction, which is what Choice B says. Check: the slope, about $-2$ percent per day, is the per-day change, so the value at zero days is a starting level, not a rate.\n\n**Why the wrong answers are tempting:**\n\n* Choice A: names the recorded value. The recorded moisture at zero days is $33$ percent, while the model's value there is $34$ percent, so the two are not the same quantity.\n* Choice C: describes the slope of the line rather than its value at a single input.\n* Choice D: reports a number of days, which contradicts the units of the vertical axis.\n\n**Test Day Takeaway:** Anything read off the modeling line is a prediction -- when a choice says \"recorded\" or \"actual,\" it is describing a data point, not the model."
+  "explanation": "**SAT Pattern: Interpret Intercept of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The $y$-intercept is where $x = 0$ days, the day it last rained, and any value on the line of best fit is a prediction, not a recorded value.\n\n**The Full Solution:**\nStep 1: Translate the input. On the x-axis, $0$ days since it last rained is the day of the rain itself, so the $y$-intercept describes that day.\nStep 2: Translate the output. The y-axis is soil moisture in percent, so the $y$-intercept, about $34$, is a soil moisture, not a number of days.\nStep 3: Separate the line from the data. The data point at $0$ days sits at $33$ percent, while the line crosses the y-axis at $34$ percent, so the $y$-intercept is the soil moisture the line predicts for that day. Check: the line falls about $2$ percentage points per day, which is the slope; the $y$-intercept is a starting level, not a rate ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: names the recorded value. The recorded moisture at $0$ days is $33$ percent, while the line's value there is $34$ percent, so the two are different quantities.\n* Choice C: describes the slope of the line, the change per day, rather than its value at a single input.\n* Choice D: describes where the line would reach $0$ percent, the $x$-intercept, which is measured in days.\n\n**Test Day Takeaway:** Anything read off a line of best fit is a prediction; a choice that says \"recorded\" or \"actual\" describes a data point, not the line."
 }

@@ -1,29 +1,29 @@
 {
- "id": "bank-ps-398",
- "question": "One storm produced five peak gusts at a ridge-top tower. Two of the recorded speeds differ by $12$ kilometers per hour and are written $k$ and $k + 12$; the other three were $74$, $68$, and $81$ kilometers per hour. If the five gusts averaged $77$ kilometers per hour, what is the value of $k$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$69$"
+  "id": "bank-ps-398",
+  "question": "$63, 71, 58, k, k + 10$\nThe mean of the data set shown is $66$. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$64$"
+    },
+    {
+      "id": "B",
+      "text": "$69$"
+    },
+    {
+      "id": "C",
+      "text": "$74$"
+    },
+    {
+      "id": "D",
+      "text": "$128$"
+    }
+  ],
+  "correctAnswer": "A",
+  "distractorNotes": {
+    "B": "ignores the $10$ and splits $330 - 192 = 138$ in half",
+    "C": "solves correctly but reports $k + 10$ instead of $k$",
+    "D": "finds $2k = 128$ and does not divide by $2$"
   },
-  {
-   "id": "B",
-   "text": "$75$"
-  },
-  {
-   "id": "C",
-   "text": "$77$"
-  },
-  {
-   "id": "D",
-   "text": "$81$"
-  }
- ],
- "correctAnswer": "B",
- "distractorNotes": {
-  "A": "removes the $12$ from both unknown gusts, solving $2k = 162 - 24$ to get $69$",
-  "C": "assumes an unknown entry equals the mean and reports $77$",
-  "D": "forgets the $+12$ term entirely, solving $2k = 162$ to get $81$"
- },
- "explanation": "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice B is correct.** The five gusts total $5(77) = 385$; the three known gusts total $223$, so $k + (k + 12) = 162$ and $k = 75$.\n\n**The Fast Way (~50s):** $385 - 223 = 162$ for the two unknown gusts. Subtracting the $12$-unit gap leaves $150$, so $k = 75$.\n\n**The Full Solution:**\n\nStep 1: Turn the mean into a total: $5(77) = 385$ kilometers per hour summed across the five gusts.\n\nStep 2: Subtract the three known gusts. Their sum is $74 + 68 + 81 = 223$, so the two unknown gusts total $385 - 223 = 162$.\n\nStep 3: Solve $k + (k + 12) = 162$, so $2k = 150$ and $k = 75$. Check: the five gusts are $74$, $68$, $81$, $75$, and $87$, whose sum is $385$, and $\\frac{385}{5} = 77$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($69$): subtracts the $12$ twice, solving $2k = 162 - 24 = 138$. Only one of the two unknown gusts carries the $+12$.\n* Choice C ($77$): copies the mean into the unknown. Nothing forces a data value to equal the average.\n* Choice D ($81$): drops the $+12$ and solves $2k = 162$, which describes two equal gusts.\n\n**Test Day Takeaway:** Add the unknown expressions exactly as written before you divide -- a constant attached to only one of them changes the split, not the total."
+  "explanation": "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The total is $5(66) = 330$, so $192 + 2k + 10 = 330$, which gives $2k = 128$ and $k = 64$.\n\n**The Full Solution:**\nStep 1: The five values total $5(66) = 330$.\nStep 2: The known values add to $63 + 71 + 58 = 192$, so $192 + k + (k + 10) = 330$, or $2k + 202 = 330$.\nStep 3: Then $2k = 128$ and $k = 64$. Check: $63 + 71 + 58 + 64 + 74 = 330$, and $\\frac{330}{5} = 66$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($69$): leaves out the $10$, solving $2k = 138$.\n* Choice C ($74$): is the value of $k + 10$, the fifth value in the list.\n* Choice D ($128$): is the value of $2k$; it still has to be divided by $2$.\n\n**Test Day Takeaway:** Write the total as an equation in $k$ and solve it all the way; check which expression the question asks for."
 }

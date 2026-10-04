@@ -1,6 +1,6 @@
 {
   "id": 2,
-  "question": "The table gives the height, in centimeters, of each of $8$ saplings in a nursery plot. What is the median height, in centimeters, of the saplings?",
+  "question": "The table shows the height, in centimeters, of each of $8$ saplings. What is the median of the heights, in centimeters?",
   "diagram": {
     "type": "dataTable",
     "params": {

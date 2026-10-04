@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-403",
-  "question": "The table shows the number of concert tickets sold for each of two sections on each of two nights. If one of the $300$ tickets sold is selected at random, what is the probability that the selected ticket was sold for Saturday?",
+  "question": "The table shows the number of concert tickets sold for two sections on two nights. One of the $300$ tickets will be selected at random. What is the probability of selecting a ticket sold for Saturday?",
   "diagram": {
     "type": "twoWayTable",
     "params": {
@@ -51,10 +51,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "uses only the $96$ orchestra tickets sold for Saturday",
-    "B": "gives the probability that the ticket was sold for Friday",
-    "D": "divides the $96$ Saturday orchestra tickets by the $160$ Saturday tickets, a conditional probability"
+    "A": "uses only the $96$ Saturday orchestra tickets",
+    "B": "uses the $140$ Friday tickets",
+    "D": "uses the $180$ orchestra tickets"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Marginal Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The Saturday column totals $160$ out of $300$ tickets, so the probability is $\\frac{160}{300} = \\frac{8}{15}$.\n\n**The Full Solution:**\nStep 1: The question asks only about the night, so the favorable outcomes fill the entire Saturday column.\nStep 2: That column totals $96 + 64 = 160$ tickets out of $300$ sold.\nStep 3: The probability is $\\frac{160}{300} = \\frac{8}{15}$, dividing both parts by $20$. Check: Friday accounts for $\\frac{140}{300} = \\frac{7}{15}$, and $\\frac{7}{15} + \\frac{8}{15} = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{25}$): uses only the $96$ orchestra tickets sold for Saturday\n* Choice B ($\\frac{7}{15}$): gives the probability that the ticket was sold for Friday\n* Choice D ($\\frac{3}{5}$): divides the $96$ Saturday orchestra tickets by the $160$ Saturday tickets, a conditional probability\n\n**Test Day Takeaway:** Column totals answer questions about the column variable alone; a cell would answer a question naming both variables."
+  "explanation": "**SAT Pattern: Marginal Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Saturday column total: $160$. Probability: $\\frac{160}{300} = \\frac{8}{15}$.\n\n**The Full Solution:**\nStep 1: The event is \"sold for Saturday,\" so use the Saturday column total: $96 + 64 = 160$.\nStep 2: Divide by all $300$ tickets: $\\frac{160}{300}$.\nStep 3: $\\frac{160}{300} = \\frac{8}{15}$. Check: $\\frac{140}{300} + \\frac{160}{300} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{25}$): uses one cell, the Saturday orchestra tickets, instead of the column total.\n* Choice B ($\\frac{7}{15}$): is the probability of selecting a Friday ticket.\n* Choice D ($\\frac{3}{5}$): is the probability of selecting an orchestra ticket.\n\n**Test Day Takeaway:** Match the event to a full row or column total before dividing by the grand total."
 }

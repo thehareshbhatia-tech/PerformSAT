@@ -1,6 +1,6 @@
 {
   "id": 4,
-  "question": "In a poll of a random sample of likely voters, candidate Okafor was preferred by $51\\%$ of those sampled and candidate Villar by $49\\%$, each estimate reported with a margin of error of $3$ percentage points. Which conclusion about the preferences of all likely voters is most appropriate?",
+  "question": "In a poll of a random sample of likely voters, $51\\%$ preferred candidate Okafor and $49\\%$ preferred candidate Villar, each with an associated margin of error of $3$ percentage points. Which of the following is the most appropriate conclusion?",
   "choices": [
     {
       "id": "A",

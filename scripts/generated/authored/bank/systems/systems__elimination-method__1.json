@@ -1,30 +1,30 @@
 {
   "id": 1,
-  "question": "Adding the two equations $x + 3y = 19$ and $x - 3y = 1$ eliminates $y$. What is the value of $x$ in the solution to this system?",
+  "question": "$x + 4y = 23$\n$x - 4y = 7$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x$?",
   "choices": [
     {
       "id": "A",
-      "text": "$3$"
+      "text": "$2$"
     },
     {
       "id": "B",
-      "text": "$9$"
+      "text": "$8$"
     },
     {
       "id": "C",
-      "text": "$10$"
+      "text": "$15$"
     },
     {
       "id": "D",
-      "text": "$20$"
+      "text": "$30$"
     }
   ],
   "distractorNotes": {
-    "A": "finishes the system but reports $y$ instead of $x$.",
-    "B": "subtracts the equations to get $6y = 18$ and then divides by $2$ instead of $6$.",
-    "D": "adds correctly to $2x = 20$ but stops before dividing by $2$."
+    "A": "solves the system but reports $y$ instead of $x$.",
+    "B": "adds the left sides but subtracts the right sides, writing $2x = 23 - 7 = 16$.",
+    "D": "adds correctly to get $2x = 30$ but stops before dividing by $2$."
   },
   "correctAnswer": "C",
-  "hint": "Add the two left sides and the two right sides, then finish solving for the surviving variable.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** Adding gives $2x = 20$, so $x = 10$.\n\n**The Full Solution:**\nStep 1: The $y$-terms are $3y$ and $-3y$, which are opposites, so adding the equations removes $y$.\nStep 2: Adding left sides and right sides gives $2x = 20$.\nStep 3: Divide by $2$ to get $x = 10$. Check: $10 + 3y = 19$ gives $y = 3$, and $10 - 3(3) = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): finishes the system but reports $y$ instead of $x$.\n* Choice B ($9$): subtracts the equations to get $6y = 18$ and then divides by $2$ instead of $6$.\n* Choice D ($20$): adds correctly to $2x = 20$ but stops before dividing by $2$.\n\n**Test Day Takeaway:** Elimination gives you an equation, not an answer. Divide out the leading coefficient, then check which variable was requested."
+  "hint": "Look at the $y$-terms: what happens if you add the equations?",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** Adding the equations cancels the $y$-terms: $2x = 30$, so $x = 15$.\n\n**The Full Solution:**\nStep 1: The $y$-terms $4y$ and $-4y$ are opposites, so adding the equations eliminates $y$.\nStep 2: Add the left sides and the right sides: $(x + 4y) + (x - 4y) = 23 + 7$, so $2x = 30$.\nStep 3: Divide by $2$: $x = 15$. Check: from the first equation $4y = 23 - 15 = 8$, so $y = 2$, and $15 - 4(2) = 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): solves the system but reports $y$ instead of $x$.\n* Choice B ($8$): adds the left sides but subtracts the right sides, writing $2x = 23 - 7 = 16$.\n* Choice D ($30$): adds correctly to get $2x = 30$ but stops before dividing by $2$.\n\n**Test Day Takeaway:** When one variable has opposite coefficients, add the equations; do the same operation to both sides, and finish by dividing."
 }

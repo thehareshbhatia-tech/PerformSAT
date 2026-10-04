@@ -1,30 +1,30 @@
 {
   "id": 2,
-  "question": "The number of pages in each of $6$ booklets is $18$, $24$, $31$, $37$, $42$, and $55$. Which statement about the mode of these page counts is true?",
+  "question": "$7, 2, 9, 2, 5, 9, 9, 4, 6$\nWhat is the mode of the data shown?",
   "choices": [
     {
       "id": "A",
-      "text": "The mode is $18$."
+      "text": "$2$"
     },
     {
       "id": "B",
-      "text": "The mode is $34.5$."
+      "text": "$3$"
     },
     {
       "id": "C",
-      "text": "The mode is $55$."
+      "text": "$6$"
     },
     {
       "id": "D",
-      "text": "There is no mode."
+      "text": "$9$"
     }
   ],
   "distractorNotes": {
-    "A": "reports the least value, which is the minimum rather than the mode.",
-    "B": "reports $\\frac{207}{6}$, the mean of the six page counts.",
-    "C": "reports the greatest value, which is the maximum rather than the mode."
+    "A": "picks $2$, which also repeats, but $2$ occurs only twice while $9$ occurs three times.",
+    "B": "reports how many times the mode occurs, $3$, instead of the value that occurs most often.",
+    "C": "reports the median, the fifth value of the ordered list $2, 2, 4, 5, 6, 7, 9, 9, 9$."
   },
   "correctAnswer": "D",
-  "hint": "A mode has to be a value that appears more often than the others.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~15s):** Every page count appears exactly once, so no value occurs most often and the data set has no mode.\n\n**The Full Solution:**\nStep 1: The mode of a data set is the value that occurs most frequently.\nStep 2: Each of $18$, $24$, $31$, $37$, $42$, and $55$ occurs exactly one time.\nStep 3: Since no value occurs more often than any other, the data set has no mode. Check: a mode would require at least one repeated value, and there are none. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reports the least value, which is the minimum rather than the mode.\n* Choice B: reports $\\frac{207}{6}$, the mean of the six page counts.\n* Choice C: reports the greatest value, which is the maximum rather than the mode.\n\n**Test Day Takeaway:** Mode is about repetition. If every value appears once, the correct answer is that there is no mode, not the smallest or largest value."
+  "hint": "Count how many times each value occurs.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~15s):** The value $9$ occurs $3$ times, more than any other value, so the mode is $9$.\n\n**The Full Solution:**\nStep 1: Count each value: $2$ occurs $2$ times, $9$ occurs $3$ times, and $4$, $5$, $6$, and $7$ each occur once.\nStep 2: The greatest frequency is $3$, and only the value $9$ has it.\nStep 3: So the mode is $9$. Check: the frequencies $2 + 3 + 1 + 1 + 1 + 1 = 9$ account for all $9$ values. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): picks $2$, which also repeats, but $2$ occurs only twice while $9$ occurs three times.\n* Choice B ($3$): reports how many times the mode occurs, $3$, instead of the value that occurs most often.\n* Choice C ($6$): reports the median, the fifth value of the ordered list $2, 2, 4, 5, 6, 7, 9, 9, 9$.\n\n**Test Day Takeaway:** The mode is a VALUE from the data set, the one with the greatest frequency; the frequency itself is not the answer."
 }

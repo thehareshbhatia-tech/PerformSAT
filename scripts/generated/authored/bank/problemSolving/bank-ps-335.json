@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-335",
-  "question": "A print shop's charge for an order of posters is modeled by $\\hat{y} = 2.4x + 18$, where $y$ is the total charge, in dollars, for an order of $x$ posters. Which of the following best describes the value $18$ in this model?",
+  "question": "The total charge $y$, in dollars, for an order of $x$ posters at a print shop is modeled by $y = 1.75x + 12$. What is the best interpretation of $12$ in this context?",
   "choices": [
     {
       "id": "A",
@@ -8,11 +8,11 @@
     },
     {
       "id": "B",
-      "text": "A one-time charge applied to the order regardless of the number of posters"
+      "text": "A charge for the order that does not depend on the number of posters"
     },
     {
       "id": "C",
-      "text": "The number of posters included in the order at no additional charge"
+      "text": "The number of posters included in the order at no charge"
     },
     {
       "id": "D",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "describes the slope $2.4$, the per-poster charge.",
-    "C": "reads $18$ as a count of posters, but $18$ is a value of $y$ and $y$ is measured in dollars.",
-    "D": "evaluates the model at $x = 1$, which gives $2.4(1) + 18 = \\$20.40$, not $\\$18$."
+    "A": "describes the slope $1.75$, the per-poster charge.",
+    "C": "reads $12$ as a count of posters, but $12$ is a value of $y$ and $y$ is measured in dollars.",
+    "D": "evaluates the model at $x = 1$, which gives $1.75(1) + 12 = \\$13.75$, not $\\$12$."
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Interpret Intercept of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** At $x = 0$ posters the model still charges $\\$18$, so $\\$18$ is a fixed charge that does not depend on the order size.\n\n**The Full Solution:**\nStep 1: The value $18$ is the constant term, so it is the predicted total charge when $x = 0$.\nStep 2: An order of $0$ posters incurs no per-poster charge, so everything left is charge that applies no matter how many posters are ordered.\nStep 3: That makes $\\$18$ a one-time charge on the order, with $\\$2.40$ added per poster. Check: an order of $10$ posters costs $2.4(10) + 18 = \\$42$, which is $\\$24$ of poster charges plus the $\\$18$ fixed amount. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: describes the slope $2.4$, the per-poster charge.\n* Choice C: reads $18$ as a count of posters, but $18$ is a value of $y$ and $y$ is measured in dollars.\n* Choice D: evaluates the model at $x = 1$, which gives $2.4(1) + 18 = \\$20.40$, not $\\$18$.\n\n**Test Day Takeaway:** In a \"fixed fee plus rate\" model, the constant term is the fee and the coefficient is the rate. Test a choice by substituting $x = 0$ and $x = 1$."
+  "explanation": "**SAT Pattern: Interpret Intercept of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** At $x = 0$ posters the model still charges $\\$12$, so $\\$12$ is a fixed charge that does not depend on the order size.\n\n**The Full Solution:**\nStep 1: The value $12$ is the constant term, so it is the predicted total charge when $x = 0$.\nStep 2: An order of $0$ posters incurs no per-poster charge, so everything left is charge that applies no matter how many posters are ordered.\nStep 3: That makes $\\$12$ a one-time charge on the order, with $\\$1.75$ added per poster. Check: an order of $10$ posters costs $1.75(10) + 12 = \\$29.50$, which is $\\$17.50$ of poster charges plus the $\\$12$ fixed amount ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: describes the slope $1.75$, the per-poster charge.\n* Choice C: reads $12$ as a count of posters, but $12$ is a value of $y$ and $y$ is measured in dollars.\n* Choice D: evaluates the model at $x = 1$, which gives $1.75(1) + 12 = \\$13.75$, not $\\$12$.\n\n**Test Day Takeaway:** In a \"fixed fee plus rate\" model, the constant term is the fee and the coefficient is the rate. Test a choice by substituting $x = 0$ and $x = 1$."
 }

@@ -1,6 +1,6 @@
 {
   "id": 4,
-  "question": "Data set P consists of $30$ values. Data set Q consists of every value in data set P together with one additional value that is greater than each value in data set P. Which measure must be greater for data set Q than for data set P?",
+  "question": "Data set Q is formed by adding one value to data set P, which has $30$ values. The added value is greater than every value in data set P. Which of the following must be greater for data set Q than for data set P?",
   "choices": [
     {
       "id": "A",

@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-390",
-  "question": "A laboratory tested $1{,}200$ water samples. Of those samples, $30\\%$ came from wells, and $15\\%$ of the well samples contained detectable iron. How many of the samples tested were well samples containing detectable iron?",
+  "question": "Of $1{,}200$ students, $30\\%$ are in the band, and $15\\%$ of the band members play trumpet. How many band members play trumpet?",
   "choices": [
     {
       "id": "A",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "B": "applies $15\\%$ to all $1{,}200$ samples instead of to the well samples",
-    "C": "counts the well samples with no detectable iron, $85\\%$ of $360$",
-    "D": "reports the number of well samples and stops"
+    "B": "applies $15\\%$ to all $1{,}200$ students instead of to the band members",
+    "C": "counts the band members who do not play trumpet, $85\\%$ of $360$",
+    "D": "reports the number of band members and stops"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $0.30(1200) = 360$ well samples, and $0.15(360) = 54$ of them contained detectable iron.\n\n**The Full Solution:**\nStep 1: The well samples number $0.30(1200) = 360$.\nStep 2: The second percent describes only those $360$ samples: $0.15(360) = 54$.\nStep 3: So $54$ samples were well samples containing detectable iron. Check: $0.30(0.15) = 0.045$, and $0.045(1200) = 54$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($180$): applies $15\\%$ to all $1{,}200$ samples instead of to the well samples\n* Choice C ($306$): counts the well samples with no detectable iron, $85\\%$ of $360$\n* Choice D ($360$): reports the number of well samples and stops\n\n**Test Day Takeaway:** Track which group each percent describes. The second percent in a chain almost never applies to the original total."
+  "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $0.30(1{,}200) = 360$ band members, and $0.15(360) = 54$ of them play trumpet.\n\n**The Full Solution:**\nStep 1: The band has $0.30(1{,}200) = 360$ members.\nStep 2: The second percent describes only those $360$ students: $0.15(360) = 54$.\nStep 3: So $54$ band members play trumpet. Check: $0.30(0.15) = 0.045$, and $0.045(1{,}200) = 54$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($180$): applies $15\\%$ to all $1{,}200$ students, $0.15(1{,}200) = 180$, but the $15\\%$ describes only the band.\n* Choice C ($306$): counts the band members who do not play trumpet, $0.85(360) = 306$.\n* Choice D ($360$): reports the number of band members and stops before applying the second percent.\n\n**Test Day Takeaway:** Track which group each percent describes. The second percent in a chain almost never applies to the original total."
 }

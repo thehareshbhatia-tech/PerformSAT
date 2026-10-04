@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-375",
-  "question": "Each year a scenery shop's account earns interest equal to $3.5$ percent of its opening balance of $\\$26{,}000$, and that interest stays in the account but earns nothing further. What is the account's value, in dollars, at the end of $4$ years?",
+  "question": "$A = P(1 + rt)$\nThe given equation gives the balance $A$ of an account after $t$ years, where $P$ is the amount deposited and $r$ is the annual simple interest rate. Which equation correctly expresses $r$ in terms of $A$, $P$, and $t$?",
   "choices": [
     {
       "id": "A",
-      "text": "$3{,}640$"
+      "text": "$r = \\frac{A - P}{t}$"
     },
     {
       "id": "B",
-      "text": "$29{,}640$"
+      "text": "$r = \\frac{A - P}{Pt}$"
     },
     {
       "id": "C",
-      "text": "$29{,}835.60$"
+      "text": "$r = \\frac{A}{Pt} - 1$"
     },
     {
       "id": "D",
-      "text": "$117{,}000$"
+      "text": "$r = \\frac{t(A - P)}{P}$"
     }
   ],
   "distractorNotes": {
-    "A": "reports the four years of interest, 3,640, without adding the opening balance",
-    "C": "compounds the interest: 26,000(1.035)^4 = 29,835.60, but the interest earns nothing further",
-    "D": "treats 3.5 percent as the factor 3.5: 26,000(3.5) + 26,000 = 117,000"
+    "A": "subtracts P but never divides by P, the factor that multiplies rt after distributing",
+    "C": "treats the equation as A = Pt(1 + r), dividing both sides by Pt and then subtracting 1",
+    "D": "multiplies by t in the last step instead of dividing by t"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** One year earns $\\$910$, so four years earn $\\$3{,}640$, and $26{,}000 + 3{,}640 = 29{,}640$ dollars.\n\n**The Full Solution:**\nStep 1: Find one year of interest. $3.5\\%$ of $26{,}000$ is $0.035 \\times 26{,}000 = 910$ dollars.\nStep 2: Multiply by the years. Because the credited interest earns nothing further, all four years pay $910$: $4 \\times 910 = 3{,}640$ dollars.\nStep 3: Add and check. $26{,}000 + 3{,}640 = 29{,}640$ dollars, which is $26{,}000(1 + 0.035 \\times 4) = 26{,}000(1.14)$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3{,}640$): is only the interest earned. The question asks for the account value, which includes the original balance.\n* Choice C ($29{,}835.60$): compounds: $26{,}000(1.035)^4$. Here the interest earns nothing further, so the growth is linear.\n* Choice D ($117{,}000$): uses $3.5$ instead of $0.035$, inflating the rate by a factor of $100$.\n\n**Test Day Takeaway:** Simple interest adds the same dollar amount each year; if a choice is slightly larger than the simple-interest answer, it is the compounding trap."
+  "explanation": "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Distribute to get $A = P + Prt$, so $A - P = Prt$ and $r = \\frac{A - P}{Pt}$.\n\n**The Full Solution:**\nStep 1: Distribute $P$: $A = P + Prt$.\nStep 2: Subtract $P$ from both sides: $A - P = Prt$.\nStep 3: Divide both sides by $Pt$: $r = \\frac{A - P}{Pt}$. Check: with $P = 1{,}000$, $r = 0.05$, and $t = 2$, the balance is $A = 1{,}000(1.1) = 1{,}100$, and $\\frac{1{,}100 - 1{,}000}{1{,}000(2)} = 0.05$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($r = \\frac{A - P}{t}$): stops after dividing by $t$. The term $Prt$ also carries a factor of $P$, so the test values give $\\frac{100}{2} = 50$, not $0.05$.\n* Choice C ($r = \\frac{A}{Pt} - 1$): divides by $Pt$ as though the equation were $A = Pt(1 + r)$. The test values give $\\frac{1{,}100}{2{,}000} - 1 = -0.45$.\n* Choice D ($r = \\frac{t(A - P)}{P}$): multiplies by $t$ instead of dividing by it. The test values give $\\frac{2(100)}{1{,}000} = 0.2$.\n\n**Test Day Takeaway:** To solve a formula for one variable, distribute first, move every term without that variable to the other side, then divide by its coefficient. Test a choice with easy numbers when in doubt."
 }

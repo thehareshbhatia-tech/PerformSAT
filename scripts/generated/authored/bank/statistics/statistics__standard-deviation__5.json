@@ -1,30 +1,30 @@
 {
   "id": 5,
-  "question": "A quality report lists $50$ measured pipe diameters, in millimeters, with a mean of $60$ millimeters and a standard deviation of $\\sigma$ millimeters. Each diameter is converted to centimeters and then increased by $3$ centimeters to record an outer bound. In terms of $\\sigma$, what is the standard deviation, in centimeters, of the recorded outer bounds?",
+  "question": "Data set A has $20$ values, a mean of $50$, and a standard deviation of $6$. Data set B consists of the $20$ values in data set A and one additional value, $50$. Which of the following correctly compares the standard deviations of data sets A and B?",
   "choices": [
     {
       "id": "A",
-      "text": "$\\frac{\\sigma}{10}$"
+      "text": "Data set B has a smaller standard deviation than data set A."
     },
     {
       "id": "B",
-      "text": "$\\frac{\\sigma}{10} + 3$"
+      "text": "Data sets A and B have equal standard deviations."
     },
     {
       "id": "C",
-      "text": "$\\frac{\\sigma + 3}{10}$"
+      "text": "Data set B has a greater standard deviation than data set A."
     },
     {
       "id": "D",
-      "text": "$10\\sigma$"
+      "text": "There is not enough information to compare the standard deviations."
     }
   ],
   "distractorNotes": {
-    "B": "adds the 3-centimeter allowance to the spread, but a shift moves every value equally",
-    "C": "adds 3 before dividing, which again lets the shift reach the spread",
-    "D": "multiplies by 10 instead of dividing, converting centimeters to millimeters"
+    "B": "reasons that the mean does not change, so the spread does not either; but the added value lowers the typical distance from the mean.",
+    "C": "assumes adding any value to a data set adds spread, but a value at the mean adds no distance.",
+    "D": "assumes the individual values are needed, but the effect of adding a value at the mean is the same for every data set with a positive standard deviation."
   },
   "correctAnswer": "A",
-  "hint": "Only one of the two operations changes how far the values sit from each other.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~25s):** Dividing every diameter by $10$ divides the standard deviation by $10$; adding $3$ centimeters changes nothing about the spread.\n\n**The Full Solution:**\nStep 1: Handle the unit change. One centimeter is $10$ millimeters, so each diameter in centimeters is the millimeter value divided by $10$, and the standard deviation becomes $\\frac{\\sigma}{10}$ centimeters.\nStep 2: Handle the shift. Adding $3$ centimeters to every value slides the whole data set without changing any distance between values, so the standard deviation is unchanged.\nStep 3: Test two diameters. If two pipes measure $60$ and $80$ millimeters, they become $6$ and $8$ centimeters, then $9$ and $11$ centimeters. The gap shrinks from $20$ to $2$ and then stays at $2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{\\sigma}{10} + 3$): adds the allowance to the spread. Every value moved up by the same $3$, so no distance between values changed.\n* Choice C ($\\frac{\\sigma + 3}{10}$): adds the $3$ before dividing, again letting a shift reach the spread.\n* Choice D ($10\\sigma$): multiplies by $10$, which would convert centimeters into millimeters — the wrong direction.\n\n**Test Day Takeaway:** Scaling multiplies the standard deviation; shifting leaves it alone. The mean of $60$ is a distractor: a spread question never needs the center."
+  "hint": "Where does the added value sit relative to the mean, and what does that do to the typical distance from the mean?",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~45s):** The value $50$ equals the mean, so the mean stays $50$ and the new value adds $0$ to the total squared distance while increasing the count. The standard deviation decreases.\n\n**The Full Solution:**\nStep 1: Adding $50$ to a data set whose mean is $50$ keeps the mean at $\\frac{20(50) + 50}{21} = 50$.\nStep 2: The new value is $0$ from the mean, so the sum of the squared distances from the mean stays the same, $20(6^{2}) = 720$, but it is now shared among $21$ values instead of $20$.\nStep 3: A fixed total spread over more values gives a smaller typical distance, so data set B has the smaller standard deviation. Check: $\\sqrt{\\frac{720}{21}} \\approx 5.86 < 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: reasons that the mean does not change, so the spread does not either; but the added value lowers the typical distance from the mean.\n* Choice C: assumes adding any value to a data set adds spread, but a value at the mean adds no distance.\n* Choice D: assumes the individual values are needed, but the effect of adding a value at the mean is the same for every data set with a positive standard deviation.\n\n**Test Day Takeaway:** Adding a value equal to the mean leaves the mean unchanged and lowers the standard deviation; adding a value far from the mean raises it."
 }

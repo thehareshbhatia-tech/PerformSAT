@@ -1,6 +1,6 @@
 {
   "id": 3,
-  "question": "A data set of $12$ values has a least value of $14$ and a greatest value of $53$. A thirteenth value, $9$, is then included in the data set. What is the range of the $13$ values?",
+  "question": "A data set of $12$ values has a minimum of $14$ and a maximum of $53$. If $9$ is added to the data set, what is the range of the new data set?",
   "choices": [
     {
       "id": "A",

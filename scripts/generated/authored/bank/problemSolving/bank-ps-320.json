@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-320",
-  "question": "Data set A and data set B each consist of $200$ values, have the same mean, and have the same range. The values in data set A are spread nearly evenly across the range. In data set B, most values lie in a narrow interval around the mean, with a few values near each end of the range. Which statement is best supported?",
+  "question": "Data set A has $10$ values, a mean of $50$, and a standard deviation of $4$. Data set B is created by adding two values, each equal to $50$, to data set A. Which of the following must be true?",
   "choices": [
     {
       "id": "A",
-      "text": "Data set A has the greater standard deviation."
+      "text": "The mean of data set B is greater than $50$."
     },
     {
       "id": "B",
-      "text": "Data set B has the greater standard deviation."
+      "text": "The standard deviation of data set B is less than $4$."
     },
     {
       "id": "C",
-      "text": "The two data sets have the same standard deviation because they have the same range."
+      "text": "The standard deviation of data set B is equal to $4$."
     },
     {
       "id": "D",
-      "text": "The two data sets have the same standard deviation because they have the same mean."
+      "text": "The standard deviation of data set B is greater than $4$."
     }
   ],
   "distractorNotes": {
-    "B": "reads the few extreme values in B as dominating, but the great majority of B's values sit close to the mean, which pulls its typical distance down.",
-    "C": "treats the range as if it determined the standard deviation; the range depends only on two values, while the standard deviation depends on all $200$.",
-    "D": "uses the mean, which fixes the center rather than the spread."
+    "A": "assumes adding values raises the mean, but values equal to the mean leave it at 50",
+    "C": "reasons that values at the mean add no distance and so change nothing, missing that the count of values grows",
+    "D": "assumes more values always means more spread"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Standard deviation is a typical distance from the mean. In A most values sit far from the center; in B most sit close to it, so A's is greater.\n\n**The Full Solution:**\nStep 1: The two data sets share a mean and a range, so the extremes and the center are identical; only the distribution of values between them differs.\nStep 2: In A the values fill the interval evenly, so a large share of them lie near the ends, far from the mean.\nStep 3: In B nearly all values cluster near the mean, and only a handful lie far out, so the average squared distance is smaller and the standard deviation is smaller. Therefore A has the greater standard deviation. Check: the range is set by two values only, so it cannot break the tie — the shape does. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: reads the few extreme values in B as dominating, but the great majority of B's values sit close to the mean, which pulls its typical distance down.\n* Choice C: treats the range as if it determined the standard deviation; the range depends only on two values, while the standard deviation depends on all $200$.\n* Choice D: uses the mean, which fixes the center rather than the spread.\n\n**Test Day Takeaway:** Equal ranges do not settle standard deviation. Ask where the bulk of the data sits: values massed near the mean give the smaller standard deviation."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The two new values sit exactly at the mean, adding nothing to the total spread while increasing the number of values, so the typical distance from the mean shrinks.\n\n**The Full Solution:**\nStep 1: Two values equal to $50$ keep the mean at $50$, because their average is the mean.\nStep 2: Each new value is $0$ away from the mean, so the total of the squared distances from the mean is unchanged, but it is now shared among $12$ values instead of $10$.\nStep 3: Spreading the same total over more values lowers the standard deviation, so it is less than $4$. Check: the sum of squared distances is $10(4^{2}) = 160$, and $\\sqrt{\\frac{160}{12}} \\approx 3.65$, which is less than $4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: values equal to the mean do not change the mean.\n* Choice C: the new values add no distance, but they increase the number of values, which lowers the typical distance.\n* Choice D: adding values close to the center makes a data set less spread out, not more.\n\n**Test Day Takeaway:** Adding values at the mean pulls the standard deviation down; adding values far from the mean pushes it up. Ask where the new values sit relative to the center."
 }

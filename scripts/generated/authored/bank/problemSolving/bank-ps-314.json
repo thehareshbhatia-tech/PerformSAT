@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-314",
-  "question": "Data set J: $22$, $24$, $25$, $26$, $28$\n\nData set K: $10$, $18$, $25$, $32$, $40$\n\nThe lists give the values in data set J and data set K. Which statement correctly compares the standard deviation of data set J and the standard deviation of data set K?",
+  "question": "Data set J: $22$, $24$, $25$, $26$, $28$\nData set K: $10$, $18$, $25$, $32$, $40$\nWhich data set has the greater standard deviation?",
   "choices": [
     {
       "id": "A",
-      "text": "The standard deviation of data set J is less than the standard deviation of data set K."
+      "text": "Data set J"
     },
     {
       "id": "B",
-      "text": "The standard deviation of data set J is greater than the standard deviation of data set K."
+      "text": "Data set K"
     },
     {
       "id": "C",
-      "text": "The standard deviation of data set J is equal to the standard deviation of data set K."
+      "text": "The standard deviations are equal."
     },
     {
       "id": "D",
-      "text": "The standard deviation of each data set is $0$."
+      "text": "There is not enough information to compare the standard deviations."
     }
   ],
   "distractorNotes": {
-    "B": "reverses the comparison, perhaps by noticing that J's values are packed close together and reading closeness as large spread.",
-    "C": "concludes that equal means force equal standard deviations, but the mean says nothing about spread.",
-    "D": "applies the all-values-identical case; a standard deviation is $0$ only when every value equals the mean."
+    "A": "reverses the comparison, reading the tightly packed values of J as the larger spread",
+    "C": "sees that both data sets have mean 25 and assumes their spreads must match",
+    "D": "assumes the standard deviations must be computed to compare them, but the spread is visible from the lists"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Both lists center at $25$, but J spans only $22$ to $28$ while K spans $10$ to $40$. Values farther from the mean mean a larger standard deviation, so J's is smaller.\n\n**The Full Solution:**\nStep 1: Each list has five values with the same total, $125$, so both means are $\\frac{125}{5} = 25$.\nStep 2: Standard deviation measures the typical distance from the mean. In J the distances are $3$, $1$, $0$, $1$, $3$; in K they are $15$, $7$, $0$, $7$, $15$.\nStep 3: Every distance in K is at least as large as the matching distance in J, so the standard deviation of J is less than that of K. Check: J's range is $6$ and K's is $30$, consistent with the same ordering. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: reverses the comparison, perhaps by noticing that J's values are packed close together and reading closeness as large spread.\n* Choice C: concludes that equal means force equal standard deviations, but the mean says nothing about spread.\n* Choice D: applies the all-values-identical case; a standard deviation is $0$ only when every value equals the mean.\n\n**Test Day Takeaway:** Compare standard deviations by comparing distances from the center, not by computing anything. The tighter list around the same mean always has the smaller standard deviation."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Both lists center on $25$, but the values in K lie much farther from $25$ than the values in J, so K has the greater standard deviation.\n\n**The Full Solution:**\nStep 1: Both data sets have a mean of $25$: $\\frac{22 + 24 + 25 + 26 + 28}{5} = 25$ and $\\frac{10 + 18 + 25 + 32 + 40}{5} = 25$.\nStep 2: The values in J are at most $3$ away from $25$. The values in K are as much as $15$ away from $25$.\nStep 3: Standard deviation measures how far values typically lie from the mean, so data set K has the greater standard deviation. Check: the range of J is $6$ and the range of K is $30$, which agrees ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: reverses the comparison; values packed close together have the smaller spread.\n* Choice C: equal means say nothing about spread.\n* Choice D: no calculation is needed; comparing how far the values lie from the common center is enough.\n\n**Test Day Takeaway:** To compare standard deviations, compare how far the values sit from the center. A full calculation is almost never needed on the SAT."
 }

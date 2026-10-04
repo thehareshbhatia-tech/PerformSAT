@@ -1,21 +1,24 @@
 {
   "id": "bank-ps-386",
-  "question": "The table gives the results of a stress test performed on $45$ machine parts. If one of these parts is selected at random, what is the probability that the selected part did not pass the test?",
+  "question": "The table shows the results of a swimming test taken by $45$ students. One of these students will be selected at random. What is the probability of selecting a student who did not pass the test?",
   "diagram": {
     "type": "dataTable",
     "params": {
       "headers": [
-        "Result",
-        "Number of parts"
+        "Grade",
+        "Passed",
+        "Did not pass"
       ],
       "rows": [
         [
-          "Passed",
-          "18"
+          "9",
+          "10",
+          "14"
         ],
         [
-          "Did not pass",
-          "27"
+          "10",
+          "8",
+          "13"
         ]
       ]
     }
@@ -23,11 +26,11 @@
   "choices": [
     {
       "id": "A",
-      "text": "$\\frac{1}{5}$"
+      "text": "$\\frac{2}{5}$"
     },
     {
       "id": "B",
-      "text": "$\\frac{2}{5}$"
+      "text": "$\\frac{7}{12}$"
     },
     {
       "id": "C",
@@ -39,10 +42,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "subtracts the two counts, $27 - 18 = 9$, and divides by $45$",
-    "B": "gives the probability that the part did pass the test",
-    "D": "divides the passing count by the failing count, $\\frac{18}{27}$, instead of dividing by the total"
+    "A": "gives the probability of selecting a student who passed, $\\frac{18}{45}$",
+    "B": "uses only the grade 9 row, $\\frac{14}{24}$, instead of all $45$ students",
+    "D": "divides the number who passed by the number who did not, $\\frac{18}{27}$, instead of dividing by the total"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $27$ of the $45$ parts did not pass, so the probability is $\\frac{27}{45} = \\frac{3}{5}$.\n\n**The Full Solution:**\nStep 1: Read the failing count from the table: $27$ parts did not pass, out of $45$ parts tested.\nStep 2: The probability is $\\frac{27}{45}$.\nStep 3: Divide numerator and denominator by $9$: $\\frac{27}{45} = \\frac{3}{5}$. Check: the passing probability is $\\frac{18}{45} = \\frac{2}{5}$, and $\\frac{2}{5} + \\frac{3}{5} = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{5}$): subtracts the two counts, $27 - 18 = 9$, and divides by $45$\n* Choice B ($\\frac{2}{5}$): gives the probability that the part did pass the test\n* Choice D ($\\frac{2}{3}$): divides the passing count by the failing count, $\\frac{18}{27}$, instead of dividing by the total\n\n**Test Day Takeaway:** When a question asks for the complementary category, you can read that category's count straight from the table instead of subtracting."
+  "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $14 + 13 = 27$ of the $45$ students did not pass, so the probability is $\\frac{27}{45} = \\frac{3}{5}$.\n\n**The Full Solution:**\nStep 1: Add the 'Did not pass' column: $14 + 13 = 27$ students.\nStep 2: The student is selected from all $45$ students, so the probability is $\\frac{27}{45}$.\nStep 3: Divide numerator and denominator by $9$: $\\frac{27}{45} = \\frac{3}{5}$. Check: $10 + 8 = 18$ students passed, and $\\frac{18}{45} + \\frac{27}{45} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{5}$): is $\\frac{18}{45}$, the probability of selecting a student who passed.\n* Choice B ($\\frac{7}{12}$): is $\\frac{14}{24}$, which uses only the grade 9 students.\n* Choice D ($\\frac{2}{3}$): is $\\frac{18}{27}$, a ratio of passed to not passed rather than a probability out of all $45$ students.\n\n**Test Day Takeaway:** When a table splits a group into rows, add down the column you need and divide by the whole group, not by one row."
 }

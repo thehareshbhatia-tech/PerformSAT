@@ -1,6 +1,6 @@
 {
   "id": 1,
-  "question": "A random sample of $240$ bottles was taken from a filling line. Using the sample, the mean volume of a bottle from the line was estimated to be $502$ milliliters, with an associated margin of error of $3$ milliliters. Which conclusion about the mean volume of all bottles from this line is most appropriate?",
+  "question": "Based on a random sample of $240$ bottles from a filling line, the mean volume of all bottles from the line is estimated to be $502$ milliliters, with an associated margin of error of $3$ milliliters. Which of the following is the most appropriate conclusion?",
   "choices": [
     {
       "id": "A",

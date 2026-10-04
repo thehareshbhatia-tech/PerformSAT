@@ -1,13 +1,13 @@
 {
   "id": "bank-ps-377",
-  "question": "The table summarizes the number of soil samples in each of two groups and the mean mass of the samples in each group. What is the mean mass, in grams, of all $20$ samples?",
+  "question": "The table shows the number of students in each of two classes and the mean score of each class on a quiz. What is the mean quiz score of all $20$ students?",
   "diagram": {
     "type": "dataTable",
     "params": {
       "headers": [
-        "Group",
-        "Number of samples",
-        "Mean mass (g)"
+        "Class",
+        "Number of students",
+        "Mean score"
       ],
       "rows": [
         [
@@ -42,10 +42,10 @@
     }
   ],
   "distractorNotes": {
-    "B": "averages the two group means, $\\frac{6.5 + 9}{2}$, ignoring that the groups have different sizes",
-    "C": "reports the larger group mean",
-    "D": "adds the two group means"
+    "B": "averages the two class means, $\\frac{6.5 + 9}{2}$, ignoring that the classes have different sizes",
+    "C": "reports the larger class mean",
+    "D": "adds the two class means"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Mean from List**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Total mass $= 12(6.5) + 8(9) = 78 + 72 = 150$ grams over $20$ samples, so the mean is $\\frac{150}{20} = 7.5$.\n\n**The Full Solution:**\nStep 1: Recover each group's total from mean $\\times$ count: group A contributes $12(6.5) = 78$ grams and group B contributes $8(9) = 72$ grams.\nStep 2: The combined total is $78 + 72 = 150$ grams for $12 + 8 = 20$ samples.\nStep 3: The combined mean is $\\frac{150}{20} = 7.5$ grams. Check: the larger group has the smaller mean, so the combined mean must sit below the midpoint $7.75$, and $7.5$ does. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($7.75$): averages the two group means, $\\frac{6.5 + 9}{2}$, ignoring that the groups have different sizes\n* Choice C ($9$): reports the larger group mean\n* Choice D ($15.5$): adds the two group means\n\n**Test Day Takeaway:** Combining two groups means combining totals, not means. The unweighted average of two means is right only when the groups are the same size."
+  "explanation": "**SAT Pattern: Mean from List**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Total points $= 12(6.5) + 8(9) = 78 + 72 = 150$ for $20$ students, so the mean is $\\frac{150}{20} = 7.5$.\n\n**The Full Solution:**\nStep 1: Recover each class's total from mean $\\times$ count: class A scored $12(6.5) = 78$ points and class B scored $8(9) = 72$ points.\nStep 2: The combined total is $78 + 72 = 150$ points for $12 + 8 = 20$ students.\nStep 3: The combined mean is $\\frac{150}{20} = 7.5$. Check: the larger class has the smaller mean, so the combined mean must sit below the midpoint $7.75$, and $7.5$ does ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($7.75$): averages the two class means, $\\frac{6.5 + 9}{2}$, ignoring that class A has more students.\n* Choice C ($9$): reports the mean of class B alone.\n* Choice D ($15.5$): adds the two class means, $6.5 + 9$, which is not a mean of anything.\n\n**Test Day Takeaway:** Combining two groups means combining totals, not means. The plain average of two means is right only when the groups are the same size."
 }

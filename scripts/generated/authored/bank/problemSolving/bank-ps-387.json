@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-387",
-  "question": "Of the $80$ plots surveyed in a forest, $46$ contain at least one oak, $38$ contain at least one maple, and $14$ contain at least one of each. If one of these plots is selected at random, what is the probability that the selected plot contains at least one oak or at least one maple?",
+  "question": "Of the $80$ students in a club, $46$ play soccer, $38$ play basketball, and $14$ play both. A student from the club will be selected at random. What is the probability of selecting a student who plays exactly one of these sports?",
   "choices": [
     {
       "id": "A",
@@ -12,7 +12,7 @@
     },
     {
       "id": "C",
-      "text": "$\\frac{23}{40}$"
+      "text": "$\\frac{7}{10}$"
     },
     {
       "id": "D",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "gives the probability that the plot contains neither species",
-    "B": "gives the probability that the plot contains both species",
-    "C": "uses only the $46$ plots containing oak, ignoring the maple-only plots"
+    "A": "gives the probability that the student plays neither sport",
+    "B": "gives the probability that the student plays both sports",
+    "D": "gives the probability that the student plays at least one of the sports, which still includes the 14 who play both"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** By inclusion-exclusion, $46 + 38 - 14 = 70$ plots contain at least one of the two species, so the probability is $\\frac{70}{80} = \\frac{7}{8}$.\n\n**The Full Solution:**\nStep 1: Adding $46$ and $38$ counts the $14$ plots that contain both species twice, so subtract that overlap once.\nStep 2: The number of plots containing oak or maple is $46 + 38 - 14 = 70$.\nStep 3: The probability is $\\frac{70}{80} = \\frac{7}{8}$. Check: the remaining $80 - 70 = 10$ plots contain neither species, and $\\frac{7}{8} + \\frac{1}{8} = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{8}$): gives the probability that the plot contains neither species\n* Choice B ($\\frac{7}{40}$): gives the probability that the plot contains both species\n* Choice C ($\\frac{23}{40}$): uses only the $46$ plots containing oak, ignoring the maple-only plots\n\n**Test Day Takeaway:** For an \"or\" question with overlap, add the two counts and subtract the overlap once; adding alone always overcounts."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Soccer only: $46 - 14 = 32$. Basketball only: $38 - 14 = 24$. Exactly one sport: $32 + 24 = 56$, so the probability is $\\frac{56}{80} = \\frac{7}{10}$.\n\n**The Full Solution:**\nStep 1: The $46$ soccer players include the $14$ who play both, so $46 - 14 = 32$ play only soccer.\nStep 2: Likewise, $38 - 14 = 24$ play only basketball, so $32 + 24 = 56$ students play exactly one sport.\nStep 3: The probability is $\\frac{56}{80} = \\frac{7}{10}$. Check: $56$ play exactly one sport, $14$ play both, and $80 - 70 = 10$ play neither, for a total of $56 + 14 + 10 = 80$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{8}$): is $\\frac{10}{80}$, the probability that the student plays neither sport.\n* Choice B ($\\frac{7}{40}$): is $\\frac{14}{80}$, the probability that the student plays both sports.\n* Choice D ($\\frac{7}{8}$): is $\\frac{46 + 38 - 14}{80} = \\frac{70}{80}$, the probability of playing at least one sport. That count still includes the $14$ students who play both.\n\n**Test Day Takeaway:** With overlapping groups, split the counts into 'only' pieces and 'both' before counting; 'exactly one' and 'at least one' differ by the overlap."
 }

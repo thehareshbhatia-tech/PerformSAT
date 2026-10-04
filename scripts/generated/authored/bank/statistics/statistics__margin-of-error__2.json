@@ -1,6 +1,6 @@
 {
   "id": 2,
-  "question": "A biologist will estimate the mean wing length of a species of moth and report the estimate with an associated margin of error. The biologist is deciding between a random sample of $150$ moths and a random sample of $600$ moths. Compared with the smaller sample, using the larger sample would most likely produce which result?",
+  "question": "A biologist will use a random sample of moths of one species to estimate the mean wing length of the species, with an associated margin of error. Which of the following is the most likely result of using a sample of $600$ moths instead of $150$ moths?",
   "choices": [
     {
       "id": "A",

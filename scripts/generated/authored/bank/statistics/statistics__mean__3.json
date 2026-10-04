@@ -1,30 +1,30 @@
 {
   "id": 3,
-  "question": "An acoustician measures the reverberation time at six positions in a concert hall and records, in seconds, $1.2$, $1.5$, $1.1$, $1.8$, $1.4$, and $k$. These six recorded times have a mean of $1.45$ seconds. What is the value of $k$?",
+  "question": "$9, 14, 6, 17, 11, k$\nThe mean of the data set shown is $12$. What is the value of $k$?",
   "choices": [
     {
       "id": "A",
-      "text": "$1.4$"
+      "text": "$3$"
     },
     {
       "id": "B",
-      "text": "$1.45$"
+      "text": "$11.4$"
     },
     {
       "id": "C",
-      "text": "$1.7$"
+      "text": "$12$"
     },
     {
       "id": "D",
-      "text": "$8.7$"
+      "text": "$15$"
     }
   ],
   "distractorNotes": {
-    "A": "reports the median of the five listed times, 1.4, instead of solving for the sixth",
-    "B": "assumes the missing value equals the mean, 1.45",
-    "D": "reports the required total of all six times, 8.7, rather than the missing value"
+    "A": "uses $5$ values instead of $6$, computing $5(12) - 57 = 3$.",
+    "B": "reports the mean of the five known values, $\\frac{57}{5} = 11.4$.",
+    "C": "assumes the missing value must equal the mean."
   },
-  "correctAnswer": "C",
-  "hint": "Six values with a known mean have a known total.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** Six times averaging $1.45$ total $8.7$ seconds; the five listed total $7.0$, so $k = 1.7$.\n\n**The Full Solution:**\nStep 1: Convert the mean to a total. Six values with mean $1.45$ sum to $6 \\times 1.45 = 8.7$ seconds.\nStep 2: Add the five known times. $1.2 + 1.5 + 1.1 + 1.8 + 1.4 = 7.0$ seconds.\nStep 3: Subtract and check. $k = 8.7 - 7.0 = 1.7$ seconds. Recomputing: $\\frac{7.0 + 1.7}{6} = \\frac{8.7}{6} = 1.45$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.4$): is the median of the five listed times, not the value that fixes the mean.\n* Choice B ($1.45$): assumes the missing time equals the mean. That is only true when the five known values already average $1.45$, and they average $1.4$.\n* Choice D ($8.7$): is the required total of all six times, one subtraction short of the answer.\n\n**Test Day Takeaway:** Turn a mean into a total the moment a value is missing: total $=$ mean $\\times$ count, then subtract what you know."
+  "correctAnswer": "D",
+  "hint": "Six values with a mean of 12 must have a particular total.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** The six values must total $6(12) = 72$. The five known values total $57$, so $k = 72 - 57 = 15$.\n\n**The Full Solution:**\nStep 1: There are $6$ values with a mean of $12$, so their sum is $6(12) = 72$.\nStep 2: The known values add to $9 + 14 + 6 + 17 + 11 = 57$.\nStep 3: So $57 + k = 72$, and $k = 15$. Check: $\\frac{9 + 14 + 6 + 17 + 11 + 15}{6} = \\frac{72}{6} = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): uses $5$ values instead of $6$, computing $5(12) - 57 = 3$.\n* Choice B ($11.4$): reports the mean of the five known values, $\\frac{57}{5} = 11.4$.\n* Choice C ($12$): assumes the missing value must equal the mean.\n\n**Test Day Takeaway:** Convert a given mean into a total (mean times count), then subtract what you know. Count the unknown as one of the values."
 }

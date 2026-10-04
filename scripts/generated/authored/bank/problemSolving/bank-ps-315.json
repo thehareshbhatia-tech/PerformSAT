@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-315",
-  "question": "In section 1 of a course, all $24$ exam scores are between $79$ and $83$. In section 2 of the same course, all $24$ exam scores are between $46$ and $97$. Which statement about the standard deviations of the two sets of scores is best supported?",
+  "question": "The $24$ scores in class A range from $79$ to $83$. The $24$ scores in class B range from $46$ to $97$. Which class's scores have the greater standard deviation?",
   "choices": [
     {
       "id": "A",
-      "text": "The standard deviation of the section 1 scores is greater than the standard deviation of the section 2 scores."
+      "text": "Class A"
     },
     {
       "id": "B",
-      "text": "The standard deviation of the section 2 scores is greater than the standard deviation of the section 1 scores."
+      "text": "Class B"
     },
     {
       "id": "C",
-      "text": "The two standard deviations are equal because each section has $24$ scores."
+      "text": "The standard deviations are equal."
     },
     {
       "id": "D",
-      "text": "The standard deviation of the section 1 scores is greater because its scores are larger numbers."
+      "text": "There is not enough information to compare the standard deviations."
     }
   ],
   "distractorNotes": {
-    "A": "reverses the comparison; section 1's scores are clustered within a $4$-point band, which is the smaller spread.",
-    "C": "treats sample size as a measure of spread, but standard deviation depends on how far values sit from the mean.",
-    "D": "confuses center with spread; larger typical values do not make a data set more spread out."
+    "A": "reverses the comparison; class A's scores all lie within 4 points of one another",
+    "C": "treats the equal number of scores as equal spread",
+    "D": "assumes the individual scores are needed, but class A's scores cannot be spread as much as class B's"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Section 1's scores all lie within a $4$-point band; section 2's stretch across $51$ points. The wider spread has the larger standard deviation.\n\n**The Full Solution:**\nStep 1: Standard deviation measures typical distance from the mean, so a data set confined to a narrow interval has a small standard deviation.\nStep 2: Section 1 has range at most $83 - 79 = 4$, so no score sits more than $4$ points from any other.\nStep 3: Section 2 has range up to $97 - 46 = 51$, forcing much larger distances from its mean, so its standard deviation is greater. Check: even the most spread-out set inside a $4$-point band cannot have a standard deviation larger than one containing scores $51$ points apart. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reverses the comparison; section 1's scores are clustered within a $4$-point band, which is the smaller spread.\n* Choice C: treats sample size as a measure of spread, but standard deviation depends on how far values sit from the mean.\n* Choice D: confuses center with spread; larger typical values do not make a data set more spread out.\n\n**Test Day Takeaway:** Standard deviation answers \"how far from the center,\" not \"how many\" or \"how large.\" A tight interval always beats a wide one."
+  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Class A's scores all lie within a $4$-point band, while class B's scores stretch over $51$ points, so class B has the greater standard deviation.\n\n**The Full Solution:**\nStep 1: Every score in class A is between $79$ and $83$, so no score in class A is more than $4$ points from the class mean.\nStep 2: Class B includes a score of $46$ and a score of $97$. These are $51$ points apart, so at least one of them is more than $25$ points from the class mean.\nStep 3: Since class B's scores lie much farther from their mean, class B has the greater standard deviation. Check: a score $25$ points from the mean is impossible in class A ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: reverses the comparison; scores in a narrow band have a small standard deviation.\n* Choice C: the number of scores does not determine the spread.\n* Choice D: the ranges alone settle it, because class A's scores can never be as far from their mean as class B's extreme scores are from theirs.\n\n**Test Day Takeaway:** A narrow range forces a small standard deviation. When one data set's range is many times the other's, the comparison is settled without the individual values."
 }

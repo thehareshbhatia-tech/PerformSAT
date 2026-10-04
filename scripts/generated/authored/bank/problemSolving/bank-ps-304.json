@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-304",
-  "question": "A tank contains $24$ liters of a coolant mixture that is $15\\%$ antifreeze by volume. How many liters of pure antifreeze must be added to the tank so that the resulting mixture is $40\\%$ antifreeze by volume?",
+  "question": "A tank contains $24$ liters of a mixture that is $15\\%$ antifreeze by volume. How many liters of pure antifreeze must be added to the tank to produce a mixture that is $40\\%$ antifreeze by volume?",
   "choices": [
     {
       "id": "A",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "assumes the total volume stays at $24$ liters and solves $3.6 + x = 0.40(24)$, giving $x = 6$.",
-    "B": "computes $0.40(24) = 9.6$ and reports it as the amount to add, ignoring the $3.6$ liters already present.",
-    "D": "reports the final volume of the mixture, $24 + 10 = 34$ liters, instead of the amount added."
+    "A": "keeps the total volume at 24 liters and solves 3.6 + x = 0.40(24), getting 6",
+    "B": "computes 0.40(24) = 9.6 and reports it, ignoring the 3.6 liters of antifreeze already in the tank and the added volume",
+    "D": "finds x = 10 but reports the final volume of the mixture, 24 + 10 = 34"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Mixture Problems**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** With $x$ liters of pure antifreeze added, $\\frac{3.6 + x}{24 + x} = 0.40$. Then $3.6 + x = 9.6 + 0.4x$, so $0.6x = 6$ and $x = 10$.\n\n**The Full Solution:**\nStep 1: The tank starts with $0.15(24) = 3.6$ liters of antifreeze in $24$ liters of mixture.\nStep 2: Pure antifreeze adds to both the antifreeze and the total, so after adding $x$ liters the mixture is $\\frac{3.6 + x}{24 + x}$ antifreeze. Set this equal to $0.40$.\nStep 3: $3.6 + x = 0.40(24 + x) = 9.6 + 0.4x$, so $0.6x = 6$ and $x = 10$. Check: $\\frac{3.6 + 10}{24 + 10} = \\frac{13.6}{34} = 0.40$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): assumes the total volume stays at $24$ liters and solves $3.6 + x = 0.40(24)$, giving $x = 6$.\n* Choice B ($9.6$): computes $0.40(24) = 9.6$ and reports it as the amount to add, ignoring the $3.6$ liters already present.\n* Choice D ($34$): reports the final volume of the mixture, $24 + 10 = 34$ liters, instead of the amount added.\n\n**Test Day Takeaway:** Adding a pure ingredient increases the numerator and the denominator by the same amount. Writing $\\frac{\\text{old amount} + x}{\\text{old total} + x}$ keeps that from slipping."
+  "explanation": "**SAT Pattern: Mixture Problems**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** With $x$ liters added, $3.6 + x = 0.40(24 + x)$, so $0.6x = 6$ and $x = 10$.\n\n**The Full Solution:**\nStep 1: The tank already holds $0.15(24) = 3.6$ liters of antifreeze.\nStep 2: Adding $x$ liters of pure antifreeze raises both the antifreeze and the total volume by $x$: $3.6 + x = 0.40(24 + x) = 9.6 + 0.4x$.\nStep 3: Then $0.6x = 6$, so $x = 10$. Check: $\\frac{3.6 + 10}{24 + 10} = \\frac{13.6}{34} = 0.40$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): forgets that the added antifreeze also increases the total volume, solving $3.6 + x = 0.40(24)$.\n* Choice B ($9.6$): computes $40\\%$ of the original $24$ liters and reports it as the amount to add.\n* Choice D ($34$): solves correctly but reports the final volume, $24 + 10$, instead of the amount added.\n\n**Test Day Takeaway:** When a pure ingredient is added, $x$ goes into both the amount of the ingredient and the total. Write the new percent as (old amount $+ x$) over (old total $+ x$)."
 }

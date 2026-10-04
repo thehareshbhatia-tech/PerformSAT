@@ -1,30 +1,30 @@
 {
   "id": 3,
-  "question": "A student plans to eliminate $x$ from the system of equations $4x + 5y = 23$ and $6x - 7y = 1$ by multiplying the first equation by $3$, multiplying the second equation by a constant $c$, and then subtracting. What is the value of $c$?",
+  "question": "$4x + 5y = 26$\n$6x - 7y = 10$\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
   "choices": [
     {
       "id": "A",
-      "text": "$\\frac{2}{3}$"
+      "text": "$-2$"
     },
     {
       "id": "B",
-      "text": "$\\frac{3}{2}$"
-    },
-    {
-      "id": "C",
       "text": "$2$"
     },
     {
-      "id": "D",
+      "id": "C",
       "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$58$"
     }
   ],
   "distractorNotes": {
-    "A": "inverts the comparison, using $\\frac{4}{6}$ instead of matching the scaled coefficient $12$.",
-    "B": "uses $\\frac{6}{4}$, the factor that would match the coefficients without the multiplication by $3$.",
-    "D": "copies the $x$-coefficient of the first equation instead of solving $6c = 12$."
+    "A": "subtracts the left sides in one order and the right sides in the other: $-29y = 78 - 20$, giving $y = -2$.",
+    "C": "solves the system correctly but reports $x$ instead of $y$.",
+    "D": "subtracts $-14y$ as if it were $+14y$, getting $15y - 14y = y$ and $y = 58$."
   },
-  "correctAnswer": "C",
-  "hint": "The two $x$-terms must end up identical before the subtraction can remove them.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** Multiplying the first equation by $3$ makes the $x$-term $12x$, so $6c = 12$ and $c = 2$.\n\n**The Full Solution:**\nStep 1: Multiplying $4x + 5y = 23$ by $3$ gives $12x + 15y = 69$, so the first $x$-term becomes $12x$.\nStep 2: Multiplying $6x - 7y = 1$ by $c$ gives $6cx - 7cy = c$, so the second $x$-term is $6cx$.\nStep 3: Subtraction removes $x$ only when $6c = 12$, so $c = 2$. Check: the second equation becomes $12x - 14y = 2$, and subtracting it from $12x + 15y = 69$ gives $29y = 67$, an equation in $y$ alone. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{3}$): inverts the comparison, using $\\frac{4}{6}$ instead of matching the scaled coefficient $12$.\n* Choice B ($\\frac{3}{2}$): uses $\\frac{6}{4}$, the factor that would match the coefficients without the multiplication by $3$.\n* Choice D ($4$): copies the $x$-coefficient of the first equation instead of solving $6c = 12$.\n\n**Test Day Takeaway:** Scale each equation until the targeted coefficients match exactly, then decide whether to add or subtract based on their signs."
+  "correctAnswer": "B",
+  "hint": "Scale both equations so the $x$-coefficients match, then subtract.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~40s):** Multiply the first equation by $3$ and the second by $2$: $12x + 15y = 78$ and $12x - 14y = 20$. Subtracting gives $29y = 58$, so $y = 2$.\n\n**The Full Solution:**\nStep 1: The least common multiple of the $x$-coefficients $4$ and $6$ is $12$, so multiply the first equation by $3$ and the second by $2$: $12x + 15y = 78$ and $12x - 14y = 20$.\nStep 2: Subtract the second from the first: $15y - (-14y) = 78 - 20$, so $29y = 58$.\nStep 3: Divide by $29$: $y = 2$. Check: $4x + 5(2) = 26$ gives $x = 4$, and $6(4) - 7(2) = 24 - 14 = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): subtracts the left sides in one order and the right sides in the other: $-29y = 78 - 20$, giving $y = -2$.\n* Choice C ($4$): solves the system correctly but reports $x$ instead of $y$.\n* Choice D ($58$): subtracts $-14y$ as if it were $+14y$, getting $15y - 14y = y$ and $y = 58$.\n\n**Test Day Takeaway:** When no coefficient matches, scale both equations to a common multiple, and subtract in the same order on both sides, minding a negative coefficient."
 }

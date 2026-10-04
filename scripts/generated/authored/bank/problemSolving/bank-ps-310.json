@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-310",
-  "question": "The box plots summarize the annual snowfall totals, in centimeters, recorded at two mountain stations over the same $30$ years. Which of the following statements is best supported by the box plots?",
+  "question": "The box plots summarize the annual snowfall, in centimeters, at weather stations R and S over the same $30$ years. Based on the box plots, which of the following must be true?",
   "diagram": {
     "type": "boxPlot",
     "params": {
@@ -32,26 +32,26 @@
   "choices": [
     {
       "id": "A",
-      "text": "The mean annual total at Station S is greater than the mean annual total at Station R."
+      "text": "The mean annual snowfall at station S is greater than at station R."
     },
     {
       "id": "B",
-      "text": "In at least $15$ of the years, Station S recorded a total of at least $268$ centimeters."
+      "text": "In at least $15$ of the years, station S had at least $268$ centimeters of snowfall."
     },
     {
       "id": "C",
-      "text": "Station S recorded a greater total than Station R in every one of the $30$ years."
+      "text": "Station S had more snowfall than station R in each of the $30$ years."
     },
     {
       "id": "D",
-      "text": "The annual totals at Station S are more spread out than the annual totals at Station R."
+      "text": "The annual snowfall amounts at station S are more spread out than at station R."
     }
   ],
   "distractorNotes": {
-    "A": "compares means, which box plots do not display; only the medians and quartiles are shown.",
-    "C": "reads the two plots as year-by-year pairs, but the overlapping ranges show no such matching.",
-    "D": "reverses the spread comparison: Station S has the narrower box ($50$ versus $140$) and the shorter whisker span."
+    "A": "compares means, which box plots do not show",
+    "C": "reads the two plots as year-by-year pairs, but a box plot does not match up individual years",
+    "D": "reverses the spread comparison: station S has the narrower box (50 versus 140) and the smaller range"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Station S has median $268$, so half of its $30$ years — at least $15$ of them — had totals of $268$ centimeters or more.\n\n**The Full Solution:**\nStep 1: For Station S the box plot marks $Q_1 = 235$, median $= 268$, and $Q_3 = 285$ centimeters.\nStep 2: The median splits an ordered list of $30$ values into two halves of $15$, and every value in the upper half is at least the median.\nStep 3: So at least $15$ of the $30$ years at Station S had totals of at least $268$ centimeters. Check: this uses only the median's definition, so it holds for any shape of distribution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: compares means, which box plots do not display; only the medians and quartiles are shown.\n* Choice C: reads the two plots as year-by-year pairs, but the overlapping ranges show no such matching.\n* Choice D: reverses the spread comparison: Station S has the narrower box ($50$ versus $140$) and the shorter whisker span.\n\n**Test Day Takeaway:** Two box plots support statements about medians, quartiles, and spread — never about means, counts, or which data set was larger case by case."
+  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The median for station S is $268$, so at least half of the $30$ years, $15$ years, had at least $268$ centimeters.\n\n**The Full Solution:**\nStep 1: For station S, the line inside the box is at $268$ centimeters, so the median is $268$.\nStep 2: With $30$ values, the median is the average of the $15$th and $16$th values in order, so the $16$th through $30$th values, $15$ values, are each at least $268$.\nStep 3: So in at least $15$ of the years, station S had at least $268$ centimeters of snowfall. Check: the other choices depend on means, year-by-year pairings, or a reversed spread, none of which the plots support ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: box plots show medians and quartiles, not means.\n* Choice C: the plots summarize each station separately, so they cannot show how the stations compare in any single year.\n* Choice D: station S has the narrower box, $285 - 235 = 50$ versus $330 - 190 = 140$, and the smaller range, $250$ versus $300$, so its amounts are less spread out.\n\n**Test Day Takeaway:** Two box plots can be compared by medians, quartiles and spread, but never year by year or by means. A median always guarantees at least half the data on each side."
 }

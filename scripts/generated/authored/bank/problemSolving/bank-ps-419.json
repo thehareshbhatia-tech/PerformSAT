@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-419",
-  "question": "Of the $45$ hours a technician logged in one month, $18$ hours were spent on calibration. What percent of the logged hours were spent on calibration?",
+  "question": "$18$ is what percent of $45$?",
   "choices": [
     {
       "id": "A",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "divides $45$ by $18$, reversing the part and the whole",
-    "B": "reports the $27$ remaining hours as a percent",
-    "D": "reports the percent of hours not spent on calibration"
+    "A": "divides $45$ by $18$ and reports $2.5$ as a percent",
+    "B": "subtracts $45 - 18$ instead of dividing",
+    "D": "finds the percent of $45$ that is not $18$, $\\frac{27}{45}$"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Percent of a Whole**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\frac{18}{45} = 0.4 = 40\\%$.\n\n**The Full Solution:**\nStep 1: The part is $18$ hours and the whole is the $45$ logged hours, so compute $\\frac{18}{45}$.\nStep 2: Simplify by dividing both parts by $9$: $\\frac{18}{45} = \\frac{2}{5}$.\nStep 3: $\\frac{2}{5} = 0.4 = 40\\%$. Check: $40\\%$ of $45$ is $18$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5\\%$): divides $45$ by $18$, reversing the part and the whole\n* Choice B ($27\\%$): reports the $27$ remaining hours as a percent\n* Choice D ($60\\%$): reports the percent of hours not spent on calibration\n\n**Test Day Takeaway:** Simplify the fraction before converting; $\\frac{2}{5}$ is easier to read as a percent than $\\frac{18}{45}$."
+  "explanation": "**SAT Pattern: Percent of a Whole**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\frac{18}{45} = 0.4$, or $40\\%$.\n\n**The Full Solution:**\nStep 1: The part is $18$ and the whole is $45$.\nStep 2: Divide: $\\frac{18}{45} = \\frac{2}{5} = 0.4$.\nStep 3: Convert to a percent: $40\\%$. Check: $0.40(45) = 18$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5\\%$): inverts the fraction, computing $\\frac{45}{18}$.\n* Choice B ($27\\%$): subtracts the numbers instead of dividing.\n* Choice D ($60\\%$): is the remaining part, $27$, as a percent of $45$.\n\n**Test Day Takeaway:** The number after \"of\" is the whole and goes in the denominator."
 }

@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-408",
-  "question": "The list price of a touring bicycle was reduced from $\\$180$ to $\\$153$. By what percent was the list price reduced?",
+  "question": "The price of a bicycle was reduced from \\$250 to \\$160. By what percent was the price reduced?",
   "choices": [
     {
       "id": "A",
-      "text": "$15\\%$"
+      "text": "$36\\%$"
     },
     {
       "id": "B",
-      "text": "$17.6\\%$"
+      "text": "$56.25\\%$"
     },
     {
       "id": "C",
-      "text": "$27\\%$"
+      "text": "$64\\%$"
     },
     {
       "id": "D",
-      "text": "$85\\%$"
+      "text": "$90\\%$"
     }
   ],
   "distractorNotes": {
-    "B": "divides the reduction by the new price, $\\frac{27}{153}$",
-    "C": "reports the raw reduction of $\\$27$ as if it were a percent",
-    "D": "reports the new price as a percent of the original, $\\frac{153}{180}$"
+    "B": "divides the reduction by the new price, $\\frac{90}{160}$",
+    "C": "divides the new price by the original price, which is the percent of the price that remains",
+    "D": "reports the reduction in dollars, $90$, as a percent"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Percent Decrease**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The reduction is $180 - 153 = 27$, and $\\frac{27}{180} = 0.15$, or $15\\%$.\n\n**The Full Solution:**\nStep 1: Find the amount of the reduction: $180 - 153 = 27$ dollars.\nStep 2: Compare that reduction to the original price: $\\frac{27}{180}$.\nStep 3: $\\frac{27}{180} = 0.15 = 15\\%$. Check: $10\\%$ of $180$ is $18$ and $5\\%$ is $9$, and $18 + 9 = 27$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($17.6\\%$): divides the reduction by the new price, $\\frac{27}{153}$\n* Choice C ($27\\%$): reports the raw reduction of $\\$27$ as if it were a percent\n* Choice D ($85\\%$): reports the new price as a percent of the original, $\\frac{153}{180}$\n\n**Test Day Takeaway:** Break an awkward percent into friendly pieces to verify it: $15\\% = 10\\% + 5\\%$."
+  "explanation": "**SAT Pattern: Percent Decrease**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $\\frac{250 - 160}{250} = \\frac{90}{250} = 0.36$, so $36\\%$.\n\n**The Full Solution:**\nStep 1: The reduction is $250 - 160 = 90$ dollars.\nStep 2: Divide by the original price: $\\frac{90}{250} = 0.36$.\nStep 3: The price was reduced by $36\\%$. Check: $250(0.64) = 160$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($56.25\\%$): divides the reduction by the new price, $\\frac{90}{160}$, instead of the original price.\n* Choice C ($64\\%$): is the new price as a percent of the original price, $\\frac{160}{250}$.\n* Choice D ($90\\%$): is the reduction in dollars, not a percent.\n\n**Test Day Takeaway:** Find the change, then divide by the original value."
 }

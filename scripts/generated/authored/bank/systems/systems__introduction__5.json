@@ -1,30 +1,30 @@
 {
- "id": 5,
- "question": "An air-cargo hub charges \\$0.42 per kilogram for standard freight and \\$0.75 per kilogram for refrigerated freight. On one shift the hub moved $8{,}400$ kilograms, and had it shifted $500$ kilograms from standard to refrigerated, the charges would have totaled \\$4{,}485. How many more kilograms of standard freight than refrigerated freight did the hub move?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$2{,}400$"
+  "id": 5,
+  "question": "$y = \\frac{3}{4}x - 2$\n$6x - 8y = 20$\nHow many solutions does the given system of equations have?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Zero"
+    },
+    {
+      "id": "B",
+      "text": "Exactly one"
+    },
+    {
+      "id": "C",
+      "text": "Exactly two"
+    },
+    {
+      "id": "D",
+      "text": "Infinitely many"
+    }
+  ],
+  "distractorNotes": {
+    "B": "sees two equations written in different forms and assumes the lines must cross; substitution shows the $x$-terms cancel, leaving no value of $x$ to find.",
+    "C": "two distinct lines meet at most once, so a system of two linear equations can never have exactly two solutions.",
+    "D": "notices that the $x$-terms cancel but stops there; the leftover statement $16 = 20$ is false, so the lines are parallel and distinct, not the same line."
   },
-  {
-   "id": "B",
-   "text": "$2{,}600$"
-  },
-  {
-   "id": "C",
-   "text": "$3{,}600$"
-  },
-  {
-   "id": "D",
-   "text": "$6{,}000$"
-  }
- ],
- "distractorNotes": {
-  "A": "reports the refrigerated mass 2400 alone instead of the difference",
-  "B": "treats 4485 as the actual charge, giving 5500 - 2900 = 2600",
-  "D": "reports the standard mass 6000 alone instead of the difference"
- },
- "correctAnswer": "C",
- "hint": "The stated total prices a shipment the hub did not actually move.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~45s):** The hypothetical shift adds $500(0.75 - 0.42) = 165$ dollars, so the real charge was $\\$4{,}320$; solving with the $8{,}400$-kilogram total gives $6{,}000$ and $2{,}400$.\n\n**The Full Solution:**\nStep 1: Moving $500$ kilograms from standard to refrigerated raises the charge by $500(0.75 - 0.42) = 165$ dollars, so the actual charge was $4485 - 165 = 4320$ dollars.\nStep 2: Let $s$ and $r$ be the standard and refrigerated masses: $s + r = 8400$ and $0.42s + 0.75r = 4320$. Substituting $s = 8400 - r$ gives $3528 + 0.33r = 4320$, so $r = 2400$.\nStep 3: Then $s = 8400 - 2400 = 6000$, and $s - r = 3600$. Check: $0.42(6000) + 0.75(2400) = 2520 + 1800 = 4320$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2{,}400$): reporting the refrigerated mass alone; the question asks for the excess of standard over refrigerated.\n* Choice B ($2{,}600$): using $\\$4{,}485$ as the actual charge, which yields $r = 2{,}900$ and $s = 5{,}500$ and a difference of $2{,}600$.\n* Choice D ($6{,}000$): reporting the standard mass alone rather than the difference.\n\n**Test Day Takeaway:** When a stem prices a hypothetical rearrangement, convert it back to the real total before writing the system."
+  "correctAnswer": "A",
+  "hint": "Substitute the first equation into the second and see what is left.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~40s):** Substituting gives $6x - 8\\left(\\frac{3}{4}x - 2\\right) = 20$, or $6x - 6x + 16 = 20$, which simplifies to $16 = 20$. That is never true, so there is no solution.\n\n**The Full Solution:**\nStep 1: Substitute $\\frac{3}{4}x - 2$ for $y$ in the second equation: $6x - 8\\left(\\frac{3}{4}x - 2\\right) = 20$.\nStep 2: Distribute the $-8$: $6x - 6x + 16 = 20$, so the $x$-terms cancel and the equation becomes $16 = 20$.\nStep 3: A false statement with no variable left means no ordered pair satisfies both equations, so the system has zero solutions. Check: solving $6x - 8y = 20$ for $y$ gives $y = \\frac{3}{4}x - \\frac{5}{2}$, which has the same slope as $y = \\frac{3}{4}x - 2$ but a different $y$-intercept, so the lines are parallel and distinct ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: sees two equations written in different forms and assumes the lines must cross; substitution shows the $x$-terms cancel, leaving no value of $x$ to find.\n* Choice C: two distinct lines meet at most once, so a system of two linear equations can never have exactly two solutions.\n* Choice D: notices that the $x$-terms cancel but stops there; the leftover statement $16 = 20$ is false, so the lines are parallel and distinct, not the same line.\n\n**Test Day Takeaway:** When substitution makes the variable disappear, read the statement that remains: a false one such as $16 = 20$ means zero solutions, and a true one such as $0 = 0$ means infinitely many."
 }

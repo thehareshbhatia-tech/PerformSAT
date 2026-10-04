@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-326",
-  "question": "The scatterplot shows the number of registered electric vehicles $y$, in thousands, in a county in each of $12$ years, where $x$ is the number of years since $2010$, along with the line of best fit $\\hat{y} = 3.6x + 14$. Which of the following is the best interpretation of the slope of the line of best fit?",
+  "question": "The scatterplot shows the number of registered electric vehicles $y$, in thousands, in a county $x$ years after $2010$. A line of best fit, $y = 3.6x + 14$, is also shown. What is the best interpretation of the slope of the line of best fit in this context?",
   "diagram": {
     "type": "scatterplot",
     "params": {
@@ -85,14 +85,14 @@
     },
     {
       "id": "D",
-      "text": "It took about $3.6$ years for the number of registered electric vehicles in the county to increase by $1{,}000$."
+      "text": "The number of registered electric vehicles in the county increased by about $1{,}000$ every $3.6$ years."
     }
   ],
   "distractorNotes": {
-    "A": "describes the value at $x = 0$, which the model puts at $14$ thousand, not the slope.",
-    "C": "ignores that $y$ is measured in thousands, so it undercounts the yearly increase by a factor of $1{,}000$.",
-    "D": "inverts the rate, reading years per thousand vehicles instead of thousands of vehicles per year."
+    "A": "treats the slope as the value at x = 0, which the model puts at 14 thousand",
+    "C": "ignores that y is measured in thousands, undercounting the yearly increase by a factor of 1,000",
+    "D": "inverts the rate, reading years per thousand vehicles instead of thousands of vehicles per year"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The slope is $3.6$ thousand vehicles per year, and $3.6$ thousand is $3{,}600$ vehicles per year.\n\n**The Full Solution:**\nStep 1: In $\\hat{y} = 3.6x + 14$, $x$ counts years since $2010$ and $\\hat{y}$ predicts registrations in thousands.\nStep 2: The slope gives the predicted change in $\\hat{y}$ for each additional year, so registrations rise by $3.6$ thousand per year.\nStep 3: Converting the unit, $3.6$ thousand $= 3{,}600$ vehicles per year. Check: from $x = 5$ to $x = 6$ the model rises from $32$ to $35.6$ thousand, an increase of $3.6$ thousand. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: describes the value at $x = 0$, which the model puts at $14$ thousand, not the slope.\n* Choice C: ignores that $y$ is measured in thousands, so it undercounts the yearly increase by a factor of $1{,}000$.\n* Choice D: inverts the rate, reading years per thousand vehicles instead of thousands of vehicles per year.\n\n**Test Day Takeaway:** When an axis is labeled \"in thousands,\" convert the slope before interpreting it. The number on the axis is not the number of things."
+  "explanation": "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The slope, $3.6$, is the predicted increase in $y$ per year, and $y$ is in thousands, so the model predicts about $3{,}600$ more registered electric vehicles each year.\n\n**The Full Solution:**\nStep 1: The slope of $y = 3.6x + 14$ is $3.6$, the predicted change in $y$ for each increase of $1$ in $x$.\nStep 2: Here $x$ is measured in years and $y$ in thousands of vehicles, so the slope means an increase of $3.6$ thousand vehicles per year.\nStep 3: $3.6$ thousand is $3{,}600$, so the number of registered electric vehicles increased by about $3{,}600$ each year. Check: the model gives $14$ thousand at $x = 0$ and $17.6$ thousand at $x = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the value at $x = 0$ (the year $2010$) is the $y$-intercept, $14$ thousand, not the slope.\n* Choice C: leaves out the \"thousands\" in the units of $y$.\n* Choice D: inverts the rate; the slope gives vehicles per year, not years per thousand vehicles.\n\n**Test Day Takeaway:** Read the slope as \"units of $y$ per unit of $x$\" and carry any scale in the axis label, such as thousands, into the answer."
 }

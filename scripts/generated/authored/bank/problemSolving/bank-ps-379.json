@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-379",
-  "question": "At a monitoring site, $\\dfrac{9}{25}$ of the water samples collected in one month exceeded the nitrate threshold. What percent of the samples collected did not exceed the threshold?",
+  "question": "Of the tickets sold for a concert, $\\dfrac{9}{25}$ were sold online and $p\\%$ were not. What is the value of $p$?",
   "choices": [
     {
       "id": "A",
-      "text": "$16\\%$"
+      "text": "$16$"
     },
     {
       "id": "B",
-      "text": "$25\\%$"
+      "text": "$25$"
     },
     {
       "id": "C",
-      "text": "$36\\%$"
+      "text": "$36$"
     },
     {
       "id": "D",
-      "text": "$64\\%$"
+      "text": "$64$"
     }
   ],
   "distractorNotes": {
     "A": "subtracts the numerator from the denominator, $25 - 9$, and reports that as a percent",
-    "B": "reports the denominator as a percent",
-    "C": "reports the percent of samples that did exceed the threshold"
+    "B": "reports the denominator as the percent",
+    "C": "finds the percent of tickets that were sold online"
   },
   "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Percent Complement**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** $\\frac{9}{25} = \\frac{36}{100} = 36\\%$ exceeded, so $100\\% - 36\\% = 64\\%$ did not.\n\n**The Full Solution:**\nStep 1: Convert the fraction to a percent by scaling the denominator to $100$: $\\frac{9}{25} = \\frac{9 \\cdot 4}{25 \\cdot 4} = \\frac{36}{100} = 36\\%$.\nStep 2: Samples either exceeded the threshold or did not, so the two percents total $100\\%$.\nStep 3: The percent that did not exceed the threshold is $100\\% - 36\\% = 64\\%$. Check: $\\frac{16}{25} = \\frac{64}{100}$, and $16$ of the $25$ parts remain. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($16\\%$): subtracts the numerator from the denominator, $25 - 9$, and reports that as a percent\n* Choice B ($25\\%$): reports the denominator as a percent\n* Choice C ($36\\%$): reports the percent of samples that did exceed the threshold\n\n**Test Day Takeaway:** Turn the fraction into a percent first, then take the complement. Subtracting inside the fraction changes what the fraction measures."
+  "explanation": "**SAT Pattern: Percent Complement**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** $\\frac{9}{25} = \\frac{36}{100} = 36\\%$ were sold online, so $100\\% - 36\\% = 64\\%$ were not, and $p = 64$.\n\n**The Full Solution:**\nStep 1: Convert the fraction to a percent by scaling the denominator to $100$: $\\frac{9}{25} = \\frac{9 \\cdot 4}{25 \\cdot 4} = \\frac{36}{100} = 36\\%$.\nStep 2: Every ticket was either sold online or not, so the two percents total $100\\%$.\nStep 3: The tickets not sold online make up $100\\% - 36\\% = 64\\%$, so $p = 64$. Check: $\\frac{16}{25} = \\frac{64}{100}$, and $9 + 16 = 25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): subtracts inside the fraction, $25 - 9 = 16$, and reports that count as a percent. Sixteen of the $25$ parts is $64\\%$, not $16\\%$.\n* Choice B ($25$): reports the denominator of the fraction as the percent.\n* Choice C ($36$): converts $\\frac{9}{25}$ correctly but stops there; $36\\%$ is the share sold online, not the share that was not.\n\n**Test Day Takeaway:** Turn the fraction into a percent first, then take the complement. Before you answer, reread which group the question asks about."
 }

@@ -1,29 +1,29 @@
 {
- "id": "bank-ps-330",
- "question": "Ecologists modeled eelgrass shoot density $d$, in shoots per square meter, in terms of water clarity $c$, measured as meters of visibility, with the linear model $d = 18 + 24c$. What is the best interpretation of $18$ in this model?",
- "choices": [
-  {
-   "id": "A",
-   "text": "The predicted shoot density, in shoots per square meter, when visibility is $0$ meters."
+  "id": "bank-ps-330",
+  "question": "The equation $y = 2.4x + 18$ models the height $y$, in centimeters, of a tomato plant $x$ weeks after it was planted. What is the best interpretation of $18$ in this context?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The predicted height, in centimeters, of the plant when it was planted"
+    },
+    {
+      "id": "B",
+      "text": "The predicted increase in the height of the plant, in centimeters, each week"
+    },
+    {
+      "id": "C",
+      "text": "The number of weeks after planting at which the predicted height of the plant is $0$ centimeters"
+    },
+    {
+      "id": "D",
+      "text": "The greatest predicted height, in centimeters, of the plant"
+    }
+  ],
+  "distractorNotes": {
+    "B": "interprets the coefficient 2.4, the rate of change, instead of the constant term",
+    "C": "reads the constant as a value of x rather than as the value of y when x = 0",
+    "D": "treats the constant as a maximum, but this model keeps increasing as x increases"
   },
-  {
-   "id": "B",
-   "text": "The predicted increase in shoot density, in shoots per square meter, for each additional meter of visibility."
-  },
-  {
-   "id": "C",
-   "text": "The visibility, in meters, predicted to produce a shoot density of $0$ shoots per square meter."
-  },
-  {
-   "id": "D",
-   "text": "The greatest shoot density, in shoots per square meter, recorded at any site in the study."
-  }
- ],
- "correctAnswer": "A",
- "distractorNotes": {
-  "B": "interprets the coefficient $24$, the rate of change, instead of the constant term",
-  "C": "reads the constant as a value of $c$ rather than as the value of $d$ when $c = 0$",
-  "D": "treats the constant as a recorded maximum; a model reports predictions, not extremes"
- },
- "explanation": "**SAT Pattern: Interpret Intercept of Best Fit**\n\n**Choice A is correct.** Substituting $c = 0$ gives $d = 18$, so $18$ is the shoot density the model predicts when visibility is $0$ meters.\n\n**The Fast Way (~25s):** The constant term is the predicted output when the input is $0$: set $c = 0$ and read $d = 18$.\n\n**The Full Solution:**\n\nStep 1: Identify the roles in $d = 18 + 24c$. Here $c$ is the input, $d$ is the output, $24$ is the rate of change, and $18$ is the constant term.\n\nStep 2: Evaluate the model at $c = 0$: $d = 18 + 24(0) = 18$ shoots per square meter.\n\nStep 3: State the meaning in context. The model predicts $18$ shoots per square meter at a site with $0$ meters of visibility. Check: raising visibility to $1$ meter gives $d = 42$, an increase of $24$, confirming that $24$, not $18$, is the per-meter rate.\n\n**Why the wrong answers are tempting:**\n\n* Choice B: describes $24$, the amount $d$ changes for each additional meter of visibility, not the constant term.\n* Choice C: reverses the variables, reading $18$ as a visibility in meters rather than as a shoot density.\n* Choice D: treats the constant as a recorded maximum. The model outputs predictions, and $d$ grows without bound as $c$ increases.\n\n**Test Day Takeaway:** The constant term always answers \"what does the model predict when the input is zero?\" -- substitute $0$ and the interpretation writes itself."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Interpret Intercept of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The constant $18$ is the value of $y$ when $x = 0$: the predicted height at $0$ weeks, when the plant was planted.\n\n**The Full Solution:**\nStep 1: In $y = 2.4x + 18$, the constant term $18$ is the $y$-intercept, the value of $y$ when $x = 0$.\nStep 2: Here $x = 0$ means $0$ weeks after the plant was planted, and $y$ is the height in centimeters.\nStep 3: So $18$ is the predicted height, in centimeters, of the plant when it was planted. Check: $2.4(0) + 18 = 18$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: describes $2.4$, the slope, which is the predicted weekly increase in height.\n* Choice C: $18$ is a value of $y$, not of $x$; the model's height is never $0$ for $x \\ge 0$.\n* Choice D: the height in this model increases every week, so it has no greatest value.\n\n**Test Day Takeaway:** The constant term of a linear model is the predicted value of $y$ when $x = 0$. Translate \"$x = 0$\" into the context: the start, the moment of planting."
 }

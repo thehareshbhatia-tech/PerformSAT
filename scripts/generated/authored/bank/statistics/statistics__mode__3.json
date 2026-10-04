@@ -1,6 +1,6 @@
 {
   "id": 3,
-  "question": "A data set contains $20$ values. The value $5$ occurs $6$ times, the value $8$ occurs $6$ times, and each of the remaining values occurs at most $3$ times. Which statement about the mode of the data set is true?",
+  "question": "In a data set of $20$ values, the value $5$ occurs $6$ times, the value $8$ occurs $6$ times, and no other value occurs more than $3$ times. Which of the following is true about the mode of the data set?",
   "choices": [
     {
       "id": "A",

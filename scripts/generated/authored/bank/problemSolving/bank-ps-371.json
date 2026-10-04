@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-371",
-  "question": "An account is opened with $P$ dollars and earns simple interest at an annual rate of $r$, expressed as a decimal, and no deposits or withdrawals are made. Which expression represents the balance of the account, in dollars, after $t$ years?",
+  "question": "A deposit of $P$ dollars earns simple interest at an annual rate of $r$, expressed as a decimal. Which expression gives the balance after $t$ years?",
   "choices": [
     {
       "id": "A",

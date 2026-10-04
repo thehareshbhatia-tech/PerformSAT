@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-392",
-  "question": "A polling firm contacted $1{,}500$ households, and $72\\%$ of them responded. Of the households that responded, $25\\%$ completed the full questionnaire. How many households completed the full questionnaire?",
+  "question": "A survey was sent to $1{,}500$ households, and $72\\%$ of the households responded. Of the households that responded, $25\\%$ answered every question. How many households answered every question?",
   "choices": [
     {
       "id": "A",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "B": "applies $25\\%$ to all $1{,}500$ households",
-    "C": "counts the responding households that did not complete the full questionnaire, $75\\%$ of $1{,}080$",
-    "D": "reports the number of households that responded"
+    "B": "takes $25\\%$ of all $1{,}500$ households instead of $25\\%$ of the households that responded",
+    "C": "takes $75\\%$ of the $1{,}080$ households that responded, the households that did not answer every question",
+    "D": "stops after finding the $1{,}080$ households that responded"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $0.72(1500) = 1080$ responded, and $0.25(1080) = 270$ completed the questionnaire.\n\n**The Full Solution:**\nStep 1: The responding households number $0.72(1500) = 1080$.\nStep 2: One quarter of those responded fully: $0.25(1080) = 270$.\nStep 3: So $270$ households completed the full questionnaire. Check: $0.72(0.25) = 0.18$, and $0.18(1500) = 270$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($375$): applies $25\\%$ to all $1{,}500$ households\n* Choice C ($810$): counts the responding households that did not complete the full questionnaire, $75\\%$ of $1{,}080$\n* Choice D ($1{,}080$): reports the number of households that responded\n\n**Test Day Takeaway:** Chain percents multiply: the fraction of the whole is the product of the two rates, never their sum."
+  "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $0.72(1{,}500) = 1{,}080$ responded, and $0.25(1{,}080) = 270$.\n\n**The Full Solution:**\nStep 1: Find the households that responded: $0.72(1{,}500) = 1{,}080$.\nStep 2: Take $25\\%$ of that subgroup: $0.25(1{,}080) = 270$.\nStep 3: Equivalently, $0.72 \\times 0.25 = 0.18$ and $0.18(1{,}500) = 270$. Check: $\\frac{270}{1{,}080} = 0.25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($375$): takes $25\\%$ of all $1{,}500$ households. The $25\\%$ applies only to the households that responded.\n* Choice C ($810$): takes $75\\%$ of the $1{,}080$ responding households, which counts the households that did not answer every question.\n* Choice D ($1{,}080$): stops after the first step and reports the number of households that responded.\n\n**Test Day Takeaway:** A percent \"of the households that responded\" multiplies the earlier result, not the original total."
 }

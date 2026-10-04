@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-313",
-  "question": "The box plot summarizes the protein content, in grams, of the $24$ energy bars stocked at a store. A value in a data set is classified as an outlier when it is more than $1.5$ times the interquartile range above the third quartile. For this data set, what is the value of $Q_3 + 1.5 \\cdot \\text{IQR}$, in grams?",
+  "question": "The box plot summarizes the protein content, in grams, of $24$ energy bars. What is the least possible number of these energy bars that have at least $16$ grams of protein?",
   "diagram": {
     "type": "boxPlot",
     "params": {
@@ -16,6 +16,6 @@
       "xLabelStep": 5
     }
   },
-  "correctAnswer": "29",
-  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**The correct answer is $29$.**\n\n**The Fast Way (~20s):** $\\text{IQR} = 20 - 14 = 6$, so $Q_3 + 1.5(6) = 20 + 9 = 29$ grams.\n\n**The Full Solution:**\nStep 1: Read the box edges: $Q_1 = 14$ grams and $Q_3 = 20$ grams.\nStep 2: The interquartile range is $Q_3 - Q_1 = 20 - 14 = 6$ grams, so $1.5 \\cdot \\text{IQR} = 1.5(6) = 9$ grams.\nStep 3: The threshold is $Q_3 + 9 = 20 + 9 = 29$ grams. Check: the largest value shown is $27$ grams, which is below $29$, so this data set has no high outlier. $\\checkmark$\n\n**Common Mistakes:** Adding $1.5$ instead of $1.5 \\cdot \\text{IQR}$ gives $21.5$. Multiplying the quartile itself gives $1.5(20) = 30$. Using the range in place of the interquartile range gives $20 + 1.5(27 - 8) = 48.5$.\n\n**Test Day Takeaway:** The outlier rule always multiplies $1.5$ by the interquartile range — the box width — and then adds that product to $Q_3$ (or subtracts it from $Q_1$)."
+  "correctAnswer": "12",
+  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**The correct answer is 12.**\n\n**The Fast Way (~40s):** The median, $16$, is the average of the $12$th and $13$th values, so the $13$th value is at least $16$; the $13$th through $24$th values, $12$ bars, are each at least $16$ grams.\n\n**The Full Solution:**\nStep 1: The line inside the box shows that the median protein content is $16$ grams. With $24$ values, the median is the average of the $12$th and $13$th values in order.\nStep 2: Two values with an average of $16$ cannot both be less than $16$, and the $13$th value is the larger one, so the $13$th value is at least $16$. Then the $13$th through $24$th values are all at least $16$: that is $24 - 12 = 12$ bars.\nStep 3: The $12$th value can be less than $16$ (for example, $15$ and $17$ average to $16$), so the count can be exactly $12$. Check: with the $12$th value $15$ and the $13$th value $17$, the median is $\\frac{15 + 17}{2} = 16$ and exactly $12$ bars have at least $16$ grams ✓\n\n**Common Mistakes:**\n* $13$: assumes the median itself is one of the values, so it counts the $12$th value as well.\n* $6$: uses the third quartile, $20$, and counts the top quarter of the data instead of the half at or above the median.\n* $18$: counts the bars with at least $14$ grams, the first quartile, instead of $16$ grams.\n\n**Test Day Takeaway:** With an even number of values, the median is an average of two middle values, so it need not be a data value. For a \"least possible number,\" find the case where the lower middle value falls just below the median."
 }

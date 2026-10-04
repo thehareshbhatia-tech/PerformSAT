@@ -1,6 +1,6 @@
 {
   "id": 4,
-  "question": "The table gives the initial fee and the hourly rate charged by each of two equipment rental companies. For each company, the total cost, in dollars, of renting for $h$ hours is modeled by a linear equation. In the $xy$-plane, the graphs of these two equations intersect at the point $(6, 102)$. What does $102$ represent in this context?",
+  "question": "The table shows the initial fee and the hourly rate charged by each of two rental companies. For each company, the total cost $y$, in dollars, of renting for $x$ hours is given by a linear equation. The graphs of the two equations in the $xy$-plane intersect at the point $(6, 102)$. What is the best interpretation of $102$ in this context?",
   "diagram": {
     "type": "dataTable",
     "params": {
@@ -47,6 +47,6 @@
     "D": "the hourly rates are $\\$12$ and $\\$8$ and they are not equal; $102$ is a total, not a rate."
   },
   "correctAnswer": "B",
-  "hint": "Decide what each axis measures before interpreting either coordinate.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~40s):** At the intersection the two costs are equal, so $102$ is the shared total cost after $6$ hours.\n\n**The Full Solution:**\nStep 1: The two cost equations are $y = 30 + 12h$ for company P and $y = 54 + 8h$ for company Q, where $h$ is hours and $y$ is total cost in dollars.\nStep 2: The intersection point satisfies both equations, so at $h = 6$ hours the two companies charge the same amount.\nStep 3: The second coordinate of the point is that shared cost, $\\$102$. Check: $30 + 12(6) = 102$ and $54 + 8(6) = 102$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: describes the first coordinate, $6$, which is the number of hours, not the cost.\n* Choice C: at the intersection the two costs are equal, so their difference is $\\$0$, not $\\$102$.\n* Choice D: the hourly rates are $\\$12$ and $\\$8$ and they are not equal; $102$ is a total, not a rate.\n\n**Test Day Takeaway:** The solution of a system in context is a pair of measurements. Name the units of each coordinate before choosing an interpretation."
+  "hint": "Decide what each coordinate measures before interpreting either one.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~40s):** At the intersection the two costs are equal, so $102$ is the shared total cost after $6$ hours.\n\n**The Full Solution:**\nStep 1: The two cost equations are $y = 30 + 12x$ for company P and $y = 54 + 8x$ for company Q, where $x$ is the number of hours and $y$ is the total cost in dollars.\nStep 2: The intersection point satisfies both equations, so at $x = 6$ hours the two companies charge the same amount.\nStep 3: The second coordinate of the point is that shared cost, $\\$102$. Check: $30 + 12(6) = 102$ and $54 + 8(6) = 102$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: describes the first coordinate, $6$, which is the number of hours, not the cost.\n* Choice C: at the intersection the two costs are equal, so their difference is $\\$0$, not $\\$102$.\n* Choice D: the hourly rates are $\\$12$ and $\\$8$ and they are not equal; $102$ is a total, not a rate.\n\n**Test Day Takeaway:** The solution of a system in context is a pair of measurements. Name the units of each coordinate before choosing an interpretation."
 }

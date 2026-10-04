@@ -1,6 +1,6 @@
 {
   "id": 2,
-  "question": "The list gives the snowfall, in centimeters, recorded at a weather station on each of $5$ days: $12$, $7$, $15$, $9$, $12$. What is the mean daily snowfall, in centimeters?",
+  "question": "$14, 9, 17, 11, 14$\nWhat is the mean of the data shown?",
   "choices": [
     {
       "id": "A",
@@ -8,23 +8,23 @@
     },
     {
       "id": "B",
-      "text": "$11$"
+      "text": "$13$"
     },
     {
       "id": "C",
-      "text": "$12$"
+      "text": "$14$"
     },
     {
       "id": "D",
-      "text": "$13.75$"
+      "text": "$16.25$"
     }
   ],
   "distractorNotes": {
-    "A": "reports the range, $15 - 7$, which measures spread rather than center.",
-    "C": "reports the median (and the most frequent value) instead of the mean.",
-    "D": "divides the correct sum by $4$ instead of $5$, dropping one day from the count."
+    "A": "reports the range, $17 - 9 = 8$, instead of the mean.",
+    "C": "reports $14$, the value that appears twice and also sits in the middle of the ordered list; that is the mode and the median, not the mean.",
+    "D": "adds the values correctly but divides $65$ by $4$ instead of by the $5$ values."
   },
   "correctAnswer": "B",
-  "hint": "Total the five recorded amounts first, then divide by how many days were recorded.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** The five values sum to $55$, so the mean is $\\frac{55}{5} = 11$.\n\n**The Full Solution:**\nStep 1: The mean is the sum of the values divided by the number of values.\nStep 2: $12 + 7 + 15 + 9 + 12 = 55$.\nStep 3: There are $5$ days, so the mean is $\\frac{55}{5} = 11$ centimeters. Check: $11$ falls between the least value $7$ and the greatest value $15$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): reports the range, $15 - 7$, which measures spread rather than center.\n* Choice C ($12$): reports the median (and the most frequent value) instead of the mean.\n* Choice D ($13.75$): divides the correct sum by $4$ instead of $5$, dropping one day from the count.\n\n**Test Day Takeaway:** Mean is total divided by count. Recount the data values before dividing; an off-by-one in the count is the most common slip."
+  "hint": "Add all five values, then divide by the number of values.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** The sum is $14 + 9 + 17 + 11 + 14 = 65$, and $\\frac{65}{5} = 13$.\n\n**The Full Solution:**\nStep 1: Count the values: there are $5$ of them.\nStep 2: Add them: $14 + 9 + 17 + 11 + 14 = 65$.\nStep 3: Divide the sum by the number of values: $\\frac{65}{5} = 13$. Check: $5(13) = 65$, so five values averaging $13$ give the same total. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): reports the range, $17 - 9 = 8$, instead of the mean.\n* Choice C ($14$): reports $14$, the value that appears twice and also sits in the middle of the ordered list; that is the mode and the median, not the mean.\n* Choice D ($16.25$): adds the values correctly but divides $65$ by $4$ instead of by the $5$ values.\n\n**Test Day Takeaway:** The mean is the sum divided by the count of values. Count every value, including repeats, before dividing."
 }

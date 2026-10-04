@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-418",
-  "question": "A quality inspector examined $84$ welds and found that $21$ of them required rework. What percent of the welds examined required rework?",
+  "question": "$21$ is $p\\%$ of $84$. What is the value of $p$?",
   "choices": [
     {
       "id": "A",
-      "text": "$4\\%$"
+      "text": "$4$"
     },
     {
       "id": "B",
-      "text": "$21\\%$"
+      "text": "$21$"
     },
     {
       "id": "C",
-      "text": "$25\\%$"
+      "text": "$25$"
     },
     {
       "id": "D",
-      "text": "$75\\%$"
+      "text": "$75$"
     }
   ],
   "distractorNotes": {
-    "A": "divides $84$ by $21$ and reports the ratio $4$ as a percent",
-    "B": "reports the number of welds requiring rework as a percent",
-    "D": "reports the percent of welds that did not require rework"
+    "A": "divides $84$ by $21$ instead of $21$ by $84$",
+    "B": "repeats the part, $21$, as the percent",
+    "D": "finds the percent of $84$ that is not $21$, $\\frac{63}{84}$"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Percent of a Whole**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $\\frac{21}{84} = \\frac{1}{4} = 25\\%$.\n\n**The Full Solution:**\nStep 1: \"What percent of\" means divide the part by the whole: $\\frac{21}{84}$.\nStep 2: Simplify: $\\frac{21}{84} = \\frac{1}{4}$.\nStep 3: $\\frac{1}{4} = 0.25 = 25\\%$. Check: $25\\%$ of $84$ is $21$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\%$): divides $84$ by $21$ and reports the ratio $4$ as a percent\n* Choice B ($21\\%$): reports the number of welds requiring rework as a percent\n* Choice D ($75\\%$): reports the percent of welds that did not require rework\n\n**Test Day Takeaway:** The number after \"of\" is the whole and belongs in the denominator; reversing the division gives a ratio, not a percent."
+  "explanation": "**SAT Pattern: Percent of a Whole**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\frac{21}{84} = 0.25$, so $p = 25$.\n\n**The Full Solution:**\nStep 1: Write the statement as an equation: $21 = \\frac{p}{100}(84)$.\nStep 2: Divide: $\\frac{p}{100} = \\frac{21}{84} = 0.25$.\nStep 3: So $p = 25$. Check: $0.25(84) = 21$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): inverts the fraction, computing $\\frac{84}{21}$.\n* Choice B ($21$): uses the part itself as the percent.\n* Choice D ($75$): is the percent of $84$ left over after the $21$.\n\n**Test Day Takeaway:** \"Part is $p\\%$ of whole\" means $\\frac{p}{100} = \\frac{\\text{part}}{\\text{whole}}$."
 }

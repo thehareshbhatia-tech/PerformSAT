@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-328",
-  "question": "A linear model relates the fuel use $y$, in liters per $100$ kilometers, of a delivery van to the mass $x$, in kilograms, of its cargo: $\\hat{y} = 0.004x + 9.5$. According to this model, an increase of $500$ kilograms in cargo mass is associated with which of the following changes in predicted fuel use?",
+  "question": "The equation $y = 0.004x + 9.5$ models the fuel use $y$, in liters per $100$ kilometers, of a van carrying $x$ kilograms of cargo. According to the model, an increase of how many kilograms of cargo corresponds to an increase of $1$ liter per $100$ kilometers in fuel use?",
   "choices": [
     {
       "id": "A",
-      "text": "A decrease of $2$ liters per $100$ kilometers"
+      "text": "$0.004$"
     },
     {
       "id": "B",
-      "text": "An increase of $2$ liters per $100$ kilometers"
+      "text": "$25$"
     },
     {
       "id": "C",
-      "text": "An increase of $0.004$ liter per $100$ kilometers"
+      "text": "$250$"
     },
     {
       "id": "D",
-      "text": "An increase of $11.5$ liters per $100$ kilometers"
+      "text": "$2{,}500$"
     }
   ],
   "distractorNotes": {
-    "A": "computes the size of the change correctly but reverses its direction; the slope is positive, so fuel use rises.",
-    "C": "reports the slope, the change for $1$ additional kilogram rather than for $500$.",
-    "D": "evaluates $0.004(500) + 9.5 = 11.5$, a predicted fuel-use level rather than a change in fuel use."
+    "A": "reports the slope, the increase in fuel use for 1 kilogram, instead of the cargo needed for an increase of 1",
+    "B": "divides 1 by 0.04 instead of 0.004, misplacing the decimal point",
+    "D": "divides 1 by 0.0004 instead of 0.004, misplacing the decimal point the other way"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Change in $\\hat{y}$ is slope times change in $x$: $0.004(500) = 2$, and the positive slope makes it an increase.\n\n**The Full Solution:**\nStep 1: The slope $0.004$ is the predicted change in fuel use, in liters per $100$ kilometers, for each additional kilogram of cargo.\nStep 2: For a $500$-kilogram increase, the predicted change is $0.004 \\times 500 = 2$ liters per $100$ kilometers.\nStep 3: Because the slope is positive, heavier cargo predicts more fuel use, so this is an increase of $2$ liters per $100$ kilometers. Check: at $x = 0$ the model predicts $9.5$ and at $x = 500$ it predicts $11.5$, a difference of $2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: computes the size of the change correctly but reverses its direction; the slope is positive, so fuel use rises.\n* Choice C: reports the slope, the change for $1$ additional kilogram rather than for $500$.\n* Choice D: evaluates $0.004(500) + 9.5 = 11.5$, a predicted fuel-use level rather than a change in fuel use.\n\n**Test Day Takeaway:** Scale the slope to the interval the question names, then read the sign of the slope to state the direction. A predicted level and a predicted change are different answers."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Each kilogram adds $0.004$ to $y$, so an increase of $1$ in $y$ takes $\\frac{1}{0.004} = 250$ kilograms.\n\n**The Full Solution:**\nStep 1: The slope, $0.004$, is the predicted increase in fuel use, in liters per $100$ kilometers, for each additional kilogram of cargo.\nStep 2: For an increase of $1$ in $y$, the cargo must increase by $k$ kilograms, where $0.004k = 1$.\nStep 3: So $k = \\frac{1}{0.004} = 250$ kilograms. Check: $0.004(250) = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.004$): reports the slope, which is the change in fuel use for $1$ kilogram, not the cargo needed for a change of $1$.\n* Choice B ($25$): computes $\\frac{1}{0.04}$, misplacing the decimal point.\n* Choice D ($2{,}500$): computes $\\frac{1}{0.0004}$, misplacing the decimal point the other way.\n\n**Test Day Takeaway:** The slope gives the change in $y$ per unit of $x$. To find the change in $x$ that produces a given change in $y$, divide the change in $y$ by the slope."
 }

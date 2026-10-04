@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-404",
-  "question": "The table classifies $420$ households by whether the household separates glass for recycling and whether it composts food waste. If one of these households is selected at random, what is the probability that the selected household separates glass for recycling?",
+  "question": "The table shows the distribution of $420$ households by whether the household recycles glass and whether it composts food waste. One of these households will be selected at random. What is the probability of selecting a household that recycles glass?",
   "diagram": {
     "type": "twoWayTable",
     "params": {
@@ -12,13 +12,13 @@
       ],
       "rows": [
         [
-          "Separates glass",
+          "Recycles glass",
           "168",
           "105",
           "273"
         ],
         [
-          "Does not separate glass",
+          "Does not recycle glass",
           "42",
           "105",
           "147"
@@ -51,10 +51,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "gives the probability that the household does not separate glass",
-    "B": "uses only the $168$ households that both separate glass and compost",
-    "D": "divides those $168$ households by the $210$ households that compost, a conditional probability"
+    "A": "uses the $147$ households that do not recycle glass",
+    "B": "uses only the $168$ households that recycle glass and compost",
+    "D": "divides $168$ by the $210$ households that compost, a conditional probability"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Marginal Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The glass-separating row totals $273$ out of $420$ households, so the probability is $\\frac{273}{420} = \\frac{13}{20}$.\n\n**The Full Solution:**\nStep 1: Composting is not part of the question, so both cells of the glass-separating row are favorable.\nStep 2: That row totals $168 + 105 = 273$ households out of $420$.\nStep 3: The probability is $\\frac{273}{420} = \\frac{13}{20}$, dividing both parts by $21$. Check: $\\frac{147}{420} = \\frac{7}{20}$ of households do not separate glass, and $\\frac{13}{20} + \\frac{7}{20} = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{20}$): gives the probability that the household does not separate glass\n* Choice B ($\\frac{2}{5}$): uses only the $168$ households that both separate glass and compost\n* Choice D ($\\frac{4}{5}$): divides those $168$ households by the $210$ households that compost, a conditional probability\n\n**Test Day Takeaway:** Ignore the variable the question does not mention by collapsing across it — that is exactly what a row total does."
+  "explanation": "**SAT Pattern: Marginal Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Recycles glass row total: $273$. Probability: $\\frac{273}{420} = \\frac{13}{20}$.\n\n**The Full Solution:**\nStep 1: The event is \"recycles glass,\" so use that row total: $168 + 105 = 273$.\nStep 2: Divide by all $420$ households: $\\frac{273}{420}$.\nStep 3: $\\frac{273}{420} = \\frac{13}{20}$. Check: $\\frac{273}{420} + \\frac{147}{420} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{20}$): is the probability of selecting a household that does not recycle glass.\n* Choice B ($\\frac{2}{5}$): uses one cell instead of the whole row.\n* Choice D ($\\frac{4}{5}$): is the probability of recycling glass given that the household composts.\n\n**Test Day Takeaway:** An unconditional probability uses the grand total as the denominator, never a row or column total."
 }

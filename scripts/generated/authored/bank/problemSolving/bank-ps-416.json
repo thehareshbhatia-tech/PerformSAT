@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-416",
-  "question": "A solution has a mass of $2{,}400$ grams, and $0.75\\%$ of that mass is dissolved salt. What is the mass, in grams, of the dissolved salt?",
+  "question": "What is $0.75\\%$ of $2{,}400$?",
   "choices": [
     {
       "id": "A",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "uses $0.075\\%$, shifting the decimal one place too far",
-    "C": "uses $7.5\\%$ instead of $0.75\\%$",
-    "D": "uses $75\\%$, dropping the decimal point in the percent entirely"
+    "A": "uses $0.00075$, moving the decimal point one place too far",
+    "C": "uses $0.075$ for $0.75\\%$, moving the decimal point one place too few",
+    "D": "uses $0.75$, treating $0.75\\%$ as $75\\%$"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Percent of a Number**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $0.75\\% = 0.0075$, and $0.0075(2400) = 18$ grams.\n\n**The Full Solution:**\nStep 1: Convert the percent to a decimal by dividing by $100$: $0.75\\% = 0.0075$.\nStep 2: Multiply by the total mass: $0.0075(2400)$.\nStep 3: $0.0075(2400) = 18$ grams. Check: $1\\%$ of $2{,}400$ is $24$, so $0.75\\%$ is $\\frac{3}{4}(24) = 18$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.8$): uses $0.075\\%$, shifting the decimal one place too far\n* Choice C ($180$): uses $7.5\\%$ instead of $0.75\\%$\n* Choice D ($1{,}800$): uses $75\\%$, dropping the decimal point in the percent entirely\n\n**Test Day Takeaway:** A percent below $1\\%$ becomes a decimal with two leading zeros; anchor on $1\\%$ of the whole and scale from there."
+  "explanation": "**SAT Pattern: Percent of a Number**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $0.75\\% = 0.0075$, and $0.0075 \\times 2{,}400 = 18$.\n\n**The Full Solution:**\nStep 1: Convert the percent: $0.75\\% = \\frac{0.75}{100} = 0.0075$.\nStep 2: Multiply: $0.0075 \\times 2{,}400 = 18$.\nStep 3: Check: $1\\%$ of $2{,}400$ is $24$, and $\\frac{3}{4}$ of $24$ is $18$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.8$): divides by $1{,}000$ instead of $100$ when converting the percent.\n* Choice C ($180$): divides by $10$ instead of $100$ when converting the percent.\n* Choice D ($1{,}800$): ignores the percent sign and uses $0.75$.\n\n**Test Day Takeaway:** A percent less than $1$ still gets divided by $100$; anchor on $1\\%$ to sanity-check the size."
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-405",
-  "question": "Of the $120$ students in a program, $78$ are enrolled in statistics, $54$ are enrolled in economics, and $18$ are enrolled in neither course. If one of these students is selected at random, what is the probability that the selected student is enrolled in statistics but not in economics?",
+  "question": "Of the $120$ students in a program, $78$ take statistics, $54$ take economics, and $18$ take neither course. One of these students will be selected at random. What is the probability of selecting a student who takes statistics but not economics?",
   "choices": [
     {
       "id": "A",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "gives the probability of being enrolled in economics but not statistics",
-    "B": "gives the probability of being enrolled in both courses",
-    "D": "uses all $78$ statistics students, including the $30$ who are also enrolled in economics"
+    "A": "gives the probability of selecting a student who takes economics but not statistics, $\\frac{24}{120}$",
+    "B": "gives the probability of selecting a student who takes both courses, $\\frac{30}{120}$",
+    "D": "uses all $78$ statistics students, including the $30$ who also take economics"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Marginal Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** $120 - 18 = 102$ take at least one course, so $78 + 54 - 102 = 30$ take both and $78 - 30 = 48$ take statistics only: $\\frac{48}{120} = \\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: Since $18$ students take neither course, $120 - 18 = 102$ students take at least one of the two.\nStep 2: By inclusion-exclusion, $78 + 54 - (\\text{both}) = 102$, so the number enrolled in both is $132 - 102 = 30$.\nStep 3: Statistics only is $78 - 30 = 48$ students, so the probability is $\\frac{48}{120} = \\frac{2}{5}$. Check: $48$ statistics only $+$ $24$ economics only $+$ $30$ both $+$ $18$ neither $= 120$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{5}$): gives the probability of being enrolled in economics but not statistics\n* Choice B ($\\frac{1}{4}$): gives the probability of being enrolled in both courses\n* Choice D ($\\frac{13}{20}$): uses all $78$ statistics students, including the $30$ who are also enrolled in economics\n\n**Test Day Takeaway:** \"Enrolled in A but not B\" is the A total minus the overlap. Find the overlap first, using the count enrolled in neither to pin down the union."
+  "explanation": "**SAT Pattern: Marginal Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** $120 - 18 = 102$ take at least one course, so $78 + 54 - 102 = 30$ take both and $78 - 30 = 48$ take statistics only: $\\frac{48}{120} = \\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: Since $18$ students take neither course, $120 - 18 = 102$ students take at least one.\nStep 2: The two course counts add to $78 + 54 = 132$, which counts the students in both courses twice, so $132 - 102 = 30$ take both.\nStep 3: Statistics but not economics: $78 - 30 = 48$, so the probability is $\\frac{48}{120} = \\frac{2}{5}$. Check: $48 + 24 + 30 + 18 = 120$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{5}$): is the economics-only probability, $\\frac{54 - 30}{120}$.\n* Choice B ($\\frac{1}{4}$): is the probability of taking both courses.\n* Choice D ($\\frac{13}{20}$): counts every statistics student, including the $30$ who also take economics.\n\n**Test Day Takeaway:** \"A but not B\" is the A total minus the overlap. Use the \"neither\" count to find the overlap first."
 }

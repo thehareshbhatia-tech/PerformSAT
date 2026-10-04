@@ -1,6 +1,6 @@
 {
   "id": 5,
-  "question": "A random sample of residents of a town with $12{,}000$ residents was surveyed. Based on the survey, the percentage of all residents who hold a library card was estimated to be $68\\%$, with an associated margin of error of $2.5$ percentage points. Which conclusion about the number of residents of the town who hold a library card is most appropriate?",
+  "question": "Based on a random sample of residents of a town with $12{,}000$ residents, it is estimated that $68\\%$ of the town’s residents hold a library card, with an associated margin of error of $2.5$ percentage points. Which of the following is the most appropriate conclusion?",
   "choices": [
     {
       "id": "A",

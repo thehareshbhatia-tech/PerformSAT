@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-348",
-  "question": "The dot plot shows the $15$ values in a data set. Three additional values, each equal to $13$, are added to the data set. What is the mode of the resulting data set of $18$ values?",
+  "question": "The dot plot shows the $15$ values in a data set. Some values, each equal to $13$, are added to the data set so that $13$ is the only mode of the new data set. What is the least possible number of values that were added?",
   "diagram": {
     "type": "dotPlot",
     "params": {
@@ -27,6 +27,6 @@
       "xLabel": "Value"
     }
   },
-  "correctAnswer": "13",
-  "explanation": "**SAT Pattern: Mode from List**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~15s):** The value $13$ goes from $4$ occurrences to $7$, passing the $6$ occurrences of $12$, so the new mode is $13$.\n\n**The Full Solution:**\nStep 1: Read the stacks: $11$ occurs twice, $12$ occurs six times, $13$ occurs four times, and $14$ occurs three times, for $15$ values in all.\nStep 2: Adding three more $13$s raises the count for $13$ to $4 + 3 = 7$ and leaves every other count unchanged.\nStep 3: The counts are now $2$, $6$, $7$, and $3$, so the greatest is $7$ and the mode is $13$. Check: the data set now holds $18$ values, and $2 + 6 + 7 + 3 = 18$. $\\checkmark$\n\n**Common Mistakes:** Reporting $12$ gives the mode of the original data set, before the three values were added. Reporting $7$ gives the new frequency rather than the value. Reporting $14$ gives the greatest value in the data set, which is not the most frequent one.\n\n**Test Day Takeaway:** When values are added or removed, update the tally first and then re-read the largest count. The mode can move even though most of the data never changed."
+  "correctAnswer": "3",
+  "explanation": "**SAT Pattern: Mode from List**\n\n**The correct answer is 3.**\n\n**The Fast Way (~20s):** The value $12$ occurs $6$ times and $13$ occurs $4$ times, so $13$ needs at least $7$ occurrences to be the only mode: $7 - 4 = 3$ values.\n\n**The Full Solution:**\nStep 1: Read the stacks: $11$ occurs twice, $12$ occurs six times, $13$ occurs four times, and $14$ occurs three times, for $15$ values in all.\nStep 2: Adding values equal to $13$ changes only the count for $13$. For $13$ to be the only mode, its count must be greater than $6$, the count for $12$, so it must be at least $7$.\nStep 3: Going from $4$ to $7$ takes $7 - 4 = 3$ added values. Check: with $3$ added, the counts are $2$, $6$, $7$, and $3$, and $13$ is the only mode; with $2$ added, $12$ and $13$ tie at $6$ ✓\n\n**Common Mistakes:** Reporting $2$ makes $13$ tie with $12$ at six occurrences, so $13$ is a mode but not the only mode. Reporting $7$ gives the number of times $13$ must occur rather than the number of values added. Reporting $6$ gives the count for $12$, the current mode.\n\n**Test Day Takeaway:** \"The only mode\" means strictly more occurrences than every other value. Find the current greatest count, add $1$, and subtract the count already there."
 }

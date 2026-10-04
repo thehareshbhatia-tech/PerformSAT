@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-307",
-  "question": "The box plot summarizes the one-way commute distances, in kilometers, of the $35$ employees at a firm. What is the median commute distance, in kilometers?",
+  "question": "The box plot summarizes the commute distances, in kilometers, of $35$ employees. What is the median of the commute distances, in kilometers?",
   "diagram": {
     "type": "boxPlot",
     "params": {
@@ -35,10 +35,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "reads the left edge of the box, the first quartile.",
-    "C": "averages the two whisker ends, $\\frac{3 + 31}{2}$, which is the midrange, not the median.",
-    "D": "reads the right edge of the box, the third quartile."
+    "A": "reads the left edge of the box, the first quartile",
+    "C": "averages the minimum and maximum, (3 + 31)/2 = 17, which is the midrange",
+    "D": "reads the right edge of the box, the third quartile"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** The median is the line drawn inside the box, at $14$ kilometers.\n\n**The Full Solution:**\nStep 1: A box plot marks five values: the minimum and maximum at the whisker ends, the quartiles at the box edges, and the median as the segment inside the box.\nStep 2: The box runs from $9$ to $22$, and the interior segment sits at $14$.\nStep 3: So the median commute distance is $14$ kilometers. Check: the median must fall between $Q_1 = 9$ and $Q_3 = 22$, and $14$ does. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): reads the left edge of the box, the first quartile.\n* Choice C ($17$): averages the two whisker ends, $\\frac{3 + 31}{2}$, which is the midrange, not the median.\n* Choice D ($22$): reads the right edge of the box, the third quartile.\n\n**Test Day Takeaway:** The median is the interior line, never the box edge and never the midpoint of the whiskers. A box plot shows no mean at all."
+  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** The median is the line inside the box, at $14$.\n\n**The Full Solution:**\nStep 1: A box plot marks five values: the minimum, $Q_1$, the median, $Q_3$, and the maximum.\nStep 2: The median is the vertical line inside the box, which is at $14$ kilometers.\nStep 3: So the median commute distance is $14$ kilometers. Check: $14$ lies between $Q_1 = 9$ and $Q_3 = 22$, as a median must ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): reads the left edge of the box, which is the first quartile.\n* Choice C ($17$): averages the whisker ends, $\\frac{3 + 31}{2} = 17$, which is the midrange, not the median.\n* Choice D ($22$): reads the right edge of the box, which is the third quartile.\n\n**Test Day Takeaway:** On a box plot the median is always the line inside the box. It does not have to be centered between the whiskers or between the box edges."
 }

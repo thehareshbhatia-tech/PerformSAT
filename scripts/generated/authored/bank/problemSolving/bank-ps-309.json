@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-309",
-  "question": "The box plot summarizes the wingspans, in centimeters, of the $46$ gulls banded at a coastal station. By how many centimeters does the range of the wingspans exceed the interquartile range of the wingspans?",
+  "question": "The box plot summarizes the wingspans, in centimeters, of $46$ birds. The range of the wingspans is how many centimeters greater than the interquartile range of the wingspans?",
   "diagram": {
     "type": "boxPlot",
     "params": {
@@ -17,5 +17,5 @@
     }
   },
   "correctAnswer": "47",
-  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**The correct answer is $47$.**\n\n**The Fast Way (~15s):** Range $= 168 - 96 = 72$ and $\\text{IQR} = 143 - 118 = 25$, so the difference is $72 - 25 = 47$.\n\n**The Full Solution:**\nStep 1: The range uses the whisker ends: $168 - 96 = 72$ centimeters.\nStep 2: The interquartile range uses the box edges: $143 - 118 = 25$ centimeters.\nStep 3: The range exceeds the interquartile range by $72 - 25 = 47$ centimeters. Check: that difference is just the two whiskers combined, $(168 - 143) + (118 - 96) = 25 + 22 = 47$. $\\checkmark$\n\n**Common Mistakes:** Reporting $72$ or $25$ answers only half the question. Subtracting in the wrong order gives $-47$. Using the median as an endpoint gives $168 - 129 = 39$, which is a whisker plus half the box rather than either named measure.\n\n**Test Day Takeaway:** Range minus IQR is the total length of the two whiskers. Computing both measures separately, then subtracting, keeps the two spreads from blurring together."
+  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**The correct answer is 47.**\n\n**The Fast Way (~15s):** Range $= 168 - 96 = 72$ and interquartile range $= 143 - 118 = 25$, so the difference is $72 - 25 = 47$.\n\n**The Full Solution:**\nStep 1: The range uses the ends of the whiskers: $168 - 96 = 72$ centimeters.\nStep 2: The interquartile range uses the edges of the box: $143 - 118 = 25$ centimeters.\nStep 3: The difference is $72 - 25 = 47$ centimeters. Check: this equals the two whisker lengths combined, $(118 - 96) + (168 - 143) = 22 + 25 = 47$ ✓\n\n**Common Mistakes:**\n* $72$ or $25$: computes only one of the two measures and stops.\n* $39$: uses the median as an endpoint, computing $168 - 129 = 39$.\n* $-47$: subtracts in the wrong order.\n\n**Test Day Takeaway:** The range minus the interquartile range is the total length of the two whiskers. Compute each measure, then subtract."
 }

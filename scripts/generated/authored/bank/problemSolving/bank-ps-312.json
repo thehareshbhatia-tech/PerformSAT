@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-312",
-  "question": "The box plot summarizes the daily water use, in gallons, of $80$ households on a single day. The household with the greatest daily use is then removed from the data set. Which of the following statements about the resulting data set of $79$ households must be true?",
+  "question": "The box plot summarizes the daily water use, in gallons, of $80$ households. If the greatest value is removed, which of the following must be true for the remaining $79$ values?",
   "diagram": {
     "type": "boxPlot",
     "params": {
@@ -19,26 +19,26 @@
   "choices": [
     {
       "id": "A",
-      "text": "The median is less than $115$ gallons."
+      "text": "Their median is less than $115$ gallons."
     },
     {
       "id": "B",
-      "text": "The mean is less than the mean of the original data set."
+      "text": "Their mean is less than the mean of all $80$ values."
     },
     {
       "id": "C",
-      "text": "The interquartile range is less than the interquartile range of the original data set."
+      "text": "Their interquartile range is less than that of all $80$ values."
     },
     {
       "id": "D",
-      "text": "The range is greater than the range of the original data set."
+      "text": "Their range is greater than that of all $80$ values."
     }
   ],
   "distractorNotes": {
-    "A": "the new median is the $40$th ordered value, which can equal $115$ if the $40$th and $41$st values are both $115$, so it need not decrease.",
-    "C": "removing a single extreme value barely moves the quartiles; the interquartile range can stay exactly the same.",
-    "D": "dropping the largest value can only shorten the span from minimum to maximum, so the range cannot increase."
+    "A": "the new median is the 40th value, which can equal 115 when the 40th and 41st values are both 115",
+    "C": "removing one extreme value can leave both quartiles, and so the interquartile range, unchanged",
+    "D": "removing the maximum cannot widen the span from minimum to maximum, so the range cannot increase"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The value removed, $420$ gallons, is far above the center of the data and therefore above the mean. Deleting a value greater than the mean pulls the mean down.\n\n**The Full Solution:**\nStep 1: The maximum, $420$ gallons, sits well beyond $Q_3 = 150$, so it is larger than the mean of the $80$ values.\nStep 2: Removing a value larger than the mean lowers the total by more than one average share, so the new mean of $79$ values is smaller.\nStep 3: Therefore the mean must decrease. Check: no other listed statistic is forced to change, because the quartiles and the median depend on position, not on how extreme the top value is. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the new median is the $40$th ordered value, which can equal $115$ if the $40$th and $41$st values are both $115$, so it need not decrease.\n* Choice C: removing a single extreme value barely moves the quartiles; the interquartile range can stay exactly the same.\n* Choice D: dropping the largest value can only shorten the span from minimum to maximum, so the range cannot increase.\n\n**Test Day Takeaway:** The mean reacts to every value's size; the median and quartiles react only to position. Deleting an extreme value always moves the mean and often leaves the position-based measures alone."
+  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The removed value, $420$, is greater than the mean of the data, so taking it out lowers the mean.\n\n**The Full Solution:**\nStep 1: The greatest value is $420$ gallons, the end of the right whisker. The data also include values less than $420$, such as the minimum, $40$, so the mean of the $80$ values is less than $420$.\nStep 2: Removing a value that is greater than the mean always lowers the mean of what remains.\nStep 3: So the mean of the remaining $79$ values must be less than the mean of all $80$ values. Check: the median, quartiles and range can stay the same or shrink, but none of choices A, C or D is guaranteed ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the original median, $115$, is the average of the $40$th and $41$st values, and the new median is the $40$th value. If both of those values are $115$, the median does not change.\n* Choice C: removing one value at the far end can leave the quartiles where they were, so the interquartile range need not decrease.\n* Choice D: removing the maximum can only shorten the range or leave it the same, never lengthen it.\n\n**Test Day Takeaway:** For a \"must be true\" question, test each choice for a case where it fails. Removing an extreme value always moves the mean, but the median and quartiles may not move at all."
 }

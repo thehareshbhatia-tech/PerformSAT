@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-341",
-  "question": "The scatterplot shows the mass $y$, in metric tons, of de-icing salt remaining in a depot on day $x$ of a winter season, for $10$ days, along with the line of best fit $\\hat{y} = -2.4x + 96$. According to the line of best fit, on which day is the predicted mass of salt remaining equal to $0$ metric tons?",
+  "question": "The scatterplot shows the amount of salt $y$, in tons, in a town's storage shed $x$ days after the start of winter. A line of best fit is also shown. Which of the following is the best interpretation of the slope of the line of best fit?",
   "diagram": {
     "type": "scatterplot",
     "params": {
@@ -11,15 +11,15 @@
         ],
         [
           5,
-          82
+          89
         ],
         [
           8,
-          74
+          78
         ],
         [
           11,
-          67
+          74
         ],
         [
           14,
@@ -27,64 +27,64 @@
         ],
         [
           17,
-          53
+          59
         ],
         [
           20,
-          46
+          48
         ],
         [
           23,
-          43
+          44
         ],
         [
           26,
-          35
+          33
         ],
         [
           29,
-          25
+          29
         ]
       ],
       "xMin": 0,
       "xMax": 32,
       "yMin": 0,
-      "yMax": 100,
+      "yMax": 120,
       "xGridStep": 2,
       "yGridStep": 10,
       "xLabelStep": 8,
       "yLabelStep": 20,
-      "xLabel": "Day of season",
-      "yLabel": "Salt remaining (metric tons)",
+      "xLabel": "Days after start of winter",
+      "yLabel": "Salt in shed (tons)",
       "bestFitLine": {
-        "slope": -2.4,
-        "intercept": 96
+        "slope": -2.5,
+        "intercept": 100
       }
     }
   },
   "choices": [
     {
       "id": "A",
-      "text": "$40$"
+      "text": "The predicted amount of salt in the shed decreases by about $0.4$ ton each day."
     },
     {
       "id": "B",
-      "text": "$48$"
+      "text": "The predicted amount of salt in the shed decreases by about $2.5$ tons each day."
     },
     {
       "id": "C",
-      "text": "$96$"
+      "text": "The predicted amount of salt in the shed at the start of winter is about $100$ tons."
     },
     {
       "id": "D",
-      "text": "$230.4$"
+      "text": "The predicted amount of salt in the shed reaches $0$ tons after about $40$ days."
     }
   ],
   "distractorNotes": {
-    "B": "divides $96$ by $2$ rather than by the slope's magnitude $2.4$.",
-    "C": "reads the $y$-intercept $96$ as a day number instead of a mass.",
-    "D": "multiplies by the slope, $96 \\times 2.4$, instead of dividing by it."
+    "A": "inverts the slope, computing run over rise, $\\frac{8}{20} = 0.4$, instead of rise over run",
+    "C": "interprets the $y$-intercept, $100$ tons, instead of the slope",
+    "D": "describes where the line meets the x-axis, $\\frac{100}{2.5} = 40$ days, instead of the slope"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Set $\\hat{y} = 0$: $0 = -2.4x + 96$, so $2.4x = 96$ and $x = 40$.\n\n**The Full Solution:**\nStep 1: \"Predicted mass equal to $0$\" means substituting $\\hat{y} = 0$ into the line of best fit.\nStep 2: $0 = -2.4x + 96$ gives $2.4x = 96$.\nStep 3: $x = \\frac{96}{2.4} = 40$, so the model predicts the depot is empty on day $40$. Check: the depot starts at $96$ tons and loses $2.4$ tons per day, and $2.4(40) = 96$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($48$): divides $96$ by $2$ rather than by the slope's magnitude $2.4$.\n* Choice C ($96$): reads the $y$-intercept $96$ as a day number instead of a mass.\n* Choice D ($230.4$): multiplies by the slope, $96 \\times 2.4$, instead of dividing by it.\n\n**Test Day Takeaway:** \"When does the model reach $0$\" is an $x$-intercept question: set $\\hat{y} = 0$ and divide the starting value by the per-unit rate."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The line falls from $100$ tons at day $0$ to $80$ tons at day $8$, a slope of $\\frac{-20}{8} = -2.5$, so the predicted amount of salt drops by about $2.5$ tons per day.\n\n**The Full Solution:**\nStep 1: Read two points on the line where it crosses grid lines: $(0, 100)$ and $(8, 80)$.\nStep 2: Compute the slope: $\\frac{80 - 100}{8 - 0} = \\frac{-20}{8} = -2.5$ tons per day.\nStep 3: A slope is the change in $y$ for each increase of $1$ in $x$, so the predicted amount of salt decreases by about $2.5$ tons each day. Check: from $(8, 80)$ to $(16, 60)$ the line again drops $20$ tons in $8$ days, $2.5$ tons per day ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.4$ ton): divides the change in days by the change in tons, $\\frac{8}{20} = 0.4$, which is run over rise.\n* Choice C ($100$ tons): describes the $y$-intercept, the predicted amount at the start of winter, not the slope.\n* Choice D ($40$ days): describes where the line would reach $0$ tons, $\\frac{100}{2.5} = 40$, not the slope.\n\n**Test Day Takeaway:** The slope of a line of best fit is a rate: units of $y$ per one unit of $x$. Choose the choice that states a change \"each day,\" and check the number with rise over run."
 }

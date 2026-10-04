@@ -1,30 +1,30 @@
 {
- "id": 2,
- "question": "A distribution dock logs $x$ standard pallets and $y$ oversized pallets per shipment, where $x + y = 40$ counts the pallets and $2x + 3y = 96$ gives the weight in hundreds of kilograms. Which equation results from multiplying the first equation by $2$ and subtracting that result from the second?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$y = -16$"
+  "id": 2,
+  "question": "$x + y = 40$\n$2x + 3y = 96$\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-16$"
+    },
+    {
+      "id": "B",
+      "text": "$16$"
+    },
+    {
+      "id": "C",
+      "text": "$24$"
+    },
+    {
+      "id": "D",
+      "text": "$32$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts the doubled first equation from the second in the wrong order, getting $-y = -16$, and drops the negative on the left.",
+    "C": "solves the system correctly but reports $x$ instead of $y$.",
+    "D": "divides $96$ by $3$, which treats $x$ as if it were $0$."
   },
-  {
-   "id": "B",
-   "text": "$y = 16$"
-  },
-  {
-   "id": "C",
-   "text": "$5y = 16$"
-  },
-  {
-   "id": "D",
-   "text": "$y = 176$"
-  }
- ],
- "distractorNotes": {
-  "A": "subtracts in the reverse order, 80 - 96, giving -16",
-  "C": "adds the y-terms (3y + 2y) while subtracting the constants",
-  "D": "adds the right-hand sides, 96 + 80, instead of subtracting"
- },
- "correctAnswer": "B",
- "hint": "Every term of the first equation is affected, the constant included.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** Doubling $x + y = 40$ gives $2x + 2y = 80$; the $x$-terms now match, so subtracting leaves $y = 16$.\n\n**The Full Solution:**\nStep 1: Multiply every term of $x + y = 40$ by $2$, which gives $2x + 2y = 80$.\nStep 2: Subtract that equation from $2x + 3y = 96$ term by term: $(2x - 2x) + (3y - 2y) = 96 - 80$.\nStep 3: The $x$-terms cancel and the $y$-terms leave $y = 16$. Check: $y = 16$ forces $x = 24$, and $2(24) + 3(16) = 48 + 48 = 96$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -16$): subtracting in the reverse order, $80 - 96$, flips the sign of the constant.\n* Choice C ($5y = 16$): adding the $y$-terms while subtracting the constants; the operation must be the same on every term.\n* Choice D ($y = 176$): adding the right-hand sides, $96 + 80$, when the instruction was to subtract.\n\n**Test Day Takeaway:** Scale first so one variable's coefficients match, then apply the same operation to every term on both sides."
+  "correctAnswer": "B",
+  "hint": "Multiply the first equation so that one variable has matching coefficients.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** Doubling the first equation gives $2x + 2y = 80$; subtracting it from $2x + 3y = 96$ leaves $y = 16$.\n\n**The Full Solution:**\nStep 1: Multiply the first equation by $2$ so the $x$-coefficients match: $2x + 2y = 80$.\nStep 2: Subtract this from the second equation: $(2x + 3y) - (2x + 2y) = 96 - 80$, so $y = 16$.\nStep 3: Then $x = 40 - 16 = 24$. Check: $2(24) + 3(16) = 48 + 48 = 96$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-16$): subtracts the doubled first equation from the second in the wrong order, getting $-y = -16$, and drops the negative on the left.\n* Choice C ($24$): solves the system correctly but reports $x$ instead of $y$.\n* Choice D ($32$): divides $96$ by $3$, which treats $x$ as if it were $0$.\n\n**Test Day Takeaway:** Scale one equation so a variable has the same coefficient in both, subtract, and keep track of which variable survives."
 }

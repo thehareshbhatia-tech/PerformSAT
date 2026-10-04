@@ -1,6 +1,6 @@
 {
   "id": 4,
-  "question": "A water utility offers two billing plans. Plan A charges a $\\$20$ monthly fee plus $\\$3.50$ for each hundred cubic feet of water used, and Plan B charges a $\\$48$ monthly fee plus $\\$1.75$ for each hundred cubic feet used. For how many hundred cubic feet of water used do the two plans cost the same amount?",
+  "question": "A bike shop offers two rental plans. Plan A costs $\\$20$ plus $\\$3.50$ per hour, and Plan B costs $\\$48$ plus $\\$1.75$ per hour. For how many hours of rental do the two plans cost the same amount?",
   "choices": [
     {
       "id": "A",
@@ -20,11 +20,11 @@
     }
   ],
   "distractorNotes": {
-    "A": "divides the fee gap by Plan A rate alone: 28 / 3.50 = 8, ignoring that Plan B also charges per unit",
-    "C": "reports the difference in monthly fees, 48 - 20 = 28, as though it were a usage amount",
-    "D": "reports the sum of the two monthly fees, 48 + 20 = 68"
+    "A": "divides the $\\$28$ difference in base fees by Plan A's rate alone, $\\frac{28}{3.50} = 8$, ignoring that Plan B also charges by the hour.",
+    "C": "reports the difference in base fees, $48 - 20 = 28$, which is a dollar amount, not a number of hours.",
+    "D": "adds the two base fees, $48 + 20 = 68$."
   },
   "correctAnswer": "B",
-  "hint": "Graph the two cost equations and look for the crossing point.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** Setting $20 + 3.50u = 48 + 1.75u$ gives $1.75u = 28$, so $u = 16$ hundred cubic feet.\n\n**The Full Solution:**\nStep 1: Write one equation per plan. With $u$ hundred cubic feet used, Plan A costs $20 + 3.50u$ dollars and Plan B costs $48 + 1.75u$ dollars.\nStep 2: Graph both lines and find where they cross. Algebraically, the crossing is where $20 + 3.50u = 48 + 1.75u$, so $1.75u = 28$ and $u = 16$.\nStep 3: Check both plans at $u = 16$. Plan A: $20 + 3.50(16) = 20 + 56 = 76$ dollars. Plan B: $48 + 1.75(16) = 48 + 28 = 76$ dollars. The lines meet at $(16, 76)$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): divides the $28$-dollar fee gap by Plan A rate alone. Plan B charges per unit too, so the rate DIFFERENCE closes the gap.\n* Choice C ($28$): is the difference in monthly fees, in dollars, not an amount of water.\n* Choice D ($68$): adds the two monthly fees, which no crossing point uses.\n\n**Test Day Takeaway:** Two cost plans meet where the fee gap is closed by the rate difference: divide the difference in fixed fees by the difference in rates."
+  "hint": "Write a cost equation for each plan and find where the two are equal.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** Setting $20 + 3.50h = 48 + 1.75h$ gives $1.75h = 28$, so $h = 16$ hours.\n\n**The Full Solution:**\nStep 1: Let $h$ be the number of hours. Plan A costs $20 + 3.50h$ dollars and Plan B costs $48 + 1.75h$ dollars.\nStep 2: The costs are equal where the graphs of $y = 20 + 3.50h$ and $y = 48 + 1.75h$ intersect: $20 + 3.50h = 48 + 1.75h$, so $1.75h = 28$ and $h = 16$.\nStep 3: Check both plans at $h = 16$. Plan A: $20 + 3.50(16) = 76$ dollars. Plan B: $48 + 1.75(16) = 76$ dollars, so the lines meet at $(16, 76)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): divides the $\\$28$ difference in base fees by Plan A's rate alone, $\\frac{28}{3.50} = 8$, ignoring that Plan B also charges by the hour.\n* Choice C ($28$): reports the difference in base fees, $48 - 20 = 28$, which is a dollar amount, not a number of hours.\n* Choice D ($68$): adds the two base fees, $48 + 20 = 68$.\n\n**Test Day Takeaway:** Two cost plans are equal where the gap in fixed fees is closed by the difference in rates: divide the fee difference by the rate difference."
 }

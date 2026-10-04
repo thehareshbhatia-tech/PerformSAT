@@ -1,14 +1,14 @@
 {
   "id": "bank-ps-402",
-  "question": "Of the $360$ visitors recorded at a museum on one day, $216$ bought a guidebook and the rest did not. If one of these visitors is selected at random, what is the probability that the selected visitor bought a guidebook?",
+  "question": "Of the $360$ visitors to a museum, $216$ bought a guidebook. One of these visitors will be selected at random. What is the probability of selecting a visitor who bought a guidebook?",
   "choices": [
     {
       "id": "A",
-      "text": "$\\frac{2}{5}$"
+      "text": "$\\frac{3}{8}$"
     },
     {
       "id": "B",
-      "text": "$\\frac{1}{2}$"
+      "text": "$\\frac{2}{5}$"
     },
     {
       "id": "C",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "gives the probability that the visitor did not buy a guidebook",
-    "B": "assumes the two outcomes are equally likely rather than using the counts",
-    "D": "divides $144$ by $216$ instead of dividing $216$ by the total $360$"
+    "A": "treats the $360$ visitors as the ones who did not buy a guidebook and divides $216$ by $216 + 360$",
+    "B": "gives the probability of selecting a visitor who did not buy a guidebook, $\\frac{144}{360}$",
+    "D": "divides the $144$ visitors who did not buy a guidebook by the $216$ who did"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Marginal Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $216$ of the $360$ visitors bought a guidebook, so the probability is $\\frac{216}{360} = \\frac{3}{5}$.\n\n**The Full Solution:**\nStep 1: The two categories account for every visitor, so $360 - 216 = 144$ visitors did not buy a guidebook.\nStep 2: The favorable count is $216$ and the total is $360$, giving $\\frac{216}{360}$.\nStep 3: Divide numerator and denominator by $72$: $\\frac{216}{360} = \\frac{3}{5}$. Check: $\\frac{144}{360} = \\frac{2}{5}$, and the two probabilities sum to $1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{5}$): gives the probability that the visitor did not buy a guidebook\n* Choice B ($\\frac{1}{2}$): assumes the two outcomes are equally likely rather than using the counts\n* Choice D ($\\frac{2}{3}$): divides $144$ by $216$ instead of dividing $216$ by the total $360$\n\n**Test Day Takeaway:** Confirm that the categories cover the whole group, then put the favorable count over that whole group."
+  "explanation": "**SAT Pattern: Marginal Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\frac{216}{360} = \\frac{3}{5}$.\n\n**The Full Solution:**\nStep 1: The selection is from all $360$ visitors.\nStep 2: The favorable outcomes are the $216$ visitors who bought a guidebook.\nStep 3: The probability is $\\frac{216}{360} = \\frac{3}{5}$. Check: $\\frac{3}{5}(360) = 216$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{8}$): adds $216$ to $360$ for the denominator, but $360$ already includes the $216$ buyers.\n* Choice B ($\\frac{2}{5}$): is the probability of the opposite event, not buying a guidebook.\n* Choice D ($\\frac{2}{3}$): compares non-buyers to buyers, which is a ratio, not a probability over all visitors.\n\n**Test Day Takeaway:** A probability is favorable outcomes over all outcomes; the \"of the $360$\" total already contains the favorable group."
 }

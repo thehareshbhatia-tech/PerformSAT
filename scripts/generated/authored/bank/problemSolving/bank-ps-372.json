@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-372",
-  "question": "A savings certificate earns simple interest at an annual rate of $4\\%$. The certificate is opened with a deposit of $\\$2{,}500$, and after $t$ years the balance is $\\$2{,}800$. What is the value of $t$?",
+  "question": "An account opened with $\\$2{,}500$ earns $4\\%$ simple annual interest. After $t$ years, its balance is $\\$2{,}800$. What is the value of $t$?",
   "choices": [
     {
       "id": "A",

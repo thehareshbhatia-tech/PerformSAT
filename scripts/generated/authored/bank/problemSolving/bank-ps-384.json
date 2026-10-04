@@ -1,24 +1,24 @@
 {
   "id": "bank-ps-384",
-  "question": "The table classifies the $200$ small mammals live-trapped during one field season by the habitat where each animal was caught and by whether it was recaptured later that season. If one of these animals is selected at random, what is the probability that it was caught in the meadow and recaptured later that season?",
+  "question": "The table shows the number of pies a bakery sold last week, by flavor and size. One of these pies will be selected at random. What is the probability of selecting a small apple pie?",
   "diagram": {
     "type": "twoWayTable",
     "params": {
       "headers": [
         "",
-        "Recaptured",
-        "Not recaptured",
+        "Small",
+        "Large",
         "Total"
       ],
       "rows": [
         [
-          "Meadow",
+          "Apple",
           "54",
           "66",
           "120"
         ],
         [
-          "Forest edge",
+          "Cherry",
           "26",
           "54",
           "80"
@@ -52,9 +52,9 @@
   ],
   "correctAnswer": "A",
   "distractorNotes": {
-    "B": "uses the recapture total over the grand total, $\\frac{80}{200}$, ignoring the habitat",
-    "C": "conditions on the meadow captures, $\\frac{54}{120}$, instead of using all $200$ animals",
-    "D": "conditions on the recaptured animals, $\\frac{54}{80}$, instead of using all $200$ animals"
+    "B": "uses all small pies over the grand total, $\\frac{80}{200}$, ignoring the flavor",
+    "C": "uses only the apple pies as the denominator, $\\frac{54}{120}$, instead of all $200$ pies",
+    "D": "uses only the small pies as the denominator, $\\frac{54}{80}$, instead of all $200$ pies"
   },
-  "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice A is correct.** Of the $200$ animals, $54$ were caught in the meadow and recaptured later, so the probability is $\\frac{54}{200} = \\frac{27}{100}$.\n\n**The Fast Way (~25s):** The favorable cell is $54$ and the whole table is $200$ animals, so the probability is $\\frac{54}{200} = \\frac{27}{100}$.\n\n**The Full Solution:**\n\nStep 1: Identify the favorable outcomes. The cell in the meadow row and the recaptured column contains $54$ animals.\n\nStep 2: Identify the total number of outcomes. The animal is chosen from all $200$ trapped that season, the grand total of the table.\n\nStep 3: Divide and simplify: $\\frac{54}{200} = \\frac{27}{100}$. Check: $\\frac{27}{100} = 0.27$, and $0.27$ of $200$ animals is $54$ animals.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($\\frac{2}{5}$): uses $\\frac{80}{200}$, the probability of a recapture in either habitat, which ignores the meadow condition.\n* Choice C ($\\frac{9}{20}$): uses $\\frac{54}{120}$, the probability of a recapture given a meadow capture. The question does not restrict the selection to meadow animals.\n* Choice D ($\\frac{27}{40}$): uses $\\frac{54}{80}$, the probability of a meadow capture given a recapture, reversing the condition.\n\n**Test Day Takeaway:** In a two-way table, an unrestricted \"selected at random\" always puts the grand total in the denominator; a row or column total belongs there only when the question supplies a \"given\"."
+  "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The small apple cell is $54$ and the table holds $200$ pies, so the probability is $\\frac{54}{200} = \\frac{27}{100}$.\n\n**The Full Solution:**\nStep 1: Find the favorable outcomes: the cell in the apple row and the small column shows $54$ pies.\nStep 2: Find the total: the pie is selected from all $200$ pies, the grand total of the table.\nStep 3: Divide and simplify: $\\frac{54}{200} = \\frac{27}{100}$. Check: $0.27(200) = 54$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{2}{5}$): uses $\\frac{80}{200}$, the probability of selecting any small pie, which ignores the apple condition.\n* Choice C ($\\frac{9}{20}$): uses $\\frac{54}{120}$, the probability that a pie is small given that it is apple. The question does not restrict the selection to apple pies.\n* Choice D ($\\frac{27}{40}$): uses $\\frac{54}{80}$, the probability that a pie is apple given that it is small.\n\n**Test Day Takeaway:** In a two-way table, a selection from all the items puts the grand total in the denominator; a row or column total belongs there only when the question says 'given.'"
 }

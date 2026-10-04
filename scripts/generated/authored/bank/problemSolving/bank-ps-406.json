@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-406",
-  "question": "During drying, the mass of a soil sample decreased from $64$ grams to $48$ grams. What was the percent decrease in the mass of the sample?",
+  "question": "As a soil sample dried, its mass decreased from $80$ grams to $50$ grams. By what percent did the mass of the sample decrease?",
   "choices": [
     {
       "id": "A",
-      "text": "$16\\%$"
+      "text": "$30\\%$"
     },
     {
       "id": "B",
-      "text": "$25\\%$"
+      "text": "$37.5\\%$"
     },
     {
       "id": "C",
-      "text": "$33.3\\%$"
+      "text": "$60\\%$"
     },
     {
       "id": "D",
-      "text": "$75\\%$"
+      "text": "$62.5\\%$"
     }
   ],
   "distractorNotes": {
-    "A": "reports the raw decrease of $16$ grams as if it were a percent",
-    "C": "divides the decrease by the new mass, $\\frac{16}{48}$, instead of by the original mass",
-    "D": "reports the new mass as a percent of the original, $\\frac{48}{64}$"
+    "A": "reports the decrease in grams, $30$, as a percent",
+    "C": "divides the decrease by the new mass, $\\frac{30}{50}$",
+    "D": "divides the new mass by the original mass, $\\frac{50}{80}$, which is the percent remaining"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Percent Decrease**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The decrease is $64 - 48 = 16$ grams, and $\\frac{16}{64} = 0.25$, or $25\\%$.\n\n**The Full Solution:**\nStep 1: Percent decrease is $\\frac{\\text{decrease}}{\\text{original}} \\times 100\\%$.\nStep 2: The decrease is $64 - 48 = 16$ grams and the original mass is $64$ grams.\nStep 3: $\\frac{16}{64} = 0.25 = 25\\%$. Check: $25\\%$ of $64$ is $16$, and $64 - 16 = 48$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($16\\%$): reports the raw decrease of $16$ grams as if it were a percent\n* Choice C ($33.3\\%$): divides the decrease by the new mass, $\\frac{16}{48}$, instead of by the original mass\n* Choice D ($75\\%$): reports the new mass as a percent of the original, $\\frac{48}{64}$\n\n**Test Day Takeaway:** The denominator of a percent change is always the value you started from."
+  "explanation": "**SAT Pattern: Percent Decrease**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\frac{80 - 50}{80} = \\frac{30}{80} = 0.375$, a $37.5\\%$ decrease.\n\n**The Full Solution:**\nStep 1: The decrease is $80 - 50 = 30$ grams.\nStep 2: Divide by the original mass: $\\frac{30}{80} = 0.375$.\nStep 3: That is a $37.5\\%$ decrease. Check: $80(1 - 0.375) = 80(0.625) = 50$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($30\\%$): is the decrease in grams, not a percent of anything.\n* Choice C ($60\\%$): divides the decrease by the new mass, $\\frac{30}{50}$, instead of the original mass.\n* Choice D ($62.5\\%$): is the percent of the original mass that remains, $\\frac{50}{80}$.\n\n**Test Day Takeaway:** Percent decrease $= \\frac{\\text{decrease}}{\\text{original}} \\times 100$; the original value is always the denominator."
 }

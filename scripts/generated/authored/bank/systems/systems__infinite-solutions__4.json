@@ -1,30 +1,30 @@
 {
   "id": 4,
-  "question": "A student solves a system of two linear equations by elimination. After combining the equations, both variables drop out and the result is the true statement $0 = 0$. Which statement about the system must be true?",
+  "question": "$2x - 5y = 3$\n$-6x + 15y = -9$\nThe point $(a, 3)$ is a solution to the given system of equations. What is the value of $a$?",
   "choices": [
     {
       "id": "A",
-      "text": "The system has no solution."
+      "text": "$-6$"
     },
     {
       "id": "B",
-      "text": "The system has exactly one solution."
+      "text": "$3$"
     },
     {
       "id": "C",
-      "text": "The system has infinitely many solutions."
+      "text": "$9$"
     },
     {
       "id": "D",
-      "text": "The system has exactly two solutions."
+      "text": "$18$"
     }
   ],
   "distractorNotes": {
-    "A": "no solution shows up as a false statement such as $0 = 7$, not as a true one.",
-    "B": "exactly one solution appears when elimination leaves a single variable with a single value, such as $5y = 20$.",
-    "D": "a system of two linear equations can never have exactly two solutions."
+    "A": "subtracts $15$ from $3$ instead of adding, solving $2a = -12$.",
+    "B": "reads the $3$ in $(a, 3)$ as the value of $a$, mixing up the two coordinates.",
+    "D": "reaches $2a = 18$ but stops before dividing by $2$."
   },
   "correctAnswer": "C",
-  "hint": "Ask whether the surviving statement is always true or never true.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** Both variables vanishing into a true statement means the second equation adds nothing new, so every solution of one equation solves the other.\n\n**The Full Solution:**\nStep 1: Elimination combines the two equations. If both variables cancel, the second equation carried no information beyond the first.\nStep 2: The leftover statement $0 = 0$ is true for every $x$ and $y$, so no ordered pair is ruled out by the combination.\nStep 3: The two equations therefore describe the same line, and every point on that line solves the system, giving infinitely many solutions. Check: eliminating between $x + 2y = 5$ and $3x + 6y = 15$ produces $0 = 0$, and those equations are multiples of each other. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: no solution shows up as a false statement such as $0 = 7$, not as a true one.\n* Choice B: exactly one solution appears when elimination leaves a single variable with a single value, such as $5y = 20$.\n* Choice D: a system of two linear equations can never have exactly two solutions.\n\n**Test Day Takeaway:** When elimination erases both variables, read the leftover statement: true means infinitely many solutions, false means none."
+  "hint": "Compare the two equations before doing any elimination.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** The second equation is $-3$ times the first, so any point on the first line is a solution. Then $2a - 5(3) = 3$ gives $a = 9$.\n\n**The Full Solution:**\nStep 1: Multiplying $2x - 5y = 3$ by $-3$ gives $-6x + 15y = -9$, so the two equations describe the same line and the system has infinitely many solutions. Eliminating $x$ would leave only $0 = 0$.\nStep 2: So $(a, 3)$ is a solution exactly when it lies on the line $2x - 5y = 3$: $2a - 5(3) = 3$, or $2a - 15 = 3$.\nStep 3: Add $15$ and divide by $2$: $2a = 18$, so $a = 9$. Check: $-6(9) + 15(3) = -54 + 45 = -9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): subtracts $15$ from $3$ instead of adding, solving $2a = -12$.\n* Choice B ($3$): reads the $3$ in $(a, 3)$ as the value of $a$, mixing up the two coordinates.\n* Choice D ($18$): reaches $2a = 18$ but stops before dividing by $2$.\n\n**Test Day Takeaway:** When elimination would wipe out both variables, the equations are the same line; a single equation then pins down the missing coordinate."
 }

@@ -1,6 +1,6 @@
 {
   "id": 3,
-  "question": "A random sample of $800$ residents of a town were asked which of three transit options they prefer. The table gives the number of sampled residents who chose each option. Based on this sample, which of the following is the best estimate of the number of the town’s $26{,}000$ residents who prefer option B?",
+  "question": "A random sample of $800$ residents of a town were asked which of three transit options they prefer. The table shows the number of sampled residents who chose each option. Based on this sample, which of the following is the best estimate of the number of the town’s $26{,}000$ residents who prefer option B?",
   "diagram": {
     "type": "dataTable",
     "params": {
