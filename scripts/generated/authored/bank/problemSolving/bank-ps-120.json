@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-120",
-  "question": "At a conservatory, the ratio of the number of ferns to the number of orchids to the number of succulents is $5 : 3 : 7$, respectively. The conservatory has $450$ of these plants in all. How many more succulents than ferns are there?",
+  "question": "A garden has ferns, orchids, and succulents in the ratio $5 : 3 : 7$, respectively. There are $450$ of these plants in all. How many more succulents than ferns are there?",
   "choices": [
     {
       "id": "A",
@@ -20,7 +20,7 @@
     }
   ],
   "distractorNotes": {
-    "A": "30 is one part, as if the difference were 7 - 5 = 1 part",
+    "A": "30 is the size of one part, not the 7 - 5 = 2 parts by which succulents exceed ferns",
     "C": "120 is 4 parts, the gap between the succulents and the orchids",
     "D": "210 is the number of succulents, not the difference"
   },

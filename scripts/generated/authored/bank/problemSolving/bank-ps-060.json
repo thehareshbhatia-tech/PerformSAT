@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-060",
-  "question": "A photocopier prints at a constant rate of $45$ pages per minute. How many minutes does the photocopier take to print $150$ copies of a $24$-page report?",
+  "question": "A copier prints $45$ pages per minute. How many minutes does it take the copier to print $150$ copies of a $24$-page report?",
   "choices": [
     {
       "id": "A",

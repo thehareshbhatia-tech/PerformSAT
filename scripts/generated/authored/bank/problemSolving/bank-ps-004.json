@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-004",
-  "question": "A researcher reports that the proportion of a fish population carrying a particular gene variant is $0.0042$. Which of the following is this proportion expressed as a percent?",
+  "question": "$p\\%$ of $500$ is $2.1$. What is the value of $p$?",
   "choices": [
     {
       "id": "A",
-      "text": "$0.0042\\%$"
+      "text": "$0.0042$"
     },
     {
       "id": "B",
-      "text": "$0.042\\%$"
+      "text": "$0.042$"
     },
     {
       "id": "C",
-      "text": "$0.42\\%$"
+      "text": "$0.42$"
     },
     {
       "id": "D",
-      "text": "$4.2\\%$"
+      "text": "$4.2$"
     }
   ],
   "distractorNotes": {
-    "A": "attaches a percent sign without moving the decimal point.",
-    "B": "moves the decimal point only one place to the right.",
-    "D": "moves the decimal point three places, treating $0.0042$ as if it were $0.042$."
+    "A": "computes the fraction $\\frac{2.1}{500} = 0.0042$ but never converts it to a percent.",
+    "B": "converts $0.0042$ by multiplying by $10$ instead of $100$, moving the decimal point only one place.",
+    "D": "converts $0.0042$ by multiplying by $1{,}000$, moving the decimal point three places instead of two."
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Small-Value Decimal to Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Multiply by $100$: $0.0042 \\times 100 = 0.42$, so the proportion is $0.42\\%$.\n\n**The Full Solution:**\nStep 1: To express a proportion as a percent, multiply by $100$, which moves the decimal point exactly two places to the right.\nStep 2: $0.0042 \\to 0.042 \\to 0.42$, so the proportion is $0.42\\%$. The leading zeros are what make this easy to miscount.\nStep 3: Check: $0.42\\% = \\frac{0.42}{100} = 0.0042$. $\\checkmark$ (Also reasonable: $0.0042$ is a little less than $\\frac{1}{200} = 0.5\\%$.)\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.0042\\%$): attaches a percent sign without moving the decimal point.\n* Choice B ($0.042\\%$): moves the decimal point only one place to the right.\n* Choice D ($4.2\\%$): moves the decimal point three places, treating $0.0042$ as if it were $0.042$.\n\n**Test Day Takeaway:** Leading zeros do not change the rule: count exactly two places to the right. Sanity-check against a benchmark such as $0.005 = 0.5\\%$."
+  "explanation": "**SAT Pattern: Small-Value Decimal to Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\frac{p}{100}(500) = 2.1$ gives $5p = 2.1$, so $p = 0.42$.\n\n**The Full Solution:**\nStep 1: Write the statement as an equation: $\\frac{p}{100} \\cdot 500 = 2.1$, which simplifies to $5p = 2.1$.\nStep 2: Divide by $5$: $p = 0.42$. Equivalently, $\\frac{2.1}{500} = 0.0042$, and $0.0042 \\times 100 = 0.42$.\nStep 3: Check: $0.42\\%$ of $500$ is $0.0042 \\times 500 = 2.1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.0042$): computes the fraction $\\frac{2.1}{500} = 0.0042$ but never converts it to a percent.\n* Choice B ($0.042$): converts $0.0042$ by multiplying by $10$ instead of $100$, moving the decimal point only one place.\n* Choice D ($4.2$): converts $0.0042$ by multiplying by $1{,}000$, moving the decimal point three places instead of two.\n\n**Test Day Takeaway:** A tiny fraction becomes a percent less than $1$: $0.0042$ is $0.42\\%$. Write \"$p\\%$ of\" as $\\frac{p}{100} \\times$ and solve, rather than shifting decimal points by eye."
 }

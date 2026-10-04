@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-045",
-  "question": "The lengths of the adult beetles of a certain species are approximately normally distributed with a mean of $12.0$ millimeters and a standard deviation of $1.5$ millimeters. Approximately what percent of these beetles have lengths between $10.5$ millimeters and $15.0$ millimeters?",
+  "question": "The lengths, in millimeters, of adult beetles of a certain species are approximately normally distributed with a mean of $12.0$ and a standard deviation of $1.5$. Which of the following is closest to the percent of these beetles with lengths between $10.5$ and $15.0$ millimeters?",
   "choices": [
     {
       "id": "A",

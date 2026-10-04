@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-295",
-  "question": "A paving crew places concrete continuously at a rate of $18$ cubic yards per hour, where $1$ cubic yard equals $27$ cubic feet. At this rate, how many cubic feet of concrete does the crew place in $25$ minutes?",
+  "question": "Concrete is poured at a constant rate of $18$ cubic yards per hour. What is the volume, in cubic feet, of the concrete poured in $25$ minutes? ($1$ cubic yard $= 27$ cubic feet)",
   "choices": [
     {
       "id": "A",

@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-089",
-  "question": "The scatterplot shows the number of chirps $y$ per minute produced by a cricket at a temperature of $x$ degrees Celsius, along with the line of best fit $\\hat{y} = 2.5x + 9$. The highlighted data point has $x = 14$ and a residual of $-4$. What is the $y$-value of the highlighted data point?",
+  "question": "The scatterplot shows the temperature $x$, in degrees Celsius, and the number of chirps per minute $y$ made by a cricket on each of $7$ evenings. The line of best fit, $y = 2.5x + 9$, is also shown. A new data point with an $x$-value of $14$ is added, and its residual is $-4$. What is the $y$-value of the new data point?",
   "diagram": {
     "type": "scatterplot",
     "params": {
@@ -47,15 +47,9 @@
       "bestFitLine": {
         "slope": 2.5,
         "intercept": 9
-      },
-      "highlightPoint": [
-        14,
-        40
-      ],
-      "highlightLabel": "residual = -4",
-      "showResidual": true
+      }
     }
   },
   "correctAnswer": "40",
-  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~15s):** The line predicts $\\hat{y} = 2.5(14) + 9 = 44$, and a residual of $-4$ puts the point $4$ below that: $44 - 4 = 40$.\n\n**The Full Solution:**\nStep 1: Residual $= y - \\hat{y}$, so $y = \\hat{y} + \\text{residual}$.\nStep 2: At $x = 14$: $\\hat{y} = 2.5(14) + 9 = 35 + 9 = 44$ chirps per minute.\nStep 3: $y = 44 + (-4) = 40$ chirps per minute.\nCheck: $40 - 44 = -4$, the given residual. $\\checkmark$\n\n**Common Mistakes:** Adding the residual with the wrong sign, giving $44 + 4 = 48$; reporting the predicted value $44$; substituting the residual for $y$ and solving $2.5x + 9 = -4$, which gives $x = -5.2$.\n\n**Test Day Takeaway:** Rearrange the definition once: actual $=$ predicted $+$ residual, and keep the residual's sign."
+  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is 40.**\n\n**The Fast Way (~15s):** The line predicts $2.5(14) + 9 = 44$, and a residual of $-4$ puts the point $4$ below that: $44 - 4 = 40$.\n\n**The Full Solution:**\nStep 1: Residual $=$ actual $-$ predicted, so actual $=$ predicted $+$ residual.\nStep 2: At $x = 14$, the line predicts $y = 2.5(14) + 9 = 35 + 9 = 44$.\nStep 3: The actual value is $44 + (-4) = 40$. Check: $40 - 44 = -4$, the given residual ✓\n\n**Common Mistakes:**\n* $48$: adds the residual with the wrong sign, $44 + 4$.\n* $44$: reports the predicted value.\n* $31$: drops the intercept, computing $2.5(14) - 4$.\n\n**Test Day Takeaway:** Rearrange the definition once, actual $=$ predicted $+$ residual, and keep the residual's sign."
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-234",
-  "question": "Researchers randomly assigned $180$ seedlings of the same species to be grown under one of two light schedules. After ten weeks, the seedlings grown under schedule 1 were on average taller than those grown under schedule 2. Which conclusion is best supported by these results?",
+  "question": "Researchers randomly assigned $180$ tomato seedlings to grow under one of two light schedules. After ten weeks, the seedlings under schedule 1 were taller, on average, than those under schedule 2. Which conclusion is best supported by these results?",
   "choices": [
     {
       "id": "A",
@@ -12,7 +12,7 @@
     },
     {
       "id": "C",
-      "text": "Every seedling grown under schedule 1 was taller than every seedling grown under schedule 2."
+      "text": "Every seedling under schedule 1 was taller than every seedling under schedule 2."
     },
     {
       "id": "D",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "B": "reverses the direction of the design; assignment was random and came first",
-    "C": "turns a difference in averages into a claim about every individual",
-    "D": "generalizes beyond the species and conditions actually studied"
+    "B": "ignores that random assignment makes the two groups comparable at the start",
+    "C": "turns a difference in averages into a claim about every individual seedling",
+    "D": "extends the result to all species and conditions, far beyond the tomato seedlings studied"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Seedlings were randomly assigned to the light schedules, so this is an experiment and a cause-and-effect conclusion about these seedlings is supported.\n\n**The Full Solution:**\nStep 1: Identify the design. Random assignment to treatments makes this a controlled experiment.\nStep 2: Random assignment makes the two groups similar at the start, so the light schedule is the plausible explanation for the later difference in average height.\nStep 3: The conclusion must stay within the study: these seedlings, of this species, over ten weeks. Choice A does exactly that. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: reverses cause and effect; the seedlings were assigned before any height difference existed.\n* Choice C: a difference in group averages does not mean every individual in one group exceeds every individual in the other.\n* Choice D: extends the result to species and conditions the experiment never included.\n\n**Test Day Takeaway:** Random assignment buys causation, but only for the population and treatments the study actually used."
+  "explanation": "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The seedlings were randomly assigned to schedules, so this is an experiment, and the difference in average height can be attributed to the schedule.\n\n**The Full Solution:**\nStep 1: Identify the design. The researchers assigned the schedules at random, which makes the two groups alike, on average, before the treatment.\nStep 2: With comparable groups, a difference in average height after ten weeks can be credited to the light schedule.\nStep 3: The conclusion stays with the seedlings in the study and with averages, which is exactly what Choice A says ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: random assignment is what prevents taller seedlings from being placed in one group.\n* Choice C: a higher average does not mean every individual in one group beat every individual in the other.\n* Choice D: the study used one species under one set of conditions, so it says nothing about all plants.\n\n**Test Day Takeaway:** Random assignment earns a cause-and-effect conclusion, but only about averages and only for the kind of subjects studied."
 }

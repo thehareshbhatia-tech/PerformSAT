@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-203",
-  "question": "The two-way table gives the number of visitors to a museum over one weekend, classified by ticket type and day. If one of these visitors is selected at random, what is the probability of selecting a visitor who purchased a student ticket?",
+  "question": "The table shows the number of visitors to a museum over one weekend, by ticket type and day. If one of these visitors is selected at random, what is the probability of selecting a visitor who purchased a student ticket?",
   "diagram": {
     "type": "twoWayTable",
     "params": {

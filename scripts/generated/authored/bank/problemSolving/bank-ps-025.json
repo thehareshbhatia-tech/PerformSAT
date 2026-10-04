@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-025",
-  "question": "A biologist recorded the masses of $8$ frogs, and the mean mass was $62$ grams. After the mass of a ninth frog was recorded, the mean mass of the $9$ frogs was $64$ grams. What is the mass, in grams, of the ninth frog?",
+  "question": "$52, 57, 60, 63, 68$\nWhen a number $x$ is added to the data set shown, the mean increases by $3$. What is the value of $x$?",
   "choices": [
     {
       "id": "A",
-      "text": "$64$"
+      "text": "$15$"
     },
     {
       "id": "B",
-      "text": "$78$"
+      "text": "$63$"
     },
     {
       "id": "C",
-      "text": "$80$"
+      "text": "$75$"
     },
     {
       "id": "D",
-      "text": "$82$"
+      "text": "$78$"
     }
   ],
   "distractorNotes": {
-    "A": "assumes the added value equals the new mean; a value equal to the new mean would not have raised the mean from $62$.",
-    "B": "adds the $8 \\times 2 = 16$ extra grams to the old mean ($62$) instead of to the new mean ($64$).",
-    "D": "multiplies the $2$-gram shift by $9$ (the new count) instead of by the $8$ original values."
+    "A": "multiplies the new mean by $5$ instead of $6$, computing $5(63) - 300 = 15$; the new data set has $6$ values.",
+    "B": "reports the new mean, $60 + 3$, as the added number.",
+    "C": "adds $3$ for each of the $5$ original values, $60 + 5(3)$, forgetting that $x$ must also raise its own share of the mean."
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Missing Value from Mean Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Convert both means to totals: $8 \\times 62 = 496$ before and $9 \\times 64 = 576$ after. The ninth frog is the difference, $576 - 496 = 80$ grams.\n\n**The Full Solution:**\nStep 1: Mean $\\times$ count $=$ sum. Before: $8 \\times 62 = 496$ grams.\nStep 2: After: $9 \\times 64 = 576$ grams. The ninth mass is $576 - 496 = 80$ grams.\nStep 3: Check with the shift shortcut: the new frog must supply the new mean ($64$) plus $2$ extra grams for each of the $8$ original frogs: $64 + 8 \\times 2 = 80$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($64$): assumes the added value equals the new mean; a value equal to the new mean would not have raised the mean from $62$.\n* Choice B ($78$): adds the $8 \\times 2 = 16$ extra grams to the old mean ($62$) instead of to the new mean ($64$).\n* Choice D ($82$): multiplies the $2$-gram shift by $9$ (the new count) instead of by the $8$ original values.\n\n**Test Day Takeaway:** Convert every mean to a sum. The new value is (new sum) $-$ (old sum), or equivalently new mean $+$ (old count)(shift)."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Missing Value from Mean Shift**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The original sum is $300$, so the mean is $60$; the new mean is $63$, so the new sum is $6 \\times 63 = 378$ and $x = 378 - 300 = 78$.\n\n**The Full Solution:**\nStep 1: The data set shown has $5$ values with sum $52 + 57 + 60 + 63 + 68 = 300$, so its mean is $\\frac{300}{5} = 60$.\nStep 2: After $x$ is added, there are $6$ values with mean $60 + 3 = 63$, so their sum is $6 \\times 63 = 378$.\nStep 3: So $x = 378 - 300 = 78$. Check: $\\frac{300 + 78}{6} = \\frac{378}{6} = 63$, which is $3$ more than $60$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): multiplies the new mean by $5$ instead of $6$, computing $5(63) - 300 = 15$; the new data set has $6$ values.\n* Choice B ($63$): reports the new mean, $60 + 3$, as the added number.\n* Choice C ($75$): adds $3$ for each of the $5$ original values, $60 + 5(3)$, forgetting that $x$ must also raise its own share of the mean.\n\n**Test Day Takeaway:** Work with sums, not means: (new count)(new mean) $-$ (old sum) gives the added value. Remember that the count goes up by one."
 }

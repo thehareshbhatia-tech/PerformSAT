@@ -1,29 +1,29 @@
 {
- "id": "bank-ps-079",
- "question": "Over a competition a long jumper's six measured jumps averaged $6.35$ meters. The first five measured $6.20$, $6.45$, $6.10$, $6.55$, and $6.30$ meters. What was the length, in meters, of the last jump?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$6.30$"
+  "id": "bank-ps-079",
+  "question": "$6.20$, $6.45$, $6.10$, $6.55$, $6.30$, $x$\nThe mean of the data set shown is $6.35$. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$6.30$"
+    },
+    {
+      "id": "B",
+      "text": "$6.32$"
+    },
+    {
+      "id": "C",
+      "text": "$6.35$"
+    },
+    {
+      "id": "D",
+      "text": "$6.50$"
+    }
+  ],
+  "correctAnswer": "D",
+  "distractorNotes": {
+    "A": "reports the median of the five known values, 6.30",
+    "B": "averages only the five known values, 31.60/5 = 6.32",
+    "C": "assumes the missing value equals the mean, 6.35"
   },
-  {
-   "id": "B",
-   "text": "$6.32$"
-  },
-  {
-   "id": "C",
-   "text": "$6.35$"
-  },
-  {
-   "id": "D",
-   "text": "$6.50$"
-  }
- ],
- "correctAnswer": "D",
- "distractorNotes": {
-  "A": "reports the median of the five listed jumps, $6.30$, instead of the missing sixth",
-  "B": "averages only the five listed jumps, $\\frac{31.60}{5} = 6.32$",
-  "C": "repeats the six-jump average of $6.35$ as the value of the last jump"
- },
- "explanation": "**SAT Pattern: Mean from List**\n\n**Choice D is correct.** Six jumps averaging $6.35$ meters total $38.10$ meters, and the first five total $31.60$ meters, so the last jump was $6.50$ meters.\n\n**The Fast Way (~40s):** $6(6.35) = 38.10$ and $6.20+6.45+6.10+6.55+6.30=31.60$, so the last jump is $38.10-31.60=6.50$ meters.\n\n**The Full Solution:**\n\nStep 1: Convert the average into a total. Six jumps at a mean of $6.35$ meters give $6(6.35) = 38.10$ meters.\n\nStep 2: Add the five known jumps: $6.20+6.45+6.10+6.55+6.30=31.60$ meters.\n\nStep 3: Subtract: $38.10-31.60=6.50$ meters. Check: $\\frac{31.60 + 6.50}{6} = \\frac{38.10}{6} = 6.35$ meters.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($6.30$): is the median of the five listed jumps, a measure of center rather than the missing value.\n* Choice B ($6.32$): averages the five listed jumps. The stated mean covers all six.\n* Choice C ($6.35$): copies the overall mean. A single jump equals the mean only by coincidence.\n\n**Test Day Takeaway:** Multiply the mean by the full count first -- the missing entry is always the required total minus everything you can read."
+  "explanation": "**SAT Pattern: Mean from List**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The six values sum to $6(6.35) = 38.10$, and the five known values sum to $31.60$, so $x = 38.10 - 31.60 = 6.50$.\n\n**The Full Solution:**\nStep 1: Turn the mean into a sum: six values with a mean of $6.35$ sum to $6(6.35) = 38.10$.\nStep 2: Add the five known values: $6.20+6.45+6.10+6.55+6.30=31.60$.\nStep 3: Subtract: $x = 38.10 - 31.60 = 6.50$. Check: $\\frac{31.60 + 6.50}{6} = \\frac{38.10}{6} = 6.35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6.30$): is the median of the five known values, not the missing value.\n* Choice B ($6.32$): is the mean of the five known values. The given mean includes $x$.\n* Choice C ($6.35$): assumes the missing value equals the mean, which would be true only if the other five values averaged $6.35$.\n\n**Test Day Takeaway:** Multiply the mean by the full count first; the missing value is the required sum minus the sum of the values you know."
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-032",
-  "question": "The dot plot shows the number of customers served at a kiosk during each of $8$ one-hour periods. What is the median number of customers served per one-hour period?",
+  "question": "The dot plot shows the number of customers a kiosk served during each of $8$ one-hour periods. What is the median number of customers served per hour?",
   "diagram": {
     "type": "dotPlot",
     "params": {

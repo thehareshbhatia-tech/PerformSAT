@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-102",
-  "question": "The table summarizes the $320$ flights scheduled to depart from an airport on one day by aircraft type and by departure status. One of the delayed flights will be selected at random. What is the probability of selecting a flight flown by a regional jet?",
+  "question": "The table shows the distribution of $320$ flights scheduled to leave an airport on one day by airline and by status. One of the delayed flights will be selected at random. What is the probability of selecting a flight operated by airline A?",
   "diagram": {
     "type": "twoWayTable",
     "params": {
@@ -13,14 +13,14 @@
       ],
       "rows": [
         [
-          "Regional jet",
+          "Airline A",
           "96",
           "42",
           "12",
           "150"
         ],
         [
-          "Narrow-body",
+          "Airline B",
           "128",
           "34",
           "8",
@@ -56,9 +56,9 @@
   ],
   "distractorNotes": {
     "A": "42/320, divides by all flights",
-    "B": "42/150, conditions on regional jet instead of delayed",
-    "C": "34/76, the narrow-body share of the delayed flights"
+    "B": "42/150, conditions on airline A instead of on delayed flights",
+    "C": "34/76, the airline B share of the delayed flights"
   },
   "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The delayed column totals $76$, of which $42$ are regional jets: $\\dfrac{42}{76} = \\dfrac{21}{38}$.\n\n**The Full Solution:**\nStep 1: The flight is chosen from the delayed flights, so the denominator is the delayed column total, $76$.\nStep 2: Of those, the regional-jet cell holds $42$ flights.\nStep 3: The probability is $\\dfrac{42}{76} = \\dfrac{21}{38}$.\nCheck: $42 + 34 = 76$, so the two aircraft types account for the whole delayed column. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{21}{160}$): This is $\\dfrac{42}{320}$, the probability that a randomly selected flight is both delayed and a regional jet.\n* Choice B ($\\frac{7}{25}$): This is $\\dfrac{42}{150}$, which conditions on regional jets and gives the probability that a regional jet was delayed.\n* Choice C ($\\frac{17}{38}$): This is $\\dfrac{34}{76}$, the probability that a delayed flight was narrow-body — the other part of the same column.\n\n**Test Day Takeaway:** Conditioning on a column makes that column's total the denominator; the row you want supplies the numerator."
+  "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The delayed column totals $76$, of which $42$ are airline A flights: $\\dfrac{42}{76} = \\dfrac{21}{38}$.\n\n**The Full Solution:**\nStep 1: The flight is chosen from the delayed flights, so the denominator is the delayed column total, $76$.\nStep 2: Of those, the airline A cell holds $42$ flights.\nStep 3: The probability is $\\dfrac{42}{76} = \\dfrac{21}{38}$.\nCheck: $42 + 34 = 76$, so the two airlines account for the whole delayed column. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{21}{160}$): This is $\\dfrac{42}{320}$, the probability that a randomly selected flight is both delayed and operated by airline A.\n* Choice B ($\\frac{7}{25}$): This is $\\dfrac{42}{150}$, which conditions on airline A and gives the probability that an airline A flight was delayed.\n* Choice C ($\\frac{17}{38}$): This is $\\dfrac{34}{76}$, the probability that a delayed flight was operated by airline B, the other part of the same column.\n\n**Test Day Takeaway:** Conditioning on a column makes that column's total the denominator; the row you want supplies the numerator."
 }

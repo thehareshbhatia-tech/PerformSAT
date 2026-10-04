@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-297",
-  "question": "Three machines fill bottles at the constant rates given in the table. If all three machines operate simultaneously at these rates, how many bottles do the machines fill in $1$ hour? ($1$ hour $= 3{,}600$ seconds.)",
+  "question": "The table shows the constant rate at which each of three machines fills bottles. If all three machines operate at the same time, how many bottles do they fill in $1$ hour?",
   "diagram": {
     "type": "dataTable",
     "params": {

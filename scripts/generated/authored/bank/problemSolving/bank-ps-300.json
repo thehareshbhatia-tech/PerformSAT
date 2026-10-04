@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-300",
-  "question": "The table gives the volume and the acid concentration, by volume, of each of two solutions. The two solutions are combined to form a new solution. What is the acid concentration, by volume, of the new solution?",
+  "question": "The table shows the volume and the acid concentration, by volume, of each of two solutions. If the two solutions are combined, what is the acid concentration, by volume, of the new solution?",
   "diagram": {
     "type": "dataTable",
     "params": {

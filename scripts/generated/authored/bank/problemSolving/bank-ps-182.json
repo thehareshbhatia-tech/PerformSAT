@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-182",
-  "question": "A questionnaire was sent to $k$ employees of a company, and $30\\%$ of these employees returned the questionnaire. If $51$ employees returned the questionnaire, what is the value of $k$?",
+  "question": "A questionnaire was sent to $k$ employees, and $30\\%$ of them returned it. If $51$ employees returned the questionnaire, what is the value of $k$?",
   "choices": [
     {
       "id": "A",

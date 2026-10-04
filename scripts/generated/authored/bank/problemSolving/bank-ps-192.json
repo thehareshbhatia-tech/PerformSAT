@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-192",
-  "question": "The mass of a scaled-up batch of dough is $16\\%$ greater than the mass of the original batch. If the original batch has a mass of $75$ grams, what is the mass, in grams, of the scaled-up batch?",
+  "question": "$x$ is $18\\%$ greater than $150$. What is the value of $x$?",
   "choices": [
     {
       "id": "A",
-      "text": "$12$"
+      "text": "$27$"
     },
     {
       "id": "B",
-      "text": "$87$"
+      "text": "$123$"
     },
     {
       "id": "C",
-      "text": "$91$"
+      "text": "$168$"
     },
     {
       "id": "D",
-      "text": "$120$"
+      "text": "$177$"
     }
   ],
   "distractorNotes": {
-    "A": "reports only the 16% increase (0.16 × 75)",
-    "C": "adds 16 grams instead of 16%",
-    "D": "multiplies by 1.6 instead of 1.16"
+    "A": "reports only the 18% increase (0.18 × 150)",
+    "B": "finds the number 18% less than 150 (0.82 × 150)",
+    "C": "adds 18 instead of 18% of 150"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Percent of a Number**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"$16\\%$ greater\" means multiply by $1.16$: $1.16 \\times 75 = 87$.\n\n**The Full Solution:**\nStep 1: The increase is $16\\%$ of $75$: $0.16 \\times 75 = 12$ grams.\nStep 2: Add the increase to the original: $75 + 12 = 87$ grams.\nStep 3: Check with one factor: $75 \\times 1.16 = 87$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): reports only the increase, $0.16 \\times 75$, not the new mass.\n* Choice C ($91$): adds $16$ grams instead of $16\\%$ of $75$ grams.\n* Choice D ($120$): multiplies by $1.6$ instead of $1.16$, a $60\\%$ increase.\n\n**Test Day Takeaway:** \"$p\\%$ greater than\" a value is $\\left(1 + \\frac{p}{100}\\right)$ times that value — one multiplication, with the $1$ carrying the original amount."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Percent of a Number**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** \"$18\\%$ greater\" means multiply by $1.18$: $1.18 \\times 150 = 177$.\n\n**The Full Solution:**\nStep 1: The increase is $18\\%$ of $150$: $0.18 \\times 150 = 27$.\nStep 2: Add the increase to the original value: $150 + 27 = 177$.\nStep 3: Check with one factor: $150 \\times 1.18 = 177$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($27$): reports only the increase, $0.18 \\times 150$, not the new value.\n* Choice B ($123$): subtracts the increase, $150 - 27$, which is $18\\%$ less than $150$.\n* Choice C ($168$): adds $18$ instead of $18\\%$ of $150$.\n\n**Test Day Takeaway:** \"$p\\%$ greater than\" a value is $\\left(1 + \\frac{p}{100}\\right)$ times that value — one multiplication, with the $1$ carrying the original amount."
 }

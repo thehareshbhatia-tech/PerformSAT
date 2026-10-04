@@ -1,52 +1,52 @@
 {
- "id": "bank-ps-225",
- "question": "The table shows the number of individuals tagged during a coastal survey. The number of tagged sea otters is $20\\%$ of the number of tagged harbor seals. Tagged sea otters are what percent of tagged Steller sea lions?",
- "diagram": {
-  "type": "dataTable",
-  "params": {
-   "headers": [
-    "Species",
-    "Individuals tagged"
-   ],
-   "rows": [
-    [
-     "Harbor seal",
-     "120"
-    ],
-    [
-     "Steller sea lion",
-     "480"
-    ],
-    [
-     "Northern fur seal",
-     "300"
-    ]
-   ]
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$5\\%$"
+  "id": "bank-ps-225",
+  "question": "The table shows the number of animals of three species tagged during a survey. The number of sea otters tagged was $20\\%$ of the number of harbor seals tagged. The number of sea otters tagged was what percent of the number of sea lions tagged?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "Species",
+        "Number tagged"
+      ],
+      "rows": [
+        [
+          "Harbor seal",
+          "120"
+        ],
+        [
+          "Sea lion",
+          "480"
+        ],
+        [
+          "Fur seal",
+          "300"
+        ]
+      ]
+    }
   },
-  {
-   "id": "B",
-   "text": "$20\\%$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$5\\%$"
+    },
+    {
+      "id": "B",
+      "text": "$20\\%$"
+    },
+    {
+      "id": "C",
+      "text": "$25\\%$"
+    },
+    {
+      "id": "D",
+      "text": "$45\\%$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "repeats the given percent, which compares otters with harbor seals rather than sea lions",
+    "C": "reports harbor seals as a percent of sea lions, 120/480 = 25%",
+    "D": "adds the two link percents, 20 + 25, instead of multiplying them"
   },
-  {
-   "id": "C",
-   "text": "$25\\%$"
-  },
-  {
-   "id": "D",
-   "text": "$45\\%$"
-  }
- ],
- "correctAnswer": "A",
- "distractorNotes": {
-  "B": "repeats the given percent, which compares otters with harbor seals rather than sea lions",
-  "C": "reports $\\frac{120}{480} = 25\\%$, harbor seals as a percent of sea lions",
-  "D": "adds the two link percents, $20 + 25$, instead of multiplying the relationships"
- },
- "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**Choice A is correct.** There are $0.20(120) = 24$ tagged sea otters, and $\\frac{24}{480} = 0.05$, or $5\\%$.\n\n**The Fast Way (~30s):** Otters are $20\\%$ of $120$, or $24$; sea lions number $480$, so $\\frac{24}{480} = 5\\%$.\n\n**The Full Solution:**\n\nStep 1: Find the number of tagged sea otters. It is $20\\%$ of the $120$ tagged harbor seals: $0.20(120) = 24$.\n\nStep 2: Read the number of tagged Steller sea lions from the table: $480$.\n\nStep 3: Write the comparison as a percent: $\\frac{24}{480} = 0.05$, so tagged sea otters are $5\\%$ of tagged Steller sea lions. Check: $5\\%$ of $480$ is $24$, the otter count from Step 1.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($20\\%$): repeats the percent given in the question, which compares otters with harbor seals, not with sea lions.\n* Choice C ($25\\%$): computes $\\frac{120}{480} = 25\\%$, harbor seals as a percent of sea lions, skipping the otter step entirely.\n* Choice D ($45\\%$): adds the two percents, $20\\% + 25\\%$. Chained percents multiply, and $0.20(0.25) = 0.05$.\n\n**Test Day Takeaway:** A chain of percents composes by multiplication -- convert the first link to a count and the second comparison becomes a single division."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Sea otters: $0.20 \\times 120 = 24$. Then $\\frac{24}{480} = 0.05$, or $5\\%$.\n\n**The Full Solution:**\nStep 1: Read the table: $120$ harbor seals and $480$ sea lions were tagged.\nStep 2: Find the sea otters: $20\\%$ of $120$ is $0.20 \\times 120 = 24$.\nStep 3: Compare with the sea lions: $\\frac{24}{480} = 0.05 = 5\\%$. Check by chaining the links: $0.20 \\times \\frac{120}{480} = 0.20 \\times 0.25 = 0.05$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($20\\%$): repeats the given percent, which compares otters with harbor seals, not with sea lions.\n* Choice C ($25\\%$): finds harbor seals as a percent of sea lions and stops one link short.\n* Choice D ($45\\%$): adds the two link percents; percents of different wholes multiply.\n\n**Test Day Takeaway:** Change the base one link at a time: a percent of a percent multiplies."
 }

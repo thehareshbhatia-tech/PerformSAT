@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-046",
-  "question": "A random sample of $900$ adults in a county was surveyed, and $62\\%$ of those surveyed reported getting news primarily from online sources, with an associated margin of error of $3.2\\%$. Which of the following is the most appropriate conclusion based on this survey?",
+  "question": "A random sample of $900$ adults in a county were surveyed, and $62\\%$ of them said they get news primarily from online sources. The margin of error for this estimate is $3.2\\%$. Which of the following is the most appropriate conclusion?",
   "choices": [
     {
       "id": "A",

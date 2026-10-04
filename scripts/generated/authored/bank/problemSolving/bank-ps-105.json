@@ -1,30 +1,30 @@
 {
   "id": "bank-ps-105",
-  "question": "The table summarizes the $500$ soil samples collected in a watershed by land use and by whether the sample's phosphorus level exceeded a threshold. One of the samples whose phosphorus level exceeded the threshold will be selected at random. What is the probability of selecting a sample that was not collected from cropland?",
+  "question": "The table shows the distribution of $500$ apples from three orchards by orchard and by whether the apple was bruised. One of the bruised apples will be selected at random. What is the probability of selecting an apple that was not from orchard A?",
   "diagram": {
     "type": "twoWayTable",
     "params": {
       "headers": [
         "",
-        "Exceeded",
-        "Did not exceed",
+        "Bruised",
+        "Not bruised",
         "Total"
       ],
       "rows": [
         [
-          "Cropland",
+          "Orchard A",
           "96",
           "104",
           "200"
         ],
         [
-          "Pasture",
+          "Orchard B",
           "60",
           "90",
           "150"
         ],
         [
-          "Woodland",
+          "Orchard C",
           "24",
           "126",
           "150"
@@ -57,10 +57,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "84/500, divides by all samples",
-    "B": "84/300, divides by every non-cropland sample instead of the exceeding ones",
-    "D": "96/180, the cropland share of the exceeding samples"
+    "A": "84/500, divides by all 500 apples",
+    "B": "84/300, divides by every apple not from orchard A instead of the bruised ones",
+    "D": "96/180, the orchard A share of the bruised apples"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Of the $180$ samples that exceeded the threshold, $60 + 24 = 84$ came from pasture or woodland: $\\dfrac{84}{180} = \\dfrac{7}{15}$.\n\n**The Full Solution:**\nStep 1: The sample is drawn from the exceeded column, so the denominator is $180$.\nStep 2: \"Not cropland\" means pasture or woodland: $60 + 24 = 84$ samples in that column.\nStep 3: The probability is $\\dfrac{84}{180} = \\dfrac{7}{15}$.\nCheck: the cropland part of the column is $96$, and $84 + 96 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{21}{125}$): This is $\\dfrac{84}{500}$, the probability that a randomly selected sample both exceeded the threshold and was not cropland.\n* Choice B ($\\frac{7}{25}$): This is $\\dfrac{84}{300}$, using all $300$ non-cropland samples as the denominator instead of the exceeding ones.\n* Choice D ($\\frac{8}{15}$): This is $\\dfrac{96}{180}$, the probability that an exceeding sample was cropland — the complement.\n\n**Test Day Takeaway:** Fix the denominator from the \"given\" column first; only then decide which cells in it the \"not\" condition keeps."
+  "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Of the $180$ bruised apples, $60 + 24 = 84$ came from orchard B or orchard C: $\\dfrac{84}{180} = \\dfrac{7}{15}$.\n\n**The Full Solution:**\nStep 1: The apple is chosen from the bruised apples, so the denominator is the bruised column's total, $180$.\nStep 2: \"Not from orchard A\" means orchard B or orchard C: $60 + 24 = 84$ apples in that column.\nStep 3: The probability is $\\dfrac{84}{180} = \\dfrac{7}{15}$.\nCheck: the orchard A part of the column is $96$, and $84 + 96 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{21}{125}$): This is $\\dfrac{84}{500}$, the probability that a randomly selected apple is both bruised and not from orchard A.\n* Choice B ($\\frac{7}{25}$): This is $\\dfrac{84}{300}$, using all $300$ apples not from orchard A as the denominator instead of the bruised apples.\n* Choice D ($\\frac{8}{15}$): This is $\\dfrac{96}{180}$, the probability that a bruised apple was from orchard A, the complement.\n\n**Test Day Takeaway:** Fix the denominator from the \"given\" column first; only then decide which cells in it the \"not\" condition keeps."
 }

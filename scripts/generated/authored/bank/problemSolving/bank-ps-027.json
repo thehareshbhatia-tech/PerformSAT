@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-027",
-  "question": "Sample A consists of $15$ measurements of the caffeine content, in milligrams, of a beverage and has a mean of $42$ milligrams. Sample B consists of $25$ measurements of the same beverage. When the two samples are combined, the $40$ measurements have a mean of $48$ milligrams. What is the mean caffeine content, in milligrams, of sample B?",
+  "question": "On a quiz, the mean score of the $15$ students in one class was $42$ points, and the mean score of the $25$ students in another class was $m$ points. The mean score of all $40$ students was $48$ points. What is the value of $m$?",
   "choices": [
     {
       "id": "A",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "divides sample B's sum, $1{,}290$, by all $40$ measurements instead of by the $25$ in sample B.",
-    "C": "treats the samples as equal in size and solves $\\frac{42 + x}{2} = 48$; the combined mean is a weighted mean, not a simple average.",
-    "D": "swaps the sample sizes, using $25$ for sample A and $15$ for sample B."
+    "A": "divides the second class's total, $1{,}290$, by all $40$ students instead of by the $25$ students in that class.",
+    "C": "treats the classes as equal in size and solves $\\frac{42 + m}{2} = 48$; the overall mean is weighted by the class sizes.",
+    "D": "swaps the class sizes, using $25$ students for the first class and $15$ for the second."
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Weighted Combined Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Combined sum $40 \\times 48 = 1{,}920$; sample A's sum $15 \\times 42 = 630$. Sample B's sum is $1{,}290$, so its mean is $\\frac{1{,}290}{25} = 51.6$.\n\n**The Full Solution:**\nStep 1: Convert each mean to a sum. Combined: $40 \\times 48 = 1{,}920$ mg. Sample A: $15 \\times 42 = 630$ mg.\nStep 2: Sample B's sum is $1{,}920 - 630 = 1{,}290$ mg, so its mean is $\\frac{1{,}290}{25} = 51.6$ mg.\nStep 3: Check with weights: $\\frac{15(42) + 25(51.6)}{40} = \\frac{630 + 1{,}290}{40} = 48$. $\\checkmark$ (Also, $48$ lies closer to $51.6$ than to $42$, as it should with B the larger sample.)\n\n**Why the wrong answers are tempting:**\n* Choice A ($32.25$): divides sample B's sum, $1{,}290$, by all $40$ measurements instead of by the $25$ in sample B.\n* Choice C ($54$): treats the samples as equal in size and solves $\\frac{42 + x}{2} = 48$; the combined mean is a weighted mean, not a simple average.\n* Choice D ($58$): swaps the sample sizes, using $25$ for sample A and $15$ for sample B.\n\n**Test Day Takeaway:** A combined mean is a weighted mean. Work in sums: (combined sum) $-$ (known sum) $=$ (unknown sum), then divide by the unknown group's own count."
+  "explanation": "**SAT Pattern: Weighted Combined Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** All $40$ scores total $40 \\times 48 = 1{,}920$ points and the first class's total $15 \\times 42 = 630$ points, so $m = \\frac{1{,}920 - 630}{25} = 51.6$.\n\n**The Full Solution:**\nStep 1: Convert each mean to a total. All $40$ students: $40 \\times 48 = 1{,}920$ points. First class: $15 \\times 42 = 630$ points.\nStep 2: The second class scored $1{,}920 - 630 = 1{,}290$ points in all, so $m = \\frac{1{,}290}{25} = 51.6$.\nStep 3: Check: $\\frac{15(42) + 25(51.6)}{40} = \\frac{630 + 1{,}290}{40} = \\frac{1{,}920}{40} = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($32.25$): divides the second class's total, $1{,}290$, by all $40$ students instead of by the $25$ students in that class.\n* Choice C ($54$): treats the classes as equal in size and solves $\\frac{42 + m}{2} = 48$; the overall mean is weighted by the class sizes.\n* Choice D ($58$): swaps the class sizes, using $25$ students for the first class and $15$ for the second.\n\n**Test Day Takeaway:** A combined mean is a weighted mean. Work in totals: (combined total) $-$ (known total) $=$ (unknown total), then divide by the unknown group's own count."
 }

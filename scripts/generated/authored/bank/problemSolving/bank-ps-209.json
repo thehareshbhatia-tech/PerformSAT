@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-209",
-  "question": "At a conference, $60\\%$ of the attendees are attending for the first time. Of those first-time attendees, $25\\%$ registered on site. What percent of all attendees are first-time attendees who registered on site?",
+  "question": "Of the attendees at a conference, $60\\%$ are first-time attendees. Of these, $25\\%$ registered on site. What percent of all the attendees are first-time attendees who registered on site?",
   "choices": [
     {
       "id": "A",

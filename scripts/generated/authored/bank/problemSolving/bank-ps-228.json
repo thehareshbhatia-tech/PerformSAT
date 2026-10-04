@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-228",
-  "question": "The mass of sample $P$ is $60\\%$ of the mass of sample $Q$, and the mass of sample $Q$ is $30\\%$ less than the mass of sample $R$. The mass of sample $P$ is what percent of the mass of sample $R$?",
+  "question": "The number $x$ is $60\\%$ of the number $y$, and $y$ is $30\\%$ less than the positive number $z$. The number $x$ is what percent of $z$?",
   "choices": [
     {
       "id": "A",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "multiplies by 0.30 instead of by 0.70",
-    "B": "subtracts 30 from 60",
-    "D": "adds the two percents"
+    "A": "multiplies by 0.30 instead of 0.70, treating '30% less than' as '30% of'",
+    "B": "subtracts the percents, 60 − 30 = 30",
+    "D": "adds the percents, 60 + 30 = 90"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** \"$30\\%$ less\" means $Q = 0.70R$, so $P = 0.60(0.70R) = 0.42R$, or $42\\%$.\n\n**The Full Solution:**\nStep 1: Translate the second relationship: a mass $30\\%$ less than $R$ is $100\\% - 30\\% = 70\\%$ of $R$, so $Q = 0.70R$.\nStep 2: Translate the first: $P = 0.60Q$.\nStep 3: Substitute: $P = 0.60(0.70R) = 0.42R$, so $P$ is $42\\%$ of $R$. Check with $R = 200$: $Q = 140$ and $P = 84$, and $\\frac{84}{200} = 42\\%$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($18\\%$): multiplies by $0.30$, the amount removed, instead of by $0.70$, the amount that remains.\n* Choice B ($30\\%$): subtracts the two percents rather than chaining them.\n* Choice D ($90\\%$): adds the percents, which would make $P$ larger than $Q$.\n\n**Test Day Takeaway:** \"$k\\%$ less than\" converts to a multiplier of $1 - \\frac{k}{100}$ before anything else happens."
+  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $y = 0.70z$, so $x = 0.60(0.70z) = 0.42z$, which is $42\\%$ of $z$.\n\n**The Full Solution:**\nStep 1: \"$30\\%$ less than $z$\" means $y = z - 0.30z = 0.70z$.\nStep 2: Substitute into $x = 0.60y$: $x = 0.60(0.70z)$.\nStep 3: Multiply: $x = 0.42z$, so $x$ is $42\\%$ of $z$. Check with $z = 100$: $y = 70$ and $x = 0.60(70) = 42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18\\%$): uses $y = 0.30z$, reading \"$30\\%$ less than\" as \"$30\\%$ of.\"\n* Choice B ($30\\%$): subtracts the percents instead of combining the multipliers.\n* Choice D ($90\\%$): adds the percents; each percent is taken of a different number, so the multipliers combine by multiplication.\n\n**Test Day Takeaway:** Turn every percent phrase into a multiplier ($60\\%$ of $\\to 0.60$, $30\\%$ less than $\\to 0.70$), then multiply along the chain."
 }

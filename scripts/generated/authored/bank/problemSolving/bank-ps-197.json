@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-197",
-  "question": "The table gives the number of daily flights at a regional airport in two different years. From 2019 to 2023, the number of daily flights decreased by $p\\%$. What is the value of $p$?",
+  "question": "The table shows the number of daily flights at a regional airport in two different years. From 2019 to 2023, the number of daily flights decreased by $p\\%$. What is the value of $p$?",
   "diagram": {
     "type": "dataTable",
     "params": {

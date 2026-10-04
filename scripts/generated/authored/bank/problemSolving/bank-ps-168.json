@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-168",
-  "question": "The numbers of applications a department received on $6$ days were $4$, $6$, $6$, $8$, $11$, and $k$. If the mean of these six numbers is $8$, what is the value of $k$?",
+  "question": "$4$, $6$, $6$, $8$, $11$, $k$\nThe mean of these six numbers is $8$. What is the median of the six numbers?",
   "choices": [
     {
       "id": "A",
-      "text": "$5$"
+      "text": "$6$"
     },
     {
       "id": "B",
-      "text": "$8$"
+      "text": "$7$"
     },
     {
       "id": "C",
-      "text": "$13$"
+      "text": "$8$"
     },
     {
       "id": "D",
-      "text": "$48$"
+      "text": "$13$"
     }
   ],
   "distractorNotes": {
-    "A": "5 x 8 - 35, counting only the five known days",
-    "B": "repeats the mean",
-    "D": "the total sum 6 x 8, not the missing value"
+    "A": "finds the median of the five known numbers 4, 6, 6, 8, 11 and leaves k out of the list",
+    "C": "assumes the median of the six numbers equals their mean, 8",
+    "D": "finds k = 13 and reports it instead of the median"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Six values with mean $8$ sum to $48$. The known values sum to $4 + 6 + 6 + 8 + 11 = 35$, so $k = 48 - 35 = 13$.\n\n**The Full Solution:**\nStep 1: Total $=$ mean $\\times$ count $= 8 \\times 6 = 48$.\nStep 2: Known sum: $4 + 6 + 6 + 8 + 11 = 35$.\nStep 3: $k = 48 - 35 = 13$. Check: $\\frac{35 + 13}{6} = \\frac{48}{6} = 8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): Uses $5 \\times 8 = 40$ as the total, counting only the five known days, then $40 - 35 = 5$.\n* Choice B ($8$): Repeats the mean; the known values average $7$, so $k$ must be above $8$ to pull the mean up.\n* Choice D ($48$): The total of all six values, not the sixth value itself.\n\n**Test Day Takeaway:** The unknown must be counted in the total; use the full count when multiplying by the mean."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Six numbers with a mean of $8$ sum to $48$, and the five known numbers sum to $35$, so $k = 13$. In order, $4, 6, 6, 8, 11, 13$ has median $\\frac{6 + 8}{2} = 7$.\n\n**The Full Solution:**\nStep 1: The sum of the six numbers is the mean times the count: $8 \\times 6 = 48$.\nStep 2: The known numbers sum to $4 + 6 + 6 + 8 + 11 = 35$, so $k = 48 - 35 = 13$.\nStep 3: In order the numbers are $4, 6, 6, 8, 11, 13$. With six numbers, the median is the mean of the third and fourth: $\\frac{6 + 8}{2} = 7$. Check: $\\frac{35 + 13}{6} = 8$, and three numbers lie below $7$ and three lie above it ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): the median of the five known numbers; $k$ is part of the data and changes the middle.\n* Choice C ($8$): assumes the median equals the mean. The large value $13$ pulls the mean above the median.\n* Choice D ($13$): the value of $k$, which is only the first step.\n\n**Test Day Takeaway:** Find the missing value from the total first, then reorder the full list before you take a median."
 }

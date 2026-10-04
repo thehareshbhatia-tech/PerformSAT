@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-108",
-  "question": "A conference received $320$ early registrations, which was $40\\%$ of all the registrations the conference received. How many registrations did the conference receive in all?",
+  "question": "A conference received $320$ early registrations, which was $40\\%$ of all its registrations. How many registrations did the conference receive in all?",
   "choices": [
     {
       "id": "A",

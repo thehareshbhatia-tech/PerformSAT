@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-206",
-  "question": "The dot plot summarizes the number of service calls a technician received on each of $20$ days. If one of these days is selected at random, what is the probability that the technician received more than $3$ service calls on that day? Express your answer as a decimal.",
+  "question": "The dot plot shows the number of service calls a technician received on each of $20$ days. If one of these days is selected at random, what is the probability that the technician received more than $3$ service calls on that day? (Express your answer as a decimal or fraction, not as a percent.)",
   "diagram": {
     "type": "dotPlot",
     "params": {

@@ -1,6 +1,6 @@
 {
  "id": "bank-ps-275",
- "question": "A town's planning office surveyed $150$ households selected at random from the households in the town. Based on the survey, the proportion of the town's households that compost food waste is estimated to be $0.36$, with an associated margin of error of $0.05$. Which of the following is the interval of plausible values for the proportion of all households in the town that compost food waste?",
+ "question": "Based on a random sample of households in a town, the proportion of the town's households that compost food waste is estimated to be $0.36$, with an associated margin of error of $0.05$. Which of the following is the interval of plausible values for this proportion?",
  "choices": [
   {
    "id": "A",

@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-207",
-  "question": "The table gives the number of birds observed at a monitoring station for three species. Observations of a fourth species, thrush, are not shown. If one observation from the station is selected at random, the probability of selecting a thrush observation is $0.32$. How many observations were recorded at the station in all?",
+  "question": "The table shows the number of observations recorded at a monitoring station for three bird species. Observations of a fourth species, thrush, are not shown. If one observation from the station is selected at random, the probability of selecting a thrush observation is $0.32$. How many observations were recorded at the station in all?",
   "diagram": {
     "type": "dataTable",
     "params": {

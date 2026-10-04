@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-039",
-  "question": "The dot plot shows the masses, in kilograms, of $9$ packages. What is the range, in kilograms, of the masses of the packages?",
+  "question": "The dot plot shows the masses, in kilograms, of $9$ packages. What is the range, in kilograms, of the masses?",
   "diagram": {
     "type": "dotPlot",
     "params": {

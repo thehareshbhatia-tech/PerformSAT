@@ -392,7 +392,7 @@ export function checkItem(row, authored, ctx) {
     if (rendered && !dollarBalanced(v)) errs.push(`${k}: unbalanced $`);
     if (/\\["']/.test(v)) errs.push(`${k}: backslash-escaped quote (\\" or \\') renders as a literal backslash — use a plain " or '`);
     if (/[\x00-\x08\x0b\x0c\x0e-\x1f]/.test(v)) errs.push(`${k}: control character in text (a bad JSON escape such as \\f for \\frac or \\t for \\theta?)`);
-    if (rendered) { const outside = String(v).replace(/\\\$/g, '').replace(/\$[^$]*\$/g, ''); const cmd = outside.match(/\\(frac|dfrac|sqrt|pi|cdot|times|le|ge|leq|geq|neq|theta|circ|overline|text|left|right)\b/); if (cmd) errs.push(`${k}: LaTeX \\${cmd[1]} outside $…$ renders as raw text — wrap the math in $…$`); }
+    if (rendered) { const outside = String(v).replace(/\\\$/g, '').replace(/\$[^$]*\$/g, ''); const cmd = outside.match(/\\(frac|dfrac|sqrt|pi|cdot|times|le|ge|leq|geq|neq|theta|circ|overline|text|left|right)\b/); if (cmd) errs.push(`${k}: LaTeX \\${cmd[1]} outside $…$ renders as raw text — wrap the math in $…$`); if (/\{,\}/.test(outside)) errs.push(`${k}: "{,}" outside $…$ renders literally — put the number in math ($1{,}200$) or write 1,200`); }
     if (rendered) for (const m of String(v).matchAll(/\$([^$]*)\$/g)) { const b = m[1].match(/(^|[^\\a-zA-Z])(pi|sqrt|frac|dfrac|theta|cdot|circ)(?![a-zA-Z])/); if (b) { warns.push(`${k}: bare "${b[2]}" inside math — missing backslash (\\${b[2]})? (single-quoted JS strings eat backslashes; author with String.raw)`); break; } }
   };
   (Array.isArray(a.choices) ? a.choices : []).forEach(c => textGate(`choice ${c?.id}`, c?.text));

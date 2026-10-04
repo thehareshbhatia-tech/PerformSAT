@@ -1,29 +1,29 @@
 {
- "id": "bank-ps-040",
- "question": "A pentathlon scorer records five shot put throws whose shortest distance is $9.4$ meters and whose range is $3.8$ meters. A sixth throw of $t$ meters increases the range of the six distances to $5.1$ meters. What is the greatest possible value of $t$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$8.1$"
+  "id": "bank-ps-040",
+  "question": "$14, 9, 21, 17, 12, t$\nThe range of the $6$ values shown is $15$. Which of the following could be the value of $t$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-6$"
+    },
+    {
+      "id": "B",
+      "text": "$15$"
+    },
+    {
+      "id": "C",
+      "text": "$24$"
+    },
+    {
+      "id": "D",
+      "text": "$36$"
+    }
+  ],
+  "correctAnswer": "C",
+  "distractorNotes": {
+    "A": "subtracts the range from the minimum, $9 - 15$; that makes the range $21 - (-6) = 27$.",
+    "B": "takes $t$ to be the range itself; with $t = 15$ the values still run from $9$ to $21$, a range of $12$.",
+    "D": "adds the range to the maximum, $21 + 15$; that makes the range $36 - 9 = 27$."
   },
-  {
-   "id": "B",
-   "text": "$13.2$"
-  },
-  {
-   "id": "C",
-   "text": "$14.5$"
-  },
-  {
-   "id": "D",
-   "text": "$18.3$"
-  }
- ],
- "correctAnswer": "C",
- "distractorNotes": {
-  "A": "gives the least possible value of $t$, $13.2 - 5.1 = 8.1$, rather than the greatest",
-  "B": "reports the current greatest distance, $9.4 + 3.8 = 13.2$, which leaves the range at $3.8$",
-  "D": "adds the new range to the current maximum, $13.2 + 5.1 = 18.3$"
- },
- "explanation": "**SAT Pattern: Algebra from Range Constraints**\n\n**Choice C is correct.** For $t$ to be as large as possible it must be the new maximum, so $t - 9.4 = 5.1$ and $t = 14.5$.\n\n**The Fast Way (~40s):** The five throws run from $9.4$ to $9.4 + 3.8 = 13.2$. A larger $t$ becomes the new maximum, so $t = 9.4 + 5.1 = 14.5$.\n\n**The Full Solution:**\n\nStep 1: Find the current maximum. Range is maximum minus minimum, so the maximum of the five throws is $9.4 + 3.8 = 13.2$ meters.\n\nStep 2: Decide which end $t$ occupies. Because the range grows from $3.8$ to $5.1$, the sixth throw must fall outside the interval from $9.4$ to $13.2$. To make $t$ as large as possible, put it above $13.2$, so $t$ is the new maximum and $9.4$ is still the minimum.\n\nStep 3: Solve $t - 9.4 = 5.1$, which gives $t = 14.5$. Check: the six distances now run from $9.4$ to $14.5$, a range of exactly $5.1$ meters.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($8.1$): puts $t$ below the minimum instead of above the maximum, solving $13.2 - t = 5.1$. That value works, but it is the least possible $t$, not the greatest.\n* Choice B ($13.2$): reports the current maximum. A sixth throw of $13.2$ leaves the range at $3.8$ meters.\n* Choice D ($18.3$): adds the new range to the current maximum instead of to the minimum, which would make the range $18.3 - 9.4 = 8.9$.\n\n**Test Day Takeaway:** When a new value stretches a range, ask which end it lands on -- \"greatest possible\" and \"least possible\" are two different equations from the same sentence."
+  "explanation": "**SAT Pattern: Algebra from Range Constraints**\n\n**Choice C is correct.** Without $t$, the values run from $9$ to $21$, a range of only $12$, so $t$ must become a new minimum or a new maximum. As a new maximum, $t - 9 = 15$ gives $t = 24$.\n\n**The Fast Way (~25s):** The known values span $9$ to $21$. To stretch the range to $15$, $t$ is either $9 + 15 = 24$ or $21 - 15 = 6$; only $24$ is a choice.\n\n**The Full Solution:**\nStep 1: The five known values have minimum $9$ and maximum $21$, so their range is $21 - 9 = 12$. Since $12 < 15$, $t$ cannot lie between $9$ and $21$; it must be a new extreme.\nStep 2: If $t$ is the new maximum, the minimum stays $9$: $t - 9 = 15$, so $t = 24$. If $t$ is the new minimum, the maximum stays $21$: $21 - t = 15$, so $t = 6$.\nStep 3: Of the choices, only $24$ is possible. Check: the values $9, 12, 14, 17, 21, 24$ have range $24 - 9 = 15$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): subtracts the range from the minimum, $9 - 15$; that makes the range $21 - (-6) = 27$.\n* Choice B ($15$): takes $t$ to be the range itself; with $t = 15$ the values still run from $9$ to $21$, a range of $12$.\n* Choice D ($36$): adds the range to the maximum, $21 + 15$; that makes the range $36 - 9 = 27$.\n\n**Test Day Takeaway:** When an unknown value changes a range, the unknown must be one of the extremes. Pair it with the opposite extreme: new maximum $=$ minimum $+$ range, new minimum $=$ maximum $-$ range."
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-220",
-  "question": "The table gives the number of trees of each species in a nursery. Of all the trees in the nursery, $56\\%$ are sold before the end of the season. How many of the trees are not sold before the end of the season?",
+  "question": "The table shows the number of trees of each species at a nursery. Of these trees, $56\\%$ were sold by the end of the season. How many of the trees were not sold by the end of the season?",
   "diagram": {
     "type": "dataTable",
     "params": {
@@ -29,5 +29,5 @@
     }
   },
   "correctAnswer": "638",
-  "explanation": "**SAT Pattern: Percent Complement**\n\n**The correct answer is $638$.**\n\n**The Fast Way (~35s):** The nursery holds $1{,}450$ trees, and $100\\% - 56\\% = 44\\%$ go unsold: $0.44 \\times 1{,}450 = 638$.\n\n**The Full Solution:**\nStep 1: Add the species counts: $480 + 350 + 370 + 250 = 1{,}450$ trees.\nStep 2: The unsold trees are the complement of the $56\\%$ sold: $100 - 56 = 44$, so $44\\%$ are unsold.\nStep 3: Take $44\\%$ of the total: $0.44 \\times 1{,}450 = 638$. Check: $0.56 \\times 1{,}450 = 812$, and $812 + 638 = 1{,}450$. $\\checkmark$\n\n**Common Mistakes:** Reporting $812$, the trees that were sold; subtracting $56$ trees instead of $56\\%$, which gives $1{,}394$; or taking $44\\%$ of a total that omits one species.\n\n**Test Day Takeaway:** Complement first, then multiply once. Computing the sold trees and subtracting works too, but it is an extra step and an extra chance to slip."
+  "explanation": "**SAT Pattern: Percent Complement**\n\n**The correct answer is $638$.**\n\n**The Fast Way (~30s):** The nursery has $1{,}450$ trees, and $100\\% - 56\\% = 44\\%$ were not sold: $0.44 \\times 1{,}450 = 638$.\n\n**The Full Solution:**\nStep 1: Add the counts in the table: $480 + 350 + 370 + 250 = 1{,}450$ trees.\nStep 2: The unsold trees are the complement of the $56\\%$ sold: $100 - 56 = 44$, so $44\\%$ were not sold.\nStep 3: Take $44\\%$ of the total: $0.44 \\times 1{,}450 = 638$. Check: $0.56 \\times 1{,}450 = 812$, and $812 + 638 = 1{,}450$ ✓\n\n**Common Mistakes:**\n* $812$: finds the number of trees that were sold.\n* $1{,}394$: subtracts $56$ trees instead of $56\\%$ of the trees.\n* $528$: takes $44\\%$ of a total that leaves out one type, such as $1{,}200$ without the dogwoods.\n\n**Test Day Takeaway:** Total the table first, take the complement of the percent, then multiply once."
 }

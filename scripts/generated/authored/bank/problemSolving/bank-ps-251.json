@@ -1,29 +1,29 @@
 {
  "id": "bank-ps-251",
- "question": "A restoration nursery holds $s$ mangrove seedlings in one plot, a count $35\\%$ greater than the number of seedlings in an adjacent plot from the same planting season. The adjacent plot's count is approximately what percent less than $s$?",
+ "question": "Last year, the price of a museum membership was $x$ dollars. This year, the price is $p\\%$ greater than last year's price. Which expression represents this year's price, in dollars?",
  "choices": [
   {
    "id": "A",
-   "text": "$25.9\\%$"
+   "text": "$\\frac{px}{100}$"
   },
   {
    "id": "B",
-   "text": "$35\\%$"
+   "text": "$x + \\frac{p}{100}$"
   },
   {
    "id": "C",
-   "text": "$65\\%$"
+   "text": "$x\\left(1 + \\frac{p}{100}\\right)$"
   },
   {
    "id": "D",
-   "text": "$74.1\\%$"
+   "text": "$x(1 + p)$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "B": "reuses the given percent, which is measured against the smaller plot, not against $s$",
-  "C": "takes the complement of $35\\%$, which describes neither plot",
-  "D": "reports the adjacent count as a percent of $s$ rather than how much less it is"
+  "A": "gives only the amount of the increase, $\\frac{p}{100}$ of $x$, and never adds it to last year's price",
+  "B": "adds the decimal form of the percent to the price instead of taking that percent of the price",
+  "D": "uses $p$ itself as the decimal growth rate, forgetting to divide the percent by $100$"
  },
- "explanation": "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice A is correct.** The adjacent plot holds $\\frac{s}{1.35} \\approx 0.741s$ seedlings, which is about $25.9\\%$ less than $s$.\n\n**The Fast Way (~45s):** $\\frac{1}{1.35} \\approx 0.741$, and $1 - 0.741 = 0.259$, so the adjacent plot is about $25.9\\%$ less than $s$.\n\n**The Full Solution:**\n\nStep 1: Name the adjacent plot's count $a$. Since $s$ is $35\\%$ greater than $a$, $s = 1.35a$.\n\nStep 2: Solve for $a$ in terms of $s$: $a = \\frac{s}{1.35} \\approx 0.7407s$.\n\nStep 3: Compute the percent decrease from $s$ to $a$: $\\frac{s - a}{s} = 1 - 0.7407 = 0.2593$, or about $25.9\\%$. Check: with $a = 100$, $s = 135$, and $\\frac{135 - 100}{135} \\approx 25.9\\%$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($35\\%$): reuses the given percent. That $35\\%$ is measured against the adjacent plot, while this question measures against $s$.\n* Choice C ($65\\%$): subtracts $35$ from $100$, which would describe a plot holding $65\\%$ of $s$.\n* Choice D ($74.1\\%$): reports what the adjacent count IS as a percent of $s$, not how much LESS it is.\n\n**Test Day Takeaway:** Percent comparisons are not symmetric -- when the base switches, recompute from the ratio instead of reusing the number in the stem."
+ "explanation": "**SAT Pattern: Percent Greater Than / Less Than**\n\n**Choice C is correct.** A price $p\\%$ greater than $x$ is $x$ plus $\\frac{p}{100}$ of $x$, which is $x\\left(1 + \\frac{p}{100}\\right)$.\n\n**The Fast Way (~20s):** \"$p\\%$ greater than $x$\" multiplies $x$ by $1 + \\frac{p}{100}$, so this year's price is $x\\left(1 + \\frac{p}{100}\\right)$.\n\n**The Full Solution:**\n\nStep 1: Identify the base. The comparison is made against last year's price, $x$ dollars.\n\nStep 2: The increase is $p\\%$ of $x$, which is $\\frac{p}{100} \\cdot x$ dollars.\n\nStep 3: Add the increase to the base and factor: $x + \\frac{p}{100}x = x\\left(1 + \\frac{p}{100}\\right)$. Check with $x = 80$ and $p = 25$: the price should be $80 + 20 = 100$ dollars, and $80\\left(1 + \\frac{25}{100}\\right) = 80(1.25) = 100$ ✓\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($\\frac{px}{100}$): is the increase alone. With $x = 80$ and $p = 25$ it gives $20$, the amount the price went up, not the new price.\n* Choice B ($x + \\frac{p}{100}$): adds $0.25$ dollars to an $80$-dollar price when $p = 25$. The percent has to be taken of $x$, not added to it.\n* Choice D ($x(1 + p)$): treats $p$ as a decimal. With $p = 25$ it multiplies the price by $26$.\n\n**Test Day Takeaway:** When the percent is a variable, plug in easy numbers such as $x = 80$ and $p = 25$ and test each expression; only the factor $1 + \\frac{p}{100}$ survives."
 }

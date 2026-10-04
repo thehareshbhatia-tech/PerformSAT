@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-033",
-  "question": "A data set consists of $13$ values and has a median of $62$. The $3$ smallest values in the data set, each of which is less than $62$, are removed. Which of the following must be true about the median of the remaining $10$ values?",
+  "question": "A data set of $13$ values has a median of $62$. If the $3$ least values are removed from the data set, which of the following must be true about the median of the remaining $10$ values?",
   "choices": [
     {
       "id": "A",

@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-199",
-  "question": "The table gives the capacity, in milliampere-hours, of a laptop battery when it was new and after one year of use. Over that year, the capacity of the battery decreased by $p\\%$. What is the value of $p$?",
+  "question": "The table shows the capacity, in milliampere-hours, of a laptop battery when it was new and after one year of use. Over that year, the capacity of the battery decreased by $p\\%$. What is the value of $p$?",
   "diagram": {
     "type": "dataTable",
     "params": {

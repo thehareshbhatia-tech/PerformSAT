@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-054",
-  "question": "A rectangular mural is $9$ feet wide and $16$ feet long. What is the area of the mural in square yards? ($1$ yard $= 3$ feet)",
+  "question": "A rectangular mural is $9$ feet by $16$ feet. What is the area, in square yards, of the mural? ($1$ yard $= 3$ feet)",
   "choices": [
     {
       "id": "A",

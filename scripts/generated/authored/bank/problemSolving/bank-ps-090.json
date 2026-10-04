@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-090",
-  "question": "For each of $8$ days before opening night, the scatterplot pairs the number of days remaining with the number of advance tickets a theater sold that day, and the line of best fit is $y = 128 - 6x$. A ninth day is recorded at $x = 15$ with a residual of $14$. How many advance tickets were sold on that ninth day?",
+  "question": "The scatterplot shows the number of days $x$ before a play's opening night and the number of tickets $y$ sold on each of $8$ days. The line of best fit, $y = -6x + 128$, is also shown. On a ninth day, $52$ tickets were sold, and the residual for that day is $14$. How many days before opening night was the ninth day?",
   "diagram": {
     "type": "scatterplot",
     "params": {
@@ -47,13 +47,13 @@
       "yGridStep": 10,
       "yLabelStep": 20,
       "xLabel": "Days before opening night",
-      "yLabel": "Advance tickets sold that day",
+      "yLabel": "Tickets sold",
       "bestFitLine": {
         "slope": -6,
         "intercept": 128
       }
     }
   },
-  "correctAnswer": "52",
-  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is $52$.**\n\n**The Fast Way (~20s):** The line predicts $128 - 6(15) = 38$ tickets, and a residual of $14$ means the actual value is $38 + 14 = 52$.\n\n**The Full Solution:**\nStep 1: Predict at $x = 15$. Substitute into $y = 128 - 6x$: $6(15) = 90$, so the predicted sales are $128 - 90 = 38$ tickets.\nStep 2: Undo the residual. Residual $=$ actual $-$ predicted, so actual $=$ predicted $+$ residual $= 38 + 14$.\nStep 3: Compute and check. Actual $= 52$ tickets, and $52 - 38 = 14$, the stated residual. ✓\n\n**Common Mistakes:**\n* Subtracting the residual gives $38 - 14 = 24$; that would be the value for a residual of $-14$.\n* Stopping at $38$ reports the prediction, not the recorded sales.\n* Using $128 + 6(15) = 218$ drops the minus sign in the model, which is what makes sales fall as the opening approaches.\n\n**Test Day Takeaway:** Residual $=$ actual $-$ predicted rearranges to actual $=$ predicted $+$ residual. Compute the prediction first, then add the residual with its sign."
+  "correctAnswer": "15",
+  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is 15.**\n\n**The Fast Way (~30s):** A residual of $14$ means the line predicted $52 - 14 = 38$ tickets, and $-6x + 128 = 38$ gives $x = 15$.\n\n**The Full Solution:**\nStep 1: Residual $=$ actual $-$ predicted, so predicted $=$ actual $-$ residual $= 52 - 14 = 38$ tickets.\nStep 2: The line predicts $38$ tickets where $-6x + 128 = 38$, so $-6x = -90$.\nStep 3: $x = 15$, so the ninth day was $15$ days before opening night. Check: the line predicts $-6(15) + 128 = 38$, and $52 - 38 = 14$, the given residual ✓\n\n**Common Mistakes:**\n* $10.33$: adds the residual instead of subtracting it, solving $-6x + 128 = 66$.\n* $12.67$: ignores the residual and solves $-6x + 128 = 52$.\n* $38$: stops at the predicted number of tickets instead of finding $x$.\n\n**Test Day Takeaway:** Predicted $=$ actual $-$ residual. Find the predicted value first, then solve the line's equation for $x$."
 }

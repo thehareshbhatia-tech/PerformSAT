@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-100",
-  "question": "The table summarizes the $200$ rock samples collected on a field trip by rock type and by whether the sample contains visible crystals. One of the sedimentary samples will be selected at random. What is the probability of selecting a sample that contains visible crystals?",
+  "question": "The table shows the distribution of $200$ rock samples by type and by whether the sample has visible crystals. One of the sedimentary samples will be selected at random. What is the probability of selecting a sample with visible crystals?",
   "diagram": {
     "type": "twoWayTable",
     "params": {

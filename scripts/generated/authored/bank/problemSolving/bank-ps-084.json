@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-084",
-  "question": "For each of $9$ summer days, the scatterplot pairs a county's average daily temperature, in degrees Fahrenheit, with the number of heat-related emergency calls the county recorded that day. The line of best fit is $y = 1.5x - 96$. What is the residual, in calls, for the day whose average temperature was $92$ degrees Fahrenheit?",
+  "question": "The scatterplot shows the daily high temperature $x$, in degrees Fahrenheit, and the number of smoothies $y$ sold at a shop on each of $9$ days. The line of best fit, $y = 1.5x - 96$, is also shown. What is the residual for the data point $(92, 47)$?",
   "diagram": {
     "type": "scatterplot",
     "params": {
@@ -50,8 +50,8 @@
       "xLabelStep": 4,
       "yGridStep": 5,
       "yLabelStep": 10,
-      "xLabel": "Average daily temperature (degrees F)",
-      "yLabel": "Heat-related emergency calls",
+      "xLabel": "Daily high temperature (degrees Fahrenheit)",
+      "yLabel": "Smoothies sold",
       "bestFitLine": {
         "slope": 1.5,
         "intercept": -96
@@ -65,5 +65,5 @@
     }
   },
   "correctAnswer": "5",
-  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** The line predicts $1.5(92) - 96 = 42$ calls, the plotted point is at $47$, and $47 - 42 = 5$.\n\n**The Full Solution:**\nStep 1: Predict. Substitute $x = 92$ into $y = 1.5x - 96$: $1.5(92) = 138$, and $138 - 96 = 42$ calls.\nStep 2: Read the actual value. The plotted point for $92$ degrees sits at $47$ calls.\nStep 3: Subtract in the right order. Residual $=$ actual $-$ predicted $= 47 - 42 = 5$. The point sits above the line, so a positive residual is what we expect. ✓\n\n**Common Mistakes:**\n* Subtracting the other way gives $42 - 47 = -5$; a residual is always actual minus predicted.\n* Reading the line instead of the point gives $42$, the prediction rather than the residual.\n* Multiplying before subtracting incorrectly — $1.5(92 - 96) = -6$ — comes from putting the $-96$ inside the parentheses.\n\n**Test Day Takeaway:** Residual $=$ actual $-$ predicted. Compute the prediction from the equation, read the actual value off the plot, then subtract in that order."
+  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is 5.**\n\n**The Fast Way (~15s):** The line predicts $1.5(92) - 96 = 42$ smoothies, the data point is at $47$, and $47 - 42 = 5$.\n\n**The Full Solution:**\nStep 1: Find the predicted value. Substitute $x = 92$ into $y = 1.5x - 96$: $1.5(92) = 138$, and $138 - 96 = 42$.\nStep 2: The actual value for the data point $(92, 47)$ is $47$.\nStep 3: Residual $=$ actual $-$ predicted $= 47 - 42 = 5$. Check: the point lies above the line, so its residual is positive ✓\n\n**Common Mistakes:**\n* $-5$: subtracts in the wrong order, $42 - 47$; a residual is actual minus predicted.\n* $42$: reports the predicted value instead of the residual.\n* $53$: computes the prediction as $1.5(92 - 96) = -6$, putting the $-96$ inside the parentheses, so $47 - (-6) = 53$.\n\n**Test Day Takeaway:** Residual $=$ actual $-$ predicted. Compute the prediction from the equation, then subtract it from the data value."
 }

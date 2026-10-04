@@ -1,29 +1,29 @@
 {
- "id": "bank-ps-240",
- "question": "Researchers selected $80$ nest boxes at random from the $1{,}400$ kestrel nest boxes maintained along utility corridors in one county and randomly assigned half of the selected boxes to receive a predator guard. Fledging success was higher in the boxes with guards. Which of the following is the most appropriate conclusion?",
- "choices": [
-  {
-   "id": "A",
-   "text": "Predator guards caused higher fledging success in kestrel nest boxes along utility corridors in the county."
+  "id": "bank-ps-240",
+  "question": "Researchers selected $80$ of the $1{,}400$ apple trees in an orchard at random and randomly assigned half of them to receive a new fertilizer. The fertilized trees produced more apples, on average. Which of the following is the most appropriate conclusion?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The fertilizer causes an increase in apple production for trees in this orchard."
+    },
+    {
+      "id": "B",
+      "text": "The fertilizer causes an increase in apple production for all apple trees."
+    },
+    {
+      "id": "C",
+      "text": "The fertilizer is associated with higher production, but no cause-and-effect conclusion is possible because the trees were not randomly assigned."
+    },
+    {
+      "id": "D",
+      "text": "The fertilizer causes an increase in production for the $80$ trees studied, but no conclusion can be drawn about other trees in the orchard."
+    }
+  ],
+  "distractorNotes": {
+    "B": "generalizes beyond the orchard the trees were selected from",
+    "C": "denies the random assignment the study actually used",
+    "D": "refuses to generalize even though the trees were selected at random from the orchard"
   },
-  {
-   "id": "B",
-   "text": "Predator guards caused higher fledging success in every kestrel nest box in the county, wherever it is located."
-  },
-  {
-   "id": "C",
-   "text": "Predator guards are associated with higher fledging success, but no cause-and-effect conclusion is possible because the boxes were not assigned to groups at random."
-  },
-  {
-   "id": "D",
-   "text": "Predator guards caused higher fledging success in the $80$ nest boxes studied, and no conclusion can be drawn about any other boxes."
-  }
- ],
- "correctAnswer": "A",
- "distractorNotes": {
-  "B": "generalizes past the sampled population; the boxes were drawn only from those along utility corridors",
-  "C": "denies the random assignment the study actually used, which is what licenses a causal claim",
-  "D": "refuses to generalize even though the boxes were selected at random from a stated population"
- },
- "explanation": "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice A is correct.** Random assignment supports a cause-and-effect conclusion, and random selection from the county's utility-corridor boxes lets that conclusion extend to exactly that population.\n\n**The Fast Way (~55s):** Random assignment buys causation; random selection buys generalization to the population sampled, which is the utility-corridor boxes in the county.\n\n**The Full Solution:**\n\nStep 1: Check for random assignment. Half the selected boxes were randomly assigned a predator guard, so the two groups differ only by chance apart from the treatment. That permits a causal conclusion.\n\nStep 2: Identify the population sampled. The $80$ boxes were drawn at random from the $1{,}400$ boxes maintained along utility corridors in the county, so that is the largest group the results describe.\n\nStep 3: Combine the two findings. The appropriate conclusion is causal and limited to kestrel nest boxes along utility corridors in the county, which is Choice A. Check: nothing in the design observed boxes outside utility corridors, so no claim can reach them.\n\n**Why the wrong answers are tempting:**\n\n* Choice B: stretches the conclusion to every nest box in the county. The sample came only from boxes along utility corridors.\n* Choice C: claims there was no random assignment, contradicting the description of the study.\n* Choice D: limits the conclusion to the $80$ boxes studied. Random selection from a stated population is precisely what allows the result to generalize to that population.\n\n**Test Day Takeaway:** Two randomizations do two different jobs -- assignment earns the word \"caused,\" selection sets how far the sentence may reach."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Random assignment supports cause and effect, and random selection from the orchard's $1{,}400$ trees lets that conclusion extend to the orchard.\n\n**The Full Solution:**\nStep 1: The fertilizer was assigned at random to half of the selected trees, so the study is an experiment and supports a causal conclusion.\nStep 2: The $80$ trees were selected at random from the $1{,}400$ trees in the orchard, so the results generalize to the trees in this orchard.\nStep 3: Combine the two: the fertilizer causes higher production for trees in this orchard, which is Choice A ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: the trees came from one orchard, so apple trees elsewhere were never represented.\n* Choice C: the trees were randomly assigned, so the causal conclusion is available.\n* Choice D: random selection from the orchard is exactly what allows the result to extend past the $80$ trees.\n\n**Test Day Takeaway:** Ask two questions: was the treatment randomly assigned (cause and effect), and was the sample randomly selected (from which population)?"
 }

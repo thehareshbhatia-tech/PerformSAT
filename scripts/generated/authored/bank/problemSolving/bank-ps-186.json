@@ -1,29 +1,29 @@
 {
- "id": "bank-ps-186",
- "question": "An aerial survey found invasive water hyacinth covering $k$ hectares, which is $12\\%$ of a lake's surface. A removal program cleared $54$ hectares of hyacinth, leaving coverage at $7.5\\%$ of the surface measured from the same imagery. What is the value of $k$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$90$"
+  "id": "bank-ps-186",
+  "question": "The flowers in a garden cover $k$ square feet, which is $12\\%$ of the garden's area. After $54$ square feet of flowers are replaced with grass, the flowers cover $7.5\\%$ of the garden's area. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$90$"
+    },
+    {
+      "id": "B",
+      "text": "$144$"
+    },
+    {
+      "id": "C",
+      "text": "$450$"
+    },
+    {
+      "id": "D",
+      "text": "$720$"
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "reports the flower area left after the change, $0.075(1{,}200) = 90$ square feet",
+    "C": "divides the replaced area by the starting percent, $\\frac{54}{0.12} = 450$",
+    "D": "divides the replaced area by the ending percent, $\\frac{54}{0.075} = 720$"
   },
-  {
-   "id": "B",
-   "text": "$144$"
-  },
-  {
-   "id": "C",
-   "text": "$450$"
-  },
-  {
-   "id": "D",
-   "text": "$720$"
-  }
- ],
- "correctAnswer": "B",
- "distractorNotes": {
-  "A": "reports the coverage remaining after removal, $0.075(1{,}200) = 90$ hectares",
-  "C": "divides the cleared area by the starting percent, $\\frac{54}{0.12} = 450$",
-  "D": "divides the cleared area by the ending percent, $\\frac{54}{0.075} = 720$"
- },
- "explanation": "**SAT Pattern: Percent of a Whole**\n\n**Choice B is correct.** The $54$ hectares cleared equal $12\\% - 7.5\\% = 4.5\\%$ of the lake, so the lake is $\\frac{54}{0.045} = 1{,}200$ hectares and $k = 0.12(1{,}200) = 144$.\n\n**The Fast Way (~60s):** The removal cut coverage by $4.5$ percentage points, so $54$ hectares is $4.5\\%$ of the lake: $\\frac{54}{0.045} = 1{,}200$ hectares, and $12\\%$ of that is $144$.\n\n**The Full Solution:**\n\nStep 1: Name the lake's surface area $L$ hectares. Coverage before removal is $0.12L$ and after removal is $0.075L$.\n\nStep 2: Set the cleared area equal to the drop in coverage: $0.12L - 0.075L = 54$, so $0.045L = 54$ and $L = 1{,}200$ hectares.\n\nStep 3: Compute the original coverage: $k = 0.12(1{,}200) = 144$ hectares. Check: after removal, coverage is $144 - 54 = 90$ hectares, and $\\frac{90}{1{,}200} = 0.075$, or $7.5\\%$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($90$): is the coverage left after removal, not the coverage the survey found.\n* Choice C ($450$): divides $54$ by $12\\%$, treating the cleared area as the full original coverage's percent of the lake.\n* Choice D ($720$): divides $54$ by $7.5\\%$, using the ending percent as though it applied to the cleared area.\n\n**Test Day Takeaway:** When two percents of the same unknown whole are compared, subtract the percents first -- the difference is what the given amount actually represents."
+  "explanation": "**SAT Pattern: Percent of a Whole**\n\n**Choice B is correct.** The $54$ square feet replaced equal $12\\% - 7.5\\% = 4.5\\%$ of the garden, so the garden is $\\frac{54}{0.045} = 1{,}200$ square feet and $k = 0.12(1{,}200) = 144$.\n\n**The Fast Way (~60s):** The flower share dropped by $4.5$ percentage points, so $54$ square feet is $4.5\\%$ of the garden: $\\frac{54}{0.045} = 1{,}200$ square feet, and $12\\%$ of that is $144$.\n\n**The Full Solution:**\n\nStep 1: Let $G$ be the garden's area, in square feet. The flowers cover $0.12G$ before the change and $0.075G$ after it.\n\nStep 2: The replaced area is the drop in flower area: $0.12G - 0.075G = 54$, so $0.045G = 54$ and $G = 1{,}200$.\n\nStep 3: Compute the original flower area: $k = 0.12(1{,}200) = 144$. Check: after the change, the flowers cover $144 - 54 = 90$ square feet, and $\\frac{90}{1{,}200} = 0.075$, or $7.5\\%$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($90$): is the flower area left after the change, not the original flower area $k$.\n* Choice C ($450$): divides $54$ by $12\\%$, as though the replaced area were $12\\%$ of the garden.\n* Choice D ($720$): divides $54$ by $7.5\\%$, as though the replaced area were $7.5\\%$ of the garden.\n\n**Test Day Takeaway:** When two percents of the same unknown whole are compared, subtract the percents first -- the difference is what the given amount actually represents."
 }

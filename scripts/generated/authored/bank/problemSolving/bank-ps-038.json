@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-038",
-  "question": "The dot plot shows the number of points a basketball player scored in each of $13$ games. What is the value of the mode of the data minus the median of the data?",
+  "question": "The dot plot shows the number of points a basketball player scored in each of $13$ games. How much greater is the mode of the data than the median of the data?",
   "diagram": {
     "type": "dotPlot",
     "params": {

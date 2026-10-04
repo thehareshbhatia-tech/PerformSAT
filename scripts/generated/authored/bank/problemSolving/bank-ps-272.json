@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-272",
-  "question": "A grocery chain selected $300$ shoppers at random from the shoppers who used the chain's mobile app during a certain week and asked each of them whether they would use a proposed self-checkout feature. Of the shoppers selected, $64\\%$ said they would. Which of the following is the largest population to which this result can be generalized?",
+  "question": "A grocery chain selected $300$ shoppers at random from the shoppers who used its mobile app during one week. Of these shoppers, $64\\%$ said they would use a proposed self-checkout feature. Which of the following is the largest population to which this result can be generalized?",
   "choices": [
     {
       "id": "A",

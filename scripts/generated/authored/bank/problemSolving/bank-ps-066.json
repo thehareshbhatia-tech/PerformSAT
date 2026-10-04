@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-066",
-  "question": "The dot plot shows the number of fish caught by each of $8$ anglers during a fishing tournament. Which of the following statements about the mean and the median of the data set is true?",
+  "question": "The dot plot shows the number of fish caught by each of $8$ people on a fishing trip. Which of the following correctly compares the mean and the median of the data?",
   "diagram": {
     "type": "dotPlot",
     "params": {
@@ -34,26 +34,26 @@
   "choices": [
     {
       "id": "A",
-      "text": "The mean is less than the median."
+      "text": "The mean is greater than the median."
     },
     {
       "id": "B",
-      "text": "The mean is equal to the median."
+      "text": "The mean is less than the median."
     },
     {
       "id": "C",
-      "text": "The mean and the median are both equal to $4$."
+      "text": "The mean is equal to the median."
     },
     {
       "id": "D",
-      "text": "The mean is greater than the median."
+      "text": "There is not enough information to compare the mean and the median."
     }
   ],
   "distractorNotes": {
-    "A": "reverses the direction an outlier pulls the mean",
-    "B": "assumes a symmetric distribution around the tallest stack",
-    "C": "correct median, but takes it as the mean too (mean is 4.5)"
+    "B": "reverses the direction a high outlier pulls the mean",
+    "C": "assumes the data are centered on the tallest stack, so the mean and median coincide",
+    "D": "thinks the individual values cannot be read from a dot plot"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Mean-Median Comparison**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Seven of the values sit at $2$ through $5$ and one sits far out at $11$. That single high value pulls the mean up without moving the median, so mean $>$ median.\n\n**The Full Solution:**\nStep 1: Read the values from the dot plot: $2, 3, 3, 4, 4, 4, 5, 11$.\nStep 2: Median: with $8$ values, average the $4$th and $5$th, $\\frac{4 + 4}{2} = 4$.\nStep 3: Mean: $\\frac{2 + 3 + 3 + 4 + 4 + 4 + 5 + 11}{8} = \\frac{36}{8} = 4.5$. Since $4.5 > 4$, the mean is greater than the median. Check: replacing the $11$ with a $4$ would give a mean of $\\frac{29}{8} \\approx 3.6$, so the $11$ is exactly what lifts the mean above the median. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reverses the effect of the outlier; a value far ABOVE the rest pulls the mean up, not down.\n* Choice B: assumes the tallest stack is at the center of the data, so the two measures should coincide; the $11$ breaks that symmetry.\n* Choice C: gets the median right ($4$) but takes it as the mean too; the mean is $4.5$.\n\n**Test Day Takeaway:** An extreme value drags the mean toward it and leaves the median alone; a long tail to the right means mean $>$ median."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Mean-Median Comparison**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Seven values sit at $2$ through $5$ and one sits far out at $11$. That high value pulls the mean up without moving the median, so the mean is greater than the median.\n\n**The Full Solution:**\nStep 1: Read the values from the dot plot: $2, 3, 3, 4, 4, 4, 5, 11$.\nStep 2: With $8$ values, the median is the mean of the $4$th and $5$th values: $\\frac{4 + 4}{2} = 4$.\nStep 3: The mean is $\\frac{2 + 3 + 3 + 4 + 4 + 4 + 5 + 11}{8} = \\frac{36}{8} = 4.5$, and $4.5 > 4$. Check: with the $11$ replaced by a $4$, the mean would be $\\frac{29}{8} \\approx 3.6$, so the $11$ is what lifts the mean above the median ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: reverses the effect of the outlier; a value far above the rest pulls the mean up, not down.\n* Choice C: assumes the data are centered on the tallest stack; the value $11$ breaks that symmetry.\n* Choice D: every dot is one data value, so both measures can be computed from the plot.\n\n**Test Day Takeaway:** An extreme value pulls the mean toward it and leaves the median alone; a long tail to the right means the mean is greater than the median."
 }

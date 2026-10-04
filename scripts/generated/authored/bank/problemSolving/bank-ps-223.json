@@ -1,29 +1,29 @@
 {
- "id": "bank-ps-223",
- "question": "Of the $8{,}000$ juvenile salmon released above a dam, $65\\%$ were detected at the first weir. Of the released fish not detected at the first weir, $40\\%$ were detected at the second weir. The fish detected at neither weir are $n\\%$ of all the fish released. What is the value of $n$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$14$"
+  "id": "bank-ps-223",
+  "question": "Of the tagged fish released into a river, $65\\%$ were detected by sensor $A$. Of the fish not detected by sensor $A$, $40\\%$ were detected by sensor $B$. What percent of the fish released were detected by neither sensor?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$14\\%$"
+    },
+    {
+      "id": "B",
+      "text": "$21\\%$"
+    },
+    {
+      "id": "C",
+      "text": "$35\\%$"
+    },
+    {
+      "id": "D",
+      "text": "$60\\%$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "finds the fish detected by sensor B only, 0.35 × 0.40 = 0.14, instead of those detected by neither",
+    "C": "reports the 35% missed by sensor A without removing the fish that sensor B detected",
+    "D": "reports 60%, the share missed by sensor B within the fish that sensor A missed, as a share of all fish"
   },
-  {
-   "id": "B",
-   "text": "$21$"
-  },
-  {
-   "id": "C",
-   "text": "$35$"
-  },
-  {
-   "id": "D",
-   "text": "$60$"
-  }
- ],
- "correctAnswer": "B",
- "distractorNotes": {
-  "A": "reports the percent detected at the second weir, $0.35(0.40) = 14\\%$, rather than the percent missed by both",
-  "C": "stops at the complement of the first weir, $35\\%$, ignoring the second weir entirely",
-  "D": "takes the complement of the second percent alone, $100 - 40 = 60$, applied to the whole release"
- },
- "explanation": "**SAT Pattern: Percent Complement**\n\n**Choice B is correct.** The fish missed by the first weir are $35\\%$ of the release, and $60\\%$ of those are also missed by the second weir, so $n = 35(0.60) = 21$.\n\n**The Fast Way (~50s):** Missing both weirs means surviving two complements: $0.35(0.60) = 0.21$, so $n = 21$.\n\n**The Full Solution:**\n\nStep 1: Take the first complement. Since $65\\%$ were detected at the first weir, $100 - 65 = 35\\%$ were not, which is $0.35(8{,}000) = 2{,}800$ fish.\n\nStep 2: Take the second complement within that group. Of those $2{,}800$ fish, $40\\%$ were detected at the second weir, so $100 - 40 = 60\\%$ were not: $0.60(2{,}800) = 1{,}680$ fish.\n\nStep 3: Compare with the whole release: $\\frac{1{,}680}{8{,}000} = 0.21$, so $n = 21$. Check: $5{,}200$ fish were detected at the first weir and $1{,}120$ at the second, and $5{,}200 + 1{,}120 + 1{,}680 = 8{,}000$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($14$): computes $0.35(0.40) = 0.14$, the percent detected at the second weir, not the percent missed by both.\n* Choice C ($35$): reports only the first complement and forgets that the second weir catches some of that group.\n* Choice D ($60$): applies the second complement to the entire release rather than to the $35\\%$ that reached the second weir.\n\n**Test Day Takeaway:** Each \"of those\" resets the base -- write the complement, multiply, and only convert back to the original whole at the end."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Percent Complement**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $35\\%$ were missed by sensor $A$, and $60\\%$ of those were also missed by sensor $B$: $0.35 \\times 0.60 = 0.21$, or $21\\%$.\n\n**The Full Solution:**\nStep 1: Sensor $A$ missed $100\\% - 65\\% = 35\\%$ of the fish released.\nStep 2: Sensor $B$ detected $40\\%$ of those, so it missed $100\\% - 40\\% = 60\\%$ of them.\nStep 3: Multiply the two complements: $0.35 \\times 0.60 = 0.21$, or $21\\%$. Check: detected by $A$, $65\\%$; by $B$ only, $0.35(0.40) = 14\\%$; by neither, $21\\%$; and $65 + 14 + 21 = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($14\\%$): finds the fish detected by sensor $B$ alone, which is the complement of the answer within the missed group.\n* Choice C ($35\\%$): stops after sensor $A$ and ignores the fish that sensor $B$ caught.\n* Choice D ($60\\%$): is the share sensor $B$ missed among the fish sensor $A$ missed, not a share of all the fish.\n\n**Test Day Takeaway:** For \"neither,\" chain the complements: multiply what the first step missed by what the second step missed."
 }

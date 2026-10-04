@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-172",
-  "question": "A raffle drum contains $40$ tickets, of which $15$ are marked as prize tickets. If one ticket is drawn at random, what is the probability that it is not a prize ticket?",
+  "question": "Of the $40$ tickets in a box, $15$ are winning tickets. If one ticket is selected at random, what is the probability that it is not a winning ticket?",
   "choices": [
     {
       "id": "A",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "15/40, the probability of a prize ticket (the complement)",
-    "B": "15/25, the ratio of prize to non-prize tickets, not a probability",
-    "D": "25/15, inverted; a probability cannot exceed 1"
+    "A": "15/40, the probability of selecting a winning ticket (the complement)",
+    "B": "15/25, the ratio of winning tickets to other tickets, not a probability",
+    "D": "25/15, an inverted ratio; a probability cannot exceed 1"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Non-prize tickets: $40 - 15 = 25$. Probability $= \\frac{25}{40} = \\frac{5}{8}$.\n\n**The Full Solution:**\nStep 1: Count the favorable outcomes: tickets that are not prize tickets, $40 - 15 = 25$.\nStep 2: The total number of equally likely outcomes is $40$.\nStep 3: Probability $= \\frac{25}{40} = \\frac{5}{8}$. Check: $P(\\text{prize}) = \\frac{15}{40} = \\frac{3}{8}$, and $\\frac{3}{8} + \\frac{5}{8} = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{8}$): The probability of drawing a prize ticket, $\\frac{15}{40}$; the question asks for the complement.\n* Choice B ($\\frac{3}{5}$): $\\frac{15}{25}$, the ratio of prize tickets to non-prize tickets; a probability's denominator is the total, $40$.\n* Choice D ($\\frac{5}{3}$): $\\frac{25}{15}$, the inverted ratio; a probability can never exceed $1$.\n\n**Test Day Takeaway:** Probability $= \\dfrac{\\text{favorable}}{\\text{total}}$; for \"not,\" either count the rest or subtract from $1$."
+  "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** There are $40 - 15 = 25$ tickets that are not winning tickets, so the probability is $\\frac{25}{40} = \\frac{5}{8}$.\n\n**The Full Solution:**\nStep 1: Count the favorable outcomes: $40 - 15 = 25$ tickets are not winning tickets.\nStep 2: The total number of equally likely outcomes is $40$.\nStep 3: Probability: $\\frac{25}{40} = \\frac{5}{8}$. Check: the probability of a winning ticket is $\\frac{15}{40} = \\frac{3}{8}$, and $\\frac{3}{8} + \\frac{5}{8} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{8}$): the probability of selecting a winning ticket, $\\frac{15}{40}$; the question asks for the complement.\n* Choice B ($\\frac{3}{5}$): $\\frac{15}{25}$, the ratio of winning tickets to other tickets; a probability's denominator is the total, $40$.\n* Choice D ($\\frac{5}{3}$): $\\frac{25}{15}$, an inverted ratio; a probability can never exceed $1$.\n\n**Test Day Takeaway:** Probability is favorable outcomes over total outcomes; for \"not,\" either count the rest or subtract from $1$."
 }

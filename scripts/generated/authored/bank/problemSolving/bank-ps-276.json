@@ -1,22 +1,22 @@
 {
   "id": "bank-ps-276",
-  "question": "A regional planner surveyed $900$ residents selected at random from the residents of a county. Based on the survey, $47\\%$ of the county's residents would use a proposed bus route at least once each week, with an associated margin of error of $3\\%$. Which of the following conclusions is best supported by these results?",
+  "question": "Based on a random sample of $900$ residents of a county, it is estimated that $47\\%$ of the county's residents would use a proposed bus route, with an associated margin of error of $3\\%$. Which of the following is the most appropriate conclusion?",
   "choices": [
     {
       "id": "A",
-      "text": "Exactly $47\\%$ of the county's residents would use the proposed route at least once each week."
+      "text": "Exactly $47\\%$ of the county's residents would use the bus route."
     },
     {
       "id": "B",
-      "text": "More than $50\\%$ of the county's residents would use the proposed route at least once each week."
+      "text": "More than $50\\%$ of the county's residents would use the bus route."
     },
     {
       "id": "C",
-      "text": "It is plausible that between $44\\%$ and $50\\%$ of the county's residents would use the proposed route at least once each week."
+      "text": "It is plausible that between $44\\%$ and $50\\%$ of the county's residents would use the bus route."
     },
     {
       "id": "D",
-      "text": "Fewer than $44\\%$ of the county's residents would use the proposed route at least once each week."
+      "text": "Fewer than $44\\%$ of the county's residents would use the bus route."
     }
   ],
   "distractorNotes": {

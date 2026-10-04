@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-041",
-  "question": "The box plot summarizes the lengths, in millimeters, of the leaves in a sample taken from a shrub. What is the range, in millimeters, of the lengths of the leaves in the sample?",
+  "question": "The box plot summarizes the lengths, in millimeters, of the leaves in a sample from a shrub. What is the range, in millimeters, of the lengths?",
   "diagram": {
     "type": "boxPlot",
     "params": {

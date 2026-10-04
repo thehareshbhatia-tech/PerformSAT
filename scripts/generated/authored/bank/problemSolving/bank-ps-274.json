@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-274",
-  "question": "An agronomist selected $40$ fields at random from the corn fields in a county and measured the mass of one ear of corn from each selected field. The mean mass for the sample was estimated to be $285$ grams, with an associated margin of error of $12$ grams. Which of the following is the most appropriate conclusion about the mean mass of an ear of corn for all corn fields in the county?",
+  "question": "Based on a random sample of ears of corn grown in a county, the mean mass of an ear of corn grown in the county is estimated to be $285$ grams, with an associated margin of error of $12$ grams. Which of the following is the most appropriate conclusion about this mean mass?",
   "choices": [
     {
       "id": "A",

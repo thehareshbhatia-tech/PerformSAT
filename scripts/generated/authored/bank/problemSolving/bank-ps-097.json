@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-097",
-  "question": "A random sample of $400$ of the $12{,}000$ members of a professional association was surveyed. Based on the sample, it is estimated that $35\\%$ of all the members attended the annual conference, with an associated margin of error of $4\\%$. Based on this estimate and margin of error, what is the greatest number of the $12{,}000$ members who could plausibly have attended the conference?",
+  "question": "A random sample of $400$ of the $12{,}000$ members of a club was surveyed. It is estimated that $35\\%$ of all members attended the club's annual meeting, with an associated margin of error of $4\\%$. What is the greatest plausible number of members who attended the meeting?",
   "choices": [
     {
       "id": "A",

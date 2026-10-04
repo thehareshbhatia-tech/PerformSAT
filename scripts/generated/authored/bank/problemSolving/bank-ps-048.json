@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-048",
-  "question": "The table shows the results of two surveys, each of a different random sample of commuters in a city, that estimated the percent of commuters in the city who use public transit. Based on both surveys, which of the following is a plausible value for the percent of all commuters in the city who use public transit?",
+  "question": "The table shows the results of two surveys of different random samples of commuters in a city. Each survey estimated the percent of commuters in the city who use public transit. Which of the following is a plausible value for this percent, based on both surveys?",
   "questionTable": {
     "headers": [
       "Survey",

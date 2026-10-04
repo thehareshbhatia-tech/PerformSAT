@@ -1,12 +1,12 @@
 {
   "id": "bank-ps-231",
-  "question": "The table gives the area, in hectares, occupied by overwintering monarch colonies at three groves during one season. The next season, grove A measured $120\\%$ of the area shown and grove B measured $50\\%$ of the area shown, while the three groves combined measured $80\\%$ of the combined area shown. What was grove C's area, in hectares, the next season?",
+  "question": "The table shows the number of acres of corn planted in three fields last year. This year, the corn in field A covered $120\\%$ of last year's area and the corn in field B covered $50\\%$ of last year's area. The corn in all three fields covered $80\\%$ of last year's total area. How many acres of corn were planted in field C this year?",
   "diagram": {
     "type": "dataTable",
     "params": {
       "headers": [
-        "Grove",
-        "Area (hectares)"
+        "Field",
+        "Corn (acres)"
       ],
       "rows": [
         [
@@ -42,11 +42,11 @@
       "text": "$4.0$"
     }
   ],
-  "correctAnswer": "C",
   "distractorNotes": {
-    "A": "applies the combined $80\\%$ factor to grove C on its own, $0.80(1.5) = 1.2$",
-    "B": "applies grove A's $120\\%$ factor to grove C, $1.20(1.5) = 1.8$",
-    "D": "uses the original combined area of $10$ hectares instead of $80\\%$ of it, $10 - 3.0 - 3.0 = 4.0$"
+    "A": "applies the combined 80% factor to field C alone, 0.80 × 1.5 = 1.2",
+    "B": "applies field A's 120% factor to field C, 1.20 × 1.5 = 1.8",
+    "D": "subtracts the new A and B areas from last year's total of 10 instead of this year's total of 8, 10 − 3 − 3 = 4"
   },
-  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**Choice C is correct.** The three groves together covered $0.80(10) = 8$ hectares, and grove C held what groves A and B did not: $8 - 3.0 - 3.0 = 2.0$ hectares.\n\n**The Fast Way (~60s):** New total $= 0.80(10) = 8$; new A $= 1.20(2.5) = 3.0$; new B $= 0.50(6.0) = 3.0$; so new C $= 8 - 3.0 - 3.0 = 2.0$ hectares.\n\n**The Full Solution:**\n\nStep 1: Find the combined area shown and the combined area the next season. The table gives $2.5 + 6.0 + 1.5 = 10$ hectares, so the next season the three groves covered $0.80(10) = 8$ hectares.\n\nStep 2: Find the next season's areas for the two groves whose factors are given. Grove A covered $1.20(2.5) = 3.0$ hectares and grove B covered $0.50(6.0) = 3.0$ hectares.\n\nStep 3: Subtract to isolate grove C: $8 - 3.0 - 3.0 = 2.0$ hectares. Check: $3.0 + 3.0 + 2.0 = 8$, which is $80\\%$ of $10$ hectares.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($1.2$): applies the combined factor to grove C alone, $0.80(1.5) = 1.2$. The $80\\%$ describes the three groves together, not each one.\n* Choice B ($1.8$): applies grove A's factor to grove C, $1.20(1.5) = 1.8$.\n* Choice D ($4.0$): forgets that the combined area shrank and subtracts from the original $10$ hectares: $10 - 3.0 - 3.0 = 4.0$.\n\n**Test Day Takeaway:** A percent attached to a total constrains the parts only through their sum -- convert the total first, then let subtraction find the part nobody told you about."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** This year's total is $0.80(10) = 8$ acres; field A has $1.20(2.5) = 3$ and field B has $0.50(6) = 3$, so field C has $8 - 3 - 3 = 2.0$ acres.\n\n**The Full Solution:**\nStep 1: Last year's total from the table: $2.5 + 6.0 + 1.5 = 10$ acres, so this year's total is $0.80 \\times 10 = 8$ acres.\nStep 2: This year's areas for fields A and B: $1.20 \\times 2.5 = 3.0$ acres and $0.50 \\times 6.0 = 3.0$ acres.\nStep 3: Field C has the rest: $8 - 3.0 - 3.0 = 2.0$ acres. Check: $3.0 + 3.0 + 2.0 = 8 = 0.80(10)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.2$): applies the overall $80\\%$ to field C, but the $80\\%$ describes the three fields together.\n* Choice B ($1.8$): applies field A's $120\\%$ to field C.\n* Choice D ($4.0$): subtracts this year's A and B areas from last year's total instead of this year's.\n\n**Test Day Takeaway:** When a percent describes a total, find the new total first, then subtract the parts you know."
 }

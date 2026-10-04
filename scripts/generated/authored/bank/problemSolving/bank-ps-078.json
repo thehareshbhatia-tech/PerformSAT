@@ -1,11 +1,11 @@
 {
   "id": "bank-ps-078",
-  "question": "The table shows the frequency of the number of defective parts found in each of $20$ batches inspected at a factory. What is the mean number of defective parts per batch for these $20$ batches?",
+  "question": "The table shows the frequency of each value in a data set. What is the mean of the data set?",
   "diagram": {
     "type": "dataTable",
     "params": {
       "headers": [
-        "Number of defective parts",
+        "Value",
         "Frequency"
       ],
       "rows": [
@@ -47,10 +47,10 @@
     }
   ],
   "distractorNotes": {
-    "B": "averages the value column (0+1+2+3)/4, ignoring frequencies",
-    "C": "averages the frequency column 20/4",
-    "D": "stops at the total number of defective parts"
+    "B": "averages the four values (0 + 1 + 2 + 3)/4, ignoring the frequencies",
+    "C": "averages the frequency column, 20/4 = 5",
+    "D": "stops at the sum of the data, 22, and never divides by the 20 values"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Mean from List**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Total defective parts $= 0(6) + 1(8) + 2(4) + 3(2) = 22$, over $20$ batches: $\\frac{22}{20} = 1.1$.\n\n**The Full Solution:**\nStep 1: A frequency table lists each value and how many times it occurs. The total of all values is the sum of each value times its frequency.\nStep 2: Compute: $0 \\times 6 = 0$, $1 \\times 8 = 8$, $2 \\times 4 = 8$, $3 \\times 2 = 6$, and $0 + 8 + 8 + 6 = 22$ defective parts.\nStep 3: The number of batches is $6 + 8 + 4 + 2 = 20$, so the mean is $\\frac{22}{20} = 1.1$. Check: $1.1$ lies between $0$ and $3$ and close to $1$, where most of the frequency sits. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($1.5$): averages the four values in the left column, $\\frac{0 + 1 + 2 + 3}{4}$, ignoring how often each occurs.\n* Choice C ($5$): averages the frequency column, $\\frac{20}{4}$, which is not a number of defective parts.\n* Choice D ($22$): stops at the total number of defective parts and never divides by the $20$ batches.\n\n**Test Day Takeaway:** With a frequency table, multiply each value by its frequency, add, and divide by the SUM of the frequencies, not the number of rows."
+  "explanation": "**SAT Pattern: Mean from List**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The sum is $0(6) + 1(8) + 2(4) + 3(2) = 22$, and there are $6 + 8 + 4 + 2 = 20$ values, so the mean is $\\frac{22}{20} = 1.1$.\n\n**The Full Solution:**\nStep 1: Each value occurs as many times as its frequency, so the sum of the data is $0 \\times 6 + 1 \\times 8 + 2 \\times 4 + 3 \\times 2 = 0 + 8 + 8 + 6 = 22$.\nStep 2: The number of values is the sum of the frequencies: $6 + 8 + 4 + 2 = 20$.\nStep 3: The mean is $\\frac{22}{20} = 1.1$. Check: $1.1$ lies between $0$ and $3$ and near $1$, the value with the greatest frequency ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($1.5$): averages the four values in the first column, $\\frac{0 + 1 + 2 + 3}{4}$, ignoring how often each occurs.\n* Choice C ($5$): averages the frequency column, $\\frac{20}{4}$, which is not a value in the data set.\n* Choice D ($22$): stops at the sum of the data and never divides by the $20$ values.\n\n**Test Day Takeaway:** With a frequency table, multiply each value by its frequency, add, and divide by the sum of the frequencies, not the number of rows."
 }

@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-013",
-  "question": "The number of members of a hiking club increased by $45\\%$ from 2019 to 2022 and then increased by $25\\%$ from 2022 to 2024. The club had $2{,}610$ members in 2024. How many members did the club have in 2019?",
+  "question": "A hiking club's membership increased by $40\\%$ from 2019 to 2022 and then by $15\\%$ from 2022 to 2024. The club had $2{,}500$ members in 2024. Which of the following is closest to the club's membership in 2019?",
   "choices": [
     {
       "id": "A",
-      "text": "$1{,}440$"
+      "text": "$1{,}553$"
     },
     {
       "id": "B",
-      "text": "$1{,}535$"
+      "text": "$1{,}613$"
     },
     {
       "id": "C",
-      "text": "$1{,}800$"
+      "text": "$1{,}786$"
     },
     {
       "id": "D",
-      "text": "$2{,}088$"
+      "text": "$2{,}174$"
     }
   ],
   "distractorNotes": {
-    "B": "adds the percents and divides once by $1.70$, which gives about $1{,}535$; successive increases multiply, so the true factor is $1.45 \\times 1.25 = 1.8125$.",
-    "C": "undoes only the $45\\%$ increase, $\\frac{2{,}610}{1.45}$, and ignores the $25\\%$ increase.",
-    "D": "undoes only the $25\\%$ increase and reports the 2022 membership."
+    "B": "adds the percents and divides by $1.55$; successive increases multiply, so the combined factor is $1.40 \\times 1.15 = 1.61$.",
+    "C": "undoes only the $40\\%$ increase, computing $\\frac{2{,}500}{1.40}$, and ignores the $15\\%$ increase.",
+    "D": "undoes only the $15\\%$ increase, computing $\\frac{2{,}500}{1.15}$, which estimates the 2022 membership."
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Reverse Growth**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Undo the growth in reverse order by dividing: $\\frac{2{,}610}{1.25} = 2{,}088$ members in 2022, and $\\frac{2{,}088}{1.45} = 1{,}440$ members in 2019.\n\n**The Full Solution:**\nStep 1: Let $m$ be the 2019 membership. Two increases multiply: $m \\times 1.45 \\times 1.25 = 2{,}610$.\nStep 2: Divide out each growth factor: $\\frac{2{,}610}{1.25} = 2{,}088$ (the 2022 count), then $\\frac{2{,}088}{1.45} = 1{,}440$.\nStep 3: Check forward: $1{,}440 \\times 1.45 = 2{,}088$, and $2{,}088 \\times 1.25 = 2{,}610$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($1{,}535$): adds the percents and divides once by $1.70$, which gives about $1{,}535$; successive increases multiply, so the true factor is $1.45 \\times 1.25 = 1.8125$.\n* Choice C ($1{,}800$): undoes only the $45\\%$ increase, $\\frac{2{,}610}{1.45}$, and ignores the $25\\%$ increase.\n* Choice D ($2{,}088$): undoes only the $25\\%$ increase and reports the 2022 membership.\n\n**Test Day Takeaway:** Each percent increase is a multiplication by $(1 + \\text{rate})$; to go backward, divide by every factor, one at a time."
+  "explanation": "**SAT Pattern: Reverse Growth**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The two increases multiply the 2019 membership by $1.40 \\times 1.15 = 1.61$, so the 2019 membership was $\\frac{2{,}500}{1.61} \\approx 1{,}553$.\n\n**The Full Solution:**\nStep 1: Let $m$ be the number of members in 2019. A $40\\%$ increase multiplies by $1.40$ and a $15\\%$ increase multiplies by $1.15$, so $1.40 \\times 1.15 \\times m = 2{,}500$.\nStep 2: Since $1.40 \\times 1.15 = 1.61$, $m = \\frac{2{,}500}{1.61} \\approx 1{,}552.8$, which is closest to $1{,}553$.\nStep 3: Check forward: $1{,}553 \\times 1.40 \\approx 2{,}174$, and $2{,}174 \\times 1.15 \\approx 2{,}500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($1{,}613$): adds the percents and divides by $1.55$; successive increases multiply, so the combined factor is $1.40 \\times 1.15 = 1.61$.\n* Choice C ($1{,}786$): undoes only the $40\\%$ increase, computing $\\frac{2{,}500}{1.40}$, and ignores the $15\\%$ increase.\n* Choice D ($2{,}174$): undoes only the $15\\%$ increase, computing $\\frac{2{,}500}{1.15}$, which estimates the 2022 membership.\n\n**Test Day Takeaway:** Successive percent increases multiply. To go backward, divide by the product of the growth factors, not by $1$ plus the sum of the percents."
 }

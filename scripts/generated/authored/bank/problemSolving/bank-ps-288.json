@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-288",
-  "question": "An estimate based on a random sample of $n$ residents of a city has a margin of error of $m$ percentage points, where $m > 0$. A second estimate, based on a larger random sample of the city's residents and computed by the same method at the same confidence level, has a margin of error of $\\frac{m}{5}$ percentage points. In terms of $n$, how many residents were in the second sample?",
+  "question": "A random sample of size $n$ gives an estimate with a margin of error of $m$. Which of the following is the sample size that, by the same method, gives a margin of error of $\\frac{m}{5}$?",
   "choices": [
     {
       "id": "A",

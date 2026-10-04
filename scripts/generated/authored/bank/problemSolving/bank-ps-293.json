@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-293",
-  "question": "A pipeline transports oil at a constant rate of $1.5$ cubic meters per minute. The table gives two unit conversions. At this rate, how many liters of oil does the pipeline transport in $1$ hour?",
+  "question": "A pipeline carries oil at a constant rate of $1.5$ cubic meters per minute. The table shows two unit conversions. At this rate, how many liters of oil does the pipeline carry in $1$ hour?",
   "diagram": {
     "type": "dataTable",
     "params": {

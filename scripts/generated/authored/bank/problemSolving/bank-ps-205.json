@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-205",
-  "question": "A bicycle shop logged the $200$ repairs it completed last month by frame material and type of service, as summarized in the two-way table. If one of these repairs is selected at random, what is the probability that it was performed on a steel-frame bicycle?",
+  "question": "The table shows the $200$ repairs a bicycle shop completed last month, by frame material and type of service. If one of these repairs is selected at random, what is the probability that it was performed on a steel-frame bicycle?",
   "diagram": {
     "type": "twoWayTable",
     "params": {

@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-290",
-  "question": "A dispensing machine was tested three times. The table gives the volume of liquid, in milliliters, that the machine dispensed in each test. What was the total volume of liquid dispensed in the three tests, in liters? ($1$ liter $= 1{,}000$ milliliters.)",
+  "question": "The table shows the volume of liquid, in milliliters, that a machine dispensed in each of three tests. What was the total volume dispensed in the three tests, in liters? ($1$ liter $= 1{,}000$ milliliters)",
   "questionTable": {
     "headers": [
       "Test",

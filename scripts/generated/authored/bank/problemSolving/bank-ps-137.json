@@ -1,6 +1,6 @@
 {
  "id": "bank-ps-137",
- "question": "The scatterplot shows the number of coats of sealant $x$ on each of $11$ wood samples and the time $y$, in hours, until water penetrated each sample, with the line of best fit $\\hat{y} = 2.75x + 6.5$. What is the predicted time, in hours, for a sample with $4$ coats?",
+ "question": "The scatterplot shows the number of hours $x$ that each of $11$ students spent studying for a quiz and the score $y$ each student earned on the quiz. An equation of the line of best fit shown is $y = 2.75x + 6.5$. What is the predicted score for a student who spent $4$ hours studying?",
  "diagram": {
   "type": "scatterplot",
   "params": {
@@ -58,8 +58,8 @@
    "yGridStep": 2,
    "xLabelStep": 1,
    "yLabelStep": 4,
-   "xLabel": "Coats of sealant",
-   "yLabel": "Time (hours)",
+   "xLabel": "Hours spent studying",
+   "yLabel": "Quiz score",
    "bestFitLine": {
     "slope": 2.75,
     "intercept": 6.5
@@ -67,5 +67,5 @@
   }
  },
  "correctAnswer": "17.5",
- "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $17.5$.**\n\n**The Fast Way (~10s):** $\\hat{y} = 2.75(4) + 6.5 = 11 + 6.5 = 17.5$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 4$ into the line: $2.75 \\times 4 = 11$.\nStep 2: Add the intercept: $11 + 6.5 = 17.5$ hours.\nStep 3: Check against the plot: the data point at $x = 4$ is $(4, 18)$, just above the line's $17.5$. $\\checkmark$\n\n**Common Mistakes:** Adding instead of multiplying, $2.75+4+6.5=13.25$; reading the dot at $x = 4$ ($18$ hours) rather than the line; forgetting the intercept and answering $11$.\n\n**Test Day Takeaway:** Multiply the slope by $x$ first, then add the intercept, and keep decimals exact: $17.5$, not $18$."
+ "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $17.5$.**\n\n**The Fast Way (~10s):** $y = 2.75(4) + 6.5 = 11 + 6.5 = 17.5$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 4$ into the equation of the line: $2.75 \\times 4 = 11$.\nStep 2: Add the $y$-intercept: $11 + 6.5 = 17.5$.\nStep 3: Check against the scatterplot: the data point at $x = 4$ is $(4, 18)$, just above the line's $17.5$ ✓\n\n**Common Mistakes:**\n* $13.25$: adds the slope $2.75$, the $4$ hours, and the $y$-intercept $6.5$ instead of multiplying the slope by $4$.\n* $18$: reads the plotted point at $x = 4$ instead of the line's prediction.\n* $11$: multiplies the slope by $4$ but forgets the $y$-intercept.\n\n**Test Day Takeaway:** Multiply the slope by $x$ first, then add the $y$-intercept, and keep the decimal exact: $17.5$, not $18$."
 }

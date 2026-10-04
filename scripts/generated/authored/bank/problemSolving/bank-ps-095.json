@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-095",
-  "question": "A polling organization surveyed a random sample of $300$ residents of a city and reported a margin of error of $\\pm 6$ percentage points. For this method, the margin of error is inversely proportional to the square root of the sample size. To report a margin of error of $\\pm 3$ percentage points at the same confidence level, how many residents must the organization survey?",
+  "question": "A library will estimate the mean number of books its members borrow each year. Survey 1 will use a random sample of $150$ members, and survey 2 will use a random sample of $600$ members. If both margins of error are found with the same method, which of the following is most likely true?",
   "choices": [
     {
       "id": "A",
-      "text": "$150$"
+      "text": "The margin of error for survey 1 will be less than the margin of error for survey 2."
     },
     {
       "id": "B",
-      "text": "$600$"
+      "text": "The margin of error for survey 1 will be greater than the margin of error for survey 2."
     },
     {
       "id": "C",
-      "text": "$900$"
+      "text": "The margins of error for the two surveys will be equal."
     },
     {
       "id": "D",
-      "text": "$1{,}200$"
+      "text": "The estimated mean for survey 2 will be four times the estimated mean for survey 1."
     }
   ],
   "distractorNotes": {
-    "A": "halves the sample size, treating the margin of error as proportional to n",
-    "B": "doubles the sample size, ignoring the square root",
-    "C": "multiplies by 3, the difference 6 - 3 in percentage points"
+    "A": "reverses the relationship, as if a larger sample gave a larger margin of error",
+    "C": "assumes sample size has no effect on the margin of error",
+    "D": "applies the sample-size ratio 600/150 = 4 to the estimate itself"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Margin of Error**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Halving the margin of error requires multiplying the sample size by $2^2 = 4$: $4(300) = 1{,}200$.\n\n**The Full Solution:**\nStep 1: The margin of error satisfies $M = \\dfrac{k}{\\sqrt{n}}$ for some constant $k$, so $\\sqrt{n} = \\dfrac{k}{M}$ and $n = \\dfrac{k^2}{M^2}$.\nStep 2: The margin of error must fall by a factor of $\\dfrac{6}{3} = 2$, so $n$ must grow by a factor of $2^2 = 4$.\nStep 3: $n = 4(300) = 1{,}200$ residents.\nCheck: $\\sqrt{1{,}200} = 2\\sqrt{300}$, so the margin of error is halved. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($150$): This halves the sample size, as if a smaller sample gave a smaller margin of error; the relationship runs the other way.\n* Choice B ($600$): This doubles the sample size, matching the factor $2$ in the margin of error but ignoring the square root.\n* Choice C ($900$): This multiplies by $3$, the difference $6 - 3$ in percentage points, treating a difference as a scale factor.\n\n**Test Day Takeaway:** Margin of error scales with $\\dfrac{1}{\\sqrt{n}}$: to divide it by $k$, multiply the sample size by $k^2$."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Margin of Error**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** A larger random sample gives a smaller margin of error, so survey 1, with only $150$ members, will most likely have the greater margin of error.\n\n**The Full Solution:**\nStep 1: A margin of error measures how far a sample estimate may plausibly be from the true value for the whole population.\nStep 2: Estimates from larger random samples vary less from sample to sample, so when margins of error are found with the same method, the larger sample generally has the smaller margin of error.\nStep 3: Survey 2 uses $600$ members and survey 1 uses only $150$, so the margin of error for survey 1 will most likely be greater.\nCheck: a margin of error of this kind is proportional to $\\dfrac{1}{\\sqrt{n}}$, and $\\sqrt{\\dfrac{600}{150}} = \\sqrt{4} = 2$, so survey 2's margin is about half of survey 1's. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: This reverses the relationship; more data makes an estimate more precise, not less.\n* Choice C: The margins would be equal only if sample size had no effect, but sample size is exactly what drives the margin of error.\n* Choice D: Sample size changes how precise the estimate is, not how large it is; there is no reason the mean itself would be four times as great.\n\n**Test Day Takeaway:** Bigger random sample, smaller margin of error; the estimate itself does not grow or shrink with the sample size."
 }

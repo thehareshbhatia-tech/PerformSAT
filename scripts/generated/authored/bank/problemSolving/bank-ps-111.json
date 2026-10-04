@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-111",
-  "question": "A conservation team has cleaned $1{,}440$ square feet of a public mural, which is $80\\%$ of the mural's total surface area of $A$ square feet. What is the value of $A$?",
+  "question": "$125\\%$ of $x$ is $1{,}500$. What is $60\\%$ of $x$?",
   "choices": [
     {
       "id": "A",
-      "text": "$1{,}152$"
+      "text": "$720$"
     },
     {
       "id": "B",
-      "text": "$1{,}728$"
+      "text": "$900$"
     },
     {
       "id": "C",
-      "text": "$1{,}800$"
+      "text": "$1{,}125$"
     },
     {
       "id": "D",
-      "text": "$7{,}200$"
+      "text": "$1{,}200$"
     }
   ],
   "distractorNotes": {
-    "A": "multiplies by 0.8 instead of dividing: 1,440 x 0.8 = 1,152",
-    "B": "adds 20 percent of the cleaned area to the cleaned area: 1,440 x 1.2 = 1,728",
-    "D": "divides by the uncleaned fraction 0.2 instead of the cleaned fraction 0.8: 1,440 / 0.2 = 7,200"
+    "B": "takes 60% of 1,500 instead of 60% of x",
+    "C": "multiplies 1,500 by 1.25 instead of dividing, then takes 60%: 0.6(1.25)(1,500) = 1,125",
+    "D": "1,200 is x itself; stops before taking 60%"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The cleaned strip is $80\\%$ of the mural, so $A = \\frac{1{,}440}{0.8} = 1{,}800$ square feet.\n\n**The Full Solution:**\nStep 1: Write the percent sentence as an equation. \"$1{,}440$ is $80\\%$ of $A$\" becomes $0.8A = 1{,}440$.\nStep 2: Solve. $A = \\frac{1{,}440}{0.8} = 1{,}800$ square feet.\nStep 3: Check. $80\\%$ of $1{,}800$ is $1{,}440$, and the $360$ square feet left over is the remaining $20\\%$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1{,}152$): computes $1{,}440 \\times 0.8$. Taking the percent again shrinks the part instead of recovering the whole.\n* Choice B ($1{,}728$): computes $1{,}440 \\times 1.2$, adding $20\\%$ of the CLEANED area. The missing $20\\%$ is of the total, not of the part.\n* Choice D ($7{,}200$): divides by $0.2$, the fraction NOT yet cleaned, instead of the $0.8$ that is.\n\n**Test Day Takeaway:** To go from a part to the whole, divide the part by the fraction it represents. Multiplying by that fraction goes the wrong way."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Reverse-Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $x = \\dfrac{1{,}500}{1.25} = 1{,}200$, and $60\\%$ of $1{,}200$ is $720$.\n\n**The Full Solution:**\nStep 1: Write the percent sentence as an equation: $1.25x = 1{,}500$.\nStep 2: Solve for $x$: $x = \\dfrac{1{,}500}{1.25} = 1{,}200$.\nStep 3: Find $60\\%$ of $x$: $0.6(1{,}200) = 720$.\nCheck: $1.25(1{,}200) = 1{,}500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($900$): This is $60\\%$ of $1{,}500$; the $1{,}500$ is $125\\%$ of $x$, not $x$ itself.\n* Choice C ($1{,}125$): This multiplies $1{,}500$ by $1.25$ instead of dividing, then takes $60\\%$: $0.6(1.25)(1{,}500) = 1{,}125$.\n* Choice D ($1{,}200$): This is the value of $x$; the question asks for $60\\%$ of $x$.\n\n**Test Day Takeaway:** Recover the whole first by dividing by the percent it was given at, then take the new percent of that whole."
 }

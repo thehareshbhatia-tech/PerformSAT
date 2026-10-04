@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-184",
-  "question": "The table gives the mass, in kilograms, of each type of material collected during a community recycling drive. The mass of glass collected is $p\\%$ of the total mass collected. What is the value of $p$?",
+  "question": "The table shows the mass, in kilograms, of each type of material collected during a community recycling drive. The mass of glass collected is $p\\%$ of the total mass collected. What is the value of $p$?",
   "diagram": {
     "type": "dataTable",
     "params": {

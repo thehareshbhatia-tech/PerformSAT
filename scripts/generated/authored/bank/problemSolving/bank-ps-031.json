@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-031",
-  "question": "The dot plot shows the lengths, in centimeters, of $11$ fish caught during a survey of a stream. What is the median length, in centimeters, of the fish?",
+  "question": "The dot plot shows the lengths, in centimeters, of $11$ fish. What is the median of the data shown?",
   "diagram": {
     "type": "dotPlot",
     "params": {

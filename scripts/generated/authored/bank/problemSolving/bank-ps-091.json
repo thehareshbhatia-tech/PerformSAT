@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-091",
-  "question": "The scatterplot shows the annual maintenance cost $y$, in hundreds of dollars, for each of $12$ machines and the age $x$, in years, of that machine, along with the line of best fit $\\hat{y} = 1.2x + 8$. For which of the following data points does the line of best fit most underestimate the actual annual maintenance cost?",
+  "question": "The scatterplot shows the age $x$, in years, and the annual maintenance cost $y$, in hundreds of dollars, for each of $12$ machines. A line of best fit for the data is also shown, with equation $y = 1.2x + 8$. For which of the following data points does the line of best fit most underestimate the maintenance cost?",
   "diagram": {
     "type": "scatterplot",
     "params": {

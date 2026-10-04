@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-044",
-  "question": "The temperatures, in degrees Fahrenheit, of $25$ samples have a mean of $68$ and a standard deviation of $9$. Each temperature is converted to degrees Celsius using the formula $C = \\frac{5}{9}(F - 32)$. Which of the following gives the mean and the standard deviation, in degrees Celsius, of the converted temperatures?",
+  "question": "The temperatures of $25$ samples have a mean of $68^{\\circ}\\text{F}$ and a standard deviation of $9^{\\circ}\\text{F}$. Each temperature is converted to degrees Celsius using $C = \\frac{5}{9}(F - 32)$. What are the mean and the standard deviation, in degrees Celsius, of the converted temperatures?",
   "choices": [
     {
       "id": "A",

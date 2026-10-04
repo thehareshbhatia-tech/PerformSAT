@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-093",
-  "question": "A random sample of $350$ guests at a hotel was surveyed. Based on the sample, it is estimated that $64\\%$ of all guests at the hotel would recommend it, with an associated margin of error of $5\\%$. Which of the following is the most appropriate conclusion based on this estimate and margin of error?",
+  "question": "Based on a random sample of $350$ guests at a hotel, it is estimated that $64\\%$ of all guests at the hotel would recommend it, with an associated margin of error of $5\\%$. Which of the following is the most appropriate conclusion?",
   "choices": [
     {
       "id": "A",

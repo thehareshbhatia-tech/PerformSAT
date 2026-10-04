@@ -1,19 +1,19 @@
 {
   "id": "bank-ps-103",
-  "question": "The table summarizes the $240$ animals admitted to a wildlife rehabilitation center in one year by age group and by outcome. One of the juvenile animals will be selected at random. What is the probability of selecting an animal that was not released?",
+  "question": "The table shows the outcomes for $240$ dogs that came to an animal shelter last year, by age group. One of the puppies will be selected at random. What is the probability of selecting a dog that was not adopted?",
   "diagram": {
     "type": "twoWayTable",
     "params": {
       "headers": [
         "",
-        "Released",
+        "Adopted",
         "Transferred",
-        "Died",
+        "Returned to owner",
         "Total"
       ],
       "rows": [
         [
-          "Juvenile",
+          "Puppy",
           "84",
           "21",
           "35",
@@ -55,10 +55,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "56/240, divides by all animals admitted",
-    "C": "56/96, conditions on the animals that were not released",
-    "D": "84/140, the released share of the juveniles"
+    "A": "56/240, divides by all 240 dogs",
+    "C": "56/96, conditions on the dogs that were not adopted",
+    "D": "84/140, the adopted share of the puppies"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Among the $140$ juveniles, $21 + 35 = 56$ were not released: $\\dfrac{56}{140} = \\dfrac{2}{5}$.\n\n**The Full Solution:**\nStep 1: The animal is chosen from the juveniles, so the denominator is $140$.\nStep 2: \"Not released\" covers two outcomes in that row: transferred, $21$, and died, $35$, for a total of $56$.\nStep 3: The probability is $\\dfrac{56}{140} = \\dfrac{2}{5}$.\nCheck: the released juveniles number $84$, and $\\dfrac{84}{140} = \\dfrac{3}{5}$, the complement of $\\dfrac{2}{5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{30}$): This is $\\dfrac{56}{240}$, dividing by every animal admitted instead of by the juveniles.\n* Choice C ($\\frac{7}{12}$): This is $\\dfrac{56}{96}$, conditioning on the animals that were not released rather than on the juveniles.\n* Choice D ($\\frac{3}{5}$): This is $\\dfrac{84}{140}$, the probability that a juvenile was released — the complement of what was asked.\n\n**Test Day Takeaway:** A \"not\" in the question adds cells across the given row; it never changes the denominator."
+  "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Among the $140$ puppies, $21 + 35 = 56$ were not adopted: $\\dfrac{56}{140} = \\dfrac{2}{5}$.\n\n**The Full Solution:**\nStep 1: The dog is chosen from the puppies, so the denominator is the puppy row's total, $140$.\nStep 2: \"Not adopted\" covers two outcomes in that row: transferred, $21$, and returned to owner, $35$, for a total of $56$.\nStep 3: The probability is $\\dfrac{56}{140} = \\dfrac{2}{5}$.\nCheck: the adopted puppies number $84$, and $\\dfrac{84}{140} = \\dfrac{3}{5}$, the complement of $\\dfrac{2}{5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{30}$): This is $\\dfrac{56}{240}$, dividing by all $240$ dogs instead of by the puppies.\n* Choice C ($\\frac{7}{12}$): This is $\\dfrac{56}{96}$, conditioning on the dogs that were not adopted rather than on the puppies.\n* Choice D ($\\frac{3}{5}$): This is $\\dfrac{84}{140}$, the probability that a puppy was adopted, the complement of what was asked.\n\n**Test Day Takeaway:** A \"not\" in the question adds cells across the given row; it never changes the denominator."
 }

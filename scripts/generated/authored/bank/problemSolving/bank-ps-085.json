@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-085",
-  "question": "The scatterplot shows the daily output $y$, in kilowatt-hours, of a solar array on each of $9$ days and the number of hours $x$ of cloud cover on that day, along with the line of best fit $\\hat{y} = -4x + 90$. What is the residual for the highlighted data point $(12, 38)$?",
+  "question": "The scatterplot shows the number of hours of rain $x$ and the number of visitors $y$ to a city park on each of $9$ days. The line of best fit, $y = -4x + 90$, is also shown. What is the residual for the data point $(12, 38)$?",
   "diagram": {
     "type": "scatterplot",
     "params": {
@@ -46,8 +46,8 @@
       "yGridStep": 10,
       "xLabelStep": 3,
       "yLabelStep": 20,
-      "xLabel": "Cloud cover (hours)",
-      "yLabel": "Output (kWh)",
+      "xLabel": "Hours of rain",
+      "yLabel": "Number of visitors",
       "bestFitLine": {
         "slope": -4,
         "intercept": 90
@@ -61,5 +61,5 @@
     }
   },
   "correctAnswer": "-4",
-  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is $-4$.**\n\n**The Fast Way (~10s):** Predicted: $\\hat{y} = -4(12) + 90 = 42$. Residual $= 38 - 42 = -4$.\n\n**The Full Solution:**\nStep 1: The residual is the actual value minus the value the line predicts.\nStep 2: At $x = 12$, $\\hat{y} = -48 + 90 = 42$ kilowatt-hours.\nStep 3: The actual output is $38$, so the residual is $38 - 42 = -4$ kilowatt-hours.\nCheck: the highlighted point lies below the line, so a negative residual is expected. $\\checkmark$\n\n**Common Mistakes:** Reporting the predicted value $42$; computing $\\hat{y} - y = 42 - 38 = 4$ and losing the sign; stopping at $-4(12) = -48$ without adding the intercept.\n\n**Test Day Takeaway:** A negative residual means the model overestimates; the point sits below the line."
+  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is -4.**\n\n**The Fast Way (~10s):** The line predicts $-4(12) + 90 = 42$ visitors, and $38 - 42 = -4$.\n\n**The Full Solution:**\nStep 1: A residual is the actual $y$-value minus the $y$-value predicted by the line of best fit.\nStep 2: At $x = 12$, the line predicts $y = -48 + 90 = 42$ visitors.\nStep 3: The actual value is $38$, so the residual is $38 - 42 = -4$. Check: the point lies below the line, so its residual is negative ✓\n\n**Common Mistakes:**\n* $4$: subtracts in the wrong order, $42 - 38$, and loses the sign.\n* $42$: reports the predicted value instead of the residual.\n* $86$: stops at $-48$ without adding the $90$, computing $38 - (-48)$.\n\n**Test Day Takeaway:** A negative residual means the line overestimates: the data point lies below the line."
 }

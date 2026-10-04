@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-229",
-  "question": "At a film festival, $45\\%$ of the entries are documentaries, and $20\\%$ of the documentary entries were produced outside the country. What percent of all entries are documentaries produced outside the country?",
+  "question": "At a film festival, $45\\%$ of the films shown are documentaries, and $20\\%$ of the documentaries are from other countries. What percent of the films shown are documentaries from other countries?",
   "choices": [
     {
       "id": "A",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "B": "reports the rate measured within the documentary entries",
-    "C": "subtracts, 45 - 20",
-    "D": "adds the two percents"
+    "B": "reports the 20% rate among documentaries as a share of all films",
+    "C": "subtracts the percents, 45 − 20 = 25",
+    "D": "adds the percents, 45 + 20 = 65"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $0.45 \\times 0.20 = 0.09$, or $9\\%$.\n\n**The Full Solution:**\nStep 1: The $20\\%$ is measured within the documentary entries, which are $45\\%$ of all entries.\nStep 2: Multiply the two rates: $0.45 \\times 0.20 = 0.09$.\nStep 3: Convert to a percent: $9\\%$. Check with $400$ entries: $180$ documentaries, and $20\\%$ of $180$ is $36$, which is $9\\%$ of $400$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($20\\%$): reports the share within the documentaries as though it described all entries.\n* Choice C ($25\\%$): subtracts the percents, $45 - 20$, but the two percents describe different wholes.\n* Choice D ($65\\%$): adds the percents, which exceeds the documentary share itself.\n\n**Test Day Takeaway:** Test the result on a convenient total. If the answer is not smaller than both given percents, the chain was not multiplied."
+  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $20\\%$ of $45\\%$ is $0.20 \\times 0.45 = 0.09$, or $9\\%$.\n\n**The Full Solution:**\nStep 1: The $20\\%$ is a share of the documentaries, which are themselves $45\\%$ of the films.\nStep 2: Chain the two shares: $0.20 \\times 0.45 = 0.09$.\nStep 3: Convert: $0.09 = 9\\%$. Check with $200$ films: $90$ are documentaries, and $20\\%$ of $90$ is $18$, which is $\\frac{18}{200} = 9\\%$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($20\\%$): is the share among documentaries, not among all films.\n* Choice C ($25\\%$): subtracts the percents.\n* Choice D ($65\\%$): adds the percents, which would be more films than are documentaries.\n\n**Test Day Takeaway:** A percent of a percent multiplies, and the result is always smaller than both."
 }

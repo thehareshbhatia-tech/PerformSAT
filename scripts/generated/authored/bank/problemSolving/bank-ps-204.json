@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-204",
-  "question": "The table gives the number of musicians in each section of a community orchestra. If one of these musicians is selected at random, what is the probability of selecting a musician who is not in the strings section? Express your answer as a decimal.",
+  "question": "The table shows the number of musicians in each section of a community orchestra. If one of these musicians is selected at random, what is the probability of selecting a musician who is not in the strings section? (Express your answer as a decimal or fraction, not as a percent.)",
   "diagram": {
     "type": "dataTable",
     "params": {

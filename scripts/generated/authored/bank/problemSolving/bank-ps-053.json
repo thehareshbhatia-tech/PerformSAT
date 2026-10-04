@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-053",
-  "question": "A printing press uses ink at a constant rate of $0.35$ ounces per minute. If $1$ ounce is approximately equal to $29.6$ milliliters, approximately how many liters of ink does the press use during an $8$-hour shift?",
+  "question": "A printing press uses ink at a constant rate of $0.35$ ounce per minute. Which of the following is closest to the number of liters of ink the press uses in $8$ hours? ($1$ ounce $\\approx 29.6$ milliliters)",
   "choices": [
     {
       "id": "A",

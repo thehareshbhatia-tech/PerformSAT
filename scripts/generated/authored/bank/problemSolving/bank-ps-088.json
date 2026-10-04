@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-088",
-  "question": "A museum plotted the run length, in days, against the recorded attendance, in hundreds of visitors, for each of its $8$ traveling exhibitions, and drew the line of best fit $y = 0.6x + 4$. What is the greatest residual, in hundreds of visitors, among the $8$ plotted exhibitions?",
+  "question": "The scatterplot shows the length $x$, in days, and the attendance $y$, in hundreds of visitors, of each of $8$ exhibits at a museum. The line of best fit, $y = 0.6x + 4$, is also shown. What is the greatest residual, in hundreds of visitors, of the $8$ data points?",
   "diagram": {
     "type": "scatterplot",
     "params": {
@@ -44,9 +44,9 @@
       "yMax": 36,
       "xGridStep": 5,
       "xLabelStep": 10,
-      "yGridStep": 4,
-      "yLabelStep": 8,
-      "xLabel": "Run length (days)",
+      "yGridStep": 1,
+      "yLabelStep": 4,
+      "xLabel": "Length of exhibit (days)",
       "yLabel": "Attendance (hundreds of visitors)",
       "bestFitLine": {
         "slope": 0.6,
@@ -55,5 +55,5 @@
     }
   },
   "correctAnswer": "3",
-  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~25s):** The largest gap above the line is at $x = 40$: the line predicts $0.6(40) + 4 = 28$ and the point sits at $31$, so the residual is $3$.\n\n**The Full Solution:**\nStep 1: Look only above the line. The greatest residual is the largest positive gap, so the four points below the line can be set aside.\nStep 2: Test the points above the line. At $x = 10$: predicted $10$, actual $11$, residual $1$. At $x = 20$: predicted $16$, actual $18$, residual $2$. At $x = 30$: predicted $22$, actual $23$, residual $1$. At $x = 40$: predicted $28$, actual $31$, residual $3$.\nStep 3: Confirm the winner. No other point sits more than $2$ hundred visitors above the line, so the greatest residual is $3$. ✓\n\n**Common Mistakes:**\n* Reading the largest attendance, $31$, reports the data value instead of its distance from the line.\n* Taking the largest gap in absolute value would still be $3$ here, but on a plot with a deep point below the line that shortcut fails — the greatest residual must be positive.\n* Using the prediction $28$ answers a different question: that is the modeled attendance, not the residual.\n\n**Test Day Takeaway:** The greatest residual is the point that sits highest ABOVE the line — scan vertically, then compute predicted and actual for the few candidates."
+  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is 3.**\n\n**The Fast Way (~25s):** The point farthest above the line is $(40, 31)$. The line predicts $0.6(40) + 4 = 28$ there, so the residual is $31 - 28 = 3$.\n\n**The Full Solution:**\nStep 1: The greatest residual belongs to the point farthest above the line, so the four points below the line can be set aside.\nStep 2: Check the points above the line. At $x = 10$: $11 - 10 = 1$. At $x = 20$: $18 - 16 = 2$. At $x = 30$: $23 - 22 = 1$. At $x = 40$: $31 - 28 = 3$.\nStep 3: The greatest of these is $3$. Check: each point below the line has a residual of $-1$, which is less than $3$ ✓\n\n**Common Mistakes:**\n* $31$: reports the greatest attendance instead of its distance from the line.\n* $28$: reports the predicted value at $x = 40$ instead of the residual.\n* $-3$: subtracts in the wrong order, predicted minus actual.\n\n**Test Day Takeaway:** The greatest residual is the point farthest above the line; scan the plot, then compute actual minus predicted for the few candidates."
 }
