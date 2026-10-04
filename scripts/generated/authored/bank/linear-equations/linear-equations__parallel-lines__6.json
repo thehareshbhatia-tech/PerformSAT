@@ -1,30 +1,30 @@
 {
  "id": 6,
- "question": "Two repayment plans for the same purchase are modeled by $y = 0.4x + 90$ and $y = 0.4x + 145$, where $y$ is the amount owed, in dollars, after $x$ equal payments have been made. Which statement about the two amounts owed is true?",
+ "question": "At Company A, the total cost $y$, in dollars, of renting a kayak for $x$ hours is given by $y = 12x + 20$. At Company B, the total cost is given by $y = 12x + 35$. Which statement is true?",
  "choices": [
   {
    "id": "A",
-   "text": "The two amounts are equal for exactly one value of $x$."
+   "text": "The costs at the two companies are equal for exactly one value of $x$."
   },
   {
    "id": "B",
-   "text": "The two amounts are equal for every value of $x$."
+   "text": "The costs at the two companies are equal for every value of $x$."
   },
   {
    "id": "C",
-   "text": "The two amounts differ by \\$55 for every value of $x$."
+   "text": "The cost at Company B is \\$15 more than the cost at Company A for every value of $x$."
   },
   {
    "id": "D",
-   "text": "The two amounts differ by \\$55 only when $x = 0$."
+   "text": "The cost at Company B is \\$15 more than the cost at Company A only when $x = 0$."
   }
  ],
  "distractorNotes": {
-  "A": "assumes any two lines must cross somewhere, which fails when the slopes match",
-  "B": "treats equal slopes as making the two models identical",
-  "D": "assumes the gap closes as x grows, but the 0.4x terms cancel exactly"
+  "A": "assumes two linear equations always meet at one point, missing that the slopes are equal",
+  "B": "notices the equal slopes but ignores the different constant terms",
+  "D": "compares only the starting fees, as if the hourly charges could change the gap"
  },
  "correctAnswer": "C",
- "hint": "Compare the two constant terms once you notice the coefficients of $x$ match.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** Subtracting the models gives $(0.4x + 145) - (0.4x + 90) = 55$, a constant gap.\n\n**The Full Solution:**\nStep 1: Both models change by \\$0.40 per payment, so their graphs are parallel lines.\nStep 2: Subtract one from the other: $(0.4x + 145) - (0.4x + 90) = 55$. The $0.4x$ terms cancel, so the difference does not depend on $x$.\nStep 3: The second plan therefore owes \\$55 more than the first after every number of payments, and the two amounts are never equal.\n\nCheck: At $x = 0$ the amounts are \\$90 and \\$145; at $x = 100$ they are \\$130 and \\$185. Both gaps are \\$55. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (equal at one value): assumes two lines always cross, but parallel lines with different constant terms never do.\n* Choice B (equal everywhere): treats matching rates as making the plans identical, ignoring the \\$55 difference in starting amounts.\n* Choice D (gap only at $x = 0$): assumes the gap shrinks as payments accumulate, but the $0.4x$ terms cancel for every $x$.\n\n**Test Day Takeaway:** Equal slopes mean the vertical gap between two lines is the same constant everywhere."
+ "hint": "Compare the constant terms once you notice the coefficients of $x$ match.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** Subtracting gives $(12x + 35) - (12x + 20) = 15$ for every $x$, so Company B always costs \\$15 more.\n\n**The Full Solution:**\nStep 1: Both companies charge \\$12 per hour, since the coefficient of $x$ is $12$ in both equations.\nStep 2: The difference in cost is $(12x + 35) - (12x + 20) = 15$; the $x$-terms cancel.\nStep 3: The difference does not depend on $x$, so Company B costs \\$15 more than Company A for every number of hours.\n\nCheck: For $x = 3$, the costs are $12(3) + 20 = 56$ and $12(3) + 35 = 71$, and $71 - 56 = 15$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (equal for exactly one value): assumes the lines cross, but equal slopes with different intercepts give parallel lines that never meet.\n* Choice B (equal for every value): sees the matching rates but ignores the different fixed fees, $20$ and $35$.\n* Choice D (\\$15 more only when $x = 0$): looks only at the fixed fees; since the hourly rates are equal, the gap stays \\$15 for every $x$.\n\n**Test Day Takeaway:** Equal slopes mean a constant difference; subtract the two expressions to see what is left."
 }

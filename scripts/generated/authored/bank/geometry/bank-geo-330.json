@@ -1,9 +1,23 @@
 {
  "id": "bank-geo-330",
- "question": "In triangle $ABC$, the angle at $C$ measures $90^\\circ$, the perimeter of the triangle is $30$, and $AB=13$. Given that $BC<AC$, what is the value of $\\tan A$?",
+ "question": "Triangle $ABC$ shown has a perimeter of $40$, and $BC < AC$. What is the value of $\\tan A$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     15,
+     0
+    ],
+    [
+     15,
+     8
+    ]
+   ],
    "labels": [
     "A",
     "C",
@@ -12,7 +26,7 @@
    "sideLabels": [
     "",
     "",
-    "13"
+    "17"
    ],
    "rightAngleVertex": 1,
    "figureNote": true
@@ -21,26 +35,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{5}{13}$"
+   "text": "$\\frac{8}{17}$"
   },
   {
    "id": "B",
-   "text": "$\\frac{5}{12}$"
+   "text": "$\\frac{8}{15}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{12}{13}$"
+   "text": "$\\frac{15}{17}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{12}{5}$"
+   "text": "$\\frac{15}{8}$"
   }
  ],
  "distractorNotes": {
-  "A": "uses the hypotenuse in the denominator",
-  "C": "gives cosine instead of tangent",
-  "D": "swaps opposite and adjacent"
+  "A": "uses BC/AB = 8/17, which is sin A",
+  "C": "uses AC/AB = 15/17, which is cos A",
+  "D": "uses AC/BC = 15/8, adjacent over opposite (tan B)"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The legs sum to $30-13=17$ with squares summing to $169$, so they are $5$ and $12$. With $BC<AC$, $BC=5$ and $AC=12$, giving $\\tan A=\\frac{5}{12}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $C$, so $\\overline{AB}=13$ is the hypotenuse and $\\overline{BC}$ and $\\overline{AC}$ are the legs.\nStep 2: The legs sum to $30-13=17$ and satisfy $BC^2+AC^2=169$. The pair is $5$ and $12$, since $5+12=17$ and $25+144=169$. The condition $BC<AC$ makes $BC=5$ and $AC=12$.\nStep 3: For angle $A$, the opposite leg is $\\overline{BC}=5$ and the adjacent leg is $\\overline{AC}=12$, so $\\tan A=\\frac{5}{12}$.\n\nCheck: $5+12+13=30$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{13}$): divided by the hypotenuse, which produces $\\sin A$, not $\\tan A$.\n* Choice C ($\\frac{12}{13}$): used adjacent over hypotenuse, which is $\\cos A$.\n* Choice D ($\\frac{12}{5}$): swapped opposite and adjacent, giving the tangent of the other acute angle.\n\n**Test Day Takeaway:** Tangent uses only the two legs. Once the legs are known, the inequality in the problem tells you which leg faces the named angle."
+ "explanation": "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The legs add to $40 - 17 = 23$ and their squares add to $17^2 = 289$, which fits $8$ and $15$; with $BC < AC$, $\\tan A = \\frac{BC}{AC} = \\frac{8}{15}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse is $\\overline{AB}$, with length $17$, so the legs satisfy $AC + BC = 40 - 17 = 23$ and $AC^2 + BC^2 = 17^2 = 289$.\nStep 2: Squaring the sum gives $(AC + BC)^2 = 529$, so $2(AC)(BC) = 529 - 289 = 240$ and $(AC)(BC) = 120$. Two numbers with sum $23$ and product $120$ are $8$ and $15$. Since $BC < AC$, $BC = 8$ and $AC = 15$.\nStep 3: For angle $A$, the opposite leg is $\\overline{BC}$ and the adjacent leg is $\\overline{AC}$, so $\\tan A = \\frac{8}{15}$.\n\nCheck: $8 + 15 + 17 = 40$ and $8^2 + 15^2 = 64 + 225 = 289 = 17^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{17}$): divides the opposite leg by the hypotenuse, which is $\\sin A$.\n* Choice C ($\\frac{15}{17}$): divides the adjacent leg by the hypotenuse, which is $\\cos A$.\n* Choice D ($\\frac{15}{8}$): divides the adjacent leg by the opposite leg, which is $\\tan B$, not $\\tan A$.\n\n**Test Day Takeaway:** When only the hypotenuse is labeled, the perimeter gives the sum of the legs; pair that with the Pythagorean theorem, then use the stated inequality to decide which leg is which."
 }

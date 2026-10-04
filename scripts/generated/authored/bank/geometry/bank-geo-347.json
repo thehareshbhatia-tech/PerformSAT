@@ -1,29 +1,29 @@
 {
- "question": "A harbor radar antenna turns counterclockwise through an angle of $\\frac{29\\pi}{6}$ radians from its rest position. What is the value of the tangent of that angle?",
+ "id": "bank-geo-347",
+ "question": "What is the value of $\\tan\\left(\\frac{23\\pi}{4}\\right)$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-\\sqrt{3}$"
+   "text": "$-1$"
   },
   {
    "id": "B",
-   "text": "$-\\frac{\\sqrt{3}}{3}$"
+   "text": "$-\\frac{\\sqrt{2}}{2}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{\\sqrt{3}}{3}$"
+   "text": "$\\frac{\\sqrt{2}}{2}$"
   },
   {
    "id": "D",
-   "text": "$\\sqrt{3}$"
+   "text": "$1$"
   }
  ],
- "correctAnswer": "B",
  "distractorNotes": {
-  "A": "reports the reciprocal, the tangent of 2 pi over 3",
-  "C": "drops the negative sign, treating 5 pi over 6 as a first-quadrant angle",
-  "D": "uses pi over 3 as the reference angle instead of pi over 6"
+  "B": "reports sin(7π/4) = -√2/2 instead of the tangent",
+  "C": "reports cos(7π/4) = √2/2 instead of the tangent",
+  "D": "uses the reference angle π/4 but drops the negative sign of quadrant IV"
  },
- "explanation": "**SAT Pattern: Coterminal-Angle Reduction for Tangent**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Subtract $4\\pi = \\frac{24\\pi}{6}$ to land at $\\frac{5\\pi}{6}$, a second-quadrant angle with reference $\\frac{\\pi}{6}$, so the tangent is $-\\frac{\\sqrt{3}}{3}$.\n\n**The Full Solution:**\nStep 1: Angles that differ by a whole number of full turns share the same tangent, so subtract $4\\pi$: $\\frac{29\\pi}{6} - \\frac{24\\pi}{6} = \\frac{5\\pi}{6}$.\nStep 2: $\\frac{5\\pi}{6}$ lies in the second quadrant, where tangent is negative, and its reference angle is $\\pi - \\frac{5\\pi}{6} = \\frac{\\pi}{6}$.\nStep 3: Since $\\tan\\frac{\\pi}{6} = \\frac{\\sqrt{3}}{3}$, the answer is $-\\frac{\\sqrt{3}}{3}$. Check: $\\frac{5\\pi}{6} = 150^{\\circ}$, and $\\tan 150^{\\circ} \\approx -0.577$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\sqrt{3}$): has the right sign but the reciprocal size; it is $\\tan\\frac{2\\pi}{3}$, not $\\tan\\frac{5\\pi}{6}$.\n* Choice C ($\\frac{\\sqrt{3}}{3}$): finds the reference value but ignores that the second quadrant makes tangent negative.\n* Choice D ($\\sqrt{3}$): uses $\\frac{\\pi}{3}$ as the reference angle and keeps it positive.\n\n**Test Day Takeaway:** Strip whole turns first, then name the quadrant and the reference angle — the quadrant fixes the sign, the reference angle fixes the size.",
- "id": "bank-geo-347"
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Coterminal-Angle Reduction for Tangent**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** $\\frac{23\\pi}{4} - 4\\pi = \\frac{7\\pi}{4}$, which lies in quadrant IV with reference angle $\\frac{\\pi}{4}$, so the tangent is $-1$.\n\n**The Full Solution:**\nStep 1: Subtract full turns of $2\\pi = \\frac{8\\pi}{4}$: $\\frac{23\\pi}{4} - \\frac{16\\pi}{4} = \\frac{7\\pi}{4}$, so $\\tan\\left(\\frac{23\\pi}{4}\\right) = \\tan\\left(\\frac{7\\pi}{4}\\right)$.\nStep 2: The angle $\\frac{7\\pi}{4}$ lies in quadrant IV, where cosine is positive and sine is negative, and its reference angle is $\\frac{\\pi}{4}$.\nStep 3: $\\tan\\left(\\frac{7\\pi}{4}\\right) = \\frac{\\sin(7\\pi/4)}{\\cos(7\\pi/4)} = \\frac{-\\sqrt{2}/2}{\\sqrt{2}/2} = -1$.\n\nCheck: $\\frac{23\\pi}{4}$ is $5.75\\pi$; removing two full turns ($4\\pi$) leaves $1.75\\pi$, which is in quadrant IV, where tangent is negative. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{\\sqrt{2}}{2}$): gives the sine of $\\frac{7\\pi}{4}$, not the tangent.\n* Choice C ($\\frac{\\sqrt{2}}{2}$): gives the cosine of $\\frac{7\\pi}{4}$, not the tangent.\n* Choice D ($1$): uses the reference angle $\\frac{\\pi}{4}$ but misses that tangent is negative in quadrant IV.\n\n**Test Day Takeaway:** Strip off multiples of $2\\pi$, locate the quadrant for the sign, and use the reference angle for the size."
 }

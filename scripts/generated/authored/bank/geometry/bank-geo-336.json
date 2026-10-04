@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-336",
- "question": "The carbide insert drawn here has three labeled edges, each given in millimeters, and its right angle falls at vertex $B$. What is the value of $\\sin A$?",
+ "question": "Triangle $ABC$ is shown. What is the value of $\\sin A$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -10,12 +10,12 @@
      0
     ],
     [
-     35,
+     24,
      0
     ],
     [
-     35,
-     12
+     24,
+     7
     ]
    ],
    "labels": [
@@ -24,9 +24,9 @@
     "C"
    ],
    "sideLabels": [
-    "35",
-    "12",
-    "37"
+    "24",
+    "7",
+    "25"
    ],
    "rightAngleVertex": 1
   }
@@ -34,26 +34,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{12}{37}$"
+   "text": "$\\frac{7}{25}$"
   },
   {
    "id": "B",
-   "text": "$\\frac{12}{35}$"
+   "text": "$\\frac{7}{24}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{35}{37}$"
+   "text": "$\\frac{24}{25}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{37}{12}$"
+   "text": "$\\frac{24}{7}$"
   }
  ],
  "distractorNotes": {
-  "B": "reports tan A = 12/35, opposite over adjacent",
-  "C": "reports cos A = 35/37, adjacent over hypotenuse",
-  "D": "inverts sin A, giving hypotenuse over opposite"
+  "B": "uses BC/AB = 7/24, which is tan A",
+  "C": "uses AB/CA = 24/25, which is cos A",
+  "D": "uses AB/BC = 24/7, adjacent over opposite"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The leg facing angle $A$ is $12$ and the hypotenuse is $37$, so $\\sin A = \\frac{12}{37}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $B$, so $\\overline{CA} = 37$ is the hypotenuse.\nStep 2: The leg opposite angle $A$ is $\\overline{BC} = 12$, and the leg adjacent to angle $A$ is $\\overline{AB} = 35$.\nStep 3: $\\sin A = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{12}{37}$.\n\nCheck: $12^2 + 35^2 = 144 + 1{,}225 = 1{,}369 = 37^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{12}{35}$): divides the two legs, which gives $\\tan A$.\n* Choice C ($\\frac{35}{37}$): uses the adjacent leg over the hypotenuse, which is $\\cos A$.\n* Choice D ($\\frac{37}{12}$): inverts the ratio; a sine is never greater than $1$.\n\n**Test Day Takeaway:** Opposite means across the triangle from the named angle, not merely the nearest labeled side."
+ "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The leg opposite $A$ is $7$ and the hypotenuse is $25$, so $\\sin A = \\frac{7}{25}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $B$, so $\\overline{CA}$, with length $25$, is the hypotenuse.\nStep 2: The side across from angle $A$ is $\\overline{BC}$, with length $7$.\nStep 3: $\\sin A = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{7}{25}$.\n\nCheck: $7^2 + 24^2 = 49 + 576 = 625 = 25^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{7}{24}$): divides the opposite leg by the adjacent leg, which is $\\tan A$.\n* Choice C ($\\frac{24}{25}$): uses the adjacent leg, which gives $\\cos A$.\n* Choice D ($\\frac{24}{7}$): divides the adjacent leg by the opposite leg, the reciprocal of $\\tan A$.\n\n**Test Day Takeaway:** Find the side across from the angle first; sine puts that side over the hypotenuse."
 }

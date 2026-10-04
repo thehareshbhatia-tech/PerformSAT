@@ -1,6 +1,6 @@
 {
  "id": 4,
- "question": "On a plot plan marked in feet, a fence line joins the points $(-3, 8)$ and $(5, 2)$, and a gate post line meets that fence line at a right angle. What is the slope of the gate post line?",
+ "question": "In the $xy$-plane, line $k$ passes through the points $(-2, 7)$ and $(4, -1)$. Line $j$ is perpendicular to line $k$. What is the slope of line $j$?",
  "choices": [
   {
    "id": "A",
@@ -20,11 +20,11 @@
   }
  ],
  "distractorNotes": {
-  "A": "inverts the fence line's slope but keeps the negative sign",
-  "B": "repeats the fence line's own slope instead of the perpendicular one",
-  "C": "negates the fence line's slope without inverting it"
+  "A": "reports the slope of line k itself",
+  "B": "takes the reciprocal of -4/3 but keeps the negative sign",
+  "D": "changes the sign of -4/3 but does not take the reciprocal"
  },
- "correctAnswer": "D",
- "hint": "Find the fence line's slope from its two points first.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~35s):** The fence line's slope is $\\frac{2-8}{5-(-3)} = -\\frac{3}{4}$, so the gate post line has slope $\\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: The slope through $(-3,\\ 8)$ and $(5,\\ 2)$ is $\\frac{2 - 8}{5 - (-3)} = \\frac{-6}{8} = -\\frac{3}{4}$.\nStep 2: A perpendicular line has the negative reciprocal slope: invert $-\\frac{3}{4}$ to get $-\\frac{4}{3}$, then change the sign.\nStep 3: The gate post line has slope $\\frac{4}{3}$.\n\nCheck: $-\\frac{3}{4} \\times \\frac{4}{3} = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{4}{3}$): inverts the fence line's slope but leaves the sign negative, so the slopes multiply to $1$.\n* Choice B ($-\\frac{3}{4}$): repeats the fence line's own slope, which describes a parallel line.\n* Choice C ($\\frac{3}{4}$): only changes the sign, so the slopes multiply to $-\\frac{9}{16}$.\n\n**Test Day Takeaway:** Two points give a slope; perpendicularity then asks for both a flip and a sign change."
+ "correctAnswer": "C",
+ "hint": "Find line $k$'s slope from its two points first.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** Line $k$ has slope $\\frac{-1 - 7}{4 - (-2)} = -\\frac{4}{3}$, so line $j$ has slope $\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: The slope of line $k$ is $\\frac{-1 - 7}{4 - (-2)} = \\frac{-8}{6} = -\\frac{4}{3}$.\nStep 2: Perpendicular slopes are negative reciprocals.\nStep 3: The slope of line $j$ is $\\frac{3}{4}$.\n\nCheck: $-\\frac{4}{3} \\cdot \\frac{3}{4} = -1$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{4}{3}$): is the slope of line $k$; the question asks about the perpendicular line.\n* Choice B ($-\\frac{3}{4}$): flips the fraction but keeps the sign; the product with $-\\frac{4}{3}$ is $1$.\n* Choice D ($\\frac{4}{3}$): changes the sign but does not flip the fraction.\n\n**Test Day Takeaway:** Two steps, in order: slope from the two points, then the negative reciprocal."
 }

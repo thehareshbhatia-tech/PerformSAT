@@ -1,30 +1,30 @@
 {
  "id": 11,
- "question": "A guy-wire profile on a grid marked in meters runs parallel to $y = -\\frac{3}{8}x + 2$. The profile contains the points $(-16, r)$ and $(8, 1)$, and $r$ is a constant. What is the value of $r$?",
+ "question": "In the $xy$-plane, line $\\ell$ is parallel to the line $y = -\\frac{2}{5}x + 1$ and passes through the points $(-7, r)$ and $(8, 3)$. What is the value of $r$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-10$"
+   "text": "$-3$"
   },
   {
    "id": "B",
-   "text": "$-8$"
+   "text": "$3.4$"
   },
   {
    "id": "C",
-   "text": "$4$"
+   "text": "$9$"
   },
   {
    "id": "D",
-   "text": "$10$"
+   "text": "$40.5$"
   }
  ],
  "distractorNotes": {
-  "A": "adds the y-values in the numerator, solving (1 + r)/24 = -3/8",
-  "B": "drops the negative sign of the slope, solving (1 - r)/24 = 3/8",
-  "C": "uses 8 as the horizontal change instead of the full 24 meters"
+  "A": "subtracts the y-values and x-values in opposite orders, solving (r - 3)/15 = -2/5",
+  "B": "computes the run as 8 - 7 = 1, dropping the negative of -7",
+  "D": "uses the reciprocal slope -5/2 instead of -2/5"
  },
- "correctAnswer": "D",
+ "correctAnswer": "C",
  "hint": "The two given points must produce the stated slope.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~45s):** The run is $8 - (-16) = 24$, so $\\frac{1 - r}{24} = -\\frac{3}{8}$ gives $1 - r = -9$ and $r = 10$.\n\n**The Full Solution:**\nStep 1: Parallel lines have equal slopes, so the profile has slope $-\\frac{3}{8}$.\nStep 2: The slope through the two points is $\\frac{1 - r}{8 - (-16)} = \\frac{1 - r}{24}$, so $\\frac{1 - r}{24} = -\\frac{3}{8}$.\nStep 3: Multiplying both sides by $24$ gives $1 - r = -9$, so $r = 10$.\n\nCheck: From $(-16,\\ 10)$ to $(8,\\ 1)$ the drop is $9$ meters over a run of $24$ meters, and $-\\frac{9}{24} = -\\frac{3}{8}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): adds the $y$-values in the numerator, solving $\\frac{1 + r}{24} = -\\frac{3}{8}$.\n* Choice B ($-8$): drops the negative sign on the slope and solves $\\frac{1 - r}{24} = \\frac{3}{8}$.\n* Choice C ($4$): uses $8$ as the horizontal change instead of the full $24$ meters between the two $x$-values.\n\n**Test Day Takeaway:** Compute the run as a difference, including the sign of a negative coordinate, before setting up the slope equation."
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~45s):** Line $\\ell$ has slope $-\\frac{2}{5}$, so $\\frac{3 - r}{8 - (-7)} = -\\frac{2}{5}$, giving $3 - r = -6$ and $r = 9$.\n\n**The Full Solution:**\nStep 1: Line $\\ell$ is parallel to $y = -\\frac{2}{5}x + 1$, so its slope is $-\\frac{2}{5}$.\nStep 2: The slope through $(-7, r)$ and $(8, 3)$ is $\\frac{3 - r}{8 - (-7)} = \\frac{3 - r}{15}$. Set it equal: $\\frac{3 - r}{15} = -\\frac{2}{5}$.\nStep 3: Multiply by $15$: $3 - r = -6$, so $r = 9$.\n\nCheck: $\\frac{3 - 9}{8 - (-7)} = \\frac{-6}{15} = -\\frac{2}{5}$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): writes the slope as $\\frac{r - 3}{8 - (-7)}$, subtracting the $y$-values in the opposite order from the $x$-values.\n* Choice B ($3.4$): computes the run as $8 - 7 = 1$, losing the negative sign of $-7$.\n* Choice D ($40.5$): uses $-\\frac{5}{2}$, the reciprocal of the slope.\n\n**Test Day Takeaway:** Set the two-point slope equal to the known slope, subtracting coordinates in the same order on top and bottom."
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-348",
- "question": "In right triangle $LMN$, the right angle is at $N$, $LM=40$, and $MN=24$. What is the value of $\\tan L$?",
+ "question": "In triangle $LMN$ shown, angle $N$ is a right angle, $LM = 50$, and $\\sin M = \\frac{24}{25}$. What is the value of $\\tan L$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -10,12 +10,12 @@
      0
     ],
     [
-     32,
+     48,
      0
     ],
     [
-     32,
-     24
+     48,
+     14
     ]
    ],
    "labels": [
@@ -25,13 +25,13 @@
    ],
    "sideLabels": [
     "",
-    "24",
-    "40"
+    "",
+    "50"
    ],
    "rightAngleVertex": 1,
    "figureNote": true
   }
  },
- "correctAnswer": "3/4",
- "explanation": "**SAT Pattern: Direct Trig Ratio**\n\n**The correct answer is $\\frac{3}{4}$.**\n\n**The Fast Way (~30s):** $\\overline{LM}=40$ is the hypotenuse, so $LN=\\sqrt{40^2-24^2}=32$. For angle $L$, opposite is $24$ and adjacent is $32$, giving $\\tan L=\\frac{24}{32}=\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $N$, so $\\overline{LM}$ is the hypotenuse and $\\overline{MN}$ and $\\overline{LN}$ are the legs.\nStep 2: Tangent needs both legs, and only one is given, so find the other: $LN^2=40^2-24^2=1{,}600-576=1{,}024$, so $LN=32$.\nStep 3: Angle $L$ touches $\\overline{LN}$ and $\\overline{LM}$, so the leg opposite $L$ is $\\overline{MN}=24$ and the leg adjacent to $L$ is $\\overline{LN}=32$. Then $\\tan L=\\frac{24}{32}=\\frac{3}{4}$.\n\nCheck: $24$, $32$, $40$ is the $3$, $4$, $5$ triple scaled by $8$. $\\checkmark$\n\n**Common Mistakes:** Reporting $\\frac{3}{5}$ by dividing the opposite leg by the hypotenuse, $\\frac{24}{40}$, which is $\\sin L$ rather than $\\tan L$; reporting $\\frac{4}{3}$ by inverting the ratio, $\\frac{32}{24}$, which is the tangent of angle $M$; reporting $\\frac{4}{5}$ by using $\\frac{32}{40}$, which is $\\cos L$.\n\n**Test Day Takeaway:** Tangent needs the two legs, so when a hypotenuse is given instead, spend one Pythagorean step to recover the missing leg before writing the ratio."
+ "correctAnswer": "7/24",
+ "explanation": "**SAT Pattern: Direct Trig Ratio**\n\n**The correct answer is $\\frac{7}{24}$.**\n\n**The Fast Way (~50s):** $\\sin M = \\frac{LN}{LM}$ gives $LN = 48$, so $MN = \\sqrt{50^2 - 48^2} = 14$ and $\\tan L = \\frac{14}{48} = \\frac{7}{24}$.\n\n**The Full Solution:**\nStep 1: The leg opposite angle $M$ is $\\overline{LN}$, so $\\sin M = \\frac{LN}{50} = \\frac{24}{25}$ and $LN = 48$.\nStep 2: By the Pythagorean theorem, $MN^2 = 50^2 - 48^2 = 2{,}500 - 2{,}304 = 196$, so $MN = 14$.\nStep 3: From angle $L$, the opposite leg is $\\overline{MN}$ and the adjacent leg is $\\overline{LN}$, so $\\tan L = \\frac{14}{48} = \\frac{7}{24}$.\n\nCheck: $14^2 + 48^2 = 196 + 2{,}304 = 2{,}500 = 50^2$. Equivalent entries: $7/24$, $.2916$, or $.2917$. ✓\n\n**Common Mistakes:**\n* $\\frac{24}{7}$: this is $\\frac{48}{14} = \\tan M$, the tangent of the other acute angle.\n* $\\frac{7}{25}$: this is $\\frac{14}{50} = \\sin L$, opposite over hypotenuse instead of opposite over adjacent.\n* $\\frac{24}{25}$: this copies $\\sin M$; since $\\sin M = \\cos L$, it is the cosine of $L$, not the tangent.\n\n**Test Day Takeaway:** Turn the given ratio into a side length using the hypotenuse, recover the last side with the Pythagorean theorem, and only then write the ratio the question asks for."
 }

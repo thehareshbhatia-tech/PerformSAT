@@ -1,6 +1,6 @@
 {
  "id": 1,
- "question": "The retaining wall on a site plan runs at a right angle to a drain line graphed as $5x - 2y = 16$, with distances in meters. What slope does the retaining wall have?",
+ "question": "$y = \\frac{5}{2}x - 8$\nIn the $xy$-plane, line $m$ is perpendicular to the graph of the given equation. What is the slope of line $m$?",
  "choices": [
   {
    "id": "A",
@@ -20,11 +20,11 @@
   }
  ],
  "distractorNotes": {
-  "A": "negates the drain line's slope without inverting it",
-  "C": "inverts the drain line's slope without negating it",
-  "D": "repeats the drain line's own slope instead of the perpendicular one"
+  "A": "changes the sign of the slope but does not take the reciprocal",
+  "C": "takes the reciprocal but does not change the sign",
+  "D": "copies the slope, which gives a parallel line"
  },
  "correctAnswer": "B",
- "hint": "Put the drain line in slope-intercept form before comparing slopes.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** The drain line has slope $\\frac{5}{2}$, so a perpendicular line has slope $-\\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: Solve $5x - 2y = 16$ for $y$: $-2y = -5x + 16$, so $y = \\frac{5}{2}x - 8$ and the drain line has slope $\\frac{5}{2}$.\nStep 2: Perpendicular slopes are negative reciprocals: invert $\\frac{5}{2}$ to get $\\frac{2}{5}$, then change the sign.\nStep 3: The retaining wall has slope $-\\frac{2}{5}$.\n\nCheck: $\\frac{5}{2} \\times \\left(-\\frac{2}{5}\\right) = -1$, which is the test for perpendicular slopes. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{5}{2}$): negates the drain line's slope but never inverts it, so the product is $-\\frac{25}{4}$, not $-1$.\n* Choice C ($\\frac{2}{5}$): inverts the slope but leaves it positive, giving a product of $1$.\n* Choice D ($\\frac{5}{2}$): repeats the drain line's own slope, which describes a parallel wall.\n\n**Test Day Takeaway:** Perpendicular means flip the fraction and flip the sign; doing only one of the two is the classic miss."
+ "hint": "Flip the slope and change its sign.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** The given line has slope $\\frac{5}{2}$; the negative reciprocal is $-\\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: The given equation is in slope-intercept form, so its slope is $\\frac{5}{2}$.\nStep 2: Perpendicular lines have slopes whose product is $-1$.\nStep 3: The slope of line $m$ is $-\\frac{2}{5}$, since $\\frac{5}{2} \\cdot \\left(-\\frac{2}{5}\\right) = -1$.\n\nCheck: $\\frac{5}{2} \\cdot \\left(-\\frac{2}{5}\\right) = -\\frac{10}{10} = -1$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{5}{2}$): changes the sign but keeps the fraction right side up; the product with $\\frac{5}{2}$ is $-\\frac{25}{4}$, not $-1$.\n* Choice C ($\\frac{2}{5}$): flips the fraction but keeps the sign; the product is $1$, not $-1$.\n* Choice D ($\\frac{5}{2}$): copies the slope, which describes a parallel line.\n\n**Test Day Takeaway:** A perpendicular slope needs both moves: take the reciprocal and change the sign."
 }

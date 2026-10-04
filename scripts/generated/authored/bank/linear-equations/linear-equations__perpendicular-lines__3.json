@@ -1,30 +1,30 @@
 {
-  "id": 3,
-  "question": "Every line perpendicular to a conduit run has slope $-\\frac{3}{7}$, and the run itself contains the point $(21, 5)$ on a plan marked in feet. Which of the following is an equation of the conduit run?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$y = -\\frac{7}{3}x + 54$"
-    },
-    {
-      "id": "B",
-      "text": "$y = -\\frac{3}{7}x + 14$"
-    },
-    {
-      "id": "C",
-      "text": "$y = \\frac{3}{7}x - 4$"
-    },
-    {
-      "id": "D",
-      "text": "$y = \\frac{7}{3}x - 44$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "inverts the given slope but negates it a second time, giving -7/3",
-    "B": "reuses the given perpendicular slope for the run itself",
-    "C": "negates the given slope without inverting it, giving 3/7"
+ "id": 3,
+ "question": "In the $xy$-plane, line $\\ell$ passes through the point $(6, 7)$ and is perpendicular to the line $y = -\\frac{2}{3}x + 1$. Which equation defines line $\\ell$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$y = -\\frac{3}{2}x + 16$"
   },
-  "correctAnswer": "D",
-  "hint": "Work backward from the perpendicular slope to the run's own slope.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~45s):** The run's slope is the negative reciprocal of $-\\frac{3}{7}$, namely $\\frac{7}{3}$, and $5 = \\frac{7}{3}(21) + b$ gives $b = -44$.\n\n**The Full Solution:**\nStep 1: If a perpendicular line has slope $-\\frac{3}{7}$, the conduit run's slope is the negative reciprocal: flip to $-\\frac{7}{3}$ and change the sign, giving $\\frac{7}{3}$.\nStep 2: Write $y = \\frac{7}{3}x + b$ and substitute $(21,\\ 5)$: $5 = \\frac{7}{3}(21) + b = 49 + b$.\nStep 3: Solving gives $b = -44$, so the run is $y = \\frac{7}{3}x - 44$.\n\nCheck: $\\frac{7}{3} \\times \\left(-\\frac{3}{7}\\right) = -1$, and at $x = 21$ the equation gives $49 - 44 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (slope $-\\frac{7}{3}$): inverts the given slope but negates it a second time, so it is perpendicular to the wrong line.\n* Choice B (slope $-\\frac{3}{7}$): reuses the perpendicular slope for the run itself.\n* Choice C (slope $\\frac{3}{7}$): keeps the given fraction and only changes its sign, skipping the inversion.\n\n**Test Day Takeaway:** The negative-reciprocal relationship runs both directions, so you can invert from either line to the other."
+  {
+   "id": "B",
+   "text": "$y = \\frac{2}{3}x + 3$"
+  },
+  {
+   "id": "C",
+   "text": "$y = \\frac{3}{2}x - 2$"
+  },
+  {
+   "id": "D",
+   "text": "$y = \\frac{3}{2}x + 16$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "takes the reciprocal of -2/3 but keeps the negative sign",
+  "B": "changes the sign of -2/3 but does not take the reciprocal",
+  "D": "uses the correct slope but adds 9 to 7 instead of subtracting when finding the y-intercept"
+ },
+ "correctAnswer": "C",
+ "hint": "Find the perpendicular slope first, then use the point to find the $y$-intercept.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** The perpendicular slope is $\\frac{3}{2}$, and $7 = \\frac{3}{2}(6) + b$ gives $b = -2$.\n\n**The Full Solution:**\nStep 1: The given line has slope $-\\frac{2}{3}$, so line $\\ell$ has the negative reciprocal slope, $\\frac{3}{2}$.\nStep 2: Substitute $(6, 7)$ into $y = \\frac{3}{2}x + b$: $7 = 9 + b$.\nStep 3: So $b = -2$, and line $\\ell$ is $y = \\frac{3}{2}x - 2$.\n\nCheck: $\\frac{3}{2}(6) - 2 = 9 - 2 = 7$, and $-\\frac{2}{3} \\cdot \\frac{3}{2} = -1$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{3}{2}x + 16$): passes through $(6, 7)$ but keeps the negative sign, so it is not perpendicular.\n* Choice B ($y = \\frac{2}{3}x + 3$): passes through $(6, 7)$ but only changes the sign of the slope.\n* Choice D ($y = \\frac{3}{2}x + 16$): has the right slope but adds $9$ to $7$; at $x = 6$ it gives $y = 25$.\n\n**Test Day Takeaway:** Perpendicular line through a point: negative reciprocal slope first, then substitute the point to find $b$."
 }

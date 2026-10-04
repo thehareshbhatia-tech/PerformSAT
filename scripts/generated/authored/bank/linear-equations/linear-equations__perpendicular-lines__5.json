@@ -1,30 +1,30 @@
 {
  "id": 5,
- "question": "On a race committee's chart of a sailing course, distances are marked in hundreds of meters. The starting line has equation $5x - 2y = 14$, and the finish line, which is perpendicular to the starting line, contains the points $(11, k)$ and $(1, 11)$. What is the value of $k$?",
+ "question": "In the $xy$-plane, line $\\ell$ is perpendicular to the line $3x - 4y = 12$ and passes through the points $(2, 10)$ and $(8, k)$. What is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-14$"
+   "text": "$2$"
   },
   {
    "id": "B",
-   "text": "$7$"
+   "text": "$5.5$"
   },
   {
    "id": "C",
-   "text": "$15$"
+   "text": "$14.5$"
   },
   {
    "id": "D",
-   "text": "$36$"
+   "text": "$18$"
   }
  ],
- "correctAnswer": "B",
  "distractorNotes": {
-  "A": "negates the starting line's slope without inverting it, using $-\\frac{5}{2}$ and getting $k=-14$",
-  "C": "inverts the slope but keeps the sign, using $\\frac{2}{5}$ and getting $k=15$",
-  "D": "uses the starting line's own slope $\\frac{5}{2}$ for the finish line and gets $k=36$"
+  "B": "uses -3/4, changing the sign of the given slope without taking the reciprocal",
+  "C": "uses 3/4, the slope of the given line, as if the lines were parallel",
+  "D": "uses 4/3, taking the reciprocal without changing the sign"
  },
+ "correctAnswer": "A",
  "hint": "Perpendicular lines have slopes whose product is $-1$.",
- "explanation": "**Choice B is correct.** The finish line's slope must be $-\\frac{2}{5}$, and forcing the two given points to produce that slope gives $k = 7$.\n\n**The Fast Way (~45s):** Solving $5x - 2y = 14$ for $y$ gives slope $\\frac{5}{2}$, so the perpendicular slope is $-\\frac{2}{5}$. Then $\\frac{11 - k}{1 - 11} = -\\frac{2}{5}$ gives $11 - k = 4$, so $k = 7$.\n\n**The Full Solution:**\n\nStep 1: Put the starting line in slope-intercept form. From $5x - 2y = 14$, $-2y = -5x + 14$, so $y = \\frac{5}{2}x - 7$ and the starting line's slope is $\\frac{5}{2}$.\n\nStep 2: Take the negative reciprocal. A line perpendicular to a line of slope $\\frac{5}{2}$ has slope $-\\frac{2}{5}$.\n\nStep 3: Write the slope of the finish line from its two points and set it equal to $-\\frac{2}{5}$: $\\frac{11 - k}{1 - 11} = \\frac{11 - k}{-10} = -\\frac{2}{5}$. Multiplying both sides by $-10$ gives $11 - k = 4$, so $k = 7$. Check: the finish line then joins $(11, 7)$ and $(1, 11)$, whose slope is $\\frac{11 - 7}{1 - 11} = \\frac{4}{-10} = -\\frac{2}{5}$, and $\\frac{5}{2} \\cdot \\left(-\\frac{2}{5}\\right) = -1$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-14$): changes the sign of $\\frac{5}{2}$ without inverting it. Solving $\\frac{11 - k}{-10} = -\\frac{5}{2}$ gives $11 - k = 25$, so $k = -14$.\n* Choice C ($15$): inverts the slope but keeps it positive. Solving $\\frac{11 - k}{-10} = \\frac{2}{5}$ gives $11 - k = -4$, so $k = 15$.\n* Choice D ($36$): treats the finish line as parallel to the starting line. Solving $\\frac{11 - k}{-10} = \\frac{5}{2}$ gives $11 - k = -25$, so $k = 36$.\n\n**Test Day Takeaway:** Perpendicular means flip AND change the sign; do both steps out loud before you touch the second pair of points."
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~50s):** The given line has slope $\\frac{3}{4}$, so line $\\ell$ has slope $-\\frac{4}{3}$; then $\\frac{k - 10}{8 - 2} = -\\frac{4}{3}$ gives $k = 2$.\n\n**The Full Solution:**\nStep 1: Solve $3x - 4y = 12$ for $y$: $y = \\frac{3}{4}x - 3$, so its slope is $\\frac{3}{4}$ and line $\\ell$ has slope $-\\frac{4}{3}$.\nStep 2: The slope through $(2, 10)$ and $(8, k)$ is $\\frac{k - 10}{8 - 2} = \\frac{k - 10}{6}$. Set it equal to $-\\frac{4}{3}$: $k - 10 = -8$.\nStep 3: So $k = 2$.\n\nCheck: $\\frac{2 - 10}{8 - 2} = \\frac{-8}{6} = -\\frac{4}{3}$, and $\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = -1$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($5.5$): uses $-\\frac{3}{4}$, which changes the sign but does not take the reciprocal.\n* Choice C ($14.5$): uses $\\frac{3}{4}$, the slope of the given line, which would make the lines parallel.\n* Choice D ($18$): uses $\\frac{4}{3}$, which takes the reciprocal but keeps the positive sign.\n\n**Test Day Takeaway:** Convert the given line to slope-intercept form, take the negative reciprocal, then set the two-point slope equal to it."
 }

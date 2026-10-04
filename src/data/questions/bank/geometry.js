@@ -7431,19 +7431,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The spacer shown is cut on a CNC router, and its three edges, in millimeters, total $36$. Angle $A$ is one of the two acute angles of the spacer. What is the value of $\\sin A$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [9, 0], [9, 12]], labels: ["A", "B", "C"], sideLabels: ["9", "", "15"], rightAngleVertex: 1 } },
+    question: "The perimeter of triangle $ABC$ shown is $90$. What is the value of $\\sin A$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [9, 0], [9, 40]], labels: ["A", "B", "C"], sideLabels: ["9", "", "41"], rightAngleVertex: 1 } },
     choices: [
-      // distractor: reports cos A = 9/15 = 3/5, adjacent over hypotenuse
-      { id: "A", text: "$\\frac{3}{5}$" },
-      // distractor: reports 9/12 = 3/4, adjacent over opposite
-      { id: "B", text: "$\\frac{3}{4}$" },
-      { id: "C", text: "$\\frac{4}{5}$" },
-      // distractor: reports tan A = 12/9 = 4/3, opposite over adjacent
-      { id: "D", text: "$\\frac{4}{3}$" }
+      // distractor: uses AB/CA = 9/41, which is cos A (adjacent over hypotenuse)
+      { id: "A", text: "$\\frac{9}{41}$" },
+      // distractor: uses AB/BC = 9/40, adjacent over opposite
+      { id: "B", text: "$\\frac{9}{40}$" },
+      { id: "C", text: "$\\frac{40}{41}$" },
+      // distractor: uses BC/AB = 40/9, which is tan A
+      { id: "D", text: "$\\frac{40}{9}$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The unlabeled leg is $36 - 9 - 15 = 12$, and $\\sin A = \\frac{12}{15} = \\frac{4}{5}$.\n\n**The Full Solution:**\nStep 1: The three edges total $36$ millimeters, and two of them measure $9$ and $15$, so $\\overline{BC} = 36 - 9 - 15 = 12$ millimeters.\nStep 2: The right angle is at $B$, so $\\overline{CA} = 15$ is the hypotenuse and $\\overline{BC} = 12$ is the leg opposite angle $A$.\nStep 3: $\\sin A = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{12}{15} = \\frac{4}{5}$.\n\nCheck: $9^2 + 12^2 = 81 + 144 = 225 = 15^2$, so the sides are consistent. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{5}$): uses $\\frac{9}{15}$, which is $\\cos A$ rather than $\\sin A$.\n* Choice B ($\\frac{3}{4}$): uses $\\frac{9}{12}$, adjacent over opposite, and never involves the hypotenuse.\n* Choice D ($\\frac{4}{3}$): uses $\\frac{12}{9}$, which is $\\tan A$.\n\n**Test Day Takeaway:** A perimeter plus two sides hands you the third side in one subtraction; then label opposite, adjacent, and hypotenuse before choosing a ratio.",
+    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The missing side is $BC = 90 - 9 - 41 = 40$, so $\\sin A = \\frac{40}{41}$.\n\n**The Full Solution:**\nStep 1: The perimeter is the sum of the three side lengths, so $BC = 90 - 9 - 41 = 40$.\nStep 2: The right angle is at $B$, so $\\overline{CA}$, with length $41$, is the hypotenuse, and $\\overline{BC}$, with length $40$, is the leg opposite angle $A$.\nStep 3: $\\sin A = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{BC}{CA} = \\frac{40}{41}$.\n\nCheck: $9^2 + 40^2 = 81 + 1{,}600 = 1{,}681 = 41^2$, so the three sides form a right triangle. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{9}{41}$): divides the adjacent leg by the hypotenuse, which is $\\cos A$.\n* Choice B ($\\frac{9}{40}$): divides the adjacent leg by the opposite leg and never uses the hypotenuse.\n* Choice D ($\\frac{40}{9}$): divides the opposite leg by the adjacent leg, which is $\\tan A$.\n\n**Test Day Takeaway:** A perimeter and two sides give the third side in one subtraction; then name opposite, adjacent, and hypotenuse from the angle before writing the ratio.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "trig-ratio-from-perimeter",
@@ -7457,19 +7457,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In triangle $ABC$, the angle at $C$ measures $90^\\circ$, the perimeter of the triangle is $30$, and $AB=13$. Given that $BC<AC$, what is the value of $\\tan A$?",
-    diagram: { type: "rightTriangle", params: { labels: ["A", "C", "B"], sideLabels: ["", "", "13"], rightAngleVertex: 1, figureNote: true } },
+    question: "Triangle $ABC$ shown has a perimeter of $40$, and $BC < AC$. What is the value of $\\tan A$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [15, 0], [15, 8]], labels: ["A", "C", "B"], sideLabels: ["", "", "17"], rightAngleVertex: 1, figureNote: true } },
     choices: [
-      // distractor: uses the hypotenuse in the denominator
-      { id: "A", text: "$\\frac{5}{13}$" },
-      { id: "B", text: "$\\frac{5}{12}$" },
-      // distractor: gives cosine instead of tangent
-      { id: "C", text: "$\\frac{12}{13}$" },
-      // distractor: swaps opposite and adjacent
-      { id: "D", text: "$\\frac{12}{5}$" }
+      // distractor: uses BC/AB = 8/17, which is sin A
+      { id: "A", text: "$\\frac{8}{17}$" },
+      { id: "B", text: "$\\frac{8}{15}$" },
+      // distractor: uses AC/AB = 15/17, which is cos A
+      { id: "C", text: "$\\frac{15}{17}$" },
+      // distractor: uses AC/BC = 15/8, adjacent over opposite (tan B)
+      { id: "D", text: "$\\frac{15}{8}$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The legs sum to $30-13=17$ with squares summing to $169$, so they are $5$ and $12$. With $BC<AC$, $BC=5$ and $AC=12$, giving $\\tan A=\\frac{5}{12}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $C$, so $\\overline{AB}=13$ is the hypotenuse and $\\overline{BC}$ and $\\overline{AC}$ are the legs.\nStep 2: The legs sum to $30-13=17$ and satisfy $BC^2+AC^2=169$. The pair is $5$ and $12$, since $5+12=17$ and $25+144=169$. The condition $BC<AC$ makes $BC=5$ and $AC=12$.\nStep 3: For angle $A$, the opposite leg is $\\overline{BC}=5$ and the adjacent leg is $\\overline{AC}=12$, so $\\tan A=\\frac{5}{12}$.\n\nCheck: $5+12+13=30$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{13}$): divided by the hypotenuse, which produces $\\sin A$, not $\\tan A$.\n* Choice C ($\\frac{12}{13}$): used adjacent over hypotenuse, which is $\\cos A$.\n* Choice D ($\\frac{12}{5}$): swapped opposite and adjacent, giving the tangent of the other acute angle.\n\n**Test Day Takeaway:** Tangent uses only the two legs. Once the legs are known, the inequality in the problem tells you which leg faces the named angle.",
+    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The legs add to $40 - 17 = 23$ and their squares add to $17^2 = 289$, which fits $8$ and $15$; with $BC < AC$, $\\tan A = \\frac{BC}{AC} = \\frac{8}{15}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse is $\\overline{AB}$, with length $17$, so the legs satisfy $AC + BC = 40 - 17 = 23$ and $AC^2 + BC^2 = 17^2 = 289$.\nStep 2: Squaring the sum gives $(AC + BC)^2 = 529$, so $2(AC)(BC) = 529 - 289 = 240$ and $(AC)(BC) = 120$. Two numbers with sum $23$ and product $120$ are $8$ and $15$. Since $BC < AC$, $BC = 8$ and $AC = 15$.\nStep 3: For angle $A$, the opposite leg is $\\overline{BC}$ and the adjacent leg is $\\overline{AC}$, so $\\tan A = \\frac{8}{15}$.\n\nCheck: $8 + 15 + 17 = 40$ and $8^2 + 15^2 = 64 + 225 = 289 = 17^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{17}$): divides the opposite leg by the hypotenuse, which is $\\sin A$.\n* Choice C ($\\frac{15}{17}$): divides the adjacent leg by the hypotenuse, which is $\\cos A$.\n* Choice D ($\\frac{15}{8}$): divides the adjacent leg by the opposite leg, which is $\\tan B$, not $\\tan A$.\n\n**Test Day Takeaway:** When only the hypotenuse is labeled, the perimeter gives the sum of the legs; pair that with the Pythagorean theorem, then use the stated inequality to decide which leg is which.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "trig-ratio-from-perimeter",
@@ -7483,19 +7483,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A thermocouple mounting tab, drawn here, is a right triangle whose three edges total $154$ millimeters. The right angle of the tab is at vertex $B$, and only two of its three edges carry a labeled length. What is the value of $\\sin C$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [33, 0], [33, 56]], labels: ["A", "B", "C"], sideLabels: ["", "56", "65"], rightAngleVertex: 1 } },
+    question: "In the figure shown, the perimeter of triangle $ABC$ is $144$. What is the value of $\\sin C$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [16, 0], [16, 63]], labels: ["A", "B", "C"], sideLabels: ["", "63", "65"], rightAngleVertex: 1 } },
     choices: [
-      { id: "A", text: "$\\frac{33}{65}$" },
-      // distractor: reports tan C = 33/56, opposite over adjacent
-      { id: "B", text: "$\\frac{33}{56}$" },
-      // distractor: reports cos C = 56/65, adjacent over hypotenuse
-      { id: "C", text: "$\\frac{56}{65}$" },
-      // distractor: inverts cos C, giving hypotenuse over adjacent
-      { id: "D", text: "$\\frac{65}{56}$" }
+      { id: "A", text: "$\\frac{16}{65}$" },
+      // distractor: uses AB/BC = 16/63, which is tan C
+      { id: "B", text: "$\\frac{16}{63}$" },
+      // distractor: uses BC/CA = 63/65, which is cos C
+      { id: "C", text: "$\\frac{63}{65}$" },
+      // distractor: uses BC/AB = 63/16, adjacent over opposite for angle C
+      { id: "D", text: "$\\frac{63}{16}$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The unlabeled edge is $154 - 56 - 65 = 33$, and it lies opposite angle $C$, so $\\sin C = \\frac{33}{65}$.\n\n**The Full Solution:**\nStep 1: Two edges are labeled $56$ and $65$ millimeters, so the third is $154 - 56 - 65 = 33$ millimeters.\nStep 2: The right angle is at $B$, so $\\overline{CA} = 65$ is the hypotenuse, $\\overline{AB} = 33$ is opposite angle $C$, and $\\overline{BC} = 56$ is adjacent to angle $C$.\nStep 3: $\\sin C = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{33}{65}$.\n\nCheck: $33^2 + 56^2 = 1{,}089 + 3{,}136 = 4{,}225 = 65^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{33}{56}$): divides the opposite leg by the adjacent leg, which is $\\tan C$.\n* Choice C ($\\frac{56}{65}$): uses the adjacent leg over the hypotenuse, which is $\\cos C$.\n* Choice D ($\\frac{65}{56}$): inverts $\\cos C$; a sine can never exceed $1$.\n\n**Test Day Takeaway:** Sine and cosine both sit over the hypotenuse, so the only decision left is which leg faces the angle.",
+    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The unlabeled side is $AB = 144 - 63 - 65 = 16$, and it is opposite angle $C$, so $\\sin C = \\frac{16}{65}$.\n\n**The Full Solution:**\nStep 1: Subtract the two labeled sides from the perimeter: $AB = 144 - 63 - 65 = 16$.\nStep 2: The right angle is at $B$, so $\\overline{CA}$, with length $65$, is the hypotenuse. From angle $C$, the opposite leg is $\\overline{AB}$ and the adjacent leg is $\\overline{BC}$.\nStep 3: $\\sin C = \\frac{AB}{CA} = \\frac{16}{65}$.\n\nCheck: $16^2 + 63^2 = 256 + 3{,}969 = 4{,}225 = 65^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{16}{63}$): divides the opposite leg by the adjacent leg, which is $\\tan C$.\n* Choice C ($\\frac{63}{65}$): uses the two labeled sides, $\\frac{63}{65}$, which is $\\cos C$; it never uses the perimeter.\n* Choice D ($\\frac{63}{16}$): divides the adjacent leg by the opposite leg, flipping the tangent of $C$.\n\n**Test Day Takeaway:** If the ratio you need uses the unlabeled side, the perimeter is there to give you that side; subtract first, then read the ratio from the angle named.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "trig-ratio-from-perimeter",
@@ -7509,19 +7509,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The tile shown is trimmed to a right triangle whose edges, measured in inches, add to $40$. The right angle falls at vertex $B$, and angle $A$ is acute. What is the value of $\\tan A$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [8, 0], [8, 15]], labels: ["A", "B", "C"], sideLabels: ["8", "", "17"], rightAngleVertex: 1 } },
+    question: "Right triangle $JKL$ is shown. If the perimeter of the triangle is $84$, what is the value of $\\tan J$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [12, 0], [12, 35]], labels: ["J", "K", "L"], sideLabels: ["12", "", "37"], rightAngleVertex: 1 } },
     choices: [
-      // distractor: reports cos A = 8/17, adjacent over hypotenuse
-      { id: "A", text: "$\\frac{8}{17}$" },
-      // distractor: inverts the tangent, giving adjacent over opposite
-      { id: "B", text: "$\\frac{8}{15}$" },
-      // distractor: reports sin A = 15/17, opposite over hypotenuse
-      { id: "C", text: "$\\frac{15}{17}$" },
-      { id: "D", text: "$\\frac{15}{8}$" }
+      // distractor: uses JK/LJ = 12/37, which is cos J
+      { id: "A", text: "$\\frac{12}{37}$" },
+      // distractor: uses JK/KL = 12/35, adjacent over opposite
+      { id: "B", text: "$\\frac{12}{35}$" },
+      // distractor: uses KL/LJ = 35/37, which is sin J
+      { id: "C", text: "$\\frac{35}{37}$" },
+      { id: "D", text: "$\\frac{35}{12}$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** The unlabeled leg is $40 - 8 - 17 = 15$, so $\\tan A = \\frac{15}{8}$.\n\n**The Full Solution:**\nStep 1: The perimeter is $40$ inches and two edges measure $8$ and $17$, so $\\overline{BC} = 40 - 8 - 17 = 15$ inches.\nStep 2: With the right angle at $B$, the hypotenuse is $\\overline{CA} = 17$; relative to angle $A$ the opposite leg is $\\overline{BC} = 15$ and the adjacent leg is $\\overline{AB} = 8$.\nStep 3: $\\tan A = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{15}{8}$.\n\nCheck: $8^2 + 15^2 = 64 + 225 = 289 = 17^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{17}$): uses the hypotenuse, giving $\\cos A$ instead of a tangent.\n* Choice B ($\\frac{8}{15}$): inverts the ratio, dividing adjacent by opposite.\n* Choice C ($\\frac{15}{17}$): uses the hypotenuse in the denominator, giving $\\sin A$.\n\n**Test Day Takeaway:** Tangent is the only basic ratio that never touches the hypotenuse.",
+    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** $KL = 84 - 12 - 37 = 35$, so $\\tan J = \\frac{KL}{JK} = \\frac{35}{12}$.\n\n**The Full Solution:**\nStep 1: The missing side is $KL = 84 - 12 - 37 = 35$.\nStep 2: The right angle is at $K$. From angle $J$, the opposite leg is $\\overline{KL}$, with length $35$, and the adjacent leg is $\\overline{JK}$, with length $12$.\nStep 3: $\\tan J = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{35}{12}$.\n\nCheck: $12^2 + 35^2 = 144 + 1{,}225 = 1{,}369 = 37^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{12}{37}$): divides the adjacent leg by the hypotenuse, which is $\\cos J$.\n* Choice B ($\\frac{12}{35}$): divides the adjacent leg by the opposite leg, the reciprocal of $\\tan J$.\n* Choice C ($\\frac{35}{37}$): divides the opposite leg by the hypotenuse, which is $\\sin J$.\n\n**Test Day Takeaway:** Tangent uses the two legs only; a tangent greater than $1$ is fine whenever the opposite leg is longer than the adjacent leg.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "trig-ratio-from-perimeter",
@@ -7535,19 +7535,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A sheet-metal bracket is cut to the right-triangular outline shown, where each leg is labeled in terms of $x$ centimeters, the hypotenuse carries no label, and the outline's three edges total $30$ centimeters. The right angle lies at vertex $B$. What is the value of $\\tan A$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [12, 0], [12, 5]], labels: ["A", "B", "C"], sideLabels: ["x + 7", "x", ""], rightAngleVertex: 1, figureNote: true } },
+    question: "The perimeter of the right triangle shown is $70$. What is the value of $\\cos C$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [21, 0], [21, 20]], labels: ["A", "B", "C"], sideLabels: ["x + 1", "x", ""], rightAngleVertex: 1, figureNote: true } },
     choices: [
-      // distractor: reports sin A = 5/13, opposite over hypotenuse
-      { id: "A", text: "$\\frac{5}{13}$" },
-      { id: "B", text: "$\\frac{5}{12}$" },
-      // distractor: reports cos A = 12/13, adjacent over hypotenuse
-      { id: "C", text: "$\\frac{12}{13}$" },
-      // distractor: inverts the tangent, dividing the adjacent leg by the opposite leg
-      { id: "D", text: "$\\frac{12}{5}$" }
+      { id: "A", text: "$\\frac{20}{29}$" },
+      // distractor: uses AB/CA = 21/29, which is sin C
+      { id: "B", text: "$\\frac{21}{29}$" },
+      // distractor: uses BC/AB = 20/21, adjacent over opposite for angle C
+      { id: "C", text: "$\\frac{20}{21}$" },
+      // distractor: uses AB/BC = 21/20, which is tan C
+      { id: "D", text: "$\\frac{21}{20}$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~60s):** The legs $x$ and $x + 7$ with perimeter $30$ force the $5$-$12$-$13$ triple, so $\\tan A = \\frac{5}{12}$.\n\n**The Full Solution:**\nStep 1: The legs are $x$ and $x + 7$, so the hypotenuse is $30 - x - (x + 7) = 23 - 2x$.\nStep 2: The Pythagorean theorem gives $x^2 + (x+7)^2 = (23-2x)^2$, that is $2x^2 + 14x + 49 = 4x^2 - 92x + 529$, so $2x^2 - 106x + 480 = 0$ and $x^2 - 53x + 240 = 0$. Factoring gives $(x-5)(x-48) = 0$, and $x = 48$ is impossible in a perimeter of $30$, so $x = 5$.\nStep 3: The legs are $5$ and $12$ and the hypotenuse is $13$. Angle $A$ faces $\\overline{BC} = x = 5$ and sits beside $\\overline{AB} = x + 7 = 12$, so $\\tan A = \\frac{5}{12}$.\n\nCheck: $5 + 12 + 13 = 30$ and $5^2 + 12^2 = 169 = 13^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{13}$): divides the opposite leg by the hypotenuse, which is $\\sin A$.\n* Choice C ($\\frac{12}{13}$): divides the adjacent leg by the hypotenuse, which is $\\cos A$.\n* Choice D ($\\frac{12}{5}$): inverts the tangent by putting the adjacent leg on top.\n\n**Test Day Takeaway:** When both legs carry the same variable, write the hypotenuse from the perimeter and let the Pythagorean theorem finish the job.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~75s):** The hypotenuse is $70 - x - (x + 1) = 69 - 2x$, and $x^2 + (x + 1)^2 = (69 - 2x)^2$ gives $x = 20$, so the sides are $20$, $21$, and $29$ and $\\cos C = \\frac{20}{29}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse $\\overline{CA}$ has length $70 - x - (x + 1) = 69 - 2x$.\nStep 2: By the Pythagorean theorem, $x^2 + (x + 1)^2 = (69 - 2x)^2$, so $2x^2 + 2x + 1 = 4x^2 - 276x + 4{,}761$, which simplifies to $x^2 - 139x + 2{,}380 = 0$, or $(x - 20)(x - 119) = 0$. The value $x = 119$ would make the hypotenuse $69 - 238 < 0$, so $x = 20$: $BC = 20$, $AB = 21$, and $CA = 29$.\nStep 3: From angle $C$, the adjacent leg is $\\overline{BC}$, so $\\cos C = \\frac{BC}{CA} = \\frac{20}{29}$.\n\nCheck: $20 + 21 + 29 = 70$ and $20^2 + 21^2 = 400 + 441 = 841 = 29^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{21}{29}$): divides the leg opposite $C$ by the hypotenuse, which is $\\sin C$.\n* Choice C ($\\frac{20}{21}$): divides the adjacent leg by the opposite leg and never uses the hypotenuse.\n* Choice D ($\\frac{21}{20}$): divides the opposite leg by the adjacent leg, which is $\\tan C$.\n\n**Test Day Takeaway:** Write the unknown side as perimeter minus the other two, set up the Pythagorean equation, and reject any root that makes a length negative.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "trig-ratio-from-perimeter",
@@ -7561,19 +7561,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The splitter plate in a wind tunnel has the right-triangular face drawn here, with the right angle at $Q$ and the hypotenuse marked in centimeters. The three edges of the face total $56$ centimeters, and neither leg is labeled. What is the value of $\\cos R$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [24, 0], [24, 7]], labels: ["P", "Q", "R"], sideLabels: ["", "", "25"], rightAngleVertex: 1 } },
+    question: "In right triangle $PQR$ shown, $PQ > QR$, and the perimeter of the triangle is $60$. What is the value of $\\sin P$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [24, 0], [24, 10]], labels: ["P", "Q", "R"], sideLabels: ["", "", "26"], rightAngleVertex: 1, figureNote: true } },
     choices: [
-      { id: "A", text: "$\\frac{7}{25}$" },
-      // distractor: reports tan R = 7/24, opposite over adjacent for the wrong pairing
-      { id: "B", text: "$\\frac{7}{24}$" },
-      // distractor: reports sin R = 24/25, the leg opposite R over the hypotenuse
-      { id: "C", text: "$\\frac{24}{25}$" },
-      // distractor: inverts cos R, giving hypotenuse over adjacent
-      { id: "D", text: "$\\frac{25}{7}$" }
+      { id: "A", text: "$\\frac{5}{13}$" },
+      // distractor: uses QR/PQ = 10/24 = 5/12, which is tan P
+      { id: "B", text: "$\\frac{5}{12}$" },
+      // distractor: uses PQ/PR = 24/26 = 12/13, which is cos P
+      { id: "C", text: "$\\frac{12}{13}$" },
+      // distractor: uses PQ/QR = 24/10 = 12/5, which is tan R
+      { id: "D", text: "$\\frac{12}{5}$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~60s):** The legs sum to $31$ and their squares sum to $625$, so their product is $\\frac{31^2 - 625}{2} = 168$, giving legs $7$ and $24$ and $\\cos R = \\frac{7}{25}$.\n\n**The Full Solution:**\nStep 1: Call the legs $a$ and $b$. The perimeter gives $a + b = 56 - 25 = 31$, and the Pythagorean theorem gives $a^2 + b^2 = 25^2 = 625$.\nStep 2: Since $(a+b)^2 = a^2 + 2ab + b^2$, we get $961 = 625 + 2ab$, so $ab = 168$. The legs are the solutions of $t^2 - 31t + 168 = 0$, which factors as $(t-7)(t-24) = 0$, so the legs are $7$ and $24$ centimeters.\nStep 3: Angle $R$ sits between $\\overline{QR}$ and the hypotenuse $\\overline{RP} = 25$. The figure shows $\\overline{QR}$ as the shorter leg, $7$, so $\\cos R = \\frac{7}{25}$.\n\nCheck: $7 + 24 + 25 = 56$ and $7^2 + 24^2 = 49 + 576 = 625$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{7}{24}$): divides the two legs, which gives $\\tan R$ rather than a cosine.\n* Choice C ($\\frac{24}{25}$): uses the leg opposite $R$ over the hypotenuse, which is $\\sin R$.\n* Choice D ($\\frac{25}{7}$): inverts the ratio; a cosine can never exceed $1$.\n\n**Test Day Takeaway:** With a perimeter and a hypotenuse, $(a+b)^2 = a^2 + 2ab + b^2$ turns two facts into both legs.",
+    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~75s):** The legs add to $60 - 26 = 34$ and multiply to $\\frac{34^2 - 26^2}{2} = 240$, so they are $24$ and $10$; then $\\sin P = \\frac{QR}{PR} = \\frac{10}{26} = \\frac{5}{13}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse $\\overline{PR}$ has length $26$, so $PQ + QR = 60 - 26 = 34$ and $PQ^2 + QR^2 = 26^2 = 676$.\nStep 2: Since $(PQ + QR)^2 = 1{,}156$, it follows that $2(PQ)(QR) = 1{,}156 - 676 = 480$, so $(PQ)(QR) = 240$. Two numbers with sum $34$ and product $240$ are $24$ and $10$. Since $PQ > QR$, $PQ = 24$ and $QR = 10$.\nStep 3: The leg opposite angle $P$ is $\\overline{QR}$, so $\\sin P = \\frac{10}{26} = \\frac{5}{13}$.\n\nCheck: $24 + 10 + 26 = 60$ and $24^2 + 10^2 = 576 + 100 = 676 = 26^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{5}{12}$): divides the opposite leg by the adjacent leg, $\\frac{10}{24}$, which is $\\tan P$.\n* Choice C ($\\frac{12}{13}$): uses the longer leg, $\\frac{24}{26}$, which is $\\cos P$.\n* Choice D ($\\frac{12}{5}$): divides the longer leg by the shorter leg, $\\frac{24}{10}$, which is $\\tan R$.\n\n**Test Day Takeaway:** Sum of the legs from the perimeter plus sum of their squares from the hypotenuse pins down both legs; the stated inequality tells you which is which.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "trig-ratio-from-perimeter",
@@ -7588,19 +7588,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A copper heat-sink fin is stamped in the profile drawn here, with all three edge lengths given in millimeters and the right angle at vertex $B$. What is the value of $\\cos A$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [21, 0], [21, 20]], labels: ["A", "B", "C"], sideLabels: ["21", "20", "29"], rightAngleVertex: 1 } },
+    question: "In the triangle shown, what is the value of $\\cos A$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [72, 0], [72, 65]], labels: ["A", "B", "C"], sideLabels: ["72", "65", "97"], rightAngleVertex: 1 } },
     choices: [
-      // distractor: reports sin A = 20/29, opposite over hypotenuse
-      { id: "A", text: "$\\frac{20}{29}$" },
-      { id: "B", text: "$\\frac{21}{29}$" },
-      // distractor: reports tan A = 20/21, opposite over adjacent
-      { id: "C", text: "$\\frac{20}{21}$" },
-      // distractor: inverts cos A, giving hypotenuse over adjacent
-      { id: "D", text: "$\\frac{29}{21}$" }
+      // distractor: uses BC/CA = 65/97, which is sin A
+      { id: "A", text: "$\\frac{65}{97}$" },
+      { id: "B", text: "$\\frac{72}{97}$" },
+      // distractor: uses BC/AB = 65/72, which is tan A
+      { id: "C", text: "$\\frac{65}{72}$" },
+      // distractor: inverts the ratio, hypotenuse over adjacent
+      { id: "D", text: "$\\frac{97}{72}$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The leg beside angle $A$ is $21$ and the hypotenuse is $29$, so $\\cos A = \\frac{21}{29}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $B$, so the side opposite it, $\\overline{CA} = 29$, is the hypotenuse.\nStep 2: Angle $A$ lies between $\\overline{AB} = 21$ and the hypotenuse, so $21$ is the adjacent leg and $20$ is the opposite leg.\nStep 3: $\\cos A = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{21}{29}$.\n\nCheck: $20^2 + 21^2 = 400 + 441 = 841 = 29^2$, so $20$-$21$-$29$ is a Pythagorean triple. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{20}{29}$): uses the opposite leg over the hypotenuse, which is $\\sin A$.\n* Choice C ($\\frac{20}{21}$): divides the two legs, which is $\\tan A$.\n* Choice D ($\\frac{29}{21}$): inverts the ratio; a cosine is never greater than $1$.\n\n**Test Day Takeaway:** Find the hypotenuse first by locating the right angle, then read adjacent and opposite from the angle named.",
+    explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The leg adjacent to $A$ is $72$ and the hypotenuse is $97$, so $\\cos A = \\frac{72}{97}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $B$, so $\\overline{CA}$, with length $97$, is the hypotenuse.\nStep 2: The leg that touches angle $A$ is $\\overline{AB}$, with length $72$; this is the adjacent leg.\nStep 3: $\\cos A = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{72}{97}$.\n\nCheck: $72^2 + 65^2 = 5{,}184 + 4{,}225 = 9{,}409 = 97^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{65}{97}$): uses the leg opposite $A$, which gives $\\sin A$.\n* Choice C ($\\frac{65}{72}$): divides the opposite leg by the adjacent leg, which is $\\tan A$.\n* Choice D ($\\frac{97}{72}$): puts the hypotenuse on top; a cosine of an acute angle is always less than $1$.\n\n**Test Day Takeaway:** Cosine is adjacent over hypotenuse: the adjacent leg is the leg that touches the angle and is not the hypotenuse.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "trig-ratio-with-known-triple",
@@ -7614,19 +7614,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The carbide insert drawn here has three labeled edges, each given in millimeters, and its right angle falls at vertex $B$. What is the value of $\\sin A$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [35, 0], [35, 12]], labels: ["A", "B", "C"], sideLabels: ["35", "12", "37"], rightAngleVertex: 1 } },
+    question: "Triangle $ABC$ is shown. What is the value of $\\sin A$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [24, 0], [24, 7]], labels: ["A", "B", "C"], sideLabels: ["24", "7", "25"], rightAngleVertex: 1 } },
     choices: [
-      { id: "A", text: "$\\frac{12}{37}$" },
-      // distractor: reports tan A = 12/35, opposite over adjacent
-      { id: "B", text: "$\\frac{12}{35}$" },
-      // distractor: reports cos A = 35/37, adjacent over hypotenuse
-      { id: "C", text: "$\\frac{35}{37}$" },
-      // distractor: inverts sin A, giving hypotenuse over opposite
-      { id: "D", text: "$\\frac{37}{12}$" }
+      { id: "A", text: "$\\frac{7}{25}$" },
+      // distractor: uses BC/AB = 7/24, which is tan A
+      { id: "B", text: "$\\frac{7}{24}$" },
+      // distractor: uses AB/CA = 24/25, which is cos A
+      { id: "C", text: "$\\frac{24}{25}$" },
+      // distractor: uses AB/BC = 24/7, adjacent over opposite
+      { id: "D", text: "$\\frac{24}{7}$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The leg facing angle $A$ is $12$ and the hypotenuse is $37$, so $\\sin A = \\frac{12}{37}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $B$, so $\\overline{CA} = 37$ is the hypotenuse.\nStep 2: The leg opposite angle $A$ is $\\overline{BC} = 12$, and the leg adjacent to angle $A$ is $\\overline{AB} = 35$.\nStep 3: $\\sin A = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{12}{37}$.\n\nCheck: $12^2 + 35^2 = 144 + 1{,}225 = 1{,}369 = 37^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{12}{35}$): divides the two legs, which gives $\\tan A$.\n* Choice C ($\\frac{35}{37}$): uses the adjacent leg over the hypotenuse, which is $\\cos A$.\n* Choice D ($\\frac{37}{12}$): inverts the ratio; a sine is never greater than $1$.\n\n**Test Day Takeaway:** Opposite means across the triangle from the named angle, not merely the nearest labeled side.",
+    explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The leg opposite $A$ is $7$ and the hypotenuse is $25$, so $\\sin A = \\frac{7}{25}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $B$, so $\\overline{CA}$, with length $25$, is the hypotenuse.\nStep 2: The side across from angle $A$ is $\\overline{BC}$, with length $7$.\nStep 3: $\\sin A = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{7}{25}$.\n\nCheck: $7^2 + 24^2 = 49 + 576 = 625 = 25^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{7}{24}$): divides the opposite leg by the adjacent leg, which is $\\tan A$.\n* Choice C ($\\frac{24}{25}$): uses the adjacent leg, which gives $\\cos A$.\n* Choice D ($\\frac{24}{7}$): divides the adjacent leg by the opposite leg, the reciprocal of $\\tan A$.\n\n**Test Day Takeaway:** Find the side across from the angle first; sine puts that side over the hypotenuse.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "trig-ratio-with-known-triple",
@@ -7640,19 +7640,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "Triangle $RST$ has a right angle at $T$, with $RT=4$ and $ST=3$. What is the value of $\\tan R$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [4, 0], [4, 3]], labels: ["R", "T", "S"], sideLabels: ["4", "3", ""], rightAngleVertex: 1, figureNote: true } },
+    question: "In right triangle $RST$ shown, what is the value of $\\tan R$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [35, 0], [35, 12]], labels: ["R", "T", "S"], sideLabels: ["35", "12", ""], rightAngleVertex: 1, figureNote: true } },
     choices: [
-      // distractor: gives sine instead of tangent
-      { id: "A", text: "$\\frac{3}{5}$" },
-      { id: "B", text: "$\\frac{3}{4}$" },
-      // distractor: gives cosine instead of tangent
-      { id: "C", text: "$\\frac{4}{5}$" },
-      // distractor: swaps opposite and adjacent
-      { id: "D", text: "$\\frac{4}{3}$" }
+      // distractor: finds the hypotenuse, 37, and reports ST/RS = 12/37, which is sin R
+      { id: "A", text: "$\\frac{12}{37}$" },
+      { id: "B", text: "$\\frac{12}{35}$" },
+      // distractor: reports RT/RS = 35/37, which is cos R
+      { id: "C", text: "$\\frac{35}{37}$" },
+      // distractor: reports RT/ST = 35/12, which is tan S
+      { id: "D", text: "$\\frac{35}{12}$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** For angle $R$, the opposite leg is $\\overline{ST}=3$ and the adjacent leg is $\\overline{RT}=4$, so $\\tan R=\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: The right angle sits at $T$, so $\\overline{RT}$ and $\\overline{ST}$ are the legs and $\\overline{RS}$ is the hypotenuse.\nStep 2: Angle $R$ touches $\\overline{RT}$ and $\\overline{RS}$, so the leg opposite it is $\\overline{ST}=3$ and the leg adjacent to it is $\\overline{RT}=4$.\nStep 3: Tangent is opposite over adjacent: $\\tan R=\\frac{3}{4}$.\n\nCheck: the hypotenuse is $\\sqrt{3^2+4^2}=5$, the familiar $3$, $4$, $5$ triple. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{5}$): divided the opposite leg by the hypotenuse, which is $\\sin R$.\n* Choice C ($\\frac{4}{5}$): divided the adjacent leg by the hypotenuse, which is $\\cos R$.\n* Choice D ($\\frac{4}{3}$): swapped opposite and adjacent, giving $\\tan S$ instead.\n\n**Test Day Takeaway:** Tangent needs no hypotenuse. When both legs are given and a tangent is asked for, there is nothing left to compute.",
+    explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The leg opposite $R$ is $ST = 12$ and the leg adjacent to $R$ is $RT = 35$, so $\\tan R = \\frac{12}{35}$.\n\n**The Full Solution:**\nStep 1: Angle $T$ is the right angle, so $\\overline{RT}$ and $\\overline{ST}$ are the legs.\nStep 2: From angle $R$, the opposite leg is $\\overline{ST}$ and the adjacent leg is $\\overline{RT}$.\nStep 3: $\\tan R = \\frac{ST}{RT} = \\frac{12}{35}$.\n\nCheck: $\\tan R$ uses only the legs, so the hypotenuse, $\\sqrt{35^2 + 12^2} = 37$, is not needed. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{12}{37}$): brings in the hypotenuse, $37$, and computes $\\sin R$.\n* Choice C ($\\frac{35}{37}$): computes $\\cos R$, adjacent over hypotenuse.\n* Choice D ($\\frac{35}{12}$): divides the adjacent leg by the opposite leg, which is $\\tan S$.\n\n**Test Day Takeaway:** Tangent needs only the two legs: opposite over adjacent, measured from the angle named.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "trig-ratio-with-known-triple",
@@ -7666,19 +7666,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A composite shear web is trimmed to the outline drawn here, in which only two of the three edges carry a length in centimeters. The right angle of the outline is at vertex $Q$. What is the value of $\\tan P$?",
+    question: "In right triangle $PQR$ shown, what is the value of $\\tan P$?",
     diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [28, 0], [28, 45]], labels: ["P", "Q", "R"], sideLabels: ["", "45", "53"], rightAngleVertex: 1 } },
     choices: [
-      // distractor: reports cos P = 28/53, adjacent over hypotenuse
+      // distractor: finds PQ = 28 and reports PQ/PR = 28/53, which is cos P
       { id: "A", text: "$\\frac{28}{53}$" },
-      // distractor: inverts the tangent, dividing the adjacent leg by the opposite leg
+      // distractor: reports PQ/QR = 28/45, which is tan R
       { id: "B", text: "$\\frac{28}{45}$" },
-      // distractor: reports sin P = 45/53, opposite over hypotenuse
+      // distractor: reports QR/PR = 45/53, which is sin P
       { id: "C", text: "$\\frac{45}{53}$" },
       { id: "D", text: "$\\frac{45}{28}$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** The missing leg is $\\sqrt{53^2 - 45^2} = 28$, so $\\tan P = \\frac{45}{28}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $Q$, so $\\overline{RP} = 53$ is the hypotenuse and $\\overline{QR} = 45$ is a leg.\nStep 2: The unlabeled leg is $\\overline{PQ} = \\sqrt{53^2 - 45^2} = \\sqrt{2{,}809 - 2{,}025} = \\sqrt{784} = 28$ centimeters.\nStep 3: Relative to angle $P$ the opposite leg is $45$ and the adjacent leg is $28$, so $\\tan P = \\frac{45}{28}$.\n\nCheck: $28^2 + 45^2 = 784 + 2{,}025 = 2{,}809 = 53^2$, so $28$-$45$-$53$ is a Pythagorean triple. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{28}{53}$): uses the hypotenuse in the denominator, giving $\\cos P$.\n* Choice B ($\\frac{28}{45}$): inverts the tangent by dividing adjacent by opposite.\n* Choice C ($\\frac{45}{53}$): uses the hypotenuse in the denominator, giving $\\sin P$.\n\n**Test Day Takeaway:** Recover the missing side before choosing a ratio; a tangent needs both legs and neither is optional.",
+    explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** $PQ = \\sqrt{53^2 - 45^2} = 28$, so $\\tan P = \\frac{QR}{PQ} = \\frac{45}{28}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $Q$, so $\\overline{PR}$, with length $53$, is the hypotenuse and $\\overline{PQ}$ is the unlabeled leg.\nStep 2: $PQ^2 = 53^2 - 45^2 = 2{,}809 - 2{,}025 = 784$, so $PQ = 28$.\nStep 3: From angle $P$, the opposite leg is $\\overline{QR}$ and the adjacent leg is $\\overline{PQ}$, so $\\tan P = \\frac{45}{28}$.\n\nCheck: $28^2 + 45^2 = 784 + 2{,}025 = 2{,}809 = 53^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{28}{53}$): uses the adjacent leg over the hypotenuse, which is $\\cos P$.\n* Choice B ($\\frac{28}{45}$): divides the adjacent leg by the opposite leg, which is $\\tan R$.\n* Choice C ($\\frac{45}{53}$): uses the two labeled sides, which gives $\\sin P$, and skips the missing leg.\n\n**Test Day Takeaway:** Tangent needs both legs; when the figure labels a leg and the hypotenuse, one Pythagorean step recovers the other leg.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "trig-ratio-with-known-triple",
@@ -7692,19 +7692,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The ground cross section of a rolled-steel chock appears here; both of its legs are labeled in centimeters, vertex $Y$ holds the right angle, and the hypotenuse carries no label. What is the value of $\\sin X$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [48, 0], [48, 55]], labels: ["X", "Y", "Z"], sideLabels: ["48", "55", ""], rightAngleVertex: 1 } },
+    question: "For triangle $XYZ$ shown, what is the value of $\\cos X$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [56, 0], [56, 33]], labels: ["X", "Y", "Z"], sideLabels: ["56", "33", ""], rightAngleVertex: 1 } },
     choices: [
-      // distractor: reports cos X = 48/73, adjacent over hypotenuse
-      { id: "A", text: "$\\frac{48}{73}$" },
-      { id: "B", text: "$\\frac{55}{73}$" },
-      // distractor: divides the adjacent leg by the opposite leg, the reciprocal of tan X
-      { id: "C", text: "$\\frac{48}{55}$" },
-      // distractor: inverts sin X, giving hypotenuse over opposite
-      { id: "D", text: "$\\frac{73}{55}$" }
+      // distractor: reports YZ/XZ = 33/65, which is sin X
+      { id: "A", text: "$\\frac{33}{65}$" },
+      // distractor: reports YZ/XY = 33/56, which is tan X
+      { id: "B", text: "$\\frac{33}{56}$" },
+      { id: "C", text: "$\\frac{56}{65}$" },
+      // distractor: reports XY/YZ = 56/33, adjacent over opposite
+      { id: "D", text: "$\\frac{56}{33}$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The hypotenuse is $\\sqrt{48^2 + 55^2} = 73$, so $\\sin X = \\frac{55}{73}$.\n\n**The Full Solution:**\nStep 1: The legs $\\overline{XY} = 48$ and $\\overline{YZ} = 55$ meet at the right angle at $Y$.\nStep 2: The hypotenuse is $\\overline{ZX} = \\sqrt{48^2 + 55^2} = \\sqrt{2{,}304 + 3{,}025} = \\sqrt{5{,}329} = 73$ centimeters.\nStep 3: The leg opposite angle $X$ is $\\overline{YZ} = 55$, so $\\sin X = \\frac{55}{73}$.\n\nCheck: $\\frac{55}{73} \\approx 0.753$, and since angle $X$ faces the longer leg its sine should exceed $\\frac{\\sqrt{2}}{2} \\approx 0.707$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{48}{73}$): uses the adjacent leg over the hypotenuse, which is $\\cos X$.\n* Choice C ($\\frac{48}{55}$): divides the two legs, and in the wrong order at that.\n* Choice D ($\\frac{73}{55}$): inverts the ratio; a sine is never greater than $1$.\n\n**Test Day Takeaway:** When only the legs are given, build the hypotenuse first; sine and cosine both require it.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** $XZ = \\sqrt{56^2 + 33^2} = 65$, so $\\cos X = \\frac{XY}{XZ} = \\frac{56}{65}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $Y$, so the hypotenuse is $\\overline{XZ}$: $XZ^2 = 56^2 + 33^2 = 3{,}136 + 1{,}089 = 4{,}225$, and $XZ = 65$.\nStep 2: The leg adjacent to angle $X$ is $\\overline{XY}$, with length $56$.\nStep 3: $\\cos X = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{56}{65}$.\n\nCheck: $\\left(\\frac{56}{65}\\right)^2 + \\left(\\frac{33}{65}\\right)^2 = \\frac{3{,}136 + 1{,}089}{4{,}225} = 1$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{33}{65}$): uses the leg opposite $X$, which gives $\\sin X$.\n* Choice B ($\\frac{33}{56}$): divides the two legs, which is $\\tan X$, and skips the hypotenuse.\n* Choice D ($\\frac{56}{33}$): divides the adjacent leg by the opposite leg, the reciprocal of $\\tan X$.\n\n**Test Day Takeaway:** With two legs given, find the hypotenuse first; sine and cosine both need it.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "trig-ratio-with-known-triple",
@@ -7718,19 +7718,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A conveyor guard panel is cut to the outline drawn here, with the hypotenuse marked in millimeters, both legs unlabeled, and the right angle at vertex $Y$. Leg $\\overline{XY}$ runs $41$ millimeters longer than leg $\\overline{YZ}$. What is the value of $\\cos Z$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [77, 0], [77, 36]], labels: ["X", "Y", "Z"], sideLabels: ["", "", "85"], rightAngleVertex: 1 } },
+    question: "In right triangle $XYZ$ shown, $XY$ is $41$ greater than $YZ$. What is the value of $\\cos Z$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [80, 0], [80, 39]], labels: ["X", "Y", "Z"], sideLabels: ["", "", "89"], rightAngleVertex: 1, figureNote: true } },
     choices: [
-      { id: "A", text: "$\\frac{36}{85}$" },
-      // distractor: reports tan Z = 36/77, the two legs divided rather than a cosine
-      { id: "B", text: "$\\frac{36}{77}$" },
-      // distractor: reports sin Z = 77/85, the leg opposite Z over the hypotenuse
-      { id: "C", text: "$\\frac{77}{85}$" },
-      // distractor: inverts cos Z, giving hypotenuse over adjacent
-      { id: "D", text: "$\\frac{85}{36}$" }
+      { id: "A", text: "$\\frac{39}{89}$" },
+      // distractor: uses YZ/XY = 39/80, adjacent over opposite for angle Z
+      { id: "B", text: "$\\frac{39}{80}$" },
+      // distractor: uses XY/XZ = 80/89, which is sin Z
+      { id: "C", text: "$\\frac{80}{89}$" },
+      // distractor: uses XY/YZ = 80/39, which is tan Z
+      { id: "D", text: "$\\frac{80}{39}$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~60s):** Solving $a^2 + (a+41)^2 = 85^2$ gives legs $36$ and $77$, and the leg beside angle $Z$ is $36$, so $\\cos Z = \\frac{36}{85}$.\n\n**The Full Solution:**\nStep 1: Let $\\overline{YZ} = a$, so $\\overline{XY} = a + 41$ and the hypotenuse $\\overline{ZX} = 85$.\nStep 2: The Pythagorean theorem gives $a^2 + (a+41)^2 = 7{,}225$, so $2a^2 + 82a + 1{,}681 = 7{,}225$, that is $a^2 + 41a - 2{,}772 = 0$. Factoring gives $(a - 36)(a + 77) = 0$, and a length must be positive, so $a = 36$ and the other leg is $77$ millimeters.\nStep 3: Angle $Z$ lies between $\\overline{YZ} = 36$ and the hypotenuse $85$, so $\\cos Z = \\frac{36}{85}$.\n\nCheck: $36^2 + 77^2 = 1{,}296 + 5{,}929 = 7{,}225 = 85^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{36}{77}$): divides the two legs, which gives $\\tan Z$.\n* Choice C ($\\frac{77}{85}$): uses the leg opposite $Z$ over the hypotenuse, which is $\\sin Z$ and belongs to the other acute angle's cosine.\n* Choice D ($\\frac{85}{36}$): inverts the ratio; a cosine can never exceed $1$.\n\n**Test Day Takeaway:** A stated difference between two legs plus the hypotenuse is a quadratic in disguise; solve it before touching any ratio.",
+    explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~70s):** With $YZ = y$, $y^2 + (y + 41)^2 = 89^2$ gives $y = 39$, so $\\cos Z = \\frac{YZ}{XZ} = \\frac{39}{89}$.\n\n**The Full Solution:**\nStep 1: Let $YZ = y$, so $XY = y + 41$. The right angle is at $Y$, so $\\overline{XZ}$, with length $89$, is the hypotenuse.\nStep 2: $y^2 + (y + 41)^2 = 89^2$ gives $2y^2 + 82y + 1{,}681 = 7{,}921$, so $y^2 + 41y - 3{,}120 = 0$, or $(y - 39)(y + 80) = 0$. A length is positive, so $y = 39$ and $XY = 80$.\nStep 3: The leg adjacent to angle $Z$ is $\\overline{YZ}$, so $\\cos Z = \\frac{39}{89}$.\n\nCheck: $80 - 39 = 41$ and $39^2 + 80^2 = 1{,}521 + 6{,}400 = 7{,}921 = 89^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{39}{80}$): divides the adjacent leg by the opposite leg and never uses the hypotenuse.\n* Choice C ($\\frac{80}{89}$): uses the leg opposite $Z$, which gives $\\sin Z$.\n* Choice D ($\\frac{80}{39}$): divides the opposite leg by the adjacent leg, which is $\\tan Z$.\n\n**Test Day Takeaway:** A relation between the legs plus the hypotenuse is a quadratic; factor it, keep the positive root, and only then pick the ratio.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "trig-ratio-with-known-triple",
@@ -7746,18 +7746,18 @@ export const geometryBank = [
     skills: ["circle-area", "volume-scaling"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "Two similar cylindrical carding drums stand in a finishing room, and the area of the larger drum's circular base is $\\frac{9}{4}$ times the area of the smaller drum's base. The larger drum's volume is $n$ times the smaller drum's volume. What is the value of $n$?",
+    question: "Cylinder $A$ and cylinder $B$ are similar right circular cylinders. The area of the base of cylinder $B$ is $\\frac{16}{9}$ times the area of the base of cylinder $A$. The volume of cylinder $B$ is $k$ times the volume of cylinder $A$. What is the value of $k$?",
     choices: [
-      // distractor: reports the linear ratio 3/2 instead of the volume ratio
-      { id: "A", text: "$1.5$" },
-      // distractor: reports the base-area ratio 9/4 as though volume scaled like area
-      { id: "B", text: "$2.25$" },
-      { id: "C", text: "$3.375$" },
-      // distractor: squares the area ratio, 2.25^2 = 5.0625, instead of cubing the linear ratio
-      { id: "D", text: "$5.0625$" }
+      // distractor: reports the linear scale factor 4/3 instead of cubing it
+      { id: "A", text: "$\\frac{4}{3}$" },
+      // distractor: reuses the base-area ratio 16/9 as though volume scaled like area
+      { id: "B", text: "$\\frac{16}{9}$" },
+      { id: "C", text: "$\\frac{64}{27}$" },
+      // distractor: squares the area ratio, (16/9)^2 = 256/81, instead of cubing the linear ratio
+      { id: "D", text: "$\\frac{256}{81}$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Similar-Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Base areas give a linear ratio of $\\sqrt{\\frac{9}{4}}=\\frac{3}{2}$, so volumes are in the ratio $\\left(\\frac{3}{2}\\right)^3=\\frac{27}{8}=3.375$.\n\n**The Full Solution:**\n\nStep 1 — Move from areas to lengths. Base area is $\\pi r^2$, so $\\frac{\\pi R^2}{\\pi r^2}=\\frac{9}{4}$ gives $\\frac{R}{r}=\\frac{3}{2}$.\n\nStep 2 — Because the drums are similar, every length, including the height, scales by $\\frac{3}{2}$.\n\nStep 3 — Volume is a product of three lengths, so it scales by $\\left(\\frac{3}{2}\\right)^3=\\frac{27}{8}=3.375$, and $n=3.375$. Check: with $r=2$, $h=2$ and $R=3$, $H=3$, the volumes are $8\\pi$ and $27\\pi$, whose ratio is $3.375$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($1.5$): this stops at the linear ratio $\\frac{3}{2}$ and never raises it to the third power.\n* Choice B ($2.25$): this reuses the base-area ratio, which scales two dimensions, not three.\n* Choice D ($5.0625$): this squares the area ratio, $2.25^2$, mixing a fourth power into a three-dimensional comparison.\n\n**Test Day Takeaway:** Convert any given ratio back to a length ratio first; from there areas take the square and volumes the cube.",
+    explanation: "**SAT Pattern: Similar-Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** An area ratio of $\\frac{16}{9}$ means a length ratio of $\\frac{4}{3}$, so the volume ratio is $\\left(\\frac{4}{3}\\right)^3 = \\frac{64}{27}$.\n\n**The Full Solution:**\nStep 1: Base areas are $\\pi r^2$, so $\\frac{\\pi R^2}{\\pi r^2} = \\frac{16}{9}$ gives $\\frac{R}{r} = \\frac{4}{3}$.\nStep 2: The cylinders are similar, so every length, including the height, is multiplied by $\\frac{4}{3}$.\nStep 3: Volume is a product of three lengths, so $k = \\left(\\frac{4}{3}\\right)^3 = \\frac{64}{27}$.\n\nCheck: With $r = 3$, $h = 3$ for cylinder $A$ and $R = 4$, $H = 4$ for cylinder $B$, the volumes are $27\\pi$ and $64\\pi$, a ratio of $\\frac{64}{27}$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4}{3}$): stops at the length ratio and never cubes it.\n* Choice B ($\\frac{16}{9}$): reuses the area ratio; area scales two dimensions, volume scales three.\n* Choice D ($\\frac{256}{81}$): squares the area ratio, which is a fourth power of the length ratio.\n\n**Test Day Takeaway:** Turn any given ratio back into a length ratio first; areas then scale by its square and volumes by its cube.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "similar-figures-area-ratio",
@@ -7771,18 +7771,18 @@ export const geometryBank = [
     skills: ["radians-to-degrees", "radian-measure-understanding"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A robotic pipetting arm turns through $\\frac{5\\pi}{12}$ radians and then through $\\frac{7\\pi}{18}$ radians in the same direction. Through how many more degrees must it turn to complete a half revolution?",
+    question: "In triangle $ABC$, the measure of angle $A$ is $\\frac{3\\pi}{10}$ radians and the measure of angle $B$ is $\\frac{4\\pi}{9}$ radians. What is the measure, in degrees, of angle $C$?",
     choices: [
-      { id: "A", text: "$35$" },
-      // distractor: converts only the first turn and subtracts it: 180 - 75
-      { id: "B", text: "$105$" },
-      // distractor: reports the total turn already made, 75 + 70, instead of what remains
-      { id: "C", text: "$145$" },
-      // distractor: measures the remainder against a full revolution: 360 - 145
-      { id: "D", text: "$215$" }
+      // distractor: finds angle C = 23π/90 radians and reports the numerator 23 without converting to degrees
+      { id: "A", text: "$23$" },
+      { id: "B", text: "$46$" },
+      // distractor: reports the sum of angles A and B, 54 + 80 = 134, without subtracting from 180
+      { id: "C", text: "$134$" },
+      // distractor: subtracts 134 from 360 instead of 180
+      { id: "D", text: "$226$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Radian Sum to Degrees**\n\n**Choice A is correct.** The two turns are $75^\\circ$ and $70^\\circ$, totaling $145^\\circ$, so $180 - 145 = 35$ degrees remain.\n\n**The Fast Way (~35s):** $\\frac{5\\pi}{12} \\to 75^\\circ$ and $\\frac{7\\pi}{18} \\to 70^\\circ$; a half revolution is $180^\\circ$, so $180 - 145 = 35$.\n\n**The Full Solution:**\n\nStep 1: Convert with $\\frac{180}{\\pi}$ degrees per radian: $\\frac{5\\pi}{12} \\cdot \\frac{180}{\\pi} = \\frac{900}{12} = 75^\\circ$.\n\nStep 2: Likewise $\\frac{7\\pi}{18} \\cdot \\frac{180}{\\pi} = \\frac{1260}{18} = 70^\\circ$, so the arm has turned $75 + 70 = 145^\\circ$.\n\nStep 3: A half revolution is $180^\\circ$, so the arm still needs $180 - 145 = 35$ degrees. Check: $145^\\circ + 35^\\circ = 180^\\circ$, and in radians $\\frac{5\\pi}{12} + \\frac{7\\pi}{18} = \\frac{15\\pi + 14\\pi}{36} = \\frac{29\\pi}{36}$, which is just under $\\pi$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($105$): converts only the first turn and subtracts, $180 - 75$.\n* Choice C ($145$): reports the total already turned rather than what is left.\n* Choice D ($215$): measures the remainder against a full revolution, $360 - 145$, not a half one.\n\n**Test Day Takeaway:** Convert every radian measure to degrees first, add, and then answer the comparison the question sets — \"how much more\" is a subtraction, not the sum.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Radian Sum to Degrees**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $\\frac{3\\pi}{10}$ radians is $54^\\circ$ and $\\frac{4\\pi}{9}$ radians is $80^\\circ$, so angle $C$ measures $180 - 54 - 80 = 46$ degrees.\n\n**The Full Solution:**\nStep 1: Multiply each radian measure by $\\frac{180^\\circ}{\\pi}$: $\\frac{3\\pi}{10} \\cdot \\frac{180^\\circ}{\\pi} = 54^\\circ$ and $\\frac{4\\pi}{9} \\cdot \\frac{180^\\circ}{\\pi} = 80^\\circ$.\nStep 2: The angle measures of a triangle sum to $180^\\circ$.\nStep 3: Angle $C$ measures $180^\\circ - 54^\\circ - 80^\\circ = 46^\\circ$.\n\nCheck: In radians, $\\pi - \\frac{3\\pi}{10} - \\frac{4\\pi}{9} = \\frac{23\\pi}{90}$, and $\\frac{23\\pi}{90} \\cdot \\frac{180^\\circ}{\\pi} = 46^\\circ$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($23$): finds $\\frac{23\\pi}{90}$ radians correctly but reports the $23$ without converting to degrees.\n* Choice C ($134$): adds angles $A$ and $B$ and stops before subtracting from $180^\\circ$.\n* Choice D ($226$): subtracts from $360^\\circ$, the angle sum of a quadrilateral, not a triangle.\n\n**Test Day Takeaway:** Convert radians to degrees with $\\frac{180}{\\pi}$ before mixing in facts stated in degrees, such as the triangle angle sum.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "radians-degrees-conversion",
@@ -7796,18 +7796,18 @@ export const geometryBank = [
     skills: ["volume-sphere", "volume-prism"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A spherical cavity inside a cube of basalt just touches each of the cube's six faces. If the cube's edge measures $s$ centimeters, which expression gives the number of cubic centimeters of basalt in the block?",
+    question: "A sphere is inscribed in a cube with edge length $s$ centimeters. Which expression represents the volume, in cubic centimeters, of the space inside the cube but outside the sphere?",
     choices: [
-      // distractor: takes the sphere's radius as s/4 instead of s/2
-      { id: "A", text: "$s^3\\left(1 - \\frac{\\pi}{48}\\right)$" },
-      // distractor: drops the 4/3 from the sphere formula, computing pi times (s/2) cubed
-      { id: "B", text: "$s^3\\left(1 - \\frac{\\pi}{8}\\right)$" },
-      { id: "C", text: "$s^3\\left(1 - \\frac{\\pi}{6}\\right)$" },
-      // distractor: uses the cube's full edge s as the sphere's radius
-      { id: "D", text: "$s^3\\left(1 - \\frac{4\\pi}{3}\\right)$" }
+      // distractor: uses a radius of s/4, half of the true radius
+      { id: "A", text: "$s^{3}\\left(1 - \\frac{\\pi}{48}\\right)$" },
+      // distractor: drops the 4/3 and computes the sphere's volume as π(s/2)^3
+      { id: "B", text: "$s^{3}\\left(1 - \\frac{\\pi}{8}\\right)$" },
+      { id: "C", text: "$s^{3}\\left(1 - \\frac{\\pi}{6}\\right)$" },
+      // distractor: uses a radius of s, the full edge length
+      { id: "D", text: "$s^{3}\\left(1 - \\frac{4\\pi}{3}\\right)$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Composite Solid — Cube Minus Inscribed Sphere**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The sphere has radius $\\frac{s}{2}$, so its volume is $\\frac{4}{3}\\pi\\frac{s^3}{8} = \\frac{\\pi s^3}{6}$, leaving $s^3 - \\frac{\\pi s^3}{6}$.\n\n**The Full Solution:**\nStep 1: The cube's volume is $s^3$ cubic centimeters.\nStep 2: A sphere tangent to all six faces has diameter $s$, so its radius is $\\frac{s}{2}$ and its volume is $\\frac{4}{3}\\pi\\left(\\frac{s}{2}\\right)^3 = \\frac{4\\pi s^3}{24} = \\frac{\\pi s^3}{6}$.\nStep 3: Subtract: $s^3 - \\frac{\\pi s^3}{6} = s^3\\left(1 - \\frac{\\pi}{6}\\right)$. Check: $\\frac{\\pi}{6} \\approx 0.524$, so about $48\\%$ of the block remains — a positive amount, as it must be ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: halves the edge twice, using $r = \\frac{s}{4}$ and shrinking the cavity by a factor of $8$.\n* Choice B: drops the $\\frac{4}{3}$ and computes the cavity as $\\pi\\left(\\frac{s}{2}\\right)^3 = \\frac{\\pi s^3}{8}$.\n* Choice D: uses $r = s$; that sphere would not fit inside the cube at all, and the expression even turns negative.\n\n**Test Day Takeaway:** A sphere inscribed in a cube has DIAMETER equal to the edge — cube the whole fraction $\\frac{s}{2}$, denominator included.",
+    explanation: "**SAT Pattern: Composite Solid — Cube Minus Inscribed Sphere**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The sphere's diameter is $s$, so its volume is $\\frac{4}{3}\\pi\\left(\\frac{s}{2}\\right)^3 = \\frac{\\pi s^3}{6}$, leaving $s^3 - \\frac{\\pi s^3}{6}$.\n\n**The Full Solution:**\nStep 1: The cube's volume is $s^3$.\nStep 2: A sphere inscribed in a cube touches all six faces, so its diameter equals the edge length $s$ and its radius is $\\frac{s}{2}$. Its volume is $\\frac{4}{3}\\pi\\left(\\frac{s}{2}\\right)^3 = \\frac{4\\pi s^3}{24} = \\frac{\\pi s^3}{6}$.\nStep 3: The space between them is $s^3 - \\frac{\\pi s^3}{6} = s^3\\left(1 - \\frac{\\pi}{6}\\right)$.\n\nCheck: $\\frac{\\pi}{6} \\approx 0.52$, so a little less than half of the cube lies outside the sphere, a positive amount as it must be. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($s^{3}\\left(1 - \\frac{\\pi}{48}\\right)$): uses a radius of $\\frac{s}{4}$, halving the edge twice.\n* Choice B ($s^{3}\\left(1 - \\frac{\\pi}{8}\\right)$): drops the $\\frac{4}{3}$ from the sphere formula.\n* Choice D ($s^{3}\\left(1 - \\frac{4\\pi}{3}\\right)$): uses a radius of $s$; that sphere would not fit in the cube, and the expression is negative.\n\n**Test Day Takeaway:** An inscribed sphere's diameter is the cube's edge; cube the whole radius $\\frac{s}{2}$, denominator included.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "composite-solid",
@@ -7821,18 +7821,18 @@ export const geometryBank = [
     skills: ["function-transformations"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A rational function $p$ is defined by $p(x)=\\dfrac{c}{x-3}$ for some constant $c$. Its graph in the $xy$-plane contains the point $(7,\\,15)$. If the graph of $y=q(x)$ is the image of the graph of $y=p(x)$ under a translation $11$ units to the left, which equation defines $q$?",
+    question: "$p(x) = \\dfrac{c}{x - 4}$\nThe function $p$ is defined by the given equation, where $c$ is a constant. In the $xy$-plane, the graph of $y = p(x)$ passes through the point $(9, 12)$. The graph of $y = q(x)$ is the result of translating the graph of $y = p(x)$ $6$ units to the left. Which equation defines $q$?",
     choices: [
-      // distractor: translates right instead of left
-      { id: "A", text: "$q(x)=\\dfrac{60}{x-14}$" },
-      { id: "B", text: "$q(x)=\\dfrac{60}{x+8}$" },
-      // distractor: replaces the original constant with the shift
-      { id: "C", text: "$q(x)=\\dfrac{60}{x+11}$" },
-      // distractor: adds the shift to the numerator
-      { id: "D", text: "$q(x)=\\dfrac{71}{x-3}$" }
+      // distractor: shifts in the wrong direction, replacing x with x - 6
+      { id: "A", text: "$q(x) = \\dfrac{60}{x - 10}$" },
+      { id: "B", text: "$q(x) = \\dfrac{60}{x + 2}$" },
+      // distractor: replaces the -4 with +6 instead of adding 6 to it
+      { id: "C", text: "$q(x) = \\dfrac{60}{x + 6}$" },
+      // distractor: adds 6 to the constant c instead of translating the graph horizontally
+      { id: "D", text: "$q(x) = \\dfrac{66}{x - 4}$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Horizontal Shift of a Rational Function**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** From $\\frac{c}{7-3}=15$, $c=60$. Translating left $11$ replaces $x$ with $x+11$, so the denominator becomes $(x+11)-3=x+8$ and $q(x)=\\frac{60}{x+8}$.\n\n**The Full Solution:**\nStep 1: The point $(7,\\,15)$ is on the graph of $p$, so $p(7)=15$. Substituting gives $\\frac{c}{7-3}=15$, that is $\\frac{c}{4}=15$, so $c=60$ and $p(x)=\\frac{60}{x-3}$.\nStep 2: A translation of $11$ units to the left sends the graph of $y=p(x)$ to the graph of $y=p(x+11)$.\nStep 3: $q(x)=p(x+11)=\\frac{60}{(x+11)-3}=\\frac{60}{x+8}$.\n\nCheck: the point $(7,\\,15)$ moves to $(-4,\\,15)$, and $q(-4)=\\frac{60}{-4+8}=\\frac{60}{4}=15$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($q(x)=\\frac{60}{x-14}$): replaced $x$ with $x-11$, which translates the graph $11$ units to the right instead of left.\n* Choice C ($q(x)=\\frac{60}{x+11}$): dropped the original $-3$ and used the shift alone as the constant in the denominator.\n* Choice D ($q(x)=\\frac{71}{x-3}$): added $11$ to the numerator, which stretches the graph vertically rather than sliding it sideways.\n\n**Test Day Takeaway:** A horizontal shift acts on the input, so substitute $x+11$ for every $x$ and then simplify. The constants combine; the earlier one does not disappear.",
+    explanation: "**SAT Pattern: Horizontal Shift of a Rational Function**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** From $12 = \\frac{c}{9 - 4}$, $c = 60$; a shift $6$ units left replaces $x$ with $x + 6$, giving $q(x) = \\frac{60}{x + 2}$.\n\n**The Full Solution:**\nStep 1: Substitute the point: $12 = \\frac{c}{9 - 4} = \\frac{c}{5}$, so $c = 60$ and $p(x) = \\frac{60}{x - 4}$.\nStep 2: Translating a graph $6$ units to the left replaces $x$ with $x + 6$: $q(x) = p(x + 6) = \\frac{60}{(x + 6) - 4}$.\nStep 3: Simplify: $q(x) = \\frac{60}{x + 2}$.\n\nCheck: The point $(9, 12)$ moves to $(3, 12)$, and $q(3) = \\frac{60}{3 + 2} = 12$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($q(x) = \\dfrac{60}{x - 10}$): replaces $x$ with $x - 6$, which shifts the graph $6$ units to the right.\n* Choice C ($q(x) = \\dfrac{60}{x + 6}$): writes the shift amount in place of the $-4$ instead of combining $-4 + 6$.\n* Choice D ($q(x) = \\dfrac{66}{x - 4}$): adds $6$ to the constant, which stretches the graph rather than translating it.\n\n**Test Day Takeaway:** Find the constant from the given point first; then a shift of $h$ units left means $x \\to x + h$, inside the function.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-from-shifted-graph",
@@ -7846,18 +7846,18 @@ export const geometryBank = [
     skills: ["special-right-triangles", "pythagorean-theorem"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The trim around a triangular bulletin board in a school hallway totals $24+24\\sqrt{2}$ inches, and the board's two congruent sides meet at a right angle. How many inches long is each congruent side?",
+    question: "The perimeter of an isosceles right triangle is $16 + 8\\sqrt{2}$ centimeters. What is the area, in square centimeters, of the triangle?",
     choices: [
-      // distractor: halves the rational part 24 of the perimeter
-      { id: "A", text: "$12$" },
-      { id: "B", text: "$12\\sqrt{2}$" },
-      // distractor: takes the rational part 24, which is the hypotenuse, as a leg
-      { id: "C", text: "$24$" },
-      // distractor: takes the whole irrational part 24 root 2 as one leg
-      { id: "D", text: "$24\\sqrt{2}$" }
+      { id: "A", text: "$32$" },
+      // distractor: uses a leg and the hypotenuse as base and height, (1/2)(8)(8√2)
+      { id: "B", text: "$32\\sqrt{2}$" },
+      // distractor: finds the leg 8 but forgets the 1/2 in the area formula
+      { id: "C", text: "$64$" },
+      // distractor: takes 16, the whole-number part of the perimeter, as the leg length
+      { id: "D", text: "$128$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: 45-45-90 Triangle — Perimeter to Leg**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** With leg $L$ the perimeter is $2L+L\\sqrt{2}$; matching $2L=24\\sqrt{2}$ gives $L=12\\sqrt{2}$, and then $L\\sqrt{2}=24$ matches the rational part.\n\n**The Full Solution:**\n\nStep 1: Write the perimeter. Two congruent legs $L$ and hypotenuse $L\\sqrt{2}$ give $P=2L+L\\sqrt{2}$.\n\nStep 2: Set up the equation. $L(2+\\sqrt{2})=24+24\\sqrt{2}$, so $L=\\frac{24+24\\sqrt{2}}{2+\\sqrt{2}}$.\n\nStep 3: Rationalize. Multiplying numerator and denominator by $2-\\sqrt{2}$ gives $L=\\frac{(24+24\\sqrt{2})(2-\\sqrt{2})}{2}=\\frac{24\\sqrt{2}}{2}=12\\sqrt{2}$ inches.\n\nCheck: $2(12\\sqrt{2})+12\\sqrt{2}\\cdot\\sqrt{2}=24\\sqrt{2}+24$, exactly the given trim length.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($12$): halves the rational part $24$ of the perimeter and calls that a leg.\n* Choice C ($24$): reads the rational part $24$ as a leg, but $24$ is the hypotenuse of this triangle.\n* Choice D ($24\\sqrt{2}$): hands the entire irrational part of the perimeter to a single side instead of splitting it between the two legs.\n\n**Test Day Takeaway:** In a $45$-$45$-$90$ perimeter, the two legs carry the $\\sqrt{2}$ term and the hypotenuse carries the rational term — match the parts instead of guessing.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: 45-45-90 Triangle — Perimeter to Leg**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** With leg $a$, the perimeter is $2a + a\\sqrt{2} = 16 + 8\\sqrt{2}$, so $a = 8$ and the area is $\\frac{1}{2}(8)(8) = 32$.\n\n**The Full Solution:**\nStep 1: Let each leg have length $a$. The hypotenuse of an isosceles right triangle is $a\\sqrt{2}$, so the perimeter is $2a + a\\sqrt{2}$.\nStep 2: Matching $2a + a\\sqrt{2} = 16 + 8\\sqrt{2}$ gives $a = 8$ (the whole-number parts give $2a = 16$ and the radical parts give $a = 8$).\nStep 3: The legs are the base and height, so the area is $\\frac{1}{2}(8)(8) = 32$ square centimeters.\n\nCheck: $8 + 8 + 8\\sqrt{2} = 16 + 8\\sqrt{2}$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($32\\sqrt{2}$): multiplies a leg by the hypotenuse; the hypotenuse is not a height of the triangle.\n* Choice C ($64$): finds $a = 8$ but forgets the $\\frac{1}{2}$ in the area formula.\n* Choice D ($128$): treats $16$ as the leg length; $16$ is the sum of the two legs.\n\n**Test Day Takeaway:** Write the perimeter of a 45-45-90 triangle as $2a + a\\sqrt{2}$ and match parts; the area then uses the two legs.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "45-45-90-triangle",
@@ -7871,18 +7871,18 @@ export const geometryBank = [
     skills: ["volume-prism"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A packaging line at a fabric mill glues two identical cubical shipping cartons of edge $n$ centimeters face to face to form a single rectangular box. Which expression gives the surface area, in square centimeters, of that box?",
+    question: "Three identical cubes, each with edge length $n$ inches, are joined face to face in a row to form a rectangular prism. Which expression represents the surface area, in square inches, of the prism?",
     choices: [
-      // distractor: removes four faces at the joint instead of the two that actually disappear
-      { id: "A", text: "$8n^2$" },
-      { id: "B", text: "$10n^2$" },
-      // distractor: removes only one of the two faces hidden by the glued joint
-      { id: "C", text: "$11n^2$" },
-      // distractor: adds the two cubes' surface areas and never removes the glued faces
-      { id: "D", text: "$12n^2$" }
+      // distractor: counts only the four long faces, 4(3n^2), and leaves out the two square ends
+      { id: "A", text: "$12n^{2}$" },
+      { id: "B", text: "$14n^{2}$" },
+      // distractor: subtracts only one face at each of the two joins, 18n^2 - 2n^2
+      { id: "C", text: "$16n^{2}$" },
+      // distractor: adds the surface areas of the three cubes, 3(6n^2), without removing hidden faces
+      { id: "D", text: "$18n^{2}$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Surface Area of Glued Prisms**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Two cubes show $12n^2$ of face area, and gluing hides one face on each cube, so the box shows $12n^2-2n^2=10n^2$ square centimeters.\n\n**The Full Solution:**\n\nStep 1 — One cube of edge $n$ has surface area $6n^2$, so two separate cubes have $12n^2$.\n\nStep 2 — Gluing them face to face buries exactly two faces, one from each cube, removing $2n^2$ from the visible area.\n\nStep 3 — The box's surface area is $12n^2-2n^2=10n^2$ square centimeters. Check directly: the box is $n$ by $n$ by $2n$, with surface area $2(n\\cdot n)+4(n\\cdot 2n)=2n^2+8n^2=10n^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($8n^2$): this removes four faces, as if both faces on each cube vanished.\n* Choice C ($11n^2$): this removes only one face, forgetting that each cube gives up one.\n* Choice D ($12n^2$): this adds the two cubes' surface areas and ignores the joint entirely.\n\n**Test Day Takeaway:** Every glued joint hides two faces, one on each solid — subtract twice the contact area, not once.",
+    explanation: "**SAT Pattern: Surface Area of Glued Prisms**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The prism measures $n$ by $n$ by $3n$, so its surface area is $2(n^2 + 3n^2 + 3n^2) = 14n^2$.\n\n**The Full Solution:**\nStep 1: Three cubes in a row form a rectangular prism with dimensions $n$, $n$, and $3n$.\nStep 2: The prism has two square ends of area $n^2$ each and four rectangular faces of area $n \\cdot 3n = 3n^2$ each.\nStep 3: Surface area $= 2n^2 + 4(3n^2) = 14n^2$.\n\nCheck: The three cubes have $18$ faces in all; each of the $2$ joins hides $2$ faces, so $18n^2 - 4n^2 = 14n^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12n^{2}$): counts the four long faces but leaves out the two square ends.\n* Choice C ($16n^{2}$): removes one face per join, but each join hides a face from both cubes.\n* Choice D ($18n^{2}$): adds the three cubes' surface areas and removes none of the hidden faces.\n\n**Test Day Takeaway:** Find the new solid's dimensions and use $2(lw + lh + wh)$, or subtract two faces for every join.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "composite-solid",
@@ -7896,18 +7896,18 @@ export const geometryBank = [
     skills: ["radian-measure-understanding", "soh-cah-toa"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A harbor radar antenna turns counterclockwise through an angle of $\\frac{29\\pi}{6}$ radians from its rest position. What is the value of the tangent of that angle?",
+    question: "What is the value of $\\tan\\left(\\frac{23\\pi}{4}\\right)$?",
     choices: [
-      // distractor: reports the reciprocal, the tangent of 2 pi over 3
-      { id: "A", text: "$-\\sqrt{3}$" },
-      { id: "B", text: "$-\\frac{\\sqrt{3}}{3}$" },
-      // distractor: drops the negative sign, treating 5 pi over 6 as a first-quadrant angle
-      { id: "C", text: "$\\frac{\\sqrt{3}}{3}$" },
-      // distractor: uses pi over 3 as the reference angle instead of pi over 6
-      { id: "D", text: "$\\sqrt{3}$" }
+      { id: "A", text: "$-1$" },
+      // distractor: reports sin(7π/4) = -√2/2 instead of the tangent
+      { id: "B", text: "$-\\frac{\\sqrt{2}}{2}$" },
+      // distractor: reports cos(7π/4) = √2/2 instead of the tangent
+      { id: "C", text: "$\\frac{\\sqrt{2}}{2}$" },
+      // distractor: uses the reference angle π/4 but drops the negative sign of quadrant IV
+      { id: "D", text: "$1$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Coterminal-Angle Reduction for Tangent**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Subtract $4\\pi = \\frac{24\\pi}{6}$ to land at $\\frac{5\\pi}{6}$, a second-quadrant angle with reference $\\frac{\\pi}{6}$, so the tangent is $-\\frac{\\sqrt{3}}{3}$.\n\n**The Full Solution:**\nStep 1: Angles that differ by a whole number of full turns share the same tangent, so subtract $4\\pi$: $\\frac{29\\pi}{6} - \\frac{24\\pi}{6} = \\frac{5\\pi}{6}$.\nStep 2: $\\frac{5\\pi}{6}$ lies in the second quadrant, where tangent is negative, and its reference angle is $\\pi - \\frac{5\\pi}{6} = \\frac{\\pi}{6}$.\nStep 3: Since $\\tan\\frac{\\pi}{6} = \\frac{\\sqrt{3}}{3}$, the answer is $-\\frac{\\sqrt{3}}{3}$. Check: $\\frac{5\\pi}{6} = 150^{\\circ}$, and $\\tan 150^{\\circ} \\approx -0.577$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\sqrt{3}$): has the right sign but the reciprocal size; it is $\\tan\\frac{2\\pi}{3}$, not $\\tan\\frac{5\\pi}{6}$.\n* Choice C ($\\frac{\\sqrt{3}}{3}$): finds the reference value but ignores that the second quadrant makes tangent negative.\n* Choice D ($\\sqrt{3}$): uses $\\frac{\\pi}{3}$ as the reference angle and keeps it positive.\n\n**Test Day Takeaway:** Strip whole turns first, then name the quadrant and the reference angle — the quadrant fixes the sign, the reference angle fixes the size.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Coterminal-Angle Reduction for Tangent**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** $\\frac{23\\pi}{4} - 4\\pi = \\frac{7\\pi}{4}$, which lies in quadrant IV with reference angle $\\frac{\\pi}{4}$, so the tangent is $-1$.\n\n**The Full Solution:**\nStep 1: Subtract full turns of $2\\pi = \\frac{8\\pi}{4}$: $\\frac{23\\pi}{4} - \\frac{16\\pi}{4} = \\frac{7\\pi}{4}$, so $\\tan\\left(\\frac{23\\pi}{4}\\right) = \\tan\\left(\\frac{7\\pi}{4}\\right)$.\nStep 2: The angle $\\frac{7\\pi}{4}$ lies in quadrant IV, where cosine is positive and sine is negative, and its reference angle is $\\frac{\\pi}{4}$.\nStep 3: $\\tan\\left(\\frac{7\\pi}{4}\\right) = \\frac{\\sin(7\\pi/4)}{\\cos(7\\pi/4)} = \\frac{-\\sqrt{2}/2}{\\sqrt{2}/2} = -1$.\n\nCheck: $\\frac{23\\pi}{4}$ is $5.75\\pi$; removing two full turns ($4\\pi$) leaves $1.75\\pi$, which is in quadrant IV, where tangent is negative. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{\\sqrt{2}}{2}$): gives the sine of $\\frac{7\\pi}{4}$, not the tangent.\n* Choice C ($\\frac{\\sqrt{2}}{2}$): gives the cosine of $\\frac{7\\pi}{4}$, not the tangent.\n* Choice D ($1$): uses the reference angle $\\frac{\\pi}{4}$ but misses that tangent is negative in quadrant IV.\n\n**Test Day Takeaway:** Strip off multiples of $2\\pi$, locate the quadrant for the sign, and use the reference angle for the size.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "radians-degrees-conversion",
@@ -7921,10 +7921,10 @@ export const geometryBank = [
     skills: ["soh-cah-toa", "triangle-types"],
     difficulty: "hard",
     type: "fill-in",
-    question: "In right triangle $LMN$, the right angle is at $N$, $LM=40$, and $MN=24$. What is the value of $\\tan L$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [32, 0], [32, 24]], labels: ["L", "N", "M"], sideLabels: ["", "24", "40"], rightAngleVertex: 1, figureNote: true } },
-    correctAnswer: "3/4",
-    explanation: "**SAT Pattern: Direct Trig Ratio**\n\n**The correct answer is $\\frac{3}{4}$.**\n\n**The Fast Way (~30s):** $\\overline{LM}=40$ is the hypotenuse, so $LN=\\sqrt{40^2-24^2}=32$. For angle $L$, opposite is $24$ and adjacent is $32$, giving $\\tan L=\\frac{24}{32}=\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $N$, so $\\overline{LM}$ is the hypotenuse and $\\overline{MN}$ and $\\overline{LN}$ are the legs.\nStep 2: Tangent needs both legs, and only one is given, so find the other: $LN^2=40^2-24^2=1{,}600-576=1{,}024$, so $LN=32$.\nStep 3: Angle $L$ touches $\\overline{LN}$ and $\\overline{LM}$, so the leg opposite $L$ is $\\overline{MN}=24$ and the leg adjacent to $L$ is $\\overline{LN}=32$. Then $\\tan L=\\frac{24}{32}=\\frac{3}{4}$.\n\nCheck: $24$, $32$, $40$ is the $3$, $4$, $5$ triple scaled by $8$. $\\checkmark$\n\n**Common Mistakes:** Reporting $\\frac{3}{5}$ by dividing the opposite leg by the hypotenuse, $\\frac{24}{40}$, which is $\\sin L$ rather than $\\tan L$; reporting $\\frac{4}{3}$ by inverting the ratio, $\\frac{32}{24}$, which is the tangent of angle $M$; reporting $\\frac{4}{5}$ by using $\\frac{32}{40}$, which is $\\cos L$.\n\n**Test Day Takeaway:** Tangent needs the two legs, so when a hypotenuse is given instead, spend one Pythagorean step to recover the missing leg before writing the ratio.",
+    question: "In triangle $LMN$ shown, angle $N$ is a right angle, $LM = 50$, and $\\sin M = \\frac{24}{25}$. What is the value of $\\tan L$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [48, 0], [48, 14]], labels: ["L", "N", "M"], sideLabels: ["", "", "50"], rightAngleVertex: 1, figureNote: true } },
+    correctAnswer: "7/24",
+    explanation: "**SAT Pattern: Direct Trig Ratio**\n\n**The correct answer is $\\frac{7}{24}$.**\n\n**The Fast Way (~50s):** $\\sin M = \\frac{LN}{LM}$ gives $LN = 48$, so $MN = \\sqrt{50^2 - 48^2} = 14$ and $\\tan L = \\frac{14}{48} = \\frac{7}{24}$.\n\n**The Full Solution:**\nStep 1: The leg opposite angle $M$ is $\\overline{LN}$, so $\\sin M = \\frac{LN}{50} = \\frac{24}{25}$ and $LN = 48$.\nStep 2: By the Pythagorean theorem, $MN^2 = 50^2 - 48^2 = 2{,}500 - 2{,}304 = 196$, so $MN = 14$.\nStep 3: From angle $L$, the opposite leg is $\\overline{MN}$ and the adjacent leg is $\\overline{LN}$, so $\\tan L = \\frac{14}{48} = \\frac{7}{24}$.\n\nCheck: $14^2 + 48^2 = 196 + 2{,}304 = 2{,}500 = 50^2$. Equivalent entries: $7/24$, $.2916$, or $.2917$. ✓\n\n**Common Mistakes:**\n* $\\frac{24}{7}$: this is $\\frac{48}{14} = \\tan M$, the tangent of the other acute angle.\n* $\\frac{7}{25}$: this is $\\frac{14}{50} = \\sin L$, opposite over hypotenuse instead of opposite over adjacent.\n* $\\frac{24}{25}$: this copies $\\sin M$; since $\\sin M = \\cos L$, it is the cosine of $L$, not the tangent.\n\n**Test Day Takeaway:** Turn the given ratio into a side length using the hypotenuse, recover the last side with the Pythagorean theorem, and only then write the ratio the question asks for.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "direct-trig-ratio",
@@ -7938,18 +7938,18 @@ export const geometryBank = [
     skills: ["circle-equation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The edge of a tidal mudflat is modeled in the $xy$-plane by $(x + 9)^2 + (y - 4)^2 = 625$, where $x$ and $y$ are in meters, and a dredged channel follows the line $y = 28$. What is the greatest value of $x$ for a point lying on both the edge and the channel?",
+    question: "$(x - 6)^{2} + (y + 3)^{2} = 169$\nIn the $xy$-plane, the graph of the given equation is a circle. The point $(a, 9)$ lies on the circle. What is the greatest possible value of $a$?",
     choices: [
-      // distractor: reports the smaller of the two solutions, -16, instead of the greater
-      { id: "A", text: "$-16$" },
-      { id: "B", text: "$-2$" },
-      // distractor: solves for x + 9 = 7 and reports 7 without subtracting 9
-      { id: "C", text: "$7$" },
-      // distractor: reports the radius 25 of the mudflat edge
-      { id: "D", text: "$25$" }
+      // distractor: finds both solutions, 1 and 11, and picks the lesser
+      { id: "A", text: "$1$" },
+      // distractor: reports the x-coordinate of the center
+      { id: "B", text: "$6$" },
+      { id: "C", text: "$11$" },
+      // distractor: adds the radius to the center's x-coordinate, 6 + 13, which is the rightmost point of the circle, not a point with y = 9
+      { id: "D", text: "$19$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Circle in Standard Form — $x$-range**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Substituting $y = 28$ gives $(x + 9)^2 = 625 - 576 = 49$, so $x + 9 = \\pm 7$ and the greater value is $x = -2$.\n\n**The Full Solution:**\nStep 1: The edge has center $(-9, 4)$ and radius $\\sqrt{625} = 25$ meters, so its points satisfy $-34 \\le x \\le 16$.\nStep 2: Set $y = 28$: $(x + 9)^2 + (28 - 4)^2 = 625$, so $(x + 9)^2 + 576 = 625$ and $(x + 9)^2 = 49$.\nStep 3: Then $x + 9 = 7$ or $x + 9 = -7$, giving $x = -2$ or $x = -16$; the greater is $-2$. Check: $(-2 + 9)^2 + 24^2 = 49 + 576 = 625$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-16$): takes the negative square root and reports the smaller crossing point.\n* Choice C ($7$): stops at $x + 9 = 7$ and never subtracts the $9$.\n* Choice D ($25$): reports the radius, which is the greatest possible value of $x$ only for a circle centered on the $y$-axis.\n\n**Test Day Takeaway:** Fixing $y$ turns a circle into a quadratic in $x$ with two roots — solve for the binomial, then undo the shift and pick the root the question asks for.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Circle in Standard Form — $x$-range**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Substituting $y = 9$ gives $(a - 6)^2 + 144 = 169$, so $a - 6 = \\pm 5$ and the greatest value is $a = 11$.\n\n**The Full Solution:**\nStep 1: Substitute $x = a$ and $y = 9$: $(a - 6)^2 + (9 + 3)^2 = 169$.\nStep 2: $(a - 6)^2 = 169 - 144 = 25$, so $a - 6 = 5$ or $a - 6 = -5$.\nStep 3: $a = 11$ or $a = 1$; the greatest possible value is $11$.\n\nCheck: $(11 - 6)^2 + (9 + 3)^2 = 25 + 144 = 169$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): is the other point on the circle with $y = 9$, the lesser value of $a$.\n* Choice B ($6$): is the $x$-coordinate of the center; the center is not on the circle.\n* Choice D ($19$): adds the radius $13$ to $6$; that point, $(19, -3)$, has $y = -3$, not $9$.\n\n**Test Day Takeaway:** Substitute the known coordinate, solve for the square, and remember the $\\pm$; the question's word (greatest) picks the root.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "circle-in-standard-form",
@@ -7963,9 +7963,9 @@ export const geometryBank = [
     skills: ["function-evaluation", "roots-from-factors"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A storage array's net annual cost change, in thousands of dollars, when $x$ drives are added is modeled by $C(x) = 2x^2 + bx - 30$, where $b$ is a constant, and the change is $0$ when $x = 3$. What is the value of $C(5)$?",
-    correctAnswer: "40",
-    explanation: "**SAT Pattern: Recover Parameter from Known Root, then Evaluate**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~40s):** $C(3) = 0$ gives $18 + 3b - 30 = 0$, so $b = 4$; then $C(5) = 50 + 20 - 30 = 40$.\n\n**The Full Solution:**\n\nStep 1: Substitute the known zero: $C(3) = 2(3)^2 + 3b - 30 = 18 + 3b - 30 = 3b - 12$.\n\nStep 2: Set $3b - 12 = 0$, so $b = 4$ and $C(x) = 2x^2 + 4x - 30$.\n\nStep 3: Evaluate at $x = 5$: $2(25) + 4(5) - 30 = 50 + 20 - 30 = 40$. Check: $C(3) = 18 + 12 - 30 = 0$, as given.\n\n**Common Mistakes:**\n\n* $0$ — a sign slip that yields $b = -4$, making $C(5) = 50 - 20 - 30 = 0$.\n* $55$ — dropping the leading coefficient $2$ when solving for $b$, which gives $b = 7$ and $C(5) = 50 + 35 - 30 = 55$.\n* $4$ — reporting the recovered constant $b$ instead of evaluating the model.\n\n**Test Day Takeaway:** A known zero is one equation in one unknown constant — solve it first, rewrite the whole function, and only then evaluate where the question points.",
+    question: "$f(x) = 3x^{2} + bx - 28$\nThe function $f$ is defined by the given equation, where $b$ is a constant. If $f(4) = 0$, what is the value of $f(6)$?",
+    correctAnswer: "50",
+    explanation: "**SAT Pattern: Recover Parameter from Known Root, then Evaluate**\n\n**The correct answer is 50.**\n\n**The Fast Way (~40s):** $f(4) = 48 + 4b - 28 = 0$ gives $b = -5$, so $f(6) = 108 - 30 - 28 = 50$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 4$: $3(4)^2 + 4b - 28 = 48 + 4b - 28 = 20 + 4b$.\nStep 2: Set it equal to $0$: $20 + 4b = 0$, so $b = -5$ and $f(x) = 3x^2 - 5x - 28$.\nStep 3: Evaluate: $f(6) = 3(36) - 5(6) - 28 = 108 - 30 - 28 = 50$.\n\nCheck: $f(4) = 48 - 20 - 28 = 0$, and $3x^2 - 5x - 28 = (3x + 7)(x - 4)$ has $4$ as a zero. ✓\n\n**Common Mistakes:**\n* $110$: uses $b = 5$ after a sign slip, so $f(6) = 108 + 30 - 28$.\n* $-5$: stops at the value of $b$ and never evaluates $f(6)$.\n* $-22$: forgets the coefficient $3$ when evaluating, $36 - 30 - 28$.\n\n**Test Day Takeaway:** A known zero is an equation for the missing constant; solve for it, write the complete function, then evaluate.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-from-conditions",
@@ -7979,9 +7979,9 @@ export const geometryBank = [
     skills: ["special-right-triangles", "circle-area", "rectangle-area"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A rectangular library atrium has a diagonal twice as long as its shorter side, and a circular skylight of area $36\\pi$ square feet is set into its ceiling. The atrium's shorter side is $4$ times the skylight's radius, and the atrium's floor area is $k\\sqrt{3}$ square feet. What is the value of $k$?",
-    correctAnswer: "576",
-    explanation: "**SAT Pattern: 30-60-90 from Diagonal-to-Side Ratio**\n\n**The correct answer is $576$.**\n\n**The Fast Way (~60s):** The skylight radius is $6$, so the shorter side is $24$; a diagonal of $2\\times$ the shorter side makes a $30$-$60$-$90$ triangle, so the longer side is $24\\sqrt{3}$ and the area is $576\\sqrt{3}$.\n\n**The Full Solution:**\n\nStep 1: Find the skylight radius. $\\pi r^{2}=36\\pi$ gives $r^{2}=36$ and $r=6$ feet.\n\nStep 2: Find the atrium's shorter side. It is $4r=4(6)=24$ feet, and the diagonal is $2(24)=48$ feet.\n\nStep 3: A rectangle whose diagonal is twice a side splits into $30$-$60$-$90$ triangles, so the longer side is $24\\sqrt{3}$ feet. The floor area is $24 \\cdot 24\\sqrt{3}=576\\sqrt{3}$, so $k=576$.\n\nCheck: $24^{2}+(24\\sqrt{3})^{2}=576+1728=2304=48^{2}$, so the diagonal is indeed $48$.\n\n**Common Mistakes:**\n\n* $144$: uses the skylight's diameter, $12$, as the atrium's shorter side, giving $12 \\cdot 12\\sqrt{3}=144\\sqrt{3}$.\n* $192$: inverts the ratio and takes the longer side as $\\frac{24}{\\sqrt{3}}=8\\sqrt{3}$, giving $24 \\cdot 8\\sqrt{3}=192\\sqrt{3}$.\n* $36$: forgets the factor of $4$ and uses the radius $6$ itself as the shorter side.\n\n**Test Day Takeaway:** A diagonal exactly twice a side is the signature of a $30$-$60$-$90$ triangle: the other side is that short side times $\\sqrt{3}$.",
+    question: "In rectangle $ABCD$, $AC = 2(BC)$ and $AB = 12$. The area of the rectangle is $k\\sqrt{3}$. What is the value of $k$?",
+    correctAnswer: "48",
+    explanation: "**SAT Pattern: 30-60-90 from Diagonal-to-Side Ratio**\n\n**The correct answer is 48.**\n\n**The Fast Way (~60s):** A diagonal twice a side makes triangle $ABC$ a 30-60-90 triangle, so $AB = BC\\sqrt{3}$, $BC = \\frac{12}{\\sqrt{3}} = 4\\sqrt{3}$, and the area is $12 \\cdot 4\\sqrt{3} = 48\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: Angle $B$ of the rectangle is a right angle, so triangle $ABC$ is a right triangle with hypotenuse $\\overline{AC}$. Since $AC = 2(BC)$, the leg $\\overline{BC}$ is half the hypotenuse, which makes triangle $ABC$ a 30-60-90 triangle with $\\overline{BC}$ as the shorter leg.\nStep 2: In a 30-60-90 triangle the longer leg is $\\sqrt{3}$ times the shorter leg, so $12 = BC\\sqrt{3}$ and $BC = \\frac{12}{\\sqrt{3}} = 4\\sqrt{3}$.\nStep 3: Area $= AB \\cdot BC = 12 \\cdot 4\\sqrt{3} = 48\\sqrt{3}$, so $k = 48$.\n\nCheck: $AC = 2(4\\sqrt{3}) = 8\\sqrt{3}$, and $12^2 + (4\\sqrt{3})^2 = 144 + 48 = 192 = (8\\sqrt{3})^2$. ✓\n\n**Common Mistakes:**\n* $144$: treats $AB = 12$ as the shorter side, so the other side is $12\\sqrt{3}$.\n* $24$: takes half the product of the sides, which is the area of triangle $ABC$, not the rectangle.\n* $36$: treats $12$ as the diagonal, giving sides $6$ and $6\\sqrt{3}$.\n\n**Test Day Takeaway:** A diagonal twice a side signals a 30-60-90 triangle with sides $x$, $x\\sqrt{3}$, $2x$; decide which side you were given before scaling.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "30-60-90-triangle",
@@ -7995,18 +7995,18 @@ export const geometryBank = [
     skills: ["tangent-lines", "circle-equation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A drone's circular no-fly zone above a resort is modeled in the $xy$-plane by $(x-3)^2+(y+2)^2=25$, with coordinates in kilometers. A straight service road follows the line $x=k$ and meets the zone at exactly one point. If $k>0$, what is the value of $k$?",
+    question: "$(x + 4)^{2} + (y - 1)^{2} = 36$\nIn the $xy$-plane, the graph of the given equation is a circle. For what positive value of $k$ does the line $x = k$ intersect the circle at exactly one point?",
     choices: [
-      // distractor: gives the other vertical tangent, x = 3 - 5 = -2, ignoring the condition k > 0
-      { id: "A", text: "$-2$" },
-      // distractor: reports the center's x-coordinate rather than a tangent line
-      { id: "B", text: "$3$" },
-      // distractor: reports the radius 5 instead of the tangent line's x-value
-      { id: "C", text: "$5$" },
-      { id: "D", text: "$8$" }
+      // distractor: uses the y-coordinate of the center, 1
+      { id: "A", text: "$1$" },
+      { id: "B", text: "$2$" },
+      // distractor: reports the radius, 6
+      { id: "C", text: "$6$" },
+      // distractor: reads the center as (4, 1) and adds the radius, 4 + 6
+      { id: "D", text: "$10$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Tangent Line to a Circle**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** The circle is centered at $(3,-2)$ with radius $5$, so the vertical tangents are $x=3\\pm 5$, and the positive one is $x=8$.\n\n**The Full Solution:**\n\nStep 1 — Read the circle: $(x-3)^2+(y+2)^2=25$ has center $(3,-2)$ and radius $\\sqrt{25}=5$.\n\nStep 2 — A vertical line $x=k$ touches the circle at exactly one point when its distance from the center equals the radius, so $|k-3|=5$.\n\nStep 3 — Solve: $k-3=5$ or $k-3=-5$, giving $k=8$ or $k=-2$. Since $k>0$, $k=8$. Check: substituting $x=8$ gives $25+(y+2)^2=25$, so $y=-2$ is the only solution — exactly one point.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-2$): this is the other vertical tangent and violates $k>0$.\n* Choice B ($3$): this is the center's $x$-coordinate, a line that cuts the circle in two points.\n* Choice C ($5$): this reports the radius rather than a location.\n\n**Test Day Takeaway:** A vertical tangent sits one radius left or right of the center — read the center and radius straight off the standard form.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Tangent Line to a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The center is $(-4, 1)$ and the radius is $6$, so the vertical tangent lines are $x = -4 \\pm 6$, that is, $x = -10$ and $x = 2$; the positive one is $k = 2$.\n\n**The Full Solution:**\nStep 1: The circle has center $(-4, 1)$ and radius $\\sqrt{36} = 6$.\nStep 2: A vertical line meets the circle at exactly one point when it is $6$ units from the center horizontally: $x = -4 + 6 = 2$ or $x = -4 - 6 = -10$.\nStep 3: Since $k$ is positive, $k = 2$.\n\nCheck: With $x = 2$, $(2 + 4)^2 + (y - 1)^2 = 36$ gives $(y - 1)^2 = 0$, so $y = 1$ is the only solution. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): uses the $y$-coordinate of the center, which matters for horizontal lines, not vertical ones.\n* Choice C ($6$): reports the radius without adding it to the center's $x$-coordinate.\n* Choice D ($10$): reads the center as $(4, 1)$, missing that $(x + 4)$ means $x$-coordinate $-4$.\n\n**Test Day Takeaway:** A vertical tangent sits one radius left or right of the center: $x = h \\pm r$; read $h$ with its sign flipped from $(x - h)$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "tangent-line-to-circle",
@@ -8020,19 +8020,19 @@ export const geometryBank = [
     skills: ["special-right-triangles", "circle-equation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "Two perpendicular guide rails run from the center of a circular sample turntable to its rim, and the quarter region between them has area $20.25\\pi$ square centimeters. What is the straight-line distance, in centimeters, between the rails' outer ends?",
+    question: "In the figure shown, $O$ is the center of the circle, and the area of sector $AOB$ is $\\frac{49\\pi}{4}$. What is the length of $\\overline{AB}$?",
     diagram: { type: "circleWithSector", params: { centralAngle: 90, angleLabel: "90°", showAngleLabel: true, labelCenter: "O", labelPoint1: "A", labelPoint2: "B", figureNote: true } },
     choices: [
-      // distractor: reports the radius and stops before crossing the right triangle at the center
-      { id: "A", text: "$9$" },
-      { id: "B", text: "$9\\sqrt{2}$" },
-      // distractor: reports the diameter, twice the radius, instead of the chord
-      { id: "C", text: "$18$" },
-      // distractor: doubles the chord by using 18 as the radius
-      { id: "D", text: "$18\\sqrt{2}$" }
+      // distractor: treats 49π/4 as the area of the whole circle, so r = 7/2
+      { id: "A", text: "$\\frac{7\\sqrt{2}}{2}$" },
+      // distractor: reports the radius OA instead of the chord AB
+      { id: "B", text: "$7$" },
+      { id: "C", text: "$7\\sqrt{2}$" },
+      // distractor: adds the two radii, OA + OB = 14
+      { id: "D", text: "$14$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Right Triangle at Center — Chord Length**\n\n**Choice B is correct.** A quarter of the disk has area $\\frac{\\pi r^2}{4} = 20.25\\pi$, so $r = 9$, and the chord joining the two rail ends is $9\\sqrt{2}$ centimeters.\n\n**The Fast Way (~40s):** $r^2 = 81$ gives $r = 9$; the two radii and the chord form a $45$-$45$-$90$ triangle, so the chord is $9\\sqrt{2}$.\n\n**The Full Solution:**\n\nStep 1: The rails are perpendicular, so the region between them is a quarter of the disk: $\\frac{1}{4}\\pi r^2 = 20.25\\pi$.\n\nStep 2: Divide by $\\pi$ and multiply by $4$: $r^2 = 81$, so $r = 9$ centimeters.\n\nStep 3: The two radii and the segment joining their outer ends form an isosceles right triangle with legs $9$, so the segment is $9\\sqrt{2}$ centimeters. Check: $9^2 + 9^2 = 162 = (9\\sqrt{2})^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($9$): reports the radius rather than the distance across the opening.\n* Choice C ($18$): reports the diameter, which is the distance between opposite rim points, not perpendicular ones.\n* Choice D ($18\\sqrt{2}$): uses $18$ as the radius, doubling the chord.\n\n**Test Day Takeaway:** Two radii and a chord always form an isosceles triangle; when the central angle is $90^\\circ$ that triangle is $45$-$45$-$90$ and the chord is $r\\sqrt{2}$.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Right Triangle at Center — Chord Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** A $90^\\circ$ sector is $\\frac{1}{4}$ of the circle, so $\\frac{\\pi r^2}{4} = \\frac{49\\pi}{4}$ gives $r = 7$, and $AB = 7\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The central angle is $90^\\circ$, so the sector's area is $\\frac{90}{360}\\pi r^2 = \\frac{\\pi r^2}{4}$.\nStep 2: $\\frac{\\pi r^2}{4} = \\frac{49\\pi}{4}$ gives $r^2 = 49$, so $OA = OB = 7$.\nStep 3: Triangle $AOB$ is an isosceles right triangle with legs $7$, so $AB = 7\\sqrt{2}$.\n\nCheck: $7^2 + 7^2 = 98 = (7\\sqrt{2})^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7\\sqrt{2}}{2}$): sets $\\pi r^2 = \\frac{49\\pi}{4}$, treating the sector as the whole circle, so $r = \\frac{7}{2}$.\n* Choice B ($7$): stops at the radius; $\\overline{AB}$ is the hypotenuse of triangle $AOB$, not a radius.\n* Choice D ($14$): adds $OA$ and $OB$; the hypotenuse is shorter than the sum of the legs.\n\n**Test Day Takeaway:** A sector is its angle's fraction of the full circle; once you have the radius, two radii at $90^\\circ$ make a 45-45-90 triangle.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "45-45-90-triangle",
@@ -8046,9 +8046,9 @@ export const geometryBank = [
     skills: ["special-right-triangles", "circle-equation"],
     difficulty: "hard",
     type: "fill-in",
-    question: "Three tiltmeters form an equilateral array, and one circle of area $48\\pi$ square meters passes through all three. Each side of the array is $k$ meters long. What is the value of $k$?",
-    correctAnswer: "12",
-    explanation: "**SAT Pattern: Equilateral Triangle — Circumradius**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~45s):** The circle has $R = \\sqrt{48} = 4\\sqrt{3}$, and an equilateral triangle satisfies $s = R\\sqrt{3}$, so $s = 4\\sqrt{3} \\cdot \\sqrt{3} = 12$.\n\n**The Full Solution:**\nStep 1: From $\\pi R^2 = 48\\pi$, the circumscribed circle has $R^2 = 48$, so $R = 4\\sqrt{3}$ meters.\nStep 2: In an equilateral triangle the circumradius satisfies $R = \\frac{s}{2\\sin 60^{\\circ}} = \\frac{s}{\\sqrt{3}}$, so $s = R\\sqrt{3}$.\nStep 3: Substitute: $s = 4\\sqrt{3} \\cdot \\sqrt{3} = 4(3) = 12$ meters, so $k = 12$. Check: a side of $12$ gives $R = \\frac{12}{\\sqrt{3}} = 4\\sqrt{3} \\approx 6.93$, and $\\pi(6.93)^2 \\approx 48\\pi$ ✓\n\n**Common Mistakes:**\n* About $6.9$ — reports the circumradius $4\\sqrt{3}$ instead of the side length.\n* $24$ — uses the inradius relation $s = 2\\sqrt{3}\\,r$ with $R$ substituted for the inradius.\n* About $13.9$ — treats the side as a diameter, $2R = 8\\sqrt{3}$, which only works for a right triangle's hypotenuse.\n\n**Test Day Takeaway:** For an equilateral triangle the circumradius is $\\frac{s}{\\sqrt{3}}$ — get $R$ from the circle first, then scale up by $\\sqrt{3}$.",
+    question: "A circle has area $75\\pi$ square centimeters. An equilateral triangle is inscribed in the circle. What is the length, in centimeters, of each side of the triangle?",
+    correctAnswer: "15",
+    explanation: "**SAT Pattern: Equilateral Triangle — Circumradius**\n\n**The correct answer is 15.**\n\n**The Fast Way (~50s):** $\\pi r^2 = 75\\pi$ gives $r = 5\\sqrt{3}$, and an inscribed equilateral triangle has side $r\\sqrt{3} = 15$.\n\n**The Full Solution:**\nStep 1: From $\\pi r^2 = 75\\pi$, $r^2 = 75$ and $r = 5\\sqrt{3}$.\nStep 2: The center of the circle is the center of the triangle. Joining it to two vertices forms a triangle with sides $r$, $r$, and $s$ and a $120^\\circ$ angle at the center; splitting it in half gives two 30-60-90 triangles with hypotenuse $r$ and longer leg $\\frac{s}{2}$, so $\\frac{s}{2} = \\frac{r\\sqrt{3}}{2}$ and $s = r\\sqrt{3}$.\nStep 3: $s = 5\\sqrt{3} \\cdot \\sqrt{3} = 15$.\n\nCheck: The circumradius of an equilateral triangle with side $15$ is $\\frac{15}{\\sqrt{3}} = 5\\sqrt{3}$, and $\\pi(5\\sqrt{3})^2 = 75\\pi$. ✓\n\n**Common Mistakes:**\n* $5\\sqrt{3} \\approx 8.66$: this is the radius, not the side.\n* $10\\sqrt{3} \\approx 17.32$: this treats a side as a diameter of the circle.\n* $7.5$: this is half a side, the longer leg of the 30-60-90 triangle, reported without doubling.\n\n**Test Day Takeaway:** For an equilateral triangle in a circle, side $= r\\sqrt{3}$; get $r$ from the area or circumference first.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "30-60-90-triangle",
@@ -8062,19 +8062,19 @@ export const geometryBank = [
     skills: ["similar-triangles"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A supply catalog lists two similar triangular gauze panels, shown with corresponding vertices $ABC$ and $DEF$ and with lengths given in inches. Panel $ABC$ has an area of $24$ square inches. What is the area, in square inches, of panel $DEF$?",
-    diagram: { type: "similarTriangles", params: { triangle1: { vertices: [[0, 6], [0, 0], [8, 0]], labels: ["A", "B", "C"], sideLabels: ["6", "8", "10"] }, triangle2: { vertices: [[0, 9], [0, 0], [12, 0]], labels: ["D", "E", "F"], sideLabels: ["", "12", ""] }, figureNote: true } },
+    question: "Triangle $ABC$ is similar to triangle $DEF$, where $A$, $B$, and $C$ correspond to $D$, $E$, and $F$, respectively. The area of triangle $ABC$ is $54$ square units. What is the area, in square units, of triangle $DEF$?",
+    diagram: { type: "similarTriangles", params: { triangle1: { vertices: [[0, 9], [0, 0], [12, 0]], labels: ["A", "B", "C"], sideLabels: ["", "12", ""] }, triangle2: { vertices: [[0, 15], [0, 0], [20, 0]], labels: ["D", "E", "F"], sideLabels: ["", "20", ""] }, figureNote: true } },
     choices: [
-      // distractor: scales the area by the length ratio 1.5 without squaring it: 24 x 1.5 = 36
-      { id: "A", text: "$36$" },
-      { id: "B", text: "$54$" },
-      // distractor: cubes the length ratio as if scaling a volume: 24 x 1.5^3 = 81
-      { id: "C", text: "$81$" },
-      // distractor: pairs the 12 with AB = 6 instead of BC = 8, giving ratio 2 and 24 x 2^2 = 96
-      { id: "D", text: "$96$" }
+      // distractor: multiplies the area by the length ratio 5/3 instead of its square
+      { id: "A", text: "$90$" },
+      // distractor: computes (1/2)(20)(12), mixing a side of each triangle
+      { id: "B", text: "$120$" },
+      { id: "C", text: "$150$" },
+      // distractor: multiplies the area by the cube of the length ratio, (5/3)^3
+      { id: "D", text: "$250$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $\\overline{EF}$ corresponds to $\\overline{BC}$, so the length ratio is $\\frac{12}{8}=1.5$ and the area ratio is $1.5^2=2.25$; then $24(2.25)=54$ square inches.\n\n**The Full Solution:**\n\nStep 1 — Match the sides. The vertex order $ABC \\to DEF$ pairs $B$ with $E$ and $C$ with $F$, so the labeled side $\\overline{EF}=12$ corresponds to $\\overline{BC}=8$, not to $\\overline{AB}=6$.\n\nStep 2 — Find the ratios. Length ratio $=\\frac{12}{8}=\\frac{3}{2}$, so area ratio $=\\left(\\frac{3}{2}\\right)^2=\\frac{9}{4}$.\n\nStep 3 — Scale the area: $24\\left(\\frac{9}{4}\\right)=54$ square inches. Check: panel $ABC$ is a $6$-$8$-$10$ right triangle of area $\\frac{1}{2}(6)(8)=24$, and $DEF$ is $9$-$12$-$15$ with area $\\frac{1}{2}(9)(12)=54$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($36$): this scales the area by $1.5$ instead of by $1.5^2$.\n* Choice C ($81$): this cubes the ratio, $24(1.5)^3=81$, which is how volumes scale, not areas.\n* Choice D ($96$): pairing $12$ with $\\overline{AB}=6$ gives ratio $2$ and $24(2)^2=96$.\n\n**Test Day Takeaway:** Read the correspondence from the vertex order before dividing — a mismatched pair poisons every step that follows.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The length ratio is $\\frac{EF}{BC} = \\frac{20}{12} = \\frac{5}{3}$, so the area ratio is $\\frac{25}{9}$ and the area of $DEF$ is $54 \\cdot \\frac{25}{9} = 150$.\n\n**The Full Solution:**\nStep 1: Sides $\\overline{BC}$ and $\\overline{EF}$ correspond, so the scale factor from $ABC$ to $DEF$ is $\\frac{20}{12} = \\frac{5}{3}$.\nStep 2: Areas of similar figures scale by the square of the length ratio: $\\left(\\frac{5}{3}\\right)^2 = \\frac{25}{9}$.\nStep 3: Area of $DEF$ $= 54 \\cdot \\frac{25}{9} = 150$ square units.\n\nCheck: $\\frac{150}{54} = \\frac{25}{9} = \\left(\\frac{5}{3}\\right)^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($90$): scales the area by $\\frac{5}{3}$, the length ratio, instead of its square.\n* Choice B ($120$): multiplies $20$ by $12$ and halves, but those sides belong to different triangles.\n* Choice D ($250$): cubes the length ratio, which is how volumes scale, not areas.\n\n**Test Day Takeaway:** Find the length ratio from one pair of corresponding sides, then square it for areas.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "similar-area-ratio-chain",

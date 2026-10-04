@@ -1,30 +1,30 @@
 {
  "id": 4,
- "question": "A boundary baseline appears on a plan as the graph of $y = -\\frac{2}{3}x + 7$, with distances in meters. A lot edge parallel to that baseline contains $(6, 1)$. Which of the following is an equation of the lot edge?",
+ "question": "Line $p$ is parallel to the line $y = \\frac{1}{2}x + 3$ in the $xy$-plane and passes through the point $(4, 6)$. Which equation defines line $p$?",
  "choices": [
   {
    "id": "A",
-   "text": "$y = -\\frac{2}{3}x - 3$"
+   "text": "$y = -2x + 14$"
   },
   {
    "id": "B",
-   "text": "$y = -\\frac{2}{3}x + 5$"
+   "text": "$y = \\frac{1}{2}x + 3$"
   },
   {
    "id": "C",
-   "text": "$y = -\\frac{2}{3}x + 7$"
+   "text": "$y = \\frac{1}{2}x + 4$"
   },
   {
    "id": "D",
-   "text": "$y = \\frac{3}{2}x - 8$"
+   "text": "$y = \\frac{1}{2}x + 8$"
   }
  ],
  "distractorNotes": {
-  "A": "substitutes with the sign of the slope term reversed, computing 1 - 4 instead of 1 + 4",
-  "C": "reuses the baseline's own constant term, which describes the baseline itself rather than a separate edge",
-  "D": "uses the negative reciprocal slope, which makes the edge perpendicular to the baseline"
+  "A": "uses the perpendicular slope, -2, through (4, 6)",
+  "B": "copies the given line, which does not pass through (4, 6)",
+  "D": "adds 2 to 6 instead of subtracting when solving for the y-intercept"
  },
- "correctAnswer": "B",
+ "correctAnswer": "C",
  "hint": "Parallel lines share a slope; only the constant term is left to find.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** The edge has slope $-\\frac{2}{3}$, and $1 = -\\frac{2}{3}(6) + b$ gives $b = 5$.\n\n**The Full Solution:**\nStep 1: Parallel lines have equal slopes, so the lot edge has slope $-\\frac{2}{3}$ and takes the form $y = -\\frac{2}{3}x + b$.\nStep 2: Substituting the point $(6,\\ 1)$ gives $1 = -\\frac{2}{3}(6) + b = -4 + b$.\nStep 3: Adding $4$ to both sides gives $b = 5$, so the edge is $y = -\\frac{2}{3}x + 5$.\n\nCheck: At $x = 6$ the equation gives $-4 + 5 = 1$, so the point lies on the edge. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($b = -3$): reverses the sign when solving, computing $1 - 4$ instead of $1 + 4$.\n* Choice C ($b = 7$): keeps the baseline's own constant term, so it describes the baseline rather than a separate edge; $(6, 1)$ does not lie on it.\n* Choice D (slope $\\frac{3}{2}$): uses the negative reciprocal, which makes the edge perpendicular to the baseline.\n\n**Test Day Takeaway:** Copy the slope, then let the given point decide the constant term."
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** Line $p$ has slope $\\frac{1}{2}$, and $6 = \\frac{1}{2}(4) + b$ gives $b = 4$.\n\n**The Full Solution:**\nStep 1: Line $p$ is parallel to the given line, so its slope is also $\\frac{1}{2}$: $y = \\frac{1}{2}x + b$.\nStep 2: Substitute the point $(4, 6)$: $6 = \\frac{1}{2}(4) + b = 2 + b$.\nStep 3: So $b = 4$, and line $p$ is $y = \\frac{1}{2}x + 4$.\n\nCheck: $\\frac{1}{2}(4) + 4 = 6$, so $(4, 6)$ is on the line. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x + 14$): passes through $(4, 6)$ but has the perpendicular slope, $-2$.\n* Choice B ($y = \\frac{1}{2}x + 3$): is the given line itself; at $x = 4$ it gives $y = 5$, not $6$.\n* Choice D ($y = \\frac{1}{2}x + 8$): adds $2$ to $6$ instead of subtracting it when solving for $b$.\n\n**Test Day Takeaway:** Keep the slope, then substitute the given point to find the new $y$-intercept."
 }

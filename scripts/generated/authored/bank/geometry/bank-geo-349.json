@@ -1,29 +1,29 @@
 {
- "question": "The edge of a tidal mudflat is modeled in the $xy$-plane by $(x + 9)^2 + (y - 4)^2 = 625$, where $x$ and $y$ are in meters, and a dredged channel follows the line $y = 28$. What is the greatest value of $x$ for a point lying on both the edge and the channel?",
+ "id": "bank-geo-349",
+ "question": "$(x - 6)^{2} + (y + 3)^{2} = 169$\nIn the $xy$-plane, the graph of the given equation is a circle. The point $(a, 9)$ lies on the circle. What is the greatest possible value of $a$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-16$"
+   "text": "$1$"
   },
   {
    "id": "B",
-   "text": "$-2$"
+   "text": "$6$"
   },
   {
    "id": "C",
-   "text": "$7$"
+   "text": "$11$"
   },
   {
    "id": "D",
-   "text": "$25$"
+   "text": "$19$"
   }
  ],
- "correctAnswer": "B",
  "distractorNotes": {
-  "A": "reports the smaller of the two solutions, -16, instead of the greater",
-  "C": "solves for x + 9 = 7 and reports 7 without subtracting 9",
-  "D": "reports the radius 25 of the mudflat edge"
+  "A": "finds both solutions, 1 and 11, and picks the lesser",
+  "B": "reports the x-coordinate of the center",
+  "D": "adds the radius to the center's x-coordinate, 6 + 13, which is the rightmost point of the circle, not a point with y = 9"
  },
- "explanation": "**SAT Pattern: Circle in Standard Form — $x$-range**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Substituting $y = 28$ gives $(x + 9)^2 = 625 - 576 = 49$, so $x + 9 = \\pm 7$ and the greater value is $x = -2$.\n\n**The Full Solution:**\nStep 1: The edge has center $(-9, 4)$ and radius $\\sqrt{625} = 25$ meters, so its points satisfy $-34 \\le x \\le 16$.\nStep 2: Set $y = 28$: $(x + 9)^2 + (28 - 4)^2 = 625$, so $(x + 9)^2 + 576 = 625$ and $(x + 9)^2 = 49$.\nStep 3: Then $x + 9 = 7$ or $x + 9 = -7$, giving $x = -2$ or $x = -16$; the greater is $-2$. Check: $(-2 + 9)^2 + 24^2 = 49 + 576 = 625$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-16$): takes the negative square root and reports the smaller crossing point.\n* Choice C ($7$): stops at $x + 9 = 7$ and never subtracts the $9$.\n* Choice D ($25$): reports the radius, which is the greatest possible value of $x$ only for a circle centered on the $y$-axis.\n\n**Test Day Takeaway:** Fixing $y$ turns a circle into a quadratic in $x$ with two roots — solve for the binomial, then undo the shift and pick the root the question asks for.",
- "id": "bank-geo-349"
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Circle in Standard Form — $x$-range**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Substituting $y = 9$ gives $(a - 6)^2 + 144 = 169$, so $a - 6 = \\pm 5$ and the greatest value is $a = 11$.\n\n**The Full Solution:**\nStep 1: Substitute $x = a$ and $y = 9$: $(a - 6)^2 + (9 + 3)^2 = 169$.\nStep 2: $(a - 6)^2 = 169 - 144 = 25$, so $a - 6 = 5$ or $a - 6 = -5$.\nStep 3: $a = 11$ or $a = 1$; the greatest possible value is $11$.\n\nCheck: $(11 - 6)^2 + (9 + 3)^2 = 25 + 144 = 169$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): is the other point on the circle with $y = 9$, the lesser value of $a$.\n* Choice B ($6$): is the $x$-coordinate of the center; the center is not on the circle.\n* Choice D ($19$): adds the radius $13$ to $6$; that point, $(19, -3)$, has $y = -3$, not $9$.\n\n**Test Day Takeaway:** Substitute the known coordinate, solve for the square, and remember the $\\pm$; the question's word (greatest) picks the root."
 }

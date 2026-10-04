@@ -1,60 +1,60 @@
 {
-  "id": "bank-geo-333",
-  "question": "A sheet-metal bracket is cut to the right-triangular outline shown, where each leg is labeled in terms of $x$ centimeters, the hypotenuse carries no label, and the outline's three edges total $30$ centimeters. The right angle lies at vertex $B$. What is the value of $\\tan A$?",
-  "diagram": {
-    "type": "rightTriangle",
-    "params": {
-      "vertices": [
-        [
-          0,
-          0
-        ],
-        [
-          12,
-          0
-        ],
-        [
-          12,
-          5
-        ]
-      ],
-      "labels": [
-        "A",
-        "B",
-        "C"
-      ],
-      "sideLabels": [
-        "x + 7",
-        "x",
-        ""
-      ],
-      "rightAngleVertex": 1,
-      "figureNote": true
-    }
+ "id": "bank-geo-333",
+ "question": "The perimeter of the right triangle shown is $70$. What is the value of $\\cos C$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     21,
+     0
+    ],
+    [
+     21,
+     20
+    ]
+   ],
+   "labels": [
+    "A",
+    "B",
+    "C"
+   ],
+   "sideLabels": [
+    "x + 1",
+    "x",
+    ""
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{20}{29}$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$\\frac{5}{13}$"
-    },
-    {
-      "id": "B",
-      "text": "$\\frac{5}{12}$"
-    },
-    {
-      "id": "C",
-      "text": "$\\frac{12}{13}$"
-    },
-    {
-      "id": "D",
-      "text": "$\\frac{12}{5}$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports sin A = 5/13, opposite over hypotenuse",
-    "C": "reports cos A = 12/13, adjacent over hypotenuse",
-    "D": "inverts the tangent, dividing the adjacent leg by the opposite leg"
+  {
+   "id": "B",
+   "text": "$\\frac{21}{29}$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~60s):** The legs $x$ and $x + 7$ with perimeter $30$ force the $5$-$12$-$13$ triple, so $\\tan A = \\frac{5}{12}$.\n\n**The Full Solution:**\nStep 1: The legs are $x$ and $x + 7$, so the hypotenuse is $30 - x - (x + 7) = 23 - 2x$.\nStep 2: The Pythagorean theorem gives $x^2 + (x+7)^2 = (23-2x)^2$, that is $2x^2 + 14x + 49 = 4x^2 - 92x + 529$, so $2x^2 - 106x + 480 = 0$ and $x^2 - 53x + 240 = 0$. Factoring gives $(x-5)(x-48) = 0$, and $x = 48$ is impossible in a perimeter of $30$, so $x = 5$.\nStep 3: The legs are $5$ and $12$ and the hypotenuse is $13$. Angle $A$ faces $\\overline{BC} = x = 5$ and sits beside $\\overline{AB} = x + 7 = 12$, so $\\tan A = \\frac{5}{12}$.\n\nCheck: $5 + 12 + 13 = 30$ and $5^2 + 12^2 = 169 = 13^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{13}$): divides the opposite leg by the hypotenuse, which is $\\sin A$.\n* Choice C ($\\frac{12}{13}$): divides the adjacent leg by the hypotenuse, which is $\\cos A$.\n* Choice D ($\\frac{12}{5}$): inverts the tangent by putting the adjacent leg on top.\n\n**Test Day Takeaway:** When both legs carry the same variable, write the hypotenuse from the perimeter and let the Pythagorean theorem finish the job."
+  {
+   "id": "C",
+   "text": "$\\frac{20}{21}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{21}{20}$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "uses AB/CA = 21/29, which is sin C",
+  "C": "uses BC/AB = 20/21, adjacent over opposite for angle C",
+  "D": "uses AB/BC = 21/20, which is tan C"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~75s):** The hypotenuse is $70 - x - (x + 1) = 69 - 2x$, and $x^2 + (x + 1)^2 = (69 - 2x)^2$ gives $x = 20$, so the sides are $20$, $21$, and $29$ and $\\cos C = \\frac{20}{29}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse $\\overline{CA}$ has length $70 - x - (x + 1) = 69 - 2x$.\nStep 2: By the Pythagorean theorem, $x^2 + (x + 1)^2 = (69 - 2x)^2$, so $2x^2 + 2x + 1 = 4x^2 - 276x + 4{,}761$, which simplifies to $x^2 - 139x + 2{,}380 = 0$, or $(x - 20)(x - 119) = 0$. The value $x = 119$ would make the hypotenuse $69 - 238 < 0$, so $x = 20$: $BC = 20$, $AB = 21$, and $CA = 29$.\nStep 3: From angle $C$, the adjacent leg is $\\overline{BC}$, so $\\cos C = \\frac{BC}{CA} = \\frac{20}{29}$.\n\nCheck: $20 + 21 + 29 = 70$ and $20^2 + 21^2 = 400 + 441 = 841 = 29^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{21}{29}$): divides the leg opposite $C$ by the hypotenuse, which is $\\sin C$.\n* Choice C ($\\frac{20}{21}$): divides the adjacent leg by the opposite leg and never uses the hypotenuse.\n* Choice D ($\\frac{21}{20}$): divides the opposite leg by the adjacent leg, which is $\\tan C$.\n\n**Test Day Takeaway:** Write the unknown side as perimeter minus the other two, set up the Pythagorean equation, and reject any root that makes a length negative."
 }

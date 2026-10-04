@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-335",
- "question": "A copper heat-sink fin is stamped in the profile drawn here, with all three edge lengths given in millimeters and the right angle at vertex $B$. What is the value of $\\cos A$?",
+ "question": "In the triangle shown, what is the value of $\\cos A$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -10,12 +10,12 @@
      0
     ],
     [
-     21,
+     72,
      0
     ],
     [
-     21,
-     20
+     72,
+     65
     ]
    ],
    "labels": [
@@ -24,9 +24,9 @@
     "C"
    ],
    "sideLabels": [
-    "21",
-    "20",
-    "29"
+    "72",
+    "65",
+    "97"
    ],
    "rightAngleVertex": 1
   }
@@ -34,26 +34,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{20}{29}$"
+   "text": "$\\frac{65}{97}$"
   },
   {
    "id": "B",
-   "text": "$\\frac{21}{29}$"
+   "text": "$\\frac{72}{97}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{20}{21}$"
+   "text": "$\\frac{65}{72}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{29}{21}$"
+   "text": "$\\frac{97}{72}$"
   }
  ],
  "distractorNotes": {
-  "A": "reports sin A = 20/29, opposite over hypotenuse",
-  "C": "reports tan A = 20/21, opposite over adjacent",
-  "D": "inverts cos A, giving hypotenuse over adjacent"
+  "A": "uses BC/CA = 65/97, which is sin A",
+  "C": "uses BC/AB = 65/72, which is tan A",
+  "D": "inverts the ratio, hypotenuse over adjacent"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The leg beside angle $A$ is $21$ and the hypotenuse is $29$, so $\\cos A = \\frac{21}{29}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $B$, so the side opposite it, $\\overline{CA} = 29$, is the hypotenuse.\nStep 2: Angle $A$ lies between $\\overline{AB} = 21$ and the hypotenuse, so $21$ is the adjacent leg and $20$ is the opposite leg.\nStep 3: $\\cos A = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{21}{29}$.\n\nCheck: $20^2 + 21^2 = 400 + 441 = 841 = 29^2$, so $20$-$21$-$29$ is a Pythagorean triple. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{20}{29}$): uses the opposite leg over the hypotenuse, which is $\\sin A$.\n* Choice C ($\\frac{20}{21}$): divides the two legs, which is $\\tan A$.\n* Choice D ($\\frac{29}{21}$): inverts the ratio; a cosine is never greater than $1$.\n\n**Test Day Takeaway:** Find the hypotenuse first by locating the right angle, then read adjacent and opposite from the angle named."
+ "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The leg adjacent to $A$ is $72$ and the hypotenuse is $97$, so $\\cos A = \\frac{72}{97}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $B$, so $\\overline{CA}$, with length $97$, is the hypotenuse.\nStep 2: The leg that touches angle $A$ is $\\overline{AB}$, with length $72$; this is the adjacent leg.\nStep 3: $\\cos A = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{72}{97}$.\n\nCheck: $72^2 + 65^2 = 5{,}184 + 4{,}225 = 9{,}409 = 97^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{65}{97}$): uses the leg opposite $A$, which gives $\\sin A$.\n* Choice C ($\\frac{65}{72}$): divides the opposite leg by the adjacent leg, which is $\\tan A$.\n* Choice D ($\\frac{97}{72}$): puts the hypotenuse on top; a cosine of an acute angle is always less than $1$.\n\n**Test Day Takeaway:** Cosine is adjacent over hypotenuse: the adjacent leg is the leg that touches the angle and is not the hypotenuse."
 }

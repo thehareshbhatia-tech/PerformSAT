@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-346",
- "question": "A packaging line at a fabric mill glues two identical cubical shipping cartons of edge $n$ centimeters face to face to form a single rectangular box. Which expression gives the surface area, in square centimeters, of that box?",
+ "question": "Three identical cubes, each with edge length $n$ inches, are joined face to face in a row to form a rectangular prism. Which expression represents the surface area, in square inches, of the prism?",
  "choices": [
   {
    "id": "A",
-   "text": "$8n^2$"
+   "text": "$12n^{2}$"
   },
   {
    "id": "B",
-   "text": "$10n^2$"
+   "text": "$14n^{2}$"
   },
   {
    "id": "C",
-   "text": "$11n^2$"
+   "text": "$16n^{2}$"
   },
   {
    "id": "D",
-   "text": "$12n^2$"
+   "text": "$18n^{2}$"
   }
  ],
  "distractorNotes": {
-  "A": "removes four faces at the joint instead of the two that actually disappear",
-  "C": "removes only one of the two faces hidden by the glued joint",
-  "D": "adds the two cubes' surface areas and never removes the glued faces"
+  "A": "counts only the four long faces, 4(3n^2), and leaves out the two square ends",
+  "C": "subtracts only one face at each of the two joins, 18n^2 - 2n^2",
+  "D": "adds the surface areas of the three cubes, 3(6n^2), without removing hidden faces"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Surface Area of Glued Prisms**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Two cubes show $12n^2$ of face area, and gluing hides one face on each cube, so the box shows $12n^2-2n^2=10n^2$ square centimeters.\n\n**The Full Solution:**\n\nStep 1 — One cube of edge $n$ has surface area $6n^2$, so two separate cubes have $12n^2$.\n\nStep 2 — Gluing them face to face buries exactly two faces, one from each cube, removing $2n^2$ from the visible area.\n\nStep 3 — The box's surface area is $12n^2-2n^2=10n^2$ square centimeters. Check directly: the box is $n$ by $n$ by $2n$, with surface area $2(n\\cdot n)+4(n\\cdot 2n)=2n^2+8n^2=10n^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($8n^2$): this removes four faces, as if both faces on each cube vanished.\n* Choice C ($11n^2$): this removes only one face, forgetting that each cube gives up one.\n* Choice D ($12n^2$): this adds the two cubes' surface areas and ignores the joint entirely.\n\n**Test Day Takeaway:** Every glued joint hides two faces, one on each solid — subtract twice the contact area, not once."
+ "explanation": "**SAT Pattern: Surface Area of Glued Prisms**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The prism measures $n$ by $n$ by $3n$, so its surface area is $2(n^2 + 3n^2 + 3n^2) = 14n^2$.\n\n**The Full Solution:**\nStep 1: Three cubes in a row form a rectangular prism with dimensions $n$, $n$, and $3n$.\nStep 2: The prism has two square ends of area $n^2$ each and four rectangular faces of area $n \\cdot 3n = 3n^2$ each.\nStep 3: Surface area $= 2n^2 + 4(3n^2) = 14n^2$.\n\nCheck: The three cubes have $18$ faces in all; each of the $2$ joins hides $2$ faces, so $18n^2 - 4n^2 = 14n^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12n^{2}$): counts the four long faces but leaves out the two square ends.\n* Choice C ($16n^{2}$): removes one face per join, but each join hides a face from both cubes.\n* Choice D ($18n^{2}$): adds the three cubes' surface areas and removes none of the hidden faces.\n\n**Test Day Takeaway:** Find the new solid's dimensions and use $2(lw + lh + wh)$, or subtract two faces for every join."
 }

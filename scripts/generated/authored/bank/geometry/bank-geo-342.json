@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-342",
- "question": "A robotic pipetting arm turns through $\\frac{5\\pi}{12}$ radians and then through $\\frac{7\\pi}{18}$ radians in the same direction. Through how many more degrees must it turn to complete a half revolution?",
+ "question": "In triangle $ABC$, the measure of angle $A$ is $\\frac{3\\pi}{10}$ radians and the measure of angle $B$ is $\\frac{4\\pi}{9}$ radians. What is the measure, in degrees, of angle $C$?",
  "choices": [
   {
    "id": "A",
-   "text": "$35$"
+   "text": "$23$"
   },
   {
    "id": "B",
-   "text": "$105$"
+   "text": "$46$"
   },
   {
    "id": "C",
-   "text": "$145$"
+   "text": "$134$"
   },
   {
    "id": "D",
-   "text": "$215$"
+   "text": "$226$"
   }
  ],
- "correctAnswer": "A",
  "distractorNotes": {
-  "B": "converts only the first turn and subtracts it: 180 - 75",
-  "C": "reports the total turn already made, 75 + 70, instead of what remains",
-  "D": "measures the remainder against a full revolution: 360 - 145"
+  "A": "finds angle C = 23π/90 radians and reports the numerator 23 without converting to degrees",
+  "C": "reports the sum of angles A and B, 54 + 80 = 134, without subtracting from 180",
+  "D": "subtracts 134 from 360 instead of 180"
  },
- "explanation": "**SAT Pattern: Radian Sum to Degrees**\n\n**Choice A is correct.** The two turns are $75^\\circ$ and $70^\\circ$, totaling $145^\\circ$, so $180 - 145 = 35$ degrees remain.\n\n**The Fast Way (~35s):** $\\frac{5\\pi}{12} \\to 75^\\circ$ and $\\frac{7\\pi}{18} \\to 70^\\circ$; a half revolution is $180^\\circ$, so $180 - 145 = 35$.\n\n**The Full Solution:**\n\nStep 1: Convert with $\\frac{180}{\\pi}$ degrees per radian: $\\frac{5\\pi}{12} \\cdot \\frac{180}{\\pi} = \\frac{900}{12} = 75^\\circ$.\n\nStep 2: Likewise $\\frac{7\\pi}{18} \\cdot \\frac{180}{\\pi} = \\frac{1260}{18} = 70^\\circ$, so the arm has turned $75 + 70 = 145^\\circ$.\n\nStep 3: A half revolution is $180^\\circ$, so the arm still needs $180 - 145 = 35$ degrees. Check: $145^\\circ + 35^\\circ = 180^\\circ$, and in radians $\\frac{5\\pi}{12} + \\frac{7\\pi}{18} = \\frac{15\\pi + 14\\pi}{36} = \\frac{29\\pi}{36}$, which is just under $\\pi$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($105$): converts only the first turn and subtracts, $180 - 75$.\n* Choice C ($145$): reports the total already turned rather than what is left.\n* Choice D ($215$): measures the remainder against a full revolution, $360 - 145$, not a half one.\n\n**Test Day Takeaway:** Convert every radian measure to degrees first, add, and then answer the comparison the question sets — \"how much more\" is a subtraction, not the sum."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Radian Sum to Degrees**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $\\frac{3\\pi}{10}$ radians is $54^\\circ$ and $\\frac{4\\pi}{9}$ radians is $80^\\circ$, so angle $C$ measures $180 - 54 - 80 = 46$ degrees.\n\n**The Full Solution:**\nStep 1: Multiply each radian measure by $\\frac{180^\\circ}{\\pi}$: $\\frac{3\\pi}{10} \\cdot \\frac{180^\\circ}{\\pi} = 54^\\circ$ and $\\frac{4\\pi}{9} \\cdot \\frac{180^\\circ}{\\pi} = 80^\\circ$.\nStep 2: The angle measures of a triangle sum to $180^\\circ$.\nStep 3: Angle $C$ measures $180^\\circ - 54^\\circ - 80^\\circ = 46^\\circ$.\n\nCheck: In radians, $\\pi - \\frac{3\\pi}{10} - \\frac{4\\pi}{9} = \\frac{23\\pi}{90}$, and $\\frac{23\\pi}{90} \\cdot \\frac{180^\\circ}{\\pi} = 46^\\circ$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($23$): finds $\\frac{23\\pi}{90}$ radians correctly but reports the $23$ without converting to degrees.\n* Choice C ($134$): adds angles $A$ and $B$ and stops before subtracting from $180^\\circ$.\n* Choice D ($226$): subtracts from $360^\\circ$, the angle sum of a quadrilateral, not a triangle.\n\n**Test Day Takeaway:** Convert radians to degrees with $\\frac{180}{\\pi}$ before mixing in facts stated in degrees, such as the triangle angle sum."
 }

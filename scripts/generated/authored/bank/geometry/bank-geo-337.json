@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-337",
- "question": "Triangle $RST$ has a right angle at $T$, with $RT=4$ and $ST=3$. What is the value of $\\tan R$?",
+ "question": "In right triangle $RST$ shown, what is the value of $\\tan R$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -10,12 +10,12 @@
      0
     ],
     [
-     4,
+     35,
      0
     ],
     [
-     4,
-     3
+     35,
+     12
     ]
    ],
    "labels": [
@@ -24,8 +24,8 @@
     "S"
    ],
    "sideLabels": [
-    "4",
-    "3",
+    "35",
+    "12",
     ""
    ],
    "rightAngleVertex": 1,
@@ -35,26 +35,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{3}{5}$"
+   "text": "$\\frac{12}{37}$"
   },
   {
    "id": "B",
-   "text": "$\\frac{3}{4}$"
+   "text": "$\\frac{12}{35}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{4}{5}$"
+   "text": "$\\frac{35}{37}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{4}{3}$"
+   "text": "$\\frac{35}{12}$"
   }
  ],
  "distractorNotes": {
-  "A": "gives sine instead of tangent",
-  "C": "gives cosine instead of tangent",
-  "D": "swaps opposite and adjacent"
+  "A": "finds the hypotenuse, 37, and reports ST/RS = 12/37, which is sin R",
+  "C": "reports RT/RS = 35/37, which is cos R",
+  "D": "reports RT/ST = 35/12, which is tan S"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** For angle $R$, the opposite leg is $\\overline{ST}=3$ and the adjacent leg is $\\overline{RT}=4$, so $\\tan R=\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: The right angle sits at $T$, so $\\overline{RT}$ and $\\overline{ST}$ are the legs and $\\overline{RS}$ is the hypotenuse.\nStep 2: Angle $R$ touches $\\overline{RT}$ and $\\overline{RS}$, so the leg opposite it is $\\overline{ST}=3$ and the leg adjacent to it is $\\overline{RT}=4$.\nStep 3: Tangent is opposite over adjacent: $\\tan R=\\frac{3}{4}$.\n\nCheck: the hypotenuse is $\\sqrt{3^2+4^2}=5$, the familiar $3$, $4$, $5$ triple. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{5}$): divided the opposite leg by the hypotenuse, which is $\\sin R$.\n* Choice C ($\\frac{4}{5}$): divided the adjacent leg by the hypotenuse, which is $\\cos R$.\n* Choice D ($\\frac{4}{3}$): swapped opposite and adjacent, giving $\\tan S$ instead.\n\n**Test Day Takeaway:** Tangent needs no hypotenuse. When both legs are given and a tangent is asked for, there is nothing left to compute."
+ "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The leg opposite $R$ is $ST = 12$ and the leg adjacent to $R$ is $RT = 35$, so $\\tan R = \\frac{12}{35}$.\n\n**The Full Solution:**\nStep 1: Angle $T$ is the right angle, so $\\overline{RT}$ and $\\overline{ST}$ are the legs.\nStep 2: From angle $R$, the opposite leg is $\\overline{ST}$ and the adjacent leg is $\\overline{RT}$.\nStep 3: $\\tan R = \\frac{ST}{RT} = \\frac{12}{35}$.\n\nCheck: $\\tan R$ uses only the legs, so the hypotenuse, $\\sqrt{35^2 + 12^2} = 37$, is not needed. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{12}{37}$): brings in the hypotenuse, $37$, and computes $\\sin R$.\n* Choice C ($\\frac{35}{37}$): computes $\\cos R$, adjacent over hypotenuse.\n* Choice D ($\\frac{35}{12}$): divides the adjacent leg by the opposite leg, which is $\\tan S$.\n\n**Test Day Takeaway:** Tangent needs only the two legs: opposite over adjacent, measured from the angle named."
 }

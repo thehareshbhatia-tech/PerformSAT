@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-329",
- "question": "The spacer shown is cut on a CNC router, and its three edges, in millimeters, total $36$. Angle $A$ is one of the two acute angles of the spacer. What is the value of $\\sin A$?",
+ "question": "The perimeter of triangle $ABC$ shown is $90$. What is the value of $\\sin A$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -15,7 +15,7 @@
     ],
     [
      9,
-     12
+     40
     ]
    ],
    "labels": [
@@ -26,7 +26,7 @@
    "sideLabels": [
     "9",
     "",
-    "15"
+    "41"
    ],
    "rightAngleVertex": 1
   }
@@ -34,26 +34,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{3}{5}$"
+   "text": "$\\frac{9}{41}$"
   },
   {
    "id": "B",
-   "text": "$\\frac{3}{4}$"
+   "text": "$\\frac{9}{40}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{4}{5}$"
+   "text": "$\\frac{40}{41}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{4}{3}$"
+   "text": "$\\frac{40}{9}$"
   }
  ],
  "distractorNotes": {
-  "A": "reports cos A = 9/15 = 3/5, adjacent over hypotenuse",
-  "B": "reports 9/12 = 3/4, adjacent over opposite",
-  "D": "reports tan A = 12/9 = 4/3, opposite over adjacent"
+  "A": "uses AB/CA = 9/41, which is cos A (adjacent over hypotenuse)",
+  "B": "uses AB/BC = 9/40, adjacent over opposite",
+  "D": "uses BC/AB = 40/9, which is tan A"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The unlabeled leg is $36 - 9 - 15 = 12$, and $\\sin A = \\frac{12}{15} = \\frac{4}{5}$.\n\n**The Full Solution:**\nStep 1: The three edges total $36$ millimeters, and two of them measure $9$ and $15$, so $\\overline{BC} = 36 - 9 - 15 = 12$ millimeters.\nStep 2: The right angle is at $B$, so $\\overline{CA} = 15$ is the hypotenuse and $\\overline{BC} = 12$ is the leg opposite angle $A$.\nStep 3: $\\sin A = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{12}{15} = \\frac{4}{5}$.\n\nCheck: $9^2 + 12^2 = 81 + 144 = 225 = 15^2$, so the sides are consistent. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{5}$): uses $\\frac{9}{15}$, which is $\\cos A$ rather than $\\sin A$.\n* Choice B ($\\frac{3}{4}$): uses $\\frac{9}{12}$, adjacent over opposite, and never involves the hypotenuse.\n* Choice D ($\\frac{4}{3}$): uses $\\frac{12}{9}$, which is $\\tan A$.\n\n**Test Day Takeaway:** A perimeter plus two sides hands you the third side in one subtraction; then label opposite, adjacent, and hypotenuse before choosing a ratio."
+ "explanation": "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The missing side is $BC = 90 - 9 - 41 = 40$, so $\\sin A = \\frac{40}{41}$.\n\n**The Full Solution:**\nStep 1: The perimeter is the sum of the three side lengths, so $BC = 90 - 9 - 41 = 40$.\nStep 2: The right angle is at $B$, so $\\overline{CA}$, with length $41$, is the hypotenuse, and $\\overline{BC}$, with length $40$, is the leg opposite angle $A$.\nStep 3: $\\sin A = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{BC}{CA} = \\frac{40}{41}$.\n\nCheck: $9^2 + 40^2 = 81 + 1{,}600 = 1{,}681 = 41^2$, so the three sides form a right triangle. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{9}{41}$): divides the adjacent leg by the hypotenuse, which is $\\cos A$.\n* Choice B ($\\frac{9}{40}$): divides the adjacent leg by the opposite leg and never uses the hypotenuse.\n* Choice D ($\\frac{40}{9}$): divides the opposite leg by the adjacent leg, which is $\\tan A$.\n\n**Test Day Takeaway:** A perimeter and two sides give the third side in one subtraction; then name opposite, adjacent, and hypotenuse from the angle before writing the ratio."
 }

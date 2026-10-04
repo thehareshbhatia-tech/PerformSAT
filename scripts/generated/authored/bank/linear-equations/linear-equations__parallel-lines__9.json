@@ -1,30 +1,30 @@
 {
  "id": 9,
- "question": "A rental agreement's cost-balance model sets $5(2x - 3) + k = 4(kx + 1) - 7$, where $x$ counts months of occupancy and $k$ is a constant. For which value of $k$ is there no value of $x$ that satisfies this equation?",
+ "question": "$3(4x - 5) + k = 2(kx + 3) + 1$\nIn the given equation, $k$ is a constant. For what value of $k$ does the equation have no solution?",
  "choices": [
   {
    "id": "A",
-   "text": "$-2.5$"
+   "text": "$-6$"
   },
   {
    "id": "B",
-   "text": "$2$"
+   "text": "$6$"
   },
   {
    "id": "C",
-   "text": "$2.5$"
+   "text": "$12$"
   },
   {
    "id": "D",
-   "text": "$10$"
+   "text": "$22$"
   }
  ],
  "distractorNotes": {
-  "A": "matches the coefficients but drops the sign, reporting -2.5 instead of 2.5",
-  "B": "divides the coefficient 10 by the 5 outside the left parentheses instead of by the 4 on the right",
-  "D": "reports the left side's coefficient of x, 10, without dividing by 4"
+  "A": "sets 12 + 2k = 0 after a sign error moving the 2kx term",
+  "C": "forgets to distribute the 2 to kx, matching 12x with kx",
+  "D": "makes the constant terms equal, -15 + k = 7, which gives exactly one solution instead"
  },
- "correctAnswer": "C",
- "hint": "No solution means the variable terms match while the constants do not.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~50s):** Expanding gives $10x + (k - 15) = 4kx - 3$; matching the $x$-terms forces $4k = 10$, so $k = 2.5$, and the constants then disagree.\n\n**The Full Solution:**\nStep 1: Expand both sides: the left becomes $10x - 15 + k$ and the right becomes $4kx + 4 - 7 = 4kx - 3$.\nStep 2: A linear equation has no solution when the $x$-terms are identical but the constant terms are not, so set $10 = 4k$, giving $k = 2.5$.\nStep 3: With $k = 2.5$ the constants are $-15 + 2.5 = -12.5$ on the left and $-3$ on the right. They differ, so no value of $x$ works.\n\nCheck: Substituting $k = 2.5$ gives $10x - 12.5 = 10x - 3$, which reduces to $-12.5 = -3$, a false statement. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2.5$): matches the coefficients but attaches the wrong sign; $4(-2.5) = -10$, not $10$.\n* Choice B ($2$): divides $10$ by the $5$ outside the left parentheses rather than by the $4$ on the right.\n* Choice D ($10$): reports the left side's coefficient of $x$ without dividing by $4$.\n\n**Test Day Takeaway:** Expand fully first; no solution needs equal $x$-coefficients and unequal constants, and both halves must be checked."
+ "correctAnswer": "B",
+ "hint": "No solution means the $x$-terms match on both sides while the constants do not.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~50s):** Expanding gives $12x - 15 + k = 2kx + 7$; the $x$-terms match when $2k = 12$, so $k = 6$, and then $-9 \\ne 7$.\n\n**The Full Solution:**\nStep 1: Distribute: the left side is $12x - 15 + k$ and the right side is $2kx + 6 + 1 = 2kx + 7$.\nStep 2: The equation has no solution when the coefficients of $x$ are equal and the constants are not. Equal coefficients: $12 = 2k$, so $k = 6$.\nStep 3: With $k = 6$, the constants are $-15 + 6 = -9$ on the left and $7$ on the right, which are not equal.\n\nCheck: With $k = 6$ the equation becomes $12x - 9 = 12x + 7$, which simplifies to $-9 = 7$, a false statement for every $x$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): moves the $2kx$ term without changing its sign, solving $12 + 2k = 0$.\n* Choice C ($12$): forgets to distribute the $2$ to $kx$, so it matches $12x$ with $kx$.\n* Choice D ($22$): makes the constants equal; with $k = 22$ the $x$-coefficients are $12$ and $44$, so there is exactly one solution.\n\n**Test Day Takeaway:** No solution: same coefficient of $x$ on both sides, different constants. Infinitely many: both the same."
 }

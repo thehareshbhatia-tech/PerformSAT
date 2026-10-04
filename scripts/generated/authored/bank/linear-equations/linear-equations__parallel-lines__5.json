@@ -1,30 +1,30 @@
 {
  "id": 5,
- "question": "On a packaging line the guide rail satisfies $ax + 9y = 45$ for some constant $a$. The line $2x + 3y = 24$ marks a hazard boundary, and no point of the rail lies on it. What is the value of $a$?",
+ "question": "Line $j$ passes through the point $(-4, 9)$ and is parallel to the line $3x - 2y = 10$ in the $xy$-plane. Which equation defines line $j$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-6$"
+   "text": "$y = -\\frac{3}{2}x + 3$"
   },
   {
    "id": "B",
-   "text": "$6$"
+   "text": "$y = \\frac{3}{2}x - 5$"
   },
   {
    "id": "C",
-   "text": "$13.5$"
+   "text": "$y = \\frac{3}{2}x + 3$"
   },
   {
    "id": "D",
-   "text": "$18$"
+   "text": "$y = \\frac{3}{2}x + 15$"
   }
  ],
  "distractorNotes": {
-  "A": "drops the negative that appears in the slope formula on one side only, matching a/9 to -2/3",
-  "C": "inverts the slope ratio, solving a/9 = 3/2",
-  "D": "scales the second equation by 9, the coefficient of y, instead of by 3"
+  "A": "takes the slope of 3x - 2y = 10 as -3/2, losing the sign from dividing by -2",
+  "B": "rewrites the given line, y = (3/2)x - 5, which does not pass through (-4, 9)",
+  "C": "treats (3/2)(-4) as +6 when solving for the y-intercept, getting b = 9 - 6"
  },
- "correctAnswer": "B",
- "hint": "Two lines that never meet must rise at the same rate.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~40s):** No shared point means parallel, so $-\\frac{a}{9} = -\\frac{2}{3}$ and $a = 6$.\n\n**The Full Solution:**\nStep 1: Two distinct lines have no point in common exactly when they are parallel, so their slopes must be equal.\nStep 2: From $Ax + By = C$ the slope is $-\\frac{A}{B}$, so the rail has slope $-\\frac{a}{9}$ and the second line has slope $-\\frac{2}{3}$. Setting them equal gives $\\frac{a}{9} = \\frac{2}{3}$, so $a = 6$.\nStep 3: With $a = 6$ the rail is $6x + 9y = 45$, which reduces to $2x + 3y = 15$; since $15 \\ne 24$, the two lines are parallel and distinct, so they really do share no point.\n\nCheck: Multiplying $2x + 3y = 24$ by $3$ gives $6x + 9y = 72$, the same left side as the rail with a different constant. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): loses the negative sign on one side of the slope equation, matching $\\frac{a}{9}$ to $-\\frac{2}{3}$.\n* Choice C ($13.5$): inverts the ratio and solves $\\frac{a}{9} = \\frac{3}{2}$.\n* Choice D ($18$): scales the second equation by $9$, the coefficient of $y$, instead of by the $3$ that turns $3y$ into $9y$.\n\n**Test Day Takeaway:** Match the whole left side by a single scale factor; then check the constants differ so the lines are parallel, not identical."
+ "correctAnswer": "D",
+ "hint": "Rewrite the given line in slope-intercept form to read its slope.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~40s):** The given line is $y = \\frac{3}{2}x - 5$, so line $j$ is $y = \\frac{3}{2}x + b$ with $9 = \\frac{3}{2}(-4) + b = -6 + b$, giving $b = 15$.\n\n**The Full Solution:**\nStep 1: Solve $3x - 2y = 10$ for $y$: $-2y = -3x + 10$, so $y = \\frac{3}{2}x - 5$, which has slope $\\frac{3}{2}$.\nStep 2: Line $j$ is parallel, so it has the form $y = \\frac{3}{2}x + b$. Substitute $(-4, 9)$: $9 = \\frac{3}{2}(-4) + b = -6 + b$.\nStep 3: So $b = 15$, and line $j$ is $y = \\frac{3}{2}x + 15$.\n\nCheck: $\\frac{3}{2}(-4) + 15 = -6 + 15 = 9$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{3}{2}x + 3$): loses a sign when dividing by $-2$, so the slope is wrong even though the line passes through $(-4, 9)$.\n* Choice B ($y = \\frac{3}{2}x - 5$): is the given line itself; at $x = -4$ it gives $y = -11$.\n* Choice C ($y = \\frac{3}{2}x + 3$): treats $\\frac{3}{2}(-4)$ as $+6$, so $b = 9 - 6 = 3$.\n\n**Test Day Takeaway:** Get the slope from the given line in slope-intercept form, then use the point, keeping track of the negative coordinate."
 }
