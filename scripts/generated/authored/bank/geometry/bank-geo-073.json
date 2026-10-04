@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-073",
- "question": "A supermarket marks a circular clearance zone around a produce island by $x^{2}+y^{2}-4x+10y+k=0$, with coordinates in feet. That zone covers $16\\pi$ square feet. What is the value of $k$?",
+ "question": "$x^{2} + y^{2} - 4x + 10y + k = 0$\nIn the given equation, $k$ is a constant. In the $xy$-plane, the graph of the equation is a circle with area $16\\pi$. What is the value of $k$?",
  "choices": [
   {
    "id": "A",
@@ -8,22 +8,22 @@
   },
   {
    "id": "B",
-   "text": "$4$"
+   "text": "$13$"
   },
   {
    "id": "C",
-   "text": "$13$"
+   "text": "$25$"
   },
   {
    "id": "D",
    "text": "$29$"
   }
  ],
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "writes r squared = 4 + 25 + k, slipping the sign of the constant",
-  "B": "reports the radius 4 as the value of k",
-  "D": "reports 4 + 25, forgetting to subtract r squared"
+  "A": "subtracts in the wrong order, setting k = 16 - 29",
+  "C": "uses the radius 4 instead of r squared 16, computing k = 29 - 4",
+  "D": "ignores the area condition and sets k equal to 4 + 25, the sum of the completed-square constants"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** Area $16\\pi$ means $r^{2}=16$, and $r^{2}=4+25-k$, so $29-k=16$ and $k=13$.\n\n**The Full Solution:**\n\nStep 1: Turn the area into $r^{2}$. $\\pi r^{2}=16\\pi$ gives $r^{2}=16$ square feet.\n\nStep 2: Complete the square. $(x-2)^{2}+(y+5)^{2}=4+25-k=29-k$.\n\nStep 3: Match and solve. $29-k=16$, so $k=13$.\n\nCheck: with $k=13$ the circle is $(x-2)^{2}+(y+5)^{2}=16$, radius $4$, area $16\\pi$ square feet.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-13$): writes $r^{2}=4+25+k$, slipping the sign of the constant term.\n* Choice B ($4$): reports the radius $4$ instead of the constant $k$.\n* Choice D ($29$): reports $4+25$, forgetting to subtract $r^{2}$ from it.\n\n**Test Day Takeaway:** Convert a given area to $r^{2}$ first; the completed-square constant then becomes a one-step equation in the unknown coefficient."
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** An area of $16\\pi$ means $r^{2} = 16$, and completing the square gives $r^{2} = 4 + 25 - k$, so $29 - k = 16$ and $k = 13$.\n\n**The Full Solution:**\nStep 1: Complete both squares: $x^{2} - 4x = (x - 2)^{2} - 4$ and $y^{2} + 10y = (y + 5)^{2} - 25$, so the equation becomes $(x - 2)^{2} + (y + 5)^{2} = 29 - k$.\nStep 2: The area of a circle is $\\pi r^{2}$, so $\\pi r^{2} = 16\\pi$ gives $r^{2} = 16$.\nStep 3: Set $29 - k = 16$, so $k = 13$. Check: with $k = 13$ the equation is $(x - 2)^{2} + (y + 5)^{2} = 16$, a circle of radius $4$ and area $16\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): solves $k = 16 - 29$, reversing the subtraction in $29 - k = 16$.\n* Choice C ($25$): sets $29 - k$ equal to the radius $4$ instead of to $r^{2} = 16$.\n* Choice D ($29$): adds the two completed-square constants and never uses the area.\n\n**Test Day Takeaway:** An area or circumference condition is really a condition on $r$; translate it to $r^{2}$ before matching it to the completed-square form."
 }

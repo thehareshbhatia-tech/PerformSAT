@@ -1,18 +1,19 @@
 {
-  "id": "bank-geo-267",
-  "question": "Two roadway centerlines meet at a highway intersection. Expressions in $x$ label two of the four angles that the crossing produces, as shown. What is the measure, in degrees, of the angle labeled $(4x + 27)^\\circ$?",
-  "diagram": {
-    "type": "intersectingLines",
-    "params": {
-      "angles": [
-        "(4x + 27)°",
-        "",
-        "(7x - 12)°",
-        ""
-      ],
-      "figureNote": true
-    }
-  },
-  "correctAnswer": "79",
-  "explanation": "**SAT Pattern: Vertical Angles**\n\n**The correct answer is $79$.**\n\n**The Fast Way (~35s):** Opposite angles are equal, so $4x + 27 = 7x - 12$ gives $x = 13$ and each angle measures $4(13) + 27 = 79$ degrees.\n\n**The Full Solution:**\nStep 1: The two labeled angles sit across the intersection from each other, so they are vertical angles and their measures are equal.\nStep 2: Setting the expressions equal gives $4x + 27 = 7x - 12$, so $39 = 3x$ and $x = 13$.\nStep 3: Substituting gives $4(13) + 27 = 79$ degrees.\n\nCheck: The other expression gives $7(13) - 12 = 79$ degrees as well. $\\checkmark$\n\n**Common Mistakes:**\n* Answering $13$ by stopping at $x$ instead of substituting it back into an angle expression.\n* Answering $87$ by treating the two angles as a linear pair, solving $11x + 15 = 180$ for $x = 15$ and then evaluating $4(15) + 27$.\n* Answering $101$ by reporting the supplement of $79$ rather than the labeled angle itself.\n\n**Test Day Takeaway:** Solving for the variable is the middle of the problem; the question almost always wants the measure."
+ "id": "bank-geo-267",
+ "question": "Two lines intersect, as shown. What is the value of $y$?",
+ "diagram": {
+  "type": "intersectingLines",
+  "params": {
+   "angles": [
+    "(4x + 27)°",
+    "y°",
+    "(7x - 12)°",
+    ""
+   ],
+   "figureNote": true,
+   "angle0Measure": 79
+  }
+ },
+ "correctAnswer": "101",
+ "explanation": "**SAT Pattern: Vertical Angles**\n\n**The correct answer is $101$.**\n\n**The Fast Way (~30s):** Vertical angles: $4x + 27 = 7x - 12$, so $x = 13$ and each of those angles is $79^{\\circ}$; then $y = 180 - 79 = 101$.\n\n**The Full Solution:**\nStep 1: The angles $(4x + 27)^{\\circ}$ and $(7x - 12)^{\\circ}$ are vertical angles, so $4x + 27 = 7x - 12$.\nStep 2: Solve: $39 = 3x$, so $x = 13$, and each of these angles measures $4(13) + 27 = 79$ degrees.\nStep 3: The angle $y^{\\circ}$ forms a straight line with the $(4x + 27)^{\\circ}$ angle, so $y = 180 - 79 = 101$. Check: $7(13) - 12 = 79$, and $79 + 101 = 180$ ✓\n\n**Common Mistakes:**\n* $13$: reports $x$, the value that solves the equation, instead of $y$.\n* $79$: reports the measure of the vertical angles; the $y^{\\circ}$ angle is next to them, not across from them.\n* $93$: treats the two labeled angles as supplementary, $11x + 15 = 180$, so $x = 15$, then computes $y = 180 - (4(15) + 27) = 93$.\n\n**Test Day Takeaway:** Read which pair is vertical before writing the equation: across the point means equal, side by side means a sum of $180^{\\circ}$."
 }

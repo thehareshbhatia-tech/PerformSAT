@@ -1,18 +1,32 @@
 {
-  "id": "bank-geo-124",
-  "question": "A guy wire runs from the top of a vertical utility pole to a point on level ground $18$ feet from the base of the pole. The pole is $24$ feet tall. What is the length, in feet, of the guy wire?",
-  "diagram": {
-    "type": "rightTriangle",
-    "params": {
-      "sideLabels": [
-        "18",
-        "24",
-        ""
-      ],
-      "rightAngleVertex": 1,
-      "figureNote": true
-    }
-  },
-  "correctAnswer": "30",
-  "explanation": "**SAT Pattern: Pythagorean Theorem (3-4-5 Family)**\n\n**The correct answer is $30$.**\n\n**The Fast Way (~10s):** The legs $18$ and $24$ are $6$ times $3$ and $4$, so the wire is $6 \\times 5 = 30$ feet.\n\n**The Full Solution:**\nStep 1: The pole, the ground, and the wire form a right triangle with the right angle at the base of the pole. The wire is the hypotenuse.\nStep 2: $18^2 + 24^2 = 324 + 576 = 900$.\nStep 3: The wire has length $\\sqrt{900} = 30$ feet. Check: $18$-$24$-$30$ is $3$-$4$-$5$ scaled by $6$. $\\checkmark$\n\n**Common Mistakes:**\n* Subtracting instead of squaring: $24 - 18 = 6$, which is far shorter than either leg and cannot be a hypotenuse.\n* Adding the legs: $18 + 24 = 42$, which overshoots because the hypotenuse is always less than the sum of the legs.\n* Stopping at $900$, the value of the square of the wire's length, without taking the square root.\n\n**Test Day Takeaway:** A vertical object and its distance along the ground are the two legs; the slanted wire or ladder is always the hypotenuse."
+ "id": "bank-geo-124",
+ "question": "In the right triangle shown, what is the value of $x$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "sideLabels": [
+    "x",
+    "24",
+    "30"
+   ],
+   "rightAngleVertex": 1,
+   "figureNote": true,
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     18,
+     0
+    ],
+    [
+     18,
+     24
+    ]
+   ]
+  }
+ },
+ "correctAnswer": "18",
+ "explanation": "**SAT Pattern: Pythagorean Theorem (3-4-5 Family)**\n\n**The correct answer is 18.**\n\n**The Fast Way (~10s):** $24$ and $30$ are $6$ times $4$ and $5$, so the missing leg is $6 \\times 3 = 18$.\n\n**The Full Solution:**\nStep 1: The side of length $30$ is opposite the right angle, so it is the hypotenuse, and $x$ and $24$ are the legs.\nStep 2: By the Pythagorean theorem, $x^{2} + 24^{2} = 30^{2}$, so $x^{2} = 900 - 576 = 324$.\nStep 3: $x = \\sqrt{324} = 18$. Check: $18^{2} + 24^{2} = 324 + 576 = 900 = 30^{2}$ ✓\n\n**Common Mistakes:**\n* $6$: subtracts the side lengths, $30 - 24$, instead of their squares.\n* $38.4$: treats $30$ as a leg and finds $\\sqrt{24^{2} + 30^{2}} \\approx 38.4$.\n* $324$: stops at $x^{2}$ without taking the square root.\n\n**Test Day Takeaway:** Find the hypotenuse first: it is the side across from the right angle, and it is the one whose square is the sum of the other two."
 }

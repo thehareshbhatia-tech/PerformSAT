@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-028",
- "question": "A hardware shop sells the steel shelf bracket drawn below; its dimensions are marked in centimeters. How long is the sloped edge that runs from the wall anchor to the shelf tip?",
+ "question": "In the triangle shown, what is the length of the hypotenuse?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -51,10 +51,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "reports the short leg opposite the 30 degree angle instead of the hypotenuse",
-  "B": "treats 18 as the hypotenuse, halving to 9 and multiplying by root 3",
-  "D": "doubles 18 first and then multiplies by root 3"
+  "A": "finds the short leg, 18 / sqrt 3 = 6 sqrt 3, and stops before doubling it",
+  "B": "multiplies 18 by sqrt 3 / 2, treating 18 as the hypotenuse",
+  "D": "multiplies 18 by 2 sqrt 3 instead of dividing by sqrt 3 before doubling"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The $18$ cm leg is the long leg, so the short leg is $\\frac{18}{\\sqrt{3}}=6\\sqrt{3}$ and the hypotenuse is $12\\sqrt{3}$ cm.\n\n**The Full Solution:**\n\nStep 1: Identify the sides. In a $30$-$60$-$90$ triangle the sides are $x$, $x\\sqrt{3}$, $2x$, and the leg adjacent to the $30°$ angle is the long leg $x\\sqrt{3}$.\n\nStep 2: Solve for $x$. $x\\sqrt{3}=18$ gives $x=\\frac{18}{\\sqrt{3}}=6\\sqrt{3}$ cm.\n\nStep 3: The hypotenuse is $2x=12\\sqrt{3}$ cm, about $20.8$ cm.\n\nCheck: $(6\\sqrt{3})^{2}+18^{2}=108+324=432=(12\\sqrt{3})^{2}$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($6\\sqrt{3}$): reports the short leg opposite the $30°$ angle rather than the sloped edge.\n* Choice B ($9\\sqrt{3}$): treats $18$ as the hypotenuse, halving it to $9$ and then multiplying by $\\sqrt{3}$.\n* Choice D ($36\\sqrt{3}$): doubles $18$ to $36$ and then multiplies by $\\sqrt{3}$, applying both ratios to the same side.\n\n**Test Day Takeaway:** Name each given side before using the ratio: the leg touching the $30°$ angle is the long leg, not the hypotenuse."
+ "explanation": "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The side of length $18$ is the long leg, so the short leg is $\\frac{18}{\\sqrt{3}} = 6\\sqrt{3}$ and the hypotenuse is $2(6\\sqrt{3}) = 12\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: The triangle has angles $30°$, $60°$, and $90°$. The side of length $18$ is adjacent to the $30°$ angle, so it is the long leg, opposite the $60°$ angle.\nStep 2: In a $30°$-$60°$-$90°$ triangle the sides are in the ratio $1 : \\sqrt{3} : 2$, so the short leg is $\\frac{18}{\\sqrt{3}} = 6\\sqrt{3}$.\nStep 3: The hypotenuse is twice the short leg: $2(6\\sqrt{3}) = 12\\sqrt{3}$. Check: $(6\\sqrt{3})^{2} + 18^{2} = 108 + 324 = 432 = (12\\sqrt{3})^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6\\sqrt{3}$): finds the short leg and stops one step early.\n* Choice B ($9\\sqrt{3}$): treats $18$ as the hypotenuse and multiplies by $\\frac{\\sqrt{3}}{2}$.\n* Choice D ($36\\sqrt{3}$): multiplies $18$ by $\\sqrt{3}$ and then by $2$, making the hypotenuse far too long.\n\n**Test Day Takeaway:** In a $30°$-$60°$-$90°$ triangle, decide which side you were given (short leg, long leg, or hypotenuse) before applying $1 : \\sqrt{3} : 2$."
 }

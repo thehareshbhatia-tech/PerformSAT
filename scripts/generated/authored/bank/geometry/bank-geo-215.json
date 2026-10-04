@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-215",
- "question": "A cable-tray hanger's triangular frame has interior angles of $(3n)^\\circ$ and $(7n)^\\circ$ at two of its corners. Extending one side past the third corner creates a $140^\\circ$ angle. How many degrees does the larger of the two labeled angles measure?",
+ "question": "In a triangle, two of the interior angles measure $(4n)^{\\circ}$ and $(5n)^{\\circ}$. The exterior angle at the third vertex measures $135^{\\circ}$. What is the value of $5n$?",
  "choices": [
   {
    "id": "A",
-   "text": "$14$"
+   "text": "$15$"
   },
   {
    "id": "B",
-   "text": "$40$"
+   "text": "$45$"
   },
   {
    "id": "C",
-   "text": "$42$"
+   "text": "$60$"
   },
   {
    "id": "D",
-   "text": "$98$"
+   "text": "$75$"
   }
  ],
- "correctAnswer": "D",
  "distractorNotes": {
-  "A": "stops at n = 14 instead of evaluating 7n",
-  "B": "reports the interior angle at the third corner, 180 - 140 = 40",
-  "C": "reports 3n = 42, the smaller of the two labeled angles"
+  "A": "stops at n = 15 and does not multiply by 5",
+  "B": "gives the interior angle at the third vertex, 180 - 135 = 45",
+  "C": "gives 4n, the smaller of the two angles"
  },
- "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice D is correct.** The $140^\\circ$ angle is exterior at the third corner, so $3n + 7n = 140$, giving $n = 14$ and $7n = 98$.\n\n**The Fast Way (~35s):** $10n = 140$, so $n = 14$; the larger labeled angle is $7(14) = 98$.\n\n**The Full Solution:**\n\nStep 1: Extending a side past a vertex produces the exterior angle there, which equals the sum of the two nonadjacent interior angles: $(3n) + (7n) = 140$.\n\nStep 2: Solve: $10n = 140$, so $n = 14$. The two labeled angles are $3(14) = 42^\\circ$ and $7(14) = 98^\\circ$.\n\nStep 3: Check. The interior angle at the third corner is $180^\\circ - 140^\\circ = 40^\\circ$, and $42 + 98 + 40 = 180$, so the frame closes. The larger labeled angle is $98^\\circ$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($14$): stops at the scale factor $n$ instead of evaluating $7n$.\n* Choice B ($40$): reports the interior angle at the third corner, $180 - 140$, rather than a labeled angle.\n* Choice C ($42$): evaluates $3n$, the smaller of the two labeled angles.\n\n**Test Day Takeaway:** Solve for the letter, then finish the job the question actually asked for — the value of the expression, not the letter."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** $4n + 5n = 135$, so $n = 15$ and $5n = 75$.\n\n**The Full Solution:**\nStep 1: The exterior angle equals the sum of the two remote interior angles: $4n + 5n = 135$.\nStep 2: So $9n = 135$ and $n = 15$.\nStep 3: Then $5n = 5(15) = 75$. Check: the angles are $60^{\\circ}$, $75^{\\circ}$, and $180 - 135 = 45^{\\circ}$, which add to $180^{\\circ}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): $15$ is the value of $n$; the question asks for $5n$.\n* Choice B ($45$): $45^{\\circ}$ is the interior angle at the third vertex, the supplement of the exterior angle.\n* Choice C ($60$): $60$ is $4n$, the other remote angle.\n\n**Test Day Takeaway:** Set the two remote angles equal to the exterior angle, solve for the variable, then evaluate exactly the expression asked for."
 }

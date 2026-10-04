@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-009",
- "question": "A fabricator joins three titanium spars measuring $14$ centimeters, $14$ centimeters, and $22$ centimeters into a closed triangular frame. Which of the following best describes the triangle that the three spars form?",
+ "question": "A triangle has side lengths of $14$, $14$, and $22$. Which of the following best describes the triangle?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "requires all three sides equal, but 22 differs from 14",
-  "C": "requires all three sides different, but two spars share the length 14",
-  "D": "assumes the longest side is a hypotenuse without testing 14^2 + 14^2 against 22^2"
+  "A": "sees two equal sides and assumes all three are equal",
+  "C": "focuses on the different third side and overlooks the pair of equal sides",
+  "D": "assumes the triangle has a right angle without checking 14^2 + 14^2 against 22^2"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Triangle Classification by Sides**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Exactly two of the three lengths are equal, so the frame is isosceles but not equilateral.\n\n**The Full Solution:**\nStep 1: The three spars measure $14$, $14$, and $22$ centimeters, and $14 + 14 = 28 > 22$, so they do close into a triangle.\nStep 2: A triangle with exactly two equal sides is isosceles; with all three equal it would be equilateral. Here two sides measure $14$ and the third measures $22$.\nStep 3: Therefore the frame is isosceles but not equilateral.\n\nCheck: $14^2 + 14^2 = 392$, while $22^2 = 484$, so the triangle is not right either. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (equilateral): would require all three spars to measure the same, but $22 \\ne 14$.\n* Choice C (scalene): would require all three lengths to differ, yet two spars both measure $14$ centimeters.\n* Choice D (right): assumes the longest side must be a hypotenuse; testing gives $392 \\ne 484$, so no right angle exists.\n\n**Test Day Takeaway:** Classify by sides first by counting equal lengths, then test $a^2 + b^2 = c^2$ only if the question asks about angles."
+ "explanation": "**SAT Pattern: Triangle Classification by Sides**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Exactly two sides are equal ($14$ and $14$), so the triangle is isosceles but not equilateral.\n\n**The Full Solution:**\nStep 1: A triangle with all three sides equal is equilateral, one with at least two equal sides is isosceles, and one with no equal sides is scalene.\nStep 2: Here two sides measure $14$ and the third measures $22$, so exactly two sides are equal.\nStep 3: Rule out a right triangle: $14^{2} + 14^{2} = 392$, but $22^{2} = 484$, so the Pythagorean relationship fails. Check: the sides form a triangle at all, since $14 + 14 = 28 > 22$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Equilateral): would need all three sides equal, but $22 \\ne 14$.\n* Choice C (Scalene): would need all three sides different, but two sides are both $14$.\n* Choice D (Right): $14^{2} + 14^{2} = 392 \\ne 484 = 22^{2}$, so there is no right angle.\n\n**Test Day Takeaway:** Count the equal sides: three means equilateral, exactly two means isosceles, none means scalene. Test for a right angle only with the Pythagorean theorem."
 }

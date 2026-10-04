@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-013",
- "question": "A machinist has brass rods cut to the lengths listed in each choice, in centimeters. Which set of three lengths can be joined end to end to form a triangle?",
+ "question": "Which of the following could be the side lengths of a triangle?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "4 + 6 = 10, which is less than 11, so the two shorter rods cannot reach",
-  "B": "5 + 9 = 14 exactly, so the three rods lie flat instead of enclosing a region",
-  "C": "6 + 8 = 14, which is less than 15, so the frame cannot close"
+  "A": "checks only a pair that works, such as 6 + 11 > 4, and misses 4 + 6 < 11",
+  "B": "accepts a sum equal to the third side, 5 + 9 = 14, which gives a flat segment, not a triangle",
+  "C": "checks only a pair that works, such as 8 + 15 > 6, and misses 6 + 8 < 15"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Triangle Inequality**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Only in choice D do the two shorter rods beat the longest: $7 + 10 = 17 > 16$.\n\n**The Full Solution:**\nStep 1: Three lengths form a triangle exactly when the sum of the two shorter lengths is greater than the longest length.\nStep 2: Test each set: $4 + 6 = 10 < 11$; $5 + 9 = 14 = 14$; $6 + 8 = 14 < 15$; $7 + 10 = 17 > 16$.\nStep 3: Only the last set satisfies the strict inequality, so $7$, $10$, and $16$ centimeters can close into a triangle.\n\nCheck: The other two inequalities also hold for choice D, since $7 + 16 = 23 > 10$ and $10 + 16 = 26 > 7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$, $6$, $11$): $4 + 6 = 10$ falls short of $11$, so the two shorter rods never meet.\n* Choice B ($5$, $9$, $14$): $5 + 9 = 14$ exactly, so the rods lie flat along the longest one and enclose no area.\n* Choice C ($6$, $8$, $15$): $6 + 8 = 14$ is less than $15$, leaving a one-centimeter gap.\n\n**Test Day Takeaway:** Add the two smallest lengths and compare with the largest; equality is a straight line, not a triangle."
+ "explanation": "**SAT Pattern: Triangle Inequality**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The two shorter sides must add to more than the longest side; only $7 + 10 = 17 > 16$ works.\n\n**The Full Solution:**\nStep 1: Three lengths form a triangle only if the sum of the two shorter lengths is greater than the longest length.\nStep 2: Test each choice: $4 + 6 = 10 < 11$, $5 + 9 = 14 = 14$, $6 + 8 = 14 < 15$, and $7 + 10 = 17 > 16$.\nStep 3: Only $7$, $10$, and $16$ passes. Check: the other two sums also hold, $7 + 16 > 10$ and $10 + 16 > 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$, $6$, and $11$): $4 + 6 = 10$ is less than $11$, so the two short sides cannot meet.\n* Choice B ($5$, $9$, and $14$): $5 + 9$ equals $14$ exactly, so the sides would lie flat along one segment.\n* Choice C ($6$, $8$, and $15$): $6 + 8 = 14$ is less than $15$.\n\n**Test Day Takeaway:** Test only the two shortest sides against the longest; the sum must be strictly greater, and equal is not enough."
 }

@@ -1,30 +1,30 @@
 {
  "id": 17,
- "question": "Groundwater temperature, in degrees Celsius, at a depth of $d$ meters below the surface is modeled by $T(d) = 15 + 0.028d$ for depths up to $600$ meters. Going $50$ meters deeper raises the modeled temperature by how many degrees Celsius?",
+ "question": "$f(x) = ax + b$\nIn the given equation, $a$ and $b$ are constants. If $f(3) = 4$ and $f(7) = 24$, what is the value of $a + b$?",
  "choices": [
   {
    "id": "A",
-   "text": "$0.028$"
+   "text": "$-11$"
   },
   {
    "id": "B",
-   "text": "$1.4$"
+   "text": "$-6$"
   },
   {
    "id": "C",
-   "text": "$14$"
+   "text": "$5$"
   },
   {
    "id": "D",
-   "text": "$50$"
+   "text": "$24$"
   }
  ],
  "distractorNotes": {
-  "A": "reports the rise for one additional meter rather than for fifty",
-  "C": "multiplies the rate by 500 instead of by 50",
-  "D": "reports the depth step itself rather than the temperature change it produces"
+  "A": "gives the value of b only",
+  "C": "gives the value of a only",
+  "D": "makes a sign error finding b, using 4 + 15 = 19, so a + b = 24"
  },
  "correctAnswer": "B",
- "hint": "Ask what the model does across a fifty-meter step, not a one-meter step.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** The model rises $0.028$ degree per meter, so $50$ meters raise it by $0.028(50) = 1.4$ degrees.\n\n**The Full Solution:**\nStep 1: In $T(d) = 15 + 0.028d$ the coefficient $0.028$ is the change in modeled temperature for each additional meter of depth.\nStep 2: Over a $50$-meter increase the change is $0.028 \\times 50$.\nStep 3: $0.028 \\times 50 = 1.4$ degrees Celsius.\n\nCheck: $T(100) - T(50) = (15 + 2.8) - (15 + 1.4) = 1.4$ degrees. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.028$): reports the rise for a single meter and never scales it to fifty.\n* Choice C ($14$): multiplies the rate by $500$ instead of $50$, a factor-of-ten slip.\n* Choice D ($50$): reports the depth step itself rather than the temperature change it causes.\n\n**Test Day Takeaway:** The coefficient of the input is a rate per one unit; multiply it by the size of the step you are asked about."
+ "hint": "Find $a$ from the two given values first.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** $a = \\frac{24 - 4}{7 - 3} = 5$, and $4 = 15 + b$ gives $b = -11$, so $a + b = -6$, which is also $f(1)$.\n\n**The Full Solution:**\nStep 1: The slope is $a = \\frac{f(7) - f(3)}{7 - 3} = \\frac{24 - 4}{4} = 5$.\nStep 2: Substitute $f(3) = 4$: $4 = 5(3) + b$, so $b = -11$.\nStep 3: Then $a + b = 5 + (-11) = -6$. Check: $f(7) = 35 - 11 = 24$ ✓, and $a + b$ is $f(1) = 5 - 11 = -6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-11$): stops at $b$ and never adds $a$.\n* Choice C ($5$): stops at $a$ and never finds $b$.\n* Choice D ($24$): makes a sign error finding $b$, computing $4 + 15 = 19$, so $a + b = 24$.\n\n**Test Day Takeaway:** Two values of a linear function give the slope; substitute either one to get the intercept, and reread the question to see which combination is asked for."
 }

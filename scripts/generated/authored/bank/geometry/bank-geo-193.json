@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-193",
- "question": "A square-based tin for bandage rolls stands $x$ centimeters tall on a base edge of $x+4$ centimeters, and its four side panels together cover $4x^2+kx$ square centimeters. What is the value of $k$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$4$"
+  "id": "bank-geo-193",
+  "question": "A right rectangular prism has a square base with side length $(x + 4)$ and a height of $x$. The total surface area of the prism is $6x^{2} + kx + 32$, where $k$ is a constant. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$16$"
+    },
+    {
+      "id": "B",
+      "text": "$20$"
+    },
+    {
+      "id": "C",
+      "text": "$24$"
+    },
+    {
+      "id": "D",
+      "text": "$32$"
+    }
+  ],
+  "correctAnswer": "D",
+  "distractorNotes": {
+    "A": "squares x + 4 as x^2 + 16, dropping the 8x middle term of each base",
+    "B": "distributes the four side faces 4x(x + 4) as 4x^2 + 4x instead of 4x^2 + 16x",
+    "C": "expands (x + 4)^2 as x^2 + 4x + 16, so the two bases contribute 8x instead of 16x"
   },
-  {
-   "id": "B",
-   "text": "$8$"
-  },
-  {
-   "id": "C",
-   "text": "$16$"
-  },
-  {
-   "id": "D",
-   "text": "$32$"
-  }
- ],
- "distractorNotes": {
-  "A": "copies the constant 4 from the base edge without multiplying by the four panels",
-  "B": "counts only two panels: 2(x+4)x = 2x^2 + 8x",
-  "D": "counts eight panels, doubling the correct 16"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Each side panel is $(x+4)$ by $x$, so four of them cover $4x(x+4)=4x^2+16x$, giving $k=16$.\n\n**The Full Solution:**\n\nStep 1 — The base is a square of edge $x+4$, so every side panel is a rectangle $x+4$ centimeters wide and $x$ centimeters tall.\n\nStep 2 — One panel covers $x(x+4)=x^2+4x$ square centimeters, and there are four panels: $4(x^2+4x)=4x^2+16x$.\n\nStep 3 — Match coefficients with $4x^2+kx$: the $x^2$ terms already agree, so $k=16$. Check with $x=2$: each panel is $6$ by $2$, or $12$, and four panels give $48$, while $4(4)+16(2)=48$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($4$): this reports the constant from the base edge without multiplying by the four panels.\n* Choice B ($8$): this counts only two panels, giving $2x^2+8x$.\n* Choice D ($32$): this counts eight panels, doubling the correct coefficient.\n\n**Test Day Takeaway:** Expand fully, then match coefficients term by term — the $x^2$ terms agreeing is your signal that the setup is right."
+  "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Two bases give $2(x + 4)^{2} = 2x^{2} + 16x + 32$ and four sides give $4x(x + 4) = 4x^{2} + 16x$, so the total is $6x^{2} + 32x + 32$ and $k = 32$.\n\n**The Full Solution:**\nStep 1: The prism has two square bases, each with area $(x + 4)^{2} = x^{2} + 8x + 16$, so together they contribute $2x^{2} + 16x + 32$.\nStep 2: It has four rectangular side faces, each $x$ by $(x + 4)$, so together they contribute $4x(x + 4) = 4x^{2} + 16x$.\nStep 3: Add: $6x^{2} + 32x + 32$, so $k = 32$. Check: with $x = 1$, the prism is $5$ by $5$ by $1$, with surface area $2(25) + 4(5) = 70$, and $6 + 32 + 32 = 70$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): writes $(x + 4)^{2}$ as $x^{2} + 16$, which drops the $8x$ term from each base. The $x^{2}$ and constant terms still match, which makes this trap convincing.\n* Choice B ($20$): distributes the side faces as $4x^{2} + 4x$, multiplying the $4$ in $(x + 4)$ by $1$ instead of by $4x$.\n* Choice C ($24$): expands $(x + 4)^{2}$ as $x^{2} + 4x + 16$, doubling $4$ instead of doubling $4x$ for the middle term, so the two bases contribute $8x$ instead of $16x$.\n\n**Test Day Takeaway:** Surface area is the sum of every face: two bases plus four sides for a rectangular prism; expand each square of a binomial fully, middle term included."
 }

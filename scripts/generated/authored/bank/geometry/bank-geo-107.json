@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-107",
- "question": "A syringe stand's brace is right triangle $XYZ$ shown, with the right angle at $Y$ and every length in centimeters. What is the value of $\\cos(\\angle X)$?",
+ "question": "In right triangle $XYZ$ shown, what is the value of $\\sin Z$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -10,12 +10,12 @@
      0
     ],
     [
-     12,
+     16,
      0
     ],
     [
-     12,
-     9
+     16,
+     12
     ]
    ],
    "labels": [
@@ -24,9 +24,9 @@
     "Z"
    ],
    "sideLabels": [
+    "16",
     "12",
-    "9",
-    "15"
+    "20"
    ],
    "rightAngleVertex": 1
   }
@@ -50,10 +50,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "gives sin(X) = 9/15 = 3/5, using the opposite leg",
-  "B": "gives tan(X) = 9/12 = 3/4",
-  "D": "inverts tan(X), dividing the adjacent leg by the opposite leg"
+  "A": "gives cos Z, the adjacent leg 12 over the hypotenuse 20",
+  "B": "divides the adjacent leg 12 by the opposite leg 16, which is tan X",
+  "D": "gives tan Z, the opposite leg 16 over the adjacent leg 12"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The sides $9$, $12$, $15$ are a $3$-$4$-$5$ triangle tripled; cosine is adjacent over hypotenuse, so $\\cos(\\angle X)=\\frac{12}{15}=\\frac{4}{5}$.\n\n**The Full Solution:**\n\nStep 1 — The right angle sits at $Y$, so $\\overline{ZX}=15$ centimeters is the hypotenuse.\n\nStep 2 — The leg adjacent to $\\angle X$ is $\\overline{XY}=12$ centimeters, and the leg opposite is $\\overline{YZ}=9$ centimeters.\n\nStep 3 — Apply CAH: $\\cos(\\angle X)=\\frac{12}{15}=\\frac{4}{5}$. Check: $9^2+12^2=81+144=225=15^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($\\frac{3}{5}$): this is $\\sin(\\angle X)=\\frac{9}{15}$, built from the opposite leg.\n* Choice B ($\\frac{3}{4}$): this is $\\tan(\\angle X)=\\frac{9}{12}$, leaving the hypotenuse out entirely.\n* Choice D ($\\frac{4}{3}$): this flips $\\tan(\\angle X)$, dividing $12$ by $9$.\n\n**Test Day Takeaway:** In any $3$-$4$-$5$ triangle the three ratios are $\\frac{3}{5}$, $\\frac{4}{5}$, and $\\frac{3}{4}$ — knowing which is which saves the whole computation."
+ "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Sine is opposite over hypotenuse: $\\sin Z = \\frac{XY}{XZ} = \\frac{16}{20} = \\frac{4}{5}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $Y$, so $XZ = 20$ is the hypotenuse.\nStep 2: Relative to angle $Z$, the opposite leg is $XY = 16$ (the leg that does not touch $Z$) and the adjacent leg is $YZ = 12$.\nStep 3: $\\sin Z = \\frac{16}{20} = \\frac{4}{5}$. Check: $12^2 + 16^2 = 144 + 256 = 400 = 20^2$, so the sides form a $3$-$4$-$5$ triangle scaled by $4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{5}$): uses the adjacent leg, $\\frac{12}{20}$, which is $\\cos Z$.\n* Choice B ($\\frac{3}{4}$): divides $12$ by $16$, which is $\\tan X$, not a ratio for angle $Z$.\n* Choice D ($\\frac{4}{3}$): divides the opposite leg by the adjacent leg, $\\frac{16}{12}$, which is $\\tan Z$.\n\n**Test Day Takeaway:** Label the sides opposite, adjacent and hypotenuse from the angle named in the question; the opposite leg is the one that does not touch that angle."
 }

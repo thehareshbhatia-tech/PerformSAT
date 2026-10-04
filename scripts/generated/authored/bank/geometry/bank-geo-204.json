@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-204",
- "question": "Stall 14 of a farmers market holds a triangular sample table whose corners fall at $(0,0)$, $(10,0)$, and $(4,k)$ on the site grid, where $k>0$ and one unit is a foot. Which expression gives its area in square feet?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$2k$"
+  "id": "bank-geo-204",
+  "question": "A triangle in the $xy$-plane has vertices at $(0, 0)$, $(12, 0)$, and $(5, k)$, where $k > 0$. Which expression represents the area of the triangle?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\frac{5}{2}k$"
+    },
+    {
+      "id": "B",
+      "text": "$6k$"
+    },
+    {
+      "id": "C",
+      "text": "$12k$"
+    },
+    {
+      "id": "D",
+      "text": "$30k$"
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "uses the x-coordinate 5 of the third vertex as the base instead of the side of length 12",
+    "C": "multiplies base and height but forgets the factor of 1/2",
+    "D": "multiplies 12 by 5 and by k, treating the x-coordinate 5 as another dimension"
   },
-  {
-   "id": "B",
-   "text": "$5k$"
-  },
-  {
-   "id": "C",
-   "text": "$10k$"
-  },
-  {
-   "id": "D",
-   "text": "$20k$"
-  }
- ],
- "distractorNotes": {
-  "A": "uses 4, the third vertex's x-coordinate, as the base, giving 2k",
-  "C": "omits the factor one half, giving the rectangle's area 10k",
-  "D": "doubles the base-height product instead of halving it"
- },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The base on the $x$-axis is $10$ and the height is $k$, so the area is $\\frac{1}{2}(10)(k)=5k$.\n\n**The Full Solution:**\n\nStep 1: Choose the base. The points $(0,0)$ and $(10,0)$ both lie on the $x$-axis, so that side has length $10$ feet.\n\nStep 2: Read the height. The height is the perpendicular distance from $(4,k)$ to the $x$-axis, which is $k$ feet.\n\nStep 3: Apply the formula. Area $=\\frac{1}{2}(10)(k)=5k$ square feet.\n\nCheck: with $k=6$ the area is $30$, and the triangle is half of a $10$-by-$6$ rectangle.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($2k$): uses $4$, the third vertex's $x$-coordinate, as the base.\n* Choice C ($10k$): omits the factor $\\frac{1}{2}$ and reports the rectangle's area.\n* Choice D ($20k$): doubles the base-height product instead of halving it.\n\n**Test Day Takeaway:** The apex's $x$-coordinate never affects the area — only its distance from the line containing the base does."
+  "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The base on the $x$-axis is $12$ and the height is $k$, so the area is $\\frac{1}{2}(12)(k) = 6k$.\n\n**The Full Solution:**\nStep 1: The side from $(0, 0)$ to $(12, 0)$ lies on the $x$-axis, so take the base to be $12$.\nStep 2: The height is the vertical distance from $(5, k)$ to the $x$-axis, which is $k$; the $x$-coordinate $5$ does not affect it.\nStep 3: Area $= \\frac{1}{2}(12)(k) = 6k$. Check: with $k = 2$, the vertices $(0, 0)$, $(12, 0)$, $(5, 2)$ give $\\frac{1}{2}(12)(2) = 12 = 6(2)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{2}k$): uses $5$, the $x$-coordinate of the top vertex, as the base. The base is the full side on the $x$-axis.\n* Choice C ($12k$): leaves out the factor of $\\frac{1}{2}$.\n* Choice D ($30k$): multiplies by $5$ as well, treating the $x$-coordinate of the top vertex as if it were part of the area.\n\n**Test Day Takeaway:** With a side on the $x$-axis, the height is just the $y$-coordinate of the third vertex, wherever it sits left to right."
 }

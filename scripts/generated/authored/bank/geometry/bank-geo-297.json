@@ -1,29 +1,29 @@
 {
- "question": "Two cylindrical bass-port tubes enclose equal volumes, and tube $A$ has twice the radius of tube $B$. Which statement about the lengths of the tubes must be true?",
+ "question": "Right circular cylinders $A$ and $B$ have equal volumes. The radius of cylinder $A$ is $2$ times the radius of cylinder $B$. The height of cylinder $A$ is $k$ times the height of cylinder $B$. What is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "Tube $A$ is one-fourth as long as tube $B$."
+   "text": "$\\frac{1}{4}$"
   },
   {
    "id": "B",
-   "text": "Tube $A$ is half as long as tube $B$."
+   "text": "$\\frac{1}{2}$"
   },
   {
    "id": "C",
-   "text": "Tube $A$ is twice as long as tube $B$."
+   "text": "$2$"
   },
   {
    "id": "D",
-   "text": "Tube $A$ is four times as long as tube $B$."
+   "text": "$4$"
   }
  ],
  "correctAnswer": "A",
  "distractorNotes": {
-  "B": "scales the length by the radius factor 2 instead of its square",
-  "C": "reverses the relationship, making the wider tube longer",
-  "D": "reverses the relationship and uses the squared factor"
+  "B": "scales the height by the radius ratio, 1/2, instead of its square",
+  "C": "copies the radius ratio 2 as the height ratio",
+  "D": "squares the radius ratio but forgets to take the reciprocal"
  },
- "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Equal volumes keep $r^2 L$ constant; doubling the radius multiplies $r^2$ by $4$, so the length must be divided by $4$.\n\n**The Full Solution:**\nStep 1: Let tube $B$ have radius $r$ and length $L_B$, so tube $A$ has radius $2r$ and length $L_A$.\nStep 2: Equal volumes give $\\pi(2r)^2 L_A = \\pi r^2 L_B$, that is $4r^2 L_A = r^2 L_B$.\nStep 3: Divide by $4r^2$: $L_A = \\frac{L_B}{4}$, so tube $A$ is one-fourth as long. Check: with $r = 1$ and $L_B = 8$, tube $B$ holds $8\\pi$ and tube $A$ has radius $2$ and length $2$, holding $8\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: divides the length by $2$, using the radius factor instead of its square.\n* Choice C: makes the wider tube longer, which would give it far more volume, not the same.\n* Choice D: uses the right factor of $4$ but in the wrong direction.\n\n**Test Day Takeaway:** With volume fixed, radius and length trade off through the SQUARE of the radius factor — and the wider shape is always the shorter one.",
+ "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Doubling the radius multiplies the base area by $4$, so equal volumes need the height to be $\\frac{1}{4}$ as tall: $k = \\frac{1}{4}$.\n\n**The Full Solution:**\nStep 1: Let cylinder $B$ have radius $r$ and height $h$, so its volume is $\\pi r^{2}h$.\nStep 2: Cylinder $A$ has radius $2r$ and height $kh$, so its volume is $\\pi(2r)^{2}(kh) = 4k\\pi r^{2}h$.\nStep 3: Set the volumes equal: $4k\\pi r^{2}h = \\pi r^{2}h$, so $4k = 1$ and $k = \\frac{1}{4}$. Check: with $r = 1$, $h = 8$, cylinder $B$ holds $8\\pi$ and cylinder $A$ holds $\\pi(2)^{2}(2) = 8\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{1}{2}$): scales the height by $\\frac{1}{2}$, as if volume depended on $r$ instead of $r^{2}$.\n* Choice C ($2$): copies the radius ratio as the height ratio.\n* Choice D ($4$): finds the factor $4$ for the base area but does not take its reciprocal.\n\n**Test Day Takeaway:** Volume depends on $r^{2}$, so multiplying the radius by $2$ multiplies the base area by $4$; keeping the volume fixed divides the height by $4$.",
  "id": "bank-geo-297"
 }

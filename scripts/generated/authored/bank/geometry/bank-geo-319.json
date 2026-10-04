@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-319",
- "question": "An elevator-shaft guide bracket is the right triangle shown; its sloped edge is $39$ centimeters and its horizontal edge is $15$ centimeters. How many centimeters of weld run around the bracket?",
+ "question": "What is the perimeter, in centimeters, of the right triangle shown?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -29,26 +29,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$36$"
-  },
-  {
-   "id": "B",
-   "text": "$51$"
-  },
-  {
-   "id": "C",
    "text": "$54$"
   },
   {
-   "id": "D",
+   "id": "B",
+   "text": "$78$"
+  },
+  {
+   "id": "C",
    "text": "$90$"
+  },
+  {
+   "id": "D",
+   "text": "$270$"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports the missing vertical edge, 36, instead of the distance around",
-  "B": "adds only the two legs, 15 + 36, and omits the sloped edge",
-  "C": "adds the two lengths printed on the figure, 15 + 39, without finding the third"
+  "A": "adds only the two labeled sides, 15 + 39",
+  "B": "takes the missing leg as 39 - 15 = 24, giving 15 + 24 + 39",
+  "D": "computes the area, one half times 15 times 36, instead of the perimeter"
  },
- "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice D is correct.** The vertical edge is $\\sqrt{39^2 - 15^2} = 36$, so the weld runs $15 + 36 + 39 = 90$ centimeters.\n\n**The Fast Way (~30s):** $15$-$36$-$39$ is the $5$-$12$-$13$ triple tripled; the perimeter is $90$.\n\n**The Full Solution:**\n\nStep 1: The $39$-centimeter sloped edge is the hypotenuse, so the vertical edge satisfies $b^2 = 1521 - 225 = 1296$.\n\nStep 2: Therefore $b = 36$ centimeters.\n\nStep 3: The weld follows all three edges: $15 + 36 + 39 = 90$ centimeters. Check: $15^2 + 36^2 = 225 + 1296 = 1521 = 39^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($36$): reports the edge just computed instead of the distance around.\n* Choice B ($51$): adds only the two legs and leaves the sloped edge unwelded.\n* Choice C ($54$): adds the two lengths printed on the figure without finding the third.\n\n**Test Day Takeaway:** After the Pythagorean step, count the sides the question actually covers — a weld or trim question is always a perimeter."
+ "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The missing leg is $\\sqrt{39^2 - 15^2} = 36$, so the perimeter is $15 + 36 + 39 = 90$.\n\n**The Full Solution:**\nStep 1: The $39$-centimeter side is opposite the right angle, so it is the hypotenuse; the legs are $15$ and an unknown length $b$.\nStep 2: By the Pythagorean theorem, $b^2 = 39^2 - 15^2 = 1{,}521 - 225 = 1{,}296$, so $b = 36$.\nStep 3: The perimeter is $15 + 36 + 39 = 90$ centimeters. Check: $15^2 + 36^2 = 225 + 1{,}296 = 1{,}521 = 39^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($54$): adds the two labeled sides and leaves out the third side.\n* Choice B ($78$): takes the missing leg as $39 - 15 = 24$; subtract the squares, not the lengths.\n* Choice D ($270$): is the area, $\\frac{1}{2}(15)(36)$, not the perimeter.\n\n**Test Day Takeaway:** $15$-$36$-$39$ is $5$-$12$-$13$ scaled by $3$; dividing out a common factor often reveals the triple."
 }

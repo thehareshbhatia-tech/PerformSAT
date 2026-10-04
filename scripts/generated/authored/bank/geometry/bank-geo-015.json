@@ -1,29 +1,29 @@
 {
-  "id": "bank-geo-015",
-  "question": "During a calibration run, a benchtop centrifuge holds a rotor whose sample tubes all start from marked positions on the rim. The operator spins the rotor and stops it at the first moment when every tube is back in the position from which it started. Which expression gives the measure, in radians, of the angle each tube has turned through?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$\\frac{\\pi}{2}$"
-    },
-    {
-      "id": "B",
-      "text": "$\\pi$"
-    },
-    {
-      "id": "C",
-      "text": "$2\\pi$"
-    },
-    {
-      "id": "D",
-      "text": "$4\\pi$"
-    }
-  ],
-  "correctAnswer": "C",
-  "distractorNotes": {
-    "A": "gives a quarter revolution, the radian measure of 90 degrees",
-    "B": "gives a half revolution, the radian measure of 180 degrees",
-    "D": "gives two complete revolutions rather than one"
+ "id": "bank-geo-015",
+ "question": "A circle is divided into $8$ congruent sectors. What is the measure, in radians, of the central angle of each sector?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{\\pi}{8}$"
   },
-  "explanation": "**SAT Pattern: Radian Measure of a Full Circle**\n\n**Choice C is correct.** One complete revolution is $2\\pi$ radians.\n\n**The Fast Way (~10s):** A full turn around a circle is $2\\pi$ radians.\n\n**The Full Solution:**\n\nStep 1: A tube returns to its starting position for the first time exactly when the rotor has made one complete revolution.\n\nStep 2: Radian measure is arc length divided by radius. Going once around a circle of radius $r$ traces an arc of length $2\\pi r$.\n\nStep 3: So the angle is $\\frac{2\\pi r}{r} = 2\\pi$ radians. Check: $2\\pi$ radians converts to $2\\pi \\cdot \\frac{180}{\\pi} = 360^\\circ$, one full turn.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($\\frac{\\pi}{2}$): a quarter revolution, or $90^\\circ$.\n* Choice B ($\\pi$): a half revolution, or $180^\\circ$ — the value students reach for when they recall \"$\\pi$ is a circle.\"\n* Choice D ($4\\pi$): two complete revolutions, or $720^\\circ$.\n\n**Test Day Takeaway:** Anchor every radian question to $2\\pi = $ one full turn; halves, quarters, and thirds of a revolution all follow from it."
+  {
+   "id": "B",
+   "text": "$\\frac{\\pi}{4}$"
+  },
+  {
+   "id": "C",
+   "text": "$2\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$16\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses pi radians for a full turn, computing pi/8",
+  "C": "gives the measure of the whole circle without dividing by 8",
+  "D": "multiplies 2 pi by 8 instead of dividing"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Radian Measure of a Full Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A full circle is $2\\pi$ radians, and $\\frac{2\\pi}{8} = \\frac{\\pi}{4}$.\n\n**The Full Solution:**\nStep 1: The central angles of the sectors together make one full turn, which measures $2\\pi$ radians.\nStep 2: The $8$ sectors are congruent, so each central angle is $\\frac{2\\pi}{8}$.\nStep 3: Simplify: $\\frac{2\\pi}{8} = \\frac{\\pi}{4}$. Check: $\\frac{\\pi}{4}$ radians is $45°$, and $8(45°) = 360°$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{\\pi}{8}$): treats a full turn as $\\pi$ radians, which is only half a circle.\n* Choice C ($2\\pi$): gives the measure of the whole circle and never divides it among the sectors.\n* Choice D ($16\\pi$): multiplies by $8$ instead of dividing.\n\n**Test Day Takeaway:** A full turn is $2\\pi$ radians, the same as $360°$; split it evenly when a circle is cut into congruent sectors."
 }

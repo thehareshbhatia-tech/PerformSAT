@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-095",
- "question": "In right triangle $DEF$ shown, angle $E$ is the right angle and the measure of angle $D$ is $4$ times the measure of angle $F$. What is the measure, in degrees, of angle $F$?",
+ "question": "In right triangle $DEF$ shown, angle $E$ is a right angle. The measure of angle $D$ is $14°$ greater than $3$ times the measure of angle $F$. What is the measure, in degrees, of angle $F$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -13,6 +13,6 @@
    "figureNote": true
   }
  },
- "correctAnswer": "18",
- "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~30s):** The two acute angles sum to $90°$, so $4f + f = 90$ gives $f = 18$ degrees.\n\n**The Full Solution:**\nStep 1: Angle $E$ measures $90°$, so angles $D$ and $F$ together measure $180 - 90 = 90$ degrees.\nStep 2: Let angle $F$ measure $f$ degrees; then angle $D$ measures $4f$ degrees, and $4f + f = 90$.\nStep 3: $5f = 90$, so $f = 18$ degrees.\n\nCheck: angle $D$ measures $72°$, and $90 + 72 + 18 = 180$.\n\n**Common Mistakes:**\n* Using $180$ instead of $90$ for the two acute angles, which gives $5f = 180$ and $f = 36$.\n* Answering $72$, the measure of angle $D$, instead of angle $F$.\n* Splitting the $90°$ evenly and answering $45$, which ignores the $4$-to-$1$ relationship.\n\n**Test Day Takeaway:** In a right triangle the two acute angles are complementary, so set their expressions equal to $90°$, not $180°$."
+ "correctAnswer": "19",
+ "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**The correct answer is $19$.**\n\n**The Fast Way (~25s):** The acute angles of a right triangle sum to $90°$: $f + (3f + 14) = 90$, so $4f = 76$ and $f = 19$.\n\n**The Full Solution:**\nStep 1: Angle $E$ is $90°$, so angles $D$ and $F$ sum to $180 - 90 = 90$ degrees.\nStep 2: Let angle $F$ measure $f$ degrees. Then angle $D$ measures $3f + 14$, and $f + (3f + 14) = 90$, or $4f + 14 = 90$.\nStep 3: Solve: $4f = 76$, so $f = 19$. Check: angle $D$ is $3(19) + 14 = 71$, and $19 + 71 + 90 = 180$ ✓\n\n**Common Mistakes:**\n* $71$: reports the measure of angle $D$ instead of angle $F$.\n* $41.5$: sets the two acute angles equal to $180$, ignoring the right angle.\n* $22.5$: drops the $14$ and solves $4f = 90$.\n\n**Test Day Takeaway:** In a right triangle the two acute angles always sum to $90°$, so one equation in one variable finishes the problem."
 }

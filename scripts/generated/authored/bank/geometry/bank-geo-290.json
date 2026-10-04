@@ -1,12 +1,12 @@
 {
- "question": "The table gives the endpoints of a diameter of the circular catwalk around a water tower, where coordinates are in meters. Which equation models the catwalk in the $xy$-plane?",
+ "question": "The table shows the coordinates of points $P$ and $Q$, the endpoints of a diameter of a circle in the $xy$-plane. Which equation represents the circle?",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
-    "Endpoint",
-    "x (meters)",
-    "y (meters)"
+    "Point",
+    "x",
+    "y"
    ],
    "rows": [
     [
@@ -25,27 +25,27 @@
  "choices": [
   {
    "id": "A",
-   "text": "$(x + 1)^2 + (y - 4)^2 = 100$"
+   "text": "$(x + 1)^{2} + (y - 4)^{2} = 100$"
   },
   {
    "id": "B",
-   "text": "$(x - 1)^2 + (y + 4)^2 = 400$"
+   "text": "$(x - 1)^{2} + (y + 4)^{2} = 400$"
   },
   {
    "id": "C",
-   "text": "$(x - 2)^2 + (y + 8)^2 = 100$"
+   "text": "$(x - 2)^{2} + (y + 8)^{2} = 100$"
   },
   {
    "id": "D",
-   "text": "$(x - 1)^2 + (y + 4)^2 = 100$"
+   "text": "$(x - 1)^{2} + (y + 4)^{2} = 100$"
   }
  ],
  "correctAnswer": "D",
  "distractorNotes": {
-  "A": "flips the signs of the center's coordinates, centering the circle at (-1, 4)",
-  "B": "uses the diameter 20 as the radius, so the right side becomes 400",
-  "C": "adds the endpoint coordinates without halving, centering the circle at (2, -8)"
+  "A": "uses the right center (1, -4) but writes the signs inside the squares backward",
+  "B": "uses the full diameter 20 as the radius, so r squared is 400",
+  "C": "adds the endpoint coordinates but forgets to divide by 2, giving the center (2, -8)"
  },
- "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** The center is the midpoint $\\left(\\frac{-5 + 7}{2}, \\frac{4 - 12}{2}\\right) = (1, -4)$, and the diameter is $\\sqrt{12^2 + 16^2} = 20$, so $r = 10$ and $r^2 = 100$.\n\n**The Full Solution:**\nStep 1: The center of a circle is the midpoint of any diameter: $(1, -4)$.\nStep 2: The diameter's length is $\\sqrt{(7 - (-5))^2 + (-12 - 4)^2} = \\sqrt{144 + 256} = \\sqrt{400} = 20$ meters, so $r = 10$ meters.\nStep 3: Standard form gives $(x - 1)^2 + (y + 4)^2 = 100$. Check: substituting $P(-5, 4)$ gives $36 + 64 = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: writes $(x + 1)^2 + (y - 4)^2$, which centers the catwalk at $(-1, 4)$ instead of $(1, -4)$.\n* Choice B: keeps the diameter $20$ as the radius, so the right side is $400$ rather than $100$.\n* Choice C: adds the endpoint coordinates without dividing by $2$, placing the center at $(2, -8)$.\n\n**Test Day Takeaway:** Endpoints of a diameter give the center by midpoint and the radius by half the distance — halve before squaring.",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The center is the midpoint $(1, -4)$, and the radius is half of $PQ = \\sqrt{12^{2} + 16^{2}} = 20$, so $r = 10$ and $r^{2} = 100$.\n\n**The Full Solution:**\nStep 1: The center is the midpoint of $\\overline{PQ}$: $\\left(\\frac{-5 + 7}{2}, \\frac{4 + (-12)}{2}\\right) = (1, -4)$.\nStep 2: The diameter is $\\sqrt{(7 - (-5))^{2} + (-12 - 4)^{2}} = \\sqrt{144 + 256} = 20$, so the radius is $10$.\nStep 3: The equation is $(x - 1)^{2} + (y + 4)^{2} = 100$. Check: $P$ gives $(-6)^{2} + 8^{2} = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: has the center $(-1, 4)$, which reverses the signs of the coordinates of the center.\n* Choice B: uses the diameter $20$ as the radius.\n* Choice C: adds the coordinates of $P$ and $Q$ but forgets to divide by $2$, giving the center $(2, -8)$.\n\n**Test Day Takeaway:** Midpoint for the center, half the endpoint distance for the radius, and square the radius on the right side.",
  "id": "bank-geo-290"
 }

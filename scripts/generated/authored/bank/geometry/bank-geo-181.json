@@ -1,29 +1,29 @@
 {
   "id": "bank-geo-181",
-  "question": "A drainage channel at a campground follows a straight line that meets a circular retention pond at exactly one point. Substituting the line's equation into the pond's equation gives $5x^2-20x+k=0$. Which of the following must be true?",
+  "question": "$x^{2} + y^{2} = 18$\n$y = x + b$\nIn the given system of equations, $b$ is a positive constant. If the system has exactly one real solution, what is the value of $b$?",
   "choices": [
     {
       "id": "A",
-      "text": "$k=20$"
+      "text": "$3$"
     },
     {
       "id": "B",
-      "text": "$k<20$"
+      "text": "$3\\sqrt{2}$"
     },
     {
       "id": "C",
-      "text": "$k>20$"
+      "text": "$6$"
     },
     {
       "id": "D",
-      "text": "$k=0$"
+      "text": "$36$"
     }
   ],
+  "correctAnswer": "C",
   "distractorNotes": {
-    "B": "describes a positive discriminant, which gives two intersection points, not one",
-    "C": "describes a negative discriminant, which gives no intersection points",
-    "D": "sets the constant term to zero instead of the discriminant"
+    "A": "divides the radius 3 root 2 by root 2 instead of multiplying, so b = 3",
+    "B": "sets the constant term b^2 - 18 equal to zero instead of the discriminant, so b equals the radius",
+    "D": "stops at b^2 = 36 and reports b^2 instead of b"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Exactly one intersection means one root, so $(-20)^2-4(5)(k)=0$, giving $400=20k$ and $k=20$.\n\n**The Full Solution:**\n\nStep 1 — The substitution has produced a quadratic in $x$; each of its real roots is an intersection point of the line and the circle.\n\nStep 2 — Exactly one intersection point means exactly one real root, which happens when the discriminant equals zero: $b^2-4ac=(-20)^2-4(5)(k)=400-20k$.\n\nStep 3 — Set it to zero: $400-20k=0$, so $k=20$. Check: with $k=20$ the quadratic is $5x^2-20x+20=5(x-2)^2$, whose only root is $x=2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($k<20$): this makes the discriminant positive, giving two intersection points.\n* Choice C ($k>20$): this makes the discriminant negative, giving no intersection at all.\n* Choice D ($k=0$): this zeroes the constant term rather than the discriminant, and $5x^2-20x=0$ has two roots.\n\n**Test Day Takeaway:** Tangency is a statement about root count — translate it to \"discriminant equals zero\" before touching the algebra."
+  "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Substituting gives $2x^{2} + 2bx + b^{2} - 18 = 0$, and one solution means the discriminant $4b^{2} - 8(b^{2} - 18) = 144 - 4b^{2}$ is $0$, so $b^{2} = 36$ and $b = 6$.\n\n**The Full Solution:**\nStep 1: Substitute $x + b$ for $y$ in the first equation: $x^{2} + (x + b)^{2} = 18$, which expands to $2x^{2} + 2bx + b^{2} - 18 = 0$.\nStep 2: The system has exactly one solution when this quadratic has exactly one real root, so its discriminant is $0$: $(2b)^{2} - 4(2)(b^{2} - 18) = 4b^{2} - 8b^{2} + 144 = 144 - 4b^{2}$.\nStep 3: Solve $144 - 4b^{2} = 0$: $b^{2} = 36$, and since $b$ is positive, $b = 6$. Check: the quadratic becomes $2x^{2} + 12x + 18 = 2(x + 3)^{2}$, so $x = -3$ and $y = 3$, and $(-3)^{2} + 3^{2} = 18$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): divides the radius $\\sqrt{18} = 3\\sqrt{2}$ by $\\sqrt{2}$. The distance from the origin to the line is $\\frac{b}{\\sqrt{2}}$, so $b$ is the radius times $\\sqrt{2}$, not divided by it.\n* Choice B ($3\\sqrt{2}$): sets the constant term $b^{2} - 18$ equal to $0$ instead of the discriminant, which makes $b$ equal to the radius.\n* Choice D ($36$): stops at $b^{2} = 36$ and reports $b^{2}$ instead of $b$.\n\n**Test Day Takeaway:** A line and a circle meet at exactly one point when the quadratic you get from substitution has discriminant $0$; solve for the constant, then reread which quantity the question asks for."
 }

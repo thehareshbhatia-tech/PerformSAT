@@ -1,16 +1,16 @@
 {
  "id": "bank-geo-169",
- "question": "A straight service road crosses two parallel rows of solar panels as drawn, where $a$ and $b$ are constants. What is the measure, in degrees, of the angle marked $(2a+2b)°$?",
+ "question": "In the figure, line $\\ell$ is parallel to line $m$, and $a$ and $b$ are constants. What is the value of $b$?",
  "diagram": {
   "type": "parallelLines",
   "params": {
    "angles": {
     "top": [
-     "(7a - 2b)°",
-     "(2a + 2b)°"
+     "(3a + 2b)°",
+     "(7a - 2b)°"
     ],
     "bottom": [
-     "(3a + 2b)°",
+     "(2a + 4b)°",
      ""
     ]
    },
@@ -25,26 +25,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$20$"
+   "text": "$9$"
   },
   {
    "id": "B",
-   "text": "$40$"
+   "text": "$18$"
   },
   {
    "id": "C",
-   "text": "$80$"
+   "text": "$36$"
   },
   {
    "id": "D",
-   "text": "$100$"
+   "text": "$72$"
   }
  ],
  "distractorNotes": {
-  "A": "reports the constant b = 20 rather than an angle measure",
-  "B": "reports a + b = 40 rather than an angle measure",
-  "D": "gives the supplementary angle marked (7a - 2b) degrees, which is 100"
+  "B": "reports the value of a instead of b",
+  "C": "reads a = 2b as b = 2a, getting b = 36",
+  "D": "reports the measure of the angle marked (3a + 2b) degrees"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Angles with Parallel Lines (System of Two Conditions)**\n\n**Choice C is correct.**\n\n**The Fast Way (~55s):** The two top angles are a linear pair, so $9a=180$ and $a=20$; corresponding angles then give $b=20$, so $(2a+2b)°=80°$.\n\n**The Full Solution:**\n\nStep 1: Use the linear pair on the upper row. $(7a-2b)+(2a+2b)=180$ simplifies to $9a=180$, so $a=20$.\n\nStep 2: Use corresponding angles. The angle $(7a-2b)°$ on the upper row corresponds to $(3a+2b)°$ on the lower row, so $7a-2b=3a+2b$, giving $4a=4b$ and $b=a=20$.\n\nStep 3: Evaluate the requested angle. $(2a+2b)°=(40+40)°=80°$.\n\nCheck: the angles become $100°$, $80°$, and $100°$; the first two sum to $180°$ and the first and third are equal, as parallel lines require.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($20$): reports the constant $b$ instead of the angle it helps produce.\n* Choice B ($40$): reports $a+b$, stopping one substitution short of the angle measure.\n* Choice D ($100$): gives the angle marked $(7a-2b)°$, the supplement of the one asked for.\n\n**Test Day Takeaway:** Two labeled angles at one intersection plus one corresponding angle across the transversal give two equations — solve the system before evaluating."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Angles with Parallel Lines (System of Two Conditions)**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** The two angles at line $\\ell$ form a linear pair, so $10a = 180$ and $a = 18$; the corresponding angles give $3a + 2b = 2a + 4b$, so $a = 2b$ and $b = 9$.\n\n**The Full Solution:**\nStep 1: The angles marked $(3a + 2b)^{\\circ}$ and $(7a - 2b)^{\\circ}$ form a linear pair: $(3a + 2b) + (7a - 2b) = 180$, so $10a = 180$ and $a = 18$.\nStep 2: The angles marked $(3a + 2b)^{\\circ}$ and $(2a + 4b)^{\\circ}$ are corresponding angles, so $3a + 2b = 2a + 4b$, which gives $a = 2b$.\nStep 3: $18 = 2b$, so $b = 9$. Check: the angles measure $72^{\\circ}$, $108^{\\circ}$, and $72^{\\circ}$; the first two sum to $180^{\\circ}$ and the corresponding pair is equal ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($18$): reports $a$, the value found in the first step.\n* Choice C ($36$): turns $a = 2b$ into $b = 2a$.\n* Choice D ($72$): reports an angle measure instead of the constant $b$.\n\n**Test Day Takeaway:** Each angle relationship in the figure gives one equation. Use the linear pair and the corresponding pair to build a system, then solve for the constant asked for."
 }

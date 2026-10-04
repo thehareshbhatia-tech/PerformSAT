@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-311",
- "question": "A raised-floor tile in a data hall is $w$ centimeters wide and $3$ centimeters longer than it is wide. Which expression gives the tile's area, in square centimeters?",
+ "question": "A rectangle has a width of $w$ centimeters and a length that is $3$ centimeters greater than its width. Which expression represents the area, in square centimeters, of the rectangle?",
  "choices": [
   {
    "id": "A",
@@ -21,9 +21,9 @@
  ],
  "correctAnswer": "D",
  "distractorNotes": {
-  "A": "gives the tile's length rather than its area",
-  "B": "gives half the perimeter, w + (w + 3), instead of the product",
-  "C": "multiplies w by w but adds the 3 instead of distributing it"
+  "A": "gives the length of the rectangle, not its area",
+  "B": "adds the width and the length instead of multiplying them",
+  "C": "multiplies w by w but does not distribute w across the 3"
  },
- "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice D is correct.** The length is $w + 3$, so the area is $w(w + 3) = w^2 + 3w$.\n\n**The Fast Way (~15s):** Area is width times length: $w(w + 3) = w^2 + 3w$.\n\n**The Full Solution:**\n\nStep 1: The width is $w$ and the length is $3$ more than the width, or $w + 3$.\n\nStep 2: Area of a rectangle is the product of the two dimensions: $w(w + 3)$.\n\nStep 3: Distribute: $w^2 + 3w$. Check with $w = 4$: the tile is $4$ by $7$, area $28$, and $4^2 + 3(4) = 16 + 12 = 28$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($w + 3$): gives the length, not the area.\n* Choice B ($2w + 3$): adds the two dimensions instead of multiplying them.\n* Choice C ($w^2 + 3$): multiplies $w$ by $w$ but forgets to distribute $w$ across the $3$.\n\n**Test Day Takeaway:** Translate \"longer than\" into $w + 3$ first, then multiply — and sanity-check the expression with one convenient number."
+ "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Area is width times length: $w(w + 3) = w^2 + 3w$.\n\n**The Full Solution:**\nStep 1: The width is $w$, and the length is $3$ more than the width, or $w + 3$.\nStep 2: The area of a rectangle is width times length: $w(w + 3)$.\nStep 3: Distribute: $w(w + 3) = w^2 + 3w$. Check with $w = 4$: a $4$ by $7$ rectangle has area $28$, and $4^2 + 3(4) = 28$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($w + 3$): is the length, not the area.\n* Choice B ($2w + 3$): adds the width and the length instead of multiplying them.\n* Choice C ($w^2 + 3$): multiplies $w$ by $w$ but forgets to multiply $w$ by $3$.\n\n**Test Day Takeaway:** Write the length in terms of $w$ first, then multiply and distribute; test the expression with one convenient number."
 }

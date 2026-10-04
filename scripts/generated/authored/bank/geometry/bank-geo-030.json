@@ -1,9 +1,23 @@
 {
  "id": "bank-geo-030",
- "question": "In right triangle $DEF$, the right angle is at $E$. The length of $\\overline{DE}$ is $9$ and the length of $\\overline{DF}$ is $41$. What is the value of $\\cos(D)$?",
+ "question": "In the triangle shown, what is the value of $\\cos D$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     9,
+     0
+    ],
+    [
+     9,
+     40
+    ]
+   ],
    "labels": [
     "D",
     "E",
@@ -11,11 +25,10 @@
    ],
    "sideLabels": [
     "9",
-    "",
-    "41"
+    "40",
+    ""
    ],
-   "rightAngleVertex": 1,
-   "figureNote": true
+   "rightAngleVertex": 1
   }
  },
  "choices": [
@@ -37,10 +50,10 @@
   }
  ],
  "distractorNotes": {
-  "B": "uses the other leg 40 in place of the hypotenuse",
-  "C": "gives the sine of D",
-  "D": "inverts the ratio"
+  "B": "divides the adjacent leg by the opposite leg, using the two legs without finding the hypotenuse",
+  "C": "uses opposite over hypotenuse, which is sin D",
+  "D": "inverts the cosine ratio to hypotenuse over adjacent"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Cosine in a Right Triangle**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Angle $D$ has adjacent leg $\\overline{DE} = 9$ and hypotenuse $\\overline{DF} = 41$, so $\\cos(D) = \\frac{9}{41}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $E$, so the hypotenuse is the side opposite $E$, namely $\\overline{DF} = 41$.\nStep 2: CAH means cosine equals the adjacent side over the hypotenuse. The leg adjacent to angle $D$ is $\\overline{DE} = 9$.\nStep 3: $\\cos(D) = \\frac{9}{41}$, already in lowest terms.\n\nVerification: the third side is $\\sqrt{41^2 - 9^2} = \\sqrt{1600} = 40$, and $\\left(\\frac{9}{41}\\right)^2 + \\left(\\frac{40}{41}\\right)^2 = \\frac{81 + 1600}{1681} = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{9}{40}$): divides the adjacent leg by the other leg $40$ instead of by the hypotenuse; that ratio is $\\frac{1}{\\tan(D)}$, not a cosine.\n* Choice C ($\\frac{40}{41}$): uses the opposite leg over the hypotenuse, which is $\\sin(D)$.\n* Choice D ($\\frac{41}{9}$): inverts the ratio; a cosine of an acute angle can never exceed $1$.\n\n**Test Day Takeaway:** Find the hypotenuse first by locating the right angle, then label the remaining legs as opposite or adjacent to the angle named in the question."
+ "explanation": "**SAT Pattern: Cosine in a Right Triangle**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The hypotenuse is $\\sqrt{9^{2} + 40^{2}} = 41$, so $\\cos D = \\frac{DE}{DF} = \\frac{9}{41}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $E$, so $\\overline{DF}$ is the hypotenuse. Its length is $\\sqrt{9^{2} + 40^{2}} = \\sqrt{81 + 1{,}600} = \\sqrt{1{,}681} = 41$.\nStep 2: The side adjacent to angle $D$ is $\\overline{DE}$, with length $9$.\nStep 3: Cosine is adjacent over hypotenuse: $\\cos D = \\frac{9}{41}$. Check: $\\sin D = \\frac{40}{41}$, and $\\left(\\frac{9}{41}\\right)^{2} + \\left(\\frac{40}{41}\\right)^{2} = \\frac{81 + 1{,}600}{1{,}681} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{9}{40}$): uses the two legs and never finds the hypotenuse; that ratio is $\\cot D$, not $\\cos D$.\n* Choice C ($\\frac{40}{41}$): uses the side opposite $D$ over the hypotenuse, which is $\\sin D$.\n* Choice D ($\\frac{41}{9}$): flips the cosine ratio; a cosine can never be greater than $1$.\n\n**Test Day Takeaway:** When the figure gives only two legs, find the hypotenuse first; then cosine is the leg touching the angle over the hypotenuse."
 }

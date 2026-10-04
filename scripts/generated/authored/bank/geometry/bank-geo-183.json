@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-183",
- "question": "A lint-collection roller sweeps the circular region modeled by $(x+5)^2+(y-4)^2=9$, with units in centimeters. A horizontal guide rail lies along the line $y=k$ and meets that region at exactly one point. What is the greatest possible value of $k$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$1$"
+  "id": "bank-geo-183",
+  "question": "$(x - 6)^{2} + (y + 2)^{2} = 25$\nIn the $xy$-plane, the line $y = k$ is tangent to the graph of the given equation. If $k > 0$, what is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-7$"
+    },
+    {
+      "id": "B",
+      "text": "$3$"
+    },
+    {
+      "id": "C",
+      "text": "$5$"
+    },
+    {
+      "id": "D",
+      "text": "$7$"
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "finds the lower horizontal tangent, -2 - 5 = -7, ignoring the condition k > 0",
+    "C": "reports the radius 5 without adding it to the y-coordinate of the center",
+    "D": "reads the center's y-coordinate as 2 instead of -2, so 2 + 5 = 7"
   },
-  {
-   "id": "B",
-   "text": "$3$"
-  },
-  {
-   "id": "C",
-   "text": "$4$"
-  },
-  {
-   "id": "D",
-   "text": "$7$"
-  }
- ],
- "distractorNotes": {
-  "A": "gives the lower tangent y = 4 - 3 = 1 rather than the greatest value",
-  "B": "reports the radius 3 instead of a y-value",
-  "C": "reports the center's y-coordinate, a line that crosses the region twice"
- },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The region is centered at $(-5,4)$ with radius $3$, so horizontal tangents are $y=4\\pm 3$, and the greatest is $y=7$.\n\n**The Full Solution:**\n\nStep 1 — Read the standard form: center $(-5,4)$ and radius $\\sqrt{9}=3$ centimeters.\n\nStep 2 — A horizontal line $y=k$ meets the circle once exactly when its distance from the center equals the radius, so $|k-4|=3$.\n\nStep 3 — Solve: $k=7$ or $k=1$, and the greater is $k=7$. Check: substituting $y=7$ gives $(x+5)^2+9=9$, so $x=-5$ is the only solution.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($1$): this is the lower tangent line, not the greatest value.\n* Choice B ($3$): this is the radius, not a location on the $y$-axis.\n* Choice C ($4$): this is the center's height, and $y=4$ crosses the region at two points.\n\n**Test Day Takeaway:** Horizontal tangents sit one radius above and below the center — the question's word \"greatest\" picks which one."
+  "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The center is $(6, -2)$ and the radius is $5$, so the horizontal tangent lines are $y = -2 + 5 = 3$ and $y = -2 - 5 = -7$; since $k > 0$, $k = 3$.\n\n**The Full Solution:**\nStep 1: Read the center and radius from the equation: the center is $(6, -2)$ and the radius is $\\sqrt{25} = 5$.\nStep 2: Substitute $y = k$: $(x - 6)^{2} = 25 - (k + 2)^{2}$. This has exactly one solution for $x$ only when the right side is $0$, so $(k + 2)^{2} = 25$.\nStep 3: Then $k + 2 = 5$ or $k + 2 = -5$, so $k = 3$ or $k = -7$; since $k > 0$, $k = 3$. Check: with $k = 3$, $(x - 6)^{2} = 0$, so the line touches the circle only at $(6, 3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): finds the tangent line below the circle, $y = -2 - 5$. That line is tangent too, but $-7$ is negative and the question requires $k > 0$.\n* Choice C ($5$): reports the radius but never adds it to the $y$-coordinate of the center.\n* Choice D ($7$): reads $(y + 2)$ as a center at $y = 2$, then adds the radius: $2 + 5 = 7$. The center's $y$-coordinate is $-2$.\n\n**Test Day Takeaway:** A horizontal tangent sits one radius above or below the center, so $k$ is the center's $y$-coordinate plus or minus $r$; watch the sign inside $(y + 2)$."
 }

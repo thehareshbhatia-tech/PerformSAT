@@ -1,87 +1,29 @@
 {
  "id": "bank-geo-223",
- "question": "In the figure, $\\overline{MN}$ is parallel to $\\overline{QR}$ in triangle $PQR$, with $M$ on $\\overline{PQ}$ and $N$ on $\\overline{PR}$. If $PM = 8$, $MQ = 4$, and $QR = 21$, what is the length of $MN$?",
- "diagram": {
-  "type": "similarTriangles",
-  "params": {
-   "triangle1": {
-    "vertices": [
-     [
-      0,
-      0
-     ],
-     [
-      105,
-      0
-     ],
-     [
-      52,
-      140
-     ]
-    ],
-    "labels": [
-     "Q",
-     "R",
-     "P"
-    ],
-    "sideLabels": [
-     "QR = 21",
-     "",
-     ""
-    ]
-   },
-   "triangle2": {
-    "vertices": [
-     [
-      0,
-      0
-     ],
-     [
-      70,
-      0
-     ],
-     [
-      35,
-      93
-     ]
-    ],
-    "labels": [
-     "M",
-     "N",
-     "P"
-    ],
-    "sideLabels": [
-     "MN = ?",
-     "",
-     ""
-    ]
-   },
-   "figureNote": true
-  }
- },
+ "question": "In triangle $PQR$, point $M$ lies on $\\overline{PQ}$ and point $N$ lies on $\\overline{PR}$ such that $\\overline{MN}$ is parallel to $\\overline{QR}$. If $PM = 6$, $MQ = 9$, and $QR = 20$, what is the length of $\\overline{MN}$?",
  "choices": [
   {
    "id": "A",
-   "text": "$7$"
+   "text": "$8$"
   },
   {
    "id": "B",
-   "text": "$14$"
+   "text": "$12$"
   },
   {
    "id": "C",
-   "text": "$21$"
+   "text": "$\\frac{40}{3}$"
   },
   {
    "id": "D",
-   "text": "$42$"
+   "text": "$30$"
   }
  ],
  "distractorNotes": {
-  "A": "uses MQ over PQ instead of PM over PQ",
-  "C": "copies QR",
-  "D": "uses PM over MQ as the scale factor"
+  "B": "uses MQ instead of PM as the matching side: 20(9/15) = 12",
+  "C": "compares PM to MQ instead of to the whole side PQ: 20(6/9)",
+  "D": "inverts the ratio of the two pieces: 20(9/6) = 30"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $PQ = 8 + 4 = 12$, so triangle $PMN$ is triangle $PQR$ scaled by $\\frac{8}{12} = \\frac{2}{3}$. Then $MN = 21 \\cdot \\frac{2}{3} = 14$.\n\n**The Full Solution:**\nStep 1: A segment parallel to one side of a triangle cuts off a smaller triangle similar to the whole: $PMN \\sim PQR$, with $P$ the shared vertex.\nStep 2: The scale factor is the ratio of the sides along the same ray from $P$: $\\frac{PM}{PQ} = \\frac{8}{8 + 4} = \\frac{8}{12} = \\frac{2}{3}$.\nStep 3: $\\overline{MN}$ corresponds to $\\overline{QR}$, so $MN = 21 \\cdot \\frac{2}{3} = 14$.\n\nVerification: $\\frac{MN}{QR} = \\frac{14}{21} = \\frac{2}{3} = \\frac{PM}{PQ}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): uses $\\frac{MQ}{PQ} = \\frac{4}{12}$, the leftover piece instead of the piece attached to $P$.\n* Choice C ($21$): copies $QR$, as if the parallel segment were congruent to the base.\n* Choice D ($42$): uses $\\frac{PM}{MQ} = \\frac{8}{4} = 2$ as the scale factor; the denominator must be the whole side $PQ$, not the remaining piece.\n\n**Test Day Takeaway:** The denominator of the scale factor is the full side from the shared vertex, so add the two pieces before dividing."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Triangle $PMN$ is similar to triangle $PQR$ with scale factor $\\frac{PM}{PQ} = \\frac{6}{15} = \\frac{2}{5}$, so $MN = \\frac{2}{5}(20) = 8$.\n\n**The Full Solution:**\nStep 1: Since $\\overline{MN} \\parallel \\overline{QR}$, angle $PMN$ = angle $PQR$ and angle $PNM$ = angle $PRQ$, so triangle $PMN$ is similar to triangle $PQR$.\nStep 2: The matching sides are $PM$ and $PQ$, where $PQ = PM + MQ = 6 + 9 = 15$. The scale factor is $\\frac{6}{15} = \\frac{2}{5}$.\nStep 3: So $MN = \\frac{2}{5}(QR) = \\frac{2}{5}(20) = 8$. Check: $\\frac{MN}{QR} = \\frac{8}{20} = \\frac{2}{5} = \\frac{PM}{PQ}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($12$): $12$ uses $\\frac{MQ}{PQ} = \\frac{9}{15}$; $MQ$ is not a side of the small triangle.\n* Choice C ($\\frac{40}{3}$): $\\frac{40}{3}$ uses $\\frac{PM}{MQ} = \\frac{6}{9}$. The small triangle's side must be compared with the whole side $PQ$, not with the leftover piece.\n* Choice D ($30$): $30$ uses $\\frac{9}{6}$, which is larger than $1$ and would make $MN$ longer than $QR$.\n\n**Test Day Takeaway:** With a segment parallel to one side, compare the small triangle to the WHOLE triangle: piece over whole side, never piece over piece."
 }

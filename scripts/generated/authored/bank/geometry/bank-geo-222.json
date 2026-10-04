@@ -1,64 +1,64 @@
 {
-  "id": "bank-geo-222",
-  "question": "A dressmaking pattern book shows two similar triangular yoke pieces, drawn with lengths in centimeters, in which $FGH$ corresponds to $RST$. What is the length, in centimeters, of the side of piece $RST$ that corresponds to the shortest side of piece $FGH$?",
-  "diagram": {
-    "type": "similarTriangles",
-    "params": {
-      "triangle1": {
-        "vertices": [
-          [
-            0,
-            9
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            12,
-            0
-          ]
-        ],
-        "labels": [
-          "F",
-          "G",
-          "H"
-        ],
-        "sideLabels": [
-          "9",
-          "12",
-          "15"
-        ]
-      },
-      "triangle2": {
-        "vertices": [
-          [
-            0,
-            15
-          ],
-          [
-            0,
-            0
-          ],
-          [
-            20,
-            0
-          ]
-        ],
-        "labels": [
-          "R",
-          "S",
-          "T"
-        ],
-        "sideLabels": [
-          "",
-          "20",
-          ""
-        ]
-      },
-      "figureNote": true
-    }
-  },
-  "correctAnswer": "15",
-  "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~30s):** $\\overline{ST}$ matches $\\overline{GH}=12$, so the scale factor is $\\frac{20}{12}=\\frac{5}{3}$; the shortest side of $FGH$ is $\\overline{FG}=9$, so its partner is $9\\left(\\frac{5}{3}\\right)=15$.\n\n**The Full Solution:**\n\nStep 1 — Match the sides. The order $FGH \\to RST$ pairs $\\overline{GH}$ with $\\overline{ST}$ and $\\overline{FG}$ with $\\overline{RS}$.\n\nStep 2 — Find the scale factor from the known pair: $\\frac{ST}{GH}=\\frac{20}{12}=\\frac{5}{3}$.\n\nStep 3 — The shortest side of $FGH$ is $\\overline{FG}=9$ centimeters, so $RS=9\\left(\\frac{5}{3}\\right)=15$ centimeters. Check: the third side becomes $15\\left(\\frac{5}{3}\\right)=25$, and $15$-$20$-$25$ is a scaled copy of $9$-$12$-$15$.\n\n**Common Mistakes:** Answering $9$ copies the shortest side unchanged, treating similar pieces as congruent. Using $\\frac{20}{9}$ as the scale factor pairs $\\overline{ST}$ with the wrong side and gives $20$. Dividing instead of multiplying gives $9\\div\\frac{5}{3}=5.4$.\n\n**Test Day Takeaway:** Identify which side of the second figure is labeled, match it by vertex order, and only then decide which side you are scaling."
+ "id": "bank-geo-222",
+ "question": "In the figure shown, triangle $FGH$ is similar to triangle $RST$, where $F$, $G$, and $H$ correspond to $R$, $S$, and $T$, respectively. What is the length of $\\overline{RS}$?",
+ "diagram": {
+  "type": "similarTriangles",
+  "params": {
+   "triangle1": {
+    "vertices": [
+     [
+      -2.286,
+      7.667
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      14,
+      0
+     ]
+    ],
+    "labels": [
+     "F",
+     "G",
+     "H"
+    ],
+    "sideLabels": [
+     "8",
+     "14",
+     "18"
+    ]
+   },
+   "triangle2": {
+    "vertices": [
+     [
+      -3.429,
+      11.5
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      21,
+      0
+     ]
+    ],
+    "labels": [
+     "R",
+     "S",
+     "T"
+    ],
+    "sideLabels": [
+     "",
+     "21",
+     ""
+    ]
+   },
+   "figureNote": true
+  }
+ },
+ "correctAnswer": "12",
+ "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**The correct answer is 12.**\n\n**The Fast Way (~20s):** $\\overline{ST}$ corresponds to $\\overline{GH}$, so the scale factor is $\\frac{21}{14} = \\frac{3}{2}$ and $RS = \\frac{3}{2}(8) = 12$.\n\n**The Full Solution:**\nStep 1: The correspondence pairs $\\overline{FG}$ with $\\overline{RS}$ and $\\overline{GH}$ with $\\overline{ST}$.\nStep 2: The scale factor from triangle $FGH$ to triangle $RST$ is $\\frac{ST}{GH} = \\frac{21}{14} = \\frac{3}{2}$.\nStep 3: So $RS = \\frac{3}{2}(FG) = \\frac{3}{2}(8) = 12$. Check: $\\frac{RS}{FG} = \\frac{12}{8} = \\frac{3}{2} = \\frac{ST}{GH}$ ✓\n\n**Common Mistakes:**\n* $15$: adds $21 - 14 = 7$ to $8$ instead of multiplying by the scale factor.\n* $5.333$ or $\\frac{16}{3}$: divides $8$ by $\\frac{3}{2}$, shrinking instead of enlarging.\n* $27$: scales $18$, the side $\\overline{HF}$, which corresponds to $\\overline{TR}$, not $\\overline{RS}$.\n\n**Test Day Takeaway:** Use the vertex order to pair sides before you set up the ratio; the side you scale must be the partner of the side you want."
 }

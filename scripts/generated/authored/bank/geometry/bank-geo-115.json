@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-115",
- "question": "A rectangular tabletop is $14$ inches wide and $22$ inches long. What is the area, in square inches, of the tabletop?",
+ "question": "A rectangle has a length of $22$ centimeters and a width of $14$ centimeters. What is the area, in square centimeters, of the rectangle?",
  "choices": [
   {
    "id": "A",
@@ -19,6 +19,11 @@
    "text": "$616$"
   }
  ],
+ "distractorNotes": {
+  "A": "adds the length and width instead of multiplying",
+  "B": "computes the perimeter, 2(22 + 14)",
+  "D": "doubles the product, 2(22)(14)"
+ },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The area of a rectangle is length times width: $22 \\cdot 14 = 308$ square inches.\n\n**The Full Solution:**\nStep 1: For a rectangle, $A = \\ell w$.\nStep 2: Substitute $\\ell = 22$ and $w = 14$: $A = 22 \\cdot 14$.\nStep 3: $22 \\cdot 14 = 308$ square inches.\n\nCheck: $22 \\cdot 14 = 22 \\cdot 10 + 22 \\cdot 4 = 220 + 88 = 308$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): adds the two dimensions instead of multiplying them.\n* Choice B ($72$): computes the perimeter, $2(22 + 14)$.\n* Choice D ($616$): doubles the area, as if the formula were $2\\ell w$.\n\n**Test Day Takeaway:** Area multiplies and comes out in square units; perimeter adds and comes out in linear units — the unit in the question tells you which."
+ "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Area is length times width: $22 \\times 14 = 308$ square centimeters.\n\n**The Full Solution:**\nStep 1: The area of a rectangle is $A = \\ell w$.\nStep 2: Substitute $\\ell = 22$ and $w = 14$: $A = 22 \\times 14$.\nStep 3: $A = 308$ square centimeters. Check: $22 \\times 14 = 22 \\times 10 + 22 \\times 4 = 220 + 88 = 308$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): adds the length and width.\n* Choice B ($72$): computes the perimeter, $2(22 + 14)$.\n* Choice D ($616$): doubles the product, mixing the area and perimeter formulas.\n\n**Test Day Takeaway:** Area multiplies the two dimensions; perimeter adds all four sides. Check the units in the question, square centimeters, to know which one is asked for."
 }

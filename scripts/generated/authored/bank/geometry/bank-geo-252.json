@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-252",
- "question": "A shade sail stretched over a campus courtyard has the shape of a right triangle in which one acute angle measures $30°$ and the other measures $60°$. The shortest side of the sail measures $s$ meters, and rope trim runs along all three sides. Which expression represents the total length, in meters, of the trim?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$(1+\\sqrt{3})s$"
+  "id": "bank-geo-252",
+  "question": "In triangle $PQR$, $PQ = 7$, $QR = 7\\sqrt{3}$, and $PR = 14$. What is the measure of angle $P$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$30^{\\circ}$"
+    },
+    {
+      "id": "B",
+      "text": "$45^{\\circ}$"
+    },
+    {
+      "id": "C",
+      "text": "$60^{\\circ}$"
+    },
+    {
+      "id": "D",
+      "text": "$90^{\\circ}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "gives the angle opposite the shortest side PQ, which is angle R, not angle P",
+    "B": "treats the triangle as an isosceles right triangle",
+    "D": "assumes angle P is the right angle; the right angle is opposite the longest side PR, at Q"
   },
-  {
-   "id": "B",
-   "text": "$(2+\\sqrt{3})s$"
-  },
-  {
-   "id": "C",
-   "text": "$(3+\\sqrt{3})s$"
-  },
-  {
-   "id": "D",
-   "text": "$(3+2\\sqrt{3})s$"
-  }
- ],
- "distractorNotes": {
-  "A": "adds only the two legs and omits the hypotenuse 2s",
-  "B": "adds the hypotenuse and long leg but omits the shortest side",
-  "D": "uses 2s times root 3 for the side opposite the 60 degree angle"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The three sides are $s$, $s\\sqrt{3}$, and $2s$, and $s+s\\sqrt{3}+2s=(3+\\sqrt{3})s$.\n\n**The Full Solution:**\n\nStep 1: Write the sides in terms of the shortest one. With shortest side $s$, the long leg is $s\\sqrt{3}$ and the hypotenuse is $2s$.\n\nStep 2: Add all three. $s+s\\sqrt{3}+2s$.\n\nStep 3: Combine like terms. The rational terms give $3s$, so the perimeter is $(3+\\sqrt{3})s$ meters.\n\nCheck: with $s=2$ the sides are $2$, $2\\sqrt{3}\\approx3.46$, and $4$, summing to about $9.46$, and $(3+\\sqrt{3})(2)\\approx9.46$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($(1+\\sqrt{3})s$): adds only the two legs and leaves the hypotenuse $2s$ out of the perimeter.\n* Choice B ($(2+\\sqrt{3})s$): adds the hypotenuse and the long leg but omits the shortest side.\n* Choice D ($(3+2\\sqrt{3})s$): uses $2s\\sqrt{3}$ for the side opposite the $60°$ angle, doubling the long leg.\n\n**Test Day Takeaway:** Express every side in terms of the shortest one first; the perimeter is then a single sum of like terms."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The sides are in the ratio $7 : 7\\sqrt{3} : 14 = 1 : \\sqrt{3} : 2$, so the triangle is $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$; angle $P$ is opposite the middle side $QR$, so it measures $60^{\\circ}$.\n\n**The Full Solution:**\nStep 1: Check for a right triangle: $7^{2} + \\left(7\\sqrt{3}\\right)^{2} = 49 + 147 = 196 = 14^{2}$, so the angle opposite $PR$, angle $Q$, is a right angle.\nStep 2: Dividing each side by $7$ gives $1 : \\sqrt{3} : 2$, the side ratio of a $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangle. The $30^{\\circ}$ angle is opposite the shortest side and the $60^{\\circ}$ angle is opposite the middle side.\nStep 3: Angle $P$ is opposite side $QR = 7\\sqrt{3}$, the middle side, so angle $P$ measures $60^{\\circ}$. Check: angle $R$, opposite $PQ = 7$, is $30^{\\circ}$, and $60 + 30 + 90 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($30^{\\circ}$): this is angle $R$, the angle opposite the shortest side.\n* Choice B ($45^{\\circ}$): an isosceles right triangle would need two equal legs; $7$ and $7\\sqrt{3}$ are not equal.\n* Choice D ($90^{\\circ}$): the right angle is opposite the longest side $PR$, so it is at $Q$, not $P$.\n\n**Test Day Takeaway:** Match each angle to the side across from it: in a $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangle the shortest side faces $30^{\\circ}$ and the side with the $\\sqrt{3}$ faces $60^{\\circ}$."
 }

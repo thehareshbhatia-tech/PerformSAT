@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-213",
- "question": "On a roof truss, a gusset plate joins three members at joint $B$. The exterior angle formed where the bottom chord is extended past $B$ measures $133^\\circ$, and the two interior angles at the other joints measure $40^\\circ$ and $(4x + 9)^\\circ$. What is the value of $x$?",
+ "question": "In triangle $ABC$, an exterior angle at vertex $C$ measures $135^{\\circ}$. Angle $A$ measures $40^{\\circ}$, and angle $B$ measures $(5x - 10)^{\\circ}$. What is the value of $x$?",
  "choices": [
   {
    "id": "A",
-   "text": "$21$"
+   "text": "$17$"
   },
   {
    "id": "B",
-   "text": "$31$"
+   "text": "$21$"
   },
   {
    "id": "C",
-   "text": "$41$"
+   "text": "$29$"
   },
   {
    "id": "D",
-   "text": "$84$"
+   "text": "$95$"
   }
  ],
- "correctAnswer": "A",
  "distractorNotes": {
-  "B": "sets 4x + 9 = 133, using the whole exterior angle for one remote angle and ignoring the 40 degree angle",
-  "C": "adds the known remote angle instead of subtracting it: 4x + 9 = 173",
-  "D": "stops at 4x = 84 and reports 4x instead of x"
+  "A": "moves the -10 across with the wrong sign, solving 5x = 85",
+  "C": "sets angle B alone equal to the exterior angle: 5x - 10 = 135",
+  "D": "gives the measure of angle B, 135 - 40 = 95, instead of x"
  },
- "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice A is correct.** The exterior angle equals the sum of the two remote interior angles, so $4x + 9 = 133 - 40 = 93$ and $x = 21$.\n\n**The Fast Way (~25s):** Strip the known remote angle off the exterior angle: $133 - 40 = 93$. Then $4x + 9 = 93$, so $x = 21$.\n\n**The Full Solution:**\n\nStep 1: At joint $B$, the exterior angle equals the sum of the two nonadjacent interior angles: $40 + (4x + 9) = 133$.\n\nStep 2: Combine like terms and solve: $4x + 49 = 133$, so $4x = 84$ and $x = 21$.\n\nStep 3: Check. With $x = 21$ the second remote angle is $4(21) + 9 = 93$, and $40^\\circ + 93^\\circ = 133^\\circ$. The interior angle at $B$ is $180^\\circ - 133^\\circ = 47^\\circ$, and $40 + 93 + 47 = 180$, so the triangle closes.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($31$): sets $4x + 9 = 133$, handing the whole exterior angle to one remote angle and ignoring the $40^\\circ$ angle.\n* Choice C ($41$): adds instead of subtracting, solving $4x + 9 = 133 + 40 = 173$.\n* Choice D ($84$): stops at $4x = 84$ and reports $4x$ rather than $x$.\n\n**Test Day Takeaway:** An exterior angle equals the SUM of the two nonadjacent interior angles, so subtract the known remote angle from it, never the supplement."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The two remote angles add to the exterior angle: $40 + (5x - 10) = 135$, so $5x = 105$ and $x = 21$.\n\n**The Full Solution:**\nStep 1: The exterior angle at $C$ equals the sum of the interior angles at $A$ and $B$: $40 + (5x - 10) = 135$.\nStep 2: Combine the constants: $5x + 30 = 135$, so $5x = 105$.\nStep 3: Divide by $5$: $x = 21$. Check: angle $B = 5(21) - 10 = 95^{\\circ}$, and $40^{\\circ} + 95^{\\circ} = 135^{\\circ}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): $17$ comes from $5x = 135 - 40 - 10$; the $-10$ must be added back, not subtracted again.\n* Choice C ($29$): $29$ comes from $5x - 10 = 135$, which leaves angle $A$ out of the sum.\n* Choice D ($95$): $95$ is the measure of angle $B$, not the value of $x$.\n\n**Test Day Takeaway:** Write exterior angle = remote angle + remote angle, then solve; finish by answering for the variable the question names."
 }

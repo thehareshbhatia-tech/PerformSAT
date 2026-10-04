@@ -1,29 +1,29 @@
 {
-  "question": "At a triangular survey traverse, straight sight lines connect buoys $A$, $B$, and $C$, and the line from $B$ through $C$ continues past $C$ to form an exterior angle of $118^{\\circ}$ there. The interior angle at buoy $A$ measures $47^{\\circ}$. Which statement about the interior angle at buoy $B$ is true?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "It measures $62^{\\circ}$, since $180 - 118 = 62$."
-    },
-    {
-      "id": "B",
-      "text": "It measures $71^{\\circ}$, since $118 - 47 = 71$."
-    },
-    {
-      "id": "C",
-      "text": "It measures $133^{\\circ}$, since $180 - 47 = 133$."
-    },
-    {
-      "id": "D",
-      "text": "It measures $165^{\\circ}$, since $118 + 47 = 165$."
-    }
-  ],
-  "correctAnswer": "B",
-  "distractorNotes": {
-    "A": "computes the interior angle at buoy C, the supplement of the exterior angle",
-    "C": "treats the angles at A and B as supplementary",
-    "D": "adds the exterior angle to the angle at A instead of subtracting"
+ "id": "bank-geo-212",
+ "question": "In triangle $PQR$, side $\\overline{QR}$ is extended through $R$ to point $S$. Angle $P$ measures $52^{\\circ}$ and angle $Q$ measures $71^{\\circ}$. What is the measure of angle $PRS$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$57^{\\circ}$"
   },
-  "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The exterior angle at $C$ equals the sum of the remote interior angles at $A$ and $B$, so the angle at $B$ is $118 - 47 = 71$ degrees.\n\n**The Full Solution:**\nStep 1: The exterior angle at buoy $C$ is remote from the interior angles at $A$ and $B$, so $118 = 47 + m\\angle B$.\nStep 2: Solve: $m\\angle B = 118 - 47 = 71$ degrees.\nStep 3: Confirm with the angle sum: the interior angle at $C$ is $180 - 118 = 62$ degrees, and $47 + 71 + 62 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($62^{\\circ}$): finds the interior angle at buoy $C$ rather than at buoy $B$.\n* Choice C ($133^{\\circ}$): treats the angles at $A$ and $B$ as supplementary, which holds only for angles on a straight line.\n* Choice D ($165^{\\circ}$): adds the exterior angle to the remote angle instead of subtracting, giving a value larger than the whole triangle allows.\n\n**Test Day Takeaway:** The exterior angle equals the SUM of the two remote interior angles — subtract the known one to find the other, then confirm with the $180$-degree total.",
-  "id": "bank-geo-212"
+  {
+   "id": "B",
+   "text": "$109^{\\circ}$"
+  },
+  {
+   "id": "C",
+   "text": "$123^{\\circ}$"
+  },
+  {
+   "id": "D",
+   "text": "$128^{\\circ}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "gives the interior angle PRQ, 180 - 52 - 71 = 57, instead of the exterior angle",
+  "B": "subtracts only angle Q from 180: 180 - 71 = 109",
+  "D": "subtracts only angle P from 180: 180 - 52 = 128"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Angle $PRS$ is the exterior angle at $R$, so it equals $52^{\\circ} + 71^{\\circ} = 123^{\\circ}$.\n\n**The Full Solution:**\nStep 1: Angle $PRS$ is formed by side $\\overline{PR}$ and the extension of $\\overline{QR}$, so it is an exterior angle of the triangle at $R$.\nStep 2: The interior angles not adjacent to it are angle $P$ and angle $Q$.\nStep 3: An exterior angle equals the sum of the two remote interior angles: $52^{\\circ} + 71^{\\circ} = 123^{\\circ}$. Check: angle $PRQ = 180^{\\circ} - 52^{\\circ} - 71^{\\circ} = 57^{\\circ}$, and $57^{\\circ} + 123^{\\circ} = 180^{\\circ}$ along line $QS$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($57^{\\circ}$): $57^{\\circ}$ is angle $PRQ$, the interior angle at $R$. Angle $PRS$ is its supplement.\n* Choice B ($109^{\\circ}$): $180 - 71$ uses only angle $Q$; angle $P$ is ignored.\n* Choice D ($128^{\\circ}$): $180 - 52$ uses only angle $P$; angle $Q$ is ignored.\n\n**Test Day Takeaway:** When a side is extended, the outside angle is the sum of the two far interior angles — one addition, no subtraction from $180$."
 }

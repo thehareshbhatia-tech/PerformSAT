@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-309",
- "question": "A rectangular access hatch is cut in half by the diagonal shown, forming a right triangle with a $37$-inch hypotenuse and a $12$-inch short leg. What is the area, in square inches, of the hatch?",
+ "question": "The right triangle shown is formed by two sides and a diagonal of a rectangle. What is the area, in square inches, of the rectangle?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -46,9 +46,9 @@
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports the area of the half-hatch triangle, one half times 12 times 35",
-  "B": "uses the 37-inch diagonal as a side of the triangle: one half times 12 times 37",
-  "D": "multiplies 12 by the 37-inch diagonal instead of by the 35-inch side"
+  "A": "finds the area of the triangle, one half times 35 times 12, instead of the rectangle",
+  "B": "uses the diagonal as a side of the triangle with height 12: one half times 37 times 12",
+  "D": "multiplies the diagonal by the short side, 37 times 12, as if the diagonal were a side of the rectangle"
  },
- "explanation": "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice C is correct.** The other leg is $\\sqrt{37^2 - 12^2} = 35$, so the hatch measures $12 \\times 35 = 420$ square inches.\n\n**The Fast Way (~30s):** $12$-$35$-$37$ is a triple, so the rectangle is $12$ by $35$ and its area is $420$.\n\n**The Full Solution:**\n\nStep 1: The diagonal of the rectangle is the hypotenuse of the right triangle, so the missing side satisfies $b^2 = 1369 - 144 = 1225$.\n\nStep 2: Therefore $b = 35$ inches, and the hatch is a $12$-by-$35$ rectangle.\n\nStep 3: Area $= 12 \\times 35 = 420$ square inches. Check: $12^2 + 35^2 = 144 + 1225 = 1369 = 37^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($210$): gives the area of the triangular half, $\\frac{1}{2}(12)(35)$, instead of the whole hatch.\n* Choice B ($222$): uses the diagonal as a side of the right triangle: $\\frac{1}{2}(12)(37)$.\n* Choice D ($444$): multiplies $12$ by the diagonal $37$ rather than by the side $35$.\n\n**Test Day Takeaway:** A rectangle's diagonal is the hypotenuse of two congruent right triangles — find the missing SIDE first, then answer for the shape the question names."
+ "explanation": "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $12$-$35$-$37$ is a Pythagorean triple, so the rectangle is $35$ by $12$ and its area is $420$.\n\n**The Full Solution:**\nStep 1: The diagonal of the rectangle is the hypotenuse of the triangle, $37$ inches, and the sides of the rectangle are the legs: $12$ inches and an unknown length $L$.\nStep 2: By the Pythagorean theorem, $L^2 = 37^2 - 12^2 = 1{,}369 - 144 = 1{,}225$, so $L = 35$.\nStep 3: The rectangle's area is $35 \\times 12 = 420$ square inches. Check: $35^2 + 12^2 = 1{,}225 + 144 = 1{,}369 = 37^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($210$): is the area of the triangle, which is only half of the rectangle.\n* Choice B ($222$): is $\\frac{1}{2}(37)(12)$, which treats the diagonal as a base perpendicular to the $12$-inch side.\n* Choice D ($444$): multiplies the diagonal by the short side; the diagonal is not a side of the rectangle.\n\n**Test Day Takeaway:** A diagonal splits a rectangle into two congruent right triangles, so the rectangle's sides are the triangle's legs, and the rectangle's area is twice the triangle's."
 }

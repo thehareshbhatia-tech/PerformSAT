@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-200",
- "question": "A tour operator enlarges a triangular pennant so that the new pennant is similar to the original and uses $2.25$ times as much cloth. The original pennant's longest edge measures $24$ centimeters. What is the length, in centimeters, of the longest edge of the new pennant?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$16$"
+  "id": "bank-geo-200",
+  "question": "Triangle $ABC$ is similar to triangle $DEF$, where $A$, $B$, and $C$ correspond to $D$, $E$, and $F$, respectively. The area of triangle $DEF$ is $2.25$ times the area of triangle $ABC$, and $AB = 18$. What is the length of $\\overline{DE}$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$8$"
+    },
+    {
+      "id": "B",
+      "text": "$12$"
+    },
+    {
+      "id": "C",
+      "text": "$27$"
+    },
+    {
+      "id": "D",
+      "text": "$40.5$"
+    }
+  ],
+  "correctAnswer": "C",
+  "distractorNotes": {
+    "A": "divides 18 by the area factor 2.25 instead of multiplying by its square root",
+    "B": "divides 18 by the scale factor 1.5, scaling the side down instead of up",
+    "D": "multiplies 18 by the area factor 2.25 instead of by its square root 1.5"
   },
-  {
-   "id": "B",
-   "text": "$27$"
-  },
-  {
-   "id": "C",
-   "text": "$36$"
-  },
-  {
-   "id": "D",
-   "text": "$54$"
-  }
- ],
- "distractorNotes": {
-  "A": "divides by the scale factor 1.5 instead of multiplying: 24 / 1.5 = 16",
-  "B": "halves the area ratio to get 1.125 rather than taking its square root: 24 x 1.125 = 27",
-  "D": "applies the area ratio 2.25 directly to the edge: 24 x 2.25 = 54"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Cloth is area, so the length ratio is $\\sqrt{2.25}=1.5$, and $24(1.5)=36$ centimeters.\n\n**The Full Solution:**\n\nStep 1 — Identify what $2.25$ measures. Cloth used is an area, so $2.25$ is the ratio of areas, not of lengths.\n\nStep 2 — Convert to a length ratio. For similar figures, area ratio $=$ (length ratio)$^2$, so the length ratio is $\\sqrt{2.25}=1.5$.\n\nStep 3 — Scale the edge: $24(1.5)=36$ centimeters. Check: an edge $1.5$ times as long comes with $1.5^2=2.25$ times the area, exactly the cloth stated.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($16$): this divides by $1.5$ instead of multiplying, shrinking the pennant the question enlarged.\n* Choice B ($27$): halving $2.25$ gives $1.125$, but the length ratio comes from a square root, not from halving.\n* Choice D ($54$): this uses the area ratio $2.25$ as though it scaled lengths, giving $24(2.25)=54$.\n\n**Test Day Takeaway:** Going from an area comparison back to a length takes a square root — the same relationship run in reverse."
+  "explanation": "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The scale factor is $\\sqrt{2.25} = 1.5$, so $DE = 1.5(18) = 27$.\n\n**The Full Solution:**\nStep 1: Areas of similar triangles scale by the square of the scale factor, so the scale factor from $ABC$ to $DEF$ is $\\sqrt{2.25} = 1.5$.\nStep 2: Side $\\overline{DE}$ corresponds to side $\\overline{AB}$, so $DE = 1.5 \\cdot AB$.\nStep 3: Compute: $DE = 1.5(18) = 27$. Check: $\\left(\\frac{27}{18}\\right)^{2} = 1.5^{2} = 2.25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): divides $18$ by the area factor $2.25$. Triangle $DEF$ is the larger triangle, and lengths scale by the square root of the area factor.\n* Choice B ($12$): finds the scale factor $1.5$ but divides by it, as if $DEF$ were the smaller triangle.\n* Choice D ($40.5$): multiplies $18$ by the area factor $2.25$ instead of by its square root.\n\n**Test Day Takeaway:** Convert an area factor to a length factor with a square root before scaling a side, and check which triangle is the larger one."
 }

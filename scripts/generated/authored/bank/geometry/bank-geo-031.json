@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-031",
- "question": "A prototype resin casting has a volume of $96$ cubic centimeters. Each linear dimension of the production casting is $2.5$ times the corresponding dimension of the prototype. What is the volume, in cubic centimeters, of the production casting?",
+ "question": "The edge length of cube $B$ is $2.5$ times the edge length of cube $A$. The volume of cube $A$ is $96$ cubic inches. What is the volume, in cubic inches, of cube $B$?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "scales the volume by 2.5 once, as if volume grew like a length",
-  "B": "scales the volume by 2.5 squared, the factor that applies to area",
-  "D": "applies the factor 2.5 a fourth time, multiplying the correct volume by 2.5 again"
+  "A": "multiplies the volume by 2.5 once, as if volume scaled like a single length",
+  "B": "multiplies the volume by 2.5 squared = 6.25, the factor for area",
+  "D": "multiplies by 2.5 a fourth time, giving 1,500 x 2.5"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Volume Scaling by Cube of Linear Factor**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Volume scales by the cube of the linear factor: $96(2.5)^3 = 96(15.625) = 1{,}500$.\n\n**The Full Solution:**\nStep 1: Every length is multiplied by $2.5$, so each of the three dimensions of the casting grows by that factor.\nStep 2: Volume is a product of three lengths, so it is multiplied by $(2.5)^3 = 15.625$.\nStep 3: $96 \\times 15.625 = 1{,}500$ cubic centimeters.\n\nCheck: A prototype shaped as a $4$ by $4$ by $6$ block has volume $96$; scaled it becomes $10$ by $10$ by $15$, with volume $1{,}500$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($240$): multiplies by $2.5$ once, the factor that applies to a single length.\n* Choice B ($600$): multiplies by $2.5^2 = 6.25$, the factor that applies to surface area.\n* Choice D ($3{,}750$): applies the factor a fourth time, multiplying the correct volume by $2.5$ again.\n\n**Test Day Takeaway:** Lengths scale by $k$, areas by $k^2$, and volumes by $k^3$; count the dimensions before choosing the exponent."
+ "explanation": "**SAT Pattern: Volume Scaling by Cube of Linear Factor**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Volume scales by the cube of the length factor: $96(2.5)^3 = 96(15.625) = 1{,}500$.\n\n**The Full Solution:**\nStep 1: The edge of cube $B$ is $2.5$ times the edge of cube $A$, so each of the three dimensions is multiplied by $2.5$.\nStep 2: Volume is a product of three lengths, so it is multiplied by $(2.5)^3 = 15.625$.\nStep 3: The volume of cube $B$ is $96 \\times 15.625 = 1{,}500$ cubic inches. Check: if cube $A$ has edge $a$, then $a^3 = 96$, and cube $B$ has volume $(2.5a)^3 = 15.625a^3 = 15.625(96) = 1{,}500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($240$): multiplies by $2.5$ once, the factor for a single length.\n* Choice B ($600$): multiplies by $2.5^2 = 6.25$, the factor for area.\n* Choice D ($3{,}750$): applies the factor a fourth time, multiplying the correct volume by $2.5$ again.\n\n**Test Day Takeaway:** Lengths scale by $k$, areas by $k^2$, and volumes by $k^3$; count the dimensions before choosing the exponent."
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-278",
- "question": "A solar tracker rotates a panel, and its outer corner traces arc $AB$ in the figure below, marked in feet. How far does the corner travel?",
+ "question": "Point $O$ is the center of the circle shown, and the measure of angle $AOB$ is given in radians. What is the length of arc $AB$?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
@@ -33,10 +33,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "applies the sector-area coefficient one half to the arc, giving 5 pi",
-  "C": "uses the diameter 24 in place of the radius, giving 20 pi",
-  "D": "computes the sector's area, one half r squared theta = 60 pi"
+  "A": "multiplies the angle by half the radius",
+  "C": "multiplies the angle by the diameter 24 instead of the radius",
+  "D": "computes the sector area one half r squared theta"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** With the angle already in radians, arc $=r\\theta=12\\cdot\\frac{5\\pi}{6}=10\\pi$ feet.\n\n**The Full Solution:**\n\nStep 1: Recognize the angle's units. The label $\\frac{5\\pi}{6}$ is a radian measure, equal to $150°$.\n\nStep 2: Apply the radian arc formula. Arc length $=r\\theta$ when $\\theta$ is in radians.\n\nStep 3: Substitute. $12\\cdot\\frac{5\\pi}{6}=\\frac{60\\pi}{6}=10\\pi$ feet.\n\nCheck: in degrees, $\\frac{150}{360}(2\\pi\\cdot12)=\\frac{5}{12}(24\\pi)=10\\pi$, the same value.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($5\\pi$): applies the sector-area coefficient $\\frac{1}{2}$ to the arc formula.\n* Choice C ($20\\pi$): uses the diameter $24$ in place of the radius in $r\\theta$.\n* Choice D ($60\\pi$): computes the sector's area, $\\frac{1}{2}r^{2}\\theta=\\frac{1}{2}(144)\\left(\\frac{5\\pi}{6}\\right)$.\n\n**Test Day Takeaway:** A central angle written with $\\pi$ is in radians, and then arc length is simply $r\\theta$ — no $360$ anywhere."
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** With the angle in radians, arc length is $s = r\\theta = 12 \\cdot \\frac{5\\pi}{6} = 10\\pi$.\n\n**The Full Solution:**\nStep 1: For a central angle $\\theta$ in radians, the arc length is $s = r\\theta$.\nStep 2: Here $r = 12$ and $\\theta = \\frac{5\\pi}{6}$.\nStep 3: $s = 12 \\cdot \\frac{5\\pi}{6} = 10\\pi$. Check: $\\frac{5\\pi}{6}$ is $\\frac{5}{12}$ of $2\\pi$, and $\\frac{5}{12}$ of the circumference $24\\pi$ is $10\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5\\pi$): multiplies the angle by $6$, half the radius.\n* Choice C ($20\\pi$): multiplies the angle by the diameter $24$ instead of the radius.\n* Choice D ($60\\pi$): computes $\\frac{1}{2}r^{2}\\theta = \\frac{1}{2}(144)\\left(\\frac{5\\pi}{6}\\right)$, the area of the sector.\n\n**Test Day Takeaway:** In radians the arc length is simply $s = r\\theta$; no $360$ is needed."
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-079",
- "question": "The guard panel of a rotary evaporator is the right triangle shown, with legs of $10$ centimeters and $24$ centimeters. By how many centimeters does the longest edge exceed the longer leg?",
+ "question": "What is the value of $x$ in the right triangle shown?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -18,10 +18,15 @@
      10
     ]
    ],
-   "sideLabels": [
-    "24 cm",
-    "10 cm",
+   "labels": [
+    "",
+    "",
     ""
+   ],
+   "sideLabels": [
+    "x",
+    "10",
+    "26"
    ],
    "rightAngleVertex": 1
   }
@@ -29,26 +34,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$2$"
-  },
-  {
-   "id": "B",
-   "text": "$14$"
-  },
-  {
-   "id": "C",
    "text": "$16$"
   },
   {
+   "id": "B",
+   "text": "$24$"
+  },
+  {
+   "id": "C",
+   "text": "$36$"
+  },
+  {
    "id": "D",
-   "text": "$26$"
+   "text": "$576$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "B": "subtracts the two legs, 24 - 10, instead of comparing the hypotenuse with the longer leg",
-  "C": "subtracts the shorter leg from the hypotenuse, 26 - 10",
-  "D": "reports the hypotenuse itself and never forms the difference"
+  "A": "subtracts the lengths, 26 - 10, instead of their squares",
+  "C": "adds the given lengths, 26 + 10",
+  "D": "finds x squared, 576, and forgets the square root"
  },
- "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice A is correct.** The hypotenuse is $\\sqrt{10^2 + 24^2} = 26$, so it exceeds the $24$-centimeter leg by $2$ centimeters.\n\n**The Fast Way (~25s):** $10$-$24$-$26$ is $5$-$12$-$13$ doubled; $26 - 24 = 2$.\n\n**The Full Solution:**\n\nStep 1: The two given sides meet at the right angle, so they are the legs.\n\nStep 2: The hypotenuse is $\\sqrt{100 + 576} = \\sqrt{676} = 26$ centimeters.\n\nStep 3: The longer leg is $24$, so the difference is $26 - 24 = 2$ centimeters. Check: $10^2 + 24^2 = 676 = 26^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($14$): subtracts the two legs instead of comparing the hypotenuse with the longer leg.\n* Choice C ($16$): subtracts the shorter leg from the hypotenuse.\n* Choice D ($26$): reports the hypotenuse and never takes the difference.\n\n**Test Day Takeaway:** Compute the missing side first, then reread which two lengths the question wants compared — the subtraction is the easy part to misaim."
+ "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $x = \\sqrt{26^{2} - 10^{2}} = \\sqrt{576} = 24$.\n\n**The Full Solution:**\nStep 1: The side labeled $26$ is across from the right angle, so it is the hypotenuse; $x$ and $10$ are the legs.\nStep 2: By the Pythagorean theorem, $x^{2} + 10^{2} = 26^{2}$, so $x^{2} = 676 - 100 = 576$.\nStep 3: So $x = 24$. Check: $10$-$24$-$26$ is $2$ times the $5$-$12$-$13$ triple ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): subtracts the side lengths instead of their squares.\n* Choice C ($36$): adds the two given sides.\n* Choice D ($576$): stops at $x^{2}$.\n\n**Test Day Takeaway:** Spot multiples of common triples ($3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$): $10$ and $26$ are $2 \\times 5$ and $2 \\times 13$, so the missing leg is $2 \\times 12$."
 }

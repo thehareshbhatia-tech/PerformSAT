@@ -1,29 +1,29 @@
 {
- "question": "A crash cymbal measures $19$ centimeters from its center bell to its rim. What is the distance, in centimeters, around the rim?",
+ "id": "bank-geo-236",
+ "question": "A circle has a radius of $13$. What is the circumference of the circle?",
  "choices": [
   {
    "id": "A",
-   "text": "$19\\pi$"
+   "text": "$13\\pi$"
   },
   {
    "id": "B",
-   "text": "$38\\pi$"
+   "text": "$26\\pi$"
   },
   {
    "id": "C",
-   "text": "$361\\pi$"
+   "text": "$169\\pi$"
   },
   {
    "id": "D",
-   "text": "$722\\pi$"
+   "text": "$338\\pi$"
   }
  ],
- "correctAnswer": "B",
  "distractorNotes": {
-  "A": "uses pi times r, which is half the circumference",
-  "C": "uses the area formula pi r squared, giving 361 pi",
-  "D": "uses 2 pi r squared, mixing the circumference and area formulas"
+  "A": "uses pi r instead of 2 pi r",
+  "C": "gives the area, pi r^2",
+  "D": "multiplies the area by 2: 2 pi r^2"
  },
- "explanation": "**SAT Pattern: Circumference of a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The distance from the center to the rim is the radius, so $C = 2\\pi(19) = 38\\pi$ centimeters.\n\n**The Full Solution:**\nStep 1: Center-to-rim is the radius: $r = 19$ centimeters.\nStep 2: The distance around a circle is $C = 2\\pi r$.\nStep 3: Substitute: $C = 2\\pi(19) = 38\\pi$ centimeters. Check: the diameter is $38$ centimeters, and $C = \\pi d = 38\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($19\\pi$): computes $\\pi r$, the length of half the rim.\n* Choice C ($361\\pi$): uses $\\pi r^2$, which measures the surface the cymbal covers, not its rim.\n* Choice D ($722\\pi$): doubles the area expression, combining both formulas incorrectly.\n\n**Test Day Takeaway:** Squaring the radius always signals area — a distance around uses $2\\pi r$ with the radius to the first power.",
- "id": "bank-geo-236"
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circumference of a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $C = 2\\pi r = 2\\pi(13) = 26\\pi$.\n\n**The Full Solution:**\nStep 1: The circumference of a circle with radius $r$ is $2\\pi r$.\nStep 2: Substitute $r = 13$: $2\\pi(13)$.\nStep 3: So the circumference is $26\\pi$. Check: the diameter is $26$, and $\\pi d = 26\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($13\\pi$): $13\\pi$ is $\\pi r$, half the circumference.\n* Choice C ($169\\pi$): $169\\pi$ is $\\pi r^{2}$, the area.\n* Choice D ($338\\pi$): $338\\pi$ mixes the two formulas: $2\\pi r^{2}$.\n\n**Test Day Takeaway:** Circumference $= 2\\pi r = \\pi d$; area $= \\pi r^{2}$. Squared radius means area."
 }

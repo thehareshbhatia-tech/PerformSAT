@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-012",
- "question": "A boarding ramp at an airport gate has the cross-section shown, a right triangle with lengths given in feet. What is the value of $\\sin(\\angle A)$?",
+ "question": "In the right triangle shown, what is the value of $\\sin A$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -46,14 +46,14 @@
   },
   {
    "id": "D",
-   "text": "$\\frac{17}{15}$"
+   "text": "$\\frac{17}{8}$"
   }
  ],
  "distractorNotes": {
-  "B": "gives tan(A) = opposite/adjacent = 8/15",
-  "C": "gives cos(A) = adjacent/hypotenuse = 15/17",
-  "D": "inverts cos(A), dividing the hypotenuse by the adjacent leg"
+  "B": "uses opposite over adjacent, which is tan A",
+  "C": "uses adjacent over hypotenuse, which is cos A",
+  "D": "inverts the sine ratio to hypotenuse over opposite"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: SOH-CAH-TOA**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Sine is opposite over hypotenuse; the leg opposite $\\angle A$ is $\\overline{BC}=8$ and the hypotenuse is $\\overline{CA}=17$, so $\\sin(\\angle A)=\\frac{8}{17}$.\n\n**The Full Solution:**\n\nStep 1 — Locate the right angle. The marker sits at $B$, so $\\overline{CA}$, the side across from it, is the hypotenuse: $17$ feet.\n\nStep 2 — Find the leg opposite $\\angle A$. Moving across the triangle from $A$ lands on $\\overline{BC}=8$ feet.\n\nStep 3 — Apply SOH: $\\sin(\\angle A)=\\frac{\\text{opposite}}{\\text{hypotenuse}}=\\frac{8}{17}$. Check: $8^2+15^2=64+225=289=17^2$, so the labels are consistent.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($\\frac{8}{15}$): this is $\\tan(\\angle A)$, opposite over adjacent.\n* Choice C ($\\frac{15}{17}$): this is $\\cos(\\angle A)$, using the adjacent leg instead of the opposite one.\n* Choice D ($\\frac{17}{15}$): this flips $\\cos(\\angle A)$, putting the hypotenuse on top.\n\n**Test Day Takeaway:** The hypotenuse is always across from the right angle — identify it first, then decide which leg is opposite the named angle."
+ "explanation": "**SAT Pattern: SOH-CAH-TOA**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The side opposite $A$ is $8$ and the hypotenuse is $17$, so $\\sin A = \\frac{8}{17}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $B$, so the hypotenuse is $\\overline{AC}$, with length $17$.\nStep 2: The side opposite angle $A$ is $\\overline{BC}$, with length $8$; the side adjacent to $A$ is $\\overline{AB}$, with length $15$.\nStep 3: Sine is opposite over hypotenuse: $\\sin A = \\frac{8}{17}$. Check: $8^{2} + 15^{2} = 64 + 225 = 289 = 17^{2}$, so the labels are consistent ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{8}{15}$): divides opposite by adjacent, which gives $\\tan A$.\n* Choice C ($\\frac{15}{17}$): divides adjacent by hypotenuse, which gives $\\cos A$.\n* Choice D ($\\frac{17}{8}$): flips the sine ratio; a sine can never be greater than $1$.\n\n**Test Day Takeaway:** Locate the hypotenuse across from the right angle, then read opposite and adjacent from the angle you are asked about."
 }

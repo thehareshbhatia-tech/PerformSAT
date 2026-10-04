@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-071",
- "question": "A gas-detection perimeter around a compressor station is the circle $x^{2}+y^{2}+ax-18y+45=0$, whose center is $(7,9)$, with coordinates in meters. What is the value of $a$?",
+ "question": "$x^{2} + y^{2} + ax - 18y + 45 = 0$\nIn the given equation, $a$ is a constant. The graph of the equation in the $xy$-plane is a circle with center $(7, 9)$. What is the value of $a$?",
  "choices": [
   {
    "id": "A",
@@ -19,11 +19,11 @@
    "text": "$14$"
   }
  ],
- "distractorNotes": {
-  "B": "reverses the sign but forgets to double, reporting a = -7",
-  "C": "forgets both the sign reversal and the doubling",
-  "D": "forgets the sign reversal, solving a/2 = 7"
- },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The $x$-coordinate of the center is $-\\frac{a}{2}$, so $-\\frac{a}{2}=7$ and $a=-14$.\n\n**The Full Solution:**\n\nStep 1: Relate the coefficient to the center. Completing the square on $x^{2}+ax$ gives $\\left(x+\\frac{a}{2}\\right)^{2}$, so the center's $x$-coordinate is $-\\frac{a}{2}$.\n\nStep 2: Set it equal to the given value. $-\\frac{a}{2}=7$.\n\nStep 3: Solve. Multiplying both sides by $-2$ gives $a=-14$.\n\nCheck: with $a=-14$ the equation becomes $(x-7)^{2}+(y-9)^{2}=49+81-45=85$, a real circle centered at $(7,9)$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($-7$): reverses the sign but forgets to double, reporting $-7$.\n* Choice C ($7$): copies the center's coordinate directly, skipping both the sign reversal and the doubling.\n* Choice D ($14$): doubles correctly but keeps the sign, solving $\\frac{a}{2}=7$.\n\n**Test Day Takeaway:** In general form the linear coefficient is $-2$ times the center coordinate; running that backwards requires both operations."
+ "distractorNotes": {
+  "B": "sets a equal to the opposite of the center coordinate, -7, forgetting that a equals -2h",
+  "C": "copies the center's x-coordinate, 7, as the coefficient",
+  "D": "doubles the coordinate but drops the sign, using a = 2h instead of a = -2h"
+ },
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** A center at $x = 7$ comes from $(x - 7)^{2} = x^{2} - 14x + 49$, so $a = -14$.\n\n**The Full Solution:**\nStep 1: A circle with center $(h, k)$ has equation $(x - h)^{2} + (y - k)^{2} = r^{2}$; here $h = 7$.\nStep 2: Expanding $(x - 7)^{2}$ gives $x^{2} - 14x + 49$, so the coefficient of $x$ in the expanded equation is $-14$.\nStep 3: Matching coefficients, $a = -14$. Check: the $y$-terms agree, since $(y - 9)^{2} = y^{2} - 18y + 81$, and $r^{2} = 49 + 81 - 45 = 85 > 0$, so the equation really is a circle ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-7$): uses the opposite of the center coordinate but forgets the factor of $2$ from squaring the binomial.\n* Choice C ($7$): copies the $x$-coordinate of the center as the coefficient.\n* Choice D ($14$): doubles the coordinate but loses the sign; $(x - 7)^{2}$ produces $-14x$.\n\n**Test Day Takeaway:** The linear coefficient is $-2$ times the center coordinate: center $x = 7$ means $-14x$ in the expanded equation."
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-023",
- "question": "A circular garden bed with a radius of $12$ feet is divided into $6$ congruent sectors by paths that meet at the center. What is the area, in square feet, of one sector?",
+ "question": "A circle has a diameter of $20$ centimeters. A sector of the circle has a central angle of $72°$. What is the area, in square centimeters, of the sector?",
  "choices": [
   {
    "id": "A",
@@ -8,22 +8,22 @@
   },
   {
    "id": "B",
-   "text": "$24\\pi$"
+   "text": "$20\\pi$"
   },
   {
    "id": "C",
-   "text": "$96\\pi$"
+   "text": "$80\\pi$"
   },
   {
    "id": "D",
-   "text": "$144\\pi$"
+   "text": "$100\\pi$"
   }
  ],
  "distractorNotes": {
-  "A": "divides the circumference by 6, which gives an arc length",
-  "C": "uses the diameter as the radius",
-  "D": "reports the area of the entire circle"
+  "A": "computes the arc length, (72/360)(2 pi)(10) = 4 pi, instead of the area",
+  "C": "uses the diameter 20 as the radius, (72/360) pi (20^2) = 80 pi",
+  "D": "gives the area of the whole circle and never applies the fraction 72/360"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Sector Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The whole bed has area $\\pi(12)^2 = 144\\pi$, and one of six congruent sectors is $\\frac{144\\pi}{6} = 24\\pi$ square feet.\n\n**The Full Solution:**\nStep 1: The area of the full circle is $A = \\pi r^2 = \\pi(12)^2 = 144\\pi$ square feet.\nStep 2: Six congruent sectors each take an equal share, so each covers $\\frac{1}{6}$ of the circle. (Each central angle measures $\\frac{360}{6} = 60°$.)\nStep 3: One sector has area $\\frac{1}{6}(144\\pi) = 24\\pi$ square feet.\n\nVerification: $6(24\\pi) = 144\\pi$, the full area. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\pi$): divides the circumference $24\\pi$ by $6$, which gives the curved edge of a sector, not its area.\n* Choice C ($96\\pi$): uses the diameter $24$ as the radius, computing $\\frac{576\\pi}{6}$.\n* Choice D ($144\\pi$): reports the area of the entire bed and never divides by $6$.\n\n**Test Day Takeaway:** Congruent sectors split both the area and the $360°$ of central angle equally. Find the whole first, then take your share."
+ "explanation": "**SAT Pattern: Sector Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The radius is $10$, so the circle's area is $100\\pi$, and a $72°$ sector is $\\frac{72}{360} = \\frac{1}{5}$ of it: $20\\pi$.\n\n**The Full Solution:**\nStep 1: The radius is half the diameter, $r = 10$, so the whole circle has area $\\pi(10)^{2} = 100\\pi$.\nStep 2: The sector's central angle is $72°$, so the sector is $\\frac{72}{360} = \\frac{1}{5}$ of the circle.\nStep 3: The sector's area is $\\frac{1}{5}(100\\pi) = 20\\pi$ square centimeters. Check: five such sectors have central angles totaling $5(72°) = 360°$ and areas totaling $5(20\\pi) = 100\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\pi$): takes $\\frac{1}{5}$ of the circumference $20\\pi$, which gives the arc length, not the area.\n* Choice C ($80\\pi$): uses the diameter $20$ as the radius, taking $\\frac{1}{5}$ of $400\\pi$.\n* Choice D ($100\\pi$): finds the area of the whole circle but never applies the fraction $\\frac{72}{360}$.\n\n**Test Day Takeaway:** A sector's area is its central angle's share of $360°$ times $\\pi r^{2}$; halve a diameter before you square it."
 }

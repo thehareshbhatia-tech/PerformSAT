@@ -1,29 +1,29 @@
 {
-  "id": "bank-geo-149",
-  "question": "In a university dining hall, the circular lid on a serving kettle covers $225\\pi$ square inches of the kettle's opening. How many inches across is the lid?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$15$"
-    },
-    {
-      "id": "B",
-      "text": "$30$"
-    },
-    {
-      "id": "C",
-      "text": "$112.5$"
-    },
-    {
-      "id": "D",
-      "text": "$225$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports the radius, 15, instead of the distance across",
-    "C": "halves the area's coefficient instead of taking its square root",
-    "D": "reports the area's coefficient, 225, without any square root"
+ "id": "bank-geo-149",
+ "question": "The area of a circle is $225\\pi$ square inches. What is the diameter, in inches, of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$15$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Area of a Circle (Reverse from Given Area)**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\pi r^{2}=225\\pi$ gives $r=15$, so the lid is $30$ inches across.\n\n**The Full Solution:**\n\nStep 1: Set up the equation. $\\pi r^{2}=225\\pi$ square inches.\n\nStep 2: Solve for the radius. Dividing by $\\pi$ gives $r^{2}=225$, so $r=15$ inches.\n\nStep 3: Answer the question asked. \"Across\" means the diameter, which is $2r=30$ inches.\n\nCheck: $\\pi(15)^{2}=225\\pi$, matching the covered area.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($15$): reports the radius rather than the distance across the lid.\n* Choice C ($112.5$): halves the area's coefficient instead of taking its square root.\n* Choice D ($225$): reports the coefficient $225$ itself, skipping the square root entirely.\n\n**Test Day Takeaway:** Working backwards from an area gives the radius; the word \"across\" always costs you one more doubling."
+  {
+   "id": "B",
+   "text": "$30$"
+  },
+  {
+   "id": "C",
+   "text": "$112.5$"
+  },
+  {
+   "id": "D",
+   "text": "$225$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "finds the radius, 15, and stops without doubling it",
+  "C": "halves 225 instead of taking its square root",
+  "D": "reads the coefficient 225 as the diameter"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Area of a Circle (Reverse from Given Area)**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $r^{2} = 225$, so $r = 15$ and the diameter is $30$.\n\n**The Full Solution:**\nStep 1: Set the area formula equal to the given area: $\\pi r^{2} = 225\\pi$.\nStep 2: Divide both sides by $\\pi$: $r^{2} = 225$, so $r = 15$ inches.\nStep 3: The diameter is twice the radius: $d = 2(15) = 30$ inches. Check: a diameter of $30$ gives a radius of $15$ and an area of $\\pi(15)^{2} = 225\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): finds the radius and stops before doubling it.\n* Choice C ($112.5$): halves $225$ instead of taking its square root.\n* Choice D ($225$): reads the coefficient of $\\pi$ as a length.\n\n**Test Day Takeaway:** Working backward from an area, take the square root of the coefficient of $\\pi$ to get the radius, then double it if the question asks for the diameter."
 }

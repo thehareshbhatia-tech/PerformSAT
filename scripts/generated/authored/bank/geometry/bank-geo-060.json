@@ -1,13 +1,14 @@
 {
- "question": "A bike path of length $30\\pi$ meters encircles a pocket park. Groundskeepers will reseed the wedge of lawn shown, whose central angle measures $144^{\\circ}$. What is the wedge's area, in square meters?",
+ "id": "bank-geo-060",
+ "question": "The circle shown has center $O$ and a circumference of $30\\pi$. What is the area of sector $AOB$?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
    "centralAngle": 144,
    "angleLabel": "144°",
-   "radius": "r",
    "labelCenter": "O",
-   "showRadiusLabel": true,
+   "labelPoint1": "A",
+   "labelPoint2": "B",
    "figureNote": true
   }
  },
@@ -29,12 +30,11 @@
    "text": "$225\\pi$"
   }
  ],
- "correctAnswer": "B",
  "distractorNotes": {
-  "A": "computes the wedge's arc length, (144/360)(30 pi) = 12 pi, instead of its area",
-  "C": "uses the fraction 144/180 instead of 144/360, giving 0.8 times 225 pi",
-  "D": "reports the area of the entire park, pi times 15 squared"
+  "A": "takes 2/5 of the circumference, which is the arc length, not the area",
+  "C": "divides 144 by 180 instead of 360, doubling the fraction",
+  "D": "gives the area of the whole circle"
  },
- "explanation": "**SAT Pattern: Circumference → Radius → Sector**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** From $2\\pi r = 30\\pi$ the radius is $15$, and $\\frac{144}{360} = \\frac{2}{5}$ of the park's $225\\pi$ square meters is $90\\pi$.\n\n**The Full Solution:**\nStep 1: The bike path is the circumference: $2\\pi r = 30\\pi$, so $r = 15$ meters.\nStep 2: The full park has area $\\pi r^2 = 225\\pi$ square meters.\nStep 3: A $144^{\\circ}$ wedge is $\\frac{144}{360} = \\frac{2}{5}$ of the circle, so its area is $\\frac{2}{5}(225\\pi) = 90\\pi$ square meters. Check: $\\frac{2}{5}$ of the full area should be less than half of $225\\pi$, and $90\\pi < 112.5\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12\\pi$): applies $\\frac{2}{5}$ to the circumference, producing the wedge's arc length rather than its area.\n* Choice C ($180\\pi$): divides the central angle by $180$ instead of $360$, doubling the correct fraction.\n* Choice D ($225\\pi$): reports the whole park's area and never takes the fraction.\n\n**Test Day Takeaway:** Circumference gives the radius; the same angle fraction scales arc length off $2\\pi r$ and sector area off $\\pi r^2$ — pick the one the question asks for.",
- "id": "bank-geo-060"
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circumference → Radius → Sector**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** From $2\\pi r = 30\\pi$, the radius is $15$; sector $AOB$ is $\\frac{144}{360} = \\frac{2}{5}$ of the circle's area $225\\pi$, which is $90\\pi$.\n\n**The Full Solution:**\nStep 1: The circumference is $2\\pi r = 30\\pi$, so $r = 15$.\nStep 2: The whole circle has area $\\pi r^2 = 225\\pi$.\nStep 3: Sector $AOB$ has a central angle of $144^{\\circ}$, which is $\\frac{144}{360} = \\frac{2}{5}$ of the circle, so its area is $\\frac{2}{5}(225\\pi) = 90\\pi$. Check: $90\\pi$ is less than half of $225\\pi$, as it should be for an angle less than $180^{\\circ}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12\\pi$): takes $\\frac{2}{5}$ of the circumference, which is the arc length, not the area.\n* Choice C ($180\\pi$): divides $144$ by $180$ instead of $360$, doubling the fraction.\n* Choice D ($225\\pi$): is the area of the whole circle.\n\n**Test Day Takeaway:** Circumference gives the radius; the angle fraction then scales arc length from $2\\pi r$ or area from $\\pi r^2$, so use the one the question asks for."
 }

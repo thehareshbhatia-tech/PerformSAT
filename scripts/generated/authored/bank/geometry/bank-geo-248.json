@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-248",
- "question": "The measure of angle $A$ is $\\frac{7\\pi}{10}$ radians. The measure of angle $B$ is $18°$ less than the measure of angle $A$. What is the measure, in degrees, of angle $B$?",
+ "question": "Angle $A$ measures $\\frac{7\\pi}{10}$ radians, and angle $B$ measures $18^{\\circ}$ less than angle $A$. What is the measure, in degrees, of angle $B$?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "B": "reports angle A instead of angle B",
-  "C": "adds 18 instead of subtracting",
-  "D": "converts with 360 over pi, doubling the degree measure"
+  "B": "converts angle A to 126 degrees correctly but reports angle A instead of subtracting 18",
+  "C": "adds 18 to angle A instead of subtracting it",
+  "D": "converts with 360/pi instead of 180/pi, getting 252 for angle A, then subtracts 18"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Radians ↔ Degrees Conversion**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $\\frac{7\\pi}{10} \\cdot \\frac{180}{\\pi} = 126$ degrees, and $126 - 18 = 108$.\n\n**The Full Solution:**\nStep 1: Convert angle $A$ to degrees by multiplying by $\\frac{180}{\\pi}$, so that the $\\pi$ cancels: $\\frac{7\\pi}{10} \\cdot \\frac{180}{\\pi} = \\frac{7 \\cdot 180}{10}$.\nStep 2: $\\frac{1260}{10} = 126$, so angle $A$ measures $126^\\circ$.\nStep 3: Angle $B$ is $18^\\circ$ smaller: $126 - 18 = 108$ degrees. Check: $108^\\circ$ converts back to $\\frac{108\\pi}{180} = \\frac{3\\pi}{5}$ radians, which is less than $\\frac{7\\pi}{10}$, as it must be.\n\n**Why the wrong answers are tempting:**\n* Choice B ($126$): converts angle $A$ correctly but reports that angle instead of angle $B$.\n* Choice C ($144$): adds $18^\\circ$ to angle $A$, reading \"less than\" backwards.\n* Choice D ($234$): converts with $\\frac{360}{\\pi}$, turning $\\frac{7\\pi}{10}$ into $252^\\circ$, then subtracts $18$.\n\n**Test Day Takeaway:** Convert first, then apply the relationship. Radians become degrees through $\\frac{180}{\\pi}$ — a half turn, never a full one."
+ "explanation": "**SAT Pattern: Radians ↔ Degrees Conversion**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $\\frac{7\\pi}{10} \\cdot \\frac{180}{\\pi} = 126$, so angle $B$ measures $126 - 18 = 108$ degrees.\n\n**The Full Solution:**\nStep 1: Convert angle $A$ to degrees by multiplying by $\\frac{180}{\\pi}$: $\\frac{7\\pi}{10} \\cdot \\frac{180}{\\pi} = \\frac{7 \\cdot 180}{10} = 126$.\nStep 2: Angle $B$ measures $18^{\\circ}$ less than angle $A$, so subtract: $126 - 18$.\nStep 3: Angle $B$ measures $108^{\\circ}$. Check: $108 + 18 = 126$, and $126^{\\circ} = \\frac{126\\pi}{180} = \\frac{7\\pi}{10}$ radians ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($126$): this is angle $A$ in degrees; the $18^{\\circ}$ was never subtracted.\n* Choice C ($144$): adds $18$ to angle $A$ instead of subtracting it.\n* Choice D ($234$): converts with $\\frac{360}{\\pi}$, getting $252$ for angle $A$, then subtracts $18$.\n\n**Test Day Takeaway:** Convert to one unit before you add or subtract angle measures; radians to degrees means multiplying by $\\frac{180}{\\pi}$."
 }

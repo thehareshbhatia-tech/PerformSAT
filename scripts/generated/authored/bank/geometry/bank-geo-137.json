@@ -1,5 +1,6 @@
 {
- "question": "Two circles share the survey monument at $(4, -1)$ as their center. The smaller passes through $(-4, 5)$ and the larger through $(9, 11)$. What is the area, in square units, of the ring between them?",
+ "id": "bank-geo-137",
+ "question": "In the $xy$-plane, circles $A$ and $B$ both have center $(4, -1)$. Circle $A$ passes through the point $(-4, 5)$, and circle $B$ passes through the point $(9, 11)$. What is the area of the region inside circle $B$ and outside circle $A$?",
  "choices": [
   {
    "id": "A",
@@ -18,12 +19,11 @@
    "text": "$269\\pi$"
   }
  ],
- "correctAnswer": "B",
  "distractorNotes": {
   "A": "squares the difference of the radii, (13 - 10) squared",
-  "C": "reports the area of the larger circle only",
+  "C": "gives the area of circle B only",
   "D": "adds the two squared radii, 169 + 100"
  },
- "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The radii are $\\sqrt{64 + 36} = 10$ and $\\sqrt{25 + 144} = 13$, so the ring is $\\pi(169 - 100) = 69\\pi$.\n\n**The Full Solution:**\nStep 1: The smaller radius is the distance from $(4, -1)$ to $(-4, 5)$: $\\sqrt{8^2 + 6^2} = \\sqrt{100} = 10$.\nStep 2: The larger radius is the distance from $(4, -1)$ to $(9, 11)$: $\\sqrt{5^2 + 12^2} = \\sqrt{169} = 13$.\nStep 3: The ring's area is $\\pi(13^2) - \\pi(10^2) = \\pi(169 - 100) = 69\\pi$ square units. Check: $69\\pi$ is less than the larger circle's $169\\pi$, as a ring must be ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\pi$): squares the difference of the radii; $(13 - 10)^2$ is not $13^2 - 10^2$.\n* Choice C ($169\\pi$): gives the whole larger circle and never removes the smaller one.\n* Choice D ($269\\pi$): adds the squared radii instead of subtracting them.\n\n**Test Day Takeaway:** A ring is a difference of areas, so subtract the SQUARES of the radii — never square the difference.",
- "id": "bank-geo-137"
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The radii are $\\sqrt{64 + 36} = 10$ and $\\sqrt{25 + 144} = 13$, so the region's area is $\\pi(169 - 100) = 69\\pi$.\n\n**The Full Solution:**\nStep 1: The radius of circle $A$ is the distance from $(4, -1)$ to $(-4, 5)$: $\\sqrt{(-8)^{2} + 6^{2}} = \\sqrt{100} = 10$.\nStep 2: The radius of circle $B$ is the distance from $(4, -1)$ to $(9, 11)$: $\\sqrt{5^{2} + 12^{2}} = \\sqrt{169} = 13$.\nStep 3: Circle $A$ lies inside circle $B$, so the region's area is $\\pi(13^{2}) - \\pi(10^{2}) = 169\\pi - 100\\pi = 69\\pi$. Check: $69\\pi + 100\\pi = 169\\pi$, the area of circle $B$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\pi$): squares the difference of the radii; $(13 - 10)^{2}$ is not $13^{2} - 10^{2}$.\n* Choice C ($169\\pi$): gives the area of circle $B$ and never removes circle $A$.\n* Choice D ($269\\pi$): adds the two areas instead of subtracting.\n\n**Test Day Takeaway:** The region between two circles with the same center is a difference of areas, so subtract the squares of the radii; never square the difference of the radii."
 }

@@ -1,29 +1,29 @@
 {
- "question": "A bike-share dock at $(-3, 5)$ in the $xy$-plane serves every rack within $13$ units of the dock. Which statement about the rack at $(2, -7)$ is true?",
+ "id": "bank-geo-135",
+ "question": "$(x + 3)^{2} + (y - 4)^{2} = 169$\nIn the $xy$-plane, the graph of the given equation is a circle. Which of the following points lies on the circle?",
  "choices": [
   {
    "id": "A",
-   "text": "The rack is on the boundary of the service area, since its distance from the dock is exactly $13$ units."
+   "text": "$(2, -8)$"
   },
   {
    "id": "B",
-   "text": "The rack is inside the service area, since its horizontal distance from the dock is only $5$ units."
+   "text": "$(5, -1)$"
   },
   {
    "id": "C",
-   "text": "The rack is outside the service area, since the coordinate differences sum to $17$ units."
+   "text": "$(8, 8)$"
   },
   {
    "id": "D",
-   "text": "The rack is outside the service area, since its distance from the dock is $169$ units."
+   "text": "$(15, 9)$"
   }
  ],
- "correctAnswer": "A",
  "distractorNotes": {
-  "B": "uses only the horizontal difference of 5 units",
-  "C": "adds the coordinate differences, 5 + 12 = 17, instead of using the distance formula",
-  "D": "stops at the squared distance 169 and compares it with 13"
+  "B": "treats the radius 13 as the sum of the coordinate differences, 8 + 5 = 13, instead of using the distance formula",
+  "C": "uses (3, -4) as the center by reading the signs in the equation backward",
+  "D": "uses (3, 4) as the center by flipping the sign of the x-coordinate only"
  },
- "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The differences are $5$ and $12$, so the distance is $\\sqrt{25 + 144} = 13$ — exactly the service radius.\n\n**The Full Solution:**\nStep 1: The service area is the disk of radius $13$ centered at the dock $(-3, 5)$.\nStep 2: The rack's coordinate differences are $2 - (-3) = 5$ and $-7 - 5 = -12$.\nStep 3: The distance is $\\sqrt{5^2 + 12^2} = \\sqrt{169} = 13$ units, equal to the radius, so the rack sits on the boundary. Check: $(2, -7)$ satisfies $(x + 3)^2 + (y - 5)^2 = 169$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: uses only the horizontal gap of $5$ units and ignores the $12$-unit vertical gap.\n* Choice C: adds the two gaps, $5 + 12 = 17$, which is always at least the true distance.\n* Choice D: reports the squared distance, $169$, and compares that number with the radius $13$.\n\n**Test Day Takeaway:** Inside, outside, or on the boundary is decided by comparing the actual distance with the radius — take the square root before comparing.",
- "id": "bank-geo-135"
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The center is $(-3, 4)$ and the radius is $13$. From $(-3, 4)$ to $(2, -8)$ the differences are $5$ and $-12$, and $\\sqrt{25 + 144} = 13$.\n\n**The Full Solution:**\nStep 1: The equation has the form $(x - h)^{2} + (y - k)^{2} = r^{2}$ with $h = -3$, $k = 4$, and $r^{2} = 169$, so the center is $(-3, 4)$ and the radius is $13$.\nStep 2: A point lies on the circle exactly when its distance from $(-3, 4)$ is $13$, that is, when it satisfies the equation.\nStep 3: For $(2, -8)$: $(2 + 3)^{2} + (-8 - 4)^{2} = 25 + 144 = 169$. Check the others: $(5, -1)$ gives $64 + 25 = 89$, $(8, 8)$ gives $121 + 16 = 137$, and $(15, 9)$ gives $324 + 25 = 349$, so only $(2, -8)$ works ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($(5, -1)$): its coordinate differences from the center, $8$ and $5$, add to $13$, but distance is $\\sqrt{8^{2} + 5^{2}} = \\sqrt{89}$, not $8 + 5$.\n* Choice C ($(8, 8)$): is $13$ units from $(3, -4)$, the center you get by reading both signs in the equation backward.\n* Choice D ($(15, 9)$): is $13$ units from $(3, 4)$, the center you get by flipping the sign of the $x$-coordinate only.\n\n**Test Day Takeaway:** In $(x - h)^{2} + (y - k)^{2} = r^{2}$, the center is $(h, k)$, so $(x + 3)$ means $h = -3$; then test each point by substituting it into the equation."
 }

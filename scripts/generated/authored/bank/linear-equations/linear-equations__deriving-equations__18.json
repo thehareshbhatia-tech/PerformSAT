@@ -1,30 +1,30 @@
 {
  "id": 18,
- "question": "After $4$ months a payroll deduction plan has set aside \\$860, and after $9$ months it has set aside \\$1,785. Which function gives the amount $S(m)$, in dollars, set aside after $m$ months at a constant monthly rate?",
+ "question": "$S(m) = am + b$\nThe function $S$ gives the balance, in dollars, of a savings account $m$ months after it was opened, where $a$ and $b$ are constants. If $S(4) = 860$ and $S(9) = 1{,}785$, what is the value of $b$?",
  "choices": [
   {
    "id": "A",
-   "text": "$S(m) = 120m + 185$"
+   "text": "$120$"
   },
   {
    "id": "B",
-   "text": "$S(m) = 185m$"
+   "text": "$185$"
   },
   {
    "id": "C",
-   "text": "$S(m) = 215m$"
+   "text": "$215$"
   },
   {
    "id": "D",
-   "text": "$S(m) = 185m + 120$"
+   "text": "$925$"
   }
  ],
  "distractorNotes": {
-  "A": "swaps the monthly amount and the constant term",
-  "B": "uses the correct monthly amount but drops the 120 dollar constant term",
-  "C": "divides 860 by 4 to get 215, folding the constant term into the rate"
+  "B": "gives the value of a, the monthly increase, instead of b",
+  "C": "divides 860 by 4, treating the balance as proportional to the months",
+  "D": "gives the difference 1,785 - 860, the increase over five months"
  },
- "correctAnswer": "D",
+ "correctAnswer": "A",
  "hint": "The two months given are five months apart.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~45s):** The plan gains $\\frac{1785 - 860}{9 - 4} = 185$ dollars a month, and $860 - 4(185) = 120$ is the amount already in place at month zero.\n\n**The Full Solution:**\nStep 1: The two data points are $(4,\\ 860)$ and $(9,\\ 1785)$, so the monthly rate is $\\frac{1{,}785 - 860}{9 - 4} = \\frac{925}{5} = 185$ dollars per month.\nStep 2: Write $S(m) = 185m + b$ and substitute $(4,\\ 860)$: $860 = 740 + b$, so $b = 120$ dollars.\nStep 3: The function is $S(m) = 185m + 120$.\n\nCheck: $S(9) = 185(9) + 120 = 1{,}665 + 120 = 1{,}785$ dollars. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($120m + 185$): swaps the monthly amount and the constant term; it gives \\$665 at month four.\n* Choice B ($185m$): has the right rate but assumes nothing was set aside before the plan's monthly transfers began.\n* Choice C ($215m$): divides \\$860 by four months, which folds the constant term into the rate; it gives \\$1,935 at month nine.\n\n**Test Day Takeaway:** Two points give the rate first; only then substitute one of them to recover the constant term."
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** The balance rises $1{,}785 - 860 = 925$ dollars in $5$ months, so $a = 185$, and $860 - 4(185) = 120$.\n\n**The Full Solution:**\nStep 1: The rate is $a = \\frac{1{,}785 - 860}{9 - 4} = \\frac{925}{5} = 185$ dollars per month.\nStep 2: Substitute $S(4) = 860$: $860 = 185(4) + b = 740 + b$.\nStep 3: Solve: $b = 120$. Check: $S(9) = 185(9) + 120 = 1{,}665 + 120 = 1{,}785$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($185$): is the value of $a$, the increase in balance each month.\n* Choice C ($215$): divides $860$ by $4$, which ignores the starting balance $b$.\n* Choice D ($925$): is the increase over the $5$ months from month $4$ to month $9$, not a constant of the function.\n\n**Test Day Takeaway:** In a linear model, find the rate from two data points first; the constant term is what remains when you work back to an input of $0$."
 }

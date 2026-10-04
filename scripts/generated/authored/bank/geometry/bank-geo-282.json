@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-282",
- "question": "On a solar farm's site grid, marked in hundreds of meters, the glare-exclusion boundary $x^{2}+y^{2}-4x+14y+m=0$ passes through $(6,-7)$. Find the value of $m$.",
+ "question": "$x^{2} + y^{2} - 4x + 14y + m = 0$\nIn the given equation, $m$ is a constant. If the graph of the equation in the $xy$-plane is a circle that passes through the point $(6, -7)$, what is the value of $m$?",
  "choices": [
   {
    "id": "A",
@@ -8,22 +8,22 @@
   },
   {
    "id": "B",
-   "text": "$13$"
-  },
-  {
-   "id": "C",
    "text": "$16$"
   },
   {
-   "id": "D",
+   "id": "C",
    "text": "$37$"
+  },
+  {
+   "id": "D",
+   "text": "$49$"
   }
  ],
  "distractorNotes": {
-  "A": "solves for m with the sign reversed, reporting -37",
-  "B": "drops the -4x term when substituting, solving 36 + 49 - 98 + m = 0",
-  "C": "reports r squared = 16 instead of the constant m"
+  "A": "gets 36 + 49 - 24 - 98 = -37 and stops without moving it to the other side",
+  "B": "reports r squared, 16, as the value of m",
+  "D": "uses the radius 4 instead of r squared, solving 53 - m = 4"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Substituting $(6,-7)$ gives $36+49-24-98+m=0$, so $m=37$.\n\n**The Full Solution:**\n\nStep 1: Substitute the point. $6^{2}+(-7)^{2}-4(6)+14(-7)+m=0$.\n\nStep 2: Evaluate each term. $36+49-24-98+m=0$, which simplifies to $-37+m=0$.\n\nStep 3: Solve. $m=37$.\n\nCheck: with $m=37$ the circle is $(x-2)^{2}+(y+7)^{2}=4+49-37=16$, center $(2,-7)$ and radius $4$; the point $(6,-7)$ is exactly $4$ units from that center.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-37$): solves for $m$ with the sign reversed after collecting the numeric terms.\n* Choice B ($13$): drops the $-4x$ term while substituting, solving $36+49-98+m=0$.\n* Choice C ($16$): reports $r^{2}=16$ instead of the constant $m$ the question asks for.\n\n**Test Day Takeaway:** A point on a circle satisfies its equation — substitute the coordinates and the unknown constant falls out in one line."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Substitute $(6, -7)$: $36 + 49 - 24 - 98 + m = 0$, so $-37 + m = 0$ and $m = 37$.\n\n**The Full Solution:**\nStep 1: A point on the circle satisfies the equation, so substitute $x = 6$ and $y = -7$.\nStep 2: $6^{2} + (-7)^{2} - 4(6) + 14(-7) + m = 36 + 49 - 24 - 98 + m = -37 + m$.\nStep 3: Set $-37 + m = 0$: $m = 37$. Check: completing the squares gives $(x - 2)^{2} + (y + 7)^{2} = 4 + 49 - 37 = 16$, and $(6, -7)$ is $4$ units from the center $(2, -7)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-37$): adds the four numbers and reports their sum instead of solving $-37 + m = 0$.\n* Choice B ($16$): completes the squares and reports $r^{2}$ instead of $m$.\n* Choice D ($49$): finds the radius $4$ and solves $53 - m = 4$, using $r$ where $r^{2}$ belongs.\n\n**Test Day Takeaway:** When a point lies on a graph, substitute it into the equation; that is usually faster than completing the square."
 }

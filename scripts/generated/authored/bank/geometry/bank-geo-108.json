@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-108",
- "question": "A quilter's set square appears in the figure as right triangle $TUV$; the two legs are labeled in inches and the sloped edge is not. What is the value of $\\sin(\\angle T)$?",
+ "question": "What is the value of $\\tan T$ in the triangle shown?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -31,6 +31,6 @@
    "rightAngleVertex": 1
   }
  },
- "correctAnswer": "0.6",
- "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**The correct answer is $0.6$.**\n\n**The Fast Way (~20s):** Legs $15$ and $20$ are a $3$-$4$-$5$ triangle scaled by $5$, so the hypotenuse is $25$ and $\\sin(\\angle T)=\\frac{15}{25}=0.6$.\n\n**The Full Solution:**\n\nStep 1 — Find the hypotenuse. With the right angle at $U$, $TV=\\sqrt{20^2+15^2}=\\sqrt{400+225}=\\sqrt{625}=25$ inches.\n\nStep 2 — Identify the opposite leg. Across the triangle from $\\angle T$ lies $\\overline{UV}=15$ inches.\n\nStep 3 — Apply SOH: $\\sin(\\angle T)=\\frac{15}{25}=\\frac{3}{5}=0.6$. Check: $\\cos(\\angle T)=\\frac{20}{25}=0.8$, and $0.6^2+0.8^2=1$.\n\n**Common Mistakes:** Answering $0.8$ uses the adjacent leg and gives the cosine. Answering $0.75$ divides leg by leg and gives the tangent. Treating the labeled $20$ as the hypotenuse gives $\\frac{15}{20}=0.75$ as well, which is why finding the hypotenuse first matters.\n\n**Test Day Takeaway:** When two legs are given, compute the hypotenuse before choosing a ratio — a $15$-$20$-$25$ triangle is just $3$-$4$-$5$ in disguise."
+ "correctAnswer": "3/4",
+ "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**The correct answer is $\\frac{3}{4}$.** Equivalent forms such as $.75$ are also correct.\n\n**The Fast Way (~10s):** Tangent is opposite over adjacent: $\\tan T = \\frac{UV}{TU} = \\frac{15}{20} = \\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $U$, so $TU$ and $UV$ are the legs.\nStep 2: Relative to angle $T$, the opposite leg is $UV = 15$ and the adjacent leg is $TU = 20$.\nStep 3: $\\tan T = \\frac{15}{20} = \\frac{3}{4}$. Check: the hypotenuse is $\\sqrt{15^2 + 20^2} = 25$, and $\\frac{\\sin T}{\\cos T} = \\frac{15/25}{20/25} = \\frac{3}{4}$ ✓\n\n**Common Mistakes:**\n* $\\frac{4}{3}$: divides the adjacent leg by the opposite leg, which gives $\\tan V$.\n* $\\frac{3}{5}$: finds the hypotenuse and computes $\\sin T$ instead.\n* $\\frac{4}{5}$: computes $\\cos T$, adjacent over hypotenuse.\n\n**Test Day Takeaway:** Tangent uses only the two legs, so you never need the hypotenuse to find it."
 }

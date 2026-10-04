@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-325",
- "question": "Two triangular countertop templates are cut to the same height, and the base of the second template is twice the base of the first. Which statement comparing the areas of the two templates is true?",
+ "question": "A triangle has an area of $48$ square units and a height of $8$ units. What is the length, in units, of the base of the triangle?",
  "choices": [
   {
    "id": "A",
-   "text": "The area of the second template is half the area of the first."
+   "text": "$6$"
   },
   {
    "id": "B",
-   "text": "The area of the second template is equal to the area of the first."
+   "text": "$12$"
   },
   {
    "id": "C",
-   "text": "The area of the second template is twice the area of the first."
+   "text": "$40$"
   },
   {
    "id": "D",
-   "text": "The area of the second template is four times the area of the first."
+   "text": "$384$"
   }
  ],
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "inverts the relationship, treating the doubled base as a halved area",
-  "B": "assumes only the height controls the area",
-  "D": "squares the scale factor, which applies when both dimensions are doubled"
+  "A": "divides the area by the height, 48/8, forgetting the factor of one half",
+  "C": "subtracts the height from the area, 48 - 8",
+  "D": "multiplies the area by the height, 48 times 8"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Area is $\\frac{1}{2}bh$, so with $h$ fixed and $b$ doubled the area doubles.\n\n**The Full Solution:**\nStep 1: Let the first template have base $b$ and height $h$, so its area is $\\frac{1}{2}bh$.\nStep 2: The second template has the same height $h$ and base $2b$, so its area is $\\frac{1}{2}(2b)(h) = bh$.\nStep 3: Comparing, $bh$ is exactly $2$ times $\\frac{1}{2}bh$, so the second area is twice the first.\n\nCheck: With $b = 10$ and $h = 6$ the areas are $30$ and $60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (half the area): inverts the relationship, as though a longer base produced a smaller triangle.\n* Choice B (equal areas): treats the height as the only factor and ignores the base entirely.\n* Choice D (four times the area): squares the scale factor, which is what happens only when both the base and the height double.\n\n**Test Day Takeaway:** Area scales by the product of the factors applied to base and height; one doubled dimension doubles the area."
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $48 = \\frac{1}{2}b(8) = 4b$, so $b = 12$.\n\n**The Full Solution:**\nStep 1: The area of a triangle is $\\frac{1}{2}bh$, so $48 = \\frac{1}{2}b(8)$.\nStep 2: Simplify the right side: $48 = 4b$.\nStep 3: Divide by $4$: $b = 12$. Check: $\\frac{1}{2}(12)(8) = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): divides $48$ by $8$, which ignores the $\\frac{1}{2}$ in the formula.\n* Choice C ($40$): subtracts the height from the area, mixing square units with units.\n* Choice D ($384$): multiplies the area by the height instead of dividing.\n\n**Test Day Takeaway:** Working backward from an area, the base is $\\frac{2A}{h}$: double the area before dividing."
 }

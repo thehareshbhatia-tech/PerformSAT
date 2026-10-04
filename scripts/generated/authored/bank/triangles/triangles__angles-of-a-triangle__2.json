@@ -1,6 +1,6 @@
 {
  "id": 2,
- "question": "An exterior angle at vertex $C$ of triangle $ABC$ has a measure of $142°$. What is the sum, in degrees, of the measures of angles $A$ and $B$?",
+ "question": "In triangle $ABC$, the exterior angle at vertex $C$ has a measure of $142^\\circ$. What is the sum of the measures, in degrees, of angles $A$ and $B$?",
  "choices": [
   {
    "id": "A",
@@ -25,6 +25,6 @@
   "D": "subtracts the exterior angle from $360$ instead of using the exterior angle relationship"
  },
  "correctAnswer": "C",
- "hint": "Find the interior angle at $C$ first, then use the $180°$ total.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** An exterior angle equals the sum of the two remote interior angles, so $m\\angle A + m\\angle B = 142$.\n\n**The Full Solution:**\nStep 1: The interior angle at $C$ is the supplement of the exterior angle: $180 - 142 = 38$.\nStep 2: The three interior angles total $180$: $m\\angle A + m\\angle B + 38 = 180$.\nStep 3: So $m\\angle A + m\\angle B = 142$, the measure of the exterior angle itself.\n\nVerification: $142 + 38 = 180$, so the exterior and interior angles at $C$ are supplementary. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($38$): gives the interior angle at $C$, the supplement, rather than the sum of the other two angles.\n* Choice B ($71$): halves the exterior angle, assuming angles $A$ and $B$ are equal.\n* Choice D ($218$): subtracts the exterior angle from $360$ instead of using the exterior angle relationship.\n\n**Test Day Takeaway:** An exterior angle of a triangle equals the sum of the two interior angles it does not touch."
+ "hint": "Find the interior angle at $C$ first.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** An exterior angle equals the sum of the two interior angles not next to it, so angles $A$ and $B$ sum to $142^\\circ$.\n\n**The Full Solution:**\nStep 1: The exterior angle and the interior angle at $C$ form a straight line, so the interior angle at $C$ is $180 - 142 = 38$ degrees.\nStep 2: The interior angles sum to $180^\\circ$, so the measures of angles $A$ and $B$ sum to $180 - 38 = 142$ degrees.\nStep 3: So the sum is $142$, which equals the exterior angle. Check: $142 + 38 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($38$): is the interior angle at $C$, not the sum of angles $A$ and $B$.\n* Choice B ($71$): halves $142$, assuming angles $A$ and $B$ are equal, and gives only one of them.\n* Choice D ($218$): subtracts $142$ from $360$, which has no role in a triangle's angle sum.\n\n**Test Day Takeaway:** An exterior angle of a triangle equals the sum of the two interior angles that are not adjacent to it."
 }

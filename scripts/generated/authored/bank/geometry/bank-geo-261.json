@@ -1,46 +1,55 @@
 {
- "id": "bank-geo-261",
- "question": "In the isosceles right triangle shown, each leg has length $s$ and the hypotenuse is $6$ units longer than a leg. What is the value of $s$?",
- "diagram": {
-  "type": "rightTriangle",
-  "params": {
-   "labels": [
-    "45°",
-    "",
-    "45°"
-   ],
-   "sideLabels": [
-    "s",
-    "s",
-    "s + 6"
-   ],
-   "rightAngleVertex": 1,
-   "figureNote": true
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$6\\sqrt{2} - 6$"
+  "id": "bank-geo-261",
+  "question": "In isosceles right triangle $PQR$ shown, the length of $PR$ is $6$ greater than the length of $PQ$. What is the length of $PQ$?",
+  "diagram": {
+    "type": "rightTriangle",
+    "params": {
+      "labels": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "rightAngleVertex": 1,
+      "figureNote": true,
+      "vertices": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ]
+    }
   },
-  {
-   "id": "B",
-   "text": "$3 + 3\\sqrt{2}$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$6\\sqrt{2} - 6$"
+    },
+    {
+      "id": "B",
+      "text": "$3 + 3\\sqrt{2}$"
+    },
+    {
+      "id": "C",
+      "text": "$6 + 6\\sqrt{2}$"
+    },
+    {
+      "id": "D",
+      "text": "$12 + 6\\sqrt{2}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies 6 by (sqrt 2 - 1) instead of dividing 6 by it",
+    "B": "rationalizes 6/(sqrt 2 - 1) with a denominator of 2 instead of 1",
+    "D": "reports the hypotenuse PR = PQ + 6 instead of PQ"
   },
-  {
-   "id": "C",
-   "text": "$6 + 6\\sqrt{2}$"
-  },
-  {
-   "id": "D",
-   "text": "$12 + 6\\sqrt{2}$"
-  }
- ],
- "distractorNotes": {
-  "A": "multiplies by root 2 minus 1 instead of dividing",
-  "B": "uses a denominator of 2 when rationalizing",
-  "D": "reports the hypotenuse"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** $s\\sqrt{2} = s + 6$ gives $s(\\sqrt{2} - 1) = 6$, so $s = \\frac{6}{\\sqrt{2} - 1} = 6(\\sqrt{2} + 1) = 6 + 6\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: In a $45$-$45$-$90$ triangle the hypotenuse is $s\\sqrt{2}$. The condition in the figure says $s\\sqrt{2} = s + 6$.\nStep 2: Collect the $s$ terms: $s\\sqrt{2} - s = 6$, so $s(\\sqrt{2} - 1) = 6$ and $s = \\frac{6}{\\sqrt{2} - 1}$.\nStep 3: Rationalize by multiplying numerator and denominator by $\\sqrt{2} + 1$. The denominator becomes $(\\sqrt{2})^2 - 1^2 = 1$, so $s = 6(\\sqrt{2} + 1) = 6 + 6\\sqrt{2}$. Check: $s \\approx 14.49$ and $s\\sqrt{2} \\approx 20.49$, a difference of $6$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($6\\sqrt{2} - 6$): multiplies by $\\sqrt{2} - 1$ instead of dividing by it.\n* Choice B ($3 + 3\\sqrt{2}$): rationalizes but records the denominator $(\\sqrt{2} - 1)(\\sqrt{2} + 1)$ as $2$ rather than $1$.\n* Choice D ($12 + 6\\sqrt{2}$): solves for $s$ correctly but reports the hypotenuse $s + 6$.\n\n**Test Day Takeaway:** When a side is described relative to another side, set up one equation in one variable and rationalize carefully: $(\\sqrt{2} - 1)(\\sqrt{2} + 1) = 1$."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** With $PQ = s$, the hypotenuse is $s\\sqrt{2}$, so $s\\sqrt{2} - s = 6$ and $s = \\frac{6}{\\sqrt{2} - 1} = 6\\left(\\sqrt{2} + 1\\right) = 6 + 6\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $Q$, so $PR$ is the hypotenuse and the legs $PQ$ and $QR$ are equal. Let $PQ = s$; then $PR = s\\sqrt{2}$.\nStep 2: Since $PR$ is $6$ greater than $PQ$, $s\\sqrt{2} - s = 6$, so $s\\left(\\sqrt{2} - 1\\right) = 6$ and $s = \\frac{6}{\\sqrt{2} - 1}$.\nStep 3: Rationalize: $\\frac{6}{\\sqrt{2} - 1} \\cdot \\frac{\\sqrt{2} + 1}{\\sqrt{2} + 1} = \\frac{6\\left(\\sqrt{2} + 1\\right)}{2 - 1} = 6 + 6\\sqrt{2}$. Check: $PR = \\left(6 + 6\\sqrt{2}\\right)\\sqrt{2} = 6\\sqrt{2} + 12$, and $\\left(12 + 6\\sqrt{2}\\right) - \\left(6 + 6\\sqrt{2}\\right) = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6\\sqrt{2} - 6$): multiplies $6$ by $\\sqrt{2} - 1$ instead of dividing by it; this value is less than $6$, too short for a leg.\n* Choice B ($3 + 3\\sqrt{2}$): rationalizes with a denominator of $2$; $\\left(\\sqrt{2} - 1\\right)\\left(\\sqrt{2} + 1\\right) = 2 - 1 = 1$.\n* Choice D ($12 + 6\\sqrt{2}$): this is $PR$, the hypotenuse, which is $6$ more than the leg.\n\n**Test Day Takeaway:** Write every side in terms of one leg, factor that leg out, and rationalize with the conjugate; $\\left(\\sqrt{2} - 1\\right)\\left(\\sqrt{2} + 1\\right) = 1$."
 }

@@ -1,29 +1,29 @@
 {
- "question": "A bathymetric survey vessel maps a seamount by running a series of straight legs, and at the end of one leg the vessel turns through an angle of $216$ degrees before beginning the next leg. The navigation log records every course change as a radian measure rather than a degree measure. What measure, in radians, does the log record for this turn?",
+ "id": "bank-geo-006",
+ "question": "What is the measure, in radians, of an angle that measures $252°$?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{3\\pi}{5}$"
+   "text": "$\\frac{7\\pi}{10}$"
   },
   {
    "id": "B",
-   "text": "$\\frac{5\\pi}{6}$"
+   "text": "$\\frac{5\\pi}{7}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{6\\pi}{5}$"
+   "text": "$\\frac{7\\pi}{5}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{12\\pi}{5}$"
+   "text": "$\\frac{14\\pi}{5}$"
   }
  ],
- "correctAnswer": "C",
  "distractorNotes": {
-  "A": "divides by 360 instead of 180",
-  "B": "inverts the conversion fraction, computing 180 over 216 times pi",
-  "D": "multiplies by 2 pi and divides by 180, doubling the measure"
+  "A": "divides 252 by 360 and multiplies by pi, using pi radians for a full turn",
+  "B": "inverts the conversion factor, computing (180/252) pi",
+  "D": "divides 252 by 90 instead of 180"
  },
- "explanation": "**SAT Pattern: Degrees to Radians**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiply by $\\frac{\\pi}{180}$: $216 \\cdot \\frac{\\pi}{180} = \\frac{6\\pi}{5}$ radians.\n\n**The Full Solution:**\nStep 1: Degrees convert to radians through $180$ degrees $= \\pi$ radians, so multiply the degree measure by $\\frac{\\pi}{180}$.\nStep 2: The log entry is $\\frac{216\\pi}{180}$ radians, and both numbers are divisible by $36$: $\\frac{216}{180} = \\frac{6}{5}$.\nStep 3: The turn is $\\frac{6\\pi}{5}$ radians. Check: $\\frac{6\\pi}{5} \\approx 3.77$, just past $\\pi \\approx 3.14$, matching a turn a little past half a circle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3\\pi}{5}$): divides by $360$, the degrees in a full turn, instead of by $180$.\n* Choice B ($\\frac{5\\pi}{6}$): flips the conversion fraction and multiplies by $\\frac{180}{216}$.\n* Choice D ($\\frac{12\\pi}{5}$): multiplies by $2\\pi$ and divides by $180$, doubling the correct measure.\n\n**Test Day Takeaway:** Degrees to radians is one multiplication by $\\frac{\\pi}{180}$ — and any angle past $180$ degrees must come out larger than $\\pi$.",
- "id": "bank-geo-006"
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Degrees to Radians**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiply by $\\frac{\\pi}{180}$: $252 \\cdot \\frac{\\pi}{180} = \\frac{7\\pi}{5}$.\n\n**The Full Solution:**\nStep 1: Since $180° = \\pi$ radians, multiply a degree measure by $\\frac{\\pi}{180}$ to convert it to radians.\nStep 2: $252 \\cdot \\frac{\\pi}{180} = \\frac{252\\pi}{180}$.\nStep 3: Divide $252$ and $180$ by $36$: $\\frac{252\\pi}{180} = \\frac{7\\pi}{5}$. Check: $\\frac{7\\pi}{5} \\cdot \\frac{180}{\\pi} = 7 \\cdot 36 = 252$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7\\pi}{10}$): divides by $360$ instead of $180$, as if a full turn were only $\\pi$ radians.\n* Choice B ($\\frac{5\\pi}{7}$): flips the conversion factor, computing $\\frac{180}{252}\\pi$.\n* Choice D ($\\frac{14\\pi}{5}$): divides by $90$ instead of $180$, doubling the answer.\n\n**Test Day Takeaway:** Degrees to radians: multiply by $\\frac{\\pi}{180}$. An angle between $180°$ and $270°$ must land between $\\pi$ and $\\frac{3\\pi}{2}$."
 }

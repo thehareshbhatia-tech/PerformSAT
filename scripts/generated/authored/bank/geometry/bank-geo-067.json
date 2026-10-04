@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-067",
- "question": "The vacuum-oven door stay shown has a $40$-centimeter sloped edge, and the cosine of its marked acute angle equals $\\frac{3}{5}$. How many square centimeters does the stay's triangle cover?",
+ "question": "In the triangle shown, $\\cos R = \\frac{8}{17}$. What is the length of $\\overline{RT}$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -15,22 +15,22 @@
     ],
     [
      24,
-     32
+     45
     ]
    ],
    "labels": [
-    "θ",
-    "",
-    ""
+    "R",
+    "S",
+    "T"
    ],
    "sideLabels": [
-    "",
-    "",
-    "40 cm"
+    "x",
+    "x + 21",
+    ""
    ],
    "rightAngleVertex": 1
   }
  },
- "correctAnswer": "384",
- "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**The correct answer is $384$.**\n\n**The Fast Way (~45s):** $\\cos\\theta = \\frac{3}{5}$ with hypotenuse $40$ gives legs $24$ and $32$, so the area is $\\frac{1}{2}(24)(32) = 384$.\n\n**The Full Solution:**\n\nStep 1: The sloped edge is the hypotenuse, so the adjacent leg is $40\\cos\\theta = 40 \\cdot \\frac{3}{5} = 24$ centimeters.\n\nStep 2: Since $\\cos\\theta = \\frac{3}{5}$, the triangle is a $3$-$4$-$5$ family triangle and $\\sin\\theta = \\frac{4}{5}$, so the opposite leg is $40 \\cdot \\frac{4}{5} = 32$ centimeters.\n\nStep 3: Area $= \\frac{1}{2}(24)(32) = 384$ square centimeters. Check: $24^2 + 32^2 = 576 + 1024 = 1600 = 40^2$.\n\n**Common Mistakes:**\n\n* $480$ — using the $40$-centimeter hypotenuse as the height: $\\frac{1}{2}(24)(40)$.\n* $768$ — finding both legs but omitting the factor $\\frac{1}{2}$.\n* $32$ — stopping at the second leg instead of computing the area.\n\n**Test Day Takeaway:** One trig ratio plus the hypotenuse gives BOTH legs, because the Pythagorean identity fixes the other ratio immediately."
+ "correctAnswer": "51",
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**The correct answer is 51.**\n\n**The Fast Way (~50s):** $\\cos R = \\frac{8}{17}$ makes the legs $RS = 8k$ and $ST = 15k$ with $RT = 17k$; the legs differ by $7k = 21$, so $k = 3$ and $RT = 51$.\n\n**The Full Solution:**\nStep 1: The right angle is at $S$, so $RT$ is the hypotenuse and $RS = x$ is the leg adjacent to $R$. From $\\cos R = \\frac{8}{17}$, write $RS = 8k$ and $RT = 17k$ for some positive $k$; then $ST = \\sqrt{(17k)^{2} - (8k)^{2}} = \\sqrt{225k^{2}} = 15k$.\nStep 2: The figure gives $ST - RS = (x + 21) - x = 21$, so $15k - 8k = 21$, which gives $7k = 21$ and $k = 3$.\nStep 3: Therefore $RT = 17(3) = 51$. Check: $RS = 24$, $ST = 45 = 24 + 21$, $24^{2} + 45^{2} = 576 + 2{,}025 = 2{,}601 = 51^{2}$, and $\\cos R = \\frac{24}{51} = \\frac{8}{17}$ ✓\n\n**Common Mistakes:**\n* $17$: reads the denominator of $\\frac{8}{17}$ as the hypotenuse without scaling; legs of $8$ and $15$ differ by $7$, not $21$.\n* $45$: finds $ST = x + 21$ correctly but reports that leg instead of $\\overline{RT}$.\n* $119/3$: sets $17k - 8k = 21$, as if $21$ were the gap between the hypotenuse and $RS$; that gives $k = \\frac{7}{3}$ and $RT = \\frac{119}{3}$.\n\n**Test Day Takeaway:** When the figure labels two legs with a difference, turn the trig ratio into $8k$, $15k$, $17k$ and let the given difference fix $k$."
 }

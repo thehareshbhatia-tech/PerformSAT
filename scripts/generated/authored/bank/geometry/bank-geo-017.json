@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-017",
- "question": "At a rail yard, a straight track touches a circular turntable at exactly one point $T$, and $O$ is the center of the turntable. Which of the following must be true?",
+ "question": "Line $\\ell$ is tangent to a circle with center $O$ at point $T$. Point $P$ lies on line $\\ell$, and the measure of angle $TOP$ is $52°$. What is the measure, in degrees, of angle $OPT$?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\overline{OT}$ is perpendicular to the track."
+   "text": "$38$"
   },
   {
    "id": "B",
-   "text": "$\\overline{OT}$ is parallel to the track."
+   "text": "$52$"
   },
   {
    "id": "C",
-   "text": "The track passes through $O$."
+   "text": "$90$"
   },
   {
    "id": "D",
-   "text": "$\\overline{OT}$ is longer than the turntable's diameter."
+   "text": "$128$"
   }
  ],
  "distractorNotes": {
-  "B": "a radius parallel to the tangent would never reach the point of contact",
-  "C": "a line through the center is a secant and crosses the circle at two points, not one",
-  "D": "a radius is exactly half the diameter, so it is always shorter"
+  "B": "treats triangle OTP as isosceles and copies the 52-degree angle at O to the angle at P",
+  "C": "gives angle OTP, the right angle between the radius and the tangent line, instead of angle OPT",
+  "D": "subtracts only 52 from 180 and forgets the right angle at T"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Tangent-Radius Perpendicularity**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** A line touching a circle at exactly one point is tangent, and a radius drawn to the point of tangency is perpendicular to that tangent.\n\n**The Full Solution:**\n\nStep 1 — Touching a circle at exactly one point is the definition of a tangent line, so the track is tangent to the turntable at $T$.\n\nStep 2 — $\\overline{OT}$ joins the center to the point of tangency, so it is a radius.\n\nStep 3 — The tangent-radius theorem states that the radius to the point of tangency meets the tangent at a right angle, so $\\overline{OT}$ is perpendicular to the track. Check: any other line from $O$ to the track would be longer than $OT$, which is exactly what perpendicularity guarantees.\n\n**Why the wrong answers are tempting:**\n\n* Choice B: a radius parallel to the track could never meet it at $T$.\n* Choice C: a line through the center is a secant and crosses the circle twice.\n* Choice D: a radius is half a diameter, so it is always the shorter of the two.\n\n**Test Day Takeaway:** \"Touches at exactly one point\" is the signal to draw the radius to that point and mark a right angle."
+ "explanation": "**SAT Pattern: Tangent-Radius Perpendicularity**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The radius $\\overline{OT}$ is perpendicular to the tangent line at $T$, so angle $OTP$ is $90°$ and angle $OPT$ is $180 - 90 - 52 = 38$ degrees.\n\n**The Full Solution:**\nStep 1: $\\overline{OT}$ is a radius drawn to the point of tangency, so it is perpendicular to line $\\ell$, and angle $OTP$ measures $90°$.\nStep 2: The angle measures of triangle $OTP$ add to $180°$: $90 + 52 + (\\text{measure of angle } OPT) = 180$.\nStep 3: Solve: the measure of angle $OPT$ is $180 - 142 = 38$ degrees. Check: $90 + 52 + 38 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($52$): treats triangle $OTP$ as isosceles, but only $\\overline{OT}$ is a radius; $\\overline{OP}$ and $\\overline{TP}$ are not equal to it.\n* Choice C ($90$): is the measure of angle $OTP$, the right angle at the point of tangency, not angle $OPT$.\n* Choice D ($128$): subtracts only $52$ from $180$ and leaves out the right angle at $T$.\n\n**Test Day Takeaway:** A radius drawn to a point of tangency meets the tangent line at a right angle; mark that $90°$ first, then use the triangle angle sum."
 }

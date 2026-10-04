@@ -9,76 +9,91 @@ export const linearEquationsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "A gym charges a one-time registration fee of \\$40 plus \\$18 for each month of membership. Which equation gives the total amount $A$, in dollars, paid for $m$ months of membership?",
+      question: "A gym charges a one-time fee of \\$40 plus \\$18 per month. Which equation represents this situation, where $A$ is the total amount, in dollars, paid for $m$ months?",
       choices: [
         { id: "A", text: "$A = 18m + 40$" },
+        // distractor: swaps the two amounts, charging \$40 every month and \$18 once
         { id: "B", text: "$A = 40m + 18$" },
+        // distractor: adds the two amounts before multiplying, so the one-time fee is charged every month
         { id: "C", text: "$A = 58m$" },
+        // distractor: subtracts the one-time fee instead of adding it
         { id: "D", text: "$A = 18m - 40$" }
       ],
       correctAnswer: "A",
-      hint: "One of the two amounts is charged again every month and the other is charged only once — that decides which one multiplies $m$.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** The \\$18 recurs, so it multiplies $m$; the \\$40 is paid once, so it is the constant: $A = 18m + 40$ — choice A.\n\n**The Full Solution:**\nStep 1: The membership charge is \\$18 for each month, so $m$ months contribute $18m$ dollars.\nStep 2: The registration fee is paid once no matter how long the membership lasts, so it is the constant term, $40$.\nStep 3: Combine the two: $A = 18m + 40$. Check $m = 3$: $18(3)+40 = 94$, which is the \\$40 fee plus three monthly charges of \\$18. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($A = 40m + 18$): swaps the two amounts, charging \\$40 every month and \\$18 only once.\n* Choice C ($A = 58m$): adds the two amounts before multiplying, so the \\$40 fee is charged every month along with the \\$18.\n* Choice D ($A = 18m - 40$): subtracts the registration fee; a fee raises the total paid, so it must be added.\n\n**Test Day Takeaway:** In a linear model the per-unit amount is the slope and the one-time amount is the constant. Substitute a small value like $m = 3$ and count the charges by hand to confirm you have not swapped them.",
+      hint: "One of the two amounts is charged every month and the other is charged only once.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** The \\$18 is paid every month, so it multiplies $m$; the \\$40 is paid once, so it is the constant: $A = 18m + 40$.\n\n**The Full Solution:**\nStep 1: For $m$ months at \\$18 per month, the monthly charges total $18m$ dollars.\nStep 2: The one-time fee is paid once no matter how many months are paid, so it adds a constant $40$.\nStep 3: Combine the two: $A = 18m + 40$. Check: for $m = 3$, $18(3) + 40 = 94$, which is the \\$40 fee plus three monthly charges of \\$18 ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($A = 40m + 18$): swaps the two amounts, so the \\$40 fee would be charged every month and the \\$18 only once.\n* Choice C ($A = 58m$): adds the two amounts first, which charges the one-time fee again every month.\n* Choice D ($A = 18m - 40$): subtracts the fee; a fee adds to the total paid, so it must be added.\n\n**Test Day Takeaway:** The amount charged per unit multiplies the variable, and the one-time amount is the constant term. Test a small value such as $m = 3$ to confirm the two are not swapped.",
       skills: ["word-problem-to-equation", "slope-intercept-form"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "A seedling is $5$ centimeters tall when it is first measured, and it grows $2$ centimeters each week after that. Which equation gives the height $h$, in centimeters, of the seedling $w$ weeks after it is first measured?",
+      question: "A plant is $5$ centimeters tall and grows $2$ centimeters each week. Which equation gives the plant's height $h$, in centimeters, after $w$ weeks?",
       choices: [
+        // distractor: leaves out the starting height of 5 centimeters
         { id: "A", text: "$h = 2w$" },
         { id: "B", text: "$h = 2w + 5$" },
+        // distractor: subtracts the weekly growth, as though the plant were getting shorter
         { id: "C", text: "$h = 5 - 2w$" },
+        // distractor: swaps the starting height and the weekly growth
         { id: "D", text: "$h = 5w + 2$" }
       ],
       correctAnswer: "B",
-      hint: "At $w = 0$ the seedling already has a height — the equation has to produce that value.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** Growth of $2$ centimeters per week gives $2w$, and the seedling starts at $5$: $h = 2w + 5$ — choice B.\n\n**The Full Solution:**\nStep 1: The height at the first measurement corresponds to $w = 0$, so the constant term is $5$.\nStep 2: The seedling gains $2$ centimeters each week, so $w$ weeks add $2w$ centimeters.\nStep 3: Combine: $h = 2w + 5$. Check $w = 4$: $2(4)+5 = 13$ centimeters, which is $5$ plus four weeks of $2$-centimeter growth. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($h = 2w$): ignores the height at the first measurement, so the model starts the seedling at $0$ centimeters.\n* Choice C ($h = 5 - 2w$): subtracts the weekly growth, which would make the seedling shrink over time.\n* Choice D ($h = 5w + 2$): swaps the two numbers, treating $5$ centimeters as the weekly growth and $2$ centimeters as the starting height.\n\n**Test Day Takeaway:** Evaluate a candidate equation at the input $0$: whatever it returns should be the quantity described as the starting amount.",
+      hint: "At $w = 0$ the plant already has a height, and the equation has to produce it.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** The plant starts at $5$ centimeters and adds $2$ centimeters per week, so $h = 2w + 5$.\n\n**The Full Solution:**\nStep 1: The plant grows $2$ centimeters each week, so after $w$ weeks it has grown $2w$ centimeters.\nStep 2: Its height before any growth is $5$ centimeters, the constant term.\nStep 3: Add the two: $h = 2w + 5$. Check: after $3$ weeks, $2(3) + 5 = 11$ centimeters, which is $5 + 2 + 2 + 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($h = 2w$): gives a height of $0$ at $w = 0$, leaving out the starting $5$ centimeters.\n* Choice C ($h = 5 - 2w$): subtracts the growth, so the plant would get shorter each week.\n* Choice D ($h = 5w + 2$): swaps the starting height and the weekly growth.\n\n**Test Day Takeaway:** In a linear model, the starting amount is the constant term and the amount added each period is the coefficient of the variable.",
       skills: ["word-problem-to-equation", "slope-intercept-form"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "A delivery drone begins a flight with its battery at $96$ percent charge, and the charge decreases by $1.5$ percentage points for each minute of flight. Which equation gives the battery charge $c$, as a percent, after $t$ minutes of flight?",
+      question: "A candle gets shorter by $1.5$ centimeters each hour that it burns. After burning for $4$ hours, the candle is $12$ centimeters tall. Which equation gives the candle's height $h$, in centimeters, after it burns for $t$ hours?",
       choices: [
-        { id: "A", text: "$c = 96 - 1.5t$" },
-        { id: "B", text: "$c = 96 - 15t$" },
-        { id: "C", text: "$c = 1.5t + 96$" },
-        { id: "D", text: "$c = 1.5t - 96$" }
+        // distractor: subtracts the 6 centimeters burned in 4 hours from 12 instead of adding it back
+        { id: "A", text: "$h = 6 - 1.5t$" },
+        // distractor: uses the height after 4 hours as the height at t = 0
+        { id: "B", text: "$h = 12 - 1.5t$" },
+        { id: "C", text: "$h = 18 - 1.5t$" },
+        // distractor: finds the starting height but makes the height increase each hour
+        { id: "D", text: "$h = 18 + 1.5t$" }
       ],
-      correctAnswer: "A",
-      hint: "A quantity that falls at a steady rate has a negative rate of change; the starting value stays positive.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** The charge starts at $96$ and falls $1.5$ points per minute: $c = 96 - 1.5t$ — choice A.\n\n**The Full Solution:**\nStep 1: At $t = 0$ the charge is $96$ percent, so the constant term is $96$.\nStep 2: The charge decreases, so the rate of change is negative: $-1.5$ percentage points per minute, contributing $-1.5t$.\nStep 3: Combine: $c = 96 - 1.5t$. Check $t = 10$: $96 - 15 = 81$ percent, a drop of $15$ points across $10$ minutes at $1.5$ points per minute. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($c = 96 - 15t$): reads the rate as $15$ percentage points per minute; the battery would then be empty after $6.4$ minutes.\n* Choice C ($c = 1.5t + 96$): uses the right numbers but adds, so the battery would gain charge during the flight.\n* Choice D ($c = 1.5t - 96$): reverses both roles, starting the battery at $-96$ percent and raising it.\n\n**Test Day Takeaway:** Read the direction of change before the size of it. A decreasing quantity forces a negative coefficient on the variable, never on the starting value.",
+      correctAnswer: "C",
+      hint: "The candle was taller than $12$ centimeters before it started burning.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** In $4$ hours the candle lost $4(1.5) = 6$ centimeters, so it started at $12 + 6 = 18$ centimeters: $h = 18 - 1.5t$.\n\n**The Full Solution:**\nStep 1: The height decreases by $1.5$ centimeters per hour, so the equation has the form $h = b - 1.5t$, where $b$ is the height at $t = 0$.\nStep 2: Substitute $t = 4$ and $h = 12$: $12 = b - 1.5(4) = b - 6$, so $b = 18$.\nStep 3: The equation is $h = 18 - 1.5t$. Check: at $t = 4$, $18 - 6 = 12$ centimeters ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($h = 6 - 1.5t$): subtracts the $6$ centimeters burned in $4$ hours from $12$ instead of adding them back.\n* Choice B ($h = 12 - 1.5t$): treats the height after $4$ hours as the height before the candle was lit.\n* Choice D ($h = 18 + 1.5t$): finds the starting height but makes the candle grow by $1.5$ centimeters each hour.\n\n**Test Day Takeaway:** When the given value is not at time $0$, substitute it into $h = b + mt$ to recover the starting value before choosing an equation.",
       skills: ["word-problem-to-equation", "slope-intercept-form"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "In a linear relationship between $x$ and $y$, each increase of $4$ in the value of $x$ corresponds to a decrease of $10$ in the value of $y$. When the value of $x$ is $6$, the value of $y$ is $1$. Which equation represents this relationship?",
+      question: "For a linear relationship between $x$ and $y$, each increase of $4$ in $x$ corresponds to a decrease of $10$ in $y$, and $y = 1$ when $x = 6$. Which equation represents this relationship?",
       choices: [
+        // distractor: uses the decrease of 10 as the slope without dividing by the run of 4
         { id: "A", text: "$y = -10x + 61$" },
+        // distractor: uses the given y-value, 1, as the y-intercept
         { id: "B", text: "$y = -2.5x + 1$" },
         { id: "C", text: "$y = -2.5x + 16$" },
+        // distractor: drops the negative sign on the slope, giving 1 = 2.5(6) + b and b = -14
         { id: "D", text: "$y = 2.5x - 14$" }
       ],
       correctAnswer: "C",
-      hint: "A drop of $10$ across a run of $4$ is not a rate of change until you divide.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $m = \\frac{-10}{4} = -2.5$, and $1 = -2.5(6)+b$ gives $b = 16$: $y = -2.5x + 16$ — choice C.\n\n**The Full Solution:**\nStep 1: The rate of change is the change in $y$ divided by the change in $x$: $m = \\frac{-10}{4} = -2.5$.\nStep 2: Substitute the given pair $(6, 1)$ into $y = -2.5x + b$: $1 = -15 + b$, so $b = 16$.\nStep 3: The equation is $y = -2.5x + 16$. Check by stepping $4$ units right from $x = 6$: at $x = 10$, $y = -25+16 = -9$, which is $10$ less than $1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -10x + 61$): uses the $10$-unit drop as the rate of change without dividing by the $4$-unit run; then $1 = -10(6)+b$ forces $b = 61$.\n* Choice B ($y = -2.5x + 1$): has the correct rate of change but treats the given value $y = 1$ as the value at $x = 0$; it occurs at $x = 6$.\n* Choice D ($y = 2.5x - 14$): makes the rate of change positive, so $y$ would rise as $x$ rises; then $1 = 2.5(6)+b$ forces $b = -14$.\n\n**Test Day Takeaway:** The phrase '$y$ drops $10$ for every $4$ that $x$ rises' describes a ratio, not a slope — divide first, then anchor the line with the given point.",
+      hint: "A decrease of $10$ across a run of $4$ is not yet a rate of change.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** The slope is $\\frac{-10}{4} = -2.5$, and $1 = -2.5(6) + b$ gives $b = 16$.\n\n**The Full Solution:**\nStep 1: The slope is the change in $y$ divided by the change in $x$: $\\frac{-10}{4} = -2.5$.\nStep 2: Write $y = -2.5x + b$ and substitute $x = 6$ and $y = 1$: $1 = -15 + b$, so $b = 16$.\nStep 3: The equation is $y = -2.5x + 16$. Check: at $x = 10$, an increase of $4$, $y = -25 + 16 = -9$, which is $10$ less than $1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -10x + 61$): uses the decrease of $10$ as the slope without dividing by the run of $4$.\n* Choice B ($y = -2.5x + 1$): uses $1$, the value of $y$ when $x = 6$, as the $y$-intercept.\n* Choice D ($y = 2.5x - 14$): drops the negative sign on the slope, so $1 = 2.5(6) + b$ gives $b = -14$.\n\n**Test Day Takeaway:** Slope is a change in $y$ per $1$ unit of $x$; divide the change in $y$ by the change in $x$ before writing the equation.",
       skills: ["word-problem-to-equation", "slope-intercept-form"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "A cable is wound onto a drum at a constant rate. After $4$ minutes of winding, $118$ meters of cable remain on the ground, and after $9$ minutes, $63$ meters remain. Which equation gives the number of meters $L$ of cable remaining on the ground after $t$ minutes of winding?",
+      question: "Water drains from a tank at a constant rate. After $4$ minutes, $118$ gallons of water remain in the tank, and after $9$ minutes, $63$ gallons remain. Which equation gives the number of gallons $g$ remaining in the tank after $t$ minutes?",
       choices: [
-        { id: "A", text: "$L = 118 - 11t$" },
-        { id: "B", text: "$L = 162 - 55t$" },
-        { id: "C", text: "$L = 162 - 11t$" },
-        { id: "D", text: "$L = 162 + 11t$" }
+        // distractor: finds the rate but uses the 4-minute amount, 118, as the starting amount
+        { id: "A", text: "$g = 118 - 11t$" },
+        // distractor: uses the 55-gallon drop over 5 minutes as the drop per minute
+        { id: "B", text: "$g = 162 - 55t$" },
+        { id: "C", text: "$g = 162 - 11t$" },
+        // distractor: finds the starting amount but makes the amount of water increase each minute
+        { id: "D", text: "$g = 162 + 11t$" }
       ],
       correctAnswer: "C",
-      hint: "Neither reading happens at $t = 0$, so the constant term has to be recovered rather than read off.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** $55$ meters disappear over $5$ minutes, so the rate is $-11$; backing up $4$ minutes from $118$ gives $118 + 44 = 162$ at $t = 0$ — choice C.\n\n**The Full Solution:**\nStep 1: Rate of change: $\\frac{63 - 118}{9 - 4} = \\frac{-55}{5} = -11$ meters per minute.\nStep 2: Find the amount at $t = 0$ by substituting the first reading: $118 = -11(4)+b$, so $b = 118 + 44 = 162$ meters.\nStep 3: The equation is $L = 162 - 11t$. Check the second reading: $162 - 11(9) = 162 - 99 = 63$ meters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($L = 118 - 11t$): finds the rate correctly but uses the $4$-minute reading, $118$, as the amount at $t = 0$.\n* Choice B ($L = 162 - 55t$): uses the total drop between the two readings, $55$ meters, as the per-minute rate instead of dividing by the $5$ elapsed minutes.\n* Choice D ($L = 162 + 11t$): uses a positive rate, which would pile cable onto the ground while the drum winds it up.\n\n**Test Day Takeaway:** Two readings at nonzero times give the rate directly, but the constant term still has to be back-solved. Verify with the reading you did not use to find it.",
+      hint: "Neither amount is given at $t = 0$, so the constant term has to be found.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** The tank loses $118 - 63 = 55$ gallons in $5$ minutes, or $11$ gallons per minute, so it started with $118 + 4(11) = 162$ gallons.\n\n**The Full Solution:**\nStep 1: The rate of change is $\\frac{63 - 118}{9 - 4} = \\frac{-55}{5} = -11$ gallons per minute.\nStep 2: Write $g = b - 11t$ and substitute $t = 4$ and $g = 118$: $118 = b - 44$, so $b = 162$.\nStep 3: The equation is $g = 162 - 11t$. Check: at $t = 9$, $162 - 99 = 63$ gallons ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g = 118 - 11t$): finds the rate but uses $118$, the amount after $4$ minutes, as the amount at $t = 0$.\n* Choice B ($g = 162 - 55t$): uses the $55$-gallon drop over $5$ minutes as the drop for each minute.\n* Choice D ($g = 162 + 11t$): finds the starting amount but adds water each minute instead of removing it.\n\n**Test Day Takeaway:** With two readings and neither at time $0$, find the rate from the two readings, then work back to $t = 0$ for the constant term.",
       skills: ["word-problem-to-equation", "slope-intercept-form"]
     },
 
@@ -86,49 +101,58 @@ export const linearEquationsQuestions = {
     {
       id: 6,
       difficulty: "easy",
-      question: "For each of six trials, a technician recorded the value of $x$ and the corresponding value of $y$. The scatterplot shows the results. Which equation is the most appropriate linear model for these data?",
+      question: "Each point in the scatterplot shows a pair of values of $x$ and $y$. Which of the following equations is the most appropriate linear model for the data?",
       diagram: { type: "scatterplot", params: { points: [[1, 7], [2, 12], [3, 16], [4, 23], [5, 27], [6, 32]], xMin: 0, xMax: 7, yMin: 0, yMax: 35, xGridStep: 1, yGridStep: 5, yLabelStep: 10 } },
       choices: [
+        // distractor: swaps the slope and the y-intercept
         { id: "A", text: "$y = 2x + 5$" },
         { id: "B", text: "$y = 5x + 2$" },
+        // distractor: has the right slope but the wrong sign on the y-intercept, predicting 3 at x = 1 instead of about 7
         { id: "C", text: "$y = 5x - 2$" },
+        // distractor: gives the trend a negative slope although y increases as x increases
         { id: "D", text: "$y = -5x + 2$" }
       ],
       correctAnswer: "B",
-      hint: "Fix the sign of the rate of change from the direction of the trend, then read where the pattern would meet the vertical axis.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** The points climb about $5$ units per step and, traced back to $x = 0$, land near $2$: $y = 5x + 2$ — choice B.\n\n**The Full Solution:**\nStep 1: The values rise as $x$ rises, so the rate of change is positive, which rules out the negative-slope choice.\nStep 2: Estimate the rate from the two end points, $(1, 7)$ and $(6, 32)$: $\\frac{32-7}{6-1} = \\frac{25}{5} = 5$.\nStep 3: Estimate the starting value: at $x = 1$ the data are near $7$, so at $x = 0$ they would be near $7 - 5 = 2$, a positive number.\nStep 4: That gives $y = 5x + 2$, which lands within a unit or two of every plotted point. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 2x + 5$): swaps the rate of change and the starting value; at $x = 6$ it predicts $17$, while the data are near $32$.\n* Choice C ($y = 5x - 2$): has the right rate of change but a negative starting value; the trend traced back to $x = 0$ sits above the axis, not below it.\n* Choice D ($y = -5x + 2$): uses a negative rate of change, but the plotted values increase as $x$ increases.\n\n**Test Day Takeaway:** For a scatterplot model, settle the sign of the slope and the sign of the intercept first — that alone usually eliminates three of the four choices.",
+      hint: "Decide the sign of the slope from the direction of the trend, then estimate where the trend meets the $y$-axis.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** $y$ rises about $5$ for each increase of $1$ in $x$, and the trend points to about $2$ at $x = 0$, so $y = 5x + 2$.\n\n**The Full Solution:**\nStep 1: As $x$ increases, $y$ increases, so the slope is positive; that rules out choice D.\nStep 2: From $(1, 7)$ to $(6, 32)$, $y$ rises $25$ over $5$ units of $x$, a slope of about $5$.\nStep 3: Back up one unit from $(1, 7)$: $7 - 5 = 2$, so the $y$-intercept is about $2$ and the model is $y = 5x + 2$. Check: at $x = 4$ the model gives $22$, close to the plotted $23$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 2x + 5$): swaps the slope and the $y$-intercept; it predicts only $17$ at $x = 6$, far below the plotted $32$.\n* Choice C ($y = 5x - 2$): has the right slope but predicts $3$ at $x = 1$, where the data show $7$.\n* Choice D ($y = -5x + 2$): has a negative slope, but the data rise from left to right.\n\n**Test Day Takeaway:** Check the direction of the trend first, then compare each remaining model with one or two plotted points.",
       skills: ["graph-to-equation", "slope-from-points", "best-fit-line"]
     },
     {
       id: 7,
       difficulty: "medium",
-      question: "The scatterplot shows the age, in years, and the resale value, in thousands of dollars, of each of eight delivery vans. Which equation is the most appropriate linear model for these data?",
+      question: "The scatterplot shows the age $x$, in years, and the resale value $y$, in thousands of dollars, of each of $8$ vans. Which equation is the most appropriate linear model for the data shown?",
       diagram: { type: "scatterplot", params: { points: [[1, 21], [2, 19], [3, 18], [4, 16], [5, 15], [6, 12], [7, 12], [8, 10]], xMin: 0, xMax: 9, yMin: 0, yMax: 24, xGridStep: 1, yGridStep: 2, yLabelStep: 4, xLabel: "Age (years)", yLabel: "Resale value (thousands of dollars)" } },
       choices: [
+        // distractor: swaps the slope and the y-intercept
         { id: "A", text: "$y = -22x + 1.5$" },
+        // distractor: has the right slope but a negative y-intercept, predicting negative values
         { id: "B", text: "$y = -1.5x - 22$" },
         { id: "C", text: "$y = -1.5x + 22$" },
+        // distractor: gives the trend a positive slope although value falls as age rises
         { id: "D", text: "$y = 1.5x + 10$" }
       ],
       correctAnswer: "C",
-      hint: "Estimate the drop per year from the two ends of the trend, then ask what value the trend points to for a brand-new van.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** Value falls about $1.5$ thousand dollars per year and the trend reaches about $22$ at age $0$: $y = -1.5x + 22$ — choice C.\n\n**The Full Solution:**\nStep 1: Resale value falls as age rises, so the rate of change is negative.\nStep 2: Estimate it from the ends, $(1, 21)$ and $(8, 10)$: $\\frac{10-21}{8-1} = \\frac{-11}{7} \\approx -1.6$, close to $-1.5$.\nStep 3: At $x = 1$ the value is about $21$, so at $x = 0$ it would be about $21 + 1.5 = 22.5$, near $22$.\nStep 4: The model $y = -1.5x + 22$ predicts $10$ thousand dollars at age $8$, matching the plotted point. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -22x + 1.5$): swaps the rate of change and the starting value, so the model would lose $22$ thousand dollars of value each year.\n* Choice B ($y = -1.5x - 22$): has the right rate of change but a negative starting value; at age $1$ it predicts $-23.5$ thousand dollars.\n* Choice D ($y = 1.5x + 10$): uses a positive rate of change, which would mean older vans resell for more.\n\n**Test Day Takeaway:** Read the intercept as the value the model assigns at input $0$ — here, a brand-new van — and reject any model whose prediction there is impossible.",
+      hint: "Estimate the drop per year from the ends of the trend, then estimate the value at age $0$.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** Value falls from about $21$ at $1$ year to about $10$ at $8$ years, roughly $1.5$ per year, and the trend starts near $22$ at age $0$.\n\n**The Full Solution:**\nStep 1: The values fall as age increases, so the slope is negative; that rules out choice D.\nStep 2: From $(1, 21)$ to $(8, 10)$ the value drops $11$ over $7$ years, about $1.5$ thousand dollars per year.\nStep 3: Back up one year from $(1, 21)$: about $21 + 1.5 = 22.5$, so the $y$-intercept is near $22$ and the model is $y = -1.5x + 22$. Check: at $x = 4$ the model gives $16$, matching the plotted $16$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -22x + 1.5$): swaps the slope and the $y$-intercept; it predicts a negative value for a $1$-year-old van.\n* Choice B ($y = -1.5x - 22$): has the right slope but a negative $y$-intercept, so every predicted value is below $0$.\n* Choice D ($y = 1.5x + 10$): has a positive slope, but older vans in the data are worth less.\n\n**Test Day Takeaway:** A linear model must match the direction of the data and pass near the points; check one point in the middle of the data after choosing.",
       skills: ["graph-to-equation", "best-fit-line"]
     },
     {
       id: 8,
       difficulty: "hard",
-      question: "The scatterplot shows the depth, in meters, and the water temperature, in degrees Celsius, at each of ten sampling sites in a lake, along with the line of best fit for the data. The line of best fit passes through the points $(5, 22)$ and $(20, 10)$. Which equation represents the line of best fit?",
+      question: "The scatterplot shows the depth $x$, in meters, and the water temperature $y$, in degrees Celsius, at $10$ locations in a lake. The line of best fit passes through the points $(5, 22)$ and $(20, 10)$. Which of the following equations represents the line of best fit?",
       diagram: { type: "scatterplot", params: { points: [[2, 25], [4, 23], [6, 20], [8, 21], [10, 18], [13, 15], [16, 14], [19, 10], [22, 9], [24, 6]], xMin: 0, xMax: 25, yMin: 0, yMax: 28, xGridStep: 5, yGridStep: 4, xLabelStep: 5, yLabelStep: 8, xLabel: "Depth (meters)", yLabel: "Temperature (degrees Celsius)", bestFitLine: { slope: -0.8, intercept: 26 } } },
       choices: [
+        // distractor: computes the slope as run over rise, -15/12 = -1.25
         { id: "A", text: "$y = -1.25x + 28.25$" },
+        // distractor: uses 22, the y-coordinate of (5, 22), as the y-intercept
         { id: "B", text: "$y = -0.8x + 22$" },
         { id: "C", text: "$y = -0.8x + 26$" },
+        // distractor: drops the negative sign on the slope, giving 22 = 0.8(5) + b and b = 18
         { id: "D", text: "$y = 0.8x + 18$" }
       ],
       correctAnswer: "C",
-      hint: "Two points determine the line exactly — no estimating is needed once you use them both.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** $m = \\frac{10-22}{20-5} = -0.8$, and $22 = -0.8(5)+b$ gives $b = 26$: $y = -0.8x + 26$ — choice C.\n\n**The Full Solution:**\nStep 1: Rate of change from the two given points: $m = \\frac{10-22}{20-5} = \\frac{-12}{15} = -0.8$ degree Celsius per meter.\nStep 2: Substitute $(5, 22)$ into $y = -0.8x + b$: $22 = -4 + b$, so $b = 26$.\nStep 3: The equation is $y = -0.8x + 26$. Check the second point: $-0.8(20)+26 = -16+26 = 10$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -1.25x + 28.25$): inverts the rate of change, computing $\\frac{20-5}{10-22} = -1.25$; anchoring that at $(5, 22)$ then forces $b = 28.25$.\n* Choice B ($y = -0.8x + 22$): has the correct rate of change but takes $22$, the temperature at a depth of $5$ meters, as the value at depth $0$.\n* Choice D ($y = 0.8x + 18$): drops the negative sign on the rate of change, which would make deeper water warmer; anchoring $+0.8$ at $(5, 22)$ gives $b = 18$.\n\n**Test Day Takeaway:** When a stem hands you two points on the line, compute the slope from them and back-solve the intercept — then confirm with the point you did not use.",
+      hint: "The two points determine the line exactly; no estimating is needed.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** The slope is $\\frac{10 - 22}{20 - 5} = -0.8$, and $22 = -0.8(5) + b$ gives $b = 26$.\n\n**The Full Solution:**\nStep 1: The slope through $(5, 22)$ and $(20, 10)$ is $\\frac{10 - 22}{20 - 5} = \\frac{-12}{15} = -0.8$.\nStep 2: Write $y = -0.8x + b$ and substitute $(5, 22)$: $22 = -4 + b$, so $b = 26$.\nStep 3: The line of best fit is $y = -0.8x + 26$. Check: at $x = 20$, $-16 + 26 = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -1.25x + 28.25$): divides the change in $x$ by the change in $y$, $\\frac{15}{-12} = -1.25$, so the slope is inverted.\n* Choice B ($y = -0.8x + 22$): uses $22$, the $y$-coordinate at $x = 5$, as the $y$-intercept.\n* Choice D ($y = 0.8x + 18$): drops the negative sign on the slope, so $22 = 0.8(5) + b$ gives $b = 18$.\n\n**Test Day Takeaway:** Slope is change in $y$ over change in $x$; once you have it, substitute one point to find the $y$-intercept, and check the other point.",
       skills: ["graph-to-equation", "slope-from-points", "best-fit-line"]
     },
 
@@ -136,49 +160,58 @@ export const linearEquationsQuestions = {
     {
       id: 9,
       difficulty: "easy",
-      question: "The graph of a line in the $xy$-plane is shown. Which equation represents this line?",
+      question: "The graph of $y = f(x)$ is shown, where $f$ is a linear function. Which equation defines $f$?",
       diagram: { type: "simpleLine", params: { points: [[0, 3], [4, 11]], xMax: 6, yMax: 14 } },
       choices: [
-        { id: "A", text: "$y = 0.5x + 3$" },
-        { id: "B", text: "$y = 2x + 3$" },
-        { id: "C", text: "$y = 2x + 11$" },
-        { id: "D", text: "$y = 3x + 2$" }
+        // distractor: divides the run by the rise, 4/8, so the slope is inverted
+        { id: "A", text: "$f(x) = 0.5x + 3$" },
+        { id: "B", text: "$f(x) = 2x + 3$" },
+        // distractor: uses 11, the y-value at x = 4, as the y-intercept
+        { id: "C", text: "$f(x) = 2x + 11$" },
+        // distractor: swaps the slope and the y-intercept
+        { id: "D", text: "$f(x) = 3x + 2$" }
       ],
       correctAnswer: "B",
-      hint: "The line crosses the vertical axis at a grid point, so one of the two constants can simply be read off.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** The line crosses the vertical axis at $3$ and rises $8$ over a run of $4$, so the slope is $2$: $y = 2x + 3$ — choice B.\n\n**The Full Solution:**\nStep 1: Read the $y$-intercept: the line passes through $(0, 3)$, so $b = 3$.\nStep 2: Compute the slope from $(0, 3)$ and $(4, 11)$: $m = \\frac{11-3}{4-0} = \\frac{8}{4} = 2$.\nStep 3: The equation is $y = 2x + 3$. Check the second point: $2(4)+3 = 11$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 0.5x + 3$): inverts the slope, dividing the run by the rise, $\\frac{4}{8}$, instead of the rise by the run.\n* Choice C ($y = 2x + 11$): uses $11$, the height of the line at $x = 4$, as the $y$-intercept; the intercept is the height at $x = 0$.\n* Choice D ($y = 3x + 2$): swaps the slope and the $y$-intercept.\n\n**Test Day Takeaway:** When the graph crosses the vertical axis at a lattice point, read $b$ for free and spend your time only on the slope.",
+      hint: "The line crosses the $y$-axis at a grid point, so one constant can be read directly.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** The line crosses the $y$-axis at $3$ and rises $8$ over a run of $4$, so the slope is $2$: $f(x) = 2x + 3$.\n\n**The Full Solution:**\nStep 1: The line meets the $y$-axis at $(0, 3)$, so the $y$-intercept is $3$.\nStep 2: The line also passes through $(4, 11)$, so the slope is $\\frac{11 - 3}{4 - 0} = 2$.\nStep 3: The equation is $f(x) = 2x + 3$. Check: $f(4) = 8 + 3 = 11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x) = 0.5x + 3$): divides the run by the rise, $\\frac{4}{8}$, so the slope is inverted.\n* Choice C ($f(x) = 2x + 11$): uses $11$, the value at $x = 4$, as the $y$-intercept.\n* Choice D ($f(x) = 3x + 2$): swaps the slope and the $y$-intercept.\n\n**Test Day Takeaway:** Read the $y$-intercept where the line meets the $y$-axis, then compute the slope from a second point on a grid intersection.",
       skills: ["slope-from-points", "slope-intercept-form", "graph-to-equation"]
     },
     {
       id: 10,
       difficulty: "medium",
-      question: "In the $xy$-plane, the graph shown models the combinations of $x$ small crates and $y$ large crates that exactly fill one delivery truck. Which equation could represent this relationship?",
+      question: "The graph shows the possible combinations of $x$ small boxes and $y$ large boxes that exactly fill a storage shelf. Which of the following equations represents this relationship?",
       diagram: { type: "linearLine", params: { points: [[0, 15], [20, 0]], xRange: [0, 24], yRange: [0, 20] } },
       choices: [
+        // distractor: swaps the coefficients, so the intercepts become (15, 0) and (0, 20)
         { id: "A", text: "$4x + 3y = 60$" },
+        // distractor: uses the x-intercept, 20, as the constant, so the intercepts become (20/3, 0) and (0, 5)
         { id: "B", text: "$3x + 4y = 20$" },
         { id: "C", text: "$3x + 4y = 60$" },
+        // distractor: uses the intercepts as coefficients, which gives intercepts (3, 0) and (0, 4)
         { id: "D", text: "$20x + 15y = 60$" }
       ],
       correctAnswer: "C",
-      hint: "Both intercepts are visible on the graph; the correct equation has to be satisfied by each of them.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** The line hits $(20, 0)$ and $(0, 15)$; only $3x + 4y = 60$ gives $60$ at both — choice C.\n\n**The Full Solution:**\nStep 1: Read the intercepts from the graph: the line passes through $(20, 0)$ and $(0, 15)$.\nStep 2: Substitute $(20, 0)$ into $3x + 4y = 60$: $3(20)+4(0) = 60$. $\\checkmark$\nStep 3: Substitute $(0, 15)$ into the same equation: $3(0)+4(15) = 60$. $\\checkmark$ Both intercepts satisfy it, so it represents the graph.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x + 3y = 60$): swaps the coefficients, which places the intercepts at $(15, 0)$ and $(0, 20)$ instead.\n* Choice B ($3x + 4y = 20$): keeps the correct coefficients but uses an intercept value, $20$, as the constant; at $(20, 0)$ the left side is $60$, not $20$.\n* Choice D ($20x + 15y = 60$): uses the intercepts themselves as the coefficients; at $(20, 0)$ the left side is $400$, not $60$.\n\n**Test Day Takeaway:** With a line in standard form, test the two intercepts rather than converting to slope-intercept form — two substitutions settle it.",
+      hint: "Both intercepts can be read from the graph, and the correct equation is satisfied by each of them.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** The graph passes through $(20, 0)$ and $(0, 15)$, and only $3x + 4y = 60$ is satisfied by both points.\n\n**The Full Solution:**\nStep 1: The graph meets the $x$-axis at $(20, 0)$ and the $y$-axis at $(0, 15)$.\nStep 2: Substitute $(20, 0)$ into $3x + 4y = 60$: $60 = 60$. Substitute $(0, 15)$: $60 = 60$.\nStep 3: Both intercepts satisfy $3x + 4y = 60$, so it represents the relationship. Check: the slope of $3x + 4y = 60$ is $-\\frac{3}{4}$, and the graph falls $15$ over a run of $20$, also $-\\frac{3}{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x + 3y = 60$): swaps the coefficients; its intercepts are $(15, 0)$ and $(0, 20)$.\n* Choice B ($3x + 4y = 20$): has the right coefficients but the wrong constant; its intercepts are $\\left(\\frac{20}{3}, 0\\right)$ and $(0, 5)$.\n* Choice D ($20x + 15y = 60$): puts the intercepts in as coefficients; its intercepts are $(3, 0)$ and $(0, 4)$.\n\n**Test Day Takeaway:** For an equation in standard form, substitute both intercepts read from the graph; the correct equation must work for each one.",
       skills: ["graph-to-equation", "slope-from-points", "standard-form"]
     },
     {
       id: 11,
       difficulty: "hard",
-      question: "In the $xy$-plane, line $\\ell$ passes through the two points plotted in the figure shown. The equation of line $\\ell$ can be written in the form $y = mx + b$, where $m$ and $b$ are constants. Which equation represents line $\\ell$?",
+      question: "In the $xy$-plane, line $\\ell$ passes through the two points shown. Which equation defines line $\\ell$?",
       diagram: { type: "coordinatePoints", params: { points: [[-6, 9], [3, -3]], xMin: -10, xMax: 10, yMin: -10, yMax: 10 } },
       choices: [
         { id: "A", text: "$y = -\\frac{4}{3}x + 1$" },
+        // distractor: uses 9, the y-coordinate of (-6, 9), as the y-intercept
         { id: "B", text: "$y = -\\frac{4}{3}x + 9$" },
+        // distractor: divides the change in x by the change in y, so the slope is inverted
         { id: "C", text: "$y = -\\frac{3}{4}x + \\frac{9}{2}$" },
+        // distractor: drops the negative sign on the slope, giving 9 = (4/3)(-6) + b and b = 17
         { id: "D", text: "$y = \\frac{4}{3}x + 17$" }
       ],
       correctAnswer: "A",
-      hint: "Subtracting a negative coordinate lengthens the run — write the subtraction out rather than doing it in your head.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** $m = \\frac{-3-9}{3-(-6)} = -\\frac{4}{3}$, and $-3 = -\\frac{4}{3}(3)+b$ gives $b = 1$ — choice A.\n\n**The Full Solution:**\nStep 1: Compute the slope: $m = \\frac{-3-9}{3-(-6)} = \\frac{-12}{9} = -\\frac{4}{3}$. The run is $3-(-6) = 9$, not $3$.\nStep 2: Substitute $(3, -3)$ into $y = -\\frac{4}{3}x + b$: $-3 = -4 + b$, so $b = 1$.\nStep 3: The equation is $y = -\\frac{4}{3}x + 1$. Check the other point: $-\\frac{4}{3}(-6)+1 = 8+1 = 9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = -\\frac{4}{3}x + 9$): takes $9$, the second coordinate of the left-hand point, as the $y$-intercept; that height occurs at $x = -6$.\n* Choice C ($y = -\\frac{3}{4}x + \\frac{9}{2}$): inverts the slope to $\\frac{3-(-6)}{-3-9} = -\\frac{3}{4}$, which then forces $b = \\frac{9}{2}$.\n* Choice D ($y = \\frac{4}{3}x + 17$): drops a negative sign in the run, computing $\\frac{-12}{-9}$; anchoring $+\\frac{4}{3}$ at $(-6, 9)$ gives $b = 17$.\n\n**Test Day Takeaway:** With negative coordinates the run is where slopes go wrong: $3 - (-6) = 9$. Compute it explicitly, then confirm the finished equation on the point you did not use.",
+      hint: "One point has a negative $x$-coordinate; write the subtraction for the run out in full.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~35s):** The points are $(-6, 9)$ and $(3, -3)$, so the slope is $\\frac{-12}{9} = -\\frac{4}{3}$, and $9 = -\\frac{4}{3}(-6) + b$ gives $b = 1$.\n\n**The Full Solution:**\nStep 1: Read the points from the grid: $(-6, 9)$ and $(3, -3)$.\nStep 2: The slope is $\\frac{-3 - 9}{3 - (-6)} = \\frac{-12}{9} = -\\frac{4}{3}$.\nStep 3: Substitute $(-6, 9)$ into $y = -\\frac{4}{3}x + b$: $9 = 8 + b$, so $b = 1$ and the line is $y = -\\frac{4}{3}x + 1$. Check: at $x = 3$, $-4 + 1 = -3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = -\\frac{4}{3}x + 9$): uses $9$, the $y$-coordinate of $(-6, 9)$, as the $y$-intercept, although that point is not on the $y$-axis.\n* Choice C ($y = -\\frac{3}{4}x + \\frac{9}{2}$): divides the change in $x$ by the change in $y$, so the slope is inverted.\n* Choice D ($y = \\frac{4}{3}x + 17$): drops the negative sign on the slope, so $9 = \\frac{4}{3}(-6) + b$ gives $b = 17$.\n\n**Test Day Takeaway:** Subtracting a negative coordinate makes the run longer: $3 - (-6) = 9$. Confirm the final equation with the second point.",
       skills: ["slope-from-points", "slope-intercept-form", "graph-to-equation"]
     },
 
@@ -186,71 +219,77 @@ export const linearEquationsQuestions = {
     {
       id: 12,
       difficulty: "easy",
-      question: "Three ordered pairs that satisfy the linear function $f$ are recorded in the table. Which equation defines $f$?",
+      question: "For the linear function $f$, the table shows three values of $x$ and their corresponding values of $f(x)$. Which equation defines $f$?",
       diagram: { type: "table", params: { rows: [[0, 17], [1, 22], [2, 27]], xHeader: "x", yHeader: "f(x)" } },
       choices: [
         { id: "A", text: "$f(x) = 5x + 17$" },
+        // distractor: uses f(1) = 22 as the y-intercept
         { id: "B", text: "$f(x) = 5x + 22$" },
+        // distractor: swaps the slope and the y-intercept
         { id: "C", text: "$f(x) = 17x + 5$" },
+        // distractor: uses f(1) as the slope and f(0) as the y-intercept
         { id: "D", text: "$f(x) = 22x + 17$" }
       ],
       correctAnswer: "A",
-      hint: "One row of the table hands you the value of the function at an input of $0$.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** $f(0) = 17$ gives the constant, and one step of $x$ raises the output by $5$: $f(x) = 5x + 17$ — choice A.\n\n**The Full Solution:**\nStep 1: The table includes $x = 0$, so the constant term is read directly: $f(0) = 17$.\nStep 2: From $x = 0$ to $x = 1$ the output rises from $17$ to $22$, so the rate of change is $\\frac{22-17}{1-0} = 5$.\nStep 3: The equation is $f(x) = 5x + 17$. Check the last row: $5(2)+17 = 27$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(x) = 5x + 22$): uses the correct rate of change but takes $22$, the output at $x = 1$, as the constant term.\n* Choice C ($f(x) = 17x + 5$): finds both numbers correctly but puts them in the wrong slots, using $17$ as the rate of change and $5$ as the constant term.\n* Choice D ($f(x) = 22x + 17$): treats the output $22$ as a rate of change instead of computing the change in output over the change in input.\n\n**Test Day Takeaway:** A table row with $x = 0$ hands you the constant term for free; spend the effort on the rate of change and then verify on a row you did not use.",
+      hint: "One row of the table gives the value of the function when $x = 0$.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** $f(0) = 17$ is the $y$-intercept, and $f(x)$ rises by $5$ each time $x$ rises by $1$: $f(x) = 5x + 17$.\n\n**The Full Solution:**\nStep 1: The row $x = 0$ gives $f(0) = 17$, so the $y$-intercept is $17$.\nStep 2: From $x = 0$ to $x = 1$, $f(x)$ increases from $17$ to $22$, so the slope is $5$.\nStep 3: The function is $f(x) = 5x + 17$. Check: $f(2) = 10 + 17 = 27$, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(x) = 5x + 22$): uses $22$, the value at $x = 1$, as the $y$-intercept.\n* Choice C ($f(x) = 17x + 5$): swaps the slope and the $y$-intercept.\n* Choice D ($f(x) = 22x + 17$): uses $f(1)$ as the slope instead of the change from $f(0)$ to $f(1)$.\n\n**Test Day Takeaway:** If a table includes $x = 0$, that row gives the $y$-intercept; the slope is the change in $f(x)$ for each increase of $1$ in $x$.",
       skills: ["table-to-equation", "slope-from-points"]
     },
     {
       id: 13,
       difficulty: "medium",
-      question: "During calibration a pressure sensor produced the four output voltages listed in the table for the applied pressures shown. Which equation gives the output $V$, in volts, at an applied pressure of $p$ kilopascals?",
-      diagram: { type: "table", params: { xHeader: "Applied pressure (kPa)", yHeader: "Output (V)", rows: [["10", "1.4"], ["20", "2.0"], ["30", "2.6"], ["40", "3.2"]] } },
+      question: "The variables $x$ and $y$ have a linear relationship, and the table shows four pairs of their values. Which equation represents this relationship?",
+      diagram: { type: "table", params: { xHeader: "x", yHeader: "y", rows: [["10", "1.4"], ["20", "2.0"], ["30", "2.6"], ["40", "3.2"]] } },
       choices: [
-        // distractor: uses 0.6, the rise per table row, as the rise per kilopascal
-        { id: "A", text: "$V = 0.6p + 0.8$" },
-        // distractor: swaps the rate and the value at zero pressure
-        { id: "B", text: "$V = 0.8p + 0.06$" },
-        // distractor: uses the first listed output, 1.4, as the value at zero pressure
-        { id: "C", text: "$V = 0.06p + 1.4$" },
-        { id: "D", text: "$V = 0.06p + 0.8$" }
+        // distractor: uses 0.6, the change in y between rows, as the change per unit of x
+        { id: "A", text: "$y = 0.6x + 0.8$" },
+        // distractor: swaps the slope and the y-intercept
+        { id: "B", text: "$y = 0.8x + 0.06$" },
+        // distractor: uses the first value of y, 1.4, as the y-intercept although that row has x = 10
+        { id: "C", text: "$y = 0.06x + 1.4$" },
+        { id: "D", text: "$y = 0.06x + 0.8$" }
       ],
       correctAnswer: "D",
-      hint: "The pressure values step up by equal amounts, so watch what one step does to the output.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~40s):** Each $10$-kilopascal step raises the output by $0.6$ volt, so the rate is $0.06$ volt per kilopascal, and backing up from $(10,\\ 1.4)$ gives $0.8$ volt at $p = 0$.\n\n**The Full Solution:**\nStep 1: The outputs rise by $0.6$ volt for every $10$-kilopascal increase, so the relationship is linear with slope $\\frac{0.6}{10} = 0.06$ volt per kilopascal.\nStep 2: Write $V = 0.06p + b$ and substitute the first row: $1.4 = 0.06(10) + b = 0.6 + b$, so $b = 0.8$.\nStep 3: The equation is $V = 0.06p + 0.8$.\n\nCheck: At $p = 40$ the equation gives $0.06(40) + 0.8 = 2.4 + 0.8 = 3.2$ volts, matching the last row. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($V = 0.6p + 0.8$): treats the $0.6$-volt jump between rows as the change per kilopascal; at $p = 40$ it predicts $24.8$ volts.\n* Choice B ($V = 0.8p + 0.06$): swaps the rate and the value at zero pressure.\n* Choice C ($V = 0.06p + 1.4$): uses the first recorded output as the value at $p = 0$, ignoring that the first row is at $10$ kilopascals.\n\n**Test Day Takeaway:** Divide the change in output by the change in input, not by the number of rows.",
+      hint: "The values of $x$ go up by $10$, not by $1$.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** $y$ rises $0.6$ for every $10$ in $x$, a slope of $0.06$, and backing up from $(10, 1.4)$ gives $1.4 - 0.6 = 0.8$ at $x = 0$.\n\n**The Full Solution:**\nStep 1: Each increase of $10$ in $x$ raises $y$ by $0.6$, so the slope is $\\frac{0.6}{10} = 0.06$.\nStep 2: Write $y = 0.06x + b$ and substitute $(10, 1.4)$: $1.4 = 0.6 + b$, so $b = 0.8$.\nStep 3: The equation is $y = 0.06x + 0.8$. Check: at $x = 40$, $2.4 + 0.8 = 3.2$, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 0.6x + 0.8$): treats the $0.6$ change between rows as the change for each $1$ unit of $x$; at $x = 40$ it gives $24.8$.\n* Choice B ($y = 0.8x + 0.06$): swaps the slope and the $y$-intercept.\n* Choice C ($y = 0.06x + 1.4$): uses $1.4$ as the $y$-intercept, but that value is at $x = 10$, not $x = 0$.\n\n**Test Day Takeaway:** Divide the change in $y$ by the change in $x$, not by the number of rows, and find the intercept by working back to $x = 0$.",
       skills: ["table-to-equation", "slope-from-points"]
     },
     {
       id: 14,
       difficulty: "medium",
-      question: "A membership statement lists the total monthly charge for several numbers of guest passes, as shown in the table, and the charge rises at a constant rate for each additional pass. Which equation gives the total charge $C$, in dollars, for $n$ guest passes?",
-      diagram: { type: "table", params: { xHeader: "Guest passes", yHeader: "Total charge (dollars)", rows: [["2", "34"], ["5", "55"], ["9", "83"], ["14", "118"]] } },
+      question: "A kayak rental shop charges a fixed fee plus an hourly rate. The table shows the total cost $C$, in dollars, of renting a kayak for $h$ hours. Which equation represents this situation?",
+      diagram: { type: "table", params: { xHeader: "h", yHeader: "C", rows: [["2", "34"], ["5", "55"], ["9", "83"], ["14", "118"]] } },
       choices: [
-        // distractor: divides the first total by the first pass count, 34/2 = 17, as though there were no fixed charge
-        { id: "A", text: "$C = 17n$" },
-        // distractor: swaps the per-pass rate and the fixed monthly charge
-        { id: "B", text: "$C = 20n + 7$" },
-        // distractor: uses the correct per-pass rate but drops the fixed monthly charge
-        { id: "C", text: "$C = 7n$" },
-        { id: "D", text: "$C = 7n + 20$" }
+        // distractor: divides the first total by its hours, 34/2 = 17, treating the cost as proportional
+        { id: "A", text: "$C = 17h$" },
+        // distractor: swaps the hourly rate and the fixed fee
+        { id: "B", text: "$C = 20h + 7$" },
+        // distractor: finds the hourly rate but leaves out the fixed fee
+        { id: "C", text: "$C = 7h$" },
+        { id: "D", text: "$C = 7h + 20$" }
       ],
       correctAnswer: "D",
-      hint: "Two rows are enough to find what one additional guest pass costs.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~45s):** From $(2,\\ 34)$ to $(5,\\ 55)$ the charge rises \\$21 over $3$ passes, so each pass costs \\$7, and $34 - 7(2) = 20$ is the fixed charge.\n\n**The Full Solution:**\nStep 1: The pass counts are not evenly spaced, so use two rows: the rate is $\\frac{55 - 34}{5 - 2} = \\frac{21}{3} = 7$ dollars per pass.\nStep 2: Write $C = 7n + b$ and substitute $(2,\\ 34)$: $34 = 14 + b$, so $b = 20$ dollars.\nStep 3: The equation is $C = 7n + 20$.\n\nCheck: At $n = 14$ the equation gives $7(14) + 20 = 98 + 20 = 118$ dollars, matching the last row. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($C = 17n$): divides the first total by the first pass count, which folds the fixed charge into the rate; at $n = 14$ it predicts \\$238.\n* Choice B ($C = 20n + 7$): swaps the per-pass rate and the fixed charge.\n* Choice C ($C = 7n$): has the right rate but leaves out the \\$20 charged regardless of passes.\n\n**Test Day Takeaway:** With unevenly spaced inputs, compute the rate from two rows before hunting for the constant term.",
+      hint: "Two rows are enough to find the cost of one more hour.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** From $2$ to $5$ hours the cost rises $21$ dollars, so the rate is \\$7 per hour, and $34 - 2(7) = 20$ is the fixed fee.\n\n**The Full Solution:**\nStep 1: From $h = 2$ to $h = 5$, the cost rises from $34$ to $55$, so the hourly rate is $\\frac{55 - 34}{5 - 2} = 7$ dollars.\nStep 2: Write $C = 7h + b$ and substitute $(2, 34)$: $34 = 14 + b$, so the fixed fee is $b = 20$.\nStep 3: The equation is $C = 7h + 20$. Check: at $h = 14$, $98 + 20 = 118$, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($C = 17h$): divides $34$ by $2$, treating the cost as proportional to the hours; at $h = 5$ it gives $85$, not $55$.\n* Choice B ($C = 20h + 7$): swaps the hourly rate and the fixed fee.\n* Choice C ($C = 7h$): finds the hourly rate but leaves out the fixed fee.\n\n**Test Day Takeaway:** Find the rate from the change between two rows, then use any row to recover the fixed amount; never divide a single total by its input when there is a fixed fee.",
       skills: ["table-to-equation", "slope-from-points"]
     },
     {
       id: 15,
       difficulty: "hard",
-      question: "For the linear function $f$, the table records three inputs and their corresponding outputs. If $f$ is defined by $f(x) = mx + b$, where $m$ and $b$ are constants, which equation defines $f$?",
+      question: "The table shows three values of $x$ and their corresponding values of $f(x)$, where $f$ is a linear function. What is the x-intercept of the graph of $y = f(x)$ in the $xy$-plane?",
       diagram: { type: "table", params: { rows: [["−6", 20], ["−2", 14], [6, 2]], xHeader: "x", yHeader: "f(x)" } },
       choices: [
-        { id: "A", text: "$f(x) = -6x + 2$" },
-        { id: "B", text: "$f(x) = -\\frac{3}{2}x + 11$" },
-        { id: "C", text: "$f(x) = -\\frac{3}{2}x + 14$" },
-        { id: "D", text: "$f(x) = \\frac{3}{2}x + 11$" }
+        // distractor: solves -1.5x + 11 = 0 with a sign error, getting x = -22/3
+        { id: "A", text: "$\\left(-\\frac{22}{3}, 0\\right)$" },
+        { id: "B", text: "$\\left(\\frac{22}{3}, 0\\right)$" },
+        // distractor: gives the y-intercept instead of the x-intercept
+        { id: "C", text: "$(0, 11)$" },
+        // distractor: uses the y-intercept value, 11, as the x-coordinate of the x-intercept
+        { id: "D", text: "$(11, 0)$" }
       ],
       correctAnswer: "B",
-      hint: "The inputs are unevenly spaced, so pick a pair and divide — do not read the drop between rows as the rate.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~35s):** $m = \\frac{14-20}{-2-(-6)} = -\\frac{3}{2}$, and $14 = -\\frac{3}{2}(-2)+b$ gives $b = 11$ — choice B.\n\n**The Full Solution:**\nStep 1: Rate of change from the first two rows: $m = \\frac{14-20}{-2-(-6)} = \\frac{-6}{4} = -\\frac{3}{2}$.\nStep 2: Substitute $(-2, 14)$: $14 = -\\frac{3}{2}(-2)+b = 3+b$, so $b = 11$.\nStep 3: The equation is $f(x) = -\\frac{3}{2}x + 11$. Check the last row: $-\\frac{3}{2}(6)+11 = -9+11 = 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x) = -6x + 2$): uses the $-6$ change in output between the first two rows as the rate of change; anchoring that at $(-2, 14)$ gives $2$ as the constant.\n* Choice C ($f(x) = -\\frac{3}{2}x + 14$): has the correct rate of change but takes $14$, the output at $x = -2$, as the value at $x = 0$.\n* Choice D ($f(x) = \\frac{3}{2}x + 11$): drops the negative sign on the rate of change even though the outputs fall as the inputs rise.\n\n**Test Day Takeaway:** Unevenly spaced inputs are the trap: the difference between consecutive outputs is a rate only after you divide by the difference between the inputs.",
+      hint: "The values of $x$ are not evenly spaced, so divide each change in $f(x)$ by the matching change in $x$.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~45s):** The slope is $\\frac{14 - 20}{-2 - (-6)} = -\\frac{3}{2}$, so $f(x) = -\\frac{3}{2}x + 11$, and $f(x) = 0$ when $x = \\frac{22}{3}$.\n\n**The Full Solution:**\nStep 1: Using $(-6, 20)$ and $(-2, 14)$, the slope is $\\frac{14 - 20}{-2 - (-6)} = \\frac{-6}{4} = -\\frac{3}{2}$.\nStep 2: Substitute $(-2, 14)$ into $f(x) = -\\frac{3}{2}x + b$: $14 = 3 + b$, so $b = 11$ and $f(x) = -\\frac{3}{2}x + 11$.\nStep 3: The $x$-intercept is where $f(x) = 0$: $-\\frac{3}{2}x + 11 = 0$, so $x = \\frac{22}{3}$, and the $x$-intercept is $\\left(\\frac{22}{3}, 0\\right)$. Check: $f(6) = -9 + 11 = 2$, matching the table, and $-\\frac{3}{2}\\left(\\frac{22}{3}\\right) + 11 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\left(-\\frac{22}{3}, 0\\right)$): makes a sign error when solving $-\\frac{3}{2}x + 11 = 0$.\n* Choice C ($(0, 11)$): is the $y$-intercept of the graph, not the $x$-intercept.\n* Choice D ($(11, 0)$): uses the $y$-intercept value, $11$, as the $x$-coordinate of the $x$-intercept.\n\n**Test Day Takeaway:** An $x$-intercept has a $y$-coordinate of $0$. Build the equation from the table, then set $f(x) = 0$ and solve.",
       skills: ["table-to-equation", "slope-from-points"]
     },
 
@@ -258,73 +297,73 @@ export const linearEquationsQuestions = {
     {
       id: 16,
       difficulty: "easy",
-      question: "A cutting-fluid reservoir holds $40$ liters at the start of a shift and loses $2.5$ liters for each hour of machining. Which function gives the volume $V(h)$, in liters, remaining after $h$ hours?",
+      question: "$h(x) = 4x + b$\nFor the linear function $h$, $b$ is a constant and $h(1) = 12$. What is the value of $b$?",
       choices: [
-        // distractor: swaps the roles, using 2.5 as the starting amount and 40 as the hourly change
-        { id: "A", text: "$V(h) = 2.5h - 40$" },
-        // distractor: adds the hourly loss instead of subtracting it
-        { id: "B", text: "$V(h) = 2.5h + 40$" },
-        { id: "C", text: "$V(h) = 40 - 2.5h$" },
-        // distractor: uses the starting volume 40 as the hourly rate
-        { id: "D", text: "$V(h) = 40h - 2.5$" }
+        // distractor: divides h(1) = 12 by the slope 4
+        { id: "A", text: "$3$" },
+        { id: "B", text: "$8$" },
+        // distractor: uses h(1) = 12 as the value of b, as though x were 0
+        { id: "C", text: "$12$" },
+        // distractor: adds 4 to 12 instead of subtracting it
+        { id: "D", text: "$16$" }
       ],
-      correctAnswer: "C",
-      hint: "One of the two numbers is the amount present when $h = 0$.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~20s):** Start at $40$ liters and remove $2.5$ liters each hour: $V(h) = 40 - 2.5h$.\n\n**The Full Solution:**\nStep 1: At $h = 0$ the reservoir holds $40$ liters, so the constant term is $40$.\nStep 2: The fluid decreases at a steady $2.5$ liters per hour, so the rate of change is $-2.5$ liters per hour.\nStep 3: A linear model is (constant term) plus (rate)(input): $V(h) = 40 - 2.5h$.\n\nCheck: After $4$ hours the model gives $40 - 10 = 30$ liters, a loss of $10$ liters over $4$ hours. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5h - 40$): swaps the two numbers, and it reports a negative volume for every hour before hour $16$.\n* Choice B ($2.5h + 40$): adds the hourly amount, so the reservoir would gain fluid while machining.\n* Choice D ($40h - 2.5$): uses the starting volume as the hourly rate, predicting $37.5$ liters after one hour and $797.5$ liters after twenty.\n\n**Test Day Takeaway:** The number attached to the variable is a rate; the number standing alone is the value at input zero.",
+      correctAnswer: "B",
+      hint: "Substitute $x = 1$ into the given equation.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** $h(1) = 4(1) + b = 12$, so $b = 8$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 1$ into the given equation: $h(1) = 4(1) + b = 4 + b$.\nStep 2: It's given that $h(1) = 12$, so $4 + b = 12$.\nStep 3: Subtract $4$ from each side: $b = 8$. Check: $h(1) = 4 + 8 = 12$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): divides $12$ by $4$, solving $4b = 12$ instead of $4 + b = 12$.\n* Choice C ($12$): treats $h(1)$ as the $y$-intercept, which is the value at $x = 0$, not $x = 1$.\n* Choice D ($16$): adds $4$ to $12$ instead of subtracting it.\n\n**Test Day Takeaway:** To find a constant in a function, substitute the given input and output into the equation and solve.",
       skills: ["function-notation-to-equation", "slope-from-points"]
     },
     {
       id: 17,
       difficulty: "medium",
-      question: "Groundwater temperature, in degrees Celsius, at a depth of $d$ meters below the surface is modeled by $T(d) = 15 + 0.028d$ for depths up to $600$ meters. Going $50$ meters deeper raises the modeled temperature by how many degrees Celsius?",
+      question: "$f(x) = ax + b$\nIn the given equation, $a$ and $b$ are constants. If $f(3) = 4$ and $f(7) = 24$, what is the value of $a + b$?",
       choices: [
-        // distractor: reports the rise for one additional meter rather than for fifty
-        { id: "A", text: "$0.028$" },
-        { id: "B", text: "$1.4$" },
-        // distractor: multiplies the rate by 500 instead of by 50
-        { id: "C", text: "$14$" },
-        // distractor: reports the depth step itself rather than the temperature change it produces
-        { id: "D", text: "$50$" }
+        // distractor: gives the value of b only
+        { id: "A", text: "$-11$" },
+        { id: "B", text: "$-6$" },
+        // distractor: gives the value of a only
+        { id: "C", text: "$5$" },
+        // distractor: makes a sign error finding b, using 4 + 15 = 19, so a + b = 24
+        { id: "D", text: "$24$" }
       ],
       correctAnswer: "B",
-      hint: "Ask what the model does across a fifty-meter step, not a one-meter step.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** The model rises $0.028$ degree per meter, so $50$ meters raise it by $0.028(50) = 1.4$ degrees.\n\n**The Full Solution:**\nStep 1: In $T(d) = 15 + 0.028d$ the coefficient $0.028$ is the change in modeled temperature for each additional meter of depth.\nStep 2: Over a $50$-meter increase the change is $0.028 \\times 50$.\nStep 3: $0.028 \\times 50 = 1.4$ degrees Celsius.\n\nCheck: $T(100) - T(50) = (15 + 2.8) - (15 + 1.4) = 1.4$ degrees. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.028$): reports the rise for a single meter and never scales it to fifty.\n* Choice C ($14$): multiplies the rate by $500$ instead of $50$, a factor-of-ten slip.\n* Choice D ($50$): reports the depth step itself rather than the temperature change it causes.\n\n**Test Day Takeaway:** The coefficient of the input is a rate per one unit; multiply it by the size of the step you are asked about.",
+      hint: "Find $a$ from the two given values first.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** $a = \\frac{24 - 4}{7 - 3} = 5$, and $4 = 15 + b$ gives $b = -11$, so $a + b = -6$, which is also $f(1)$.\n\n**The Full Solution:**\nStep 1: The slope is $a = \\frac{f(7) - f(3)}{7 - 3} = \\frac{24 - 4}{4} = 5$.\nStep 2: Substitute $f(3) = 4$: $4 = 5(3) + b$, so $b = -11$.\nStep 3: Then $a + b = 5 + (-11) = -6$. Check: $f(7) = 35 - 11 = 24$ ✓, and $a + b$ is $f(1) = 5 - 11 = -6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-11$): stops at $b$ and never adds $a$.\n* Choice C ($5$): stops at $a$ and never finds $b$.\n* Choice D ($24$): makes a sign error finding $b$, computing $4 + 15 = 19$, so $a + b = 24$.\n\n**Test Day Takeaway:** Two values of a linear function give the slope; substitute either one to get the intercept, and reread the question to see which combination is asked for.",
       skills: ["function-notation-to-equation", "slope-from-points", "slope-intercept-form"]
     },
     {
       id: 18,
       difficulty: "medium",
-      question: "After $4$ months a payroll deduction plan has set aside \\$860, and after $9$ months it has set aside \\$1,785. Which function gives the amount $S(m)$, in dollars, set aside after $m$ months at a constant monthly rate?",
+      question: "$S(m) = am + b$\nThe function $S$ gives the balance, in dollars, of a savings account $m$ months after it was opened, where $a$ and $b$ are constants. If $S(4) = 860$ and $S(9) = 1{,}785$, what is the value of $b$?",
       choices: [
-        // distractor: swaps the monthly amount and the constant term
-        { id: "A", text: "$S(m) = 120m + 185$" },
-        // distractor: uses the correct monthly amount but drops the 120 dollar constant term
-        { id: "B", text: "$S(m) = 185m$" },
-        // distractor: divides 860 by 4 to get 215, folding the constant term into the rate
-        { id: "C", text: "$S(m) = 215m$" },
-        { id: "D", text: "$S(m) = 185m + 120$" }
+        { id: "A", text: "$120$" },
+        // distractor: gives the value of a, the monthly increase, instead of b
+        { id: "B", text: "$185$" },
+        // distractor: divides 860 by 4, treating the balance as proportional to the months
+        { id: "C", text: "$215$" },
+        // distractor: gives the difference 1,785 - 860, the increase over five months
+        { id: "D", text: "$925$" }
       ],
-      correctAnswer: "D",
+      correctAnswer: "A",
       hint: "The two months given are five months apart.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~45s):** The plan gains $\\frac{1785 - 860}{9 - 4} = 185$ dollars a month, and $860 - 4(185) = 120$ is the amount already in place at month zero.\n\n**The Full Solution:**\nStep 1: The two data points are $(4,\\ 860)$ and $(9,\\ 1785)$, so the monthly rate is $\\frac{1{,}785 - 860}{9 - 4} = \\frac{925}{5} = 185$ dollars per month.\nStep 2: Write $S(m) = 185m + b$ and substitute $(4,\\ 860)$: $860 = 740 + b$, so $b = 120$ dollars.\nStep 3: The function is $S(m) = 185m + 120$.\n\nCheck: $S(9) = 185(9) + 120 = 1{,}665 + 120 = 1{,}785$ dollars. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($120m + 185$): swaps the monthly amount and the constant term; it gives \\$665 at month four.\n* Choice B ($185m$): has the right rate but assumes nothing was set aside before the plan's monthly transfers began.\n* Choice C ($215m$): divides \\$860 by four months, which folds the constant term into the rate; it gives \\$1,935 at month nine.\n\n**Test Day Takeaway:** Two points give the rate first; only then substitute one of them to recover the constant term.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** The balance rises $1{,}785 - 860 = 925$ dollars in $5$ months, so $a = 185$, and $860 - 4(185) = 120$.\n\n**The Full Solution:**\nStep 1: The rate is $a = \\frac{1{,}785 - 860}{9 - 4} = \\frac{925}{5} = 185$ dollars per month.\nStep 2: Substitute $S(4) = 860$: $860 = 185(4) + b = 740 + b$.\nStep 3: Solve: $b = 120$. Check: $S(9) = 185(9) + 120 = 1{,}665 + 120 = 1{,}785$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($185$): is the value of $a$, the increase in balance each month.\n* Choice C ($215$): divides $860$ by $4$, which ignores the starting balance $b$.\n* Choice D ($925$): is the increase over the $5$ months from month $4$ to month $9$, not a constant of the function.\n\n**Test Day Takeaway:** In a linear model, find the rate from two data points first; the constant term is what remains when you work back to an input of $0$.",
       skills: ["function-notation-to-equation", "slope-from-points"]
     },
     {
       id: 19,
       difficulty: "hard",
-      question: "A linear model $M(t) = at + b$ gives the mass, in grams, of nickel deposited on a part after $t$ seconds in an electroplating bath. The model gives $32$ grams at $5$ seconds and $72$ grams at $15$ seconds. For what value of $t$ does the model give $100$ grams?",
+      question: "$g(x) = ax + b$\nFor the linear function $g$, $a$ and $b$ are constants, $g(-4) = 23$, and $g(6) = -2$. What is the value of $x$ for which $g(x) = -32$?",
       choices: [
-        // distractor: takes b = 32, the mass at 5 seconds, as the value at t = 0 and solves 4t + 32 = 100
-        { id: "A", text: "$17$" },
-        { id: "B", text: "$22$" },
-        // distractor: drops the constant term and solves 4t = 100
-        { id: "C", text: "$25$" },
-        // distractor: adds the constant term instead of subtracting it, computing (100 + 12)/4
-        { id: "D", text: "$28$" }
+        // distractor: drops the negative sign on the slope, getting g(x) = 2.5x + 33
+        { id: "A", text: "$-26$" },
+        // distractor: finds the slope but leaves out the constant, solving -2.5x = -32
+        { id: "B", text: "$12.8$" },
+        { id: "C", text: "$18$" },
+        // distractor: uses g(-4) = 23 as the y-intercept, solving -2.5x + 23 = -32
+        { id: "D", text: "$22$" }
       ],
-      correctAnswer: "B",
-      hint: "Two points determine both $a$ and $b$ before you solve for $t$.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~60s):** The rate is $\\frac{72-32}{15-5} = 4$ grams per second and $b = 32 - 4(5) = 12$, so $4t + 12 = 100$ gives $t = 22$.\n\n**The Full Solution:**\nStep 1: The two given points are $(5,\\ 32)$ and $(15,\\ 72)$, so $a = \\frac{72 - 32}{15 - 5} = \\frac{40}{10} = 4$ grams per second.\nStep 2: Substituting $(5,\\ 32)$ into $M(t) = 4t + b$ gives $32 = 20 + b$, so $b = 12$ grams.\nStep 3: Setting $4t + 12 = 100$ gives $4t = 88$, so $t = 22$ seconds.\n\nCheck: $M(22) = 4(22) + 12 = 88 + 12 = 100$ grams. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): treats the $32$ grams at $5$ seconds as the value at $t = 0$ and solves $4t + 32 = 100$.\n* Choice C ($25$): drops the constant term entirely and solves $4t = 100$.\n* Choice D ($28$): adds the constant term instead of subtracting it, computing $\\frac{100 + 12}{4}$.\n\n**Test Day Takeaway:** Build the whole model before you invert it; a missing constant term shifts every answer.",
+      correctAnswer: "C",
+      hint: "Use the two given values of $g$ to find $a$ and $b$ first.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~40s):** The slope is $\\frac{-2 - 23}{6 - (-4)} = -2.5$ and $g(x) = -2.5x + 13$, so $-2.5x + 13 = -32$ gives $x = 18$.\n\n**The Full Solution:**\nStep 1: The slope of $g$ is $a = \\frac{-2 - 23}{6 - (-4)} = \\frac{-25}{10} = -2.5$.\nStep 2: Substitute $g(6) = -2$ into $g(x) = -2.5x + b$: $-2 = -15 + b$, so $b = 13$ and $g(x) = -2.5x + 13$.\nStep 3: Solve $-2.5x + 13 = -32$: $-2.5x = -45$, so $x = 18$. Check: $g(18) = -45 + 13 = -32$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-26$): drops the negative sign on the slope, so $g(x) = 2.5x + 33$ and $2.5x + 33 = -32$ gives $x = -26$.\n* Choice B ($12.8$): finds the slope but leaves out the constant term, solving $-2.5x = -32$.\n* Choice D ($22$): uses $23$ as the $y$-intercept, although $23$ is the value at $x = -4$, and solves $-2.5x + 23 = -32$.\n\n**Test Day Takeaway:** Build the full equation of the line, slope and constant, from the two given values before setting it equal to the target output.",
       skills: ["function-notation-to-equation", "slope-from-points", "solving-linear-equations"]
     },
     {

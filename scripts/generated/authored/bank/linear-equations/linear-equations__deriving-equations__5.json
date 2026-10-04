@@ -1,25 +1,30 @@
 {
-  "id": 5,
-  "question": "A cable is wound onto a drum at a constant rate. After $4$ minutes of winding, $118$ meters of cable remain on the ground, and after $9$ minutes, $63$ meters remain. Which equation gives the number of meters $L$ of cable remaining on the ground after $t$ minutes of winding?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$L = 118 - 11t$"
-    },
-    {
-      "id": "B",
-      "text": "$L = 162 - 55t$"
-    },
-    {
-      "id": "C",
-      "text": "$L = 162 - 11t$"
-    },
-    {
-      "id": "D",
-      "text": "$L = 162 + 11t$"
-    }
-  ],
-  "correctAnswer": "C",
-  "hint": "Neither reading happens at $t = 0$, so the constant term has to be recovered rather than read off.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** $55$ meters disappear over $5$ minutes, so the rate is $-11$; backing up $4$ minutes from $118$ gives $118 + 44 = 162$ at $t = 0$ — choice C.\n\n**The Full Solution:**\nStep 1: Rate of change: $\\frac{63 - 118}{9 - 4} = \\frac{-55}{5} = -11$ meters per minute.\nStep 2: Find the amount at $t = 0$ by substituting the first reading: $118 = -11(4)+b$, so $b = 118 + 44 = 162$ meters.\nStep 3: The equation is $L = 162 - 11t$. Check the second reading: $162 - 11(9) = 162 - 99 = 63$ meters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($L = 118 - 11t$): finds the rate correctly but uses the $4$-minute reading, $118$, as the amount at $t = 0$.\n* Choice B ($L = 162 - 55t$): uses the total drop between the two readings, $55$ meters, as the per-minute rate instead of dividing by the $5$ elapsed minutes.\n* Choice D ($L = 162 + 11t$): uses a positive rate, which would pile cable onto the ground while the drum winds it up.\n\n**Test Day Takeaway:** Two readings at nonzero times give the rate directly, but the constant term still has to be back-solved. Verify with the reading you did not use to find it."
+ "id": 5,
+ "question": "Water drains from a tank at a constant rate. After $4$ minutes, $118$ gallons of water remain in the tank, and after $9$ minutes, $63$ gallons remain. Which equation gives the number of gallons $g$ remaining in the tank after $t$ minutes?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$g = 118 - 11t$"
+  },
+  {
+   "id": "B",
+   "text": "$g = 162 - 55t$"
+  },
+  {
+   "id": "C",
+   "text": "$g = 162 - 11t$"
+  },
+  {
+   "id": "D",
+   "text": "$g = 162 + 11t$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "finds the rate but uses the 4-minute amount, 118, as the starting amount",
+  "B": "uses the 55-gallon drop over 5 minutes as the drop per minute",
+  "D": "finds the starting amount but makes the amount of water increase each minute"
+ },
+ "correctAnswer": "C",
+ "hint": "Neither amount is given at $t = 0$, so the constant term has to be found.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** The tank loses $118 - 63 = 55$ gallons in $5$ minutes, or $11$ gallons per minute, so it started with $118 + 4(11) = 162$ gallons.\n\n**The Full Solution:**\nStep 1: The rate of change is $\\frac{63 - 118}{9 - 4} = \\frac{-55}{5} = -11$ gallons per minute.\nStep 2: Write $g = b - 11t$ and substitute $t = 4$ and $g = 118$: $118 = b - 44$, so $b = 162$.\nStep 3: The equation is $g = 162 - 11t$. Check: at $t = 9$, $162 - 99 = 63$ gallons ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g = 118 - 11t$): finds the rate but uses $118$, the amount after $4$ minutes, as the amount at $t = 0$.\n* Choice B ($g = 162 - 55t$): uses the $55$-gallon drop over $5$ minutes as the drop for each minute.\n* Choice D ($g = 162 + 11t$): finds the starting amount but adds water each minute instead of removing it.\n\n**Test Day Takeaway:** With two readings and neither at time $0$, find the rate from the two readings, then work back to $t = 0$ for the constant term."
 }

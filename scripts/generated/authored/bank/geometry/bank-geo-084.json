@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-084",
- "question": "In the burette stand shown, a diagonal stay reaches $2$ centimeters farther than the vertical post it braces, and the horizontal base measures $12$ centimeters. How many centimeters of tubing make up the triangle?",
+ "question": "In the right triangle shown, $b$ is a positive number. What is the perimeter of the triangle?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -10,23 +10,28 @@
      0
     ],
     [
-     12,
+     24,
      0
     ],
     [
-     12,
-     35
+     24,
+     32
     ]
    ],
+   "labels": [
+    "",
+    "",
+    ""
+   ],
    "sideLabels": [
-    "12 cm",
+    "24",
     "b",
-    "b + 2"
+    "b + 8"
    ],
    "rightAngleVertex": 1,
    "figureNote": true
   }
  },
- "correctAnswer": "84",
- "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $84$.**\n\n**The Fast Way (~50s):** $12^2 + b^2 = (b + 2)^2$ collapses to $144 = 4b + 4$, so $b = 35$, the stay is $37$, and $12 + 35 + 37 = 84$.\n\n**The Full Solution:**\n\nStep 1: Let the post be $b$ centimeters; the stay is $b + 2$ and is the hypotenuse, so $12^2 + b^2 = (b + 2)^2$.\n\nStep 2: Expand the right side: $144 + b^2 = b^2 + 4b + 4$. The $b^2$ terms cancel, leaving $140 = 4b$, so $b = 35$ centimeters and the stay is $37$ centimeters.\n\nStep 3: The tubing follows all three sides: $12 + 35 + 37 = 84$ centimeters. Check: $12^2 + 35^2 = 144 + 1225 = 1369 = 37^2$.\n\n**Common Mistakes:**\n\n* $47$ — adding only the base and the post, $12 + 35$, and leaving out the stay.\n* $35$ — stopping at the post's length.\n* $210$ — computing the area $\\frac{1}{2}(12)(35)$ instead of the perimeter.\n\n**Test Day Takeaway:** When the hypotenuse is written as a leg plus a constant, the squared terms cancel and the Pythagorean equation becomes linear."
+ "correctAnswer": "96",
+ "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is 96.**\n\n**The Fast Way (~50s):** $24^{2} + b^{2} = (b + 8)^{2}$ simplifies to $576 = 16b + 64$, so $b = 32$, the hypotenuse is $40$, and the perimeter is $24 + 32 + 40 = 96$.\n\n**The Full Solution:**\nStep 1: The side labeled $b + 8$ is across from the right angle, so $24^{2} + b^{2} = (b + 8)^{2}$.\nStep 2: Expand the right side: $576 + b^{2} = b^{2} + 16b + 64$. The $b^{2}$ terms cancel, leaving $512 = 16b$, so $b = 32$.\nStep 3: The sides are $24$, $32$ and $40$, so the perimeter is $96$. Check: $24^{2} + 32^{2} = 576 + 1{,}024 = 1{,}600 = 40^{2}$ ✓\n\n**Common Mistakes:**\n* $32$: finds $b$ and reports it instead of the perimeter.\n* $40$: reports the hypotenuse, $b + 8$, instead of the perimeter.\n* $160$: expands $(b + 8)^{2}$ with a middle term of $8b$ instead of $16b$, getting $512 = 8b$, $b = 64$, and a perimeter of $24 + 64 + 72$.\n\n**Test Day Takeaway:** Squaring $b + 8$ produces a middle term, $16b$; that term is what makes the $b^{2}$'s cancel and the equation linear."
 }

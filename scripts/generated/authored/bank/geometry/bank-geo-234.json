@@ -1,40 +1,45 @@
 {
-  "id": "bank-geo-234",
-  "question": "An optical prism is ground so that its end face is the triangle shown, with all three angles marked and each edge measuring $12$ millimeters. What is the area, in square millimeters, of that end face?",
-  "diagram": {
-    "type": "triangleWithAngles",
-    "params": {
-      "angleLabels": [
-        "60°",
-        "60°",
-        "60°"
-      ],
-      "figureNote": true
-    }
+ "id": "bank-geo-234",
+ "question": "In the triangle shown, $AB = 14$. What is the area of the triangle?",
+ "diagram": {
+  "type": "triangleWithAngles",
+  "params": {
+   "vertexLabels": [
+    "A",
+    "B",
+    "C"
+   ],
+   "angleLabels": [
+    "60°",
+    "60°",
+    ""
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$49$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$6\\sqrt{3}$"
-    },
-    {
-      "id": "B",
-      "text": "$36\\sqrt{3}$"
-    },
-    {
-      "id": "C",
-      "text": "$72\\sqrt{3}$"
-    },
-    {
-      "id": "D",
-      "text": "$144\\sqrt{3}$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports the triangle's height, 6*sqrt(3), instead of its area",
-    "C": "multiplies base by height without halving: 12*6sqrt(3) = 72sqrt(3)",
-    "D": "uses s^2*sqrt(3) instead of (sqrt(3)/4)s^2, four times too large"
+  {
+   "id": "B",
+   "text": "$49\\sqrt{3}$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** All three angles are $60^\\circ$, so the end face is equilateral with side $12$, and its area is $\\frac{\\sqrt{3}}{4}(12)^2 = 36\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: Each marked angle is $60^\\circ$, so the triangle is equilateral and every side is $12$ millimeters.\nStep 2: The altitude to any side splits the triangle into two $30$-$60$-$90$ triangles with hypotenuse $12$ and short leg $6$, so the height is $6\\sqrt{3}$ millimeters.\nStep 3: The area is $\\frac{1}{2}(12)(6\\sqrt{3}) = 36\\sqrt{3}$ square millimeters.\n\nCheck: $36\\sqrt{3} \\approx 62.4$, less than the $72$ square millimeters of a right triangle with legs $12$ and $12$, as it must be. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6\\sqrt{3}$): stops at the height of the triangle and reports it as the area.\n* Choice C ($72\\sqrt{3}$): multiplies the base $12$ by the height $6\\sqrt{3}$ but never halves the product.\n* Choice D ($144\\sqrt{3}$): uses $s^2\\sqrt{3}$ in place of $\\frac{\\sqrt{3}}{4}s^2$, which is four times too large.\n\n**Test Day Takeaway:** Three $60^\\circ$ angles mean equilateral; drop one altitude and the $30$-$60$-$90$ ratios hand you the height."
+  {
+   "id": "C",
+   "text": "$98$"
+  },
+  {
+   "id": "D",
+   "text": "$98\\sqrt{3}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses half of AB, 7, as the height: (1/2)(14)(7)",
+  "C": "uses AB itself as the height: (1/2)(14)(14)",
+  "D": "finds the height 7 sqrt 3 but forgets the factor of 1/2"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Two $60^{\\circ}$ angles force the third to be $60^{\\circ}$, so the triangle is equilateral with side $14$ and height $7\\sqrt{3}$; area $= \\frac{1}{2}(14)(7\\sqrt{3}) = 49\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: The third angle is $180 - 60 - 60 = 60^{\\circ}$, so all angles are equal and the triangle is equilateral with every side $14$.\nStep 2: The height from $C$ to $\\overline{AB}$ splits the triangle into two $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangles with short leg $7$ and hypotenuse $14$, so the height is $7\\sqrt{3}$.\nStep 3: Area $= \\frac{1}{2}(14)(7\\sqrt{3}) = 49\\sqrt{3}$. Check with the equilateral formula: $\\frac{\\sqrt{3}}{4}(14)^{2} = \\frac{196\\sqrt{3}}{4} = 49\\sqrt{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($49$): $49$ uses $7$, the half-base, as the height.\n* Choice C ($98$): $98$ uses the side $14$ as the height; the height of an equilateral triangle is shorter than its side.\n* Choice D ($98\\sqrt{3}$): $98\\sqrt{3}$ is base × height without the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** Two $60^{\\circ}$ angles mean equilateral; its height is $\\frac{\\sqrt{3}}{2}$ times the side."
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-139",
- "question": "How many cubic centimeters of space does a battery module occupy if it is a rectangular block $24$ centimeters long, $15$ centimeters wide, and $8$ centimeters deep?",
+ "question": "A rectangular prism has a length of $24$ centimeters, a width of $15$ centimeters, and a height of $8$ centimeters. What is the volume, in cubic centimeters, of the prism?",
  "choices": [
   {
    "id": "A",
@@ -12,7 +12,7 @@
   },
   {
    "id": "C",
-   "text": "$1{,}440$"
+   "text": "$1{,}344$"
   },
   {
    "id": "D",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "adds the three dimensions, 24 + 15 + 8, which gives a length rather than a volume",
-  "B": "multiplies only the length and the width, 24 * 15, giving one face's area",
-  "C": "halves the product, as if the block had a triangular cross section"
+  "A": "adds the three dimensions, 24 + 15 + 8, instead of multiplying them",
+  "B": "multiplies only the length and width, 24 times 15, and leaves out the height",
+  "C": "computes the surface area, 2(360 + 192 + 120), instead of the volume"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Volume of a Rectangular Prism**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Multiply all three dimensions: $24 \\times 15 \\times 8 = 2{,}880$.\n\n**The Full Solution:**\nStep 1: A rectangular block's volume is the product of its length, width, and depth: $V = lwd$.\nStep 2: Substituting gives $V = 24 \\times 15 \\times 8$.\nStep 3: $24 \\times 15 = 360$, and $360 \\times 8 = 2{,}880$ cubic centimeters.\n\nCheck: The block is eight layers, each a $24$ by $15$ sheet of $360$ cubic centimeters, and $8 \\times 360 = 2{,}880$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($47$): adds the three dimensions instead of multiplying, producing a length rather than a volume.\n* Choice B ($360$): multiplies only the length and the width, which is the area of one face.\n* Choice C ($1{,}440$): halves the product, a step that belongs to a prism with a triangular cross section.\n\n**Test Day Takeaway:** A rectangular prism's volume is the plain product of all three dimensions, with no factor attached."
+ "explanation": "**SAT Pattern: Volume of a Rectangular Prism**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** $V = (24)(15)(8) = 360 \\times 8 = 2{,}880$.\n\n**The Full Solution:**\nStep 1: The volume of a rectangular prism is length times width times height.\nStep 2: $(24)(15) = 360$, the area of the base in square centimeters.\nStep 3: $(360)(8) = 2{,}880$ cubic centimeters. Check: $(15)(8) = 120$ and $(120)(24) = 2{,}880$, the same product in a different order ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($47$): adds the dimensions, $24 + 15 + 8$, instead of multiplying them.\n* Choice B ($360$): finds the area of the base, $24 \\times 15$, and stops before multiplying by the height.\n* Choice C ($1{,}344$): computes the surface area, $2(360 + 192 + 120)$, which is measured in square units, not cubic units.\n\n**Test Day Takeaway:** Volume multiplies all three dimensions; surface area adds the areas of the six faces. Let the units in the question, cubic or square, tell you which one is asked for."
 }

@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-068",
- "question": "A rafter tie meets a rafter and a post at a right angle; the two legs measure $b$ and $b + 7$ inches, and the tangent of the smaller acute angle is $\\frac{8}{15}$. What is the length, in inches, of the hypotenuse?",
+ "question": "In triangle $DEF$, angle $F$ is a right angle and $\\cos D = \\frac{20}{29}$. If $EF = 63$, what is the perimeter of triangle $DEF$?",
  "choices": [
   {
    "id": "A",
-   "text": "$8$"
+   "text": "$70$"
   },
   {
    "id": "B",
-   "text": "$15$"
+   "text": "$123$"
   },
   {
    "id": "C",
-   "text": "$17$"
+   "text": "$210$"
   },
   {
    "id": "D",
-   "text": "$23$"
+   "text": "$220.5$"
   }
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports the shorter leg b = 8 instead of the hypotenuse",
-  "B": "reports the longer leg b + 7 = 15",
-  "D": "adds the two legs, 8 + 15, instead of applying the Pythagorean theorem"
+  "A": "adds the sides of the 20-21-29 ratio triangle, 20 + 21 + 29 = 70, without scaling by 3",
+  "B": "adds only the two legs, DF + EF = 60 + 63, and leaves out the hypotenuse",
+  "D": "treats EF as the leg adjacent to D, so 20k = 63, k = 3.15, and the perimeter is 70(3.15) = 220.5"
  },
- "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice C is correct.** The smaller acute angle faces the shorter leg, so $\\frac{b}{b + 7} = \\frac{8}{15}$ gives $b = 8$, and the hypotenuse is $\\sqrt{8^2 + 15^2} = 17$ inches.\n\n**The Fast Way (~40s):** $15b = 8b + 56$ gives $b = 8$; the legs are $8$ and $15$, so the hypotenuse is $17$.\n\n**The Full Solution:**\n\nStep 1: The smaller acute angle lies opposite the shorter leg, so its tangent is $\\frac{b}{b + 7}$.\n\nStep 2: Set $\\frac{b}{b + 7} = \\frac{8}{15}$ and cross-multiply: $15b = 8b + 56$, so $7b = 56$ and $b = 8$ inches.\n\nStep 3: The legs are $8$ and $15$, so the hypotenuse is $\\sqrt{64 + 225} = \\sqrt{289} = 17$ inches. Check: $15 - 8 = 7$, matching the stated difference, and $\\tan = \\frac{8}{15}$ as given.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($8$): reports the shorter leg $b$.\n* Choice B ($15$): reports the longer leg $b + 7$.\n* Choice D ($23$): adds the legs instead of using the Pythagorean theorem.\n\n**Test Day Takeaway:** Which angle a ratio belongs to decides which leg goes on top — the smaller acute angle always faces the shorter leg."
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** $\\cos D = \\frac{20}{29}$ gives a $20$-$21$-$29$ triangle, and $EF$, the leg opposite $D$, is $21k = 63$, so $k = 3$ and the perimeter is $70(3) = 210$.\n\n**The Full Solution:**\nStep 1: The right angle is at $F$, so $DE$ is the hypotenuse, $DF$ is adjacent to $D$, and $EF$ is opposite $D$. From $\\cos D = \\frac{20}{29}$, write $DF = 20k$ and $DE = 29k$.\nStep 2: The opposite leg is $EF = \\sqrt{(29k)^{2} - (20k)^{2}} = \\sqrt{441k^{2}} = 21k$. Since $EF = 63$, $k = 3$.\nStep 3: The sides are $DF = 60$, $EF = 63$ and $DE = 87$, so the perimeter is $60 + 63 + 87 = 210$. Check: $60^{2} + 63^{2} = 3{,}600 + 3{,}969 = 7{,}569 = 87^{2}$ and $\\frac{60}{87} = \\frac{20}{29}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($70$): adds the sides of the ratio triangle, $20 + 21 + 29$, and never scales up to match $EF = 63$.\n* Choice B ($123$): adds the two legs, $60 + 63$, and leaves out the hypotenuse $87$.\n* Choice D ($220.5$): pairs $EF$ with the $20$ in the cosine, but $EF$ is opposite $D$, not adjacent to it; that gives $k = 3.15$ and $70(3.15) = 220.5$.\n\n**Test Day Takeaway:** Before using a given side, decide whether it is adjacent to, opposite, or across from the named angle; the cosine only describes the adjacent leg and the hypotenuse."
 }

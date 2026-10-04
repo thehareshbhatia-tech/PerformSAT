@@ -1,29 +1,29 @@
 {
- "question": "A streetlight at $(6, 8)$ in the $xy$-plane lights every point within $10$ units of its base. Which point lies exactly on the edge of the lit region?",
+ "question": "A circle in the $xy$-plane has center $(6, 8)$ and radius $10$. Which of the following points lies on the circle?",
  "choices": [
   {
    "id": "A",
-   "text": "$(0, 0)$"
+   "text": "$(-4, -2)$"
   },
   {
    "id": "B",
-   "text": "$(0, 8)$"
+   "text": "$(0, 0)$"
   },
   {
    "id": "C",
-   "text": "$(6, 0)$"
+   "text": "$(10, 0)$"
   },
   {
    "id": "D",
-   "text": "$(10, 8)$"
+   "text": "$(16, 18)$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "B": "moves only horizontally to the y-axis, landing 6 units from the base",
-  "C": "moves only vertically to the x-axis, landing 8 units from the base",
-  "D": "reads the radius 10 as an x-coordinate, landing 4 units from the base"
+  "A": "subtracts the radius from both coordinates of the center",
+  "C": "picks a point 10 units from the origin instead of from the center",
+  "D": "adds the radius to both coordinates of the center"
  },
- "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The edge is $10$ units from $(6, 8)$, and $(0, 0)$ is $\\sqrt{36 + 64} = 10$ units away.\n\n**The Full Solution:**\nStep 1: The lit region is the disk of radius $10$ centered at $(6, 8)$, so its edge is the set of points exactly $10$ units from the base.\nStep 2: Test $(0, 0)$: the differences are $6$ and $8$, so the distance is $\\sqrt{36 + 64} = \\sqrt{100} = 10$ ✓\nStep 3: The others fall short: $(0, 8)$ is $6$ units away, $(6, 0)$ is $8$ units away, and $(10, 8)$ is $4$ units away, so all three lie inside the lit region.\n\n**Why the wrong answers are tempting:**\n* Choice B ($(0, 8)$): shares the streetlight's $y$-coordinate, so only the $6$-unit horizontal gap counts.\n* Choice C ($(6, 0)$): shares the $x$-coordinate, so only the $8$-unit vertical gap counts.\n* Choice D ($(10, 8)$): borrows the radius $10$ as a coordinate, which lands just $4$ units from the base.\n\n**Test Day Takeaway:** \"On the edge\" is a distance test — compute the distance to each candidate and compare it with the radius.",
+ "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The distance from $(6, 8)$ to $(0, 0)$ is $\\sqrt{6^{2} + 8^{2}} = 10$, the radius.\n\n**The Full Solution:**\nStep 1: A point lies on the circle exactly when its distance from the center $(6, 8)$ is $10$.\nStep 2: For $(0, 0)$: $\\sqrt{(6 - 0)^{2} + (8 - 0)^{2}} = \\sqrt{36 + 64} = \\sqrt{100} = 10$.\nStep 3: The other choices are $\\sqrt{200}$, $\\sqrt{80}$, and $\\sqrt{200}$ units from the center. Check: $(0 - 6)^{2} + (0 - 8)^{2} = 100 = 10^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-4, -2)$): subtracts $10$ from each coordinate, which moves $10\\sqrt{2}$ units diagonally.\n* Choice C ($(10, 0)$): is $10$ units from the origin, not from the center $(6, 8)$.\n* Choice D ($(16, 18)$): adds $10$ to each coordinate, which also moves $10\\sqrt{2}$ units.\n\n**Test Day Takeaway:** Test a point with the distance formula from the center; moving $r$ units in both $x$ and $y$ goes farther than $r$.",
  "id": "bank-geo-299"
 }

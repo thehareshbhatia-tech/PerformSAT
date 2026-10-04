@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-129",
- "question": "In the hip-roof rafter bracket shown, the sloped edge runs $6$ centimeters longer than the longer of the two edges that meet at the right angle. What is the perimeter, in centimeters, of the bracket?",
+ "question": "In the right triangle shown, the length of the hypotenuse is $6$ greater than the length of the longer leg. What is the area of the triangle?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -30,26 +30,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$18$"
+   "text": "$54$"
   },
   {
    "id": "B",
-   "text": "$30$"
+   "text": "$72$"
   },
   {
    "id": "C",
-   "text": "$42$"
+   "text": "$216$"
   },
   {
    "id": "D",
-   "text": "$72$"
+   "text": "$432$"
   }
  ],
- "correctAnswer": "D",
  "distractorNotes": {
-  "A": "reports the shorter leg 3x = 18 instead of the perimeter",
-  "B": "reports the sloped edge 5x = 30 and stops",
-  "C": "adds only the two legs, 18 + 24, and leaves out the sloped edge"
+  "A": "compares the hypotenuse with the shorter leg, 5x = 3x + 6, so x = 3 and the area is (1/2)(9)(12) = 54",
+  "B": "finds the perimeter, 18 + 24 + 30, instead of the area",
+  "D": "forgets the factor 1/2 and multiplies the legs, 18 times 24"
  },
- "explanation": "**SAT Pattern: Pythagorean Theorem (3-4-5 Family)**\n\n**Choice D is correct.** With legs $3x$ and $4x$ the hypotenuse is $5x$, so $5x = 4x + 6$ gives $x = 6$ and the perimeter is $18 + 24 + 30 = 72$.\n\n**The Fast Way (~40s):** $5x - 4x = 6$, so $x = 6$; the sides are $18$, $24$, $30$ and their sum is $72$.\n\n**The Full Solution:**\n\nStep 1: The legs are $3x$ and $4x$, so the hypotenuse is $\\sqrt{(3x)^2 + (4x)^2} = 5x$.\n\nStep 2: The sloped edge exceeds the longer leg by $6$: $5x = 4x + 6$, so $x = 6$.\n\nStep 3: The sides are $3(6) = 18$, $4(6) = 24$, and $5(6) = 30$ centimeters, giving a perimeter of $72$ centimeters. Check: $30 - 24 = 6$, as stated, and $18^2 + 24^2 = 900 = 30^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($18$): reports the shorter leg $3x$ instead of the distance around the bracket.\n* Choice B ($30$): reports the sloped edge $5x$ and stops.\n* Choice C ($42$): adds only the two legs and omits the sloped edge.\n\n**Test Day Takeaway:** In a $3x$-$4x$-$5x$ triangle every side is a multiple of the same $x$, so one comparison between sides pins $x$ immediately."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Pythagorean Theorem (3-4-5 Family)**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The hypotenuse is $5x$, so $5x = 4x + 6$ gives $x = 6$; the legs are $18$ and $24$, and the area is $\\frac{1}{2}(18)(24) = 216$.\n\n**The Full Solution:**\nStep 1: The legs are $3x$ and $4x$, so the hypotenuse is $\\sqrt{(3x)^{2} + (4x)^{2}} = \\sqrt{25x^{2}} = 5x$.\nStep 2: The hypotenuse is $6$ greater than the longer leg, $4x$: $5x = 4x + 6$, so $x = 6$.\nStep 3: The legs are $3(6) = 18$ and $4(6) = 24$, so the area is $\\frac{1}{2}(18)(24) = 216$. Check: the hypotenuse is $30$, and $30 - 24 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($54$): compares the hypotenuse with the shorter leg, $5x = 3x + 6$, which gives $x = 3$ and an area of $\\frac{1}{2}(9)(12) = 54$.\n* Choice B ($72$): finds the perimeter, $18 + 24 + 30 = 72$, instead of the area.\n* Choice D ($432$): multiplies the legs, $18 \\times 24$, and forgets the factor $\\frac{1}{2}$.\n\n**Test Day Takeaway:** In a $3x$-$4x$-$5x$ triangle every side is a multiple of $x$, so one stated difference between two sides determines $x$ and then every length."
 }

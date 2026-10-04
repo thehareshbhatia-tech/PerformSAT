@@ -174,11 +174,17 @@ export function skillNorms() {
     if (/^\s*\[/.test(v.stimulusPlain || v.stemPlain || '')) b.eq++;
   }
   _skillNorms = new Map([...by].map(([k, b]) => [k, { short: b.nf ? b.short / b.nf : 0, eqFirst: b.eq / b.n, stock: b.stock / b.n }]));
+  // domain-level norms for rows whose SAT Pattern has no CB skill mapping (most geometry/data patterns)
+  const dom = new Map();
+  for (const v of items) { const d = String(v.domain || '').toLowerCase(); if (!dom.has(d)) dom.set(d, []); dom.get(d).push(String(v.skill || '').toLowerCase()); }
+  for (const [d, skills] of dom) { const ns = skills.map(k => _skillNorms.get(k)).filter(Boolean); const avg = (f) => ns.reduce((a, x) => a + x[f], 0) / ns.length; _skillNorms.set(`domain:${d}`, { short: avg('short'), eqFirst: avg('eqFirst'), stock: avg('stock') }); }
   return _skillNorms;
 }
 /** registerModule with targets = 70% of the official shares for the chunk's own skill mix (rows carry cbSkillLabel). */
 export function registerChunkSkillAware(rows, { label = 'chunk' } = {}) {
-  const N = skillNorms(); const known = rows.map(r => N.get(String(r.cbSkillLabel || '').toLowerCase())).filter(Boolean);
+  const N = skillNorms();
+  const DOM = { geometry: 'geometry and trigonometry', 'problem-solving': 'problem-solving and data analysis', algebra: 'algebra', 'advanced-math': 'advanced math' };
+  const known = rows.map(r => N.get(String(r.cbSkillLabel || '').toLowerCase()) || N.get(`domain:${DOM[r.domain] || String(r.domain || '').toLowerCase()}`)).filter(Boolean);
   if (known.length < rows.length / 2) return registerModule(rows, { label });
   const avg = (k) => known.reduce((s, x) => s + x[k], 0) / known.length;
   const saved = { ...MODULE_TARGETS };

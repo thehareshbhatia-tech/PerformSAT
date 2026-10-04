@@ -1,29 +1,29 @@
 {
-  "id": "bank-geo-151",
-  "question": "The radius of circle $B$ is $3$ times the radius of circle $A$. The area of circle $B$ is $k$ times the area of circle $A$. What is the value of $k$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$3$"
-    },
-    {
-      "id": "B",
-      "text": "$6$"
-    },
-    {
-      "id": "C",
-      "text": "$9$"
-    },
-    {
-      "id": "D",
-      "text": "$27$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports the linear scale factor as the area factor",
-    "B": "doubles the scale factor instead of squaring it",
-    "D": "cubes the scale factor, as if scaling a volume"
+ "id": "bank-geo-151",
+ "question": "The diameter of circle $A$ is $6$ times the radius of circle $B$. The area of circle $A$ is how many times the area of circle $B$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$3$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Area of a Circle**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Area depends on $r^2$, so tripling the radius multiplies the area by $3^2 = 9$.\n\n**The Full Solution:**\nStep 1: Let circle $A$ have radius $a$, so its area is $\\pi a^2$. Circle $B$ then has radius $3a$.\nStep 2: The area of circle $B$ is $\\pi(3a)^2 = 9\\pi a^2$.\nStep 3: $9\\pi a^2 = 9(\\pi a^2)$, so $k = 9$. Check: with $a = 1$ the areas are $\\pi$ and $9\\pi$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the radius factor; lengths scale by $3$ but areas do not.\n* Choice B ($6$): doubles the factor instead of squaring it, confusing $2 \\cdot 3$ with $3^2$.\n* Choice D ($27$): cubes the factor, which is how volume scales, not area.\n\n**Test Day Takeaway:** Scale a length by $n$ and area scales by $n^2$, volume by $n^3$. The exponent matches the number of dimensions."
+  {
+   "id": "B",
+   "text": "$6$"
+  },
+  {
+   "id": "C",
+   "text": "$9$"
+  },
+  {
+   "id": "D",
+   "text": "$36$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "finds the radius ratio 3 but does not square it for area",
+  "B": "treats the 6 as the radius ratio and does not square it",
+  "D": "squares 6 without first halving the diameter to get the radius"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Area of a Circle**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The radius of circle $A$ is half its diameter, so it is $3$ times the radius of circle $B$, and areas scale by $3^{2} = 9$.\n\n**The Full Solution:**\nStep 1: Let the radius of circle $B$ be $r$. The diameter of circle $A$ is $6r$, so the radius of circle $A$ is $\\frac{6r}{2} = 3r$.\nStep 2: The areas are $\\pi(3r)^{2} = 9\\pi r^{2}$ for circle $A$ and $\\pi r^{2}$ for circle $B$.\nStep 3: $\\frac{9\\pi r^{2}}{\\pi r^{2}} = 9$. Check: with $r = 1$, circle $A$ has diameter $6$, radius $3$, and area $9\\pi$, which is $9$ times $\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): finds the ratio of the radii but stops before squaring it.\n* Choice B ($6$): compares a diameter with a radius as if they were the same kind of length, and does not square.\n* Choice D ($36$): squares $6$, but $6$ compares a diameter with a radius; halve to the radius ratio $3$ first.\n\n**Test Day Takeaway:** Put both circles in the same length (radius with radius) before you compare, then square that ratio for area."
 }

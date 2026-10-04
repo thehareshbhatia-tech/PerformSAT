@@ -1,29 +1,29 @@
 {
-  "id": "bank-geo-281",
-  "question": "On a mall's planning grid, marked in feet, a proposed kiosk boundary is drawn from $x^{2}+y^{2}+6x-2y+t=0$, where $t$ is a constant. For what value of $t$ does that graph consist of exactly one point?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-10$"
-    },
-    {
-      "id": "B",
-      "text": "$1$"
-    },
-    {
-      "id": "C",
-      "text": "$9$"
-    },
-    {
-      "id": "D",
-      "text": "$10$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "solves 9 + 1 + t = 0, slipping the sign of the constant",
-    "B": "squares half the y-coefficient only, ignoring the x terms",
-    "C": "squares half the x-coefficient only, ignoring the y terms"
+ "id": "bank-geo-281",
+ "question": "$x^{2} + y^{2} + 6x - 2y + t = 0$\nIn the given equation, $t$ is a constant. The graph of the equation in the $xy$-plane is a circle with radius $4$. What is the value of $t$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-16$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** The graph is a single point when $r^{2}=0$, and $r^{2}=9+1-t$, so $t=10$.\n\n**The Full Solution:**\n\nStep 1: Complete both squares. $x^{2}+6x$ contributes $9$ and $y^{2}-2y$ contributes $1$, giving $(x+3)^{2}+(y-1)^{2}=9+1-t$.\n\nStep 2: Interpret the degenerate case. A sum of two squares equals zero only at the single point where both are zero, so the graph is one point exactly when $9+1-t=0$.\n\nStep 3: Solve. $t=10$.\n\nCheck: with $t=10$ the equation is $(x+3)^{2}+(y-1)^{2}=0$, satisfied only by $(-3,1)$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-10$): solves $9+1+t=0$, slipping the sign of the constant when moving it across.\n* Choice B ($1$): squares half the $y$-coefficient only and ignores the $x$ terms.\n* Choice C ($9$): squares half the $x$-coefficient only and ignores the $y$ terms.\n\n**Test Day Takeaway:** A general-form equation degenerates to one point when the completed right side hits zero, and has no graph at all once it goes negative."
+  {
+   "id": "B",
+   "text": "$-6$"
+  },
+  {
+   "id": "C",
+   "text": "$6$"
+  },
+  {
+   "id": "D",
+   "text": "$26$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "forgets to add the completing constants 9 and 1, so -t = 16",
+  "C": "sets 10 - t equal to the radius 4 instead of 16",
+  "D": "makes a sign error moving t, writing t = 10 + 16"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Completing both squares gives $(x + 3)^{2} + (y - 1)^{2} = 10 - t$, so $10 - t = 4^{2} = 16$ and $t = -6$.\n\n**The Full Solution:**\nStep 1: Group and move the constant: $(x^{2} + 6x) + (y^{2} - 2y) = -t$.\nStep 2: Complete each square by adding $9$ and $1$ to both sides: $(x + 3)^{2} + (y - 1)^{2} = 10 - t$.\nStep 3: The right side is $r^{2} = 16$, so $10 - t = 16$ and $t = -6$. Check: with $t = -6$, the point $(1, 1)$, which is $4$ units right of the center $(-3, 1)$, gives $1 + 1 + 6 - 2 - 6 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-16$): sets $-t = 16$ without adding the $9$ and $1$ used to complete the squares.\n* Choice C ($6$): sets $10 - t$ equal to the radius $4$ instead of $r^{2} = 16$.\n* Choice D ($26$): reaches $10 - t = 16$ but moves $t$ with the wrong sign.\n\n**Test Day Takeaway:** After completing the square, the constant on the right side is $r^{2}$, so square the radius before you set them equal."
 }

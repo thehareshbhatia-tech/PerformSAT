@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-117",
- "question": "A rectangular photograph has a perimeter of $54$ inches and a length of $17$ inches. What is the area, in square inches, of the photograph?",
+ "question": "A rectangle has a perimeter of $54$ inches and a length of $17$ inches. What is the area, in square inches, of the rectangle?",
  "choices": [
   {
    "id": "A",
@@ -19,6 +19,11 @@
    "text": "$629$"
   }
  ],
+ "distractorNotes": {
+  "B": "forgets to halve after subtracting both lengths, using a width of 20",
+  "C": "uses half the perimeter, 27, as the width",
+  "D": "subtracts the length once from the perimeter, using a width of 37"
+ },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Half the perimeter is $27$, so the width is $27 - 17 = 10$ and the area is $17 \\cdot 10 = 170$ square inches.\n\n**The Full Solution:**\nStep 1: The perimeter of a rectangle is $P = 2(\\ell + w)$, so $54 = 2(17 + w)$.\nStep 2: Divide by $2$: $27 = 17 + w$, so $w = 10$ inches.\nStep 3: The area is $A = \\ell w = 17 \\cdot 10 = 170$ square inches.\n\nCheck: $2(17 + 10) = 54$ inches, matching the given perimeter.\n\n**Why the wrong answers are tempting:**\n* Choice B ($340$): uses $w = 54 - 2(17) = 20$, forgetting to divide the leftover perimeter by $2$.\n* Choice C ($459$): uses half the perimeter, $27$, as the width instead of subtracting the length from it.\n* Choice D ($629$): uses $54 - 17 = 37$ as the width, subtracting the length from the whole perimeter.\n\n**Test Day Takeaway:** Halve the perimeter first — that single number is $\\ell + w$, and the missing side is one subtraction away."
+ "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The width is $\\frac{54}{2} - 17 = 10$, so the area is $17 \\times 10 = 170$ square inches.\n\n**The Full Solution:**\nStep 1: The perimeter is $2\\ell + 2w = 54$, so $\\ell + w = 27$.\nStep 2: With $\\ell = 17$, the width is $w = 27 - 17 = 10$ inches.\nStep 3: The area is $\\ell w = 17 \\times 10 = 170$ square inches. Check: $2(17) + 2(10) = 54$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($340$): subtracts both lengths, $54 - 34 = 20$, but forgets to halve, using a width of $20$.\n* Choice C ($459$): uses half the perimeter, $27$, as the width.\n* Choice D ($629$): subtracts the length only once, $54 - 17 = 37$, and uses $37$ as the width.\n\n**Test Day Takeaway:** Half the perimeter is length plus width; subtract the known side to get the other, then multiply."
 }

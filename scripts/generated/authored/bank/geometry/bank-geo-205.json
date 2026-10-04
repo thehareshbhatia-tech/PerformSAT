@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-205",
- "question": "In a solar field survey, corner stakes for a triangular plot sit at $(-3,2)$, $(5,2)$, and $(1,y)$, with $y>2$ and every unit equal to one meter. Which expression represents how many square meters the plot covers?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$4y-8$"
+  "id": "bank-geo-205",
+  "question": "In the $xy$-plane, a triangle has vertices at $(-2, 3)$, $(4, 3)$, and $(1, y)$, where $y > 3$. Which expression represents the area of the triangle?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3y - 9$"
+    },
+    {
+      "id": "B",
+      "text": "$3y - 3$"
+    },
+    {
+      "id": "C",
+      "text": "$3y$"
+    },
+    {
+      "id": "D",
+      "text": "$6y - 18$"
+    }
+  ],
+  "correctAnswer": "A",
+  "distractorNotes": {
+    "B": "distributes 3 over y - 3 as 3y - 3 instead of 3y - 9",
+    "C": "uses y as the height, measuring to the x-axis instead of to the base on the line y = 3",
+    "D": "multiplies base and height but forgets the factor of 1/2"
   },
-  {
-   "id": "B",
-   "text": "$4y$"
-  },
-  {
-   "id": "C",
-   "text": "$8y-16$"
-  },
-  {
-   "id": "D",
-   "text": "$8y$"
-  }
- ],
- "distractorNotes": {
-  "B": "uses y itself as the height instead of the distance y - 2",
-  "C": "omits the factor one half, giving the rectangle's area 8(y - 2)",
-  "D": "omits the one half and uses y as the height, making both errors"
- },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The horizontal base runs from $-3$ to $5$, a length of $8$; the height is $y-2$, so the area is $\\frac{1}{2}(8)(y-2)=4y-8$.\n\n**The Full Solution:**\n\nStep 1: Find the base. $(-3,2)$ and $(5,2)$ share the height $y=2$, so the base has length $5-(-3)=8$ meters.\n\nStep 2: Find the height. The third corner sits at height $y$, and the base line is at height $2$, so the perpendicular height is $y-2$ meters.\n\nStep 3: Apply the formula. Area $=\\frac{1}{2}(8)(y-2)=4(y-2)=4y-8$ square meters.\n\nCheck: with $y=7$ the height is $5$ and the area is $\\frac{1}{2}(8)(5)=20$, and $4(7)-8=20$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($4y$): uses $y$ itself as the height instead of the distance $y-2$ above the base.\n* Choice C ($8y-16$): omits the factor $\\frac{1}{2}$ and reports the surrounding rectangle's area.\n* Choice D ($8y$): drops the $\\frac{1}{2}$ and uses $y$ as the height, combining both errors.\n\n**Test Day Takeaway:** A height is a distance between two $y$-values, not a single coordinate — subtract the base's height first."
+  "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The base from $(-2, 3)$ to $(4, 3)$ is $6$ and the height is $y - 3$, so the area is $\\frac{1}{2}(6)(y - 3) = 3y - 9$.\n\n**The Full Solution:**\nStep 1: The vertices $(-2, 3)$ and $(4, 3)$ share the $y$-coordinate $3$, so they form a horizontal base of length $4 - (-2) = 6$.\nStep 2: The height is the vertical distance from $(1, y)$ down to the line $y = 3$, which is $y - 3$.\nStep 3: Area $= \\frac{1}{2}(6)(y - 3) = 3(y - 3) = 3y - 9$. Check: with $y = 7$, the height is $4$ and the area is $\\frac{1}{2}(6)(4) = 12$, and $3(7) - 9 = 12$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3y - 3$): distributes $3$ over $y - 3$ but multiplies only the $y$, writing $3y - 3$ instead of $3y - 9$.\n* Choice C ($3y$): uses $y$ as the height, which measures down to the $x$-axis rather than to the base, which lies on the line $y = 3$.\n* Choice D ($6y - 18$): uses base times height without the factor of $\\frac{1}{2}$.\n\n**Test Day Takeaway:** When the base is not on an axis, measure the height from the base's line, not from the $x$-axis."
 }

@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-057",
- "question": "A right circular cylinder has a radius of $r$ and a height of $h$. A second right circular cylinder has a radius of $3r$ and a height of $3h$. The volume of the second cylinder is how many times the volume of the first cylinder?",
+ "question": "Right circular cylinder $A$ has radius $r$ and height $h$. Right circular cylinder $B$ has radius $3r$ and height $\\frac{h}{2}$. The volume of cylinder $B$ is how many times the volume of cylinder $A$?",
  "choices": [
   {
    "id": "A",
-   "text": "$3$"
+   "text": "$1.5$"
   },
   {
    "id": "B",
-   "text": "$9$"
+   "text": "$4.5$"
   },
   {
    "id": "C",
-   "text": "$27$"
+   "text": "$9$"
   },
   {
    "id": "D",
-   "text": "$81$"
+   "text": "$13.5$"
   }
  ],
  "distractorNotes": {
-  "A": "reports the linear factor only",
-  "B": "multiplies the two factors of 3 without squaring the radius",
-  "D": "squares the height factor as well as the radius factor"
+  "A": "multiplies the factors 3 and 1/2 without squaring the radius factor",
+  "C": "squares the radius factor but ignores the change in height",
+  "D": "cubes the radius factor as if the cylinders were similar, then multiplies by 1/2"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Pure Volume Scaling**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $V = \\pi r^2 h$, so tripling both $r$ and $h$ multiplies the volume by $3^2 \\cdot 3 = 27$.\n\n**The Full Solution:**\nStep 1: The first cylinder has volume $V_1 = \\pi r^2 h$.\nStep 2: The second has volume $V_2 = \\pi(3r)^2(3h) = \\pi(9r^2)(3h) = 27\\pi r^2 h$.\nStep 3: Divide: $\\frac{V_2}{V_1} = \\frac{27\\pi r^2 h}{\\pi r^2 h} = 27$.\n\nVerification: the two cylinders are similar with linear factor $3$, and volumes of similar solids scale by $3^3 = 27$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the linear factor, which scales a single length, not a volume.\n* Choice B ($9$): multiplies $3 \\cdot 3$ for the two changed dimensions but never squares the radius.\n* Choice D ($81$): squares the height factor along with the radius factor, using $3^2 \\cdot 3^2$.\n\n**Test Day Takeaway:** Substitute the scaled quantities into the formula and simplify. The exponent on each variable tells you how its factor compounds."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Pure Volume Scaling**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $V = \\pi r^2 h$, so the radius factor counts twice and the height factor once: $3^2 \\cdot \\frac{1}{2} = 4.5$.\n\n**The Full Solution:**\nStep 1: The volume of cylinder $A$ is $\\pi r^2 h$.\nStep 2: The volume of cylinder $B$ is $\\pi(3r)^2\\left(\\frac{h}{2}\\right) = \\pi(9r^2)\\left(\\frac{h}{2}\\right) = 4.5\\pi r^2 h$.\nStep 3: Divide: $\\frac{4.5\\pi r^2 h}{\\pi r^2 h} = 4.5$. Check with $r = 1$ and $h = 2$: cylinder $A$ has volume $2\\pi$, cylinder $B$ has volume $\\pi(3^2)(1) = 9\\pi$, and $\\frac{9\\pi}{2\\pi} = 4.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.5$): multiplies $3 \\cdot \\frac{1}{2}$ without squaring the radius factor.\n* Choice C ($9$): squares the radius factor but ignores the halved height.\n* Choice D ($13.5$): cubes $3$ as if the cylinders were similar, then multiplies by $\\frac{1}{2}$.\n\n**Test Day Takeaway:** Substitute the scaled dimensions into the formula; each factor is raised to the power its variable has in the formula."
 }

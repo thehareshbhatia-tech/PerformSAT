@@ -1,45 +1,45 @@
 {
-  "id": "bank-geo-235",
-  "question": "A spectrometer's quartz wedge is ground so that face $JKL$ carries the three angle measures shown, each written in terms of $x$. Edge $\\overline{JL}$ spans $12$ millimeters, while neither of the other two edges is given a length. How many square millimeters does that face cover?",
-  "diagram": {
-    "type": "triangleWithAngles",
-    "params": {
-      "angleLabels": [
-        "x°",
-        "3x°",
-        "2x°"
-      ],
-      "vertexLabels": [
-        "J",
-        "K",
-        "L"
-      ],
-      "figureNote": true
-    }
+ "id": "bank-geo-235",
+ "question": "In triangle $JKL$ shown, $JL = 16$. What is the area of triangle $JKL$?",
+ "diagram": {
+  "type": "triangleWithAngles",
+  "params": {
+   "vertexLabels": [
+    "J",
+    "K",
+    "L"
+   ],
+   "angleLabels": [
+    "x°",
+    "3x°",
+    "2x°"
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$32$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$18\\sqrt{3}$"
-    },
-    {
-      "id": "B",
-      "text": "$24\\sqrt{3}$"
-    },
-    {
-      "id": "C",
-      "text": "$36\\sqrt{3}$"
-    },
-    {
-      "id": "D",
-      "text": "$72\\sqrt{3}$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "treats the 12 as the longer leg, giving a short leg of 4sqrt(3) and area 24sqrt(3)",
-    "C": "multiplies the two legs 6 and 6sqrt(3) without halving",
-    "D": "treats the 12 as the shorter leg, giving a longer leg of 12sqrt(3) and area 72sqrt(3)"
+  {
+   "id": "B",
+   "text": "$32\\sqrt{3}$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** From $x + 3x + 2x = 180$ the angles are $30^\\circ$, $90^\\circ$, and $60^\\circ$, so the labeled $12$ is the hypotenuse, the legs are $6$ and $6\\sqrt{3}$, and the area is $18\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: The three angle measures sum to $180^\\circ$: $x + 3x + 2x = 6x = 180$, so $x = 30$ and the angles at $J$, $K$, and $L$ are $30^\\circ$, $90^\\circ$, and $60^\\circ$.\nStep 2: Edge $\\overline{JL}$ lies opposite the $90^\\circ$ angle at $K$, so the $12$ millimeters is the hypotenuse. In a $30$-$60$-$90$ triangle the side opposite $30^\\circ$ is half the hypotenuse, $6$, and the side opposite $60^\\circ$ is $6\\sqrt{3}$.\nStep 3: The two legs are perpendicular, so the area is $\\frac{1}{2}(6)(6\\sqrt{3}) = 18\\sqrt{3}$ square millimeters.\n\nCheck: $18\\sqrt{3} \\approx 31.2$, and the triangle fits inside a $6$ by $6\\sqrt{3}$ rectangle of area about $62.4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($24\\sqrt{3}$): treats the $12$ as the longer leg, making the short leg $4\\sqrt{3}$ and the area $\\frac{1}{2}(4\\sqrt{3})(12) = 24\\sqrt{3}$.\n* Choice C ($36\\sqrt{3}$): finds the legs $6$ and $6\\sqrt{3}$ correctly but multiplies them without halving.\n* Choice D ($72\\sqrt{3}$): treats the $12$ as the shorter leg, making the longer leg $12\\sqrt{3}$ and the area $\\frac{1}{2}(12)(12\\sqrt{3}) = 72\\sqrt{3}$.\n\n**Test Day Takeaway:** Solve for the angles before you touch a side length; the hypotenuse is always the side facing the right angle."
+  {
+   "id": "C",
+   "text": "$64\\sqrt{3}$"
+  },
+  {
+   "id": "D",
+   "text": "$128\\sqrt{3}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses 8 for both legs, dropping the sqrt 3 from the longer leg",
+  "C": "finds legs 8 and 8 sqrt 3 but forgets the factor of 1/2",
+  "D": "treats JL as the shorter leg instead of the hypotenuse, so the legs are 16 and 16 sqrt 3"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** $x + 3x + 2x = 180$ gives $x = 30$, so angle $K$ is $90^{\\circ}$ and $JL$ is the hypotenuse; the legs are $8$ and $8\\sqrt{3}$, and the area is $32\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: The angles add to $180$: $x + 3x + 2x = 6x = 180$, so $x = 30$. The angles are $J = 30^{\\circ}$, $K = 90^{\\circ}$, and $L = 60^{\\circ}$.\nStep 2: $\\overline{JL}$ is opposite the right angle at $K$, so it is the hypotenuse. In a $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangle with hypotenuse $16$, the leg opposite $30^{\\circ}$ is $8$ and the leg opposite $60^{\\circ}$ is $8\\sqrt{3}$.\nStep 3: The legs are perpendicular, so the area is $\\frac{1}{2}(8)(8\\sqrt{3}) = 32\\sqrt{3}$. Check: $8^{2} + (8\\sqrt{3})^{2} = 64 + 192 = 256 = 16^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($32$): $32$ uses $8$ for both legs; the longer leg is $8\\sqrt{3}$.\n* Choice C ($64\\sqrt{3}$): $64\\sqrt{3}$ multiplies the legs without the $\\frac{1}{2}$.\n* Choice D ($128\\sqrt{3}$): $128\\sqrt{3}$ treats $16$ as the short leg. Side $\\overline{JL}$ is opposite the $90^{\\circ}$ angle, so it is the hypotenuse.\n\n**Test Day Takeaway:** Solve for the angles first; once you know where the right angle is, you know which side is the hypotenuse and which sides are the legs."
 }

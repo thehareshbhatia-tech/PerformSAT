@@ -1,29 +1,29 @@
 {
-  "id": "bank-geo-131",
-  "question": "In the $xy$-plane, the point $(-20, 21)$ lies on a circle whose center is the origin. What is the length of a radius of this circle?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$1$"
-    },
-    {
-      "id": "B",
-      "text": "$20.5$"
-    },
-    {
-      "id": "C",
-      "text": "$29$"
-    },
-    {
-      "id": "D",
-      "text": "$41$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "subtracts the coordinates instead of combining their squares",
-    "B": "averages the two coordinates",
-    "D": "adds the coordinates, measuring the path along the axes"
+ "id": "bank-geo-131",
+ "question": "In the $xy$-plane, a circle has center $(0, 0)$ and passes through the point $(-20, 21)$. What is the radius of the circle?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$1$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** A radius reaches from the origin to the point, so its length is $\\sqrt{400 + 441} = \\sqrt{841} = 29$.\n\n**The Full Solution:**\nStep 1: Every radius runs from the center to a point on the circle, so its length is the distance from $(0, 0)$ to $(-20, 21)$.\nStep 2: $(-20)^2 + 21^2 = 400 + 441 = 841$.\nStep 3: The radius is $\\sqrt{841} = 29$. Check: $20$-$21$-$29$ satisfies $400 + 441 = 841$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): subtracts $21 - 20$, as though the two displacements lay along the same line.\n* Choice B ($20.5$): averages $20$ and $21$, which has no geometric meaning for a distance.\n* Choice D ($41$): adds $20 + 21$, the distance walked along the two axes rather than the straight-line distance.\n\n**Test Day Takeaway:** A radius is a distance. Square each displacement, add, then take the square root - never add or subtract the displacements themselves."
+  {
+   "id": "B",
+   "text": "$29$"
+  },
+  {
+   "id": "C",
+   "text": "$41$"
+  },
+  {
+   "id": "D",
+   "text": "$841$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "adds the coordinates, -20 + 21 = 1, instead of using the distance formula",
+  "C": "adds the distances along each axis, 20 + 21 = 41, instead of using the distance formula",
+  "D": "stops at r squared = 841 without taking the square root"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The radius is the distance from the origin to the point: $\\sqrt{(-20)^{2} + 21^{2}} = \\sqrt{841} = 29$.\n\n**The Full Solution:**\nStep 1: Every point on a circle is one radius from the center, so $r$ is the distance from $(0, 0)$ to $(-20, 21)$.\nStep 2: By the distance formula, $r^{2} = (-20 - 0)^{2} + (21 - 0)^{2} = 400 + 441 = 841$.\nStep 3: $r = \\sqrt{841} = 29$. Check: $29^{2} = 841 = 400 + 441$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): adds the coordinates, $-20 + 21 = 1$, instead of using the distance formula.\n* Choice C ($41$): adds the distances along each axis, $20 + 21$; the straight-line distance is shorter than that path.\n* Choice D ($841$): stops at $r^{2}$ without taking the square root.\n\n**Test Day Takeaway:** The radius is the distance from the center to any point on the circle, so the distance formula from the center to a given point gives it directly."
 }

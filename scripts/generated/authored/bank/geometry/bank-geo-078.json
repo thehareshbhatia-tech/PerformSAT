@@ -1,31 +1,36 @@
 {
  "id": "bank-geo-078",
- "question": "A plenum return duct crosses $60$ centimeters horizontally while dropping $11$ centimeters. What is the length, in centimeters, of the duct's straight run?",
+ "question": "In triangle $ABC$ shown, what is the length of $\\overline{AB}$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
    "vertices": [
     [
      0,
-     11
-    ],
-    [
-     60,
-     11
+     0
     ],
     [
      60,
      0
+    ],
+    [
+     60,
+     11
     ]
    ],
+   "labels": [
+    "A",
+    "B",
+    "C"
+   ],
    "sideLabels": [
-    "60 cm",
-    "11 cm",
-    ""
+    "",
+    "11",
+    "61"
    ],
    "rightAngleVertex": 1
   }
  },
- "correctAnswer": "61",
- "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $61$.**\n\n**The Fast Way (~20s):** $11$-$60$-$61$ is a Pythagorean triple, so the straight run is $61$ centimeters.\n\n**The Full Solution:**\n\nStep 1: The horizontal crossing and the vertical drop meet at a right angle, so the duct's straight run is the hypotenuse.\n\nStep 2: $11^2 + 60^2 = 121 + 3600 = 3721$.\n\nStep 3: The run is $\\sqrt{3721} = 61$ centimeters. Check: $61^2 = 3721$, and $61$ lies between $60$ and $71$, as a hypotenuse must.\n\n**Common Mistakes:**\n\n* $71$ — adding the two legs, $60 + 11$, which measures the bent path rather than the straight one.\n* $49$ — subtracting the legs, $60 - 11$, instead of working with their squares.\n* $330$ — computing the area $\\frac{1}{2}(11)(60)$ rather than a length.\n\n**Test Day Takeaway:** A drop and a horizontal run form legs, never a hypotenuse — the direct distance is always the square-root combination."
+ "correctAnswer": "60",
+ "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is 60.**\n\n**The Fast Way (~20s):** $AB = \\sqrt{61^{2} - 11^{2}} = \\sqrt{3{,}600} = 60$.\n\n**The Full Solution:**\nStep 1: The right angle is at $B$, so $AC = 61$ is the hypotenuse and $\\overline{AB}$ and $\\overline{BC}$ are the legs.\nStep 2: By the Pythagorean theorem, $AB^{2} + 11^{2} = 61^{2}$, so $AB^{2} = 3{,}721 - 121 = 3{,}600$.\nStep 3: So $AB = 60$. Check: $60^{2} + 11^{2} = 3{,}600 + 121 = 3{,}721 = 61^{2}$ ✓\n\n**Common Mistakes:**\n* $50$: subtracts the lengths, $61 - 11$, instead of their squares.\n* $62$: adds the squares as if $61$ were a leg: $\\sqrt{61^{2} + 11^{2}} \\approx 62$.\n* $3600$: stops at $AB^{2}$ and forgets the square root.\n\n**Test Day Takeaway:** When the hypotenuse is given, subtract squares; add squares only when both legs are given."
 }

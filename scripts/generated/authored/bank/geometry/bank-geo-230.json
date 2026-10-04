@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-230",
- "question": "Stone edging runs along arc $AB$ of a campus reflecting pool, as drawn, and the straight distance from $A$ to $B$ is $24$ feet. What is the length, in feet, of the edging?",
+ "question": "In the circle shown, $O$ is the center and chord $\\overline{AB}$ has length $15$. What is the length of minor arc $AB$?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
@@ -15,26 +15,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$4\\pi$"
+   "text": "$\\frac{5\\pi}{2}$"
   },
   {
    "id": "B",
-   "text": "$8\\pi$"
+   "text": "$5\\pi$"
   },
   {
    "id": "C",
-   "text": "$16\\pi$"
+   "text": "$10\\pi$"
   },
   {
    "id": "D",
-   "text": "$48\\pi$"
+   "text": "$\\frac{75\\pi}{2}$"
   }
  ],
  "distractorNotes": {
-  "A": "treats the 24-foot chord as the diameter, using r = 12",
-  "C": "divides the central angle by 180 instead of 360, giving 16 pi",
-  "D": "reports the full circumference 2 pi (24) = 48 pi"
+  "A": "takes the radius to be half the chord, 7.5",
+  "C": "divides the central angle by 180 instead of 360",
+  "D": "gives the area of the sector, (60/360) pi (15)^2"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~55s):** A $60°$ central angle makes triangle $OAB$ equilateral, so $r=24$; the arc is $\\frac{1}{6}(48\\pi)=8\\pi$ feet.\n\n**The Full Solution:**\n\nStep 1: Use the central angle. $\\overline{OA}$ and $\\overline{OB}$ are radii, so triangle $OAB$ is isosceles, and a $60°$ vertex angle forces the base angles to be $60°$ as well.\n\nStep 2: Read off the radius. An equilateral triangle makes $OA=OB=AB=24$ feet, so $r=24$ and $C=2\\pi(24)=48\\pi$ feet.\n\nStep 3: Take the fraction. $\\frac{60}{360}=\\frac{1}{6}$, so arc $AB=\\frac{1}{6}(48\\pi)=8\\pi$ feet.\n\nCheck: six $60°$ arcs rebuild the circle, and $6(8\\pi)=48\\pi$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($4\\pi$): treats the $24$-foot chord as a diameter, using $r=12$.\n* Choice C ($16\\pi$): divides the central angle by $180$ instead of $360$, tripling the fraction to $\\frac{1}{3}$.\n* Choice D ($48\\pi$): reports the entire circumference instead of the $60°$ portion.\n\n**Test Day Takeaway:** A $60°$ central angle makes the chord equal to the radius — that is how a chord length hands you $r$ without any trigonometry."
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $OA = OB$ and the angle between them is $60^{\\circ}$, so triangle $AOB$ is equilateral and the radius is $15$; the arc is $\\frac{60}{360}(2\\pi \\cdot 15) = 5\\pi$.\n\n**The Full Solution:**\nStep 1: $\\overline{OA}$ and $\\overline{OB}$ are radii, so triangle $AOB$ is isosceles. Its base angles are each $\\frac{180 - 60}{2} = 60^{\\circ}$, so the triangle is equilateral.\nStep 2: Therefore the radius equals the chord: $r = AB = 15$, and the circumference is $2\\pi(15) = 30\\pi$.\nStep 3: The arc is $\\frac{60}{360} = \\frac{1}{6}$ of the circle: $\\frac{1}{6}(30\\pi) = 5\\pi$. Check: six $60^{\\circ}$ arcs give $6(5\\pi) = 30\\pi$, the whole circumference ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5\\pi}{2}$): $\\frac{5\\pi}{2}$ treats the chord as a diameter, so the radius becomes $7.5$; a $60^{\\circ}$ chord equals the radius, not the diameter.\n* Choice C ($10\\pi$): $10\\pi$ uses $\\frac{60}{180}$; a full turn is $360^{\\circ}$.\n* Choice D ($\\frac{75\\pi}{2}$): $\\frac{75\\pi}{2}$ is the sector area, $\\frac{1}{6}\\pi(15)^{2}$, not the arc length.\n\n**Test Day Takeaway:** A $60^{\\circ}$ central angle makes an equilateral triangle with its chord, so the chord IS the radius."
 }

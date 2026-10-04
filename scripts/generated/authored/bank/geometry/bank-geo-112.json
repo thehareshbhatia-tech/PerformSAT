@@ -1,18 +1,37 @@
 {
  "id": "bank-geo-112",
- "question": "A right triangle has side lengths $15$, $20$, and $25$, as shown. What is the cosine of the angle opposite the side of length $15$? Express your answer as a fraction.",
+ "question": "Triangle $JKL$ shown is a right triangle. What is the value of $\\tan L$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     20,
+     0
+    ],
+    [
+     20,
+     15
+    ]
+   ],
+   "labels": [
+    "J",
+    "K",
+    "L"
+   ],
    "sideLabels": [
     "20",
-    "15",
+    "",
     "25"
    ],
    "rightAngleVertex": 1,
    "figureNote": true
   }
  },
- "correctAnswer": "4/5",
- "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**The correct answer is $\\frac{4}{5}$.**\n\n**The Fast Way (~25s):** The hypotenuse is $25$, so the angle opposite $15$ has adjacent leg $20$, and its cosine is $\\frac{20}{25} = \\frac{4}{5}$.\n\n**The Full Solution:**\nStep 1: The longest side, $25$, is the hypotenuse, and $15$ and $20$ are the legs.\nStep 2: The angle opposite the leg of length $15$ has the other leg, $20$, adjacent to it.\nStep 3: $\\cos = \\frac{20}{25} = \\frac{4}{5}$.\n\nCheck: $15^2 + 20^2 = 225 + 400 = 625 = 25^2$, and $15$, $20$, $25$ is the $3$-$4$-$5$ triple scaled by $5$.\n\n**Common Mistakes:**\n* Answering $\\frac{3}{5}$ by using $\\frac{15}{25}$, which is the sine of that angle.\n* Answering $\\frac{3}{4}$ by dividing the legs, which produces a tangent.\n* Treating $20$ as the hypotenuse and answering $\\frac{15}{20}$; the hypotenuse is always the longest side.\n\n**Test Day Takeaway:** Identify the hypotenuse before choosing a ratio; in a scaled $3$-$4$-$5$ triangle every answer reduces to fifths or fourths."
+ "correctAnswer": "4/3",
+ "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**The correct answer is $\\frac{4}{3}$.** Equivalent forms such as $1.333$ are also correct.\n\n**The Fast Way (~25s):** The missing leg is $KL = \\sqrt{25^2 - 20^2} = 15$, so $\\tan L = \\frac{JK}{KL} = \\frac{20}{15} = \\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $K$, so $LJ = 25$ is the hypotenuse and $JK = 20$ and $KL$ are the legs.\nStep 2: Find $KL$: $KL = \\sqrt{25^2 - 20^2} = \\sqrt{625 - 400} = \\sqrt{225} = 15$.\nStep 3: Relative to angle $L$, the opposite leg is $JK = 20$ and the adjacent leg is $KL = 15$, so $\\tan L = \\frac{20}{15} = \\frac{4}{3}$. Check: $15$, $20$, $25$ is the $3$-$4$-$5$ triple scaled by $5$ ✓\n\n**Common Mistakes:**\n* $\\frac{3}{4}$: divides adjacent by opposite, which is $\\tan J$.\n* $\\frac{4}{5}$: divides by the hypotenuse, $\\frac{20}{25}$, which is $\\sin L$.\n* $\\frac{3}{5}$: computes $\\frac{15}{25}$, which is $\\cos L$.\n\n**Test Day Takeaway:** Tangent needs both legs; when one leg is missing, find it from the hypotenuse before forming the ratio."
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-255",
- "question": "In triangle $ABC$ shown, $\\angle C$ is a right angle and $AB = 12$. What is the area of triangle $ABC$?",
+ "question": "In triangle $ABC$ shown, $AB = 12$. What is the area of triangle $ABC$?",
  "diagram": {
   "type": "triangleWithAngles",
   "params": {
@@ -20,11 +20,11 @@
  "choices": [
   {
    "id": "A",
-   "text": "$9\\sqrt{3}$"
+   "text": "$18\\sqrt{3}$"
   },
   {
    "id": "B",
-   "text": "$18\\sqrt{3}$"
+   "text": "$24\\sqrt{3}$"
   },
   {
    "id": "C",
@@ -36,10 +36,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "applies the one-half a second time",
-  "C": "omits the one-half",
-  "D": "uses the hypotenuse as the short leg"
+  "B": "treats the hypotenuse AB = 12 as the longer leg, so the shorter leg is 4 sqrt 3 and the area is (1/2)(4 sqrt 3)(12)",
+  "C": "finds the legs 6 and 6 sqrt 3 but forgets the 1/2 in the area formula",
+  "D": "treats AB = 12 as the shorter leg, so the longer leg is 12 sqrt 3 and the area is (1/2)(12)(12 sqrt 3)"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The hypotenuse $12$ gives legs $6$ and $6\\sqrt{3}$, so the area is $\\frac{1}{2}(6)(6\\sqrt{3}) = 18\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: The angles are $30^\\circ$ at $A$, $60^\\circ$ at $B$, and $90^\\circ$ at $C$, so the sides are in the ratio $1 : \\sqrt{3} : 2$ and $AB = 12$ is the hypotenuse.\nStep 2: The scale factor is $\\frac{12}{2} = 6$, so $BC = 6$ (opposite $30^\\circ$) and $AC = 6\\sqrt{3}$ (opposite $60^\\circ$).\nStep 3: The legs meet at the right angle, so area $= \\frac{1}{2}(6)(6\\sqrt{3}) = 18\\sqrt{3}$. Check: $6^2 + (6\\sqrt{3})^2 = 36 + 108 = 144 = 12^2$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\sqrt{3}$): applies the factor $\\frac{1}{2}$ a second time after the area is already computed.\n* Choice C ($36\\sqrt{3}$): multiplies the two legs but omits the $\\frac{1}{2}$.\n* Choice D ($72\\sqrt{3}$): treats $12$ as the short leg, giving legs $12$ and $12\\sqrt{3}$.\n\n**Test Day Takeaway:** In a right triangle the two legs are the base and height. Scale down from the hypotenuse before multiplying."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $AB$ is the hypotenuse, so the legs are $6$ and $6\\sqrt{3}$, and the area is $\\frac{1}{2}(6)\\left(6\\sqrt{3}\\right) = 18\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: Angle $C$ is the right angle, so $AB$, the side opposite it, is the hypotenuse; the triangle is $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$.\nStep 2: The shorter leg $BC$, opposite the $30^{\\circ}$ angle at $A$, is half the hypotenuse: $BC = 6$. The longer leg is $AC = 6\\sqrt{3}$.\nStep 3: The legs are perpendicular, so the area is $\\frac{1}{2}(6)\\left(6\\sqrt{3}\\right) = 18\\sqrt{3}$. Check: $6^{2} + \\left(6\\sqrt{3}\\right)^{2} = 36 + 108 = 144 = 12^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($24\\sqrt{3}$): treats $AB$ as the longer leg, giving a shorter leg of $4\\sqrt{3}$ and an area of $\\frac{1}{2}\\left(4\\sqrt{3}\\right)(12)$.\n* Choice C ($36\\sqrt{3}$): finds the correct legs but leaves out the $\\frac{1}{2}$.\n* Choice D ($72\\sqrt{3}$): treats $AB$ as the shorter leg, giving legs $12$ and $12\\sqrt{3}$.\n\n**Test Day Takeaway:** Locate the right angle first; the side across from it is the hypotenuse, and the area uses the two legs."
 }

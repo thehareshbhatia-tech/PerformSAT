@@ -1,29 +1,29 @@
 {
- "question": "A subway ventilation shaft is a cylinder $40$ meters deep with a radius of $3$ meters, and a concrete lining $0.5$ meter thick is poured against the shaft wall for the full depth. What is the volume, in cubic meters, of the lining?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$10\\pi$"
+  "question": "A pipe is a hollow right circular cylinder that is $40$ centimeters long. Its outer radius is $3$ centimeters, and its inner radius is $2.5$ centimeters. What is the volume, in cubic centimeters, of the material that makes up the pipe?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$10\\pi$"
+    },
+    {
+      "id": "B",
+      "text": "$110\\pi$"
+    },
+    {
+      "id": "C",
+      "text": "$120\\pi$"
+    },
+    {
+      "id": "D",
+      "text": "$360\\pi$"
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "squares the wall thickness, computing pi times 0.5 squared times 40",
+    "C": "multiplies the outer curved surface 2 pi r h by the thickness",
+    "D": "reports the volume of the whole outer cylinder, pi times 9 times 40"
   },
-  {
-   "id": "B",
-   "text": "$110\\pi$"
-  },
-  {
-   "id": "C",
-   "text": "$120\\pi$"
-  },
-  {
-   "id": "D",
-   "text": "$360\\pi$"
-  }
- ],
- "correctAnswer": "B",
- "distractorNotes": {
-  "A": "squares the thickness, computing pi times 0.5 squared times 40",
-  "C": "multiplies the curved surface 2 pi r h by the thickness",
-  "D": "reports the volume of the entire shaft, pi times 9 times 40"
- },
- "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The lining is the difference of two cylinders: $\\pi(3^2 - 2.5^2)(40) = \\pi(2.75)(40) = 110\\pi$ cubic meters.\n\n**The Full Solution:**\nStep 1: The shaft wall has radius $3$ meters, and a $0.5$-meter lining poured against it leaves an open radius of $3 - 0.5 = 2.5$ meters.\nStep 2: The lining is the region between the two circles, with cross-sectional area $\\pi(3^2) - \\pi(2.5^2) = \\pi(9 - 6.25) = 2.75\\pi$ square meters.\nStep 3: Multiply by the $40$-meter depth: $2.75\\pi(40) = 110\\pi$ cubic meters. Check: the lining must be less than the whole shaft's $360\\pi$, and $110\\pi$ is ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10\\pi$): squares the thickness itself, as if the lining were a $0.5$-meter-radius cylinder.\n* Choice C ($120\\pi$): multiplies the shaft's curved surface by the thickness, which overstates the ring because the inner circle is smaller.\n* Choice D ($360\\pi$): gives the entire shaft's volume and ignores the open space inside the lining.\n\n**Test Day Takeaway:** A lining or pipe wall is a difference of squares of radii — subtract the areas first, then multiply by the length.",
- "id": "bank-geo-298"
+  "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The material is the outer cylinder minus the hollow: $\\pi(3^{2} - 2.5^{2})(40) = \\pi(2.75)(40) = 110\\pi$.\n\n**The Full Solution:**\nStep 1: The outer cylinder has volume $\\pi(3)^{2}(40) = 360\\pi$ cubic centimeters.\nStep 2: The hollow center has volume $\\pi(2.5)^{2}(40) = \\pi(6.25)(40) = 250\\pi$ cubic centimeters.\nStep 3: The material is the difference: $360\\pi - 250\\pi = 110\\pi$ cubic centimeters. Check: the ring's cross section is $\\pi(9 - 6.25) = 2.75\\pi$, and $2.75\\pi(40) = 110\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10\\pi$): squares the thickness $0.5$, as if the wall were a solid cylinder of radius $0.5$.\n* Choice C ($120\\pi$): multiplies the outer curved surface $2\\pi(3)(40)$ by the thickness, which overstates the volume because the inner surface is smaller.\n* Choice D ($360\\pi$): gives the volume of the whole outer cylinder and ignores the hollow center.\n\n**Test Day Takeaway:** A pipe wall is a difference of two cylinders: subtract the inner volume from the outer volume.",
+  "id": "bank-geo-298"
 }

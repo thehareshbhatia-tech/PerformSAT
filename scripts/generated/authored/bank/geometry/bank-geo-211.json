@@ -1,5 +1,6 @@
 {
- "question": "On a triangular traffic island, the curb of one adjoining street runs straight past a corner of the island and forms an exterior angle at that corner. The island's other two corners have interior angles of $x^{\\circ}$ and $y^{\\circ}$, and that exterior angle measures $z^{\\circ}$. Which equation must be true?",
+ "id": "bank-geo-211",
+ "question": "In a triangle, two of the interior angles measure $x^{\\circ}$ and $y^{\\circ}$. An exterior angle at the third vertex measures $z^{\\circ}$. Which equation must be true?",
  "choices": [
   {
    "id": "A",
@@ -11,19 +12,18 @@
   },
   {
    "id": "C",
-   "text": "$z = x + y - 180$"
+   "text": "$z = 180 - x + y$"
   },
   {
    "id": "D",
-   "text": "$z = 180 - x + y$"
+   "text": "$z = \\frac{x + y}{2}$"
   }
  ],
- "correctAnswer": "A",
  "distractorNotes": {
-  "B": "gives the interior angle at that corner rather than the exterior angle",
-  "C": "subtracts 180 after adding the two remote interior angles",
-  "D": "subtracts one remote interior angle and adds the other"
+  "B": "gives the interior angle at the third vertex, 180 - x - y, instead of the exterior angle",
+  "C": "distributes the minus sign over only one of the two angles: 180 - (x - y)",
+  "D": "averages the two remote interior angles instead of adding them"
  },
- "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** An exterior angle of a triangle equals the sum of the two remote interior angles, so $z = x + y$.\n\n**The Full Solution:**\nStep 1: Let the interior angle at the corner in question be $w^{\\circ}$. The three interior angles satisfy $w + x + y = 180$.\nStep 2: The exterior angle is the supplement of that interior angle: $z = 180 - w$.\nStep 3: Substituting $w = 180 - x - y$ gives $z = 180 - (180 - x - y) = x + y$. Check: with $x = 50$ and $y = 60$ the interior angle is $70^{\\circ}$ and the exterior angle is $110^{\\circ} = 50 + 60$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: computes $180 - x - y$, which is the INTERIOR angle at that corner, not the exterior one.\n* Choice C: adds the two remote angles and then subtracts $180$, which would make $z$ negative for a valid triangle.\n* Choice D: mixes the supplement with only one remote interior angle.\n\n**Test Day Takeaway:** An exterior angle equals the two non-adjacent interior angles added together — no $180$ is left over once the substitution is done.",
- "id": "bank-geo-211"
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** An exterior angle of a triangle equals the sum of the two interior angles that are not next to it, so $z = x + y$.\n\n**The Full Solution:**\nStep 1: Call the interior angle at the third vertex $w^{\\circ}$. The angles of a triangle add to $180^{\\circ}$, so $x + y + w = 180$.\nStep 2: The exterior angle and the interior angle at the same vertex form a straight line, so $z + w = 180$.\nStep 3: Both sums equal $180$, so $x + y + w = z + w$, which gives $z = x + y$. Check: if $x = 50$ and $y = 60$, then $w = 70$ and $z = 180 - 70 = 110 = 50 + 60$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($z = 180 - x - y$): $180 - x - y$ is the interior angle at the third vertex. The exterior angle is its supplement.\n* Choice C ($z = 180 - x + y$): $180 - x + y$ comes from writing $180 - (x - y)$; the subtraction has to apply to both angles, and even then it gives the interior angle.\n* Choice D ($z = \\frac{x + y}{2}$): halving the sum treats the exterior angle as an average. With $x = 50$ and $y = 60$ it gives $55$, not the true $110$.\n\n**Test Day Takeaway:** Exterior angle = sum of the two remote interior angles. No $180$ appears in the final relationship."
 }

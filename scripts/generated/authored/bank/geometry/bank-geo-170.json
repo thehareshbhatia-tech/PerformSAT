@@ -1,6 +1,27 @@
 {
-  "id": "bank-geo-170",
-  "question": "A stair stringer runs straight across two parallel handrails in a school stairwell. On one side of the stringer, the interior angle it makes with the upper handrail is $(9x-4k)°$ and the interior angle it makes with the lower handrail is $(11x+4k)°$, where $k$ is a constant. The second of these is $123°$. What is the value of $k$?",
-  "correctAnswer": "6",
-  "explanation": "**SAT Pattern: Angles with Parallel Lines and Transversals**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~60s):** Same-side interior angles at parallel lines are supplementary, so $20x=180$ and $x=9$; then $11(9)+4k=123$ gives $k=6$.\n\n**The Full Solution:**\n\nStep 1: Use the parallel handrails. The two marked angles lie between the handrails on the same side of the stringer, so they are supplementary: $(9x-4k)+(11x+4k)=180$, and the $k$ terms cancel, leaving $20x=180$.\n\nStep 2: Solve for $x$. $x=9$.\n\nStep 3: Substitute into the second angle. $11(9)+4k=123$ becomes $99+4k=123$, so $4k=24$ and $k=6$.\n\nCheck: the first angle is $9(9)-4(6)=57$, and $57+123=180$, as two same-side interior angles must.\n\n**Common Mistakes:**\n\n* $24$: stops at $4k=24$ and reports $4k$ instead of $k$.\n* $9$: reports $x$, the value found in the first step, rather than the constant asked for.\n* $-10.5$: assigns $123°$ to the upper-handrail expression, solving $81-4k=123$.\n\n**Test Day Takeaway:** Same-side interior angles at parallel lines add to $180°$ — add the two expressions first, and a parameter that cancels hands you the other variable for free."
+ "id": "bank-geo-170",
+ "question": "In the figure, line $r$ is parallel to line $s$, and $k$ is a constant. If the angle marked $(11x + 4k)^{\\circ}$ has a measure of $123^{\\circ}$, what is the value of $k$?",
+ "diagram": {
+  "type": "parallelLines",
+  "params": {
+   "angles": {
+    "top": [
+     "(9x - 4k)°",
+     ""
+    ],
+    "bottom": [
+     "",
+     "(11x + 4k)°"
+    ]
+   },
+   "lineLabels": [
+    "r",
+    "s",
+    "t"
+   ],
+   "figureNote": true
+  }
+ },
+ "correctAnswer": "6",
+ "explanation": "**SAT Pattern: Angles with Parallel Lines and Transversals**\n\n**The correct answer is 6.**\n\n**The Fast Way (~50s):** The marked angles are supplementary, so $(9x - 4k) + (11x + 4k) = 180$; the $k$ terms cancel, giving $x = 9$, and then $11(9) + 4k = 123$ gives $k = 6$.\n\n**The Full Solution:**\nStep 1: The angle marked $(9x - 4k)^{\\circ}$ at line $r$ corresponds to the angle in the same position at line $s$, which forms a linear pair with the angle marked $(11x + 4k)^{\\circ}$. So $(9x - 4k) + (11x + 4k) = 180$, or $20x = 180$, and $x = 9$.\nStep 2: Substitute into the angle with the given measure: $11(9) + 4k = 123$, so $99 + 4k = 123$.\nStep 3: $4k = 24$, so $k = 6$. Check: the other angle measures $9(9) - 4(6) = 57$ degrees, and $57 + 123 = 180$ ✓\n\n**Common Mistakes:**\n* $24$: stops at $4k = 24$.\n* $9$: reports $x$ instead of $k$.\n* $-10.5$: assigns $123^{\\circ}$ to the angle marked $(9x - 4k)^{\\circ}$, solving $81 - 4k = 123$.\n\n**Test Day Takeaway:** When a constant appears with opposite signs in two supplementary angles, adding the angles cancels it; solve for $x$ first, then use the given measure to find the constant."
 }

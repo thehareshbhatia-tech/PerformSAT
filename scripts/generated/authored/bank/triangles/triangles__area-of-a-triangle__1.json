@@ -1,6 +1,6 @@
 {
  "id": 1,
- "question": "A snowplow blade carries the triangular reflective panel shown, with its three side lengths marked in centimeters. Reflective film covers both faces of the panel. How many square centimeters of film does the panel take?",
+ "question": "What is the area, in square units, of the triangle shown?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -33,23 +33,23 @@
   },
   {
    "id": "B",
-   "text": "$120$"
+   "text": "$68$"
   },
   {
    "id": "C",
-   "text": "$136$"
+   "text": "$120$"
   },
   {
    "id": "D",
-   "text": "$240$"
+   "text": "$127.5$"
   }
  ],
  "distractorNotes": {
-  "A": "covers one face only",
-  "C": "uses the 17-centimeter hypotenuse as a height, giving 2 times 68",
-  "D": "skips the one-half in the area formula, giving 2 times 120"
+  "B": "uses the hypotenuse, 17, as the height with base 8",
+  "C": "multiplies the two legs and forgets the factor of one-half",
+  "D": "uses the hypotenuse, 17, as the height with base 15"
  },
- "correctAnswer": "B",
- "hint": "Count how many surfaces the film has to cover.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** One face is $\\frac{1}{2}(15)(8) = 60$ square centimeters, and both faces take $120$.\n\n**The Full Solution:**\nStep 1: The panel is a right triangle, so its two legs, $15$ and $8$ centimeters, are its base and height.\nStep 2: One face has area $\\frac{1}{2}(15)(8) = 60$ square centimeters.\nStep 3: Film covers both faces, so the total is $2(60) = 120$ square centimeters. Check: $15$, $8$, $17$ satisfies $15^2 + 8^2 = 225 + 64 = 289 = 17^2$, confirming the right angle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($60$): covering one face only, when the film covers both.\n* Choice C ($136$): using the $17$-centimeter hypotenuse as a height, giving $2 \\cdot \\frac{1}{2}(8)(17)$.\n* Choice D ($240$): skipping the $\\frac{1}{2}$ in the area formula, giving $2(15)(8)$.\n\n**Test Day Takeaway:** In a right triangle the two legs are the base and height; the hypotenuse never is."
+ "correctAnswer": "A",
+ "hint": "The two sides that meet at the right angle are a base and its height.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** The legs $15$ and $8$ are perpendicular, so the area is $\\frac{1}{2}(15)(8) = 60$.\n\n**The Full Solution:**\nStep 1: The right angle is between the sides of lengths $15$ and $8$, so one is a base and the other is its height.\nStep 2: The area of a triangle is $\\frac{1}{2}bh$.\nStep 3: Substitute: $\\frac{1}{2}(15)(8) = 60$ square units. Check: $8^{2} + 15^{2} = 289 = 17^{2}$, so $17$ is the hypotenuse and is not used as a height ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($68$): uses the hypotenuse as the height: $\\frac{1}{2}(8)(17) = 68$.\n* Choice C ($120$): multiplies the legs but forgets the $\\frac{1}{2}$.\n* Choice D ($127.5$): uses the hypotenuse as the height with the other leg: $\\frac{1}{2}(15)(17) = 127.5$.\n\n**Test Day Takeaway:** In a right triangle, the legs are the base and height; the hypotenuse is never the height."
 }

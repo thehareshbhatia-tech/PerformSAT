@@ -1,30 +1,30 @@
 {
  "id": 3,
- "question": "A spectrograph's two triangular light baffles are similar, with edge $AB$ of the smaller baffle corresponding to edge $DE$ of the larger one. If $AB = 14$ centimeters, $DE = 21$ centimeters, and $EF = 18$ centimeters, what is the length, in centimeters, of $BC$?",
+ "question": "Triangle $ABC$ has side lengths $AB = 14$, $BC = 18$, and $AC = 22$. Triangle $DEF$ is similar to triangle $ABC$, where $D$, $E$, and $F$ correspond to $A$, $B$, and $C$, respectively, and $DE = 21$. What is the perimeter of triangle $DEF$?",
  "choices": [
   {
    "id": "A",
-   "text": "$11$"
+   "text": "$36$"
   },
   {
    "id": "B",
-   "text": "$12$"
+   "text": "$54$"
   },
   {
    "id": "C",
-   "text": "$21$"
+   "text": "$61$"
   },
   {
    "id": "D",
-   "text": "$27$"
+   "text": "$81$"
   }
  ],
  "distractorNotes": {
-  "A": "subtracts the 7-centimeter difference between the corresponding edges",
-  "C": "copies the given edge DE",
-  "D": "multiplies by 3/2 instead of dividing, scaling the wrong direction"
+  "A": "scales by 14/21 instead of 21/14, making triangle DEF smaller",
+  "B": "gives the perimeter of triangle ABC without scaling",
+  "C": "adds the difference 21 - 14 = 7 to the perimeter of triangle ABC instead of scaling"
  },
- "correctAnswer": "B",
- "hint": "$BC$ belongs to the smaller baffle, so it has to come out smaller than $EF$.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** The smaller baffle is $\\frac{14}{21} = \\frac{2}{3}$ of the larger, so $BC = \\frac{2}{3}(18) = 12$ centimeters.\n\n**The Full Solution:**\nStep 1: Corresponding edges give the scale factor from larger to smaller: $\\frac{AB}{DE} = \\frac{14}{21} = \\frac{2}{3}$.\nStep 2: Since $BC$ corresponds to $EF$, $\\frac{BC}{EF} = \\frac{2}{3}$.\nStep 3: So $BC = \\frac{2}{3}(18) = 12$ centimeters. Check: $\\frac{12}{18} = \\frac{2}{3} = \\frac{14}{21}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($11$): subtracting the $7$-centimeter difference between the corresponding edges; similar figures scale by a ratio, not a difference.\n* Choice C ($21$): copying the given edge $DE$ instead of computing the matching edge of the smaller baffle.\n* Choice D ($27$): multiplying by $\\frac{3}{2}$ instead of $\\frac{2}{3}$, which enlarges rather than reduces.\n\n**Test Day Takeaway:** Write the scale factor in the direction the question needs before you multiply."
+ "correctAnswer": "D",
+ "hint": "$\\overline{DE}$ corresponds to $\\overline{AB}$, so it shows how much larger triangle $DEF$ is.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** The scale factor is $\\frac{21}{14} = 1.5$, and the perimeter of triangle $ABC$ is $54$, so triangle $DEF$ has perimeter $1.5(54) = 81$.\n\n**The Full Solution:**\nStep 1: $\\overline{DE}$ corresponds to $\\overline{AB}$, so the scale factor from triangle $ABC$ to triangle $DEF$ is $\\frac{21}{14} = 1.5$.\nStep 2: The perimeter of triangle $ABC$ is $14 + 18 + 22 = 54$.\nStep 3: Every side of triangle $DEF$ is $1.5$ times the corresponding side, so its perimeter is $1.5(54) = 81$. Check: the sides are $21$, $27$, and $33$, and $21 + 27 + 33 = 81$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): scales by $\\frac{14}{21}$ instead of $\\frac{21}{14}$, making triangle $DEF$ smaller than triangle $ABC$.\n* Choice B ($54$): is the perimeter of triangle $ABC$, before scaling.\n* Choice C ($61$): adds the difference $21 - 14 = 7$ to $54$ instead of multiplying by the scale factor.\n\n**Test Day Takeaway:** Perimeters of similar triangles are in the same ratio as their corresponding sides."
 }

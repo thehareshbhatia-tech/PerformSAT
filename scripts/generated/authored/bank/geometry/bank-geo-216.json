@@ -1,14 +1,30 @@
 {
  "id": "bank-geo-216",
- "question": "A stair-stringer bracket has the shape of a triangle. At vertex $R$ the angle between one side and the extension of the other measures $(4k)^\\circ$, while the bracket's interior angles at the remaining two vertices measure $(k + 22)^\\circ$ and $38^\\circ$. For what value of $k$ is this bracket possible?",
+ "question": "In the triangle shown, an exterior angle at vertex $R$ measures $(5k)^{\\circ}$. What is the value of $k$?",
+ "diagram": {
+  "type": "triangleWithAngles",
+  "params": {
+   "vertexLabels": [
+    "R",
+    "S",
+    "T"
+   ],
+   "angleLabels": [
+    "",
+    "(2k + 12)°",
+    "63°"
+   ],
+   "figureNote": true
+  }
+ },
  "choices": [
   {
    "id": "A",
-   "text": "$15$"
+   "text": "$4$"
   },
   {
    "id": "B",
-   "text": "$20$"
+   "text": "$15$"
   },
   {
    "id": "C",
@@ -16,14 +32,14 @@
   },
   {
    "id": "D",
-   "text": "$42$"
+   "text": "$25$"
   }
  ],
- "correctAnswer": "B",
  "distractorNotes": {
-  "A": "drops the k inside (k + 22), solving 4k = 22 + 38 = 60",
-  "C": "treats (4k) degrees as the interior angle at R, solving 4k + (k + 22) + 38 = 180",
-  "D": "reports the remote angle k + 22 = 42 instead of k"
+  "A": "sets the exterior angle equal to angle S alone and drops the constant 63: 5k = 2k + 12",
+  "B": "treats the exterior angle as a third interior angle: 5k + (2k + 12) + 63 = 180",
+  "C": "treats the exterior angle at R as supplementary to angle S: 5k + (2k + 12) = 180"
  },
- "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice B is correct.** Setting the exterior angle equal to the sum of the two nonadjacent interior angles gives $4k = (k + 22) + 38$, so $3k = 60$ and $k = 20$.\n\n**The Fast Way (~30s):** $4k = k + 60$, so $3k = 60$ and $k = 20$.\n\n**The Full Solution:**\n\nStep 1: The exterior angle at $R$ equals the sum of the two interior angles at the other vertices: $4k = (k + 22) + 38$.\n\nStep 2: Simplify the right side to $k + 60$, subtract $k$ from both sides to get $3k = 60$, and divide: $k = 20$.\n\nStep 3: Check. The exterior angle is $4(20) = 80^\\circ$ and the remote angles are $42^\\circ$ and $38^\\circ$, which sum to $80^\\circ$. The interior angle at $R$ is $180^\\circ - 80^\\circ = 100^\\circ$, and $42 + 38 + 100 = 180$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($15$): drops the $k$ inside $(k + 22)$ and solves $4k = 22 + 38 = 60$.\n* Choice C ($24$): treats $(4k)^\\circ$ as the interior angle at $R$ and solves $4k + (k + 22) + 38 = 180$.\n* Choice D ($42$): solves correctly for $k$ but reports the remote angle $k + 22$ instead.\n\n**Test Day Takeaway:** When the exterior angle itself carries the variable, the same rule still applies — set it equal to the two remote angles, not to $180^\\circ$ minus them."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The exterior angle at $R$ equals angle $S$ + angle $T$: $5k = (2k + 12) + 63$, so $3k = 75$ and $k = 25$.\n\n**The Full Solution:**\nStep 1: Angles $S$ and $T$ are the interior angles not adjacent to vertex $R$, so $5k = (2k + 12) + 63$.\nStep 2: Simplify: $5k = 2k + 75$, so $3k = 75$.\nStep 3: So $k = 25$. Check: the exterior angle is $125^{\\circ}$, angle $S$ is $62^{\\circ}$, and $62 + 63 = 125$; angle $R$ is $55^{\\circ}$ and $55 + 62 + 63 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): $4$ comes from $5k = 2k + 12$, which leaves angle $T$ out of the sum.\n* Choice B ($15$): $15$ comes from adding the exterior angle to the two interior angles and setting the total to $180$; the exterior angle is not an angle of the triangle.\n* Choice C ($24$): $24$ pairs the exterior angle at $R$ with angle $S$ as if they formed a straight line. The exterior angle is supplementary to the interior angle at $R$ only.\n\n**Test Day Takeaway:** An exterior angle sits on a straight line with its own vertex's interior angle and equals the sum of the other two."
 }

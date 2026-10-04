@@ -1,59 +1,59 @@
 {
-  "id": "bank-geo-065",
-  "question": "A base strut runs from a microwave-link mast to the roof deck, meeting the deck at the angle $A$ shown, where $\\tan A = \\frac{7}{24}$. At what height, in centimeters, does the strut meet the mast?",
-  "diagram": {
-    "type": "rightTriangle",
-    "params": {
-      "vertices": [
-        [
-          0,
-          0
-        ],
-        [
-          96,
-          0
-        ],
-        [
-          96,
-          28
-        ]
-      ],
-      "labels": [
-        "A",
-        "",
-        ""
-      ],
-      "sideLabels": [
-        "",
-        "",
-        "100 cm"
-      ],
-      "rightAngleVertex": 1
-    }
+ "id": "bank-geo-065",
+ "question": "In right triangle $ABC$ shown, $AC = 100$ and $\\tan A = \\frac{7}{24}$. What is the length of $\\overline{BC}$?",
+ "diagram": {
+  "type": "rightTriangle",
+  "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     96,
+     0
+    ],
+    [
+     96,
+     28
+    ]
+   ],
+   "labels": [
+    "A",
+    "B",
+    "C"
+   ],
+   "sideLabels": [
+    "",
+    "",
+    ""
+   ],
+   "rightAngleVertex": 1
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$7$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$7$"
-    },
-    {
-      "id": "B",
-      "text": "$28$"
-    },
-    {
-      "id": "C",
-      "text": "$96$"
-    },
-    {
-      "id": "D",
-      "text": "$100$"
-    }
-  ],
-  "correctAnswer": "B",
-  "distractorNotes": {
-    "A": "reads the tangent's numerator as a length rather than scaling the 7-24-25 triple",
-    "C": "reports the horizontal distance from the mast to the anchor instead of the height",
-    "D": "reports the strut's own length, which is the hypotenuse"
+  {
+   "id": "B",
+   "text": "$24$"
   },
-  "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice B is correct.** $\\tan A = \\frac{7}{24}$ makes the sides $7k$, $24k$, $25k$; with $25k = 100$, $k = 4$ and the height is $7(4) = 28$ centimeters.\n\n**The Fast Way (~30s):** $7$-$24$-$25$ scaled by $4$ gives $28$-$96$-$100$, so the height is $28$.\n\n**The Full Solution:**\n\nStep 1: $\\tan A = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{7}{24}$, so the legs can be written $7k$ and $24k$ for some positive $k$.\n\nStep 2: The hypotenuse is $\\sqrt{(7k)^2 + (24k)^2} = 25k$, and the strut is the hypotenuse, so $25k = 100$ and $k = 4$.\n\nStep 3: The vertical leg, which is the height on the mast, is $7(4) = 28$ centimeters. Check: $28^2 + 96^2 = 784 + 9216 = 10000 = 100^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($7$): reads the tangent's numerator as an actual length.\n* Choice C ($96$): gives the horizontal distance from the mast to the anchor.\n* Choice D ($100$): reports the strut itself, the hypotenuse.\n\n**Test Day Takeaway:** A tangent value hands you the leg RATIO; find the scale factor from the hypotenuse before reporting any single side."
+  {
+   "id": "C",
+   "text": "$28$"
+  },
+  {
+   "id": "D",
+   "text": "$96$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "uses the numerator of the tangent ratio, 7, as the length without scaling",
+  "B": "uses the denominator of the tangent ratio, 24, as a length",
+  "D": "finds the leg adjacent to A, AB = 4(24) = 96, instead of the leg opposite A"
+ },
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\tan A = \\frac{7}{24}$ describes a $7$-$24$-$25$ triangle; a hypotenuse of $100$ is $4$ times $25$, so $BC = 4(7) = 28$.\n\n**The Full Solution:**\nStep 1: The right angle is at $B$, so $\\overline{BC}$ is the leg opposite $A$ and $\\overline{AB}$ is adjacent to $A$. Write $BC = 7k$ and $AB = 24k$ for some positive $k$.\nStep 2: The hypotenuse is $\\sqrt{(7k)^{2} + (24k)^{2}} = \\sqrt{625k^{2}} = 25k$, and it equals $100$, so $k = 4$.\nStep 3: Then $BC = 7(4) = 28$. Check: $AB = 96$, $\\frac{28}{96} = \\frac{7}{24}$, and $28^{2} + 96^{2} = 784 + 9{,}216 = 10{,}000 = 100^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): treats the ratio's numerator as the actual length; the triangle is $4$ times the $7$-$24$-$25$ triangle.\n* Choice B ($24$): takes the ratio's denominator as a length, which is neither leg of this triangle.\n* Choice D ($96$): finds $AB$, the leg adjacent to $A$, instead of the leg opposite $A$.\n\n**Test Day Takeaway:** A tangent ratio fixes the shape, not the size: build the hypotenuse of the ratio triangle, then scale everything to the given side."
 }

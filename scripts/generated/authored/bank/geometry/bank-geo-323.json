@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-323",
- "question": "After a rip cut, a triangular plywood offcut remains; it measures $34$ inches along its base and stands $15$ inches tall. How many square inches of surface does the offcut have?",
+ "question": "A triangle has a base of $34$ inches and a height of $15$ inches. What is the area, in square inches, of the triangle?",
  "choices": [
   {
    "id": "A",
@@ -19,11 +19,11 @@
    "text": "$510$"
   }
  ],
- "distractorNotes": {
-  "A": "halves the sum of base and height, (34+15)/2 = 24.5",
-  "B": "adds the base and the height instead of multiplying, 34+15 = 49",
-  "D": "multiplies base by height without the factor 1/2, 34*15 = 510"
- },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Area is half of base times height: $\\frac{1}{2}(34)(15) = 255$.\n\n**The Full Solution:**\nStep 1: The offcut is a triangle with base $34$ inches and height $15$ inches.\nStep 2: A triangle's area is $A = \\frac{1}{2}bh$, so $A = \\frac{1}{2}(34)(15)$.\nStep 3: $(34)(15) = 510$, and half of that is $255$ square inches.\n\nCheck: A $34$ by $15$ rectangle covers $510$ square inches, and the triangle covers exactly half. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($24.5$): halves the sum $34 + 15$ instead of halving the product.\n* Choice B ($49$): adds the base and the height, which gives a length, not an area.\n* Choice D ($510$): multiplies base by height but never applies the factor $\\frac{1}{2}$.\n\n**Test Day Takeaway:** The $\\frac{1}{2}$ in $A = \\frac{1}{2}bh$ multiplies the product, never the sum."
+ "distractorNotes": {
+  "A": "adds the base and height and halves the sum, (34 + 15)/2",
+  "B": "adds the base and height, 34 + 15",
+  "D": "multiplies base by height but forgets the factor of one half"
+ },
+ "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $\\frac{1}{2}(34)(15) = 255$.\n\n**The Full Solution:**\nStep 1: The area of a triangle is $\\frac{1}{2}bh$.\nStep 2: Substitute $b = 34$ and $h = 15$: $\\frac{1}{2}(34)(15)$.\nStep 3: $\\frac{1}{2}(510) = 255$ square inches. Check: $17 \\times 15 = 255$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($24.5$): adds the base and height before halving; the formula multiplies them.\n* Choice B ($49$): adds the base and height.\n* Choice D ($510$): is $bh$ without the $\\frac{1}{2}$, the area of a rectangle.\n\n**Test Day Takeaway:** A triangle is half of a rectangle with the same base and height, so never drop the $\\frac{1}{2}$."
 }

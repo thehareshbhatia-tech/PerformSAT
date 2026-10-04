@@ -1,48 +1,58 @@
 {
  "id": "bank-geo-225",
- "question": "A hotel's wayfinding kit contains two similar triangular floor decals, shown with lengths in centimeters, and the side marked $15$ on the smaller decal corresponds to the side marked $20$ on the larger decal. What is the length, in centimeters, of the longest side of the smaller decal?",
+ "question": "Triangles $ABC$ and $DEF$ shown are similar, with $\\overline{AB}$ corresponding to $\\overline{DE}$ and $\\overline{BC}$ corresponding to $\\overline{EF}$. What is the value of $x$?",
  "diagram": {
   "type": "similarTriangles",
   "params": {
    "triangle1": {
     "vertices": [
      [
-      -1,
-      19.97
+      -0.4,
+      5.987
      ],
      [
       0,
       0
      ],
      [
-      24,
+      10,
       0
      ]
     ],
+    "labels": [
+     "A",
+     "B",
+     "C"
+    ],
     "sideLabels": [
-     "20",
-     "24",
-     "32"
+     "6",
+     "10",
+     ""
     ]
    },
    "triangle2": {
     "vertices": [
      [
-      -0.75,
-      14.98
+      -0.8,
+      11.973
      ],
      [
       0,
       0
      ],
      [
-      18,
+      20,
       0
      ]
     ],
+    "labels": [
+     "D",
+     "E",
+     "F"
+    ],
     "sideLabels": [
-     "15",
-     "",
+     "x",
+     "x + 8",
      ""
     ]
    },
@@ -52,26 +62,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$11.25$"
+   "text": "$2$"
   },
   {
    "id": "B",
-   "text": "$15$"
+   "text": "$4$"
   },
   {
    "id": "C",
-   "text": "$18$"
+   "text": "$12$"
   },
   {
    "id": "D",
-   "text": "$24$"
+   "text": "$20$"
   }
  ],
  "distractorNotes": {
-  "A": "applies the factor 0.75 to the already-scaled side: 15 x 0.75 = 11.25",
-  "B": "reports the labeled side 15 itself rather than the longest side",
-  "C": "scales the middle side 24 instead of the longest side 32: 24 x 0.75 = 18"
+  "A": "distributes 6(x + 8) as 6x + 8, giving 4x = 8",
+  "B": "sets x equal to the difference BC - AB = 4",
+  "D": "reports EF = x + 8 instead of x"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The scale factor is $\\frac{15}{20}=0.75$, and the longest side of the larger decal is $32$, so the smaller decal's longest side is $32(0.75)=24$ centimeters.\n\n**The Full Solution:**\n\nStep 1 — Find the factor from the stated pair: $\\frac{15}{20}=\\frac{3}{4}=0.75$, so the smaller decal is a $0.75$ copy of the larger.\n\nStep 2 — Identify the target. Among $20$, $24$, and $32$, the longest side of the larger decal is $32$ centimeters.\n\nStep 3 — Scale it: $32(0.75)=24$ centimeters. Check: the smaller decal's three sides are $15$, $18$, and $24$, whose ratios to $20$, $24$, and $32$ are all $0.75$, and $15+18>24$, so the triangle is valid.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($11.25$): this multiplies the already-scaled $15$ by $0.75$ a second time.\n* Choice B ($15$): this reports the side the question used to build the factor, not the longest side.\n* Choice C ($18$): this scales the middle side $24$ instead of the longest side $32$.\n\n**Test Day Takeaway:** The number $24$ can belong to both figures — track which triangle a length lives in before you answer."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** $EF - DE = 8$ corresponds to $BC - AB = 4$, so the scale factor is $2$ and $x = DE = 2(6) = 12$.\n\n**The Full Solution:**\nStep 1: Corresponding sides are proportional: $\\frac{DE}{AB} = \\frac{EF}{BC}$, so $\\frac{x}{6} = \\frac{x + 8}{10}$.\nStep 2: Cross multiply: $10x = 6(x + 8) = 6x + 48$, so $4x = 48$.\nStep 3: So $x = 12$. Check: $DE = 12$ and $EF = 20$, and $\\frac{12}{6} = \\frac{20}{10} = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): $2$ comes from writing $6(x + 8)$ as $6x + 8$; the $6$ multiplies both terms.\n* Choice B ($4$): $4$ is $BC - AB$. Differences of corresponding sides scale too, so they are not equal across the two triangles.\n* Choice D ($20$): $20$ is the length of $\\overline{EF}$, not the value of $x$.\n\n**Test Day Takeaway:** Write one proportion with the variable in both sides, cross multiply with full distribution, and answer for the variable asked."
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-305",
- "question": "The steel awning strut shown reaches $12$ feet outward and $5$ feet upward from its wall bracket. How long, in feet, is the strut?",
+ "question": "What is the length of the hypotenuse of the right triangle shown?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -19,8 +19,8 @@
     ]
    ],
    "sideLabels": [
-    "12 ft",
-    "5 ft",
+    "12",
+    "5",
     ""
    ],
    "rightAngleVertex": 1
@@ -47,8 +47,8 @@
  "correctAnswer": "B",
  "distractorNotes": {
   "A": "subtracts the legs, 12 - 5, instead of combining their squares",
-  "C": "adds the legs, 12 + 5, which would make the hypotenuse equal to the two-leg path",
-  "D": "computes the area, one half times 5 times 12, instead of a length"
+  "C": "adds the legs, 12 + 5",
+  "D": "computes the area, one half times 12 times 5, instead of a length"
  },
- "explanation": "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice B is correct.** The strut is the hypotenuse: $\\sqrt{5^2 + 12^2} = \\sqrt{169} = 13$ feet.\n\n**The Fast Way (~15s):** $5$-$12$-$13$ is a Pythagorean triple, so the strut is $13$ feet.\n\n**The Full Solution:**\n\nStep 1: The horizontal reach and the vertical rise are perpendicular, so they are the legs of a right triangle whose hypotenuse is the strut.\n\nStep 2: Apply $a^2 + b^2 = c^2$: $5^2 + 12^2 = 25 + 144 = 169$.\n\nStep 3: So $c = \\sqrt{169} = 13$ feet. Check: $13$ is longer than either leg but shorter than $5 + 12 = 17$, exactly as a hypotenuse must be.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($7$): subtracts the legs instead of combining their squares.\n* Choice C ($17$): adds the legs, which is the distance along the two-leg path, not the straight strut.\n* Choice D ($30$): computes the area $\\frac{1}{2}(5)(12)$ instead of a length.\n\n**Test Day Takeaway:** Memorize $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and $7$-$24$-$25$; spotting one turns a calculation into recall."
+ "explanation": "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $5$-$12$-$13$ is a Pythagorean triple, so the hypotenuse is $13$.\n\n**The Full Solution:**\nStep 1: The legs of the right triangle have lengths $12$ and $5$; the hypotenuse $c$ is the side opposite the right angle.\nStep 2: By the Pythagorean theorem, $c^2 = 12^2 + 5^2 = 144 + 25 = 169$.\nStep 3: So $c = \\sqrt{169} = 13$. Check: $13$ is longer than either leg and shorter than $12 + 5 = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): subtracts the legs instead of adding their squares.\n* Choice C ($17$): adds the legs; the hypotenuse is always shorter than the sum of the legs.\n* Choice D ($30$): is the area, $\\frac{1}{2}(12)(5)$, not a length.\n\n**Test Day Takeaway:** Know $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and $7$-$24$-$25$ on sight; spotting one turns a calculation into recall."
 }

@@ -1,5 +1,5 @@
 {
- "question": "The circular stage of a bandshell is modeled in the $xy$-plane by $x^2 + y^2 - 12x + 16y + 51 = 0$, with units in meters, and triangular riser $ABC$ has $\\overline{AB}$ as a diameter of the stage. What is the length, in meters, of $\\overline{AB}$?",
+ "question": "$x^{2} + y^{2} - 14x - 15 = 0$\nThe given equation represents the circle shown in the $xy$-plane, where $\\overline{AB}$ is a diameter of the circle. What is the length of $\\overline{AB}$?",
  "diagram": {
   "type": "circleWithInscribedTriangle",
   "params": {
@@ -9,7 +9,6 @@
     "C": "C",
     "O": "O"
    },
-   "angleAtA": "35°",
    "angleAtAValue": 35,
    "showDiameter": true,
    "showCenter": true,
@@ -19,27 +18,27 @@
  "choices": [
   {
    "id": "A",
-   "text": "$7$"
+   "text": "$2\\sqrt{15}$"
   },
   {
    "id": "B",
-   "text": "$14$"
+   "text": "$8$"
   },
   {
    "id": "C",
-   "text": "$28$"
+   "text": "$16$"
   },
   {
    "id": "D",
-   "text": "$49$"
+   "text": "$64$"
   }
  ],
- "correctAnswer": "B",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports the radius 7 instead of the diameter",
-  "C": "doubles the diameter, reporting 28",
-  "D": "reports r squared, 49, instead of taking the square root"
+  "A": "takes 15 as r squared without adding the 49 that completes the square",
+  "B": "reports the radius instead of the diameter",
+  "D": "reports r squared instead of the diameter"
  },
- "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Completing the square gives $(x - 6)^2 + (y + 8)^2 = 36 + 64 - 51 = 49$, so $r = 7$ and the diameter $\\overline{AB}$ is $14$.\n\n**The Full Solution:**\nStep 1: Group and complete the square: $x^2 - 12x = (x - 6)^2 - 36$ and $y^2 + 16y = (y + 8)^2 - 64$.\nStep 2: The equation becomes $(x - 6)^2 + (y + 8)^2 = 36 + 64 - 51 = 49$, so the stage has center $(6, -8)$ and radius $\\sqrt{49} = 7$ meters.\nStep 3: $\\overline{AB}$ is a diameter, so its length is $2r = 14$ meters; the point $(13, -8)$ on the stage is exactly $7$ meters from the center ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): stops at the radius; the segment asked about spans the whole stage.\n* Choice C ($28$): doubles the diameter, applying the factor of $2$ twice.\n* Choice D ($49$): reports $r^2$ straight from the right side without taking the square root.\n\n**Test Day Takeaway:** After completing the square the right side is $r^2$, never $r$ — and a diameter is twice that square root.",
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Completing the square gives $(x - 7)^{2} + y^{2} = 64$, so the radius is $8$ and the diameter $\\overline{AB}$ is $16$.\n\n**The Full Solution:**\nStep 1: Move the constant and group the $x$-terms: $(x^{2} - 14x) + y^{2} = 15$.\nStep 2: Add $49$ to both sides to complete the square: $(x - 7)^{2} + y^{2} = 64$.\nStep 3: The radius is $\\sqrt{64} = 8$, so $AB = 2(8) = 16$. Check: the endpoints $(-1, 0)$ and $(15, 0)$ of a horizontal diameter are $16$ apart, and $(-1)^{2} + 0 + 14 - 15 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2\\sqrt{15}$): treats $15$ as $r^{2}$ without adding the $49$ that completes the square.\n* Choice B ($8$): reports the radius, not the diameter.\n* Choice D ($64$): reports $r^{2}$.\n\n**Test Day Takeaway:** Complete the square, take the square root of the constant for the radius, and double it for a diameter.",
  "id": "bank-geo-285"
 }

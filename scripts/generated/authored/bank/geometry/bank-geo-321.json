@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-321",
- "question": "The cross section of a gravel conveyor's support frame, shown, rises $2.5$ meters over a $6$-meter run. What is the total length, in meters, of the cross section's three sides?",
+ "question": "The hypotenuse of the right triangle shown has length $6.5$. What is the value of $x$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -19,8 +19,8 @@
     ]
    ],
    "sideLabels": [
-    "6 m",
-    "2.5 m",
+    "6",
+    "x",
     ""
    ],
    "rightAngleVertex": 1
@@ -29,26 +29,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$6.5$"
+   "text": "$0.5$"
   },
   {
    "id": "B",
-   "text": "$7.5$"
+   "text": "$2.5$"
   },
   {
    "id": "C",
-   "text": "$8.5$"
+   "text": "$6.25$"
   },
   {
    "id": "D",
-   "text": "$15$"
+   "text": "$12.5$"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "reports the sloped side alone, 6.5, instead of the total of all three sides",
-  "B": "computes the area, one half times 2.5 times 6, instead of a length",
-  "C": "adds only the rise and the run, 2.5 + 6, and omits the sloped side"
+  "A": "subtracts the side lengths, 6.5 - 6",
+  "C": "stops at x squared, 42.25 - 36 = 6.25",
+  "D": "adds the side lengths, 6.5 + 6"
  },
- "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice D is correct.** The sloped side is $\\sqrt{2.5^2 + 6^2} = 6.5$, so the three sides total $2.5 + 6 + 6.5 = 15$ meters.\n\n**The Fast Way (~25s):** $2.5$-$6$-$6.5$ is the $5$-$12$-$13$ triple halved; $2.5 + 6 + 6.5 = 15$.\n\n**The Full Solution:**\n\nStep 1: The rise and the run are perpendicular, so the sloping frame member is the hypotenuse of the cross section.\n\nStep 2: $2.5^2 + 6^2 = 6.25 + 36 = 42.25$, so the sloped side is $\\sqrt{42.25} = 6.5$ meters.\n\nStep 3: Adding all three sides gives $2.5 + 6 + 6.5 = 15$ meters. Check: $6.5^2 = 42.25$, matching Step 2.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($6.5$): reports the sloped side alone.\n* Choice B ($7.5$): computes the enclosed area $\\frac{1}{2}(2.5)(6)$ instead of a length.\n* Choice C ($8.5$): adds only the rise and the run.\n\n**Test Day Takeaway:** Scaled triples work with decimals too — halving $5$-$12$-$13$ gives $2.5$-$6$-$6.5$ and removes the calculator step entirely."
+ "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $x^2 = 6.5^2 - 6^2 = 42.25 - 36 = 6.25$, so $x = 2.5$.\n\n**The Full Solution:**\nStep 1: The sides of length $6$ and $x$ are the legs, and $6.5$ is the hypotenuse.\nStep 2: By the Pythagorean theorem, $x^2 + 6^2 = 6.5^2$, so $x^2 = 42.25 - 36 = 6.25$.\nStep 3: So $x = \\sqrt{6.25} = 2.5$. Check: $2.5^2 + 6^2 = 6.25 + 36 = 42.25 = 6.5^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.5$): subtracts the side lengths instead of their squares.\n* Choice C ($6.25$): is $x^2$; take the square root.\n* Choice D ($12.5$): adds the side lengths; a leg must be shorter than the hypotenuse.\n\n**Test Day Takeaway:** Doubling the sides gives $5$-$12$-$13$, so $x$ is half of $5$: scaled triples work with decimals too."
 }

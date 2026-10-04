@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-022",
- "question": "A bakery's round display case has a curved glass front. The glass spans arc $AB$ in the circle drawn below, where lengths are in inches. What is the length of the glass?",
+ "question": "In the figure shown, point $O$ is the center of the circle. What is the length of arc $AB$?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
@@ -35,8 +35,8 @@
  "distractorNotes": {
   "A": "uses pi r instead of 2 pi r for the circumference, giving 6 pi",
   "C": "gives the full circumference 2 pi (27) = 54 pi",
-  "D": "computes the sector's area, (2/9) pi (27 squared) = 162 pi"
+  "D": "computes the sector's area, (80/360) pi (27^2) = 162 pi"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $\\frac{80}{360}=\\frac{2}{9}$ of the circumference $54\\pi$ is $12\\pi$ inches.\n\n**The Full Solution:**\n\nStep 1: Find the circumference. $C=2\\pi r=2\\pi(27)=54\\pi$ inches.\n\nStep 2: Find the fraction of the circle. The central angle is $80°$, and $\\frac{80}{360}=\\frac{2}{9}$.\n\nStep 3: Multiply. Arc $AB=\\frac{2}{9}(54\\pi)=12\\pi$ inches.\n\nCheck: nine such arcs would total $108\\pi$, which is twice the circumference — consistent, since $9(80°)=720°$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($6\\pi$): uses $\\pi r$ instead of $2\\pi r$ for the circumference, halving the arc.\n* Choice C ($54\\pi$): gives the whole circumference instead of the $80°$ portion of it.\n* Choice D ($162\\pi$): computes the sector's area, $\\frac{2}{9}\\pi(27)^{2}$, rather than its arc length.\n\n**Test Day Takeaway:** Arc length is a fraction of the circumference; sector area is that same fraction of the area — check which one the units call for."
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The arc is $\\frac{80}{360} = \\frac{2}{9}$ of the circumference $54\\pi$, which is $12\\pi$.\n\n**The Full Solution:**\nStep 1: The radius is $27$, so the circumference is $2\\pi(27) = 54\\pi$.\nStep 2: The central angle is $80°$, so arc $AB$ is $\\frac{80}{360} = \\frac{2}{9}$ of the circle.\nStep 3: Multiply: $\\frac{2}{9}(54\\pi) = 12\\pi$. Check: in radians the angle is $\\frac{4\\pi}{9}$, and $r\\theta = 27 \\cdot \\frac{4\\pi}{9} = 12\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6\\pi$): uses $\\pi r$ instead of $2\\pi r$ for the circumference, halving the arc.\n* Choice C ($54\\pi$): gives the whole circumference instead of the $80°$ portion of it.\n* Choice D ($162\\pi$): computes the sector's area, $\\frac{2}{9}\\pi(27)^{2}$, rather than the arc length.\n\n**Test Day Takeaway:** Arc length is the angle's fraction of $360°$ times the circumference; sector area uses the same fraction of $\\pi r^{2}$."
 }

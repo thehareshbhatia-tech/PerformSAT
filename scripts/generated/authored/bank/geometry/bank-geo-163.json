@@ -1,29 +1,50 @@
 {
-  "id": "bank-geo-163",
-  "question": "In a bookstore display, a straight diagonal strap is fastened across two parallel shelf rails. At the upper rail the strap forms an angle measuring $(4x+10)°$ above the rail and to the right of the strap, and at the lower rail the angle in that same position measures $(6x-20)°$. What is the value of $x$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$15$"
-    },
-    {
-      "id": "B",
-      "text": "$19$"
-    },
-    {
-      "id": "C",
-      "text": "$30$"
-    },
-    {
-      "id": "D",
-      "text": "$70$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "treats the corresponding angles as supplementary, solving 10x - 10 = 180",
-    "C": "solves 2x = 30 and reports 2x instead of x",
-    "D": "reports the angle measure 4(15) + 10 = 70 instead of x"
+ "id": "bank-geo-163",
+ "question": "In the figure, parallel lines $a$ and $b$ are intersected by line $c$. What is the value of $x$?",
+ "diagram": {
+  "type": "parallelLines",
+  "params": {
+   "angles": {
+    "top": [
+     "48°",
+     ""
+    ],
+    "bottom": [
+     "",
+     "x°"
+    ]
+   },
+   "lineLabels": [
+    "a",
+    "b",
+    "c"
+   ],
+   "figureNote": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$42$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Angles with Parallel Lines and Transversals**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Corresponding angles at parallel rails are equal, so $4x+10=6x-20$ and $x=15$.\n\n**The Full Solution:**\n\nStep 1: Classify the pair. Both angles sit above their rail on the same side of the strap, so they are corresponding angles and are congruent.\n\nStep 2: Set them equal. $4x+10=6x-20$.\n\nStep 3: Solve. $30=2x$, so $x=15$.\n\nCheck: $4(15)+10=70$ and $6(15)-20=70$, the same measure.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($19$): treats the corresponding angles as supplementary, solving $(4x+10)+(6x-20)=180$.\n* Choice C ($30$): solves correctly down to $2x=30$ but reports $2x$ rather than $x$.\n* Choice D ($70$): reports the angle's measure, $70°$, instead of the value of $x$.\n\n**Test Day Takeaway:** Corresponding angles at parallel lines are equal — set the expressions equal, and then answer the variable actually requested."
+  {
+   "id": "B",
+   "text": "$48$"
+  },
+  {
+   "id": "C",
+   "text": "$132$"
+  },
+  {
+   "id": "D",
+   "text": "$138$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "takes the complement of 48 instead of the supplement",
+  "B": "treats the two marked angles as congruent",
+  "D": "adds 90 to the marked angle"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Angles with Parallel Lines and Transversals**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The $48^{\\circ}$ angle corresponds to the angle beside $x^{\\circ}$ at line $b$, and those two angles form a linear pair, so $x = 180 - 48 = 132$.\n\n**The Full Solution:**\nStep 1: At line $b$, the angle in the same position as the $48^{\\circ}$ angle at line $a$ is a corresponding angle, so it also measures $48^{\\circ}$.\nStep 2: That angle and the angle marked $x^{\\circ}$ lie along line $b$ on opposite sides of line $c$, so they form a linear pair: $48 + x = 180$.\nStep 3: $x = 132$. Check: $132 + 48 = 180$, and the marked angle is obtuse while the $48^{\\circ}$ angle is acute, as the figure shows ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($42$): uses $90 - 48$, a complement, but these angles do not form a right angle.\n* Choice B ($48$): assumes the two marked angles are congruent, but one is acute and the other is obtuse.\n* Choice D ($138$): adds $90$ to $48$, as if line $c$ were perpendicular to the parallel lines.\n\n**Test Day Takeaway:** Move the known angle to the second parallel line first (corresponding angles are equal), then use the linear pair there."
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-061",
- "question": "A curtain-wall bracing plate has the shape of right triangle $FGH$ shown, with side lengths in centimeters. What is the value of $\\cos F$?",
+ "question": "In the right triangle shown, what is the value of $\\cos F$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -51,9 +51,9 @@
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "gives sin F, the side opposite F over the hypotenuse, 9 over 15",
-  "B": "gives tan F, opposite over adjacent, 9 over 12",
-  "D": "inverts the tangent, adjacent over opposite, 12 over 9"
+  "A": "gives sin F, the side opposite F over the hypotenuse, 9/15",
+  "B": "gives tan F, the side opposite F over the side adjacent to F, 9/12",
+  "D": "inverts the tangent, using adjacent over opposite, 12/9"
  },
- "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice C is correct.** $\\cos F = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{FG}{FH} = \\frac{12}{15} = \\frac{4}{5}$.\n\n**The Fast Way (~15s):** The side adjacent to $F$ is $12$ and the hypotenuse is $15$, so $\\cos F = \\frac{12}{15} = \\frac{4}{5}$.\n\n**The Full Solution:**\n\nStep 1: The right angle is at $G$, so the hypotenuse is $\\overline{FH} = 15$.\n\nStep 2: The leg adjacent to angle $F$ is $\\overline{FG} = 12$; the leg opposite $F$ is $\\overline{GH} = 9$.\n\nStep 3: Cosine is adjacent over hypotenuse: $\\frac{12}{15} = \\frac{4}{5}$. Check: $\\left(\\frac{3}{5}\\right)^2 + \\left(\\frac{4}{5}\\right)^2 = 1$, so the sine and cosine are consistent.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($\\frac{3}{5}$): that is $\\sin F$, opposite over hypotenuse.\n* Choice B ($\\frac{3}{4}$): that is $\\tan F$, opposite over adjacent.\n* Choice D ($\\frac{4}{3}$): inverts the tangent, adjacent over opposite.\n\n**Test Day Takeaway:** Label the hypotenuse first — it is always opposite the right angle — and the adjacent and opposite legs sort themselves out from the named angle."
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The side adjacent to angle $F$ is $FG = 12$ and the hypotenuse is $FH = 15$, so $\\cos F = \\frac{12}{15} = \\frac{4}{5}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $G$, so the hypotenuse is the side opposite $G$: $FH = 15$.\nStep 2: Of the two legs, $\\overline{FG}$ touches angle $F$, so it is the adjacent leg, with length $12$; $\\overline{GH} = 9$ is the opposite leg.\nStep 3: Cosine is adjacent over hypotenuse: $\\cos F = \\frac{12}{15} = \\frac{4}{5}$. Check: $\\sin F = \\frac{9}{15} = \\frac{3}{5}$, and $\\left(\\frac{3}{5}\\right)^{2} + \\left(\\frac{4}{5}\\right)^{2} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{5}$): this is $\\sin F$, the opposite leg $9$ over the hypotenuse $15$.\n* Choice B ($\\frac{3}{4}$): this is $\\tan F$, the opposite leg $9$ over the adjacent leg $12$.\n* Choice D ($\\frac{4}{3}$): divides the adjacent leg by the opposite leg, $\\frac{12}{9}$, which is the reciprocal of $\\tan F$.\n\n**Test Day Takeaway:** Find the hypotenuse first (it is across from the right angle); then the adjacent leg is the one that touches the named angle."
 }

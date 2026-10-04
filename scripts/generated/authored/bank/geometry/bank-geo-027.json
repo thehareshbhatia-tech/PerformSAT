@@ -1,29 +1,29 @@
 {
- "question": "Mapped in meters, a brine pool's edge satisfies $x^2 + y^2 + 10x - 24y + c = 0$ for some constant $c$. Which inequality describes every value of $c$ for which this equation has a circle as its graph?",
+ "id": "bank-geo-027",
+ "question": "$x^{2} + y^{2} + 10x - 24y + 120 = 0$\nIn the $xy$-plane, the graph of the given equation is a circle. What is the length of the radius of the circle?",
  "choices": [
   {
    "id": "A",
-   "text": "$c < 119$"
+   "text": "$7$"
   },
   {
    "id": "B",
-   "text": "$c > -169$"
+   "text": "$13$"
   },
   {
    "id": "C",
-   "text": "$c > 169$"
+   "text": "$17$"
   },
   {
    "id": "D",
-   "text": "$c < 169$"
+   "text": "$49$"
   }
  ],
- "correctAnswer": "D",
  "distractorNotes": {
-  "A": "subtracts the completed-square constants, using 144 - 25 = 119",
-  "B": "moves c to the wrong side, requiring 25 + 144 + c > 0",
-  "C": "reverses the inequality after finding the boundary value 169"
+  "B": "completes both squares but forgets to move the constant 120, giving the square root of 169",
+  "C": "adds 120 to the right side instead of subtracting it, giving the square root of 289",
+  "D": "finds r^2 = 49 and does not take the square root"
  },
- "explanation": "**SAT Pattern: Complete the Square for Circle**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Completing the square gives $(x + 5)^2 + (y - 12)^2 = 169 - c$, and a circle needs $169 - c > 0$, so $c < 169$.\n\n**The Full Solution:**\nStep 1: Group the terms: $(x^2 + 10x) + (y^2 - 24y) = -c$.\nStep 2: Complete each square by adding $25$ and $144$ to both sides: $(x + 5)^2 + (y - 12)^2 = 169 - c$.\nStep 3: The right side plays the role of $r^2$, so the graph is a circle exactly when $169 - c > 0$, that is $c < 169$. Check: $c = 0$ gives radius $13$, while $c = 200$ would need $r^2 = -31$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($c < 119$): subtracts the two completing constants, $144 - 25$, instead of adding them.\n* Choice B ($c > -169$): moves $c$ across with the wrong sign, as if the equation ended in $-c$.\n* Choice C ($c > 169$): finds the right boundary but keeps the inequality pointing the wrong way, which forces a negative $r^2$.\n\n**Test Day Takeaway:** After completing the square the right side must be strictly positive to be a radius squared — that single condition sets the range of the constant.",
- "id": "bank-geo-027"
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Complete the Square for Circle**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** Completing both squares gives $(x + 5)^{2} + (y - 12)^{2} = 25 + 144 - 120 = 49$, so $r = 7$.\n\n**The Full Solution:**\nStep 1: Group the terms and move the constant: $(x^{2} + 10x) + (y^{2} - 24y) = -120$.\nStep 2: Complete each square by adding $\\left(\\frac{10}{2}\\right)^{2} = 25$ and $\\left(\\frac{-24}{2}\\right)^{2} = 144$ to both sides: $(x + 5)^{2} + (y - 12)^{2} = -120 + 25 + 144 = 49$.\nStep 3: So $r^{2} = 49$ and the radius is $7$. Check: expanding $(x + 5)^{2} + (y - 12)^{2} - 49$ gives $x^{2} + 10x + 25 + y^{2} - 24y + 144 - 49$, and $25 + 144 - 49 = 120$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($13$): completes the squares but leaves out the constant $120$, using $25 + 144 = 169$.\n* Choice C ($17$): moves $120$ to the right side with the wrong sign, using $25 + 144 + 120 = 289$.\n* Choice D ($49$): finds $r^{2}$ but stops before taking the square root.\n\n**Test Day Takeaway:** After completing the square, the right side is $r^{2}$: add the two completing constants and subtract the original constant, then take the square root."
 }

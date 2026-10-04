@@ -1,41 +1,55 @@
 {
- "id": "bank-geo-254",
- "question": "The right triangle shown has an acute angle of $30°$ and an area of $50\\sqrt{3}$ square units. What is the length of the hypotenuse?",
- "diagram": {
-  "type": "rightTriangle",
-  "params": {
-   "labels": [
-    "30°",
-    "",
-    "60°"
-   ],
-   "rightAngleVertex": 1,
-   "figureNote": true
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$10$"
+  "id": "bank-geo-254",
+  "question": "The area of the right triangle shown is $50\\sqrt{3}$. What is the length of the hypotenuse of the triangle?",
+  "diagram": {
+    "type": "rightTriangle",
+    "params": {
+      "labels": [
+        "30°",
+        "",
+        "60°"
+      ],
+      "rightAngleVertex": 1,
+      "figureNote": true,
+      "vertices": [
+        [
+          0,
+          0
+        ],
+        [
+          17.321,
+          0
+        ],
+        [
+          17.321,
+          10
+        ]
+      ]
+    }
   },
-  {
-   "id": "B",
-   "text": "$20$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$10$"
+    },
+    {
+      "id": "B",
+      "text": "$10\\sqrt{3}$"
+    },
+    {
+      "id": "C",
+      "text": "$20$"
+    },
+    {
+      "id": "D",
+      "text": "$100$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "solves for the shorter leg a = 10 and reports it as the hypotenuse",
+    "B": "reports the longer leg, 10 sqrt 3, instead of the hypotenuse",
+    "D": "stops at a^2 = 100 without taking the square root"
   },
-  {
-   "id": "C",
-   "text": "$30$"
-  },
-  {
-   "id": "D",
-   "text": "$100$"
-  }
- ],
- "distractorNotes": {
-  "A": "stops at the short leg",
-  "C": "uses a 1:2:3 ratio",
-  "D": "reports the square of the short leg"
- },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** With legs $s$ and $s\\sqrt{3}$, the area is $\\frac{s^2\\sqrt{3}}{2} = 50\\sqrt{3}$, so $s^2 = 100$, $s = 10$, and the hypotenuse is $20$.\n\n**The Full Solution:**\nStep 1: Call the short leg $s$. In a $30$-$60$-$90$ triangle the other leg is $s\\sqrt{3}$, and the legs are perpendicular, so they serve as base and height.\nStep 2: Area $= \\frac{1}{2}(s)(s\\sqrt{3}) = \\frac{s^2\\sqrt{3}}{2}$. Setting this equal to $50\\sqrt{3}$ and dividing both sides by $\\sqrt{3}$ gives $\\frac{s^2}{2} = 50$, so $s^2 = 100$ and $s = 10$.\nStep 3: The hypotenuse is $2s = 20$. Check: the legs are $10$ and $10\\sqrt{3}$, and $\\frac{1}{2}(10)(10\\sqrt{3}) = 50\\sqrt{3}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): finds the short leg and stops one step early.\n* Choice C ($30$): triples the short leg, using an invented $1 : 2 : 3$ ratio instead of $1 : \\sqrt{3} : 2$.\n* Choice D ($100$): reports $s^2$ without taking the square root.\n\n**Test Day Takeaway:** When only an area is given, name the short leg $s$, write both legs in terms of $s$, and let the $\\sqrt{3}$ cancel."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** With shorter leg $a$, the legs are $a$ and $a\\sqrt{3}$, so the area is $\\frac{\\sqrt{3}}{2}a^{2} = 50\\sqrt{3}$, giving $a = 10$ and a hypotenuse of $2a = 20$.\n\n**The Full Solution:**\nStep 1: The angles are $30^{\\circ}$, $60^{\\circ}$ and $90^{\\circ}$, so if the shorter leg is $a$, the longer leg is $a\\sqrt{3}$ and the hypotenuse is $2a$.\nStep 2: The legs are perpendicular, so the area is $\\frac{1}{2}(a)\\left(a\\sqrt{3}\\right) = \\frac{\\sqrt{3}}{2}a^{2}$. Setting this equal to $50\\sqrt{3}$ gives $a^{2} = 100$, so $a = 10$.\nStep 3: The hypotenuse is $2a = 20$. Check: the legs are $10$ and $10\\sqrt{3}$, and $\\frac{1}{2}(10)\\left(10\\sqrt{3}\\right) = 50\\sqrt{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): this is the shorter leg $a$; the hypotenuse is twice as long.\n* Choice B ($10\\sqrt{3}$): this is the longer leg, opposite the $60^{\\circ}$ angle.\n* Choice D ($100$): this is $a^{2}$; the square root was never taken.\n\n**Test Day Takeaway:** Write all three sides in terms of the shorter leg, $a$, $a\\sqrt{3}$ and $2a$, then one area equation finds $a$."
 }

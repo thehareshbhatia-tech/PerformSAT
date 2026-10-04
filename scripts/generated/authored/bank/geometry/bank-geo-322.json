@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-322",
- "question": "An autoclave's inner cavity is a rectangular prism with edges of $12$, $16$, and $21$ centimeters. What is the greatest length, in centimeters, of a straight glass rod that can lie entirely inside the cavity?",
+ "question": "A rectangular box has dimensions $12$ inches by $16$ inches by $21$ inches. What is the length, in inches, of the longest line segment that can be drawn between two vertices of the box?",
  "choices": [
   {
    "id": "A",
@@ -12,18 +12,18 @@
   },
   {
    "id": "C",
-   "text": "$37$"
+   "text": "$49$"
   },
   {
    "id": "D",
-   "text": "$49$"
+   "text": "$841$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "uses only the 12 by 16 face diagonal and never accounts for the 21-centimeter edge",
-  "C": "adds the two largest edges, 16 + 21, instead of using the Pythagorean theorem",
-  "D": "adds all three edges, 12 + 16 + 21, which traces a bent path along three edges"
+  "A": "finds the diagonal of the 12 by 16 face and stops",
+  "C": "adds the three edge lengths, 12 + 16 + 21",
+  "D": "stops at the square of the diagonal, 144 + 256 + 441 = 841"
  },
- "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.** The longest rod lies along the space diagonal: $\\sqrt{12^2 + 16^2 + 21^2} = \\sqrt{841} = 29$ centimeters.\n\n**The Fast Way (~35s):** $144 + 256 + 441 = 841$, so the space diagonal is $29$.\n\n**The Full Solution:**\n\nStep 1: A face diagonal across the $12$-by-$16$ face measures $\\sqrt{144 + 256} = \\sqrt{400} = 20$ centimeters.\n\nStep 2: That face diagonal and the remaining $21$-centimeter edge meet at a right angle, so they are the legs of a right triangle whose hypotenuse is the space diagonal.\n\nStep 3: The space diagonal is $\\sqrt{20^2 + 21^2} = \\sqrt{400 + 441} = \\sqrt{841} = 29$ centimeters. Check: $29$ exceeds every edge and every face diagonal, as the longest interior segment must.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($20$): stops at the face diagonal and ignores the $21$-centimeter edge.\n* Choice C ($37$): adds the two largest edges instead of using the Pythagorean theorem.\n* Choice D ($49$): adds all three edges, tracing a bent path rather than a straight rod.\n\n**Test Day Takeaway:** A box's longest interior segment needs the Pythagorean theorem twice — face diagonal first, then the perpendicular edge."
+ "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $d = \\sqrt{12^2 + 16^2 + 21^2} = \\sqrt{841} = 29$.\n\n**The Full Solution:**\nStep 1: The diagonal of the $12$ by $16$ face is $\\sqrt{144 + 256} = 20$.\nStep 2: That face diagonal and the $21$-inch edge are perpendicular legs of a right triangle whose hypotenuse joins opposite corners of the box.\nStep 3: So the longest segment is $\\sqrt{20^2 + 21^2} = \\sqrt{400 + 441} = \\sqrt{841} = 29$ inches. Check: $12^2 + 16^2 + 21^2 = 841 = 29^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): is the diagonal of one face; the longest segment also climbs the third dimension.\n* Choice C ($49$): adds the three edges, a path along the outside of the box.\n* Choice D ($841$): is $d^2$; take the square root.\n\n**Test Day Takeaway:** Apply the Pythagorean theorem twice: once across a face, then from that face diagonal up the remaining edge."
 }

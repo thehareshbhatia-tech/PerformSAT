@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-308",
- "question": "A spectrometer's optical-bench brace is the right triangle shown; its longest edge is $29$ centimeters and one of the other two edges is $21$ centimeters. How many centimeters of edging trim wrap the entire brace?",
+ "question": "What is the perimeter, in inches, of the right triangle shown?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -19,9 +19,9 @@
     ]
    ],
    "sideLabels": [
-    "21 cm",
+    "21 in",
     "",
-    "29 cm"
+    "29 in"
    ],
    "rightAngleVertex": 1
   }
@@ -29,26 +29,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$29$"
-  },
-  {
-   "id": "B",
-   "text": "$41$"
-  },
-  {
-   "id": "C",
    "text": "$50$"
   },
   {
-   "id": "D",
+   "id": "B",
+   "text": "$58$"
+  },
+  {
+   "id": "C",
    "text": "$70$"
+  },
+  {
+   "id": "D",
+   "text": "$210$"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports the longest edge alone instead of the distance around",
-  "B": "adds only the two legs, 21 + 20, and omits the 29 cm edge",
-  "C": "adds the two edges printed on the figure, 21 + 29, and never finds the third"
+  "A": "adds only the two labeled sides, 21 + 29",
+  "B": "takes the missing leg as 29 - 21 = 8, giving 21 + 8 + 29",
+  "D": "computes the area, one half times 21 times 20, instead of the perimeter"
  },
- "explanation": "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice D is correct.** The third edge is $\\sqrt{29^2 - 21^2} = 20$, so the trim measures $21 + 20 + 29 = 70$ centimeters.\n\n**The Fast Way (~30s):** $20$-$21$-$29$ is a Pythagorean triple, so the missing edge is $20$ and the perimeter is $70$.\n\n**The Full Solution:**\n\nStep 1: The $29$-centimeter edge is the hypotenuse, so the missing leg satisfies $b^2 = 841 - 441 = 400$.\n\nStep 2: Therefore $b = 20$ centimeters.\n\nStep 3: The trim follows all three edges: $21 + 20 + 29 = 70$ centimeters. Check: $20^2 + 21^2 = 400 + 441 = 841 = 29^2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($29$): reports the longest edge alone rather than the distance around the brace.\n* Choice B ($41$): adds only the two legs and leaves the $29$-centimeter edge uncovered.\n* Choice C ($50$): adds the two lengths printed on the figure without ever finding the third.\n\n**Test Day Takeaway:** $20$-$21$-$29$ is a less familiar triple, so verify with $a^2 + b^2 = c^2$ and then answer the question actually asked — here, a perimeter."
+ "explanation": "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $20$-$21$-$29$ is a Pythagorean triple, so the missing leg is $20$ and the perimeter is $21 + 20 + 29 = 70$.\n\n**The Full Solution:**\nStep 1: The $29$-inch side is opposite the right angle, so it is the hypotenuse; the legs are $21$ and an unknown length $b$.\nStep 2: By the Pythagorean theorem, $b^2 = 29^2 - 21^2 = 841 - 441 = 400$, so $b = 20$.\nStep 3: The perimeter is $21 + 20 + 29 = 70$ inches. Check: $20^2 + 21^2 = 400 + 441 = 841 = 29^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($50$): adds the two labeled sides and leaves out the third side.\n* Choice B ($58$): takes the missing leg as $29 - 21 = 8$; a leg comes from subtracting SQUARES, not lengths.\n* Choice D ($210$): is the area, $\\frac{1}{2}(21)(20)$, not the perimeter.\n\n**Test Day Takeaway:** Add $20$-$21$-$29$ to your list of triples; a missing leg is $\\sqrt{c^2 - a^2}$, never $c - a$."
 }

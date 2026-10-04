@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-244",
- "question": "A circular dye vat lid is shown with center $O$, and the removable inspection panel is sector $AOB$. The area of that panel is $k\\pi$ square inches. What is the value of $k$?",
+ "question": "In the circle shown with center $O$, the area of sector $AOB$ is $k\\pi$ square inches, where $k$ is a constant. What is the value of $k$?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
@@ -14,5 +14,5 @@
   }
  },
  "correctAnswer": "60",
- "explanation": "**SAT Pattern: Sector Area**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~25s):** The panel is $\\frac{150}{360}=\\frac{5}{12}$ of a circle of area $144\\pi$, and $\\frac{5}{12}(144\\pi)=60\\pi$, so $k=60$.\n\n**The Full Solution:**\n\nStep 1 — Read the figure: radius $12$ inches, central angle $150^\\circ$.\n\nStep 2 — Compute the full area: $A=\\pi(12)^2=144\\pi$ square inches.\n\nStep 3 — Scale by the angle's share: $\\frac{150}{360}(144\\pi)=\\frac{5}{12}(144\\pi)=60\\pi$. Matching $60\\pi=k\\pi$ gives $k=60$. Check: $\\frac{5}{12}$ of the lid is a little under half of it, and $60$ is a little under half of $144$.\n\n**Common Mistakes:** Using the arc length $\\frac{150}{360}(24\\pi)=10\\pi$ gives $k=10$, a length instead of an area. Forgetting to scale by the angle gives $k=144$. Squaring the diameter $24$ instead of the radius gives $\\frac{5}{12}(576\\pi)=240\\pi$, so $k=240$.\n\n**Test Day Takeaway:** When an answer is reported as $k\\pi$, carry $\\pi$ symbolically to the end and read $k$ off the coefficient."
+ "explanation": "**SAT Pattern: Sector Area**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~25s):** The sector is $\\frac{150}{360} = \\frac{5}{12}$ of a circle with area $144\\pi$, and $\\frac{5}{12}(144\\pi) = 60\\pi$, so $k = 60$.\n\n**The Full Solution:**\nStep 1: Read the figure: the radius is $12$ inches and the central angle of sector $AOB$ is $150^{\\circ}$.\nStep 2: Find the area of the whole circle: $\\pi(12)^{2} = 144\\pi$ square inches.\nStep 3: Take the sector's share: $\\frac{150}{360}(144\\pi) = \\frac{5}{12}(144\\pi) = 60\\pi$, so $k\\pi = 60\\pi$ and $k = 60$. Check: $\\frac{60}{144} = \\frac{5}{12}$, the same fraction as $\\frac{150}{360}$ ✓\n\n**Common Mistakes:**\n* $10$: uses the arc length $\\frac{150}{360}(24\\pi) = 10\\pi$, a length rather than an area.\n* $144$: gives the area of the whole circle and never scales by the angle.\n* $240$: squares the diameter $24$ instead of the radius, $\\frac{5}{12}(576\\pi) = 240\\pi$.\n\n**Test Day Takeaway:** When the area is written as $k\\pi$, carry $\\pi$ along symbolically and read $k$ off the coefficient at the end."
 }

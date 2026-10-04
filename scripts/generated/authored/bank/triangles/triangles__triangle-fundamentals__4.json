@@ -1,18 +1,18 @@
 {
  "id": 4,
- "question": "The triangular brace of a star-tracker tripod has two struts of lengths $11$ centimeters and $26$ centimeters. If the third strut must also be a whole number of centimeters long, how many different lengths could it have?",
+ "question": "A triangle has sides of length $11$ centimeters and $26$ centimeters. Which of the following could be the length, in centimeters, of the third side?",
  "choices": [
   {
    "id": "A",
-   "text": "$15$"
+   "text": "$10$"
   },
   {
    "id": "B",
-   "text": "$20$"
+   "text": "$15$"
   },
   {
    "id": "C",
-   "text": "$21$"
+   "text": "$30$"
   },
   {
    "id": "D",
@@ -20,11 +20,11 @@
   }
  ],
  "distractorNotes": {
-  "A": "reports the difference 26 - 11 instead of counting lengths",
-  "B": "computes 36 - 16 and omits one endpoint",
-  "D": "reports the sum 26 + 11 instead of counting lengths"
+  "A": "is shorter than 26 - 11 = 15, so 10 + 11 is less than 26",
+  "B": "equals 26 - 11, so 11 + 15 = 26 and the three sides would lie flat",
+  "D": "equals 11 + 26, so the two given sides would only reach the third side lying flat"
  },
  "correctAnswer": "C",
- "hint": "A count of whole numbers between two bounds is not the difference of those bounds.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~40s):** The third strut must satisfy $15 < s < 37$, so $s$ runs from $16$ to $36$: that is $21$ lengths.\n\n**The Full Solution:**\nStep 1: For three lengths to close into a triangle, the third strut must be longer than the difference of the other two and shorter than their sum: $26 - 11 < s < 26 + 11$, or $15 < s < 37$.\nStep 2: The whole numbers strictly between $15$ and $37$ run from $16$ through $36$.\nStep 3: That is $36 - 16 + 1 = 21$ lengths. Check: $16 + 11 = 27 > 26$ and $36 < 37$, so both endpoints work ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): reporting the difference $26 - 11$, which is a boundary length, not a count.\n* Choice B ($20$): computing $36 - 16$ and forgetting that both endpoints count.\n* Choice D ($37$): reporting the sum $26 + 11$, again a boundary rather than a count.\n\n**Test Day Takeaway:** Set the strict bounds first, then count inclusively: last minus first, plus one."
+ "hint": "Each side must be shorter than the sum of the other two sides.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** The third side must be greater than $26 - 11 = 15$ and less than $26 + 11 = 37$; only $30$ is strictly between.\n\n**The Full Solution:**\nStep 1: By the triangle inequality, the sum of any two side lengths must be greater than the third, so the third side $s$ satisfies $s + 11 > 26$, or $s > 15$.\nStep 2: Also $11 + 26 > s$, so $s < 37$.\nStep 3: The third side must satisfy $15 < s < 37$, and $30$ is the only choice in that range. Check: $11 + 26 = 37 > 30$, $11 + 30 = 41 > 26$, and $26 + 30 = 56 > 11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): is too short: $10 + 11 = 21$, which is less than $26$.\n* Choice B ($15$): gives $11 + 15 = 26$, equal to the third side, so the sides would lie flat instead of forming a triangle.\n* Choice D ($37$): equals $11 + 26$, so the two given sides could not meet to form a triangle.\n\n**Test Day Takeaway:** The third side of a triangle is strictly between the difference and the sum of the other two sides; the endpoints themselves never work."
 }

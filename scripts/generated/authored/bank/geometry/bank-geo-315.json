@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-315",
- "question": "An equipment pad's rectangular footprint measures $(2k - 3)$ meters by $(k + 1)$ meters, and its area is $9$ square meters greater than that of a square with side $k$ meters. What is the value of $k$?",
+ "question": "A rectangle has side lengths of $(2k + 1)$ meters and $(k - 2)$ meters. Its area is $16$ square meters greater than the area of a square with side length $k$ meters. What is the value of $k$?",
  "choices": [
   {
    "id": "A",
@@ -8,22 +8,22 @@
   },
   {
    "id": "B",
-   "text": "$4$"
+   "text": "$6$"
   },
   {
    "id": "C",
-   "text": "$5$"
+   "text": "$13$"
   },
   {
    "id": "D",
-   "text": "$12$"
+   "text": "$52$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "reports the rejected root k = -3 with its sign dropped",
-  "C": "reports a footprint dimension, 2k - 3 = 5, instead of k",
-  "D": "reads the constant term of k squared minus k minus 12 as a root"
+  "A": "expands (2k + 1)(k - 2) as 2k^2 + 3k - 2, a sign error on the middle term, which leads to k^2 + 3k - 18 = 0 and k = 3",
+  "C": "reports the side length 2k + 1 = 13 instead of k",
+  "D": "reports the rectangle's area, 13 times 4 = 52, instead of k"
  },
- "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice B is correct.** $(2k - 3)(k + 1) = k^2 + 9$ reduces to $k^2 - k - 12 = 0$, so $k = 4$.\n\n**The Fast Way (~40s):** Expand to $2k^2 - k - 3 = k^2 + 9$, subtract $k^2$, and factor: $(k - 4)(k + 3) = 0$, so $k = 4$.\n\n**The Full Solution:**\n\nStep 1: The footprint's area is $(2k - 3)(k + 1) = 2k^2 - k - 3$, and the square's area is $k^2$.\n\nStep 2: \"Greater by $9$\" means $2k^2 - k - 3 = k^2 + 9$, so $k^2 - k - 12 = 0$.\n\nStep 3: Factor: $(k - 4)(k + 3) = 0$, and only $k = 4$ keeps both dimensions positive. Check: the pad is $5$ by $5$, area $25$; the square has area $16$; and $25 - 16 = 9$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($3$): takes the rejected root $k = -3$ and drops the sign.\n* Choice C ($5$): reports the footprint dimension $2k - 3$ instead of $k$.\n* Choice D ($12$): reads the constant $-12$ in $k^2 - k - 12 = 0$ as a solution.\n\n**Test Day Takeaway:** \"Greater by\" sets up a subtraction between two areas; collect everything on one side before factoring, and discard roots that make a length negative."
+ "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $2k^2 - 3k - 2 = k^2 + 16$ becomes $k^2 - 3k - 18 = 0$, or $(k - 6)(k + 3) = 0$, so $k = 6$.\n\n**The Full Solution:**\nStep 1: The rectangle's area is $(2k + 1)(k - 2) = 2k^2 - 4k + k - 2 = 2k^2 - 3k - 2$, and the square's area is $k^2$.\nStep 2: \"$16$ square meters greater\" gives $2k^2 - 3k - 2 = k^2 + 16$, so $k^2 - 3k - 18 = 0$.\nStep 3: Factor: $(k - 6)(k + 3) = 0$. A side length must be positive, so $k = 6$. Check: the rectangle is $13$ by $4$ with area $52$, the square has area $36$, and $52 - 36 = 16$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): comes from expanding $(2k + 1)(k - 2)$ as $2k^2 + 3k - 2$; the middle term is $-4k + k = -3k$.\n* Choice C ($13$): is the side length $2k + 1$, not $k$.\n* Choice D ($52$): is the area of the rectangle, not the value of $k$.\n\n**Test Day Takeaway:** Write each area as an expression, set up \"greater by\" as an equation, and discard any root that makes a length negative."
 }

@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-231",
- "question": "Each hangtag a mill prints is a triangle whose base measures $b$ centimeters and whose height is $4$ centimeters shorter than the base. Which expression represents the number of square centimeters of card stock in one hangtag?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$\\frac{b^2-4b}{2}$"
+  "id": "bank-geo-231",
+  "question": "A triangle has a base of length $14$ centimeters and a height of $9$ centimeters. What is the area, in square centimeters, of the triangle?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$23$"
+    },
+    {
+      "id": "B",
+      "text": "$31.5$"
+    },
+    {
+      "id": "C",
+      "text": "$63$"
+    },
+    {
+      "id": "D",
+      "text": "$126$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds the base and the height instead of multiplying them",
+    "B": "halves the product twice, dividing 126 by 4",
+    "D": "multiplies base and height but forgets the factor of 1/2"
   },
-  {
-   "id": "B",
-   "text": "$\\frac{b^2-4}{2}$"
-  },
-  {
-   "id": "C",
-   "text": "$\\frac{b-4}{2}$"
-  },
-  {
-   "id": "D",
-   "text": "$b^2-4b$"
-  }
- ],
- "distractorNotes": {
-  "B": "fails to distribute b across the -4, leaving a bare constant",
-  "C": "halves the height and never multiplies by the base",
-  "D": "omits the factor 1/2 and gives the area of a rectangle instead"
- },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The height is $b-4$, so $A=\\frac{1}{2}b(b-4)=\\frac{b^2-4b}{2}$.\n\n**The Full Solution:**\n\nStep 1 — Write the height in terms of the base: it is $4$ centimeters shorter, so the height is $b-4$ centimeters.\n\nStep 2 — Apply the area formula: $A=\\frac{1}{2}bh=\\frac{1}{2}b(b-4)$.\n\nStep 3 — Distribute: $\\frac{1}{2}(b^2-4b)=\\frac{b^2-4b}{2}$ square centimeters. Check with $b=10$: the triangle is $10$ by $6$, giving $30$, and $\\frac{100-40}{2}=30$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($\\frac{b^2-4}{2}$): this multiplies $b$ by $b$ but not by $4$; at $b=10$ it gives $48$, not $30$.\n* Choice C ($\\frac{b-4}{2}$): this halves the height and never multiplies by the base.\n* Choice D ($b^2-4b$): this omits the factor $\\frac{1}{2}$, giving the rectangle's area.\n\n**Test Day Takeaway:** Translate the comparison into an expression first, substitute into $\\frac{1}{2}bh$, and test one friendly value against every choice."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Triangle Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Area $= \\frac{1}{2}bh = \\frac{1}{2}(14)(9) = 63$.\n\n**The Full Solution:**\nStep 1: The area of a triangle is $\\frac{1}{2}bh$, where $b$ is the base and $h$ is the height.\nStep 2: Substitute $b = 14$ and $h = 9$: $\\frac{1}{2}(14)(9)$.\nStep 3: Compute: $\\frac{1}{2}(126) = 63$ square centimeters. Check: the triangle is half of a $14$ by $9$ rectangle with area $126$, and $\\frac{126}{2} = 63$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($23$): adds the base and the height instead of multiplying them.\n* Choice B ($31.5$): divides the product by $4$, applying the $\\frac{1}{2}$ twice.\n* Choice D ($126$): is base times height, the area of the rectangle; the triangle covers only half of it.\n\n**Test Day Takeaway:** Triangle area is half of base times height; multiply first, then halve once."
 }

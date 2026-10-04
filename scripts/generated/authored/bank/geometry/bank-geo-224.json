@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-224",
- "question": "A garment factory cuts triangular collar interfacings in two similar sizes, and each side of the larger size is $k$ times the matching side of the smaller size. The three sides of the smaller size total $45$ centimeters, and the three sides of the larger size total $72$ centimeters. What is the value of $k$?",
+ "question": "Triangle $ABC$ is similar to triangle $DEF$, where $A$ and $B$ correspond to $D$ and $E$, respectively. The perimeters of triangles $ABC$ and $DEF$ are $36$ and $60$, respectively, and $AB = 9$. What is the length of $\\overline{DE}$?",
  "choices": [
   {
    "id": "A",
-   "text": "$0.625$"
+   "text": "$5.4$"
   },
   {
    "id": "B",
-   "text": "$1.6$"
+   "text": "$15$"
   },
   {
    "id": "C",
-   "text": "$2.56$"
+   "text": "$25$"
   },
   {
    "id": "D",
-   "text": "$4.096$"
+   "text": "$33$"
   }
  ],
  "distractorNotes": {
-  "A": "inverts the ratio, computing 45/72 = 0.625",
-  "C": "squares the ratio as if comparing areas: 1.6^2 = 2.56",
-  "D": "cubes the ratio as if comparing volumes: 1.6^3 = 4.096"
+  "A": "inverts the scale factor: 9(36/60) = 5.4",
+  "C": "multiplies by the square of the perimeter ratio, (5/3)^2",
+  "D": "adds the perimeter difference 60 - 36 = 24 to AB"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Perimeters of similar figures scale exactly as sides do, so $k=\\frac{72}{45}=1.6$.\n\n**The Full Solution:**\n\nStep 1 — Name the sides. Let the smaller interfacing have sides $a$, $b$, and $c$, so the larger has sides $ka$, $kb$, and $kc$.\n\nStep 2 — Add them: the larger perimeter is $ka+kb+kc=k(a+b+c)$, so $72=k(45)$.\n\nStep 3 — Solve: $k=\\frac{72}{45}=\\frac{8}{5}=1.6$. Check: $1.6(45)=72$, the stated total.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($0.625$): this computes $\\frac{45}{72}$, the factor that shrinks the larger size to the smaller one.\n* Choice C ($2.56$): this squares the ratio, $1.6^2$, which compares areas rather than lengths.\n* Choice D ($4.096$): this cubes the ratio, $1.6^3$, which compares volumes.\n\n**Test Day Takeaway:** Perimeter is a sum of lengths, so it scales by the same factor $k$ as any single side — no squaring, no cubing."
+ "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The ratio of perimeters is the scale factor: $\\frac{60}{36} = \\frac{5}{3}$, so $DE = \\frac{5}{3}(9) = 15$.\n\n**The Full Solution:**\nStep 1: For similar triangles, the ratio of the perimeters equals the ratio of corresponding sides, so the scale factor from triangle $ABC$ to triangle $DEF$ is $\\frac{60}{36} = \\frac{5}{3}$.\nStep 2: Side $\\overline{DE}$ corresponds to side $\\overline{AB}$.\nStep 3: So $DE = \\frac{5}{3}(9) = 15$. Check: $\\frac{DE}{AB} = \\frac{15}{9} = \\frac{5}{3} = \\frac{60}{36}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5.4$): $5.4$ multiplies by $\\frac{36}{60}$, the factor from the larger triangle to the smaller one.\n* Choice C ($25$): $25$ uses $\\left(\\frac{5}{3}\\right)^{2}$, the factor for areas, not lengths.\n* Choice D ($33$): $33$ adds $24$ to $9$; the whole perimeter grows by $24$, but each side grows in proportion to its length.\n\n**Test Day Takeaway:** Perimeters are lengths: their ratio is the same scale factor that relates every pair of corresponding sides."
 }

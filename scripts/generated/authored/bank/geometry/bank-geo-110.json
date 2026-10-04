@@ -1,9 +1,23 @@
 {
  "id": "bank-geo-110",
- "question": "In right triangle $PQR$ shown, angle $Q$ is the right angle, $PQ = 45$, and $QR = 60$. What is the value of $\\tan P$? Express your answer as a fraction.",
+ "question": "In the figure shown, triangle $PQR$ is a right triangle. What is the value of $\\cos P$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
+   "vertices": [
+    [
+     0,
+     0
+    ],
+    [
+     45,
+     0
+    ],
+    [
+     45,
+     60
+    ]
+   ],
    "labels": [
     "P",
     "Q",
@@ -14,10 +28,9 @@
     "60",
     ""
    ],
-   "rightAngleVertex": 1,
-   "figureNote": true
+   "rightAngleVertex": 1
   }
  },
- "correctAnswer": "4/3",
- "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**The correct answer is $\\frac{4}{3}$.**\n\n**The Fast Way (~25s):** Tangent uses only the legs: opposite angle $P$ is $QR = 60$ and adjacent is $PQ = 45$, so $\\tan P = \\frac{60}{45} = \\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $Q$, so $\\overline{PQ}$ and $\\overline{QR}$ are the legs.\nStep 2: Relative to angle $P$, the opposite leg is $\\overline{QR} = 60$ and the adjacent leg is $\\overline{PQ} = 45$.\nStep 3: $\\tan P = \\frac{60}{45} = \\frac{4}{3}$.\n\nCheck: the hypotenuse is $\\sqrt{45^2 + 60^2} = \\sqrt{5{,}625} = 75$, so the sides are the $3$-$4$-$5$ triple scaled by $15$.\n\n**Common Mistakes:**\n* Answering $\\frac{3}{4}$ by dividing adjacent by opposite, which gives the tangent of the other acute angle.\n* Answering $\\frac{4}{5}$ by computing $\\frac{60}{75}$, the sine of angle $P$.\n* Computing the hypotenuse and using it in the tangent, which the tangent ratio never involves.\n\n**Test Day Takeaway:** If a right-triangle question asks only for a tangent, you never need the hypotenuse — stop after the two legs."
+ "correctAnswer": "3/5",
+ "explanation": "**SAT Pattern: SOH-CAH-TOA in a 3-4-5 Triangle**\n\n**The correct answer is $\\frac{3}{5}$.** Equivalent forms such as $.6$ are also correct.\n\n**The Fast Way (~25s):** The hypotenuse is $PR = \\sqrt{45^2 + 60^2} = 75$, so $\\cos P = \\frac{PQ}{PR} = \\frac{45}{75} = \\frac{3}{5}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $Q$, so $PQ = 45$ and $QR = 60$ are the legs and $PR$ is the hypotenuse.\nStep 2: Find the hypotenuse: $PR = \\sqrt{45^2 + 60^2} = \\sqrt{2{,}025 + 3{,}600} = \\sqrt{5{,}625} = 75$.\nStep 3: Relative to angle $P$, the adjacent leg is $PQ = 45$, so $\\cos P = \\frac{45}{75} = \\frac{3}{5}$. Check: $\\sin P = \\frac{60}{75} = \\frac{4}{5}$, and $\\left(\\frac{3}{5}\\right)^2 + \\left(\\frac{4}{5}\\right)^2 = 1$ ✓\n\n**Common Mistakes:**\n* $\\frac{4}{5}$: uses the opposite leg, $\\frac{60}{75}$, which is $\\sin P$.\n* $\\frac{3}{4}$: divides leg by leg, $\\frac{45}{60}$, skipping the hypotenuse.\n* $\\frac{4}{3}$: computes $\\frac{60}{45}$, which is $\\tan P$.\n\n**Test Day Takeaway:** Sine and cosine both need the hypotenuse; when only the legs are given, find it first ($45$-$60$-$75$ is $3$-$4$-$5$ scaled by $15$)."
 }

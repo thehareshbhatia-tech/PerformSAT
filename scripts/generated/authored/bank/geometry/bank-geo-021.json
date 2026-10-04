@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-021",
- "question": "From a mezzanine rail in a university reading room, the angle of depression to a study carrel on the floor below is $28°$, as drawn, with distances in meters. To the nearest meter, how far is the carrel from the rail itself?",
+ "question": "Point $P$ is $8$ meters above level ground, and point $Q$ is on the ground, as shown. The angle of depression from $P$ to $Q$ is $28°$. To the nearest meter, what is the distance between $P$ and $Q$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -21,15 +21,14 @@
    "rightAngleVertex": 0,
    "labels": [
     "",
-    "28°",
-    ""
+    "Q",
+    "P"
    ],
    "sideLabels": [
     "",
     "",
     "8"
-   ],
-   "figureNote": true
+   ]
   }
  },
  "choices": [
@@ -51,10 +50,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "multiplies by the tangent instead of dividing, giving 8 tan 28 about 4.3",
-  "B": "reports the 8-meter vertical drop",
-  "C": "gives the horizontal distance, 8 / tan 28 about 15.0"
+  "A": "multiplies by sin 28 instead of dividing, giving 8 sin 28 about 3.8",
+  "B": "reports the 8-meter height",
+  "C": "gives the horizontal distance along the ground, 8 / tan 28 about 15.0"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Angle of Depression**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The $8$ m drop is opposite the $28°$ angle, so the straight-line distance is $\\frac{8}{\\sin 28°}\\approx17$ meters.\n\n**The Full Solution:**\n\nStep 1: Transfer the angle. The angle of depression from the rail equals the angle of elevation at the carrel, so the marked $28°$ sits at the carrel.\n\nStep 2: Choose the ratio. The $8$ m vertical drop is opposite that angle and the requested distance is the hypotenuse, so $\\sin 28°=\\frac{8}{d}$.\n\nStep 3: Solve. $d=\\frac{8}{\\sin 28°}=\\frac{8}{0.4695}\\approx17.0$, so $d\\approx17$ meters.\n\nCheck: the horizontal leg is $\\frac{8}{\\tan 28°}\\approx15.0$, and $15.0^{2}+8^{2}\\approx289\\approx17^{2}$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($4$): multiplies by the tangent instead of dividing, giving $8\\tan 28°\\approx4.3$.\n* Choice B ($8$): reports the vertical drop already marked in the figure.\n* Choice C ($15$): gives the horizontal distance $\\frac{8}{\\tan 28°}\\approx15.0$ from the carrel to the point directly below the rail.\n\n**Test Day Takeaway:** An angle of depression from a high point equals the angle of elevation from the low point; then match the requested side to sine, cosine, or tangent."
+ "explanation": "**SAT Pattern: Angle of Depression**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The angle at $Q$ equals the $28°$ angle of depression, and the $8$-meter height is opposite it, so $PQ = \\frac{8}{\\sin 28°} \\approx 17$ meters.\n\n**The Full Solution:**\nStep 1: The angle of depression is measured down from a horizontal line through $P$. The ground is also horizontal, so the angle of elevation from $Q$ up to $P$ is also $28°$ (alternate interior angles).\nStep 2: In the right triangle, the $8$-meter height is opposite the $28°$ angle at $Q$, and $\\overline{PQ}$ is the hypotenuse, so $\\sin 28° = \\frac{8}{PQ}$.\nStep 3: Solve: $PQ = \\frac{8}{\\sin 28°} \\approx \\frac{8}{0.4695} \\approx 17.0$, so the distance is about $17$ meters. Check: the ground distance is $\\frac{8}{\\tan 28°} \\approx 15.0$, and $15.05^{2} + 8^{2} \\approx 290.5 \\approx 17.04^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): multiplies by $\\sin 28°$ instead of dividing, giving $8\\sin 28° \\approx 3.8$.\n* Choice B ($8$): reports the height, a leg of the triangle, rather than the slanted distance.\n* Choice C ($15$): finds the distance along the ground, $\\frac{8}{\\tan 28°}$, instead of the straight-line distance from $P$ to $Q$.\n\n**Test Day Takeaway:** An angle of depression from above equals the angle of elevation from below; then decide whether the question wants a leg or the hypotenuse before choosing sine, cosine, or tangent."
 }

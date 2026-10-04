@@ -1,30 +1,30 @@
 {
  "id": 1,
- "question": "In triangle $JKL$, the measures of angles $J$, $K$, and $L$ are $x°$, $y°$, and $z°$, respectively. What is the value of $x + y + z$?",
+ "question": "In triangle $JKL$, the measure of angle $J$ is $x^\\circ$, the measure of angle $K$ is $y^\\circ$, and $x + y = 110$. What is the measure, in degrees, of angle $L$?",
  "choices": [
   {
    "id": "A",
-   "text": "$90$"
+   "text": "$55$"
   },
   {
    "id": "B",
-   "text": "$180$"
+   "text": "$70$"
   },
   {
    "id": "C",
-   "text": "$270$"
+   "text": "$110$"
   },
   {
    "id": "D",
-   "text": "$360$"
+   "text": "$250$"
   }
  ],
  "distractorNotes": {
-  "A": "the measure of a single right angle, not the total of all three angles",
-  "C": "adds an extra $90$ to the correct total, as if a right angle were counted separately",
-  "D": "the interior-angle sum of a quadrilateral, not of a triangle"
+  "A": "halves 110, as though angle L were equal to each of the other two angles",
+  "C": "reports x + y, the sum of the other two angles, instead of angle L",
+  "D": "subtracts 110 from 360, the angle sum of a quadrilateral"
  },
  "correctAnswer": "B",
- "hint": "Draw any triangle you like and add its three angle measures — the total never changes.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** The interior angles of any triangle add to $180°$, so $x + y + z = 180$.\n\n**The Full Solution:**\nStep 1: The Triangle Angle Sum Theorem states that the three interior angles of every triangle have measures totaling $180°$.\nStep 2: Here those measures are $x°$, $y°$, and $z°$, so $x° + y° + z° = 180°$.\nStep 3: Reading off the numerical values gives $x + y + z = 180$.\n\nVerification: An equilateral triangle has angles $60°$, $60°$, and $60°$, and $60 + 60 + 60 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($90$): the measure of a single right angle, not the total of all three angles.\n* Choice C ($270$): adds an extra $90$ to the correct total, as if a right angle were counted separately.\n* Choice D ($360$): the interior-angle sum of a quadrilateral, not of a triangle.\n\n**Test Day Takeaway:** Every triangle carries exactly $180°$ of interior angle and every quadrilateral carries $360°$. Fixing those two numbers turns most angle questions into one subtraction."
+ "hint": "The three angle measures of a triangle always have the same sum.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** The angles of a triangle sum to $180^\\circ$, so angle $L$ measures $180 - 110 = 70$ degrees.\n\n**The Full Solution:**\nStep 1: The measures of the three angles of a triangle sum to $180^\\circ$, so $x + y + L = 180$, where $L$ is the measure of angle $L$ in degrees.\nStep 2: It's given that $x + y = 110$, so $110 + L = 180$.\nStep 3: Subtract: $L = 70$. Check: $110 + 70 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($55$): halves $110$, which would be the measure of angle $J$ or $K$ only if those two angles were equal, and is not angle $L$.\n* Choice C ($110$): is the combined measure of angles $J$ and $K$, not the measure of angle $L$.\n* Choice D ($250$): subtracts $110$ from $360$, the angle sum of a quadrilateral, not a triangle.\n\n**Test Day Takeaway:** Whenever two angle measures of a triangle, or their sum, are known, subtract from $180^\\circ$ to get the third."
 }

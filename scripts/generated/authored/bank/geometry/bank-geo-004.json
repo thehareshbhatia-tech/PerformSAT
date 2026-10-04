@@ -1,29 +1,29 @@
 {
- "question": "A drill core barrel has an outer diameter of $d$ centimeters. Which expression gives the distance, in centimeters, around the outside of the barrel?",
+ "id": "bank-geo-004",
+ "question": "A circle has a diameter of $26$ inches. What is the circumference, in inches, of the circle?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{\\pi d}{2}$"
+   "text": "$13\\pi$"
   },
   {
    "id": "B",
-   "text": "$\\pi d$"
+   "text": "$26\\pi$"
   },
   {
    "id": "C",
-   "text": "$2\\pi d$"
+   "text": "$52\\pi$"
   },
   {
    "id": "D",
-   "text": "$\\pi d^2$"
+   "text": "$169\\pi$"
   }
  ],
- "correctAnswer": "B",
  "distractorNotes": {
-  "A": "uses pi times the radius d/2, which is half the circumference",
-  "C": "substitutes the diameter into 2 pi r, doubling the circumference",
-  "D": "uses an area-style formula, squaring the diameter"
+  "A": "halves the diameter to the radius 13 and multiplies by pi, using pi r",
+  "C": "treats 26 as the radius and computes 2 pi (26) = 52 pi",
+  "D": "computes the area pi r^2 = pi (13^2) = 169 pi"
  },
- "explanation": "**SAT Pattern: Circumference from Diameter**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Circumference is $2\\pi r$, and $r = \\frac{d}{2}$, so $C = 2\\pi\\left(\\frac{d}{2}\\right) = \\pi d$.\n\n**The Full Solution:**\nStep 1: The distance around a circle is its circumference, $C = 2\\pi r$.\nStep 2: The barrel's radius is half its diameter: $r = \\frac{d}{2}$ centimeters.\nStep 3: Substitute: $C = 2\\pi \\cdot \\frac{d}{2} = \\pi d$ centimeters. Check: a barrel with $d = 10$ has $r = 5$ and $C = 2\\pi(5) = 10\\pi = \\pi d$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{\\pi d}{2}$): computes $\\pi r$, which is only half the way around.\n* Choice C ($2\\pi d$): plugs the diameter in where the radius belongs, doubling the true distance.\n* Choice D ($\\pi d^2$): squares the diameter, which produces an area, not a length.\n\n**Test Day Takeaway:** $C = 2\\pi r = \\pi d$ — when a problem hands you a diameter, the factor of $2$ is already spent.",
- "id": "bank-geo-004"
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circumference from Diameter**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Circumference is $\\pi d = \\pi(26) = 26\\pi$ inches.\n\n**The Full Solution:**\nStep 1: The circumference of a circle is $C = \\pi d$, or equivalently $C = 2\\pi r$.\nStep 2: The diameter is $26$ inches, so $C = \\pi(26) = 26\\pi$.\nStep 3: So the circumference is $26\\pi$ inches. Check: the radius is $13$, and $2\\pi(13) = 26\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($13\\pi$): uses the radius in $\\pi r$, which is only half the circumference.\n* Choice C ($52\\pi$): uses the diameter in $2\\pi r$, doubling the circumference.\n* Choice D ($169\\pi$): computes the area $\\pi(13)^{2}$ instead of the distance around the circle.\n\n**Test Day Takeaway:** Match the formula to the measurement given: $\\pi d$ for a diameter, $2\\pi r$ for a radius."
 }

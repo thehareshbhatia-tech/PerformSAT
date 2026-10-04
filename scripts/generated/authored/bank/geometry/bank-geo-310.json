@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-310",
- "question": "In right triangle $JKL$, angle $K$ is a right angle, $JK=12$, and $JL=37$. What is the perimeter of triangle $JKL$?",
+ "question": "In right triangle $JKL$, angle $K$ is the right angle, $JL = 37$, and $KL$ is $23$ greater than $JK$. What is the perimeter of triangle $JKL$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -24,7 +24,7 @@
     "L"
    ],
    "sideLabels": [
-    "12",
+    "",
     "",
     "37"
    ],
@@ -35,11 +35,11 @@
  "choices": [
   {
    "id": "A",
-   "text": "$49$"
+   "text": "$47$"
   },
   {
    "id": "B",
-   "text": "$61$"
+   "text": "$60$"
   },
   {
    "id": "C",
@@ -50,11 +50,11 @@
    "text": "$210$"
   }
  ],
- "distractorNotes": {
-  "A": "adds only the two given sides",
-  "B": "uses 12 for the missing leg",
-  "D": "reports the area instead of the perimeter"
- },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\overline{JL}$ is the hypotenuse, and $12$, $35$, $37$ is a Pythagorean triple, so $KL=35$ and the perimeter is $12+35+37=84$.\n\n**The Full Solution:**\nStep 1: The right angle sits at $K$, so $\\overline{JL}=37$ is the hypotenuse and $\\overline{JK}=12$ and $\\overline{KL}$ are the legs.\nStep 2: $KL^2=37^2-12^2=1369-144=1225$, so $KL=\\sqrt{1225}=35$.\nStep 3: The perimeter is the sum of all three sides: $12+35+37=84$.\n\nCheck: $12^2+35^2=144+1225=1369=37^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($49$): added only the two sides named in the question, $12+37$, and never found the third side.\n* Choice B ($61$): assumed the triangle was isosceles and reused $12$ for the missing leg, giving $12+12+37$.\n* Choice D ($210$): computed the area, $\\frac{1}{2}(12)(35)$, instead of the perimeter.\n\n**Test Day Takeaway:** When a question asks for a perimeter, the Pythagorean step is only the setup. Find the missing side, then answer the question that was actually asked."
+ "distractorNotes": {
+  "A": "adds only the two legs, 12 + 35, leaving out the hypotenuse",
+  "B": "adds the two given numbers, 37 + 23, instead of finding the legs",
+  "D": "computes the area, one half times 12 times 35, instead of the perimeter"
+ },
+ "explanation": "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Legs that differ by $23$ with hypotenuse $37$ point to the triple $12$-$35$-$37$, so the perimeter is $12 + 35 + 37 = 84$.\n\n**The Full Solution:**\nStep 1: Let $JK = x$, so $KL = x + 23$. The hypotenuse is $JL = 37$, opposite the right angle at $K$.\nStep 2: By the Pythagorean theorem, $x^2 + (x + 23)^2 = 37^2$, so $2x^2 + 46x + 529 = 1{,}369$, which simplifies to $x^2 + 23x - 420 = 0$, or $(x + 35)(x - 12) = 0$.\nStep 3: Since $x > 0$, $x = 12$ and $KL = 35$. The perimeter is $12 + 35 + 37 = 84$. Check: $12^2 + 35^2 = 144 + 1{,}225 = 1{,}369 = 37^2$ and $35 - 12 = 23$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($47$): adds the legs $12$ and $35$ but leaves out the hypotenuse $37$.\n* Choice B ($60$): adds $37$ and $23$, the two numbers in the stem; $23$ is a difference of lengths, not a side.\n* Choice D ($210$): is the area, $\\frac{1}{2}(12)(35)$, not the perimeter.\n\n**Test Day Takeaway:** When two legs are described by their difference, write one leg as $x$ and the other as $x$ plus that difference; a known triple often confirms the root before you finish factoring."
 }

@@ -1,29 +1,29 @@
 {
- "question": "A cylindrical concrete bollard is $10$ centimeters across at its base and rises $90$ centimeters above the sidewalk. How many cubic centimeters of concrete does it contain?",
+ "question": "A right circular cylinder has a volume of $200\\pi$ cubic inches. The radius of the base of the cylinder is $5$ inches. What is the height, in inches, of the cylinder?",
  "choices": [
   {
    "id": "A",
-   "text": "$450\\pi$"
+   "text": "$4$"
   },
   {
    "id": "B",
-   "text": "$900\\pi$"
+   "text": "$8$"
   },
   {
    "id": "C",
-   "text": "$2250\\pi$"
+   "text": "$24$"
   },
   {
    "id": "D",
-   "text": "$9000\\pi$"
+   "text": "$40$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "multiplies the radius by the height without squaring, 5 times 90",
-  "B": "uses the curved surface formula 2 pi r h, 2 times 5 times 90",
-  "D": "uses the 10-centimeter width as the radius, 100 times 90"
+  "A": "divides by 2 r squared, using 50 pi as the base area",
+  "C": "uses the cone formula, so 200 pi = one third pi (25) h",
+  "D": "divides by r instead of r squared"
  },
- "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The radius is $5$ centimeters, so $V = \\pi(5)^2(90) = 2250\\pi$ cubic centimeters.\n\n**The Full Solution:**\nStep 1: \"Across\" gives the diameter, so the radius is $\\frac{10}{2} = 5$ centimeters and the height is $90$ centimeters.\nStep 2: Apply $V = \\pi r^2 h$: $V = \\pi(25)(90)$.\nStep 3: Multiply: $V = 2250\\pi$ cubic centimeters. Check: the base area is $25\\pi$ square centimeters, and stacking it $90$ centimeters high gives $2250\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($450\\pi$): multiplies $r$ by $h$ and forgets to square the radius.\n* Choice B ($900\\pi$): computes $2\\pi r h$, the curved surface area, instead of the volume.\n* Choice D ($9000\\pi$): treats the $10$-centimeter width as the radius, quadrupling the base area.\n\n**Test Day Takeaway:** Convert \"across\" to a radius first; $\\pi r^2 h$ punishes a diameter substitution by a factor of $4$.",
+ "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\pi(5)^{2}h = 200\\pi$ gives $25h = 200$, so $h = 8$ inches.\n\n**The Full Solution:**\nStep 1: Use $V = \\pi r^{2}h$ with $V = 200\\pi$ and $r = 5$: $\\pi(25)h = 200\\pi$.\nStep 2: Divide both sides by $\\pi$: $25h = 200$.\nStep 3: Divide by $25$: $h = 8$ inches. Check: $\\pi(5)^{2}(8) = 200\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): divides $200$ by $2r^{2} = 50$.\n* Choice C ($24$): uses $\\frac{1}{3}\\pi r^{2}h$, the cone formula.\n* Choice D ($40$): divides $200$ by the radius $5$ instead of by $r^{2} = 25$.\n\n**Test Day Takeaway:** To find a cylinder's height, divide the volume by the base area $\\pi r^{2}$.",
  "id": "bank-geo-294"
 }

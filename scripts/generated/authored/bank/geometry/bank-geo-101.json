@@ -1,45 +1,29 @@
 {
- "question": "A surveyor records the center of a roundabout and one point on its curb, as listed in the table, where coordinates are in meters. Which equation models the curb in the $xy$-plane?",
- "questionTable": {
-  "headers": [
-   "Location",
-   "Coordinates"
-  ],
-  "rows": [
-   [
-    "Center of roundabout",
-    "$(6, -2)$"
-   ],
-   [
-    "Point on curb",
-    "$(6, 7)$"
-   ]
-  ]
- },
+ "id": "bank-geo-101",
+ "question": "In the $xy$-plane, circle $W$ has center $(6, -2)$ and passes through the point $(11, 10)$. Which equation represents circle $W$?",
  "choices": [
   {
    "id": "A",
-   "text": "$(x - 6)^2 + (y + 2)^2 = 9$"
+   "text": "$(x - 6)^2 + (y + 2)^2 = 13$"
   },
   {
    "id": "B",
-   "text": "$(x + 6)^2 + (y + 2)^2 = 81$"
+   "text": "$(x - 6)^2 + (y + 2)^2 = 169$"
   },
   {
    "id": "C",
-   "text": "$(x - 6)^2 + (y + 2)^2 = 81$"
+   "text": "$(x + 6)^2 + (y - 2)^2 = 169$"
   },
   {
    "id": "D",
-   "text": "$(x - 6)^2 + (y - 2)^2 = 81$"
+   "text": "$(x - 11)^2 + (y - 10)^2 = 169$"
   }
  ],
- "correctAnswer": "C",
  "distractorNotes": {
-  "A": "puts the radius 9 on the right side instead of r squared = 81",
-  "B": "flips the sign of the center's x-coordinate, writing (x + 6) squared",
-  "D": "flips the sign of the center's y-coordinate, writing (y - 2) squared"
+  "A": "uses the radius, 13, on the right side instead of the radius squared",
+  "C": "flips the signs of the center coordinates",
+  "D": "uses the point on the circle as the center"
  },
- "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The two points share $x = 6$, so $r = 7 - (-2) = 9$; with center $(6, -2)$ the curb is $(x - 6)^2 + (y + 2)^2 = 81$.\n\n**The Full Solution:**\nStep 1: The radius is the distance from the center to any curb point: $\\sqrt{(6 - 6)^2 + (7 - (-2))^2} = \\sqrt{81} = 9$ meters.\nStep 2: Standard form is $(x - h)^2 + (y - k)^2 = r^2$ with $(h, k) = (6, -2)$, so the parentheses read $(x - 6)^2$ and $(y + 2)^2$.\nStep 3: The right side is $r^2 = 9^2 = 81$, giving $(x - 6)^2 + (y + 2)^2 = 81$. Check: substituting $(6, 7)$ gives $0 + 81 = 81$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: places $r = 9$ on the right side; standard form needs $r^2 = 81$.\n* Choice B: writes $(x + 6)^2$, which would put the center at $x = -6$.\n* Choice D: writes $(y - 2)^2$, which would put the center at $y = 2$ instead of $y = -2$.\n\n**Test Day Takeaway:** Subtract the center's coordinates inside the parentheses — a negative coordinate becomes a plus sign — and square the radius on the right.",
- "id": "bank-geo-101"
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The radius is the distance from $(6, -2)$ to $(11, 10)$: $r^2 = 5^2 + 12^2 = 169$, so the circle is $(x - 6)^2 + (y + 2)^2 = 169$.\n\n**The Full Solution:**\nStep 1: A circle with center $(h, k)$ and radius $r$ has equation $(x - h)^2 + (y - k)^2 = r^2$. Here $(h, k) = (6, -2)$, so the left side is $(x - 6)^2 + (y + 2)^2$.\nStep 2: The point $(11, 10)$ is on the circle, so $r^2 = (11 - 6)^2 + (10 - (-2))^2 = 25 + 144 = 169$.\nStep 3: The equation is $(x - 6)^2 + (y + 2)^2 = 169$. Check: substituting $(11, 10)$ gives $5^2 + 12^2 = 169$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: puts the radius, $13$, on the right side instead of $r^2 = 169$.\n* Choice C: flips the signs of the center, which would place it at $(-6, 2)$.\n* Choice D: uses the point on the circle as the center.\n\n**Test Day Takeaway:** For a circle through a known point, the squared distance from the center to that point is exactly the $r^2$ in standard form, so there is no need to take a square root."
 }

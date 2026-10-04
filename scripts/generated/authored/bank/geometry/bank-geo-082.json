@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-082",
- "question": "One blade-chassis stiffener is stamped in the shape shown: a right triangle with a $48$-millimeter base and a $50$-millimeter sloped edge. How much sheet metal, in square millimeters, does each stiffener use?",
+ "question": "What is the perimeter of the triangle shown?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -18,14 +18,19 @@
      14
     ]
    ],
-   "sideLabels": [
-    "48 mm",
+   "labels": [
     "",
-    "50 mm"
+    "",
+    ""
+   ],
+   "sideLabels": [
+    "48",
+    "",
+    "50"
    ],
    "rightAngleVertex": 1
   }
  },
- "correctAnswer": "336",
- "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $336$.**\n\n**The Fast Way (~30s):** The vertical edge is $\\sqrt{50^2 - 48^2} = 14$, so the area is $\\frac{1}{2}(48)(14) = 336$.\n\n**The Full Solution:**\n\nStep 1: The $50$-millimeter sloped edge is the hypotenuse, so the vertical edge satisfies $b^2 = 2500 - 2304 = 196$.\n\nStep 2: Therefore $b = 14$ millimeters, and the two legs are $48$ and $14$.\n\nStep 3: Area $= \\frac{1}{2}(48)(14) = 336$ square millimeters. Check: $48^2 + 14^2 = 2304 + 196 = 2500 = 50^2$.\n\n**Common Mistakes:**\n\n* $1200$ — using the sloped edge as the height: $\\frac{1}{2}(48)(50)$.\n* $672$ — finding both legs but omitting the factor $\\frac{1}{2}$.\n* $14$ — stopping at the missing edge instead of computing the area.\n\n**Test Day Takeaway:** $\\frac{1}{2}bh$ for a right triangle uses the two legs; the hypotenuse only ever enters through the Pythagorean step."
+ "correctAnswer": "112",
+ "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is 112.**\n\n**The Fast Way (~25s):** The missing leg is $\\sqrt{50^{2} - 48^{2}} = \\sqrt{196} = 14$, so the perimeter is $48 + 14 + 50 = 112$.\n\n**The Full Solution:**\nStep 1: The side labeled $50$ is across from the right angle, so it is the hypotenuse; $48$ is a leg.\nStep 2: The other leg is $\\sqrt{50^{2} - 48^{2}} = \\sqrt{2{,}500 - 2{,}304} = \\sqrt{196} = 14$.\nStep 3: The perimeter is $48 + 14 + 50 = 112$. Check: $14$-$48$-$50$ is $2$ times the $7$-$24$-$25$ triple ✓\n\n**Common Mistakes:**\n* $98$: adds only the two labeled sides, $48 + 50$.\n* $100$: takes the missing leg as $50 - 48 = 2$, subtracting lengths instead of squares.\n* $167.3$: adds squares as if $50$ were a leg, $\\sqrt{50^{2} + 48^{2}} \\approx 69.3$, then adds $48 + 50$.\n\n**Test Day Takeaway:** Perimeter needs all three sides; fill in the missing one with the Pythagorean theorem before adding."
 }

@@ -1,6 +1,6 @@
 {
  "id": 3,
- "question": "The base of a triangle is multiplied by $3$ and its height is multiplied by $\\frac{1}{2}$. The area of the resulting triangle is $k$ times the area of the original triangle. What is the value of $k$?",
+ "question": "$A = \\frac{1}{2}bh$\nThe formula gives the area $A$ of a triangle with base $b$ and height $h$. If $b$ is multiplied by $3$ and $h$ is multiplied by $\\frac{1}{2}$, then $A$ is multiplied by $k$. What is the value of $k$?",
  "choices": [
   {
    "id": "A",
@@ -20,11 +20,11 @@
   }
  ],
  "distractorNotes": {
-  "A": "inverts both factors, using $\\frac{1}{3}$ and $2$",
+  "A": "inverts both factors, using 1/3 and 2",
   "C": "applies only the change to the base and ignores the height",
-  "D": "adds the two factors, $3 + \\frac{1}{2}$, instead of multiplying them"
+  "D": "adds the two factors, 3 + 1/2, instead of multiplying them"
  },
  "correctAnswer": "B",
- "hint": "Write the new base and new height into the area formula and compare with the original.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** Area scales by the product of the two factors: $3 \\cdot \\frac{1}{2} = \\frac{3}{2}$.\n\n**The Full Solution:**\nStep 1: The original area is $A = \\frac{1}{2}bh$.\nStep 2: The new base is $3b$ and the new height is $\\frac{1}{2}h$, so $A^{\\prime} = \\frac{1}{2}(3b)\\left(\\frac{1}{2}h\\right) = \\frac{3}{2}\\left(\\frac{1}{2}bh\\right)$.\nStep 3: Therefore $A^{\\prime} = \\frac{3}{2}A$, so $k = \\frac{3}{2}$.\n\nVerification: A triangle with $b = 4$ and $h = 6$ has area $12$; the new one has $b = 12$ and $h = 3$, area $18$, and $\\frac{18}{12} = \\frac{3}{2}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{3}$): inverts both factors, using $\\frac{1}{3}$ and $2$.\n* Choice C ($3$): applies only the change to the base and ignores the height.\n* Choice D ($\\frac{7}{2}$): adds the two factors, $3 + \\frac{1}{2}$, instead of multiplying them.\n\n**Test Day Takeaway:** Scaling a base and a height multiplies the area by the product of the two scale factors, never by their sum."
+ "hint": "Replace $b$ with $3b$ and $h$ with $\\frac{1}{2}h$, then compare with the original formula.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** The area is multiplied by the product of the two factors: $3 \\cdot \\frac{1}{2} = \\frac{3}{2}$.\n\n**The Full Solution:**\nStep 1: Replace $b$ with $3b$ and $h$ with $\\frac{1}{2}h$: the new area is $\\frac{1}{2}(3b)\\left(\\frac{1}{2}h\\right)$.\nStep 2: Rearrange: $\\frac{1}{2}(3b)\\left(\\frac{1}{2}h\\right) = \\frac{3}{2} \\cdot \\frac{1}{2}bh = \\frac{3}{2}A$.\nStep 3: So $k = \\frac{3}{2}$. Check with numbers: $b = 4$ and $h = 6$ give $A = 12$; $b = 12$ and $h = 3$ give $18$, and $\\frac{18}{12} = \\frac{3}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{3}$): inverts both factors, using $\\frac{1}{3}$ and $2$.\n* Choice C ($3$): applies the change to the base and ignores the change to the height.\n* Choice D ($\\frac{7}{2}$): adds $3$ and $\\frac{1}{2}$ instead of multiplying them.\n\n**Test Day Takeaway:** When each factor in a product formula is scaled, the result is scaled by the product of the scale factors."
 }

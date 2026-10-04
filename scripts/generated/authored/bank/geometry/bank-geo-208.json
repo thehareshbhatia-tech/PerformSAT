@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-208",
- "question": "A wind-farm site plan shows a triangular buffer zone with corners $(0,0)$, $(14,0)$, and $(0,k)$, where $k>0$ and units are hundreds of feet. That zone covers $63$ square units. What is the value of $k$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$4.5$"
+  "id": "bank-geo-208",
+  "question": "In the $xy$-plane, a triangle has vertices at $(0, 0)$, $(16, 0)$, and $(0, k)$, where $k$ is a positive constant. The area of the triangle is $56$ square units. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$3.5$"
+    },
+    {
+      "id": "B",
+      "text": "$7$"
+    },
+    {
+      "id": "C",
+      "text": "$40$"
+    },
+    {
+      "id": "D",
+      "text": "$112$"
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "solves 16k = 56, leaving out the factor of 1/2",
+    "C": "subtracts the base from the area, 56 - 16",
+    "D": "doubles the area but never divides by the base 16"
   },
-  {
-   "id": "B",
-   "text": "$7$"
-  },
-  {
-   "id": "C",
-   "text": "$9$"
-  },
-  {
-   "id": "D",
-   "text": "$31.5$"
-  }
- ],
- "distractorNotes": {
-  "A": "omits the factor one half, solving 14k = 63",
-  "B": "reports half the base, 7, instead of k",
-  "D": "divides the area by 2 rather than by half the base, giving 31.5"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $\\frac{1}{2}(14)(k)=63$ gives $7k=63$, so $k=9$.\n\n**The Full Solution:**\n\nStep 1: Identify the legs. The side from $(0,0)$ to $(14,0)$ lies on the $x$-axis with length $14$; the side from $(0,0)$ to $(0,k)$ lies on the $y$-axis with length $k$.\n\nStep 2: Write the area. These legs meet at a right angle, so the area is $\\frac{1}{2}(14)(k)=7k$ square units.\n\nStep 3: Solve. $7k=63$ gives $k=9$.\n\nCheck: $\\frac{1}{2}(14)(9)=63$ square units, as given.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($4.5$): omits the factor $\\frac{1}{2}$ and solves $14k=63$.\n* Choice B ($7$): reports half the base rather than the unknown $k$.\n* Choice D ($31.5$): divides the area by $2$ instead of by half the base.\n\n**Test Day Takeaway:** When both legs sit on the axes, the area is half their product — solve for the missing leg, not for half the base."
+  "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\frac{1}{2}(16)(k) = 56$, so $8k = 56$ and $k = 7$.\n\n**The Full Solution:**\nStep 1: The base runs along the $x$-axis from $(0, 0)$ to $(16, 0)$, so it has length $16$; the third vertex $(0, k)$ is on the $y$-axis, so the height is $k$.\nStep 2: Set up the area equation: $\\frac{1}{2}(16)(k) = 56$, or $8k = 56$.\nStep 3: Divide by $8$: $k = 7$. Check: $\\frac{1}{2}(16)(7) = 56$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.5$): solves $16k = 56$, which leaves out the $\\frac{1}{2}$ in the area formula.\n* Choice C ($40$): subtracts the base from the area instead of dividing.\n* Choice D ($112$): doubles the area, $2(56)$, but never divides by the base.\n\n**Test Day Takeaway:** Write $\\frac{1}{2}bh = A$ with the known numbers in place, then solve for the missing dimension."
 }

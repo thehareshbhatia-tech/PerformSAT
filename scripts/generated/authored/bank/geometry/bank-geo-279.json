@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-279",
- "question": "A garden center lays a curved paver border along arc $AB$ of the circle drawn below, and the border measures $14\\pi$ feet. What is the radius, in feet, of that circle?",
+ "question": "In the circle shown, $O$ is the center and the length of arc $AB$ is $14\\pi$. What is the radius of the circle?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
@@ -31,10 +31,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "treats the arc as the whole circumference, solving 2 pi r = 14 pi",
-  "B": "divides the central angle by 180 instead of 360, giving r = 31.5",
-  "D": "uses pi r instead of 2 pi r, which produces the diameter 126"
+  "A": "solves 2 pi r = 14 pi, treating the arc as the whole circumference",
+  "B": "uses 40/180 instead of 40/360 for the fraction of the circle",
+  "D": "uses pi r instead of 2 pi r for the circumference"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Arc Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** A $40°$ arc is $\\frac{1}{9}$ of the circle, so the circumference is $9(14\\pi)=126\\pi$ and $r=63$ feet.\n\n**The Full Solution:**\n\nStep 1: Convert the angle. $\\frac{40}{360}=\\frac{1}{9}$ of the full circle.\n\nStep 2: Recover the circumference. If $\\frac{1}{9}C=14\\pi$, then $C=126\\pi$ feet.\n\nStep 3: Solve for the radius. $2\\pi r=126\\pi$ gives $r=63$ feet.\n\nCheck: $\\frac{40}{360}\\left(2\\pi\\cdot63\\right)=\\frac{1}{9}(126\\pi)=14\\pi$, the border length.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($7$): treats the arc as the entire circumference, solving $2\\pi r=14\\pi$.\n* Choice B ($31.5$): divides the central angle by $180$ instead of $360$, halving the radius.\n* Choice D ($126$): uses $\\pi r$ in place of $2\\pi r$, which produces the diameter rather than the radius.\n\n**Test Day Takeaway:** Running the arc-length proportion backwards recovers the circumference first; only then divide by $2\\pi$."
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\frac{40}{360}(2\\pi r) = 14\\pi$ simplifies to $\\frac{\\pi r}{4.5} = 14\\pi$, so $r = 63$.\n\n**The Full Solution:**\nStep 1: The arc is $\\frac{40}{360} = \\frac{1}{9}$ of the circumference, so $\\frac{1}{9}(2\\pi r) = 14\\pi$.\nStep 2: Multiply both sides by $9$: $2\\pi r = 126\\pi$.\nStep 3: Divide by $2\\pi$: $r = 63$. Check: $\\frac{1}{9}(2\\pi \\cdot 63) = \\frac{126\\pi}{9} = 14\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): solves $2\\pi r = 14\\pi$, treating the arc as the entire circumference.\n* Choice B ($31.5$): uses $\\frac{40}{180}$ as the fraction of the circle, which doubles the fraction and halves the radius.\n* Choice D ($126$): uses $\\pi r$ for the circumference, which gives the diameter instead of the radius.\n\n**Test Day Takeaway:** Write arc $=$ (fraction of the circle) $\\times 2\\pi r$, then solve for $r$; the fraction of a full circle uses $360°$."
 }

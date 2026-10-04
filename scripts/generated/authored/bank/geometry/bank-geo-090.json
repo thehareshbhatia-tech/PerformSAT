@@ -1,29 +1,29 @@
 {
- "question": "Two cylindrical columns in a parking structure have equal volumes. The first has radius $r$ and height $h$, and the second has radius $\\frac{2r}{3}$. Which expression gives the height of the second column?",
+ "id": "bank-geo-090",
+ "question": "The radius of right circular cylinder $Q$ is $\\frac{2}{3}$ of the radius of right circular cylinder $P$, and the volume of $Q$ is twice the volume of $P$. The height of $Q$ is how many times the height of $P$?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{4h}{9}$"
+   "text": "$\\frac{8}{9}$"
   },
   {
    "id": "B",
-   "text": "$\\frac{2h}{3}$"
+   "text": "$\\frac{9}{4}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{3h}{2}$"
+   "text": "$3$"
   },
   {
    "id": "D",
-   "text": "$\\frac{9h}{4}$"
+   "text": "$\\frac{9}{2}$"
   }
  ],
  "correctAnswer": "D",
  "distractorNotes": {
-  "A": "inverts the relationship, multiplying the height by 4/9 instead of 9/4",
-  "B": "scales the height by the radius factor 2/3",
-  "C": "uses the reciprocal factor 3/2 without squaring it"
+  "A": "multiplies the volume factor 2 by the radius-squared factor 4/9 instead of dividing by it",
+  "B": "divides by the radius-squared factor 4/9 but ignores that the volume doubled",
+  "C": "divides the volume factor 2 by the radius factor 2/3 without squaring it"
  },
- "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** Equal volumes force $r^2 h$ to be constant, and the radius shrank by $\\frac{2}{3}$, so the height grows by $\\left(\\frac{3}{2}\\right)^2 = \\frac{9}{4}$.\n\n**The Full Solution:**\nStep 1: Set the volumes equal: $\\pi r^2 h = \\pi\\left(\\frac{2r}{3}\\right)^2 H$, where $H$ is the second column's height.\nStep 2: Simplify the right side: $\\left(\\frac{2r}{3}\\right)^2 = \\frac{4r^2}{9}$, so $r^2 h = \\frac{4r^2}{9}H$.\nStep 3: Divide by $r^2$ and solve: $H = \\frac{9h}{4}$. Check: with $r = 3$ and $h = 4$ the first holds $36\\pi$, and the second has radius $2$ and height $9$, holding $36\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4h}{9}$): multiplies by the radius-squared factor instead of dividing by it, shrinking a column that must grow.\n* Choice B ($\\frac{2h}{3}$): copies the radius factor onto the height and moves it the wrong way.\n* Choice C ($\\frac{3h}{2}$): inverts the factor but forgets that the radius appears squared.\n\n**Test Day Takeaway:** Constant volume means $r^2h$ is fixed — shrinking the radius by a factor multiplies the height by the SQUARE of its reciprocal.",
- "id": "bank-geo-090"
+ "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Volume scales by (radius factor)$^{2}$ times (height factor), so $\\frac{4}{9} \\cdot t = 2$ and $t = \\frac{9}{2}$.\n\n**The Full Solution:**\nStep 1: Let $P$ have radius $r$ and height $h$, so its volume is $\\pi r^{2}h$; let $Q$ have height $th$.\nStep 2: The volume of $Q$ is $\\pi\\left(\\frac{2r}{3}\\right)^{2}(th) = \\frac{4t}{9}\\pi r^{2}h$, and it equals $2\\pi r^{2}h$, so $\\frac{4t}{9} = 2$.\nStep 3: Solve: $t = \\frac{18}{4} = \\frac{9}{2}$. Check: with $r = 3$ and $h = 2$, $P$ has volume $18\\pi$; $Q$ has radius $2$ and height $9$, so its volume is $\\pi(4)(9) = 36\\pi = 2(18\\pi)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{9}$): multiplies $2$ by $\\frac{4}{9}$ instead of dividing by it.\n* Choice B ($\\frac{9}{4}$): corrects for the smaller radius but forgets that $Q$ holds twice as much.\n* Choice C ($3$): divides $2$ by $\\frac{2}{3}$ without squaring the radius factor.\n\n**Test Day Takeaway:** Write the volume ratio as (radius factor)$^{2}$ $\\times$ (height factor) and solve for the unknown factor."
 }

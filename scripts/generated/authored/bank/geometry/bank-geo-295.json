@@ -1,29 +1,29 @@
 {
- "question": "The stilling well of a tide gauge is a cylinder with an inside diameter of $24$ centimeters. When the water inside rises $15$ centimeters, by how many cubic centimeters does the volume of water increase?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$180\\pi$"
+  "question": "A cylindrical tank has an inside diameter of $24$ centimeters. The tank is filled with water to a depth of $15$ centimeters. What is the volume, in cubic centimeters, of the water in the tank?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$180\\pi$"
+    },
+    {
+      "id": "B",
+      "text": "$360\\pi$"
+    },
+    {
+      "id": "C",
+      "text": "$2{,}160\\pi$"
+    },
+    {
+      "id": "D",
+      "text": "$8{,}640\\pi$"
+    }
+  ],
+  "correctAnswer": "C",
+  "distractorNotes": {
+    "A": "computes pi r h without squaring the radius",
+    "B": "computes 2 pi r h, the area of the wetted side wall",
+    "D": "uses the diameter 24 as the radius"
   },
-  {
-   "id": "B",
-   "text": "$720\\pi$"
-  },
-  {
-   "id": "C",
-   "text": "$2160\\pi$"
-  },
-  {
-   "id": "D",
-   "text": "$8640\\pi$"
-  }
- ],
- "correctAnswer": "C",
- "distractorNotes": {
-  "A": "multiplies the radius by the rise without squaring, 12 times 15",
-  "B": "applies the cone factor of one third, giving 144 times 15 divided by 3",
-  "D": "uses the 24-centimeter diameter as the radius, 576 times 15"
- },
- "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The radius is $12$ centimeters, so a $15$-centimeter rise adds $\\pi(144)(15) = 2160\\pi$ cubic centimeters.\n\n**The Full Solution:**\nStep 1: The inside diameter is $24$ centimeters, so the radius is $r = 12$ centimeters.\nStep 2: The added water is a cylinder of the same radius whose height is the $15$-centimeter rise.\nStep 3: Its volume is $\\pi(12)^2(15) = \\pi(144)(15) = 2160\\pi$ cubic centimeters. Check: the cross-section is $144\\pi$ square centimeters, and $144\\pi \\times 15 = 2160\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($180\\pi$): multiplies the radius by the rise without squaring the radius.\n* Choice B ($720\\pi$): divides by $3$, applying the cone formula to a cylinder of water.\n* Choice D ($8640\\pi$): uses the diameter as the radius, quadrupling the cross-section.\n\n**Test Day Takeaway:** A rise in a cylinder adds a cylinder — same radius, height equal to the rise.",
- "id": "bank-geo-295"
+  "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The radius is $12$, so the water's volume is $\\pi(12)^{2}(15) = 2{,}160\\pi$ cubic centimeters.\n\n**The Full Solution:**\nStep 1: The water is a cylinder with radius $\\frac{24}{2} = 12$ centimeters and height $15$ centimeters.\nStep 2: Use $V = \\pi r^{2}h = \\pi(144)(15)$.\nStep 3: $V = 2{,}160\\pi$ cubic centimeters. Check: $\\frac{2{,}160\\pi}{\\pi(12)^{2}} = 15$, the depth of the water ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($180\\pi$): computes $\\pi rh = \\pi(12)(15)$ and never squares the radius.\n* Choice B ($360\\pi$): computes $2\\pi rh$, the area of the tank's side below the water line.\n* Choice D ($8{,}640\\pi$): uses the diameter $24$ as the radius.\n\n**Test Day Takeaway:** Halve a diameter before using $V = \\pi r^{2}h$.",
+  "id": "bank-geo-295"
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-320",
- "question": "A jumper cable can run $1.4$ meters across a cold aisle and then $4.8$ meters along it, or take the straight diagonal shown. How many meters does the diagonal save?",
+ "question": "A straight ramp rises $1.4$ meters over a horizontal distance of $4.8$ meters, as shown. What is the length, in meters, of the ramp?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -29,26 +29,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$1.2$"
-  },
-  {
-   "id": "B",
    "text": "$3.4$"
   },
   {
-   "id": "C",
+   "id": "B",
    "text": "$5$"
   },
   {
-   "id": "D",
+   "id": "C",
    "text": "$6.2$"
+  },
+  {
+   "id": "D",
+   "text": "$25$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "B": "subtracts the two legs, 4.8 - 1.4, instead of comparing the bent path with the diagonal",
-  "C": "reports the diagonal itself rather than the saving",
-  "D": "reports the two-leg path, 1.4 + 4.8, rather than the difference"
+  "A": "subtracts the two distances, 4.8 - 1.4",
+  "C": "adds the two distances, 4.8 + 1.4",
+  "D": "stops at the square of the length, 1.4^2 + 4.8^2 = 25"
  },
- "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice A is correct.** The diagonal is $\\sqrt{1.4^2 + 4.8^2} = 5$ meters, and the bent path is $1.4 + 4.8 = 6.2$, so the saving is $6.2 - 5 = 1.2$ meters.\n\n**The Fast Way (~30s):** $1.4$-$4.8$-$5$ is the $7$-$24$-$25$ triple scaled by $0.2$; $6.2 - 5 = 1.2$.\n\n**The Full Solution:**\n\nStep 1: The two legs of the bent route meet at a right angle, so the direct route is the hypotenuse.\n\nStep 2: $1.4^2 + 4.8^2 = 1.96 + 23.04 = 25$, so the diagonal is $\\sqrt{25} = 5$ meters.\n\nStep 3: The bent route measures $1.4 + 4.8 = 6.2$ meters, so the diagonal saves $6.2 - 5 = 1.2$ meters. Check: $5 < 6.2$, so a saving is expected.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($3.4$): subtracts the legs instead of comparing the two routes.\n* Choice C ($5$): reports the diagonal itself rather than how much shorter it is.\n* Choice D ($6.2$): reports the bent route.\n\n**Test Day Takeaway:** \"How much shorter\" is always two computations — find both routes, then subtract; decimals do not stop a triple from applying."
+ "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $1.4^2 + 4.8^2 = 1.96 + 23.04 = 25$, so the ramp is $\\sqrt{25} = 5$ meters.\n\n**The Full Solution:**\nStep 1: The rise and the horizontal distance are perpendicular, so they are the legs of a right triangle and the ramp is the hypotenuse.\nStep 2: By the Pythagorean theorem, $L^2 = 1.4^2 + 4.8^2 = 1.96 + 23.04 = 25$.\nStep 3: So $L = \\sqrt{25} = 5$ meters. Check: these are the sides $7$-$24$-$25$ scaled by $0.2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.4$): subtracts the two distances instead of adding their squares.\n* Choice C ($6.2$): adds the two distances, the length of the path along the legs.\n* Choice D ($25$): is $L^2$; take the square root.\n\n**Test Day Takeaway:** Decimal legs often hide a scaled triple: $1.4$ and $4.8$ are $7$ and $24$ times $0.2$."
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-318",
- "question": "Right triangle $DEF$ has a right angle at $E$. If $DE=5$ and $DF=13$, what is the length of $\\overline{EF}$?",
+ "question": "In triangle $DEF$, angle $E$ is a right angle. If $DE = 5$ and $DF = 13$, what is the length of $\\overline{EF}$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -50,11 +50,11 @@
    "text": "$144$"
   }
  ],
- "distractorNotes": {
-  "A": "subtracts the given lengths",
-  "C": "adds the given lengths",
-  "D": "omits the square root"
- },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The right angle at $E$ makes $\\overline{DF}=13$ the hypotenuse, and $5$, $12$, $13$ is a triple, so $EF=12$.\n\n**The Full Solution:**\nStep 1: The hypotenuse lies opposite the right angle, so $\\overline{DF}$ is the hypotenuse and $\\overline{DE}$ and $\\overline{EF}$ are the legs.\nStep 2: $5^2+EF^2=13^2$, so $EF^2=169-25=144$.\nStep 3: $EF=\\sqrt{144}=12$.\n\nCheck: $5^2+12^2=25+144=169=13^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): subtracted the given lengths, $13-5$, rather than subtracting their squares.\n* Choice C ($18$): added the given lengths; a leg cannot exceed the hypotenuse.\n* Choice D ($144$): stopped at $EF^2$ without taking the square root.\n\n**Test Day Takeaway:** Locate the right angle first. The side that does not touch it is the hypotenuse, and only the hypotenuse sits alone on one side of $a^2+b^2=c^2$."
+ "distractorNotes": {
+  "A": "subtracts the two given sides, 13 - 5",
+  "C": "adds the two given sides, 13 + 5",
+  "D": "stops at EF squared, 169 - 25 = 144, without taking the square root"
+ },
+ "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $5$-$12$-$13$ is a Pythagorean triple, so $EF = 12$.\n\n**The Full Solution:**\nStep 1: Angle $E$ is the right angle, so $\\overline{DF}$ is the hypotenuse and $\\overline{DE}$ and $\\overline{EF}$ are the legs.\nStep 2: By the Pythagorean theorem, $EF^2 = DF^2 - DE^2 = 169 - 25 = 144$.\nStep 3: So $EF = \\sqrt{144} = 12$. Check: $5^2 + 12^2 = 25 + 144 = 169 = 13^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): subtracts the side lengths instead of their squares.\n* Choice C ($18$): adds the side lengths; a leg must be shorter than the hypotenuse.\n* Choice D ($144$): is $EF^2$; take the square root.\n\n**Test Day Takeaway:** When the hypotenuse is one of the given sides, SUBTRACT the squares to find a leg."
 }

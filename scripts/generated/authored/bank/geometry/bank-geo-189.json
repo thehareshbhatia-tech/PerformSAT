@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-189",
- "question": "A cutting mat is a rectangle $6m$ centimeters long and $4m$ centimeters wide, and a square opening of side $m$ centimeters is cut from its center. Which expression gives the area, in square centimeters, of the mat that remains?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$20m^2$"
+  "id": "bank-geo-189",
+  "question": "A square with side length $2m$ is cut out of a rectangle with length $7m$ and width $3m$. Which expression represents the area of the part of the rectangle that remains?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$17m^{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$19m^{2}$"
+    },
+    {
+      "id": "C",
+      "text": "$21m^{2}$"
+    },
+    {
+      "id": "D",
+      "text": "$25m^{2}$"
+    }
+  ],
+  "correctAnswer": "A",
+  "distractorNotes": {
+    "B": "squares only the m in the side length, subtracting 2m^2 instead of (2m)^2 = 4m^2",
+    "C": "finds the area of the rectangle but never subtracts the square",
+    "D": "adds the area of the square instead of subtracting it"
   },
-  {
-   "id": "B",
-   "text": "$23m^2$"
-  },
-  {
-   "id": "C",
-   "text": "$24m^2$"
-  },
-  {
-   "id": "D",
-   "text": "$48m^2$"
-  }
- ],
- "distractorNotes": {
-  "A": "uses 2m for the opening's side, removing 4m^2 instead of m^2",
-  "C": "forgets to remove the opening at all",
-  "D": "doubles the rectangle's area, as though length times width were counted twice"
- },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The rectangle covers $6m(4m)=24m^2$ and the opening removes $m^2$, leaving $23m^2$ square centimeters.\n\n**The Full Solution:**\n\nStep 1 — Find the full rectangle's area: $(6m)(4m)=24m^2$ square centimeters.\n\nStep 2 — Find the opening's area: a square of side $m$ covers $m^2$ square centimeters.\n\nStep 3 — Subtract: $24m^2-m^2=23m^2$ square centimeters. Check with $m=2$: the mat is $12$ by $8$, or $96$, minus a $2$-by-$2$ hole of $4$, leaving $92$, and $23(2)^2=92$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($20m^2$): this removes $4m^2$, the area of a square with side $2m$ rather than $m$.\n* Choice C ($24m^2$): this is the mat before the opening is cut.\n* Choice D ($48m^2$): this doubles the rectangle's area.\n\n**Test Day Takeaway:** For a shape with a piece removed, compute the whole and the hole separately, then subtract once."
+  "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Rectangle minus square: $(7m)(3m) - (2m)^{2} = 21m^{2} - 4m^{2} = 17m^{2}$.\n\n**The Full Solution:**\nStep 1: Find the area of the rectangle: $(7m)(3m) = 21m^{2}$.\nStep 2: Find the area of the square that is cut out: $(2m)^{2} = 4m^{2}$.\nStep 3: Subtract: $21m^{2} - 4m^{2} = 17m^{2}$. Check: with $m = 1$, the rectangle is $7$ by $3$ with area $21$, the square has area $4$, and $21 - 4 = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($19m^{2}$): squares only the $m$, using $2m^{2}$ for the square's area. The whole side length $2m$ must be squared: $(2m)^{2} = 4m^{2}$.\n* Choice C ($21m^{2}$): is the area of the full rectangle, before the square is removed.\n* Choice D ($25m^{2}$): adds the square's area instead of subtracting it.\n\n**Test Day Takeaway:** For a figure with a piece removed, compute the outer area and the removed area separately, then subtract; square the whole coefficient, not just the variable."
 }

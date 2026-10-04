@@ -1,46 +1,51 @@
 {
-  "id": 15,
-  "question": "For the linear function $f$, the table records three inputs and their corresponding outputs. If $f$ is defined by $f(x) = mx + b$, where $m$ and $b$ are constants, which equation defines $f$?",
-  "diagram": {
-    "type": "table",
-    "params": {
-      "rows": [
-        [
-          "−6",
-          20
-        ],
-        [
-          "−2",
-          14
-        ],
-        [
-          6,
-          2
-        ]
-      ],
-      "xHeader": "x",
-      "yHeader": "f(x)"
-    }
+ "id": 15,
+ "question": "The table shows three values of $x$ and their corresponding values of $f(x)$, where $f$ is a linear function. What is the x-intercept of the graph of $y = f(x)$ in the $xy$-plane?",
+ "diagram": {
+  "type": "table",
+  "params": {
+   "rows": [
+    [
+     "−6",
+     20
+    ],
+    [
+     "−2",
+     14
+    ],
+    [
+     6,
+     2
+    ]
+   ],
+   "xHeader": "x",
+   "yHeader": "f(x)"
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\left(-\\frac{22}{3}, 0\\right)$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$f(x) = -6x + 2$"
-    },
-    {
-      "id": "B",
-      "text": "$f(x) = -\\frac{3}{2}x + 11$"
-    },
-    {
-      "id": "C",
-      "text": "$f(x) = -\\frac{3}{2}x + 14$"
-    },
-    {
-      "id": "D",
-      "text": "$f(x) = \\frac{3}{2}x + 11$"
-    }
-  ],
-  "correctAnswer": "B",
-  "hint": "The inputs are unevenly spaced, so pick a pair and divide — do not read the drop between rows as the rate.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~35s):** $m = \\frac{14-20}{-2-(-6)} = -\\frac{3}{2}$, and $14 = -\\frac{3}{2}(-2)+b$ gives $b = 11$ — choice B.\n\n**The Full Solution:**\nStep 1: Rate of change from the first two rows: $m = \\frac{14-20}{-2-(-6)} = \\frac{-6}{4} = -\\frac{3}{2}$.\nStep 2: Substitute $(-2, 14)$: $14 = -\\frac{3}{2}(-2)+b = 3+b$, so $b = 11$.\nStep 3: The equation is $f(x) = -\\frac{3}{2}x + 11$. Check the last row: $-\\frac{3}{2}(6)+11 = -9+11 = 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x) = -6x + 2$): uses the $-6$ change in output between the first two rows as the rate of change; anchoring that at $(-2, 14)$ gives $2$ as the constant.\n* Choice C ($f(x) = -\\frac{3}{2}x + 14$): has the correct rate of change but takes $14$, the output at $x = -2$, as the value at $x = 0$.\n* Choice D ($f(x) = \\frac{3}{2}x + 11$): drops the negative sign on the rate of change even though the outputs fall as the inputs rise.\n\n**Test Day Takeaway:** Unevenly spaced inputs are the trap: the difference between consecutive outputs is a rate only after you divide by the difference between the inputs."
+  {
+   "id": "B",
+   "text": "$\\left(\\frac{22}{3}, 0\\right)$"
+  },
+  {
+   "id": "C",
+   "text": "$(0, 11)$"
+  },
+  {
+   "id": "D",
+   "text": "$(11, 0)$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "solves -1.5x + 11 = 0 with a sign error, getting x = -22/3",
+  "C": "gives the y-intercept instead of the x-intercept",
+  "D": "uses the y-intercept value, 11, as the x-coordinate of the x-intercept"
+ },
+ "correctAnswer": "B",
+ "hint": "The values of $x$ are not evenly spaced, so divide each change in $f(x)$ by the matching change in $x$.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~45s):** The slope is $\\frac{14 - 20}{-2 - (-6)} = -\\frac{3}{2}$, so $f(x) = -\\frac{3}{2}x + 11$, and $f(x) = 0$ when $x = \\frac{22}{3}$.\n\n**The Full Solution:**\nStep 1: Using $(-6, 20)$ and $(-2, 14)$, the slope is $\\frac{14 - 20}{-2 - (-6)} = \\frac{-6}{4} = -\\frac{3}{2}$.\nStep 2: Substitute $(-2, 14)$ into $f(x) = -\\frac{3}{2}x + b$: $14 = 3 + b$, so $b = 11$ and $f(x) = -\\frac{3}{2}x + 11$.\nStep 3: The $x$-intercept is where $f(x) = 0$: $-\\frac{3}{2}x + 11 = 0$, so $x = \\frac{22}{3}$, and the $x$-intercept is $\\left(\\frac{22}{3}, 0\\right)$. Check: $f(6) = -9 + 11 = 2$, matching the table, and $-\\frac{3}{2}\\left(\\frac{22}{3}\\right) + 11 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\left(-\\frac{22}{3}, 0\\right)$): makes a sign error when solving $-\\frac{3}{2}x + 11 = 0$.\n* Choice C ($(0, 11)$): is the $y$-intercept of the graph, not the $x$-intercept.\n* Choice D ($(11, 0)$): uses the $y$-intercept value, $11$, as the $x$-coordinate of the $x$-intercept.\n\n**Test Day Takeaway:** An $x$-intercept has a $y$-coordinate of $0$. Build the equation from the table, then set $f(x) = 0$ and solve."
 }

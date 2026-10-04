@@ -1,29 +1,29 @@
 {
- "id": "bank-geo-191",
- "question": "A finishing rinse basin is a rectangular tank $8p$ centimeters long, $5p$ centimeters wide, and $q$ centimeters deep, and it is filled to within $2$ centimeters of its rim. Which expression represents the number of cubic centimeters of rinse water in the basin?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$40p^2q-80p^2$"
+  "id": "bank-geo-191",
+  "question": "A rectangular tank is $6p$ inches long, $5p$ inches wide, and $q$ inches tall. Water fills the tank to a depth of $(q - 3)$ inches. Which expression represents the volume, in cubic inches, of the water in the tank?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$30p^{2}q$"
+    },
+    {
+      "id": "B",
+      "text": "$30p^{2}q - 3$"
+    },
+    {
+      "id": "C",
+      "text": "$30p^{2}q - 90p^{2}$"
+    },
+    {
+      "id": "D",
+      "text": "$11pq - 33p$"
+    }
+  ],
+  "correctAnswer": "C",
+  "distractorNotes": {
+    "A": "uses the full height q instead of the water depth q - 3, giving the volume of the whole tank",
+    "B": "subtracts 3 from the tank's volume instead of multiplying the base area by q - 3",
+    "D": "adds the length and width, 6p + 5p, instead of multiplying them for the base area"
   },
-  {
-   "id": "B",
-   "text": "$40p^2q-2$"
-  },
-  {
-   "id": "C",
-   "text": "$40p^2q$"
-  },
-  {
-   "id": "D",
-   "text": "$13pq-26p$"
-  }
- ],
- "distractorNotes": {
-  "B": "subtracts 2 from the finished volume instead of 2 centimeters from the depth",
-  "C": "fills the basin to the rim, ignoring the 2-centimeter gap",
-  "D": "adds the length and width, 8p + 5p, instead of multiplying them"
- },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The water is $q-2$ centimeters deep over a base of $8p(5p)=40p^2$, so the volume is $40p^2(q-2)=40p^2q-80p^2$.\n\n**The Full Solution:**\n\nStep 1 — Find the base area: $(8p)(5p)=40p^2$ square centimeters.\n\nStep 2 — Find the depth of the water. The basin is $q$ centimeters deep and the water stops $2$ centimeters short, so the water is $q-2$ centimeters deep.\n\nStep 3 — Multiply and distribute: $40p^2(q-2)=40p^2q-80p^2$ cubic centimeters. Check with $p=1$ and $q=5$: the base is $40$, the water is $3$ deep, giving $120$, and $40(5)-80=120$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($40p^2q-2$): this subtracts $2$ cubic centimeters rather than shortening the depth by $2$ centimeters.\n* Choice C ($40p^2q$): this fills the basin to the rim and ignores the gap.\n* Choice D ($13pq-26p$): this adds $8p$ and $5p$ instead of multiplying them.\n\n**Test Day Takeaway:** Adjust the dimension the sentence adjusts — a shorter depth changes a length before any multiplication happens."
+  "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Water volume is base area times water depth: $(6p)(5p)(q - 3) = 30p^{2}q - 90p^{2}$.\n\n**The Full Solution:**\nStep 1: The base of the tank has area $(6p)(5p) = 30p^{2}$ square inches.\nStep 2: The water forms a rectangular prism with that base and a height equal to the depth, $q - 3$, so its volume is $30p^{2}(q - 3)$.\nStep 3: Distribute: $30p^{2}q - 90p^{2}$. Check: with $p = 1$ and $q = 10$, the water is $6$ by $5$ by $7$, so the volume is $210$, and $30(10) - 90 = 210$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($30p^{2}q$): uses the full height $q$, which gives the volume of the whole tank, not of the water.\n* Choice B ($30p^{2}q - 3$): subtracts $3$ from the volume instead of from the height. Removing $3$ inches of depth removes $30p^{2} \\cdot 3$ cubic inches.\n* Choice D ($11pq - 33p$): adds the length and width, $6p + 5p = 11p$, instead of multiplying them for the base area.\n\n**Test Day Takeaway:** A partly filled prism is still base area times height; use the water's depth as the height and distribute the base area across it."
 }

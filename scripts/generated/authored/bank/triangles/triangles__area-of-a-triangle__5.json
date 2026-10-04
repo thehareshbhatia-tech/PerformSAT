@@ -1,6 +1,6 @@
 {
  "id": 5,
- "question": "A triangular hail-netting panel over a cherry block is shown, with two of its side lengths given in meters. What is the area, in square meters, of the panel?",
+ "question": "The right triangle shown has a hypotenuse of length $12$. What is the area of the triangle?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -18,9 +18,14 @@
      6
     ]
    ],
+   "labels": [
+    "30°",
+    "",
+    ""
+   ],
    "sideLabels": [
     "",
-    "6",
+    "",
     "12"
    ],
    "rightAngleVertex": 1
@@ -45,11 +50,11 @@
   }
  ],
  "distractorNotes": {
-  "A": "uses the 6-meter side as both legs",
-  "C": "uses the 12-meter hypotenuse as the height",
-  "D": "finds the missing leg correctly but skips the one-half"
+  "A": "finds the short leg, 6, and uses it for both legs",
+  "C": "uses the short leg, 6, as the base and the hypotenuse, 12, as the height",
+  "D": "finds both legs but forgets the factor of one-half"
  },
  "correctAnswer": "B",
- "hint": "An area needs two legs, and the figure marks only one of them.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~35s):** A leg half the hypotenuse marks a $30$-$60$-$90$ triangle, so the other leg is $6\\sqrt{3}$ and the area is $18\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: The given leg, $6$ meters, is exactly half the $12$-meter hypotenuse, so the triangle is a $30$-$60$-$90$ triangle.\nStep 2: In such a triangle the longer leg is $\\sqrt{3}$ times the shorter leg, so it measures $6\\sqrt{3}$ meters.\nStep 3: The area is $\\frac{1}{2}(6)(6\\sqrt{3}) = 18\\sqrt{3}$ square meters. Check: $6^2 + (6\\sqrt{3})^2 = 36 + 108 = 144 = 12^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18$): using the $6$-meter side as both legs, computing $\\frac{1}{2}(6)(6)$.\n* Choice C ($36$): using the $12$-meter hypotenuse as the height, computing $\\frac{1}{2}(6)(12)$.\n* Choice D ($36\\sqrt{3}$): finding the missing leg correctly but leaving out the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** A leg that is half the hypotenuse identifies a $30$-$60$-$90$ triangle and hands you the third side."
+ "hint": "An area needs both legs, and the $30^\\circ$ angle determines both of them.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** In a $30^\\circ$-$60^\\circ$-$90^\\circ$ triangle with hypotenuse $12$, the legs are $6$ and $6\\sqrt{3}$, so the area is $\\frac{1}{2}(6)(6\\sqrt{3}) = 18\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: The triangle has a $90^\\circ$ angle and a $30^\\circ$ angle, so it is a $30^\\circ$-$60^\\circ$-$90^\\circ$ triangle.\nStep 2: The leg opposite the $30^\\circ$ angle is half the hypotenuse, $6$, and the other leg is $6\\sqrt{3}$.\nStep 3: The area is $\\frac{1}{2}(6)(6\\sqrt{3}) = 18\\sqrt{3}$. Check: $6^{2} + (6\\sqrt{3})^{2} = 36 + 108 = 144 = 12^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18$): finds the short leg, $6$, and uses it for both legs: $\\frac{1}{2}(6)(6) = 18$.\n* Choice C ($36$): uses the hypotenuse as the height: $\\frac{1}{2}(6)(12) = 36$.\n* Choice D ($36\\sqrt{3}$): finds both legs but forgets the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** In a $30^\\circ$-$60^\\circ$-$90^\\circ$ triangle the sides are in the ratio $1 : \\sqrt{3} : 2$; find both legs from the hypotenuse before using $\\frac{1}{2}bh$."
 }

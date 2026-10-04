@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-317",
- "question": "A diagonal stiffener spans a spandrel panel from corner to corner, cutting off the right triangle shown with $33$-inch and $56$-inch legs. How long, in inches, is the stiffener?",
+ "question": "In the right triangle shown, what is the value of $c$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -19,9 +19,9 @@
     ]
    ],
    "sideLabels": [
-    "56 in",
-    "33 in",
-    ""
+    "56",
+    "33",
+    "c"
    ],
    "rightAngleVertex": 1
   }
@@ -46,9 +46,9 @@
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "subtracts the legs, 56 - 33, instead of combining their squares",
-  "C": "adds the legs, 56 + 33, giving the path along two sides rather than the diagonal",
-  "D": "computes the area, one half times 33 times 56, instead of a length"
+  "A": "subtracts the legs, 56 - 33",
+  "C": "adds the legs, 56 + 33",
+  "D": "computes the area, one half times 56 times 33"
  },
- "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.** The stiffener is the hypotenuse: $\\sqrt{33^2 + 56^2} = \\sqrt{4225} = 65$ inches.\n\n**The Fast Way (~25s):** $33$-$56$-$65$ is a Pythagorean triple, so the stiffener is $65$ inches.\n\n**The Full Solution:**\n\nStep 1: The two legs meet at a right angle at a corner of the panel, and the stiffener joins their far ends, so it is the hypotenuse.\n\nStep 2: $33^2 + 56^2 = 1089 + 3136 = 4225$.\n\nStep 3: The stiffener measures $\\sqrt{4225} = 65$ inches. Check: $65 > 56$ and $65 < 89$, the band any hypotenuse must fall in.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($23$): subtracts the legs instead of combining their squares.\n* Choice C ($89$): adds the legs, which measures the path along two sides.\n* Choice D ($924$): computes the triangle's area rather than a length.\n\n**Test Day Takeaway:** Add the squares, then take one square root — subtracting or adding raw lengths is the single most common Pythagorean slip."
+ "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $c = \\sqrt{33^2 + 56^2} = \\sqrt{4{,}225} = 65$.\n\n**The Full Solution:**\nStep 1: The sides of length $33$ and $56$ meet at the right angle, so they are the legs, and $c$ is the hypotenuse.\nStep 2: By the Pythagorean theorem, $c^2 = 33^2 + 56^2 = 1{,}089 + 3{,}136 = 4{,}225$.\nStep 3: So $c = \\sqrt{4{,}225} = 65$. Check: $65^2 = 4{,}225$, and $65$ lies between $56$ and $33 + 56 = 89$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($23$): subtracts the legs instead of adding their squares.\n* Choice C ($89$): adds the legs; the hypotenuse is always shorter than their sum.\n* Choice D ($924$): is the area, $\\frac{1}{2}(33)(56)$, not a length.\n\n**Test Day Takeaway:** Square, add, square root: $c^2 = a^2 + b^2$ for the side opposite the right angle."
 }

@@ -1,5 +1,5 @@
 {
- "question": "A glacier terminus at $(-2, 9)$ is ringed by ice-margin stakes that all lie on one circle, and a monitoring camera at $(10, 0)$ sits on that ring, with coordinates in kilometers. How wide, in kilometers, is the ring measured across its center?",
+ "question": "A circle in the $xy$-plane has center $(-2, 9)$ and passes through the point $(10, 0)$. What is the radius of the circle?",
  "choices": [
   {
    "id": "A",
@@ -15,15 +15,15 @@
   },
   {
    "id": "D",
-   "text": "$60$"
+   "text": "$225$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "A",
  "distractorNotes": {
-  "A": "reports the radius 15 instead of the width across the center",
-  "B": "adds the coordinate gaps, 12 + 9, instead of using the Pythagorean sum",
-  "D": "doubles the width a second time, reporting 4 times the radius"
+  "B": "adds the horizontal and vertical changes, 12 + 9",
+  "C": "gives the diameter, twice the distance",
+  "D": "reports the radius squared, 225"
  },
- "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The radius is $\\sqrt{12^2 + 9^2} = 15$ kilometers, and the width across the center is $2(15) = 30$.\n\n**The Full Solution:**\nStep 1: The ring is centered at the terminus $(-2, 9)$ and passes through the camera $(10, 0)$, so its radius is the distance between them.\nStep 2: The gaps are $10 - (-2) = 12$ and $0 - 9 = -9$, so $r = \\sqrt{144 + 81} = \\sqrt{225} = 15$ kilometers.\nStep 3: A width measured straight across through the center is a diameter: $2r = 30$ kilometers. Check: a stake directly opposite the camera would sit $30$ kilometers from it ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): stops at the radius, which reaches only halfway across.\n* Choice B ($21$): adds the coordinate gaps $12 + 9$ instead of taking the Pythagorean sum.\n* Choice D ($60$): doubles the diameter, applying the factor of $2$ twice.\n\n**Test Day Takeaway:** A distance from the center to a point on a circle is the radius — double it only when the question asks for a width across the center.",
+ "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The radius is the distance from the center to the point: $\\sqrt{12^{2} + 9^{2}} = \\sqrt{225} = 15$.\n\n**The Full Solution:**\nStep 1: The radius is the distance from $(-2, 9)$ to $(10, 0)$.\nStep 2: The horizontal change is $10 - (-2) = 12$, and the vertical change is $0 - 9 = -9$.\nStep 3: $r = \\sqrt{12^{2} + (-9)^{2}} = \\sqrt{144 + 81} = \\sqrt{225} = 15$. Check: $12$, $9$, $15$ is $3$ times the $4$-$3$-$5$ right triangle ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($21$): adds the horizontal and vertical changes instead of using the Pythagorean theorem.\n* Choice C ($30$): doubles the distance, giving the diameter.\n* Choice D ($225$): stops at $r^{2}$ without taking the square root.\n\n**Test Day Takeaway:** Center to a point on the circle is a radius; use the distance formula.",
  "id": "bank-geo-300"
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-306",
- "question": "In triangle $PQR$, angle $Q$ is a right angle, $PQ=7$, and $QR=24$. What is the length of $\\overline{PR}$?",
+ "question": "In triangle $PQR$, angle $Q$ is a right angle, $PQ = 7$, and $QR = 24$. What is the length of $\\overline{PR}$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -50,11 +50,11 @@
    "text": "$31$"
   }
  ],
- "distractorNotes": {
-  "A": "doubles the shorter leg as in a 30-60-90 triangle",
-  "B": "subtracts the legs",
-  "D": "adds the legs"
- },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** The right angle at $Q$ makes $\\overline{PR}$ the hypotenuse, and $7$, $24$, $25$ is a Pythagorean triple, so $PR=25$.\n\n**The Full Solution:**\nStep 1: The side opposite the right angle is the hypotenuse, so $PQ$ and $QR$ are the legs and $PR$ is the hypotenuse.\nStep 2: $PR^2=7^2+24^2=49+576=625$.\nStep 3: $PR=\\sqrt{625}=25$.\n\nCheck: $25^2=625=49+576$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): doubled the shorter leg, applying the $30$-$60$-$90$ rule that the hypotenuse is twice the short leg. That rule needs a $30^\\circ$ angle, which is not given here.\n* Choice B ($17$): subtracted the legs, $24-7$, instead of combining their squares.\n* Choice D ($31$): added the legs, $7+24$.\n\n**Test Day Takeaway:** Identify the hypotenuse first: it is always the side opposite the right angle, never one of the two sides that form it."
+ "distractorNotes": {
+  "A": "doubles the shorter leg, 2 times 7, instead of using the Pythagorean theorem",
+  "B": "subtracts the legs, 24 - 7 = 17",
+  "D": "adds the legs, 7 + 24 = 31"
+ },
+ "explanation": "**SAT Pattern: Pythagorean Triple Recognition**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $7$-$24$-$25$ is a Pythagorean triple, so $PR = 25$.\n\n**The Full Solution:**\nStep 1: Angle $Q$ is the right angle, so $\\overline{PR}$, the side opposite it, is the hypotenuse, and $\\overline{PQ}$ and $\\overline{QR}$ are the legs.\nStep 2: By the Pythagorean theorem, $PR^2 = 7^2 + 24^2 = 49 + 576 = 625$.\nStep 3: So $PR = \\sqrt{625} = 25$. Check: $25$ is longer than $24$ and shorter than $7 + 24 = 31$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): doubles the shorter leg, which has no basis in the Pythagorean theorem.\n* Choice B ($17$): subtracts the legs instead of adding their squares.\n* Choice D ($31$): adds the legs; the hypotenuse is always shorter than their sum.\n\n**Test Day Takeaway:** Name the hypotenuse from the right angle first: it is the side whose endpoints are the two OTHER vertices."
 }

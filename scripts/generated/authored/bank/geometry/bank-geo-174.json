@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-174",
- "question": "For the acute angle $\\theta$ marked on the gas-manifold mounting plate shown, $\\tan\\theta = \\frac{7}{24}$, and the plate's longest edge is $25$ centimeters. What is the plate's perimeter, in centimeters?",
+ "question": "In the right triangle shown, $\\tan\\theta = \\frac{7}{24}$. What is the perimeter of the triangle?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -26,11 +26,12 @@
    "sideLabels": [
     "",
     "",
-    "25 cm"
+    "75"
    ],
-   "rightAngleVertex": 1
+   "rightAngleVertex": 1,
+   "figureNote": true
   }
  },
- "correctAnswer": "56",
- "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**The correct answer is $56$.**\n\n**The Fast Way (~30s):** $\\tan\\theta = \\frac{7}{24}$ with hypotenuse $25$ is the $7$-$24$-$25$ triple exactly, so the perimeter is $7 + 24 + 25 = 56$.\n\n**The Full Solution:**\n\nStep 1: $\\tan\\theta = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{7}{24}$, so the legs are $7k$ and $24k$ for some positive $k$.\n\nStep 2: The hypotenuse is then $25k$, and the plate's longest edge is $25$ centimeters, so $k = 1$ and the legs are $7$ and $24$ centimeters.\n\nStep 3: The perimeter is $7 + 24 + 25 = 56$ centimeters. Check: $7^2 + 24^2 = 49 + 576 = 625 = 25^2$.\n\n**Common Mistakes:**\n\n* $31$ — adding only the two legs and leaving out the $25$-centimeter edge.\n* $84$ — computing the area $\\frac{1}{2}(7)(24)$ instead of the perimeter.\n* $25$ — reporting the longest edge alone.\n\n**Test Day Takeaway:** A tangent ratio names the legs up to a scale factor; one given side pins the factor, and then every side is available."
+ "correctAnswer": "168",
+ "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**The correct answer is 168.**\n\n**The Fast Way (~35s):** $\\tan\\theta = \\frac{7}{24}$ makes the sides $7k$, $24k$, and $25k$; the hypotenuse $25k = 75$ gives $k = 3$, so the perimeter is $56(3) = 168$.\n\n**The Full Solution:**\nStep 1: $\\tan\\theta = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{7}{24}$, so the legs are $7k$ and $24k$ for some positive $k$, and the hypotenuse is $\\sqrt{49k^{2} + 576k^{2}} = 25k$.\nStep 2: The hypotenuse is labeled $75$, so $25k = 75$ and $k = 3$. The legs are $21$ and $72$.\nStep 3: The perimeter is $21 + 72 + 75 = 168$. Check: $21^{2} + 72^{2} = 5{,}625 = 75^{2}$, and $\\frac{21}{72} = \\frac{7}{24}$ ✓\n\n**Common Mistakes:**\n* $56$: uses $7$, $24$, and $25$ as the side lengths without scaling to the hypotenuse of $75$.\n* $93$: adds only the two legs.\n* $756$: computes the area, $\\frac{1}{2}(21)(72)$, instead of the perimeter.\n\n**Test Day Takeaway:** A tangent ratio gives the legs only up to a scale factor; the one labeled side fixes the factor."
 }
