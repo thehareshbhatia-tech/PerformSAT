@@ -1,30 +1,30 @@
 {
- "id": 4,
- "question": "A print shop bills $c(n)=0.35n+k$ dollars for a batch of $n$ price labels, where the constant $k$ covers plate setup. Batches of $120$ labels are billed at $\\$61$. How many dollars does a batch of $500$ labels cost?",
- "hint": "Use the one known batch to pin down $k$ before you evaluate anything else.",
- "choices": [
-  {
-   "id": "A",
-   "text": "$156$"
+  "id": 4,
+  "question": "$f(x) = 2x^{2} - 5x$\nThe function $f$ is defined by the given equation. What is the value of $f(4) - f(-1)$?",
+  "hint": "Find each output separately, then subtract.",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$5$"
+    },
+    {
+      "id": "B",
+      "text": "$15$"
+    },
+    {
+      "id": "C",
+      "text": "$19$"
+    },
+    {
+      "id": "D",
+      "text": "$25$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "evaluates f(-1) as 2 - 5 = -3, losing the sign of -5(-1)",
+    "C": "adds f(4) and f(-1) instead of subtracting",
+    "D": "evaluates f(4 - (-1)) = f(5) instead of subtracting outputs"
   },
-  {
-   "id": "B",
-   "text": "$175$"
-  },
-  {
-   "id": "C",
-   "text": "$194$"
-  },
-  {
-   "id": "D",
-   "text": "$236$"
-  }
- ],
- "distractorNotes": {
-  "A": "sign slip: k = 42 - 61 = -19, giving 175 - 19 = 156",
-  "B": "drops the setup fee and reports only 0.35(500) = 175",
-  "D": "treats the given 61 as the setup fee, giving 175 + 61 = 236"
- },
- "correctAnswer": "C",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** $k=61-0.35(120)=19$, so $c(500)=0.35(500)+19=194$.\n\n**The Full Solution:**\n\nStep 1: Substitute the known batch. $c(120)=0.35(120)+k=42+k$, and this equals $61$.\n\nStep 2: Solve for the setup fee. $42+k=61$ gives $k=19$ dollars.\n\nStep 3: Evaluate at $n=500$. $c(500)=0.35(500)+19=175+19=194$ dollars.\n\nCheck: $c(120)=42+19=61$, matching the given billing.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($156$): subtracts in the wrong direction, taking $k=42-61=-19$ and reporting $175-19=156$.\n* Choice B ($175$): computes only the per-label part, $0.35(500)=175$, and drops the setup fee.\n* Choice D ($236$): treats the given $\\$61$ itself as the setup fee, giving $175+61=236$.\n\n**Test Day Takeaway:** When a model carries an unknown constant, one supplied input-output pair is exactly what determines it."
+  "correctAnswer": "A",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** $f(4) = 32 - 20 = 12$ and $f(-1) = 2 + 5 = 7$, so the difference is $12 - 7 = 5$.\n\n**The Full Solution:**\nStep 1: Evaluate at $4$: $f(4) = 2(4)^{2} - 5(4) = 32 - 20 = 12$.\nStep 2: Evaluate at $-1$: $f(-1) = 2(-1)^{2} - 5(-1) = 2 + 5 = 7$.\nStep 3: Subtract the outputs: $f(4) - f(-1) = 12 - 7 = 5$. Check by factoring: $f(x) = x(2x - 5)$, so $f(4) = 4(3) = 12$ and $f(-1) = (-1)(-7) = 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($15$): computes $-5(-1)$ as $-5$, so $f(-1) = -3$ and $12 - (-3) = 15$.\n* Choice C ($19$): adds the two outputs, $12 + 7$, instead of subtracting.\n* Choice D ($25$): subtracts the inputs first and evaluates $f(5) = 50 - 25 = 25$.\n\n**Test Day Takeaway:** $f(a) - f(b)$ is a difference of outputs; evaluate each one fully before subtracting, and it is not the same as $f(a - b)$."
 }

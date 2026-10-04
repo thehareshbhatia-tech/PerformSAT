@@ -1,29 +1,29 @@
 {
- "question": "A wind tunnel's pressure-difference model $P(t) = \\dfrac{600}{t^2 - 9t}$ gives the difference, in pascals, between two ports $t$ seconds after a fan step change. For which values of $t$ is $P$ undefined?",
- "hint": "Where can a quotient fail to have a value at all?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$0$ only"
+  "question": "$f(x) = \\dfrac{7}{x^{2} - 10x + c}$\nIn the given function, $c$ is a constant. If $f$ is undefined for exactly one value of $x$, what is the value of $c$?",
+  "hint": "When does a quadratic have exactly one zero?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-25$"
+    },
+    {
+      "id": "B",
+      "text": "$10$"
+    },
+    {
+      "id": "C",
+      "text": "$25$"
+    },
+    {
+      "id": "D",
+      "text": "$100$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "makes a sign error in the discriminant, solving 100 + 4c = 0",
+    "B": "copies the magnitude of the x-coefficient as c",
+    "D": "sets c equal to b^2 = 100, forgetting the factor of 4 in b^2 - 4ac"
   },
-  {
-   "id": "B",
-   "text": "$3$ and $-3$"
-  },
-  {
-   "id": "C",
-   "text": "$0$ and $9$"
-  },
-  {
-   "id": "D",
-   "text": "$9$ only"
-  }
- ],
- "distractorNotes": {
-  "A": "solves only the factor t = 0 and stops",
-  "B": "reads the denominator as t^2 - 9 instead of t^2 - 9t",
-  "D": "solves only the factor t - 9 = 0"
- },
- "correctAnswer": "C",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** $t^2 - 9t = t(t - 9)$, which is zero at $t = 0$ and $t = 9$.\n\n**The Full Solution:**\nStep 1: A quotient is undefined exactly where its denominator equals zero.\nStep 2: Factor the denominator: $t^2 - 9t = t(t - 9)$.\nStep 3: A product is zero when either factor is, so $t = 0$ or $t = 9$. Check: $0^2 - 9(0) = 0$ and $9^2 - 9(9) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$ only): stops after the first factor and misses $t - 9$.\n* Choice B ($3$ and $-3$): treats the denominator as the difference of squares $t^2 - 9$.\n* Choice D ($9$ only): solves the second factor and overlooks that $t$ itself can be zero.\n\n**Test Day Takeaway:** Factor the denominator completely — every factor that can vanish removes a value from the domain."
+  "correctAnswer": "C",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** The denominator must have exactly one zero, so its discriminant is $0$: $(-10)^{2} - 4(1)(c) = 0$, giving $c = 25$.\n\n**The Full Solution:**\nStep 1: A fraction is undefined exactly where its denominator equals $0$, so $x^{2} - 10x + c = 0$ must have exactly one real solution.\nStep 2: A quadratic has exactly one real solution when its discriminant is $0$: $(-10)^{2} - 4(1)(c) = 100 - 4c = 0$.\nStep 3: Solve: $4c = 100$, so $c = 25$. Check: $x^{2} - 10x + 25 = (x - 5)^{2}$, which equals $0$ only at $x = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-25$): drops the minus sign in $b^{2} - 4ac$ and solves $100 + 4c = 0$. With $c = -25$ the denominator has two zeros.\n* Choice B ($10$): copies the coefficient of $x$. With $c = 10$ the discriminant is $60$, so there are two zeros.\n* Choice D ($100$): sets $c = b^{2}$ and forgets the factor of $4$; the discriminant would then be $-300$, and $f$ would be defined everywhere.\n\n**Test Day Takeaway:** A rational function is undefined at the zeros of its denominator; \"exactly one\" value means a perfect-square denominator, or a discriminant of $0$."
 }

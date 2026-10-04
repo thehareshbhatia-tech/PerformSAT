@@ -1,5 +1,5 @@
 {
- "question": "A weather balloon's circular path is $(x - 2)^2 + (y + 7)^2 = 64$, and the balloon reaches the point $(2, t)$ with $t$ positive. What is the value of $t$?",
+ "question": "$(x - 2)^2 + (y + 7)^2 = 64$\nThe graph of the given equation in the $xy$-plane is a circle. The point $(2, t)$ lies on the circle, where $t$ is a positive constant. What is the value of $t$?",
  "hint": "What happens to the first square when $x$ equals $2$?",
  "choices": [
   {

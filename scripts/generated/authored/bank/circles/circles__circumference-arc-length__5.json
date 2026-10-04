@@ -1,6 +1,6 @@
 {
  "id": 5,
- "question": "In the figure, points $A$ and $B$ divide the circle into a minor arc of length $6\\pi$ and a major arc of length $18\\pi$. What is the radius of the circle?",
+ "question": "In the figure, points $A$ and $B$ lie on the circle with center $O$. The length of minor arc $AB$ is $6\\pi$, and the length of major arc $AB$ is $18\\pi$. What is the radius of the circle?",
  "diagram": {
   "type": "circleWithSector",
   "params": {

@@ -1,6 +1,6 @@
 {
  "id": 5,
- "question": "A circle in the $xy$-plane is translated $6$ units up with no change in its size. The image of the translated circle has equation $(x + 1)^2 + (y - 2)^2 = 49$. Which equation defines the original circle?",
+ "question": "$(x + 1)^2 + (y - 2)^2 = 49$\nIn the $xy$-plane, the graph of the given equation is the image of circle $C$ after a translation of $6$ units up. Which of the following equations represents circle $C$?",
  "choices": [
   {
    "id": "A",

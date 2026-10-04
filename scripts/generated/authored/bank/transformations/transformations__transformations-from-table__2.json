@@ -1,30 +1,30 @@
 {
- "id": 2,
- "question": "A canning retort's core temperature, in degrees Celsius, at minute $m$ of a cook is $f(m)$, with $f(5) = 62$, $f(10) = 88$, and $f(15) = 104$. A second retort runs a cook modeled by $g(m) = f(m) + 6$. What is the value of $g(10)$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$82$"
+  "id": 2,
+  "question": "$g(x) = f(x) + 6$\nIn the given equation, $f$ is a function. If $f(10) = 88$, what is the value of $g(10)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$82$"
+    },
+    {
+      "id": "B",
+      "text": "$88$"
+    },
+    {
+      "id": "C",
+      "text": "$94$"
+    },
+    {
+      "id": "D",
+      "text": "$528$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts 6 instead of adding it",
+    "B": "reports f(10) and ignores the +6",
+    "D": "multiplies 88 by 6 instead of adding 6"
   },
-  {
-   "id": "B",
-   "text": "$88$"
-  },
-  {
-   "id": "C",
-   "text": "$94$"
-  },
-  {
-   "id": "D",
-   "text": "$110$"
-  }
- ],
- "distractorNotes": {
-  "A": "subtracts 6 instead of adding it",
-  "B": "reports f(10) unchanged",
-  "D": "adds 6 to f(15) instead of f(10)"
- },
- "correctAnswer": "C",
- "hint": "Only one of the three readings given is the one this question needs.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~10s):** $g(10) = f(10) + 6 = 88 + 6 = 94$ degrees Celsius.\n\n**The Full Solution:**\nStep 1: The rule adds $6$ degrees to the first retort's temperature at the same minute.\nStep 2: At minute $10$ the first retort reads $f(10) = 88$ degrees.\nStep 3: So $g(10) = 88 + 6 = 94$ degrees Celsius. Check: $94 - 6 = 88 = f(10)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($82$): subtracting the $6$ instead of adding it.\n* Choice B ($88$): reporting the first retort's reading and leaving the $+6$ out.\n* Choice D ($110$): adding the $6$ to $f(15) = 104$, the reading at the wrong minute.\n\n**Test Day Takeaway:** A constant outside the function applies at the same input; read the matching row before you shift."
+  "correctAnswer": "C",
+  "hint": "Substitute $10$ for $x$ in the given equation.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~10s):** $g(10) = f(10) + 6 = 88 + 6 = 94$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 10$: $g(10) = f(10) + 6$.\nStep 2: It's given that $f(10) = 88$, so $g(10) = 88 + 6$.\nStep 3: $g(10) = 94$. Check: $94 - 88 = 6$, the amount the equation adds ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($82$): this subtracts $6$; the equation adds $6$ to the output of $f$.\n* Choice B ($88$): this is $f(10)$; the $+6$ still has to be applied.\n* Choice D ($528$): this multiplies $88$ by $6$; the equation adds $6$.\n\n**Test Day Takeaway:** Substitute the input into the outer rule first, then use the given value of $f$."
 }

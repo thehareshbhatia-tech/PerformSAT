@@ -1,59 +1,59 @@
 {
- "id": 4,
- "question": "The table gives an adaptive-optics loop's wavefront error $f(n)$, in nanometers, on correction cycle $n$, together with a second loop's error $g(n)$ on the same cycles. Which equation relates $g$ to $f$?",
- "questionTable": {
-  "headers": [
-   "$n$",
-   "$f(n)$",
-   "$g(n)$"
+  "id": 4,
+  "question": "For the functions $f$ and $g$, the table shows four values of $x$ and their corresponding values of $f(x)$ and $g(x)$. Which equation could define $g$ in terms of $f$?",
+  "questionTable": {
+    "headers": [
+      "$x$",
+      "$f(x)$",
+      "$g(x)$"
+    ],
+    "rows": [
+      [
+        "$1$",
+        "$12$",
+        "$4$"
+      ],
+      [
+        "$2$",
+        "$17$",
+        "$7$"
+      ],
+      [
+        "$3$",
+        "$24$",
+        "$12$"
+      ],
+      [
+        "$4$",
+        "$33$",
+        "$19$"
+      ]
+    ]
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$g(x) = f(x) - 5$"
+    },
+    {
+      "id": "B",
+      "text": "$g(x) = f(x + 1) - 5$"
+    },
+    {
+      "id": "C",
+      "text": "$g(x) = f(x - 1) + 5$"
+    },
+    {
+      "id": "D",
+      "text": "$g(x) = f(x - 1) - 5$"
+    }
   ],
-  "rows": [
-   [
-    "$1$",
-    "$12$",
-    "$4$"
-   ],
-   [
-    "$2$",
-    "$17$",
-    "$7$"
-   ],
-   [
-    "$3$",
-    "$24$",
-    "$12$"
-   ],
-   [
-    "$4$",
-    "$33$",
-    "$19$"
-   ]
-  ]
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$g(n) = f(n) - 5$"
+  "distractorNotes": {
+    "A": "compares outputs at the same x, which gives no constant gap",
+    "B": "shifts the input the wrong way",
+    "C": "adds 5 instead of subtracting it"
   },
-  {
-   "id": "B",
-   "text": "$g(n) = f(n + 1) - 5$"
-  },
-  {
-   "id": "C",
-   "text": "$g(n) = f(n - 1) + 5$"
-  },
-  {
-   "id": "D",
-   "text": "$g(n) = f(n - 1) - 5$"
-  }
- ],
- "distractorNotes": {
-  "A": "subtracts 5 without the one-cycle lag",
-  "B": "lags the wrong way, reading ahead one cycle",
-  "C": "has the lag right but adds 5 instead of subtracting"
- },
- "correctAnswer": "D",
- "hint": "No single row of the table settles which rule is right.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~30s):** Each $g$ value is $5$ nanometers below the $f$ value one cycle earlier: $g(n) = f(n - 1) - 5$.\n\n**The Full Solution:**\nStep 1: Compare $g$ with the $f$ value in the row above it: $g(2) = 7$ and $f(1) = 12$; $g(3) = 12$ and $f(2) = 17$; $g(4) = 19$ and $f(3) = 24$.\nStep 2: In every case $g$ is $5$ nanometers less than the previous cycle's $f$, so the second loop lags one cycle and runs $5$ nanometers lower.\nStep 3: That is $g(n) = f(n - 1) - 5$. Check: $f(3) - 5 = 24 - 5 = 19 = g(4)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(n) - 5$): matching the same row, which gives $f(2) - 5 = 12$ instead of the listed $g(2) = 7$.\n* Choice B ($f(n + 1) - 5$): lagging the wrong way, which gives $f(3) - 5 = 19$ instead of the listed $g(2) = 7$.\n* Choice C ($f(n - 1) + 5$): using the right cycle but adding, which gives $f(1) + 5 = 17$ instead of the listed $g(2) = 7$.\n\n**Test Day Takeaway:** Check a candidate rule against a row you have not used yet; a rule that survives every row is the one."
+  "correctAnswer": "D",
+  "hint": "Compare each $g(x)$ with the value of $f$ one row earlier.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~30s):** $g(2) = 7 = 12 - 5 = f(1) - 5$, and the pattern holds in each later row: $g(x) = f(x - 1) - 5$.\n\n**The Full Solution:**\nStep 1: Same-row differences are $8$, $10$, $12$, $14$, not constant, so the relationship is not just a vertical shift.\nStep 2: Compare each $g(x)$ with $f(x - 1)$: $g(2) = 7 = 12 - 5$, $g(3) = 12 = 17 - 5$, $g(4) = 19 = 24 - 5$.\nStep 3: So $g(x) = f(x - 1) - 5$. Check: $f(3) - 5 = 24 - 5 = 19 = g(4)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = f(x) - 5$): at $x = 1$ this gives $12 - 5 = 7$, but $g(1) = 4$.\n* Choice B ($g(x) = f(x + 1) - 5$): at $x = 1$ this gives $f(2) - 5 = 12$, but $g(1) = 4$; the input moves the wrong way.\n* Choice C ($g(x) = f(x - 1) + 5$): at $x = 2$ this gives $f(1) + 5 = 17$, but $g(2) = 7$.\n\n**Test Day Takeaway:** When same-row gaps are not constant, compare across rows: a horizontal shift lines up $g(x)$ with a different row of $f$."
 }

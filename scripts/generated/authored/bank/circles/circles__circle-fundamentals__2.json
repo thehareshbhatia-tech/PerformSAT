@@ -1,6 +1,6 @@
 {
  "id": 2,
- "question": "A clock face is a circle with a radius of $11$ inches. What is the length, in inches, of a diameter of the clock face?",
+ "question": "A circle has a radius of $11$ inches. What is the length, in inches, of a diameter of the circle?",
  "choices": [
   {
    "id": "A",

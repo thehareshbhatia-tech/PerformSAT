@@ -1,6 +1,6 @@
 {
   "id": 5,
-  "question": "A quantity is increased by $p\\%$, and the result is then decreased by $p\\%$. If the final quantity is $84\\%$ of the original quantity, what is the value of $p$?",
+  "question": "A price was increased by $p\\%$, and the new price was then decreased by $p\\%$. The final price was $84\\%$ of the original price. What is the value of $p$?",
   "choices": [
     {
       "id": "A",

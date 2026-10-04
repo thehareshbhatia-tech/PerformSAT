@@ -1,57 +1,57 @@
 {
-  "id": 9,
-  "question": "The functions $f$ and $g$ satisfy $g(x)=f(x)+6$ for every $x$. The table shows four values of $g$. What is the value of $f(3)$?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "x",
-        "g(x)"
-      ],
-      "rows": [
-        [
-          "1",
-          "20"
-        ],
-        [
-          "2",
-          "13"
-        ],
-        [
-          "3",
-          "8"
-        ],
-        [
-          "4",
-          "5"
-        ]
-      ]
-    }
+ "id": 9,
+ "question": "The table shows four values of $x$ and their corresponding values of $g(x)$, where $g(x) = f(x - 1) + 6$. What is the value of $f(3)$?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "x",
+    "g(x)"
+   ],
+   "rows": [
+    [
+     "1",
+     "20"
+    ],
+    [
+     "2",
+     "13"
+    ],
+    [
+     "3",
+     "8"
+    ],
+    [
+     "4",
+     "5"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-1$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$2$"
-    },
-    {
-      "id": "B",
-      "text": "$8$"
-    },
-    {
-      "id": "C",
-      "text": "$14$"
-    },
-    {
-      "id": "D",
-      "text": "$20$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "omits the shift",
-    "C": "adds instead of subtracts",
-    "D": "reads the wrong row"
+  {
+   "id": "B",
+   "text": "$2$"
   },
-  "correctAnswer": "A",
-  "hint": "The relationship is stated in terms of $g$; rearrange it so that $f$ stands alone.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~25s):** From $g(x)=f(x)+6$, $f(x)=g(x)-6$, and the table gives $g(3)=8$, so $f(3)=2$.\n\n**The Full Solution:**\nStep 1: Solving $g(x)=f(x)+6$ for $f$ gives $f(x)=g(x)-6$.\nStep 2: The row $x=3$ of the table gives $g(3)=8$.\nStep 3: Therefore $f(3)=8-6=2$. Check: $f(3)+6=2+6=8=g(3)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($8$): reports $g(3)$ and never undoes the shift.\n* Choice C ($14$): adds $6$ instead of subtracting: the table already contains the raised values.\n* Choice D ($20$): reads the row $x=1$ rather than the row $x=3$.\n\n**Test Day Takeaway:** When the table lists the transformed function, run the transformation backwards to recover the original."
+  {
+   "id": "C",
+   "text": "$7$"
+  },
+  {
+   "id": "D",
+   "text": "$11$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "ignores the shift and computes g(3) - 6",
+  "C": "shifts the wrong way and computes g(2) - 6",
+  "D": "uses the right row but adds 6 to g(4) instead of subtracting"
+ },
+ "correctAnswer": "A",
+ "hint": "Find the input $x$ that makes $x - 1$ equal to $3$.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** $f(3)$ appears in $g(x)$ when $x - 1 = 3$, so $g(4) = f(3) + 6$, and $f(3) = 5 - 6 = -1$.\n\n**The Full Solution:**\nStep 1: The expression $f(x - 1)$ equals $f(3)$ when $x - 1 = 3$, that is, when $x = 4$.\nStep 2: Substitute $x = 4$: $g(4) = f(3) + 6$. The table gives $g(4) = 5$, so $5 = f(3) + 6$.\nStep 3: Subtract $6$ from both sides: $f(3) = -1$. Check: $g(4) = f(3) + 6 = -1 + 6 = 5$, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): ignores the shift and uses the row $x = 3$, computing $8 - 6$.\n* Choice C ($7$): shifts the wrong way and uses the row $x = 2$, computing $13 - 6$.\n* Choice D ($11$): uses the correct row but adds $6$ to $g(4)$ instead of subtracting it.\n\n**Test Day Takeaway:** To recover $f$ at a given input, solve for the $x$ that produces that input inside $g$, then undo the outside operation."
 }

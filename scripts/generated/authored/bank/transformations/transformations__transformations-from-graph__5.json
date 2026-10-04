@@ -1,30 +1,30 @@
 {
- "id": 5,
- "question": "A refrigerated container's interior temperature, in degrees Celsius, $t$ hours after the doors are sealed is $f(t)$, where $f(0) = 12$ and $f$ decreases over the first day. A container sealed five hours later has temperature $g(t) = f(t - 5)$. Which of the following must be true?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$g(0) = 12$"
+  "id": 5,
+  "question": "For the function $f$, $f(4) = 12$. The function $g$ is defined by $g(x) = f(2x - 6) + 1$. Which of the following must be true?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$g(-1) = 13$"
+    },
+    {
+      "id": "B",
+      "text": "$g(5) = 12$"
+    },
+    {
+      "id": "C",
+      "text": "$g(5) = 13$"
+    },
+    {
+      "id": "D",
+      "text": "$g(10) = 13$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "solves 2x - 6 = 4 by subtracting 6 instead of adding it",
+    "B": "finds the correct input but drops the +1",
+    "D": "adds 6 to 4 but forgets to divide by 2"
   },
-  {
-   "id": "B",
-   "text": "$g(-5) = 12$"
-  },
-  {
-   "id": "C",
-   "text": "$g(12) = 5$"
-  },
-  {
-   "id": "D",
-   "text": "$g(5) = 12$"
-  }
- ],
- "distractorNotes": {
-  "A": "ignores the five-hour delay entirely",
-  "B": "applies the delay in the wrong direction",
-  "C": "swaps the input and the output"
- },
- "correctAnswer": "D",
- "hint": "Only one reading of the first container is given; find the statement that uses it.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** $g(t) = f(t - 5)$ repeats each reading five hours later, so $g(5) = f(0) = 12$ degrees.\n\n**The Full Solution:**\nStep 1: Substituting $t = 5$ gives $g(5) = f(5 - 5) = f(0)$.\nStep 2: The first container's temperature at $t = 0$ is $12$ degrees, so $g(5) = 12$.\nStep 3: That statement follows from the rule alone. Check: the later container is sealed five hours after the first, so its temperature at hour $5$ matches the first container's at hour $0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(0) = 12$): ignoring the delay; at $t = 0$ the second container has not yet been sealed, so $g(0) = f(-5)$.\n* Choice B ($g(-5) = 12$): applying the delay in the wrong direction; $g(-5) = f(-10)$, which the given information does not fix.\n* Choice C ($g(12) = 5$): swapping the input and the output; $12$ is a temperature, not an hour.\n\n**Test Day Takeaway:** Substitute the input that makes the inside expression equal the one value you were handed."
+  "correctAnswer": "C",
+  "hint": "Find the value of $x$ that makes $2x - 6 = 4$.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $2x - 6 = 4$ when $x = 5$, so $g(5) = f(4) + 1 = 13$.\n\n**The Full Solution:**\nStep 1: The only value of $f$ that is known is $f(4) = 12$, so find the $x$ that sends $4$ into $f$: $2x - 6 = 4$.\nStep 2: $2x = 10$, so $x = 5$.\nStep 3: $g(5) = f(2(5) - 6) + 1 = f(4) + 1 = 12 + 1 = 13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(-1) = 13$): this solves $2x - 6 = 4$ as $2x = -2$; the $6$ must be added to both sides.\n* Choice B ($g(5) = 12$): the input is right, but the $+1$ outside $f$ raises the output to $13$.\n* Choice D ($g(10) = 13$): this stops at $2x = 10$ and forgets to divide by $2$.\n\n**Test Day Takeaway:** To use a known value $f(a)$, set the whole inside expression equal to $a$ and solve for $x$."
 }

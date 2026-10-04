@@ -1,6 +1,6 @@
 {
  "id": 4,
- "question": "A line is tangent to a circle of radius $9$ at point $T$, and point $P$ lies on that tangent line with $PT = 12$. What is the distance from the center of the circle to $P$?",
+ "question": "Point $T$ lies on a circle with center $O$ and radius $9$. Line $\\ell$ is tangent to the circle at $T$, and point $P$ on line $\\ell$ is $12$ units from $T$. What is the length of $\\overline{OP}$?",
  "choices": [
   {
    "id": "A",
@@ -26,5 +26,5 @@
   "C": "adds the lengths",
   "D": "reports the square"
  },
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** The radius and the tangent form a right angle at $T$, so $OP = \\sqrt{9^2 + 12^2} = 15$.\n\n**The Full Solution:**\nStep 1: Let $O$ be the center. Because the tangent line is perpendicular to $\\overline{OT}$, triangle $OTP$ has a right angle at $T$.\nStep 2: The legs are $OT = 9$ and $TP = 12$, and $\\overline{OP}$ is the hypotenuse: $OP^2 = 81 + 144 = 225$.\nStep 3: $OP = 15$. Check: $9$-$12$-$15$ is the $3$-$4$-$5$ triple scaled by $3$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): subtracts the two lengths, $12 - 9$, as though the three points were collinear.\n* Choice C ($21$): adds the two lengths, which would be the path from $O$ to $T$ to $P$, not the straight-line distance.\n* Choice D ($225$): reports $OP^2$ without taking the square root.\n\n**Test Day Takeaway:** Draw the radius to the point of tangency and a right triangle appears. Almost every tangent-length question is the Pythagorean theorem in disguise."
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** The radius and the tangent form a right angle at $T$, so $OP = \\sqrt{9^2 + 12^2} = 15$.\n\n**The Full Solution:**\nStep 1: Line $\\ell$ is tangent at $T$, so it is perpendicular to $\\overline{OT}$, and triangle $OTP$ has a right angle at $T$.\nStep 2: The legs are $OT = 9$ and $TP = 12$, and $\\overline{OP}$ is the hypotenuse: $OP^2 = 81 + 144 = 225$.\nStep 3: $OP = 15$. Check: $9$-$12$-$15$ is the $3$-$4$-$5$ triple scaled by $3$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): subtracts the two lengths, $12 - 9$, as though the three points were collinear.\n* Choice C ($21$): adds the two lengths, which would be the path from $O$ to $T$ to $P$, not the straight-line distance.\n* Choice D ($225$): reports $OP^2$ without taking the square root.\n\n**Test Day Takeaway:** Draw the radius to the point of tangency and a right triangle appears. Almost every tangent-length question is the Pythagorean theorem in disguise."
 }

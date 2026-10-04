@@ -1,5 +1,5 @@
 {
- "question": "A square baking tray with $6$-inch sides is inscribed in the circular oven plate shown, which is centered at $O$. What is the area, in square inches, of the oven plate?",
+ "question": "In the figure, square $ABCD$ is inscribed in the circle with center $O$. If the side length of the square is $6$, what is the area of the circle?",
  "diagram": {
   "type": "circleWithSquare",
   "params": {
@@ -14,7 +14,7 @@
    "figureNote": true
   }
  },
- "hint": "Which segment of the square stretches all the way across the plate?",
+ "hint": "Which segment of the square stretches all the way across the circle?",
  "choices": [
   {
    "id": "A",
@@ -39,5 +39,5 @@
   "D": "uses the full diagonal as the radius"
  },
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** The tray's diagonal $6\\sqrt{2}$ is a diameter, so the radius is $3\\sqrt{2}$ and the area is $\\pi(3\\sqrt{2})^2 = 18\\pi$.\n\n**The Full Solution:**\nStep 1: The four corners of the tray touch the plate, so the tray's diagonal is a diameter of the plate.\nStep 2: For a square of side $6$, the diagonal is $6\\sqrt{2}$, making the radius $3\\sqrt{2}$.\nStep 3: The area is $\\pi r^2 = \\pi(3\\sqrt{2})^2 = 18\\pi$ square inches. Check: $(3\\sqrt{2})^2 = 9 \\cdot 2 = 18$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\pi$): uses half the side, $3$, as the radius, which is the distance to a side rather than to a corner.\n* Choice C ($36\\pi$): uses the side length $6$ as the radius.\n* Choice D ($72\\pi$): uses the diagonal $6\\sqrt{2}$ as the radius instead of as the diameter.\n\n**Test Day Takeaway:** When a square is inscribed in a circle, the square's diagonal — not its side — is the circle's diameter."
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** The square's diagonal $6\\sqrt{2}$ is a diameter, so the radius is $3\\sqrt{2}$ and the area is $\\pi(3\\sqrt{2})^2 = 18\\pi$.\n\n**The Full Solution:**\nStep 1: All four vertices of the square lie on the circle, so a diagonal of the square, such as $\\overline{AC}$, is a diameter of the circle.\nStep 2: A square with side length $6$ has diagonal $6\\sqrt{2}$, so the radius is $3\\sqrt{2}$.\nStep 3: The area is $\\pi r^2 = \\pi(3\\sqrt{2})^2 = 18\\pi$. Check: $(3\\sqrt{2})^2 = 9 \\cdot 2 = 18$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\pi$): uses half the side, $3$, as the radius, which is the distance from $O$ to a side rather than to a vertex.\n* Choice C ($36\\pi$): uses the side length $6$ as the radius.\n* Choice D ($72\\pi$): uses the diagonal $6\\sqrt{2}$ as the radius instead of as the diameter.\n\n**Test Day Takeaway:** When a square is inscribed in a circle, the square's diagonal, not its side, is the circle's diameter."
 }

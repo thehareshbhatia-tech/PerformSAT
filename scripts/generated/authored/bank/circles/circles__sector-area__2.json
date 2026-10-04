@@ -1,6 +1,6 @@
 {
  "id": 2,
- "question": "A circular stained-glass window has a radius of $10$ inches. One pane of the window is a sector with a central angle of $72^{\\circ}$. What is the area, in square inches, of that pane?",
+ "question": "A circle has a radius of $10$. A sector of this circle has a central angle of $72^{\\circ}$. What is the area of the sector?",
  "choices": [
   {
    "id": "A",
@@ -24,7 +24,7 @@
  "distractorNotes": {
   "A": "computes the arc length",
   "C": "doubles the area formula",
-  "D": "reports the whole window"
+  "D": "reports the area of the whole circle"
  },
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\frac{72}{360} = \\frac{1}{5}$, and the window's area is $100\\pi$, so the pane covers $20\\pi$ square inches.\n\n**The Full Solution:**\nStep 1: The window's area is $\\pi(10)^2 = 100\\pi$ square inches.\nStep 2: The pane's central angle is $\\frac{72}{360} = \\frac{1}{5}$ of a full turn.\nStep 3: The pane's area is $\\frac{1}{5}(100\\pi) = 20\\pi$ square inches. Check: five congruent panes of $20\\pi$ each rebuild the $100\\pi$ window.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\pi$): takes $\\frac{1}{5}$ of the circumference $20\\pi$, producing a length instead of an area.\n* Choice C ($40\\pi$): uses $2\\pi r^2$ for the circle's area, importing the $2$ from the circumference formula.\n* Choice D ($100\\pi$): reports the area of the whole window rather than of one pane.\n\n**Test Day Takeaway:** Reduce the angle fraction before you multiply; $\\frac{72}{360} = \\frac{1}{5}$ turns the arithmetic into a single step."
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\frac{72}{360} = \\frac{1}{5}$, and the circle's area is $100\\pi$, so the sector's area is $20\\pi$.\n\n**The Full Solution:**\nStep 1: The circle's area is $\\pi(10)^2 = 100\\pi$.\nStep 2: The sector's central angle is $\\frac{72}{360} = \\frac{1}{5}$ of a full turn.\nStep 3: The sector's area is $\\frac{1}{5}(100\\pi) = 20\\pi$. Check: five congruent sectors of area $20\\pi$ make up the $100\\pi$ circle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\pi$): takes $\\frac{1}{5}$ of the circumference $20\\pi$, producing a length instead of an area.\n* Choice C ($40\\pi$): uses $2\\pi r^2$ for the circle's area, importing the $2$ from the circumference formula.\n* Choice D ($100\\pi$): reports the area of the whole circle rather than of the sector.\n\n**Test Day Takeaway:** Reduce the angle fraction before you multiply; $\\frac{72}{360} = \\frac{1}{5}$ turns the arithmetic into a single step."
 }

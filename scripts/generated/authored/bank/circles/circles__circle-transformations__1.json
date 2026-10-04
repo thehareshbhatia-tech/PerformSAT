@@ -1,6 +1,6 @@
 {
  "id": 1,
- "question": "In the $xy$-plane, the circle $x^2 + y^2 = 49$ is translated $5$ units to the left. Which equation defines the image of the circle?",
+ "question": "$x^2 + y^2 = 49$\nThe graph of the given equation in the $xy$-plane is a circle. The circle is translated $5$ units to the left. Which of the following equations represents the translated circle?",
  "choices": [
   {
    "id": "A",

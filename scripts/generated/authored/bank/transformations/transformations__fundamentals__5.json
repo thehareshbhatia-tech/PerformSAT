@@ -1,30 +1,30 @@
 {
   "id": 5,
-  "question": "In the $xy$-plane, a function $d$ is defined for every $x>0$, and its graph lies entirely in quadrants I and IV. The graph of $y=d(-x)$ lies entirely in which quadrants?",
+  "question": "The graph of the function $d$ in the $xy$-plane lies entirely in quadrant IV. In which quadrant does the graph of $y = -d(-x)$ lie entirely?",
   "choices": [
     {
       "id": "A",
-      "text": "Quadrants I and II"
+      "text": "Quadrant I"
     },
     {
       "id": "B",
-      "text": "Quadrants I and IV"
+      "text": "Quadrant II"
     },
     {
       "id": "C",
-      "text": "Quadrants II and III"
+      "text": "Quadrant III"
     },
     {
       "id": "D",
-      "text": "Quadrants III and IV"
+      "text": "Quadrant IV"
     }
   ],
   "distractorNotes": {
-    "A": "keeps the original quadrants and adds the mirror image",
-    "B": "treats d(-x) as leaving the graph unchanged",
-    "D": "reflects across the x-axis instead of the y-axis"
+    "A": "applies only the reflection across the x-axis",
+    "C": "applies only the reflection across the y-axis",
+    "D": "assumes the two reflections cancel"
   },
-  "correctAnswer": "C",
-  "hint": "Follow one point $(a,b)$ with $a>0$ through the substitution and watch only the sign of its first coordinate.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** Replacing $x$ with $-x$ sends $(a,b)$ to $(-a,b)$, so every point keeps its height but crosses to the left half-plane: I becomes II and IV becomes III.\n\n**The Full Solution:**\nStep 1: If $(a,b)$ is on the graph of $y=d(x)$, then $d(a)=b$. For $y=d(-x)$, the input $-a$ gives $d(-(-a))=d(a)=b$, so $(-a,b)$ is on the new graph.\nStep 2: Because $d$ is defined only for $x>0$, every original point has $a>0$, so every new point has first coordinate $-a<0$: the entire graph sits left of the $y$-axis.\nStep 3: Heights are unchanged, so points that were in quadrant I ($b>0$) move to quadrant II, and points that were in quadrant IV ($b<0$) move to quadrant III. Check: $(2,5)\\to(-2,5)$ and $(2,-5)\\to(-2,-5)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (quadrants I and II): keeps a copy of the original graph; a reflection relocates the points rather than duplicating them.\n* Choice B (quadrants I and IV): assumes $d(-x)$ leaves the graph in place, which would require $d$ to satisfy $d(-x)=d(x)$.\n* Choice D (quadrants III and IV): flips the heights instead of the inputs — that is the effect of $-d(x)$.\n\n**Test Day Takeaway:** A negative inside the function reflects across the $y$-axis: first coordinates change sign, second coordinates do not."
+  "correctAnswer": "B",
+  "hint": "Track where one point $(a, b)$ of the graph of $d$ is sent.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** Each point $(a, b)$ with $a > 0$ and $b < 0$ moves to $(-a, -b)$, which has $x < 0$ and $y > 0$: quadrant II.\n\n**The Full Solution:**\nStep 1: If $(a, b)$ is on the graph of $d$, then $a > 0$ and $b < 0$.\nStep 2: On $y = -d(-x)$, the input $x = -a$ gives $-d(a) = -b$, so the point $(-a, -b)$ is on the new graph.\nStep 3: $-a < 0$ and $-b > 0$, so every point is in quadrant II. Check with $(2, -3)$: it moves to $(-2, 3)$, in quadrant II ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Quadrant I): this uses only the outside negative sign, which reflects across the $x$-axis; the inside $-x$ also reflects across the $y$-axis.\n* Choice C (Quadrant III): this uses only the inside $-x$; the outside negative sign also flips every $y$-value.\n* Choice D (Quadrant IV): two reflections across different axes do not cancel; together they act like a half turn about the origin.\n\n**Test Day Takeaway:** $-f(-x)$ sends $(a, b)$ to $(-a, -b)$: both signs change, so the graph lands in the opposite quadrant."
 }

@@ -1,6 +1,6 @@
 {
  "id": 3,
- "question": "A pipeline's line pressure, in bars, at pumping station $x$ is $p(x)$, and a parallel pipeline's pressure is $y = p(x - b)$ for a constant $b$. The parallel line reads $30$ bars at station $11$, and the first pipeline reads $30$ bars only at station $4$. What is the value of $b$?",
+ "question": "$f(x) = (x - 4)^{2} + 30$\nIn the $xy$-plane, the graph of $y = f(x - b)$, where $b$ is a constant, is a parabola with vertex $(11, 30)$. What is the value of $b$?",
  "choices": [
   {
    "id": "A",
@@ -20,11 +20,11 @@
   }
  ],
  "distractorNotes": {
-  "A": "solves 4 - 11 instead of 11 - 4",
-  "B": "reports the station where the first pipeline reads 30 bars",
-  "D": "adds the two station numbers, 11 + 4"
+  "A": "reverses the direction of the shift and gets 4 - 11",
+  "B": "reports the x-coordinate of the vertex of the graph of f",
+  "D": "adds the two x-coordinates, 11 + 4"
  },
  "correctAnswer": "C",
- "hint": "The parallel line's reading at station $11$ is one the first line took somewhere else.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** The parallel line at station $11$ repeats $p(11 - b)$, and that must be $p(4)$, so $b = 7$.\n\n**The Full Solution:**\nStep 1: The parallel line's reading at station $11$ is $p(11 - b)$, and it equals $30$ bars.\nStep 2: The first pipeline reads $30$ bars only at station $4$, so $11 - b = 4$.\nStep 3: Solving gives $b = 7$. Check: $p(11 - 7) = p(4) = 30$ bars ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): computing $4 - 11$; the expression to set equal to $4$ is $11 - b$.\n* Choice B ($4$): reporting the station where the first pipeline reads $30$ bars rather than the offset between the lines.\n* Choice D ($15$): adding the two station numbers instead of subtracting them.\n\n**Test Day Takeaway:** Set the expression inside the function equal to the input whose output you already know."
+ "hint": "Find the vertex of the graph of $y = f(x)$ first.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** The vertex moves from $(4, 30)$ to $(11, 30)$, a shift of $7$ units right, so $b = 7$.\n\n**The Full Solution:**\nStep 1: The graph of $y = f(x)$ has vertex $(4, 30)$.\nStep 2: Replacing $x$ with $x - b$ gives $f(x - b) = (x - b - 4)^{2} + 30$, whose vertex has $x$-coordinate $b + 4$.\nStep 3: Set $b + 4 = 11$, so $b = 7$. Check: $f(x - 7) = (x - 11)^{2} + 30$, with vertex $(11, 30)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): reverses the direction of the shift, computing $4 - 11$.\n* Choice B ($4$): reports the $x$-coordinate of the vertex of the original graph.\n* Choice D ($15$): adds the two $x$-coordinates instead of finding their difference.\n\n**Test Day Takeaway:** The graph of $y = f(x - b)$ is the graph of $y = f(x)$ shifted $b$ units right, so $b$ is the change in the $x$-coordinate of any point."
 }

@@ -1,6 +1,6 @@
 {
   "id": 3,
-  "question": "The graph of $y=f(x)$ is shown in the $xy$-plane. The function $g$ is defined by $g(x)=f(x-2)-6$. The graph of $y=g(x)$ attains its maximum value at which point?",
+  "question": "The graph of $y = f(x)$ is shown. If $g(x) = f(x - 2) - 6$, what is the maximum value of $g(x)$?",
   "diagram": {
     "type": "quadraticVertex",
     "params": {
@@ -15,27 +15,27 @@
   "choices": [
     {
       "id": "A",
-      "text": "$(-5,-1)$"
+      "text": "$-3$"
     },
     {
       "id": "B",
-      "text": "$(-5,11)$"
+      "text": "$-1$"
     },
     {
       "id": "C",
-      "text": "$(-1,-1)$"
+      "text": "$5$"
     },
     {
       "id": "D",
-      "text": "$(-1,11)$"
+      "text": "$11$"
     }
   ],
   "distractorNotes": {
-    "A": "shifts left instead of right",
-    "B": "reverses the direction of both shifts",
-    "D": "adds 6 instead of subtracting"
+    "A": "gives the x-coordinate of the maximum of f",
+    "C": "gives the maximum of f and ignores the -6",
+    "D": "adds 6 instead of subtracting it"
   },
-  "correctAnswer": "C",
-  "hint": "Read the highest point of the graph shown, then move it once horizontally and once vertically.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** The peak of $f$ is at $(-3,5)$; moving right $2$ and down $6$ puts the peak of $g$ at $(-1,-1)$.\n\n**The Full Solution:**\nStep 1: From the graph, the greatest value of $f$ is $5$, attained at $x=-3$, so the high point is $(-3,5)$.\nStep 2: The inside change $x-2$ shifts the graph right $2$ units: $-3+2=-1$.\nStep 3: The outside $-6$ lowers every output: $5-6=-1$. The maximum of $g$ occurs at $(-1,-1)$. Check: $g(-1)=f(-1-2)-6=f(-3)-6=5-6=-1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-5,-1)$): shifts left instead of right; $f(x-2)$ moves the graph in the positive direction.\n* Choice B ($(-5,11)$): reverses both changes at once — left instead of right and up instead of down.\n* Choice D ($(-1,11)$): adds $6$ to the height instead of subtracting it.\n\n**Test Day Takeaway:** Extreme points travel with the graph: apply the horizontal rule to the $x$-coordinate and the vertical rule to the $y$-coordinate."
+  "correctAnswer": "B",
+  "hint": "A horizontal shift does not change the greatest value; only the outside constant does.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** The greatest value of $f$ is $5$, so the greatest value of $g$ is $5 - 6 = -1$.\n\n**The Full Solution:**\nStep 1: From the graph, the highest point of $y = f(x)$ is $(-3, 5)$, so the maximum value of $f(x)$ is $5$.\nStep 2: The inside $x - 2$ moves the graph right $2$ units, which does not change any output; the outside $-6$ lowers every output by $6$.\nStep 3: The maximum value of $g(x)$ is $5 - 6 = -1$. Check: $g(-1) = f(-3) - 6 = 5 - 6 = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): $-3$ is where $f$ reaches its maximum, not the maximum value.\n* Choice C ($5$): this is the maximum of $f$; the $-6$ outside lowers it.\n* Choice D ($11$): this adds $6$; the outside $-6$ moves the graph down.\n\n**Test Day Takeaway:** Horizontal shifts move where an extreme occurs; only vertical changes alter the extreme value."
 }

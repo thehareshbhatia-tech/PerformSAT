@@ -1,30 +1,30 @@
 {
   "id": 5,
-  "question": "A bridge inspector sets a whole-number damping parameter $n$ between $1$ and $20$, and the deck response for that setting is graphed as $y = 2x^2 + 9x + n$. The inspector issues a warning for any setting whose graph crosses the horizontal axis at two points. For how many settings is a warning issued?",
+  "question": "$3x^{2} + 12x + n = 0$\nIn the given equation, $n$ is a positive integer. For how many values of $n$ does the equation have two distinct real solutions?",
   "choices": [
     {
       "id": "A",
-      "text": "$5$"
-    },
-    {
-      "id": "B",
-      "text": "$10$"
-    },
-    {
-      "id": "C",
       "text": "$11$"
     },
     {
+      "id": "B",
+      "text": "$12$"
+    },
+    {
+      "id": "C",
+      "text": "$35$"
+    },
+    {
       "id": "D",
-      "text": "$20$"
+      "text": "$47$"
     }
   ],
   "distractorNotes": {
-    "A": "uses 81 - 16n > 0, squaring the leading coefficient inside 4ac, and stops at n = 5",
-    "C": "includes n = 11, where 81 - 88 = -7 and the graph misses the axis entirely",
-    "D": "counts all 20 settings, assuming every upward parabola crosses the axis twice"
+    "B": "uses b^2 - 4ac >= 0, counting n = 12, where the discriminant is 0 and the equation has only one solution",
+    "C": "leaves a = 3 out of 4ac, solving 144 - 4n > 0 to get n < 36 and counting 35 values",
+    "D": "leaves the 4 out of 4ac, solving 144 - 3n > 0 to get n < 48 and counting 47 values"
   },
-  "correctAnswer": "B",
-  "hint": "A setting earns a warning only while the discriminant stays above zero.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** Two crossings need $81 - 8n > 0$, so $n < 10.125$ and the whole numbers $1$ through $10$ qualify — $10$ settings.\n\n**The Full Solution:**\nStep 1: Translate \"crosses the axis at two points.\" The graph of $y = 2x^2 + 9x + n$ meets $y = 0$ twice exactly when $9^2 - 4(2)(n) > 0$.\nStep 2: Solve the inequality. $81 - 8n > 0$ gives $8n < 81$, so $n < 10.125$.\nStep 3: Count the allowed whole numbers and check the boundary. From $1$ through $20$, the values $1, 2, \\ldots, 10$ satisfy $n < 10.125$ — that is $10$ settings. At $n = 10$ the discriminant is $81 - 80 = 1 > 0$; at $n = 11$ it is $-7$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): uses $81 - 16n > 0$, doubling the $2$ a second time inside $4ac$, and stops at $n = 5$.\n* Choice C ($11$): includes $n = 11$, where the discriminant is $-7$ and the parabola stays above the axis.\n* Choice D ($20$): counts every setting. An upward parabola can sit entirely above the axis.\n\n**Test Day Takeaway:** Turn \"two crossings\" into $b^2 - 4ac > 0$, solve for the parameter, then count the integers — and always test the boundary value."
+  "correctAnswer": "A",
+  "hint": "Two distinct real solutions require a positive discriminant; solve for n, then count the positive integers.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** Two solutions need $144 - 12n > 0$, so $n < 12$, and the positive integers $1$ through $11$ qualify: $11$ values.\n\n**The Full Solution:**\nStep 1: Write the condition. The equation has two distinct real solutions exactly when $12^{2} - 4(3)(n) > 0$, that is, $144 - 12n > 0$.\nStep 2: Solve the inequality: $12n < 144$, so $n < 12$.\nStep 3: Count the positive integers less than $12$: $1, 2, \\ldots, 11$, which is $11$ values. Check the boundary: at $n = 11$ the discriminant is $144 - 132 = 12 > 0$, and at $n = 12$ it is $0$, which gives only one solution. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($12$): uses $\\ge$ instead of $>$ and counts $n = 12$, where the equation $3(x + 2)^{2} = 0$ has only one solution.\n* Choice C ($35$): leaves $a = 3$ out of $4ac$, solving $144 - 4n > 0$.\n* Choice D ($47$): leaves the $4$ out of $4ac$, solving $144 - 3n > 0$.\n\n**Test Day Takeaway:** Translate \"two distinct real solutions\" into $b^{2} - 4ac > 0$, solve for the parameter, and test the boundary value before you count."
 }

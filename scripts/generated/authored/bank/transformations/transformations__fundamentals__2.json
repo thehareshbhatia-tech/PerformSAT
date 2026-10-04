@@ -1,30 +1,30 @@
 {
   "id": 2,
-  "question": "The function $q$ is defined by $q(x)=\\sqrt{x}$, and the leftmost point of the graph of $y=q(x)$ in the $xy$-plane is the origin. What is the leftmost point of the graph of $y=q(x-9)$?",
+  "question": "$q(x) = \\sqrt{x}$\nWhat is the $x$-intercept of the graph of $y = q(x - 9)$ in the $xy$-plane?",
   "choices": [
     {
       "id": "A",
-      "text": "$(-9,0)$"
+      "text": "$(-9, 0)$"
     },
     {
       "id": "B",
-      "text": "$(0,-9)$"
+      "text": "$(3, 0)$"
     },
     {
       "id": "C",
-      "text": "$(0,9)$"
+      "text": "$(9, 0)$"
     },
     {
       "id": "D",
-      "text": "$(9,0)$"
+      "text": "$(81, 0)$"
     }
   ],
   "distractorNotes": {
-    "A": "moves the endpoint left instead of right",
-    "B": "applies the shift to the y-coordinate",
-    "C": "applies the shift to the y-coordinate with the wrong sign"
+    "A": "shifts the graph left 9 instead of right 9",
+    "B": "takes the square root of 9 as the shift",
+    "D": "solves sqrt(x) - 9 = 0, treating the shift as vertical"
   },
-  "correctAnswer": "D",
-  "hint": "Ask which input makes the quantity under the radical equal to $0$.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** The radical starts where $x-9=0$, so the endpoint moves from $x=0$ to $x=9$ and stays on the $x$-axis.\n\n**The Full Solution:**\nStep 1: $q(x-9)=\\sqrt{x-9}$, which is defined only when $x-9\\ge 0$, that is, when $x\\ge 9$.\nStep 2: At the smallest allowed input, $x=9$, the output is $\\sqrt{9-9}=\\sqrt{0}=0$.\nStep 3: So the leftmost point is $(9,0)$ — the origin translated $9$ units right, with no vertical movement. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-9,0)$): treats $x-9$ as a shift left; inside the function the graph moves opposite to the sign.\n* Choice B ($(0,-9)$): applies the $9$ to the output, which would require $q(x)-9$.\n* Choice C ($(0,9)$): applies the $9$ to the output and reverses its sign as well.\n\n**Test Day Takeaway:** For a change inside the function, set the inside expression equal to the old input value and solve for the new $x$."
+  "correctAnswer": "C",
+  "hint": "Find the input that makes the expression under the square root equal to $0$.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\sqrt{x - 9} = 0$ only when $x = 9$, so the $x$-intercept is $(9, 0)$.\n\n**The Full Solution:**\nStep 1: The graph of $y = q(x - 9)$ is the graph of $y = \\sqrt{x - 9}$.\nStep 2: An $x$-intercept has $y = 0$: $\\sqrt{x - 9} = 0$ gives $x - 9 = 0$, so $x = 9$.\nStep 3: Check: $q(9 - 9) = \\sqrt{0} = 0$, so $(9, 0)$ is on the graph ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-9, 0)$): this moves the starting point of $y = \\sqrt{x}$ left $9$; subtracting $9$ inside moves it right.\n* Choice B ($(3, 0)$): this takes $\\sqrt{9} = 3$ as the shift; the whole $9$ is subtracted from $x$ before the root is taken.\n* Choice D ($(81, 0)$): this solves $\\sqrt{x} - 9 = 0$, which is a vertical shift; here the $9$ is inside the root.\n\n**Test Day Takeaway:** A change inside the function moves the graph sideways, opposite to the sign you see: $q(x - 9)$ moves right $9$."
 }

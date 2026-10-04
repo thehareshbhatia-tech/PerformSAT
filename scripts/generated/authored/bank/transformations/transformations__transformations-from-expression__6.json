@@ -1,10 +1,10 @@
 {
  "id": 6,
- "question": "A cargo bike's load sensor reads $W(t)$ kilograms $t$ minutes into a route, and a duplicate log records $y = W(t) - 15$. The duplicate log reads $62$ kilograms at $t = 20$. What did the load sensor read at $t = 20$?",
+ "question": "$g(x) = f(x) - 15$\nFor the given function $g$, $g(20) = 62$. What is the value of $f(20)$?",
  "choices": [
   {
    "id": "A",
-   "text": "$15$"
+   "text": "$5$"
   },
   {
    "id": "B",
@@ -20,11 +20,11 @@
   }
  ],
  "distractorNotes": {
-  "A": "reports the size of the adjustment rather than a load",
-  "B": "subtracts 15 again instead of adding it back",
-  "C": "reports the duplicate log's reading unchanged"
+  "A": "applies the 15 to the input, computing 20 - 15",
+  "B": "subtracts 15 from 62 instead of adding it",
+  "C": "repeats the given value g(20)"
  },
  "correctAnswer": "D",
- "hint": "The number you are given is the duplicate log's reading, not the sensor's.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~10s):** The duplicate reads $15$ kilograms low, so the sensor read $62 + 15 = 77$ kilograms.\n\n**The Full Solution:**\nStep 1: The duplicate's reading at minute $20$ is $W(20) - 15$.\nStep 2: Set that equal to the recorded value: $W(20) - 15 = 62$.\nStep 3: Add $15$ to both sides: $W(20) = 77$ kilograms. Check: $77 - 15 = 62$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): reporting the size of the adjustment instead of a load.\n* Choice B ($47$): subtracting $15$ again; the rule has already subtracted it once, so it must be added back.\n* Choice C ($62$): reporting the duplicate log's value, which is what the question asks you to correct.\n\n**Test Day Takeaway:** To recover the original output, undo the outside operation rather than repeating it."
+ "hint": "Substitute $x = 20$ into the given equation.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~15s):** $62 = f(20) - 15$, so $f(20) = 77$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 20$ into the given equation: $g(20) = f(20) - 15$.\nStep 2: Replace $g(20)$ with $62$: $62 = f(20) - 15$.\nStep 3: Add $15$ to both sides: $f(20) = 77$. Check: $77 - 15 = 62$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): applies the $15$ to the input, computing $20 - 15$.\n* Choice B ($47$): subtracts $15$ from $62$ instead of adding it.\n* Choice C ($62$): repeats the given value of $g(20)$.\n\n**Test Day Takeaway:** The outputs of $f(x) - 15$ are $15$ less than the outputs of $f$, so recover $f$ by adding $15$ back."
 }

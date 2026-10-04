@@ -1,30 +1,30 @@
 {
   "id": 4,
-  "question": "A parabola in the $xy$-plane is the graph of $y = px^2 + qx + r$, where $p$, $q$, and $r$ are constants with $p < 0$. Which of the following must be true about this parabola?",
+  "question": "$f(x) = (5 - x)(x + 1)$\nWhich of the following is true about the graph of $y = f(x)$ in the $xy$-plane?",
   "choices": [
     {
       "id": "A",
-      "text": "It opens downward, and its vertex is its highest point."
+      "text": "It opens downward, and its vertex is $(-2, -7)$."
     },
     {
       "id": "B",
-      "text": "It opens downward, and its vertex is its lowest point."
+      "text": "It opens downward, and its vertex is $(2, 9)$."
     },
     {
       "id": "C",
-      "text": "It opens upward, and its vertex is its highest point."
+      "text": "It opens upward, and its vertex is $(2, -9)$."
     },
     {
       "id": "D",
-      "text": "It opens upward, and its vertex is its lowest point."
+      "text": "It opens upward, and its vertex is $(2, 9)$."
     }
   ],
   "distractorNotes": {
-    "B": "downward curves have no lowest point",
-    "C": "impossible pairing",
-    "D": "describes the case p > 0"
+    "A": "finds the direction correctly but takes the vertex x-coordinate as +b/(2a) = -2, then evaluates f(-2) = -7",
+    "C": "expands the product as x^2 - 4x - 5, losing the minus sign on x^2, so the parabola opens upward with vertex (2, -9)",
+    "D": "finds the vertex (2, 9) correctly but misses that (5 - x) contributes -x, so it reads the leading coefficient as positive and the graph as opening upward"
   },
-  "correctAnswer": "A",
-  "hint": "Only the sign of the squared term's coefficient matters here; the other two constants slide the curve but never flip it over.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** A negative leading coefficient turns the arms downward, so the vertex sits above every other point.\n\n**The Full Solution:**\nStep 1: Completing the square rewrites the equation as $y = p(x - h)^2 + k$ with the same leading constant $p$, since that step never changes it.\nStep 2: The squared quantity $(x - h)^2$ is never negative, so with $p < 0$ the product $p(x - h)^2$ is never positive, and therefore $y \\leq k$ for every $x$.\nStep 3: Equality holds only at $x = h$, so the vertex $(h, k)$ is the highest point on the curve and both arms fall away from it. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: reads the direction correctly but then calls the vertex the lowest point; a downward-opening curve has no lowest point.\n* Choice C: pairs an upward opening with a highest point, a combination no parabola can have.\n* Choice D: describes what happens when $p > 0$, the opposite of the stated condition.\n\n**Test Day Takeaway:** The constants $q$ and $r$ slide a parabola around the plane, but only the sign of the squared term's coefficient decides maximum versus minimum."
+  "correctAnswer": "B",
+  "hint": "Expand the product to see the sign of the x-squared term before you look for the vertex.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** The product of $-x$ and $x$ gives $-x^{2}$, so the graph opens downward. The zeros are $-1$ and $5$, so the vertex is at $x = 2$, and $f(2) = (3)(3) = 9$.\n\n**The Full Solution:**\nStep 1: Expand: $(5 - x)(x + 1) = 5x + 5 - x^{2} - x = -x^{2} + 4x + 5$. The coefficient of $x^{2}$ is $-1$, so the parabola opens downward.\nStep 2: The zeros of $f$ are $x = 5$ and $x = -1$. The vertex lies halfway between them, at $x = \\frac{5 + (-1)}{2} = 2$; the formula $-\\frac{b}{2a} = -\\frac{4}{2(-1)} = 2$ agrees.\nStep 3: Evaluate: $f(2) = (5 - 2)(2 + 1) = 9$, so the vertex is $(2, 9)$. Check with the expanded form: $-(2)^{2} + 4(2) + 5 = -4 + 8 + 5 = 9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-2, -7)$): drops the minus sign in $-\\frac{b}{2a}$, uses $x = -2$, and evaluates $f(-2) = (7)(-1) = -7$.\n* Choice C ($(2, -9)$): expands the product as $x^{2} - 4x - 5$, losing the sign of the $x^{2}$ term; that parabola would open upward with vertex $(2, -9)$.\n* Choice D: finds the right vertex but misses that $(5 - x)$ contributes $-x$, so the leading coefficient is negative.\n\n**Test Day Takeaway:** For a function in factored form, the sign of $x^{2}$ is the product of the $x$-coefficients in the factors, and the vertex sits midway between the zeros."
 }

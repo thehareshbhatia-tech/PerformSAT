@@ -1,30 +1,30 @@
 {
- "id": 2,
- "question": "A planetarium projector's lamp output, in hundreds of lumens, after $x$ hundred hours of use is $h(x)$, and the graph of $y = h(x)$ passes through $(3, 14)$. Through which point does the graph of $y = h(x) + 6$ pass?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$(3, 8)$"
+  "id": 2,
+  "question": "If the point $(3, 14)$ lies on the graph of $y = h(x)$ in the $xy$-plane, which point lies on the graph of $y = h(x) + 6$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-3, 14)$"
+    },
+    {
+      "id": "B",
+      "text": "$(3, 8)$"
+    },
+    {
+      "id": "C",
+      "text": "$(3, 20)$"
+    },
+    {
+      "id": "D",
+      "text": "$(9, 14)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "moves the point left 6 as if the 6 were inside h",
+    "B": "subtracts 6 from the y-coordinate",
+    "D": "adds 6 to the x-coordinate"
   },
-  {
-   "id": "B",
-   "text": "$(-3, 14)$"
-  },
-  {
-   "id": "C",
-   "text": "$(9, 14)$"
-  },
-  {
-   "id": "D",
-   "text": "$(3, 20)$"
-  }
- ],
- "distractorNotes": {
-  "A": "subtracts 6 from the output instead of adding it",
-  "B": "subtracts 6 from the input",
-  "C": "adds 6 to the input instead of the output"
- },
- "correctAnswer": "D",
- "hint": "Ask which of the point's two coordinates the rule is able to touch.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~10s):** Adding $6$ outside the function raises the height of every point, so $(3, 14)$ becomes $(3, 20)$.\n\n**The Full Solution:**\nStep 1: The point $(3, 14)$ means $h(3) = 14$.\nStep 2: For the new graph, the height at $x = 3$ is $h(3) + 6 = 14 + 6 = 20$.\nStep 3: So the new graph passes through $(3, 20)$. Check: substituting $x = 3$ into $y = h(x) + 6$ gives $y = 20$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(3, 8)$): subtracting the $6$ from the output instead of adding it.\n* Choice B ($(-3, 14)$): subtracting the $6$ from the input, which moves the point sideways.\n* Choice C ($(9, 14)$): adding the $6$ to the input; a constant outside the function never moves a point sideways.\n\n**Test Day Takeaway:** A constant added outside the function changes only the second coordinate of every point."
+  "correctAnswer": "C",
+  "hint": "An outside $+6$ changes only the $y$-coordinate.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~10s):** $h(3) = 14$, so at $x = 3$ the new graph has $y = 14 + 6 = 20$.\n\n**The Full Solution:**\nStep 1: The point $(3, 14)$ on $y = h(x)$ means $h(3) = 14$.\nStep 2: At $x = 3$, $y = h(3) + 6 = 14 + 6 = 20$.\nStep 3: So $(3, 20)$ is on the new graph, $6$ units above $(3, 14)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-3, 14)$): this treats the $6$ as a change to the input; adding $6$ outside $h$ leaves $x$ alone.\n* Choice B ($(3, 8)$): this subtracts $6$; adding $6$ to every output moves the graph up.\n* Choice D ($(9, 14)$): this adds $6$ to the $x$-coordinate, which would be a horizontal shift.\n\n**Test Day Takeaway:** $h(x) + k$ moves every point straight up $k$ units: $(a, b)$ becomes $(a, b + k)$."
 }

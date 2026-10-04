@@ -1,30 +1,30 @@
 {
   "id": 3,
-  "question": "An electric utility charges a household $\\$72$ for one month of service. A new rate plan lowers that monthly charge by $35\\%$. By how many dollars is the monthly charge lowered?",
+  "question": "The price of a jacket is \\$72. During a sale, the price of the jacket is reduced by $35\\%$. What is the sale price, in dollars, of the jacket?",
   "choices": [
     {
       "id": "A",
-      "text": "$2.52$"
-    },
-    {
-      "id": "B",
       "text": "$25.20$"
     },
     {
-      "id": "C",
+      "id": "B",
       "text": "$37$"
     },
     {
-      "id": "D",
+      "id": "C",
       "text": "$46.80$"
+    },
+    {
+      "id": "D",
+      "text": "$97.20$"
     }
   ],
   "distractorNotes": {
-    "A": "multiplies by 0.035",
-    "C": "treats 35 percent as 35 dollars",
-    "D": "reports the new charge"
+    "A": "reports the amount of the discount, 0.35 x 72 = 25.20, instead of the sale price",
+    "B": "subtracts 35 from 72, treating 35 percent as 35 dollars",
+    "D": "increases the price by 35% instead of reducing it"
   },
-  "correctAnswer": "B",
-  "hint": "The question asks for the size of the reduction, not for the charge that remains.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** $0.35 \\times 72 = 25.20$.\n\n**The Full Solution:**\nStep 1: A reduction of $35\\%$ means the charge drops by $35\\%$ of the current charge, so compute $35\\%$ of $72$.\nStep 2: Write the percent as a decimal and multiply: $0.35 \\times 72 = 25.2$.\nStep 3: The charge is lowered by $\\$25.20$. Check: the new charge would be $72 - 25.20 = 46.80$, which is $65\\%$ of $72$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.52$): multiplies by $0.035$, misplacing the decimal point by one place.\n* Choice C ($37$): subtracts $35$ from $72$, treating the percent as a number of dollars.\n* Choice D ($46.80$): reports the new monthly charge instead of the amount of the reduction.\n\n**Test Day Takeaway:** Read whether the question wants the CHANGE or the NEW amount — the two differ by exactly the original value."
+  "correctAnswer": "C",
+  "hint": "The sale price is the part of the original price that remains after the reduction.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** After a $35\\%$ reduction, $65\\%$ of the price remains: $0.65 \\times 72 = 46.80$.\n\n**The Full Solution:**\nStep 1: A reduction of $35\\%$ leaves $100\\% - 35\\% = 65\\%$ of the original price.\nStep 2: Write the percent as a decimal and multiply: $0.65 \\times 72 = 46.8$.\nStep 3: The sale price is $\\$46.80$. Check: the discount is $0.35 \\times 72 = 25.20$, and $72 - 25.20 = 46.80$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($25.20$): is the amount of the discount, not the price after the discount.\n* Choice B ($37$): subtracts $35$ from $72$, treating the percent as a number of dollars.\n* Choice D ($97.20$): multiplies by $1.35$, increasing the price instead of reducing it.\n\n**Test Day Takeaway:** Read whether the question wants the CHANGE or the NEW amount; for a decrease of $p\\%$, the new amount is $(1 - \\frac{p}{100})$ times the original."
 }

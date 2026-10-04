@@ -1,6 +1,6 @@
 {
  "id": 2,
- "question": "The circle $(x - 1)^2 + (y + 6)^2 = 16$ is translated in the $xy$-plane so that its center moves to $(4, -2)$. Which equation defines the translated circle?",
+ "question": "Circle $P$ in the $xy$-plane has equation $(x - 1)^2 + (y + 6)^2 = 16$. Circle $Q$ is the result of translating circle $P$ so that its center is at $(4, -2)$. Which equation represents circle $Q$?",
  "choices": [
   {
    "id": "A",

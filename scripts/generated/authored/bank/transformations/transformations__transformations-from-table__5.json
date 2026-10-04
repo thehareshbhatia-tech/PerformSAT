@@ -1,58 +1,58 @@
 {
- "id": 5,
- "question": "The table gives an orchard frost sensor's nightly temperature margin $f(x)$, in degrees Celsius, on night $x$. The block's risk index is $g(x) = -f(x) + 10$. What is the greatest value of $g(x)$ among the nights listed?",
- "questionTable": {
-  "headers": [
-   "Night $x$",
-   "$f(x)$"
+  "id": 5,
+  "question": "The table shows five values of $x$ and their corresponding values of $f(x)$. The function $g$ is defined by $g(x) = 10 - f(x)$. What is the greatest value of $g(x)$ for the values of $x$ in the table?",
+  "questionTable": {
+    "headers": [
+      "$x$",
+      "$f(x)$"
+    ],
+    "rows": [
+      [
+        "$1$",
+        "$6$"
+      ],
+      [
+        "$2$",
+        "$-2$"
+      ],
+      [
+        "$3$",
+        "$4$"
+      ],
+      [
+        "$4$",
+        "$-7$"
+      ],
+      [
+        "$5$",
+        "$3$"
+      ]
+    ]
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$12$"
+    },
+    {
+      "id": "C",
+      "text": "$16$"
+    },
+    {
+      "id": "D",
+      "text": "$17$"
+    }
   ],
-  "rows": [
-   [
-    "$1$",
-    "$6$"
-   ],
-   [
-    "$2$",
-    "$-2$"
-   ],
-   [
-    "$3$",
-    "$4$"
-   ],
-   [
-    "$4$",
-    "$-7$"
-   ],
-   [
-    "$5$",
-    "$3$"
-   ]
-  ]
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$4$"
+  "distractorNotes": {
+    "A": "uses the greatest value of f, computing 10 - 6",
+    "B": "uses the first negative value of f, -2, not the least one",
+    "C": "drops the negative sign, computing 10 + 6"
   },
-  {
-   "id": "B",
-   "text": "$12$"
-  },
-  {
-   "id": "C",
-   "text": "$16$"
-  },
-  {
-   "id": "D",
-   "text": "$17$"
-  }
- ],
- "distractorNotes": {
-  "A": "uses the greatest margin 6, computing -6 + 10 = 4",
-  "B": "stops at the first negative margin -2, computing 12",
-  "C": "drops the negative sign, computing 6 + 10 = 16"
- },
- "correctAnswer": "D",
- "hint": "The greatest index need not come from the greatest margin.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~30s):** The reflection makes the most negative margin the largest index: $-(-7) + 10 = 17$.\n\n**The Full Solution:**\nStep 1: Because of the minus sign, $g$ is largest where $f$ is smallest.\nStep 2: The smallest margin listed is $-7$ degrees, on night $4$.\nStep 3: So the greatest risk index is $g(4) = -(-7) + 10 = 7 + 10 = 17$. Check: the other nights give $4$, $12$, $6$, and $7$, all below $17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): using the greatest margin, $6$, and computing $-6 + 10$; the reflection sends the largest margin to the smallest index.\n* Choice B ($12$): stopping at the first negative margin, $-2$, instead of the most negative one.\n* Choice C ($16$): dropping the minus sign and computing $6 + 10$.\n\n**Test Day Takeaway:** A negative coefficient reverses which input gives the extreme value — scan for the smallest, not the largest."
+  "correctAnswer": "D",
+  "hint": "Because $f(x)$ is subtracted, the greatest $g(x)$ need not come from the greatest $f(x)$.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** Subtracting $f(x)$ makes the least $f(x)$ give the greatest $g(x)$: $10 - (-7) = 17$.\n\n**The Full Solution:**\nStep 1: Since $f(x)$ is subtracted from $10$, $g(x)$ is greatest where $f(x)$ is least.\nStep 2: The least value of $f(x)$ in the table is $-7$, at $x = 4$.\nStep 3: So the greatest value of $g(x)$ is $10 - (-7) = 17$. Check: the other rows give $4$, $12$, $6$, and $7$, all less than $17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): this uses the greatest value of $f$, $6$; subtracting it gives the least value of $g$.\n* Choice B ($12$): this uses $-2$, the first negative value, instead of the least value, $-7$.\n* Choice C ($16$): this computes $10 + 6$, dropping the negative sign.\n\n**Test Day Takeaway:** A negative sign on $f$ reverses the order of the outputs: look for the least value of $f$, not the greatest."
 }

@@ -1,6 +1,6 @@
 {
  "id": 3,
- "question": "In the $xy$-plane, a circle with center at the origin and radius $4$ is dilated about the origin by a scale factor of $3$. Which equation defines the image?",
+ "question": "In the $xy$-plane, a circle with center $(0, 0)$ and radius $4$ is dilated about the origin by a scale factor of $3$. Which of the following equations represents the image of the circle?",
  "choices": [
   {
    "id": "A",

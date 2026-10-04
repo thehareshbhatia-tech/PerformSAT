@@ -1,30 +1,30 @@
 {
   "id": 3,
-  "question": "For a function $m$, the graph of $y=-m(x)$ in the $xy$-plane can be obtained by reflecting the graph of $y=m(x)$ across which of the following lines?",
+  "question": "$f(x) = -(x - 3)^{2} + 5$\nIn the $xy$-plane, the graph of $y = g(x)$ is the reflection of the graph of $y = f(x)$ across the $x$-axis. What is the minimum value of $g(x)$?",
   "choices": [
     {
       "id": "A",
-      "text": "The line $y=-x$"
+      "text": "$-5$"
     },
     {
       "id": "B",
-      "text": "The line $y=x$"
+      "text": "$-3$"
     },
     {
       "id": "C",
-      "text": "The $x$-axis"
+      "text": "$3$"
     },
     {
       "id": "D",
-      "text": "The $y$-axis"
+      "text": "$5$"
     }
   ],
   "distractorNotes": {
-    "A": "reflects through the origin instead of the x-axis",
-    "B": "confuses a sign change with taking the inverse",
-    "D": "confuses -m(x) with m(-x)"
+    "B": "reflects the x-coordinate of the vertex instead of the y-coordinate",
+    "C": "gives the x-coordinate where the minimum occurs",
+    "D": "keeps the maximum of f without reflecting it"
   },
-  "correctAnswer": "C",
-  "hint": "Track what the negative sign does to a single point $(a,b)$ on the graph of $m$.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** Negating the output sends $(a,b)$ to $(a,-b)$ — the $x$-coordinate is fixed and the height flips, which is a mirror in the $x$-axis.\n\n**The Full Solution:**\nStep 1: The negative sign is applied after $m$ evaluates, so it multiplies every output by $-1$.\nStep 2: A point $(a,b)$ on $y=m(x)$ therefore corresponds to $(a,-b)$ on $y=-m(x)$: same horizontal position, opposite height.\nStep 3: Points above the $x$-axis land the same distance below it, and points on the axis stay put — the definition of a reflection across the $x$-axis. Check: if $m(4)=7$, then $-m(4)=-7$, and $(4,7)$ and $(4,-7)$ are mirror images in the $x$-axis. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (the line $y=-x$): reflecting across $y=-x$ sends $(a,b)$ to $(-b,-a)$, which mixes the coordinates; only the output changed here.\n* Choice B (the line $y=x$): reflecting across $y=x$ swaps the coordinates and produces the inverse relation, not a sign change.\n* Choice D (the $y$-axis): that reflection is $m(-x)$, with the negative sign attached to the input rather than to the output.\n\n**Test Day Takeaway:** A negative outside the function flips $y$ (reflection in the $x$-axis); a negative inside flips $x$ (reflection in the $y$-axis)."
+  "correctAnswer": "A",
+  "hint": "A reflection across the $x$-axis changes the sign of every output.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $g(x) = -f(x) = (x - 3)^{2} - 5$, so the least value of $g(x)$ is $-5$.\n\n**The Full Solution:**\nStep 1: A reflection across the $x$-axis sends each point $(a, b)$ to $(a, -b)$, so $g(x) = -f(x)$.\nStep 2: $g(x) = -\\left(-(x - 3)^{2} + 5\\right) = (x - 3)^{2} - 5$, a parabola that opens upward with vertex $(3, -5)$.\nStep 3: Since $(x - 3)^{2} \\ge 0$, the least value of $g(x)$ is $-5$, reached at $x = 3$. Check: $g(3) = -f(3) = -5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-3$): this changes the sign of the vertex's $x$-coordinate; the reflection changes the $y$-coordinate.\n* Choice C ($3$): $3$ is where the minimum occurs, not the minimum value itself.\n* Choice D ($5$): $5$ is the maximum value of $f$; after the reflection the high point becomes a low point at $-5$.\n\n**Test Day Takeaway:** Reflecting across the $x$-axis turns a maximum of $k$ into a minimum of $-k$ at the same $x$-value."
 }

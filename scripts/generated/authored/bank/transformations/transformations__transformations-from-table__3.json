@@ -1,6 +1,6 @@
 {
   "id": 3,
-  "question": "For the function $f$, the table shows the value of $f(x)$ at four values of $x$. The function $g$ is defined by $g(x)=-f(x)$. What is the value of $g(3)$?",
+  "question": "The table shows four values of $x$ and their corresponding values of $f(x)$. If $g(x) = -f(x + 3)$, what is the value of $g(3)$?",
   "diagram": {
     "type": "dataTable",
     "params": {
@@ -39,19 +39,19 @@
     },
     {
       "id": "C",
-      "text": "$2$"
+      "text": "$-2$"
     },
     {
       "id": "D",
-      "text": "$8$"
+      "text": "$2$"
     }
   ],
   "distractorNotes": {
-    "B": "reads the wrong row",
-    "C": "negates the value at x = 6",
-    "D": "omits the negative sign"
+    "A": "ignores the +3 and negates f(3)",
+    "B": "subtracts 3 from the input and negates f(0)",
+    "C": "finds f(6) but drops the negative sign"
   },
-  "correctAnswer": "A",
-  "hint": "Read the row for the input you need, then decide what the negative sign changes.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** The table gives $f(3)=8$, and $g(3)=-f(3)=-8$.\n\n**The Full Solution:**\nStep 1: Locate $x=3$ in the table; the corresponding output is $f(3)=8$.\nStep 2: The definition $g(x)=-f(x)$ multiplies that output by $-1$.\nStep 3: So $g(3)=-8$. Check: the graph of $g$ is the graph of $f$ reflected across the $x$-axis, so a height of $8$ becomes a height of $-8$ at the same input. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-5$): negates the output in the row $x=0$ instead of the row $x=3$.\n* Choice C ($2$): negates the output in the row $x=6$: $-(-2)=2$.\n* Choice D ($8$): reports $f(3)$ itself and never applies the negative sign.\n\n**Test Day Takeaway:** A negative outside the function changes the sign of the output and nothing else."
+  "correctAnswer": "D",
+  "hint": "Find the input that $f$ receives when $x = 3$.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** $g(3) = -f(6) = -(-2) = 2$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 3$: $g(3) = -f(3 + 3) = -f(6)$.\nStep 2: The table shows $f(6) = -2$.\nStep 3: So $g(3) = -(-2) = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): this negates $f(3) = 8$ and never adds $3$ to the input.\n* Choice B ($-5$): this uses $f(0) = 5$, subtracting $3$ from the input instead of adding it.\n* Choice C ($-2$): this is $f(6)$ itself; the negative sign outside $f$ still has to be applied.\n\n**Test Day Takeaway:** Work from the inside out: compute the new input, look it up, then apply the outside sign."
 }

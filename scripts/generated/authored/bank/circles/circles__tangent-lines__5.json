@@ -1,6 +1,6 @@
 {
  "id": 5,
- "question": "In the $xy$-plane, a circle with center $(3, 5)$ passes through the point $(7, 2)$. Which of the following equations defines the line that is tangent to this circle at $(7, 2)$?",
+ "question": "In the $xy$-plane, a circle has center $(3, 5)$ and passes through the point $(7, 2)$. Line $\\ell$ is tangent to the circle at $(7, 2)$. Which equation defines line $\\ell$?",
  "choices": [
   {
    "id": "A",

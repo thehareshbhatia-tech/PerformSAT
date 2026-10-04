@@ -1,30 +1,30 @@
 {
  "id": 5,
- "question": "A wind-tunnel probe records the pressure difference $f(x)$, in pascals, at distance $x$ centimeters from a model's nose, and $f$ equals $0$ only at $x = -8$ and $x = 12$. A second probe records $y = f(2x)$. At which values of $x$ does the second probe record $0$ pascals?",
+ "question": "The graph of $y = f(x)$ in the $xy$-plane has exactly two x-intercepts, $(-8, 0)$ and $(12, 0)$. If $g(x) = f(2x + 4)$, which of the following is an x-intercept of the graph of $y = g(x)$?",
  "choices": [
   {
    "id": "A",
-   "text": "At $x = -16$ and $x = 24$."
+   "text": "$(-12, 0)$"
   },
   {
    "id": "B",
-   "text": "At $x = -10$ and $x = 10$."
+   "text": "$(-6, 0)$"
   },
   {
    "id": "C",
-   "text": "At $x = -6$ and $x = 14$."
+   "text": "$(-4, 0)$"
   },
   {
    "id": "D",
-   "text": "At $x = -4$ and $x = 6$."
+   "text": "$(-2, 0)$"
   }
  ],
  "distractorNotes": {
-  "A": "multiplies each distance by 2 instead of dividing",
-  "B": "subtracts 2 from each distance",
-  "C": "adds 2 to each distance"
+  "A": "substitutes -8 into 2x + 4 instead of solving 2x + 4 = -8",
+  "C": "halves -8 and ignores the 4",
+  "D": "adds 4 before halving, solving x = (-8 + 4)/2"
  },
- "correctAnswer": "D",
- "hint": "The second probe reaches the same two readings, just not at the same distances.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~30s):** $f(2x) = 0$ requires $2x$ to be $-8$ or $12$, so $x$ is $-4$ or $6$.\n\n**The Full Solution:**\nStep 1: The second probe reads zero exactly when $f(2x) = 0$, that is, when $2x$ is one of the two distances where $f$ is zero.\nStep 2: So $2x = -8$ or $2x = 12$.\nStep 3: Dividing each by $2$ gives $x = -4$ and $x = 6$. Check: $f(2(-4)) = f(-8) = 0$ and $f(2(6)) = f(12) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-16$ and $24$): multiplying each distance by $2$; the doubling happens to the input, so it must be undone by dividing.\n* Choice B ($-10$ and $10$): subtracting $2$ from each distance, treating a factor as a shift.\n* Choice C ($-6$ and $14$): adding $2$ to each distance, again treating a factor as a shift.\n\n**Test Day Takeaway:** A factor inside the function compresses the graph horizontally; solve for the input that reproduces the known value."
+ "correctAnswer": "B",
+ "hint": "The graph of $g$ crosses the x-axis where $2x + 4$ equals an x-intercept of $f$.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~45s):** $g(x) = 0$ when $2x + 4 = -8$ or $2x + 4 = 12$, which gives $x = -6$ or $x = 4$; only $(-6, 0)$ is a choice.\n\n**The Full Solution:**\nStep 1: $g(x) = f(2x + 4)$ equals $0$ exactly when $2x + 4$ is $-8$ or $12$.\nStep 2: Solve $2x + 4 = -8$: $2x = -12$, so $x = -6$. Solve $2x + 4 = 12$: $2x = 8$, so $x = 4$.\nStep 3: The x-intercepts of the graph of $y = g(x)$ are $(-6, 0)$ and $(4, 0)$, and only $(-6, 0)$ is a choice. Check: $g(-6) = f(2(-6) + 4) = f(-8) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-12, 0)$): substitutes $-8$ into $2x + 4$ instead of solving $2x + 4 = -8$.\n* Choice C ($(-4, 0)$): halves $-8$ but ignores the $+4$ inside the function.\n* Choice D ($(-2, 0)$): adds $4$ before halving instead of subtracting it.\n\n**Test Day Takeaway:** To find where $f(ax + b)$ is zero, set the inside expression equal to each zero of $f$ and solve for $x$."
 }

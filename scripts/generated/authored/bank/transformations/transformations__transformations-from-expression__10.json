@@ -1,30 +1,30 @@
 {
  "id": 10,
- "question": "An olive mill's oil yield, in kilograms, from $p$ tonnes of fruit is $q(p)$. A larger mill sets aside the first $6$ tonnes of every delivery for curing and yields four times as much oil per tonne of the fruit it presses. Which equation defines the larger mill's yield $g$?",
+ "question": "$f(x) = x^{2} - 3x$\nThe function $g$ is defined by $g(x) = f(x + 2)$. Which expression is equivalent to $g(x)$?",
  "choices": [
   {
    "id": "A",
-   "text": "$g(p) = 4q(p + 6)$"
+   "text": "$x^{2} - 3x - 2$"
   },
   {
    "id": "B",
-   "text": "$g(p) = q(4p - 6)$"
+   "text": "$x^{2} - 3x + 2$"
   },
   {
    "id": "C",
-   "text": "$g(p) = 4q(p) - 6$"
+   "text": "$x^{2} + x - 2$"
   },
   {
    "id": "D",
-   "text": "$g(p) = 4q(p - 6)$"
+   "text": "$x^{2} + x + 10$"
   }
  ],
  "distractorNotes": {
-  "A": "shifts the tonnage the wrong way, adding 6 instead of removing it",
-  "B": "multiplies the tonnage by 4 rather than the yield",
-  "C": "subtracts 6 kilograms of oil instead of removing 6 tonnes of fruit"
+  "A": "expands (x + 2)^2 as x^2 + 4",
+  "B": "adds 2 to the output, computing f(x) + 2",
+  "D": "distributes -3 over (x + 2) as -3x + 6"
  },
- "correctAnswer": "D",
- "hint": "Decide whether the $6$ tonnes changes what the press receives or what it produces.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** Only $p - 6$ tonnes reach the press, and each pressed tonne yields four times as much, so $g(p) = 4q(p - 6)$.\n\n**The Full Solution:**\nStep 1: Setting aside the first $6$ tonnes means the press receives $p - 6$ tonnes, so the input to $q$ is $p - 6$.\nStep 2: Yielding four times as much oil multiplies the output of $q$, so the whole value is multiplied by $4$.\nStep 3: Together these give $g(p) = 4q(p - 6)$. Check: a $26$-tonne delivery presses $20$ tonnes, so $g(26) = 4q(20)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4q(p + 6)$): adding the $6$ tonnes to the delivery instead of removing them.\n* Choice B ($q(4p - 6)$): multiplying the tonnage by $4$; the four-fold gain is in oil produced, which is the output.\n* Choice C ($4q(p) - 6$): subtracting $6$ kilograms of oil at the end rather than removing $6$ tonnes of fruit at the start.\n\n**Test Day Takeaway:** Decide first whether each number changes what goes in or what comes out, then place it inside or outside the function."
+ "correctAnswer": "C",
+ "hint": "Replace every $x$ in $f(x)$ with $x + 2$.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~40s):** $(x + 2)^{2} - 3(x + 2) = x^{2} + 4x + 4 - 3x - 6 = x^{2} + x - 2$.\n\n**The Full Solution:**\nStep 1: Substitute $x + 2$ for $x$: $g(x) = (x + 2)^{2} - 3(x + 2)$.\nStep 2: Expand: $(x + 2)^{2} = x^{2} + 4x + 4$ and $-3(x + 2) = -3x - 6$.\nStep 3: Combine like terms: $g(x) = x^{2} + x - 2$. Check with $x = 1$: $g(1) = f(3) = 9 - 9 = 0$, and $1 + 1 - 2 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2} - 3x - 2$): expands $(x + 2)^{2}$ as $x^{2} + 4$, dropping the middle term.\n* Choice B ($x^{2} - 3x + 2$): adds $2$ to the output, which is $f(x) + 2$, not $f(x + 2)$.\n* Choice D ($x^{2} + x + 10$): distributes $-3$ over $(x + 2)$ as $-3x + 6$.\n\n**Test Day Takeaway:** For $f(x + h)$, substitute $x + h$ for every $x$ and expand fully; a quick check at one value of $x$ catches sign errors."
 }

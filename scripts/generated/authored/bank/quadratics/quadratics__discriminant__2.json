@@ -1,30 +1,30 @@
 {
   "id": 2,
-  "question": "For a quadratic equation of the form $ax^2 + bx + c = 0$ with real coefficients and $a \\neq 0$, the value of $b^2 - 4ac$ is $0$. How many distinct real solutions does this equation have?",
+  "question": "Which of the following equations has no real solutions?",
   "choices": [
     {
       "id": "A",
-      "text": "Zero"
+      "text": "$x^{2} - 9 = 0$"
     },
     {
       "id": "B",
-      "text": "Exactly one"
+      "text": "$x^{2} + 4x + 4 = 0$"
     },
     {
       "id": "C",
-      "text": "Exactly two"
+      "text": "$x^{2} + 4x - 5 = 0$"
     },
     {
       "id": "D",
-      "text": "Infinitely many"
+      "text": "$x^{2} + 4x + 7 = 0$"
     }
   ],
   "distractorNotes": {
-    "A": "the negative-discriminant case",
-    "C": "the positive-discriminant case",
-    "D": "impossible for a quadratic"
+    "A": "confuses x^2 - 9 = 0 with x^2 + 9 = 0; x^2 = 9 has the real solutions 3 and -3",
+    "B": "treats a discriminant of 0 as \"no solutions\"; x^2 + 4x + 4 = (x + 2)^2 has the one solution -2",
+    "C": "assumes a negative constant means no real solutions; the discriminant is 16 + 20 = 36 > 0"
   },
-  "correctAnswer": "B",
-  "hint": "The discriminant sits under the square root in the quadratic formula.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** The quadratic formula becomes $x = \\frac{-b \\pm 0}{2a}$, a single value.\n\n**The Full Solution:**\nStep 1: The quadratic formula gives $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$, and the discriminant is what sits under the radical.\nStep 2: With $b^2 - 4ac = 0$, the radical contributes $\\sqrt{0} = 0$, so the plus and the minus produce the same number.\nStep 3: Both branches collapse to $x = \\frac{-b}{2a}$, so there is exactly one distinct real solution. Check the geometry: the parabola touches the $x$-axis at its vertex and does not cross. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: describes a NEGATIVE discriminant, where the radical has no real value.\n* Choice C: describes a POSITIVE discriminant, where the plus and the minus give different numbers.\n* Choice D: no quadratic equation with $a \\neq 0$ can have infinitely many solutions, since a parabola meets a line at most twice.\n\n**Test Day Takeaway:** Sign of the discriminant, not its size, sets the count: negative gives none, zero gives one, positive gives two."
+  "correctAnswer": "D",
+  "hint": "A negative discriminant means no real solutions.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** For $x^{2} + 4x + 7 = 0$, $b^{2} - 4ac = 16 - 28 = -12 < 0$, so it has no real solutions.\n\n**The Full Solution:**\nStep 1: An equation $ax^{2} + bx + c = 0$ has no real solutions exactly when $b^{2} - 4ac < 0$.\nStep 2: Compute each discriminant: A: $0 - 4(1)(-9) = 36$; B: $16 - 16 = 0$; C: $16 - 4(1)(-5) = 36$; D: $16 - 4(1)(7) = -12$.\nStep 3: Only choice D is negative. Check by completing the square: $x^{2} + 4x + 7 = (x + 2)^{2} + 3$, which is at least $3$ for every real $x$, so it is never $0$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2} - 9 = 0$): has the real solutions $3$ and $-3$. The equation with no real solutions would be $x^{2} + 9 = 0$.\n* Choice B ($x^{2} + 4x + 4 = 0$): has discriminant $0$, which means exactly one real solution, $x = -2$, not zero solutions.\n* Choice C ($x^{2} + 4x - 5 = 0$): a negative constant makes $-4ac$ positive; this equation factors as $(x + 5)(x - 1) = 0$.\n\n**Test Day Takeaway:** Zero real solutions means a NEGATIVE discriminant; a discriminant of exactly $0$ still gives one real solution."
 }

@@ -1,6 +1,6 @@
 {
  "id": 1,
- "question": "In the $xy$-plane, the graph of $(x + 3)^2 + (y - 1)^2 = 16$ is a circle. What is the least possible value of $x$ for a point $(x, y)$ on this circle?",
+ "question": "$(x + 3)^2 + (y - 1)^2 = 16$\nThe graph of the given equation in the $xy$-plane is a circle. What is the minimum value of $x$ for any point $(x, y)$ on the circle?",
  "choices": [
   {
    "id": "A",

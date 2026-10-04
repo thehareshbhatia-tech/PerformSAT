@@ -1,57 +1,57 @@
 {
- "id": 3,
- "question": "Field crews surveyed $400$ stream transects in a coastal watershed and recorded the proportion of transects on which each amphibian species was detected, shown in the table. Expressed as a percent, how much greater is the proportion for the Pacific chorus frog than the proportion for the rough-skinned newt?",
- "diagram": {
-  "type": "dataTable",
-  "params": {
-   "headers": [
-    "Species",
-    "Proportion of transects with a detection"
-   ],
-   "rows": [
-    [
-     "Pacific chorus frog",
-     "0.48"
-    ],
-    [
-     "Rough-skinned newt",
-     "0.32"
-    ],
-    [
-     "Red-legged frog",
-     "0.21"
-    ],
-    [
-     "Long-toed salamander",
-     "0.09"
-    ]
-   ]
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$0.16\\%$"
+  "id": 3,
+  "question": "The table shows the proportion of the students at a school who chose each of four after-school activities. Each student chose exactly one activity. What percent of the students chose music or drama?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "Activity",
+        "Proportion of students"
+      ],
+      "rows": [
+        [
+          "Art",
+          "0.35"
+        ],
+        [
+          "Music",
+          "0.28"
+        ],
+        [
+          "Sports",
+          "0.25"
+        ],
+        [
+          "Drama",
+          "0.12"
+        ]
+      ]
+    }
   },
-  {
-   "id": "B",
-   "text": "$1.6\\%$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$0.4\\%$"
+    },
+    {
+      "id": "B",
+      "text": "$4\\%$"
+    },
+    {
+      "id": "C",
+      "text": "$28\\%$"
+    },
+    {
+      "id": "D",
+      "text": "$40\\%$"
+    }
+  ],
+  "correctAnswer": "D",
+  "distractorNotes": {
+    "A": "adds the proportions to get 0.40 and writes a percent sign after 0.4 without multiplying by 100",
+    "B": "multiplies 0.40 by 10 instead of 100",
+    "C": "uses only the proportion for music, 0.28, and leaves out drama"
   },
-  {
-   "id": "C",
-   "text": "$16\\%$"
-  },
-  {
-   "id": "D",
-   "text": "$80\\%$"
-  }
- ],
- "correctAnswer": "C",
- "distractorNotes": {
-  "A": "reports the decimal difference $0.16$ as if it were already a percent",
-  "B": "moves the decimal point one place instead of two, giving $1.6\\%$",
-  "D": "adds the two proportions instead of subtracting, giving $0.80$, or $80\\%$"
- },
- "hint": "A proportion written as a decimal becomes a percent when it is multiplied by $100$.",
- "explanation": "**Choice C is correct.** The two proportions differ by $0.48 - 0.32 = 0.16$, and $0.16$ written as a percent is $16\\%$.\n\n**The Fast Way (~30s):** Subtract first, convert once: $0.48 - 0.32 = 0.16$, and $0.16 \\times 100 = 16$, so the difference is $16\\%$.\n\n**The Full Solution:**\n\nStep 1: Read the two proportions from the table. The Pacific chorus frog was detected on a proportion of $0.48$ of the transects, and the rough-skinned newt on a proportion of $0.32$.\n\nStep 2: Find how much greater one is than the other: $0.48-0.32=0.16$.\n\nStep 3: Convert the decimal to a percent by multiplying by $100$: $0.16 \\times 100 = 16$, so the difference is $16\\%$. Check with counts: $0.48(400) = 192$ transects and $0.32(400) = 128$ transects, a difference of $64$ transects, and $\\frac{64}{400} = 0.16 = 16\\%$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($0.16\\%$): stops at the decimal difference $0.16$ and writes a percent sign after it. A decimal is not already a percent.\n* Choice B ($1.6\\%$): multiplies by $10$ instead of $100$, shifting the decimal point only one place.\n* Choice D ($80\\%$): adds the two proportions, $0.48 + 0.32 = 0.80$, instead of subtracting them.\n\n**Test Day Takeaway:** Do the arithmetic in one system, then convert once at the end -- mixing decimals and percents mid-problem is what produces the factor-of-$100$ misses."
+  "hint": "Add the two proportions first, then convert the sum to a percent once.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** $0.28+0.12=0.40$, and $0.40 \\times 100 = 40$, so $40\\%$ of the students chose music or drama.\n\n**The Full Solution:**\nStep 1: Read the two proportions from the table: music is $0.28$ and drama is $0.12$.\nStep 2: Each student chose exactly one activity, so the two groups do not overlap, and the proportion who chose music or drama is $0.28+0.12=0.40$.\nStep 3: Convert to a percent by multiplying by $100$: $0.40 \\times 100 = 40$, so the answer is $40\\%$. Check: the four proportions sum to $0.35+0.28+0.25+0.12=1$, and art and sports together make up the other $60\\%$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.4\\%$): writes a percent sign after the decimal $0.4$ without multiplying by $100$.\n* Choice B ($4\\%$): multiplies by $10$ instead of $100$, shifting the decimal point only one place.\n* Choice C ($28\\%$): uses music alone and forgets to add the drama students.\n\n**Test Day Takeaway:** Do the arithmetic with the decimals, then convert to a percent once at the end; mixing the two mid-problem is what produces factor-of-$100$ misses."
 }

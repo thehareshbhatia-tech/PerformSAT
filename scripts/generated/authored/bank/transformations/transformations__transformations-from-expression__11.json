@@ -1,6 +1,6 @@
 {
  "id": 11,
- "question": "A cryocooler's temperature offset, in kelvins, $x$ hours into a cooldown is $f(x)$, whose least value is $-2$, at $x = 4$. A second unit satisfies $h(x) = a\\,f(x - 3) + 5$ for a positive constant $a$, and the least value of $h$ is $-9$. What is the value of $a$?",
+ "question": "$h(x) = af(x - 3) + 5$\nIn the given equation, $a$ is a positive constant. The minimum value of $f$ is $-2$, at $x = 4$, and the minimum value of $h$ is $-9$. What is the value of $a$?",
  "choices": [
   {
    "id": "A",
@@ -20,11 +20,11 @@
   }
  ],
  "distractorNotes": {
-  "A": "drops the negative on f's least value, solving 2a + 5 = -9",
-  "B": "adds the 5 instead of subtracting it, solving -2a = -4",
-  "D": "stops at -2a = -14 and reports 14 without dividing"
+  "A": "drops a sign when solving -2a = -14",
+  "B": "subtracts 5 instead of adding it, solving -2a - 5 = -9",
+  "D": "stops at -2a = -14 and reports 14, the value of 2a"
  },
  "correctAnswer": "C",
- "hint": "The sign of $a$ decides which reading of $f$ produces the least value of $h$.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** A positive $a$ keeps $-2$ the least value, so $-2a + 5 = -9$ and $a = 7$.\n\n**The Full Solution:**\nStep 1: Because $a$ is positive, $a\\,f(x - 3)$ is least exactly where $f$ is least, so the least value of $h$ is $a(-2) + 5$.\nStep 2: Set that equal to the stated minimum: $-2a + 5 = -9$, so $-2a = -14$.\nStep 3: Divide by $-2$: $a = 7$. Check: $7(-2) + 5 = -14 + 5 = -9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): dropping the negative on $f$'s least value and solving $2a + 5 = -9$.\n* Choice B ($2$): adding the $5$ to $-9$ instead of subtracting it, which gives $-2a = -4$.\n* Choice D ($14$): stopping at $-2a = -14$ and reporting $14$ without dividing by $-2$.\n\n**Test Day Takeaway:** A positive multiplier preserves which input gives the extreme value; only the value itself is scaled and shifted."
+ "hint": "The horizontal shift does not change the minimum value.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~40s):** With $a > 0$, the minimum of $h$ is $a(-2) + 5$, so $-2a + 5 = -9$ and $a = 7$.\n\n**The Full Solution:**\nStep 1: The shift $x - 3$ moves the minimum to $x = 7$ but does not change its value, and multiplying by a positive $a$ keeps the minimum a minimum.\nStep 2: So the minimum value of $h$ is $a(-2) + 5$, and $-2a + 5 = -9$.\nStep 3: Subtract $5$: $-2a = -14$, so $a = 7$. Check: $h(7) = 7f(4) + 5 = 7(-2) + 5 = -9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): drops a sign while dividing $-14$ by $-2$; $a$ must be positive.\n* Choice B ($2$): writes the constant as $-5$, solving $-2a - 5 = -9$.\n* Choice D ($14$): stops at $-2a = -14$ and reports the value of $2a$.\n\n**Test Day Takeaway:** Horizontal shifts move where an extreme value occurs, not how big it is; only the outside operations change the value."
 }

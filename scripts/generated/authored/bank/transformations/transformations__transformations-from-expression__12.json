@@ -1,30 +1,30 @@
 {
  "id": 12,
- "question": "A fermentation tank's temperature deviation from its set point is $f(t)$ degrees Celsius at $t$ hours after inoculation, with greatest value $5$, at $t = 1$, and least value $-3$, at $t = 6$. A monitoring channel logs $y = -2f(t)$. Which of the following must be true of that log?",
+ "question": "The function $f$ has a maximum value of $5$ at $x = 1$ and a minimum value of $-3$ at $x = 6$. The function $g$ is defined by $g(x) = -2f(x)$. Which of the following must be true?",
  "choices": [
   {
    "id": "A",
-   "text": "Its greatest value is $-6$, reached at $t = 6$."
+   "text": "The maximum value of $g$ is $-10$, at $x = 1$."
   },
   {
    "id": "B",
-   "text": "Its greatest value is $6$, reached at $t = 1$."
+   "text": "The maximum value of $g$ is $6$, at $x = 1$."
   },
   {
    "id": "C",
-   "text": "Its greatest value is $10$, reached at $t = 1$."
+   "text": "The maximum value of $g$ is $6$, at $x = 6$."
   },
   {
    "id": "D",
-   "text": "Its greatest value is $6$, reached at $t = 6$."
+   "text": "The maximum value of $g$ is $10$, at $x = 1$."
   }
  ],
  "distractorNotes": {
-  "A": "multiplies -3 by -2 but keeps the result negative",
-  "B": "pairs the correct value with the hour of f's maximum",
-  "C": "scales f's greatest value 5 by 2 and ignores the reflection"
+  "A": "applies -2 to the maximum of f, which gives the minimum of g",
+  "B": "finds the right value but places it where f is greatest",
+  "D": "ignores the negative sign and doubles the maximum of f"
  },
- "correctAnswer": "D",
- "hint": "The log's largest reading need not come from the tank's largest deviation.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~30s):** Multiplying by $-2$ turns the least deviation, $-3$, into the greatest logged value, $6$, at $t = 6$.\n\n**The Full Solution:**\nStep 1: Multiplying by a negative number reverses order: the input that made $f$ least makes $-2f$ greatest.\nStep 2: The least value of $f$ is $-3$, at $t = 6$, so the greatest value of $-2f(t)$ is $-2(-3) = 6$, at $t = 6$.\nStep 3: No other input can beat it, since $f(t) \\ge -3$ gives $-2f(t) \\le 6$ for every $t$. Check: at $t = 1$ the log reads $-2(5) = -10$, the least logged value ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$ at $t = 6$): multiplying $-3$ by $-2$ but keeping the answer negative; two negatives give $+6$.\n* Choice B ($6$ at $t = 1$): pairing the correct value with the hour of $f$'s maximum instead of its minimum.\n* Choice C ($10$ at $t = 1$): scaling $f$'s greatest value $5$ by $2$ and ignoring the reflection, which sends $5$ to $-10$.\n\n**Test Day Takeaway:** A negative multiplier swaps maximum and minimum — find the extreme value first, then check which input produces it."
+ "correctAnswer": "C",
+ "hint": "Multiplying by a negative number turns the lowest point into the highest point.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** Multiplying by $-2$ flips the graph, so the minimum of $f$ becomes the maximum of $g$: $-2(-3) = 6$, at $x = 6$.\n\n**The Full Solution:**\nStep 1: Because $-2$ is negative, $g$ is greatest where $f$ is least.\nStep 2: The least value of $f$ is $-3$, at $x = 6$, so the maximum value of $g$ is $g(6) = -2(-3) = 6$.\nStep 3: The maximum of $g$ is $6$, at $x = 6$. Check: $g(1) = -2(5) = -10$, the minimum of $g$, and $6 > -10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$, at $x = 1$): applies $-2$ to the maximum of $f$; that gives the minimum of $g$.\n* Choice B ($6$, at $x = 1$): finds the right value but places it where $f$ is greatest.\n* Choice D ($10$, at $x = 1$): ignores the negative sign and doubles the maximum of $f$.\n\n**Test Day Takeaway:** A negative factor outside the function reflects the graph across the x-axis, so maximum and minimum trade places."
 }

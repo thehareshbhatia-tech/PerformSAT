@@ -1,30 +1,30 @@
 {
   "id": 1,
-  "question": "In a chemistry lab, $6\\%$ of a sample's mass is sodium. Which of the following decimals is equivalent to $6\\%$?",
+  "question": "What is $6\\%$ of $m$?",
   "choices": [
     {
       "id": "A",
-      "text": "$0.006$"
+      "text": "$0.006m$"
     },
     {
       "id": "B",
-      "text": "$0.06$"
+      "text": "$0.06m$"
     },
     {
       "id": "C",
-      "text": "$0.6$"
+      "text": "$0.6m$"
     },
     {
       "id": "D",
-      "text": "$6$"
+      "text": "$6m$"
     }
   ],
   "distractorNotes": {
-    "A": "divides by 1,000",
-    "C": "moves the decimal one place",
-    "D": "drops the percent without dividing"
+    "A": "divides 6 by 1,000 instead of 100",
+    "C": "moves the decimal point only one place, which is 60%",
+    "D": "drops the percent sign without dividing by 100"
   },
   "correctAnswer": "B",
   "hint": "A percent counts hundredths, so the decimal point moves two places to the left.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** $6\\% = \\frac{6}{100} = 0.06$.\n\n**The Full Solution:**\nStep 1: The word percent means per hundred, so $6\\%$ is the fraction $\\frac{6}{100}$.\nStep 2: Dividing $6$ by $100$ moves the decimal point two places to the left: $6. \\to 0.06$.\nStep 3: So $6\\% = 0.06$. Check by reversing: $0.06 \\times 100 = 6$, which is the original percent. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.006$): divides by $1{,}000$, moving the decimal point three places.\n* Choice C ($0.6$): moves the decimal point only one place, which is $60\\%$.\n* Choice D ($6$): drops the percent sign without dividing at all.\n\n**Test Day Takeaway:** Converting a percent to a decimal is a single division by $100$; converting back is a single multiplication by $100$."
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** $6\\% = \\frac{6}{100} = 0.06$, so $6\\%$ of $m$ is $0.06m$.\n\n**The Full Solution:**\nStep 1: The word percent means per hundred, so $6\\%$ is the fraction $\\frac{6}{100}$.\nStep 2: Dividing $6$ by $100$ moves the decimal point two places to the left: $6\\% = 0.06$.\nStep 3: So $6\\%$ of $m$ is $0.06m$. Check with $m = 200$: $0.06(200) = 12$, and $12$ is $6$ hundredths of $200$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.006m$): divides by $1{,}000$, moving the decimal point three places.\n* Choice C ($0.6m$): moves the decimal point only one place, which is $60\\%$ of $m$.\n* Choice D ($6m$): drops the percent sign without dividing at all; that is $600\\%$ of $m$.\n\n**Test Day Takeaway:** Taking a percent of a quantity means multiplying by the percent divided by $100$: $p\\%$ of $m$ is $\\frac{p}{100}m$."
 }

@@ -1,30 +1,30 @@
 {
   "id": 10,
-  "question": "In the $xy$-plane, the graph of $y=f(x)$ crosses the $x$-axis at exactly two points, where $x=-6$ and $x=2$. At what values of $x$ does the graph of $y=f(x+4)$ cross the $x$-axis?",
+  "question": "$f(x) = x^{2} + 4x - 21$\nThe function $g$ is defined by $g(x) = f(x + 4)$. What is the sum of the $x$-coordinates of the $x$-intercepts of the graph of $y = g(x)$ in the $xy$-plane?",
   "choices": [
     {
       "id": "A",
-      "text": "$x=-24$ and $x=8$"
+      "text": "$-12$"
     },
     {
       "id": "B",
-      "text": "$x=-10$ and $x=-2$"
+      "text": "$-8$"
     },
     {
       "id": "C",
-      "text": "$x=-6$ and $x=2$"
+      "text": "$-4$"
     },
     {
       "id": "D",
-      "text": "$x=-2$ and $x=6$"
+      "text": "$4$"
     }
   ],
   "distractorNotes": {
-    "A": "multiplies the zeros by 4",
-    "C": "leaves the zeros unchanged",
-    "D": "shifts the zeros right"
+    "B": "subtracts 4 from the sum once instead of from each intercept",
+    "C": "gives the sum for f and ignores the shift",
+    "D": "moves both intercepts right 4 instead of left 4"
   },
-  "correctAnswer": "B",
-  "hint": "Each crossing happens when the expression inside $f$ equals a value that already made $f$ zero.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** Solve $x+4=-6$ and $x+4=2$ to get $x=-10$ and $x=-2$: the whole picture slides $4$ units left.\n\n**The Full Solution:**\nStep 1: The crossings of $f$ tell you that $f(-6)=0$ and $f(2)=0$, and that $f$ has no other zeros.\nStep 2: For $y=f(x+4)$ to equal $0$, the input $x+4$ must be one of those two numbers.\nStep 3: $x+4=-6$ gives $x=-10$, and $x+4=2$ gives $x=-2$. Check: $f(-10+4)=f(-6)=0$ and $f(-2+4)=f(2)=0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x=-24$ and $x=8$): multiplies the crossings by $4$; the $4$ is added inside, not multiplied.\n* Choice C ($x=-6$ and $x=2$): assumes the crossings are unchanged, which holds for a vertical stretch but not for a horizontal shift.\n* Choice D ($x=-2$ and $x=6$): moves the crossings $4$ units right; a $+4$ inside the function moves the graph left.\n\n**Test Day Takeaway:** To relocate a zero after an inside change, set the inside expression equal to the old zero and solve."
+  "correctAnswer": "A",
+  "hint": "Find the $x$-intercepts of $f$, then move each one.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~25s):** $f$ has zeros $-7$ and $3$ (sum $-4$); each moves left $4$, so the sum drops by $8$ to $-12$.\n\n**The Full Solution:**\nStep 1: $x^{2} + 4x - 21 = (x + 7)(x - 3)$, so the graph of $f$ crosses the $x$-axis at $x = -7$ and $x = 3$.\nStep 2: $g(x) = f(x + 4)$ moves the graph left $4$, so its $x$-intercepts are at $x = -11$ and $x = -1$.\nStep 3: The sum is $-11 + (-1) = -12$. Check: $g(-11) = f(-7) = 0$ and $g(-1) = f(3) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-8$): this subtracts $4$ from the sum once; both intercepts move, so the sum decreases by $8$.\n* Choice C ($-4$): this is the sum of the $x$-intercepts of $f$; the graph of $g$ is shifted.\n* Choice D ($4$): this moves both intercepts right $4$; $f(x + 4)$ moves the graph left.\n\n**Test Day Takeaway:** A horizontal shift moves every $x$-intercept by the same amount, so a sum of two intercepts moves twice as far."
 }

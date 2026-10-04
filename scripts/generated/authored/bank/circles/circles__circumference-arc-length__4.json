@@ -1,11 +1,11 @@
 {
- "question": "The circle shown has center $O$ and radius $12$. A ferry sails along minor arc $AB$, a distance of $10\\pi$. Through how many degrees does angle $AOB$ turn?",
+ "question": "In the figure shown, $O$ is the center of the circle and the radius of the circle is $9$. The length of minor arc $AB$ is $5\\pi$. What is the measure, in degrees, of angle $AOB$?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
-   "centralAngle": 150,
+   "centralAngle": 100,
    "showAngleLabel": false,
-   "radius": 12,
+   "radius": 9,
    "labelCenter": "O",
    "labelPoint1": "A",
    "labelPoint2": "B",
@@ -13,30 +13,30 @@
    "figureNote": true
   }
  },
- "hint": "First ask what fraction of the whole rim the ferry covered.",
+ "hint": "First ask what fraction of the whole circumference the arc covers.",
  "choices": [
   {
    "id": "A",
-   "text": "$75$"
+   "text": "$50$"
   },
   {
    "id": "B",
-   "text": "$150$"
+   "text": "$100$"
   },
   {
    "id": "C",
-   "text": "$210$"
+   "text": "$200$"
   },
   {
    "id": "D",
-   "text": "$300$"
+   "text": "$260$"
   }
  ],
  "distractorNotes": {
-  "A": "uses 4*pi*r = 48pi as the circumference, halving the fraction",
-  "C": "reports the major arc's angle, 360 - 150",
-  "D": "uses pi*r = 12pi as the circumference"
+  "A": "uses 4*pi*r = 36pi as the circumference, halving the fraction",
+  "C": "uses pi*r = 9pi as the circumference",
+  "D": "reports the major arc's angle, 360 - 100"
  },
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** The rim is $24\\pi$, and $\\dfrac{10\\pi}{24\\pi} = \\dfrac{5}{12}$ of $360$ is $150$.\n\n**The Full Solution:**\nStep 1: The circumference is $2\\pi(12) = 24\\pi$.\nStep 2: The ferry covers $\\dfrac{10\\pi}{24\\pi} = \\dfrac{5}{12}$ of the rim.\nStep 3: The central angle is that same fraction of $360$: $\\dfrac{5}{12}(360) = 150$ degrees. Check: $\\dfrac{150}{360}(24\\pi) = 10\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($75$): uses $48\\pi$ as the circumference, doubling the true rim and halving the angle.\n* Choice C ($210$): gives the reflex angle $360 - 150$, which belongs to the major arc.\n* Choice D ($300$): uses $\\pi r = 12\\pi$ as the circumference, so the fraction doubles.\n\n**Test Day Takeaway:** Turn an arc length into a fraction of the circumference first; that fraction is also the fraction of $360^\\circ$."
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** The circumference is $18\\pi$, and $\\dfrac{5\\pi}{18\\pi} = \\dfrac{5}{18}$ of $360$ is $100$.\n\n**The Full Solution:**\nStep 1: The circumference is $2\\pi(9) = 18\\pi$.\nStep 2: Minor arc $AB$ is $\\dfrac{5\\pi}{18\\pi} = \\dfrac{5}{18}$ of the circumference.\nStep 3: The central angle is that same fraction of $360$: $\\dfrac{5}{18}(360) = 100$ degrees. Check: $\\dfrac{100}{360}(18\\pi) = 5\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($50$): uses $36\\pi$ as the circumference, doubling the true value and halving the angle.\n* Choice C ($200$): uses $\\pi r = 9\\pi$ as the circumference, so the fraction doubles.\n* Choice D ($260$): gives $360 - 100$, the angle that belongs to the major arc.\n\n**Test Day Takeaway:** Turn an arc length into a fraction of the circumference first; that fraction is also the fraction of $360^\\circ$."
 }

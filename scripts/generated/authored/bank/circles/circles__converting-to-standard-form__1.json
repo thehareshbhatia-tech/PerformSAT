@@ -1,6 +1,6 @@
 {
  "id": 1,
- "question": "A circle in the $xy$-plane is defined by the equation $x^2 + y^2 - 6x + 20y + 84 = 0$. What are the coordinates of the center of this circle?",
+ "question": "$x^2 + y^2 - 6x + 20y + 84 = 0$\nIn the $xy$-plane, the graph of the given equation is a circle. What are the coordinates of the center of the circle?",
  "choices": [
   {
    "id": "A",

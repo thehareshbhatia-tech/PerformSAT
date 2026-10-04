@@ -1,6 +1,6 @@
 {
  "id": 5,
- "question": "In the figure, $\\overline{PQ}$ is a diameter of a circle with center $W$, and point $R$ lies on the circle. If $PQ = 10$ and $PR = 6$, what is the length of $\\overline{QR}$?",
+ "question": "In the figure shown, $\\overline{PQ}$ is a diameter of the circle with center $W$, and point $R$ lies on the circle. If $PQ = 10$ and $PR = 6$, what is the length of $\\overline{QR}$?",
  "diagram": {
   "type": "circleWithInscribedTriangle",
   "params": {

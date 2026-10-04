@@ -1,6 +1,6 @@
 {
   "id": 2,
-  "question": "The quadratic function $g$ is defined by $g(x) = 9 - 5x + 6x^2$. When $g(x)$ is written in the form $ax^2 + bx + c$, what is the value of $b$?",
+  "question": "$g(x) = 9 - 5x + 6x^{2}$\nThe given function can be written in the form $g(x) = ax^{2} + bx + c$, where $a$, $b$, and $c$ are constants. What is the value of $b$?",
   "choices": [
     {
       "id": "A",

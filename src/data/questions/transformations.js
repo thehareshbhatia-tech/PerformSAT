@@ -7,181 +7,181 @@ export const transformationsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "The function $p$ is defined by $p(x)=x^{2}$. In the $xy$-plane, the graph of $y=p(x)-6$ is the graph of $y=p(x)$ shifted in which of the following ways?",
+      question: "$p(x) = x^{2}$\nIn the $xy$-plane, how does the graph of $y = p(x) - 6$ compare with the graph of $y = p(x)$?",
       choices: [
-        { id: "A", text: "Down $6$ units" },
-        // distractor: reads the outside -6 as a horizontal move
-        { id: "B", text: "Left $6$ units" },
-        // distractor: reads the outside -6 as a shift right
-        { id: "C", text: "Right $6$ units" },
+        { id: "A", text: "It is shifted down $6$ units." },
+        // distractor: reads the outside -6 as a horizontal move to the left
+        { id: "B", text: "It is shifted left $6$ units." },
+        // distractor: reads the outside -6 as a horizontal move to the right
+        { id: "C", text: "It is shifted right $6$ units." },
         // distractor: reverses the sign of an outside constant
-        { id: "D", text: "Up $6$ units" }
+        { id: "D", text: "It is shifted up $6$ units." }
       ],
       correctAnswer: "A",
-      hint: "Decide first whether the $-6$ acts on the input of $p$ or on its output.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** The $-6$ sits outside $p$, so it lowers every output by $6$: the graph slides down $6$.\n\n**The Full Solution:**\nStep 1: In $p(x)-6$ the subtraction happens after $p$ has produced its output, so only $y$-values change.\nStep 2: A point $(a,b)$ on $y=p(x)$ becomes $(a,\\,b-6)$ on $y=p(x)-6$; the $x$-coordinate never moves.\nStep 3: Check with the lowest point: $(0,0)$ on $y=p(x)$ becomes $(0,-6)$, exactly $6$ units lower. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Left $6$ units): a horizontal move requires a change inside $p$, such as $p(x+6)$; here the $6$ is outside.\n* Choice C (Right $6$ units): right $6$ would be $p(x-6)$ — the subtraction would have to be attached to $x$, not to the output.\n* Choice D (Up $6$ units): the sign is read backwards; outside constants move the graph in the direction of their own sign, so $-6$ means down.\n\n**Test Day Takeaway:** Outside the function, constants act on $y$ and read straight: $+k$ raises the graph, $-k$ lowers it.",
+      hint: "Decide whether the $-6$ changes the input of $p$ or its output.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** The $-6$ sits outside $p$, so it lowers every output by $6$: the graph moves down $6$ units.\n\n**The Full Solution:**\nStep 1: In $p(x) - 6$ the subtraction happens after $p$ produces its output, so only the $y$-values change.\nStep 2: A point $(a, b)$ on $y = p(x)$ becomes $(a, b - 6)$ on $y = p(x) - 6$; the $x$-coordinate does not move.\nStep 3: Check with the vertex: $(0, 0)$ on $y = x^{2}$ becomes $(0, -6)$ on $y = x^{2} - 6$, which is $6$ units lower ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (It is shifted left $6$ units.): a horizontal move needs a change inside $p$, such as $p(x + 6)$; here the $6$ is outside.\n* Choice C (It is shifted right $6$ units.): moving right $6$ would be $p(x - 6)$, with the $6$ attached to $x$, not to the output.\n* Choice D (It is shifted up $6$ units.): the sign is read backward; an outside constant moves the graph in the direction of its own sign, so $-6$ means down.\n\n**Test Day Takeaway:** Outside the function, constants act on $y$ and read straight: $+k$ raises the graph and $-k$ lowers it.",
       skills: ["function-transformations"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "The function $q$ is defined by $q(x)=\\sqrt{x}$, and the leftmost point of the graph of $y=q(x)$ in the $xy$-plane is the origin. What is the leftmost point of the graph of $y=q(x-9)$?",
+      question: "$q(x) = \\sqrt{x}$\nWhat is the $x$-intercept of the graph of $y = q(x - 9)$ in the $xy$-plane?",
       choices: [
-        // distractor: moves the endpoint left instead of right
-        { id: "A", text: "$(-9,0)$" },
-        // distractor: applies the shift to the y-coordinate
-        { id: "B", text: "$(0,-9)$" },
-        // distractor: applies the shift to the y-coordinate with the wrong sign
-        { id: "C", text: "$(0,9)$" },
-        { id: "D", text: "$(9,0)$" }
+        // distractor: shifts the graph left 9 instead of right 9
+        { id: "A", text: "$(-9, 0)$" },
+        // distractor: takes the square root of 9 as the shift
+        { id: "B", text: "$(3, 0)$" },
+        { id: "C", text: "$(9, 0)$" },
+        // distractor: solves sqrt(x) - 9 = 0, treating the shift as vertical
+        { id: "D", text: "$(81, 0)$" }
       ],
-      correctAnswer: "D",
-      hint: "Ask which input makes the quantity under the radical equal to $0$.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** The radical starts where $x-9=0$, so the endpoint moves from $x=0$ to $x=9$ and stays on the $x$-axis.\n\n**The Full Solution:**\nStep 1: $q(x-9)=\\sqrt{x-9}$, which is defined only when $x-9\\ge 0$, that is, when $x\\ge 9$.\nStep 2: At the smallest allowed input, $x=9$, the output is $\\sqrt{9-9}=\\sqrt{0}=0$.\nStep 3: So the leftmost point is $(9,0)$ — the origin translated $9$ units right, with no vertical movement. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-9,0)$): treats $x-9$ as a shift left; inside the function the graph moves opposite to the sign.\n* Choice B ($(0,-9)$): applies the $9$ to the output, which would require $q(x)-9$.\n* Choice C ($(0,9)$): applies the $9$ to the output and reverses its sign as well.\n\n**Test Day Takeaway:** For a change inside the function, set the inside expression equal to the old input value and solve for the new $x$.",
+      correctAnswer: "C",
+      hint: "Find the input that makes the expression under the square root equal to $0$.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\sqrt{x - 9} = 0$ only when $x = 9$, so the $x$-intercept is $(9, 0)$.\n\n**The Full Solution:**\nStep 1: The graph of $y = q(x - 9)$ is the graph of $y = \\sqrt{x - 9}$.\nStep 2: An $x$-intercept has $y = 0$: $\\sqrt{x - 9} = 0$ gives $x - 9 = 0$, so $x = 9$.\nStep 3: Check: $q(9 - 9) = \\sqrt{0} = 0$, so $(9, 0)$ is on the graph ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-9, 0)$): this moves the starting point of $y = \\sqrt{x}$ left $9$; subtracting $9$ inside moves it right.\n* Choice B ($(3, 0)$): this takes $\\sqrt{9} = 3$ as the shift; the whole $9$ is subtracted from $x$ before the root is taken.\n* Choice D ($(81, 0)$): this solves $\\sqrt{x} - 9 = 0$, which is a vertical shift; here the $9$ is inside the root.\n\n**Test Day Takeaway:** A change inside the function moves the graph sideways, opposite to the sign you see: $q(x - 9)$ moves right $9$.",
       skills: ["function-transformations"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "For a function $m$, the graph of $y=-m(x)$ in the $xy$-plane can be obtained by reflecting the graph of $y=m(x)$ across which of the following lines?",
+      question: "$f(x) = -(x - 3)^{2} + 5$\nIn the $xy$-plane, the graph of $y = g(x)$ is the reflection of the graph of $y = f(x)$ across the $x$-axis. What is the minimum value of $g(x)$?",
       choices: [
-        // distractor: reflects through the origin instead of the x-axis
-        { id: "A", text: "The line $y=-x$" },
-        // distractor: confuses a sign change with taking the inverse
-        { id: "B", text: "The line $y=x$" },
-        { id: "C", text: "The $x$-axis" },
-        // distractor: confuses -m(x) with m(-x)
-        { id: "D", text: "The $y$-axis" }
+        { id: "A", text: "$-5$" },
+        // distractor: reflects the x-coordinate of the vertex instead of the y-coordinate
+        { id: "B", text: "$-3$" },
+        // distractor: gives the x-coordinate where the minimum occurs
+        { id: "C", text: "$3$" },
+        // distractor: keeps the maximum of f without reflecting it
+        { id: "D", text: "$5$" }
       ],
-      correctAnswer: "C",
-      hint: "Track what the negative sign does to a single point $(a,b)$ on the graph of $m$.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~20s):** Negating the output sends $(a,b)$ to $(a,-b)$ — the $x$-coordinate is fixed and the height flips, which is a mirror in the $x$-axis.\n\n**The Full Solution:**\nStep 1: The negative sign is applied after $m$ evaluates, so it multiplies every output by $-1$.\nStep 2: A point $(a,b)$ on $y=m(x)$ therefore corresponds to $(a,-b)$ on $y=-m(x)$: same horizontal position, opposite height.\nStep 3: Points above the $x$-axis land the same distance below it, and points on the axis stay put — the definition of a reflection across the $x$-axis. Check: if $m(4)=7$, then $-m(4)=-7$, and $(4,7)$ and $(4,-7)$ are mirror images in the $x$-axis. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (the line $y=-x$): reflecting across $y=-x$ sends $(a,b)$ to $(-b,-a)$, which mixes the coordinates; only the output changed here.\n* Choice B (the line $y=x$): reflecting across $y=x$ swaps the coordinates and produces the inverse relation, not a sign change.\n* Choice D (the $y$-axis): that reflection is $m(-x)$, with the negative sign attached to the input rather than to the output.\n\n**Test Day Takeaway:** A negative outside the function flips $y$ (reflection in the $x$-axis); a negative inside flips $x$ (reflection in the $y$-axis).",
+      correctAnswer: "A",
+      hint: "A reflection across the $x$-axis changes the sign of every output.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** $g(x) = -f(x) = (x - 3)^{2} - 5$, so the least value of $g(x)$ is $-5$.\n\n**The Full Solution:**\nStep 1: A reflection across the $x$-axis sends each point $(a, b)$ to $(a, -b)$, so $g(x) = -f(x)$.\nStep 2: $g(x) = -\\left(-(x - 3)^{2} + 5\\right) = (x - 3)^{2} - 5$, a parabola that opens upward with vertex $(3, -5)$.\nStep 3: Since $(x - 3)^{2} \\ge 0$, the least value of $g(x)$ is $-5$, reached at $x = 3$. Check: $g(3) = -f(3) = -5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-3$): this changes the sign of the vertex's $x$-coordinate; the reflection changes the $y$-coordinate.\n* Choice C ($3$): $3$ is where the minimum occurs, not the minimum value itself.\n* Choice D ($5$): $5$ is the maximum value of $f$; after the reflection the high point becomes a low point at $-5$.\n\n**Test Day Takeaway:** Reflecting across the $x$-axis turns a maximum of $k$ into a minimum of $-k$ at the same $x$-value.",
       skills: ["function-transformations"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "A creamery logs the acidity, in degrees, of vat one as $v(t)$ at hour $t$ and of vat two, filled later, as $w(t) = v(t - 5) - 7$. Vat one reads $26$ degrees only at hour $12$, and $w(a) = 19$. What is the value of $a$?",
+      question: "For the function $v$, $v(x) = 26$ only when $x = 12$. The function $w$ is defined by $w(x) = v(x - 5) - 7$. If $w(a) = 19$, what is the value of $a$?",
       choices: [
-        // distractor: shifts the wrong way, computing 12 - 5 = 7
+        // distractor: subtracts the shift of 5 from 12 instead of adding it
         { id: "A", text: "$7$" },
-        // distractor: reports vat one's hour rather than vat two's
+        // distractor: stops at the input of v and forgets the shift
         { id: "B", text: "$12$" },
         { id: "C", text: "$17$" },
-        // distractor: reports vat one's acidity reading instead of an hour
+        // distractor: reports the output value of v instead of an input
         { id: "D", text: "$26$" }
       ],
       correctAnswer: "C",
-      hint: "The only acidity reading you are handed belongs to vat one.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $w(a) = 19$ forces $v(a - 5) = 26$, and $v$ reads $26$ at hour $12$, so $a - 5 = 12$ and $a = 17$.\n\n**The Full Solution:**\nStep 1: Undo the outside operation: $w(a) = v(a - 5) - 7 = 19$, so $v(a - 5) = 26$.\nStep 2: Vat one reads $26$ degrees only at hour $12$, so $a - 5 = 12$.\nStep 3: Therefore $a = 17$. Check: $w(17) = v(17 - 5) - 7 = v(12) - 7 = 26 - 7 = 19$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): computing $12 - 5$; the shift must be undone in the other direction, since the input to $v$ is $a - 5$.\n* Choice B ($12$): reporting the hour at which vat one reads $26$ degrees rather than the hour asked about for vat two.\n* Choice D ($26$): reporting an acidity reading where the question asks for an hour.\n\n**Test Day Takeaway:** Strip the outside operation first, then match the inside expression to the input you were given.",
+      hint: "Undo the $-7$ first, then decide what input $v$ must receive.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $v(a - 5) = 19 + 7 = 26$, so $a - 5 = 12$ and $a = 17$.\n\n**The Full Solution:**\nStep 1: $w(a) = 19$ means $v(a - 5) - 7 = 19$, so $v(a - 5) = 26$.\nStep 2: The only input that gives $v$ an output of $26$ is $12$, so $a - 5 = 12$.\nStep 3: Therefore $a = 17$. Check: $w(17) = v(12) - 7 = 26 - 7 = 19$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): this computes $12 - 5$; the input of $v$ is $a - 5$, so $a$ is $5$ more than $12$.\n* Choice B ($12$): $12$ is the input that $v$ needs, not the value of $a$ itself.\n* Choice D ($26$): $26$ is an output of $v$; the question asks for an input of $w$.\n\n**Test Day Takeaway:** Peel the outside change off first, then solve for the input inside.",
       skills: ["function-transformations"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "In the $xy$-plane, a function $d$ is defined for every $x>0$, and its graph lies entirely in quadrants I and IV. The graph of $y=d(-x)$ lies entirely in which quadrants?",
+      question: "The graph of the function $d$ in the $xy$-plane lies entirely in quadrant IV. In which quadrant does the graph of $y = -d(-x)$ lie entirely?",
       choices: [
-        // distractor: keeps the original quadrants and adds the mirror image
-        { id: "A", text: "Quadrants I and II" },
-        // distractor: treats d(-x) as leaving the graph unchanged
-        { id: "B", text: "Quadrants I and IV" },
-        { id: "C", text: "Quadrants II and III" },
-        // distractor: reflects across the x-axis instead of the y-axis
-        { id: "D", text: "Quadrants III and IV" }
+        // distractor: applies only the reflection across the x-axis
+        { id: "A", text: "Quadrant I" },
+        { id: "B", text: "Quadrant II" },
+        // distractor: applies only the reflection across the y-axis
+        { id: "C", text: "Quadrant III" },
+        // distractor: assumes the two reflections cancel
+        { id: "D", text: "Quadrant IV" }
       ],
-      correctAnswer: "C",
-      hint: "Follow one point $(a,b)$ with $a>0$ through the substitution and watch only the sign of its first coordinate.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** Replacing $x$ with $-x$ sends $(a,b)$ to $(-a,b)$, so every point keeps its height but crosses to the left half-plane: I becomes II and IV becomes III.\n\n**The Full Solution:**\nStep 1: If $(a,b)$ is on the graph of $y=d(x)$, then $d(a)=b$. For $y=d(-x)$, the input $-a$ gives $d(-(-a))=d(a)=b$, so $(-a,b)$ is on the new graph.\nStep 2: Because $d$ is defined only for $x>0$, every original point has $a>0$, so every new point has first coordinate $-a<0$: the entire graph sits left of the $y$-axis.\nStep 3: Heights are unchanged, so points that were in quadrant I ($b>0$) move to quadrant II, and points that were in quadrant IV ($b<0$) move to quadrant III. Check: $(2,5)\\to(-2,5)$ and $(2,-5)\\to(-2,-5)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (quadrants I and II): keeps a copy of the original graph; a reflection relocates the points rather than duplicating them.\n* Choice B (quadrants I and IV): assumes $d(-x)$ leaves the graph in place, which would require $d$ to satisfy $d(-x)=d(x)$.\n* Choice D (quadrants III and IV): flips the heights instead of the inputs — that is the effect of $-d(x)$.\n\n**Test Day Takeaway:** A negative inside the function reflects across the $y$-axis: first coordinates change sign, second coordinates do not.",
+      correctAnswer: "B",
+      hint: "Track where one point $(a, b)$ of the graph of $d$ is sent.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** Each point $(a, b)$ with $a > 0$ and $b < 0$ moves to $(-a, -b)$, which has $x < 0$ and $y > 0$: quadrant II.\n\n**The Full Solution:**\nStep 1: If $(a, b)$ is on the graph of $d$, then $a > 0$ and $b < 0$.\nStep 2: On $y = -d(-x)$, the input $x = -a$ gives $-d(a) = -b$, so the point $(-a, -b)$ is on the new graph.\nStep 3: $-a < 0$ and $-b > 0$, so every point is in quadrant II. Check with $(2, -3)$: it moves to $(-2, 3)$, in quadrant II ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Quadrant I): this uses only the outside negative sign, which reflects across the $x$-axis; the inside $-x$ also reflects across the $y$-axis.\n* Choice C (Quadrant III): this uses only the inside $-x$; the outside negative sign also flips every $y$-value.\n* Choice D (Quadrant IV): two reflections across different axes do not cancel; together they act like a half turn about the origin.\n\n**Test Day Takeaway:** $-f(-x)$ sends $(a, b)$ to $(-a, -b)$: both signs change, so the graph lands in the opposite quadrant.",
       skills: ["function-transformations"]
     },
     {
       id: 6,
       difficulty: "easy",
-      question: "The function $r$ is defined by $r(x)=4x-9$. In the $xy$-plane, the graph of $y=r(x)+5$ is a translation of the graph of $y=r(x)$. Which translation is it?",
+      question: "$r(x) = 4x - 9$\nIn the $xy$-plane, the graph of $y = s(x)$ is the result of shifting the graph of $y = r(x)$ up $5$ units. Which equation defines function $s$?",
       choices: [
-        // distractor: reverses the sign of an outside constant
-        { id: "A", text: "$5$ units down" },
-        // distractor: treats the outside +5 as an inside change
-        { id: "B", text: "$5$ units left" },
-        // distractor: treats the outside +5 as a horizontal shift
-        { id: "C", text: "$5$ units right" },
-        { id: "D", text: "$5$ units up" }
+        // distractor: shifts the graph down 5 units
+        { id: "A", text: "$s(x) = 4x - 14$" },
+        { id: "B", text: "$s(x) = 4x - 4$" },
+        // distractor: replaces the constant -9 with 5
+        { id: "C", text: "$s(x) = 4x + 5$" },
+        // distractor: shifts the graph left 5 units by computing r(x + 5)
+        { id: "D", text: "$s(x) = 4x + 11$" }
       ],
-      correctAnswer: "D",
-      hint: "Compare the two outputs at the same input and see which one is larger.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~15s):** Adding $5$ after $r$ evaluates raises every output by $5$, a translation up $5$ units.\n\n**The Full Solution:**\nStep 1: $r(x)+5=(4x-9)+5=4x-4$, a line with the same slope $4$ but a $y$-intercept $5$ units higher.\nStep 2: Equal slopes mean the lines are parallel, so the change must be a pure vertical translation.\nStep 3: Check at $x=0$: $r(0)=-9$ and $r(0)+5=-4$, and $-4$ is $5$ units above $-9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$ units down): reverses the sign; the output grows by $5$, so the graph rises.\n* Choice B ($5$ units left): a left shift comes from $r(x+5)$, where the $5$ is attached to the input.\n* Choice C ($5$ units right): a right shift comes from $r(x-5)$; no change was made inside the function.\n\n**Test Day Takeaway:** For a line, adding a constant outside changes only the $y$-intercept — same slope, whole graph lifted.",
+      correctAnswer: "B",
+      hint: "Shifting up adds to the output of $r$.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** $s(x) = r(x) + 5 = 4x - 9 + 5 = 4x - 4$.\n\n**The Full Solution:**\nStep 1: Shifting a graph up $5$ units adds $5$ to every output, so $s(x) = r(x) + 5$.\nStep 2: $s(x) = (4x - 9) + 5 = 4x - 4$.\nStep 3: Check: $r(0) = -9$ and $s(0) = -4$, which is $5$ units higher ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($s(x) = 4x - 14$): this subtracts $5$, which shifts the graph down.\n* Choice C ($s(x) = 4x + 5$): this replaces $-9$ with $5$ instead of adding $5$ to it.\n* Choice D ($s(x) = 4x + 11$): this is $r(x + 5) = 4(x + 5) - 9$, which shifts the graph left $5$ units.\n\n**Test Day Takeaway:** A vertical shift changes only the constant term: add $k$ to move up $k$ units.",
       skills: ["function-transformations"]
     },
     {
       id: 7,
       difficulty: "easy",
-      question: "The function $t$ is defined by $t(x)=|x|$. In the $xy$-plane, the graph of $y=t(x+8)$ can be produced by moving the graph of $y=t(x)$ how far and in which direction?",
+      question: "$t(x) = |x|$\nThe graph of $y = t(x + 8)$ in the $xy$-plane is the graph of $y = t(x)$ translated in which of the following ways?",
       choices: [
-        // distractor: treats the inside +8 as a vertical shift down
+        // distractor: treats the inside +8 as a vertical move down
         { id: "A", text: "$8$ units down" },
         { id: "B", text: "$8$ units left" },
-        // distractor: moves the graph in the direction of the sign
+        // distractor: moves in the direction of the sign inside
         { id: "C", text: "$8$ units right" },
-        // distractor: treats the inside +8 as a vertical shift up
+        // distractor: treats the inside +8 as a vertical move up
         { id: "D", text: "$8$ units up" }
       ],
       correctAnswer: "B",
-      hint: "Find the input that now produces the corner of the V.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** The corner occurs where the inside expression is $0$: $x+8=0$ gives $x=-8$, so the graph slid $8$ units left.\n\n**The Full Solution:**\nStep 1: $t(x+8)=|x+8|$, and the vertex of an absolute value graph sits where the expression inside the bars equals $0$.\nStep 2: Solving $x+8=0$ gives $x=-8$, so the vertex has moved from $(0,0)$ to $(-8,0)$.\nStep 3: Every other point moves with it: the point $(3,3)$ on $y=t(x)$ corresponds to $(-5,3)$ on $y=t(x+8)$, again $8$ units left. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$ units down): a downward move needs $t(x)-8$, with the constant outside the absolute value.\n* Choice C ($8$ units right): the classic reversal: inside the function, $+8$ moves the graph in the negative direction.\n* Choice D ($8$ units up): an upward move needs $t(x)+8$; here the $8$ is inside the bars, so the change is horizontal.\n\n**Test Day Takeaway:** Inside the function the graph moves opposite to the sign: $+8$ inside means $8$ units left.",
+      hint: "Find the input that makes $x + 8$ equal to $0$.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** The vertex of $y = |x + 8|$ is where $x + 8 = 0$, at $x = -8$: the graph moved $8$ units left.\n\n**The Full Solution:**\nStep 1: The $+8$ is inside $t$, so it changes the input and moves the graph sideways.\nStep 2: The vertex of $y = |x|$ is at $x = 0$; the vertex of $y = |x + 8|$ is where $x + 8 = 0$, so $x = -8$.\nStep 3: The vertex moved from $(0, 0)$ to $(-8, 0)$, which is $8$ units left. Check: $t(-8 + 8) = t(0) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$ units down): a vertical move needs a constant outside $t$, as in $t(x) - 8$.\n* Choice C ($8$ units right): inside changes work opposite to their sign; $+8$ moves the graph left.\n* Choice D ($8$ units up): $t(x) + 8$ would move the graph up; here the $8$ is added to the input.\n\n**Test Day Takeaway:** Inside the function, read the sign backward: $f(x + h)$ moves left $h$ and $f(x - h)$ moves right $h$.",
       skills: ["function-transformations"]
     },
     {
       id: 8,
       difficulty: "medium",
-      question: "A meteor camera records background brightness $c(x)$, in counts, $x$ minutes after twilight. After the sensor is recalibrated the recorded brightness follows $y = c(x + 4) - 6$. How does the new graph compare with the graph of $y = c(x)$?",
+      question: "$f(x) = x^{3} - 2x$\nIn the $xy$-plane, the graph of $y = g(x)$ is the result of translating the graph of $y = f(x)$ left $4$ units and down $6$ units. Which equation defines $g$?",
       choices: [
-        { id: "A", text: "It is shifted $4$ units left and $6$ units down." },
-        // distractor: reads the -6 outside the function as an upward move
-        { id: "B", text: "It is shifted $4$ units left and $6$ units up." },
-        // distractor: reads x + 4 inside the function as a move to the right
-        { id: "C", text: "It is shifted $4$ units right and $6$ units down." },
-        // distractor: reverses both directions
-        { id: "D", text: "It is shifted $4$ units right and $6$ units up." }
+        // distractor: replaces x with x - 4, which shifts right
+        { id: "A", text: "$g(x) = (x - 4)^{3} - 2(x - 4) - 6$" },
+        // distractor: adds 6, which shifts up
+        { id: "B", text: "$g(x) = (x + 4)^{3} - 2(x + 4) + 6$" },
+        // distractor: replaces x with x + 4 in only one term
+        { id: "C", text: "$g(x) = (x + 4)^{3} - 2x - 6$" },
+        { id: "D", text: "$g(x) = (x + 4)^{3} - 2(x + 4) - 6$" }
       ],
-      correctAnswer: "A",
-      hint: "Decide separately what the change inside the parentheses does and what the change outside it does.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** Adding $4$ inside moves the graph $4$ to the left; subtracting $6$ outside moves it $6$ down.\n\n**The Full Solution:**\nStep 1: The change $x + 4$ sits inside the function, so it acts on inputs. The new graph reaches at $x$ whatever the old graph reached at $x + 4$, which is a shift of $4$ units to the left.\nStep 2: The $-6$ sits outside the function, so it acts on outputs, lowering every value by $6$.\nStep 3: The graph is therefore $4$ units left and $6$ units down. Check: the old point $(10, 30)$ becomes $(6, 24)$, since $c(6 + 4) - 6 = 30 - 6 = 24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (left $4$, up $6$): treating the $-6$ outside the function as an upward move; subtracting lowers every output.\n* Choice C (right $4$, down $6$): reading $x + 4$ as a move to the right; a change inside the function moves the graph the opposite way.\n* Choice D (right $4$, up $6$): reversing both directions at once.\n\n**Test Day Takeaway:** Inside the function acts on $x$ and reverses; outside the function acts on $y$ and reads straight.",
+      correctAnswer: "D",
+      hint: "Replace every $x$ in $f$ with the same new input, then adjust the output.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** Left $4$ means $f(x + 4)$ and down $6$ means subtract $6$: $g(x) = (x + 4)^{3} - 2(x + 4) - 6$.\n\n**The Full Solution:**\nStep 1: Moving left $4$ units replaces $x$ with $x + 4$: $f(x + 4) = (x + 4)^{3} - 2(x + 4)$.\nStep 2: Moving down $6$ units subtracts $6$ from every output: $g(x) = f(x + 4) - 6$.\nStep 3: So $g(x) = (x + 4)^{3} - 2(x + 4) - 6$. Check: $f(0) = 0$, so $(0, 0)$ should move to $(-4, -6)$, and $g(-4) = 0 - 0 - 6 = -6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = (x - 4)^{3} - 2(x - 4) - 6$): replacing $x$ with $x - 4$ moves the graph right, not left.\n* Choice B ($g(x) = (x + 4)^{3} - 2(x + 4) + 6$): adding $6$ moves the graph up, not down.\n* Choice C ($g(x) = (x + 4)^{3} - 2x - 6$): the new input must replace every $x$; changing only the cubed term is not a translation of $f$.\n\n**Test Day Takeaway:** A horizontal shift replaces every $x$ in the rule; a vertical shift adds to the whole rule.",
       skills: ["function-transformations"]
     },
     {
       id: 9,
       difficulty: "medium",
-      question: "A parcel sorting line scans $n(t)$ cartons in the first $t$ minutes of a shift. After a second scanner is installed the count follows $u(t) = 2n(t - 10)$. If $u(35) = 176$, what is the value of $n(25)$?",
+      question: "$u(x) = 2n(x - 10)$\nThe given equation relates the functions $u$ and $n$. If $u(35) = 176$, what is the value of $n(25)$?",
       choices: [
-        // distractor: halves 176 correctly but then subtracts the 10-minute shift from the count
+        // distractor: halves 176 and then subtracts the shift of 10 from the output
         { id: "A", text: "$78$" },
         { id: "B", text: "$88$" },
-        // distractor: reports u(35) itself, skipping the factor of 2
+        // distractor: reports u(35) and ignores the factor of 2
         { id: "C", text: "$176$" },
         // distractor: doubles 176 instead of halving it
         { id: "D", text: "$352$" }
       ],
       correctAnswer: "B",
-      hint: "Work out which value of $n$ the expression $u(35)$ actually contains.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** $u(35) = 2n(25)$, so $n(25) = \\frac{176}{2} = 88$.\n\n**The Full Solution:**\nStep 1: Match the inputs: $u(35) = 2n(35 - 10) = 2n(25)$.\nStep 2: So $2n(25) = 176$.\nStep 3: Divide by $2$: $n(25) = 88$. Check: $2n(25) = 2(88) = 176 = u(35)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($78$): halving correctly and then subtracting the $10$-minute shift from the count; the shift moves inputs, not outputs.\n* Choice C ($176$): reporting $u(35)$ itself and ignoring the factor of $2$ in front of $n$.\n* Choice D ($352$): doubling $176$ instead of halving it, applying the rule forward when it needs to be undone.\n\n**Test Day Takeaway:** Substitute the input into the rule first; the resulting equation tells you which operation to undo.",
+      hint: "Work out which value of $n$ the expression $u(35)$ contains.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** $u(35) = 2n(25)$, so $n(25) = \\frac{176}{2} = 88$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 35$: $u(35) = 2n(35 - 10) = 2n(25)$.\nStep 2: So $2n(25) = 176$.\nStep 3: Divide by $2$: $n(25) = 88$. Check: $2(88) = 176 = u(35)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($78$): this halves $176$ and then subtracts $10$; the $10$ changes the input, not the output.\n* Choice C ($176$): this is $u(35)$ itself; the factor of $2$ still has to be undone.\n* Choice D ($352$): this doubles $176$ instead of dividing by $2$.\n\n**Test Day Takeaway:** Substitute the input first; the resulting equation shows which operation to undo.",
       skills: ["function-transformations"]
     },
     {
       id: 10,
       difficulty: "hard",
-      question: "A ridge tram's height above its base station, in meters, is $E(d)$ after $d$ meters along the cable, and a second tram satisfies $F(d) = E(d - 40) + 12$ for every $d$. The greatest value of $E$ is $86$ meters, reached at $d = 300$. Which of the following must be true of $F$?",
+      question: "The maximum value of the function $f$ is $86$, which occurs at $x = 300$. The function $g$ is defined by $g(x) = 12 - f(x - 40)$. Which of the following must be true?",
       choices: [
-        // distractor: shifts the peak the wrong way and drops the +12 entirely
-        { id: "A", text: "Its greatest value is $86$ meters, reached at $d = 260$." },
-        // distractor: locates the peak correctly but leaves out the 12-meter lift
-        { id: "B", text: "Its greatest value is $86$ meters, reached at $d = 340$." },
-        // distractor: adds the 12 meters but shifts the peak the wrong way
-        { id: "C", text: "Its greatest value is $98$ meters, reached at $d = 260$." },
-        { id: "D", text: "Its greatest value is $98$ meters, reached at $d = 340$." }
+        // distractor: ignores the negative sign in front of f
+        { id: "A", text: "The maximum value of $g$ is $98$, which occurs at $x = 340$." },
+        // distractor: negates the 12 as well, treating g as -(f(x - 40) + 12)
+        { id: "B", text: "The minimum value of $g$ is $-98$, which occurs at $x = 340$." },
+        // distractor: shifts the x-value left 40 instead of right 40
+        { id: "C", text: "The minimum value of $g$ is $-74$, which occurs at $x = 260$." },
+        { id: "D", text: "The minimum value of $g$ is $-74$, which occurs at $x = 340$." }
       ],
       correctAnswer: "D",
-      hint: "The rule changes both where the greatest value occurs and how large it is.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** $F$ repeats $E$ forty meters later and twelve meters higher, so its peak is $86 + 12 = 98$ meters at $d = 300 + 40 = 340$.\n\n**The Full Solution:**\nStep 1: $F(d)$ uses the reading $E(d - 40)$, so $F$ takes its greatest value when $d - 40 = 300$, that is, at $d = 340$.\nStep 2: At that point $F(340) = E(300) + 12 = 86 + 12 = 98$ meters.\nStep 3: Because $E$ never exceeds $86$, $F$ never exceeds $98$, so $98$ meters at $d = 340$ is the maximum. Check: $F(340) = E(340 - 40) + 12 = E(300) + 12 = 98$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($86$ m at $d = 260$): subtracting $40$ from the peak location and ignoring the $+12$; both parts of the rule act.\n* Choice B ($86$ m at $d = 340$): locating the peak correctly but leaving the $12$-meter lift out of the height.\n* Choice C ($98$ m at $d = 260$): adding the $12$ meters but moving the peak backward; $d - 40 = 300$ gives $d = 340$.\n\n**Test Day Takeaway:** Set the inside expression equal to the input that produced the known extreme, then apply the outside shift to the value.",
+      hint: "The negative sign turns the greatest value of $f$ into the least value of $g$.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** The greatest $f$ gives the least $g$: $12 - 86 = -74$, at $x = 300 + 40 = 340$.\n\n**The Full Solution:**\nStep 1: Because $f(x - 40)$ is subtracted from $12$, $g(x)$ is least when $f(x - 40)$ is greatest.\nStep 2: The greatest value of $f$ is $86$, so the least value of $g$ is $12 - 86 = -74$.\nStep 3: $f(x - 40) = 86$ when $x - 40 = 300$, so $x = 340$. Check: $g(340) = 12 - f(300) = 12 - 86 = -74$, and $g(x) \\ge 12 - 86$ for every $x$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (The maximum value of $g$ is $98$, which occurs at $x = 340$.): this adds $12$ to $86$ and ignores the negative sign, which reflects the graph and turns the maximum into a minimum.\n* Choice B (The minimum value of $g$ is $-98$, which occurs at $x = 340$.): this negates the $12$ too; $12 - 86$ is $-74$, not $-(86 + 12)$.\n* Choice C (The minimum value of $g$ is $-74$, which occurs at $x = 260$.): $f(x - 40)$ moves the graph right $40$, so the extreme moves from $300$ to $340$, not $260$.\n\n**Test Day Takeaway:** In $k - f(x - h)$, the maximum of $f$ becomes a minimum of $k - \\text{max}$, moved $h$ units right.",
       skills: ["function-transformations"]
     }
   ],
@@ -191,221 +191,221 @@ export const transformationsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "In the $xy$-plane, the graph of $y=x^{2}$ is translated so that its lowest point is $(5,-3)$. Which equation could define the translated graph?",
+      question: "The graph of $y = x^{2}$ in the $xy$-plane is translated so that its vertex is at $(5, -3)$. Which of the following equations represents the translated graph?",
       choices: [
-        // distractor: swaps the coordinates of the vertex
-        { id: "A", text: "$y=(x-3)^{2}-5$" },
-        { id: "B", text: "$y=(x-5)^{2}-3$" },
-        // distractor: reverses the sign of the vertical coordinate
-        { id: "C", text: "$y=(x-5)^{2}+3$" },
-        // distractor: copies the sign of h into the parentheses
-        { id: "D", text: "$y=(x+5)^{2}-3$" }
+        // distractor: swaps the roles of the two coordinates
+        { id: "A", text: "$y = (x - 3)^{2} - 5$" },
+        { id: "B", text: "$y = (x - 5)^{2} - 3$" },
+        // distractor: flips the sign of the vertical shift
+        { id: "C", text: "$y = (x - 5)^{2} + 3$" },
+        // distractor: flips the sign of the horizontal shift
+        { id: "D", text: "$y = (x + 5)^{2} - 3$" }
       ],
       correctAnswer: "B",
-      hint: "In vertex form, the number paired with $x$ inside the parentheses appears with the opposite sign of the horizontal position.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** Vertex form is $y=(x-h)^{2}+k$ with vertex $(h,k)$, so $(5,-3)$ gives $y=(x-5)^{2}-3$.\n\n**The Full Solution:**\nStep 1: Translating $y=x^{2}$ without changing its shape produces an equation of the form $y=(x-h)^{2}+k$, whose lowest point is $(h,k)$.\nStep 2: Matching $(h,k)$ to the required lowest point gives $h=5$ and $k=-3$.\nStep 3: Substituting yields $y=(x-5)^{2}-3$. Check: at $x=5$, $y=0-3=-3$, and every other $x$ makes $(x-5)^{2}>0$, so $(5,-3)$ is indeed the lowest point. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y=(x-3)^{2}-5$): uses $3$ as the horizontal position and $-5$ as the height, swapping the two coordinates of the vertex.\n* Choice C ($y=(x-5)^{2}+3$): gets the horizontal move right but places the vertex $3$ units above the axis instead of below it.\n* Choice D ($y=(x+5)^{2}-3$): reads the $5$ directly into the parentheses; a vertex at $x=5$ requires the factor $x-5$.\n\n**Test Day Takeaway:** Read a translated parabola straight off vertex form: $(x-h)$ inside means the vertex is at $x=h$, and $+k$ outside means it is at height $k$.",
+      hint: "Write the vertex form $y = (x - h)^{2} + k$.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** Vertex $(h, k) = (5, -3)$ gives $y = (x - 5)^{2} - 3$.\n\n**The Full Solution:**\nStep 1: A parabola $y = x^{2}$ translated to vertex $(h, k)$ has equation $y = (x - h)^{2} + k$.\nStep 2: Here $h = 5$ and $k = -3$, so $y = (x - 5)^{2} - 3$.\nStep 3: Check: at $x = 5$, $y = 0 - 3 = -3$, and $y \\ge -3$ everywhere, so $(5, -3)$ is the vertex ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = (x - 3)^{2} - 5$): this puts the $y$-coordinate inside and the $x$-coordinate outside; its vertex is $(3, -5)$.\n* Choice C ($y = (x - 5)^{2} + 3$): this moves the vertex up $3$; its vertex is $(5, 3)$.\n* Choice D ($y = (x + 5)^{2} - 3$): this moves the vertex left $5$; its vertex is $(-5, -3)$.\n\n**Test Day Takeaway:** In $y = (x - h)^{2} + k$, the vertex is $(h, k)$: the sign inside is opposite to $h$, the sign outside matches $k$.",
       skills: ["function-transformations"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "A planetarium projector's lamp output, in hundreds of lumens, after $x$ hundred hours of use is $h(x)$, and the graph of $y = h(x)$ passes through $(3, 14)$. Through which point does the graph of $y = h(x) + 6$ pass?",
+      question: "If the point $(3, 14)$ lies on the graph of $y = h(x)$ in the $xy$-plane, which point lies on the graph of $y = h(x) + 6$?",
       choices: [
-        // distractor: subtracts 6 from the output instead of adding it
-        { id: "A", text: "$(3, 8)$" },
-        // distractor: subtracts 6 from the input
-        { id: "B", text: "$(-3, 14)$" },
-        // distractor: adds 6 to the input instead of the output
-        { id: "C", text: "$(9, 14)$" },
-        { id: "D", text: "$(3, 20)$" }
+        // distractor: moves the point left 6 as if the 6 were inside h
+        { id: "A", text: "$(-3, 14)$" },
+        // distractor: subtracts 6 from the y-coordinate
+        { id: "B", text: "$(3, 8)$" },
+        { id: "C", text: "$(3, 20)$" },
+        // distractor: adds 6 to the x-coordinate
+        { id: "D", text: "$(9, 14)$" }
       ],
-      correctAnswer: "D",
-      hint: "Ask which of the point's two coordinates the rule is able to touch.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~10s):** Adding $6$ outside the function raises the height of every point, so $(3, 14)$ becomes $(3, 20)$.\n\n**The Full Solution:**\nStep 1: The point $(3, 14)$ means $h(3) = 14$.\nStep 2: For the new graph, the height at $x = 3$ is $h(3) + 6 = 14 + 6 = 20$.\nStep 3: So the new graph passes through $(3, 20)$. Check: substituting $x = 3$ into $y = h(x) + 6$ gives $y = 20$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(3, 8)$): subtracting the $6$ from the output instead of adding it.\n* Choice B ($(-3, 14)$): subtracting the $6$ from the input, which moves the point sideways.\n* Choice C ($(9, 14)$): adding the $6$ to the input; a constant outside the function never moves a point sideways.\n\n**Test Day Takeaway:** A constant added outside the function changes only the second coordinate of every point.",
+      correctAnswer: "C",
+      hint: "An outside $+6$ changes only the $y$-coordinate.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** $h(3) = 14$, so at $x = 3$ the new graph has $y = 14 + 6 = 20$.\n\n**The Full Solution:**\nStep 1: The point $(3, 14)$ on $y = h(x)$ means $h(3) = 14$.\nStep 2: At $x = 3$, $y = h(3) + 6 = 14 + 6 = 20$.\nStep 3: So $(3, 20)$ is on the new graph, $6$ units above $(3, 14)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-3, 14)$): this treats the $6$ as a change to the input; adding $6$ outside $h$ leaves $x$ alone.\n* Choice B ($(3, 8)$): this subtracts $6$; adding $6$ to every output moves the graph up.\n* Choice D ($(9, 14)$): this adds $6$ to the $x$-coordinate, which would be a horizontal shift.\n\n**Test Day Takeaway:** $h(x) + k$ moves every point straight up $k$ units: $(a, b)$ becomes $(a, b + k)$.",
       skills: ["function-transformations"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "The graph of $y=f(x)$ is shown in the $xy$-plane. The function $g$ is defined by $g(x)=f(x-2)-6$. The graph of $y=g(x)$ attains its maximum value at which point?",
+      question: "The graph of $y = f(x)$ is shown. If $g(x) = f(x - 2) - 6$, what is the maximum value of $g(x)$?",
       diagram: { type: "quadraticVertex", params: { vertex: [-3, 5], a: -0.5, showVertex: true } },
       choices: [
-        // distractor: shifts left instead of right
-        { id: "A", text: "$(-5,-1)$" },
-        // distractor: reverses the direction of both shifts
-        { id: "B", text: "$(-5,11)$" },
-        { id: "C", text: "$(-1,-1)$" },
-        // distractor: adds 6 instead of subtracting
-        { id: "D", text: "$(-1,11)$" }
+        // distractor: gives the x-coordinate of the maximum of f
+        { id: "A", text: "$-3$" },
+        { id: "B", text: "$-1$" },
+        // distractor: gives the maximum of f and ignores the -6
+        { id: "C", text: "$5$" },
+        // distractor: adds 6 instead of subtracting it
+        { id: "D", text: "$11$" }
       ],
-      correctAnswer: "C",
-      hint: "Read the highest point of the graph shown, then move it once horizontally and once vertically.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** The peak of $f$ is at $(-3,5)$; moving right $2$ and down $6$ puts the peak of $g$ at $(-1,-1)$.\n\n**The Full Solution:**\nStep 1: From the graph, the greatest value of $f$ is $5$, attained at $x=-3$, so the high point is $(-3,5)$.\nStep 2: The inside change $x-2$ shifts the graph right $2$ units: $-3+2=-1$.\nStep 3: The outside $-6$ lowers every output: $5-6=-1$. The maximum of $g$ occurs at $(-1,-1)$. Check: $g(-1)=f(-1-2)-6=f(-3)-6=5-6=-1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-5,-1)$): shifts left instead of right; $f(x-2)$ moves the graph in the positive direction.\n* Choice B ($(-5,11)$): reverses both changes at once — left instead of right and up instead of down.\n* Choice D ($(-1,11)$): adds $6$ to the height instead of subtracting it.\n\n**Test Day Takeaway:** Extreme points travel with the graph: apply the horizontal rule to the $x$-coordinate and the vertical rule to the $y$-coordinate.",
+      correctAnswer: "B",
+      hint: "A horizontal shift does not change the greatest value; only the outside constant does.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** The greatest value of $f$ is $5$, so the greatest value of $g$ is $5 - 6 = -1$.\n\n**The Full Solution:**\nStep 1: From the graph, the highest point of $y = f(x)$ is $(-3, 5)$, so the maximum value of $f(x)$ is $5$.\nStep 2: The inside $x - 2$ moves the graph right $2$ units, which does not change any output; the outside $-6$ lowers every output by $6$.\nStep 3: The maximum value of $g(x)$ is $5 - 6 = -1$. Check: $g(-1) = f(-3) - 6 = 5 - 6 = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): $-3$ is where $f$ reaches its maximum, not the maximum value.\n* Choice C ($5$): this is the maximum of $f$; the $-6$ outside lowers it.\n* Choice D ($11$): this adds $6$; the outside $-6$ moves the graph down.\n\n**Test Day Takeaway:** Horizontal shifts move where an extreme occurs; only vertical changes alter the extreme value.",
       skills: ["function-transformations"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "The graph of $y = f(x)$ is shown, where $f(x)$ is the temperature error, in degrees Celsius, $x$ minutes into a chocolate tempering cycle. After the thermocouple is recalibrated the error follows $y = f(x) + 5$. What are the coordinates of the lowest point on the recalibrated graph?",
+      question: "The graph of $y = f(x)$ is shown. The function $g$ is defined by $g(x) = 2f(x) + 5$. What is the minimum value of $g(x)$?",
       diagram: { type: "absoluteValue", params: { vertex: [2, -3], slope: 1 } },
       choices: [
-        { id: "A", text: "$(2, 2)$" },
-        // distractor: subtracts 5 from the lowest error instead of adding it
-        { id: "B", text: "$(2, -8)$" },
-        // distractor: reports the lowest point of the original graph, ignoring the recalibration
-        { id: "C", text: "$(2, -3)$" },
-        // distractor: shifts the graph 5 units to the right
-        { id: "D", text: "$(7, -3)$" }
+        { id: "A", text: "$-1$" },
+        // distractor: ignores the factor of 2
+        { id: "B", text: "$2$" },
+        // distractor: adds 5 before multiplying by 2
+        { id: "C", text: "$4$" },
+        // distractor: uses the x-coordinate of the vertex instead of the minimum value
+        { id: "D", text: "$9$" }
       ],
       correctAnswer: "A",
-      hint: "The recalibration changes what the thermocouple reads, not when it reads it.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** The lowest point of the shown graph is $(2, -3)$; adding $5$ lifts it to $(2, 2)$.\n\n**The Full Solution:**\nStep 1: Read the lowest point of the graph of $y = f(x)$: it sits at $(2, -3)$, an error of $-3$ degrees at minute $2$.\nStep 2: Adding $5$ outside the function raises every point by $5$ degrees and leaves the minute unchanged.\nStep 3: The lowest point becomes $(2, -3 + 5) = (2, 2)$. Check: the recalibrated error at minute $2$ is $-3 + 5 = 2$, and every other point is higher ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($(2, -8)$): subtracting the $5$ from the lowest error instead of adding it.\n* Choice C ($(2, -3)$): reporting the lowest point of the original graph and ignoring the recalibration.\n* Choice D ($(7, -3)$): shifting the graph $5$ units to the right, which a constant outside the function never does.\n\n**Test Day Takeaway:** A vertical shift moves the extreme point straight up or down; its input never changes.",
+      hint: "Read the least value of $f(x)$ from the graph first.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** The least value of $f(x)$ is $-3$, so the least value of $g(x)$ is $2(-3) + 5 = -1$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex of $y = f(x)$ is $(2, -3)$, so the minimum value of $f(x)$ is $-3$.\nStep 2: Multiplying by $2$ and adding $5$ keeps the order of the outputs, so $g$ is least where $f$ is least.\nStep 3: The minimum value of $g(x)$ is $2(-3) + 5 = -1$. Check: $g(2) = 2f(2) + 5 = -6 + 5 = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): this computes $-3 + 5$ and ignores the factor of $2$.\n* Choice C ($4$): this computes $2(-3 + 5)$; the $5$ is added after the output is doubled.\n* Choice D ($9$): this uses the $x$-coordinate $2$ of the vertex: $2(2) + 5$.\n\n**Test Day Takeaway:** For $af(x) + k$ with $a > 0$, apply the same arithmetic to the extreme value of $f$: multiply first, then add.",
       skills: ["function-transformations"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "A refrigerated container's interior temperature, in degrees Celsius, $t$ hours after the doors are sealed is $f(t)$, where $f(0) = 12$ and $f$ decreases over the first day. A container sealed five hours later has temperature $g(t) = f(t - 5)$. Which of the following must be true?",
+      question: "For the function $f$, $f(4) = 12$. The function $g$ is defined by $g(x) = f(2x - 6) + 1$. Which of the following must be true?",
       choices: [
-        // distractor: ignores the five-hour delay entirely
-        { id: "A", text: "$g(0) = 12$" },
-        // distractor: applies the delay in the wrong direction
-        { id: "B", text: "$g(-5) = 12$" },
-        // distractor: swaps the input and the output
-        { id: "C", text: "$g(12) = 5$" },
-        { id: "D", text: "$g(5) = 12$" }
+        // distractor: solves 2x - 6 = 4 by subtracting 6 instead of adding it
+        { id: "A", text: "$g(-1) = 13$" },
+        // distractor: finds the correct input but drops the +1
+        { id: "B", text: "$g(5) = 12$" },
+        { id: "C", text: "$g(5) = 13$" },
+        // distractor: adds 6 to 4 but forgets to divide by 2
+        { id: "D", text: "$g(10) = 13$" }
       ],
-      correctAnswer: "D",
-      hint: "Only one reading of the first container is given; find the statement that uses it.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~25s):** $g(t) = f(t - 5)$ repeats each reading five hours later, so $g(5) = f(0) = 12$ degrees.\n\n**The Full Solution:**\nStep 1: Substituting $t = 5$ gives $g(5) = f(5 - 5) = f(0)$.\nStep 2: The first container's temperature at $t = 0$ is $12$ degrees, so $g(5) = 12$.\nStep 3: That statement follows from the rule alone. Check: the later container is sealed five hours after the first, so its temperature at hour $5$ matches the first container's at hour $0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(0) = 12$): ignoring the delay; at $t = 0$ the second container has not yet been sealed, so $g(0) = f(-5)$.\n* Choice B ($g(-5) = 12$): applying the delay in the wrong direction; $g(-5) = f(-10)$, which the given information does not fix.\n* Choice C ($g(12) = 5$): swapping the input and the output; $12$ is a temperature, not an hour.\n\n**Test Day Takeaway:** Substitute the input that makes the inside expression equal the one value you were handed.",
+      correctAnswer: "C",
+      hint: "Find the value of $x$ that makes $2x - 6 = 4$.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $2x - 6 = 4$ when $x = 5$, so $g(5) = f(4) + 1 = 13$.\n\n**The Full Solution:**\nStep 1: The only value of $f$ that is known is $f(4) = 12$, so find the $x$ that sends $4$ into $f$: $2x - 6 = 4$.\nStep 2: $2x = 10$, so $x = 5$.\nStep 3: $g(5) = f(2(5) - 6) + 1 = f(4) + 1 = 12 + 1 = 13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(-1) = 13$): this solves $2x - 6 = 4$ as $2x = -2$; the $6$ must be added to both sides.\n* Choice B ($g(5) = 12$): the input is right, but the $+1$ outside $f$ raises the output to $13$.\n* Choice D ($g(10) = 13$): this stops at $2x = 10$ and forgets to divide by $2$.\n\n**Test Day Takeaway:** To use a known value $f(a)$, set the whole inside expression equal to $a$ and solve for $x$.",
       skills: ["function-transformations"]
     },
     {
       id: 6,
       difficulty: "easy",
-      question: "The graph shown in the $xy$-plane is the image of the graph of $y=x^{2}$ after a single translation. Which translation was applied?",
+      question: "The graph shown in the $xy$-plane is the result of a single translation of the graph of $y = x^{2}$. Which of the following describes this translation?",
       diagram: { type: "quadraticVertex", params: { vertex: [-4, 0], a: 1, showVertex: true } },
       choices: [
-        // distractor: attaches the -4 to the height instead of to the input
+        // distractor: reads the horizontal move as vertical
         { id: "A", text: "$4$ units down" },
         { id: "B", text: "$4$ units left" },
-        // distractor: moves the vertex in the wrong direction
+        // distractor: reverses the direction of the move
         { id: "C", text: "$4$ units right" },
-        // distractor: reads the size of the move but assigns it to the height, ignoring the sign
+        // distractor: reads the horizontal move as vertical and reverses it
         { id: "D", text: "$4$ units up" }
       ],
       correctAnswer: "B",
-      hint: "Compare the lowest point of the curve drawn with the lowest point of $y=x^{2}$.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** The low point has moved from $(0,0)$ to $(-4,0)$ — same height, $4$ units in the negative direction.\n\n**The Full Solution:**\nStep 1: The graph of $y=x^{2}$ has its lowest point at the origin.\nStep 2: The curve drawn has the same shape with its lowest point at $(-4,0)$.\nStep 3: Only the first coordinate changed, and it decreased by $4$, so the translation is $4$ units left. Check: $y=(x+4)^{2}$ has its minimum where $x+4=0$, at $x=-4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$ units down): the lowest point is still on the $x$-axis, so no vertical movement occurred.\n* Choice C ($4$ units right): a right translation would put the low point at $(4,0)$, on the other side of the $y$-axis.\n* Choice D ($4$ units up): an upward translation would lift the low point off the $x$-axis to $(0,4)$.\n\n**Test Day Takeaway:** Identify a translation by tracking one recognizable point — for a parabola, the vertex is the easiest one.",
+      hint: "Compare the vertex shown with the vertex of $y = x^{2}$.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** The vertex moved from $(0, 0)$ to $(-4, 0)$: $4$ units left.\n\n**The Full Solution:**\nStep 1: The vertex of $y = x^{2}$ is $(0, 0)$.\nStep 2: The vertex of the graph shown is $(-4, 0)$; the $y$-coordinate is unchanged and the $x$-coordinate decreased by $4$.\nStep 3: So the translation is $4$ units left, and the graph shown is $y = (x + 4)^{2}$. Check: at $x = -4$, $y = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$ units down): the vertex is still on the $x$-axis, so the graph did not move down.\n* Choice C ($4$ units right): the vertex is to the left of the origin, at $x = -4$.\n* Choice D ($4$ units up): the vertex has $y = 0$, so the graph did not move up.\n\n**Test Day Takeaway:** Track one landmark point, usually the vertex, and read the move straight off its coordinates.",
       skills: ["function-transformations"]
     },
     {
       id: 7,
       difficulty: "easy",
-      question: "The graph of $y=f(x)$ in the $xy$-plane passes through the point $(0,7)$. Which point must lie on the graph of $y=f(x-5)$?",
+      question: "The point $(0, 7)$ lies on the graph of $y = f(x)$ in the $xy$-plane. Which point must lie on the graph of $y = f(x - 5)$?",
       choices: [
-        // distractor: shifts left instead of right
-        { id: "A", text: "$(-5,7)$" },
-        // distractor: applies the shift to the output
-        { id: "B", text: "$(0,2)$" },
-        // distractor: applies the shift to the output with the wrong sign
-        { id: "C", text: "$(0,12)$" },
-        { id: "D", text: "$(5,7)$" }
+        // distractor: moves the point left 5 instead of right 5
+        { id: "A", text: "$(-5, 7)$" },
+        // distractor: treats the shift as vertical, subtracting 5 from the y-coordinate
+        { id: "B", text: "$(0, 2)$" },
+        // distractor: applies the shift to both coordinates
+        { id: "C", text: "$(5, 2)$" },
+        { id: "D", text: "$(5, 7)$" }
       ],
       correctAnswer: "D",
-      hint: "Find the value of $x$ that makes $x-5$ equal to the input you already know.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~15s):** Setting $x-5=0$ gives $x=5$, and the output there is $f(0)=7$, so $(5,7)$ is on the new graph.\n\n**The Full Solution:**\nStep 1: The given point says $f(0)=7$.\nStep 2: For $y=f(x-5)$ to use that known output, the inside expression must equal $0$: $x-5=0$, so $x=5$.\nStep 3: At $x=5$ the value is $f(5-5)=f(0)=7$, giving the point $(5,7)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-5,7)$): moves left; inside the function, subtracting $5$ shifts the graph right.\n* Choice B ($(0,2)$): subtracts $5$ from the output, which would require $f(x)-5$.\n* Choice C ($(0,12)$): adds $5$ to the output, again treating an inside change as a vertical one.\n\n**Test Day Takeaway:** For $f(x-c)$, add $c$ to the $x$-coordinate of every known point and leave the height alone.",
+      hint: "Find the input $x$ for which $x - 5 = 0$.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~10s):** $f(x - 5) = f(0) = 7$ when $x = 5$, so $(5, 7)$ is on the new graph.\n\n**The Full Solution:**\nStep 1: The point $(0, 7)$ means $f(0) = 7$.\nStep 2: On $y = f(x - 5)$, the input $x = 5$ gives $f(5 - 5) = f(0) = 7$.\nStep 3: So $(5, 7)$ is on the new graph: the point moved $5$ units right ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-5, 7)$): subtracting $5$ inside moves the graph right, not left.\n* Choice B ($(0, 2)$): this is a vertical shift, $f(x) - 5$; the $5$ here is inside $f$.\n* Choice C ($(5, 2)$): the inside change moves only the $x$-coordinate; the output is still $f(0) = 7$.\n\n**Test Day Takeaway:** $f(x - h)$ moves every point $(a, b)$ to $(a + h, b)$.",
       skills: ["function-transformations"]
     },
     {
       id: 8,
       difficulty: "medium",
-      question: "The parabola shown in the $xy$-plane is the graph of $y=f(x)$. If $g(x)=f(x+6)+5$, what are the coordinates of the lowest point of the graph of $y=g(x)$?",
+      question: "The graph of $y = f(x)$ is shown. The function $g$ is defined by $g(x) = f(x + 6) + 5$. What is the vertex of the graph of $y = g(x)$?",
       diagram: { type: "quadraticVertex", params: { vertex: [2, -7], a: 1, showVertex: true } },
       choices: [
-        // distractor: subtracts the outside constant
-        { id: "A", text: "$(-4,-12)$" },
-        { id: "B", text: "$(-4,-2)$" },
-        // distractor: shifts right instead of left
-        { id: "C", text: "$(8,-2)$" },
-        // distractor: reverses both constants
-        { id: "D", text: "$(8,-12)$" }
+        // distractor: subtracts 5 from the y-coordinate instead of adding it
+        { id: "A", text: "$(-4, -12)$" },
+        { id: "B", text: "$(-4, -2)$" },
+        // distractor: reverses the direction of both shifts
+        { id: "C", text: "$(8, -12)$" },
+        // distractor: moves the vertex right 6 instead of left 6
+        { id: "D", text: "$(8, -2)$" }
       ],
       correctAnswer: "B",
-      hint: "Locate the vertex on the figure first; the two constants then act on separate coordinates.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** The vertex shown is $(2,-7)$; $x+6$ moves it $6$ left and $+5$ lifts it $5$, giving $(-4,-2)$.\n\n**The Full Solution:**\nStep 1: The parabola opens upward with its lowest point at $(2,-7)$, so $f(2)=-7$ is the minimum value of $f$.\nStep 2: Inside the function, $x+6$ shifts the graph $6$ units left: $2-6=-4$.\nStep 3: Outside, $+5$ raises every output: $-7+5=-2$. The lowest point of $g$ is $(-4,-2)$. Check: $g(-4)=f(-4+6)+5=f(2)+5=-7+5=-2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-4,-12)$): subtracts $5$ from the minimum instead of adding it.\n* Choice C ($(8,-2)$): shifts right; a $+6$ inside the function moves the graph left.\n* Choice D ($(8,-12)$): reverses the direction of both constants.\n\n**Test Day Takeaway:** Split the work: inside constants move $x$ against their sign, outside constants move $y$ with their sign.",
+      hint: "Read the vertex of $f$, then move it horizontally and vertically.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** The vertex $(2, -7)$ moves left $6$ and up $5$, to $(-4, -2)$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex of $y = f(x)$ is $(2, -7)$.\nStep 2: The inside $x + 6$ moves the graph left $6$: $2 - 6 = -4$. The outside $+5$ moves it up $5$: $-7 + 5 = -2$.\nStep 3: The vertex of $y = g(x)$ is $(-4, -2)$. Check: $g(-4) = f(2) + 5 = -7 + 5 = -2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-4, -12)$): this moves the vertex down $5$; adding $5$ outside $f$ moves it up.\n* Choice C ($(8, -12)$): this reverses both moves: right instead of left and down instead of up.\n* Choice D ($(8, -2)$): $f(x + 6)$ moves the graph left, so the $x$-coordinate decreases by $6$.\n\n**Test Day Takeaway:** Move the vertex with the transformation: the inside constant acts on $x$ with the opposite sign, the outside constant acts on $y$ as written.",
       skills: ["function-transformations"]
     },
     {
       id: 9,
       difficulty: "medium",
-      question: "In the $xy$-plane, the graph of $y=f(x)$ is reflected across the $y$-axis, and the resulting graph is then translated right $3$ units. Which equation defines the final graph?",
+      question: "In the $xy$-plane, the graph of $y = f(x)$ is reflected across the $y$-axis, and the resulting graph is then translated right $3$ units. Which equation defines the final graph?",
       choices: [
-        // distractor: reflects across the wrong axis
-        { id: "A", text: "$y=-f(x-3)$" },
-        // distractor: translates up instead of right
-        { id: "B", text: "$y=f(-x)+3$" },
-        // distractor: translates the reflected graph left
-        { id: "C", text: "$y=f(-x-3)$" },
-        { id: "D", text: "$y=f(3-x)$" }
+        // distractor: reflects across the x-axis instead of the y-axis
+        { id: "A", text: "$y = -f(x - 3)$" },
+        // distractor: translates up 3 instead of right 3
+        { id: "B", text: "$y = f(-x) + 3$" },
+        // distractor: replaces -x with -x - 3, which translates left 3
+        { id: "C", text: "$y = f(-x - 3)$" },
+        { id: "D", text: "$y = f(3 - x)$" }
       ],
       correctAnswer: "D",
-      hint: "Perform the reflection first, then substitute $x-3$ everywhere the input appears in that result.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** The reflection gives $f(-x)$; translating right $3$ replaces $x$ with $x-3$, producing $f(-(x-3))=f(3-x)$.\n\n**The Full Solution:**\nStep 1: Reflecting across the $y$-axis negates the input, so the intermediate equation is $y=f(-x)$.\nStep 2: A translation right $3$ units replaces every $x$ in that equation with $x-3$: $y=f(-(x-3))$.\nStep 3: Simplifying the input gives $y=f(3-x)$. Check: if $f(0)=1$, then the original point $(0,1)$ is unmoved by the reflection and lands at $(3,1)$; the formula gives $f(3-3)=f(0)=1$ at $x=3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y=-f(x-3)$): negates the output, which reflects across the $x$-axis instead of the $y$-axis.\n* Choice B ($y=f(-x)+3$): adds $3$ outside, translating the reflected graph up rather than right.\n* Choice C ($y=f(-x-3)$): equals $f(-(x+3))$, which translates the reflected graph $3$ units left.\n\n**Test Day Takeaway:** After a reflection, substitute the horizontal shift into the whole input expression — do not just append it.",
+      hint: "After the reflection, replace $x$ with $x - 3$ in the new rule.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~25s):** Reflect: $y = f(-x)$. Then replace $x$ with $x - 3$: $y = f(-(x - 3)) = f(3 - x)$.\n\n**The Full Solution:**\nStep 1: Reflecting across the $y$-axis replaces $x$ with $-x$: $y = f(-x)$.\nStep 2: Translating that graph right $3$ units replaces $x$ with $x - 3$: $y = f(-(x - 3)) = f(3 - x)$.\nStep 3: Check: the point $(0, f(0))$ stays at $(0, f(0))$ after the reflection and moves to $(3, f(0))$; in $y = f(3 - x)$, $x = 3$ gives $f(0)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -f(x - 3)$): the negative sign outside $f$ reflects across the $x$-axis, not the $y$-axis.\n* Choice B ($y = f(-x) + 3$): adding $3$ outside $f$ moves the graph up $3$, not right $3$.\n* Choice C ($y = f(-x - 3)$): $f(-x - 3) = f(-(x + 3))$, which moves the reflected graph left $3$.\n\n**Test Day Takeaway:** After a reflection, a horizontal shift replaces $x$ itself: write $f(-(x - h))$ before simplifying.",
       skills: ["function-transformations"]
     },
     {
       id: 10,
       difficulty: "hard",
-      question: "In the $xy$-plane, the graph of $y=f(x)$ crosses the $x$-axis at exactly two points, where $x=-6$ and $x=2$. At what values of $x$ does the graph of $y=f(x+4)$ cross the $x$-axis?",
+      question: "$f(x) = x^{2} + 4x - 21$\nThe function $g$ is defined by $g(x) = f(x + 4)$. What is the sum of the $x$-coordinates of the $x$-intercepts of the graph of $y = g(x)$ in the $xy$-plane?",
       choices: [
-        // distractor: multiplies the zeros by 4
-        { id: "A", text: "$x=-24$ and $x=8$" },
-        { id: "B", text: "$x=-10$ and $x=-2$" },
-        // distractor: leaves the zeros unchanged
-        { id: "C", text: "$x=-6$ and $x=2$" },
-        // distractor: shifts the zeros right
-        { id: "D", text: "$x=-2$ and $x=6$" }
+        { id: "A", text: "$-12$" },
+        // distractor: subtracts 4 from the sum once instead of from each intercept
+        { id: "B", text: "$-8$" },
+        // distractor: gives the sum for f and ignores the shift
+        { id: "C", text: "$-4$" },
+        // distractor: moves both intercepts right 4 instead of left 4
+        { id: "D", text: "$4$" }
       ],
-      correctAnswer: "B",
-      hint: "Each crossing happens when the expression inside $f$ equals a value that already made $f$ zero.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** Solve $x+4=-6$ and $x+4=2$ to get $x=-10$ and $x=-2$: the whole picture slides $4$ units left.\n\n**The Full Solution:**\nStep 1: The crossings of $f$ tell you that $f(-6)=0$ and $f(2)=0$, and that $f$ has no other zeros.\nStep 2: For $y=f(x+4)$ to equal $0$, the input $x+4$ must be one of those two numbers.\nStep 3: $x+4=-6$ gives $x=-10$, and $x+4=2$ gives $x=-2$. Check: $f(-10+4)=f(-6)=0$ and $f(-2+4)=f(2)=0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x=-24$ and $x=8$): multiplies the crossings by $4$; the $4$ is added inside, not multiplied.\n* Choice C ($x=-6$ and $x=2$): assumes the crossings are unchanged, which holds for a vertical stretch but not for a horizontal shift.\n* Choice D ($x=-2$ and $x=6$): moves the crossings $4$ units right; a $+4$ inside the function moves the graph left.\n\n**Test Day Takeaway:** To relocate a zero after an inside change, set the inside expression equal to the old zero and solve.",
+      correctAnswer: "A",
+      hint: "Find the $x$-intercepts of $f$, then move each one.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** $f$ has zeros $-7$ and $3$ (sum $-4$); each moves left $4$, so the sum drops by $8$ to $-12$.\n\n**The Full Solution:**\nStep 1: $x^{2} + 4x - 21 = (x + 7)(x - 3)$, so the graph of $f$ crosses the $x$-axis at $x = -7$ and $x = 3$.\nStep 2: $g(x) = f(x + 4)$ moves the graph left $4$, so its $x$-intercepts are at $x = -11$ and $x = -1$.\nStep 3: The sum is $-11 + (-1) = -12$. Check: $g(-11) = f(-7) = 0$ and $g(-1) = f(3) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-8$): this subtracts $4$ from the sum once; both intercepts move, so the sum decreases by $8$.\n* Choice C ($-4$): this is the sum of the $x$-intercepts of $f$; the graph of $g$ is shifted.\n* Choice D ($4$): this moves both intercepts right $4$; $f(x + 4)$ moves the graph left.\n\n**Test Day Takeaway:** A horizontal shift moves every $x$-intercept by the same amount, so a sum of two intercepts moves twice as far.",
       skills: ["function-transformations"]
     },
     {
       id: 11,
       difficulty: "hard",
-      question: "A monorail platform's arrival deviation, in minutes, is $A(x)$ for a train scheduled at minute $x$, and the deviation is zero only at $x = -6$ and $x = 8$. A second platform's deviation is $y = A(2x + 4)$. At which values of $x$ is the second platform's deviation zero?",
+      question: "For the function $f$, $f(x) = 0$ only when $x = -6$ or $x = 8$. For what values of $x$ does $f(2x + 4) = 0$?",
       choices: [
-        // distractor: subtracts the 4 but never divides by 2
-        { id: "A", text: "At $x = -10$ and $x = 4$." },
-        { id: "B", text: "At $x = -5$ and $x = 2$." },
-        // distractor: divides by 2 but leaves the +4 out
-        { id: "C", text: "At $x = -3$ and $x = 4$." },
-        // distractor: reads the inside expression as 2x - 4
-        { id: "D", text: "At $x = -1$ and $x = 6$." }
+        // distractor: subtracts 4 but forgets to divide by 2
+        { id: "A", text: "$x = -10$ and $x = 4$" },
+        { id: "B", text: "$x = -5$ and $x = 2$" },
+        // distractor: divides by 2 but ignores the +4
+        { id: "C", text: "$x = -3$ and $x = 4$" },
+        // distractor: adds 4 instead of subtracting before dividing by 2
+        { id: "D", text: "$x = -1$ and $x = 6$" }
       ],
       correctAnswer: "B",
-      hint: "Two operations sit inside the function, and both have to be undone.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~40s):** $A(2x + 4) = 0$ needs $2x + 4$ to equal $-6$ or $8$, giving $x = -5$ and $x = 2$.\n\n**The Full Solution:**\nStep 1: The second platform's deviation is zero exactly when the inside expression lands on an input where $A$ is zero, so $2x + 4 = -6$ or $2x + 4 = 8$.\nStep 2: From $2x + 4 = -6$: $2x = -10$, so $x = -5$. From $2x + 4 = 8$: $2x = 4$, so $x = 2$.\nStep 3: The zeros are at $x = -5$ and $x = 2$. Check: $2(-5) + 4 = -6$ and $2(2) + 4 = 8$, both inputs where $A$ is zero ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$ and $4$): subtracting the $4$ but never dividing by $2$.\n* Choice C ($-3$ and $4$): dividing by $2$ and leaving the $+4$ out of the equation.\n* Choice D ($-1$ and $6$): reading the inside expression as $2x - 4$ and adding the $4$ instead of subtracting it.\n\n**Test Day Takeaway:** Set the whole inside expression equal to each known input, then solve; undo the addition before the multiplication.",
+      hint: "Set the whole input $2x + 4$ equal to each zero of $f$.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** $2x + 4 = -6$ gives $x = -5$, and $2x + 4 = 8$ gives $x = 2$.\n\n**The Full Solution:**\nStep 1: $f(2x + 4) = 0$ exactly when the input $2x + 4$ is $-6$ or $8$.\nStep 2: $2x + 4 = -6$ gives $2x = -10$, so $x = -5$; $2x + 4 = 8$ gives $2x = 4$, so $x = 2$.\nStep 3: Check: $2(-5) + 4 = -6$ and $2(2) + 4 = 8$, both zeros of $f$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x = -10$ and $x = 4$): this stops at $2x = -10$ and $2x = 4$ without dividing by $2$.\n* Choice C ($x = -3$ and $x = 4$): this halves $-6$ and $8$ but never accounts for the $+4$.\n* Choice D ($x = -1$ and $x = 6$): this adds $4$ to each zero before halving; the $4$ must be subtracted.\n\n**Test Day Takeaway:** For $f(ax + b)$, solve $ax + b = $ (each known input); do not try to read the shift off by eye.",
       skills: ["function-transformations"]
     },
     {
       id: 12,
       difficulty: "hard",
-      question: "The graph of $y=f(x)$ in the $xy$-plane is a parabola with vertex $(-3,6)$. The function $g$ is defined by $g(x)=2f(x+5)-9$. What is the vertex of the graph of $y=g(x)$?",
+      question: "$g(x) = 2f(x + 5) - 9$\nThe graph of $y = f(x)$ in the $xy$-plane is a parabola with vertex $(-3, 6)$. What is the vertex of the graph of $y = g(x)$?",
       choices: [
-        // distractor: applies the vertical shift before the stretch
-        { id: "A", text: "$(-8,-6)$" },
-        { id: "B", text: "$(-8,3)$" },
-        // distractor: omits the vertical shift
-        { id: "C", text: "$(-8,12)$" },
-        // distractor: shifts right instead of left
-        { id: "D", text: "$(2,3)$" }
+        // distractor: subtracts 9 before multiplying by 2
+        { id: "A", text: "$(-8, -6)$" },
+        { id: "B", text: "$(-8, 3)$" },
+        // distractor: multiplies by 2 but drops the -9
+        { id: "C", text: "$(-8, 12)$" },
+        // distractor: moves the vertex right 5 instead of left 5
+        { id: "D", text: "$(2, 3)$" }
       ],
       correctAnswer: "B",
-      hint: "Three things happen to the vertex, and only one of them changes its first coordinate.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~35s):** $x+5$ moves the vertex to $x=-8$; the height becomes $2(6)-9=3$, so the vertex is $(-8,3)$.\n\n**The Full Solution:**\nStep 1: Inside the function, $x+5$ shifts the graph $5$ units left, so the vertex moves from $x=-3$ to $x=-3-5=-8$.\nStep 2: The factor $2$ multiplies the output first: $2(6)=12$. Then the $-9$ lowers it: $12-9=3$.\nStep 3: The vertex of $g$ is $(-8,3)$. Check: $g(-8)=2f(-8+5)-9=2f(-3)-9=2(6)-9=3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-8,-6)$): subtracts $9$ before doubling: $2(6-9)=-6$, but the $-9$ is applied after the stretch.\n* Choice C ($(-8,12)$): stretches the height but never applies the $-9$.\n* Choice D ($(2,3)$): shifts right; a $+5$ inside the function moves the graph left.\n\n**Test Day Takeaway:** Outside operations act in written order: multiply the height first, then add or subtract.",
+      hint: "Move the $x$-coordinate with the inside change and the $y$-coordinate with the outside changes, in order.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** $x$: $-3 - 5 = -8$. $y$: $2(6) - 9 = 3$. The vertex is $(-8, 3)$.\n\n**The Full Solution:**\nStep 1: The inside $x + 5$ moves the graph left $5$, so the vertex's $x$-coordinate is $-3 - 5 = -8$.\nStep 2: The outside changes act on the output in order: double it, then subtract $9$: $2(6) - 9 = 3$.\nStep 3: The vertex of $y = g(x)$ is $(-8, 3)$. Check: $g(-8) = 2f(-3) - 9 = 2(6) - 9 = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-8, -6)$): this computes $2(6 - 9)$; the output is doubled first and then $9$ is subtracted.\n* Choice C ($(-8, 12)$): this doubles $6$ but leaves off the $-9$.\n* Choice D ($(2, 3)$): $f(x + 5)$ moves the graph left $5$, not right.\n\n**Test Day Takeaway:** For $af(x - h) + k$, the point $(p, q)$ moves to $(p + h, aq + k)$: multiply before you add.",
       skills: ["function-transformations"]
     }
   ],
@@ -415,119 +415,119 @@ export const transformationsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "The table gives the sap flow $f(d)$ from one tap and the flow $g(d)$ from a second tap, both in liters, on day $d$ of a maple run. Which equation relates $g$ to $f$ on the days listed?",
-      questionTable: { headers: ["$d$", "$f(d)$", "$g(d)$"], rows: [["$1$", "$18$", "$26$"], ["$2$", "$23$", "$31$"], ["$3$", "$31$", "$39$"], ["$4$", "$40$", "$48$"]] },
+      question: "The table shows four values of $x$ and their corresponding values of $f(x)$ and $g(x)$. Which of the following equations represents the relationship between $f$ and $g$?",
+      questionTable: { headers: ["$x$", "$f(x)$", "$g(x)$"], rows: [["$1$", "$18$", "$26$"], ["$2$", "$23$", "$31$"], ["$3$", "$31$", "$39$"], ["$4$", "$40$", "$48$"]] },
       choices: [
-        { id: "A", text: "$g(d) = f(d) + 8$" },
-        // distractor: reverses the direction of the shift
-        { id: "B", text: "$g(d) = f(d) - 8$" },
-        // distractor: multiplies by 8 instead of adding it
-        { id: "C", text: "$g(d) = 8f(d)$" },
-        // distractor: places the 8 inside the function, shifting the day rather than the flow
-        { id: "D", text: "$g(d) = f(d + 8)$" }
+        { id: "A", text: "$g(x) = f(x) + 8$" },
+        // distractor: subtracts the gap instead of adding it
+        { id: "B", text: "$g(x) = f(x) - 8$" },
+        // distractor: treats a constant difference as a factor
+        { id: "C", text: "$g(x) = 8f(x)$" },
+        // distractor: puts the 8 inside f, which changes the input
+        { id: "D", text: "$g(x) = f(x + 8)$" }
       ],
       correctAnswer: "A",
-      hint: "Read across each row before you read down any column.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** Every listed day shows $g$ exactly $8$ liters above $f$, so $g(d) = f(d) + 8$.\n\n**The Full Solution:**\nStep 1: Subtract the two flows day by day: $26 - 18 = 8$, $31 - 23 = 8$, $39 - 31 = 8$, and $48 - 40 = 8$.\nStep 2: The difference is the same constant every day, so the second tap's flow is the first tap's flow plus $8$ liters.\nStep 3: That relationship is $g(d) = f(d) + 8$. Check: on day $3$, $f(3) + 8 = 31 + 8 = 39 = g(3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(d) - 8$): reversing the direction; the second tap runs higher, not lower.\n* Choice C ($8f(d)$): multiplying by $8$, which would give $8(18) = 144$ liters on day $1$, not $26$.\n* Choice D ($f(d + 8)$): placing the $8$ inside the function, which shifts the day rather than the flow.\n\n**Test Day Takeaway:** A constant difference in every row means a vertical shift; a constant ratio would mean a stretch.",
+      hint: "Compare $g(x)$ with $f(x)$ in each row.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~10s):** In every row $g(x)$ is $8$ more than $f(x)$: $26 - 18 = 31 - 23 = 39 - 31 = 48 - 40 = 8$.\n\n**The Full Solution:**\nStep 1: Subtract in each row: $26 - 18 = 8$, $31 - 23 = 8$, $39 - 31 = 8$, and $48 - 40 = 8$.\nStep 2: The difference is the same for every $x$, so $g(x) = f(x) + 8$.\nStep 3: Check with $x = 3$: $f(3) + 8 = 31 + 8 = 39 = g(3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($g(x) = f(x) - 8$): every $g(x)$ is greater than $f(x)$, so $8$ is added, not subtracted.\n* Choice C ($g(x) = 8f(x)$): $8f(1) = 144$, not $26$; the rows differ by $8$, they are not $8$ times as large.\n* Choice D ($g(x) = f(x + 8)$): adding $8$ to the input would use $f(9)$ for $x = 1$; the table shows the outputs differ by $8$ at the same input.\n\n**Test Day Takeaway:** Same input, constant gap in output: that is a vertical shift, $f(x) + k$.",
       skills: ["function-transformations"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "A canning retort's core temperature, in degrees Celsius, at minute $m$ of a cook is $f(m)$, with $f(5) = 62$, $f(10) = 88$, and $f(15) = 104$. A second retort runs a cook modeled by $g(m) = f(m) + 6$. What is the value of $g(10)$?",
+      question: "$g(x) = f(x) + 6$\nIn the given equation, $f$ is a function. If $f(10) = 88$, what is the value of $g(10)$?",
       choices: [
         // distractor: subtracts 6 instead of adding it
         { id: "A", text: "$82$" },
-        // distractor: reports f(10) unchanged
+        // distractor: reports f(10) and ignores the +6
         { id: "B", text: "$88$" },
         { id: "C", text: "$94$" },
-        // distractor: adds 6 to f(15) instead of f(10)
-        { id: "D", text: "$110$" }
+        // distractor: multiplies 88 by 6 instead of adding 6
+        { id: "D", text: "$528$" }
       ],
       correctAnswer: "C",
-      hint: "Only one of the three readings given is the one this question needs.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** $g(10) = f(10) + 6 = 88 + 6 = 94$ degrees Celsius.\n\n**The Full Solution:**\nStep 1: The rule adds $6$ degrees to the first retort's temperature at the same minute.\nStep 2: At minute $10$ the first retort reads $f(10) = 88$ degrees.\nStep 3: So $g(10) = 88 + 6 = 94$ degrees Celsius. Check: $94 - 6 = 88 = f(10)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($82$): subtracting the $6$ instead of adding it.\n* Choice B ($88$): reporting the first retort's reading and leaving the $+6$ out.\n* Choice D ($110$): adding the $6$ to $f(15) = 104$, the reading at the wrong minute.\n\n**Test Day Takeaway:** A constant outside the function applies at the same input; read the matching row before you shift.",
+      hint: "Substitute $10$ for $x$ in the given equation.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** $g(10) = f(10) + 6 = 88 + 6 = 94$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 10$: $g(10) = f(10) + 6$.\nStep 2: It's given that $f(10) = 88$, so $g(10) = 88 + 6$.\nStep 3: $g(10) = 94$. Check: $94 - 88 = 6$, the amount the equation adds ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($82$): this subtracts $6$; the equation adds $6$ to the output of $f$.\n* Choice B ($88$): this is $f(10)$; the $+6$ still has to be applied.\n* Choice D ($528$): this multiplies $88$ by $6$; the equation adds $6$.\n\n**Test Day Takeaway:** Substitute the input into the outer rule first, then use the given value of $f$.",
       skills: ["function-transformations"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "For the function $f$, the table shows the value of $f(x)$ at four values of $x$. The function $g$ is defined by $g(x)=-f(x)$. What is the value of $g(3)$?",
+      question: "The table shows four values of $x$ and their corresponding values of $f(x)$. If $g(x) = -f(x + 3)$, what is the value of $g(3)$?",
       diagram: { type: "dataTable", params: { headers: ["x", "f(x)"], rows: [["0", "5"], ["3", "8"], ["6", "-2"], ["9", "11"]] } },
       choices: [
+        // distractor: ignores the +3 and negates f(3)
         { id: "A", text: "$-8$" },
-        // distractor: reads the wrong row
+        // distractor: subtracts 3 from the input and negates f(0)
         { id: "B", text: "$-5$" },
-        // distractor: negates the value at x = 6
-        { id: "C", text: "$2$" },
-        // distractor: omits the negative sign
-        { id: "D", text: "$8$" }
+        // distractor: finds f(6) but drops the negative sign
+        { id: "C", text: "$-2$" },
+        { id: "D", text: "$2$" }
       ],
-      correctAnswer: "A",
-      hint: "Read the row for the input you need, then decide what the negative sign changes.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** The table gives $f(3)=8$, and $g(3)=-f(3)=-8$.\n\n**The Full Solution:**\nStep 1: Locate $x=3$ in the table; the corresponding output is $f(3)=8$.\nStep 2: The definition $g(x)=-f(x)$ multiplies that output by $-1$.\nStep 3: So $g(3)=-8$. Check: the graph of $g$ is the graph of $f$ reflected across the $x$-axis, so a height of $8$ becomes a height of $-8$ at the same input. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-5$): negates the output in the row $x=0$ instead of the row $x=3$.\n* Choice C ($2$): negates the output in the row $x=6$: $-(-2)=2$.\n* Choice D ($8$): reports $f(3)$ itself and never applies the negative sign.\n\n**Test Day Takeaway:** A negative outside the function changes the sign of the output and nothing else.",
+      correctAnswer: "D",
+      hint: "Find the input that $f$ receives when $x = 3$.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** $g(3) = -f(6) = -(-2) = 2$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 3$: $g(3) = -f(3 + 3) = -f(6)$.\nStep 2: The table shows $f(6) = -2$.\nStep 3: So $g(3) = -(-2) = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): this negates $f(3) = 8$ and never adds $3$ to the input.\n* Choice B ($-5$): this uses $f(0) = 5$, subtracting $3$ from the input instead of adding it.\n* Choice C ($-2$): this is $f(6)$ itself; the negative sign outside $f$ still has to be applied.\n\n**Test Day Takeaway:** Work from the inside out: compute the new input, look it up, then apply the outside sign.",
       skills: ["function-transformations"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "The table gives an adaptive-optics loop's wavefront error $f(n)$, in nanometers, on correction cycle $n$, together with a second loop's error $g(n)$ on the same cycles. Which equation relates $g$ to $f$?",
-      questionTable: { headers: ["$n$", "$f(n)$", "$g(n)$"], rows: [["$1$", "$12$", "$4$"], ["$2$", "$17$", "$7$"], ["$3$", "$24$", "$12$"], ["$4$", "$33$", "$19$"]] },
+      question: "For the functions $f$ and $g$, the table shows four values of $x$ and their corresponding values of $f(x)$ and $g(x)$. Which equation could define $g$ in terms of $f$?",
+      questionTable: { headers: ["$x$", "$f(x)$", "$g(x)$"], rows: [["$1$", "$12$", "$4$"], ["$2$", "$17$", "$7$"], ["$3$", "$24$", "$12$"], ["$4$", "$33$", "$19$"]] },
       choices: [
-        // distractor: subtracts 5 without the one-cycle lag
-        { id: "A", text: "$g(n) = f(n) - 5$" },
-        // distractor: lags the wrong way, reading ahead one cycle
-        { id: "B", text: "$g(n) = f(n + 1) - 5$" },
-        // distractor: has the lag right but adds 5 instead of subtracting
-        { id: "C", text: "$g(n) = f(n - 1) + 5$" },
-        { id: "D", text: "$g(n) = f(n - 1) - 5$" }
+        // distractor: compares outputs at the same x, which gives no constant gap
+        { id: "A", text: "$g(x) = f(x) - 5$" },
+        // distractor: shifts the input the wrong way
+        { id: "B", text: "$g(x) = f(x + 1) - 5$" },
+        // distractor: adds 5 instead of subtracting it
+        { id: "C", text: "$g(x) = f(x - 1) + 5$" },
+        { id: "D", text: "$g(x) = f(x - 1) - 5$" }
       ],
       correctAnswer: "D",
-      hint: "No single row of the table settles which rule is right.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** Each $g$ value is $5$ nanometers below the $f$ value one cycle earlier: $g(n) = f(n - 1) - 5$.\n\n**The Full Solution:**\nStep 1: Compare $g$ with the $f$ value in the row above it: $g(2) = 7$ and $f(1) = 12$; $g(3) = 12$ and $f(2) = 17$; $g(4) = 19$ and $f(3) = 24$.\nStep 2: In every case $g$ is $5$ nanometers less than the previous cycle's $f$, so the second loop lags one cycle and runs $5$ nanometers lower.\nStep 3: That is $g(n) = f(n - 1) - 5$. Check: $f(3) - 5 = 24 - 5 = 19 = g(4)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(n) - 5$): matching the same row, which gives $f(2) - 5 = 12$ instead of the listed $g(2) = 7$.\n* Choice B ($f(n + 1) - 5$): lagging the wrong way, which gives $f(3) - 5 = 19$ instead of the listed $g(2) = 7$.\n* Choice C ($f(n - 1) + 5$): using the right cycle but adding, which gives $f(1) + 5 = 17$ instead of the listed $g(2) = 7$.\n\n**Test Day Takeaway:** Check a candidate rule against a row you have not used yet; a rule that survives every row is the one.",
+      hint: "Compare each $g(x)$ with the value of $f$ one row earlier.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** $g(2) = 7 = 12 - 5 = f(1) - 5$, and the pattern holds in each later row: $g(x) = f(x - 1) - 5$.\n\n**The Full Solution:**\nStep 1: Same-row differences are $8$, $10$, $12$, $14$, not constant, so the relationship is not just a vertical shift.\nStep 2: Compare each $g(x)$ with $f(x - 1)$: $g(2) = 7 = 12 - 5$, $g(3) = 12 = 17 - 5$, $g(4) = 19 = 24 - 5$.\nStep 3: So $g(x) = f(x - 1) - 5$. Check: $f(3) - 5 = 24 - 5 = 19 = g(4)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = f(x) - 5$): at $x = 1$ this gives $12 - 5 = 7$, but $g(1) = 4$.\n* Choice B ($g(x) = f(x + 1) - 5$): at $x = 1$ this gives $f(2) - 5 = 12$, but $g(1) = 4$; the input moves the wrong way.\n* Choice C ($g(x) = f(x - 1) + 5$): at $x = 2$ this gives $f(1) + 5 = 17$, but $g(2) = 7$.\n\n**Test Day Takeaway:** When same-row gaps are not constant, compare across rows: a horizontal shift lines up $g(x)$ with a different row of $f$.",
       skills: ["function-transformations"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "The table gives an orchard frost sensor's nightly temperature margin $f(x)$, in degrees Celsius, on night $x$. The block's risk index is $g(x) = -f(x) + 10$. What is the greatest value of $g(x)$ among the nights listed?",
-      questionTable: { headers: ["Night $x$", "$f(x)$"], rows: [["$1$", "$6$"], ["$2$", "$-2$"], ["$3$", "$4$"], ["$4$", "$-7$"], ["$5$", "$3$"]] },
+      question: "The table shows five values of $x$ and their corresponding values of $f(x)$. The function $g$ is defined by $g(x) = 10 - f(x)$. What is the greatest value of $g(x)$ for the values of $x$ in the table?",
+      questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$1$", "$6$"], ["$2$", "$-2$"], ["$3$", "$4$"], ["$4$", "$-7$"], ["$5$", "$3$"]] },
       choices: [
-        // distractor: uses the greatest margin 6, computing -6 + 10 = 4
+        // distractor: uses the greatest value of f, computing 10 - 6
         { id: "A", text: "$4$" },
-        // distractor: stops at the first negative margin -2, computing 12
+        // distractor: uses the first negative value of f, -2, not the least one
         { id: "B", text: "$12$" },
-        // distractor: drops the negative sign, computing 6 + 10 = 16
+        // distractor: drops the negative sign, computing 10 + 6
         { id: "C", text: "$16$" },
         { id: "D", text: "$17$" }
       ],
       correctAnswer: "D",
-      hint: "The greatest index need not come from the greatest margin.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** The reflection makes the most negative margin the largest index: $-(-7) + 10 = 17$.\n\n**The Full Solution:**\nStep 1: Because of the minus sign, $g$ is largest where $f$ is smallest.\nStep 2: The smallest margin listed is $-7$ degrees, on night $4$.\nStep 3: So the greatest risk index is $g(4) = -(-7) + 10 = 7 + 10 = 17$. Check: the other nights give $4$, $12$, $6$, and $7$, all below $17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): using the greatest margin, $6$, and computing $-6 + 10$; the reflection sends the largest margin to the smallest index.\n* Choice B ($12$): stopping at the first negative margin, $-2$, instead of the most negative one.\n* Choice C ($16$): dropping the minus sign and computing $6 + 10$.\n\n**Test Day Takeaway:** A negative coefficient reverses which input gives the extreme value — scan for the smallest, not the largest.",
+      hint: "Because $f(x)$ is subtracted, the greatest $g(x)$ need not come from the greatest $f(x)$.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~25s):** Subtracting $f(x)$ makes the least $f(x)$ give the greatest $g(x)$: $10 - (-7) = 17$.\n\n**The Full Solution:**\nStep 1: Since $f(x)$ is subtracted from $10$, $g(x)$ is greatest where $f(x)$ is least.\nStep 2: The least value of $f(x)$ in the table is $-7$, at $x = 4$.\nStep 3: So the greatest value of $g(x)$ is $10 - (-7) = 17$. Check: the other rows give $4$, $12$, $6$, and $7$, all less than $17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): this uses the greatest value of $f$, $6$; subtracting it gives the least value of $g$.\n* Choice B ($12$): this uses $-2$, the first negative value, instead of the least value, $-7$.\n* Choice C ($16$): this computes $10 + 6$, dropping the negative sign.\n\n**Test Day Takeaway:** A negative sign on $f$ reverses the order of the outputs: look for the least value of $f$, not the greatest.",
       skills: ["function-transformations"]
     },
     {
       id: 6,
       difficulty: "easy",
-      question: "A kelp farm's first raft yields $f(w)$ kilograms of blades in week $w$, and $f(6) = 240$. A neighboring raft is thinned so that it yields three quarters as much each week, or $g(w) = 0.75f(w)$. What is the value of $g(6)$?",
+      question: "$g(x) = 0.75f(x)$\nIf $f(6) = 240$, what is the value of $g(6)$?",
       choices: [
-        // distractor: takes one quarter of the yield instead of three quarters
+        // distractor: computes the 25% that is removed
         { id: "A", text: "$60$" },
         { id: "B", text: "$180$" },
-        // distractor: reports the first raft's yield unchanged
+        // distractor: reports f(6) and ignores the factor
         { id: "C", text: "$240$" },
         // distractor: divides by 0.75 instead of multiplying
         { id: "D", text: "$320$" }
       ],
       correctAnswer: "B",
-      hint: "Thinning the raft cannot raise its yield.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** Three quarters of $240$ kilograms is $180$ kilograms.\n\n**The Full Solution:**\nStep 1: The rule multiplies the first raft's yield by $0.75$ in every week.\nStep 2: In week $6$ the first raft yields $f(6) = 240$ kilograms.\nStep 3: So $g(6) = 0.75(240) = 180$ kilograms. Check: $180$ is $\\frac{3}{4}$ of $240$, and $240 - 180 = 60$ is the quarter removed ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($60$): taking one quarter of the yield instead of three quarters.\n* Choice C ($240$): reporting the first raft's yield and ignoring the thinning.\n* Choice D ($320$): dividing by $0.75$ instead of multiplying, which makes the thinned raft yield more.\n\n**Test Day Takeaway:** A factor outside the function scales every output; multiply, and check the direction of the change.",
+      hint: "Substitute $6$ for $x$ in the given equation.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** $g(6) = 0.75(240) = 180$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 6$: $g(6) = 0.75f(6)$.\nStep 2: It's given that $f(6) = 240$, so $g(6) = 0.75(240)$.\nStep 3: $g(6) = 180$. Check: $\\frac{180}{240} = 0.75$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($60$): this is $0.25(240)$, the part removed, not the part kept.\n* Choice C ($240$): this is $f(6)$; the factor of $0.75$ still has to be applied.\n* Choice D ($320$): this divides $240$ by $0.75$; the equation multiplies.\n\n**Test Day Takeaway:** A factor outside $f$ scales the output: multiply the known value of $f$ by it.",
       skills: ["function-transformations"]
     },
     {
       id: 7,
       difficulty: "easy",
-      question: "The function $f$ is defined only at the five inputs listed in the table. If $k(x)=f(x+2)$, what is the value of $k(0)$?",
+      question: "For the function $f$, the table shows five values of $x$ and their corresponding values of $f(x)$. The function $k$ is defined by $k(x) = f(x + 2)$. What is the value of $k(0)$?",
       diagram: { type: "dataTable", params: { headers: ["x", "f(x)"], rows: [["-4", "9"], ["-2", "5"], ["0", "1"], ["2", "-3"], ["4", "-7"]] } },
       choices: [
         // distractor: applies the shift twice
@@ -539,17 +539,17 @@ export const transformationsQuestions = {
         { id: "D", text: "$5$" }
       ],
       correctAnswer: "B",
-      hint: "Simplify $x+2$ at the given input, then find that number in the left column.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** $k(0)=f(0+2)=f(2)=-3$.\n\n**The Full Solution:**\nStep 1: The rule for $k$ adds $2$ to the input before $f$ is applied, so $k(0)=f(2)$.\nStep 2: The row with $x=2$ in the table gives $f(2)=-3$.\nStep 3: Therefore $k(0)=-3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): uses the row $x=4$, adding the shift twice.\n* Choice C ($1$): uses the row $x=0$ and never applies the shift.\n* Choice D ($5$): uses the row $x=-2$, subtracting $2$ from the input instead of adding it.\n\n**Test Day Takeaway:** With $f(x+c)$, compute the new input first; the table lookup happens after the arithmetic, not before.",
+      hint: "Compute the input $f$ receives when $x = 0$.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** $k(0) = f(0 + 2) = f(2) = -3$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 0$: $k(0) = f(0 + 2) = f(2)$.\nStep 2: The table shows $f(2) = -3$.\nStep 3: Therefore $k(0) = -3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): this uses the row $x = 4$, adding $2$ twice.\n* Choice C ($1$): this uses the row $x = 0$ and never applies the shift.\n* Choice D ($5$): this uses the row $x = -2$, subtracting $2$ from the input instead of adding it.\n\n**Test Day Takeaway:** With $f(x + c)$, compute the new input first; the table lookup comes after the arithmetic.",
       skills: ["function-transformations"]
     },
     {
       id: 8,
       difficulty: "medium",
-      question: "The table gives a sky survey's star count $f(x)$, in thousands, for field $x$. A deeper survey counts $g(x) = f(x) + k$ stars for a constant $k$, and $g(4) = 31$ thousand. What is the value of $g(7)$?",
+      question: "The table shows four values of $x$ and their corresponding values of $f(x)$. The function $g$ is defined by $g(x) = f(x) + k$, where $k$ is a constant. If $g(4) = 31$, what is the value of $g(7)$?",
       questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$1$", "$8$"], ["$4$", "$19$"], ["$7$", "$26$"], ["$10$", "$33$"]] },
       choices: [
-        // distractor: reports f(7) without adding the constant
+        // distractor: reports f(7) without adding the constant k
         { id: "A", text: "$26$" },
         // distractor: repeats the given value g(4)
         { id: "B", text: "$31$" },
@@ -558,120 +558,120 @@ export const transformationsQuestions = {
         { id: "D", text: "$45$" }
       ],
       correctAnswer: "C",
-      hint: "One field appears both in the table and in the deeper survey's given count.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $k = 31 - 19 = 12$, so $g(7) = 26 + 12 = 38$ thousand.\n\n**The Full Solution:**\nStep 1: The table gives $f(4) = 19$ thousand, and $g(4) = f(4) + k = 31$ thousand, so $k = 12$ thousand.\nStep 2: The same constant applies to every field, so $g(7) = f(7) + 12$.\nStep 3: Since $f(7) = 26$, $g(7) = 26 + 12 = 38$ thousand. Check: $g(4) = 19 + 12 = 31$ thousand, matching the given value ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($26$): reporting $f(7)$ without adding the constant.\n* Choice B ($31$): repeating the value given for field $4$.\n* Choice D ($45$): adding the constant to $f(10) = 33$, the count for the wrong field.\n\n**Test Day Takeaway:** Find the constant from the one input where both counts are known, then apply it to the input asked for.",
+      hint: "Use the one input where both $f$ and $g$ are known to find $k$.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** The table gives $f(4) = 19$, so $k = 31 - 19 = 12$ and $g(7) = 26 + 12 = 38$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 4$: $g(4) = f(4) + k$. The table gives $f(4) = 19$, so $31 = 19 + k$ and $k = 12$.\nStep 2: The same constant is added at every input, so $g(7) = f(7) + 12$.\nStep 3: The table gives $f(7) = 26$, so $g(7) = 26 + 12 = 38$. Check: $g(4) = 19 + 12 = 31$, matching the given value ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($26$): reports $f(7)$ without adding the constant $k$.\n* Choice B ($31$): repeats the given value of $g(4)$.\n* Choice D ($45$): adds $k$ to $f(10) = 33$, the value for the wrong input.\n\n**Test Day Takeaway:** Find the constant from the input where both functions are known, then apply it at the input the question asks about.",
       skills: ["function-transformations"]
     },
     {
       id: 9,
       difficulty: "medium",
-      question: "The functions $f$ and $g$ satisfy $g(x)=f(x)+6$ for every $x$. The table shows four values of $g$. What is the value of $f(3)$?",
+      question: "The table shows four values of $x$ and their corresponding values of $g(x)$, where $g(x) = f(x - 1) + 6$. What is the value of $f(3)$?",
       diagram: { type: "dataTable", params: { headers: ["x", "g(x)"], rows: [["1", "20"], ["2", "13"], ["3", "8"], ["4", "5"]] } },
       choices: [
-        { id: "A", text: "$2$" },
-        // distractor: omits the shift
-        { id: "B", text: "$8$" },
-        // distractor: adds instead of subtracts
-        { id: "C", text: "$14$" },
-        // distractor: reads the wrong row
-        { id: "D", text: "$20$" }
+        { id: "A", text: "$-1$" },
+        // distractor: ignores the shift and computes g(3) - 6
+        { id: "B", text: "$2$" },
+        // distractor: shifts the wrong way and computes g(2) - 6
+        { id: "C", text: "$7$" },
+        // distractor: uses the right row but adds 6 to g(4) instead of subtracting
+        { id: "D", text: "$11$" }
       ],
       correctAnswer: "A",
-      hint: "The relationship is stated in terms of $g$; rearrange it so that $f$ stands alone.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** From $g(x)=f(x)+6$, $f(x)=g(x)-6$, and the table gives $g(3)=8$, so $f(3)=2$.\n\n**The Full Solution:**\nStep 1: Solving $g(x)=f(x)+6$ for $f$ gives $f(x)=g(x)-6$.\nStep 2: The row $x=3$ of the table gives $g(3)=8$.\nStep 3: Therefore $f(3)=8-6=2$. Check: $f(3)+6=2+6=8=g(3)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($8$): reports $g(3)$ and never undoes the shift.\n* Choice C ($14$): adds $6$ instead of subtracting: the table already contains the raised values.\n* Choice D ($20$): reads the row $x=1$ rather than the row $x=3$.\n\n**Test Day Takeaway:** When the table lists the transformed function, run the transformation backwards to recover the original.",
+      hint: "Find the input $x$ that makes $x - 1$ equal to $3$.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** $f(3)$ appears in $g(x)$ when $x - 1 = 3$, so $g(4) = f(3) + 6$, and $f(3) = 5 - 6 = -1$.\n\n**The Full Solution:**\nStep 1: The expression $f(x - 1)$ equals $f(3)$ when $x - 1 = 3$, that is, when $x = 4$.\nStep 2: Substitute $x = 4$: $g(4) = f(3) + 6$. The table gives $g(4) = 5$, so $5 = f(3) + 6$.\nStep 3: Subtract $6$ from both sides: $f(3) = -1$. Check: $g(4) = f(3) + 6 = -1 + 6 = 5$, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): ignores the shift and uses the row $x = 3$, computing $8 - 6$.\n* Choice C ($7$): shifts the wrong way and uses the row $x = 2$, computing $13 - 6$.\n* Choice D ($11$): uses the correct row but adds $6$ to $g(4)$ instead of subtracting it.\n\n**Test Day Takeaway:** To recover $f$ at a given input, solve for the $x$ that produces that input inside $g$, then undo the outside operation.",
       skills: ["function-transformations"]
     },
     {
       id: 10,
       difficulty: "medium",
-      question: "The table gives a cubesat's battery charge $f(n)$, in watt-hours, at the end of orbit $n$. A second cubesat launched four orbits later has charge $g(n) = f(n - 4)$. If $g(a) = 27$ watt-hours, what is the value of $a$?",
-      questionTable: { headers: ["$n$", "$f(n)$"], rows: [["$1$", "$9$"], ["$2$", "$15$"], ["$3$", "$27$"], ["$4$", "$44$"]] },
+      question: "The table shows four values of $x$ and their corresponding values of $f(x)$. The function $g$ is defined by $g(x) = f(x - 4)$. What value of $x$ satisfies $g(x) = 27$?",
+      questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$1$", "$9$"], ["$2$", "$15$"], ["$3$", "$27$"], ["$4$", "$44$"]] },
       choices: [
-        // distractor: computes 3 - 4 instead of 3 + 4
+        // distractor: finds the input 3 where f(x) = 27, then subtracts 4 instead of adding
         { id: "A", text: "$-1$" },
-        // distractor: reports the orbit at which the first cubesat reached 27 watt-hours
+        // distractor: stops at the input 3 where f(x) = 27
         { id: "B", text: "$3$" },
         { id: "C", text: "$7$" },
-        // distractor: adds 4 to the charge 27 rather than to the orbit number
+        // distractor: adds 4 to the output 27 instead of to the input
         { id: "D", text: "$31$" }
       ],
       correctAnswer: "C",
-      hint: "The second cubesat repeats the first cubesat's charges, but not on the same orbit.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~20s):** $g(a) = f(a - 4) = 27$, and the table shows $f(3) = 27$, so $a - 4 = 3$ and $a = 7$.\n\n**The Full Solution:**\nStep 1: Write the condition in terms of $f$: $g(a) = f(a - 4) = 27$ watt-hours.\nStep 2: The table shows $f(3) = 27$, so $a - 4 = 3$.\nStep 3: Therefore $a = 7$. Check: $g(7) = f(7 - 4) = f(3) = 27$ watt-hours ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): computing $3 - 4$; the second cubesat lags, so its orbit number is larger.\n* Choice B ($3$): reporting the first cubesat's orbit rather than the second cubesat's.\n* Choice D ($31$): adding the $4$ to the charge $27$ instead of to the orbit number.\n\n**Test Day Takeaway:** Rewrite the transformed value as a value of the original function, then match it to the table.",
+      hint: "First find the input at which $f$ equals $27$.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** The table gives $f(3) = 27$, so $g(x) = 27$ when $x - 4 = 3$, which gives $x = 7$.\n\n**The Full Solution:**\nStep 1: Since $g(x) = f(x - 4)$, the equation $g(x) = 27$ means $f(x - 4) = 27$.\nStep 2: The table shows $f(3) = 27$, and $27$ appears only once in the table, so $x - 4 = 3$.\nStep 3: Add $4$ to both sides: $x = 7$. Check: $g(7) = f(7 - 4) = f(3) = 27$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): finds $f(3) = 27$ but subtracts $4$ from $3$ instead of adding it.\n* Choice B ($3$): stops at the input of $f$ and never accounts for the shift.\n* Choice D ($31$): adds $4$ to the output $27$ rather than to the input.\n\n**Test Day Takeaway:** For $g(x) = f(x - h)$, each output of $f$ appears in $g$ at an input $h$ units greater.",
       skills: ["function-transformations"]
     },
     {
       id: 11,
       difficulty: "medium",
-      question: "A vineyard probe reports the soil tension above target, in kilopascals, at position $x$ meters from the row's midpoint, so that $f(-2) = 5$, $f(0) = -1$, and $f(3) = 8$. A second probe reports $h(x) = f(-x) + 2$. Which of the following must be true?",
+      question: "For the function $f$, $f(-2) = 5$, $f(0) = -1$, and $f(3) = 8$. If $h(x) = f(-x) + 2$, which of the following must be true?",
       choices: [
-        // distractor: pairs the correct output with the un-reflected input
+        // distractor: ignores the reflection and pairs x = -2 with f(-2)
         { id: "A", text: "$h(-2) = 7$" },
-        // distractor: subtracts the 2 instead of adding it
+        // distractor: subtracts 2 from f(-2) instead of adding 2
         { id: "B", text: "$h(2) = 3$" },
-        // distractor: reads f(3) directly and skips the sign reversal on the input
+        // distractor: ignores the reflection and pairs x = 3 with f(3); h(3) depends on the unknown f(-3)
         { id: "C", text: "$h(3) = 10$" },
         { id: "D", text: "$h(2) = 7$" }
       ],
       correctAnswer: "D",
-      hint: "Only three readings of the first probe are given; the true statement has to use one of them.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~25s):** $h(2) = f(-2) + 2 = 5 + 2 = 7$ kilopascals.\n\n**The Full Solution:**\nStep 1: To evaluate $h$ at an input $x$, the probe reading needed is $f(-x)$.\nStep 2: Choosing $x = 2$ gives $h(2) = f(-2) + 2$, and $f(-2) = 5$ is one of the given readings.\nStep 3: So $h(2) = 5 + 2 = 7$. Check: no other listed reading pairs with a known input, since $h(-2) = f(2) + 2$ and $f(2)$ is not given ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($h(-2) = 7$): pairing the correct output with the un-reflected input; $h(-2)$ needs $f(2)$, which is not given.\n* Choice B ($h(2) = 3$): subtracting the $2$ instead of adding it, giving $5 - 2$.\n* Choice C ($h(3) = 10$): reading $f(3) = 8$ directly and skipping the sign reversal; $h(3)$ needs $f(-3)$.\n\n**Test Day Takeaway:** With $f(-x)$, first ask which input makes $-x$ a value you were actually given.",
+      hint: "For each choice, find which value of $f$ the expression $h(x)$ actually uses.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** $h(2) = f(-2) + 2 = 5 + 2 = 7$.\n\n**The Full Solution:**\nStep 1: By definition, $h(x)$ uses the value of $f$ at $-x$, so $h(2) = f(-2) + 2$ and $h(-2) = f(2) + 2$.\nStep 2: Only inputs whose opposites are $-2$, $0$, or $3$ can be evaluated: $h(2)$, $h(0)$, and $h(-3)$.\nStep 3: $h(2) = f(-2) + 2 = 5 + 2 = 7$, so choice D must be true. Check: $h(-2)$ and $h(3)$ need $f(2)$ and $f(-3)$, which are not given, and $h(2)$ is $7$, not $3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($h(-2) = 7$): ignores the reflection; $h(-2)$ uses the unknown value $f(2)$.\n* Choice B ($h(2) = 3$): uses the right value of $f$ but subtracts $2$ instead of adding it.\n* Choice C ($h(3) = 10$): ignores the reflection; $h(3)$ uses the unknown value $f(-3)$, and $f(3) + 2 = 10$ is the value of $h(-3)$.\n\n**Test Day Takeaway:** In $f(-x)$, every input is replaced by its opposite: $h$ at $a$ reads $f$ at $-a$.",
       skills: ["function-transformations"]
     },
     {
       id: 12,
       difficulty: "hard",
-      question: "The table gives a radiometer's calibrated counts $f(x)$ at selected filter positions $x$. A second radiometer's counts follow $g(x) = 2f(x - 1) - 3$, and $g(c) = 21$. What is the value of $c$?",
+      question: "The table shows four values of $x$ and their corresponding values of $f(x)$. The function $g$ is defined by $g(x) = 2f(x - 1) - 3$, and $g(c) = 21$, where $c$ is a constant. What is the value of $c$?",
       questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$2$", "$5$"], ["$4$", "$12$"], ["$6$", "$19$"], ["$8$", "$30$"]] },
       choices: [
-        // distractor: computes 4 - 1 instead of 4 + 1
+        // distractor: finds the input 4 where f(x) = 12 but subtracts 1 instead of adding
         { id: "A", text: "$3$" },
         { id: "B", text: "$5$" },
-        // distractor: reports the count 12 rather than the filter position
+        // distractor: reports the value of f(c - 1) instead of c
         { id: "C", text: "$12$" },
-        // distractor: adds 1 to the count 12 instead of to the position 4
+        // distractor: adds 1 to the output 12 instead of to the input 4
         { id: "D", text: "$13$" }
       ],
       correctAnswer: "B",
-      hint: "Work back to a value of $f$ before you look at the table.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~35s):** $21 = 2f(c - 1) - 3$ gives $f(c - 1) = 12$, and the table shows $f(4) = 12$, so $c = 5$.\n\n**The Full Solution:**\nStep 1: Undo the outside operations: $2f(c - 1) - 3 = 21$ gives $2f(c - 1) = 24$, so $f(c - 1) = 12$.\nStep 2: The table shows that $f$ equals $12$ at $x = 4$, so $c - 1 = 4$.\nStep 3: Therefore $c = 5$. Check: $g(5) = 2f(4) - 3 = 2(12) - 3 = 21$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): computing $4 - 1$; the inside expression is $c - 1$, so $c$ is one more than $4$.\n* Choice C ($12$): reporting the count $f(4) = 12$ rather than the filter position the question asks for.\n* Choice D ($13$): adding the $1$ to the count $12$ instead of to the position $4$.\n\n**Test Day Takeaway:** Peel off the outside operations first; what remains is a value of the original function you can look up.",
+      hint: "Undo the outside operations first to find the value of $f(c - 1)$.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~40s):** $2f(c - 1) - 3 = 21$ gives $f(c - 1) = 12$; the table gives $f(4) = 12$, so $c - 1 = 4$ and $c = 5$.\n\n**The Full Solution:**\nStep 1: Substitute $c$: $2f(c - 1) - 3 = 21$, so $2f(c - 1) = 24$ and $f(c - 1) = 12$.\nStep 2: The table shows $f(x) = 12$ only when $x = 4$, so $c - 1 = 4$.\nStep 3: Add $1$ to both sides: $c = 5$. Check: $g(5) = 2f(4) - 3 = 2(12) - 3 = 21$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): finds $c - 1 = 4$ but subtracts $1$ instead of adding it.\n* Choice C ($12$): reports the value of $f(c - 1)$, not the value of $c$.\n* Choice D ($13$): adds $1$ to the output $12$ instead of to the input $4$.\n\n**Test Day Takeaway:** Peel off the outside operations to get an output of $f$, read the matching input from the table, then undo the inside shift.",
       skills: ["function-transformations"]
     },
     {
       id: 13,
       difficulty: "hard",
-      question: "The function $h$ is defined by $h(x)=3f(x)-8$, where the values of $f$ are given in the table. What is the greatest of the four values of $h(x)$ determined by the table?",
+      question: "The table shows four values of $x$ and their corresponding values of $f(x)$. The function $h$ is defined by $h(x) = -3f(x) + 8$. What is the minimum value of $h(x)$ for the four values of $x$ in the table?",
       diagram: { type: "dataTable", params: { headers: ["x", "f(x)"], rows: [["1", "2"], ["3", "-4"], ["5", "6"], ["7", "5"]] } },
       choices: [
-        // distractor: subtracts before multiplying
-        { id: "A", text: "$-6$" },
-        // distractor: uses the largest input instead of the largest output
-        { id: "B", text: "$7$" },
-        { id: "C", text: "$10$" },
-        // distractor: omits the constant term
-        { id: "D", text: "$18$" }
+        // distractor: computes -3 times 6 and forgets to add 8
+        { id: "A", text: "$-18$" },
+        { id: "B", text: "$-10$" },
+        // distractor: uses the least value of f, -4, which gives the maximum of h
+        { id: "C", text: "$20$" },
+        // distractor: drops the negative sign and computes 3(6) + 8
+        { id: "D", text: "$26$" }
       ],
-      correctAnswer: "C",
-      hint: "Decide which row of the table gives the largest value of $h$ before doing any arithmetic.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** The largest output in the table is $f(5)=6$, and $3(6)-8=10$.\n\n**The Full Solution:**\nStep 1: Tripling and then subtracting $8$ is an increasing operation, so the greatest value of $h$ occurs at the input with the greatest value of $f$.\nStep 2: The table's outputs are $2$, $-4$, $6$, and $5$; the greatest is $6$, at $x=5$.\nStep 3: So the greatest value is $h(5)=3(6)-8=18-8=10$. Check the runner-up: $h(7)=3(5)-8=7<10$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): subtracts $8$ before tripling: $3(6-8)=-6$.\n* Choice B ($7$): evaluates $h$ only at the largest value of $x$: $3(5)-8=7$, but the largest input is not the largest output.\n* Choice D ($18$): triples the largest output and forgets the $-8$.\n\n**Test Day Takeaway:** When a transformation is increasing, the extreme value of the new function sits above the extreme value of the old one.",
+      correctAnswer: "B",
+      hint: "Multiplying by a negative number reverses which value of $f$ gives the smallest result.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~35s):** Because the coefficient $-3$ is negative, $h$ is least where $f$ is greatest: $h(5) = -3(6) + 8 = -10$.\n\n**The Full Solution:**\nStep 1: Multiplying by $-3$ reverses order, so the least value of $h(x)$ comes from the greatest value of $f(x)$.\nStep 2: The greatest value of $f(x)$ in the table is $6$, at $x = 5$.\nStep 3: $h(5) = -3(6) + 8 = -18 + 8 = -10$. Check the other rows: $h(1) = 2$, $h(3) = 20$, and $h(7) = -7$, all greater than $-10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-18$): multiplies $6$ by $-3$ and forgets to add $8$.\n* Choice C ($20$): uses the least value of $f$, $-4$; that gives the maximum of $h$, not the minimum.\n* Choice D ($26$): drops the negative sign and computes $3(6) + 8$.\n\n**Test Day Takeaway:** A negative coefficient flips the graph vertically, so the greatest value of $f$ becomes the least value of the new function.",
       skills: ["function-transformations"]
     },
     {
       id: 14,
       difficulty: "hard",
-      question: "A rail signal log shows that the block-occupancy index $f(x)$ equals $7$ at minute $3$ and at minute $8$, and at no other minute. A parallel line's index is $g(x) = f(x + k)$ for a constant $k$, and $g(-2) = 7$ and $g(3) = 7$. What is the value of $k$?",
+      question: "The equation $f(x) = 7$ has exactly two solutions, $x = 3$ and $x = 8$. The function $g$ is defined by $g(x) = f(x + k)$, where $k$ is a constant. If $g(-2) = 7$ and $g(3) = 7$, what is the value of $k$?",
       choices: [
-        // distractor: subtracts in the wrong order, computing -2 - 3
+        // distractor: subtracts in the wrong order, computing 3 - 8 or -2 - 3
         { id: "A", text: "$-5$" },
-        // distractor: uses only the second condition, matching 3 + k = 3
+        // distractor: notices g(3) = f(3) = 7 when k = 0 but ignores the condition g(-2) = 7
         { id: "B", text: "$0$" },
         { id: "C", text: "$5$" },
-        // distractor: uses only the first condition, matching -2 + k = 8
+        // distractor: pairs -2 with 8 instead of 3, so g(3) would use f(13)
         { id: "D", text: "$10$" }
       ],
       correctAnswer: "C",
-      hint: "Each condition on its own allows more than one value of $k$.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~40s):** $-2 + k$ and $3 + k$ must both be $3$ or $8$; only $k = 5$ does both.\n\n**The Full Solution:**\nStep 1: From $g(-2) = 7$: the input $-2 + k$ must be a minute where $f$ equals $7$, so $-2 + k = 3$ or $-2 + k = 8$, giving $k = 5$ or $k = 10$.\nStep 2: From $g(3) = 7$: the input $3 + k$ must also be $3$ or $8$, giving $k = 0$ or $k = 5$.\nStep 3: The only value in both lists is $k = 5$. Check: $g(-2) = f(3) = 7$ and $g(3) = f(8) = 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): subtracting in the wrong order, computing $-2 - 3$.\n* Choice B ($0$): using only the second condition, where $3 + k = 3$; that choice fails $g(-2) = 7$, since $f(-2)$ is not $7$.\n* Choice D ($10$): using only the first condition, where $-2 + k = 8$; that choice fails $g(3) = 7$, since $f(13)$ is not $7$.\n\n**Test Day Takeaway:** When two conditions constrain one constant, list every value each allows and take the value they share.",
+      hint: "Each of $-2 + k$ and $3 + k$ must be one of the two solutions of $f(x) = 7$.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~40s):** The inputs $-2$ and $3$ must slide onto $3$ and $8$, which takes $k = 5$.\n\n**The Full Solution:**\nStep 1: $g(-2) = f(-2 + k)$ and $g(3) = f(3 + k)$, so $-2 + k$ and $3 + k$ must each be $3$ or $8$.\nStep 2: The two inputs $-2 + k$ and $3 + k$ differ by $5$, and so do $3$ and $8$, so $-2 + k = 3$ and $3 + k = 8$.\nStep 3: Either equation gives $k = 5$. Check: $g(-2) = f(3) = 7$ and $g(3) = f(8) = 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): subtracts in the wrong order, computing $-2 - 3$ instead of $3 - (-2)$.\n* Choice B ($0$): makes $g(3) = f(3) = 7$ true but ignores $g(-2) = 7$, which would require $f(-2) = 7$.\n* Choice D ($10$): pairs $-2$ with $8$, but then $g(3) = f(13)$, which is not $7$.\n\n**Test Day Takeaway:** In $f(x + k)$, the input $x$ is read at $x + k$, so set each shifted input equal to a known solution and check both conditions.",
       skills: ["function-transformations"]
     }
   ],
@@ -681,217 +681,217 @@ export const transformationsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "A coffee roaster's bean temperature, in degrees Celsius, $m$ minutes into a roast is $T(m)$. On a cooler morning the same roast follows $y = T(m) - 12$ over the whole interval. How does that graph compare with the graph of $y = T(m)$?",
+      question: "$f(x) = x^{2} + 5$\nThe graph of $y = g(x)$ is the result of shifting the graph of $y = f(x)$ down $12$ units in the $xy$-plane. Which equation defines $g$?",
       choices: [
-        // distractor: reads a change outside the function as a horizontal move
-        { id: "A", text: "It is shifted $12$ units left." },
-        // distractor: reads the minus sign as a move to the right
-        { id: "B", text: "It is shifted $12$ units right." },
-        // distractor: reverses the direction of the vertical shift
-        { id: "C", text: "It is shifted $12$ units up." },
-        { id: "D", text: "It is shifted $12$ units down." }
+        // distractor: shifts the graph 12 units left instead of down
+        { id: "A", text: "$g(x) = (x + 12)^{2} + 5$" },
+        // distractor: shifts the graph 12 units right instead of down
+        { id: "B", text: "$g(x) = (x - 12)^{2} + 5$" },
+        // distractor: shifts the graph 12 units up instead of down
+        { id: "C", text: "$g(x) = x^{2} + 17$" },
+        { id: "D", text: "$g(x) = x^{2} - 7$" }
       ],
       correctAnswer: "D",
-      hint: "Compare the two roasts at the same minute mark.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~10s):** Subtracting $12$ after the function lowers every temperature by $12$, so the graph drops $12$ units.\n\n**The Full Solution:**\nStep 1: The $-12$ is applied to the output of $T$, not to the input $m$.\nStep 2: Every point $(m, T(m))$ therefore becomes $(m, T(m) - 12)$: the horizontal position is unchanged and the height falls by $12$.\nStep 3: The graph is shifted $12$ units down. Check: if $T(6) = 140$, the cooler morning gives $140 - 12 = 128$ at the same minute $6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (left $12$): treating an outside change as a horizontal move; only changes to the input shift a graph sideways.\n* Choice B (right $12$): reading the minus sign as a rightward move, which would require $T(m - 12)$.\n* Choice C (up $12$): reversing the direction; subtracting lowers each output.\n\n**Test Day Takeaway:** Outside the function means vertical, and the sign reads straight: subtract to move down.",
+      hint: "A vertical shift changes the output, not the input.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** Shifting down $12$ units subtracts $12$ from every output: $g(x) = x^{2} + 5 - 12 = x^{2} - 7$.\n\n**The Full Solution:**\nStep 1: Shifting a graph down $12$ units lowers every $y$-value by $12$, so $g(x) = f(x) - 12$.\nStep 2: Substitute the given function: $g(x) = (x^{2} + 5) - 12$.\nStep 3: Combine the constants: $g(x) = x^{2} - 7$. Check: $f(0) = 5$ and $g(0) = -7$, which is $12$ units lower ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = (x + 12)^{2} + 5$): replaces $x$ with $x + 12$, a shift $12$ units left.\n* Choice B ($g(x) = (x - 12)^{2} + 5$): replaces $x$ with $x - 12$, a shift $12$ units right.\n* Choice C ($g(x) = x^{2} + 17$): adds $12$, a shift up instead of down.\n\n**Test Day Takeaway:** Up and down change the output, $f(x) \\pm k$; left and right change the input, $f(x \\pm h)$.",
       skills: ["function-transformations"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "An apiary's hive scale reports the day's nectar gain, in grams, as $R(t)$ at $t$ hours after sunrise. After a second super is added, the scale reports $R(t) + 180$ instead. If $R(4) = 520$, what does the scale report four hours after sunrise with the second super in place?",
+      question: "$f(x) = 3x^{2} - 4$\nThe function $g$ is defined by $g(x) = f(x) + 9$. What is the value of $g(2)$?",
       choices: [
-        // distractor: subtracts 180 instead of adding it
-        { id: "A", text: "$340$" },
-        // distractor: reports R(4) unchanged, ignoring the added super
-        { id: "B", text: "$520$" },
-        { id: "C", text: "$700$" },
-        // distractor: adds 180 twice
-        { id: "D", text: "$880$" }
+        // distractor: subtracts 9 from f(2) instead of adding it
+        { id: "A", text: "$-1$" },
+        // distractor: stops at f(2) and never adds 9
+        { id: "B", text: "$8$" },
+        { id: "C", text: "$17$" },
+        // distractor: squares 3x instead of x, computing (6)^2 - 4 + 9
+        { id: "D", text: "$41$" }
       ],
       correctAnswer: "C",
-      hint: "The added super changes the reading, not the hour it is taken.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** The rule adds $180$ grams to every reading, so the scale reports $520 + 180 = 700$ grams.\n\n**The Full Solution:**\nStep 1: The new reading at hour $t$ is $R(t) + 180$.\nStep 2: At $t = 4$ this is $R(4) + 180$.\nStep 3: Since $R(4) = 520$, the scale reports $520 + 180 = 700$ grams. Check: $700 - 180 = 520$, the original reading ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($340$): subtracting $180$ instead of adding it; a super adds mass to the hive.\n* Choice B ($520$): reporting the original reading and ignoring the added super.\n* Choice D ($880$): adding $180$ twice, once to $R(4)$ and once again to the result.\n\n**Test Day Takeaway:** A constant added outside the function changes every output by that constant and leaves the input alone.",
+      hint: "Evaluate $f(2)$ first.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~20s):** $f(2) = 3(4) - 4 = 8$, so $g(2) = 8 + 9 = 17$.\n\n**The Full Solution:**\nStep 1: Since $g(x) = f(x) + 9$, $g(2) = f(2) + 9$.\nStep 2: Evaluate $f(2)$: $3(2)^{2} - 4 = 3(4) - 4 = 8$.\nStep 3: Add $9$: $g(2) = 8 + 9 = 17$. Check: $g(x) = 3x^{2} + 5$, and $3(4) + 5 = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): subtracts $9$ from $f(2)$ instead of adding it.\n* Choice B ($8$): stops at $f(2)$ and never adds $9$.\n* Choice D ($41$): squares $3x$ instead of $x$, computing $6^{2} - 4 + 9$.\n\n**Test Day Takeaway:** To evaluate $f(x) + c$, find the value of $f$ at the input, then add $c$.",
       skills: ["function-transformations"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "A pipeline's line pressure, in bars, at pumping station $x$ is $p(x)$, and a parallel pipeline's pressure is $y = p(x - b)$ for a constant $b$. The parallel line reads $30$ bars at station $11$, and the first pipeline reads $30$ bars only at station $4$. What is the value of $b$?",
+      question: "$f(x) = (x - 4)^{2} + 30$\nIn the $xy$-plane, the graph of $y = f(x - b)$, where $b$ is a constant, is a parabola with vertex $(11, 30)$. What is the value of $b$?",
       choices: [
-        // distractor: solves 4 - 11 instead of 11 - 4
+        // distractor: reverses the direction of the shift and gets 4 - 11
         { id: "A", text: "$-7$" },
-        // distractor: reports the station where the first pipeline reads 30 bars
+        // distractor: reports the x-coordinate of the vertex of the graph of f
         { id: "B", text: "$4$" },
         { id: "C", text: "$7$" },
-        // distractor: adds the two station numbers, 11 + 4
+        // distractor: adds the two x-coordinates, 11 + 4
         { id: "D", text: "$15$" }
       ],
       correctAnswer: "C",
-      hint: "The parallel line's reading at station $11$ is one the first line took somewhere else.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~20s):** The parallel line at station $11$ repeats $p(11 - b)$, and that must be $p(4)$, so $b = 7$.\n\n**The Full Solution:**\nStep 1: The parallel line's reading at station $11$ is $p(11 - b)$, and it equals $30$ bars.\nStep 2: The first pipeline reads $30$ bars only at station $4$, so $11 - b = 4$.\nStep 3: Solving gives $b = 7$. Check: $p(11 - 7) = p(4) = 30$ bars ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): computing $4 - 11$; the expression to set equal to $4$ is $11 - b$.\n* Choice B ($4$): reporting the station where the first pipeline reads $30$ bars rather than the offset between the lines.\n* Choice D ($15$): adding the two station numbers instead of subtracting them.\n\n**Test Day Takeaway:** Set the expression inside the function equal to the input whose output you already know.",
+      hint: "Find the vertex of the graph of $y = f(x)$ first.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** The vertex moves from $(4, 30)$ to $(11, 30)$, a shift of $7$ units right, so $b = 7$.\n\n**The Full Solution:**\nStep 1: The graph of $y = f(x)$ has vertex $(4, 30)$.\nStep 2: Replacing $x$ with $x - b$ gives $f(x - b) = (x - b - 4)^{2} + 30$, whose vertex has $x$-coordinate $b + 4$.\nStep 3: Set $b + 4 = 11$, so $b = 7$. Check: $f(x - 7) = (x - 11)^{2} + 30$, with vertex $(11, 30)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): reverses the direction of the shift, computing $4 - 11$.\n* Choice B ($4$): reports the $x$-coordinate of the vertex of the original graph.\n* Choice D ($15$): adds the two $x$-coordinates instead of finding their difference.\n\n**Test Day Takeaway:** The graph of $y = f(x - b)$ is the graph of $y = f(x)$ shifted $b$ units right, so $b$ is the change in the $x$-coordinate of any point.",
       skills: ["function-transformations"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "The function $f$ is defined by $f(x)=x^{3}+2x$, and the function $u$ is defined by $u(x)=f(-x)$. Which of the following expressions is equivalent to $u(x)$?",
+      question: "$f(x) = x^{3} + 2x^{2} - 5$\nThe function $u$ is defined by $u(x) = f(-x)$. Which expression is equivalent to $u(x)$?",
       choices: [
-        { id: "A", text: "$-x^{3}-2x$" },
-        // distractor: misses the sign on the linear term
-        { id: "B", text: "$-x^{3}+2x$" },
-        // distractor: misses the sign on the cubic term
-        { id: "C", text: "$x^{3}-2x$" },
-        // distractor: treats the function as unchanged
-        { id: "D", text: "$x^{3}+2x$" }
+        // distractor: computes -f(x), negating every term
+        { id: "A", text: "$-x^{3} - 2x^{2} + 5$" },
+        // distractor: treats (-x)^2 as -x^2
+        { id: "B", text: "$-x^{3} - 2x^{2} - 5$" },
+        { id: "C", text: "$-x^{3} + 2x^{2} - 5$" },
+        // distractor: switches the signs of the even and odd powers, treating (-x)^3 as x^3 and (-x)^2 as -x^2
+        { id: "D", text: "$x^{3} - 2x^{2} - 5$" }
       ],
-      correctAnswer: "A",
-      hint: "Replace every $x$ with $-x$ and simplify each power separately.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** $(-x)^{3}=-x^{3}$ and $2(-x)=-2x$, so $u(x)=-x^{3}-2x$.\n\n**The Full Solution:**\nStep 1: Substituting gives $f(-x)=(-x)^{3}+2(-x)$.\nStep 2: An odd power keeps the negative sign: $(-x)^{3}=-x^{3}$. The linear term becomes $-2x$.\nStep 3: So $u(x)=-x^{3}-2x$. Check at $x=1$: $u(1)=f(-1)=-1-2=-3$, and $-1^{3}-2(1)=-3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-x^{3}+2x$): negates the cubic term but forgets that $2(-x)=-2x$.\n* Choice C ($x^{3}-2x$): negates the linear term only; $(-x)^{3}$ is negative too.\n* Choice D ($x^{3}+2x$): assumes the substitution changes nothing, which is true only for even-power terms.\n\n**Test Day Takeaway:** Under $x\\to -x$, odd-power terms flip sign and even-power terms do not.",
+      correctAnswer: "C",
+      hint: "Replace every $x$ with $-x$, then simplify each power.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** Odd powers change sign and even powers do not: $u(x) = -x^{3} + 2x^{2} - 5$.\n\n**The Full Solution:**\nStep 1: Substitute $-x$ for $x$: $u(x) = (-x)^{3} + 2(-x)^{2} - 5$.\nStep 2: Simplify the powers: $(-x)^{3} = -x^{3}$ and $(-x)^{2} = x^{2}$.\nStep 3: So $u(x) = -x^{3} + 2x^{2} - 5$. Check with $x = 1$: $u(1) = f(-1) = -1 + 2 - 5 = -4$, and $-1 + 2 - 5 = -4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-x^{3} - 2x^{2} + 5$): this is $-f(x)$, which negates the output rather than the input.\n* Choice B ($-x^{3} - 2x^{2} - 5$): treats $(-x)^{2}$ as $-x^{2}$.\n* Choice D ($x^{3} - 2x^{2} - 5$): reverses the rule, keeping the sign of the odd power and changing the sign of the even power.\n\n**Test Day Takeaway:** In $f(-x)$, only odd powers of $x$ change sign; constants and even powers stay the same.",
       skills: ["function-transformations"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "A wind-tunnel probe records the pressure difference $f(x)$, in pascals, at distance $x$ centimeters from a model's nose, and $f$ equals $0$ only at $x = -8$ and $x = 12$. A second probe records $y = f(2x)$. At which values of $x$ does the second probe record $0$ pascals?",
+      question: "The graph of $y = f(x)$ in the $xy$-plane has exactly two x-intercepts, $(-8, 0)$ and $(12, 0)$. If $g(x) = f(2x + 4)$, which of the following is an x-intercept of the graph of $y = g(x)$?",
       choices: [
-        // distractor: multiplies each distance by 2 instead of dividing
-        { id: "A", text: "At $x = -16$ and $x = 24$." },
-        // distractor: subtracts 2 from each distance
-        { id: "B", text: "At $x = -10$ and $x = 10$." },
-        // distractor: adds 2 to each distance
-        { id: "C", text: "At $x = -6$ and $x = 14$." },
-        { id: "D", text: "At $x = -4$ and $x = 6$." }
+        // distractor: substitutes -8 into 2x + 4 instead of solving 2x + 4 = -8
+        { id: "A", text: "$(-12, 0)$" },
+        { id: "B", text: "$(-6, 0)$" },
+        // distractor: halves -8 and ignores the 4
+        { id: "C", text: "$(-4, 0)$" },
+        // distractor: adds 4 before halving, solving x = (-8 + 4)/2
+        { id: "D", text: "$(-2, 0)$" }
       ],
-      correctAnswer: "D",
-      hint: "The second probe reaches the same two readings, just not at the same distances.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** $f(2x) = 0$ requires $2x$ to be $-8$ or $12$, so $x$ is $-4$ or $6$.\n\n**The Full Solution:**\nStep 1: The second probe reads zero exactly when $f(2x) = 0$, that is, when $2x$ is one of the two distances where $f$ is zero.\nStep 2: So $2x = -8$ or $2x = 12$.\nStep 3: Dividing each by $2$ gives $x = -4$ and $x = 6$. Check: $f(2(-4)) = f(-8) = 0$ and $f(2(6)) = f(12) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-16$ and $24$): multiplying each distance by $2$; the doubling happens to the input, so it must be undone by dividing.\n* Choice B ($-10$ and $10$): subtracting $2$ from each distance, treating a factor as a shift.\n* Choice C ($-6$ and $14$): adding $2$ to each distance, again treating a factor as a shift.\n\n**Test Day Takeaway:** A factor inside the function compresses the graph horizontally; solve for the input that reproduces the known value.",
+      correctAnswer: "B",
+      hint: "The graph of $g$ crosses the x-axis where $2x + 4$ equals an x-intercept of $f$.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~45s):** $g(x) = 0$ when $2x + 4 = -8$ or $2x + 4 = 12$, which gives $x = -6$ or $x = 4$; only $(-6, 0)$ is a choice.\n\n**The Full Solution:**\nStep 1: $g(x) = f(2x + 4)$ equals $0$ exactly when $2x + 4$ is $-8$ or $12$.\nStep 2: Solve $2x + 4 = -8$: $2x = -12$, so $x = -6$. Solve $2x + 4 = 12$: $2x = 8$, so $x = 4$.\nStep 3: The x-intercepts of the graph of $y = g(x)$ are $(-6, 0)$ and $(4, 0)$, and only $(-6, 0)$ is a choice. Check: $g(-6) = f(2(-6) + 4) = f(-8) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-12, 0)$): substitutes $-8$ into $2x + 4$ instead of solving $2x + 4 = -8$.\n* Choice C ($(-4, 0)$): halves $-8$ but ignores the $+4$ inside the function.\n* Choice D ($(-2, 0)$): adds $4$ before halving instead of subtracting it.\n\n**Test Day Takeaway:** To find where $f(ax + b)$ is zero, set the inside expression equal to each zero of $f$ and solve for $x$.",
       skills: ["function-transformations"]
     },
     {
       id: 6,
       difficulty: "easy",
-      question: "A cargo bike's load sensor reads $W(t)$ kilograms $t$ minutes into a route, and a duplicate log records $y = W(t) - 15$. The duplicate log reads $62$ kilograms at $t = 20$. What did the load sensor read at $t = 20$?",
+      question: "$g(x) = f(x) - 15$\nFor the given function $g$, $g(20) = 62$. What is the value of $f(20)$?",
       choices: [
-        // distractor: reports the size of the adjustment rather than a load
-        { id: "A", text: "$15$" },
-        // distractor: subtracts 15 again instead of adding it back
+        // distractor: applies the 15 to the input, computing 20 - 15
+        { id: "A", text: "$5$" },
+        // distractor: subtracts 15 from 62 instead of adding it
         { id: "B", text: "$47$" },
-        // distractor: reports the duplicate log's reading unchanged
+        // distractor: repeats the given value g(20)
         { id: "C", text: "$62$" },
         { id: "D", text: "$77$" }
       ],
       correctAnswer: "D",
-      hint: "The number you are given is the duplicate log's reading, not the sensor's.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~10s):** The duplicate reads $15$ kilograms low, so the sensor read $62 + 15 = 77$ kilograms.\n\n**The Full Solution:**\nStep 1: The duplicate's reading at minute $20$ is $W(20) - 15$.\nStep 2: Set that equal to the recorded value: $W(20) - 15 = 62$.\nStep 3: Add $15$ to both sides: $W(20) = 77$ kilograms. Check: $77 - 15 = 62$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): reporting the size of the adjustment instead of a load.\n* Choice B ($47$): subtracting $15$ again; the rule has already subtracted it once, so it must be added back.\n* Choice C ($62$): reporting the duplicate log's value, which is what the question asks you to correct.\n\n**Test Day Takeaway:** To recover the original output, undo the outside operation rather than repeating it.",
+      hint: "Substitute $x = 20$ into the given equation.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~15s):** $62 = f(20) - 15$, so $f(20) = 77$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 20$ into the given equation: $g(20) = f(20) - 15$.\nStep 2: Replace $g(20)$ with $62$: $62 = f(20) - 15$.\nStep 3: Add $15$ to both sides: $f(20) = 77$. Check: $77 - 15 = 62$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): applies the $15$ to the input, computing $20 - 15$.\n* Choice B ($47$): subtracts $15$ from $62$ instead of adding it.\n* Choice C ($62$): repeats the given value of $g(20)$.\n\n**Test Day Takeaway:** The outputs of $f(x) - 15$ are $15$ less than the outputs of $f$, so recover $f$ by adding $15$ back.",
       skills: ["function-transformations"]
     },
     {
       id: 7,
       difficulty: "easy",
-      question: "A seed tray's sprout count on day $d$ is $N(d)$, and a tray sown three days later has count $M(d) = N(d - 3)$. The first tray holds $140$ sprouts on day $9$ and on no other day. On which day does the later tray hold $140$ sprouts?",
+      question: "The graph of $y = f(x)$ in the $xy$-plane has exactly one x-intercept, $(9, 0)$. If $g(x) = f(x - 3)$, what is the x-intercept of the graph of $y = g(x)$?",
       choices: [
-        // distractor: reports the length of the delay rather than a day
-        { id: "A", text: "$3$" },
-        // distractor: computes 9 - 3 instead of 9 + 3
-        { id: "B", text: "$6$" },
-        { id: "C", text: "$12$" },
+        // distractor: divides 9 by 3
+        { id: "A", text: "$(3, 0)$" },
+        // distractor: shifts the intercept 3 units left instead of right
+        { id: "B", text: "$(6, 0)$" },
+        { id: "C", text: "$(12, 0)$" },
         // distractor: multiplies 9 by 3
-        { id: "D", text: "$27$" }
+        { id: "D", text: "$(27, 0)$" }
       ],
       correctAnswer: "C",
-      hint: "Decide which of the two trays reaches a given count first.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** The later tray repeats each count three days later, so it reaches $140$ sprouts on day $9 + 3 = 12$.\n\n**The Full Solution:**\nStep 1: The later tray's count on day $d$ is $N(d - 3)$, so it holds $140$ sprouts when $N(d - 3) = 140$.\nStep 2: The first tray holds $140$ sprouts on day $9$ and on no other day, so $d - 3 = 9$.\nStep 3: Therefore $d = 12$. Check: $M(12) = N(12 - 3) = N(9) = 140$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reporting the length of the delay instead of the day asked for.\n* Choice B ($6$): computing $9 - 3$; the later tray lags, so its day is larger, not smaller.\n* Choice D ($27$): multiplying $9$ by $3$, treating the delay as a scaling.\n\n**Test Day Takeaway:** Subtracting inside the function delays the graph: solve the inside expression for the known input.",
+      hint: "Solve $x - 3 = 9$.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** $g(x) = 0$ when $x - 3 = 9$, so $x = 12$.\n\n**The Full Solution:**\nStep 1: $f$ equals $0$ only at $9$, so $g(x) = f(x - 3)$ equals $0$ only when $x - 3 = 9$.\nStep 2: Add $3$ to both sides: $x = 12$.\nStep 3: The x-intercept of the graph of $y = g(x)$ is $(12, 0)$. Check: $g(12) = f(12 - 3) = f(9) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(3, 0)$): divides $9$ by $3$, treating the shift as a compression.\n* Choice B ($(6, 0)$): moves the intercept $3$ units left instead of right.\n* Choice D ($(27, 0)$): multiplies $9$ by $3$, treating the shift as a stretch.\n\n**Test Day Takeaway:** The graph of $y = f(x - 3)$ is the graph of $y = f(x)$ shifted $3$ units right, so every x-intercept moves right $3$.",
       skills: ["function-transformations"]
     },
     {
       id: 8,
       difficulty: "medium",
-      question: "A ripening room's ethylene concentration, in parts per million, is $f(t)$ at minute $t$ of a treatment run, and a backup analyzer reports $g(t) = f(t + 7) - 4$. The graph of $y = g(t)$ has a $y$-intercept of $11$. What is the value of $f(7)$?",
+      question: "$g(x) = f(x + 7) - 4$\nThe graph of $y = g(x)$ in the $xy$-plane passes through the point $(0, 11)$. What is the value of $f(7)$?",
       choices: [
-        // distractor: reports the horizontal shift 7 rather than a concentration
+        // distractor: subtracts 4 from 11 instead of adding it
         { id: "A", text: "$7$" },
-        // distractor: reports g's intercept, forgetting the -4
+        // distractor: reports g(0) instead of f(7)
         { id: "B", text: "$11$" },
         { id: "C", text: "$15$" },
-        // distractor: adds the horizontal shift 7 to 11 instead of adding 4
+        // distractor: adds the shift 7 to 11 instead of undoing the 4
         { id: "D", text: "$18$" }
       ],
       correctAnswer: "C",
-      hint: "The graph's intercept is a value of $g$, not of $f$.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** A $y$-intercept of $11$ means $g(0) = f(7) - 4 = 11$, so $f(7) = 15$ parts per million.\n\n**The Full Solution:**\nStep 1: A $y$-intercept occurs at $t = 0$, so $g(0) = 11$.\nStep 2: Substituting into the rule gives $g(0) = f(0 + 7) - 4 = f(7) - 4$, so $f(7) - 4 = 11$.\nStep 3: Add $4$: $f(7) = 15$ parts per million. Check: $g(0) = 15 - 4 = 11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): reporting the horizontal shift instead of a concentration.\n* Choice B ($11$): reporting the backup analyzer's intercept and leaving the $-4$ unaccounted for.\n* Choice D ($18$): adding the horizontal shift $7$ to $11$; the number that must be added back is the $4$.\n\n**Test Day Takeaway:** Evaluate the transformed rule at the input the question describes, then undo the outside operation.",
+      hint: "Substitute $x = 0$ into the given equation.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $g(0) = f(7) - 4 = 11$, so $f(7) = 15$.\n\n**The Full Solution:**\nStep 1: The point $(0, 11)$ is on the graph, so $g(0) = 11$.\nStep 2: Substitute $x = 0$ into the given equation: $g(0) = f(0 + 7) - 4 = f(7) - 4$, so $f(7) - 4 = 11$.\nStep 3: Add $4$ to both sides: $f(7) = 15$. Check: $g(0) = 15 - 4 = 11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): subtracts $4$ from $11$ instead of adding it.\n* Choice B ($11$): reports $g(0)$, not $f(7)$.\n* Choice D ($18$): adds the shift $7$ to $11$; the $7$ changes the input, not the output.\n\n**Test Day Takeaway:** Substitute the known point into the transformed equation; the inside shift tells you which value of $f$ you have found.",
       skills: ["function-transformations"]
     },
     {
       id: 9,
       difficulty: "medium",
-      question: "A cranberry bog's water depth, in meters, is $f(x)$ at a point $x$ meters east of the center dike. A second survey counts distance west of the dike as positive and references a datum $5$ meters lower. Which expression models the second survey's depth?",
+      question: "In the $xy$-plane, the graph of $y = g(x)$ is the result of reflecting the graph of $y = f(x)$ across the y-axis and then shifting it down $5$ units. Which equation defines $g$?",
       choices: [
-        // distractor: negates the depth instead of the distance and raises the datum
-        { id: "A", text: "$-f(x) + 5$" },
-        // distractor: negates the depth rather than the distance
-        { id: "B", text: "$-f(x) - 5$" },
-        // distractor: reflects the distance correctly but raises the datum instead of lowering it
-        { id: "C", text: "$f(-x) + 5$" },
-        { id: "D", text: "$f(-x) - 5$" }
+        // distractor: reflects across the x-axis and shifts up instead of down
+        { id: "A", text: "$g(x) = -f(x) + 5$" },
+        // distractor: reflects across the x-axis instead of the y-axis
+        { id: "B", text: "$g(x) = -f(x) - 5$" },
+        // distractor: shifts up instead of down
+        { id: "C", text: "$g(x) = f(-x) + 5$" },
+        { id: "D", text: "$g(x) = f(-x) - 5$" }
       ],
       correctAnswer: "D",
-      hint: "One of the two changes renames the positions and the other renames the levels.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~25s):** Reversing which direction counts as positive replaces $x$ with $-x$, and a datum $5$ meters lower subtracts $5$ from every depth.\n\n**The Full Solution:**\nStep 1: A point $x$ meters east of the dike is $-x$ meters west of it, so the second survey records at $x$ what the first survey recorded at $-x$: the expression begins $f(-x)$.\nStep 2: A datum $5$ meters lower reduces every recorded depth by $5$, which is an operation on the output.\nStep 3: Combining them gives $f(-x) - 5$. Check: a point $3$ meters east with depth $2$ meters is listed by the second survey at $x = -3$ with depth $2 - 5 = -3$ meters ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-f(x) + 5$): negating the depth instead of the distance, and raising the datum instead of lowering it.\n* Choice B ($-f(x) - 5$): negating the depth rather than the distance; the reversed measuring direction acts on the input.\n* Choice C ($f(-x) + 5$): reflecting the distance correctly but adding $5$; a lower datum subtracts.\n\n**Test Day Takeaway:** Reversing the measuring direction acts inside the function; changing the reference level acts outside it.",
+      hint: "Decide whether each change acts on the input or on the output.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~25s):** A reflection across the y-axis replaces $x$ with $-x$, and a shift down $5$ subtracts $5$: $g(x) = f(-x) - 5$.\n\n**The Full Solution:**\nStep 1: Reflecting across the y-axis sends each point $(a, b)$ to $(-a, b)$, which gives the graph of $y = f(-x)$.\nStep 2: Shifting down $5$ units subtracts $5$ from every output, which gives $y = f(-x) - 5$.\nStep 3: So $g(x) = f(-x) - 5$. Check: if $(2, 3)$ is on the graph of $f$, then $g(-2) = f(2) - 5 = -2$, so $(-2, -2)$ is on the graph of $g$, the reflected point moved down $5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = -f(x) + 5$): reflects across the x-axis and shifts up.\n* Choice B ($g(x) = -f(x) - 5$): reflects across the x-axis; $-f(x)$ negates outputs, not inputs.\n* Choice C ($g(x) = f(-x) + 5$): reflects correctly but shifts up instead of down.\n\n**Test Day Takeaway:** A negative inside, $f(-x)$, reflects across the y-axis; a negative outside, $-f(x)$, reflects across the x-axis.",
       skills: ["function-transformations"]
     },
     {
       id: 10,
       difficulty: "medium",
-      question: "An olive mill's oil yield, in kilograms, from $p$ tonnes of fruit is $q(p)$. A larger mill sets aside the first $6$ tonnes of every delivery for curing and yields four times as much oil per tonne of the fruit it presses. Which equation defines the larger mill's yield $g$?",
+      question: "$f(x) = x^{2} - 3x$\nThe function $g$ is defined by $g(x) = f(x + 2)$. Which expression is equivalent to $g(x)$?",
       choices: [
-        // distractor: shifts the tonnage the wrong way, adding 6 instead of removing it
-        { id: "A", text: "$g(p) = 4q(p + 6)$" },
-        // distractor: multiplies the tonnage by 4 rather than the yield
-        { id: "B", text: "$g(p) = q(4p - 6)$" },
-        // distractor: subtracts 6 kilograms of oil instead of removing 6 tonnes of fruit
-        { id: "C", text: "$g(p) = 4q(p) - 6$" },
-        { id: "D", text: "$g(p) = 4q(p - 6)$" }
+        // distractor: expands (x + 2)^2 as x^2 + 4
+        { id: "A", text: "$x^{2} - 3x - 2$" },
+        // distractor: adds 2 to the output, computing f(x) + 2
+        { id: "B", text: "$x^{2} - 3x + 2$" },
+        { id: "C", text: "$x^{2} + x - 2$" },
+        // distractor: distributes -3 over (x + 2) as -3x + 6
+        { id: "D", text: "$x^{2} + x + 10$" }
       ],
-      correctAnswer: "D",
-      hint: "Decide whether the $6$ tonnes changes what the press receives or what it produces.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~25s):** Only $p - 6$ tonnes reach the press, and each pressed tonne yields four times as much, so $g(p) = 4q(p - 6)$.\n\n**The Full Solution:**\nStep 1: Setting aside the first $6$ tonnes means the press receives $p - 6$ tonnes, so the input to $q$ is $p - 6$.\nStep 2: Yielding four times as much oil multiplies the output of $q$, so the whole value is multiplied by $4$.\nStep 3: Together these give $g(p) = 4q(p - 6)$. Check: a $26$-tonne delivery presses $20$ tonnes, so $g(26) = 4q(20)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4q(p + 6)$): adding the $6$ tonnes to the delivery instead of removing them.\n* Choice B ($q(4p - 6)$): multiplying the tonnage by $4$; the four-fold gain is in oil produced, which is the output.\n* Choice C ($4q(p) - 6$): subtracting $6$ kilograms of oil at the end rather than removing $6$ tonnes of fruit at the start.\n\n**Test Day Takeaway:** Decide first whether each number changes what goes in or what comes out, then place it inside or outside the function.",
+      correctAnswer: "C",
+      hint: "Replace every $x$ in $f(x)$ with $x + 2$.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~40s):** $(x + 2)^{2} - 3(x + 2) = x^{2} + 4x + 4 - 3x - 6 = x^{2} + x - 2$.\n\n**The Full Solution:**\nStep 1: Substitute $x + 2$ for $x$: $g(x) = (x + 2)^{2} - 3(x + 2)$.\nStep 2: Expand: $(x + 2)^{2} = x^{2} + 4x + 4$ and $-3(x + 2) = -3x - 6$.\nStep 3: Combine like terms: $g(x) = x^{2} + x - 2$. Check with $x = 1$: $g(1) = f(3) = 9 - 9 = 0$, and $1 + 1 - 2 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2} - 3x - 2$): expands $(x + 2)^{2}$ as $x^{2} + 4$, dropping the middle term.\n* Choice B ($x^{2} - 3x + 2$): adds $2$ to the output, which is $f(x) + 2$, not $f(x + 2)$.\n* Choice D ($x^{2} + x + 10$): distributes $-3$ over $(x + 2)$ as $-3x + 6$.\n\n**Test Day Takeaway:** For $f(x + h)$, substitute $x + h$ for every $x$ and expand fully; a quick check at one value of $x$ catches sign errors.",
       skills: ["function-transformations"]
     },
     {
       id: 11,
       difficulty: "hard",
-      question: "A cryocooler's temperature offset, in kelvins, $x$ hours into a cooldown is $f(x)$, whose least value is $-2$, at $x = 4$. A second unit satisfies $h(x) = a\\,f(x - 3) + 5$ for a positive constant $a$, and the least value of $h$ is $-9$. What is the value of $a$?",
+      question: "$h(x) = af(x - 3) + 5$\nIn the given equation, $a$ is a positive constant. The minimum value of $f$ is $-2$, at $x = 4$, and the minimum value of $h$ is $-9$. What is the value of $a$?",
       choices: [
-        // distractor: drops the negative on f's least value, solving 2a + 5 = -9
+        // distractor: drops a sign when solving -2a = -14
         { id: "A", text: "$-7$" },
-        // distractor: adds the 5 instead of subtracting it, solving -2a = -4
+        // distractor: subtracts 5 instead of adding it, solving -2a - 5 = -9
         { id: "B", text: "$2$" },
         { id: "C", text: "$7$" },
-        // distractor: stops at -2a = -14 and reports 14 without dividing
+        // distractor: stops at -2a = -14 and reports 14, the value of 2a
         { id: "D", text: "$14$" }
       ],
       correctAnswer: "C",
-      hint: "The sign of $a$ decides which reading of $f$ produces the least value of $h$.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** A positive $a$ keeps $-2$ the least value, so $-2a + 5 = -9$ and $a = 7$.\n\n**The Full Solution:**\nStep 1: Because $a$ is positive, $a\\,f(x - 3)$ is least exactly where $f$ is least, so the least value of $h$ is $a(-2) + 5$.\nStep 2: Set that equal to the stated minimum: $-2a + 5 = -9$, so $-2a = -14$.\nStep 3: Divide by $-2$: $a = 7$. Check: $7(-2) + 5 = -14 + 5 = -9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): dropping the negative on $f$'s least value and solving $2a + 5 = -9$.\n* Choice B ($2$): adding the $5$ to $-9$ instead of subtracting it, which gives $-2a = -4$.\n* Choice D ($14$): stopping at $-2a = -14$ and reporting $14$ without dividing by $-2$.\n\n**Test Day Takeaway:** A positive multiplier preserves which input gives the extreme value; only the value itself is scaled and shifted.",
+      hint: "The horizontal shift does not change the minimum value.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~40s):** With $a > 0$, the minimum of $h$ is $a(-2) + 5$, so $-2a + 5 = -9$ and $a = 7$.\n\n**The Full Solution:**\nStep 1: The shift $x - 3$ moves the minimum to $x = 7$ but does not change its value, and multiplying by a positive $a$ keeps the minimum a minimum.\nStep 2: So the minimum value of $h$ is $a(-2) + 5$, and $-2a + 5 = -9$.\nStep 3: Subtract $5$: $-2a = -14$, so $a = 7$. Check: $h(7) = 7f(4) + 5 = 7(-2) + 5 = -9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): drops a sign while dividing $-14$ by $-2$; $a$ must be positive.\n* Choice B ($2$): writes the constant as $-5$, solving $-2a - 5 = -9$.\n* Choice D ($14$): stops at $-2a = -14$ and reports the value of $2a$.\n\n**Test Day Takeaway:** Horizontal shifts move where an extreme value occurs, not how big it is; only the outside operations change the value.",
       skills: ["function-transformations"]
     },
     {
       id: 12,
       difficulty: "hard",
-      question: "A fermentation tank's temperature deviation from its set point is $f(t)$ degrees Celsius at $t$ hours after inoculation, with greatest value $5$, at $t = 1$, and least value $-3$, at $t = 6$. A monitoring channel logs $y = -2f(t)$. Which of the following must be true of that log?",
+      question: "The function $f$ has a maximum value of $5$ at $x = 1$ and a minimum value of $-3$ at $x = 6$. The function $g$ is defined by $g(x) = -2f(x)$. Which of the following must be true?",
       choices: [
-        // distractor: multiplies -3 by -2 but keeps the result negative
-        { id: "A", text: "Its greatest value is $-6$, reached at $t = 6$." },
-        // distractor: pairs the correct value with the hour of f's maximum
-        { id: "B", text: "Its greatest value is $6$, reached at $t = 1$." },
-        // distractor: scales f's greatest value 5 by 2 and ignores the reflection
-        { id: "C", text: "Its greatest value is $10$, reached at $t = 1$." },
-        { id: "D", text: "Its greatest value is $6$, reached at $t = 6$." }
+        // distractor: applies -2 to the maximum of f, which gives the minimum of g
+        { id: "A", text: "The maximum value of $g$ is $-10$, at $x = 1$." },
+        // distractor: finds the right value but places it where f is greatest
+        { id: "B", text: "The maximum value of $g$ is $6$, at $x = 1$." },
+        { id: "C", text: "The maximum value of $g$ is $6$, at $x = 6$." },
+        // distractor: ignores the negative sign and doubles the maximum of f
+        { id: "D", text: "The maximum value of $g$ is $10$, at $x = 1$." }
       ],
-      correctAnswer: "D",
-      hint: "The log's largest reading need not come from the tank's largest deviation.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** Multiplying by $-2$ turns the least deviation, $-3$, into the greatest logged value, $6$, at $t = 6$.\n\n**The Full Solution:**\nStep 1: Multiplying by a negative number reverses order: the input that made $f$ least makes $-2f$ greatest.\nStep 2: The least value of $f$ is $-3$, at $t = 6$, so the greatest value of $-2f(t)$ is $-2(-3) = 6$, at $t = 6$.\nStep 3: No other input can beat it, since $f(t) \\ge -3$ gives $-2f(t) \\le 6$ for every $t$. Check: at $t = 1$ the log reads $-2(5) = -10$, the least logged value ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$ at $t = 6$): multiplying $-3$ by $-2$ but keeping the answer negative; two negatives give $+6$.\n* Choice B ($6$ at $t = 1$): pairing the correct value with the hour of $f$'s maximum instead of its minimum.\n* Choice C ($10$ at $t = 1$): scaling $f$'s greatest value $5$ by $2$ and ignoring the reflection, which sends $5$ to $-10$.\n\n**Test Day Takeaway:** A negative multiplier swaps maximum and minimum — find the extreme value first, then check which input produces it.",
+      correctAnswer: "C",
+      hint: "Multiplying by a negative number turns the lowest point into the highest point.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** Multiplying by $-2$ flips the graph, so the minimum of $f$ becomes the maximum of $g$: $-2(-3) = 6$, at $x = 6$.\n\n**The Full Solution:**\nStep 1: Because $-2$ is negative, $g$ is greatest where $f$ is least.\nStep 2: The least value of $f$ is $-3$, at $x = 6$, so the maximum value of $g$ is $g(6) = -2(-3) = 6$.\nStep 3: The maximum of $g$ is $6$, at $x = 6$. Check: $g(1) = -2(5) = -10$, the minimum of $g$, and $6 > -10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$, at $x = 1$): applies $-2$ to the maximum of $f$; that gives the minimum of $g$.\n* Choice B ($6$, at $x = 1$): finds the right value but places it where $f$ is greatest.\n* Choice D ($10$, at $x = 1$): ignores the negative sign and doubles the maximum of $f$.\n\n**Test Day Takeaway:** A negative factor outside the function reflects the graph across the x-axis, so maximum and minimum trade places.",
       skills: ["function-transformations"]
     }
   ],
@@ -902,172 +902,172 @@ export const transformationsQuestions = {
     {
       id: 1,
       difficulty: "hard",
-      question: "The graph of $y = f(x)$ is shown, where $f(x)$ is the recorded signal strength, in decibels above baseline, of a tracking dish pointed $x$ degrees from a satellite's true bearing. For what value of $c$ does the graph of $y = f(x) + c$ have exactly one point in common with the $x$-axis?",
-      diagram: { type: "parabola", params: { vertex: { h: 3, k: 4 }, a: -1, xRange: [-2, 8], yRange: [-8, 6], showVertex: false, xTickInterval: 2, yTickInterval: 2, gridInterval: 1, xLabel: "Pointing offset (degrees)", yLabel: "Signal strength (dB)" } },
+      question: "The graph of $y = f(x)$ is shown. For what value of $c$ does the graph of $y = f(x) + c$ have exactly one point in common with the x-axis?",
+      diagram: { type: "parabola", params: { vertex: { h: 3, k: 4 }, a: -1, xRange: [-2, 8], yRange: [-8, 6], showVertex: false, xTickInterval: 2, yTickInterval: 2, gridInterval: 1 } },
       choices: [
         { id: "A", text: "$-4$" },
-        // distractor: negates the vertex's x-coordinate, 3, instead of its y-coordinate
+        // distractor: negates the x-coordinate of the vertex, 3, instead of its y-coordinate
         { id: "B", text: "$-3$" },
-        // distractor: reports the offset 3 at which the peak occurs
+        // distractor: reports the x-coordinate of the vertex
         { id: "C", text: "$3$" },
-        // distractor: reports the peak value 4 without negating it
+        // distractor: reports the maximum value 4 without negating it
         { id: "D", text: "$4$" }
       ],
       correctAnswer: "A",
-      hint: "The curve shown crosses the axis twice; $c$ decides how many crossings survive.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** The peak sits $4$ decibels above the axis, so every point must drop by $4$: $c = -4$.\n\n**The Full Solution:**\nStep 1: The highest point of the graph is $(3, 4)$, so the greatest value of $f$ is $4$ decibels.\nStep 2: Adding $c$ raises every point of the graph by $c$, so the greatest value of $f(x) + c$ is $4 + c$.\nStep 3: A downward-opening curve meets the $x$-axis exactly once only when its highest point lies on that axis, so $4 + c = 0$ and $c = -4$. Check: $f(x) - 4$ peaks at $(3, 0)$ and is negative for every other $x$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-3$): negating the offset $3$ at which the peak occurs instead of the peak's height.\n* Choice C ($3$): reporting the pointing offset of the peak rather than the vertical shift.\n* Choice D ($4$): reporting the peak height without the negative sign; adding $4$ lifts the curve further from the axis.\n\n**Test Day Takeaway:** Exactly one point in common with the $x$-axis means the extreme value lands on zero — set the shifted maximum equal to $0$.",
+      hint: "The parabola opens downward, so only its highest point can touch the x-axis alone.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** The vertex is $(3, 4)$, so the graph must move down $4$ units: $c = -4$.\n\n**The Full Solution:**\nStep 1: The graph is a parabola that opens downward with vertex $(3, 4)$, so the maximum value of $f$ is $4$.\nStep 2: Adding $c$ shifts every point vertically by $c$, so the maximum value of $f(x) + c$ is $4 + c$.\nStep 3: A downward-opening parabola meets the x-axis exactly once only when its vertex is on the x-axis, so $4 + c = 0$ and $c = -4$. Check: $f(x) - 4$ has vertex $(3, 0)$ and is negative for every other $x$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-3$): negates the $x$-coordinate of the vertex instead of its $y$-coordinate.\n* Choice C ($3$): reports the $x$-coordinate of the vertex; a vertical shift depends on the height.\n* Choice D ($4$): reports the maximum value without negating it; adding $4$ moves the graph farther from the x-axis.\n\n**Test Day Takeaway:** Exactly one point in common with the x-axis means the vertex lands on the x-axis, so shift by the opposite of its $y$-coordinate.",
       skills: ["function-transformations", "system-of-equations"]
     },
     {
       id: 2,
       difficulty: "hard",
-      question: "The curve shown in the $xy$-plane is the graph of $y=f(x)$, where $f(x)=\\dfrac{a}{x+b}$ for constants $a$ and $b$. The function $h$ is defined by $h(x)=f(x-2)$. What is an equation of the vertical asymptote of the graph of $y=h(x)$?",
+      question: "The graph of $y = f(x)$ is shown, where $f(x) = \\dfrac{a}{x + b}$ and $a$ and $b$ are constants. If $h(x) = f(x - 2)$, which of the following is an equation of the vertical asymptote of the graph of $y = h(x)$?",
       diagram: { type: "rationalFunction", params: { a: 10, b: -4, showPoints: [[6, 5], [9, 2]] } },
       choices: [
-        // distractor: negates the shifted constant a second time
-        { id: "A", text: "$x=-6$" },
-        // distractor: shifts the asymptote in the wrong direction
-        { id: "B", text: "$x=2$" },
-        // distractor: never applies the shift
-        { id: "C", text: "$x=4$" },
-        { id: "D", text: "$x=6$" }
+        // distractor: takes the opposite of the correct asymptote, mixing up the signs of b and the shift
+        { id: "A", text: "$x = -6$" },
+        // distractor: shifts the asymptote 2 units left instead of right
+        { id: "B", text: "$x = 2$" },
+        // distractor: reports the vertical asymptote of the graph of f
+        { id: "C", text: "$x = 4$" },
+        { id: "D", text: "$x = 6$" }
       ],
       correctAnswer: "D",
-      hint: "The dashed line locates the input that $f$ cannot accept; ask which input $h$ cannot accept.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~40s):** $f$ blows up at $x=4$, and $h(x)=f(x-2)$ blows up where $x-2=4$, that is, at $x=6$.\n\n**The Full Solution:**\nStep 1: The graph shows a vertical asymptote at $x=4$, so the denominator $x+b$ is zero there, meaning $b=-4$ and $f(x)=\\dfrac{a}{x-4}$.\nStep 2: Then $h(x)=f(x-2)=\\dfrac{a}{(x-2)-4}=\\dfrac{a}{x-6}$.\nStep 3: The denominator is zero when $x=6$, so the asymptote of $h$ is $x=6$ — the original asymptote moved right $2$ units. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x=-6$): applies the sign-reversal rule a second time, reading $\\dfrac{a}{x-6}$ as having asymptote $x=-6$.\n* Choice B ($x=2$): moves the asymptote left; $f(x-2)$ shifts the graph, asymptote included, to the right.\n* Choice C ($x=4$): reports the asymptote of $f$ and never applies the shift.\n\n**Test Day Takeaway:** An asymptote is part of the graph: shift it exactly as you shift every point.",
+      hint: "Find the vertical asymptote of the graph of $f$ first, then apply the shift.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~45s):** The marked points give $f(x) = \\dfrac{10}{x - 4}$, with asymptote $x = 4$; $f(x - 2)$ moves it $2$ units right, to $x = 6$.\n\n**The Full Solution:**\nStep 1: The points $(6, 5)$ and $(9, 2)$ are on the graph: $\\dfrac{a}{6 + b} = 5$ and $\\dfrac{a}{9 + b} = 2$, so $5(6 + b) = 2(9 + b)$, $3b = -12$, and $b = -4$; then $a = 10$.\nStep 2: So $f(x) = \\dfrac{10}{x - 4}$, whose vertical asymptote is $x = 4$.\nStep 3: $h(x) = f(x - 2) = \\dfrac{10}{x - 6}$, which is undefined at $x = 6$, so the asymptote is $x = 6$. Check: the graph of $h$ is the graph of $f$ shifted $2$ units right, and $4 + 2 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x = -6$): takes the opposite of the correct value, mixing up the sign of $b$ with the direction of the shift.\n* Choice B ($x = 2$): shifts the asymptote $2$ units left instead of right.\n* Choice C ($x = 4$): reports the asymptote of the graph of $f$, before the shift.\n\n**Test Day Takeaway:** The graph of $y = f(x - 2)$ is the graph of $y = f(x)$ moved $2$ units right, asymptotes included.",
       skills: ["function-transformations", "system-of-equations"]
     },
     {
       id: 3,
       difficulty: "hard",
-      question: "The function $f$ is defined by $f(x)=(x-h)^{2}+k$, where $h$ and $k$ are constants, and the graph of $y=f(x)$ is shown in the $xy$-plane. The function $g$ is defined by $g(x)=f(x+6)$. If $g(x)=(x-p)^{2}+q$, where $p$ and $q$ are constants, what is the value of $p+q$?",
+      question: "The graph of $y = f(x)$ is shown, where $f(x) = (x - h)^{2} + k$ and $h$ and $k$ are constants. The function $g$ is defined by $g(x) = f(x + 6)$, and $g(x) = (x - p)^{2} + q$, where $p$ and $q$ are constants. What is the value of $p + q$?",
       diagram: { type: "quadraticVertex", params: { vertex: [4, -5], a: 1, showVertex: true } },
       choices: [
         { id: "A", text: "$-7$" },
-        // distractor: reads p with the wrong sign
+        // distractor: takes p = 2, reading x + 6 inside (x - p) with the wrong sign
         { id: "B", text: "$-3$" },
-        // distractor: ignores the shift
+        // distractor: uses the vertex of the graph of f, 4 + (-5)
         { id: "C", text: "$-1$" },
-        // distractor: shifts right instead of left
+        // distractor: shifts the vertex 6 units right, using p = 10
         { id: "D", text: "$5$" }
       ],
       correctAnswer: "A",
-      hint: "Write $g$ in the same vertex form as $f$ and read $p$ off with its sign, not its size.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~45s):** The graph gives $f(x)=(x-4)^{2}-5$, so $g(x)=(x+2)^{2}-5$, meaning $p=-2$, $q=-5$, and $p+q=-7$.\n\n**The Full Solution:**\nStep 1: The vertex shown is $(4,-5)$, so $h=4$ and $k=-5$, giving $f(x)=(x-4)^{2}-5$.\nStep 2: Substituting, $g(x)=f(x+6)=\\left((x+6)-4\\right)^{2}-5=(x+2)^{2}-5$.\nStep 3: To match the form $(x-p)^{2}+q$, write $(x+2)^{2}$ as $\\left(x-(-2)\\right)^{2}$, so $p=-2$ and $q=-5$, and $p+q=-7$. Check: the vertex of $g$ is $(-2,-5)$, which is the vertex of $f$ moved $6$ units left. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-3$): reads $p$ as $2$ from $(x+2)^{2}$; the form requires $x-p$, so $p=-2$.\n* Choice C ($-1$): uses the vertex of $f$ itself: $4+(-5)=-1$, ignoring the shift.\n* Choice D ($5$): shifts right instead of left: $10+(-5)=5$.\n\n**Test Day Takeaway:** In $(x-p)^{2}+q$ the constant $p$ carries the opposite sign of what appears inside the parentheses.",
+      hint: "Read the vertex from the graph, then decide which way $f(x + 6)$ moves it.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~40s):** The vertex $(4, -5)$ moves $6$ units left to $(-2, -5)$, so $p + q = -2 + (-5) = -7$.\n\n**The Full Solution:**\nStep 1: The graph shows the vertex $(4, -5)$, so $h = 4$ and $k = -5$.\nStep 2: $g(x) = f(x + 6) = (x + 6 - 4)^{2} - 5 = (x + 2)^{2} - 5$.\nStep 3: In the form $(x - p)^{2} + q$, $p = -2$ and $q = -5$, so $p + q = -7$. Check: $g(-2) = f(4) = -5$, the minimum of $f$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-3$): writes $(x + 2)^{2}$ as $(x - 2)^{2}$, taking $p = 2$.\n* Choice C ($-1$): adds the coordinates of the vertex of the graph of $f$, ignoring the shift.\n* Choice D ($5$): shifts the vertex $6$ units right, to $(10, -5)$.\n\n**Test Day Takeaway:** Adding inside the function, $f(x + 6)$, moves the graph left; match the result to $(x - p)^{2} + q$ carefully, since $p$ is the opposite of the number added.",
       skills: ["function-transformations", "vertex-form"]
     },
     {
       id: 4,
       difficulty: "hard",
-      question: "The graph of $y=f(x)$ is shown in the $xy$-plane, where $f(x)=|x-c|+d$ and $c$ and $d$ are constants. The function $g$ is defined by $g(x)=-f(x+3)+4$. What is the maximum value of $g$?",
+      question: "The graph of $y = f(x)$ is shown, where $f(x) = |x - c| + d$ and $c$ and $d$ are constants. If $g(x) = -f(x + 3) + 4$, what is the maximum value of $g$?",
       diagram: { type: "absoluteValue", params: { vertex: [-1, 6], slope: 1 } },
       choices: [
-        // distractor: adds the constant before reflecting
+        // distractor: subtracts 4 instead of adding it, computing -6 - 4
         { id: "A", text: "$-10$" },
-        // distractor: omits the vertical shift
+        // distractor: negates the minimum of f and forgets to add 4
         { id: "B", text: "$-6$" },
         { id: "C", text: "$-2$" },
-        // distractor: omits the reflection
+        // distractor: ignores the negative sign, computing 6 + 4
         { id: "D", text: "$10$" }
       ],
       correctAnswer: "C",
-      hint: "A horizontal shift cannot change how high or low a graph reaches — concentrate on what the other two operations do to the extreme value.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~45s):** The least value of $f$ is $6$; negating makes it the greatest value $-6$, and adding $4$ gives $-2$.\n\n**The Full Solution:**\nStep 1: The V shown has its corner at $(-1,6)$, so the smallest value of $f$ is $6$.\nStep 2: The inside $x+3$ slides the graph left but leaves every output unchanged, so $f(x+3)$ still has least value $6$.\nStep 3: Negating turns that least value into the greatest value of $-f(x+3)$, namely $-6$; adding $4$ raises it to $-6+4=-2$. Check: at $x=-4$, $g(-4)=-f(-1)+4=-6+4=-2$, and every other input gives a smaller value. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): adds $4$ before reflecting: $-(6+4)=-10$, but the $+4$ is applied after the negation.\n* Choice B ($-6$): reflects correctly but never adds the $4$.\n* Choice D ($10$): ignores the reflection and computes $6+4$, which would be the maximum only if the graph still opened upward.\n\n**Test Day Takeaway:** Reflection converts a minimum into a maximum; apply the outside constant to the reflected value, not before it.",
+      hint: "The negative sign turns the lowest point of $f$ into the highest point of $g$.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** The minimum of $f$ is $6$, so the maximum of $-f(x + 3) + 4$ is $-6 + 4 = -2$.\n\n**The Full Solution:**\nStep 1: The graph shows the vertex $(-1, 6)$, so the minimum value of $f$ is $6$.\nStep 2: The shift $x + 3$ moves the vertex left but does not change the values of $f$, and the negative sign turns the minimum of $f$ into the maximum of $-f$, which is $-6$.\nStep 3: Adding $4$ gives the maximum value of $g$: $-6 + 4 = -2$. Check: $g(-4) = -f(-1) + 4 = -6 + 4 = -2$, and every other value of $f$ is greater than $6$, so every other value of $g$ is less than $-2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): subtracts $4$ instead of adding it.\n* Choice B ($-6$): negates the minimum of $f$ but forgets to add $4$.\n* Choice D ($10$): ignores the negative sign and adds $4$ to the minimum of $f$.\n\n**Test Day Takeaway:** A negative sign outside the function swaps minimum and maximum; the inside shift only moves where it happens.",
       skills: ["function-transformations", "combined-transformations"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "The graph shown gives a grain-silo probe's moisture reading $m(x)$, in percent, at depth $x$ meters. Exactly one depth satisfies $m(x) = 14 - m(x)$. At what depth, in meters, does that occur?",
-      diagram: { type: "piecewiseLinear", params: { points: [[0, 1], [3, 10], [7, 8], [12, 11]], xRange: [0, 12], yRange: [0, 12], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, xLabel: "Depth (m)", yLabel: "Moisture (%)" } },
+      question: "The graph of $y = f(x)$ is shown. The function $g$ is defined by $g(x) = 2f(x + 1) - 14$. If $g(a) = 0$, what is the value of $a$?",
+      diagram: { type: "piecewiseLinear", params: { points: [[0, 1], [3, 10], [7, 8], [12, 11]], xRange: [0, 12], yRange: [0, 12], xTickInterval: 2, yTickInterval: 2, gridInterval: 1 } },
       choices: [
-        // distractor: solves m(x) = -7 and reads the depth of the lowest reading
-        { id: "A", text: "$0$" },
+        { id: "A", text: "$1$" },
+        // distractor: finds the input where f(x) = 7 and ignores the shift
         { id: "B", text: "$2$" },
-        // distractor: reports the moisture value 7 instead of the depth
-        { id: "C", text: "$7$" },
-        // distractor: solves m(x) = 14 and picks the deepest point on the graph
-        { id: "D", text: "$12$" }
+        // distractor: shifts the wrong way, adding 1 to the input 2
+        { id: "C", text: "$3$" },
+        // distractor: reports the output 7 instead of an input
+        { id: "D", text: "$7$" }
       ],
-      correctAnswer: "B",
-      hint: "Nothing on the graph reads $14$, so the equation has to be simplified first.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** $m(x) = 14 - m(x)$ gives $2m(x) = 14$, so $m(x) = 7$, and the graph reaches $7$ percent only at $x = 2$.\n\n**The Full Solution:**\nStep 1: Add $m(x)$ to both sides: $2m(x) = 14$, so $m(x) = 7$.\nStep 2: Read across the graph at a height of $7$ percent. The curve rises from $(0, 1)$ to $(3, 10)$, crossing $7$ once, and it never returns to $7$ afterward because it stays at or above $8$ percent from $x = 3$ on.\nStep 3: That single crossing is at $x = 2$. Check: the segment from $(0, 1)$ to $(3, 10)$ rises $3$ percent per meter, so at $x = 2$ the reading is $1 + 3(2) = 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): solving $m(x) = -7$ after moving the term the wrong way, then reading the depth of the lowest point.\n* Choice C ($7$): reporting the moisture reading $7$ instead of the depth the question asks for.\n* Choice D ($12$): solving $2m(x) = 14$ as $m(x) = 14$ and picking the deepest point, where the reading is greatest.\n\n**Test Day Takeaway:** Collect the function on one side before you read the graph; only then does the picture answer the question.",
+      correctAnswer: "A",
+      hint: "First find the value of $f(a + 1)$, then read the graph.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~45s):** $2f(a + 1) = 14$ gives $f(a + 1) = 7$; the graph reaches $7$ only at $x = 2$, so $a + 1 = 2$ and $a = 1$.\n\n**The Full Solution:**\nStep 1: Set $g(a) = 0$: $2f(a + 1) - 14 = 0$, so $f(a + 1) = 7$.\nStep 2: On the graph, $f(x) = 7$ only at $x = 2$: the segment from $(0, 1)$ to $(3, 10)$ rises $3$ units per unit and passes through $(2, 7)$, and the rest of the graph stays at or above $8$.\nStep 3: So $a + 1 = 2$ and $a = 1$. Check: $g(1) = 2f(2) - 14 = 2(7) - 14 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): finds the input where $f(x) = 7$ but ignores the shift inside $f(a + 1)$.\n* Choice C ($3$): shifts the wrong way, adding $1$ to $2$.\n* Choice D ($7$): reports the needed output of $f$ instead of the input.\n\n**Test Day Takeaway:** Undo the outside operations to get a value of $f$, read its input from the graph, then undo the inside shift.",
       skills: ["function-transformations", "system-of-equations"]
     },
     {
       id: 6,
       difficulty: "hard",
-      question: "The four points shown are the only points on the graph of $y = f(x)$, where $f(x)$ is the magnetic deflection, in microteslas, recorded by a boom-mounted magnetometer at offset $x$ meters from the spacecraft body. Which point must lie on the graph of $y = -f(x + 3) + 1$?",
+      question: "The graph of $y = f(x)$ consists of the four points shown. Which of the following is a point on the graph of $y = -f(x + 3) + 1$?",
       diagram: { type: "coordinatePoints", params: { points: [[-4, 3], [-1, -2], [2, 5], [5, 1]], xMin: -8, xMax: 8, yMin: -8, yMax: 8 } },
       choices: [
-        // distractor: negates the +1 as well, computing -(f(2) + 1) = -6
+        // distractor: subtracts 1 instead of adding it, computing -5 - 1
         { id: "A", text: "$(-1, -6)$" },
-        // distractor: treats f(x + 3) as a shift to the right, sending the input 2 to 5
-        { id: "B", text: "$(5, -4)$" },
-        // distractor: skips the reflection and computes f(2) + 1 = 6
+        { id: "B", text: "$(-1, -4)$" },
+        // distractor: drops the negative sign, computing 5 + 1
         { id: "C", text: "$(-1, 6)$" },
-        { id: "D", text: "$(-1, -4)$" }
+        // distractor: shifts the point 3 units right instead of left
+        { id: "D", text: "$(5, -4)$" }
       ],
-      correctAnswer: "D",
-      hint: "Ask which recorded reading each candidate point would have to come from.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~35s):** Take the point $(2, 5)$: the input satisfies $x + 3 = 2$ at $x = -1$, and the output becomes $-5 + 1 = -4$.\n\n**The Full Solution:**\nStep 1: The four recorded points are $(-4, 3)$, $(-1, -2)$, $(2, 5)$, and $(5, 1)$.\nStep 2: For $y = -f(x + 3) + 1$ to use the reading $f(2) = 5$, the input must satisfy $x + 3 = 2$, so $x = -1$.\nStep 3: The output is $-f(2) + 1 = -5 + 1 = -4$, so $(-1, -4)$ lies on the new graph. Check: substituting $x = -1$ gives $-f(-1 + 3) + 1 = -f(2) + 1 = -4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-1, -6)$): applying the negative to the $+1$ as well, computing $-(5 + 1) = -6$; only the function value is reflected.\n* Choice B ($(5, -4)$): reading $f(x + 3)$ as a shift to the right and sending the input $2$ to $5$; adding inside the function moves inputs the other way.\n* Choice C ($(-1, 6)$): dropping the reflection and computing $5 + 1 = 6$.\n\n**Test Day Takeaway:** Handle the inside first — solve for the $x$ that feeds the known reading — then apply the outside operations in order.",
+      correctAnswer: "B",
+      hint: "Each point $(a, b)$ on the graph of $f$ moves to $(a - 3, -b + 1)$.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~40s):** The point $(2, 5)$ moves to $(2 - 3, -5 + 1) = (-1, -4)$.\n\n**The Full Solution:**\nStep 1: For $y = -f(x + 3) + 1$, a point $(a, b)$ on the graph of $f$ moves to $(a - 3, -b + 1)$, since the input $a - 3$ makes $x + 3 = a$.\nStep 2: Apply this to the four points: $(-4, 3) \\to (-7, -2)$, $(-1, -2) \\to (-4, 3)$, $(2, 5) \\to (-1, -4)$, and $(5, 1) \\to (2, 0)$.\nStep 3: Only $(-1, -4)$ is a choice. Check: at $x = -1$, $-f(-1 + 3) + 1 = -f(2) + 1 = -5 + 1 = -4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-1, -6)$): subtracts $1$ instead of adding it after negating.\n* Choice C ($(-1, 6)$): drops the negative sign and computes $5 + 1$.\n* Choice D ($(5, -4)$): shifts the point $3$ units right instead of left.\n\n**Test Day Takeaway:** Move the $x$-coordinate opposite to the number added inside, and apply the outside operations to the $y$-coordinate in order.",
       skills: ["function-transformations", "combined-transformations"]
     },
     {
       id: 7,
       difficulty: "hard",
-      question: "The graph of $y=f(x)$ is shown in the $xy$-plane, and its $x$-intercepts are $(-4,0)$ and $(2,0)$. The function $g$ is defined by $g(x)=f(x-5)$. What is the distance between the two $x$-intercepts of the graph of $y=g(x)$?",
+      question: "The graph of $y = f(x)$ is shown, and its x-intercepts are $(-4, 0)$ and $(2, 0)$. The function $g$ is defined by $g(x) = f(5 - x)$. What is the sum of the x-coordinates of the x-intercepts of the graph of $y = g(x)$?",
       diagram: { type: "quadraticIntercepts", params: { intercepts: [-4, 2] } },
       choices: [
-        // distractor: subtracts the shift from the distance
-        { id: "A", text: "$1$" },
-        // distractor: reports the shift itself
-        { id: "B", text: "$5$" },
-        { id: "C", text: "$6$" },
-        // distractor: adds the shift to the distance
-        { id: "D", text: "$11$" }
+        // distractor: reflects the intercepts to 4 and -2, then moves them 5 units left instead of right
+        { id: "A", text: "$-8$" },
+        // distractor: reflects the intercepts across the y-axis but ignores the 5
+        { id: "B", text: "$2$" },
+        // distractor: ignores the reflection and shifts each intercept 5 units right
+        { id: "C", text: "$8$" },
+        { id: "D", text: "$12$" }
       ],
-      correctAnswer: "C",
-      hint: "Locate both new intercepts before measuring, and notice what a translation does to distances.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~40s):** Both intercepts move right $5$, to $x=1$ and $x=7$, so the distance is still $7-1=6$.\n\n**The Full Solution:**\nStep 1: $f(-4)=0$ and $f(2)=0$, so $g(x)=f(x-5)$ is zero when $x-5=-4$ or $x-5=2$.\nStep 2: Solving gives $x=1$ and $x=7$: the intercepts are $(1,0)$ and $(7,0)$.\nStep 3: The distance between them is $7-1=6$, the same as the original distance $2-(-4)=6$, because a translation moves both points equally. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): subtracts the shift from the distance: $6-5=1$.\n* Choice B ($5$): reports the size of the shift rather than the separation of the intercepts.\n* Choice D ($11$): adds the shift to the distance: $6+5=11$.\n\n**Test Day Takeaway:** A horizontal translation relocates every point by the same amount, so distances between features are unchanged.",
+      correctAnswer: "D",
+      hint: "Each x-intercept of the graph of $g$ is where $5 - x$ equals an x-intercept of the graph of $f$.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~40s):** $g(x) = 0$ when $5 - x = -4$ or $5 - x = 2$, so $x = 9$ or $x = 3$, and $9 + 3 = 12$.\n\n**The Full Solution:**\nStep 1: $g(x) = f(5 - x)$ equals $0$ exactly when the input $5 - x$ is $-4$ or $2$.\nStep 2: $5 - x = -4$ gives $x = 9$, and $5 - x = 2$ gives $x = 3$, so the x-intercepts of the graph of $y = g(x)$ are $(3, 0)$ and $(9, 0)$.\nStep 3: The sum is $3 + 9 = 12$. Check: $g(9) = f(-4) = 0$ and $g(3) = f(2) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): reflects the intercepts to $4$ and $-2$ but then moves them $5$ units left, to $-1$ and $-7$; since $f(5 - x) = f(-(x - 5))$, the reflected graph moves right.\n* Choice B ($2$): reflects the intercepts across the y-axis, to $4$ and $-2$, but ignores the $5$.\n* Choice C ($8$): treats $f(5 - x)$ like $f(x - 5)$, shifting $-4$ and $2$ right to $1$ and $7$ and ignoring the reflection.\n\n**Test Day Takeaway:** For $f(h - x)$, write it as $f(-(x - h))$: reflect across the y-axis, then shift $h$ units right, or simply solve $h - x =$ each known input.",
       skills: ["function-transformations", "x-intercepts"]
     },
     {
       id: 8,
       difficulty: "hard",
-      question: "For constants $a$ and $b$, the function $f$ satisfies $f(x)=\\dfrac{a}{x+b}$, and the curve drawn in the $xy$-plane is its graph, with marked points $(0,5)$ and $(2,3)$. The graph of $y=p(x)$ is the graph of $y=f(x)$ raised $4$ units. Which of the following defines $p$?",
+      question: "The graph of $y = f(x)$ is shown, where $f(x) = \\dfrac{a}{x + b}$ and $a$ and $b$ are constants. The graph of $y = p(x)$ is the result of shifting the graph of $y = f(x)$ up $4$ units. Which equation defines $p$?",
       diagram: { type: "rationalFunction", params: { a: 15, b: 3, showPoints: [[0, 5], [2, 3]] } },
       choices: [
-        // distractor: lowers instead of raising the graph
-        { id: "A", text: "$p(x)=\\dfrac{15}{x+3}-4$" },
-        { id: "B", text: "$p(x)=\\dfrac{15}{x+3}+4$" },
-        // distractor: moves the constant into the denominator
-        { id: "C", text: "$p(x)=\\dfrac{15}{x+7}$" },
-        // distractor: adds the constant to the numerator
-        { id: "D", text: "$p(x)=\\dfrac{19}{x+3}$" }
+        // distractor: shifts down instead of up
+        { id: "A", text: "$p(x) = \\dfrac{15}{x + 3} - 4$" },
+        { id: "B", text: "$p(x) = \\dfrac{15}{x + 3} + 4$" },
+        // distractor: adds 4 to the input, a shift left
+        { id: "C", text: "$p(x) = \\dfrac{15}{x + 7}$" },
+        // distractor: adds 4 to the numerator instead of to the whole function
+        { id: "D", text: "$p(x) = \\dfrac{19}{x + 3}$" }
       ],
       correctAnswer: "B",
-      hint: "Test the choices against a height you can compute: raising a graph adds to the finished output.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~45s):** The marked points give $f(x)=\\dfrac{15}{x+3}$, and raising the graph $4$ units adds $4$ to the whole output.\n\n**The Full Solution:**\nStep 1: From $(0,5)$: $\\dfrac{a}{b}=5$, so $a=5b$. From $(2,3)$: $\\dfrac{a}{2+b}=3$, so $a=6+3b$.\nStep 2: Setting these equal gives $5b=6+3b$, so $b=3$ and $a=15$, and $f(x)=\\dfrac{15}{x+3}$.\nStep 3: Raising the graph $4$ units means $p(x)=f(x)+4=\\dfrac{15}{x+3}+4$. Check against the choices at $x=0$: $p(0)$ must be $5+4=9$, and only this equation gives $\\dfrac{15}{3}+4=9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{15}{x+3}-4$): lowers the graph instead of raising it.\n* Choice C ($\\dfrac{15}{x+7}$): puts the $4$ into the denominator, which would shift the graph horizontally.\n* Choice D ($\\dfrac{19}{x+3}$): adds $4$ to the numerator; that changes the shape of the curve rather than lifting it.\n\n**Test Day Takeaway:** An outside constant is added to the entire fraction — it never migrates into the numerator or the denominator.",
+      hint: "Use the two marked points to find $a$ and $b$ first.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~45s):** The points $(0, 5)$ and $(2, 3)$ give $f(x) = \\dfrac{15}{x + 3}$, and a shift up $4$ adds $4$ to the output.\n\n**The Full Solution:**\nStep 1: From $(0, 5)$: $\\dfrac{a}{b} = 5$, so $a = 5b$. From $(2, 3)$: $\\dfrac{a}{2 + b} = 3$, so $a = 6 + 3b$.\nStep 2: Then $5b = 6 + 3b$, so $b = 3$ and $a = 15$; thus $f(x) = \\dfrac{15}{x + 3}$.\nStep 3: Shifting up $4$ units adds $4$ to every output: $p(x) = \\dfrac{15}{x + 3} + 4$. Check: $p(0) = 5 + 4 = 9$, which is $4$ units above $(0, 5)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: subtracts $4$, which shifts the graph down.\n* Choice C: adds $4$ to the input, which shifts the graph $4$ units left.\n* Choice D: adds $4$ to the numerator, which stretches the graph instead of shifting it.\n\n**Test Day Takeaway:** A vertical shift adds to the whole function, outside every other operation.",
       skills: ["function-transformations", "answer-choice-method"]
     },
     {
       id: 9,
       difficulty: "hard",
-      question: "The three plotted points lie on the graph of $y=f(x)$ in the $xy$-plane, and the function $g$ is defined by $g(x)=-2f(x)+1$. What is the largest value that $g$ takes at those three inputs?",
+      question: "The three points shown lie on the graph of $y = f(x)$. The function $g$ is defined by $g(x) = -2f(x - 4) + 1$. What is the value of $g(6)$?",
       diagram: { type: "coordinatePoints", params: { points: [[-2, 3], [2, -4], [6, 1]] } },
       choices: [
-        // distractor: uses the largest value of f, ignoring the sign reversal
-        { id: "A", text: "$-5$" },
-        // distractor: uses the largest input instead of comparing outputs
+        // distractor: drops the negative sign, computing 2(-4) + 1
+        { id: "A", text: "$-7$" },
+        // distractor: ignores the shift and uses f(6) = 1
         { id: "B", text: "$-1$" },
-        // distractor: omits the constant
+        // distractor: computes -2f(2) and forgets to add 1
         { id: "C", text: "$8$" },
         { id: "D", text: "$9$" }
       ],
       correctAnswer: "D",
-      hint: "Apply the rule at each plotted point before deciding which one wins.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~40s):** A negative multiplier reverses the ranking, so the least output of $f$ wins: $g(2)=-2(-4)+1=9$.\n\n**The Full Solution:**\nStep 1: The plotted points give $f(-2)=3$, $f(2)=-4$, and $f(6)=1$.\nStep 2: Applying the rule at each input: $g(-2)=-2(3)+1=-5$, $g(2)=-2(-4)+1=9$, and $g(6)=-2(1)+1=-1$.\nStep 3: Comparing $-5$, $9$, and $-1$, the largest value is $9$. Check: multiplying by $-2$ reverses order, so the smallest value of $f$, namely $-4$, produces the largest value of $g$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): starts from the greatest value of $f$, $f(-2)=3$, and computes $-2(3)+1=-5$; the negative factor changes which point wins.\n* Choice B ($-1$): evaluates at the greatest input, $x=6$, rather than comparing the three outputs: $-2(1)+1=-1$.\n* Choice C ($8$): picks the right point but stops after multiplying: $-2(-4)=8$, with the $+1$ never applied.\n\n**Test Day Takeaway:** A negative vertical stretch flips the ranking of outputs, so the minimum of $f$ becomes the maximum of the transformed function.",
+      hint: "$g(6)$ uses the value of $f$ at $6 - 4$.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** $g(6) = -2f(2) + 1$, and the graph gives $f(2) = -4$, so $g(6) = 8 + 1 = 9$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 6$: $g(6) = -2f(6 - 4) + 1 = -2f(2) + 1$.\nStep 2: The point $(2, -4)$ is on the graph, so $f(2) = -4$.\nStep 3: $g(6) = -2(-4) + 1 = 8 + 1 = 9$. Check: the point $(2, -4)$ on the graph of $f$ moves to $(2 + 4, -2(-4) + 1) = (6, 9)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): drops the negative sign, computing $2(-4) + 1$.\n* Choice B ($-1$): ignores the shift and uses $f(6) = 1$.\n* Choice C ($8$): computes $-2f(2)$ and forgets to add $1$.\n\n**Test Day Takeaway:** Find the input of $f$ first, read its output from the graph, then apply the outside operations in order.",
       skills: ["function-transformations", "combined-transformations"]
     }
   ]

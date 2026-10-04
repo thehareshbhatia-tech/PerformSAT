@@ -1,6 +1,6 @@
 {
   "id": 2,
-  "question": "At a wildlife refuge, $65\\%$ of the tagged birds are songbirds. If $91$ of the tagged birds are songbirds, how many tagged birds are at the refuge?",
+  "question": "Of the birds tagged at a refuge, $65\\%$ are songbirds. If $91$ of the tagged birds are songbirds, how many birds were tagged?",
   "choices": [
     {
       "id": "A",

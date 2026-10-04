@@ -1,19 +1,5 @@
 {
- "question": "The table gives the center and radius of circle $A$ in the $xy$-plane. Circle $B$ is the image of circle $A$ after a translation $5$ units right and $2$ units down. Which equation defines circle $B$?",
- "questionTable": {
-  "headers": [
-   "Circle",
-   "Center",
-   "Radius"
-  ],
-  "rows": [
-   [
-    "$A$",
-    "$(-3, 6)$",
-    "$4$"
-   ]
-  ]
- },
+ "question": "Circle $A$ in the $xy$-plane has center $(-3, 6)$ and radius $4$. Circle $B$ is the image of circle $A$ after a translation of $5$ units to the right and $2$ units down. Which equation represents circle $B$?",
  "hint": "Ask what the translation changes and what it leaves alone.",
  "choices": [
   {

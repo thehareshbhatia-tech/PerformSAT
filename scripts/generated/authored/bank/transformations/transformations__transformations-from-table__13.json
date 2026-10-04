@@ -1,57 +1,57 @@
 {
-  "id": 13,
-  "question": "The function $h$ is defined by $h(x)=3f(x)-8$, where the values of $f$ are given in the table. What is the greatest of the four values of $h(x)$ determined by the table?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "x",
-        "f(x)"
-      ],
-      "rows": [
-        [
-          "1",
-          "2"
-        ],
-        [
-          "3",
-          "-4"
-        ],
-        [
-          "5",
-          "6"
-        ],
-        [
-          "7",
-          "5"
-        ]
-      ]
-    }
+ "id": 13,
+ "question": "The table shows four values of $x$ and their corresponding values of $f(x)$. The function $h$ is defined by $h(x) = -3f(x) + 8$. What is the minimum value of $h(x)$ for the four values of $x$ in the table?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "x",
+    "f(x)"
+   ],
+   "rows": [
+    [
+     "1",
+     "2"
+    ],
+    [
+     "3",
+     "-4"
+    ],
+    [
+     "5",
+     "6"
+    ],
+    [
+     "7",
+     "5"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-18$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-6$"
-    },
-    {
-      "id": "B",
-      "text": "$7$"
-    },
-    {
-      "id": "C",
-      "text": "$10$"
-    },
-    {
-      "id": "D",
-      "text": "$18$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "subtracts before multiplying",
-    "B": "uses the largest input instead of the largest output",
-    "D": "omits the constant term"
+  {
+   "id": "B",
+   "text": "$-10$"
   },
-  "correctAnswer": "C",
-  "hint": "Decide which row of the table gives the largest value of $h$ before doing any arithmetic.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** The largest output in the table is $f(5)=6$, and $3(6)-8=10$.\n\n**The Full Solution:**\nStep 1: Tripling and then subtracting $8$ is an increasing operation, so the greatest value of $h$ occurs at the input with the greatest value of $f$.\nStep 2: The table's outputs are $2$, $-4$, $6$, and $5$; the greatest is $6$, at $x=5$.\nStep 3: So the greatest value is $h(5)=3(6)-8=18-8=10$. Check the runner-up: $h(7)=3(5)-8=7<10$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): subtracts $8$ before tripling: $3(6-8)=-6$.\n* Choice B ($7$): evaluates $h$ only at the largest value of $x$: $3(5)-8=7$, but the largest input is not the largest output.\n* Choice D ($18$): triples the largest output and forgets the $-8$.\n\n**Test Day Takeaway:** When a transformation is increasing, the extreme value of the new function sits above the extreme value of the old one."
+  {
+   "id": "C",
+   "text": "$20$"
+  },
+  {
+   "id": "D",
+   "text": "$26$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "computes -3 times 6 and forgets to add 8",
+  "C": "uses the least value of f, -4, which gives the maximum of h",
+  "D": "drops the negative sign and computes 3(6) + 8"
+ },
+ "correctAnswer": "B",
+ "hint": "Multiplying by a negative number reverses which value of $f$ gives the smallest result.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~35s):** Because the coefficient $-3$ is negative, $h$ is least where $f$ is greatest: $h(5) = -3(6) + 8 = -10$.\n\n**The Full Solution:**\nStep 1: Multiplying by $-3$ reverses order, so the least value of $h(x)$ comes from the greatest value of $f(x)$.\nStep 2: The greatest value of $f(x)$ in the table is $6$, at $x = 5$.\nStep 3: $h(5) = -3(6) + 8 = -18 + 8 = -10$. Check the other rows: $h(1) = 2$, $h(3) = 20$, and $h(7) = -7$, all greater than $-10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-18$): multiplies $6$ by $-3$ and forgets to add $8$.\n* Choice C ($20$): uses the least value of $f$, $-4$; that gives the maximum of $h$, not the minimum.\n* Choice D ($26$): drops the negative sign and computes $3(6) + 8$.\n\n**Test Day Takeaway:** A negative coefficient flips the graph vertically, so the greatest value of $f$ becomes the least value of the new function."
 }

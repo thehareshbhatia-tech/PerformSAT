@@ -1,6 +1,6 @@
 {
   "id": 4,
-  "question": "The table gives the amount of water stored in each of four reservoirs and the percent of that reservoir's capacity the stored amount represents. What is the capacity, in millions of gallons, of the Cedar reservoir?",
+  "question": "The table shows the amount of water stored in each of four reservoirs and the percent of the reservoir's capacity that this amount represents. What is the capacity, in millions of gallons, of the Cedar reservoir?",
   "diagram": {
     "type": "dataTable",
     "params": {

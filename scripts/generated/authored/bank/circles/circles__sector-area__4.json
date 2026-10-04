@@ -1,6 +1,6 @@
 {
  "id": 4,
- "question": "In a circle of radius $5$, a sector has an area of $5\\pi$ square units. What is the measure, in degrees, of the sector's central angle?",
+ "question": "A circle has a radius of $5$, and a sector of the circle has an area of $5\\pi$. What is the measure, in degrees, of the central angle of the sector?",
  "choices": [
   {
    "id": "A",
@@ -26,5 +26,5 @@
   "C": "compares against the circumference",
   "D": "divides by pi r instead of pi r squared"
  },
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** The circle's area is $25\\pi$, so the sector is $\\frac{5\\pi}{25\\pi} = \\frac{1}{5}$ of it, and $\\frac{1}{5}(360^{\\circ}) = 72^{\\circ}$.\n\n**The Full Solution:**\nStep 1: The circle's area is $\\pi(5)^2 = 25\\pi$ square units.\nStep 2: The sector's share of the area is $\\frac{5\\pi}{25\\pi} = \\frac{1}{5}$.\nStep 3: That same share of a full turn is $\\frac{1}{5}(360^{\\circ}) = 72^{\\circ}$. Check: $\\frac{72}{360}(25\\pi) = 5\\pi$, the given sector area.\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): applies the correct fraction $\\frac{1}{5}$ to $180^{\\circ}$ instead of to a full $360^{\\circ}$ turn.\n* Choice C ($180$): divides the sector's area by the circumference $10\\pi$, getting $\\frac{1}{2}$ of a turn.\n* Choice D ($360$): divides by $\\pi r = 5\\pi$ instead of $\\pi r^2$, which makes the sector look like the whole circle.\n\n**Test Day Takeaway:** Compare like with like: an area against an area. Mixing a sector area with a circumference is what produces the half-turn trap."
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** The circle's area is $25\\pi$, so the sector is $\\frac{5\\pi}{25\\pi} = \\frac{1}{5}$ of it, and $\\frac{1}{5}(360^{\\circ}) = 72^{\\circ}$.\n\n**The Full Solution:**\nStep 1: The circle's area is $\\pi(5)^2 = 25\\pi$.\nStep 2: The sector's share of the area is $\\frac{5\\pi}{25\\pi} = \\frac{1}{5}$.\nStep 3: That same share of a full turn is $\\frac{1}{5}(360^{\\circ}) = 72^{\\circ}$. Check: $\\frac{72}{360}(25\\pi) = 5\\pi$, the given sector area.\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): applies the correct fraction $\\frac{1}{5}$ to $180^{\\circ}$ instead of to a full $360^{\\circ}$ turn.\n* Choice C ($180$): divides the sector's area by the circumference $10\\pi$, getting $\\frac{1}{2}$ of a turn.\n* Choice D ($360$): divides by $\\pi r = 5\\pi$ instead of $\\pi r^2$, which makes the sector look like the whole circle.\n\n**Test Day Takeaway:** Compare like with like: an area against an area. Mixing a sector area with a circumference is what produces the half-turn trap."
 }

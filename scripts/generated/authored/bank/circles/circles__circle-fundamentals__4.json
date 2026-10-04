@@ -1,18 +1,6 @@
 {
- "question": "A pivot arm sweeps from $A$ to $B$ in the circle shown with center $O$, where angle $AOB$ measures $110^\\circ$. What is the measure, in degrees, of angle $OAB$?",
- "diagram": {
-  "type": "circleWithSector",
-  "params": {
-   "centralAngle": 110,
-   "angleLabel": "110°",
-   "labelCenter": "O",
-   "labelPoint1": "A",
-   "labelPoint2": "B",
-   "showAngleLabel": true,
-   "figureNote": true
-  }
- },
- "hint": "What do the two segments drawn from $O$ have in common?",
+ "question": "Points $A$ and $B$ lie on a circle with center $O$, and the measure of angle $AOB$ is $110^\\circ$. What is the measure, in degrees, of angle $OAB$?",
+ "hint": "What do segments $\\overline{OA}$ and $\\overline{OB}$ have in common?",
  "choices": [
   {
    "id": "A",

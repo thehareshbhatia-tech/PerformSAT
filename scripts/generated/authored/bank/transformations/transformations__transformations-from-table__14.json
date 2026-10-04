@@ -1,6 +1,6 @@
 {
  "id": 14,
- "question": "A rail signal log shows that the block-occupancy index $f(x)$ equals $7$ at minute $3$ and at minute $8$, and at no other minute. A parallel line's index is $g(x) = f(x + k)$ for a constant $k$, and $g(-2) = 7$ and $g(3) = 7$. What is the value of $k$?",
+ "question": "The equation $f(x) = 7$ has exactly two solutions, $x = 3$ and $x = 8$. The function $g$ is defined by $g(x) = f(x + k)$, where $k$ is a constant. If $g(-2) = 7$ and $g(3) = 7$, what is the value of $k$?",
  "choices": [
   {
    "id": "A",
@@ -20,11 +20,11 @@
   }
  ],
  "distractorNotes": {
-  "A": "subtracts in the wrong order, computing -2 - 3",
-  "B": "uses only the second condition, matching 3 + k = 3",
-  "D": "uses only the first condition, matching -2 + k = 8"
+  "A": "subtracts in the wrong order, computing 3 - 8 or -2 - 3",
+  "B": "notices g(3) = f(3) = 7 when k = 0 but ignores the condition g(-2) = 7",
+  "D": "pairs -2 with 8 instead of 3, so g(3) would use f(13)"
  },
  "correctAnswer": "C",
- "hint": "Each condition on its own allows more than one value of $k$.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~40s):** $-2 + k$ and $3 + k$ must both be $3$ or $8$; only $k = 5$ does both.\n\n**The Full Solution:**\nStep 1: From $g(-2) = 7$: the input $-2 + k$ must be a minute where $f$ equals $7$, so $-2 + k = 3$ or $-2 + k = 8$, giving $k = 5$ or $k = 10$.\nStep 2: From $g(3) = 7$: the input $3 + k$ must also be $3$ or $8$, giving $k = 0$ or $k = 5$.\nStep 3: The only value in both lists is $k = 5$. Check: $g(-2) = f(3) = 7$ and $g(3) = f(8) = 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): subtracting in the wrong order, computing $-2 - 3$.\n* Choice B ($0$): using only the second condition, where $3 + k = 3$; that choice fails $g(-2) = 7$, since $f(-2)$ is not $7$.\n* Choice D ($10$): using only the first condition, where $-2 + k = 8$; that choice fails $g(3) = 7$, since $f(13)$ is not $7$.\n\n**Test Day Takeaway:** When two conditions constrain one constant, list every value each allows and take the value they share."
+ "hint": "Each of $-2 + k$ and $3 + k$ must be one of the two solutions of $f(x) = 7$.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~40s):** The inputs $-2$ and $3$ must slide onto $3$ and $8$, which takes $k = 5$.\n\n**The Full Solution:**\nStep 1: $g(-2) = f(-2 + k)$ and $g(3) = f(3 + k)$, so $-2 + k$ and $3 + k$ must each be $3$ or $8$.\nStep 2: The two inputs $-2 + k$ and $3 + k$ differ by $5$, and so do $3$ and $8$, so $-2 + k = 3$ and $3 + k = 8$.\nStep 3: Either equation gives $k = 5$. Check: $g(-2) = f(3) = 7$ and $g(3) = f(8) = 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): subtracts in the wrong order, computing $-2 - 3$ instead of $3 - (-2)$.\n* Choice B ($0$): makes $g(3) = f(3) = 7$ true but ignores $g(-2) = 7$, which would require $f(-2) = 7$.\n* Choice D ($10$): pairs $-2$ with $8$, but then $g(3) = f(13)$, which is not $7$.\n\n**Test Day Takeaway:** In $f(x + k)$, the input $x$ is read at $x + k$, so set each shifted input equal to a known solution and check both conditions."
 }

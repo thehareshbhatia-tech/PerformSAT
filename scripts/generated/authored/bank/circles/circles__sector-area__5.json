@@ -1,6 +1,6 @@
 {
  "id": 5,
- "question": "In the figure, $O$ is the center of the circle and the measure of $\\angle AOB$ is $135^{\\circ}$. If the area of sector $AOB$ is $54\\pi$, what is the length of minor arc $AB$?",
+ "question": "In the figure, $O$ is the center of the circle and the measure of angle $AOB$ is $135^{\\circ}$. The area of sector $AOB$ is $54\\pi$. What is the length of the minor arc $AB$?",
  "diagram": {
   "type": "circleWithSector",
   "params": {

@@ -1,6 +1,6 @@
 {
  "id": 1,
- "question": "A circle has a diameter of $34$ millimeters. What is the length, in millimeters, of a radius of this circle?",
+ "question": "The diameter of a circle is $34$ millimeters. What is the radius of the circle, in millimeters?",
  "choices": [
   {
    "id": "A",

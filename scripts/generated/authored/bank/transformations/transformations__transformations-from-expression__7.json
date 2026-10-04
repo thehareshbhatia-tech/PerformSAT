@@ -1,30 +1,30 @@
 {
  "id": 7,
- "question": "A seed tray's sprout count on day $d$ is $N(d)$, and a tray sown three days later has count $M(d) = N(d - 3)$. The first tray holds $140$ sprouts on day $9$ and on no other day. On which day does the later tray hold $140$ sprouts?",
+ "question": "The graph of $y = f(x)$ in the $xy$-plane has exactly one x-intercept, $(9, 0)$. If $g(x) = f(x - 3)$, what is the x-intercept of the graph of $y = g(x)$?",
  "choices": [
   {
    "id": "A",
-   "text": "$3$"
+   "text": "$(3, 0)$"
   },
   {
    "id": "B",
-   "text": "$6$"
+   "text": "$(6, 0)$"
   },
   {
    "id": "C",
-   "text": "$12$"
+   "text": "$(12, 0)$"
   },
   {
    "id": "D",
-   "text": "$27$"
+   "text": "$(27, 0)$"
   }
  ],
  "distractorNotes": {
-  "A": "reports the length of the delay rather than a day",
-  "B": "computes 9 - 3 instead of 9 + 3",
+  "A": "divides 9 by 3",
+  "B": "shifts the intercept 3 units left instead of right",
   "D": "multiplies 9 by 3"
  },
  "correctAnswer": "C",
- "hint": "Decide which of the two trays reaches a given count first.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~10s):** The later tray repeats each count three days later, so it reaches $140$ sprouts on day $9 + 3 = 12$.\n\n**The Full Solution:**\nStep 1: The later tray's count on day $d$ is $N(d - 3)$, so it holds $140$ sprouts when $N(d - 3) = 140$.\nStep 2: The first tray holds $140$ sprouts on day $9$ and on no other day, so $d - 3 = 9$.\nStep 3: Therefore $d = 12$. Check: $M(12) = N(12 - 3) = N(9) = 140$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reporting the length of the delay instead of the day asked for.\n* Choice B ($6$): computing $9 - 3$; the later tray lags, so its day is larger, not smaller.\n* Choice D ($27$): multiplying $9$ by $3$, treating the delay as a scaling.\n\n**Test Day Takeaway:** Subtracting inside the function delays the graph: solve the inside expression for the known input."
+ "hint": "Solve $x - 3 = 9$.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $g(x) = 0$ when $x - 3 = 9$, so $x = 12$.\n\n**The Full Solution:**\nStep 1: $f$ equals $0$ only at $9$, so $g(x) = f(x - 3)$ equals $0$ only when $x - 3 = 9$.\nStep 2: Add $3$ to both sides: $x = 12$.\nStep 3: The x-intercept of the graph of $y = g(x)$ is $(12, 0)$. Check: $g(12) = f(12 - 3) = f(9) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(3, 0)$): divides $9$ by $3$, treating the shift as a compression.\n* Choice B ($(6, 0)$): moves the intercept $3$ units left instead of right.\n* Choice D ($(27, 0)$): multiplies $9$ by $3$, treating the shift as a stretch.\n\n**Test Day Takeaway:** The graph of $y = f(x - 3)$ is the graph of $y = f(x)$ shifted $3$ units right, so every x-intercept moves right $3$."
 }

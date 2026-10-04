@@ -1,6 +1,6 @@
 {
- "question": "A cyclist on a circular track centered at the origin releases at $(3, 4)$ and continues along the tangent line there. What is that line's slope?",
- "hint": "Draw the radius from the center to the release point first.",
+ "question": "In the $xy$-plane, a circle with center $(0, 0)$ passes through the point $(3, 4)$. What is the slope of the line that is tangent to the circle at $(3, 4)$?",
+ "hint": "Draw the radius from the center to $(3, 4)$ first.",
  "choices": [
   {
    "id": "A",

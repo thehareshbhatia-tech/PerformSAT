@@ -1,6 +1,6 @@
 {
   "id": 5,
-  "question": "The function $f$ is defined by $f(x) = -3(x - 4)^2 + 27$. This function can also be written as $f(x) = a(x - r)(x - s)$, where $a$, $r$, and $s$ are constants and $r < s$. What is the value of $r + s$?",
+  "question": "$f(x) = -3(x - 4)^{2} + 27$\nThe given function can be written in the form $f(x) = a(x - r)(x - s)$, where $a$, $r$, and $s$ are constants. What is the value of $r + s$?",
   "choices": [
     {
       "id": "A",

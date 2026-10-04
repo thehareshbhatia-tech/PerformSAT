@@ -1,6 +1,6 @@
 {
   "id": 7,
-  "question": "The function $t$ is defined by $t(x)=|x|$. In the $xy$-plane, the graph of $y=t(x+8)$ can be produced by moving the graph of $y=t(x)$ how far and in which direction?",
+  "question": "$t(x) = |x|$\nThe graph of $y = t(x + 8)$ in the $xy$-plane is the graph of $y = t(x)$ translated in which of the following ways?",
   "choices": [
     {
       "id": "A",
@@ -20,11 +20,11 @@
     }
   ],
   "distractorNotes": {
-    "A": "treats the inside +8 as a vertical shift down",
-    "C": "moves the graph in the direction of the sign",
-    "D": "treats the inside +8 as a vertical shift up"
+    "A": "treats the inside +8 as a vertical move down",
+    "C": "moves in the direction of the sign inside",
+    "D": "treats the inside +8 as a vertical move up"
   },
   "correctAnswer": "B",
-  "hint": "Find the input that now produces the corner of the V.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** The corner occurs where the inside expression is $0$: $x+8=0$ gives $x=-8$, so the graph slid $8$ units left.\n\n**The Full Solution:**\nStep 1: $t(x+8)=|x+8|$, and the vertex of an absolute value graph sits where the expression inside the bars equals $0$.\nStep 2: Solving $x+8=0$ gives $x=-8$, so the vertex has moved from $(0,0)$ to $(-8,0)$.\nStep 3: Every other point moves with it: the point $(3,3)$ on $y=t(x)$ corresponds to $(-5,3)$ on $y=t(x+8)$, again $8$ units left. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$ units down): a downward move needs $t(x)-8$, with the constant outside the absolute value.\n* Choice C ($8$ units right): the classic reversal: inside the function, $+8$ moves the graph in the negative direction.\n* Choice D ($8$ units up): an upward move needs $t(x)+8$; here the $8$ is inside the bars, so the change is horizontal.\n\n**Test Day Takeaway:** Inside the function the graph moves opposite to the sign: $+8$ inside means $8$ units left."
+  "hint": "Find the input that makes $x + 8$ equal to $0$.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** The vertex of $y = |x + 8|$ is where $x + 8 = 0$, at $x = -8$: the graph moved $8$ units left.\n\n**The Full Solution:**\nStep 1: The $+8$ is inside $t$, so it changes the input and moves the graph sideways.\nStep 2: The vertex of $y = |x|$ is at $x = 0$; the vertex of $y = |x + 8|$ is where $x + 8 = 0$, so $x = -8$.\nStep 3: The vertex moved from $(0, 0)$ to $(-8, 0)$, which is $8$ units left. Check: $t(-8 + 8) = t(0) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$ units down): a vertical move needs a constant outside $t$, as in $t(x) - 8$.\n* Choice C ($8$ units right): inside changes work opposite to their sign; $+8$ moves the graph left.\n* Choice D ($8$ units up): $t(x) + 8$ would move the graph up; here the $8$ is added to the input.\n\n**Test Day Takeaway:** Inside the function, read the sign backward: $f(x + h)$ moves left $h$ and $f(x - h)$ moves right $h$."
 }

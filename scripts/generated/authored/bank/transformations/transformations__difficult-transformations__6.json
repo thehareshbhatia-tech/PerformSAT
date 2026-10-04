@@ -1,6 +1,6 @@
 {
  "id": 6,
- "question": "The four points shown are the only points on the graph of $y = f(x)$, where $f(x)$ is the magnetic deflection, in microteslas, recorded by a boom-mounted magnetometer at offset $x$ meters from the spacecraft body. Which point must lie on the graph of $y = -f(x + 3) + 1$?",
+ "question": "The graph of $y = f(x)$ consists of the four points shown. Which of the following is a point on the graph of $y = -f(x + 3) + 1$?",
  "diagram": {
   "type": "coordinatePoints",
   "params": {
@@ -35,7 +35,7 @@
   },
   {
    "id": "B",
-   "text": "$(5, -4)$"
+   "text": "$(-1, -4)$"
   },
   {
    "id": "C",
@@ -43,15 +43,15 @@
   },
   {
    "id": "D",
-   "text": "$(-1, -4)$"
+   "text": "$(5, -4)$"
   }
  ],
  "distractorNotes": {
-  "A": "negates the +1 as well, computing -(f(2) + 1) = -6",
-  "B": "treats f(x + 3) as a shift to the right, sending the input 2 to 5",
-  "C": "skips the reflection and computes f(2) + 1 = 6"
+  "A": "subtracts 1 instead of adding it, computing -5 - 1",
+  "C": "drops the negative sign, computing 5 + 1",
+  "D": "shifts the point 3 units right instead of left"
  },
- "correctAnswer": "D",
- "hint": "Ask which recorded reading each candidate point would have to come from.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~35s):** Take the point $(2, 5)$: the input satisfies $x + 3 = 2$ at $x = -1$, and the output becomes $-5 + 1 = -4$.\n\n**The Full Solution:**\nStep 1: The four recorded points are $(-4, 3)$, $(-1, -2)$, $(2, 5)$, and $(5, 1)$.\nStep 2: For $y = -f(x + 3) + 1$ to use the reading $f(2) = 5$, the input must satisfy $x + 3 = 2$, so $x = -1$.\nStep 3: The output is $-f(2) + 1 = -5 + 1 = -4$, so $(-1, -4)$ lies on the new graph. Check: substituting $x = -1$ gives $-f(-1 + 3) + 1 = -f(2) + 1 = -4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-1, -6)$): applying the negative to the $+1$ as well, computing $-(5 + 1) = -6$; only the function value is reflected.\n* Choice B ($(5, -4)$): reading $f(x + 3)$ as a shift to the right and sending the input $2$ to $5$; adding inside the function moves inputs the other way.\n* Choice C ($(-1, 6)$): dropping the reflection and computing $5 + 1 = 6$.\n\n**Test Day Takeaway:** Handle the inside first — solve for the $x$ that feeds the known reading — then apply the outside operations in order."
+ "correctAnswer": "B",
+ "hint": "Each point $(a, b)$ on the graph of $f$ moves to $(a - 3, -b + 1)$.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~40s):** The point $(2, 5)$ moves to $(2 - 3, -5 + 1) = (-1, -4)$.\n\n**The Full Solution:**\nStep 1: For $y = -f(x + 3) + 1$, a point $(a, b)$ on the graph of $f$ moves to $(a - 3, -b + 1)$, since the input $a - 3$ makes $x + 3 = a$.\nStep 2: Apply this to the four points: $(-4, 3) \\to (-7, -2)$, $(-1, -2) \\to (-4, 3)$, $(2, 5) \\to (-1, -4)$, and $(5, 1) \\to (2, 0)$.\nStep 3: Only $(-1, -4)$ is a choice. Check: at $x = -1$, $-f(-1 + 3) + 1 = -f(2) + 1 = -5 + 1 = -4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-1, -6)$): subtracts $1$ instead of adding it after negating.\n* Choice C ($(-1, 6)$): drops the negative sign and computes $5 + 1$.\n* Choice D ($(5, -4)$): shifts the point $3$ units right instead of left.\n\n**Test Day Takeaway:** Move the $x$-coordinate opposite to the number added inside, and apply the outside operations to the $y$-coordinate in order."
 }

@@ -1,6 +1,6 @@
 {
   "id": 3,
-  "question": "In the $xy$-plane, the graph of the quadratic function $f$ is shown. Which of the following statements about $f$ must be true?",
+  "question": "The graph of $y = f(x)$ is shown, where $f(x) = ax^{2} + bx + c$ and $a$, $b$, and $c$ are constants. Which of the following must be true?",
   "diagram": {
     "type": "quadraticVertex",
     "params": {
@@ -15,27 +15,27 @@
   "choices": [
     {
       "id": "A",
-      "text": "The coefficient of $x^2$ in $f(x)$ is positive, and $f$ has a minimum value."
+      "text": "$a > 0$, and the minimum value of $f$ is $3$."
     },
     {
       "id": "B",
-      "text": "The coefficient of $x^2$ in $f(x)$ is positive, and $f$ has a maximum value."
+      "text": "$a > 0$, and the minimum value of $f$ is $6$."
     },
     {
       "id": "C",
-      "text": "The coefficient of $x^2$ in $f(x)$ is negative, and $f$ has a minimum value."
+      "text": "$a < 0$, and the maximum value of $f$ is $3$."
     },
     {
       "id": "D",
-      "text": "The coefficient of $x^2$ in $f(x)$ is negative, and $f$ has a maximum value."
+      "text": "$a < 0$, and the maximum value of $f$ is $6$."
     }
   ],
   "distractorNotes": {
-    "A": "describes an upward-opening graph",
-    "B": "positive a cannot give a maximum",
-    "C": "right sign, wrong extreme"
+    "A": "reads the downward parabola as opening upward and reports the x-coordinate of the vertex, 3, as the extreme value",
+    "B": "gets the extreme value 6 right but reverses the direction, treating the top of the curve as a minimum with a > 0",
+    "C": "gets the direction right but reports the x-coordinate of the vertex, 3, instead of its y-coordinate, 6"
   },
   "correctAnswer": "D",
-  "hint": "The direction the arms point decides the sign of the leading coefficient, and that sign decides which extreme value exists.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~15s):** The parabola opens downward, so the leading coefficient is negative and the vertex is the highest point.\n\n**The Full Solution:**\nStep 1: The graph is a parabola whose arms point downward, away from the vertex at the top.\nStep 2: For $f(x) = ax^2 + bx + c$, the parabola opens downward exactly when $a < 0$, so the coefficient of $x^2$ is negative.\nStep 3: When the arms fall away from the vertex, no output is larger than the vertex's output, so $f$ has a maximum value and no minimum. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: describes an upward-opening parabola, which is the graph you would see if $a$ were positive.\n* Choice B: pairs a positive leading coefficient with a maximum, but a positive coefficient forces a minimum.\n* Choice C: reads the sign of the coefficient correctly but then names the wrong extreme value.\n\n**Test Day Takeaway:** Sign of $a$ and type of extreme value are locked together: $a > 0$ opens upward with a minimum, $a < 0$ opens downward with a maximum."
+  "hint": "Decide the direction of the parabola first, then read which coordinate of the vertex is the function's value.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** The parabola opens downward, so $a < 0$, and its highest point is the vertex $(3, 6)$, so the maximum value of $f$ is $6$.\n\n**The Full Solution:**\nStep 1: The arms of the parabola point downward, so the coefficient of $x^{2}$ is negative: $a < 0$.\nStep 2: A parabola that opens downward has a highest point, its vertex, so $f$ has a maximum value rather than a minimum value.\nStep 3: The vertex is at $(3, 6)$. The value of a function is its $y$-coordinate, so the maximum value of $f$ is $6$, reached at $x = 3$. Check: every other point on the graph lies below the line $y = 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reverses the direction and also reports $3$, the $x$-coordinate of the vertex, as the value of $f$.\n* Choice B: has the right number, $6$, but a parabola that opens downward has no minimum value, and its leading coefficient is negative.\n* Choice C: has the right direction but reports $3$. The maximum VALUE of $f$ is the output $f(3) = 6$, not the input $3$.\n\n**Test Day Takeaway:** Read a parabola in two steps: the direction gives the sign of $a$ (down means $a < 0$ and a maximum), and the $y$-coordinate of the vertex gives that maximum or minimum value."
 }
